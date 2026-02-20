@@ -5,10 +5,11 @@ type CardWheelZoneProps = {
   slot: TeamSlot
   interactive: boolean
   wheelKeyPrefix: string
+  activeWheelIndex?: number | null
   onWheelSlotClick?: (wheelIndex: number) => void
 }
 
-export function CardWheelZone({ slot, interactive, wheelKeyPrefix, onWheelSlotClick }: CardWheelZoneProps) {
+export function CardWheelZone({ slot, interactive, wheelKeyPrefix, activeWheelIndex = null, onWheelSlotClick }: CardWheelZoneProps) {
   const factionColor = slot.faction ? getFactionTint(slot.faction) : undefined
 
   return (
@@ -25,7 +26,9 @@ export function CardWheelZone({ slot, interactive, wheelKeyPrefix, onWheelSlotCl
           interactive ? (
             <button
               aria-label={wheelId ? `Edit wheel ${index + 1}` : `Set wheel ${index + 1}`}
-              className="wheel-tile group/wheel relative z-20 aspect-[72/110] bg-slate-700/30 p-[1px]"
+              className={`wheel-tile group/wheel relative z-20 aspect-[72/110] bg-slate-700/30 p-[1px] ${
+                activeWheelIndex === index ? 'wheel-tile-active' : ''
+              }`}
               key={`${wheelKeyPrefix}-wheel-${index}`}
               onClick={() => onWheelSlotClick?.(index)}
               type="button"

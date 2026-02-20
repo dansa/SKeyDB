@@ -159,6 +159,7 @@ a {
 }
 
 .builder-card {
+  position: relative;
   transition:
     border-color 140ms ease,
     box-shadow 180ms ease,
@@ -223,13 +224,93 @@ a {
   );
 }
 
-.builder-card:has(.builder-card-hitbox:hover),
-.builder-card:has(.builder-card-hitbox:focus-visible) {
-  border-color: rgba(251, 191, 36, 0.55);
+.builder-card:not(.builder-card-active):has(.builder-card-hitbox:hover),
+.builder-card:not(.builder-card-active):has(.builder-card-hitbox:focus-visible) {
+  border-color: rgba(251, 191, 36, 0.48);
   box-shadow:
-    inset 0 -2px 0 0 rgba(251, 146, 60, 0.72),
-    0 0 0 1px rgba(251, 191, 36, 0.18);
-  filter: brightness(1.04);
+    inset 0 -2px 0 0 rgba(251, 146, 60, 0.6),
+    0 0 0 1px rgba(251, 191, 36, 0.12);
+  filter: brightness(1.02);
+}
+
+.builder-card-active {
+  border-color: rgba(251, 191, 36, 0.76);
+  box-shadow:
+    inset 0 -2px 0 0 rgba(251, 146, 60, 0.9),
+    0 0 16px rgba(251, 191, 36, 0.28);
+}
+
+.builder-card-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 24;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(251, 191, 36, 0.56),
+    inset 0 0 20px rgba(251, 191, 36, 0.28);
+}
+
+.builder-card-active:has(.builder-card-hitbox:hover),
+.builder-card-active:has(.builder-card-hitbox:focus-visible) {
+  border-color: rgba(251, 191, 36, 0.8);
+  box-shadow:
+    inset 0 -2px 0 0 rgba(251, 146, 60, 0.92),
+    0 0 18px rgba(251, 191, 36, 0.32);
+  filter: none;
+}
+
+.builder-card-active:has(.builder-card-hitbox:hover)::after,
+.builder-card-active:has(.builder-card-hitbox:focus-visible)::after {
+  box-shadow:
+    inset 0 0 0 1px rgba(251, 191, 36, 0.62),
+    inset 0 0 22px rgba(251, 191, 36, 0.32);
+}
+
+.builder-card-remove-button {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition:
+    filter 140ms ease,
+    opacity 140ms ease;
+}
+
+.builder-card-remove-button:hover,
+.builder-card-remove-button:focus-visible {
+  filter: brightness(1.12);
+}
+
+.builder-card-remove-button:focus-visible {
+  outline: 1px solid rgba(251, 191, 36, 0.72);
+  outline-offset: 1px;
+}
+
+.builder-card-remove-sigil {
+  --sigil-circle-size: 82%;
+  --sigil-diamond-diagonal: 62%;
+  --sigil-glow: rgba(233, 224, 190, 0.16);
+}
+
+.builder-card-remove-sigil::before {
+  display: none;
+}
+
+.builder-card-remove-button:hover .builder-card-remove-sigil,
+.builder-card-remove-button:focus-visible .builder-card-remove-sigil {
+  --sigil-glow: rgba(233, 224, 190, 0.24);
+}
+
+.builder-card-remove-x {
+  width: 70%;
+}
+
+.builder-card-remove-x::before,
+.builder-card-remove-x::after {
+  width: 1.5px;
+  height: 95%;
 }
 
 .builder-card-hitbox:focus-visible {
@@ -244,21 +325,36 @@ a {
     box-shadow 160ms ease;
 }
 
-.wheel-tile:hover,
-.wheel-tile:focus-visible {
+.wheel-tile:not(.wheel-tile-active):hover,
+.wheel-tile:not(.wheel-tile-active):focus-visible {
   box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.26);
-  filter: brightness(1.05);
+  filter: brightness(1.03);
 }
 
-.wheel-tile:hover > span:first-child,
-.wheel-tile:focus-visible > span:first-child {
+.wheel-tile:not(.wheel-tile-active):hover > span:first-child,
+.wheel-tile:not(.wheel-tile-active):focus-visible > span:first-child {
   border-color: rgba(251, 191, 36, 0.58);
 }
 
-.wheel-tile:hover .sigil-placeholder,
-.wheel-tile:focus-visible .sigil-placeholder {
+.wheel-tile:not(.wheel-tile-active):hover .sigil-placeholder,
+.wheel-tile:not(.wheel-tile-active):focus-visible .sigil-placeholder {
   --sigil-glow: rgba(233, 224, 190, 0.18);
   --sigil-line: rgba(244, 234, 196, 0.9);
+}
+
+.wheel-tile-active {
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.44),
+    0 0 10px rgba(251, 191, 36, 0.24);
+  filter: brightness(1.06);
+}
+
+.wheel-tile-active > span:first-child {
+  border-color: rgba(251, 191, 36, 0.88);
+}
+
+.wheel-tile-active > span:nth-child(2) {
+  box-shadow: inset 0 -1px 0 rgba(251, 146, 60, 0.78);
 }
 
 .builder-team-header {

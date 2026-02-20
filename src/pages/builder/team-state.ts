@@ -1,4 +1,5 @@
 import type { Awakener } from '../../domain/awakeners'
+import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import { DEFAULT_TEAM_RULES_CONFIG, exceedsFactionLimitForTeam } from '../../domain/team-rules'
 import type { TeamSlot } from './types'
 
@@ -35,8 +36,12 @@ export function assignAwakenerToSlot(
     return { nextSlots: currentSlots }
   }
 
-  const sourceSlotId = currentSlots.find((slot) => slot.awakenerName === awakenerName)?.slotId
-  if (sourceSlotId === slotId) {
+  const sourceIdentityKey = getAwakenerIdentityKey(awakenerName)
+  const sourceSlotId = currentSlots.find(
+    (slot) => slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === sourceIdentityKey,
+  )?.slotId
+  const targetSlot = currentSlots.find((slot) => slot.slotId === slotId)
+  if (sourceSlotId === slotId && targetSlot?.awakenerName === awakenerName) {
     return { nextSlots: currentSlots }
   }
 
@@ -156,4 +161,44 @@ export function clearSlotAssignment(currentSlots: TeamSlot[], slotId: string): T
   })
 
   return { nextSlots }
+}
+
+export function assignWheelToSlot(
+  currentSlots: TeamSlot[],
+  slotId: string,
+  wheelIndex: number,
+  wheelId: string | null,
+): TeamStateUpdateResult {
+  if (wheelIndex < 0 || wheelIndex > 1) {
+    return { nextSlots: currentSlots }
+  }
+
+  const hasTargetSlot = currentSlots.some((slot) => slot.slotId === slotId)
+  if (!hasTargetSlot) {
+    return { nextSlots: currentSlots }
+  }
+
+  const nextSlots = currentSlots.map((slot) => {
+    if (slot.slotId !== slotId) {
+      return slot
+    }
+
+    const nextWheels = [...slot.wheels] as [string | null, string | null]
+    nextWheels[wheelIndex] = wheelId
+
+    return {
+      ...slot,
+      wheels: nextWheels,
+    }
+  })
+
+  return { nextSlots }
+}
+
+export function clearWheelAssignment(
+  currentSlots: TeamSlot[],
+  slotId: string,
+  wheelIndex: number,
+): TeamStateUpdateResult {
+  return assignWheelToSlot(currentSlots, slotId, wheelIndex, null)
 }

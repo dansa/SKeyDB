@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { awakenersByNameForTests, teamSlotsForTests, teamSlotsForTestsWithTwoFactions } from './fixtures'
-import { assignAwakenerToSlot, clearSlotAssignment, swapSlotAssignments } from './team-state'
+import { assignAwakenerToSlot, assignWheelToSlot, clearSlotAssignment, clearWheelAssignment, swapSlotAssignments } from './team-state'
 
 describe('builder team state', () => {
   it('does not clear source when target slot id is invalid', () => {
@@ -51,6 +51,28 @@ describe('builder team state', () => {
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerName).toBe('Castor')
   })
 
+  it('treats alternate forms as globally unique within the team', () => {
+    const slots = teamSlotsForTests()
+    const withRamona = assignAwakenerToSlot(slots, 'Ramona', 'slot-2', awakenersByNameForTests)
+    const withTimeworn = assignAwakenerToSlot(
+      withRamona.nextSlots,
+      'Ramona: Timeworn',
+      'slot-3',
+      awakenersByNameForTests,
+    )
+
+    expect(withTimeworn.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerName).toBeUndefined()
+    expect(withTimeworn.nextSlots.find((slot) => slot.slotId === 'slot-3')?.awakenerName).toBe('Ramona: Timeworn')
+  })
+
+  it('allows replacing an alternate form in the same slot', () => {
+    const slots = teamSlotsForTests()
+    const withTimeworn = assignAwakenerToSlot(slots, 'Ramona: Timeworn', 'slot-2', awakenersByNameForTests)
+    const replacedWithBase = assignAwakenerToSlot(withTimeworn.nextSlots, 'Ramona', 'slot-2', awakenersByNameForTests)
+
+    expect(replacedWithBase.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerName).toBe('Ramona')
+  })
+
   it('clears a filled slot when removing via picker dropzone', () => {
     const slots = teamSlotsForTests()
     const result = clearSlotAssignment(slots, 'slot-1')
@@ -59,5 +81,14 @@ describe('builder team state', () => {
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.faction).toBeUndefined()
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.level).toBeUndefined()
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual([null, null])
+  })
+
+  it('assigns and clears wheel values on a specific wheel slot', () => {
+    const slots = teamSlotsForTests()
+    const withWheel = assignWheelToSlot(slots, 'slot-2', 1, 'demo-wheel')
+    const clearedWheel = clearWheelAssignment(withWheel.nextSlots, 'slot-2', 1)
+
+    expect(withWheel.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([null, 'demo-wheel'])
+    expect(clearedWheel.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([null, null])
   })
 })

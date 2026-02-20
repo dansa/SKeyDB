@@ -4,6 +4,8 @@ import type { TeamSlot } from './types'
 export const awakenersByNameForTests = new Map<string, Awakener>([
   ['Goliath', { name: 'Goliath', faction: 'AEQUOR', aliases: ['Goliath'] }],
   ['Miryam', { name: 'Miryam', faction: 'AEQUOR', aliases: ['Miryam'] }],
+  ['Ramona', { name: 'Ramona', faction: 'CHAOS', aliases: ['Ramona'] }],
+  ['Ramona: Timeworn', { name: 'Ramona: Timeworn', faction: 'CHAOS', aliases: ['Ramona: Timeworn'] }],
   ['Castor', { name: 'Castor', faction: 'CARO', aliases: ['Castor'] }],
   ['Helot', { name: 'Helot', faction: 'CHAOS', aliases: ['Helot'] }],
 ])

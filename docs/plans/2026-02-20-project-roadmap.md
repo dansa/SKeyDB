@@ -74,4 +74,4 @@ Ship an open-source Morimens team builder that is easy to use (copium), easy to 
 ## Notes
 - README is intentionally short/public-facing.
 - This file is the internal working roadmap and can be detailed.
-
+- Add an in-app legal footer/credits block for asset ownership attribution (Qookka Games + licensors).

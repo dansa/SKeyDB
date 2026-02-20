@@ -10,6 +10,7 @@ import { PickerAwakenerTile } from './builder/PickerAwakenerTile'
 import {
   assignAwakenerToFirstEmptySlot,
   assignAwakenerToSlot,
+  clearWheelAssignment,
   clearSlotAssignment,
   getTeamFactionSet,
   type TeamStateViolationCode,
@@ -22,14 +23,23 @@ import { searchAwakeners } from '../domain/awakeners-search'
 import { getPosseAssetBySlug } from '../domain/posse-assets'
 import { searchPosses } from '../domain/posses-search'
 import { getPosses } from '../domain/posses'
+import { getAwakenerIdentityKey } from '../domain/awakener-identity'
 
-function normalizeAwakenerNameKey(name: string): string {
-  return name.trim().toLowerCase()
+function isTypingTarget(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement)) {
+    return false
+  }
+  const tagName = target.tagName
+  return tagName === 'INPUT' || tagName === 'TEXTAREA' || tagName === 'SELECT' || target.isContentEditable
 }
 
 type PickerTab = 'awakeners' | 'wheels' | 'posses' | 'covenants'
 type AwakenerFilter = 'ALL' | 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA'
 type PosseFilter = 'ALL' | 'FADED_LEGACY' | 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA'
+type ActiveSelection =
+  | { kind: 'awakener'; slotId: string }
+  | { kind: 'wheel'; slotId: string; wheelIndex: number }
+  | null
 
 const pickerTabs: Array<{ id: PickerTab; label: string }> = [
   { id: 'awakeners', label: 'Awakeners' },
@@ -67,8 +77,10 @@ export function BuilderPage() {
     covenants: '',
   })
   const [activePosseId, setActivePosseId] = useState<string | undefined>(undefined)
+  const [activeSelection, setActiveSelection] = useState<ActiveSelection>(null)
   const [toastMessage, setToastMessage] = useState<string | null>(null)
   const toastTimeoutRef = useRef<number | null>(null)
+  const searchInputRef = useRef<HTMLInputElement | null>(null)
 
   const pickerAwakeners = useMemo(
     () =>
@@ -121,13 +133,13 @@ export function BuilderPage() {
   }, [posseFilter, searchedPosses])
 
   const teamFactionSet = useMemo(() => getTeamFactionSet(teamSlots), [teamSlots])
-  const usedAwakenerNames = useMemo(
+  const usedAwakenerIdentityKeys = useMemo(
     () =>
       new Set(
         teamSlots
           .map((slot) => slot.awakenerName)
           .filter((name): name is string => Boolean(name))
-          .map((name) => normalizeAwakenerNameKey(name)),
+          .map((name) => getAwakenerIdentityKey(name)),
       ),
     [teamSlots],
   )
@@ -156,6 +168,45 @@ export function BuilderPage() {
     }
   }, [])
 
+  useEffect(() => {
+    function onGlobalKeyDown(event: KeyboardEvent) {
+      if (event.defaultPrevented || event.isComposing) {
+        return
+      }
+      if (event.metaKey || event.ctrlKey || event.altKey) {
+        return
+      }
+      if (isTypingTarget(event.target)) {
+        return
+      }
+      if (event.key.length !== 1) {
+        return
+      }
+
+      setPickerSearchByTab((prev) => ({
+        ...prev,
+        [pickerTab]: `${prev[pickerTab]}${event.key}`,
+      }))
+      searchInputRef.current?.focus()
+      event.preventDefault()
+    }
+
+    window.addEventListener('keydown', onGlobalKeyDown)
+    return () => {
+      window.removeEventListener('keydown', onGlobalKeyDown)
+    }
+  }, [pickerTab])
+
+  useEffect(() => {
+    if (!activeSelection) {
+      return
+    }
+    const targetSlot = teamSlots.find((slot) => slot.slotId === activeSelection.slotId)
+    if (!targetSlot) {
+      setActiveSelection(null)
+    }
+  }, [activeSelection, teamSlots])
+
   const slotById = useMemo(() => new Map(teamSlots.map((slot) => [slot.slotId, slot])), [teamSlots])
   const { activeDrag, isRemoveIntent, sensors, handleDragCancel, handleDragEnd, handleDragOver, handleDragStart } = useBuilderDnd({
     onDropPickerAwakener: (awakenerName, targetSlotId) => {
@@ -166,6 +217,18 @@ export function BuilderPage() {
     onDropTeamSlot: (sourceSlotId, targetSlotId) => {
       const result = swapSlotAssignments(teamSlots, sourceSlotId, targetSlotId)
       setTeamSlots(result.nextSlots)
+      setActiveSelection((prev) => {
+        if (!prev) {
+          return prev
+        }
+        if (prev.slotId === sourceSlotId) {
+          return { ...prev, slotId: targetSlotId }
+        }
+        if (prev.slotId === targetSlotId) {
+          return { ...prev, slotId: sourceSlotId }
+        }
+        return prev
+      })
     },
     onDropTeamSlotToPicker: (sourceSlotId) => {
       const result = clearSlotAssignment(teamSlots, sourceSlotId)
@@ -200,8 +263,39 @@ export function BuilderPage() {
               {teamSlots.map((slot) => (
                 <AwakenerCard
                   key={`${slot.slotId}:${slot.awakenerName ?? 'empty'}`}
-                  onCardClick={() => setPickerTab('awakeners')}
-                  onWheelSlotClick={() => setPickerTab('wheels')}
+                  activeKind={activeSelection?.slotId === slot.slotId ? activeSelection.kind : null}
+                  activeWheelIndex={activeSelection?.slotId === slot.slotId && activeSelection.kind === 'wheel' ? activeSelection.wheelIndex : null}
+                  isActive={activeSelection?.slotId === slot.slotId && activeSelection.kind === 'awakener'}
+                  onCardClick={(slotId) => {
+                    setPickerTab('awakeners')
+                    setActiveSelection((prev) =>
+                      prev?.kind === 'awakener' && prev.slotId === slotId ? null : { kind: 'awakener', slotId },
+                    )
+                  }}
+                  onRemoveActiveSelection={() => {
+                    if (!activeSelection || activeSelection.slotId !== slot.slotId) {
+                      return
+                    }
+
+                    if (activeSelection.kind === 'awakener') {
+                      const result = clearSlotAssignment(teamSlots, slot.slotId)
+                      setTeamSlots(result.nextSlots)
+                      setActiveSelection(null)
+                      return
+                    }
+
+                    const result = clearWheelAssignment(teamSlots, slot.slotId, activeSelection.wheelIndex)
+                    setTeamSlots(result.nextSlots)
+                    setActiveSelection(null)
+                  }}
+                  onWheelSlotClick={(slotId, wheelIndex) => {
+                    setPickerTab('wheels')
+                    setActiveSelection((prev) =>
+                      prev?.kind === 'wheel' && prev.slotId === slotId && prev.wheelIndex === wheelIndex
+                        ? null
+                        : { kind: 'wheel', slotId, wheelIndex },
+                    )
+                  }}
                   slot={slot}
                 />
               ))}
@@ -213,6 +307,7 @@ export function BuilderPage() {
             <p className="mt-2 text-sm text-slate-200">Click adds to first empty slot. Drag to deploy or replace.</p>
             <input
               className="mt-3 w-full border border-slate-800/95 bg-slate-950/90 px-3 py-2 text-sm text-slate-100 outline-none placeholder:text-slate-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] focus:border-amber-300/65 focus:bg-slate-950"
+              ref={searchInputRef}
               onChange={(event) =>
                 setPickerSearchByTab((prev) => ({
                   ...prev,
@@ -294,10 +389,13 @@ export function BuilderPage() {
                       awakenerName={awakener.name}
                       faction={awakener.faction}
                       isFactionBlocked={teamFactionSet.size >= 2 && !teamFactionSet.has(awakener.faction.trim().toUpperCase())}
-                      isInUse={usedAwakenerNames.has(normalizeAwakenerNameKey(awakener.name))}
+                      isInUse={usedAwakenerIdentityKeys.has(getAwakenerIdentityKey(awakener.name))}
                       key={awakener.name}
                       onClick={() => {
-                        const result = assignAwakenerToFirstEmptySlot(teamSlots, awakener.name, awakenerByName)
+                        const result =
+                          activeSelection?.kind === 'awakener'
+                            ? assignAwakenerToSlot(teamSlots, awakener.name, activeSelection.slotId, awakenerByName)
+                            : assignAwakenerToFirstEmptySlot(teamSlots, awakener.name, awakenerByName)
                         setTeamSlots(result.nextSlots)
                         notifyViolation(result.violation)
                       }}

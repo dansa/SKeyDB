@@ -51,6 +51,17 @@ npm run build
 
 If deploying to a user/org root page (`https://<user>.github.io/`), you can keep the default `/` base.
 
+## Asset & IP Notice
+- This is an unofficial, non-commercial fan project.
+- `Morimens`, related logos, character art, portraits, card art, and other in-game assets are owned by Qookka Games and/or their licensors.
+- No endorsement or affiliation with Qookka Games is implied.
+- If you plan to reuse game assets in another project (especially commercial use), obtain permission from the rights holder first.
+- If a rights holder requests removal of any asset or content in this repo, it should be removed promptly.
+
+Reference legal pages:
+- https://account.qookkagames.com/service.en-US.html
+- https://agreement.qookkagames.com/qookka/webshop-user-agreement/en/agreement.html
+
 ## Current Scope
 Current implementation is an MVP focused on:
 - awakener picker/search
