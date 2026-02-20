@@ -519,60 +519,6 @@ a {
   box-shadow: 0 0 6px rgba(204, 203, 196, 0.28);
 }
 
-.builder-posse-unset-icon {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-  color: #cccbc4;
-  pointer-events: none;
-  filter:
-    drop-shadow(0 0 1px rgba(2, 6, 12, 1))
-    drop-shadow(0 0 5px rgba(2, 6, 12, 0.92))
-    drop-shadow(0 0 9px rgba(2, 6, 12, 0.66));
-}
-
-.builder-posse-unset-icon::before {
-  content: "";
-  width: 24px;
-  height: 24px;
-  border: 1px solid currentColor;
-  transform: translateZ(0) rotate(45deg);
-  opacity: 0.9;
-  box-shadow: 1px 0 0 2px rgba(0, 0, 0, 0.9);
-}
-
-.builder-posse-unset-icon__plus {
-  position: absolute;
-  width: 58%;
-  height: 58%;
-}
-
-.builder-posse-unset-icon__plus::before,
-.builder-posse-unset-icon__plus::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: currentColor;
-  opacity: 0.95;
-  box-shadow:
-    0 0 0 2px rgba(8, 15, 28, 0.98),
-    0 0 0 3px rgba(0, 0, 0, 0.36);
-}
-
-.builder-posse-unset-icon__plus::before {
-  width: 2px;
-  height: 100%;
-}
-
-.builder-posse-unset-icon__plus::after {
-  width: 100%;
-  height: 2px;
-}
-
 @media (max-width: 640px) {
   .builder-team-header {
     grid-template-columns: auto 1fr;

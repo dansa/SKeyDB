@@ -1,0 +1,62 @@
+# MomenTB
+
+Morimens team builder web app (community project).
+
+## Tech Stack
+- React 19 + TypeScript
+- Vite 7
+- Tailwind CSS 4
+- Zustand + Immer (state)
+- Zod (schema validation)
+- Fuse.js (fuzzy search)
+- dnd-kit (drag and drop)
+- Vitest + Testing Library
+
+## Quick Start
+```bash
+npm install
+npm run dev
+```
+
+App runs on `http://127.0.0.1:5173`.
+
+## Scripts
+- `npm run dev` - start local dev server
+- `npm run build` - type-check + production build
+- `npm run preview` - preview built app
+- `npm run test` - run tests once
+- `npm run test:watch` - run tests in watch mode
+- `npm run lint` - run ESLint
+
+## Project Structure
+- `src/pages/BuilderPage.tsx` - main builder page
+- `src/pages/builder/` - builder UI components + DnD logic
+- `src/domain/` - domain logic (search, rules, formatting, assets)
+- `src/data/` - lightweight JSON datasets
+- `docs/plans/` - internal planning/roadmap docs
+- `untracked/` - local scratch space (ignored by git)
+
+## Deployment Notes (GitHub Pages)
+This project can be deployed to GitHub Pages as a static site.
+
+Routing is configured with `HashRouter`, so client-side routes work on GitHub Pages without server rewrites.
+
+Set the repo base path at build time with `VITE_BASE_PATH`:
+
+```bash
+# example for https://<user>.github.io/MomenTB/
+$env:VITE_BASE_PATH='/MomenTB/'
+npm run build
+```
+
+If deploying to a user/org root page (`https://<user>.github.io/`), you can keep the default `/` base.
+
+## Current Scope
+Current implementation is an MVP focused on:
+- awakener picker/search
+- team card interactions and drag/drop
+- faction constraints and related UX states
+- posse selection UI scaffold
+
+For roadmap/todo details, see:
+- `docs/plans/2026-02-20-project-roadmap.md`

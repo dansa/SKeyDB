@@ -1,4 +1,5 @@
 import { DEFAULT_FACTION_TINT, getFactionIcon, getFactionLabel, getFactionTint, normalizeFactionId } from '../../domain/factions'
+import tempPosseIcon from '../../assets/posse/temposse.png'
 import type { CSSProperties } from 'react'
 
 type ActiveTeamHeaderProps = {
@@ -39,7 +40,7 @@ export function ActiveTeamHeader({ activePosseAsset, activePosseName, teamFactio
     '--team-faction-tint-a': tintA,
     '--team-faction-tint-b': tintB,
   } as CSSProperties
-
+  const displayedPosseAsset = activePosseAsset ?? tempPosseIcon
   return (
     <div className="builder-team-header border-b border-slate-500/50 pb-3">
       <div className={`builder-team-faction-badge ${badgeStateClass}`} style={badgeStyle}>
@@ -89,18 +90,12 @@ export function ActiveTeamHeader({ activePosseAsset, activePosseName, teamFactio
           <span className="text-xs tracking-wide text-slate-300/90">{activePosseName ?? 'Not Set'}</span>
         </span>
         <span className="builder-team-posse-icon-wrap">
-          {activePosseAsset ? (
-            <img
-              alt={activePosseName ? `${activePosseName} posse` : 'Posse placeholder'}
-              className="builder-team-posse-icon"
-              draggable={false}
-              src={activePosseAsset}
-            />
-          ) : (
-            <span className="builder-posse-unset-icon">
-              <span className="builder-posse-unset-icon__plus" />
-            </span>
-          )}
+          <img
+            alt={activePosseName ? `${activePosseName} posse` : 'Posse placeholder'}
+            className="builder-team-posse-icon"
+            draggable={false}
+            src={displayedPosseAsset}
+          />
         </span>
       </button>
     </div>
