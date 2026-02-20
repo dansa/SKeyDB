@@ -21,8 +21,11 @@ describe('BuilderPage placeholders', () => {
     expect(screen.getByRole('button', { name: /change ramona: timeworn/i })).toBeInTheDocument()
   })
 
-  it('marks currently used awakeners in the picker', () => {
+  it('marks awakeners as in use after being assigned to the team', async () => {
+    const user = userEvent.setup()
     render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
 
     const goliathPortrait = screen.getByAltText(/goliath portrait/i)
     const goliathPickerButton = goliathPortrait.closest('button')
