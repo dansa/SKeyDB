@@ -1,0 +1,63 @@
+import { describe, expect, it } from 'vitest'
+import { awakenersByNameForTests, teamSlotsForTests, teamSlotsForTestsWithTwoFactions } from './fixtures'
+import { assignAwakenerToSlot, clearSlotAssignment, swapSlotAssignments } from './team-state'
+
+describe('builder team state', () => {
+  it('does not clear source when target slot id is invalid', () => {
+    const slots = teamSlotsForTests()
+    const result = assignAwakenerToSlot(slots, 'Goliath', 'not-a-slot', awakenersByNameForTests)
+
+    expect(result.nextSlots).toEqual(slots)
+  })
+
+  it('moves assignment when target slot is valid', () => {
+    const slots = teamSlotsForTests()
+    const result = assignAwakenerToSlot(slots, 'Goliath', 'slot-2', awakenersByNameForTests)
+
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerName).toBeUndefined()
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerName).toBe('Goliath')
+  })
+
+  it('is a no-op when assigning to the same slot', () => {
+    const slots = teamSlotsForTests()
+    const result = assignAwakenerToSlot(slots, 'Goliath', 'slot-1', awakenersByNameForTests)
+
+    expect(result.nextSlots).toBe(slots)
+  })
+
+  it('swaps source and target slot payloads', () => {
+    const slots = teamSlotsForTests()
+    const result = swapSlotAssignments(slots, 'slot-1', 'slot-2')
+
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerName).toBe('Miryam')
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerName).toBe('Goliath')
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).not.toBe(slots[1].wheels)
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).not.toBe(slots[0].wheels)
+  })
+
+  it('blocks adding a third faction', () => {
+    const slots = teamSlotsForTestsWithTwoFactions()
+    const result = assignAwakenerToSlot(slots, 'Castor', 'slot-3', awakenersByNameForTests)
+
+    expect(result.nextSlots).toBe(slots)
+    expect(result.violation).toBe('TOO_MANY_FACTIONS_IN_TEAM')
+  })
+
+  it('allows replacing the only out-faction member', () => {
+    const slots = teamSlotsForTestsWithTwoFactions()
+    const result = assignAwakenerToSlot(slots, 'Castor', 'slot-1', awakenersByNameForTests)
+
+    expect(result.violation).toBeUndefined()
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerName).toBe('Castor')
+  })
+
+  it('clears a filled slot when removing via picker dropzone', () => {
+    const slots = teamSlotsForTests()
+    const result = clearSlotAssignment(slots, 'slot-1')
+
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerName).toBeUndefined()
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.faction).toBeUndefined()
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.level).toBeUndefined()
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual([null, null])
+  })
+})
