@@ -197,14 +197,11 @@ export function BuilderPage() {
     }
   }, [pickerTab])
 
-  useEffect(() => {
+  const resolvedActiveSelection = useMemo(() => {
     if (!activeSelection) {
-      return
+      return null
     }
-    const targetSlot = teamSlots.find((slot) => slot.slotId === activeSelection.slotId)
-    if (!targetSlot) {
-      setActiveSelection(null)
-    }
+    return teamSlots.some((slot) => slot.slotId === activeSelection.slotId) ? activeSelection : null
   }, [activeSelection, teamSlots])
 
   const slotById = useMemo(() => new Map(teamSlots.map((slot) => [slot.slotId, slot])), [teamSlots])
@@ -263,9 +260,9 @@ export function BuilderPage() {
               {teamSlots.map((slot) => (
                 <AwakenerCard
                   key={`${slot.slotId}:${slot.awakenerName ?? 'empty'}`}
-                  activeKind={activeSelection?.slotId === slot.slotId ? activeSelection.kind : null}
-                  activeWheelIndex={activeSelection?.slotId === slot.slotId && activeSelection.kind === 'wheel' ? activeSelection.wheelIndex : null}
-                  isActive={activeSelection?.slotId === slot.slotId && activeSelection.kind === 'awakener'}
+                  activeKind={resolvedActiveSelection?.slotId === slot.slotId ? resolvedActiveSelection.kind : null}
+                  activeWheelIndex={resolvedActiveSelection?.slotId === slot.slotId && resolvedActiveSelection.kind === 'wheel' ? resolvedActiveSelection.wheelIndex : null}
+                  isActive={resolvedActiveSelection?.slotId === slot.slotId && resolvedActiveSelection.kind === 'awakener'}
                   onCardClick={(slotId) => {
                     setPickerTab('awakeners')
                     setActiveSelection((prev) =>
@@ -273,18 +270,18 @@ export function BuilderPage() {
                     )
                   }}
                   onRemoveActiveSelection={() => {
-                    if (!activeSelection || activeSelection.slotId !== slot.slotId) {
+                    if (!resolvedActiveSelection || resolvedActiveSelection.slotId !== slot.slotId) {
                       return
                     }
 
-                    if (activeSelection.kind === 'awakener') {
+                    if (resolvedActiveSelection.kind === 'awakener') {
                       const result = clearSlotAssignment(teamSlots, slot.slotId)
                       setTeamSlots(result.nextSlots)
                       setActiveSelection(null)
                       return
                     }
 
-                    const result = clearWheelAssignment(teamSlots, slot.slotId, activeSelection.wheelIndex)
+                    const result = clearWheelAssignment(teamSlots, slot.slotId, resolvedActiveSelection.wheelIndex)
                     setTeamSlots(result.nextSlots)
                     setActiveSelection(null)
                   }}
@@ -393,8 +390,8 @@ export function BuilderPage() {
                       key={awakener.name}
                       onClick={() => {
                         const result =
-                          activeSelection?.kind === 'awakener'
-                            ? assignAwakenerToSlot(teamSlots, awakener.name, activeSelection.slotId, awakenerByName)
+                          resolvedActiveSelection?.kind === 'awakener'
+                            ? assignAwakenerToSlot(teamSlots, awakener.name, resolvedActiveSelection.slotId, awakenerByName)
                             : assignAwakenerToFirstEmptySlot(teamSlots, awakener.name, awakenerByName)
                         setTeamSlots(result.nextSlots)
                         notifyViolation(result.violation)
