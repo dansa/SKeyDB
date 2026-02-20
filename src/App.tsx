@@ -9,7 +9,7 @@ function App() {
       <header className="border-b border-amber-200/30 bg-slate-950/35 backdrop-blur">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 md:px-6">
           <div>
-            <h1 className="ui-title text-2xl text-amber-100 md:text-3xl">Morimens Team Builder</h1>
+            <h1 className="ui-title text-2xl text-amber-100 md:text-3xl">SKeyDB</h1>
             <p className="text-sm text-slate-300">v0 semi-styled starter</p>
           </div>
           <nav className="flex items-center gap-2 text-sm md:text-base">

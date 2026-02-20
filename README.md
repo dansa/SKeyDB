@@ -1,6 +1,6 @@
-# MomenTB
+# SKeyDB
 
-Morimens team builder web app (community project).
+Morimens team builder web app (community project, running name: SKeyDB).
 
 ## Tech Stack
 - React 19 + TypeScript
@@ -44,8 +44,8 @@ Routing is configured with `HashRouter`, so client-side routes work on GitHub Pa
 Set the repo base path at build time with `VITE_BASE_PATH`:
 
 ```bash
-# example for https://<user>.github.io/MomenTB/
-$env:VITE_BASE_PATH='/MomenTB/'
+# example for https://<user>.github.io/SKeyDB/
+$env:VITE_BASE_PATH='/SKeyDB/'
 npm run build
 ```
 
