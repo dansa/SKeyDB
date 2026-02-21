@@ -31,6 +31,10 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
   - violation toast feedback,
   - cross-team uniqueness checks for awakeners and posses.
 - Automated tests for domain logic and key builder behavior.
+- Import/export:
+  - versioned compact codes (`t1.` / `mt1.`),
+  - single-team and multi-team export actions,
+  - import dialogs with replace and duplicate strategy handling.
 
 ### Partially in (scaffolded / placeholder)
 - Wheels tab exists in picker UI, but wheel data + wheel selection flow is not wired.
@@ -45,7 +49,7 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 - Covenant system and covenant filters/search.
 - Owned/unowned tracking.
 - Exalt / Over-Exalt progression controls.
-- Import/export or shareable URL encoding.
+- Shareable URL encoding.
 - Character/wheel/covenant deep database (stats, skills, tag taxonomy, recommendations).
 
 ## Near-Term Milestones
@@ -62,7 +66,7 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 - Detailed plan: `docs/plans/2026-02-20-multi-team-builder-plan.md`
 
 ### Milestone 3: Share + Persistence
-- Define compact export/import schema.
+- Expand compact export/import coverage (future schema versions, compatibility policy).
 - Add URL-safe share format (or alternative share string flow).
 - Optional local persistence for drafts.
 
@@ -82,3 +86,4 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 - README is intentionally short/public-facing.
 - This file is the internal working roadmap and can be detailed.
 - Add an in-app legal footer/credits block for asset ownership attribution (Qookka Games + licensors).
+- Future churn (UI consistency): migrate remaining builder action buttons (non-modal) to shared `Button` variants.

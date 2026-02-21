@@ -71,6 +71,8 @@ Current implementation is an MVP focused on:
 - team card interactions and drag/drop
 - faction constraints and related UX states
 - posse selection UI scaffold
+- compact import/export codes (`t1.` single-team, `mt1.` multi-team)
+- import conflict handling (replace, move duplicates, skip duplicates)
 
 For roadmap/todo details, see:
 - `docs/plans/2026-02-20-project-roadmap.md`
