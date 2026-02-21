@@ -85,6 +85,15 @@ export function BuilderPage() {
     setPendingDeleteTeam(null)
   }
 
+  function applyDeleteTeam(teamId: string) {
+    const result = deleteTeam(teams, teamId, effectiveActiveTeamId)
+    setTeams(result.nextTeams)
+    setActiveTeamId(result.nextActiveTeamId)
+    if (teamId === effectiveActiveTeamId) {
+      setActiveSelection(null)
+    }
+  }
+
   function notifyViolation(violation: TeamStateViolationCode | undefined) {
     if (violation !== 'TOO_MANY_FACTIONS_IN_TEAM') {
       return
@@ -212,6 +221,12 @@ export function BuilderPage() {
               onDeleteTeam={(teamId, teamName) => {
                 clearTransfer()
                 cancelTeamRename()
+                const team = teams.find((entry) => entry.id === teamId)
+                const hasAnyAwakener = team?.slots.some((slot) => slot.awakenerName)
+                if (!hasAnyAwakener) {
+                  applyDeleteTeam(teamId)
+                  return
+                }
                 setPendingDeleteTeam({ id: teamId, name: teamName })
               }}
               onEditTeam={(teamId) => {
@@ -319,12 +334,7 @@ export function BuilderPage() {
           message={`Remove ${pendingDeleteTeam.name}? This cannot be undone.`}
           onCancel={clearPendingDelete}
           onConfirm={() => {
-            const result = deleteTeam(teams, pendingDeleteTeam.id, effectiveActiveTeamId)
-            setTeams(result.nextTeams)
-            setActiveTeamId(result.nextActiveTeamId)
-            if (pendingDeleteTeam.id === effectiveActiveTeamId) {
-              setActiveSelection(null)
-            }
+            applyDeleteTeam(pendingDeleteTeam.id)
             clearPendingDelete()
           }}
           title={`Delete ${pendingDeleteTeam.name}`}

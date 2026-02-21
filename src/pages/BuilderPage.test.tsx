@@ -83,7 +83,7 @@ describe('BuilderPage placeholders', () => {
     expect(screen.queryByRole('button', { name: /change goliath/i })).not.toBeInTheDocument()
   })
 
-  it('requires explicit edit action to switch active team', async () => {
+  it('switches active team when clicking the team row card', async () => {
     const user = userEvent.setup()
     const { container } = render(<BuilderPage />)
 
@@ -95,9 +95,6 @@ describe('BuilderPage placeholders', () => {
     expect(team2Row).not.toBeNull()
 
     await user.click(within(team2Row as HTMLElement).getByText('Team 2'))
-    expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
-
-    await user.click(within(team2Row as HTMLElement).getByRole('button', { name: /edit/i }))
     expect(screen.queryByRole('button', { name: /change goliath/i })).not.toBeInTheDocument()
   })
 
@@ -111,7 +108,7 @@ describe('BuilderPage placeholders', () => {
     await user.click(screen.getByRole('button', { name: /\+ add team/i }))
     const team2Row = container.querySelector('[data-team-name="Team 2"]')
     expect(team2Row).not.toBeNull()
-    await user.click(within(team2Row as HTMLElement).getByRole('button', { name: /edit/i }))
+    await user.click(within(team2Row as HTMLElement).getByText('Team 2'))
 
     const tavernsOpeningButton = screen.getByRole('button', { name: /taverns opening/i })
     expect(tavernsOpeningButton).toHaveAttribute('aria-disabled', 'true')
@@ -129,7 +126,7 @@ describe('BuilderPage placeholders', () => {
     expect(screen.queryByRole('dialog', { name: /move taverns opening/i })).not.toBeInTheDocument()
   })
 
-  it('requires centered confirm/cancel before deleting a team', async () => {
+  it('deletes empty team without showing confirmation dialog', async () => {
     const user = userEvent.setup()
     const { container } = render(<BuilderPage />)
 
@@ -138,6 +135,26 @@ describe('BuilderPage placeholders', () => {
     expect(team2Row).not.toBeNull()
 
     const deleteButton = within(team2Row as HTMLElement).getByRole('button', { name: /delete/i })
+    await user.click(deleteButton)
+    expect(screen.queryByRole('dialog', { name: /delete team 2/i })).not.toBeInTheDocument()
+    expect(container.querySelector('[data-team-name="Team 2"]')).toBeNull()
+  })
+
+  it('requires centered confirm/cancel before deleting a non-empty team', async () => {
+    const user = userEvent.setup()
+    const { container } = render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /\+ add team/i }))
+    const team2Row = container.querySelector('[data-team-name="Team 2"]')
+    expect(team2Row).not.toBeNull()
+
+    await user.click(within(team2Row as HTMLElement).getByText('Team 2'))
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+
+    const refreshedTeam2Row = container.querySelector('[data-team-name="Team 2"]')
+    expect(refreshedTeam2Row).not.toBeNull()
+
+    const deleteButton = within(refreshedTeam2Row as HTMLElement).getByRole('button', { name: /delete/i })
     await user.click(deleteButton)
     expect(container.querySelector('[data-team-name="Team 2"]')).not.toBeNull()
     expect(screen.getByRole('dialog', { name: /delete team 2/i })).toBeInTheDocument()
@@ -212,7 +229,7 @@ describe('BuilderPage placeholders', () => {
     await user.click(screen.getByRole('button', { name: /\+ add team/i }))
     const team2Row = container.querySelector('[data-team-name="Team 2"]')
     expect(team2Row).not.toBeNull()
-    await user.click(within(team2Row as HTMLElement).getByRole('button', { name: /edit/i }))
+    await user.click(within(team2Row as HTMLElement).getByText('Team 2'))
 
     await user.click(screen.getByRole('button', { name: /goliath/i }))
     expect(screen.getByRole('dialog', { name: /move goliath/i })).toBeInTheDocument()
@@ -223,7 +240,7 @@ describe('BuilderPage placeholders', () => {
 
     const team1Row = container.querySelector('[data-team-name="Team 1"]')
     expect(team1Row).not.toBeNull()
-    await user.click(within(team1Row as HTMLElement).getByRole('button', { name: /edit/i }))
+    await user.click(within(team1Row as HTMLElement).getByText('Team 1'))
     expect(screen.queryByRole('button', { name: /change goliath/i })).not.toBeInTheDocument()
   })
 
@@ -236,7 +253,7 @@ describe('BuilderPage placeholders', () => {
     await user.click(screen.getByRole('button', { name: /\+ add team/i }))
     const team2Row = container.querySelector('[data-team-name="Team 2"]')
     expect(team2Row).not.toBeNull()
-    await user.click(within(team2Row as HTMLElement).getByRole('button', { name: /edit/i }))
+    await user.click(within(team2Row as HTMLElement).getByText('Team 2'))
 
     await user.click(screen.getByRole('button', { name: /agrippa/i }))
     await user.click(screen.getByRole('button', { name: /casiah/i }))

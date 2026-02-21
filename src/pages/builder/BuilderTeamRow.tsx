@@ -78,6 +78,7 @@ export function BuilderTeamRow({
             ? 'border-amber-200/80 border-l-0 bg-slate-800/70'
             : 'border-slate-500/45 border-l-0 bg-slate-900/50'
         }`}
+        onClick={() => onEditTeam(team.id)}
       >
         <div className="min-w-0 py-1.5 pl-2">
           <div className="group/teamname flex h-6 w-[210px] max-w-full items-center gap-1">
@@ -87,6 +88,7 @@ export function BuilderTeamRow({
                   aria-label="Team name"
                   autoFocus
                   className="h-6 w-[210px] max-w-full border border-amber-200/55 bg-slate-950/90 px-1.5 text-xs text-slate-100 outline-none focus:border-amber-200/75"
+                  onClick={(event) => event.stopPropagation()}
                   onBlur={(event) => {
                     const nextTarget = event.relatedTarget
                     if (nextTarget instanceof HTMLElement && nextTarget.dataset.renameAction === 'true') {
@@ -113,7 +115,10 @@ export function BuilderTeamRow({
                   aria-label="Confirm rename"
                   className="builder-team-inline-icon-button text-emerald-300 hover:text-emerald-200"
                   data-rename-action="true"
-                  onClick={() => onCommitTeamRename(team.id)}
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    onCommitTeamRename(team.id)
+                  }}
                   type="button"
                 >
                   <svg aria-hidden="true" className="h-full w-full" viewBox="0 0 16 16">
@@ -131,7 +136,10 @@ export function BuilderTeamRow({
                   aria-label="Cancel rename"
                   className="builder-team-inline-icon-button text-rose-300 hover:text-rose-200"
                   data-rename-action="true"
-                  onClick={onCancelTeamRename}
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    onCancelTeamRename()
+                  }}
                   type="button"
                 >
                   <svg aria-hidden="true" className="h-full w-full" viewBox="0 0 16 16">
@@ -151,7 +159,10 @@ export function BuilderTeamRow({
                 <button
                   aria-label={`Rename ${team.name}`}
                   className="builder-team-inline-icon-button shrink-0 text-slate-300/85 opacity-0 hover:text-amber-100 focus-visible:opacity-100 group-hover/teamname:opacity-100"
-                  onClick={() => onBeginTeamRename(team.id, team.name)}
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    onBeginTeamRename(team.id, team.name)
+                  }}
                   type="button"
                 >
                   <svg aria-hidden="true" className="h-full w-full" viewBox="0 0 16 16">
@@ -201,17 +212,7 @@ export function BuilderTeamRow({
             src={posseAsset ?? tempPosseIcon}
           />
         </span>
-        <div className="flex flex-col gap-1 py-1.5">
-          <button
-            className="border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45"
-            onClick={(event) => {
-              event.stopPropagation()
-              onEditTeam(team.id)
-            }}
-            type="button"
-          >
-            Edit
-          </button>
+        <div className="py-1.5">
           <button
             className="border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45 disabled:opacity-35"
             disabled={deleteDisabled}
