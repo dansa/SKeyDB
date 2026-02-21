@@ -2,6 +2,9 @@
 
 Morimens team builder web app (community project, running name: SKeyDB).
 
+Live builder (in development):
+- https://dansa.github.io/SKeyDB/#/builder
+
 ## Tech Stack
 - React 19 + TypeScript
 - Vite 7

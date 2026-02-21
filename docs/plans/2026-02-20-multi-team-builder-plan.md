@@ -23,9 +23,9 @@ Expand the builder from a single active team into a practical 1-10 team planner 
 - Existing editor (`active team`) remains the only place where slot editing happens.
 - Global uniqueness enforcement across all teams for:
   - awakener identity keys,
-  - wheel IDs,
   - posse ID.
 - Picker disabled/label behavior updated to reflect cross-team usage.
+- Cross-team move confirmation flow for locked awakeners/posses (click + drag/drop where applicable).
 
 ## Out of Scope (for this pass)
 - Cross-team character drag/drop.
@@ -33,7 +33,7 @@ Expand the builder from a single active team into a practical 1-10 team planner 
 - Persistence/share format changes.
 
 ## UX Requirements
-- Inactive team row click should only focus/select row (optional visual state), not activate edit context.
+- Inactive team row click must not activate edit context.
 - `Edit Team` button explicitly switches active team.
 - Prevent accidental context switches while dragging within the active team editor.
 - Keep current toast/feedback style for invalid moves and rule violations.
@@ -75,7 +75,9 @@ Expand the builder from a single active team into a practical 1-10 team planner 
   - Slot-click regression fix: clicking a picker entry for an already slotted awakener no longer moves it to the next empty slot.
 - Pending:
   - Wheel global uniqueness (blocked until full wheel data/IDs are wired).
+  - Wheel/covenant transfer-confirm flow parity once those pickers are fully wired.
   - Additional interaction polish + QA passes.
+  - TODO: implement an `Expanded Teams` toggle that renders smaller-scale but full team cards (including wheels/covenants) for each team.
 
 ## Follow-up Bugs
 - None currently tracked for this phase.
