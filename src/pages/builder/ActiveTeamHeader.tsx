@@ -3,6 +3,7 @@ import tempPosseIcon from '../../assets/posse/temposse.png'
 import type { CSSProperties } from 'react'
 
 type ActiveTeamHeaderProps = {
+  activeTeamName: string
   activePosseAsset?: string
   activePosseName?: string
   teamFactions: string[]
@@ -22,7 +23,13 @@ const factionMetaById: Record<string, FactionMeta> = {
   ULTRA: { label: getFactionLabel('ULTRA'), icon: getFactionIcon('ULTRA')!, tint: getFactionTint('ULTRA') },
 }
 
-export function ActiveTeamHeader({ activePosseAsset, activePosseName, teamFactions, onOpenPossePicker }: ActiveTeamHeaderProps) {
+export function ActiveTeamHeader({
+  activeTeamName,
+  activePosseAsset,
+  activePosseName,
+  teamFactions,
+  onOpenPossePicker,
+}: ActiveTeamHeaderProps) {
   const normalizedFactions = Array.from(new Set(teamFactions.map(normalizeFactionId))).slice(0, 2)
   const activeFactions = normalizedFactions
     .map((factionId) => factionMetaById[factionId])
@@ -65,7 +72,9 @@ export function ActiveTeamHeader({ activePosseAsset, activePosseName, teamFactio
       </div>
 
       <div className="builder-team-faction-copy">
-        <h3 className="ui-title text-xl text-amber-100">Active Team</h3>
+        <h3 className="ui-title truncate text-xl text-amber-100" title={activeTeamName}>
+          {activeTeamName}
+        </h3>
         <p className="text-xs tracking-wide text-slate-300">
           {activeFactions.length > 0 ? (
             <>

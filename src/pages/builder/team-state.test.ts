@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest'
 import { awakenersByNameForTests, teamSlotsForTests, teamSlotsForTestsWithTwoFactions } from './fixtures'
-import { assignAwakenerToSlot, assignWheelToSlot, clearSlotAssignment, clearWheelAssignment, swapSlotAssignments } from './team-state'
+import {
+  assignAwakenerToFirstEmptySlot,
+  assignAwakenerToSlot,
+  assignWheelToSlot,
+  clearSlotAssignment,
+  clearWheelAssignment,
+  swapSlotAssignments,
+} from './team-state'
 
 describe('builder team state', () => {
   it('does not clear source when target slot id is invalid', () => {
@@ -71,6 +78,20 @@ describe('builder team state', () => {
     const replacedWithBase = assignAwakenerToSlot(withTimeworn.nextSlots, 'Ramona', 'slot-2', awakenersByNameForTests)
 
     expect(replacedWithBase.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerName).toBe('Ramona')
+  })
+
+  it('does not move an already slotted awakener when adding to first empty slot', () => {
+    const slots = [
+      { slotId: 'slot-1', awakenerName: 'Miryam', faction: 'AEQUOR', level: 60, wheels: [null, null] as [null, null] },
+      { slotId: 'slot-2', awakenerName: 'Ramona', faction: 'CHAOS', level: 60, wheels: [null, null] as [null, null] },
+      { slotId: 'slot-3', awakenerName: 'Goliath', faction: 'AEQUOR', level: 60, wheels: [null, null] as [null, null] },
+      { slotId: 'slot-4', wheels: [null, null] as [null, null] },
+    ]
+
+    const result = assignAwakenerToFirstEmptySlot(slots, 'Goliath', awakenersByNameForTests)
+    expect(result.nextSlots).toBe(slots)
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-3')?.awakenerName).toBe('Goliath')
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-4')?.awakenerName).toBeUndefined()
   })
 
   it('clears a filled slot when removing via picker dropzone', () => {

@@ -509,6 +509,21 @@ a {
   flex: 0 0 auto;
 }
 
+.builder-team-posse-icon-wrap-compact {
+  width: 64px;
+  height: 64px;
+}
+
+.builder-team-posse-icon-wrap-compact::before {
+  inset: 10px;
+}
+
+.builder-team-posse-icon-wrap-compact::after {
+  inset: 2px;
+  filter: blur(6px);
+  opacity: 0.28;
+}
+
 .builder-team-posse-icon-wrap::before {
   content: "";
   position: absolute;
@@ -550,6 +565,13 @@ a {
   -webkit-user-drag: none;
 }
 
+.builder-team-posse-icon-compact {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .builder-team-posse-button:hover .builder-team-posse-icon-wrap::before,
 .builder-team-posse-button:focus-visible .builder-team-posse-icon-wrap::before {
   border-color: rgba(251, 191, 36, 0.55);
@@ -562,6 +584,67 @@ a {
   justify-items: end;
   text-align: right;
   gap: 0.2rem;
+}
+
+.builder-team-inline-icon-button {
+  width: 16px;
+  height: 16px;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  transition:
+    color 140ms ease,
+    opacity 140ms ease;
+}
+
+.builder-team-row-drag-handle {
+  width: 14px;
+  min-height: 100%;
+  position: relative;
+  background: transparent;
+  color: rgba(226, 232, 240, 0.56);
+  padding: 0;
+  cursor: grab;
+  display: grid;
+  place-items: center;
+  transition:
+    background-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.builder-team-row-drag-handle:active {
+  cursor: grabbing;
+}
+
+.builder-team-row-drag-handle:hover,
+.builder-team-row-drag-handle:focus-visible {
+  border-color: #cebc71;
+  color: #cebc71;
+}
+
+.builder-team-row-drag-handle-glyph {
+  position: relative;
+  width: 6px;
+  height: 72%;
+}
+
+.builder-team-row-drag-handle-glyph::before,
+.builder-team-row-drag-handle-glyph::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: currentColor;
+}
+
+.builder-team-row-drag-handle-glyph::before {
+  left: 1px;
+}
+
+.builder-team-row-drag-handle-glyph::after {
+  right: 1px;
 }
 
 .builder-disabled-icon {

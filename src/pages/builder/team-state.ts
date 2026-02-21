@@ -86,6 +86,14 @@ export function assignAwakenerToFirstEmptySlot(
   awakenerName: string,
   awakenerByName: Map<string, Awakener>,
 ): TeamStateUpdateResult {
+  const identityKey = getAwakenerIdentityKey(awakenerName)
+  const alreadyAssigned = currentSlots.some(
+    (slot) => slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === identityKey,
+  )
+  if (alreadyAssigned) {
+    return { nextSlots: currentSlots }
+  }
+
   const firstEmptySlotId = currentSlots.find((slot) => !slot.awakenerName)?.slotId
   if (!firstEmptySlotId) {
     return { nextSlots: currentSlots }

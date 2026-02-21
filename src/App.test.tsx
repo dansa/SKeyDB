@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import App from './App'
 
 describe('App shell', () => {
-  it('renders starter navigation and title', () => {
+  it('renders app navigation and title', () => {
     render(
       <MemoryRouter>
         <App />

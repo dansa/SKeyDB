@@ -34,6 +34,7 @@ Ship an open-source Morimens team builder that is easy to use (copium), easy to 
 
 ### Out (not implemented yet)
 - Full multi-team planner (1-10 teams UI).
+  - Plan reference: `docs/plans/2026-02-20-multi-team-builder-plan.md`
 - Global uniqueness enforcement across all teams in live UI.
 - Wheel assignment logic and wheel uniqueness in live UI.
 - Covenant system and covenant filters/search.
@@ -53,6 +54,7 @@ Ship an open-source Morimens team builder that is easy to use (copium), easy to 
 - Expand from single active team to 1-10 team planner.
 - Enforce cross-team uniqueness for awakeners, wheels, and posses in UI.
 - Add clear conflict/move UX for cross-team reassignment.
+- Detailed plan: `docs/plans/2026-02-20-multi-team-builder-plan.md`
 
 ### Milestone 3: Share + Persistence
 - Define compact export/import schema.

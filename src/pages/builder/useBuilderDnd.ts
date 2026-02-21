@@ -65,6 +65,10 @@ export function useBuilderDnd({ onDropPickerAwakener, onDropTeamSlot, onDropTeam
       return
     }
 
+    if (data.kind !== 'team-slot') {
+      return
+    }
+
     if (overId === PICKER_DROP_ZONE_ID) {
       onDropTeamSlotToPicker(data.slotId)
       return
