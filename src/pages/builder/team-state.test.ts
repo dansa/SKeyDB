@@ -112,4 +112,12 @@ describe('builder team state', () => {
     expect(withWheel.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([null, 'demo-wheel'])
     expect(clearedWheel.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([null, null])
   })
+
+  it('blocks assigning wheels to slots without an awakener', () => {
+    const slots = teamSlotsForTests()
+    const result = assignWheelToSlot(slots, 'slot-3', 0, 'demo-wheel')
+
+    expect(result.nextSlots).toBe(slots)
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-3')?.wheels).toEqual([null, null])
+  })
 })

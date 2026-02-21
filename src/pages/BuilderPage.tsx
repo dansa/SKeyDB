@@ -4,8 +4,9 @@ import { awakenerByName } from './builder/constants'
 import { BuilderActiveTeamPanel } from './builder/BuilderActiveTeamPanel'
 import { BuilderSelectionPanel } from './builder/BuilderSelectionPanel'
 import { BuilderTeamsPanel } from './builder/BuilderTeamsPanel'
+import { BuilderImportExportDialogs } from './builder/BuilderImportExportDialogs'
+import { BuilderConfirmDialogs } from './builder/BuilderConfirmDialogs'
 import { PickerAwakenerGhost, TeamCardGhost } from './builder/DragGhosts'
-import { ConfirmDialog } from '../components/ui/ConfirmDialog'
 import { Toast } from '../components/ui/Toast'
 import {
   assignAwakenerToFirstEmptySlot,
@@ -18,13 +19,14 @@ import { useBuilderDnd } from './builder/useBuilderDnd'
 import { useBuilderDndCoordinator } from './builder/useBuilderDndCoordinator'
 import { useTransferConfirm } from './builder/useTransferConfirm'
 import { useBuilderViewModel } from './builder/useBuilderViewModel'
+import { useBuilderImportExport } from './builder/useBuilderImportExport'
+import { usePendingTransferDialog } from './builder/usePendingTransferDialog'
+import { usePendingDeleteDialog } from './builder/usePendingDeleteDialog'
 import { getAwakenerIdentityKey } from '../domain/awakener-identity'
-import { addTeam, deleteTeam, reorderTeams } from './builder/team-collection'
-import { formatAwakenerNameForUi } from '../domain/name-format'
+import { addTeam, reorderTeams } from './builder/team-collection'
 
 export function BuilderPage() {
   const [toastMessage, setToastMessage] = useState<string | null>(null)
-  const [pendingDeleteTeam, setPendingDeleteTeam] = useState<{ id: string; name: string } | null>(null)
   const toastTimeoutRef = useRef<number | null>(null)
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const { pendingTransfer, requestAwakenerTransfer, requestPosseTransfer, clearTransfer } = useTransferConfirm()
@@ -79,19 +81,6 @@ export function BuilderPage() {
       setToastMessage(null)
       toastTimeoutRef.current = null
     }, duration)
-  }
-
-  function clearPendingDelete() {
-    setPendingDeleteTeam(null)
-  }
-
-  function applyDeleteTeam(teamId: string) {
-    const result = deleteTeam(teams, teamId, effectiveActiveTeamId)
-    setTeams(result.nextTeams)
-    setActiveTeamId(result.nextActiveTeamId)
-    if (teamId === effectiveActiveTeamId) {
-      setActiveSelection(null)
-    }
   }
 
   function notifyViolation(violation: TeamStateViolationCode | undefined) {
@@ -175,6 +164,55 @@ export function BuilderPage() {
     onDragCancel: handleDragCancel,
   })
 
+  const {
+    clearPendingDelete,
+    requestDeleteTeam,
+    pendingDeleteDialog,
+  } = usePendingDeleteDialog({
+    teams,
+    setTeams,
+    effectiveActiveTeamId,
+    setActiveTeamId,
+    clearActiveSelection: () => setActiveSelection(null),
+  })
+
+  const {
+    isImportDialogOpen,
+    openImportDialog,
+    submitImportCode,
+    closeImportFlow,
+    exportDialog,
+    closeExportDialog,
+    openExportAllDialog,
+    openTeamExportDialog,
+    pendingReplaceImport,
+    cancelReplaceImport,
+    confirmReplaceImport,
+    pendingStrategyImport,
+    pendingStrategyConflictSummary,
+    cancelStrategyImport,
+    applyMoveStrategyImport,
+    applySkipStrategyImport,
+  } = useBuilderImportExport({
+    teams,
+    setTeams,
+    effectiveActiveTeamId,
+    activeTeam,
+    teamSlots,
+    setActiveTeamId,
+    setActiveSelection: () => setActiveSelection(null),
+    clearTransfer,
+    clearPendingDelete,
+    showToast,
+  })
+
+  const pendingTransferDialog = usePendingTransferDialog({
+    pendingTransfer,
+    teams,
+    setTeams,
+    clearTransfer,
+  })
+
   return (
     <DndContext
       onDragCancel={handleCoordinatedDragCancel}
@@ -211,6 +249,12 @@ export function BuilderPage() {
                 const result = addTeam(teams)
                 setTeams(result.nextTeams)
               }}
+              onExportAll={() => {
+                openExportAllDialog()
+              }}
+              onExportTeam={(teamId) => {
+                openTeamExportDialog(teamId)
+              }}
               onBeginTeamRename={(teamId, currentName) => {
                 clearPendingDelete()
                 clearTransfer()
@@ -221,13 +265,7 @@ export function BuilderPage() {
               onDeleteTeam={(teamId, teamName) => {
                 clearTransfer()
                 cancelTeamRename()
-                const team = teams.find((entry) => entry.id === teamId)
-                const hasAnyAwakener = team?.slots.some((slot) => slot.awakenerName)
-                if (!hasAnyAwakener) {
-                  applyDeleteTeam(teamId)
-                  return
-                }
-                setPendingDeleteTeam({ id: teamId, name: teamName })
+                requestDeleteTeam(teamId, teamName)
               }}
               onEditTeam={(teamId) => {
                 clearPendingDelete()
@@ -237,6 +275,12 @@ export function BuilderPage() {
                 setActiveSelection(null)
               }}
               onEditingTeamNameChange={setEditingTeamName}
+              onOpenImport={() => {
+                clearPendingDelete()
+                clearTransfer()
+                cancelTeamRename()
+                openImportDialog()
+              }}
               posses={pickerPosses}
               teams={teams}
             />
@@ -327,93 +371,28 @@ export function BuilderPage() {
         ) : null}
       </DragOverlay>
 
-      {pendingDeleteTeam ? (
-        <ConfirmDialog
-          cancelLabel="Cancel"
-          confirmLabel="Delete Team"
-          message={`Remove ${pendingDeleteTeam.name}? This cannot be undone.`}
-          onCancel={clearPendingDelete}
-          onConfirm={() => {
-            applyDeleteTeam(pendingDeleteTeam.id)
-            clearPendingDelete()
-          }}
-          title={`Delete ${pendingDeleteTeam.name}`}
-        />
-      ) : null}
+      <BuilderConfirmDialogs
+        deleteDialog={pendingDeleteDialog}
+        onCancelDelete={clearPendingDelete}
+        onCancelTransfer={clearTransfer}
+        transferDialog={pendingTransferDialog}
+      />
 
-      {pendingTransfer ? (
-        <ConfirmDialog
-          cancelLabel="Cancel"
-          confirmLabel="Move"
-          message={`${pendingTransfer.kind === 'awakener' ? formatAwakenerNameForUi(pendingTransfer.itemName) : pendingTransfer.itemName} is already used in ${
-            teams.find((team) => team.id === pendingTransfer.fromTeamId)?.name ?? 'another team'
-          }. Move to ${teams.find((team) => team.id === pendingTransfer.toTeamId)?.name ?? 'active team'}?`}
-          onCancel={clearTransfer}
-          onConfirm={() => {
-            if (pendingTransfer.kind === 'awakener') {
-              const identityKey = getAwakenerIdentityKey(pendingTransfer.awakenerName)
-              setTeams((prev) => {
-                const fromTeam = prev.find((team) => team.id === pendingTransfer.fromTeamId)
-                const toTeam = prev.find((team) => team.id === pendingTransfer.toTeamId)
-                if (!fromTeam || !toTeam) {
-                  return prev
-                }
-
-                const moveResult = pendingTransfer.targetSlotId
-                  ? assignAwakenerToSlot(
-                      toTeam.slots,
-                      pendingTransfer.awakenerName,
-                      pendingTransfer.targetSlotId,
-                      awakenerByName,
-                    )
-                  : assignAwakenerToFirstEmptySlot(toTeam.slots, pendingTransfer.awakenerName, awakenerByName)
-                if (moveResult.violation || moveResult.nextSlots === toTeam.slots) {
-                  return prev
-                }
-
-                const sourceSlot = fromTeam.slots.find(
-                  (slot) => slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === identityKey,
-                )
-                const clearedFromSlots = sourceSlot
-                  ? clearSlotAssignment(fromTeam.slots, sourceSlot.slotId).nextSlots
-                  : fromTeam.slots
-
-                return prev.map((team) => {
-                  if (team.id === fromTeam.id) {
-                    return {
-                      ...team,
-                      slots: clearedFromSlots,
-                    }
-                  }
-                  if (team.id === toTeam.id) {
-                    return {
-                      ...team,
-                      slots: moveResult.nextSlots,
-                    }
-                  }
-                  return team
-                })
-              })
-              clearTransfer()
-              return
-            }
-
-            setTeams((prev) =>
-              prev.map((team) => {
-                if (team.id === pendingTransfer.fromTeamId) {
-                  return { ...team, posseId: undefined }
-                }
-                if (team.id === pendingTransfer.toTeamId) {
-                  return { ...team, posseId: pendingTransfer.posseId }
-                }
-                return team
-              }),
-            )
-            clearTransfer()
-          }}
-          title={`Move ${pendingTransfer.kind === 'awakener' ? formatAwakenerNameForUi(pendingTransfer.itemName) : pendingTransfer.itemName}`}
-        />
-      ) : null}
+      <BuilderImportExportDialogs
+        exportDialog={exportDialog}
+        isImportDialogOpen={isImportDialogOpen}
+        onCancelImport={closeImportFlow}
+        onCancelReplaceImport={cancelReplaceImport}
+        onCancelStrategyImport={cancelStrategyImport}
+        onCloseExportDialog={closeExportDialog}
+        onConfirmReplaceImport={confirmReplaceImport}
+        onMoveStrategyImport={applyMoveStrategyImport}
+        onSkipStrategyImport={applySkipStrategyImport}
+        onSubmitImport={submitImportCode}
+        pendingReplaceImport={pendingReplaceImport}
+        pendingStrategyConflictSummary={pendingStrategyConflictSummary}
+        pendingStrategyImport={pendingStrategyImport}
+      />
 
       <Toast message={toastMessage} />
     </DndContext>

@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState, type MutableRefObject } from 'react'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
 import { getPosses } from '../../domain/posses'
-import { getPosseAssetBySlug } from '../../domain/posse-assets'
+import { getPosseAssetById } from '../../domain/posse-assets'
 import { searchAwakeners } from '../../domain/awakeners-search'
 import { searchPosses } from '../../domain/posses-search'
 import { allAwakeners } from './constants'
@@ -65,7 +65,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     () => pickerPosses.find((posse) => posse.id === activePosseId),
     [activePosseId, pickerPosses],
   )
-  const activePosseAsset = activePosse ? getPosseAssetBySlug(activePosse.assetSlug) : undefined
+  const activePosseAsset = activePosse ? getPosseAssetById(activePosse.id) : undefined
   const activeSearchQuery = pickerSearchByTab[pickerTab]
 
   const searchedAwakeners = useMemo(

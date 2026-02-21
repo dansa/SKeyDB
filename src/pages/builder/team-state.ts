@@ -186,6 +186,14 @@ export function assignWheelToSlot(
     return { nextSlots: currentSlots }
   }
 
+  const targetSlot = currentSlots.find((slot) => slot.slotId === slotId)
+  if (!targetSlot) {
+    return { nextSlots: currentSlots }
+  }
+  if (wheelId && !targetSlot.awakenerName) {
+    return { nextSlots: currentSlots }
+  }
+
   const nextSlots = currentSlots.map((slot) => {
     if (slot.slotId !== slotId) {
       return slot

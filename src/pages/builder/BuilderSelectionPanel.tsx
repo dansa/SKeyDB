@@ -2,7 +2,7 @@ import type { MutableRefObject } from 'react'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import type { Awakener } from '../../domain/awakeners'
 import type { Posse } from '../../domain/posses'
-import { getPosseAssetBySlug } from '../../domain/posse-assets'
+import { getPosseAssetById } from '../../domain/posse-assets'
 import { PickerDropZone } from './PickerDropZone'
 import { PickerAwakenerTile } from './PickerAwakenerTile'
 import { PICKER_DROP_ZONE_ID } from './useBuilderDnd'
@@ -190,7 +190,7 @@ export function BuilderSelectionPanel({
                 </button>
 
                 {filteredPosses.map((posse) => {
-                  const posseAsset = getPosseAssetBySlug(posse.assetSlug)
+                  const posseAsset = getPosseAssetById(posse.id)
                   const isActive = activePosseId === posse.id
                   const usedByTeamOrder = usedPosseByTeamOrder.get(posse.id)
                   const usedByTeam = usedByTeamOrder === undefined ? undefined : teams[usedByTeamOrder]

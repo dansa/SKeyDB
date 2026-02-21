@@ -1,6 +1,6 @@
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import tempPosseIcon from '../../assets/posse/temposse.png'
+import tempPosseIcon from '../../assets/posse/00-temposse.png'
 import { getAwakenerPortraitAsset } from '../../domain/awakener-assets'
 import { getFactionTint } from '../../domain/factions'
 import type { Team } from './types'
@@ -16,6 +16,7 @@ type BuilderTeamRowProps = {
   onCommitTeamRename: (teamId: string) => void
   onCancelTeamRename: () => void
   onEditTeam: (teamId: string) => void
+  onExportTeam: (teamId: string) => void
   onDeleteTeam: (teamId: string, teamName: string) => void
   deleteDisabled: boolean
 }
@@ -31,6 +32,7 @@ export function BuilderTeamRow({
   onCommitTeamRename,
   onCancelTeamRename,
   onEditTeam,
+  onExportTeam,
   onDeleteTeam,
   deleteDisabled,
 }: BuilderTeamRowProps) {
@@ -213,6 +215,16 @@ export function BuilderTeamRow({
           />
         </span>
         <div className="py-1.5">
+          <button
+            className="mb-1 block w-full border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45"
+            onClick={(event) => {
+              event.stopPropagation()
+              onExportTeam(team.id)
+            }}
+            type="button"
+          >
+            Export
+          </button>
           <button
             className="border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45 disabled:opacity-35"
             disabled={deleteDisabled}

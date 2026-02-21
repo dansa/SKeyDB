@@ -1,5 +1,5 @@
 import { DEFAULT_FACTION_TINT, getFactionIcon, getFactionLabel, getFactionTint, normalizeFactionId } from '../../domain/factions'
-import tempPosseIcon from '../../assets/posse/temposse.png'
+import tempPosseIcon from '../../assets/posse/00-temposse.png'
 import type { CSSProperties } from 'react'
 
 type ActiveTeamHeaderProps = {

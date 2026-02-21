@@ -3,6 +3,21 @@ import { within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { BuilderPage } from './BuilderPage'
+import { encodeMultiTeamCode, encodeSingleTeamCode } from '../domain/import-export'
+import type { Team } from './builder/types'
+
+function makeImportTeam(name: string, awakenerName: string): Team {
+  return {
+    id: `${name}-id`,
+    name,
+    slots: [
+      { slotId: 'slot-1', awakenerName, faction: 'AEQUOR', level: 60, wheels: [null, null] },
+      { slotId: 'slot-2', wheels: [null, null] },
+      { slotId: 'slot-3', wheels: [null, null] },
+      { slotId: 'slot-4', wheels: [null, null] },
+    ],
+  }
+}
 
 describe('BuilderPage placeholders', () => {
   it('uses icon-only empty placeholders without helper text', () => {
@@ -261,6 +276,61 @@ describe('BuilderPage placeholders', () => {
 
     expect(screen.queryByRole('dialog', { name: /move goliath/i })).not.toBeInTheDocument()
     expect(screen.getByText(/invalid move: a team can only contain up to 2 factions/i)).toBeInTheDocument()
+  })
+
+  it('exports and imports a single team using t1 code', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    const t1Code = encodeSingleTeamCode(makeImportTeam('Imported Team', 'goliath'))
+
+    await user.click(screen.getByRole('button', { name: /import/i }))
+    const importDialog = screen.getByRole('dialog', { name: /import teams/i })
+    await user.type(within(importDialog).getByRole('textbox', { name: /import code/i }), t1Code)
+    await user.click(within(importDialog).getByRole('button', { name: /^import$/i }))
+
+    expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
+    expect(screen.getByText(/team imported/i)).toBeInTheDocument()
+  })
+
+  it('imports mt1 code after replace confirmation', async () => {
+    const user = userEvent.setup()
+    const teamA = makeImportTeam('Alpha', 'goliath')
+    const teamB = makeImportTeam('Beta', 'ramona')
+    const mtCode = encodeMultiTeamCode([teamA, teamB], teamB.id)
+    const { container } = render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /import/i }))
+    const importDialog = screen.getByRole('dialog', { name: /import teams/i })
+    await user.type(within(importDialog).getByRole('textbox', { name: /import code/i }), mtCode)
+    await user.click(within(importDialog).getByRole('button', { name: /^import$/i }))
+
+    expect(screen.getByRole('dialog', { name: /replace current teams/i })).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: /^replace$/i }))
+
+    expect(container.querySelector('[data-team-name="Team 1"]')).not.toBeNull()
+    expect(container.querySelector('[data-team-name="Team 2"]')).not.toBeNull()
+    expect(screen.getByRole('button', { name: /change ramona/i })).toBeInTheDocument()
+  })
+
+  it('imports t1 into active team when active team is empty', async () => {
+    const user = userEvent.setup()
+    const t1Code = encodeSingleTeamCode(makeImportTeam('Imported Team', 'goliath'))
+    const { container } = render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /\+ add team/i }))
+    const team2Row = container.querySelector('[data-team-name="Team 2"]')
+    expect(team2Row).not.toBeNull()
+    await user.click(within(team2Row as HTMLElement).getByText('Team 2'))
+
+    await user.click(screen.getByRole('button', { name: /import/i }))
+    const importDialog = screen.getByRole('dialog', { name: /import teams/i })
+    await user.type(within(importDialog).getByRole('textbox', { name: /import code/i }), t1Code)
+    await user.click(within(importDialog).getByRole('button', { name: /^import$/i }))
+
+    expect(container.querySelector('[data-team-name="Team 3"]')).toBeNull()
+    expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /team 2/i })).toBeInTheDocument()
   })
 
 })
