@@ -4,8 +4,8 @@ import possesLite from '../data/posses-lite.json'
 const rawPossesSchema = z.array(
   z.object({
     id: z.string().trim().min(1),
+    index: z.number().int().nonnegative(),
     name: z.string().trim().min(1),
-    assetSlug: z.string().trim().min(1),
     faction: z.string().trim().min(1),
     isFadedLegacy: z.boolean(),
     awakenerName: z.string().trim().min(1).optional(),
@@ -14,8 +14,8 @@ const rawPossesSchema = z.array(
 
 export type Posse = {
   id: string
+  index: number
   name: string
-  assetSlug: string
   faction: string
   isFadedLegacy: boolean
   awakenerName?: string

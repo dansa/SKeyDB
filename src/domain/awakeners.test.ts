@@ -7,13 +7,23 @@ describe('getAwakeners', () => {
 
     expect(awakeners.length).toBeGreaterThan(0)
     expect(awakeners[0]).toEqual({
+      id: expect.any(Number),
       name: expect.any(String),
       faction: expect.any(String),
       aliases: expect.any(Array),
     })
+    expect(awakeners.every((a) => Number.isInteger(a.id) && a.id > 0)).toBe(true)
     expect(awakeners.every((a) => a.name.trim().length > 0)).toBe(true)
     expect(awakeners.every((a) => a.faction.trim().length > 0)).toBe(true)
     expect(awakeners.every((a) => a.aliases.length > 0)).toBe(true)
+  })
+
+  it('assigns unique stable ids to all awakeners', () => {
+    const awakeners = getAwakeners()
+    const ids = awakeners.map((a) => a.id)
+    const uniqueIds = new Set(ids)
+
+    expect(uniqueIds.size).toBe(ids.length)
   })
 
   it('maps known alternate names to canonical display names', () => {

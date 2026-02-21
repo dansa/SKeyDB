@@ -3,6 +3,7 @@ import awakenersLite from '../data/awakeners-lite.json'
 
 const rawAwakenersSchema = z.array(
   z.object({
+    id: z.number().int().positive(),
     name: z.string().trim().min(1),
     faction: z.string().trim().min(1),
   }),
@@ -25,6 +26,7 @@ const aliasesByCanonicalName: Record<string, string[]> = {
 }
 
 export type Awakener = {
+  id: number
   name: string
   faction: string
   aliases: string[]
@@ -37,6 +39,7 @@ const parsedAwakeners = rawAwakenersSchema.parse(awakenersLite).map((awakener): 
   )
 
   return {
+    id: awakener.id,
     name: canonicalName,
     faction: awakener.faction,
     aliases,

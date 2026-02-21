@@ -1,0 +1,494 @@
+[
+  {
+    "id": "B01",
+    "assetId": "Weapon_Full_B01"
+  },
+  {
+    "id": "B02",
+    "assetId": "Weapon_Full_B02"
+  },
+  {
+    "id": "B03",
+    "assetId": "Weapon_Full_B03"
+  },
+  {
+    "id": "B04",
+    "assetId": "Weapon_Full_B04"
+  },
+  {
+    "id": "B05",
+    "assetId": "Weapon_Full_B05"
+  },
+  {
+    "id": "B05EX",
+    "assetId": "Weapon_Full_B05EX"
+  },
+  {
+    "id": "B06",
+    "assetId": "Weapon_Full_B06"
+  },
+  {
+    "id": "B07",
+    "assetId": "Weapon_Full_B07"
+  },
+  {
+    "id": "B08",
+    "assetId": "Weapon_Full_B08"
+  },
+  {
+    "id": "B09",
+    "assetId": "Weapon_Full_B09"
+  },
+  {
+    "id": "B10",
+    "assetId": "Weapon_Full_B10"
+  },
+  {
+    "id": "B12",
+    "assetId": "Weapon_Full_B12"
+  },
+  {
+    "id": "B14",
+    "assetId": "Weapon_Full_B14"
+  },
+  {
+    "id": "C01",
+    "assetId": "Weapon_Full_C01"
+  },
+  {
+    "id": "C02",
+    "assetId": "Weapon_Full_C02"
+  },
+  {
+    "id": "C02EX",
+    "assetId": "Weapon_Full_C02EX"
+  },
+  {
+    "id": "C03",
+    "assetId": "Weapon_Full_C03"
+  },
+  {
+    "id": "C04",
+    "assetId": "Weapon_Full_C04"
+  },
+  {
+    "id": "C05",
+    "assetId": "Weapon_Full_C05"
+  },
+  {
+    "id": "C06",
+    "assetId": "Weapon_Full_C06"
+  },
+  {
+    "id": "C07",
+    "assetId": "Weapon_Full_C07"
+  },
+  {
+    "id": "C08",
+    "assetId": "Weapon_Full_C08"
+  },
+  {
+    "id": "C09",
+    "assetId": "Weapon_Full_C09"
+  },
+  {
+    "id": "C10",
+    "assetId": "Weapon_Full_C10"
+  },
+  {
+    "id": "C11",
+    "assetId": "Weapon_Full_C11"
+  },
+  {
+    "id": "C12",
+    "assetId": "Weapon_Full_C12"
+  },
+  {
+    "id": "C15",
+    "assetId": "Weapon_Full_C15"
+  },
+  {
+    "id": "C16",
+    "assetId": "Weapon_Full_C16"
+  },
+  {
+    "id": "C17",
+    "assetId": "Weapon_Full_C17"
+  },
+  {
+    "id": "D01",
+    "assetId": "Weapon_Full_D01"
+  },
+  {
+    "id": "D02",
+    "assetId": "Weapon_Full_D02"
+  },
+  {
+    "id": "D03",
+    "assetId": "Weapon_Full_D03"
+  },
+  {
+    "id": "D04",
+    "assetId": "Weapon_Full_D04"
+  },
+  {
+    "id": "D05",
+    "assetId": "Weapon_Full_D05"
+  },
+  {
+    "id": "D06",
+    "assetId": "Weapon_Full_D06"
+  },
+  {
+    "id": "D07",
+    "assetId": "Weapon_Full_D07"
+  },
+  {
+    "id": "D08",
+    "assetId": "Weapon_Full_D08"
+  },
+  {
+    "id": "D09",
+    "assetId": "Weapon_Full_D09"
+  },
+  {
+    "id": "D11",
+    "assetId": "Weapon_Full_D11"
+  },
+  {
+    "id": "D12",
+    "assetId": "Weapon_Full_D12"
+  },
+  {
+    "id": "D13",
+    "assetId": "Weapon_Full_D13"
+  },
+  {
+    "id": "D14",
+    "assetId": "Weapon_Full_D14"
+  },
+  {
+    "id": "JP01",
+    "assetId": "Weapon_Full_JP01"
+  },
+  {
+    "id": "JP02",
+    "assetId": "Weapon_Full_JP02"
+  },
+  {
+    "id": "JP03",
+    "assetId": "Weapon_Full_JP03"
+  },
+  {
+    "id": "JP04",
+    "assetId": "Weapon_Full_JP04"
+  },
+  {
+    "id": "N01",
+    "assetId": "Weapon_Full_N01"
+  },
+  {
+    "id": "O01",
+    "assetId": "Weapon_Full_O01"
+  },
+  {
+    "id": "O02",
+    "assetId": "Weapon_Full_O02"
+  },
+  {
+    "id": "O03",
+    "assetId": "Weapon_Full_O03"
+  },
+  {
+    "id": "O04",
+    "assetId": "Weapon_Full_O04"
+  },
+  {
+    "id": "O05",
+    "assetId": "Weapon_Full_O05"
+  },
+  {
+    "id": "O06",
+    "assetId": "Weapon_Full_O06"
+  },
+  {
+    "id": "O07",
+    "assetId": "Weapon_Full_O07"
+  },
+  {
+    "id": "O08",
+    "assetId": "Weapon_Full_O08"
+  },
+  {
+    "id": "O09",
+    "assetId": "Weapon_Full_O09"
+  },
+  {
+    "id": "O10",
+    "assetId": "Weapon_Full_O10"
+  },
+  {
+    "id": "O11",
+    "assetId": "Weapon_Full_O11"
+  },
+  {
+    "id": "P01",
+    "assetId": "Weapon_Full_P01"
+  },
+  {
+    "id": "P02",
+    "assetId": "Weapon_Full_P02"
+  },
+  {
+    "id": "P03",
+    "assetId": "Weapon_Full_P03"
+  },
+  {
+    "id": "P04",
+    "assetId": "Weapon_Full_P04"
+  },
+  {
+    "id": "P05",
+    "assetId": "Weapon_Full_P05"
+  },
+  {
+    "id": "P06",
+    "assetId": "Weapon_Full_P06"
+  },
+  {
+    "id": "P07",
+    "assetId": "Weapon_Full_P07"
+  },
+  {
+    "id": "P08",
+    "assetId": "Weapon_Full_P08"
+  },
+  {
+    "id": "P09",
+    "assetId": "Weapon_Full_P09"
+  },
+  {
+    "id": "P10",
+    "assetId": "Weapon_Full_P10"
+  },
+  {
+    "id": "P11",
+    "assetId": "Weapon_Full_P11"
+  },
+  {
+    "id": "P12",
+    "assetId": "Weapon_Full_P12"
+  },
+  {
+    "id": "P13",
+    "assetId": "Weapon_Full_P13"
+  },
+  {
+    "id": "P14",
+    "assetId": "Weapon_Full_P14"
+  },
+  {
+    "id": "P15",
+    "assetId": "Weapon_Full_P15"
+  },
+  {
+    "id": "P16",
+    "assetId": "Weapon_Full_P16"
+  },
+  {
+    "id": "SR01",
+    "assetId": "Weapon_Full_SR01"
+  },
+  {
+    "id": "SR02",
+    "assetId": "Weapon_Full_SR02"
+  },
+  {
+    "id": "SR03",
+    "assetId": "Weapon_Full_SR03"
+  },
+  {
+    "id": "SR04",
+    "assetId": "Weapon_Full_SR04"
+  },
+  {
+    "id": "SR05",
+    "assetId": "Weapon_Full_SR05"
+  },
+  {
+    "id": "SR06",
+    "assetId": "Weapon_Full_SR06"
+  },
+  {
+    "id": "SR07",
+    "assetId": "Weapon_Full_SR07"
+  },
+  {
+    "id": "SR08",
+    "assetId": "Weapon_Full_SR08"
+  },
+  {
+    "id": "SR09",
+    "assetId": "Weapon_Full_SR09"
+  },
+  {
+    "id": "SR10",
+    "assetId": "Weapon_Full_SR10"
+  },
+  {
+    "id": "SR11",
+    "assetId": "Weapon_Full_SR11"
+  },
+  {
+    "id": "SR12",
+    "assetId": "Weapon_Full_SR12"
+  },
+  {
+    "id": "SR13",
+    "assetId": "Weapon_Full_SR13"
+  },
+  {
+    "id": "SR14",
+    "assetId": "Weapon_Full_SR14"
+  },
+  {
+    "id": "SR15",
+    "assetId": "Weapon_Full_SR15"
+  },
+  {
+    "id": "SR16",
+    "assetId": "Weapon_Full_SR16"
+  },
+  {
+    "id": "SR17",
+    "assetId": "Weapon_Full_SR17"
+  },
+  {
+    "id": "SR18",
+    "assetId": "Weapon_Full_SR18"
+  },
+  {
+    "id": "SR19",
+    "assetId": "Weapon_Full_SR19"
+  },
+  {
+    "id": "SR20",
+    "assetId": "Weapon_Full_SR20"
+  },
+  {
+    "id": "SR21",
+    "assetId": "Weapon_Full_SR21"
+  },
+  {
+    "id": "SR22",
+    "assetId": "Weapon_Full_SR22"
+  },
+  {
+    "id": "SR23",
+    "assetId": "Weapon_Full_SR23"
+  },
+  {
+    "id": "SR24",
+    "assetId": "Weapon_Full_SR24"
+  },
+  {
+    "id": "SR25",
+    "assetId": "Weapon_Full_SR25"
+  },
+  {
+    "id": "SR26",
+    "assetId": "Weapon_Full_SR26"
+  },
+  {
+    "id": "SR27",
+    "assetId": "Weapon_Full_SR27"
+  },
+  {
+    "id": "SR28",
+    "assetId": "Weapon_Full_SR28"
+  },
+  {
+    "id": "SR29",
+    "assetId": "Weapon_Full_SR29"
+  },
+  {
+    "id": "SR30",
+    "assetId": "Weapon_Full_SR30"
+  },
+  {
+    "id": "SR31",
+    "assetId": "Weapon_Full_SR31"
+  },
+  {
+    "id": "SR32",
+    "assetId": "Weapon_Full_SR32"
+  },
+  {
+    "id": "SR33",
+    "assetId": "Weapon_Full_SR33"
+  },
+  {
+    "id": "SR34",
+    "assetId": "Weapon_Full_SR34"
+  },
+  {
+    "id": "SR35",
+    "assetId": "Weapon_Full_SR35"
+  },
+  {
+    "id": "SR39",
+    "assetId": "Weapon_Full_SR39"
+  },
+  {
+    "id": "SR40",
+    "assetId": "Weapon_Full_SR40"
+  },
+  {
+    "id": "SR41",
+    "assetId": "Weapon_Full_SR41"
+  },
+  {
+    "id": "SR42",
+    "assetId": "Weapon_Full_SR42"
+  },
+  {
+    "id": "SR43",
+    "assetId": "Weapon_Full_SR43"
+  },
+  {
+    "id": "SR44",
+    "assetId": "Weapon_Full_SR44"
+  },
+  {
+    "id": "SR45",
+    "assetId": "Weapon_Full_SR45"
+  },
+  {
+    "id": "ZL01",
+    "assetId": "Weapon_Full_ZL01"
+  },
+  {
+    "id": "ZL02",
+    "assetId": "Weapon_Full_ZL02"
+  },
+  {
+    "id": "ZL03",
+    "assetId": "Weapon_Full_ZL03"
+  },
+  {
+    "id": "ZL04",
+    "assetId": "Weapon_Full_ZL04"
+  },
+  {
+    "id": "ZL05",
+    "assetId": "Weapon_Full_ZL05"
+  },
+  {
+    "id": "ZL06",
+    "assetId": "Weapon_Full_ZL06"
+  },
+  {
+    "id": "ZL07",
+    "assetId": "Weapon_Full_ZL07"
+  }
+]

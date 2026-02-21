@@ -5,13 +5,13 @@ const posseAssets = import.meta.glob('../assets/posse/*.png', {
 
 function basenameWithoutExt(assetPath: string): string {
   const filename = assetPath.split('/').at(-1) ?? assetPath
-  return filename.replace(/\.png$/i, '')
+  return filename.replace(/\.png$/i, '').replace(/^\d{2}-/, '')
 }
 
-const posseAssetBySlug = new Map(
+const posseAssetById = new Map(
   Object.entries(posseAssets).map(([assetPath, url]) => [basenameWithoutExt(assetPath), url]),
 )
 
-export function getPosseAssetBySlug(assetSlug: string): string | undefined {
-  return posseAssetBySlug.get(assetSlug)
+export function getPosseAssetById(posseId: string): string | undefined {
+  return posseAssetById.get(posseId)
 }

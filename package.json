@@ -11,6 +11,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "verify": "npm run lint && npm run test -- --run && npm run build",
+    "data:sync-awakener-ids": "node scripts/sync-awakener-ids.mjs",
+    "data:sync-posse-indices": "node scripts/sync-posse-indices.mjs",
+    "data:sync-wheel-data": "node scripts/sync-wheel-data.mjs",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {

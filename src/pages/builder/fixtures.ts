@@ -2,12 +2,12 @@ import type { Awakener } from '../../domain/awakeners'
 import type { TeamSlot } from './types'
 
 export const awakenersByNameForTests = new Map<string, Awakener>([
-  ['Goliath', { name: 'Goliath', faction: 'AEQUOR', aliases: ['Goliath'] }],
-  ['Miryam', { name: 'Miryam', faction: 'AEQUOR', aliases: ['Miryam'] }],
-  ['Ramona', { name: 'Ramona', faction: 'CHAOS', aliases: ['Ramona'] }],
-  ['Ramona: Timeworn', { name: 'Ramona: Timeworn', faction: 'CHAOS', aliases: ['Ramona: Timeworn'] }],
-  ['Castor', { name: 'Castor', faction: 'CARO', aliases: ['Castor'] }],
-  ['Helot', { name: 'Helot', faction: 'CHAOS', aliases: ['Helot'] }],
+  ['Goliath', { id: 1, name: 'Goliath', faction: 'AEQUOR', aliases: ['Goliath'] }],
+  ['Miryam', { id: 2, name: 'Miryam', faction: 'AEQUOR', aliases: ['Miryam'] }],
+  ['Ramona', { id: 3, name: 'Ramona', faction: 'CHAOS', aliases: ['Ramona'] }],
+  ['Ramona: Timeworn', { id: 4, name: 'Ramona: Timeworn', faction: 'CHAOS', aliases: ['Ramona: Timeworn'] }],
+  ['Castor', { id: 5, name: 'Castor', faction: 'CARO', aliases: ['Castor'] }],
+  ['Helot', { id: 6, name: 'Helot', faction: 'CHAOS', aliases: ['Helot'] }],
 ])
 
 export function teamSlotsForTests(): TeamSlot[] {

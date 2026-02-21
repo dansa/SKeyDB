@@ -1,214 +1,267 @@
 [
   {
     "name": "24",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 1
   },
   {
     "name": "agrippa",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 2
   },
   {
     "name": "aigis",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 3
   },
   {
     "name": "alva",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 4
   },
   {
     "name": "aurita",
-    "faction": "AEQUOR"
+    "faction": "AEQUOR",
+    "id": 5
   },
   {
     "name": "caecus",
-    "faction": "AEQUOR"
+    "faction": "AEQUOR",
+    "id": 6
   },
   {
     "name": "casiah",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 7
   },
   {
     "name": "castor",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 8
   },
   {
     "name": "celeste",
-    "faction": "AEQUOR"
+    "faction": "AEQUOR",
+    "id": 9
   },
   {
     "name": "clementine",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 10
   },
   {
     "name": "corposant",
-    "faction": "AEQUOR"
+    "faction": "AEQUOR",
+    "id": 11
   },
   {
     "name": "daffodil",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 12
   },
   {
     "name": "doll",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 13
   },
   {
     "name": "doresain",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 14
   },
   {
     "name": "erica",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 15
   },
   {
     "name": "faint",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 16
   },
   {
     "name": "faros",
-    "faction": "AEQUOR"
+    "faction": "AEQUOR",
+    "id": 17
   },
   {
     "name": "doll: inferno",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 18
   },
   {
     "name": "helot: catena",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 19
   },
   {
     "name": "ramona: timeworn",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 20
   },
   {
     "name": "goliath",
-    "faction": "AEQUOR"
+    "faction": "AEQUOR",
+    "id": 21
   },
   {
     "name": "hameln",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 22
   },
   {
     "name": "helot",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 23
   },
   {
     "name": "horla",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 24
   },
   {
     "name": "jenkins",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 25
   },
   {
     "name": "karen",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 26
   },
   {
     "name": "kathigu-ra",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 27
   },
   {
     "name": "leigh",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 28
   },
   {
     "name": "lily",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 29
   },
   {
     "name": "liz",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 30
   },
   {
     "name": "lotan",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 31
   },
   {
     "name": "miryam",
-    "faction": "AEQUOR"
+    "faction": "AEQUOR",
+    "id": 32
   },
   {
     "name": "mouchette",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 33
   },
   {
     "name": "murphy",
-    "faction": "AEQUOR"
+    "faction": "AEQUOR",
+    "id": 34
   },
   {
     "name": "murphy: fauxborn",
-    "faction": "AEQUOR"
+    "faction": "AEQUOR",
+    "id": 35
   },
   {
     "name": "nautila",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 36
   },
   {
     "name": "nymphaea",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 37
   },
   {
     "name": "ogier",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 38
   },
   {
     "name": "pandia",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 39
   },
   {
     "name": "pickman",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 40
   },
   {
     "name": "pollux",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 41
   },
   {
     "name": "ramona",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 42
   },
   {
     "name": "ryker",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 43
   },
   {
     "name": "salvador",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 44
   },
   {
     "name": "sanga",
-    "faction": "AEQUOR"
+    "faction": "AEQUOR",
+    "id": 45
   },
   {
     "name": "sorel",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 46
   },
   {
     "name": "tawil",
-    "faction": "CHAOS"
+    "faction": "CHAOS",
+    "id": 47
   },
   {
     "name": "thais",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 48
   },
   {
     "name": "tinct",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 49
   },
   {
     "name": "tulu",
-    "faction": "AEQUOR"
+    "faction": "AEQUOR",
+    "id": 50
   },
   {
     "name": "uvhash",
-    "faction": "CARO"
+    "faction": "CARO",
+    "id": 51
   },
   {
     "name": "wanda",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 52
   },
   {
     "name": "winkle",
-    "faction": "ULTRA"
+    "faction": "ULTRA",
+    "id": 53
   }
 ]

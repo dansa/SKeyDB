@@ -1,369 +1,369 @@
 [
   {
-    "id": "24-all-of-her",
-    "name": "24 All Of Her",
-    "assetSlug": "24-all-of-her",
-    "faction": "CHAOS",
-    "isFadedLegacy": false
-  },
-  {
-    "id": "a-fleeting-dream",
-    "name": "A Fleeting Dream",
-    "assetSlug": "a-fleeting-dream",
-    "faction": "OTHER",
-    "isFadedLegacy": false
-  },
-  {
-    "id": "a-guns-cry",
-    "name": "A Guns Cry",
-    "assetSlug": "a-guns-cry",
-    "faction": "CHAOS",
-    "isFadedLegacy": false,
-    "awakenerName": "ryker"
-  },
-  {
-    "id": "a-mouses-wisdom",
-    "name": "A Mouses Wisdom",
-    "assetSlug": "a-mouses-wisdom",
-    "faction": "ULTRA",
-    "isFadedLegacy": true
-  },
-  {
-    "id": "auritas-treasure",
-    "name": "Auritas Treasure",
-    "assetSlug": "auritas-treasure",
-    "faction": "AEQUOR",
-    "isFadedLegacy": false,
-    "awakenerName": "aurita"
-  },
-  {
-    "id": "beachside-memento",
-    "name": "Beachside Memento",
-    "assetSlug": "beachside-memento",
-    "faction": "OTHER",
-    "isFadedLegacy": false
-  },
-  {
-    "id": "black-swans-dance",
-    "name": "Black Swans Dance",
-    "assetSlug": "black-swans-dance",
-    "faction": "ULTRA",
-    "isFadedLegacy": false,
-    "awakenerName": "liz"
-  },
-  {
-    "id": "blessing-of-the-stars",
-    "name": "Blessing Of The Stars",
-    "assetSlug": "blessing-of-the-stars",
-    "faction": "AEQUOR",
-    "isFadedLegacy": false,
-    "awakenerName": "tulu"
-  },
-  {
-    "id": "bone-chilling-embrace",
-    "name": "Bone Chilling Embrace",
-    "assetSlug": "bone-chilling-embrace",
-    "faction": "AEQUOR",
-    "isFadedLegacy": false,
-    "awakenerName": "sanga"
-  },
-  {
-    "id": "cruel-homage",
-    "name": "Cruel Homage",
-    "assetSlug": "cruel-homage",
-    "faction": "CARO",
-    "isFadedLegacy": false,
-    "awakenerName": "doresain"
-  },
-  {
-    "id": "derision-of-destiny",
-    "name": "Derision Of Destiny",
-    "assetSlug": "derision-of-destiny",
-    "faction": "ULTRA",
-    "isFadedLegacy": false,
-    "awakenerName": "castor"
-  },
-  {
     "id": "encounter-in-pure-white",
     "name": "Encounter In Pure White",
-    "assetSlug": "encounter-in-pure-white",
     "faction": "CHAOS",
     "isFadedLegacy": true,
-    "awakenerName": "lily"
-  },
-  {
-    "id": "ephemeral-eternity",
-    "name": "Ephemeral Eternity",
-    "assetSlug": "ephemeral-eternity",
-    "faction": "ULTRA",
-    "isFadedLegacy": false,
-    "awakenerName": "erica"
-  },
-  {
-    "id": "feast-of-decay",
-    "name": "Feast Of Decay",
-    "assetSlug": "feast-of-decay",
-    "faction": "ULTRA",
-    "isFadedLegacy": false,
-    "awakenerName": "wanda"
-  },
-  {
-    "id": "festival-of-tides",
-    "name": "Festival Of Tides",
-    "assetSlug": "festival-of-tides",
-    "faction": "AEQUOR",
-    "isFadedLegacy": false,
-    "awakenerName": "miryam"
-  },
-  {
-    "id": "from-the-mist-realm",
-    "name": "From The Mist Realm",
-    "assetSlug": "from-the-mist-realm",
-    "faction": "CHAOS",
-    "isFadedLegacy": false,
-    "awakenerName": "mouchette"
-  },
-  {
-    "id": "funus-aeternum",
-    "name": "Funus Aeternum",
-    "assetSlug": "funus-aeternum",
-    "faction": "AEQUOR",
-    "isFadedLegacy": true,
-    "awakenerName": "murphy"
-  },
-  {
-    "id": "gateway-of-retrospection",
-    "name": "Gateway Of Retrospection",
-    "assetSlug": "gateway-of-retrospection",
-    "faction": "CHAOS",
-    "isFadedLegacy": false,
-    "awakenerName": "ramona: timeworn"
-  },
-  {
-    "id": "giants-reign",
-    "name": "Giants Reign",
-    "assetSlug": "giants-reign",
-    "faction": "AEQUOR",
-    "isFadedLegacy": false,
-    "awakenerName": "goliath"
-  },
-  {
-    "id": "lakeside-glimpse",
-    "name": "Lakeside Glimpse",
-    "assetSlug": "lakeside-glimpse",
-    "faction": "CARO",
-    "isFadedLegacy": false,
-    "awakenerName": "agrippa"
-  },
-  {
-    "id": "manor-echoes",
-    "name": "Manor Echoes",
-    "assetSlug": "manor-echoes",
-    "faction": "CARO",
-    "isFadedLegacy": false
-  },
-  {
-    "id": "midsummer-vision",
-    "name": "Midsummer Vision",
-    "assetSlug": "midsummer-vision",
-    "faction": "CHAOS",
-    "isFadedLegacy": false,
-    "awakenerName": "lily"
-  },
-  {
-    "id": "miracles-dawn",
-    "name": "Miracles Dawn",
-    "assetSlug": "miracles-dawn",
-    "faction": "CARO",
-    "isFadedLegacy": false,
-    "awakenerName": "salvador"
-  },
-  {
-    "id": "obsession-eternal",
-    "name": "Obsession Eternal",
-    "assetSlug": "obsession-eternal",
-    "faction": "AEQUOR",
-    "isFadedLegacy": true,
-    "awakenerName": "miryam"
-  },
-  {
-    "id": "plague-of-illusions",
-    "name": "Plague Of Illusions",
-    "assetSlug": "plague-of-illusions",
-    "faction": "CHAOS",
-    "isFadedLegacy": false,
-    "awakenerName": "doll: inferno"
-  },
-  {
-    "id": "reunions-wish",
-    "name": "Reunions Wish",
-    "assetSlug": "reunions-wish",
-    "faction": "OTHER",
-    "isFadedLegacy": false,
-    "awakenerName": "ramona: timeworn"
-  },
-  {
-    "id": "roaring-blood-and-sand",
-    "name": "Roaring Blood And Sand",
-    "assetSlug": "roaring-blood-and-sand",
-    "faction": "CARO",
-    "isFadedLegacy": false,
-    "awakenerName": "uvhash"
-  },
-  {
-    "id": "sacred-bleeding-heart",
-    "name": "Sacred Bleeding Heart",
-    "assetSlug": "sacred-bleeding-heart",
-    "faction": "ULTRA",
-    "isFadedLegacy": false,
-    "awakenerName": "pollux"
-  },
-  {
-    "id": "sacred-mending",
-    "name": "Sacred Mending",
-    "assetSlug": "sacred-mending",
-    "faction": "ULTRA",
-    "isFadedLegacy": false,
-    "awakenerName": "clementine"
-  },
-  {
-    "id": "springs-verse",
-    "name": "Springs Verse",
-    "assetSlug": "springs-verse",
-    "faction": "ULTRA",
-    "isFadedLegacy": false,
-    "awakenerName": "horla"
-  },
-  {
-    "id": "symphony-fourth",
-    "name": "Symphony Fourth",
-    "assetSlug": "symphony-fourth",
-    "faction": "CHAOS",
-    "isFadedLegacy": false,
-    "awakenerName": "hameln"
-  },
-  {
-    "id": "taverns-opening",
-    "name": "Taverns Opening",
-    "assetSlug": "taverns-opening",
-    "faction": "OTHER",
-    "isFadedLegacy": false
-  },
-  {
-    "id": "the-final-vow",
-    "name": "The Final Vow",
-    "assetSlug": "the-final-vow",
-    "faction": "CHAOS",
-    "isFadedLegacy": false,
-    "awakenerName": "ogier"
-  },
-  {
-    "id": "the-gated-answer",
-    "name": "The Gated Answer",
-    "assetSlug": "the-gated-answer",
-    "faction": "CHAOS",
-    "isFadedLegacy": false,
-    "awakenerName": "tawil"
-  },
-  {
-    "id": "the-lone-seed",
-    "name": "The Lone Seed",
-    "assetSlug": "the-lone-seed",
-    "faction": "CARO",
-    "isFadedLegacy": false,
-    "awakenerName": "thais"
-  },
-  {
-    "id": "the-mountains-resolve",
-    "name": "The Mountains Resolve",
-    "assetSlug": "the-mountains-resolve",
-    "faction": "CARO",
-    "isFadedLegacy": false,
-    "awakenerName": "helot: catena"
-  },
-  {
-    "id": "tiny-wish",
-    "name": "Tiny Wish",
-    "assetSlug": "tiny-wish",
-    "faction": "CARO",
-    "isFadedLegacy": true,
-    "awakenerName": "aigis"
-  },
-  {
-    "id": "truth-behind-grey-mist",
-    "name": "Truth Behind Grey Mist",
-    "assetSlug": "truth-behind-grey-mist",
-    "faction": "ULTRA",
-    "isFadedLegacy": false,
-    "awakenerName": "daffodil"
-  },
-  {
-    "id": "undying-sun",
-    "name": "Undying Sun",
-    "assetSlug": "undying-sun",
-    "faction": "CHAOS",
-    "isFadedLegacy": false,
-    "awakenerName": "kathigu-ra"
-  },
-  {
-    "id": "undying-thunder",
-    "name": "Undying Thunder",
-    "assetSlug": "undying-thunder",
-    "faction": "AEQUOR",
-    "isFadedLegacy": false,
-    "awakenerName": "corposant"
-  },
-  {
-    "id": "unequal-exchange",
-    "name": "Unequal Exchange",
-    "assetSlug": "unequal-exchange",
-    "faction": "OTHER",
-    "isFadedLegacy": false
-  },
-  {
-    "id": "victory-of-roses",
-    "name": "Victory Of Roses",
-    "assetSlug": "victory-of-roses",
-    "faction": "CARO",
-    "isFadedLegacy": false,
-    "awakenerName": "sorel"
+    "awakenerName": "lily",
+    "index": 1
   },
   {
     "id": "voices-in-your-head",
     "name": "Voices In Your Head",
-    "assetSlug": "voices-in-your-head",
     "faction": "OTHER",
-    "isFadedLegacy": true
-  },
-  {
-    "id": "void-hues",
-    "name": "Void Hues",
-    "assetSlug": "void-hues",
-    "faction": "CARO",
-    "isFadedLegacy": false,
-    "awakenerName": "pickman"
-  },
-  {
-    "id": "voracious-resolve",
-    "name": "Voracious Resolve",
-    "assetSlug": "voracious-resolve",
-    "faction": "OTHER",
-    "isFadedLegacy": false
+    "isFadedLegacy": true,
+    "index": 2
   },
   {
     "id": "warded-injection",
     "name": "Warded Injection",
-    "assetSlug": "warded-injection",
     "faction": "CHAOS",
     "isFadedLegacy": true,
-    "awakenerName": "lily"
+    "awakenerName": "lily",
+    "index": 3
+  },
+  {
+    "id": "a-mouses-wisdom",
+    "name": "A Mouses Wisdom",
+    "faction": "ULTRA",
+    "isFadedLegacy": true,
+    "index": 4
+  },
+  {
+    "id": "tiny-wish",
+    "name": "Tiny Wish",
+    "faction": "CARO",
+    "isFadedLegacy": true,
+    "awakenerName": "aigis",
+    "index": 5
+  },
+  {
+    "id": "obsession-eternal",
+    "name": "Obsession Eternal",
+    "faction": "AEQUOR",
+    "isFadedLegacy": true,
+    "awakenerName": "miryam",
+    "index": 6
+  },
+  {
+    "id": "unequal-exchange",
+    "name": "Unequal Exchange",
+    "faction": "OTHER",
+    "isFadedLegacy": false,
+    "index": 7
+  },
+  {
+    "id": "funus-aeternum",
+    "name": "Funus Aeternum",
+    "faction": "AEQUOR",
+    "isFadedLegacy": true,
+    "awakenerName": "murphy",
+    "index": 8
+  },
+  {
+    "id": "the-final-vow",
+    "name": "The Final Vow",
+    "faction": "CHAOS",
+    "isFadedLegacy": false,
+    "awakenerName": "ogier",
+    "index": 9
+  },
+  {
+    "id": "auritas-treasure",
+    "name": "Auritas Treasure",
+    "faction": "AEQUOR",
+    "isFadedLegacy": false,
+    "awakenerName": "aurita",
+    "index": 10
+  },
+  {
+    "id": "roaring-blood-and-sand",
+    "name": "Roaring Blood And Sand",
+    "faction": "CARO",
+    "isFadedLegacy": false,
+    "awakenerName": "uvhash",
+    "index": 11
+  },
+  {
+    "id": "ephemeral-eternity",
+    "name": "Ephemeral Eternity",
+    "faction": "ULTRA",
+    "isFadedLegacy": false,
+    "awakenerName": "erica",
+    "index": 12
+  },
+  {
+    "id": "feast-of-decay",
+    "name": "Feast Of Decay",
+    "faction": "ULTRA",
+    "isFadedLegacy": false,
+    "awakenerName": "wanda",
+    "index": 13
+  },
+  {
+    "id": "bone-chilling-embrace",
+    "name": "Bone Chilling Embrace",
+    "faction": "AEQUOR",
+    "isFadedLegacy": false,
+    "awakenerName": "sanga",
+    "index": 14
+  },
+  {
+    "id": "lakeside-glimpse",
+    "name": "Lakeside Glimpse",
+    "faction": "CARO",
+    "isFadedLegacy": false,
+    "awakenerName": "agrippa",
+    "index": 15
+  },
+  {
+    "id": "gateway-of-retrospection",
+    "name": "Gateway Of Retrospection",
+    "faction": "CHAOS",
+    "isFadedLegacy": false,
+    "awakenerName": "ramona: timeworn",
+    "index": 16
+  },
+  {
+    "id": "truth-behind-grey-mist",
+    "name": "Truth Behind Grey Mist",
+    "faction": "ULTRA",
+    "isFadedLegacy": false,
+    "awakenerName": "daffodil",
+    "index": 17
+  },
+  {
+    "id": "midsummer-vision",
+    "name": "Midsummer Vision",
+    "faction": "CHAOS",
+    "isFadedLegacy": false,
+    "awakenerName": "lily",
+    "index": 18
+  },
+  {
+    "id": "victory-of-roses",
+    "name": "Victory Of Roses",
+    "faction": "CARO",
+    "isFadedLegacy": false,
+    "awakenerName": "sorel",
+    "index": 19
+  },
+  {
+    "id": "miracles-dawn",
+    "name": "Miracles Dawn",
+    "faction": "CARO",
+    "isFadedLegacy": false,
+    "awakenerName": "salvador",
+    "index": 20
+  },
+  {
+    "id": "giants-reign",
+    "name": "Giants Reign",
+    "faction": "AEQUOR",
+    "isFadedLegacy": false,
+    "awakenerName": "goliath",
+    "index": 21
+  },
+  {
+    "id": "24-all-of-her",
+    "name": "24 All Of Her",
+    "faction": "CHAOS",
+    "isFadedLegacy": false,
+    "index": 22
+  },
+  {
+    "id": "the-lone-seed",
+    "name": "The Lone Seed",
+    "faction": "CARO",
+    "isFadedLegacy": false,
+    "awakenerName": "thais",
+    "index": 23
+  },
+  {
+    "id": "the-mountains-resolve",
+    "name": "The Mountains Resolve",
+    "faction": "CARO",
+    "isFadedLegacy": false,
+    "awakenerName": "helot: catena",
+    "index": 24
+  },
+  {
+    "id": "festival-of-tides",
+    "name": "Festival Of Tides",
+    "faction": "AEQUOR",
+    "isFadedLegacy": false,
+    "awakenerName": "miryam",
+    "index": 25
+  },
+  {
+    "id": "springs-verse",
+    "name": "Springs Verse",
+    "faction": "ULTRA",
+    "isFadedLegacy": false,
+    "awakenerName": "horla",
+    "index": 26
+  },
+  {
+    "id": "a-guns-cry",
+    "name": "A Guns Cry",
+    "faction": "CHAOS",
+    "isFadedLegacy": false,
+    "awakenerName": "ryker",
+    "index": 27
+  },
+  {
+    "id": "symphony-fourth",
+    "name": "Symphony Fourth",
+    "faction": "CHAOS",
+    "isFadedLegacy": false,
+    "awakenerName": "hameln",
+    "index": 28
+  },
+  {
+    "id": "the-gated-answer",
+    "name": "The Gated Answer",
+    "faction": "CHAOS",
+    "isFadedLegacy": false,
+    "awakenerName": "tawil",
+    "index": 29
+  },
+  {
+    "id": "plague-of-illusions",
+    "name": "Plague Of Illusions",
+    "faction": "CHAOS",
+    "isFadedLegacy": false,
+    "awakenerName": "doll: inferno",
+    "index": 30
+  },
+  {
+    "id": "blessing-of-the-stars",
+    "name": "Blessing Of The Stars",
+    "faction": "AEQUOR",
+    "isFadedLegacy": false,
+    "awakenerName": "tulu",
+    "index": 31
+  },
+  {
+    "id": "black-swans-dance",
+    "name": "Black Swans Dance",
+    "faction": "ULTRA",
+    "isFadedLegacy": false,
+    "awakenerName": "liz",
+    "index": 32
+  },
+  {
+    "id": "taverns-opening",
+    "name": "Taverns Opening",
+    "faction": "OTHER",
+    "isFadedLegacy": false,
+    "index": 33
+  },
+  {
+    "id": "sacred-mending",
+    "name": "Sacred Mending",
+    "faction": "ULTRA",
+    "isFadedLegacy": false,
+    "awakenerName": "clementine",
+    "index": 34
+  },
+  {
+    "id": "undying-thunder",
+    "name": "Undying Thunder",
+    "faction": "AEQUOR",
+    "isFadedLegacy": false,
+    "awakenerName": "corposant",
+    "index": 35
+  },
+  {
+    "id": "derision-of-destiny",
+    "name": "Derision Of Destiny",
+    "faction": "ULTRA",
+    "isFadedLegacy": false,
+    "awakenerName": "castor",
+    "index": 36
+  },
+  {
+    "id": "cruel-homage",
+    "name": "Cruel Homage",
+    "faction": "CARO",
+    "isFadedLegacy": false,
+    "awakenerName": "doresain",
+    "index": 39
+  },
+  {
+    "id": "undying-sun",
+    "name": "Undying Sun",
+    "faction": "CHAOS",
+    "isFadedLegacy": false,
+    "awakenerName": "kathigu-ra",
+    "index": 40
+  },
+  {
+    "id": "sacred-bleeding-heart",
+    "name": "Sacred Bleeding Heart",
+    "faction": "ULTRA",
+    "isFadedLegacy": false,
+    "awakenerName": "pollux",
+    "index": 41
+  },
+  {
+    "id": "voracious-resolve",
+    "name": "Voracious Resolve",
+    "faction": "OTHER",
+    "isFadedLegacy": false,
+    "index": 42
+  },
+  {
+    "id": "beachside-memento",
+    "name": "Beachside Memento",
+    "faction": "OTHER",
+    "isFadedLegacy": false,
+    "index": 43
+  },
+  {
+    "id": "void-hues",
+    "name": "Void Hues",
+    "faction": "CARO",
+    "isFadedLegacy": false,
+    "awakenerName": "pickman",
+    "index": 44
+  },
+  {
+    "id": "a-fleeting-dream",
+    "name": "A Fleeting Dream",
+    "faction": "OTHER",
+    "isFadedLegacy": false,
+    "index": 45
   },
   {
     "id": "wayward-ship",
     "name": "Wayward Ship",
-    "assetSlug": "wayward-ship",
     "faction": "AEQUOR",
     "isFadedLegacy": false,
-    "awakenerName": "murphy: fauxborn"
+    "awakenerName": "murphy: fauxborn",
+    "index": 46
+  },
+  {
+    "id": "reunions-wish",
+    "name": "Reunions Wish",
+    "faction": "OTHER",
+    "isFadedLegacy": false,
+    "awakenerName": "ramona: timeworn",
+    "index": 47
+  },
+  {
+    "id": "from-the-mist-realm",
+    "name": "From The Mist Realm",
+    "faction": "CHAOS",
+    "isFadedLegacy": false,
+    "awakenerName": "mouchette",
+    "index": 48
+  },
+  {
+    "id": "manor-echoes",
+    "name": "Manor Echoes",
+    "faction": "CARO",
+    "isFadedLegacy": false,
+    "index": 49
   }
 ]
