@@ -111,4 +111,28 @@ describe('import planner', () => {
     if (result.status !== 'ready') return
     expect(result.teams.at(-1)?.name).toBe('Team 3')
   })
+
+  it('treats both wheel slots as globally unique for import conflicts', () => {
+    const current = [
+      makeTeam('Team 1', {
+        slots: [
+          { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: ['SR19', 'SR20'] },
+          { slotId: 'slot-2', wheels: [null, null] },
+          { slotId: 'slot-3', wheels: [null, null] },
+          { slotId: 'slot-4', wheels: [null, null] },
+        ],
+      }),
+    ]
+    const incoming = makeTeam('Imported', {
+      slots: [
+        { slotId: 'slot-1', awakenerName: 'ramona', faction: 'CHAOS', wheels: ['C01', 'SR20'] },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ],
+    })
+
+    const result = prepareImport({ kind: 'single', team: incoming }, current)
+    expect(result.status).toBe('requires_strategy')
+  })
 })

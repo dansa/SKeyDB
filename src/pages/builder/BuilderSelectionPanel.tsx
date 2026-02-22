@@ -1,19 +1,25 @@
 import type { MutableRefObject } from 'react'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import type { Awakener } from '../../domain/awakeners'
+import type { Covenant } from '../../domain/covenants'
 import type { Posse } from '../../domain/posses'
+import type { Wheel } from '../../domain/wheels'
+import { getCovenantAssetById } from '../../domain/covenant-assets'
 import { getPosseAssetById } from '../../domain/posse-assets'
+import { getWheelAssetById } from '../../domain/wheel-assets'
+import { PICKER_DROP_ZONE_ID } from './dnd-ids'
+import { PickerCovenantTile } from './PickerCovenantTile'
 import { PickerDropZone } from './PickerDropZone'
 import { PickerAwakenerTile } from './PickerAwakenerTile'
-import { PICKER_DROP_ZONE_ID } from './useBuilderDnd'
-import type { AwakenerFilter, PickerTab, PosseFilter, Team } from './types'
+import { PickerWheelTile } from './PickerWheelTile'
+import type { AwakenerFilter, PickerTab, PosseFilter, Team, WheelRarityFilter, WheelUsageLocation } from './types'
 import { toOrdinal } from './utils'
 
 const pickerTabs: Array<{ id: PickerTab; label: string }> = [
   { id: 'awakeners', label: 'Awakeners' },
   { id: 'wheels', label: 'Wheels' },
-  { id: 'posses', label: 'Posses' },
   { id: 'covenants', label: 'Covenants' },
+  { id: 'posses', label: 'Posses' },
 ]
 
 const awakenerFilterTabs: Array<{ id: AwakenerFilter; label: string }> = [
@@ -33,25 +39,39 @@ const posseFilterTabs: Array<{ id: PosseFilter; label: string }> = [
   { id: 'ULTRA', label: 'Ultra' },
 ]
 
+const wheelRarityFilterTabs: Array<{ id: WheelRarityFilter; label: string }> = [
+  { id: 'ALL', label: 'All' },
+  { id: 'SSR', label: 'SSR' },
+  { id: 'SR', label: 'SR' },
+  { id: 'R', label: 'R' },
+]
+
 type BuilderSelectionPanelProps = {
   searchInputRef: MutableRefObject<HTMLInputElement | null>
   pickerTab: PickerTab
   activeSearchQuery: string
   awakenerFilter: AwakenerFilter
   posseFilter: PosseFilter
+  wheelRarityFilter: WheelRarityFilter
   filteredAwakeners: Awakener[]
   filteredPosses: Posse[]
+  filteredWheels: Wheel[]
+  filteredCovenants: Covenant[]
   teamFactionSet: Set<string>
   usedAwakenerIdentityKeys: Set<string>
   activePosseId?: string
   teams: Team[]
   usedPosseByTeamOrder: Map<string, number>
+  usedWheelByTeamOrder: Map<string, WheelUsageLocation>
   effectiveActiveTeamId: string
   onSearchChange: (nextValue: string) => void
   onPickerTabChange: (nextTab: PickerTab) => void
   onAwakenerFilterChange: (nextFilter: AwakenerFilter) => void
   onPosseFilterChange: (nextFilter: PosseFilter) => void
+  onWheelRarityFilterChange: (nextFilter: WheelRarityFilter) => void
   onAwakenerClick: (awakenerName: string) => void
+  onSetActiveWheel: (wheelId?: string) => void
+  onSetActiveCovenant: (covenantId?: string) => void
   onSetActivePosse: (posseId?: string) => void
 }
 
@@ -61,23 +81,30 @@ export function BuilderSelectionPanel({
   activeSearchQuery,
   awakenerFilter,
   posseFilter,
+  wheelRarityFilter,
   filteredAwakeners,
   filteredPosses,
+  filteredWheels,
+  filteredCovenants,
   teamFactionSet,
   usedAwakenerIdentityKeys,
   activePosseId,
   teams,
   usedPosseByTeamOrder,
+  usedWheelByTeamOrder,
   effectiveActiveTeamId,
   onSearchChange,
   onPickerTabChange,
   onAwakenerFilterChange,
   onPosseFilterChange,
+  onWheelRarityFilterChange,
   onAwakenerClick,
+  onSetActiveWheel,
+  onSetActiveCovenant,
   onSetActivePosse,
 }: BuilderSelectionPanelProps) {
   return (
-    <aside className="border border-slate-500/50 bg-slate-900/45 p-4">
+    <aside className="bg-slate-900/45 p-4 shadow-[inset_0_0_0_1px_rgba(100,116,139,0.5)]" data-picker-zone="true">
       <h3 className="ui-title text-lg text-amber-100">Selection Queue</h3>
       <p className="mt-2 text-sm text-slate-200">Click adds to first empty slot. Drag to deploy or replace.</p>
       <input
@@ -90,8 +117,8 @@ export function BuilderSelectionPanel({
             : pickerTab === 'posses'
               ? 'Search posses (name, realm, awakener)'
               : pickerTab === 'wheels'
-                ? 'Wheel search will be wired with wheel data'
-                : 'Covenant search will be wired with covenant data'
+                ? 'Search wheels (name, rarity, faction, awakener, main stat)'
+                : 'Search covenants (name, id)'
         }
         type="search"
         value={activeSearchQuery}
@@ -151,7 +178,26 @@ export function BuilderSelectionPanel({
         </div>
       ) : null}
 
-      <PickerDropZone className="mt-3 max-h-[34rem] overflow-auto pr-1" id={PICKER_DROP_ZONE_ID}>
+      {pickerTab === 'wheels' ? (
+        <div className="mt-2 grid grid-cols-4 gap-1">
+          {wheelRarityFilterTabs.map((filterTab) => (
+            <button
+              className={`border px-1 py-1 text-[10px] uppercase tracking-wide transition-colors ${
+                wheelRarityFilter === filterTab.id
+                  ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
+                  : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
+              }`}
+              key={filterTab.id}
+              onClick={() => onWheelRarityFilterChange(filterTab.id)}
+              type="button"
+            >
+              {filterTab.label}
+            </button>
+          ))}
+        </div>
+      ) : null}
+
+      <PickerDropZone className="builder-picker-scrollbar mt-3 max-h-[min(34rem,calc(100dvh-19rem))] overflow-auto pr-1" id={PICKER_DROP_ZONE_ID}>
         {pickerTab === 'awakeners' ? (
           <div className="grid grid-cols-4 gap-1.5">
             {filteredAwakeners.map((awakener) => (
@@ -165,88 +211,127 @@ export function BuilderSelectionPanel({
               />
             ))}
           </div>
-        ) : (
-          <div className="border border-slate-500/45 bg-slate-900/55 p-3 text-sm text-slate-300">
-            {pickerTab === 'wheels' ? (
-              <p>Wheel picker scaffold is ready. Data + filtering wiring comes next.</p>
-            ) : null}
-            {pickerTab === 'posses' ? (
-              <div className="grid grid-cols-3 gap-2">
+        ) : null}
+
+        {pickerTab === 'wheels' ? (
+          <div className="grid grid-cols-4 gap-2">
+            <PickerWheelTile isNotSet onClick={() => onSetActiveWheel(undefined)} />
+
+            {filteredWheels.map((wheel) => {
+              const wheelAsset = getWheelAssetById(wheel.id)
+              const usedByTeam = usedWheelByTeamOrder.get(wheel.id)
+              const isUsedByOtherTeam = usedByTeam && usedByTeam.teamId !== effectiveActiveTeamId
+              const blockedText = usedByTeam
+                ? isUsedByOtherTeam
+                  ? `Used in ${toOrdinal(usedByTeam.teamOrder + 1)} team`
+                  : 'Already used'
+                : null
+
+              return (
+                <PickerWheelTile
+                  blockedText={blockedText}
+                  isBlocked={Boolean(isUsedByOtherTeam)}
+                  isInUse={Boolean(usedByTeam)}
+                  key={wheel.id}
+                  onClick={() => onSetActiveWheel(wheel.id)}
+                  wheelAsset={wheelAsset}
+                  wheelId={wheel.id}
+                  wheelName={wheel.name}
+                />
+              )
+            })}
+          </div>
+        ) : null}
+
+        {pickerTab === 'covenants' ? (
+          <div className="grid grid-cols-4 gap-2">
+            <PickerCovenantTile isNotSet onClick={() => onSetActiveCovenant(undefined)} />
+            {filteredCovenants.map((covenant) => {
+              const covenantAsset = getCovenantAssetById(covenant.id)
+
+              return (
+                <PickerCovenantTile
+                  covenantAsset={covenantAsset}
+                  covenantId={covenant.id}
+                  covenantName={covenant.name}
+                  key={covenant.id}
+                  onClick={() => onSetActiveCovenant(covenant.id)}
+                />
+              )
+            })}
+          </div>
+        ) : null}
+
+        {pickerTab === 'posses' ? (
+          <div className="grid grid-cols-3 gap-2">
+            <button
+              className={`border p-1 text-left transition-colors ${
+                !activePosseId
+                  ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
+                  : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
+              }`}
+              onClick={() => onSetActivePosse(undefined)}
+              type="button"
+            >
+              <div className="aspect-square overflow-hidden border border-slate-400/35 bg-slate-900/70">
+                <span className="builder-disabled-icon">
+                  <span className="builder-disabled-icon__glyph" />
+                </span>
+              </div>
+              <p className="mt-1 truncate text-[11px] text-slate-200">Not Set</p>
+            </button>
+
+            {filteredPosses.map((posse) => {
+              const posseAsset = getPosseAssetById(posse.id)
+              const isActive = activePosseId === posse.id
+              const usedByTeamOrder = usedPosseByTeamOrder.get(posse.id)
+              const usedByTeam = usedByTeamOrder === undefined ? undefined : teams[usedByTeamOrder]
+              const isUsedByOtherTeam =
+                usedByTeamOrder !== undefined &&
+                usedByTeam?.id !== effectiveActiveTeamId
+              const blockedText = isUsedByOtherTeam ? `Used in ${toOrdinal(usedByTeamOrder + 1)} team` : null
+
+              return (
                 <button
                   className={`border p-1 text-left transition-colors ${
-                    !activePosseId
-                      ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
-                      : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
+                    isActive
+                      ? 'border-amber-200/60 bg-slate-800/80'
+                      : isUsedByOtherTeam
+                        ? 'border-slate-500/45 bg-slate-900/45 opacity-55'
+                      : 'border-slate-500/45 bg-slate-900/55 hover:border-amber-200/45'
                   }`}
-                  onClick={() => onSetActivePosse(undefined)}
+                  aria-disabled={isUsedByOtherTeam}
+                  key={posse.id}
+                  onClick={() => onSetActivePosse(posse.id)}
                   type="button"
                 >
-                  <div className="aspect-square overflow-hidden border border-slate-400/35 bg-slate-900/70">
-                    <span className="builder-disabled-icon">
-                      <span className="builder-disabled-icon__glyph" />
-                    </span>
+                  <div className="relative aspect-square overflow-hidden border border-slate-400/35 bg-slate-900/70">
+                    {posseAsset ? (
+                      <img
+                        alt={`${posse.name} posse`}
+                        className="h-full w-full object-cover"
+                        draggable={false}
+                        src={posseAsset}
+                      />
+                    ) : (
+                      <span className="relative block h-full w-full">
+                        <span className="sigil-placeholder" />
+                      </span>
+                    )}
+                    {blockedText ? (
+                      <span className="pointer-events-none absolute inset-x-0 top-0 truncate border-y border-slate-300/30 bg-slate-950/62 px-1 py-0.5 text-center text-[9px] tracking-wide text-slate-100/90">
+                        {blockedText}
+                      </span>
+                    ) : null}
                   </div>
-                  <p className="mt-1 truncate text-[11px] text-slate-200">Not Set</p>
+                  <p className={`mt-1 truncate text-[11px] ${isActive ? 'text-amber-100' : 'text-slate-200'}`}>
+                    {posse.name}
+                  </p>
                 </button>
-
-                {filteredPosses.map((posse) => {
-                  const posseAsset = getPosseAssetById(posse.id)
-                  const isActive = activePosseId === posse.id
-                  const usedByTeamOrder = usedPosseByTeamOrder.get(posse.id)
-                  const usedByTeam = usedByTeamOrder === undefined ? undefined : teams[usedByTeamOrder]
-                  const isUsedByOtherTeam =
-                    usedByTeamOrder !== undefined &&
-                    usedByTeam?.id !== effectiveActiveTeamId
-                  const blockedText = isUsedByOtherTeam ? `Used in ${toOrdinal(usedByTeamOrder + 1)} team` : null
-
-                  return (
-                    <button
-                      className={`border p-1 text-left transition-colors ${
-                        isActive
-                          ? 'border-amber-200/60 bg-slate-800/80'
-                          : isUsedByOtherTeam
-                            ? 'border-slate-500/45 bg-slate-900/45 opacity-55'
-                          : 'border-slate-500/45 bg-slate-900/55 hover:border-amber-200/45'
-                      }`}
-                      aria-disabled={isUsedByOtherTeam}
-                      key={posse.id}
-                      onClick={() => {
-                        onSetActivePosse(posse.id)
-                      }}
-                      type="button"
-                    >
-                      <div className="relative aspect-square overflow-hidden border border-slate-400/35 bg-slate-900/70">
-                        {posseAsset ? (
-                          <img
-                            alt={`${posse.name} posse`}
-                            className="h-full w-full object-cover"
-                            draggable={false}
-                            src={posseAsset}
-                          />
-                        ) : (
-                          <span className="relative block h-full w-full">
-                            <span className="sigil-placeholder" />
-                          </span>
-                        )}
-                        {blockedText ? (
-                          <span className="pointer-events-none absolute inset-x-0 top-0 truncate border-y border-slate-300/30 bg-slate-950/62 px-1 py-0.5 text-center text-[9px] tracking-wide text-slate-100/90">
-                            {blockedText}
-                          </span>
-                        ) : null}
-                      </div>
-                      <p className={`mt-1 truncate text-[11px] ${isActive ? 'text-amber-100' : 'text-slate-200'}`}>
-                        {posse.name}
-                      </p>
-                    </button>
-                  )
-                })}
-              </div>
-            ) : null}
-            {pickerTab === 'covenants' ? (
-              <p>Covenant picker scaffold is ready. Data wiring + filters comes next.</p>
-            ) : null}
+              )
+            })}
           </div>
-        )}
+        ) : null}
       </PickerDropZone>
     </aside>
   )

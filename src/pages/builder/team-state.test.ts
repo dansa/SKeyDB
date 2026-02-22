@@ -3,9 +3,12 @@ import { awakenersByNameForTests, teamSlotsForTests, teamSlotsForTestsWithTwoFac
 import {
   assignAwakenerToFirstEmptySlot,
   assignAwakenerToSlot,
+  assignCovenantToSlot,
   assignWheelToSlot,
+  clearCovenantAssignment,
   clearSlotAssignment,
   clearWheelAssignment,
+  swapWheelAssignments,
   swapSlotAssignments,
 } from './team-state'
 
@@ -119,5 +122,39 @@ describe('builder team state', () => {
 
     expect(result.nextSlots).toBe(slots)
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-3')?.wheels).toEqual([null, null])
+  })
+
+  it('returns same slots when assigning an unchanged wheel value', () => {
+    const slots = teamSlotsForTests()
+    const withWheel = assignWheelToSlot(slots, 'slot-1', 0, 'wheel-a')
+    const unchanged = assignWheelToSlot(withWheel.nextSlots, 'slot-1', 0, 'wheel-a')
+
+    expect(unchanged.nextSlots).toBe(withWheel.nextSlots)
+  })
+
+  it('swaps wheels correctly when source and target are on the same slot', () => {
+    const slots = teamSlotsForTests()
+    const withFirstWheel = assignWheelToSlot(slots, 'slot-1', 0, 'wheel-a')
+    const withTwoWheels = assignWheelToSlot(withFirstWheel.nextSlots, 'slot-1', 1, 'wheel-b')
+
+    const result = swapWheelAssignments(withTwoWheels.nextSlots, 'slot-1', 0, 'slot-1', 1)
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual(['wheel-b', 'wheel-a'])
+  })
+
+  it('assigns and clears covenant values on an awakener slot', () => {
+    const slots = teamSlotsForTests()
+    const withCovenant = assignCovenantToSlot(slots, 'slot-1', '001')
+    const cleared = clearCovenantAssignment(withCovenant.nextSlots, 'slot-1')
+
+    expect(withCovenant.nextSlots.find((slot) => slot.slotId === 'slot-1')?.covenantId).toBe('001')
+    expect(cleared.nextSlots.find((slot) => slot.slotId === 'slot-1')?.covenantId).toBeUndefined()
+  })
+
+  it('returns same slots when assigning an unchanged covenant value', () => {
+    const slots = teamSlotsForTests()
+    const withCovenant = assignCovenantToSlot(slots, 'slot-1', '001')
+    const unchanged = assignCovenantToSlot(withCovenant.nextSlots, 'slot-1', '001')
+
+    expect(unchanged.nextSlots).toBe(withCovenant.nextSlots)
   })
 })

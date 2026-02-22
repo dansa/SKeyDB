@@ -17,7 +17,19 @@ export type PendingPosseTransfer = {
   toTeamId: string
 }
 
-export type PendingTransfer = PendingAwakenerTransfer | PendingPosseTransfer
+export type PendingWheelTransfer = {
+  kind: 'wheel'
+  itemName: string
+  wheelId: string
+  fromTeamId: string
+  fromSlotId: string
+  fromWheelIndex: number
+  toTeamId: string
+  targetSlotId: string
+  targetWheelIndex: number
+}
+
+export type PendingTransfer = PendingAwakenerTransfer | PendingPosseTransfer | PendingWheelTransfer
 
 type RequestAwakenerTransfer = {
   awakenerName: string
@@ -31,6 +43,16 @@ type RequestPosseTransfer = {
   posseName: string
   fromTeamId: string
   toTeamId: string
+}
+
+type RequestWheelTransfer = {
+  wheelId: string
+  fromTeamId: string
+  fromSlotId: string
+  fromWheelIndex: number
+  toTeamId: string
+  targetSlotId: string
+  targetWheelIndex: number
 }
 
 export function useTransferConfirm() {
@@ -57,6 +79,28 @@ export function useTransferConfirm() {
     })
   }
 
+  function requestWheelTransfer({
+    wheelId,
+    fromTeamId,
+    fromSlotId,
+    fromWheelIndex,
+    toTeamId,
+    targetSlotId,
+    targetWheelIndex,
+  }: RequestWheelTransfer) {
+    setPendingTransfer({
+      kind: 'wheel',
+      itemName: wheelId,
+      wheelId,
+      fromTeamId,
+      fromSlotId,
+      fromWheelIndex,
+      toTeamId,
+      targetSlotId,
+      targetWheelIndex,
+    })
+  }
+
   function clearTransfer() {
     setPendingTransfer(null)
   }
@@ -65,6 +109,7 @@ export function useTransferConfirm() {
     pendingTransfer,
     requestAwakenerTransfer,
     requestPosseTransfer,
+    requestWheelTransfer,
     clearTransfer,
   }
 }

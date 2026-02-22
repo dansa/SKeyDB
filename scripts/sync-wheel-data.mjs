@@ -9,6 +9,35 @@ const repoRoot = path.resolve(__dirname, '..')
 const wheelsAssetsDir = path.join(repoRoot, 'src', 'assets', 'wheels')
 const wheelsDataPath = path.join(repoRoot, 'src', 'data', 'wheels-lite.json')
 
+function getWheelRarity(id) {
+  if (id.startsWith('SR')) {
+    return 'SR'
+  }
+  if (id.startsWith('P') || id.startsWith('N')) {
+    return 'R'
+  }
+  return 'SSR'
+}
+
+function getWheelFaction(id) {
+  if (id === 'D12') {
+    return 'CHAOS'
+  }
+  if (id.startsWith('B')) {
+    return 'CARO'
+  }
+  if (id.startsWith('C')) {
+    return 'CHAOS'
+  }
+  if (id.startsWith('D')) {
+    return 'ULTRA'
+  }
+  if (id.startsWith('O')) {
+    return 'AEQUOR'
+  }
+  return 'NEUTRAL'
+}
+
 function parseWheelFile(filename) {
   const match = filename.match(/^Weapon_Full_(.+)\.png$/i)
   if (!match) {
@@ -18,10 +47,19 @@ function parseWheelFile(filename) {
   return {
     id,
     assetId: `Weapon_Full_${id}`,
+    name: id,
+    rarity: getWheelRarity(id),
+    faction: getWheelFaction(id),
+    awakener: '',
+    mainstat: '',
   }
 }
 
 async function main() {
+  const existingWheelsRaw = await fs.readFile(wheelsDataPath, 'utf8')
+  const existingWheels = JSON.parse(existingWheelsRaw)
+  const existingById = new Map(existingWheels.map((wheel) => [wheel.id, wheel]))
+
   const wheelFiles = (await fs.readdir(wheelsAssetsDir))
     .filter((filename) => filename.toLowerCase().endsWith('.png'))
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
@@ -37,7 +75,13 @@ async function main() {
       throw new Error(`Duplicate wheel id from assets: ${parsed.id}`)
     }
     seen.add(parsed.id)
-    wheels.push(parsed)
+    const existing = existingById.get(parsed.id)
+    wheels.push({
+      ...parsed,
+      name: typeof existing?.name === 'string' && existing.name.trim().length > 0 ? existing.name : parsed.name,
+      awakener: typeof existing?.awakener === 'string' ? existing.awakener : parsed.awakener,
+      mainstat: typeof existing?.mainstat === 'string' ? existing.mainstat : parsed.mainstat,
+    })
   }
 
   await fs.writeFile(wheelsDataPath, `${JSON.stringify(wheels, null, 2)}\n`)

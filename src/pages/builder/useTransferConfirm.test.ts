@@ -50,4 +50,32 @@ describe('useTransferConfirm', () => {
       posseId: 'posse-1',
     })
   })
+
+  it('stores wheel transfer requests with source and target slots', () => {
+    const { result } = renderHook(() => useTransferConfirm())
+
+    act(() => {
+      result.current.requestWheelTransfer({
+        wheelId: 'B01',
+        fromTeamId: 'team-1',
+        fromSlotId: 'slot-1',
+        fromWheelIndex: 0,
+        toTeamId: 'team-2',
+        targetSlotId: 'slot-2',
+        targetWheelIndex: 1,
+      })
+    })
+
+    expect(result.current.pendingTransfer).toEqual({
+      kind: 'wheel',
+      itemName: 'B01',
+      wheelId: 'B01',
+      fromTeamId: 'team-1',
+      fromSlotId: 'slot-1',
+      fromWheelIndex: 0,
+      toTeamId: 'team-2',
+      targetSlotId: 'slot-2',
+      targetWheelIndex: 1,
+    })
+  })
 })

@@ -86,7 +86,9 @@ function collectImportedAwakenerKeys(team: Team): Set<string> {
 }
 
 function collectImportedWheels(team: Team): Set<string> {
-  return new Set(team.slots.flatMap((slot) => slot.wheels).filter((wheelId): wheelId is string => Boolean(wheelId)))
+  return new Set(
+    team.slots.flatMap((slot) => slot.wheels).filter((wheelId): wheelId is string => Boolean(wheelId)),
+  )
 }
 
 function normalizeImportedTeamName(currentTeams: Team[], preferredName: string): string {
@@ -179,22 +181,20 @@ function findSingleTeamConflicts(currentTeams: Team[], importedTeam: Team): Impo
         }
       }
 
-      for (const wheelId of slot.wheels) {
-        if (!wheelId || !importedWheels.has(wheelId)) {
-          continue
+      slot.wheels.forEach((wheelId) => {
+        if (wheelId && importedWheels.has(wheelId)) {
+          const key = `wheel:${wheelId}:${team.id}`
+          if (!seen.has(key)) {
+            seen.add(key)
+            conflicts.push({
+              kind: 'wheel',
+              value: wheelId,
+              fromTeamId: team.id,
+              fromTeamName: team.name,
+            })
+          }
         }
-        const key = `wheel:${wheelId}:${team.id}`
-        if (seen.has(key)) {
-          continue
-        }
-        seen.add(key)
-        conflicts.push({
-          kind: 'wheel',
-          value: wheelId,
-          fromTeamId: team.id,
-          fromTeamName: team.name,
-        })
-      }
+      })
     }
   }
 
@@ -221,9 +221,9 @@ function applyMoveStrategy(currentTeams: Team[], importedTeam: Team): Team[] {
     const nextSlots = team.slots.map((slot) => {
       const slotAwakenerKey = slot.awakenerName ? getAwakenerIdentityKey(slot.awakenerName) : null
       const shouldClearAwakener = slotAwakenerKey ? importedAwakenerKeys.has(slotAwakenerKey) : false
-      const nextWheels = slot.wheels.map((wheelId) => (wheelId && importedWheels.has(wheelId) ? null : wheelId)) as [
-        string | null,
-        string | null,
+      const nextWheels: [string | null, string | null] = [
+        slot.wheels[0] && importedWheels.has(slot.wheels[0]) ? null : slot.wheels[0],
+        slot.wheels[1] && importedWheels.has(slot.wheels[1]) ? null : slot.wheels[1],
       ]
 
       if (shouldClearAwakener) {
@@ -253,10 +253,10 @@ function applySkipStrategy(currentTeams: Team[], importedTeam: Team): Team {
 
     return {
       ...slot,
-      wheels: slot.wheels.map((wheelId) => (wheelId && usage.wheelIds.has(wheelId) ? null : wheelId)) as [
-        string | null,
-        string | null,
-      ],
+      wheels: [
+        slot.wheels[0] && usage.wheelIds.has(slot.wheels[0]) ? null : slot.wheels[0],
+        slot.wheels[1] && usage.wheelIds.has(slot.wheels[1]) ? null : slot.wheels[1],
+      ] as [string | null, string | null],
     }
   })
 

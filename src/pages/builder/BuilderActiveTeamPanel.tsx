@@ -1,4 +1,4 @@
-import type { ActiveSelection, TeamSlot } from './types'
+import type { ActiveSelection, DragData, PredictedDropHover, TeamSlot } from './types'
 import { ActiveTeamHeader } from './ActiveTeamHeader'
 import { AwakenerCard } from './AwakenerCard'
 
@@ -9,9 +9,12 @@ type BuilderActiveTeamPanelProps = {
   teamFactions: Set<string>
   teamSlots: TeamSlot[]
   resolvedActiveSelection: ActiveSelection
+  activeDragKind?: DragData['kind'] | null
+  predictedDropHover?: PredictedDropHover
   onOpenPossePicker: () => void
   onCardClick: (slotId: string) => void
   onWheelSlotClick: (slotId: string, wheelIndex: number) => void
+  onCovenantSlotClick: (slotId: string) => void
   onRemoveActiveSelection: (slotId: string) => void
 }
 
@@ -22,9 +25,12 @@ export function BuilderActiveTeamPanel({
   teamFactions,
   teamSlots,
   resolvedActiveSelection,
+  activeDragKind = null,
+  predictedDropHover = null,
   onOpenPossePicker,
   onCardClick,
   onWheelSlotClick,
+  onCovenantSlotClick,
   onRemoveActiveSelection,
 }: BuilderActiveTeamPanelProps) {
   return (
@@ -47,10 +53,13 @@ export function BuilderActiveTeamPanel({
                 ? resolvedActiveSelection.wheelIndex
                 : null
             }
+            activeDragKind={activeDragKind}
             isActive={resolvedActiveSelection?.slotId === slot.slotId && resolvedActiveSelection.kind === 'awakener'}
             onCardClick={onCardClick}
+            onCovenantSlotClick={onCovenantSlotClick}
             onRemoveActiveSelection={() => onRemoveActiveSelection(slot.slotId)}
             onWheelSlotClick={onWheelSlotClick}
+            predictedDropHover={predictedDropHover}
             slot={slot}
           />
         ))}

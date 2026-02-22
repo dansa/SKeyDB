@@ -8,7 +8,14 @@ function makeTeam(name: string): Team {
     name,
     posseId: 'taverns-opening',
     slots: [
-      { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 60, wheels: ['SR19', 'C02'] },
+      {
+        slotId: 'slot-1',
+        awakenerName: 'goliath',
+        faction: 'AEQUOR',
+        level: 60,
+        wheels: ['SR19', 'SR20'],
+        covenantId: '001',
+      },
       { slotId: 'slot-2', awakenerName: 'ramona', faction: 'CHAOS', level: 60, wheels: [null, null] },
       { slotId: 'slot-3', wheels: [null, null] },
       { slotId: 'slot-4', wheels: [null, null] },
@@ -28,7 +35,8 @@ describe('import-export codec', () => {
     expect(parsed.team.name).toBe('Team 1')
     expect(parsed.team.posseId).toBe('taverns-opening')
     expect(parsed.team.slots[0].awakenerName).toBe('goliath')
-    expect(parsed.team.slots[0].wheels).toEqual(['SR19', 'C02'])
+    expect(parsed.team.slots[0].wheels).toEqual(['SR19', 'SR20'])
+    expect(parsed.team.slots[0].covenantId).toBe('001')
   })
 
   it('encodes multi-team with mt1 prefix and round-trips', () => {
@@ -49,13 +57,13 @@ describe('import-export codec', () => {
     const tenTeams = Array.from({ length: 10 }, (_, index) => makeTeam(`Team ${index + 1}`))
     const multiCode = encodeMultiTeamCode(tenTeams, tenTeams[8].id)
 
-    expect(singleCode.length).toBeLessThan(30)
-    expect(multiCode.length).toBeLessThan(300)
+    expect(singleCode.length).toBeLessThan(35)
+    expect(multiCode.length).toBeLessThan(380)
   })
 
   it('strips wheel assignments from slots without awakeners during roundtrip', () => {
     const team = makeTeam('Team Dirty')
-    team.slots[2] = { slotId: 'slot-3', wheels: ['SR19', 'C02'] }
+    team.slots[2] = { slotId: 'slot-3', wheels: ['SR19', 'SR20'], covenantId: '001' }
 
     const code = encodeSingleTeamCode(team)
     const parsed = decodeImportCode(code)
@@ -64,6 +72,7 @@ describe('import-export codec', () => {
     if (parsed.kind !== 'single') return
     expect(parsed.team.slots[2].awakenerName).toBeUndefined()
     expect(parsed.team.slots[2].wheels).toEqual([null, null])
+    expect(parsed.team.slots[2].covenantId).toBeUndefined()
   })
 
   it('rejects unknown prefixes', () => {

@@ -1,5 +1,6 @@
 import { useCallback, useMemo, type Dispatch, type SetStateAction } from 'react'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
+import { getWheelById } from '../../domain/wheels'
 import type { Team } from './types'
 import type { PendingTransfer } from './useTransferConfirm'
 import { applyPendingTransfer } from './transfer-resolution'
@@ -35,9 +36,13 @@ export function usePendingTransferDialog({
     if (!pendingTransfer) {
       return ''
     }
-    return pendingTransfer.kind === 'awakener'
-      ? formatAwakenerNameForUi(pendingTransfer.itemName)
-      : pendingTransfer.itemName
+    if (pendingTransfer.kind === 'awakener') {
+      return formatAwakenerNameForUi(pendingTransfer.itemName)
+    }
+    if (pendingTransfer.kind === 'wheel') {
+      return getWheelById(pendingTransfer.wheelId)?.name ?? pendingTransfer.itemName
+    }
+    return pendingTransfer.itemName
   }, [pendingTransfer])
 
   const confirmTransfer = useCallback(() => {

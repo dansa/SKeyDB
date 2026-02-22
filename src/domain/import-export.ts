@@ -1,4 +1,5 @@
 import { getAwakeners } from './awakeners'
+import { getCovenants } from './covenants'
 import { getPosses } from './posses'
 import { getWheels } from './wheels'
 import { createEmptyTeamSlots } from '../pages/builder/constants'
@@ -7,10 +8,11 @@ import type { Team, TeamSlot } from '../pages/builder/types'
 const singlePrefix = 't1.'
 const multiPrefix = 'mt1.'
 const slotsPerTeam = 4
-const bytesPerSlot = 4
+const bytesPerSlot = 5
 const bytesPerTeam = 1 + slotsPerTeam * bytesPerSlot
 
 const awakeners = getAwakeners()
+const covenants = getCovenants()
 const posses = getPosses()
 const wheels = getWheels()
 
@@ -20,6 +22,8 @@ const posseIndexById = new Map(posses.map((posse) => [posse.id, posse.index]))
 const posseIdByIndex = new Map(posses.map((posse) => [posse.index, posse.id]))
 const wheelIndexById = new Map(wheels.map((wheel, index) => [wheel.id, index + 1]))
 const wheelIdByIndex = new Map(wheels.map((wheel, index) => [index + 1, wheel.id]))
+const covenantIndexById = new Map(covenants.map((covenant, index) => [covenant.id, index + 1]))
+const covenantIdByIndex = new Map(covenants.map((covenant, index) => [index + 1, covenant.id]))
 
 export type DecodedImport =
   | { kind: 'single'; team: Team }
@@ -51,11 +55,15 @@ function pushSlotBytes(buffer: number[], slot: TeamSlot) {
   }
   const wheelOne = awakenerId && slot.wheels[0] ? wheelIndexById.get(slot.wheels[0]) ?? 0 : 0
   const wheelTwo = awakenerId && slot.wheels[1] ? wheelIndexById.get(slot.wheels[1]) ?? 0 : 0
+  const covenant = awakenerId && slot.covenantId ? covenantIndexById.get(slot.covenantId) ?? 0 : 0
   if (wheelOne > 255 || wheelTwo > 255) {
-    throw new Error('Wheel index exceeds export format limits.')
+    throw new Error('Equipment index exceeds export format limits.')
+  }
+  if (covenant > 255) {
+    throw new Error('Covenant index exceeds export format limits.')
   }
 
-  buffer.push(awakenerId, level, wheelOne, wheelTwo)
+  buffer.push(awakenerId, level, wheelOne, wheelTwo, covenant)
 }
 
 function pushTeamBytes(buffer: number[], team: Team) {
@@ -75,6 +83,7 @@ function decodeSlot(bytes: Uint8Array, offset: number, slotId: string): TeamSlot
   const level = bytes[offset + 1]
   const wheelOne = bytes[offset + 2]
   const wheelTwo = bytes[offset + 3]
+  const covenant = bytes[offset + 4]
 
   const awakener = awakenerId ? awakenerById.get(awakenerId) : undefined
   if (awakenerId && !awakener) {
@@ -86,6 +95,9 @@ function decodeSlot(bytes: Uint8Array, offset: number, slotId: string): TeamSlot
   if (awakenerId && wheelTwo && !wheelIdByIndex.has(wheelTwo)) {
     throw new Error(`Unknown wheel index: ${wheelTwo}`)
   }
+  if (awakenerId && covenant && !covenantIdByIndex.has(covenant)) {
+    throw new Error(`Unknown covenant index: ${covenant}`)
+  }
 
   return {
     slotId,
@@ -95,6 +107,7 @@ function decodeSlot(bytes: Uint8Array, offset: number, slotId: string): TeamSlot
     wheels: awakener
       ? [wheelOne ? wheelIdByIndex.get(wheelOne)! : null, wheelTwo ? wheelIdByIndex.get(wheelTwo)! : null]
       : [null, null],
+    covenantId: awakener && covenant ? covenantIdByIndex.get(covenant) : undefined,
   }
 }
 

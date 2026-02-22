@@ -53,6 +53,7 @@ export function assignAwakenerToSlot(
         faction: awakener.faction,
         level: slot.level ?? 60,
         wheels: [null, null] as [null, null],
+        covenantId: undefined,
       }
     }
 
@@ -63,6 +64,7 @@ export function assignAwakenerToSlot(
         faction: undefined,
         level: undefined,
         wheels: [null, null] as [null, null],
+        covenantId: undefined,
       }
     }
 
@@ -125,6 +127,7 @@ export function swapSlotAssignments(
         faction: targetSlot.faction,
         level: targetSlot.level,
         wheels: [...targetSlot.wheels] as [string | null, string | null],
+        covenantId: targetSlot.covenantId,
       }
     }
 
@@ -135,9 +138,64 @@ export function swapSlotAssignments(
         faction: sourceSlot.faction,
         level: sourceSlot.level,
         wheels: [...sourceSlot.wheels] as [string | null, string | null],
+        covenantId: sourceSlot.covenantId,
       }
     }
 
+    return slot
+  })
+
+  return { nextSlots }
+}
+
+export function swapWheelAssignments(
+  currentSlots: TeamSlot[],
+  sourceSlotId: string,
+  sourceWheelIndex: number,
+  targetSlotId: string,
+  targetWheelIndex: number,
+): TeamStateUpdateResult {
+  if (sourceWheelIndex < 0 || sourceWheelIndex > 1 || targetWheelIndex < 0 || targetWheelIndex > 1) {
+    return { nextSlots: currentSlots }
+  }
+
+  const sourceSlot = currentSlots.find((slot) => slot.slotId === sourceSlotId)
+  const targetSlot = currentSlots.find((slot) => slot.slotId === targetSlotId)
+  if (!sourceSlot || !targetSlot || !targetSlot.awakenerName) {
+    return { nextSlots: currentSlots }
+  }
+
+  const sourceWheelId = sourceSlot.wheels[sourceWheelIndex] ?? null
+  if (!sourceWheelId) {
+    return { nextSlots: currentSlots }
+  }
+
+  if (sourceSlotId === targetSlotId) {
+    const nextSlots = currentSlots.map((slot) => {
+      if (slot.slotId !== sourceSlotId) {
+        return slot
+      }
+      const nextWheels = [...slot.wheels] as [string | null, string | null]
+      const targetWheelId = nextWheels[targetWheelIndex]
+      nextWheels[sourceWheelIndex] = targetWheelId
+      nextWheels[targetWheelIndex] = sourceWheelId
+      return { ...slot, wheels: nextWheels }
+    })
+    return { nextSlots }
+  }
+
+  const targetWheelId = targetSlot.wheels[targetWheelIndex] ?? null
+  const nextSlots = currentSlots.map((slot) => {
+    if (slot.slotId === sourceSlotId) {
+      const nextWheels = [...slot.wheels] as [string | null, string | null]
+      nextWheels[sourceWheelIndex] = targetWheelId
+      return { ...slot, wheels: nextWheels }
+    }
+    if (slot.slotId === targetSlotId) {
+      const nextWheels = [...slot.wheels] as [string | null, string | null]
+      nextWheels[targetWheelIndex] = sourceWheelId
+      return { ...slot, wheels: nextWheels }
+    }
     return slot
   })
 
@@ -155,7 +213,14 @@ export function clearSlotAssignment(currentSlots: TeamSlot[], slotId: string): T
       return slot
     }
 
-    if (!slot.awakenerName && !slot.faction && !slot.level && slot.wheels[0] === null && slot.wheels[1] === null) {
+    if (
+      !slot.awakenerName &&
+      !slot.faction &&
+      !slot.level &&
+      !slot.covenantId &&
+      slot.wheels[0] === null &&
+      slot.wheels[1] === null
+    ) {
       return slot
     }
 
@@ -165,6 +230,7 @@ export function clearSlotAssignment(currentSlots: TeamSlot[], slotId: string): T
       faction: undefined,
       level: undefined,
       wheels: [null, null] as [null, null],
+      covenantId: undefined,
     }
   })
 
@@ -193,6 +259,9 @@ export function assignWheelToSlot(
   if (wheelId && !targetSlot.awakenerName) {
     return { nextSlots: currentSlots }
   }
+  if (targetSlot.wheels[wheelIndex] === wheelId) {
+    return { nextSlots: currentSlots }
+  }
 
   const nextSlots = currentSlots.map((slot) => {
     if (slot.slotId !== slotId) {
@@ -217,4 +286,78 @@ export function clearWheelAssignment(
   wheelIndex: number,
 ): TeamStateUpdateResult {
   return assignWheelToSlot(currentSlots, slotId, wheelIndex, null)
+}
+
+export function assignCovenantToSlot(
+  currentSlots: TeamSlot[],
+  slotId: string,
+  covenantId: string | undefined,
+): TeamStateUpdateResult {
+  const hasTargetSlot = currentSlots.some((slot) => slot.slotId === slotId)
+  if (!hasTargetSlot) {
+    return { nextSlots: currentSlots }
+  }
+
+  const targetSlot = currentSlots.find((slot) => slot.slotId === slotId)
+  if (!targetSlot || (covenantId && !targetSlot.awakenerName)) {
+    return { nextSlots: currentSlots }
+  }
+  if (targetSlot.covenantId === covenantId) {
+    return { nextSlots: currentSlots }
+  }
+
+  const nextSlots = currentSlots.map((slot) =>
+    slot.slotId === slotId
+      ? {
+          ...slot,
+          covenantId,
+        }
+      : slot,
+  )
+
+  return { nextSlots }
+}
+
+export function clearCovenantAssignment(currentSlots: TeamSlot[], slotId: string): TeamStateUpdateResult {
+  return assignCovenantToSlot(currentSlots, slotId, undefined)
+}
+
+export function swapCovenantAssignments(
+  currentSlots: TeamSlot[],
+  sourceSlotId: string,
+  targetSlotId: string,
+): TeamStateUpdateResult {
+  if (sourceSlotId === targetSlotId) {
+    return { nextSlots: currentSlots }
+  }
+
+  const sourceSlot = currentSlots.find((slot) => slot.slotId === sourceSlotId)
+  const targetSlot = currentSlots.find((slot) => slot.slotId === targetSlotId)
+  if (!sourceSlot || !targetSlot || !targetSlot.awakenerName) {
+    return { nextSlots: currentSlots }
+  }
+
+  const sourceCovenantId = sourceSlot.covenantId
+  if (!sourceCovenantId) {
+    return { nextSlots: currentSlots }
+  }
+
+  const targetCovenantId = targetSlot.covenantId
+  const nextSlots = currentSlots.map((slot) => {
+    if (slot.slotId === sourceSlotId) {
+      return {
+        ...slot,
+        covenantId: targetCovenantId,
+      }
+    }
+    if (slot.slotId === targetSlotId) {
+      return {
+        ...slot,
+        covenantId: sourceCovenantId,
+      }
+    }
+    return slot
+  })
+
+  return { nextSlots }
 }

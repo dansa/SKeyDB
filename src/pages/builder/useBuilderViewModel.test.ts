@@ -55,6 +55,23 @@ describe('useBuilderViewModel', () => {
     expect(targetSlot).toBeDefined()
 
     act(() => {
+      result.current.handleWheelSlotClick(targetSlot!, 0)
+    })
+
+    expect(result.current.pickerTab).toBe('wheels')
+    expect(result.current.activeSelection).toEqual({ kind: 'wheel', slotId: targetSlot, wheelIndex: 0 })
+  })
+
+  it('sets second wheel slot selection and keeps picker tab on wheels', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+    const targetSlot = result.current.teamSlots[0]?.slotId
+    expect(targetSlot).toBeDefined()
+
+    act(() => {
       result.current.handleWheelSlotClick(targetSlot!, 1)
     })
 
@@ -115,6 +132,66 @@ describe('useBuilderViewModel', () => {
 
     expect(result.current.usedAwakenerIdentityKeys.has(getAwakenerIdentityKey('Ramona'))).toBe(true)
     expect(result.current.usedAwakenerIdentityKeys.has(getAwakenerIdentityKey('Ramona: Timeworn'))).toBe(true)
+  })
+
+  it('filters wheels by rarity and searches wheel metadata fields', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.setWheelRarityFilter('R')
+    })
+    expect(result.current.filteredWheels.length).toBeGreaterThan(0)
+    expect(result.current.filteredWheels.every((wheel) => wheel.rarity === 'R')).toBe(true)
+
+    act(() => {
+      result.current.setWheelRarityFilter('ALL')
+      result.current.setPickerSearchByTab((prev) => ({ ...prev, wheels: 'ultra' }))
+    })
+    expect(result.current.filteredWheels.length).toBeGreaterThan(0)
+    expect(result.current.filteredWheels.every((wheel) => wheel.faction === 'ULTRA')).toBe(true)
+
+    act(() => {
+      result.current.setPickerSearchByTab((prev) => ({ ...prev, wheels: 'b01' }))
+    })
+    expect(result.current.filteredWheels).toHaveLength(0)
+  })
+
+  it('sorts wheels by rarity, then faction, then id', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    const wheels = result.current.filteredWheels
+    expect(wheels.length).toBeGreaterThan(0)
+
+    const rarityOrder = { SSR: 0, SR: 1, R: 2 } as const
+    const factionOrder = { AEQUOR: 0, CARO: 1, CHAOS: 2, ULTRA: 3, NEUTRAL: 4 } as const
+
+    for (let index = 1; index < wheels.length; index += 1) {
+      const prev = wheels[index - 1]
+      const next = wheels[index]
+      const prevRarity = rarityOrder[prev.rarity]
+      const nextRarity = rarityOrder[next.rarity]
+      if (prevRarity !== nextRarity) {
+        expect(prevRarity).toBeLessThanOrEqual(nextRarity)
+        continue
+      }
+
+      const prevFaction = factionOrder[prev.faction]
+      const nextFaction = factionOrder[next.faction]
+      if (prevFaction !== nextFaction) {
+        expect(prevFaction).toBeLessThanOrEqual(nextFaction)
+        continue
+      }
+
+      expect(prev.id.localeCompare(next.id, undefined, { numeric: true, sensitivity: 'base' })).toBeLessThanOrEqual(0)
+    }
   })
 
   it('renames a team via begin/commit flow', () => {
