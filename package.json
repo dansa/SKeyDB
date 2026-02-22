@@ -9,6 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
+    "test:unit": "vitest run --run --exclude src/pages/BuilderPage*.test.tsx",
+    "test:integration": "vitest run --run src/pages/BuilderPage.awakeners-teams.test.tsx src/pages/BuilderPage.import-export.test.tsx src/pages/BuilderPage.selection.test.tsx",
     "test:watch": "vitest",
     "verify": "npm run lint && npm run test -- --run && npm run build",
     "data:sync-awakener-ids": "node scripts/sync-awakener-ids.mjs",
