@@ -1,17 +1,22 @@
 import { useDraggable, useDroppable } from '@dnd-kit/core'
-import { getFactionTint } from '../../domain/factions'
+import { getCovenantAssetById } from '../../domain/covenant-assets'
 import { getWheelAssetById } from '../../domain/wheel-assets'
-import { makeWheelDropZoneId } from './dnd-ids'
+import { makeCovenantDropZoneId, makeWheelDropZoneId } from './dnd-ids'
 import type { DragData } from './types'
-import type { TeamSlot } from './types'
+import type { PredictedDropHover, TeamSlot } from './types'
 
 type CardWheelZoneProps = {
   slot: TeamSlot
   interactive: boolean
   wheelKeyPrefix: string
+  compactCovenant?: boolean
   activeWheelIndex?: number | null
+  isCovenantActive?: boolean
+  activeDragKind?: DragData['kind'] | null
+  predictedDropHover?: PredictedDropHover
   onRemoveActiveWheel?: () => void
   onWheelSlotClick?: (wheelIndex: number) => void
+  onCovenantSlotClick?: () => void
 }
 
 type CardWheelTileProps = {
@@ -19,9 +24,108 @@ type CardWheelTileProps = {
   wheelId: string | null
   wheelIndex: number
   interactive: boolean
+  activeDragKind?: DragData['kind'] | null
+  predictedDropHover?: PredictedDropHover
   isActive: boolean
   onRemove?: () => void
   onClick?: (wheelIndex: number) => void
+}
+
+type CardCovenantTileProps = {
+  slotId: string
+  covenantId: string | undefined
+  interactive: boolean
+  activeDragKind?: DragData['kind'] | null
+  predictedDropHover?: PredictedDropHover
+  isActive: boolean
+  onClick?: () => void
+}
+
+function CardCovenantTile({
+  slotId,
+  covenantId,
+  interactive,
+  activeDragKind,
+  predictedDropHover,
+  isActive,
+  onClick,
+}: CardCovenantTileProps) {
+  const dropZoneId = makeCovenantDropZoneId(slotId)
+  const { isOver, setNodeRef: setDroppableRef } = useDroppable({ id: dropZoneId })
+  const draggableEnabled = interactive && Boolean(covenantId)
+  const { attributes, listeners, isDragging, setNodeRef: setDraggableRef } = useDraggable({
+    id: `team-covenant:${slotId}`,
+    data: draggableEnabled
+      ? ({ kind: 'team-covenant', slotId, covenantId: covenantId! } satisfies DragData)
+      : undefined,
+    disabled: !draggableEnabled,
+  })
+  const canShowDirectOver = activeDragKind === 'picker-covenant' || activeDragKind === 'team-covenant'
+  const isPredictedOver = predictedDropHover?.kind === 'covenant' && predictedDropHover.slotId === slotId
+  const showOver = isPredictedOver || (isOver && canShowDirectOver)
+
+  const tileClassName = `covenant-tile group/covenant relative z-20 aspect-square ${
+    isActive ? 'covenant-tile-active' : ''
+  } ${showOver ? 'covenant-tile-over' : ''} ${isDragging ? 'opacity-65' : ''}`
+
+  if (!interactive) {
+    return (
+      <div className={tileClassName}>
+        <span className="covenant-tile-frame absolute inset-0 rounded-full border border-slate-200/45" />
+        {covenantId ? (
+          (() => {
+            const asset = getCovenantAssetById(covenantId)
+            return asset ? (
+              <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-slate-950/85">
+                <img alt={`${covenantId} covenant`} className="builder-card-covenant-image h-full w-full object-cover" draggable={false} src={asset} />
+              </span>
+            ) : (
+              <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
+            )
+          })()
+        ) : (
+          <span className="covenant-tile-content absolute inset-[2px] rounded-full border border-slate-700/70 bg-slate-900/60">
+            <span className="sigil-placeholder sigil-placeholder-wheel sigil-placeholder-covenant-empty">
+              <span className="sigil-covenant-diamond" />
+            </span>
+          </span>
+        )}
+      </div>
+    )
+  }
+
+  return (
+    <div className={tileClassName} ref={setDroppableRef}>
+      <button
+        aria-label={covenantId ? 'Edit covenant' : 'Set covenant'}
+        className="absolute inset-0 z-20"
+        onClick={onClick}
+        ref={draggableEnabled ? setDraggableRef : undefined}
+        type="button"
+        {...(draggableEnabled ? attributes : {})}
+        {...(draggableEnabled ? listeners : {})}
+      />
+      <span className="covenant-tile-frame absolute inset-0 rounded-full border border-slate-200/45" />
+      {covenantId ? (
+        (() => {
+          const asset = getCovenantAssetById(covenantId)
+          return asset ? (
+            <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-slate-950/85">
+              <img alt={`${covenantId} covenant`} className="builder-card-covenant-image h-full w-full object-cover" draggable={false} src={asset} />
+            </span>
+          ) : (
+            <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
+          )
+        })()
+      ) : (
+        <span className="covenant-tile-content absolute inset-[2px] rounded-full border border-slate-700/70 bg-slate-900/60">
+          <span className="sigil-placeholder sigil-placeholder-wheel sigil-placeholder-covenant-empty">
+            <span className="sigil-covenant-diamond" />
+          </span>
+        </span>
+      )}
+    </div>
+  )
 }
 
 function CardWheelTile({
@@ -29,6 +133,8 @@ function CardWheelTile({
   wheelId,
   wheelIndex,
   interactive,
+  activeDragKind,
+  predictedDropHover,
   isActive,
   onRemove,
   onClick,
@@ -43,10 +149,16 @@ function CardWheelTile({
       : undefined,
     disabled: !draggableEnabled,
   })
+  const canShowDirectOver = activeDragKind === 'picker-wheel' || activeDragKind === 'team-wheel'
+  const isPredictedOver =
+    predictedDropHover?.kind === 'wheel' &&
+    predictedDropHover.slotId === slotId &&
+    predictedDropHover.wheelIndex === wheelIndex
+  const showOver = isPredictedOver || (isOver && canShowDirectOver)
 
   const tileClassName = `wheel-tile group/wheel relative z-20 aspect-[75/113] overflow-hidden bg-slate-700/30 p-[1px] ${
     isActive ? 'wheel-tile-active' : ''
-  } ${isOver ? 'wheel-tile-over' : ''} ${isDragging ? 'opacity-65' : ''}`
+  } ${showOver ? 'wheel-tile-over' : ''} ${isDragging ? 'opacity-65' : ''}`
 
   if (!interactive) {
     return (
@@ -129,29 +241,45 @@ export function CardWheelZone({
   slot,
   interactive,
   wheelKeyPrefix,
+  compactCovenant = false,
   activeWheelIndex = null,
+  isCovenantActive = false,
+  activeDragKind = null,
+  predictedDropHover = null,
   onRemoveActiveWheel,
   onWheelSlotClick,
+  onCovenantSlotClick,
 }: CardWheelZoneProps) {
-  const factionColor = slot.faction ? getFactionTint(slot.faction) : undefined
-
   return (
-    <div className="builder-card-wheel-zone absolute inset-x-0 bottom-0 z-20 p-2">
-      <p className="text-xs text-slate-200">
-        Lv.{slot.level ?? 1}{' '}
-        <span className="ml-1 text-[10px]" style={factionColor ? { color: factionColor } : undefined}>
-          {slot.faction ?? ''}
-        </span>
-      </p>
+    <div
+      className={`builder-card-wheel-zone absolute inset-x-0 bottom-0 z-20 p-2 ${
+        compactCovenant ? 'builder-card-wheel-zone-ghost' : ''
+      }`}
+    >
+      <div className="builder-card-meta-row flex items-start justify-end gap-2 pb-2">
+        <div className="builder-card-covenant-wrap shrink-0">
+          <CardCovenantTile
+            activeDragKind={activeDragKind}
+            covenantId={slot.covenantId}
+            interactive={interactive}
+            isActive={isCovenantActive}
+            onClick={onCovenantSlotClick}
+            predictedDropHover={predictedDropHover}
+            slotId={slot.slotId}
+          />
+        </div>
+      </div>
 
-      <div className="mt-2 grid grid-cols-2 gap-2">
+      <div className="builder-card-wheel-grid mt-1.5 grid grid-cols-2 gap-1.5">
         {slot.wheels.map((wheelId, index) => (
           <CardWheelTile
+            activeDragKind={activeDragKind}
             interactive={interactive}
             isActive={activeWheelIndex === index}
             key={`${wheelKeyPrefix}-wheel-${index}`}
             onClick={onWheelSlotClick}
             onRemove={onRemoveActiveWheel}
+            predictedDropHover={predictedDropHover}
             slotId={slot.slotId}
             wheelId={wheelId}
             wheelIndex={index}

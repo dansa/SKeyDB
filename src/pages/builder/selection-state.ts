@@ -14,6 +14,13 @@ export function toggleWheelSelection(previous: ActiveSelection, slotId: string, 
   return { kind: 'wheel', slotId, wheelIndex }
 }
 
+export function toggleCovenantSelection(previous: ActiveSelection, slotId: string): ActiveSelection {
+  if (previous?.kind === 'covenant' && previous.slotId === slotId) {
+    return null
+  }
+  return { kind: 'covenant', slotId }
+}
+
 export function shouldSetActiveWheelOnPickerAssign(activeSelection: ActiveSelection): boolean {
   return activeSelection?.kind === 'wheel'
 }
@@ -53,6 +60,36 @@ export function nextSelectionAfterWheelRemoved(
     currentSelection.slotId === sourceSlotId &&
     currentSelection.wheelIndex === sourceWheelIndex
   ) {
+    return null
+  }
+  return currentSelection
+}
+
+export function nextSelectionAfterCovenantSwap(
+  currentSelection: ActiveSelection,
+  sourceSlotId: string,
+  targetSlotId: string,
+): ActiveSelection {
+  if (currentSelection?.kind !== 'covenant') {
+    return currentSelection
+  }
+
+  if (currentSelection.slotId === sourceSlotId) {
+    return { kind: 'covenant', slotId: targetSlotId }
+  }
+
+  if (currentSelection.slotId === targetSlotId) {
+    return { kind: 'covenant', slotId: sourceSlotId }
+  }
+
+  return currentSelection
+}
+
+export function nextSelectionAfterCovenantRemoved(
+  currentSelection: ActiveSelection,
+  sourceSlotId: string,
+): ActiveSelection {
+  if (currentSelection?.kind === 'covenant' && currentSelection.slotId === sourceSlotId) {
     return null
   }
   return currentSelection

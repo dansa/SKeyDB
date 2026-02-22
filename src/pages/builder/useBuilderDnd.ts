@@ -7,12 +7,13 @@ import {
   useSensors,
 } from '@dnd-kit/core'
 import { useState } from 'react'
-import { parseWheelDropZoneId, PICKER_DROP_ZONE_ID } from './dnd-ids'
+import { parseCovenantDropZoneId, parseWheelDropZoneId, PICKER_DROP_ZONE_ID } from './dnd-ids'
 import type { DragData } from './types'
 
 type UseBuilderDndOptions = {
   onDropPickerAwakener: (awakenerName: string, targetSlotId: string) => void
   onDropPickerWheel: (wheelId: string, targetSlotId: string, targetWheelIndex?: number) => void
+  onDropPickerCovenant: (covenantId: string, targetSlotId: string) => void
   onDropTeamSlot: (sourceSlotId: string, targetSlotId: string) => void
   onDropTeamWheel: (
     sourceSlotId: string,
@@ -21,18 +22,25 @@ type UseBuilderDndOptions = {
     targetWheelIndex: number,
   ) => void
   onDropTeamWheelToSlot: (sourceSlotId: string, sourceWheelIndex: number, targetSlotId: string) => void
+  onDropTeamCovenant: (sourceSlotId: string, targetSlotId: string) => void
+  onDropTeamCovenantToSlot: (sourceSlotId: string, targetSlotId: string) => void
   onDropTeamSlotToPicker: (sourceSlotId: string) => void
   onDropTeamWheelToPicker: (sourceSlotId: string, sourceWheelIndex: number) => void
+  onDropTeamCovenantToPicker: (sourceSlotId: string) => void
 }
 
 export function useBuilderDnd({
   onDropPickerAwakener,
   onDropPickerWheel,
+  onDropPickerCovenant,
   onDropTeamSlot,
   onDropTeamWheel,
   onDropTeamWheelToSlot,
+  onDropTeamCovenant,
+  onDropTeamCovenantToSlot,
   onDropTeamSlotToPicker,
   onDropTeamWheelToPicker,
+  onDropTeamCovenantToPicker,
 }: UseBuilderDndOptions) {
   const [activeDrag, setActiveDrag] = useState<DragData | null>(null)
   const [isRemoveIntent, setIsRemoveIntent] = useState(false)
@@ -56,7 +64,7 @@ export function useBuilderDnd({
   }
 
   function handleDragOver(event: DragOverEvent) {
-    if (activeDrag?.kind !== 'team-slot' && activeDrag?.kind !== 'team-wheel') {
+    if (activeDrag?.kind !== 'team-slot' && activeDrag?.kind !== 'team-wheel' && activeDrag?.kind !== 'team-covenant') {
       if (isRemoveIntent) {
         setIsRemoveIntent(false)
       }
@@ -81,9 +89,10 @@ export function useBuilderDnd({
     }
 
     const overWheelZone = parseWheelDropZoneId(overId)
+    const overCovenantZone = parseCovenantDropZoneId(overId)
 
     if (data.kind === 'picker-awakener') {
-      const targetSlotId = overWheelZone?.slotId ?? (isTeamSlotId(overId) ? overId : null)
+      const targetSlotId = overWheelZone?.slotId ?? overCovenantZone?.slotId ?? (isTeamSlotId(overId) ? overId : null)
       if (!targetSlotId) {
         return
       }
@@ -96,10 +105,20 @@ export function useBuilderDnd({
         onDropPickerWheel(data.wheelId, overWheelZone.slotId, overWheelZone.wheelIndex)
         return
       }
-      if (!isTeamSlotId(overId)) {
+      const targetSlotId = overCovenantZone?.slotId ?? (isTeamSlotId(overId) ? overId : null)
+      if (!targetSlotId) {
         return
       }
-      onDropPickerWheel(data.wheelId, overId)
+      onDropPickerWheel(data.wheelId, targetSlotId)
+      return
+    }
+
+    if (data.kind === 'picker-covenant') {
+      const targetSlotId = overCovenantZone?.slotId ?? (isTeamSlotId(overId) ? overId : null)
+      if (!targetSlotId) {
+        return
+      }
+      onDropPickerCovenant(data.covenantId, targetSlotId)
       return
     }
 
@@ -109,10 +128,28 @@ export function useBuilderDnd({
         return
       }
       const targetSlotId = overWheelZone?.slotId ?? (isTeamSlotId(overId) ? overId : null)
-      if (!targetSlotId) {
+      const resolvedTargetSlotId = targetSlotId ?? overCovenantZone?.slotId
+      if (!resolvedTargetSlotId) {
         return
       }
-      onDropTeamSlot(data.slotId, targetSlotId)
+      onDropTeamSlot(data.slotId, resolvedTargetSlotId)
+      return
+    }
+
+    if (data.kind === 'team-covenant') {
+      if (overId === PICKER_DROP_ZONE_ID) {
+        onDropTeamCovenantToPicker(data.slotId)
+        return
+      }
+
+      if (overCovenantZone) {
+        onDropTeamCovenant(data.slotId, overCovenantZone.slotId)
+        return
+      }
+
+      if (isTeamSlotId(overId)) {
+        onDropTeamCovenantToSlot(data.slotId, overId)
+      }
       return
     }
 

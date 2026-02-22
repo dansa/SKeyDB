@@ -3,17 +3,20 @@ import { useState } from 'react'
 import { getAwakenerCardAsset } from '../../domain/awakener-assets'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
 import { CardWheelZone } from './CardWheelZone'
-import type { DragData, TeamSlot } from './types'
+import type { DragData, PredictedDropHover, TeamSlot } from './types'
 
 const loadedCardAssets = new Set<string>()
 
 type AwakenerCardProps = {
   slot: TeamSlot
   isActive?: boolean
-  activeKind?: 'awakener' | 'wheel' | null
+  activeKind?: 'awakener' | 'wheel' | 'covenant' | null
   activeWheelIndex?: number | null
+  activeDragKind?: DragData['kind'] | null
+  predictedDropHover?: PredictedDropHover
   onCardClick?: (slotId: string) => void
   onWheelSlotClick?: (slotId: string, wheelIndex: number) => void
+  onCovenantSlotClick?: (slotId: string) => void
   onRemoveActiveSelection?: () => void
 }
 
@@ -22,8 +25,11 @@ export function AwakenerCard({
   isActive = false,
   activeKind = null,
   activeWheelIndex = null,
+  activeDragKind = null,
+  predictedDropHover = null,
   onCardClick,
   onWheelSlotClick,
+  onCovenantSlotClick,
   onRemoveActiveSelection,
 }: AwakenerCardProps) {
   const hasAwakener = Boolean(slot.awakenerName)
@@ -48,16 +54,26 @@ export function AwakenerCard({
       : undefined,
   })
   const hasRemovableAwakenerSelection = activeKind === 'awakener' && isActive && hasAwakener
+  const isPredictedForThisCard =
+    predictedDropHover !== null && predictedDropHover.slotId === slot.slotId
+  const showCardOver =
+    (isOver || isPredictedForThisCard) &&
+    (activeDragKind === 'picker-awakener' ||
+      activeDragKind === 'team-slot' ||
+      activeDragKind === 'picker-wheel' ||
+      activeDragKind === 'team-wheel' ||
+      activeDragKind === 'picker-covenant' ||
+      activeDragKind === 'team-covenant')
 
   return (
     <article
       className={`builder-card group relative aspect-[25/56] w-full border bg-slate-900/80 text-left ${
-        isOver ? 'border-amber-200/80 shadow-[0_0_0_1px_rgba(251,191,36,0.24)]' : 'border-slate-500/60'
+        showCardOver ? 'border-amber-200/80 shadow-[0_0_0_1px_rgba(251,191,36,0.24)]' : 'border-slate-500/60'
       } ${isDragging ? 'opacity-60' : ''} ${isActive ? 'builder-card-active' : ''}`}
       data-selection-owner="true"
       onClick={(event) => {
         const target = event.target as HTMLElement
-        if (target.closest('[data-card-remove]') || target.closest('.wheel-tile')) {
+        if (target.closest('[data-card-remove]') || target.closest('.wheel-tile') || target.closest('.covenant-tile')) {
           return
         }
         onCardClick?.(slot.slotId)
@@ -116,10 +132,14 @@ export function AwakenerCard({
 
           {cardImageLoaded ? (
             <CardWheelZone
+              activeDragKind={activeDragKind}
               activeWheelIndex={activeKind === 'wheel' ? activeWheelIndex : null}
+              isCovenantActive={activeKind === 'covenant'}
               interactive
+              onCovenantSlotClick={() => onCovenantSlotClick?.(slot.slotId)}
               onRemoveActiveWheel={onRemoveActiveSelection}
               onWheelSlotClick={(wheelIndex) => onWheelSlotClick?.(slot.slotId, wheelIndex)}
+              predictedDropHover={predictedDropHover}
               slot={slot}
               wheelKeyPrefix={slot.slotId}
             />

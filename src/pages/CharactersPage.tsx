@@ -20,11 +20,11 @@ export function CharactersPage() {
       </header>
 
       <label className="block space-y-1">
-        <span className="text-sm text-slate-300">Search (name, faction, aliases)</span>
+        <span className="text-sm text-slate-300">Search (name, alt-name, faction, tags)</span>
         <input
           className="w-full border border-slate-500/60 bg-slate-900/60 px-3 py-2 text-slate-100 outline-none placeholder:text-slate-400 focus:border-amber-200/70"
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Try: ghelot, g-helot, murhpy fauxbrn"
+          placeholder="Search awakeners (name, alt-name, faction, tags)"
           type="search"
           value={query}
         />

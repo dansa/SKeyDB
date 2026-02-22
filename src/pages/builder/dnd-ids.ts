@@ -1,6 +1,7 @@
 export const PICKER_DROP_ZONE_ID = 'dropzone:picker'
 
 const WHEEL_DROP_ZONE_PREFIX = 'dropzone:wheel:'
+const COVENANT_DROP_ZONE_PREFIX = 'dropzone:covenant:'
 
 export function makeWheelDropZoneId(slotId: string, wheelIndex: number): string {
   return `${WHEEL_DROP_ZONE_PREFIX}${slotId}:${wheelIndex}`
@@ -25,4 +26,21 @@ export function parseWheelDropZoneId(id: string): { slotId: string; wheelIndex: 
   }
 
   return { slotId, wheelIndex }
+}
+
+export function makeCovenantDropZoneId(slotId: string): string {
+  return `${COVENANT_DROP_ZONE_PREFIX}${slotId}`
+}
+
+export function parseCovenantDropZoneId(id: string): { slotId: string } | null {
+  if (!id.startsWith(COVENANT_DROP_ZONE_PREFIX)) {
+    return null
+  }
+
+  const slotId = id.slice(COVENANT_DROP_ZONE_PREFIX.length)
+  if (!slotId) {
+    return null
+  }
+
+  return { slotId }
 }

@@ -72,6 +72,53 @@ a {
   --sigil-diamond-diagonal: 73.8889%;
 }
 
+.sigil-placeholder-covenant-empty {
+  --sigil-plus-length: 42%;
+  --sigil-circle-size: 86%;
+  --sigil-line: rgba(244, 234, 196, 0.84);
+  --sigil-line-faint: rgba(244, 234, 196, 0.36);
+  --sigil-covenant-hex-size: 84%;
+  background: radial-gradient(circle at center, var(--sigil-glow), rgba(13, 26, 44, 0) 60%);
+}
+
+.sigil-placeholder-covenant-empty::before {
+  width: calc(var(--sigil-covenant-hex-size) + -1px);
+  aspect-ratio: 1 / 1;
+  border: 0;
+  background: rgba(239, 240, 222, 0.2);
+  clip-path: polygon(50% 1%, 93% 25%, 93% 75%, 50% 99%, 7% 75%, 7% 25%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.sigil-placeholder-covenant-empty::after {
+  width: calc(var(--sigil-covenant-hex-size) - 3px);
+  aspect-ratio: 1 / 1;
+  border: 0;
+  border-radius: 1px;
+  background:
+    linear-gradient(var(--sigil-line), var(--sigil-line)) center / 2px var(--sigil-plus-length) no-repeat,
+    linear-gradient(var(--sigil-line-faint), var(--sigil-line-faint)) center / var(--sigil-plus-length) 2px no-repeat,
+    rgba(8, 14, 24, 0.62);
+  clip-path: polygon(50% 1%, 93% 25%, 93% 75%, 50% 99%, 7% 75%, 7% 25%);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.sigil-covenant-diamond {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 53%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid rgba(230, 214, 166, 0.48);
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow:
+    0 0 0 1px rgba(8, 14, 24, 0.62),
+    0 0 6px rgba(230, 214, 166, 0.1);
+  z-index: 3;
+}
+
 .sigil-placeholder-card {
   --sigil-plus-length: 34%;
   --sigil-circle-size: 75%;
@@ -160,6 +207,7 @@ a {
 
 .builder-card {
   position: relative;
+  container-type: inline-size;
   transition:
     border-color 140ms ease,
     box-shadow 180ms ease,
@@ -225,8 +273,105 @@ a {
 }
 
 .builder-card-wheel-image {
-  transform: scale(1.1);
+  transform: scale(1.03);
   transform-origin: center;
+}
+
+.builder-card-wheel-grid {
+  justify-items: center;
+}
+
+.builder-card-wheel-grid .wheel-tile {
+  width: 86%;
+}
+
+.covenant-tile {
+  width: 100%;
+  border-radius: 999px;
+  transition:
+    border-color 120ms ease,
+    filter 140ms ease,
+    box-shadow 160ms ease;
+}
+
+.covenant-tile-frame {
+  box-shadow: none;
+}
+
+.builder-card-covenant-image {
+  transform: scale(1.8);
+  transform-origin: center;
+}
+
+.covenant-tile:not(.covenant-tile-active):hover,
+.covenant-tile:not(.covenant-tile-active):focus-visible {
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.26);
+  filter: brightness(1.03);
+}
+
+.covenant-tile:not(.covenant-tile-active):hover .covenant-tile-frame,
+.covenant-tile:not(.covenant-tile-active):focus-visible .covenant-tile-frame {
+  border-color: rgba(251, 191, 36, 0.58);
+}
+
+.covenant-tile:not(.covenant-tile-active):hover .sigil-placeholder-covenant-empty,
+.covenant-tile:not(.covenant-tile-active):focus-visible .sigil-placeholder-covenant-empty {
+  --sigil-glow: rgba(233, 224, 190, 0.28);
+  --sigil-line: rgba(252, 242, 206, 0.95);
+  --sigil-line-faint: rgba(252, 242, 206, 0.55);
+  filter: brightness(1.08);
+}
+
+.covenant-tile:not(.covenant-tile-active):hover .sigil-covenant-diamond,
+.covenant-tile:not(.covenant-tile-active):focus-visible .sigil-covenant-diamond {
+  border-color: rgba(251, 191, 36, 0.68);
+  box-shadow:
+    0 0 0 1px rgba(8, 14, 24, 0.72),
+    0 0 8px rgba(251, 191, 36, 0.2);
+}
+
+.covenant-tile-active {
+  box-shadow: none;
+  filter: brightness(1.06);
+}
+
+.covenant-tile-active .covenant-tile-frame {
+  border-color: rgba(251, 191, 36, 0.88);
+}
+
+.covenant-tile-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.36),
+    0 0 8px rgba(251, 191, 36, 0.2);
+  pointer-events: none;
+}
+
+.covenant-tile-over {
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.36),
+    0 0 12px rgba(251, 191, 36, 0.2);
+  filter: brightness(1.04);
+}
+
+.covenant-tile-over .covenant-tile-frame {
+  border-color: rgba(251, 191, 36, 0.8);
+}
+
+.builder-card-covenant-wrap {
+  --builder-covenant-size: clamp(48px, 25%, 25%);
+  width: var(--builder-covenant-size);
+}
+
+.builder-card-wheel-zone-ghost .builder-card-meta-row {
+  padding-bottom: calc(var(--spacing) * 0.6);
+}
+
+.builder-card-wheel-zone-ghost .builder-card-covenant-wrap {
+  --builder-covenant-size: clamp(36px, 25%, 25%);
 }
 
 .builder-card:not(.builder-card-active):has(.builder-card-hitbox:hover),

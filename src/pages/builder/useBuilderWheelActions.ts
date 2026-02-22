@@ -139,6 +139,12 @@ export function useBuilderWheelActions({
         targetWheelIndex,
       )
       setActiveTeamSlots(result.nextSlots)
+
+      if (sourceSlotId !== targetSlotId) {
+        setActiveSelection({ kind: 'wheel', slotId: targetSlotId, wheelIndex: targetWheelIndex })
+        return
+      }
+
       const nextSelection = nextSelectionAfterWheelSwap(
         resolvedActiveSelection,
         sourceSlotId,

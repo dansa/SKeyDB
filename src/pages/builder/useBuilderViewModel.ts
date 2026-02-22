@@ -1,15 +1,16 @@
 import { useCallback, useMemo, useState, type MutableRefObject } from 'react'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
+import { getCovenants } from '../../domain/covenants'
 import { getPosses } from '../../domain/posses'
 import { getWheels } from '../../domain/wheels'
 import { getPosseAssetById } from '../../domain/posse-assets'
 import { searchAwakeners } from '../../domain/awakeners-search'
 import { searchPosses } from '../../domain/posses-search'
 import { allAwakeners } from './constants'
-import { clearSlotAssignment, clearWheelAssignment, getTeamFactionSet } from './team-state'
+import { clearCovenantAssignment, clearSlotAssignment, clearWheelAssignment, getTeamFactionSet } from './team-state'
 import { createInitialTeams, renameTeam } from './team-collection'
-import { toggleAwakenerSelection, toggleWheelSelection } from './selection-state'
+import { toggleAwakenerSelection, toggleCovenantSelection, toggleWheelSelection } from './selection-state'
 import type {
   ActiveSelection,
   AwakenerFilter,
@@ -17,8 +18,8 @@ import type {
   PosseFilter,
   Team,
   TeamSlot,
-  WheelRarityFilter,
   WheelUsageLocation,
+  WheelRarityFilter,
 } from './types'
 import { useGlobalPickerSearchCapture } from './useGlobalPickerSearchCapture'
 
@@ -87,6 +88,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     [],
   )
   const pickerPosses = useMemo(() => [...getPosses()].sort((left, right) => left.name.localeCompare(right.name)), [])
+  const pickerCovenants = useMemo(() => [...getCovenants()].sort((left, right) => left.id.localeCompare(right.id)), [])
   const pickerWheels = useMemo(
     () =>
       [...getWheels()].sort((left, right) => {
@@ -94,8 +96,10 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
         if (rarityOrderDiff !== 0) {
           return rarityOrderDiff
         }
+        const leftFaction = left.faction.trim().toUpperCase()
+        const rightFaction = right.faction.trim().toUpperCase()
         const factionOrderDiff =
-          (WHEEL_FACTION_ORDER[left.faction] ?? 99) - (WHEEL_FACTION_ORDER[right.faction] ?? 99)
+          (WHEEL_FACTION_ORDER[leftFaction] ?? 99) - (WHEEL_FACTION_ORDER[rightFaction] ?? 99)
         if (factionOrderDiff !== 0) {
           return factionOrderDiff
         }
@@ -151,6 +155,15 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
         wheel.mainstat.toLowerCase().includes(query),
     )
   }, [pickerWheels, pickerSearchByTab.wheels, wheelRarityFilter])
+  const filteredCovenants = useMemo(() => {
+    const query = pickerSearchByTab.covenants.trim().toLowerCase()
+    if (!query) {
+      return pickerCovenants
+    }
+    return pickerCovenants.filter(
+      (covenant) => covenant.name.toLowerCase().includes(query) || covenant.id.toLowerCase().includes(query),
+    )
+  }, [pickerCovenants, pickerSearchByTab.covenants])
 
   const teamFactionSet = useMemo(() => getTeamFactionSet(teamSlots), [teamSlots])
   const usedAwakenerByIdentityKey = useMemo(() => {
@@ -239,12 +252,23 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     setActiveSelection((prev) => toggleWheelSelection(prev, slotId, wheelIndex))
   }
 
+  function handleCovenantSlotClick(slotId: string) {
+    setPickerTab('covenants')
+    setActiveSelection((prev) => toggleCovenantSelection(prev, slotId))
+  }
+
   function handleRemoveActiveSelection(slotId: string) {
     if (!resolvedActiveSelection || resolvedActiveSelection.slotId !== slotId) {
       return
     }
     if (resolvedActiveSelection.kind === 'awakener') {
       const result = clearSlotAssignment(teamSlots, slotId)
+      setActiveTeamSlots(result.nextSlots)
+      setActiveSelection(null)
+      return
+    }
+    if (resolvedActiveSelection.kind === 'covenant') {
+      const result = clearCovenantAssignment(teamSlots, slotId)
       setActiveTeamSlots(result.nextSlots)
       setActiveSelection(null)
       return
@@ -285,6 +309,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     filteredAwakeners,
     filteredPosses,
     filteredWheels,
+    filteredCovenants,
     teamFactionSet,
     usedAwakenerByIdentityKey,
     usedAwakenerIdentityKeys,
@@ -299,6 +324,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     commitTeamRename,
     handleCardClick,
     handleWheelSlotClick,
+    handleCovenantSlotClick,
     handleRemoveActiveSelection,
   }
 }

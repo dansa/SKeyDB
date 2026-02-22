@@ -1,11 +1,14 @@
 import type { MutableRefObject } from 'react'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import type { Awakener } from '../../domain/awakeners'
+import type { Covenant } from '../../domain/covenants'
 import type { Posse } from '../../domain/posses'
 import type { Wheel } from '../../domain/wheels'
+import { getCovenantAssetById } from '../../domain/covenant-assets'
 import { getPosseAssetById } from '../../domain/posse-assets'
 import { getWheelAssetById } from '../../domain/wheel-assets'
 import { PICKER_DROP_ZONE_ID } from './dnd-ids'
+import { PickerCovenantTile } from './PickerCovenantTile'
 import { PickerDropZone } from './PickerDropZone'
 import { PickerAwakenerTile } from './PickerAwakenerTile'
 import { PickerWheelTile } from './PickerWheelTile'
@@ -15,6 +18,7 @@ import { toOrdinal } from './utils'
 const pickerTabs: Array<{ id: PickerTab; label: string }> = [
   { id: 'awakeners', label: 'Awakeners' },
   { id: 'wheels', label: 'Wheels' },
+  { id: 'covenants', label: 'Covenants' },
   { id: 'posses', label: 'Posses' },
 ]
 
@@ -52,6 +56,7 @@ type BuilderSelectionPanelProps = {
   filteredAwakeners: Awakener[]
   filteredPosses: Posse[]
   filteredWheels: Wheel[]
+  filteredCovenants: Covenant[]
   teamFactionSet: Set<string>
   usedAwakenerIdentityKeys: Set<string>
   activePosseId?: string
@@ -66,6 +71,7 @@ type BuilderSelectionPanelProps = {
   onWheelRarityFilterChange: (nextFilter: WheelRarityFilter) => void
   onAwakenerClick: (awakenerName: string) => void
   onSetActiveWheel: (wheelId?: string) => void
+  onSetActiveCovenant: (covenantId?: string) => void
   onSetActivePosse: (posseId?: string) => void
 }
 
@@ -79,6 +85,7 @@ export function BuilderSelectionPanel({
   filteredAwakeners,
   filteredPosses,
   filteredWheels,
+  filteredCovenants,
   teamFactionSet,
   usedAwakenerIdentityKeys,
   activePosseId,
@@ -93,6 +100,7 @@ export function BuilderSelectionPanel({
   onWheelRarityFilterChange,
   onAwakenerClick,
   onSetActiveWheel,
+  onSetActiveCovenant,
   onSetActivePosse,
 }: BuilderSelectionPanelProps) {
   return (
@@ -108,7 +116,9 @@ export function BuilderSelectionPanel({
             ? 'Search awakeners (name, faction, aliases)'
             : pickerTab === 'posses'
               ? 'Search posses (name, realm, awakener)'
-              : 'Search wheels (name, rarity, faction, awakener, main stat)'
+              : pickerTab === 'wheels'
+                ? 'Search wheels (name, rarity, faction, awakener, main stat)'
+                : 'Search covenants (name, id)'
         }
         type="search"
         value={activeSearchQuery}
@@ -227,6 +237,25 @@ export function BuilderSelectionPanel({
                   wheelAsset={wheelAsset}
                   wheelId={wheel.id}
                   wheelName={wheel.name}
+                />
+              )
+            })}
+          </div>
+        ) : null}
+
+        {pickerTab === 'covenants' ? (
+          <div className="grid grid-cols-4 gap-2">
+            <PickerCovenantTile isNotSet onClick={() => onSetActiveCovenant(undefined)} />
+            {filteredCovenants.map((covenant) => {
+              const covenantAsset = getCovenantAssetById(covenant.id)
+
+              return (
+                <PickerCovenantTile
+                  covenantAsset={covenantAsset}
+                  covenantId={covenant.id}
+                  covenantName={covenant.name}
+                  key={covenant.id}
+                  onClick={() => onSetActiveCovenant(covenant.id)}
                 />
               )
             })}

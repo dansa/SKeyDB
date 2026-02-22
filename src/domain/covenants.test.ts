@@ -9,7 +9,7 @@ describe('getCovenants', () => {
     expect(covenants[0]).toEqual({
       id: '001',
       assetId: 'Icon_Trinket_001',
-      name: 'Covenant 001',
+      name: 'Deus Ex Machina',
     })
   })
 })

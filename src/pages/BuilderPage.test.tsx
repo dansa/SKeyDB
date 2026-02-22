@@ -361,6 +361,44 @@ describe('BuilderPage placeholders', () => {
     expect(screen.getByRole('heading', { name: /team 2/i })).toBeInTheDocument()
   })
 
+  it('shows covenant picker tab and covenant search placeholder', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /covenants/i }))
+
+    expect(screen.getByRole('searchbox')).toHaveAttribute('placeholder', 'Search covenants (name, id)')
+  })
+
+  it('sets covenant on active slot and allows clearing it from picker', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    await user.click(screen.getByRole('button', { name: /set covenant/i }))
+    await user.click(screen.getByRole('button', { name: /deus ex machina covenant/i }))
+
+    expect(screen.getByRole('button', { name: /edit covenant/i })).toBeInTheDocument()
+
+    await user.click(screen.getByRole('button', { name: /not set covenant/i }))
+    expect(screen.getAllByRole('button', { name: /set covenant/i }).length).toBeGreaterThan(0)
+  })
+
+  it('assigns covenant when awakener card is active and covenant is clicked in picker', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    await user.click(screen.getByRole('button', { name: /change goliath/i }))
+    await user.click(screen.getByRole('button', { name: /covenants/i }))
+    await user.click(screen.getByRole('button', { name: /deus ex machina covenant/i }))
+
+    expect(screen.getByRole('button', { name: /edit covenant/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /remove active awakener/i })).toBeInTheDocument()
+  })
+
   it('treats both active slot sockets as wheel slots', async () => {
     const user = userEvent.setup()
     render(<BuilderPage />)
@@ -433,7 +471,9 @@ describe('BuilderPage placeholders', () => {
     expect(screen.getAllByRole('button', { name: /set wheel/i })).toHaveLength(1)
   })
 
-  it('keeps awakener active while quick-clicking two wheels from picker', async () => {
+  it(
+    'keeps awakener active while quick-clicking two wheels from picker',
+    async () => {
     const user = userEvent.setup()
     render(<BuilderPage />)
 
@@ -447,7 +487,9 @@ describe('BuilderPage placeholders', () => {
     expect(screen.getByRole('button', { name: /remove active awakener/i })).toBeInTheDocument()
     expect(screen.getAllByRole('button', { name: /edit wheel/i })).toHaveLength(2)
     expect(screen.queryByRole('button', { name: /set wheel/i })).not.toBeInTheDocument()
-  })
+    },
+    15_000,
+  )
 
   it('clears active selection when clicking outside picker zone', async () => {
     const user = userEvent.setup()

@@ -1,6 +1,7 @@
 import { DndContext, DragOverlay } from '@dnd-kit/core'
 import { useEffect, useRef, useState } from 'react'
 import { awakenerByName } from './builder/constants'
+import { parseCovenantDropZoneId, parseWheelDropZoneId, PICKER_DROP_ZONE_ID } from './builder/dnd-ids'
 import { BuilderActiveTeamPanel } from './builder/BuilderActiveTeamPanel'
 import { BuilderSelectionPanel } from './builder/BuilderSelectionPanel'
 import { BuilderTeamsPanel } from './builder/BuilderTeamsPanel'
@@ -23,11 +24,15 @@ import { useBuilderImportExport } from './builder/useBuilderImportExport'
 import { usePendingTransferDialog } from './builder/usePendingTransferDialog'
 import { usePendingDeleteDialog } from './builder/usePendingDeleteDialog'
 import { useBuilderWheelActions } from './builder/useBuilderWheelActions'
+import { useBuilderCovenantActions } from './builder/useBuilderCovenantActions'
 import { getAwakenerIdentityKey } from '../domain/awakener-identity'
 import { addTeam, reorderTeams } from './builder/team-collection'
+import type { PredictedDropHover } from './builder/types'
+import type { DragData } from './builder/types'
 
 export function BuilderPage() {
   const [toastMessage, setToastMessage] = useState<string | null>(null)
+  const [predictedDropHover, setPredictedDropHover] = useState<PredictedDropHover>(null)
   const toastTimeoutRef = useRef<number | null>(null)
   const suppressTeamEditRef = useRef(false)
   const suppressTeamEditTimeoutRef = useRef<number | null>(null)
@@ -62,6 +67,7 @@ export function BuilderPage() {
     filteredAwakeners,
     filteredPosses,
     filteredWheels,
+    filteredCovenants,
     teamFactionSet,
     usedAwakenerByIdentityKey,
     usedAwakenerIdentityKeys,
@@ -76,6 +82,7 @@ export function BuilderPage() {
     commitTeamRename,
     handleCardClick,
     handleWheelSlotClick,
+    handleCovenantSlotClick,
     handleRemoveActiveSelection,
   } = useBuilderViewModel({ searchInputRef })
 
@@ -127,6 +134,22 @@ export function BuilderPage() {
     showToast,
     teamSlots,
     usedWheelByTeamOrder,
+  })
+
+  const {
+    handleDropPickerCovenant,
+    handleDropTeamCovenant,
+    handleDropTeamCovenantToPicker,
+    handleDropTeamCovenantToSlot,
+    handlePickerCovenantClick,
+  } = useBuilderCovenantActions({
+    clearPendingDelete,
+    clearTransfer,
+    resolvedActiveSelection,
+    setActiveSelection,
+    setActiveTeamSlots,
+    showToast,
+    teamSlots,
   })
 
   useEffect(() => {
@@ -192,6 +215,9 @@ export function BuilderPage() {
     onDropPickerWheel: (wheelId, targetSlotId, targetWheelIndex) => {
       handleDropPickerWheel(wheelId, targetSlotId, targetWheelIndex)
     },
+    onDropPickerCovenant: (covenantId, targetSlotId) => {
+      handleDropPickerCovenant(covenantId, targetSlotId)
+    },
     onDropTeamSlot: (sourceSlotId, targetSlotId) => {
       const result = swapSlotAssignments(teamSlots, sourceSlotId, targetSlotId)
       setActiveTeamSlots(result.nextSlots)
@@ -209,6 +235,15 @@ export function BuilderPage() {
     },
     onDropTeamWheelToPicker: (sourceSlotId, sourceWheelIndex) => {
       handleDropTeamWheelToPicker(sourceSlotId, sourceWheelIndex)
+    },
+    onDropTeamCovenant: (sourceSlotId, targetSlotId) => {
+      handleDropTeamCovenant(sourceSlotId, targetSlotId)
+    },
+    onDropTeamCovenantToSlot: (sourceSlotId, targetSlotId) => {
+      handleDropTeamCovenantToSlot(sourceSlotId, targetSlotId)
+    },
+    onDropTeamCovenantToPicker: (sourceSlotId) => {
+      handleDropTeamCovenantToPicker(sourceSlotId)
     },
   })
 
@@ -279,17 +314,77 @@ export function BuilderPage() {
     }, 0)
   }
 
+  function findFirstEmptyWheelIndex(slotId: string): number | null {
+    const slot = slotById.get(slotId)
+    if (!slot?.awakenerName) {
+      return null
+    }
+    const firstEmptyIndex = slot.wheels.findIndex((wheel) => !wheel)
+    return firstEmptyIndex === -1 ? null : firstEmptyIndex
+  }
+
+  function resolvePredictedDropHover(
+    dragData: DragData | null | undefined,
+    overId: string | undefined,
+  ): PredictedDropHover {
+    if (!dragData || !overId || overId === PICKER_DROP_ZONE_ID) {
+      return null
+    }
+
+    const overWheelZone = parseWheelDropZoneId(overId)
+    const overCovenantZone = parseCovenantDropZoneId(overId)
+
+    if (dragData.kind === 'picker-wheel' || dragData.kind === 'team-wheel') {
+      if (overWheelZone) {
+        return { kind: 'wheel', slotId: overWheelZone.slotId, wheelIndex: overWheelZone.wheelIndex }
+      }
+      const targetSlotId = overCovenantZone?.slotId ?? (overId.startsWith('slot-') ? overId : null)
+      if (!targetSlotId) {
+        return null
+      }
+      const wheelIndex = findFirstEmptyWheelIndex(targetSlotId)
+      if (wheelIndex === null) {
+        return null
+      }
+      return { kind: 'wheel', slotId: targetSlotId, wheelIndex }
+    }
+
+    if (dragData.kind === 'picker-covenant' || dragData.kind === 'team-covenant') {
+      const targetSlotId = overCovenantZone?.slotId ?? overWheelZone?.slotId ?? (overId.startsWith('slot-') ? overId : null)
+      if (!targetSlotId) {
+        return null
+      }
+      const slot = slotById.get(targetSlotId)
+      if (!slot?.awakenerName) {
+        return null
+      }
+      return { kind: 'covenant', slotId: targetSlotId }
+    }
+
+    return null
+  }
+
   function handleDndDragStart(event: Parameters<typeof handleCoordinatedDragStart>[0]) {
     suppressTeamEditRef.current = true
+    setPredictedDropHover(null)
     handleCoordinatedDragStart(event)
   }
 
+  function handleDndDragOver(event: Parameters<typeof handleCoordinatedDragOver>[0]) {
+    const overId = typeof event.over?.id === 'string' ? event.over.id : undefined
+    const dragData = event.active.data.current as DragData | undefined
+    setPredictedDropHover(resolvePredictedDropHover(dragData, overId))
+    handleCoordinatedDragOver(event)
+  }
+
   function handleDndDragEnd(event: Parameters<typeof handleCoordinatedDragEnd>[0]) {
+    setPredictedDropHover(null)
     handleCoordinatedDragEnd(event)
     clearTeamEditSuppressionSoon()
   }
 
   function handleDndDragCancel() {
+    setPredictedDropHover(null)
     handleCoordinatedDragCancel()
     clearTeamEditSuppressionSoon()
   }
@@ -298,7 +393,7 @@ export function BuilderPage() {
     <DndContext
       onDragCancel={handleDndDragCancel}
       onDragEnd={handleDndDragEnd}
-      onDragOver={handleCoordinatedDragOver}
+      onDragOver={handleDndDragOver}
       onDragStart={handleDndDragStart}
       sensors={sensors}
     >
@@ -313,10 +408,13 @@ export function BuilderPage() {
               activeTeamName={activeTeam?.name ?? 'Team'}
               activePosseAsset={activePosseAsset}
               activePosseName={activePosse?.name}
+              activeDragKind={activeDrag?.kind ?? null}
               onOpenPossePicker={() => setPickerTab('posses')}
               onCardClick={handleCardClick}
               onRemoveActiveSelection={handleRemoveActiveSelection}
+              onCovenantSlotClick={handleCovenantSlotClick}
               onWheelSlotClick={handleWheelSlotClick}
+              predictedDropHover={predictedDropHover}
               resolvedActiveSelection={resolvedActiveSelection}
               teamFactions={teamFactionSet}
               teamSlots={teamSlots}
@@ -441,6 +539,9 @@ export function BuilderPage() {
             onSetActiveWheel={(wheelId) => {
               handlePickerWheelClick(wheelId)
             }}
+            onSetActiveCovenant={(covenantId) => {
+              handlePickerCovenantClick(covenantId)
+            }}
             pickerTab={pickerTab}
             posseFilter={posseFilter}
             wheelRarityFilter={wheelRarityFilter}
@@ -451,6 +552,7 @@ export function BuilderPage() {
             usedPosseByTeamOrder={usedPosseByTeamOrder}
             usedWheelByTeamOrder={usedWheelByTeamOrder}
             filteredWheels={filteredWheels}
+            filteredCovenants={filteredCovenants}
           />
         </div>
       </section>
@@ -458,11 +560,15 @@ export function BuilderPage() {
       <DragOverlay dropAnimation={null}>
         {activeDrag?.kind === 'picker-awakener' ? <PickerAwakenerGhost awakenerName={activeDrag.awakenerName} /> : null}
         {activeDrag?.kind === 'picker-wheel' ? <PickerWheelGhost wheelId={activeDrag.wheelId} /> : null}
+        {activeDrag?.kind === 'picker-covenant' ? <PickerWheelGhost wheelId={activeDrag.covenantId} isCovenant /> : null}
         {activeDrag?.kind === 'team-slot' ? (
           <TeamCardGhost removeIntent={isRemoveIntent} slot={slotById.get(activeDrag.slotId)} />
         ) : null}
         {activeDrag?.kind === 'team-wheel' ? (
           <TeamWheelGhost removeIntent={isRemoveIntent} wheelId={activeDrag.wheelId} />
+        ) : null}
+        {activeDrag?.kind === 'team-covenant' ? (
+          <TeamWheelGhost removeIntent={isRemoveIntent} wheelId={activeDrag.covenantId} isCovenant />
         ) : null}
       </DragOverlay>
 
