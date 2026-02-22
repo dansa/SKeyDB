@@ -78,7 +78,10 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 ### Milestone 3: Share + Persistence
 - Expand compact export/import coverage (future schema versions, compatibility policy).
 - Add URL-safe share format (or alternative share string flow).
-- Optional local persistence for drafts.
+- Investigating: A proper way to support import and export strings from/to the game client itself
+- In progress: local persistence for builder drafts.
+- Planned: owned/unowned collection persistence (awakeners, wheels, posses) on dedicated collection UI.
+- Detailed plan: `docs/plans/2026-02-22-persistence-plan.md`
 
 ## Milestone 4: Actual database
 - Add character/wheel/covenant data with stats, skills, tag taxonomy, recommendations.

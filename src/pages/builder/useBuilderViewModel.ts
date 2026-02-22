@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState, type MutableRefObject } from 'react'
+import { useCallback, useMemo, useState, type RefObject } from 'react'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
 import { getCovenants } from '../../domain/covenants'
@@ -46,7 +46,7 @@ function normalizeForSearch(value: string): string {
 }
 
 type UseBuilderViewModelOptions = {
-  searchInputRef: MutableRefObject<HTMLInputElement | null>
+  searchInputRef: RefObject<HTMLInputElement | null>
 }
 
 export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptions) {

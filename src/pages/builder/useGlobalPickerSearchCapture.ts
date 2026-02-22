@@ -1,10 +1,10 @@
-import { useEffect, type MutableRefObject } from 'react'
+import { useEffect, type RefObject } from 'react'
 import type { PickerTab } from './types'
 import { isTypingTarget } from './utils'
 
 type UseGlobalPickerSearchCaptureOptions = {
   pickerTab: PickerTab
-  searchInputRef: MutableRefObject<HTMLInputElement | null>
+  searchInputRef: RefObject<HTMLInputElement | null>
   onAppendCharacter: (pickerTab: PickerTab, key: string) => void
 }
 

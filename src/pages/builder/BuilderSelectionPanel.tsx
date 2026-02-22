@@ -1,4 +1,4 @@
-import type { MutableRefObject } from 'react'
+import type { RefObject } from 'react'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import type { Awakener } from '../../domain/awakeners'
 import type { Covenant } from '../../domain/covenants'
@@ -56,7 +56,7 @@ const wheelRarityFilterTabs: Array<{ id: WheelRarityFilter; label: string }> = [
 ]
 
 type BuilderSelectionPanelProps = {
-  searchInputRef: MutableRefObject<HTMLInputElement | null>
+  searchInputRef: RefObject<HTMLInputElement | null>
   pickerTab: PickerTab
   activeSearchQuery: string
   awakenerFilter: AwakenerFilter
@@ -310,7 +310,7 @@ export function BuilderSelectionPanel({
         ) : null}
 
         {pickerTab === 'posses' ? (
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-4 gap-2">
             <button
               className={`border p-1 text-left transition-colors ${
                 !activePosseId

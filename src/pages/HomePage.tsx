@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaDiscord, FaGithub } from "react-icons/fa6";
 import emojiAel from "../assets/emoji/Emoji_AEL_E_05.png";
+import { changelogItems } from "./home/changelog";
 
 type TaskStatus = "planned" | "in_progress" | "done" | "forever_in_progress";
 
@@ -9,13 +10,9 @@ type TaskItem = {
   status: TaskStatus;
 };
 
-type ChangelogItem = {
-  date: string;
-  summary: string;
-};
-
 const builderTasks: TaskItem[] = [
-  { label: "Local storage persistence", status: "planned" },
+  { label: "Local storage persistence", status: "in_progress" },
+  { label: "Collection (owned/unowned)", status: "planned" },
   { label: "Mobile-first builder layout", status: "planned" },
   { label: "Quick Select flow for faster selection", status: "planned" },
   { label: "General QoL and things", status: "forever_in_progress" },
@@ -29,59 +26,6 @@ const databaseTasks: TaskItem[] = [
 
 const resourceTasks: TaskItem[] = [
   { label: "Useful links and tools page", status: "planned" },
-];
-
-const changelogItems: ChangelogItem[] = [
-  {
-    date: "2026-02-22",
-    summary:
-      "Wheel filters got smarter, so it is easier to find what you want quickly.",
-  },
-  {
-    date: "2026-02-22",
-    summary:
-      "Wheel and covenant handling in the builder became more polished and consistent.",
-  },
-  {
-    date: "2026-02-22",
-    summary:
-      "The builder now supports wheel slots and covenant slots as part of normal team setup.",
-  },
-  {
-    date: "2026-02-22",
-    summary:
-      "Import and export flow was streamlined so sharing teams is faster and cleaner.",
-  },
-  {
-    date: "2026-02-21",
-    summary:
-      "Multi-team planning was added, including cleaner team switching and better team management.",
-  },
-  {
-    date: "2026-02-21",
-    summary:
-      "Safer move and replace behavior was added when editing teams with existing picks.",
-  },
-  {
-    date: "2026-02-20",
-    summary:
-      "Active slot interactions were improved to make card editing more clear while building.",
-  },
-  {
-    date: "2026-02-20",
-    summary:
-      "Project docs and deployment flow were prepared for public testing builds.",
-  },
-  {
-    date: "2026-02-20",
-    summary:
-      "SKeyDB naming and base builder flow were set up as the first public-ready foundation.",
-  },
-  {
-    date: "2025-12-something",
-    summary:
-      "Project was started and swiftly put on indefinite hold due to lack of assets and resources.. 8)"
-  }
 ];
 
 const statusLabel: Record<TaskStatus, string> = {
