@@ -305,6 +305,22 @@ describe('BuilderPage placeholders', () => {
     expect(screen.getByText(/team imported/i)).toBeInTheDocument()
   })
 
+  it('submits import dialog on Enter key', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    const t1Code = encodeSingleTeamCode(makeImportTeam('Imported Team', 'goliath'))
+
+    await user.click(screen.getByRole('button', { name: /import/i }))
+    const importDialog = screen.getByRole('dialog', { name: /import teams/i })
+    const importInput = within(importDialog).getByRole('textbox', { name: /import code/i })
+    await user.type(importInput, t1Code)
+    await user.keyboard('{Enter}')
+
+    expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
+    expect(screen.getByText(/team imported/i)).toBeInTheDocument()
+  })
+
   it('imports mt1 code after replace confirmation', async () => {
     const user = userEvent.setup()
     const teamA = makeImportTeam('Alpha', 'goliath')
@@ -383,10 +399,24 @@ describe('BuilderPage placeholders', () => {
     fireEvent.load(screen.getByAltText(/goliath card/i))
 
     const setWheelButtons = screen.getAllByRole('button', { name: /set wheel/i })
-    const firstUnsetWheel = setWheelButtons[0]
-    expect(firstUnsetWheel.querySelector('.sigil-placeholder-wheel')).not.toBeNull()
-    expect(firstUnsetWheel.querySelector('.sigil-placeholder-remove')).toBeNull()
-    expect(firstUnsetWheel.querySelector('.sigil-remove-x')).toBeNull()
+    const firstUnsetWheel = setWheelButtons[0]?.closest('.wheel-tile')
+    expect(firstUnsetWheel).not.toBeNull()
+    expect(firstUnsetWheel?.querySelector('.sigil-placeholder-wheel')).not.toBeNull()
+    expect(firstUnsetWheel?.querySelector('.sigil-placeholder-remove')).toBeNull()
+    expect(firstUnsetWheel?.querySelector('.sigil-remove-x')).toBeNull()
+  })
+
+  it('renders wheel remove action inside the active wheel tile', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    await user.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
+    await user.click(screen.getByRole('button', { name: /merciful nurturing/i }))
+
+    const removeButton = screen.getByRole('button', { name: /remove active wheel/i })
+    expect(removeButton.closest('.wheel-tile')).not.toBeNull()
   })
 
   it('assigns wheel to first empty slot when awakener card is active', async () => {

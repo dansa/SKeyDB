@@ -23,6 +23,19 @@ export function ImportCodeDialog({ initialValue = '', onCancel, onSubmit }: Impo
         aria-label="Import code"
         className="mt-3 h-32 w-full resize-y border border-slate-500/55 bg-slate-900/75 p-2 text-xs text-slate-100 outline-none focus:border-amber-200/70"
         onChange={(event) => setValue(event.target.value)}
+        onKeyDown={(event) => {
+          if (event.key !== 'Enter' || event.shiftKey) {
+            return
+          }
+
+          const trimmed = value.trim()
+          if (!trimmed) {
+            return
+          }
+
+          event.preventDefault()
+          onSubmit(trimmed)
+        }}
         placeholder="Paste import code here"
         ref={inputRef}
         value={value}

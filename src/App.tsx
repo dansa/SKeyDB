@@ -5,7 +5,7 @@ import { HomePage } from './pages/HomePage'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#1f3148,_#0c121c_60%)] text-slate-100">
+    <div className="min-h-dvh bg-[radial-gradient(circle_at_top,_#1f3148,_#0c121c_60%)] text-slate-100">
       <header className="border-b border-amber-200/30 bg-slate-950/35 backdrop-blur">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 md:px-6">
           <div>
@@ -26,7 +26,7 @@ function App() {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-6xl px-4 py-6 md:px-6 md:py-8">
+      <main className="mx-auto w-full max-w-6xl px-4 py-4 md:px-6 md:py-5">
         <Routes>
           <Route element={<HomePage />} path="/" />
           <Route element={<CharactersPage />} path="/characters" />

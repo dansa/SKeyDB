@@ -10,6 +10,7 @@ type CardWheelZoneProps = {
   interactive: boolean
   wheelKeyPrefix: string
   activeWheelIndex?: number | null
+  onRemoveActiveWheel?: () => void
   onWheelSlotClick?: (wheelIndex: number) => void
 }
 
@@ -19,6 +20,7 @@ type CardWheelTileProps = {
   wheelIndex: number
   interactive: boolean
   isActive: boolean
+  onRemove?: () => void
   onClick?: (wheelIndex: number) => void
 }
 
@@ -28,6 +30,7 @@ function CardWheelTile({
   wheelIndex,
   interactive,
   isActive,
+  onRemove,
   onClick,
 }: CardWheelTileProps) {
   const dropZoneId = makeWheelDropZoneId(slotId, wheelIndex)
@@ -48,12 +51,12 @@ function CardWheelTile({
   if (!interactive) {
     return (
       <div className={tileClassName}>
-        <span className="absolute inset-0 border border-slate-200/45" />
+        <span className="wheel-tile-frame absolute inset-0 border border-slate-200/45" />
         {wheelId ? (
           (() => {
             const asset = getWheelAssetById(wheelId)
             return asset ? (
-              <span className="absolute inset-[2px] overflow-hidden border border-slate-200/20">
+              <span className="wheel-tile-content absolute inset-[2px] overflow-hidden border border-slate-200/20">
                 <img
                   alt={`${wheelId} wheel`}
                   className="builder-card-wheel-image h-full w-full object-cover"
@@ -62,11 +65,11 @@ function CardWheelTile({
                 />
               </span>
             ) : (
-              <span className="absolute inset-[2px] border border-slate-200/20 bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
+              <span className="wheel-tile-content absolute inset-[2px] border border-slate-200/20 bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
             )
           })()
         ) : (
-          <span className="absolute inset-[2px] border border-slate-700/70 bg-slate-900/60">
+          <span className="wheel-tile-content absolute inset-[2px] border border-slate-700/70 bg-slate-900/60">
             <span className="sigil-placeholder sigil-placeholder-wheel" />
           </span>
         )}
@@ -75,42 +78,61 @@ function CardWheelTile({
   }
 
   return (
-    <button
-      aria-label={wheelId ? 'Edit wheel' : 'Set wheel'}
-      className={tileClassName}
-      onClick={() => onClick?.(wheelIndex)}
-      ref={(node) => {
-        setDroppableRef(node)
-        if (draggableEnabled) {
-          setDraggableRef(node)
-        }
-      }}
-      type="button"
-      {...(draggableEnabled ? attributes : {})}
-      {...(draggableEnabled ? listeners : {})}
-    >
-      <span className="absolute inset-0 border border-slate-200/45" />
+    <div className={tileClassName} ref={setDroppableRef}>
+      <button
+        aria-label={wheelId ? 'Edit wheel' : 'Set wheel'}
+        className="absolute inset-0 z-20"
+        onClick={() => onClick?.(wheelIndex)}
+        ref={draggableEnabled ? setDraggableRef : undefined}
+        type="button"
+        {...(draggableEnabled ? attributes : {})}
+        {...(draggableEnabled ? listeners : {})}
+      />
+      {isActive && wheelId ? (
+        <button
+          aria-label="Remove active wheel"
+          className="builder-card-remove-button absolute -top-0.5 -right-0.5 z-40 h-7 w-7"
+          data-card-remove="true"
+          onClick={(event) => {
+            event.preventDefault()
+            event.stopPropagation()
+            onRemove?.()
+          }}
+          type="button"
+        >
+          <span className="sigil-placeholder sigil-placeholder-no-plus sigil-placeholder-remove builder-card-remove-sigil builder-card-remove-sigil-wheel" />
+          <span className="sigil-remove-x builder-card-remove-x" />
+        </button>
+      ) : null}
+      <span className="wheel-tile-frame absolute inset-0 border border-slate-200/45" />
       {wheelId ? (
         (() => {
           const asset = getWheelAssetById(wheelId)
           return asset ? (
-            <span className="absolute inset-[2px] overflow-hidden border border-slate-200/20">
+            <span className="wheel-tile-content absolute inset-[2px] overflow-hidden border border-slate-200/20">
               <img alt={`${wheelId} wheel`} className="builder-card-wheel-image h-full w-full object-cover" draggable={false} src={asset} />
             </span>
           ) : (
-            <span className="absolute inset-[2px] border border-slate-200/20 bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
+            <span className="wheel-tile-content absolute inset-[2px] border border-slate-200/20 bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
           )
         })()
       ) : (
-        <span className="absolute inset-[2px] border border-slate-700/70 bg-slate-900/60">
+        <span className="wheel-tile-content absolute inset-[2px] border border-slate-700/70 bg-slate-900/60">
           <span className="sigil-placeholder sigil-placeholder-wheel" />
         </span>
       )}
-    </button>
+    </div>
   )
 }
 
-export function CardWheelZone({ slot, interactive, wheelKeyPrefix, activeWheelIndex = null, onWheelSlotClick }: CardWheelZoneProps) {
+export function CardWheelZone({
+  slot,
+  interactive,
+  wheelKeyPrefix,
+  activeWheelIndex = null,
+  onRemoveActiveWheel,
+  onWheelSlotClick,
+}: CardWheelZoneProps) {
   const factionColor = slot.faction ? getFactionTint(slot.faction) : undefined
 
   return (
@@ -129,6 +151,7 @@ export function CardWheelZone({ slot, interactive, wheelKeyPrefix, activeWheelIn
             isActive={activeWheelIndex === index}
             key={`${wheelKeyPrefix}-wheel-${index}`}
             onClick={onWheelSlotClick}
+            onRemove={onRemoveActiveWheel}
             slotId={slot.slotId}
             wheelId={wheelId}
             wheelIndex={index}

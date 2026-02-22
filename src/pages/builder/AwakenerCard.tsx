@@ -47,13 +47,7 @@ export function AwakenerCard({
       ? ({ kind: 'team-slot', slotId: slot.slotId, awakenerName: slot.awakenerName! } satisfies DragData)
       : undefined,
   })
-  const hasRemovableSelection =
-    (activeKind === 'awakener' && isActive && hasAwakener) ||
-    (activeKind === 'wheel' &&
-      activeWheelIndex !== null &&
-      activeWheelIndex >= 0 &&
-      activeWheelIndex <= 1 &&
-      Boolean(slot.wheels[activeWheelIndex]))
+  const hasRemovableAwakenerSelection = activeKind === 'awakener' && isActive && hasAwakener
 
   return (
     <article
@@ -70,9 +64,9 @@ export function AwakenerCard({
       }}
       ref={setDroppableRef}
     >
-      {hasRemovableSelection ? (
+      {hasRemovableAwakenerSelection ? (
         <button
-          aria-label={activeKind === 'wheel' ? 'Remove active wheel' : 'Remove active awakener'}
+          aria-label="Remove active awakener"
           className="builder-card-remove-button absolute top-1 right-1 z-40 h-9 w-9"
           data-card-remove="true"
           onClick={onRemoveActiveSelection}
@@ -124,6 +118,7 @@ export function AwakenerCard({
             <CardWheelZone
               activeWheelIndex={activeKind === 'wheel' ? activeWheelIndex : null}
               interactive
+              onRemoveActiveWheel={onRemoveActiveSelection}
               onWheelSlotClick={(wheelIndex) => onWheelSlotClick?.(slot.slotId, wheelIndex)}
               slot={slot}
               wheelKeyPrefix={slot.slotId}
