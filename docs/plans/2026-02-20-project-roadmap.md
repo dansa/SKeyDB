@@ -1,6 +1,6 @@
 # SKeyDB Roadmap
 
-Last updated: 2026-02-21
+Last updated: 2026-02-22
 
 ## Project Goal
 Ship an open-source Morimens team builder that is easy to use and easy to maintain.
@@ -12,7 +12,7 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 - Team editor with 4-slot active team view.
 - Multi-team planner foundation (up to 10 teams):
   - add/delete team,
-  - explicit active-team switching (`Edit Team`),
+  - active-team switching via team row click,
   - inline rename,
   - drag reorder.
 - Awakener picker:
@@ -29,7 +29,17 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 - Team rule enforcement in active editor:
   - max 2 factions per team,
   - violation toast feedback,
-  - cross-team uniqueness checks for awakeners and posses.
+  - cross-team uniqueness checks for awakeners, wheels, and posses.
+- Wheels:
+  - searchable wheel picker with rarity filters,
+  - drag/drop assign/swap/remove in card slots,
+  - active-slot + active-awakener assignment flows,
+  - cross-team uniqueness checks with move confirmation.
+- Covenants:
+  - searchable covenant picker,
+  - drag/drop assign/swap/remove,
+  - active-slot + active-awakener assignment flows,
+  - included in compact import/export (`t1.` / `mt1.`).
 - Automated tests for domain logic and key builder behavior.
 - Import/export:
   - versioned compact codes (`t1.` / `mt1.`),
@@ -37,16 +47,14 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
   - import dialogs with replace and duplicate strategy handling.
 
 ### Partially in (scaffolded / placeholder)
-- Wheels tab exists in picker UI, but wheel data + wheel selection flow is not wired.
-- Covenants tab exists in picker UI, but covenant data + flow is not wired.
-- Multi-team rule completion:
-  - wheel global uniqueness is not yet enforced in live UI (pending wheel dataset wiring).
+- Some wheel metadata fields are intentionally unfinished for future data enrichment:
+  - `awakener`,
+  - `mainstat`.
+- Covenant metadata quality (naming/details) is still an ongoing data pass.
 
 ### Out (not implemented yet)
 - Expanded teams toggle (compact full-card previews for all teams).
   - Plan reference: `docs/plans/2026-02-20-multi-team-builder-plan.md`
-- Wheel assignment logic and wheel uniqueness in live UI (end-to-end).
-- Covenant system and covenant filters/search.
 - Owned/unowned tracking.
 - Exalt / Over-Exalt progression controls.
 - Shareable URL encoding.
@@ -55,12 +63,14 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 ## Near-Term Milestones
 
 ### Milestone 1: Complete Core Builder Loop
-- Implement wheel selection and assignment in active team cards.
-- Implement wheel uniqueness + “move from other slot/team” behavior.
-- Implement covenant selection and assignment in active team cards.
+- Completed:
+  - wheel selection/assignment in active team cards,
+  - wheel uniqueness + move confirmation behavior,
+  - covenant selection/assignment in active team cards.
+- Next:
+  - metadata enrichment for wheels/covenants (mainstat/awakener link quality).
 
 ### Milestone 2: Multi-Team Iteration 2
-- Complete wheel cross-team uniqueness enforcement.
 - Add optional expanded teams view (small full-card previews per team).
 - Continue conflict/move UX polish for reassignment flows.
 - Detailed plan: `docs/plans/2026-02-20-multi-team-builder-plan.md`

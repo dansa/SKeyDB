@@ -69,8 +69,10 @@ Reference legal pages:
 Current implementation is an MVP focused on:
 - awakener picker/search
 - team card interactions and drag/drop
+- wheel picker/search + assignment flows
+- covenant picker/search + assignment flows
 - faction constraints and related UX states
-- posse selection UI scaffold
+- posse selection UI
 - compact import/export codes (`t1.` single-team, `mt1.` multi-team)
 - import conflict handling (replace, move duplicates, skip duplicates)
 

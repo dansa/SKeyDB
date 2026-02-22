@@ -1,6 +1,6 @@
 # Import/Export Plan
 
-Last updated: 2026-02-21
+Last updated: 2026-02-22
 
 ## Goal
 Add import/export for builder teams using compact versioned codes, with safe validation and clear UX.
@@ -74,5 +74,8 @@ Add import/export for builder teams using compact versioned codes, with safe val
   - Import/export UI wiring in Builder page.
   - Team-row and export-all entry points.
   - Integration tests for single-team and multi-team import flows.
+  - Wheel and covenant IDs included in compact payloads.
+  - Import UX polish (autofocus + Enter submit in import dialog).
+  - Merged to `main`.
 - Pending:
-  - Final commit/ship cleanup.
+  - None for this phase.

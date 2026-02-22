@@ -1,13 +1,13 @@
 # Multi-Team Builder Plan
 
-Last updated: 2026-02-21
+Last updated: 2026-02-22
 
 ## Goal
 Expand the builder from a single active team into a practical 1-10 team planner while preserving current UX quality and rule clarity.
 
 ## Locked Decisions
 - No drag/drop of units between teams in this iteration.
-- Switching active team must be explicit (button-based), not row click.
+- Switching active team is direct via team row click.
 - Inactive teams render as compact rows below the active team area:
   - `Team Name | 4 portrait slots | Posse icon`.
 - Inactive rows should match roughly the height of the current active-team header band.
@@ -16,7 +16,7 @@ Expand the builder from a single active team into a practical 1-10 team planner 
 - Multi-team state model (`1-10` teams, one active team).
 - Team CRUD basics:
   - add team (up to 10),
-  - set active team (explicit `Edit Team` action),
+  - set active team (row click),
   - rename team (inline edit: hover icon, input with confirm/cancel, Enter/Escape),
   - delete team (centered confirm/cancel overlay; no native dialog) (guard when only one remains).
 - Inactive team compact list UI with portraits + posse preview.
@@ -33,9 +33,8 @@ Expand the builder from a single active team into a practical 1-10 team planner 
 - Persistence/share format changes.
 
 ## UX Requirements
-- Inactive team row click must not activate edit context.
-- `Edit Team` button explicitly switches active team.
-- Prevent accidental context switches while dragging within the active team editor.
+- Team row click switches active team.
+- Drag handle is isolated to team reordering to avoid accidental reorder while selecting rows.
 - Keep current toast/feedback style for invalid moves and rule violations.
 
 ## Data/State Refactor Plan
@@ -66,16 +65,15 @@ Expand the builder from a single active team into a practical 1-10 team planner 
 ## Current Status
 - Done:
   - Multi-team model and active-team edit flow.
-  - Team add/edit/delete with explicit centered confirm/cancel delete confirmation.
+  - Team add/edit/delete with centered confirm/cancel delete confirmation.
   - Team inline rename UX (hover rename icon, inline input, Enter/Escape, confirm/cancel).
   - Inactive team rows below active team, with portrait + posse previews.
   - Global uniqueness enforced for awakener identities and posses.
   - Blocked posse labels (`Used in 1st team`) and descriptive invalid-move toasts.
   - Drag-reorder UX polish for team rows (explicit drag lane + stable active-state visuals).
+  - Active-team switching via team row click.
   - Slot-click regression fix: clicking a picker entry for an already slotted awakener no longer moves it to the next empty slot.
 - Pending:
-  - Wheel global uniqueness (blocked until full wheel data/IDs are wired).
-  - Wheel/covenant transfer-confirm flow parity once those pickers are fully wired.
   - Additional interaction polish + QA passes.
   - TODO: implement an `Expanded Teams` toggle that renders smaller-scale but full team cards (including wheels/covenants) for each team.
 
