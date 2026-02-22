@@ -22,6 +22,18 @@ export function useBuilderCovenantActions({
   clearTransfer,
   showToast,
 }: UseBuilderCovenantActionsOptions) {
+  const moveTeamCovenant = useCallback(
+    (sourceSlotId: string, targetSlotId: string) => {
+      if (sourceSlotId === targetSlotId) {
+        return
+      }
+      const result = swapCovenantAssignments(teamSlots, sourceSlotId, targetSlotId)
+      setActiveTeamSlots(result.nextSlots)
+      setActiveSelection({ kind: 'covenant', slotId: targetSlotId })
+    },
+    [setActiveSelection, setActiveTeamSlots, teamSlots],
+  )
+
   const assignPickerCovenantToTarget = useCallback(
     (covenantId: string | undefined, targetSlotId: string, options?: { setActiveOnAssign?: boolean }) => {
       const targetSlot = teamSlots.find((slot) => slot.slotId === targetSlotId)
@@ -49,26 +61,16 @@ export function useBuilderCovenantActions({
 
   const handleDropTeamCovenant = useCallback(
     (sourceSlotId: string, targetSlotId: string) => {
-      if (sourceSlotId === targetSlotId) {
-        return
-      }
-      const result = swapCovenantAssignments(teamSlots, sourceSlotId, targetSlotId)
-      setActiveTeamSlots(result.nextSlots)
-      setActiveSelection({ kind: 'covenant', slotId: targetSlotId })
+      moveTeamCovenant(sourceSlotId, targetSlotId)
     },
-    [setActiveSelection, setActiveTeamSlots, teamSlots],
+    [moveTeamCovenant],
   )
 
   const handleDropTeamCovenantToSlot = useCallback(
     (sourceSlotId: string, targetSlotId: string) => {
-      if (sourceSlotId === targetSlotId) {
-        return
-      }
-      const result = swapCovenantAssignments(teamSlots, sourceSlotId, targetSlotId)
-      setActiveTeamSlots(result.nextSlots)
-      setActiveSelection({ kind: 'covenant', slotId: targetSlotId })
+      moveTeamCovenant(sourceSlotId, targetSlotId)
     },
-    [setActiveSelection, setActiveTeamSlots, teamSlots],
+    [moveTeamCovenant],
   )
 
   const handleDropTeamCovenantToPicker = useCallback(

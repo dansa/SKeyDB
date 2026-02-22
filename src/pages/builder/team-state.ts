@@ -259,6 +259,9 @@ export function assignWheelToSlot(
   if (wheelId && !targetSlot.awakenerName) {
     return { nextSlots: currentSlots }
   }
+  if (targetSlot.wheels[wheelIndex] === wheelId) {
+    return { nextSlots: currentSlots }
+  }
 
   const nextSlots = currentSlots.map((slot) => {
     if (slot.slotId !== slotId) {
@@ -297,6 +300,9 @@ export function assignCovenantToSlot(
 
   const targetSlot = currentSlots.find((slot) => slot.slotId === slotId)
   if (!targetSlot || (covenantId && !targetSlot.awakenerName)) {
+    return { nextSlots: currentSlots }
+  }
+  if (targetSlot.covenantId === covenantId) {
     return { nextSlots: currentSlots }
   }
 

@@ -41,6 +41,50 @@ type CardCovenantTileProps = {
   onClick?: () => void
 }
 
+function renderCovenantTileVisual(covenantId: string | undefined) {
+  if (!covenantId) {
+    return (
+      <span className="covenant-tile-content absolute inset-[2px] rounded-full border border-slate-700/70 bg-slate-900/60">
+        <span className="sigil-placeholder sigil-placeholder-wheel sigil-placeholder-covenant-empty">
+          <span className="sigil-covenant-diamond" />
+        </span>
+      </span>
+    )
+  }
+
+  const asset = getCovenantAssetById(covenantId)
+  if (!asset) {
+    return <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
+  }
+
+  return (
+    <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-slate-950/85">
+      <img alt={`${covenantId} covenant`} className="builder-card-covenant-image h-full w-full object-cover" draggable={false} src={asset} />
+    </span>
+  )
+}
+
+function renderWheelTileVisual(wheelId: string | null) {
+  if (!wheelId) {
+    return (
+      <span className="wheel-tile-content absolute inset-[2px] border border-slate-700/70 bg-slate-900/60">
+        <span className="sigil-placeholder sigil-placeholder-wheel" />
+      </span>
+    )
+  }
+
+  const asset = getWheelAssetById(wheelId)
+  if (!asset) {
+    return <span className="wheel-tile-content absolute inset-[2px] border border-slate-200/20 bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
+  }
+
+  return (
+    <span className="wheel-tile-content absolute inset-[2px] overflow-hidden border border-slate-200/20">
+      <img alt={`${wheelId} wheel`} className="builder-card-wheel-image h-full w-full object-cover" draggable={false} src={asset} />
+    </span>
+  )
+}
+
 function CardCovenantTile({
   slotId,
   covenantId,
@@ -67,31 +111,15 @@ function CardCovenantTile({
   const tileClassName = `covenant-tile group/covenant relative z-20 aspect-square ${
     isActive ? 'covenant-tile-active' : ''
   } ${showOver ? 'covenant-tile-over' : ''} ${isDragging ? 'opacity-65' : ''}`
+  const tileVisual = (
+    <>
+      <span className="covenant-tile-frame absolute inset-0 rounded-full border border-slate-200/45" />
+      {renderCovenantTileVisual(covenantId)}
+    </>
+  )
 
   if (!interactive) {
-    return (
-      <div className={tileClassName}>
-        <span className="covenant-tile-frame absolute inset-0 rounded-full border border-slate-200/45" />
-        {covenantId ? (
-          (() => {
-            const asset = getCovenantAssetById(covenantId)
-            return asset ? (
-              <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-slate-950/85">
-                <img alt={`${covenantId} covenant`} className="builder-card-covenant-image h-full w-full object-cover" draggable={false} src={asset} />
-              </span>
-            ) : (
-              <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
-            )
-          })()
-        ) : (
-          <span className="covenant-tile-content absolute inset-[2px] rounded-full border border-slate-700/70 bg-slate-900/60">
-            <span className="sigil-placeholder sigil-placeholder-wheel sigil-placeholder-covenant-empty">
-              <span className="sigil-covenant-diamond" />
-            </span>
-          </span>
-        )}
-      </div>
-    )
+    return <div className={tileClassName}>{tileVisual}</div>
   }
 
   return (
@@ -105,25 +133,7 @@ function CardCovenantTile({
         {...(draggableEnabled ? attributes : {})}
         {...(draggableEnabled ? listeners : {})}
       />
-      <span className="covenant-tile-frame absolute inset-0 rounded-full border border-slate-200/45" />
-      {covenantId ? (
-        (() => {
-          const asset = getCovenantAssetById(covenantId)
-          return asset ? (
-            <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-slate-950/85">
-              <img alt={`${covenantId} covenant`} className="builder-card-covenant-image h-full w-full object-cover" draggable={false} src={asset} />
-            </span>
-          ) : (
-            <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
-          )
-        })()
-      ) : (
-        <span className="covenant-tile-content absolute inset-[2px] rounded-full border border-slate-700/70 bg-slate-900/60">
-          <span className="sigil-placeholder sigil-placeholder-wheel sigil-placeholder-covenant-empty">
-            <span className="sigil-covenant-diamond" />
-          </span>
-        </span>
-      )}
+      {tileVisual}
     </div>
   )
 }
@@ -159,34 +169,15 @@ function CardWheelTile({
   const tileClassName = `wheel-tile group/wheel relative z-20 aspect-[75/113] overflow-hidden bg-slate-700/30 p-[1px] ${
     isActive ? 'wheel-tile-active' : ''
   } ${showOver ? 'wheel-tile-over' : ''} ${isDragging ? 'opacity-65' : ''}`
+  const tileVisual = (
+    <>
+      <span className="wheel-tile-frame absolute inset-0 border border-slate-200/45" />
+      {renderWheelTileVisual(wheelId)}
+    </>
+  )
 
   if (!interactive) {
-    return (
-      <div className={tileClassName}>
-        <span className="wheel-tile-frame absolute inset-0 border border-slate-200/45" />
-        {wheelId ? (
-          (() => {
-            const asset = getWheelAssetById(wheelId)
-            return asset ? (
-              <span className="wheel-tile-content absolute inset-[2px] overflow-hidden border border-slate-200/20">
-                <img
-                  alt={`${wheelId} wheel`}
-                  className="builder-card-wheel-image h-full w-full object-cover"
-                  draggable={false}
-                  src={asset}
-                />
-              </span>
-            ) : (
-              <span className="wheel-tile-content absolute inset-[2px] border border-slate-200/20 bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
-            )
-          })()
-        ) : (
-          <span className="wheel-tile-content absolute inset-[2px] border border-slate-700/70 bg-slate-900/60">
-            <span className="sigil-placeholder sigil-placeholder-wheel" />
-          </span>
-        )}
-      </div>
-    )
+    return <div className={tileClassName}>{tileVisual}</div>
   }
 
   return (
@@ -216,23 +207,7 @@ function CardWheelTile({
           <span className="sigil-remove-x builder-card-remove-x" />
         </button>
       ) : null}
-      <span className="wheel-tile-frame absolute inset-0 border border-slate-200/45" />
-      {wheelId ? (
-        (() => {
-          const asset = getWheelAssetById(wheelId)
-          return asset ? (
-            <span className="wheel-tile-content absolute inset-[2px] overflow-hidden border border-slate-200/20">
-              <img alt={`${wheelId} wheel`} className="builder-card-wheel-image h-full w-full object-cover" draggable={false} src={asset} />
-            </span>
-          ) : (
-            <span className="wheel-tile-content absolute inset-[2px] border border-slate-200/20 bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
-          )
-        })()
-      ) : (
-        <span className="wheel-tile-content absolute inset-[2px] border border-slate-700/70 bg-slate-900/60">
-          <span className="sigil-placeholder sigil-placeholder-wheel" />
-        </span>
-      )}
+      {tileVisual}
     </div>
   )
 }

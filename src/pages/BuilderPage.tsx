@@ -1,7 +1,6 @@
 import { DndContext, DragOverlay } from '@dnd-kit/core'
 import { useEffect, useRef, useState } from 'react'
 import { awakenerByName } from './builder/constants'
-import { parseCovenantDropZoneId, parseWheelDropZoneId, PICKER_DROP_ZONE_ID } from './builder/dnd-ids'
 import { BuilderActiveTeamPanel } from './builder/BuilderActiveTeamPanel'
 import { BuilderSelectionPanel } from './builder/BuilderSelectionPanel'
 import { BuilderTeamsPanel } from './builder/BuilderTeamsPanel'
@@ -10,8 +9,6 @@ import { BuilderConfirmDialogs } from './builder/BuilderConfirmDialogs'
 import { PickerAwakenerGhost, PickerWheelGhost, TeamCardGhost, TeamWheelGhost } from './builder/DragGhosts'
 import { Toast } from '../components/ui/Toast'
 import {
-  assignAwakenerToFirstEmptySlot,
-  assignAwakenerToSlot,
   clearSlotAssignment,
   type TeamStateViolationCode,
   swapSlotAssignments,
@@ -25,7 +22,8 @@ import { usePendingTransferDialog } from './builder/usePendingTransferDialog'
 import { usePendingDeleteDialog } from './builder/usePendingDeleteDialog'
 import { useBuilderWheelActions } from './builder/useBuilderWheelActions'
 import { useBuilderCovenantActions } from './builder/useBuilderCovenantActions'
-import { getAwakenerIdentityKey } from '../domain/awakener-identity'
+import { useBuilderAwakenerActions } from './builder/useBuilderAwakenerActions'
+import { resolvePredictedDropHover } from './builder/predicted-drop-hover'
 import { addTeam, reorderTeams } from './builder/team-collection'
 import type { PredictedDropHover } from './builder/types'
 import type { DragData } from './builder/types'
@@ -118,6 +116,23 @@ export function BuilderPage() {
   }
 
   const {
+    handleDropPickerAwakener,
+    handlePickerAwakenerClick,
+  } = useBuilderAwakenerActions({
+    awakenerByName,
+    clearPendingDelete,
+    clearTransfer,
+    effectiveActiveTeamId,
+    notifyViolation,
+    requestAwakenerTransfer,
+    resolvedActiveSelection,
+    setActiveSelection,
+    setActiveTeamSlots,
+    teamSlots,
+    usedAwakenerByIdentityKey,
+  })
+
+  const {
     handleDropPickerWheel,
     handleDropTeamWheel,
     handleDropTeamWheelToPicker,
@@ -189,28 +204,7 @@ export function BuilderPage() {
 
   const { activeDrag, isRemoveIntent, sensors, handleDragCancel, handleDragEnd, handleDragOver, handleDragStart } = useBuilderDnd({
     onDropPickerAwakener: (awakenerName, targetSlotId) => {
-      const result = assignAwakenerToSlot(teamSlots, awakenerName, targetSlotId, awakenerByName)
-      notifyViolation(result.violation)
-      if (result.nextSlots === teamSlots) {
-        return
-      }
-
-      const identityKey = getAwakenerIdentityKey(awakenerName)
-      const owningTeamId = usedAwakenerByIdentityKey.get(identityKey)
-      if (owningTeamId && owningTeamId !== effectiveActiveTeamId) {
-        clearPendingDelete()
-        requestAwakenerTransfer({
-          awakenerName,
-          fromTeamId: owningTeamId,
-          toTeamId: effectiveActiveTeamId,
-          targetSlotId,
-        })
-        return
-      }
-
-      clearTransfer()
-      setActiveTeamSlots(result.nextSlots)
-      setActiveSelection({ kind: 'awakener', slotId: targetSlotId })
+      handleDropPickerAwakener(awakenerName, targetSlotId)
     },
     onDropPickerWheel: (wheelId, targetSlotId, targetWheelIndex) => {
       handleDropPickerWheel(wheelId, targetSlotId, targetWheelIndex)
@@ -314,56 +308,6 @@ export function BuilderPage() {
     }, 0)
   }
 
-  function findFirstEmptyWheelIndex(slotId: string): number | null {
-    const slot = slotById.get(slotId)
-    if (!slot?.awakenerName) {
-      return null
-    }
-    const firstEmptyIndex = slot.wheels.findIndex((wheel) => !wheel)
-    return firstEmptyIndex === -1 ? null : firstEmptyIndex
-  }
-
-  function resolvePredictedDropHover(
-    dragData: DragData | null | undefined,
-    overId: string | undefined,
-  ): PredictedDropHover {
-    if (!dragData || !overId || overId === PICKER_DROP_ZONE_ID) {
-      return null
-    }
-
-    const overWheelZone = parseWheelDropZoneId(overId)
-    const overCovenantZone = parseCovenantDropZoneId(overId)
-
-    if (dragData.kind === 'picker-wheel' || dragData.kind === 'team-wheel') {
-      if (overWheelZone) {
-        return { kind: 'wheel', slotId: overWheelZone.slotId, wheelIndex: overWheelZone.wheelIndex }
-      }
-      const targetSlotId = overCovenantZone?.slotId ?? (overId.startsWith('slot-') ? overId : null)
-      if (!targetSlotId) {
-        return null
-      }
-      const wheelIndex = findFirstEmptyWheelIndex(targetSlotId)
-      if (wheelIndex === null) {
-        return null
-      }
-      return { kind: 'wheel', slotId: targetSlotId, wheelIndex }
-    }
-
-    if (dragData.kind === 'picker-covenant' || dragData.kind === 'team-covenant') {
-      const targetSlotId = overCovenantZone?.slotId ?? overWheelZone?.slotId ?? (overId.startsWith('slot-') ? overId : null)
-      if (!targetSlotId) {
-        return null
-      }
-      const slot = slotById.get(targetSlotId)
-      if (!slot?.awakenerName) {
-        return null
-      }
-      return { kind: 'covenant', slotId: targetSlotId }
-    }
-
-    return null
-  }
-
   function handleDndDragStart(event: Parameters<typeof handleCoordinatedDragStart>[0]) {
     suppressTeamEditRef.current = true
     setPredictedDropHover(null)
@@ -373,7 +317,7 @@ export function BuilderPage() {
   function handleDndDragOver(event: Parameters<typeof handleCoordinatedDragOver>[0]) {
     const overId = typeof event.over?.id === 'string' ? event.over.id : undefined
     const dragData = event.active.data.current as DragData | undefined
-    setPredictedDropHover(resolvePredictedDropHover(dragData, overId))
+    setPredictedDropHover(resolvePredictedDropHover(dragData, overId, slotById))
     handleCoordinatedDragOver(event)
   }
 
@@ -476,29 +420,7 @@ export function BuilderPage() {
             filteredAwakeners={filteredAwakeners}
             filteredPosses={filteredPosses}
             onAwakenerClick={(awakenerName) => {
-              clearPendingDelete()
-              clearTransfer()
-              const result =
-                resolvedActiveSelection?.kind === 'awakener'
-                  ? assignAwakenerToSlot(teamSlots, awakenerName, resolvedActiveSelection.slotId, awakenerByName)
-                  : assignAwakenerToFirstEmptySlot(teamSlots, awakenerName, awakenerByName)
-              notifyViolation(result.violation)
-              if (result.nextSlots === teamSlots) {
-                return
-              }
-              const identityKey = getAwakenerIdentityKey(awakenerName)
-              const owningTeamId = usedAwakenerByIdentityKey.get(identityKey)
-              if (owningTeamId && owningTeamId !== effectiveActiveTeamId) {
-                requestAwakenerTransfer({
-                  awakenerName,
-                  fromTeamId: owningTeamId,
-                  toTeamId: effectiveActiveTeamId,
-                  targetSlotId: resolvedActiveSelection?.kind === 'awakener' ? resolvedActiveSelection.slotId : undefined,
-                })
-                return
-              }
-              setActiveTeamSlots(result.nextSlots)
-              clearTransfer()
+              handlePickerAwakenerClick(awakenerName)
             }}
             onAwakenerFilterChange={setAwakenerFilter}
             onPickerTabChange={setPickerTab}
