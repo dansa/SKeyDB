@@ -40,7 +40,7 @@ export function usePendingTransferDialog({
       return formatAwakenerNameForUi(pendingTransfer.itemName)
     }
     if (pendingTransfer.kind === 'wheel') {
-      return getWheelById(pendingTransfer.itemName)?.name ?? pendingTransfer.itemName
+      return getWheelById(pendingTransfer.wheelId)?.name ?? pendingTransfer.itemName
     }
     return pendingTransfer.itemName
   }, [pendingTransfer])

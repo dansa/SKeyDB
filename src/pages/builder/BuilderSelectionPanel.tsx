@@ -9,7 +9,7 @@ import { PICKER_DROP_ZONE_ID } from './dnd-ids'
 import { PickerDropZone } from './PickerDropZone'
 import { PickerAwakenerTile } from './PickerAwakenerTile'
 import { PickerWheelTile } from './PickerWheelTile'
-import type { AwakenerFilter, PickerTab, PosseFilter, Team, WheelRarityFilter } from './types'
+import type { AwakenerFilter, PickerTab, PosseFilter, Team, WheelRarityFilter, WheelUsageLocation } from './types'
 import { toOrdinal } from './utils'
 
 const pickerTabs: Array<{ id: PickerTab; label: string }> = [
@@ -57,7 +57,7 @@ type BuilderSelectionPanelProps = {
   activePosseId?: string
   teams: Team[]
   usedPosseByTeamOrder: Map<string, number>
-  usedWheelByTeamOrder: Map<string, { teamOrder: number; teamId: string; slotId: string; wheelIndex: number }>
+  usedWheelByTeamOrder: Map<string, WheelUsageLocation>
   effectiveActiveTeamId: string
   onSearchChange: (nextValue: string) => void
   onPickerTabChange: (nextTab: PickerTab) => void

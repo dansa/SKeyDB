@@ -1,6 +1,11 @@
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import { awakenerByName } from './constants'
-import { assignAwakenerToFirstEmptySlot, assignAwakenerToSlot, clearSlotAssignment } from './team-state'
+import {
+  assignAwakenerToFirstEmptySlot,
+  assignAwakenerToSlot,
+  assignWheelToSlot,
+  clearSlotAssignment,
+} from './team-state'
 import type { Team } from './types'
 import type { PendingTransfer } from './useTransferConfirm'
 
@@ -18,31 +23,43 @@ export function applyPendingTransfer(teams: Team[], pendingTransfer: PendingTran
   }
 
   if (pendingTransfer.kind === 'wheel') {
+    const fromTeam = teams.find((team) => team.id === pendingTransfer.fromTeamId)
+    const toTeam = teams.find((team) => team.id === pendingTransfer.toTeamId)
+    if (!fromTeam || !toTeam) {
+      return teams
+    }
+    if (fromTeam.id === toTeam.id) {
+      return teams
+    }
+
+    const targetResult = assignWheelToSlot(
+      toTeam.slots,
+      pendingTransfer.targetSlotId,
+      pendingTransfer.targetWheelIndex,
+      pendingTransfer.wheelId,
+    )
+    if (targetResult.nextSlots === toTeam.slots) {
+      return teams
+    }
+
+    const sourceResult = assignWheelToSlot(
+      fromTeam.slots,
+      pendingTransfer.fromSlotId,
+      pendingTransfer.fromWheelIndex,
+      null,
+    )
+
     return teams.map((team) => {
-      if (team.id === pendingTransfer.fromTeamId) {
+      if (team.id === fromTeam.id) {
         return {
           ...team,
-          slots: team.slots.map((slot) => {
-            if (slot.slotId !== pendingTransfer.fromSlotId) {
-              return slot
-            }
-            const nextWheels = [...slot.wheels]
-            nextWheels[pendingTransfer.fromWheelIndex] = null
-            return { ...slot, wheels: nextWheels as [string | null, string | null] }
-          }),
+          slots: sourceResult.nextSlots,
         }
       }
-      if (team.id === pendingTransfer.toTeamId) {
+      if (team.id === toTeam.id) {
         return {
           ...team,
-          slots: team.slots.map((slot) => {
-            if (slot.slotId !== pendingTransfer.targetSlotId) {
-              return slot
-            }
-            const nextWheels = [...slot.wheels]
-            nextWheels[pendingTransfer.targetWheelIndex] = pendingTransfer.wheelId
-            return { ...slot, wheels: nextWheels as [string | null, string | null] }
-          }),
+          slots: targetResult.nextSlots,
         }
       }
       return team

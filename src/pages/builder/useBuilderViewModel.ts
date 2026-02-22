@@ -10,7 +10,16 @@ import { allAwakeners } from './constants'
 import { clearSlotAssignment, clearWheelAssignment, getTeamFactionSet } from './team-state'
 import { createInitialTeams, renameTeam } from './team-collection'
 import { toggleAwakenerSelection, toggleWheelSelection } from './selection-state'
-import type { ActiveSelection, AwakenerFilter, PickerTab, PosseFilter, Team, TeamSlot, WheelRarityFilter } from './types'
+import type {
+  ActiveSelection,
+  AwakenerFilter,
+  PickerTab,
+  PosseFilter,
+  Team,
+  TeamSlot,
+  WheelRarityFilter,
+  WheelUsageLocation,
+} from './types'
 import { useGlobalPickerSearchCapture } from './useGlobalPickerSearchCapture'
 
 const EMPTY_TEAM_SLOTS: TeamSlot[] = []
@@ -171,7 +180,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     return posseMap
   }, [teams])
   const usedWheelByTeamOrder = useMemo(() => {
-    const wheelMap = new Map<string, { teamOrder: number; teamId: string; slotId: string; wheelIndex: number }>()
+    const wheelMap = new Map<string, WheelUsageLocation>()
     teams.forEach((team, teamOrder) => {
       team.slots.forEach((slot) => {
         slot.wheels.forEach((wheelId, wheelIndex) => {

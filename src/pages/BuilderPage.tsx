@@ -11,9 +11,7 @@ import { Toast } from '../components/ui/Toast'
 import {
   assignAwakenerToFirstEmptySlot,
   assignAwakenerToSlot,
-  assignWheelToSlot,
   clearSlotAssignment,
-  swapWheelAssignments,
   type TeamStateViolationCode,
   swapSlotAssignments,
 } from './builder/team-state'
@@ -24,13 +22,9 @@ import { useBuilderViewModel } from './builder/useBuilderViewModel'
 import { useBuilderImportExport } from './builder/useBuilderImportExport'
 import { usePendingTransferDialog } from './builder/usePendingTransferDialog'
 import { usePendingDeleteDialog } from './builder/usePendingDeleteDialog'
+import { useBuilderWheelActions } from './builder/useBuilderWheelActions'
 import { getAwakenerIdentityKey } from '../domain/awakener-identity'
 import { addTeam, reorderTeams } from './builder/team-collection'
-import {
-  nextSelectionAfterWheelRemoved,
-  nextSelectionAfterWheelSwap,
-  shouldSetActiveWheelOnPickerAssign,
-} from './builder/selection-state'
 
 export function BuilderPage() {
   const [toastMessage, setToastMessage] = useState<string | null>(null)
@@ -85,6 +79,18 @@ export function BuilderPage() {
     handleRemoveActiveSelection,
   } = useBuilderViewModel({ searchInputRef })
 
+  const {
+    clearPendingDelete,
+    requestDeleteTeam,
+    pendingDeleteDialog,
+  } = usePendingDeleteDialog({
+    teams,
+    setTeams,
+    effectiveActiveTeamId,
+    setActiveTeamId,
+    clearActiveSelection: () => setActiveSelection(null),
+  })
+
   function showToast(message: string, duration = 2200) {
     if (toastTimeoutRef.current) {
       window.clearTimeout(toastTimeoutRef.current)
@@ -104,68 +110,24 @@ export function BuilderPage() {
     showToast('Invalid move: a team can only contain up to 2 factions.')
   }
 
-  function getFirstEmptyWheelIndex(slotId: string): number | null {
-    const slot = teamSlots.find((entry) => entry.slotId === slotId)
-    if (!slot?.awakenerName) {
-      return null
-    }
-    const firstEmptyIndex = slot.wheels.findIndex((wheel) => !wheel)
-    return firstEmptyIndex === -1 ? null : firstEmptyIndex
-  }
-
-  function assignPickerWheelToTarget(
-    wheelId: string,
-    targetSlotId: string,
-    targetWheelIndex?: number,
-    options?: { setActiveOnAssign?: boolean },
-  ) {
-    const setActiveOnAssign = options?.setActiveOnAssign ?? true
-    const resolvedWheelIndex =
-      targetWheelIndex ??
-      getFirstEmptyWheelIndex(targetSlotId)
-
-    if (resolvedWheelIndex === null || resolvedWheelIndex === undefined) {
-      return
-    }
-
-    const wheelOwner = usedWheelByTeamOrder.get(wheelId)
-    if (
-      wheelOwner &&
-      wheelOwner.teamId === effectiveActiveTeamId &&
-      (wheelOwner.slotId !== targetSlotId || wheelOwner.wheelIndex !== resolvedWheelIndex)
-    ) {
-      const result = swapWheelAssignments(
-        teamSlots,
-        wheelOwner.slotId,
-        wheelOwner.wheelIndex,
-        targetSlotId,
-        resolvedWheelIndex,
-      )
-      setActiveTeamSlots(result.nextSlots)
-      if (setActiveOnAssign) {
-        setActiveSelection({ kind: 'wheel', slotId: targetSlotId, wheelIndex: resolvedWheelIndex })
-      }
-      return
-    }
-    if (wheelOwner && wheelOwner.teamId !== effectiveActiveTeamId) {
-      requestWheelTransfer({
-        wheelId,
-        fromTeamId: wheelOwner.teamId,
-        fromSlotId: wheelOwner.slotId,
-        fromWheelIndex: wheelOwner.wheelIndex,
-        toTeamId: effectiveActiveTeamId,
-        targetSlotId,
-        targetWheelIndex: resolvedWheelIndex,
-      })
-      return
-    }
-
-    const result = assignWheelToSlot(teamSlots, targetSlotId, resolvedWheelIndex, wheelId)
-    setActiveTeamSlots(result.nextSlots)
-    if (setActiveOnAssign) {
-      setActiveSelection({ kind: 'wheel', slotId: targetSlotId, wheelIndex: resolvedWheelIndex })
-    }
-  }
+  const {
+    handleDropPickerWheel,
+    handleDropTeamWheel,
+    handleDropTeamWheelToPicker,
+    handleDropTeamWheelToSlot,
+    handlePickerWheelClick,
+  } = useBuilderWheelActions({
+    clearPendingDelete,
+    clearTransfer,
+    effectiveActiveTeamId,
+    requestWheelTransfer,
+    resolvedActiveSelection,
+    setActiveSelection,
+    setActiveTeamSlots,
+    showToast,
+    teamSlots,
+    usedWheelByTeamOrder,
+  })
 
   useEffect(() => {
     const handlePointerDown = (event: PointerEvent) => {
@@ -228,9 +190,7 @@ export function BuilderPage() {
       setActiveSelection({ kind: 'awakener', slotId: targetSlotId })
     },
     onDropPickerWheel: (wheelId, targetSlotId, targetWheelIndex) => {
-      clearPendingDelete()
-      clearTransfer()
-      assignPickerWheelToTarget(wheelId, targetSlotId, targetWheelIndex, { setActiveOnAssign: true })
+      handleDropPickerWheel(wheelId, targetSlotId, targetWheelIndex)
     },
     onDropTeamSlot: (sourceSlotId, targetSlotId) => {
       const result = swapSlotAssignments(teamSlots, sourceSlotId, targetSlotId)
@@ -242,50 +202,13 @@ export function BuilderPage() {
       setActiveTeamSlots(result.nextSlots)
     },
     onDropTeamWheel: (sourceSlotId, sourceWheelIndex, targetSlotId, targetWheelIndex) => {
-      if (sourceSlotId === targetSlotId && sourceWheelIndex === targetWheelIndex) {
-        return
-      }
-      const result = swapWheelAssignments(
-        teamSlots,
-        sourceSlotId,
-        sourceWheelIndex,
-        targetSlotId,
-        targetWheelIndex,
-      )
-      setActiveTeamSlots(result.nextSlots)
-      const nextSelection = nextSelectionAfterWheelSwap(
-        resolvedActiveSelection,
-        sourceSlotId,
-        sourceWheelIndex,
-        targetSlotId,
-        targetWheelIndex,
-      )
-      if (nextSelection !== resolvedActiveSelection) {
-        setActiveSelection(nextSelection)
-      }
+      handleDropTeamWheel(sourceSlotId, sourceWheelIndex, targetSlotId, targetWheelIndex)
     },
     onDropTeamWheelToSlot: (sourceSlotId, sourceWheelIndex, targetSlotId) => {
-      const targetWheelIndex = getFirstEmptyWheelIndex(targetSlotId)
-      if (targetWheelIndex === null) {
-        return
-      }
-      const result = swapWheelAssignments(
-        teamSlots,
-        sourceSlotId,
-        sourceWheelIndex,
-        targetSlotId,
-        targetWheelIndex,
-      )
-      setActiveTeamSlots(result.nextSlots)
-      setActiveSelection({ kind: 'wheel', slotId: targetSlotId, wheelIndex: targetWheelIndex })
+      handleDropTeamWheelToSlot(sourceSlotId, sourceWheelIndex, targetSlotId)
     },
     onDropTeamWheelToPicker: (sourceSlotId, sourceWheelIndex) => {
-      const result = assignWheelToSlot(teamSlots, sourceSlotId, sourceWheelIndex, null)
-      setActiveTeamSlots(result.nextSlots)
-      const nextSelection = nextSelectionAfterWheelRemoved(resolvedActiveSelection, sourceSlotId, sourceWheelIndex)
-      if (nextSelection !== resolvedActiveSelection) {
-        setActiveSelection(nextSelection)
-      }
+      handleDropTeamWheelToPicker(sourceSlotId, sourceWheelIndex)
     },
   })
 
@@ -307,18 +230,6 @@ export function BuilderPage() {
     onDragOver: handleDragOver,
     onDragEnd: handleDragEnd,
     onDragCancel: handleDragCancel,
-  })
-
-  const {
-    clearPendingDelete,
-    requestDeleteTeam,
-    pendingDeleteDialog,
-  } = usePendingDeleteDialog({
-    teams,
-    setTeams,
-    effectiveActiveTeamId,
-    setActiveTeamId,
-    clearActiveSelection: () => setActiveSelection(null),
   })
 
   const {
@@ -528,32 +439,7 @@ export function BuilderPage() {
               clearTransfer()
             }}
             onSetActiveWheel={(wheelId) => {
-              clearPendingDelete()
-              clearTransfer()
-              if (resolvedActiveSelection?.kind !== 'wheel' && resolvedActiveSelection?.kind !== 'awakener') {
-                showToast('Select a wheel slot on a unit card first.')
-                return
-              }
-
-              const targetSlotId = resolvedActiveSelection.slotId
-              const targetWheelIndex =
-                resolvedActiveSelection.kind === 'wheel' ? resolvedActiveSelection.wheelIndex : undefined
-              const resolvedWheelIndex =
-                targetWheelIndex ?? getFirstEmptyWheelIndex(targetSlotId)
-              if (!wheelId) {
-                if (resolvedWheelIndex === null || resolvedWheelIndex === undefined) {
-                  return
-                }
-                const result = assignWheelToSlot(teamSlots, targetSlotId, resolvedWheelIndex, null)
-                setActiveTeamSlots(result.nextSlots)
-                return
-              }
-              if (resolvedWheelIndex === null || resolvedWheelIndex === undefined) {
-                return
-              }
-              assignPickerWheelToTarget(wheelId, targetSlotId, resolvedWheelIndex, {
-                setActiveOnAssign: shouldSetActiveWheelOnPickerAssign(resolvedActiveSelection),
-              })
+              handlePickerWheelClick(wheelId)
             }}
             pickerTab={pickerTab}
             posseFilter={posseFilter}

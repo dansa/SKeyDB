@@ -15,6 +15,13 @@ export type Team = {
   posseId?: string
 }
 
+export type WheelUsageLocation = {
+  teamOrder: number
+  teamId: string
+  slotId: string
+  wheelIndex: number
+}
+
 export type PickerTab = 'awakeners' | 'wheels' | 'posses' | 'covenants'
 export type AwakenerFilter = 'ALL' | 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA'
 export type PosseFilter = 'ALL' | 'FADED_LEGACY' | 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA'
