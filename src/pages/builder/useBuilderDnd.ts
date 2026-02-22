@@ -7,17 +7,33 @@ import {
   useSensors,
 } from '@dnd-kit/core'
 import { useState } from 'react'
+import { parseWheelDropZoneId, PICKER_DROP_ZONE_ID } from './dnd-ids'
 import type { DragData } from './types'
-
-export const PICKER_DROP_ZONE_ID = 'dropzone:picker'
 
 type UseBuilderDndOptions = {
   onDropPickerAwakener: (awakenerName: string, targetSlotId: string) => void
+  onDropPickerWheel: (wheelId: string, targetSlotId: string, targetWheelIndex?: number) => void
   onDropTeamSlot: (sourceSlotId: string, targetSlotId: string) => void
+  onDropTeamWheel: (
+    sourceSlotId: string,
+    sourceWheelIndex: number,
+    targetSlotId: string,
+    targetWheelIndex: number,
+  ) => void
+  onDropTeamWheelToSlot: (sourceSlotId: string, sourceWheelIndex: number, targetSlotId: string) => void
   onDropTeamSlotToPicker: (sourceSlotId: string) => void
+  onDropTeamWheelToPicker: (sourceSlotId: string, sourceWheelIndex: number) => void
 }
 
-export function useBuilderDnd({ onDropPickerAwakener, onDropTeamSlot, onDropTeamSlotToPicker }: UseBuilderDndOptions) {
+export function useBuilderDnd({
+  onDropPickerAwakener,
+  onDropPickerWheel,
+  onDropTeamSlot,
+  onDropTeamWheel,
+  onDropTeamWheelToSlot,
+  onDropTeamSlotToPicker,
+  onDropTeamWheelToPicker,
+}: UseBuilderDndOptions) {
   const [activeDrag, setActiveDrag] = useState<DragData | null>(null)
   const [isRemoveIntent, setIsRemoveIntent] = useState(false)
   const sensors = useSensors(
@@ -25,6 +41,10 @@ export function useBuilderDnd({ onDropPickerAwakener, onDropTeamSlot, onDropTeam
       activationConstraint: { distance: 4 },
     }),
   )
+
+  function isTeamSlotId(id: string): boolean {
+    return id.startsWith('slot-')
+  }
 
   function handleDragStart(event: DragStartEvent) {
     const data = event.active.data.current as DragData | undefined
@@ -36,7 +56,7 @@ export function useBuilderDnd({ onDropPickerAwakener, onDropTeamSlot, onDropTeam
   }
 
   function handleDragOver(event: DragOverEvent) {
-    if (activeDrag?.kind !== 'team-slot') {
+    if (activeDrag?.kind !== 'team-slot' && activeDrag?.kind !== 'team-wheel') {
       if (isRemoveIntent) {
         setIsRemoveIntent(false)
       }
@@ -60,21 +80,59 @@ export function useBuilderDnd({ onDropPickerAwakener, onDropTeamSlot, onDropTeam
       return
     }
 
+    const overWheelZone = parseWheelDropZoneId(overId)
+
     if (data.kind === 'picker-awakener') {
-      onDropPickerAwakener(data.awakenerName, overId)
+      const targetSlotId = overWheelZone?.slotId ?? (isTeamSlotId(overId) ? overId : null)
+      if (!targetSlotId) {
+        return
+      }
+      onDropPickerAwakener(data.awakenerName, targetSlotId)
       return
     }
 
-    if (data.kind !== 'team-slot') {
+    if (data.kind === 'picker-wheel') {
+      if (overWheelZone) {
+        onDropPickerWheel(data.wheelId, overWheelZone.slotId, overWheelZone.wheelIndex)
+        return
+      }
+      if (!isTeamSlotId(overId)) {
+        return
+      }
+      onDropPickerWheel(data.wheelId, overId)
+      return
+    }
+
+    if (data.kind === 'team-slot') {
+      if (overId === PICKER_DROP_ZONE_ID) {
+        onDropTeamSlotToPicker(data.slotId)
+        return
+      }
+      const targetSlotId = overWheelZone?.slotId ?? (isTeamSlotId(overId) ? overId : null)
+      if (!targetSlotId) {
+        return
+      }
+      onDropTeamSlot(data.slotId, targetSlotId)
+      return
+    }
+
+    if (data.kind !== 'team-wheel') {
       return
     }
 
     if (overId === PICKER_DROP_ZONE_ID) {
-      onDropTeamSlotToPicker(data.slotId)
+      onDropTeamWheelToPicker(data.slotId, data.wheelIndex)
       return
     }
 
-    onDropTeamSlot(data.slotId, overId)
+    if (!overWheelZone) {
+      if (isTeamSlotId(overId)) {
+        onDropTeamWheelToSlot(data.slotId, data.wheelIndex, overId)
+      }
+      return
+    }
+
+    onDropTeamWheel(data.slotId, data.wheelIndex, overWheelZone.slotId, overWheelZone.wheelIndex)
   }
 
   function handleDragCancel() {

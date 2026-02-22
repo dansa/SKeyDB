@@ -52,7 +52,7 @@ function pushSlotBytes(buffer: number[], slot: TeamSlot) {
   const wheelOne = awakenerId && slot.wheels[0] ? wheelIndexById.get(slot.wheels[0]) ?? 0 : 0
   const wheelTwo = awakenerId && slot.wheels[1] ? wheelIndexById.get(slot.wheels[1]) ?? 0 : 0
   if (wheelOne > 255 || wheelTwo > 255) {
-    throw new Error('Wheel index exceeds export format limits.')
+    throw new Error('Equipment index exceeds export format limits.')
   }
 
   buffer.push(awakenerId, level, wheelOne, wheelTwo)

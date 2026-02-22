@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
@@ -96,6 +96,18 @@ describe('BuilderPage placeholders', () => {
     await user.click(screen.getByRole('button', { name: /remove active awakener/i }))
 
     expect(screen.queryByRole('button', { name: /change goliath/i })).not.toBeInTheDocument()
+  })
+
+  it('toggles off active card when clicking the same card again', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    await user.click(screen.getByRole('button', { name: /change goliath/i }))
+    expect(screen.getByRole('button', { name: /remove active awakener/i })).toBeInTheDocument()
+
+    await user.click(screen.getByRole('button', { name: /change goliath/i }))
+    expect(screen.queryByRole('button', { name: /remove active awakener/i })).not.toBeInTheDocument()
   })
 
   it('switches active team when clicking the team row card', async () => {
@@ -332,5 +344,165 @@ describe('BuilderPage placeholders', () => {
     expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /team 2/i })).toBeInTheDocument()
   })
+
+  it('treats both active slot sockets as wheel slots', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    await user.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
+    await user.click(screen.getByRole('button', { name: /merciful nurturing/i }))
+    expect(screen.getAllByRole('button', { name: /edit wheel/i })[0]).toBeInTheDocument()
+
+    await user.click(screen.getAllByRole('button', { name: /set wheel/i })[1])
+    expect(screen.getByRole('searchbox')).toHaveAttribute(
+      'placeholder',
+      'Search wheels (name, rarity, faction, awakener, main stat)',
+    )
+  })
+
+  it('labels wheels already used in the active team inside picker', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    await user.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
+    await user.click(screen.getByRole('button', { name: /merciful nurturing/i }))
+
+    const wheelTile = screen.getByRole('button', { name: /merciful nurturing wheel/i })
+    expect(wheelTile).toHaveTextContent(/already used/i)
+  })
+
+  it('uses standard plus sigil for unset wheel slots on cards', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+
+    const setWheelButtons = screen.getAllByRole('button', { name: /set wheel/i })
+    const firstUnsetWheel = setWheelButtons[0]
+    expect(firstUnsetWheel.querySelector('.sigil-placeholder-wheel')).not.toBeNull()
+    expect(firstUnsetWheel.querySelector('.sigil-placeholder-remove')).toBeNull()
+    expect(firstUnsetWheel.querySelector('.sigil-remove-x')).toBeNull()
+  })
+
+  it('assigns wheel to first empty slot when awakener card is active', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    await user.click(screen.getByRole('button', { name: /change goliath/i }))
+    await user.click(screen.getByRole('button', { name: /wheels/i }))
+    await user.click(screen.getByRole('button', { name: /merciful nurturing/i }))
+
+    expect(screen.getAllByRole('button', { name: /edit wheel/i })).toHaveLength(1)
+    expect(screen.getAllByRole('button', { name: /set wheel/i })).toHaveLength(1)
+  })
+
+  it('keeps awakener active while quick-clicking two wheels from picker', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    await user.click(screen.getByRole('button', { name: /change goliath/i }))
+    await user.click(screen.getByRole('button', { name: /wheels/i }))
+    await user.click(screen.getByRole('button', { name: /merciful nurturing/i }))
+    await user.click(screen.getByRole('button', { name: /tablet of scriptures/i }))
+
+    expect(screen.getByRole('button', { name: /remove active awakener/i })).toBeInTheDocument()
+    expect(screen.getAllByRole('button', { name: /edit wheel/i })).toHaveLength(2)
+    expect(screen.queryByRole('button', { name: /set wheel/i })).not.toBeInTheDocument()
+  })
+
+  it('clears active selection when clicking outside picker zone', async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    await user.click(screen.getByRole('button', { name: /change goliath/i }))
+    expect(screen.getByRole('button', { name: /remove active awakener/i })).toBeInTheDocument()
+
+    await user.click(screen.getByRole('heading', { name: /team 1/i }))
+    expect(screen.queryByRole('button', { name: /remove active awakener/i })).not.toBeInTheDocument()
+  })
+
+  it('clears active selection when clicking completely outside builder section', async () => {
+    const user = userEvent.setup()
+    render(
+      <div>
+        <button type="button">Outside Click Target</button>
+        <BuilderPage />
+      </div>,
+    )
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    await user.click(screen.getByRole('button', { name: /change goliath/i }))
+    expect(screen.getByRole('button', { name: /remove active awakener/i })).toBeInTheDocument()
+
+    await user.click(screen.getByRole('button', { name: /outside click target/i }))
+    expect(screen.queryByRole('button', { name: /remove active awakener/i })).not.toBeInTheDocument()
+  })
+
+  it(
+    'swaps wheels when moving an in-use wheel to another slot in the same awakener',
+    async () => {
+    const user = userEvent.setup()
+    render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+
+    await user.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
+    await user.click(screen.getByRole('button', { name: /merciful nurturing/i }))
+    await user.click(screen.getByRole('button', { name: /set wheel/i }))
+    await user.click(screen.getByRole('button', { name: /tablet of scriptures/i }))
+
+    await user.click(screen.getAllByRole('button', { name: /edit wheel/i })[1])
+    await user.click(screen.getByRole('button', { name: /merciful nurturing wheel/i }))
+
+    expect(screen.getAllByRole('button', { name: /edit wheel/i })).toHaveLength(2)
+    expect(screen.queryByRole('button', { name: /set wheel/i })).not.toBeInTheDocument()
+    },
+    15_000,
+  )
+
+  it(
+    'enforces global wheel uniqueness across teams with move confirmation',
+    async () => {
+    const user = userEvent.setup()
+    const { container } = render(<BuilderPage />)
+
+    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    await user.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
+    await user.click(screen.getByRole('button', { name: /merciful nurturing/i }))
+
+    await user.click(screen.getByRole('button', { name: /\+ add team/i }))
+    const team2Row = container.querySelector('[data-team-name="Team 2"]')
+    expect(team2Row).not.toBeNull()
+    await user.click(within(team2Row as HTMLElement).getByText('Team 2'))
+    await user.click(screen.getAllByRole('button', { name: /deploy awakeners/i })[0])
+    await user.click(screen.getByRole('button', { name: /ramona portrait/i }))
+    fireEvent.load(screen.getByAltText(/ramona card/i))
+    await user.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
+
+    await user.click(screen.getByRole('button', { name: /merciful nurturing/i }))
+    expect(screen.getByRole('dialog', { name: /move merciful nurturing/i })).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: /^move$/i }))
+
+    expect(screen.getAllByRole('button', { name: /edit wheel/i })[0]).toBeInTheDocument()
+
+    const team1Row = container.querySelector('[data-team-name="Team 1"]')
+    expect(team1Row).not.toBeNull()
+    await user.click(within(team1Row as HTMLElement).getByText('Team 1'))
+    expect(screen.getAllByRole('button', { name: /set wheel/i })[0]).toBeInTheDocument()
+    },
+    15_000,
+  )
 
 })

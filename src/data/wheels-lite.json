@@ -1,494 +1,1118 @@
 [
   {
     "id": "B01",
-    "assetId": "Weapon_Full_B01"
+    "assetId": "Weapon_Full_B01",
+    "name": "Merciful Nurturing",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B02",
-    "assetId": "Weapon_Full_B02"
+    "assetId": "Weapon_Full_B02",
+    "name": "Tablet of Scriptures",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B03",
-    "assetId": "Weapon_Full_B03"
+    "assetId": "Weapon_Full_B03",
+    "name": "Winter's Requiem",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B04",
-    "assetId": "Weapon_Full_B04"
+    "assetId": "Weapon_Full_B04",
+    "name": "By Rose Alone",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B05",
-    "assetId": "Weapon_Full_B05"
+    "assetId": "Weapon_Full_B05",
+    "name": "Chains Unbound",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B05EX",
-    "assetId": "Weapon_Full_B05EX"
+    "assetId": "Weapon_Full_B05EX",
+    "name": "Drowning in Crimson",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B06",
-    "assetId": "Weapon_Full_B06"
+    "assetId": "Weapon_Full_B06",
+    "name": "Pale Descendant",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B07",
-    "assetId": "Weapon_Full_B07"
+    "assetId": "Weapon_Full_B07",
+    "name": "Bloody Feast",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B08",
-    "assetId": "Weapon_Full_B08"
+    "assetId": "Weapon_Full_B08",
+    "name": "The Glutton's Tale",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B09",
-    "assetId": "Weapon_Full_B09"
+    "assetId": "Weapon_Full_B09",
+    "name": "Lullaby Devoured",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B10",
-    "assetId": "Weapon_Full_B10"
+    "assetId": "Weapon_Full_B10",
+    "name": "Kiss of Repose",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B12",
-    "assetId": "Weapon_Full_B12"
+    "assetId": "Weapon_Full_B12",
+    "name": "Paradoxical Realism",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "B14",
-    "assetId": "Weapon_Full_B14"
+    "assetId": "Weapon_Full_B14",
+    "name": "Vain Regrets",
+    "rarity": "SSR",
+    "faction": "CARO",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C01",
-    "assetId": "Weapon_Full_C01"
+    "assetId": "Weapon_Full_C01",
+    "name": "Rewinding Time",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C02",
-    "assetId": "Weapon_Full_C02"
+    "assetId": "Weapon_Full_C02",
+    "name": "Deathless Ascent",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C02EX",
-    "assetId": "Weapon_Full_C02EX"
+    "assetId": "Weapon_Full_C02EX",
+    "name": "Manikin of Oblivion",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C03",
-    "assetId": "Weapon_Full_C03"
+    "assetId": "Weapon_Full_C03",
+    "name": "Heart of a Knight",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C04",
-    "assetId": "Weapon_Full_C04"
+    "assetId": "Weapon_Full_C04",
+    "name": "Celestial Beast",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C05",
-    "assetId": "Weapon_Full_C05"
+    "assetId": "Weapon_Full_C05",
+    "name": "Hour of Fortune",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C06",
-    "assetId": "Weapon_Full_C06"
+    "assetId": "Weapon_Full_C06",
+    "name": "Aberrant Devour",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C07",
-    "assetId": "Weapon_Full_C07"
+    "assetId": "Weapon_Full_C07",
+    "name": "Memory Spiral",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C08",
-    "assetId": "Weapon_Full_C08"
+    "assetId": "Weapon_Full_C08",
+    "name": "Gift of Decay",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C09",
-    "assetId": "Weapon_Full_C09"
+    "assetId": "Weapon_Full_C09",
+    "name": "Drifting in Desire",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C10",
-    "assetId": "Weapon_Full_C10"
+    "assetId": "Weapon_Full_C10",
+    "name": "Grace Through Pain",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C11",
-    "assetId": "Weapon_Full_C11"
+    "assetId": "Weapon_Full_C11",
+    "name": "Will Unyielding",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C12",
-    "assetId": "Weapon_Full_C12"
+    "assetId": "Weapon_Full_C12",
+    "name": "Silent Banquet",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C15",
-    "assetId": "Weapon_Full_C15"
+    "assetId": "Weapon_Full_C15",
+    "name": "Wheel Unseen",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C16",
-    "assetId": "Weapon_Full_C16"
+    "assetId": "Weapon_Full_C16",
+    "name": "Amber-Tinted Death",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "C17",
-    "assetId": "Weapon_Full_C17"
+    "assetId": "Weapon_Full_C17",
+    "name": "Doomsday Rampage",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D01",
-    "assetId": "Weapon_Full_D01"
+    "assetId": "Weapon_Full_D01",
+    "name": "Fouetté",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D02",
-    "assetId": "Weapon_Full_D02"
+    "assetId": "Weapon_Full_D02",
+    "name": "Treasured Rarity",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D03",
-    "assetId": "Weapon_Full_D03"
+    "assetId": "Weapon_Full_D03",
+    "name": "Song of the Bound",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D04",
-    "assetId": "Weapon_Full_D04"
+    "assetId": "Weapon_Full_D04",
+    "name": "Queen's Edict",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D05",
-    "assetId": "Weapon_Full_D05"
+    "assetId": "Weapon_Full_D05",
+    "name": "Incalculable Factor",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D06",
-    "assetId": "Weapon_Full_D06"
+    "assetId": "Weapon_Full_D06",
+    "name": "The Last Verse",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D07",
-    "assetId": "Weapon_Full_D07"
+    "assetId": "Weapon_Full_D07",
+    "name": "Path Forsaken",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D08",
-    "assetId": "Weapon_Full_D08"
+    "assetId": "Weapon_Full_D08",
+    "name": "Core Meltdown",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D09",
-    "assetId": "Weapon_Full_D09"
+    "assetId": "Weapon_Full_D09",
+    "name": "Happy Magic Show",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D11",
-    "assetId": "Weapon_Full_D11"
+    "assetId": "Weapon_Full_D11",
+    "name": "Unbearable Freedom",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D12",
-    "assetId": "Weapon_Full_D12"
+    "assetId": "Weapon_Full_D12",
+    "name": "Eternal Requiem",
+    "rarity": "SSR",
+    "faction": "CHAOS",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D13",
-    "assetId": "Weapon_Full_D13"
+    "assetId": "Weapon_Full_D13",
+    "name": "Veiled Anguish",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "D14",
-    "assetId": "Weapon_Full_D14"
+    "assetId": "Weapon_Full_D14",
+    "name": "Twisted Knight Ballad",
+    "rarity": "SSR",
+    "faction": "ULTRA",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "JP01",
-    "assetId": "Weapon_Full_JP01"
+    "assetId": "Weapon_Full_JP01",
+    "name": "Special Training",
+    "rarity": "SSR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "JP02",
-    "assetId": "Weapon_Full_JP02"
+    "assetId": "Weapon_Full_JP02",
+    "name": "School Day",
+    "rarity": "SSR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "JP03",
-    "assetId": "Weapon_Full_JP03"
+    "assetId": "Weapon_Full_JP03",
+    "name": "Dear Papa Noel",
+    "rarity": "SSR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "JP04",
-    "assetId": "Weapon_Full_JP04"
+    "assetId": "Weapon_Full_JP04",
+    "name": "Coutdown Moment",
+    "rarity": "SSR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "N01",
-    "assetId": "Weapon_Full_N01"
+    "assetId": "Weapon_Full_N01",
+    "name": "Unsent Flowers",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
+  },
+  {
+    "id": "N02",
+    "assetId": "Weapon_Full_N02",
+    "name": "Stepping Over the Muddy Roses",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "O01",
-    "assetId": "Weapon_Full_O01"
+    "assetId": "Weapon_Full_O01",
+    "name": "Hymn of the Sovereign",
+    "rarity": "SSR",
+    "faction": "AEQUOR",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "O02",
-    "assetId": "Weapon_Full_O02"
+    "assetId": "Weapon_Full_O02",
+    "name": "Shrouded Birth",
+    "rarity": "SSR",
+    "faction": "AEQUOR",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "O03",
-    "assetId": "Weapon_Full_O03"
+    "assetId": "Weapon_Full_O03",
+    "name": "Amidst the Downpour",
+    "rarity": "SSR",
+    "faction": "AEQUOR",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "O04",
-    "assetId": "Weapon_Full_O04"
+    "assetId": "Weapon_Full_O04",
+    "name": "Fin of Sorrow",
+    "rarity": "SSR",
+    "faction": "AEQUOR",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "O05",
-    "assetId": "Weapon_Full_O05"
+    "assetId": "Weapon_Full_O05",
+    "name": "Dream of the Sea",
+    "rarity": "SSR",
+    "faction": "AEQUOR",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "O06",
-    "assetId": "Weapon_Full_O06"
+    "assetId": "Weapon_Full_O06",
+    "name": "Blade of the Titan",
+    "rarity": "SSR",
+    "faction": "AEQUOR",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "O07",
-    "assetId": "Weapon_Full_O07"
+    "assetId": "Weapon_Full_O07",
+    "name": "Power of the Pious",
+    "rarity": "SSR",
+    "faction": "AEQUOR",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "O08",
-    "assetId": "Weapon_Full_O08"
+    "assetId": "Weapon_Full_O08",
+    "name": "Death of Ms. Coral",
+    "rarity": "SSR",
+    "faction": "AEQUOR",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "O09",
-    "assetId": "Weapon_Full_O09"
+    "assetId": "Weapon_Full_O09",
+    "name": "Sail of Providence",
+    "rarity": "SSR",
+    "faction": "AEQUOR",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "O10",
-    "assetId": "Weapon_Full_O10"
+    "assetId": "Weapon_Full_O10",
+    "name": "Flamebound Navigator",
+    "rarity": "SSR",
+    "faction": "AEQUOR",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "O11",
-    "assetId": "Weapon_Full_O11"
+    "assetId": "Weapon_Full_O11",
+    "name": "Uteri Somnia",
+    "rarity": "SSR",
+    "faction": "AEQUOR",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P01",
-    "assetId": "Weapon_Full_P01"
+    "assetId": "Weapon_Full_P01",
+    "name": "Gluttony",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P02",
-    "assetId": "Weapon_Full_P02"
+    "assetId": "Weapon_Full_P02",
+    "name": "Frenzy",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P03",
-    "assetId": "Weapon_Full_P03"
+    "assetId": "Weapon_Full_P03",
+    "name": "Favor",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P04",
-    "assetId": "Weapon_Full_P04"
+    "assetId": "Weapon_Full_P04",
+    "name": "Emerge",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P05",
-    "assetId": "Weapon_Full_P05"
+    "assetId": "Weapon_Full_P05",
+    "name": "Delirium",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P06",
-    "assetId": "Weapon_Full_P06"
+    "assetId": "Weapon_Full_P06",
+    "name": "Whisper",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P07",
-    "assetId": "Weapon_Full_P07"
+    "assetId": "Weapon_Full_P07",
+    "name": "Hope",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P08",
-    "assetId": "Weapon_Full_P08"
+    "assetId": "Weapon_Full_P08",
+    "name": "Epiphany",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P09",
-    "assetId": "Weapon_Full_P09"
+    "assetId": "Weapon_Full_P09",
+    "name": "Punishment",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P10",
-    "assetId": "Weapon_Full_P10"
+    "assetId": "Weapon_Full_P10",
+    "name": "Blessing",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P11",
-    "assetId": "Weapon_Full_P11"
+    "assetId": "Weapon_Full_P11",
+    "name": "Vitality",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P12",
-    "assetId": "Weapon_Full_P12"
+    "assetId": "Weapon_Full_P12",
+    "name": "Exile",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P13",
-    "assetId": "Weapon_Full_P13"
+    "assetId": "Weapon_Full_P13",
+    "name": "Suction",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P14",
-    "assetId": "Weapon_Full_P14"
+    "assetId": "Weapon_Full_P14",
+    "name": "Aged",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P15",
-    "assetId": "Weapon_Full_P15"
+    "assetId": "Weapon_Full_P15",
+    "name": "Greed",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "P16",
-    "assetId": "Weapon_Full_P16"
+    "assetId": "Weapon_Full_P16",
+    "name": "Insight",
+    "rarity": "R",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR01",
-    "assetId": "Weapon_Full_SR01"
+    "assetId": "Weapon_Full_SR01",
+    "name": "Duty's Gravitas",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR02",
-    "assetId": "Weapon_Full_SR02"
+    "assetId": "Weapon_Full_SR02",
+    "name": "Elevated Focus",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR03",
-    "assetId": "Weapon_Full_SR03"
+    "assetId": "Weapon_Full_SR03",
+    "name": "Cursed Binding",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR04",
-    "assetId": "Weapon_Full_SR04"
+    "assetId": "Weapon_Full_SR04",
+    "name": "Sever and Scar",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR05",
-    "assetId": "Weapon_Full_SR05"
+    "assetId": "Weapon_Full_SR05",
+    "name": "Cloaked in the Night",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR06",
-    "assetId": "Weapon_Full_SR06"
+    "assetId": "Weapon_Full_SR06",
+    "name": "Adventurer's Pack",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR07",
-    "assetId": "Weapon_Full_SR07"
+    "assetId": "Weapon_Full_SR07",
+    "name": "Analysis of Death",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR08",
-    "assetId": "Weapon_Full_SR08"
+    "assetId": "Weapon_Full_SR08",
+    "name": "To My Dearest Friend",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR09",
-    "assetId": "Weapon_Full_SR09"
+    "assetId": "Weapon_Full_SR09",
+    "name": "Memory Syndrome",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR10",
-    "assetId": "Weapon_Full_SR10"
+    "assetId": "Weapon_Full_SR10",
+    "name": "Mind Barrier",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR11",
-    "assetId": "Weapon_Full_SR11"
+    "assetId": "Weapon_Full_SR11",
+    "name": "Critical Point",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR12",
-    "assetId": "Weapon_Full_SR12"
+    "assetId": "Weapon_Full_SR12",
+    "name": "Nobleman's Staff",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR13",
-    "assetId": "Weapon_Full_SR13"
+    "assetId": "Weapon_Full_SR13",
+    "name": "Data is Flesh",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR14",
-    "assetId": "Weapon_Full_SR14"
+    "assetId": "Weapon_Full_SR14",
+    "name": "Moment of Reunion",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR15",
-    "assetId": "Weapon_Full_SR15"
+    "assetId": "Weapon_Full_SR15",
+    "name": "The Land of Nonexistence",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR16",
-    "assetId": "Weapon_Full_SR16"
+    "assetId": "Weapon_Full_SR16",
+    "name": "Hand of Oblivion",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR17",
-    "assetId": "Weapon_Full_SR17"
+    "assetId": "Weapon_Full_SR17",
+    "name": "35mm Magic",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR18",
-    "assetId": "Weapon_Full_SR18"
+    "assetId": "Weapon_Full_SR18",
+    "name": "Isarau's Gaze",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR19",
-    "assetId": "Weapon_Full_SR19"
+    "assetId": "Weapon_Full_SR19",
+    "name": "Man in the Mirror",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR20",
-    "assetId": "Weapon_Full_SR20"
+    "assetId": "Weapon_Full_SR20",
+    "name": "Silver Cod's Determination",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR21",
-    "assetId": "Weapon_Full_SR21"
+    "assetId": "Weapon_Full_SR21",
+    "name": "Til the Snow Melts",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR22",
-    "assetId": "Weapon_Full_SR22"
+    "assetId": "Weapon_Full_SR22",
+    "name": "Deep Sea's Call",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR23",
-    "assetId": "Weapon_Full_SR23"
+    "assetId": "Weapon_Full_SR23",
+    "name": "Kiss of Farewell",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR24",
-    "assetId": "Weapon_Full_SR24"
+    "assetId": "Weapon_Full_SR24",
+    "name": "Poetic Bygone Days",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR25",
-    "assetId": "Weapon_Full_SR25"
+    "assetId": "Weapon_Full_SR25",
+    "name": "Million Loving Gaze",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR26",
-    "assetId": "Weapon_Full_SR26"
+    "assetId": "Weapon_Full_SR26",
+    "name": "Slumber Beneath the Glacier",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR27",
-    "assetId": "Weapon_Full_SR27"
+    "assetId": "Weapon_Full_SR27",
+    "name": "Fate Roulette",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR28",
-    "assetId": "Weapon_Full_SR28"
+    "assetId": "Weapon_Full_SR28",
+    "name": "Gateway of Truth",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR29",
-    "assetId": "Weapon_Full_SR29"
+    "assetId": "Weapon_Full_SR29",
+    "name": "Never-Ending Performance",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR30",
-    "assetId": "Weapon_Full_SR30"
+    "assetId": "Weapon_Full_SR30",
+    "name": "Shepherd's Staff",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR31",
-    "assetId": "Weapon_Full_SR31"
+    "assetId": "Weapon_Full_SR31",
+    "name": "Blue Stone Throne",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR32",
-    "assetId": "Weapon_Full_SR32"
+    "assetId": "Weapon_Full_SR32",
+    "name": "Hypnotic Pendulum",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR33",
-    "assetId": "Weapon_Full_SR33"
+    "assetId": "Weapon_Full_SR33",
+    "name": "Macabre Delicacies",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR34",
-    "assetId": "Weapon_Full_SR34"
+    "assetId": "Weapon_Full_SR34",
+    "name": "Witch's Wide-brimmed Hat",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR35",
-    "assetId": "Weapon_Full_SR35"
+    "assetId": "Weapon_Full_SR35",
+    "name": "Blue-RInged Toxin",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR39",
-    "assetId": "Weapon_Full_SR39"
+    "assetId": "Weapon_Full_SR39",
+    "name": "Lone Feather",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR40",
-    "assetId": "Weapon_Full_SR40"
+    "assetId": "Weapon_Full_SR40",
+    "name": "The Divus' Visage",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR41",
-    "assetId": "Weapon_Full_SR41"
+    "assetId": "Weapon_Full_SR41",
+    "name": "Navigator at Sea",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR42",
-    "assetId": "Weapon_Full_SR42"
+    "assetId": "Weapon_Full_SR42",
+    "name": "Thirsting Brush",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR43",
-    "assetId": "Weapon_Full_SR43"
+    "assetId": "Weapon_Full_SR43",
+    "name": "Impending Sun",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR44",
-    "assetId": "Weapon_Full_SR44"
+    "assetId": "Weapon_Full_SR44",
+    "name": "Light of Intellect",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "SR45",
-    "assetId": "Weapon_Full_SR45"
+    "assetId": "Weapon_Full_SR45",
+    "name": "Magnolia's Lure",
+    "rarity": "SR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "ZL01",
-    "assetId": "Weapon_Full_ZL01"
+    "assetId": "Weapon_Full_ZL01",
+    "name": "Spring in Yakutsk",
+    "rarity": "SSR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "ZL02",
-    "assetId": "Weapon_Full_ZL02"
+    "assetId": "Weapon_Full_ZL02",
+    "name": "Sunfall",
+    "rarity": "SSR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "ZL03",
-    "assetId": "Weapon_Full_ZL03"
+    "assetId": "Weapon_Full_ZL03",
+    "name": "Birth of a Soul",
+    "rarity": "SSR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "ZL04",
-    "assetId": "Weapon_Full_ZL04"
+    "assetId": "Weapon_Full_ZL04",
+    "name": "Dusk and Dawn",
+    "rarity": "SSR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "ZL05",
-    "assetId": "Weapon_Full_ZL05"
+    "assetId": "Weapon_Full_ZL05",
+    "name": "Heart of Silver",
+    "rarity": "SSR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "ZL06",
-    "assetId": "Weapon_Full_ZL06"
+    "assetId": "Weapon_Full_ZL06",
+    "name": "Annihilated Rebirth",
+    "rarity": "SSR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   },
   {
     "id": "ZL07",
-    "assetId": "Weapon_Full_ZL07"
+    "assetId": "Weapon_Full_ZL07",
+    "name": "We Will Meet Again",
+    "rarity": "SSR",
+    "faction": "NEUTRAL",
+    "awakener": "",
+    "mainstat": ""
   }
 ]

@@ -60,6 +60,7 @@ export function AwakenerCard({
       className={`builder-card group relative aspect-[25/56] w-full border bg-slate-900/80 text-left ${
         isOver ? 'border-amber-200/80 shadow-[0_0_0_1px_rgba(251,191,36,0.24)]' : 'border-slate-500/60'
       } ${isDragging ? 'opacity-60' : ''} ${isActive ? 'builder-card-active' : ''}`}
+      data-selection-owner="true"
       onClick={(event) => {
         const target = event.target as HTMLElement
         if (target.closest('[data-card-remove]') || target.closest('.wheel-tile')) {

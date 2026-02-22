@@ -17,6 +17,38 @@ export function applyPendingTransfer(teams: Team[], pendingTransfer: PendingTran
     })
   }
 
+  if (pendingTransfer.kind === 'wheel') {
+    return teams.map((team) => {
+      if (team.id === pendingTransfer.fromTeamId) {
+        return {
+          ...team,
+          slots: team.slots.map((slot) => {
+            if (slot.slotId !== pendingTransfer.fromSlotId) {
+              return slot
+            }
+            const nextWheels = [...slot.wheels]
+            nextWheels[pendingTransfer.fromWheelIndex] = null
+            return { ...slot, wheels: nextWheels as [string | null, string | null] }
+          }),
+        }
+      }
+      if (team.id === pendingTransfer.toTeamId) {
+        return {
+          ...team,
+          slots: team.slots.map((slot) => {
+            if (slot.slotId !== pendingTransfer.targetSlotId) {
+              return slot
+            }
+            const nextWheels = [...slot.wheels]
+            nextWheels[pendingTransfer.targetWheelIndex] = pendingTransfer.wheelId
+            return { ...slot, wheels: nextWheels as [string | null, string | null] }
+          }),
+        }
+      }
+      return team
+    })
+  }
+
   const fromTeam = teams.find((team) => team.id === pendingTransfer.fromTeamId)
   const toTeam = teams.find((team) => team.id === pendingTransfer.toTeamId)
   if (!fromTeam || !toTeam) {

@@ -6,12 +6,14 @@ import { BuilderSelectionPanel } from './builder/BuilderSelectionPanel'
 import { BuilderTeamsPanel } from './builder/BuilderTeamsPanel'
 import { BuilderImportExportDialogs } from './builder/BuilderImportExportDialogs'
 import { BuilderConfirmDialogs } from './builder/BuilderConfirmDialogs'
-import { PickerAwakenerGhost, TeamCardGhost } from './builder/DragGhosts'
+import { PickerAwakenerGhost, PickerWheelGhost, TeamCardGhost, TeamWheelGhost } from './builder/DragGhosts'
 import { Toast } from '../components/ui/Toast'
 import {
   assignAwakenerToFirstEmptySlot,
   assignAwakenerToSlot,
+  assignWheelToSlot,
   clearSlotAssignment,
+  swapWheelAssignments,
   type TeamStateViolationCode,
   swapSlotAssignments,
 } from './builder/team-state'
@@ -24,12 +26,20 @@ import { usePendingTransferDialog } from './builder/usePendingTransferDialog'
 import { usePendingDeleteDialog } from './builder/usePendingDeleteDialog'
 import { getAwakenerIdentityKey } from '../domain/awakener-identity'
 import { addTeam, reorderTeams } from './builder/team-collection'
+import {
+  nextSelectionAfterWheelRemoved,
+  nextSelectionAfterWheelSwap,
+  shouldSetActiveWheelOnPickerAssign,
+} from './builder/selection-state'
 
 export function BuilderPage() {
   const [toastMessage, setToastMessage] = useState<string | null>(null)
   const toastTimeoutRef = useRef<number | null>(null)
+  const suppressTeamEditRef = useRef(false)
+  const suppressTeamEditTimeoutRef = useRef<number | null>(null)
   const searchInputRef = useRef<HTMLInputElement | null>(null)
-  const { pendingTransfer, requestAwakenerTransfer, requestPosseTransfer, clearTransfer } = useTransferConfirm()
+  const { pendingTransfer, requestAwakenerTransfer, requestPosseTransfer, requestWheelTransfer, clearTransfer } =
+    useTransferConfirm()
   const {
     teams,
     setTeams,
@@ -43,6 +53,8 @@ export function BuilderPage() {
     setAwakenerFilter,
     posseFilter,
     setPosseFilter,
+    wheelRarityFilter,
+    setWheelRarityFilter,
     setPickerSearchByTab,
     setActiveSelection,
     effectiveActiveTeamId,
@@ -55,10 +67,12 @@ export function BuilderPage() {
     activeSearchQuery,
     filteredAwakeners,
     filteredPosses,
+    filteredWheels,
     teamFactionSet,
     usedAwakenerByIdentityKey,
     usedAwakenerIdentityKeys,
     usedPosseByTeamOrder,
+    usedWheelByTeamOrder,
     resolvedActiveSelection,
     slotById,
     updateActiveTeam,
@@ -90,10 +104,100 @@ export function BuilderPage() {
     showToast('Invalid move: a team can only contain up to 2 factions.')
   }
 
+  function getFirstEmptyWheelIndex(slotId: string): number | null {
+    const slot = teamSlots.find((entry) => entry.slotId === slotId)
+    if (!slot?.awakenerName) {
+      return null
+    }
+    const firstEmptyIndex = slot.wheels.findIndex((wheel) => !wheel)
+    return firstEmptyIndex === -1 ? null : firstEmptyIndex
+  }
+
+  function assignPickerWheelToTarget(
+    wheelId: string,
+    targetSlotId: string,
+    targetWheelIndex?: number,
+    options?: { setActiveOnAssign?: boolean },
+  ) {
+    const setActiveOnAssign = options?.setActiveOnAssign ?? true
+    const resolvedWheelIndex =
+      targetWheelIndex ??
+      getFirstEmptyWheelIndex(targetSlotId)
+
+    if (resolvedWheelIndex === null || resolvedWheelIndex === undefined) {
+      return
+    }
+
+    const wheelOwner = usedWheelByTeamOrder.get(wheelId)
+    if (
+      wheelOwner &&
+      wheelOwner.teamId === effectiveActiveTeamId &&
+      (wheelOwner.slotId !== targetSlotId || wheelOwner.wheelIndex !== resolvedWheelIndex)
+    ) {
+      const result = swapWheelAssignments(
+        teamSlots,
+        wheelOwner.slotId,
+        wheelOwner.wheelIndex,
+        targetSlotId,
+        resolvedWheelIndex,
+      )
+      setActiveTeamSlots(result.nextSlots)
+      if (setActiveOnAssign) {
+        setActiveSelection({ kind: 'wheel', slotId: targetSlotId, wheelIndex: resolvedWheelIndex })
+      }
+      return
+    }
+    if (wheelOwner && wheelOwner.teamId !== effectiveActiveTeamId) {
+      requestWheelTransfer({
+        wheelId,
+        fromTeamId: wheelOwner.teamId,
+        fromSlotId: wheelOwner.slotId,
+        fromWheelIndex: wheelOwner.wheelIndex,
+        toTeamId: effectiveActiveTeamId,
+        targetSlotId,
+        targetWheelIndex: resolvedWheelIndex,
+      })
+      return
+    }
+
+    const result = assignWheelToSlot(teamSlots, targetSlotId, resolvedWheelIndex, wheelId)
+    setActiveTeamSlots(result.nextSlots)
+    if (setActiveOnAssign) {
+      setActiveSelection({ kind: 'wheel', slotId: targetSlotId, wheelIndex: resolvedWheelIndex })
+    }
+  }
+
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as HTMLElement | null
+      if (!target) {
+        return
+      }
+      if (target.closest('[data-picker-zone="true"]')) {
+        return
+      }
+      if (target.closest('[data-card-remove]')) {
+        return
+      }
+      if (target.closest('[data-selection-owner="true"]')) {
+        return
+      }
+      setActiveSelection(null)
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown, true)
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown, true)
+    }
+  }, [setActiveSelection])
+
   useEffect(() => {
     return () => {
       if (toastTimeoutRef.current) {
         window.clearTimeout(toastTimeoutRef.current)
+      }
+      if (suppressTeamEditTimeoutRef.current) {
+        window.clearTimeout(suppressTeamEditTimeoutRef.current)
       }
     }
   }, [])
@@ -121,26 +225,67 @@ export function BuilderPage() {
 
       clearTransfer()
       setActiveTeamSlots(result.nextSlots)
+      setActiveSelection({ kind: 'awakener', slotId: targetSlotId })
+    },
+    onDropPickerWheel: (wheelId, targetSlotId, targetWheelIndex) => {
+      clearPendingDelete()
+      clearTransfer()
+      assignPickerWheelToTarget(wheelId, targetSlotId, targetWheelIndex, { setActiveOnAssign: true })
     },
     onDropTeamSlot: (sourceSlotId, targetSlotId) => {
       const result = swapSlotAssignments(teamSlots, sourceSlotId, targetSlotId)
       setActiveTeamSlots(result.nextSlots)
-      setActiveSelection((prev) => {
-        if (!prev) {
-          return prev
-        }
-        if (prev.slotId === sourceSlotId) {
-          return { ...prev, slotId: targetSlotId }
-        }
-        if (prev.slotId === targetSlotId) {
-          return { ...prev, slotId: sourceSlotId }
-        }
-        return prev
-      })
+      setActiveSelection({ kind: 'awakener', slotId: targetSlotId })
     },
     onDropTeamSlotToPicker: (sourceSlotId) => {
       const result = clearSlotAssignment(teamSlots, sourceSlotId)
       setActiveTeamSlots(result.nextSlots)
+    },
+    onDropTeamWheel: (sourceSlotId, sourceWheelIndex, targetSlotId, targetWheelIndex) => {
+      if (sourceSlotId === targetSlotId && sourceWheelIndex === targetWheelIndex) {
+        return
+      }
+      const result = swapWheelAssignments(
+        teamSlots,
+        sourceSlotId,
+        sourceWheelIndex,
+        targetSlotId,
+        targetWheelIndex,
+      )
+      setActiveTeamSlots(result.nextSlots)
+      const nextSelection = nextSelectionAfterWheelSwap(
+        resolvedActiveSelection,
+        sourceSlotId,
+        sourceWheelIndex,
+        targetSlotId,
+        targetWheelIndex,
+      )
+      if (nextSelection !== resolvedActiveSelection) {
+        setActiveSelection(nextSelection)
+      }
+    },
+    onDropTeamWheelToSlot: (sourceSlotId, sourceWheelIndex, targetSlotId) => {
+      const targetWheelIndex = getFirstEmptyWheelIndex(targetSlotId)
+      if (targetWheelIndex === null) {
+        return
+      }
+      const result = swapWheelAssignments(
+        teamSlots,
+        sourceSlotId,
+        sourceWheelIndex,
+        targetSlotId,
+        targetWheelIndex,
+      )
+      setActiveTeamSlots(result.nextSlots)
+      setActiveSelection({ kind: 'wheel', slotId: targetSlotId, wheelIndex: targetWheelIndex })
+    },
+    onDropTeamWheelToPicker: (sourceSlotId, sourceWheelIndex) => {
+      const result = assignWheelToSlot(teamSlots, sourceSlotId, sourceWheelIndex, null)
+      setActiveTeamSlots(result.nextSlots)
+      const nextSelection = nextSelectionAfterWheelRemoved(resolvedActiveSelection, sourceSlotId, sourceWheelIndex)
+      if (nextSelection !== resolvedActiveSelection) {
+        setActiveSelection(nextSelection)
+      }
     },
   })
 
@@ -213,12 +358,37 @@ export function BuilderPage() {
     clearTransfer,
   })
 
+  function clearTeamEditSuppressionSoon() {
+    if (suppressTeamEditTimeoutRef.current) {
+      window.clearTimeout(suppressTeamEditTimeoutRef.current)
+    }
+    suppressTeamEditTimeoutRef.current = window.setTimeout(() => {
+      suppressTeamEditRef.current = false
+      suppressTeamEditTimeoutRef.current = null
+    }, 0)
+  }
+
+  function handleDndDragStart(event: Parameters<typeof handleCoordinatedDragStart>[0]) {
+    suppressTeamEditRef.current = true
+    handleCoordinatedDragStart(event)
+  }
+
+  function handleDndDragEnd(event: Parameters<typeof handleCoordinatedDragEnd>[0]) {
+    handleCoordinatedDragEnd(event)
+    clearTeamEditSuppressionSoon()
+  }
+
+  function handleDndDragCancel() {
+    handleCoordinatedDragCancel()
+    clearTeamEditSuppressionSoon()
+  }
+
   return (
     <DndContext
-      onDragCancel={handleCoordinatedDragCancel}
-      onDragEnd={handleCoordinatedDragEnd}
+      onDragCancel={handleDndDragCancel}
+      onDragEnd={handleDndDragEnd}
       onDragOver={handleCoordinatedDragOver}
-      onDragStart={handleCoordinatedDragStart}
+      onDragStart={handleDndDragStart}
       sensors={sensors}
     >
       <section className="space-y-4">
@@ -268,6 +438,9 @@ export function BuilderPage() {
                 requestDeleteTeam(teamId, teamName)
               }}
               onEditTeam={(teamId) => {
+                if (suppressTeamEditRef.current) {
+                  return
+                }
                 clearPendingDelete()
                 clearTransfer()
                 cancelTeamRename()
@@ -321,6 +494,7 @@ export function BuilderPage() {
             onAwakenerFilterChange={setAwakenerFilter}
             onPickerTabChange={setPickerTab}
             onPosseFilterChange={setPosseFilter}
+            onWheelRarityFilterChange={setWheelRarityFilter}
             onSearchChange={(nextValue) =>
               setPickerSearchByTab((prev) => ({
                 ...prev,
@@ -353,21 +527,56 @@ export function BuilderPage() {
               updateActiveTeam((team) => ({ ...team, posseId }))
               clearTransfer()
             }}
+            onSetActiveWheel={(wheelId) => {
+              clearPendingDelete()
+              clearTransfer()
+              if (resolvedActiveSelection?.kind !== 'wheel' && resolvedActiveSelection?.kind !== 'awakener') {
+                showToast('Select a wheel slot on a unit card first.')
+                return
+              }
+
+              const targetSlotId = resolvedActiveSelection.slotId
+              const targetWheelIndex =
+                resolvedActiveSelection.kind === 'wheel' ? resolvedActiveSelection.wheelIndex : undefined
+              const resolvedWheelIndex =
+                targetWheelIndex ?? getFirstEmptyWheelIndex(targetSlotId)
+              if (!wheelId) {
+                if (resolvedWheelIndex === null || resolvedWheelIndex === undefined) {
+                  return
+                }
+                const result = assignWheelToSlot(teamSlots, targetSlotId, resolvedWheelIndex, null)
+                setActiveTeamSlots(result.nextSlots)
+                return
+              }
+              if (resolvedWheelIndex === null || resolvedWheelIndex === undefined) {
+                return
+              }
+              assignPickerWheelToTarget(wheelId, targetSlotId, resolvedWheelIndex, {
+                setActiveOnAssign: shouldSetActiveWheelOnPickerAssign(resolvedActiveSelection),
+              })
+            }}
             pickerTab={pickerTab}
             posseFilter={posseFilter}
+            wheelRarityFilter={wheelRarityFilter}
             searchInputRef={searchInputRef}
             teamFactionSet={teamFactionSet}
             teams={teams}
             usedAwakenerIdentityKeys={usedAwakenerIdentityKeys}
             usedPosseByTeamOrder={usedPosseByTeamOrder}
+            usedWheelByTeamOrder={usedWheelByTeamOrder}
+            filteredWheels={filteredWheels}
           />
         </div>
       </section>
 
       <DragOverlay dropAnimation={null}>
         {activeDrag?.kind === 'picker-awakener' ? <PickerAwakenerGhost awakenerName={activeDrag.awakenerName} /> : null}
+        {activeDrag?.kind === 'picker-wheel' ? <PickerWheelGhost wheelId={activeDrag.wheelId} /> : null}
         {activeDrag?.kind === 'team-slot' ? (
           <TeamCardGhost removeIntent={isRemoveIntent} slot={slotById.get(activeDrag.slotId)} />
+        ) : null}
+        {activeDrag?.kind === 'team-wheel' ? (
+          <TeamWheelGhost removeIntent={isRemoveIntent} wheelId={activeDrag.wheelId} />
         ) : null}
       </DragOverlay>
 

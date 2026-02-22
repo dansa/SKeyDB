@@ -8,7 +8,7 @@ function makeTeam(name: string): Team {
     name,
     posseId: 'taverns-opening',
     slots: [
-      { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 60, wheels: ['SR19', 'C02'] },
+      { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 60, wheels: ['SR19', 'SR20'] },
       { slotId: 'slot-2', awakenerName: 'ramona', faction: 'CHAOS', level: 60, wheels: [null, null] },
       { slotId: 'slot-3', wheels: [null, null] },
       { slotId: 'slot-4', wheels: [null, null] },
@@ -28,7 +28,7 @@ describe('import-export codec', () => {
     expect(parsed.team.name).toBe('Team 1')
     expect(parsed.team.posseId).toBe('taverns-opening')
     expect(parsed.team.slots[0].awakenerName).toBe('goliath')
-    expect(parsed.team.slots[0].wheels).toEqual(['SR19', 'C02'])
+    expect(parsed.team.slots[0].wheels).toEqual(['SR19', 'SR20'])
   })
 
   it('encodes multi-team with mt1 prefix and round-trips', () => {
@@ -55,7 +55,7 @@ describe('import-export codec', () => {
 
   it('strips wheel assignments from slots without awakeners during roundtrip', () => {
     const team = makeTeam('Team Dirty')
-    team.slots[2] = { slotId: 'slot-3', wheels: ['SR19', 'C02'] }
+    team.slots[2] = { slotId: 'slot-3', wheels: ['SR19', 'SR20'] }
 
     const code = encodeSingleTeamCode(team)
     const parsed = decodeImportCode(code)

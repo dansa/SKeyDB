@@ -144,6 +144,60 @@ export function swapSlotAssignments(
   return { nextSlots }
 }
 
+export function swapWheelAssignments(
+  currentSlots: TeamSlot[],
+  sourceSlotId: string,
+  sourceWheelIndex: number,
+  targetSlotId: string,
+  targetWheelIndex: number,
+): TeamStateUpdateResult {
+  if (sourceWheelIndex < 0 || sourceWheelIndex > 1 || targetWheelIndex < 0 || targetWheelIndex > 1) {
+    return { nextSlots: currentSlots }
+  }
+
+  const sourceSlot = currentSlots.find((slot) => slot.slotId === sourceSlotId)
+  const targetSlot = currentSlots.find((slot) => slot.slotId === targetSlotId)
+  if (!sourceSlot || !targetSlot || !targetSlot.awakenerName) {
+    return { nextSlots: currentSlots }
+  }
+
+  const sourceWheelId = sourceSlot.wheels[sourceWheelIndex] ?? null
+  if (!sourceWheelId) {
+    return { nextSlots: currentSlots }
+  }
+
+  if (sourceSlotId === targetSlotId) {
+    const nextSlots = currentSlots.map((slot) => {
+      if (slot.slotId !== sourceSlotId) {
+        return slot
+      }
+      const nextWheels = [...slot.wheels] as [string | null, string | null]
+      const targetWheelId = nextWheels[targetWheelIndex]
+      nextWheels[sourceWheelIndex] = targetWheelId
+      nextWheels[targetWheelIndex] = sourceWheelId
+      return { ...slot, wheels: nextWheels }
+    })
+    return { nextSlots }
+  }
+
+  const targetWheelId = targetSlot.wheels[targetWheelIndex] ?? null
+  const nextSlots = currentSlots.map((slot) => {
+    if (slot.slotId === sourceSlotId) {
+      const nextWheels = [...slot.wheels] as [string | null, string | null]
+      nextWheels[sourceWheelIndex] = targetWheelId
+      return { ...slot, wheels: nextWheels }
+    }
+    if (slot.slotId === targetSlotId) {
+      const nextWheels = [...slot.wheels] as [string | null, string | null]
+      nextWheels[targetWheelIndex] = sourceWheelId
+      return { ...slot, wheels: nextWheels }
+    }
+    return slot
+  })
+
+  return { nextSlots }
+}
+
 export function clearSlotAssignment(currentSlots: TeamSlot[], slotId: string): TeamStateUpdateResult {
   const hasTargetSlot = currentSlots.some((slot) => slot.slotId === slotId)
   if (!hasTargetSlot) {

@@ -68,4 +68,42 @@ describe('applyPendingTransfer', () => {
     expect(result[0]?.posseId).toBeUndefined()
     expect(result[1]?.posseId).toBe('12')
   })
+
+  it('moves wheel between teams while preserving covenant slot', () => {
+    const teams: Team[] = [
+      {
+        ...buildTeam('team-1', 'Team 1', 'goliath'),
+        slots: [
+          { slotId: 'team-1-slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 60, wheels: ['B01', '001'] },
+          { slotId: 'team-1-slot-2', wheels: [null, null] },
+          { slotId: 'team-1-slot-3', wheels: [null, null] },
+          { slotId: 'team-1-slot-4', wheels: [null, null] },
+        ],
+      },
+      {
+        ...buildTeam('team-2', 'Team 2', 'ramona'),
+        slots: [
+          { slotId: 'team-2-slot-1', awakenerName: 'ramona', faction: 'CHAOS', level: 60, wheels: [null, '002'] },
+          { slotId: 'team-2-slot-2', wheels: [null, null] },
+          { slotId: 'team-2-slot-3', wheels: [null, null] },
+          { slotId: 'team-2-slot-4', wheels: [null, null] },
+        ],
+      },
+    ]
+
+    const result = applyPendingTransfer(teams, {
+      kind: 'wheel',
+      itemName: 'B01',
+      wheelId: 'B01',
+      fromTeamId: 'team-1',
+      fromSlotId: 'team-1-slot-1',
+      fromWheelIndex: 0,
+      toTeamId: 'team-2',
+      targetSlotId: 'team-2-slot-1',
+      targetWheelIndex: 0,
+    })
+
+    expect(result[0]?.slots[0]?.wheels).toEqual([null, '001'])
+    expect(result[1]?.slots[0]?.wheels).toEqual(['B01', '002'])
+  })
 })

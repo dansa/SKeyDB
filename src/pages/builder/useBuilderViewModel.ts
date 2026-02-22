@@ -2,16 +2,32 @@ import { useCallback, useMemo, useState, type MutableRefObject } from 'react'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
 import { getPosses } from '../../domain/posses'
+import { getWheels } from '../../domain/wheels'
 import { getPosseAssetById } from '../../domain/posse-assets'
 import { searchAwakeners } from '../../domain/awakeners-search'
 import { searchPosses } from '../../domain/posses-search'
 import { allAwakeners } from './constants'
 import { clearSlotAssignment, clearWheelAssignment, getTeamFactionSet } from './team-state'
 import { createInitialTeams, renameTeam } from './team-collection'
-import type { ActiveSelection, AwakenerFilter, PickerTab, PosseFilter, Team, TeamSlot } from './types'
+import { toggleAwakenerSelection, toggleWheelSelection } from './selection-state'
+import type { ActiveSelection, AwakenerFilter, PickerTab, PosseFilter, Team, TeamSlot, WheelRarityFilter } from './types'
 import { useGlobalPickerSearchCapture } from './useGlobalPickerSearchCapture'
 
 const EMPTY_TEAM_SLOTS: TeamSlot[] = []
+const WHEEL_RARITY_ORDER: Record<WheelRarityFilter, number> = {
+  ALL: 99,
+  SSR: 0,
+  SR: 1,
+  R: 2,
+}
+
+const WHEEL_FACTION_ORDER: Record<string, number> = {
+  AEQUOR: 0,
+  CARO: 1,
+  CHAOS: 2,
+  ULTRA: 3,
+  NEUTRAL: 4,
+}
 
 type UseBuilderViewModelOptions = {
   searchInputRef: MutableRefObject<HTMLInputElement | null>
@@ -26,6 +42,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   const [pickerTab, setPickerTab] = useState<PickerTab>('awakeners')
   const [awakenerFilter, setAwakenerFilter] = useState<AwakenerFilter>('ALL')
   const [posseFilter, setPosseFilter] = useState<PosseFilter>('ALL')
+  const [wheelRarityFilter, setWheelRarityFilter] = useState<WheelRarityFilter>('ALL')
   const [pickerSearchByTab, setPickerSearchByTab] = useState<Record<PickerTab, string>>({
     awakeners: '',
     wheels: '',
@@ -61,6 +78,22 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     [],
   )
   const pickerPosses = useMemo(() => [...getPosses()].sort((left, right) => left.name.localeCompare(right.name)), [])
+  const pickerWheels = useMemo(
+    () =>
+      [...getWheels()].sort((left, right) => {
+        const rarityOrderDiff = WHEEL_RARITY_ORDER[left.rarity] - WHEEL_RARITY_ORDER[right.rarity]
+        if (rarityOrderDiff !== 0) {
+          return rarityOrderDiff
+        }
+        const factionOrderDiff =
+          (WHEEL_FACTION_ORDER[left.faction] ?? 99) - (WHEEL_FACTION_ORDER[right.faction] ?? 99)
+        if (factionOrderDiff !== 0) {
+          return factionOrderDiff
+        }
+        return left.id.localeCompare(right.id, undefined, { numeric: true, sensitivity: 'base' })
+      }),
+    [],
+  )
   const activePosse = useMemo(
     () => pickerPosses.find((posse) => posse.id === activePosseId),
     [activePosseId, pickerPosses],
@@ -92,6 +125,23 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     }
     return searchedPosses.filter((posse) => !posse.isFadedLegacy && posse.faction.trim().toUpperCase() === posseFilter)
   }, [posseFilter, searchedPosses])
+  const filteredWheels = useMemo(() => {
+    const query = pickerSearchByTab.wheels.trim().toLowerCase()
+    const wheelsByRarity =
+      wheelRarityFilter === 'ALL' ? pickerWheels : pickerWheels.filter((wheel) => wheel.rarity === wheelRarityFilter)
+
+    if (!query) {
+      return wheelsByRarity
+    }
+    return wheelsByRarity.filter(
+      (wheel) =>
+        wheel.name.toLowerCase().includes(query) ||
+        wheel.rarity.toLowerCase().includes(query) ||
+        wheel.faction.toLowerCase().includes(query) ||
+        wheel.awakener.toLowerCase().includes(query) ||
+        wheel.mainstat.toLowerCase().includes(query),
+    )
+  }, [pickerWheels, pickerSearchByTab.wheels, wheelRarityFilter])
 
   const teamFactionSet = useMemo(() => getTeamFactionSet(teamSlots), [teamSlots])
   const usedAwakenerByIdentityKey = useMemo(() => {
@@ -119,6 +169,20 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
       posseMap.set(team.posseId, index)
     })
     return posseMap
+  }, [teams])
+  const usedWheelByTeamOrder = useMemo(() => {
+    const wheelMap = new Map<string, { teamOrder: number; teamId: string; slotId: string; wheelIndex: number }>()
+    teams.forEach((team, teamOrder) => {
+      team.slots.forEach((slot) => {
+        slot.wheels.forEach((wheelId, wheelIndex) => {
+          if (!wheelId || wheelMap.has(wheelId)) {
+            return
+          }
+          wheelMap.set(wheelId, { teamOrder, teamId: team.id, slotId: slot.slotId, wheelIndex })
+        })
+      })
+    })
+    return wheelMap
   }, [teams])
 
   const appendSearchCharacter = useCallback((targetPickerTab: PickerTab, key: string) => {
@@ -158,18 +222,12 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
 
   function handleCardClick(slotId: string) {
     setPickerTab('awakeners')
-    setActiveSelection((prev) =>
-      prev?.kind === 'awakener' && prev.slotId === slotId ? null : { kind: 'awakener', slotId },
-    )
+    setActiveSelection((prev) => toggleAwakenerSelection(prev, slotId))
   }
 
   function handleWheelSlotClick(slotId: string, wheelIndex: number) {
     setPickerTab('wheels')
-    setActiveSelection((prev) =>
-      prev?.kind === 'wheel' && prev.slotId === slotId && prev.wheelIndex === wheelIndex
-        ? null
-        : { kind: 'wheel', slotId, wheelIndex },
-    )
+    setActiveSelection((prev) => toggleWheelSelection(prev, slotId, wheelIndex))
   }
 
   function handleRemoveActiveSelection(slotId: string) {
@@ -201,6 +259,8 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     setAwakenerFilter,
     posseFilter,
     setPosseFilter,
+    wheelRarityFilter,
+    setWheelRarityFilter,
     pickerSearchByTab,
     setPickerSearchByTab,
     activeSelection,
@@ -215,10 +275,12 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     activeSearchQuery,
     filteredAwakeners,
     filteredPosses,
+    filteredWheels,
     teamFactionSet,
     usedAwakenerByIdentityKey,
     usedAwakenerIdentityKeys,
     usedPosseByTeamOrder,
+    usedWheelByTeamOrder,
     resolvedActiveSelection,
     slotById,
     updateActiveTeam,

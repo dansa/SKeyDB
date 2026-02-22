@@ -6,6 +6,7 @@ import {
   assignWheelToSlot,
   clearSlotAssignment,
   clearWheelAssignment,
+  swapWheelAssignments,
   swapSlotAssignments,
 } from './team-state'
 
@@ -119,5 +120,14 @@ describe('builder team state', () => {
 
     expect(result.nextSlots).toBe(slots)
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-3')?.wheels).toEqual([null, null])
+  })
+
+  it('swaps wheels correctly when source and target are on the same slot', () => {
+    const slots = teamSlotsForTests()
+    const withFirstWheel = assignWheelToSlot(slots, 'slot-1', 0, 'wheel-a')
+    const withTwoWheels = assignWheelToSlot(withFirstWheel.nextSlots, 'slot-1', 1, 'wheel-b')
+
+    const result = swapWheelAssignments(withTwoWheels.nextSlots, 'slot-1', 0, 'slot-1', 1)
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual(['wheel-b', 'wheel-a'])
   })
 })
