@@ -22,6 +22,22 @@ a {
   text-decoration: none;
 }
 
+.text-link {
+  color: #fcd34d;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition:
+    color 140ms ease,
+    text-decoration-color 140ms ease;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  color: #fde68a;
+  text-decoration-color: rgba(253, 230, 138, 0.9);
+}
+
 .ui-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   letter-spacing: 0.015em;

@@ -16,8 +16,8 @@ type ChangelogItem = {
 
 const builderTasks: TaskItem[] = [
   { label: "Local storage persistence", status: "planned" },
-  { label: "Mobile-first builder layout pass", status: "planned" },
-  { label: "Quick Select flow for faster team fill", status: "planned" },
+  { label: "Mobile-first builder layout", status: "planned" },
+  { label: "Quick Select flow for faster selection", status: "planned" },
   { label: "General QoL and things", status: "forever_in_progress" },
 ];
 
@@ -77,6 +77,11 @@ const changelogItems: ChangelogItem[] = [
     summary:
       "SKeyDB naming and base builder flow were set up as the first public-ready foundation.",
   },
+  {
+    date: "2025-12-something",
+    summary:
+      "Project was started and swiftly put on indefinite hold due to lack of assets and resources.. 8)"
+  }
 ];
 
 const statusLabel: Record<TaskStatus, string> = {
@@ -104,16 +109,45 @@ export function HomePage() {
       <header className="flex flex-wrap items-center gap-3 border border-amber-200/35 bg-slate-900/40 p-4 shadow-[0_0_0_1px_rgba(251,191,36,0.08)]">
         <img
           alt="Morimens emoji"
-          className="h-12 w-12 object-contain"
+          className="h-12 w-12 self-start object-cover"
           src={emojiAel}
         />
         <div className="min-w-0">
-          <h2 className="ui-title text-2xl text-amber-100 md:text-3xl">
-            SKeyDB Overview
-          </h2>
-          <p className="text-sm text-slate-300">
-            Community project for Morimens data and team planning tools.
-          </p>
+          <div className="space-y-1 text-sm text-slate-300">
+            <h3 className="ui-title text-lg text-amber-100">Community project for Morimens data and team planning tools.</h3>
+            <p>
+              Hello friends, I am just a guy.. and old.. and running out of codex credits.. but I have a lot of free time ~
+            </p>
+            <p>
+              I am trying to make something useful for the community with the help of a few people over in Mythag University!
+            </p>
+            <a
+              className="text-link inline-flex items-center gap-1.5"
+              href="https://discord.gg/b3T723SUJU"
+            >
+              <FaDiscord aria-hidden className="text-base text-slate-300" />
+              <span>Join Mythag University!</span>
+            </a>
+            <ul className="space-y-1 pt-1">
+              <li className="flex items-center gap-1.5">
+                <FaGithub aria-hidden className="text-base text-slate-300" />
+                <span>GitHub:</span>
+                <a className="text-link" href="https://github.com/dansa/SKeyDB">
+                  @SKeyDB
+                </a>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <FaDiscord aria-hidden className="text-base text-slate-300" />
+                <span>Project contact:</span>
+                <a className="text-link" href="https://discord.com/users/fjantsa">
+                  @Fjant (fjantsa)
+                </a>
+              </li>
+              <li className="text-slate-400">
+                DMs open for questions, issues, angry messages, and mild existential debugging.
+              </li>
+            </ul>
+          </div>
         </div>
       </header>
 
@@ -162,46 +196,6 @@ export function HomePage() {
             {showAllChangelog ? "Show Recent Only" : "Show Full Timeline"}
           </button>
         ) : null}
-      </article>
-
-      <article className="border border-amber-200/35 bg-slate-900/40 p-4 shadow-[0_0_0_1px_rgba(251,191,36,0.08)]">
-        <h3 className="ui-title text-lg text-amber-100">
-          Contact and Community
-        </h3>
-        <ul className="mt-2 space-y-2 text-sm text-slate-200">
-          <li className="flex items-center gap-2">
-            <FaDiscord aria-hidden className="text-base text-slate-300" />
-            Community Discord:{" "}
-            <a
-              className="text-amber-200 hover:text-amber-100"
-              href="https://discord.gg/b3T723SUJU"
-            >
-              Mythag University
-            </a>
-          </li>
-
-          <li className="flex items-center gap-2">
-            <FaGithub aria-hidden className="text-base text-slate-300" />
-            GitHub:{" "}
-            <a
-              className="text-amber-200 hover:text-amber-100"
-              href="https://github.com/dansa/SKeyDB"
-            >
-              @SKeyDB
-            </a>
-          </li>
-          <li className="flex items-center gap-2">
-            <FaDiscord aria-hidden className="text-base text-slate-300" />
-            Project contact (Discord):{" "}
-            <a
-              className="text-amber-200 hover:text-amber-100"
-              href="https://discord.com/users/fjantsa"
-            >
-              @Fjant (fjantsa) - DMs open for questions, issues, angry messages,
-              and mild existential debugging
-            </a>
-          </li>
-        </ul>
       </article>
 
       <article className="border border-slate-500/45 bg-slate-900/55 p-4">

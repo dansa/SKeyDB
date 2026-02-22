@@ -159,13 +159,23 @@ When doing a cleanup/code-quality pass (especially on broad feature scopes):
 - one behavior per test name
 - avoid giant fixture mutation blocks without explanation
 
+6. Use scope-matched test commands:
+- Unit/domain/hook churn:
+  - `npm run lint`
+  - `npm run test:unit`
+- Builder integration churn:
+  - `npm run lint`
+  - `npm run test:integration`
+- Final pre-commit/pre-handoff gate:
+  - `npm run verify`
+
 ## 8) Pull Request / Commit Checklist
 
 Before commit:
 - [ ] behavior intent documented (issue/plan/comments)
 - [ ] tests added or updated
-- [ ] lint passes
-- [ ] targeted tests pass
+- [ ] lint passes (`npm run lint`)
+- [ ] targeted tests pass (`npm run test:unit` and/or `npm run test:integration`)
 - [ ] `npm run verify` passes
 - [ ] no dead code/debug flags left
 - [ ] no borrowed/unlicensed data accidentally tracked
