@@ -1,8 +1,8 @@
 # SKeyDB
 
-Morimens team builder web app (community project, running name: SKeyDB).
+Unofficial Morimens database and team planner web app (community project, running name: SKeyDB).
 
-Live builder (in development):
+Live site (stable beta, actively developed):
 - https://dansa.github.io/SKeyDB/#/builder
 
 ## Tech Stack
