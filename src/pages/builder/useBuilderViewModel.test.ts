@@ -158,6 +158,12 @@ describe('useBuilderViewModel', () => {
       result.current.setPickerSearchByTab((prev) => ({ ...prev, wheels: 'b01' }))
     })
     expect(result.current.filteredWheels).toHaveLength(0)
+
+    act(() => {
+      result.current.setPickerSearchByTab((prev) => ({ ...prev, wheels: 'ghelot' }))
+    })
+    expect(result.current.filteredWheels.length).toBeGreaterThan(0)
+    expect(result.current.filteredWheels.some((wheel) => wheel.awakener.toLowerCase() === 'helot: catena')).toBe(true)
   })
 
   it('sorts wheels by rarity, then faction, then id', () => {

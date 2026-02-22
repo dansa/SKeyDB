@@ -5,8 +5,8 @@
     "name": "Merciful Nurturing",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "thais",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "B02",
@@ -14,8 +14,8 @@
     "name": "Tablet of Scriptures",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "salvador",
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "B03",
@@ -23,8 +23,8 @@
     "name": "Winter's Requiem",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "aigis",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "B04",
@@ -32,8 +32,8 @@
     "name": "By Rose Alone",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "sorel",
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "B05",
@@ -41,8 +41,8 @@
     "name": "Chains Unbound",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "helot",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "B05EX",
@@ -50,8 +50,8 @@
     "name": "Drowning in Crimson",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "helot: catena",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "B06",
@@ -59,8 +59,8 @@
     "name": "Pale Descendant",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "agrippa",
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "B07",
@@ -68,8 +68,8 @@
     "name": "Bloody Feast",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "uvhash",
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "B08",
@@ -77,8 +77,8 @@
     "name": "The Glutton's Tale",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "leigh",
+    "mainstatKey": "REALM_MASTERY"
   },
   {
     "id": "B09",
@@ -86,8 +86,8 @@
     "name": "Lullaby Devoured",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "faint",
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "B10",
@@ -95,8 +95,8 @@
     "name": "Kiss of Repose",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "doresain",
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "B12",
@@ -104,8 +104,8 @@
     "name": "Paradoxical Realism",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "pickman",
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "B14",
@@ -113,8 +113,8 @@
     "name": "Vain Regrets",
     "rarity": "SSR",
     "faction": "CARO",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "Xu",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "C01",
@@ -122,8 +122,8 @@
     "name": "Rewinding Time",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "ramona",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "C02",
@@ -131,8 +131,8 @@
     "name": "Deathless Ascent",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "doll",
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "C02EX",
@@ -140,8 +140,8 @@
     "name": "Manikin of Oblivion",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "doll: inferno",
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "C03",
@@ -149,8 +149,8 @@
     "name": "Heart of a Knight",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "ogier",
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "C04",
@@ -158,8 +158,8 @@
     "name": "Celestial Beast",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "lotan",
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "C05",
@@ -167,8 +167,8 @@
     "name": "Hour of Fortune",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "ryker",
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "C06",
@@ -176,8 +176,8 @@
     "name": "Aberrant Devour",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "24",
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "C07",
@@ -185,8 +185,8 @@
     "name": "Memory Spiral",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "nautila",
+    "mainstatKey": "REALM_MASTERY"
   },
   {
     "id": "C08",
@@ -194,8 +194,8 @@
     "name": "Gift of Decay",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "nymphaea",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "C09",
@@ -203,8 +203,8 @@
     "name": "Drifting in Desire",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "pandia",
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "C10",
@@ -212,8 +212,8 @@
     "name": "Grace Through Pain",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "lily",
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "C11",
@@ -221,8 +221,8 @@
     "name": "Will Unyielding",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "alva",
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "C12",
@@ -230,8 +230,8 @@
     "name": "Silent Banquet",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "karen",
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "C15",
@@ -239,8 +239,8 @@
     "name": "Wheel Unseen",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "tawil",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "C16",
@@ -248,8 +248,8 @@
     "name": "Amber-Tinted Death",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "kathigu-ra",
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "C17",
@@ -257,8 +257,8 @@
     "name": "Doomsday Rampage",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "mouchette",
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "D01",
@@ -266,8 +266,8 @@
     "name": "Fouetté",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "liz",
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "D02",
@@ -275,8 +275,8 @@
     "name": "Treasured Rarity",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "daffodil",
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "D03",
@@ -284,8 +284,8 @@
     "name": "Song of the Bound",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "tinct",
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "D04",
@@ -293,8 +293,8 @@
     "name": "Queen's Edict",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "wanda",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "D05",
@@ -302,8 +302,8 @@
     "name": "Incalculable Factor",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "winkle",
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "D06",
@@ -311,8 +311,8 @@
     "name": "The Last Verse",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "horla",
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "D07",
@@ -320,8 +320,8 @@
     "name": "Path Forsaken",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "jenkins",
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "D08",
@@ -329,8 +329,8 @@
     "name": "Core Meltdown",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "erica",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "D09",
@@ -338,8 +338,8 @@
     "name": "Happy Magic Show",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "casiah",
+    "mainstatKey": "REALM_MASTERY"
   },
   {
     "id": "D11",
@@ -347,8 +347,8 @@
     "name": "Unbearable Freedom",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "castor",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "D12",
@@ -356,8 +356,8 @@
     "name": "Eternal Requiem",
     "rarity": "SSR",
     "faction": "CHAOS",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "hameln",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "D13",
@@ -365,8 +365,8 @@
     "name": "Veiled Anguish",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "clementine",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "D14",
@@ -374,8 +374,8 @@
     "name": "Twisted Knight Ballad",
     "rarity": "SSR",
     "faction": "ULTRA",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "pollux",
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "JP01",
@@ -384,7 +384,7 @@
     "rarity": "SSR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "JP02",
@@ -393,7 +393,7 @@
     "rarity": "SSR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "JP03",
@@ -402,7 +402,7 @@
     "rarity": "SSR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "JP04",
@@ -410,8 +410,8 @@
     "name": "Coutdown Moment",
     "rarity": "SSR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "thais",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "N01",
@@ -419,8 +419,8 @@
     "name": "Unsent Flowers",
     "rarity": "R",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "ramona",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "N02",
@@ -428,8 +428,8 @@
     "name": "Stepping Over the Muddy Roses",
     "rarity": "R",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "ramona: timeworn",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "O01",
@@ -437,8 +437,8 @@
     "name": "Hymn of the Sovereign",
     "rarity": "SSR",
     "faction": "AEQUOR",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "tulu",
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "O02",
@@ -446,8 +446,8 @@
     "name": "Shrouded Birth",
     "rarity": "SSR",
     "faction": "AEQUOR",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "murphy",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "O03",
@@ -455,8 +455,8 @@
     "name": "Amidst the Downpour",
     "rarity": "SSR",
     "faction": "AEQUOR",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "faros",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "O04",
@@ -464,8 +464,8 @@
     "name": "Fin of Sorrow",
     "rarity": "SSR",
     "faction": "AEQUOR",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "caecus",
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "O05",
@@ -473,8 +473,8 @@
     "name": "Dream of the Sea",
     "rarity": "SSR",
     "faction": "AEQUOR",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "aurita",
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "O06",
@@ -482,8 +482,8 @@
     "name": "Blade of the Titan",
     "rarity": "SSR",
     "faction": "AEQUOR",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "goliath",
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "O07",
@@ -491,8 +491,8 @@
     "name": "Power of the Pious",
     "rarity": "SSR",
     "faction": "AEQUOR",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "miryam",
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "O08",
@@ -500,8 +500,8 @@
     "name": "Death of Ms. Coral",
     "rarity": "SSR",
     "faction": "AEQUOR",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "sanga",
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "O09",
@@ -509,8 +509,8 @@
     "name": "Sail of Providence",
     "rarity": "SSR",
     "faction": "AEQUOR",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "celeste",
+    "mainstatKey": "REALM_MASTERY"
   },
   {
     "id": "O10",
@@ -518,8 +518,8 @@
     "name": "Flamebound Navigator",
     "rarity": "SSR",
     "faction": "AEQUOR",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "corposant",
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "O11",
@@ -527,8 +527,8 @@
     "name": "Uteri Somnia",
     "rarity": "SSR",
     "faction": "AEQUOR",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "murphy: fauxborn",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "P01",
@@ -537,7 +537,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "P02",
@@ -546,7 +546,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "P03",
@@ -555,7 +555,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "P04",
@@ -564,7 +564,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "P05",
@@ -573,7 +573,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "P06",
@@ -582,7 +582,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "P07",
@@ -591,7 +591,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "P08",
@@ -600,7 +600,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "REALM_MASTERY"
   },
   {
     "id": "P09",
@@ -609,7 +609,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "P10",
@@ -618,7 +618,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "P11",
@@ -627,7 +627,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "P12",
@@ -636,7 +636,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "REALM_MASTERY"
   },
   {
     "id": "P13",
@@ -645,7 +645,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "P14",
@@ -654,7 +654,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "P15",
@@ -663,7 +663,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "P16",
@@ -672,7 +672,7 @@
     "rarity": "R",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "SR01",
@@ -681,7 +681,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "REALM_MASTERY"
   },
   {
     "id": "SR02",
@@ -690,7 +690,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "SR03",
@@ -699,7 +699,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "SR04",
@@ -708,7 +708,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "SR05",
@@ -717,7 +717,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "SR06",
@@ -726,7 +726,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "SR07",
@@ -735,7 +735,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "SR08",
@@ -744,7 +744,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "SR09",
@@ -753,7 +753,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "SR10",
@@ -762,7 +762,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "SR11",
@@ -771,7 +771,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "SR12",
@@ -780,7 +780,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "SR13",
@@ -789,7 +789,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "REALM_MASTERY"
   },
   {
     "id": "SR14",
@@ -798,7 +798,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "SR15",
@@ -807,7 +807,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "SR16",
@@ -816,7 +816,7 @@
     "rarity": "SR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "SR17",
@@ -824,8 +824,8 @@
     "name": "35mm Magic",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "lily",
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "SR18",
@@ -833,8 +833,8 @@
     "name": "Isarau's Gaze",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "wanda",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "SR19",
@@ -842,8 +842,8 @@
     "name": "Man in the Mirror",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "salvador",
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "SR20",
@@ -851,8 +851,8 @@
     "name": "Silver Cod's Determination",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "24",
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "SR21",
@@ -860,8 +860,8 @@
     "name": "Til the Snow Melts",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "helot: catena",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "SR22",
@@ -869,8 +869,8 @@
     "name": "Deep Sea's Call",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "miryam",
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "SR23",
@@ -878,8 +878,8 @@
     "name": "Kiss of Farewell",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "thais",
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "SR24",
@@ -887,8 +887,8 @@
     "name": "Poetic Bygone Days",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "horla",
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "SR25",
@@ -896,8 +896,8 @@
     "name": "Million Loving Gaze",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "sorel",
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "SR26",
@@ -905,8 +905,8 @@
     "name": "Slumber Beneath the Glacier",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "murphy",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "SR27",
@@ -914,8 +914,8 @@
     "name": "Fate Roulette",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "ryker",
+    "mainstatKey": "SIGIL_YIELD"
   },
   {
     "id": "SR28",
@@ -923,8 +923,8 @@
     "name": "Gateway of Truth",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "tawil",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "SR29",
@@ -932,8 +932,8 @@
     "name": "Never-Ending Performance",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "hameln",
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "SR30",
@@ -941,8 +941,8 @@
     "name": "Shepherd's Staff",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "doll: inferno",
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "SR31",
@@ -950,8 +950,8 @@
     "name": "Blue Stone Throne",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "tulu",
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "SR32",
@@ -959,8 +959,8 @@
     "name": "Hypnotic Pendulum",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "clementine",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "SR33",
@@ -968,8 +968,8 @@
     "name": "Macabre Delicacies",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "doresain",
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "SR34",
@@ -977,8 +977,8 @@
     "name": "Witch's Wide-brimmed Hat",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "daffodil",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "SR35",
@@ -986,8 +986,8 @@
     "name": "Blue-RInged Toxin",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "murphy: fauxborn",
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "SR39",
@@ -995,8 +995,8 @@
     "name": "Lone Feather",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "castor",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "SR40",
@@ -1004,8 +1004,8 @@
     "name": "The Divus' Visage",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "pollux",
+    "mainstatKey": "CRIT_RATE"
   },
   {
     "id": "SR41",
@@ -1013,8 +1013,8 @@
     "name": "Navigator at Sea",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "corposant",
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "SR42",
@@ -1022,8 +1022,8 @@
     "name": "Thirsting Brush",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "pickman",
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "SR43",
@@ -1031,8 +1031,8 @@
     "name": "Impending Sun",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "kathigu-ra",
+    "mainstatKey": "CRIT_DMG"
   },
   {
     "id": "SR44",
@@ -1040,8 +1040,8 @@
     "name": "Light of Intellect",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "mouchette",
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "SR45",
@@ -1049,8 +1049,8 @@
     "name": "Magnolia's Lure",
     "rarity": "SR",
     "faction": "NEUTRAL",
-    "awakener": "",
-    "mainstat": ""
+    "awakener": "Xu",
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "ZL01",
@@ -1059,7 +1059,7 @@
     "rarity": "SSR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "ZL02",
@@ -1068,7 +1068,7 @@
     "rarity": "SSR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "DMG_AMP"
   },
   {
     "id": "ZL03",
@@ -1077,7 +1077,7 @@
     "rarity": "SSR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "REALM_MASTERY"
   },
   {
     "id": "ZL04",
@@ -1086,7 +1086,7 @@
     "rarity": "SSR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "DEATH_RESISTANCE"
   },
   {
     "id": "ZL05",
@@ -1095,7 +1095,7 @@
     "rarity": "SSR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "KEYFLARE_REGEN"
   },
   {
     "id": "ZL06",
@@ -1104,7 +1104,7 @@
     "rarity": "SSR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "ALIEMUS_REGEN"
   },
   {
     "id": "ZL07",
@@ -1113,6 +1113,6 @@
     "rarity": "SSR",
     "faction": "NEUTRAL",
     "awakener": "",
-    "mainstat": ""
+    "mainstatKey": "REALM_MASTERY"
   }
 ]

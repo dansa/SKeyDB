@@ -3,7 +3,7 @@ import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
 import { getCovenants } from '../../domain/covenants'
 import { getPosses } from '../../domain/posses'
-import { getWheels } from '../../domain/wheels'
+import { getWheelMainstatLabel, getWheels } from '../../domain/wheels'
 import { getPosseAssetById } from '../../domain/posse-assets'
 import { searchAwakeners } from '../../domain/awakeners-search'
 import { searchPosses } from '../../domain/posses-search'
@@ -11,6 +11,7 @@ import { allAwakeners } from './constants'
 import { clearCovenantAssignment, clearSlotAssignment, clearWheelAssignment, getTeamFactionSet } from './team-state'
 import { createInitialTeams, renameTeam } from './team-collection'
 import { toggleAwakenerSelection, toggleCovenantSelection, toggleWheelSelection } from './selection-state'
+import { matchesWheelMainstat } from './wheel-mainstats'
 import type {
   ActiveSelection,
   AwakenerFilter,
@@ -18,6 +19,7 @@ import type {
   PosseFilter,
   Team,
   TeamSlot,
+  WheelMainstatFilter,
   WheelUsageLocation,
   WheelRarityFilter,
 } from './types'
@@ -39,6 +41,10 @@ const WHEEL_FACTION_ORDER: Record<string, number> = {
   NEUTRAL: 4,
 }
 
+function normalizeForSearch(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]/g, '')
+}
+
 type UseBuilderViewModelOptions = {
   searchInputRef: MutableRefObject<HTMLInputElement | null>
 }
@@ -53,6 +59,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   const [awakenerFilter, setAwakenerFilter] = useState<AwakenerFilter>('ALL')
   const [posseFilter, setPosseFilter] = useState<PosseFilter>('ALL')
   const [wheelRarityFilter, setWheelRarityFilter] = useState<WheelRarityFilter>('ALL')
+  const [wheelMainstatFilter, setWheelMainstatFilter] = useState<WheelMainstatFilter>('ALL')
   const [pickerSearchByTab, setPickerSearchByTab] = useState<Record<PickerTab, string>>({
     awakeners: '',
     wheels: '',
@@ -140,21 +147,40 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   }, [posseFilter, searchedPosses])
   const filteredWheels = useMemo(() => {
     const query = pickerSearchByTab.wheels.trim().toLowerCase()
+    const normalizedQuery = normalizeForSearch(query)
+    const matchedAwakenerNames =
+      normalizedQuery.length > 0
+        ? new Set(
+            pickerAwakeners
+              .filter((awakener) =>
+                [awakener.name, ...awakener.aliases].some((value) =>
+                  normalizeForSearch(value).includes(normalizedQuery),
+                ),
+              )
+              .map((awakener) => awakener.name.toLowerCase()),
+          )
+        : null
     const wheelsByRarity =
       wheelRarityFilter === 'ALL' ? pickerWheels : pickerWheels.filter((wheel) => wheel.rarity === wheelRarityFilter)
+    const wheelsByMainstat =
+      wheelMainstatFilter === 'ALL'
+        ? wheelsByRarity
+        : wheelsByRarity.filter((wheel) => matchesWheelMainstat(wheel.mainstatKey, wheelMainstatFilter))
 
     if (!query) {
-      return wheelsByRarity
+      return wheelsByMainstat
     }
-    return wheelsByRarity.filter(
+    return wheelsByMainstat.filter(
       (wheel) =>
         wheel.name.toLowerCase().includes(query) ||
         wheel.rarity.toLowerCase().includes(query) ||
         wheel.faction.toLowerCase().includes(query) ||
         wheel.awakener.toLowerCase().includes(query) ||
-        wheel.mainstat.toLowerCase().includes(query),
+        getWheelMainstatLabel(wheel).toLowerCase().includes(query) ||
+        wheel.mainstatKey.toLowerCase().includes(query) ||
+        Boolean(matchedAwakenerNames?.has(wheel.awakener.toLowerCase())),
     )
-  }, [pickerWheels, pickerSearchByTab.wheels, wheelRarityFilter])
+  }, [pickerAwakeners, pickerWheels, pickerSearchByTab.wheels, wheelMainstatFilter, wheelRarityFilter])
   const filteredCovenants = useMemo(() => {
     const query = pickerSearchByTab.covenants.trim().toLowerCase()
     if (!query) {
@@ -294,6 +320,8 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     setPosseFilter,
     wheelRarityFilter,
     setWheelRarityFilter,
+    wheelMainstatFilter,
+    setWheelMainstatFilter,
     pickerSearchByTab,
     setPickerSearchByTab,
     activeSelection,

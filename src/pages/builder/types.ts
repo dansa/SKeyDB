@@ -33,6 +33,16 @@ export type PickerTab = 'awakeners' | 'wheels' | 'posses' | 'covenants'
 export type AwakenerFilter = 'ALL' | 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA'
 export type PosseFilter = 'ALL' | 'FADED_LEGACY' | 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA'
 export type WheelRarityFilter = 'ALL' | 'SSR' | 'SR' | 'R'
+export type WheelMainstatFilter =
+  | 'ALL'
+  | 'CRIT_RATE'
+  | 'CRIT_DMG'
+  | 'REALM_MASTERY'
+  | 'DMG_AMP'
+  | 'ALIEMUS_REGEN'
+  | 'KEYFLARE_REGEN'
+  | 'SIGIL_YIELD'
+  | 'DEATH_RESISTANCE'
 export type ActiveSelection =
   | { kind: 'awakener'; slotId: string }
   | { kind: 'wheel'; slotId: string; wheelIndex: number }

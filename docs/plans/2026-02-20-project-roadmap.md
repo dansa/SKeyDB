@@ -49,7 +49,7 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 ### Partially in (scaffolded / placeholder)
 - Some wheel metadata fields are intentionally unfinished for future data enrichment:
   - `awakener`,
-  - `mainstat`.
+  - `mainstatKey` descriptions/display metadata linkage.
 - Covenant metadata quality (naming/details) is still an ongoing data pass.
 
 ### Out (not implemented yet)

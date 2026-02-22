@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import wheelsLite from '../data/wheels-lite.json'
+import { getMainstatByKey, type WheelMainstatKey, WHEEL_MAINSTAT_KEYS } from './mainstats'
 
 const rawWheelsSchema = z.array(
   z.object({
@@ -9,7 +10,7 @@ const rawWheelsSchema = z.array(
     rarity: z.enum(['SSR', 'SR', 'R']),
     faction: z.enum(['AEQUOR', 'CARO', 'CHAOS', 'ULTRA', 'NEUTRAL']),
     awakener: z.string(),
-    mainstat: z.string(),
+    mainstatKey: z.enum(WHEEL_MAINSTAT_KEYS),
   }),
 )
 
@@ -23,7 +24,7 @@ export type Wheel = {
   rarity: WheelRarity
   faction: WheelFaction
   awakener: string
-  mainstat: string
+  mainstatKey: WheelMainstatKey
 }
 
 const parsedWheels = rawWheelsSchema.parse(wheelsLite)
@@ -35,5 +36,9 @@ export function getWheels(): Wheel[] {
 
 export function getWheelById(wheelId: string): Wheel | undefined {
   return wheelById.get(wheelId)
+}
+
+export function getWheelMainstatLabel(wheel: Wheel): string {
+  return getMainstatByKey(wheel.mainstatKey)?.label ?? ''
 }
 

@@ -272,8 +272,9 @@ a {
   );
 }
 
-.builder-card-wheel-image {
-  transform: scale(1.03);
+.builder-card-wheel-image,
+.builder-picker-wheel-image {
+  transform: scale(1.2);
   transform-origin: center;
 }
 

@@ -51,7 +51,7 @@ function parseWheelFile(filename) {
     rarity: getWheelRarity(id),
     faction: getWheelFaction(id),
     awakener: '',
-    mainstat: '',
+    mainstatKey: '',
   }
 }
 
@@ -80,7 +80,7 @@ async function main() {
       ...parsed,
       name: typeof existing?.name === 'string' && existing.name.trim().length > 0 ? existing.name : parsed.name,
       awakener: typeof existing?.awakener === 'string' ? existing.awakener : parsed.awakener,
-      mainstat: typeof existing?.mainstat === 'string' ? existing.mainstat : parsed.mainstat,
+      mainstatKey: typeof existing?.mainstatKey === 'string' ? existing.mainstatKey : parsed.mainstatKey,
     })
   }
 

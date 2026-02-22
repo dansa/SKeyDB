@@ -52,6 +52,8 @@ export function BuilderPage() {
     setPosseFilter,
     wheelRarityFilter,
     setWheelRarityFilter,
+    wheelMainstatFilter,
+    setWheelMainstatFilter,
     setPickerSearchByTab,
     setActiveSelection,
     effectiveActiveTeamId,
@@ -426,6 +428,7 @@ export function BuilderPage() {
             onPickerTabChange={setPickerTab}
             onPosseFilterChange={setPosseFilter}
             onWheelRarityFilterChange={setWheelRarityFilter}
+            onWheelMainstatFilterChange={setWheelMainstatFilter}
             onSearchChange={(nextValue) =>
               setPickerSearchByTab((prev) => ({
                 ...prev,
@@ -467,6 +470,7 @@ export function BuilderPage() {
             pickerTab={pickerTab}
             posseFilter={posseFilter}
             wheelRarityFilter={wheelRarityFilter}
+            wheelMainstatFilter={wheelMainstatFilter}
             searchInputRef={searchInputRef}
             teamFactionSet={teamFactionSet}
             teams={teams}

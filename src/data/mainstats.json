@@ -1,0 +1,93 @@
+[
+  {
+    "key": "CRIT_RATE",
+    "label": "Crit Rate",
+    "iconId": "008",
+    "aliases": [],
+    "wheelFilter": true
+  },
+  {
+    "key": "CRIT_DMG",
+    "label": "Crit DMG",
+    "iconId": "007",
+    "aliases": [
+      "crit damage"
+    ],
+    "wheelFilter": true
+  },
+  {
+    "key": "REALM_MASTERY",
+    "label": "Realm Mastery",
+    "iconId": "002",
+    "aliases": [],
+    "wheelFilter": true
+  },
+  {
+    "key": "DMG_AMP",
+    "label": "DMG Amp",
+    "iconId": "004",
+    "aliases": [
+      "damage amplification"
+    ],
+    "wheelFilter": true
+  },
+  {
+    "key": "ALIEMUS_REGEN",
+    "label": "Aliemus Regen",
+    "iconId": "003",
+    "aliases": [
+      "aliemus regen level"
+    ],
+    "wheelFilter": true
+  },
+  {
+    "key": "KEYFLARE_REGEN",
+    "label": "Keyflare Regen",
+    "iconId": "005",
+    "aliases": [
+      "keyflare regen level"
+    ],
+    "wheelFilter": true
+  },
+  {
+    "key": "SIGIL_YIELD",
+    "label": "Sigil Yield",
+    "iconId": "001",
+    "aliases": [],
+    "wheelFilter": true
+  },
+  {
+    "key": "DEATH_RESISTANCE",
+    "label": "Death Resistance",
+    "iconId": "006",
+    "aliases": [],
+    "wheelFilter": true
+  },
+  {
+    "key": "ATK",
+    "label": "ATK",
+    "iconId": "010",
+    "aliases": [
+      "attack"
+    ],
+    "wheelFilter": false
+  },
+  {
+    "key": "DEF",
+    "label": "DEF",
+    "iconId": "009",
+    "aliases": [
+      "defense"
+    ],
+    "wheelFilter": false
+  },
+  {
+    "key": "CON",
+    "label": "CON",
+    "iconId": "011",
+    "aliases": [
+      "constitution"
+    ],
+    "wheelFilter": false
+  }
+]

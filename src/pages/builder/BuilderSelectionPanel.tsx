@@ -12,7 +12,16 @@ import { PickerCovenantTile } from './PickerCovenantTile'
 import { PickerDropZone } from './PickerDropZone'
 import { PickerAwakenerTile } from './PickerAwakenerTile'
 import { PickerWheelTile } from './PickerWheelTile'
-import type { AwakenerFilter, PickerTab, PosseFilter, Team, WheelRarityFilter, WheelUsageLocation } from './types'
+import { wheelMainstatFilterOptions } from './wheel-mainstats'
+import type {
+  AwakenerFilter,
+  PickerTab,
+  PosseFilter,
+  Team,
+  WheelMainstatFilter,
+  WheelRarityFilter,
+  WheelUsageLocation,
+} from './types'
 import { toOrdinal } from './utils'
 
 const pickerTabs: Array<{ id: PickerTab; label: string }> = [
@@ -53,6 +62,7 @@ type BuilderSelectionPanelProps = {
   awakenerFilter: AwakenerFilter
   posseFilter: PosseFilter
   wheelRarityFilter: WheelRarityFilter
+  wheelMainstatFilter: WheelMainstatFilter
   filteredAwakeners: Awakener[]
   filteredPosses: Posse[]
   filteredWheels: Wheel[]
@@ -69,6 +79,7 @@ type BuilderSelectionPanelProps = {
   onAwakenerFilterChange: (nextFilter: AwakenerFilter) => void
   onPosseFilterChange: (nextFilter: PosseFilter) => void
   onWheelRarityFilterChange: (nextFilter: WheelRarityFilter) => void
+  onWheelMainstatFilterChange: (nextFilter: WheelMainstatFilter) => void
   onAwakenerClick: (awakenerName: string) => void
   onSetActiveWheel: (wheelId?: string) => void
   onSetActiveCovenant: (covenantId?: string) => void
@@ -82,6 +93,7 @@ export function BuilderSelectionPanel({
   awakenerFilter,
   posseFilter,
   wheelRarityFilter,
+  wheelMainstatFilter,
   filteredAwakeners,
   filteredPosses,
   filteredWheels,
@@ -98,13 +110,17 @@ export function BuilderSelectionPanel({
   onAwakenerFilterChange,
   onPosseFilterChange,
   onWheelRarityFilterChange,
+  onWheelMainstatFilterChange,
   onAwakenerClick,
   onSetActiveWheel,
   onSetActiveCovenant,
   onSetActivePosse,
 }: BuilderSelectionPanelProps) {
   return (
-    <aside className="bg-slate-900/45 p-4 shadow-[inset_0_0_0_1px_rgba(100,116,139,0.5)]" data-picker-zone="true">
+    <aside
+      className="flex max-h-[calc(100dvh-11.5rem)] min-h-0 flex-col bg-slate-900/45 p-4 shadow-[inset_0_0_0_1px_rgba(100,116,139,0.5)]"
+      data-picker-zone="true"
+    >
       <h3 className="ui-title text-lg text-amber-100">Selection Queue</h3>
       <p className="mt-2 text-sm text-slate-200">Click adds to first empty slot. Drag to deploy or replace.</p>
       <input
@@ -179,25 +195,56 @@ export function BuilderSelectionPanel({
       ) : null}
 
       {pickerTab === 'wheels' ? (
-        <div className="mt-2 grid grid-cols-4 gap-1">
-          {wheelRarityFilterTabs.map((filterTab) => (
-            <button
-              className={`border px-1 py-1 text-[10px] uppercase tracking-wide transition-colors ${
-                wheelRarityFilter === filterTab.id
-                  ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
-                  : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
-              }`}
-              key={filterTab.id}
-              onClick={() => onWheelRarityFilterChange(filterTab.id)}
-              type="button"
-            >
-              {filterTab.label}
-            </button>
-          ))}
-        </div>
+        <>
+          <div className="mt-2 grid grid-cols-4 gap-1">
+            {wheelRarityFilterTabs.map((filterTab) => (
+              <button
+                aria-pressed={wheelRarityFilter === filterTab.id}
+                className={`border px-1 py-1 text-[10px] uppercase tracking-wide transition-colors ${
+                  wheelRarityFilter === filterTab.id
+                    ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
+                    : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
+                }`}
+                key={filterTab.id}
+                onClick={() => onWheelRarityFilterChange(filterTab.id)}
+                type="button"
+              >
+                {filterTab.label}
+              </button>
+            ))}
+          </div>
+          <div className="mt-1.5 grid grid-cols-9 gap-1">
+            {wheelMainstatFilterOptions.map((filterTab) => (
+              <button
+                aria-label={`Filter wheels by ${filterTab.label}`}
+                aria-pressed={wheelMainstatFilter === filterTab.id}
+                className={`flex h-7 items-center justify-center border transition-colors ${
+                  wheelMainstatFilter === filterTab.id
+                    ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
+                    : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
+                }`}
+                key={filterTab.id}
+                onClick={() => onWheelMainstatFilterChange(filterTab.id)}
+                title={filterTab.label}
+                type="button"
+              >
+                {filterTab.iconAsset ? (
+                  <img
+                    alt={filterTab.label}
+                    className="h-[17px] w-[17px] object-contain opacity-95"
+                    draggable={false}
+                    src={filterTab.iconAsset}
+                  />
+                ) : (
+                  <span className="text-[10px] uppercase tracking-wide">All</span>
+                )}
+              </button>
+            ))}
+          </div>
+        </>
       ) : null}
 
-      <PickerDropZone className="builder-picker-scrollbar mt-3 max-h-[min(34rem,calc(100dvh-19rem))] overflow-auto pr-1" id={PICKER_DROP_ZONE_ID}>
+      <PickerDropZone className="builder-picker-scrollbar mt-3 min-h-0 flex-1 overflow-auto pr-1" id={PICKER_DROP_ZONE_ID}>
         {pickerTab === 'awakeners' ? (
           <div className="grid grid-cols-4 gap-1.5">
             {filteredAwakeners.map((awakener) => (

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { getWheels } from './wheels'
+import { getMainstatByKey } from './mainstats'
+import { getWheelMainstatLabel, getWheels } from './wheels'
 
 describe('getWheels', () => {
   it('returns parsed wheels with stable ids and full asset ids', () => {
@@ -13,13 +14,13 @@ describe('getWheels', () => {
       rarity: expect.stringMatching(/^(SSR|SR|R)$/),
       faction: expect.stringMatching(/^(AEQUOR|CARO|CHAOS|ULTRA|NEUTRAL)$/),
       awakener: expect.any(String),
-      mainstat: expect.any(String),
+      mainstatKey: expect.any(String),
     })
     expect(wheels.every((wheel) => wheel.id.trim().length > 0)).toBe(true)
     expect(wheels.every((wheel) => wheel.assetId.startsWith('Weapon_Full_'))).toBe(true)
     expect(wheels.every((wheel) => wheel.name.trim().length > 0)).toBe(true)
     expect(wheels.every((wheel) => typeof wheel.awakener === 'string')).toBe(true)
-    expect(wheels.every((wheel) => typeof wheel.mainstat === 'string')).toBe(true)
+    expect(wheels.every((wheel) => typeof wheel.mainstatKey === 'string')).toBe(true)
   })
 
   it('ensures wheel ids are unique', () => {
@@ -45,6 +46,17 @@ describe('getWheels', () => {
     expect(p01?.faction).toBe('NEUTRAL')
     expect(jp01?.rarity).toBe('SSR')
     expect(jp01?.faction).toBe('NEUTRAL')
+  })
+
+  it('keeps wheel mainstats linked to canonical mainstat keys', () => {
+    const wheels = getWheels()
+    expect(wheels.length).toBeGreaterThan(0)
+
+    wheels.forEach((wheel) => {
+      expect(wheel.mainstatKey.trim().length).toBeGreaterThan(0)
+      expect(getMainstatByKey(wheel.mainstatKey)).toBeDefined()
+      expect(getWheelMainstatLabel(wheel)).toBe(getMainstatByKey(wheel.mainstatKey)?.label ?? '')
+    })
   })
 })
 

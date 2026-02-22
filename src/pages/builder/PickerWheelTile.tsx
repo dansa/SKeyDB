@@ -48,7 +48,7 @@ export function PickerWheelTile({
         {wheelAsset ? (
           <img
             alt={`${wheelName ?? wheelId} wheel`}
-            className={`builder-card-wheel-image h-full w-full object-cover ${isDimmed ? 'grayscale-[0.9]' : ''}`}
+            className={`builder-picker-wheel-image h-full w-full object-cover ${isDimmed ? 'grayscale-[0.9]' : ''}`}
             draggable={false}
             src={wheelAsset}
           />
