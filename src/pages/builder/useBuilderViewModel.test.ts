@@ -322,15 +322,18 @@ describe('useBuilderViewModel', () => {
   })
 
   it('hides unowned entries when displayUnowned is false', () => {
+    saveCollectionOwnership(window.localStorage, {
+      ownedAwakeners: {},
+      ownedWheels: {},
+      ownedPosses: {},
+      displayUnowned: false,
+    })
+
     const { result } = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
     )
-
-    act(() => {
-      result.current.setDisplayUnowned(false)
-    })
 
     expect(result.current.filteredAwakeners).toHaveLength(0)
     expect(result.current.filteredWheels).toHaveLength(0)

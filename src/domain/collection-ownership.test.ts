@@ -38,6 +38,13 @@ function createStorage() {
 }
 
 describe('collection ownership persistence', () => {
+  const defaultOwnedStateForCatalog = {
+    ownedAwakeners: { '1': 0, '2': 0 },
+    ownedWheels: { W01: 0, W02: 0 },
+    ownedPosses: { P01: 0, P02: 0 },
+    displayUnowned: true,
+  } as const
+
   it('saves and loads ownership data with normalization', () => {
     const storage = createStorage()
     const saved = saveCollectionOwnership(
@@ -67,10 +74,10 @@ describe('collection ownership persistence', () => {
   it('returns empty defaults for malformed or unsupported payloads', () => {
     const storage = createStorage()
     storage.setItem(COLLECTION_OWNERSHIP_KEY, '{"version":999,"payload":{}}')
-    expect(loadCollectionOwnership(storage, catalog)).toEqual(createEmptyCollectionOwnershipState())
+    expect(loadCollectionOwnership(storage, catalog)).toEqual(defaultOwnedStateForCatalog)
 
     storage.setItem(COLLECTION_OWNERSHIP_KEY, '{this is not json')
-    expect(loadCollectionOwnership(storage, catalog)).toEqual(createEmptyCollectionOwnershipState())
+    expect(loadCollectionOwnership(storage, catalog)).toEqual(defaultOwnedStateForCatalog)
   })
 
   it('supports ownership level helpers and cleanup', () => {

@@ -34,11 +34,23 @@ export type ParseCollectionOwnershipSnapshotResult =
   | { ok: true; state: CollectionOwnershipState }
   | { ok: false; error: 'invalid_json' | 'unsupported_version' | 'invalid_payload' }
 
-const EMPTY_OWNERSHIP_STATE: CollectionOwnershipState = {
-  ownedAwakeners: {},
-  ownedWheels: {},
-  ownedPosses: {},
-  displayUnowned: true,
+function createDefaultOwnedMap(ids: Iterable<string>): Record<string, number> {
+  const ownedMap: Record<string, number> = {}
+  for (const id of ids) {
+    ownedMap[id] = 0
+  }
+  return ownedMap
+}
+
+function createSeedCollectionOwnershipState(
+  catalog: CollectionOwnershipCatalog,
+): CollectionOwnershipState {
+  return {
+    ownedAwakeners: createDefaultOwnedMap(catalog.awakenerIds),
+    ownedWheels: createDefaultOwnedMap(catalog.wheelIds),
+    ownedPosses: createDefaultOwnedMap(catalog.posseIds),
+    displayUnowned: true,
+  }
 }
 
 function toAllowedSet(values: Iterable<string>): Set<string> {
@@ -143,7 +155,7 @@ function normalizeOwnershipState(
   catalog: CollectionOwnershipCatalog,
 ): CollectionOwnershipState {
   if (!rawState || typeof rawState !== 'object') {
-    return { ...EMPTY_OWNERSHIP_STATE }
+    return createSeedCollectionOwnershipState(catalog)
   }
 
   const state = rawState as Record<string, unknown>
@@ -180,7 +192,8 @@ export function createDefaultCollectionOwnershipCatalog(): CollectionOwnershipCa
 }
 
 export function createEmptyCollectionOwnershipState(): CollectionOwnershipState {
-  return { ...EMPTY_OWNERSHIP_STATE }
+  const catalog = createDefaultCollectionOwnershipCatalog()
+  return normalizeOwnershipState(createSeedCollectionOwnershipState(catalog), catalog)
 }
 
 export function loadCollectionOwnership(
@@ -189,17 +202,17 @@ export function loadCollectionOwnership(
 ): CollectionOwnershipState {
   const raw = safeStorageRead(storage, COLLECTION_OWNERSHIP_KEY)
   if (!raw) {
-    return createEmptyCollectionOwnershipState()
+    return normalizeOwnershipState(createSeedCollectionOwnershipState(catalog), catalog)
   }
 
   try {
     const parsed = parseCollectionOwnershipSnapshot(raw, catalog)
     if (!parsed.ok) {
-      return createEmptyCollectionOwnershipState()
+      return normalizeOwnershipState(createSeedCollectionOwnershipState(catalog), catalog)
     }
     return parsed.state
   } catch {
-    return createEmptyCollectionOwnershipState()
+    return normalizeOwnershipState(createSeedCollectionOwnershipState(catalog), catalog)
   }
 }
 

@@ -15,30 +15,27 @@ describe('useCollectionViewModel', () => {
   it('toggles awakener ownership and keeps linked awakeners synced', () => {
     const { result } = renderHook(() => useCollectionViewModel())
 
-    expect(result.current.getAwakenerOwnedLevel('ramona')).toBeNull()
-    expect(result.current.getAwakenerOwnedLevel('ramona: timeworn')).toBeNull()
+    expect(result.current.getAwakenerOwnedLevel('ramona')).toBe(0)
+    expect(result.current.getAwakenerOwnedLevel('ramona: timeworn')).toBe(0)
 
     act(() => {
       result.current.toggleOwned('awakeners', '42')
     })
 
-    expect(result.current.getAwakenerOwnedLevel('ramona')).toBe(0)
-    expect(result.current.getAwakenerOwnedLevel('ramona: timeworn')).toBe(0)
+    expect(result.current.getAwakenerOwnedLevel('ramona')).toBeNull()
+    expect(result.current.getAwakenerOwnedLevel('ramona: timeworn')).toBeNull()
 
     act(() => {
       result.current.increaseLevel('awakeners', '42')
     })
 
-    expect(result.current.getAwakenerOwnedLevel('ramona')).toBe(1)
-    expect(result.current.getAwakenerOwnedLevel('ramona: timeworn')).toBe(1)
+    expect(result.current.getAwakenerOwnedLevel('ramona')).toBe(0)
+    expect(result.current.getAwakenerOwnedLevel('ramona: timeworn')).toBe(0)
   })
 
   it('clamps wheel level to 15 and does not decrease below 0', () => {
     const { result } = renderHook(() => useCollectionViewModel())
 
-    act(() => {
-      result.current.toggleOwned('wheels', 'SR19')
-    })
     expect(result.current.getWheelOwnedLevel('SR19')).toBe(0)
 
     for (let index = 0; index < 20; index += 1) {
@@ -60,7 +57,6 @@ describe('useCollectionViewModel', () => {
     const { result } = renderHook(() => useCollectionViewModel())
 
     act(() => {
-      result.current.toggleOwned('wheels', 'SR19')
       result.current.increaseLevel('wheels', 'SR19')
       result.current.increaseLevel('wheels', 'SR19')
       result.current.increaseLevel('wheels', 'SR19')
