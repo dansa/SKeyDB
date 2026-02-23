@@ -1,5 +1,6 @@
 import { DndContext, DragOverlay } from '@dnd-kit/core'
 import { useEffect, useRef, useState } from 'react'
+import type { BuilderDraftPayload } from './builder/builder-persistence'
 import { awakenerByName } from './builder/constants'
 import { BuilderActiveTeamPanel } from './builder/BuilderActiveTeamPanel'
 import { BuilderSelectionPanel } from './builder/BuilderSelectionPanel'
@@ -31,13 +32,21 @@ import type { DragData } from './builder/types'
 export function BuilderPage() {
   const [toastMessage, setToastMessage] = useState<string | null>(null)
   const [predictedDropHover, setPredictedDropHover] = useState<PredictedDropHover>(null)
+  const [pendingResetBuilder, setPendingResetBuilder] = useState(false)
+  const [undoResetSnapshot, setUndoResetSnapshot] = useState<BuilderDraftPayload | null>(null)
   const toastTimeoutRef = useRef<number | null>(null)
   const suppressTeamEditRef = useRef(false)
   const suppressTeamEditTimeoutRef = useRef<number | null>(null)
+  const resetUndoTimeoutRef = useRef<number | null>(null)
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const { pendingTransfer, requestAwakenerTransfer, requestPosseTransfer, requestWheelTransfer, clearTransfer } =
     useTransferConfirm()
   const {
+    displayUnowned,
+    setDisplayUnowned,
+    ownedAwakenerLevelByName,
+    ownedWheelLevelById,
+    ownedPosseLevelById,
     teams,
     setTeams,
     setActiveTeamId,
@@ -84,6 +93,8 @@ export function BuilderPage() {
     handleWheelSlotClick,
     handleCovenantSlotClick,
     handleRemoveActiveSelection,
+    replaceBuilderDraft,
+    resetBuilderDraft,
   } = useBuilderViewModel({ searchInputRef })
 
   const {
@@ -98,7 +109,7 @@ export function BuilderPage() {
     clearActiveSelection: () => setActiveSelection(null),
   })
 
-  function showToast(message: string, duration = 2200) {
+  function showToast(message: string, duration = 3200) {
     if (toastTimeoutRef.current) {
       window.clearTimeout(toastTimeoutRef.current)
     }
@@ -201,8 +212,59 @@ export function BuilderPage() {
       if (suppressTeamEditTimeoutRef.current) {
         window.clearTimeout(suppressTeamEditTimeoutRef.current)
       }
+      if (resetUndoTimeoutRef.current) {
+        window.clearTimeout(resetUndoTimeoutRef.current)
+      }
     }
   }, [])
+
+  function requestResetBuilder() {
+    clearPendingDelete()
+    clearTransfer()
+    cancelTeamRename()
+    setPendingResetBuilder(true)
+  }
+
+  function cancelResetBuilder() {
+    setPendingResetBuilder(false)
+  }
+
+  function confirmResetBuilder() {
+    const snapshot: BuilderDraftPayload = {
+      teams,
+      activeTeamId: effectiveActiveTeamId,
+    }
+
+    resetBuilderDraft()
+    setActiveSelection(null)
+    setPendingResetBuilder(false)
+    setUndoResetSnapshot(snapshot)
+    showToast('Builder reset. Undo is available for 15 seconds.')
+
+    if (resetUndoTimeoutRef.current) {
+      window.clearTimeout(resetUndoTimeoutRef.current)
+    }
+    resetUndoTimeoutRef.current = window.setTimeout(() => {
+      setUndoResetSnapshot(null)
+      resetUndoTimeoutRef.current = null
+    }, 15_000)
+  }
+
+  function undoResetBuilder() {
+    if (!undoResetSnapshot) {
+      return
+    }
+
+    replaceBuilderDraft(undoResetSnapshot)
+    setActiveSelection(null)
+    setUndoResetSnapshot(null)
+    showToast('Builder reset has been undone.')
+
+    if (resetUndoTimeoutRef.current) {
+      window.clearTimeout(resetUndoTimeoutRef.current)
+      resetUndoTimeoutRef.current = null
+    }
+  }
 
   const { activeDrag, isRemoveIntent, sensors, handleDragCancel, handleDragEnd, handleDragOver, handleDragStart } = useBuilderDnd({
     onDropPickerAwakener: (awakenerName, targetSlotId) => {
@@ -335,6 +397,14 @@ export function BuilderPage() {
     clearTeamEditSuppressionSoon()
   }
 
+  const activeDraggedSlot = activeDrag?.kind === 'team-slot' ? slotById.get(activeDrag.slotId) : undefined
+  const activeDraggedAwakenerOwnedLevel =
+    activeDraggedSlot?.awakenerName ? (ownedAwakenerLevelByName.get(activeDraggedSlot.awakenerName) ?? null) : null
+  const activeDraggedWheelOwnedLevels: [number | null, number | null] = [
+    activeDraggedSlot?.wheels[0] ? (ownedWheelLevelById.get(activeDraggedSlot.wheels[0]) ?? null) : null,
+    activeDraggedSlot?.wheels[1] ? (ownedWheelLevelById.get(activeDraggedSlot.wheels[1]) ?? null) : null,
+  ]
+
   return (
     <DndContext
       onDragCancel={handleDndDragCancel}
@@ -354,12 +424,15 @@ export function BuilderPage() {
               activeTeamName={activeTeam?.name ?? 'Team'}
               activePosseAsset={activePosseAsset}
               activePosseName={activePosse?.name}
+              isActivePosseOwned={activePosseId ? (ownedPosseLevelById.get(activePosseId) ?? null) !== null : true}
               activeDragKind={activeDrag?.kind ?? null}
               onOpenPossePicker={() => setPickerTab('posses')}
               onCardClick={handleCardClick}
               onRemoveActiveSelection={handleRemoveActiveSelection}
               onCovenantSlotClick={handleCovenantSlotClick}
               onWheelSlotClick={handleWheelSlotClick}
+              ownedAwakenerLevelByName={ownedAwakenerLevelByName}
+              ownedWheelLevelById={ownedWheelLevelById}
               predictedDropHover={predictedDropHover}
               resolvedActiveSelection={resolvedActiveSelection}
               teamFactions={teamFactionSet}
@@ -368,6 +441,7 @@ export function BuilderPage() {
 
             <BuilderTeamsPanel
               activeTeamId={effectiveActiveTeamId}
+              canUndoReset={Boolean(undoResetSnapshot)}
               editingTeamId={editingTeamId}
               editingTeamName={editingTeamName}
               onAddTeam={() => {
@@ -392,6 +466,8 @@ export function BuilderPage() {
                 cancelTeamRename()
                 requestDeleteTeam(teamId, teamName)
               }}
+              onResetBuilder={requestResetBuilder}
+              onUndoReset={undoResetBuilder}
               onEditTeam={(teamId) => {
                 if (suppressTeamEditRef.current) {
                   return
@@ -409,6 +485,8 @@ export function BuilderPage() {
                 cancelTeamRename()
                 openImportDialog()
               }}
+              ownedAwakenerLevelByName={ownedAwakenerLevelByName}
+              ownedPosseLevelById={ownedPosseLevelById}
               posses={pickerPosses}
               teams={teams}
             />
@@ -418,9 +496,14 @@ export function BuilderPage() {
             activePosseId={activePosseId}
             activeSearchQuery={activeSearchQuery}
             awakenerFilter={awakenerFilter}
+            displayUnowned={displayUnowned}
             effectiveActiveTeamId={effectiveActiveTeamId}
             filteredAwakeners={filteredAwakeners}
             filteredPosses={filteredPosses}
+            ownedAwakenerLevelByName={ownedAwakenerLevelByName}
+            ownedPosseLevelById={ownedPosseLevelById}
+            ownedWheelLevelById={ownedWheelLevelById}
+            onDisplayUnownedChange={setDisplayUnowned}
             onAwakenerClick={(awakenerName) => {
               handlePickerAwakenerClick(awakenerName)
             }}
@@ -488,10 +571,19 @@ export function BuilderPage() {
         {activeDrag?.kind === 'picker-wheel' ? <PickerWheelGhost wheelId={activeDrag.wheelId} /> : null}
         {activeDrag?.kind === 'picker-covenant' ? <PickerWheelGhost wheelId={activeDrag.covenantId} isCovenant /> : null}
         {activeDrag?.kind === 'team-slot' ? (
-          <TeamCardGhost removeIntent={isRemoveIntent} slot={slotById.get(activeDrag.slotId)} />
+          <TeamCardGhost
+            removeIntent={isRemoveIntent}
+            slot={activeDraggedSlot}
+            awakenerOwnedLevel={activeDraggedAwakenerOwnedLevel}
+            wheelOwnedLevels={activeDraggedWheelOwnedLevels}
+          />
         ) : null}
         {activeDrag?.kind === 'team-wheel' ? (
-          <TeamWheelGhost removeIntent={isRemoveIntent} wheelId={activeDrag.wheelId} />
+          <TeamWheelGhost
+            removeIntent={isRemoveIntent}
+            wheelId={activeDrag.wheelId}
+            ownedLevel={ownedWheelLevelById.get(activeDrag.wheelId) ?? null}
+          />
         ) : null}
         {activeDrag?.kind === 'team-covenant' ? (
           <TeamWheelGhost removeIntent={isRemoveIntent} wheelId={activeDrag.covenantId} isCovenant />
@@ -501,7 +593,17 @@ export function BuilderPage() {
       <BuilderConfirmDialogs
         deleteDialog={pendingDeleteDialog}
         onCancelDelete={clearPendingDelete}
+        onCancelReset={cancelResetBuilder}
         onCancelTransfer={clearTransfer}
+        resetDialog={
+          pendingResetBuilder
+            ? {
+                title: 'Reset Builder',
+                message: 'Reset all teams back to a fresh builder state?',
+                onConfirm: confirmResetBuilder,
+              }
+            : null
+        }
         transferDialog={pendingTransferDialog}
       />
 

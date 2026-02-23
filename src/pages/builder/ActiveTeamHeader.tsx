@@ -6,6 +6,7 @@ type ActiveTeamHeaderProps = {
   activeTeamName: string
   activePosseAsset?: string
   activePosseName?: string
+  isActivePosseOwned: boolean
   teamFactions: string[]
   onOpenPossePicker: () => void
 }
@@ -27,6 +28,7 @@ export function ActiveTeamHeader({
   activeTeamName,
   activePosseAsset,
   activePosseName,
+  isActivePosseOwned,
   teamFactions,
   onOpenPossePicker,
 }: ActiveTeamHeaderProps) {
@@ -96,7 +98,10 @@ export function ActiveTeamHeader({
       <button className="builder-team-posse-button" onClick={onOpenPossePicker} type="button">
         <span className="builder-team-posse-copy">
           <span className="ui-title text-xl text-amber-100">Posse</span>
-          <span className="text-xs tracking-wide text-slate-300/90">{activePosseName ?? 'Not Set'}</span>
+          <span className="text-xs tracking-wide text-slate-300/90">
+            {activePosseName ?? 'Not Set'}
+            {activePosseName && !isActivePosseOwned ? ' (Unowned)' : ''}
+          </span>
         </span>
         <span className="builder-team-posse-icon-wrap">
           <img

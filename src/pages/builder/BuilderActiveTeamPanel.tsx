@@ -6,8 +6,11 @@ type BuilderActiveTeamPanelProps = {
   activeTeamName: string
   activePosseAsset?: string
   activePosseName?: string
+  isActivePosseOwned: boolean
   teamFactions: Set<string>
   teamSlots: TeamSlot[]
+  ownedAwakenerLevelByName: Map<string, number | null>
+  ownedWheelLevelById: Map<string, number | null>
   resolvedActiveSelection: ActiveSelection
   activeDragKind?: DragData['kind'] | null
   predictedDropHover?: PredictedDropHover
@@ -22,8 +25,11 @@ export function BuilderActiveTeamPanel({
   activeTeamName,
   activePosseAsset,
   activePosseName,
+  isActivePosseOwned,
   teamFactions,
   teamSlots,
+  ownedAwakenerLevelByName,
+  ownedWheelLevelById,
   resolvedActiveSelection,
   activeDragKind = null,
   predictedDropHover = null,
@@ -39,6 +45,7 @@ export function BuilderActiveTeamPanel({
         activeTeamName={activeTeamName}
         activePosseAsset={activePosseAsset}
         activePosseName={activePosseName}
+        isActivePosseOwned={isActivePosseOwned}
         onOpenPossePicker={onOpenPossePicker}
         teamFactions={Array.from(teamFactions)}
       />
@@ -59,6 +66,13 @@ export function BuilderActiveTeamPanel({
             onCovenantSlotClick={onCovenantSlotClick}
             onRemoveActiveSelection={() => onRemoveActiveSelection(slot.slotId)}
             onWheelSlotClick={onWheelSlotClick}
+            awakenerOwnedLevel={
+              slot.awakenerName ? (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null) : null
+            }
+            wheelOwnedLevels={[
+              slot.wheels[0] ? (ownedWheelLevelById.get(slot.wheels[0]) ?? null) : null,
+              slot.wheels[1] ? (ownedWheelLevelById.get(slot.wheels[1]) ?? null) : null,
+            ]}
             predictedDropHover={predictedDropHover}
             slot={slot}
           />

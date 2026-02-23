@@ -5,6 +5,16 @@ export type ChangelogItem = {
 
 export const changelogItems: ChangelogItem[] = [
   {
+    date: "2026-02-23",
+    summary:
+      "Collection ownership tracking is now live with quick toggles, level controls, and local persistence.",
+  },
+  {
+    date: "2026-02-23",
+    summary:
+      "Collection data can now be saved to and loaded from a local snapshot file.",
+  },
+  {
     date: "2026-02-22",
     summary:
       "Wheel filters got smarter, so it is easier to find what you want quickly.",

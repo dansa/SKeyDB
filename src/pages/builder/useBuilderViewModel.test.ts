@@ -1,7 +1,9 @@
 import { createRef } from 'react'
 import { act, renderHook } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
+import { COLLECTION_OWNERSHIP_KEY, saveCollectionOwnership } from '../../domain/collection-ownership'
+import { BUILDER_PERSISTENCE_KEY, clearBuilderDraft, saveBuilderDraft } from './builder-persistence'
 import { useBuilderViewModel } from './useBuilderViewModel'
 
 vi.mock('./useGlobalPickerSearchCapture', () => ({
@@ -9,6 +11,16 @@ vi.mock('./useGlobalPickerSearchCapture', () => ({
 }))
 
 describe('useBuilderViewModel', () => {
+  beforeEach(() => {
+    window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
+    window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
+  })
+
+  afterEach(() => {
+    window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
+    window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
+  })
+
   it('initializes with a valid active team and slots', () => {
     const { result } = renderHook(() =>
       useBuilderViewModel({
@@ -224,5 +236,104 @@ describe('useBuilderViewModel', () => {
     expect(result.current.teams[0]?.name).toBe('Arena Squad')
     expect(result.current.editingTeamId).toBeNull()
     expect(result.current.editingTeamName).toBe('')
+  })
+
+  it('hydrates teams and active team from persisted builder draft', () => {
+    const persistedTeams = [
+      {
+        id: 'team-from-storage',
+        name: 'Stored Team',
+        slots: [
+          { slotId: 'slot-1', awakenerName: 'Goliath', faction: 'AEQUOR', level: 60, wheels: [null, null] as [string | null, string | null] },
+          { slotId: 'slot-2', wheels: [null, null] as [string | null, string | null] },
+          { slotId: 'slot-3', wheels: [null, null] as [string | null, string | null] },
+          { slotId: 'slot-4', wheels: [null, null] as [string | null, string | null] },
+        ],
+      },
+    ]
+    saveBuilderDraft(window.localStorage, { teams: persistedTeams, activeTeamId: 'team-from-storage' })
+
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    expect(result.current.teams[0]?.id).toBe('team-from-storage')
+    expect(result.current.effectiveActiveTeamId).toBe('team-from-storage')
+  })
+
+  it('autosaves team draft changes to localStorage', () => {
+    vi.useFakeTimers()
+
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.setTeams([
+        {
+          id: 'team-autosave',
+          name: 'Autosave Team',
+          slots: [
+            { slotId: 'slot-1', wheels: [null, null] as [string | null, string | null] },
+            { slotId: 'slot-2', wheels: [null, null] as [string | null, string | null] },
+            { slotId: 'slot-3', wheels: [null, null] as [string | null, string | null] },
+            { slotId: 'slot-4', wheels: [null, null] as [string | null, string | null] },
+          ],
+        },
+      ])
+      result.current.setActiveTeamId('team-autosave')
+    })
+
+    act(() => {
+      vi.advanceTimersByTime(400)
+    })
+
+    const storedRaw = window.localStorage.getItem(BUILDER_PERSISTENCE_KEY)
+    expect(storedRaw).toBeTruthy()
+
+    const parsed = JSON.parse(storedRaw!)
+    expect(parsed.payload.activeTeamId).toBe('team-autosave')
+    expect(parsed.payload.teams[0]?.name).toBe('Autosave Team')
+
+    vi.useRealTimers()
+    clearBuilderDraft(window.localStorage)
+  })
+
+  it('hydrates ownership and keeps linked awakeners synced', () => {
+    saveCollectionOwnership(window.localStorage, {
+      ownedAwakeners: { '42': 5 },
+      ownedWheels: {},
+      ownedPosses: {},
+      displayUnowned: true,
+    })
+
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    expect(result.current.ownedAwakenerLevelByName.get('ramona')).toBe(5)
+    expect(result.current.ownedAwakenerLevelByName.get('ramona: timeworn')).toBe(5)
+  })
+
+  it('hides unowned entries when displayUnowned is false', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.setDisplayUnowned(false)
+    })
+
+    expect(result.current.filteredAwakeners).toHaveLength(0)
+    expect(result.current.filteredWheels).toHaveLength(0)
+    expect(result.current.filteredPosses).toHaveLength(0)
   })
 })

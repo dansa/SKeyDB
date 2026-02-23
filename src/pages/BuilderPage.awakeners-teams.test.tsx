@@ -262,4 +262,26 @@ describe('BuilderPage awakeners and teams', () => {
     expect(screen.queryByRole('dialog', { name: /move goliath/i })).not.toBeInTheDocument()
     expect(screen.getByText(/invalid move: a team can only contain up to 2 factions/i)).toBeInTheDocument()
   })
+
+  it('resets builder with confirmation and allows undo from the same action slot', async () => {
+    const { container } = render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
+    expect(container.querySelector('[data-team-name="Team 2"]')).not.toBeNull()
+    expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /reset builder/i }))
+    expect(screen.getByRole('dialog', { name: /reset builder/i })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /^reset$/i }))
+
+    expect(container.querySelector('[data-team-name="Team 2"]')).toBeNull()
+    expect(screen.queryByRole('button', { name: /change goliath/i })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /undo reset/i })).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /undo reset/i }))
+
+    expect(container.querySelector('[data-team-name="Team 2"]')).not.toBeNull()
+    expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
+  })
 })

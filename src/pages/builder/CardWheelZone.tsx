@@ -1,4 +1,5 @@
 import { useDraggable, useDroppable } from '@dnd-kit/core'
+import { DupeLevelDisplay } from '../../components/ui/DupeLevelDisplay'
 import { getCovenantAssetById } from '../../domain/covenant-assets'
 import { getWheelAssetById } from '../../domain/wheel-assets'
 import { makeCovenantDropZoneId, makeWheelDropZoneId } from './dnd-ids'
@@ -9,6 +10,7 @@ type CardWheelZoneProps = {
   slot: TeamSlot
   interactive: boolean
   wheelKeyPrefix: string
+  showOwnership?: boolean
   compactCovenant?: boolean
   activeWheelIndex?: number | null
   isCovenantActive?: boolean
@@ -17,6 +19,8 @@ type CardWheelZoneProps = {
   onRemoveActiveWheel?: () => void
   onWheelSlotClick?: (wheelIndex: number) => void
   onCovenantSlotClick?: () => void
+  awakenerOwnedLevel?: number | null
+  wheelOwnedLevels?: [number | null, number | null]
 }
 
 type CardWheelTileProps = {
@@ -27,6 +31,8 @@ type CardWheelTileProps = {
   activeDragKind?: DragData['kind'] | null
   predictedDropHover?: PredictedDropHover
   isActive: boolean
+  ownedLevel?: number | null
+  showOwnership?: boolean
   onRemove?: () => void
   onClick?: (wheelIndex: number) => void
 }
@@ -146,6 +152,8 @@ function CardWheelTile({
   activeDragKind,
   predictedDropHover,
   isActive,
+  ownedLevel = null,
+  showOwnership = true,
   onRemove,
   onClick,
 }: CardWheelTileProps) {
@@ -166,9 +174,10 @@ function CardWheelTile({
     predictedDropHover.wheelIndex === wheelIndex
   const showOver = isPredictedOver || (isOver && canShowDirectOver)
 
+  const isOwned = ownedLevel !== null
   const tileClassName = `wheel-tile group/wheel relative z-20 aspect-[75/113] overflow-hidden bg-slate-700/30 p-[1px] ${
     isActive ? 'wheel-tile-active' : ''
-  } ${showOver ? 'wheel-tile-over' : ''} ${isDragging ? 'opacity-65' : ''}`
+  } ${showOver ? 'wheel-tile-over' : ''} ${isDragging ? 'opacity-65' : ''} ${!isOwned && wheelId ? 'wheel-tile-unowned' : ''}`
   const tileVisual = (
     <>
       <span className="wheel-tile-frame absolute inset-0 border border-slate-200/45" />
@@ -207,6 +216,13 @@ function CardWheelTile({
           <span className="sigil-remove-x builder-card-remove-x" />
         </button>
       ) : null}
+  {showOwnership && wheelId ? (
+        isOwned ? (
+          <DupeLevelDisplay className="pb-1 builder-wheel-dupe-display builder-wheel-dupe-display-stacked collection-enlighten-text-owned" level={ownedLevel} />
+        ) : (
+          <span className="builder-unowned-chip">Unowned</span>
+        )
+      ) : null}
       {tileVisual}
     </div>
   )
@@ -216,6 +232,7 @@ export function CardWheelZone({
   slot,
   interactive,
   wheelKeyPrefix,
+  showOwnership = true,
   compactCovenant = false,
   activeWheelIndex = null,
   isCovenantActive = false,
@@ -224,14 +241,21 @@ export function CardWheelZone({
   onRemoveActiveWheel,
   onWheelSlotClick,
   onCovenantSlotClick,
+  awakenerOwnedLevel = null,
+  wheelOwnedLevels = [null, null],
 }: CardWheelZoneProps) {
   return (
     <div
-      className={`builder-card-wheel-zone absolute inset-x-0 bottom-0 z-20 p-2 ${
+      className={`builder-card-wheel-zone pointer-events-none absolute inset-x-0 bottom-0 z-20 p-2 ${
         compactCovenant ? 'builder-card-wheel-zone-ghost' : ''
       }`}
     >
-      <div className="builder-card-meta-row flex items-start justify-end gap-2 pb-2">
+      <div className="builder-card-meta-row flex items-start justify-between gap-2 pb-2">
+        <div className="builder-card-meta-left pointer-events-none self-end min-w-0 flex-1 pb-1">
+          {showOwnership && awakenerOwnedLevel !== null ? (
+            <DupeLevelDisplay className="builder-card-dupe-display builder-card-dupe-display-meta collection-enlighten-text-owned" level={awakenerOwnedLevel} />
+          ) : null}
+        </div>
         <div className="builder-card-covenant-wrap shrink-0">
           <CardCovenantTile
             activeDragKind={activeDragKind}
@@ -253,6 +277,8 @@ export function CardWheelZone({
             isActive={activeWheelIndex === index}
             key={`${wheelKeyPrefix}-wheel-${index}`}
             onClick={onWheelSlotClick}
+            ownedLevel={wheelOwnedLevels[index] ?? null}
+            showOwnership={showOwnership}
             onRemove={onRemoveActiveWheel}
             predictedDropHover={predictedDropHover}
             slotId={slot.slotId}

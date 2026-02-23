@@ -14,6 +14,12 @@ type BuilderConfirmDialogsProps = {
     onConfirm: () => void
   } | null
   onCancelTransfer: () => void
+  resetDialog: {
+    title: string
+    message: string
+    onConfirm: () => void
+  } | null
+  onCancelReset: () => void
 }
 
 export function BuilderConfirmDialogs({
@@ -21,6 +27,8 @@ export function BuilderConfirmDialogs({
   onCancelDelete,
   transferDialog,
   onCancelTransfer,
+  resetDialog,
+  onCancelReset,
 }: BuilderConfirmDialogsProps) {
   return (
     <>
@@ -35,6 +43,17 @@ export function BuilderConfirmDialogs({
         />
       ) : null}
       <BuilderTransferConfirmDialog dialog={transferDialog} onCancel={onCancelTransfer} />
+      {resetDialog ? (
+        <ConfirmDialog
+          cancelLabel="Cancel"
+          confirmLabel="Reset"
+          message={resetDialog.message}
+          onCancel={onCancelReset}
+          onConfirm={resetDialog.onConfirm}
+          title={resetDialog.title}
+          confirmVariant="danger"
+        />
+      ) : null}
     </>
   )
 }

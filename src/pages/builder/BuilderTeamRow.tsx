@@ -11,6 +11,8 @@ type BuilderTeamRowProps = {
   isEditingTeamName: boolean
   editingTeamName: string
   posseAsset?: string
+  ownedAwakenerLevelByName?: Map<string, number | null>
+  ownedPosseLevelById?: Map<string, number | null>
   onEditingTeamNameChange: (nextName: string) => void
   onBeginTeamRename: (teamId: string, currentName: string) => void
   onCommitTeamRename: (teamId: string) => void
@@ -21,12 +23,16 @@ type BuilderTeamRowProps = {
   deleteDisabled: boolean
 }
 
+const EMPTY_OWNERSHIP_MAP = new Map<string, number | null>()
+
 export function BuilderTeamRow({
   team,
   isActive,
   isEditingTeamName,
   editingTeamName,
   posseAsset,
+  ownedAwakenerLevelByName = EMPTY_OWNERSHIP_MAP,
+  ownedPosseLevelById = EMPTY_OWNERSHIP_MAP,
   onEditingTeamNameChange,
   onBeginTeamRename,
   onCommitTeamRename,
@@ -46,6 +52,7 @@ export function BuilderTeamRow({
       Math.abs(transform.y) > 0.01 ||
       Math.abs(transform.scaleX - 1) > 0.001 ||
       Math.abs(transform.scaleY - 1) > 0.001)
+  const isPosseOwned = !team.posseId || (ownedPosseLevelById?.get(team.posseId) ?? null) !== null
 
   return (
     <div
@@ -180,14 +187,17 @@ export function BuilderTeamRow({
             )}
           </div>
           <div className="mt-1 flex gap-1.5">
-            {team.slots.map((slot) => (
+            {team.slots.map((slot) => {
+              const isAwakenerOwned =
+                !slot.awakenerName || (ownedAwakenerLevelByName?.get(slot.awakenerName) ?? null) !== null
+              return (
               <div className="builder-picker-tile h-12 w-12 border border-slate-500/50 bg-slate-900/40 p-0.5" key={`${team.id}-${slot.slotId}`}>
                 <div className="relative h-full w-full overflow-hidden border border-slate-400/35 bg-slate-900/70">
                   {slot.awakenerName ? (
                     <>
                       <img
                         alt={`${slot.awakenerName} team preview portrait`}
-                        className="h-full w-full object-cover"
+                        className={`h-full w-full object-cover ${!isAwakenerOwned ? 'builder-picker-art-unowned' : ''}`}
                         draggable={false}
                         src={getAwakenerPortraitAsset(slot.awakenerName)}
                       />
@@ -195,6 +205,7 @@ export function BuilderTeamRow({
                         className="pointer-events-none absolute inset-0 z-10 border"
                         style={{ borderColor: getFactionTint(slot.faction) }}
                       />
+                      {!isAwakenerOwned ? <span className="builder-team-preview-unowned-chip">Unowned</span> : null}
                     </>
                   ) : (
                     <span className="relative block h-full w-full">
@@ -203,16 +214,19 @@ export function BuilderTeamRow({
                   )}
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
         <span className="builder-team-posse-icon-wrap builder-team-posse-icon-wrap-compact my-1.5">
           <img
             alt={`${team.name} posse`}
-            className="builder-team-posse-icon builder-team-posse-icon-compact"
+            className={`builder-team-posse-icon builder-team-posse-icon-compact ${
+              !isPosseOwned ? 'builder-picker-art-unowned builder-team-posse-unowned' : ''
+            }`}
             draggable={false}
             src={posseAsset ?? tempPosseIcon}
           />
+          {!isPosseOwned ? <span className="builder-team-preview-unowned-chip builder-team-preview-unowned-chip-posse">Unowned</span> : null}
         </span>
         <div className="py-1.5">
           <button

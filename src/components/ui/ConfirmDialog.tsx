@@ -1,5 +1,6 @@
 import { ModalFrame } from './ModalFrame'
 import { Button } from './Button'
+import type { ButtonVariant } from './Button'
 
 type ConfirmDialogProps = {
   title: string
@@ -10,6 +11,7 @@ type ConfirmDialogProps = {
   onCancel: () => void
   overlayClassName?: string
   dialogClassName?: string
+  confirmVariant?: ButtonVariant
 }
 
 export function ConfirmDialog({
@@ -21,6 +23,7 @@ export function ConfirmDialog({
   onCancel,
   overlayClassName = 'fixed inset-0 z-70 flex items-center justify-center bg-slate-950/55 px-4',
   dialogClassName = 'w-full max-w-md border border-amber-200/55 bg-slate-950/96 p-4 shadow-[0_18px_50px_rgba(2,6,23,0.72)]',
+  confirmVariant = 'primary',
 }: ConfirmDialogProps) {
   return (
     <ModalFrame overlayClassName={overlayClassName} panelClassName={dialogClassName} title={title}>
@@ -29,7 +32,7 @@ export function ConfirmDialog({
         <Button onClick={onCancel} variant="secondary">
           {cancelLabel}
         </Button>
-        <Button onClick={onConfirm} variant="primary">
+        <Button onClick={onConfirm} variant={confirmVariant}>
           {confirmLabel}
         </Button>
       </div>

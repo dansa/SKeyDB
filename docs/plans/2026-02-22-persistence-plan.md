@@ -18,6 +18,7 @@ This should survive refresh/reopen while keeping a clean path for a future backe
 - Use browser storage first; no backend dependency for MVP.
 - Keep builder persistence and collection ownership as separate storage domains/keys.
 - Preserve current import/export as a sharing tool, not the primary persistence mechanism.
+- Ownership state (`owned/unowned` + `E` levels) is never included in team import/export codes.
 - Build behind a storage adapter so backend sync can be added later with minimal churn.
 - Builder restore scope is team draft data only (teams + active team). Picker filters/search are not persisted for now.
 - No explicit "autosave enabled" badge for MVP; silent autosave is sufficient unless users report confusion.
@@ -42,12 +43,12 @@ This should survive refresh/reopen while keeping a clean path for a future backe
 - `activeTeamId`
 
 ### B) Collection Ownership State
-- `ownedAwakeners: Record<awakenerId, boolean>`
-- `ownedWheels: Record<wheelId, boolean>`
-- `ownedPosses: Record<posseId, boolean>`
+- `ownedAwakeners: Record<awakenerId, level>` where `level` is `0..15`
+- `ownedWheels: Record<wheelId, level>` where `level` is `0..15`
+- `ownedPosses: Record<posseId, level>` where `level` is `0..15` (`0` baseline owned)
 - optional metadata:
   - `lastUpdatedAt`,
-  - `dupeLevels`, (how many copies of each awakener/wheel one owns)
+  - linked ownership groups for special awakeners (e.g. Ramona/Timeworn),
   - `source` (manual/imported).
 
 ## Proposed Keys
@@ -74,17 +75,18 @@ This should survive refresh/reopen while keeping a clean path for a future backe
 - Do not persist ephemeral drag/hover state.
 
 ## Implementation Steps
-1. [ ] Add storage adapter layer:
+1. [x] Add storage adapter layer:
    - `read(key)`, `write(key, value)`, `remove(key)` with safe error handling.
-2. [ ] Add builder persistence service:
+2. [x] Add builder persistence service:
    - serialize/deserialize + schema validation + version tag.
-3. [ ] Wire builder hydration on mount.
-4. [ ] Wire debounced builder autosave on state changes.
-5. [ ] Add reset action and tests for builder persistence behavior.
-6. [ ] Define collection ownership domain types and persistence service.
-7. [ ] Build collection UI tab/page (separate from builder) and wire ownership persistence.
+3. [x] Wire builder hydration on mount.
+4. [x] Wire debounced builder autosave on state changes.
+5. [x] Add reset action and tests for builder persistence behavior.
+6. [x] Define collection ownership domain types and persistence service.
+7. [x] Build collection UI tab/page (separate from builder) and wire ownership persistence.
 8. [ ] Add migration scaffolding (`v1` baseline + migration registry).
-9. [ ] Update README/roadmap after release.
+   - Deferred until first schema bump (`v2`) is planned.
+9. [x] Update README/roadmap after release.
 
 ## Out of Scope (This Phase)
 - Cloud sync / login/account linkage.

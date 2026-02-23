@@ -7,6 +7,7 @@ import type { Wheel } from '../../domain/wheels'
 import { getCovenantAssetById } from '../../domain/covenant-assets'
 import { getPosseAssetById } from '../../domain/posse-assets'
 import { getWheelAssetById } from '../../domain/wheel-assets'
+import { OwnedTogglePill } from '../../components/ui/OwnedTogglePill'
 import { PICKER_DROP_ZONE_ID } from './dnd-ids'
 import { PickerCovenantTile } from './PickerCovenantTile'
 import { PickerDropZone } from './PickerDropZone'
@@ -63,10 +64,14 @@ type BuilderSelectionPanelProps = {
   posseFilter: PosseFilter
   wheelRarityFilter: WheelRarityFilter
   wheelMainstatFilter: WheelMainstatFilter
+  displayUnowned: boolean
   filteredAwakeners: Awakener[]
   filteredPosses: Posse[]
   filteredWheels: Wheel[]
   filteredCovenants: Covenant[]
+  ownedAwakenerLevelByName: Map<string, number | null>
+  ownedWheelLevelById: Map<string, number | null>
+  ownedPosseLevelById: Map<string, number | null>
   teamFactionSet: Set<string>
   usedAwakenerIdentityKeys: Set<string>
   activePosseId?: string
@@ -80,6 +85,7 @@ type BuilderSelectionPanelProps = {
   onPosseFilterChange: (nextFilter: PosseFilter) => void
   onWheelRarityFilterChange: (nextFilter: WheelRarityFilter) => void
   onWheelMainstatFilterChange: (nextFilter: WheelMainstatFilter) => void
+  onDisplayUnownedChange: (displayUnowned: boolean) => void
   onAwakenerClick: (awakenerName: string) => void
   onSetActiveWheel: (wheelId?: string) => void
   onSetActiveCovenant: (covenantId?: string) => void
@@ -94,10 +100,14 @@ export function BuilderSelectionPanel({
   posseFilter,
   wheelRarityFilter,
   wheelMainstatFilter,
+  displayUnowned,
   filteredAwakeners,
   filteredPosses,
   filteredWheels,
   filteredCovenants,
+  ownedAwakenerLevelByName,
+  ownedWheelLevelById,
+  ownedPosseLevelById,
   teamFactionSet,
   usedAwakenerIdentityKeys,
   activePosseId,
@@ -111,6 +121,7 @@ export function BuilderSelectionPanel({
   onPosseFilterChange,
   onWheelRarityFilterChange,
   onWheelMainstatFilterChange,
+  onDisplayUnownedChange,
   onAwakenerClick,
   onSetActiveWheel,
   onSetActiveCovenant,
@@ -154,6 +165,17 @@ export function BuilderSelectionPanel({
             {tab.label}
           </button>
         ))}
+      </div>
+      <div className="mt-2 flex items-center justify-between gap-3 text-xs text-slate-300">
+        <span>Display Unowned</span>
+        <OwnedTogglePill
+          className="ownership-pill-builder"
+          offLabel="Off"
+          onLabel="On"
+          onToggle={() => onDisplayUnownedChange(!displayUnowned)}
+          owned={displayUnowned}
+          variant="flat"
+        />
       </div>
 
       {pickerTab === 'awakeners' ? (
@@ -253,6 +275,7 @@ export function BuilderSelectionPanel({
                 faction={awakener.faction}
                 isFactionBlocked={teamFactionSet.size >= 2 && !teamFactionSet.has(awakener.faction.trim().toUpperCase())}
                 isInUse={usedAwakenerIdentityKeys.has(getAwakenerIdentityKey(awakener.name))}
+                isOwned={(ownedAwakenerLevelByName.get(awakener.name) ?? null) !== null}
                 key={awakener.name}
                 onClick={() => onAwakenerClick(awakener.name)}
               />
@@ -279,6 +302,7 @@ export function BuilderSelectionPanel({
                   blockedText={blockedText}
                   isBlocked={Boolean(isUsedByOtherTeam)}
                   isInUse={Boolean(usedByTeam)}
+                  isOwned={(ownedWheelLevelById.get(wheel.id) ?? null) !== null}
                   key={wheel.id}
                   onClick={() => onSetActiveWheel(wheel.id)}
                   wheelAsset={wheelAsset}
@@ -337,15 +361,18 @@ export function BuilderSelectionPanel({
                 usedByTeamOrder !== undefined &&
                 usedByTeam?.id !== effectiveActiveTeamId
               const blockedText = isUsedByOtherTeam ? `Used in ${toOrdinal(usedByTeamOrder + 1)} team` : null
+              const ownedLevel = ownedPosseLevelById.get(posse.id) ?? null
 
               return (
                 <button
                   className={`border p-1 text-left transition-colors ${
                     isActive
                       ? 'border-amber-200/60 bg-slate-800/80'
-                      : isUsedByOtherTeam
+                    : isUsedByOtherTeam
                         ? 'border-slate-500/45 bg-slate-900/45 opacity-55'
-                      : 'border-slate-500/45 bg-slate-900/55 hover:border-amber-200/45'
+                      : ownedLevel === null
+                        ? 'border-rose-300/35 bg-slate-900/55 hover:border-rose-200/45'
+                        : 'border-slate-500/45 bg-slate-900/55 hover:border-amber-200/45'
                   }`}
                   aria-disabled={isUsedByOtherTeam}
                   key={posse.id}
@@ -356,7 +383,9 @@ export function BuilderSelectionPanel({
                     {posseAsset ? (
                       <img
                         alt={`${posse.name} posse`}
-                        className="h-full w-full object-cover"
+                        className={`h-full w-full object-cover ${ownedLevel === null ? 'builder-picker-art-unowned' : ''} ${
+                          blockedText ? 'builder-picker-art-dimmed' : ''
+                        }`}
                         draggable={false}
                         src={posseAsset}
                       />
@@ -368,6 +397,10 @@ export function BuilderSelectionPanel({
                     {blockedText ? (
                       <span className="pointer-events-none absolute inset-x-0 top-0 truncate border-y border-slate-300/30 bg-slate-950/62 px-1 py-0.5 text-center text-[9px] tracking-wide text-slate-100/90">
                         {blockedText}
+                      </span>
+                    ) : ownedLevel === null ? (
+                      <span className="pointer-events-none absolute inset-x-0 top-0 truncate border-y border-rose-300/25 bg-slate-950/70 px-1 py-0.5 text-center text-[9px] tracking-wide text-rose-100/95">
+                        Unowned
                       </span>
                     ) : null}
                   </div>
