@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaDiscord, FaGithub } from "react-icons/fa6";
 import emojiAel from "../assets/emoji/Emoji_AEL_E_05.png";
+import emojiPdyM09 from "../assets/emoji/Emoji_PDY_M_09.png";
 import { changelogItems } from "./home/changelog";
 
 type TaskStatus = "planned" | "in_progress" | "done" | "forever_in_progress";
@@ -143,14 +144,39 @@ export function HomePage() {
       </article>
 
       <article className="border border-slate-500/45 bg-slate-900/55 p-4">
-        <h3 className="ui-title text-lg text-amber-100">Legal and Attribution</h3>
+        <h3 className="ui-title text-lg text-amber-100">Attribution and Legal</h3>
         <ul className="mt-2 space-y-2 text-sm text-slate-200">
-          <li>SKeyDB is an unofficial fan-made project and is not affiliated with Qookka Games.</li>
-          <li>Morimens names, images, icons, and related game assets remain property of their respective owners.</li>
           <li>
-            This page exists for community reference and planning transparency. If you are a rights holder and want
-            adjustments, please reach out.
+            Awakener avatars/cards and posse images used in this project are currently sourced from{" "}
+            <a className="text-link" href="https://morimens.huijiwiki.com/p/1">
+              Morimens HuijiWiki
+            </a>
+            .
           </li>
+          <li>
+            HuijiWiki content for these assets is credited under{" "}
+            <a className="text-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              CC BY-NC-SA
+            </a>
+          </li>
+          <li>Big thanks to the Huiji contributors for putting those resources together, it helped us get going a lot quicker than we would have otherwise</li>
+          <li>
+            And apologies for not adding this contribution notice sooner~
+            <img
+              alt=""
+              aria-hidden
+              className="ml-1 inline-block h-12 w-12 -scale-x-100 object-contain"
+              src={emojiPdyM09}
+            />
+          </li>
+          <li aria-hidden className="py-1">
+            <span className="block h-px w-48 bg-gradient-to-r from-amber-200/45 via-slate-300/35 to-transparent" />
+          </li>
+          <li>SKeyDB is an unofficial fan project and is not affiliated with Qookka Games.</li>
+          <li>
+            Morimens names, images, icons, and related game assets belong to Qookka Games and/or their licensors.
+          </li>
+          <li>If you are a rights holder and want anything adjusted or removed, please reach out.</li>
         </ul>
       </article>
     </section>

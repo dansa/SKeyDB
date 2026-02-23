@@ -54,8 +54,15 @@ npm run build
 
 If deploying to a user/org root page (`https://<user>.github.io/`), you can keep the default `/` base.
 
+## Attribution & Other contributions
+- Awakener avatars/cards and posse images used in this repo are currently sourced from Morimens HuijiWiki community pages:
+  - https://morimens.huijiwiki.com/p/1
+- HuijiWiki content for these assets is credited under CC BY-NC-SA:
+  - https://creativecommons.org/licenses/by-nc-sa/4.0/
+- Big thanks to the Huiji contributors for putting those resources together, it helped us get going a lot quicker than we would have otherwise
+
 ## Asset & IP Notice
-- This is an unofficial, non-commercial fan project.
+- SKeyDB is an unofficial, non-commercial fan project.
 - `Morimens`, related logos, character art, portraits, card art, and other in-game assets are owned by Qookka Games and/or their licensors.
 - No endorsement or affiliation with Qookka Games is implied.
 - If you plan to reuse game assets in another project (especially commercial use), obtain permission from the rights holder first.
