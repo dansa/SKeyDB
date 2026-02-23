@@ -12,8 +12,8 @@ type TaskItem = {
 };
 
 const builderTasks: TaskItem[] = [
-  { label: "Local storage persistence", status: "in_progress" },
-  { label: "Collection (owned/unowned)", status: "planned" },
+  { label: "Local storage persistence", status: "done" },
+  { label: "Collection (owned/unowned)", status: "done" },
   { label: "Mobile-first builder layout", status: "planned" },
   { label: "Quick Select flow for faster selection", status: "planned" },
   { label: "General QoL and things", status: "forever_in_progress" },

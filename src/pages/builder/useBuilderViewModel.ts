@@ -1,10 +1,17 @@
-import { useCallback, useMemo, useState, type RefObject } from 'react'
+import { useCallback, useEffect, useMemo, useState, type RefObject } from 'react'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
 import { getCovenants } from '../../domain/covenants'
 import { getPosses } from '../../domain/posses'
 import { getWheelMainstatLabel, getWheels } from '../../domain/wheels'
+import { compareWheelsForUi } from '../../domain/wheel-sort'
+import { getBrowserLocalStorage } from '../../domain/storage'
 import { getPosseAssetById } from '../../domain/posse-assets'
+import {
+  loadCollectionOwnership,
+  saveCollectionOwnership,
+  setDisplayUnowned as setCollectionDisplayUnownedState,
+} from '../../domain/collection-ownership'
 import { searchAwakeners } from '../../domain/awakeners-search'
 import { searchPosses } from '../../domain/posses-search'
 import { allAwakeners } from './constants'
@@ -12,6 +19,7 @@ import { clearCovenantAssignment, clearSlotAssignment, clearWheelAssignment, get
 import { createInitialTeams, renameTeam } from './team-collection'
 import { toggleAwakenerSelection, toggleCovenantSelection, toggleWheelSelection } from './selection-state'
 import { matchesWheelMainstat } from './wheel-mainstats'
+import { loadBuilderDraft, saveBuilderDraft, type BuilderDraftPayload } from './builder-persistence'
 import type {
   ActiveSelection,
   AwakenerFilter,
@@ -26,21 +34,6 @@ import type {
 import { useGlobalPickerSearchCapture } from './useGlobalPickerSearchCapture'
 
 const EMPTY_TEAM_SLOTS: TeamSlot[] = []
-const WHEEL_RARITY_ORDER: Record<WheelRarityFilter, number> = {
-  ALL: 99,
-  SSR: 0,
-  SR: 1,
-  R: 2,
-}
-
-const WHEEL_FACTION_ORDER: Record<string, number> = {
-  AEQUOR: 0,
-  CARO: 1,
-  CHAOS: 2,
-  ULTRA: 3,
-  NEUTRAL: 4,
-}
-
 function normalizeForSearch(value: string): string {
   return value.toLowerCase().replace(/[^a-z0-9]/g, '')
 }
@@ -49,10 +42,26 @@ type UseBuilderViewModelOptions = {
   searchInputRef: RefObject<HTMLInputElement | null>
 }
 
+const BUILDER_AUTOSAVE_DEBOUNCE_MS = 300
+const COLLECTION_AUTOSAVE_DEBOUNCE_MS = 300
+
+function createDefaultBuilderState() {
+  const teams = createInitialTeams()
+  return {
+    teams,
+    activeTeamId: teams[0]?.id ?? '',
+  }
+}
+
 export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptions) {
-  const initialTeams = useMemo(() => createInitialTeams(), [])
-  const [teams, setTeams] = useState<Team[]>(initialTeams)
-  const [activeTeamId, setActiveTeamId] = useState<string>(initialTeams[0]?.id ?? '')
+  const storage = useMemo(() => getBrowserLocalStorage(), [])
+  const initialBuilderState = useMemo(() => {
+    const persisted = loadBuilderDraft(storage)
+    return persisted ?? createDefaultBuilderState()
+  }, [storage])
+  const [teams, setTeams] = useState<Team[]>(initialBuilderState.teams)
+  const [activeTeamId, setActiveTeamId] = useState<string>(initialBuilderState.activeTeamId)
+  const [collectionOwnership, setCollectionOwnership] = useState(() => loadCollectionOwnership(storage))
   const [editingTeamId, setEditingTeamId] = useState<string | null>(null)
   const [editingTeamName, setEditingTeamName] = useState('')
   const [pickerTab, setPickerTab] = useState<PickerTab>('awakeners')
@@ -97,23 +106,43 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   const pickerPosses = useMemo(() => [...getPosses()].sort((left, right) => left.name.localeCompare(right.name)), [])
   const pickerCovenants = useMemo(() => [...getCovenants()].sort((left, right) => left.id.localeCompare(right.id)), [])
   const pickerWheels = useMemo(
-    () =>
-      [...getWheels()].sort((left, right) => {
-        const rarityOrderDiff = WHEEL_RARITY_ORDER[left.rarity] - WHEEL_RARITY_ORDER[right.rarity]
-        if (rarityOrderDiff !== 0) {
-          return rarityOrderDiff
-        }
-        const leftFaction = left.faction.trim().toUpperCase()
-        const rightFaction = right.faction.trim().toUpperCase()
-        const factionOrderDiff =
-          (WHEEL_FACTION_ORDER[leftFaction] ?? 99) - (WHEEL_FACTION_ORDER[rightFaction] ?? 99)
-        if (factionOrderDiff !== 0) {
-          return factionOrderDiff
-        }
-        return left.id.localeCompare(right.id, undefined, { numeric: true, sensitivity: 'base' })
-      }),
+    () => [...getWheels()].sort(compareWheelsForUi),
     [],
   )
+  const awakenerIdByName = useMemo(
+    () => new Map(pickerAwakeners.map((awakener) => [awakener.name, String(awakener.id)])),
+    [pickerAwakeners],
+  )
+  const ownedAwakenerLevelByName = useMemo(
+    () =>
+      new Map(
+        pickerAwakeners.map((awakener) => {
+          const awakenerId = awakenerIdByName.get(awakener.name)
+          const level =
+            typeof awakenerId === 'string' ? (collectionOwnership.ownedAwakeners[awakenerId] ?? null) : null
+          return [awakener.name, level]
+        }),
+      ),
+    [pickerAwakeners, awakenerIdByName, collectionOwnership.ownedAwakeners],
+  )
+  const ownedWheelLevelById = useMemo(
+    () => new Map(pickerWheels.map((wheel) => [wheel.id, collectionOwnership.ownedWheels[wheel.id] ?? null])),
+    [pickerWheels, collectionOwnership.ownedWheels],
+  )
+  const ownedPosseLevelById = useMemo(
+    () => new Map(pickerPosses.map((posse) => [posse.id, collectionOwnership.ownedPosses[posse.id] ?? null])),
+    [pickerPosses, collectionOwnership.ownedPosses],
+  )
+
+  const displayUnowned = collectionOwnership.displayUnowned
+
+  const isAwakenerOwnedByName = useCallback(
+    (awakenerName: string) => ownedAwakenerLevelByName.get(awakenerName) !== null,
+    [ownedAwakenerLevelByName],
+  )
+  const isWheelOwnedById = useCallback((wheelId: string) => ownedWheelLevelById.get(wheelId) !== null, [ownedWheelLevelById])
+  const isPosseOwnedById = useCallback((posseId: string) => ownedPosseLevelById.get(posseId) !== null, [ownedPosseLevelById])
+
   const activePosse = useMemo(
     () => pickerPosses.find((posse) => posse.id === activePosseId),
     [activePosseId, pickerPosses],
@@ -127,10 +156,14 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   )
   const filteredAwakeners = useMemo(() => {
     if (awakenerFilter === 'ALL') {
-      return searchedAwakeners
+      return displayUnowned ? searchedAwakeners : searchedAwakeners.filter((awakener) => isAwakenerOwnedByName(awakener.name))
     }
-    return searchedAwakeners.filter((awakener) => awakener.faction.trim().toUpperCase() === awakenerFilter)
-  }, [awakenerFilter, searchedAwakeners])
+    return searchedAwakeners.filter(
+      (awakener) =>
+        awakener.faction.trim().toUpperCase() === awakenerFilter &&
+        (displayUnowned || isAwakenerOwnedByName(awakener.name)),
+    )
+  }, [awakenerFilter, searchedAwakeners, displayUnowned, isAwakenerOwnedByName])
 
   const searchedPosses = useMemo(
     () => searchPosses(pickerPosses, pickerSearchByTab.posses),
@@ -138,13 +171,18 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   )
   const filteredPosses = useMemo(() => {
     if (posseFilter === 'ALL') {
-      return searchedPosses
+      return displayUnowned ? searchedPosses : searchedPosses.filter((posse) => isPosseOwnedById(posse.id))
     }
     if (posseFilter === 'FADED_LEGACY') {
-      return searchedPosses.filter((posse) => posse.isFadedLegacy)
+      return searchedPosses.filter((posse) => posse.isFadedLegacy && (displayUnowned || isPosseOwnedById(posse.id)))
     }
-    return searchedPosses.filter((posse) => !posse.isFadedLegacy && posse.faction.trim().toUpperCase() === posseFilter)
-  }, [posseFilter, searchedPosses])
+    return searchedPosses.filter(
+      (posse) =>
+        !posse.isFadedLegacy &&
+        posse.faction.trim().toUpperCase() === posseFilter &&
+        (displayUnowned || isPosseOwnedById(posse.id)),
+    )
+  }, [posseFilter, searchedPosses, displayUnowned, isPosseOwnedById])
   const filteredWheels = useMemo(() => {
     const query = pickerSearchByTab.wheels.trim().toLowerCase()
     const normalizedQuery = normalizeForSearch(query)
@@ -168,19 +206,23 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
         : wheelsByRarity.filter((wheel) => matchesWheelMainstat(wheel.mainstatKey, wheelMainstatFilter))
 
     if (!query) {
-      return wheelsByMainstat
+      return displayUnowned ? wheelsByMainstat : wheelsByMainstat.filter((wheel) => isWheelOwnedById(wheel.id))
     }
-    return wheelsByMainstat.filter(
-      (wheel) =>
+    return wheelsByMainstat.filter((wheel) => {
+      if (!displayUnowned && !isWheelOwnedById(wheel.id)) {
+        return false
+      }
+      return (
         wheel.name.toLowerCase().includes(query) ||
         wheel.rarity.toLowerCase().includes(query) ||
         wheel.faction.toLowerCase().includes(query) ||
         wheel.awakener.toLowerCase().includes(query) ||
         getWheelMainstatLabel(wheel).toLowerCase().includes(query) ||
         wheel.mainstatKey.toLowerCase().includes(query) ||
-        Boolean(matchedAwakenerNames?.has(wheel.awakener.toLowerCase())),
-    )
-  }, [pickerAwakeners, pickerWheels, pickerSearchByTab.wheels, wheelMainstatFilter, wheelRarityFilter])
+        Boolean(matchedAwakenerNames?.has(wheel.awakener.toLowerCase()))
+      )
+    })
+  }, [pickerAwakeners, pickerWheels, pickerSearchByTab.wheels, wheelMainstatFilter, wheelRarityFilter, displayUnowned, isWheelOwnedById])
   const filteredCovenants = useMemo(() => {
     const query = pickerSearchByTab.covenants.trim().toLowerCase()
     if (!query) {
@@ -232,6 +274,26 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     })
     return wheelMap
   }, [teams])
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      saveBuilderDraft(storage, { teams, activeTeamId: effectiveActiveTeamId })
+    }, BUILDER_AUTOSAVE_DEBOUNCE_MS)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [storage, teams, effectiveActiveTeamId])
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      saveCollectionOwnership(storage, collectionOwnership)
+    }, COLLECTION_AUTOSAVE_DEBOUNCE_MS)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [storage, collectionOwnership])
 
   const appendSearchCharacter = useCallback((targetPickerTab: PickerTab, key: string) => {
     setPickerSearchByTab((prev) => ({
@@ -304,7 +366,29 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     setActiveSelection(null)
   }
 
+  function replaceBuilderDraft(nextDraft: BuilderDraftPayload) {
+    setTeams(nextDraft.teams)
+    setActiveTeamId(nextDraft.activeTeamId)
+    saveBuilderDraft(storage, nextDraft)
+  }
+
+  function resetBuilderDraft() {
+    const nextDraft = createDefaultBuilderState()
+    replaceBuilderDraft(nextDraft)
+    return nextDraft
+  }
+
+  function setDisplayUnowned(display: boolean) {
+    setCollectionOwnership((prev) => setCollectionDisplayUnownedState(prev, display))
+  }
+
   return {
+    collectionOwnership,
+    displayUnowned,
+    setDisplayUnowned,
+    ownedAwakenerLevelByName,
+    ownedWheelLevelById,
+    ownedPosseLevelById,
     teams,
     setTeams,
     activeTeamId,
@@ -354,5 +438,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     handleWheelSlotClick,
     handleCovenantSlotClick,
     handleRemoveActiveSelection,
+    replaceBuilderDraft,
+    resetBuilderDraft,
   }
 }

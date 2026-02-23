@@ -10,10 +10,18 @@ type PickerAwakenerTileProps = {
   faction: string
   isFactionBlocked: boolean
   isInUse: boolean
+  isOwned: boolean
   onClick: () => void
 }
 
-export function PickerAwakenerTile({ awakenerName, faction, isFactionBlocked, isInUse, onClick }: PickerAwakenerTileProps) {
+export function PickerAwakenerTile({
+  awakenerName,
+  faction,
+  isFactionBlocked,
+  isInUse,
+  isOwned,
+  onClick,
+}: PickerAwakenerTileProps) {
   const displayName = formatAwakenerNameForUi(awakenerName)
   const portraitAsset = getAwakenerPortraitAsset(awakenerName)
   const isDimmed = isFactionBlocked || isInUse
@@ -50,7 +58,7 @@ export function PickerAwakenerTile({ awakenerName, faction, isFactionBlocked, is
         {portraitAsset ? (
           <img
             alt={`${displayName} portrait`}
-            className={`h-full w-full object-cover ${isDimmed ? 'grayscale-[0.9]' : ''}`}
+            className={`h-full w-full object-cover ${!isOwned ? 'builder-picker-art-unowned' : ''} ${isDimmed ? 'builder-picker-art-dimmed' : ''}`}
             src={portraitAsset}
           />
         ) : (
@@ -67,6 +75,13 @@ export function PickerAwakenerTile({ awakenerName, faction, isFactionBlocked, is
             {tileStatusText}
           </span>
         ) : null}
+        {tileStatusText || isOwned ? null : (
+          <span
+            className="pointer-events-none absolute inset-x-0 top-0 truncate border-y border-rose-300/25 bg-slate-950/70 px-1 py-0.5 text-center text-[9px] tracking-wide text-rose-100/95"
+          >
+            Unowned
+          </span>
+        )}
       </div>
       <p className="mt-0.5 truncate text-[10px] text-slate-100">{displayName}</p>
     </button>

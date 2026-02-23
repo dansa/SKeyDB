@@ -1,5 +1,6 @@
 import { NavLink, Navigate, Route, Routes } from 'react-router-dom'
 import { BuilderPage } from './pages/BuilderPage'
+import { CollectionPage } from './pages/CollectionPage'
 import { CharactersPage } from './pages/CharactersPage'
 import { HomePage } from './pages/HomePage'
 
@@ -22,6 +23,9 @@ function App() {
             <NavLink className={navClassName} to="/builder">
               Builder
             </NavLink>
+            <NavLink className={navClassName} to="/collection">
+              Collection
+            </NavLink>
           </nav>
         </div>
       </header>
@@ -31,6 +35,7 @@ function App() {
           <Route element={<HomePage />} path="/" />
           <Route element={<CharactersPage />} path="/characters" />
           <Route element={<BuilderPage />} path="/builder" />
+          <Route element={<CollectionPage />} path="/collection" />
           <Route element={<Navigate replace to="/" />} path="*" />
         </Routes>
       </main>

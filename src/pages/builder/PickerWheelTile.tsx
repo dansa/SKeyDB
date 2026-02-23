@@ -8,6 +8,7 @@ type PickerWheelTileProps = {
   blockedText?: string | null
   isBlocked?: boolean
   isInUse?: boolean
+  isOwned?: boolean
   isNotSet?: boolean
   onClick: () => void
 }
@@ -19,10 +20,12 @@ export function PickerWheelTile({
   blockedText = null,
   isBlocked = false,
   isInUse = false,
+  isOwned = true,
   isNotSet = false,
   onClick,
 }: PickerWheelTileProps) {
-  const isDimmed = isBlocked || isInUse
+  const isDimmed = isBlocked || isInUse || (!isOwned && !isNotSet)
+  const isSoftDimmed = !isBlocked && (isInUse || (!isOwned && !isNotSet))
   const draggableEnabled = !isNotSet && Boolean(wheelId)
   const { attributes, listeners, isDragging, setNodeRef } = useDraggable({
     id: draggableEnabled ? `picker-wheel:${wheelId}` : `picker-wheel:not-set`,
@@ -36,7 +39,11 @@ export function PickerWheelTile({
     <button
       aria-disabled={isBlocked ? 'true' : undefined}
       className={`border p-1 text-left transition-colors ${
-        isDimmed ? 'border-slate-500/45 bg-slate-900/45 opacity-55' : 'border-slate-500/45 bg-slate-900/55 hover:border-amber-200/45'
+        isBlocked
+          ? 'border-slate-500/45 bg-slate-900/45 opacity-55'
+          : isSoftDimmed
+            ? 'border-slate-500/45 bg-slate-900/45 opacity-55 hover:border-amber-200/45'
+            : 'border-slate-500/45 bg-slate-900/55 hover:border-amber-200/45'
       } ${isDragging ? 'scale-[0.98] opacity-60' : ''}`}
       onClick={onClick}
       ref={setNodeRef}
@@ -48,7 +55,7 @@ export function PickerWheelTile({
         {wheelAsset ? (
           <img
             alt={`${wheelName ?? wheelId} wheel`}
-            className={`builder-picker-wheel-image h-full w-full object-cover ${isDimmed ? 'grayscale-[0.9]' : ''}`}
+            className={`builder-picker-wheel-image h-full w-full object-cover ${!isOwned && !isNotSet ? 'builder-picker-art-unowned' : ''} ${isDimmed ? 'builder-picker-art-dimmed' : ''}`}
             draggable={false}
             src={wheelAsset}
           />
@@ -61,6 +68,12 @@ export function PickerWheelTile({
         {blockedText ? (
           <span className="pointer-events-none absolute inset-x-0 top-0 truncate border-y border-slate-300/30 bg-slate-950/62 px-1 py-0.5 text-center text-[9px] tracking-wide text-slate-100/90">
             {blockedText}
+          </span>
+        ) : !isNotSet && !isOwned ? (
+          <span
+            className="pointer-events-none absolute inset-x-0 top-0 truncate border-y border-rose-300/25 bg-slate-950/70 px-1 py-0.5 text-center text-[9px] tracking-wide text-rose-100/95"
+          >
+            Unowned
           </span>
         ) : null}
       </div>

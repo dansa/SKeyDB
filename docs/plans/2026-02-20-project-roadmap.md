@@ -1,6 +1,6 @@
 # SKeyDB Roadmap
 
-Last updated: 2026-02-22
+Last updated: 2026-02-23
 
 ## Project Goal
 Ship an open-source Morimens team builder that is easy to use and easy to maintain.
@@ -45,6 +45,14 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
   - versioned compact codes (`t1.` / `mt1.`),
   - single-team and multi-team export actions,
   - import dialogs with replace and duplicate strategy handling.
+- Local persistence:
+  - builder draft autosave/restore,
+  - builder reset + undo flow.
+- Collection page:
+  - owned/unowned tracking for awakeners, wheels, and posses,
+  - `E` level controls for awakeners/wheels,
+  - quick-toggle filtered results,
+  - save/load collection snapshot (`.json`).
 
 ### Partially in (scaffolded / placeholder)
 - Some wheel metadata fields are intentionally unfinished for future data enrichment:
@@ -55,7 +63,7 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 ### Out (not implemented yet)
 - Expanded teams toggle (compact full-card previews for all teams).
   - Plan reference: `docs/plans/2026-02-20-multi-team-builder-plan.md`
-- Owned/unowned tracking.
+- Expanded ownership features (bulk tooling polish, future sync UX).
 - Exalt / Over-Exalt progression controls.
 - Shareable URL encoding.
 - Character/wheel/covenant deep database (stats, skills, tag taxonomy, recommendations).
@@ -79,8 +87,9 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 - Expand compact export/import coverage (future schema versions, compatibility policy).
 - Add URL-safe share format (or alternative share string flow).
 - Investigating: A proper way to support import and export strings from/to the game client itself
-- In progress: local persistence for builder drafts.
-- Planned: owned/unowned collection persistence (awakeners, wheels, posses) on dedicated collection UI.
+- Completed: local persistence for builder drafts.
+- Completed: owned/unowned collection persistence (awakeners, wheels, posses) on dedicated collection UI.
+- Pending: migration scaffolding for future persistence schema versions.
 - Detailed plan: `docs/plans/2026-02-22-persistence-plan.md`
 
 ## Milestone 4: Actual database

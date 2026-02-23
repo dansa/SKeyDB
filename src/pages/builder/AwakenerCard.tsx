@@ -14,6 +14,8 @@ type AwakenerCardProps = {
   activeWheelIndex?: number | null
   activeDragKind?: DragData['kind'] | null
   predictedDropHover?: PredictedDropHover
+  awakenerOwnedLevel?: number | null
+  wheelOwnedLevels?: [number | null, number | null]
   onCardClick?: (slotId: string) => void
   onWheelSlotClick?: (slotId: string, wheelIndex: number) => void
   onCovenantSlotClick?: (slotId: string) => void
@@ -27,6 +29,8 @@ export function AwakenerCard({
   activeWheelIndex = null,
   activeDragKind = null,
   predictedDropHover = null,
+  awakenerOwnedLevel = null,
+  wheelOwnedLevels = [null, null],
   onCardClick,
   onWheelSlotClick,
   onCovenantSlotClick,
@@ -108,7 +112,7 @@ export function AwakenerCard({
               alt={`${slot.awakenerName} card`}
               className={`absolute inset-0 z-0 h-full w-full object-cover object-top transition-opacity duration-150 ${
                 cardImageLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
+              } ${awakenerOwnedLevel === null ? 'builder-card-art-unowned' : ''}`}
               onError={() => setLoadedCardAsset(cardAsset)}
               onLoad={() => {
                 loadedCardAssets.add(cardAsset)
@@ -128,6 +132,9 @@ export function AwakenerCard({
 
           <div className="builder-card-name-wrap pointer-events-none absolute inset-x-0 top-0 z-20 px-2 pt-1 pb-[18%]">
             <p className="builder-card-name ui-title text-slate-100">{displayName}</p>
+            {awakenerOwnedLevel === null ? (
+              <span className="builder-unowned-badge">Unowned</span>
+            ) : null}
           </div>
 
           {cardImageLoaded ? (
@@ -139,6 +146,8 @@ export function AwakenerCard({
               onCovenantSlotClick={() => onCovenantSlotClick?.(slot.slotId)}
               onRemoveActiveWheel={onRemoveActiveSelection}
               onWheelSlotClick={(wheelIndex) => onWheelSlotClick?.(slot.slotId, wheelIndex)}
+              awakenerOwnedLevel={awakenerOwnedLevel}
+              wheelOwnedLevels={wheelOwnedLevels}
               predictedDropHover={predictedDropHover}
               slot={slot}
               wheelKeyPrefix={slot.slotId}

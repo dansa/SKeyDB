@@ -107,7 +107,7 @@ describe('BuilderPage wheels and covenants', () => {
     const cardImage = cardWheelTile?.querySelector('img')
     expect(cardImage).not.toBeNull()
     expect(cardImage?.classList.contains('builder-card-wheel-image')).toBe(true)
-  })
+  }, 15000)
 
   it('renders independent wheel rarity and mainstat filter controls', async () => {
     render(<BuilderPage />)

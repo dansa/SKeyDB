@@ -13,5 +13,6 @@ describe('App shell', () => {
     expect(screen.getByRole('heading', { level: 1, name: /skeydb/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /characters/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /builder/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /collection/i })).toBeInTheDocument()
   })
 })

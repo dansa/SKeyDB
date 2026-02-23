@@ -25,7 +25,17 @@ export function PickerAwakenerGhost({ awakenerName }: { awakenerName: string }) 
   )
 }
 
-export function TeamCardGhost({ slot, removeIntent = false }: { slot: TeamSlot | undefined; removeIntent?: boolean }) {
+export function TeamCardGhost({
+  slot,
+  removeIntent = false,
+  awakenerOwnedLevel = null,
+  wheelOwnedLevels = [null, null],
+}: {
+  slot: TeamSlot | undefined
+  removeIntent?: boolean
+  awakenerOwnedLevel?: number | null
+  wheelOwnedLevels?: [number | null, number | null]
+}) {
   if (!slot?.awakenerName) {
     return null
   }
@@ -35,11 +45,17 @@ export function TeamCardGhost({ slot, removeIntent = false }: { slot: TeamSlot |
 
   return (
     <article
-      className={`relative aspect-[25/56] w-[96px] border bg-slate-900/90 shadow-[0_8px_24px_rgba(2,6,23,0.5)] ${
+      className={`builder-card builder-drag-ghost relative aspect-[25/56] w-[96px] border bg-slate-900/90 shadow-[0_8px_24px_rgba(2,6,23,0.5)] ${
         removeIntent ? 'border-rose-300/75' : 'border-slate-400/70'
       }`}
     >
-      {cardAsset ? <img alt="" className="absolute inset-0 h-full w-full object-cover object-top" src={cardAsset} /> : null}
+      {cardAsset ? (
+        <img
+          alt=""
+          className={`absolute inset-0 h-full w-full object-cover object-top ${awakenerOwnedLevel === null ? 'builder-card-art-unowned' : ''}`}
+          src={cardAsset}
+        />
+      ) : null}
       <div
         className={`builder-card-bottom-shade pointer-events-none absolute inset-0 ${
           removeIntent ? 'brightness-[0.55] saturate-[0.45]' : ''
@@ -53,9 +69,18 @@ export function TeamCardGhost({ slot, removeIntent = false }: { slot: TeamSlot |
       ) : null}
       <div className="builder-card-name-wrap pointer-events-none absolute inset-x-0 top-0 px-2 pt-1 pb-[18%]">
         <p className="builder-card-name builder-card-name-ghost ui-title text-slate-100">{displayName}</p>
+        {awakenerOwnedLevel === null ? <span className="builder-unowned-badge">Unowned</span> : null}
       </div>
       {!removeIntent ? (
-        <CardWheelZone compactCovenant interactive={false} slot={slot} wheelKeyPrefix="ghost" />
+        <CardWheelZone
+          compactCovenant
+          interactive={false}
+          slot={slot}
+          wheelKeyPrefix="ghost"
+          showOwnership={false}
+          awakenerOwnedLevel={awakenerOwnedLevel}
+          wheelOwnedLevels={wheelOwnedLevels}
+        />
       ) : null}
     </article>
   )
@@ -99,16 +124,19 @@ export function TeamWheelGhost({
   wheelId,
   removeIntent = false,
   isCovenant = false,
+  ownedLevel = null,
 }: {
   wheelId: string
   removeIntent?: boolean
   isCovenant?: boolean
+  ownedLevel?: number | null
 }) {
   const wheelAsset = isCovenant ? getCovenantAssetById(wheelId) : getWheelAssetById(wheelId)
+  const isOwned = ownedLevel !== null
 
   return (
     <div
-      className={`w-[62px] border bg-slate-900/95 p-0.5 shadow-[0_8px_24px_rgba(2,6,23,0.5)] ${
+      className={`builder-drag-ghost w-[62px] border bg-slate-900/95 p-0.5 shadow-[0_8px_24px_rgba(2,6,23,0.5)] ${
         removeIntent ? 'border-rose-300/75' : 'border-slate-400/70'
       } ${isCovenant ? 'rounded-full' : ''} ${
         isCovenant ? 'w-[54px] border-0 bg-transparent p-0' : ''
@@ -124,6 +152,8 @@ export function TeamWheelGhost({
             alt={`${wheelId} ${isCovenant ? 'covenant' : 'wheel'}`}
             className={`${
               isCovenant ? 'builder-card-covenant-image h-full w-full object-cover' : 'builder-card-wheel-image h-full w-full object-cover'
+            } ${
+              !isCovenant && !isOwned ? 'wheel-tile-unowned' : ''
             } ${
               removeIntent ? 'brightness-[0.55] saturate-[0.45]' : ''
             }`}
@@ -144,6 +174,7 @@ export function TeamWheelGhost({
             <span className="sigil-remove-x" />
           </span>
         ) : null}
+        {!isCovenant && !isOwned ? <span className="builder-unowned-chip">Unowned</span> : null}
       </div>
     </div>
   )

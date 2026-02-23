@@ -82,6 +82,9 @@ Current implementation is an MVP focused on:
 - posse selection UI
 - compact import/export codes (`t1.` single-team, `mt1.` multi-team)
 - import conflict handling (replace, move duplicates, skip duplicates)
+- local builder draft persistence (autosave/restore)
+- collection ownership page (owned/unowned + dupe levels)
+- collection save/load snapshot (`.json`)
 
 For roadmap/todo details, see:
 - `docs/plans/2026-02-20-project-roadmap.md`
