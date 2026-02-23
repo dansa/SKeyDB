@@ -774,6 +774,19 @@ a {
   outline-offset: 1px;
 }
 
+.ownership-pill:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: none;
+}
+
+.ownership-pill:disabled:hover,
+.ownership-pill:disabled:focus-visible {
+  border-color: rgba(148, 163, 184, 0.45);
+  box-shadow: none;
+  outline: none;
+}
+
 .ownership-pill__track {
   position: absolute;
   inset: 1px;
@@ -878,6 +891,72 @@ a {
 .ownership-pill-builder {
   width: 72px;
   height: 20px;
+}
+
+.export-box-slider {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 16px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.export-box-slider:focus-visible {
+  outline: none;
+}
+
+.export-box-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border: 1px solid rgba(100, 116, 139, 0.52);
+  background: rgba(2, 8, 20, 0.92);
+  box-shadow: inset 0 0 0 1px rgba(2, 6, 12, 0.65);
+}
+
+.export-box-slider::-moz-range-track {
+  height: 4px;
+  border: 1px solid rgba(100, 116, 139, 0.52);
+  background: rgba(2, 8, 20, 0.92);
+  box-shadow: inset 0 0 0 1px rgba(2, 6, 12, 0.65);
+}
+
+.export-box-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.92);
+  border-radius: 0;
+  background: rgba(230, 234, 242, 0.92);
+  transform: rotate(45deg);
+  margin-top: -6px;
+  box-shadow: none;
+  transition:
+    background-color 120ms ease,
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.export-box-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.92);
+  border-radius: 0;
+  background: rgba(230, 234, 242, 0.92);
+  transform: rotate(45deg);
+  box-shadow: none;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.export-box-slider:hover::-webkit-slider-thumb,
+.export-box-slider:focus-visible::-webkit-slider-thumb,
+.export-box-slider:hover::-moz-range-thumb,
+.export-box-slider:focus-visible::-moz-range-thumb {
+  border-color: rgba(0, 0, 0, 0.98);
+  background: rgba(244, 234, 196, 0.96);
+  box-shadow: none;
 }
 
 .collection-item-card {

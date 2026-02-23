@@ -10,6 +10,8 @@ import { getPosseAssetById } from '../domain/posse-assets'
 import { getWheelAssetById } from '../domain/wheel-assets'
 import { wheelMainstatFilterOptions } from '../domain/wheel-mainstat-filters'
 import { CollectionLevelControls } from './collection/CollectionLevelControls'
+import { OwnedAwakenerBoxExport } from './collection/OwnedAwakenerBoxExport'
+import { useOwnedAwakenerBoxEntries } from './collection/useOwnedAwakenerBoxEntries'
 import { useGlobalCollectionSearchCapture } from './collection/useGlobalCollectionSearchCapture'
 import { useCollectionViewModel } from './collection/useCollectionViewModel'
 
@@ -54,6 +56,7 @@ export function CollectionPage() {
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const importFileInputRef = useRef<HTMLInputElement | null>(null)
   const [fileTransferMessage, setFileTransferMessage] = useState<string | null>(null)
+  const ownedAwakenersForBoxExport = useOwnedAwakenerBoxEntries(model.getAwakenerOwnedLevel)
   const activeCollectionLabel = collectionLabelByTab[model.tab]
   const activeFilteredCount =
     model.tab === 'awakeners'
@@ -279,6 +282,10 @@ export function CollectionPage() {
             />
             {fileTransferMessage ? <p className="text-[10px] text-slate-400">{fileTransferMessage}</p> : null}
             <div className="grid grid-cols-2 gap-1">
+              <OwnedAwakenerBoxExport
+                entries={ownedAwakenersForBoxExport}
+                onStatusMessage={setFileTransferMessage}
+              />
               <Button
                 className="px-2 py-1 text-[10px] uppercase tracking-wide"
                 onClick={handleSaveToFile}
