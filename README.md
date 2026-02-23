@@ -60,6 +60,7 @@ If deploying to a user/org root page (`https://<user>.github.io/`), you can keep
 - HuijiWiki content for these assets is credited under CC BY-NC-SA:
   - https://creativecommons.org/licenses/by-nc-sa/4.0/
 - Big thanks to the Huiji contributors for putting those resources together, it helped us get going a lot quicker than we would have otherwise
+- Favicon logo was created and provided by community member `lavenderjun0`.
 
 ## Asset & IP Notice
 - SKeyDB is an unofficial, non-commercial fan project.

@@ -7,6 +7,11 @@ export const changelogItems: ChangelogItem[] = [
   {
     date: "2026-02-23",
     summary:
+      "Added our very first branding! A very cute key icon (favicon) made by lavenderjun0!",
+  },
+  {
+    date: "2026-02-23",
+    summary:
       "Collection ownership tracking is now live with quick toggles, level controls, and local persistence.",
   },
   {

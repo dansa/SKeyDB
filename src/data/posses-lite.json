@@ -365,5 +365,12 @@
     "faction": "CARO",
     "isFadedLegacy": false,
     "index": 49
+  },
+  {
+    "id": "new-years-eve-fireworks",
+    "name": "New Year's Eve Fireworks",
+    "faction": "OTHER",
+    "isFadedLegacy": false,
+    "index": 50
   }
 ]
