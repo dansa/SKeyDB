@@ -1,8 +1,12 @@
+import { lazy, Suspense } from 'react'
 import { NavLink, Navigate, Route, Routes } from 'react-router-dom'
-import { BuilderPage } from './pages/BuilderPage'
-import { CollectionPage } from './pages/CollectionPage'
-import { CharactersPage } from './pages/CharactersPage'
 import { HomePage } from './pages/HomePage'
+
+const CharactersPage = lazy(() => import('./pages/CharactersPage').then((module) => ({ default: module.CharactersPage })))
+const BuilderPage = lazy(() => import('./pages/BuilderPage').then((module) => ({ default: module.BuilderPage })))
+const CollectionPage = lazy(() =>
+  import('./pages/CollectionPage').then((module) => ({ default: module.CollectionPage })),
+)
 
 function App() {
   return (
@@ -31,13 +35,15 @@ function App() {
       </header>
 
       <main className="mx-auto w-full max-w-6xl px-4 py-4 md:px-6 md:py-5">
-        <Routes>
-          <Route element={<HomePage />} path="/" />
-          <Route element={<CharactersPage />} path="/characters" />
-          <Route element={<BuilderPage />} path="/builder" />
-          <Route element={<CollectionPage />} path="/collection" />
-          <Route element={<Navigate replace to="/" />} path="*" />
-        </Routes>
+        <Suspense fallback={<div className="px-2 py-6 text-sm text-slate-300">Loading page...</div>}>
+          <Routes>
+            <Route element={<HomePage />} path="/" />
+            <Route element={<CharactersPage />} path="/characters" />
+            <Route element={<BuilderPage />} path="/builder" />
+            <Route element={<CollectionPage />} path="/collection" />
+            <Route element={<Navigate replace to="/" />} path="*" />
+          </Routes>
+        </Suspense>
       </main>
     </div>
   )

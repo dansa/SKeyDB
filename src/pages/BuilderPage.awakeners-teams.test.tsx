@@ -172,8 +172,7 @@ describe('BuilderPage awakeners and teams', () => {
     expect(container.querySelector('[data-team-name="Team 2"]')).toBeNull()
   })
 
-  it('renames team inline and confirms with Enter', async () => {
-    const user = userEvent.setup()
+  it('renames team inline and confirms with Enter', () => {
     const { container } = render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
@@ -182,14 +181,13 @@ describe('BuilderPage awakeners and teams', () => {
 
     fireEvent.click(within(team2Row as HTMLElement).getByRole('button', { name: /rename team 2/i }))
     const renameInput = within(team2Row as HTMLElement).getByRole('textbox', { name: /team name/i })
-    await user.clear(renameInput)
-    await user.type(renameInput, 'Arena Team{Enter}')
+    fireEvent.change(renameInput, { target: { value: 'Arena Team' } })
+    fireEvent.keyDown(renameInput, { key: 'Enter', code: 'Enter' })
 
     expect(container.querySelector('[data-team-name="Arena Team"]')).not.toBeNull()
   })
 
-  it('cancels inline team rename on Escape', async () => {
-    const user = userEvent.setup()
+  it('cancels inline team rename on Escape', () => {
     const { container } = render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
@@ -198,8 +196,8 @@ describe('BuilderPage awakeners and teams', () => {
 
     fireEvent.click(within(team2Row as HTMLElement).getByRole('button', { name: /rename team 2/i }))
     const renameInput = within(team2Row as HTMLElement).getByRole('textbox', { name: /team name/i })
-    await user.clear(renameInput)
-    await user.type(renameInput, 'Temp Name{Escape}')
+    fireEvent.change(renameInput, { target: { value: 'Temp Name' } })
+    fireEvent.keyDown(renameInput, { key: 'Escape', code: 'Escape' })
 
     expect(container.querySelector('[data-team-name="Team 2"]')).not.toBeNull()
     expect(container.querySelector('[data-team-name="Temp Name"]')).toBeNull()
@@ -215,8 +213,7 @@ describe('BuilderPage awakeners and teams', () => {
 
     fireEvent.click(within(team2Row as HTMLElement).getByRole('button', { name: /rename team 2/i }))
     const renameInput = within(team2Row as HTMLElement).getByRole('textbox', { name: /team name/i })
-    await user.clear(renameInput)
-    await user.type(renameInput, 'Click Away Team')
+    fireEvent.change(renameInput, { target: { value: 'Click Away Team' } })
     await user.click(screen.getByRole('heading', { name: /builder/i }))
 
     expect(container.querySelector('[data-team-name="Click Away Team"]')).not.toBeNull()

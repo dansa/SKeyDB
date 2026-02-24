@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import './builder-page.integration-mocks'
 import { BuilderPage } from './BuilderPage'
@@ -58,17 +57,16 @@ describe('BuilderPage wheels and covenants', () => {
     expect(screen.getByRole('button', { name: /remove active awakener/i })).toBeInTheDocument()
   })
 
-  it('treats both active slot sockets as wheel slots', async () => {
-    const user = userEvent.setup()
+  it('treats both active slot sockets as wheel slots', () => {
     render(<BuilderPage />)
 
-    await user.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
     fireEvent.load(screen.getByAltText(/goliath card/i))
-    await user.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
-    await user.click(screen.getByRole('button', { name: /merciful nurturing/i }))
+    fireEvent.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
+    fireEvent.click(screen.getByRole('button', { name: /merciful nurturing/i }))
     expect(screen.getAllByRole('button', { name: /edit wheel/i })[0]).toBeInTheDocument()
 
-    await user.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
+    fireEvent.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
     expect(screen.getByRole('searchbox')).toHaveAttribute(
       'placeholder',
       'Search wheels (name, rarity, faction, awakener, main stat)',
@@ -87,7 +85,7 @@ describe('BuilderPage wheels and covenants', () => {
     expect(wheelTile).toHaveTextContent(/already used/i)
   })
 
-  it('keeps dedicated image scale classes for picker and card wheel tiles', async () => {
+  it('keeps dedicated image scale classes for picker and card wheel tiles', () => {
     render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('button', { name: /wheels/i }))
@@ -107,7 +105,7 @@ describe('BuilderPage wheels and covenants', () => {
     const cardImage = cardWheelTile?.querySelector('img')
     expect(cardImage).not.toBeNull()
     expect(cardImage?.classList.contains('builder-card-wheel-image')).toBe(true)
-  }, 15000)
+  })
 
   it('renders independent wheel rarity and mainstat filter controls', async () => {
     render(<BuilderPage />)
@@ -165,22 +163,18 @@ describe('BuilderPage wheels and covenants', () => {
     expect(screen.getAllByRole('button', { name: /set wheel/i })).toHaveLength(1)
   })
 
-  it(
-    'keeps awakener active while quick-clicking two wheels from picker',
-    async () => {
-      render(<BuilderPage />)
+  it('keeps awakener active while quick-clicking two wheels from picker', () => {
+    render(<BuilderPage />)
 
-      fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
-      fireEvent.load(screen.getByAltText(/goliath card/i))
-      fireEvent.click(screen.getByRole('button', { name: /change goliath/i }))
-      fireEvent.click(screen.getByRole('button', { name: /wheels/i }))
-      fireEvent.click(screen.getByRole('button', { name: /merciful nurturing/i }))
-      fireEvent.click(screen.getByRole('button', { name: /tablet of scriptures/i }))
+    fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    fireEvent.click(screen.getByRole('button', { name: /change goliath/i }))
+    fireEvent.click(screen.getByRole('button', { name: /wheels/i }))
+    fireEvent.click(screen.getByRole('button', { name: /merciful nurturing/i }))
+    fireEvent.click(screen.getByRole('button', { name: /tablet of scriptures/i }))
 
-      expect(screen.getByRole('button', { name: /remove active awakener/i })).toBeInTheDocument()
-      expect(screen.getAllByRole('button', { name: /edit wheel/i })).toHaveLength(2)
-      expect(screen.queryByRole('button', { name: /set wheel/i })).not.toBeInTheDocument()
-    },
-    15_000,
-  )
+    expect(screen.getByRole('button', { name: /remove active awakener/i })).toBeInTheDocument()
+    expect(screen.getAllByRole('button', { name: /edit wheel/i })).toHaveLength(2)
+    expect(screen.queryByRole('button', { name: /set wheel/i })).not.toBeInTheDocument()
+  })
 })
