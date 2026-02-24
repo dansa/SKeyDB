@@ -218,7 +218,10 @@ function CardWheelTile({
       ) : null}
   {showOwnership && wheelId ? (
         isOwned ? (
-          <DupeLevelDisplay className="pb-1 builder-wheel-dupe-display builder-wheel-dupe-display-stacked collection-enlighten-text-owned" level={ownedLevel} />
+          <DupeLevelDisplay
+            className="pb-1 builder-wheel-dupe builder-wheel-dupe-stacked builder-dupe-owned"
+            level={ownedLevel}
+          />
         ) : (
           <span className="builder-unowned-chip">Unowned</span>
         )
@@ -253,7 +256,10 @@ export function CardWheelZone({
       <div className="builder-card-meta-row flex items-start justify-between gap-2 pb-2">
         <div className="builder-card-meta-left pointer-events-none self-end min-w-0 flex-1 pb-1">
           {showOwnership && awakenerOwnedLevel !== null ? (
-            <DupeLevelDisplay className="builder-card-dupe-display builder-card-dupe-display-meta collection-enlighten-text-owned" level={awakenerOwnedLevel} />
+            <DupeLevelDisplay
+              className="builder-awakener-dupe builder-awakener-dupe-meta builder-dupe-owned"
+              level={awakenerOwnedLevel}
+            />
           ) : null}
         </div>
         <div className="builder-card-covenant-wrap shrink-0">

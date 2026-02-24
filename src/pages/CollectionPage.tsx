@@ -11,7 +11,9 @@ import { getWheelAssetById } from '../domain/wheel-assets'
 import { wheelMainstatFilterOptions } from '../domain/wheel-mainstat-filters'
 import { CollectionLevelControls } from './collection/CollectionLevelControls'
 import { OwnedAwakenerBoxExport } from './collection/OwnedAwakenerBoxExport'
+import { OwnedWheelBoxExport } from './collection/OwnedWheelBoxExport'
 import { useOwnedAwakenerBoxEntries } from './collection/useOwnedAwakenerBoxEntries'
+import { useOwnedWheelBoxEntries } from './collection/useOwnedWheelBoxEntries'
 import { useGlobalCollectionSearchCapture } from './collection/useGlobalCollectionSearchCapture'
 import { useCollectionViewModel } from './collection/useCollectionViewModel'
 
@@ -57,6 +59,7 @@ export function CollectionPage() {
   const importFileInputRef = useRef<HTMLInputElement | null>(null)
   const [fileTransferMessage, setFileTransferMessage] = useState<string | null>(null)
   const ownedAwakenersForBoxExport = useOwnedAwakenerBoxEntries(model.getAwakenerOwnedLevel)
+  const ownedWheelsForBoxExport = useOwnedWheelBoxEntries(model.getWheelOwnedLevel)
   const activeCollectionLabel = collectionLabelByTab[model.tab]
   const activeFilteredCount =
     model.tab === 'awakeners'
@@ -282,10 +285,15 @@ export function CollectionPage() {
             />
             {fileTransferMessage ? <p className="text-[10px] text-slate-400">{fileTransferMessage}</p> : null}
             <div className="grid grid-cols-2 gap-1">
-              <OwnedAwakenerBoxExport
-                entries={ownedAwakenersForBoxExport}
-                onStatusMessage={setFileTransferMessage}
-              />
+              {model.tab === 'awakeners' ? (
+                <OwnedAwakenerBoxExport
+                  entries={ownedAwakenersForBoxExport}
+                  onStatusMessage={setFileTransferMessage}
+                />
+              ) : null}
+              {model.tab === 'wheels' ? (
+                <OwnedWheelBoxExport entries={ownedWheelsForBoxExport} onStatusMessage={setFileTransferMessage} />
+              ) : null}
               <Button
                 className="px-2 py-1 text-[10px] uppercase tracking-wide"
                 onClick={handleSaveToFile}

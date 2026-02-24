@@ -20,20 +20,73 @@ export function DupeLevelDisplay({
     <span className={className}>
       <span
         aria-hidden
-        className={`collection-dupe-diamonds ${overflowLevel > 0 ? 'collection-dupe-diamonds-overflow' : ''}`}
+        className="collection-dupe-svg collection-dupe-svg-overflow"
       >
         {Array.from({ length: filledSlotCount }, (_, index) => (
-          <span className={`collection-dupe-slot ${index < filledDiamondCount ? 'collection-dupe-slot-filled' : ''}`} key={index}>
-            <span className="collection-dupe-slot-core" />
+          <span className="collection-dupe-svg-slot" key={index}>
+            <svg className="collection-dupe-slot-svg-art" viewBox="0 0 24 24">
+              <rect
+                fill="none"
+                height="18"
+                stroke="rgba(244, 234, 196, 0.42)"
+                strokeWidth="1.1"
+                width="18"
+                x="3"
+                y="3"
+              />
+              <polygon
+                fill="rgba(4, 10, 20, 0.88)"
+                points="12,1.75 22.25,12 12,22.25 1.75,12"
+                stroke="rgba(244, 234, 196, 0.68)"
+                strokeWidth="1.1"
+              />
+              {index < filledDiamondCount ? (
+                <polygon
+                  fill="rgba(248, 243, 214, 0.72)"
+                  points="12,6.6 17.4,12 12,17.4 6.6,12"
+                  stroke="rgba(248, 243, 214, 0.95)"
+                  strokeWidth="0.9"
+                />
+              ) : null}
+            </svg>
           </span>
         ))}
-        {overflowLevel > 0 ? (
-          <span className="collection-dupe-slot collection-dupe-slot-overflow">
-            <span className="collection-dupe-slot-overflow-text">{overflowLevel}</span>
-          </span>
-        ) : null}
+        <span
+          className={`collection-dupe-svg-slot collection-dupe-svg-slot-overflow ${overflowLevel > 0 ? '' : 'collection-dupe-svg-slot-overflow-hidden'}`}
+        >
+          <svg className="collection-dupe-slot-svg-art" viewBox="0 0 24 24">
+            <rect
+              fill="none"
+              height="18"
+              stroke="rgba(244, 234, 196, 0.42)"
+              strokeWidth="1.1"
+              width="18"
+              x="3"
+              y="3"
+            />
+            <polygon
+              fill="rgba(4, 10, 20, 0.88)"
+              points="12,1.75 22.25,12 12,22.25 1.75,12"
+              stroke="rgba(244, 234, 196, 0.68)"
+              strokeWidth="1.1"
+            />
+            <text
+              dominantBaseline="central"
+              fill="rgba(244,234,196,0.96)"
+              fontSize="14"
+              fontWeight="700"
+              paintOrder="stroke"
+              stroke="rgba(8,14,24,0.9)"
+              strokeWidth="2"
+              textAnchor="middle"
+              x="12"
+              y="12"
+            >
+              {overflowLevel > 0 ? overflowLevel : 0}
+            </text>
+          </svg>
+        </span>
       </span>
     </span>
   )
 }
-
