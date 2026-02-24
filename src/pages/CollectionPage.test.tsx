@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { CollectionPage } from './CollectionPage'
 
@@ -275,5 +275,22 @@ describe('CollectionPage global search capture', () => {
 
     expect(Number(levelInput.getAttribute('value'))).toBeGreaterThan(61)
     vi.useRealTimers()
+  })
+
+  it('bumps enlighten with shift + wheel on hovered card', () => {
+    render(<CollectionPage />)
+
+    const ramonaOwnershipButton = screen.getByRole('button', { name: /toggle ownership for ramona/i })
+    const ramonaCard = ramonaOwnershipButton.closest('.collection-card-frame')
+    expect(ramonaCard).toBeTruthy()
+
+    const ramonaScope = within(ramonaCard as HTMLElement)
+    const decreaseBefore = ramonaScope.getByRole('button', { name: /decrease enlighten level/i })
+    expect(decreaseBefore).toBeDisabled()
+
+    fireEvent.wheel(ramonaCard as HTMLElement, { deltaY: -100, shiftKey: true })
+
+    const decreaseAfter = ramonaScope.getByRole('button', { name: /decrease enlighten level/i })
+    expect(decreaseAfter).not.toBeDisabled()
   })
 })

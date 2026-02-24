@@ -21,6 +21,8 @@ export function useOwnedAwakenerBoxEntries(
           {
             name: awakener.name,
             displayName: formatAwakenerNameForUi(awakener.name),
+            faction: awakener.faction,
+            index: awakener.id,
             level,
             awakenerLevel: resolveAwakenerLevel(awakener.name),
             cardAsset: getAwakenerCardAsset(awakener.name) ?? null,

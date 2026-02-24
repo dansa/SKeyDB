@@ -16,13 +16,21 @@ import {
 import { formatAwakenerNameForUi } from '../../domain/name-format'
 import { getPosses } from '../../domain/posses'
 import { searchPosses } from '../../domain/posses-search'
-import { getBrowserLocalStorage } from '../../domain/storage'
+import { getBrowserLocalStorage, safeStorageRead, safeStorageWrite, type StorageLike } from '../../domain/storage'
 import { compareWheelsForUi } from '../../domain/wheel-sort'
 import { getWheelMainstatLabel, getWheels } from '../../domain/wheels'
 import {
   matchesWheelMainstat,
   type WheelMainstatFilter,
 } from '../../domain/wheel-mainstat-filters'
+import {
+  compareAwakenersForCollectionSort,
+  compareWheelsForCollectionDefaultSort,
+  DEFAULT_AWAKENER_SORT_CONFIG,
+  type AwakenerSortConfig,
+  type AwakenerSortKey,
+  type CollectionSortDirection,
+} from '../../domain/collection-sorting'
 
 type CollectionTab = 'awakeners' | 'wheels' | 'posses'
 type AwakenerFilter = 'ALL' | 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA'
@@ -30,6 +38,7 @@ type PosseFilter = 'ALL' | 'FADED_LEGACY' | 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA
 type WheelRarityFilter = 'ALL' | 'SSR' | 'R' | 'SR'
 
 const OWNERSHIP_AUTOSAVE_DEBOUNCE_MS = 220
+const COLLECTION_AWAKENER_SORT_KEY = 'skeydb.collection.awakenerSort.v1'
 
 function normalizeForSearch(value: string): string {
   return value.toLowerCase().replace(/[^a-z0-9]/g, '')
@@ -45,9 +54,33 @@ function clampOwnershipLevel(level: number): number {
   return level
 }
 
+function loadAwakenerSortConfig(storage: StorageLike | null): AwakenerSortConfig {
+  try {
+    const raw = safeStorageRead(storage, COLLECTION_AWAKENER_SORT_KEY)
+    if (!raw) {
+      return DEFAULT_AWAKENER_SORT_CONFIG
+    }
+
+    const parsed = JSON.parse(raw) as Partial<AwakenerSortConfig>
+    const key = parsed.key
+    const direction = parsed.direction
+    return {
+      key: key === 'LEVEL' || key === 'ENLIGHTEN' || key === 'ALPHABETICAL' ? key : DEFAULT_AWAKENER_SORT_CONFIG.key,
+      direction: direction === 'ASC' || direction === 'DESC' ? direction : DEFAULT_AWAKENER_SORT_CONFIG.direction,
+      groupByFaction:
+        typeof parsed.groupByFaction === 'boolean'
+          ? parsed.groupByFaction
+          : DEFAULT_AWAKENER_SORT_CONFIG.groupByFaction,
+    }
+  } catch {
+    return DEFAULT_AWAKENER_SORT_CONFIG
+  }
+}
+
 export function useCollectionViewModel() {
   const storage = useMemo(() => getBrowserLocalStorage(), [])
   const ownershipCatalog = useMemo(() => createDefaultCollectionOwnershipCatalog(), [])
+  const persistedAwakenerSortConfig = useMemo(() => loadAwakenerSortConfig(storage), [storage])
   const [ownership, setOwnership] = useState(() => loadCollectionOwnership(storage, ownershipCatalog))
   const [tab, setTab] = useState<CollectionTab>('awakeners')
   const [queryByTab, setQueryByTab] = useState<Record<CollectionTab, string>>({
@@ -60,6 +93,11 @@ export function useCollectionViewModel() {
   const [wheelMainstatFilter, setWheelMainstatFilter] = useState<WheelMainstatFilter>('ALL')
   const [posseFilter, setPosseFilter] = useState<PosseFilter>('ALL')
   const [displayUnowned, setDisplayUnowned] = useState(true)
+  const [awakenerSortKey, setAwakenerSortKey] = useState<AwakenerSortKey>(persistedAwakenerSortConfig.key)
+  const [awakenerSortDirection, setAwakenerSortDirection] = useState<CollectionSortDirection>(
+    persistedAwakenerSortConfig.direction,
+  )
+  const [awakenerSortGroupByFaction, setAwakenerSortGroupByFaction] = useState(persistedAwakenerSortConfig.groupByFaction)
   const rememberedLevelsRef = useRef<Record<'awakeners' | 'wheels' | 'posses', Record<string, number>>>({
     awakeners: {},
     wheels: {},
@@ -74,6 +112,7 @@ export function useCollectionViewModel() {
     () => [...getWheels()].sort(compareWheelsForUi),
     [],
   )
+  const wheelIndexById = useMemo(() => new Map(wheels.map((wheel, index) => [wheel.id, index])), [wheels])
   const posses = useMemo(() => [...getPosses()].sort((a, b) => a.name.localeCompare(b.name)), [])
 
   const activeQuery = queryByTab[tab]
@@ -87,17 +126,56 @@ export function useCollectionViewModel() {
       awakenerFilter === 'ALL'
         ? searchedAwakeners
         : searchedAwakeners.filter((awakener) => awakener.faction.trim().toUpperCase() === awakenerFilter)
-    if (displayUnowned) {
-      return byFaction
-    }
-    return byFaction.filter((awakener) => {
-      const awakenerId = awakenerIdByName.get(awakener.name)
-      if (!awakenerId) {
-        return false
-      }
-      return getOwnedLevel(ownership, 'awakeners', awakenerId) !== null
+    const byOwnership = displayUnowned
+      ? byFaction
+      : byFaction.filter((awakener) => {
+          const awakenerId = awakenerIdByName.get(awakener.name)
+          if (!awakenerId) {
+            return false
+          }
+          return getOwnedLevel(ownership, 'awakeners', awakenerId) !== null
+        })
+
+    return [...byOwnership].sort((left, right) => {
+      const leftId = awakenerIdByName.get(left.name)
+      const rightId = awakenerIdByName.get(right.name)
+      const leftOwnedLevel = leftId ? getOwnedLevel(ownership, 'awakeners', leftId) : 0
+      const rightOwnedLevel = rightId ? getOwnedLevel(ownership, 'awakeners', rightId) : 0
+      const leftAwakenerLevel = leftId ? getAwakenerLevel(ownership, leftId) : 0
+      const rightAwakenerLevel = rightId ? getAwakenerLevel(ownership, rightId) : 0
+
+      return compareAwakenersForCollectionSort(
+        {
+          label: formatAwakenerNameForUi(left.name),
+          index: left.id,
+          enlighten: leftOwnedLevel ?? 0,
+          level: leftAwakenerLevel,
+          faction: left.faction,
+        },
+        {
+          label: formatAwakenerNameForUi(right.name),
+          index: right.id,
+          enlighten: rightOwnedLevel ?? 0,
+          level: rightAwakenerLevel,
+          faction: right.faction,
+        },
+        {
+          key: awakenerSortKey,
+          direction: awakenerSortDirection,
+          groupByFaction: awakenerSortGroupByFaction,
+        },
+      )
     })
-  }, [awakenerFilter, searchedAwakeners, displayUnowned, awakenerIdByName, ownership])
+  }, [
+    awakenerFilter,
+    searchedAwakeners,
+    displayUnowned,
+    awakenerIdByName,
+    ownership,
+    awakenerSortKey,
+    awakenerSortDirection,
+    awakenerSortGroupByFaction,
+  ])
 
   const searchedPosses = useMemo(
     () => searchPosses(posses, queryByTab.posses),
@@ -150,11 +228,38 @@ export function useCollectionViewModel() {
             Boolean(matchedAwakenerNames?.has(wheel.awakener.toLowerCase())),
         )
 
-    if (displayUnowned) {
-      return matchingSearch
-    }
-    return matchingSearch.filter((wheel) => getOwnedLevel(ownership, 'wheels', wheel.id) !== null)
-  }, [queryByTab.wheels, awakeners, wheelRarityFilter, wheelMainstatFilter, wheels, displayUnowned, ownership])
+    const byOwnership = displayUnowned
+      ? matchingSearch
+      : matchingSearch.filter((wheel) => getOwnedLevel(ownership, 'wheels', wheel.id) !== null)
+
+    return [...byOwnership].sort((left, right) =>
+      compareWheelsForCollectionDefaultSort(
+        {
+          label: left.name,
+          index: wheelIndexById.get(left.id) ?? Number.MAX_SAFE_INTEGER,
+          enlighten: getOwnedLevel(ownership, 'wheels', left.id) ?? 0,
+          rarity: left.rarity,
+          faction: left.faction,
+        },
+        {
+          label: right.name,
+          index: wheelIndexById.get(right.id) ?? Number.MAX_SAFE_INTEGER,
+          enlighten: getOwnedLevel(ownership, 'wheels', right.id) ?? 0,
+          rarity: right.rarity,
+          faction: right.faction,
+        },
+      ),
+    )
+  }, [
+    queryByTab.wheels,
+    awakeners,
+    wheelRarityFilter,
+    wheelMainstatFilter,
+    wheels,
+    wheelIndexById,
+    displayUnowned,
+    ownership,
+  ])
 
   function setQuery(value: string) {
     setQueryByTab((prev) => ({ ...prev, [tab]: value }))
@@ -315,6 +420,18 @@ export function useCollectionViewModel() {
     }
   }, [storage, ownership, ownershipCatalog])
 
+  useEffect(() => {
+    safeStorageWrite(
+      storage,
+      COLLECTION_AWAKENER_SORT_KEY,
+      JSON.stringify({
+        key: awakenerSortKey,
+        direction: awakenerSortDirection,
+        groupByFaction: awakenerSortGroupByFaction,
+      } satisfies AwakenerSortConfig),
+    )
+  }, [storage, awakenerSortKey, awakenerSortDirection, awakenerSortGroupByFaction])
+
   return {
     tab,
     setTab,
@@ -333,6 +450,13 @@ export function useCollectionViewModel() {
     setPosseFilter,
     displayUnowned,
     setDisplayUnowned,
+    awakenerSortKey,
+    setAwakenerSortKey,
+    awakenerSortDirection,
+    toggleAwakenerSortDirection: () =>
+      setAwakenerSortDirection((current) => (current === 'DESC' ? 'ASC' : 'DESC')),
+    awakenerSortGroupByFaction,
+    setAwakenerSortGroupByFaction,
     filteredAwakeners,
     filteredWheels,
     filteredPosses,

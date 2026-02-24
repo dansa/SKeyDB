@@ -4,6 +4,8 @@ export type OwnedWheelBoxEntry = {
   id: string
   name: string
   rarity: 'SSR' | 'SR' | 'R'
+  faction: string
+  index: number
   level: number
   wheelAsset: string | null
 }
@@ -33,6 +35,8 @@ export function OwnedWheelBoxExport({ entries, onStatusMessage }: OwnedWheelBoxE
       level: entry.level,
       asset: entry.wheelAsset,
       rarity: entry.rarity,
+      faction: entry.faction,
+      sortIndex: entry.index,
     }),
   )
 
@@ -50,6 +54,8 @@ export function OwnedWheelBoxExport({ entries, onStatusMessage }: OwnedWheelBoxE
       onStatusMessage={onStatusMessage}
       placeholderClassName="sigil-placeholder-wheel"
       rarityOptions={wheelRarityOptions}
+      sortBehavior="WHEEL_DEFAULT"
+      sortOptions={[]}
       storageKeyPrefix="skeydb.ownedWheelBoxExport"
     />
   )

@@ -20,6 +20,8 @@ describe('useOwnedAwakenerBoxEntries', () => {
       {
         name: 'ramona',
         displayName: 'Ramona',
+        faction: 'CHAOS',
+        index: 1,
         level: 4,
         awakenerLevel: 60,
         cardAsset: null,
@@ -36,5 +38,7 @@ describe('useOwnedAwakenerBoxEntries', () => {
     )
 
     expect(result.current[0]?.awakenerLevel).toBe(77)
+    expect(result.current[0]?.faction).toBe('CHAOS')
+    expect(result.current[0]?.index).toBe(1)
   })
 })

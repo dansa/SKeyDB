@@ -1,9 +1,18 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { FaImage } from 'react-icons/fa6'
 import { Button } from '../../components/ui/Button'
+import { CollectionSortControls } from '../../components/ui/CollectionSortControls'
 import { DupeLevelDisplay } from '../../components/ui/DupeLevelDisplay'
 import { ModalFrame } from '../../components/ui/ModalFrame'
 import { TogglePill } from '../../components/ui/TogglePill'
+import {
+  compareAwakenersForCollectionSort,
+  compareWheelsForCollectionDefaultSort,
+  DEFAULT_AWAKENER_SORT_CONFIG,
+  type AwakenerSortKey,
+  type CollectionSortDirection,
+  type SortableCollectionEntry,
+} from '../../domain/collection-sorting'
 import droidSerifRegularWoff2Url from '../../assets/fonts/droid-serif/DroidSerif.woff2'
 import droidSerifItalicWoff2Url from '../../assets/fonts/droid-serif/DroidSerif-Italic.woff2'
 import droidSerifBoldWoff2Url from '../../assets/fonts/droid-serif/DroidSerif-Bold.woff2'
@@ -34,6 +43,16 @@ export type OwnedAssetBoxEntry<R extends string = never> = {
   cardLevel?: number
   asset: string | null
   rarity?: R
+  faction?: string
+  sortIndex?: number
+}
+
+type ExportSortBehavior = 'CONFIGURABLE' | 'WHEEL_DEFAULT'
+
+type ExportSortConfig = {
+  key: AwakenerSortKey
+  direction: CollectionSortDirection
+  groupByFaction: boolean
 }
 
 type RarityOption<R extends string> = {
@@ -55,6 +74,8 @@ type OwnedAssetBoxExportProps<R extends string = never> = {
   placeholderClassName: string
   rarityOptions?: ReadonlyArray<RarityOption<R>>
   defaultIncludedRarities?: Record<R, boolean>
+  sortBehavior?: ExportSortBehavior
+  sortOptions?: readonly AwakenerSortKey[]
 }
 
 const DEFAULT_EXPORT_BOX_CONFIG: ExportBoxConfig = {
@@ -73,6 +94,10 @@ const DEFAULT_EXPORT_VISUAL_CONFIG: ExportVisualConfig = {
   enlightensOnCard: false,
   showLevels: true,
   disableEmoji: false,
+}
+
+const DEFAULT_EXPORT_SORT_CONFIG: ExportSortConfig = {
+  ...DEFAULT_AWAKENER_SORT_CONFIG,
 }
 
 type ExportFontEmbedResult = {
@@ -230,6 +255,24 @@ function loadStoredVisualConfig(storageKeyPrefix: string): ExportVisualConfig {
   }
 }
 
+function loadStoredSortConfig(storageKeyPrefix: string): ExportSortConfig {
+  if (typeof window === 'undefined') return DEFAULT_EXPORT_SORT_CONFIG
+  try {
+    const raw = window.localStorage.getItem(`${storageKeyPrefix}.sort.v1`)
+    if (!raw) return DEFAULT_EXPORT_SORT_CONFIG
+    const parsed = JSON.parse(raw) as Partial<ExportSortConfig>
+    const key = parsed.key ?? DEFAULT_EXPORT_SORT_CONFIG.key
+    const direction = parsed.direction ?? DEFAULT_EXPORT_SORT_CONFIG.direction
+    return {
+      key: key === 'ALPHABETICAL' || key === 'LEVEL' || key === 'ENLIGHTEN' ? key : DEFAULT_EXPORT_SORT_CONFIG.key,
+      direction: direction === 'ASC' || direction === 'DESC' ? direction : DEFAULT_EXPORT_SORT_CONFIG.direction,
+      groupByFaction: parsed.groupByFaction ?? DEFAULT_EXPORT_SORT_CONFIG.groupByFaction,
+    }
+  } catch {
+    return DEFAULT_EXPORT_SORT_CONFIG
+  }
+}
+
 function loadStoredIncludedRarities<R extends string>(
   storageKeyPrefix: string,
   defaultIncludedRarities: Record<R, boolean>,
@@ -367,6 +410,7 @@ function ExportPreview<R extends string>({
               )}
               {!visuals.disableNames && visuals.nameOnTop ? (
                 <p
+                  data-testid="export-preview-card-label"
                   className="absolute top-1 right-1 left-1 z-11 truncate bg-slate-950/75 px-1 py-1 text-center leading-none text-slate-100"
                   style={{
                     fontSize: `${nameSizePx}px`,
@@ -411,6 +455,7 @@ function ExportPreview<R extends string>({
                     ) : null}
                     {hasBottomName ? (
                       <p
+                        data-testid="export-preview-card-label"
                         className="w-full truncate bg-slate-950/75 px-1 py-1 text-center leading-none text-slate-100"
                         style={{
                           fontSize: `${nameSizePx}px`,
@@ -453,11 +498,14 @@ export function OwnedAssetBoxExport<R extends string>({
   placeholderClassName,
   rarityOptions,
   defaultIncludedRarities,
+  sortBehavior = 'CONFIGURABLE',
+  sortOptions = ['LEVEL', 'ENLIGHTEN', 'ALPHABETICAL'],
 }: OwnedAssetBoxExportProps<R>) {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
   const [isExporting, setIsExporting] = useState(false)
   const [draftConfig, setDraftConfig] = useState<ExportBoxConfig>(() => loadStoredLayoutConfig(storageKeyPrefix))
   const [visuals, setVisuals] = useState<ExportVisualConfig>(() => loadStoredVisualConfig(storageKeyPrefix))
+  const [sortConfig, setSortConfig] = useState<ExportSortConfig>(() => loadStoredSortConfig(storageKeyPrefix))
   const [includedRarities, setIncludedRarities] = useState<Record<R, boolean> | null>(() => {
     if (!rarityOptions || !defaultIncludedRarities) {
       return null
@@ -479,10 +527,39 @@ export function OwnedAssetBoxExport<R extends string>({
     }
     return entries.filter((entry) => (entry.rarity ? includedRarities[entry.rarity] : true))
   }, [entries, includedRarities])
+  const sortedEntries = useMemo(() => {
+    const activeSortKey = sortOptions.includes(sortConfig.key) ? sortConfig.key : sortOptions[0] ?? 'LEVEL'
+    const toSortableEntry = (entry: OwnedAssetBoxEntry<R>): SortableCollectionEntry => ({
+      label: entry.label,
+      index: entry.sortIndex ?? Number.MAX_SAFE_INTEGER,
+      enlighten: entry.level,
+      level: entry.cardLevel ?? 0,
+      rarity: entry.rarity,
+      faction: entry.faction,
+    })
+
+    return [...filteredEntries].sort((left, right) => {
+      const leftSortable = toSortableEntry(left)
+      const rightSortable = toSortableEntry(right)
+
+      if (sortBehavior === 'WHEEL_DEFAULT') {
+        return compareWheelsForCollectionDefaultSort(leftSortable, rightSortable)
+      }
+
+      return compareAwakenersForCollectionSort(leftSortable, rightSortable, {
+        key: activeSortKey,
+        direction: sortConfig.direction,
+        groupByFaction: sortConfig.groupByFaction,
+      })
+    })
+  }, [filteredEntries, sortBehavior, sortConfig.direction, sortConfig.groupByFaction, sortConfig.key, sortOptions])
+  const supportsFactionGrouping = useMemo(() => entries.some((entry) => Boolean(entry.faction?.trim())), [entries])
+  const hasSortControls = sortBehavior === 'CONFIGURABLE' && sortOptions.length > 0
+  const selectedSortKey = sortOptions.includes(sortConfig.key) ? sortConfig.key : sortOptions[0] ?? 'LEVEL'
   const hasAtLeastOneRarity = includedRarities ? Object.values(includedRarities).some(Boolean) : true
   const exportUnavailableReason = !hasAtLeastOneRarity
     ? 'Enable at least one rarity to export.'
-    : filteredEntries.length === 0
+    : sortedEntries.length === 0
       ? 'Nothing matches the current filters.'
       : null
 
@@ -495,6 +572,11 @@ export function OwnedAssetBoxExport<R extends string>({
     if (typeof window === 'undefined') return
     window.localStorage.setItem(`${storageKeyPrefix}.visuals.v1`, JSON.stringify(visuals))
   }, [storageKeyPrefix, visuals])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    window.localStorage.setItem(`${storageKeyPrefix}.sort.v1`, JSON.stringify(sortConfig))
+  }, [storageKeyPrefix, sortConfig])
 
   useEffect(() => {
     if (typeof window === 'undefined' || !includedRarities) return
@@ -515,7 +597,7 @@ export function OwnedAssetBoxExport<R extends string>({
       return
     }
 
-    if (filteredEntries.length === 0) {
+    if (sortedEntries.length === 0) {
       onStatusMessage('PNG export skipped: nothing to export with current filters.')
       return
     }
@@ -630,7 +712,39 @@ export function OwnedAssetBoxExport<R extends string>({
                       />
                     </div>
                   ))}
-                  <p className="text-[11px] text-slate-400">Included: {filteredEntries.length}</p>
+                  <p className="text-[11px] text-slate-400">Included: {sortedEntries.length}</p>
+                </div>
+              ) : null}
+
+              {hasSortControls ? (
+                <div className="space-y-2 border border-slate-700/60 bg-slate-950/50 p-2">
+                  <CollectionSortControls
+                    groupByFaction={sortConfig.groupByFaction}
+                    groupByFactionAriaLabel="Group by faction"
+                    headingText="Sort By"
+                    onGroupByFactionChange={(checked) =>
+                      setSortConfig((current) => ({
+                        ...current,
+                        groupByFaction: checked,
+                      }))
+                    }
+                    onSortDirectionToggle={() =>
+                      setSortConfig((current) => ({
+                        ...current,
+                        direction: current.direction === 'DESC' ? 'ASC' : 'DESC',
+                      }))
+                    }
+                    onSortKeyChange={(nextKey) =>
+                      setSortConfig((current) => ({
+                        ...current,
+                        key: nextKey,
+                      }))
+                    }
+                    showGroupByFaction={supportsFactionGrouping}
+                    sortDirection={sortConfig.direction}
+                    sortKey={selectedSortKey}
+                    sortOptions={sortOptions}
+                  />
                 </div>
               ) : null}
 
@@ -834,7 +948,7 @@ export function OwnedAssetBoxExport<R extends string>({
                 cardAspectClassName={cardAspectClassName}
                 config={sanitizedDraftConfig}
                 emojiAsset={emojiAsset}
-                entries={filteredEntries}
+                entries={sortedEntries}
                 imageClassName={imageClassName}
                 placeholderClassName={placeholderClassName}
                 previewRef={previewRef}
@@ -851,6 +965,7 @@ export function OwnedAssetBoxExport<R extends string>({
               onClick={() => {
                 setDraftConfig(DEFAULT_EXPORT_BOX_CONFIG)
                 setVisuals(DEFAULT_EXPORT_VISUAL_CONFIG)
+                setSortConfig(DEFAULT_EXPORT_SORT_CONFIG)
                 if (defaultIncludedRarities) {
                   setIncludedRarities({ ...defaultIncludedRarities })
                 }

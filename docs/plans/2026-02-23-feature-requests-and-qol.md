@@ -44,7 +44,7 @@
 ## Collection QOL / Fixes
 - [Done 2026-02-24] Level option for awakeners is live with click-to-edit controls, numeric input, and clamp to Lv.1-90 (default Lv.60).
 - Capture scroll up/down to quickly bump/dump E levels on hovered item? (while shift held or something?)
-- Better sorting/ordering options, especially for box export (general component tho). 
+- [Done 2026-02-24] Better sorting/ordering options landed for collection and box export via shared sort controls/component.
     - awakener/wheels only 
     - Groud by Faction toggle (Chaos->Aeq->Caro->Ultra->Neutral)
     - Sort by Level, Rarity, Enlighten, alphabetically (dropdown menu probably), ascending/descending

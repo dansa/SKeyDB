@@ -3,6 +3,8 @@ import { OwnedAssetBoxExport, type OwnedAssetBoxEntry } from './OwnedAssetBoxExp
 export type OwnedAwakenerBoxEntry = {
   name: string
   displayName: string
+  faction: string
+  index: number
   level: number
   awakenerLevel: number
   cardAsset: string | null
@@ -17,6 +19,8 @@ export function OwnedAwakenerBoxExport({ entries, onStatusMessage }: OwnedAwaken
   const normalizedEntries: OwnedAssetBoxEntry[] = entries.map((entry) => ({
     id: entry.name,
     label: entry.displayName,
+    faction: entry.faction,
+    sortIndex: entry.index,
     level: entry.level,
     cardLevel: entry.awakenerLevel,
     asset: entry.cardAsset,
@@ -34,6 +38,7 @@ export function OwnedAwakenerBoxExport({ entries, onStatusMessage }: OwnedAwaken
       nameToggleLabel="Character Names"
       onStatusMessage={onStatusMessage}
       placeholderClassName="sigil-placeholder-card"
+      sortOptions={['LEVEL', 'ENLIGHTEN', 'ALPHABETICAL']}
       storageKeyPrefix="skeydb.ownedBoxExport"
     />
   )

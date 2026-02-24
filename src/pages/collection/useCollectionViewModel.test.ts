@@ -3,13 +3,17 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { COLLECTION_OWNERSHIP_KEY } from '../../domain/collection-ownership'
 import { useCollectionViewModel } from './useCollectionViewModel'
 
+const COLLECTION_AWAKENER_SORT_KEY = 'skeydb.collection.awakenerSort.v1'
+
 describe('useCollectionViewModel', () => {
   beforeEach(() => {
     window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
+    window.localStorage.removeItem(COLLECTION_AWAKENER_SORT_KEY)
   })
 
   afterEach(() => {
     window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
+    window.localStorage.removeItem(COLLECTION_AWAKENER_SORT_KEY)
   })
 
   it('toggles awakener ownership and keeps linked awakeners synced', () => {
@@ -108,5 +112,30 @@ describe('useCollectionViewModel', () => {
       result.current.setAwakenerLevel('ramona', 999)
     })
     expect(result.current.getAwakenerLevel('ramona')).toBe(90)
+  })
+
+  it('defaults awakener sort to level descending with faction grouping off', () => {
+    const { result } = renderHook(() => useCollectionViewModel())
+
+    expect(result.current.awakenerSortKey).toBe('LEVEL')
+    expect(result.current.awakenerSortDirection).toBe('DESC')
+    expect(result.current.awakenerSortGroupByFaction).toBe(false)
+  })
+
+  it('persists awakener sort preferences across hook remounts', () => {
+    const first = renderHook(() => useCollectionViewModel())
+
+    act(() => {
+      first.result.current.setAwakenerSortKey('ALPHABETICAL')
+      first.result.current.toggleAwakenerSortDirection()
+      first.result.current.setAwakenerSortGroupByFaction(true)
+    })
+
+    first.unmount()
+
+    const second = renderHook(() => useCollectionViewModel())
+    expect(second.result.current.awakenerSortKey).toBe('ALPHABETICAL')
+    expect(second.result.current.awakenerSortDirection).toBe('ASC')
+    expect(second.result.current.awakenerSortGroupByFaction).toBe(true)
   })
 })

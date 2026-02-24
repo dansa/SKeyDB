@@ -10,7 +10,7 @@ export function useOwnedWheelBoxEntries(
   return useMemo(() => {
     return [...getWheels()]
       .sort(compareWheelsForUi)
-      .flatMap((wheel) => {
+      .flatMap((wheel, index) => {
         const level = getWheelOwnedLevel(wheel.id)
         if (level === null) {
           return []
@@ -20,6 +20,8 @@ export function useOwnedWheelBoxEntries(
             id: wheel.id,
             name: wheel.name,
             rarity: wheel.rarity,
+            faction: wheel.faction,
+            index,
             level,
             wheelAsset: getWheelAssetById(wheel.id) ?? null,
           },

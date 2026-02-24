@@ -11,6 +11,8 @@ describe('OwnedWheelBoxExport', () => {
             id: 'B01',
             name: 'SSR Wheel',
             rarity: 'SSR',
+            faction: 'CARO',
+            index: 0,
             level: 0,
             wheelAsset: null,
           },
@@ -18,6 +20,8 @@ describe('OwnedWheelBoxExport', () => {
             id: 'SR01',
             name: 'SR Wheel',
             rarity: 'SR',
+            faction: 'NEUTRAL',
+            index: 1,
             level: 0,
             wheelAsset: null,
           },
@@ -36,5 +40,6 @@ describe('OwnedWheelBoxExport', () => {
     expect(screen.queryByText('SR Wheel')).not.toBeInTheDocument()
     expect(screen.queryByText('Show Levels')).not.toBeInTheDocument()
     expect(screen.queryByText('Level Text Scale')).not.toBeInTheDocument()
+    expect(screen.queryByLabelText(/sort by/i)).not.toBeInTheDocument()
   })
 })

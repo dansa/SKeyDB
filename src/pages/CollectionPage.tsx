@@ -1,9 +1,10 @@
 import { OwnedTogglePill } from '../components/ui/OwnedTogglePill'
 import { TogglePill } from '../components/ui/TogglePill'
 import { Button } from '../components/ui/Button'
+import { CollectionSortControls } from '../components/ui/CollectionSortControls'
 import { Toast } from '../components/ui/Toast'
 import { useRef } from 'react'
-import type { ChangeEvent } from 'react'
+import type { ChangeEvent, WheelEvent } from 'react'
 import { FaDownload, FaUpload } from 'react-icons/fa6'
 import { getAwakenerCardAsset } from '../domain/awakener-assets'
 import { getFactionTint } from '../domain/factions'
@@ -107,6 +108,31 @@ export function CollectionPage() {
     }
 
     document.addEventListener('click', swallowNextClick, { capture: true, once: true })
+  }
+
+  function handleCollectionCardWheel(
+    event: WheelEvent<HTMLElement>,
+    kind: 'awakeners' | 'wheels',
+    id: string,
+    ownedLevel: number | null,
+  ) {
+    if (!event.shiftKey || ownedLevel === null) {
+      return
+    }
+
+    const target = event.target
+    if (target instanceof Element && target.closest('input, textarea, select')) {
+      return
+    }
+
+    event.preventDefault()
+    if (event.deltaY < 0) {
+      model.increaseLevel(kind, id)
+      return
+    }
+    if (event.deltaY > 0) {
+      model.decreaseLevel(kind, id)
+    }
   }
 
   function handleSaveToFile() {
@@ -214,21 +240,36 @@ export function CollectionPage() {
           />
 
           {model.tab === 'awakeners' ? (
-            <div className="mt-2 grid grid-cols-5 gap-1">
-              {awakenerFilterTabs.map((entry) => (
-                <button
-                  className={`border compact-filter-chip transition-colors ${
-                    model.awakenerFilter === entry.id
-                      ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
-                      : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
-                  }`}
-                  key={entry.id}
-                  onClick={() => model.setAwakenerFilter(entry.id)}
-                  type="button"
-                >
-                  {entry.label}
-                </button>
-              ))}
+            <div className="mt-2 space-y-2">
+              <div className="grid grid-cols-5 gap-1">
+                {awakenerFilterTabs.map((entry) => (
+                  <button
+                    className={`border compact-filter-chip transition-colors ${
+                      model.awakenerFilter === entry.id
+                        ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
+                        : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
+                    }`}
+                    key={entry.id}
+                    onClick={() => model.setAwakenerFilter(entry.id)}
+                    type="button"
+                  >
+                    {entry.label}
+                  </button>
+                ))}
+              </div>
+              <div className="space-y-1">
+                <CollectionSortControls
+                  groupByFaction={model.awakenerSortGroupByFaction}
+                  groupByFactionAriaLabel="Toggle grouping awakeners by faction"
+                  onGroupByFactionChange={model.setAwakenerSortGroupByFaction}
+                  onSortDirectionToggle={model.toggleAwakenerSortDirection}
+                  onSortKeyChange={model.setAwakenerSortKey}
+                  sortDirection={model.awakenerSortDirection}
+                  sortKey={model.awakenerSortKey}
+                  sortDirectionAriaLabel="Toggle collection awakener sort direction"
+                  sortSelectAriaLabel="Collection awakener sort key"
+                />
+              </div>
             </div>
           ) : null}
 
@@ -386,6 +427,7 @@ export function CollectionPage() {
                       className={`collection-card-frame relative aspect-[25/56] overflow-hidden border border-slate-400/35 bg-slate-900/75 transition-[border-color,box-shadow] duration-150 group-hover/collection:border-amber-200/45 group-hover/collection:shadow-[0_0_0_1px_rgba(251,191,36,0.15)] ${
                         ownedLevel === null ? 'collection-card-frame-unowned' : ''
                       }`}
+                      onWheel={(event) => handleCollectionCardWheel(event, 'awakeners', awakenerId, ownedLevel)}
                     >
                       <button
                         aria-label={`Toggle ownership for ${formatAwakenerNameForUi(awakener.name)}`}
@@ -458,6 +500,7 @@ export function CollectionPage() {
                       className={`collection-card-frame relative aspect-[75/113] overflow-hidden border border-slate-400/35 bg-slate-900/75 transition-[border-color,box-shadow] duration-150 group-hover/collection:border-amber-200/45 group-hover/collection:shadow-[0_0_0_1px_rgba(251,191,36,0.15)] ${
                         ownedLevel === null ? 'collection-card-frame-unowned' : ''
                       }`}
+                      onWheel={(event) => handleCollectionCardWheel(event, 'wheels', wheel.id, ownedLevel)}
                     >
                       <button
                         aria-label={`Toggle ownership for ${wheel.name}`}
