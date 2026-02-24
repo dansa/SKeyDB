@@ -88,4 +88,25 @@ describe('useCollectionViewModel', () => {
     })
     expect(result.current.activeQuery).toBe('')
   })
+
+  it('tracks editable awakener level with 1-90 clamp and default 60', () => {
+    const { result } = renderHook(() => useCollectionViewModel())
+
+    expect(result.current.getAwakenerLevel('ramona')).toBe(60)
+
+    act(() => {
+      result.current.setAwakenerLevel('ramona', 78)
+    })
+    expect(result.current.getAwakenerLevel('ramona')).toBe(78)
+
+    act(() => {
+      result.current.setAwakenerLevel('ramona', 0)
+    })
+    expect(result.current.getAwakenerLevel('ramona')).toBe(1)
+
+    act(() => {
+      result.current.setAwakenerLevel('ramona', 999)
+    })
+    expect(result.current.getAwakenerLevel('ramona')).toBe(90)
+  })
 })

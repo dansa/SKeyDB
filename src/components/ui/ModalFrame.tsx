@@ -14,8 +14,8 @@ export function ModalFrame({
   children,
   footer,
   ariaLabel,
-  overlayClassName = 'fixed inset-0 z-70 flex items-center justify-center bg-slate-950/55 px-4',
-  panelClassName = 'w-full max-w-lg border border-amber-200/55 bg-slate-950/96 p-4 shadow-[0_18px_50px_rgba(2,6,23,0.72)]',
+  overlayClassName = 'fixed inset-0 z-[900] flex items-center justify-center bg-slate-950/55 px-4 pointer-events-auto',
+  panelClassName = 'relative z-[901] w-full max-w-lg border border-amber-200/55 bg-slate-950/96 p-4 shadow-[0_18px_50px_rgba(2,6,23,0.72)]',
 }: ModalFrameProps) {
   return (
     <div className={overlayClassName}>

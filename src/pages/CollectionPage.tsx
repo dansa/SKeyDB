@@ -1,6 +1,8 @@
 import { OwnedTogglePill } from '../components/ui/OwnedTogglePill'
+import { TogglePill } from '../components/ui/TogglePill'
 import { Button } from '../components/ui/Button'
-import { useRef, useState } from 'react'
+import { Toast } from '../components/ui/Toast'
+import { useRef } from 'react'
 import type { ChangeEvent } from 'react'
 import { FaDownload, FaUpload } from 'react-icons/fa6'
 import { getAwakenerCardAsset } from '../domain/awakener-assets'
@@ -10,12 +12,14 @@ import { getPosseAssetById } from '../domain/posse-assets'
 import { getWheelAssetById } from '../domain/wheel-assets'
 import { wheelMainstatFilterOptions } from '../domain/wheel-mainstat-filters'
 import { CollectionLevelControls } from './collection/CollectionLevelControls'
+import { AwakenerLevelControl } from './collection/AwakenerLevelControl'
 import { OwnedAwakenerBoxExport } from './collection/OwnedAwakenerBoxExport'
 import { OwnedWheelBoxExport } from './collection/OwnedWheelBoxExport'
 import { useOwnedAwakenerBoxEntries } from './collection/useOwnedAwakenerBoxEntries'
 import { useOwnedWheelBoxEntries } from './collection/useOwnedWheelBoxEntries'
 import { useGlobalCollectionSearchCapture } from './collection/useGlobalCollectionSearchCapture'
 import { useCollectionViewModel } from './collection/useCollectionViewModel'
+import { useTimedToast } from '../components/ui/useTimedToast'
 
 const collectionTabs = [
   { id: 'awakeners', label: 'Awakeners' },
@@ -57,8 +61,8 @@ export function CollectionPage() {
   const model = useCollectionViewModel()
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const importFileInputRef = useRef<HTMLInputElement | null>(null)
-  const [fileTransferMessage, setFileTransferMessage] = useState<string | null>(null)
-  const ownedAwakenersForBoxExport = useOwnedAwakenerBoxEntries(model.getAwakenerOwnedLevel)
+  const { toastMessage, showToast } = useTimedToast({ defaultDurationMs: 3200 })
+  const ownedAwakenersForBoxExport = useOwnedAwakenerBoxEntries(model.getAwakenerOwnedLevel, model.getAwakenerLevel)
   const ownedWheelsForBoxExport = useOwnedWheelBoxEntries(model.getWheelOwnedLevel)
   const activeCollectionLabel = collectionLabelByTab[model.tab]
   const activeFilteredCount =
@@ -74,6 +78,37 @@ export function CollectionPage() {
     onClearSearch: model.clearActiveQuery,
   })
 
+  function swallowOutsideLevelClickIfCardInteraction(event: MouseEvent | PointerEvent) {
+    const target = event.target
+    if (!(target instanceof Element)) {
+      return
+    }
+
+    const interactionFrame = target.closest('.collection-card-frame')
+    if (!interactionFrame) {
+      return
+    }
+
+    // Clicking outside level editor but within an awakener card interaction area
+    // should commit level edits without also toggling ownership.
+    event.preventDefault()
+    event.stopPropagation()
+
+    const swallowNextClick = (clickEvent: MouseEvent) => {
+      const clickTarget = clickEvent.target
+      if (!(clickTarget instanceof Node)) {
+        return
+      }
+      if (!interactionFrame.contains(clickTarget)) {
+        return
+      }
+      clickEvent.preventDefault()
+      clickEvent.stopPropagation()
+    }
+
+    document.addEventListener('click', swallowNextClick, { capture: true, once: true })
+  }
+
   function handleSaveToFile() {
     const rawSnapshot = model.exportOwnershipSnapshot()
     const filename = `skeydb-collection-${new Date().toISOString().slice(0, 10)}.json`
@@ -88,7 +123,7 @@ export function CollectionPage() {
     document.body.removeChild(anchor)
     URL.revokeObjectURL(objectUrl)
 
-    setFileTransferMessage(`Saved ${filename}`)
+    showToast(`Saved ${filename}`)
   }
 
   function handleOpenLoadFilePicker() {
@@ -111,12 +146,12 @@ export function CollectionPage() {
             : parsed.error === 'unsupported_version'
               ? 'Load failed: snapshot version is unsupported.'
               : 'Load failed: file does not match collection snapshot format.'
-        setFileTransferMessage(errorMessage)
+        showToast(errorMessage)
       } else {
-        setFileTransferMessage(`Loaded ${file.name}`)
+        showToast(`Loaded ${file.name}`)
       }
     } catch {
-      setFileTransferMessage('Load failed: could not read file.')
+      showToast('Load failed: could not read file.')
     } finally {
       event.target.value = ''
     }
@@ -150,6 +185,19 @@ export function CollectionPage() {
             ))}
           </div>
 
+          <div className="mt-2 flex items-center justify-between gap-3 text-xs text-slate-300">
+            <span>Display Unowned</span>
+            <TogglePill
+              ariaLabel="Toggle display unowned"
+              checked={model.displayUnowned}
+              className="ownership-pill-builder"
+              offLabel="Off"
+              onChange={model.setDisplayUnowned}
+              onLabel="On"
+              variant="flat"
+            />
+          </div>
+
           <input
             className="mt-2 w-full border border-slate-800/95 bg-slate-950/90 px-3 py-2 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-amber-300/65 focus:bg-slate-950"
             onChange={(event) => model.setQuery(event.target.value)}
@@ -169,7 +217,7 @@ export function CollectionPage() {
             <div className="mt-2 grid grid-cols-5 gap-1">
               {awakenerFilterTabs.map((entry) => (
                 <button
-                  className={`border px-1 py-1 text-[10px] uppercase tracking-wide transition-colors ${
+                  className={`border compact-filter-chip transition-colors ${
                     model.awakenerFilter === entry.id
                       ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
                       : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
@@ -189,7 +237,7 @@ export function CollectionPage() {
               <div className="mt-2 grid grid-cols-4 gap-1">
                 {wheelRarityFilterTabs.map((entry) => (
                   <button
-                    className={`border px-1 py-1 text-[10px] uppercase tracking-wide transition-colors ${
+                    className={`border compact-filter-chip transition-colors ${
                       model.wheelRarityFilter === entry.id
                         ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
                         : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
@@ -236,7 +284,7 @@ export function CollectionPage() {
             <div className="mt-2 grid grid-cols-3 gap-1">
               {posseFilterTabs.map((entry) => (
                 <button
-                  className={`border px-1 py-1 text-[10px] uppercase tracking-wide transition-colors ${
+                  className={`border compact-filter-chip transition-colors ${
                     model.posseFilter === entry.id
                       ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
                       : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
@@ -283,16 +331,15 @@ export function CollectionPage() {
               ref={importFileInputRef}
               type="file"
             />
-            {fileTransferMessage ? <p className="text-[10px] text-slate-400">{fileTransferMessage}</p> : null}
             <div className="grid grid-cols-2 gap-1">
               {model.tab === 'awakeners' ? (
                 <OwnedAwakenerBoxExport
                   entries={ownedAwakenersForBoxExport}
-                  onStatusMessage={setFileTransferMessage}
+                  onStatusMessage={showToast}
                 />
               ) : null}
               {model.tab === 'wheels' ? (
-                <OwnedWheelBoxExport entries={ownedWheelsForBoxExport} onStatusMessage={setFileTransferMessage} />
+                <OwnedWheelBoxExport entries={ownedWheelsForBoxExport} onStatusMessage={showToast} />
               ) : null}
               <Button
                 className="px-2 py-1 text-[10px] uppercase tracking-wide"
@@ -342,8 +389,13 @@ export function CollectionPage() {
                     >
                       <button
                         aria-label={`Toggle ownership for ${formatAwakenerNameForUi(awakener.name)}`}
-                        className="absolute inset-x-0 top-0 bottom-[46px] z-[13]"
-                        onClick={() => model.toggleOwned('awakeners', awakenerId)}
+                        className="absolute inset-0 z-[13]"
+                        onClick={(event) => {
+                          if (event.defaultPrevented) {
+                            return
+                          }
+                          model.toggleOwned('awakeners', awakenerId)
+                        }}
                         type="button"
                       />
                       {cardAsset ? (
@@ -364,6 +416,15 @@ export function CollectionPage() {
                         {formatAwakenerNameForUi(awakener.name)}
                       </p>
                       <div className="collection-card-controls">
+                        {ownedLevel !== null ? (
+                          <AwakenerLevelControl
+                            disabled={ownedLevel === null}
+                            level={model.getAwakenerLevel(awakener.name)}
+                            name={formatAwakenerNameForUi(awakener.name)}
+                            onCommitOutsideClick={swallowOutsideLevelClickIfCardInteraction}
+                            onLevelChange={(nextLevel) => model.setAwakenerLevel(awakener.name, nextLevel)}
+                          />
+                        ) : null}
                         <CollectionLevelControls
                           onDecrease={() => model.decreaseLevel('awakeners', awakenerId)}
                           onIncrease={() => model.increaseLevel('awakeners', awakenerId)}
@@ -400,8 +461,13 @@ export function CollectionPage() {
                     >
                       <button
                         aria-label={`Toggle ownership for ${wheel.name}`}
-                        className="absolute inset-x-0 top-0 bottom-[46px] z-[13]"
-                        onClick={() => model.toggleOwned('wheels', wheel.id)}
+                        className="absolute inset-0 z-[13]"
+                        onClick={(event) => {
+                          if (event.defaultPrevented) {
+                            return
+                          }
+                          model.toggleOwned('wheels', wheel.id)
+                        }}
                         type="button"
                       />
                       {wheelAsset ? (
@@ -453,7 +519,12 @@ export function CollectionPage() {
                       <button
                         aria-label={`Toggle ownership for ${posse.name}`}
                         className="absolute inset-0 z-[13]"
-                        onClick={() => model.toggleOwned('posses', posse.id)}
+                        onClick={(event) => {
+                          if (event.defaultPrevented) {
+                            return
+                          }
+                          model.toggleOwned('posses', posse.id)
+                        }}
                         type="button"
                       />
                       {asset ? (
@@ -479,6 +550,10 @@ export function CollectionPage() {
           </div>
         </div>
       </div>
+      <Toast
+        className="pointer-events-none fixed right-4 bottom-4 z-[950] border border-amber-200/50 bg-slate-950/92 px-3 py-2 text-sm text-amber-100 shadow-[0_6px_20px_rgba(2,6,23,0.55)]"
+        message={toastMessage}
+      />
     </section>
   )
 }

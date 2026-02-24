@@ -5,12 +5,14 @@ import {
   COLLECTION_OWNERSHIP_KEY,
   createDefaultCollectionOwnershipCatalog,
   createEmptyCollectionOwnershipState,
+  getAwakenerLevel,
   getOwnedLevel,
   isOwned,
   loadCollectionOwnership,
   parseCollectionOwnershipSnapshot,
   saveCollectionOwnership,
   serializeCollectionOwnershipSnapshot,
+  setAwakenerLevel,
   setDisplayUnowned,
   setOwnedLevel,
   type CollectionOwnershipCatalog,
@@ -40,6 +42,7 @@ function createStorage() {
 describe('collection ownership persistence', () => {
   const defaultOwnedStateForCatalog = {
     ownedAwakeners: { '1': 0, '2': 0 },
+    awakenerLevels: { '1': 60, '2': 60 },
     ownedWheels: { W01: 0, W02: 0 },
     ownedPosses: { P01: 0, P02: 0 },
     displayUnowned: true,
@@ -51,6 +54,7 @@ describe('collection ownership persistence', () => {
       storage,
       {
         ownedAwakeners: { '1': 5, unknown: 99 },
+        awakenerLevels: { '1': 60, unknown: 999 },
         ownedWheels: { W01: 0 },
         ownedPosses: { P01: 21 },
         displayUnowned: false,
@@ -65,6 +69,7 @@ describe('collection ownership persistence', () => {
     const loaded = loadCollectionOwnership(storage, catalog)
     expect(loaded).toEqual({
       ownedAwakeners: { '1': 5, '2': 5 },
+      awakenerLevels: { '1': 60, '2': 60 },
       ownedWheels: { W01: 0 },
       ownedPosses: { P01: 0 },
       displayUnowned: false,
@@ -103,6 +108,12 @@ describe('collection ownership persistence', () => {
 
     state = setDisplayUnowned(state, false)
     expect(state.displayUnowned).toBe(false)
+    state = setAwakenerLevel(state, '1', 88)
+    expect(getAwakenerLevel(state, '1')).toBe(88)
+    state = setAwakenerLevel(state, '1', 0)
+    expect(getAwakenerLevel(state, '1')).toBe(1)
+    state = setAwakenerLevel(state, '1', 999)
+    expect(getAwakenerLevel(state, '1')).toBe(90)
     state = setOwnedLevel(state, 'posses', 'P01', 13, catalog)
     expect(getOwnedLevel(state, 'posses', 'P01')).toBe(0)
 
@@ -129,6 +140,7 @@ describe('collection ownership persistence', () => {
     const snapshot = serializeCollectionOwnershipSnapshot(
       {
         ownedAwakeners: { '1': 4 },
+        awakenerLevels: { '1': 72 },
         ownedWheels: { W01: 2 },
         ownedPosses: { P01: 0 },
         displayUnowned: true,
@@ -143,6 +155,7 @@ describe('collection ownership persistence', () => {
     }
     expect(parsed.state).toEqual({
       ownedAwakeners: { '1': 4, '2': 4 },
+      awakenerLevels: { '1': 72, '2': 60 },
       ownedWheels: { W01: 2 },
       ownedPosses: { P01: 0 },
       displayUnowned: true,

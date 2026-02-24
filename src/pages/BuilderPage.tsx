@@ -9,6 +9,7 @@ import { BuilderImportExportDialogs } from './builder/BuilderImportExportDialogs
 import { BuilderConfirmDialogs } from './builder/BuilderConfirmDialogs'
 import { PickerAwakenerGhost, PickerWheelGhost, TeamCardGhost, TeamWheelGhost } from './builder/DragGhosts'
 import { Toast } from '../components/ui/Toast'
+import { useTimedToast } from '../components/ui/useTimedToast'
 import {
   clearSlotAssignment,
   type TeamStateViolationCode,
@@ -30,11 +31,10 @@ import type { PredictedDropHover } from './builder/types'
 import type { DragData } from './builder/types'
 
 export function BuilderPage() {
-  const [toastMessage, setToastMessage] = useState<string | null>(null)
   const [predictedDropHover, setPredictedDropHover] = useState<PredictedDropHover>(null)
   const [pendingResetBuilder, setPendingResetBuilder] = useState(false)
   const [undoResetSnapshot, setUndoResetSnapshot] = useState<BuilderDraftPayload | null>(null)
-  const toastTimeoutRef = useRef<number | null>(null)
+  const { toastMessage, showToast } = useTimedToast({ defaultDurationMs: 3200 })
   const suppressTeamEditRef = useRef(false)
   const suppressTeamEditTimeoutRef = useRef<number | null>(null)
   const resetUndoTimeoutRef = useRef<number | null>(null)
@@ -45,6 +45,7 @@ export function BuilderPage() {
     displayUnowned,
     setDisplayUnowned,
     ownedAwakenerLevelByName,
+    awakenerLevelByName,
     ownedWheelLevelById,
     ownedPosseLevelById,
     teams,
@@ -108,18 +109,6 @@ export function BuilderPage() {
     setActiveTeamId,
     clearActiveSelection: () => setActiveSelection(null),
   })
-
-  function showToast(message: string, duration = 3200) {
-    if (toastTimeoutRef.current) {
-      window.clearTimeout(toastTimeoutRef.current)
-    }
-
-    setToastMessage(message)
-    toastTimeoutRef.current = window.setTimeout(() => {
-      setToastMessage(null)
-      toastTimeoutRef.current = null
-    }, duration)
-  }
 
   function notifyViolation(violation: TeamStateViolationCode | undefined) {
     if (violation !== 'TOO_MANY_FACTIONS_IN_TEAM') {
@@ -206,9 +195,6 @@ export function BuilderPage() {
 
   useEffect(() => {
     return () => {
-      if (toastTimeoutRef.current) {
-        window.clearTimeout(toastTimeoutRef.current)
-      }
       if (suppressTeamEditTimeoutRef.current) {
         window.clearTimeout(suppressTeamEditTimeoutRef.current)
       }
@@ -431,6 +417,7 @@ export function BuilderPage() {
               onRemoveActiveSelection={handleRemoveActiveSelection}
               onCovenantSlotClick={handleCovenantSlotClick}
               onWheelSlotClick={handleWheelSlotClick}
+              awakenerLevelByName={awakenerLevelByName}
               ownedAwakenerLevelByName={ownedAwakenerLevelByName}
               ownedWheelLevelById={ownedWheelLevelById}
               predictedDropHover={predictedDropHover}

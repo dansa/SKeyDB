@@ -12,6 +12,7 @@ export type CollectionOwnershipKind = 'awakeners' | 'wheels' | 'posses'
 
 export type CollectionOwnershipState = {
   ownedAwakeners: Record<string, number>
+  awakenerLevels: Record<string, number>
   ownedWheels: Record<string, number>
   ownedPosses: Record<string, number>
   displayUnowned: boolean
@@ -45,8 +46,13 @@ function createDefaultOwnedMap(ids: Iterable<string>): Record<string, number> {
 function createSeedCollectionOwnershipState(
   catalog: CollectionOwnershipCatalog,
 ): CollectionOwnershipState {
+  const awakenerLevelMap: Record<string, number> = {}
+  for (const id of catalog.awakenerIds) {
+    awakenerLevelMap[id] = 60
+  }
   return {
     ownedAwakeners: createDefaultOwnedMap(catalog.awakenerIds),
+    awakenerLevels: awakenerLevelMap,
     ownedWheels: createDefaultOwnedMap(catalog.wheelIds),
     ownedPosses: createDefaultOwnedMap(catalog.posseIds),
     displayUnowned: true,
@@ -80,6 +86,29 @@ function normalizePosseLevel(value: unknown): number | null {
     return null
   }
   return 0
+}
+
+function normalizeAwakenerLevel(value: unknown): number {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
+    return 60
+  }
+  const normalized = Math.floor(value)
+  if (normalized < 1) {
+    return 1
+  }
+  if (normalized > 90) {
+    return 90
+  }
+  return normalized
+}
+
+function normalizeAwakenerLevelMap(rawMap: unknown, allowedIds: Iterable<string>): Record<string, number> {
+  const source = rawMap && typeof rawMap === 'object' ? (rawMap as Record<string, unknown>) : {}
+  const output: Record<string, number> = {}
+  for (const id of allowedIds) {
+    output[id] = normalizeAwakenerLevel(source[id])
+  }
+  return output
 }
 
 function normalizeOwnedMap(rawMap: unknown, allowedIds: Set<string>): Record<string, number> {
@@ -166,6 +195,7 @@ function normalizeOwnershipState(
       awakenerIdSet,
       catalog.linkedAwakenerGroups,
     ),
+    awakenerLevels: normalizeAwakenerLevelMap(state.awakenerLevels, catalog.awakenerIds),
     ownedWheels: normalizeOwnedMap(state.ownedWheels, toAllowedSet(catalog.wheelIds)),
     ownedPosses: normalizePosseOwnedMap(state.ownedPosses, toAllowedSet(catalog.posseIds)),
     displayUnowned: state.displayUnowned !== false,
@@ -401,4 +431,25 @@ export function setDisplayUnowned(
   displayUnowned: boolean,
 ): CollectionOwnershipState {
   return { ...state, displayUnowned }
+}
+
+export function getAwakenerLevel(
+  state: CollectionOwnershipState,
+  id: string,
+): number {
+  return normalizeAwakenerLevel(state.awakenerLevels[id])
+}
+
+export function setAwakenerLevel(
+  state: CollectionOwnershipState,
+  id: string,
+  level: number,
+): CollectionOwnershipState {
+  return {
+    ...state,
+    awakenerLevels: {
+      ...state.awakenerLevels,
+      [id]: normalizeAwakenerLevel(level),
+    },
+  }
 }

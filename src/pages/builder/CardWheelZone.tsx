@@ -19,6 +19,7 @@ type CardWheelZoneProps = {
   onRemoveActiveWheel?: () => void
   onWheelSlotClick?: (wheelIndex: number) => void
   onCovenantSlotClick?: () => void
+  awakenerLevel?: number
   awakenerOwnedLevel?: number | null
   wheelOwnedLevels?: [number | null, number | null]
 }
@@ -244,6 +245,7 @@ export function CardWheelZone({
   onRemoveActiveWheel,
   onWheelSlotClick,
   onCovenantSlotClick,
+  awakenerLevel = 60,
   awakenerOwnedLevel = null,
   wheelOwnedLevels = [null, null],
 }: CardWheelZoneProps) {
@@ -255,6 +257,12 @@ export function CardWheelZone({
     >
       <div className="builder-card-meta-row flex items-start justify-between gap-2 pb-2">
         <div className="builder-card-meta-left pointer-events-none self-end min-w-0 flex-1 pb-1">
+          {showOwnership && slot.awakenerName && awakenerOwnedLevel !== null ? (
+            <p className="builder-awakener-level">
+              <span className="builder-awakener-level-prefix">Lv.</span>
+              <span className="builder-awakener-level-value">{awakenerLevel}</span>
+            </p>
+          ) : null}
           {showOwnership && awakenerOwnedLevel !== null ? (
             <DupeLevelDisplay
               className="builder-awakener-dupe builder-awakener-dupe-meta builder-dupe-owned"

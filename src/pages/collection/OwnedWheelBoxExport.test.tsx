@@ -34,5 +34,7 @@ describe('OwnedWheelBoxExport', () => {
 
     expect(screen.getByText('SSR Wheel')).toBeInTheDocument()
     expect(screen.queryByText('SR Wheel')).not.toBeInTheDocument()
+    expect(screen.queryByText('Show Levels')).not.toBeInTheDocument()
+    expect(screen.queryByText('Level Text Scale')).not.toBeInTheDocument()
   })
 })

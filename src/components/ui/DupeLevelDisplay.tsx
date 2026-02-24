@@ -73,6 +73,7 @@ export function DupeLevelDisplay({
             <text
               dominantBaseline="central"
               fill="rgba(244,234,196,0.96)"
+              fontFamily="Droid Serif, Georgia, serif"
               fontSize="14"
               fontWeight="700"
               paintOrder="stroke"

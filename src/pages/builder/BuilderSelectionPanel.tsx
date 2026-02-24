@@ -182,7 +182,7 @@ export function BuilderSelectionPanel({
         <div className="mt-2 grid grid-cols-5 gap-1">
           {awakenerFilterTabs.map((filterTab) => (
             <button
-              className={`border px-1 py-1 text-[10px] uppercase tracking-wide transition-colors ${
+              className={`border compact-filter-chip transition-colors ${
                 awakenerFilter === filterTab.id
                   ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
                   : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
@@ -201,7 +201,7 @@ export function BuilderSelectionPanel({
         <div className="mt-2 grid grid-cols-3 gap-1">
           {posseFilterTabs.map((filterTab) => (
             <button
-              className={`border px-1 py-1 text-[10px] uppercase tracking-wide transition-colors ${
+              className={`border compact-filter-chip transition-colors ${
                 posseFilter === filterTab.id
                   ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
                   : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
@@ -222,7 +222,7 @@ export function BuilderSelectionPanel({
             {wheelRarityFilterTabs.map((filterTab) => (
               <button
                 aria-pressed={wheelRarityFilter === filterTab.id}
-                className={`border px-1 py-1 text-[10px] uppercase tracking-wide transition-colors ${
+                className={`border compact-filter-chip transition-colors ${
                   wheelRarityFilter === filterTab.id
                     ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
                     : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'

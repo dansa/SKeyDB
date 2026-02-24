@@ -4,11 +4,13 @@ import { searchAwakeners } from '../../domain/awakeners-search'
 import {
   clearOwnedEntry,
   createDefaultCollectionOwnershipCatalog,
+  getAwakenerLevel,
   getOwnedLevel,
   loadCollectionOwnership,
   parseCollectionOwnershipSnapshot,
   saveCollectionOwnership,
   serializeCollectionOwnershipSnapshot,
+  setAwakenerLevel,
   setOwnedLevel,
 } from '../../domain/collection-ownership'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
@@ -57,6 +59,7 @@ export function useCollectionViewModel() {
   const [wheelRarityFilter, setWheelRarityFilter] = useState<WheelRarityFilter>('ALL')
   const [wheelMainstatFilter, setWheelMainstatFilter] = useState<WheelMainstatFilter>('ALL')
   const [posseFilter, setPosseFilter] = useState<PosseFilter>('ALL')
+  const [displayUnowned, setDisplayUnowned] = useState(true)
   const rememberedLevelsRef = useRef<Record<'awakeners' | 'wheels' | 'posses', Record<string, number>>>({
     awakeners: {},
     wheels: {},
@@ -84,8 +87,17 @@ export function useCollectionViewModel() {
       awakenerFilter === 'ALL'
         ? searchedAwakeners
         : searchedAwakeners.filter((awakener) => awakener.faction.trim().toUpperCase() === awakenerFilter)
-    return byFaction
-  }, [awakenerFilter, searchedAwakeners])
+    if (displayUnowned) {
+      return byFaction
+    }
+    return byFaction.filter((awakener) => {
+      const awakenerId = awakenerIdByName.get(awakener.name)
+      if (!awakenerId) {
+        return false
+      }
+      return getOwnedLevel(ownership, 'awakeners', awakenerId) !== null
+    })
+  }, [awakenerFilter, searchedAwakeners, displayUnowned, awakenerIdByName, ownership])
 
   const searchedPosses = useMemo(
     () => searchPosses(posses, queryByTab.posses),
@@ -98,8 +110,11 @@ export function useCollectionViewModel() {
         : posseFilter === 'FADED_LEGACY'
           ? searchedPosses.filter((posse) => posse.isFadedLegacy)
           : searchedPosses.filter((posse) => !posse.isFadedLegacy && posse.faction.trim().toUpperCase() === posseFilter)
-    return filtered
-  }, [searchedPosses, posseFilter])
+    if (displayUnowned) {
+      return filtered
+    }
+    return filtered.filter((posse) => getOwnedLevel(ownership, 'posses', posse.id) !== null)
+  }, [searchedPosses, posseFilter, displayUnowned, ownership])
 
   const filteredWheels = useMemo(() => {
     const query = queryByTab.wheels.trim().toLowerCase()
@@ -135,8 +150,11 @@ export function useCollectionViewModel() {
             Boolean(matchedAwakenerNames?.has(wheel.awakener.toLowerCase())),
         )
 
-    return matchingSearch
-  }, [queryByTab.wheels, awakeners, wheelRarityFilter, wheelMainstatFilter, wheels])
+    if (displayUnowned) {
+      return matchingSearch
+    }
+    return matchingSearch.filter((wheel) => getOwnedLevel(ownership, 'wheels', wheel.id) !== null)
+  }, [queryByTab.wheels, awakeners, wheelRarityFilter, wheelMainstatFilter, wheels, displayUnowned, ownership])
 
   function setQuery(value: string) {
     setQueryByTab((prev) => ({ ...prev, [tab]: value }))
@@ -271,6 +289,22 @@ export function useCollectionViewModel() {
     return getOwnedLevel(ownership, 'awakeners', awakenerId)
   }
 
+  function getAwakenerLevelByName(awakenerName: string): number {
+    const awakenerId = awakenerIdByName.get(awakenerName)
+    if (!awakenerId) {
+      return 60
+    }
+    return getAwakenerLevel(ownership, awakenerId)
+  }
+
+  function setAwakenerLevelByName(awakenerName: string, level: number) {
+    const awakenerId = awakenerIdByName.get(awakenerName)
+    if (!awakenerId) {
+      return
+    }
+    setOwnership((prev) => setAwakenerLevel(prev, awakenerId, level))
+  }
+
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
       saveCollectionOwnership(storage, ownership, ownershipCatalog)
@@ -297,10 +331,14 @@ export function useCollectionViewModel() {
     setWheelMainstatFilter,
     posseFilter,
     setPosseFilter,
+    displayUnowned,
+    setDisplayUnowned,
     filteredAwakeners,
     filteredWheels,
     filteredPosses,
     getAwakenerOwnedLevel,
+    getAwakenerLevel: getAwakenerLevelByName,
+    setAwakenerLevel: setAwakenerLevelByName,
     getWheelOwnedLevel: (wheelId: string) => getOwnedLevel(ownership, 'wheels', wheelId),
     getPosseOwnedLevel: (posseId: string) => getOwnedLevel(ownership, 'posses', posseId),
     toggleOwned,

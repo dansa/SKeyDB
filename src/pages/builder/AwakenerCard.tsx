@@ -14,6 +14,7 @@ type AwakenerCardProps = {
   activeWheelIndex?: number | null
   activeDragKind?: DragData['kind'] | null
   predictedDropHover?: PredictedDropHover
+  awakenerLevel?: number
   awakenerOwnedLevel?: number | null
   wheelOwnedLevels?: [number | null, number | null]
   onCardClick?: (slotId: string) => void
@@ -29,6 +30,7 @@ export function AwakenerCard({
   activeWheelIndex = null,
   activeDragKind = null,
   predictedDropHover = null,
+  awakenerLevel = 60,
   awakenerOwnedLevel = null,
   wheelOwnedLevels = [null, null],
   onCardClick,
@@ -146,6 +148,7 @@ export function AwakenerCard({
               onCovenantSlotClick={() => onCovenantSlotClick?.(slot.slotId)}
               onRemoveActiveWheel={onRemoveActiveSelection}
               onWheelSlotClick={(wheelIndex) => onWheelSlotClick?.(slot.slotId, wheelIndex)}
+              awakenerLevel={awakenerLevel}
               awakenerOwnedLevel={awakenerOwnedLevel}
               wheelOwnedLevels={wheelOwnedLevels}
               predictedDropHover={predictedDropHover}

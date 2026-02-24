@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
+import { COLLECTION_OWNERSHIP_KEY } from '../domain/collection-ownership'
 import './builder-page.integration-mocks'
 import { BuilderPage } from './BuilderPage'
 
@@ -19,6 +20,31 @@ describe('BuilderPage awakeners and teams', () => {
     fireEvent.click(screen.getByRole('button', { name: /ramona: timeworn/i }))
 
     expect(screen.getByRole('button', { name: /change ramona: timeworn/i })).toBeInTheDocument()
+  })
+
+  it('displays collection awakener level as read-only Lv text on builder cards', () => {
+    window.localStorage.setItem(
+      COLLECTION_OWNERSHIP_KEY,
+      JSON.stringify({
+        version: 1,
+        updatedAt: '2026-01-01T00:00:00.000Z',
+        payload: {
+          ownedAwakeners: { '1': 0 },
+          awakenerLevels: { '1': 77 },
+          ownedWheels: {},
+          ownedPosses: {},
+          displayUnowned: true,
+        },
+      }),
+    )
+
+    render(<BuilderPage />)
+    fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+
+    expect(
+      screen.getByText((_, element) => element?.textContent === 'Lv.77'),
+    ).toBeInTheDocument()
   })
 
   it('marks awakeners as in use after being assigned to the team', async () => {

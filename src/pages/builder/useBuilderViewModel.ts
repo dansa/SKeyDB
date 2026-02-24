@@ -125,6 +125,18 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
       ),
     [pickerAwakeners, awakenerIdByName, collectionOwnership.ownedAwakeners],
   )
+  const awakenerLevelByName = useMemo(
+    () =>
+      new Map(
+        pickerAwakeners.map((awakener) => {
+          const awakenerId = awakenerIdByName.get(awakener.name)
+          const level =
+            typeof awakenerId === 'string' ? (collectionOwnership.awakenerLevels[awakenerId] ?? 60) : 60
+          return [awakener.name, level]
+        }),
+      ),
+    [pickerAwakeners, awakenerIdByName, collectionOwnership.awakenerLevels],
+  )
   const ownedWheelLevelById = useMemo(
     () => new Map(pickerWheels.map((wheel) => [wheel.id, collectionOwnership.ownedWheels[wheel.id] ?? null])),
     [pickerWheels, collectionOwnership.ownedWheels],
@@ -387,6 +399,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     displayUnowned,
     setDisplayUnowned,
     ownedAwakenerLevelByName,
+    awakenerLevelByName,
     ownedWheelLevelById,
     ownedPosseLevelById,
     teams,

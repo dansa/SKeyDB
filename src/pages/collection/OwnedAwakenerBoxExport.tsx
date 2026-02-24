@@ -4,6 +4,7 @@ export type OwnedAwakenerBoxEntry = {
   name: string
   displayName: string
   level: number
+  awakenerLevel: number
   cardAsset: string | null
 }
 
@@ -17,6 +18,7 @@ export function OwnedAwakenerBoxExport({ entries, onStatusMessage }: OwnedAwaken
     id: entry.name,
     label: entry.displayName,
     level: entry.level,
+    cardLevel: entry.awakenerLevel,
     asset: entry.cardAsset,
   }))
 

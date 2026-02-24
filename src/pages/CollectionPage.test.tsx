@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { CollectionPage } from './CollectionPage'
 
@@ -134,5 +134,146 @@ describe('CollectionPage global search capture', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Awakeners' }))
     expect(screen.getByRole('button', { name: /export box as png/i })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: /export wheels as png/i })).not.toBeInTheDocument()
+  })
+
+  it('hides unowned items when display unowned is toggled off', () => {
+    render(<CollectionPage />)
+
+    expect(screen.getByText('Ramona')).toBeInTheDocument()
+    expect(screen.getByText('Ogier')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /toggle ownership for ramona/i }))
+
+    fireEvent.click(screen.getByRole('button', { name: /toggle display unowned/i }))
+
+    expect(screen.queryByText('Ramona')).not.toBeInTheDocument()
+    expect(screen.getByText('Ogier')).toBeInTheDocument()
+  })
+
+  it('hides awakener level editor for unowned awakeners', () => {
+    render(<CollectionPage />)
+
+    expect(screen.getByRole('button', { name: /edit awakener level for ramona/i })).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /toggle ownership for ramona/i }))
+
+    expect(screen.queryByRole('button', { name: /edit awakener level for ramona/i })).not.toBeInTheDocument()
+  })
+
+  it('uses click-to-edit awakener level with Lv. prefix inside editor', () => {
+    render(<CollectionPage />)
+
+    expect(screen.getByRole('button', { name: /edit awakener level for ramona/i })).toHaveTextContent('Lv.60')
+    expect(screen.queryByRole('textbox', { name: /awakener level for ramona/i })).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ramona/i }))
+
+    const ramonaLevelInput = screen.getByRole('textbox', { name: /awakener level for ramona/i })
+    fireEvent.change(ramonaLevelInput, { target: { value: '73' } })
+    fireEvent.keyDown(ramonaLevelInput, { key: 'Enter' })
+
+    expect(screen.getByRole('button', { name: /edit awakener level for ramona/i })).toHaveTextContent('Lv.73')
+  })
+
+  it('updates the active level textbox immediately when using level chevrons', () => {
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ramona/i }))
+
+    const ramonaLevelInput = screen.getByRole('textbox', { name: /awakener level for ramona/i })
+    expect(ramonaLevelInput).toHaveValue('60')
+
+    fireEvent.click(screen.getByRole('button', { name: /increase awakener level for ramona/i }))
+    expect(ramonaLevelInput).toHaveValue('61')
+  })
+
+  it('commits level edit on outside click without toggling ownership', () => {
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ramona/i }))
+    const ramonaLevelInput = screen.getByRole('textbox', { name: /awakener level for ramona/i })
+    fireEvent.change(ramonaLevelInput, { target: { value: '73' } })
+
+    const ownershipButton = screen.getByRole('button', { name: /toggle ownership for ramona/i })
+    fireEvent.mouseDown(ownershipButton)
+    fireEvent.click(ownershipButton)
+
+    expect(screen.queryByRole('textbox', { name: /awakener level for ramona/i })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /edit awakener level for ramona/i })).toHaveTextContent('Lv.73')
+    expect(screen.getByRole('button', { name: /edit awakener level for ramona/i })).not.toBeDisabled()
+  })
+
+  it('commits level edit and swallows ownership toggle when clicking another awakener card', () => {
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ramona/i }))
+    const ramonaLevelInput = screen.getByRole('textbox', { name: /awakener level for ramona/i })
+    fireEvent.change(ramonaLevelInput, { target: { value: '72' } })
+
+    const ogierOwnershipButton = screen.getByRole('button', { name: /toggle ownership for ogier/i })
+    fireEvent.mouseDown(ogierOwnershipButton)
+    fireEvent.click(ogierOwnershipButton)
+
+    expect(screen.queryByRole('textbox', { name: /awakener level for ramona/i })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /edit awakener level for ramona/i })).toHaveTextContent('Lv.72')
+    expect(screen.getByRole('button', { name: /edit awakener level for ogier/i })).toBeInTheDocument()
+  })
+
+  it('does not keep swallow state after non-card outside click commit', () => {
+    vi.useFakeTimers()
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ramona/i }))
+    fireEvent.change(screen.getByRole('textbox', { name: /awakener level for ramona/i }), {
+      target: { value: '74' },
+    })
+
+    fireEvent.mouseDown(screen.getByRole('button', { name: /set owned/i }))
+    fireEvent.click(screen.getByRole('button', { name: /set owned/i }))
+
+    act(() => {
+      vi.advanceTimersByTime(1)
+    })
+
+    fireEvent.mouseDown(screen.getByRole('button', { name: /toggle ownership for ogier/i }))
+    fireEvent.click(screen.getByRole('button', { name: /toggle ownership for ogier/i }))
+
+    expect(screen.queryByRole('button', { name: /edit awakener level for ogier/i })).not.toBeInTheDocument()
+    vi.useRealTimers()
+  })
+
+  it('keeps edit mode open when pressing a disabled level chevron', () => {
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ramona/i }))
+    const levelInput = screen.getByRole('textbox', { name: /awakener level for ramona/i })
+    fireEvent.change(levelInput, { target: { value: '90' } })
+    fireEvent.keyDown(levelInput, { key: 'Enter' })
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ramona/i }))
+    const disabledIncrease = screen.getByRole('button', { name: /increase awakener level for ramona/i })
+    expect(disabledIncrease).toBeDisabled()
+
+    fireEvent.pointerDown(disabledIncrease)
+
+    expect(screen.getByRole('textbox', { name: /awakener level for ramona/i })).toBeInTheDocument()
+  })
+
+  it('repeats level increases while holding the increase chevron', () => {
+    vi.useFakeTimers()
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ramona/i }))
+    const levelInput = screen.getByRole('textbox', { name: /awakener level for ramona/i })
+    const increaseButton = screen.getByRole('button', { name: /increase awakener level for ramona/i })
+
+    fireEvent.pointerDown(increaseButton)
+    act(() => {
+      vi.advanceTimersByTime(750)
+    })
+    fireEvent.pointerUp(increaseButton)
+
+    expect(Number(levelInput.getAttribute('value'))).toBeGreaterThan(61)
+    vi.useRealTimers()
   })
 })

@@ -9,6 +9,7 @@ type BuilderActiveTeamPanelProps = {
   isActivePosseOwned: boolean
   teamFactions: Set<string>
   teamSlots: TeamSlot[]
+  awakenerLevelByName: Map<string, number>
   ownedAwakenerLevelByName: Map<string, number | null>
   ownedWheelLevelById: Map<string, number | null>
   resolvedActiveSelection: ActiveSelection
@@ -28,6 +29,7 @@ export function BuilderActiveTeamPanel({
   isActivePosseOwned,
   teamFactions,
   teamSlots,
+  awakenerLevelByName,
   ownedAwakenerLevelByName,
   ownedWheelLevelById,
   resolvedActiveSelection,
@@ -66,6 +68,7 @@ export function BuilderActiveTeamPanel({
             onCovenantSlotClick={onCovenantSlotClick}
             onRemoveActiveSelection={() => onRemoveActiveSelection(slot.slotId)}
             onWheelSlotClick={onWheelSlotClick}
+            awakenerLevel={slot.awakenerName ? (awakenerLevelByName.get(slot.awakenerName) ?? 60) : 60}
             awakenerOwnedLevel={
               slot.awakenerName ? (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null) : null
             }

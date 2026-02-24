@@ -6,6 +6,7 @@
 
 # General website features
 - Smaller toolbar below header that contains "important" actions, eg export/import on builder, save/load on collection, etc.
+- Properly timestamp changelog entries and small notice toast about major feature since last visit :eyes:
 
 --- 
 
@@ -21,6 +22,8 @@
 - Sidebar to quickly switch between teams.
 - Weird scaling behavior on the covenant slots, lines on the svgs/paths seem to get squished on some devices?
     - Could simply replace with static image assets, but risk of pixelation/blurring when scaling up/down
+- Allow one Duped character to mirror "Support" behavior ingame
+- Toggle to disable "duplication blockers" to make a 4 Clem team. Could mess with import/exports though.
 
 ## Builder Features
 - Biggest "win" is supporting the ingame export/import format, but that either requires a lot manual reverse engineering of the format, or help from game developers themselves.
@@ -30,13 +33,22 @@
     - Selecting a slot will open a "popup" picker rather than utilizing the sidebar panel.
     - Active team will be a scrollable zone rather than # of columns changing.
     - fixed widths on stuff to prevent weird scaling.
-    - Mobile UI kinda ties into quick team planner mode where that feature might be more useful than on desktop.
 - "Preset team setups", eg select "Dtide mode" and it will quickly generate 10 empty teams, two for each wave, appropriately named.
     - Could tie into full teams import, where it will import all teams at once into said empty template.
-
+- Expanded teams toggle, (compact but full-team cards that display wheels and covenants of the units)
+- URL Encoding so that one can in theory share skeydb/importcode and get a full team layout without imports etc,
+  - Need to think a bit about this, so people dont accidentally click links and nuke their own setups
+- Since we use localstorage we could theoretically let people save/load a couple planners on-site with their comps and team setups, would suck if one clears browser data though..
 --- 
 
 ## Collection QOL / Fixes
+- Level option for awakeners (can use a simple text field with click to edit), numeric only, 1-90, default to Lv.60.
+- Capture scroll up/down to quickly bump/dump E levels on hovered item? (while shift held or something?)
+- Better sorting/ordering options, especially for box export (general component tho). 
+    - awakener/wheels only 
+    - Groud by Faction toggle (Chaos->Aeq->Caro->Ultra->Neutral)
+    - Sort by Level, Rarity, Enlighten, alphabetically (dropdown menu probably), ascending/descending
+    - ingame ordering "within" the sortings is Level->faction priority (if enabled)->rarity->index
 - Fix the confusing buttons, like the Set Owned/Unowned pair which togglers ownership on every thing currently displayed in the collection screen.
     - An Idea here is to have a sectioned off area with "batch action", that explains that every action will be applied to every item currently displayed in the collection screen.
     - Batch actions could include things like - Set owned, Set unowned, bump to +12/reset to +0, etc.

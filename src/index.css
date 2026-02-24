@@ -1,11 +1,53 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Droid Serif';
+  src:
+    url('./assets/fonts/droid-serif/DroidSerif.woff2') format('woff2'),
+    url('./assets/fonts/droid-serif/DroidSerif.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Droid Serif';
+  src:
+    url('./assets/fonts/droid-serif/DroidSerif-Italic.woff2') format('woff2'),
+    url('./assets/fonts/droid-serif/DroidSerif-Italic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Droid Serif';
+  src:
+    url('./assets/fonts/droid-serif/DroidSerif-Bold.woff2') format('woff2'),
+    url('./assets/fonts/droid-serif/DroidSerif-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Droid Serif';
+  src:
+    url('./assets/fonts/droid-serif/DroidSerif-BoldItalic.woff2') format('woff2'),
+    url('./assets/fonts/droid-serif/DroidSerif-BoldItalic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   --bg-night: #0c121c;
   --text-main: #e2e8f0;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -15,6 +57,68 @@ body {
   color: var(--text-main);
   background: var(--bg-night);
   font-family: 'Noto Sans', 'Trebuchet MS', sans-serif;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+#root {
+  isolation: isolate;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  font-size: 0.6875rem;
+  line-height: 1.1;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: anywhere;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
 }
 
 a {
@@ -38,9 +142,34 @@ a {
   text-decoration-color: rgba(253, 230, 138, 0.9);
 }
 
+.compact-filter-chip {
+  min-width: 0;
+  padding: 6px 3px;
+  font-size: clamp(8px, 0.95vw, 10px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .ui-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Droid Serif', Georgia, serif;
+  font-weight: 700;
   letter-spacing: 0.015em;
+}
+
+.ui-font-crisp,
+.ui-title,
+.builder-awakener-level,
+.collection-awakener-level-trigger,
+.collection-awakener-level-input-row,
+.collection-enlighten-text,
+.builder-dupe-owned {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .sigil-placeholder {
@@ -299,6 +428,29 @@ a {
   height: auto;
   padding-left: 0;
   align-self: flex-end;
+}
+
+.builder-awakener-level {
+  margin: 0 0 2px;
+  font-size: clamp(20px, 6.3cqw, 60px);
+  line-height: 1;
+  font-family: 'Droid Serif', Georgia, serif;
+  font-weight: 700;
+  color: rgba(248, 250, 252, 0.92);
+  text-shadow: 0 1px 2px rgba(2, 6, 12, 0.75);
+  text-align: left;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 0.02em;
+}
+
+.builder-awakener-level-prefix {
+  font-size: 0.72em;
+}
+
+.builder-awakener-level-value {
+  font-size: 1em;
 }
 
 .builder-card-name-ghost {
@@ -1002,7 +1154,94 @@ a {
   bottom: 4px;
   z-index: 14;
   display: grid;
-  gap: 4px;
+  justify-items: start;
+}
+
+.collection-awakener-level-input-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+  width: auto;
+  position: relative;
+  color: rgba(248, 250, 252, 0.94);
+  text-shadow: 0 1px 2px rgba(2, 6, 12, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.36);
+  background: rgba(2, 6, 12, 0.74);
+  padding: 1px 4px 1px 4px;
+  font-family: 'Droid Serif', Georgia, serif;
+  font-weight: 700;
+}
+
+.collection-awakener-level-prefix {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.collection-awakener-level-input {
+  overflow: hidden;
+  min-width: 32px;
+  max-width: 3em;
+  border: 0;
+  background: transparent;
+  color: rgba(248, 250, 252, 0.95);
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  text-align: left;
+}
+
+.collection-awakener-level-input:focus-visible {
+  outline: none;
+}
+
+.collection-awakener-level-input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.collection-awakener-level-trigger {
+  border: 1px solid transparent;
+  background: transparent;
+  color: rgba(248, 250, 252, 0.95);
+  font-size: 18px;
+  font-family: 'Droid Serif', Georgia, serif;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0;
+  text-shadow: 0 1px 2px rgba(2, 6, 12, 0.75);
+  cursor: text;
+  transition:
+    color 120ms ease,
+    text-shadow 120ms ease,
+    filter 120ms ease;
+}
+
+.collection-awakener-level-trigger:hover,
+.collection-awakener-level-trigger:focus-visible {
+  color: rgba(254, 243, 199, 0.98);
+  text-shadow:
+    0 1px 2px rgba(2, 6, 12, 0.78),
+    0 0 10px rgba(251, 191, 36, 0.22);
+  filter: brightness(1.04);
+}
+
+.collection-awakener-level-trigger:focus-visible {
+  outline: none;
+}
+
+.collection-awakener-level-editor {
+  display: inline-block;
+}
+
+.collection-level-inline-steps {
+  position: absolute;
+  right: 2px;
+  top: 1px;
+  bottom: 1px;
+  margin: 0;
+  gap: 0;
+  justify-content: center;
 }
 
 .collection-item-card,
@@ -1072,7 +1311,7 @@ a {
 .collection-card-level-controls {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 6px;
   min-width: 0;
   padding-bottom: 5%;
@@ -1100,6 +1339,30 @@ a {
     box-shadow 140ms ease,
     background-color 120ms ease,
     color 120ms ease;
+}
+
+.collection-step-btn-compact {
+  width: 10px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(226, 232, 240, 0.95);
+}
+
+.collection-step-btn-compact:hover,
+.collection-step-btn-compact:focus-visible {
+  background: rgba(15, 23, 42, 0.85);
+  box-shadow: none;
+}
+
+.collection-step-group-compact {
+  gap: 0;
+}
+
+.collection-step-glyph-compact {
+  width: 7px;
+  height: 7px;
 }
 
 .collection-step-glyph {

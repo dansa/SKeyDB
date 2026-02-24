@@ -306,6 +306,7 @@ describe('useBuilderViewModel', () => {
   it('hydrates ownership and keeps linked awakeners synced', () => {
     saveCollectionOwnership(window.localStorage, {
       ownedAwakeners: { '42': 5 },
+      awakenerLevels: {},
       ownedWheels: {},
       ownedPosses: {},
       displayUnowned: true,
@@ -324,6 +325,7 @@ describe('useBuilderViewModel', () => {
   it('hides unowned entries when displayUnowned is false', () => {
     saveCollectionOwnership(window.localStorage, {
       ownedAwakeners: {},
+      awakenerLevels: {},
       ownedWheels: {},
       ownedPosses: {},
       displayUnowned: false,

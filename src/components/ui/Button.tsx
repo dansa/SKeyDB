@@ -17,7 +17,7 @@ const variantClassMap: Record<ButtonVariant, string> = {
 }
 
 const sizeClassMap: Record<ButtonSize, string> = {
-  xs: 'px-3 py-1.5 text-xs',
+  xs: 'px-3 py-1.5 text-[11px] leading-none',
   sm: 'px-3 py-2 text-sm',
 }
 
@@ -31,7 +31,7 @@ export function Button({ variant = 'secondary', size = 'xs', className, type = '
       className={joinClasses(
         variantClassMap[variant],
         sizeClassMap[size],
-        'transition-colors disabled:opacity-50',
+        'ui-button transition-colors disabled:opacity-50',
         className,
       )}
       type={type}
