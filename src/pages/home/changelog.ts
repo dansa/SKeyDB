@@ -5,6 +5,11 @@ export type ChangelogItem = {
 
 export const changelogItems: ChangelogItem[] = [
   {
+    date: "2026-02-24",
+    summary:
+      "Neat feature where you can export your owned awakener/wheels box as an image in /collection!",
+  },
+  {
     date: "2026-02-23",
     summary:
       "Added our very first branding! A very cute key icon (favicon) made by lavenderjun0!",
