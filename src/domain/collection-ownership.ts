@@ -179,6 +179,38 @@ function normalizeAwakenerLinks(
   return next
 }
 
+function normalizeLinkedAwakenerLevels(
+  awakenerLevels: Record<string, number>,
+  allowedAwakenerIds: Set<string>,
+  linkedAwakenerGroups: string[][] | undefined,
+): Record<string, number> {
+  if (!linkedAwakenerGroups?.length) {
+    return awakenerLevels
+  }
+
+  const next = { ...awakenerLevels }
+  for (const group of linkedAwakenerGroups) {
+    const validGroup = group.filter((id) => allowedAwakenerIds.has(id))
+    if (validGroup.length < 2) {
+      continue
+    }
+
+    const groupLevels = validGroup
+      .map((id) => next[id])
+      .filter((value): value is number => typeof value === 'number')
+    if (!groupLevels.length) {
+      continue
+    }
+
+    const unifiedLevel = Math.max(...groupLevels)
+    for (const id of validGroup) {
+      next[id] = unifiedLevel
+    }
+  }
+
+  return next
+}
+
 function normalizeOwnershipState(
   rawState: unknown,
   catalog: CollectionOwnershipCatalog,
@@ -195,7 +227,11 @@ function normalizeOwnershipState(
       awakenerIdSet,
       catalog.linkedAwakenerGroups,
     ),
-    awakenerLevels: normalizeAwakenerLevelMap(state.awakenerLevels, catalog.awakenerIds),
+    awakenerLevels: normalizeLinkedAwakenerLevels(
+      normalizeAwakenerLevelMap(state.awakenerLevels, catalog.awakenerIds),
+      awakenerIdSet,
+      catalog.linkedAwakenerGroups,
+    ),
     ownedWheels: normalizeOwnedMap(state.ownedWheels, toAllowedSet(catalog.wheelIds)),
     ownedPosses: normalizePosseOwnedMap(state.ownedPosses, toAllowedSet(catalog.posseIds)),
     displayUnowned: state.displayUnowned !== false,
@@ -326,15 +362,16 @@ function withLinkedAwakenerLevel(
   level: number,
   linkedAwakenerGroups: string[][] | undefined,
 ): Record<string, number> {
+  const next = { ...map }
+  next[id] = level
   if (!linkedAwakenerGroups?.length) {
-    return map
+    return next
   }
   const matchingGroup = linkedAwakenerGroups.find((group) => group.includes(id))
   if (!matchingGroup) {
-    return map
+    return next
   }
 
-  const next = { ...map }
   for (const linkedId of matchingGroup) {
     next[linkedId] = level
   }
@@ -444,12 +481,16 @@ export function setAwakenerLevel(
   state: CollectionOwnershipState,
   id: string,
   level: number,
+  catalog: CollectionOwnershipCatalog = createDefaultCollectionOwnershipCatalog(),
 ): CollectionOwnershipState {
+  const normalizedLevel = normalizeAwakenerLevel(level)
   return {
     ...state,
-    awakenerLevels: {
-      ...state.awakenerLevels,
-      [id]: normalizeAwakenerLevel(level),
-    },
+    awakenerLevels: withLinkedAwakenerLevel(
+      state.awakenerLevels,
+      id,
+      normalizedLevel,
+      catalog.linkedAwakenerGroups,
+    ),
   }
 }

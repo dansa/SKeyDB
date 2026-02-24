@@ -97,21 +97,25 @@ describe('useCollectionViewModel', () => {
     const { result } = renderHook(() => useCollectionViewModel())
 
     expect(result.current.getAwakenerLevel('ramona')).toBe(60)
+    expect(result.current.getAwakenerLevel('ramona: timeworn')).toBe(60)
 
     act(() => {
       result.current.setAwakenerLevel('ramona', 78)
     })
     expect(result.current.getAwakenerLevel('ramona')).toBe(78)
+    expect(result.current.getAwakenerLevel('ramona: timeworn')).toBe(78)
 
     act(() => {
       result.current.setAwakenerLevel('ramona', 0)
     })
     expect(result.current.getAwakenerLevel('ramona')).toBe(1)
+    expect(result.current.getAwakenerLevel('ramona: timeworn')).toBe(1)
 
     act(() => {
       result.current.setAwakenerLevel('ramona', 999)
     })
     expect(result.current.getAwakenerLevel('ramona')).toBe(90)
+    expect(result.current.getAwakenerLevel('ramona: timeworn')).toBe(90)
   })
 
   it('defaults awakener sort to level descending with faction grouping off', () => {
@@ -137,5 +141,37 @@ describe('useCollectionViewModel', () => {
     expect(second.result.current.awakenerSortKey).toBe('ALPHABETICAL')
     expect(second.result.current.awakenerSortDirection).toBe('ASC')
     expect(second.result.current.awakenerSortGroupByFaction).toBe(true)
+  })
+
+  it('marks awakener sort pending after level changes and clears after apply', () => {
+    const { result } = renderHook(() => useCollectionViewModel())
+
+    expect(result.current.awakenerSortHasPendingChanges).toBe(false)
+
+    act(() => {
+      result.current.setAwakenerLevel('ramona', 70)
+    })
+    expect(result.current.awakenerSortHasPendingChanges).toBe(true)
+
+    act(() => {
+      result.current.applyAwakenerSortChanges()
+    })
+    expect(result.current.awakenerSortHasPendingChanges).toBe(false)
+  })
+
+  it('marks wheel sort pending after level changes and clears after apply', () => {
+    const { result } = renderHook(() => useCollectionViewModel())
+
+    expect(result.current.wheelSortHasPendingChanges).toBe(false)
+
+    act(() => {
+      result.current.increaseLevel('wheels', 'SR19')
+    })
+    expect(result.current.wheelSortHasPendingChanges).toBe(true)
+
+    act(() => {
+      result.current.applyWheelSortChanges()
+    })
+    expect(result.current.wheelSortHasPendingChanges).toBe(false)
   })
 })

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { getAwakeners } from '../../domain/awakeners'
 import { searchAwakeners } from '../../domain/awakeners-search'
 import {
@@ -52,6 +52,56 @@ function clampOwnershipLevel(level: number): number {
     return 15
   }
   return level
+}
+
+function useLatestRef<T>(value: T) {
+  const ref = useRef(value)
+  useEffect(() => {
+    ref.current = value
+  }, [value])
+  return ref
+}
+
+function freezeItemsByAppliedOrder<T>(
+  items: T[],
+  liveOrder: string[],
+  appliedOrder: string[],
+  getItemId: (item: T) => string,
+) {
+  const itemById = new Map(items.map((item) => [getItemId(item), item]))
+  const liveIdSet = new Set(liveOrder)
+  const kept = appliedOrder.filter((id) => liveIdSet.has(id))
+  const keptIdSet = new Set(kept)
+  const appended = liveOrder.filter((id) => !keptIdSet.has(id))
+  const mergedOrder = [...kept, ...appended]
+  return mergedOrder
+    .map((id) => itemById.get(id))
+    .flatMap((item) => (item ? [item] : []))
+}
+
+function useFrozenSortOrder<T>(items: T[], getItemId: (item: T) => string) {
+  const [appliedOrder, setAppliedOrder] = useState<string[]>([])
+  const [hasPendingChanges, setHasPendingChanges] = useState(false)
+
+  const liveOrder = useMemo(() => items.map(getItemId), [items, getItemId])
+  const liveOrderRef = useLatestRef(liveOrder)
+
+  const frozenItems = useMemo(
+    () => freezeItemsByAppliedOrder(items, liveOrder, appliedOrder, getItemId),
+    [items, liveOrder, appliedOrder, getItemId],
+  )
+
+  const applyChanges = useCallback(() => {
+    setAppliedOrder(liveOrderRef.current)
+    setHasPendingChanges(false)
+  }, [liveOrderRef])
+
+  return {
+    frozenItems,
+    hasPendingChanges,
+    setHasPendingChanges,
+    applyChanges,
+  }
 }
 
 function loadAwakenerSortConfig(storage: StorageLike | null): AwakenerSortConfig {
@@ -176,6 +226,12 @@ export function useCollectionViewModel() {
     awakenerSortDirection,
     awakenerSortGroupByFaction,
   ])
+  const {
+    frozenItems: frozenFilteredAwakeners,
+    hasPendingChanges: awakenerSortHasPendingChanges,
+    setHasPendingChanges: setAwakenerSortHasPendingChanges,
+    applyChanges: applyAwakenerSortFreeze,
+  } = useFrozenSortOrder(filteredAwakeners, (awakener) => awakener.name)
 
   const searchedPosses = useMemo(
     () => searchPosses(posses, queryByTab.posses),
@@ -260,6 +316,27 @@ export function useCollectionViewModel() {
     displayUnowned,
     ownership,
   ])
+  const {
+    frozenItems: frozenFilteredWheels,
+    hasPendingChanges: wheelSortHasPendingChanges,
+    setHasPendingChanges: setWheelSortHasPendingChanges,
+    applyChanges: applyWheelSortFreeze,
+  } = useFrozenSortOrder(filteredWheels, (wheel) => wheel.id)
+
+  useEffect(() => {
+    applyAwakenerSortFreeze()
+  }, [
+    awakenerFilter,
+    queryByTab.awakeners,
+    displayUnowned,
+    awakenerSortKey,
+    awakenerSortDirection,
+    awakenerSortGroupByFaction,
+    applyAwakenerSortFreeze,
+  ])
+  useEffect(() => {
+    applyWheelSortFreeze()
+  }, [queryByTab.wheels, displayUnowned, wheelRarityFilter, wheelMainstatFilter, applyWheelSortFreeze])
 
   function setQuery(value: string) {
     setQueryByTab((prev) => ({ ...prev, [tab]: value }))
@@ -288,6 +365,13 @@ export function useCollectionViewModel() {
       rememberedLevelsRef.current[kind][id] = currentLevel
       return clearOwnedEntry(prev, kind, id, ownershipCatalog)
     })
+    if (kind === 'awakeners') {
+      setAwakenerSortHasPendingChanges(true)
+      return
+    }
+    if (kind === 'wheels') {
+      setWheelSortHasPendingChanges(true)
+    }
   }
 
   function increaseLevel(kind: 'awakeners' | 'wheels', id: string) {
@@ -298,6 +382,13 @@ export function useCollectionViewModel() {
       }
       return setOwnedLevel(prev, kind, id, clampOwnershipLevel(currentLevel + 1), ownershipCatalog)
     })
+    if (kind === 'awakeners') {
+      setAwakenerSortHasPendingChanges(true)
+      return
+    }
+    if (kind === 'wheels') {
+      setWheelSortHasPendingChanges(true)
+    }
   }
 
   function decreaseLevel(kind: 'awakeners' | 'wheels', id: string) {
@@ -308,6 +399,13 @@ export function useCollectionViewModel() {
       }
       return setOwnedLevel(prev, kind, id, currentLevel - 1, ownershipCatalog)
     })
+    if (kind === 'awakeners') {
+      setAwakenerSortHasPendingChanges(true)
+      return
+    }
+    if (kind === 'wheels') {
+      setWheelSortHasPendingChanges(true)
+    }
   }
 
   function markFilteredOwned() {
@@ -343,6 +441,13 @@ export function useCollectionViewModel() {
       }
       return next
     })
+    if (tab === 'awakeners') {
+      setAwakenerSortHasPendingChanges(true)
+      return
+    }
+    if (tab === 'wheels') {
+      setWheelSortHasPendingChanges(true)
+    }
   }
 
   function markFilteredUnowned() {
@@ -384,6 +489,13 @@ export function useCollectionViewModel() {
       }
       return next
     })
+    if (tab === 'awakeners') {
+      setAwakenerSortHasPendingChanges(true)
+      return
+    }
+    if (tab === 'wheels') {
+      setWheelSortHasPendingChanges(true)
+    }
   }
 
   function getAwakenerOwnedLevel(awakenerName: string): number | null {
@@ -407,7 +519,16 @@ export function useCollectionViewModel() {
     if (!awakenerId) {
       return
     }
-    setOwnership((prev) => setAwakenerLevel(prev, awakenerId, level))
+    setOwnership((prev) => setAwakenerLevel(prev, awakenerId, level, ownershipCatalog))
+    setAwakenerSortHasPendingChanges(true)
+  }
+
+  function applyAwakenerSortChanges() {
+    applyAwakenerSortFreeze()
+  }
+
+  function applyWheelSortChanges() {
+    applyWheelSortFreeze()
   }
 
   useEffect(() => {
@@ -457,8 +578,6 @@ export function useCollectionViewModel() {
       setAwakenerSortDirection((current) => (current === 'DESC' ? 'ASC' : 'DESC')),
     awakenerSortGroupByFaction,
     setAwakenerSortGroupByFaction,
-    filteredAwakeners,
-    filteredWheels,
     filteredPosses,
     getAwakenerOwnedLevel,
     getAwakenerLevel: getAwakenerLevelByName,
@@ -477,9 +596,17 @@ export function useCollectionViewModel() {
         return parsed
       }
       setOwnership(parsed.state)
+      applyAwakenerSortFreeze()
+      applyWheelSortFreeze()
       return parsed
     },
     awakenerIdByName,
+    awakenerSortHasPendingChanges,
+    applyAwakenerSortChanges,
+    wheelSortHasPendingChanges,
+    applyWheelSortChanges,
+    filteredWheels: frozenFilteredWheels,
+    filteredAwakeners: frozenFilteredAwakeners,
   }
 }
 

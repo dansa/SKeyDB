@@ -28,9 +28,11 @@ export function AwakenerLevelControl({
 }: AwakenerLevelControlProps) {
   const [isEditing, setIsEditing] = useState(false)
   const [draftLevel, setDraftLevel] = useState('')
+  const [isDraftDirty, setIsDraftDirty] = useState(false)
   const inputRef = useRef<HTMLInputElement | null>(null)
   const rootRef = useRef<HTMLDivElement | null>(null)
   const draftLevelRef = useRef('')
+  const isDraftDirtyRef = useRef(false)
   const levelRef = useRef(level)
 
   useEffect(() => {
@@ -43,6 +45,10 @@ export function AwakenerLevelControl({
   useEffect(() => {
     draftLevelRef.current = draftLevel
   }, [draftLevel])
+
+  useEffect(() => {
+    isDraftDirtyRef.current = isDraftDirty
+  }, [isDraftDirty])
 
   useEffect(() => {
     levelRef.current = level
@@ -71,7 +77,8 @@ export function AwakenerLevelControl({
 
       // Outside click commits current draft. Ownership-hitbox suppression is handled
       // by the parent card, scoped to this awakener only.
-      const parsed = parseNumericLevel(draftLevelRef.current)
+      const rawDraft = isDraftDirtyRef.current ? draftLevelRef.current : String(levelRef.current)
+      const parsed = parseNumericLevel(rawDraft)
       if (parsed !== null) {
         onLevelChange(parsed)
       }
@@ -88,11 +95,13 @@ export function AwakenerLevelControl({
   }, [isEditing, onLevelChange, onCommitOutsideClick])
 
   function commitDraft() {
-    const parsed = parseNumericLevel(draftLevel)
+    const rawDraft = isDraftDirty ? draftLevel : String(level)
+    const parsed = parseNumericLevel(rawDraft)
     if (parsed !== null) {
       onLevelChange(parsed)
     }
     setIsEditing(false)
+    setIsDraftDirty(false)
   }
 
   function handleStep(delta: -1 | 1) {
@@ -102,6 +111,7 @@ export function AwakenerLevelControl({
     const nextText = String(nextLevel)
     draftLevelRef.current = nextText
     setDraftLevel(nextText)
+    setIsDraftDirty(true)
     onLevelChange(nextLevel)
   }
 
@@ -113,6 +123,7 @@ export function AwakenerLevelControl({
         disabled={disabled}
         onClick={() => {
           setDraftLevel(String(level))
+          setIsDraftDirty(false)
           setIsEditing(true)
         }}
         type="button"
@@ -131,7 +142,10 @@ export function AwakenerLevelControl({
           aria-label={`Awakener level for ${name}`}
           className="collection-awakener-level-input"
           inputMode="numeric"
-          onChange={(event) => setDraftLevel(event.target.value.replace(/[^\d]/g, ''))}
+          onChange={(event) => {
+            setDraftLevel(event.target.value.replace(/[^\d]/g, ''))
+            setIsDraftDirty(true)
+          }}
           onKeyDown={(event) => {
             if (event.key === 'Enter') {
               commitDraft()
@@ -142,7 +156,7 @@ export function AwakenerLevelControl({
           }}
           ref={inputRef}
           type="text"
-          value={draftLevel}
+          value={isDraftDirty ? draftLevel : String(level)}
         />
         <div className="collection-step-group collection-step-group-compact collection-level-inline-steps">
           <CollectionLevelStepButton

@@ -115,8 +115,22 @@ export function CollectionPage() {
     kind: 'awakeners' | 'wheels',
     id: string,
     ownedLevel: number | null,
+    awakenerName?: string,
   ) {
-    if (!event.shiftKey || ownedLevel === null) {
+    if (!event.shiftKey || event.deltaY === 0 || ownedLevel === null) {
+      return
+    }
+
+    const wheelDirection = event.deltaY < 0 ? 1 : -1
+    const cardElement = event.currentTarget
+    const hasActiveLevelEditor = cardElement.querySelector('.collection-awakener-level-editor') !== null
+    if (kind === 'awakeners' && awakenerName && hasActiveLevelEditor) {
+      event.preventDefault()
+      const currentLevel = model.getAwakenerLevel(awakenerName)
+      const nextLevel = Math.min(90, Math.max(1, currentLevel + wheelDirection))
+      if (nextLevel !== currentLevel) {
+        model.setAwakenerLevel(awakenerName, nextLevel)
+      }
       return
     }
 
@@ -126,13 +140,11 @@ export function CollectionPage() {
     }
 
     event.preventDefault()
-    if (event.deltaY < 0) {
+    if (wheelDirection > 0) {
       model.increaseLevel(kind, id)
       return
     }
-    if (event.deltaY > 0) {
-      model.decreaseLevel(kind, id)
-    }
+    model.decreaseLevel(kind, id)
   }
 
   function handleSaveToFile() {
@@ -269,6 +281,15 @@ export function CollectionPage() {
                   sortDirectionAriaLabel="Toggle collection awakener sort direction"
                   sortSelectAriaLabel="Collection awakener sort key"
                 />
+                {model.awakenerSortHasPendingChanges ? (
+                  <Button
+                    className="w-full px-2 py-1 text-[10px] uppercase tracking-wide"
+                    onClick={model.applyAwakenerSortChanges}
+                    type="button"
+                  >
+                    Apply Changes
+                  </Button>
+                ) : null}
               </div>
             </div>
           ) : null}
@@ -318,6 +339,17 @@ export function CollectionPage() {
                   </button>
                 ))}
               </div>
+              {model.wheelSortHasPendingChanges ? (
+                <div className="mt-1">
+                  <Button
+                    className="w-full px-2 py-1 text-[10px] uppercase tracking-wide"
+                    onClick={model.applyWheelSortChanges}
+                    type="button"
+                  >
+                    Apply Changes
+                  </Button>
+                </div>
+              ) : null}
             </>
           ) : null}
 
@@ -427,7 +459,9 @@ export function CollectionPage() {
                       className={`collection-card-frame relative aspect-[25/56] overflow-hidden border border-slate-400/35 bg-slate-900/75 transition-[border-color,box-shadow] duration-150 group-hover/collection:border-amber-200/45 group-hover/collection:shadow-[0_0_0_1px_rgba(251,191,36,0.15)] ${
                         ownedLevel === null ? 'collection-card-frame-unowned' : ''
                       }`}
-                      onWheel={(event) => handleCollectionCardWheel(event, 'awakeners', awakenerId, ownedLevel)}
+                      onWheel={(event) =>
+                        handleCollectionCardWheel(event, 'awakeners', awakenerId, ownedLevel, awakener.name)
+                      }
                     >
                       <button
                         aria-label={`Toggle ownership for ${formatAwakenerNameForUi(awakener.name)}`}

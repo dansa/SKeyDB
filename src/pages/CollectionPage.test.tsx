@@ -21,6 +21,15 @@ vi.mock('../domain/wheels', () => ({
       mainstatKey: 'CRIT_RATE',
     },
     {
+      id: 'C02',
+      assetId: 'Weapon_Full_C02',
+      name: 'Call of the Deep',
+      rarity: 'SSR',
+      faction: 'CHAOS',
+      awakener: 'ogier',
+      mainstatKey: 'ATK',
+    },
+    {
       id: 'SR01',
       assetId: 'Weapon_Full_SR01',
       name: 'Practice Wheel',
@@ -160,6 +169,61 @@ describe('CollectionPage global search capture', () => {
     expect(screen.queryByRole('button', { name: /edit awakener level for ramona/i })).not.toBeInTheDocument()
   })
 
+  it('freezes awakener card order after level edits until apply changes is clicked', () => {
+    render(<CollectionPage />)
+
+    expect(screen.queryByRole('button', { name: /apply changes/i })).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ogier/i }))
+    const ogierLevelInput = screen.getByRole('textbox', { name: /awakener level for ogier/i })
+    fireEvent.change(ogierLevelInput, { target: { value: '90' } })
+    fireEvent.keyDown(ogierLevelInput, { key: 'Enter' })
+
+    expect(screen.getByRole('button', { name: /apply changes/i })).toBeInTheDocument()
+
+    const titlesBeforeApply = Array.from(document.querySelectorAll('.collection-card-title')).map((element) =>
+      element.textContent?.trim(),
+    )
+    expect(titlesBeforeApply[0]).toBe('Ramona')
+    expect(titlesBeforeApply[1]).toBe('Ogier')
+
+    fireEvent.click(screen.getByRole('button', { name: /apply changes/i }))
+
+    const titlesAfterApply = Array.from(document.querySelectorAll('.collection-card-title')).map((element) =>
+      element.textContent?.trim(),
+    )
+    expect(titlesAfterApply[0]).toBe('Ogier')
+    expect(titlesAfterApply[1]).toBe('Ramona')
+  })
+
+  it('freezes wheel card order after enlighten edits until apply changes is clicked', () => {
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Wheels' }))
+    expect(screen.queryByRole('button', { name: /apply changes/i })).not.toBeInTheDocument()
+
+    const callOfTheDeepTitle = screen.getByText('Call of the Deep')
+    const callOfTheDeepCard = callOfTheDeepTitle.closest('.collection-card-frame')
+    expect(callOfTheDeepCard).toBeTruthy()
+    fireEvent.click(within(callOfTheDeepCard as HTMLElement).getByRole('button', { name: /increase enlighten level/i }))
+
+    expect(screen.getByRole('button', { name: /apply changes/i })).toBeInTheDocument()
+
+    const titlesBeforeApply = Array.from(document.querySelectorAll('.collection-card-title')).map((element) =>
+      element.textContent?.trim(),
+    )
+    expect(titlesBeforeApply[0]).toBe('Birth of a Soul')
+    expect(titlesBeforeApply[1]).toBe('Call of the Deep')
+
+    fireEvent.click(screen.getByRole('button', { name: /apply changes/i }))
+
+    const titlesAfterApply = Array.from(document.querySelectorAll('.collection-card-title')).map((element) =>
+      element.textContent?.trim(),
+    )
+    expect(titlesAfterApply[0]).toBe('Call of the Deep')
+    expect(titlesAfterApply[1]).toBe('Birth of a Soul')
+  })
+
   it('uses click-to-edit awakener level with Lv. prefix inside editor', () => {
     render(<CollectionPage />)
 
@@ -185,6 +249,46 @@ describe('CollectionPage global search capture', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /increase awakener level for ramona/i }))
     expect(ramonaLevelInput).toHaveValue('61')
+  })
+
+  it('steps level while shift+scrolling on card when level edit is active', () => {
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ramona/i }))
+    const ramonaLevelInput = screen.getByRole('textbox', { name: /awakener level for ramona/i })
+    expect(ramonaLevelInput).toHaveValue('60')
+
+    const ramonaOwnershipButton = screen.getByRole('button', { name: /toggle ownership for ramona/i })
+    const ramonaCard = ramonaOwnershipButton.closest('.collection-card-frame')
+    expect(ramonaCard).toBeTruthy()
+    const ramonaScope = within(ramonaCard as HTMLElement)
+    expect(ramonaScope.getByRole('button', { name: /decrease enlighten level/i })).toBeDisabled()
+
+    fireEvent.wheel(ramonaCard as HTMLElement, { deltaY: -80 })
+    expect(ramonaLevelInput).toHaveValue('60')
+    expect(ramonaScope.getByRole('button', { name: /decrease enlighten level/i })).toBeDisabled()
+
+    fireEvent.wheel(ramonaCard as HTMLElement, { deltaY: -80, shiftKey: true })
+    expect(ramonaLevelInput).toHaveValue('61')
+    expect(ramonaScope.getByRole('button', { name: /decrease enlighten level/i })).toBeDisabled()
+
+    fireEvent.wheel(ramonaCard as HTMLElement, { deltaY: 80, shiftKey: true })
+    expect(ramonaLevelInput).toHaveValue('60')
+    expect(ramonaScope.getByRole('button', { name: /decrease enlighten level/i })).toBeDisabled()
+  })
+
+  it('steps level while shift+scrolling directly on active level input', () => {
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ramona/i }))
+    const ramonaLevelInput = screen.getByRole('textbox', { name: /awakener level for ramona/i })
+    expect(ramonaLevelInput).toHaveValue('60')
+
+    fireEvent.wheel(ramonaLevelInput, { deltaY: -90, shiftKey: true })
+    expect(ramonaLevelInput).toHaveValue('61')
+
+    fireEvent.wheel(ramonaLevelInput, { deltaY: 90, shiftKey: true })
+    expect(ramonaLevelInput).toHaveValue('60')
   })
 
   it('commits level edit on outside click without toggling ownership', () => {
