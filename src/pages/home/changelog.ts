@@ -7,7 +7,12 @@ export const changelogItems: ChangelogItem[] = [
   {
     date: "2026-02-24",
     summary:
-      "Neat feature where you can export your owned awakener/wheels box as an image in /collection!",
+      "Collection now supports editable awakener Lv. tracking (1-90), plus that level is shown on builder cards too.",
+  },
+  {
+    date: "2026-02-24",
+    summary:
+      "Box export in /collection got a big glow-up: live preview controls, cleaner styling, and more reliable PNG output across browsers.",
   },
   {
     date: "2026-02-23",

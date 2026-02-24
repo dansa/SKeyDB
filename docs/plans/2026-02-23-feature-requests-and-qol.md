@@ -42,7 +42,7 @@
 --- 
 
 ## Collection QOL / Fixes
-- Level option for awakeners (can use a simple text field with click to edit), numeric only, 1-90, default to Lv.60.
+- [Done 2026-02-24] Level option for awakeners is live with click-to-edit controls, numeric input, and clamp to Lv.1-90 (default Lv.60).
 - Capture scroll up/down to quickly bump/dump E levels on hovered item? (while shift held or something?)
 - Better sorting/ordering options, especially for box export (general component tho). 
     - awakener/wheels only 
@@ -52,8 +52,10 @@
 - Fix the confusing buttons, like the Set Owned/Unowned pair which togglers ownership on every thing currently displayed in the collection screen.
     - An Idea here is to have a sectioned off area with "batch action", that explains that every action will be applied to every item currently displayed in the collection screen.
     - Batch actions could include things like - Set owned, Set unowned, bump to +12/reset to +0, etc.
-- Add back the display unowned/owned toggle for filters, in case people want to easily filter things they own and what they don't.
+- [Done 2026-02-24] Display unowned toggle is available on collection filters (default on).
 - Consider if the current layout of sidebar filters and big grid of items is the best way to go, or a menu placed on top of the grid or something would make more sense.
+
+- [Done 2026-02-24] Box export flow now includes richer layout controls, rarity filtering for wheel exports, and hardened PNG export fallback behavior for Firefox/font issues.
 
 ## Collection Features
 - Not much to expand here. Better filters, batch actions, and (maybe) a better page layout.
