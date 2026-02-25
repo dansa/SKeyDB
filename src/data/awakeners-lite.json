@@ -1170,7 +1170,7 @@
   {
     "name": "doll: inferno",
     "faction": "CHAOS",
-    "id": 14,
+    "id": 18,
     "rarity": "Genesis",
     "aliases": [
       "doll: inferno",
@@ -1265,7 +1265,7 @@
   {
     "name": "doresain",
     "faction": "CARO",
-    "id": 15,
+    "id": 14,
     "rarity": "SSR",
     "aliases": [
       "doresain"
@@ -1363,7 +1363,7 @@
   {
     "name": "erica",
     "faction": "ULTRA",
-    "id": 16,
+    "id": 15,
     "rarity": "SSR",
     "aliases": [
       "erica"
@@ -1457,7 +1457,7 @@
   {
     "name": "faint",
     "faction": "CARO",
-    "id": 17,
+    "id": 16,
     "rarity": "SSR",
     "aliases": [
       "faint"
@@ -1546,7 +1546,7 @@
   {
     "name": "faros",
     "faction": "AEQUOR",
-    "id": 18,
+    "id": 17,
     "rarity": "SSR",
     "aliases": [
       "faros"
@@ -1635,7 +1635,7 @@
   {
     "name": "goliath",
     "faction": "AEQUOR",
-    "id": 19,
+    "id": 21,
     "rarity": "SSR",
     "aliases": [
       "goliath"
@@ -1729,7 +1729,7 @@
   {
     "name": "hameln",
     "faction": "CHAOS",
-    "id": 20,
+    "id": 22,
     "rarity": "SSR",
     "aliases": [
       "hameln"
@@ -1823,7 +1823,7 @@
   {
     "name": "helot",
     "faction": "CARO",
-    "id": 21,
+    "id": 23,
     "rarity": "SSR",
     "aliases": [
       "helot"
@@ -1912,7 +1912,7 @@
   {
     "name": "helot: catena",
     "faction": "CARO",
-    "id": 22,
+    "id": 19,
     "rarity": "Genesis",
     "aliases": [
       "helot: catena",
@@ -2012,7 +2012,7 @@
   {
     "name": "horla",
     "faction": "ULTRA",
-    "id": 23,
+    "id": 24,
     "rarity": "SSR",
     "aliases": [
       "horla"
@@ -2101,7 +2101,7 @@
   {
     "name": "jenkins",
     "faction": "ULTRA",
-    "id": 24,
+    "id": 25,
     "rarity": "SSR",
     "aliases": [
       "jenkins"
@@ -2195,7 +2195,7 @@
   {
     "name": "karen",
     "faction": "CHAOS",
-    "id": 25,
+    "id": 26,
     "rarity": "SSR",
     "aliases": [
       "karen"
@@ -2289,7 +2289,7 @@
   {
     "name": "kathigu-ra",
     "faction": "CHAOS",
-    "id": 26,
+    "id": 27,
     "rarity": "SSR",
     "aliases": [
       "kathigu-ra",
@@ -2384,7 +2384,7 @@
   {
     "name": "leigh",
     "faction": "CARO",
-    "id": 27,
+    "id": 28,
     "rarity": "SSR",
     "aliases": [
       "leigh"
@@ -2473,7 +2473,7 @@
   {
     "name": "lily",
     "faction": "CHAOS",
-    "id": 28,
+    "id": 29,
     "rarity": "SSR",
     "aliases": [
       "lily"
@@ -2562,7 +2562,7 @@
   {
     "name": "liz",
     "faction": "ULTRA",
-    "id": 29,
+    "id": 30,
     "rarity": "SSR",
     "aliases": [
       "liz"
@@ -2661,7 +2661,7 @@
   {
     "name": "lotan",
     "faction": "CHAOS",
-    "id": 30,
+    "id": 31,
     "rarity": "SR",
     "aliases": [
       "lotan"
@@ -2750,7 +2750,7 @@
   {
     "name": "miryam",
     "faction": "AEQUOR",
-    "id": 31,
+    "id": 32,
     "rarity": "SSR",
     "aliases": [
       "miryam"
@@ -2859,7 +2859,7 @@
   {
     "name": "mouchette",
     "faction": "CHAOS",
-    "id": 32,
+    "id": 33,
     "rarity": "SSR",
     "aliases": [
       "mouchette"
@@ -2948,7 +2948,7 @@
   {
     "name": "murphy",
     "faction": "AEQUOR",
-    "id": 33,
+    "id": 34,
     "rarity": "SSR",
     "aliases": [
       "murphy"
@@ -3037,7 +3037,7 @@
   {
     "name": "murphy: fauxborn",
     "faction": "AEQUOR",
-    "id": 34,
+    "id": 35,
     "rarity": "Genesis",
     "aliases": [
       "murphy: fauxborn",
@@ -3127,7 +3127,7 @@
   {
     "name": "nautila",
     "faction": "CHAOS",
-    "id": 35,
+    "id": 36,
     "rarity": "SSR",
     "aliases": [
       "nautila"
@@ -3216,7 +3216,7 @@
   {
     "name": "nymphaea",
     "faction": "CHAOS",
-    "id": 36,
+    "id": 37,
     "rarity": "SSR",
     "aliases": [
       "nymphaea"
@@ -3305,7 +3305,7 @@
   {
     "name": "ogier",
     "faction": "CHAOS",
-    "id": 37,
+    "id": 38,
     "rarity": "SR",
     "aliases": [
       "ogier"
@@ -3394,7 +3394,7 @@
   {
     "name": "pandia",
     "faction": "CHAOS",
-    "id": 38,
+    "id": 39,
     "rarity": "SSR",
     "aliases": [
       "pandia"
@@ -3483,7 +3483,7 @@
   {
     "name": "pickman",
     "faction": "CARO",
-    "id": 39,
+    "id": 40,
     "rarity": "SSR",
     "aliases": [
       "pickman"
@@ -3572,7 +3572,7 @@
   {
     "name": "pollux",
     "faction": "ULTRA",
-    "id": 40,
+    "id": 41,
     "rarity": "SSR",
     "aliases": [
       "pollux"
@@ -3666,7 +3666,7 @@
   {
     "name": "ramona",
     "faction": "CHAOS",
-    "id": 41,
+    "id": 42,
     "rarity": "SR",
     "aliases": [
       "ramona"
@@ -3755,7 +3755,7 @@
   {
     "name": "ramona: timeworn",
     "faction": "CHAOS",
-    "id": 42,
+    "id": 20,
     "rarity": "Genesis",
     "aliases": [
       "ramona: timeworn",
