@@ -1481,7 +1481,7 @@
       "C1": {
         "name": "Blinding Color",
         "cost": "2",
-        "description": "Faint gains (25/30/35/40/45/50) Aliemus. {Rouse}: Gain (60/72/84/96/108/120%% {ATK}) stacks of {Counter}. Death Resistance decay rate is reduced from 50% to 45% this battle. When you play a Faint Command Card, {steal} (5/6/7/8/9/10% {ATK}) Temporary {STR} from all enemies. At the end of the turn, deal Fixed DMG equal to 50% of {Counter}. {Retain}."
+        "description": "Faint gains (25/30/35/40/45/50) Aliemus. {Rouse}: Gain (60/72/84/96/108/120%% {ATK}) stacks of {Counter}. {Death Resistance} decay rate is reduced from 50% to 45% this battle. When you play a Faint Command Card, {steal} (5/6/7/8/9/10% {ATK}) Temporary {STR} from all enemies. At the end of the turn, deal Fixed DMG equal to 50% of {Counter}. {Retain}."
       },
       "C2": {
         "name": "Strike",
