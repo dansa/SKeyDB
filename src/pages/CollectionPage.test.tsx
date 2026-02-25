@@ -159,6 +159,19 @@ describe('CollectionPage global search capture', () => {
     expect(screen.getByText('Ogier')).toBeInTheDocument()
   })
 
+  it('sorts unowned awakeners last when display unowned is enabled', () => {
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /toggle ownership for ramona/i }))
+    fireEvent.click(screen.getByRole('button', { name: /apply changes/i }))
+
+    const titles = Array.from(document.querySelectorAll('.collection-card-title')).map((element) =>
+      element.textContent?.trim(),
+    )
+    expect(titles[0]).toBe('Ogier')
+    expect(titles[1]).toBe('Ramona')
+  })
+
   it('hides awakener level editor for unowned awakeners', () => {
     render(<CollectionPage />)
 
@@ -167,6 +180,25 @@ describe('CollectionPage global search capture', () => {
     fireEvent.click(screen.getByRole('button', { name: /toggle ownership for ramona/i }))
 
     expect(screen.queryByRole('button', { name: /edit awakener level for ramona/i })).not.toBeInTheDocument()
+  })
+
+  it('sorts posses by ownership then index', () => {
+    render(<CollectionPage />)
+    fireEvent.click(screen.getByRole('button', { name: 'Posses' }))
+
+    const initialTitles = Array.from(document.querySelectorAll('.collection-card-title')).map((element) =>
+      element.textContent?.trim(),
+    )
+    expect(initialTitles[0]).toBe('Manor Echoes')
+    expect(initialTitles[1]).toBe('Faded Legacy')
+
+    fireEvent.click(screen.getByRole('button', { name: /toggle ownership for manor echoes/i }))
+
+    const afterToggleTitles = Array.from(document.querySelectorAll('.collection-card-title')).map((element) =>
+      element.textContent?.trim(),
+    )
+    expect(afterToggleTitles[0]).toBe('Faded Legacy')
+    expect(afterToggleTitles[1]).toBe('Manor Echoes')
   })
 
   it('freezes awakener card order after level edits until apply changes is clicked', () => {

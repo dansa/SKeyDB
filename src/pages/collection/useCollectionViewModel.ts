@@ -25,6 +25,7 @@ import {
 } from '../../domain/wheel-mainstat-filters'
 import {
   compareAwakenersForCollectionSort,
+  comparePossesForCollectionDefaultSort,
   compareWheelsForCollectionDefaultSort,
   DEFAULT_AWAKENER_SORT_CONFIG,
   type AwakenerSortConfig,
@@ -163,7 +164,7 @@ export function useCollectionViewModel() {
     [],
   )
   const wheelIndexById = useMemo(() => new Map(wheels.map((wheel, index) => [wheel.id, index])), [wheels])
-  const posses = useMemo(() => [...getPosses()].sort((a, b) => a.name.localeCompare(b.name)), [])
+  const posses = useMemo(() => [...getPosses()], [])
 
   const activeQuery = queryByTab[tab]
   const awakenerIdByName = useMemo(() => new Map(awakeners.map((awakener) => [awakener.name, String(awakener.id)])), [awakeners])
@@ -191,21 +192,25 @@ export function useCollectionViewModel() {
       const rightId = awakenerIdByName.get(right.name)
       const leftOwnedLevel = leftId ? getOwnedLevel(ownership, 'awakeners', leftId) : 0
       const rightOwnedLevel = rightId ? getOwnedLevel(ownership, 'awakeners', rightId) : 0
-      const leftAwakenerLevel = leftId ? getAwakenerLevel(ownership, leftId) : 0
-      const rightAwakenerLevel = rightId ? getAwakenerLevel(ownership, rightId) : 0
+      const leftIsOwned = leftOwnedLevel !== null
+      const rightIsOwned = rightOwnedLevel !== null
+      const leftAwakenerLevel = leftIsOwned && leftId ? getAwakenerLevel(ownership, leftId) : 1
+      const rightAwakenerLevel = rightIsOwned && rightId ? getAwakenerLevel(ownership, rightId) : 1
 
       return compareAwakenersForCollectionSort(
         {
           label: formatAwakenerNameForUi(left.name),
           index: left.id,
-          enlighten: leftOwnedLevel ?? 0,
+          owned: leftIsOwned,
+          enlighten: leftIsOwned ? leftOwnedLevel : 0,
           level: leftAwakenerLevel,
           faction: left.faction,
         },
         {
           label: formatAwakenerNameForUi(right.name),
           index: right.id,
-          enlighten: rightOwnedLevel ?? 0,
+          owned: rightIsOwned,
+          enlighten: rightIsOwned ? rightOwnedLevel : 0,
           level: rightAwakenerLevel,
           faction: right.faction,
         },
@@ -238,16 +243,32 @@ export function useCollectionViewModel() {
     [posses, queryByTab.posses],
   )
   const filteredPosses = useMemo(() => {
-    const filtered =
+    const filteredByCategory =
       posseFilter === 'ALL'
         ? searchedPosses
         : posseFilter === 'FADED_LEGACY'
           ? searchedPosses.filter((posse) => posse.isFadedLegacy)
           : searchedPosses.filter((posse) => !posse.isFadedLegacy && posse.faction.trim().toUpperCase() === posseFilter)
-    if (displayUnowned) {
-      return filtered
-    }
-    return filtered.filter((posse) => getOwnedLevel(ownership, 'posses', posse.id) !== null)
+    const filteredByOwnership = displayUnowned
+      ? filteredByCategory
+      : filteredByCategory.filter((posse) => getOwnedLevel(ownership, 'posses', posse.id) !== null)
+
+    return [...filteredByOwnership].sort((left, right) =>
+      comparePossesForCollectionDefaultSort(
+        {
+          label: left.name,
+          index: left.index,
+          owned: getOwnedLevel(ownership, 'posses', left.id) !== null,
+          enlighten: 0,
+        },
+        {
+          label: right.name,
+          index: right.index,
+          owned: getOwnedLevel(ownership, 'posses', right.id) !== null,
+          enlighten: 0,
+        },
+      ),
+    )
   }, [searchedPosses, posseFilter, displayUnowned, ownership])
 
   const filteredWheels = useMemo(() => {
@@ -293,6 +314,7 @@ export function useCollectionViewModel() {
         {
           label: left.name,
           index: wheelIndexById.get(left.id) ?? Number.MAX_SAFE_INTEGER,
+          owned: getOwnedLevel(ownership, 'wheels', left.id) !== null,
           enlighten: getOwnedLevel(ownership, 'wheels', left.id) ?? 0,
           rarity: left.rarity,
           faction: left.faction,
@@ -300,6 +322,7 @@ export function useCollectionViewModel() {
         {
           label: right.name,
           index: wheelIndexById.get(right.id) ?? Number.MAX_SAFE_INTEGER,
+          owned: getOwnedLevel(ownership, 'wheels', right.id) !== null,
           enlighten: getOwnedLevel(ownership, 'wheels', right.id) ?? 0,
           rarity: right.rarity,
           faction: right.faction,

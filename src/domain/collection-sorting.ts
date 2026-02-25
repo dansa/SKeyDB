@@ -4,6 +4,7 @@ export type AwakenerSortKey = 'LEVEL' | 'ENLIGHTEN' | 'ALPHABETICAL'
 export type SortableCollectionEntry = {
   label: string
   index: number
+  owned?: boolean
   enlighten: number
   level?: number
   rarity?: string
@@ -66,6 +67,15 @@ function compareIndex(left: SortableCollectionEntry, right: SortableCollectionEn
   return left.index - right.index
 }
 
+function compareOwnedFirst(left: SortableCollectionEntry, right: SortableCollectionEntry): number {
+  const leftOwned = left.owned !== false
+  const rightOwned = right.owned !== false
+  if (leftOwned === rightOwned) {
+    return 0
+  }
+  return leftOwned ? -1 : 1
+}
+
 function compareByPriority(
   left: SortableCollectionEntry,
   right: SortableCollectionEntry,
@@ -91,6 +101,7 @@ export function compareAwakenersForCollectionSort(
 
   if (config.key === 'ENLIGHTEN') {
     return compareByPriority(left, right, [
+      compareOwnedFirst,
       (l, r) => compareNumber(l.enlighten, r.enlighten, config.direction),
       (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, 'DESC'),
       compareRarity,
@@ -102,6 +113,7 @@ export function compareAwakenersForCollectionSort(
 
   if (config.key === 'ALPHABETICAL') {
     return compareByPriority(left, right, [
+      compareOwnedFirst,
       (l, r) => compareText(l.label, r.label, config.direction),
       (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, 'DESC'),
       compareRarity,
@@ -112,6 +124,7 @@ export function compareAwakenersForCollectionSort(
   }
 
   return compareByPriority(left, right, [
+    compareOwnedFirst,
     (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, config.direction),
     compareRarity,
     ...withOptionalFaction([]),
@@ -126,9 +139,21 @@ export function compareWheelsForCollectionDefaultSort(
   right: SortableCollectionEntry,
 ): number {
   return compareByPriority(left, right, [
+    compareOwnedFirst,
     compareRarity,
     compareFaction,
     (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
+    compareIndex,
+    (l, r) => compareText(l.label, r.label, 'ASC'),
+  ])
+}
+
+export function comparePossesForCollectionDefaultSort(
+  left: SortableCollectionEntry,
+  right: SortableCollectionEntry,
+): number {
+  return compareByPriority(left, right, [
+    compareOwnedFirst,
     compareIndex,
     (l, r) => compareText(l.label, r.label, 'ASC'),
   ])
