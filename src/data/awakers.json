@@ -249,7 +249,7 @@
       },
       "T3": {
         "name": "Soulforge Aptitude",
-        "description": "(Max level: 10) This talent is only effective in {Astral Reign} stages. Aigis's {CON}, {ATK}, and {DEF} stats increase by (3% per talent level). After using Aigis's {Rouse}, gain (50 per talent level) {Keyflare}. After playing the first Command Card each turn, obtain 50% (+5% per talent level) of {Keyflare} Regen as {Keyflare}"
+        "description": "(Max level: 10) This talent is only effective in {Astral Reign} stages. Aigis's {CON}, {ATK}, and {DEF} stats increase by (3% per talent level). After using Aigis's {Rouse}, gain (50 per talent level) {Keyflare}. After playing the first Command Card each turn, obtain 50% (+5% per talent level) of {Keyflare Regen} as {Keyflare}"
       }
     },
     "enlightens": {
@@ -419,7 +419,7 @@
     "talents": {
       "T1": {
         "name": "Innate: Happy Little Fairy",
-        "description": "For every point of Aliemus Regen Aurita and her equipped WoD & Covenant have, gain {Tentacle DMG} equal to 1% of Aurita's {ATK} at the start of battle."
+        "description": "For every point of {Aliemus Regen} Aurita and her equipped WoD & Covenant have, gain {Tentacle DMG} equal to 1% of Aurita's {ATK} at the start of battle."
       },
       "T2": {
         "name": "Madness Omen",
@@ -833,7 +833,7 @@
       "C1": {
         "name": "Call of Shaggai",
         "cost": "2",
-        "description": "Clementine gains (25/30/35/40/45/50) Aliemus. {Rouse}: The first Command Card played by Clementine each turn has its DMG, Shield, Healing, Aliemus gain, and {Keyflare} Regen take effect 2 more times. {Retain}."
+        "description": "Clementine gains (25/30/35/40/45/50) Aliemus. {Rouse}: The first Command Card played by Clementine each turn has its DMG, Shield, Healing, Aliemus gain, and {Keyflare Regen} take effect 2 more times. {Retain}."
       },
       "C2": {
         "name": "Strike",
@@ -863,7 +863,7 @@
       },
       "over_exalt": {
         "name": "Subconcious Corrosion",
-        "description": "Gain {STR} equal to 50% of Clementine's {ATK} and {Keyflare} equal to 300% of Clementine's {Keyflare} Regen. Consuming {Symbiosis} simultaneously triggers the effects of {Psychic Trauma} and {Phobic Fixation}."
+        "description": "Gain {STR} equal to 50% of Clementine's {ATK} and {Keyflare} equal to 300% of Clementine's {Keyflare Regen}. Consuming {Symbiosis} simultaneously triggers the effects of {Psychic Trauma} and {Phobic Fixation}."
       }
     },
     "talents": {
@@ -887,7 +887,7 @@
       },
       "E2": {
         "name": "Soul Healing Journey",
-        "description": "{Lifeform Reconstruction} gains 200% of Clementine's {Keyflare} Regen as {Keyflare}. For each stack of {Symbiosis} consumed, increase Clementine's Base DMG by 3% for the rest of battle. At the end of each battle, Clementine's Base DMG increases by 25%."
+        "description": "{Lifeform Reconstruction} gains 200% of Clementine's {Keyflare Regen} as {Keyflare}. For each stack of {Symbiosis} consumed, increase Clementine's Base DMG by 3% for the rest of battle. At the end of each battle, Clementine's Base DMG increases by 25%."
       },
       "E3": {
         "name": "You Will Recover",
@@ -1141,7 +1141,7 @@
     "talents": {
       "T1": {
         "name": "Innate: Gnosis Reconstruction",
-        "description": "For every 1 point of Aliemus Regen Doll and her equipped WoD & Covenant have, the HP Recovery of {Outer Surgery} and {Equivalent Exchange} is increased by 0.5%."
+        "description": "For every 1 point of {Aliemus Regen} Doll and her equipped Wheel Of Destiny & Covenant have, the HP Recovery of {Outer Surgery} and {Equivalent Exchange} is increased by 0.5%."
       },
       "T2": {
         "name": "Madness Omen",
@@ -1428,7 +1428,7 @@
     "talents": {
       "T1": {
         "name": "Innate: External Power Source",
-        "description": "For every 1 point of {Keyflare} Regen Erica and her equipped WoD & Covenant have, {Electromagnetic Blast} grants Erica 0.5% Temporary {Crit Rate} and {Crit DMG}."
+        "description": "For every 1 point of {Keyflare Regen} Erica and her equipped Wheel Of Destiny & Covenant have, {Electromagnetic Blast} grants Erica 0.5% Temporary {Crit Rate} and {Crit DMG}."
       },
       "T2": {
         "name": "Madness Omen",
@@ -3075,7 +3075,7 @@
       "C4": {
         "name": "Waltz of Lemuria",
         "cost": "3",
-        "description": "Gain {Keyflare} equal to (200/220/240/260/280/300%) of {Keyflare} Regen. Trigger one of the following effects, based on current Tentacle Stance. {Surging Tides}: Gain (10.5/12.6/14.7/16.8/18.9/21% {ATK}) {Tentacle DMG}. Spawn 1 Tentacle. {Tranquil Sea}: Gain (41/49.2/57.4/65.6/73.8/82% {DEF}) Shield. {Retain} 50% of remaining Shield to the next turn. {Raging Waves}: Deal (30/36/42/48/54/60% {ATK}) DMG 5 times to the enemy with the highest HP. This damage benefits from (50/55/60/65/70/75%) of your {Tentacle DMG}. {Retain}."
+        "description": "Gain {Keyflare} equal to (200/220/240/260/280/300%) of {Keyflare Regen}. Trigger one of the following effects, based on current Tentacle Stance. {Surging Tides}: Gain (10.5/12.6/14.7/16.8/18.9/21% {ATK}) {Tentacle DMG}. Spawn 1 Tentacle. {Tranquil Sea}: Gain (41/49.2/57.4/65.6/73.8/82% {DEF}) Shield. {Retain} 50% of remaining Shield to the next turn. {Raging Waves}: Deal (30/36/42/48/54/60% {ATK}) DMG 5 times to the enemy with the highest HP. This damage benefits from (50/55/60/65/70/75%) of your {Tentacle DMG}. {Retain}."
       },
       "C5": {
         "name": "Abyss Hymns",
@@ -3110,7 +3110,7 @@
     "enlightens": {
       "E1": {
         "name": "Kneeler's Supplication",
-        "description": "{Waltz of Lemuria} {Tentacle DMG}, Shield Generation, and Final DMG +10%, +0.2% for each point of {Keyflare} Regen."
+        "description": "{Waltz of Lemuria} {Tentacle DMG}, Shield Generation, and Final DMG +10%, +0.2% for each point of {Keyflare Regen}."
       },
       "E2": {
         "name": "Inverted Pregnancy",
@@ -3703,7 +3703,7 @@
       "C4": {
         "name": "Queen's Sword",
         "cost": "3",
-        "description": "Deal (15/18/21/24/27/30% {ATK}) DMG 2 times. Each time this card is played, gain an additional instance of DMG. Can gain up to an additional 3 hits from this effect. Gain 75% of Ramona's {Keyflare} Regen as Temporary Realm Mastery for 1 turn."
+        "description": "Deal (15/18/21/24/27/30% {ATK}) DMG 2 times. Each time this card is played, gain an additional instance of DMG. Can gain up to an additional 3 hits from this effect. Gain 75% of Ramona's {Keyflare Regen} as Temporary Realm Mastery for 1 turn."
       },
       "C5": {
         "name": "Assault Thesis",
@@ -3724,7 +3724,7 @@
     "talents": {
       "T1": {
         "name": "Innate: Silverheart Resonance",
-        "description": "Ramona gains an additional 2.5 points of {Keyflare}. Ramona gains an additional 0.5 points of {Keyflare} for every affinity level gained. For each point of {Keyflare} Regen Ramona and her equipped Wheel Of Destiny & Covenant have, increase the Base DMG of {Queen's Sword} by 1% and the Temporary Realm Mastery gained from the card by 0.75."
+        "description": "Ramona gains an additional 2.5 points of {Keyflare}. Ramona gains an additional 0.5 points of {Keyflare} for every affinity level gained. For each point of {Keyflare Regen} Ramona and her equipped Wheel Of Destiny & Covenant have, increase the Base DMG of {Queen's Sword} by 1% and the Temporary Realm Mastery gained from the card by 0.75."
       },
       "T2": {
         "name": "Madness Omen",
@@ -3732,7 +3732,7 @@
       },
       "T3": {
         "name": "Soulforge Aptitude",
-        "description": "(Max level: 10) This talent is only effective in {Astral Reign} stages. Ramona's {CON}, {ATK}, and {DEF} stats increase by (3% per talent level). After the first time using Ramona's {Rouse}, gain (50 per talent level) {Keyflare}. Ramona's {Keyflare} Regen is increased by 5% (+1% per talent level). Obtain 50% (+10% per talent level) of Ramona's {Keyflare} Regen as {Keyflare} at the start of battle"
+        "description": "(Max level: 10) This talent is only effective in {Astral Reign} stages. Ramona's {CON}, {ATK}, and {DEF} stats increase by (3% per talent level). After the first time using Ramona's {Rouse}, gain (50 per talent level) {Keyflare}. Ramona's {Keyflare Regen} is increased by 5% (+1% per talent level). Obtain 50% (+10% per talent level) of Ramona's {Keyflare Regen} as {Keyflare} at the start of battle"
       }
     },
     "enlightens": {
@@ -4346,7 +4346,7 @@
       "C5": {
         "name": "Sacred Blood's Instinct",
         "cost": "2",
-        "description": "Gain {Embryo Fusion} +(30/32/34/36/38/40)%. Gain {Keyflare} equivalent to 2x Thai's {Keyflare} Regen. Choose {Blood of Fear}, {Blood of Decay}, or {Blood of Coition}. {Blood of Fear}: Apply 1 {Weakness} to all enemies. {Blood of Decay}: Apply 1 {Vulnerable} to all enemies. {Blood of Reproduction}: Gain {Embryo Fusion} +20%."
+        "description": "Gain {Embryo Fusion} +(30/32/34/36/38/40)%. Gain {Keyflare} equivalent to 2x Thai's {Keyflare Regen}. Choose {Blood of Fear}, {Blood of Decay}, or {Blood of Coition}. {Blood of Fear}: Apply 1 {Weakness} to all enemies. {Blood of Decay}: Apply 1 {Vulnerable} to all enemies. {Blood of Reproduction}: Gain {Embryo Fusion} +20%."
       }
     },
     "exalts": {
