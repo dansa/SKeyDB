@@ -1915,7 +1915,8 @@
     "id": 22,
     "rarity": "Genesis",
     "aliases": [
-      "helot: catena"
+      "helot: catena",
+      "g-helot"
     ],
     "tags": [],
     "type": "ATTACK",
@@ -3039,7 +3040,8 @@
     "id": 34,
     "rarity": "Genesis",
     "aliases": [
-      "murphy: fauxborn"
+      "murphy: fauxborn",
+      "g-murphy"
     ],
     "tags": [],
     "type": "ASSIST",
@@ -3756,7 +3758,8 @@
     "id": 42,
     "rarity": "Genesis",
     "aliases": [
-      "ramona: timeworn"
+      "ramona: timeworn",
+      "g-ramona"
     ],
     "tags": [],
     "type": "ASSIST",
