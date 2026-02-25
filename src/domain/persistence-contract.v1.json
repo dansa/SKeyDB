@@ -1,0 +1,564 @@
+{
+  "version": 1,
+  "awakeners": [
+    {
+      "name": "24",
+      "id": 1
+    },
+    {
+      "name": "agrippa",
+      "id": 2
+    },
+    {
+      "name": "aigis",
+      "id": 3
+    },
+    {
+      "name": "alva",
+      "id": 4
+    },
+    {
+      "name": "aurita",
+      "id": 5
+    },
+    {
+      "name": "caecus",
+      "id": 6
+    },
+    {
+      "name": "casiah",
+      "id": 7
+    },
+    {
+      "name": "castor",
+      "id": 8
+    },
+    {
+      "name": "celeste",
+      "id": 9
+    },
+    {
+      "name": "clementine",
+      "id": 10
+    },
+    {
+      "name": "corposant",
+      "id": 11
+    },
+    {
+      "name": "daffodil",
+      "id": 12
+    },
+    {
+      "name": "doll",
+      "id": 13
+    },
+    {
+      "name": "doll: inferno",
+      "id": 18
+    },
+    {
+      "name": "doresain",
+      "id": 14
+    },
+    {
+      "name": "erica",
+      "id": 15
+    },
+    {
+      "name": "faint",
+      "id": 16
+    },
+    {
+      "name": "faros",
+      "id": 17
+    },
+    {
+      "name": "goliath",
+      "id": 21
+    },
+    {
+      "name": "hameln",
+      "id": 22
+    },
+    {
+      "name": "helot",
+      "id": 23
+    },
+    {
+      "name": "helot: catena",
+      "id": 19
+    },
+    {
+      "name": "horla",
+      "id": 24
+    },
+    {
+      "name": "jenkins",
+      "id": 25
+    },
+    {
+      "name": "karen",
+      "id": 26
+    },
+    {
+      "name": "kathigu-ra",
+      "id": 27
+    },
+    {
+      "name": "leigh",
+      "id": 28
+    },
+    {
+      "name": "lily",
+      "id": 29
+    },
+    {
+      "name": "liz",
+      "id": 30
+    },
+    {
+      "name": "lotan",
+      "id": 31
+    },
+    {
+      "name": "miryam",
+      "id": 32
+    },
+    {
+      "name": "mouchette",
+      "id": 33
+    },
+    {
+      "name": "murphy",
+      "id": 34
+    },
+    {
+      "name": "murphy: fauxborn",
+      "id": 35
+    },
+    {
+      "name": "nautila",
+      "id": 36
+    },
+    {
+      "name": "nymphaea",
+      "id": 37
+    },
+    {
+      "name": "ogier",
+      "id": 38
+    },
+    {
+      "name": "pandia",
+      "id": 39
+    },
+    {
+      "name": "pickman",
+      "id": 40
+    },
+    {
+      "name": "pollux",
+      "id": 41
+    },
+    {
+      "name": "ramona",
+      "id": 42
+    },
+    {
+      "name": "ramona: timeworn",
+      "id": 20
+    },
+    {
+      "name": "ryker",
+      "id": 43
+    },
+    {
+      "name": "salvador",
+      "id": 44
+    },
+    {
+      "name": "sanga",
+      "id": 45
+    },
+    {
+      "name": "sorel",
+      "id": 46
+    },
+    {
+      "name": "tawil",
+      "id": 47
+    },
+    {
+      "name": "thais",
+      "id": 48
+    },
+    {
+      "name": "tinct",
+      "id": 49
+    },
+    {
+      "name": "tulu",
+      "id": 50
+    },
+    {
+      "name": "uvhash",
+      "id": 51
+    },
+    {
+      "name": "wanda",
+      "id": 52
+    },
+    {
+      "name": "winkle",
+      "id": 53
+    },
+    {
+      "name": "xu",
+      "id": 54
+    }
+  ],
+  "wheels": [
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B05EX",
+    "B06",
+    "B07",
+    "B08",
+    "B09",
+    "B10",
+    "B12",
+    "B14",
+    "C01",
+    "C02",
+    "C02EX",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C15",
+    "C16",
+    "C17",
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D11",
+    "D12",
+    "D13",
+    "D14",
+    "JP01",
+    "JP02",
+    "JP03",
+    "JP04",
+    "N01",
+    "N02",
+    "O01",
+    "O02",
+    "O03",
+    "O04",
+    "O05",
+    "O06",
+    "O07",
+    "O08",
+    "O09",
+    "O10",
+    "O11",
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "P09",
+    "P10",
+    "P11",
+    "P12",
+    "P13",
+    "P14",
+    "P15",
+    "P16",
+    "SR01",
+    "SR02",
+    "SR03",
+    "SR04",
+    "SR05",
+    "SR06",
+    "SR07",
+    "SR08",
+    "SR09",
+    "SR10",
+    "SR11",
+    "SR12",
+    "SR13",
+    "SR14",
+    "SR15",
+    "SR16",
+    "SR17",
+    "SR18",
+    "SR19",
+    "SR20",
+    "SR21",
+    "SR22",
+    "SR23",
+    "SR24",
+    "SR25",
+    "SR26",
+    "SR27",
+    "SR28",
+    "SR29",
+    "SR30",
+    "SR31",
+    "SR32",
+    "SR33",
+    "SR34",
+    "SR35",
+    "SR39",
+    "SR40",
+    "SR41",
+    "SR42",
+    "SR43",
+    "SR44",
+    "SR45",
+    "ZL01",
+    "ZL02",
+    "ZL03",
+    "ZL04",
+    "ZL05",
+    "ZL06",
+    "ZL07"
+  ],
+  "posses": [
+    {
+      "id": "24-all-of-her",
+      "index": 22
+    },
+    {
+      "id": "a-fleeting-dream",
+      "index": 45
+    },
+    {
+      "id": "a-guns-cry",
+      "index": 27
+    },
+    {
+      "id": "a-mouses-wisdom",
+      "index": 4
+    },
+    {
+      "id": "auritas-treasure",
+      "index": 10
+    },
+    {
+      "id": "beachside-memento",
+      "index": 43
+    },
+    {
+      "id": "black-swans-dance",
+      "index": 32
+    },
+    {
+      "id": "blessing-of-the-stars",
+      "index": 31
+    },
+    {
+      "id": "bone-chilling-embrace",
+      "index": 14
+    },
+    {
+      "id": "cruel-homage",
+      "index": 39
+    },
+    {
+      "id": "derision-of-destiny",
+      "index": 36
+    },
+    {
+      "id": "encounter-in-pure-white",
+      "index": 1
+    },
+    {
+      "id": "ephemeral-eternity",
+      "index": 12
+    },
+    {
+      "id": "feast-of-decay",
+      "index": 13
+    },
+    {
+      "id": "festival-of-tides",
+      "index": 25
+    },
+    {
+      "id": "from-the-mist-realm",
+      "index": 48
+    },
+    {
+      "id": "funus-aeternum",
+      "index": 8
+    },
+    {
+      "id": "gateway-of-retrospection",
+      "index": 16
+    },
+    {
+      "id": "giants-reign",
+      "index": 21
+    },
+    {
+      "id": "lakeside-glimpse",
+      "index": 15
+    },
+    {
+      "id": "manor-echoes",
+      "index": 49
+    },
+    {
+      "id": "midsummer-vision",
+      "index": 18
+    },
+    {
+      "id": "miracles-dawn",
+      "index": 20
+    },
+    {
+      "id": "new-years-eve-fireworks",
+      "index": 50
+    },
+    {
+      "id": "obsession-eternal",
+      "index": 6
+    },
+    {
+      "id": "plague-of-illusions",
+      "index": 30
+    },
+    {
+      "id": "reunions-wish",
+      "index": 47
+    },
+    {
+      "id": "roaring-blood-and-sand",
+      "index": 11
+    },
+    {
+      "id": "sacred-bleeding-heart",
+      "index": 41
+    },
+    {
+      "id": "sacred-mending",
+      "index": 34
+    },
+    {
+      "id": "springs-verse",
+      "index": 26
+    },
+    {
+      "id": "symphony-fourth",
+      "index": 28
+    },
+    {
+      "id": "taverns-opening",
+      "index": 33
+    },
+    {
+      "id": "the-final-vow",
+      "index": 9
+    },
+    {
+      "id": "the-gated-answer",
+      "index": 29
+    },
+    {
+      "id": "the-lone-seed",
+      "index": 23
+    },
+    {
+      "id": "the-mountains-resolve",
+      "index": 24
+    },
+    {
+      "id": "tiny-wish",
+      "index": 5
+    },
+    {
+      "id": "truth-behind-grey-mist",
+      "index": 17
+    },
+    {
+      "id": "undying-sun",
+      "index": 40
+    },
+    {
+      "id": "undying-thunder",
+      "index": 35
+    },
+    {
+      "id": "unequal-exchange",
+      "index": 7
+    },
+    {
+      "id": "victory-of-roses",
+      "index": 19
+    },
+    {
+      "id": "voices-in-your-head",
+      "index": 2
+    },
+    {
+      "id": "void-hues",
+      "index": 44
+    },
+    {
+      "id": "voracious-resolve",
+      "index": 42
+    },
+    {
+      "id": "warded-injection",
+      "index": 3
+    },
+    {
+      "id": "wayward-ship",
+      "index": 46
+    }
+  ],
+  "covenants": [
+    "001",
+    "002",
+    "004",
+    "005",
+    "006",
+    "008",
+    "009",
+    "010",
+    "011",
+    "012",
+    "013",
+    "014",
+    "015",
+    "016",
+    "017",
+    "018",
+    "019",
+    "020",
+    "021",
+    "022",
+    "023"
+  ]
+}
