@@ -1,4 +1,5 @@
 import { getAwakeners } from './awakeners'
+import { getAwakenerIdentityKey } from './awakener-identity'
 import { getPosses } from './posses'
 import { getWheels } from './wheels'
 import type { StorageLike } from './storage'
@@ -249,11 +250,27 @@ function getOwnershipMap(state: CollectionOwnershipState, kind: CollectionOwners
 }
 
 export function createDefaultCollectionOwnershipCatalog(): CollectionOwnershipCatalog {
+  const awakeners = getAwakeners()
+  const linkedAwakenerIdsByIdentity = new Map<string, string[]>()
+  for (const awakener of awakeners) {
+    const identityKey = getAwakenerIdentityKey(awakener.name)
+    const entry = linkedAwakenerIdsByIdentity.get(identityKey)
+    if (entry) {
+      entry.push(String(awakener.id))
+    } else {
+      linkedAwakenerIdsByIdentity.set(identityKey, [String(awakener.id)])
+    }
+  }
+
+  const linkedAwakenerGroups = Array.from(linkedAwakenerIdsByIdentity.values())
+    .filter((group) => group.length > 1)
+    .map((group) => [...group].sort())
+
   return {
-    awakenerIds: getAwakeners().map((awakener) => String(awakener.id)),
+    awakenerIds: awakeners.map((awakener) => String(awakener.id)),
     wheelIds: getWheels().map((wheel) => wheel.id),
     posseIds: getPosses().map((posse) => posse.id),
-    linkedAwakenerGroups: [['20', '42']],
+    linkedAwakenerGroups,
   }
 }
 

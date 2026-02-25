@@ -17,6 +17,7 @@ import {
   setOwnedLevel,
   type CollectionOwnershipCatalog,
 } from './collection-ownership'
+import { getAwakeners } from './awakeners'
 
 const catalog: CollectionOwnershipCatalog = {
   awakenerIds: ['1', '2'],
@@ -136,7 +137,14 @@ describe('collection ownership persistence', () => {
     expect(getOwnedLevel(state, 'awakeners', '2')).toBeNull()
 
     const defaultCatalog = createDefaultCollectionOwnershipCatalog()
-    expect(defaultCatalog.linkedAwakenerGroups).toContainEqual(['20', '42'])
+    const awakeners = getAwakeners()
+    const ramonaId = awakeners.find((awakener) => awakener.name === 'ramona')?.id
+    const ramonaTimewornId = awakeners.find((awakener) => awakener.name === 'ramona: timeworn')?.id
+    expect(ramonaId).toBeDefined()
+    expect(ramonaTimewornId).toBeDefined()
+    expect(defaultCatalog.linkedAwakenerGroups).toContainEqual(
+      [String(ramonaId), String(ramonaTimewornId)].sort(),
+    )
   })
 
   it('serializes and parses ownership snapshot payloads for file export/import', () => {
