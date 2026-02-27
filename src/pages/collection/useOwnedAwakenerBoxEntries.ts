@@ -22,6 +22,7 @@ export function useOwnedAwakenerBoxEntries(
             name: awakener.name,
             displayName: formatAwakenerNameForUi(awakener.name),
             faction: awakener.faction,
+            rarity: awakener.rarity,
             index: awakener.id,
             level,
             awakenerLevel: resolveAwakenerLevel(awakener.name),

@@ -90,6 +90,32 @@ When doing a cleanup/code-quality pass (especially on broad feature scopes):
 - Run targeted tests for touched areas.
 - Run `npm run lint`, then `npm run verify` before completion claims.
 
+## 3.2) UI Rework Protocol (Required)
+
+When reworking large UI surfaces (for example `CollectionPage`):
+
+1. Phase-gate the work:
+- Phase A: introduce reusable shells/primitives only (no behavior changes).
+- Phase B: migrate page layout into shells (handlers/state unchanged).
+- Phase C: add new behavior/features.
+
+2. Keep the page shippable at each phase:
+- Avoid one-shot rewrites of large files.
+- Preserve compile + lint + targeted tests after each phase.
+
+3. Styling-only passes must stay styling-only:
+- If a pass is declared visual/CSS-only, do not change interaction/state logic.
+- If behavior must change, explicitly call it out and add regression tests.
+
+## 3.3) Process Scope Rule (Required)
+
+1. Multi-file behavior changes:
+- Use the full process (`3`, `3.1`, and verification gates).
+
+2. Isolated CSS-only tweaks:
+- Use a lightweight flow (small patch + `npm run lint` + targeted visual/behavior sanity checks).
+- Escalate to full process if state/interaction semantics change.
+
 ## 4) State and React Rules
 
 1. State placement
@@ -100,11 +126,7 @@ When doing a cleanup/code-quality pass (especially on broad feature scopes):
 - Avoid redundant/contradictory state.
 - Store IDs/tokens, derive labels and display metadata from domain maps.
 
-3. Effects
-- Allowed: subscriptions, timers, network, imperative sync.
-- Discouraged: deriving local state from props/state via Effect.
-
-4. DnD + active selection
+3. DnD + active selection
 - Domain utilities own move/swap/clear rules.
 - UI triggers intents; domain returns next valid state.
 
@@ -124,6 +146,17 @@ When doing a cleanup/code-quality pass (especially on broad feature scopes):
 - Sharp/squared Morimens-like styling.
 - Avoid introducing new visual patterns without a clear reason.
 
+## 5.1) Interaction Contract Rules
+
+1. Define interaction semantics before implementation:
+- For wheel/hover/modifier/click-swallow behavior, lock expected UX contract first (for example `Shift+wheel` vs plain wheel).
+
+2. Avoid timing-coupled interaction logic:
+- Prefer explicit state/context or scoped DOM checks over event-loop timing hacks when preventing accidental toggles.
+
+3. Keep reusable vs local ownership explicit:
+- If a rule applies across multiple entity types (awakeners/wheels/posses), implement in shared domain/UI primitives, not page-local branches.
+
 ## 6) Data and Codec Rules
 
 1. IDs are stable contracts.
@@ -141,6 +174,14 @@ When doing a cleanup/code-quality pass (especially on broad feature scopes):
 4. Version strategy
 - Prefix-based versioning (`t1.`, `mt1.`) is required for future evolution.
 
+## 6.1) Sorting and Ordering Ownership
+
+1. Shared ordering policy belongs in domain comparators.
+- Priority/tiebreak rules (owned/unowned, rarity, faction, index) must live in `src/domain/*` comparators.
+
+2. Page/view-model code should only assemble sortable fields.
+- Do not duplicate comparator policy in page hooks unless strictly temporary and documented.
+
 ## 7) Test Strategy
 
 1. Test behavior, not implementation details.
@@ -152,7 +193,7 @@ When doing a cleanup/code-quality pass (especially on broad feature scopes):
 
 3. Add regression tests for every bug fixed.
 4. UI/CSS-only churn policy:
-- If a change is purely presentational (styles, spacing, colors, class wiring) and does not alter behavior/state transitions, avoid adding new tests just for that churn.
+- Follow section 3.2 for styling-only passes and behavior-boundary expectations.
 - Add or update tests when UI changes affect interaction contracts, accessibility semantics, state flow, or domain behavior.
 
 5. Keep tests readable:
@@ -169,6 +210,10 @@ When doing a cleanup/code-quality pass (especially on broad feature scopes):
 - Final pre-commit/pre-handoff gate:
   - `npm run verify`
 
+7. Stateful UX flows must test transition points:
+- For freeze/apply flows, assert both pre-apply and post-apply behavior.
+- For edit-mode interactions, assert mode-enter, in-mode behavior, and mode-exit outcomes.
+
 ## 8) Pull Request / Commit Checklist
 
 Before commit:
@@ -184,48 +229,11 @@ Before commit:
 
 Do:
 - implement smallest valid slice
-- centralize repeated UI shells
-- encode invariants in domain utilities
 - keep docs and plan files in sync with behavior changes
 
 Do not:
 - patch around domain bugs in UI
-- store derived values that can drift
-- introduce hidden behavior in effects
 - refactor unrelated areas mid-feature
-
-## 10) Research Notes (Why these rules)
-
-These practices are aligned with patterns used by mature React/docs projects and official guidance:
-
-- AGENTS.md in Codex context flow (how instruction files are loaded/merged):
-  - https://openai.com/index/unrolling-the-codex-agent-loop/
-
-- AGENTS.md guidance from OpenAI product docs:
-  - https://openai.com/index/introducing-codex/
-  - https://openai.com/business/guides-and-resources/how-openai-uses-codex/
-
-- AGENTS.md as a concise "table of contents" that points to deeper docs (not an encyclopedia):
-  - https://openai.com/index/harness-engineering/
-
-- AGENTS.md ecosystem standard and examples:
-  - https://agents.md/
-
-- React docs: avoid unnecessary Effects and derive values during render.
-  - https://react.dev/learn/you-might-not-need-an-effect
-  - https://react.dev/learn/choosing-the-state-structure
-
-- Testing Library: test from the user perspective.
-  - https://testing-library.com/docs/guiding-principles
-
-- Docusaurus: keep docs systems simple, avoid unnecessary version sprawl.
-  - https://docusaurus.io/docs/versioning
-
-- MDN Yari: separate platform code from content data sources.
-  - https://github.com/mdn/yari
-
-- Next.js contribution workflow: conventions + explicit test plan before PR.
-  - https://nextjs.org/docs/community/contribution-guide
 
 ---
 

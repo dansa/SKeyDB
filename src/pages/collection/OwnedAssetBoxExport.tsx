@@ -264,7 +264,10 @@ function loadStoredSortConfig(storageKeyPrefix: string): ExportSortConfig {
     const key = parsed.key ?? DEFAULT_EXPORT_SORT_CONFIG.key
     const direction = parsed.direction ?? DEFAULT_EXPORT_SORT_CONFIG.direction
     return {
-      key: key === 'ALPHABETICAL' || key === 'LEVEL' || key === 'ENLIGHTEN' ? key : DEFAULT_EXPORT_SORT_CONFIG.key,
+      key:
+        key === 'ALPHABETICAL' || key === 'LEVEL' || key === 'RARITY' || key === 'ENLIGHTEN'
+          ? key
+          : DEFAULT_EXPORT_SORT_CONFIG.key,
       direction: direction === 'ASC' || direction === 'DESC' ? direction : DEFAULT_EXPORT_SORT_CONFIG.direction,
       groupByFaction: parsed.groupByFaction ?? DEFAULT_EXPORT_SORT_CONFIG.groupByFaction,
     }

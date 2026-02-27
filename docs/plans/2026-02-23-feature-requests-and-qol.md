@@ -5,7 +5,7 @@
 - Develop some sort of simple "getting started" system + guide for each page, explaining features and whatnot help users navigate the sections.
 
 # General website features
-- Smaller toolbar below header that contains "important" actions, eg export/import on builder, save/load on collection, etc.
+- [Done 2026-02-26] Smaller toolbar below header that contains "important" actions, eg export/import on builder, save/load on collection, etc.
 - Properly timestamp changelog entries and small notice toast about major feature since last visit :eyes:
 
 --- 
@@ -19,7 +19,7 @@
 --- 
 
 ## Builder UI QOL / Fixes
-- Sidebar to quickly switch between teams.
+- [Done 2026-02-26] Sidebar to quickly switch between teams.
 - Weird scaling behavior on the covenant slots, lines on the svgs/paths seem to get squished on some devices?
     - Could simply replace with static image assets, but risk of pixelation/blurring when scaling up/down
 - Allow one Duped character to mirror "Support" behavior ingame
@@ -33,9 +33,10 @@
     - Selecting a slot will open a "popup" picker rather than utilizing the sidebar panel.
     - Active team will be a scrollable zone rather than # of columns changing.
     - fixed widths on stuff to prevent weird scaling.
-- "Preset team setups", eg select "Dtide mode" and it will quickly generate 10 empty teams, two for each wave, appropriately named.
+- [Done 2026-02-26] "Preset team setups", eg select "Dtide mode" and it will quickly generate 10 empty teams, two for each wave, appropriately named.
     - Could tie into full teams import, where it will import all teams at once into said empty template.
 - Expanded teams toggle, (compact but full-team cards that display wheels and covenants of the units)
+- Support drag-replacing units inbetween teams
 - URL Encoding so that one can in theory share skeydb/importcode and get a full team layout without imports etc,
   - Need to think a bit about this, so people dont accidentally click links and nuke their own setups
 - Since we use localstorage we could theoretically let people save/load a couple planners on-site with their comps and team setups, would suck if one clears browser data though..
@@ -43,18 +44,18 @@
 
 ## Collection QOL / Fixes
 - [Done 2026-02-24] Level option for awakeners is live with click-to-edit controls, numeric input, and clamp to Lv.1-90 (default Lv.60).
-- Capture scroll up/down to quickly bump/dump E levels on hovered item? (while shift held or something?)
+- [Done 2026-02-26] Capture scroll up/down to quickly bump/dump E levels on hovered item while `Shift` is held.
 - [Done 2026-02-24] Better sorting/ordering options landed for collection and box export via shared sort controls/component.
     - awakener/wheels only 
     - Groud by Faction toggle (Chaos->Aeq->Caro->Ultra->Neutral)
     - Sort by Level, Rarity, Enlighten, alphabetically (dropdown menu probably), ascending/descending
     - ingame ordering "within" the sortings is Level->faction priority (if enabled)->rarity->index
-- Fix the confusing buttons, like the Set Owned/Unowned pair which togglers ownership on every thing currently displayed in the collection screen.
+- [Done 2026-02-26] Fix the confusing buttons, like the Set Owned/Unowned pair which togglers ownership on every thing currently displayed in the collection screen.
     - An Idea here is to have a sectioned off area with "batch action", that explains that every action will be applied to every item currently displayed in the collection screen.
     - Batch actions could include things like - Set owned, Set unowned, bump to +12/reset to +0, etc.
 - [Done 2026-02-24] Display unowned toggle is available on collection filters (default on).
-- Consider if the current layout of sidebar filters and big grid of items is the best way to go, or a menu placed on top of the grid or something would make more sense.
-
+- [Half-done 2026-02-26] Consider if the current layout of sidebar filters and big grid of items is the best way to go, or a menu placed on top of the grid or something would make more sense.
+    - With the addition of tabs, i think the layout works better, but I have yet to review the idea of a "top menu style" layout.
 - [Done 2026-02-24] Box export flow now includes richer layout controls, rarity filtering for wheel exports, and hardened PNG export fallback behavior for Firefox/font issues.
 
 ## Collection Features

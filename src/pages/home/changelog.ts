@@ -5,6 +5,21 @@ export type ChangelogItem = {
 
 export const changelogItems: ChangelogItem[] = [
   {
+    date: "2026-02-27",
+    summary:
+      "Lots of various QoL improvements, couple of fixes and changes. You can review 2026-02-23 in the docs folder on github for a more detailed changelog in this pass, and what's planned for the future.",
+  },
+  {
+    date: "2026-02-26",
+    summary:
+      "Builder and Collection both got a pretty big UI polish pass: tabbed layouts, cleaner toolbars, hopefully easier to navigate and use the pages now."
+  },
+  {
+    date: "2026-02-25 (ish)",
+    summary:
+      "Sorting was introduced for the collection and other pages, which hopefully resembles what you'd expect to see ingame."
+  },
+  {
     date: "2026-02-24",
     summary:
       "Collection now supports editable awakener Lv. tracking (1-90), plus that level is shown on builder cards too.",

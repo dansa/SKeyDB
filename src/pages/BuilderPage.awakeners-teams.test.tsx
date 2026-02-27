@@ -64,7 +64,7 @@ describe('BuilderPage awakeners and teams', () => {
     const user = userEvent.setup()
     render(<BuilderPage />)
 
-    fireEvent.click(screen.getByRole('heading', { name: /builder/i }))
+    fireEvent.click(document.body)
     await user.keyboard('ramona')
 
     expect(screen.getByRole('searchbox')).toHaveValue('ramona')
@@ -125,20 +125,33 @@ describe('BuilderPage awakeners and teams', () => {
     const team2Row = container.querySelector('[data-team-name="Team 2"]')
     expect(team2Row).not.toBeNull()
 
-    fireEvent.click(within(team2Row as HTMLElement).getByText('Team 2'))
+    fireEvent.click((team2Row as HTMLElement).querySelector('.builder-picker-tile') as HTMLElement)
+    expect(screen.queryByRole('button', { name: /change goliath/i })).not.toBeInTheDocument()
+  })
+
+  it('switches active team from the top team tabs', async () => {
+    const { container } = render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
+    fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
+    expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
+
+    const builderTabbedContainer = container.querySelector('.tabbed-container')
+    expect(builderTabbedContainer).not.toBeNull()
+    fireEvent.click(within(builderTabbedContainer as HTMLElement).getByRole('tab', { name: /team 2/i }))
     expect(screen.queryByRole('button', { name: /change goliath/i })).not.toBeInTheDocument()
   })
 
   it('confirms moving a locked posse from another team and supports cancel', async () => {
     const { container } = render(<BuilderPage />)
 
-    fireEvent.click(screen.getByRole('button', { name: /posses/i }))
+    fireEvent.click(screen.getByRole('tab', { name: /posses/i }))
     fireEvent.click(screen.getByRole('button', { name: /taverns opening/i }))
 
     fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
     const team2Row = container.querySelector('[data-team-name="Team 2"]')
     expect(team2Row).not.toBeNull()
-    fireEvent.click(within(team2Row as HTMLElement).getByText('Team 2'))
+    fireEvent.click(screen.getByRole('tab', { name: /^team 2$/i }))
 
     const tavernsOpeningButton = screen.getByRole('button', { name: /taverns opening/i })
     expect(tavernsOpeningButton).toHaveAttribute('aria-disabled', 'true')
@@ -169,6 +182,20 @@ describe('BuilderPage awakeners and teams', () => {
     expect(container.querySelector('[data-team-name="Team 2"]')).toBeNull()
   })
 
+  it('resets empty team immediately without showing confirmation dialog', async () => {
+    const { container } = render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
+    const team2Row = container.querySelector('[data-team-name="Team 2"]')
+    expect(team2Row).not.toBeNull()
+
+    const resetButton = within(team2Row as HTMLElement).getByRole('button', { name: /reset/i })
+    fireEvent.click(resetButton)
+
+    expect(screen.queryByRole('dialog', { name: /reset team 2/i })).not.toBeInTheDocument()
+    expect(container.querySelector('[data-team-name="Team 2"]')).not.toBeNull()
+  })
+
   it('requires centered confirm/cancel before deleting a non-empty team', async () => {
     const { container } = render(<BuilderPage />)
 
@@ -176,7 +203,7 @@ describe('BuilderPage awakeners and teams', () => {
     const team2Row = container.querySelector('[data-team-name="Team 2"]')
     expect(team2Row).not.toBeNull()
 
-    fireEvent.click(within(team2Row as HTMLElement).getByText('Team 2'))
+    fireEvent.click(screen.getByRole('tab', { name: /^team 2$/i }))
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
 
     const refreshedTeam2Row = container.querySelector('[data-team-name="Team 2"]')
@@ -198,6 +225,24 @@ describe('BuilderPage awakeners and teams', () => {
     expect(container.querySelector('[data-team-name="Team 2"]')).toBeNull()
   })
 
+  it('requires confirmation before resetting a non-empty team', async () => {
+    const { container } = render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
+    fireEvent.click(screen.getByRole('tab', { name: /^team 2$/i }))
+    fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
+    expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
+
+    const team2Row = container.querySelector('[data-team-name="Team 2"]')
+    expect(team2Row).not.toBeNull()
+    fireEvent.click(within(team2Row as HTMLElement).getByRole('button', { name: /reset/i }))
+
+    expect(screen.getByRole('dialog', { name: /reset team 2/i })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /reset team/i }))
+    expect(screen.queryByRole('dialog', { name: /reset team 2/i })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /change goliath/i })).not.toBeInTheDocument()
+  })
+
   it('renames team inline and confirms with Enter', () => {
     const { container } = render(<BuilderPage />)
 
@@ -206,7 +251,7 @@ describe('BuilderPage awakeners and teams', () => {
     expect(team2Row).not.toBeNull()
 
     fireEvent.click(within(team2Row as HTMLElement).getByRole('button', { name: /rename team 2/i }))
-    const renameInput = within(team2Row as HTMLElement).getByRole('textbox', { name: /team name/i })
+    const renameInput = screen.getByRole('textbox', { name: /team name/i })
     fireEvent.change(renameInput, { target: { value: 'Arena Team' } })
     fireEvent.keyDown(renameInput, { key: 'Enter', code: 'Enter' })
 
@@ -221,7 +266,7 @@ describe('BuilderPage awakeners and teams', () => {
     expect(team2Row).not.toBeNull()
 
     fireEvent.click(within(team2Row as HTMLElement).getByRole('button', { name: /rename team 2/i }))
-    const renameInput = within(team2Row as HTMLElement).getByRole('textbox', { name: /team name/i })
+    const renameInput = screen.getByRole('textbox', { name: /team name/i })
     fireEvent.change(renameInput, { target: { value: 'Temp Name' } })
     fireEvent.keyDown(renameInput, { key: 'Escape', code: 'Escape' })
 
@@ -238,9 +283,9 @@ describe('BuilderPage awakeners and teams', () => {
     expect(team2Row).not.toBeNull()
 
     fireEvent.click(within(team2Row as HTMLElement).getByRole('button', { name: /rename team 2/i }))
-    const renameInput = within(team2Row as HTMLElement).getByRole('textbox', { name: /team name/i })
+    const renameInput = screen.getByRole('textbox', { name: /team name/i })
     fireEvent.change(renameInput, { target: { value: 'Click Away Team' } })
-    await user.click(screen.getByRole('heading', { name: /builder/i }))
+    await user.click(document.body)
 
     expect(container.querySelector('[data-team-name="Click Away Team"]')).not.toBeNull()
   })
@@ -253,7 +298,7 @@ describe('BuilderPage awakeners and teams', () => {
     fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
     const team2Row = container.querySelector('[data-team-name="Team 2"]')
     expect(team2Row).not.toBeNull()
-    fireEvent.click(within(team2Row as HTMLElement).getByText('Team 2'))
+    fireEvent.click(screen.getByRole('tab', { name: /^team 2$/i }))
 
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
     expect(screen.getByRole('dialog', { name: /move goliath/i })).toBeInTheDocument()
@@ -264,7 +309,7 @@ describe('BuilderPage awakeners and teams', () => {
 
     const team1Row = container.querySelector('[data-team-name="Team 1"]')
     expect(team1Row).not.toBeNull()
-    fireEvent.click(within(team1Row as HTMLElement).getByText('Team 1'))
+    fireEvent.click(screen.getByRole('tab', { name: /^team 1$/i }))
     expect(screen.queryByRole('button', { name: /change goliath/i })).not.toBeInTheDocument()
   })
 
@@ -276,7 +321,7 @@ describe('BuilderPage awakeners and teams', () => {
     fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
     const team2Row = container.querySelector('[data-team-name="Team 2"]')
     expect(team2Row).not.toBeNull()
-    fireEvent.click(within(team2Row as HTMLElement).getByText('Team 2'))
+    fireEvent.click(screen.getByRole('tab', { name: /^team 2$/i }))
 
     fireEvent.click(screen.getByRole('button', { name: /agrippa/i }))
     fireEvent.click(screen.getByRole('button', { name: /casiah/i }))
@@ -295,8 +340,9 @@ describe('BuilderPage awakeners and teams', () => {
     expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', { name: /reset builder/i }))
-    expect(screen.getByRole('dialog', { name: /reset builder/i })).toBeInTheDocument()
-    fireEvent.click(screen.getByRole('button', { name: /^reset$/i }))
+    const dialog = screen.getByRole('dialog', { name: /reset builder/i })
+    expect(dialog).toBeInTheDocument()
+    fireEvent.click(within(dialog).getByRole('button', { name: /^reset$/i }))
 
     expect(container.querySelector('[data-team-name="Team 2"]')).toBeNull()
     expect(screen.queryByRole('button', { name: /change goliath/i })).not.toBeInTheDocument()
@@ -308,3 +354,5 @@ describe('BuilderPage awakeners and teams', () => {
     expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
   })
 })
+
+

@@ -10,15 +10,28 @@ vi.mock('./useGlobalPickerSearchCapture', () => ({
   useGlobalPickerSearchCapture: vi.fn(),
 }))
 
+const BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
+const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
+const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
+const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
+
 describe('useBuilderViewModel', () => {
   beforeEach(() => {
     window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
     window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
+    window.localStorage.removeItem(BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY)
+    window.localStorage.removeItem(BUILDER_AWAKENER_SORT_KEY_KEY)
+    window.localStorage.removeItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)
+    window.localStorage.removeItem(BUILDER_DISPLAY_UNOWNED_KEY)
   })
 
   afterEach(() => {
     window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
     window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
+    window.localStorage.removeItem(BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY)
+    window.localStorage.removeItem(BUILDER_AWAKENER_SORT_KEY_KEY)
+    window.localStorage.removeItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)
+    window.localStorage.removeItem(BUILDER_DISPLAY_UNOWNED_KEY)
   })
 
   it('initializes with a valid active team and slots', () => {
@@ -178,7 +191,7 @@ describe('useBuilderViewModel', () => {
     expect(result.current.filteredWheels.some((wheel) => wheel.awakener.toLowerCase() === 'helot: catena')).toBe(true)
   })
 
-  it('sorts wheels by rarity, then faction, then id', () => {
+  it('sorts wheels by rarity, then faction (Chaos first), then id', () => {
     const { result } = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
@@ -189,7 +202,7 @@ describe('useBuilderViewModel', () => {
     expect(wheels.length).toBeGreaterThan(0)
 
     const rarityOrder = { SSR: 0, SR: 1, R: 2 } as const
-    const factionOrder = { AEQUOR: 0, CARO: 1, CHAOS: 2, ULTRA: 3, NEUTRAL: 4 } as const
+    const factionOrder = { CHAOS: 0, AEQUOR: 1, CARO: 2, ULTRA: 3, NEUTRAL: 4 } as const
 
     for (let index = 1; index < wheels.length; index += 1) {
       const prev = wheels[index - 1]
@@ -322,14 +335,15 @@ describe('useBuilderViewModel', () => {
     expect(result.current.ownedAwakenerLevelByName.get('ramona: timeworn')).toBe(5)
   })
 
-  it('hides unowned entries when displayUnowned is false', () => {
+  it('hides unowned entries when builder displayUnowned is false', () => {
     saveCollectionOwnership(window.localStorage, {
       ownedAwakeners: {},
       awakenerLevels: {},
       ownedWheels: {},
       ownedPosses: {},
-      displayUnowned: false,
+      displayUnowned: true,
     })
+    window.localStorage.setItem(BUILDER_DISPLAY_UNOWNED_KEY, '0')
 
     const { result } = renderHook(() =>
       useBuilderViewModel({
@@ -341,4 +355,79 @@ describe('useBuilderViewModel', () => {
     expect(result.current.filteredWheels).toHaveLength(0)
     expect(result.current.filteredPosses).toHaveLength(0)
   })
+
+  it('hydrates and persists builder displayUnowned independently from collection', () => {
+    saveCollectionOwnership(window.localStorage, {
+      ownedAwakeners: {},
+      awakenerLevels: {},
+      ownedWheels: {},
+      ownedPosses: {},
+      displayUnowned: true,
+    })
+    window.localStorage.setItem(BUILDER_DISPLAY_UNOWNED_KEY, '0')
+
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    expect(result.current.displayUnowned).toBe(false)
+
+    act(() => {
+      result.current.setDisplayUnowned(true)
+    })
+
+    expect(window.localStorage.getItem(BUILDER_DISPLAY_UNOWNED_KEY)).toBe('1')
+  })
+
+
+  it('exposes awakener sort controls for picker sorting', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    expect(result.current.awakenerSortKey).toBe('LEVEL')
+    expect(result.current.awakenerSortDirection).toBe('DESC')
+    expect(result.current.awakenerSortGroupByFaction).toBe(true)
+
+    act(() => {
+      result.current.setAwakenerSortKey('RARITY')
+      result.current.toggleAwakenerSortDirection()
+      result.current.setAwakenerSortGroupByFaction(true)
+    })
+
+    expect(result.current.awakenerSortKey).toBe('RARITY')
+    expect(result.current.awakenerSortDirection).toBe('ASC')
+    expect(result.current.awakenerSortGroupByFaction).toBe(true)
+  })
+
+  it('hydrates and persists builder awakener sort config', () => {
+    window.localStorage.setItem(BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY, '1')
+    window.localStorage.setItem(BUILDER_AWAKENER_SORT_KEY_KEY, 'RARITY')
+    window.localStorage.setItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY, 'ASC')
+
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    expect(result.current.awakenerSortKey).toBe('RARITY')
+    expect(result.current.awakenerSortDirection).toBe('ASC')
+    expect(result.current.awakenerSortGroupByFaction).toBe(true)
+
+    act(() => {
+      result.current.setAwakenerSortKey('LEVEL')
+      result.current.toggleAwakenerSortDirection()
+      result.current.setAwakenerSortGroupByFaction(false)
+    })
+
+    expect(window.localStorage.getItem(BUILDER_AWAKENER_SORT_KEY_KEY)).toBe('LEVEL')
+    expect(window.localStorage.getItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)).toBe('DESC')
+    expect(window.localStorage.getItem(BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY)).toBe('0')
+  })
+
 })

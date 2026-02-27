@@ -7,9 +7,9 @@ const WHEEL_RARITY_ORDER: Record<Wheel['rarity'], number> = {
 }
 
 const WHEEL_FACTION_ORDER: Record<Wheel['faction'], number> = {
-  AEQUOR: 0,
-  CARO: 1,
-  CHAOS: 2,
+  CHAOS: 0,
+  AEQUOR: 1,
+  CARO: 2,
   ULTRA: 3,
   NEUTRAL: 4,
 }

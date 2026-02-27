@@ -13,6 +13,16 @@ type DeleteTeamResult = {
   nextActiveTeamId: string
 }
 
+export type TeamTemplateId = 'DTIDE_5' | 'DTIDE_10'
+
+type ApplyTeamTemplateResult = {
+  nextTeams: Team[]
+  createdCount: number
+  renamedCount: number
+  targetCount: number
+  removedCount: number
+}
+
 function getHighestTeamNumber(teams: Team[]) {
   return teams.reduce((maxValue, team) => {
     const match = team.name.match(/^Team\s+(\d+)$/i)
@@ -102,4 +112,96 @@ export function reorderTeams(currentTeams: Team[], sourceTeamId: string, targetT
   const [movedTeam] = nextTeams.splice(sourceIndex, 1)
   nextTeams.splice(targetIndex, 0, movedTeam)
   return nextTeams
+}
+
+function getTemplateNames(templateId: TeamTemplateId): string[] {
+  if (templateId === 'DTIDE_5') {
+    return ['Wave 1', 'Wave 2', 'Wave 3', 'Wave 4', 'Wave 5']
+  }
+  return [
+    'Wave 1',
+    'Wave 1 Extra',
+    'Wave 2',
+    'Wave 2 Extra',
+    'Wave 3',
+    'Wave 3 Extra',
+    'Wave 4',
+    'Wave 4 Extra',
+    'Wave 5',
+    'Wave 5 Extra',
+  ]
+}
+
+export function isTeamEmpty(team: Team | undefined): boolean {
+  if (!team) {
+    return true
+  }
+  if (team.posseId) {
+    return false
+  }
+  return team.slots.every(
+    (slot) =>
+      !slot.awakenerName &&
+      !slot.faction &&
+      !slot.level &&
+      !slot.covenantId &&
+      slot.wheels[0] === null &&
+      slot.wheels[1] === null,
+  )
+}
+
+export function resetTeam(currentTeams: Team[], teamId: string): Team[] {
+  return currentTeams.map((team) =>
+    team.id === teamId
+      ? {
+          ...team,
+          posseId: undefined,
+          slots: createEmptyTeamSlots(),
+        }
+      : team,
+  )
+}
+
+export function applyTeamTemplate(currentTeams: Team[], templateId: TeamTemplateId): ApplyTeamTemplateResult {
+  const templateNames = getTemplateNames(templateId)
+  const targetCount = Math.min(templateNames.length, MAX_TEAMS)
+  let nextTeams = [...currentTeams]
+  const originalLength = nextTeams.length
+  const neededTeams = Math.max(0, targetCount - originalLength)
+
+  for (let index = originalLength; index < targetCount; index += 1) {
+    nextTeams.push(createTeam(templateNames[index]))
+  }
+
+  let renamedCount = 0
+  for (let index = 0; index < targetCount; index += 1) {
+    const team = nextTeams[index]
+    const nextName = templateNames[index]
+    if (team.name === nextName) {
+      continue
+    }
+    nextTeams[index] = { ...team, name: nextName }
+    renamedCount += 1
+  }
+
+  let removedCount = 0
+  if (templateId === 'DTIDE_5' && nextTeams.length > targetCount) {
+    const kept = nextTeams.slice(0, targetCount)
+    const tail = nextTeams.slice(targetCount)
+    const retainedTail = tail.filter((team) => !isTeamEmpty(team))
+    removedCount = tail.length - retainedTail.length
+    nextTeams = [...kept, ...retainedTail]
+  }
+
+  if (neededTeams === 0 && renamedCount === 0 && removedCount === 0) {
+    return { nextTeams: currentTeams, createdCount: 0, renamedCount: 0, removedCount: 0, targetCount }
+  }
+
+  return {
+    nextTeams,
+    createdCount: neededTeams,
+    renamedCount,
+    removedCount,
+    targetCount,
+  }
 }

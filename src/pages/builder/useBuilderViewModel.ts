@@ -5,12 +5,15 @@ import { getCovenants } from '../../domain/covenants'
 import { getPosses } from '../../domain/posses'
 import { getWheelMainstatLabel, getWheels } from '../../domain/wheels'
 import { compareWheelsForUi } from '../../domain/wheel-sort'
-import { getBrowserLocalStorage } from '../../domain/storage'
+import { getBrowserLocalStorage, safeStorageRead, safeStorageWrite } from '../../domain/storage'
 import { getPosseAssetById } from '../../domain/posse-assets'
 import {
+  compareAwakenersForCollectionSort,
+  type AwakenerSortKey,
+  type CollectionSortDirection,
+} from '../../domain/collection-sorting'
+import {
   loadCollectionOwnership,
-  saveCollectionOwnership,
-  setDisplayUnowned as setCollectionDisplayUnownedState,
 } from '../../domain/collection-ownership'
 import { searchAwakeners } from '../../domain/awakeners-search'
 import { searchPosses } from '../../domain/posses-search'
@@ -41,9 +44,13 @@ function normalizeForSearch(value: string): string {
 type UseBuilderViewModelOptions = {
   searchInputRef: RefObject<HTMLInputElement | null>
 }
+type TeamRenameSurface = 'header' | 'list'
 
 const BUILDER_AUTOSAVE_DEBOUNCE_MS = 300
-const COLLECTION_AUTOSAVE_DEBOUNCE_MS = 300
+const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
+const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
+const BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
+const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
 
 function createDefaultBuilderState() {
   const teams = createInitialTeams()
@@ -61,14 +68,35 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   }, [storage])
   const [teams, setTeams] = useState<Team[]>(initialBuilderState.teams)
   const [activeTeamId, setActiveTeamId] = useState<string>(initialBuilderState.activeTeamId)
-  const [collectionOwnership, setCollectionOwnership] = useState(() => loadCollectionOwnership(storage))
+  const [collectionOwnership] = useState(() => loadCollectionOwnership(storage))
   const [editingTeamId, setEditingTeamId] = useState<string | null>(null)
   const [editingTeamName, setEditingTeamName] = useState('')
+  const [editingTeamSurface, setEditingTeamSurface] = useState<TeamRenameSurface | null>(null)
   const [pickerTab, setPickerTab] = useState<PickerTab>('awakeners')
   const [awakenerFilter, setAwakenerFilter] = useState<AwakenerFilter>('ALL')
   const [posseFilter, setPosseFilter] = useState<PosseFilter>('ALL')
   const [wheelRarityFilter, setWheelRarityFilter] = useState<WheelRarityFilter>('ALL')
   const [wheelMainstatFilter, setWheelMainstatFilter] = useState<WheelMainstatFilter>('ALL')
+  const [awakenerSortKey, setAwakenerSortKey] = useState<AwakenerSortKey>(() => {
+    const stored = safeStorageRead(storage, BUILDER_AWAKENER_SORT_KEY_KEY)
+    if (stored === 'LEVEL' || stored === 'RARITY' || stored === 'ENLIGHTEN' || stored === 'ALPHABETICAL') {
+      return stored
+    }
+    return 'LEVEL'
+  })
+  const [awakenerSortDirection, setAwakenerSortDirection] = useState<CollectionSortDirection>(() => {
+    return safeStorageRead(storage, BUILDER_AWAKENER_SORT_DIRECTION_KEY) === 'ASC' ? 'ASC' : 'DESC'
+  })
+  const [awakenerSortGroupByFaction, setAwakenerSortGroupByFaction] = useState(() => {
+    const stored = safeStorageRead(storage, BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY)
+    if (stored === '1') {
+      return true
+    }
+    if (stored === '0') {
+      return false
+    }
+    return true
+  })
   const [pickerSearchByTab, setPickerSearchByTab] = useState<Record<PickerTab, string>>({
     awakeners: '',
     wheels: '',
@@ -76,6 +104,16 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     covenants: '',
   })
   const [activeSelection, setActiveSelection] = useState<ActiveSelection>(null)
+  const [displayUnowned, setDisplayUnowned] = useState(() => {
+    const stored = safeStorageRead(storage, BUILDER_DISPLAY_UNOWNED_KEY)
+    if (stored === '1') {
+      return true
+    }
+    if (stored === '0') {
+      return false
+    }
+    return true
+  })
 
   const effectiveActiveTeamId = useMemo(
     () => (teams.some((team) => team.id === activeTeamId) ? activeTeamId : (teams[0]?.id ?? '')),
@@ -105,10 +143,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   )
   const pickerPosses = useMemo(() => [...getPosses()].sort((left, right) => left.name.localeCompare(right.name)), [])
   const pickerCovenants = useMemo(() => [...getCovenants()].sort((left, right) => left.id.localeCompare(right.id)), [])
-  const pickerWheels = useMemo(
-    () => [...getWheels()].sort(compareWheelsForUi),
-    [],
-  )
+  const pickerWheels = useMemo(() => [...getWheels()], [])
   const awakenerIdByName = useMemo(
     () => new Map(pickerAwakeners.map((awakener) => [awakener.name, String(awakener.id)])),
     [pickerAwakeners],
@@ -146,8 +181,6 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     [pickerPosses, collectionOwnership.ownedPosses],
   )
 
-  const displayUnowned = collectionOwnership.displayUnowned
-
   const isAwakenerOwnedByName = useCallback(
     (awakenerName: string) => ownedAwakenerLevelByName.get(awakenerName) !== null,
     [ownedAwakenerLevelByName],
@@ -167,15 +200,50 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     [pickerAwakeners, pickerSearchByTab.awakeners],
   )
   const filteredAwakeners = useMemo(() => {
-    if (awakenerFilter === 'ALL') {
-      return displayUnowned ? searchedAwakeners : searchedAwakeners.filter((awakener) => isAwakenerOwnedByName(awakener.name))
-    }
-    return searchedAwakeners.filter(
-      (awakener) =>
-        awakener.faction.trim().toUpperCase() === awakenerFilter &&
-        (displayUnowned || isAwakenerOwnedByName(awakener.name)),
+    const byFaction =
+      awakenerFilter === 'ALL'
+        ? searchedAwakeners
+        : searchedAwakeners.filter((awakener) => awakener.faction.trim().toUpperCase() === awakenerFilter)
+    const byOwnership = displayUnowned ? byFaction : byFaction.filter((awakener) => isAwakenerOwnedByName(awakener.name))
+
+    return [...byOwnership].sort((left, right) =>
+      compareAwakenersForCollectionSort(
+        {
+          label: formatAwakenerNameForUi(left.name),
+          index: left.id,
+          owned: isAwakenerOwnedByName(left.name),
+          enlighten: ownedAwakenerLevelByName.get(left.name) ?? 0,
+          level: awakenerLevelByName.get(left.name) ?? 60,
+          rarity: left.rarity,
+          faction: left.faction,
+        },
+        {
+          label: formatAwakenerNameForUi(right.name),
+          index: right.id,
+          owned: isAwakenerOwnedByName(right.name),
+          enlighten: ownedAwakenerLevelByName.get(right.name) ?? 0,
+          level: awakenerLevelByName.get(right.name) ?? 60,
+          rarity: right.rarity,
+          faction: right.faction,
+        },
+        {
+          key: awakenerSortKey,
+          direction: awakenerSortDirection,
+          groupByFaction: awakenerSortGroupByFaction,
+        },
+      ),
     )
-  }, [awakenerFilter, searchedAwakeners, displayUnowned, isAwakenerOwnedByName])
+  }, [
+    awakenerFilter,
+    searchedAwakeners,
+    displayUnowned,
+    isAwakenerOwnedByName,
+    ownedAwakenerLevelByName,
+    awakenerLevelByName,
+    awakenerSortKey,
+    awakenerSortDirection,
+    awakenerSortGroupByFaction,
+  ])
 
   const searchedPosses = useMemo(
     () => searchPosses(pickerPosses, pickerSearchByTab.posses),
@@ -217,10 +285,11 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
         ? wheelsByRarity
         : wheelsByRarity.filter((wheel) => matchesWheelMainstat(wheel.mainstatKey, wheelMainstatFilter))
 
-    if (!query) {
-      return displayUnowned ? wheelsByMainstat : wheelsByMainstat.filter((wheel) => isWheelOwnedById(wheel.id))
-    }
-    return wheelsByMainstat.filter((wheel) => {
+    const queryFiltered = !query
+      ? displayUnowned
+        ? wheelsByMainstat
+        : wheelsByMainstat.filter((wheel) => isWheelOwnedById(wheel.id))
+      : wheelsByMainstat.filter((wheel) => {
       if (!displayUnowned && !isWheelOwnedById(wheel.id)) {
         return false
       }
@@ -234,7 +303,18 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
         Boolean(matchedAwakenerNames?.has(wheel.awakener.toLowerCase()))
       )
     })
-  }, [pickerAwakeners, pickerWheels, pickerSearchByTab.wheels, wheelMainstatFilter, wheelRarityFilter, displayUnowned, isWheelOwnedById])
+    return [...queryFiltered].sort((left, right) =>
+      compareWheelsForUi(left, right),
+    )
+  }, [
+    pickerAwakeners,
+    pickerWheels,
+    pickerSearchByTab.wheels,
+    wheelMainstatFilter,
+    wheelRarityFilter,
+    displayUnowned,
+    isWheelOwnedById,
+  ])
   const filteredCovenants = useMemo(() => {
     const query = pickerSearchByTab.covenants.trim().toLowerCase()
     if (!query) {
@@ -298,14 +378,20 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   }, [storage, teams, effectiveActiveTeamId])
 
   useEffect(() => {
-    const timeoutId = window.setTimeout(() => {
-      saveCollectionOwnership(storage, collectionOwnership)
-    }, COLLECTION_AUTOSAVE_DEBOUNCE_MS)
+    safeStorageWrite(storage, BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY, awakenerSortGroupByFaction ? '1' : '0')
+  }, [storage, awakenerSortGroupByFaction])
 
-    return () => {
-      window.clearTimeout(timeoutId)
-    }
-  }, [storage, collectionOwnership])
+  useEffect(() => {
+    safeStorageWrite(storage, BUILDER_AWAKENER_SORT_KEY_KEY, awakenerSortKey)
+  }, [storage, awakenerSortKey])
+
+  useEffect(() => {
+    safeStorageWrite(storage, BUILDER_AWAKENER_SORT_DIRECTION_KEY, awakenerSortDirection)
+  }, [storage, awakenerSortDirection])
+
+  useEffect(() => {
+    safeStorageWrite(storage, BUILDER_DISPLAY_UNOWNED_KEY, displayUnowned ? '1' : '0')
+  }, [storage, displayUnowned])
 
   const appendSearchCharacter = useCallback((targetPickerTab: PickerTab, key: string) => {
     setPickerSearchByTab((prev) => ({
@@ -324,14 +410,16 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
 
   const slotById = useMemo(() => new Map(teamSlots.map((slot) => [slot.slotId, slot])), [teamSlots])
 
-  function beginTeamRename(teamId: string, currentName: string) {
+  function beginTeamRename(teamId: string, currentName: string, surface: TeamRenameSurface = 'list') {
     setEditingTeamId(teamId)
     setEditingTeamName(currentName)
+    setEditingTeamSurface(surface)
   }
 
   function cancelTeamRename() {
     setEditingTeamId(null)
     setEditingTeamName('')
+    setEditingTeamSurface(null)
   }
 
   function commitTeamRename(teamId: string) {
@@ -390,10 +478,6 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     return nextDraft
   }
 
-  function setDisplayUnowned(display: boolean) {
-    setCollectionOwnership((prev) => setCollectionDisplayUnownedState(prev, display))
-  }
-
   return {
     collectionOwnership,
     displayUnowned,
@@ -408,6 +492,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     setActiveTeamId,
     editingTeamId,
     editingTeamName,
+    editingTeamSurface,
     setEditingTeamName,
     pickerTab,
     setPickerTab,
@@ -419,6 +504,13 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     setWheelRarityFilter,
     wheelMainstatFilter,
     setWheelMainstatFilter,
+    awakenerSortKey,
+    setAwakenerSortKey,
+    awakenerSortDirection,
+    toggleAwakenerSortDirection: () =>
+      setAwakenerSortDirection((current) => (current === 'DESC' ? 'ASC' : 'DESC')),
+    awakenerSortGroupByFaction,
+    setAwakenerSortGroupByFaction,
     pickerSearchByTab,
     setPickerSearchByTab,
     activeSelection,

@@ -10,6 +10,10 @@ import { BuilderConfirmDialogs } from './builder/BuilderConfirmDialogs'
 import { PickerAwakenerGhost, PickerWheelGhost, TeamCardGhost, TeamWheelGhost } from './builder/DragGhosts'
 import { Toast } from '../components/ui/Toast'
 import { useTimedToast } from '../components/ui/useTimedToast'
+import { PageToolkitBar } from '../components/ui/PageToolkitBar'
+import { Button } from '../components/ui/Button'
+import { TabbedContainer } from '../components/ui/TabbedContainer'
+import { FaDownload, FaRotateLeft, FaUpload, FaXmark } from 'react-icons/fa6'
 import {
   clearSlotAssignment,
   type TeamStateViolationCode,
@@ -22,11 +26,12 @@ import { useBuilderViewModel } from './builder/useBuilderViewModel'
 import { useBuilderImportExport } from './builder/useBuilderImportExport'
 import { usePendingTransferDialog } from './builder/usePendingTransferDialog'
 import { usePendingDeleteDialog } from './builder/usePendingDeleteDialog'
+import { usePendingResetTeamDialog } from './builder/usePendingResetTeamDialog'
 import { useBuilderWheelActions } from './builder/useBuilderWheelActions'
 import { useBuilderCovenantActions } from './builder/useBuilderCovenantActions'
 import { useBuilderAwakenerActions } from './builder/useBuilderAwakenerActions'
 import { resolvePredictedDropHover } from './builder/predicted-drop-hover'
-import { addTeam, reorderTeams } from './builder/team-collection'
+import { addTeam, applyTeamTemplate, reorderTeams, type TeamTemplateId } from './builder/team-collection'
 import type { PredictedDropHover } from './builder/types'
 import type { DragData } from './builder/types'
 
@@ -53,6 +58,7 @@ export function BuilderPage() {
     setActiveTeamId,
     editingTeamId,
     editingTeamName,
+    editingTeamSurface,
     setEditingTeamName,
     pickerTab,
     setPickerTab,
@@ -64,6 +70,12 @@ export function BuilderPage() {
     setWheelRarityFilter,
     wheelMainstatFilter,
     setWheelMainstatFilter,
+    awakenerSortKey,
+    setAwakenerSortKey,
+    awakenerSortDirection,
+    toggleAwakenerSortDirection,
+    awakenerSortGroupByFaction,
+    setAwakenerSortGroupByFaction,
     setPickerSearchByTab,
     setActiveSelection,
     effectiveActiveTeamId,
@@ -107,6 +119,16 @@ export function BuilderPage() {
     setTeams,
     effectiveActiveTeamId,
     setActiveTeamId,
+    clearActiveSelection: () => setActiveSelection(null),
+  })
+  const {
+    clearPendingResetTeam,
+    requestResetTeam,
+    pendingResetTeamDialog,
+  } = usePendingResetTeamDialog({
+    teams,
+    setTeams,
+    effectiveActiveTeamId,
     clearActiveSelection: () => setActiveSelection(null),
   })
 
@@ -206,6 +228,7 @@ export function BuilderPage() {
 
   function requestResetBuilder() {
     clearPendingDelete()
+    clearPendingResetTeam()
     clearTransfer()
     cancelTeamRename()
     setPendingResetBuilder(true)
@@ -299,6 +322,7 @@ export function BuilderPage() {
   } = useBuilderDndCoordinator({
     onTeamRowDragStart: () => {
       clearPendingDelete()
+      clearPendingResetTeam()
       clearTransfer()
       cancelTeamRename()
     },
@@ -390,6 +414,7 @@ export function BuilderPage() {
     activeDraggedSlot?.wheels[0] ? (ownedWheelLevelById.get(activeDraggedSlot.wheels[0]) ?? null) : null,
     activeDraggedSlot?.wheels[1] ? (ownedWheelLevelById.get(activeDraggedSlot.wheels[1]) ?? null) : null,
   ]
+  const canUndoReset = Boolean(undoResetSnapshot)
 
   return (
     <DndContext
@@ -400,62 +425,63 @@ export function BuilderPage() {
       sensors={sensors}
     >
       <section className="space-y-4">
-        <header className="flex items-center justify-between">
-          <h2 className="ui-title text-2xl text-amber-100">Builder</h2>
-        </header>
+        <PageToolkitBar className="collection-toolkit-drawer">
+          <Button
+            className="px-2 py-1 text-[10px] uppercase tracking-wide"
+            onClick={() => {
+              clearPendingDelete()
+              clearTransfer()
+              cancelTeamRename()
+              openImportDialog()
+            }}
+            type="button"
+          >
+            <span className="inline-flex items-center gap-1">
+              <FaUpload aria-hidden className="text-[9px]" />
+              <span>Import</span>
+            </span>
+          </Button>
+          <Button
+            className="px-2 py-1 text-[10px] uppercase tracking-wide"
+            disabled={teams.length === 0}
+            onClick={() => {
+              openExportAllDialog()
+            }}
+            type="button"
+          >
+            <span className="inline-flex items-center gap-1">
+              <FaDownload aria-hidden className="text-[9px]" />
+              <span>Export All</span>
+            </span>
+          </Button>
+          <Button
+            className={`px-2 py-1 text-[10px] uppercase tracking-wide ${
+              canUndoReset
+                ? 'border-amber-300/65 bg-amber-500/15 text-amber-100 hover:border-amber-200/85'
+                : 'border-rose-300/70 bg-rose-500/14 text-rose-100 hover:border-rose-200/85'
+            }`}
+            onClick={canUndoReset ? undoResetBuilder : requestResetBuilder}
+            type="button"
+          >
+            <span className="inline-flex items-center gap-1">
+              {canUndoReset ? (
+                <FaRotateLeft aria-hidden className="text-[9px]" />
+              ) : (
+                <FaXmark aria-hidden className="text-[9px]" />
+              )}
+              <span>{canUndoReset ? 'Undo Reset' : 'Reset Builder'}</span>
+            </span>
+          </Button>
+        </PageToolkitBar>
 
         <div className="grid items-start gap-4 lg:grid-cols-[2fr_1fr]">
-          <div className="space-y-3">
-            <BuilderActiveTeamPanel
-              activeTeamName={activeTeam?.name ?? 'Team'}
-              activePosseAsset={activePosseAsset}
-              activePosseName={activePosse?.name}
-              isActivePosseOwned={activePosseId ? (ownedPosseLevelById.get(activePosseId) ?? null) !== null : true}
-              activeDragKind={activeDrag?.kind ?? null}
-              onOpenPossePicker={() => setPickerTab('posses')}
-              onCardClick={handleCardClick}
-              onRemoveActiveSelection={handleRemoveActiveSelection}
-              onCovenantSlotClick={handleCovenantSlotClick}
-              onWheelSlotClick={handleWheelSlotClick}
-              awakenerLevelByName={awakenerLevelByName}
-              ownedAwakenerLevelByName={ownedAwakenerLevelByName}
-              ownedWheelLevelById={ownedWheelLevelById}
-              predictedDropHover={predictedDropHover}
-              resolvedActiveSelection={resolvedActiveSelection}
-              teamFactions={teamFactionSet}
-              teamSlots={teamSlots}
-            />
-
-            <BuilderTeamsPanel
-              activeTeamId={effectiveActiveTeamId}
-              canUndoReset={Boolean(undoResetSnapshot)}
-              editingTeamId={editingTeamId}
-              editingTeamName={editingTeamName}
-              onAddTeam={() => {
-                const result = addTeam(teams)
-                setTeams(result.nextTeams)
-              }}
-              onExportAll={() => {
-                openExportAllDialog()
-              }}
-              onExportTeam={(teamId) => {
-                openTeamExportDialog(teamId)
-              }}
-              onBeginTeamRename={(teamId, currentName) => {
-                clearPendingDelete()
-                clearTransfer()
-                beginTeamRename(teamId, currentName)
-              }}
-              onCancelTeamRename={cancelTeamRename}
-              onCommitTeamRename={commitTeamRename}
-              onDeleteTeam={(teamId, teamName) => {
-                clearTransfer()
-                cancelTeamRename()
-                requestDeleteTeam(teamId, teamName)
-              }}
-              onResetBuilder={requestResetBuilder}
-              onUndoReset={undoResetBuilder}
-              onEditTeam={(teamId) => {
+          <div className="min-w-0 space-y-3">
+            <TabbedContainer
+              activeTabId={effectiveActiveTeamId}
+              bodyClassName="p-0"
+              className="overflow-hidden"
+              leftEarMaxWidth="100%"
+              onTabChange={(teamId) => {
                 if (suppressTeamEditRef.current) {
                   return
                 }
@@ -465,13 +491,95 @@ export function BuilderPage() {
                 setActiveTeamId(teamId)
                 setActiveSelection(null)
               }}
-              onEditingTeamNameChange={setEditingTeamName}
-              onOpenImport={() => {
+              tone="amber"
+              tabSizing="content"
+              tabs={teams.map((team) => ({ id: team.id, label: team.name }))}
+            >
+              <BuilderActiveTeamPanel
+                activeTeamId={effectiveActiveTeamId}
+                activeTeamName={activeTeam?.name ?? 'Team'}
+                isEditingTeamName={editingTeamId === effectiveActiveTeamId && editingTeamSurface === 'header'}
+                editingTeamName={editingTeamName}
+                activePosseAsset={activePosseAsset}
+                activePosseName={activePosse?.name}
+                isActivePosseOwned={activePosseId ? (ownedPosseLevelById.get(activePosseId) ?? null) !== null : true}
+                activeDragKind={activeDrag?.kind ?? null}
+                onBeginTeamRename={beginTeamRename}
+                onCommitTeamRename={commitTeamRename}
+                onCancelTeamRename={cancelTeamRename}
+                onEditingTeamNameChange={setEditingTeamName}
+                onOpenPossePicker={() => setPickerTab('posses')}
+                onCardClick={handleCardClick}
+                onRemoveActiveSelection={handleRemoveActiveSelection}
+                onCovenantSlotClick={handleCovenantSlotClick}
+                onWheelSlotClick={handleWheelSlotClick}
+                awakenerLevelByName={awakenerLevelByName}
+                ownedAwakenerLevelByName={ownedAwakenerLevelByName}
+                ownedWheelLevelById={ownedWheelLevelById}
+                predictedDropHover={predictedDropHover}
+                resolvedActiveSelection={resolvedActiveSelection}
+                teamFactions={teamFactionSet}
+                teamSlots={teamSlots}
+              />
+            </TabbedContainer>
+
+            <BuilderTeamsPanel
+              activeTeamId={effectiveActiveTeamId}
+              editingTeamId={editingTeamId}
+              editingTeamName={editingTeamName}
+              editingTeamSurface={editingTeamSurface}
+              onAddTeam={() => {
+                const result = addTeam(teams)
+                setTeams(result.nextTeams)
+              }}
+              onApplyTeamTemplate={(templateId: TeamTemplateId) => {
                 clearPendingDelete()
+                clearPendingResetTeam()
                 clearTransfer()
                 cancelTeamRename()
-                openImportDialog()
+                const result = applyTeamTemplate(teams, templateId)
+                setTeams(result.nextTeams)
+                const templateLabel = templateId === 'DTIDE_10' ? 'D-Tide (10)' : 'D-Tide (5)'
+                if (result.createdCount === 0 && result.renamedCount === 0 && result.removedCount === 0) {
+                  showToast(`${templateLabel} already matches current team layout.`)
+                  return
+                }
+                showToast(
+                  `Applied ${templateLabel}: renamed ${result.renamedCount}, created ${result.createdCount}, removed ${result.removedCount}.`,
+                )
               }}
+              onExportTeam={(teamId) => {
+                openTeamExportDialog(teamId)
+              }}
+              onBeginTeamRename={(teamId, currentName, surface) => {
+                clearPendingDelete()
+                clearTransfer()
+                beginTeamRename(teamId, currentName, surface)
+              }}
+              onCancelTeamRename={cancelTeamRename}
+              onCommitTeamRename={commitTeamRename}
+              onDeleteTeam={(teamId, teamName) => {
+                clearTransfer()
+                cancelTeamRename()
+                requestDeleteTeam(teamId, teamName)
+              }}
+              onResetTeam={(teamId, teamName) => {
+                clearTransfer()
+                cancelTeamRename()
+                requestResetTeam(teamId, teamName)
+              }}
+              onEditTeam={(teamId) => {
+                if (suppressTeamEditRef.current) {
+                  return
+                }
+                clearPendingDelete()
+                clearPendingResetTeam()
+                clearTransfer()
+                cancelTeamRename()
+                setActiveTeamId(teamId)
+                setActiveSelection(null)
+              }}
+              onEditingTeamNameChange={setEditingTeamName}
               ownedAwakenerLevelByName={ownedAwakenerLevelByName}
               ownedPosseLevelById={ownedPosseLevelById}
               posses={pickerPosses}
@@ -483,6 +591,9 @@ export function BuilderPage() {
             activePosseId={activePosseId}
             activeSearchQuery={activeSearchQuery}
             awakenerFilter={awakenerFilter}
+            awakenerSortDirection={awakenerSortDirection}
+            awakenerSortGroupByFaction={awakenerSortGroupByFaction}
+            awakenerSortKey={awakenerSortKey}
             displayUnowned={displayUnowned}
             effectiveActiveTeamId={effectiveActiveTeamId}
             filteredAwakeners={filteredAwakeners}
@@ -495,6 +606,9 @@ export function BuilderPage() {
               handlePickerAwakenerClick(awakenerName)
             }}
             onAwakenerFilterChange={setAwakenerFilter}
+            onAwakenerSortDirectionToggle={toggleAwakenerSortDirection}
+            onAwakenerSortGroupByFactionChange={setAwakenerSortGroupByFaction}
+            onAwakenerSortKeyChange={setAwakenerSortKey}
             onPickerTabChange={setPickerTab}
             onPosseFilterChange={setPosseFilter}
             onWheelRarityFilterChange={setWheelRarityFilter}
@@ -581,6 +695,7 @@ export function BuilderPage() {
         deleteDialog={pendingDeleteDialog}
         onCancelDelete={clearPendingDelete}
         onCancelReset={cancelResetBuilder}
+        onCancelResetTeam={clearPendingResetTeam}
         onCancelTransfer={clearTransfer}
         resetDialog={
           pendingResetBuilder
@@ -591,6 +706,7 @@ export function BuilderPage() {
               }
             : null
         }
+        resetTeamDialog={pendingResetTeamDialog}
         transferDialog={pendingTransferDialog}
       />
 

@@ -1,5 +1,5 @@
 export type CollectionSortDirection = 'ASC' | 'DESC'
-export type AwakenerSortKey = 'LEVEL' | 'ENLIGHTEN' | 'ALPHABETICAL'
+export type AwakenerSortKey = 'LEVEL' | 'RARITY' | 'ENLIGHTEN' | 'ALPHABETICAL'
 
 export type SortableCollectionEntry = {
   label: string
@@ -32,9 +32,10 @@ const factionPriorityByName: Record<string, number> = {
 }
 
 const rarityPriorityByName: Record<string, number> = {
-  SSR: 0,
-  SR: 1,
-  R: 2,
+  GENESIS: 0,
+  SSR: 1,
+  SR: 2,
+  R: 3,
 }
 
 function compareNumber(left: number, right: number, direction: CollectionSortDirection): number {
@@ -106,6 +107,18 @@ export function compareAwakenersForCollectionSort(
       (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, 'DESC'),
       compareRarity,
       ...withOptionalFaction([]),
+      compareIndex,
+      (l, r) => compareText(l.label, r.label, 'ASC'),
+    ])
+  }
+
+  if (config.key === 'RARITY') {
+    return compareByPriority(left, right, [
+      compareOwnedFirst,
+      (l, r) => (config.direction === 'DESC' ? compareRarity(l, r) : compareRarity(r, l)),
+      ...withOptionalFaction([]),
+      (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, 'DESC'),
+      (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
       compareIndex,
       (l, r) => compareText(l.label, r.label, 'ASC'),
     ])

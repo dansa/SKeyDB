@@ -7,7 +7,7 @@ describe('BuilderPage wheels and covenants', () => {
   it('shows covenant picker tab and covenant search placeholder', () => {
     render(<BuilderPage />)
 
-    fireEvent.click(screen.getByRole('button', { name: /covenants/i }))
+    fireEvent.click(screen.getByRole('tab', { name: /covenants/i }))
 
     expect(screen.getByRole('searchbox')).toHaveAttribute('placeholder', 'Search covenants (name, id)')
   })
@@ -22,7 +22,7 @@ describe('BuilderPage wheels and covenants', () => {
 
     const tabNames = [/^awakeners$/i, /^wheels$/i, /^covenants$/i, /^posses$/i] as const
     for (const tabName of tabNames) {
-      fireEvent.click(screen.getByRole('button', { name: tabName }))
+      fireEvent.click(screen.getByRole('tab', { name: tabName }))
       const scrollContainer = document.querySelector('.builder-picker-scrollbar')
       expect(scrollContainer).not.toBeNull()
       expect(scrollContainer?.classList.contains('flex-1')).toBe(true)
@@ -50,7 +50,7 @@ describe('BuilderPage wheels and covenants', () => {
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
     fireEvent.load(screen.getByAltText(/goliath card/i))
     fireEvent.click(screen.getByRole('button', { name: /change goliath/i }))
-    fireEvent.click(screen.getByRole('button', { name: /covenants/i }))
+    fireEvent.click(screen.getByRole('tab', { name: /covenants/i }))
     fireEvent.click(screen.getByRole('button', { name: /deus ex machina covenant/i }))
 
     expect(screen.getByRole('button', { name: /edit covenant/i })).toBeInTheDocument()
@@ -88,13 +88,13 @@ describe('BuilderPage wheels and covenants', () => {
   it('keeps dedicated image scale classes for picker and card wheel tiles', () => {
     render(<BuilderPage />)
 
-    fireEvent.click(screen.getByRole('button', { name: /wheels/i }))
+    fireEvent.click(screen.getByRole('tab', { name: /wheels/i }))
     const pickerWheel = screen.getByRole('button', { name: /merciful nurturing wheel/i })
     const pickerImage = pickerWheel.querySelector('img')
     expect(pickerImage).not.toBeNull()
     expect(pickerImage?.classList.contains('builder-picker-wheel-image')).toBe(true)
 
-    fireEvent.click(screen.getAllByRole('button', { name: /^awakeners$/i })[0])
+    fireEvent.click(screen.getAllByRole('tab', { name: /^awakeners$/i })[0])
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
     fireEvent.load(screen.getByAltText(/goliath card/i))
     fireEvent.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
@@ -110,7 +110,7 @@ describe('BuilderPage wheels and covenants', () => {
   it('renders independent wheel rarity and mainstat filter controls', async () => {
     render(<BuilderPage />)
 
-    fireEvent.click(screen.getByRole('button', { name: /wheels/i }))
+    fireEvent.click(screen.getByRole('tab', { name: /wheels/i }))
 
     const raritySsr = screen.getByRole('button', { name: 'SSR' })
     const mainstatCritRate = screen.getByRole('button', { name: /filter wheels by crit rate/i })
@@ -156,7 +156,7 @@ describe('BuilderPage wheels and covenants', () => {
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
     fireEvent.load(screen.getByAltText(/goliath card/i))
     fireEvent.click(screen.getByRole('button', { name: /change goliath/i }))
-    fireEvent.click(screen.getByRole('button', { name: /wheels/i }))
+    fireEvent.click(screen.getByRole('tab', { name: /wheels/i }))
     fireEvent.click(screen.getByRole('button', { name: /merciful nurturing/i }))
 
     expect(screen.getAllByRole('button', { name: /edit wheel/i })).toHaveLength(1)
@@ -169,7 +169,7 @@ describe('BuilderPage wheels and covenants', () => {
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
     fireEvent.load(screen.getByAltText(/goliath card/i))
     fireEvent.click(screen.getByRole('button', { name: /change goliath/i }))
-    fireEvent.click(screen.getByRole('button', { name: /wheels/i }))
+    fireEvent.click(screen.getByRole('tab', { name: /wheels/i }))
     fireEvent.click(screen.getByRole('button', { name: /merciful nurturing/i }))
     fireEvent.click(screen.getByRole('button', { name: /tablet of scriptures/i }))
 
@@ -178,3 +178,5 @@ describe('BuilderPage wheels and covenants', () => {
     expect(screen.queryByRole('button', { name: /set wheel/i })).not.toBeInTheDocument()
   })
 })
+
+

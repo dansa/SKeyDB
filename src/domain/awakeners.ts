@@ -6,6 +6,7 @@ const rawAwakenersSchema = z.array(
     id: z.number().int().positive(),
     name: z.string().trim().min(1),
     faction: z.string().trim().min(1),
+    rarity: z.string().trim().min(1).optional(),
     aliases: z.array(z.string().trim().min(1)).optional(),
   }),
 )
@@ -14,6 +15,7 @@ export type Awakener = {
   id: number
   name: string
   faction: string
+  rarity?: string
   aliases: string[]
 }
 
@@ -24,6 +26,7 @@ const parsedAwakeners = rawAwakenersSchema.parse(awakenersLite).map((awakener): 
     id: awakener.id,
     name: awakener.name,
     faction: awakener.faction,
+    rarity: awakener.rarity,
     aliases,
   }
 })

@@ -63,4 +63,22 @@ describe('CollectionSortControls', () => {
 
     expect(screen.queryByRole('button', { name: /toggle grouping by faction/i })).not.toBeInTheDocument()
   })
+
+  it('supports compact mode without heading text', () => {
+    render(
+      <CollectionSortControls
+        groupByFaction={false}
+        layout="compact"
+        onGroupByFactionChange={vi.fn()}
+        onSortDirectionToggle={vi.fn()}
+        onSortKeyChange={vi.fn()}
+        sortDirection="DESC"
+        sortKey="LEVEL"
+      />,
+    )
+
+    expect(screen.queryByText(/^sort$/i)).not.toBeInTheDocument()
+    expect(screen.getByRole('combobox', { name: /sort by/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /toggle sort direction/i })).toHaveTextContent('High')
+  })
 })

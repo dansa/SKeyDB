@@ -1,8 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { OwnedAwakenerBoxExport } from './OwnedAwakenerBoxExport'
 
 describe('OwnedAwakenerBoxExport', () => {
+  beforeEach(() => {
+    window.localStorage.clear()
+  })
+
   it('shows card levels by default and allows disabling them', () => {
     render(
       <OwnedAwakenerBoxExport
@@ -71,7 +75,7 @@ describe('OwnedAwakenerBoxExport', () => {
     fireEvent.click(screen.getByLabelText(/group by faction/i))
 
     const sortSelect = screen.getByLabelText(/sort by/i)
-    expect(sortSelect.textContent).not.toContain('Rarity')
+    expect(sortSelect.textContent).toContain('Rarity')
 
     const labels = screen.getAllByTestId('export-preview-card-label')
     expect(labels[0]).toHaveTextContent('Ogier')
@@ -113,5 +117,92 @@ describe('OwnedAwakenerBoxExport', () => {
     const labels = screen.getAllByTestId('export-preview-card-label')
     expect(labels[0]).toHaveTextContent('Aurita')
     expect(labels[1]).toHaveTextContent('Ramona')
+  })
+
+  it('supports rarity sort with Genesis above SSR and SR', () => {
+    render(
+      <OwnedAwakenerBoxExport
+        entries={[
+          {
+            name: 'gen',
+            displayName: 'Genesis Unit',
+            faction: 'AEQUOR',
+            index: 1,
+            level: 0,
+            awakenerLevel: 60,
+            cardAsset: null,
+            rarity: 'Genesis',
+          },
+          {
+            name: 'ssr',
+            displayName: 'SSR Unit',
+            faction: 'CHAOS',
+            index: 2,
+            level: 0,
+            awakenerLevel: 60,
+            cardAsset: null,
+            rarity: 'SSR',
+          },
+          {
+            name: 'sr',
+            displayName: 'SR Unit',
+            faction: 'CARO',
+            index: 3,
+            level: 0,
+            awakenerLevel: 60,
+            cardAsset: null,
+            rarity: 'SR',
+          },
+        ]}
+        onStatusMessage={vi.fn()}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: /export box as png/i }))
+    fireEvent.change(screen.getByLabelText(/sort by/i), { target: { value: 'RARITY' } })
+    const directionButton = screen.getByRole('button', { name: /toggle sort direction/i })
+    if (directionButton.textContent?.includes('Low')) {
+      fireEvent.click(directionButton)
+    }
+
+    const labels = screen.getAllByTestId('export-preview-card-label')
+    expect(labels[0]).toHaveTextContent('Genesis Unit')
+    expect(labels[1]).toHaveTextContent('SSR Unit')
+    expect(labels[2]).toHaveTextContent('SR Unit')
+  })
+
+  it('rehydrates persisted rarity sort config from local storage', () => {
+    window.localStorage.setItem(
+      'skeydb.ownedBoxExport.sort.v1',
+      JSON.stringify({
+        key: 'RARITY',
+        direction: 'ASC',
+        groupByFaction: true,
+      }),
+    )
+
+    render(
+      <OwnedAwakenerBoxExport
+        entries={[
+          {
+            name: 'aurita',
+            displayName: 'Aurita',
+            faction: 'AEQUOR',
+            rarity: 'SSR',
+            index: 1,
+            level: 1,
+            awakenerLevel: 60,
+            cardAsset: null,
+          },
+        ]}
+        onStatusMessage={vi.fn()}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: /export box as png/i }))
+
+    expect(screen.getByRole('combobox', { name: /sort by/i })).toHaveValue('RARITY')
+    expect(screen.getByRole('button', { name: /toggle sort direction/i })).toHaveTextContent('Low')
+    expect(screen.getByRole('button', { name: /group by faction/i })).toHaveTextContent('On')
   })
 })

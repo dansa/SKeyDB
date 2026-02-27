@@ -1,4 +1,4 @@
-import type { RefObject } from 'react'
+import { useEffect, useState, type RefObject } from 'react'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import type { Awakener } from '../../domain/awakeners'
 import type { Covenant } from '../../domain/covenants'
@@ -8,12 +8,20 @@ import { getCovenantAssetById } from '../../domain/covenant-assets'
 import { getPosseAssetById } from '../../domain/posse-assets'
 import { getWheelAssetById } from '../../domain/wheel-assets'
 import { OwnedTogglePill } from '../../components/ui/OwnedTogglePill'
+import { TabbedContainer } from '../../components/ui/TabbedContainer'
+import { CollectionSortControls } from '../../components/ui/CollectionSortControls'
+import { Button } from '../../components/ui/Button'
+import { FaChevronDown, FaChevronRight } from 'react-icons/fa6'
 import { PICKER_DROP_ZONE_ID } from './dnd-ids'
 import { PickerCovenantTile } from './PickerCovenantTile'
 import { PickerDropZone } from './PickerDropZone'
 import { PickerAwakenerTile } from './PickerAwakenerTile'
 import { PickerWheelTile } from './PickerWheelTile'
 import { wheelMainstatFilterOptions } from './wheel-mainstats'
+import type {
+  AwakenerSortKey,
+  CollectionSortDirection,
+} from '../../domain/collection-sorting'
 import type {
   AwakenerFilter,
   PickerTab,
@@ -56,6 +64,8 @@ const wheelRarityFilterTabs: Array<{ id: WheelRarityFilter; label: string }> = [
   { id: 'R', label: 'R' },
 ]
 
+const BUILDER_AWAKENER_SORT_EXPANDED_KEY = 'skeydb.builder.awakenerSortExpanded.v1'
+
 type BuilderSelectionPanelProps = {
   searchInputRef: RefObject<HTMLInputElement | null>
   pickerTab: PickerTab
@@ -64,6 +74,9 @@ type BuilderSelectionPanelProps = {
   posseFilter: PosseFilter
   wheelRarityFilter: WheelRarityFilter
   wheelMainstatFilter: WheelMainstatFilter
+  awakenerSortKey: AwakenerSortKey
+  awakenerSortDirection: CollectionSortDirection
+  awakenerSortGroupByFaction: boolean
   displayUnowned: boolean
   filteredAwakeners: Awakener[]
   filteredPosses: Posse[]
@@ -85,6 +98,9 @@ type BuilderSelectionPanelProps = {
   onPosseFilterChange: (nextFilter: PosseFilter) => void
   onWheelRarityFilterChange: (nextFilter: WheelRarityFilter) => void
   onWheelMainstatFilterChange: (nextFilter: WheelMainstatFilter) => void
+  onAwakenerSortKeyChange: (nextKey: AwakenerSortKey) => void
+  onAwakenerSortDirectionToggle: () => void
+  onAwakenerSortGroupByFactionChange: (nextGroupByFaction: boolean) => void
   onDisplayUnownedChange: (displayUnowned: boolean) => void
   onAwakenerClick: (awakenerName: string) => void
   onSetActiveWheel: (wheelId?: string) => void
@@ -100,6 +116,9 @@ export function BuilderSelectionPanel({
   posseFilter,
   wheelRarityFilter,
   wheelMainstatFilter,
+  awakenerSortKey,
+  awakenerSortDirection,
+  awakenerSortGroupByFaction,
   displayUnowned,
   filteredAwakeners,
   filteredPosses,
@@ -121,19 +140,97 @@ export function BuilderSelectionPanel({
   onPosseFilterChange,
   onWheelRarityFilterChange,
   onWheelMainstatFilterChange,
+  onAwakenerSortKeyChange,
+  onAwakenerSortDirectionToggle,
+  onAwakenerSortGroupByFactionChange,
   onDisplayUnownedChange,
   onAwakenerClick,
   onSetActiveWheel,
   onSetActiveCovenant,
   onSetActivePosse,
 }: BuilderSelectionPanelProps) {
+  const [isAwakenerSortExpanded, setIsAwakenerSortExpanded] = useState<boolean>(() => {
+    if (typeof window === 'undefined') {
+      return false
+    }
+    try {
+      return window.localStorage.getItem(BUILDER_AWAKENER_SORT_EXPANDED_KEY) === '1'
+    } catch {
+      return false
+    }
+  })
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(BUILDER_AWAKENER_SORT_EXPANDED_KEY, isAwakenerSortExpanded ? '1' : '0')
+    } catch {
+      // Ignore storage failures.
+    }
+  }, [isAwakenerSortExpanded])
+
   return (
     <aside
-      className="flex max-h-[calc(100dvh-11.5rem)] min-h-0 flex-col bg-slate-900/45 p-4 shadow-[inset_0_0_0_1px_rgba(100,116,139,0.5)]"
+      className="flex max-h-[calc(100dvh-11.5rem)] min-h-0 flex-col"
       data-picker-zone="true"
     >
-      <h3 className="ui-title text-lg text-amber-100">Selection Queue</h3>
-      <p className="mt-2 text-sm text-slate-200">Click adds to first empty slot. Drag to deploy or replace.</p>
+      <TabbedContainer
+        activeTabId={pickerTab}
+        bodyClassName="flex min-h-0 flex-1 flex-col p-2"
+        className="flex min-h-0 flex-1 flex-col"
+        leftEarMaxWidth="100%"
+        onTabChange={(tabId) => onPickerTabChange(tabId as PickerTab)}
+        tabs={pickerTabs}
+      >
+      <div className="mt-2">
+        <Button
+          aria-expanded={isAwakenerSortExpanded}
+          className="w-full px-2 py-1.5 text-[11px] tracking-wide"
+          onClick={() => setIsAwakenerSortExpanded((current) => !current)}
+          type="button"
+          variant="secondary"
+        >
+          <span className="inline-flex w-full items-center justify-between gap-2">
+            <span className="uppercase">Sorting & Toggles</span>
+            {isAwakenerSortExpanded ? (
+              <FaChevronDown aria-hidden className="text-[13px]" />
+            ) : (
+              <FaChevronRight aria-hidden className="text-[13px]" />
+            )}
+          </span>
+        </Button>
+        <div
+          className={
+            isAwakenerSortExpanded
+              ? '-mt-px space-y-2 border border-slate-500/45 bg-slate-900/45 p-2'
+              : 'hidden'
+          }
+        >
+          {pickerTab === 'awakeners' ? (
+            <CollectionSortControls
+              groupByFaction={awakenerSortGroupByFaction}
+              layout="stacked"
+              onGroupByFactionChange={onAwakenerSortGroupByFactionChange}
+              onSortDirectionToggle={onAwakenerSortDirectionToggle}
+              onSortKeyChange={onAwakenerSortKeyChange}
+              sortDirection={awakenerSortDirection}
+              sortDirectionAriaLabel="Toggle builder awakener sort direction"
+              sortKey={awakenerSortKey}
+              sortSelectAriaLabel="Builder awakener sort key"
+            />
+          ) : null}
+          <div className="flex items-center justify-between gap-3 text-xs text-slate-300">
+            <span>Display Unowned</span>
+            <OwnedTogglePill
+              className="ownership-pill-builder"
+              offLabel="Off"
+              onLabel="On"
+              onToggle={() => onDisplayUnownedChange(!displayUnowned)}
+              owned={displayUnowned}
+              variant="flat"
+            />
+          </div>
+        </div>
+      </div>
       <input
         className="mt-3 w-full border border-slate-800/95 bg-slate-950/90 px-3 py-2 text-sm text-slate-100 outline-none placeholder:text-slate-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] focus:border-amber-300/65 focus:bg-slate-950"
         ref={searchInputRef}
@@ -150,33 +247,6 @@ export function BuilderSelectionPanel({
         type="search"
         value={activeSearchQuery}
       />
-      <div className="mt-3 grid grid-cols-4 gap-1">
-        {pickerTabs.map((tab) => (
-          <button
-            className={`border px-2 py-1.5 text-[11px] tracking-wide transition-colors ${
-              pickerTab === tab.id
-                ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
-                : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
-            }`}
-            key={tab.id}
-            onClick={() => onPickerTabChange(tab.id)}
-            type="button"
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-      <div className="mt-2 flex items-center justify-between gap-3 text-xs text-slate-300">
-        <span>Display Unowned</span>
-        <OwnedTogglePill
-          className="ownership-pill-builder"
-          offLabel="Off"
-          onLabel="On"
-          onToggle={() => onDisplayUnownedChange(!displayUnowned)}
-          owned={displayUnowned}
-          variant="flat"
-        />
-      </div>
 
       {pickerTab === 'awakeners' ? (
         <div className="mt-2 grid grid-cols-5 gap-1">
@@ -265,6 +335,9 @@ export function BuilderSelectionPanel({
           </div>
         </>
       ) : null}
+
+            <p className="mt-2 text-xs text-slate-200">Drag and drop from the list to deploy or replace, clicking replaces the active slot, or fills an empty one if available. </p>
+
 
       <PickerDropZone className="builder-picker-scrollbar mt-3 min-h-0 flex-1 overflow-auto pr-1" id={PICKER_DROP_ZONE_ID}>
         {pickerTab === 'awakeners' ? (
@@ -413,6 +486,7 @@ export function BuilderSelectionPanel({
           </div>
         ) : null}
       </PickerDropZone>
+      </TabbedContainer>
     </aside>
   )
 }

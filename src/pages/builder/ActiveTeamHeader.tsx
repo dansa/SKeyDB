@@ -1,13 +1,21 @@
 import { DEFAULT_FACTION_TINT, getFactionIcon, getFactionLabel, getFactionTint, normalizeFactionId } from '../../domain/factions'
 import tempPosseIcon from '../../assets/posse/00-temposse.png'
 import type { CSSProperties } from 'react'
+import { TeamNameInlineEditor } from './TeamNameInlineEditor'
 
 type ActiveTeamHeaderProps = {
+  activeTeamId: string
   activeTeamName: string
+  isEditingTeamName: boolean
+  editingTeamName: string
   activePosseAsset?: string
   activePosseName?: string
   isActivePosseOwned: boolean
   teamFactions: string[]
+  onBeginTeamRename: (teamId: string, currentName: string, surface?: 'header' | 'list') => void
+  onCommitTeamRename: (teamId: string) => void
+  onCancelTeamRename: () => void
+  onEditingTeamNameChange: (nextName: string) => void
   onOpenPossePicker: () => void
 }
 
@@ -25,11 +33,18 @@ const factionMetaById: Record<string, FactionMeta> = {
 }
 
 export function ActiveTeamHeader({
+  activeTeamId,
   activeTeamName,
+  isEditingTeamName,
+  editingTeamName,
   activePosseAsset,
   activePosseName,
   isActivePosseOwned,
   teamFactions,
+  onBeginTeamRename,
+  onCommitTeamRename,
+  onCancelTeamRename,
+  onEditingTeamNameChange,
   onOpenPossePicker,
 }: ActiveTeamHeaderProps) {
   const normalizedFactions = Array.from(new Set(teamFactions.map(normalizeFactionId))).slice(0, 2)
@@ -74,9 +89,16 @@ export function ActiveTeamHeader({
       </div>
 
       <div className="builder-team-faction-copy">
-        <h3 className="ui-title truncate text-xl text-amber-100" title={activeTeamName}>
-          {activeTeamName}
-        </h3>
+        <TeamNameInlineEditor
+          draftName={editingTeamName}
+          isEditing={isEditingTeamName}
+          onBeginEdit={() => onBeginTeamRename(activeTeamId, activeTeamName, 'header')}
+          onCancel={onCancelTeamRename}
+          onCommit={() => onCommitTeamRename(activeTeamId)}
+          onDraftChange={onEditingTeamNameChange}
+          teamName={activeTeamName}
+          variant="header"
+        />
         <p className="text-xs tracking-wide text-slate-300">
           {activeFactions.length > 0 ? (
             <>

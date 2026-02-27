@@ -3,7 +3,10 @@ import { ActiveTeamHeader } from './ActiveTeamHeader'
 import { AwakenerCard } from './AwakenerCard'
 
 type BuilderActiveTeamPanelProps = {
+  activeTeamId: string
   activeTeamName: string
+  isEditingTeamName: boolean
+  editingTeamName: string
   activePosseAsset?: string
   activePosseName?: string
   isActivePosseOwned: boolean
@@ -15,6 +18,10 @@ type BuilderActiveTeamPanelProps = {
   resolvedActiveSelection: ActiveSelection
   activeDragKind?: DragData['kind'] | null
   predictedDropHover?: PredictedDropHover
+  onBeginTeamRename: (teamId: string, currentName: string, surface?: 'header' | 'list') => void
+  onCommitTeamRename: (teamId: string) => void
+  onCancelTeamRename: () => void
+  onEditingTeamNameChange: (nextName: string) => void
   onOpenPossePicker: () => void
   onCardClick: (slotId: string) => void
   onWheelSlotClick: (slotId: string, wheelIndex: number) => void
@@ -23,7 +30,10 @@ type BuilderActiveTeamPanelProps = {
 }
 
 export function BuilderActiveTeamPanel({
+  activeTeamId,
   activeTeamName,
+  isEditingTeamName,
+  editingTeamName,
   activePosseAsset,
   activePosseName,
   isActivePosseOwned,
@@ -35,6 +45,10 @@ export function BuilderActiveTeamPanel({
   resolvedActiveSelection,
   activeDragKind = null,
   predictedDropHover = null,
+  onBeginTeamRename,
+  onCommitTeamRename,
+  onCancelTeamRename,
+  onEditingTeamNameChange,
   onOpenPossePicker,
   onCardClick,
   onWheelSlotClick,
@@ -42,12 +56,19 @@ export function BuilderActiveTeamPanel({
   onRemoveActiveSelection,
 }: BuilderActiveTeamPanelProps) {
   return (
-    <div className="border border-amber-200/35 bg-slate-900/45 p-4">
+    <div className="p-4">
       <ActiveTeamHeader
+        activeTeamId={activeTeamId}
         activeTeamName={activeTeamName}
+        isEditingTeamName={isEditingTeamName}
+        editingTeamName={editingTeamName}
         activePosseAsset={activePosseAsset}
         activePosseName={activePosseName}
         isActivePosseOwned={isActivePosseOwned}
+        onBeginTeamRename={onBeginTeamRename}
+        onCommitTeamRename={onCommitTeamRename}
+        onCancelTeamRename={onCancelTeamRename}
+        onEditingTeamNameChange={onEditingTeamNameChange}
         onOpenPossePicker={onOpenPossePicker}
         teamFactions={Array.from(teamFactions)}
       />

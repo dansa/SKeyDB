@@ -135,4 +135,25 @@ describe('import planner', () => {
     const result = prepareImport({ kind: 'single', team: incoming }, current)
     expect(result.status).toBe('requires_strategy')
   })
+
+  it('keeps explicit multi-team names (for example Wave labels) on full import', () => {
+    const incomingTeams = [
+      makeTeam('Wave 1'),
+      makeTeam('Wave 1 Extra'),
+      makeTeam('Wave 2'),
+      makeTeam('Wave 2 Extra'),
+      makeTeam('Wave 3'),
+    ]
+
+    const result = prepareImport({ kind: 'multi', teams: incomingTeams, activeTeamIndex: 0 }, [makeTeam('Team 1')])
+    expect(result.status).toBe('requires_replace')
+    if (result.status !== 'requires_replace') return
+    expect(result.teams.map((team) => team.name)).toEqual([
+      'Wave 1',
+      'Wave 1 Extra',
+      'Wave 2',
+      'Wave 2 Extra',
+      'Wave 3',
+    ])
+  })
 })

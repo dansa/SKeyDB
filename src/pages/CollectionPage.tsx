@@ -2,10 +2,13 @@ import { OwnedTogglePill } from '../components/ui/OwnedTogglePill'
 import { TogglePill } from '../components/ui/TogglePill'
 import { Button } from '../components/ui/Button'
 import { CollectionSortControls } from '../components/ui/CollectionSortControls'
+import { TabbedContainer } from '../components/ui/TabbedContainer'
+import { PageToolkitBar } from '../components/ui/PageToolkitBar'
+import { PanelSection } from '../components/ui/PanelSection'
 import { Toast } from '../components/ui/Toast'
 import { useRef } from 'react'
 import type { ChangeEvent, WheelEvent } from 'react'
-import { FaDownload, FaUpload } from 'react-icons/fa6'
+import { FaDownload, FaRotateRight, FaUpload } from 'react-icons/fa6'
 import { getAwakenerCardAsset } from '../domain/awakener-assets'
 import { getFactionTint } from '../domain/factions'
 import { formatAwakenerNameForUi } from '../domain/name-format'
@@ -195,33 +198,80 @@ export function CollectionPage() {
     }
   }
 
-  return (
-    <section className="space-y-4">
-      <header className="flex items-center justify-between">
-        <h2 className="ui-title text-2xl text-amber-100">Collection</h2>
-      </header>
-
-      <div className="grid items-start gap-4 lg:grid-cols-[260px_1fr]">
-        <aside className="flex min-h-[560px] flex-col border border-slate-500/45 bg-slate-900/45 p-3">
-          <h3 className="ui-title text-lg text-amber-100">Ownership</h3>
-          <p className="mt-1 text-xs text-slate-300">Track owned state and dupe levels.</p>
-
-          <div className="mt-3 grid grid-cols-3 gap-1">
-            {collectionTabs.map((entry) => (
-              <button
-                className={`border px-2 py-1.5 text-[11px] tracking-wide transition-colors ${
-                  model.tab === entry.id
-                    ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
-                    : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
-                }`}
-                key={entry.id}
-                onClick={() => model.setTab(entry.id)}
+  const tabbedContainerRightActions =
+    model.tab === 'awakeners' ? (
+      <div>
+        <CollectionSortControls
+          compactTrailingAction={
+            model.awakenerSortHasPendingChanges ? (
+              <Button
+                aria-label="Apply changes"
+                className="h-6 px-2 text-[11px] leading-none"
+                onClick={model.applyAwakenerSortChanges}
                 type="button"
               >
-                {entry.label}
-              </button>
-            ))}
-          </div>
+                <span className="inline-flex items-center gap-1">
+                  <FaRotateRight aria-hidden className="text-[10px]" />
+                  <span className="max-sm:hidden">Refresh</span>
+                </span>
+              </Button>
+            ) : null
+          }
+          groupByFaction={model.awakenerSortGroupByFaction}
+          layout="compact"
+          onGroupByFactionChange={model.setAwakenerSortGroupByFaction}
+          onSortDirectionToggle={model.toggleAwakenerSortDirection}
+          onSortKeyChange={model.setAwakenerSortKey}
+          showGroupByFaction={false}
+          sortDirection={model.awakenerSortDirection}
+          sortKey={model.awakenerSortKey}
+          sortDirectionAriaLabel="Toggle collection awakener sort direction"
+          sortSelectAriaLabel="Collection awakener sort key"
+        />
+      </div>
+    ) : model.tab === 'wheels' && model.wheelSortHasPendingChanges ? (
+      <Button className="px-2 py-1 text-[10px] uppercase tracking-wide" onClick={model.applyWheelSortChanges} type="button">
+        Apply Changes
+      </Button>
+    ) : null
+
+  return (
+    <section className="space-y-3">
+      <input
+        accept="application/json,.json"
+        className="hidden"
+        onChange={handleLoadFromFile}
+        ref={importFileInputRef}
+        type="file"
+      />
+
+      <PageToolkitBar className="collection-toolkit-drawer">
+        {model.tab === 'awakeners' ? (
+          <OwnedAwakenerBoxExport entries={ownedAwakenersForBoxExport} onStatusMessage={showToast} />
+        ) : null}
+        {model.tab === 'wheels' ? (
+          <OwnedWheelBoxExport entries={ownedWheelsForBoxExport} onStatusMessage={showToast} />
+        ) : null}
+        <Button className="px-2 py-1 text-[10px] uppercase tracking-wide" onClick={handleSaveToFile} type="button">
+          <span className="inline-flex items-center gap-1">
+            <FaDownload aria-hidden className="text-[9px]" />
+            <span>Save to File</span>
+          </span>
+        </Button>
+        <Button className="px-2 py-1 text-[10px] uppercase tracking-wide" onClick={handleOpenLoadFilePicker} type="button">
+          <span className="inline-flex items-center gap-1">
+            <FaUpload aria-hidden className="text-[9px]" />
+            <span>Load from File</span>
+          </span>
+        </Button>
+      </PageToolkitBar>
+
+      <div className="grid items-start gap-4 lg:grid-cols-[280px_1fr]">
+        <aside className="flex min-h-[560px] flex-col border border-slate-500/45 bg-slate-900/45 p-3">
+          <PanelSection
+            description="Search, filters and display toggles for the active collection tab."
+            title="Navigation"
+          >
 
           <div className="mt-2 flex items-center justify-between gap-3 text-xs text-slate-300">
             <span>Display Unowned</span>
@@ -235,6 +285,21 @@ export function CollectionPage() {
               variant="flat"
             />
           </div>
+
+          {model.tab === 'awakeners' ? (
+            <div className="mt-2 flex items-center justify-between gap-3 text-xs text-slate-300">
+              <span>Group By Faction</span>
+              <TogglePill
+                ariaLabel="Toggle grouping awakeners by faction"
+                checked={model.awakenerSortGroupByFaction}
+                className="ownership-pill-builder"
+                offLabel="Off"
+                onChange={model.setAwakenerSortGroupByFaction}
+                onLabel="On"
+                variant="flat"
+              />
+            </div>
+          ) : null}
 
           <input
             className="mt-2 w-full border border-slate-800/95 bg-slate-950/90 px-3 py-2 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-amber-300/65 focus:bg-slate-950"
@@ -252,45 +317,21 @@ export function CollectionPage() {
           />
 
           {model.tab === 'awakeners' ? (
-            <div className="mt-2 space-y-2">
-              <div className="grid grid-cols-5 gap-1">
-                {awakenerFilterTabs.map((entry) => (
-                  <button
-                    className={`border compact-filter-chip transition-colors ${
-                      model.awakenerFilter === entry.id
-                        ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
-                        : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
-                    }`}
-                    key={entry.id}
-                    onClick={() => model.setAwakenerFilter(entry.id)}
-                    type="button"
-                  >
-                    {entry.label}
-                  </button>
-                ))}
-              </div>
-              <div className="space-y-1">
-                <CollectionSortControls
-                  groupByFaction={model.awakenerSortGroupByFaction}
-                  groupByFactionAriaLabel="Toggle grouping awakeners by faction"
-                  onGroupByFactionChange={model.setAwakenerSortGroupByFaction}
-                  onSortDirectionToggle={model.toggleAwakenerSortDirection}
-                  onSortKeyChange={model.setAwakenerSortKey}
-                  sortDirection={model.awakenerSortDirection}
-                  sortKey={model.awakenerSortKey}
-                  sortDirectionAriaLabel="Toggle collection awakener sort direction"
-                  sortSelectAriaLabel="Collection awakener sort key"
-                />
-                {model.awakenerSortHasPendingChanges ? (
-                  <Button
-                    className="w-full px-2 py-1 text-[10px] uppercase tracking-wide"
-                    onClick={model.applyAwakenerSortChanges}
-                    type="button"
-                  >
-                    Apply Changes
-                  </Button>
-                ) : null}
-              </div>
+            <div className="mt-2 grid grid-cols-5 gap-1">
+              {awakenerFilterTabs.map((entry) => (
+                <button
+                  className={`border compact-filter-chip transition-colors ${
+                    model.awakenerFilter === entry.id
+                      ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
+                      : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
+                  }`}
+                  key={entry.id}
+                  onClick={() => model.setAwakenerFilter(entry.id)}
+                  type="button"
+                >
+                  {entry.label}
+                </button>
+              ))}
             </div>
           ) : null}
 
@@ -339,17 +380,6 @@ export function CollectionPage() {
                   </button>
                 ))}
               </div>
-              {model.wheelSortHasPendingChanges ? (
-                <div className="mt-1">
-                  <Button
-                    className="w-full px-2 py-1 text-[10px] uppercase tracking-wide"
-                    onClick={model.applyWheelSortChanges}
-                    type="button"
-                  >
-                    Apply Changes
-                  </Button>
-                </div>
-              ) : null}
             </>
           ) : null}
 
@@ -372,74 +402,122 @@ export function CollectionPage() {
             </div>
           ) : null}
 
-          <div className="mt-2 border-t border-slate-500/45 pt-2">
-            <div className="grid grid-cols-2 gap-1">
-              <p className="col-span-2 text-[10px] uppercase tracking-wide text-slate-400">
-                {`Quick-toggle filtered ${activeCollectionLabel} (${activeFilteredCount}):`}
-              </p>
-              <Button
-                className="px-2 py-1 text-[10px] uppercase tracking-wide hover:border-emerald-300/55 hover:text-emerald-200"
-                disabled={activeFilteredCount === 0}
-                onClick={model.markFilteredOwned}
-                type="button"
-              >
-                Set Owned
-              </Button>
-              <Button
-                className="px-2 py-1 text-[10px] uppercase tracking-wide hover:border-rose-300/55 hover:text-rose-200"
-                disabled={activeFilteredCount === 0}
-                onClick={model.markFilteredUnowned}
-                type="button"
-              >
-                Set Unowned
-              </Button>
-            </div>
-          </div>
+          </PanelSection>
 
-          <div className="mt-auto space-y-1.5 pt-3">
-            <input
-              accept="application/json,.json"
-              className="hidden"
-              onChange={handleLoadFromFile}
-              ref={importFileInputRef}
-              type="file"
-            />
-            <div className="grid grid-cols-2 gap-1">
+          <PanelSection
+            className="mt-auto border-t border-slate-500/45 pt-2"
+            description={`These actions apply ALL of the currently filtered and displayed ${activeCollectionLabel} (${activeFilteredCount}).`}
+            title="Batch Actions"
+          >
+            <div className="space-y-2">
+              <div className="grid grid-cols-2 gap-1">
+                <Button
+                  className="h-7 w-full px-2 py-1 text-[10px] uppercase tracking-wide hover:border-emerald-300/55 hover:text-emerald-200"
+                  disabled={activeFilteredCount === 0}
+                  onClick={model.markFilteredOwned}
+                  type="button"
+                >
+                  Set Owned
+                </Button>
+                <Button
+                  className="h-7 w-full px-2 py-1 text-[10px] uppercase tracking-wide hover:border-rose-300/55 hover:text-rose-200"
+                  disabled={activeFilteredCount === 0}
+                  onClick={model.markFilteredUnowned}
+                  type="button"
+                >
+                  Set Unowned
+                </Button>
+              </div>
+
+              {model.tab === 'awakeners' || model.tab === 'wheels' ? (
+                <div className="grid grid-cols-[84px_repeat(4,minmax(0,1fr))] items-center gap-1">
+                  <span className="justify-self-end text-[10px] uppercase tracking-wide text-slate-400">Enlightens:</span>
+                  <Button
+                    className="h-7 w-full min-w-0 px-2 py-1 text-[10px] uppercase tracking-wide"
+                    disabled={activeFilteredCount === 0}
+                    onClick={() => model.setFilteredEnlightenPreset(0)}
+                    type="button"
+                  >
+                    0
+                  </Button>
+                  <Button
+                    className="h-7 w-full min-w-0 px-2 py-1 text-[10px] uppercase tracking-wide"
+                    disabled={activeFilteredCount === 0}
+                    onClick={() => model.setFilteredEnlightenPreset(3)}
+                    type="button"
+                  >
+                    3
+                  </Button>
+                  <Button
+                    className="h-7 w-full min-w-0 px-2 py-1 text-[10px] uppercase tracking-wide"
+                    disabled={activeFilteredCount === 0}
+                    onClick={() => model.setFilteredEnlightenPreset(7)}
+                    type="button"
+                  >
+                    +4
+                  </Button>
+                  <Button
+                    className="h-7 w-full min-w-0 px-2 py-1 text-[10px] uppercase tracking-wide"
+                    disabled={activeFilteredCount === 0}
+                    onClick={() => model.setFilteredEnlightenPreset(15)}
+                    type="button"
+                  >
+                    +12
+                  </Button>
+                </div>
+              ) : null}
+
               {model.tab === 'awakeners' ? (
-                <OwnedAwakenerBoxExport
-                  entries={ownedAwakenersForBoxExport}
-                  onStatusMessage={showToast}
-                />
+                <div className="grid grid-cols-[84px_repeat(4,minmax(0,1fr))] items-center gap-1">
+                  <span className="justify-self-end text-[10px] uppercase tracking-wide text-slate-400">Levels:</span>
+                  <Button
+                    className="h-7 w-full min-w-0 px-2 py-1 text-[10px] uppercase tracking-wide"
+                    disabled={activeFilteredCount === 0}
+                    onClick={() => model.setFilteredAwakenerLevelsPreset('0')}
+                    type="button"
+                  >
+                    1
+                  </Button>
+                  <Button
+                    className="h-7 w-full min-w-0 px-2 py-1 text-[10px] uppercase tracking-wide"
+                    disabled={activeFilteredCount === 0}
+                    onClick={() => model.setFilteredAwakenerLevelsPreset('60')}
+                    type="button"
+                  >
+                    60
+                  </Button>
+                  <Button
+                    className="h-7 w-full min-w-0 px-2 py-1 text-[10px] uppercase tracking-wide"
+                    disabled={activeFilteredCount === 0}
+                    onClick={() => model.setFilteredAwakenerLevelsPreset('-10')}
+                    type="button"
+                  >
+                    -10
+                  </Button>
+                  <Button
+                    className="h-7 w-full min-w-0 px-2 py-1 text-[10px] uppercase tracking-wide"
+                    disabled={activeFilteredCount === 0}
+                    onClick={() => model.setFilteredAwakenerLevelsPreset('+10')}
+                    type="button"
+                  >
+                    +10
+                  </Button>
+                </div>
               ) : null}
-              {model.tab === 'wheels' ? (
-                <OwnedWheelBoxExport entries={ownedWheelsForBoxExport} onStatusMessage={showToast} />
-              ) : null}
-              <Button
-                className="px-2 py-1 text-[10px] uppercase tracking-wide"
-                onClick={handleSaveToFile}
-                type="button"
-              >
-                <span className="inline-flex items-center gap-1">
-                  <FaDownload aria-hidden className="text-[9px]" />
-                  <span>Save to File</span>
-                </span>
-              </Button>
-              <Button
-                className="px-2 py-1 text-[10px] uppercase tracking-wide"
-                onClick={handleOpenLoadFilePicker}
-                type="button"
-              >
-                <span className="inline-flex items-center gap-1">
-                  <FaUpload aria-hidden className="text-[9px]" />
-                  <span>Load from File</span>
-                </span>
-              </Button>
             </div>
-          </div>
+          </PanelSection>
+
         </aside>
 
-        <div className="border overflow-hidden max-h-[calc(100dvh-11.5rem)] border-slate-500/45 bg-slate-900/45 p-2">
-          <div className="collection-scrollbar max-h-[calc(100dvh-11.5rem)] min-h-[560px] overflow-auto pr-1">
+        <TabbedContainer
+          activeTabId={model.tab}
+          bodyClassName="p-2"
+          className="max-h-[calc(100dvh-11.5rem)] overflow-hidden"
+          onTabChange={(tabId) => model.setTab(tabId as (typeof collectionTabs)[number]['id'])}
+          rightActions={tabbedContainerRightActions}
+          tabs={collectionTabs.map((tab) => ({ id: tab.id, label: tab.label }))}
+        >
+          <div className="collection-scrollbar max-h-[calc(100dvh-15rem)] min-h-[560px] overflow-auto pr-1">
           {model.tab === 'awakeners' ? (
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
               {model.filteredAwakeners.map((awakener) => {
@@ -625,7 +703,7 @@ export function CollectionPage() {
             </div>
           ) : null}
           </div>
-        </div>
+        </TabbedContainer>
       </div>
       <Toast
         className="pointer-events-none fixed right-4 bottom-4 z-[950] border border-amber-200/50 bg-slate-950/92 px-3 py-2 text-sm text-amber-100 shadow-[0_6px_20px_rgba(2,6,23,0.55)]"

@@ -20,6 +20,12 @@ type BuilderConfirmDialogsProps = {
     onConfirm: () => void
   } | null
   onCancelReset: () => void
+  resetTeamDialog: {
+    title: string
+    message: string
+    onConfirm: () => void
+  } | null
+  onCancelResetTeam: () => void
 }
 
 export function BuilderConfirmDialogs({
@@ -29,6 +35,8 @@ export function BuilderConfirmDialogs({
   onCancelTransfer,
   resetDialog,
   onCancelReset,
+  resetTeamDialog,
+  onCancelResetTeam,
 }: BuilderConfirmDialogsProps) {
   return (
     <>
@@ -51,6 +59,17 @@ export function BuilderConfirmDialogs({
           onCancel={onCancelReset}
           onConfirm={resetDialog.onConfirm}
           title={resetDialog.title}
+          confirmVariant="danger"
+        />
+      ) : null}
+      {resetTeamDialog ? (
+        <ConfirmDialog
+          cancelLabel="Cancel"
+          confirmLabel="Reset Team"
+          message={resetTeamDialog.message}
+          onCancel={onCancelResetTeam}
+          onConfirm={resetTeamDialog.onConfirm}
+          title={resetTeamDialog.title}
           confirmVariant="danger"
         />
       ) : null}

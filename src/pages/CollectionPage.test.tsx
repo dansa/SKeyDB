@@ -132,15 +132,15 @@ describe('CollectionPage global search capture', () => {
     expect(screen.getByRole('button', { name: /export box as png/i })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: /export wheels as png/i })).not.toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: 'Wheels' }))
+    fireEvent.click(screen.getByRole('tab', { name: 'Wheels' }))
     expect(screen.queryByRole('button', { name: /export box as png/i })).not.toBeInTheDocument()
     expect(screen.getByRole('button', { name: /export wheels as png/i })).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: 'Posses' }))
+    fireEvent.click(screen.getByRole('tab', { name: 'Posses' }))
     expect(screen.queryByRole('button', { name: /export box as png/i })).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: /export wheels as png/i })).not.toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: 'Awakeners' }))
+    fireEvent.click(screen.getByRole('tab', { name: 'Awakeners' }))
     expect(screen.getByRole('button', { name: /export box as png/i })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: /export wheels as png/i })).not.toBeInTheDocument()
   })
@@ -157,6 +157,13 @@ describe('CollectionPage global search capture', () => {
 
     expect(screen.queryByText('Ramona')).not.toBeInTheDocument()
     expect(screen.getByText('Ogier')).toBeInTheDocument()
+  })
+
+  it('uses compact sort ear and keeps group-by-faction in navigation', () => {
+    render(<CollectionPage />)
+
+    expect(screen.queryByText(/^Sort$/i)).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /toggle grouping awakeners by faction/i })).toBeInTheDocument()
   })
 
   it('sorts unowned awakeners last when display unowned is enabled', () => {
@@ -184,7 +191,7 @@ describe('CollectionPage global search capture', () => {
 
   it('sorts posses by ownership then index', () => {
     render(<CollectionPage />)
-    fireEvent.click(screen.getByRole('button', { name: 'Posses' }))
+    fireEvent.click(screen.getByRole('tab', { name: 'Posses' }))
 
     const initialTitles = Array.from(document.querySelectorAll('.collection-card-title')).map((element) =>
       element.textContent?.trim(),
@@ -231,7 +238,7 @@ describe('CollectionPage global search capture', () => {
   it('freezes wheel card order after enlighten edits until apply changes is clicked', () => {
     render(<CollectionPage />)
 
-    fireEvent.click(screen.getByRole('button', { name: 'Wheels' }))
+    fireEvent.click(screen.getByRole('tab', { name: 'Wheels' }))
     expect(screen.queryByRole('button', { name: /apply changes/i })).not.toBeInTheDocument()
 
     const callOfTheDeepTitle = screen.getByText('Call of the Deep')
@@ -429,4 +436,75 @@ describe('CollectionPage global search capture', () => {
     const decreaseAfter = ramonaScope.getByRole('button', { name: /decrease enlighten level/i })
     expect(decreaseAfter).not.toBeDisabled()
   })
+
+  it('shows scoped batch actions per tab', () => {
+    render(<CollectionPage />)
+
+    expect(screen.getByRole('button', { name: /set owned/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /set unowned/i })).toBeInTheDocument()
+    expect(screen.getByText(/^Enlightens:$/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /^\+4$/i })).toBeInTheDocument()
+    expect(screen.getByText(/^Levels:$/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /^\+10$/i })).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('tab', { name: 'Wheels' }))
+    expect(screen.getByText(/^Enlightens:$/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /^\+4$/i })).toBeInTheDocument()
+    expect(screen.queryByText(/^Levels:$/i)).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /^\+10$/i })).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('tab', { name: 'Posses' }))
+    expect(screen.queryByText(/^Enlightens:$/i)).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /^\+4$/i })).not.toBeInTheDocument()
+    expect(screen.queryByText(/^Levels:$/i)).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /^\+10$/i })).not.toBeInTheDocument()
+  })
+
+  it('applies awakener level ±10 batch actions with 1<->10 normalization', () => {
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /edit awakener level for ramona/i }))
+    const ramonaLevelInput = screen.getByRole('textbox', { name: /awakener level for ramona/i })
+    fireEvent.change(ramonaLevelInput, { target: { value: '1' } })
+    fireEvent.keyDown(ramonaLevelInput, { key: 'Enter' })
+    expect(screen.getByRole('button', { name: /edit awakener level for ramona/i })).toHaveTextContent('Lv.1')
+
+    fireEvent.click(screen.getByRole('button', { name: /^\+10$/i }))
+    expect(screen.getByRole('button', { name: /edit awakener level for ramona/i })).toHaveTextContent('Lv.10')
+
+    fireEvent.click(screen.getByRole('button', { name: /^-10$/i }))
+    expect(screen.getByRole('button', { name: /edit awakener level for ramona/i })).toHaveTextContent('Lv.1')
+  })
+
+  it('applies wheel enlighten +12 batch action to filtered wheels', () => {
+    render(<CollectionPage />)
+    fireEvent.click(screen.getByRole('tab', { name: 'Wheels' }))
+
+    fireEvent.click(screen.getByRole('button', { name: /^\+12$/i }))
+
+    const firstWheelCard = screen.getByRole('button', { name: /toggle ownership for birth of a soul/i }).closest('.collection-card-frame')
+    const secondWheelCard = screen.getByRole('button', { name: /toggle ownership for call of the deep/i }).closest('.collection-card-frame')
+    expect(firstWheelCard).toBeTruthy()
+    expect(secondWheelCard).toBeTruthy()
+
+    const firstWheelScope = within(firstWheelCard as HTMLElement)
+    const secondWheelScope = within(secondWheelCard as HTMLElement)
+
+    expect(firstWheelScope.getByRole('button', { name: /increase enlighten level/i })).toBeDisabled()
+    expect(firstWheelScope.getByRole('button', { name: /decrease enlighten level/i })).not.toBeDisabled()
+    expect(secondWheelScope.getByRole('button', { name: /increase enlighten level/i })).toBeDisabled()
+    expect(secondWheelScope.getByRole('button', { name: /decrease enlighten level/i })).not.toBeDisabled()
+  })
+
+  it('does not toggle unowned entries to owned when applying enlighten presets', () => {
+    render(<CollectionPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /toggle ownership for ramona/i }))
+    expect(screen.queryByRole('button', { name: /edit awakener level for ramona/i })).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /^\+4$/i }))
+
+    expect(screen.queryByRole('button', { name: /edit awakener level for ramona/i })).not.toBeInTheDocument()
+  })
 })
+

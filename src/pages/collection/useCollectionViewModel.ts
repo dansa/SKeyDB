@@ -55,6 +55,23 @@ function clampOwnershipLevel(level: number): number {
   return level
 }
 
+function clampAwakenerLevel(level: number): number {
+  if (level < 1) {
+    return 1
+  }
+  if (level > 90) {
+    return 90
+  }
+  return level
+}
+
+function stepAwakenerLevelByTen(level: number, direction: 1 | -1): number {
+  if (direction > 0) {
+    return level < 10 ? 10 : clampAwakenerLevel(level + 10)
+  }
+  return level <= 10 ? 1 : clampAwakenerLevel(level - 10)
+}
+
 function useLatestRef<T>(value: T) {
   const ref = useRef(value)
   useEffect(() => {
@@ -116,7 +133,10 @@ function loadAwakenerSortConfig(storage: StorageLike | null): AwakenerSortConfig
     const key = parsed.key
     const direction = parsed.direction
     return {
-      key: key === 'LEVEL' || key === 'ENLIGHTEN' || key === 'ALPHABETICAL' ? key : DEFAULT_AWAKENER_SORT_CONFIG.key,
+      key:
+        key === 'LEVEL' || key === 'RARITY' || key === 'ENLIGHTEN' || key === 'ALPHABETICAL'
+          ? key
+          : DEFAULT_AWAKENER_SORT_CONFIG.key,
       direction: direction === 'ASC' || direction === 'DESC' ? direction : DEFAULT_AWAKENER_SORT_CONFIG.direction,
       groupByFaction:
         typeof parsed.groupByFaction === 'boolean'
@@ -204,6 +224,7 @@ export function useCollectionViewModel() {
           owned: leftIsOwned,
           enlighten: leftIsOwned ? leftOwnedLevel : 0,
           level: leftAwakenerLevel,
+          rarity: left.rarity,
           faction: left.faction,
         },
         {
@@ -212,6 +233,7 @@ export function useCollectionViewModel() {
           owned: rightIsOwned,
           enlighten: rightIsOwned ? rightOwnedLevel : 0,
           level: rightAwakenerLevel,
+          rarity: right.rarity,
           faction: right.faction,
         },
         {
@@ -521,6 +543,77 @@ export function useCollectionViewModel() {
     }
   }
 
+  function setFilteredEnlightenPreset(level: number) {
+    const clampedLevel = clampOwnershipLevel(level)
+    setOwnership((prev) => {
+      let next = prev
+      if (tab === 'awakeners') {
+        for (const awakener of filteredAwakeners) {
+          const awakenerId = awakenerIdByName.get(awakener.name)
+          if (!awakenerId) {
+            continue
+          }
+          const currentOwnedLevel = getOwnedLevel(next, 'awakeners', awakenerId)
+          if (currentOwnedLevel === null) {
+            continue
+          }
+          next = setOwnedLevel(next, 'awakeners', awakenerId, clampedLevel, ownershipCatalog)
+        }
+        return next
+      }
+
+      if (tab === 'wheels') {
+        for (const wheel of filteredWheels) {
+          const currentOwnedLevel = getOwnedLevel(next, 'wheels', wheel.id)
+          if (currentOwnedLevel === null) {
+            continue
+          }
+          next = setOwnedLevel(next, 'wheels', wheel.id, clampedLevel, ownershipCatalog)
+        }
+      }
+      return next
+    })
+
+    if (tab === 'awakeners') {
+      setAwakenerSortHasPendingChanges(true)
+      return
+    }
+    if (tab === 'wheels') {
+      setWheelSortHasPendingChanges(true)
+    }
+  }
+
+  function setFilteredAwakenerLevelsPreset(mode: '0' | '60' | '+10' | '-10') {
+    if (tab !== 'awakeners') {
+      return
+    }
+    setOwnership((prev) => {
+      let next = prev
+      for (const awakener of filteredAwakeners) {
+        const awakenerId = awakenerIdByName.get(awakener.name)
+        if (!awakenerId) {
+          continue
+        }
+        const ownedLevel = getOwnedLevel(next, 'awakeners', awakenerId)
+        if (ownedLevel === null) {
+          continue
+        }
+        const currentLevel = getAwakenerLevel(next, awakenerId)
+        const nextLevel =
+          mode === '0'
+            ? 1
+            : mode === '60'
+              ? 60
+              : mode === '+10'
+                ? stepAwakenerLevelByTen(currentLevel, 1)
+                : stepAwakenerLevelByTen(currentLevel, -1)
+        next = setAwakenerLevel(next, awakenerId, nextLevel, ownershipCatalog)
+      }
+      return next
+    })
+    setAwakenerSortHasPendingChanges(true)
+  }
+
   function getAwakenerOwnedLevel(awakenerName: string): number | null {
     const awakenerId = awakenerIdByName.get(awakenerName)
     if (!awakenerId) {
@@ -612,6 +705,8 @@ export function useCollectionViewModel() {
     decreaseLevel,
     markFilteredOwned,
     markFilteredUnowned,
+    setFilteredEnlightenPreset,
+    setFilteredAwakenerLevelsPreset,
     exportOwnershipSnapshot: () => serializeCollectionOwnershipSnapshot(ownership, ownershipCatalog),
     importOwnershipSnapshot: (rawSnapshot: string) => {
       const parsed = parseCollectionOwnershipSnapshot(rawSnapshot, ownershipCatalog)

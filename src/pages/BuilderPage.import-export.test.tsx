@@ -89,6 +89,6 @@ describe('BuilderPage import-export', () => {
 
     expect(container.querySelector('[data-team-name="Team 3"]')).toBeNull()
     expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /team 2/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /rename team 2/i })).toBeInTheDocument()
   })
 })
