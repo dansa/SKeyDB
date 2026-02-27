@@ -35,5 +35,30 @@ describe('TabbedContainer', () => {
     fireEvent.click(tabB)
     expect(onTabChange).toHaveBeenCalledWith('b')
   })
+
+  it('renders optional close actions without triggering tab change', () => {
+    const onTabChange = vi.fn()
+    const onTabClose = vi.fn()
+
+    render(
+      <TabbedContainer
+        activeTabId="a"
+        canCloseTab={(tab) => tab.id !== 'a'}
+        onTabChange={onTabChange}
+        onTabClose={onTabClose}
+        tabs={[
+          { id: 'a', label: 'Tab A' },
+          { id: 'b', label: 'Tab B' },
+        ]}
+      >
+        <div>Body</div>
+      </TabbedContainer>,
+    )
+
+    expect(screen.queryByRole('button', { name: /close tab a/i })).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /close tab b/i }))
+    expect(onTabClose).toHaveBeenCalledWith('b')
+    expect(onTabChange).not.toHaveBeenCalled()
+  })
 })
 

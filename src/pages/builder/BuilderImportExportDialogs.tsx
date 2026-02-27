@@ -17,8 +17,39 @@ type BuilderImportExportDialogsProps = {
   onCancelStrategyImport: () => void
   onMoveStrategyImport: () => void
   onSkipStrategyImport: () => void
-  exportDialog: { title: string; code: string } | null
+  exportDialog: { title: string; code: string; kind: 'standard' | 'ingame' } | null
   onCloseExportDialog: () => void
+}
+
+const ingameSupportContactNote = (
+  <>
+    If something seems incorrect, PLEASE do let me know, @fjant(fjantsa) on discord.
+    <br />
+    Ping in maincord, university or send a DM.
+  </>
+)
+
+function renderIngameImportWarning() {
+  return (
+    <p className="text-xs text-rose-300">
+      In-game `@@...@@` import is work in progress. Covenants and posse slots are NOT supported yet and will import as
+      empty when using import codes from the game.
+      <br />
+      <br />
+      {ingameSupportContactNote}
+    </p>
+  )
+}
+
+function renderIngameExportWarning() {
+  return (
+    <p className="text-xs text-rose-300">
+      In-game export is work in progress. Covenants and posses are NOT supported yet.
+      <br />
+      <br />
+      {ingameSupportContactNote}
+    </p>
+  )
 }
 
 export function BuilderImportExportDialogs({
@@ -38,7 +69,13 @@ export function BuilderImportExportDialogs({
 }: BuilderImportExportDialogsProps) {
   return (
     <>
-      {isImportDialogOpen ? <ImportCodeDialog onCancel={onCancelImport} onSubmit={onSubmitImport} /> : null}
+      {isImportDialogOpen ? (
+        <ImportCodeDialog
+          onCancel={onCancelImport}
+          onSubmit={onSubmitImport}
+          warning={renderIngameImportWarning()}
+        />
+      ) : null}
 
       {pendingReplaceImport ? (
         <ConfirmDialog
@@ -60,7 +97,19 @@ export function BuilderImportExportDialogs({
         />
       ) : null}
 
-      {exportDialog ? <ExportCodeDialog code={exportDialog.code} onClose={onCloseExportDialog} title={exportDialog.title} /> : null}
+      {exportDialog ? (
+        <ExportCodeDialog
+          code={exportDialog.code}
+          helperText={
+            exportDialog.kind === 'ingame'
+              ? 'Copy this code and use it with the in-game team import feature.'
+              : undefined
+          }
+          onClose={onCloseExportDialog}
+          title={exportDialog.title}
+          warning={exportDialog.kind === 'ingame' ? renderIngameExportWarning() : undefined}
+        />
+      ) : null}
     </>
   )
 }

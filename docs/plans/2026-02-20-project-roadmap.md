@@ -44,7 +44,8 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 - Import/export:
   - versioned compact codes (`t1.` / `mt1.`),
   - single-team and multi-team export actions,
-  - import dialogs with replace and duplicate strategy handling.
+  - import dialogs with replace and duplicate strategy handling,
+  - in-game `@@...@@` single-team import/export support with current covenant/posse WIP fallback behavior.
 - Local persistence:
   - builder draft autosave/restore,
   - builder reset + undo flow.
@@ -86,7 +87,8 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 ### Milestone 3: Share + Persistence
 - Expand compact export/import coverage (future schema versions, compatibility policy).
 - Add URL-safe share format (or alternative share string flow).
-- Investigating: A proper way to support import and export strings from/to the game client itself
+- Completed: baseline in-game `@@...@@` team import/export support.
+- Pending: covenant and posse coverage for the in-game codec.
 - Completed: local persistence for builder drafts.
 - Completed: owned/unowned collection persistence (awakeners, wheels, posses) on dedicated collection UI.
 - Pending: migration scaffolding for future persistence schema versions.

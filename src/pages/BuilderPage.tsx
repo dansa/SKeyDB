@@ -31,7 +31,7 @@ import { useBuilderWheelActions } from './builder/useBuilderWheelActions'
 import { useBuilderCovenantActions } from './builder/useBuilderCovenantActions'
 import { useBuilderAwakenerActions } from './builder/useBuilderAwakenerActions'
 import { resolvePredictedDropHover } from './builder/predicted-drop-hover'
-import { addTeam, applyTeamTemplate, reorderTeams, type TeamTemplateId } from './builder/team-collection'
+import { MAX_TEAMS, addTeam, applyTeamTemplate, reorderTeams, type TeamTemplateId } from './builder/team-collection'
 import type { PredictedDropHover } from './builder/types'
 import type { DragData } from './builder/types'
 
@@ -39,7 +39,7 @@ export function BuilderPage() {
   const [predictedDropHover, setPredictedDropHover] = useState<PredictedDropHover>(null)
   const [pendingResetBuilder, setPendingResetBuilder] = useState(false)
   const [undoResetSnapshot, setUndoResetSnapshot] = useState<BuilderDraftPayload | null>(null)
-  const { toastMessage, showToast } = useTimedToast({ defaultDurationMs: 3200 })
+  const { toastEntries, showToast } = useTimedToast({ defaultDurationMs: 3200 })
   const suppressTeamEditRef = useRef(false)
   const suppressTeamEditTimeoutRef = useRef<number | null>(null)
   const resetUndoTimeoutRef = useRef<number | null>(null)
@@ -344,6 +344,7 @@ export function BuilderPage() {
     closeExportDialog,
     openExportAllDialog,
     openTeamExportDialog,
+    openTeamIngameExportDialog,
     pendingReplaceImport,
     cancelReplaceImport,
     confirmReplaceImport,
@@ -455,6 +456,22 @@ export function BuilderPage() {
             </span>
           </Button>
           <Button
+            className="px-2 py-1 text-[10px] uppercase tracking-wide"
+            disabled={!activeTeam}
+            onClick={() => {
+              if (!activeTeam) {
+                return
+              }
+              openTeamIngameExportDialog(activeTeam.id)
+            }}
+            type="button"
+          >
+            <span className="inline-flex items-center gap-1">
+              <FaDownload aria-hidden className="text-[9px]" />
+              <span>Export In-Game</span>
+            </span>
+          </Button>
+          <Button
             className={`px-2 py-1 text-[10px] uppercase tracking-wide ${
               canUndoReset
                 ? 'border-amber-300/65 bg-amber-500/15 text-amber-100 hover:border-amber-200/85'
@@ -479,8 +496,29 @@ export function BuilderPage() {
             <TabbedContainer
               activeTabId={effectiveActiveTeamId}
               bodyClassName="p-0"
+              canCloseTab={() => teams.length > 1}
               className="overflow-hidden"
+              getTabCloseAriaLabel={(tab) => `Close ${tab.label}`}
               leftEarMaxWidth="100%"
+              leftTrailingAction={
+                teams.length < MAX_TEAMS ? (
+                  <button
+                    aria-label="Add team tab"
+                    className="tabbed-container-tab tabbed-container-tab-inactive h-full px-3 text-[11px] tracking-wide text-slate-300 transition-colors"
+                    onClick={() => {
+                      clearPendingDelete()
+                      clearPendingResetTeam()
+                      clearTransfer()
+                      cancelTeamRename()
+                      const result = addTeam(teams)
+                      setTeams(result.nextTeams)
+                    }}
+                    type="button"
+                  >
+                    +
+                  </button>
+                ) : null
+              }
               onTabChange={(teamId) => {
                 if (suppressTeamEditRef.current) {
                   return
@@ -490,6 +528,15 @@ export function BuilderPage() {
                 cancelTeamRename()
                 setActiveTeamId(teamId)
                 setActiveSelection(null)
+              }}
+              onTabClose={(teamId) => {
+                const team = teams.find((entry) => entry.id === teamId)
+                if (!team) {
+                  return
+                }
+                clearTransfer()
+                cancelTeamRename()
+                requestDeleteTeam(team.id, team.name)
               }}
               tone="amber"
               tabSizing="content"
@@ -726,7 +773,7 @@ export function BuilderPage() {
         pendingStrategyImport={pendingStrategyImport}
       />
 
-      <Toast message={toastMessage} />
+      <Toast entries={toastEntries} />
     </DndContext>
   )
 }

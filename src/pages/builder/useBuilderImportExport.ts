@@ -1,5 +1,6 @@
 import { useMemo, useState, type Dispatch, type SetStateAction } from 'react'
 import { decodeImportCode, encodeMultiTeamCode, encodeSingleTeamCode } from '../../domain/import-export'
+import { encodeIngameTeamCode } from '../../domain/ingame-codec'
 import {
   applySingleImportStrategy,
   prepareImport,
@@ -16,6 +17,7 @@ type ReplaceTargetTeam = {
 type PendingReplaceImport = {
   teams: Team[]
   activeTeamIndex: number
+  importWarningMessage?: string
 }
 
 type PendingStrategyImport = {
@@ -23,6 +25,7 @@ type PendingStrategyImport = {
   conflicts: ImportConflict[]
   plannerBaseTeams: Team[]
   replaceIntoTeam?: ReplaceTargetTeam
+  importWarningMessage?: string
 }
 
 type UseBuilderImportExportOptions = {
@@ -51,7 +54,9 @@ export function useBuilderImportExport({
   showToast,
 }: UseBuilderImportExportOptions) {
   const [isImportDialogOpen, setImportDialogOpen] = useState(false)
-  const [exportDialog, setExportDialog] = useState<{ title: string; code: string } | null>(null)
+  const [exportDialog, setExportDialog] = useState<{ title: string; code: string; kind: 'standard' | 'ingame' } | null>(
+    null,
+  )
   const [pendingReplaceImport, setPendingReplaceImport] = useState<PendingReplaceImport | null>(null)
   const [pendingStrategyImport, setPendingStrategyImport] = useState<PendingStrategyImport | null>(null)
 
@@ -75,14 +80,14 @@ export function useBuilderImportExport({
     setActiveSelection(null)
   }
 
-  function finalizePreparedImport(nextTeams: Team[]) {
+  function finalizePreparedImport(nextTeams: Team[], importWarningMessage?: string) {
     const importedTeam = nextTeams.at(-1)
     const nextActiveTeamId = importedTeam?.id ?? effectiveActiveTeamId
     applyImportedTeams(nextTeams, nextActiveTeamId)
     clearTransfer()
     clearPendingDelete()
     clearImportFlow()
-    showToast('Team imported.')
+    showToast(importWarningMessage ? `Team imported. ${importWarningMessage}` : 'Team imported.')
   }
 
   function mergeImportedIntoExistingTeam(
@@ -117,7 +122,7 @@ export function useBuilderImportExport({
 
   function handlePreparedImport(
     result: ReturnType<typeof prepareImport>,
-    options?: { plannerBaseTeams?: Team[]; replaceIntoTeam?: ReplaceTargetTeam },
+    options?: { plannerBaseTeams?: Team[]; replaceIntoTeam?: ReplaceTargetTeam; importWarningMessage?: string },
   ) {
     if (result.status === 'error') {
       showToast(result.message)
@@ -130,6 +135,7 @@ export function useBuilderImportExport({
       setPendingReplaceImport({
         teams: result.teams,
         activeTeamIndex: result.activeTeamIndex,
+        importWarningMessage: options?.importWarningMessage,
       })
       return
     }
@@ -141,6 +147,7 @@ export function useBuilderImportExport({
         conflicts: result.conflicts,
         plannerBaseTeams: options?.plannerBaseTeams ?? teams,
         replaceIntoTeam: options?.replaceIntoTeam,
+        importWarningMessage: options?.importWarningMessage,
       })
       return
     }
@@ -151,11 +158,40 @@ export function useBuilderImportExport({
       clearTransfer()
       clearPendingDelete()
       clearImportFlow()
-      showToast('Team imported.')
+      showToast(options.importWarningMessage ? `Team imported. ${options.importWarningMessage}` : 'Team imported.')
       return
     }
 
-    finalizePreparedImport(result.teams)
+    finalizePreparedImport(result.teams, options?.importWarningMessage)
+  }
+
+  function getIngameImportWarningMessage(warnings: Exclude<ReturnType<typeof decodeImportCode>, { kind: 'multi' }>['warnings']) {
+    if (!warnings || warnings.length === 0) {
+      return undefined
+    }
+
+    const surfaced = warnings.filter(
+      (warning) =>
+        warning.reason === 'unknown_token' &&
+        (warning.section === 'awakener' || warning.section === 'wheel'),
+    )
+    if (surfaced.length === 0) {
+      return undefined
+    }
+
+    const detailParts = surfaced.slice(0, 2).map((warning) => {
+      const slotLabel = warning.slotIndex === undefined ? 'unknown slot' : `slot ${warning.slotIndex + 1}`
+      if (warning.section === 'awakener') {
+        return `${slotLabel} awakener`
+      }
+      const wheelLabel = warning.field === 'wheelTwo' ? 'wheel 2' : 'wheel 1'
+      return `${slotLabel} ${wheelLabel}`
+    })
+    const suffix = surfaced.length > 2 ? '; ...' : ''
+    const details = detailParts.join('; ')
+    const tokenLabel = surfaced.length === 1 ? 'token' : 'tokens'
+
+    return `In-game note: ${surfaced.length} unsupported awakener/wheel ${tokenLabel} imported as empty (${details}${suffix}).`
   }
 
   function submitImportCode(code: string) {
@@ -167,23 +203,29 @@ export function useBuilderImportExport({
       return
     }
 
+    const ingameImportWarningMessage = decoded.kind === 'single' ? getIngameImportWarningMessage(decoded.warnings) : undefined
+
     const shouldImportIntoActiveEmptyTeam = decoded.kind === 'single' && teamSlots.every((slot) => !slot.awakenerName)
     if (shouldImportIntoActiveEmptyTeam && activeTeam) {
       const plannerBaseTeams = teams.filter((team) => team.id !== activeTeam.id)
       handlePreparedImport(prepareImport(decoded, plannerBaseTeams), {
         plannerBaseTeams,
         replaceIntoTeam: { id: activeTeam.id, name: activeTeam.name },
+        importWarningMessage: ingameImportWarningMessage,
       })
       return
     }
 
-    handlePreparedImport(prepareImport(decoded, teams))
+    handlePreparedImport(prepareImport(decoded, teams), {
+      importWarningMessage: ingameImportWarningMessage,
+    })
   }
 
   function openExportAllDialog() {
     setExportDialog({
       title: 'Export All Teams',
       code: encodeMultiTeamCode(teams, effectiveActiveTeamId),
+      kind: 'standard',
     })
   }
 
@@ -196,6 +238,20 @@ export function useBuilderImportExport({
     setExportDialog({
       title: `Export ${team.name}`,
       code: encodeSingleTeamCode(team),
+      kind: 'standard',
+    })
+  }
+
+  function openTeamIngameExportDialog(teamId: string) {
+    const team = teams.find((entry) => entry.id === teamId)
+    if (!team) {
+      showToast('Unable to export: team not found.')
+      return
+    }
+    setExportDialog({
+      title: `Export In-Game ${team.name}`,
+      code: encodeIngameTeamCode(team),
+      kind: 'ingame',
     })
   }
 
@@ -209,7 +265,11 @@ export function useBuilderImportExport({
     clearImportFlow()
     clearTransfer()
     clearPendingDelete()
-    showToast('All teams imported.')
+    showToast(
+      pendingReplaceImport.importWarningMessage
+        ? `All teams imported. ${pendingReplaceImport.importWarningMessage}`
+        : 'All teams imported.',
+    )
   }
 
   function applyStrategy(strategy: Exclude<SingleImportStrategy, 'cancel'>) {
@@ -238,11 +298,15 @@ export function useBuilderImportExport({
       clearTransfer()
       clearPendingDelete()
       clearImportFlow()
-      showToast('Team imported.')
+      showToast(
+        pendingStrategyImport.importWarningMessage
+          ? `Team imported. ${pendingStrategyImport.importWarningMessage}`
+          : 'Team imported.',
+      )
       return
     }
 
-    finalizePreparedImport(result.teams)
+    finalizePreparedImport(result.teams, pendingStrategyImport.importWarningMessage)
   }
 
   return {
@@ -254,6 +318,7 @@ export function useBuilderImportExport({
     closeExportDialog: () => setExportDialog(null),
     openExportAllDialog,
     openTeamExportDialog,
+    openTeamIngameExportDialog,
     pendingReplaceImport,
     cancelReplaceImport: () => setPendingReplaceImport(null),
     confirmReplaceImport,

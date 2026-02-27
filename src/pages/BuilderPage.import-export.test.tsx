@@ -26,6 +26,7 @@ describe('BuilderPage import-export', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /import/i }))
     const importDialog = screen.getByRole('dialog', { name: /import teams/i })
+    expect(within(importDialog).getByText(/in-game `@@\.\.\.@@` import is work in progress/i)).toBeInTheDocument()
     fireEvent.change(within(importDialog).getByRole('textbox', { name: /import code/i }), {
       target: { value: t1Code },
     })
@@ -90,5 +91,37 @@ describe('BuilderPage import-export', () => {
     expect(container.querySelector('[data-team-name="Team 3"]')).toBeNull()
     expect(screen.getByRole('button', { name: /change goliath/i })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /rename team 2/i })).toBeInTheDocument()
+  })
+
+  it('exports active team in in-game @@ format', () => {
+    render(<BuilderPage />)
+
+    const goliathCode = encodeSingleTeamCode(makeImportTeam('Imported Team', 'goliath'))
+    fireEvent.click(screen.getByRole('button', { name: /import/i }))
+    const importDialog = screen.getByRole('dialog', { name: /import teams/i })
+    fireEvent.change(within(importDialog).getByRole('textbox', { name: /import code/i }), {
+      target: { value: goliathCode },
+    })
+    fireEvent.click(within(importDialog).getByRole('button', { name: /^import$/i }))
+
+    fireEvent.click(screen.getByRole('button', { name: /export in-game/i }))
+    const exportDialog = screen.getByRole('dialog', { name: /export in-game/i })
+    expect(within(exportDialog).getByText(/in-game export is work in progress/i)).toBeInTheDocument()
+    const codeArea = within(exportDialog).getByRole('textbox', { name: /export code/i }) as HTMLTextAreaElement
+    expect(codeArea.value.startsWith('@@')).toBe(true)
+    expect(codeArea.value.endsWith('@@')).toBe(true)
+  })
+
+  it('shows unsupported token warning toast for in-game awakener/wheel imports', () => {
+    render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /import/i }))
+    const importDialog = screen.getByRole('dialog', { name: /import teams/i })
+    fireEvent.change(within(importDialog).getByRole('textbox', { name: /import code/i }), {
+      target: { value: '@@#aaaaaaaaaaaa@@' },
+    })
+    fireEvent.click(within(importDialog).getByRole('button', { name: /^import$/i }))
+
+    expect(screen.getByText(/unsupported awakener\/wheel tokens imported as empty/i)).toBeInTheDocument()
   })
 })

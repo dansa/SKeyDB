@@ -5,41 +5,45 @@ type UseTimedToastOptions = {
 }
 
 export function useTimedToast({ defaultDurationMs = 3200 }: UseTimedToastOptions = {}) {
-  const [toastMessage, setToastMessage] = useState<string | null>(null)
-  const timeoutRef = useRef<number | null>(null)
+  const [toastEntries, setToastEntries] = useState<Array<{ id: number; message: string }>>([])
+  const nextToastIdRef = useRef(0)
+  const timeoutRefs = useRef<Map<number, number>>(new Map())
 
   const clearToast = useCallback(() => {
-    if (timeoutRef.current !== null) {
-      window.clearTimeout(timeoutRef.current)
-      timeoutRef.current = null
+    for (const timeoutId of timeoutRefs.current.values()) {
+      window.clearTimeout(timeoutId)
     }
-    setToastMessage(null)
+    timeoutRefs.current.clear()
+    setToastEntries([])
   }, [])
 
   const showToast = useCallback(
     (message: string, durationMs = defaultDurationMs) => {
-      if (timeoutRef.current !== null) {
-        window.clearTimeout(timeoutRef.current)
-      }
+      const toastId = nextToastIdRef.current
+      nextToastIdRef.current += 1
 
-      setToastMessage(message)
-      timeoutRef.current = window.setTimeout(() => {
-        timeoutRef.current = null
-        setToastMessage(null)
+      setToastEntries((previous) => [...previous, { id: toastId, message }])
+      const timeoutId = window.setTimeout(() => {
+        timeoutRefs.current.delete(toastId)
+        setToastEntries((previous) => previous.filter((entry) => entry.id !== toastId))
       }, durationMs)
+      timeoutRefs.current.set(toastId, timeoutId)
     },
     [defaultDurationMs],
   )
 
   useEffect(
     () => () => {
-      if (timeoutRef.current !== null) {
-        window.clearTimeout(timeoutRef.current)
-        timeoutRef.current = null
+      for (const timeoutId of timeoutRefs.current.values()) {
+        window.clearTimeout(timeoutId)
       }
+      timeoutRefs.current.clear()
     },
     [],
   )
 
-  return { toastMessage, showToast, clearToast }
+  const toastMessages = toastEntries.map((entry) => entry.message)
+  const toastMessage = toastMessages.at(-1) ?? null
+
+  return { toastEntries, toastMessage, toastMessages, showToast, clearToast }
 }
