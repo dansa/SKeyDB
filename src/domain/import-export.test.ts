@@ -79,6 +79,37 @@ describe('import-export codec', () => {
     expect(() => decodeImportCode('x1.hello')).toThrow(/unsupported import code prefix/i)
   })
 
+  it('auto-detects and imports in-game @@ wrapper codes', () => {
+    const parsed = decodeImportCode('@@NDklaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaad@@')
+    expect(parsed.kind).toBe('single')
+    if (parsed.kind !== 'single') return
+    expect(parsed.team.slots.every((slot) => Boolean(slot.awakenerName))).toBe(true)
+  })
+
+  it('extracts and imports @@ code from full copied in-game block text', () => {
+    const pasted = `Investigation Lineup
+Keeper: FjanT（101330134） Team: Team2
+
+Thais, Merciful Nurturing, Kiss of Farewell, Steppenwolf
+Helot: Catena, Drowning in Crimson, To My Dearest Friend, April Tribute
+Murphy, Shrouded Birth, Mind Barrier, Steppenwolf
+Corposant, Dear Papa Noel, We Will Meet Again, Steppenwolf
+The Lone Seed
+
+@@Oir7xbxSxYxHmJyUyTxfhQuExRxp6gNKxCxfhQuExRxfhQuEyAG@@`
+
+    const parsed = decodeImportCode(pasted)
+    expect(parsed.kind).toBe('single')
+    if (parsed.kind !== 'single') return
+    expect(parsed.team.slots.every((slot) => Boolean(slot.awakenerName))).toBe(true)
+  })
+
+  it('extracts t1 code from surrounding text', () => {
+    const code = encodeSingleTeamCode(makeTeam('Team wrapped'))
+    const parsed = decodeImportCode(`Here is my export:\n${code}\nThanks!`)
+    expect(parsed.kind).toBe('single')
+  })
+
   it('rejects mt1 payloads with out-of-range active team index', () => {
     const source = encodeMultiTeamCode([makeTeam('Team 1')], 'Team 1-id')
     const payload = source.slice('mt1.'.length)

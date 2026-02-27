@@ -1,5 +1,6 @@
 import { getAwakeners } from './awakeners'
 import { getCovenants } from './covenants'
+import { decodeIngameTeamCode, type IngameImportWarning } from './ingame-codec'
 import { getPosses } from './posses'
 import { getWheels } from './wheels'
 import { createEmptyTeamSlots } from '../pages/builder/constants'
@@ -26,8 +27,35 @@ const covenantIndexById = new Map(covenants.map((covenant, index) => [covenant.i
 const covenantIdByIndex = new Map(covenants.map((covenant, index) => [index + 1, covenant.id]))
 
 export type DecodedImport =
-  | { kind: 'single'; team: Team }
+  | { kind: 'single'; team: Team; warnings?: IngameImportWarning[] }
   | { kind: 'multi'; teams: Team[]; activeTeamIndex: number }
+
+function extractImportCodeCandidate(rawValue: string): string {
+  const trimmed = rawValue.trim()
+  if (!trimmed) {
+    return ''
+  }
+
+  if (
+    trimmed.startsWith(singlePrefix) ||
+    trimmed.startsWith(multiPrefix) ||
+    (trimmed.startsWith('@@') && trimmed.endsWith('@@'))
+  ) {
+    return trimmed
+  }
+
+  const ingameMatch = trimmed.match(/@@[A-Za-z0-9]+@@/)
+  if (ingameMatch) {
+    return ingameMatch[0]
+  }
+
+  const standardMatch = trimmed.match(/\b(?:mt1|t1)\.[A-Za-z0-9_-]+\b/)
+  if (standardMatch) {
+    return standardMatch[0]
+  }
+
+  return trimmed
+}
 
 function bytesToBase64Url(bytes: Uint8Array): string {
   let binary = ''
@@ -165,7 +193,7 @@ export function encodeMultiTeamCode(teams: Team[], activeTeamId: string): string
 }
 
 export function decodeImportCode(code: string): DecodedImport {
-  const trimmed = code.trim()
+  const trimmed = extractImportCodeCandidate(code)
   if (!trimmed) {
     throw new Error('Import code is empty.')
   }
@@ -211,6 +239,15 @@ export function decodeImportCode(code: string): DecodedImport {
       kind: 'multi',
       activeTeamIndex,
       teams,
+    }
+  }
+
+  if (trimmed.startsWith('@@') && trimmed.endsWith('@@')) {
+    const decoded = decodeIngameTeamCode(trimmed)
+    return {
+      kind: 'single',
+      team: decoded.team,
+      warnings: decoded.warnings,
     }
   }
 

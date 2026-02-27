@@ -7,6 +7,11 @@ export const changelogItems: ChangelogItem[] = [
   {
     date: "2026-02-27",
     summary:
+      "WIP support for ingame team codes was added, including import and export, giga thanks to Zekie, Frost and Fish for the help mapping out characters and wheel codes!"
+  },
+  {
+    date: "2026-02-27",
+    summary:
       "Lots of various QoL improvements, couple of fixes and changes. You can review 2026-02-23 in the docs folder on github for a more detailed changelog in this pass, and what's planned for the future.",
   },
   {

@@ -26,7 +26,9 @@
 - Toggle to disable "duplication blockers" to make a 4 Clem team. Could mess with import/exports though.
 
 ## Builder Features
-- Biggest "win" is supporting the ingame export/import format, but that either requires a lot manual reverse engineering of the format, or help from game developers themselves.
+- [Half-done 2026-02-27] In-game export/import format support is live in WIP form for teams.
+    - Single-team import/export via `@@...@@` is working.
+    - Covenant and posse support is still missing and currently falls back to empty.
 - "Quick team planner" mode, lets you select awakeners, wheels by just clicking, will iterate slots 1-4 and 1-8 and quick assign regardless of current state.
     - Manually selecting a slot would start the iteration from that slot I guess.
 - Mobile / compact browser-friendly UI. 

@@ -142,6 +142,53 @@ describe('BuilderPage awakeners and teams', () => {
     expect(screen.queryByRole('button', { name: /change goliath/i })).not.toBeInTheDocument()
   })
 
+  it('shows a compact add-team tab action and hides it at max teams', async () => {
+    const { container } = render(<BuilderPage />)
+
+    const builderTabbedContainer = container.querySelector('.tabbed-container')
+    expect(builderTabbedContainer).not.toBeNull()
+
+    fireEvent.click(within(builderTabbedContainer as HTMLElement).getByRole('button', { name: /add team tab/i }))
+    expect(container.querySelector('[data-team-name="Team 2"]')).not.toBeNull()
+
+    for (let index = 0; index < 8; index += 1) {
+      fireEvent.click(within(builderTabbedContainer as HTMLElement).getByRole('button', { name: /add team tab/i }))
+    }
+
+    expect(container.querySelector('[data-team-name="Team 10"]')).not.toBeNull()
+    expect(within(builderTabbedContainer as HTMLElement).queryByRole('button', { name: /add team tab/i })).toBeNull()
+  })
+
+  it('deletes an empty team directly from the top tab close action', async () => {
+    const { container } = render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
+    const builderTabbedContainer = container.querySelector('.tabbed-container')
+    expect(builderTabbedContainer).not.toBeNull()
+
+    fireEvent.click(within(builderTabbedContainer as HTMLElement).getByRole('button', { name: /close team 2/i }))
+
+    expect(screen.queryByRole('dialog', { name: /delete team 2/i })).not.toBeInTheDocument()
+    expect(container.querySelector('[data-team-name="Team 2"]')).toBeNull()
+  })
+
+  it('asks for confirmation before deleting a non-empty team from the top tab close action', async () => {
+    const { container } = render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
+    fireEvent.click(screen.getByRole('tab', { name: /^team 2$/i }))
+    fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
+
+    const builderTabbedContainer = container.querySelector('.tabbed-container')
+    expect(builderTabbedContainer).not.toBeNull()
+
+    fireEvent.click(within(builderTabbedContainer as HTMLElement).getByRole('button', { name: /close team 2/i }))
+    expect(screen.getByRole('dialog', { name: /delete team 2/i })).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /cancel/i }))
+    expect(container.querySelector('[data-team-name="Team 2"]')).not.toBeNull()
+  })
+
   it('confirms moving a locked posse from another team and supports cancel', async () => {
     const { container } = render(<BuilderPage />)
 

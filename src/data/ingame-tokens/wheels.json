@@ -1,0 +1,494 @@
+[
+  {
+    "id": "B01",
+    "token": "xb"
+  },
+  {
+    "id": "B02",
+    "token": "xC"
+  },
+  {
+    "id": "B03",
+    "token": "W"
+  },
+  {
+    "id": "B04",
+    "token": "xc"
+  },
+  {
+    "id": "B05",
+    "token": "3"
+  },
+  {
+    "id": "B05EX",
+    "token": "xY"
+  },
+  {
+    "id": "B06",
+    "token": "xA"
+  },
+  {
+    "id": "B07",
+    "token": "0"
+  },
+  {
+    "id": "B08",
+    "token": "xk"
+  },
+  {
+    "id": "B09",
+    "token": "C"
+  },
+  {
+    "id": "B10",
+    "token": "yR"
+  },
+  {
+    "id": "B12",
+    "token": "ye"
+  },
+  {
+    "id": "B14",
+    "token": "yZ"
+  },
+  {
+    "id": "C01",
+    "token": "Z"
+  },
+  {
+    "id": "C02",
+    "token": "4"
+  },
+  {
+    "id": "C02EX",
+    "token": "xW"
+  },
+  {
+    "id": "C03",
+    "token": "8"
+  },
+  {
+    "id": "C04",
+    "token": "c"
+  },
+  {
+    "id": "C05",
+    "token": "xJ"
+  },
+  {
+    "id": "C06",
+    "token": "n"
+  },
+  {
+    "id": "C07",
+    "token": "7"
+  },
+  {
+    "id": "C08",
+    "token": "o"
+  },
+  {
+    "id": "C09",
+    "token": "xd"
+  },
+  {
+    "id": "C10",
+    "token": "R"
+  },
+  {
+    "id": "C11",
+    "token": "G"
+  },
+  {
+    "id": "C12",
+    "token": "xh"
+  },
+  {
+    "id": "C15",
+    "token": "xV"
+  },
+  {
+    "id": "C16",
+    "token": "yo"
+  },
+  {
+    "id": "C17",
+    "token": "yO"
+  },
+  {
+    "id": "D01",
+    "token": "t"
+  },
+  {
+    "id": "D02",
+    "token": "l"
+  },
+  {
+    "id": "D03",
+    "token": "X"
+  },
+  {
+    "id": "D04",
+    "token": "D"
+  },
+  {
+    "id": "D05",
+    "token": "xf"
+  },
+  {
+    "id": "D06",
+    "token": "k"
+  },
+  {
+    "id": "D07",
+    "token": "2"
+  },
+  {
+    "id": "D08",
+    "token": "s"
+  },
+  {
+    "id": "D09",
+    "token": "S"
+  },
+  {
+    "id": "D11",
+    "token": "yb"
+  },
+  {
+    "id": "D12",
+    "token": "xX"
+  },
+  {
+    "id": "D13",
+    "token": "yg"
+  },
+  {
+    "id": "D14",
+    "token": "yh"
+  },
+  {
+    "id": "JP01",
+    "token": "yL"
+  },
+  {
+    "id": "JP02",
+    "token": "yK"
+  },
+  {
+    "id": "JP03",
+    "token": "yU"
+  },
+  {
+    "id": "JP04",
+    "token": "yV"
+  },
+  {
+    "id": "N02",
+    "token": "y1"
+  },
+  {
+    "id": "O01",
+    "token": "B"
+  },
+  {
+    "id": "O02",
+    "token": "m"
+  },
+  {
+    "id": "O03",
+    "token": "v"
+  },
+  {
+    "id": "O04",
+    "token": "e"
+  },
+  {
+    "id": "O05",
+    "token": "9"
+  },
+  {
+    "id": "O06",
+    "token": "1"
+  },
+  {
+    "id": "O07",
+    "token": "xK"
+  },
+  {
+    "id": "O08",
+    "token": "A"
+  },
+  {
+    "id": "O09",
+    "token": "f"
+  },
+  {
+    "id": "O10",
+    "token": "yf"
+  },
+  {
+    "id": "O11",
+    "token": "yq"
+  },
+  {
+    "id": "P01",
+    "token": "xs"
+  },
+  {
+    "id": "P02",
+    "token": "xr"
+  },
+  {
+    "id": "P03",
+    "token": "xq"
+  },
+  {
+    "id": "P04",
+    "token": "xp"
+  },
+  {
+    "id": "P05",
+    "token": "xo"
+  },
+  {
+    "id": "P06",
+    "token": "xn"
+  },
+  {
+    "id": "P07",
+    "token": "xm"
+  },
+  {
+    "id": "P08",
+    "token": "xu"
+  },
+  {
+    "id": "P09",
+    "token": "xt"
+  },
+  {
+    "id": "P10",
+    "token": "xl"
+  },
+  {
+    "id": "P11",
+    "token": "xi"
+  },
+  {
+    "id": "P12",
+    "token": "xj"
+  },
+  {
+    "id": "P13",
+    "token": "g"
+  },
+  {
+    "id": "P14",
+    "token": "i"
+  },
+  {
+    "id": "P15",
+    "token": "xB"
+  },
+  {
+    "id": "P16",
+    "token": "xv"
+  },
+  {
+    "id": "SR01",
+    "token": "5"
+  },
+  {
+    "id": "SR02",
+    "token": "xD"
+  },
+  {
+    "id": "SR03",
+    "token": "6"
+  },
+  {
+    "id": "SR04",
+    "token": "xE"
+  },
+  {
+    "id": "SR05",
+    "token": "V"
+  },
+  {
+    "id": "SR06",
+    "token": "xF"
+  },
+  {
+    "id": "SR07",
+    "token": "xG"
+  },
+  {
+    "id": "SR08",
+    "token": "xH"
+  },
+  {
+    "id": "SR09",
+    "token": "xI"
+  },
+  {
+    "id": "SR10",
+    "token": "J"
+  },
+  {
+    "id": "SR11",
+    "token": "U"
+  },
+  {
+    "id": "SR12",
+    "token": "H"
+  },
+  {
+    "id": "SR13",
+    "token": "I"
+  },
+  {
+    "id": "SR14",
+    "token": "r"
+  },
+  {
+    "id": "SR15",
+    "token": "M"
+  },
+  {
+    "id": "SR16",
+    "token": "K"
+  },
+  {
+    "id": "SR17",
+    "token": "xM"
+  },
+  {
+    "id": "SR18",
+    "token": "xN"
+  },
+  {
+    "id": "SR19",
+    "token": "xO"
+  },
+  {
+    "id": "SR20",
+    "token": "xP"
+  },
+  {
+    "id": "SR21",
+    "token": "xZ"
+  },
+  {
+    "id": "SR22",
+    "token": "xQ"
+  },
+  {
+    "id": "SR23",
+    "token": "xS"
+  },
+  {
+    "id": "SR24",
+    "token": "xR"
+  },
+  {
+    "id": "SR25",
+    "token": "xU"
+  },
+  {
+    "id": "SR26",
+    "token": "x4"
+  },
+  {
+    "id": "SR27",
+    "token": "x3"
+  },
+  {
+    "id": "SR28",
+    "token": "x5"
+  },
+  {
+    "id": "SR29",
+    "token": "x2"
+  },
+  {
+    "id": "SR30",
+    "token": "x1"
+  },
+  {
+    "id": "SR31",
+    "token": "x7"
+  },
+  {
+    "id": "SR32",
+    "token": "x0"
+  },
+  {
+    "id": "SR33",
+    "token": "yQ"
+  },
+  {
+    "id": "SR34",
+    "token": "x8"
+  },
+  {
+    "id": "SR35",
+    "token": "yS"
+  },
+  {
+    "id": "SR39",
+    "token": "yr"
+  },
+  {
+    "id": "SR40",
+    "token": "yF"
+  },
+  {
+    "id": "SR41",
+    "token": "yA"
+  },
+  {
+    "id": "SR42",
+    "token": "yu"
+  },
+  {
+    "id": "SR43",
+    "token": "yG"
+  },
+  {
+    "id": "SR44",
+    "token": "yM"
+  },
+  {
+    "id": "SR45",
+    "token": "yY"
+  },
+  {
+    "id": "ZL01",
+    "token": "u"
+  },
+  {
+    "id": "ZL02",
+    "token": "N"
+  },
+  {
+    "id": "ZL03",
+    "token": "O"
+  },
+  {
+    "id": "ZL04",
+    "token": "xT"
+  },
+  {
+    "id": "ZL05",
+    "token": "x6"
+  },
+  {
+    "id": "ZL06",
+    "token": "yJ"
+  },
+  {
+    "id": "ZL07",
+    "token": "yT"
+  }
+]
