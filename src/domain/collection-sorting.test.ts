@@ -96,7 +96,7 @@ describe('compareAwakenersForCollectionSort', () => {
     expect(lowFirst.map((entry) => entry.label)).toEqual(['SR', 'SSR', 'Genesis'])
   })
 
-  it('uses rarity tie-breakers as faction first, then level, then enlighten when grouping is enabled', () => {
+  it('uses rarity tie-breakers as level first, then faction, then enlighten when grouping is enabled', () => {
     const entries = [
       baseAwakener({ label: 'Aequor High', rarity: 'SSR', faction: 'AEQUOR', level: 90, enlighten: 1 }),
       baseAwakener({ label: 'Chaos Mid', rarity: 'SSR', faction: 'CHAOS', level: 80, enlighten: 0 }),
@@ -111,7 +111,7 @@ describe('compareAwakenersForCollectionSort', () => {
       }),
     )
 
-    expect(sorted.map((entry) => entry.label)).toEqual(['Chaos Mid', 'Chaos Low', 'Aequor High'])
+    expect(sorted.map((entry) => entry.label)).toEqual(['Aequor High', 'Chaos Mid', 'Chaos Low'])
   })
 })
 

@@ -116,8 +116,8 @@ export function compareAwakenersForCollectionSort(
     return compareByPriority(left, right, [
       compareOwnedFirst,
       (l, r) => (config.direction === 'DESC' ? compareRarity(l, r) : compareRarity(r, l)),
-      ...withOptionalFaction([]),
       (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, 'DESC'),
+      ...withOptionalFaction([]),
       (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
       compareIndex,
       (l, r) => compareText(l.label, r.label, 'ASC'),
