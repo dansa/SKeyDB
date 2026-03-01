@@ -72,6 +72,21 @@ function stepAwakenerLevelByTen(level: number, direction: 1 | -1): number {
   return level <= 10 ? 1 : clampAwakenerLevel(level - 10)
 }
 
+function createLinkedAwakenerIdLookup(linkedAwakenerGroups: string[][] | undefined) {
+  const linkedIdsById = new Map<string, string[]>()
+  if (!linkedAwakenerGroups?.length) {
+    return linkedIdsById
+  }
+
+  for (const group of linkedAwakenerGroups) {
+    for (const linkedId of group) {
+      linkedIdsById.set(linkedId, group)
+    }
+  }
+
+  return linkedIdsById
+}
+
 function useLatestRef<T>(value: T) {
   const ref = useRef(value)
   useEffect(() => {
@@ -178,6 +193,10 @@ export function useCollectionViewModel() {
   const awakeners = useMemo(
     () => [...getAwakeners()].sort((a, b) => formatAwakenerNameForUi(a.name).localeCompare(formatAwakenerNameForUi(b.name))),
     [],
+  )
+  const linkedAwakenerIdsById = useMemo(
+    () => createLinkedAwakenerIdLookup(ownershipCatalog.linkedAwakenerGroups),
+    [ownershipCatalog],
   )
   const wheels = useMemo(
     () => [...getWheels()].sort(compareWheelsForUi),
@@ -589,9 +608,13 @@ export function useCollectionViewModel() {
     }
     setOwnership((prev) => {
       let next = prev
+      const processedAwakenerIds = new Set<string>()
       for (const awakener of filteredAwakeners) {
         const awakenerId = awakenerIdByName.get(awakener.name)
         if (!awakenerId) {
+          continue
+        }
+        if (processedAwakenerIds.has(awakenerId)) {
           continue
         }
         const ownedLevel = getOwnedLevel(next, 'awakeners', awakenerId)
@@ -608,6 +631,10 @@ export function useCollectionViewModel() {
                 ? stepAwakenerLevelByTen(currentLevel, 1)
                 : stepAwakenerLevelByTen(currentLevel, -1)
         next = setAwakenerLevel(next, awakenerId, nextLevel, ownershipCatalog)
+        const linkedAwakenerIds = linkedAwakenerIdsById.get(awakenerId) ?? [awakenerId]
+        for (const linkedAwakenerId of linkedAwakenerIds) {
+          processedAwakenerIds.add(linkedAwakenerId)
+        }
       }
       return next
     })

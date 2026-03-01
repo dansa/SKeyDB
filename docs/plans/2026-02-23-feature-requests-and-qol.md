@@ -63,6 +63,9 @@
 ## Collection Features
 - Not much to expand here. Better filters, batch actions, and (maybe) a better page layout.
     - Better filters obviously rely on feat 1 of "general website qol".
+- Collection paintbrush / quick-select bulk editing for owned state, enlightens, and levels.
+    - Current filtered batch actions are fine for broad sweeps, but not for targeted repeated edits across a sparse set of items.
+    - Likely design direction: solve quick-select / paint semantics first, then decide whether batch actions should stay as-is, be replaced, or coexist.
 
 --- 
 
