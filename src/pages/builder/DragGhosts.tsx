@@ -2,8 +2,9 @@ import { getAwakenerCardAsset, getAwakenerPortraitAsset } from '../../domain/awa
 import { getCovenantAssetById } from '../../domain/covenant-assets'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
 import { getWheelAssetById } from '../../domain/wheel-assets'
+import { BuilderTeamPreviewStrip } from './BuilderTeamPreviewStrip'
 import { CardWheelZone } from './CardWheelZone'
-import type { TeamSlot } from './types'
+import type { Team, TeamPreviewMode, TeamSlot } from './types'
 
 export function PickerAwakenerGhost({ awakenerName }: { awakenerName: string }) {
   const displayName = formatAwakenerNameForUi(awakenerName)
@@ -84,6 +85,33 @@ export function TeamCardGhost({
         />
       ) : null}
     </article>
+  )
+}
+
+export function TeamPreviewGhost({
+  team,
+  mode,
+  ownedAwakenerLevelByName,
+  ownedWheelLevelById,
+  removeIntent = false,
+}: {
+  team: Team
+  mode: TeamPreviewMode
+  ownedAwakenerLevelByName?: Map<string, number | null>
+  ownedWheelLevelById?: Map<string, number | null>
+  removeIntent?: boolean
+}) {
+  return (
+    <div className={`builder-team-preview-ghost builder-drag-ghost ${removeIntent ? 'builder-team-preview-ghost-remove' : ''}`}>
+      <BuilderTeamPreviewStrip
+        className="builder-team-preview-ghost-strip"
+        mode={mode}
+        ownedAwakenerLevelByName={ownedAwakenerLevelByName}
+        ownedWheelLevelById={ownedWheelLevelById}
+        slots={team.slots}
+        teamId={`${team.id}::ghost`}
+      />
+    </div>
   )
 }
 

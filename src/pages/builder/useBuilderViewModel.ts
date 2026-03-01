@@ -29,6 +29,7 @@ import type {
   PickerTab,
   PosseFilter,
   Team,
+  TeamPreviewMode,
   TeamSlot,
   WheelMainstatFilter,
   WheelUsageLocation,
@@ -52,6 +53,7 @@ const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirectio
 const BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
 const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
 const BUILDER_ALLOW_DUPES_KEY = 'skeydb.builder.allowDupes.v1'
+const BUILDER_TEAM_PREVIEW_MODE_KEY = 'skeydb.builder.teamPreviewMode.v1'
 
 function createDefaultBuilderState() {
   const teams = createInitialTeams()
@@ -124,6 +126,13 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
       return false
     }
     return false
+  })
+  const [teamPreviewMode, setTeamPreviewMode] = useState<TeamPreviewMode>(() => {
+    const stored = safeStorageRead(storage, BUILDER_TEAM_PREVIEW_MODE_KEY)
+    if (stored === 'compact' || stored === 'expanded') {
+      return stored
+    }
+    return 'compact'
   })
 
   const effectiveActiveTeamId = useMemo(
@@ -408,6 +417,10 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     safeStorageWrite(storage, BUILDER_ALLOW_DUPES_KEY, allowDupes ? '1' : '0')
   }, [storage, allowDupes])
 
+  useEffect(() => {
+    safeStorageWrite(storage, BUILDER_TEAM_PREVIEW_MODE_KEY, teamPreviewMode)
+  }, [storage, teamPreviewMode])
+
   const appendSearchCharacter = useCallback((targetPickerTab: PickerTab, key: string) => {
     setPickerSearchByTab((prev) => ({
       ...prev,
@@ -499,6 +512,8 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     setDisplayUnowned,
     allowDupes,
     setAllowDupes,
+    teamPreviewMode,
+    setTeamPreviewMode,
     ownedAwakenerLevelByName,
     awakenerLevelByName,
     ownedWheelLevelById,

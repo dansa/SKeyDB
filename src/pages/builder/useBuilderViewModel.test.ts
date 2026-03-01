@@ -14,6 +14,7 @@ const BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY = 'skeydb.builder.awakenerSortG
 const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
 const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
 const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
+const BUILDER_TEAM_PREVIEW_MODE_KEY = 'skeydb.builder.teamPreviewMode.v1'
 
 describe('useBuilderViewModel', () => {
   beforeEach(() => {
@@ -23,6 +24,7 @@ describe('useBuilderViewModel', () => {
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_KEY_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)
     window.localStorage.removeItem(BUILDER_DISPLAY_UNOWNED_KEY)
+    window.localStorage.removeItem(BUILDER_TEAM_PREVIEW_MODE_KEY)
   })
 
   afterEach(() => {
@@ -32,6 +34,7 @@ describe('useBuilderViewModel', () => {
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_KEY_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)
     window.localStorage.removeItem(BUILDER_DISPLAY_UNOWNED_KEY)
+    window.localStorage.removeItem(BUILDER_TEAM_PREVIEW_MODE_KEY)
   })
 
   it('initializes with a valid active team and slots', () => {
@@ -381,6 +384,21 @@ describe('useBuilderViewModel', () => {
     expect(window.localStorage.getItem(BUILDER_DISPLAY_UNOWNED_KEY)).toBe('1')
   })
 
+  it('defaults team preview mode to compact and persists expanded mode', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    expect(result.current.teamPreviewMode).toBe('compact')
+
+    act(() => {
+      result.current.setTeamPreviewMode('expanded')
+    })
+
+    expect(window.localStorage.getItem(BUILDER_TEAM_PREVIEW_MODE_KEY)).toBe('expanded')
+  })
 
   it('exposes awakener sort controls for picker sorting', () => {
     const { result } = renderHook(() =>

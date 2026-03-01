@@ -43,8 +43,8 @@ Why first:
 - both help validate current builder architecture before deeper feature work.
 
 ### Phase 2: Mid-scope builder workflow improvements
-3. Expanded teams toggle.
-4. Support drag-replacing units between teams.
+3. Expanded teams toggle. [done]
+4. Support drag-replacing units between teams. [done]
 
 Why next:
 - both improve day-to-day builder usage,
@@ -108,6 +108,16 @@ Show a compact but fuller multi-team overview including wheels/covenants.
 ### Recommendation
 - Make it a display mode toggle, not a separate builder.
 - Preserve current compact row mode as default.
+- Recommended first rendering pass: reuse the existing team-row ownership boundary and expand each slot into a stripped-down mini card:
+  - portrait dominant
+  - two wheel thumbnails
+  - covenant shown as a small presence socket/icon
+  - no names, levels, or enlighten text inside the row preview
+- Keep the toggle in the teams menu as a simple `Compact | Expanded` pill.
+- Phase A groundwork:
+  - persist `compact|expanded` mode in builder view-model
+  - wire toggle through `BuilderTeamsPanel`
+  - do not change row rendering until the mode contract is stable
 
 ### Ownership
 - builder page / team list rendering
@@ -157,7 +167,8 @@ Fast click-to-fill assignment mode that iterates builder slots without manual ta
   - covenant slot scaling fix [done]
   - duplication blocker override toggle [done]
 - If phase 1 is clean and still low-churn, continue with:
-  - expanded teams toggle
+  - expanded teams toggle [done]
+  - support drag-replacing units between teams [done]
 
 ## Testing Expectations
 - Covenant scaling fix:

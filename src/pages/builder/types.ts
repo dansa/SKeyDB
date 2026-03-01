@@ -43,6 +43,7 @@ export type WheelMainstatFilter =
   | 'KEYFLARE_REGEN'
   | 'SIGIL_YIELD'
   | 'DEATH_RESISTANCE'
+export type TeamPreviewMode = 'compact' | 'expanded'
 export type ActiveSelection =
   | { kind: 'awakener'; slotId: string }
   | { kind: 'wheel'; slotId: string; wheelIndex: number }
@@ -59,6 +60,7 @@ export type DragData =
   | { kind: 'picker-wheel'; wheelId: string }
   | { kind: 'picker-covenant'; covenantId: string }
   | { kind: 'team-slot'; slotId: string; awakenerName: string }
+  | { kind: 'team-preview-slot'; teamId: string; slotId: string }
   | { kind: 'team-wheel'; slotId: string; wheelIndex: number; wheelId: string }
   | { kind: 'team-covenant'; slotId: string; covenantId: string }
   | { kind: 'team-row'; teamId: string }

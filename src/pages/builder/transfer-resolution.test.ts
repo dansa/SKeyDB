@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { Team } from './types'
-import { applyPendingTransfer } from './transfer-resolution'
+import { applyPendingTransfer, clearTeamSlotTransfer, swapTeamSlotTransfer } from './transfer-resolution'
 
 function buildTeam(id: string, name: string, awakenerName?: string): Team {
   return {
@@ -164,5 +164,102 @@ describe('applyPendingTransfer', () => {
     })
 
     expect(result).toEqual(teams)
+  })
+})
+
+describe('swapTeamSlotTransfer', () => {
+  it('swaps full slot contents between teams', () => {
+    const teams: Team[] = [
+      {
+        ...buildTeam('team-1', 'Team 1'),
+        slots: [
+          { slotId: 'team-1-slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 60, wheels: ['B01', null], covenantId: '001' },
+          { slotId: 'team-1-slot-2', wheels: [null, null] },
+          { slotId: 'team-1-slot-3', wheels: [null, null] },
+          { slotId: 'team-1-slot-4', wheels: [null, null] },
+        ],
+      },
+      {
+        ...buildTeam('team-2', 'Team 2'),
+        slots: [
+          { slotId: 'team-2-slot-1', awakenerName: 'ramona', faction: 'CHAOS', level: 77, wheels: [null, 'B02'], covenantId: '002' },
+          { slotId: 'team-2-slot-2', wheels: [null, null] },
+          { slotId: 'team-2-slot-3', wheels: [null, null] },
+          { slotId: 'team-2-slot-4', wheels: [null, null] },
+        ],
+      },
+    ]
+
+    const result = swapTeamSlotTransfer(teams, 'team-1', 'team-1-slot-1', 'team-2', 'team-2-slot-1')
+
+    expect(result.violation).toBeUndefined()
+    expect(result.nextTeams[0]?.slots[0]).toMatchObject({
+      awakenerName: 'ramona',
+      faction: 'CHAOS',
+      level: 77,
+      wheels: [null, 'B02'],
+      covenantId: '002',
+    })
+    expect(result.nextTeams[1]?.slots[0]).toMatchObject({
+      awakenerName: 'goliath',
+      faction: 'AEQUOR',
+      level: 60,
+      wheels: ['B01', null],
+      covenantId: '001',
+    })
+  })
+
+  it('blocks swaps that would violate faction cap', () => {
+    const teams: Team[] = [
+      {
+        ...buildTeam('team-1', 'Team 1'),
+        slots: [
+          { slotId: 'team-1-slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 60, wheels: [null, null] },
+          { slotId: 'team-1-slot-2', awakenerName: 'mason', faction: 'AEQUOR', level: 60, wheels: [null, null] },
+          { slotId: 'team-1-slot-3', wheels: [null, null] },
+          { slotId: 'team-1-slot-4', wheels: [null, null] },
+        ],
+      },
+      {
+        ...buildTeam('team-2', 'Team 2'),
+        slots: [
+          { slotId: 'team-2-slot-1', awakenerName: 'ramona', faction: 'CHAOS', level: 60, wheels: [null, null] },
+          { slotId: 'team-2-slot-2', awakenerName: 'helot', faction: 'CHAOS', level: 60, wheels: [null, null] },
+          { slotId: 'team-2-slot-3', awakenerName: 'tutu', faction: 'CARO', level: 60, wheels: [null, null] },
+          { slotId: 'team-2-slot-4', wheels: [null, null] },
+        ],
+      },
+    ]
+
+    const result = swapTeamSlotTransfer(teams, 'team-1', 'team-1-slot-1', 'team-2', 'team-2-slot-1')
+
+    expect(result.violation).toBe('TOO_MANY_FACTIONS_IN_TEAM')
+    expect(result.nextTeams).toEqual(teams)
+  })
+})
+
+describe('clearTeamSlotTransfer', () => {
+  it('clears a slot in the source team', () => {
+    const teams: Team[] = [
+      {
+        ...buildTeam('team-1', 'Team 1'),
+        slots: [
+          { slotId: 'team-1-slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 60, wheels: ['B01', null], covenantId: '001' },
+          { slotId: 'team-1-slot-2', wheels: [null, null] },
+          { slotId: 'team-1-slot-3', wheels: [null, null] },
+          { slotId: 'team-1-slot-4', wheels: [null, null] },
+        ],
+      },
+    ]
+
+    const result = clearTeamSlotTransfer(teams, 'team-1', 'team-1-slot-1')
+
+    expect(result[0]?.slots[0]).toMatchObject({
+      awakenerName: undefined,
+      faction: undefined,
+      level: undefined,
+      wheels: [null, null],
+      covenantId: undefined,
+    })
   })
 })
