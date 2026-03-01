@@ -5,6 +5,21 @@ export type ChangelogItem = {
 
 export const changelogItems: ChangelogItem[] = [
   {
+    date: "2026-03-01",
+    summary:
+      "Quick Team Lineup is live in the builder, putting together a team has (hopefully) never been smoother. This feature took a lot of tinkering to feel right, please let me know if you have any feedback!"
+  },
+  {
+    date: "2026-03-01",
+    summary:
+      "Builder now allows for 1 support awakener in multi-team planning to help with D-tide comps, an 'allow duplicates' toggle was also added in the builder, so you can finally live our your dreams of 4 Clems."
+  },
+  {
+    date: "2026-02-28",
+    summary:
+      "Teams got a richer expanded preview toggle and now support drag-and-drop, surely it's easier to review and reshuffle a full planner now."
+  },
+  {
     date: "2026-02-27",
     summary:
       "WIP support for ingame team codes was added, including import and export, giga thanks to Zekie, Frost and Fish for the help mapping out characters and wheel codes!"

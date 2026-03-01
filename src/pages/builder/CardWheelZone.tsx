@@ -22,6 +22,7 @@ type CardWheelZoneProps = {
   awakenerLevel?: number
   awakenerOwnedLevel?: number | null
   wheelOwnedLevels?: [number | null, number | null]
+  allowActiveRemoval?: boolean
 }
 
 type CardWheelTileProps = {
@@ -29,6 +30,7 @@ type CardWheelTileProps = {
   wheelId: string | null
   wheelIndex: number
   interactive: boolean
+  allowActiveRemoval?: boolean
   activeDragKind?: DragData['kind'] | null
   predictedDropHover?: PredictedDropHover
   isActive: boolean
@@ -101,7 +103,7 @@ function CovenantPlaceholderSvg() {
 }
 
 function renderCovenantTileVisual(covenantId: string | undefined) {
-  const contentClassName = 'covenant-tile-content absolute inset-0 overflow-hidden rounded-full'
+  const contentClassName = 'covenant-tile-content absolute inset-0 rounded-full'
 
   if (!covenantId) {
     return (
@@ -197,6 +199,7 @@ function CardWheelTile({
   wheelId,
   wheelIndex,
   interactive,
+  allowActiveRemoval = true,
   activeDragKind,
   predictedDropHover,
   isActive,
@@ -248,7 +251,7 @@ function CardWheelTile({
         {...(draggableEnabled ? attributes : {})}
         {...(draggableEnabled ? listeners : {})}
       />
-      {isActive && wheelId ? (
+      {allowActiveRemoval && isActive && wheelId ? (
         <button
           aria-label="Remove active wheel"
           className="builder-card-remove-button absolute -top-0.5 -right-0.5 z-40 h-7 w-7"
@@ -295,6 +298,7 @@ export function CardWheelZone({
   awakenerLevel = 60,
   awakenerOwnedLevel = null,
   wheelOwnedLevels = [null, null],
+  allowActiveRemoval = true,
 }: CardWheelZoneProps) {
   return (
     <div
@@ -334,13 +338,14 @@ export function CardWheelZone({
         {slot.wheels.map((wheelId, index) => (
           <CardWheelTile
             activeDragKind={activeDragKind}
-            interactive={interactive}
-            isActive={activeWheelIndex === index}
-            key={`${wheelKeyPrefix}-wheel-${index}`}
-            onClick={onWheelSlotClick}
+          interactive={interactive}
+          isActive={activeWheelIndex === index}
+          key={`${wheelKeyPrefix}-wheel-${index}`}
+          allowActiveRemoval={allowActiveRemoval}
+          onClick={onWheelSlotClick}
             ownedLevel={wheelOwnedLevels[index] ?? null}
             showOwnership={showOwnership}
-            onRemove={onRemoveActiveWheel}
+            onRemove={allowActiveRemoval ? onRemoveActiveWheel : undefined}
             predictedDropHover={predictedDropHover}
             slotId={slot.slotId}
             wheelId={wheelId}

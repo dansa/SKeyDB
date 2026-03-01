@@ -45,6 +45,20 @@ export type WheelMainstatFilter =
   | 'SIGIL_YIELD'
   | 'DEATH_RESISTANCE'
 export type TeamPreviewMode = 'compact' | 'expanded'
+export type QuickLineupStep =
+  | { kind: 'awakener'; slotId: string }
+  | { kind: 'wheel'; slotId: string; wheelIndex: number }
+  | { kind: 'covenant'; slotId: string }
+  | { kind: 'posse' }
+
+export type QuickLineupSession = {
+  isActive: true
+  currentStepIndex: number
+  currentStep: QuickLineupStep
+  totalSteps: number
+  canGoBack: boolean
+}
+
 export type ActiveSelection =
   | { kind: 'awakener'; slotId: string }
   | { kind: 'wheel'; slotId: string; wheelIndex: number }

@@ -203,4 +203,33 @@ describe('useBuilderWheelActions', () => {
       expect.objectContaining({ slotId: 'slot-2', wheels: ['B01', null], isSupport: true }),
     ])
   })
+
+  it('swaps wheel assignments between active-team slots when dragging between wheel sockets', () => {
+    const { actions, setActiveSelection, setActiveTeamSlots } = createHook({
+      teamSlots: [
+        {
+          slotId: 'slot-1',
+          awakenerName: 'goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['B01', null],
+        },
+        {
+          slotId: 'slot-2',
+          awakenerName: 'miryam',
+          faction: 'CHAOS',
+          level: 60,
+          wheels: [null, 'B02'],
+        },
+      ],
+    })
+
+    actions.handleDropTeamWheel('slot-1', 0, 'slot-2', 1)
+
+    expect(setActiveTeamSlots).toHaveBeenCalledWith([
+      expect.objectContaining({ slotId: 'slot-1', wheels: ['B02', null] }),
+      expect.objectContaining({ slotId: 'slot-2', wheels: [null, 'B01'] }),
+    ])
+    expect(setActiveSelection).toHaveBeenCalledWith({ kind: 'wheel', slotId: 'slot-2', wheelIndex: 1 })
+  })
 })

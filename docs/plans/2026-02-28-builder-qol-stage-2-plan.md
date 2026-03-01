@@ -59,7 +59,7 @@ Why later:
 - it touches uniqueness enforcement, picker disabled states, and likely import/export expectations.
 
 ### Phase 4: Optional deeper builder mode
-6. Quick team planner mode.
+6. Quick team planner mode. [done]
 
 Why last:
 - it is effectively a second assignment interaction model layered onto the existing builder.
@@ -192,13 +192,69 @@ Mirror in-game “support”-style exception behavior for one duplicate unit.
 ### Intent
 Fast click-to-fill assignment mode that iterates builder slots without manual targeting.
 
-### Recommendation
-- Treat this as a distinct interaction mode with clear on/off state.
-- Do not blend its rules into default builder selection behavior.
+### Locked recommendation
+- Treat this as a distinct interaction mode with explicit `Start / Finish / Cancel` state.
+- Keep it scoped to the active team only.
+- Prefer a team-slot iteration path, not a picker-tab pass:
+  - `awakener -> wheel 1 -> wheel 2 -> covenant`
+  - repeat for all 4 team slots
+  - finish on team-level posse
+- Do not use a global `Awakeners -> Wheels -> Covenants -> Posse` pass.
+  - That fights the current builder ownership model and makes slot context harder to follow.
+- Entering quick lineup should capture a snapshot of the current active team, then clear the active team for the quick pass.
+  - This avoids duplicate/faction blocking from untouched future slots.
+  - `Cancel` restores the full snapshot.
+  - `Finish` keeps whatever the user has filled or explicitly skipped.
+- `Not Set` remains a valid choice for:
+  - wheel 1
+  - wheel 2
+  - covenant
+  - posse
+  and should advance the flow.
+- Add explicit `Back` and `Skip` actions for the current step.
+  - `Back` moves to the previous step and lets the user replace it.
+  - `Skip` leaves the current step empty and advances.
+- Invalid picks should behave like normal builder validation:
+  - show the usual error feedback
+  - do not advance
+- Support manual slot jumping by normal card click only if it does not complicate the first ship.
+  - Initial version can stay linear if that keeps the mode simpler and better tested.
+
+### Ownership
+- Builder view-model/hook owns:
+  - quick-lineup mode state
+  - current step index
+  - snapshot restore
+  - next/back/finish/cancel progression
+  - post-mutation reconciliation after slot clears/swaps while quick lineup is active
+- Active team panel owns:
+  - the `Quick Team Lineup` trigger
+  - in-mode action controls and live step/status text
+- Selection panel remains the picker surface.
+  - It should react to quick-lineup state by switching to the relevant picker tab automatically.
+
+### Likely files
+- `src/pages/builder/useBuilderViewModel.ts`
+- `src/pages/builder/types.ts`
+- `src/pages/builder/BuilderActiveTeamPanel.tsx`
+- `src/pages/builder/BuilderSelectionPanel.tsx`
+- likely a dedicated quick-lineup hook under `src/pages/builder/*`
 
 ### Risk
 - High UX ambiguity if mixed into normal selection
 - needs a separate contract for slot iteration and interruption/resume behavior
+
+### Shipped notes
+- V1 ships as a desktop-first linear flow below the active team panel.
+- Step contract:
+  - `Awakener -> Wheel 1 -> Wheel 2 -> Covenant` for each slot, then `Posse`
+- `Start` snapshots and clears the active team.
+- `Cancel` restores the full snapshot.
+- `Finish` keeps the partial lineup.
+- `Next` leaves the current step empty and advances.
+- `Back` returns to the previous visited step.
+- Manual slot clicks during quick lineup jump the iterator to that slot.
+- Slot clears/swaps now reconcile through the quick-lineup session instead of ad hoc selection changes.
 
 ## Proposed Deliverables for This Branch
 - Phase 1 plan and implementation first:

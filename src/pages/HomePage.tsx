@@ -120,15 +120,21 @@ export function HomePage() {
           entries
         </p>
         <ul className="mt-2 space-y-2 text-sm text-slate-200">
-          {visibleChangelogItems.map((item) => (
+          {visibleChangelogItems.map((item, index) => (
             <li
-              className="flex flex-wrap items-center gap-x-2 gap-y-1"
+              className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-2 gap-y-1"
               key={`${item.date}-${item.summary}`}
             >
               <span className="rounded border border-amber-200/35 bg-slate-900/70 px-2 py-0.5 text-xs text-amber-100">
                 {item.date}
               </span>
-              <span>{item.summary}</span>
+              <span className="min-w-0">{item.summary}</span>
+              {index < visibleChangelogItems.length - 1 ? (
+                <span
+                  aria-hidden
+                  className="col-span-2 mt-1.5 block h-px w-full bg-gradient-to-r from-amber-200/25 via-slate-300/15 to-transparent"
+                />
+              ) : null}
             </li>
           ))}
         </ul>

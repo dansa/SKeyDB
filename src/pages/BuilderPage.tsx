@@ -16,9 +16,7 @@ import { TabbedContainer } from '../components/ui/TabbedContainer'
 import { FaDownload, FaRotateLeft, FaUpload, FaXmark } from 'react-icons/fa6'
 import { PICKER_DROP_ZONE_ID, parseTeamPreviewSlotDropZoneId } from './builder/dnd-ids'
 import {
-  clearSlotAssignment,
   type TeamStateViolationCode,
-  swapSlotAssignments,
 } from './builder/team-state'
 import { useBuilderDnd } from './builder/useBuilderDnd'
 import { useBuilderDndCoordinator } from './builder/useBuilderDndCoordinator'
@@ -57,6 +55,7 @@ export function BuilderPage() {
     setAllowDupes,
     teamPreviewMode,
     setTeamPreviewMode,
+    quickLineupSession,
     ownedAwakenerLevelByName,
     awakenerLevelByName,
     ownedWheelLevelById,
@@ -115,8 +114,19 @@ export function BuilderPage() {
     handleWheelSlotClick,
     handleCovenantSlotClick,
     handleRemoveActiveSelection,
+    clearTeamSlot,
+    swapActiveTeamSlots,
     replaceBuilderDraft,
     resetBuilderDraft,
+    startQuickLineup,
+    advanceQuickLineupStep,
+    skipQuickLineupStep,
+    goBackQuickLineupStep,
+    finishQuickLineup,
+    cancelQuickLineup,
+    restoreQuickLineupFocus,
+    clearTeamWheel,
+    clearTeamCovenant,
   } = useBuilderViewModel({ searchInputRef })
 
   const {
@@ -168,12 +178,12 @@ export function BuilderPage() {
     teamSlots,
     usedAwakenerByIdentityKey,
     hasSupportAwakener,
+    onPickerAssignSuccess: quickLineupSession ? (nextSlots) => advanceQuickLineupStep(nextSlots) : undefined,
   })
 
   const {
     handleDropPickerWheel,
     handleDropTeamWheel,
-    handleDropTeamWheelToPicker,
     handleDropTeamWheelToSlot,
     handlePickerWheelClick,
   } = useBuilderWheelActions({
@@ -188,12 +198,12 @@ export function BuilderPage() {
     showToast,
     teamSlots,
     usedWheelByTeamOrder,
+    onPickerAssignSuccess: quickLineupSession ? (nextSlots) => advanceQuickLineupStep(nextSlots) : undefined,
   })
 
   const {
     handleDropPickerCovenant,
     handleDropTeamCovenant,
-    handleDropTeamCovenantToPicker,
     handleDropTeamCovenantToSlot,
     handlePickerCovenantClick,
   } = useBuilderCovenantActions({
@@ -204,6 +214,7 @@ export function BuilderPage() {
     setActiveTeamSlots,
     showToast,
     teamSlots,
+    onPickerAssignSuccess: quickLineupSession ? (nextSlots) => advanceQuickLineupStep(nextSlots) : undefined,
   })
 
   useEffect(() => {
@@ -221,6 +232,10 @@ export function BuilderPage() {
       if (target.closest('[data-selection-owner="true"]')) {
         return
       }
+      if (quickLineupSession) {
+        restoreQuickLineupFocus()
+        return
+      }
       setActiveSelection(null)
     }
 
@@ -228,7 +243,7 @@ export function BuilderPage() {
     return () => {
       document.removeEventListener('pointerdown', handlePointerDown, true)
     }
-  }, [setActiveSelection])
+  }, [quickLineupSession, restoreQuickLineupFocus, setActiveSelection])
 
   useEffect(() => {
     return () => {
@@ -301,13 +316,10 @@ export function BuilderPage() {
       handleDropPickerCovenant(covenantId, targetSlotId)
     },
     onDropTeamSlot: (sourceSlotId, targetSlotId) => {
-      const result = swapSlotAssignments(teamSlots, sourceSlotId, targetSlotId)
-      setActiveTeamSlots(result.nextSlots)
-      setActiveSelection({ kind: 'awakener', slotId: targetSlotId })
+      swapActiveTeamSlots(sourceSlotId, targetSlotId)
     },
     onDropTeamSlotToPicker: (sourceSlotId) => {
-      const result = clearSlotAssignment(teamSlots, sourceSlotId)
-      setActiveTeamSlots(result.nextSlots)
+      clearTeamSlot(sourceSlotId)
     },
     onDropTeamWheel: (sourceSlotId, sourceWheelIndex, targetSlotId, targetWheelIndex) => {
       handleDropTeamWheel(sourceSlotId, sourceWheelIndex, targetSlotId, targetWheelIndex)
@@ -316,7 +328,7 @@ export function BuilderPage() {
       handleDropTeamWheelToSlot(sourceSlotId, sourceWheelIndex, targetSlotId)
     },
     onDropTeamWheelToPicker: (sourceSlotId, sourceWheelIndex) => {
-      handleDropTeamWheelToPicker(sourceSlotId, sourceWheelIndex)
+      clearTeamWheel(sourceSlotId, sourceWheelIndex)
     },
     onDropTeamCovenant: (sourceSlotId, targetSlotId) => {
       handleDropTeamCovenant(sourceSlotId, targetSlotId)
@@ -325,7 +337,7 @@ export function BuilderPage() {
       handleDropTeamCovenantToSlot(sourceSlotId, targetSlotId)
     },
     onDropTeamCovenantToPicker: (sourceSlotId) => {
-      handleDropTeamCovenantToPicker(sourceSlotId)
+      clearTeamCovenant(sourceSlotId)
     },
   })
 
@@ -630,15 +642,21 @@ export function BuilderPage() {
                 activePosseAsset={activePosseAsset}
                 activePosseName={activePosse?.name}
                 isActivePosseOwned={activePosseId ? (ownedPosseLevelById.get(activePosseId) ?? null) !== null : true}
+                quickLineupSession={quickLineupSession}
                 activeDragKind={activeDrag?.kind ?? null}
+                onBackQuickLineupStep={goBackQuickLineupStep}
                 onBeginTeamRename={beginTeamRename}
+                onCancelQuickLineup={cancelQuickLineup}
                 onCommitTeamRename={commitTeamRename}
                 onCancelTeamRename={cancelTeamRename}
                 onEditingTeamNameChange={setEditingTeamName}
+                onFinishQuickLineup={finishQuickLineup}
                 onOpenPossePicker={() => setPickerTab('posses')}
+                onStartQuickLineup={startQuickLineup}
                 onCardClick={handleCardClick}
                 onRemoveActiveSelection={handleRemoveActiveSelection}
                 onCovenantSlotClick={handleCovenantSlotClick}
+                onSkipQuickLineupStep={skipQuickLineupStep}
                 onWheelSlotClick={handleWheelSlotClick}
                 awakenerLevelByName={awakenerLevelByName}
                 ownedAwakenerLevelByName={ownedAwakenerLevelByName}
@@ -757,6 +775,9 @@ export function BuilderPage() {
               if (!posseId) {
                 updateActiveTeam((team) => ({ ...team, posseId: undefined }))
                 clearTransfer()
+                if (quickLineupSession?.currentStep.kind === 'posse') {
+                  advanceQuickLineupStep()
+                }
                 return
               }
 
@@ -776,6 +797,9 @@ export function BuilderPage() {
 
               updateActiveTeam((team) => ({ ...team, posseId }))
               clearTransfer()
+              if (quickLineupSession?.currentStep.kind === 'posse') {
+                advanceQuickLineupStep()
+              }
             }}
             onSetActiveWheel={(wheelId) => {
               handlePickerWheelClick(wheelId)

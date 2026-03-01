@@ -20,16 +20,16 @@
 
 ## Builder UI QOL / Fixes
 - [Done 2026-02-26] Sidebar to quickly switch between teams.
-- Weird scaling behavior on the covenant slots, lines on the svgs/paths seem to get squished on some devices?
+- [Done 2026-03-01] Weird scaling behavior on the covenant slots, lines on the svgs/paths seem to get squished on some devices?
     - Could simply replace with static image assets, but risk of pixelation/blurring when scaling up/down
-- Allow one Duped character to mirror "Support" behavior ingame
-- Toggle to disable "duplication blockers" to make a 4 Clem team. Could mess with import/exports though.
+- [Done 2026-03-01] Allow one Duped character to mirror "Support" behavior ingame
+- [Done 2026-03-01] Toggle to disable "duplication blockers" to make a 4 Clem team. Could mess with import/exports though.
 
 ## Builder Features
 - [Half-done 2026-02-27] In-game export/import format support is live in WIP form for teams.
     - Single-team import/export via `@@...@@` is working.
     - Covenant and posse support is still missing and currently falls back to empty.
-- "Quick team planner" mode, lets you select awakeners, wheels by just clicking, will iterate slots 1-4 and 1-8 and quick assign regardless of current state.
+- [Done 2026-03-01] "Quick team planner" mode, lets you select awakeners, wheels by just clicking, will iterate slots 1-4 and 1-8 and quick assign regardless of current state.
     - Manually selecting a slot would start the iteration from that slot I guess.
 - Mobile / compact browser-friendly UI. 
     - Selecting a slot will open a "popup" picker rather than utilizing the sidebar panel.
@@ -37,8 +37,8 @@
     - fixed widths on stuff to prevent weird scaling.
 - [Done 2026-02-26] "Preset team setups", eg select "Dtide mode" and it will quickly generate 10 empty teams, two for each wave, appropriately named.
     - Could tie into full teams import, where it will import all teams at once into said empty template.
-- Expanded teams toggle, (compact but full-team cards that display wheels and covenants of the units)
-- Support drag-replacing units inbetween teams
+- [Done 2026-03-01] Expanded teams toggle, (compact but full-team cards that display wheels and covenants of the units)
+- [Done 2026-03-01] Support drag-replacing units inbetween teams
 - URL Encoding so that one can in theory share skeydb/importcode and get a full team layout without imports etc,
   - Need to think a bit about this, so people dont accidentally click links and nuke their own setups
 - Since we use localstorage we could theoretically let people save/load a couple planners on-site with their comps and team setups, would suck if one clears browser data though..

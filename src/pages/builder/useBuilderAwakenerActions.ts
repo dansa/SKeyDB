@@ -26,6 +26,7 @@ type UseBuilderAwakenerActionsOptions = {
   notifyViolation: (violation: TeamStateViolationCode | undefined) => void
   allowDupes: boolean
   hasSupportAwakener: boolean
+  onPickerAssignSuccess?: (nextSlots: TeamSlot[]) => void
 }
 
 export function useBuilderAwakenerActions({
@@ -42,6 +43,7 @@ export function useBuilderAwakenerActions({
   notifyViolation,
   allowDupes,
   hasSupportAwakener,
+  onPickerAssignSuccess,
 }: UseBuilderAwakenerActionsOptions) {
   const handleDropPickerAwakener = useCallback(
     (awakenerName: string, targetSlotId: string) => {
@@ -71,6 +73,7 @@ export function useBuilderAwakenerActions({
       clearTransfer()
       setActiveTeamSlots(result.nextSlots)
       setActiveSelection({ kind: 'awakener', slotId: targetSlotId })
+      onPickerAssignSuccess?.(result.nextSlots)
     },
     [
       awakenerByName,
@@ -85,6 +88,7 @@ export function useBuilderAwakenerActions({
       teamSlots,
       usedAwakenerByIdentityKey,
       hasSupportAwakener,
+      onPickerAssignSuccess,
     ],
   )
 
@@ -123,6 +127,7 @@ export function useBuilderAwakenerActions({
 
       setActiveTeamSlots(result.nextSlots)
       clearTransfer()
+      onPickerAssignSuccess?.(result.nextSlots)
     },
     [
       awakenerByName,
@@ -137,6 +142,7 @@ export function useBuilderAwakenerActions({
       teamSlots,
       usedAwakenerByIdentityKey,
       hasSupportAwakener,
+      onPickerAssignSuccess,
     ],
   )
 
