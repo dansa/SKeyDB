@@ -85,4 +85,19 @@ describe('validateTeamPlan', () => {
       true,
     )
   })
+
+  it('can ignore duplicate violations while still enforcing faction limits', () => {
+    const plan = buildValidPlan()
+    plan[1].members.push({ awakenerId: 'agrippa', faction: 'CHAOS', wheelIds: ['w2', 'w17'] })
+    plan[1].posseId = 'posse-a'
+
+    const result = validateTeamPlan(plan, {
+      enforceUniqueAwakeners: false,
+      enforceUniqueWheels: false,
+      enforceUniquePosses: false,
+    })
+
+    expect(result.isValid).toBe(true)
+    expect(result.violations).toHaveLength(0)
+  })
 })

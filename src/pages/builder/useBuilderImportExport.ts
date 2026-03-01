@@ -1,12 +1,16 @@
 import { useMemo, useState, type Dispatch, type SetStateAction } from 'react'
 import { decodeImportCode, encodeMultiTeamCode, encodeSingleTeamCode } from '../../domain/import-export'
 import { encodeIngameTeamCode } from '../../domain/ingame-codec'
+import { validateTeamPlan } from '../../domain/team-rules'
 import {
   applySingleImportStrategy,
   prepareImport,
   type ImportConflict,
+  type PreparedImport,
   type SingleImportStrategy,
 } from './import-planner'
+import { toTeamPlan } from './team-plan'
+import type { DecodedImport } from '../../domain/import-export'
 import type { Team, TeamSlot } from './types'
 
 type ReplaceTargetTeam = {
@@ -28,12 +32,45 @@ type PendingStrategyImport = {
   importWarningMessage?: string
 }
 
+type PendingDuplicateOverrideImport =
+  | {
+      kind: 'decoded'
+      decoded: DecodedImport
+      plannerBaseTeams: Team[]
+      replaceIntoTeam?: ReplaceTargetTeam
+      importWarningMessage?: string
+    }
+  | {
+      kind: 'strategy'
+      plannerBaseTeams: Team[]
+      importedTeam: Team
+      strategy: Exclude<SingleImportStrategy, 'cancel'>
+      replaceIntoTeam?: ReplaceTargetTeam
+      importWarningMessage?: string
+    }
+
+type ExportDialogState = {
+  title: string
+  code: string
+  kind: 'standard' | 'ingame'
+  duplicateWarning?: string
+}
+
+type HandlePreparedImportOptions = {
+  decoded: DecodedImport
+  plannerBaseTeams?: Team[]
+  replaceIntoTeam?: ReplaceTargetTeam
+  importWarningMessage?: string
+}
+
 type UseBuilderImportExportOptions = {
   teams: Team[]
   setTeams: Dispatch<SetStateAction<Team[]>>
   effectiveActiveTeamId: string
   activeTeam: Team | undefined
   teamSlots: TeamSlot[]
+  allowDupes: boolean
+  setAllowDupes: (allowDupes: boolean) => void
   setActiveTeamId: (teamId: string) => void
   setActiveSelection: (selection: null) => void
   clearTransfer: () => void
@@ -47,6 +84,8 @@ export function useBuilderImportExport({
   effectiveActiveTeamId,
   activeTeam,
   teamSlots,
+  allowDupes,
+  setAllowDupes,
   setActiveTeamId,
   setActiveSelection,
   clearTransfer,
@@ -54,11 +93,11 @@ export function useBuilderImportExport({
   showToast,
 }: UseBuilderImportExportOptions) {
   const [isImportDialogOpen, setImportDialogOpen] = useState(false)
-  const [exportDialog, setExportDialog] = useState<{ title: string; code: string; kind: 'standard' | 'ingame' } | null>(
-    null,
-  )
+  const [exportDialog, setExportDialog] = useState<ExportDialogState | null>(null)
   const [pendingReplaceImport, setPendingReplaceImport] = useState<PendingReplaceImport | null>(null)
   const [pendingStrategyImport, setPendingStrategyImport] = useState<PendingStrategyImport | null>(null)
+  const [pendingDuplicateOverrideImport, setPendingDuplicateOverrideImport] =
+    useState<PendingDuplicateOverrideImport | null>(null)
 
   const pendingStrategyConflictSummary = useMemo(() => {
     if (!pendingStrategyImport) {
@@ -72,6 +111,7 @@ export function useBuilderImportExport({
     setImportDialogOpen(false)
     setPendingReplaceImport(null)
     setPendingStrategyImport(null)
+    setPendingDuplicateOverrideImport(null)
   }
 
   function applyImportedTeams(nextTeams: Team[], nextActiveTeamId: string) {
@@ -120,13 +160,22 @@ export function useBuilderImportExport({
     })
   }
 
-  function handlePreparedImport(
-    result: ReturnType<typeof prepareImport>,
-    options?: { plannerBaseTeams?: Team[]; replaceIntoTeam?: ReplaceTargetTeam; importWarningMessage?: string },
-  ) {
+  function handlePreparedImport(result: PreparedImport, options: HandlePreparedImportOptions) {
     if (result.status === 'error') {
       showToast(result.message)
       clearImportFlow()
+      return
+    }
+
+    if (result.status === 'requires_duplicate_override') {
+      setImportDialogOpen(false)
+      setPendingDuplicateOverrideImport({
+        kind: 'decoded',
+        decoded: options.decoded,
+        plannerBaseTeams: options.plannerBaseTeams ?? teams,
+        replaceIntoTeam: options.replaceIntoTeam,
+        importWarningMessage: options.importWarningMessage,
+      })
       return
     }
 
@@ -135,7 +184,7 @@ export function useBuilderImportExport({
       setPendingReplaceImport({
         teams: result.teams,
         activeTeamIndex: result.activeTeamIndex,
-        importWarningMessage: options?.importWarningMessage,
+        importWarningMessage: options.importWarningMessage,
       })
       return
     }
@@ -145,14 +194,14 @@ export function useBuilderImportExport({
       setPendingStrategyImport({
         team: result.team,
         conflicts: result.conflicts,
-        plannerBaseTeams: options?.plannerBaseTeams ?? teams,
-        replaceIntoTeam: options?.replaceIntoTeam,
-        importWarningMessage: options?.importWarningMessage,
+        plannerBaseTeams: options.plannerBaseTeams ?? teams,
+        replaceIntoTeam: options.replaceIntoTeam,
+        importWarningMessage: options.importWarningMessage,
       })
       return
     }
 
-    if (options?.replaceIntoTeam && options.plannerBaseTeams) {
+    if (options.replaceIntoTeam && options.plannerBaseTeams) {
       const nextTeams = mergeImportedIntoExistingTeam(result.teams, options.plannerBaseTeams, options.replaceIntoTeam)
       applyImportedTeams(nextTeams, options.replaceIntoTeam.id)
       clearTransfer()
@@ -162,7 +211,7 @@ export function useBuilderImportExport({
       return
     }
 
-    finalizePreparedImport(result.teams, options?.importWarningMessage)
+    finalizePreparedImport(result.teams, options.importWarningMessage)
   }
 
   function getIngameImportWarningMessage(warnings: Exclude<ReturnType<typeof decodeImportCode>, { kind: 'multi' }>['warnings']) {
@@ -194,6 +243,22 @@ export function useBuilderImportExport({
     return `In-game note: ${surfaced.length} unsupported awakener/wheel ${tokenLabel} imported as empty (${details}${suffix}).`
   }
 
+  function getDuplicateExportWarning(exportTeams: Team[]): string | undefined {
+    const validation = validateTeamPlan(toTeamPlan(exportTeams))
+    const hasDuplicateViolation = validation.violations.some(
+      (violation) =>
+        violation.code === 'DUPLICATE_AWAKENER' ||
+        violation.code === 'DUPLICATE_WHEEL' ||
+        violation.code === 'DUPLICATE_POSSE',
+    )
+    if (!hasDuplicateViolation) {
+      return undefined
+    }
+    return exportTeams.length > 1
+      ? 'These teams reuse units, wheels, or posses across teams and are not in-game legal together.'
+      : 'This team reuses units or wheels and is not in-game legal.'
+  }
+
   function submitImportCode(code: string) {
     let decoded
     try {
@@ -208,7 +273,8 @@ export function useBuilderImportExport({
     const shouldImportIntoActiveEmptyTeam = decoded.kind === 'single' && teamSlots.every((slot) => !slot.awakenerName)
     if (shouldImportIntoActiveEmptyTeam && activeTeam) {
       const plannerBaseTeams = teams.filter((team) => team.id !== activeTeam.id)
-      handlePreparedImport(prepareImport(decoded, plannerBaseTeams), {
+      handlePreparedImport(prepareImport(decoded, plannerBaseTeams, { allowDupes }), {
+        decoded,
         plannerBaseTeams,
         replaceIntoTeam: { id: activeTeam.id, name: activeTeam.name },
         importWarningMessage: ingameImportWarningMessage,
@@ -216,7 +282,8 @@ export function useBuilderImportExport({
       return
     }
 
-    handlePreparedImport(prepareImport(decoded, teams), {
+    handlePreparedImport(prepareImport(decoded, teams, { allowDupes }), {
+      decoded,
       importWarningMessage: ingameImportWarningMessage,
     })
   }
@@ -226,6 +293,7 @@ export function useBuilderImportExport({
       title: 'Export All Teams',
       code: encodeMultiTeamCode(teams, effectiveActiveTeamId),
       kind: 'standard',
+      duplicateWarning: getDuplicateExportWarning(teams),
     })
   }
 
@@ -239,6 +307,7 @@ export function useBuilderImportExport({
       title: `Export ${team.name}`,
       code: encodeSingleTeamCode(team),
       kind: 'standard',
+      duplicateWarning: getDuplicateExportWarning([team]),
     })
   }
 
@@ -252,7 +321,61 @@ export function useBuilderImportExport({
       title: `Export In-Game ${team.name}`,
       code: encodeIngameTeamCode(team),
       kind: 'ingame',
+      duplicateWarning: getDuplicateExportWarning([team]),
     })
+  }
+
+  function confirmDuplicateOverrideImport() {
+    if (!pendingDuplicateOverrideImport) {
+      return
+    }
+
+    setAllowDupes(true)
+    if (pendingDuplicateOverrideImport.kind === 'decoded') {
+      const result = prepareImport(pendingDuplicateOverrideImport.decoded, pendingDuplicateOverrideImport.plannerBaseTeams, {
+        allowDupes: true,
+      })
+      handlePreparedImport(result, {
+        decoded: pendingDuplicateOverrideImport.decoded,
+        plannerBaseTeams: pendingDuplicateOverrideImport.plannerBaseTeams,
+        replaceIntoTeam: pendingDuplicateOverrideImport.replaceIntoTeam,
+        importWarningMessage: pendingDuplicateOverrideImport.importWarningMessage,
+      })
+      return
+    }
+
+    const result = applySingleImportStrategy(
+      pendingDuplicateOverrideImport.plannerBaseTeams,
+      pendingDuplicateOverrideImport.importedTeam,
+      pendingDuplicateOverrideImport.strategy,
+      { allowDupes: true },
+    )
+
+    if (result.status !== 'ready') {
+      showToast('Import strategy failed validation.')
+      clearImportFlow()
+      return
+    }
+
+    if (pendingDuplicateOverrideImport.replaceIntoTeam) {
+      const nextTeams = mergeImportedIntoExistingTeam(
+        result.teams,
+        pendingDuplicateOverrideImport.plannerBaseTeams,
+        pendingDuplicateOverrideImport.replaceIntoTeam,
+      )
+      applyImportedTeams(nextTeams, pendingDuplicateOverrideImport.replaceIntoTeam.id)
+      clearTransfer()
+      clearPendingDelete()
+      clearImportFlow()
+      showToast(
+        pendingDuplicateOverrideImport.importWarningMessage
+          ? `Team imported. ${pendingDuplicateOverrideImport.importWarningMessage}`
+          : 'Team imported.',
+      )
+      return
+    }
+
+    finalizePreparedImport(result.teams, pendingDuplicateOverrideImport.importWarningMessage)
   }
 
   function confirmReplaceImport() {
@@ -276,10 +399,27 @@ export function useBuilderImportExport({
     if (!pendingStrategyImport) {
       return
     }
-    const result = applySingleImportStrategy(pendingStrategyImport.plannerBaseTeams, pendingStrategyImport.team, strategy)
+    const result = applySingleImportStrategy(
+      pendingStrategyImport.plannerBaseTeams,
+      pendingStrategyImport.team,
+      strategy,
+      { allowDupes },
+    )
     if (result.status === 'error') {
       showToast(result.message)
       clearImportFlow()
+      return
+    }
+    if (result.status === 'requires_duplicate_override') {
+      setPendingStrategyImport(null)
+      setPendingDuplicateOverrideImport({
+        kind: 'strategy',
+        plannerBaseTeams: pendingStrategyImport.plannerBaseTeams,
+        importedTeam: pendingStrategyImport.team,
+        strategy,
+        replaceIntoTeam: pendingStrategyImport.replaceIntoTeam,
+        importWarningMessage: pendingStrategyImport.importWarningMessage,
+      })
       return
     }
     if (result.status !== 'ready') {
@@ -319,6 +459,9 @@ export function useBuilderImportExport({
     openExportAllDialog,
     openTeamExportDialog,
     openTeamIngameExportDialog,
+    pendingDuplicateOverrideImport,
+    cancelDuplicateOverrideImport: clearImportFlow,
+    confirmDuplicateOverrideImport,
     pendingReplaceImport,
     cancelReplaceImport: () => setPendingReplaceImport(null),
     confirmReplaceImport,

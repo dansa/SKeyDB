@@ -28,6 +28,7 @@ type UseBuilderWheelActionsOptions = {
   clearPendingDelete: () => void
   clearTransfer: () => void
   showToast: (message: string) => void
+  allowDupes: boolean
 }
 
 export function useBuilderWheelActions({
@@ -41,6 +42,7 @@ export function useBuilderWheelActions({
   clearPendingDelete,
   clearTransfer,
   showToast,
+  allowDupes,
 }: UseBuilderWheelActionsOptions) {
   const getFirstEmptyWheelIndex = useCallback(
     (slotId: string): number | null => {
@@ -67,7 +69,7 @@ export function useBuilderWheelActions({
         return
       }
 
-      const wheelOwner = usedWheelByTeamOrder.get(wheelId)
+      const wheelOwner = allowDupes ? undefined : usedWheelByTeamOrder.get(wheelId)
       if (
         wheelOwner &&
         wheelOwner.teamId === effectiveActiveTeamId &&
@@ -109,6 +111,7 @@ export function useBuilderWheelActions({
     [
       effectiveActiveTeamId,
       getFirstEmptyWheelIndex,
+      allowDupes,
       requestWheelTransfer,
       setActiveSelection,
       setActiveTeamSlots,

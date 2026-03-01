@@ -51,6 +51,7 @@ const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
 const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
 const BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
 const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
+const BUILDER_ALLOW_DUPES_KEY = 'skeydb.builder.allowDupes.v1'
 
 function createDefaultBuilderState() {
   const teams = createInitialTeams()
@@ -113,6 +114,16 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
       return false
     }
     return true
+  })
+  const [allowDupes, setAllowDupes] = useState(() => {
+    const stored = safeStorageRead(storage, BUILDER_ALLOW_DUPES_KEY)
+    if (stored === '1') {
+      return true
+    }
+    if (stored === '0') {
+      return false
+    }
+    return false
   })
 
   const effectiveActiveTeamId = useMemo(
@@ -393,6 +404,10 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     safeStorageWrite(storage, BUILDER_DISPLAY_UNOWNED_KEY, displayUnowned ? '1' : '0')
   }, [storage, displayUnowned])
 
+  useEffect(() => {
+    safeStorageWrite(storage, BUILDER_ALLOW_DUPES_KEY, allowDupes ? '1' : '0')
+  }, [storage, allowDupes])
+
   const appendSearchCharacter = useCallback((targetPickerTab: PickerTab, key: string) => {
     setPickerSearchByTab((prev) => ({
       ...prev,
@@ -482,6 +497,8 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     collectionOwnership,
     displayUnowned,
     setDisplayUnowned,
+    allowDupes,
+    setAllowDupes,
     ownedAwakenerLevelByName,
     awakenerLevelByName,
     ownedWheelLevelById,

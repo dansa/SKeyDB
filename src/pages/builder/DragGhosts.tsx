@@ -73,12 +73,13 @@ export function TeamCardGhost({
       </div>
       {!removeIntent ? (
         <CardWheelZone
+          awakenerLevel={slot.level ?? 60}
+          awakenerOwnedLevel={awakenerOwnedLevel}
           compactCovenant
           interactive={false}
           slot={slot}
           wheelKeyPrefix="ghost"
-          showOwnership={false}
-          awakenerOwnedLevel={awakenerOwnedLevel}
+          showOwnership
           wheelOwnedLevels={wheelOwnedLevels}
         />
       ) : null}
@@ -104,7 +105,7 @@ export function PickerWheelGhost({ wheelId, isCovenant = false }: { wheelId: str
       >
         {wheelAsset ? (
           <img
-            alt={`${wheelId} ${isCovenant ? 'covenant' : 'wheel'}`}
+            alt={isCovenant ? '' : `${wheelId} wheel`}
             className={`${
               isCovenant ? 'builder-card-covenant-image h-full w-full object-cover' : 'builder-card-wheel-image h-full w-full object-cover'
             }`}
@@ -149,7 +150,7 @@ export function TeamWheelGhost({
       >
         {wheelAsset ? (
           <img
-            alt={`${wheelId} ${isCovenant ? 'covenant' : 'wheel'}`}
+            alt={isCovenant ? '' : `${wheelId} wheel`}
             className={`${
               isCovenant ? 'builder-card-covenant-image h-full w-full object-cover' : 'builder-card-wheel-image h-full w-full object-cover'
             } ${

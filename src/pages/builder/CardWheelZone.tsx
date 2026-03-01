@@ -48,25 +48,77 @@ type CardCovenantTileProps = {
   onClick?: () => void
 }
 
+function CovenantPlaceholderSvg() {
+  return (
+    <svg
+      aria-hidden
+      className="builder-covenant-placeholder-svg"
+      preserveAspectRatio="xMidYMid meet"
+      shapeRendering="geometricPrecision"
+      viewBox="0 0 15 15"
+    >
+      <circle
+        className="builder-covenant-placeholder-ring"
+        cx="7.5"
+        cy="7.5"
+        r="9.5"
+        stroke="#eff0de33"
+        strokeWidth="0.65"
+        fill="none"
+      />
+      <path
+        d="M14 4.213 7.5.42 1 4.213v6.574l6.5 3.792 6.5-3.792z"
+        stroke="#eff0de33"
+        strokeWidth="0.65"
+        fill="none"
+      />
+      <rect
+        className="builder-covenant-placeholder-diamond"
+        stroke="#080e18"
+        strokeWidth="0.4"
+        fill="none"
+        width="72%"
+        height="72%"
+        y="14%"
+        x="14%"
+        transform="rotate(45 7.5 7.5)"
+      />
+      <rect
+        className="builder-covenant-placeholder-diamond-accent"
+        stroke="#e6d6a67a"
+        strokeWidth="0.65"
+        fill="none"
+        width="64%"
+        height="64%"
+        y="18%"
+        x="18%"
+        transform="rotate(45 7.5 7.5)"
+      />
+      <line className="builder-covenant-placeholder-plus" x1="4" x2="11" y1="7.5" y2="7.5" />
+      <line className="builder-covenant-placeholder-plus" x1="7.5" x2="7.5" y1="4" y2="11" />
+    </svg>
+  )
+}
+
 function renderCovenantTileVisual(covenantId: string | undefined) {
+  const contentClassName = 'covenant-tile-content absolute inset-0 overflow-hidden rounded-full'
+
   if (!covenantId) {
     return (
-      <span className="covenant-tile-content absolute inset-[2px] rounded-full border border-slate-700/70 bg-slate-900/60">
-        <span className="sigil-placeholder sigil-placeholder-wheel sigil-placeholder-covenant-empty">
-          <span className="sigil-covenant-diamond" />
-        </span>
+      <span className={`${contentClassName} flex items-center justify-center bg-slate-900/60`}>
+        <CovenantPlaceholderSvg />
       </span>
     )
   }
 
   const asset = getCovenantAssetById(covenantId)
   if (!asset) {
-    return <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]" />
+    return <span className={`${contentClassName} bg-[linear-gradient(180deg,#1e3a5f_0%,#0b1220_100%)]`} />
   }
 
   return (
-    <span className="covenant-tile-content absolute inset-[2px] rounded-full bg-slate-950/85">
-      <img alt={`${covenantId} covenant`} className="builder-card-covenant-image h-full w-full object-cover" draggable={false} src={asset} />
+    <span className={`${contentClassName} bg-slate-950/85`}>
+      <img alt="" className="builder-card-covenant-image h-full w-full object-cover" draggable={false} src={asset} />
     </span>
   )
 }
@@ -118,12 +170,7 @@ function CardCovenantTile({
   const tileClassName = `covenant-tile group/covenant relative z-20 aspect-square ${
     isActive ? 'covenant-tile-active' : ''
   } ${showOver ? 'covenant-tile-over' : ''} ${isDragging ? 'opacity-65' : ''}`
-  const tileVisual = (
-    <>
-      <span className="covenant-tile-frame absolute inset-0 rounded-full border border-slate-200/45" />
-      {renderCovenantTileVisual(covenantId)}
-    </>
-  )
+  const tileVisual = <>{renderCovenantTileVisual(covenantId)}</>
 
   if (!interactive) {
     return <div className={tileClassName}>{tileVisual}</div>
@@ -217,7 +264,7 @@ function CardWheelTile({
           <span className="sigil-remove-x builder-card-remove-x" />
         </button>
       ) : null}
-  {showOwnership && wheelId ? (
+      {showOwnership && wheelId ? (
         isOwned ? (
           <DupeLevelDisplay
             className="pb-1 builder-wheel-dupe builder-wheel-dupe-stacked builder-dupe-owned"
@@ -255,8 +302,8 @@ export function CardWheelZone({
         compactCovenant ? 'builder-card-wheel-zone-ghost' : ''
       }`}
     >
-      <div className="builder-card-meta-row flex items-start justify-between gap-2 pb-2">
-        <div className="builder-card-meta-left pointer-events-none self-end min-w-0 flex-1 pb-1">
+      <div className="builder-card-meta-row flex items-end gap-2 pb-2">
+        <div className="builder-card-meta-left pointer-events-none min-w-0 flex-1 pb-1">
           {showOwnership && slot.awakenerName && awakenerOwnedLevel !== null ? (
             <p className="builder-awakener-level">
               <span className="builder-awakener-level-prefix">Lv.</span>
@@ -270,7 +317,7 @@ export function CardWheelZone({
             />
           ) : null}
         </div>
-        <div className="builder-card-covenant-wrap shrink-0">
+        <div className="builder-card-covenant-wrap shrink-0 self-end">
           <CardCovenantTile
             activeDragKind={activeDragKind}
             covenantId={slot.covenantId}

@@ -9,6 +9,9 @@ type BuilderImportExportDialogsProps = {
   isImportDialogOpen: boolean
   onCancelImport: () => void
   onSubmitImport: (code: string) => void
+  pendingDuplicateOverrideImport: object | null
+  onCancelDuplicateOverrideImport: () => void
+  onConfirmDuplicateOverrideImport: () => void
   pendingReplaceImport: { teams: Team[]; activeTeamIndex: number } | null
   onCancelReplaceImport: () => void
   onConfirmReplaceImport: () => void
@@ -17,7 +20,7 @@ type BuilderImportExportDialogsProps = {
   onCancelStrategyImport: () => void
   onMoveStrategyImport: () => void
   onSkipStrategyImport: () => void
-  exportDialog: { title: string; code: string; kind: 'standard' | 'ingame' } | null
+  exportDialog: { title: string; code: string; kind: 'standard' | 'ingame'; duplicateWarning?: string } | null
   onCloseExportDialog: () => void
 }
 
@@ -56,6 +59,9 @@ export function BuilderImportExportDialogs({
   isImportDialogOpen,
   onCancelImport,
   onSubmitImport,
+  pendingDuplicateOverrideImport,
+  onCancelDuplicateOverrideImport,
+  onConfirmDuplicateOverrideImport,
   pendingReplaceImport,
   onCancelReplaceImport,
   onConfirmReplaceImport,
@@ -88,6 +94,17 @@ export function BuilderImportExportDialogs({
         />
       ) : null}
 
+      {pendingDuplicateOverrideImport ? (
+        <ConfirmDialog
+          cancelLabel="Cancel"
+          confirmLabel="Enable and Import"
+          message="This import contains duplicate units, wheels, or posses. Enable Allow Dupes and continue?"
+          onCancel={onCancelDuplicateOverrideImport}
+          onConfirm={onConfirmDuplicateOverrideImport}
+          title="Import Uses Duplicates"
+        />
+      ) : null}
+
       {pendingStrategyImport ? (
         <ImportStrategyDialog
           conflictSummary={pendingStrategyConflictSummary}
@@ -107,7 +124,16 @@ export function BuilderImportExportDialogs({
           }
           onClose={onCloseExportDialog}
           title={exportDialog.title}
-          warning={exportDialog.kind === 'ingame' ? renderIngameExportWarning() : undefined}
+          warning={
+            exportDialog.kind === 'ingame' || exportDialog.duplicateWarning ? (
+              <div className="space-y-2">
+                {exportDialog.kind === 'ingame' ? renderIngameExportWarning() : null}
+                {exportDialog.duplicateWarning ? (
+                  <p className="text-xs text-rose-300">{exportDialog.duplicateWarning}</p>
+                ) : null}
+              </div>
+            ) : undefined
+          }
         />
       ) : null}
     </>

@@ -23,6 +23,7 @@ type UseBuilderAwakenerActionsOptions = {
   clearPendingDelete: () => void
   clearTransfer: () => void
   notifyViolation: (violation: TeamStateViolationCode | undefined) => void
+  allowDupes: boolean
 }
 
 export function useBuilderAwakenerActions({
@@ -37,17 +38,20 @@ export function useBuilderAwakenerActions({
   clearPendingDelete,
   clearTransfer,
   notifyViolation,
+  allowDupes,
 }: UseBuilderAwakenerActionsOptions) {
   const handleDropPickerAwakener = useCallback(
     (awakenerName: string, targetSlotId: string) => {
-      const result = assignAwakenerToSlot(teamSlots, awakenerName, targetSlotId, awakenerByName)
+      const result = assignAwakenerToSlot(teamSlots, awakenerName, targetSlotId, awakenerByName, {
+        allowDuplicateIdentity: allowDupes,
+      })
       notifyViolation(result.violation)
       if (result.nextSlots === teamSlots) {
         return
       }
 
       const identityKey = getAwakenerIdentityKey(awakenerName)
-      const owningTeamId = usedAwakenerByIdentityKey.get(identityKey)
+      const owningTeamId = allowDupes ? undefined : usedAwakenerByIdentityKey.get(identityKey)
       if (owningTeamId && owningTeamId !== effectiveActiveTeamId) {
         clearPendingDelete()
         requestAwakenerTransfer({
@@ -65,6 +69,7 @@ export function useBuilderAwakenerActions({
     },
     [
       awakenerByName,
+      allowDupes,
       clearPendingDelete,
       clearTransfer,
       effectiveActiveTeamId,
@@ -84,8 +89,12 @@ export function useBuilderAwakenerActions({
 
       const targetSlotId = resolvedActiveSelection?.kind === 'awakener' ? resolvedActiveSelection.slotId : undefined
       const result = targetSlotId
-        ? assignAwakenerToSlot(teamSlots, awakenerName, targetSlotId, awakenerByName)
-        : assignAwakenerToFirstEmptySlot(teamSlots, awakenerName, awakenerByName)
+        ? assignAwakenerToSlot(teamSlots, awakenerName, targetSlotId, awakenerByName, {
+            allowDuplicateIdentity: allowDupes,
+          })
+        : assignAwakenerToFirstEmptySlot(teamSlots, awakenerName, awakenerByName, {
+            allowDuplicateIdentity: allowDupes,
+          })
 
       notifyViolation(result.violation)
       if (result.nextSlots === teamSlots) {
@@ -93,7 +102,7 @@ export function useBuilderAwakenerActions({
       }
 
       const identityKey = getAwakenerIdentityKey(awakenerName)
-      const owningTeamId = usedAwakenerByIdentityKey.get(identityKey)
+      const owningTeamId = allowDupes ? undefined : usedAwakenerByIdentityKey.get(identityKey)
       if (owningTeamId && owningTeamId !== effectiveActiveTeamId) {
         requestAwakenerTransfer({
           awakenerName,
@@ -109,6 +118,7 @@ export function useBuilderAwakenerActions({
     },
     [
       awakenerByName,
+      allowDupes,
       clearPendingDelete,
       clearTransfer,
       effectiveActiveTeamId,

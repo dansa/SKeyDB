@@ -27,11 +27,17 @@ export type RuleViolation = {
 export type TeamRulesConfig = {
   maxTeams: number
   maxFactionsPerTeam: number
+  enforceUniqueAwakeners: boolean
+  enforceUniqueWheels: boolean
+  enforceUniquePosses: boolean
 }
 
 export const DEFAULT_TEAM_RULES_CONFIG: TeamRulesConfig = {
   maxTeams: 10,
   maxFactionsPerTeam: 2,
+  enforceUniqueAwakeners: true,
+  enforceUniqueWheels: true,
+  enforceUniquePosses: true,
 }
 
 export function getDistinctFactionsForTeam(
@@ -67,7 +73,7 @@ export function validateTeamPlan(
 
   for (const team of teamPlan) {
     if (team.posseId) {
-      if (seenPosses.has(team.posseId)) {
+      if (settings.enforceUniquePosses && seenPosses.has(team.posseId)) {
         violations.push({
           code: 'DUPLICATE_POSSE',
           message: `Posse ${team.posseId} is used more than once across teams.`,
@@ -89,7 +95,7 @@ export function validateTeamPlan(
     }
 
     for (const member of team.members) {
-      if (seenAwakeners.has(member.awakenerId)) {
+      if (settings.enforceUniqueAwakeners && seenAwakeners.has(member.awakenerId)) {
         violations.push({
           code: 'DUPLICATE_AWAKENER',
           message: `Awakener ${member.awakenerId} is used more than once across teams.`,
@@ -101,7 +107,7 @@ export function validateTeamPlan(
       }
 
       for (const wheelId of member.wheelIds) {
-        if (seenWheels.has(wheelId)) {
+        if (settings.enforceUniqueWheels && seenWheels.has(wheelId)) {
           violations.push({
             code: 'DUPLICATE_WHEEL',
             message: `Wheel ${wheelId} is used more than once across teams.`,

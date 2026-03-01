@@ -78,6 +78,7 @@ type BuilderSelectionPanelProps = {
   awakenerSortDirection: CollectionSortDirection
   awakenerSortGroupByFaction: boolean
   displayUnowned: boolean
+  allowDupes: boolean
   filteredAwakeners: Awakener[]
   filteredPosses: Posse[]
   filteredWheels: Wheel[]
@@ -102,6 +103,7 @@ type BuilderSelectionPanelProps = {
   onAwakenerSortDirectionToggle: () => void
   onAwakenerSortGroupByFactionChange: (nextGroupByFaction: boolean) => void
   onDisplayUnownedChange: (displayUnowned: boolean) => void
+  onAllowDupesChange: (allowDupes: boolean) => void
   onAwakenerClick: (awakenerName: string) => void
   onSetActiveWheel: (wheelId?: string) => void
   onSetActiveCovenant: (covenantId?: string) => void
@@ -120,6 +122,7 @@ export function BuilderSelectionPanel({
   awakenerSortDirection,
   awakenerSortGroupByFaction,
   displayUnowned,
+  allowDupes,
   filteredAwakeners,
   filteredPosses,
   filteredWheels,
@@ -144,6 +147,7 @@ export function BuilderSelectionPanel({
   onAwakenerSortDirectionToggle,
   onAwakenerSortGroupByFactionChange,
   onDisplayUnownedChange,
+  onAllowDupesChange,
   onAwakenerClick,
   onSetActiveWheel,
   onSetActiveCovenant,
@@ -226,6 +230,17 @@ export function BuilderSelectionPanel({
               onLabel="On"
               onToggle={() => onDisplayUnownedChange(!displayUnowned)}
               owned={displayUnowned}
+              variant="flat"
+            />
+          </div>
+          <div className="flex items-center justify-between gap-3 text-xs text-slate-300">
+            <span>Allow Dupes</span>
+            <OwnedTogglePill
+              className="ownership-pill-builder"
+              offLabel="Off"
+              onLabel="On"
+              onToggle={() => onAllowDupesChange(!allowDupes)}
+              owned={allowDupes}
               variant="flat"
             />
           </div>
@@ -347,7 +362,7 @@ export function BuilderSelectionPanel({
                 awakenerName={awakener.name}
                 faction={awakener.faction}
                 isFactionBlocked={teamFactionSet.size >= 2 && !teamFactionSet.has(awakener.faction.trim().toUpperCase())}
-                isInUse={usedAwakenerIdentityKeys.has(getAwakenerIdentityKey(awakener.name))}
+                isInUse={!allowDupes && usedAwakenerIdentityKeys.has(getAwakenerIdentityKey(awakener.name))}
                 isOwned={(ownedAwakenerLevelByName.get(awakener.name) ?? null) !== null}
                 key={awakener.name}
                 onClick={() => onAwakenerClick(awakener.name)}
@@ -362,7 +377,7 @@ export function BuilderSelectionPanel({
 
             {filteredWheels.map((wheel) => {
               const wheelAsset = getWheelAssetById(wheel.id)
-              const usedByTeam = usedWheelByTeamOrder.get(wheel.id)
+              const usedByTeam = allowDupes ? undefined : usedWheelByTeamOrder.get(wheel.id)
               const isUsedByOtherTeam = usedByTeam && usedByTeam.teamId !== effectiveActiveTeamId
               const blockedText = usedByTeam
                 ? isUsedByOtherTeam
@@ -428,7 +443,7 @@ export function BuilderSelectionPanel({
             {filteredPosses.map((posse) => {
               const posseAsset = getPosseAssetById(posse.id)
               const isActive = activePosseId === posse.id
-              const usedByTeamOrder = usedPosseByTeamOrder.get(posse.id)
+              const usedByTeamOrder = allowDupes ? undefined : usedPosseByTeamOrder.get(posse.id)
               const usedByTeam = usedByTeamOrder === undefined ? undefined : teams[usedByTeamOrder]
               const isUsedByOtherTeam =
                 usedByTeamOrder !== undefined &&

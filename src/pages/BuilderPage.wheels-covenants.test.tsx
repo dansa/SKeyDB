@@ -138,6 +138,19 @@ describe('BuilderPage wheels and covenants', () => {
     expect(firstUnsetWheel?.querySelector('.sigil-remove-x')).toBeNull()
   })
 
+  it('renders the unset covenant slot with the svg placeholder frame', () => {
+    render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+
+    const setCovenantButton = screen.getByRole('button', { name: /set covenant/i })
+    const covenantTile = setCovenantButton.closest('.covenant-tile')
+
+    expect(covenantTile).not.toBeNull()
+    expect(covenantTile?.querySelector('.builder-covenant-placeholder-svg')).not.toBeNull()
+  })
+
   it('renders wheel remove action inside the active wheel tile', async () => {
     render(<BuilderPage />)
 

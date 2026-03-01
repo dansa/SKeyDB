@@ -20,6 +20,7 @@ function createHook(options?: {
   teamSlots?: TeamSlot[]
   resolvedActiveSelection?: ActiveSelection
   usedAwakenerByIdentityKey?: Map<string, string>
+  allowDupes?: boolean
 }) {
   const setActiveTeamSlots = vi.fn()
   const setActiveSelection = vi.fn()
@@ -41,6 +42,7 @@ function createHook(options?: {
       clearPendingDelete,
       clearTransfer,
       notifyViolation,
+      allowDupes: options?.allowDupes ?? false,
     }),
   )
 
@@ -105,6 +107,25 @@ describe('useBuilderAwakenerActions', () => {
     expect(setActiveTeamSlots).toHaveBeenCalledWith([
       expect.objectContaining({ slotId: 'slot-1', awakenerName: 'Goliath' }),
       expect.objectContaining({ slotId: 'slot-2', awakenerName: 'Ramona' }),
+    ])
+  })
+
+  it('allows same-identity assignment without transfer when dupes are enabled', () => {
+    const { actions, requestAwakenerTransfer, setActiveTeamSlots } = createHook({
+      teamSlots: [
+        { slotId: 'slot-1', awakenerName: 'Goliath', faction: 'AEQUOR', level: 60, wheels: [null, null] },
+        { slotId: 'slot-2', wheels: [null, null] },
+      ],
+      usedAwakenerByIdentityKey: new Map([['goliath', 'team-2']]),
+      allowDupes: true,
+    })
+
+    actions.handleDropPickerAwakener('Goliath', 'slot-2')
+
+    expect(requestAwakenerTransfer).not.toHaveBeenCalled()
+    expect(setActiveTeamSlots).toHaveBeenCalledWith([
+      expect.objectContaining({ slotId: 'slot-1', awakenerName: 'Goliath' }),
+      expect.objectContaining({ slotId: 'slot-2', awakenerName: 'Goliath' }),
     ])
   })
 })

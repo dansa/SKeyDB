@@ -25,6 +25,7 @@ export function assignAwakenerToSlot(
   awakenerName: string,
   slotId: string,
   awakenerByName: Map<string, Awakener>,
+  options?: { allowDuplicateIdentity?: boolean },
 ): TeamStateUpdateResult {
   const awakener = awakenerByName.get(awakenerName)
   if (!awakener) {
@@ -37,9 +38,11 @@ export function assignAwakenerToSlot(
   }
 
   const sourceIdentityKey = getAwakenerIdentityKey(awakenerName)
-  const sourceSlotId = currentSlots.find(
-    (slot) => slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === sourceIdentityKey,
-  )?.slotId
+  const sourceSlotId = options?.allowDuplicateIdentity
+    ? undefined
+    : currentSlots.find(
+        (slot) => slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === sourceIdentityKey,
+      )?.slotId
   const targetSlot = currentSlots.find((slot) => slot.slotId === slotId)
   if (sourceSlotId === slotId && targetSlot?.awakenerName === awakenerName) {
     return { nextSlots: currentSlots }
@@ -87,12 +90,13 @@ export function assignAwakenerToFirstEmptySlot(
   currentSlots: TeamSlot[],
   awakenerName: string,
   awakenerByName: Map<string, Awakener>,
+  options?: { allowDuplicateIdentity?: boolean },
 ): TeamStateUpdateResult {
   const identityKey = getAwakenerIdentityKey(awakenerName)
   const alreadyAssigned = currentSlots.some(
     (slot) => slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === identityKey,
   )
-  if (alreadyAssigned) {
+  if (alreadyAssigned && !options?.allowDuplicateIdentity) {
     return { nextSlots: currentSlots }
   }
 
@@ -101,7 +105,7 @@ export function assignAwakenerToFirstEmptySlot(
     return { nextSlots: currentSlots }
   }
 
-  return assignAwakenerToSlot(currentSlots, awakenerName, firstEmptySlotId, awakenerByName)
+  return assignAwakenerToSlot(currentSlots, awakenerName, firstEmptySlotId, awakenerByName, options)
 }
 
 export function swapSlotAssignments(

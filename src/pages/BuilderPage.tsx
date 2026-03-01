@@ -49,6 +49,8 @@ export function BuilderPage() {
   const {
     displayUnowned,
     setDisplayUnowned,
+    allowDupes,
+    setAllowDupes,
     ownedAwakenerLevelByName,
     awakenerLevelByName,
     ownedWheelLevelById,
@@ -143,6 +145,7 @@ export function BuilderPage() {
     handleDropPickerAwakener,
     handlePickerAwakenerClick,
   } = useBuilderAwakenerActions({
+    allowDupes,
     awakenerByName,
     clearPendingDelete,
     clearTransfer,
@@ -163,6 +166,7 @@ export function BuilderPage() {
     handleDropTeamWheelToSlot,
     handlePickerWheelClick,
   } = useBuilderWheelActions({
+    allowDupes,
     clearPendingDelete,
     clearTransfer,
     effectiveActiveTeamId,
@@ -345,6 +349,9 @@ export function BuilderPage() {
     openExportAllDialog,
     openTeamExportDialog,
     openTeamIngameExportDialog,
+    pendingDuplicateOverrideImport,
+    cancelDuplicateOverrideImport,
+    confirmDuplicateOverrideImport,
     pendingReplaceImport,
     cancelReplaceImport,
     confirmReplaceImport,
@@ -359,6 +366,8 @@ export function BuilderPage() {
     effectiveActiveTeamId,
     activeTeam,
     teamSlots,
+    allowDupes,
+    setAllowDupes,
     setActiveTeamId,
     setActiveSelection: () => setActiveSelection(null),
     clearTransfer,
@@ -641,6 +650,7 @@ export function BuilderPage() {
             awakenerSortDirection={awakenerSortDirection}
             awakenerSortGroupByFaction={awakenerSortGroupByFaction}
             awakenerSortKey={awakenerSortKey}
+            allowDupes={allowDupes}
             displayUnowned={displayUnowned}
             effectiveActiveTeamId={effectiveActiveTeamId}
             filteredAwakeners={filteredAwakeners}
@@ -656,6 +666,7 @@ export function BuilderPage() {
             onAwakenerSortDirectionToggle={toggleAwakenerSortDirection}
             onAwakenerSortGroupByFactionChange={setAwakenerSortGroupByFaction}
             onAwakenerSortKeyChange={setAwakenerSortKey}
+            onAllowDupesChange={setAllowDupes}
             onPickerTabChange={setPickerTab}
             onPosseFilterChange={setPosseFilter}
             onWheelRarityFilterChange={setWheelRarityFilter}
@@ -675,7 +686,7 @@ export function BuilderPage() {
                 return
               }
 
-              const usedByTeamOrder = usedPosseByTeamOrder.get(posseId)
+              const usedByTeamOrder = allowDupes ? undefined : usedPosseByTeamOrder.get(posseId)
               const usedByTeam = usedByTeamOrder === undefined ? undefined : teams[usedByTeamOrder]
               const isUsedByOtherTeam = usedByTeam && usedByTeam.id !== effectiveActiveTeamId
               if (isUsedByOtherTeam) {
@@ -761,13 +772,16 @@ export function BuilderPage() {
         exportDialog={exportDialog}
         isImportDialogOpen={isImportDialogOpen}
         onCancelImport={closeImportFlow}
+        onCancelDuplicateOverrideImport={cancelDuplicateOverrideImport}
         onCancelReplaceImport={cancelReplaceImport}
         onCancelStrategyImport={cancelStrategyImport}
         onCloseExportDialog={closeExportDialog}
+        onConfirmDuplicateOverrideImport={confirmDuplicateOverrideImport}
         onConfirmReplaceImport={confirmReplaceImport}
         onMoveStrategyImport={applyMoveStrategyImport}
         onSkipStrategyImport={applySkipStrategyImport}
         onSubmitImport={submitImportCode}
+        pendingDuplicateOverrideImport={pendingDuplicateOverrideImport}
         pendingReplaceImport={pendingReplaceImport}
         pendingStrategyConflictSummary={pendingStrategyConflictSummary}
         pendingStrategyImport={pendingStrategyImport}
