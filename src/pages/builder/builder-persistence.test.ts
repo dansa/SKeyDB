@@ -87,4 +87,43 @@ describe('builder-persistence', () => {
     })
     expect(loaded).toBeNull()
   })
+
+  it('round-trips support slot state in builder draft storage', () => {
+    const storage = new Map<string, string>()
+    const teams = [
+      {
+        ...createTeamFixture(),
+        slots: [
+          {
+            slotId: 'slot-1',
+            awakenerName: 'Goliath',
+            faction: 'AEQUOR',
+            level: 90,
+            isSupport: true,
+            wheels: ['B01', 'C01'] as [string, string],
+          },
+          { slotId: 'slot-2', wheels: [null, null] as [null, null] },
+          { slotId: 'slot-3', wheels: [null, null] as [null, null] },
+          { slotId: 'slot-4', wheels: [null, null] as [null, null] },
+        ],
+      },
+    ]
+
+    saveBuilderDraft(
+      {
+        getItem: (key) => storage.get(key) ?? null,
+        setItem: (key, value) => storage.set(key, value),
+        removeItem: (key) => storage.delete(key),
+      },
+      { teams, activeTeamId: 'team-alpha' },
+    )
+
+    const loaded = loadBuilderDraft({
+      getItem: (key) => storage.get(key) ?? null,
+      setItem: (key, value) => storage.set(key, value),
+      removeItem: (key) => storage.delete(key),
+    })
+
+    expect(loaded?.teams[0]?.slots[0]?.isSupport).toBe(true)
+  })
 })

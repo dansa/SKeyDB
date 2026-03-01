@@ -1,10 +1,9 @@
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import tempPosseIcon from '../../assets/posse/00-temposse.png'
-import { getAwakenerPortraitAsset } from '../../domain/awakener-assets'
-import { getFactionTint } from '../../domain/factions'
 import { TeamNameInlineEditor } from './TeamNameInlineEditor'
-import type { Team } from './types'
+import { BuilderTeamPreviewStrip } from './BuilderTeamPreviewStrip'
+import type { Team, TeamPreviewMode } from './types'
 
 type BuilderTeamRowProps = {
   team: Team
@@ -13,7 +12,9 @@ type BuilderTeamRowProps = {
   editingTeamName: string
   posseAsset?: string
   ownedAwakenerLevelByName?: Map<string, number | null>
+  ownedWheelLevelById?: Map<string, number | null>
   ownedPosseLevelById?: Map<string, number | null>
+  teamPreviewMode: TeamPreviewMode
   onEditingTeamNameChange: (nextName: string) => void
   onBeginTeamRename: (teamId: string, currentName: string, surface?: 'header' | 'list') => void
   onCommitTeamRename: (teamId: string) => void
@@ -34,7 +35,9 @@ export function BuilderTeamRow({
   editingTeamName,
   posseAsset,
   ownedAwakenerLevelByName = EMPTY_OWNERSHIP_MAP,
+  ownedWheelLevelById = EMPTY_OWNERSHIP_MAP,
   ownedPosseLevelById = EMPTY_OWNERSHIP_MAP,
+  teamPreviewMode,
   onEditingTeamNameChange,
   onBeginTeamRename,
   onCommitTeamRename,
@@ -105,36 +108,15 @@ export function BuilderTeamRow({
               variant="compact"
             />
           </div>
-          <div className="mt-1 flex gap-1.5">
-            {team.slots.map((slot) => {
-              const isAwakenerOwned =
-                !slot.awakenerName || (ownedAwakenerLevelByName?.get(slot.awakenerName) ?? null) !== null
-              return (
-              <div className="builder-picker-tile h-12 w-12 border border-slate-500/50 bg-slate-900/40 p-0.5" key={`${team.id}-${slot.slotId}`}>
-                <div className="relative h-full w-full overflow-hidden border border-slate-400/35 bg-slate-900/70">
-                  {slot.awakenerName ? (
-                    <>
-                      <img
-                        alt={`${slot.awakenerName} team preview portrait`}
-                        className={`h-full w-full object-cover ${!isAwakenerOwned ? 'builder-picker-art-unowned' : ''}`}
-                        draggable={false}
-                        src={getAwakenerPortraitAsset(slot.awakenerName)}
-                      />
-                      <span
-                        className="pointer-events-none absolute inset-0 z-10 border"
-                        style={{ borderColor: getFactionTint(slot.faction) }}
-                      />
-                      {!isAwakenerOwned ? <span className="builder-team-preview-unowned-chip">Unowned</span> : null}
-                    </>
-                  ) : (
-                    <span className="relative block h-full w-full">
-                      <span className="sigil-placeholder sigil-placeholder-no-plus" />
-                    </span>
-                  )}
-                </div>
-              </div>
-            )})}
-          </div>
+          <BuilderTeamPreviewStrip
+            className="mt-1"
+            enableDragAndDrop
+            mode={teamPreviewMode}
+            ownedAwakenerLevelByName={ownedAwakenerLevelByName}
+            ownedWheelLevelById={ownedWheelLevelById}
+            slots={team.slots}
+            teamId={team.id}
+          />
         </div>
         <span className="builder-team-posse-icon-wrap builder-team-posse-icon-wrap-compact my-1.5">
           <img

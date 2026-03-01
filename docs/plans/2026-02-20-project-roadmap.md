@@ -15,6 +15,12 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
   - active-team switching via team row click,
   - inline rename,
   - drag reorder.
+- Multi-team builder QoL:
+  - compact and expanded team previews,
+  - preview-slot drag swap / clear between teams,
+  - quick team lineup mode,
+  - optional allow-dupes toggle,
+  - one support awakener slot with support-aware rule handling.
 - Awakener picker:
   - click-to-add (first empty slot),
   - drag/drop assign/swap/remove,
@@ -62,8 +68,6 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 - Covenant metadata quality (naming/details) is still an ongoing data pass.
 
 ### Out (not implemented yet)
-- Expanded teams toggle (compact full-card previews for all teams).
-  - Plan reference: `docs/plans/2026-02-20-multi-team-builder-plan.md`
 - Expanded ownership features (bulk tooling polish, future sync UX).
 - Exalt / Over-Exalt progression controls.
 - Shareable URL encoding.
@@ -80,8 +84,8 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
   - metadata enrichment for wheels/covenants (mainstat/awakener link quality).
 
 ### Milestone 2: Multi-Team Iteration 2
-- Add optional expanded teams view (small full-card previews per team).
-- Continue conflict/move UX polish for reassignment flows.
+- Continue conflict/move UX polish for reassignment flows and future mobile builder layout work.
+- Explore URL-safe share flow and additional persistence polish once the current builder interaction model settles.
 - Detailed plan: `docs/plans/2026-02-20-multi-team-builder-plan.md`
 
 ### Milestone 3: Share + Persistence

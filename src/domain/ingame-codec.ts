@@ -175,7 +175,6 @@ export function decodeIngameTeamCode(code: string): DecodedIngameTeamCode {
   }
 
   const covenantBlock = payload.slice(cursor, payload.length - POSSE_TOKEN_LENGTH)
-  cursor = payload.length - POSSE_TOKEN_LENGTH
 
   for (let slotIndex = 0; slotIndex < TEAM_SLOT_COUNT; slotIndex += 1) {
     const slot = slots[slotIndex]

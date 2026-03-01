@@ -52,6 +52,35 @@ describe('import-export codec', () => {
     expect(parsed.teams[1].name).toBe('Team 2')
   })
 
+  it('preserves support slot state in mt1 multi-team exports without changing non-support levels', () => {
+    const teams = [makeTeam('Team 1'), makeTeam('Team 2')]
+    teams[1].slots[0] = {
+      slotId: 'slot-1',
+      awakenerName: 'goliath',
+      faction: 'AEQUOR',
+      level: 90,
+      isSupport: true,
+      wheels: ['SR19', null],
+    }
+    teams[1].slots[1] = {
+      slotId: 'slot-2',
+      awakenerName: 'ramona',
+      faction: 'CHAOS',
+      level: 88,
+      wheels: [null, null],
+    }
+
+    const code = encodeMultiTeamCode(teams, teams[1].id)
+    const parsed = decodeImportCode(code)
+
+    expect(parsed.kind).toBe('multi')
+    if (parsed.kind !== 'multi') return
+    expect(parsed.teams[1].slots[0].isSupport).toBe(true)
+    expect(parsed.teams[1].slots[0].level).toBe(90)
+    expect(parsed.teams[1].slots[1].isSupport).toBeUndefined()
+    expect(parsed.teams[1].slots[1].level).toBe(88)
+  })
+
   it('keeps export strings compact for single and 10-team payloads', () => {
     const singleCode = encodeSingleTeamCode(makeTeam('Team 9'))
     const tenTeams = Array.from({ length: 10 }, (_, index) => makeTeam(`Team ${index + 1}`))

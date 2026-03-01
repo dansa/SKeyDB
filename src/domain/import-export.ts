@@ -11,6 +11,10 @@ const multiPrefix = 'mt1.'
 const slotsPerTeam = 4
 const bytesPerSlot = 5
 const bytesPerTeam = 1 + slotsPerTeam * bytesPerSlot
+// `mt1.` reuses the high bit of the per-slot level byte for support state.
+// Old payloads remain unambiguous because builder levels stay within 1..90.
+const supportLevelFlag = 0x80
+const levelValueMask = 0x7f
 
 const awakeners = getAwakeners()
 const covenants = getCovenants()
@@ -72,15 +76,16 @@ function base64UrlToBytes(value: string): Uint8Array {
   return Uint8Array.from(binary, (char) => char.charCodeAt(0))
 }
 
-function pushSlotBytes(buffer: number[], slot: TeamSlot) {
+function pushSlotBytes(buffer: number[], slot: TeamSlot, options?: { includeSupport?: boolean }) {
   const awakenerId = slot.awakenerName ? awakenerIdByName.get(slot.awakenerName) ?? 0 : 0
   if (awakenerId > 255) {
     throw new Error('Awakener ID exceeds export format limits.')
   }
-  const level = awakenerId ? slot.level ?? 0 : 0
-  if (level < 0 || level > 255) {
+  const rawLevel = awakenerId ? slot.level ?? 0 : 0
+  if (rawLevel < 0 || rawLevel > levelValueMask) {
     throw new Error('Awakener level exceeds export format limits.')
   }
+  const level = options?.includeSupport && awakenerId && slot.isSupport ? rawLevel | supportLevelFlag : rawLevel
   const wheelOne = awakenerId && slot.wheels[0] ? wheelIndexById.get(slot.wheels[0]) ?? 0 : 0
   const wheelTwo = awakenerId && slot.wheels[1] ? wheelIndexById.get(slot.wheels[1]) ?? 0 : 0
   const covenant = awakenerId && slot.covenantId ? covenantIndexById.get(slot.covenantId) ?? 0 : 0
@@ -94,7 +99,7 @@ function pushSlotBytes(buffer: number[], slot: TeamSlot) {
   buffer.push(awakenerId, level, wheelOne, wheelTwo, covenant)
 }
 
-function pushTeamBytes(buffer: number[], team: Team) {
+function pushTeamBytes(buffer: number[], team: Team, options?: { includeSupport?: boolean }) {
   const posseIndex = team.posseId ? posseIndexById.get(team.posseId) ?? 0 : 0
   if (posseIndex > 255) {
     throw new Error('Posse index exceeds export format limits.')
@@ -102,16 +107,18 @@ function pushTeamBytes(buffer: number[], team: Team) {
   buffer.push(posseIndex)
   const fallbackSlots = createEmptyTeamSlots()
   for (let index = 0; index < slotsPerTeam; index += 1) {
-    pushSlotBytes(buffer, team.slots[index] ?? fallbackSlots[index])
+    pushSlotBytes(buffer, team.slots[index] ?? fallbackSlots[index], options)
   }
 }
 
-function decodeSlot(bytes: Uint8Array, offset: number, slotId: string): TeamSlot {
+function decodeSlot(bytes: Uint8Array, offset: number, slotId: string, options?: { includeSupport?: boolean }): TeamSlot {
   const awakenerId = bytes[offset]
-  const level = bytes[offset + 1]
+  const encodedLevel = bytes[offset + 1]
   const wheelOne = bytes[offset + 2]
   const wheelTwo = bytes[offset + 3]
   const covenant = bytes[offset + 4]
+  const isSupport = options?.includeSupport ? (encodedLevel & supportLevelFlag) !== 0 : false
+  const level = encodedLevel & levelValueMask
 
   const awakener = awakenerId ? awakenerById.get(awakenerId) : undefined
   if (awakenerId && !awakener) {
@@ -132,6 +139,7 @@ function decodeSlot(bytes: Uint8Array, offset: number, slotId: string): TeamSlot
     awakenerName: awakener?.name,
     faction: awakener?.faction,
     level: awakener ? level || 60 : undefined,
+    isSupport: awakener && isSupport ? true : undefined,
     wheels: awakener
       ? [wheelOne ? wheelIdByIndex.get(wheelOne)! : null, wheelTwo ? wheelIdByIndex.get(wheelTwo)! : null]
       : [null, null],
@@ -139,7 +147,12 @@ function decodeSlot(bytes: Uint8Array, offset: number, slotId: string): TeamSlot
   }
 }
 
-function decodeTeam(bytes: Uint8Array, offset: number, teamIndex: number): { team: Team; nextOffset: number } {
+function decodeTeam(
+  bytes: Uint8Array,
+  offset: number,
+  teamIndex: number,
+  options?: { includeSupport?: boolean },
+): { team: Team; nextOffset: number } {
   if (offset + 1 > bytes.length) {
     throw new Error('Corrupted import code: missing team header.')
   }
@@ -157,7 +170,7 @@ function decodeTeam(bytes: Uint8Array, offset: number, teamIndex: number): { tea
   const emptySlots = createEmptyTeamSlots()
   const slots: TeamSlot[] = []
   for (let slotIndex = 0; slotIndex < slotsPerTeam; slotIndex += 1) {
-    slots.push(decodeSlot(bytes, cursor, emptySlots[slotIndex].slotId))
+    slots.push(decodeSlot(bytes, cursor, emptySlots[slotIndex].slotId, options))
     cursor += bytesPerSlot
   }
 
@@ -188,7 +201,7 @@ export function encodeMultiTeamCode(teams: Team[], activeTeamId: string): string
   }
 
   const buffer: number[] = [activeTeamIndex, teams.length]
-  teams.forEach((team) => pushTeamBytes(buffer, team))
+  teams.forEach((team) => pushTeamBytes(buffer, team, { includeSupport: true }))
   return `${multiPrefix}${bytesToBase64Url(Uint8Array.from(buffer))}`
 }
 
@@ -227,7 +240,7 @@ export function decodeImportCode(code: string): DecodedImport {
 
     const teams: Team[] = []
     for (let teamIndex = 0; teamIndex < teamCount; teamIndex += 1) {
-      const decoded = decodeTeam(bytes, offset, teamIndex)
+      const decoded = decodeTeam(bytes, offset, teamIndex, { includeSupport: true })
       teams.push(decoded.team)
       offset = decoded.nextOffset
     }

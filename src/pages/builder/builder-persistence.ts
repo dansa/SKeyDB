@@ -33,6 +33,10 @@ function isOptionalFiniteInteger(value: unknown): boolean {
   return value === undefined || (typeof value === 'number' && Number.isFinite(value) && Number.isInteger(value))
 }
 
+function isOptionalBoolean(value: unknown): boolean {
+  return value === undefined || typeof value === 'boolean'
+}
+
 function isSlot(value: unknown): value is TeamSlot {
   if (!value || typeof value !== 'object') {
     return false
@@ -54,6 +58,9 @@ function isSlot(value: unknown): value is TeamSlot {
   if (!isOptionalString(record.awakenerName) || !isOptionalString(record.covenantId)) {
     return false
   }
+  if (!isOptionalBoolean(record.isSupport)) {
+    return false
+  }
   if (typeof record.awakenerName === 'string' && !record.awakenerName.trim()) {
     return false
   }
@@ -69,7 +76,11 @@ function isSlot(value: unknown): value is TeamSlot {
 
   const hasAwakener = typeof record.awakenerName === 'string' && record.awakenerName.trim().length > 0
   if (!hasAwakener) {
-    const hasMetadata = record.faction !== undefined || record.level !== undefined || record.covenantId !== undefined
+    const hasMetadata =
+      record.faction !== undefined ||
+      record.level !== undefined ||
+      record.covenantId !== undefined ||
+      record.isSupport !== undefined
     const hasWheelData = record.wheels.some((wheelId) => wheelId !== null)
     if (hasMetadata || hasWheelData) {
       return false

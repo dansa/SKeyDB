@@ -85,4 +85,66 @@ describe('validateTeamPlan', () => {
       true,
     )
   })
+
+  it('can ignore duplicate violations while still enforcing faction limits', () => {
+    const plan = buildValidPlan()
+    plan[1].members.push({ awakenerId: 'agrippa', faction: 'CHAOS', wheelIds: ['w2', 'w17'] })
+    plan[1].posseId = 'posse-a'
+
+    const result = validateTeamPlan(plan, {
+      enforceUniqueAwakeners: false,
+      enforceUniqueWheels: false,
+      enforceUniquePosses: false,
+    })
+
+    expect(result.isValid).toBe(true)
+    expect(result.violations).toHaveLength(0)
+  })
+
+  it('allows one support awakener to ignore cross-team duplicate checks for itself and its wheels', () => {
+    const plan = buildValidPlan()
+    plan[1].members.push({
+      awakenerId: 'agrippa',
+      faction: 'CHAOS',
+      wheelIds: ['w2', 'w17'],
+      isSupport: true,
+    })
+
+    const result = validateTeamPlan(plan)
+
+    expect(result.isValid).toBe(true)
+    expect(result.violations).toHaveLength(0)
+  })
+
+  it('rejects multiple support awakeners in the same build', () => {
+    const plan = buildValidPlan()
+    plan[0].members[0] = {
+      ...plan[0].members[0],
+      isSupport: true,
+    }
+    plan[1].members[0] = {
+      ...plan[1].members[0],
+      isSupport: true,
+    }
+
+    const result = validateTeamPlan(plan)
+
+    expect(result.isValid).toBe(false)
+    expect(result.violations.some((v) => v.code === 'MULTIPLE_SUPPORT_AWAKENERS')).toBe(true)
+  })
+
+  it('still rejects support duplicates inside the same team', () => {
+    const plan = buildValidPlan()
+    plan[0].members.push({
+      awakenerId: 'agrippa',
+      faction: 'CARO',
+      wheelIds: ['w15', 'w16'],
+      isSupport: true,
+    })
+
+    const result = validateTeamPlan(plan)
+
+    expect(result.isValid).toBe(false)
+    expect(result.violations.some((v) => v.code === 'DUPLICATE_AWAKENER' && v.teamId === 'team-1')).toBe(true)
+  })
 })

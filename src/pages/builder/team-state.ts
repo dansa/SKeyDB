@@ -3,7 +3,7 @@ import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import { DEFAULT_TEAM_RULES_CONFIG, exceedsFactionLimitForTeam } from '../../domain/team-rules'
 import type { TeamSlot } from './types'
 
-export type TeamStateViolationCode = 'TOO_MANY_FACTIONS_IN_TEAM'
+export type TeamStateViolationCode = 'TOO_MANY_FACTIONS_IN_TEAM' | 'INVALID_BUILD_RULES'
 
 export type TeamStateUpdateResult = {
   nextSlots: TeamSlot[]
@@ -25,6 +25,7 @@ export function assignAwakenerToSlot(
   awakenerName: string,
   slotId: string,
   awakenerByName: Map<string, Awakener>,
+  options?: { allowDuplicateIdentity?: boolean },
 ): TeamStateUpdateResult {
   const awakener = awakenerByName.get(awakenerName)
   if (!awakener) {
@@ -37,9 +38,11 @@ export function assignAwakenerToSlot(
   }
 
   const sourceIdentityKey = getAwakenerIdentityKey(awakenerName)
-  const sourceSlotId = currentSlots.find(
-    (slot) => slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === sourceIdentityKey,
-  )?.slotId
+  const sourceSlotId = options?.allowDuplicateIdentity
+    ? undefined
+    : currentSlots.find(
+        (slot) => slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === sourceIdentityKey,
+      )?.slotId
   const targetSlot = currentSlots.find((slot) => slot.slotId === slotId)
   if (sourceSlotId === slotId && targetSlot?.awakenerName === awakenerName) {
     return { nextSlots: currentSlots }
@@ -52,6 +55,7 @@ export function assignAwakenerToSlot(
         awakenerName,
         faction: awakener.faction,
         level: slot.level ?? 60,
+        isSupport: slot.isSupport,
         wheels: [null, null] as [null, null],
         covenantId: undefined,
       }
@@ -63,6 +67,7 @@ export function assignAwakenerToSlot(
         awakenerName: undefined,
         faction: undefined,
         level: undefined,
+        isSupport: undefined,
         wheels: [null, null] as [null, null],
         covenantId: undefined,
       }
@@ -87,12 +92,13 @@ export function assignAwakenerToFirstEmptySlot(
   currentSlots: TeamSlot[],
   awakenerName: string,
   awakenerByName: Map<string, Awakener>,
+  options?: { allowDuplicateIdentity?: boolean },
 ): TeamStateUpdateResult {
   const identityKey = getAwakenerIdentityKey(awakenerName)
   const alreadyAssigned = currentSlots.some(
     (slot) => slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === identityKey,
   )
-  if (alreadyAssigned) {
+  if (alreadyAssigned && !options?.allowDuplicateIdentity) {
     return { nextSlots: currentSlots }
   }
 
@@ -101,7 +107,7 @@ export function assignAwakenerToFirstEmptySlot(
     return { nextSlots: currentSlots }
   }
 
-  return assignAwakenerToSlot(currentSlots, awakenerName, firstEmptySlotId, awakenerByName)
+  return assignAwakenerToSlot(currentSlots, awakenerName, firstEmptySlotId, awakenerByName, options)
 }
 
 export function swapSlotAssignments(
@@ -126,6 +132,7 @@ export function swapSlotAssignments(
         awakenerName: targetSlot.awakenerName,
         faction: targetSlot.faction,
         level: targetSlot.level,
+        isSupport: targetSlot.isSupport,
         wheels: [...targetSlot.wheels] as [string | null, string | null],
         covenantId: targetSlot.covenantId,
       }
@@ -137,6 +144,7 @@ export function swapSlotAssignments(
         awakenerName: sourceSlot.awakenerName,
         faction: sourceSlot.faction,
         level: sourceSlot.level,
+        isSupport: sourceSlot.isSupport,
         wheels: [...sourceSlot.wheels] as [string | null, string | null],
         covenantId: sourceSlot.covenantId,
       }
@@ -229,6 +237,7 @@ export function clearSlotAssignment(currentSlots: TeamSlot[], slotId: string): T
       awakenerName: undefined,
       faction: undefined,
       level: undefined,
+      isSupport: undefined,
       wheels: [null, null] as [null, null],
       covenantId: undefined,
     }

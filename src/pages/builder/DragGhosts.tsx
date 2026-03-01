@@ -2,8 +2,9 @@ import { getAwakenerCardAsset, getAwakenerPortraitAsset } from '../../domain/awa
 import { getCovenantAssetById } from '../../domain/covenant-assets'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
 import { getWheelAssetById } from '../../domain/wheel-assets'
+import { BuilderTeamPreviewStrip } from './BuilderTeamPreviewStrip'
 import { CardWheelZone } from './CardWheelZone'
-import type { TeamSlot } from './types'
+import type { Team, TeamPreviewMode, TeamSlot } from './types'
 
 export function PickerAwakenerGhost({ awakenerName }: { awakenerName: string }) {
   const displayName = formatAwakenerNameForUi(awakenerName)
@@ -69,20 +70,49 @@ export function TeamCardGhost({
       ) : null}
       <div className="builder-card-name-wrap pointer-events-none absolute inset-x-0 top-0 px-2 pt-1 pb-[18%]">
         <p className="builder-card-name builder-card-name-ghost ui-title text-slate-100">{displayName}</p>
+        {slot.isSupport ? <span className="builder-support-badge">Support Awakener</span> : null}
         {awakenerOwnedLevel === null ? <span className="builder-unowned-badge">Unowned</span> : null}
       </div>
       {!removeIntent ? (
         <CardWheelZone
+          awakenerLevel={slot.level ?? 60}
+          awakenerOwnedLevel={awakenerOwnedLevel}
           compactCovenant
           interactive={false}
           slot={slot}
           wheelKeyPrefix="ghost"
-          showOwnership={false}
-          awakenerOwnedLevel={awakenerOwnedLevel}
+          showOwnership
           wheelOwnedLevels={wheelOwnedLevels}
         />
       ) : null}
     </article>
+  )
+}
+
+export function TeamPreviewGhost({
+  team,
+  mode,
+  ownedAwakenerLevelByName,
+  ownedWheelLevelById,
+  removeIntent = false,
+}: {
+  team: Team
+  mode: TeamPreviewMode
+  ownedAwakenerLevelByName?: Map<string, number | null>
+  ownedWheelLevelById?: Map<string, number | null>
+  removeIntent?: boolean
+}) {
+  return (
+    <div className={`builder-team-preview-ghost builder-drag-ghost ${removeIntent ? 'builder-team-preview-ghost-remove' : ''}`}>
+      <BuilderTeamPreviewStrip
+        className="builder-team-preview-ghost-strip"
+        mode={mode}
+        ownedAwakenerLevelByName={ownedAwakenerLevelByName}
+        ownedWheelLevelById={ownedWheelLevelById}
+        slots={team.slots}
+        teamId={`${team.id}::ghost`}
+      />
+    </div>
   )
 }
 
@@ -104,7 +134,7 @@ export function PickerWheelGhost({ wheelId, isCovenant = false }: { wheelId: str
       >
         {wheelAsset ? (
           <img
-            alt={`${wheelId} ${isCovenant ? 'covenant' : 'wheel'}`}
+            alt={isCovenant ? '' : `${wheelId} wheel`}
             className={`${
               isCovenant ? 'builder-card-covenant-image h-full w-full object-cover' : 'builder-card-wheel-image h-full w-full object-cover'
             }`}
@@ -149,7 +179,7 @@ export function TeamWheelGhost({
       >
         {wheelAsset ? (
           <img
-            alt={`${wheelId} ${isCovenant ? 'covenant' : 'wheel'}`}
+            alt={isCovenant ? '' : `${wheelId} wheel`}
             className={`${
               isCovenant ? 'builder-card-covenant-image h-full w-full object-cover' : 'builder-card-wheel-image h-full w-full object-cover'
             } ${

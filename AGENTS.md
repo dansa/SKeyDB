@@ -174,6 +174,13 @@ When reworking large UI surfaces (for example `CollectionPage`):
 4. Version strategy
 - Prefix-based versioning (`t1.`, `mt1.`) is required for future evolution.
 
+5. Repo sync scripts are boundary tools, not ad hoc fixes.
+- Use the packaged sync commands when canonical data IDs or exported data tables change:
+- `npm run data:sync-awakener-ids`
+- `npm run data:sync-posse-indices`
+- `npm run data:sync-wheel-data`
+- If a data maintenance script exists without an npm entry point, add a TODO instead of standardizing a direct invocation here.
+
 ## 6.1) Sorting and Ordering Ownership
 
 1. Shared ordering policy belongs in domain comparators.
@@ -207,6 +214,9 @@ When reworking large UI surfaces (for example `CollectionPage`):
 - Builder integration churn:
   - `npm run lint`
   - `npm run test:integration`
+- Collection/small UI regression churn:
+  - `npm run lint`
+  - `npm run test:quick`
 - Final pre-commit/pre-handoff gate:
   - `npm run verify`
 
@@ -222,6 +232,7 @@ Before commit:
 - [ ] lint passes (`npm run lint`)
 - [ ] targeted tests pass (`npm run test:unit` and/or `npm run test:integration`)
 - [ ] `npm run verify` passes
+- [ ] remember `pre-commit` also runs `npm run verify`; do not rely on the hook as the first signal
 - [ ] no dead code/debug flags left
 - [ ] no borrowed/unlicensed data accidentally tracked
 
@@ -241,3 +252,4 @@ When in doubt:
 - prefer simpler state,
 - prefer domain-first rules,
 - prefer tests before expansion.
+

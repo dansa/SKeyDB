@@ -14,6 +14,7 @@ const BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY = 'skeydb.builder.awakenerSortG
 const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
 const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
 const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
+const BUILDER_TEAM_PREVIEW_MODE_KEY = 'skeydb.builder.teamPreviewMode.v1'
 
 describe('useBuilderViewModel', () => {
   beforeEach(() => {
@@ -23,6 +24,7 @@ describe('useBuilderViewModel', () => {
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_KEY_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)
     window.localStorage.removeItem(BUILDER_DISPLAY_UNOWNED_KEY)
+    window.localStorage.removeItem(BUILDER_TEAM_PREVIEW_MODE_KEY)
   })
 
   afterEach(() => {
@@ -32,6 +34,7 @@ describe('useBuilderViewModel', () => {
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_KEY_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)
     window.localStorage.removeItem(BUILDER_DISPLAY_UNOWNED_KEY)
+    window.localStorage.removeItem(BUILDER_TEAM_PREVIEW_MODE_KEY)
   })
 
   it('initializes with a valid active team and slots', () => {
@@ -381,6 +384,436 @@ describe('useBuilderViewModel', () => {
     expect(window.localStorage.getItem(BUILDER_DISPLAY_UNOWNED_KEY)).toBe('1')
   })
 
+  it('defaults team preview mode to compact and persists expanded mode', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    expect(result.current.teamPreviewMode).toBe('compact')
+
+    act(() => {
+      result.current.setTeamPreviewMode('expanded')
+    })
+
+    expect(window.localStorage.getItem(BUILDER_TEAM_PREVIEW_MODE_KEY)).toBe('expanded')
+  })
+
+  it('starts quick lineup by snapshotting and clearing the active team, then activating the first awakener step', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.setActiveTeamSlots([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['wheel-a', null],
+          covenantId: 'covenant-a',
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+      result.current.updateActiveTeam((team) => ({ ...team, posseId: 'manor-echoes' }))
+    })
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+
+    expect(result.current.quickLineupSession?.isActive).toBe(true)
+    expect(result.current.quickLineupSession?.currentStepIndex).toBe(0)
+    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+    expect(result.current.teamSlots).toEqual([
+      { slotId: 'slot-1', wheels: [null, null] },
+      { slotId: 'slot-2', wheels: [null, null] },
+      { slotId: 'slot-3', wheels: [null, null] },
+      { slotId: 'slot-4', wheels: [null, null] },
+    ])
+    expect(result.current.activeTeam?.posseId).toBeUndefined()
+  })
+
+  it('skips and backs through quick lineup steps using picker-tab-aware selection targets', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+
+    act(() => {
+      result.current.skipQuickLineupStep()
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+
+    act(() => {
+      result.current.goBackQuickLineupStep()
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+  })
+
+  it('jumps quick lineup focus when the user selects a different slot manually', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+
+    act(() => {
+      result.current.handleCovenantSlotClick('slot-1')
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'covenant', slotId: 'slot-1' })
+    expect(result.current.pickerTab).toBe('covenants')
+    expect(result.current.activeSelection).toEqual({ kind: 'covenant', slotId: 'slot-1' })
+  })
+
+  it('keeps the current quick lineup wheel step active when removing that wheel', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+
+    act(() => {
+      result.current.setActiveTeamSlots([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['wheel-a', null],
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+    })
+
+    act(() => {
+      result.current.advanceQuickLineupStep([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['wheel-a', null],
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+
+    act(() => {
+      result.current.handleRemoveActiveSelection('slot-1')
+    })
+
+    expect(result.current.teamSlots[0]?.awakenerName).toBe('Goliath')
+    expect(result.current.teamSlots[0]?.wheels[0]).toBeNull()
+    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+    expect(result.current.pickerTab).toBe('wheels')
+    expect(result.current.activeSelection).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+  })
+
+  it('keeps the current quick lineup wheel step active when clearing that wheel through the shared wheel-clear path', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+
+    act(() => {
+      result.current.setActiveTeamSlots([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['wheel-a', null],
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+    })
+
+    act(() => {
+      result.current.advanceQuickLineupStep([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['wheel-a', null],
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+    })
+
+    act(() => {
+      result.current.clearTeamWheel('slot-1', 0)
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'wheel',
+      slotId: 'slot-1',
+      wheelIndex: 0,
+    })
+    expect(result.current.pickerTab).toBe('wheels')
+    expect(result.current.activeSelection).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+  })
+
+  it('keeps quick lineup coherent when a slot is cleared through the shared slot-clear path', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+
+    act(() => {
+      result.current.setActiveTeamSlots([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['wheel-a', null],
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+    })
+
+    act(() => {
+      result.current.advanceQuickLineupStep([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['wheel-a', null],
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+
+    act(() => {
+      result.current.clearTeamSlot('slot-1')
+    })
+
+    expect(result.current.teamSlots[0]?.awakenerName).toBeUndefined()
+    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+  })
+
+  it('jumps quick lineup to the drop target when swapping active team slots', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+
+    act(() => {
+      result.current.setActiveTeamSlots([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: [null, null],
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+    })
+
+    act(() => {
+      result.current.swapActiveTeamSlots('slot-1', 'slot-2')
+    })
+
+    expect(result.current.teamSlots[1]?.awakenerName).toBe('Goliath')
+    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+  })
+
+  it('falls back to the drop target awakener step when swapping slots during a quick lineup wheel step', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+
+    act(() => {
+      result.current.setActiveTeamSlots([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['wheel-a', null],
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+    })
+
+    act(() => {
+      result.current.advanceQuickLineupStep([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['wheel-a', null],
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+
+    act(() => {
+      result.current.swapActiveTeamSlots('slot-1', 'slot-2')
+    })
+
+    expect(result.current.teamSlots[1]?.awakenerName).toBe('Goliath')
+    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+  })
+
+  it('cancels quick lineup by restoring the pre-session team snapshot', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.setActiveTeamSlots([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['wheel-a', 'wheel-b'],
+          covenantId: 'covenant-a',
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+      result.current.updateActiveTeam((team) => ({ ...team, posseId: 'manor-echoes' }))
+    })
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+
+    act(() => {
+      result.current.skipQuickLineupStep()
+      result.current.skipQuickLineupStep()
+      result.current.cancelQuickLineup()
+    })
+
+    expect(result.current.quickLineupSession).toBeNull()
+    expect(result.current.teamSlots[0]).toEqual({
+      slotId: 'slot-1',
+      awakenerName: 'Goliath',
+      faction: 'AEQUOR',
+      level: 60,
+      wheels: ['wheel-a', 'wheel-b'],
+      covenantId: 'covenant-a',
+    })
+    expect(result.current.activeTeam?.posseId).toBe('manor-echoes')
+  })
+
+  it('finishes quick lineup by keeping the partially built team state', () => {
+    const { result } = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+
+    act(() => {
+      result.current.startQuickLineup()
+      result.current.setActiveTeamSlots([
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: [null, null],
+        },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ])
+      result.current.finishQuickLineup()
+    })
+
+    expect(result.current.quickLineupSession).toBeNull()
+    expect(result.current.teamSlots[0]?.awakenerName).toBe('Goliath')
+    expect(result.current.activeTeam?.posseId).toBeUndefined()
+  })
 
   it('exposes awakener sort controls for picker sorting', () => {
     const { result } = renderHook(() =>

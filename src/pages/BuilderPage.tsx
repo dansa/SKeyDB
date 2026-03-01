@@ -7,17 +7,16 @@ import { BuilderSelectionPanel } from './builder/BuilderSelectionPanel'
 import { BuilderTeamsPanel } from './builder/BuilderTeamsPanel'
 import { BuilderImportExportDialogs } from './builder/BuilderImportExportDialogs'
 import { BuilderConfirmDialogs } from './builder/BuilderConfirmDialogs'
-import { PickerAwakenerGhost, PickerWheelGhost, TeamCardGhost, TeamWheelGhost } from './builder/DragGhosts'
+import { PickerAwakenerGhost, PickerWheelGhost, TeamCardGhost, TeamPreviewGhost, TeamWheelGhost } from './builder/DragGhosts'
 import { Toast } from '../components/ui/Toast'
 import { useTimedToast } from '../components/ui/useTimedToast'
 import { PageToolkitBar } from '../components/ui/PageToolkitBar'
 import { Button } from '../components/ui/Button'
 import { TabbedContainer } from '../components/ui/TabbedContainer'
 import { FaDownload, FaRotateLeft, FaUpload, FaXmark } from 'react-icons/fa6'
+import { PICKER_DROP_ZONE_ID, parseTeamPreviewSlotDropZoneId } from './builder/dnd-ids'
 import {
-  clearSlotAssignment,
   type TeamStateViolationCode,
-  swapSlotAssignments,
 } from './builder/team-state'
 import { useBuilderDnd } from './builder/useBuilderDnd'
 import { useBuilderDndCoordinator } from './builder/useBuilderDndCoordinator'
@@ -31,12 +30,15 @@ import { useBuilderWheelActions } from './builder/useBuilderWheelActions'
 import { useBuilderCovenantActions } from './builder/useBuilderCovenantActions'
 import { useBuilderAwakenerActions } from './builder/useBuilderAwakenerActions'
 import { resolvePredictedDropHover } from './builder/predicted-drop-hover'
+import { clearTeamSlotTransfer, swapTeamSlotTransfer } from './builder/transfer-resolution'
 import { MAX_TEAMS, addTeam, applyTeamTemplate, reorderTeams, type TeamTemplateId } from './builder/team-collection'
 import type { PredictedDropHover } from './builder/types'
 import type { DragData } from './builder/types'
 
 export function BuilderPage() {
   const [predictedDropHover, setPredictedDropHover] = useState<PredictedDropHover>(null)
+  const [activeTeamPreviewSlotDrag, setActiveTeamPreviewSlotDrag] = useState<{ teamId: string; slotId: string } | null>(null)
+  const [isTeamPreviewRemoveIntent, setIsTeamPreviewRemoveIntent] = useState(false)
   const [pendingResetBuilder, setPendingResetBuilder] = useState(false)
   const [undoResetSnapshot, setUndoResetSnapshot] = useState<BuilderDraftPayload | null>(null)
   const { toastEntries, showToast } = useTimedToast({ defaultDurationMs: 3200 })
@@ -49,6 +51,11 @@ export function BuilderPage() {
   const {
     displayUnowned,
     setDisplayUnowned,
+    allowDupes,
+    setAllowDupes,
+    teamPreviewMode,
+    setTeamPreviewMode,
+    quickLineupSession,
     ownedAwakenerLevelByName,
     awakenerLevelByName,
     ownedWheelLevelById,
@@ -93,6 +100,7 @@ export function BuilderPage() {
     teamFactionSet,
     usedAwakenerByIdentityKey,
     usedAwakenerIdentityKeys,
+    hasSupportAwakener,
     usedPosseByTeamOrder,
     usedWheelByTeamOrder,
     resolvedActiveSelection,
@@ -106,8 +114,19 @@ export function BuilderPage() {
     handleWheelSlotClick,
     handleCovenantSlotClick,
     handleRemoveActiveSelection,
+    clearTeamSlot,
+    swapActiveTeamSlots,
     replaceBuilderDraft,
     resetBuilderDraft,
+    startQuickLineup,
+    advanceQuickLineupStep,
+    skipQuickLineupStep,
+    goBackQuickLineupStep,
+    finishQuickLineup,
+    cancelQuickLineup,
+    restoreQuickLineupFocus,
+    clearTeamWheel,
+    clearTeamCovenant,
   } = useBuilderViewModel({ searchInputRef })
 
   const {
@@ -134,6 +153,9 @@ export function BuilderPage() {
 
   function notifyViolation(violation: TeamStateViolationCode | undefined) {
     if (violation !== 'TOO_MANY_FACTIONS_IN_TEAM') {
+      if (violation === 'INVALID_BUILD_RULES') {
+        showToast('Invalid move: this would break duplicate or support team rules.')
+      }
       return
     }
     showToast('Invalid move: a team can only contain up to 2 factions.')
@@ -143,6 +165,7 @@ export function BuilderPage() {
     handleDropPickerAwakener,
     handlePickerAwakenerClick,
   } = useBuilderAwakenerActions({
+    allowDupes,
     awakenerByName,
     clearPendingDelete,
     clearTransfer,
@@ -154,15 +177,17 @@ export function BuilderPage() {
     setActiveTeamSlots,
     teamSlots,
     usedAwakenerByIdentityKey,
+    hasSupportAwakener,
+    onPickerAssignSuccess: quickLineupSession ? (nextSlots) => advanceQuickLineupStep(nextSlots) : undefined,
   })
 
   const {
     handleDropPickerWheel,
     handleDropTeamWheel,
-    handleDropTeamWheelToPicker,
     handleDropTeamWheelToSlot,
     handlePickerWheelClick,
   } = useBuilderWheelActions({
+    allowDupes,
     clearPendingDelete,
     clearTransfer,
     effectiveActiveTeamId,
@@ -173,12 +198,12 @@ export function BuilderPage() {
     showToast,
     teamSlots,
     usedWheelByTeamOrder,
+    onPickerAssignSuccess: quickLineupSession ? (nextSlots) => advanceQuickLineupStep(nextSlots) : undefined,
   })
 
   const {
     handleDropPickerCovenant,
     handleDropTeamCovenant,
-    handleDropTeamCovenantToPicker,
     handleDropTeamCovenantToSlot,
     handlePickerCovenantClick,
   } = useBuilderCovenantActions({
@@ -189,6 +214,7 @@ export function BuilderPage() {
     setActiveTeamSlots,
     showToast,
     teamSlots,
+    onPickerAssignSuccess: quickLineupSession ? (nextSlots) => advanceQuickLineupStep(nextSlots) : undefined,
   })
 
   useEffect(() => {
@@ -206,6 +232,10 @@ export function BuilderPage() {
       if (target.closest('[data-selection-owner="true"]')) {
         return
       }
+      if (quickLineupSession) {
+        restoreQuickLineupFocus()
+        return
+      }
       setActiveSelection(null)
     }
 
@@ -213,7 +243,7 @@ export function BuilderPage() {
     return () => {
       document.removeEventListener('pointerdown', handlePointerDown, true)
     }
-  }, [setActiveSelection])
+  }, [quickLineupSession, restoreQuickLineupFocus, setActiveSelection])
 
   useEffect(() => {
     return () => {
@@ -286,13 +316,10 @@ export function BuilderPage() {
       handleDropPickerCovenant(covenantId, targetSlotId)
     },
     onDropTeamSlot: (sourceSlotId, targetSlotId) => {
-      const result = swapSlotAssignments(teamSlots, sourceSlotId, targetSlotId)
-      setActiveTeamSlots(result.nextSlots)
-      setActiveSelection({ kind: 'awakener', slotId: targetSlotId })
+      swapActiveTeamSlots(sourceSlotId, targetSlotId)
     },
     onDropTeamSlotToPicker: (sourceSlotId) => {
-      const result = clearSlotAssignment(teamSlots, sourceSlotId)
-      setActiveTeamSlots(result.nextSlots)
+      clearTeamSlot(sourceSlotId)
     },
     onDropTeamWheel: (sourceSlotId, sourceWheelIndex, targetSlotId, targetWheelIndex) => {
       handleDropTeamWheel(sourceSlotId, sourceWheelIndex, targetSlotId, targetWheelIndex)
@@ -301,7 +328,7 @@ export function BuilderPage() {
       handleDropTeamWheelToSlot(sourceSlotId, sourceWheelIndex, targetSlotId)
     },
     onDropTeamWheelToPicker: (sourceSlotId, sourceWheelIndex) => {
-      handleDropTeamWheelToPicker(sourceSlotId, sourceWheelIndex)
+      clearTeamWheel(sourceSlotId, sourceWheelIndex)
     },
     onDropTeamCovenant: (sourceSlotId, targetSlotId) => {
       handleDropTeamCovenant(sourceSlotId, targetSlotId)
@@ -310,7 +337,7 @@ export function BuilderPage() {
       handleDropTeamCovenantToSlot(sourceSlotId, targetSlotId)
     },
     onDropTeamCovenantToPicker: (sourceSlotId) => {
-      handleDropTeamCovenantToPicker(sourceSlotId)
+      clearTeamCovenant(sourceSlotId)
     },
   })
 
@@ -326,6 +353,54 @@ export function BuilderPage() {
       clearTransfer()
       cancelTeamRename()
     },
+    onTeamRowDragEnd: () => {},
+    onTeamRowDragCancel: () => {},
+    onTeamPreviewSlotDragStart: (teamId, slotId) => {
+      setActiveTeamPreviewSlotDrag({ teamId, slotId })
+      setIsTeamPreviewRemoveIntent(false)
+      clearPendingDelete()
+      clearPendingResetTeam()
+      clearTransfer()
+      cancelTeamRename()
+    },
+    onTeamPreviewSlotDragOver: (overId) => {
+      setIsTeamPreviewRemoveIntent(overId === PICKER_DROP_ZONE_ID)
+    },
+    onTeamPreviewSlotDragEnd: (sourceTeamId, sourceSlotId, overId) => {
+      if (!sourceTeamId || !sourceSlotId) {
+        clearPreviewSlotDragState()
+        return
+      }
+
+      if (overId === PICKER_DROP_ZONE_ID) {
+        setTeams((prev) => clearTeamSlotTransfer(prev, sourceTeamId, sourceSlotId))
+        clearPreviewSlotDragState()
+        return
+      }
+
+      const previewTarget = overId ? parseTeamPreviewSlotDropZoneId(overId) : null
+      if (!previewTarget) {
+        clearPreviewSlotDragState()
+        return
+      }
+
+      setTeams((prev) => {
+        const result = swapTeamSlotTransfer(
+          prev,
+          sourceTeamId,
+          sourceSlotId,
+          previewTarget.teamId,
+          previewTarget.slotId,
+          { allowDupes },
+        )
+        if (result.violation) {
+          notifyViolation(result.violation)
+        }
+        return result.nextTeams
+      })
+      clearPreviewSlotDragState()
+    },
+    onTeamPreviewSlotDragCancel: clearPreviewSlotDragState,
     onTeamRowReorder: (sourceTeamId, targetTeamId) => {
       setTeams((prev) => reorderTeams(prev, sourceTeamId, targetTeamId))
     },
@@ -345,6 +420,9 @@ export function BuilderPage() {
     openExportAllDialog,
     openTeamExportDialog,
     openTeamIngameExportDialog,
+    pendingDuplicateOverrideImport,
+    cancelDuplicateOverrideImport,
+    confirmDuplicateOverrideImport,
     pendingReplaceImport,
     cancelReplaceImport,
     confirmReplaceImport,
@@ -359,6 +437,8 @@ export function BuilderPage() {
     effectiveActiveTeamId,
     activeTeam,
     teamSlots,
+    allowDupes,
+    setAllowDupes,
     setActiveTeamId,
     setActiveSelection: () => setActiveSelection(null),
     clearTransfer,
@@ -366,12 +446,24 @@ export function BuilderPage() {
     showToast,
   })
 
+  const activePreviewDraggedTeam = activeTeamPreviewSlotDrag
+    ? teams.find((team) => team.id === activeTeamPreviewSlotDrag.teamId) ?? null
+    : null
+  const activePreviewDraggedSlot = activeTeamPreviewSlotDrag
+    ? activePreviewDraggedTeam?.slots.find((slot) => slot.slotId === activeTeamPreviewSlotDrag.slotId)
+    : undefined
+
   const pendingTransferDialog = usePendingTransferDialog({
     pendingTransfer,
     teams,
     setTeams,
     clearTransfer,
   })
+
+  function clearPreviewSlotDragState() {
+    setActiveTeamPreviewSlotDrag(null)
+    setIsTeamPreviewRemoveIntent(false)
+  }
 
   function clearTeamEditSuppressionSoon() {
     if (suppressTeamEditTimeoutRef.current) {
@@ -426,7 +518,7 @@ export function BuilderPage() {
       sensors={sensors}
     >
       <section className="space-y-4">
-        <PageToolkitBar className="collection-toolkit-drawer">
+        <PageToolkitBar className="collection-toolkit-drawer" sticky>
           <Button
             className="px-2 py-1 text-[10px] uppercase tracking-wide"
             onClick={() => {
@@ -550,15 +642,21 @@ export function BuilderPage() {
                 activePosseAsset={activePosseAsset}
                 activePosseName={activePosse?.name}
                 isActivePosseOwned={activePosseId ? (ownedPosseLevelById.get(activePosseId) ?? null) !== null : true}
+                quickLineupSession={quickLineupSession}
                 activeDragKind={activeDrag?.kind ?? null}
+                onBackQuickLineupStep={goBackQuickLineupStep}
                 onBeginTeamRename={beginTeamRename}
+                onCancelQuickLineup={cancelQuickLineup}
                 onCommitTeamRename={commitTeamRename}
                 onCancelTeamRename={cancelTeamRename}
                 onEditingTeamNameChange={setEditingTeamName}
+                onFinishQuickLineup={finishQuickLineup}
                 onOpenPossePicker={() => setPickerTab('posses')}
+                onStartQuickLineup={startQuickLineup}
                 onCardClick={handleCardClick}
                 onRemoveActiveSelection={handleRemoveActiveSelection}
                 onCovenantSlotClick={handleCovenantSlotClick}
+                onSkipQuickLineupStep={skipQuickLineupStep}
                 onWheelSlotClick={handleWheelSlotClick}
                 awakenerLevelByName={awakenerLevelByName}
                 ownedAwakenerLevelByName={ownedAwakenerLevelByName}
@@ -627,9 +725,12 @@ export function BuilderPage() {
                 setActiveSelection(null)
               }}
               onEditingTeamNameChange={setEditingTeamName}
+              onTeamPreviewModeChange={setTeamPreviewMode}
               ownedAwakenerLevelByName={ownedAwakenerLevelByName}
               ownedPosseLevelById={ownedPosseLevelById}
+              ownedWheelLevelById={ownedWheelLevelById}
               posses={pickerPosses}
+              teamPreviewMode={teamPreviewMode}
               teams={teams}
             />
           </div>
@@ -641,6 +742,7 @@ export function BuilderPage() {
             awakenerSortDirection={awakenerSortDirection}
             awakenerSortGroupByFaction={awakenerSortGroupByFaction}
             awakenerSortKey={awakenerSortKey}
+            allowDupes={allowDupes}
             displayUnowned={displayUnowned}
             effectiveActiveTeamId={effectiveActiveTeamId}
             filteredAwakeners={filteredAwakeners}
@@ -656,6 +758,7 @@ export function BuilderPage() {
             onAwakenerSortDirectionToggle={toggleAwakenerSortDirection}
             onAwakenerSortGroupByFactionChange={setAwakenerSortGroupByFaction}
             onAwakenerSortKeyChange={setAwakenerSortKey}
+            onAllowDupesChange={setAllowDupes}
             onPickerTabChange={setPickerTab}
             onPosseFilterChange={setPosseFilter}
             onWheelRarityFilterChange={setWheelRarityFilter}
@@ -672,10 +775,13 @@ export function BuilderPage() {
               if (!posseId) {
                 updateActiveTeam((team) => ({ ...team, posseId: undefined }))
                 clearTransfer()
+                if (quickLineupSession?.currentStep.kind === 'posse') {
+                  advanceQuickLineupStep()
+                }
                 return
               }
 
-              const usedByTeamOrder = usedPosseByTeamOrder.get(posseId)
+              const usedByTeamOrder = allowDupes ? undefined : usedPosseByTeamOrder.get(posseId)
               const usedByTeam = usedByTeamOrder === undefined ? undefined : teams[usedByTeamOrder]
               const isUsedByOtherTeam = usedByTeam && usedByTeam.id !== effectiveActiveTeamId
               if (isUsedByOtherTeam) {
@@ -691,6 +797,9 @@ export function BuilderPage() {
 
               updateActiveTeam((team) => ({ ...team, posseId }))
               clearTransfer()
+              if (quickLineupSession?.currentStep.kind === 'posse') {
+                advanceQuickLineupStep()
+              }
             }}
             onSetActiveWheel={(wheelId) => {
               handlePickerWheelClick(wheelId)
@@ -715,6 +824,18 @@ export function BuilderPage() {
       </section>
 
       <DragOverlay dropAnimation={null}>
+        {activePreviewDraggedSlot && activePreviewDraggedTeam ? (
+          <TeamPreviewGhost
+            mode={teamPreviewMode}
+            ownedAwakenerLevelByName={ownedAwakenerLevelByName}
+            ownedWheelLevelById={ownedWheelLevelById}
+            removeIntent={isTeamPreviewRemoveIntent}
+            team={{
+              ...activePreviewDraggedTeam,
+              slots: [activePreviewDraggedSlot],
+            }}
+          />
+        ) : null}
         {activeDrag?.kind === 'picker-awakener' ? <PickerAwakenerGhost awakenerName={activeDrag.awakenerName} /> : null}
         {activeDrag?.kind === 'picker-wheel' ? <PickerWheelGhost wheelId={activeDrag.wheelId} /> : null}
         {activeDrag?.kind === 'picker-covenant' ? <PickerWheelGhost wheelId={activeDrag.covenantId} isCovenant /> : null}
@@ -761,13 +882,16 @@ export function BuilderPage() {
         exportDialog={exportDialog}
         isImportDialogOpen={isImportDialogOpen}
         onCancelImport={closeImportFlow}
+        onCancelDuplicateOverrideImport={cancelDuplicateOverrideImport}
         onCancelReplaceImport={cancelReplaceImport}
         onCancelStrategyImport={cancelStrategyImport}
         onCloseExportDialog={closeExportDialog}
+        onConfirmDuplicateOverrideImport={confirmDuplicateOverrideImport}
         onConfirmReplaceImport={confirmReplaceImport}
         onMoveStrategyImport={applyMoveStrategyImport}
         onSkipStrategyImport={applySkipStrategyImport}
         onSubmitImport={submitImportCode}
+        pendingDuplicateOverrideImport={pendingDuplicateOverrideImport}
         pendingReplaceImport={pendingReplaceImport}
         pendingStrategyConflictSummary={pendingStrategyConflictSummary}
         pendingStrategyImport={pendingStrategyImport}

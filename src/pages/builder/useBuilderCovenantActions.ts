@@ -1,6 +1,5 @@
 import { useCallback } from 'react'
 import { assignCovenantToSlot, swapCovenantAssignments } from './team-state'
-import { nextSelectionAfterCovenantRemoved } from './selection-state'
 import type { ActiveSelection, TeamSlot } from './types'
 
 type UseBuilderCovenantActionsOptions = {
@@ -11,6 +10,7 @@ type UseBuilderCovenantActionsOptions = {
   clearPendingDelete: () => void
   clearTransfer: () => void
   showToast: (message: string) => void
+  onPickerAssignSuccess?: (nextSlots: TeamSlot[]) => void
 }
 
 export function useBuilderCovenantActions({
@@ -21,6 +21,7 @@ export function useBuilderCovenantActions({
   clearPendingDelete,
   clearTransfer,
   showToast,
+  onPickerAssignSuccess,
 }: UseBuilderCovenantActionsOptions) {
   const moveTeamCovenant = useCallback(
     (sourceSlotId: string, targetSlotId: string) => {
@@ -46,8 +47,9 @@ export function useBuilderCovenantActions({
       if (options?.setActiveOnAssign ?? true) {
         setActiveSelection({ kind: 'covenant', slotId: targetSlotId })
       }
+      onPickerAssignSuccess?.(result.nextSlots)
     },
-    [setActiveSelection, setActiveTeamSlots, teamSlots],
+    [onPickerAssignSuccess, setActiveSelection, setActiveTeamSlots, teamSlots],
   )
 
   const handleDropPickerCovenant = useCallback(
@@ -73,18 +75,6 @@ export function useBuilderCovenantActions({
     [moveTeamCovenant],
   )
 
-  const handleDropTeamCovenantToPicker = useCallback(
-    (sourceSlotId: string) => {
-      const result = assignCovenantToSlot(teamSlots, sourceSlotId, undefined)
-      setActiveTeamSlots(result.nextSlots)
-      const nextSelection = nextSelectionAfterCovenantRemoved(resolvedActiveSelection, sourceSlotId)
-      if (nextSelection !== resolvedActiveSelection) {
-        setActiveSelection(nextSelection)
-      }
-    },
-    [resolvedActiveSelection, setActiveSelection, setActiveTeamSlots, teamSlots],
-  )
-
   const handlePickerCovenantClick = useCallback(
     (covenantId?: string) => {
       clearPendingDelete()
@@ -106,7 +96,6 @@ export function useBuilderCovenantActions({
     handleDropPickerCovenant,
     handleDropTeamCovenant,
     handleDropTeamCovenantToSlot,
-    handleDropTeamCovenantToPicker,
     handlePickerCovenantClick,
   }
 }
