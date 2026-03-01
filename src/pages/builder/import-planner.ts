@@ -1,9 +1,9 @@
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
-import { validateTeamPlan } from '../../domain/team-rules'
 import { MAX_TEAMS } from './team-collection'
 import { createEmptyTeamSlots } from './constants'
 import type { Team } from './types'
 import type { DecodedImport } from '../../domain/import-export'
+import { getNonDuplicateRuleViolations, validateBuilderTeams, validateBuilderTeamsStrict } from './team-validation'
 
 export type ImportConflict = {
   kind: 'awakener' | 'wheel' | 'posse'
@@ -16,9 +16,14 @@ export type SingleImportStrategy = 'move' | 'skip' | 'cancel'
 
 export type PreparedImport =
   | { status: 'error'; message: string }
+  | { status: 'requires_duplicate_override' }
   | { status: 'requires_replace'; teams: Team[]; activeTeamIndex: number }
   | { status: 'requires_strategy'; team: Team; conflicts: ImportConflict[] }
   | { status: 'ready'; teams: Team[] }
+
+type PrepareImportOptions = {
+  allowDupes?: boolean
+}
 
 type TeamUsageSnapshot = {
   awakenerKeys: Set<string>
@@ -116,22 +121,22 @@ function normalizeImportedTeamName(currentTeams: Team[], preferredName: string):
   return `${base} (${suffix})`
 }
 
-function toTeamPlan(teams: Team[]) {
-  return teams.map((team) => ({
-    id: team.id,
-    posseId: team.posseId,
-    members: team.slots
-      .filter((slot) => slot.awakenerName && slot.faction)
-      .map((slot) => ({
-        awakenerId: getAwakenerIdentityKey(slot.awakenerName!),
-        faction: slot.faction!,
-        wheelIds: slot.wheels.filter((wheelId): wheelId is string => Boolean(wheelId)),
-      })),
-  }))
-}
+function validateOrError(teams: Team[], options?: PrepareImportOptions): PreparedImport | null {
+  const strictValidation = validateBuilderTeamsStrict(teams)
+  if (!strictValidation.isValid) {
+    const nonDuplicateViolations = getNonDuplicateRuleViolations(strictValidation.violations)
+    if (nonDuplicateViolations.length > 0) {
+      return {
+        status: 'error',
+        message: nonDuplicateViolations[0]?.message ?? 'Import validation failed.',
+      }
+    }
+    if (!options?.allowDupes) {
+      return { status: 'requires_duplicate_override' }
+    }
+  }
 
-function validateOrError(teams: Team[]): PreparedImport | null {
-  const validation = validateTeamPlan(toTeamPlan(teams))
+  const validation = validateBuilderTeams(teams, { allowDupes: options?.allowDupes })
   if (validation.isValid) {
     return null
   }
@@ -156,7 +161,15 @@ function withFreshImportedTeam(currentTeams: Team[], team: Team): Team {
   }
 }
 
-function findSingleTeamConflicts(currentTeams: Team[], importedTeam: Team): ImportConflict[] {
+function findSingleTeamConflicts(
+  currentTeams: Team[],
+  importedTeam: Team,
+  options?: PrepareImportOptions,
+): ImportConflict[] {
+  if (options?.allowDupes) {
+    return []
+  }
+
   const conflicts: ImportConflict[] = []
   const seen = new Set<string>()
 
@@ -267,7 +280,11 @@ function applySkipStrategy(currentTeams: Team[], importedTeam: Team): Team {
   }
 }
 
-export function prepareImport(decoded: DecodedImport, currentTeams: Team[]): PreparedImport {
+export function prepareImport(
+  decoded: DecodedImport,
+  currentTeams: Team[],
+  options?: PrepareImportOptions,
+): PreparedImport {
   if (decoded.kind === 'multi') {
     if (decoded.teams.length > MAX_TEAMS) {
       return { status: 'error', message: `A maximum of ${MAX_TEAMS} teams is allowed.` }
@@ -276,7 +293,7 @@ export function prepareImport(decoded: DecodedImport, currentTeams: Team[]): Pre
     decoded.teams.forEach((team) => {
       importedTeams.push(withFreshImportedTeam(importedTeams, team))
     })
-    const maybeInvalid = validateOrError(importedTeams)
+    const maybeInvalid = validateOrError(importedTeams, options)
     if (maybeInvalid) {
       return maybeInvalid
     }
@@ -291,7 +308,7 @@ export function prepareImport(decoded: DecodedImport, currentTeams: Team[]): Pre
     return { status: 'error', message: `Cannot import: team limit (${MAX_TEAMS}) reached.` }
   }
   const importedTeam = withFreshImportedTeam(currentTeams, decoded.team)
-  const conflicts = findSingleTeamConflicts(currentTeams, importedTeam)
+  const conflicts = findSingleTeamConflicts(currentTeams, importedTeam, options)
   if (conflicts.length > 0) {
     return {
       status: 'requires_strategy',
@@ -301,7 +318,7 @@ export function prepareImport(decoded: DecodedImport, currentTeams: Team[]): Pre
   }
 
   const nextTeams = [...currentTeams.map(cloneTeam), importedTeam]
-  const maybeInvalid = validateOrError(nextTeams)
+  const maybeInvalid = validateOrError(nextTeams, options)
   if (maybeInvalid) {
     return maybeInvalid
   }
@@ -315,6 +332,7 @@ export function applySingleImportStrategy(
   currentTeams: Team[],
   importedTeam: Team,
   strategy: SingleImportStrategy,
+  options?: PrepareImportOptions,
 ): PreparedImport {
   if (strategy === 'cancel') {
     return { status: 'error', message: 'Import cancelled.' }
@@ -324,7 +342,7 @@ export function applySingleImportStrategy(
   const preparedTeam = strategy === 'move' ? importedTeam : applySkipStrategy(baseTeams, importedTeam)
   const movedTeams = strategy === 'move' ? applyMoveStrategy(baseTeams, importedTeam) : baseTeams
   const nextTeams = [...movedTeams, preparedTeam]
-  const maybeInvalid = validateOrError(nextTeams)
+  const maybeInvalid = validateOrError(nextTeams, options)
   if (maybeInvalid) {
     return maybeInvalid
   }

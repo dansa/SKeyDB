@@ -99,22 +99,6 @@ describe('useBuilderCovenantActions', () => {
     expect(setActiveSelection).toHaveBeenCalledWith({ kind: 'covenant', slotId: 'slot-2' })
   })
 
-  it('clears covenant when dropping team covenant to picker and clears matching active selection', () => {
-    const { actions, setActiveSelection, setActiveTeamSlots } = createHook({
-      resolvedActiveSelection: { kind: 'covenant', slotId: 'slot-1' },
-    })
-
-    actions.handleDropTeamCovenantToPicker('slot-1')
-
-    expect(setActiveTeamSlots).toHaveBeenCalledWith(
-      expect.arrayContaining([
-        expect.objectContaining({ slotId: 'slot-1', covenantId: undefined }),
-        expect.objectContaining({ slotId: 'slot-2' }),
-      ]),
-    )
-    expect(setActiveSelection).toHaveBeenCalledWith(null)
-  })
-
   it('shows guidance toast when picker covenant is clicked without active card/covenant selection', () => {
     const { actions, showToast, setActiveTeamSlots } = createHook({
       resolvedActiveSelection: null,

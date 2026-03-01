@@ -17,10 +17,35 @@ import {
 } from '../../domain/collection-ownership'
 import { searchAwakeners } from '../../domain/awakeners-search'
 import { searchPosses } from '../../domain/posses-search'
-import { allAwakeners } from './constants'
-import { clearCovenantAssignment, clearSlotAssignment, clearWheelAssignment, getTeamFactionSet } from './team-state'
+import { allAwakeners, createEmptyTeamSlots } from './constants'
+import {
+  clearCovenantAssignment,
+  clearSlotAssignment,
+  clearWheelAssignment,
+  getTeamFactionSet,
+  swapSlotAssignments,
+} from './team-state'
 import { createInitialTeams, renameTeam } from './team-collection'
-import { toggleAwakenerSelection, toggleCovenantSelection, toggleWheelSelection } from './selection-state'
+import {
+  createQuickLineupSession,
+  findNextQuickLineupStepIndex,
+  findQuickLineupStepIndex,
+  goBackQuickLineupHistory,
+  goToQuickLineupStep,
+  getPublicQuickLineupSession,
+  getQuickLineupStepAtIndex,
+  getQuickLineupStepPickerTab,
+  getQuickLineupStepSelection,
+  reconcileQuickLineupSessionAfterSlotsChange,
+  type InternalQuickLineupSession,
+} from './quick-lineup'
+import {
+  nextSelectionAfterCovenantRemoved,
+  nextSelectionAfterWheelRemoved,
+  toggleAwakenerSelection,
+  toggleCovenantSelection,
+  toggleWheelSelection,
+} from './selection-state'
 import { matchesWheelMainstat } from './wheel-mainstats'
 import { loadBuilderDraft, saveBuilderDraft, type BuilderDraftPayload } from './builder-persistence'
 import type {
@@ -28,7 +53,9 @@ import type {
   AwakenerFilter,
   PickerTab,
   PosseFilter,
+  QuickLineupSession,
   Team,
+  TeamPreviewMode,
   TeamSlot,
   WheelMainstatFilter,
   WheelUsageLocation,
@@ -51,6 +78,8 @@ const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
 const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
 const BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
 const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
+const BUILDER_ALLOW_DUPES_KEY = 'skeydb.builder.allowDupes.v1'
+const BUILDER_TEAM_PREVIEW_MODE_KEY = 'skeydb.builder.teamPreviewMode.v1'
 
 function createDefaultBuilderState() {
   const teams = createInitialTeams()
@@ -114,6 +143,24 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     }
     return true
   })
+  const [allowDupes, setAllowDupes] = useState(() => {
+    const stored = safeStorageRead(storage, BUILDER_ALLOW_DUPES_KEY)
+    if (stored === '1') {
+      return true
+    }
+    if (stored === '0') {
+      return false
+    }
+    return false
+  })
+  const [teamPreviewMode, setTeamPreviewMode] = useState<TeamPreviewMode>(() => {
+    const stored = safeStorageRead(storage, BUILDER_TEAM_PREVIEW_MODE_KEY)
+    if (stored === 'compact' || stored === 'expanded') {
+      return stored
+    }
+    return 'compact'
+  })
+  const [quickLineupState, setQuickLineupState] = useState<InternalQuickLineupSession | null>(null)
 
   const effectiveActiveTeamId = useMemo(
     () => (teams.some((team) => team.id === activeTeamId) ? activeTeamId : (teams[0]?.id ?? '')),
@@ -330,7 +377,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     const identityMap = new Map<string, string>()
     teams.forEach((team) => {
       team.slots.forEach((slot) => {
-        if (!slot.awakenerName) {
+        if (!slot.awakenerName || slot.isSupport) {
           return
         }
         const identityKey = getAwakenerIdentityKey(slot.awakenerName)
@@ -356,6 +403,9 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     const wheelMap = new Map<string, WheelUsageLocation>()
     teams.forEach((team, teamOrder) => {
       team.slots.forEach((slot) => {
+        if (slot.isSupport) {
+          return
+        }
         slot.wheels.forEach((wheelId, wheelIndex) => {
           if (!wheelId || wheelMap.has(wheelId)) {
             return
@@ -366,6 +416,10 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     })
     return wheelMap
   }, [teams])
+  const hasSupportAwakener = useMemo(
+    () => teams.some((team) => team.slots.some((slot) => slot.isSupport)),
+    [teams],
+  )
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
@@ -392,6 +446,14 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   useEffect(() => {
     safeStorageWrite(storage, BUILDER_DISPLAY_UNOWNED_KEY, displayUnowned ? '1' : '0')
   }, [storage, displayUnowned])
+
+  useEffect(() => {
+    safeStorageWrite(storage, BUILDER_ALLOW_DUPES_KEY, allowDupes ? '1' : '0')
+  }, [storage, allowDupes])
+
+  useEffect(() => {
+    safeStorageWrite(storage, BUILDER_TEAM_PREVIEW_MODE_KEY, teamPreviewMode)
+  }, [storage, teamPreviewMode])
 
   const appendSearchCharacter = useCallback((targetPickerTab: PickerTab, key: string) => {
     setPickerSearchByTab((prev) => ({
@@ -431,16 +493,28 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   }
 
   function handleCardClick(slotId: string) {
+    if (quickLineupState) {
+      jumpToQuickLineupStep({ kind: 'awakener', slotId })
+      return
+    }
     setPickerTab('awakeners')
     setActiveSelection((prev) => toggleAwakenerSelection(prev, slotId))
   }
 
   function handleWheelSlotClick(slotId: string, wheelIndex: number) {
+    if (quickLineupState) {
+      jumpToQuickLineupStep({ kind: 'wheel', slotId, wheelIndex })
+      return
+    }
     setPickerTab('wheels')
     setActiveSelection((prev) => toggleWheelSelection(prev, slotId, wheelIndex))
   }
 
   function handleCovenantSlotClick(slotId: string) {
+    if (quickLineupState) {
+      jumpToQuickLineupStep({ kind: 'covenant', slotId })
+      return
+    }
     setPickerTab('covenants')
     setActiveSelection((prev) => toggleCovenantSelection(prev, slotId))
   }
@@ -450,20 +524,14 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
       return
     }
     if (resolvedActiveSelection.kind === 'awakener') {
-      const result = clearSlotAssignment(teamSlots, slotId)
-      setActiveTeamSlots(result.nextSlots)
-      setActiveSelection(null)
+      clearTeamSlot(slotId)
       return
     }
     if (resolvedActiveSelection.kind === 'covenant') {
-      const result = clearCovenantAssignment(teamSlots, slotId)
-      setActiveTeamSlots(result.nextSlots)
-      setActiveSelection(null)
+      clearTeamCovenant(slotId)
       return
     }
-    const result = clearWheelAssignment(teamSlots, slotId, resolvedActiveSelection.wheelIndex)
-    setActiveTeamSlots(result.nextSlots)
-    setActiveSelection(null)
+    clearTeamWheel(slotId, resolvedActiveSelection.wheelIndex)
   }
 
   function replaceBuilderDraft(nextDraft: BuilderDraftPayload) {
@@ -478,10 +546,181 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     return nextDraft
   }
 
+  function applyActiveTeamSlotMutation(
+    nextSlots: TeamSlot[],
+    preferredStep: Exclude<ActiveSelection, null> | { kind: 'posse' } | null = null,
+    nextSelection: ActiveSelection = null,
+  ) {
+    setActiveTeamSlots(nextSlots)
+    if (quickLineupState) {
+      const nextSession = reconcileQuickLineupSessionAfterSlotsChange(quickLineupState, nextSlots, preferredStep)
+      setQuickLineupState(nextSession)
+      syncQuickLineupFocus(nextSession)
+      return
+    }
+    setActiveSelection(nextSelection)
+  }
+
+  function syncQuickLineupFocus(nextSession: InternalQuickLineupSession | null) {
+    if (!nextSession) {
+      setActiveSelection(null)
+      return
+    }
+
+    const currentStep = getQuickLineupStepAtIndex(nextSession, nextSession.currentStepIndex)
+    if (!currentStep) {
+      setActiveSelection(null)
+      return
+    }
+
+    setPickerTab(getQuickLineupStepPickerTab(currentStep))
+    setActiveSelection(getQuickLineupStepSelection(currentStep))
+  }
+
+  function clearTeamSlot(slotId: string) {
+    const result = clearSlotAssignment(teamSlots, slotId)
+    applyActiveTeamSlotMutation(result.nextSlots, { kind: 'awakener', slotId }, null)
+  }
+
+  function clearTeamWheel(slotId: string, wheelIndex: number) {
+    const result = clearWheelAssignment(teamSlots, slotId, wheelIndex)
+    applyActiveTeamSlotMutation(
+      result.nextSlots,
+      {
+        kind: 'wheel',
+        slotId,
+        wheelIndex,
+      },
+      nextSelectionAfterWheelRemoved(resolvedActiveSelection, slotId, wheelIndex),
+    )
+  }
+
+  function clearTeamCovenant(slotId: string) {
+    const result = clearCovenantAssignment(teamSlots, slotId)
+    applyActiveTeamSlotMutation(
+      result.nextSlots,
+      { kind: 'covenant', slotId },
+      nextSelectionAfterCovenantRemoved(resolvedActiveSelection, slotId),
+    )
+  }
+
+  function swapActiveTeamSlots(sourceSlotId: string, targetSlotId: string) {
+    const result = swapSlotAssignments(teamSlots, sourceSlotId, targetSlotId)
+    applyActiveTeamSlotMutation(
+      result.nextSlots,
+      { kind: 'awakener', slotId: targetSlotId },
+      { kind: 'awakener', slotId: targetSlotId },
+    )
+  }
+
+  function restoreQuickLineupFocus() {
+    syncQuickLineupFocus(quickLineupState)
+  }
+
+  function startQuickLineup() {
+    if (!activeTeam) {
+      return
+    }
+
+    const nextSession = createQuickLineupSession(activeTeam)
+    updateActiveTeam((team) => ({
+      ...team,
+      posseId: undefined,
+      slots: createEmptyTeamSlots(),
+    }))
+    setQuickLineupState(nextSession)
+    syncQuickLineupFocus(nextSession)
+  }
+
+  function advanceQuickLineupStep(nextSlotsOverride?: TeamSlot[]) {
+    if (!quickLineupState) {
+      return
+    }
+
+    const nextStepIndex = findNextQuickLineupStepIndex(quickLineupState, nextSlotsOverride ?? teamSlots)
+    if (nextStepIndex === null) {
+      setQuickLineupState(null)
+      setActiveSelection(null)
+      return
+    }
+
+    const nextSession = goToQuickLineupStep(quickLineupState, nextStepIndex)
+    if (!nextSession) {
+      setQuickLineupState(null)
+      setActiveSelection(null)
+      return
+    }
+
+    setQuickLineupState(nextSession)
+    syncQuickLineupFocus(nextSession)
+  }
+
+  function skipQuickLineupStep() {
+    advanceQuickLineupStep()
+  }
+
+  function goBackQuickLineupStep() {
+    if (!quickLineupState) {
+      return
+    }
+
+    const nextSession = goBackQuickLineupHistory(quickLineupState)
+    if (!nextSession) {
+      return
+    }
+
+    setQuickLineupState(nextSession)
+    syncQuickLineupFocus(nextSession)
+  }
+
+  function finishQuickLineup() {
+    setQuickLineupState(null)
+  }
+
+  function cancelQuickLineup() {
+    if (!quickLineupState) {
+      return
+    }
+
+    const { originalTeam, teamId } = quickLineupState
+    setTeams((prev) => prev.map((team) => (team.id === teamId ? originalTeam : team)))
+    setQuickLineupState(null)
+    setActiveSelection(null)
+  }
+
+  function jumpToQuickLineupStep(step: Exclude<ActiveSelection, null> | { kind: 'posse' }) {
+    if (!quickLineupState) {
+      return
+    }
+
+    const nextStepIndex = findQuickLineupStepIndex(quickLineupState, step)
+    if (nextStepIndex === -1) {
+      return
+    }
+
+    const nextSession = goToQuickLineupStep(quickLineupState, nextStepIndex)
+    if (!nextSession) {
+      return
+    }
+
+    setQuickLineupState(nextSession)
+    syncQuickLineupFocus(nextSession)
+  }
+
+  const quickLineupSession: QuickLineupSession | null = useMemo(
+    () => (quickLineupState ? getPublicQuickLineupSession(quickLineupState) : null),
+    [quickLineupState],
+  )
+
   return {
     collectionOwnership,
     displayUnowned,
     setDisplayUnowned,
+    allowDupes,
+    setAllowDupes,
+    teamPreviewMode,
+    setTeamPreviewMode,
+    quickLineupSession,
     ownedAwakenerLevelByName,
     awakenerLevelByName,
     ownedWheelLevelById,
@@ -530,6 +769,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     teamFactionSet,
     usedAwakenerByIdentityKey,
     usedAwakenerIdentityKeys,
+    hasSupportAwakener,
     usedPosseByTeamOrder,
     usedWheelByTeamOrder,
     resolvedActiveSelection,
@@ -543,7 +783,19 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     handleWheelSlotClick,
     handleCovenantSlotClick,
     handleRemoveActiveSelection,
+    clearTeamSlot,
+    clearTeamWheel,
+    clearTeamCovenant,
+    swapActiveTeamSlots,
     replaceBuilderDraft,
     resetBuilderDraft,
+    startQuickLineup,
+    advanceQuickLineupStep,
+    skipQuickLineupStep,
+    goBackQuickLineupStep,
+    finishQuickLineup,
+    cancelQuickLineup,
+    restoreQuickLineupFocus,
+    jumpToQuickLineupStep,
   }
 }

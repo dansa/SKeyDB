@@ -3,7 +3,7 @@ import { formatAwakenerNameForUi } from '../../domain/name-format'
 import { getWheelById } from '../../domain/wheels'
 import type { Team } from './types'
 import type { PendingTransfer } from './useTransferConfirm'
-import { applyPendingTransfer } from './transfer-resolution'
+import { applyPendingTransfer, applySupportTransfer } from './transfer-resolution'
 
 type UsePendingTransferDialogOptions = {
   pendingTransfer: PendingTransfer | null
@@ -53,6 +53,14 @@ export function usePendingTransferDialog({
     clearTransfer()
   }, [pendingTransfer, setTeams, clearTransfer])
 
+  const useSupportTransfer = useCallback(() => {
+    if (!pendingTransfer || pendingTransfer.kind !== 'awakener' || !pendingTransfer.canUseSupport) {
+      return
+    }
+    setTeams((prev) => applySupportTransfer(prev, pendingTransfer))
+    clearTransfer()
+  }, [pendingTransfer, setTeams, clearTransfer])
+
   if (!pendingTransfer) {
     return null
   }
@@ -60,6 +68,8 @@ export function usePendingTransferDialog({
   return {
     title: `Move ${displayName}`,
     message: `${displayName} is already used in ${fromTeamName}. Move to ${toTeamName}?`,
+    supportLabel: pendingTransfer.kind === 'awakener' && pendingTransfer.canUseSupport ? 'Use as Support' : undefined,
+    onSupport: pendingTransfer.kind === 'awakener' && pendingTransfer.canUseSupport ? useSupportTransfer : undefined,
     onConfirm: confirmTransfer,
   }
 }

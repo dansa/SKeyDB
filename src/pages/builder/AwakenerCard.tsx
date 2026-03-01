@@ -17,6 +17,7 @@ type AwakenerCardProps = {
   awakenerLevel?: number
   awakenerOwnedLevel?: number | null
   wheelOwnedLevels?: [number | null, number | null]
+  allowActiveRemoval?: boolean
   onCardClick?: (slotId: string) => void
   onWheelSlotClick?: (slotId: string, wheelIndex: number) => void
   onCovenantSlotClick?: (slotId: string) => void
@@ -33,6 +34,7 @@ export function AwakenerCard({
   awakenerLevel = 60,
   awakenerOwnedLevel = null,
   wheelOwnedLevels = [null, null],
+  allowActiveRemoval = true,
   onCardClick,
   onWheelSlotClick,
   onCovenantSlotClick,
@@ -59,7 +61,7 @@ export function AwakenerCard({
       ? ({ kind: 'team-slot', slotId: slot.slotId, awakenerName: slot.awakenerName! } satisfies DragData)
       : undefined,
   })
-  const hasRemovableAwakenerSelection = activeKind === 'awakener' && isActive && hasAwakener
+  const hasRemovableAwakenerSelection = allowActiveRemoval && activeKind === 'awakener' && isActive && hasAwakener
   const isPredictedForThisCard =
     predictedDropHover !== null && predictedDropHover.slotId === slot.slotId
   const showCardOver =
@@ -134,6 +136,7 @@ export function AwakenerCard({
 
           <div className="builder-card-name-wrap pointer-events-none absolute inset-x-0 top-0 z-20 px-2 pt-1 pb-[18%]">
             <p className="builder-card-name ui-title text-slate-100">{displayName}</p>
+            {slot.isSupport ? <span className="builder-support-badge">Support Awakener</span> : null}
             {awakenerOwnedLevel === null ? (
               <span className="builder-unowned-badge">Unowned</span>
             ) : null}
@@ -150,6 +153,7 @@ export function AwakenerCard({
               onWheelSlotClick={(wheelIndex) => onWheelSlotClick?.(slot.slotId, wheelIndex)}
               awakenerLevel={awakenerLevel}
               awakenerOwnedLevel={awakenerOwnedLevel}
+              allowActiveRemoval={allowActiveRemoval}
               wheelOwnedLevels={wheelOwnedLevels}
               predictedDropHover={predictedDropHover}
               slot={slot}

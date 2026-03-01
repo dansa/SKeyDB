@@ -7,8 +7,10 @@ type ConfirmDialogProps = {
   message: string
   confirmLabel?: string
   cancelLabel?: string
+  secondaryLabel?: string
   onConfirm: () => void
   onCancel: () => void
+  onSecondary?: () => void
   overlayClassName?: string
   dialogClassName?: string
   confirmVariant?: ButtonVariant
@@ -19,8 +21,10 @@ export function ConfirmDialog({
   message,
   confirmLabel = 'Confirm',
   cancelLabel = 'Cancel',
+  secondaryLabel,
   onConfirm,
   onCancel,
+  onSecondary,
   overlayClassName = 'fixed inset-0 z-70 flex items-center justify-center bg-slate-950/55 px-4',
   dialogClassName = 'w-full max-w-md border border-amber-200/55 bg-slate-950/96 p-4 shadow-[0_18px_50px_rgba(2,6,23,0.72)]',
   confirmVariant = 'primary',
@@ -32,6 +36,11 @@ export function ConfirmDialog({
         <Button onClick={onCancel} variant="secondary">
           {cancelLabel}
         </Button>
+        {secondaryLabel && onSecondary ? (
+          <Button onClick={onSecondary} variant="secondary">
+            {secondaryLabel}
+          </Button>
+        ) : null}
         <Button onClick={onConfirm} variant={confirmVariant}>
           {confirmLabel}
         </Button>

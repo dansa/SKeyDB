@@ -4,6 +4,7 @@ export type PendingAwakenerTransfer = {
   kind: 'awakener'
   itemName: string
   awakenerName: string
+  canUseSupport?: boolean
   fromTeamId: string
   toTeamId: string
   targetSlotId?: string
@@ -33,6 +34,7 @@ export type PendingTransfer = PendingAwakenerTransfer | PendingPosseTransfer | P
 
 type RequestAwakenerTransfer = {
   awakenerName: string
+  canUseSupport?: boolean
   fromTeamId: string
   toTeamId: string
   targetSlotId?: string
@@ -58,11 +60,18 @@ type RequestWheelTransfer = {
 export function useTransferConfirm() {
   const [pendingTransfer, setPendingTransfer] = useState<PendingTransfer | null>(null)
 
-  function requestAwakenerTransfer({ awakenerName, fromTeamId, toTeamId, targetSlotId }: RequestAwakenerTransfer) {
+  function requestAwakenerTransfer({
+    awakenerName,
+    canUseSupport,
+    fromTeamId,
+    toTeamId,
+    targetSlotId,
+  }: RequestAwakenerTransfer) {
     setPendingTransfer({
       kind: 'awakener',
       itemName: awakenerName,
       awakenerName,
+      canUseSupport,
       fromTeamId,
       toTeamId,
       targetSlotId,

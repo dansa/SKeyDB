@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { Team } from './types'
-import { applyPendingTransfer } from './transfer-resolution'
+import { applyPendingTransfer, applySupportTransfer, clearTeamSlotTransfer, swapTeamSlotTransfer } from './transfer-resolution'
 
 function buildTeam(id: string, name: string, awakenerName?: string): Team {
   return {
@@ -164,5 +164,218 @@ describe('applyPendingTransfer', () => {
     })
 
     expect(result).toEqual(teams)
+  })
+})
+
+describe('applySupportTransfer', () => {
+  it('assigns a duplicate awakener as support without clearing the source team', () => {
+    const teams: Team[] = [buildTeam('team-1', 'Team 1', 'goliath'), buildTeam('team-2', 'Team 2')]
+
+    const result = applySupportTransfer(teams, {
+      kind: 'awakener',
+      itemName: 'goliath',
+      awakenerName: 'goliath',
+      canUseSupport: true,
+      fromTeamId: 'team-1',
+      toTeamId: 'team-2',
+      targetSlotId: 'team-2-slot-1',
+    })
+
+    expect(result[0]?.slots[0]?.awakenerName).toBe('goliath')
+    expect(result[1]?.slots[0]).toMatchObject({
+      awakenerName: 'goliath',
+      isSupport: true,
+      level: 90,
+    })
+  })
+})
+
+describe('swapTeamSlotTransfer', () => {
+  it('swaps full slot contents between teams', () => {
+    const teams: Team[] = [
+      {
+        ...buildTeam('team-1', 'Team 1'),
+        slots: [
+          { slotId: 'team-1-slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 60, wheels: ['B01', null], covenantId: '001' },
+          { slotId: 'team-1-slot-2', wheels: [null, null] },
+          { slotId: 'team-1-slot-3', wheels: [null, null] },
+          { slotId: 'team-1-slot-4', wheels: [null, null] },
+        ],
+      },
+      {
+        ...buildTeam('team-2', 'Team 2'),
+        slots: [
+          { slotId: 'team-2-slot-1', awakenerName: 'ramona', faction: 'CHAOS', level: 77, wheels: [null, 'B02'], covenantId: '002' },
+          { slotId: 'team-2-slot-2', wheels: [null, null] },
+          { slotId: 'team-2-slot-3', wheels: [null, null] },
+          { slotId: 'team-2-slot-4', wheels: [null, null] },
+        ],
+      },
+    ]
+
+    const result = swapTeamSlotTransfer(teams, 'team-1', 'team-1-slot-1', 'team-2', 'team-2-slot-1')
+
+    expect(result.violation).toBeUndefined()
+    expect(result.nextTeams[0]?.slots[0]).toMatchObject({
+      awakenerName: 'ramona',
+      faction: 'CHAOS',
+      level: 77,
+      wheels: [null, 'B02'],
+      covenantId: '002',
+    })
+    expect(result.nextTeams[1]?.slots[0]).toMatchObject({
+      awakenerName: 'goliath',
+      faction: 'AEQUOR',
+      level: 60,
+      wheels: ['B01', null],
+      covenantId: '001',
+    })
+  })
+
+  it('blocks swaps that would violate faction cap', () => {
+    const teams: Team[] = [
+      {
+        ...buildTeam('team-1', 'Team 1'),
+        slots: [
+          { slotId: 'team-1-slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 60, wheels: [null, null] },
+          { slotId: 'team-1-slot-2', awakenerName: 'mason', faction: 'AEQUOR', level: 60, wheels: [null, null] },
+          { slotId: 'team-1-slot-3', wheels: [null, null] },
+          { slotId: 'team-1-slot-4', wheels: [null, null] },
+        ],
+      },
+      {
+        ...buildTeam('team-2', 'Team 2'),
+        slots: [
+          { slotId: 'team-2-slot-1', awakenerName: 'ramona', faction: 'CHAOS', level: 60, wheels: [null, null] },
+          { slotId: 'team-2-slot-2', awakenerName: 'helot', faction: 'CHAOS', level: 60, wheels: [null, null] },
+          { slotId: 'team-2-slot-3', awakenerName: 'tutu', faction: 'CARO', level: 60, wheels: [null, null] },
+          { slotId: 'team-2-slot-4', wheels: [null, null] },
+        ],
+      },
+    ]
+
+    const result = swapTeamSlotTransfer(teams, 'team-1', 'team-1-slot-1', 'team-2', 'team-2-slot-1')
+
+    expect(result.violation).toBe('TOO_MANY_FACTIONS_IN_TEAM')
+    expect(result.nextTeams).toEqual(teams)
+  })
+
+  it('blocks cross-team swaps that would create a same-team duplicate awakener with support present', () => {
+    const teams: Team[] = [
+      {
+        ...buildTeam('team-1', 'Team 1'),
+        slots: [
+          { slotId: 'team-1-slot-1', awakenerName: 'ghelot', faction: 'CHAOS', level: 90, isSupport: true, wheels: ['W01', 'W02'] },
+          { slotId: 'team-1-slot-2', wheels: [null, null] },
+          { slotId: 'team-1-slot-3', wheels: [null, null] },
+          { slotId: 'team-1-slot-4', wheels: [null, null] },
+        ],
+      },
+      {
+        ...buildTeam('team-2', 'Team 2'),
+        slots: [
+          { slotId: 'team-2-slot-1', awakenerName: 'mason', faction: 'AEQUOR', level: 60, wheels: ['W01', null] },
+          { slotId: 'team-2-slot-2', awakenerName: 'ghelot', faction: 'CHAOS', level: 60, wheels: [null, null] },
+          { slotId: 'team-2-slot-3', wheels: [null, null] },
+          { slotId: 'team-2-slot-4', wheels: [null, null] },
+        ],
+      },
+    ]
+
+    const result = swapTeamSlotTransfer(teams, 'team-1', 'team-1-slot-1', 'team-2', 'team-2-slot-1')
+
+    expect(result.violation).toBe('INVALID_BUILD_RULES')
+    expect(result.nextTeams).toEqual(teams)
+  })
+
+  it('blocks cross-team swaps that would create a same-team duplicate wheel with support present', () => {
+    const teams: Team[] = [
+      {
+        ...buildTeam('team-1', 'Team 1'),
+        slots: [
+          { slotId: 'team-1-slot-1', awakenerName: 'ghelot', faction: 'CHAOS', level: 90, isSupport: true, wheels: ['W01', 'W02'] },
+          { slotId: 'team-1-slot-2', wheels: [null, null] },
+          { slotId: 'team-1-slot-3', wheels: [null, null] },
+          { slotId: 'team-1-slot-4', wheels: [null, null] },
+        ],
+      },
+      {
+        ...buildTeam('team-2', 'Team 2'),
+        slots: [
+          { slotId: 'team-2-slot-1', awakenerName: 'mason', faction: 'AEQUOR', level: 60, wheels: [null, null] },
+          { slotId: 'team-2-slot-2', awakenerName: 'ramona', faction: 'CHAOS', level: 60, wheels: ['W01', null] },
+          { slotId: 'team-2-slot-3', wheels: [null, null] },
+          { slotId: 'team-2-slot-4', wheels: [null, null] },
+        ],
+      },
+    ]
+
+    const result = swapTeamSlotTransfer(teams, 'team-1', 'team-1-slot-1', 'team-2', 'team-2-slot-1')
+
+    expect(result.violation).toBe('INVALID_BUILD_RULES')
+    expect(result.nextTeams).toEqual(teams)
+  })
+
+  it('allows cross-team swaps that break duplicate rules when dupes are enabled', () => {
+    const teams: Team[] = [
+      {
+        ...buildTeam('team-1', 'Team 1'),
+        slots: [
+          { slotId: 'team-1-slot-1', awakenerName: 'ghelot', faction: 'CHAOS', level: 90, isSupport: true, wheels: ['W01', 'W02'] },
+          { slotId: 'team-1-slot-2', wheels: [null, null] },
+          { slotId: 'team-1-slot-3', wheels: [null, null] },
+          { slotId: 'team-1-slot-4', wheels: [null, null] },
+        ],
+      },
+      {
+        ...buildTeam('team-2', 'Team 2'),
+        slots: [
+          { slotId: 'team-2-slot-1', awakenerName: 'mason', faction: 'AEQUOR', level: 60, wheels: ['W01', null] },
+          { slotId: 'team-2-slot-2', awakenerName: 'ghelot', faction: 'CHAOS', level: 60, wheels: [null, null] },
+          { slotId: 'team-2-slot-3', wheels: [null, null] },
+          { slotId: 'team-2-slot-4', wheels: [null, null] },
+        ],
+      },
+    ]
+
+    const result = swapTeamSlotTransfer(teams, 'team-1', 'team-1-slot-1', 'team-2', 'team-2-slot-1', { allowDupes: true })
+
+    expect(result.violation).toBeUndefined()
+    expect(result.nextTeams[0]?.slots[0]).toMatchObject({
+      awakenerName: 'mason',
+      wheels: ['W01', null],
+      isSupport: undefined,
+    })
+    expect(result.nextTeams[1]?.slots[0]).toMatchObject({
+      awakenerName: 'ghelot',
+      wheels: ['W01', 'W02'],
+      isSupport: true,
+    })
+  })
+})
+
+describe('clearTeamSlotTransfer', () => {
+  it('clears a slot in the source team', () => {
+    const teams: Team[] = [
+      {
+        ...buildTeam('team-1', 'Team 1'),
+        slots: [
+          { slotId: 'team-1-slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 60, wheels: ['B01', null], covenantId: '001' },
+          { slotId: 'team-1-slot-2', wheels: [null, null] },
+          { slotId: 'team-1-slot-3', wheels: [null, null] },
+          { slotId: 'team-1-slot-4', wheels: [null, null] },
+        ],
+      },
+    ]
+
+    const result = clearTeamSlotTransfer(teams, 'team-1', 'team-1-slot-1')
+
+    expect(result[0]?.slots[0]).toMatchObject({
+      awakenerName: undefined,
+      faction: undefined,
+      level: undefined,
+      wheels: [null, null],
+      covenantId: undefined,
+    })
   })
 })

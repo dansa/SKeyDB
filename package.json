@@ -17,7 +17,7 @@
     "data:sync-awakener-ids": "node scripts/sync-awakener-ids.mjs",
     "data:sync-posse-indices": "node scripts/sync-posse-indices.mjs",
     "data:sync-wheel-data": "node scripts/sync-wheel-data.mjs",
-    "prepare": "simple-git-hooks"
+    "prepare": "node scripts/install-git-hooks.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

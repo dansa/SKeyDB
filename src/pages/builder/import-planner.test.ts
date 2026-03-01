@@ -156,4 +156,71 @@ describe('import planner', () => {
       'Wave 3',
     ])
   })
+
+  it('requires duplicate override when imported payload is duplicate-illegal under strict rules', () => {
+    const incomingTeams = [
+      makeTeam('Wave 1', {
+        slots: [
+          { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: [null, null] },
+          { slotId: 'slot-2', wheels: [null, null] },
+          { slotId: 'slot-3', wheels: [null, null] },
+          { slotId: 'slot-4', wheels: [null, null] },
+        ],
+      }),
+      makeTeam('Wave 2', {
+        slots: [
+          { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: [null, null] },
+          { slotId: 'slot-2', wheels: [null, null] },
+          { slotId: 'slot-3', wheels: [null, null] },
+          { slotId: 'slot-4', wheels: [null, null] },
+        ],
+      }),
+    ]
+
+    const result = prepareImport({ kind: 'multi', teams: incomingTeams, activeTeamIndex: 0 }, [makeTeam('Team 1')])
+    expect(result.status).toBe('requires_duplicate_override')
+  })
+
+  it('allows duplicate imports directly when duplicate enforcement is disabled', () => {
+    const current = [
+      makeTeam('Team 1', {
+        slots: [
+          { slotId: 'slot-1', awakenerName: 'ramona', faction: 'CHAOS', wheels: [null, null] },
+          { slotId: 'slot-2', wheels: [null, null] },
+          { slotId: 'slot-3', wheels: [null, null] },
+          { slotId: 'slot-4', wheels: [null, null] },
+        ],
+      }),
+    ]
+    const incoming = makeTeam('Imported', {
+      slots: [
+        { slotId: 'slot-1', awakenerName: 'ramona: timeworn', faction: 'CHAOS', wheels: [null, null] },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ],
+    })
+
+    const result = prepareImport({ kind: 'single', team: incoming }, current, { allowDupes: true })
+    expect(result.status).toBe('ready')
+  })
+
+  it('requires duplicate override after skip strategy if the existing builder state is already duplicate-illegal', () => {
+    const current = [
+      makeTeam('Team 1', { posseId: 'manor-echoes' }),
+      makeTeam('Team 2', { posseId: 'manor-echoes' }),
+    ]
+    const imported = makeTeam('Imported', {
+      posseId: 'manor-echoes',
+      slots: [
+        { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: [null, null] },
+        { slotId: 'slot-2', wheels: [null, null] },
+        { slotId: 'slot-3', wheels: [null, null] },
+        { slotId: 'slot-4', wheels: [null, null] },
+      ],
+    })
+
+    const result = applySingleImportStrategy(current, imported, 'skip')
+    expect(result.status).toBe('requires_duplicate_override')
+  })
 })

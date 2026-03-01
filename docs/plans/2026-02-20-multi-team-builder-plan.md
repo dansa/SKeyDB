@@ -73,9 +73,10 @@ Expand the builder from a single active team into a practical 1-10 team planner 
   - Drag-reorder UX polish for team rows (explicit drag lane + stable active-state visuals).
   - Active-team switching via team row click.
   - Slot-click regression fix: clicking a picker entry for an already slotted awakener no longer moves it to the next empty slot.
+  - Expanded team preview mode (compact full-card previews with wheels/covenants).
+  - Preview-slot drag swap / clear flows between teams.
 - Pending:
   - Additional interaction polish + QA passes.
-  - TODO: implement an `Expanded Teams` toggle that renders smaller-scale but full team cards (including wheels/covenants) for each team.
 
 ## Follow-up Bugs
 - None currently tracked for this phase.

@@ -58,5 +58,29 @@ describe('usePendingTransferDialog', () => {
     expect(result.current?.title).toBe(`Move ${wheelName}`)
     expect(result.current?.message).toContain(`${wheelName} is already used in Team 1.`)
   })
+
+  it('exposes a support action for duplicate awakener moves when support is available', () => {
+    const setTeams = vi.fn()
+    const clearTransfer = vi.fn()
+    const { result } = renderHook(() =>
+      usePendingTransferDialog({
+        pendingTransfer: {
+          kind: 'awakener',
+          itemName: 'ramona',
+          awakenerName: 'ramona',
+          canUseSupport: true,
+          fromTeamId: 'team-1',
+          toTeamId: 'team-2',
+          targetSlotId: 'slot-1',
+        },
+        teams: buildTeams(),
+        setTeams,
+        clearTransfer,
+      }),
+    )
+
+    expect(result.current).not.toBeNull()
+    expect(result.current?.supportLabel).toBe('Use as Support')
+  })
 })
 

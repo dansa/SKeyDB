@@ -26,6 +26,7 @@ function createHook(options?: {
   teamSlots?: TeamSlot[]
   resolvedActiveSelection?: ActiveSelection
   usedWheelByTeamOrder?: Map<string, WheelUsageLocation>
+  allowDupes?: boolean
 }) {
   const setActiveTeamSlots = vi.fn()
   const setActiveSelection = vi.fn()
@@ -61,6 +62,7 @@ function createHook(options?: {
       showToast,
       teamSlots,
       usedWheelByTeamOrder,
+      allowDupes: options?.allowDupes ?? false,
     }),
   )
 
@@ -130,5 +132,104 @@ describe('useBuilderWheelActions', () => {
       expect.objectContaining({ slotId: 'slot-2', wheels: ['B02', null] }),
     ])
     expect(setActiveSelection).not.toHaveBeenCalled()
+  })
+
+  it('assigns duplicate wheel directly when dupes are enabled', () => {
+    const usedWheelByTeamOrder = new Map([
+      [
+        'B01',
+        {
+          teamOrder: 1,
+          teamId: 'team-2',
+          slotId: 'slot-3',
+          wheelIndex: 0,
+        },
+      ],
+    ])
+    const { actions, requestWheelTransfer, setActiveTeamSlots } = createHook({
+      resolvedActiveSelection: { kind: 'wheel', slotId: 'slot-2', wheelIndex: 0 },
+      usedWheelByTeamOrder,
+      allowDupes: true,
+    })
+
+    actions.handlePickerWheelClick('B01')
+
+    expect(requestWheelTransfer).not.toHaveBeenCalled()
+    expect(setActiveTeamSlots).toHaveBeenCalledWith([
+      expect.objectContaining({ slotId: 'slot-1', wheels: ['B01', null] }),
+      expect.objectContaining({ slotId: 'slot-2', wheels: ['B01', null] }),
+    ])
+  })
+
+  it('assigns duplicate wheel directly when target slot is support', () => {
+    const usedWheelByTeamOrder = new Map([
+      [
+        'B01',
+        {
+          teamOrder: 1,
+          teamId: 'team-2',
+          slotId: 'slot-3',
+          wheelIndex: 0,
+        },
+      ],
+    ])
+    const { actions, requestWheelTransfer, setActiveTeamSlots } = createHook({
+      teamSlots: [
+        {
+          slotId: 'slot-1',
+          awakenerName: 'goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['B01', null],
+        },
+        {
+          slotId: 'slot-2',
+          awakenerName: 'miryam',
+          faction: 'CHAOS',
+          level: 90,
+          isSupport: true,
+          wheels: [null, null],
+        },
+      ],
+      resolvedActiveSelection: { kind: 'wheel', slotId: 'slot-2', wheelIndex: 0 },
+      usedWheelByTeamOrder,
+    })
+
+    actions.handlePickerWheelClick('B01')
+
+    expect(requestWheelTransfer).not.toHaveBeenCalled()
+    expect(setActiveTeamSlots).toHaveBeenCalledWith([
+      expect.objectContaining({ slotId: 'slot-1', wheels: ['B01', null] }),
+      expect.objectContaining({ slotId: 'slot-2', wheels: ['B01', null], isSupport: true }),
+    ])
+  })
+
+  it('swaps wheel assignments between active-team slots when dragging between wheel sockets', () => {
+    const { actions, setActiveSelection, setActiveTeamSlots } = createHook({
+      teamSlots: [
+        {
+          slotId: 'slot-1',
+          awakenerName: 'goliath',
+          faction: 'AEQUOR',
+          level: 60,
+          wheels: ['B01', null],
+        },
+        {
+          slotId: 'slot-2',
+          awakenerName: 'miryam',
+          faction: 'CHAOS',
+          level: 60,
+          wheels: [null, 'B02'],
+        },
+      ],
+    })
+
+    actions.handleDropTeamWheel('slot-1', 0, 'slot-2', 1)
+
+    expect(setActiveTeamSlots).toHaveBeenCalledWith([
+      expect.objectContaining({ slotId: 'slot-1', wheels: ['B02', null] }),
+      expect.objectContaining({ slotId: 'slot-2', wheels: [null, 'B01'] }),
+    ])
+    expect(setActiveSelection).toHaveBeenCalledWith({ kind: 'wheel', slotId: 'slot-2', wheelIndex: 1 })
   })
 })

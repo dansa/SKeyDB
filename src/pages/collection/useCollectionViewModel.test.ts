@@ -118,6 +118,23 @@ describe('useCollectionViewModel', () => {
     expect(result.current.getAwakenerLevel('ramona: timeworn')).toBe(90)
   })
 
+  it('applies awakener level +/-10 preset once per linked awakener group', () => {
+    const { result } = renderHook(() => useCollectionViewModel())
+
+    act(() => {
+      result.current.setAwakenerLevel('ramona', 60)
+      result.current.setFilteredAwakenerLevelsPreset('+10')
+    })
+    expect(result.current.getAwakenerLevel('ramona')).toBe(70)
+    expect(result.current.getAwakenerLevel('ramona: timeworn')).toBe(70)
+
+    act(() => {
+      result.current.setFilteredAwakenerLevelsPreset('-10')
+    })
+    expect(result.current.getAwakenerLevel('ramona')).toBe(60)
+    expect(result.current.getAwakenerLevel('ramona: timeworn')).toBe(60)
+  })
+
   it('defaults awakener sort to level descending with faction grouping off', () => {
     const { result } = renderHook(() => useCollectionViewModel())
 

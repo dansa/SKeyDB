@@ -1,10 +1,11 @@
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { SegmentedControl } from '../../components/ui/SegmentedControl'
 import { getPosseAssetById } from '../../domain/posse-assets'
 import type { Posse } from '../../domain/posses'
 import type { TeamTemplateId } from './team-collection'
 import { MAX_TEAMS } from './team-collection'
 import { BuilderTeamRow } from './BuilderTeamRow'
-import type { Team } from './types'
+import type { Team, TeamPreviewMode } from './types'
 
 type BuilderTeamsPanelProps = {
   teams: Team[]
@@ -14,11 +15,14 @@ type BuilderTeamsPanelProps = {
   editingTeamSurface: 'header' | 'list' | null
   posses: Posse[]
   ownedAwakenerLevelByName?: Map<string, number | null>
+  ownedWheelLevelById?: Map<string, number | null>
   ownedPosseLevelById?: Map<string, number | null>
+  teamPreviewMode: TeamPreviewMode
   onAddTeam: () => void
   onApplyTeamTemplate: (templateId: TeamTemplateId) => void
   onExportTeam: (teamId: string) => void
   onResetTeam: (teamId: string, teamName: string) => void
+  onTeamPreviewModeChange: (nextMode: TeamPreviewMode) => void
   onEditingTeamNameChange: (nextName: string) => void
   onBeginTeamRename: (teamId: string, currentName: string, surface?: 'header' | 'list') => void
   onCommitTeamRename: (teamId: string) => void
@@ -28,6 +32,10 @@ type BuilderTeamsPanelProps = {
 }
 
 const EMPTY_OWNERSHIP_MAP = new Map<string, number | null>()
+const teamPreviewModeOptions = [
+  { value: 'compact', label: 'Compact' },
+  { value: 'expanded', label: 'Expanded' },
+] as const
 
 export function BuilderTeamsPanel({
   teams,
@@ -37,11 +45,14 @@ export function BuilderTeamsPanel({
   editingTeamSurface,
   posses,
   ownedAwakenerLevelByName = EMPTY_OWNERSHIP_MAP,
+  ownedWheelLevelById = EMPTY_OWNERSHIP_MAP,
   ownedPosseLevelById = EMPTY_OWNERSHIP_MAP,
+  teamPreviewMode,
   onAddTeam,
   onApplyTeamTemplate,
   onExportTeam,
   onResetTeam,
+  onTeamPreviewModeChange,
   onEditingTeamNameChange,
   onBeginTeamRename,
   onCommitTeamRename,
@@ -54,6 +65,19 @@ export function BuilderTeamsPanel({
       <div className="flex items-center justify-between">
         <p className="text-xs uppercase tracking-wide text-slate-300">Teams ({teams.length}/{MAX_TEAMS})</p>
         <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
+            <span className="text-[10px] uppercase tracking-wide text-slate-400">View:</span>
+            <SegmentedControl
+              activeButtonClassName="builder-team-preview-mode-button-active"
+              ariaLabel="Team preview mode"
+              buttonClassName="builder-team-preview-mode-button"
+              className="builder-team-preview-mode-toggle"
+              onChange={onTeamPreviewModeChange}
+              options={teamPreviewModeOptions}
+              value={teamPreviewMode}
+            />
+          </div>
+          <span aria-hidden className="h-5 w-px bg-slate-500/45" />
           <div className="flex items-center gap-1">
             <span className="text-[10px] uppercase tracking-wide text-slate-400">Templates:</span>
             <button
@@ -96,6 +120,7 @@ export function BuilderTeamsPanel({
                 isEditingTeamName={isEditingTeamName}
                 key={team.id}
                 ownedAwakenerLevelByName={ownedAwakenerLevelByName}
+                ownedWheelLevelById={ownedWheelLevelById}
                 ownedPosseLevelById={ownedPosseLevelById}
                 onBeginTeamRename={onBeginTeamRename}
                 onCancelTeamRename={onCancelTeamRename}
@@ -107,6 +132,7 @@ export function BuilderTeamsPanel({
                 onResetTeam={onResetTeam}
                 posseAsset={posseAsset}
                 team={team}
+                teamPreviewMode={teamPreviewMode}
               />
             )
           })}
