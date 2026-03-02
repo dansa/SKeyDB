@@ -10,7 +10,7 @@ import { useRef } from 'react'
 import type { ChangeEvent, WheelEvent } from 'react'
 import { FaDownload, FaRotateRight, FaUpload } from 'react-icons/fa6'
 import { getAwakenerCardAsset } from '../domain/awakener-assets'
-import { getFactionTint } from '../domain/factions'
+import { getRealmTint } from '../domain/factions'
 import { formatAwakenerNameForUi } from '../domain/name-format'
 import { getPosseAssetById } from '../domain/posse-assets'
 import { getWheelAssetById } from '../domain/wheel-assets'
@@ -217,12 +217,12 @@ export function CollectionPage() {
               </Button>
             ) : null
           }
-          groupByFaction={model.awakenerSortGroupByFaction}
+          groupByRealm={model.awakenerSortGroupByRealm}
           layout="compact"
-          onGroupByFactionChange={model.setAwakenerSortGroupByFaction}
+          onGroupByRealmChange={model.setAwakenerSortGroupByRealm}
           onSortDirectionToggle={model.toggleAwakenerSortDirection}
           onSortKeyChange={model.setAwakenerSortKey}
-          showGroupByFaction={false}
+          showGroupByRealm={false}
           sortDirection={model.awakenerSortDirection}
           sortKey={model.awakenerSortKey}
           sortDirectionAriaLabel="Toggle collection awakener sort direction"
@@ -288,13 +288,13 @@ export function CollectionPage() {
 
           {model.tab === 'awakeners' ? (
             <div className="mt-2 flex items-center justify-between gap-3 text-xs text-slate-300">
-              <span>Group By Faction</span>
+              <span>Group By Realm</span>
               <TogglePill
                 ariaLabel="Toggle grouping awakeners by faction"
-                checked={model.awakenerSortGroupByFaction}
+                checked={model.awakenerSortGroupByRealm}
                 className="ownership-pill-builder"
                 offLabel="Off"
-                onChange={model.setAwakenerSortGroupByFaction}
+                onChange={model.setAwakenerSortGroupByRealm}
                 onLabel="On"
                 variant="flat"
               />
@@ -306,9 +306,9 @@ export function CollectionPage() {
             onChange={(event) => model.setQuery(event.target.value)}
             placeholder={
               model.tab === 'awakeners'
-                ? 'Search awakeners (name, faction, aliases)'
+                ? 'Search awakeners (name, realm, faction, aliases)'
                 : model.tab === 'wheels'
-                  ? 'Search wheels (name, rarity, faction, awakener, main stat)'
+                  ? 'Search wheels (name, rarity, realm, awakener, main stat)'
                   : 'Search posses (name, realm, awakener)'
             }
             ref={searchInputRef}
@@ -564,7 +564,7 @@ export function CollectionPage() {
                       )}
                       <span
                         className="pointer-events-none absolute inset-0 z-10 border"
-                        style={{ borderColor: getFactionTint(awakener.faction) }}
+                        style={{ borderColor: getRealmTint(awakener.realm) }}
                       />
                       <p className="collection-card-title ui-title">
                         {formatAwakenerNameForUi(awakener.name)}
@@ -713,3 +713,8 @@ export function CollectionPage() {
     </section>
   )
 }
+
+
+
+
+

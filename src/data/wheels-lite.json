@@ -4,7 +4,7 @@
     "assetId": "Weapon_Full_B01",
     "name": "Merciful Nurturing",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "thais",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -13,7 +13,7 @@
     "assetId": "Weapon_Full_B02",
     "name": "Tablet of Scriptures",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "salvador",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -22,7 +22,7 @@
     "assetId": "Weapon_Full_B03",
     "name": "Winter's Requiem",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "aigis",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -31,7 +31,7 @@
     "assetId": "Weapon_Full_B04",
     "name": "By Rose Alone",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "sorel",
     "mainstatKey": "CRIT_RATE"
   },
@@ -40,7 +40,7 @@
     "assetId": "Weapon_Full_B05",
     "name": "Chains Unbound",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "helot",
     "mainstatKey": "DMG_AMP"
   },
@@ -49,7 +49,7 @@
     "assetId": "Weapon_Full_B05EX",
     "name": "Drowning in Crimson",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "helot: catena",
     "mainstatKey": "DMG_AMP"
   },
@@ -58,7 +58,7 @@
     "assetId": "Weapon_Full_B06",
     "name": "Pale Descendant",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "agrippa",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -67,7 +67,7 @@
     "assetId": "Weapon_Full_B07",
     "name": "Bloody Feast",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "uvhash",
     "mainstatKey": "CRIT_DMG"
   },
@@ -76,7 +76,7 @@
     "assetId": "Weapon_Full_B08",
     "name": "The Glutton's Tale",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "leigh",
     "mainstatKey": "REALM_MASTERY"
   },
@@ -85,7 +85,7 @@
     "assetId": "Weapon_Full_B09",
     "name": "Lullaby Devoured",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "faint",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -94,7 +94,7 @@
     "assetId": "Weapon_Full_B10",
     "name": "Kiss of Repose",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "doresain",
     "mainstatKey": "CRIT_DMG"
   },
@@ -103,7 +103,7 @@
     "assetId": "Weapon_Full_B12",
     "name": "Paradoxical Realism",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "pickman",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -112,7 +112,7 @@
     "assetId": "Weapon_Full_B14",
     "name": "Vain Regrets",
     "rarity": "SSR",
-    "faction": "CARO",
+    "realm": "CARO",
     "awakener": "Xu",
     "mainstatKey": "DMG_AMP"
   },
@@ -121,7 +121,7 @@
     "assetId": "Weapon_Full_C01",
     "name": "Rewinding Time",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "ramona",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -130,7 +130,7 @@
     "assetId": "Weapon_Full_C02",
     "name": "Deathless Ascent",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "doll",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -139,7 +139,7 @@
     "assetId": "Weapon_Full_C02EX",
     "name": "Manikin of Oblivion",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "doll: inferno",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -148,7 +148,7 @@
     "assetId": "Weapon_Full_C03",
     "name": "Heart of a Knight",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "ogier",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -157,7 +157,7 @@
     "assetId": "Weapon_Full_C04",
     "name": "Celestial Beast",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "lotan",
     "mainstatKey": "CRIT_DMG"
   },
@@ -166,7 +166,7 @@
     "assetId": "Weapon_Full_C05",
     "name": "Hour of Fortune",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "ryker",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -175,7 +175,7 @@
     "assetId": "Weapon_Full_C06",
     "name": "Aberrant Devour",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "24",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -184,7 +184,7 @@
     "assetId": "Weapon_Full_C07",
     "name": "Memory Spiral",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "nautila",
     "mainstatKey": "REALM_MASTERY"
   },
@@ -193,7 +193,7 @@
     "assetId": "Weapon_Full_C08",
     "name": "Gift of Decay",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "nymphaea",
     "mainstatKey": "DMG_AMP"
   },
@@ -202,7 +202,7 @@
     "assetId": "Weapon_Full_C09",
     "name": "Drifting in Desire",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "pandia",
     "mainstatKey": "CRIT_RATE"
   },
@@ -211,7 +211,7 @@
     "assetId": "Weapon_Full_C10",
     "name": "Grace Through Pain",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "lily",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -220,7 +220,7 @@
     "assetId": "Weapon_Full_C11",
     "name": "Will Unyielding",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "alva",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -229,7 +229,7 @@
     "assetId": "Weapon_Full_C12",
     "name": "Silent Banquet",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "karen",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -238,7 +238,7 @@
     "assetId": "Weapon_Full_C15",
     "name": "Wheel Unseen",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "tawil",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -247,7 +247,7 @@
     "assetId": "Weapon_Full_C16",
     "name": "Amber-Tinted Death",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "kathigu-ra",
     "mainstatKey": "CRIT_DMG"
   },
@@ -256,7 +256,7 @@
     "assetId": "Weapon_Full_C17",
     "name": "Doomsday Rampage",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "mouchette",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -265,7 +265,7 @@
     "assetId": "Weapon_Full_D01",
     "name": "Fouetté",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "liz",
     "mainstatKey": "CRIT_RATE"
   },
@@ -274,7 +274,7 @@
     "assetId": "Weapon_Full_D02",
     "name": "Treasured Rarity",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "daffodil",
     "mainstatKey": "CRIT_DMG"
   },
@@ -283,7 +283,7 @@
     "assetId": "Weapon_Full_D03",
     "name": "Song of the Bound",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "tinct",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -292,7 +292,7 @@
     "assetId": "Weapon_Full_D04",
     "name": "Queen's Edict",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "wanda",
     "mainstatKey": "DMG_AMP"
   },
@@ -301,7 +301,7 @@
     "assetId": "Weapon_Full_D05",
     "name": "Incalculable Factor",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "winkle",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -310,7 +310,7 @@
     "assetId": "Weapon_Full_D06",
     "name": "The Last Verse",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "horla",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -319,7 +319,7 @@
     "assetId": "Weapon_Full_D07",
     "name": "Path Forsaken",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "jenkins",
     "mainstatKey": "CRIT_RATE"
   },
@@ -328,7 +328,7 @@
     "assetId": "Weapon_Full_D08",
     "name": "Core Meltdown",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "erica",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -337,7 +337,7 @@
     "assetId": "Weapon_Full_D09",
     "name": "Happy Magic Show",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "casiah",
     "mainstatKey": "REALM_MASTERY"
   },
@@ -346,7 +346,7 @@
     "assetId": "Weapon_Full_D11",
     "name": "Unbearable Freedom",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "castor",
     "mainstatKey": "DMG_AMP"
   },
@@ -355,7 +355,7 @@
     "assetId": "Weapon_Full_D12",
     "name": "Eternal Requiem",
     "rarity": "SSR",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "awakener": "hameln",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -364,7 +364,7 @@
     "assetId": "Weapon_Full_D13",
     "name": "Veiled Anguish",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "clementine",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -373,7 +373,7 @@
     "assetId": "Weapon_Full_D14",
     "name": "Twisted Knight Ballad",
     "rarity": "SSR",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "awakener": "pollux",
     "mainstatKey": "CRIT_RATE"
   },
@@ -382,7 +382,7 @@
     "assetId": "Weapon_Full_JP01",
     "name": "Special Training",
     "rarity": "SSR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "CRIT_RATE"
   },
@@ -391,7 +391,7 @@
     "assetId": "Weapon_Full_JP02",
     "name": "School Day",
     "rarity": "SSR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -400,7 +400,7 @@
     "assetId": "Weapon_Full_JP03",
     "name": "Dear Papa Noel",
     "rarity": "SSR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -409,7 +409,7 @@
     "assetId": "Weapon_Full_JP04",
     "name": "Coutdown Moment",
     "rarity": "SSR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "thais",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -418,7 +418,7 @@
     "assetId": "Weapon_Full_N01",
     "name": "Unsent Flowers",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "ramona",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -427,7 +427,7 @@
     "assetId": "Weapon_Full_N02",
     "name": "Stepping Over the Muddy Roses",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "ramona: timeworn",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -436,7 +436,7 @@
     "assetId": "Weapon_Full_O01",
     "name": "Hymn of the Sovereign",
     "rarity": "SSR",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "awakener": "tulu",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -445,7 +445,7 @@
     "assetId": "Weapon_Full_O02",
     "name": "Shrouded Birth",
     "rarity": "SSR",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "awakener": "murphy",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -454,7 +454,7 @@
     "assetId": "Weapon_Full_O03",
     "name": "Amidst the Downpour",
     "rarity": "SSR",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "awakener": "faros",
     "mainstatKey": "DMG_AMP"
   },
@@ -463,7 +463,7 @@
     "assetId": "Weapon_Full_O04",
     "name": "Fin of Sorrow",
     "rarity": "SSR",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "awakener": "caecus",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -472,7 +472,7 @@
     "assetId": "Weapon_Full_O05",
     "name": "Dream of the Sea",
     "rarity": "SSR",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "awakener": "aurita",
     "mainstatKey": "CRIT_RATE"
   },
@@ -481,7 +481,7 @@
     "assetId": "Weapon_Full_O06",
     "name": "Blade of the Titan",
     "rarity": "SSR",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "awakener": "goliath",
     "mainstatKey": "CRIT_RATE"
   },
@@ -490,7 +490,7 @@
     "assetId": "Weapon_Full_O07",
     "name": "Power of the Pious",
     "rarity": "SSR",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "awakener": "miryam",
     "mainstatKey": "CRIT_DMG"
   },
@@ -499,7 +499,7 @@
     "assetId": "Weapon_Full_O08",
     "name": "Death of Ms. Coral",
     "rarity": "SSR",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "awakener": "sanga",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -508,7 +508,7 @@
     "assetId": "Weapon_Full_O09",
     "name": "Sail of Providence",
     "rarity": "SSR",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "awakener": "celeste",
     "mainstatKey": "REALM_MASTERY"
   },
@@ -517,7 +517,7 @@
     "assetId": "Weapon_Full_O10",
     "name": "Flamebound Navigator",
     "rarity": "SSR",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "awakener": "corposant",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -526,7 +526,7 @@
     "assetId": "Weapon_Full_O11",
     "name": "Uteri Somnia",
     "rarity": "SSR",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "awakener": "murphy: fauxborn",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -535,7 +535,7 @@
     "assetId": "Weapon_Full_P01",
     "name": "Gluttony",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -544,7 +544,7 @@
     "assetId": "Weapon_Full_P02",
     "name": "Frenzy",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -553,7 +553,7 @@
     "assetId": "Weapon_Full_P03",
     "name": "Favor",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "CRIT_RATE"
   },
@@ -562,7 +562,7 @@
     "assetId": "Weapon_Full_P04",
     "name": "Emerge",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -571,7 +571,7 @@
     "assetId": "Weapon_Full_P05",
     "name": "Delirium",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "DMG_AMP"
   },
@@ -580,7 +580,7 @@
     "assetId": "Weapon_Full_P06",
     "name": "Whisper",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -589,7 +589,7 @@
     "assetId": "Weapon_Full_P07",
     "name": "Hope",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "CRIT_RATE"
   },
@@ -598,7 +598,7 @@
     "assetId": "Weapon_Full_P08",
     "name": "Epiphany",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "REALM_MASTERY"
   },
@@ -607,7 +607,7 @@
     "assetId": "Weapon_Full_P09",
     "name": "Punishment",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -616,7 +616,7 @@
     "assetId": "Weapon_Full_P10",
     "name": "Blessing",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "DMG_AMP"
   },
@@ -625,7 +625,7 @@
     "assetId": "Weapon_Full_P11",
     "name": "Vitality",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -634,7 +634,7 @@
     "assetId": "Weapon_Full_P12",
     "name": "Exile",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "REALM_MASTERY"
   },
@@ -643,7 +643,7 @@
     "assetId": "Weapon_Full_P13",
     "name": "Suction",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "CRIT_DMG"
   },
@@ -652,7 +652,7 @@
     "assetId": "Weapon_Full_P14",
     "name": "Aged",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "CRIT_DMG"
   },
@@ -661,7 +661,7 @@
     "assetId": "Weapon_Full_P15",
     "name": "Greed",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -670,7 +670,7 @@
     "assetId": "Weapon_Full_P16",
     "name": "Insight",
     "rarity": "R",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -679,7 +679,7 @@
     "assetId": "Weapon_Full_SR01",
     "name": "Duty's Gravitas",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "REALM_MASTERY"
   },
@@ -688,7 +688,7 @@
     "assetId": "Weapon_Full_SR02",
     "name": "Elevated Focus",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -697,7 +697,7 @@
     "assetId": "Weapon_Full_SR03",
     "name": "Cursed Binding",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "DMG_AMP"
   },
@@ -706,7 +706,7 @@
     "assetId": "Weapon_Full_SR04",
     "name": "Sever and Scar",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "DMG_AMP"
   },
@@ -715,7 +715,7 @@
     "assetId": "Weapon_Full_SR05",
     "name": "Cloaked in the Night",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -724,7 +724,7 @@
     "assetId": "Weapon_Full_SR06",
     "name": "Adventurer's Pack",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -733,7 +733,7 @@
     "assetId": "Weapon_Full_SR07",
     "name": "Analysis of Death",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "CRIT_RATE"
   },
@@ -742,7 +742,7 @@
     "assetId": "Weapon_Full_SR08",
     "name": "To My Dearest Friend",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "CRIT_DMG"
   },
@@ -751,7 +751,7 @@
     "assetId": "Weapon_Full_SR09",
     "name": "Memory Syndrome",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -760,7 +760,7 @@
     "assetId": "Weapon_Full_SR10",
     "name": "Mind Barrier",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -769,7 +769,7 @@
     "assetId": "Weapon_Full_SR11",
     "name": "Critical Point",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "CRIT_DMG"
   },
@@ -778,7 +778,7 @@
     "assetId": "Weapon_Full_SR12",
     "name": "Nobleman's Staff",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -787,7 +787,7 @@
     "assetId": "Weapon_Full_SR13",
     "name": "Data is Flesh",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "REALM_MASTERY"
   },
@@ -796,7 +796,7 @@
     "assetId": "Weapon_Full_SR14",
     "name": "Moment of Reunion",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -805,7 +805,7 @@
     "assetId": "Weapon_Full_SR15",
     "name": "The Land of Nonexistence",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -814,7 +814,7 @@
     "assetId": "Weapon_Full_SR16",
     "name": "Hand of Oblivion",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "CRIT_RATE"
   },
@@ -823,7 +823,7 @@
     "assetId": "Weapon_Full_SR17",
     "name": "35mm Magic",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "lily",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -832,7 +832,7 @@
     "assetId": "Weapon_Full_SR18",
     "name": "Isarau's Gaze",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "wanda",
     "mainstatKey": "DMG_AMP"
   },
@@ -841,7 +841,7 @@
     "assetId": "Weapon_Full_SR19",
     "name": "Man in the Mirror",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "salvador",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -850,7 +850,7 @@
     "assetId": "Weapon_Full_SR20",
     "name": "Silver Cod's Determination",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "24",
     "mainstatKey": "CRIT_RATE"
   },
@@ -859,7 +859,7 @@
     "assetId": "Weapon_Full_SR21",
     "name": "Til the Snow Melts",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "helot: catena",
     "mainstatKey": "DMG_AMP"
   },
@@ -868,7 +868,7 @@
     "assetId": "Weapon_Full_SR22",
     "name": "Deep Sea's Call",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "miryam",
     "mainstatKey": "CRIT_DMG"
   },
@@ -877,7 +877,7 @@
     "assetId": "Weapon_Full_SR23",
     "name": "Kiss of Farewell",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "thais",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -886,7 +886,7 @@
     "assetId": "Weapon_Full_SR24",
     "name": "Poetic Bygone Days",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "horla",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -895,7 +895,7 @@
     "assetId": "Weapon_Full_SR25",
     "name": "Million Loving Gaze",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "sorel",
     "mainstatKey": "CRIT_RATE"
   },
@@ -904,7 +904,7 @@
     "assetId": "Weapon_Full_SR26",
     "name": "Slumber Beneath the Glacier",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "murphy",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -913,7 +913,7 @@
     "assetId": "Weapon_Full_SR27",
     "name": "Fate Roulette",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "ryker",
     "mainstatKey": "SIGIL_YIELD"
   },
@@ -922,7 +922,7 @@
     "assetId": "Weapon_Full_SR28",
     "name": "Gateway of Truth",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "tawil",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -931,7 +931,7 @@
     "assetId": "Weapon_Full_SR29",
     "name": "Never-Ending Performance",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "hameln",
     "mainstatKey": "CRIT_RATE"
   },
@@ -940,7 +940,7 @@
     "assetId": "Weapon_Full_SR30",
     "name": "Shepherd's Staff",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "doll: inferno",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -949,7 +949,7 @@
     "assetId": "Weapon_Full_SR31",
     "name": "Blue Stone Throne",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "tulu",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -958,7 +958,7 @@
     "assetId": "Weapon_Full_SR32",
     "name": "Hypnotic Pendulum",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "clementine",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -967,7 +967,7 @@
     "assetId": "Weapon_Full_SR33",
     "name": "Macabre Delicacies",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "doresain",
     "mainstatKey": "CRIT_DMG"
   },
@@ -976,7 +976,7 @@
     "assetId": "Weapon_Full_SR34",
     "name": "Witch's Wide-brimmed Hat",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "daffodil",
     "mainstatKey": "DMG_AMP"
   },
@@ -985,7 +985,7 @@
     "assetId": "Weapon_Full_SR35",
     "name": "Blue-RInged Toxin",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "murphy: fauxborn",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -994,7 +994,7 @@
     "assetId": "Weapon_Full_SR39",
     "name": "Lone Feather",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "castor",
     "mainstatKey": "DMG_AMP"
   },
@@ -1003,7 +1003,7 @@
     "assetId": "Weapon_Full_SR40",
     "name": "The Divus' Visage",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "pollux",
     "mainstatKey": "CRIT_RATE"
   },
@@ -1012,7 +1012,7 @@
     "assetId": "Weapon_Full_SR41",
     "name": "Navigator at Sea",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "corposant",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -1021,7 +1021,7 @@
     "assetId": "Weapon_Full_SR42",
     "name": "Thirsting Brush",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "pickman",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -1030,7 +1030,7 @@
     "assetId": "Weapon_Full_SR43",
     "name": "Impending Sun",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "kathigu-ra",
     "mainstatKey": "CRIT_DMG"
   },
@@ -1039,7 +1039,7 @@
     "assetId": "Weapon_Full_SR44",
     "name": "Light of Intellect",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "mouchette",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -1048,7 +1048,7 @@
     "assetId": "Weapon_Full_SR45",
     "name": "Magnolia's Lure",
     "rarity": "SR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "Xu",
     "mainstatKey": "DMG_AMP"
   },
@@ -1057,7 +1057,7 @@
     "assetId": "Weapon_Full_ZL01",
     "name": "Spring in Yakutsk",
     "rarity": "SSR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -1066,7 +1066,7 @@
     "assetId": "Weapon_Full_ZL02",
     "name": "Sunfall",
     "rarity": "SSR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "DMG_AMP"
   },
@@ -1075,7 +1075,7 @@
     "assetId": "Weapon_Full_ZL03",
     "name": "Birth of a Soul",
     "rarity": "SSR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "REALM_MASTERY"
   },
@@ -1084,7 +1084,7 @@
     "assetId": "Weapon_Full_ZL04",
     "name": "Dusk and Dawn",
     "rarity": "SSR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "DEATH_RESISTANCE"
   },
@@ -1093,7 +1093,7 @@
     "assetId": "Weapon_Full_ZL05",
     "name": "Heart of Silver",
     "rarity": "SSR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "KEYFLARE_REGEN"
   },
@@ -1102,7 +1102,7 @@
     "assetId": "Weapon_Full_ZL06",
     "name": "Annihilated Rebirth",
     "rarity": "SSR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "ALIEMUS_REGEN"
   },
@@ -1111,7 +1111,7 @@
     "assetId": "Weapon_Full_ZL07",
     "name": "We Will Meet Again",
     "rarity": "SSR",
-    "faction": "NEUTRAL",
+    "realm": "NEUTRAL",
     "awakener": "",
     "mainstatKey": "REALM_MASTERY"
   }

@@ -3,7 +3,7 @@ import { OwnedAssetBoxExport, type OwnedAssetBoxEntry } from './OwnedAssetBoxExp
 export type OwnedAwakenerBoxEntry = {
   name: string
   displayName: string
-  faction: string
+  realm: string
   rarity?: string
   index: number
   level: number
@@ -20,7 +20,7 @@ export function OwnedAwakenerBoxExport({ entries, onStatusMessage }: OwnedAwaken
   const normalizedEntries: OwnedAssetBoxEntry<string>[] = entries.map((entry) => ({
     id: entry.name,
     label: entry.displayName,
-    faction: entry.faction,
+    realm: entry.realm,
     rarity: entry.rarity,
     sortIndex: entry.index,
     level: entry.level,

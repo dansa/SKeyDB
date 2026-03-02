@@ -5,13 +5,13 @@ import type { Awakener } from '../../domain/awakeners'
 import type { ActiveSelection, TeamSlot } from './types'
 
 const awakenerByName = new Map<string, Awakener>([
-  ['Goliath', { id: 1, name: 'Goliath', faction: 'AEQUOR', aliases: ['Goliath'] }],
-  ['Ramona', { id: 2, name: 'Ramona', faction: 'CHAOS', aliases: ['Ramona'] }],
+  ['Goliath', { id: 1, name: 'Goliath', faction: 'Among the Stars', realm: 'AEQUOR', aliases: ['Goliath'] }],
+  ['Ramona', { id: 2, name: 'Ramona', faction: 'The Fools', realm: 'CHAOS', aliases: ['Ramona'] }],
 ])
 
 function buildSlots(): TeamSlot[] {
   return [
-    { slotId: 'slot-1', awakenerName: 'Goliath', faction: 'AEQUOR', level: 60, wheels: [null, null] },
+    { slotId: 'slot-1', awakenerName: 'Goliath', realm: 'AEQUOR', level: 60, wheels: [null, null] },
     { slotId: 'slot-2', wheels: [null, null] },
   ]
 }
@@ -116,7 +116,7 @@ describe('useBuilderAwakenerActions', () => {
   it('click assignment respects active awakener target slot', () => {
     const { actions, setActiveTeamSlots } = createHook({
       teamSlots: [
-        { slotId: 'slot-1', awakenerName: 'Goliath', faction: 'AEQUOR', level: 60, wheels: [null, null] },
+        { slotId: 'slot-1', awakenerName: 'Goliath', realm: 'AEQUOR', level: 60, wheels: [null, null] },
         { slotId: 'slot-2', wheels: [null, null] },
       ],
       resolvedActiveSelection: { kind: 'awakener', slotId: 'slot-2' },
@@ -133,7 +133,7 @@ describe('useBuilderAwakenerActions', () => {
   it('allows same-identity assignment without transfer when dupes are enabled', () => {
     const { actions, requestAwakenerTransfer, setActiveTeamSlots } = createHook({
       teamSlots: [
-        { slotId: 'slot-1', awakenerName: 'Goliath', faction: 'AEQUOR', level: 60, wheels: [null, null] },
+        { slotId: 'slot-1', awakenerName: 'Goliath', realm: 'AEQUOR', level: 60, wheels: [null, null] },
         { slotId: 'slot-2', wheels: [null, null] },
       ],
       usedAwakenerByIdentityKey: new Map([['goliath', 'team-2']]),

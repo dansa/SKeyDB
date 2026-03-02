@@ -19,10 +19,10 @@ type PersistedBuilderEnvelope = {
   payload: BuilderDraftPayload
 }
 
-const VALID_FACTIONS = new Set(['AEQUOR', 'CARO', 'CHAOS', 'ULTRA'])
+const VALID_REALMS = new Set(['AEQUOR', 'CARO', 'CHAOS', 'ULTRA', 'NEUTRAL', 'OTHER'])
 
-function isFaction(value: unknown): boolean {
-  return typeof value === 'string' && VALID_FACTIONS.has(value)
+function isRealm(value: unknown): boolean {
+  return typeof value === 'string' && VALID_REALMS.has(value)
 }
 
 function isOptionalString(value: unknown): boolean {
@@ -70,13 +70,15 @@ function isSlot(value: unknown): value is TeamSlot {
   if (!isOptionalFiniteInteger(record.level)) {
     return false
   }
-  if (record.faction !== undefined && !isFaction(record.faction)) {
+  const realmCandidate = record.realm ?? record.faction
+  if (realmCandidate !== undefined && !isRealm(realmCandidate)) {
     return false
   }
 
   const hasAwakener = typeof record.awakenerName === 'string' && record.awakenerName.trim().length > 0
   if (!hasAwakener) {
     const hasMetadata =
+      record.realm !== undefined ||
       record.faction !== undefined ||
       record.level !== undefined ||
       record.covenantId !== undefined ||
@@ -87,7 +89,7 @@ function isSlot(value: unknown): value is TeamSlot {
     }
     return true
   }
-  if (!isFaction(record.faction)) {
+  if (!isRealm(realmCandidate)) {
     return false
   }
 
@@ -144,7 +146,30 @@ function normalizeDraft(payload: BuilderDraftPayload): BuilderDraftPayload | nul
   if (!payload.teams.some((team) => team.id === payload.activeTeamId)) {
     return null
   }
-  return payload
+  return {
+    ...payload,
+    teams: payload.teams.map((team) => ({
+      ...team,
+      slots: team.slots.map((slot) => {
+        const realm = slot.realm ?? ((slot as TeamSlot & { faction?: string }).faction as TeamSlot['realm'] | undefined)
+        if (slot.awakenerName) {
+          return {
+            ...slot,
+            realm,
+          }
+        }
+        return {
+          slotId: slot.slotId,
+          awakenerName: undefined,
+          realm: undefined,
+          level: undefined,
+          isSupport: undefined,
+          wheels: [null, null] as [null, null],
+          covenantId: undefined,
+        }
+      }),
+    })),
+  }
 }
 
 export function loadBuilderDraft(storage: StorageLike | null): BuilderDraftPayload | null {

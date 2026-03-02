@@ -6,7 +6,7 @@ const rawPossesSchema = z.array(
     id: z.string().trim().min(1),
     index: z.number().int().nonnegative(),
     name: z.string().trim().min(1),
-    faction: z.string().trim().min(1),
+    realm: z.string().trim().min(1),
     isFadedLegacy: z.boolean(),
     awakenerName: z.string().trim().min(1).optional(),
   }),
@@ -16,7 +16,7 @@ export type Posse = {
   id: string
   index: number
   name: string
-  faction: string
+  realm: string
   isFadedLegacy: boolean
   awakenerName?: string
 }

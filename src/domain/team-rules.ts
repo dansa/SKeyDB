@@ -1,6 +1,6 @@
 export type TeamMember = {
   awakenerId: string
-  faction: string
+  realm: string
   wheelIds: string[]
   isSupport?: boolean
 }
@@ -13,7 +13,7 @@ export type TeamPlan = {
 
 export type RuleViolationCode =
   | 'TEAM_COUNT_EXCEEDED'
-  | 'TOO_MANY_FACTIONS_IN_TEAM'
+  | 'TOO_MANY_REALMS_IN_TEAM'
   | 'DUPLICATE_AWAKENER'
   | 'DUPLICATE_WHEEL'
   | 'DUPLICATE_POSSE'
@@ -28,7 +28,7 @@ export type RuleViolation = {
 
 export type TeamRulesConfig = {
   maxTeams: number
-  maxFactionsPerTeam: number
+  maxRealmsPerTeam: number
   enforceUniqueAwakeners: boolean
   enforceUniqueWheels: boolean
   enforceUniquePosses: boolean
@@ -36,23 +36,23 @@ export type TeamRulesConfig = {
 
 export const DEFAULT_TEAM_RULES_CONFIG: TeamRulesConfig = {
   maxTeams: 10,
-  maxFactionsPerTeam: 2,
+  maxRealmsPerTeam: 2,
   enforceUniqueAwakeners: true,
   enforceUniqueWheels: true,
   enforceUniquePosses: true,
 }
 
-export function getDistinctFactionsForTeam(
-  members: Array<Pick<TeamMember, 'faction'>>,
+export function getDistinctRealmsForTeam(
+  members: Array<Pick<TeamMember, 'realm'>>,
 ): Set<string> {
-  return new Set(members.map((member) => member.faction.trim().toUpperCase()).filter(Boolean))
+  return new Set(members.map((member) => member.realm.trim().toUpperCase()).filter(Boolean))
 }
 
-export function exceedsFactionLimitForTeam(
-  members: Array<Pick<TeamMember, 'faction'>>,
-  maxFactionsPerTeam: number,
+export function exceedsRealmLimitForTeam(
+  members: Array<Pick<TeamMember, 'realm'>>,
+  maxRealmsPerTeam: number,
 ): boolean {
-  return getDistinctFactionsForTeam(members).size > maxFactionsPerTeam
+  return getDistinctRealmsForTeam(members).size > maxRealmsPerTeam
 }
 
 export function validateTeamPlan(
@@ -88,11 +88,11 @@ export function validateTeamPlan(
       }
     }
 
-    const factionsInTeam = getDistinctFactionsForTeam(team.members)
-    if (factionsInTeam.size > settings.maxFactionsPerTeam) {
+    const realmsInTeam = getDistinctRealmsForTeam(team.members)
+    if (realmsInTeam.size > settings.maxRealmsPerTeam) {
       violations.push({
-        code: 'TOO_MANY_FACTIONS_IN_TEAM',
-        message: `Team ${team.id} has ${factionsInTeam.size} factions, max is ${settings.maxFactionsPerTeam}.`,
+        code: 'TOO_MANY_REALMS_IN_TEAM',
+        message: `Team ${team.id} has ${realmsInTeam.size} realms, max is ${settings.maxRealmsPerTeam}.`,
         teamId: team.id,
       })
     }

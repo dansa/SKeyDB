@@ -142,7 +142,7 @@ export function isTeamEmpty(team: Team | undefined): boolean {
   return team.slots.every(
     (slot) =>
       !slot.awakenerName &&
-      !slot.faction &&
+      !slot.realm &&
       !slot.level &&
       !slot.covenantId &&
       slot.wheels[0] === null &&

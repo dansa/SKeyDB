@@ -14,7 +14,7 @@ describe('OwnedAwakenerBoxExport', () => {
           {
             name: 'ramona',
             displayName: 'Ramona',
-            faction: 'CHAOS',
+            realm: 'CHAOS',
             index: 2,
             level: 4,
             awakenerLevel: 72,
@@ -40,7 +40,7 @@ describe('OwnedAwakenerBoxExport', () => {
           {
             name: 'ramona',
             displayName: 'Ramona',
-            faction: 'CHAOS',
+            realm: 'CHAOS',
             index: 2,
             level: 2,
             awakenerLevel: 60,
@@ -49,7 +49,7 @@ describe('OwnedAwakenerBoxExport', () => {
           {
             name: 'aurita',
             displayName: 'Aurita',
-            faction: 'AEQUOR',
+            realm: 'AEQUOR',
             index: 1,
             level: 7,
             awakenerLevel: 60,
@@ -58,7 +58,7 @@ describe('OwnedAwakenerBoxExport', () => {
           {
             name: 'ogier',
             displayName: 'Ogier',
-            faction: 'CHAOS',
+            realm: 'CHAOS',
             index: 3,
             level: 5,
             awakenerLevel: 60,
@@ -72,7 +72,7 @@ describe('OwnedAwakenerBoxExport', () => {
     fireEvent.click(screen.getByRole('button', { name: /export box as png/i }))
 
     fireEvent.change(screen.getByLabelText(/sort by/i), { target: { value: 'LEVEL' } })
-    fireEvent.click(screen.getByLabelText(/group by faction/i))
+    fireEvent.click(screen.getByLabelText(/Group By Realm/i))
 
     const sortSelect = screen.getByLabelText(/sort by/i)
     expect(sortSelect.textContent).toContain('Rarity')
@@ -90,7 +90,7 @@ describe('OwnedAwakenerBoxExport', () => {
           {
             name: 'ramona',
             displayName: 'Ramona',
-            faction: 'CHAOS',
+            realm: 'CHAOS',
             index: 2,
             level: 2,
             awakenerLevel: 60,
@@ -99,7 +99,7 @@ describe('OwnedAwakenerBoxExport', () => {
           {
             name: 'aurita',
             displayName: 'Aurita',
-            faction: 'AEQUOR',
+            realm: 'AEQUOR',
             index: 1,
             level: 7,
             awakenerLevel: 60,
@@ -126,7 +126,7 @@ describe('OwnedAwakenerBoxExport', () => {
           {
             name: 'gen',
             displayName: 'Genesis Unit',
-            faction: 'AEQUOR',
+            realm: 'AEQUOR',
             index: 1,
             level: 0,
             awakenerLevel: 60,
@@ -136,7 +136,7 @@ describe('OwnedAwakenerBoxExport', () => {
           {
             name: 'ssr',
             displayName: 'SSR Unit',
-            faction: 'CHAOS',
+            realm: 'CHAOS',
             index: 2,
             level: 0,
             awakenerLevel: 60,
@@ -146,7 +146,7 @@ describe('OwnedAwakenerBoxExport', () => {
           {
             name: 'sr',
             displayName: 'SR Unit',
-            faction: 'CARO',
+            realm: 'CARO',
             index: 3,
             level: 0,
             awakenerLevel: 60,
@@ -177,7 +177,7 @@ describe('OwnedAwakenerBoxExport', () => {
       JSON.stringify({
         key: 'RARITY',
         direction: 'ASC',
-        groupByFaction: true,
+        groupByRealm: true,
       }),
     )
 
@@ -187,7 +187,7 @@ describe('OwnedAwakenerBoxExport', () => {
           {
             name: 'aurita',
             displayName: 'Aurita',
-            faction: 'AEQUOR',
+            realm: 'AEQUOR',
             rarity: 'SSR',
             index: 1,
             level: 1,
@@ -203,6 +203,8 @@ describe('OwnedAwakenerBoxExport', () => {
 
     expect(screen.getByRole('combobox', { name: /sort by/i })).toHaveValue('RARITY')
     expect(screen.getByRole('button', { name: /toggle sort direction/i })).toHaveTextContent('Low')
-    expect(screen.getByRole('button', { name: /group by faction/i })).toHaveTextContent('On')
+    expect(screen.getByLabelText(/Group By Realm/i)).toHaveTextContent('On')
   })
 })
+
+

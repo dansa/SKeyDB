@@ -6,7 +6,7 @@ const WHEEL_RARITY_ORDER: Record<Wheel['rarity'], number> = {
   R: 2,
 }
 
-const WHEEL_FACTION_ORDER: Record<Wheel['faction'], number> = {
+const WHEEL_REALM_ORDER: Record<Wheel['realm'], number> = {
   CHAOS: 0,
   AEQUOR: 1,
   CARO: 2,
@@ -20,9 +20,9 @@ export function compareWheelsForUi(left: Wheel, right: Wheel): number {
     return rarityOrderDiff
   }
 
-  const factionOrderDiff = WHEEL_FACTION_ORDER[left.faction] - WHEEL_FACTION_ORDER[right.faction]
-  if (factionOrderDiff !== 0) {
-    return factionOrderDiff
+  const realmOrderDiff = WHEEL_REALM_ORDER[left.realm] - WHEEL_REALM_ORDER[right.realm]
+  if (realmOrderDiff !== 0) {
+    return realmOrderDiff
   }
 
   return left.id.localeCompare(right.id, undefined, { numeric: true, sensitivity: 'base' })

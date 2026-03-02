@@ -12,7 +12,7 @@ describe('getWheels', () => {
       assetId: expect.any(String),
       name: expect.any(String),
       rarity: expect.stringMatching(/^(SSR|SR|R)$/),
-      faction: expect.stringMatching(/^(AEQUOR|CARO|CHAOS|ULTRA|NEUTRAL)$/),
+      realm: expect.stringMatching(/^(AEQUOR|CARO|CHAOS|ULTRA|NEUTRAL|OTHER)$/),
       awakener: expect.any(String),
       mainstatKey: expect.any(String),
     })
@@ -39,13 +39,13 @@ describe('getWheels', () => {
     const p01 = wheels.find((wheel) => wheel.id === 'P01')
     const jp01 = wheels.find((wheel) => wheel.id === 'JP01')
 
-    expect(d12?.faction).toBe('CHAOS')
+    expect(d12?.realm).toBe('CHAOS')
     expect(sr01?.rarity).toBe('SR')
-    expect(sr01?.faction).toBe('NEUTRAL')
+    expect(sr01?.realm).toBe('NEUTRAL')
     expect(p01?.rarity).toBe('R')
-    expect(p01?.faction).toBe('NEUTRAL')
+    expect(p01?.realm).toBe('NEUTRAL')
     expect(jp01?.rarity).toBe('SSR')
-    expect(jp01?.faction).toBe('NEUTRAL')
+    expect(jp01?.realm).toBe('NEUTRAL')
   })
 
   it('keeps wheel mainstats linked to canonical mainstat keys', () => {

@@ -7,25 +7,25 @@ function buildValidPlan(): TeamPlan[] {
       id: 'team-1',
       posseId: 'posse-a',
       members: [
-        { awakenerId: 'agrippa', faction: 'CARO', wheelIds: ['w1', 'w2'] },
-        { awakenerId: 'helot: catena', faction: 'CARO', wheelIds: ['w3', 'w4'] },
-        { awakenerId: 'tulu', faction: 'AEQUOR', wheelIds: ['w5', 'w6'] },
-        { awakenerId: 'miryam', faction: 'AEQUOR', wheelIds: ['w7', 'w8'] },
+        { awakenerId: 'agrippa', realm: 'CARO', wheelIds: ['w1', 'w2'] },
+        { awakenerId: 'helot: catena', realm: 'CARO', wheelIds: ['w3', 'w4'] },
+        { awakenerId: 'tulu', realm: 'AEQUOR', wheelIds: ['w5', 'w6'] },
+        { awakenerId: 'miryam', realm: 'AEQUOR', wheelIds: ['w7', 'w8'] },
       ],
     },
     {
       id: 'team-2',
       posseId: 'posse-b',
       members: [
-        { awakenerId: 'goliath', faction: 'AEQUOR', wheelIds: ['w9', 'w10'] },
-        { awakenerId: 'ramona: timeworn', faction: 'CHAOS', wheelIds: ['w11', 'w12'] },
+        { awakenerId: 'goliath', realm: 'AEQUOR', wheelIds: ['w9', 'w10'] },
+        { awakenerId: 'ramona: timeworn', realm: 'CHAOS', wheelIds: ['w11', 'w12'] },
       ],
     },
   ]
 }
 
 describe('validateTeamPlan', () => {
-  it('accepts a plan with <= 10 teams, unique awakeners/wheels, and <= 2 factions per team', () => {
+  it('accepts a plan with <= 10 teams, unique awakeners/wheels, and <= 2 realms per team', () => {
     const result = validateTeamPlan(buildValidPlan())
     expect(result.isValid).toBe(true)
     expect(result.violations).toHaveLength(0)
@@ -42,19 +42,19 @@ describe('validateTeamPlan', () => {
     expect(result.violations.some((v) => v.code === 'TEAM_COUNT_EXCEEDED')).toBe(true)
   })
 
-  it('rejects teams with more than 2 factions', () => {
+  it('rejects teams with more than 2 realms', () => {
     const plan = buildValidPlan()
-    plan[0].members.push({ awakenerId: 'wanda', faction: 'ULTRA', wheelIds: ['w13', 'w14'] })
+    plan[0].members.push({ awakenerId: 'wanda', realm: 'ULTRA', wheelIds: ['w13', 'w14'] })
 
     const result = validateTeamPlan(plan)
 
     expect(result.isValid).toBe(false)
-    expect(result.violations.some((v) => v.code === 'TOO_MANY_FACTIONS_IN_TEAM')).toBe(true)
+    expect(result.violations.some((v) => v.code === 'TOO_MANY_REALMS_IN_TEAM')).toBe(true)
   })
 
   it('rejects duplicate awakeners across teams', () => {
     const plan = buildValidPlan()
-    plan[1].members.push({ awakenerId: 'agrippa', faction: 'CARO', wheelIds: ['w15', 'w16'] })
+    plan[1].members.push({ awakenerId: 'agrippa', realm: 'CARO', wheelIds: ['w15', 'w16'] })
 
     const result = validateTeamPlan(plan)
 
@@ -66,7 +66,7 @@ describe('validateTeamPlan', () => {
 
   it('rejects duplicate wheels across all teams', () => {
     const plan = buildValidPlan()
-    plan[1].members.push({ awakenerId: 'casiah', faction: 'ULTRA', wheelIds: ['w2', 'w17'] })
+    plan[1].members.push({ awakenerId: 'casiah', realm: 'ULTRA', wheelIds: ['w2', 'w17'] })
 
     const result = validateTeamPlan(plan)
 
@@ -86,9 +86,9 @@ describe('validateTeamPlan', () => {
     )
   })
 
-  it('can ignore duplicate violations while still enforcing faction limits', () => {
+  it('can ignore duplicate violations while still enforcing realm limits', () => {
     const plan = buildValidPlan()
-    plan[1].members.push({ awakenerId: 'agrippa', faction: 'CHAOS', wheelIds: ['w2', 'w17'] })
+    plan[1].members.push({ awakenerId: 'agrippa', realm: 'CHAOS', wheelIds: ['w2', 'w17'] })
     plan[1].posseId = 'posse-a'
 
     const result = validateTeamPlan(plan, {
@@ -105,7 +105,7 @@ describe('validateTeamPlan', () => {
     const plan = buildValidPlan()
     plan[1].members.push({
       awakenerId: 'agrippa',
-      faction: 'CHAOS',
+      realm: 'CHAOS',
       wheelIds: ['w2', 'w17'],
       isSupport: true,
     })
@@ -137,7 +137,7 @@ describe('validateTeamPlan', () => {
     const plan = buildValidPlan()
     plan[0].members.push({
       awakenerId: 'agrippa',
-      faction: 'CARO',
+      realm: 'CARO',
       wheelIds: ['w15', 'w16'],
       isSupport: true,
     })

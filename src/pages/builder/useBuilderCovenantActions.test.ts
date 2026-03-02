@@ -8,7 +8,7 @@ function buildSlots(): TeamSlot[] {
     {
       slotId: 'slot-1',
       awakenerName: 'goliath',
-      faction: 'AEQUOR',
+      realm: 'AEQUOR',
       level: 60,
       wheels: [null, null],
       covenantId: '001',
@@ -16,7 +16,7 @@ function buildSlots(): TeamSlot[] {
     {
       slotId: 'slot-2',
       awakenerName: 'miryam',
-      faction: 'CHAOS',
+      realm: 'CHAOS',
       level: 60,
       wheels: [null, null],
     },
@@ -74,7 +74,7 @@ describe('useBuilderCovenantActions', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: [null, null],
           covenantId: '001',
@@ -82,7 +82,7 @@ describe('useBuilderCovenantActions', () => {
         {
           slotId: 'slot-2',
           awakenerName: 'miryam',
-          faction: 'CHAOS',
+          realm: 'CHAOS',
           level: 60,
           wheels: [null, null],
           covenantId: '002',

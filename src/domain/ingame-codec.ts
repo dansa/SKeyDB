@@ -153,7 +153,7 @@ export function decodeIngameTeamCode(code: string): DecodedIngameTeamCode {
     slots[slotIndex] = {
       ...slots[slotIndex],
       awakenerName: awakener.name,
-      faction: awakener.faction,
+      realm: awakener.realm,
       level: 60,
     }
     cursor += token.length

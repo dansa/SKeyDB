@@ -7,16 +7,16 @@ import { TogglePill } from './TogglePill'
 type CollectionSortControlsProps = {
   sortKey: AwakenerSortKey
   sortDirection: CollectionSortDirection
-  groupByFaction: boolean
+  groupByRealm: boolean
   onSortKeyChange: (nextKey: AwakenerSortKey) => void
   onSortDirectionToggle: () => void
-  onGroupByFactionChange: (nextGroupByFaction: boolean) => void
+  onGroupByRealmChange: (nextGroupByRealm: boolean) => void
   sortOptions?: readonly AwakenerSortKey[]
-  showGroupByFaction?: boolean
+  showGroupByRealm?: boolean
   headingText?: string
   sortSelectAriaLabel?: string
   sortDirectionAriaLabel?: string
-  groupByFactionAriaLabel?: string
+  groupByRealmAriaLabel?: string
   layout?: 'stacked' | 'compact'
   compactTrailingAction?: ReactNode
   className?: string
@@ -40,16 +40,16 @@ function getSortLabel(sortKey: AwakenerSortKey): string {
 export function CollectionSortControls({
   sortKey,
   sortDirection,
-  groupByFaction,
+  groupByRealm,
   onSortKeyChange,
   onSortDirectionToggle,
-  onGroupByFactionChange,
+  onGroupByRealmChange,
   sortOptions = defaultSortOptions,
-  showGroupByFaction = true,
+  showGroupByRealm = true,
   headingText = 'Sort',
   sortSelectAriaLabel = 'Sort by',
   sortDirectionAriaLabel = 'Toggle sort direction',
-  groupByFactionAriaLabel = 'Toggle grouping by faction',
+  groupByRealmAriaLabel = 'Toggle grouping by realm',
   layout = 'stacked',
   compactTrailingAction,
   className,
@@ -95,15 +95,15 @@ export function CollectionSortControls({
           </Button>
           {isCompact ? compactTrailingAction : null}
         </div>
-        {showGroupByFaction ? (
+        {showGroupByRealm ? (
           <div className="flex items-center justify-between gap-2">
-            <span className="text-[10px] uppercase tracking-wide text-slate-400">Group By Faction</span>
+            <span className="text-[10px] uppercase tracking-wide text-slate-400">Group By Realm</span>
             <TogglePill
-              ariaLabel={groupByFactionAriaLabel}
-              checked={groupByFaction}
+              ariaLabel={groupByRealmAriaLabel}
+              checked={groupByRealm}
               className="ownership-pill-builder"
               offLabel="Off"
-              onChange={onGroupByFactionChange}
+              onChange={onGroupByRealmChange}
               onLabel="On"
               variant="flat"
             />
@@ -113,3 +113,7 @@ export function CollectionSortControls({
     </div>
   )
 }
+
+
+
+

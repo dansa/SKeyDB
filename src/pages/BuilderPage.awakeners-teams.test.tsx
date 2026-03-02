@@ -464,7 +464,7 @@ describe('BuilderPage awakeners and teams', () => {
     expect(screen.getByText(/step 1 \/ 17: awakener 1/i)).toBeInTheDocument()
   })
 
-  it('blocks locked awakener move by faction cap before showing move confirmation', async () => {
+  it('blocks locked awakener move by realm cap before showing move confirmation', async () => {
     const { container } = render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
@@ -479,7 +479,7 @@ describe('BuilderPage awakeners and teams', () => {
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
 
     expect(screen.queryByRole('dialog', { name: /move goliath/i })).not.toBeInTheDocument()
-    expect(screen.getByText(/invalid move: a team can only contain up to 2 factions/i)).toBeInTheDocument()
+    expect(screen.getByText(/invalid move: a team can only contain up to 2 realms/i)).toBeInTheDocument()
   })
 
   it('resets builder with confirmation and allows undo from the same action slot', async () => {

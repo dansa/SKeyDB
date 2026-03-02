@@ -8,27 +8,28 @@ export type SortableCollectionEntry = {
   enlighten: number
   level?: number
   rarity?: string
-  faction?: string
+  realm?: string
 }
 
 export type AwakenerSortConfig = {
   key: AwakenerSortKey
   direction: CollectionSortDirection
-  groupByFaction: boolean
+  groupByRealm: boolean
 }
 
 export const DEFAULT_AWAKENER_SORT_CONFIG: AwakenerSortConfig = {
   key: 'LEVEL',
   direction: 'DESC',
-  groupByFaction: false,
+  groupByRealm: false,
 }
 
-const factionPriorityByName: Record<string, number> = {
+const realmPriorityByName: Record<string, number> = {
   CHAOS: 0,
   AEQUOR: 1,
   CARO: 2,
   ULTRA: 3,
   NEUTRAL: 4,
+  OTHER: 5,
 }
 
 const rarityPriorityByName: Record<string, number> = {
@@ -58,9 +59,9 @@ function compareRarity(left: SortableCollectionEntry, right: SortableCollectionE
   return leftRank - rightRank
 }
 
-function compareFaction(left: SortableCollectionEntry, right: SortableCollectionEntry): number {
-  const leftRank = factionPriorityByName[left.faction?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
-  const rightRank = factionPriorityByName[right.faction?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
+function compareRealm(left: SortableCollectionEntry, right: SortableCollectionEntry): number {
+  const leftRank = realmPriorityByName[left.realm?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
+  const rightRank = realmPriorityByName[right.realm?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
   return leftRank - rightRank
 }
 
@@ -96,9 +97,9 @@ export function compareAwakenersForCollectionSort(
   right: SortableCollectionEntry,
   config: AwakenerSortConfig,
 ): number {
-  const withOptionalFaction = (
+  const withOptionalRealm = (
     comparators: Array<(left: SortableCollectionEntry, right: SortableCollectionEntry) => number>,
-  ) => (config.groupByFaction ? [...comparators, compareFaction] : comparators)
+  ) => (config.groupByRealm ? [...comparators, compareRealm] : comparators)
 
   if (config.key === 'ENLIGHTEN') {
     return compareByPriority(left, right, [
@@ -106,7 +107,7 @@ export function compareAwakenersForCollectionSort(
       (l, r) => compareNumber(l.enlighten, r.enlighten, config.direction),
       (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, 'DESC'),
       compareRarity,
-      ...withOptionalFaction([]),
+      ...withOptionalRealm([]),
       compareIndex,
       (l, r) => compareText(l.label, r.label, 'ASC'),
     ])
@@ -117,7 +118,7 @@ export function compareAwakenersForCollectionSort(
       compareOwnedFirst,
       (l, r) => (config.direction === 'DESC' ? compareRarity(l, r) : compareRarity(r, l)),
       (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, 'DESC'),
-      ...withOptionalFaction([]),
+      ...withOptionalRealm([]),
       (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
       compareIndex,
       (l, r) => compareText(l.label, r.label, 'ASC'),
@@ -130,7 +131,7 @@ export function compareAwakenersForCollectionSort(
       (l, r) => compareText(l.label, r.label, config.direction),
       (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, 'DESC'),
       compareRarity,
-      ...withOptionalFaction([]),
+      ...withOptionalRealm([]),
       (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
       compareIndex,
     ])
@@ -140,7 +141,7 @@ export function compareAwakenersForCollectionSort(
     compareOwnedFirst,
     (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, config.direction),
     compareRarity,
-    ...withOptionalFaction([]),
+    ...withOptionalRealm([]),
     (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
     compareIndex,
     (l, r) => compareText(l.label, r.label, 'ASC'),
@@ -154,7 +155,7 @@ export function compareWheelsForCollectionDefaultSort(
   return compareByPriority(left, right, [
     compareOwnedFirst,
     compareRarity,
-    compareFaction,
+    compareRealm,
     (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
     compareIndex,
     (l, r) => compareText(l.label, r.label, 'ASC'),
@@ -171,3 +172,5 @@ export function comparePossesForCollectionDefaultSort(
     (l, r) => compareText(l.label, r.label, 'ASC'),
   ])
 }
+
+

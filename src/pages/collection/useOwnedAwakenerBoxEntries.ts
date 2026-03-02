@@ -21,7 +21,7 @@ export function useOwnedAwakenerBoxEntries(
           {
             name: awakener.name,
             displayName: formatAwakenerNameForUi(awakener.name),
-            faction: awakener.faction,
+            realm: awakener.realm,
             rarity: awakener.rarity,
             index: awakener.id,
             level,

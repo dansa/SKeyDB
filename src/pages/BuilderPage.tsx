@@ -81,8 +81,8 @@ export function BuilderPage() {
     setAwakenerSortKey,
     awakenerSortDirection,
     toggleAwakenerSortDirection,
-    awakenerSortGroupByFaction,
-    setAwakenerSortGroupByFaction,
+    awakenerSortGroupByRealm,
+    setAwakenerSortGroupByRealm,
     setPickerSearchByTab,
     setActiveSelection,
     effectiveActiveTeamId,
@@ -97,7 +97,7 @@ export function BuilderPage() {
     filteredPosses,
     filteredWheels,
     filteredCovenants,
-    teamFactionSet,
+    teamRealmSet,
     usedAwakenerByIdentityKey,
     usedAwakenerIdentityKeys,
     hasSupportAwakener,
@@ -152,13 +152,13 @@ export function BuilderPage() {
   })
 
   function notifyViolation(violation: TeamStateViolationCode | undefined) {
-    if (violation !== 'TOO_MANY_FACTIONS_IN_TEAM') {
+    if (violation !== 'TOO_MANY_REALMS_IN_TEAM') {
       if (violation === 'INVALID_BUILD_RULES') {
         showToast('Invalid move: this would break duplicate or support team rules.')
       }
       return
     }
-    showToast('Invalid move: a team can only contain up to 2 factions.')
+    showToast('Invalid move: a team can only contain up to 2 realms.')
   }
 
   const {
@@ -663,7 +663,7 @@ export function BuilderPage() {
                 ownedWheelLevelById={ownedWheelLevelById}
                 predictedDropHover={predictedDropHover}
                 resolvedActiveSelection={resolvedActiveSelection}
-                teamFactions={teamFactionSet}
+                teamRealms={teamRealmSet}
                 teamSlots={teamSlots}
               />
             </TabbedContainer>
@@ -740,7 +740,7 @@ export function BuilderPage() {
             activeSearchQuery={activeSearchQuery}
             awakenerFilter={awakenerFilter}
             awakenerSortDirection={awakenerSortDirection}
-            awakenerSortGroupByFaction={awakenerSortGroupByFaction}
+            awakenerSortGroupByRealm={awakenerSortGroupByRealm}
             awakenerSortKey={awakenerSortKey}
             allowDupes={allowDupes}
             displayUnowned={displayUnowned}
@@ -756,7 +756,7 @@ export function BuilderPage() {
             }}
             onAwakenerFilterChange={setAwakenerFilter}
             onAwakenerSortDirectionToggle={toggleAwakenerSortDirection}
-            onAwakenerSortGroupByFactionChange={setAwakenerSortGroupByFaction}
+            onAwakenerSortGroupByRealmChange={setAwakenerSortGroupByRealm}
             onAwakenerSortKeyChange={setAwakenerSortKey}
             onAllowDupesChange={setAllowDupes}
             onPickerTabChange={setPickerTab}
@@ -812,7 +812,7 @@ export function BuilderPage() {
             wheelRarityFilter={wheelRarityFilter}
             wheelMainstatFilter={wheelMainstatFilter}
             searchInputRef={searchInputRef}
-            teamFactionSet={teamFactionSet}
+            teamRealmSet={teamRealmSet}
             teams={teams}
             usedAwakenerIdentityKeys={usedAwakenerIdentityKeys}
             usedPosseByTeamOrder={usedPosseByTeamOrder}
@@ -901,3 +901,6 @@ export function BuilderPage() {
     </DndContext>
   )
 }
+
+
+

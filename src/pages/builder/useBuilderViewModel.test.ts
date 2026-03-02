@@ -10,7 +10,7 @@ vi.mock('./useGlobalPickerSearchCapture', () => ({
   useGlobalPickerSearchCapture: vi.fn(),
 }))
 
-const BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
+const BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
 const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
 const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
 const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
@@ -20,7 +20,7 @@ describe('useBuilderViewModel', () => {
   beforeEach(() => {
     window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
     window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
-    window.localStorage.removeItem(BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY)
+    window.localStorage.removeItem(BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_KEY_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)
     window.localStorage.removeItem(BUILDER_DISPLAY_UNOWNED_KEY)
@@ -30,7 +30,7 @@ describe('useBuilderViewModel', () => {
   afterEach(() => {
     window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
     window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
-    window.localStorage.removeItem(BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY)
+    window.localStorage.removeItem(BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_KEY_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)
     window.localStorage.removeItem(BUILDER_DISPLAY_UNOWNED_KEY)
@@ -120,7 +120,7 @@ describe('useBuilderViewModel', () => {
       result.current.setActiveTeamSlots([
         ...result.current.teamSlots.map((slot, index) =>
           index === 0
-            ? { ...slot, awakenerName: 'Goliath', faction: 'AEQUOR', wheels: [null, null] as [string | null, string | null] }
+            ? { ...slot, awakenerName: 'Goliath', realm: 'AEQUOR', wheels: [null, null] as [string | null, string | null] }
             : slot,
         ),
       ])
@@ -151,7 +151,7 @@ describe('useBuilderViewModel', () => {
         {
           ...firstTeam,
           slots: firstTeam.slots.map((slot, index) =>
-            index === 0 ? { ...slot, awakenerName: 'Ramona', faction: 'CHAOS' } : slot,
+            index === 0 ? { ...slot, awakenerName: 'Ramona', realm: 'CHAOS' } : slot,
           ),
         },
         ...rest,
@@ -180,7 +180,7 @@ describe('useBuilderViewModel', () => {
       result.current.setPickerSearchByTab((prev) => ({ ...prev, wheels: 'ultra' }))
     })
     expect(result.current.filteredWheels.length).toBeGreaterThan(0)
-    expect(result.current.filteredWheels.every((wheel) => wheel.faction === 'ULTRA')).toBe(true)
+    expect(result.current.filteredWheels.every((wheel) => wheel.realm === 'ULTRA')).toBe(true)
 
     act(() => {
       result.current.setPickerSearchByTab((prev) => ({ ...prev, wheels: 'b01' }))
@@ -194,7 +194,7 @@ describe('useBuilderViewModel', () => {
     expect(result.current.filteredWheels.some((wheel) => wheel.awakener.toLowerCase() === 'helot: catena')).toBe(true)
   })
 
-  it('sorts wheels by rarity, then faction (Chaos first), then id', () => {
+  it('sorts wheels by rarity, then realm (Chaos first), then id', () => {
     const { result } = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
@@ -205,7 +205,7 @@ describe('useBuilderViewModel', () => {
     expect(wheels.length).toBeGreaterThan(0)
 
     const rarityOrder = { SSR: 0, SR: 1, R: 2 } as const
-    const factionOrder = { CHAOS: 0, AEQUOR: 1, CARO: 2, ULTRA: 3, NEUTRAL: 4 } as const
+    const realmOrder = { CHAOS: 0, AEQUOR: 1, CARO: 2, ULTRA: 3, NEUTRAL: 4 } as const
 
     for (let index = 1; index < wheels.length; index += 1) {
       const prev = wheels[index - 1]
@@ -217,10 +217,10 @@ describe('useBuilderViewModel', () => {
         continue
       }
 
-      const prevFaction = factionOrder[prev.faction]
-      const nextFaction = factionOrder[next.faction]
-      if (prevFaction !== nextFaction) {
-        expect(prevFaction).toBeLessThanOrEqual(nextFaction)
+      const prevRealm = realmOrder[prev.realm]
+      const nextRealm = realmOrder[next.realm]
+      if (prevRealm !== nextRealm) {
+        expect(prevRealm).toBeLessThanOrEqual(nextRealm)
         continue
       }
 
@@ -260,7 +260,7 @@ describe('useBuilderViewModel', () => {
         id: 'team-from-storage',
         name: 'Stored Team',
         slots: [
-          { slotId: 'slot-1', awakenerName: 'Goliath', faction: 'AEQUOR', level: 60, wheels: [null, null] as [string | null, string | null] },
+          { slotId: 'slot-1', awakenerName: 'Goliath', realm: 'AEQUOR', level: 60, wheels: [null, null] as [string | null, string | null] },
           { slotId: 'slot-2', wheels: [null, null] as [string | null, string | null] },
           { slotId: 'slot-3', wheels: [null, null] as [string | null, string | null] },
           { slotId: 'slot-4', wheels: [null, null] as [string | null, string | null] },
@@ -412,7 +412,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: ['wheel-a', null],
           covenantId: 'covenant-a',
@@ -506,7 +506,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: ['wheel-a', null],
         },
@@ -521,7 +521,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: ['wheel-a', null],
         },
@@ -560,7 +560,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: ['wheel-a', null],
         },
@@ -575,7 +575,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: ['wheel-a', null],
         },
@@ -614,7 +614,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: ['wheel-a', null],
         },
@@ -629,7 +629,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: ['wheel-a', null],
         },
@@ -667,7 +667,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: [null, null],
         },
@@ -703,7 +703,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: ['wheel-a', null],
         },
@@ -718,7 +718,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: ['wheel-a', null],
         },
@@ -752,7 +752,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: ['wheel-a', 'wheel-b'],
           covenantId: 'covenant-a',
@@ -778,7 +778,7 @@ describe('useBuilderViewModel', () => {
     expect(result.current.teamSlots[0]).toEqual({
       slotId: 'slot-1',
       awakenerName: 'Goliath',
-      faction: 'AEQUOR',
+      realm: 'AEQUOR',
       level: 60,
       wheels: ['wheel-a', 'wheel-b'],
       covenantId: 'covenant-a',
@@ -799,7 +799,7 @@ describe('useBuilderViewModel', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'Goliath',
-          faction: 'AEQUOR',
+          realm: 'AEQUOR',
           level: 60,
           wheels: [null, null],
         },
@@ -824,21 +824,21 @@ describe('useBuilderViewModel', () => {
 
     expect(result.current.awakenerSortKey).toBe('LEVEL')
     expect(result.current.awakenerSortDirection).toBe('DESC')
-    expect(result.current.awakenerSortGroupByFaction).toBe(true)
+    expect(result.current.awakenerSortGroupByRealm).toBe(true)
 
     act(() => {
       result.current.setAwakenerSortKey('RARITY')
       result.current.toggleAwakenerSortDirection()
-      result.current.setAwakenerSortGroupByFaction(true)
+      result.current.setAwakenerSortGroupByRealm(true)
     })
 
     expect(result.current.awakenerSortKey).toBe('RARITY')
     expect(result.current.awakenerSortDirection).toBe('ASC')
-    expect(result.current.awakenerSortGroupByFaction).toBe(true)
+    expect(result.current.awakenerSortGroupByRealm).toBe(true)
   })
 
   it('hydrates and persists builder awakener sort config', () => {
-    window.localStorage.setItem(BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY, '1')
+    window.localStorage.setItem(BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY, '1')
     window.localStorage.setItem(BUILDER_AWAKENER_SORT_KEY_KEY, 'RARITY')
     window.localStorage.setItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY, 'ASC')
 
@@ -850,17 +850,20 @@ describe('useBuilderViewModel', () => {
 
     expect(result.current.awakenerSortKey).toBe('RARITY')
     expect(result.current.awakenerSortDirection).toBe('ASC')
-    expect(result.current.awakenerSortGroupByFaction).toBe(true)
+    expect(result.current.awakenerSortGroupByRealm).toBe(true)
 
     act(() => {
       result.current.setAwakenerSortKey('LEVEL')
       result.current.toggleAwakenerSortDirection()
-      result.current.setAwakenerSortGroupByFaction(false)
+      result.current.setAwakenerSortGroupByRealm(false)
     })
 
     expect(window.localStorage.getItem(BUILDER_AWAKENER_SORT_KEY_KEY)).toBe('LEVEL')
     expect(window.localStorage.getItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)).toBe('DESC')
-    expect(window.localStorage.getItem(BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY)).toBe('0')
+    expect(window.localStorage.getItem(BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY)).toBe('0')
   })
 
 })
+
+
+

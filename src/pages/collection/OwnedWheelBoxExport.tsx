@@ -4,7 +4,7 @@ export type OwnedWheelBoxEntry = {
   id: string
   name: string
   rarity: 'SSR' | 'SR' | 'R'
-  faction: string
+  realm: string
   index: number
   level: number
   wheelAsset: string | null
@@ -35,7 +35,7 @@ export function OwnedWheelBoxExport({ entries, onStatusMessage }: OwnedWheelBoxE
       level: entry.level,
       asset: entry.wheelAsset,
       rarity: entry.rarity,
-      faction: entry.faction,
+      realm: entry.realm,
       sortIndex: entry.index,
     }),
   )

@@ -1,5 +1,5 @@
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
-import { DEFAULT_TEAM_RULES_CONFIG, exceedsFactionLimitForTeam } from '../../domain/team-rules'
+import { DEFAULT_TEAM_RULES_CONFIG, exceedsRealmLimitForTeam } from '../../domain/team-rules'
 import { awakenerByName } from './constants'
 import {
   assignAwakenerToFirstEmptySlot,
@@ -13,14 +13,14 @@ import { validateBuilderTeams } from './team-validation'
 import type { Team } from './types'
 import type { PendingTransfer } from './useTransferConfirm'
 
-function asFactionMembers(slots: Team['slots']) {
+function asRealmMembers(slots: Team['slots']) {
   return slots
-    .filter((slot) => slot.awakenerName && slot.faction)
-    .map((slot) => ({ faction: slot.faction! }))
+    .filter((slot) => slot.awakenerName && slot.realm)
+    .map((slot) => ({ realm: slot.realm! }))
 }
 
-function violatesFactionCap(slots: Team['slots']) {
-  return exceedsFactionLimitForTeam(asFactionMembers(slots), DEFAULT_TEAM_RULES_CONFIG.maxFactionsPerTeam)
+function violatesRealmCap(slots: Team['slots']) {
+  return exceedsRealmLimitForTeam(asRealmMembers(slots), DEFAULT_TEAM_RULES_CONFIG.maxRealmsPerTeam)
 }
 
 function withSupportSlot(slots: Team['slots'], supportSlotId: string): Team['slots'] {
@@ -177,7 +177,7 @@ export function applySupportTransfer(teams: Team[], pendingTransfer: PendingTran
     slot.slotId === supportSlotId ? { ...slot, level: 90 } : slot,
   )
 
-  if (violatesFactionCap(nextSupportSlots)) {
+  if (violatesRealmCap(nextSupportSlots)) {
     return teams
   }
 
@@ -224,7 +224,7 @@ export function swapTeamSlotTransfer(
       ? {
           ...slot,
           awakenerName: targetSlot.awakenerName,
-          faction: targetSlot.faction,
+          realm: targetSlot.realm,
           level: targetSlot.level,
           isSupport: targetSlot.isSupport,
           wheels: [...targetSlot.wheels] as [string | null, string | null],
@@ -237,7 +237,7 @@ export function swapTeamSlotTransfer(
       ? {
           ...slot,
           awakenerName: sourceSlot.awakenerName,
-          faction: sourceSlot.faction,
+          realm: sourceSlot.realm,
           level: sourceSlot.level,
           isSupport: sourceSlot.isSupport,
           wheels: [...sourceSlot.wheels] as [string | null, string | null],
@@ -246,10 +246,10 @@ export function swapTeamSlotTransfer(
       : slot,
   )
 
-  if (violatesFactionCap(nextSourceSlots) || violatesFactionCap(nextTargetSlots)) {
+  if (violatesRealmCap(nextSourceSlots) || violatesRealmCap(nextTargetSlots)) {
     return {
       nextTeams: teams,
-      violation: 'TOO_MANY_FACTIONS_IN_TEAM',
+      violation: 'TOO_MANY_REALMS_IN_TEAM',
     }
   }
 

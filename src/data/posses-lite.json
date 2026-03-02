@@ -2,7 +2,7 @@
   {
     "id": "encounter-in-pure-white",
     "name": "Encounter In Pure White",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": true,
     "awakenerName": "lily",
     "index": 1
@@ -10,14 +10,14 @@
   {
     "id": "voices-in-your-head",
     "name": "Voices In Your Head",
-    "faction": "OTHER",
+    "realm": "OTHER",
     "isFadedLegacy": true,
     "index": 2
   },
   {
     "id": "warded-injection",
     "name": "Warded Injection",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": true,
     "awakenerName": "lily",
     "index": 3
@@ -25,14 +25,14 @@
   {
     "id": "a-mouses-wisdom",
     "name": "A Mouses Wisdom",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "isFadedLegacy": true,
     "index": 4
   },
   {
     "id": "tiny-wish",
     "name": "Tiny Wish",
-    "faction": "CARO",
+    "realm": "CARO",
     "isFadedLegacy": true,
     "awakenerName": "aigis",
     "index": 5
@@ -40,7 +40,7 @@
   {
     "id": "obsession-eternal",
     "name": "Obsession Eternal",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "isFadedLegacy": true,
     "awakenerName": "miryam",
     "index": 6
@@ -48,14 +48,14 @@
   {
     "id": "unequal-exchange",
     "name": "Unequal Exchange",
-    "faction": "OTHER",
+    "realm": "OTHER",
     "isFadedLegacy": false,
     "index": 7
   },
   {
     "id": "funus-aeternum",
     "name": "Funus Aeternum",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "isFadedLegacy": true,
     "awakenerName": "murphy",
     "index": 8
@@ -63,7 +63,7 @@
   {
     "id": "the-final-vow",
     "name": "The Final Vow",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": false,
     "awakenerName": "ogier",
     "index": 9
@@ -71,7 +71,7 @@
   {
     "id": "auritas-treasure",
     "name": "Auritas Treasure",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "isFadedLegacy": false,
     "awakenerName": "aurita",
     "index": 10
@@ -79,7 +79,7 @@
   {
     "id": "roaring-blood-and-sand",
     "name": "Roaring Blood And Sand",
-    "faction": "CARO",
+    "realm": "CARO",
     "isFadedLegacy": false,
     "awakenerName": "uvhash",
     "index": 11
@@ -87,7 +87,7 @@
   {
     "id": "ephemeral-eternity",
     "name": "Ephemeral Eternity",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "isFadedLegacy": false,
     "awakenerName": "erica",
     "index": 12
@@ -95,7 +95,7 @@
   {
     "id": "feast-of-decay",
     "name": "Feast Of Decay",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "isFadedLegacy": false,
     "awakenerName": "wanda",
     "index": 13
@@ -103,7 +103,7 @@
   {
     "id": "bone-chilling-embrace",
     "name": "Bone Chilling Embrace",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "isFadedLegacy": false,
     "awakenerName": "sanga",
     "index": 14
@@ -111,7 +111,7 @@
   {
     "id": "lakeside-glimpse",
     "name": "Lakeside Glimpse",
-    "faction": "CARO",
+    "realm": "CARO",
     "isFadedLegacy": false,
     "awakenerName": "agrippa",
     "index": 15
@@ -119,7 +119,7 @@
   {
     "id": "gateway-of-retrospection",
     "name": "Gateway Of Retrospection",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": false,
     "awakenerName": "ramona: timeworn",
     "index": 16
@@ -127,7 +127,7 @@
   {
     "id": "truth-behind-grey-mist",
     "name": "Truth Behind Grey Mist",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "isFadedLegacy": false,
     "awakenerName": "daffodil",
     "index": 17
@@ -135,7 +135,7 @@
   {
     "id": "midsummer-vision",
     "name": "Midsummer Vision",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": false,
     "awakenerName": "lily",
     "index": 18
@@ -143,7 +143,7 @@
   {
     "id": "victory-of-roses",
     "name": "Victory Of Roses",
-    "faction": "CARO",
+    "realm": "CARO",
     "isFadedLegacy": false,
     "awakenerName": "sorel",
     "index": 19
@@ -151,7 +151,7 @@
   {
     "id": "miracles-dawn",
     "name": "Miracles Dawn",
-    "faction": "CARO",
+    "realm": "CARO",
     "isFadedLegacy": false,
     "awakenerName": "salvador",
     "index": 20
@@ -159,7 +159,7 @@
   {
     "id": "giants-reign",
     "name": "Giants Reign",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "isFadedLegacy": false,
     "awakenerName": "goliath",
     "index": 21
@@ -167,14 +167,14 @@
   {
     "id": "24-all-of-her",
     "name": "24 All Of Her",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": false,
     "index": 22
   },
   {
     "id": "the-lone-seed",
     "name": "The Lone Seed",
-    "faction": "CARO",
+    "realm": "CARO",
     "isFadedLegacy": false,
     "awakenerName": "thais",
     "index": 23
@@ -182,7 +182,7 @@
   {
     "id": "the-mountains-resolve",
     "name": "The Mountains Resolve",
-    "faction": "CARO",
+    "realm": "CARO",
     "isFadedLegacy": false,
     "awakenerName": "helot: catena",
     "index": 24
@@ -190,7 +190,7 @@
   {
     "id": "festival-of-tides",
     "name": "Festival Of Tides",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "isFadedLegacy": false,
     "awakenerName": "miryam",
     "index": 25
@@ -198,7 +198,7 @@
   {
     "id": "springs-verse",
     "name": "Springs Verse",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "isFadedLegacy": false,
     "awakenerName": "horla",
     "index": 26
@@ -206,7 +206,7 @@
   {
     "id": "a-guns-cry",
     "name": "A Guns Cry",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": false,
     "awakenerName": "ryker",
     "index": 27
@@ -214,7 +214,7 @@
   {
     "id": "symphony-fourth",
     "name": "Symphony Fourth",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": false,
     "awakenerName": "hameln",
     "index": 28
@@ -222,7 +222,7 @@
   {
     "id": "the-gated-answer",
     "name": "The Gated Answer",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": false,
     "awakenerName": "tawil",
     "index": 29
@@ -230,7 +230,7 @@
   {
     "id": "plague-of-illusions",
     "name": "Plague Of Illusions",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": false,
     "awakenerName": "doll: inferno",
     "index": 30
@@ -238,7 +238,7 @@
   {
     "id": "blessing-of-the-stars",
     "name": "Blessing Of The Stars",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "isFadedLegacy": false,
     "awakenerName": "tulu",
     "index": 31
@@ -246,7 +246,7 @@
   {
     "id": "black-swans-dance",
     "name": "Black Swans Dance",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "isFadedLegacy": false,
     "awakenerName": "liz",
     "index": 32
@@ -254,14 +254,14 @@
   {
     "id": "taverns-opening",
     "name": "Taverns Opening",
-    "faction": "OTHER",
+    "realm": "OTHER",
     "isFadedLegacy": false,
     "index": 33
   },
   {
     "id": "sacred-mending",
     "name": "Sacred Mending",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "isFadedLegacy": false,
     "awakenerName": "clementine",
     "index": 34
@@ -269,7 +269,7 @@
   {
     "id": "undying-thunder",
     "name": "Undying Thunder",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "isFadedLegacy": false,
     "awakenerName": "corposant",
     "index": 35
@@ -277,7 +277,7 @@
   {
     "id": "derision-of-destiny",
     "name": "Derision Of Destiny",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "isFadedLegacy": false,
     "awakenerName": "castor",
     "index": 36
@@ -285,7 +285,7 @@
   {
     "id": "cruel-homage",
     "name": "Cruel Homage",
-    "faction": "CARO",
+    "realm": "CARO",
     "isFadedLegacy": false,
     "awakenerName": "doresain",
     "index": 39
@@ -293,7 +293,7 @@
   {
     "id": "undying-sun",
     "name": "Undying Sun",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": false,
     "awakenerName": "kathigu-ra",
     "index": 40
@@ -301,7 +301,7 @@
   {
     "id": "sacred-bleeding-heart",
     "name": "Sacred Bleeding Heart",
-    "faction": "ULTRA",
+    "realm": "ULTRA",
     "isFadedLegacy": false,
     "awakenerName": "pollux",
     "index": 41
@@ -309,21 +309,21 @@
   {
     "id": "voracious-resolve",
     "name": "Voracious Resolve",
-    "faction": "OTHER",
+    "realm": "OTHER",
     "isFadedLegacy": false,
     "index": 42
   },
   {
     "id": "beachside-memento",
     "name": "Beachside Memento",
-    "faction": "OTHER",
+    "realm": "OTHER",
     "isFadedLegacy": false,
     "index": 43
   },
   {
     "id": "void-hues",
     "name": "Void Hues",
-    "faction": "CARO",
+    "realm": "CARO",
     "isFadedLegacy": false,
     "awakenerName": "pickman",
     "index": 44
@@ -331,14 +331,14 @@
   {
     "id": "a-fleeting-dream",
     "name": "A Fleeting Dream",
-    "faction": "OTHER",
+    "realm": "OTHER",
     "isFadedLegacy": false,
     "index": 45
   },
   {
     "id": "wayward-ship",
     "name": "Wayward Ship",
-    "faction": "AEQUOR",
+    "realm": "AEQUOR",
     "isFadedLegacy": false,
     "awakenerName": "murphy: fauxborn",
     "index": 46
@@ -346,7 +346,7 @@
   {
     "id": "reunions-wish",
     "name": "Reunions Wish",
-    "faction": "OTHER",
+    "realm": "OTHER",
     "isFadedLegacy": false,
     "awakenerName": "ramona: timeworn",
     "index": 47
@@ -354,7 +354,7 @@
   {
     "id": "from-the-mist-realm",
     "name": "From The Mist Realm",
-    "faction": "CHAOS",
+    "realm": "CHAOS",
     "isFadedLegacy": false,
     "awakenerName": "mouchette",
     "index": 48
@@ -362,14 +362,14 @@
   {
     "id": "manor-echoes",
     "name": "Manor Echoes",
-    "faction": "CARO",
+    "realm": "CARO",
     "isFadedLegacy": false,
     "index": 49
   },
   {
     "id": "new-years-eve-fireworks",
     "name": "New Year's Eve Fireworks",
-    "faction": "OTHER",
+    "realm": "OTHER",
     "isFadedLegacy": false,
     "index": 50
   }

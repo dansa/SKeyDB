@@ -6,11 +6,13 @@ function normalizeForSearch(value: string): string {
   return value.toLowerCase().replace(/[^a-z0-9]/g, '')
 }
 
-const realmByFactionId: Record<string, string> = {
+const realmLabelById: Record<string, string> = {
   AEQUOR: 'Aequor',
   CARO: 'Caro',
   CHAOS: 'Chaos',
   ULTRA: 'Ultra',
+  NEUTRAL: 'Neutral',
+  OTHER: 'Other',
 }
 
 const awakeners = getAwakeners()
@@ -20,8 +22,8 @@ function getRealmLabels(posse: Posse): string[] {
   if (posse.isFadedLegacy) {
     return ['Faded Legacy']
   }
-  const normalizedFaction = posse.faction.trim().toUpperCase()
-  return [realmByFactionId[normalizedFaction] ?? posse.faction]
+  const normalizedRealm = posse.realm.trim().toUpperCase()
+  return [realmLabelById[normalizedRealm] ?? posse.realm]
 }
 
 function getSearchableFields(posse: Posse): string[] {
@@ -29,7 +31,7 @@ function getSearchableFields(posse: Posse): string[] {
   return [
     posse.name,
     posse.id,
-    posse.faction,
+    posse.realm,
     ...getRealmLabels(posse),
     ...(posse.awakenerName ? [posse.awakenerName] : []),
     ...(linkedAwakener?.aliases ?? []),
@@ -67,3 +69,4 @@ export function searchPosses(posses: Posse[], query: string): Posse[] {
     .filter((result) => (result.score ?? 1) <= cutoff)
     .map((result) => result.item)
 }
+

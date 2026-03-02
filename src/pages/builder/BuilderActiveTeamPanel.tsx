@@ -13,7 +13,7 @@ type BuilderActiveTeamPanelProps = {
   activePosseAsset?: string
   activePosseName?: string
   isActivePosseOwned: boolean
-  teamFactions: Set<string>
+  teamRealms: Set<string>
   teamSlots: TeamSlot[]
   awakenerLevelByName: Map<string, number>
   ownedAwakenerLevelByName: Map<string, number | null>
@@ -46,7 +46,7 @@ export function BuilderActiveTeamPanel({
   activePosseAsset,
   activePosseName,
   isActivePosseOwned,
-  teamFactions,
+  teamRealms,
   teamSlots,
   awakenerLevelByName,
   ownedAwakenerLevelByName,
@@ -107,7 +107,7 @@ export function BuilderActiveTeamPanel({
         onCancelTeamRename={onCancelTeamRename}
         onEditingTeamNameChange={onEditingTeamNameChange}
         onOpenPossePicker={onOpenPossePicker}
-        teamFactions={Array.from(teamFactions)}
+        teamRealms={Array.from(teamRealms)}
       />
 
       <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">

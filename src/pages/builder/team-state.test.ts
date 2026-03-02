@@ -45,12 +45,12 @@ describe('builder team state', () => {
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).not.toBe(slots[0].wheels)
   })
 
-  it('blocks adding a third faction', () => {
+  it('blocks adding a third realm', () => {
     const slots = teamSlotsForTestsWithTwoFactions()
     const result = assignAwakenerToSlot(slots, 'Castor', 'slot-3', awakenersByNameForTests)
 
     expect(result.nextSlots).toBe(slots)
-    expect(result.violation).toBe('TOO_MANY_FACTIONS_IN_TEAM')
+    expect(result.violation).toBe('TOO_MANY_REALMS_IN_TEAM')
   })
 
   it('allows replacing the only out-faction member', () => {
@@ -85,9 +85,9 @@ describe('builder team state', () => {
 
   it('does not move an already slotted awakener when adding to first empty slot', () => {
     const slots = [
-      { slotId: 'slot-1', awakenerName: 'Miryam', faction: 'AEQUOR', level: 60, wheels: [null, null] as [null, null] },
-      { slotId: 'slot-2', awakenerName: 'Ramona', faction: 'CHAOS', level: 60, wheels: [null, null] as [null, null] },
-      { slotId: 'slot-3', awakenerName: 'Goliath', faction: 'AEQUOR', level: 60, wheels: [null, null] as [null, null] },
+      { slotId: 'slot-1', awakenerName: 'Miryam', realm: 'AEQUOR', level: 60, wheels: [null, null] as [null, null] },
+      { slotId: 'slot-2', awakenerName: 'Ramona', realm: 'CHAOS', level: 60, wheels: [null, null] as [null, null] },
+      { slotId: 'slot-3', awakenerName: 'Goliath', realm: 'AEQUOR', level: 60, wheels: [null, null] as [null, null] },
       { slotId: 'slot-4', wheels: [null, null] as [null, null] },
     ]
 
@@ -102,7 +102,7 @@ describe('builder team state', () => {
     const result = clearSlotAssignment(slots, 'slot-1')
 
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerName).toBeUndefined()
-    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.faction).toBeUndefined()
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.realm).toBeUndefined()
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.level).toBeUndefined()
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual([null, null])
   })

@@ -10,12 +10,14 @@ describe('getAwakeners', () => {
       id: expect.any(Number),
       name: expect.any(String),
       faction: expect.any(String),
+      realm: expect.any(String),
       aliases: expect.any(Array),
       rarity: expect.any(String),
     })
     expect(awakeners.every((a) => Number.isInteger(a.id) && a.id > 0)).toBe(true)
     expect(awakeners.every((a) => a.name.trim().length > 0)).toBe(true)
     expect(awakeners.every((a) => a.faction.trim().length > 0)).toBe(true)
+    expect(awakeners.every((a) => a.realm.trim().length > 0)).toBe(true)
     expect(awakeners.every((a) => a.aliases.length > 0)).toBe(true)
     expect(awakeners.every((a) => !a.rarity || a.rarity.trim().length > 0)).toBe(true)
   })

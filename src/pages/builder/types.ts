@@ -3,7 +3,7 @@ import type { Awakener } from '../../domain/awakeners'
 export type TeamSlot = {
   slotId: string
   awakenerName?: string
-  faction?: Awakener['faction']
+  realm?: Awakener['realm']
   level?: number
   isSupport?: boolean
   wheels: [string | null, string | null]

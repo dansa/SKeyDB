@@ -8,21 +8,21 @@ const rawWheelsSchema = z.array(
     assetId: z.string().trim().min(1),
     name: z.string().trim().min(1),
     rarity: z.enum(['SSR', 'SR', 'R']),
-    faction: z.enum(['AEQUOR', 'CARO', 'CHAOS', 'ULTRA', 'NEUTRAL']),
+    realm: z.enum(['AEQUOR', 'CARO', 'CHAOS', 'ULTRA', 'NEUTRAL']),
     awakener: z.string(),
     mainstatKey: z.enum(WHEEL_MAINSTAT_KEYS),
   }),
 )
 
 export type WheelRarity = 'SSR' | 'SR' | 'R'
-export type WheelFaction = 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA' | 'NEUTRAL'
+export type WheelRealm = 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA' | 'NEUTRAL'
 
 export type Wheel = {
   id: string
   assetId: string
   name: string
   rarity: WheelRarity
-  faction: WheelFaction
+  realm: WheelRealm
   awakener: string
   mainstatKey: WheelMainstatKey
 }

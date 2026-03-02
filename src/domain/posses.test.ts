@@ -10,7 +10,7 @@ describe('getPosses', () => {
       id: expect.any(String),
       index: expect.any(Number),
       name: expect.any(String),
-      faction: expect.any(String),
+      realm: expect.any(String),
       isFadedLegacy: expect.any(Boolean),
     })
     expect(posses.every((posse) => Number.isInteger(posse.index) && posse.index >= 0)).toBe(true)

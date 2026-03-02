@@ -3,11 +3,11 @@ import { BUILDER_PERSISTENCE_KEY } from './builder/builder-persistence'
 
 vi.mock('../domain/awakeners', () => ({
   getAwakeners: () => [
-    { id: 1, name: 'goliath', faction: 'CHAOS', aliases: ['goliath'] },
-    { id: 2, name: 'ramona', faction: 'CHAOS', aliases: ['ramona'] },
-    { id: 3, name: 'ramona: timeworn', faction: 'CHAOS', aliases: ['timeworn ramona'] },
-    { id: 4, name: 'agrippa', faction: 'AEQUOR', aliases: ['agrippa'] },
-    { id: 5, name: 'casiah', faction: 'CARO', aliases: ['casiah'] },
+    { id: 1, name: 'goliath', faction: 'Among the Stars', realm: 'CHAOS', aliases: ['goliath'] },
+    { id: 2, name: 'ramona', faction: 'The Fools', realm: 'CHAOS', aliases: ['ramona'] },
+    { id: 3, name: 'ramona: timeworn', faction: 'The Fools', realm: 'CHAOS', aliases: ['timeworn ramona'] },
+    { id: 4, name: 'agrippa', faction: 'Outlanders', realm: 'AEQUOR', aliases: ['agrippa'] },
+    { id: 5, name: 'casiah', faction: 'The Fools', realm: 'CARO', aliases: ['casiah'] },
   ],
 }))
 
@@ -18,7 +18,7 @@ vi.mock('../domain/wheels', () => ({
       assetId: 'Weapon_Full_O01',
       name: 'Merciful Nurturing',
       rarity: 'SSR',
-      faction: 'AEQUOR',
+      realm: 'AEQUOR',
       awakener: 'goliath',
       mainstatKey: 'CRIT_RATE',
     },
@@ -27,7 +27,7 @@ vi.mock('../domain/wheels', () => ({
       assetId: 'Weapon_Full_O02',
       name: 'Tablet of Scriptures',
       rarity: 'SSR',
-      faction: 'AEQUOR',
+      realm: 'AEQUOR',
       awakener: 'goliath',
       mainstatKey: 'CRIT_DMG',
     },
@@ -36,7 +36,7 @@ vi.mock('../domain/wheels', () => ({
       assetId: 'Weapon_Full_SR01',
       name: 'Training Relic',
       rarity: 'SR',
-      faction: 'NEUTRAL',
+      realm: 'NEUTRAL',
       awakener: '',
       mainstatKey: 'ATK',
     },
@@ -46,8 +46,8 @@ vi.mock('../domain/wheels', () => ({
 
 vi.mock('../domain/posses', () => ({
   getPosses: () => [
-    { id: '33', index: 33, name: 'Taverns Opening', faction: 'CHAOS', isFadedLegacy: false, awakenerName: 'goliath' },
-    { id: '01', index: 1, name: 'Warded Injection', faction: 'AEQUOR', isFadedLegacy: false },
+    { id: '33', index: 33, name: 'Taverns Opening', realm: 'CHAOS', isFadedLegacy: false, awakenerName: 'goliath' },
+    { id: '01', index: 1, name: 'Warded Injection', realm: 'AEQUOR', isFadedLegacy: false },
   ],
 }))
 

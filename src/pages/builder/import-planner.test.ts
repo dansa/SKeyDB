@@ -21,7 +21,7 @@ describe('import planner', () => {
     const current = [
       makeTeam('Team 1', {
         slots: [
-          { slotId: 'slot-1', awakenerName: 'ramona', faction: 'CHAOS', wheels: [null, null] },
+          { slotId: 'slot-1', awakenerName: 'ramona', realm: 'CHAOS', wheels: [null, null] },
           { slotId: 'slot-2', wheels: [null, null] },
           { slotId: 'slot-3', wheels: [null, null] },
           { slotId: 'slot-4', wheels: [null, null] },
@@ -30,7 +30,7 @@ describe('import planner', () => {
     ]
     const incoming = makeTeam('Imported', {
       slots: [
-        { slotId: 'slot-1', awakenerName: 'ramona: timeworn', faction: 'CHAOS', wheels: [null, null] },
+        { slotId: 'slot-1', awakenerName: 'ramona: timeworn', realm: 'CHAOS', wheels: [null, null] },
         { slotId: 'slot-2', wheels: [null, null] },
         { slotId: 'slot-3', wheels: [null, null] },
         { slotId: 'slot-4', wheels: [null, null] },
@@ -46,7 +46,7 @@ describe('import planner', () => {
       makeTeam('Team 1', {
         posseId: 'taverns-opening',
         slots: [
-          { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: ['SR19', null] },
+          { slotId: 'slot-1', awakenerName: 'goliath', realm: 'AEQUOR', wheels: ['SR19', null] },
           { slotId: 'slot-2', wheels: [null, null] },
           { slotId: 'slot-3', wheels: [null, null] },
           { slotId: 'slot-4', wheels: [null, null] },
@@ -56,7 +56,7 @@ describe('import planner', () => {
     const imported = makeTeam('Imported', {
       posseId: 'taverns-opening',
       slots: [
-        { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: ['SR19', null] },
+        { slotId: 'slot-1', awakenerName: 'goliath', realm: 'AEQUOR', wheels: ['SR19', null] },
         { slotId: 'slot-2', wheels: [null, null] },
         { slotId: 'slot-3', wheels: [null, null] },
         { slotId: 'slot-4', wheels: [null, null] },
@@ -76,7 +76,7 @@ describe('import planner', () => {
       makeTeam('Team 1', {
         posseId: 'taverns-opening',
         slots: [
-          { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: ['SR19', null] },
+          { slotId: 'slot-1', awakenerName: 'goliath', realm: 'AEQUOR', wheels: ['SR19', null] },
           { slotId: 'slot-2', wheels: [null, null] },
           { slotId: 'slot-3', wheels: [null, null] },
           { slotId: 'slot-4', wheels: [null, null] },
@@ -86,7 +86,7 @@ describe('import planner', () => {
     const imported = makeTeam('Imported', {
       posseId: 'taverns-opening',
       slots: [
-        { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: ['SR19', null] },
+        { slotId: 'slot-1', awakenerName: 'goliath', realm: 'AEQUOR', wheels: ['SR19', null] },
         { slotId: 'slot-2', wheels: [null, null] },
         { slotId: 'slot-3', wheels: [null, null] },
         { slotId: 'slot-4', wheels: [null, null] },
@@ -116,7 +116,7 @@ describe('import planner', () => {
     const current = [
       makeTeam('Team 1', {
         slots: [
-          { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: ['SR19', 'SR20'] },
+          { slotId: 'slot-1', awakenerName: 'goliath', realm: 'AEQUOR', wheels: ['SR19', 'SR20'] },
           { slotId: 'slot-2', wheels: [null, null] },
           { slotId: 'slot-3', wheels: [null, null] },
           { slotId: 'slot-4', wheels: [null, null] },
@@ -125,7 +125,7 @@ describe('import planner', () => {
     ]
     const incoming = makeTeam('Imported', {
       slots: [
-        { slotId: 'slot-1', awakenerName: 'ramona', faction: 'CHAOS', wheels: ['C01', 'SR20'] },
+        { slotId: 'slot-1', awakenerName: 'ramona', realm: 'CHAOS', wheels: ['C01', 'SR20'] },
         { slotId: 'slot-2', wheels: [null, null] },
         { slotId: 'slot-3', wheels: [null, null] },
         { slotId: 'slot-4', wheels: [null, null] },
@@ -161,7 +161,7 @@ describe('import planner', () => {
     const incomingTeams = [
       makeTeam('Wave 1', {
         slots: [
-          { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: [null, null] },
+          { slotId: 'slot-1', awakenerName: 'goliath', realm: 'AEQUOR', wheels: [null, null] },
           { slotId: 'slot-2', wheels: [null, null] },
           { slotId: 'slot-3', wheels: [null, null] },
           { slotId: 'slot-4', wheels: [null, null] },
@@ -169,7 +169,7 @@ describe('import planner', () => {
       }),
       makeTeam('Wave 2', {
         slots: [
-          { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: [null, null] },
+          { slotId: 'slot-1', awakenerName: 'goliath', realm: 'AEQUOR', wheels: [null, null] },
           { slotId: 'slot-2', wheels: [null, null] },
           { slotId: 'slot-3', wheels: [null, null] },
           { slotId: 'slot-4', wheels: [null, null] },
@@ -185,7 +185,7 @@ describe('import planner', () => {
     const current = [
       makeTeam('Team 1', {
         slots: [
-          { slotId: 'slot-1', awakenerName: 'ramona', faction: 'CHAOS', wheels: [null, null] },
+          { slotId: 'slot-1', awakenerName: 'ramona', realm: 'CHAOS', wheels: [null, null] },
           { slotId: 'slot-2', wheels: [null, null] },
           { slotId: 'slot-3', wheels: [null, null] },
           { slotId: 'slot-4', wheels: [null, null] },
@@ -194,7 +194,7 @@ describe('import planner', () => {
     ]
     const incoming = makeTeam('Imported', {
       slots: [
-        { slotId: 'slot-1', awakenerName: 'ramona: timeworn', faction: 'CHAOS', wheels: [null, null] },
+        { slotId: 'slot-1', awakenerName: 'ramona: timeworn', realm: 'CHAOS', wheels: [null, null] },
         { slotId: 'slot-2', wheels: [null, null] },
         { slotId: 'slot-3', wheels: [null, null] },
         { slotId: 'slot-4', wheels: [null, null] },
@@ -213,7 +213,7 @@ describe('import planner', () => {
     const imported = makeTeam('Imported', {
       posseId: 'manor-echoes',
       slots: [
-        { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', wheels: [null, null] },
+        { slotId: 'slot-1', awakenerName: 'goliath', realm: 'AEQUOR', wheels: [null, null] },
         { slotId: 'slot-2', wheels: [null, null] },
         { slotId: 'slot-3', wheels: [null, null] },
         { slotId: 'slot-4', wheels: [null, null] },
@@ -224,3 +224,4 @@ describe('import planner', () => {
     expect(result.status).toBe('requires_duplicate_override')
   })
 })
+

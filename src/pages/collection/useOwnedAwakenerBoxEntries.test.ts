@@ -3,7 +3,9 @@ import { describe, expect, it, vi } from 'vitest'
 import { useOwnedAwakenerBoxEntries } from './useOwnedAwakenerBoxEntries'
 
 vi.mock('../../domain/awakeners', () => ({
-  getAwakeners: () => [{ id: 1, name: 'ramona', faction: 'CHAOS', aliases: [] }],
+  getAwakeners: () => [
+    { id: 1, name: 'ramona', faction: 'The Fools', realm: 'CHAOS', aliases: [], rarity: 'SSR' },
+  ],
 }))
 
 vi.mock('../../domain/awakener-assets', () => ({
@@ -20,7 +22,8 @@ describe('useOwnedAwakenerBoxEntries', () => {
       {
         name: 'ramona',
         displayName: 'Ramona',
-        faction: 'CHAOS',
+        realm: 'CHAOS',
+        rarity: 'SSR',
         index: 1,
         level: 4,
         awakenerLevel: 60,
@@ -38,7 +41,8 @@ describe('useOwnedAwakenerBoxEntries', () => {
     )
 
     expect(result.current[0]?.awakenerLevel).toBe(77)
-    expect(result.current[0]?.faction).toBe('CHAOS')
+    expect(result.current[0]?.realm).toBe('CHAOS')
+    expect(result.current[0]?.rarity).toBe('SSR')
     expect(result.current[0]?.index).toBe(1)
   })
 })

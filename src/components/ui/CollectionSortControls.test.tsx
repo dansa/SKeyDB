@@ -6,12 +6,12 @@ describe('CollectionSortControls', () => {
   it('renders high/low direction labels and fires callbacks', () => {
     const onSortKeyChange = vi.fn()
     const onSortDirectionToggle = vi.fn()
-    const onGroupByFactionChange = vi.fn()
+    const onGroupByRealmChange = vi.fn()
 
     render(
       <CollectionSortControls
-        groupByFaction={false}
-        onGroupByFactionChange={onGroupByFactionChange}
+        groupByRealm={false}
+        onGroupByRealmChange={onGroupByRealmChange}
         onSortDirectionToggle={onSortDirectionToggle}
         onSortKeyChange={onSortKeyChange}
         sortDirection="DESC"
@@ -29,15 +29,15 @@ describe('CollectionSortControls', () => {
     fireEvent.click(screen.getByRole('button', { name: /toggle sort direction/i }))
     expect(onSortDirectionToggle).toHaveBeenCalledTimes(1)
 
-    fireEvent.click(screen.getByRole('button', { name: /toggle grouping by faction/i }))
-    expect(onGroupByFactionChange).toHaveBeenCalledWith(true)
+    fireEvent.click(screen.getByRole('button', { name: /toggle Grouping by realm/i }))
+    expect(onGroupByRealmChange).toHaveBeenCalledWith(true)
   })
 
   it('renders low direction label when ascending', () => {
     render(
       <CollectionSortControls
-        groupByFaction={false}
-        onGroupByFactionChange={vi.fn()}
+        groupByRealm={false}
+        onGroupByRealmChange={vi.fn()}
         onSortDirectionToggle={vi.fn()}
         onSortKeyChange={vi.fn()}
         sortDirection="ASC"
@@ -48,28 +48,28 @@ describe('CollectionSortControls', () => {
     expect(screen.getByRole('button', { name: /toggle sort direction/i })).toHaveTextContent('Low')
   })
 
-  it('can hide group by faction toggle', () => {
+  it('can hide Group By Realm toggle', () => {
     render(
       <CollectionSortControls
-        groupByFaction={false}
-        onGroupByFactionChange={vi.fn()}
+        groupByRealm={false}
+        onGroupByRealmChange={vi.fn()}
         onSortDirectionToggle={vi.fn()}
         onSortKeyChange={vi.fn()}
-        showGroupByFaction={false}
+        showGroupByRealm={false}
         sortDirection="DESC"
         sortKey="LEVEL"
       />,
     )
 
-    expect(screen.queryByRole('button', { name: /toggle grouping by faction/i })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /toggle Grouping by realm/i })).not.toBeInTheDocument()
   })
 
   it('supports compact mode without heading text', () => {
     render(
       <CollectionSortControls
-        groupByFaction={false}
+        groupByRealm={false}
         layout="compact"
-        onGroupByFactionChange={vi.fn()}
+        onGroupByRealmChange={vi.fn()}
         onSortDirectionToggle={vi.fn()}
         onSortKeyChange={vi.fn()}
         sortDirection="DESC"
@@ -82,3 +82,6 @@ describe('CollectionSortControls', () => {
     expect(screen.getByRole('button', { name: /toggle sort direction/i })).toHaveTextContent('High')
   })
 })
+
+
+

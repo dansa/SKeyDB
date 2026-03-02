@@ -72,7 +72,7 @@ describe('BuilderTeamsPanel', () => {
             id: 'team-1',
             name: 'Team 1',
             slots: [
-              { slotId: 'slot-1', awakenerName: 'Ramona', faction: 'CHAOS', wheels: ['SR19', null], covenantId: '001' },
+              { slotId: 'slot-1', awakenerName: 'Ramona', realm: 'CHAOS', wheels: ['SR19', null], covenantId: '001' },
               { slotId: 'slot-2', wheels: [null, null] },
               { slotId: 'slot-3', wheels: [null, null] },
               { slotId: 'slot-4', wheels: [null, null] },
@@ -112,7 +112,7 @@ describe('BuilderTeamsPanel', () => {
             id: 'team-1',
             name: 'Team 1',
             slots: [
-              { slotId: 'slot-1', awakenerName: 'Ramona', faction: 'CHAOS', level: 90, isSupport: true, wheels: [null, null] },
+              { slotId: 'slot-1', awakenerName: 'Ramona', realm: 'CHAOS', level: 90, isSupport: true, wheels: [null, null] },
               { slotId: 'slot-2', wheels: [null, null] },
               { slotId: 'slot-3', wheels: [null, null] },
               { slotId: 'slot-4', wheels: [null, null] },

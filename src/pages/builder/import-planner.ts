@@ -49,7 +49,7 @@ function stripSlotAwakener(slot: Team['slots'][number]) {
   return {
     ...slot,
     awakenerName: undefined,
-    faction: undefined,
+    realm: undefined,
     level: undefined,
     wheels: [null, null] as [null, null],
   }

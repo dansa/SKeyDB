@@ -140,7 +140,7 @@ describe('useCollectionViewModel', () => {
 
     expect(result.current.awakenerSortKey).toBe('LEVEL')
     expect(result.current.awakenerSortDirection).toBe('DESC')
-    expect(result.current.awakenerSortGroupByFaction).toBe(false)
+    expect(result.current.awakenerSortGroupByRealm).toBe(false)
   })
 
   it('persists awakener sort preferences across hook remounts', () => {
@@ -149,7 +149,7 @@ describe('useCollectionViewModel', () => {
     act(() => {
       first.result.current.setAwakenerSortKey('ALPHABETICAL')
       first.result.current.toggleAwakenerSortDirection()
-      first.result.current.setAwakenerSortGroupByFaction(true)
+      first.result.current.setAwakenerSortGroupByRealm(true)
     })
 
     first.unmount()
@@ -157,7 +157,7 @@ describe('useCollectionViewModel', () => {
     const second = renderHook(() => useCollectionViewModel())
     expect(second.result.current.awakenerSortKey).toBe('ALPHABETICAL')
     expect(second.result.current.awakenerSortDirection).toBe('ASC')
-    expect(second.result.current.awakenerSortGroupByFaction).toBe(true)
+    expect(second.result.current.awakenerSortGroupByRealm).toBe(true)
   })
 
   it('marks awakener sort pending after level changes and clears after apply', () => {
@@ -192,3 +192,5 @@ describe('useCollectionViewModel', () => {
     expect(result.current.wheelSortHasPendingChanges).toBe(false)
   })
 })
+
+

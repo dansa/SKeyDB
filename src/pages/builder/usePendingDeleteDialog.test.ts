@@ -9,7 +9,7 @@ function buildTeam(id: string, name: string, awakenerName?: string): Team {
     id,
     name,
     slots: [
-      { slotId: `${id}-slot-1`, awakenerName, faction: awakenerName ? 'AEQUOR' : undefined, level: 60, wheels: [null, null] },
+      { slotId: `${id}-slot-1`, awakenerName, realm: awakenerName ? 'AEQUOR' : undefined, level: 60, wheels: [null, null] },
       { slotId: `${id}-slot-2`, wheels: [null, null] },
       { slotId: `${id}-slot-3`, wheels: [null, null] },
       { slotId: `${id}-slot-4`, wheels: [null, null] },

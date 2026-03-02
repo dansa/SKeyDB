@@ -137,7 +137,7 @@ function decodeSlot(bytes: Uint8Array, offset: number, slotId: string, options?:
   return {
     slotId,
     awakenerName: awakener?.name,
-    faction: awakener?.faction,
+    realm: awakener?.realm,
     level: awakener ? level || 60 : undefined,
     isSupport: awakener && isSupport ? true : undefined,
     wheels: awakener

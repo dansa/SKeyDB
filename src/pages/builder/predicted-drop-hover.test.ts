@@ -9,7 +9,7 @@ function makeSlots(): Map<string, TeamSlot> {
       {
         slotId: 'slot-1',
         awakenerName: 'goliath',
-        faction: 'AEQUOR',
+        realm: 'AEQUOR',
         level: 60,
         wheels: [null, 'B02'],
       },

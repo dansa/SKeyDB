@@ -8,7 +8,7 @@ function createTeamFixture(): Team {
     name: 'Team Alpha',
     posseId: '01-encounter-in-pure-white',
     slots: [
-      { slotId: 'slot-1', awakenerName: 'Goliath', faction: 'AEQUOR', level: 60, wheels: ['B01', 'C01'] },
+      { slotId: 'slot-1', awakenerName: 'Goliath', realm: 'AEQUOR', level: 60, wheels: ['B01', 'C01'] },
       { slotId: 'slot-2', wheels: [null, null] },
       { slotId: 'slot-3', wheels: [null, null] },
       { slotId: 'slot-4', wheels: [null, null] },
@@ -97,7 +97,7 @@ describe('builder-persistence', () => {
           {
             slotId: 'slot-1',
             awakenerName: 'Goliath',
-            faction: 'AEQUOR',
+            realm: 'AEQUOR',
             level: 90,
             isSupport: true,
             wheels: ['B01', 'C01'] as [string, string],

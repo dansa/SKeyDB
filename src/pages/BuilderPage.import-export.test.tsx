@@ -12,7 +12,7 @@ function makeImportTeam(name: string, awakenerName: string, posseId?: string): T
     name,
     posseId,
     slots: [
-      { slotId: 'slot-1', awakenerName, faction: 'AEQUOR', level: 60, wheels: [null, null] },
+      { slotId: 'slot-1', awakenerName, realm: 'AEQUOR', level: 60, wheels: [null, null] },
       { slotId: 'slot-2', wheels: [null, null] },
       { slotId: 'slot-3', wheels: [null, null] },
       { slotId: 'slot-4', wheels: [null, null] },
@@ -210,7 +210,7 @@ describe('BuilderPage import-export', () => {
         {
           ...makeImportTeam('Beta', 'goliath'),
           slots: [
-            { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 90, isSupport: true, wheels: [null, null] },
+            { slotId: 'slot-1', awakenerName: 'goliath', realm: 'AEQUOR', level: 90, isSupport: true, wheels: [null, null] },
             { slotId: 'slot-2', wheels: [null, null] },
             { slotId: 'slot-3', wheels: [null, null] },
             { slotId: 'slot-4', wheels: [null, null] },
@@ -232,3 +232,4 @@ describe('BuilderPage import-export', () => {
     expect(parsed.teams[1].slots[0].level).toBe(90)
   })
 })
+

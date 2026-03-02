@@ -22,7 +22,7 @@ import {
   clearCovenantAssignment,
   clearSlotAssignment,
   clearWheelAssignment,
-  getTeamFactionSet,
+  getTeamRealmSet,
   swapSlotAssignments,
 } from './team-state'
 import { createInitialTeams, renameTeam } from './team-collection'
@@ -76,7 +76,7 @@ type TeamRenameSurface = 'header' | 'list'
 const BUILDER_AUTOSAVE_DEBOUNCE_MS = 300
 const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
 const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
-const BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
+const BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
 const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
 const BUILDER_ALLOW_DUPES_KEY = 'skeydb.builder.allowDupes.v1'
 const BUILDER_TEAM_PREVIEW_MODE_KEY = 'skeydb.builder.teamPreviewMode.v1'
@@ -116,8 +116,8 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   const [awakenerSortDirection, setAwakenerSortDirection] = useState<CollectionSortDirection>(() => {
     return safeStorageRead(storage, BUILDER_AWAKENER_SORT_DIRECTION_KEY) === 'ASC' ? 'ASC' : 'DESC'
   })
-  const [awakenerSortGroupByFaction, setAwakenerSortGroupByFaction] = useState(() => {
-    const stored = safeStorageRead(storage, BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY)
+  const [awakenerSortGroupByRealm, setAwakenerSortGroupByRealm] = useState(() => {
+    const stored = safeStorageRead(storage, BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY)
     if (stored === '1') {
       return true
     }
@@ -247,11 +247,11 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     [pickerAwakeners, pickerSearchByTab.awakeners],
   )
   const filteredAwakeners = useMemo(() => {
-    const byFaction =
+    const byRealm =
       awakenerFilter === 'ALL'
         ? searchedAwakeners
-        : searchedAwakeners.filter((awakener) => awakener.faction.trim().toUpperCase() === awakenerFilter)
-    const byOwnership = displayUnowned ? byFaction : byFaction.filter((awakener) => isAwakenerOwnedByName(awakener.name))
+        : searchedAwakeners.filter((awakener) => awakener.realm.trim().toUpperCase() === awakenerFilter)
+    const byOwnership = displayUnowned ? byRealm : byRealm.filter((awakener) => isAwakenerOwnedByName(awakener.name))
 
     return [...byOwnership].sort((left, right) =>
       compareAwakenersForCollectionSort(
@@ -262,7 +262,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
           enlighten: ownedAwakenerLevelByName.get(left.name) ?? 0,
           level: awakenerLevelByName.get(left.name) ?? 60,
           rarity: left.rarity,
-          faction: left.faction,
+          realm: left.realm,
         },
         {
           label: formatAwakenerNameForUi(right.name),
@@ -271,12 +271,12 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
           enlighten: ownedAwakenerLevelByName.get(right.name) ?? 0,
           level: awakenerLevelByName.get(right.name) ?? 60,
           rarity: right.rarity,
-          faction: right.faction,
+          realm: right.realm,
         },
         {
           key: awakenerSortKey,
           direction: awakenerSortDirection,
-          groupByFaction: awakenerSortGroupByFaction,
+          groupByRealm: awakenerSortGroupByRealm,
         },
       ),
     )
@@ -289,7 +289,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     awakenerLevelByName,
     awakenerSortKey,
     awakenerSortDirection,
-    awakenerSortGroupByFaction,
+    awakenerSortGroupByRealm,
   ])
 
   const searchedPosses = useMemo(
@@ -306,7 +306,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     return searchedPosses.filter(
       (posse) =>
         !posse.isFadedLegacy &&
-        posse.faction.trim().toUpperCase() === posseFilter &&
+        posse.realm.trim().toUpperCase() === posseFilter &&
         (displayUnowned || isPosseOwnedById(posse.id)),
     )
   }, [posseFilter, searchedPosses, displayUnowned, isPosseOwnedById])
@@ -343,7 +343,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
       return (
         wheel.name.toLowerCase().includes(query) ||
         wheel.rarity.toLowerCase().includes(query) ||
-        wheel.faction.toLowerCase().includes(query) ||
+        wheel.realm.toLowerCase().includes(query) ||
         wheel.awakener.toLowerCase().includes(query) ||
         getWheelMainstatLabel(wheel).toLowerCase().includes(query) ||
         wheel.mainstatKey.toLowerCase().includes(query) ||
@@ -372,7 +372,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     )
   }, [pickerCovenants, pickerSearchByTab.covenants])
 
-  const teamFactionSet = useMemo(() => getTeamFactionSet(teamSlots), [teamSlots])
+  const teamRealmSet = useMemo(() => getTeamRealmSet(teamSlots), [teamSlots])
   const usedAwakenerByIdentityKey = useMemo(() => {
     const identityMap = new Map<string, string>()
     teams.forEach((team) => {
@@ -432,8 +432,8 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
   }, [storage, teams, effectiveActiveTeamId])
 
   useEffect(() => {
-    safeStorageWrite(storage, BUILDER_AWAKENER_SORT_GROUP_BY_FACTION_KEY, awakenerSortGroupByFaction ? '1' : '0')
-  }, [storage, awakenerSortGroupByFaction])
+    safeStorageWrite(storage, BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY, awakenerSortGroupByRealm ? '1' : '0')
+  }, [storage, awakenerSortGroupByRealm])
 
   useEffect(() => {
     safeStorageWrite(storage, BUILDER_AWAKENER_SORT_KEY_KEY, awakenerSortKey)
@@ -748,8 +748,8 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     awakenerSortDirection,
     toggleAwakenerSortDirection: () =>
       setAwakenerSortDirection((current) => (current === 'DESC' ? 'ASC' : 'DESC')),
-    awakenerSortGroupByFaction,
-    setAwakenerSortGroupByFaction,
+    awakenerSortGroupByRealm,
+    setAwakenerSortGroupByRealm,
     pickerSearchByTab,
     setPickerSearchByTab,
     activeSelection,
@@ -766,7 +766,7 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     filteredPosses,
     filteredWheels,
     filteredCovenants,
-    teamFactionSet,
+    teamRealmSet,
     usedAwakenerByIdentityKey,
     usedAwakenerIdentityKeys,
     hasSupportAwakener,
@@ -799,3 +799,6 @@ export function useBuilderViewModel({ searchInputRef }: UseBuilderViewModelOptio
     jumpToQuickLineupStep,
   }
 }
+
+
+

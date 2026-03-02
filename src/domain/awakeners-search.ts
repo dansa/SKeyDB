@@ -6,7 +6,7 @@ function normalizeForSearch(value: string): string {
 }
 
 function getSearchableFields(awakener: Awakener): string[] {
-  return [awakener.name, awakener.faction, ...awakener.aliases]
+  return [awakener.name, awakener.realm, awakener.faction, ...awakener.aliases]
 }
 
 export function searchAwakeners(awakeners: Awakener[], query: string): Awakener[] {

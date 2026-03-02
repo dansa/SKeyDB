@@ -76,7 +76,7 @@ type BuilderSelectionPanelProps = {
   wheelMainstatFilter: WheelMainstatFilter
   awakenerSortKey: AwakenerSortKey
   awakenerSortDirection: CollectionSortDirection
-  awakenerSortGroupByFaction: boolean
+  awakenerSortGroupByRealm: boolean
   displayUnowned: boolean
   allowDupes: boolean
   filteredAwakeners: Awakener[]
@@ -86,7 +86,7 @@ type BuilderSelectionPanelProps = {
   ownedAwakenerLevelByName: Map<string, number | null>
   ownedWheelLevelById: Map<string, number | null>
   ownedPosseLevelById: Map<string, number | null>
-  teamFactionSet: Set<string>
+  teamRealmSet: Set<string>
   usedAwakenerIdentityKeys: Set<string>
   activePosseId?: string
   teams: Team[]
@@ -101,7 +101,7 @@ type BuilderSelectionPanelProps = {
   onWheelMainstatFilterChange: (nextFilter: WheelMainstatFilter) => void
   onAwakenerSortKeyChange: (nextKey: AwakenerSortKey) => void
   onAwakenerSortDirectionToggle: () => void
-  onAwakenerSortGroupByFactionChange: (nextGroupByFaction: boolean) => void
+  onAwakenerSortGroupByRealmChange: (nextGroupByRealm: boolean) => void
   onDisplayUnownedChange: (displayUnowned: boolean) => void
   onAllowDupesChange: (allowDupes: boolean) => void
   onAwakenerClick: (awakenerName: string) => void
@@ -120,7 +120,7 @@ export function BuilderSelectionPanel({
   wheelMainstatFilter,
   awakenerSortKey,
   awakenerSortDirection,
-  awakenerSortGroupByFaction,
+  awakenerSortGroupByRealm,
   displayUnowned,
   allowDupes,
   filteredAwakeners,
@@ -130,7 +130,7 @@ export function BuilderSelectionPanel({
   ownedAwakenerLevelByName,
   ownedWheelLevelById,
   ownedPosseLevelById,
-  teamFactionSet,
+  teamRealmSet,
   usedAwakenerIdentityKeys,
   activePosseId,
   teams,
@@ -145,7 +145,7 @@ export function BuilderSelectionPanel({
   onWheelMainstatFilterChange,
   onAwakenerSortKeyChange,
   onAwakenerSortDirectionToggle,
-  onAwakenerSortGroupByFactionChange,
+  onAwakenerSortGroupByRealmChange,
   onDisplayUnownedChange,
   onAllowDupesChange,
   onAwakenerClick,
@@ -211,9 +211,9 @@ export function BuilderSelectionPanel({
         >
           {pickerTab === 'awakeners' ? (
             <CollectionSortControls
-              groupByFaction={awakenerSortGroupByFaction}
+              groupByRealm={awakenerSortGroupByRealm}
               layout="stacked"
-              onGroupByFactionChange={onAwakenerSortGroupByFactionChange}
+              onGroupByRealmChange={onAwakenerSortGroupByRealmChange}
               onSortDirectionToggle={onAwakenerSortDirectionToggle}
               onSortKeyChange={onAwakenerSortKeyChange}
               sortDirection={awakenerSortDirection}
@@ -252,11 +252,11 @@ export function BuilderSelectionPanel({
         onChange={(event) => onSearchChange(event.target.value)}
         placeholder={
           pickerTab === 'awakeners'
-            ? 'Search awakeners (name, faction, aliases)'
+            ? 'Search awakeners (name, realm, faction, aliases)'
             : pickerTab === 'posses'
               ? 'Search posses (name, realm, awakener)'
               : pickerTab === 'wheels'
-                ? 'Search wheels (name, rarity, faction, awakener, main stat)'
+                ? 'Search wheels (name, rarity, realm, awakener, main stat)'
                 : 'Search covenants (name, id)'
         }
         type="search"
@@ -360,8 +360,8 @@ export function BuilderSelectionPanel({
             {filteredAwakeners.map((awakener) => (
               <PickerAwakenerTile
                 awakenerName={awakener.name}
-                faction={awakener.faction}
-                isFactionBlocked={teamFactionSet.size >= 2 && !teamFactionSet.has(awakener.faction.trim().toUpperCase())}
+                realm={awakener.realm}
+                isRealmBlocked={teamRealmSet.size >= 2 && !teamRealmSet.has(awakener.realm.trim().toUpperCase())}
                 isInUse={!allowDupes && usedAwakenerIdentityKeys.has(getAwakenerIdentityKey(awakener.name))}
                 isOwned={(ownedAwakenerLevelByName.get(awakener.name) ?? null) !== null}
                 key={awakener.name}
@@ -505,3 +505,8 @@ export function BuilderSelectionPanel({
     </aside>
   )
 }
+
+
+
+
+

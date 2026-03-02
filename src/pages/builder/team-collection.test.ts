@@ -164,7 +164,7 @@ describe('team collection state', () => {
       ...withData[0],
       posseId: 'some-posse',
       slots: [
-        { slotId: 'slot-1', awakenerName: 'goliath', faction: 'AEQUOR', level: 60, wheels: ['SR19', null] },
+        { slotId: 'slot-1', awakenerName: 'goliath', realm: 'AEQUOR', level: 60, wheels: ['SR19', null] },
         { slotId: 'slot-2', wheels: [null, null] },
         { slotId: 'slot-3', wheels: [null, null] },
         { slotId: 'slot-4', wheels: [null, null] },

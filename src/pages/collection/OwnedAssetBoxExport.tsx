@@ -43,7 +43,7 @@ export type OwnedAssetBoxEntry<R extends string = never> = {
   cardLevel?: number
   asset: string | null
   rarity?: R
-  faction?: string
+  realm?: string
   sortIndex?: number
 }
 
@@ -52,7 +52,7 @@ type ExportSortBehavior = 'CONFIGURABLE' | 'WHEEL_DEFAULT'
 type ExportSortConfig = {
   key: AwakenerSortKey
   direction: CollectionSortDirection
-  groupByFaction: boolean
+  groupByRealm: boolean
 }
 
 type RarityOption<R extends string> = {
@@ -260,16 +260,22 @@ function loadStoredSortConfig(storageKeyPrefix: string): ExportSortConfig {
   try {
     const raw = window.localStorage.getItem(`${storageKeyPrefix}.sort.v1`)
     if (!raw) return DEFAULT_EXPORT_SORT_CONFIG
-    const parsed = JSON.parse(raw) as Partial<ExportSortConfig>
+    const parsed = JSON.parse(raw) as Partial<ExportSortConfig> & { groupByFaction?: boolean }
     const key = parsed.key ?? DEFAULT_EXPORT_SORT_CONFIG.key
     const direction = parsed.direction ?? DEFAULT_EXPORT_SORT_CONFIG.direction
+    const legacyGroupByRealm = typeof parsed.groupByFaction === 'boolean' ? parsed.groupByFaction : undefined
     return {
       key:
         key === 'ALPHABETICAL' || key === 'LEVEL' || key === 'RARITY' || key === 'ENLIGHTEN'
           ? key
           : DEFAULT_EXPORT_SORT_CONFIG.key,
       direction: direction === 'ASC' || direction === 'DESC' ? direction : DEFAULT_EXPORT_SORT_CONFIG.direction,
-      groupByFaction: parsed.groupByFaction ?? DEFAULT_EXPORT_SORT_CONFIG.groupByFaction,
+      groupByRealm:
+        typeof parsed.groupByRealm === 'boolean'
+          ? parsed.groupByRealm
+          : typeof legacyGroupByRealm === 'boolean'
+            ? legacyGroupByRealm
+            : DEFAULT_EXPORT_SORT_CONFIG.groupByRealm,
     }
   } catch {
     return DEFAULT_EXPORT_SORT_CONFIG
@@ -538,7 +544,7 @@ export function OwnedAssetBoxExport<R extends string>({
       enlighten: entry.level,
       level: entry.cardLevel ?? 0,
       rarity: entry.rarity,
-      faction: entry.faction,
+      realm: entry.realm,
     })
 
     return [...filteredEntries].sort((left, right) => {
@@ -552,11 +558,11 @@ export function OwnedAssetBoxExport<R extends string>({
       return compareAwakenersForCollectionSort(leftSortable, rightSortable, {
         key: activeSortKey,
         direction: sortConfig.direction,
-        groupByFaction: sortConfig.groupByFaction,
+        groupByRealm: sortConfig.groupByRealm,
       })
     })
-  }, [filteredEntries, sortBehavior, sortConfig.direction, sortConfig.groupByFaction, sortConfig.key, sortOptions])
-  const supportsFactionGrouping = useMemo(() => entries.some((entry) => Boolean(entry.faction?.trim())), [entries])
+  }, [filteredEntries, sortBehavior, sortConfig.direction, sortConfig.groupByRealm, sortConfig.key, sortOptions])
+  const supportsRealmGrouping = useMemo(() => entries.some((entry) => Boolean(entry.realm?.trim())), [entries])
   const hasSortControls = sortBehavior === 'CONFIGURABLE' && sortOptions.length > 0
   const selectedSortKey = sortOptions.includes(sortConfig.key) ? sortConfig.key : sortOptions[0] ?? 'LEVEL'
   const hasAtLeastOneRarity = includedRarities ? Object.values(includedRarities).some(Boolean) : true
@@ -722,13 +728,13 @@ export function OwnedAssetBoxExport<R extends string>({
               {hasSortControls ? (
                 <div className="space-y-2 border border-slate-700/60 bg-slate-950/50 p-2">
                   <CollectionSortControls
-                    groupByFaction={sortConfig.groupByFaction}
-                    groupByFactionAriaLabel="Group by faction"
+                    groupByRealm={sortConfig.groupByRealm}
+                    groupByRealmAriaLabel="Group by realm"
                     headingText="Sort By"
-                    onGroupByFactionChange={(checked) =>
+                    onGroupByRealmChange={(checked) =>
                       setSortConfig((current) => ({
                         ...current,
-                        groupByFaction: checked,
+                        groupByRealm: checked,
                       }))
                     }
                     onSortDirectionToggle={() =>
@@ -743,7 +749,7 @@ export function OwnedAssetBoxExport<R extends string>({
                         key: nextKey,
                       }))
                     }
-                    showGroupByFaction={supportsFactionGrouping}
+                    showGroupByRealm={supportsRealmGrouping}
                     sortDirection={sortConfig.direction}
                     sortKey={selectedSortKey}
                     sortOptions={sortOptions}
@@ -1002,3 +1008,7 @@ export function OwnedAssetBoxExport<R extends string>({
     </>
   )
 }
+
+
+
+

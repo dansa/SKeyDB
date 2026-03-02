@@ -38,7 +38,7 @@ export function CharactersPage() {
           return (
             <article
               className="border border-slate-500/50 bg-slate-900/55 p-3 shadow-[0_0_0_1px_rgba(148,163,184,0.1)]"
-              key={`${awakener.name}-${awakener.faction}`}
+              key={`${awakener.name}-${awakener.realm}-${awakener.faction}`}
             >
               <div className="relative aspect-[25/56] overflow-hidden border border-amber-100/35 bg-gradient-to-b from-slate-800 to-slate-900">
                 {cardAsset ? (
@@ -53,6 +53,7 @@ export function CharactersPage() {
               </div>
               <h3 className="mt-3 ui-title text-lg text-amber-100">{displayName}</h3>
               <p className="text-xs uppercase tracking-wide text-sky-300">{awakener.faction}</p>
+              <p className="text-[11px] uppercase tracking-wide text-slate-400">{awakener.realm}</p>
             </article>
           )
         })}

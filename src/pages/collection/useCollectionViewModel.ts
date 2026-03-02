@@ -144,19 +144,22 @@ function loadAwakenerSortConfig(storage: StorageLike | null): AwakenerSortConfig
       return DEFAULT_AWAKENER_SORT_CONFIG
     }
 
-    const parsed = JSON.parse(raw) as Partial<AwakenerSortConfig>
+    const parsed = JSON.parse(raw) as Partial<AwakenerSortConfig> & { groupByFaction?: boolean }
     const key = parsed.key
     const direction = parsed.direction
+    const legacyGroupByRealm = typeof parsed.groupByFaction === 'boolean' ? parsed.groupByFaction : undefined
     return {
       key:
         key === 'LEVEL' || key === 'RARITY' || key === 'ENLIGHTEN' || key === 'ALPHABETICAL'
           ? key
           : DEFAULT_AWAKENER_SORT_CONFIG.key,
       direction: direction === 'ASC' || direction === 'DESC' ? direction : DEFAULT_AWAKENER_SORT_CONFIG.direction,
-      groupByFaction:
-        typeof parsed.groupByFaction === 'boolean'
-          ? parsed.groupByFaction
-          : DEFAULT_AWAKENER_SORT_CONFIG.groupByFaction,
+      groupByRealm:
+        typeof parsed.groupByRealm === 'boolean'
+          ? parsed.groupByRealm
+          : typeof legacyGroupByRealm === 'boolean'
+            ? legacyGroupByRealm
+            : DEFAULT_AWAKENER_SORT_CONFIG.groupByRealm,
     }
   } catch {
     return DEFAULT_AWAKENER_SORT_CONFIG
@@ -183,7 +186,7 @@ export function useCollectionViewModel() {
   const [awakenerSortDirection, setAwakenerSortDirection] = useState<CollectionSortDirection>(
     persistedAwakenerSortConfig.direction,
   )
-  const [awakenerSortGroupByFaction, setAwakenerSortGroupByFaction] = useState(persistedAwakenerSortConfig.groupByFaction)
+  const [awakenerSortGroupByRealm, setAwakenerSortGroupByRealm] = useState(persistedAwakenerSortConfig.groupByRealm)
   const rememberedLevelsRef = useRef<Record<'awakeners' | 'wheels' | 'posses', Record<string, number>>>({
     awakeners: {},
     wheels: {},
@@ -212,13 +215,13 @@ export function useCollectionViewModel() {
     [awakeners, queryByTab.awakeners],
   )
   const filteredAwakeners = useMemo(() => {
-    const byFaction =
+    const byRealm =
       awakenerFilter === 'ALL'
         ? searchedAwakeners
-        : searchedAwakeners.filter((awakener) => awakener.faction.trim().toUpperCase() === awakenerFilter)
+        : searchedAwakeners.filter((awakener) => awakener.realm.trim().toUpperCase() === awakenerFilter)
     const byOwnership = displayUnowned
-      ? byFaction
-      : byFaction.filter((awakener) => {
+      ? byRealm
+      : byRealm.filter((awakener) => {
           const awakenerId = awakenerIdByName.get(awakener.name)
           if (!awakenerId) {
             return false
@@ -244,7 +247,7 @@ export function useCollectionViewModel() {
           enlighten: leftIsOwned ? leftOwnedLevel : 0,
           level: leftAwakenerLevel,
           rarity: left.rarity,
-          faction: left.faction,
+          realm: left.realm,
         },
         {
           label: formatAwakenerNameForUi(right.name),
@@ -253,12 +256,12 @@ export function useCollectionViewModel() {
           enlighten: rightIsOwned ? rightOwnedLevel : 0,
           level: rightAwakenerLevel,
           rarity: right.rarity,
-          faction: right.faction,
+          realm: right.realm,
         },
         {
           key: awakenerSortKey,
           direction: awakenerSortDirection,
-          groupByFaction: awakenerSortGroupByFaction,
+          groupByRealm: awakenerSortGroupByRealm,
         },
       )
     })
@@ -270,7 +273,7 @@ export function useCollectionViewModel() {
     ownership,
     awakenerSortKey,
     awakenerSortDirection,
-    awakenerSortGroupByFaction,
+    awakenerSortGroupByRealm,
   ])
   const {
     frozenItems: frozenFilteredAwakeners,
@@ -289,7 +292,7 @@ export function useCollectionViewModel() {
         ? searchedPosses
         : posseFilter === 'FADED_LEGACY'
           ? searchedPosses.filter((posse) => posse.isFadedLegacy)
-          : searchedPosses.filter((posse) => !posse.isFadedLegacy && posse.faction.trim().toUpperCase() === posseFilter)
+          : searchedPosses.filter((posse) => !posse.isFadedLegacy && posse.realm.trim().toUpperCase() === posseFilter)
     const filteredByOwnership = displayUnowned
       ? filteredByCategory
       : filteredByCategory.filter((posse) => getOwnedLevel(ownership, 'posses', posse.id) !== null)
@@ -339,7 +342,7 @@ export function useCollectionViewModel() {
             wheel.name.toLowerCase().includes(query) ||
             wheel.id.toLowerCase().includes(query) ||
             wheel.rarity.toLowerCase().includes(query) ||
-            wheel.faction.toLowerCase().includes(query) ||
+            wheel.realm.toLowerCase().includes(query) ||
             wheel.awakener.toLowerCase().includes(query) ||
             getWheelMainstatLabel(wheel).toLowerCase().includes(query) ||
             wheel.mainstatKey.toLowerCase().includes(query) ||
@@ -358,7 +361,7 @@ export function useCollectionViewModel() {
           owned: getOwnedLevel(ownership, 'wheels', left.id) !== null,
           enlighten: getOwnedLevel(ownership, 'wheels', left.id) ?? 0,
           rarity: left.rarity,
-          faction: left.faction,
+          realm: left.realm,
         },
         {
           label: right.name,
@@ -366,7 +369,7 @@ export function useCollectionViewModel() {
           owned: getOwnedLevel(ownership, 'wheels', right.id) !== null,
           enlighten: getOwnedLevel(ownership, 'wheels', right.id) ?? 0,
           rarity: right.rarity,
-          faction: right.faction,
+          realm: right.realm,
         },
       ),
     )
@@ -395,7 +398,7 @@ export function useCollectionViewModel() {
     displayUnowned,
     awakenerSortKey,
     awakenerSortDirection,
-    awakenerSortGroupByFaction,
+    awakenerSortGroupByRealm,
     applyAwakenerSortFreeze,
   ])
   useEffect(() => {
@@ -691,10 +694,10 @@ export function useCollectionViewModel() {
       JSON.stringify({
         key: awakenerSortKey,
         direction: awakenerSortDirection,
-        groupByFaction: awakenerSortGroupByFaction,
+        groupByRealm: awakenerSortGroupByRealm,
       } satisfies AwakenerSortConfig),
     )
-  }, [storage, awakenerSortKey, awakenerSortDirection, awakenerSortGroupByFaction])
+  }, [storage, awakenerSortKey, awakenerSortDirection, awakenerSortGroupByRealm])
 
   return {
     tab,
@@ -719,8 +722,8 @@ export function useCollectionViewModel() {
     awakenerSortDirection,
     toggleAwakenerSortDirection: () =>
       setAwakenerSortDirection((current) => (current === 'DESC' ? 'ASC' : 'DESC')),
-    awakenerSortGroupByFaction,
-    setAwakenerSortGroupByFaction,
+    awakenerSortGroupByRealm,
+    setAwakenerSortGroupByRealm,
     filteredPosses,
     getAwakenerOwnedLevel,
     getAwakenerLevel: getAwakenerLevelByName,
@@ -756,3 +759,6 @@ export function useCollectionViewModel() {
 }
 
 export type CollectionViewModel = ReturnType<typeof useCollectionViewModel>
+
+
+

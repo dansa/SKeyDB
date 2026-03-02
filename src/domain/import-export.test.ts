@@ -11,12 +11,12 @@ function makeTeam(name: string): Team {
       {
         slotId: 'slot-1',
         awakenerName: 'goliath',
-        faction: 'AEQUOR',
+        realm: 'AEQUOR',
         level: 60,
         wheels: ['SR19', 'SR20'],
         covenantId: '001',
       },
-      { slotId: 'slot-2', awakenerName: 'ramona', faction: 'CHAOS', level: 60, wheels: [null, null] },
+      { slotId: 'slot-2', awakenerName: 'ramona', realm: 'CHAOS', level: 60, wheels: [null, null] },
       { slotId: 'slot-3', wheels: [null, null] },
       { slotId: 'slot-4', wheels: [null, null] },
     ],
@@ -57,7 +57,7 @@ describe('import-export codec', () => {
     teams[1].slots[0] = {
       slotId: 'slot-1',
       awakenerName: 'goliath',
-      faction: 'AEQUOR',
+      realm: 'AEQUOR',
       level: 90,
       isSupport: true,
       wheels: ['SR19', null],
@@ -65,7 +65,7 @@ describe('import-export codec', () => {
     teams[1].slots[1] = {
       slotId: 'slot-2',
       awakenerName: 'ramona',
-      faction: 'CHAOS',
+      realm: 'CHAOS',
       level: 88,
       wheels: [null, null],
     }

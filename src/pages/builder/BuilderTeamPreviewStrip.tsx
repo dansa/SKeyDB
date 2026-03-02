@@ -1,7 +1,7 @@
 import { useDraggable, useDroppable } from '@dnd-kit/core'
 import { getAwakenerCardAsset, getAwakenerPortraitAsset } from '../../domain/awakener-assets'
 import { getCovenantAssetById } from '../../domain/covenant-assets'
-import { getFactionTint } from '../../domain/factions'
+import { getRealmTint } from '../../domain/factions'
 import { getWheelAssetById } from '../../domain/wheel-assets'
 import { makeTeamPreviewSlotDropZoneId } from './dnd-ids'
 import type { DragData, TeamPreviewMode, TeamSlot } from './types'
@@ -74,7 +74,7 @@ function BuilderTeamSlotPreview({
               />
               <span
                 className="pointer-events-none absolute inset-0 z-10 border"
-                style={{ borderColor: getFactionTint(slot.faction) }}
+                style={{ borderColor: getRealmTint(slot.realm) }}
               />
               {slot.isSupport ? (
                 <span className="builder-team-preview-support-overlay">
@@ -115,7 +115,7 @@ function BuilderTeamSlotPreview({
             />
             <span
               className="pointer-events-none absolute inset-0 z-10 border"
-              style={{ borderColor: getFactionTint(slot.faction) }}
+              style={{ borderColor: getRealmTint(slot.realm) }}
             />
             {slot.isSupport ? <span className="builder-team-preview-support-chip builder-team-preview-support-chip-expanded">Support</span> : null}
             {!isAwakenerOwned ? <span className="builder-team-preview-unowned-chip">Unowned</span> : null}

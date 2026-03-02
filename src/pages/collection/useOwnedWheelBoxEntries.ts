@@ -20,7 +20,7 @@ export function useOwnedWheelBoxEntries(
             id: wheel.id,
             name: wheel.name,
             rarity: wheel.rarity,
-            faction: wheel.faction,
+            realm: wheel.realm,
             index,
             level,
             wheelAsset: getWheelAssetById(wheel.id) ?? null,

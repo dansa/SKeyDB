@@ -1,14 +1,14 @@
 import { useDraggable } from '@dnd-kit/core'
 import { getAwakenerPortraitAsset } from '../../domain/awakener-assets'
-import { getFactionTint } from '../../domain/factions'
+import { getRealmTint } from '../../domain/factions'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
 import { SHOW_PICKER_TILE_STATUS_LABELS } from './constants'
 import type { DragData } from './types'
 
 type PickerAwakenerTileProps = {
   awakenerName: string
-  faction: string
-  isFactionBlocked: boolean
+  realm: string
+  isRealmBlocked: boolean
   isInUse: boolean
   isOwned: boolean
   onClick: () => void
@@ -16,22 +16,22 @@ type PickerAwakenerTileProps = {
 
 export function PickerAwakenerTile({
   awakenerName,
-  faction,
-  isFactionBlocked,
+  realm,
+  isRealmBlocked,
   isInUse,
   isOwned,
   onClick,
 }: PickerAwakenerTileProps) {
   const displayName = formatAwakenerNameForUi(awakenerName)
   const portraitAsset = getAwakenerPortraitAsset(awakenerName)
-  const isDimmed = isFactionBlocked || isInUse
-  const factionTint = getFactionTint(faction)
+  const isDimmed = isRealmBlocked || isInUse
+  const realmTint = getRealmTint(realm)
   const statusText = isInUse
-    ? isFactionBlocked
-      ? 'Already Used / Wrong Faction'
+    ? isRealmBlocked
+      ? 'Already Used / Wrong Realm'
       : 'Already Used'
-    : isFactionBlocked
-      ? 'Wrong Faction'
+    : isRealmBlocked
+      ? 'Wrong Realm'
       : null
   const tileStatusText = SHOW_PICKER_TILE_STATUS_LABELS ? statusText : null
   const { attributes, listeners, isDragging, setNodeRef } = useDraggable({
@@ -44,7 +44,7 @@ export function PickerAwakenerTile({
       className={`builder-picker-tile relative border border-slate-500/50 bg-slate-900/40 p-0.5 text-left transition-colors hover:border-amber-200/45 ${
         isDragging ? 'opacity-55 scale-[0.98]' : ''
       } ${isDimmed ? 'opacity-55' : ''}`}
-      data-faction-blocked={isFactionBlocked ? 'true' : 'false'}
+      data-realm-blocked={isRealmBlocked ? 'true' : 'false'}
       data-in-use={isInUse ? 'true' : 'false'}
       onClick={onClick}
       ref={setNodeRef}
@@ -66,9 +66,9 @@ export function PickerAwakenerTile({
             <span className="sigil-placeholder" />
           </span>
         )}
-        <span
-          className="pointer-events-none absolute inset-0 z-10 border"
-          style={{ borderColor: factionTint }}
+          <span
+            className="pointer-events-none absolute inset-0 z-10 border"
+          style={{ borderColor: realmTint }}
         />
         {tileStatusText ? (
           <span className="pointer-events-none absolute inset-x-0 top-0 truncate border-y border-slate-300/30 bg-slate-950/62 px-1 py-0.5 text-center text-[9px] tracking-wide text-slate-100/90">

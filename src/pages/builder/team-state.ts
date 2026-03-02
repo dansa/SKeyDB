@@ -1,23 +1,23 @@
 import type { Awakener } from '../../domain/awakeners'
 import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
-import { DEFAULT_TEAM_RULES_CONFIG, exceedsFactionLimitForTeam } from '../../domain/team-rules'
+import { DEFAULT_TEAM_RULES_CONFIG, exceedsRealmLimitForTeam } from '../../domain/team-rules'
 import type { TeamSlot } from './types'
 
-export type TeamStateViolationCode = 'TOO_MANY_FACTIONS_IN_TEAM' | 'INVALID_BUILD_RULES'
+export type TeamStateViolationCode = 'TOO_MANY_REALMS_IN_TEAM' | 'INVALID_BUILD_RULES'
 
 export type TeamStateUpdateResult = {
   nextSlots: TeamSlot[]
   violation?: TeamStateViolationCode
 }
 
-function asFactionMembers(slots: TeamSlot[]) {
+function asRealmMembers(slots: TeamSlot[]) {
   return slots
-    .filter((slot) => slot.awakenerName && slot.faction)
-    .map((slot) => ({ faction: slot.faction! }))
+    .filter((slot) => slot.awakenerName && slot.realm)
+    .map((slot) => ({ realm: slot.realm! }))
 }
 
-export function getTeamFactionSet(slots: TeamSlot[]): Set<string> {
-  return new Set(asFactionMembers(slots).map((member) => member.faction.trim().toUpperCase()))
+export function getTeamRealmSet(slots: TeamSlot[]): Set<string> {
+  return new Set(asRealmMembers(slots).map((member) => member.realm.trim().toUpperCase()))
 }
 
 export function assignAwakenerToSlot(
@@ -53,7 +53,7 @@ export function assignAwakenerToSlot(
       return {
         ...slot,
         awakenerName,
-        faction: awakener.faction,
+        realm: awakener.realm,
         level: slot.level ?? 60,
         isSupport: slot.isSupport,
         wheels: [null, null] as [null, null],
@@ -65,7 +65,7 @@ export function assignAwakenerToSlot(
       return {
         ...slot,
         awakenerName: undefined,
-        faction: undefined,
+        realm: undefined,
         level: undefined,
         isSupport: undefined,
         wheels: [null, null] as [null, null],
@@ -77,11 +77,11 @@ export function assignAwakenerToSlot(
   })
 
   if (
-    exceedsFactionLimitForTeam(asFactionMembers(nextSlots), DEFAULT_TEAM_RULES_CONFIG.maxFactionsPerTeam)
+    exceedsRealmLimitForTeam(asRealmMembers(nextSlots), DEFAULT_TEAM_RULES_CONFIG.maxRealmsPerTeam)
   ) {
     return {
       nextSlots: currentSlots,
-      violation: 'TOO_MANY_FACTIONS_IN_TEAM',
+      violation: 'TOO_MANY_REALMS_IN_TEAM',
     }
   }
 
@@ -130,7 +130,7 @@ export function swapSlotAssignments(
       return {
         ...slot,
         awakenerName: targetSlot.awakenerName,
-        faction: targetSlot.faction,
+        realm: targetSlot.realm,
         level: targetSlot.level,
         isSupport: targetSlot.isSupport,
         wheels: [...targetSlot.wheels] as [string | null, string | null],
@@ -142,7 +142,7 @@ export function swapSlotAssignments(
       return {
         ...slot,
         awakenerName: sourceSlot.awakenerName,
-        faction: sourceSlot.faction,
+        realm: sourceSlot.realm,
         level: sourceSlot.level,
         isSupport: sourceSlot.isSupport,
         wheels: [...sourceSlot.wheels] as [string | null, string | null],
@@ -223,7 +223,7 @@ export function clearSlotAssignment(currentSlots: TeamSlot[], slotId: string): T
 
     if (
       !slot.awakenerName &&
-      !slot.faction &&
+      !slot.realm &&
       !slot.level &&
       !slot.covenantId &&
       slot.wheels[0] === null &&
@@ -235,7 +235,7 @@ export function clearSlotAssignment(currentSlots: TeamSlot[], slotId: string): T
     return {
       ...slot,
       awakenerName: undefined,
-      faction: undefined,
+      realm: undefined,
       level: undefined,
       isSupport: undefined,
       wheels: [null, null] as [null, null],

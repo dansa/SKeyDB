@@ -69,7 +69,7 @@ describe('BuilderPage wheels and covenants', () => {
     fireEvent.click(screen.getAllByRole('button', { name: /set wheel/i })[0])
     expect(screen.getByRole('searchbox')).toHaveAttribute(
       'placeholder',
-      'Search wheels (name, rarity, faction, awakener, main stat)',
+      'Search wheels (name, rarity, realm, awakener, main stat)',
     )
   })
 

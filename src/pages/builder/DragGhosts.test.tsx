@@ -9,7 +9,7 @@ describe('TeamCardGhost', () => {
     const slot: TeamSlot = {
       slotId: 'slot-1',
       awakenerName: 'goliath',
-      faction: 'CHAOS',
+      realm: 'CHAOS',
       level: 77,
       wheels: [null, null],
       covenantId: 'c01',
@@ -34,7 +34,7 @@ describe('TeamPreviewGhost', () => {
         {
           slotId: 'slot-1',
           awakenerName: 'ramona',
-          faction: 'CHAOS',
+          realm: 'CHAOS',
           wheels: ['SR19', null],
           covenantId: 'c01',
         },
