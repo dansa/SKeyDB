@@ -19,7 +19,7 @@ function getWheelRarity(id) {
   return 'SSR'
 }
 
-function getWheelFaction(id) {
+function getWheelRealm(id) {
   if (id === 'D12') {
     return 'CHAOS'
   }
@@ -49,7 +49,7 @@ function parseWheelFile(filename) {
     assetId: `Weapon_Full_${id}`,
     name: id,
     rarity: getWheelRarity(id),
-    faction: getWheelFaction(id),
+    realm: getWheelRealm(id),
     awakener: '',
     mainstatKey: '',
   }

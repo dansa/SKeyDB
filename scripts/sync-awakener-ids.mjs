@@ -7,58 +7,40 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 
 const awakenersPath = path.join(repoRoot, 'src', 'data', 'awakeners-lite.json')
-const registryPath = path.join(repoRoot, 'src', 'data', 'id-registry.json')
-
-function toRegistryKey(name) {
-  return name.trim().toLowerCase()
-}
-
-function sortObjectByValue(record) {
-  return Object.fromEntries(Object.entries(record).sort((a, b) => a[1] - b[1]))
-}
 
 async function main() {
   const awakeners = JSON.parse(await fs.readFile(awakenersPath, 'utf8'))
-
-  let registry = { awakeners: {}, nextAwakenerId: 1 }
-  try {
-    registry = JSON.parse(await fs.readFile(registryPath, 'utf8'))
-  } catch (error) {
-    if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-      // Create registry on first run.
-    } else {
-      throw error
-    }
-  }
-
-  registry.awakeners = registry.awakeners ?? {}
-  registry.nextAwakenerId = Number.isInteger(registry.nextAwakenerId) ? registry.nextAwakenerId : 1
-
-  const usedIds = new Set(Object.values(registry.awakeners))
+  const usedIds = new Set()
+  let nextAwakenerId = 1
 
   for (const awakener of awakeners) {
-    const key = toRegistryKey(awakener.name)
-    let id = registry.awakeners[key]
+    const id = awakener.id
 
     if (!Number.isInteger(id) || id <= 0) {
-      while (usedIds.has(registry.nextAwakenerId)) {
-        registry.nextAwakenerId += 1
-      }
-      id = registry.nextAwakenerId
-      registry.awakeners[key] = id
-      usedIds.add(id)
-      registry.nextAwakenerId += 1
+      continue
     }
-
-    awakener.id = id
+    if (usedIds.has(id)) {
+      throw new Error(`Duplicate awakener id detected in data: ${id}`)
+    }
+    usedIds.add(id)
+    nextAwakenerId = Math.max(nextAwakenerId, id + 1)
   }
 
-  registry.awakeners = sortObjectByValue(registry.awakeners)
+  for (const awakener of awakeners) {
+    if (Number.isInteger(awakener.id) && awakener.id > 0) {
+      continue
+    }
+    while (usedIds.has(nextAwakenerId)) {
+      nextAwakenerId += 1
+    }
+    awakener.id = nextAwakenerId
+    usedIds.add(nextAwakenerId)
+    nextAwakenerId += 1
+  }
 
   await fs.writeFile(awakenersPath, `${JSON.stringify(awakeners, null, 2)}\n`)
-  await fs.writeFile(registryPath, `${JSON.stringify(registry, null, 2)}\n`)
 
-  console.log(`Synced ${awakeners.length} awakeners with stable numeric ids.`)
+  console.log(`Synced ${awakeners.length} awakeners with stable numeric ids from current data.`)
 }
 
 main().catch((error) => {
