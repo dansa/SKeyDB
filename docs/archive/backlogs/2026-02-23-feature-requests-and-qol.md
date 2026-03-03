@@ -1,4 +1,6 @@
 # General website QOL / Fixes
+
+> Archived backlog snapshot. The current unscheduled backlog lives in `docs/backlog.md`.
 - Better, more in depth filters for awakeners/wheels, things like rarity, roles tags, etc.
     - Relies on more information being added to the respective JSON files.
 - Add more tooltips when hovering things, to either negate truncated text, or explain what the thing does.

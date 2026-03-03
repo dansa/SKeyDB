@@ -1,5 +1,7 @@
 # Realm Terminology Migration Plan
 
+> Archived implementation plan. Keep for historical context only. If related work resumes, create a new plan in `docs/plans/`.
+
 ## Goal
 
 Migrate the codebase to game-correct terminology in one PR:

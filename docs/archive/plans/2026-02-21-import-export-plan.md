@@ -1,5 +1,7 @@
 # Import/Export Plan
 
+> Archived implementation plan. Keep for historical context only. If related work resumes, create a new plan in `docs/plans/`.
+
 Last updated: 2026-02-22
 
 ## Goal
@@ -77,6 +79,6 @@ Add import/export for builder teams using compact versioned codes, with safe val
   - Wheel and covenant IDs included in compact payloads.
   - Import UX polish (autofocus + Enter submit in import dialog).
   - Merged to `main`.
-  - Follow-up: separate in-game `@@...@@` single-team import/export support was added under `docs/plans/2026-02-27-ingame-team-codec-plan.md`.
+  - Follow-up: separate in-game `@@...@@` single-team import/export support was added under `docs/notes/2026-02-27-ingame-team-codec-status.md`.
 - Pending:
   - None for this phase.

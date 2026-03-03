@@ -160,7 +160,45 @@ Its job is to reduce churn, keep logic in the right layer, and preserve repo-spe
 4. Final gate:
 - run `npm run verify` before claiming substantial work is complete
 
-## 8) Context+ Usage
+## 8) Documentation Workflow
+
+1. Use the right doc type:
+- `docs/roadmap.md`: current priorities only
+- `docs/backlog.md`: unscheduled ideas worth keeping
+- `docs/plans/`: active implementation plans only
+- `docs/notes/`: durable design notes, migration notes, and status/reference docs
+- `docs/archive/`: shipped or superseded history
+
+2. Prefer current docs over historical docs:
+- update `docs/roadmap.md` and `docs/backlog.md` instead of editing archived snapshots
+- link to notes or archive files when history matters; do not treat them as the current source of truth
+
+3. When to create a plan:
+- create or update a plan in `docs/plans/` for multi-step implementation work, non-trivial migrations, or work expected to span multiple sessions
+- do not create a dated plan for tiny one-shot edits unless the user asks for it
+
+4. Plan format:
+- start from `docs/templates/plan-template.md`
+- keep the required execution-oriented header used by the repo's planning workflow
+- include explicit scope, out-of-scope, verification, and task slices
+
+5. Active plan maintenance:
+- keep `Status` accurate: `Draft`, `In progress`, `Blocked`, or `Done`
+- update `Last updated` when a meaningful session changes the plan state
+- keep `Progress Snapshot` honest; remove stale blockers and stale “in progress” text
+- if implementation diverges materially from the written plan, patch the plan instead of leaving it misleading
+
+6. Notes:
+- start from `docs/templates/note-template.md`
+- use notes for durable reasoning, findings, and status/reference material that future plans should link to
+- notes should not become unchecked task dumps
+
+7. Closing the loop:
+- when active work ships, is abandoned, or is superseded, move the plan to `docs/archive/plans/`
+- if priorities changed, update `docs/roadmap.md` or `docs/backlog.md` in the same pass
+- if a note is now the canonical explanation for a subsystem, make sure related plans link to it instead of repeating the same context
+
+## 9) Context+ Usage
 
 1. Default behavior:
 - if present, use local `INSTRUCTIONS.md` as the primary guide for Context+ tool choice and ordering
@@ -175,7 +213,7 @@ Its job is to reduce churn, keep logic in the right layer, and preserve repo-spe
 - prefer `propose_commit` when it is available and compatible with the active environment
 - if the environment requires a different edit mechanism, follow the environment without treating that as a repo policy violation
 
-## 9) Agent-Specific Non-Goals
+## 10) Agent-Specific Non-Goals
 
 1. This file is not a human maintainer handbook:
 - keep human process prose, long checklists, and broad contributor policy elsewhere

@@ -1,5 +1,7 @@
 # Builder QOL Stage 2 Plan
 
+> Archived implementation plan. Keep for historical context only. If related work resumes, create a new plan in `docs/plans/`.
+
 Last updated: 2026-02-28
 
 ## Goal

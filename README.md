@@ -36,7 +36,7 @@ App runs on `http://127.0.0.1:5173`.
 - `src/pages/builder/` - builder UI components + DnD logic
 - `src/domain/` - domain logic (search, rules, formatting, assets)
 - `src/data/` - lightweight JSON datasets
-- `docs/plans/` - internal planning/roadmap docs
+- `docs/` - internal roadmap, backlog, plans, notes, and archive
 - `untracked/` - local scratch space (ignored by git)
 
 ## Deployment Notes (GitHub Pages)
@@ -79,7 +79,7 @@ Current implementation is an MVP focused on:
 - team card interactions and drag/drop
 - wheel picker/search + assignment flows
 - covenant picker/search + assignment flows
-- faction constraints and related UX states
+- realm constraints and related UX states
 - posse selection UI
 - compact import/export codes (`t1.` single-team, `mt1.` multi-team)
 - import conflict handling (replace, move duplicates, skip duplicates)
@@ -88,4 +88,5 @@ Current implementation is an MVP focused on:
 - collection save/load snapshot (`.json`)
 
 For roadmap/todo details, see:
-- `docs/plans/2026-02-20-project-roadmap.md`
+- `docs/roadmap.md`
+- `docs/backlog.md`

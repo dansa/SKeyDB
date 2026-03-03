@@ -1,5 +1,7 @@
 # SKeyDB Roadmap
 
+> Archived roadmap snapshot. The current roadmap lives in `docs/roadmap.md`.
+
 Last updated: 2026-02-23
 
 ## Project Goal
@@ -86,7 +88,7 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 ### Milestone 2: Multi-Team Iteration 2
 - Continue conflict/move UX polish for reassignment flows and future mobile builder layout work.
 - Explore URL-safe share flow and additional persistence polish once the current builder interaction model settles.
-- Detailed plan: `docs/plans/2026-02-20-multi-team-builder-plan.md`
+- Detailed plan: `docs/archive/plans/2026-02-20-multi-team-builder-plan.md`
 
 ### Milestone 3: Share + Persistence
 - Expand compact export/import coverage (future schema versions, compatibility policy).
@@ -96,7 +98,7 @@ Ship an open-source Morimens team builder that is easy to use and easy to mainta
 - Completed: local persistence for builder drafts.
 - Completed: owned/unowned collection persistence (awakeners, wheels, posses) on dedicated collection UI.
 - Pending: migration scaffolding for future persistence schema versions.
-- Detailed plan: `docs/plans/2026-02-22-persistence-plan.md`
+- Detailed plan: `docs/archive/plans/2026-02-22-persistence-plan.md`
 
 ## Milestone 4: Actual database
 - Add character/wheel/covenant data with stats, skills, tag taxonomy, recommendations.
