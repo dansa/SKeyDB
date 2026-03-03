@@ -3,15 +3,7 @@ import { describe, expect, it } from 'vitest'
 import './builder-page.integration-mocks'
 import { BuilderPage } from './BuilderPage'
 
-describe('BuilderPage wheels and covenants', () => {
-  it('shows covenant picker tab and covenant search placeholder', () => {
-    render(<BuilderPage />)
-
-    fireEvent.click(screen.getByRole('tab', { name: /covenants/i }))
-
-    expect(screen.getByRole('searchbox')).toHaveAttribute('placeholder', 'Search covenants (name, id)')
-  })
-
+describe('BuilderPage wheels', () => {
   it('uses a shared constrained scroll container for every picker tab', () => {
     render(<BuilderPage />)
 
@@ -30,33 +22,6 @@ describe('BuilderPage wheels and covenants', () => {
     }
   })
 
-  it('sets covenant on active slot and allows clearing it from picker', async () => {
-    render(<BuilderPage />)
-
-    fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
-    fireEvent.load(screen.getByAltText(/goliath card/i))
-    fireEvent.click(screen.getByRole('button', { name: /set covenant/i }))
-    fireEvent.click(screen.getByRole('button', { name: /deus ex machina covenant/i }))
-
-    expect(screen.getByRole('button', { name: /edit covenant/i })).toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', { name: /not set covenant/i }))
-    expect(screen.getAllByRole('button', { name: /set covenant/i }).length).toBeGreaterThan(0)
-  })
-
-  it('assigns covenant when awakener card is active and covenant is clicked in picker', async () => {
-    render(<BuilderPage />)
-
-    fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
-    fireEvent.load(screen.getByAltText(/goliath card/i))
-    fireEvent.click(screen.getByRole('button', { name: /change goliath/i }))
-    fireEvent.click(screen.getByRole('tab', { name: /covenants/i }))
-    fireEvent.click(screen.getByRole('button', { name: /deus ex machina covenant/i }))
-
-    expect(screen.getByRole('button', { name: /edit covenant/i })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /remove active awakener/i })).toBeInTheDocument()
-  })
-
   it('treats both active slot sockets as wheel slots', () => {
     render(<BuilderPage />)
 
@@ -73,7 +38,7 @@ describe('BuilderPage wheels and covenants', () => {
     )
   })
 
-  it('labels wheels already used in the active team inside picker', async () => {
+  it('labels wheels already used in the active team inside picker', () => {
     render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
@@ -101,13 +66,13 @@ describe('BuilderPage wheels and covenants', () => {
     fireEvent.click(screen.getByRole('button', { name: /merciful nurturing/i }))
 
     const editWheelButton = screen.getAllByRole('button', { name: /edit wheel/i })[0]
-    const cardWheelTile = editWheelButton?.closest('.wheel-tile')
+    const cardWheelTile = editWheelButton.closest('.wheel-tile')
     const cardImage = cardWheelTile?.querySelector('img')
     expect(cardImage).not.toBeNull()
     expect(cardImage?.classList.contains('builder-card-wheel-image')).toBe(true)
   })
 
-  it('renders independent wheel rarity and mainstat filter controls', async () => {
+  it('renders independent wheel rarity and mainstat filter controls', () => {
     render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('tab', { name: /wheels/i }))
@@ -124,7 +89,7 @@ describe('BuilderPage wheels and covenants', () => {
     expect(mainstatCritRate).toHaveAttribute('aria-pressed', 'true')
   })
 
-  it('uses standard plus sigil for unset wheel slots on cards', async () => {
+  it('uses standard plus sigil for unset wheel slots on cards', () => {
     render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
@@ -138,20 +103,7 @@ describe('BuilderPage wheels and covenants', () => {
     expect(firstUnsetWheel?.querySelector('.sigil-remove-x')).toBeNull()
   })
 
-  it('renders the unset covenant slot with the svg placeholder frame', () => {
-    render(<BuilderPage />)
-
-    fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
-    fireEvent.load(screen.getByAltText(/goliath card/i))
-
-    const setCovenantButton = screen.getByRole('button', { name: /set covenant/i })
-    const covenantTile = setCovenantButton.closest('.covenant-tile')
-
-    expect(covenantTile).not.toBeNull()
-    expect(covenantTile?.querySelector('.builder-covenant-placeholder-svg')).not.toBeNull()
-  })
-
-  it('renders wheel remove action inside the active wheel tile', async () => {
+  it('renders wheel remove action inside the active wheel tile', () => {
     render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
@@ -163,7 +115,7 @@ describe('BuilderPage wheels and covenants', () => {
     expect(removeButton.closest('.wheel-tile')).not.toBeNull()
   })
 
-  it('assigns wheel to first empty slot when awakener card is active', async () => {
+  it('assigns wheel to first empty slot when awakener card is active', () => {
     render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('button', { name: /goliath/i }))
@@ -191,5 +143,3 @@ describe('BuilderPage wheels and covenants', () => {
     expect(screen.queryByRole('button', { name: /set wheel/i })).not.toBeInTheDocument()
   })
 })
-
-

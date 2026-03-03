@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
+import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { CollectionPage } from './CollectionPage'
 
@@ -128,9 +128,7 @@ describe('CollectionPage global search capture', () => {
     const badFile = new File(['not-json'], 'broken.json', { type: 'application/json' })
     fireEvent.change(input, { target: { files: [badFile] } })
 
-    await waitFor(() => {
-      expect(screen.getByText(/load failed: file is not valid json\./i)).toBeInTheDocument()
-    })
+    expect(await screen.findByText(/load failed: file is not valid json\./i)).toBeInTheDocument()
   })
 
   it('shows tab-specific owned box export buttons', () => {
