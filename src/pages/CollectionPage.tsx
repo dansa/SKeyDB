@@ -240,7 +240,9 @@ export function CollectionPage() {
       <input
         accept="application/json,.json"
         className="hidden"
-        onChange={handleLoadFromFile}
+        onChange={(event) => {
+          void handleLoadFromFile(event)
+        }}
         ref={importFileInputRef}
         type="file"
       />

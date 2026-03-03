@@ -119,7 +119,13 @@ function fetchAssetAsDataUrl(url: string): Promise<string> {
       (blob) =>
         new Promise<string>((resolve, reject) => {
           const reader = new FileReader()
-          reader.onload = () => resolve(String(reader.result))
+          reader.onload = () => {
+            if (typeof reader.result !== 'string') {
+              reject(new Error(`Unexpected font data format: ${url}`))
+              return
+            }
+            resolve(reader.result)
+          }
           reader.onerror = () => reject(new Error(`Failed to read font blob: ${url}`))
           reader.readAsDataURL(blob)
         }),
@@ -176,10 +182,10 @@ function getExportFontEmbedCss(): Promise<ExportFontEmbedResult> {
 }
 
 const emojiAssets = Object.values(
-  import.meta.glob('../../assets/emoji/*.png', {
+  import.meta.glob<string>('../../assets/emoji/*.png', {
     eager: true,
     import: 'default',
-  }) as Record<string, string>,
+  }),
 )
 
 function clamp(value: number, min: number, max: number) {
@@ -219,7 +225,7 @@ function withTimeout<T>(promise: Promise<T>, timeoutMs: number, label: string): 
       },
       (error) => {
         window.clearTimeout(timeoutId)
-        reject(error)
+        reject(error instanceof Error ? error : new Error(String(error)))
       },
     )
   })

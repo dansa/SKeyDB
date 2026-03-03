@@ -73,6 +73,14 @@ afterEach(() => {
   vi.restoreAllMocks()
 })
 
+function getRequiredFileInput(container: HTMLElement): HTMLInputElement {
+  const input = container.querySelector('input[type="file"]')
+  if (!(input instanceof HTMLInputElement)) {
+    throw new Error('Expected collection file input')
+  }
+  return input
+}
+
 describe('CollectionPage global search capture', () => {
   it('captures global typing into the collection searchbox', () => {
     render(<CollectionPage />)
@@ -115,11 +123,10 @@ describe('CollectionPage global search capture', () => {
 
   it('shows explicit error when loading invalid snapshot file', async () => {
     const { container } = render(<CollectionPage />)
-    const input = container.querySelector('input[type="file"]') as HTMLInputElement | null
-    expect(input).toBeTruthy()
+    const input = getRequiredFileInput(container)
 
     const badFile = new File(['not-json'], 'broken.json', { type: 'application/json' })
-    fireEvent.change(input!, { target: { files: [badFile] } })
+    fireEvent.change(input, { target: { files: [badFile] } })
 
     await waitFor(() => {
       expect(screen.getByText(/load failed: file is not valid json\./i)).toBeInTheDocument()

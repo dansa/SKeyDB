@@ -20,6 +20,20 @@ function makeImportTeam(name: string, awakenerName: string, posseId?: string): T
   }
 }
 
+function getRequiredElement(element: Element | null, message: string): HTMLElement {
+  if (!(element instanceof HTMLElement)) {
+    throw new Error(message)
+  }
+  return element
+}
+
+function getRequiredTextArea(element: Element): HTMLTextAreaElement {
+  if (!(element instanceof HTMLTextAreaElement)) {
+    throw new Error('Expected textarea export field')
+  }
+  return element
+}
+
 describe('BuilderPage import-export', () => {
   beforeEach(() => {
     window.localStorage.clear()
@@ -83,9 +97,8 @@ describe('BuilderPage import-export', () => {
     const { container } = render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('button', { name: /\+ add team/i }))
-    const team2Row = container.querySelector('[data-team-name="Team 2"]')
-    expect(team2Row).not.toBeNull()
-    fireEvent.click(within(team2Row as HTMLElement).getByText('Team 2'))
+    const team2Row = getRequiredElement(container.querySelector('[data-team-name="Team 2"]'), 'Expected Team 2 row')
+    fireEvent.click(within(team2Row).getByText('Team 2'))
 
     fireEvent.click(screen.getByRole('button', { name: /import/i }))
     const importDialog = screen.getByRole('dialog', { name: /import teams/i })
@@ -113,7 +126,7 @@ describe('BuilderPage import-export', () => {
     fireEvent.click(screen.getByRole('button', { name: /export in-game/i }))
     const exportDialog = screen.getByRole('dialog', { name: /export in-game/i })
     expect(within(exportDialog).getByText(/in-game export is work in progress/i)).toBeInTheDocument()
-    const codeArea = within(exportDialog).getByRole('textbox', { name: /export code/i }) as HTMLTextAreaElement
+    const codeArea = getRequiredTextArea(within(exportDialog).getByRole('textbox', { name: /export code/i }))
     expect(codeArea.value.startsWith('@@')).toBe(true)
     expect(codeArea.value.endsWith('@@')).toBe(true)
   })
@@ -223,7 +236,7 @@ describe('BuilderPage import-export', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /export all/i }))
     const exportDialog = screen.getByRole('dialog', { name: /export all teams/i })
-    const exportCode = within(exportDialog).getByRole('textbox', { name: /export code/i }) as HTMLTextAreaElement
+    const exportCode = getRequiredTextArea(within(exportDialog).getByRole('textbox', { name: /export code/i }))
 
     const parsed = decodeImportCode(exportCode.value)
     expect(parsed.kind).toBe('multi')

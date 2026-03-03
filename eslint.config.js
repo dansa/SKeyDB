@@ -8,22 +8,46 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 export default defineConfig([
   globalIgnores(['dist']),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['src/**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,
-      tseslint.configs.recommended,
+      tseslint.configs.recommendedTypeChecked,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
     ],
     languageOptions: {
-      ecmaVersion: 2020,
       globals: globals.browser,
+      parserOptions: {
+        projectService: true,
+      },
     },
   },
   {
-    files: ['**/*.test.{ts,tsx}'],
+    files: ['src/**/*.test.{ts,tsx}'],
+    rules: {
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/require-await': 'off',
+    },
     languageOptions: {
       globals: globals.vitest,
+    },
+  },
+  {
+    files: ['vite.config.ts'],
+    extends: [js.configs.recommended, tseslint.configs.recommendedTypeChecked],
+    languageOptions: {
+      globals: globals.node,
+      parserOptions: {
+        projectService: true,
+      },
+    },
+  },
+  {
+    files: ['scripts/**/*.{js,mjs}'],
+    extends: [js.configs.recommended],
+    languageOptions: {
+      globals: globals.node,
     },
   },
 ])

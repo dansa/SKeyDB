@@ -1,7 +1,7 @@
-const wheelAssets = import.meta.glob('../assets/wheels/*.png', {
+const wheelAssets = import.meta.glob<string>('../assets/wheels/*.png', {
   eager: true,
   import: 'default',
-}) as Record<string, string>
+})
 
 function basenameWithoutExt(assetPath: string): string {
   const filename = assetPath.split('/').at(-1) ?? assetPath

@@ -1,12 +1,12 @@
-const cardAssets = import.meta.glob('../assets/awk-cards/*.png', {
+const cardAssets = import.meta.glob<string>('../assets/awk-cards/*.png', {
   eager: true,
   import: 'default',
-}) as Record<string, string>
+})
 
-const portraitAssets = import.meta.glob('../assets/awk-portraits/*.png', {
+const portraitAssets = import.meta.glob<string>('../assets/awk-portraits/*.png', {
   eager: true,
   import: 'default',
-}) as Record<string, string>
+})
 
 const explicitSlugByAwakenerName: Record<string, string> = {
   '24': 'mason',

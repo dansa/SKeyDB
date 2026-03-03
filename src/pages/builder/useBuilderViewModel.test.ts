@@ -5,6 +5,7 @@ import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
 import { COLLECTION_OWNERSHIP_KEY, saveCollectionOwnership } from '../../domain/collection-ownership'
 import { BUILDER_PERSISTENCE_KEY, clearBuilderDraft, saveBuilderDraft } from './builder-persistence'
 import { useBuilderViewModel } from './useBuilderViewModel'
+import type { BuilderDraftPayload } from './builder-persistence'
 
 vi.mock('./useGlobalPickerSearchCapture', () => ({
   useGlobalPickerSearchCapture: vi.fn(),
@@ -15,6 +16,13 @@ const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
 const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
 const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
 const BUILDER_TEAM_PREVIEW_MODE_KEY = 'skeydb.builder.teamPreviewMode.v1'
+
+function requireDefined<T>(value: T | null | undefined): T {
+  if (value === null || value === undefined) {
+    throw new Error('Expected value to be defined')
+  }
+  return value
+}
 
 describe('useBuilderViewModel', () => {
   beforeEach(() => {
@@ -56,19 +64,18 @@ describe('useBuilderViewModel', () => {
         searchInputRef: createRef<HTMLInputElement>(),
       }),
     )
-    const targetSlot = result.current.teamSlots[0]?.slotId
-    expect(targetSlot).toBeDefined()
+    const targetSlot = requireDefined(result.current.teamSlots[0]?.slotId)
 
     act(() => {
       result.current.setPickerTab('posses')
-      result.current.handleCardClick(targetSlot!)
+      result.current.handleCardClick(targetSlot)
     })
 
     expect(result.current.pickerTab).toBe('awakeners')
     expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: targetSlot })
 
     act(() => {
-      result.current.handleCardClick(targetSlot!)
+      result.current.handleCardClick(targetSlot)
     })
     expect(result.current.activeSelection).toBeNull()
   })
@@ -79,11 +86,10 @@ describe('useBuilderViewModel', () => {
         searchInputRef: createRef<HTMLInputElement>(),
       }),
     )
-    const targetSlot = result.current.teamSlots[0]?.slotId
-    expect(targetSlot).toBeDefined()
+    const targetSlot = requireDefined(result.current.teamSlots[0]?.slotId)
 
     act(() => {
-      result.current.handleWheelSlotClick(targetSlot!, 0)
+      result.current.handleWheelSlotClick(targetSlot, 0)
     })
 
     expect(result.current.pickerTab).toBe('wheels')
@@ -96,11 +102,10 @@ describe('useBuilderViewModel', () => {
         searchInputRef: createRef<HTMLInputElement>(),
       }),
     )
-    const targetSlot = result.current.teamSlots[0]?.slotId
-    expect(targetSlot).toBeDefined()
+    const targetSlot = requireDefined(result.current.teamSlots[0]?.slotId)
 
     act(() => {
-      result.current.handleWheelSlotClick(targetSlot!, 1)
+      result.current.handleWheelSlotClick(targetSlot, 1)
     })
 
     expect(result.current.pickerTab).toBe('wheels')
@@ -113,8 +118,7 @@ describe('useBuilderViewModel', () => {
         searchInputRef: createRef<HTMLInputElement>(),
       }),
     )
-    const targetSlot = result.current.teamSlots[0]?.slotId
-    expect(targetSlot).toBeDefined()
+    const targetSlot = requireDefined(result.current.teamSlots[0]?.slotId)
 
     act(() => {
       result.current.setActiveTeamSlots([
@@ -127,11 +131,11 @@ describe('useBuilderViewModel', () => {
     })
 
     act(() => {
-      result.current.setActiveSelection({ kind: 'awakener', slotId: targetSlot! })
+      result.current.setActiveSelection({ kind: 'awakener', slotId: targetSlot })
     })
 
     act(() => {
-      result.current.handleRemoveActiveSelection(targetSlot!)
+      result.current.handleRemoveActiveSelection(targetSlot)
     })
 
     expect(result.current.teamSlots[0]?.awakenerName).toBeUndefined()
@@ -234,11 +238,10 @@ describe('useBuilderViewModel', () => {
         searchInputRef: createRef<HTMLInputElement>(),
       }),
     )
-    const teamId = result.current.teams[0]?.id
-    expect(teamId).toBeDefined()
+    const teamId = requireDefined(result.current.teams[0]?.id)
 
     act(() => {
-      result.current.beginTeamRename(teamId!, 'Team 1')
+      result.current.beginTeamRename(teamId, 'Team 1')
     })
 
     act(() => {
@@ -246,7 +249,7 @@ describe('useBuilderViewModel', () => {
     })
 
     act(() => {
-      result.current.commitTeamRename(teamId!)
+      result.current.commitTeamRename(teamId)
     })
 
     expect(result.current.teams[0]?.name).toBe('Arena Squad')
@@ -308,10 +311,8 @@ describe('useBuilderViewModel', () => {
       vi.advanceTimersByTime(400)
     })
 
-    const storedRaw = window.localStorage.getItem(BUILDER_PERSISTENCE_KEY)
-    expect(storedRaw).toBeTruthy()
-
-    const parsed = JSON.parse(storedRaw!)
+    const storedRaw = requireDefined(window.localStorage.getItem(BUILDER_PERSISTENCE_KEY))
+    const parsed = JSON.parse(storedRaw) as { payload: BuilderDraftPayload }
     expect(parsed.payload.activeTeamId).toBe('team-autosave')
     expect(parsed.payload.teams[0]?.name).toBe('Autosave Team')
 

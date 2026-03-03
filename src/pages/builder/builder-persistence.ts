@@ -117,7 +117,7 @@ function isTeam(value: unknown): value is Team {
     return false
   }
 
-  const slotIds = record.slots.map((slot) => (slot as TeamSlot).slotId)
+  const slotIds = record.slots.map((slot) => slot.slotId)
   return new Set(slotIds).size === slotIds.length
 }
 
@@ -151,7 +151,8 @@ function normalizeDraft(payload: BuilderDraftPayload): BuilderDraftPayload | nul
     teams: payload.teams.map((team) => ({
       ...team,
       slots: team.slots.map((slot) => {
-        const realm = slot.realm ?? ((slot as TeamSlot & { faction?: string }).faction as TeamSlot['realm'] | undefined)
+        const legacyFaction = 'faction' in slot && typeof slot.faction === 'string' ? slot.faction : undefined
+        const realm = slot.realm ?? legacyFaction
         if (slot.awakenerName) {
           return {
             ...slot,
