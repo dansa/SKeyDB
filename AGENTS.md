@@ -1,255 +1,189 @@
-# SKeyDB Agent Playbook (Draft)
+# SKeyDB Agent Guide
 
-This file is the working guide for humans and coding agents in this repo.
-Goal: ship features without the "write fast, refactor for an hour" loop.
+This file is for coding agents working in this repo.
+Its job is to reduce churn, keep logic in the right layer, and preserve repo-specific behavior.
 
-## 1) Project Intent
+## 1) Instruction Order
 
-SKeyDB is a React + TypeScript builder app with data-heavy behavior:
-- domain rules (team validity, uniqueness constraints)
-- picker/search behavior
-- deterministic import/export codecs
-- Morimens-inspired UI
+1. Highest priority:
+- system, developer, runtime, and tool constraints
 
-This is not a "just build UI quickly" repo. Correctness and maintainability are first-order requirements.
+2. Repo policy:
+- this `AGENTS.md` is the repo-level instruction source
 
-## 2) Core Engineering Principles
+3. Context+ workflow:
+- if a local `INSTRUCTIONS.md` file is present, treat it as supplemental guidance for Context+ MCP usage
+- use it only when Context+ is available and relevant to the task
+- do not assume other maintainers have that file or the same local MCP and Ollama setup
+- apply its principles where they fit this repo; do not import server-specific formatting rules blindly
 
-1. Derive, do not duplicate:
-- Prefer derived values over duplicated state.
-- Keep state as minimal as possible.
+4. Task direction:
+- user requests define the task
+- they do not override higher-priority safety or runtime constraints
 
-2. Keep effects for external sync only:
-- Do not use Effects for pure data transforms that can be derived during render.
-- If you are calling setState in an Effect, challenge that design first.
+5. Fallback:
+- if Context+ is unavailable or bound to the wrong root, fall back to repo-safe local tooling
+- if `INSTRUCTIONS.md` is absent, ignore it and continue with this file plus the active runtime rules
+- verify MCP state before trusting Context+ output again
 
-3. Split by ownership boundaries:
-- `src/domain/*`: business rules, codecs, normalization, validation.
-- `src/pages/builder/*`: feature orchestration/view-model/hooks.
-- `src/components/ui/*`: reusable UI primitives.
-- `src/data/*`: canonical static datasets with stable IDs.
+## 2) Repo Priorities
 
-4. One source of truth per concern:
-- IDs and schema contracts live in domain/data.
-- UI reads domain outputs; UI should not re-implement domain rules.
+1. Correctness first:
+- this is a data-heavy React + TypeScript app
+- domain correctness, deterministic codecs, and maintainability matter more than rapid UI churn
 
-5. Small, verified iterations:
-- Add tests first for behavior changes.
-- Ship in vertical slices with passing lint/tests/build.
+2. Domain-first ownership:
+- fix domain problems in `src/domain/*`, not with UI patches
+- UI should consume domain outputs, not recreate business rules
 
-## 3) Anti-Churn Workflow (Required)
+3. Low-churn execution:
+- make the smallest safe change that satisfies the task
+- avoid unrelated rewrites, cleanup sprees, or speculative abstractions
 
-Use this flow for any non-trivial feature:
+4. Visual consistency:
+- preserve the sharp, squared, Morimens-inspired visual language
+- do not introduce a new visual pattern without a clear reason
 
-1. Define behavior first (5-10 bullets max)
-- Inputs, outputs, invariants, edge cases.
-- If data contract changes, write the schema shape first.
+## 3) Ownership Boundaries
 
-2. Decide file ownership before coding
-- Where does this logic belong (domain/hook/UI)?
-- If you cannot answer in one sentence, stop and design.
+1. File ownership:
+- `src/domain/*`: business rules, codecs, normalization, validation, comparators
+- `src/pages/builder/*`: orchestration, page-level state, builder view-model logic
+- `src/components/ui/*`: reusable UI primitives
+- `src/data/*`: canonical static data with stable IDs
 
-3. Write failing tests first
-- Domain logic: unit tests near domain files.
-- Builder interactions: integration tests in `BuilderPage.test.tsx` or hook tests.
+2. State rules:
+- derive instead of duplicating state
+- keep state minimal
+- store stable IDs or tokens, then derive labels and display metadata
 
-4. Implement the minimum passing slice
-- No speculative abstractions.
-- No "while I am here" rewrites unless required to pass tests.
+3. Effect rules:
+- use effects for external synchronization only
+- do not use effects for pure data transforms that can be derived during render
 
-5. Refactor immediately after green
-- Extract only repeated structure (for example modal shell, button variants).
-- Keep behavior identical; prove with tests.
+4. Interaction ownership:
+- DnD, move, swap, clear, and validity rules belong in domain helpers where possible
+- reusable interaction semantics should not be reimplemented page-by-page
 
-6. Run gates before marking done
-- `npm run lint`
-- targeted tests
-- `npm run verify` before final handoff/commit
+5. Sorting ownership:
+- shared ordering policy belongs in domain comparators
+- page code may assemble sortable fields, but should not duplicate comparator policy
 
-## 3.1) QC Pass Protocol (Required)
+## 4) Agent Workflow
 
-When doing a cleanup/code-quality pass (especially on broad feature scopes):
+1. Before non-trivial behavior changes:
+- define the intended behavior in a short list of inputs, outputs, invariants, and edge cases
+- decide file ownership before coding
 
-1. Full scan first, no edits:
-- Review the entire requested scope end-to-end before changing code.
-- Do not patch the first issue immediately.
+2. Prefer test-first changes:
+- add or update a failing test before implementation for behavior changes and bug fixes
+- keep tests close to the owning layer
 
-2. Findings list:
-- Write a compact findings list grouped by severity.
-- Include file ownership/placement concerns, not only bugs.
+3. Implement in thin slices:
+- write the smallest passing change first
+- refactor only after behavior is green
+- no "while I am here" rewrites unless required for the task
 
-3. Fix plan:
-- Create a short fix plan that addresses all findings in one batch.
-- Confirm no out-of-scope churn is included.
+4. For cleanup or QC passes:
+- scan the whole requested scope before editing
+- produce a compact findings list mentally or explicitly
+- fix the batch, then verify the batch
 
-4. Batch implementation:
-- Apply fixes only after the full scan + plan is complete.
-- Avoid partial "one issue fixed so we are done" exits.
+5. For large UI reworks:
+- phase A: extract reusable shells or primitives without behavior changes
+- phase B: migrate layout into those shells with handlers and state unchanged
+- phase C: add new behavior
 
-5. Verify after batch:
-- Run targeted tests for touched areas.
-- Run `npm run lint`, then `npm run verify` before completion claims.
+6. Styling-only passes:
+- keep them styling-only
+- if interaction semantics, accessibility, or state flow changes, treat it as behavior work and add regression coverage
 
-## 3.2) UI Rework Protocol (Required)
+## 5) Code-Shape Preferences
 
-When reworking large UI surfaces (for example `CollectionPage`):
+1. Keep logic easy to scan:
+- inline tiny single-use logic
+- extract repeated or conceptually meaningful logic
+- split files or components before they become god objects
 
-1. Phase-gate the work:
-- Phase A: introduce reusable shells/primitives only (no behavior changes).
-- Phase B: migrate page layout into shells (handlers/state unchanged).
-- Phase C: add new behavior/features.
+2. Keep structure shallow:
+- avoid deep nesting
+- prefer straightforward control flow over layered indirection
 
-2. Keep the page shippable at each phase:
-- Avoid one-shot rewrites of large files.
-- Preserve compile + lint + targeted tests after each phase.
+3. Comments:
+- use comments sparingly
+- add a short comment only when intent is not obvious from the code
+- do not mass-introduce mandatory file header comments across the repo
+- for a new non-trivial module, a short top-of-file summary is acceptable if it materially improves navigation and does not conflict with local file conventions
 
-3. Styling-only passes must stay styling-only:
-- If a pass is declared visual/CSS-only, do not change interaction/state logic.
-- If behavior must change, explicitly call it out and add regression tests.
-
-## 3.3) Process Scope Rule (Required)
-
-1. Multi-file behavior changes:
-- Use the full process (`3`, `3.1`, and verification gates).
-
-2. Isolated CSS-only tweaks:
-- Use a lightweight flow (small patch + `npm run lint` + targeted visual/behavior sanity checks).
-- Escalate to full process if state/interaction semantics change.
-
-## 4) State and React Rules
-
-1. State placement
-- Local UI state stays local.
-- Cross-component builder behavior goes in builder hooks/domain helpers.
-
-2. State shape
-- Avoid redundant/contradictory state.
-- Store IDs/tokens, derive labels and display metadata from domain maps.
-
-3. DnD + active selection
-- Domain utilities own move/swap/clear rules.
-- UI triggers intents; domain returns next valid state.
-
-## 5) Component Rules
-
-1. Extract reusable primitives when duplication appears 3+ times.
-- Example already done: `ModalFrame`, `Button`.
-
-2. Do not create "god components".
-- If component mixes orchestration + rendering + domain transforms, split it.
-
-3. Keep UI components dumb where possible.
-- Behavior orchestration in hooks/view-model.
-- Styling consistency through shared primitives/utility classes.
-
-4. Preserve visual language.
-- Sharp/squared Morimens-like styling.
-- Avoid introducing new visual patterns without a clear reason.
-
-## 5.1) Interaction Contract Rules
-
-1. Define interaction semantics before implementation:
-- For wheel/hover/modifier/click-swallow behavior, lock expected UX contract first (for example `Shift+wheel` vs plain wheel).
-
-2. Avoid timing-coupled interaction logic:
-- Prefer explicit state/context or scoped DOM checks over event-loop timing hacks when preventing accidental toggles.
-
-3. Keep reusable vs local ownership explicit:
-- If a rule applies across multiple entity types (awakeners/wheels/posses), implement in shared domain/UI primitives, not page-local branches.
+4. Hygiene:
+- remove unused imports, dead variables, and dead branches in touched code
+- do not leave debug-only code behind
 
 ## 6) Data and Codec Rules
 
-1. IDs are stable contracts.
-- Never rely on array order as identity.
-- Prefer explicit IDs/indexes with tests for uniqueness.
+1. Stable identity:
+- never rely on array order as identity
+- IDs and schema contracts are stable boundaries
 
-2. Normalize invalid states at boundaries.
-- Example: empty awakener slot must not carry wheels.
+2. Boundary normalization:
+- normalize invalid states at the boundary
+- example: an empty awakener slot must not retain wheels
 
-3. Import/export changes are high-risk.
-- Keep deterministic output.
-- Keep strict decode validation and explicit errors.
-- Add round-trip tests and size assertions.
+3. Import/export safety:
+- treat codec changes as high-risk
+- preserve deterministic output
+- keep strict decode validation and explicit errors
+- add round-trip tests and size-sensitive assertions when relevant
 
-4. Version strategy
-- Prefix-based versioning (`t1.`, `mt1.`) is required for future evolution.
+4. Versioning:
+- preserve the prefix strategy such as `t1.` and `mt1.` unless the task explicitly changes versioning
 
-5. Repo sync scripts are boundary tools, not ad hoc fixes.
-- Use the packaged sync commands when canonical data IDs or exported data tables change:
+5. Canonical data maintenance:
+- use the packaged sync commands when changing canonical IDs or exported tables
 - `npm run data:sync-awakener-ids`
 - `npm run data:sync-posse-indices`
 - `npm run data:sync-wheel-data`
-- If a data maintenance script exists without an npm entry point, add a TODO instead of standardizing a direct invocation here.
 
-## 6.1) Sorting and Ordering Ownership
+## 7) Testing and Verification
 
-1. Shared ordering policy belongs in domain comparators.
-- Priority/tiebreak rules (owned/unowned, rarity, faction, index) must live in `src/domain/*` comparators.
+1. Test behavior, not implementation details:
+- prefer user-visible assertions and domain outputs
 
-2. Page/view-model code should only assemble sortable fields.
-- Do not duplicate comparator policy in page hooks unless strictly temporary and documented.
+2. Regression coverage:
+- every bug fix should add or update a regression test
 
-## 7) Test Strategy
+3. Scope-matched verification:
+- unit or domain work: `npm run lint` and `npm run test:unit`
+- builder interaction work: `npm run lint` and `npm run test:integration`
+- collection or smaller UI regression work: `npm run lint` and `npm run test:quick`
 
-1. Test behavior, not implementation details.
-- Prefer user-visible assertions (`getByRole`, visible outcomes).
+4. Final gate:
+- run `npm run verify` before claiming substantial work is complete
 
-2. Keep tests close to ownership:
-- domain tests for rule engines/codecs
-- builder integration tests for user flows
+## 8) Context+ Usage
 
-3. Add regression tests for every bug fixed.
-4. UI/CSS-only churn policy:
-- Follow section 3.2 for styling-only passes and behavior-boundary expectations.
-- Add or update tests when UI changes affect interaction contracts, accessibility semantics, state flow, or domain behavior.
+1. Default behavior:
+- if present, use local `INSTRUCTIONS.md` as the primary guide for Context+ tool choice and ordering
+- prefer structural discovery over broad file reads
 
-5. Keep tests readable:
-- one behavior per test name
-- avoid giant fixture mutation blocks without explanation
+2. High-value Context+ usage:
+- use context tree or file skeleton views to scope work
+- use blast radius before deleting or heavily reshaping shared symbols
+- run static analysis after edits when the tool is available and appropriate
 
-6. Use scope-matched test commands:
-- Unit/domain/hook churn:
-  - `npm run lint`
-  - `npm run test:unit`
-- Builder integration churn:
-  - `npm run lint`
-  - `npm run test:integration`
-- Collection/small UI regression churn:
-  - `npm run lint`
-  - `npm run test:quick`
-- Final pre-commit/pre-handoff gate:
-  - `npm run verify`
+3. Editing:
+- prefer `propose_commit` when it is available and compatible with the active environment
+- if the environment requires a different edit mechanism, follow the environment without treating that as a repo policy violation
 
-7. Stateful UX flows must test transition points:
-- For freeze/apply flows, assert both pre-apply and post-apply behavior.
-- For edit-mode interactions, assert mode-enter, in-mode behavior, and mode-exit outcomes.
+## 9) Agent-Specific Non-Goals
 
-## 8) Pull Request / Commit Checklist
+1. This file is not a human maintainer handbook:
+- keep human process prose, long checklists, and broad contributor policy elsewhere
 
-Before commit:
-- [ ] behavior intent documented (issue/plan/comments)
-- [ ] tests added or updated
-- [ ] lint passes (`npm run lint`)
-- [ ] targeted tests pass (`npm run test:unit` and/or `npm run test:integration`)
-- [ ] `npm run verify` passes
-- [ ] remember `pre-commit` also runs `npm run verify`; do not rely on the hook as the first signal
-- [ ] no dead code/debug flags left
-- [ ] no borrowed/unlicensed data accidentally tracked
+2. Do not preserve historical process bloat just because it already exists:
+- keep this file lean, repo-specific, and useful during execution
 
-## 9) Practical "Do / Do Not"
-
-Do:
-- implement smallest valid slice
-- keep docs and plan files in sync with behavior changes
-
-Do not:
-- patch around domain bugs in UI
-- refactor unrelated areas mid-feature
-
----
-
-When in doubt:
-- prefer simpler state,
-- prefer domain-first rules,
-- prefer tests before expansion.
-
+3. When in doubt:
+- prefer simpler state
+- prefer domain-first fixes
+- prefer tests before expansion
