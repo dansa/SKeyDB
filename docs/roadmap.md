@@ -4,14 +4,6 @@ Last updated: 2026-03-04
 
 ## Current priorities
 
-### Database groundwork
-
-- Keep builder, collection, search, and overview surfaces on `lite` datasets.
-- Add `full` dataset loading only for future detail/database views.
-- Apply the same split discipline to wheels if detail payloads grow in the same way.
-- Reference:
-  - `docs/notes/2026-03-02-database-split-notes.md`
-
 ### In-game codec completion
 
 - Finish covenant support for `@@...@@` import/export.
@@ -32,10 +24,12 @@ Last updated: 2026-03-04
 - Mobile and compact builder layout pass.
 - Share-via-link flow with safe overwrite UX.
 - Multiple on-site saved planners.
-- Database browsing surfaces and modal/detail UI.
+- Rich database detail views (cards, exalts, talents, enlightens).
+- Database advanced features (persistent filters, export, deep linking).
 
 ## Recently shipped foundations
 
+- Database & Tools page initial pass with filters, search, sorting, basic modal.
 - Multi-team builder and cross-team management.
 - Compact `t1.` / `mt1.` import-export.
 - Baseline in-game `@@...@@` import-export support.
