@@ -28,4 +28,21 @@ describe('searchAwakeners', () => {
     expect(names).toContain('agrippa')
     expect(names).not.toContain('aurita')
   })
+
+  it('matches awakeners by tag via exact search', () => {
+    const awakeners = getAwakeners()
+    const results = searchAwakeners(awakeners, 'Bleed')
+
+    expect(results.length).toBeGreaterThan(0)
+    expect(results.every((a) => a.tags.includes('Bleed'))).toBe(true)
+  })
+
+  it('does not cross-match similar tags like STR Up and STR Down', () => {
+    const awakeners = getAwakeners()
+    const results = searchAwakeners(awakeners, 'STR Up')
+
+    expect(results.length).toBeGreaterThan(0)
+    expect(results.every((a) => a.tags.includes('STR Up'))).toBe(true)
+    expect(results.some((a) => a.tags.includes('STR Down') && !a.tags.includes('STR Up'))).toBe(false)
+  })
 })

@@ -13,6 +13,9 @@ describe('getAwakeners', () => {
       realm: expect.any(String),
       aliases: expect.any(Array),
       rarity: expect.any(String),
+      type: expect.any(String),
+      stats: expect.objectContaining({ CON: expect.any(Number), ATK: expect.any(Number), DEF: expect.any(Number) }),
+      tags: expect.any(Array),
     })
     expect(awakeners.every((a) => Number.isInteger(a.id) && a.id > 0)).toBe(true)
     expect(awakeners.every((a) => a.name.trim().length > 0)).toBe(true)
@@ -37,5 +40,33 @@ describe('getAwakeners', () => {
     expect(awakeners.find((a) => a.name === 'doll: inferno')).toBeDefined()
     expect(awakeners.find((a) => a.name === 'ramona: timeworn')).toBeDefined()
     expect(awakeners.find((a) => a.name === 'murphy: fauxborn')).toBeDefined()
+  })
+
+  it('assigns valid type to every awakener', () => {
+    const awakeners = getAwakeners()
+    const validTypes = new Set(['ASSAULT', 'WARDEN', 'CHORUS'])
+
+    expect(awakeners.every((a) => a.type && validTypes.has(a.type))).toBe(true)
+  })
+
+  it('includes stats with CON, ATK, DEF for every awakener', () => {
+    const awakeners = getAwakeners()
+
+    expect(
+      awakeners.every(
+        (a) =>
+          a.stats !== undefined &&
+          typeof a.stats.CON === 'number' &&
+          typeof a.stats.ATK === 'number' &&
+          typeof a.stats.DEF === 'number',
+      ),
+    ).toBe(true)
+  })
+
+  it('provides tags as an array for every awakener', () => {
+    const awakeners = getAwakeners()
+
+    expect(awakeners.every((a) => Array.isArray(a.tags))).toBe(true)
+    expect(awakeners.some((a) => a.tags.length > 0)).toBe(true)
   })
 })

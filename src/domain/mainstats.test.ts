@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getMainstats, getWheelFilterMainstats, normalizeMainstatLabel } from './mainstats'
+import { getMainstatIcon, getMainstats, getWheelFilterMainstats, normalizeMainstatLabel } from './mainstats'
 
 describe('mainstats', () => {
   it('exposes all supported mainstats with stable metadata', () => {
@@ -31,5 +31,16 @@ describe('mainstats', () => {
     const wheelMainstats = getWheelFilterMainstats()
     expect(wheelMainstats).toHaveLength(8)
     expect(wheelMainstats.every((entry) => entry.wheelFilter)).toBe(true)
+  })
+
+  it('returns icon asset for known mainstat keys', () => {
+    expect(typeof getMainstatIcon('ATK')).toBe('string')
+    expect(typeof getMainstatIcon('DEF')).toBe('string')
+    expect(typeof getMainstatIcon('CON')).toBe('string')
+    expect(typeof getMainstatIcon('CRIT_RATE')).toBe('string')
+  })
+
+  it('returns undefined for unknown mainstat key', () => {
+    expect(getMainstatIcon('NONEXISTENT' as never)).toBeUndefined()
   })
 })
