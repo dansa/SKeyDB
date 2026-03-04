@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react'
 import { NavLink, Navigate, Route, Routes } from 'react-router-dom'
 import { HomePage } from './pages/HomePage'
 
-const CharactersPage = lazy(() => import('./pages/CharactersPage').then((module) => ({ default: module.CharactersPage })))
+const DatabasePage = lazy(() => import('./pages/DatabasePage').then((module) => ({ default: module.DatabasePage })))
 const BuilderPage = lazy(() => import('./pages/BuilderPage').then((module) => ({ default: module.BuilderPage })))
 const CollectionPage = lazy(() =>
   import('./pages/CollectionPage').then((module) => ({ default: module.CollectionPage })),
@@ -21,8 +21,8 @@ function App() {
             <NavLink className={navClassName} to="/">
               Overview
             </NavLink>
-            <NavLink className={navClassName} to="/characters">
-              Characters
+            <NavLink className={navClassName} to="/database">
+              Database
             </NavLink>
             <NavLink className={navClassName} to="/builder">
               Builder
@@ -38,7 +38,7 @@ function App() {
         <Suspense fallback={<div className="px-2 py-6 text-sm text-slate-300">Loading page...</div>}>
           <Routes>
             <Route element={<HomePage />} path="/" />
-            <Route element={<CharactersPage />} path="/characters" />
+            <Route element={<DatabasePage />} path="/database" />
             <Route element={<BuilderPage />} path="/builder" />
             <Route element={<CollectionPage />} path="/collection" />
             <Route element={<Navigate replace to="/" />} path="*" />

@@ -34,6 +34,15 @@ function getSortLabel(sortKey: AwakenerSortKey): string {
   if (sortKey === 'RARITY') {
     return 'Rarity'
   }
+  if (sortKey === 'ATK') {
+    return 'ATK'
+  }
+  if (sortKey === 'DEF') {
+    return 'DEF'
+  }
+  if (sortKey === 'CON') {
+    return 'CON'
+  }
   return 'Alphabetical'
 }
 
