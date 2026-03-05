@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { DatabasePage } from './DatabasePage'
 
 vi.mock('../domain/awakeners', () => ({
@@ -69,16 +70,33 @@ afterEach(() => {
   vi.restoreAllMocks()
 })
 
+function renderDatabasePage(initialEntry = '/database') {
+  function LocationProbe() {
+    const location = useLocation()
+    return <div data-testid="location-path">{location.pathname}</div>
+  }
+
+  return render(
+    <MemoryRouter initialEntries={[initialEntry]}>
+      <Routes>
+        <Route element={<DatabasePage />} path="/database" />
+        <Route element={<DatabasePage />} path="/database/awk/:awakenerSlug" />
+      </Routes>
+      <LocationProbe />
+    </MemoryRouter>,
+  )
+}
+
 describe('DatabasePage', () => {
   it('renders work-in-progress banner', () => {
-    render(<DatabasePage />)
+    renderDatabasePage()
 
     expect(screen.getByText('Work in Progress:')).toBeInTheDocument()
     expect(screen.getByText(/still being built/)).toBeInTheDocument()
   })
 
   it('renders all awakeners in the grid by default', () => {
-    render(<DatabasePage />)
+    renderDatabasePage()
 
     expect(screen.getByLabelText('View details for Alpha')).toBeInTheDocument()
     expect(screen.getByLabelText('View details for Beta')).toBeInTheDocument()
@@ -87,7 +105,7 @@ describe('DatabasePage', () => {
   })
 
   it('filters awakeners by realm', () => {
-    render(<DatabasePage />)
+    renderDatabasePage()
 
     fireEvent.click(screen.getByRole('button', { name: /CHAOS/ }))
 
@@ -98,7 +116,7 @@ describe('DatabasePage', () => {
   })
 
   it('filters awakeners by type', () => {
-    render(<DatabasePage />)
+    renderDatabasePage()
 
     fireEvent.click(screen.getByRole('button', { name: /Warden/ }))
 
@@ -109,7 +127,7 @@ describe('DatabasePage', () => {
   })
 
   it('filters awakeners by rarity', () => {
-    render(<DatabasePage />)
+    renderDatabasePage()
 
     fireEvent.click(screen.getByRole('button', { name: /Genesis/ }))
 
@@ -119,7 +137,7 @@ describe('DatabasePage', () => {
   })
 
   it('filters awakeners via search input', () => {
-    render(<DatabasePage />)
+    renderDatabasePage()
 
     const searchbox = screen.getByRole('searchbox')
     fireEvent.change(searchbox, { target: { value: 'alpha' } })
@@ -130,7 +148,7 @@ describe('DatabasePage', () => {
   })
 
   it('filters awakeners by tag search', () => {
-    render(<DatabasePage />)
+    renderDatabasePage()
 
     const searchbox = screen.getByRole('searchbox')
     fireEvent.change(searchbox, { target: { value: 'STR Up' } })
@@ -140,7 +158,7 @@ describe('DatabasePage', () => {
   })
 
   it('shows empty state when all awakeners are filtered out', () => {
-    render(<DatabasePage />)
+    renderDatabasePage()
 
     fireEvent.click(screen.getByRole('button', { name: /AEQUOR/ }))
     fireEvent.click(screen.getByRole('button', { name: /Genesis/ }))
@@ -149,25 +167,40 @@ describe('DatabasePage', () => {
   })
 
   it('opens detail modal when clicking an awakener card', () => {
-    render(<DatabasePage />)
+    renderDatabasePage()
 
     fireEvent.click(screen.getByLabelText('View details for Alpha'))
 
     expect(screen.getByRole('dialog', { name: /alpha details/ })).toBeInTheDocument()
+    expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awk/alpha')
   })
 
   it('closes detail modal via close button', () => {
-    render(<DatabasePage />)
+    renderDatabasePage()
 
     fireEvent.click(screen.getByLabelText('View details for Alpha'))
     expect(screen.getByRole('dialog')).toBeInTheDocument()
 
     fireEvent.click(screen.getByLabelText('Close detail'))
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(screen.getByTestId('location-path')).toHaveTextContent('/database')
+  })
+
+  it('opens detail modal from deep-linked awakener route', () => {
+    renderDatabasePage('/database/awk/beta')
+
+    expect(screen.getByRole('dialog', { name: /beta details/ })).toBeInTheDocument()
+  })
+
+  it('falls back to the database root when deep link slug is unknown', () => {
+    renderDatabasePage('/database/awk/missing')
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(screen.getByTestId('location-path')).toHaveTextContent('/database')
   })
 
   it('sorts awakeners by ATK stat descending', () => {
-    render(<DatabasePage />)
+    renderDatabasePage()
 
     const sortSelect = screen.getByLabelText('Database sort key')
     fireEvent.change(sortSelect, { target: { value: 'ATK' } })

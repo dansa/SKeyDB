@@ -63,20 +63,12 @@ export function useDatabaseViewModel() {
   const [sortKey, setSortKey] = useState<DatabaseSortKey>('ALPHABETICAL')
   const [sortDirection, setSortDirection] = useState<CollectionSortDirection>('ASC')
   const [groupByRealm, setGroupByRealm] = useState(false)
-  const [selectedAwakenerId, setSelectedAwakenerId] = useState<number | null>(null)
 
   const filteredAwakeners = useMemo(() => {
     const searched = searchAwakeners(allAwakeners, query)
     const filtered = applyFilters(searched, realmFilter, rarityFilter, typeFilter)
     return applySorting(filtered, sortKey, sortDirection, groupByRealm)
   }, [query, realmFilter, rarityFilter, typeFilter, sortKey, sortDirection, groupByRealm])
-
-  const selectedAwakener = useMemo(
-    () => (selectedAwakenerId !== null
-      ? allAwakeners.find((a) => a.id === selectedAwakenerId) ?? null
-      : null),
-    [selectedAwakenerId],
-  )
 
   const setQuery = useCallback((next: string) => setQueryRaw(next), [])
 
@@ -102,7 +94,6 @@ export function useDatabaseViewModel() {
     sortKey,
     sortDirection,
     groupByRealm,
-    selectedAwakener,
     setQuery,
     appendSearchCharacter,
     clearQuery,
@@ -112,7 +103,5 @@ export function useDatabaseViewModel() {
     setSortKey,
     toggleSortDirection,
     setGroupByRealm,
-    selectAwakener: setSelectedAwakenerId,
-    closeDetail: () => setSelectedAwakenerId(null),
   }
 }

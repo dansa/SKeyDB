@@ -1,4 +1,8 @@
 import { useRef } from 'react'
+import { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { getAwakeners } from '../domain/awakeners'
+import { buildDatabaseAwakenerPath, findAwakenerByDatabaseSlug } from '../domain/database-paths'
 import { DatabaseFilters } from './database/DatabaseFilters'
 import { DatabaseGrid } from './database/DatabaseGrid'
 import { AwakenerDetailModal } from './database/AwakenerDetailModal'
@@ -9,12 +13,34 @@ import emojiWke from '../assets/emoji/Emoji_WKE_S_06.png'
 export function DatabasePage() {
   const vm = useDatabaseViewModel()
   const searchInputRef = useRef<HTMLInputElement | null>(null)
+  const navigate = useNavigate()
+  const { awakenerSlug } = useParams<{ awakenerSlug?: string }>()
+  const selectedAwakener = findAwakenerByDatabaseSlug(getAwakeners(), awakenerSlug)
 
   useGlobalCollectionSearchCapture({
     searchInputRef,
     onAppendCharacter: vm.appendSearchCharacter,
     onClearSearch: vm.clearQuery,
   })
+
+  useEffect(() => {
+    if (!awakenerSlug || selectedAwakener) {
+      return
+    }
+    void navigate('/database', { replace: true })
+  }, [awakenerSlug, navigate, selectedAwakener])
+
+  function openAwakenerDetail(awakenerId: number) {
+    const awakener = getAwakeners().find((entry) => entry.id === awakenerId)
+    if (!awakener) {
+      return
+    }
+    void navigate(buildDatabaseAwakenerPath(awakener), { replace: true })
+  }
+
+  function closeDetail() {
+    void navigate('/database', { replace: true })
+  }
 
   return (
     <section className="space-y-3">
@@ -52,14 +78,14 @@ export function DatabasePage() {
 
       <DatabaseGrid
         awakeners={vm.awakeners}
-        onSelectAwakener={vm.selectAwakener}
+        onSelectAwakener={openAwakenerDetail}
       />
 
-      {vm.selectedAwakener ? (
+      {selectedAwakener ? (
         <AwakenerDetailModal
-          awakener={vm.selectedAwakener}
-          key={vm.selectedAwakener.id}
-          onClose={vm.closeDetail}
+          awakener={selectedAwakener}
+          key={selectedAwakener.id}
+          onClose={closeDetail}
         />
       ) : null}
     </section>

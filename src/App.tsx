@@ -39,6 +39,7 @@ function App() {
           <Routes>
             <Route element={<HomePage />} path="/" />
             <Route element={<DatabasePage />} path="/database" />
+            <Route element={<DatabasePage />} path="/database/awk/:awakenerSlug" />
             <Route element={<BuilderPage />} path="/builder" />
             <Route element={<CollectionPage />} path="/collection" />
             <Route element={<Navigate replace to="/" />} path="*" />
