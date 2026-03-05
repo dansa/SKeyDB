@@ -1,39 +1,87 @@
+import { useCallback } from 'react'
 import type { AwakenerFull } from '../../domain/awakeners-full'
+import { DetailSection } from './DetailSection'
+import { scaledFontStyle } from './font-scale'
+import { RichDescription } from './RichDescription'
 
 type AwakenerDetailCardsProps = {
   fullData: AwakenerFull | null
+  cardNames: Set<string>
+  skillLevel: number
 }
 
-const CARD_ORDER = ['C1', 'C2', 'C3', 'C4', 'C5'] as const
+const CARD_KEYS = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7'] as const
 
-export function AwakenerDetailCards({ fullData }: AwakenerDetailCardsProps) {
+export function AwakenerDetailCards({ fullData, cardNames, skillLevel }: AwakenerDetailCardsProps) {
+  const renderDescription = useCallback(
+    (description: string) => (
+      <RichDescription
+        cardNames={cardNames}
+        fullData={fullData}
+        skillLevel={skillLevel}
+        text={description}
+      />
+    ),
+    [cardNames, fullData, skillLevel],
+  )
+
   if (!fullData) {
     return <p className="py-4 text-xs text-slate-400">Loading card data...</p>
   }
 
-  return (
-    <div className="space-y-3">
-      {CARD_ORDER.map((key) => {
-        const card = fullData.cards[key]
-        if (!card) return null
+  const { exalt, over_exalt } = fullData.exalts
+  const exaltItems = [
+    { key: 'exalt', label: 'Exalt', name: exalt.name, description: exalt.description },
+    { key: 'over_exalt', label: 'Over Exalt', name: over_exalt.name, description: over_exalt.description },
+  ]
 
-        return (
-          <div
-            className="border border-slate-600/40 bg-slate-900/40 p-3"
-            key={key}
-          >
-            <div className="flex items-baseline justify-between">
-              <h4 className="ui-title text-sm text-amber-100">{card.name}</h4>
-              <span className="text-[10px] uppercase tracking-wider text-slate-400">
-                {key} · Cost {card.cost}
-              </span>
+  const cardEntries: { key: string; card: { name: string; cost: string; description: string } }[] = []
+  for (const key of CARD_KEYS) {
+    const card = fullData.cards[key]
+    if (card) cardEntries.push({ key, card })
+  }
+
+  return (
+    <div className="space-y-4">
+      <DetailSection items={exaltItems} renderDescription={renderDescription} title="Exalts" />
+
+      <div className="border border-slate-600/30 bg-slate-900/30">
+        <h4
+          className="ui-title px-4 pt-3 pb-2 text-amber-100"
+          style={scaledFontStyle(14)}
+        >Command Cards</h4>
+        <div>
+          {cardEntries.map(({ key, card }, index) => (
+            <div key={key}>
+              {index > 0 ? (
+                <div className="mx-4 h-px bg-gradient-to-r from-slate-600/50 via-slate-600/20 to-transparent" />
+              ) : null}
+              <div className="px-4 py-2.5">
+                <div className="flex items-baseline justify-between">
+                  <p
+                    className="text-slate-300"
+                    style={scaledFontStyle(12)}
+                  >
+                    <span className="text-slate-500">{key === 'C1' ? 'Rouse' : key}</span>
+                    <span className="mx-1.5 text-slate-600">·</span>
+                    <span className="text-amber-100/85">{card.name}</span>
+                  </p>
+                  <span
+                    className="text-slate-500"
+                    style={scaledFontStyle(10)}
+                  >Cost {card.cost}</span>
+                </div>
+                <p
+                  className="mt-1 leading-relaxed text-slate-400"
+                  style={scaledFontStyle(12)}
+                >
+                  {renderDescription(card.description)}
+                </p>
+              </div>
             </div>
-            <p className="mt-1.5 text-xs leading-relaxed text-slate-300">
-              {card.description}
-            </p>
-          </div>
-        )
-      })}
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

@@ -42,6 +42,7 @@ vi.mock('../domain/awakeners', () => ({
 
 vi.mock('../domain/awakener-assets', () => ({
   getAwakenerCardAsset: () => null,
+  getAwakenerPortraitAsset: () => null,
 }))
 
 vi.mock('../domain/factions', () => ({

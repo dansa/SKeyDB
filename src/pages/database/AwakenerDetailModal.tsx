@@ -1,13 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { FaXmark } from 'react-icons/fa6'
 import type { Awakener } from '../../domain/awakeners'
 import { loadAwakenersFull, getAwakenerFullById, type AwakenerFull } from '../../domain/awakeners-full'
+import { getAwakenerPortraitAsset } from '../../domain/awakener-assets'
+import { getCardNamesFromFull } from '../../domain/rich-text'
 import { formatAwakenerNameForUi } from '../../domain/name-format'
+import { getRealmIcon, getRealmLabel, getRealmTint } from '../../domain/factions'
+import { AwakenerDetailSidebar } from './AwakenerDetailSidebar'
 import { AwakenerDetailOverview } from './AwakenerDetailOverview'
 import { AwakenerDetailCards } from './AwakenerDetailCards'
-import { AwakenerDetailExalts } from './AwakenerDetailExalts'
-import { AwakenerDetailTalents } from './AwakenerDetailTalents'
-import { AwakenerDetailEnlightens } from './AwakenerDetailEnlightens'
+import {
+  type FontScale,
+  FONT_SCALE_OPTIONS,
+  FONT_SCALE_VALUES,
+  readFontScale,
+  writeFontScale,
+} from './font-scale'
+import { AwakenerGuideTab } from './AwakenerGuideTab'
+import { AwakenerTeamsTab } from './AwakenerTeamsTab'
+import { SkillLevelSlider } from './SkillLevelSlider'
 
 type AwakenerDetailModalProps = {
   awakener: Awakener
@@ -17,9 +28,8 @@ type AwakenerDetailModalProps = {
 const TABS = [
   { id: 'overview', label: 'Overview' },
   { id: 'cards', label: 'Cards' },
-  { id: 'exalts', label: 'Exalts' },
-  { id: 'talents', label: 'Talents' },
-  { id: 'enlightens', label: 'Enlightens' },
+  { id: 'guide', label: 'Guide' },
+  { id: 'teams', label: 'Teams' },
 ] as const
 
 type TabId = (typeof TABS)[number]['id']
@@ -28,6 +38,20 @@ export function AwakenerDetailModal({ awakener, onClose }: AwakenerDetailModalPr
   const [activeTab, setActiveTab] = useState<TabId>('overview')
   const [fullData, setFullData] = useState<AwakenerFull | null>(null)
   const [loadedId, setLoadedId] = useState<number | null>(null)
+  const [skillLevel, setSkillLevel] = useState(1)
+  const [fontScale, setFontScaleRaw] = useState<FontScale>(readFontScale)
+  const setFontScale = useCallback((fs: FontScale) => {
+    setFontScaleRaw(fs)
+    writeFontScale(fs)
+  }, [])
+  const panelRef = useRef<HTMLDivElement>(null)
+
+  const cardNames = useMemo(
+    () => (fullData ? getCardNamesFromFull(fullData) : new Set<string>()),
+    [fullData],
+  )
+
+  const navigateToCards = useCallback(() => setActiveTab('cards'), [])
 
   if (loadedId !== awakener.id) {
     setLoadedId(awakener.id)
@@ -45,61 +69,175 @@ export function AwakenerDetailModal({ awakener, onClose }: AwakenerDetailModalPr
     return () => { cancelled = true }
   }, [awakener.id])
 
+  const handleOverlayClick = useCallback(
+    (event: React.MouseEvent) => {
+      const target = event.target as HTMLElement
+      if (panelRef.current && !panelRef.current.contains(target) && !target.closest('[data-skill-popover]')) {
+        onClose()
+      }
+    },
+    [onClose],
+  )
+
+  useEffect(() => {
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [onClose])
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--desc-font-scale', String(FONT_SCALE_VALUES[fontScale]))
+    return () => { document.documentElement.style.removeProperty('--desc-font-scale') }
+  }, [fontScale])
+
   const displayName = formatAwakenerNameForUi(awakener.name)
+  const realmTint = getRealmTint(awakener.realm)
+  const realmIcon = getRealmIcon(awakener.realm)
+  const realmLabel = getRealmLabel(awakener.realm)
+  const portrait = getAwakenerPortraitAsset(awakener.name)
 
   return (
-    <div className="fixed inset-0 z-[900] flex items-start justify-center overflow-y-auto bg-slate-950/60 px-4 pt-12 pb-8">
+    <div
+      className="fixed inset-0 z-[900] flex items-center justify-center bg-slate-950/65 p-4 md:p-6 lg:p-10"
+      onClick={handleOverlayClick}
+    >
       <div
         aria-label={`${displayName} details`}
         aria-modal="true"
-        className="relative z-[901] w-full max-w-2xl border border-amber-200/55 bg-slate-950/[.97] shadow-[0_18px_50px_rgba(2,6,23,0.72)]"
+        className="relative z-[901] flex h-full max-h-[90vh] w-full max-w-6xl flex-col overflow-hidden border border-amber-200/55 bg-slate-950/[.97] shadow-[0_18px_50px_rgba(2,6,23,0.72)]"
+        ref={panelRef}
         role="dialog"
       >
-        <div className="flex items-center justify-between border-b border-slate-700/50 px-4 py-3">
-          <h3 className="ui-title text-lg text-amber-100">{displayName}</h3>
-          <button
-            aria-label="Close detail"
-            className="text-slate-400 hover:text-amber-100"
-            onClick={onClose}
-            type="button"
-          >
-            <FaXmark className="h-4 w-4" />
-          </button>
-        </div>
+        <button
+          aria-label="Close detail"
+          className="absolute right-3 top-3 z-10 text-slate-400 transition-colors hover:text-amber-100"
+          onClick={onClose}
+          type="button"
+        >
+          <FaXmark className="h-4 w-4" />
+        </button>
 
-        <nav className="flex border-b border-slate-700/50">
-          {TABS.map((tab) => (
-            <button
-              className={`px-4 py-2 text-[11px] uppercase tracking-wide transition-colors ${
-                activeTab === tab.id
-                  ? 'border-b-2 border-amber-200/70 text-amber-100'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              type="button"
-            >
-              {tab.label}
-            </button>
-          ))}
-        </nav>
+        <div className="flex min-h-0 flex-1">
+          <aside className="hidden w-56 shrink-0 overflow-y-auto border-r border-slate-700/40 p-4 md:block lg:w-64">
+            <AwakenerDetailSidebar awakener={awakener} fullData={fullData} />
+          </aside>
 
-        <div className="p-4">
-          {activeTab === 'overview' && (
-            <AwakenerDetailOverview awakener={awakener} fullData={fullData} />
-          )}
-          {activeTab === 'cards' && (
-            <AwakenerDetailCards fullData={fullData} />
-          )}
-          {activeTab === 'exalts' && (
-            <AwakenerDetailExalts fullData={fullData} />
-          )}
-          {activeTab === 'talents' && (
-            <AwakenerDetailTalents fullData={fullData} />
-          )}
-          {activeTab === 'enlightens' && (
-            <AwakenerDetailEnlightens fullData={fullData} />
-          )}
+          <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+            <div className="shrink-0 px-5 pt-4 pb-0">
+              <div className="flex items-center gap-2.5 pr-6">
+                <div className="md:hidden w-11 h-11 shrink-0 overflow-hidden border border-slate-500/40 bg-gradient-to-b from-slate-800 to-slate-900">
+                  {portrait ? (
+                    <img alt="" className="h-full w-full object-cover object-top" draggable={false} src={portrait} />
+                  ) : (
+                    <div className="h-full w-full bg-[radial-gradient(circle_at_50%_28%,rgba(125,165,215,0.18),rgba(6,12,24,0.92)_70%)]" />
+                  )}
+                </div>
+                {realmIcon ? (
+                  <img alt="" className="hidden md:block h-11 w-11 shrink-0" draggable={false} src={realmIcon} />
+                ) : null}
+                <div>
+                  <h3 className="ui-title text-xl text-amber-100">{displayName}</h3>
+                  <p className="mt-0.5 text-xs text-slate-400">
+                    <span style={{ color: realmTint }}>{realmLabel}</span>
+                    <span className="mx-1.5 text-slate-600">·</span>
+                    <span>{awakener.type ? awakener.type.charAt(0) + awakener.type.slice(1).toLowerCase() : '—'}</span>
+                    <span className="mx-1.5 text-slate-600">·</span>
+                    <span>{awakener.faction}</span>
+                  </p>
+                  {awakener.tags.length > 0 ? (
+                    <div className="mt-1.5 flex flex-wrap gap-1">
+                      {awakener.tags.map((tag) => (
+                        <span
+                          className="border border-slate-600/40 bg-slate-800/50 px-1.5 py-0.5 text-[10px] text-slate-400"
+                          key={tag}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+              <div className="mt-3 flex max-w-2xl items-center justify-between">
+                <nav className="flex gap-0.5">
+                  {TABS.map((tab) => (
+                    <button
+                      className={`px-3.5 py-2 text-[11px] uppercase tracking-wide transition-colors ${
+                        activeTab === tab.id
+                          ? 'border-b-2 border-amber-200/70 text-amber-100'
+                          : 'border-b-2 border-transparent text-slate-400 hover:text-slate-200'
+                      }`}
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      type="button"
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </nav>
+                <div className="flex items-center gap-0.5 pr-1">
+                  {FONT_SCALE_OPTIONS.map((fs) => (
+                    <button
+                      className={`px-1.5 py-0.5 text-[10px] transition-colors ${
+                        fontScale === fs.id
+                          ? 'text-amber-100 bg-slate-700/50'
+                          : 'text-slate-500 hover:text-slate-300'
+                      }`}
+                      key={fs.id}
+                      onClick={() => setFontScale(fs.id)}
+                      title={`Font size: ${fs.id}`}
+                      type="button"
+                    >
+                      {fs.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="mt-0 h-px w-3/4 bg-slate-700/50" />
+            </div>
+
+            <div className="flex-1 overflow-y-auto p-5 pr-8 lg:pr-16">
+              <div className="md:hidden mb-4">
+                <AwakenerDetailSidebar awakener={awakener} compact fullData={fullData} />
+              </div>
+
+              <div className="max-w-2xl">
+                {activeTab === 'cards' && fullData ? (
+                  <div className="mb-4">
+                    <SkillLevelSlider level={skillLevel} onChange={setSkillLevel} />
+                  </div>
+                ) : null}
+                {activeTab === 'overview' && (
+                  <AwakenerDetailOverview
+                    cardNames={cardNames}
+                    fullData={fullData}
+                    onNavigateToCards={navigateToCards}
+                    skillLevel={skillLevel}
+                  />
+                )}
+                {activeTab === 'cards' && (
+                  <AwakenerDetailCards
+                    cardNames={cardNames}
+                    fullData={fullData}
+                    skillLevel={skillLevel}
+                  />
+                )}
+                {activeTab === 'guide' && (
+                  <AwakenerGuideTab />
+                )}
+                {activeTab === 'teams' && (
+                  <AwakenerTeamsTab />
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

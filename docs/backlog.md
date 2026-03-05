@@ -1,6 +1,6 @@
 # SKeyDB Backlog
 
-Last updated: 2026-03-04
+Last updated: 2026-03-05
 
 This file is for ideas worth remembering but not currently scheduled.
 
@@ -21,7 +21,8 @@ This file is for ideas worth remembering but not currently scheduled.
 
 - Finalize long-term DB scope beyond the current builder/collection data needs.
 - Design richer modal/tab content for characters, wheels, covenants, and posses.
-- Explore smart hoverable glossary parsing inside long-form DB text.
+- **Tag-based stacking search with autofill:** Allow users to type partial tag names (e.g. "vuln") and autocomplete to `[Vulnerable]`, stacking multiple tag filters (e.g. `[Vulnerable][Poison]`) to find awakeners matching all selected tags. Requires rebuilding the search/filter system to support structured filter tokens alongside free-text search.
+- Level slider for dynamic stat scaling (L1–L90). Formula is proven, blocked on manual data collection. See `docs/notes/stat-scaling-analysis.md`.
 
 ## Promotion rule
 

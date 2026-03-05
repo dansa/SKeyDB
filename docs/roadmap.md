@@ -1,6 +1,6 @@
 # SKeyDB Roadmap
 
-Last updated: 2026-03-04
+Last updated: 2026-03-05
 
 ## Current priorities
 
@@ -24,11 +24,12 @@ Last updated: 2026-03-04
 - Mobile and compact builder layout pass.
 - Share-via-link flow with safe overwrite UX.
 - Multiple on-site saved planners.
-- Rich database detail views (cards, exalts, talents, enlightens).
-- Database advanced features (persistent filters, export, deep linking).
+- Database detail modal: Guide and Teams tab content (placeholder shells exist).
+- Database advanced features (persistent filters, tag-based stacking search, deep linking).
 
 ## Recently shipped foundations
 
+- Database detail modal: Overview and Cards tabs with rich text parsing, interactive skill/tag popovers, stat scaling computation (CON/ATK/DEF), font size accessibility controls (S/M/L), and shared rendering infrastructure for future tabs.
 - Database & Tools page initial pass with filters, search, sorting, basic modal.
 - Multi-team builder and cross-team management.
 - Compact `t1.` / `mt1.` import-export.

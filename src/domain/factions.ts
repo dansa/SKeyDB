@@ -26,6 +26,13 @@ export const REALM_ICON_BY_ID: Record<string, string> = {
   ULTRA: ultraIcon,
 }
 
+export const REALM_TINT_BY_LABEL: Record<string, string> = Object.fromEntries(
+  Object.entries(REALM_TINT_BY_ID).map(([id, tint]) => [
+    REALM_LABEL_BY_ID[id as keyof typeof REALM_LABEL_BY_ID] ?? id,
+    tint,
+  ]),
+)
+
 export function normalizeRealmId(realm: string): string {
   return realm.trim().toUpperCase()
 }

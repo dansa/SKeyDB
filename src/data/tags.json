@@ -2,186 +2,1391 @@
   {
     "key": "AFTERSHOCK",
     "label": "Aftershock",
+    "description": "",
     "iconId": "",
     "aliases": []
+  },
+  {
+    "key": "ALERT",
+    "label": "Alert",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "agrippa, alva, erica"
+  },
+  {
+    "key": "ANCIENT_CARESS",
+    "label": "Ancient Caress",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "thais"
+  },
+  {
+    "key": "ANGER",
+    "label": "Anger",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "horla"
   },
   {
     "key": "ARITHMETICA",
     "label": "Arithmetica",
+    "description": "",
     "iconId": "",
     "aliases": []
+  },
+  {
+    "key": "ARITHMETICA_HARMONY",
+    "label": "Arithmetica Harmony",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "uvhash"
+  },
+  {
+    "key": "ARRIVAL_OF_THE_GODS_REALM",
+    "label": "Arrival of the God's Realm",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "miryam"
+  },
+  {
+    "key": "ASCENDING_SCALE",
+    "label": "Ascending Scale",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "hameln"
+  },
+  {
+    "key": "ASHEN_RUINS",
+    "label": "Ashen Ruins",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "daffodil"
+  },
+  {
+    "key": "ASTRAL_REIGN",
+    "label": "Astral Reign",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "BARRIER",
+    "label": "Barrier",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "salvador, tawil, winkle"
+  },
+  {
+    "key": "BASIC_DEFENSE",
+    "label": "Basic Defense",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "jenkins"
+  },
+  {
+    "key": "BASIC_STRIKE",
+    "label": "Basic Strike",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "winkle"
+  },
+  {
+    "key": "BASTION",
+    "label": "Bastion",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "BERSERK",
+    "label": "Berserk",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "BETROTH",
+    "label": "Betroth",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "xu"
+  },
+  {
+    "key": "BIG_MOUTH_BUTTON",
+    "label": "Big Mouth Button",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ryker"
+  },
+  {
+    "key": "BIRTH_RITUAL",
+    "label": "Birth Ritual",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "murphy: fauxborn"
   },
   {
     "key": "BLEED",
     "label": "Bleed",
+    "description": "",
     "iconId": "",
     "aliases": []
+  },
+  {
+    "key": "BLESSED_BLOOD",
+    "label": "Blessed Blood",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
   },
   {
     "key": "BLIGHTEN",
     "label": "Blighten",
+    "description": "",
     "iconId": "",
-    "aliases": []
+    "aliases": [],
+    "source": "celeste"
+  },
+  {
+    "key": "BLOOD_OF_COITION",
+    "label": "Blood of Coition",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "thais"
+  },
+  {
+    "key": "BLOOD_OF_DECAY",
+    "label": "Blood of Decay",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "thais"
+  },
+  {
+    "key": "BLOOD_OF_FEAR",
+    "label": "Blood of Fear",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "thais"
+  },
+  {
+    "key": "BLOOD_OF_REPRODUCTION",
+    "label": "Blood of Reproduction",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "thais"
+  },
+  {
+    "key": "BLOODY_PEBBLE",
+    "label": "Bloody Pebble",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "BOUNDLESS_STARLIGHT",
+    "label": "Boundless Starlight",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "faint"
+  },
+  {
+    "key": "BURN",
+    "label": "Burn",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "kathigu-ra"
+  },
+  {
+    "key": "CALL_OF_THE_GODS_REALM",
+    "label": "Call of the God's Realm",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "miryam"
+  },
+  {
+    "key": "CATALYST",
+    "label": "Catalyst",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "CHAOS_LEGACY",
+    "label": "Chaos Legacy",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ryker"
+  },
+  {
+    "key": "CHAOTIC_LEGACY",
+    "label": "Chaotic Legacy",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ryker"
+  },
+  {
+    "key": "CHURCH_OF_THE_LIGHTBEARERS",
+    "label": "Church of the Lightbearers",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pollux"
+  },
+  {
+    "key": "COMBUST",
+    "label": "Combust",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "kathigu-ra"
+  },
+  {
+    "key": "COMPUTATION",
+    "label": "Computation",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "CORPSE",
+    "label": "Corpse",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "doresain"
+  },
+  {
+    "key": "CORROSION",
+    "label": "Corrosion",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "castor"
   },
   {
     "key": "COUNTER",
     "label": "Counter",
+    "description": "",
     "iconId": "",
     "aliases": []
   },
   {
-    "key": "CRIT",
-    "label": "Crit",
+    "key": "CREATIVITY",
+    "label": "Creativity",
+    "description": "",
     "iconId": "",
-    "aliases": []
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "CRESCENDO",
+    "label": "Crescendo",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "hameln"
+  },
+  {
+    "key": "CRIMSON_FURNACE",
+    "label": "Crimson Furnace",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "24, salvador, xu"
+  },
+  {
+    "key": "CURSE",
+    "label": "Curse",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "doll: inferno"
   },
   {
     "key": "DEATH_RESISTANCE",
     "label": "Death Resistance",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "DEDICATION",
+    "label": "Dedication",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "salvador"
+  },
+  {
+    "key": "DELAYED_SACRIFICE",
+    "label": "Delayed Sacrifice",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "murphy: fauxborn"
+  },
+  {
+    "key": "DEPARTED",
+    "label": "Departed",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "doresain"
+  },
+  {
+    "key": "DESCENDING_SCALE",
+    "label": "Descending Scale",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "hameln"
+  },
+  {
+    "key": "DEVOTION_TO_THE_GODS_REALM",
+    "label": "Devotion to the God's Realm",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "miryam"
+  },
+  {
+    "key": "DEVOUR",
+    "label": "Devour",
+    "description": "",
     "iconId": "",
     "aliases": []
   },
   {
     "key": "DISCARD",
     "label": "Discard",
+    "description": "",
     "iconId": "",
     "aliases": []
+  },
+  {
+    "key": "DISCOVER",
+    "label": "Discover",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman, tawil"
   },
   {
     "key": "DISPEL",
     "label": "Dispel",
+    "description": "",
     "iconId": "",
     "aliases": []
+  },
+  {
+    "key": "DISTANT_MELODY_SWELLS",
+    "label": "Distant Melody Swells",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "tinct"
+  },
+  {
+    "key": "DOMINATOR",
+    "label": "Dominator",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "mouchette"
+  },
+  {
+    "key": "DORMANCY",
+    "label": "Dormancy",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "goliath"
+  },
+  {
+    "key": "DRAIN",
+    "label": "Drain",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
   },
   {
     "key": "DRAW",
     "label": "Draw",
+    "description": "",
     "iconId": "",
     "aliases": []
+  },
+  {
+    "key": "DREAMLURE",
+    "label": "Dreamlure",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "wanda"
+  },
+  {
+    "key": "ECHO",
+    "label": "Echo",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "helot: catena"
+  },
+  {
+    "key": "ECHOES_OF_THE_PAST",
+    "label": "Echoes of the Past",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "tawil"
+  },
+  {
+    "key": "ECHOES_OF_WHISPERS",
+    "label": "Echoes of Whispers",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "wanda"
+  },
+  {
+    "key": "EDIFY",
+    "label": "Edify",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "ELATION",
+    "label": "Elation",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "doll: inferno"
+  },
+  {
+    "key": "EMBRYO",
+    "label": "Embryo",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "thais"
   },
   {
     "key": "EMBRYO_FUSION",
     "label": "Embryo Fusion",
+    "description": "",
     "iconId": "",
     "aliases": []
   },
   {
+    "key": "ENDURE",
+    "label": "Endure",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "lily"
+  },
+  {
+    "key": "ENTHRALL",
+    "label": "Enthrall",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "xu"
+  },
+  {
+    "key": "EXECUTORS_VERDICT",
+    "label": "Executor's Verdict",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "tawil"
+  },
+  {
+    "key": "EXHAUST",
+    "label": "Exhaust",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "FANTASIA",
+    "label": "Fantasia",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "FEAR",
+    "label": "Fear",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "horla"
+  },
+  {
+    "key": "FIAMMA",
+    "label": "Fiamma",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "kathigu-ra"
+  },
+  {
+    "key": "FILIGREE_AGATE",
+    "label": "Filigree Agate",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "FINALE",
+    "label": "Finale",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "doll: inferno"
+  },
+  {
+    "key": "FINESSE",
+    "label": "Finesse",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
     "key": "FIXED_DMG",
     "label": "Fixed DMG",
+    "description": "",
     "iconId": "",
     "aliases": []
   },
   {
     "key": "FRAGILE",
     "label": "Fragile",
+    "description": "",
     "iconId": "",
     "aliases": []
+  },
+  {
+    "key": "GIFTS_OF_CHAOS",
+    "label": "Gifts of Chaos",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ryker"
+  },
+  {
+    "key": "GILDED_REVERIE",
+    "label": "Gilded Reverie",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "GODS_REALM_PHANTASM",
+    "label": "God's Realm Phantasm",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "miryam"
+  },
+  {
+    "key": "GREAT_SWORDS_MIGHT",
+    "label": "Great Sword's Might",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "goliath"
+  },
+  {
+    "key": "GREEN_FLAME",
+    "label": "Green Flame",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "liz"
+  },
+  {
+    "key": "GRIEF",
+    "label": "Grief",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "horla"
   },
   {
     "key": "HAND_LIMIT",
     "label": "Hand Limit",
+    "description": "",
     "iconId": "",
     "aliases": []
+  },
+  {
+    "key": "HAPPINESS",
+    "label": "Happiness",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "horla"
   },
   {
     "key": "HEAL",
     "label": "Heal",
+    "description": "",
     "iconId": "",
     "aliases": []
+  },
+  {
+    "key": "HERETICAL_FAITH",
+    "label": "Heretical Faith",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "miryam"
+  },
+  {
+    "key": "HONEY_MEAD",
+    "label": "Honey Mead",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "tawil"
+  },
+  {
+    "key": "HYPNOTIC_VEINS",
+    "label": "Hypnotic Veins",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "wanda"
+  },
+  {
+    "key": "INFINITE_DEVOUR",
+    "label": "Infinite Devour",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "sorel"
+  },
+  {
+    "key": "INNOCENT_RETURN_GIFT",
+    "label": "Innocent Return Gift",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "tawil"
+  },
+  {
+    "key": "INSECTOID",
+    "label": "Insectoid",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "clementine"
+  },
+  {
+    "key": "INSIGHT",
+    "label": "Insight",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "INSPIRATION",
+    "label": "Inspiration",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ramona"
+  },
+  {
+    "key": "INSPIRATION_EXCLAMATION",
+    "label": "Inspiration!",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "IRON_LOCK",
+    "label": "Iron Lock",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "IRON_RESOLVE",
+    "label": "Iron Resolve",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "miryam"
+  },
+  {
+    "key": "IRREGULAR_FORM",
+    "label": "Irregular Form",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "helot"
   },
   {
     "key": "KEYFLARE",
     "label": "Keyflare",
+    "description": "",
     "iconId": "",
     "aliases": []
+  },
+  {
+    "key": "LEAP",
+    "label": "Leap",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "LEMURIAN",
+    "label": "Lemurian",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "murphy: fauxborn, tulu"
+  },
+  {
+    "key": "LIBERATION",
+    "label": "Liberation",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "salvador"
+  },
+  {
+    "key": "LIVE_SEAL",
+    "label": "Live Seal",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "murphy: fauxborn"
+  },
+  {
+    "key": "LOOP",
+    "label": "Loop",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ramona: timeworn"
+  },
+  {
+    "key": "LUCKY_WINDCOAT",
+    "label": "Lucky Windcoat",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ryker"
+  },
+  {
+    "key": "MADNESS",
+    "label": "Madness",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "clementine, pandia"
+  },
+  {
+    "key": "MALIGNANT_CHILD",
+    "label": "Malignant Child",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "MARVELOUS_DEBUFF",
+    "label": "Marvelous Debuff",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "hameln"
+  },
+  {
+    "key": "MARVELOUS_EFFECT",
+    "label": "Marvelous Effect",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "karen"
   },
   {
     "key": "MAX_HP_DMG",
     "label": "Max HP DMG",
+    "description": "",
     "iconId": "",
     "aliases": []
   },
   {
+    "key": "MELODY",
+    "label": "Melody",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "hameln"
+  },
+  {
+    "key": "MEMORIES",
+    "label": "Memories",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "tawil"
+  },
+  {
+    "key": "MEMORY",
+    "label": "Memory",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "tawil"
+  },
+  {
+    "key": "METAPHOR",
+    "label": "Metaphor",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "horla"
+  },
+  {
+    "key": "MICE_ASSEMBLY",
+    "label": "Mice Assembly",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "jenkins"
+  },
+  {
+    "key": "MIGHT",
+    "label": "Might",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "MUNDUS_DEDUCTION",
+    "label": "Mundus Deduction",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ramona"
+  },
+  {
+    "key": "MURMUR",
+    "label": "Murmur",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "wanda"
+  },
+  {
+    "key": "MUTATED_HEART",
+    "label": "Mutated Heart",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "tawil"
+  },
+  {
+    "key": "NEGENTROPY",
+    "label": "Negentropy",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ramona: timeworn"
+  },
+  {
+    "key": "OCTAHEDRON_DICE",
+    "label": "Octahedron Dice",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ryker"
+  },
+  {
+    "key": "ODE_TO_TOMORROW",
+    "label": "Ode to Tomorrow",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ramona: timeworn"
+  },
+  {
+    "key": "PERCEPTION",
+    "label": "Perception",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "salvador"
+  },
+  {
+    "key": "PHOBIC_FIXATION",
+    "label": "Phobic Fixation",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "clementine"
+  },
+  {
     "key": "PIERCE_DMG",
     "label": "Pierce DMG",
+    "description": "",
     "iconId": "",
     "aliases": []
   },
   {
     "key": "POISON",
     "label": "Poison",
+    "description": "",
     "iconId": "",
     "aliases": []
+  },
+  {
+    "key": "POLAR_DUSKLIGHT",
+    "label": "Polar Dusklight",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "tawil"
+  },
+  {
+    "key": "PREPARE",
+    "label": "Prepare",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "PSYCHE_SURGE",
+    "label": "Psyche Surge",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "PSYCHIC_TRAUMA",
+    "label": "Psychic Trauma",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "clementine"
+  },
+  {
+    "key": "QUACK_DICE",
+    "label": "Quack Dice",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ryker"
   },
   {
     "key": "QUASAR",
     "label": "Quasar",
+    "description": "",
     "iconId": "",
-    "aliases": []
+    "aliases": [],
+    "source": "castor, clementine"
+  },
+  {
+    "key": "RAGING_WAVES",
+    "label": "Raging Waves",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "miryam, murphy: fauxborn"
+  },
+  {
+    "key": "REBIRTH_TRIBUNAL",
+    "label": "Rebirth Tribunal",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ramona: timeworn"
+  },
+  {
+    "key": "REDEMPTION",
+    "label": "Redemption",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "salvador"
   },
   {
     "key": "RESONANCE",
     "label": "Resonance",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "xu"
+  },
+  {
+    "key": "RETAIN",
+    "label": "Retain",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "REVELATE_DEVOTION",
+    "label": "Revelate Devotion",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "miryam"
+  },
+  {
+    "key": "RITE_OF_SPRING",
+    "label": "Rite of Spring",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "RITUAL",
+    "label": "Ritual",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "miryam"
+  },
+  {
+    "key": "RONDINO",
+    "label": "Rondino",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "hameln"
+  },
+  {
+    "key": "ROUSE",
+    "label": "Rouse",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "RUSTED_SAW",
+    "label": "Rusted Saw",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "SACRIFICE",
+    "label": "Sacrifice",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "murphy, murphy: fauxborn"
+  },
+  {
+    "key": "SANCTUARY_OF_MERCY",
+    "label": "Sanctuary of Mercy",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "salvador"
+  },
+  {
+    "key": "SCION_OF_PURITY",
+    "label": "Scion of Purity",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "thais"
+  },
+  {
+    "key": "SCULPTORS_ASSOCIATION",
+    "label": "Sculptor's Association",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "24"
+  },
+  {
+    "key": "SEALED",
+    "label": "Sealed",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "alva, uvhash"
+  },
+  {
+    "key": "SELF_HARM",
+    "label": "Self-Harm",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "SHINING_OCTAHEDRON_DICE",
+    "label": "Shining Octahedron Dice",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ryker"
+  },
+  {
+    "key": "SHRIEK_BLOOD",
+    "label": "Shriek, Blood!",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "uvhash"
+  },
+  {
+    "key": "SILVER_KEY_DAWN",
+    "label": "Silver Key Dawn",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "tawil"
+  },
+  {
+    "key": "SIN_MARK",
+    "label": "Sin Mark",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pollux"
+  },
+  {
+    "key": "SLUMBER_COUNTER",
+    "label": "Slumber Counter",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "wanda"
+  },
+  {
+    "key": "SORROW",
+    "label": "Sorrow",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "horla"
+  },
+  {
+    "key": "SPELLBOUND",
+    "label": "Spellbound",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "xu"
+  },
+  {
+    "key": "SPINE_NEEDLE_CHAINS",
+    "label": "Spine Needle Chains",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "wanda"
+  },
+  {
+    "key": "STAGNATION",
+    "label": "Stagnation",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "celeste, karen"
+  },
+  {
+    "key": "STEAL",
+    "label": "Steal",
+    "description": "",
     "iconId": "",
     "aliases": []
   },
   {
     "key": "STR_DOWN",
     "label": "STR Down",
+    "description": "",
     "iconId": "",
     "aliases": []
   },
   {
     "key": "STR_UP",
     "label": "STR Up",
-    "iconId": "",
-    "aliases": []
-  },
-  {
-    "key": "SEALED",
-    "label": "Sealed",
-    "iconId": "",
-    "aliases": []
-  },
-  {
-    "key": "SELF_HARM",
-    "label": "Self-Harm",
-    "iconId": "",
-    "aliases": []
-  },
-  {
-    "key": "STAGNATION",
-    "label": "Stagnation",
+    "description": "",
     "iconId": "",
     "aliases": []
   },
   {
     "key": "STRIKE",
     "label": "Strike",
+    "description": "",
     "iconId": "",
     "aliases": []
   },
   {
     "key": "STUN",
     "label": "Stun",
+    "description": "Stunned for 1 turn. Cannot be stunned again this battle.",
     "iconId": "",
-    "aliases": []
+    "aliases": [
+      "Fainted",
+      "Petrify"
+    ]
+  },
+  {
+    "key": "SURGING_TIDES",
+    "label": "Surging Tides",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "miryam, murphy: fauxborn"
+  },
+  {
+    "key": "SYMBIOSIS",
+    "label": "Symbiosis",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "clementine"
+  },
+  {
+    "key": "TEMPORARY_STR",
+    "label": "Temporary STR",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ramona"
   },
   {
     "key": "TENTACLES",
     "label": "Tentacles",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "THE_END_OF_BELIEF",
+    "label": "The End of Belief",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "miryam"
+  },
+  {
+    "key": "THOUSAND_MIRAGE",
+    "label": "Thousand Mirage",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "daffodil"
+  },
+  {
+    "key": "TRANQUIL_SEA",
+    "label": "Tranquil Sea",
+    "description": "",
+    "iconId": "",
+    "aliases": []
+  },
+  {
+    "key": "TRUTH_IN_DELUSIONS",
+    "label": "Truth in Delusions",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "pickman"
+  },
+  {
+    "key": "ULTIMATE_ASSEMBLE",
+    "label": "Ultimate Assemble!",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "jenkins"
+  },
+  {
+    "key": "UPGRADED_VERSION",
+    "label": "Upgraded Version",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "ryker"
+  },
+  {
+    "key": "USURP",
+    "label": "Usurp",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "goliath"
+  },
+  {
+    "key": "UTOPIAN_VEIL",
+    "label": "Utopian Veil",
+    "description": "",
+    "iconId": "",
+    "aliases": [],
+    "source": "tawil"
+  },
+  {
+    "key": "VOID",
+    "label": "Void",
+    "description": "",
     "iconId": "",
     "aliases": []
   },
   {
     "key": "VULNERABILITY",
     "label": "Vulnerability",
+    "description": "",
     "iconId": "",
-    "aliases": []
+    "aliases": [
+      "Vulnerable"
+    ]
   },
   {
     "key": "WEAKNESS",
     "label": "Weakness",
+    "description": "",
     "iconId": "",
     "aliases": []
   }
