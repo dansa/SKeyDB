@@ -20,10 +20,10 @@ const builderTasks: TaskItem[] = [
 ];
 
 const databaseTasks: TaskItem[] = [
-  { label: "UI structure for data browsing", status: "done" },
-  { label: "Data integration from the legacy database", status: "in_progress" },
-  { label: "Usable awakener detail modal pass", status: "done" },
-  { label: "Schema and data coverage expansion", status: "in_progress" },
+  { label: "Data integration from the legacy database", status: "done" },
+  { label: "Search and filtering improvements", status: "in_progress" },
+  { label: "Detail content expansion (tags, guide, teams)", status: "in_progress" },
+  { label: "Schema and data coverage expansion", status: "planned" },
 ];
 
 const resourceTasks: TaskItem[] = [
@@ -99,7 +99,7 @@ export function HomePage() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <InfoCard
-          description="Database for Morimens now has a usable awakener pass with search, filters, sorting, and a richer detail modal. Deep filtering and broader data coverage are still in progress."
+          description="The database is now live and actually usable: search/filter/sort awakeners and open richer detail popups. Next up is better filtering and more content depth."
           title="Database (In Progress)"
         />
         <InfoCard

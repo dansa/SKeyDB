@@ -7,7 +7,7 @@ export const changelogItems: ChangelogItem[] = [
   {
     date: "2026-03-05",
     summary:
-      "Database now has a usable awakener pass: search/filter/sort in the grid plus a much richer detail modal with Overview/Cards content, scaling-aware text, and interactive skill/tag popovers."
+      "Database is finally live and actually usable. You can browse awakeners, filter/sort them, and open much richer detail popups. Big first step, more polish and content coming next."
   },
   {
     date: "2026-03-01",
