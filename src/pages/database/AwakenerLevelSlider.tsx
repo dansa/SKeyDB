@@ -8,6 +8,7 @@ type AwakenerLevelSliderProps = {
 export function AwakenerLevelSlider({ level, onChange }: AwakenerLevelSliderProps) {
   return (
     <DetailLevelSlider
+      compact
       label="Awakener Level"
       level={level}
       max={90}

@@ -58,6 +58,10 @@ function createDefaultStatScaling() {
   }
 }
 
+function createDefaultPrimaryScalingBase() {
+  return 20
+}
+
 function mergeSectionWithTemplate(existingSection, templateSection) {
   return {
     ...templateSection,
@@ -93,6 +97,7 @@ function createSkeletonFromLite(liteAwakener) {
       DamageAmplification: '0%',
       DeathResistance: '0%',
     },
+    primaryScalingBase: createDefaultPrimaryScalingBase(),
     statScaling: createDefaultStatScaling(),
     substatScaling: {},
     cards: cardsTemplate,
@@ -139,6 +144,7 @@ function mergeLiteIntoFull(liteAwakener, fullAwakener) {
   }
 
   next.stats = mergedStats
+  next.primaryScalingBase = fullAwakener.primaryScalingBase ?? createDefaultPrimaryScalingBase()
   next.statScaling = fullAwakener.statScaling ?? createDefaultStatScaling()
   next.substatScaling = fullAwakener.substatScaling ?? {}
   next.cards = mergeSectionWithTemplate(fullAwakener.cards, cardsTemplate)

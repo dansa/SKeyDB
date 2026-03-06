@@ -48,7 +48,9 @@ const STAT_TO_MAINSTAT_KEY: Record<string, MainstatKey> = {
   DeathResistance: 'DEATH_RESISTANCE',
 }
 
-const PRIMARY_STATS = new Set(['CON', 'ATK', 'DEF'])
+const SIDEBAR_STAT_VALUE_CLASS = 'text-slate-200'
+const SIDEBAR_SCALING_VALUE_CLASS =
+  'cursor-help border-b border-dotted border-slate-500/45 text-slate-200 transition-colors hover:border-slate-300/65 hover:text-slate-100'
 
 type AwakenerDetailSidebarProps = {
   awakener: Awakener
@@ -90,9 +92,7 @@ export function AwakenerDetailSidebar({
 
       <div className="border border-slate-600/30 bg-slate-900/30 px-3 py-2.5">
         <div className="mb-2.5 space-y-2">
-          <h4 className="ui-title text-[11px] uppercase tracking-wide text-slate-400">
-            Attributes <span className="text-slate-500">(Lv. {level})</span>
-          </h4>
+          <h4 className="ui-title text-[11px] uppercase tracking-wide text-slate-400">Attributes</h4>
           <AwakenerLevelSlider level={level} onChange={onLevelChange} />
         </div>
 
@@ -100,24 +100,24 @@ export function AwakenerDetailSidebar({
           <div className={compact ? 'grid grid-cols-2 gap-x-4 gap-y-0.5' : 'space-y-0.5'}>
             {STAT_DISPLAY_ORDER.map((key) => {
               const value = stats[key]
-              const isPrimary = PRIMARY_STATS.has(key)
               const scaledSubstat = substatScaling?.[key as keyof AwakenerSubstatScaling]
               const mainstatKey = STAT_TO_MAINSTAT_KEY[key]
               const icon = mainstatKey ? getMainstatIcon(mainstatKey) : undefined
               const statTitle = scaledSubstat
-                ? `+${scaledSubstat} every 10 levels through Lv. 60`
+                ? `Level scaling: +${scaledSubstat} per 10 levels to Lv. 60`
                 : undefined
               return (
                 <div
-                  className={`flex items-center justify-between text-[11px] ${isPrimary ? 'text-slate-200' : 'text-slate-300/80'}`}
+                  className="flex items-center justify-between text-[11px]"
                   key={key}
-                  title={statTitle}
                 >
                   <span className="flex items-center gap-1.5 text-slate-500">
                     {icon ? <img alt="" className="object-contain h-3.5 w-3.5 opacity-60" draggable={false} src={icon} /> : null}
                     {STAT_LABELS[key]}
                   </span>
-                  <span>{value}</span>
+                  <span className={scaledSubstat ? SIDEBAR_SCALING_VALUE_CLASS : SIDEBAR_STAT_VALUE_CLASS} title={statTitle}>
+                    {value}
+                  </span>
                 </div>
               )
             })}
@@ -127,7 +127,7 @@ export function AwakenerDetailSidebar({
         )}
         {hasSubstatScaling ? (
           <p className="mt-2 text-[10px] leading-relaxed text-slate-500">
-            Secondary stat bonuses increase every 10 levels through Lv. 60. Psyche Surge bonuses beyond E3 are not included.
+            Secondary stat bonuses increase every 10 levels (1-60). Psyche Surge bonuses (E3+) not included.
           </p>
         ) : null}
       </div>

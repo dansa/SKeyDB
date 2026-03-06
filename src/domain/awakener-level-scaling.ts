@@ -2,6 +2,7 @@ import { fmtNum } from './scaling'
 import type {
   AwakenerFull,
   AwakenerFullStats,
+  AwakenerPrimaryScalingBase,
   AwakenerSubstatScaling,
   AwakenerSubstatScalingKey,
 } from './awakeners-full'
@@ -13,6 +14,7 @@ const SUBSTAT_SCALING_CAP_LEVEL = 60
 const SUBSTAT_SCALING_STEP_LEVEL = 10
 const SUBSTAT_SCALING_MAX_STEPS = SUBSTAT_SCALING_CAP_LEVEL / SUBSTAT_SCALING_STEP_LEVEL
 const PRIMARY_STAT_KEYS = ['CON', 'ATK', 'DEF'] as const
+const PRIMARY_STAT_FORMULA_EPSILON = 1e-9
 
 type ParsedStatValue = {
   value: number
@@ -31,7 +33,7 @@ export function clampAwakenerDatabaseLevel(level: number): number {
 }
 
 export function resolveAwakenerStatsForLevel(
-  awakener: Pick<AwakenerFull, 'stats' | 'statScaling' | 'substatScaling'>,
+  awakener: Pick<AwakenerFull, 'stats' | 'primaryScalingBase' | 'statScaling' | 'substatScaling'>,
   level: number,
 ): AwakenerFullStats {
   const clampedLevel = clampAwakenerDatabaseLevel(level)
@@ -40,6 +42,7 @@ export function resolveAwakenerStatsForLevel(
   for (const key of PRIMARY_STAT_KEYS) {
     nextStats[key] = resolvePrimaryStatValue(
       awakener.stats[key],
+      awakener.primaryScalingBase,
       awakener.statScaling[key],
       clampedLevel,
     )
@@ -67,12 +70,16 @@ export function hasAwakenerSubstatScaling(substatScaling: AwakenerSubstatScaling
   return Object.values(substatScaling).some((value) => Boolean(value))
 }
 
-function resolvePrimaryStatValue(baseValue: string, growthPerLevel: number, level: number): string {
-  const parsedBase = Number(baseValue)
-  if (Number.isNaN(parsedBase)) {
+function resolvePrimaryStatValue(
+  baseValue: string,
+  scalingBase: AwakenerPrimaryScalingBase | undefined,
+  growthPerLevel: number,
+  level: number,
+): string {
+  if (scalingBase === undefined || Number.isNaN(Number(baseValue)) || !Number.isFinite(growthPerLevel)) {
     return baseValue
   }
-  const nextValue = Math.floor(parsedBase + (level - DATABASE_DEFAULT_LEVEL) * growthPerLevel)
+  const nextValue = Math.ceil((scalingBase + level) * growthPerLevel - PRIMARY_STAT_FORMULA_EPSILON)
   return String(nextValue)
 }
 

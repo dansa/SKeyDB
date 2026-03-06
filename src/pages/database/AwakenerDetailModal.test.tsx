@@ -20,6 +20,7 @@ vi.mock('../../domain/awakeners-full', () => ({
         DamageAmplification: '0%',
         DeathResistance: '0%',
       },
+      primaryScalingBase: 30,
       statScaling: {
         CON: 1.55,
         ATK: 1.5,
@@ -48,6 +49,7 @@ vi.mock('../../domain/awakeners-full', () => ({
         DamageAmplification: '0%',
         DeathResistance: '0%',
       },
+      primaryScalingBase: 30,
       statScaling: {
         CON: 1.35,
         ATK: 1.85,

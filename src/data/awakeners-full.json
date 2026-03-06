@@ -39,6 +39,16 @@
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
     },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.65,
+      "ATK": 2.1,
+      "DEF": 0.95
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "AliemusRegen": "0.4"
+    },
     "cards": {
       "C1": {
         "name": "Mediating Personalities",
@@ -103,15 +113,6 @@
         "name": "Pavlovian Conditioning Study",
         "description": "At the end of the turn, 24 gains 10 Aliemus. Each time 24 uses Exalt, the Aliemus gained from the previous effect increases by 1."
       }
-    },
-    "statScaling": {
-      "CON": 1.65,
-      "ATK": 2.1,
-      "DEF": 0.95
-    },
-    "substatScaling": {
-      "CritRate": "1.6%",
-      "AliemusRegen": "0.4"
     }
   },
   {
@@ -142,6 +143,16 @@
       "SigilYield": "3.6%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.65,
+      "ATK": 1.4,
+      "DEF": 1.7
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "SigilYield": "0.6%"
     },
     "cards": {
       "C1": {
@@ -207,15 +218,6 @@
         "name": "Spider Queen's Kiss",
         "description": "{Colorless Spiral}: Base damage increased by 50%. Grants +20% {Embryo Fusion}."
       }
-    },
-    "statScaling": {
-      "CON": 1.65,
-      "ATK": 1.4,
-      "DEF": 1.7
-    },
-    "substatScaling": {
-      "CritRate": "1.6%",
-      "SigilYield": "0.6%"
     }
   },
   {
@@ -247,6 +249,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "4.8%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.25,
+      "ATK": 1.5,
+      "DEF": 1.35
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -312,15 +324,6 @@
         "name": "Nightborne Wings",
         "description": "When {Devour} is triggered, return {A Small Wish} from the Discard Pile to your hand and set its Arithmetica Cost to 0."
       }
-    },
-    "statScaling": {
-      "CON": 1.25,
-      "ATK": 1.5,
-      "DEF": 1.35
-    },
-    "substatScaling": {
-      "KeyflareRegen": "2.4",
-      "DamageAmplification": "0.8%"
     }
   },
   {
@@ -355,6 +358,16 @@
       "SigilYield": "3.6%",
       "DamageAmplification": "0%",
       "DeathResistance": "33.6%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.6,
+      "DEF": 1.75
+    },
+    "substatScaling": {
+      "SigilYield": "0.6%",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -420,15 +433,6 @@
         "name": "All for Justice",
         "description": "{Endless Justice}: Increases Alva's {Crit Rate} and {Crit DMG} +50% for the turn."
       }
-    },
-    "statScaling": {
-      "CON": 1.5,
-      "ATK": 1.6,
-      "DEF": 1.75
-    },
-    "substatScaling": {
-      "SigilYield": "0.6%",
-      "DeathResistance": "5.6%"
     }
   },
   {
@@ -459,6 +463,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.2,
+      "ATK": 1.3,
+      "DEF": 1.15
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "AliemusRegen": "0.4"
     },
     "cards": {
       "C1": {
@@ -524,15 +538,6 @@
         "name": "Let's All Have Fun Together!",
         "description": "Every 3 turns, add 1 {Gland Division} with {Exhaust} and {Void}. {Defend}: Draws 1 card."
       }
-    },
-    "statScaling": {
-      "CON": 1.2,
-      "ATK": 1.3,
-      "DEF": 1.15
-    },
-    "substatScaling": {
-      "CritRate": "1.6%",
-      "AliemusRegen": "0.4"
     }
   },
   {
@@ -565,6 +570,16 @@
       "SigilYield": "7.2%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.95,
+      "ATK": 1.55,
+      "DEF": 1.7
+    },
+    "substatScaling": {
+      "RealmMastery": "2",
+      "SigilYield": "1.2%"
     },
     "cards": {
       "C1": {
@@ -630,15 +645,6 @@
         "name": "Outcast's Anguish",
         "description": "Heal HP equal to 7.5% of {CON} at the end of the turn."
       }
-    },
-    "statScaling": {
-      "CON": 1.95,
-      "ATK": 1.55,
-      "DEF": 1.7
-    },
-    "substatScaling": {
-      "RealmMastery": "2",
-      "SigilYield": "1.2%"
     }
   },
   {
@@ -671,6 +677,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "10%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.35,
+      "ATK": 1.4,
+      "DEF": 1.2
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "RealmMastery": "4"
     },
     "cards": {
       "C1": {
@@ -736,15 +752,6 @@
         "name": "Legendary Copycat",
         "description": "{Telekinesis}: {Telekinesis} gains {Aftershock}: Shuffle 1 Insight into the Draw Pile."
       }
-    },
-    "statScaling": {
-      "CON": 1.35,
-      "ATK": 1.4,
-      "DEF": 1.2
-    },
-    "substatScaling": {
-      "AliemusRegen": "0.4",
-      "RealmMastery": "4"
     }
   },
   {
@@ -775,6 +782,16 @@
       "SigilYield": "0",
       "DamageAmplification": "9.6%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.65,
+      "ATK": 1.5,
+      "DEF": 1.75
+    },
+    "substatScaling": {
+      "CritDamage": "1.2%",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -845,15 +862,6 @@
         "name": "Sky-Eclipsing Wings",
         "description": "For every 3 {Onyx Plume} played, gain 1 Arithmetica and increase Castor's Final DMG by 10% this battle."
       }
-    },
-    "statScaling": {
-      "CON": 1.65,
-      "ATK": 1.5,
-      "DEF": 1.75
-    },
-    "substatScaling": {
-      "CritDamage": "1.2%",
-      "DamageAmplification": "1.6%"
     }
   },
   {
@@ -887,6 +895,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "16.8%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1,
+      "ATK": 0.95,
+      "DEF": 1
+    },
+    "substatScaling": {
+      "RealmMastery": "4",
+      "DeathResistance": "2.8%"
     },
     "cards": {
       "C1": {
@@ -952,15 +970,6 @@
         "name": "Beyond Joy and Sorrow",
         "description": "{Undying Bird of Paradise}: When the revive effect is triggered, all Awakeners gain 25 Aliemus. After triggering. the revive effect can now be reapplied after 6 turns."
       }
-    },
-    "statScaling": {
-      "CON": 1,
-      "ATK": 0.95,
-      "DEF": 1
-    },
-    "substatScaling": {
-      "RealmMastery": "4",
-      "DeathResistance": "2.8%"
     }
   },
   {
@@ -983,9 +992,9 @@
       "STR Up"
     ],
     "stats": {
-      "CON": "129",
-      "ATK": "152",
-      "DEF": "125",
+      "CON": "126",
+      "ATK": "149",
+      "DEF": "122",
       "CritRate": "5%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
@@ -994,6 +1003,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "4.8%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.4,
+      "ATK": 1.65,
+      "DEF": 1.35
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -1059,15 +1078,6 @@
         "name": "You Will Recover",
         "description": "At the end of turn, gain 2 stacks of {Symbiosis}. The stack limit for {Symbiosis}, {Psychic Trauma}, and {Phobic Fixation} is increased to 15."
       }
-    },
-    "statScaling": {
-      "CON": 1.4,
-      "ATK": 1.65,
-      "DEF": 1.35
-    },
-    "substatScaling": {
-      "KeyflareRegen": "2.4",
-      "DamageAmplification": "0.8%"
     }
   },
   {
@@ -1104,6 +1114,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "33.6%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.6,
+      "ATK": 1.4,
+      "DEF": 1.65
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -1174,15 +1194,6 @@
         "name": "Willing Sacrifice",
         "description": "{To Sail the Sundered Tides}: Inflicts 1 turn of {Vulnerable} to all enemies. Team gains {Temporary Crit DMG} +20%. This amount increases by 10% each time {Death Resistance} is triggered this battle."
       }
-    },
-    "statScaling": {
-      "CON": 1.6,
-      "ATK": 1.4,
-      "DEF": 1.65
-    },
-    "substatScaling": {
-      "CritRate": "0.8%",
-      "DeathResistance": "5.6%"
     }
   },
   {
@@ -1222,6 +1233,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "4.8%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.55,
+      "ATK": 1.95,
+      "DEF": 1.45
+    },
+    "substatScaling": {
+      "CritDamage": "2.4%",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -1287,15 +1308,6 @@
         "name": "Essence Sediment",
         "description": "Every time an {Insight} card is played, Daffodil gains 2 Aliemus and gain {STR} equal to 15% of {ATK}. This effect can activate up to 5 times per turn."
       }
-    },
-    "statScaling": {
-      "CON": 1.55,
-      "ATK": 1.95,
-      "DEF": 1.45
-    },
-    "substatScaling": {
-      "CritDamage": "2.4%",
-      "DamageAmplification": "0.8%"
     }
   },
   {
@@ -1326,6 +1338,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.1,
+      "ATK": 0.9,
+      "DEF": 1.2
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8",
+      "KeyflareRegen": "1.2"
     },
     "cards": {
       "C1": {
@@ -1391,15 +1413,6 @@
         "name": "Flesh Transcended",
         "description": "{Rationality, Truth, and Reality}: Healing increased by 25%. Aliemus gain also applies to Doll."
       }
-    },
-    "statScaling": {
-      "CON": 1.1,
-      "ATK": 0.9,
-      "DEF": 1.2
-    },
-    "substatScaling": {
-      "AliemusRegen": "0.8",
-      "KeyflareRegen": "1.2"
     }
   },
   {
@@ -1438,6 +1451,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.1,
+      "ATK": 0.9,
+      "DEF": 1.2
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8",
+      "KeyflareRegen": "1.2"
     },
     "cards": {
       "C1": {
@@ -1508,15 +1531,6 @@
         "name": "Envoy of Extinction",
         "description": "{Strike} and {Defend} grant additional Aliemus equal to 5% of max Aliemus. {Illusion's End} fixed DMG increased from 25% to 30%. Additionally, it heals 30% of your missing HP."
       }
-    },
-    "statScaling": {
-      "CON": 1.1,
-      "ATK": 0.9,
-      "DEF": 1.2
-    },
-    "substatScaling": {
-      "AliemusRegen": "0.8",
-      "KeyflareRegen": "1.2"
     }
   },
   {
@@ -1548,6 +1562,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "4.8%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.65,
+      "ATK": 1.75,
+      "DEF": 1.45
+    },
+    "substatScaling": {
+      "CritDamage": "2.4%",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -1622,15 +1646,6 @@
         "name": "Evernight's Revel",
         "description": "The base DMG of {Evernight's Revel} is tripled and, for every time it is used during a turn, it enjoy an additional Temporary x1 {STR} scaling"
       }
-    },
-    "statScaling": {
-      "CON": 1.65,
-      "ATK": 1.75,
-      "DEF": 1.45
-    },
-    "substatScaling": {
-      "CritDamage": "2.4%",
-      "DamageAmplification": "0.8%"
     }
   },
   {
@@ -1664,6 +1679,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.85,
+      "ATK": 1.8,
+      "DEF": 1.8
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4%",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -1734,15 +1759,6 @@
         "name": "System Reboot",
         "description": "{Function Overload} gains {Leap}: Applies both DMG and Shield effects simultaneously."
       }
-    },
-    "statScaling": {
-      "CON": 1.85,
-      "ATK": 1.8,
-      "DEF": 1.8
-    },
-    "substatScaling": {
-      "KeyflareRegen": "2.4%",
-      "RealmMastery": "2"
     }
   },
   {
@@ -1777,6 +1793,16 @@
       "SigilYield": "3.6%",
       "DamageAmplification": "10%",
       "DeathResistance": "33.6%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.3,
+      "ATK": 1,
+      "DEF": 1.55
+    },
+    "substatScaling": {
+      "SigilYield": "0.6%",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -1842,15 +1868,6 @@
         "name": "Cradle of Love",
         "description": "Each time {Death Resistance} is triggered, deal Fixed DMG equal to 100% of your {Counter} to the front row enemy. Each time {Death Resistance} is triggered in this battle, the Fixed DMG increases by 25% of your {Counter}."
       }
-    },
-    "statScaling": {
-      "CON": 1.3,
-      "ATK": 1,
-      "DEF": 1.55
-    },
-    "substatScaling": {
-      "SigilYield": "0.6%",
-      "DeathResistance": "5.6%"
     }
   },
   {
@@ -1883,6 +1900,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "10%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.2,
+      "ATK": 1.3,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "RealmMastery": "2",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -1948,15 +1975,6 @@
         "name": "Flickering Candle",
         "description": "At the end of each turn, for each card in hand, trigger 3% {Poison} on all enemies and gain 3 Aliemus."
       }
-    },
-    "statScaling": {
-      "CON": 1.2,
-      "ATK": 1.3,
-      "DEF": 1.5
-    },
-    "substatScaling": {
-      "RealmMastery": "2",
-      "DamageAmplification": "1.6%"
     }
   },
   {
@@ -1986,6 +2004,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 2.05,
+      "ATK": 2,
+      "DEF": 1.65
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "CritDamage": "1.2%"
     },
     "cards": {
       "C1": {
@@ -2056,15 +2084,6 @@
         "name": "Boundless Ambition",
         "description": "{Abyssal Depths' Power} grants Goliath 25% {Temporary Crit Rate} when choosing {Usurp}, or 25 Aliemus when choosing {Dormancy}."
       }
-    },
-    "statScaling": {
-      "CON": 2.05,
-      "ATK": 2,
-      "DEF": 1.65
-    },
-    "substatScaling": {
-      "CritRate": "1.6%",
-      "CritDamage": "1.2%"
     }
   },
   {
@@ -2096,6 +2115,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.55,
+      "DEF": 1.45
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "KeyflareRegen": "2.4"
     },
     "cards": {
       "C1": {
@@ -2166,15 +2195,6 @@
         "name": "Moonlit Rhapsody",
         "description": "Triggering Hameln's {Melody} effect or playing {Symphony of Harmony} grants Hameln 1% {Crit Rate} and {Crit DMG}. Every 10 times this is triggered, the damage instances of {Soul Overture} and {Primal Chord} is increased by 1 for the rest of the battle, up to 2 times."
       }
-    },
-    "statScaling": {
-      "CON": 1.5,
-      "ATK": 1.55,
-      "DEF": 1.45
-    },
-    "substatScaling": {
-      "CritRate": "0.8%",
-      "KeyflareRegen": "2.4"
     }
   },
   {
@@ -2209,6 +2229,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "9.6%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.75,
+      "ATK": 1.7,
+      "DEF": 1.25
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -2274,15 +2304,6 @@
         "name": "The Chainbreaker",
         "description": "Playing Helot's {Strike} grants her 5% {Crit DMG}."
       }
-    },
-    "statScaling": {
-      "CON": 1.75,
-      "ATK": 1.7,
-      "DEF": 1.25
-    },
-    "substatScaling": {
-      "CritRate": "0.8%",
-      "DamageAmplification": "1.6%"
     }
   },
   {
@@ -2317,6 +2338,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "10%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.75,
+      "ATK": 1.7,
+      "DEF": 1.25
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -2392,15 +2423,6 @@
         "name": "Remnant's Requiem",
         "description": "At the start of battle, add 1 {Irregular Form: Chains} to your hand. {Sanguine Fetters}: Remove's the enemies shield on hit and the enemy can not gain a shield higher than 1 until the end of their turn."
       }
-    },
-    "statScaling": {
-      "CON": 1.75,
-      "ATK": 1.7,
-      "DEF": 1.25
-    },
-    "substatScaling": {
-      "CritRate": "0.8%",
-      "DamageAmplification": "1.6%"
     }
   },
   {
@@ -2436,6 +2458,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "34%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.15,
+      "ATK": 1.2,
+      "DEF": 1.05
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -2501,15 +2533,6 @@
         "name": "Blossoms and Verses Reunited",
         "description": "The first time a Horla Command Card is played she gains 10 Aliemus. The effect corresponding to {Resplendent Chapters} increases from 150% to 250%."
       }
-    },
-    "statScaling": {
-      "CON": 1.15,
-      "ATK": 1.2,
-      "DEF": 1.05
-    },
-    "substatScaling": {
-      "AliemusRegen": "0.4",
-      "DeathResistance": "5.6%"
     }
   },
   {
@@ -2539,6 +2562,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.25,
+      "ATK": 1.75,
+      "DEF": 1.3
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -2609,15 +2642,6 @@
         "name": "Obsidian Dissolution",
         "description": "{Mistborn Street Urchin} adds 1 extra {Get 'em! Brown!} to your hand."
       }
-    },
-    "statScaling": {
-      "CON": 1.25,
-      "ATK": 1.75,
-      "DEF": 1.3
-    },
-    "substatScaling": {
-      "CritRate": "1.6%",
-      "RealmMastery": "2"
     }
   },
   {
@@ -2653,6 +2677,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "17%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.4,
+      "ATK": 1.2,
+      "DEF": 1.35
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8",
+      "DeathResistance": "2.8%"
     },
     "cards": {
       "C1": {
@@ -2723,15 +2757,6 @@
         "name": "Fermented Recipes",
         "description": "{Marvelous Cuisine} has a 50% chance to trigger a random {Marvelous Effect} when being played. Random Effects: Karen gains 10 Aliemus. All allies gain 5 Aliemus. Apply 1 {Vulnerable} to all enemies. Apply 1 {Weakness} to all enemies. Draw 1 card. Gain 200 {Keyflare}."
       }
-    },
-    "statScaling": {
-      "CON": 1.4,
-      "ATK": 1.2,
-      "DEF": 1.35
-    },
-    "substatScaling": {
-      "AliemusRegen": "0.8",
-      "DeathResistance": "2.8%"
     }
   },
   {
@@ -2765,6 +2790,16 @@
       "SigilYield": "0",
       "DamageAmplification": "0",
       "DeathResistance": "0"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.55,
+      "ATK": 1.85,
+      "DEF": 1.4
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "CritDamage": "2.4%"
     },
     "cards": {
       "C1": {
@@ -2835,15 +2870,6 @@
         "name": "Endless Purgatory",
         "description": "At the start of the battle, apply 1 stack of {Fiamma} to all of Kathigu-Ra's default Command Cards. For each stack of Combust gained, Kathigu-Ra's Base DMG increases by 5% for this battle."
       }
-    },
-    "statScaling": {
-      "CON": 1.55,
-      "ATK": 1.85,
-      "DEF": 1.4
-    },
-    "substatScaling": {
-      "CritRate": "0.8%",
-      "CritDamage": "2.4%"
     }
   },
   {
@@ -2877,6 +2903,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "17%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 0.9,
+      "ATK": 0.9,
+      "DEF": 0.9
+    },
+    "substatScaling": {
+      "RealmMastery": "4",
+      "DeathResistance": "2.8%"
     },
     "cards": {
       "C1": {
@@ -2942,15 +2978,6 @@
         "name": "Basement Journal",
         "description": "When {Flatter's Embrace} triggers {Devour}, the {STR} gained is doubled."
       }
-    },
-    "statScaling": {
-      "CON": 0.9,
-      "ATK": 0.9,
-      "DEF": 0.9
-    },
-    "substatScaling": {
-      "RealmMastery": "4",
-      "DeathResistance": "2.8%"
     }
   },
   {
@@ -2982,6 +3009,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "10%",
       "DeathResistance": "17%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.8,
+      "ATK": 1.3,
+      "DEF": 1.8
+    },
+    "substatScaling": {
+      "DamageAmplification": "1.6%",
+      "DeathResistance": "2.8%"
     },
     "cards": {
       "C1": {
@@ -3047,15 +3084,6 @@
         "name": "Never Forget...",
         "description": "At the start of the turn, gain {Endure} equal to 10% of Max HP. {Undying Flower Upon Slime} and {Strike to Protect} only removes half of {Endure} stacks."
       }
-    },
-    "statScaling": {
-      "CON": 1.8,
-      "ATK": 1.3,
-      "DEF": 1.8
-    },
-    "substatScaling": {
-      "DamageAmplification": "1.6%",
-      "DeathResistance": "2.8%"
     }
   },
   {
@@ -3087,6 +3115,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.35,
+      "ATK": 1.85,
+      "DEF": 1.45
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "CritDamage": "1.2%"
     },
     "cards": {
       "C1": {
@@ -3162,15 +3200,6 @@
         "name": "Last Dawnlight",
         "description": "{Dance to Destruction} draws 1 card for every 2 cards discarded."
       }
-    },
-    "statScaling": {
-      "CON": 1.35,
-      "ATK": 1.85,
-      "DEF": 1.45
-    },
-    "substatScaling": {
-      "CritRate": "1.6%",
-      "CritDamage": "1.2%"
     }
   },
   {
@@ -3201,6 +3230,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.6,
+      "ATK": 1.65,
+      "DEF": 1.4
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "CritDamage": "1.2%"
     },
     "cards": {
       "C1": {
@@ -3266,15 +3305,6 @@
         "name": "Timeless Solitude",
         "description": "{Beast of Chaos} gains an additional instance of DMG. Add 2 {Strike} cards with {Exhaust} and {Void} to your hand."
       }
-    },
-    "statScaling": {
-      "CON": 1.6,
-      "ATK": 1.65,
-      "DEF": 1.4
-    },
-    "substatScaling": {
-      "CritRate": "1.6%",
-      "CritDamage": "1.2%"
     }
   },
   {
@@ -3311,6 +3341,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.05,
+      "ATK": 1.65,
+      "DEF": 0.9
+    },
+    "substatScaling": {
+      "CritDamage": "2.4%",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -3396,15 +3436,6 @@
         "name": "Vanity's Collapse",
         "description": "{Ritual} effects increased by 30%. Each conversion of {Sacrament} to an {Obsession} increases Miryam's Base DMG and base {Poison} applied by {Pray to the Abyss} by 15% for the rest of the battle."
       }
-    },
-    "statScaling": {
-      "CON": 1.05,
-      "ATK": 1.65,
-      "DEF": 0.9
-    },
-    "substatScaling": {
-      "CritDamage": "2.4%",
-      "RealmMastery": "2"
     }
   },
   {
@@ -3435,6 +3466,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "33.6%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.4,
+      "ATK": 1.65,
+      "DEF": 1.4
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -3500,13 +3541,7 @@
         "name": "Cleave Out a Future",
         "description": "{Shining Tornado} grants Mouchette +1 hits count for all skills this turn."
       }
-    },
-    "statScaling": {
-      "CON": 1.4,
-      "ATK": 1.65,
-      "DEF": 1.4
-    },
-    "substatScaling": {}
+    }
   },
   {
     "id": 34,
@@ -3539,6 +3574,16 @@
       "SigilYield": "0",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.45,
+      "ATK": 1.55,
+      "DEF": 1.75
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8",
+      "KeyflareRegen": "1.2"
     },
     "cards": {
       "C1": {
@@ -3604,15 +3649,6 @@
         "name": "Emancipating Touch",
         "description": "At the end of the turn, Murphy gains 5 Aliemus. When Posse is used, remove {Sacrifice} stacks equal to 2% of Max HP."
       }
-    },
-    "statScaling": {
-      "CON": 1.45,
-      "ATK": 1.55,
-      "DEF": 1.75
-    },
-    "substatScaling": {
-      "AliemusRegen": "0.8",
-      "KeyflareRegen": "1.2"
     }
   },
   {
@@ -3647,6 +3683,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.1,
+      "ATK": 1.35,
+      "DEF": 1.3
+    },
+    "substatScaling": {
+      "CritDamage": "1.2%",
+      "KeyflareRegen": "2.4"
     },
     "cards": {
       "C1": {
@@ -3712,15 +3758,6 @@
         "name": "Profane Apocalypse",
         "description": "Draw 1 {Abyss Hymns} when playing Murphy: Fauxborn's {Strike} or {Defense}. This effect can only occur once per turn."
       }
-    },
-    "statScaling": {
-      "CON": 1.1,
-      "ATK": 1.35,
-      "DEF": 1.3
-    },
-    "substatScaling": {
-      "CritDamage": "1.2%",
-      "KeyflareRegen": "2.4"
     }
   },
   {
@@ -3751,6 +3788,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "5%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.9,
+      "ATK": 1.15,
+      "DEF": 2
+    },
+    "substatScaling": {
+      "RealmMastery": "4",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -3816,15 +3863,6 @@
         "name": "Forgotten Dreams",
         "description": "Increases {Fixed DMG} of {Ready and Set} by 50%. After release, grants immunity to {Fragile}, {Weakness}, and {Vulnerable} for 1 turn."
       }
-    },
-    "statScaling": {
-      "CON": 1.9,
-      "ATK": 1.15,
-      "DEF": 2
-    },
-    "substatScaling": {
-      "RealmMastery": "4",
-      "DamageAmplification": "0.8%"
     }
   },
   {
@@ -3854,6 +3892,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "10%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 0.95,
+      "ATK": 1.5,
+      "DEF": 1
+    },
+    "substatScaling": {
+      "KeyflareRegen": "1.2",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -3919,15 +3967,6 @@
         "name": "Frostbloom Tide",
         "description": "After releasing {Passage of the Ego} this battle, increase the {Poison} applied by {Passage of the Ego} by (45/54/63/72/81/90)% of {ATK} (effect scales with the level of {Passage of the Ego})."
       }
-    },
-    "statScaling": {
-      "CON": 0.95,
-      "ATK": 1.5,
-      "DEF": 1
-    },
-    "substatScaling": {
-      "KeyflareRegen": "1.2",
-      "DamageAmplification": "1.6%"
     }
   },
   {
@@ -3960,6 +3999,16 @@
       "SigilYield": "8%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.7,
+      "ATK": 1.45,
+      "DEF": 1.85
+    },
+    "substatScaling": {
+      "RealmMastery": "2",
+      "SigilYield": "1.2%"
     },
     "cards": {
       "C1": {
@@ -4025,15 +4074,6 @@
         "name": "Sacrifice for Justice",
         "description": "{Unstable Barrier}: shield gained increased by 28%. Gain {STR} equal to (3.0/3.6/4.2/4.8/5.4/6.0)% of Ogier's {ATK} (effect scales with the level of {Unstable Barrier})."
       }
-    },
-    "statScaling": {
-      "CON": 1.7,
-      "ATK": 1.45,
-      "DEF": 1.85
-    },
-    "substatScaling": {
-      "RealmMastery": "2",
-      "SigilYield": "1.2%"
     }
   },
   {
@@ -4063,6 +4103,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.75,
+      "DEF": 1.55
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "CritDamage": "2.4%"
     },
     "cards": {
       "C1": {
@@ -4128,15 +4178,6 @@
         "name": "You're Being Naughty...",
         "description": "{Honey-Colored Tragedy} Base DMG doubles. Gains {Counter} equal to (15/18/21/24/27/30%) of {ATK}."
       }
-    },
-    "statScaling": {
-      "CON": 1.5,
-      "ATK": 1.75,
-      "DEF": 1.55
-    },
-    "substatScaling": {
-      "CritRate": "0.8%",
-      "CritDamage": "2.4%"
     }
   },
   {
@@ -4169,6 +4210,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.6,
+      "ATK": 1.45,
+      "DEF": 1.6
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -4234,15 +4285,6 @@
         "name": "Invocation of the Muse",
         "description": "After Pickman consumes {Creativity}, he gains 50 Aliemus and can Exalt 2 times this turn."
       }
-    },
-    "statScaling": {
-      "CON": 1.6,
-      "ATK": 1.45,
-      "DEF": 1.6
-    },
-    "substatScaling": {
-      "AliemusRegen": "0.8",
-      "RealmMastery": "2"
     }
   },
   {
@@ -4272,6 +4314,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "4.8%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.55,
+      "ATK": 1.75,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -4342,15 +4394,6 @@
         "name": "Divine Revelation",
         "description": "When {Sacred Heart} is Exhausted, Pollux's next played Command Card takes effect 1 additional time."
       }
-    },
-    "statScaling": {
-      "CON": 1.55,
-      "ATK": 1.7,
-      "DEF": 1.5
-    },
-    "substatScaling": {
-      "CritRate": "1.6%",
-      "DamageAmplification": "0.8%"
     }
   },
   {
@@ -4384,6 +4427,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.5,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -4449,15 +4502,6 @@
         "name": "Precious Ties",
         "description": "After releasing Posse, Ramona's {Temporary Crit Rate} increases by 50%. {Mundus Deduction} shuffles 1 {Inspiration} into the Draw Pile."
       }
-    },
-    "statScaling": {
-      "CON": 1.5,
-      "ATK": 1.5,
-      "DEF": 1.5
-    },
-    "substatScaling": {
-      "KeyflareRegen": "2.4",
-      "RealmMastery": "2"
     }
   },
   {
@@ -4489,6 +4533,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.5,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -4554,15 +4608,6 @@
         "name": "Mobius Captive",
         "description": "After using Ramona: Timeworn's Exalt, select a currently unlocked on the account Posse to replace the current one. The selected Posse reverts back to the original after use or at the end of the battle."
       }
-    },
-    "statScaling": {
-      "CON": 1.5,
-      "ATK": 1.5,
-      "DEF": 1.5
-    },
-    "substatScaling": {
-      "KeyflareRegen": "2.4",
-      "RealmMastery": "2"
     }
   },
   {
@@ -4596,6 +4641,16 @@
       "SigilYield": "8%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 2,
+      "ATK": 1.65,
+      "DEF": 1.6
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "SigilYield": "1.2%"
     },
     "cards": {
       "C1": {
@@ -4661,15 +4716,6 @@
         "name": "Certain Gain",
         "description": "For every 1 Black Sigil consumed, increase the Base DMG of {All-In!} by 0.5% for this exploration. {Strike} and {Defend} can be forced played by consuming 3 Black Sigils when Arithmetica is insufficient. When played this way, the card applies its effects twice."
       }
-    },
-    "statScaling": {
-      "CON": 2,
-      "ATK": 1.65,
-      "DEF": 1.6
-    },
-    "substatScaling": {
-      "CritRate": "0.8%",
-      "SigilYield": "1.2%"
     }
   },
   {
@@ -4704,6 +4750,16 @@
       "SigilYield": "8%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 2.1,
+      "ATK": 1.35,
+      "DEF": 2.1
+    },
+    "substatScaling": {
+      "RealmMastery": "2",
+      "SigilYield": "1.2%"
     },
     "cards": {
       "C1": {
@@ -4769,15 +4825,6 @@
         "name": "Salvation's Hand",
         "description": "At the start of the turn, accumulate {Crimson Furnace} healing equal to 6% of {CON}. {Creator's Blessing} grants Salvador a 35% {Temporary Crit DMG} increase for 1 turn."
       }
-    },
-    "statScaling": {
-      "CON": 2.1,
-      "ATK": 1.35,
-      "DEF": 2.1
-    },
-    "substatScaling": {
-      "RealmMastery": "2",
-      "SigilYield": "1.2%"
     }
   },
   {
@@ -4810,6 +4857,16 @@
       "SigilYield": "4%",
       "DamageAmplification": "0%",
       "DeathResistance": "34%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.6,
+      "ATK": 1.25,
+      "DEF": 1.9
+    },
+    "substatScaling": {
+      "SigilYield": "0.6%",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -4875,15 +4932,6 @@
         "name": "Artistic Dionysia",
         "description": "{The Lost Art} increases Base DMG and Shield Generation by 25%. Gains an additional 25% {Crit Rate} and {Crit DMG}. When Sanga generates a Shield, gain {Tentacle DMG} equal to 3% (+0.3% per talent level) of the Shield"
       }
-    },
-    "statScaling": {
-      "CON": 1.6,
-      "ATK": 1.25,
-      "DEF": 1.9
-    },
-    "substatScaling": {
-      "SigilYield": "0.6%",
-      "DeathResistance": "5.6%"
     }
   },
   {
@@ -4916,6 +4964,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.45,
+      "ATK": 2.05,
+      "DEF": 1.05
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "CritDamage": "1.2%"
     },
     "cards": {
       "C1": {
@@ -4981,15 +5039,6 @@
         "name": "Lustrous Pearl",
         "description": "At the start of battle, {Embryo Fusion} +25%. Every time {Death Resistance} is triggered, {Embryo Fusion} +25%. For each instance of DMG Sorel deals this turn, her DMG dealt this turn increases by 3% of her {ATK}."
       }
-    },
-    "statScaling": {
-      "CON": 1.45,
-      "ATK": 2.05,
-      "DEF": 1.05
-    },
-    "substatScaling": {
-      "CritRate": "1.6%",
-      "CritDamage": "1.2%"
     }
   },
   {
@@ -5025,6 +5074,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.5,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4%",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -5105,15 +5164,6 @@
         "name": "Nonexistent Existence",
         "description": "{Strike} and {Defend} grant Tawil 3% {Crit Rate} and {Crit DMG}, up to 30%. When triggering {Death Resistance} for the first time during exploration, place 1 {Echoes of the Past} into your hand. {Echoes of the Past} (Cost: 0): Reverts your HP and shield into their values at the start of the previous turn."
       }
-    },
-    "statScaling": {
-      "CON": 1.5,
-      "ATK": 1.5,
-      "DEF": 1.5
-    },
-    "substatScaling": {
-      "KeyflareRegen": "2.4%",
-      "RealmMastery": "2"
     }
   },
   {
@@ -5149,6 +5199,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.55,
+      "ATK": 1.5,
+      "DEF": 1.4
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "KeyflareRegen": "2.4"
     },
     "cards": {
       "C1": {
@@ -5214,15 +5274,6 @@
         "name": "Everlasting Cycle",
         "description": "Automatically gain 50% {Embryo Fusion} at the start of each turn. {Strike} and {Defend} gain {STR} equal to 1% of {ATK}."
       }
-    },
-    "statScaling": {
-      "CON": 1.55,
-      "ATK": 1.5,
-      "DEF": 1.4
-    },
-    "substatScaling": {
-      "AliemusRegen": "0.4",
-      "KeyflareRegen": "2.4"
     }
   },
   {
@@ -5258,6 +5309,16 @@
       "SigilYield": "8%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.3,
+      "ATK": 1.2,
+      "DEF": 1.25
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "SigilYield": "1.2%"
     },
     "cards": {
       "C1": {
@@ -5323,15 +5384,6 @@
         "name": "Falling Skyward",
         "description": "{Distant Melody Swells} and {Aurora} gain {Crit DMG} equivalent to {Crit Rate} gained."
       }
-    },
-    "statScaling": {
-      "CON": 1.3,
-      "ATK": 1.2,
-      "DEF": 1.25
-    },
-    "substatScaling": {
-      "AliemusRegen": "0.4",
-      "SigilYield": "1.2%"
     }
   },
   {
@@ -5365,6 +5417,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.7,
+      "ATK": 1.9,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "KeyflareRegen": "2.4"
     },
     "cards": {
       "C1": {
@@ -5430,15 +5492,6 @@
         "name": "The Stars Are Right",
         "description": "At the end of the turn, Tulu gains 5 Aliemus. {When Lemuria Returns} temporarily increases {Crit Rate} by 15%."
       }
-    },
-    "statScaling": {
-      "CON": 1.7,
-      "ATK": 1.9,
-      "DEF": 1.5
-    },
-    "substatScaling": {
-      "AliemusRegen": "0.4",
-      "KeyflareRegen": "2.4"
     }
   },
   {
@@ -5469,6 +5522,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "10%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.8,
+      "ATK": 1.7,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "CritDamage": "2.4%",
+      "AliemusRegen": "0.4"
     },
     "cards": {
       "C1": {
@@ -5534,15 +5597,6 @@
         "name": "Sorcerer's End",
         "description": "{Hymn of Blood and Sand} grants an additional 1x {STR} boost with each {Devour}."
       }
-    },
-    "statScaling": {
-      "CON": 1.8,
-      "ATK": 1.7,
-      "DEF": 1.5
-    },
-    "substatScaling": {
-      "CritDamage": "2.4%",
-      "AliemusRegen": "0.4"
     }
   },
   {
@@ -5573,6 +5627,16 @@
       "SigilYield": "4%",
       "DamageAmplification": "10%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.75,
+      "ATK": 1.1,
+      "DEF": 2.05
+    },
+    "substatScaling": {
+      "SigilYield": "0.6%",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -5638,15 +5702,6 @@
         "name": "Venus and Fur",
         "description": "At the end of battle, gain an additional 5 Black Sigils. This can be increased by {Sigil Yield}. After Wanda plays a card, gain 1 stack of {Dreamlure}. This effect can trigger up to 2 times per turn."
       }
-    },
-    "statScaling": {
-      "CON": 1.75,
-      "ATK": 1,
-      "DEF": 2.05
-    },
-    "substatScaling": {
-      "SigilYield": "0.6%",
-      "DamageAmplification": "1.6%"
     }
   },
   {
@@ -5680,6 +5735,16 @@
       "SigilYield": "4%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.4,
+      "ATK": 1.25,
+      "DEF": 1.6
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8%",
+      "SigilYield": "0.6%"
     },
     "cards": {
       "C1": {
@@ -5745,15 +5810,6 @@
         "name": "Rebirth Through Death",
         "description": "{Formless Shifting} increases Shield Generation and {Counter} by 25%. The selected Awaker will release Exalt twice this turn before entering cooldown."
       }
-    },
-    "statScaling": {
-      "CON": 1.4,
-      "ATK": 1.25,
-      "DEF": 1.6
-    },
-    "substatScaling": {
-      "AliemusRegen": "0.8%",
-      "SigilYield": "0.6%"
     }
   },
   {
@@ -5787,6 +5843,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "9.6%",
       "DeathResistance": "16.8%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 2.25,
+      "ATK": 1.35,
+      "DEF": 1.25
+    },
+    "substatScaling": {
+      "DamageAmplification": "1.6%",
+      "DeathResistance": "2.8%"
     },
     "cards": {
       "C1": {
@@ -5852,15 +5918,6 @@
         "name": "Nirvana’s Kiss",
         "description": "Max {Spellbound} stacks increase from 5 to 10. {Mist-Bound Vow} doubles the {Resonance} effect for Xu’s next card."
       }
-    },
-    "statScaling": {
-      "CON": 2.25,
-      "ATK": 1.35,
-      "DEF": 1.25
-    },
-    "substatScaling": {
-      "DamageAmplification": "1.6%",
-      "DeathResistance": "2.8%"
     }
   },
   {
@@ -5890,6 +5947,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.65,
+      "ATK": 2,
+      "DEF": 1.35
+    },
+    "substatScaling": {
+      "KeyflareRegen": "1.2",
+      "RealmMastery": "4"
     },
     "cards": {
       "C1": {
@@ -5960,12 +6027,6 @@
         "name": "Shackled Impulse",
         "description": "{Abyssal! Vortex! Cannon!} now deals 3x DMG to the enemy with the highest HP instead of 2x. For every 20 Aliemus spent, other Awakeners gain 1 Aliemus"
       }
-    },
-    "statScaling": {
-      "CON": 1.65,
-      "ATK": 2,
-      "DEF": 1.35
-    },
-    "substatScaling": {}
+    }
   }
 ]

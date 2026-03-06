@@ -1,4 +1,5 @@
 type DetailLevelSliderProps = {
+  compact?: boolean
   label: string
   level: number
   min: number
@@ -7,6 +8,7 @@ type DetailLevelSliderProps = {
 }
 
 export function DetailLevelSlider({
+  compact = false,
   label,
   level,
   min,
@@ -22,7 +24,7 @@ export function DetailLevelSlider({
         </span>
       </span>
       <input
-        className="export-box-slider"
+        className={`export-box-slider${compact ? ' export-box-slider--compact' : ''}`}
         max={max}
         min={min}
         onChange={(event) => onChange(Number(event.target.value))}
