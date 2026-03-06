@@ -10,12 +10,12 @@
 
 ---
 
-**Status:** Done
+**Status:** In progress
 
 **Last updated:** 2026-03-06
 
 **Related docs:**
-- Notes: None yet
+- Notes: `docs/notes/2026-03-06-pr14-single-commit-audit.md`
 - Roadmap item: `docs/roadmap.md`
 - Backlog source: `docs/backlog.md`
 
@@ -59,13 +59,14 @@
   - Rewrote parent-relative cross-folder `src` imports to `@/*` and re-verified the repo after the mechanical alias pass.
   - Fixed the `DetailLevelSlider` compact class regression uncovered by full verification and reran `npm run verify`.
   - Committed the mechanical salvage checkpoint as `34dd27d` (`chore: salvage tooling and alias groundwork`).
-  - Audited the remaining PR diff by patch-equivalence and confirmed there are no unique semantic commits left to port beyond the tooling work already salvaged.
+  - Confirmed the PR head is a single squashed commit, so commit-level equivalence is not enough to prove semantic salvage coverage.
 - In progress:
-  - None.
+  - Auditing the PR's single squashed commit file-by-file to separate mechanical churn from true logic differences.
 - Next:
-  - Keep `pr14-reference` available for future ad hoc comparison if a later regression suggests a missed idea, but treat PR #14 salvage as complete.
+  - Reduce the `ast_different` file set into mechanical-only versus logic-different buckets.
+  - Review the remaining logic-different files in small, commitable slices.
 - Blockers:
-  - None.
+  - The PR was delivered as one squashed commit, so semantic salvage requires explicit file-level review instead of commit-level matching.
 
 ## Verification
 
