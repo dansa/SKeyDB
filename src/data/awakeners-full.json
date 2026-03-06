@@ -30,14 +30,24 @@
       "CON": "149",
       "ATK": "189",
       "DEF": "86",
-      "CritRate": "14.6% (+1.6%)*",
+      "CritRate": "14.6%",
       "CritDamage": "50%",
-      "AliemusRegen": "2.4 (+0.4)*",
+      "AliemusRegen": "2.4",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.65,
+      "ATK": 2.1,
+      "DEF": 0.95
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "AliemusRegen": "0.4"
     },
     "cards": {
       "C1": {
@@ -83,7 +93,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -125,14 +135,24 @@
       "CON": "132",
       "ATK": "112",
       "DEF": "136",
-      "CritRate": "14.6% (+1.6%)*",
+      "CritRate": "14.6%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
-      "SigilYield": "3.6% (+0.6%)*",
+      "SigilYield": "3.6%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.65,
+      "ATK": 1.4,
+      "DEF": 1.7
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "SigilYield": "0.6%"
     },
     "cards": {
       "C1": {
@@ -178,7 +198,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -224,11 +244,21 @@
       "CritRate": "5%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
-      "KeyflareRegen": "29.4 (+2.4)*",
+      "KeyflareRegen": "29.4",
       "RealmMastery": "0",
       "SigilYield": "0%",
-      "DamageAmplification": "4.8% (+0.8%)*",
+      "DamageAmplification": "4.8%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.25,
+      "ATK": 1.5,
+      "DEF": 1.35
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -274,7 +304,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -325,9 +355,19 @@
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
-      "SigilYield": "3.6% (+0.6%)*",
+      "SigilYield": "3.6%",
       "DamageAmplification": "0%",
-      "DeathResistance": "33.6% (+5.6%)*"
+      "DeathResistance": "33.6%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.6,
+      "DEF": 1.75
+    },
+    "substatScaling": {
+      "SigilYield": "0.6%",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -373,7 +413,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -415,14 +455,24 @@
       "CON": "96",
       "ATK": "104",
       "DEF": "92",
-      "CritRate": "14.6% (+1.6%)*",
+      "CritRate": "14.6%",
       "CritDamage": "50%",
-      "AliemusRegen": "2.4 (+0.4)*",
+      "AliemusRegen": "2.4",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.2,
+      "ATK": 1.3,
+      "DEF": 1.15
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "AliemusRegen": "0.4"
     },
     "cards": {
       "C1": {
@@ -468,7 +518,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -516,10 +566,20 @@
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
-      "RealmMastery": "12 (+2)*",
-      "SigilYield": "7.2% (+1.2%)*",
+      "RealmMastery": "12",
+      "SigilYield": "7.2%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.95,
+      "ATK": 1.55,
+      "DEF": 1.7
+    },
+    "substatScaling": {
+      "RealmMastery": "2",
+      "SigilYield": "1.2%"
     },
     "cards": {
       "C1": {
@@ -565,7 +625,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -611,12 +671,22 @@
       "DEF": "96",
       "CritRate": "5%",
       "CritDamage": "50%",
-      "AliemusRegen": "2.4 (+0.4)*",
+      "AliemusRegen": "2.4",
       "KeyflareRegen": "15",
-      "RealmMastery": "24 (+4)*",
+      "RealmMastery": "24",
       "SigilYield": "0%",
-      "DamageAmplification": "10%",
+      "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.35,
+      "ATK": 1.4,
+      "DEF": 1.2
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "RealmMastery": "4"
     },
     "cards": {
       "C1": {
@@ -662,7 +732,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -705,13 +775,23 @@
       "ATK": "135",
       "DEF": "158",
       "CritRate": "5%",
-      "CritDamage": "57.2% (+1.2%)*",
+      "CritDamage": "57.2%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
-      "SigilYield": "0",
-      "DamageAmplification": "9.6% (+1.6%)*",
+      "SigilYield": "0%",
+      "DamageAmplification": "9.6%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.65,
+      "ATK": 1.5,
+      "DEF": 1.75
+    },
+    "substatScaling": {
+      "CritDamage": "1.2%",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -758,11 +838,11 @@
     "talents": {
       "T1": {
         "name": "Cleansing Feathers",
-        "description": "(Max level: 1) Playing {Onyx Plume} for the first time each turn inflicts 840% of Castor's {ATK} as {Corrosion} on the target and gives Castor 10 Aliemus. For every 1% of {DMG Amplification} Castor and his equipped Wheel of Destiny & Covenant have, the Base amount of {Corrosion} inflicted increases by 1%. After the battle, {Corrosion} inflicted by Castor permanently increases by 20% during this Exploration. {Corrosion} inflicted in Boss Battles doubles. After inflicting {Corrosion}, Castor's DMG output increases by 5% of the amount of {Corrosion} inflicted this turn. DMG dealt by Castor does not remove {Corrosion}."
+        "description": "Playing {Onyx Plume} for the first time each turn inflicts 840% of Castor's {ATK} as {Corrosion} on the target and gives Castor 10 Aliemus. For every 1% of {DMG Amplification} Castor and his equipped Wheel of Destiny & Covenant have, the Base amount of {Corrosion} inflicted increases by 1%. After the battle, {Corrosion} inflicted by Castor permanently increases by 20% during this Exploration. {Corrosion} inflicted in Boss Battles doubles. After inflicting {Corrosion}, Castor's DMG output increases by 5% of the amount of {Corrosion} inflicted this turn. DMG dealt by Castor does not remove {Corrosion}."
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -811,10 +891,20 @@
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
-      "RealmMastery": "24 (+4)*",
+      "RealmMastery": "24",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
-      "DeathResistance": "16.8% (+2.8%)*"
+      "DeathResistance": "16.8%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1,
+      "ATK": 0.95,
+      "DEF": 1
+    },
+    "substatScaling": {
+      "RealmMastery": "4",
+      "DeathResistance": "2.8%"
     },
     "cards": {
       "C1": {
@@ -860,7 +950,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -902,17 +992,27 @@
       "STR Up"
     ],
     "stats": {
-      "CON": "129",
-      "ATK": "152",
-      "DEF": "125",
+      "CON": "126",
+      "ATK": "149",
+      "DEF": "122",
       "CritRate": "5%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
-      "KeyflareRegen": "29.4 (+2.4)*",
+      "KeyflareRegen": "29.4",
       "RealmMastery": "0",
       "SigilYield": "0%",
-      "DamageAmplification": "4.8% (+0.8%)*",
+      "DamageAmplification": "4.8%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.4,
+      "ATK": 1.65,
+      "DEF": 1.35
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -954,11 +1054,11 @@
     "talents": {
       "T1": {
         "name": "Hive Resonance",
-        "description": "(Max level: 1) Gain 1 stack of {Symbiosis} after dealing DMG with Clementine's Command Cards. For every 1 {Keyflare Regen} Clementine and her equipped Wheel of Destiny & Covenant have, she gains 0.35% {Crit Rate} and {Crit DMG}. On the start of {Ultra Round}, remove all enemies {Psychic Trauma} and {Phobic Fixation}. For each stack of {Psychic Trauma} removed, gain 50 {Keyflare}. For every stack of {Phobic Fixation} removed, other Awakaners gain 2 Aliemus."
+        "description": "Gain 1 stack of {Symbiosis} after dealing DMG with Clementine's Command Cards. For every 1 {Keyflare Regen} Clementine and her equipped Wheel of Destiny & Covenant have, she gains 0.35% {Crit Rate} and {Crit DMG}. On the start of {Ultra Round}, remove all enemies {Psychic Trauma} and {Phobic Fixation}. For each stack of {Psychic Trauma} removed, gain 50 {Keyflare}. For every stack of {Phobic Fixation} removed, other Awakaners gain 2 Aliemus."
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -1006,14 +1106,24 @@
       "CON": "144",
       "ATK": "126",
       "DEF": "149",
-      "CritRate": "9.8% (+0.8%)*",
+      "CritRate": "9.8%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
-      "DeathResistance": "33.6% (+5.6%)*"
+      "DeathResistance": "33.6%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.6,
+      "ATK": 1.4,
+      "DEF": 1.65
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -1064,7 +1174,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -1116,13 +1226,23 @@
       "ATK": "176",
       "DEF": "131",
       "CritRate": "5%",
-      "CritDamage": "64.4% (+2.4%)*",
+      "CritDamage": "64.4%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
-      "DamageAmplification": "4.8% (+0.8%)*",
+      "DamageAmplification": "4.8%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.55,
+      "ATK": 1.95,
+      "DEF": 1.45
+    },
+    "substatScaling": {
+      "CritDamage": "2.4%",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -1168,7 +1288,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -1212,12 +1332,22 @@
       "DEF": "96",
       "CritRate": "5%",
       "CritDamage": "50%",
-      "AliemusRegen": "4.8 (+0.8)*",
-      "KeyflareRegen": "22.2 (+1.2)*",
+      "AliemusRegen": "4.8",
+      "KeyflareRegen": "22.2",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.1,
+      "ATK": 0.9,
+      "DEF": 1.2
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8",
+      "KeyflareRegen": "1.2"
     },
     "cards": {
       "C1": {
@@ -1263,7 +1393,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -1315,12 +1445,22 @@
       "DEF": "108",
       "CritRate": "5%",
       "CritDamage": "50%",
-      "AliemusRegen": "5 (+0.8)*",
-      "KeyflareRegen": "23 (+1.2)*",
+      "AliemusRegen": "4.8",
+      "KeyflareRegen": "22.2",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.1,
+      "ATK": 0.9,
+      "DEF": 1.2
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8",
+      "KeyflareRegen": "1.2"
     },
     "cards": {
       "C1": {
@@ -1371,7 +1511,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -1415,13 +1555,23 @@
       "ATK": "158",
       "DEF": "131",
       "CritRate": "5%",
-      "CritDamage": "64.4% (+2.4%)*",
+      "CritDamage": "64.4%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
-      "DamageAmplification": "4.8% (+0.8%)*",
+      "DamageAmplification": "4.8%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.65,
+      "ATK": 1.75,
+      "DEF": 1.45
+    },
+    "substatScaling": {
+      "CritDamage": "2.4%",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -1468,15 +1618,15 @@
     "talents": {
       "T1": {
         "name": "Casket Harvest",
-        "description": "(Max level: 1) Doresain gains 1 stack of {Corpse} after killing an enemy or dealing Exalt DMG to a Boss (max 3 stacks). Stacks are retained throughout the exploration."
+        "description": "Doresain gains 1 stack of {Corpse} after killing an enemy or dealing Exalt DMG to a Boss (max 3 stacks). Stacks are retained throughout the exploration."
       },
       "T2": {
-        "name": "Madness Omen",
-        "description": "(Max level: 1) Innate: Festering Grace Talent Place 1 {Evernight's Revel} into hand whenever Doresain obtains {Corpse}."
+        "name": "Festering Grace",
+        "description": "Festering Grace Talent Place 1 {Evernight's Revel} into hand whenever Doresain obtains {Corpse}."
       },
       "T3": {
-        "name": "Soulforge Aptitude",
-        "description": "(Max level: 12) Omen Talent Gain (5 per talent level) Aliemus at the start of exploration."
+        "name": "Madness Omen",
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T4": {
         "name": "Soulforge Aptitude",
@@ -1524,11 +1674,21 @@
       "CritRate": "5%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
-      "KeyflareRegen": "29.4 (+2.4%)*",
-      "RealmMastery": "12 (+2)*",
+      "KeyflareRegen": "29.4",
+      "RealmMastery": "12",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.85,
+      "ATK": 1.8,
+      "DEF": 1.8
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -1579,7 +1739,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -1630,9 +1790,19 @@
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
-      "SigilYield": "3.6% (+0.6%)*",
-      "DamageAmplification": "10%",
-      "DeathResistance": "33.6% (+5.6%)*"
+      "SigilYield": "3.6%",
+      "DamageAmplification": "0%",
+      "DeathResistance": "33.6%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.3,
+      "ATK": 1,
+      "DEF": 1.55
+    },
+    "substatScaling": {
+      "SigilYield": "0.6%",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -1678,7 +1848,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -1726,10 +1896,20 @@
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
-      "RealmMastery": "12 (+2)*",
+      "RealmMastery": "12",
       "SigilYield": "0%",
-      "DamageAmplification": "10% (+1.6%)*",
+      "DamageAmplification": "9.6%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.2,
+      "ATK": 1.3,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "RealmMastery": "2",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -1775,7 +1955,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -1816,14 +1996,24 @@
       "CON": "164",
       "ATK": "160",
       "DEF": "132",
-      "CritRate": "14.6% (+1.6%)*",
-      "CritDamage": "57.2% (+1.2%)*",
+      "CritRate": "14.6%",
+      "CritDamage": "57.2%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 2.05,
+      "ATK": 2,
+      "DEF": 1.65
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "CritDamage": "1.2%"
     },
     "cards": {
       "C1": {
@@ -1874,7 +2064,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -1917,14 +2107,24 @@
       "CON": "135",
       "ATK": "140",
       "DEF": "131",
-      "CritRate": "9.8% (+0.8%)*",
+      "CritRate": "9.8%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
-      "KeyflareRegen": "29.4 (+2.4)*",
+      "KeyflareRegen": "29.4",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.55,
+      "DEF": 1.45
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "KeyflareRegen": "2.4"
     },
     "cards": {
       "C1": {
@@ -1975,7 +2175,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -2021,14 +2221,24 @@
       "CON": "140",
       "ATK": "136",
       "DEF": "100",
-      "CritRate": "9.8% (+0.8%)*",
+      "CritRate": "9.8%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
-      "DamageAmplification": "9.6% (+1.6%)*",
+      "DamageAmplification": "9.6%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.75,
+      "ATK": 1.7,
+      "DEF": 1.25
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -2074,7 +2284,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -2120,14 +2330,24 @@
       "CON": "158",
       "ATK": "153",
       "DEF": "113",
-      "CritRate": "10% (+0.8%)*",
+      "CritRate": "9.8%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
-      "DamageAmplification": "10% (+1.6%)*",
+      "DamageAmplification": "9.6%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.75,
+      "ATK": 1.7,
+      "DEF": 1.25
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -2183,7 +2403,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -2232,12 +2452,22 @@
       "DEF": "95",
       "CritRate": "5%",
       "CritDamage": "50%",
-      "AliemusRegen": "3 (+0.4)*",
+      "AliemusRegen": "2.4",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
-      "DeathResistance": "34% (+5.6%)*"
+      "DeathResistance": "33.6%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.15,
+      "ATK": 1.2,
+      "DEF": 1.05
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -2283,7 +2513,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -2324,14 +2554,24 @@
       "CON": "100",
       "ATK": "140",
       "DEF": "104",
-      "CritRate": "15% (+1.6%)*",
+      "CritRate": "14.6%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
-      "RealmMastery": "12 (+2)*",
+      "RealmMastery": "12",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.25,
+      "ATK": 1.75,
+      "DEF": 1.3
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -2382,7 +2622,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -2431,12 +2671,22 @@
       "DEF": "108",
       "CritRate": "5%",
       "CritDamage": "50%",
-      "AliemusRegen": "5 (+0.8)*",
+      "AliemusRegen": "4.8",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
-      "DeathResistance": "17% (+2.8%)*"
+      "DeathResistance": "16.8%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.4,
+      "ATK": 1.2,
+      "DEF": 1.35
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8",
+      "DeathResistance": "2.8%"
     },
     "cards": {
       "C1": {
@@ -2487,7 +2737,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -2532,14 +2782,24 @@
       "CON": "140",
       "ATK": "167",
       "DEF": "126",
-      "CritRate": "5.8% (+0.8%)*",
-      "CritDamage": "52.4 (+2.4)*%",
+      "CritRate": "9.8%",
+      "CritDamage": "64.4%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
-      "SigilYield": "0",
-      "DamageAmplification": "0",
-      "DeathResistance": "0"
+      "SigilYield": "0%",
+      "DamageAmplification": "0%",
+      "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.55,
+      "ATK": 1.85,
+      "DEF": 1.4
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "CritDamage": "2.4%"
     },
     "cards": {
       "C1": {
@@ -2586,11 +2846,11 @@
     "talents": {
       "T1": {
         "name": "Lord of Explosions",
-        "description": "(Max level: 1) At the start of the turn, randomly apply 1 stack of {Fiamma} to a randomly selected Kathigu-Ra Command Card in hand. For each stack of {Fiamma} consumed by Kathigu-Ra, gain 1 stack of Combust. When {Combust} reaches 10 stacks, gain 2 Arithmetica and transforms all {Solarflare} Command Cards into {Hyperflare}."
+        "description": "At the start of the turn, randomly apply 1 stack of {Fiamma} to a randomly selected Kathigu-Ra Command Card in hand. For each stack of {Fiamma} consumed by Kathigu-Ra, gain 1 stack of Combust. When {Combust} reaches 10 stacks, gain 2 Arithmetica and transforms all {Solarflare} Command Cards into {Hyperflare}."
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -2639,10 +2899,20 @@
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
-      "RealmMastery": "24 (+4)*",
+      "RealmMastery": "24",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
-      "DeathResistance": "17% (+2.8%)*"
+      "DeathResistance": "16.8%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 0.9,
+      "ATK": 0.9,
+      "DEF": 0.9
+    },
+    "substatScaling": {
+      "RealmMastery": "4",
+      "DeathResistance": "2.8%"
     },
     "cards": {
       "C1": {
@@ -2688,7 +2958,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -2737,8 +3007,18 @@
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
-      "DamageAmplification": "10% (+1.6%)*",
-      "DeathResistance": "17% (+2.8%)*"
+      "DamageAmplification": "9.6%",
+      "DeathResistance": "16.8%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.8,
+      "ATK": 1.3,
+      "DEF": 1.8
+    },
+    "substatScaling": {
+      "DamageAmplification": "1.6%",
+      "DeathResistance": "2.8%"
     },
     "cards": {
       "C1": {
@@ -2784,7 +3064,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -2827,14 +3107,24 @@
       "CON": "108",
       "ATK": "148",
       "DEF": "116",
-      "CritRate": "15% (+1.6%)*",
-      "CritDamage": "58% (+1.2%)*",
+      "CritRate": "14.6%",
+      "CritDamage": "57.2%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.35,
+      "ATK": 1.85,
+      "DEF": 1.45
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "CritDamage": "1.2%"
     },
     "cards": {
       "C1": {
@@ -2890,7 +3180,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -2932,14 +3222,24 @@
       "CON": "128",
       "ATK": "132",
       "DEF": "112",
-      "CritRate": "15% (+1.6%)*",
-      "CritDamage": "57% (+1.2%)*",
+      "CritRate": "14.6%",
+      "CritDamage": "57.2%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.6,
+      "ATK": 1.65,
+      "DEF": 1.4
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "CritDamage": "1.2%"
     },
     "cards": {
       "C1": {
@@ -2985,7 +3285,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -3034,13 +3334,23 @@
       "ATK": "149",
       "DEF": "81",
       "CritRate": "5%",
-      "CritDamage": "65% (+2.4%)*",
+      "CritDamage": "64.4%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
-      "RealmMastery": "12 (+2)*",
+      "RealmMastery": "12",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.05,
+      "ATK": 1.65,
+      "DEF": 0.9
+    },
+    "substatScaling": {
+      "CritDamage": "2.4%",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -3106,7 +3416,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -3156,6 +3466,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "33.6%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.4,
+      "ATK": 1.65,
+      "DEF": 1.4
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -3248,12 +3568,22 @@
       "DEF": "158",
       "CritRate": "5%",
       "CritDamage": "50%",
-      "AliemusRegen": "5 (+0.8)*",
-      "KeyflareRegen": "23 (+1.2)*",
+      "AliemusRegen": "4.8",
+      "KeyflareRegen": "22.2",
       "RealmMastery": "0",
-      "SigilYield": "0",
+      "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.45,
+      "ATK": 1.55,
+      "DEF": 1.75
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8",
+      "KeyflareRegen": "1.2"
     },
     "cards": {
       "C1": {
@@ -3299,7 +3629,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -3346,13 +3676,23 @@
       "ATK": "122",
       "DEF": "117",
       "CritRate": "5%",
-      "CritDamage": "57.2% (+1.2%)*",
+      "CritDamage": "57.2%",
       "AliemusRegen": "0",
-      "KeyflareRegen": "29.4 (+2.4)*",
+      "KeyflareRegen": "29.4",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.1,
+      "ATK": 1.35,
+      "DEF": 1.3
+    },
+    "substatScaling": {
+      "CritDamage": "1.2%",
+      "KeyflareRegen": "2.4"
     },
     "cards": {
       "C1": {
@@ -3394,7 +3734,7 @@
     "talents": {
       "T1": {
         "name": "Divine Realm's Order",
-        "description": "(Max level: 1) When Murphy: Fauxborn is on the team, the {Aequor} Realm ascends to {Divine Realm}: {Aequor}. {Tentacle DMG} is changed to 5% of the team's Max HP. Team {DMG Amplification} +50% after exploration begins (effect doubled if the team only has {Aequor} and/or {Chaos} Awakeners, though no additional starting Tentacles will be Spawned). Disable the Tentacle Gathering effect. {Divine Realm}: Tentacle Stance gain the following new effects: {Tranquil Sea}: Immediately gain a Shield equal to 25% Max HP. Tentacle will no longer attack at turn end. Entering this stance has a 3 turn cooldown. {Raging Waves}: {Tentacle DMG} x 125% for the turn. For each instance of Active DMG dealt, command 1 Tentacle to attack. At the end of the turn, lose 1 Tentacle. Entering this stance has a 3 turn cooldown. Gain {Divine Realm}: Aequor Mastery, scaling off your Realm Mastery. Each point of Aequor Mastery increases shield gained by Tranquil Sea by 0.025% Max HP, and increase the {Tentacle DMG} while in Raging Waves by 0.025% Max HP. This effect is doubled if the team only has {Aequor} and/or {Chaos} Awakeners."
+        "description": "When Murphy: Fauxborn is on the team, the {Aequor} Realm ascends to {Divine Realm}: {Aequor}. {Tentacle DMG} is changed to 5% of the team's Max HP. Team {DMG Amplification} +50% after exploration begins (effect doubled if the team only has {Aequor} and/or {Chaos} Awakeners, though no additional starting Tentacles will be Spawned). Disable the Tentacle Gathering effect. {Divine Realm}: Tentacle Stance gain the following new effects: {Tranquil Sea}: Immediately gain a Shield equal to 25% Max HP. Tentacle will no longer attack at turn end. Entering this stance has a 3 turn cooldown. {Raging Waves}: {Tentacle DMG} x 125% for the turn. For each instance of Active DMG dealt, command 1 Tentacle to attack. At the end of the turn, lose 1 Tentacle. Entering this stance has a 3 turn cooldown. Gain {Divine Realm}: Aequor Mastery, scaling off your Realm Mastery. Each point of Aequor Mastery increases shield gained by Tranquil Sea by 0.025% Max HP, and increase the {Tentacle DMG} while in Raging Waves by 0.025% Max HP. This effect is doubled if the team only has {Aequor} and/or {Chaos} Awakeners."
       },
       "T2": {
         "name": "Madness Omen",
@@ -3444,10 +3784,20 @@
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
-      "RealmMastery": "24 (+4)*",
+      "RealmMastery": "24",
       "SigilYield": "0%",
-      "DamageAmplification": "5% (+0.8%)*",
+      "DamageAmplification": "4.8%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.9,
+      "ATK": 1.15,
+      "DEF": 2
+    },
+    "substatScaling": {
+      "RealmMastery": "4",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -3493,7 +3843,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -3537,11 +3887,21 @@
       "CritRate": "5%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
-      "KeyflareRegen": "23 (+1.2)*",
+      "KeyflareRegen": "22.2",
       "RealmMastery": "0",
       "SigilYield": "0%",
-      "DamageAmplification": "10% (+1.6%)*",
+      "DamageAmplification": "9.6%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 0.95,
+      "ATK": 1.5,
+      "DEF": 1
+    },
+    "substatScaling": {
+      "KeyflareRegen": "1.2",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -3587,7 +3947,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -3635,10 +3995,20 @@
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
-      "RealmMastery": "12 (+2)*",
-      "SigilYield": "8% (+1.2%)*",
+      "RealmMastery": "12",
+      "SigilYield": "7.2%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.7,
+      "ATK": 1.45,
+      "DEF": 1.85
+    },
+    "substatScaling": {
+      "RealmMastery": "2",
+      "SigilYield": "1.2%"
     },
     "cards": {
       "C1": {
@@ -3684,7 +4054,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -3725,14 +4095,24 @@
       "CON": "120",
       "ATK": "140",
       "DEF": "124",
-      "CritRate": "10% (+0.8%)*",
-      "CritDamage": "65% (+2.4%)*",
+      "CritRate": "9.8%",
+      "CritDamage": "64.4%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.75,
+      "DEF": 1.55
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "CritDamage": "2.4%"
     },
     "cards": {
       "C1": {
@@ -3774,11 +4154,11 @@
     "talents": {
       "T1": {
         "name": "Punishment Time",
-        "description": "(Max level: 1) For every 1% {Crit Rate} Pandia and her Wheel Of Destiny & Covenat have, the permanent {Counter} she generate is increased by 0.2%"
+        "description": "For every 1% {Crit Rate} Pandia and her Wheel Of Destiny & Covenat have, the permanent {Counter} she generate is increased by 0.2%"
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -3824,12 +4204,22 @@
       "DEF": "144",
       "CritRate": "5%",
       "CritDamage": "50%",
-      "AliemusRegen": "4.8 (+0.8)*",
+      "AliemusRegen": "4.8",
       "KeyflareRegen": "15",
-      "RealmMastery": "12 (+2)*",
+      "RealmMastery": "12",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.6,
+      "ATK": 1.45,
+      "DEF": 1.6
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -3871,11 +4261,11 @@
     "talents": {
       "T1": {
         "name": "Painter's Eye",
-        "description": "(Max level: 1) After Pickman triggers the {Discover} effect or uses {Chromaphage}, he gains 1 stack of {Creativity}."
+        "description": "After Pickman triggers the {Discover} effect or uses {Chromaphage}, he gains 1 stack of {Creativity}."
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -3916,14 +4306,24 @@
       "CON": "140",
       "ATK": "158",
       "DEF": "135",
-      "CritRate": "14.6% (+1.6%)*",
+      "CritRate": "14.6%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
-      "DamageAmplification": "4.8% (+0.8%)*",
+      "DamageAmplification": "4.8%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.55,
+      "ATK": 1.75,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "DamageAmplification": "0.8%"
     },
     "cards": {
       "C1": {
@@ -3970,11 +4370,11 @@
     "talents": {
       "T1": {
         "name": "Atonement by Pain",
-        "description": "(Max level: 1) Pollux's first Command Card played each turn gains a DMG boost equal to 200% of its {ATK} and a Shield boost equal to 50% of its {DEF}. Also gain 10 Aliemus. At the end of battle, Pollux's Base DMG and the DMG boost effect of {Atonement by Pain} are increased by 20% for the rest of the exploration. The DMG bonus effect is doubled during a Boss Battle."
+        "description": "Pollux's first Command Card played each turn gains a DMG boost equal to 200% of its {ATK} and a Shield boost equal to 50% of its {DEF}. Also gain 10 Aliemus. At the end of battle, Pollux's Base DMG and the DMG boost effect of {Atonement by Pain} are increased by 20% for the rest of the exploration. The DMG bonus effect is doubled during a Boss Battle."
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -4022,11 +4422,21 @@
       "CritRate": "5%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
-      "KeyflareRegen": "32 (+2.4)*",
-      "RealmMastery": "12 (+2)*",
+      "KeyflareRegen": "29.4",
+      "RealmMastery": "12",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.5,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -4072,7 +4482,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -4118,11 +4528,21 @@
       "CritRate": "5%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
-      "KeyflareRegen": "30 (+2.4)*",
-      "RealmMastery": "12 (+2)*",
+      "KeyflareRegen": "29.4",
+      "RealmMastery": "12",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.5,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -4168,7 +4588,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -4213,14 +4633,24 @@
       "CON": "180",
       "ATK": "149",
       "DEF": "144",
-      "CritRate": "10% (+0.8%)*",
+      "CritRate": "9.8%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
-      "SigilYield": "8% (+1.2%)*",
+      "SigilYield": "7.2%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 2,
+      "ATK": 1.65,
+      "DEF": 1.6
+    },
+    "substatScaling": {
+      "CritRate": "0.8%",
+      "SigilYield": "1.2%"
     },
     "cards": {
       "C1": {
@@ -4266,7 +4696,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -4316,10 +4746,20 @@
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
-      "RealmMastery": "12 (+2)*",
-      "SigilYield": "8% (+1.2%)*",
+      "RealmMastery": "12",
+      "SigilYield": "7.2%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 2.1,
+      "ATK": 1.35,
+      "DEF": 2.1
+    },
+    "substatScaling": {
+      "RealmMastery": "2",
+      "SigilYield": "1.2%"
     },
     "cards": {
       "C1": {
@@ -4364,10 +4804,14 @@
         "description": "Salvador's Furnace Healing benefits from HP recovery buffs."
       },
       "T2": {
-        "name": "Madness Omen",
-        "description": "Innate: Origin of All Life Talent For every 1% {Sigil Yield} Salvador has, the maximum amount of {Crimson Furnace} healing that can be accumulated is increased by 0.15% Max HP."
+        "name": "Origin of All Life",
+        "description": "For every 1% {Sigil Yield} Salvador has, the maximum amount of {Crimson Furnace} healing that can be accumulated is increased by 0.15% Max HP."
       },
       "T3": {
+        "name": "Madness Omen",
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
+      },
+      "T4": {
         "name": "Soulforge Aptitude",
         "description": "(Max level: 10) This talent is only effective in {Astral Reign} stages. Salvador's {CON}, {ATK}, and {DEF} stats increase by (3% per talent level). After the first time using Salvador's {Rouse}, gain (50 per talent level) {Keyflare}. After selecting {Perception} in Ashen Ruins, Max HP increases by 2.25% (+0.25% per talent level) of original Max HP."
       }
@@ -4414,9 +4858,19 @@
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
-      "SigilYield": "4% (+0.6%)*",
+      "SigilYield": "3.6%",
       "DamageAmplification": "0%",
-      "DeathResistance": "34% (+5.6%)*"
+      "DeathResistance": "33.6%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.6,
+      "ATK": 1.25,
+      "DEF": 1.9
+    },
+    "substatScaling": {
+      "SigilYield": "0.6%",
+      "DeathResistance": "5.6%"
     },
     "cards": {
       "C1": {
@@ -4462,7 +4916,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -4506,14 +4960,24 @@
       "CON": "131",
       "ATK": "185",
       "DEF": "95",
-      "CritRate": "15% (+1.6%)*",
-      "CritDamage": "58% (+1.2%)*",
+      "CritRate": "14.6%",
+      "CritDamage": "57.2%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.45,
+      "ATK": 2.05,
+      "DEF": 1.05
+    },
+    "substatScaling": {
+      "CritRate": "1.6%",
+      "CritDamage": "1.2%"
     },
     "cards": {
       "C1": {
@@ -4559,7 +5023,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -4609,11 +5073,21 @@
       "CritRate": "5%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
-      "KeyflareRegen": "30 (+2.4%)*",
-      "RealmMastery": "12 (+2)*",
+      "KeyflareRegen": "29.4",
+      "RealmMastery": "12",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.5,
+      "ATK": 1.5,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "KeyflareRegen": "2.4",
+      "RealmMastery": "2"
     },
     "cards": {
       "C1": {
@@ -4674,7 +5148,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -4723,12 +5197,22 @@
       "DEF": "126",
       "CritRate": "5%",
       "CritDamage": "50%",
-      "AliemusRegen": "3 (+0.4)*",
-      "KeyflareRegen": "30 (+2.4)*",
+      "AliemusRegen": "2.4",
+      "KeyflareRegen": "29.4",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.55,
+      "ATK": 1.5,
+      "DEF": 1.4
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "KeyflareRegen": "2.4"
     },
     "cards": {
       "C1": {
@@ -4774,7 +5258,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -4823,12 +5307,22 @@
       "DEF": "100",
       "CritRate": "5%",
       "CritDamage": "50%",
-      "AliemusRegen": "3 (+0.4)*",
+      "AliemusRegen": "2.4",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
-      "SigilYield": "8% (+1.2%)*",
+      "SigilYield": "7.2%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.3,
+      "ATK": 1.2,
+      "DEF": 1.25
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "SigilYield": "1.2%"
     },
     "cards": {
       "C1": {
@@ -4874,7 +5368,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -4921,12 +5415,22 @@
       "DEF": "135",
       "CritRate": "5%",
       "CritDamage": "50%",
-      "AliemusRegen": "3 (+0.4)*",
-      "KeyflareRegen": "30 (+2.4)*",
+      "AliemusRegen": "2.4",
+      "KeyflareRegen": "29.4",
       "RealmMastery": "0",
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.7,
+      "ATK": 1.9,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.4",
+      "KeyflareRegen": "2.4"
     },
     "cards": {
       "C1": {
@@ -4972,7 +5476,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -5015,13 +5519,23 @@
       "ATK": "136",
       "DEF": "120",
       "CritRate": "5%",
-      "CritDamage": "65% (+2.4%)*",
-      "AliemusRegen": "3 (+0.4)*",
+      "CritDamage": "64.4%",
+      "AliemusRegen": "2.4",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
-      "DamageAmplification": "10%",
+      "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.8,
+      "ATK": 1.7,
+      "DEF": 1.5
+    },
+    "substatScaling": {
+      "CritDamage": "2.4%",
+      "AliemusRegen": "0.4"
     },
     "cards": {
       "C1": {
@@ -5067,7 +5581,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -5114,9 +5628,19 @@
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
-      "SigilYield": "4% (+0.6%)*",
-      "DamageAmplification": "10% (+1.6%)*",
+      "SigilYield": "3.6%",
+      "DamageAmplification": "9.6%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.75,
+      "ATK": 1.1,
+      "DEF": 2.05
+    },
+    "substatScaling": {
+      "SigilYield": "0.6%",
+      "DamageAmplification": "1.6%"
     },
     "cards": {
       "C1": {
@@ -5162,7 +5686,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -5209,12 +5733,22 @@
       "DEF": "128",
       "CritRate": "5%",
       "CritDamage": "50%",
-      "AliemusRegen": "5 (+0.8%)*",
+      "AliemusRegen": "4.8",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
-      "SigilYield": "4% (+0.6%)*",
+      "SigilYield": "3.6%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 20,
+    "statScaling": {
+      "CON": 1.4,
+      "ATK": 1.25,
+      "DEF": 1.6
+    },
+    "substatScaling": {
+      "AliemusRegen": "0.8",
+      "SigilYield": "0.6%"
     },
     "cards": {
       "C1": {
@@ -5305,14 +5839,24 @@
       "CON": "203",
       "ATK": "122",
       "DEF": "113",
-      "CritRate": "5",
+      "CritRate": "5%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "15",
       "RealmMastery": "0",
       "SigilYield": "0%",
-      "DamageAmplification": "9.6% (+1.6%)*",
-      "DeathResistance": "16.8% (+2.8%)"
+      "DamageAmplification": "9.6%",
+      "DeathResistance": "16.8%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 2.25,
+      "ATK": 1.35,
+      "DEF": 1.25
+    },
+    "substatScaling": {
+      "DamageAmplification": "1.6%",
+      "DeathResistance": "2.8%"
     },
     "cards": {
       "C1": {
@@ -5399,7 +5943,7 @@
       "CON": "149",
       "ATK": "180",
       "DEF": "122",
-      "CritRate": "0%",
+      "CritRate": "5%",
       "CritDamage": "50%",
       "AliemusRegen": "0",
       "KeyflareRegen": "22.2",
@@ -5407,6 +5951,16 @@
       "SigilYield": "0%",
       "DamageAmplification": "0%",
       "DeathResistance": "0%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.65,
+      "ATK": 2,
+      "DEF": 1.35
+    },
+    "substatScaling": {
+      "KeyflareRegen": "1.2",
+      "RealmMastery": "4"
     },
     "cards": {
       "C1": {
@@ -5457,7 +6011,7 @@
       },
       "T2": {
         "name": "Madness Omen",
-        "description": "(Max level: 12) Gain (5 per talent level) Aliemus at the start of exploration."
+        "description": "(Max level: 12) Obtain (5 per talent level) Aliemus after the start of exploration."
       },
       "T3": {
         "name": "Soulforge Aptitude",
@@ -5480,3 +6034,5 @@
     }
   }
 ]
+
+

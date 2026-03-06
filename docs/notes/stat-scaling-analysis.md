@@ -1,124 +1,118 @@
 # Awakener Stat Scaling Analysis
 
-**Status:** Feasible but blocked on data availability  
-**Date:** 2026-03-05  
-**Context:** Investigation into dynamic level 1-90 stat calculation for awakener CON/ATK/DEF
+**Status:** Shipped and validated  
+**Date:** 2026-03-06  
+**Context:** Exact level 1-90 awakener CON / ATK / DEF calculation for the database detail modal
 
 ## Summary
 
-A consistent mathematical formula exists for computing awakener stats at any level (1-90), but implementing a level slider requires additional data not currently in the codebase.
+The earlier interpolation note was wrong because it was working from incomplete sample data. The database now uses the exact primary-stat model, carries the missing schema needed to resolve any level from 1 to 90, and exposes that through the database level slider.
 
-## Current State
+## Implemented Model
 
-- **JSON data level:** Level 60 (confirmed via sample matching: xu, liz, thais, ogier, murphy: fauxborn)
-- **Math interpretations:** Already implemented and working correctly at level 60
-  - Displays computed values for %ATK/%DEF/%CON scaling in skill descriptions
-  - Example: `14% ATK DMG` → `14% ATK DMG (13)` where 13 = round(0.14 × 92)
+### Primary stats
 
-## The Formula
+Each awakener now stores:
+- Canonical Lv. 60 primary stats in `stats`
+- Per-stat growth multipliers in `statScaling`
+- Explicit `primaryScalingBase: 20 | 30`
 
-```javascript
-stat(level) = Math.floor(true_base + (level - 1) * growth_rate)
+The resolver is:
+
+```ts
+stat(level) = Math.ceil((primaryScalingBase + level) * scaling)
 ```
 
 Where:
-- `true_base` = hidden decimal offset (e.g., 70.5 for a character showing 70 at level 1)
-- `growth_rate` = `(stat_L90 - stat_L1) / 89`
-- Rounding method is **consistently `floor`** across all tested characters
+- `primaryScalingBase = 20` for non-limited awakeners
+- `primaryScalingBase = 30` for limited awakeners
+- `scaling` is the per-stat value from `statScaling`
 
-### Why Simple Approaches Fail
+This matches confirmed in-game and CN wiki breakpoint tables, including the previously disputed Pollux and Wanda ATK values.
 
-Both `Math.round(stat1 + ...)` and `Math.floor(stat1 + ...)` produce ±1 errors because they assume `true_base = stat1` (an exact integer). The actual base has a hidden decimal offset that varies per character/stat.
+### Substats
 
-### Accuracy with Both Endpoints
+Substat growth is modeled separately in `substatScaling`.
 
-When both level 1 and level 90 stats are known:
-```javascript
-stat(level) = Math.round(stat1 + (level - 1) * (stat90 - stat1) / 89)
+Rules:
+- Secondary stat baselines start from the canonical Lv. 1 defaults
+- Each `substatScaling` value is applied once at Lv. 10, 20, 30, 40, 50, and 60
+- Growth stops after Lv. 60 for normal level scaling
+- Psyche Surge duplicate bonuses add the same `substatScaling` step again for each `E3+N` level
+
+The resolver is:
+
+```ts
+levelSteps = min(floor(level / 10), 6)
+substat(level, psycheSurgeOffset) =
+  levelOneBaseline + levelSteps * scaling + psycheSurgeOffset * scaling
 ```
 
-**Maximum error:** ±1 across all levels (verified against sample data)
+Equivalent Lv. 60 anchored form used by the resolver:
 
-## Growth Rate Patterns
+```ts
+substat(level, psycheSurgeOffset) =
+  statAt60 - (6 - levelSteps) * scaling + psycheSurgeOffset * scaling
+```
 
-Two distinct growth groups emerged from sample data:
+Example:
+- Kathigu-Ra `CritRate` baseline is `5%`, `substatScaling.CritRate` is `0.8%`
+- Lv. 60: `5 + (6 * 0.8) = 9.8%`
+- Lv. 60 at `E3+2`: `9.8 + (2 * 0.8) = 11.4%`
 
-| Group | Characters | L90/L60 ratio | L1/L60 ratio |
-|-------|-----------|---------------|--------------|
-| A | xu, thais, murphy | ~1.33 | ~0.345 |
-| B | liz, ogier | ~1.38 | ~0.267 |
+So the database stores canonical Lv. 60 substat values in `stats`, then rewinds or advances from there.
 
-**Problem:** No observable property (rarity, stat total, stat distribution) cleanly separates these groups. Cannot reverse-engineer L1/L90 from L60 alone.
+## Why The Old Note Was Wrong
 
-## What's Required for Level Slider
+The earlier note assumed:
+- hidden decimal base values
+- floor-based interpolation from sparse samples
+- inability to infer exact level curves from the stored data
 
-### Data Needed
+That turned out to be a bad model. Once the limited vs non-limited base split was identified and verified, the exact formula became straightforward and deterministic.
 
-Add **one additional level** (either L1 or L90) to `awakeners-full.json` for each awakener:
+## Data Shape
 
-```typescript
-// Example schema addition
+Current schema in `src/data/awakeners-full.json`:
+
+```ts
 {
-  "id": "xu",
   "stats": {
-    "CON": "203",  // current L60
-    "ATK": "122",
-    "DEF": "113"
+    "CON": "140",
+    "ATK": "158",
+    "DEF": "131"
   },
-  "statsL1": {     // NEW: add this
-    "CON": "70",
-    "ATK": "42",
-    "DEF": "39"
+  "primaryScalingBase": 30,
+  "statScaling": {
+    "CON": 1.65,
+    "ATK": 1.75,
+    "DEF": 1.45
+  },
+  "substatScaling": {
+    "RealmMastery": 4
   }
-  // OR statsL90 instead
 }
 ```
 
-**Data volume:** 54 awakeners × 3 stats = 162 values
+## Validation Notes
 
-### Implementation Effort
+- All 55 awakeners currently in `awakeners-full.json` align with the local Lv. 60 audit note in `docs/notes/Stat scaling.md`
+- The only stale source values were:
+  - Wanda ATK scaling and Lv. 60 ATK
+  - Pollux ATK scaling and Lv. 60 ATK
+- Clementine's sheet scaling was correct; the bad values had been in our local Lv. 60 data
 
-Once data is available:
-1. Update `awakeners-full.ts` schema to include L1 or L90 stats
-2. Add level slider component (1-90 range, default to 60)
-3. Update stat display to compute from slider value
-4. Update math interpretations to use slider-computed stats instead of fixed L60
+## User-Facing Outcome
 
-**Estimated complexity:** Low (2-3 hours) — the formula is proven, just needs data and UI wiring
+The database detail modal now:
+- lets the user choose awakener level from Lv. 1 to Lv. 90
+- recalculates displayed CON / ATK / DEF from the exact formula
+- feeds those leveled stats into the existing rich-text damage math
+- shows level-scaling substats without embedding noisy growth text directly in the value string
+- models Psyche Surge duplicate bonuses through the `E3+N` stepper in the attributes panel
 
-## Data Source Constraints
+## Remaining Scope
 
-**Known source:** Chinese wiki with full level 1-90 data per character
-
-**Blockers:**
-- Anti-scraping protection (no robots allowed)
-- Data is per-character page (not bulk exportable)
-- Would require manual click-through for each of 54 characters
-
-**Manual collection effort:** ~30-60 minutes of copy-paste work per level tier (L1 or L90)
-
-## Sample Data Reference
-
-Verified sample characters (level 60 → level 90):
-
-| Character | Rarity | CON | ATK | DEF |
-|-----------|--------|-----|-----|-----|
-| xu | SSR | 203→270 | 122→162 | 113→150 |
-| liz | SSR | 108→149 | 148→204 | 116→160 |
-| thais | SSR | 140→186 | 135→180 | 126→168 |
-| ogier | SR | 136→187 | 116→160 | 148→204 |
-| murphy: fauxborn | Genesis | 99→132 | 122→162 | 117→156 |
-
-Full sample data with all 10 level checkpoints stored in `untracked/mathematics.txt`.
-
-## Recommendation
-
-**Priority:** Low / Nice-to-have
-
-**Rationale:**
-- Current L60 stats + math interpretations already provide accurate skill damage calculations
-- Level slider adds planning flexibility but not critical functionality
-- Data collection effort is manual and time-consuming
-- Formula is proven and ready to implement when/if data becomes available
-
-**If pursued:** Collect L90 stats (easier to verify in-game at max level) rather than L1 stats.
+The core level-scaling work is done. Future follow-up, if wanted:
+- add explicit database share links for specific level states
+- extend the same pattern to future database branches if wheels or other units need level-aware displays

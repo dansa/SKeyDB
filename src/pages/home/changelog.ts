@@ -5,6 +5,10 @@ export type ChangelogItem = {
 
 export const changelogItems: ChangelogItem[] = [
   {
+    date: "2026-03-06",
+    summary: "Added the ability to 'Level Up' characters to scale their stats and skills in real time, thanks to Jynn for the super helpful spreadsheet that made this possible. Lots of other fixes and tweaks to the db!"
+  },
+  {
     date: "2026-03-05",
     summary:
       "Database is finally live and actually usable. You can browse awakeners, filter/sort them, and open much richer detail popups. Big first step, more polish and content coming next."

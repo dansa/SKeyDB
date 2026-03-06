@@ -1301,6 +1301,19 @@ a {
   box-shadow: none;
 }
 
+.export-box-slider--compact::-webkit-slider-thumb {
+  width: 10px;
+  height: 10px;
+  border-width: 1px;
+  margin-top: -3px;
+}
+
+.export-box-slider--compact::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-width: 1px;
+}
+
 .collection-item-card {
   background: rgba(15, 23, 42, 0.7);
   container-type: inline-size;

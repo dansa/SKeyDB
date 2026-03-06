@@ -1,16 +1,17 @@
 import { DetailLevelSlider } from './DetailLevelSlider'
 
-type SkillLevelSliderProps = {
+type AwakenerLevelSliderProps = {
   level: number
   onChange: (level: number) => void
 }
 
-export function SkillLevelSlider({ level, onChange }: SkillLevelSliderProps) {
+export function AwakenerLevelSlider({ level, onChange }: AwakenerLevelSliderProps) {
   return (
     <DetailLevelSlider
-      label="Skill Level"
+      compact
+      label="Awakener Level"
       level={level}
-      max={6}
+      max={90}
       min={1}
       onChange={onChange}
     />

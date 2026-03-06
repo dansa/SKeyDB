@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import type { Awakener } from '../../domain/awakeners'
-import type { AwakenerFull } from '../../domain/awakeners-full'
+import type { AwakenerFull, AwakenerFullStats } from '../../domain/awakeners-full'
 import { getRelicPortraitAssetByAssetId } from '../../domain/relic-assets'
 import { getPortraitRelicByAwakenerIngameId } from '../../domain/relics'
 import { DetailSection, type DetailSectionItem } from './DetailSection'
@@ -11,17 +11,19 @@ import { DATABASE_SECTION_TITLE_CLASS } from './text-styles'
 type AwakenerDetailOverviewProps = {
   awakener: Awakener
   fullData: AwakenerFull | null
+  stats: AwakenerFullStats | null
   cardNames: Set<string>
   skillLevel: number
   onNavigateToCards?: () => void
 }
 
 const ENLIGHTEN_ORDER = ['E1', 'E2', 'E3'] as const
-const TALENT_ORDER = ['T1', 'T2', 'T3'] as const
+const TALENT_ORDER = ['T1', 'T2', 'T3', 'T4'] as const
 
 export function AwakenerDetailOverview({
   awakener,
   fullData,
+  stats,
   cardNames,
   skillLevel,
   onNavigateToCards,
@@ -33,10 +35,11 @@ export function AwakenerDetailOverview({
         fullData={fullData}
         onNavigateToCards={onNavigateToCards}
         skillLevel={skillLevel}
+        stats={stats}
         text={description}
       />
     ),
-    [cardNames, fullData, skillLevel, onNavigateToCards],
+    [cardNames, fullData, onNavigateToCards, skillLevel, stats],
   )
 
   if (!fullData) {

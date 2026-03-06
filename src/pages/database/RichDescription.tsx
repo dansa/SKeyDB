@@ -4,6 +4,7 @@ import {
   parseRichDescription,
 } from '../../domain/rich-text'
 import type { AwakenerFull, AwakenerCard } from '../../domain/awakeners-full'
+import type { AwakenerFullStats } from '../../domain/awakeners-full'
 import { type Tag } from '../../domain/tags'
 import { PopoverTrailPanel } from './PopoverTrailPanel'
 import { RichSegmentRenderer } from './RichSegmentRenderer'
@@ -24,6 +25,7 @@ type RichDescriptionProps = {
   text: string
   cardNames: Set<string>
   fullData: AwakenerFull | null
+  stats: AwakenerFullStats | null
   skillLevel: number
   onNavigateToCards?: () => void
 }
@@ -39,6 +41,7 @@ export function RichDescription({
   text,
   cardNames,
   fullData,
+  stats,
   skillLevel,
   onNavigateToCards,
 }: RichDescriptionProps) {
@@ -156,7 +159,7 @@ export function RichDescription({
             onSkillClick={handleSkillClick}
             segment={seg}
             skillLevel={skillLevel}
-            stats={fullData?.stats ?? null}
+            stats={stats}
             variant="inline"
           />
         ))}
@@ -181,7 +184,7 @@ export function RichDescription({
                     onMechanicTokenClick={openNestedTag}
                     onNavigateToCards={onNavigateToCards ? handleNavigateToCards : undefined}
                     onSkillTokenClick={openNestedSkill}
-                    stats={fullData?.stats ?? null}
+                    stats={stats}
                   />
                 ) : (
                   <TagPopover

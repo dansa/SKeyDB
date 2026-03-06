@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import type { AwakenerFull } from '../../domain/awakeners-full'
+import type { AwakenerFull, AwakenerFullStats } from '../../domain/awakeners-full'
 import { DetailSection } from './DetailSection'
 import { scaledFontStyle } from './font-scale'
 import { RichDescription } from './RichDescription'
@@ -10,23 +10,30 @@ import {
 
 type AwakenerDetailCardsProps = {
   fullData: AwakenerFull | null
+  stats: AwakenerFullStats | null
   cardNames: Set<string>
   skillLevel: number
 }
 
 const CARD_KEYS = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7'] as const
 
-export function AwakenerDetailCards({ fullData, cardNames, skillLevel }: AwakenerDetailCardsProps) {
+export function AwakenerDetailCards({
+  fullData,
+  stats,
+  cardNames,
+  skillLevel,
+}: AwakenerDetailCardsProps) {
   const renderDescription = useCallback(
     (description: string) => (
       <RichDescription
         cardNames={cardNames}
         fullData={fullData}
         skillLevel={skillLevel}
+        stats={stats}
         text={description}
       />
     ),
-    [cardNames, fullData, skillLevel],
+    [cardNames, fullData, skillLevel, stats],
   )
 
   if (!fullData) {
