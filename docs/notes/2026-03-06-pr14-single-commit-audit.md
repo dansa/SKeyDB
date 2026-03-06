@@ -12,7 +12,7 @@ Last updated: 2026-03-06
 - `pr14-reference` points at the PR head commit `558178b`.
 - `pr14-salvage` contains the tooling, Prettier, alias, and repo-wide import rewrite groundwork.
 - `git cherry -v pr14-salvage pr14-reference` is insufficient on its own because the PR content is squashed into one commit.
-- A file-by-file comparison is still required to separate mechanical churn from behavior changes.
+- The full file-by-file comparison has now been completed to separate mechanical churn from behavior changes.
 
 ## Key decisions or observations
 
@@ -148,12 +148,160 @@ Last updated: 2026-03-06
       - `src/pages/database/text-styles.ts`
     - Notes:
       - The `src/pages/database/*` detail stack is absent from PR commit `558178b` and should be treated as post-PR branch evolution, not an unsalvaged semantic slice to port back in.
+  - Shared UI and helper findings:
+    - Behavior-equivalent or mechanical/refactor-only:
+      - `src/components/ui/ExportCodeDialog.tsx`
+      - `src/components/ui/ImportStrategyDialog.tsx`
+      - `src/components/ui/ModalFrame.tsx`
+      - `src/components/ui/OwnedTogglePill.tsx`
+      - `src/components/ui/PageToolkitBar.tsx`
+      - `src/components/ui/PanelSection.tsx`
+      - `src/components/ui/SegmentedControl.tsx`
+      - `src/components/ui/Toast.tsx`
+      - `src/components/ui/TogglePill.tsx`
+      - `src/components/ui/useTimedToast.ts`
+    - Intentional current-branch additions rather than missed PR #14 salvage:
+      - `src/components/ui/useHoldRepeatAction.ts`
+    - Notes:
+      - The shared UI component diffs in this slice are dominated by import path rewrites, `interface` to `type` reshaping, readonly annotation removal, and inline helper simplification rather than changed behavior.
+      - `src/components/ui/useHoldRepeatAction.ts` is a newer branch-local helper and does not represent unsalvaged PR behavior.
+  - Builder action and helper findings:
+    - Behavior-equivalent or mechanical/refactor-only:
+      - `src/pages/builder/useBuilderAwakenerActions.ts`
+      - `src/pages/builder/useBuilderWheelActions.ts`
+      - `src/pages/builder/useBuilderCovenantActions.ts`
+      - `src/pages/builder/useBuilderDnd.ts`
+      - `src/pages/builder/useBuilderDndCoordinator.ts`
+      - `src/pages/builder/usePendingDeleteDialog.ts`
+      - `src/pages/builder/usePendingResetTeamDialog.ts`
+      - `src/pages/builder/usePendingTransferDialog.ts`
+      - `src/pages/builder/useTransferConfirm.ts`
+      - `src/pages/builder/selection-state.ts`
+      - `src/pages/builder/predicted-drop-hover.ts`
+      - `src/pages/builder/quick-lineup.ts`
+      - `src/pages/builder/team-validation.ts`
+      - `src/pages/builder/team-plan.ts`
+    - Notes:
+      - This slice is dominated by import rewrites, readonly/type-surface churn, and helper inlining. The current branch does not show a clear missed semantic behavior from PR #14 here.
+  - Small domain and runtime utility findings:
+    - Behavior-equivalent or mechanical/refactor-only:
+      - `src/domain/awakener-identity.ts`
+      - `src/domain/covenant-assets.ts`
+      - `src/domain/covenants.ts`
+      - `src/domain/name-format.ts`
+      - `src/domain/posse-assets.ts`
+      - `src/domain/posses-search.ts`
+      - `src/domain/posses.ts`
+      - `src/domain/storage.ts`
+      - `src/domain/wheel-assets.ts`
+      - `src/domain/wheel-sort.ts`
+      - `src/domain/wheels.ts`
+    - Intentional current-branch additions rather than missed PR #14 salvage:
+      - `src/domain/awakener-level-scaling.ts`
+      - `src/domain/awakeners-full.ts`
+      - `src/domain/database-paths.ts`
+      - `src/domain/database-sorting.ts`
+      - `src/domain/relic-assets.ts`
+      - `src/domain/relics.ts`
+      - `src/domain/rich-text.ts`
+      - `src/domain/scaling.ts`
+      - `src/domain/tags.ts`
+    - Notes:
+      - The overlapping utility files in this slice differ mainly by import path normalization, readonly/type syntax churn, and small local typing cleanup.
+      - The added files in this slice support newer database/detail functionality on the current branch and should not be treated as unsalvaged PR #14 behavior.
+  - App entrypoint, style, data, and harness findings:
+    - Behavior-equivalent or mechanical/refactor-only:
+      - `src/main.tsx`
+      - `src/test/setup.ts`
+      - `src/pages/builder-page.integration-mocks.ts`
+      - `src/index.css`
+    - Intentional current-branch divergences or newer branch-local data expansion:
+      - `src/data/awakeners-lite.json`
+      - `src/data/awakeners-full.json`
+      - `src/data/mainstats.json`
+      - `src/data/relics-lite.json`
+      - `src/data/tags.json`
+    - Notes:
+      - `src/main.tsx`, `src/test/setup.ts`, and `src/pages/builder-page.integration-mocks.ts` differ only by import rewrites and minor harness cleanup.
+      - `src/index.css` is mostly formatting churn plus branch-local styling additions that support newer collection/database UI surfaces.
+      - The changed data files align with the current branch's richer awakener metadata, tag/mechanic support, and relic/database expansion rather than a missed PR #14 runtime salvage slice.
+  - Test coverage findings:
+    - Behavior follows the owning runtime files already reviewed above.
+    - Notes:
+      - The remaining `*.test.*` diffs are primarily spec splits, branch-local coverage expansion for newer database/detail surfaces, and assertion updates that track the current branch behavior already classified in this audit.
+      - Deleted PR-era aggregate specs such as older combined builder test files are replaced by narrower current-branch test slices, which should be treated as test-organization churn rather than missed runtime salvage.
+  - Builder and collection subcomponent findings:
+    - Behavior-equivalent or mechanical/refactor-only:
+      - `src/pages/builder/ActiveTeamHeader.tsx`
+      - `src/pages/builder/AwakenerCard.tsx`
+      - `src/pages/builder/BuilderConfirmDialogs.tsx`
+      - `src/pages/builder/BuilderImportExportDialogs.tsx`
+      - `src/pages/builder/BuilderTransferConfirmDialog.tsx`
+      - `src/pages/builder/BuilderTeamPreviewStrip.tsx`
+      - `src/pages/builder/CardWheelZone.tsx`
+      - `src/pages/builder/DragGhosts.tsx`
+      - `src/pages/builder/PickerAwakenerTile.tsx`
+      - `src/pages/builder/PickerCovenantTile.tsx`
+      - `src/pages/builder/PickerDropZone.tsx`
+      - `src/pages/builder/PickerWheelTile.tsx`
+      - `src/pages/builder/TeamNameInlineEditor.tsx`
+      - `src/pages/collection/AwakenerLevelControl.tsx`
+      - `src/pages/collection/CollectionLevelControls.tsx`
+      - `src/pages/collection/CollectionLevelStepButton.tsx`
+      - `src/pages/collection/OwnedAssetBoxExport.tsx`
+      - `src/pages/collection/OwnedAwakenerBoxExport.tsx`
+      - `src/pages/collection/OwnedWheelBoxExport.tsx`
+      - `src/pages/collection/OwnershipLevelDisplay.tsx`
+      - `src/pages/collection/useGlobalCollectionSearchCapture.ts`
+      - `src/pages/collection/useOwnedAwakenerBoxEntries.ts`
+      - `src/pages/collection/useOwnedWheelBoxEntries.ts`
+    - Intentional current-branch reuse rather than missed PR #14 salvage:
+      - `src/pages/collection/useHoldRepeatAction.ts` now delegates to the shared `src/components/ui/useHoldRepeatAction.ts` helper.
+    - Notes:
+      - This cluster is dominated by prop-surface reshaping, component extraction/inlining, import rewrites, and shared-helper consolidation rather than runtime behavior changes.
+  - App shell, infra, and helper findings:
+    - Behavior-equivalent or mechanical/refactor-only:
+      - `src/components/ui/CollectionSortControls.tsx`
+      - `src/components/ui/TabbedContainer.tsx`
+      - `src/domain/collection-ownership.ts`
+      - `src/domain/factions.ts`
+      - `src/domain/team-rules.ts`
+      - `src/domain/wheel-mainstat-filters.ts`
+      - `src/pages/builder/builder-persistence.ts`
+      - `src/pages/builder/constants.ts`
+      - `src/pages/builder/dnd-ids.ts`
+      - `src/pages/builder/fixtures.ts`
+      - `src/pages/builder/types.ts`
+      - `src/pages/builder/useGlobalPickerSearchCapture.ts`
+      - `src/pages/builder/utils.ts`
+      - `src/pages/builder/wheel-mainstats.ts`
+    - Intentional current-branch divergences or capability expansion:
+      - `src/App.tsx` now routes to the newer database flow instead of the older characters-only page.
+      - `src/domain/collection-sorting.ts` includes newer current-branch stat-sort support beyond the older PR surface.
+      - `src/pages/home/changelog.ts` contains newer branch-local release notes tied to the database/detail rollout.
+    - Notes:
+      - The persistence and ownership helpers remain semantically aligned, with differences concentrated in import normalization, type-surface churn, and small implementation reshaping.
+      - The app-shell and changelog diffs reflect branch-local evolution after PR #14 rather than unsalvaged runtime logic.
+  - Remaining database/detail support and contract findings:
+    - Intentional current-branch additions rather than missed PR #14 salvage:
+      - `src/pages/database/AwakenerEnlightenStepper.tsx`
+      - `src/pages/database/AwakenerGridCard.tsx`
+      - `src/pages/database/AwakenerLevelSlider.tsx`
+      - `src/pages/database/DetailLevelSlider.tsx`
+      - `src/pages/database/DetailSection.tsx`
+      - `src/pages/database/SkillLevelSlider.tsx`
+    - Intentional current-branch capability expansion or stricter support surfaces:
+      - `src/domain/mainstats.ts` now carries richer aliases/icon lookups used by the newer database and sorting UI.
+      - `src/domain/persistence-contract.v1.json` and `src/domain/persistence-contract.test.ts` track the current branch persistence envelope rather than missed PR runtime behavior.
+      - `src/pages/collection/useCollectionViewModel.ts` includes current-branch sort-freezing and owned-level handling refinements already accounted for at the behavior level during the collection-page audit.
+    - Notes:
+      - These remaining files all line up with the current branch's database/detail rollout and collection UX hardening, not with unsalvaged PR #14 logic hiding elsewhere.
 
 ## Implications
 
-- PR #14 salvage cannot be considered complete yet.
-- The remaining review must happen file-by-file or feature-slice-by-feature-slice against the squashed PR commit, not by commit identity.
-- The next useful reduction step is to keep burning down the low-delta runtime queue, marking files as mechanical-only, intentionally superseded, or logic-different before touching the largest builder and collection files.
+- The audit phase for PR #14's squashed commit is effectively complete.
+- Outside of the already-salvaged collection-level slice and the intentionally retained current-branch strictness/capability differences called out above, this audit did not uncover additional unsalvaged runtime behavior that still needs to be ported from the PR.
+- Any future follow-up should be treated as new targeted work triggered by fresh evidence, not as an unfinished generic PR14 review sweep.
 
 ## Follow-up links
 

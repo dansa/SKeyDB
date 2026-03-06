@@ -10,7 +10,7 @@
 
 ---
 
-**Status:** In progress
+**Status:** Done
 
 **Last updated:** 2026-03-06
 
@@ -60,13 +60,13 @@
   - Fixed the `DetailLevelSlider` compact class regression uncovered by full verification and reran `npm run verify`.
   - Committed the mechanical salvage checkpoint as `34dd27d` (`chore: salvage tooling and alias groundwork`).
   - Confirmed the PR head is a single squashed commit, so commit-level equivalence is not enough to prove semantic salvage coverage.
-- In progress:
-  - Auditing the PR's single squashed commit file-by-file to separate mechanical churn from true logic differences.
+  - Completed the file-by-file audit of the PR's single squashed commit and recorded the classification in `docs/notes/2026-03-06-pr14-single-commit-audit.md`.
+  - Confirmed that, aside from the already-salvaged collection behavior slice and intentionally retained current-branch strictness/capability improvements, the remaining PR diff is mechanical churn, branch-local evolution, or newer current-branch additions.
+  - Closed the loop on the plan/audit documentation so the branch no longer implies an unfinished broad PR14 review sweep.
 - Next:
-  - Reduce the `ast_different` file set into mechanical-only versus logic-different buckets.
-  - Review the remaining logic-different files in small, commitable slices.
+  - Archive or supersede this plan if later branch cleanup or wrap-up work needs a historical handoff.
 - Blockers:
-  - The PR was delivered as one squashed commit, so semantic salvage requires explicit file-level review instead of commit-level matching.
+  - None for the audit itself; any new salvage work now requires fresh evidence rather than more generic PR14 diff burn-down.
 
 ## Verification
 
