@@ -105,6 +105,49 @@ Last updated: 2026-03-06
       - `src/domain/awakeners.ts` is intentionally stronger on the current branch because it validates unique `ingameId` values and carries richer lite metadata (`type`, `stats`, `tags`, `unreleased`) used by newer features.
       - `src/domain/ingame-codec.ts` is intentionally stronger on the current branch because it throws when the posse token is missing and uses slightly more defensive wheel-token handling during decode.
       - `src/pages/builder/useBuilderViewModel.ts` is intentionally safer on the current branch because it guards `startQuickLineup` against a missing active team and removes the unreachable `-1` quick-lineup step branch.
+  - Large builder/page orchestration slice findings:
+    - Behavior-equivalent or refactor-only:
+      - `src/pages/BuilderPage.tsx`
+      - `src/pages/builder/BuilderActiveTeamPanel.tsx`
+      - `src/pages/builder/BuilderSelectionPanel.tsx`
+      - `src/pages/builder/BuilderTeamsPanel.tsx`
+      - `src/pages/builder/BuilderTeamRow.tsx`
+    - Notes:
+      - `src/pages/BuilderPage.tsx` inlines the posse-selection flow and drag-overlay rendering that PR #14 kept behind small helpers, but the resulting behavior matches the current builder semantics.
+      - `src/pages/builder/BuilderSelectionPanel.tsx` inlines picker-zone subcomponents from the PR version without changing filter, ownership, duplicate, or blocked-state behavior.
+      - `src/pages/builder/BuilderActiveTeamPanel.tsx` reshapes `AwakenerCard` props to the current component API, but the quick-lineup controls and owned-level display logic remain equivalent.
+  - Collection page orchestration findings:
+    - Behavior-equivalent or refactor-only:
+      - `src/pages/CollectionPage.tsx`
+    - Notes:
+      - `src/pages/CollectionPage.tsx` and the PR version differ mostly in whether navigation panels, batch-action panels, and per-tab grid renderers are extracted into local helper components, but the ownership toggles, batch actions, import/export flow, and card wheel interactions remain aligned.
+  - Database and top-level page orchestration findings:
+    - Behavior-equivalent or refactor-only:
+      - `src/pages/CharactersPage.tsx`
+    - Intentional current-branch divergences or newer branch-local additions:
+      - `src/pages/DatabasePage.tsx` is a current-branch addition rather than a missed PR #14 salvage item.
+      - `src/pages/database/useDatabaseViewModel.ts` is a current-branch addition that supports the newer database page flow rather than an unsalvaged PR file.
+      - `src/pages/HomePage.tsx` differs mostly in local presentation copy, card helper naming, and newer branch-local content rather than missed runtime logic from PR #14.
+  - Database detail cluster findings:
+    - Intentional current-branch additions rather than missed PR #14 salvage:
+      - `src/pages/database/AwakenerDetailModal.tsx`
+      - `src/pages/database/AwakenerDetailOverview.tsx`
+      - `src/pages/database/AwakenerDetailSidebar.tsx`
+      - `src/pages/database/AwakenerDetailCards.tsx`
+      - `src/pages/database/AwakenerGuideTab.tsx`
+      - `src/pages/database/AwakenerTeamsTab.tsx`
+      - `src/pages/database/DatabaseFilters.tsx`
+      - `src/pages/database/DatabaseGrid.tsx`
+      - `src/pages/database/RichDescription.tsx`
+      - `src/pages/database/RichSegmentRenderer.tsx`
+      - `src/pages/database/SkillPopover.tsx`
+      - `src/pages/database/TagPopover.tsx`
+      - `src/pages/database/PopoverTrailPanel.tsx`
+      - `src/pages/database/popover-trail.ts`
+      - `src/pages/database/font-scale.ts`
+      - `src/pages/database/text-styles.ts`
+    - Notes:
+      - The `src/pages/database/*` detail stack is absent from PR commit `558178b` and should be treated as post-PR branch evolution, not an unsalvaged semantic slice to port back in.
 
 ## Implications
 
