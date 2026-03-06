@@ -10,7 +10,7 @@
 
 ---
 
-**Status:** In progress
+**Status:** Done
 
 **Last updated:** 2026-03-06
 
@@ -57,12 +57,13 @@
   - Ran `npm install` to refresh dependencies and `package-lock.json`.
   - Verified the tooling foundation with `npm run format:check`, `npm run lint`, `npm run build`, and `npm run test:quick`.
   - Rewrote parent-relative cross-folder `src` imports to `@/*` and re-verified the repo after the mechanical alias pass.
+  - Fixed the `DetailLevelSlider` compact class regression uncovered by full verification and reran `npm run verify`.
+  - Committed the mechanical salvage checkpoint as `34dd27d` (`chore: salvage tooling and alias groundwork`).
+  - Audited the remaining PR diff by patch-equivalence and confirmed there are no unique semantic commits left to port beyond the tooling work already salvaged.
 - In progress:
-  - Comparing `pr14-salvage` against `pr14-reference` to choose the first semantic salvage slice.
+  - None.
 - Next:
-  - Pick the first thin-slice target in `src/domain/*`, `src/pages/builder/*`, or `src/pages/collection/*`.
-  - Port only the semantic hunks for that slice, then rerun the owning checks.
-  - Continue the salvage pass slice-by-slice until the useful PR behavior has been absorbed.
+  - Keep `pr14-reference` available for future ad hoc comparison if a later regression suggests a missed idea, but treat PR #14 salvage as complete.
 - Blockers:
   - None.
 
