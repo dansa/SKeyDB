@@ -1,6 +1,6 @@
-import type { Awakener } from '../../domain/awakeners'
+import type {Awakener} from '@/domain/awakeners'
 
-export type TeamSlot = {
+export interface TeamSlot {
   slotId: string
   awakenerName?: string
   realm?: Awakener['realm']
@@ -10,21 +10,21 @@ export type TeamSlot = {
   covenantId?: string
 }
 
-export type Team = {
+export interface Team {
   id: string
   name: string
   slots: TeamSlot[]
   posseId?: string
 }
 
-export type WheelUsageLocation = {
+export interface WheelUsageLocation {
   teamOrder: number
   teamId: string
   slotId: string
   wheelIndex: number
 }
 
-export type CovenantUsageLocation = {
+export interface CovenantUsageLocation {
   teamOrder: number
   teamId: string
   slotId: string
@@ -46,12 +46,12 @@ export type WheelMainstatFilter =
   | 'DEATH_RESISTANCE'
 export type TeamPreviewMode = 'compact' | 'expanded'
 export type QuickLineupStep =
-  | { kind: 'awakener'; slotId: string }
-  | { kind: 'wheel'; slotId: string; wheelIndex: number }
-  | { kind: 'covenant'; slotId: string }
-  | { kind: 'posse' }
+  | {kind: 'awakener'; slotId: string}
+  | {kind: 'wheel'; slotId: string; wheelIndex: number}
+  | {kind: 'covenant'; slotId: string}
+  | {kind: 'posse'}
 
-export type QuickLineupSession = {
+export interface QuickLineupSession {
   isActive: true
   currentStepIndex: number
   currentStep: QuickLineupStep
@@ -60,22 +60,22 @@ export type QuickLineupSession = {
 }
 
 export type ActiveSelection =
-  | { kind: 'awakener'; slotId: string }
-  | { kind: 'wheel'; slotId: string; wheelIndex: number }
-  | { kind: 'covenant'; slotId: string }
+  | {kind: 'awakener'; slotId: string}
+  | {kind: 'wheel'; slotId: string; wheelIndex: number}
+  | {kind: 'covenant'; slotId: string}
   | null
 
 export type PredictedDropHover =
-  | { kind: 'wheel'; slotId: string; wheelIndex: number }
-  | { kind: 'covenant'; slotId: string }
+  | {kind: 'wheel'; slotId: string; wheelIndex: number}
+  | {kind: 'covenant'; slotId: string}
   | null
 
 export type DragData =
-  | { kind: 'picker-awakener'; awakenerName: string }
-  | { kind: 'picker-wheel'; wheelId: string }
-  | { kind: 'picker-covenant'; covenantId: string }
-  | { kind: 'team-slot'; slotId: string; awakenerName: string }
-  | { kind: 'team-preview-slot'; teamId: string; slotId: string }
-  | { kind: 'team-wheel'; slotId: string; wheelIndex: number; wheelId: string }
-  | { kind: 'team-covenant'; slotId: string; covenantId: string }
-  | { kind: 'team-row'; teamId: string }
+  | {kind: 'picker-awakener'; awakenerName: string}
+  | {kind: 'picker-wheel'; wheelId: string}
+  | {kind: 'picker-covenant'; covenantId: string}
+  | {kind: 'team-slot'; slotId: string; awakenerName: string}
+  | {kind: 'team-preview-slot'; teamId: string; slotId: string}
+  | {kind: 'team-wheel'; slotId: string; wheelIndex: number; wheelId: string}
+  | {kind: 'team-covenant'; slotId: string; covenantId: string}
+  | {kind: 'team-row'; teamId: string}

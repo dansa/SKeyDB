@@ -1,6 +1,6 @@
-import { OwnedAssetBoxExport, type OwnedAssetBoxEntry } from './OwnedAssetBoxExport'
+import {OwnedAssetBoxExport, type OwnedAssetBoxEntry} from './OwnedAssetBoxExport'
 
-export type OwnedAwakenerBoxEntry = {
+export interface OwnedAwakenerBoxEntry {
   name: string
   displayName: string
   realm: string
@@ -11,12 +11,12 @@ export type OwnedAwakenerBoxEntry = {
   cardAsset: string | null
 }
 
-type OwnedAwakenerBoxExportProps = {
+interface OwnedAwakenerBoxExportProps {
   entries: OwnedAwakenerBoxEntry[]
   onStatusMessage: (message: string) => void
 }
 
-export function OwnedAwakenerBoxExport({ entries, onStatusMessage }: OwnedAwakenerBoxExportProps) {
+export function OwnedAwakenerBoxExport({entries, onStatusMessage}: OwnedAwakenerBoxExportProps) {
   const normalizedEntries: OwnedAssetBoxEntry<string>[] = entries.map((entry) => ({
     id: entry.name,
     label: entry.displayName,
@@ -30,18 +30,18 @@ export function OwnedAwakenerBoxExport({ entries, onStatusMessage }: OwnedAwaken
 
   return (
     <OwnedAssetBoxExport
-      assetAltNoun="card"
-      buttonLabel="Export box as PNG (owned only)"
-      cardAspectClassName="aspect-[2/3]"
+      assetAltNoun='card'
+      buttonLabel='Export box as PNG (owned only)'
+      cardAspectClassName='aspect-[2/3]'
       entries={normalizedEntries}
-      filenamePrefix="skeydb-box"
-      imageClassName="h-full w-full object-cover object-top scale-110"
-      modalTitle="Export Owned Box"
-      nameToggleLabel="Character Names"
+      filenamePrefix='skeydb-box'
+      imageClassName='h-full w-full object-cover object-top scale-110'
+      modalTitle='Export Owned Box'
+      nameToggleLabel='Character Names'
       onStatusMessage={onStatusMessage}
-      placeholderClassName="sigil-placeholder-card"
+      placeholderClassName='sigil-placeholder-card'
       sortOptions={['LEVEL', 'RARITY', 'ENLIGHTEN', 'ALPHABETICAL']}
-      storageKeyPrefix="skeydb.ownedBoxExport"
+      storageKeyPrefix='skeydb.ownedBoxExport'
     />
   )
 }

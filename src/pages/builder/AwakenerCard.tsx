@@ -1,13 +1,12 @@
-import { useDraggable, useDroppable } from '@dnd-kit/core'
-import { useState } from 'react'
-import { getAwakenerCardAsset } from '../../domain/awakener-assets'
-import { formatAwakenerNameForUi } from '../../domain/name-format'
-import { CardWheelZone } from './CardWheelZone'
-import type { DragData, PredictedDropHover, TeamSlot } from './types'
+import {getAwakenerCardAsset} from '@/domain/awakener-assets'
+import {formatAwakenerNameForUi} from '@/domain/name-format'
 
-const loadedCardAssets = new Set<string>()
+import {CardWheelZone} from './CardWheelZone'
+import type {DragData, PredictedDropHover, TeamSlot} from './types'
+import {useAwakenerCardDnd} from './useAwakenerCardDnd'
+import {useAwakenerCardImage} from './useAwakenerCardImage'
 
-type AwakenerCardProps = {
+interface AwakenerCardProps {
   slot: TeamSlot
   isActive?: boolean
   activeKind?: 'awakener' | 'wheel' | 'covenant' | null
@@ -22,6 +21,170 @@ type AwakenerCardProps = {
   onWheelSlotClick?: (slotId: string, wheelIndex: number) => void
   onCovenantSlotClick?: (slotId: string) => void
   onRemoveActiveSelection?: () => void
+}
+
+function shouldIgnoreCardClick(target: HTMLElement): boolean {
+  return (
+    target.closest('[data-card-remove]') !== null ||
+    target.closest('.wheel-tile') !== null ||
+    target.closest('.covenant-tile') !== null
+  )
+}
+
+function getAwakenerCardHitboxLabel(hasAwakener: boolean, awakenerName?: string): string {
+  return hasAwakener ? `Change ${awakenerName ?? 'awakener'}` : 'Deploy awakeners'
+}
+
+function getAwakenerCardClassName(
+  showCardOver: boolean,
+  isDragging: boolean,
+  isActive: boolean,
+): string {
+  return `builder-card group relative aspect-[25/56] w-full border bg-slate-900/80 text-left ${
+    showCardOver
+      ? 'border-amber-200/80 shadow-[0_0_0_1px_rgba(251,191,36,0.24)]'
+      : 'border-slate-500/60'
+  } ${isDragging ? 'opacity-60' : ''} ${isActive ? 'builder-card-active' : ''}`
+}
+
+function renderAwakenerCardImage(
+  slot: TeamSlot,
+  cardAsset: string | undefined,
+  cardImageLoaded: boolean,
+  awakenerOwnedLevel: number | null,
+  onCardImageError: () => void,
+  onCardImageLoad: () => void,
+) {
+  if (!cardAsset || !slot.awakenerName) {
+    return null
+  }
+
+  return (
+    <img
+      alt={`${slot.awakenerName} card`}
+      className={`absolute inset-0 z-0 h-full w-full object-cover object-top transition-opacity duration-150 ${
+        cardImageLoaded ? 'opacity-100' : 'opacity-0'
+      } ${awakenerOwnedLevel === null ? 'builder-card-art-unowned' : ''}`}
+      onError={onCardImageError}
+      onLoad={onCardImageLoad}
+      src={cardAsset}
+    />
+  )
+}
+
+function renderAwakenerCardOverlay(cardAsset: string | undefined, cardImageLoaded: boolean) {
+  if (cardImageLoaded) {
+    return <div className='builder-card-bottom-shade pointer-events-none absolute inset-0 z-10' />
+  }
+
+  if (!cardAsset) {
+    return null
+  }
+
+  return (
+    <div className='absolute inset-0 z-30 bg-slate-700/15'>
+      <span className='absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(125,165,215,0.16),rgba(6,12,24,0)_62%)]' />
+      <span className='sigil-placeholder sigil-placeholder-card sigil-placeholder-no-plus' />
+      <span className='sigil-loading-ring' />
+    </div>
+  )
+}
+
+function renderAwakenerCardHeader(
+  displayName: string,
+  isSupport: boolean | undefined,
+  awakenerOwnedLevel: number | null,
+) {
+  return (
+    <div className='builder-card-name-wrap pointer-events-none absolute inset-x-0 top-0 z-20 px-2 pt-1 pb-[18%]'>
+      <p className='builder-card-name ui-title text-slate-100'>{displayName}</p>
+      {isSupport ? <span className='builder-support-badge'>Support Awakener</span> : null}
+      {awakenerOwnedLevel === null ? <span className='builder-unowned-badge'>Unowned</span> : null}
+    </div>
+  )
+}
+
+function renderEmptyAwakenerCardState() {
+  return (
+    <div className='pointer-events-none absolute inset-0 z-10 bg-slate-700/15'>
+      <span className='sigil-placeholder sigil-placeholder-card' />
+    </div>
+  )
+}
+
+function renderRemoveAwakenerButton(
+  hasRemovableAwakenerSelection: boolean,
+  onRemoveActiveSelection?: () => void,
+) {
+  if (!hasRemovableAwakenerSelection) {
+    return null
+  }
+
+  return (
+    <button
+      aria-label='Remove active awakener'
+      className='builder-card-remove-button absolute top-1 right-1 z-40 h-9 w-9'
+      data-card-remove='true'
+      onClick={onRemoveActiveSelection}
+      type='button'
+    >
+      <span className='sigil-placeholder sigil-placeholder-no-plus sigil-placeholder-remove builder-card-remove-sigil' />
+      <span className='sigil-remove-x builder-card-remove-x' />
+    </button>
+  )
+}
+
+function renderAwakenerCardWheelZone({
+  cardImageLoaded,
+  activeDragKind,
+  activeKind,
+  activeWheelIndex,
+  slot,
+  onCovenantSlotClick,
+  onRemoveActiveSelection,
+  onWheelSlotClick,
+  awakenerLevel,
+  awakenerOwnedLevel,
+  allowActiveRemoval,
+  wheelOwnedLevels,
+  predictedDropHover,
+}: {
+  cardImageLoaded: boolean
+  activeDragKind: DragData['kind'] | null
+  activeKind: 'awakener' | 'wheel' | 'covenant' | null
+  activeWheelIndex: number | null
+  slot: TeamSlot
+  onCovenantSlotClick?: (slotId: string) => void
+  onRemoveActiveSelection?: () => void
+  onWheelSlotClick?: (slotId: string, wheelIndex: number) => void
+  awakenerLevel: number
+  awakenerOwnedLevel: number | null
+  allowActiveRemoval: boolean
+  wheelOwnedLevels: [number | null, number | null]
+  predictedDropHover: PredictedDropHover | null
+}) {
+  if (!cardImageLoaded) {
+    return null
+  }
+
+  return (
+    <CardWheelZone
+      activeDragKind={activeDragKind}
+      activeWheelIndex={activeKind === 'wheel' ? activeWheelIndex : null}
+      isCovenantActive={activeKind === 'covenant'}
+      interactive
+      onCovenantSlotClick={() => onCovenantSlotClick?.(slot.slotId)}
+      onRemoveActiveWheel={onRemoveActiveSelection}
+      onWheelSlotClick={(wheelIndex) => onWheelSlotClick?.(slot.slotId, wheelIndex)}
+      awakenerLevel={awakenerLevel}
+      awakenerOwnedLevel={awakenerOwnedLevel}
+      allowActiveRemoval={allowActiveRemoval}
+      wheelOwnedLevels={wheelOwnedLevels}
+      predictedDropHover={predictedDropHover}
+      slot={slot}
+      wheelKeyPrefix={slot.slotId}
+    />
+  )
 }
 
 export function AwakenerCard({
@@ -43,128 +206,76 @@ export function AwakenerCard({
   const hasAwakener = Boolean(slot.awakenerName)
   const displayName = slot.awakenerName ? formatAwakenerNameForUi(slot.awakenerName) : ''
   const cardAsset = slot.awakenerName ? getAwakenerCardAsset(slot.awakenerName) : undefined
-  const [loadedCardAsset, setLoadedCardAsset] = useState<string | undefined>(() =>
-    cardAsset && loadedCardAssets.has(cardAsset) ? cardAsset : undefined,
-  )
-  const cardImageLoaded = !cardAsset || loadedCardAsset === cardAsset
+  const {cardImageLoaded, handleCardImageError, handleCardImageLoad} =
+    useAwakenerCardImage(cardAsset)
 
-  const { isOver, setNodeRef: setDroppableRef } = useDroppable({ id: slot.slotId })
   const {
-    attributes: dragAttributes,
-    listeners: dragListeners,
+    dragAttributes,
+    dragListeners,
     isDragging,
-    setNodeRef: setDraggableRef,
-  } = useDraggable({
-    id: `team:${slot.slotId}`,
-    disabled: !hasAwakener,
-    data: hasAwakener
-      ? ({ kind: 'team-slot', slotId: slot.slotId, awakenerName: slot.awakenerName! } satisfies DragData)
-      : undefined,
-  })
-  const hasRemovableAwakenerSelection = allowActiveRemoval && activeKind === 'awakener' && isActive && hasAwakener
-  const isPredictedForThisCard =
-    predictedDropHover !== null && predictedDropHover.slotId === slot.slotId
-  const showCardOver =
-    (isOver || isPredictedForThisCard) &&
-    (activeDragKind === 'picker-awakener' ||
-      activeDragKind === 'team-slot' ||
-      activeDragKind === 'picker-wheel' ||
-      activeDragKind === 'team-wheel' ||
-      activeDragKind === 'picker-covenant' ||
-      activeDragKind === 'team-covenant')
+    setDraggableRef,
+    setDroppableRef,
+    showCardOver,
+  } = useAwakenerCardDnd(slot, hasAwakener, activeDragKind, predictedDropHover)
+  const hasRemovableAwakenerSelection =
+    allowActiveRemoval && activeKind === 'awakener' && isActive && hasAwakener
+  const cardClassName = getAwakenerCardClassName(showCardOver, isDragging, isActive)
+  const hitboxLabel = getAwakenerCardHitboxLabel(hasAwakener, slot.awakenerName)
 
   return (
     <article
-      className={`builder-card group relative aspect-[25/56] w-full border bg-slate-900/80 text-left ${
-        showCardOver ? 'border-amber-200/80 shadow-[0_0_0_1px_rgba(251,191,36,0.24)]' : 'border-slate-500/60'
-      } ${isDragging ? 'opacity-60' : ''} ${isActive ? 'builder-card-active' : ''}`}
-      data-selection-owner="true"
+      className={cardClassName}
+      data-selection-owner='true'
       onClick={(event) => {
         const target = event.target as HTMLElement
-        if (target.closest('[data-card-remove]') || target.closest('.wheel-tile') || target.closest('.covenant-tile')) {
+        if (shouldIgnoreCardClick(target)) {
           return
         }
         onCardClick?.(slot.slotId)
       }}
       ref={setDroppableRef}
     >
-      {hasRemovableAwakenerSelection ? (
-        <button
-          aria-label="Remove active awakener"
-          className="builder-card-remove-button absolute top-1 right-1 z-40 h-9 w-9"
-          data-card-remove="true"
-          onClick={onRemoveActiveSelection}
-          type="button"
-        >
-          <span className="sigil-placeholder sigil-placeholder-no-plus sigil-placeholder-remove builder-card-remove-sigil" />
-          <span className="sigil-remove-x builder-card-remove-x" />
-        </button>
-      ) : null}
+      {renderRemoveAwakenerButton(hasRemovableAwakenerSelection, onRemoveActiveSelection)}
       <button
-        aria-label={hasAwakener ? `Change ${slot.awakenerName}` : 'Deploy awakeners'}
-        className="builder-card-hitbox absolute inset-0 z-10"
+        aria-label={hitboxLabel}
+        className='builder-card-hitbox absolute inset-0 z-10'
         ref={hasAwakener ? setDraggableRef : undefined}
-        type="button"
+        type='button'
         {...(hasAwakener ? dragAttributes : {})}
         {...(hasAwakener ? dragListeners : {})}
       />
 
       {hasAwakener ? (
         <>
-          {cardAsset ? (
-            <img
-              alt={`${slot.awakenerName} card`}
-              className={`absolute inset-0 z-0 h-full w-full object-cover object-top transition-opacity duration-150 ${
-                cardImageLoaded ? 'opacity-100' : 'opacity-0'
-              } ${awakenerOwnedLevel === null ? 'builder-card-art-unowned' : ''}`}
-              onError={() => setLoadedCardAsset(cardAsset)}
-              onLoad={() => {
-                loadedCardAssets.add(cardAsset)
-                setLoadedCardAsset(cardAsset)
-              }}
-              src={cardAsset}
-            />
-          ) : null}
-          {cardImageLoaded ? <div className="builder-card-bottom-shade pointer-events-none absolute inset-0 z-10" /> : null}
-          {cardAsset && !cardImageLoaded ? (
-            <div className="absolute inset-0 z-30 bg-slate-700/15">
-              <span className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(125,165,215,0.16),rgba(6,12,24,0)_62%)]" />
-              <span className="sigil-placeholder sigil-placeholder-card sigil-placeholder-no-plus" />
-              <span className="sigil-loading-ring" />
-            </div>
-          ) : null}
+          {renderAwakenerCardImage(
+            slot,
+            cardAsset,
+            cardImageLoaded,
+            awakenerOwnedLevel,
+            handleCardImageError,
+            handleCardImageLoad,
+          )}
+          {renderAwakenerCardOverlay(cardAsset, cardImageLoaded)}
+          {renderAwakenerCardHeader(displayName, slot.isSupport, awakenerOwnedLevel)}
 
-          <div className="builder-card-name-wrap pointer-events-none absolute inset-x-0 top-0 z-20 px-2 pt-1 pb-[18%]">
-            <p className="builder-card-name ui-title text-slate-100">{displayName}</p>
-            {slot.isSupport ? <span className="builder-support-badge">Support Awakener</span> : null}
-            {awakenerOwnedLevel === null ? (
-              <span className="builder-unowned-badge">Unowned</span>
-            ) : null}
-          </div>
-
-          {cardImageLoaded ? (
-            <CardWheelZone
-              activeDragKind={activeDragKind}
-              activeWheelIndex={activeKind === 'wheel' ? activeWheelIndex : null}
-              isCovenantActive={activeKind === 'covenant'}
-              interactive
-              onCovenantSlotClick={() => onCovenantSlotClick?.(slot.slotId)}
-              onRemoveActiveWheel={onRemoveActiveSelection}
-              onWheelSlotClick={(wheelIndex) => onWheelSlotClick?.(slot.slotId, wheelIndex)}
-              awakenerLevel={awakenerLevel}
-              awakenerOwnedLevel={awakenerOwnedLevel}
-              allowActiveRemoval={allowActiveRemoval}
-              wheelOwnedLevels={wheelOwnedLevels}
-              predictedDropHover={predictedDropHover}
-              slot={slot}
-              wheelKeyPrefix={slot.slotId}
-            />
-          ) : null}
+          {renderAwakenerCardWheelZone({
+            cardImageLoaded,
+            activeDragKind,
+            activeKind,
+            activeWheelIndex,
+            slot,
+            onCovenantSlotClick,
+            onRemoveActiveSelection,
+            onWheelSlotClick,
+            awakenerLevel,
+            awakenerOwnedLevel,
+            allowActiveRemoval,
+            wheelOwnedLevels,
+            predictedDropHover,
+          })}
         </>
       ) : (
-        <div className="pointer-events-none absolute inset-0 z-10 bg-slate-700/15">
-          <span className="sigil-placeholder sigil-placeholder-card" />
-        </div>
+        renderEmptyAwakenerCardState()
       )}
     </article>
   )

@@ -1,4 +1,5 @@
-import { describe, expect, it } from 'vitest'
+import {describe, expect, it} from 'vitest'
+
 import {
   buildIngameTokenDictionaries,
   buildTokenDictionaryFromEntries,
@@ -11,8 +12,8 @@ describe('buildTokenDictionaryFromEntries', () => {
       category: 'awakeners',
       ids: ['a', 'b'],
       sourceEntries: [
-        { id: 'a', token: 'x' },
-        { id: 'b', token: 'y' },
+        {id: 'a', token: 'x'},
+        {id: 'b', token: 'y'},
       ],
     })
 
@@ -28,8 +29,8 @@ describe('buildTokenDictionaryFromEntries', () => {
       category: 'wheels',
       ids: ['a', 'b'],
       sourceEntries: [
-        { id: 'a', token: 'x' },
-        { id: 'b', token: 'x' },
+        {id: 'a', token: 'x'},
+        {id: 'b', token: 'x'},
       ],
     })
 
@@ -43,22 +44,26 @@ describe('buildTokenDictionaryFromEntries', () => {
     const result = buildTokenDictionaryFromEntries({
       category: 'posses',
       ids: ['a', 'b'],
-      sourceEntries: [{ id: 'a', token: 'x' }],
+      sourceEntries: [{id: 'a', token: 'x'}],
     })
 
     expect(result.byIdToken.get('a')).toBe('x')
     expect(result.byIdToken.has('b')).toBe(false)
-    expect(result.issues.some((issue) => issue.kind === 'missing_token_for_id' && issue.id === 'b')).toBe(true)
+    expect(
+      result.issues.some((issue) => issue.kind === 'missing_token_for_id' && issue.id === 'b'),
+    ).toBe(true)
   })
 
   it('reports unknown source ids', () => {
     const result = buildTokenDictionaryFromEntries({
       category: 'awakeners',
       ids: ['a'],
-      sourceEntries: [{ id: 'z', token: 'x' }],
+      sourceEntries: [{id: 'z', token: 'x'}],
     })
 
-    expect(result.issues.some((issue) => issue.kind === 'unknown_source_id' && issue.id === 'z')).toBe(true)
+    expect(
+      result.issues.some((issue) => issue.kind === 'unknown_source_id' && issue.id === 'z'),
+    ).toBe(true)
   })
 })
 
@@ -75,7 +80,9 @@ describe('buildIngameTokenDictionaries', () => {
     expect(result.posses.byIdToken.get('manor-echoes')).toBe('3')
     expect(result.posses.byIdToken.has('Manor Echoes')).toBe(false)
     expect(
-      result.issues.some((issue) => issue.category === 'posses' && issue.kind === 'unknown_source_id'),
+      result.issues.some(
+        (issue) => issue.category === 'posses' && issue.kind === 'unknown_source_id',
+      ),
     ).toBe(false)
   })
 
@@ -87,7 +94,7 @@ describe('buildIngameTokenDictionaries', () => {
 
 describe('raw token data type guard', () => {
   it('accepts basic raw token entry shape', () => {
-    const entry: CanonicalTokenEntry = { id: 'a', token: 'x1' }
+    const entry: CanonicalTokenEntry = {id: 'a', token: 'x1'}
     expect(entry.id).toBe('a')
     expect(entry.token).toBe('x1')
   })

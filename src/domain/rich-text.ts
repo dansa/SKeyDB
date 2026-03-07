@@ -1,12 +1,27 @@
-import { getMainstats } from './mainstats'
-import { COMPUTABLE_STATS } from './scaling'
+import {getMainstats} from './mainstats'
+import {COMPUTABLE_STATS} from './scaling'
 
-export type TextSegment = { type: 'text'; value: string }
-export type SkillSegment = { type: 'skill'; name: string }
-export type StatSegment = { type: 'stat'; name: string }
-export type MechanicSegment = { type: 'mechanic'; name: string }
-export type RealmSegment = { type: 'realm'; name: string }
-export type ScalingSegment = {
+export interface TextSegment {
+  type: 'text'
+  value: string
+}
+export interface SkillSegment {
+  type: 'skill'
+  name: string
+}
+export interface StatSegment {
+  type: 'stat'
+  name: string
+}
+export interface MechanicSegment {
+  type: 'mechanic'
+  name: string
+}
+export interface RealmSegment {
+  type: 'realm'
+  name: string
+}
+export interface ScalingSegment {
   type: 'scaling'
   values: number[]
   suffix: string
@@ -47,23 +62,122 @@ function isStatToken(token: string): boolean {
 
 const KNOWN_REALMS = new Set(['Chaos', 'Aequor', 'Caro', 'Ultra'])
 
-const SCALING_RE = /\(([0-9.]+(?:\/[0-9.]+)+)(%)?\s*(?:\{([^}]+)\})?\)/
-const PROSE_SCALING_RE = /([0-9]+(?:\.[0-9]+)?)(%)\s+of\s+\{([^}]+)\}/
+const SCALING_RE = /\((\d[\d./]*(?:\/\d[\d./]*)+)(%)?\s*(?:\{([^}]+)\})?\)/
+const PROSE_SCALING_RE = /(\d+(?:\.\d+)?)(%)\s+of\s+\{([^}]+)\}/
+
+type NextRichMatch =
+  | {kind: 'none'}
+  | {kind: 'scaling'; index: number; match: RegExpExecArray}
+  | {kind: 'prose'; index: number; match: RegExpExecArray}
+  | {kind: 'bracket'; index: number}
 
 function parseScaling(raw: string): ScalingSegment | null {
   const m = SCALING_RE.exec(raw)
   if (!m) return null
   const nums = m[1].split('/').map(Number)
   if (nums.some(Number.isNaN)) return null
-  const pct = m[2] ?? ''
-  const stat = m[3] ?? null
-  return { type: 'scaling', values: nums, suffix: pct, stat }
+  const pct = m.at(2) ?? ''
+  const stat = m.at(3) ?? null
+  return {type: 'scaling', values: nums, suffix: pct, stat}
 }
 
-export function parseRichDescription(
-  text: string,
-  cardNames: Set<string>,
-): RichSegment[] {
+function findNextRichMatch(remaining: string): NextRichMatch {
+  const scalingMatch = SCALING_RE.exec(remaining)
+  const proseMatch = PROSE_SCALING_RE.exec(remaining)
+  const bracketIdx = remaining.indexOf('{')
+
+  const nextScalingIdx = scalingMatch?.index ?? Infinity
+  const nextProseIdx =
+    proseMatch && COMPUTABLE_STATS.has(proseMatch[3]) ? proseMatch.index : Infinity
+  const nextBracketIdx = bracketIdx >= 0 ? bracketIdx : Infinity
+
+  if (nextScalingIdx === Infinity && nextProseIdx === Infinity && nextBracketIdx === Infinity) {
+    return {kind: 'none'}
+  }
+
+  const earliestScaling = Math.min(nextScalingIdx, nextProseIdx)
+  if (earliestScaling <= nextBracketIdx) {
+    if (nextProseIdx < nextScalingIdx && proseMatch) {
+      return {kind: 'prose', index: nextProseIdx, match: proseMatch}
+    }
+    if (scalingMatch) {
+      return {kind: 'scaling', index: nextScalingIdx, match: scalingMatch}
+    }
+  }
+
+  return {kind: 'bracket', index: nextBracketIdx}
+}
+
+function consumeScalingMatch(
+  remaining: string,
+  segments: RichSegment[],
+  nextMatch: Extract<NextRichMatch, {kind: 'scaling' | 'prose'}>,
+): string {
+  if (nextMatch.index > 0) {
+    segments.push({type: 'text', value: remaining.slice(0, nextMatch.index)})
+  }
+
+  if (nextMatch.kind === 'prose') {
+    segments.push({
+      type: 'scaling',
+      values: [Number(nextMatch.match[1])],
+      suffix: nextMatch.match[2],
+      stat: nextMatch.match[3],
+    })
+    return remaining.slice(nextMatch.index + nextMatch.match[0].length)
+  }
+
+  const scaling = parseScaling(remaining.slice(nextMatch.index))
+  if (!scaling) {
+    segments.push({type: 'text', value: remaining})
+    return ''
+  }
+  segments.push(scaling)
+  return remaining.slice(nextMatch.index + nextMatch.match[0].length)
+}
+
+function toTokenSegment(token: string, cardNameByLower: Map<string, string>): RichSegment {
+  const canonicalCardName = cardNameByLower.get(token.toLowerCase())
+  if (canonicalCardName) {
+    return {type: 'skill', name: canonicalCardName}
+  }
+  if (isStatToken(token)) {
+    return {type: 'stat', name: token}
+  }
+  if (KNOWN_REALMS.has(token)) {
+    return {type: 'realm', name: token}
+  }
+  return {type: 'mechanic', name: token}
+}
+
+function consumeBracketToken(
+  remaining: string,
+  segments: RichSegment[],
+  index: number,
+  cardNameByLower: Map<string, string>,
+): string {
+  if (index > 0) {
+    segments.push({type: 'text', value: remaining.slice(0, index)})
+  }
+
+  const bracketContent = remaining.slice(index + 1)
+  const closeIdx = bracketContent.indexOf('}')
+  if (closeIdx < 0) {
+    segments.push({type: 'text', value: '{' + bracketContent})
+    return ''
+  }
+
+  const token = bracketContent.slice(0, closeIdx).trim()
+  if (!token) {
+    segments.push({type: 'text', value: '{}'})
+    return bracketContent.slice(closeIdx + 1)
+  }
+
+  segments.push(toTokenSegment(token, cardNameByLower))
+  return bracketContent.slice(closeIdx + 1)
+}
+
+export function parseRichDescription(text: string, cardNames: Set<string>): RichSegment[] {
   const segments: RichSegment[] = []
   const cardNameByLower = new Map<string, string>()
   for (const cardName of cardNames) {
@@ -72,77 +186,26 @@ export function parseRichDescription(
 
   let remaining = text
   while (remaining.length > 0) {
-    const scalingMatch = SCALING_RE.exec(remaining)
-    const proseMatch = PROSE_SCALING_RE.exec(remaining)
-    const bracketIdx = remaining.indexOf('{')
-
-    const nextScalingIdx = scalingMatch?.index ?? Infinity
-    const nextProseIdx = proseMatch && COMPUTABLE_STATS.has(proseMatch[3]) ? proseMatch.index : Infinity
-    const nextBracketIdx = bracketIdx >= 0 ? bracketIdx : Infinity
-
-    if (nextScalingIdx === Infinity && nextProseIdx === Infinity && nextBracketIdx === Infinity) {
-      segments.push({ type: 'text', value: remaining })
+    const nextMatch = findNextRichMatch(remaining)
+    if (nextMatch.kind === 'none') {
+      segments.push({type: 'text', value: remaining})
       break
     }
 
-    const earliestScaling = Math.min(nextScalingIdx, nextProseIdx)
-    if (earliestScaling <= nextBracketIdx) {
-      if (earliestScaling > 0) {
-        segments.push({ type: 'text', value: remaining.slice(0, earliestScaling) })
-      }
-      if (nextProseIdx < nextScalingIdx) {
-        const nums = [Number(proseMatch![1])]
-        const pct = proseMatch![2]
-        const stat = proseMatch![3]
-        segments.push({ type: 'scaling', values: nums, suffix: pct, stat })
-        remaining = remaining.slice(nextProseIdx + proseMatch![0].length)
-      } else {
-        const scaling = parseScaling(remaining.slice(nextScalingIdx))!
-        segments.push(scaling)
-        remaining = remaining.slice(nextScalingIdx + scalingMatch![0].length)
-      }
-      continue
-    }
-
-    if (nextBracketIdx > 0) {
-      segments.push({ type: 'text', value: remaining.slice(0, nextBracketIdx) })
-    }
-    remaining = remaining.slice(nextBracketIdx + 1)
-
-    const closeIdx = remaining.indexOf('}')
-    if (closeIdx < 0) {
-      segments.push({ type: 'text', value: '{' + remaining })
-      break
-    }
-
-    const token = remaining.slice(0, closeIdx).trim()
-    remaining = remaining.slice(closeIdx + 1)
-
-    if (!token) {
-      segments.push({ type: 'text', value: '{}' })
-      continue
-    }
-
-    const canonicalCardName = cardNameByLower.get(token.toLowerCase())
-    if (canonicalCardName) {
-      segments.push({ type: 'skill', name: canonicalCardName })
-    } else if (isStatToken(token)) {
-      segments.push({ type: 'stat', name: token })
-    } else if (KNOWN_REALMS.has(token)) {
-      segments.push({ type: 'realm', name: token })
-    } else {
-      segments.push({ type: 'mechanic', name: token })
-    }
+    remaining =
+      nextMatch.kind === 'bracket'
+        ? consumeBracketToken(remaining, segments, nextMatch.index, cardNameByLower)
+        : consumeScalingMatch(remaining, segments, nextMatch)
   }
 
   return segments
 }
 
 export function getCardNamesFromFull(awakener: {
-  cards: Record<string, { name: string }>
-  exalts: { exalt: { name: string }; over_exalt: { name: string } }
-  talents: Record<string, { name: string }>
-  enlightens: Record<string, { name: string }>
+  cards: Record<string, {name: string}>
+  exalts: {exalt: {name: string}; over_exalt: {name: string}}
+  talents: Record<string, {name: string}>
+  enlightens: Record<string, {name: string}>
 }): Set<string> {
   const names = new Set<string>()
   for (const card of Object.values(awakener.cards)) {

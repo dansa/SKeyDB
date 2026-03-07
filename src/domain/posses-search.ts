@@ -1,10 +1,8 @@
 import Fuse from 'fuse.js'
-import { getAwakeners } from './awakeners'
-import type { Posse } from './posses'
 
-function normalizeForSearch(value: string): string {
-  return value.toLowerCase().replace(/[^a-z0-9]/g, '')
-}
+import {getAwakeners} from './awakeners'
+import type {Posse} from './posses'
+import {normalizeForSearch} from './search-utils'
 
 const realmLabelById: Record<string, string> = {
   AEQUOR: 'Aequor',
@@ -57,9 +55,9 @@ export function searchPosses(posses: Posse[], query: string): Posse[] {
     ignoreLocation: true,
     includeScore: true,
     keys: [
-      { name: 'name', weight: 0.55 },
-      { name: 'id', weight: 0.15 },
-      { name: 'awakenerName', weight: 0.3 },
+      {name: 'name', weight: 0.55},
+      {name: 'id', weight: 0.15},
+      {name: 'awakenerName', weight: 0.3},
     ],
   })
 
@@ -69,4 +67,3 @@ export function searchPosses(posses: Posse[], query: string): Posse[] {
     .filter((result) => (result.score ?? 1) <= cutoff)
     .map((result) => result.item)
 }
-

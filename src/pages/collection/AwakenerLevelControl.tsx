@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
-import { CollectionLevelStepButton } from './CollectionLevelStepButton'
+import {useEffect, useRef, useState} from 'react'
 
-type AwakenerLevelControlProps = {
+import {CollectionLevelStepButton} from './CollectionLevelStepButton'
+
+interface AwakenerLevelControlProps {
   name: string
   level: number
   disabled: boolean
@@ -119,29 +120,29 @@ export function AwakenerLevelControl({
     return (
       <button
         aria-label={`Edit awakener level for ${name}`}
-        className="collection-awakener-level-trigger"
+        className='collection-awakener-level-trigger'
         disabled={disabled}
         onClick={() => {
           setDraftLevel(String(level))
           setIsDraftDirty(false)
           setIsEditing(true)
         }}
-        type="button"
+        type='button'
       >
-        <span className="collection-awakener-level-prefix">Lv.</span>
-        <span className="collection-awakener-level-value">{level}</span>
+        <span className='collection-awakener-level-prefix'>Lv.</span>
+        <span className='collection-awakener-level-value'>{level}</span>
       </button>
     )
   }
 
   return (
-    <div className="collection-awakener-level-editor" ref={rootRef}>
-      <label className="collection-awakener-level-input-row">
-        <span className="collection-awakener-level-prefix">Lv.</span>
+    <div className='collection-awakener-level-editor' ref={rootRef}>
+      <label className='collection-awakener-level-input-row'>
+        <span className='collection-awakener-level-prefix'>Lv.</span>
         <input
           aria-label={`Awakener level for ${name}`}
-          className="collection-awakener-level-input"
-          inputMode="numeric"
+          className='collection-awakener-level-input'
+          inputMode='numeric'
           onChange={(event) => {
             setDraftLevel(event.target.value.replace(/[^\d]/g, ''))
             setIsDraftDirty(true)
@@ -155,25 +156,29 @@ export function AwakenerLevelControl({
             }
           }}
           ref={inputRef}
-          type="text"
+          type='text'
           value={isDraftDirty ? draftLevel : String(level)}
         />
-        <div className="collection-step-group collection-step-group-compact collection-level-inline-steps">
+        <div className='collection-step-group collection-step-group-compact collection-level-inline-steps'>
           <CollectionLevelStepButton
             ariaLabel={`Increase awakener level for ${name}`}
-            className="collection-step-btn collection-step-btn-compact"
-            direction="up"
+            className='collection-step-btn collection-step-btn-compact'
+            direction='up'
             disabled={level >= 90}
-            glyphClassName="collection-step-glyph collection-step-glyph-compact"
-            onStep={() => handleStep(1)}
+            glyphClassName='collection-step-glyph collection-step-glyph-compact'
+            onStep={() => {
+              handleStep(1)
+            }}
           />
           <CollectionLevelStepButton
             ariaLabel={`Decrease awakener level for ${name}`}
-            className="collection-step-btn collection-step-btn-compact"
-            direction="down"
+            className='collection-step-btn collection-step-btn-compact'
+            direction='down'
             disabled={level <= 1}
-            glyphClassName="collection-step-glyph collection-step-glyph-compact"
-            onStep={() => handleStep(-1)}
+            glyphClassName='collection-step-glyph collection-step-glyph-compact'
+            onStep={() => {
+              handleStep(-1)
+            }}
           />
         </div>
       </label>

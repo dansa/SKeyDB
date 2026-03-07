@@ -1,6 +1,8 @@
-import { z } from 'zod'
-import relicsLite from '../data/relics-lite.json'
-import { getAwakeners } from './awakeners'
+import {z} from 'zod'
+
+import relicsLite from '@/data/relics-lite.json'
+
+import {getAwakeners} from './awakeners'
 
 const rawRelicsSchema = z.array(
   z.object({
@@ -29,7 +31,9 @@ const portraitRelics: PortraitRelic[] = parsedRelics.filter(
   (relic): relic is PortraitRelic => relic.kind === 'PORTRAIT' && !!relic.awakenerIngameId,
 )
 
-function buildPortraitRelicByAwakenerIngameIdMap(relics: PortraitRelic[]): Map<string, PortraitRelic> {
+function buildPortraitRelicByAwakenerIngameIdMap(
+  relics: PortraitRelic[],
+): Map<string, PortraitRelic> {
   const byAwakenerIngameId = new Map<string, PortraitRelic>()
   for (const relic of relics) {
     const existing = byAwakenerIngameId.get(relic.awakenerIngameId)

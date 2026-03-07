@@ -1,11 +1,13 @@
-import { useSortable } from '@dnd-kit/sortable'
-import { CSS } from '@dnd-kit/utilities'
-import tempPosseIcon from '../../assets/posse/00-temposse.png'
-import { TeamNameInlineEditor } from './TeamNameInlineEditor'
-import { BuilderTeamPreviewStrip } from './BuilderTeamPreviewStrip'
-import type { Team, TeamPreviewMode } from './types'
+import {useSortable} from '@dnd-kit/sortable'
+import {CSS} from '@dnd-kit/utilities'
 
-type BuilderTeamRowProps = {
+import tempPosseIcon from '@/assets/posse/00-temposse.png'
+
+import {BuilderTeamPreviewStrip} from './BuilderTeamPreviewStrip'
+import {TeamNameInlineEditor} from './TeamNameInlineEditor'
+import type {Team, TeamPreviewMode} from './types'
+
+interface BuilderTeamRowProps {
   team: Team
   isActive: boolean
   isEditingTeamName: boolean
@@ -48,9 +50,9 @@ export function BuilderTeamRow({
   onDeleteTeam,
   deleteDisabled,
 }: BuilderTeamRowProps) {
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+  const {attributes, listeners, setNodeRef, transform, transition, isDragging} = useSortable({
     id: team.id,
-    data: { kind: 'team-row', teamId: team.id },
+    data: {kind: 'team-row', teamId: team.id},
   })
   const hasMeaningfulTransform =
     !!transform &&
@@ -58,7 +60,7 @@ export function BuilderTeamRow({
       Math.abs(transform.y) > 0.01 ||
       Math.abs(transform.scaleX - 1) > 0.001 ||
       Math.abs(transform.scaleY - 1) > 0.001)
-  const isPosseOwned = !team.posseId || (ownedPosseLevelById?.get(team.posseId) ?? null) !== null
+  const isPosseOwned = !team.posseId || (ownedPosseLevelById.get(team.posseId) ?? null) !== null
 
   return (
     <div
@@ -77,39 +79,43 @@ export function BuilderTeamRow({
         aria-label={`Reorder ${team.name}`}
         data-active={isActive ? 'true' : 'false'}
         className={`builder-team-row-drag-handle border ${
-          isActive
-            ? 'border-amber-200/80 bg-slate-800/70'
-            : 'border-slate-500/45 bg-slate-900/50'
+          isActive ? 'border-amber-200/80 bg-slate-800/70' : 'border-slate-500/45 bg-slate-900/50'
         }`}
-        type="button"
+        type='button'
         {...attributes}
         {...listeners}
       >
-        <span aria-hidden="true" className="builder-team-row-drag-handle-glyph" />
+        <span aria-hidden='true' className='builder-team-row-drag-handle-glyph' />
       </button>
       <div
         className={`grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-2 border pr-2 ${
           isActive
-            ? 'border-amber-200/80 border-l-0 bg-slate-800/70'
-            : 'border-slate-500/45 border-l-0 bg-slate-900/50'
+            ? 'border-l-0 border-amber-200/80 bg-slate-800/70'
+            : 'border-l-0 border-slate-500/45 bg-slate-900/50'
         }`}
-        onClick={() => onEditTeam(team.id)}
+        onClick={() => {
+          onEditTeam(team.id)
+        }}
       >
-        <div className="min-w-0 py-1.5 pl-2">
-          <div className="flex h-6 w-[210px] max-w-full items-center">
+        <div className='min-w-0 py-1.5 pl-2'>
+          <div className='flex h-6 w-[210px] max-w-full items-center'>
             <TeamNameInlineEditor
               draftName={editingTeamName}
               isEditing={isEditingTeamName}
-              onBeginEdit={() => onBeginTeamRename(team.id, team.name, 'list')}
+              onBeginEdit={() => {
+                onBeginTeamRename(team.id, team.name, 'list')
+              }}
               onCancel={onCancelTeamRename}
-              onCommit={() => onCommitTeamRename(team.id)}
+              onCommit={() => {
+                onCommitTeamRename(team.id)
+              }}
               onDraftChange={onEditingTeamNameChange}
               teamName={team.name}
-              variant="compact"
+              variant='compact'
             />
           </div>
           <BuilderTeamPreviewStrip
-            className="mt-1"
+            className='mt-1'
             enableDragAndDrop
             mode={teamPreviewMode}
             ownedAwakenerLevelByName={ownedAwakenerLevelByName}
@@ -118,7 +124,7 @@ export function BuilderTeamRow({
             teamId={team.id}
           />
         </div>
-        <span className="builder-team-posse-icon-wrap builder-team-posse-icon-wrap-compact my-1.5">
+        <span className='builder-team-posse-icon-wrap builder-team-posse-icon-wrap-compact my-1.5'>
           <img
             alt={`${team.name} posse`}
             className={`builder-team-posse-icon builder-team-posse-icon-compact ${
@@ -127,37 +133,41 @@ export function BuilderTeamRow({
             draggable={false}
             src={posseAsset ?? tempPosseIcon}
           />
-          {!isPosseOwned ? <span className="builder-team-preview-unowned-chip builder-team-preview-unowned-chip-posse">Unowned</span> : null}
+          {!isPosseOwned ? (
+            <span className='builder-team-preview-unowned-chip builder-team-preview-unowned-chip-posse'>
+              Unowned
+            </span>
+          ) : null}
         </span>
-        <div className="py-1.5">
+        <div className='py-1.5'>
           <button
-            className="mb-1 block w-full border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45"
+            className='mb-1 block w-full border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45'
             onClick={(event) => {
               event.stopPropagation()
               onExportTeam(team.id)
             }}
-            type="button"
+            type='button'
           >
             Export
           </button>
           <button
-            className="mb-1 block w-full border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45"
+            className='mb-1 block w-full border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45'
             onClick={(event) => {
               event.stopPropagation()
               onResetTeam(team.id, team.name)
             }}
-            type="button"
+            type='button'
           >
             Reset
           </button>
           <button
-            className="border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45 disabled:opacity-35"
+            className='border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45 disabled:opacity-35'
             disabled={deleteDisabled}
             onClick={(event) => {
               event.stopPropagation()
               onDeleteTeam(team.id, team.name)
             }}
-            type="button"
+            type='button'
           >
             Delete
           </button>

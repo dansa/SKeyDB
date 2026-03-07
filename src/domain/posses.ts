@@ -1,5 +1,6 @@
-import { z } from 'zod'
-import possesLite from '../data/posses-lite.json'
+import {z} from 'zod'
+
+import possesLite from '@/data/posses-lite.json'
 
 const rawPossesSchema = z.array(
   z.object({
@@ -12,7 +13,7 @@ const rawPossesSchema = z.array(
   }),
 )
 
-export type Posse = {
+export interface Posse {
   id: string
   index: number
   name: string

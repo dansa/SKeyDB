@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest'
-import { getPosses } from './posses'
+import {describe, expect, it} from 'vitest'
+
+import {getPosses} from './posses'
 
 describe('getPosses', () => {
   it('returns posses with stable numeric indexes', () => {

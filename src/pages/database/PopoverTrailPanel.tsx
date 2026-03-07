@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
-import { decideTrailDirection, isTrailMobileLayout } from './popover-trail'
+import {useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode} from 'react'
 
-type PopoverTrailPanelProps = {
+import {decideTrailDirection, isTrailMobileLayout} from './popover-trail'
+
+interface PopoverTrailPanelProps {
   anchorRect: DOMRect
   anchorElement?: HTMLElement | null
   itemCount: number
@@ -47,9 +48,8 @@ export function PopoverTrailPanel({
       left = margin
     }
 
-    let top = direction === 'up'
-      ? activeAnchorRect.top - gap - rect.height
-      : activeAnchorRect.bottom + gap
+    let top =
+      direction === 'up' ? activeAnchorRect.top - gap - rect.height : activeAnchorRect.bottom + gap
     if (top + rect.height > vh - margin) {
       top = vh - rect.height - margin
     }
@@ -57,8 +57,8 @@ export function PopoverTrailPanel({
       top = margin
     }
 
-    el.style.top = `${top}px`
-    el.style.left = `${left}px`
+    el.style.top = `${String(top)}px`
+    el.style.left = `${String(left)}px`
   }, [anchorElement, anchorRect, direction, isMobile])
 
   useLayoutEffect(() => {
@@ -103,11 +103,15 @@ export function PopoverTrailPanel({
           ? 'inset-x-3 bottom-3 max-h-[min(72vh,34rem)]'
           : 'max-h-[calc(100vh-24px)] w-[min(22rem,calc(100vw-24px))]'
       }`}
-      data-skill-popover=""
-      onClick={(e) => e.stopPropagation()}
-      onMouseDown={(e) => e.stopPropagation()}
+      data-skill-popover=''
+      onClick={(e) => {
+        e.stopPropagation()
+      }}
+      onMouseDown={(e) => {
+        e.stopPropagation()
+      }}
       ref={ref}
-      style={isMobile ? undefined : { top: 0, left: -9999 }}
+      style={isMobile ? undefined : {top: 0, left: -9999}}
     >
       <div className={`flex gap-2 ${direction === 'up' ? 'flex-col-reverse' : 'flex-col'}`}>
         {children}

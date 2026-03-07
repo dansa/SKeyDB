@@ -1,14 +1,19 @@
-import { useEffect, type RefObject } from 'react'
+import {useEffect, type RefObject} from 'react'
 
 function isTypingTarget(target: EventTarget | null): boolean {
   if (!(target instanceof HTMLElement)) {
     return false
   }
   const tagName = target.tagName
-  return tagName === 'INPUT' || tagName === 'TEXTAREA' || tagName === 'SELECT' || target.isContentEditable
+  return (
+    tagName === 'INPUT' ||
+    tagName === 'TEXTAREA' ||
+    tagName === 'SELECT' ||
+    target.isContentEditable
+  )
 }
 
-type UseGlobalCollectionSearchCaptureOptions = {
+interface UseGlobalCollectionSearchCaptureOptions {
   searchInputRef: RefObject<HTMLInputElement | null>
   onAppendCharacter: (key: string) => void
   onClearSearch: () => void
@@ -53,4 +58,3 @@ export function useGlobalCollectionSearchCapture({
     }
   }, [searchInputRef, onAppendCharacter, onClearSearch])
 }
-

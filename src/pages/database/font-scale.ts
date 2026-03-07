@@ -1,5 +1,4 @@
-import type { CSSProperties, ReactNode } from 'react'
-import { createElement, Fragment } from 'react'
+import {createElement, Fragment, type CSSProperties, type ReactNode} from 'react'
 
 export type FontScale = 'small' | 'medium' | 'large'
 
@@ -9,10 +8,10 @@ export const FONT_SCALE_VALUES: Record<FontScale, number> = {
   large: 1.67,
 }
 
-export const FONT_SCALE_OPTIONS: { id: FontScale; label: string }[] = [
-  { id: 'small', label: 'S' },
-  { id: 'medium', label: 'M' },
-  { id: 'large', label: 'L' },
+export const FONT_SCALE_OPTIONS: {id: FontScale; label: string}[] = [
+  {id: 'small', label: 'S'},
+  {id: 'medium', label: 'M'},
+  {id: 'large', label: 'L'},
 ]
 
 const STORAGE_KEY = 'modal-font-scale'
@@ -28,18 +27,21 @@ export function writeFontScale(scale: FontScale): void {
 }
 
 export function scaledFontStyle(basePx: number): CSSProperties {
-  return { fontSize: `calc(var(--desc-font-scale, 1) * ${basePx}px)` }
+  return {fontSize: `calc(var(--desc-font-scale, 1) * ${String(basePx)}px)`}
 }
 
 export function renderTextWithBreaks(text: string): ReactNode {
-  if (!text.includes('\n')) return text
+  const parts = text.split('\n')
   return createElement(
     Fragment,
     null,
-    ...text.split('\n').flatMap((part, i) =>
+    ...parts.flatMap((part, i) =>
       i === 0
-        ? [createElement('span', { key: i }, part)]
-        : [createElement('br', { key: `br${i}` }), createElement('span', { key: i }, part)],
+        ? [createElement('span', {key: String(i)}, part)]
+        : [
+            createElement('br', {key: `br${String(i)}`}),
+            createElement('span', {key: String(i)}, part),
+          ],
     ),
   )
 }

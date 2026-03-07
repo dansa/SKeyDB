@@ -1,6 +1,7 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { OwnedAwakenerBoxExport } from './OwnedAwakenerBoxExport'
+import {fireEvent, render, screen} from '@testing-library/react'
+import {beforeEach, describe, expect, it, vi} from 'vitest'
+
+import {OwnedAwakenerBoxExport} from './OwnedAwakenerBoxExport'
 
 describe('OwnedAwakenerBoxExport', () => {
   beforeEach(() => {
@@ -25,12 +26,14 @@ describe('OwnedAwakenerBoxExport', () => {
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: /export box as png/i }))
+    fireEvent.click(screen.getByRole('button', {name: /export box as png/i}))
 
     expect(screen.getByText((_, element) => element?.textContent === 'Lv.72')).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: /hide levels on card/i }))
-    expect(screen.queryByText((_, element) => element?.textContent === 'Lv.72')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: /hide levels on card/i}))
+    expect(
+      screen.queryByText((_, element) => element?.textContent === 'Lv.72'),
+    ).not.toBeInTheDocument()
   })
 
   it('supports level sorting with faction grouping and enlighten/index tie-breakers', () => {
@@ -69,9 +72,9 @@ describe('OwnedAwakenerBoxExport', () => {
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: /export box as png/i }))
+    fireEvent.click(screen.getByRole('button', {name: /export box as png/i}))
 
-    fireEvent.change(screen.getByLabelText(/sort by/i), { target: { value: 'LEVEL' } })
+    fireEvent.change(screen.getByLabelText(/sort by/i), {target: {value: 'LEVEL'}})
     fireEvent.click(screen.getByLabelText(/Group By Realm/i))
 
     const sortSelect = screen.getByLabelText(/sort by/i)
@@ -110,8 +113,8 @@ describe('OwnedAwakenerBoxExport', () => {
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: /export box as png/i }))
-    fireEvent.change(screen.getByLabelText(/sort by/i), { target: { value: 'ALPHABETICAL' } })
+    fireEvent.click(screen.getByRole('button', {name: /export box as png/i}))
+    fireEvent.change(screen.getByLabelText(/sort by/i), {target: {value: 'ALPHABETICAL'}})
     fireEvent.click(screen.getByLabelText(/toggle sort direction/i))
 
     const labels = screen.getAllByTestId('export-preview-card-label')
@@ -158,10 +161,10 @@ describe('OwnedAwakenerBoxExport', () => {
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: /export box as png/i }))
-    fireEvent.change(screen.getByLabelText(/sort by/i), { target: { value: 'RARITY' } })
-    const directionButton = screen.getByRole('button', { name: /toggle sort direction/i })
-    if (directionButton.textContent?.includes('Low')) {
+    fireEvent.click(screen.getByRole('button', {name: /export box as png/i}))
+    fireEvent.change(screen.getByLabelText(/sort by/i), {target: {value: 'RARITY'}})
+    const directionButton = screen.getByRole('button', {name: /toggle sort direction/i})
+    if (directionButton.textContent.includes('Low')) {
       fireEvent.click(directionButton)
     }
 
@@ -199,12 +202,10 @@ describe('OwnedAwakenerBoxExport', () => {
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: /export box as png/i }))
+    fireEvent.click(screen.getByRole('button', {name: /export box as png/i}))
 
-    expect(screen.getByRole('combobox', { name: /sort by/i })).toHaveValue('RARITY')
-    expect(screen.getByRole('button', { name: /toggle sort direction/i })).toHaveTextContent('Low')
+    expect(screen.getByRole('combobox', {name: /sort by/i})).toHaveValue('RARITY')
+    expect(screen.getByRole('button', {name: /toggle sort direction/i})).toHaveTextContent('Low')
     expect(screen.getByLabelText(/Group By Realm/i)).toHaveTextContent('On')
   })
 })
-
-

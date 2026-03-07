@@ -1,6 +1,8 @@
-import react from '@vitejs/plugin-react'
+import {fileURLToPath, URL} from 'node:url'
+
 import tailwindcss from '@tailwindcss/vite'
-import { defineConfig } from 'vitest/config'
+import react from '@vitejs/plugin-react'
+import {defineConfig} from 'vitest/config'
 
 function getBasePath(): string {
   const configured = process.env.VITE_BASE_PATH?.trim()
@@ -15,6 +17,11 @@ function getBasePath(): string {
 export default defineConfig({
   base: getBasePath(),
   plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
   server: {
     host: '127.0.0.1',
     port: 5173,

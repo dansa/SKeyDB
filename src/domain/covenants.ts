@@ -1,5 +1,6 @@
-import { z } from 'zod'
-import covenantsLite from '../data/covenants-lite.json'
+import {z} from 'zod'
+
+import covenantsLite from '@/data/covenants-lite.json'
 
 const rawCovenantsSchema = z.array(
   z.object({
@@ -9,7 +10,7 @@ const rawCovenantsSchema = z.array(
   }),
 )
 
-export type Covenant = {
+export interface Covenant {
   id: string
   assetId: string
   name: string

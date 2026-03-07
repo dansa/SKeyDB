@@ -1,6 +1,6 @@
-import type { MouseEvent } from 'react'
+import type {MouseEvent} from 'react'
 
-type TeamNameInlineEditorProps = {
+interface TeamNameInlineEditorProps {
   teamName: string
   isEditing: boolean
   draftName: string
@@ -12,7 +12,7 @@ type TeamNameInlineEditorProps = {
   onCancel: () => void
 }
 
-function joinClasses(...classes: Array<string | false | null | undefined>) {
+function joinClasses(...classes: (string | false | null | undefined)[]) {
   return classes.filter(Boolean).join(' ')
 }
 
@@ -34,10 +34,10 @@ export function TeamNameInlineEditor({
       <button
         aria-label={`Rename ${teamName}`}
         className={joinClasses(
-          'min-w-0 truncate border border-transparent text-left outline-none transition-colors',
+          'min-w-0 truncate border border-transparent text-left transition-colors outline-none',
           isHeader
             ? 'ui-title h-9 w-full cursor-text px-1.5 !text-2xl !leading-none text-amber-100 hover:border-amber-200/35 hover:bg-slate-900/30 hover:text-amber-50 focus-visible:border-amber-200/45 focus-visible:text-amber-50'
-            : 'h-6 w-full cursor-text select-none px-1 !text-xs !leading-none text-slate-100 hover:border-slate-300/35 hover:bg-slate-900/30 hover:text-amber-100 focus-visible:border-slate-300/45 focus-visible:text-amber-100',
+            : 'h-6 w-full cursor-text px-1 !text-xs !leading-none text-slate-100 select-none hover:border-slate-300/35 hover:bg-slate-900/30 hover:text-amber-100 focus-visible:border-slate-300/45 focus-visible:text-amber-100',
         )}
         onClick={(event) => {
           onDisplayClick?.(event)
@@ -47,8 +47,8 @@ export function TeamNameInlineEditor({
           event.stopPropagation()
           onBeginEdit()
         }}
-        title="Click to Rename"
-        type="button"
+        title='Click to Rename'
+        type='button'
       >
         {teamName}
       </button>
@@ -57,7 +57,7 @@ export function TeamNameInlineEditor({
 
   return (
     <input
-      aria-label="Team name"
+      aria-label='Team name'
       autoFocus
       className={joinClasses(
         'w-full border bg-slate-950/90 text-slate-100 outline-none',
@@ -66,8 +66,12 @@ export function TeamNameInlineEditor({
           : 'h-6 border-amber-200/55 px-1 !text-xs !leading-none focus:border-amber-200/75',
       )}
       onBlur={onCommit}
-      onChange={(event) => onDraftChange(event.target.value)}
-      onClick={(event) => event.stopPropagation()}
+      onChange={(event) => {
+        onDraftChange(event.target.value)
+      }}
+      onClick={(event) => {
+        event.stopPropagation()
+      }}
       onKeyDown={(event) => {
         if (event.key === 'Enter') {
           event.preventDefault()
@@ -79,7 +83,7 @@ export function TeamNameInlineEditor({
           onCancel()
         }
       }}
-      type="text"
+      type='text'
       value={draftName}
     />
   )

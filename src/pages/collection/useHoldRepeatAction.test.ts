@@ -1,6 +1,7 @@
-import { act, renderHook } from '@testing-library/react'
-import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { useHoldRepeatAction } from './useHoldRepeatAction'
+import {act, renderHook} from '@testing-library/react'
+import {beforeEach, describe, expect, it, vi} from 'vitest'
+
+import {useHoldRepeatAction} from './useHoldRepeatAction'
 
 function createPointerEvent() {
   return {
@@ -23,7 +24,7 @@ describe('useHoldRepeatAction', () => {
 
   it('runs action once on normal click', () => {
     const onStep = vi.fn()
-    const { result } = renderHook(() => useHoldRepeatAction({ onStep }))
+    const {result} = renderHook(() => useHoldRepeatAction({onStep}))
 
     act(() => {
       result.current.onClick(createMouseEvent())
@@ -34,9 +35,7 @@ describe('useHoldRepeatAction', () => {
 
   it('repeats action on hold and suppresses trailing click', () => {
     const onStep = vi.fn()
-    const { result } = renderHook(() =>
-      useHoldRepeatAction({ onStep, holdDelayMs: 200, repeatMs: 50 }),
-    )
+    const {result} = renderHook(() => useHoldRepeatAction({onStep, holdDelayMs: 200, repeatMs: 50}))
 
     act(() => {
       result.current.onPointerDown(createPointerEvent())
@@ -51,7 +50,7 @@ describe('useHoldRepeatAction', () => {
 
   it('does not run when disabled', () => {
     const onStep = vi.fn()
-    const { result } = renderHook(() => useHoldRepeatAction({ onStep, disabled: true }))
+    const {result} = renderHook(() => useHoldRepeatAction({onStep, disabled: true}))
 
     act(() => {
       result.current.onPointerDown(createPointerEvent())

@@ -1,5 +1,6 @@
-import { z } from 'zod'
-import rawTags from '../data/tags.json'
+import {z} from 'zod'
+
+import rawTags from '@/data/tags.json'
 
 const tagSchema = z.object({
   key: z.string().min(1),

@@ -1,16 +1,19 @@
-import { getAwakeners } from './awakeners'
-import { getCovenants } from './covenants'
-import { decodeIngameTeamCode, type IngameImportWarning } from './ingame-codec'
-import { getPosses } from './posses'
-import { getWheels } from './wheels'
-import { createEmptyTeamSlots } from '../pages/builder/constants'
-import type { Team, TeamSlot } from '../pages/builder/types'
+import {createEmptyTeamSlots} from '@/pages/builder/constants'
+import type {Team, TeamSlot} from '@/pages/builder/types'
+
+import {getAwakeners} from './awakeners'
+import {getCovenants} from './covenants'
+import {decodeIngameTeamCode, type IngameImportWarning} from './ingame-codec'
+import {getPosses} from './posses'
+import {getWheels} from './wheels'
 
 const singlePrefix = 't1.'
 const multiPrefix = 'mt1.'
 const slotsPerTeam = 4
 const bytesPerSlot = 5
 const bytesPerTeam = 1 + slotsPerTeam * bytesPerSlot
+const ingameCodePattern = /@@[A-Za-z0-9]+@@/
+const standardCodePattern = /\b(?:mt1|t1)\.[A-Za-z0-9_-]+\b/
 // `mt1.` reuses the high bit of the per-slot level byte for support state.
 // Old payloads remain unambiguous because builder levels stay within 1..90.
 const supportLevelFlag = 0x80
@@ -31,8 +34,8 @@ const covenantIndexById = new Map(covenants.map((covenant, index) => [covenant.i
 const covenantIdByIndex = new Map(covenants.map((covenant, index) => [index + 1, covenant.id]))
 
 export type DecodedImport =
-  | { kind: 'single'; team: Team; warnings?: IngameImportWarning[] }
-  | { kind: 'multi'; teams: Team[]; activeTeamIndex: number }
+  | {kind: 'single'; team: Team; warnings?: IngameImportWarning[]}
+  | {kind: 'multi'; teams: Team[]; activeTeamIndex: number}
 
 function extractImportCodeCandidate(rawValue: string): string {
   const trimmed = rawValue.trim()
@@ -48,12 +51,12 @@ function extractImportCodeCandidate(rawValue: string): string {
     return trimmed
   }
 
-  const ingameMatch = trimmed.match(/@@[A-Za-z0-9]+@@/)
+  const ingameMatch = ingameCodePattern.exec(trimmed)
   if (ingameMatch) {
     return ingameMatch[0]
   }
 
-  const standardMatch = trimmed.match(/\b(?:mt1|t1)\.[A-Za-z0-9_-]+\b/)
+  const standardMatch = standardCodePattern.exec(trimmed)
   if (standardMatch) {
     return standardMatch[0]
   }
@@ -61,12 +64,20 @@ function extractImportCodeCandidate(rawValue: string): string {
   return trimmed
 }
 
+function trimTrailingPadding(value: string): string {
+  let end = value.length
+  while (end > 0 && value[end - 1] === '=') {
+    end -= 1
+  }
+  return value.slice(0, end)
+}
+
 function bytesToBase64Url(bytes: Uint8Array): string {
   let binary = ''
-  for (let i = 0; i < bytes.length; i += 1) {
-    binary += String.fromCharCode(bytes[i])
+  for (const byte of bytes) {
+    binary += String.fromCharCode(byte)
   }
-  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '')
+  return trimTrailingPadding(btoa(binary).replace(/\+/g, '-').replace(/\//g, '_'))
 }
 
 function base64UrlToBytes(value: string): Uint8Array {
@@ -76,19 +87,20 @@ function base64UrlToBytes(value: string): Uint8Array {
   return Uint8Array.from(binary, (char) => char.charCodeAt(0))
 }
 
-function pushSlotBytes(buffer: number[], slot: TeamSlot, options?: { includeSupport?: boolean }) {
-  const awakenerId = slot.awakenerName ? awakenerIdByName.get(slot.awakenerName) ?? 0 : 0
+function pushSlotBytes(buffer: number[], slot: TeamSlot, options?: {includeSupport?: boolean}) {
+  const awakenerId = slot.awakenerName ? (awakenerIdByName.get(slot.awakenerName) ?? 0) : 0
   if (awakenerId > 255) {
     throw new Error('Awakener ID exceeds export format limits.')
   }
-  const rawLevel = awakenerId ? slot.level ?? 0 : 0
+  const rawLevel = awakenerId ? (slot.level ?? 0) : 0
   if (rawLevel < 0 || rawLevel > levelValueMask) {
     throw new Error('Awakener level exceeds export format limits.')
   }
-  const level = options?.includeSupport && awakenerId && slot.isSupport ? rawLevel | supportLevelFlag : rawLevel
-  const wheelOne = awakenerId && slot.wheels[0] ? wheelIndexById.get(slot.wheels[0]) ?? 0 : 0
-  const wheelTwo = awakenerId && slot.wheels[1] ? wheelIndexById.get(slot.wheels[1]) ?? 0 : 0
-  const covenant = awakenerId && slot.covenantId ? covenantIndexById.get(slot.covenantId) ?? 0 : 0
+  const level =
+    options?.includeSupport && awakenerId && slot.isSupport ? rawLevel | supportLevelFlag : rawLevel
+  const wheelOne = awakenerId && slot.wheels[0] ? (wheelIndexById.get(slot.wheels[0]) ?? 0) : 0
+  const wheelTwo = awakenerId && slot.wheels[1] ? (wheelIndexById.get(slot.wheels[1]) ?? 0) : 0
+  const covenant = awakenerId && slot.covenantId ? (covenantIndexById.get(slot.covenantId) ?? 0) : 0
   if (wheelOne > 255 || wheelTwo > 255) {
     throw new Error('Equipment index exceeds export format limits.')
   }
@@ -99,8 +111,8 @@ function pushSlotBytes(buffer: number[], slot: TeamSlot, options?: { includeSupp
   buffer.push(awakenerId, level, wheelOne, wheelTwo, covenant)
 }
 
-function pushTeamBytes(buffer: number[], team: Team, options?: { includeSupport?: boolean }) {
-  const posseIndex = team.posseId ? posseIndexById.get(team.posseId) ?? 0 : 0
+function pushTeamBytes(buffer: number[], team: Team, options?: {includeSupport?: boolean}) {
+  const posseIndex = team.posseId ? (posseIndexById.get(team.posseId) ?? 0) : 0
   if (posseIndex > 255) {
     throw new Error('Posse index exceeds export format limits.')
   }
@@ -111,7 +123,48 @@ function pushTeamBytes(buffer: number[], team: Team, options?: { includeSupport?
   }
 }
 
-function decodeSlot(bytes: Uint8Array, offset: number, slotId: string, options?: { includeSupport?: boolean }): TeamSlot {
+function getDecodedAwakener(awakenerId: number) {
+  if (!awakenerId) {
+    return undefined
+  }
+
+  const awakener = awakenerById.get(awakenerId)
+  if (!awakener) {
+    throw new Error(`Unknown awakener id: ${String(awakenerId)}`)
+  }
+  return awakener
+}
+
+function getDecodedWheelId(wheelIndex: number): string | null {
+  if (!wheelIndex) {
+    return null
+  }
+
+  const wheelId = wheelIdByIndex.get(wheelIndex)
+  if (!wheelId) {
+    throw new Error(`Unknown wheel index: ${String(wheelIndex)}`)
+  }
+  return wheelId
+}
+
+function getDecodedCovenantId(covenantIndex: number): string | undefined {
+  if (!covenantIndex) {
+    return undefined
+  }
+
+  const covenantId = covenantIdByIndex.get(covenantIndex)
+  if (!covenantId) {
+    throw new Error(`Unknown covenant index: ${String(covenantIndex)}`)
+  }
+  return covenantId
+}
+
+function decodeSlot(
+  bytes: Uint8Array,
+  offset: number,
+  slotId: string,
+  options?: {includeSupport?: boolean},
+): TeamSlot {
   const awakenerId = bytes[offset]
   const encodedLevel = bytes[offset + 1]
   const wheelOne = bytes[offset + 2]
@@ -120,19 +173,11 @@ function decodeSlot(bytes: Uint8Array, offset: number, slotId: string, options?:
   const isSupport = options?.includeSupport ? (encodedLevel & supportLevelFlag) !== 0 : false
   const level = encodedLevel & levelValueMask
 
-  const awakener = awakenerId ? awakenerById.get(awakenerId) : undefined
-  if (awakenerId && !awakener) {
-    throw new Error(`Unknown awakener id: ${awakenerId}`)
-  }
-  if (awakenerId && wheelOne && !wheelIdByIndex.has(wheelOne)) {
-    throw new Error(`Unknown wheel index: ${wheelOne}`)
-  }
-  if (awakenerId && wheelTwo && !wheelIdByIndex.has(wheelTwo)) {
-    throw new Error(`Unknown wheel index: ${wheelTwo}`)
-  }
-  if (awakenerId && covenant && !covenantIdByIndex.has(covenant)) {
-    throw new Error(`Unknown covenant index: ${covenant}`)
-  }
+  const awakener = getDecodedAwakener(awakenerId)
+  const decodedWheels: [string | null, string | null] = awakener
+    ? [getDecodedWheelId(wheelOne), getDecodedWheelId(wheelTwo)]
+    : [null, null]
+  const covenantId = awakener ? getDecodedCovenantId(covenant) : undefined
 
   return {
     slotId,
@@ -140,10 +185,8 @@ function decodeSlot(bytes: Uint8Array, offset: number, slotId: string, options?:
     realm: awakener?.realm,
     level: awakener ? level || 60 : undefined,
     isSupport: awakener && isSupport ? true : undefined,
-    wheels: awakener
-      ? [wheelOne ? wheelIdByIndex.get(wheelOne)! : null, wheelTwo ? wheelIdByIndex.get(wheelTwo)! : null]
-      : [null, null],
-    covenantId: awakener && covenant ? covenantIdByIndex.get(covenant) : undefined,
+    wheels: decodedWheels,
+    covenantId,
   }
 }
 
@@ -151,8 +194,8 @@ function decodeTeam(
   bytes: Uint8Array,
   offset: number,
   teamIndex: number,
-  options?: { includeSupport?: boolean },
-): { team: Team; nextOffset: number } {
+  options?: {includeSupport?: boolean},
+): {team: Team; nextOffset: number} {
   if (offset + 1 > bytes.length) {
     throw new Error('Corrupted import code: missing team header.')
   }
@@ -160,7 +203,7 @@ function decodeTeam(
   let cursor = offset + 1
 
   if (posseIndex && !posseIdByIndex.has(posseIndex)) {
-    throw new Error(`Unknown posse index: ${posseIndex}`)
+    throw new Error(`Unknown posse index: ${String(posseIndex)}`)
   }
 
   if (cursor + slotsPerTeam * bytesPerSlot > bytes.length) {
@@ -169,15 +212,15 @@ function decodeTeam(
 
   const emptySlots = createEmptyTeamSlots()
   const slots: TeamSlot[] = []
-  for (let slotIndex = 0; slotIndex < slotsPerTeam; slotIndex += 1) {
-    slots.push(decodeSlot(bytes, cursor, emptySlots[slotIndex].slotId, options))
+  for (const slot of emptySlots) {
+    slots.push(decodeSlot(bytes, cursor, slot.slotId, options))
     cursor += bytesPerSlot
   }
 
   return {
     team: {
-      id: `imported-team-${teamIndex}-${crypto.randomUUID()}`,
-      name: `Team ${teamIndex + 1}`,
+      id: `imported-team-${String(teamIndex)}-${crypto.randomUUID()}`,
+      name: `Team ${String(teamIndex + 1)}`,
       slots,
       posseId: posseIndex ? posseIdByIndex.get(posseIndex) : undefined,
     },
@@ -195,14 +238,75 @@ export function encodeMultiTeamCode(teams: Team[], activeTeamId: string): string
   if (teams.length > 255) {
     throw new Error('Too many teams to export.')
   }
-  const activeTeamIndex = Math.max(0, teams.findIndex((team) => team.id === activeTeamId))
+  const activeTeamIndex = Math.max(
+    0,
+    teams.findIndex((team) => team.id === activeTeamId),
+  )
   if (activeTeamIndex > 255) {
     throw new Error('Active team index exceeds export format limits.')
   }
 
   const buffer: number[] = [activeTeamIndex, teams.length]
-  teams.forEach((team) => pushTeamBytes(buffer, team, { includeSupport: true }))
+  for (const team of teams) {
+    pushTeamBytes(buffer, team, {includeSupport: true})
+  }
   return `${multiPrefix}${bytesToBase64Url(Uint8Array.from(buffer))}`
+}
+
+function decodeSingleTeamImport(payload: string): DecodedImport {
+  const bytes = base64UrlToBytes(payload)
+  if (bytes.length !== bytesPerTeam) {
+    throw new Error('Corrupted import code: invalid single-team payload length.')
+  }
+
+  const decoded = decodeTeam(bytes, 0, 0)
+  if (decoded.nextOffset !== bytes.length) {
+    throw new Error('Corrupted import code: trailing data in single-team payload.')
+  }
+
+  return {kind: 'single', team: decoded.team}
+}
+
+function decodeMultiTeamImport(payload: string): DecodedImport {
+  const bytes = base64UrlToBytes(payload)
+  if (bytes.length < 2) {
+    throw new Error('Corrupted import code: missing multi-team header.')
+  }
+
+  const activeTeamIndex = bytes[0]
+  const teamCount = bytes[1]
+  if (activeTeamIndex >= teamCount) {
+    throw new Error('Corrupted import code: invalid active team index.')
+  }
+  if (bytes.length !== 2 + teamCount * bytesPerTeam) {
+    throw new Error('Corrupted import code: invalid multi-team payload length.')
+  }
+
+  let offset = 2
+  const teams: Team[] = []
+  for (let teamIndex = 0; teamIndex < teamCount; teamIndex += 1) {
+    const decoded = decodeTeam(bytes, offset, teamIndex, {includeSupport: true})
+    teams.push(decoded.team)
+    offset = decoded.nextOffset
+  }
+  if (offset !== bytes.length) {
+    throw new Error('Corrupted import code: trailing data in multi-team payload.')
+  }
+
+  return {
+    kind: 'multi',
+    activeTeamIndex,
+    teams,
+  }
+}
+
+function decodeWrappedIngameImport(payload: string): DecodedImport {
+  const decoded = decodeIngameTeamCode(payload)
+  return {
+    kind: 'single',
+    team: decoded.team,
+    warnings: decoded.warnings,
+  }
 }
 
 export function decodeImportCode(code: string): DecodedImport {
@@ -212,56 +316,15 @@ export function decodeImportCode(code: string): DecodedImport {
   }
 
   if (trimmed.startsWith(singlePrefix)) {
-    const bytes = base64UrlToBytes(trimmed.slice(singlePrefix.length))
-    if (bytes.length !== bytesPerTeam) {
-      throw new Error('Corrupted import code: invalid single-team payload length.')
-    }
-    const decoded = decodeTeam(bytes, 0, 0)
-    if (decoded.nextOffset !== bytes.length) {
-      throw new Error('Corrupted import code: trailing data in single-team payload.')
-    }
-    return { kind: 'single', team: decoded.team }
+    return decodeSingleTeamImport(trimmed.slice(singlePrefix.length))
   }
 
   if (trimmed.startsWith(multiPrefix)) {
-    const bytes = base64UrlToBytes(trimmed.slice(multiPrefix.length))
-    if (bytes.length < 2) {
-      throw new Error('Corrupted import code: missing multi-team header.')
-    }
-    const activeTeamIndex = bytes[0]
-    const teamCount = bytes[1]
-    if (activeTeamIndex >= teamCount) {
-      throw new Error('Corrupted import code: invalid active team index.')
-    }
-    if (bytes.length !== 2 + teamCount * bytesPerTeam) {
-      throw new Error('Corrupted import code: invalid multi-team payload length.')
-    }
-    let offset = 2
-
-    const teams: Team[] = []
-    for (let teamIndex = 0; teamIndex < teamCount; teamIndex += 1) {
-      const decoded = decodeTeam(bytes, offset, teamIndex, { includeSupport: true })
-      teams.push(decoded.team)
-      offset = decoded.nextOffset
-    }
-    if (offset !== bytes.length) {
-      throw new Error('Corrupted import code: trailing data in multi-team payload.')
-    }
-
-    return {
-      kind: 'multi',
-      activeTeamIndex,
-      teams,
-    }
+    return decodeMultiTeamImport(trimmed.slice(multiPrefix.length))
   }
 
   if (trimmed.startsWith('@@') && trimmed.endsWith('@@')) {
-    const decoded = decodeIngameTeamCode(trimmed)
-    return {
-      kind: 'single',
-      team: decoded.team,
-      warnings: decoded.warnings,
-    }
+    return decodeWrappedIngameImport(trimmed)
   }
 
   throw new Error('Unsupported import code prefix.')

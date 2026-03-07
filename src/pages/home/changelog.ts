@@ -1,126 +1,120 @@
-export type ChangelogItem = {
-  date: string;
-  summary: string;
-};
+export interface ChangelogItem {
+  date: string
+  summary: string
+}
 
 export const changelogItems: ChangelogItem[] = [
   {
-    date: "2026-03-06",
-    summary: "Added the ability to 'Level Up' characters to scale their stats and skills in real time, thanks to Jynn for the super helpful spreadsheet that made this possible. Lots of other fixes and tweaks to the db!"
-  },
-  {
-    date: "2026-03-05",
+    date: '2026-03-06',
     summary:
-      "Database is finally live and actually usable. You can browse awakeners, filter/sort them, and open much richer detail popups. Big first step, more polish and content coming next."
+      "Added the ability to 'Level Up' characters to scale their stats and skills in real time, thanks to Jynn for the super helpful spreadsheet that made this possible. Lots of other fixes and tweaks to the db!",
   },
   {
-    date: "2026-03-01",
+    date: '2026-03-05',
     summary:
-      "Quick Team Lineup is live in the builder, putting together a team has (hopefully) never been smoother. This feature took a lot of tinkering to feel right, please let me know if you have any feedback!"
+      'Database is finally live and actually usable. You can browse awakeners, filter/sort them, and open much richer detail popups. Big first step, more polish and content coming next.',
   },
   {
-    date: "2026-03-01",
+    date: '2026-03-01',
     summary:
-      "Builder now allows for 1 support awakener in multi-team planning to help with D-tide comps, an 'allow duplicates' toggle was also added in the builder, so you can finally live our your dreams of 4 Clems."
+      'Quick Team Lineup is live in the builder, putting together a team has (hopefully) never been smoother. This feature took a lot of tinkering to feel right, please let me know if you have any feedback!',
   },
   {
-    date: "2026-02-28",
+    date: '2026-03-01',
     summary:
-      "Teams got a richer expanded preview toggle and now support drag-and-drop, surely it's easier to review and reshuffle a full planner now."
+      "Builder now allows for 1 support awakener in multi-team planning to help with D-tide comps, an 'allow duplicates' toggle was also added in the builder, so you can finally live our your dreams of 4 Clems.",
   },
   {
-    date: "2026-02-27",
+    date: '2026-02-28',
     summary:
-      "WIP support for ingame team codes was added, including import and export, giga thanks to Zekie, Frost and Fish for the help mapping out characters and wheel codes!"
+      "Teams got a richer expanded preview toggle and now support drag-and-drop, surely it's easier to review and reshuffle a full planner now.",
   },
   {
-    date: "2026-02-27",
+    date: '2026-02-27',
+    summary:
+      'WIP support for ingame team codes was added, including import and export, giga thanks to Zekie, Frost and Fish for the help mapping out characters and wheel codes!',
+  },
+  {
+    date: '2026-02-27',
     summary:
       "Lots of various QoL improvements, couple of fixes and changes. You can review 2026-02-23 in the docs folder on github for a more detailed changelog in this pass, and what's planned for the future.",
   },
   {
-    date: "2026-02-26",
+    date: '2026-02-26',
     summary:
-      "Builder and Collection both got a pretty big UI polish pass: tabbed layouts, cleaner toolbars, hopefully easier to navigate and use the pages now."
+      'Builder and Collection both got a pretty big UI polish pass: tabbed layouts, cleaner toolbars, hopefully easier to navigate and use the pages now.',
   },
   {
-    date: "2026-02-25 (ish)",
+    date: '2026-02-25 (ish)',
     summary:
-      "Sorting was introduced for the collection and other pages, which hopefully resembles what you'd expect to see ingame."
+      "Sorting was introduced for the collection and other pages, which hopefully resembles what you'd expect to see ingame.",
   },
   {
-    date: "2026-02-24",
+    date: '2026-02-24',
     summary:
-      "Collection now supports editable awakener Lv. tracking (1-90), plus that level is shown on builder cards too.",
+      'Collection now supports editable awakener Lv. tracking (1-90), plus that level is shown on builder cards too.',
   },
   {
-    date: "2026-02-24",
+    date: '2026-02-24',
     summary:
-      "Box export in /collection got a big glow-up: live preview controls, cleaner styling, and more reliable PNG output across browsers.",
+      'Box export in /collection got a big glow-up: live preview controls, cleaner styling, and more reliable PNG output across browsers.',
   },
   {
-    date: "2026-02-23",
-    summary:
-      "Added our very first branding! A very cute key icon (favicon) made by lavenderjun0!",
+    date: '2026-02-23',
+    summary: 'Added our very first branding! A very cute key icon (favicon) made by lavenderjun0!',
   },
   {
-    date: "2026-02-23",
+    date: '2026-02-23',
     summary:
-      "Collection ownership tracking is now live with quick toggles, level controls, and local persistence.",
+      'Collection ownership tracking is now live with quick toggles, level controls, and local persistence.',
   },
   {
-    date: "2026-02-23",
-    summary:
-      "Collection data can now be saved to and loaded from a local snapshot file.",
+    date: '2026-02-23',
+    summary: 'Collection data can now be saved to and loaded from a local snapshot file.',
   },
   {
-    date: "2026-02-22",
-    summary:
-      "Wheel filters got smarter, so it is easier to find what you want quickly.",
+    date: '2026-02-22',
+    summary: 'Wheel filters got smarter, so it is easier to find what you want quickly.',
   },
   {
-    date: "2026-02-22",
-    summary:
-      "Wheel and covenant handling in the builder became more polished and consistent.",
+    date: '2026-02-22',
+    summary: 'Wheel and covenant handling in the builder became more polished and consistent.',
   },
   {
-    date: "2026-02-22",
+    date: '2026-02-22',
     summary:
-      "The builder now supports wheel slots and covenant slots as part of normal team setup.",
+      'The builder now supports wheel slots and covenant slots as part of normal team setup.',
   },
   {
-    date: "2026-02-22",
-    summary:
-      "Import and export flow was streamlined so sharing teams is faster and cleaner.",
+    date: '2026-02-22',
+    summary: 'Import and export flow was streamlined so sharing teams is faster and cleaner.',
   },
   {
-    date: "2026-02-21",
+    date: '2026-02-21',
     summary:
-      "Multi-team planning was added, including cleaner team switching and better team management.",
+      'Multi-team planning was added, including cleaner team switching and better team management.',
   },
   {
-    date: "2026-02-21",
-    summary:
-      "Safer move and replace behavior was added when editing teams with existing picks.",
+    date: '2026-02-21',
+    summary: 'Safer move and replace behavior was added when editing teams with existing picks.',
   },
   {
-    date: "2026-02-20",
+    date: '2026-02-20',
     summary:
-      "Active slot interactions were improved to make card editing more clear while building.",
+      'Active slot interactions were improved to make card editing more clear while building.',
   },
   {
-    date: "2026-02-20",
-    summary:
-      "Project docs and deployment flow were prepared for public testing builds.",
+    date: '2026-02-20',
+    summary: 'Project docs and deployment flow were prepared for public testing builds.',
   },
   {
-    date: "2026-02-20",
+    date: '2026-02-20',
     summary:
-      "SKeyDB naming and base builder flow were set up as the first public-ready foundation.",
+      'SKeyDB naming and base builder flow were set up as the first public-ready foundation.',
   },
   {
-    date: "2025-12-something",
+    date: '2025-12-something',
     summary:
-      "Project was started and swiftly put on indefinite hold due to lack of assets and resources.. 8)",
+      'Project was started and swiftly put on indefinite hold due to lack of assets and resources.. 8)',
   },
-];
+]

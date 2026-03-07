@@ -1,13 +1,20 @@
-import { afterEach, beforeEach, vi } from 'vitest'
-import { BUILDER_PERSISTENCE_KEY } from './builder/builder-persistence'
+import {afterEach, beforeEach, vi} from 'vitest'
+
+import {BUILDER_PERSISTENCE_KEY} from './builder/builder-persistence'
 
 vi.mock('../domain/awakeners', () => ({
   getAwakeners: () => [
-    { id: 1, name: 'goliath', faction: 'Among the Stars', realm: 'CHAOS', aliases: ['goliath'] },
-    { id: 2, name: 'ramona', faction: 'The Fools', realm: 'CHAOS', aliases: ['ramona'] },
-    { id: 3, name: 'ramona: timeworn', faction: 'The Fools', realm: 'CHAOS', aliases: ['timeworn ramona'] },
-    { id: 4, name: 'agrippa', faction: 'Outlanders', realm: 'AEQUOR', aliases: ['agrippa'] },
-    { id: 5, name: 'casiah', faction: 'The Fools', realm: 'CARO', aliases: ['casiah'] },
+    {id: 1, name: 'goliath', faction: 'Among the Stars', realm: 'CHAOS', aliases: ['goliath']},
+    {id: 2, name: 'ramona', faction: 'The Fools', realm: 'CHAOS', aliases: ['ramona']},
+    {
+      id: 3,
+      name: 'ramona: timeworn',
+      faction: 'The Fools',
+      realm: 'CHAOS',
+      aliases: ['timeworn ramona'],
+    },
+    {id: 4, name: 'agrippa', faction: 'Outlanders', realm: 'AEQUOR', aliases: ['agrippa']},
+    {id: 5, name: 'casiah', faction: 'The Fools', realm: 'CARO', aliases: ['casiah']},
   ],
 }))
 
@@ -46,15 +53,22 @@ vi.mock('../domain/wheels', () => ({
 
 vi.mock('../domain/posses', () => ({
   getPosses: () => [
-    { id: '33', index: 33, name: 'Taverns Opening', realm: 'CHAOS', isFadedLegacy: false, awakenerName: 'goliath' },
-    { id: '01', index: 1, name: 'Warded Injection', realm: 'AEQUOR', isFadedLegacy: false },
+    {
+      id: '33',
+      index: 33,
+      name: 'Taverns Opening',
+      realm: 'CHAOS',
+      isFadedLegacy: false,
+      awakenerName: 'goliath',
+    },
+    {id: '01', index: 1, name: 'Warded Injection', realm: 'AEQUOR', isFadedLegacy: false},
   ],
 }))
 
 vi.mock('../domain/covenants', () => ({
   getCovenants: () => [
-    { id: 'c01', assetId: 'Covenant_01', name: 'Deus Ex Machina' },
-    { id: 'c02', assetId: 'Covenant_02', name: 'Signal Pulse' },
+    {id: 'c01', assetId: 'Covenant_01', name: 'Deus Ex Machina'},
+    {id: 'c02', assetId: 'Covenant_02', name: 'Signal Pulse'},
   ],
 }))
 
@@ -68,7 +82,8 @@ vi.mock('../domain/covenant-assets', () => ({
 
 vi.mock('../domain/awakener-assets', () => ({
   getAwakenerCardAsset: (awakenerName: string) => `/mock/awakeners/${awakenerName}-card.png`,
-  getAwakenerPortraitAsset: (awakenerName: string) => `/mock/awakeners/${awakenerName}-portrait.png`,
+  getAwakenerPortraitAsset: (awakenerName: string) =>
+    `/mock/awakeners/${awakenerName}-portrait.png`,
 }))
 
 vi.mock('../domain/posse-assets', () => ({

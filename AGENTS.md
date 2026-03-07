@@ -47,8 +47,9 @@ Its job is to reduce churn, keep logic in the right layer, and preserve repo-spe
 ## 3) Ownership Boundaries
 
 1. File ownership:
-- `src/domain/*`: business rules, codecs, normalization, validation, comparators
+- `src/domain/*`: business rules, codecs, normalization, validation, comparators, shared utilities
 - `src/pages/builder/*`: orchestration, page-level state, builder view-model logic
+- `src/pages/collection/*`: collection ownership state, export pipeline, collection view-model logic
 - `src/components/ui/*`: reusable UI primitives
 - `src/data/*`: canonical static data with stable IDs
 
@@ -68,6 +69,14 @@ Its job is to reduce churn, keep logic in the right layer, and preserve repo-spe
 5. Sorting ownership:
 - shared ordering policy belongs in domain comparators
 - page code may assemble sortable fields, but should not duplicate comparator policy
+
+6. Storage ownership:
+- use the existing `safeStorageRead`/`safeStorageWrite` abstractions in `src/domain/storage.ts`
+- do not use raw `window.localStorage` or `window.sessionStorage` directly
+
+7. Shared utility ownership:
+- if a pure function (search normalization, clamping, validation, config resolution) is needed by more than one page or module, it belongs in `src/domain/*`
+- before writing or inlining a utility, check whether one already exists in domain
 
 ## 4) Agent Workflow
 
@@ -103,7 +112,8 @@ Its job is to reduce churn, keep logic in the right layer, and preserve repo-spe
 1. Keep logic easy to scan:
 - inline tiny single-use logic
 - extract repeated or conceptually meaningful logic
-- split files or components before they become god objects
+- split files before they exceed ~500 lines; treat 700+ as a strong signal to extract
+- for React files: separate pure logic (config, transforms, batch operations) from hook/component code when both are substantial
 
 2. Keep structure shallow:
 - avoid deep nesting
@@ -118,6 +128,17 @@ Its job is to reduce churn, keep logic in the right layer, and preserve repo-spe
 4. Hygiene:
 - remove unused imports, dead variables, and dead branches in touched code
 - do not leave debug-only code behind
+
+5. Extraction quality bar:
+- new components must own state, effects, or meaningful derivation, or be a distinct visual zone with a narrow interface
+- new hooks must own state, effects, or refs — not just bundle unrelated derived values
+- if an extraction requires passing through most of the parent's props or state, it probably does not improve ownership
+- apply the delete test: if deleting the extraction and inlining the code back would not make the parent worse, the extraction was artificial
+
+6. Deduplication:
+- never copy-paste a pure function across files; extract to a shared location on first reuse
+- when adding a utility, search `src/domain/` for existing equivalents before creating a new one
+- page-specific wrappers around shared utilities are fine, but the core logic must not be duplicated
 
 ## 6) Data and Codec Rules
 

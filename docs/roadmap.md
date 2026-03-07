@@ -1,6 +1,6 @@
 # SKeyDB Roadmap
 
-Last updated: 2026-03-06
+Last updated: 2026-03-07
 
 ## Current priorities
 
@@ -29,6 +29,7 @@ Last updated: 2026-03-06
 
 ## Recently shipped foundations
 
+- Repo strict TypeScript ESLint compliance cleanup, plus an optional isolated React sidecar lint diagnostic for high-value React rules.
 - Database detail modal: Overview and Cards tabs with rich text parsing, interactive skill/tag popovers, deep-linked awakener routes, exact level 1-90 stat scaling, font size accessibility controls (S/M/L), and shared rendering infrastructure for future tabs.
 - Database & Tools page initial pass with filters, search, sorting, basic modal.
 - Multi-team builder and cross-team management.

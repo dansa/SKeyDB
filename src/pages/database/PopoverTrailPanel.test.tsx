@@ -1,6 +1,7 @@
-import { act, render, waitFor } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
-import { PopoverTrailPanel } from './PopoverTrailPanel'
+import {act, render, waitFor} from '@testing-library/react'
+import {afterEach, describe, expect, it, vi} from 'vitest'
+
+import {PopoverTrailPanel} from './PopoverTrailPanel'
 
 function makeRect(overrides: Partial<DOMRect> = {}): DOMRect {
   return {
@@ -52,7 +53,9 @@ describe('PopoverTrailPanel', () => {
       bottom: 80,
     })
 
-    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function (this: HTMLElement) {
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function (
+      this: HTMLElement,
+    ) {
       if (this === anchorElement) {
         return anchorRect
       }
@@ -62,18 +65,23 @@ describe('PopoverTrailPanel', () => {
       return makeRect()
     })
 
+    const onCloseTop = vi.fn()
+
     render(
       <PopoverTrailPanel
         anchorElement={anchorElement}
         anchorRect={anchorRect}
         itemCount={1}
-        onCloseTop={() => {}}
+        onCloseTop={onCloseTop}
       >
         <div>Popover content</div>
       </PopoverTrailPanel>,
     )
 
-    const panel = document.querySelector('[data-skill-popover]') as HTMLDivElement
+    const panel = document.querySelector<HTMLDivElement>('[data-skill-popover]')
+    if (!panel) {
+      throw new Error('Expected popover trail panel to render')
+    }
 
     await waitFor(() => {
       expect(panel.style.top).toBe('126px')

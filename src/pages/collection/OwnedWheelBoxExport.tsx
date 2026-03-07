@@ -1,6 +1,6 @@
-import { OwnedAssetBoxExport, type OwnedAssetBoxEntry } from './OwnedAssetBoxExport'
+import {OwnedAssetBoxExport, type OwnedAssetBoxEntry} from './OwnedAssetBoxExport'
 
-export type OwnedWheelBoxEntry = {
+export interface OwnedWheelBoxEntry {
   id: string
   name: string
   rarity: 'SSR' | 'SR' | 'R'
@@ -10,15 +10,15 @@ export type OwnedWheelBoxEntry = {
   wheelAsset: string | null
 }
 
-type OwnedWheelBoxExportProps = {
+interface OwnedWheelBoxExportProps {
   entries: OwnedWheelBoxEntry[]
   onStatusMessage: (message: string) => void
 }
 
 const wheelRarityOptions = [
-  { value: 'SSR', label: 'SSR' },
-  { value: 'SR', label: 'SR' },
-  { value: 'R', label: 'R' },
+  {value: 'SSR', label: 'SSR'},
+  {value: 'SR', label: 'SR'},
+  {value: 'R', label: 'R'},
 ] as const
 
 const defaultIncludedRarities: Record<(typeof wheelRarityOptions)[number]['value'], boolean> = {
@@ -27,9 +27,9 @@ const defaultIncludedRarities: Record<(typeof wheelRarityOptions)[number]['value
   R: false,
 }
 
-export function OwnedWheelBoxExport({ entries, onStatusMessage }: OwnedWheelBoxExportProps) {
-  const normalizedEntries: OwnedAssetBoxEntry<(typeof wheelRarityOptions)[number]['value']>[] = entries.map(
-    (entry) => ({
+export function OwnedWheelBoxExport({entries, onStatusMessage}: OwnedWheelBoxExportProps) {
+  const normalizedEntries: OwnedAssetBoxEntry<(typeof wheelRarityOptions)[number]['value']>[] =
+    entries.map((entry) => ({
       id: entry.id,
       label: entry.name,
       level: entry.level,
@@ -37,26 +37,25 @@ export function OwnedWheelBoxExport({ entries, onStatusMessage }: OwnedWheelBoxE
       rarity: entry.rarity,
       realm: entry.realm,
       sortIndex: entry.index,
-    }),
-  )
+    }))
 
   return (
     <OwnedAssetBoxExport
-      assetAltNoun="wheel"
-      buttonLabel="Export wheels as PNG (owned only)"
-      cardAspectClassName="aspect-[75/113]"
+      assetAltNoun='wheel'
+      buttonLabel='Export wheels as PNG (owned only)'
+      cardAspectClassName='aspect-[75/113]'
       defaultIncludedRarities={defaultIncludedRarities}
       entries={normalizedEntries}
-      filenamePrefix="skeydb-wheel-box"
-      imageClassName="h-full w-full object-cover object-center scale-[1.2]"
-      modalTitle="Export Owned Wheel Box"
-      nameToggleLabel="Wheel Names"
+      filenamePrefix='skeydb-wheel-box'
+      imageClassName='h-full w-full object-cover object-center scale-[1.2]'
+      modalTitle='Export Owned Wheel Box'
+      nameToggleLabel='Wheel Names'
       onStatusMessage={onStatusMessage}
-      placeholderClassName="sigil-placeholder-wheel"
+      placeholderClassName='sigil-placeholder-wheel'
       rarityOptions={wheelRarityOptions}
-      sortBehavior="WHEEL_DEFAULT"
+      sortBehavior='WHEEL_DEFAULT'
       sortOptions={[]}
-      storageKeyPrefix="skeydb.ownedWheelBoxExport"
+      storageKeyPrefix='skeydb.ownedWheelBoxExport'
     />
   )
 }

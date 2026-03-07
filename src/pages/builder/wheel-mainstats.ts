@@ -2,4 +2,4 @@ export {
   matchesWheelMainstat,
   wheelMainstatFilterOptions,
   type WheelMainstatFilterOption,
-} from '../../domain/wheel-mainstat-filters'
+} from '@/domain/wheel-mainstat-filters'

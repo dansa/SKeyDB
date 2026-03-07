@@ -15,4 +15,3 @@ const wheelAssetByAssetId = new Map(
 export function getWheelAssetById(wheelId: string): string | undefined {
   return wheelAssetByAssetId.get(`Weapon_Full_${wheelId}`)
 }
-

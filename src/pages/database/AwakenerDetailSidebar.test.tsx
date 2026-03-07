@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
-import type { Awakener } from '../../domain/awakeners'
-import type { AwakenerFullStats, AwakenerSubstatScaling } from '../../domain/awakeners-full'
-import { AwakenerDetailSidebar } from './AwakenerDetailSidebar'
+import {render, screen} from '@testing-library/react'
+import {describe, expect, it, vi} from 'vitest'
+
+import type {Awakener} from '@/domain/awakeners'
+import type {AwakenerFullStats, AwakenerSubstatScaling} from '@/domain/awakeners-full'
+
+import {AwakenerDetailSidebar} from './AwakenerDetailSidebar'
 
 vi.mock('../../domain/awakener-assets', () => ({
   getAwakenerCardAsset: () => null,
@@ -17,7 +19,7 @@ vi.mock('../../domain/mainstats', () => ({
 }))
 
 vi.mock('./AwakenerLevelSlider', () => ({
-  AwakenerLevelSlider: ({ level }: { level: number }) => <div>Level slider {level}</div>,
+  AwakenerLevelSlider: ({level}: {level: number}) => <div>Level slider {level}</div>,
 }))
 
 const TEST_AWAKENER: Awakener = {
@@ -64,13 +66,15 @@ describe('AwakenerDetailSidebar', () => {
       />,
     )
 
-    expect(screen.getByRole('heading', { name: 'Attributes' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', {name: 'Attributes'})).toBeInTheDocument()
     expect(screen.queryByText('(Lv. 60)')).not.toBeInTheDocument()
     expect(screen.getByText('E3+0')).toBeInTheDocument()
 
     expect(screen.getByText('140')).toHaveClass('text-slate-200')
     expect(screen.getByText('14.6%')).toHaveClass('text-slate-200')
-    expect(screen.getByTitle('Level scaling: +1.6% per 10 levels to Lv. 60')).toHaveTextContent('14.6%')
+    expect(screen.getByTitle('Level scaling: +1.6% per 10 levels to Lv. 60')).toHaveTextContent(
+      '14.6%',
+    )
     expect(screen.getByText(/psyche surge bonuses shown from e3\+0 to e3\+12/i)).toBeInTheDocument()
   })
 })

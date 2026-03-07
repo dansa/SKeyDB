@@ -1,8 +1,7 @@
-import { ModalFrame } from './ModalFrame'
-import { Button } from './Button'
-import type { ButtonVariant } from './Button'
+import {Button, type ButtonVariant} from './Button'
+import {ModalFrame} from './ModalFrame'
 
-type ConfirmDialogProps = {
+interface ConfirmDialogProps {
   title: string
   message: string
   confirmLabel?: string
@@ -31,13 +30,13 @@ export function ConfirmDialog({
 }: ConfirmDialogProps) {
   return (
     <ModalFrame overlayClassName={overlayClassName} panelClassName={dialogClassName} title={title}>
-      <p className="mt-2 text-sm text-slate-200">{message}</p>
-      <div className="mt-4 flex justify-end gap-2">
-        <Button onClick={onCancel} variant="secondary">
+      <p className='mt-2 text-sm text-slate-200'>{message}</p>
+      <div className='mt-4 flex justify-end gap-2'>
+        <Button onClick={onCancel} variant='secondary'>
           {cancelLabel}
         </Button>
         {secondaryLabel && onSecondary ? (
-          <Button onClick={onSecondary} variant="secondary">
+          <Button onClick={onSecondary} variant='secondary'>
             {secondaryLabel}
           </Button>
         ) : null}

@@ -1,16 +1,17 @@
-import { z } from 'zod'
-import rawMainstats from '../data/mainstats.json'
-import icon001 from '../assets/icons/UI_Battle_White_Buff_001.png'
-import icon002 from '../assets/icons/UI_Battle_White_Buff_002.png'
-import icon003 from '../assets/icons/UI_Battle_White_Buff_003.png'
-import icon004 from '../assets/icons/UI_Battle_White_Buff_004.png'
-import icon005 from '../assets/icons/UI_Battle_White_Buff_005.png'
-import icon006 from '../assets/icons/UI_Battle_White_Buff_006.png'
-import icon007 from '../assets/icons/UI_Battle_White_Buff_007.png'
-import icon008 from '../assets/icons/UI_Battle_White_Buff_008.png'
-import icon009 from '../assets/icons/UI_Battle_White_Buff_009.png'
-import icon010 from '../assets/icons/UI_Battle_White_Buff_010.png'
-import icon011 from '../assets/icons/UI_Battle_White_Buff_011.png'
+import {z} from 'zod'
+
+import icon001 from '@/assets/icons/UI_Battle_White_Buff_001.png'
+import icon002 from '@/assets/icons/UI_Battle_White_Buff_002.png'
+import icon003 from '@/assets/icons/UI_Battle_White_Buff_003.png'
+import icon004 from '@/assets/icons/UI_Battle_White_Buff_004.png'
+import icon005 from '@/assets/icons/UI_Battle_White_Buff_005.png'
+import icon006 from '@/assets/icons/UI_Battle_White_Buff_006.png'
+import icon007 from '@/assets/icons/UI_Battle_White_Buff_007.png'
+import icon008 from '@/assets/icons/UI_Battle_White_Buff_008.png'
+import icon009 from '@/assets/icons/UI_Battle_White_Buff_009.png'
+import icon010 from '@/assets/icons/UI_Battle_White_Buff_010.png'
+import icon011 from '@/assets/icons/UI_Battle_White_Buff_011.png'
+import rawMainstats from '@/data/mainstats.json'
 
 export const MAINSTAT_KEYS = [
   'CRIT_RATE',
@@ -50,11 +51,14 @@ const parsedMainstats = z.array(mainstatSchema).parse(rawMainstats)
 export type Mainstat = (typeof parsedMainstats)[number]
 export type MainstatKey = (typeof MAINSTAT_KEYS)[number]
 export type WheelMainstatKey = (typeof WHEEL_MAINSTAT_KEYS)[number]
-type WheelMainstat = Mainstat & { key: WheelMainstatKey }
+type WheelMainstat = Mainstat & {key: WheelMainstatKey}
 
 const mainstatByKey = new Map(parsedMainstats.map((mainstat) => [mainstat.key, mainstat]))
 function normalizeValue(value: string): string {
-  return value.trim().toLowerCase().replace(/[^a-z0-9]+/g, '')
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '')
 }
 
 const mainstatByNormalizedAlias = new Map<string, Mainstat>()
@@ -71,7 +75,9 @@ export function getMainstats(): Mainstat[] {
 
 export function getWheelFilterMainstats(): WheelMainstat[] {
   const wheelKeySet = new Set<string>(WHEEL_MAINSTAT_KEYS)
-  return parsedMainstats.filter((mainstat): mainstat is WheelMainstat => wheelKeySet.has(mainstat.key))
+  return parsedMainstats.filter((mainstat): mainstat is WheelMainstat =>
+    wheelKeySet.has(mainstat.key),
+  )
 }
 
 export function getMainstatByKey(key: MainstatKey): Mainstat | undefined {
@@ -105,4 +111,4 @@ export function getMainstatIcon(key: MainstatKey): string | undefined {
   return mainstat ? MAINSTAT_ICON_BY_ID[mainstat.iconId] : undefined
 }
 
-export { MAINSTAT_ICON_BY_ID }
+export {MAINSTAT_ICON_BY_ID}

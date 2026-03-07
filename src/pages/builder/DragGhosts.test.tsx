@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import {render, screen} from '@testing-library/react'
+import {describe, expect, it} from 'vitest'
+
 import '../builder-page.integration-mocks'
-import { TeamCardGhost, TeamPreviewGhost } from './DragGhosts'
-import type { Team, TeamSlot } from './types'
+
+import {TeamCardGhost, TeamPreviewGhost} from './DragGhosts'
+import type {Team, TeamSlot} from './types'
 
 describe('TeamCardGhost', () => {
   it('renders the shared meta row with level, dupe, and covenant visuals', () => {
@@ -15,7 +17,7 @@ describe('TeamCardGhost', () => {
       covenantId: 'c01',
     }
 
-    const { container } = render(
+    const {container} = render(
       <TeamCardGhost awakenerOwnedLevel={5} slot={slot} wheelOwnedLevels={[null, null]} />,
     )
 
@@ -38,15 +40,15 @@ describe('TeamPreviewGhost', () => {
           wheels: ['SR19', null],
           covenantId: 'c01',
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ],
     }
 
-    const { container } = render(
+    const {container} = render(
       <TeamPreviewGhost
-        mode="expanded"
+        mode='expanded'
         ownedAwakenerLevelByName={new Map([['ramona', 1]])}
         ownedWheelLevelById={new Map([['SR19', 3]])}
         team={team}

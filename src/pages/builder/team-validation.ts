@@ -1,9 +1,9 @@
-import { validateTeamPlan } from '../../domain/team-rules'
-import type { RuleViolation } from '../../domain/team-rules'
-import type { Team } from './types'
-import { toTeamPlan } from './team-plan'
+import {validateTeamPlan, type RuleViolation} from '@/domain/team-rules'
 
-type ValidateBuilderTeamsOptions = {
+import {toTeamPlan} from './team-plan'
+import type {Team} from './types'
+
+interface ValidateBuilderTeamsOptions {
   allowDupes?: boolean
 }
 
@@ -16,7 +16,7 @@ export function validateBuilderTeams(teams: Team[], options?: ValidateBuilderTea
 }
 
 export function validateBuilderTeamsStrict(teams: Team[]) {
-  return validateBuilderTeams(teams, { allowDupes: false })
+  return validateBuilderTeams(teams, {allowDupes: false})
 }
 
 export function getNonDuplicateRuleViolations(violations: RuleViolation[]) {

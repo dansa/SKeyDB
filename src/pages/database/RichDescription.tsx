@@ -1,15 +1,11 @@
-import { useCallback, useEffect, useId, useState } from 'react'
-import { createPortal } from 'react-dom'
-import {
-  parseRichDescription,
-} from '../../domain/rich-text'
-import type { AwakenerFull, AwakenerCard } from '../../domain/awakeners-full'
-import type { AwakenerFullStats } from '../../domain/awakeners-full'
-import { type Tag } from '../../domain/tags'
-import { PopoverTrailPanel } from './PopoverTrailPanel'
-import { RichSegmentRenderer } from './RichSegmentRenderer'
-import { SkillPopover } from './SkillPopover'
-import { TagPopover } from './TagPopover'
+import {useCallback, useEffect, useId, useState} from 'react'
+
+import {createPortal} from 'react-dom'
+
+import type {AwakenerCard, AwakenerFull, AwakenerFullStats} from '@/domain/awakeners-full'
+import {parseRichDescription} from '@/domain/rich-text'
+import {type Tag} from '@/domain/tags'
+
 import {
   closeTrailFromIndex,
   closeTrailTop as closeTrailTopEntry,
@@ -20,8 +16,12 @@ import {
   type TagTrailEntry,
   type TrailEntry,
 } from './popover-trail'
+import {PopoverTrailPanel} from './PopoverTrailPanel'
+import {RichSegmentRenderer} from './RichSegmentRenderer'
+import {SkillPopover} from './SkillPopover'
+import {TagPopover} from './TagPopover'
 
-type RichDescriptionProps = {
+interface RichDescriptionProps {
   text: string
   cardNames: Set<string>
   fullData: AwakenerFull | null
@@ -30,7 +30,7 @@ type RichDescriptionProps = {
   onNavigateToCards?: () => void
 }
 
-type CardInfo = {
+interface CardInfo {
   card: AwakenerCard
   label: string
 }
@@ -45,9 +45,10 @@ export function RichDescription({
   skillLevel,
   onNavigateToCards,
 }: RichDescriptionProps) {
-  const rouseAwareCards = (fullData && fullData.cards['C1'] && !cardNames.has('Rouse'))
-    ? new Set([...cardNames, 'Rouse'])
-    : cardNames
+  const rouseAwareCards =
+    fullData && hasRouseCard(fullData) && !cardNames.has('Rouse')
+      ? new Set([...cardNames, 'Rouse'])
+      : cardNames
   const segments = parseRichDescription(text, rouseAwareCards)
   const [trail, setTrail] = useState<TrailEntry[]>([])
   const [trailAnchorRect, setTrailAnchorRect] = useState<DOMRect | null>(null)
@@ -62,19 +63,21 @@ export function RichDescription({
 
   useEffect(() => {
     function handleTrailOpened(event: Event) {
-      const detail = (event as CustomEvent<{ ownerId?: string }>).detail
-      if (detail?.ownerId === ownerId) {
+      const detail = (event as CustomEvent<{ownerId?: string}>).detail
+      if (detail.ownerId === ownerId) {
         return
       }
       clearTrail()
     }
 
     window.addEventListener(TRAIL_OPENED_EVENT, handleTrailOpened as EventListener)
-    return () => window.removeEventListener(TRAIL_OPENED_EVENT, handleTrailOpened as EventListener)
+    return () => {
+      window.removeEventListener(TRAIL_OPENED_EVENT, handleTrailOpened as EventListener)
+    }
   }, [clearTrail, ownerId])
 
   const announceTrailOpened = useCallback(() => {
-    window.dispatchEvent(new CustomEvent(TRAIL_OPENED_EVENT, { detail: { ownerId } }))
+    window.dispatchEvent(new CustomEvent(TRAIL_OPENED_EVENT, {detail: {ownerId}}))
   }, [ownerId])
 
   const handleSkillClick = useCallback(
@@ -160,7 +163,7 @@ export function RichDescription({
             segment={seg}
             skillLevel={skillLevel}
             stats={stats}
-            variant="inline"
+            variant='inline'
           />
         ))}
       </span>
@@ -180,7 +183,9 @@ export function RichDescription({
                     key={entry.key}
                     label={entry.label}
                     name={entry.name}
-                    onClose={() => closeTrailFrom(index)}
+                    onClose={() => {
+                      closeTrailFrom(index)
+                    }}
                     onMechanicTokenClick={openNestedTag}
                     onNavigateToCards={onNavigateToCards ? handleNavigateToCards : undefined}
                     onSkillTokenClick={openNestedSkill}
@@ -190,7 +195,9 @@ export function RichDescription({
                   <TagPopover
                     cardNames={rouseAwareCards}
                     key={entry.key}
-                    onClose={() => closeTrailFrom(index)}
+                    onClose={() => {
+                      closeTrailFrom(index)
+                    }}
                     onMechanicTokenClick={openNestedTag}
                     onSkillTokenClick={openNestedSkill}
                     tag={entry.tag}
@@ -223,32 +230,77 @@ function buildTagTrailEntry(tag: Tag): TagTrailEntry {
   }
 }
 
-function resolveCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
-  if (name === 'Rouse') {
-    const c1 = fullData.cards['C1']
-    if (c1) return { card: c1, label: `Rouse · Cost ${c1.cost}` }
+function createDescriptionCardInfo(name: string, description: string, label: string): CardInfo {
+  return {
+    card: {name, cost: '—', description},
+    label,
   }
+}
+
+function hasRouseCard(fullData: AwakenerFull): boolean {
+  return Object.hasOwn(fullData.cards, 'C1')
+}
+
+function findRouseCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
+  if (name !== 'Rouse' || !hasRouseCard(fullData)) {
+    return null
+  }
+  const rouseCard = fullData.cards.C1
+
+  return {card: rouseCard, label: `Rouse · Cost ${rouseCard.cost}`}
+}
+
+function findStandardCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
   for (const [key, card] of Object.entries(fullData.cards)) {
-    if (card.name === name) {
-      const slotLabel = key === 'C1' ? 'Rouse' : key
-      return { card, label: `${slotLabel} · Cost ${card.cost}` }
+    if (card.name !== name) {
+      continue
     }
+
+    const slotLabel = key === 'C1' ? 'Rouse' : key
+    return {card, label: `${slotLabel} · Cost ${card.cost}`}
   }
+
+  return null
+}
+
+function findExaltCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
   if (fullData.exalts.exalt.name === name) {
-    return { card: { name, cost: '—', description: fullData.exalts.exalt.description }, label: 'Exalt' }
+    return createDescriptionCardInfo(name, fullData.exalts.exalt.description, 'Exalt')
   }
+
   if (fullData.exalts.over_exalt.name === name) {
-    return { card: { name, cost: '—', description: fullData.exalts.over_exalt.description }, label: 'Over Exalt' }
+    return createDescriptionCardInfo(name, fullData.exalts.over_exalt.description, 'Over Exalt')
   }
+
+  return null
+}
+
+function findTalentCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
   for (const [key, talent] of Object.entries(fullData.talents)) {
     if (talent.name === name) {
-      return { card: { name, cost: '—', description: talent.description }, label: `Talent · ${key}` }
+      return createDescriptionCardInfo(name, talent.description, `Talent · ${key}`)
     }
   }
+
+  return null
+}
+
+function findEnlightenCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
   for (const [key, enlighten] of Object.entries(fullData.enlightens)) {
     if (enlighten.name === name) {
-      return { card: { name, cost: '—', description: enlighten.description }, label: `Enlighten · ${key}` }
+      return createDescriptionCardInfo(name, enlighten.description, `Enlighten · ${key}`)
     }
   }
+
   return null
+}
+
+function resolveCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
+  return (
+    findRouseCardInfo(fullData, name) ??
+    findStandardCardInfo(fullData, name) ??
+    findExaltCardInfo(fullData, name) ??
+    findTalentCardInfo(fullData, name) ??
+    findEnlightenCardInfo(fullData, name)
+  )
 }

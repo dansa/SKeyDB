@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import {useState} from 'react'
 
-export type PendingAwakenerTransfer = {
+export interface PendingAwakenerTransfer {
   kind: 'awakener'
   itemName: string
   awakenerName: string
@@ -10,7 +10,7 @@ export type PendingAwakenerTransfer = {
   targetSlotId?: string
 }
 
-export type PendingPosseTransfer = {
+export interface PendingPosseTransfer {
   kind: 'posse'
   itemName: string
   posseId: string
@@ -18,7 +18,7 @@ export type PendingPosseTransfer = {
   toTeamId: string
 }
 
-export type PendingWheelTransfer = {
+export interface PendingWheelTransfer {
   kind: 'wheel'
   itemName: string
   wheelId: string
@@ -32,7 +32,7 @@ export type PendingWheelTransfer = {
 
 export type PendingTransfer = PendingAwakenerTransfer | PendingPosseTransfer | PendingWheelTransfer
 
-type RequestAwakenerTransfer = {
+interface RequestAwakenerTransfer {
   awakenerName: string
   canUseSupport?: boolean
   fromTeamId: string
@@ -40,14 +40,14 @@ type RequestAwakenerTransfer = {
   targetSlotId?: string
 }
 
-type RequestPosseTransfer = {
+interface RequestPosseTransfer {
   posseId: string
   posseName: string
   fromTeamId: string
   toTeamId: string
 }
 
-type RequestWheelTransfer = {
+interface RequestWheelTransfer {
   wheelId: string
   fromTeamId: string
   fromSlotId: string
@@ -78,7 +78,7 @@ export function useTransferConfirm() {
     })
   }
 
-  function requestPosseTransfer({ posseId, posseName, fromTeamId, toTeamId }: RequestPosseTransfer) {
+  function requestPosseTransfer({posseId, posseName, fromTeamId, toTeamId}: RequestPosseTransfer) {
     setPendingTransfer({
       kind: 'posse',
       itemName: posseName,

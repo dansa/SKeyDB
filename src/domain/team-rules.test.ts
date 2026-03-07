@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest'
-import { validateTeamPlan, type TeamPlan } from './team-rules'
+import {describe, expect, it} from 'vitest'
+
+import {validateTeamPlan, type TeamPlan} from './team-rules'
 
 function buildValidPlan(): TeamPlan[] {
   return [
@@ -7,18 +8,18 @@ function buildValidPlan(): TeamPlan[] {
       id: 'team-1',
       posseId: 'posse-a',
       members: [
-        { awakenerId: 'agrippa', realm: 'CARO', wheelIds: ['w1', 'w2'] },
-        { awakenerId: 'helot: catena', realm: 'CARO', wheelIds: ['w3', 'w4'] },
-        { awakenerId: 'tulu', realm: 'AEQUOR', wheelIds: ['w5', 'w6'] },
-        { awakenerId: 'miryam', realm: 'AEQUOR', wheelIds: ['w7', 'w8'] },
+        {awakenerId: 'agrippa', realm: 'CARO', wheelIds: ['w1', 'w2']},
+        {awakenerId: 'helot: catena', realm: 'CARO', wheelIds: ['w3', 'w4']},
+        {awakenerId: 'tulu', realm: 'AEQUOR', wheelIds: ['w5', 'w6']},
+        {awakenerId: 'miryam', realm: 'AEQUOR', wheelIds: ['w7', 'w8']},
       ],
     },
     {
       id: 'team-2',
       posseId: 'posse-b',
       members: [
-        { awakenerId: 'goliath', realm: 'AEQUOR', wheelIds: ['w9', 'w10'] },
-        { awakenerId: 'ramona: timeworn', realm: 'CHAOS', wheelIds: ['w11', 'w12'] },
+        {awakenerId: 'goliath', realm: 'AEQUOR', wheelIds: ['w9', 'w10']},
+        {awakenerId: 'ramona: timeworn', realm: 'CHAOS', wheelIds: ['w11', 'w12']},
       ],
     },
   ]
@@ -32,8 +33,8 @@ describe('validateTeamPlan', () => {
   })
 
   it('rejects plans with more than 10 teams', () => {
-    const teams: TeamPlan[] = Array.from({ length: 11 }, (_, index) => ({
-      id: `team-${index + 1}`,
+    const teams: TeamPlan[] = Array.from({length: 11}, (_, index) => ({
+      id: `team-${String(index + 1)}`,
       members: [],
     }))
     const result = validateTeamPlan(teams)
@@ -44,7 +45,7 @@ describe('validateTeamPlan', () => {
 
   it('rejects teams with more than 2 realms', () => {
     const plan = buildValidPlan()
-    plan[0].members.push({ awakenerId: 'wanda', realm: 'ULTRA', wheelIds: ['w13', 'w14'] })
+    plan[0].members.push({awakenerId: 'wanda', realm: 'ULTRA', wheelIds: ['w13', 'w14']})
 
     const result = validateTeamPlan(plan)
 
@@ -54,24 +55,26 @@ describe('validateTeamPlan', () => {
 
   it('rejects duplicate awakeners across teams', () => {
     const plan = buildValidPlan()
-    plan[1].members.push({ awakenerId: 'agrippa', realm: 'CARO', wheelIds: ['w15', 'w16'] })
+    plan[1].members.push({awakenerId: 'agrippa', realm: 'CARO', wheelIds: ['w15', 'w16']})
 
     const result = validateTeamPlan(plan)
 
     expect(result.isValid).toBe(false)
-    expect(result.violations.some((v) => v.code === 'DUPLICATE_AWAKENER' && v.value === 'agrippa')).toBe(
-      true,
-    )
+    expect(
+      result.violations.some((v) => v.code === 'DUPLICATE_AWAKENER' && v.value === 'agrippa'),
+    ).toBe(true)
   })
 
   it('rejects duplicate wheels across all teams', () => {
     const plan = buildValidPlan()
-    plan[1].members.push({ awakenerId: 'casiah', realm: 'ULTRA', wheelIds: ['w2', 'w17'] })
+    plan[1].members.push({awakenerId: 'casiah', realm: 'ULTRA', wheelIds: ['w2', 'w17']})
 
     const result = validateTeamPlan(plan)
 
     expect(result.isValid).toBe(false)
-    expect(result.violations.some((v) => v.code === 'DUPLICATE_WHEEL' && v.value === 'w2')).toBe(true)
+    expect(result.violations.some((v) => v.code === 'DUPLICATE_WHEEL' && v.value === 'w2')).toBe(
+      true,
+    )
   })
 
   it('rejects duplicate posse selections across all teams', () => {
@@ -81,14 +84,14 @@ describe('validateTeamPlan', () => {
     const result = validateTeamPlan(plan)
 
     expect(result.isValid).toBe(false)
-    expect(result.violations.some((v) => v.code === 'DUPLICATE_POSSE' && v.value === 'posse-a')).toBe(
-      true,
-    )
+    expect(
+      result.violations.some((v) => v.code === 'DUPLICATE_POSSE' && v.value === 'posse-a'),
+    ).toBe(true)
   })
 
   it('can ignore duplicate violations while still enforcing realm limits', () => {
     const plan = buildValidPlan()
-    plan[1].members.push({ awakenerId: 'agrippa', realm: 'CHAOS', wheelIds: ['w2', 'w17'] })
+    plan[1].members.push({awakenerId: 'agrippa', realm: 'CHAOS', wheelIds: ['w2', 'w17']})
     plan[1].posseId = 'posse-a'
 
     const result = validateTeamPlan(plan, {
@@ -145,6 +148,8 @@ describe('validateTeamPlan', () => {
     const result = validateTeamPlan(plan)
 
     expect(result.isValid).toBe(false)
-    expect(result.violations.some((v) => v.code === 'DUPLICATE_AWAKENER' && v.teamId === 'team-1')).toBe(true)
+    expect(
+      result.violations.some((v) => v.code === 'DUPLICATE_AWAKENER' && v.teamId === 'team-1'),
+    ).toBe(true)
   })
 })

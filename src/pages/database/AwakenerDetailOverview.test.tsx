@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
-import type { Awakener } from '../../domain/awakeners'
-import type { AwakenerFull } from '../../domain/awakeners-full'
-import { AwakenerDetailOverview } from './AwakenerDetailOverview'
+import {render, screen} from '@testing-library/react'
+import {describe, expect, it, vi} from 'vitest'
+
+import type {Awakener} from '@/domain/awakeners'
+import type {AwakenerFull} from '@/domain/awakeners-full'
+
+import {AwakenerDetailOverview} from './AwakenerDetailOverview'
 
 vi.mock('../../domain/relics', () => ({
   getPortraitRelicByAwakenerIngameId: () => null,
@@ -13,7 +15,7 @@ vi.mock('../../domain/relic-assets', () => ({
 }))
 
 vi.mock('./RichDescription', () => ({
-  RichDescription: ({ text }: { text: string }) => <span>{text}</span>,
+  RichDescription: ({text}: {text: string}) => <span>{text}</span>,
 }))
 
 const TEST_AWAKENER: Awakener = {
@@ -58,14 +60,14 @@ const TEST_FULL_DATA: AwakenerFull = {
   substatScaling: {},
   cards: {},
   exalts: {
-    exalt: { name: 'Exalt', description: 'Exalt description' },
-    over_exalt: { name: 'Over Exalt', description: 'Over Exalt description' },
+    exalt: {name: 'Exalt', description: 'Exalt description'},
+    over_exalt: {name: 'Over Exalt', description: 'Over Exalt description'},
   },
   talents: {
-    T1: { name: 'First Talent', description: 'First description' },
-    T2: { name: 'Second Talent', description: 'Second description' },
-    T3: { name: 'Third Talent', description: 'Third description' },
-    T4: { name: 'Fourth Talent', description: 'Fourth description' },
+    T1: {name: 'First Talent', description: 'First description'},
+    T2: {name: 'Second Talent', description: 'Second description'},
+    T3: {name: 'Third Talent', description: 'Third description'},
+    T4: {name: 'Fourth Talent', description: 'Fourth description'},
   },
   enlightens: {},
 }

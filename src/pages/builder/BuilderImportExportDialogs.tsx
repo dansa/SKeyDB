@@ -1,26 +1,44 @@
-import { ConfirmDialog } from '../../components/ui/ConfirmDialog'
-import { ExportCodeDialog } from '../../components/ui/ExportCodeDialog'
-import { ImportCodeDialog } from '../../components/ui/ImportCodeDialog'
-import { ImportStrategyDialog } from '../../components/ui/ImportStrategyDialog'
-import type { ImportConflict } from './import-planner'
-import type { Team } from './types'
+import {ConfirmDialog} from '@/components/ui/ConfirmDialog'
+import {ExportCodeDialog} from '@/components/ui/ExportCodeDialog'
+import {ImportCodeDialog} from '@/components/ui/ImportCodeDialog'
+import {ImportStrategyDialog} from '@/components/ui/ImportStrategyDialog'
 
-type BuilderImportExportDialogsProps = {
+import type {ImportConflict} from './import-planner'
+import type {Team} from './types'
+
+interface BuilderReplaceImportState {
+  teams: Team[]
+  activeTeamIndex: number
+}
+
+interface BuilderStrategyImportState {
+  team: Team
+  conflicts: ImportConflict[]
+}
+
+interface BuilderExportDialogState {
+  title: string
+  code: string
+  kind: 'standard' | 'ingame'
+  duplicateWarning?: string
+}
+
+export interface BuilderImportExportDialogsProps {
   isImportDialogOpen: boolean
   onCancelImport: () => void
   onSubmitImport: (code: string) => void
   pendingDuplicateOverrideImport: object | null
   onCancelDuplicateOverrideImport: () => void
   onConfirmDuplicateOverrideImport: () => void
-  pendingReplaceImport: { teams: Team[]; activeTeamIndex: number } | null
+  pendingReplaceImport: BuilderReplaceImportState | null
   onCancelReplaceImport: () => void
   onConfirmReplaceImport: () => void
-  pendingStrategyImport: { team: Team; conflicts: ImportConflict[] } | null
+  pendingStrategyImport: BuilderStrategyImportState | null
   pendingStrategyConflictSummary: string
   onCancelStrategyImport: () => void
   onMoveStrategyImport: () => void
   onSkipStrategyImport: () => void
-  exportDialog: { title: string; code: string; kind: 'standard' | 'ingame'; duplicateWarning?: string } | null
+  exportDialog: BuilderExportDialogState | null
   onCloseExportDialog: () => void
 }
 
@@ -34,9 +52,9 @@ const ingameSupportContactNote = (
 
 function renderIngameImportWarning() {
   return (
-    <p className="text-xs text-rose-300">
-      In-game `@@...@@` import is work in progress. Covenants and posse slots are NOT supported yet and will import as
-      empty when using import codes from the game.
+    <p className='text-xs text-rose-300'>
+      In-game `@@...@@` import is work in progress. Covenants and posse slots are NOT supported yet
+      and will import as empty when using import codes from the game.
       <br />
       <br />
       {ingameSupportContactNote}
@@ -46,7 +64,7 @@ function renderIngameImportWarning() {
 
 function renderIngameExportWarning() {
   return (
-    <p className="text-xs text-rose-300">
+    <p className='text-xs text-rose-300'>
       In-game export is work in progress. Covenants and posses are NOT supported yet.
       <br />
       <br />
@@ -85,23 +103,23 @@ export function BuilderImportExportDialogs({
 
       {pendingReplaceImport ? (
         <ConfirmDialog
-          cancelLabel="Cancel"
-          confirmLabel="Replace"
-          message="This import will replace your current builder setup."
+          cancelLabel='Cancel'
+          confirmLabel='Replace'
+          message='This import will replace your current builder setup.'
           onCancel={onCancelReplaceImport}
           onConfirm={onConfirmReplaceImport}
-          title="Replace Current Teams?"
+          title='Replace Current Teams?'
         />
       ) : null}
 
       {pendingDuplicateOverrideImport ? (
         <ConfirmDialog
-          cancelLabel="Cancel"
-          confirmLabel="Enable and Import"
-          message="This import contains duplicate units, wheels, or posses. Enable Allow Dupes and continue?"
+          cancelLabel='Cancel'
+          confirmLabel='Enable and Import'
+          message='This import contains duplicate units, wheels, or posses. Enable Allow Dupes and continue?'
           onCancel={onCancelDuplicateOverrideImport}
           onConfirm={onConfirmDuplicateOverrideImport}
-          title="Import Uses Duplicates"
+          title='Import Uses Duplicates'
         />
       ) : null}
 
@@ -126,10 +144,10 @@ export function BuilderImportExportDialogs({
           title={exportDialog.title}
           warning={
             exportDialog.kind === 'ingame' || exportDialog.duplicateWarning ? (
-              <div className="space-y-2">
+              <div className='space-y-2'>
                 {exportDialog.kind === 'ingame' ? renderIngameExportWarning() : null}
                 {exportDialog.duplicateWarning ? (
-                  <p className="text-xs text-rose-300">{exportDialog.duplicateWarning}</p>
+                  <p className='text-xs text-rose-300'>{exportDialog.duplicateWarning}</p>
                 ) : null}
               </div>
             ) : undefined

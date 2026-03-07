@@ -1,21 +1,21 @@
-import { createEmptyTeamSlots } from './constants'
-import type { Team } from './types'
+import {createEmptyTeamSlots} from './constants'
+import type {Team} from './types'
 
 export const MAX_TEAMS = 10
 
-type AddTeamResult = {
+interface AddTeamResult {
   nextTeams: Team[]
   addedTeamId?: string
 }
 
-type DeleteTeamResult = {
+interface DeleteTeamResult {
   nextTeams: Team[]
   nextActiveTeamId: string
 }
 
 export type TeamTemplateId = 'DTIDE_5' | 'DTIDE_10'
 
-type ApplyTeamTemplateResult = {
+interface ApplyTeamTemplateResult {
   nextTeams: Team[]
   createdCount: number
   renamedCount: number
@@ -23,9 +23,11 @@ type ApplyTeamTemplateResult = {
   removedCount: number
 }
 
+const teamNamePattern = /^Team\s+(\d+)$/i
+
 function getHighestTeamNumber(teams: Team[]) {
   return teams.reduce((maxValue, team) => {
-    const match = team.name.match(/^Team\s+(\d+)$/i)
+    const match = teamNamePattern.exec(team.name)
     if (!match) {
       return maxValue
     }
@@ -48,11 +50,11 @@ export function createInitialTeams(): Team[] {
 
 export function addTeam(currentTeams: Team[]): AddTeamResult {
   if (currentTeams.length >= MAX_TEAMS) {
-    return { nextTeams: currentTeams }
+    return {nextTeams: currentTeams}
   }
 
   const nextTeamNumber = getHighestTeamNumber(currentTeams) + 1
-  const nextTeam = createTeam(`Team ${nextTeamNumber}`)
+  const nextTeam = createTeam(`Team ${String(nextTeamNumber)}`)
   return {
     nextTeams: [...currentTeams, nextTeam],
     addedTeamId: nextTeam.id,
@@ -74,7 +76,11 @@ export function renameTeam(currentTeams: Team[], teamId: string, nextName: strin
   )
 }
 
-export function deleteTeam(currentTeams: Team[], teamId: string, activeTeamId: string): DeleteTeamResult {
+export function deleteTeam(
+  currentTeams: Team[],
+  teamId: string,
+  activeTeamId: string,
+): DeleteTeamResult {
   if (currentTeams.length <= 1) {
     return {
       nextTeams: currentTeams,
@@ -97,7 +103,11 @@ export function deleteTeam(currentTeams: Team[], teamId: string, activeTeamId: s
   }
 }
 
-export function reorderTeams(currentTeams: Team[], sourceTeamId: string, targetTeamId: string): Team[] {
+export function reorderTeams(
+  currentTeams: Team[],
+  sourceTeamId: string,
+  targetTeamId: string,
+): Team[] {
   if (sourceTeamId === targetTeamId) {
     return currentTeams
   }
@@ -162,7 +172,10 @@ export function resetTeam(currentTeams: Team[], teamId: string): Team[] {
   )
 }
 
-export function applyTeamTemplate(currentTeams: Team[], templateId: TeamTemplateId): ApplyTeamTemplateResult {
+export function applyTeamTemplate(
+  currentTeams: Team[],
+  templateId: TeamTemplateId,
+): ApplyTeamTemplateResult {
   const templateNames = getTemplateNames(templateId)
   const targetCount = Math.min(templateNames.length, MAX_TEAMS)
   let nextTeams = [...currentTeams]
@@ -180,7 +193,7 @@ export function applyTeamTemplate(currentTeams: Team[], templateId: TeamTemplate
     if (team.name === nextName) {
       continue
     }
-    nextTeams[index] = { ...team, name: nextName }
+    nextTeams[index] = {...team, name: nextName}
     renamedCount += 1
   }
 
@@ -194,7 +207,7 @@ export function applyTeamTemplate(currentTeams: Team[], templateId: TeamTemplate
   }
 
   if (neededTeams === 0 && renamedCount === 0 && removedCount === 0) {
-    return { nextTeams: currentTeams, createdCount: 0, renamedCount: 0, removedCount: 0, targetCount }
+    return {nextTeams: currentTeams, createdCount: 0, renamedCount: 0, removedCount: 0, targetCount}
   }
 
   return {

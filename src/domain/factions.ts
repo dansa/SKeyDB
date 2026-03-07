@@ -1,7 +1,7 @@
-import aequorIcon from '../assets/factions/aequor.png'
-import caroIcon from '../assets/factions/caro.png'
-import chaosIcon from '../assets/factions/chaos.png'
-import ultraIcon from '../assets/factions/ultra.png'
+import aequorIcon from '@/assets/factions/aequor.png'
+import caroIcon from '@/assets/factions/caro.png'
+import chaosIcon from '@/assets/factions/chaos.png'
+import ultraIcon from '@/assets/factions/ultra.png'
 
 export const DEFAULT_REALM_TINT = '#7a8da8'
 
@@ -28,7 +28,7 @@ export const REALM_ICON_BY_ID: Record<string, string> = {
 
 export const REALM_TINT_BY_LABEL: Record<string, string> = Object.fromEntries(
   Object.entries(REALM_TINT_BY_ID).map(([id, tint]) => [
-    REALM_LABEL_BY_ID[id as keyof typeof REALM_LABEL_BY_ID] ?? id,
+    REALM_LABEL_BY_ID[id as keyof typeof REALM_LABEL_BY_ID],
     tint,
   ]),
 )
@@ -45,7 +45,11 @@ export function getRealmTint(realmId: string | undefined): string {
 }
 
 export function getRealmLabel(realmId: string): string {
-  return REALM_LABEL_BY_ID[normalizeRealmId(realmId) as keyof typeof REALM_LABEL_BY_ID] ?? realmId
+  const normalizedRealmId = normalizeRealmId(realmId)
+  if (normalizedRealmId in REALM_LABEL_BY_ID) {
+    return REALM_LABEL_BY_ID[normalizedRealmId as keyof typeof REALM_LABEL_BY_ID]
+  }
+  return realmId
 }
 
 export function getRealmIcon(realmId: string | undefined): string | undefined {

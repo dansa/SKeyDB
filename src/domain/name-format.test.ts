@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest'
-import { formatAwakenerNameForUi } from './name-format'
+import {describe, expect, it} from 'vitest'
+
+import {formatAwakenerNameForUi} from './name-format'
 
 describe('formatAwakenerNameForUi', () => {
   it('converts names to title case while preserving separators', () => {

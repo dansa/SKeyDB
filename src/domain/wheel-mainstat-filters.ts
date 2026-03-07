@@ -1,4 +1,4 @@
-import { getWheelFilterMainstats, MAINSTAT_ICON_BY_ID } from './mainstats'
+import {getWheelFilterMainstats, MAINSTAT_ICON_BY_ID} from './mainstats'
 
 export type WheelMainstatFilter =
   | 'ALL'
@@ -11,14 +11,14 @@ export type WheelMainstatFilter =
   | 'SIGIL_YIELD'
   | 'DEATH_RESISTANCE'
 
-export type WheelMainstatFilterOption = {
+export interface WheelMainstatFilterOption {
   id: WheelMainstatFilter
   label: string
   iconAsset?: string
 }
 
 export const wheelMainstatFilterOptions: WheelMainstatFilterOption[] = [
-  { id: 'ALL', label: 'All Mainstats' },
+  {id: 'ALL', label: 'All Mainstats'},
   ...getWheelFilterMainstats().map((mainstat) => ({
     id: mainstat.key,
     label: mainstat.label,

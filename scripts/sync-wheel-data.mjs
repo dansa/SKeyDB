@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import {fileURLToPath} from 'node:url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -62,7 +62,7 @@ async function main() {
 
   const wheelFiles = (await fs.readdir(wheelsAssetsDir))
     .filter((filename) => filename.toLowerCase().endsWith('.png'))
-    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+    .sort((a, b) => a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'}))
 
   const wheels = []
   const seen = new Set()
@@ -78,9 +78,13 @@ async function main() {
     const existing = existingById.get(parsed.id)
     wheels.push({
       ...parsed,
-      name: typeof existing?.name === 'string' && existing.name.trim().length > 0 ? existing.name : parsed.name,
+      name:
+        typeof existing?.name === 'string' && existing.name.trim().length > 0
+          ? existing.name
+          : parsed.name,
       awakener: typeof existing?.awakener === 'string' ? existing.awakener : parsed.awakener,
-      mainstatKey: typeof existing?.mainstatKey === 'string' ? existing.mainstatKey : parsed.mainstatKey,
+      mainstatKey:
+        typeof existing?.mainstatKey === 'string' ? existing.mainstatKey : parsed.mainstatKey,
     })
   }
 
@@ -92,4 +96,3 @@ main().catch((error) => {
   console.error(error)
   process.exitCode = 1
 })
-

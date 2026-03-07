@@ -1,6 +1,7 @@
-import { describe, expect, it } from 'vitest'
-import { searchPosses } from './posses-search'
-import { getPosses } from './posses'
+import {describe, expect, it} from 'vitest'
+
+import {getPosses} from './posses'
+import {searchPosses} from './posses-search'
 
 describe('searchPosses', () => {
   const posses = getPosses()

@@ -1,6 +1,7 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
-import { OwnedWheelBoxExport } from './OwnedWheelBoxExport'
+import {fireEvent, render, screen} from '@testing-library/react'
+import {describe, expect, it, vi} from 'vitest'
+
+import {OwnedWheelBoxExport} from './OwnedWheelBoxExport'
 
 describe('OwnedWheelBoxExport', () => {
   it('defaults rarity filters to SSR only', () => {
@@ -30,7 +31,7 @@ describe('OwnedWheelBoxExport', () => {
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: /export wheels as png/i }))
+    fireEvent.click(screen.getByRole('button', {name: /export wheels as png/i}))
 
     expect(screen.getByLabelText('Include SSR wheels')).toHaveAttribute('data-checked', 'true')
     expect(screen.getByLabelText('Include SR wheels')).toHaveAttribute('data-checked', 'false')

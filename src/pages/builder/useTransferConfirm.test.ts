@@ -1,10 +1,11 @@
-import { act, renderHook } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
-import { useTransferConfirm } from './useTransferConfirm'
+import {act, renderHook} from '@testing-library/react'
+import {describe, expect, it} from 'vitest'
+
+import {useTransferConfirm} from './useTransferConfirm'
 
 describe('useTransferConfirm', () => {
   it('stores and clears awakener transfer requests', () => {
-    const { result } = renderHook(() => useTransferConfirm())
+    const {result} = renderHook(() => useTransferConfirm())
 
     act(() => {
       result.current.requestAwakenerTransfer({
@@ -31,7 +32,7 @@ describe('useTransferConfirm', () => {
   })
 
   it('stores posse transfer requests with shared shape', () => {
-    const { result } = renderHook(() => useTransferConfirm())
+    const {result} = renderHook(() => useTransferConfirm())
 
     act(() => {
       result.current.requestPosseTransfer({
@@ -52,7 +53,7 @@ describe('useTransferConfirm', () => {
   })
 
   it('stores wheel transfer requests with source and target slots', () => {
-    const { result } = renderHook(() => useTransferConfirm())
+    const {result} = renderHook(() => useTransferConfirm())
 
     act(() => {
       result.current.requestWheelTransfer({

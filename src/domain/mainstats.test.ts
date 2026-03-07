@@ -1,5 +1,11 @@
-import { describe, expect, it } from 'vitest'
-import { getMainstatIcon, getMainstats, getWheelFilterMainstats, normalizeMainstatLabel } from './mainstats'
+import {describe, expect, it} from 'vitest'
+
+import {
+  getMainstatIcon,
+  getMainstats,
+  getWheelFilterMainstats,
+  normalizeMainstatLabel,
+} from './mainstats'
 
 describe('mainstats', () => {
   it('exposes all supported mainstats with stable metadata', () => {

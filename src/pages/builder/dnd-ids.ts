@@ -5,10 +5,10 @@ const COVENANT_DROP_ZONE_PREFIX = 'dropzone:covenant:'
 const TEAM_PREVIEW_SLOT_DROP_ZONE_PREFIX = 'dropzone:team-preview-slot:'
 
 export function makeWheelDropZoneId(slotId: string, wheelIndex: number): string {
-  return `${WHEEL_DROP_ZONE_PREFIX}${slotId}:${wheelIndex}`
+  return `${WHEEL_DROP_ZONE_PREFIX}${slotId}:${String(wheelIndex)}`
 }
 
-export function parseWheelDropZoneId(id: string): { slotId: string; wheelIndex: number } | null {
+export function parseWheelDropZoneId(id: string): {slotId: string; wheelIndex: number} | null {
   if (!id.startsWith(WHEEL_DROP_ZONE_PREFIX)) {
     return null
   }
@@ -26,14 +26,14 @@ export function parseWheelDropZoneId(id: string): { slotId: string; wheelIndex: 
     return null
   }
 
-  return { slotId, wheelIndex }
+  return {slotId, wheelIndex}
 }
 
 export function makeCovenantDropZoneId(slotId: string): string {
   return `${COVENANT_DROP_ZONE_PREFIX}${slotId}`
 }
 
-export function parseCovenantDropZoneId(id: string): { slotId: string } | null {
+export function parseCovenantDropZoneId(id: string): {slotId: string} | null {
   if (!id.startsWith(COVENANT_DROP_ZONE_PREFIX)) {
     return null
   }
@@ -43,14 +43,16 @@ export function parseCovenantDropZoneId(id: string): { slotId: string } | null {
     return null
   }
 
-  return { slotId }
+  return {slotId}
 }
 
 export function makeTeamPreviewSlotDropZoneId(teamId: string, slotId: string): string {
   return `${TEAM_PREVIEW_SLOT_DROP_ZONE_PREFIX}${teamId}:${slotId}`
 }
 
-export function parseTeamPreviewSlotDropZoneId(id: string): { teamId: string; slotId: string } | null {
+export function parseTeamPreviewSlotDropZoneId(
+  id: string,
+): {teamId: string; slotId: string} | null {
   if (!id.startsWith(TEAM_PREVIEW_SLOT_DROP_ZONE_PREFIX)) {
     return null
   }
@@ -67,5 +69,5 @@ export function parseTeamPreviewSlotDropZoneId(id: string): { teamId: string; sl
     return null
   }
 
-  return { teamId, slotId }
+  return {teamId, slotId}
 }

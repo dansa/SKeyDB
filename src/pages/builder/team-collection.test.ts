@@ -1,12 +1,13 @@
-import { describe, expect, it } from 'vitest'
+import {describe, expect, it} from 'vitest'
+
 import {
   addTeam,
   applyTeamTemplate,
   createInitialTeams,
   deleteTeam,
   MAX_TEAMS,
-  reorderTeams,
   renameTeam,
+  reorderTeams,
   resetTeam,
 } from './team-collection'
 
@@ -164,10 +165,16 @@ describe('team collection state', () => {
       ...withData[0],
       posseId: 'some-posse',
       slots: [
-        { slotId: 'slot-1', awakenerName: 'goliath', realm: 'AEQUOR', level: 60, wheels: ['SR19', null] },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {
+          slotId: 'slot-1',
+          awakenerName: 'goliath',
+          realm: 'AEQUOR',
+          level: 60,
+          wheels: ['SR19', null],
+        },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ],
     }
 
@@ -175,6 +182,10 @@ describe('team collection state', () => {
     expect(reset[0].id).toBe(withData[0].id)
     expect(reset[0].name).toBe('Wave 1')
     expect(reset[0].posseId).toBeUndefined()
-    expect(reset[0].slots.every((slot) => !slot.awakenerName && slot.wheels[0] === null && slot.wheels[1] === null)).toBe(true)
+    expect(
+      reset[0].slots.every(
+        (slot) => !slot.awakenerName && slot.wheels[0] === null && slot.wheels[1] === null,
+      ),
+    ).toBe(true)
   })
 })

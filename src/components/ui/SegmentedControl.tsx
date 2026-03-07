@@ -1,9 +1,9 @@
-type SegmentedControlOption<T extends string> = {
+interface SegmentedControlOption<T extends string> {
   value: T
   label: string
 }
 
-type SegmentedControlProps<T extends string> = {
+interface SegmentedControlProps<T extends string> {
   value: T
   options: readonly SegmentedControlOption<T>[]
   onChange: (nextValue: T) => void
@@ -23,11 +23,7 @@ export function SegmentedControl<T extends string>({
   activeButtonClassName = '',
 }: SegmentedControlProps<T>) {
   return (
-    <div
-      aria-label={ariaLabel}
-      className={`segmented-control ${className}`.trim()}
-      role="group"
-    >
+    <div aria-label={ariaLabel} className={`segmented-control ${className}`.trim()} role='group'>
       {options.map((option, index) => {
         const isActive = option.value === value
         return (
@@ -37,8 +33,10 @@ export function SegmentedControl<T extends string>({
               isActive ? `segmented-control__button-active ${activeButtonClassName}` : ''
             }`.trim()}
             key={option.value}
-            onClick={() => onChange(option.value)}
-            type="button"
+            onClick={() => {
+              onChange(option.value)
+            }}
+            type='button'
           >
             {option.label}
           </button>

@@ -1,10 +1,11 @@
-import { describe, expect, it } from 'vitest'
-import { loadAwakenersFull, type AwakenerFull } from './awakeners-full'
+import {describe, expect, it} from 'vitest'
+
 import {
   clampAwakenerDatabaseLevel,
   clampAwakenerDatabasePsycheSurgeOffset,
   resolveAwakenerStatsForLevel,
 } from './awakener-level-scaling'
+import {loadAwakenersFull, type AwakenerFull} from './awakeners-full'
 
 const CANONICAL_LEVEL_ONE_SUBSTATS = {
   CritRate: '5%',
@@ -65,8 +66,8 @@ function makeAwakener(overrides?: Partial<AwakenerFull>): AwakenerFull {
     },
     cards: {},
     exalts: {
-      exalt: { name: 'Exalt', description: 'x' },
-      over_exalt: { name: 'Over Exalt', description: 'x' },
+      exalt: {name: 'Exalt', description: 'x'},
+      over_exalt: {name: 'Over Exalt', description: 'x'},
     },
     talents: {},
     enlightens: {},
@@ -168,12 +169,13 @@ describe('awakeners full data', () => {
 
     for (const awakener of data) {
       const typedAwakener = awakener as AwakenerFull & {
-        primaryScalingBase?: 20 | 30
-        statScaling?: { CON: number; ATK: number; DEF: number }
+        primaryScalingBase?: number
+        statScaling?: {CON: number; ATK: number; DEF: number}
         substatScaling?: Record<string, string>
       }
 
-      expect(typedAwakener.primaryScalingBase === 20 || typedAwakener.primaryScalingBase === 30).toBe(true)
+      expect(typedAwakener.primaryScalingBase).toBeDefined()
+      expect([20, 30]).toContain(typedAwakener.primaryScalingBase)
       expect(typedAwakener.statScaling).toEqual({
         CON: expect.any(Number),
         ATK: expect.any(Number),
@@ -280,15 +282,22 @@ describe('awakeners full data', () => {
     const data = await loadAwakenersFull()
     const pollux = data.find((awakener) => awakener.name === 'pollux')
     const wanda = data.find((awakener) => awakener.name === 'wanda')
+    if (!pollux || !wanda) {
+      throw new Error('Expected Pollux and Wanda in awakener full data')
+    }
 
-    expect(pollux?.statScaling.ATK).toBe(1.75)
+    expect(pollux.statScaling.ATK).toBe(1.75)
     expect(
-      [1, 10, 20, 30, 40, 50, 60, 70, 80, 90].map((level) => resolveAwakenerStatsForLevel(pollux!, level).ATK),
+      [1, 10, 20, 30, 40, 50, 60, 70, 80, 90].map(
+        (level) => resolveAwakenerStatsForLevel(pollux, level).ATK,
+      ),
     ).toEqual(['55', '70', '88', '105', '123', '140', '158', '175', '193', '210'])
 
-    expect(wanda?.statScaling.ATK).toBe(1.1)
+    expect(wanda.statScaling.ATK).toBe(1.1)
     expect(
-      [1, 10, 20, 30, 40, 50, 60, 70, 80, 90].map((level) => resolveAwakenerStatsForLevel(wanda!, level).ATK),
+      [1, 10, 20, 30, 40, 50, 60, 70, 80, 90].map(
+        (level) => resolveAwakenerStatsForLevel(wanda, level).ATK,
+      ),
     ).toEqual(['35', '44', '55', '66', '77', '88', '99', '110', '121', '132'])
   })
 
@@ -302,7 +311,9 @@ describe('awakeners full data', () => {
       for (const [key, expectedValue] of Object.entries(CANONICAL_LEVEL_ONE_SUBSTATS)) {
         const statKey = key as keyof typeof CANONICAL_LEVEL_ONE_SUBSTATS
         if (resolvedAtLevelOne[statKey] !== expectedValue) {
-          mismatches.push(`${awakener.name}.${statKey}: ${resolvedAtLevelOne[statKey]} != ${expectedValue}`)
+          mismatches.push(
+            `${awakener.name}.${statKey}: ${resolvedAtLevelOne[statKey]} != ${expectedValue}`,
+          )
         }
       }
     }

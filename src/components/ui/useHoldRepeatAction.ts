@@ -1,13 +1,13 @@
-import { useCallback, useEffect, useRef } from 'react'
+import {useCallback, useEffect, useRef} from 'react'
 
-type UseHoldRepeatActionOptions = {
+interface UseHoldRepeatActionOptions {
   onStep: () => void
   disabled?: boolean
   holdDelayMs?: number
   repeatMs?: number
 }
 
-type UseHoldRepeatActionResult = {
+interface UseHoldRepeatActionResult {
   onPointerDown: (event: React.PointerEvent<HTMLButtonElement>) => void
   onPointerUp: () => void
   onPointerLeave: () => void

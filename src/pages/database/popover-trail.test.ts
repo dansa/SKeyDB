@@ -1,11 +1,12 @@
-import { describe, expect, it } from 'vitest'
+import {describe, expect, it} from 'vitest'
+
 import {
   closeTrailFromIndex,
   closeTrailTop,
   decideTrailDirection,
   isSameTrailRoot,
-  openTrailRoot,
   isTrailMobileLayout,
+  openTrailRoot,
   pushTrailEntry,
   type TrailEntry,
 } from './popover-trail'
@@ -61,18 +62,12 @@ describe('popover trail stack helpers', () => {
 
 describe('popover trail direction', () => {
   it('prefers downward growth when there is enough space below', () => {
-    const direction = decideTrailDirection(
-      { top: 120, bottom: 150 } as DOMRect,
-      900,
-    )
+    const direction = decideTrailDirection({top: 120, bottom: 150} as DOMRect, 900)
     expect(direction).toBe('down')
   })
 
   it('switches to upward growth when below space is constrained', () => {
-    const direction = decideTrailDirection(
-      { top: 760, bottom: 790 } as DOMRect,
-      900,
-    )
+    const direction = decideTrailDirection({top: 760, bottom: 790} as DOMRect, 900)
     expect(direction).toBe('up')
   })
 })

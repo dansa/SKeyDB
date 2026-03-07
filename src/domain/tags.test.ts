@@ -1,5 +1,15 @@
-import { describe, expect, it } from 'vitest'
-import { getTags, resolveTag } from './tags'
+import {describe, expect, it} from 'vitest'
+
+import {getTags, resolveTag} from './tags'
+
+function expectResolvedTag(token: string) {
+  const tag = resolveTag(token)
+  expect(tag).not.toBeNull()
+  if (!tag) {
+    throw new Error(`Expected tag for ${token}`)
+  }
+  return tag
+}
 
 describe('tags', () => {
   it('loads all tags from data file', () => {
@@ -10,23 +20,20 @@ describe('tags', () => {
   })
 
   it('resolves tag by exact label', () => {
-    const tag = resolveTag('Stun')
-    expect(tag).not.toBeNull()
-    expect(tag!.key).toBe('STUN')
-    expect(tag!.description).toBeTruthy()
+    const tag = expectResolvedTag('Stun')
+    expect(tag.key).toBe('STUN')
+    expect(tag.description).toBeTruthy()
   })
 
   it('resolves tag by alias (Fainted -> Stun)', () => {
-    const tag = resolveTag('Fainted')
-    expect(tag).not.toBeNull()
-    expect(tag!.key).toBe('STUN')
-    expect(tag!.description).toContain('Stunned')
+    const tag = expectResolvedTag('Fainted')
+    expect(tag.key).toBe('STUN')
+    expect(tag.description).toContain('Stunned')
   })
 
   it('resolves tag by alias (Petrify -> Stun)', () => {
-    const tag = resolveTag('Petrify')
-    expect(tag).not.toBeNull()
-    expect(tag!.key).toBe('STUN')
+    const tag = expectResolvedTag('Petrify')
+    expect(tag.key).toBe('STUN')
   })
 
   it('returns null for unknown token', () => {
@@ -34,15 +41,13 @@ describe('tags', () => {
   })
 
   it('prefers label match over alias match', () => {
-    const tag = resolveTag('Vulnerability')
-    expect(tag).not.toBeNull()
-    expect(tag!.label).toBe('Vulnerability')
+    const tag = expectResolvedTag('Vulnerability')
+    expect(tag.label).toBe('Vulnerability')
   })
 
   it('resolves tag by alias (Vulnerable -> Vulnerability)', () => {
-    const tag = resolveTag('Vulnerable')
-    expect(tag).not.toBeNull()
-    expect(tag!.label).toBe('Vulnerability')
+    const tag = expectResolvedTag('Vulnerable')
+    expect(tag.label).toBe('Vulnerability')
   })
 
   it('resolves temporary mechanic aliases to their base tag', () => {

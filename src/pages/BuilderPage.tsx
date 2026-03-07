@@ -1,53 +1,57 @@
-import { DndContext, DragOverlay } from '@dnd-kit/core'
-import { useEffect, useRef, useState } from 'react'
-import type { BuilderDraftPayload } from './builder/builder-persistence'
-import { awakenerByName } from './builder/constants'
-import { BuilderActiveTeamPanel } from './builder/BuilderActiveTeamPanel'
-import { BuilderSelectionPanel } from './builder/BuilderSelectionPanel'
-import { BuilderTeamsPanel } from './builder/BuilderTeamsPanel'
-import { BuilderImportExportDialogs } from './builder/BuilderImportExportDialogs'
-import { BuilderConfirmDialogs } from './builder/BuilderConfirmDialogs'
-import { PickerAwakenerGhost, PickerWheelGhost, TeamCardGhost, TeamPreviewGhost, TeamWheelGhost } from './builder/DragGhosts'
-import { Toast } from '../components/ui/Toast'
-import { useTimedToast } from '../components/ui/useTimedToast'
-import { PageToolkitBar } from '../components/ui/PageToolkitBar'
-import { Button } from '../components/ui/Button'
-import { TabbedContainer } from '../components/ui/TabbedContainer'
-import { FaDownload, FaRotateLeft, FaUpload, FaXmark } from 'react-icons/fa6'
-import { PICKER_DROP_ZONE_ID, parseTeamPreviewSlotDropZoneId } from './builder/dnd-ids'
+import {useRef} from 'react'
+
+import {DndContext} from '@dnd-kit/core'
+
+import {TabbedContainer} from '@/components/ui/TabbedContainer'
+import {Toast} from '@/components/ui/Toast'
+import {useTimedToast} from '@/components/ui/useTimedToast'
+
+import {BuilderActiveTeamPanel} from './builder/BuilderActiveTeamPanel'
+import {BuilderConfirmDialogs} from './builder/BuilderConfirmDialogs'
+import {BuilderDragOverlay} from './builder/BuilderDragOverlay'
+import {BuilderImportExportDialogs} from './builder/BuilderImportExportDialogs'
+import {BuilderSelectionPanel} from './builder/BuilderSelectionPanel'
+import {BuilderTeamsPanel} from './builder/BuilderTeamsPanel'
+import {BuilderToolbar} from './builder/BuilderToolbar'
+import {awakenerByName} from './builder/constants'
+import {createBuilderAwakenerActions} from './builder/createBuilderAwakenerActions'
+import {createBuilderCovenantActions} from './builder/createBuilderCovenantActions'
+import {createBuilderDndCoordinator} from './builder/createBuilderDndCoordinator'
+import {createBuilderPosseActions} from './builder/createBuilderPosseActions'
+import {createBuilderWheelActions} from './builder/createBuilderWheelActions'
+import {parseTeamPreviewSlotDropZoneId, PICKER_DROP_ZONE_ID} from './builder/dnd-ids'
 import {
-  type TeamStateViolationCode,
-} from './builder/team-state'
-import { useBuilderDnd } from './builder/useBuilderDnd'
-import { useBuilderDndCoordinator } from './builder/useBuilderDndCoordinator'
-import { useTransferConfirm } from './builder/useTransferConfirm'
-import { useBuilderViewModel } from './builder/useBuilderViewModel'
-import { useBuilderImportExport } from './builder/useBuilderImportExport'
-import { usePendingTransferDialog } from './builder/usePendingTransferDialog'
-import { usePendingDeleteDialog } from './builder/usePendingDeleteDialog'
-import { usePendingResetTeamDialog } from './builder/usePendingResetTeamDialog'
-import { useBuilderWheelActions } from './builder/useBuilderWheelActions'
-import { useBuilderCovenantActions } from './builder/useBuilderCovenantActions'
-import { useBuilderAwakenerActions } from './builder/useBuilderAwakenerActions'
-import { resolvePredictedDropHover } from './builder/predicted-drop-hover'
-import { clearTeamSlotTransfer, swapTeamSlotTransfer } from './builder/transfer-resolution'
-import { MAX_TEAMS, addTeam, applyTeamTemplate, reorderTeams, type TeamTemplateId } from './builder/team-collection'
-import type { PredictedDropHover } from './builder/types'
-import type { DragData } from './builder/types'
+  addTeam,
+  applyTeamTemplate,
+  MAX_TEAMS,
+  reorderTeams,
+  type TeamTemplateId,
+} from './builder/team-collection'
+import {type TeamStateViolationCode} from './builder/team-state'
+import {clearTeamSlotTransfer, swapTeamSlotTransfer} from './builder/transfer-resolution'
+import type {TeamSlot} from './builder/types'
+import {useBuilderDnd} from './builder/useBuilderDnd'
+import {useBuilderDndWrappers} from './builder/useBuilderDndWrappers'
+import {useBuilderImportExport} from './builder/useBuilderImportExport'
+import {useBuilderResetUndo} from './builder/useBuilderResetUndo'
+import {useBuilderViewModel} from './builder/useBuilderViewModel'
+import {usePendingDeleteDialog} from './builder/usePendingDeleteDialog'
+import {usePendingResetTeamDialog} from './builder/usePendingResetTeamDialog'
+import {usePendingTransferDialog} from './builder/usePendingTransferDialog'
+import {usePreviewSlotDrag} from './builder/usePreviewSlotDrag'
+import {useSelectionDismiss} from './builder/useSelectionDismiss'
+import {useTransferConfirm} from './builder/useTransferConfirm'
 
 export function BuilderPage() {
-  const [predictedDropHover, setPredictedDropHover] = useState<PredictedDropHover>(null)
-  const [activeTeamPreviewSlotDrag, setActiveTeamPreviewSlotDrag] = useState<{ teamId: string; slotId: string } | null>(null)
-  const [isTeamPreviewRemoveIntent, setIsTeamPreviewRemoveIntent] = useState(false)
-  const [pendingResetBuilder, setPendingResetBuilder] = useState(false)
-  const [undoResetSnapshot, setUndoResetSnapshot] = useState<BuilderDraftPayload | null>(null)
-  const { toastEntries, showToast } = useTimedToast({ defaultDurationMs: 3200 })
-  const suppressTeamEditRef = useRef(false)
-  const suppressTeamEditTimeoutRef = useRef<number | null>(null)
-  const resetUndoTimeoutRef = useRef<number | null>(null)
+  const {toastEntries, showToast} = useTimedToast({defaultDurationMs: 3200})
   const searchInputRef = useRef<HTMLInputElement | null>(null)
-  const { pendingTransfer, requestAwakenerTransfer, requestPosseTransfer, requestWheelTransfer, clearTransfer } =
-    useTransferConfirm()
+  const {
+    pendingTransfer,
+    requestAwakenerTransfer,
+    requestPosseTransfer,
+    requestWheelTransfer,
+    clearTransfer,
+  } = useTransferConfirm()
   const {
     displayUnowned,
     setDisplayUnowned,
@@ -127,29 +131,70 @@ export function BuilderPage() {
     restoreQuickLineupFocus,
     clearTeamWheel,
     clearTeamCovenant,
-  } = useBuilderViewModel({ searchInputRef })
+  } = useBuilderViewModel({searchInputRef})
 
-  const {
-    clearPendingDelete,
-    requestDeleteTeam,
-    pendingDeleteDialog,
-  } = usePendingDeleteDialog({
+  const clearActiveSelection = () => {
+    setActiveSelection(null)
+  }
+
+  const {clearPendingDelete, requestDeleteTeam, pendingDeleteDialog} = usePendingDeleteDialog({
     teams,
     setTeams,
     effectiveActiveTeamId,
     setActiveTeamId,
-    clearActiveSelection: () => setActiveSelection(null),
+    clearActiveSelection,
   })
-  const {
-    clearPendingResetTeam,
-    requestResetTeam,
-    pendingResetTeamDialog,
-  } = usePendingResetTeamDialog({
+  const {clearPendingResetTeam, requestResetTeam, pendingResetTeamDialog} =
+    usePendingResetTeamDialog({
+      teams,
+      setTeams,
+      effectiveActiveTeamId,
+      clearActiveSelection,
+    })
+
+  const resetUndo = useBuilderResetUndo({
     teams,
-    setTeams,
     effectiveActiveTeamId,
-    clearActiveSelection: () => setActiveSelection(null),
+    resetBuilderDraft,
+    replaceBuilderDraft,
+    clearActiveSelection,
+    showToast,
   })
+
+  const previewDrag = usePreviewSlotDrag(teams)
+
+  const {handleSetActivePosse} = createBuilderPosseActions({
+    allowDupes,
+    effectiveActiveTeamId,
+    teams,
+    pickerPosses,
+    usedPosseByTeamOrder,
+    quickLineupPosseStep: quickLineupSession?.currentStep.kind === 'posse',
+    updateActiveTeam,
+    advanceQuickLineupStep,
+    requestPosseTransfer,
+    clearPendingDelete,
+    clearTransfer,
+  })
+
+  useSelectionDismiss({
+    quickLineupSession,
+    restoreQuickLineupFocus,
+    setActiveSelection,
+  })
+
+  const onPickerAssignSuccess: ((nextSlots: TeamSlot[]) => void) | undefined = quickLineupSession
+    ? (nextSlots) => {
+        advanceQuickLineupStep(nextSlots)
+      }
+    : undefined
+
+  function clearAllTransientState() {
+    clearPendingDelete()
+    clearPendingResetTeam()
+    clearTransfer()
+    cancelTeamRename()
+  }
 
   function notifyViolation(violation: TeamStateViolationCode | undefined) {
     if (violation !== 'TOO_MANY_REALMS_IN_TEAM') {
@@ -161,10 +206,7 @@ export function BuilderPage() {
     showToast('Invalid move: a team can only contain up to 2 realms.')
   }
 
-  const {
-    handleDropPickerAwakener,
-    handlePickerAwakenerClick,
-  } = useBuilderAwakenerActions({
+  const {handleDropPickerAwakener, handlePickerAwakenerClick} = createBuilderAwakenerActions({
     allowDupes,
     awakenerByName,
     clearPendingDelete,
@@ -178,7 +220,7 @@ export function BuilderPage() {
     teamSlots,
     usedAwakenerByIdentityKey,
     hasSupportAwakener,
-    onPickerAssignSuccess: quickLineupSession ? (nextSlots) => advanceQuickLineupStep(nextSlots) : undefined,
+    onPickerAssignSuccess,
   })
 
   const {
@@ -186,7 +228,7 @@ export function BuilderPage() {
     handleDropTeamWheel,
     handleDropTeamWheelToSlot,
     handlePickerWheelClick,
-  } = useBuilderWheelActions({
+  } = createBuilderWheelActions({
     allowDupes,
     clearPendingDelete,
     clearTransfer,
@@ -198,7 +240,7 @@ export function BuilderPage() {
     showToast,
     teamSlots,
     usedWheelByTeamOrder,
-    onPickerAssignSuccess: quickLineupSession ? (nextSlots) => advanceQuickLineupStep(nextSlots) : undefined,
+    onPickerAssignSuccess,
   })
 
   const {
@@ -206,7 +248,7 @@ export function BuilderPage() {
     handleDropTeamCovenant,
     handleDropTeamCovenantToSlot,
     handlePickerCovenantClick,
-  } = useBuilderCovenantActions({
+  } = createBuilderCovenantActions({
     clearPendingDelete,
     clearTransfer,
     resolvedActiveSelection,
@@ -214,193 +256,86 @@ export function BuilderPage() {
     setActiveTeamSlots,
     showToast,
     teamSlots,
-    onPickerAssignSuccess: quickLineupSession ? (nextSlots) => advanceQuickLineupStep(nextSlots) : undefined,
+    onPickerAssignSuccess,
   })
 
-  useEffect(() => {
-    const handlePointerDown = (event: PointerEvent) => {
-      const target = event.target as HTMLElement | null
-      if (!target) {
-        return
-      }
-      if (target.closest('[data-picker-zone="true"]')) {
-        return
-      }
-      if (target.closest('[data-card-remove]')) {
-        return
-      }
-      if (target.closest('[data-selection-owner="true"]')) {
-        return
-      }
-      if (quickLineupSession) {
-        restoreQuickLineupFocus()
-        return
-      }
-      setActiveSelection(null)
-    }
+  const {
+    activeDrag,
+    isRemoveIntent,
+    sensors,
+    handleDragCancel,
+    handleDragEnd,
+    handleDragOver,
+    handleDragStart,
+  } = useBuilderDnd({
+    onDropPickerAwakener: handleDropPickerAwakener,
+    onDropPickerWheel: handleDropPickerWheel,
+    onDropPickerCovenant: handleDropPickerCovenant,
+    onDropTeamSlot: swapActiveTeamSlots,
+    onDropTeamSlotToPicker: clearTeamSlot,
+    onDropTeamWheel: handleDropTeamWheel,
+    onDropTeamWheelToSlot: handleDropTeamWheelToSlot,
+    onDropTeamWheelToPicker: clearTeamWheel,
+    onDropTeamCovenant: handleDropTeamCovenant,
+    onDropTeamCovenantToSlot: handleDropTeamCovenantToSlot,
+    onDropTeamCovenantToPicker: clearTeamCovenant,
+  })
 
-    document.addEventListener('pointerdown', handlePointerDown, true)
-    return () => {
-      document.removeEventListener('pointerdown', handlePointerDown, true)
-    }
-  }, [quickLineupSession, restoreQuickLineupFocus, setActiveSelection])
-
-  useEffect(() => {
-    return () => {
-      if (suppressTeamEditTimeoutRef.current) {
-        window.clearTimeout(suppressTeamEditTimeoutRef.current)
-      }
-      if (resetUndoTimeoutRef.current) {
-        window.clearTimeout(resetUndoTimeoutRef.current)
-      }
-    }
-  }, [])
-
-  function requestResetBuilder() {
-    clearPendingDelete()
-    clearPendingResetTeam()
-    clearTransfer()
-    cancelTeamRename()
-    setPendingResetBuilder(true)
-  }
-
-  function cancelResetBuilder() {
-    setPendingResetBuilder(false)
-  }
-
-  function confirmResetBuilder() {
-    const snapshot: BuilderDraftPayload = {
-      teams,
-      activeTeamId: effectiveActiveTeamId,
-    }
-
-    resetBuilderDraft()
-    setActiveSelection(null)
-    setPendingResetBuilder(false)
-    setUndoResetSnapshot(snapshot)
-    showToast('Builder reset. Undo is available for 15 seconds.')
-
-    if (resetUndoTimeoutRef.current) {
-      window.clearTimeout(resetUndoTimeoutRef.current)
-    }
-    resetUndoTimeoutRef.current = window.setTimeout(() => {
-      setUndoResetSnapshot(null)
-      resetUndoTimeoutRef.current = null
-    }, 15_000)
-  }
-
-  function undoResetBuilder() {
-    if (!undoResetSnapshot) {
+  function handlePreviewSlotDragEnd(
+    sourceTeamId: string | null,
+    sourceSlotId: string | null,
+    overId: string | null,
+  ) {
+    if (!sourceTeamId || !sourceSlotId) {
+      previewDrag.clearPreviewDrag()
       return
     }
 
-    replaceBuilderDraft(undoResetSnapshot)
-    setActiveSelection(null)
-    setUndoResetSnapshot(null)
-    showToast('Builder reset has been undone.')
-
-    if (resetUndoTimeoutRef.current) {
-      window.clearTimeout(resetUndoTimeoutRef.current)
-      resetUndoTimeoutRef.current = null
+    if (overId === PICKER_DROP_ZONE_ID) {
+      setTeams((prev) => clearTeamSlotTransfer(prev, sourceTeamId, sourceSlotId))
+      previewDrag.clearPreviewDrag()
+      return
     }
-  }
 
-  const { activeDrag, isRemoveIntent, sensors, handleDragCancel, handleDragEnd, handleDragOver, handleDragStart } = useBuilderDnd({
-    onDropPickerAwakener: (awakenerName, targetSlotId) => {
-      handleDropPickerAwakener(awakenerName, targetSlotId)
-    },
-    onDropPickerWheel: (wheelId, targetSlotId, targetWheelIndex) => {
-      handleDropPickerWheel(wheelId, targetSlotId, targetWheelIndex)
-    },
-    onDropPickerCovenant: (covenantId, targetSlotId) => {
-      handleDropPickerCovenant(covenantId, targetSlotId)
-    },
-    onDropTeamSlot: (sourceSlotId, targetSlotId) => {
-      swapActiveTeamSlots(sourceSlotId, targetSlotId)
-    },
-    onDropTeamSlotToPicker: (sourceSlotId) => {
-      clearTeamSlot(sourceSlotId)
-    },
-    onDropTeamWheel: (sourceSlotId, sourceWheelIndex, targetSlotId, targetWheelIndex) => {
-      handleDropTeamWheel(sourceSlotId, sourceWheelIndex, targetSlotId, targetWheelIndex)
-    },
-    onDropTeamWheelToSlot: (sourceSlotId, sourceWheelIndex, targetSlotId) => {
-      handleDropTeamWheelToSlot(sourceSlotId, sourceWheelIndex, targetSlotId)
-    },
-    onDropTeamWheelToPicker: (sourceSlotId, sourceWheelIndex) => {
-      clearTeamWheel(sourceSlotId, sourceWheelIndex)
-    },
-    onDropTeamCovenant: (sourceSlotId, targetSlotId) => {
-      handleDropTeamCovenant(sourceSlotId, targetSlotId)
-    },
-    onDropTeamCovenantToSlot: (sourceSlotId, targetSlotId) => {
-      handleDropTeamCovenantToSlot(sourceSlotId, targetSlotId)
-    },
-    onDropTeamCovenantToPicker: (sourceSlotId) => {
-      clearTeamCovenant(sourceSlotId)
-    },
-  })
+    const previewTarget = overId ? parseTeamPreviewSlotDropZoneId(overId) : null
+    if (!previewTarget) {
+      previewDrag.clearPreviewDrag()
+      return
+    }
+
+    setTeams((prev) => {
+      const result = swapTeamSlotTransfer(
+        prev,
+        sourceTeamId,
+        sourceSlotId,
+        previewTarget.teamId,
+        previewTarget.slotId,
+        {allowDupes},
+      )
+      if (result.violation) {
+        notifyViolation(result.violation)
+      }
+      return result.nextTeams
+    })
+    previewDrag.clearPreviewDrag()
+  }
 
   const {
     handleDragCancel: handleCoordinatedDragCancel,
     handleDragEnd: handleCoordinatedDragEnd,
     handleDragOver: handleCoordinatedDragOver,
     handleDragStart: handleCoordinatedDragStart,
-  } = useBuilderDndCoordinator({
-    onTeamRowDragStart: () => {
-      clearPendingDelete()
-      clearPendingResetTeam()
-      clearTransfer()
-      cancelTeamRename()
-    },
-    onTeamRowDragEnd: () => {},
-    onTeamRowDragCancel: () => {},
+  } = createBuilderDndCoordinator({
+    onTeamRowDragStart: clearAllTransientState,
     onTeamPreviewSlotDragStart: (teamId, slotId) => {
-      setActiveTeamPreviewSlotDrag({ teamId, slotId })
-      setIsTeamPreviewRemoveIntent(false)
-      clearPendingDelete()
-      clearPendingResetTeam()
-      clearTransfer()
-      cancelTeamRename()
+      previewDrag.startPreviewDrag(teamId, slotId)
+      clearAllTransientState()
     },
     onTeamPreviewSlotDragOver: (overId) => {
-      setIsTeamPreviewRemoveIntent(overId === PICKER_DROP_ZONE_ID)
+      previewDrag.setPreviewRemoveIntent(overId === PICKER_DROP_ZONE_ID)
     },
-    onTeamPreviewSlotDragEnd: (sourceTeamId, sourceSlotId, overId) => {
-      if (!sourceTeamId || !sourceSlotId) {
-        clearPreviewSlotDragState()
-        return
-      }
-
-      if (overId === PICKER_DROP_ZONE_ID) {
-        setTeams((prev) => clearTeamSlotTransfer(prev, sourceTeamId, sourceSlotId))
-        clearPreviewSlotDragState()
-        return
-      }
-
-      const previewTarget = overId ? parseTeamPreviewSlotDropZoneId(overId) : null
-      if (!previewTarget) {
-        clearPreviewSlotDragState()
-        return
-      }
-
-      setTeams((prev) => {
-        const result = swapTeamSlotTransfer(
-          prev,
-          sourceTeamId,
-          sourceSlotId,
-          previewTarget.teamId,
-          previewTarget.slotId,
-          { allowDupes },
-        )
-        if (result.violation) {
-          notifyViolation(result.violation)
-        }
-        return result.nextTeams
-      })
-      clearPreviewSlotDragState()
-    },
-    onTeamPreviewSlotDragCancel: clearPreviewSlotDragState,
+    onTeamPreviewSlotDragEnd: handlePreviewSlotDragEnd,
+    onTeamPreviewSlotDragCancel: previewDrag.clearPreviewDrag,
     onTeamRowReorder: (sourceTeamId, targetTeamId) => {
       setTeams((prev) => reorderTeams(prev, sourceTeamId, targetTeamId))
     },
@@ -411,26 +346,11 @@ export function BuilderPage() {
   })
 
   const {
-    isImportDialogOpen,
     openImportDialog,
-    submitImportCode,
-    closeImportFlow,
-    exportDialog,
-    closeExportDialog,
     openExportAllDialog,
     openTeamExportDialog,
     openTeamIngameExportDialog,
-    pendingDuplicateOverrideImport,
-    cancelDuplicateOverrideImport,
-    confirmDuplicateOverrideImport,
-    pendingReplaceImport,
-    cancelReplaceImport,
-    confirmReplaceImport,
-    pendingStrategyImport,
-    pendingStrategyConflictSummary,
-    cancelStrategyImport,
-    applyMoveStrategyImport,
-    applySkipStrategyImport,
+    importExportDialogProps,
   } = useBuilderImportExport({
     teams,
     setTeams,
@@ -440,18 +360,11 @@ export function BuilderPage() {
     allowDupes,
     setAllowDupes,
     setActiveTeamId,
-    setActiveSelection: () => setActiveSelection(null),
+    setActiveSelection: clearActiveSelection,
     clearTransfer,
     clearPendingDelete,
     showToast,
   })
-
-  const activePreviewDraggedTeam = activeTeamPreviewSlotDrag
-    ? teams.find((team) => team.id === activeTeamPreviewSlotDrag.teamId) ?? null
-    : null
-  const activePreviewDraggedSlot = activeTeamPreviewSlotDrag
-    ? activePreviewDraggedTeam?.slots.find((slot) => slot.slotId === activeTeamPreviewSlotDrag.slotId)
-    : undefined
 
   const pendingTransferDialog = usePendingTransferDialog({
     pendingTransfer,
@@ -460,188 +373,157 @@ export function BuilderPage() {
     clearTransfer,
   })
 
-  function clearPreviewSlotDragState() {
-    setActiveTeamPreviewSlotDrag(null)
-    setIsTeamPreviewRemoveIntent(false)
+  const dndWrappers = useBuilderDndWrappers({
+    coordinated: {
+      handleDragStart: handleCoordinatedDragStart,
+      handleDragOver: handleCoordinatedDragOver,
+      handleDragEnd: handleCoordinatedDragEnd,
+      handleDragCancel: handleCoordinatedDragCancel,
+    },
+    slotById,
+  })
+
+  function handleImportClick() {
+    clearPendingDelete()
+    clearTransfer()
+    cancelTeamRename()
+    openImportDialog()
   }
 
-  function clearTeamEditSuppressionSoon() {
-    if (suppressTeamEditTimeoutRef.current) {
-      window.clearTimeout(suppressTeamEditTimeoutRef.current)
+  function handleExportIngameClick() {
+    openTeamIngameExportDialog(activeTeam.id)
+  }
+
+  function handleAddTeamTab() {
+    clearAllTransientState()
+    const result = addTeam(teams)
+    setTeams(result.nextTeams)
+  }
+
+  function handleTabChange(teamId: string) {
+    if (dndWrappers.isTeamEditSuppressed.current) {
+      return
     }
-    suppressTeamEditTimeoutRef.current = window.setTimeout(() => {
-      suppressTeamEditRef.current = false
-      suppressTeamEditTimeoutRef.current = null
-    }, 0)
+    clearPendingDelete()
+    clearTransfer()
+    cancelTeamRename()
+    setActiveTeamId(teamId)
+    setActiveSelection(null)
   }
 
-  function handleDndDragStart(event: Parameters<typeof handleCoordinatedDragStart>[0]) {
-    suppressTeamEditRef.current = true
-    setPredictedDropHover(null)
-    handleCoordinatedDragStart(event)
+  function handleTabClose(teamId: string) {
+    const team = teams.find((entry) => entry.id === teamId)
+    if (!team) {
+      return
+    }
+    clearTransfer()
+    cancelTeamRename()
+    requestDeleteTeam(team.id, team.name)
   }
 
-  function handleDndDragOver(event: Parameters<typeof handleCoordinatedDragOver>[0]) {
-    const overId = typeof event.over?.id === 'string' ? event.over.id : undefined
-    const dragData = event.active.data.current as DragData | undefined
-    setPredictedDropHover(resolvePredictedDropHover(dragData, overId, slotById))
-    handleCoordinatedDragOver(event)
+  function handleApplyTeamTemplate(templateId: TeamTemplateId) {
+    clearAllTransientState()
+    const result = applyTeamTemplate(teams, templateId)
+    setTeams(result.nextTeams)
+    const templateLabel = templateId === 'DTIDE_10' ? 'D-Tide (10)' : 'D-Tide (5)'
+    if (result.createdCount === 0 && result.renamedCount === 0 && result.removedCount === 0) {
+      showToast(`${templateLabel} already matches current team layout.`)
+      return
+    }
+    showToast(
+      `Applied ${templateLabel}: renamed ${String(result.renamedCount)}, created ${String(result.createdCount)}, removed ${String(result.removedCount)}.`,
+    )
   }
 
-  function handleDndDragEnd(event: Parameters<typeof handleCoordinatedDragEnd>[0]) {
-    setPredictedDropHover(null)
-    handleCoordinatedDragEnd(event)
-    clearTeamEditSuppressionSoon()
+  function handleBeginTeamRename(teamId: string, currentName: string, surface?: 'header' | 'list') {
+    clearPendingDelete()
+    clearTransfer()
+    beginTeamRename(teamId, currentName, surface)
   }
 
-  function handleDndDragCancel() {
-    setPredictedDropHover(null)
-    handleCoordinatedDragCancel()
-    clearTeamEditSuppressionSoon()
+  function handleDeleteTeam(teamId: string, teamName: string) {
+    clearTransfer()
+    cancelTeamRename()
+    requestDeleteTeam(teamId, teamName)
   }
 
-  const activeDraggedSlot = activeDrag?.kind === 'team-slot' ? slotById.get(activeDrag.slotId) : undefined
-  const activeDraggedAwakenerOwnedLevel =
-    activeDraggedSlot?.awakenerName ? (ownedAwakenerLevelByName.get(activeDraggedSlot.awakenerName) ?? null) : null
-  const activeDraggedWheelOwnedLevels: [number | null, number | null] = [
-    activeDraggedSlot?.wheels[0] ? (ownedWheelLevelById.get(activeDraggedSlot.wheels[0]) ?? null) : null,
-    activeDraggedSlot?.wheels[1] ? (ownedWheelLevelById.get(activeDraggedSlot.wheels[1]) ?? null) : null,
-  ]
-  const canUndoReset = Boolean(undoResetSnapshot)
+  function handleResetTeam(teamId: string, teamName: string) {
+    clearTransfer()
+    cancelTeamRename()
+    requestResetTeam(teamId, teamName)
+  }
+
+  function handleEditTeam(teamId: string) {
+    if (dndWrappers.isTeamEditSuppressed.current) {
+      return
+    }
+    clearAllTransientState()
+    setActiveTeamId(teamId)
+    setActiveSelection(null)
+  }
 
   return (
     <DndContext
-      onDragCancel={handleDndDragCancel}
-      onDragEnd={handleDndDragEnd}
-      onDragOver={handleDndDragOver}
-      onDragStart={handleDndDragStart}
+      onDragCancel={dndWrappers.handleDndDragCancel}
+      onDragEnd={dndWrappers.handleDndDragEnd}
+      onDragOver={dndWrappers.handleDndDragOver}
+      onDragStart={dndWrappers.handleDndDragStart}
       sensors={sensors}
     >
-      <section className="space-y-4">
-        <PageToolkitBar className="collection-toolkit-drawer" sticky>
-          <Button
-            className="px-2 py-1 text-[10px] uppercase tracking-wide"
-            onClick={() => {
-              clearPendingDelete()
-              clearTransfer()
-              cancelTeamRename()
-              openImportDialog()
-            }}
-            type="button"
-          >
-            <span className="inline-flex items-center gap-1">
-              <FaUpload aria-hidden className="text-[9px]" />
-              <span>Import</span>
-            </span>
-          </Button>
-          <Button
-            className="px-2 py-1 text-[10px] uppercase tracking-wide"
-            disabled={teams.length === 0}
-            onClick={() => {
-              openExportAllDialog()
-            }}
-            type="button"
-          >
-            <span className="inline-flex items-center gap-1">
-              <FaDownload aria-hidden className="text-[9px]" />
-              <span>Export All</span>
-            </span>
-          </Button>
-          <Button
-            className="px-2 py-1 text-[10px] uppercase tracking-wide"
-            disabled={!activeTeam}
-            onClick={() => {
-              if (!activeTeam) {
-                return
-              }
-              openTeamIngameExportDialog(activeTeam.id)
-            }}
-            type="button"
-          >
-            <span className="inline-flex items-center gap-1">
-              <FaDownload aria-hidden className="text-[9px]" />
-              <span>Export In-Game</span>
-            </span>
-          </Button>
-          <Button
-            className={`px-2 py-1 text-[10px] uppercase tracking-wide ${
-              canUndoReset
-                ? 'border-amber-300/65 bg-amber-500/15 text-amber-100 hover:border-amber-200/85'
-                : 'border-rose-300/70 bg-rose-500/14 text-rose-100 hover:border-rose-200/85'
-            }`}
-            onClick={canUndoReset ? undoResetBuilder : requestResetBuilder}
-            type="button"
-          >
-            <span className="inline-flex items-center gap-1">
-              {canUndoReset ? (
-                <FaRotateLeft aria-hidden className="text-[9px]" />
-              ) : (
-                <FaXmark aria-hidden className="text-[9px]" />
-              )}
-              <span>{canUndoReset ? 'Undo Reset' : 'Reset Builder'}</span>
-            </span>
-          </Button>
-        </PageToolkitBar>
+      <section className='space-y-4'>
+        <BuilderToolbar
+          hasTeams={teams.length > 0}
+          hasActiveTeam={Boolean(activeTeam)}
+          canUndoReset={resetUndo.canUndoReset}
+          onImport={handleImportClick}
+          onExportAll={openExportAllDialog}
+          onExportIngame={handleExportIngameClick}
+          onUndoReset={resetUndo.undoReset}
+          onRequestReset={() => {
+            clearAllTransientState()
+            resetUndo.requestReset()
+          }}
+        />
 
-        <div className="grid items-start gap-4 lg:grid-cols-[2fr_1fr]">
-          <div className="min-w-0 space-y-3">
+        <div className='grid items-start gap-4 lg:grid-cols-[2fr_1fr]'>
+          <div className='min-w-0 space-y-3'>
             <TabbedContainer
               activeTabId={effectiveActiveTeamId}
-              bodyClassName="p-0"
+              bodyClassName='p-0'
               canCloseTab={() => teams.length > 1}
-              className="overflow-hidden"
+              className='overflow-hidden'
               getTabCloseAriaLabel={(tab) => `Close ${tab.label}`}
-              leftEarMaxWidth="100%"
+              leftEarMaxWidth='100%'
               leftTrailingAction={
                 teams.length < MAX_TEAMS ? (
                   <button
-                    aria-label="Add team tab"
-                    className="tabbed-container-tab tabbed-container-tab-inactive h-full px-3 text-[11px] tracking-wide text-slate-300 transition-colors"
-                    onClick={() => {
-                      clearPendingDelete()
-                      clearPendingResetTeam()
-                      clearTransfer()
-                      cancelTeamRename()
-                      const result = addTeam(teams)
-                      setTeams(result.nextTeams)
-                    }}
-                    type="button"
+                    aria-label='Add team tab'
+                    className='tabbed-container-tab tabbed-container-tab-inactive h-full px-3 text-[11px] tracking-wide text-slate-300 transition-colors'
+                    onClick={handleAddTeamTab}
+                    type='button'
                   >
                     +
                   </button>
                 ) : null
               }
-              onTabChange={(teamId) => {
-                if (suppressTeamEditRef.current) {
-                  return
-                }
-                clearPendingDelete()
-                clearTransfer()
-                cancelTeamRename()
-                setActiveTeamId(teamId)
-                setActiveSelection(null)
-              }}
-              onTabClose={(teamId) => {
-                const team = teams.find((entry) => entry.id === teamId)
-                if (!team) {
-                  return
-                }
-                clearTransfer()
-                cancelTeamRename()
-                requestDeleteTeam(team.id, team.name)
-              }}
-              tone="amber"
-              tabSizing="content"
-              tabs={teams.map((team) => ({ id: team.id, label: team.name }))}
+              onTabChange={handleTabChange}
+              onTabClose={handleTabClose}
+              tone='amber'
+              tabSizing='content'
+              tabs={teams.map((team) => ({id: team.id, label: team.name}))}
             >
               <BuilderActiveTeamPanel
                 activeTeamId={effectiveActiveTeamId}
-                activeTeamName={activeTeam?.name ?? 'Team'}
-                isEditingTeamName={editingTeamId === effectiveActiveTeamId && editingTeamSurface === 'header'}
+                activeTeamName={activeTeam.name}
+                isEditingTeamName={
+                  editingTeamId === effectiveActiveTeamId && editingTeamSurface === 'header'
+                }
                 editingTeamName={editingTeamName}
                 activePosseAsset={activePosseAsset}
                 activePosseName={activePosse?.name}
-                isActivePosseOwned={activePosseId ? (ownedPosseLevelById.get(activePosseId) ?? null) !== null : true}
+                isActivePosseOwned={
+                  activePosseId ? (ownedPosseLevelById.get(activePosseId) ?? null) !== null : true
+                }
                 quickLineupSession={quickLineupSession}
                 activeDragKind={activeDrag?.kind ?? null}
                 onBackQuickLineupStep={goBackQuickLineupStep}
@@ -651,7 +533,9 @@ export function BuilderPage() {
                 onCancelTeamRename={cancelTeamRename}
                 onEditingTeamNameChange={setEditingTeamName}
                 onFinishQuickLineup={finishQuickLineup}
-                onOpenPossePicker={() => setPickerTab('posses')}
+                onOpenPossePicker={() => {
+                  setPickerTab('posses')
+                }}
                 onStartQuickLineup={startQuickLineup}
                 onCardClick={handleCardClick}
                 onRemoveActiveSelection={handleRemoveActiveSelection}
@@ -661,7 +545,7 @@ export function BuilderPage() {
                 awakenerLevelByName={awakenerLevelByName}
                 ownedAwakenerLevelByName={ownedAwakenerLevelByName}
                 ownedWheelLevelById={ownedWheelLevelById}
-                predictedDropHover={predictedDropHover}
+                predictedDropHover={dndWrappers.predictedDropHover}
                 resolvedActiveSelection={resolvedActiveSelection}
                 teamRealms={teamRealmSet}
                 teamSlots={teamSlots}
@@ -673,57 +557,15 @@ export function BuilderPage() {
               editingTeamId={editingTeamId}
               editingTeamName={editingTeamName}
               editingTeamSurface={editingTeamSurface}
-              onAddTeam={() => {
-                const result = addTeam(teams)
-                setTeams(result.nextTeams)
-              }}
-              onApplyTeamTemplate={(templateId: TeamTemplateId) => {
-                clearPendingDelete()
-                clearPendingResetTeam()
-                clearTransfer()
-                cancelTeamRename()
-                const result = applyTeamTemplate(teams, templateId)
-                setTeams(result.nextTeams)
-                const templateLabel = templateId === 'DTIDE_10' ? 'D-Tide (10)' : 'D-Tide (5)'
-                if (result.createdCount === 0 && result.renamedCount === 0 && result.removedCount === 0) {
-                  showToast(`${templateLabel} already matches current team layout.`)
-                  return
-                }
-                showToast(
-                  `Applied ${templateLabel}: renamed ${result.renamedCount}, created ${result.createdCount}, removed ${result.removedCount}.`,
-                )
-              }}
-              onExportTeam={(teamId) => {
-                openTeamExportDialog(teamId)
-              }}
-              onBeginTeamRename={(teamId, currentName, surface) => {
-                clearPendingDelete()
-                clearTransfer()
-                beginTeamRename(teamId, currentName, surface)
-              }}
+              onAddTeam={handleAddTeamTab}
+              onApplyTeamTemplate={handleApplyTeamTemplate}
+              onExportTeam={openTeamExportDialog}
+              onBeginTeamRename={handleBeginTeamRename}
               onCancelTeamRename={cancelTeamRename}
               onCommitTeamRename={commitTeamRename}
-              onDeleteTeam={(teamId, teamName) => {
-                clearTransfer()
-                cancelTeamRename()
-                requestDeleteTeam(teamId, teamName)
-              }}
-              onResetTeam={(teamId, teamName) => {
-                clearTransfer()
-                cancelTeamRename()
-                requestResetTeam(teamId, teamName)
-              }}
-              onEditTeam={(teamId) => {
-                if (suppressTeamEditRef.current) {
-                  return
-                }
-                clearPendingDelete()
-                clearPendingResetTeam()
-                clearTransfer()
-                cancelTeamRename()
-                setActiveTeamId(teamId)
-                setActiveSelection(null)
-              }}
+              onDeleteTeam={handleDeleteTeam}
+              onResetTeam={handleResetTeam}
+              onEditTeam={handleEditTeam}
               onEditingTeamNameChange={setEditingTeamName}
               onTeamPreviewModeChange={setTeamPreviewMode}
               ownedAwakenerLevelByName={ownedAwakenerLevelByName}
@@ -751,9 +593,7 @@ export function BuilderPage() {
             ownedPosseLevelById={ownedPosseLevelById}
             ownedWheelLevelById={ownedWheelLevelById}
             onDisplayUnownedChange={setDisplayUnowned}
-            onAwakenerClick={(awakenerName) => {
-              handlePickerAwakenerClick(awakenerName)
-            }}
+            onAwakenerClick={handlePickerAwakenerClick}
             onAwakenerFilterChange={setAwakenerFilter}
             onAwakenerSortDirectionToggle={toggleAwakenerSortDirection}
             onAwakenerSortGroupByRealmChange={setAwakenerSortGroupByRealm}
@@ -763,50 +603,15 @@ export function BuilderPage() {
             onPosseFilterChange={setPosseFilter}
             onWheelRarityFilterChange={setWheelRarityFilter}
             onWheelMainstatFilterChange={setWheelMainstatFilter}
-            onSearchChange={(nextValue) =>
+            onSearchChange={(nextValue) => {
               setPickerSearchByTab((prev) => ({
                 ...prev,
                 [pickerTab]: nextValue,
               }))
-            }
-            onSetActivePosse={(posseId) => {
-              clearPendingDelete()
-              clearTransfer()
-              if (!posseId) {
-                updateActiveTeam((team) => ({ ...team, posseId: undefined }))
-                clearTransfer()
-                if (quickLineupSession?.currentStep.kind === 'posse') {
-                  advanceQuickLineupStep()
-                }
-                return
-              }
-
-              const usedByTeamOrder = allowDupes ? undefined : usedPosseByTeamOrder.get(posseId)
-              const usedByTeam = usedByTeamOrder === undefined ? undefined : teams[usedByTeamOrder]
-              const isUsedByOtherTeam = usedByTeam && usedByTeam.id !== effectiveActiveTeamId
-              if (isUsedByOtherTeam) {
-                const posse = pickerPosses.find((entry) => entry.id === posseId)
-                requestPosseTransfer({
-                  posseId,
-                  posseName: posse?.name ?? 'Posse',
-                  fromTeamId: usedByTeam.id,
-                  toTeamId: effectiveActiveTeamId,
-                })
-                return
-              }
-
-              updateActiveTeam((team) => ({ ...team, posseId }))
-              clearTransfer()
-              if (quickLineupSession?.currentStep.kind === 'posse') {
-                advanceQuickLineupStep()
-              }
             }}
-            onSetActiveWheel={(wheelId) => {
-              handlePickerWheelClick(wheelId)
-            }}
-            onSetActiveCovenant={(covenantId) => {
-              handlePickerCovenantClick(covenantId)
-            }}
+            onSetActivePosse={handleSetActivePosse}
+            onSetActiveWheel={handlePickerWheelClick}
+            onSetActiveCovenant={handlePickerCovenantClick}
             pickerTab={pickerTab}
             posseFilter={posseFilter}
             wheelRarityFilter={wheelRarityFilter}
@@ -823,84 +628,32 @@ export function BuilderPage() {
         </div>
       </section>
 
-      <DragOverlay dropAnimation={null}>
-        {activePreviewDraggedSlot && activePreviewDraggedTeam ? (
-          <TeamPreviewGhost
-            mode={teamPreviewMode}
-            ownedAwakenerLevelByName={ownedAwakenerLevelByName}
-            ownedWheelLevelById={ownedWheelLevelById}
-            removeIntent={isTeamPreviewRemoveIntent}
-            team={{
-              ...activePreviewDraggedTeam,
-              slots: [activePreviewDraggedSlot],
-            }}
-          />
-        ) : null}
-        {activeDrag?.kind === 'picker-awakener' ? <PickerAwakenerGhost awakenerName={activeDrag.awakenerName} /> : null}
-        {activeDrag?.kind === 'picker-wheel' ? <PickerWheelGhost wheelId={activeDrag.wheelId} /> : null}
-        {activeDrag?.kind === 'picker-covenant' ? <PickerWheelGhost wheelId={activeDrag.covenantId} isCovenant /> : null}
-        {activeDrag?.kind === 'team-slot' ? (
-          <TeamCardGhost
-            removeIntent={isRemoveIntent}
-            slot={activeDraggedSlot}
-            awakenerOwnedLevel={activeDraggedAwakenerOwnedLevel}
-            wheelOwnedLevels={activeDraggedWheelOwnedLevels}
-          />
-        ) : null}
-        {activeDrag?.kind === 'team-wheel' ? (
-          <TeamWheelGhost
-            removeIntent={isRemoveIntent}
-            wheelId={activeDrag.wheelId}
-            ownedLevel={ownedWheelLevelById.get(activeDrag.wheelId) ?? null}
-          />
-        ) : null}
-        {activeDrag?.kind === 'team-covenant' ? (
-          <TeamWheelGhost removeIntent={isRemoveIntent} wheelId={activeDrag.covenantId} isCovenant />
-        ) : null}
-      </DragOverlay>
+      <BuilderDragOverlay
+        activeDrag={activeDrag}
+        isRemoveIntent={isRemoveIntent}
+        teamPreviewMode={teamPreviewMode}
+        previewDraggedTeam={previewDrag.previewDraggedTeam}
+        previewDraggedSlot={previewDrag.previewDraggedSlot}
+        isPreviewRemoveIntent={previewDrag.isPreviewRemoveIntent}
+        slotById={slotById}
+        ownedAwakenerLevelByName={ownedAwakenerLevelByName}
+        ownedWheelLevelById={ownedWheelLevelById}
+      />
 
       <BuilderConfirmDialogs
         deleteDialog={pendingDeleteDialog}
         onCancelDelete={clearPendingDelete}
-        onCancelReset={cancelResetBuilder}
+        onCancelReset={resetUndo.cancelReset}
         onCancelResetTeam={clearPendingResetTeam}
         onCancelTransfer={clearTransfer}
-        resetDialog={
-          pendingResetBuilder
-            ? {
-                title: 'Reset Builder',
-                message: 'Reset all teams back to a fresh builder state?',
-                onConfirm: confirmResetBuilder,
-              }
-            : null
-        }
+        resetDialog={resetUndo.resetDialog}
         resetTeamDialog={pendingResetTeamDialog}
         transferDialog={pendingTransferDialog}
       />
 
-      <BuilderImportExportDialogs
-        exportDialog={exportDialog}
-        isImportDialogOpen={isImportDialogOpen}
-        onCancelImport={closeImportFlow}
-        onCancelDuplicateOverrideImport={cancelDuplicateOverrideImport}
-        onCancelReplaceImport={cancelReplaceImport}
-        onCancelStrategyImport={cancelStrategyImport}
-        onCloseExportDialog={closeExportDialog}
-        onConfirmDuplicateOverrideImport={confirmDuplicateOverrideImport}
-        onConfirmReplaceImport={confirmReplaceImport}
-        onMoveStrategyImport={applyMoveStrategyImport}
-        onSkipStrategyImport={applySkipStrategyImport}
-        onSubmitImport={submitImportCode}
-        pendingDuplicateOverrideImport={pendingDuplicateOverrideImport}
-        pendingReplaceImport={pendingReplaceImport}
-        pendingStrategyConflictSummary={pendingStrategyConflictSummary}
-        pendingStrategyImport={pendingStrategyImport}
-      />
+      <BuilderImportExportDialogs {...importExportDialogProps} />
 
       <Toast entries={toastEntries} />
     </DndContext>
   )
 }
-
-
-

@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import {z} from 'zod'
 
 const cardSchema = z.object({
   name: z.string(),
@@ -97,14 +97,11 @@ export async function loadAwakenersFull(): Promise<AwakenerFull[]> {
   if (fullDataCache) {
     return fullDataCache
   }
-  const module = await import('../data/awakeners-full.json')
+  const module = await import('@/data/awakeners-full.json')
   fullDataCache = awakenerFullSchema.parse(module.default)
   return fullDataCache
 }
 
-export function getAwakenerFullById(
-  id: number,
-  data: AwakenerFull[],
-): AwakenerFull | undefined {
+export function getAwakenerFullById(id: number, data: AwakenerFull[]): AwakenerFull | undefined {
   return data.find((entry) => entry.id === id)
 }

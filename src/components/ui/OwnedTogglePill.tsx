@@ -1,6 +1,6 @@
-import { TogglePill } from './TogglePill'
+import {TogglePill} from './TogglePill'
 
-type OwnedTogglePillProps = {
+interface OwnedTogglePillProps {
   owned: boolean
   onToggle: () => void
   className?: string
@@ -23,7 +23,9 @@ export function OwnedTogglePill({
       checked={owned}
       className={className}
       offLabel={offLabel}
-      onChange={() => onToggle()}
+      onChange={() => {
+        onToggle()
+      }}
       onLabel={onLabel}
       variant={variant}
     />

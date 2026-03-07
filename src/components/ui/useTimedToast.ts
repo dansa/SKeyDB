@@ -1,11 +1,16 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
 
-type UseTimedToastOptions = {
+interface UseTimedToastOptions {
   defaultDurationMs?: number
 }
 
-export function useTimedToast({ defaultDurationMs = 3200 }: UseTimedToastOptions = {}) {
-  const [toastEntries, setToastEntries] = useState<Array<{ id: number; message: string }>>([])
+interface TimedToastEntry {
+  id: number
+  message: string
+}
+
+export function useTimedToast({defaultDurationMs = 3200}: UseTimedToastOptions = {}) {
+  const [toastEntries, setToastEntries] = useState<TimedToastEntry[]>([])
   const nextToastIdRef = useRef(0)
   const timeoutRefs = useRef<Map<number, number>>(new Map())
 
@@ -17,19 +22,23 @@ export function useTimedToast({ defaultDurationMs = 3200 }: UseTimedToastOptions
     setToastEntries([])
   }, [])
 
+  const dismissToast = useCallback((toastId: number) => {
+    timeoutRefs.current.delete(toastId)
+    setToastEntries((previous) => previous.filter((entry) => entry.id !== toastId))
+  }, [])
+
   const showToast = useCallback(
     (message: string, durationMs = defaultDurationMs) => {
       const toastId = nextToastIdRef.current
       nextToastIdRef.current += 1
 
-      setToastEntries((previous) => [...previous, { id: toastId, message }])
+      setToastEntries((previous) => [...previous, {id: toastId, message}])
       const timeoutId = window.setTimeout(() => {
-        timeoutRefs.current.delete(toastId)
-        setToastEntries((previous) => previous.filter((entry) => entry.id !== toastId))
+        dismissToast(toastId)
       }, durationMs)
       timeoutRefs.current.set(toastId, timeoutId)
     },
-    [defaultDurationMs],
+    [defaultDurationMs, dismissToast],
   )
 
   useEffect(
@@ -45,5 +54,5 @@ export function useTimedToast({ defaultDurationMs = 3200 }: UseTimedToastOptions
   const toastMessages = toastEntries.map((entry) => entry.message)
   const toastMessage = toastMessages.at(-1) ?? null
 
-  return { toastEntries, toastMessage, toastMessages, showToast, clearToast }
+  return {toastEntries, toastMessage, toastMessages, showToast, clearToast}
 }

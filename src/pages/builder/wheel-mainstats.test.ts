@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest'
-import { matchesWheelMainstat, wheelMainstatFilterOptions } from './wheel-mainstats'
+import {describe, expect, it} from 'vitest'
+
+import {matchesWheelMainstat, wheelMainstatFilterOptions} from './wheel-mainstats'
 
 describe('wheel mainstat helpers', () => {
   it('contains all expected filter options', () => {

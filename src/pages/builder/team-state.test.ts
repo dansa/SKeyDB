@@ -1,5 +1,10 @@
-import { describe, expect, it } from 'vitest'
-import { awakenersByNameForTests, teamSlotsForTests, teamSlotsForTestsWithTwoFactions } from './fixtures'
+import {describe, expect, it} from 'vitest'
+
+import {
+  awakenersByNameForTests,
+  teamSlotsForTests,
+  teamSlotsForTestsWithTwoFactions,
+} from './fixtures'
 import {
   assignAwakenerToFirstEmptySlot,
   assignAwakenerToSlot,
@@ -8,8 +13,8 @@ import {
   clearCovenantAssignment,
   clearSlotAssignment,
   clearWheelAssignment,
-  swapWheelAssignments,
   swapSlotAssignments,
+  swapWheelAssignments,
 } from './team-state'
 
 describe('builder team state', () => {
@@ -41,8 +46,12 @@ describe('builder team state', () => {
 
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerName).toBe('Miryam')
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerName).toBe('Goliath')
-    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).not.toBe(slots[1].wheels)
-    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).not.toBe(slots[0].wheels)
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).not.toBe(
+      slots[1].wheels,
+    )
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).not.toBe(
+      slots[0].wheels,
+    )
   })
 
   it('blocks adding a third realm', () => {
@@ -71,24 +80,58 @@ describe('builder team state', () => {
       awakenersByNameForTests,
     )
 
-    expect(withTimeworn.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerName).toBeUndefined()
-    expect(withTimeworn.nextSlots.find((slot) => slot.slotId === 'slot-3')?.awakenerName).toBe('Ramona: Timeworn')
+    expect(
+      withTimeworn.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerName,
+    ).toBeUndefined()
+    expect(withTimeworn.nextSlots.find((slot) => slot.slotId === 'slot-3')?.awakenerName).toBe(
+      'Ramona: Timeworn',
+    )
   })
 
   it('allows replacing an alternate form in the same slot', () => {
     const slots = teamSlotsForTests()
-    const withTimeworn = assignAwakenerToSlot(slots, 'Ramona: Timeworn', 'slot-2', awakenersByNameForTests)
-    const replacedWithBase = assignAwakenerToSlot(withTimeworn.nextSlots, 'Ramona', 'slot-2', awakenersByNameForTests)
+    const withTimeworn = assignAwakenerToSlot(
+      slots,
+      'Ramona: Timeworn',
+      'slot-2',
+      awakenersByNameForTests,
+    )
+    const replacedWithBase = assignAwakenerToSlot(
+      withTimeworn.nextSlots,
+      'Ramona',
+      'slot-2',
+      awakenersByNameForTests,
+    )
 
-    expect(replacedWithBase.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerName).toBe('Ramona')
+    expect(replacedWithBase.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerName).toBe(
+      'Ramona',
+    )
   })
 
   it('does not move an already slotted awakener when adding to first empty slot', () => {
     const slots = [
-      { slotId: 'slot-1', awakenerName: 'Miryam', realm: 'AEQUOR', level: 60, wheels: [null, null] as [null, null] },
-      { slotId: 'slot-2', awakenerName: 'Ramona', realm: 'CHAOS', level: 60, wheels: [null, null] as [null, null] },
-      { slotId: 'slot-3', awakenerName: 'Goliath', realm: 'AEQUOR', level: 60, wheels: [null, null] as [null, null] },
-      { slotId: 'slot-4', wheels: [null, null] as [null, null] },
+      {
+        slotId: 'slot-1',
+        awakenerName: 'Miryam',
+        realm: 'AEQUOR',
+        level: 60,
+        wheels: [null, null] as [null, null],
+      },
+      {
+        slotId: 'slot-2',
+        awakenerName: 'Ramona',
+        realm: 'CHAOS',
+        level: 60,
+        wheels: [null, null] as [null, null],
+      },
+      {
+        slotId: 'slot-3',
+        awakenerName: 'Goliath',
+        realm: 'AEQUOR',
+        level: 60,
+        wheels: [null, null] as [null, null],
+      },
+      {slotId: 'slot-4', wheels: [null, null] as [null, null]},
     ]
 
     const result = assignAwakenerToFirstEmptySlot(slots, 'Goliath', awakenersByNameForTests)
@@ -112,8 +155,14 @@ describe('builder team state', () => {
     const withWheel = assignWheelToSlot(slots, 'slot-2', 1, 'demo-wheel')
     const clearedWheel = clearWheelAssignment(withWheel.nextSlots, 'slot-2', 1)
 
-    expect(withWheel.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([null, 'demo-wheel'])
-    expect(clearedWheel.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([null, null])
+    expect(withWheel.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([
+      null,
+      'demo-wheel',
+    ])
+    expect(clearedWheel.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([
+      null,
+      null,
+    ])
   })
 
   it('blocks assigning wheels to slots without an awakener', () => {
@@ -138,7 +187,10 @@ describe('builder team state', () => {
     const withTwoWheels = assignWheelToSlot(withFirstWheel.nextSlots, 'slot-1', 1, 'wheel-b')
 
     const result = swapWheelAssignments(withTwoWheels.nextSlots, 'slot-1', 0, 'slot-1', 1)
-    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual(['wheel-b', 'wheel-a'])
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual([
+      'wheel-b',
+      'wheel-a',
+    ])
   })
 
   it('assigns and clears covenant values on an awakener slot', () => {

@@ -1,10 +1,10 @@
-import { renderHook } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
-import { useOwnedAwakenerBoxEntries } from './useOwnedAwakenerBoxEntries'
+import {describe, expect, it, vi} from 'vitest'
+
+import {createOwnedAwakenerBoxEntries} from './useOwnedAwakenerBoxEntries'
 
 vi.mock('../../domain/awakeners', () => ({
   getAwakeners: () => [
-    { id: 1, name: 'ramona', faction: 'The Fools', realm: 'CHAOS', aliases: [], rarity: 'SSR' },
+    {id: 1, name: 'ramona', faction: 'The Fools', realm: 'CHAOS', aliases: [], rarity: 'SSR'},
   ],
 }))
 
@@ -12,13 +12,13 @@ vi.mock('../../domain/awakener-assets', () => ({
   getAwakenerCardAsset: () => null,
 }))
 
-describe('useOwnedAwakenerBoxEntries', () => {
+describe('createOwnedAwakenerBoxEntries', () => {
   it('falls back to level 60 when getAwakenerLevel is omitted', () => {
-    const { result } = renderHook(() =>
-      useOwnedAwakenerBoxEntries((awakenerName) => (awakenerName === 'ramona' ? 4 : null)),
+    const result = createOwnedAwakenerBoxEntries((awakenerName) =>
+      awakenerName === 'ramona' ? 4 : null,
     )
 
-    expect(result.current).toEqual([
+    expect(result).toEqual([
       {
         name: 'ramona',
         displayName: 'Ramona',
@@ -33,16 +33,14 @@ describe('useOwnedAwakenerBoxEntries', () => {
   })
 
   it('uses provided awakeners levels when getAwakenerLevel is passed', () => {
-    const { result } = renderHook(() =>
-      useOwnedAwakenerBoxEntries(
-        (awakenerName) => (awakenerName === 'ramona' ? 4 : null),
-        () => 77,
-      ),
+    const result = createOwnedAwakenerBoxEntries(
+      (awakenerName) => (awakenerName === 'ramona' ? 4 : null),
+      () => 77,
     )
 
-    expect(result.current[0]?.awakenerLevel).toBe(77)
-    expect(result.current[0]?.realm).toBe('CHAOS')
-    expect(result.current[0]?.rarity).toBe('SSR')
-    expect(result.current[0]?.index).toBe(1)
+    expect(result[0]?.awakenerLevel).toBe(77)
+    expect(result[0]?.realm).toBe('CHAOS')
+    expect(result[0]?.rarity).toBe('SSR')
+    expect(result[0]?.index).toBe(1)
   })
 })

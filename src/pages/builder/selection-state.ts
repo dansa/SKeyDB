@@ -1,24 +1,38 @@
-import type { ActiveSelection } from './types'
+import type {ActiveSelection} from './types'
 
-export function toggleAwakenerSelection(previous: ActiveSelection, slotId: string): ActiveSelection {
+export function toggleAwakenerSelection(
+  previous: ActiveSelection,
+  slotId: string,
+): ActiveSelection {
   if (previous?.kind === 'awakener' && previous.slotId === slotId) {
     return null
   }
-  return { kind: 'awakener', slotId }
+  return {kind: 'awakener', slotId}
 }
 
-export function toggleWheelSelection(previous: ActiveSelection, slotId: string, wheelIndex: number): ActiveSelection {
-  if (previous?.kind === 'wheel' && previous.slotId === slotId && previous.wheelIndex === wheelIndex) {
+export function toggleWheelSelection(
+  previous: ActiveSelection,
+  slotId: string,
+  wheelIndex: number,
+): ActiveSelection {
+  if (
+    previous?.kind === 'wheel' &&
+    previous.slotId === slotId &&
+    previous.wheelIndex === wheelIndex
+  ) {
     return null
   }
-  return { kind: 'wheel', slotId, wheelIndex }
+  return {kind: 'wheel', slotId, wheelIndex}
 }
 
-export function toggleCovenantSelection(previous: ActiveSelection, slotId: string): ActiveSelection {
+export function toggleCovenantSelection(
+  previous: ActiveSelection,
+  slotId: string,
+): ActiveSelection {
   if (previous?.kind === 'covenant' && previous.slotId === slotId) {
     return null
   }
-  return { kind: 'covenant', slotId }
+  return {kind: 'covenant', slotId}
 }
 
 export function shouldSetActiveWheelOnPickerAssign(activeSelection: ActiveSelection): boolean {
@@ -36,16 +50,14 @@ export function nextSelectionAfterWheelSwap(
     return currentSelection
   }
   const isActiveSource =
-    currentSelection.slotId === sourceSlotId &&
-    currentSelection.wheelIndex === sourceWheelIndex
+    currentSelection.slotId === sourceSlotId && currentSelection.wheelIndex === sourceWheelIndex
   if (isActiveSource) {
-    return { kind: 'wheel', slotId: targetSlotId, wheelIndex: targetWheelIndex }
+    return {kind: 'wheel', slotId: targetSlotId, wheelIndex: targetWheelIndex}
   }
   const isActiveTarget =
-    currentSelection.slotId === targetSlotId &&
-    currentSelection.wheelIndex === targetWheelIndex
+    currentSelection.slotId === targetSlotId && currentSelection.wheelIndex === targetWheelIndex
   if (isActiveTarget) {
-    return { kind: 'wheel', slotId: sourceSlotId, wheelIndex: sourceWheelIndex }
+    return {kind: 'wheel', slotId: sourceSlotId, wheelIndex: sourceWheelIndex}
   }
   return currentSelection
 }
@@ -75,11 +87,11 @@ export function nextSelectionAfterCovenantSwap(
   }
 
   if (currentSelection.slotId === sourceSlotId) {
-    return { kind: 'covenant', slotId: targetSlotId }
+    return {kind: 'covenant', slotId: targetSlotId}
   }
 
   if (currentSelection.slotId === targetSlotId) {
-    return { kind: 'covenant', slotId: sourceSlotId }
+    return {kind: 'covenant', slotId: sourceSlotId}
   }
 
   return currentSelection

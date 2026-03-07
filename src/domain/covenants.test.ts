@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest'
-import { getCovenants } from './covenants'
+import {describe, expect, it} from 'vitest'
+
+import {getCovenants} from './covenants'
 
 describe('getCovenants', () => {
   it('returns parsed covenants with ids and asset ids', () => {

@@ -1,7 +1,9 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
-import type { AwakenerFullStats } from '../../domain/awakeners-full'
-import { RichSegmentRenderer } from './RichSegmentRenderer'
+import {fireEvent, render, screen} from '@testing-library/react'
+import {describe, expect, it, vi} from 'vitest'
+
+import type {AwakenerFullStats} from '@/domain/awakeners-full'
+
+import {RichSegmentRenderer} from './RichSegmentRenderer'
 
 const BASE_STATS: AwakenerFullStats = {
   CON: '100',
@@ -24,24 +26,24 @@ describe('RichSegmentRenderer', () => {
     render(
       <RichSegmentRenderer
         onSkillClick={onSkillClick}
-        segment={{ type: 'skill', name: 'Strike' }}
+        segment={{type: 'skill', name: 'Strike'}}
         skillLevel={1}
         stats={null}
-        variant="inline"
+        variant='inline'
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: 'Strike' }))
+    fireEvent.click(screen.getByRole('button', {name: 'Strike'}))
     expect(onSkillClick).toHaveBeenCalledWith('Strike', expect.any(Object))
   })
 
   it('renders inline scaling using selected skill level with hover breakdown', () => {
     render(
       <RichSegmentRenderer
-        segment={{ type: 'scaling', values: [10, 20], suffix: '%', stat: 'ATK' }}
+        segment={{type: 'scaling', values: [10, 20], suffix: '%', stat: 'ATK'}}
         skillLevel={2}
         stats={BASE_STATS}
-        variant="inline"
+        variant='inline'
       />,
     )
 
@@ -53,10 +55,10 @@ describe('RichSegmentRenderer', () => {
   it('renders popover scaling as full-range text', () => {
     render(
       <RichSegmentRenderer
-        segment={{ type: 'scaling', values: [10, 20], suffix: '%', stat: 'ATK' }}
+        segment={{type: 'scaling', values: [10, 20], suffix: '%', stat: 'ATK'}}
         skillLevel={1}
         stats={BASE_STATS}
-        variant="popover"
+        variant='popover'
       />,
     )
 

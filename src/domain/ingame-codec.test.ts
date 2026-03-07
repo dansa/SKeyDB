@@ -1,6 +1,8 @@
-import { describe, expect, it } from 'vitest'
-import { decodeIngameTeamCode, encodeIngameTeamCode } from './ingame-codec'
-import type { Team } from '../pages/builder/types'
+import {describe, expect, it} from 'vitest'
+
+import type {Team} from '@/pages/builder/types'
+
+import {decodeIngameTeamCode, encodeIngameTeamCode} from './ingame-codec'
 
 describe('decodeIngameTeamCode', () => {
   it('decodes in-game wrapper and consumes the 4 awakener prefix tokens in slot order', () => {
@@ -48,10 +50,16 @@ describe('decodeIngameTeamCode', () => {
       id: 'team-1',
       name: 'Team 1',
       slots: [
-        { slotId: 'slot-1', awakenerName: 'ramona', realm: 'CHAOS', level: 60, wheels: ['SR22', 'C01'] },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {
+          slotId: 'slot-1',
+          awakenerName: 'ramona',
+          realm: 'CHAOS',
+          level: 60,
+          wheels: ['SR22', 'C01'],
+        },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ],
     }
 
@@ -77,10 +85,28 @@ describe('decodeIngameTeamCode', () => {
       name: 'Team 2',
       posseId: 'manor-echoes',
       slots: [
-        { slotId: 'slot-1', awakenerName: 'doll: inferno', realm: 'CHAOS', level: 60, wheels: ['C02EX', 'SR01'] },
-        { slotId: 'slot-2', awakenerName: 'doll', realm: 'CHAOS', level: 60, wheels: [null, null] },
-        { slotId: 'slot-3', awakenerName: 'helot: catena', realm: 'CARO', level: 60, wheels: ['B05EX', 'O06'] },
-        { slotId: 'slot-4', awakenerName: 'tawil', realm: 'CHAOS', level: 60, wheels: ['C15', 'SR02'] },
+        {
+          slotId: 'slot-1',
+          awakenerName: 'doll: inferno',
+          realm: 'CHAOS',
+          level: 60,
+          wheels: ['C02EX', 'SR01'],
+        },
+        {slotId: 'slot-2', awakenerName: 'doll', realm: 'CHAOS', level: 60, wheels: [null, null]},
+        {
+          slotId: 'slot-3',
+          awakenerName: 'helot: catena',
+          realm: 'CARO',
+          level: 60,
+          wheels: ['B05EX', 'O06'],
+        },
+        {
+          slotId: 'slot-4',
+          awakenerName: 'tawil',
+          realm: 'CHAOS',
+          level: 60,
+          wheels: ['C15', 'SR02'],
+        },
       ],
     }
 

@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import {fileURLToPath} from 'node:url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -22,7 +22,9 @@ function parseAssetMeta(filename) {
 
 async function main() {
   const posses = JSON.parse(await fs.readFile(possesPath, 'utf8'))
-  const assetFilenames = (await fs.readdir(posseAssetsDir)).filter((name) => name.toLowerCase().endsWith('.png'))
+  const assetFilenames = (await fs.readdir(posseAssetsDir)).filter((name) =>
+    name.toLowerCase().endsWith('.png'),
+  )
 
   const indexBySlug = new Map()
   for (const filename of assetFilenames) {

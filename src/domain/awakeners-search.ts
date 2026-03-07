@@ -1,11 +1,16 @@
 import Fuse from 'fuse.js'
-import type { Awakener } from './awakeners'
 
-function normalizeForSearch(value: string): string {
-  return value.toLowerCase().replace(/[^a-z0-9]/g, '')
+import type {Awakener} from './awakeners'
+import {normalizeForSearch} from './search-utils'
+
+interface SearchableAwakener {
+  name: string
+  realm: string
+  aliases: string[]
+  tags?: string[]
 }
 
-function getSearchableFields(awakener: Awakener): string[] {
+function getSearchableFields(awakener: SearchableAwakener): string[] {
   const fields = [awakener.name, awakener.realm, ...awakener.aliases]
   if (awakener.tags) {
     fields.push(...awakener.tags)
@@ -21,7 +26,9 @@ export function searchAwakeners(awakeners: Awakener[], query: string): Awakener[
 
   const normalizedQuery = normalizeForSearch(trimmedQuery)
   const exactMatches = awakeners.filter((awakener) =>
-    getSearchableFields(awakener).some((field) => normalizeForSearch(field).includes(normalizedQuery)),
+    getSearchableFields(awakener).some((field) =>
+      normalizeForSearch(field).includes(normalizedQuery),
+    ),
   )
   if (exactMatches.length > 0) {
     return exactMatches
@@ -32,9 +39,9 @@ export function searchAwakeners(awakeners: Awakener[], query: string): Awakener[
     ignoreLocation: true,
     includeScore: true,
     keys: [
-      { name: 'name', weight: 0.6 },
-      { name: 'aliases', weight: 0.2 },
-      { name: 'tags', weight: 0.2 },
+      {name: 'name', weight: 0.6},
+      {name: 'aliases', weight: 0.2},
+      {name: 'tags', weight: 0.2},
     ],
   })
   const cutoff = /\s/.test(trimmedQuery) ? 0.55 : 0.3

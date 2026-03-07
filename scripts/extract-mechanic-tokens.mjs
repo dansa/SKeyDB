@@ -4,24 +4,39 @@ const awakenersFull = JSON.parse(fs.readFileSync('src/data/awakeners-full.json',
 const existingTags = JSON.parse(fs.readFileSync('src/data/tags.json', 'utf8'))
 
 const KNOWN_STATS = new Set([
-  'ATK', 'DEF', 'CON', 'HP', 'Crit Rate', 'Crit DMG',
-  'STR', 'Aliemus Regen', 'Keyflare Regen', 'Sigil Yield',
-  'DMG Amplification', 'Death Resistance', 'Tentacle DMG',
+  'ATK',
+  'DEF',
+  'CON',
+  'HP',
+  'Crit Rate',
+  'Crit DMG',
+  'STR',
+  'Aliemus Regen',
+  'Keyflare Regen',
+  'Sigil Yield',
+  'DMG Amplification',
+  'Death Resistance',
+  'Tentacle DMG',
 ])
 
 const allSkillNames = new Set()
 for (const aw of awakenersFull) {
-  if (aw.cards) for (const c of Object.values(aw.cards)) if (c?.name) {
-    const clean = c.name.replace(/^Rouse:\s*/, '')
-    allSkillNames.add(clean)
-    allSkillNames.add(c.name)
-  }
-  if (aw.talents) for (const t of Object.values(aw.talents)) if (t?.name) {
-    const clean = t.name.replace(/^Innate:\s*/, '')
-    allSkillNames.add(clean)
-    allSkillNames.add(t.name)
-  }
-  if (aw.enlightens) for (const e of Object.values(aw.enlightens)) if (e?.name) allSkillNames.add(e.name)
+  if (aw.cards)
+    for (const c of Object.values(aw.cards))
+      if (c?.name) {
+        const clean = c.name.replace(/^Rouse:\s*/, '')
+        allSkillNames.add(clean)
+        allSkillNames.add(c.name)
+      }
+  if (aw.talents)
+    for (const t of Object.values(aw.talents))
+      if (t?.name) {
+        const clean = t.name.replace(/^Innate:\s*/, '')
+        allSkillNames.add(clean)
+        allSkillNames.add(t.name)
+      }
+  if (aw.enlightens)
+    for (const e of Object.values(aw.enlightens)) if (e?.name) allSkillNames.add(e.name)
   if (aw.exalts) for (const e of Object.values(aw.exalts)) if (e?.name) allSkillNames.add(e.name)
 }
 allSkillNames.delete('None')
@@ -36,8 +51,14 @@ function scan(desc) {
   for (const m of desc.matchAll(tokenRe)) {
     const t = m[1].trim()
     if (t.includes('{') || t.length > 60) continue
-    if (KNOWN_STATS.has(t)) { statRefs.add(t); continue }
-    if (allSkillNames.has(t)) { skillRefs.add(t); continue }
+    if (KNOWN_STATS.has(t)) {
+      statRefs.add(t)
+      continue
+    }
+    if (allSkillNames.has(t)) {
+      skillRefs.add(t)
+      continue
+    }
     mechanicTokens.set(t, (mechanicTokens.get(t) || 0) + 1)
   }
 }
@@ -49,7 +70,7 @@ for (const aw of awakenersFull) {
   if (aw.exalts) for (const e of Object.values(aw.exalts)) scan(e?.description)
 }
 
-const existingLabels = new Set(existingTags.map(t => t.label))
+const existingLabels = new Set(existingTags.map((t) => t.label))
 
 const newMechanics = [...mechanicTokens.entries()]
   .filter(([label]) => !existingLabels.has(label))
@@ -64,27 +85,34 @@ console.log('New mechanics to add:', newMechanics.length)
 console.log()
 
 console.log('=== Skill Name Refs (will become popovers) ===')
-;[...skillRefs].sort().forEach(s => console.log('  ', s))
+;[...skillRefs].sort().forEach((s) => console.log('  ', s))
 console.log()
 
 console.log('=== New Mechanic Tags ===')
 newMechanics.forEach(([label, count]) => console.log(`  ${label} (${count}x)`))
 console.log()
 
-const toKey = (label) => label.toUpperCase().replace(/['']/g, '').replace(/[^A-Z0-9]+/g, '_').replace(/^_|_$/g, '')
+const toKey = (label) =>
+  label
+    .toUpperCase()
+    .replace(/['']/g, '')
+    .replace(/[^A-Z0-9]+/g, '_')
+    .replace(/^_|_$/g, '')
 
 const newEntries = newMechanics.map(([label]) => ({
   key: toKey(label),
   label,
   description: '',
   iconId: '',
-  aliases: []
+  aliases: [],
 }))
 
-const addDesc = (tags) => tags.map(t => t.description !== undefined ? t : { ...t, description: '' })
+const addDesc = (tags) =>
+  tags.map((t) => (t.description !== undefined ? t : {...t, description: ''}))
 
-const merged = [...addDesc(existingTags), ...newEntries]
-  .sort((a, b) => a.label.localeCompare(b.label))
+const merged = [...addDesc(existingTags), ...newEntries].sort((a, b) =>
+  a.label.localeCompare(b.label),
+)
 
 if (process.argv.includes('--write')) {
   fs.writeFileSync('src/data/tags.json', JSON.stringify(merged, null, 2) + '\n')

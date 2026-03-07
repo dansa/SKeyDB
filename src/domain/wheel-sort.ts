@@ -1,4 +1,4 @@
-import type { Wheel } from './wheels'
+import type {Wheel} from './wheels'
 
 const WHEEL_RARITY_ORDER: Record<Wheel['rarity'], number> = {
   SSR: 0,
@@ -25,5 +25,5 @@ export function compareWheelsForUi(left: Wheel, right: Wheel): number {
     return realmOrderDiff
   }
 
-  return left.id.localeCompare(right.id, undefined, { numeric: true, sensitivity: 'base' })
+  return left.id.localeCompare(right.id, undefined, {numeric: true, sensitivity: 'base'})
 }

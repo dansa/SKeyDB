@@ -1,5 +1,6 @@
-import { z } from 'zod'
-import awakenersLite from '../data/awakeners-lite.json'
+import {z} from 'zod'
+
+import awakenersLite from '@/data/awakeners-lite.json'
 
 const liteStatsSchema = z.object({
   CON: z.number(),
@@ -23,13 +24,13 @@ const rawAwakenersSchema = z.array(
   }),
 )
 
-export type AwakenerLiteStats = {
+export interface AwakenerLiteStats {
   CON: number
   ATK: number
   DEF: number
 }
 
-export type Awakener = {
+export interface Awakener {
   id: number
   name: string
   ingameId?: string

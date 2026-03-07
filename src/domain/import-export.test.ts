@@ -1,6 +1,8 @@
-import { describe, expect, it } from 'vitest'
-import { encodeMultiTeamCode, encodeSingleTeamCode, decodeImportCode } from './import-export'
-import type { Team } from '../pages/builder/types'
+import {describe, expect, it} from 'vitest'
+
+import type {Team} from '@/pages/builder/types'
+
+import {decodeImportCode, encodeMultiTeamCode, encodeSingleTeamCode} from './import-export'
 
 function makeTeam(name: string): Team {
   return {
@@ -16,11 +18,19 @@ function makeTeam(name: string): Team {
         wheels: ['SR19', 'SR20'],
         covenantId: '001',
       },
-      { slotId: 'slot-2', awakenerName: 'ramona', realm: 'CHAOS', level: 60, wheels: [null, null] },
-      { slotId: 'slot-3', wheels: [null, null] },
-      { slotId: 'slot-4', wheels: [null, null] },
+      {slotId: 'slot-2', awakenerName: 'ramona', realm: 'CHAOS', level: 60, wheels: [null, null]},
+      {slotId: 'slot-3', wheels: [null, null]},
+      {slotId: 'slot-4', wheels: [null, null]},
     ],
   }
+}
+
+function trimTrailingPadding(value: string): string {
+  let end = value.length
+  while (end > 0 && value[end - 1] === '=') {
+    end -= 1
+  }
+  return value.slice(0, end)
 }
 
 describe('import-export codec', () => {
@@ -103,7 +113,7 @@ describe('import-export codec', () => {
 
   it('keeps export strings compact for single and 10-team payloads', () => {
     const singleCode = encodeSingleTeamCode(makeTeam('Team 9'))
-    const tenTeams = Array.from({ length: 10 }, (_, index) => makeTeam(`Team ${index + 1}`))
+    const tenTeams = Array.from({length: 10}, (_, index) => makeTeam(`Team ${String(index + 1)}`))
     const multiCode = encodeMultiTeamCode(tenTeams, tenTeams[8].id)
 
     expect(singleCode.length).toBeLessThan(35)
@@ -112,7 +122,7 @@ describe('import-export codec', () => {
 
   it('strips wheel assignments from slots without awakeners during roundtrip', () => {
     const team = makeTeam('Team Dirty')
-    team.slots[2] = { slotId: 'slot-3', wheels: ['SR19', 'SR20'], covenantId: '001' }
+    team.slots[2] = {slotId: 'slot-3', wheels: ['SR19', 'SR20'], covenantId: '001'}
 
     const code = encodeSingleTeamCode(team)
     const parsed = decodeImportCode(code)
@@ -167,10 +177,10 @@ The Lone Seed
     const bytes = Uint8Array.from(atob(padded), (char) => char.charCodeAt(0))
     bytes[0] = 1
     let binary = ''
-    for (let index = 0; index < bytes.length; index += 1) {
-      binary += String.fromCharCode(bytes[index])
+    for (const byte of bytes) {
+      binary += String.fromCharCode(byte)
     }
-    const mutated = `mt1.${btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '')}`
+    const mutated = `mt1.${trimTrailingPadding(btoa(binary).replace(/\+/g, '-').replace(/\//g, '_'))}`
 
     expect(() => decodeImportCode(mutated)).toThrow(/invalid active team index/i)
   })

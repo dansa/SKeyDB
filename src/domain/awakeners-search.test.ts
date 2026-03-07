@@ -1,6 +1,7 @@
-import { describe, expect, it } from 'vitest'
-import { getAwakeners } from './awakeners'
-import { searchAwakeners } from './awakeners-search'
+import {describe, expect, it} from 'vitest'
+
+import {getAwakeners} from './awakeners'
+import {searchAwakeners} from './awakeners-search'
 
 describe('searchAwakeners', () => {
   it('matches normalized aliases like ghelot/g helot/g-helot', () => {
@@ -43,6 +44,8 @@ describe('searchAwakeners', () => {
 
     expect(results.length).toBeGreaterThan(0)
     expect(results.every((a) => a.tags.includes('STR Up'))).toBe(true)
-    expect(results.some((a) => a.tags.includes('STR Down') && !a.tags.includes('STR Up'))).toBe(false)
+    expect(results.some((a) => a.tags.includes('STR Down') && !a.tags.includes('STR Up'))).toBe(
+      false,
+    )
   })
 })

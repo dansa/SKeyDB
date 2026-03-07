@@ -1,6 +1,7 @@
-import { describe, expect, it } from 'vitest'
-import { getMainstatByKey } from './mainstats'
-import { getWheelMainstatLabel, getWheels } from './wheels'
+import {describe, expect, it} from 'vitest'
+
+import {getMainstatByKey} from './mainstats'
+import {getWheelMainstatLabel, getWheels} from './wheels'
 
 describe('getWheels', () => {
   it('returns parsed wheels with stable ids and full asset ids', () => {
@@ -59,4 +60,3 @@ describe('getWheels', () => {
     })
   })
 })
-

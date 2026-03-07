@@ -1,7 +1,9 @@
-import { act, renderHook } from '@testing-library/react'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { COLLECTION_OWNERSHIP_KEY } from '../../domain/collection-ownership'
-import { useCollectionViewModel } from './useCollectionViewModel'
+import {act, renderHook} from '@testing-library/react'
+import {afterEach, beforeEach, describe, expect, it} from 'vitest'
+
+import {COLLECTION_OWNERSHIP_KEY} from '@/domain/collection-ownership'
+
+import {useCollectionViewModel} from './useCollectionViewModel'
 
 const COLLECTION_AWAKENER_SORT_KEY = 'skeydb.collection.awakenerSort.v1'
 
@@ -17,7 +19,7 @@ describe('useCollectionViewModel', () => {
   })
 
   it('toggles awakener ownership and keeps linked awakeners synced', () => {
-    const { result } = renderHook(() => useCollectionViewModel())
+    const {result} = renderHook(() => useCollectionViewModel())
 
     expect(result.current.getAwakenerOwnedLevel('ramona')).toBe(0)
     expect(result.current.getAwakenerOwnedLevel('ramona: timeworn')).toBe(0)
@@ -38,7 +40,7 @@ describe('useCollectionViewModel', () => {
   })
 
   it('clamps wheel level to 15 and does not decrease below 0', () => {
-    const { result } = renderHook(() => useCollectionViewModel())
+    const {result} = renderHook(() => useCollectionViewModel())
 
     expect(result.current.getWheelOwnedLevel('SR19')).toBe(0)
 
@@ -58,7 +60,7 @@ describe('useCollectionViewModel', () => {
   })
 
   it('restores previous wheel level after toggling unowned then owned again', () => {
-    const { result } = renderHook(() => useCollectionViewModel())
+    const {result} = renderHook(() => useCollectionViewModel())
 
     act(() => {
       result.current.increaseLevel('wheels', 'SR19')
@@ -79,7 +81,7 @@ describe('useCollectionViewModel', () => {
   })
 
   it('appends and clears search query on active tab', () => {
-    const { result } = renderHook(() => useCollectionViewModel())
+    const {result} = renderHook(() => useCollectionViewModel())
 
     act(() => {
       result.current.appendSearchCharacter('r')
@@ -94,7 +96,7 @@ describe('useCollectionViewModel', () => {
   })
 
   it('tracks editable awakener level with 1-90 clamp and default 60', () => {
-    const { result } = renderHook(() => useCollectionViewModel())
+    const {result} = renderHook(() => useCollectionViewModel())
 
     expect(result.current.getAwakenerLevel('ramona')).toBe(60)
     expect(result.current.getAwakenerLevel('ramona: timeworn')).toBe(60)
@@ -119,7 +121,7 @@ describe('useCollectionViewModel', () => {
   })
 
   it('applies awakener level +/-10 preset once per linked awakener group', () => {
-    const { result } = renderHook(() => useCollectionViewModel())
+    const {result} = renderHook(() => useCollectionViewModel())
 
     act(() => {
       result.current.setAwakenerLevel('ramona', 60)
@@ -136,7 +138,7 @@ describe('useCollectionViewModel', () => {
   })
 
   it('defaults awakener sort to level descending with faction grouping off', () => {
-    const { result } = renderHook(() => useCollectionViewModel())
+    const {result} = renderHook(() => useCollectionViewModel())
 
     expect(result.current.awakenerSortKey).toBe('LEVEL')
     expect(result.current.awakenerSortDirection).toBe('DESC')
@@ -161,7 +163,7 @@ describe('useCollectionViewModel', () => {
   })
 
   it('marks awakener sort pending after level changes and clears after apply', () => {
-    const { result } = renderHook(() => useCollectionViewModel())
+    const {result} = renderHook(() => useCollectionViewModel())
 
     expect(result.current.awakenerSortHasPendingChanges).toBe(false)
 
@@ -177,7 +179,7 @@ describe('useCollectionViewModel', () => {
   })
 
   it('marks wheel sort pending after level changes and clears after apply', () => {
-    const { result } = renderHook(() => useCollectionViewModel())
+    const {result} = renderHook(() => useCollectionViewModel())
 
     expect(result.current.wheelSortHasPendingChanges).toBe(false)
 
@@ -192,5 +194,3 @@ describe('useCollectionViewModel', () => {
     expect(result.current.wheelSortHasPendingChanges).toBe(false)
   })
 })
-
-

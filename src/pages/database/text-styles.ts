@@ -1,4 +1,4 @@
-import { DEFAULT_REALM_TINT, REALM_TINT_BY_LABEL } from '../../domain/factions'
+import {DEFAULT_REALM_TINT, REALM_TINT_BY_LABEL} from '@/domain/factions'
 
 export const DATABASE_SECTION_TITLE_CLASS = 'ui-title px-4 pt-3 pb-2 text-amber-200/90'
 export const DATABASE_ITEM_NAME_CLASS = 'text-amber-200/90'

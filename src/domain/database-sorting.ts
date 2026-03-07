@@ -1,9 +1,12 @@
-import type { Awakener } from './awakeners'
-import type { AwakenerSortKey, CollectionSortDirection } from './collection-sorting'
+import type {Awakener} from './awakeners'
+import type {AwakenerSortKey, CollectionSortDirection} from './collection-sorting'
 
-export type DatabaseSortKey = Extract<AwakenerSortKey, 'ALPHABETICAL' | 'RARITY' | 'ATK' | 'DEF' | 'CON'>
+export type DatabaseSortKey = Extract<
+  AwakenerSortKey,
+  'ALPHABETICAL' | 'RARITY' | 'ATK' | 'DEF' | 'CON'
+>
 
-export type DatabaseSortConfig = {
+export interface DatabaseSortConfig {
   key: DatabaseSortKey
   direction: CollectionSortDirection
   groupByRealm: boolean
@@ -40,9 +43,15 @@ function compareRealm(left: Awakener, right: Awakener): number {
   return leftRank - rightRank
 }
 
-function compareRarity(left: Awakener, right: Awakener, direction: CollectionSortDirection): number {
-  const leftRank = RARITY_PRIORITY_BY_ID[left.rarity?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
-  const rightRank = RARITY_PRIORITY_BY_ID[right.rarity?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
+function compareRarity(
+  left: Awakener,
+  right: Awakener,
+  direction: CollectionSortDirection,
+): number {
+  const leftRank =
+    RARITY_PRIORITY_BY_ID[left.rarity?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
+  const rightRank =
+    RARITY_PRIORITY_BY_ID[right.rarity?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
   return direction === 'DESC' ? leftRank - rightRank : rightRank - leftRank
 }
 
@@ -58,7 +67,7 @@ function compareStat(
 function compareByPriority(
   left: Awakener,
   right: Awakener,
-  comparators: Array<(left: Awakener, right: Awakener) => number>,
+  comparators: ((left: Awakener, right: Awakener) => number)[],
 ): number {
   for (const comparator of comparators) {
     const result = comparator(left, right)
@@ -74,19 +83,25 @@ export function compareAwakenersForDatabaseSort(
   right: Awakener,
   config: DatabaseSortConfig,
 ): number {
-  const comparators: Array<(left: Awakener, right: Awakener) => number> = []
+  const comparators: ((left: Awakener, right: Awakener) => number)[] = []
 
   if (config.groupByRealm) {
     comparators.push(compareRealm)
   }
 
   if (config.key === 'RARITY') {
-    comparators.push((innerLeft, innerRight) => compareRarity(innerLeft, innerRight, config.direction))
+    comparators.push((innerLeft, innerRight) =>
+      compareRarity(innerLeft, innerRight, config.direction),
+    )
   } else if (config.key === 'ATK' || config.key === 'DEF' || config.key === 'CON') {
     const statKey = config.key
-    comparators.push((innerLeft, innerRight) => compareStat(innerLeft, innerRight, statKey, config.direction))
+    comparators.push((innerLeft, innerRight) =>
+      compareStat(innerLeft, innerRight, statKey, config.direction),
+    )
   } else {
-    comparators.push((innerLeft, innerRight) => compareText(innerLeft.name, innerRight.name, config.direction))
+    comparators.push((innerLeft, innerRight) =>
+      compareText(innerLeft.name, innerRight.name, config.direction),
+    )
   }
 
   comparators.push((innerLeft, innerRight) => compareText(innerLeft.name, innerRight.name, 'ASC'))

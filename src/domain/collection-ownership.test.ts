@@ -1,7 +1,9 @@
-import { describe, expect, it } from 'vitest'
+import {describe, expect, it} from 'vitest'
+
+import {getAwakeners} from './awakeners'
 import {
-  clearOwnedEntry,
   clearCollectionOwnership,
+  clearOwnedEntry,
   COLLECTION_OWNERSHIP_KEY,
   createDefaultCollectionOwnershipCatalog,
   createEmptyCollectionOwnershipState,
@@ -17,7 +19,6 @@ import {
   setOwnedLevel,
   type CollectionOwnershipCatalog,
 } from './collection-ownership'
-import { getAwakeners } from './awakeners'
 
 const catalog: CollectionOwnershipCatalog = {
   awakenerIds: ['1', '2'],
@@ -42,10 +43,10 @@ function createStorage() {
 
 describe('collection ownership persistence', () => {
   const defaultOwnedStateForCatalog = {
-    ownedAwakeners: { '1': 0, '2': 0 },
-    awakenerLevels: { '1': 60, '2': 60 },
-    ownedWheels: { W01: 0, W02: 0 },
-    ownedPosses: { P01: 0, P02: 0 },
+    ownedAwakeners: {'1': 0, '2': 0},
+    awakenerLevels: {'1': 60, '2': 60},
+    ownedWheels: {W01: 0, W02: 0},
+    ownedPosses: {P01: 0, P02: 0},
     displayUnowned: true,
   } as const
 
@@ -54,10 +55,10 @@ describe('collection ownership persistence', () => {
     const saved = saveCollectionOwnership(
       storage,
       {
-        ownedAwakeners: { '1': 5, unknown: 99 },
-        awakenerLevels: { '1': 60, unknown: 999 },
-        ownedWheels: { W01: 0 },
-        ownedPosses: { P01: 21 },
+        ownedAwakeners: {'1': 5, unknown: 99},
+        awakenerLevels: {'1': 60, unknown: 999},
+        ownedWheels: {W01: 0},
+        ownedPosses: {P01: 21},
         displayUnowned: false,
       },
       catalog,
@@ -69,10 +70,10 @@ describe('collection ownership persistence', () => {
 
     const loaded = loadCollectionOwnership(storage, catalog)
     expect(loaded).toEqual({
-      ownedAwakeners: { '1': 5, '2': 5 },
-      awakenerLevels: { '1': 60, '2': 60 },
-      ownedWheels: { W01: 0 },
-      ownedPosses: { P01: 0 },
+      ownedAwakeners: {'1': 5, '2': 5},
+      awakenerLevels: {'1': 60, '2': 60},
+      ownedWheels: {W01: 0},
+      ownedPosses: {P01: 0},
       displayUnowned: false,
     })
   })
@@ -143,17 +144,17 @@ describe('collection ownership persistence', () => {
     expect(ramonaId).toBeDefined()
     expect(ramonaTimewornId).toBeDefined()
     expect(defaultCatalog.linkedAwakenerGroups).toContainEqual(
-      [String(ramonaId), String(ramonaTimewornId)].sort(),
+      [String(ramonaId), String(ramonaTimewornId)].sort((a, b) => a.localeCompare(b)),
     )
   })
 
   it('serializes and parses ownership snapshot payloads for file export/import', () => {
     const snapshot = serializeCollectionOwnershipSnapshot(
       {
-        ownedAwakeners: { '1': 4 },
-        awakenerLevels: { '1': 72 },
-        ownedWheels: { W01: 2 },
-        ownedPosses: { P01: 0 },
+        ownedAwakeners: {'1': 4},
+        awakenerLevels: {'1': 72},
+        ownedWheels: {W01: 2},
+        ownedPosses: {P01: 0},
         displayUnowned: true,
       },
       catalog,
@@ -165,10 +166,10 @@ describe('collection ownership persistence', () => {
       return
     }
     expect(parsed.state).toEqual({
-      ownedAwakeners: { '1': 4, '2': 4 },
-      awakenerLevels: { '1': 72, '2': 72 },
-      ownedWheels: { W01: 2 },
-      ownedPosses: { P01: 0 },
+      ownedAwakeners: {'1': 4, '2': 4},
+      awakenerLevels: {'1': 72, '2': 72},
+      ownedWheels: {W01: 2},
+      ownedPosses: {P01: 0},
       displayUnowned: true,
     })
   })

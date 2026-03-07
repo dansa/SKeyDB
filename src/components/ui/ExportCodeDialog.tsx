@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react'
-import { ModalFrame } from './ModalFrame'
-import { Button } from './Button'
-import type { ReactNode } from 'react'
+import {useEffect, useRef, type ReactNode} from 'react'
 
-type ExportCodeDialogProps = {
+import {Button} from './Button'
+import {ModalFrame} from './ModalFrame'
+
+interface ExportCodeDialogProps {
   title: string
   code: string
   onClose: () => void
@@ -11,7 +11,13 @@ type ExportCodeDialogProps = {
   helperText?: string
 }
 
-export function ExportCodeDialog({ title, code, onClose, warning, helperText }: ExportCodeDialogProps) {
+export function ExportCodeDialog({
+  title,
+  code,
+  onClose,
+  warning,
+  helperText,
+}: ExportCodeDialogProps) {
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
 
   useEffect(() => {
@@ -21,17 +27,19 @@ export function ExportCodeDialog({ title, code, onClose, warning, helperText }: 
 
   return (
     <ModalFrame title={title}>
-      <p className="mt-2 text-sm text-slate-200">{helperText ?? 'Copy this code to share/import later.'}</p>
-      {warning ? <div className="mt-2">{warning}</div> : null}
+      <p className='mt-2 text-sm text-slate-200'>
+        {helperText ?? 'Copy this code to share/import later.'}
+      </p>
+      {warning ? <div className='mt-2'>{warning}</div> : null}
       <textarea
-        aria-label="Export code"
-        className="mt-3 h-24 w-full resize-none border border-slate-500/55 bg-slate-900/75 p-2 text-xs text-slate-100 outline-none focus:border-amber-200/70"
+        aria-label='Export code'
+        className='mt-3 h-24 w-full resize-none border border-slate-500/55 bg-slate-900/75 p-2 text-xs text-slate-100 outline-none focus:border-amber-200/70'
         readOnly
         ref={inputRef}
         value={code}
       />
-      <div className="mt-4 flex justify-end gap-2">
-        <Button onClick={onClose} variant="primary">
+      <div className='mt-4 flex justify-end gap-2'>
+        <Button onClick={onClose} variant='primary'>
           Close
         </Button>
       </div>

@@ -1,18 +1,10 @@
-import { DetailLevelSlider } from './DetailLevelSlider'
+import {DetailLevelSlider} from './DetailLevelSlider'
 
-type SkillLevelSliderProps = {
+interface SkillLevelSliderProps {
   level: number
   onChange: (level: number) => void
 }
 
-export function SkillLevelSlider({ level, onChange }: SkillLevelSliderProps) {
-  return (
-    <DetailLevelSlider
-      label="Skill Level"
-      level={level}
-      max={6}
-      min={1}
-      onChange={onChange}
-    />
-  )
+export function SkillLevelSlider({level, onChange}: SkillLevelSliderProps) {
+  return <DetailLevelSlider label='Skill Level' level={level} max={6} min={1} onChange={onChange} />
 }

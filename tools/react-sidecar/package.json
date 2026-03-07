@@ -1,0 +1,12 @@
+{
+  "name": "react-sidecar-lint",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@typescript-eslint/parser": "^8.56.1",
+    "eslint": "^9.7.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.4.0",
+    "typescript": "~5.9.3"
+  }
+}

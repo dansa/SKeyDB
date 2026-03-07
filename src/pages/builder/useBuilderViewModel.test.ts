@@ -1,11 +1,18 @@
-import { createRef } from 'react'
-import { act, renderHook } from '@testing-library/react'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { getAwakenerIdentityKey } from '../../domain/awakener-identity'
-import { COLLECTION_OWNERSHIP_KEY, saveCollectionOwnership } from '../../domain/collection-ownership'
-import { BUILDER_PERSISTENCE_KEY, clearBuilderDraft, saveBuilderDraft } from './builder-persistence'
-import { useBuilderViewModel } from './useBuilderViewModel'
-import type { BuilderDraftPayload } from './builder-persistence'
+import {createRef} from 'react'
+
+import {act, renderHook} from '@testing-library/react'
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
+
+import {getAwakenerIdentityKey} from '@/domain/awakener-identity'
+import {COLLECTION_OWNERSHIP_KEY, saveCollectionOwnership} from '@/domain/collection-ownership'
+
+import {
+  BUILDER_PERSISTENCE_KEY,
+  clearBuilderDraft,
+  saveBuilderDraft,
+  type BuilderDraftPayload,
+} from './builder-persistence'
+import {useBuilderViewModel} from './useBuilderViewModel'
 
 vi.mock('./useGlobalPickerSearchCapture', () => ({
   useGlobalPickerSearchCapture: vi.fn(),
@@ -46,7 +53,7 @@ describe('useBuilderViewModel', () => {
   })
 
   it('initializes with a valid active team and slots', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -59,7 +66,7 @@ describe('useBuilderViewModel', () => {
   })
 
   it('toggles card selection and syncs picker tab to awakeners', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -72,7 +79,7 @@ describe('useBuilderViewModel', () => {
     })
 
     expect(result.current.pickerTab).toBe('awakeners')
-    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: targetSlot })
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: targetSlot})
 
     act(() => {
       result.current.handleCardClick(targetSlot)
@@ -81,7 +88,7 @@ describe('useBuilderViewModel', () => {
   })
 
   it('sets wheel selection and syncs picker tab to wheels', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -93,11 +100,15 @@ describe('useBuilderViewModel', () => {
     })
 
     expect(result.current.pickerTab).toBe('wheels')
-    expect(result.current.activeSelection).toEqual({ kind: 'wheel', slotId: targetSlot, wheelIndex: 0 })
+    expect(result.current.activeSelection).toEqual({
+      kind: 'wheel',
+      slotId: targetSlot,
+      wheelIndex: 0,
+    })
   })
 
   it('sets second wheel slot selection and keeps picker tab on wheels', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -109,11 +120,15 @@ describe('useBuilderViewModel', () => {
     })
 
     expect(result.current.pickerTab).toBe('wheels')
-    expect(result.current.activeSelection).toEqual({ kind: 'wheel', slotId: targetSlot, wheelIndex: 1 })
+    expect(result.current.activeSelection).toEqual({
+      kind: 'wheel',
+      slotId: targetSlot,
+      wheelIndex: 1,
+    })
   })
 
   it('removes an active awakener selection from a slot', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -124,14 +139,19 @@ describe('useBuilderViewModel', () => {
       result.current.setActiveTeamSlots([
         ...result.current.teamSlots.map((slot, index) =>
           index === 0
-            ? { ...slot, awakenerName: 'Goliath', realm: 'AEQUOR', wheels: [null, null] as [string | null, string | null] }
+            ? {
+                ...slot,
+                awakenerName: 'Goliath',
+                realm: 'AEQUOR',
+                wheels: [null, null] as [string | null, string | null],
+              }
             : slot,
         ),
       ])
     })
 
     act(() => {
-      result.current.setActiveSelection({ kind: 'awakener', slotId: targetSlot })
+      result.current.setActiveSelection({kind: 'awakener', slotId: targetSlot})
     })
 
     act(() => {
@@ -143,7 +163,7 @@ describe('useBuilderViewModel', () => {
   })
 
   it('tracks used awakeners by identity key across teams', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -155,7 +175,7 @@ describe('useBuilderViewModel', () => {
         {
           ...firstTeam,
           slots: firstTeam.slots.map((slot, index) =>
-            index === 0 ? { ...slot, awakenerName: 'Ramona', realm: 'CHAOS' } : slot,
+            index === 0 ? {...slot, awakenerName: 'Ramona', realm: 'CHAOS'} : slot,
           ),
         },
         ...rest,
@@ -163,11 +183,13 @@ describe('useBuilderViewModel', () => {
     })
 
     expect(result.current.usedAwakenerIdentityKeys.has(getAwakenerIdentityKey('Ramona'))).toBe(true)
-    expect(result.current.usedAwakenerIdentityKeys.has(getAwakenerIdentityKey('Ramona: Timeworn'))).toBe(true)
+    expect(
+      result.current.usedAwakenerIdentityKeys.has(getAwakenerIdentityKey('Ramona: Timeworn')),
+    ).toBe(true)
   })
 
   it('filters wheels by rarity and searches wheel metadata fields', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -181,25 +203,29 @@ describe('useBuilderViewModel', () => {
 
     act(() => {
       result.current.setWheelRarityFilter('ALL')
-      result.current.setPickerSearchByTab((prev) => ({ ...prev, wheels: 'ultra' }))
+      result.current.setPickerSearchByTab((prev) => ({...prev, wheels: 'ultra'}))
     })
     expect(result.current.filteredWheels.length).toBeGreaterThan(0)
     expect(result.current.filteredWheels.every((wheel) => wheel.realm === 'ULTRA')).toBe(true)
 
     act(() => {
-      result.current.setPickerSearchByTab((prev) => ({ ...prev, wheels: 'b01' }))
+      result.current.setPickerSearchByTab((prev) => ({...prev, wheels: 'b01'}))
     })
     expect(result.current.filteredWheels).toHaveLength(0)
 
     act(() => {
-      result.current.setPickerSearchByTab((prev) => ({ ...prev, wheels: 'ghelot' }))
+      result.current.setPickerSearchByTab((prev) => ({...prev, wheels: 'ghelot'}))
     })
     expect(result.current.filteredWheels.length).toBeGreaterThan(0)
-    expect(result.current.filteredWheels.some((wheel) => wheel.awakener.toLowerCase() === 'helot: catena')).toBe(true)
+    expect(
+      result.current.filteredWheels.some(
+        (wheel) => wheel.awakener.toLowerCase() === 'helot: catena',
+      ),
+    ).toBe(true)
   })
 
   it('sorts wheels by rarity, then realm (Chaos first), then id', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -208,8 +234,8 @@ describe('useBuilderViewModel', () => {
     const wheels = result.current.filteredWheels
     expect(wheels.length).toBeGreaterThan(0)
 
-    const rarityOrder = { SSR: 0, SR: 1, R: 2 } as const
-    const realmOrder = { CHAOS: 0, AEQUOR: 1, CARO: 2, ULTRA: 3, NEUTRAL: 4 } as const
+    const rarityOrder = {SSR: 0, SR: 1, R: 2} as const
+    const realmOrder = {CHAOS: 0, AEQUOR: 1, CARO: 2, ULTRA: 3, NEUTRAL: 4} as const
 
     for (let index = 1; index < wheels.length; index += 1) {
       const prev = wheels[index - 1]
@@ -228,12 +254,14 @@ describe('useBuilderViewModel', () => {
         continue
       }
 
-      expect(prev.id.localeCompare(next.id, undefined, { numeric: true, sensitivity: 'base' })).toBeLessThanOrEqual(0)
+      expect(
+        prev.id.localeCompare(next.id, undefined, {numeric: true, sensitivity: 'base'}),
+      ).toBeLessThanOrEqual(0)
     }
   })
 
   it('renames a team via begin/commit flow', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -263,16 +291,25 @@ describe('useBuilderViewModel', () => {
         id: 'team-from-storage',
         name: 'Stored Team',
         slots: [
-          { slotId: 'slot-1', awakenerName: 'Goliath', realm: 'AEQUOR', level: 60, wheels: [null, null] as [string | null, string | null] },
-          { slotId: 'slot-2', wheels: [null, null] as [string | null, string | null] },
-          { slotId: 'slot-3', wheels: [null, null] as [string | null, string | null] },
-          { slotId: 'slot-4', wheels: [null, null] as [string | null, string | null] },
+          {
+            slotId: 'slot-1',
+            awakenerName: 'Goliath',
+            realm: 'AEQUOR',
+            level: 60,
+            wheels: [null, null] as [string | null, string | null],
+          },
+          {slotId: 'slot-2', wheels: [null, null] as [string | null, string | null]},
+          {slotId: 'slot-3', wheels: [null, null] as [string | null, string | null]},
+          {slotId: 'slot-4', wheels: [null, null] as [string | null, string | null]},
         ],
       },
     ]
-    saveBuilderDraft(window.localStorage, { teams: persistedTeams, activeTeamId: 'team-from-storage' })
+    saveBuilderDraft(window.localStorage, {
+      teams: persistedTeams,
+      activeTeamId: 'team-from-storage',
+    })
 
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -285,7 +322,7 @@ describe('useBuilderViewModel', () => {
   it('autosaves team draft changes to localStorage', () => {
     vi.useFakeTimers()
 
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -297,10 +334,10 @@ describe('useBuilderViewModel', () => {
           id: 'team-autosave',
           name: 'Autosave Team',
           slots: [
-            { slotId: 'slot-1', wheels: [null, null] as [string | null, string | null] },
-            { slotId: 'slot-2', wheels: [null, null] as [string | null, string | null] },
-            { slotId: 'slot-3', wheels: [null, null] as [string | null, string | null] },
-            { slotId: 'slot-4', wheels: [null, null] as [string | null, string | null] },
+            {slotId: 'slot-1', wheels: [null, null] as [string | null, string | null]},
+            {slotId: 'slot-2', wheels: [null, null] as [string | null, string | null]},
+            {slotId: 'slot-3', wheels: [null, null] as [string | null, string | null]},
+            {slotId: 'slot-4', wheels: [null, null] as [string | null, string | null]},
           ],
         },
       ])
@@ -312,7 +349,7 @@ describe('useBuilderViewModel', () => {
     })
 
     const storedRaw = requireDefined(window.localStorage.getItem(BUILDER_PERSISTENCE_KEY))
-    const parsed = JSON.parse(storedRaw) as { payload: BuilderDraftPayload }
+    const parsed = JSON.parse(storedRaw) as {payload: BuilderDraftPayload}
     expect(parsed.payload.activeTeamId).toBe('team-autosave')
     expect(parsed.payload.teams[0]?.name).toBe('Autosave Team')
 
@@ -322,14 +359,14 @@ describe('useBuilderViewModel', () => {
 
   it('hydrates ownership and keeps linked awakeners synced', () => {
     saveCollectionOwnership(window.localStorage, {
-      ownedAwakeners: { '42': 5 },
+      ownedAwakeners: {'42': 5},
       awakenerLevels: {},
       ownedWheels: {},
       ownedPosses: {},
       displayUnowned: true,
     })
 
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -349,7 +386,7 @@ describe('useBuilderViewModel', () => {
     })
     window.localStorage.setItem(BUILDER_DISPLAY_UNOWNED_KEY, '0')
 
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -370,7 +407,7 @@ describe('useBuilderViewModel', () => {
     })
     window.localStorage.setItem(BUILDER_DISPLAY_UNOWNED_KEY, '0')
 
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -386,7 +423,7 @@ describe('useBuilderViewModel', () => {
   })
 
   it('defaults team preview mode to compact and persists expanded mode', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -402,7 +439,7 @@ describe('useBuilderViewModel', () => {
   })
 
   it('starts quick lineup by snapshotting and clearing the active team, then activating the first awakener step', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -418,11 +455,11 @@ describe('useBuilderViewModel', () => {
           wheels: ['wheel-a', null],
           covenantId: 'covenant-a',
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
-      result.current.updateActiveTeam((team) => ({ ...team, posseId: 'manor-echoes' }))
+      result.current.updateActiveTeam((team) => ({...team, posseId: 'manor-echoes'}))
     })
 
     act(() => {
@@ -431,20 +468,23 @@ describe('useBuilderViewModel', () => {
 
     expect(result.current.quickLineupSession?.isActive).toBe(true)
     expect(result.current.quickLineupSession?.currentStepIndex).toBe(0)
-    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-1',
+    })
     expect(result.current.pickerTab).toBe('awakeners')
-    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-1'})
     expect(result.current.teamSlots).toEqual([
-      { slotId: 'slot-1', wheels: [null, null] },
-      { slotId: 'slot-2', wheels: [null, null] },
-      { slotId: 'slot-3', wheels: [null, null] },
-      { slotId: 'slot-4', wheels: [null, null] },
+      {slotId: 'slot-1', wheels: [null, null]},
+      {slotId: 'slot-2', wheels: [null, null]},
+      {slotId: 'slot-3', wheels: [null, null]},
+      {slotId: 'slot-4', wheels: [null, null]},
     ])
-    expect(result.current.activeTeam?.posseId).toBeUndefined()
+    expect(result.current.activeTeam.posseId).toBeUndefined()
   })
 
   it('skips and backs through quick lineup steps using picker-tab-aware selection targets', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -458,21 +498,27 @@ describe('useBuilderViewModel', () => {
       result.current.skipQuickLineupStep()
     })
 
-    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-2',
+    })
     expect(result.current.pickerTab).toBe('awakeners')
-    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-2'})
 
     act(() => {
       result.current.goBackQuickLineupStep()
     })
 
-    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-1',
+    })
     expect(result.current.pickerTab).toBe('awakeners')
-    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-1'})
   })
 
   it('jumps quick lineup focus when the user selects a different slot manually', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -486,13 +532,16 @@ describe('useBuilderViewModel', () => {
       result.current.handleCovenantSlotClick('slot-1')
     })
 
-    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'covenant', slotId: 'slot-1' })
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'covenant',
+      slotId: 'slot-1',
+    })
     expect(result.current.pickerTab).toBe('covenants')
-    expect(result.current.activeSelection).toEqual({ kind: 'covenant', slotId: 'slot-1' })
+    expect(result.current.activeSelection).toEqual({kind: 'covenant', slotId: 'slot-1'})
   })
 
   it('keeps the current quick lineup wheel step active when removing that wheel', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -511,9 +560,9 @@ describe('useBuilderViewModel', () => {
           level: 60,
           wheels: ['wheel-a', null],
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
     })
 
@@ -526,13 +575,17 @@ describe('useBuilderViewModel', () => {
           level: 60,
           wheels: ['wheel-a', null],
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
     })
 
-    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'wheel',
+      slotId: 'slot-1',
+      wheelIndex: 0,
+    })
 
     act(() => {
       result.current.handleRemoveActiveSelection('slot-1')
@@ -540,13 +593,17 @@ describe('useBuilderViewModel', () => {
 
     expect(result.current.teamSlots[0]?.awakenerName).toBe('Goliath')
     expect(result.current.teamSlots[0]?.wheels[0]).toBeNull()
-    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'wheel',
+      slotId: 'slot-1',
+      wheelIndex: 0,
+    })
     expect(result.current.pickerTab).toBe('wheels')
-    expect(result.current.activeSelection).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+    expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-1', wheelIndex: 0})
   })
 
   it('keeps the current quick lineup wheel step active when clearing that wheel through the shared wheel-clear path', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -565,9 +622,9 @@ describe('useBuilderViewModel', () => {
           level: 60,
           wheels: ['wheel-a', null],
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
     })
 
@@ -580,9 +637,9 @@ describe('useBuilderViewModel', () => {
           level: 60,
           wheels: ['wheel-a', null],
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
     })
 
@@ -596,11 +653,11 @@ describe('useBuilderViewModel', () => {
       wheelIndex: 0,
     })
     expect(result.current.pickerTab).toBe('wheels')
-    expect(result.current.activeSelection).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+    expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-1', wheelIndex: 0})
   })
 
   it('keeps quick lineup coherent when a slot is cleared through the shared slot-clear path', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -619,9 +676,9 @@ describe('useBuilderViewModel', () => {
           level: 60,
           wheels: ['wheel-a', null],
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
     })
 
@@ -634,26 +691,33 @@ describe('useBuilderViewModel', () => {
           level: 60,
           wheels: ['wheel-a', null],
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
     })
 
-    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'wheel',
+      slotId: 'slot-1',
+      wheelIndex: 0,
+    })
 
     act(() => {
       result.current.clearTeamSlot('slot-1')
     })
 
     expect(result.current.teamSlots[0]?.awakenerName).toBeUndefined()
-    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-1',
+    })
     expect(result.current.pickerTab).toBe('awakeners')
-    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-1' })
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-1'})
   })
 
   it('jumps quick lineup to the drop target when swapping active team slots', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -672,9 +736,9 @@ describe('useBuilderViewModel', () => {
           level: 60,
           wheels: [null, null],
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
     })
 
@@ -683,13 +747,16 @@ describe('useBuilderViewModel', () => {
     })
 
     expect(result.current.teamSlots[1]?.awakenerName).toBe('Goliath')
-    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-2',
+    })
     expect(result.current.pickerTab).toBe('awakeners')
-    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-2'})
   })
 
   it('falls back to the drop target awakener step when swapping slots during a quick lineup wheel step', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -708,9 +775,9 @@ describe('useBuilderViewModel', () => {
           level: 60,
           wheels: ['wheel-a', null],
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
     })
 
@@ -723,26 +790,33 @@ describe('useBuilderViewModel', () => {
           level: 60,
           wheels: ['wheel-a', null],
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
     })
 
-    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'wheel', slotId: 'slot-1', wheelIndex: 0 })
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'wheel',
+      slotId: 'slot-1',
+      wheelIndex: 0,
+    })
 
     act(() => {
       result.current.swapActiveTeamSlots('slot-1', 'slot-2')
     })
 
     expect(result.current.teamSlots[1]?.awakenerName).toBe('Goliath')
-    expect(result.current.quickLineupSession?.currentStep).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-2',
+    })
     expect(result.current.pickerTab).toBe('awakeners')
-    expect(result.current.activeSelection).toEqual({ kind: 'awakener', slotId: 'slot-2' })
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-2'})
   })
 
   it('cancels quick lineup by restoring the pre-session team snapshot', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -758,11 +832,11 @@ describe('useBuilderViewModel', () => {
           wheels: ['wheel-a', 'wheel-b'],
           covenantId: 'covenant-a',
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
-      result.current.updateActiveTeam((team) => ({ ...team, posseId: 'manor-echoes' }))
+      result.current.updateActiveTeam((team) => ({...team, posseId: 'manor-echoes'}))
     })
 
     act(() => {
@@ -784,11 +858,11 @@ describe('useBuilderViewModel', () => {
       wheels: ['wheel-a', 'wheel-b'],
       covenantId: 'covenant-a',
     })
-    expect(result.current.activeTeam?.posseId).toBe('manor-echoes')
+    expect(result.current.activeTeam.posseId).toBe('manor-echoes')
   })
 
   it('finishes quick lineup by keeping the partially built team state', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -804,20 +878,20 @@ describe('useBuilderViewModel', () => {
           level: 60,
           wheels: [null, null],
         },
-        { slotId: 'slot-2', wheels: [null, null] },
-        { slotId: 'slot-3', wheels: [null, null] },
-        { slotId: 'slot-4', wheels: [null, null] },
+        {slotId: 'slot-2', wheels: [null, null]},
+        {slotId: 'slot-3', wheels: [null, null]},
+        {slotId: 'slot-4', wheels: [null, null]},
       ])
       result.current.finishQuickLineup()
     })
 
     expect(result.current.quickLineupSession).toBeNull()
     expect(result.current.teamSlots[0]?.awakenerName).toBe('Goliath')
-    expect(result.current.activeTeam?.posseId).toBeUndefined()
+    expect(result.current.activeTeam.posseId).toBeUndefined()
   })
 
   it('exposes awakener sort controls for picker sorting', () => {
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -843,7 +917,7 @@ describe('useBuilderViewModel', () => {
     window.localStorage.setItem(BUILDER_AWAKENER_SORT_KEY_KEY, 'RARITY')
     window.localStorage.setItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY, 'ASC')
 
-    const { result } = renderHook(() =>
+    const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
       }),
@@ -863,8 +937,4 @@ describe('useBuilderViewModel', () => {
     expect(window.localStorage.getItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)).toBe('DESC')
     expect(window.localStorage.getItem(BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY)).toBe('0')
   })
-
 })
-
-
-

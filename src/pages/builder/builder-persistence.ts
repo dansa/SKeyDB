@@ -1,19 +1,22 @@
-import type { Team, TeamSlot } from './types'
-import type { StorageLike } from '../../domain/storage'
-import { safeStorageRead, safeStorageRemove, safeStorageWrite } from '../../domain/storage'
+import {
+  safeStorageRead,
+  safeStorageRemove,
+  safeStorageWrite,
+  type StorageLike,
+} from '@/domain/storage'
+
+import type {Team, TeamSlot} from './types'
 
 const BUILDER_PERSISTENCE_VERSION = 1
 
-export const BUILDER_PERSISTENCE_KEY = `skeydb.builder.v${BUILDER_PERSISTENCE_VERSION}`
+export const BUILDER_PERSISTENCE_KEY = `skeydb.builder.v${String(BUILDER_PERSISTENCE_VERSION)}`
 
-type BuilderDraftPayload = {
+export interface BuilderDraftPayload {
   teams: Team[]
   activeTeamId: string
 }
 
-export type { BuilderDraftPayload }
-
-type PersistedBuilderEnvelope = {
+interface PersistedBuilderEnvelope {
   version: number
   updatedAt: string
   payload: BuilderDraftPayload
@@ -25,16 +28,68 @@ function isRealm(value: unknown): boolean {
   return typeof value === 'string' && VALID_REALMS.has(value)
 }
 
+function hasNonEmptyString(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0
+}
+
 function isOptionalString(value: unknown): boolean {
   return value === undefined || typeof value === 'string'
 }
 
 function isOptionalFiniteInteger(value: unknown): boolean {
-  return value === undefined || (typeof value === 'number' && Number.isFinite(value) && Number.isInteger(value))
+  return (
+    value === undefined ||
+    (typeof value === 'number' && Number.isFinite(value) && Number.isInteger(value))
+  )
 }
 
 function isOptionalBoolean(value: unknown): boolean {
   return value === undefined || typeof value === 'boolean'
+}
+
+function hasValidSlotIdentity(record: Record<string, unknown>): boolean {
+  return hasNonEmptyString(record.slotId)
+}
+
+function hasValidSlotWheels(record: Record<string, unknown>): boolean {
+  return (
+    Array.isArray(record.wheels) &&
+    record.wheels.length === 2 &&
+    record.wheels.every((wheelId) => wheelId === null || typeof wheelId === 'string')
+  )
+}
+
+function hasValidSlotMetadata(record: Record<string, unknown>): boolean {
+  if (!isOptionalString(record.awakenerName) || !isOptionalString(record.covenantId)) {
+    return false
+  }
+  if (!isOptionalBoolean(record.isSupport) || !isOptionalFiniteInteger(record.level)) {
+    return false
+  }
+  if (
+    (typeof record.awakenerName === 'string' && !record.awakenerName.trim()) ||
+    (typeof record.covenantId === 'string' && !record.covenantId.trim())
+  ) {
+    return false
+  }
+
+  return true
+}
+
+function resolveSlotRealmCandidate(record: Record<string, unknown>): unknown {
+  return record.realm ?? record.faction
+}
+
+function hasInvalidEmptySlotData(record: Record<string, unknown>): boolean {
+  const hasMetadata =
+    record.realm !== undefined ||
+    record.faction !== undefined ||
+    record.level !== undefined ||
+    record.covenantId !== undefined ||
+    record.isSupport !== undefined
+  const hasWheelData =
+    Array.isArray(record.wheels) && record.wheels.some((wheelId) => wheelId !== null)
+  return hasMetadata || hasWheelData
 }
 
 function isSlot(value: unknown): value is TeamSlot {
@@ -43,57 +98,25 @@ function isSlot(value: unknown): value is TeamSlot {
   }
 
   const record = value as Record<string, unknown>
-  if (typeof record.slotId !== 'string' || !record.slotId.trim()) {
+  if (
+    !hasValidSlotIdentity(record) ||
+    !hasValidSlotWheels(record) ||
+    !hasValidSlotMetadata(record)
+  ) {
     return false
   }
 
-  if (!Array.isArray(record.wheels) || record.wheels.length !== 2) {
-    return false
-  }
-  const hasValidWheels = record.wheels.every((wheelId) => wheelId === null || typeof wheelId === 'string')
-  if (!hasValidWheels) {
-    return false
-  }
-
-  if (!isOptionalString(record.awakenerName) || !isOptionalString(record.covenantId)) {
-    return false
-  }
-  if (!isOptionalBoolean(record.isSupport)) {
-    return false
-  }
-  if (typeof record.awakenerName === 'string' && !record.awakenerName.trim()) {
-    return false
-  }
-  if (typeof record.covenantId === 'string' && !record.covenantId.trim()) {
-    return false
-  }
-  if (!isOptionalFiniteInteger(record.level)) {
-    return false
-  }
-  const realmCandidate = record.realm ?? record.faction
+  const realmCandidate = resolveSlotRealmCandidate(record)
   if (realmCandidate !== undefined && !isRealm(realmCandidate)) {
     return false
   }
 
-  const hasAwakener = typeof record.awakenerName === 'string' && record.awakenerName.trim().length > 0
+  const hasAwakener = hasNonEmptyString(record.awakenerName)
   if (!hasAwakener) {
-    const hasMetadata =
-      record.realm !== undefined ||
-      record.faction !== undefined ||
-      record.level !== undefined ||
-      record.covenantId !== undefined ||
-      record.isSupport !== undefined
-    const hasWheelData = record.wheels.some((wheelId) => wheelId !== null)
-    if (hasMetadata || hasWheelData) {
-      return false
-    }
-    return true
-  }
-  if (!isRealm(realmCandidate)) {
-    return false
+    return !hasInvalidEmptySlotData(record)
   }
 
-  return true
+  return isRealm(realmCandidate)
 }
 
 function isTeam(value: unknown): value is Team {
@@ -102,7 +125,12 @@ function isTeam(value: unknown): value is Team {
   }
 
   const record = value as Record<string, unknown>
-  if (typeof record.id !== 'string' || !record.id.trim() || typeof record.name !== 'string' || !record.name.trim()) {
+  if (
+    typeof record.id !== 'string' ||
+    !record.id.trim() ||
+    typeof record.name !== 'string' ||
+    !record.name.trim()
+  ) {
     return false
   }
   if (record.posseId !== undefined && typeof record.posseId !== 'string') {
@@ -151,7 +179,8 @@ function normalizeDraft(payload: BuilderDraftPayload): BuilderDraftPayload | nul
     teams: payload.teams.map((team) => ({
       ...team,
       slots: team.slots.map((slot) => {
-        const legacyFaction = 'faction' in slot && typeof slot.faction === 'string' ? slot.faction : undefined
+        const legacyFaction =
+          'faction' in slot && typeof slot.faction === 'string' ? slot.faction : undefined
         const realm = slot.realm ?? legacyFaction
         if (slot.awakenerName) {
           return {
@@ -193,7 +222,10 @@ export function loadBuilderDraft(storage: StorageLike | null): BuilderDraftPaylo
   }
 }
 
-export function saveBuilderDraft(storage: StorageLike | null, payload: BuilderDraftPayload): boolean {
+export function saveBuilderDraft(
+  storage: StorageLike | null,
+  payload: BuilderDraftPayload,
+): boolean {
   const normalized = normalizeDraft(payload)
   if (!normalized) {
     return false

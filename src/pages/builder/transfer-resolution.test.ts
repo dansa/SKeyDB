@@ -1,16 +1,28 @@
-import { describe, expect, it } from 'vitest'
-import type { Team } from './types'
-import { applyPendingTransfer, applySupportTransfer, clearTeamSlotTransfer, swapTeamSlotTransfer } from './transfer-resolution'
+import {describe, expect, it} from 'vitest'
+
+import {
+  applyPendingTransfer,
+  applySupportTransfer,
+  clearTeamSlotTransfer,
+  swapTeamSlotTransfer,
+} from './transfer-resolution'
+import type {Team} from './types'
 
 function buildTeam(id: string, name: string, awakenerName?: string): Team {
   return {
     id,
     name,
     slots: [
-      { slotId: `${id}-slot-1`, awakenerName, realm: awakenerName ? 'AEQUOR' : undefined, level: 60, wheels: [null, null] },
-      { slotId: `${id}-slot-2`, wheels: [null, null] },
-      { slotId: `${id}-slot-3`, wheels: [null, null] },
-      { slotId: `${id}-slot-4`, wheels: [null, null] },
+      {
+        slotId: `${id}-slot-1`,
+        awakenerName,
+        realm: awakenerName ? 'AEQUOR' : undefined,
+        level: 60,
+        wheels: [null, null],
+      },
+      {slotId: `${id}-slot-2`, wheels: [null, null]},
+      {slotId: `${id}-slot-3`, wheels: [null, null]},
+      {slotId: `${id}-slot-4`, wheels: [null, null]},
     ],
   }
 }
@@ -53,8 +65,8 @@ describe('applyPendingTransfer', () => {
 
   it('moves posse between teams', () => {
     const teams: Team[] = [
-      { ...buildTeam('team-1', 'Team 1'), posseId: '12' },
-      { ...buildTeam('team-2', 'Team 2'), posseId: undefined },
+      {...buildTeam('team-1', 'Team 1'), posseId: '12'},
+      {...buildTeam('team-2', 'Team 2'), posseId: undefined},
     ]
 
     const result = applyPendingTransfer(teams, {
@@ -74,19 +86,31 @@ describe('applyPendingTransfer', () => {
       {
         ...buildTeam('team-1', 'Team 1', 'goliath'),
         slots: [
-          { slotId: 'team-1-slot-1', awakenerName: 'goliath', realm: 'AEQUOR', level: 60, wheels: ['B01', '001'] },
-          { slotId: 'team-1-slot-2', wheels: [null, null] },
-          { slotId: 'team-1-slot-3', wheels: [null, null] },
-          { slotId: 'team-1-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-1-slot-1',
+            awakenerName: 'goliath',
+            realm: 'AEQUOR',
+            level: 60,
+            wheels: ['B01', '001'],
+          },
+          {slotId: 'team-1-slot-2', wheels: [null, null]},
+          {slotId: 'team-1-slot-3', wheels: [null, null]},
+          {slotId: 'team-1-slot-4', wheels: [null, null]},
         ],
       },
       {
         ...buildTeam('team-2', 'Team 2', 'ramona'),
         slots: [
-          { slotId: 'team-2-slot-1', awakenerName: 'ramona', realm: 'CHAOS', level: 60, wheels: [null, '002'] },
-          { slotId: 'team-2-slot-2', wheels: [null, null] },
-          { slotId: 'team-2-slot-3', wheels: [null, null] },
-          { slotId: 'team-2-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-2-slot-1',
+            awakenerName: 'ramona',
+            realm: 'CHAOS',
+            level: 60,
+            wheels: [null, '002'],
+          },
+          {slotId: 'team-2-slot-2', wheels: [null, null]},
+          {slotId: 'team-2-slot-3', wheels: [null, null]},
+          {slotId: 'team-2-slot-4', wheels: [null, null]},
         ],
       },
     ]
@@ -112,10 +136,16 @@ describe('applyPendingTransfer', () => {
       {
         ...buildTeam('team-1', 'Team 1', 'goliath'),
         slots: [
-          { slotId: 'team-1-slot-1', awakenerName: 'goliath', realm: 'AEQUOR', level: 60, wheels: ['B01', null] },
-          { slotId: 'team-1-slot-2', wheels: [null, null] },
-          { slotId: 'team-1-slot-3', wheels: [null, null] },
-          { slotId: 'team-1-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-1-slot-1',
+            awakenerName: 'goliath',
+            realm: 'AEQUOR',
+            level: 60,
+            wheels: ['B01', null],
+          },
+          {slotId: 'team-1-slot-2', wheels: [null, null]},
+          {slotId: 'team-1-slot-3', wheels: [null, null]},
+          {slotId: 'team-1-slot-4', wheels: [null, null]},
         ],
       },
       {
@@ -143,10 +173,22 @@ describe('applyPendingTransfer', () => {
       {
         ...buildTeam('team-1', 'Team 1', 'goliath'),
         slots: [
-          { slotId: 'team-1-slot-1', awakenerName: 'goliath', realm: 'AEQUOR', level: 60, wheels: ['B01', null] },
-          { slotId: 'team-1-slot-2', awakenerName: 'ramona', realm: 'CHAOS', level: 60, wheels: [null, null] },
-          { slotId: 'team-1-slot-3', wheels: [null, null] },
-          { slotId: 'team-1-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-1-slot-1',
+            awakenerName: 'goliath',
+            realm: 'AEQUOR',
+            level: 60,
+            wheels: ['B01', null],
+          },
+          {
+            slotId: 'team-1-slot-2',
+            awakenerName: 'ramona',
+            realm: 'CHAOS',
+            level: 60,
+            wheels: [null, null],
+          },
+          {slotId: 'team-1-slot-3', wheels: [null, null]},
+          {slotId: 'team-1-slot-4', wheels: [null, null]},
         ],
       },
     ]
@@ -196,19 +238,33 @@ describe('swapTeamSlotTransfer', () => {
       {
         ...buildTeam('team-1', 'Team 1'),
         slots: [
-          { slotId: 'team-1-slot-1', awakenerName: 'goliath', realm: 'AEQUOR', level: 60, wheels: ['B01', null], covenantId: '001' },
-          { slotId: 'team-1-slot-2', wheels: [null, null] },
-          { slotId: 'team-1-slot-3', wheels: [null, null] },
-          { slotId: 'team-1-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-1-slot-1',
+            awakenerName: 'goliath',
+            realm: 'AEQUOR',
+            level: 60,
+            wheels: ['B01', null],
+            covenantId: '001',
+          },
+          {slotId: 'team-1-slot-2', wheels: [null, null]},
+          {slotId: 'team-1-slot-3', wheels: [null, null]},
+          {slotId: 'team-1-slot-4', wheels: [null, null]},
         ],
       },
       {
         ...buildTeam('team-2', 'Team 2'),
         slots: [
-          { slotId: 'team-2-slot-1', awakenerName: 'ramona', realm: 'CHAOS', level: 77, wheels: [null, 'B02'], covenantId: '002' },
-          { slotId: 'team-2-slot-2', wheels: [null, null] },
-          { slotId: 'team-2-slot-3', wheels: [null, null] },
-          { slotId: 'team-2-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-2-slot-1',
+            awakenerName: 'ramona',
+            realm: 'CHAOS',
+            level: 77,
+            wheels: [null, 'B02'],
+            covenantId: '002',
+          },
+          {slotId: 'team-2-slot-2', wheels: [null, null]},
+          {slotId: 'team-2-slot-3', wheels: [null, null]},
+          {slotId: 'team-2-slot-4', wheels: [null, null]},
         ],
       },
     ]
@@ -237,19 +293,49 @@ describe('swapTeamSlotTransfer', () => {
       {
         ...buildTeam('team-1', 'Team 1'),
         slots: [
-          { slotId: 'team-1-slot-1', awakenerName: 'goliath', realm: 'AEQUOR', level: 60, wheels: [null, null] },
-          { slotId: 'team-1-slot-2', awakenerName: 'mason', realm: 'AEQUOR', level: 60, wheels: [null, null] },
-          { slotId: 'team-1-slot-3', wheels: [null, null] },
-          { slotId: 'team-1-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-1-slot-1',
+            awakenerName: 'goliath',
+            realm: 'AEQUOR',
+            level: 60,
+            wheels: [null, null],
+          },
+          {
+            slotId: 'team-1-slot-2',
+            awakenerName: 'mason',
+            realm: 'AEQUOR',
+            level: 60,
+            wheels: [null, null],
+          },
+          {slotId: 'team-1-slot-3', wheels: [null, null]},
+          {slotId: 'team-1-slot-4', wheels: [null, null]},
         ],
       },
       {
         ...buildTeam('team-2', 'Team 2'),
         slots: [
-          { slotId: 'team-2-slot-1', awakenerName: 'ramona', realm: 'CHAOS', level: 60, wheels: [null, null] },
-          { slotId: 'team-2-slot-2', awakenerName: 'helot', realm: 'CHAOS', level: 60, wheels: [null, null] },
-          { slotId: 'team-2-slot-3', awakenerName: 'tutu', realm: 'CARO', level: 60, wheels: [null, null] },
-          { slotId: 'team-2-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-2-slot-1',
+            awakenerName: 'ramona',
+            realm: 'CHAOS',
+            level: 60,
+            wheels: [null, null],
+          },
+          {
+            slotId: 'team-2-slot-2',
+            awakenerName: 'helot',
+            realm: 'CHAOS',
+            level: 60,
+            wheels: [null, null],
+          },
+          {
+            slotId: 'team-2-slot-3',
+            awakenerName: 'tutu',
+            realm: 'CARO',
+            level: 60,
+            wheels: [null, null],
+          },
+          {slotId: 'team-2-slot-4', wheels: [null, null]},
         ],
       },
     ]
@@ -265,19 +351,38 @@ describe('swapTeamSlotTransfer', () => {
       {
         ...buildTeam('team-1', 'Team 1'),
         slots: [
-          { slotId: 'team-1-slot-1', awakenerName: 'ghelot', realm: 'CHAOS', level: 90, isSupport: true, wheels: ['W01', 'W02'] },
-          { slotId: 'team-1-slot-2', wheels: [null, null] },
-          { slotId: 'team-1-slot-3', wheels: [null, null] },
-          { slotId: 'team-1-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-1-slot-1',
+            awakenerName: 'ghelot',
+            realm: 'CHAOS',
+            level: 90,
+            isSupport: true,
+            wheels: ['W01', 'W02'],
+          },
+          {slotId: 'team-1-slot-2', wheels: [null, null]},
+          {slotId: 'team-1-slot-3', wheels: [null, null]},
+          {slotId: 'team-1-slot-4', wheels: [null, null]},
         ],
       },
       {
         ...buildTeam('team-2', 'Team 2'),
         slots: [
-          { slotId: 'team-2-slot-1', awakenerName: 'mason', realm: 'AEQUOR', level: 60, wheels: ['W01', null] },
-          { slotId: 'team-2-slot-2', awakenerName: 'ghelot', realm: 'CHAOS', level: 60, wheels: [null, null] },
-          { slotId: 'team-2-slot-3', wheels: [null, null] },
-          { slotId: 'team-2-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-2-slot-1',
+            awakenerName: 'mason',
+            realm: 'AEQUOR',
+            level: 60,
+            wheels: ['W01', null],
+          },
+          {
+            slotId: 'team-2-slot-2',
+            awakenerName: 'ghelot',
+            realm: 'CHAOS',
+            level: 60,
+            wheels: [null, null],
+          },
+          {slotId: 'team-2-slot-3', wheels: [null, null]},
+          {slotId: 'team-2-slot-4', wheels: [null, null]},
         ],
       },
     ]
@@ -293,19 +398,38 @@ describe('swapTeamSlotTransfer', () => {
       {
         ...buildTeam('team-1', 'Team 1'),
         slots: [
-          { slotId: 'team-1-slot-1', awakenerName: 'ghelot', realm: 'CHAOS', level: 90, isSupport: true, wheels: ['W01', 'W02'] },
-          { slotId: 'team-1-slot-2', wheels: [null, null] },
-          { slotId: 'team-1-slot-3', wheels: [null, null] },
-          { slotId: 'team-1-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-1-slot-1',
+            awakenerName: 'ghelot',
+            realm: 'CHAOS',
+            level: 90,
+            isSupport: true,
+            wheels: ['W01', 'W02'],
+          },
+          {slotId: 'team-1-slot-2', wheels: [null, null]},
+          {slotId: 'team-1-slot-3', wheels: [null, null]},
+          {slotId: 'team-1-slot-4', wheels: [null, null]},
         ],
       },
       {
         ...buildTeam('team-2', 'Team 2'),
         slots: [
-          { slotId: 'team-2-slot-1', awakenerName: 'mason', realm: 'AEQUOR', level: 60, wheels: [null, null] },
-          { slotId: 'team-2-slot-2', awakenerName: 'ramona', realm: 'CHAOS', level: 60, wheels: ['W01', null] },
-          { slotId: 'team-2-slot-3', wheels: [null, null] },
-          { slotId: 'team-2-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-2-slot-1',
+            awakenerName: 'mason',
+            realm: 'AEQUOR',
+            level: 60,
+            wheels: [null, null],
+          },
+          {
+            slotId: 'team-2-slot-2',
+            awakenerName: 'ramona',
+            realm: 'CHAOS',
+            level: 60,
+            wheels: ['W01', null],
+          },
+          {slotId: 'team-2-slot-3', wheels: [null, null]},
+          {slotId: 'team-2-slot-4', wheels: [null, null]},
         ],
       },
     ]
@@ -321,24 +445,50 @@ describe('swapTeamSlotTransfer', () => {
       {
         ...buildTeam('team-1', 'Team 1'),
         slots: [
-          { slotId: 'team-1-slot-1', awakenerName: 'ghelot', realm: 'CHAOS', level: 90, isSupport: true, wheels: ['W01', 'W02'] },
-          { slotId: 'team-1-slot-2', wheels: [null, null] },
-          { slotId: 'team-1-slot-3', wheels: [null, null] },
-          { slotId: 'team-1-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-1-slot-1',
+            awakenerName: 'ghelot',
+            realm: 'CHAOS',
+            level: 90,
+            isSupport: true,
+            wheels: ['W01', 'W02'],
+          },
+          {slotId: 'team-1-slot-2', wheels: [null, null]},
+          {slotId: 'team-1-slot-3', wheels: [null, null]},
+          {slotId: 'team-1-slot-4', wheels: [null, null]},
         ],
       },
       {
         ...buildTeam('team-2', 'Team 2'),
         slots: [
-          { slotId: 'team-2-slot-1', awakenerName: 'mason', realm: 'AEQUOR', level: 60, wheels: ['W01', null] },
-          { slotId: 'team-2-slot-2', awakenerName: 'ghelot', realm: 'CHAOS', level: 60, wheels: [null, null] },
-          { slotId: 'team-2-slot-3', wheels: [null, null] },
-          { slotId: 'team-2-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-2-slot-1',
+            awakenerName: 'mason',
+            realm: 'AEQUOR',
+            level: 60,
+            wheels: ['W01', null],
+          },
+          {
+            slotId: 'team-2-slot-2',
+            awakenerName: 'ghelot',
+            realm: 'CHAOS',
+            level: 60,
+            wheels: [null, null],
+          },
+          {slotId: 'team-2-slot-3', wheels: [null, null]},
+          {slotId: 'team-2-slot-4', wheels: [null, null]},
         ],
       },
     ]
 
-    const result = swapTeamSlotTransfer(teams, 'team-1', 'team-1-slot-1', 'team-2', 'team-2-slot-1', { allowDupes: true })
+    const result = swapTeamSlotTransfer(
+      teams,
+      'team-1',
+      'team-1-slot-1',
+      'team-2',
+      'team-2-slot-1',
+      {allowDupes: true},
+    )
 
     expect(result.violation).toBeUndefined()
     expect(result.nextTeams[0]?.slots[0]).toMatchObject({
@@ -360,10 +510,17 @@ describe('clearTeamSlotTransfer', () => {
       {
         ...buildTeam('team-1', 'Team 1'),
         slots: [
-          { slotId: 'team-1-slot-1', awakenerName: 'goliath', realm: 'AEQUOR', level: 60, wheels: ['B01', null], covenantId: '001' },
-          { slotId: 'team-1-slot-2', wheels: [null, null] },
-          { slotId: 'team-1-slot-3', wheels: [null, null] },
-          { slotId: 'team-1-slot-4', wheels: [null, null] },
+          {
+            slotId: 'team-1-slot-1',
+            awakenerName: 'goliath',
+            realm: 'AEQUOR',
+            level: 60,
+            wheels: ['B01', null],
+            covenantId: '001',
+          },
+          {slotId: 'team-1-slot-2', wheels: [null, null]},
+          {slotId: 'team-1-slot-3', wheels: [null, null]},
+          {slotId: 'team-1-slot-4', wheels: [null, null]},
         ],
       },
     ]
@@ -379,4 +536,3 @@ describe('clearTeamSlotTransfer', () => {
     })
   })
 })
-

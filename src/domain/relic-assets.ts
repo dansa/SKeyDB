@@ -9,7 +9,10 @@ function basenameWithoutExt(assetPath: string): string {
 }
 
 const portraitRelicAssetById = new Map(
-  Object.entries(portraitRelicAssets).map(([assetPath, url]) => [basenameWithoutExt(assetPath), url]),
+  Object.entries(portraitRelicAssets).map(([assetPath, url]) => [
+    basenameWithoutExt(assetPath),
+    url,
+  ]),
 )
 
 export function getRelicPortraitAssetByAssetId(assetId: string): string | undefined {

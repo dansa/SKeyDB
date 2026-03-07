@@ -1,1 +1,1 @@
-export { useHoldRepeatAction } from '../../components/ui/useHoldRepeatAction'
+export {useHoldRepeatAction} from '@/components/ui/useHoldRepeatAction'

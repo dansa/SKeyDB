@@ -1,18 +1,20 @@
-import type { Tag } from '../../domain/tags'
+import type {Tag} from '@/domain/tags'
 
 export type TrailDirection = 'up' | 'down'
 
-export type SkillTrailEntry = {
-  kind: 'skill'
+interface KeyedTrailEntry {
   key: string
+}
+
+export interface SkillTrailEntry extends KeyedTrailEntry {
+  kind: 'skill'
   name: string
   label: string
   description: string
 }
 
-export type TagTrailEntry = {
+export interface TagTrailEntry extends KeyedTrailEntry {
   kind: 'tag'
-  key: string
   tag: Tag
 }
 
@@ -39,10 +41,7 @@ export function isTrailMobileLayout(viewportWidth: number): boolean {
   return viewportWidth <= TRAIL_MOBILE_MAX_WIDTH
 }
 
-export function pushTrailEntry<T extends { key: string }>(
-  stack: T[],
-  next: T,
-): T[] {
+export function pushTrailEntry<T extends {key: string}>(stack: T[], next: T): T[] {
   const existingIndex = stack.findIndex((entry) => entry.key === next.key)
   if (existingIndex === -1) {
     return [...stack, next]
@@ -67,17 +66,11 @@ export function closeTrailFromIndex<T>(stack: T[], index: number): T[] {
   return stack.slice(0, index)
 }
 
-export function isSameTrailRoot<T extends { key: string }>(
-  stack: T[],
-  nextRootKey: string,
-): boolean {
+export function isSameTrailRoot(stack: KeyedTrailEntry[], nextRootKey: string): boolean {
   return stack.length > 0 && stack[0].key === nextRootKey
 }
 
-export function openTrailRoot<T extends { key: string }>(
-  stack: T[],
-  next: T,
-): T[] {
+export function openTrailRoot<T extends {key: string}>(stack: T[], next: T): T[] {
   if (isSameTrailRoot(stack, next.key)) {
     return stack
   }

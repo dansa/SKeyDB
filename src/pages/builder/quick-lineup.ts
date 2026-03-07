@@ -1,6 +1,6 @@
-import type { ActiveSelection, PickerTab, QuickLineupStep, Team, TeamSlot } from './types'
+import type {ActiveSelection, PickerTab, QuickLineupStep, Team, TeamSlot} from './types'
 
-type InternalQuickLineupSession = {
+interface InternalQuickLineupSession {
   teamId: string
   originalTeam: Team
   currentStepIndex: number
@@ -25,12 +25,12 @@ function cloneTeamSlot(slot: TeamSlot): TeamSlot {
 export function buildQuickLineupSteps(slots: TeamSlot[]): QuickLineupStep[] {
   return [
     ...slots.flatMap<QuickLineupStep>((slot) => [
-      { kind: 'awakener', slotId: slot.slotId },
-      { kind: 'wheel', slotId: slot.slotId, wheelIndex: 0 },
-      { kind: 'wheel', slotId: slot.slotId, wheelIndex: 1 },
-      { kind: 'covenant', slotId: slot.slotId },
+      {kind: 'awakener', slotId: slot.slotId},
+      {kind: 'wheel', slotId: slot.slotId, wheelIndex: 0},
+      {kind: 'wheel', slotId: slot.slotId, wheelIndex: 1},
+      {kind: 'covenant', slotId: slot.slotId},
     ]),
-    { kind: 'posse' },
+    {kind: 'posse'},
   ]
 }
 
@@ -104,7 +104,9 @@ export function goToQuickLineupStep(
   }
 }
 
-export function goBackQuickLineupHistory(session: InternalQuickLineupSession): InternalQuickLineupSession | null {
+export function goBackQuickLineupHistory(
+  session: InternalQuickLineupSession,
+): InternalQuickLineupSession | null {
   if (session.history.length <= 1) {
     return null
   }
@@ -184,7 +186,7 @@ export function reconcileQuickLineupSessionAfterSlotsChange(
   const reconciledStep =
     targetStep.kind === 'awakener' || targetSlot?.awakenerName
       ? targetStep
-      : ({ kind: 'awakener', slotId: targetStep.slotId } satisfies QuickLineupStep)
+      : ({kind: 'awakener', slotId: targetStep.slotId} satisfies QuickLineupStep)
 
   const nextStepIndex = findQuickLineupStepIndex(session, reconciledStep)
   if (nextStepIndex === -1) {
@@ -194,4 +196,4 @@ export function reconcileQuickLineupSessionAfterSlotsChange(
   return goToQuickLineupStep(session, nextStepIndex) ?? session
 }
 
-export type { InternalQuickLineupSession }
+export type {InternalQuickLineupSession}

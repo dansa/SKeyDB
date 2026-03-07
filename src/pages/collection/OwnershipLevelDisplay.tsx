@@ -1,9 +1,9 @@
-import { DupeLevelDisplay } from '../../components/ui/DupeLevelDisplay'
+import {DupeLevelDisplay} from '@/components/ui/DupeLevelDisplay'
 
-type OwnershipLevelDisplayProps = {
+interface OwnershipLevelDisplayProps {
   ownedLevel: number | null
 }
 
-export function OwnershipLevelDisplay({ ownedLevel }: OwnershipLevelDisplayProps) {
+export function OwnershipLevelDisplay({ownedLevel}: OwnershipLevelDisplayProps) {
   return <DupeLevelDisplay level={ownedLevel} />
 }

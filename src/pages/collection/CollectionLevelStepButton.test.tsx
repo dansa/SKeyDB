@@ -1,6 +1,7 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
-import { CollectionLevelStepButton } from './CollectionLevelStepButton'
+import {fireEvent, render, screen} from '@testing-library/react'
+import {describe, expect, it, vi} from 'vitest'
+
+import {CollectionLevelStepButton} from './CollectionLevelStepButton'
 
 describe('CollectionLevelStepButton', () => {
   it('repeats on hold and suppresses trailing click', () => {
@@ -9,14 +10,14 @@ describe('CollectionLevelStepButton', () => {
 
     render(
       <CollectionLevelStepButton
-        ariaLabel="Increase enlighten level"
-        direction="up"
+        ariaLabel='Increase enlighten level'
+        direction='up'
         disabled={false}
         onStep={onStep}
       />,
     )
 
-    const button = screen.getByRole('button', { name: /increase enlighten level/i })
+    const button = screen.getByRole('button', {name: /increase enlighten level/i})
     fireEvent.pointerDown(button)
     vi.advanceTimersByTime(320)
     vi.advanceTimersByTime(190)

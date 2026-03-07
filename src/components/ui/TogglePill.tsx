@@ -1,4 +1,4 @@
-type TogglePillProps = {
+interface TogglePillProps {
   checked: boolean
   onChange: (nextChecked: boolean) => void
   className?: string
@@ -26,13 +26,15 @@ export function TogglePill({
       data-checked={checked ? 'true' : 'false'}
       data-owned={checked ? 'true' : 'false'}
       disabled={disabled}
-      onClick={() => onChange(!checked)}
-      type="button"
+      onClick={() => {
+        onChange(!checked)
+      }}
+      type='button'
     >
-      <span className="ownership-pill__track" />
-      <span className="ownership-pill__thumb">
-        <span className="ownership-pill__label ownership-pill__label-unowned">{offLabel}</span>
-        <span className="ownership-pill__label ownership-pill__label-owned">{onLabel}</span>
+      <span className='ownership-pill__track' />
+      <span className='ownership-pill__thumb'>
+        <span className='ownership-pill__label ownership-pill__label-unowned'>{offLabel}</span>
+        <span className='ownership-pill__label ownership-pill__label-owned'>{onLabel}</span>
       </span>
     </button>
   )

@@ -1,7 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
-import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom'
-import { DatabasePage } from './DatabasePage'
+import {fireEvent, render, screen} from '@testing-library/react'
+import {MemoryRouter, Route, Routes, useLocation} from 'react-router-dom'
+import {afterEach, describe, expect, it, vi} from 'vitest'
+
+import {DatabasePage} from './DatabasePage'
 
 vi.mock('../domain/awakeners', () => ({
   getAwakeners: () => [
@@ -13,7 +14,7 @@ vi.mock('../domain/awakeners', () => ({
       rarity: 'SSR',
       type: 'ASSAULT',
       aliases: ['alpha'],
-      stats: { CON: 100, ATK: 200, DEF: 80 },
+      stats: {CON: 100, ATK: 200, DEF: 80},
       tags: ['Bleed', 'Crit'],
     },
     {
@@ -24,7 +25,7 @@ vi.mock('../domain/awakeners', () => ({
       rarity: 'SR',
       type: 'WARDEN',
       aliases: ['beta'],
-      stats: { CON: 150, ATK: 90, DEF: 180 },
+      stats: {CON: 150, ATK: 90, DEF: 180},
       tags: ['Draw', 'STR Up'],
     },
     {
@@ -35,7 +36,7 @@ vi.mock('../domain/awakeners', () => ({
       rarity: 'Genesis',
       type: 'CHORUS',
       aliases: ['gamma'],
-      stats: { CON: 120, ATK: 150, DEF: 130 },
+      stats: {CON: 120, ATK: 150, DEF: 130},
       tags: ['Heal', 'Bleed'],
     },
   ],
@@ -57,9 +58,9 @@ vi.mock('../domain/mainstats', () => ({
 }))
 
 vi.mock('./database/AwakenerDetailModal', () => ({
-  AwakenerDetailModal: ({ awakener, onClose }: { awakener: { name: string }; onClose: () => void }) => (
-    <div aria-label={`${awakener.name} details`} role="dialog">
-      <button aria-label="Close detail" onClick={onClose} type="button">
+  AwakenerDetailModal: ({awakener, onClose}: {awakener: {name: string}; onClose: () => void}) => (
+    <div aria-label={`${awakener.name} details`} role='dialog'>
+      <button aria-label='Close detail' onClick={onClose} type='button'>
         Close
       </button>
     </div>
@@ -73,14 +74,14 @@ afterEach(() => {
 function renderDatabasePage(initialEntry = '/database') {
   function LocationProbe() {
     const location = useLocation()
-    return <div data-testid="location-path">{location.pathname}</div>
+    return <div data-testid='location-path'>{location.pathname}</div>
   }
 
   return render(
     <MemoryRouter initialEntries={[initialEntry]}>
       <Routes>
-        <Route element={<DatabasePage />} path="/database" />
-        <Route element={<DatabasePage />} path="/database/awk/:awakenerSlug" />
+        <Route element={<DatabasePage />} path='/database' />
+        <Route element={<DatabasePage />} path='/database/awk/:awakenerSlug' />
       </Routes>
       <LocationProbe />
     </MemoryRouter>,
@@ -107,7 +108,7 @@ describe('DatabasePage', () => {
   it('filters awakeners by realm', () => {
     renderDatabasePage()
 
-    fireEvent.click(screen.getByRole('button', { name: /CHAOS/ }))
+    fireEvent.click(screen.getByRole('button', {name: /CHAOS/}))
 
     expect(screen.getByLabelText('View details for Alpha')).toBeInTheDocument()
     expect(screen.getByLabelText('View details for Gamma')).toBeInTheDocument()
@@ -118,7 +119,7 @@ describe('DatabasePage', () => {
   it('filters awakeners by type', () => {
     renderDatabasePage()
 
-    fireEvent.click(screen.getByRole('button', { name: /Warden/ }))
+    fireEvent.click(screen.getByRole('button', {name: /Warden/}))
 
     expect(screen.getByLabelText('View details for Beta')).toBeInTheDocument()
     expect(screen.queryByLabelText('View details for Alpha')).not.toBeInTheDocument()
@@ -129,7 +130,7 @@ describe('DatabasePage', () => {
   it('filters awakeners by rarity', () => {
     renderDatabasePage()
 
-    fireEvent.click(screen.getByRole('button', { name: /Genesis/ }))
+    fireEvent.click(screen.getByRole('button', {name: /Genesis/}))
 
     expect(screen.getByLabelText('View details for Gamma')).toBeInTheDocument()
     expect(screen.queryByLabelText('View details for Alpha')).not.toBeInTheDocument()
@@ -140,7 +141,7 @@ describe('DatabasePage', () => {
     renderDatabasePage()
 
     const searchbox = screen.getByRole('searchbox')
-    fireEvent.change(searchbox, { target: { value: 'alpha' } })
+    fireEvent.change(searchbox, {target: {value: 'alpha'}})
 
     expect(screen.getByLabelText('View details for Alpha')).toBeInTheDocument()
     expect(screen.queryByLabelText('View details for Beta')).not.toBeInTheDocument()
@@ -151,7 +152,7 @@ describe('DatabasePage', () => {
     renderDatabasePage()
 
     const searchbox = screen.getByRole('searchbox')
-    fireEvent.change(searchbox, { target: { value: 'STR Up' } })
+    fireEvent.change(searchbox, {target: {value: 'STR Up'}})
 
     expect(screen.getByLabelText('View details for Beta')).toBeInTheDocument()
     expect(screen.queryByLabelText('View details for Alpha')).not.toBeInTheDocument()
@@ -160,8 +161,8 @@ describe('DatabasePage', () => {
   it('shows empty state when all awakeners are filtered out', () => {
     renderDatabasePage()
 
-    fireEvent.click(screen.getByRole('button', { name: /AEQUOR/ }))
-    fireEvent.click(screen.getByRole('button', { name: /Genesis/ }))
+    fireEvent.click(screen.getByRole('button', {name: /AEQUOR/}))
+    fireEvent.click(screen.getByRole('button', {name: /Genesis/}))
 
     expect(screen.getByText('No awakeners match the current filters.')).toBeInTheDocument()
   })
@@ -171,7 +172,7 @@ describe('DatabasePage', () => {
 
     fireEvent.click(screen.getByLabelText('View details for Alpha'))
 
-    expect(screen.getByRole('dialog', { name: /alpha details/ })).toBeInTheDocument()
+    expect(screen.getByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awk/alpha')
   })
 
@@ -189,7 +190,7 @@ describe('DatabasePage', () => {
   it('opens detail modal from deep-linked awakener route', () => {
     renderDatabasePage('/database/awk/beta')
 
-    expect(screen.getByRole('dialog', { name: /beta details/ })).toBeInTheDocument()
+    expect(screen.getByRole('dialog', {name: /beta details/})).toBeInTheDocument()
   })
 
   it('falls back to the database root when deep link slug is unknown', () => {
@@ -203,7 +204,7 @@ describe('DatabasePage', () => {
     renderDatabasePage()
 
     const sortSelect = screen.getByLabelText('Database sort key')
-    fireEvent.change(sortSelect, { target: { value: 'ATK' } })
+    fireEvent.change(sortSelect, {target: {value: 'ATK'}})
 
     fireEvent.click(screen.getByLabelText('Toggle database sort direction'))
 

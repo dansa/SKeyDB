@@ -1,161 +1,7 @@
-import { useDraggable, useDroppable } from '@dnd-kit/core'
-import { getAwakenerCardAsset, getAwakenerPortraitAsset } from '../../domain/awakener-assets'
-import { getCovenantAssetById } from '../../domain/covenant-assets'
-import { getRealmTint } from '../../domain/factions'
-import { getWheelAssetById } from '../../domain/wheel-assets'
-import { makeTeamPreviewSlotDropZoneId } from './dnd-ids'
-import type { DragData, TeamPreviewMode, TeamSlot } from './types'
-
-type BuilderTeamSlotPreviewProps = {
-  slot: TeamSlot
-  teamId: string
-  slotIndex: number
-  mode: TeamPreviewMode
-  ownedAwakenerLevelByName: Map<string, number | null>
-  ownedWheelLevelById: Map<string, number | null>
-  enableDragAndDrop: boolean
-}
+import {BuilderTeamSlotPreview} from './BuilderTeamSlotPreview'
+import type {TeamPreviewMode, TeamSlot} from './types'
 
 const EMPTY_OWNERSHIP_MAP = new Map<string, number | null>()
-
-function BuilderTeamSlotPreview({
-  slot,
-  teamId,
-  slotIndex,
-  mode,
-  ownedAwakenerLevelByName,
-  ownedWheelLevelById,
-  enableDragAndDrop,
-}: BuilderTeamSlotPreviewProps) {
-  const isAwakenerOwned =
-    !slot.awakenerName || (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null) !== null
-  const covenantAsset = slot.covenantId ? getCovenantAssetById(slot.covenantId) : undefined
-  const awakenerCardAsset = slot.awakenerName ? getAwakenerCardAsset(slot.awakenerName) : undefined
-  const dropZoneId = makeTeamPreviewSlotDropZoneId(teamId, slot.slotId)
-  const dragData = slot.awakenerName
-    ? ({ kind: 'team-preview-slot', teamId, slotId: slot.slotId } satisfies DragData)
-    : undefined
-  const { isOver, setNodeRef: setDroppableRef } = useDroppable({
-    id: dropZoneId,
-    disabled: !enableDragAndDrop,
-  })
-  const { attributes, listeners, setNodeRef: setDraggableRef, isDragging } = useDraggable({
-    id: `${dropZoneId}:drag`,
-    data: dragData,
-    disabled: !enableDragAndDrop || !slot.awakenerName,
-  })
-  const previewAriaLabel = `Team preview slot ${slotIndex + 1}`
-
-  function setPreviewRef(node: HTMLDivElement | null) {
-    setDroppableRef(node)
-    setDraggableRef(node)
-  }
-
-  if (mode === 'compact') {
-    return (
-      <div
-        className={`builder-picker-tile h-12 w-12 border border-slate-500/50 bg-slate-900/40 p-0.5 ${
-          isDragging ? 'opacity-45' : ''
-        } ${isOver ? 'builder-team-slot-preview-drop-over' : ''}`}
-        key={`${teamId}-${slot.slotId}`}
-        ref={setPreviewRef}
-        aria-label={previewAriaLabel}
-        {...attributes}
-        {...listeners}
-      >
-        <div className="builder-team-slot-preview-compact-surface relative h-full w-full overflow-hidden border border-slate-400/35 bg-slate-900/70">
-          {slot.awakenerName ? (
-            <>
-              <img
-                alt={`${slot.awakenerName} team preview portrait`}
-                className={`h-full w-full object-cover ${!isAwakenerOwned ? 'builder-picker-art-unowned' : ''}`}
-                draggable={false}
-                src={getAwakenerPortraitAsset(slot.awakenerName)}
-              />
-              <span
-                className="pointer-events-none absolute inset-0 z-10 border"
-                style={{ borderColor: getRealmTint(slot.realm) }}
-              />
-              {slot.isSupport ? (
-                <span className="builder-team-preview-support-overlay">
-                  <span className="builder-team-preview-support-chip builder-team-preview-support-chip-compact">Support</span>
-                </span>
-              ) : null}
-              {!isAwakenerOwned ? <span className="builder-team-preview-unowned-chip">Unowned</span> : null}
-            </>
-          ) : (
-            <span className="relative block h-full w-full">
-              <span className="sigil-placeholder sigil-placeholder-no-plus" />
-            </span>
-          )}
-        </div>
-      </div>
-    )
-  }
-
-  return (
-    <div
-      className={`builder-team-slot-preview builder-team-slot-preview-expanded ${isDragging ? 'opacity-45' : ''} ${
-        isOver ? 'builder-team-slot-preview-drop-over' : ''
-      }`}
-      key={`${teamId}-${slot.slotId}`}
-      ref={setPreviewRef}
-      aria-label={previewAriaLabel}
-      {...attributes}
-      {...listeners}
-    >
-      <div className="builder-team-slot-preview-card">
-        {slot.awakenerName ? (
-          <>
-            <img
-              alt={`${slot.awakenerName} expanded team preview card`}
-              className={`builder-team-slot-preview-card-art ${!isAwakenerOwned ? 'builder-picker-art-unowned' : ''}`}
-              draggable={false}
-              src={awakenerCardAsset ?? getAwakenerPortraitAsset(slot.awakenerName)}
-            />
-            <span
-              className="pointer-events-none absolute inset-0 z-10 border"
-              style={{ borderColor: getRealmTint(slot.realm) }}
-            />
-            {slot.isSupport ? <span className="builder-team-preview-support-chip builder-team-preview-support-chip-expanded">Support</span> : null}
-            {!isAwakenerOwned ? <span className="builder-team-preview-unowned-chip">Unowned</span> : null}
-          </>
-        ) : (
-          <span className="relative block h-full w-full">
-            <span className="sigil-placeholder sigil-placeholder-no-plus" />
-          </span>
-        )}
-        <span className="builder-team-slot-preview-covenant">
-          {covenantAsset ? (
-            <img alt="" className="h-full w-full object-cover" draggable={false} src={covenantAsset} />
-          ) : (
-            <span className="builder-team-slot-preview-covenant-empty" />
-          )}
-        </span>
-        <div className="builder-team-slot-preview-wheel-strip builder-team-slot-preview-wheel-strip-embedded">
-          {slot.wheels.map((wheelId, index) => {
-            const wheelAsset = wheelId ? getWheelAssetById(wheelId) : undefined
-            const isWheelOwned = !wheelId || (ownedWheelLevelById.get(wheelId) ?? null) !== null
-            return (
-              <span className="builder-team-slot-preview-wheel" key={`${slot.slotId}-wheel-${index}`}>
-                {wheelAsset ? (
-                  <img
-                    alt=""
-                    className={`h-full w-full object-cover ${!isWheelOwned ? 'builder-picker-art-unowned' : ''}`}
-                    draggable={false}
-                    src={wheelAsset}
-                  />
-                ) : (
-                  <span className="sigil-placeholder sigil-placeholder-wheel" />
-                )}
-              </span>
-            )
-          })}
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export function BuilderTeamPreviewStrip({
   teamId,
@@ -175,7 +21,9 @@ export function BuilderTeamPreviewStrip({
   enableDragAndDrop?: boolean
 }) {
   return (
-    <div className={`${mode === 'expanded' ? 'builder-team-preview-grid-expanded' : 'flex gap-1.5'} ${className}`.trim()}>
+    <div
+      className={`${mode === 'expanded' ? 'builder-team-preview-grid-expanded' : 'flex gap-1.5'} ${className}`.trim()}
+    >
       {slots.map((slot, index) => (
         <BuilderTeamSlotPreview
           key={`${teamId}-${slot.slotId}`}

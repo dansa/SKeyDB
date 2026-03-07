@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import {fileURLToPath} from 'node:url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -45,18 +45,20 @@ function toStringStat(value, fallback = '0') {
 
 function createPlaceholderEntries(keys) {
   return Object.fromEntries(
-    keys.map((key) => [
-      key,
-      {
-        name: 'TBD',
-        cost: key.startsWith('C') ? '0' : undefined,
-        description: 'TBD',
-      },
-    ]).map(([key, value]) => (
-      value.cost === undefined
-        ? [key, { name: value.name, description: value.description }]
-        : [key, value]
-    )),
+    keys
+      .map((key) => [
+        key,
+        {
+          name: 'TBD',
+          cost: key.startsWith('C') ? '0' : undefined,
+          description: 'TBD',
+        },
+      ])
+      .map(([key, value]) =>
+        value.cost === undefined
+          ? [key, {name: value.name, description: value.description}]
+          : [key, value],
+      ),
   )
 }
 
@@ -137,7 +139,7 @@ function mergeLiteIntoFull(liteAwakener, fullAwakener) {
     tags: liteAwakener.tags ?? fullAwakener.tags ?? [],
   }
 
-  const mergedStats = { ...(fullAwakener.stats ?? {}) }
+  const mergedStats = {...(fullAwakener.stats ?? {})}
   for (const key of FULL_STAT_KEYS) {
     if (key === 'CON' || key === 'ATK' || key === 'DEF') {
       mergedStats[key] = toStringStat(liteAwakener.stats?.[key], mergedStats[key] ?? '0')
@@ -152,8 +154,8 @@ function mergeLiteIntoFull(liteAwakener, fullAwakener) {
   next.substatScaling = fullAwakener.substatScaling ?? {}
   next.cards = mergeSectionWithTemplate(fullAwakener.cards, cardsTemplate)
   next.exalts = fullAwakener.exalts ?? {
-    exalt: { name: 'TBD', description: 'TBD' },
-    over_exalt: { name: 'TBD', description: 'TBD' },
+    exalt: {name: 'TBD', description: 'TBD'},
+    over_exalt: {name: 'TBD', description: 'TBD'},
   }
   next.talents = mergeSectionWithTemplate(fullAwakener.talents, talentsTemplate)
   next.enlightens = mergeSectionWithTemplate(fullAwakener.enlightens, enlightensTemplate)

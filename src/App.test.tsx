@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
+import {render, screen} from '@testing-library/react'
+import {MemoryRouter} from 'react-router-dom'
+
 import App from './App'
 
 describe('App shell', () => {
@@ -10,10 +11,10 @@ describe('App shell', () => {
       </MemoryRouter>,
     )
 
-    expect(screen.getByRole('heading', { level: 1, name: /skeydb/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /database/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /builder/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /collection/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', {level: 1, name: /skeydb/i})).toBeInTheDocument()
+    expect(screen.getByRole('link', {name: /database/i})).toBeInTheDocument()
+    expect(screen.getByRole('link', {name: /builder/i})).toBeInTheDocument()
+    expect(screen.getByRole('link', {name: /collection/i})).toBeInTheDocument()
   })
 
   it('uses a mobile-safe header layout that allows nav wrapping', () => {

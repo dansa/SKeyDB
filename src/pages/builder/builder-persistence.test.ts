@@ -1,6 +1,7 @@
-import { describe, expect, it } from 'vitest'
-import type { Team } from './types'
-import { BUILDER_PERSISTENCE_KEY, loadBuilderDraft, saveBuilderDraft } from './builder-persistence'
+import {describe, expect, it} from 'vitest'
+
+import {BUILDER_PERSISTENCE_KEY, loadBuilderDraft, saveBuilderDraft} from './builder-persistence'
+import type {Team} from './types'
 
 function createTeamFixture(): Team {
   return {
@@ -8,10 +9,16 @@ function createTeamFixture(): Team {
     name: 'Team Alpha',
     posseId: '01-encounter-in-pure-white',
     slots: [
-      { slotId: 'slot-1', awakenerName: 'Goliath', realm: 'AEQUOR', level: 60, wheels: ['B01', 'C01'] },
-      { slotId: 'slot-2', wheels: [null, null] },
-      { slotId: 'slot-3', wheels: [null, null] },
-      { slotId: 'slot-4', wheels: [null, null] },
+      {
+        slotId: 'slot-1',
+        awakenerName: 'Goliath',
+        realm: 'AEQUOR',
+        level: 60,
+        wheels: ['B01', 'C01'],
+      },
+      {slotId: 'slot-2', wheels: [null, null]},
+      {slotId: 'slot-3', wheels: [null, null]},
+      {slotId: 'slot-4', wheels: [null, null]},
     ],
   }
 }
@@ -27,7 +34,7 @@ describe('builder-persistence', () => {
         setItem: (key, value) => storage.set(key, value),
         removeItem: (key) => storage.delete(key),
       },
-      { teams, activeTeamId: 'team-alpha' },
+      {teams, activeTeamId: 'team-alpha'},
     )
 
     const raw = storage.get(BUILDER_PERSISTENCE_KEY)
@@ -39,7 +46,7 @@ describe('builder-persistence', () => {
       setItem: (key, value) => storage.set(key, value),
       removeItem: (key) => storage.delete(key),
     })
-    expect(loaded).toEqual({ teams, activeTeamId: 'team-alpha' })
+    expect(loaded).toEqual({teams, activeTeamId: 'team-alpha'})
   })
 
   it('returns null for malformed or unsupported payloads', () => {
@@ -68,10 +75,10 @@ describe('builder-persistence', () => {
                 id: 'team-alpha',
                 name: 'Team Alpha',
                 slots: [
-                  { slotId: 'slot-1', wheels: ['SR19', null] },
-                  { slotId: 'slot-2', wheels: [null, null] },
-                  { slotId: 'slot-3', wheels: [null, null] },
-                  { slotId: 'slot-4', wheels: [null, null] },
+                  {slotId: 'slot-1', wheels: ['SR19', null]},
+                  {slotId: 'slot-2', wheels: [null, null]},
+                  {slotId: 'slot-3', wheels: [null, null]},
+                  {slotId: 'slot-4', wheels: [null, null]},
                 ],
               },
             ],
@@ -102,9 +109,9 @@ describe('builder-persistence', () => {
             isSupport: true,
             wheels: ['B01', 'C01'] as [string, string],
           },
-          { slotId: 'slot-2', wheels: [null, null] as [null, null] },
-          { slotId: 'slot-3', wheels: [null, null] as [null, null] },
-          { slotId: 'slot-4', wheels: [null, null] as [null, null] },
+          {slotId: 'slot-2', wheels: [null, null] as [null, null]},
+          {slotId: 'slot-3', wheels: [null, null] as [null, null]},
+          {slotId: 'slot-4', wheels: [null, null] as [null, null]},
         ],
       },
     ]
@@ -115,7 +122,7 @@ describe('builder-persistence', () => {
         setItem: (key, value) => storage.set(key, value),
         removeItem: (key) => storage.delete(key),
       },
-      { teams, activeTeamId: 'team-alpha' },
+      {teams, activeTeamId: 'team-alpha'},
     )
 
     const loaded = loadBuilderDraft({

@@ -18,6 +18,18 @@ function basenameWithoutExt(assetPath: string): string {
   return filename.replace(/\.png$/i, '')
 }
 
+function trimEdgeDashes(value: string): string {
+  let start = 0
+  let end = value.length
+  while (start < end && value[start] === '-') {
+    start += 1
+  }
+  while (end > start && value[end - 1] === '-') {
+    end -= 1
+  }
+  return value.slice(start, end)
+}
+
 function indexAssetMap(assets: Record<string, string>): Map<string, string> {
   return new Map(
     Object.entries(assets).map(([assetPath, url]) => [basenameWithoutExt(assetPath), url]),
@@ -34,12 +46,13 @@ export function toAwakenerAssetSlug(name: string): string {
     return explicit
   }
 
-  return normalizedName
-    .replace(/['"]/g, '')
-    .replace(/[:\s]+/g, '-')
-    .replace(/[^a-z0-9-]/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-+|-+$/g, '')
+  return trimEdgeDashes(
+    normalizedName
+      .replace(/['"]/g, '')
+      .replace(/[:\s]+/g, '-')
+      .replace(/[^a-z0-9-]/g, '-')
+      .replace(/-+/g, '-'),
+  )
 }
 
 export function getAwakenerCardAsset(name: string): string | undefined {
