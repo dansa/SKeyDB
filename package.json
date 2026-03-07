@@ -12,6 +12,8 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.{js,mjs,cjs}\" \"eslint.config.js\" \"vite.config.ts\" \"prettier.config.cjs\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.{js,mjs,cjs}\" \"eslint.config.js\" \"vite.config.ts\" \"prettier.config.cjs\"",
     "lint": "eslint .",
+    "lint:react-sidecar": "node tools/react-sidecar/node_modules/eslint/bin/eslint.js --config tools/react-sidecar/eslint.config.js \"src/**/*.{tsx,jsx}\"",
+    "lint:react-sidecar:setup": "npm install --prefix tools/react-sidecar",
     "preview": "vite preview",
     "test": "vitest run",
     "test:unit": "vitest run --run --exclude src/pages/BuilderPage*.test.tsx",
