@@ -25,6 +25,14 @@ function makeTeam(name: string): Team {
   }
 }
 
+function trimTrailingPadding(value: string): string {
+  let end = value.length
+  while (end > 0 && value[end - 1] === '=') {
+    end -= 1
+  }
+  return value.slice(0, end)
+}
+
 describe('import-export codec', () => {
   it('encodes single-team with t1 prefix and round-trips', () => {
     const team = makeTeam('Team 1')
@@ -172,7 +180,7 @@ The Lone Seed
     for (let index = 0; index < bytes.length; index += 1) {
       binary += String.fromCharCode(bytes[index])
     }
-    const mutated = `mt1.${btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '')}`
+    const mutated = `mt1.${trimTrailingPadding(btoa(binary).replace(/\+/g, '-').replace(/\//g, '_'))}`
 
     expect(() => decodeImportCode(mutated)).toThrow(/invalid active team index/i)
   })

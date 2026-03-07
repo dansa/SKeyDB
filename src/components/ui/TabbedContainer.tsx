@@ -68,6 +68,7 @@ export function TabbedContainer({
             {tabs.map((tab) => {
               const tabId = `${tabIdPrefix}-${tab.id}`
               const isSelected = activeTabId === tab.id
+              const isClosable = Boolean(onTabClose && (canCloseTab ? canCloseTab(tab) : true))
               return (
                 <div className="tabbed-container-tab-shell" key={tab.id}>
                   <button
@@ -75,7 +76,7 @@ export function TabbedContainer({
                     aria-selected={isSelected}
                     className={joinClasses(
                       'tabbed-container-tab h-full px-3.5 text-[11px] tracking-wide transition-colors',
-                      onTabClose && (canCloseTab ? canCloseTab(tab) : true) ? 'pr-6' : undefined,
+                      isClosable ? 'pr-6' : undefined,
                       isContentTabs ? 'tabbed-container-tab-content' : 'tabbed-container-tab-fill',
                       isSelected
                         ? 'tabbed-container-tab-active tabbed-container-tab-priority-active text-amber-100'
@@ -89,7 +90,7 @@ export function TabbedContainer({
                   >
                     {tab.label}
                   </button>
-                  {onTabClose && (canCloseTab ? canCloseTab(tab) : true) ? (
+                  {isClosable ? (
                     <span className="tabbed-container-tab-close-wrap">
                       <button
                         aria-label={
@@ -98,7 +99,7 @@ export function TabbedContainer({
                         className="tabbed-container-tab-close"
                         onClick={(event) => {
                           event.stopPropagation()
-                          onTabClose(tab.id)
+                          onTabClose?.(tab.id)
                         }}
                         type="button"
                       >

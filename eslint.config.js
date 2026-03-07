@@ -1,4 +1,5 @@
 import js from '@eslint/js'
+import {fileURLToPath} from 'node:url'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import sonarjs from 'eslint-plugin-sonarjs'
@@ -7,13 +8,16 @@ import {defineConfig, globalIgnores} from 'eslint/config'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
+const tsconfigRootDir = fileURLToPath(new URL('.', import.meta.url))
+
 export default defineConfig([
   globalIgnores(['dist']),
   {
     files: ['src/**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,
-      tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.strictTypeChecked,
+      tseslint.configs.stylisticTypeChecked,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
     ],
@@ -25,10 +29,17 @@ export default defineConfig([
       globals: globals.browser,
       parserOptions: {
         projectService: true,
+        tsconfigRootDir,
       },
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/require-await': 'error',
+      'no-console': ['warn', {allow: ['warn', 'error']}],
+      'prefer-const': 'error',
+      eqeqeq: 'error',
+      'no-duplicate-imports': ['error', {allowSeparateTypeImports: true}],
       'sonarjs/no-collection-size-mischeck': 'error',
       'sonarjs/no-duplicated-branches': 'error',
       'sonarjs/no-gratuitous-expressions': 'error',
@@ -52,6 +63,7 @@ export default defineConfig([
   {
     files: ['src/**/*.test.{ts,tsx}'],
     rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/require-await': 'off',
@@ -62,11 +74,12 @@ export default defineConfig([
   },
   {
     files: ['vite.config.ts'],
-    extends: [js.configs.recommended, tseslint.configs.recommendedTypeChecked],
+    extends: [js.configs.recommended, tseslint.configs.strictTypeChecked, tseslint.configs.stylisticTypeChecked],
     languageOptions: {
       globals: globals.node,
       parserOptions: {
         projectService: true,
+        tsconfigRootDir,
       },
     },
   },

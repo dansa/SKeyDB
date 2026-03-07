@@ -109,6 +109,93 @@ type ExportFontEmbedResult = {
 
 let exportFontEmbedCssPromise: Promise<ExportFontEmbedResult> | null = null
 
+function resolveExportSortKey(key: unknown): AwakenerSortKey {
+  return key === 'ALPHABETICAL' || key === 'LEVEL' || key === 'RARITY' || key === 'ENLIGHTEN'
+    ? key
+    : DEFAULT_EXPORT_SORT_CONFIG.key
+}
+
+function resolveExportSortDirection(direction: unknown): CollectionSortDirection {
+  return direction === 'ASC' || direction === 'DESC'
+    ? direction
+    : DEFAULT_EXPORT_SORT_CONFIG.direction
+}
+
+function resolveExportSortGroupByRealm(
+  parsed: Partial<ExportSortConfig> & {groupByFaction?: boolean},
+): boolean {
+  if (typeof parsed.groupByRealm === 'boolean') {
+    return parsed.groupByRealm
+  }
+
+  if (typeof parsed.groupByFaction === 'boolean') {
+    return parsed.groupByFaction
+  }
+
+  return DEFAULT_EXPORT_SORT_CONFIG.groupByRealm
+}
+
+function getInitialIncludedRarities<R extends string>(
+  storageKeyPrefix: string,
+  rarityOptions: ReadonlyArray<RarityOption<R>> | undefined,
+  defaultIncludedRarities: Record<R, boolean> | undefined,
+): Record<R, boolean> | null {
+  if (!rarityOptions || !defaultIncludedRarities) {
+    return null
+  }
+
+  return loadStoredIncludedRarities(storageKeyPrefix, defaultIncludedRarities)
+}
+
+function pickRandomEmojiAsset(): string | null {
+  if (emojiAssets.length === 0) {
+    return null
+  }
+
+  if (typeof crypto !== 'undefined' && typeof crypto.getRandomValues === 'function') {
+    const randomValues = new Uint32Array(1)
+    crypto.getRandomValues(randomValues)
+    return emojiAssets[randomValues[0] % emojiAssets.length] ?? emojiAssets[0] ?? null
+  }
+
+  return emojiAssets[0] ?? null
+}
+
+function resolveActiveSortKey(
+  sortOptions: readonly AwakenerSortKey[],
+  sortKey: AwakenerSortKey,
+): AwakenerSortKey {
+  return sortOptions.includes(sortKey) ? sortKey : (sortOptions[0] ?? 'LEVEL')
+}
+
+function toSortableCollectionEntry<R extends string>(
+  entry: OwnedAssetBoxEntry<R>,
+): SortableCollectionEntry {
+  return {
+    label: entry.label,
+    index: entry.sortIndex ?? Number.MAX_SAFE_INTEGER,
+    enlighten: entry.level,
+    level: entry.cardLevel ?? 0,
+    rarity: entry.rarity,
+    realm: entry.realm,
+  }
+}
+
+function getExportUnavailableReason(
+  hasAtLeastOneRarity: boolean,
+  sortedEntryCount: number,
+): string | null {
+  if (!hasAtLeastOneRarity) {
+    return 'Enable at least one rarity to export.'
+  }
+
+  if (sortedEntryCount === 0) {
+    return 'Nothing matches the current filters.'
+  }
+
+  return null
+}
+
 function fetchAssetAsDataUrl(url: string): Promise<string> {
   return fetch(url)
     .then((response) => {
@@ -269,25 +356,10 @@ function loadStoredSortConfig(storageKeyPrefix: string): ExportSortConfig {
     const raw = window.localStorage.getItem(`${storageKeyPrefix}.sort.v1`)
     if (!raw) return DEFAULT_EXPORT_SORT_CONFIG
     const parsed = JSON.parse(raw) as Partial<ExportSortConfig> & {groupByFaction?: boolean}
-    const key = parsed.key ?? DEFAULT_EXPORT_SORT_CONFIG.key
-    const direction = parsed.direction ?? DEFAULT_EXPORT_SORT_CONFIG.direction
-    const legacyGroupByRealm =
-      typeof parsed.groupByFaction === 'boolean' ? parsed.groupByFaction : undefined
     return {
-      key:
-        key === 'ALPHABETICAL' || key === 'LEVEL' || key === 'RARITY' || key === 'ENLIGHTEN'
-          ? key
-          : DEFAULT_EXPORT_SORT_CONFIG.key,
-      direction:
-        direction === 'ASC' || direction === 'DESC'
-          ? direction
-          : DEFAULT_EXPORT_SORT_CONFIG.direction,
-      groupByRealm:
-        typeof parsed.groupByRealm === 'boolean'
-          ? parsed.groupByRealm
-          : typeof legacyGroupByRealm === 'boolean'
-            ? legacyGroupByRealm
-            : DEFAULT_EXPORT_SORT_CONFIG.groupByRealm,
+      key: resolveExportSortKey(parsed.key),
+      direction: resolveExportSortDirection(parsed.direction),
+      groupByRealm: resolveExportSortGroupByRealm(parsed),
     }
   } catch {
     return DEFAULT_EXPORT_SORT_CONFIG
@@ -514,6 +586,510 @@ function ExportPreview<R extends string>({
   )
 }
 
+function createExportRenderOptions(
+  sanitizedDraftConfig: ExportBoxConfig,
+  fontEmbedCSS: string,
+) {
+  return {
+    cacheBust: false,
+    pixelRatio: sanitizedDraftConfig.pixelRatio,
+    canvasWidth: getExportLayoutWidth(sanitizedDraftConfig),
+    backgroundColor: '#040a16',
+    preferredFontFormat: 'woff2' as const,
+    ...(fontEmbedCSS ? {fontEmbedCSS} : {}),
+  }
+}
+
+async function renderOwnedAssetPreviewToDataUrl({
+  previewElement,
+  baseRenderOptions,
+  onStatusMessage,
+}: {
+  previewElement: HTMLDivElement
+  baseRenderOptions: ReturnType<typeof createExportRenderOptions>
+  onStatusMessage: (message: string) => void
+}) {
+  const {toPng} = await import('html-to-image')
+
+  try {
+    return await withTimeout(toPng(previewElement, baseRenderOptions), 20000, 'PNG render')
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : String(error)
+    const isFontEmbedError = /font is undefined|trim/i.test(detail)
+    if (!isFontEmbedError) {
+      throw error
+    }
+
+    onStatusMessage('Rendering PNG (font fallback for Firefox)...')
+    return withTimeout(
+      toPng(previewElement, {
+        ...baseRenderOptions,
+        skipFonts: true,
+      }),
+      20000,
+      'PNG render (font fallback)',
+    )
+  }
+}
+
+function downloadOwnedAssetExport(dataUrl: string, filenamePrefix: string) {
+  const filename = `${filenamePrefix}-${new Date().toISOString().slice(0, 10)}.png`
+  const anchor = document.createElement('a')
+  anchor.href = dataUrl
+  anchor.download = filename
+  document.body.appendChild(anchor)
+  anchor.click()
+  document.body.removeChild(anchor)
+  return filename
+}
+
+async function exportOwnedAssetBoxPreview<R extends string>({
+  previewElement,
+  sortedEntries,
+  filenamePrefix,
+  sanitizedDraftConfig,
+  onStatusMessage,
+  setIsExporting,
+}: {
+  previewElement: HTMLDivElement | null
+  sortedEntries: OwnedAssetBoxEntry<R>[]
+  filenamePrefix: string
+  sanitizedDraftConfig: ExportBoxConfig
+  onStatusMessage: (message: string) => void
+  setIsExporting: (next: boolean) => void
+}) {
+  if (!previewElement) {
+    onStatusMessage('PNG export failed: render target missing.')
+    return
+  }
+
+  if (sortedEntries.length === 0) {
+    onStatusMessage('PNG export skipped: nothing to export with current filters.')
+    return
+  }
+
+  setIsExporting(true)
+  onStatusMessage('Rendering PNG...')
+  try {
+    onStatusMessage('Preparing export fonts...')
+    const {css: fontEmbedCSS, hasCustomFont} = await getExportFontEmbedCss()
+    if (!hasCustomFont) {
+      onStatusMessage('Custom export font unavailable; using fallback font.')
+    }
+    const baseRenderOptions = createExportRenderOptions(sanitizedDraftConfig, fontEmbedCSS)
+    const dataUrl = await renderOwnedAssetPreviewToDataUrl({
+      previewElement,
+      baseRenderOptions,
+      onStatusMessage,
+    })
+
+    if (!dataUrl) {
+      onStatusMessage('PNG export failed: renderer returned empty image data.')
+      return
+    }
+
+    const filename = downloadOwnedAssetExport(dataUrl, filenamePrefix)
+    onStatusMessage(`Saved ${filename}`)
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : String(error)
+    onStatusMessage(`PNG export failed: ${detail || 'could not render image.'}`)
+  } finally {
+    setIsExporting(false)
+  }
+}
+
+type OwnedAssetBoxExportModalProps<R extends string> = {
+  modalTitle: string
+  rarityOptions?: ReadonlyArray<RarityOption<R>>
+  includedRarities: Record<R, boolean> | null
+  handleRarityToggle: (rarity: R, checked: boolean) => void
+  sortedEntries: OwnedAssetBoxEntry<R>[]
+  hasSortControls: boolean
+  sortConfig: ExportSortConfig
+  onSortConfigChange: (updater: (current: ExportSortConfig) => ExportSortConfig) => void
+  supportsRealmGrouping: boolean
+  activeSortKey: AwakenerSortKey
+  sortOptions: readonly AwakenerSortKey[]
+  nameToggleLabel: string
+  areNamesEnabled: boolean
+  visuals: ExportVisualConfig
+  onVisualsChange: (updater: (current: ExportVisualConfig) => ExportVisualConfig) => void
+  supportsLevels: boolean
+  draftConfig: ExportBoxConfig
+  sanitizedDraftConfig: ExportBoxConfig
+  onDraftConfigChange: (updater: (current: ExportBoxConfig) => ExportBoxConfig) => void
+  assetAltNoun: string
+  cardAspectClassName: string
+  emojiAsset: string | null
+  imageClassName: string
+  placeholderClassName: string
+  previewRef: React.RefObject<HTMLDivElement | null>
+  exportUnavailableReason: string | null
+  defaultIncludedRarities?: Record<R, boolean>
+  onReset: () => void
+  onClose: () => void
+  onExport: () => void
+  isExporting: boolean
+}
+
+function OwnedAssetBoxVisualSettings({
+  nameToggleLabel,
+  areNamesEnabled,
+  visuals,
+  onVisualsChange,
+  supportsLevels,
+}: {
+  nameToggleLabel: string
+  areNamesEnabled: boolean
+  visuals: ExportVisualConfig
+  onVisualsChange: (updater: (current: ExportVisualConfig) => ExportVisualConfig) => void
+  supportsLevels: boolean
+}) {
+  const isEmojiInTitleEnabled = !visuals.disableEmoji
+
+  return (
+    <div className="space-y-2 border border-slate-700/60 bg-slate-950/50 p-2">
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-[11px] tracking-wide text-slate-300 uppercase">{nameToggleLabel}</span>
+        <TogglePill
+          ariaLabel={
+            areNamesEnabled
+              ? `Disable ${nameToggleLabel.toLowerCase()}`
+              : `Enable ${nameToggleLabel.toLowerCase()}`
+          }
+          checked={areNamesEnabled}
+          className="ownership-pill-builder"
+          offLabel="Off"
+          onChange={(namesEnabled) =>
+            onVisualsChange((current) => ({
+              ...current,
+              disableNames: !namesEnabled,
+            }))
+          }
+          onLabel="On"
+          variant="flat"
+        />
+      </div>
+      {areNamesEnabled ? (
+        <div className="flex items-center justify-between gap-2">
+          <span className="text-[11px] tracking-wide text-slate-300 uppercase">Name On Top</span>
+          <TogglePill
+            ariaLabel={visuals.nameOnTop ? 'Set names to bottom' : 'Set names to top'}
+            checked={visuals.nameOnTop}
+            className="ownership-pill-builder"
+            offLabel="Off"
+            onChange={(nameOnTop) =>
+              onVisualsChange((current) => ({
+                ...current,
+                nameOnTop,
+              }))
+            }
+            onLabel="On"
+            variant="flat"
+          />
+        </div>
+      ) : null}
+      {supportsLevels ? (
+        <div className="flex items-center justify-between gap-2">
+          <span className="text-[11px] tracking-wide text-slate-300 uppercase">Show Levels</span>
+          <TogglePill
+            ariaLabel={visuals.showLevels ? 'Hide levels on card' : 'Show levels on card'}
+            checked={visuals.showLevels}
+            className="ownership-pill-builder"
+            offLabel="Off"
+            onChange={(showLevels) =>
+              onVisualsChange((current) => ({
+                ...current,
+                showLevels,
+              }))
+            }
+            onLabel="On"
+            variant="flat"
+          />
+        </div>
+      ) : null}
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-[11px] tracking-wide text-slate-300 uppercase">Enlightens On Card</span>
+        <TogglePill
+          ariaLabel={
+            visuals.enlightensOnCard ? 'Move enlightens below card' : 'Move enlightens onto card'
+          }
+          checked={visuals.enlightensOnCard}
+          className="ownership-pill-builder"
+          offLabel="Off"
+          onChange={(enlightensOnCard) =>
+            onVisualsChange((current) => ({
+              ...current,
+              enlightensOnCard,
+            }))
+          }
+          onLabel="On"
+          variant="flat"
+        />
+      </div>
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-[11px] tracking-wide text-slate-300 uppercase">Emoji In Title</span>
+        <TogglePill
+          ariaLabel={isEmojiInTitleEnabled ? 'Disable emoji in title' : 'Enable emoji in title'}
+          checked={isEmojiInTitleEnabled}
+          className="ownership-pill-builder"
+          offLabel="Off"
+          onChange={(emojiInTitleEnabled) =>
+            onVisualsChange((current) => ({
+              ...current,
+              disableEmoji: !emojiInTitleEnabled,
+            }))
+          }
+          onLabel="On"
+          variant="flat"
+        />
+      </div>
+    </div>
+  )
+}
+
+function OwnedAssetBoxExportModal<R extends string>({
+  modalTitle,
+  rarityOptions,
+  includedRarities,
+  handleRarityToggle,
+  sortedEntries,
+  hasSortControls,
+  sortConfig,
+  onSortConfigChange,
+  supportsRealmGrouping,
+  activeSortKey,
+  sortOptions,
+  nameToggleLabel,
+  areNamesEnabled,
+  visuals,
+  onVisualsChange,
+  supportsLevels,
+  draftConfig,
+  sanitizedDraftConfig,
+  onDraftConfigChange,
+  assetAltNoun,
+  cardAspectClassName,
+  emojiAsset,
+  imageClassName,
+  placeholderClassName,
+  previewRef,
+  exportUnavailableReason,
+  onReset,
+  onClose,
+  onExport,
+  isExporting,
+}: OwnedAssetBoxExportModalProps<R>) {
+  return (
+    <ModalFrame
+      panelClassName="flex h-[88vh] w-full max-w-[92vw] flex-col border border-amber-200/55 bg-slate-950/96 p-4 shadow-[0_18px_50px_rgba(2,6,23,0.72)]"
+      title={modalTitle}
+    >
+      <div className="mt-3 grid min-h-0 flex-1 gap-3 lg:grid-cols-[340px_1fr]">
+        <div className="collection-scrollbar space-y-2 overflow-auto border border-slate-500/45 bg-slate-900/50 p-3 text-xs text-slate-300">
+          {rarityOptions && includedRarities ? (
+            <div className="space-y-2 border border-slate-700/60 bg-slate-950/50 p-2">
+              <p className="text-[11px] tracking-wide text-slate-300 uppercase">Rarities</p>
+              {rarityOptions.map((option) => (
+                <div className="flex items-center justify-between gap-2" key={option.value}>
+                  <span className="text-[11px] tracking-wide text-slate-300 uppercase">
+                    {option.label}
+                  </span>
+                  <TogglePill
+                    ariaLabel={`Include ${option.label} wheels`}
+                    checked={includedRarities[option.value]}
+                    className="ownership-pill-builder"
+                    offLabel="Off"
+                    onChange={(checked) => handleRarityToggle(option.value, checked)}
+                    onLabel="On"
+                    variant="flat"
+                  />
+                </div>
+              ))}
+              <p className="text-[11px] text-slate-400">Included: {sortedEntries.length}</p>
+            </div>
+          ) : null}
+
+          {hasSortControls ? (
+            <div className="space-y-2 border border-slate-700/60 bg-slate-950/50 p-2">
+              <CollectionSortControls
+                groupByRealm={sortConfig.groupByRealm}
+                groupByRealmAriaLabel="Group by realm"
+                headingText="Sort By"
+                onGroupByRealmChange={(checked) =>
+                  onSortConfigChange((current) => ({
+                    ...current,
+                    groupByRealm: checked,
+                  }))
+                }
+                onSortDirectionToggle={() =>
+                  onSortConfigChange((current) => ({
+                    ...current,
+                    direction: current.direction === 'DESC' ? 'ASC' : 'DESC',
+                  }))
+                }
+                onSortKeyChange={(nextKey) =>
+                  onSortConfigChange((current) => ({
+                    ...current,
+                    key: nextKey,
+                  }))
+                }
+                showGroupByRealm={supportsRealmGrouping}
+                sortDirection={sortConfig.direction}
+                sortKey={activeSortKey}
+                sortOptions={sortOptions}
+              />
+            </div>
+          ) : null}
+
+          <OwnedAssetBoxVisualSettings
+            areNamesEnabled={areNamesEnabled}
+            nameToggleLabel={nameToggleLabel}
+            onVisualsChange={onVisualsChange}
+            supportsLevels={supportsLevels}
+            visuals={visuals}
+          />
+
+          <ExportSliderField
+            label="Columns"
+            max={10}
+            min={4}
+            onChange={(columns) =>
+              onDraftConfigChange((current) => ({
+                ...current,
+                columns,
+              }))
+            }
+            value={draftConfig.columns}
+          />
+          <ExportSliderField
+            label="Card Width"
+            max={150}
+            min={52}
+            onChange={(cardWidthPx) =>
+              onDraftConfigChange((current) => ({
+                ...current,
+                cardWidthPx,
+              }))
+            }
+            value={draftConfig.cardWidthPx}
+            valueSuffix="px"
+          />
+          <ExportSliderField
+            label="Card Gap"
+            max={16}
+            min={2}
+            onChange={(cardGapPx) =>
+              onDraftConfigChange((current) => ({
+                ...current,
+                cardGapPx,
+              }))
+            }
+            value={draftConfig.cardGapPx}
+            valueSuffix="px"
+          />
+          {supportsLevels ? (
+            <ExportSliderField
+              label="Level Text Scale"
+              max={200}
+              min={60}
+              onChange={(levelTextScalePct) =>
+                onDraftConfigChange((current) => ({
+                  ...current,
+                  levelTextScalePct,
+                }))
+              }
+              step={5}
+              value={draftConfig.levelTextScalePct}
+              valueSuffix="%"
+            />
+          ) : null}
+          <ExportSliderField
+            label="Left/Right Padding"
+            max={32}
+            min={0}
+            onChange={(outerPaddingXPx) =>
+              onDraftConfigChange((current) => ({
+                ...current,
+                outerPaddingXPx,
+              }))
+            }
+            value={draftConfig.outerPaddingXPx}
+            valueSuffix="px"
+          />
+          <ExportSliderField
+            label="Top/Bottom Padding"
+            max={24}
+            min={0}
+            onChange={(outerPaddingYPx) =>
+              onDraftConfigChange((current) => ({
+                ...current,
+                outerPaddingYPx,
+              }))
+            }
+            value={draftConfig.outerPaddingYPx}
+            valueSuffix="px"
+          />
+          <ExportSliderField
+            label="Pixel Ratio"
+            max={2}
+            min={0.5}
+            onChange={(pixelRatio) =>
+              onDraftConfigChange((current) => ({
+                ...current,
+                pixelRatio,
+              }))
+            }
+            step={0.1}
+            value={draftConfig.pixelRatio}
+          />
+          <p className="text-[11px] text-slate-400">
+            Pixel ratio controls render density. Higher values look sharper, but increase file size quite a bit.
+          </p>
+          <div className="pt-1 text-[11px] text-slate-400">
+            Width: {getExportLayoutWidth(sanitizedDraftConfig)} px
+          </div>
+        </div>
+
+        <div className="collection-scrollbar min-h-0 overflow-auto border border-slate-500/45 bg-slate-900/45 p-2">
+          <ExportPreview
+            assetAltNoun={assetAltNoun}
+            cardAspectClassName={cardAspectClassName}
+            config={sanitizedDraftConfig}
+            emojiAsset={emojiAsset}
+            entries={sortedEntries}
+            imageClassName={imageClassName}
+            placeholderClassName={placeholderClassName}
+            previewRef={previewRef}
+            visuals={visuals}
+          />
+        </div>
+      </div>
+
+      <div className="mt-3 flex justify-end gap-2">
+        {exportUnavailableReason ? (
+          <p className="mr-auto self-center text-[11px] text-slate-400">{exportUnavailableReason}</p>
+        ) : null}
+        <Button onClick={onReset} type="button" variant="secondary">
+          Reset
+        </Button>
+        <Button onClick={onClose} type="button" variant="secondary">
+          Close
+        </Button>
+        <Button
+          aria-disabled={isExporting}
+          className={isExporting ? 'opacity-50' : undefined}
+          onClick={onExport}
+          type="button"
+          variant="primary"
+        >
+          {isExporting ? 'Exporting...' : 'Export PNG'}
+        </Button>
+      </div>
+    </ModalFrame>
+  )
+}
+
 export function OwnedAssetBoxExport<R extends string>({
   entries,
   onStatusMessage,
@@ -542,20 +1118,14 @@ export function OwnedAssetBoxExport<R extends string>({
   const [sortConfig, setSortConfig] = useState<ExportSortConfig>(() =>
     loadStoredSortConfig(storageKeyPrefix),
   )
-  const [includedRarities, setIncludedRarities] = useState<Record<R, boolean> | null>(() => {
-    if (!rarityOptions || !defaultIncludedRarities) {
-      return null
-    }
-    return loadStoredIncludedRarities(storageKeyPrefix, defaultIncludedRarities)
-  })
-  const [emojiAsset, setEmojiAsset] = useState<string | null>(() =>
-    emojiAssets.length > 0 ? emojiAssets[Math.floor(Math.random() * emojiAssets.length)] : null,
+  const [includedRarities, setIncludedRarities] = useState<Record<R, boolean> | null>(() =>
+    getInitialIncludedRarities(storageKeyPrefix, rarityOptions, defaultIncludedRarities),
   )
+  const [emojiAsset, setEmojiAsset] = useState<string | null>(() => pickRandomEmojiAsset())
   const previewRef = useRef<HTMLDivElement | null>(null)
 
   const sanitizedDraftConfig = useMemo(() => sanitizeConfig(draftConfig), [draftConfig])
   const areNamesEnabled = !visuals.disableNames
-  const isEmojiInTitleEnabled = !visuals.disableEmoji
   const supportsLevels = useMemo(
     () => entries.some((entry) => typeof entry.cardLevel === 'number'),
     [entries],
@@ -566,22 +1136,11 @@ export function OwnedAssetBoxExport<R extends string>({
     }
     return entries.filter((entry) => (entry.rarity ? includedRarities[entry.rarity] : true))
   }, [entries, includedRarities])
+  const activeSortKey = resolveActiveSortKey(sortOptions, sortConfig.key)
   const sortedEntries = useMemo(() => {
-    const activeSortKey = sortOptions.includes(sortConfig.key)
-      ? sortConfig.key
-      : (sortOptions[0] ?? 'LEVEL')
-    const toSortableEntry = (entry: OwnedAssetBoxEntry<R>): SortableCollectionEntry => ({
-      label: entry.label,
-      index: entry.sortIndex ?? Number.MAX_SAFE_INTEGER,
-      enlighten: entry.level,
-      level: entry.cardLevel ?? 0,
-      rarity: entry.rarity,
-      realm: entry.realm,
-    })
-
     return [...filteredEntries].sort((left, right) => {
-      const leftSortable = toSortableEntry(left)
-      const rightSortable = toSortableEntry(right)
+      const leftSortable = toSortableCollectionEntry(left)
+      const rightSortable = toSortableCollectionEntry(right)
 
       if (sortBehavior === 'WHEEL_DEFAULT') {
         return compareWheelsForCollectionDefaultSort(leftSortable, rightSortable)
@@ -595,28 +1154,28 @@ export function OwnedAssetBoxExport<R extends string>({
     })
   }, [
     filteredEntries,
+    activeSortKey,
     sortBehavior,
     sortConfig.direction,
     sortConfig.groupByRealm,
-    sortConfig.key,
-    sortOptions,
   ])
   const supportsRealmGrouping = useMemo(
     () => entries.some((entry) => Boolean(entry.realm?.trim())),
     [entries],
   )
   const hasSortControls = sortBehavior === 'CONFIGURABLE' && sortOptions.length > 0
-  const selectedSortKey = sortOptions.includes(sortConfig.key)
-    ? sortConfig.key
-    : (sortOptions[0] ?? 'LEVEL')
   const hasAtLeastOneRarity = includedRarities
     ? Object.values(includedRarities).some(Boolean)
     : true
-  const exportUnavailableReason = !hasAtLeastOneRarity
-    ? 'Enable at least one rarity to export.'
-    : sortedEntries.length === 0
-      ? 'Nothing matches the current filters.'
-      : null
+  const exportUnavailableReason = getExportUnavailableReason(hasAtLeastOneRarity, sortedEntries.length)
+  const updateDraftConfig = (updater: (current: ExportBoxConfig) => ExportBoxConfig) =>
+    setDraftConfig(updater)
+  const updateVisuals = (updater: (current: ExportVisualConfig) => ExportVisualConfig) => {
+    setVisuals(updater)
+    setEmojiAsset(pickRandomEmojiAsset())
+  }
+  const updateSortConfig = (updater: (current: ExportSortConfig) => ExportSortConfig) =>
+    setSortConfig(updater)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -642,86 +1201,18 @@ export function OwnedAssetBoxExport<R extends string>({
   }, [storageKeyPrefix, includedRarities])
 
   function rerollEmoji() {
-    if (emojiAssets.length === 0) {
-      setEmojiAsset(null)
-      return
-    }
-    setEmojiAsset(emojiAssets[Math.floor(Math.random() * emojiAssets.length)])
+    setEmojiAsset(pickRandomEmojiAsset())
   }
 
   async function handleExport() {
-    if (!previewRef.current) {
-      onStatusMessage('PNG export failed: render target missing.')
-      return
-    }
-
-    if (sortedEntries.length === 0) {
-      onStatusMessage('PNG export skipped: nothing to export with current filters.')
-      return
-    }
-
-    setIsExporting(true)
-    onStatusMessage('Rendering PNG...')
-    try {
-      const {toPng} = await import('html-to-image')
-      const exportLayoutWidth = getExportLayoutWidth(sanitizedDraftConfig)
-      onStatusMessage('Preparing export fonts...')
-      const {css: fontEmbedCSS, hasCustomFont} = await getExportFontEmbedCss()
-      if (!hasCustomFont) {
-        onStatusMessage('Custom export font unavailable; using fallback font.')
-      }
-      const baseRenderOptions = {
-        cacheBust: false,
-        pixelRatio: sanitizedDraftConfig.pixelRatio,
-        canvasWidth: exportLayoutWidth,
-        backgroundColor: '#040a16',
-        preferredFontFormat: 'woff2' as const,
-        ...(fontEmbedCSS ? {fontEmbedCSS} : {}),
-      }
-
-      let dataUrl: string
-      try {
-        dataUrl = await withTimeout(
-          toPng(previewRef.current, baseRenderOptions),
-          20000,
-          'PNG render',
-        )
-      } catch (error) {
-        const detail = error instanceof Error ? error.message : String(error)
-        const isFontEmbedError = /font is undefined|trim/i.test(detail)
-        if (!isFontEmbedError) {
-          throw error
-        }
-
-        onStatusMessage('Rendering PNG (font fallback for Firefox)...')
-        dataUrl = await withTimeout(
-          toPng(previewRef.current, {
-            ...baseRenderOptions,
-            skipFonts: true,
-          }),
-          20000,
-          'PNG render (font fallback)',
-        )
-      }
-
-      if (!dataUrl) {
-        onStatusMessage('PNG export failed: renderer returned empty image data.')
-        return
-      }
-      const filename = `${filenamePrefix}-${new Date().toISOString().slice(0, 10)}.png`
-      const anchor = document.createElement('a')
-      anchor.href = dataUrl
-      anchor.download = filename
-      document.body.appendChild(anchor)
-      anchor.click()
-      document.body.removeChild(anchor)
-      onStatusMessage(`Saved ${filename}`)
-    } catch (error) {
-      const detail = error instanceof Error ? error.message : String(error)
-      onStatusMessage(`PNG export failed: ${detail || 'could not render image.'}`)
-    } finally {
-      setIsExporting(false)
-    }
+    await exportOwnedAssetBoxPreview({
+      previewElement: previewRef.current,
+      sortedEntries,
+      filenamePrefix,
+      sanitizedDraftConfig,
+      onStatusMessage,
+      setIsExporting,
+    })
   }
 
   function handleRarityToggle(rarity: R, checked: boolean) {
@@ -751,337 +1242,52 @@ export function OwnedAssetBoxExport<R extends string>({
       </Button>
 
       {isSettingsOpen ? (
-        <ModalFrame
-          panelClassName="flex h-[88vh] w-full max-w-[92vw] flex-col border border-amber-200/55 bg-slate-950/96 p-4 shadow-[0_18px_50px_rgba(2,6,23,0.72)]"
-          title={modalTitle}
-        >
-          <div className="mt-3 grid min-h-0 flex-1 gap-3 lg:grid-cols-[340px_1fr]">
-            <div className="collection-scrollbar space-y-2 overflow-auto border border-slate-500/45 bg-slate-900/50 p-3 text-xs text-slate-300">
-              {rarityOptions && includedRarities ? (
-                <div className="space-y-2 border border-slate-700/60 bg-slate-950/50 p-2">
-                  <p className="text-[11px] tracking-wide text-slate-300 uppercase">Rarities</p>
-                  {rarityOptions.map((option) => (
-                    <div className="flex items-center justify-between gap-2" key={option.value}>
-                      <span className="text-[11px] tracking-wide text-slate-300 uppercase">
-                        {option.label}
-                      </span>
-                      <TogglePill
-                        ariaLabel={`Include ${option.label} wheels`}
-                        checked={includedRarities[option.value]}
-                        className="ownership-pill-builder"
-                        offLabel="Off"
-                        onChange={(checked) => handleRarityToggle(option.value, checked)}
-                        onLabel="On"
-                        variant="flat"
-                      />
-                    </div>
-                  ))}
-                  <p className="text-[11px] text-slate-400">Included: {sortedEntries.length}</p>
-                </div>
-              ) : null}
-
-              {hasSortControls ? (
-                <div className="space-y-2 border border-slate-700/60 bg-slate-950/50 p-2">
-                  <CollectionSortControls
-                    groupByRealm={sortConfig.groupByRealm}
-                    groupByRealmAriaLabel="Group by realm"
-                    headingText="Sort By"
-                    onGroupByRealmChange={(checked) =>
-                      setSortConfig((current) => ({
-                        ...current,
-                        groupByRealm: checked,
-                      }))
-                    }
-                    onSortDirectionToggle={() =>
-                      setSortConfig((current) => ({
-                        ...current,
-                        direction: current.direction === 'DESC' ? 'ASC' : 'DESC',
-                      }))
-                    }
-                    onSortKeyChange={(nextKey) =>
-                      setSortConfig((current) => ({
-                        ...current,
-                        key: nextKey,
-                      }))
-                    }
-                    showGroupByRealm={supportsRealmGrouping}
-                    sortDirection={sortConfig.direction}
-                    sortKey={selectedSortKey}
-                    sortOptions={sortOptions}
-                  />
-                </div>
-              ) : null}
-
-              <div className="space-y-2 border border-slate-700/60 bg-slate-950/50 p-2">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-[11px] tracking-wide text-slate-300 uppercase">
-                    {nameToggleLabel}
-                  </span>
-                  <TogglePill
-                    ariaLabel={
-                      areNamesEnabled
-                        ? `Disable ${nameToggleLabel.toLowerCase()}`
-                        : `Enable ${nameToggleLabel.toLowerCase()}`
-                    }
-                    checked={areNamesEnabled}
-                    className="ownership-pill-builder"
-                    offLabel="Off"
-                    onChange={(namesEnabled) =>
-                      setVisuals((current) => ({
-                        ...current,
-                        disableNames: !namesEnabled,
-                      }))
-                    }
-                    onLabel="On"
-                    variant="flat"
-                  />
-                </div>
-                {areNamesEnabled ? (
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-[11px] tracking-wide text-slate-300 uppercase">
-                      Name On Top
-                    </span>
-                    <TogglePill
-                      ariaLabel={visuals.nameOnTop ? 'Set names to bottom' : 'Set names to top'}
-                      checked={visuals.nameOnTop}
-                      className="ownership-pill-builder"
-                      offLabel="Off"
-                      onChange={(nameOnTop) =>
-                        setVisuals((current) => ({
-                          ...current,
-                          nameOnTop,
-                        }))
-                      }
-                      onLabel="On"
-                      variant="flat"
-                    />
-                  </div>
-                ) : null}
-                {supportsLevels ? (
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-[11px] tracking-wide text-slate-300 uppercase">
-                      Show Levels
-                    </span>
-                    <TogglePill
-                      ariaLabel={visuals.showLevels ? 'Hide levels on card' : 'Show levels on card'}
-                      checked={visuals.showLevels}
-                      className="ownership-pill-builder"
-                      offLabel="Off"
-                      onChange={(showLevels) =>
-                        setVisuals((current) => ({
-                          ...current,
-                          showLevels,
-                        }))
-                      }
-                      onLabel="On"
-                      variant="flat"
-                    />
-                  </div>
-                ) : null}
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-[11px] tracking-wide text-slate-300 uppercase">
-                    Enlightens On Card
-                  </span>
-                  <TogglePill
-                    ariaLabel={
-                      visuals.enlightensOnCard
-                        ? 'Move enlightens below card'
-                        : 'Move enlightens onto card'
-                    }
-                    checked={visuals.enlightensOnCard}
-                    className="ownership-pill-builder"
-                    offLabel="Off"
-                    onChange={(enlightensOnCard) =>
-                      setVisuals((current) => ({
-                        ...current,
-                        enlightensOnCard,
-                      }))
-                    }
-                    onLabel="On"
-                    variant="flat"
-                  />
-                </div>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-[11px] tracking-wide text-slate-300 uppercase">
-                    Emoji In Title
-                  </span>
-                  <TogglePill
-                    ariaLabel={
-                      isEmojiInTitleEnabled ? 'Disable emoji in title' : 'Enable emoji in title'
-                    }
-                    checked={isEmojiInTitleEnabled}
-                    className="ownership-pill-builder"
-                    offLabel="Off"
-                    onChange={(emojiInTitleEnabled) => {
-                      setVisuals((current) => ({
-                        ...current,
-                        disableEmoji: !emojiInTitleEnabled,
-                      }))
-                      rerollEmoji()
-                    }}
-                    onLabel="On"
-                    variant="flat"
-                  />
-                </div>
-              </div>
-
-              <ExportSliderField
-                label="Columns"
-                max={10}
-                min={4}
-                onChange={(columns) =>
-                  setDraftConfig((current) => ({
-                    ...current,
-                    columns,
-                  }))
-                }
-                value={draftConfig.columns}
-              />
-              <ExportSliderField
-                label="Card Width"
-                max={150}
-                min={52}
-                onChange={(cardWidthPx) =>
-                  setDraftConfig((current) => ({
-                    ...current,
-                    cardWidthPx,
-                  }))
-                }
-                value={draftConfig.cardWidthPx}
-                valueSuffix="px"
-              />
-              <ExportSliderField
-                label="Card Gap"
-                max={16}
-                min={2}
-                onChange={(cardGapPx) =>
-                  setDraftConfig((current) => ({
-                    ...current,
-                    cardGapPx,
-                  }))
-                }
-                value={draftConfig.cardGapPx}
-                valueSuffix="px"
-              />
-              {supportsLevels ? (
-                <ExportSliderField
-                  label="Level Text Scale"
-                  max={200}
-                  min={60}
-                  onChange={(levelTextScalePct) =>
-                    setDraftConfig((current) => ({
-                      ...current,
-                      levelTextScalePct,
-                    }))
-                  }
-                  step={5}
-                  value={draftConfig.levelTextScalePct}
-                  valueSuffix="%"
-                />
-              ) : null}
-              <ExportSliderField
-                label="Left/Right Padding"
-                max={32}
-                min={0}
-                onChange={(outerPaddingXPx) =>
-                  setDraftConfig((current) => ({
-                    ...current,
-                    outerPaddingXPx,
-                  }))
-                }
-                value={draftConfig.outerPaddingXPx}
-                valueSuffix="px"
-              />
-              <ExportSliderField
-                label="Top/Bottom Padding"
-                max={24}
-                min={0}
-                onChange={(outerPaddingYPx) =>
-                  setDraftConfig((current) => ({
-                    ...current,
-                    outerPaddingYPx,
-                  }))
-                }
-                value={draftConfig.outerPaddingYPx}
-                valueSuffix="px"
-              />
-              <ExportSliderField
-                label="Pixel Ratio"
-                max={2}
-                min={0.5}
-                onChange={(pixelRatio) =>
-                  setDraftConfig((current) => ({
-                    ...current,
-                    pixelRatio,
-                  }))
-                }
-                step={0.1}
-                value={draftConfig.pixelRatio}
-              />
-              <p className="text-[11px] text-slate-400">
-                Pixel ratio controls render density. Higher values look sharper, but increase file
-                size quite a bit.
-              </p>
-              <div className="pt-1 text-[11px] text-slate-400">
-                Width: {getExportLayoutWidth(sanitizedDraftConfig)} px
-              </div>
-            </div>
-
-            <div className="collection-scrollbar min-h-0 overflow-auto border border-slate-500/45 bg-slate-900/45 p-2">
-              <ExportPreview
-                assetAltNoun={assetAltNoun}
-                cardAspectClassName={cardAspectClassName}
-                config={sanitizedDraftConfig}
-                emojiAsset={emojiAsset}
-                entries={sortedEntries}
-                imageClassName={imageClassName}
-                placeholderClassName={placeholderClassName}
-                previewRef={previewRef}
-                visuals={visuals}
-              />
-            </div>
-          </div>
-
-          <div className="mt-3 flex justify-end gap-2">
-            {exportUnavailableReason ? (
-              <p className="mr-auto self-center text-[11px] text-slate-400">
-                {exportUnavailableReason}
-              </p>
-            ) : null}
-            <Button
-              onClick={() => {
-                setDraftConfig(DEFAULT_EXPORT_BOX_CONFIG)
-                setVisuals(DEFAULT_EXPORT_VISUAL_CONFIG)
-                setSortConfig(DEFAULT_EXPORT_SORT_CONFIG)
-                if (defaultIncludedRarities) {
-                  setIncludedRarities({...defaultIncludedRarities})
-                }
-                rerollEmoji()
-              }}
-              type="button"
-              variant="secondary"
-            >
-              Reset
-            </Button>
-            <Button onClick={() => setIsSettingsOpen(false)} type="button" variant="secondary">
-              Close
-            </Button>
-            <Button
-              aria-disabled={isExporting}
-              className={isExporting ? 'opacity-50' : undefined}
-              onClick={() => {
-                if (isExporting) {
-                  return
-                }
-                void handleExport()
-              }}
-              type="button"
-              variant="primary"
-            >
-              {isExporting ? 'Exporting...' : 'Export PNG'}
-            </Button>
-          </div>
-        </ModalFrame>
+        <OwnedAssetBoxExportModal
+          activeSortKey={activeSortKey}
+          areNamesEnabled={areNamesEnabled}
+          assetAltNoun={assetAltNoun}
+          cardAspectClassName={cardAspectClassName}
+          defaultIncludedRarities={defaultIncludedRarities}
+          draftConfig={draftConfig}
+          emojiAsset={emojiAsset}
+          exportUnavailableReason={exportUnavailableReason}
+          handleRarityToggle={handleRarityToggle}
+          hasSortControls={hasSortControls}
+          imageClassName={imageClassName}
+          includedRarities={includedRarities}
+          isExporting={isExporting}
+          modalTitle={modalTitle}
+          nameToggleLabel={nameToggleLabel}
+          onClose={() => setIsSettingsOpen(false)}
+          onDraftConfigChange={updateDraftConfig}
+          onExport={() => {
+            if (isExporting) {
+              return
+            }
+            void handleExport()
+          }}
+          onReset={() => {
+            setDraftConfig(DEFAULT_EXPORT_BOX_CONFIG)
+            setVisuals(DEFAULT_EXPORT_VISUAL_CONFIG)
+            setSortConfig(DEFAULT_EXPORT_SORT_CONFIG)
+            if (defaultIncludedRarities) {
+              setIncludedRarities({...defaultIncludedRarities})
+            }
+            rerollEmoji()
+          }}
+          onSortConfigChange={updateSortConfig}
+          onVisualsChange={updateVisuals}
+          placeholderClassName={placeholderClassName}
+          previewRef={previewRef}
+          rarityOptions={rarityOptions}
+          sanitizedDraftConfig={sanitizedDraftConfig}
+          sortConfig={sortConfig}
+          sortOptions={sortOptions}
+          sortedEntries={sortedEntries}
+          supportsLevels={supportsLevels}
+          supportsRealmGrouping={supportsRealmGrouping}
+          visuals={visuals}
+        />
       ) : null}
     </>
   )

@@ -134,7 +134,8 @@ function getAppliedSubstatScalingSteps(level: number): number {
 }
 
 function parseStatValue(rawValue: string): ParsedStatValue | null {
-  const match = rawValue.trim().match(/^(-?\d+(?:\.\d+)?)(%)?$/)
+  const regex = /^(-?\d+(?:\.\d+)?)(%)?$/
+  const match = regex.exec(rawValue.trim())
   if (!match) {
     return null
   }

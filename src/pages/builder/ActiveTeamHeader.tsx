@@ -44,6 +44,16 @@ const realmMetaById: Record<string, RealmMeta> = {
   ULTRA: {label: getRealmLabel('ULTRA'), icon: getRealmIcon('ULTRA')!, tint: getRealmTint('ULTRA')},
 }
 
+function getBadgeStateClass(activeRealmCount: number): string {
+  if (activeRealmCount === 1) {
+    return 'builder-team-realm-badge-single'
+  }
+  if (activeRealmCount === 2) {
+    return 'builder-team-realm-badge-split'
+  }
+  return 'builder-team-realm-badge-empty'
+}
+
 export function ActiveTeamHeader({
   activeTeamId,
   activeTeamName,
@@ -66,12 +76,7 @@ export function ActiveTeamHeader({
   const hasSingleRealm = activeRealms.length === 1
   const tintA = activeRealms[0]?.tint ?? DEFAULT_REALM_TINT
   const tintB = activeRealms[1]?.tint ?? tintA
-  const badgeStateClass =
-    activeRealms.length === 1
-      ? 'builder-team-realm-badge-single'
-      : activeRealms.length === 2
-        ? 'builder-team-realm-badge-split'
-        : 'builder-team-realm-badge-empty'
+  const badgeStateClass = getBadgeStateClass(activeRealms.length)
   const badgeStyle = {
     '--team-realm-tint-a': tintA,
     '--team-realm-tint-b': tintB,

@@ -34,6 +34,17 @@ export type TeamRulesConfig = {
   enforceUniquePosses: boolean
 }
 
+type SharedSeenState = {
+  awakeners: Set<string>
+  wheels: Set<string>
+  posses: Set<string>
+}
+
+type TeamSeenState = {
+  awakeners: Set<string>
+  wheels: Set<string>
+}
+
 export const DEFAULT_TEAM_RULES_CONFIG: TeamRulesConfig = {
   maxTeams: 10,
   maxRealmsPerTeam: 2,
@@ -53,6 +64,165 @@ export function exceedsRealmLimitForTeam(
   return getDistinctRealmsForTeam(members).size > maxRealmsPerTeam
 }
 
+function pushTeamCountViolation(violations: RuleViolation[], maxTeams: number) {
+  violations.push({
+    code: 'TEAM_COUNT_EXCEEDED',
+    message: `A maximum of ${maxTeams} teams is allowed.`,
+  })
+}
+
+function validateTeamPosse(
+  team: TeamPlan,
+  settings: TeamRulesConfig,
+  seen: SharedSeenState,
+  violations: RuleViolation[],
+) {
+  if (!team.posseId) {
+    return
+  }
+
+  if (settings.enforceUniquePosses && seen.posses.has(team.posseId)) {
+    violations.push({
+      code: 'DUPLICATE_POSSE',
+      message: `Posse ${team.posseId} is used more than once across teams.`,
+      teamId: team.id,
+      value: team.posseId,
+    })
+    return
+  }
+
+  seen.posses.add(team.posseId)
+}
+
+function validateTeamRealmLimit(
+  team: TeamPlan,
+  settings: TeamRulesConfig,
+  violations: RuleViolation[],
+) {
+  const realmsInTeam = getDistinctRealmsForTeam(team.members)
+  if (realmsInTeam.size <= settings.maxRealmsPerTeam) {
+    return
+  }
+
+  violations.push({
+    code: 'TOO_MANY_REALMS_IN_TEAM',
+    message: `Team ${team.id} has ${realmsInTeam.size} realms, max is ${settings.maxRealmsPerTeam}.`,
+    teamId: team.id,
+  })
+}
+
+function validateMemberAwakener(
+  member: TeamMember,
+  teamId: string,
+  settings: TeamRulesConfig,
+  sharedSeen: SharedSeenState,
+  teamSeen: TeamSeenState,
+  violations: RuleViolation[],
+) {
+  if (!settings.enforceUniqueAwakeners) {
+    return
+  }
+
+  if (teamSeen.awakeners.has(member.awakenerId)) {
+    violations.push({
+      code: 'DUPLICATE_AWAKENER',
+      message: `Awakener ${member.awakenerId} is used more than once in team ${teamId}.`,
+      teamId,
+      value: member.awakenerId,
+    })
+    return
+  }
+
+  if (!member.isSupport && sharedSeen.awakeners.has(member.awakenerId)) {
+    violations.push({
+      code: 'DUPLICATE_AWAKENER',
+      message: `Awakener ${member.awakenerId} is used more than once across teams.`,
+      teamId,
+      value: member.awakenerId,
+    })
+  }
+}
+
+function validateMemberWheels(
+  member: TeamMember,
+  teamId: string,
+  settings: TeamRulesConfig,
+  sharedSeen: SharedSeenState,
+  teamSeen: TeamSeenState,
+  violations: RuleViolation[],
+) {
+  if (!settings.enforceUniqueWheels) {
+    return
+  }
+
+  for (const wheelId of member.wheelIds) {
+    if (teamSeen.wheels.has(wheelId)) {
+      violations.push({
+        code: 'DUPLICATE_WHEEL',
+        message: `Wheel ${wheelId} is used more than once in team ${teamId}.`,
+        teamId,
+        value: wheelId,
+      })
+      continue
+    }
+
+    if (!member.isSupport && sharedSeen.wheels.has(wheelId)) {
+      violations.push({
+        code: 'DUPLICATE_WHEEL',
+        message: `Wheel ${wheelId} is used more than once across teams.`,
+        teamId,
+        value: wheelId,
+      })
+    }
+  }
+}
+
+function recordMemberUsage(member: TeamMember, sharedSeen: SharedSeenState, teamSeen: TeamSeenState) {
+  teamSeen.awakeners.add(member.awakenerId)
+  if (!member.isSupport) {
+    sharedSeen.awakeners.add(member.awakenerId)
+  }
+
+  for (const wheelId of member.wheelIds) {
+    teamSeen.wheels.add(wheelId)
+    if (!member.isSupport) {
+      sharedSeen.wheels.add(wheelId)
+    }
+  }
+}
+
+function validateTeamMembers(
+  team: TeamPlan,
+  settings: TeamRulesConfig,
+  sharedSeen: SharedSeenState,
+  violations: RuleViolation[],
+): number {
+  const teamSeen: TeamSeenState = {
+    awakeners: new Set<string>(),
+    wheels: new Set<string>(),
+  }
+  let supportCount = 0
+
+  for (const member of team.members) {
+    if (member.isSupport) {
+      supportCount += 1
+    }
+
+    validateMemberAwakener(member, team.id, settings, sharedSeen, teamSeen, violations)
+    validateMemberWheels(member, team.id, settings, sharedSeen, teamSeen, violations)
+    recordMemberUsage(member, sharedSeen, teamSeen)
+  }
+
+  return supportCount
+}
+
+function pushSupportViolation(violations: RuleViolation[]) {
+  violations.push({
+    code: 'MULTIPLE_SUPPORT_AWAKENERS',
+    message: 'Only one support awakener is allowed across the whole build.',
+  })
+}
+
 export function validateTeamPlan(
   teamPlan: TeamPlan[],
   config: Partial<TeamRulesConfig> = {},
@@ -61,103 +231,24 @@ export function validateTeamPlan(
   const violations: RuleViolation[] = []
 
   if (teamPlan.length > settings.maxTeams) {
-    violations.push({
-      code: 'TEAM_COUNT_EXCEEDED',
-      message: `A maximum of ${settings.maxTeams} teams is allowed.`,
-    })
+    pushTeamCountViolation(violations, settings.maxTeams)
   }
 
-  const seenAwakeners = new Set<string>()
-  const seenWheels = new Set<string>()
-  const seenPosses = new Set<string>()
+  const sharedSeen: SharedSeenState = {
+    awakeners: new Set<string>(),
+    wheels: new Set<string>(),
+    posses: new Set<string>(),
+  }
   let supportCount = 0
 
   for (const team of teamPlan) {
-    if (team.posseId) {
-      if (settings.enforceUniquePosses && seenPosses.has(team.posseId)) {
-        violations.push({
-          code: 'DUPLICATE_POSSE',
-          message: `Posse ${team.posseId} is used more than once across teams.`,
-          teamId: team.id,
-          value: team.posseId,
-        })
-      } else {
-        seenPosses.add(team.posseId)
-      }
-    }
-
-    const realmsInTeam = getDistinctRealmsForTeam(team.members)
-    if (realmsInTeam.size > settings.maxRealmsPerTeam) {
-      violations.push({
-        code: 'TOO_MANY_REALMS_IN_TEAM',
-        message: `Team ${team.id} has ${realmsInTeam.size} realms, max is ${settings.maxRealmsPerTeam}.`,
-        teamId: team.id,
-      })
-    }
-
-    const teamSeenAwakeners = new Set<string>()
-    const teamSeenWheels = new Set<string>()
-
-    for (const member of team.members) {
-      if (member.isSupport) {
-        supportCount += 1
-      }
-
-      if (settings.enforceUniqueAwakeners && teamSeenAwakeners.has(member.awakenerId)) {
-        violations.push({
-          code: 'DUPLICATE_AWAKENER',
-          message: `Awakener ${member.awakenerId} is used more than once in team ${team.id}.`,
-          teamId: team.id,
-          value: member.awakenerId,
-        })
-      } else if (
-        settings.enforceUniqueAwakeners &&
-        !member.isSupport &&
-        seenAwakeners.has(member.awakenerId)
-      ) {
-        violations.push({
-          code: 'DUPLICATE_AWAKENER',
-          message: `Awakener ${member.awakenerId} is used more than once across teams.`,
-          teamId: team.id,
-          value: member.awakenerId,
-        })
-      }
-
-      teamSeenAwakeners.add(member.awakenerId)
-      if (!member.isSupport) {
-        seenAwakeners.add(member.awakenerId)
-      }
-
-      for (const wheelId of member.wheelIds) {
-        if (settings.enforceUniqueWheels && teamSeenWheels.has(wheelId)) {
-          violations.push({
-            code: 'DUPLICATE_WHEEL',
-            message: `Wheel ${wheelId} is used more than once in team ${team.id}.`,
-            teamId: team.id,
-            value: wheelId,
-          })
-        } else if (settings.enforceUniqueWheels && !member.isSupport && seenWheels.has(wheelId)) {
-          violations.push({
-            code: 'DUPLICATE_WHEEL',
-            message: `Wheel ${wheelId} is used more than once across teams.`,
-            teamId: team.id,
-            value: wheelId,
-          })
-        }
-
-        teamSeenWheels.add(wheelId)
-        if (!member.isSupport) {
-          seenWheels.add(wheelId)
-        }
-      }
-    }
+    validateTeamPosse(team, settings, sharedSeen, violations)
+    validateTeamRealmLimit(team, settings, violations)
+    supportCount += validateTeamMembers(team, settings, sharedSeen, violations)
   }
 
   if (supportCount > 1) {
-    violations.push({
-      code: 'MULTIPLE_SUPPORT_AWAKENERS',
-      message: 'Only one support awakener is allowed across the whole build.',
-    })
+    pushSupportViolation(violations)
   }
 
   return {

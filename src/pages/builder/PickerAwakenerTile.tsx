@@ -16,6 +16,19 @@ type PickerAwakenerTileProps = {
   onClick: () => void
 }
 
+function getAwakenerStatusText(isRealmBlocked: boolean, isInUse: boolean): string | null {
+  if (isInUse && isRealmBlocked) {
+    return 'Already Used / Wrong Realm'
+  }
+  if (isInUse) {
+    return 'Already Used'
+  }
+  if (isRealmBlocked) {
+    return 'Wrong Realm'
+  }
+  return null
+}
+
 export function PickerAwakenerTile({
   awakenerName,
   realm,
@@ -28,14 +41,12 @@ export function PickerAwakenerTile({
   const portraitAsset = getAwakenerPortraitAsset(awakenerName)
   const isDimmed = isRealmBlocked || isInUse
   const realmTint = getRealmTint(realm)
-  const statusText = isInUse
-    ? isRealmBlocked
-      ? 'Already Used / Wrong Realm'
-      : 'Already Used'
-    : isRealmBlocked
-      ? 'Wrong Realm'
-      : null
+  const statusText = getAwakenerStatusText(isRealmBlocked, isInUse)
   const tileStatusText = SHOW_PICKER_TILE_STATUS_LABELS ? statusText : null
+  const topLabel = tileStatusText ?? (!isOwned ? 'Unowned' : null)
+  const topLabelClassName = tileStatusText
+    ? 'pointer-events-none absolute inset-x-0 top-0 truncate border-y border-slate-300/30 bg-slate-950/62 px-1 py-0.5 text-center text-[9px] tracking-wide text-slate-100/90'
+    : 'pointer-events-none absolute inset-x-0 top-0 truncate border-y border-rose-300/25 bg-slate-950/70 px-1 py-0.5 text-center text-[9px] tracking-wide text-rose-100/95'
   const {attributes, listeners, isDragging, setNodeRef} = useDraggable({
     id: `picker:${awakenerName}`,
     data: {kind: 'picker-awakener', awakenerName} satisfies DragData,
@@ -70,16 +81,7 @@ export function PickerAwakenerTile({
           className="pointer-events-none absolute inset-0 z-10 border"
           style={{borderColor: realmTint}}
         />
-        {tileStatusText ? (
-          <span className="pointer-events-none absolute inset-x-0 top-0 truncate border-y border-slate-300/30 bg-slate-950/62 px-1 py-0.5 text-center text-[9px] tracking-wide text-slate-100/90">
-            {tileStatusText}
-          </span>
-        ) : null}
-        {tileStatusText || isOwned ? null : (
-          <span className="pointer-events-none absolute inset-x-0 top-0 truncate border-y border-rose-300/25 bg-slate-950/70 px-1 py-0.5 text-center text-[9px] tracking-wide text-rose-100/95">
-            Unowned
-          </span>
-        )}
+        {topLabel ? <span className={topLabelClassName}>{topLabel}</span> : null}
       </div>
       <p className="mt-0.5 truncate text-[10px] text-slate-100">{displayName}</p>
     </button>

@@ -269,7 +269,7 @@ export function createDefaultCollectionOwnershipCatalog(): CollectionOwnershipCa
 
   const linkedAwakenerGroups = Array.from(linkedAwakenerIdsByIdentity.values())
     .filter((group) => group.length > 1)
-    .map((group) => [...group].sort())
+    .map((group) => [...group].sort((left, right) => left.localeCompare(right)))
 
   return {
     awakenerIds: awakeners.map((awakener) => String(awakener.id)),

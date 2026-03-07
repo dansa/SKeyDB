@@ -6,7 +6,7 @@ import {ImportStrategyDialog} from '@/components/ui/ImportStrategyDialog'
 import type {ImportConflict} from './import-planner'
 import type {Team} from './types'
 
-type BuilderImportExportDialogsProps = {
+export type BuilderImportExportDialogsProps = {
   isImportDialogOpen: boolean
   onCancelImport: () => void
   onSubmitImport: (code: string) => void
