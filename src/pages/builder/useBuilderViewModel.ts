@@ -3,17 +3,13 @@ import {useCallback, useEffect, useMemo, useState, type RefObject} from 'react'
 import {getAwakenerIdentityKey} from '@/domain/awakener-identity'
 import {searchAwakeners} from '@/domain/awakeners-search'
 import {loadCollectionOwnership} from '@/domain/collection-ownership'
-import {
-  compareAwakenersForCollectionSort,
-  type AwakenerSortKey,
-  type CollectionSortDirection,
-} from '@/domain/collection-sorting'
+import {compareAwakenersForCollectionSort} from '@/domain/collection-sorting'
 import {getCovenants} from '@/domain/covenants'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getPosseAssetById} from '@/domain/posse-assets'
 import {getPosses} from '@/domain/posses'
 import {searchPosses} from '@/domain/posses-search'
-import {getBrowserLocalStorage, safeStorageRead, safeStorageWrite} from '@/domain/storage'
+import {getBrowserLocalStorage} from '@/domain/storage'
 import {compareWheelsForUi} from '@/domain/wheel-sort'
 import {getWheelMainstatLabel, getWheels} from '@/domain/wheels'
 
@@ -49,18 +45,12 @@ import {
 } from './team-state'
 import type {
   ActiveSelection,
-  AwakenerFilter,
-  PickerTab,
-  PosseFilter,
   QuickLineupSession,
   Team,
-  TeamPreviewMode,
   TeamSlot,
-  WheelMainstatFilter,
-  WheelRarityFilter,
   WheelUsageLocation,
 } from './types'
-import {useGlobalPickerSearchCapture} from './useGlobalPickerSearchCapture'
+import {useBuilderPreferences} from './useBuilderPreferences'
 import {matchesWheelMainstat} from './wheel-mainstats'
 
 const EMPTY_TEAM_SLOTS: TeamSlot[] = []
@@ -74,12 +64,6 @@ type UseBuilderViewModelOptions = {
 type TeamRenameSurface = 'header' | 'list'
 
 const BUILDER_AUTOSAVE_DEBOUNCE_MS = 300
-const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
-const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
-const BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
-const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
-const BUILDER_ALLOW_DUPES_KEY = 'skeydb.builder.allowDupes.v1'
-const BUILDER_TEAM_PREVIEW_MODE_KEY = 'skeydb.builder.teamPreviewMode.v1'
 
 function createDefaultBuilderState() {
   const teams = createInitialTeams()
@@ -87,6 +71,28 @@ function createDefaultBuilderState() {
     teams,
     activeTeamId: teams[0]?.id ?? '',
   }
+}
+
+function buildUsedWheelByTeamOrder(teams: Team[]): Map<string, WheelUsageLocation> {
+  const wheelMap = new Map<string, WheelUsageLocation>()
+
+  for (const [teamOrder, team] of teams.entries()) {
+    for (const slot of team.slots) {
+      if (slot.isSupport) {
+        continue
+      }
+
+      for (const [wheelIndex, wheelId] of slot.wheels.entries()) {
+        if (!wheelId || wheelMap.has(wheelId)) {
+          continue
+        }
+
+        wheelMap.set(wheelId, {teamOrder, teamId: team.id, slotId: slot.slotId, wheelIndex})
+      }
+    }
+  }
+
+  return wheelMap
 }
 
 export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions) {
@@ -101,74 +107,33 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
   const [editingTeamId, setEditingTeamId] = useState<string | null>(null)
   const [editingTeamName, setEditingTeamName] = useState('')
   const [editingTeamSurface, setEditingTeamSurface] = useState<TeamRenameSurface | null>(null)
-  const [pickerTab, setPickerTab] = useState<PickerTab>('awakeners')
-  const [awakenerFilter, setAwakenerFilter] = useState<AwakenerFilter>('ALL')
-  const [posseFilter, setPosseFilter] = useState<PosseFilter>('ALL')
-  const [wheelRarityFilter, setWheelRarityFilter] = useState<WheelRarityFilter>('ALL')
-  const [wheelMainstatFilter, setWheelMainstatFilter] = useState<WheelMainstatFilter>('ALL')
-  const [awakenerSortKey, setAwakenerSortKey] = useState<AwakenerSortKey>(() => {
-    const stored = safeStorageRead(storage, BUILDER_AWAKENER_SORT_KEY_KEY)
-    if (
-      stored === 'LEVEL' ||
-      stored === 'RARITY' ||
-      stored === 'ENLIGHTEN' ||
-      stored === 'ALPHABETICAL'
-    ) {
-      return stored
-    }
-    return 'LEVEL'
-  })
-  const [awakenerSortDirection, setAwakenerSortDirection] = useState<CollectionSortDirection>(
-    () => {
-      return safeStorageRead(storage, BUILDER_AWAKENER_SORT_DIRECTION_KEY) === 'ASC'
-        ? 'ASC'
-        : 'DESC'
-    },
-  )
-  const [awakenerSortGroupByRealm, setAwakenerSortGroupByRealm] = useState(() => {
-    const stored = safeStorageRead(storage, BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY)
-    if (stored === '1') {
-      return true
-    }
-    if (stored === '0') {
-      return false
-    }
-    return true
-  })
-  const [pickerSearchByTab, setPickerSearchByTab] = useState<Record<PickerTab, string>>({
-    awakeners: '',
-    wheels: '',
-    posses: '',
-    covenants: '',
-  })
   const [activeSelection, setActiveSelection] = useState<ActiveSelection>(null)
-  const [displayUnowned, setDisplayUnowned] = useState(() => {
-    const stored = safeStorageRead(storage, BUILDER_DISPLAY_UNOWNED_KEY)
-    if (stored === '1') {
-      return true
-    }
-    if (stored === '0') {
-      return false
-    }
-    return true
-  })
-  const [allowDupes, setAllowDupes] = useState(() => {
-    const stored = safeStorageRead(storage, BUILDER_ALLOW_DUPES_KEY)
-    if (stored === '1') {
-      return true
-    }
-    if (stored === '0') {
-      return false
-    }
-    return false
-  })
-  const [teamPreviewMode, setTeamPreviewMode] = useState<TeamPreviewMode>(() => {
-    const stored = safeStorageRead(storage, BUILDER_TEAM_PREVIEW_MODE_KEY)
-    if (stored === 'compact' || stored === 'expanded') {
-      return stored
-    }
-    return 'compact'
-  })
+  const {
+    pickerTab,
+    setPickerTab,
+    awakenerFilter,
+    setAwakenerFilter,
+    posseFilter,
+    setPosseFilter,
+    wheelRarityFilter,
+    setWheelRarityFilter,
+    wheelMainstatFilter,
+    setWheelMainstatFilter,
+    awakenerSortKey,
+    setAwakenerSortKey,
+    awakenerSortDirection,
+    toggleAwakenerSortDirection,
+    awakenerSortGroupByRealm,
+    setAwakenerSortGroupByRealm,
+    pickerSearchByTab,
+    setPickerSearchByTab,
+    displayUnowned,
+    setDisplayUnowned,
+    allowDupes,
+    setAllowDupes,
+    teamPreviewMode,
+    setTeamPreviewMode,
+  } = useBuilderPreferences({searchInputRef, storage})
   const [quickLineupState, setQuickLineupState] = useState<InternalQuickLineupSession | null>(null)
 
   const effectiveActiveTeamId = useMemo(
@@ -261,11 +226,11 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
     [ownedAwakenerLevelByName],
   )
   const isWheelOwnedById = useCallback(
-    (wheelId: string) => ownedWheelLevelById.get(wheelId) !== null,
+    (wheelId: string) => ownedWheelLevelById.get(wheelId) != null,
     [ownedWheelLevelById],
   )
   const isPosseOwnedById = useCallback(
-    (posseId: string) => ownedPosseLevelById.get(posseId) !== null,
+    (posseId: string) => ownedPosseLevelById.get(posseId) != null,
     [ownedPosseLevelById],
   )
 
@@ -378,11 +343,11 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
             matchesWheelMainstat(wheel.mainstatKey, wheelMainstatFilter),
           )
 
-    const queryFiltered = !query
-      ? displayUnowned
-        ? wheelsByMainstat
-        : wheelsByMainstat.filter((wheel) => isWheelOwnedById(wheel.id))
-      : wheelsByMainstat.filter((wheel) => {
+    const visibleWheels = displayUnowned
+      ? wheelsByMainstat
+      : wheelsByMainstat.filter((wheel) => isWheelOwnedById(wheel.id))
+    const queryFiltered = query
+      ? visibleWheels.filter((wheel) => {
           if (!displayUnowned && !isWheelOwnedById(wheel.id)) {
             return false
           }
@@ -396,6 +361,7 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
             Boolean(matchedAwakenerNames?.has(wheel.awakener.toLowerCase()))
           )
         })
+      : visibleWheels
     return [...queryFiltered].sort((left, right) => compareWheelsForUi(left, right))
   }, [
     pickerAwakeners,
@@ -447,23 +413,7 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
     })
     return posseMap
   }, [teams])
-  const usedWheelByTeamOrder = useMemo(() => {
-    const wheelMap = new Map<string, WheelUsageLocation>()
-    teams.forEach((team, teamOrder) => {
-      team.slots.forEach((slot) => {
-        if (slot.isSupport) {
-          return
-        }
-        slot.wheels.forEach((wheelId, wheelIndex) => {
-          if (!wheelId || wheelMap.has(wheelId)) {
-            return
-          }
-          wheelMap.set(wheelId, {teamOrder, teamId: team.id, slotId: slot.slotId, wheelIndex})
-        })
-      })
-    })
-    return wheelMap
-  }, [teams])
+  const usedWheelByTeamOrder = useMemo(() => buildUsedWheelByTeamOrder(teams), [teams])
   const hasSupportAwakener = useMemo(
     () => teams.some((team) => team.slots.some((slot) => slot.isSupport)),
     [teams],
@@ -478,46 +428,6 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
       window.clearTimeout(timeoutId)
     }
   }, [storage, teams, effectiveActiveTeamId])
-
-  useEffect(() => {
-    safeStorageWrite(
-      storage,
-      BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY,
-      awakenerSortGroupByRealm ? '1' : '0',
-    )
-  }, [storage, awakenerSortGroupByRealm])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_AWAKENER_SORT_KEY_KEY, awakenerSortKey)
-  }, [storage, awakenerSortKey])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_AWAKENER_SORT_DIRECTION_KEY, awakenerSortDirection)
-  }, [storage, awakenerSortDirection])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_DISPLAY_UNOWNED_KEY, displayUnowned ? '1' : '0')
-  }, [storage, displayUnowned])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_ALLOW_DUPES_KEY, allowDupes ? '1' : '0')
-  }, [storage, allowDupes])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_TEAM_PREVIEW_MODE_KEY, teamPreviewMode)
-  }, [storage, teamPreviewMode])
-
-  const appendSearchCharacter = useCallback((targetPickerTab: PickerTab, key: string) => {
-    setPickerSearchByTab((prev) => ({
-      ...prev,
-      [targetPickerTab]: `${prev[targetPickerTab]}${key}`,
-    }))
-  }, [])
-  useGlobalPickerSearchCapture({
-    pickerTab,
-    searchInputRef,
-    onAppendCharacter: appendSearchCharacter,
-  })
 
   const resolvedActiveSelection = useMemo(() => {
     if (!activeSelection) {
@@ -813,8 +723,7 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
     awakenerSortKey,
     setAwakenerSortKey,
     awakenerSortDirection,
-    toggleAwakenerSortDirection: () =>
-      setAwakenerSortDirection((current) => (current === 'DESC' ? 'ASC' : 'DESC')),
+    toggleAwakenerSortDirection,
     awakenerSortGroupByRealm,
     setAwakenerSortGroupByRealm,
     pickerSearchByTab,

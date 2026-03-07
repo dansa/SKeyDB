@@ -1,7 +1,6 @@
-import {renderHook} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
-import {useBuilderDndCoordinator} from './useBuilderDndCoordinator'
+import {createBuilderDndCoordinator} from './createBuilderDndCoordinator'
 
 function createCoordinator() {
   const onTeamRowDragStart = vi.fn()
@@ -17,8 +16,8 @@ function createCoordinator() {
   const onDragEnd = vi.fn()
   const onDragCancel = vi.fn()
 
-  const {result} = renderHook(() =>
-    useBuilderDndCoordinator({
+  return {
+    coordinator: createBuilderDndCoordinator({
       onTeamRowDragStart,
       onTeamRowDragEnd,
       onTeamRowDragCancel,
@@ -32,10 +31,6 @@ function createCoordinator() {
       onDragEnd,
       onDragCancel,
     }),
-  )
-
-  return {
-    coordinator: result.current,
     onTeamRowDragStart,
     onTeamRowDragEnd,
     onTeamRowDragCancel,
@@ -51,7 +46,7 @@ function createCoordinator() {
   }
 }
 
-describe('useBuilderDndCoordinator', () => {
+describe('createBuilderDndCoordinator', () => {
   it('routes team-row drag start to team-row handler only', () => {
     const {coordinator, onTeamRowDragStart, onDragStart} = createCoordinator()
     const event = {active: {data: {current: {kind: 'team-row', teamId: 'team-1'}}}}

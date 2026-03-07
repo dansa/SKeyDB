@@ -168,6 +168,81 @@ function withFreshImportedTeam(currentTeams: Team[], team: Team): Team {
   }
 }
 
+function pushConflict(
+  conflicts: ImportConflict[],
+  seen: Set<string>,
+  conflict: ImportConflict,
+  dedupeKey: string,
+) {
+  if (seen.has(dedupeKey)) {
+    return
+  }
+
+  seen.add(dedupeKey)
+  conflicts.push(conflict)
+}
+
+function collectAwakenerAndWheelConflicts(
+  team: Team,
+  importedAwakeners: Set<string>,
+  importedWheels: Set<string>,
+  conflicts: ImportConflict[],
+  seen: Set<string>,
+) {
+  for (const slot of team.slots) {
+    if (slot.awakenerName) {
+      const identityKey = getAwakenerIdentityKey(slot.awakenerName)
+      if (importedAwakeners.has(identityKey)) {
+        pushConflict(
+          conflicts,
+          seen,
+          {
+            kind: 'awakener',
+            value: identityKey,
+            fromTeamId: team.id,
+            fromTeamName: team.name,
+          },
+          `awakener:${identityKey}:${team.id}`,
+        )
+      }
+    }
+
+    for (const wheelId of slot.wheels) {
+      if (wheelId && importedWheels.has(wheelId)) {
+        pushConflict(
+          conflicts,
+          seen,
+          {
+            kind: 'wheel',
+            value: wheelId,
+            fromTeamId: team.id,
+            fromTeamName: team.name,
+          },
+          `wheel:${wheelId}:${team.id}`,
+        )
+      }
+    }
+  }
+}
+
+function collectPosseConflict(currentTeams: Team[], importedTeam: Team, conflicts: ImportConflict[]) {
+  if (!importedTeam.posseId) {
+    return
+  }
+
+  const owner = currentTeams.find((team) => team.posseId === importedTeam.posseId)
+  if (!owner) {
+    return
+  }
+
+  conflicts.push({
+    kind: 'posse',
+    value: importedTeam.posseId,
+    fromTeamId: owner.id,
+    fromTeamName: owner.name,
+  })
+}
+
 function findSingleTeamConflicts(
   currentTeams: Team[],
   importedTeam: Team,
@@ -184,51 +259,10 @@ function findSingleTeamConflicts(
   const importedWheels = collectImportedWheels(importedTeam)
 
   for (const team of currentTeams) {
-    for (const slot of team.slots) {
-      if (slot.awakenerName) {
-        const identityKey = getAwakenerIdentityKey(slot.awakenerName)
-        if (importedAwakeners.has(identityKey)) {
-          const key = `awakener:${identityKey}:${team.id}`
-          if (!seen.has(key)) {
-            seen.add(key)
-            conflicts.push({
-              kind: 'awakener',
-              value: identityKey,
-              fromTeamId: team.id,
-              fromTeamName: team.name,
-            })
-          }
-        }
-      }
-
-      slot.wheels.forEach((wheelId) => {
-        if (wheelId && importedWheels.has(wheelId)) {
-          const key = `wheel:${wheelId}:${team.id}`
-          if (!seen.has(key)) {
-            seen.add(key)
-            conflicts.push({
-              kind: 'wheel',
-              value: wheelId,
-              fromTeamId: team.id,
-              fromTeamName: team.name,
-            })
-          }
-        }
-      })
-    }
+    collectAwakenerAndWheelConflicts(team, importedAwakeners, importedWheels, conflicts, seen)
   }
 
-  if (importedTeam.posseId) {
-    const owner = currentTeams.find((team) => team.posseId === importedTeam.posseId)
-    if (owner) {
-      conflicts.push({
-        kind: 'posse',
-        value: importedTeam.posseId,
-        fromTeamId: owner.id,
-        fromTeamName: owner.name,
-      })
-    }
-  }
+  collectPosseConflict(currentTeams, importedTeam, conflicts)
 
   return conflicts
 }

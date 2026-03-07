@@ -23,9 +23,11 @@ type ApplyTeamTemplateResult = {
   removedCount: number
 }
 
+const teamNamePattern = /^Team\s+(\d+)$/i
+
 function getHighestTeamNumber(teams: Team[]) {
   return teams.reduce((maxValue, team) => {
-    const match = team.name.match(/^Team\s+(\d+)$/i)
+    const match = teamNamePattern.exec(team.name)
     if (!match) {
       return maxValue
     }

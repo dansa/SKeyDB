@@ -40,6 +40,8 @@ type CollectionTab = 'awakeners' | 'wheels' | 'posses'
 type AwakenerFilter = 'ALL' | 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA'
 type PosseFilter = 'ALL' | 'FADED_LEGACY' | 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA'
 type WheelRarityFilter = 'ALL' | 'SSR' | 'R' | 'SR'
+type CollectionOwnershipState = Parameters<typeof getOwnedLevel>[0]
+type CollectionOwnershipCatalog = ReturnType<typeof createDefaultCollectionOwnershipCatalog>
 
 const OWNERSHIP_AUTOSAVE_DEBOUNCE_MS = 220
 const COLLECTION_AWAKENER_SORT_KEY = 'skeydb.collection.awakenerSort.v1'
@@ -138,6 +140,221 @@ function useFrozenSortOrder<T>(items: T[], getItemId: (item: T) => string) {
   }
 }
 
+function resolveAwakenerSortKey(key: unknown): AwakenerSortKey {
+  return key === 'LEVEL' || key === 'RARITY' || key === 'ENLIGHTEN' || key === 'ALPHABETICAL'
+    ? key
+    : DEFAULT_AWAKENER_SORT_CONFIG.key
+}
+
+function resolveCollectionSortDirection(direction: unknown): CollectionSortDirection {
+  return direction === 'ASC' || direction === 'DESC'
+    ? direction
+    : DEFAULT_AWAKENER_SORT_CONFIG.direction
+}
+
+function resolveAwakenerSortGroupByRealm(
+  parsed: Partial<AwakenerSortConfig> & {groupByFaction?: boolean},
+): boolean {
+  if (typeof parsed.groupByRealm === 'boolean') {
+    return parsed.groupByRealm
+  }
+
+  if (typeof parsed.groupByFaction === 'boolean') {
+    return parsed.groupByFaction
+  }
+
+  return DEFAULT_AWAKENER_SORT_CONFIG.groupByRealm
+}
+
+function filterPossesByCategory(
+  posses: ReturnType<typeof searchPosses>,
+  posseFilter: PosseFilter,
+) {
+  if (posseFilter === 'ALL') {
+    return posses
+  }
+
+  if (posseFilter === 'FADED_LEGACY') {
+    return posses.filter((posse) => posse.isFadedLegacy)
+  }
+
+  return posses.filter(
+    (posse) => !posse.isFadedLegacy && posse.realm.trim().toUpperCase() === posseFilter,
+  )
+}
+
+function markPendingCollectionSort(
+  tab: CollectionTab,
+  setAwakenerSortHasPendingChanges: (next: boolean) => void,
+  setWheelSortHasPendingChanges: (next: boolean) => void,
+) {
+  if (tab === 'awakeners') {
+    setAwakenerSortHasPendingChanges(true)
+    return
+  }
+
+  if (tab === 'wheels') {
+    setWheelSortHasPendingChanges(true)
+  }
+}
+
+function clearFilteredAwakenerOwnership(
+  ownership: CollectionOwnershipState,
+  filteredAwakeners: ReturnType<typeof searchAwakeners>,
+  awakenerIdByName: Map<string, string>,
+  rememberedAwakenerLevels: Record<string, number>,
+  ownershipCatalog: CollectionOwnershipCatalog,
+): CollectionOwnershipState {
+  let next = ownership
+
+  for (const awakener of filteredAwakeners) {
+    const awakenerId = awakenerIdByName.get(awakener.name)
+    if (!awakenerId) {
+      continue
+    }
+
+    const currentLevel = getOwnedLevel(next, 'awakeners', awakenerId)
+    if (currentLevel !== null) {
+      rememberedAwakenerLevels[awakenerId] = currentLevel
+    }
+    next = clearOwnedEntry(next, 'awakeners', awakenerId, ownershipCatalog)
+  }
+
+  return next
+}
+
+function clearFilteredWheelOwnership(
+  ownership: CollectionOwnershipState,
+  filteredWheels: ReturnType<typeof getWheels>,
+  rememberedWheelLevels: Record<string, number>,
+  ownershipCatalog: CollectionOwnershipCatalog,
+): CollectionOwnershipState {
+  let next = ownership
+
+  for (const wheel of filteredWheels) {
+    const currentLevel = getOwnedLevel(next, 'wheels', wheel.id)
+    if (currentLevel !== null) {
+      rememberedWheelLevels[wheel.id] = currentLevel
+    }
+    next = clearOwnedEntry(next, 'wheels', wheel.id, ownershipCatalog)
+  }
+
+  return next
+}
+
+function clearFilteredPosseOwnership(
+  ownership: CollectionOwnershipState,
+  filteredPosses: ReturnType<typeof searchPosses>,
+  rememberedPosseLevels: Record<string, number>,
+  ownershipCatalog: CollectionOwnershipCatalog,
+): CollectionOwnershipState {
+  let next = ownership
+
+  for (const posse of filteredPosses) {
+    const currentLevel = getOwnedLevel(next, 'posses', posse.id)
+    if (currentLevel !== null) {
+      rememberedPosseLevels[posse.id] = currentLevel
+    }
+    next = clearOwnedEntry(next, 'posses', posse.id, ownershipCatalog)
+  }
+
+  return next
+}
+
+function setFilteredAwakenerEnlighten(
+  ownership: CollectionOwnershipState,
+  filteredAwakeners: ReturnType<typeof searchAwakeners>,
+  awakenerIdByName: Map<string, string>,
+  clampedLevel: number,
+  ownershipCatalog: CollectionOwnershipCatalog,
+): CollectionOwnershipState {
+  let next = ownership
+
+  for (const awakener of filteredAwakeners) {
+    const awakenerId = awakenerIdByName.get(awakener.name)
+    if (!awakenerId) {
+      continue
+    }
+
+    const currentOwnedLevel = getOwnedLevel(next, 'awakeners', awakenerId)
+    if (currentOwnedLevel === null) {
+      continue
+    }
+
+    next = setOwnedLevel(next, 'awakeners', awakenerId, clampedLevel, ownershipCatalog)
+  }
+
+  return next
+}
+
+function setFilteredWheelEnlighten(
+  ownership: CollectionOwnershipState,
+  filteredWheels: ReturnType<typeof getWheels>,
+  clampedLevel: number,
+  ownershipCatalog: CollectionOwnershipCatalog,
+): CollectionOwnershipState {
+  let next = ownership
+
+  for (const wheel of filteredWheels) {
+    const currentOwnedLevel = getOwnedLevel(next, 'wheels', wheel.id)
+    if (currentOwnedLevel === null) {
+      continue
+    }
+
+    next = setOwnedLevel(next, 'wheels', wheel.id, clampedLevel, ownershipCatalog)
+  }
+
+  return next
+}
+
+function getFilteredAwakenerPresetLevel(mode: '0' | '60' | '+10' | '-10', currentLevel: number) {
+  if (mode === '0') {
+    return 1
+  }
+
+  if (mode === '60') {
+    return 60
+  }
+
+  return mode === '+10'
+    ? stepAwakenerLevelByTen(currentLevel, 1)
+    : stepAwakenerLevelByTen(currentLevel, -1)
+}
+
+function applyFilteredAwakenerLevelPreset(
+  ownership: CollectionOwnershipState,
+  filteredAwakeners: ReturnType<typeof searchAwakeners>,
+  awakenerIdByName: Map<string, string>,
+  linkedAwakenerIdsById: Map<string, string[]>,
+  mode: '0' | '60' | '+10' | '-10',
+  ownershipCatalog: CollectionOwnershipCatalog,
+): CollectionOwnershipState {
+  let next = ownership
+  const processedAwakenerIds = new Set<string>()
+
+  for (const awakener of filteredAwakeners) {
+    const awakenerId = awakenerIdByName.get(awakener.name)
+    if (!awakenerId || processedAwakenerIds.has(awakenerId)) {
+      continue
+    }
+
+    const ownedLevel = getOwnedLevel(next, 'awakeners', awakenerId)
+    if (ownedLevel === null) {
+      continue
+    }
+
+    const currentLevel = getAwakenerLevel(next, awakenerId)
+    const nextLevel = getFilteredAwakenerPresetLevel(mode, currentLevel)
+    next = setAwakenerLevel(next, awakenerId, nextLevel, ownershipCatalog)
+
+    for (const linkedAwakenerId of linkedAwakenerIdsById.get(awakenerId) ?? [awakenerId]) {
+      processedAwakenerIds.add(linkedAwakenerId)
+    }
+  }
+
+  return next
+}
+
 function loadAwakenerSortConfig(storage: StorageLike | null): AwakenerSortConfig {
   try {
     const raw = safeStorageRead(storage, COLLECTION_AWAKENER_SORT_KEY)
@@ -146,25 +363,10 @@ function loadAwakenerSortConfig(storage: StorageLike | null): AwakenerSortConfig
     }
 
     const parsed = JSON.parse(raw) as Partial<AwakenerSortConfig> & {groupByFaction?: boolean}
-    const key = parsed.key
-    const direction = parsed.direction
-    const legacyGroupByRealm =
-      typeof parsed.groupByFaction === 'boolean' ? parsed.groupByFaction : undefined
     return {
-      key:
-        key === 'LEVEL' || key === 'RARITY' || key === 'ENLIGHTEN' || key === 'ALPHABETICAL'
-          ? key
-          : DEFAULT_AWAKENER_SORT_CONFIG.key,
-      direction:
-        direction === 'ASC' || direction === 'DESC'
-          ? direction
-          : DEFAULT_AWAKENER_SORT_CONFIG.direction,
-      groupByRealm:
-        typeof parsed.groupByRealm === 'boolean'
-          ? parsed.groupByRealm
-          : typeof legacyGroupByRealm === 'boolean'
-            ? legacyGroupByRealm
-            : DEFAULT_AWAKENER_SORT_CONFIG.groupByRealm,
+      key: resolveAwakenerSortKey(parsed.key),
+      direction: resolveCollectionSortDirection(parsed.direction),
+      groupByRealm: resolveAwakenerSortGroupByRealm(parsed),
     }
   } catch {
     return DEFAULT_AWAKENER_SORT_CONFIG
@@ -308,14 +510,7 @@ export function useCollectionViewModel() {
     [posses, queryByTab.posses],
   )
   const filteredPosses = useMemo(() => {
-    const filteredByCategory =
-      posseFilter === 'ALL'
-        ? searchedPosses
-        : posseFilter === 'FADED_LEGACY'
-          ? searchedPosses.filter((posse) => posse.isFadedLegacy)
-          : searchedPosses.filter(
-              (posse) => !posse.isFadedLegacy && posse.realm.trim().toUpperCase() === posseFilter,
-            )
+    const filteredByCategory = filterPossesByCategory(searchedPosses, posseFilter)
     const filteredByOwnership = displayUnowned
       ? filteredByCategory
       : filteredByCategory.filter((posse) => getOwnedLevel(ownership, 'posses', posse.id) !== null)
@@ -572,127 +767,72 @@ export function useCollectionViewModel() {
 
   function markFilteredUnowned() {
     setOwnership((prev) => {
-      let next = prev
-
       if (tab === 'awakeners') {
-        for (const awakener of filteredAwakeners) {
-          const awakenerId = awakenerIdByName.get(awakener.name)
-          if (!awakenerId) {
-            continue
-          }
-          const currentLevel = getOwnedLevel(next, 'awakeners', awakenerId)
-          if (currentLevel !== null) {
-            rememberedLevelsRef.current.awakeners[awakenerId] = currentLevel
-          }
-          next = clearOwnedEntry(next, 'awakeners', awakenerId, ownershipCatalog)
-        }
-        return next
+        return clearFilteredAwakenerOwnership(
+          prev,
+          filteredAwakeners,
+          awakenerIdByName,
+          rememberedLevelsRef.current.awakeners,
+          ownershipCatalog,
+        )
       }
 
       if (tab === 'wheels') {
-        for (const wheel of filteredWheels) {
-          const currentLevel = getOwnedLevel(next, 'wheels', wheel.id)
-          if (currentLevel !== null) {
-            rememberedLevelsRef.current.wheels[wheel.id] = currentLevel
-          }
-          next = clearOwnedEntry(next, 'wheels', wheel.id, ownershipCatalog)
-        }
-        return next
+        return clearFilteredWheelOwnership(
+          prev,
+          filteredWheels,
+          rememberedLevelsRef.current.wheels,
+          ownershipCatalog,
+        )
       }
 
-      for (const posse of filteredPosses) {
-        const currentLevel = getOwnedLevel(next, 'posses', posse.id)
-        if (currentLevel !== null) {
-          rememberedLevelsRef.current.posses[posse.id] = currentLevel
-        }
-        next = clearOwnedEntry(next, 'posses', posse.id, ownershipCatalog)
-      }
-      return next
+      return clearFilteredPosseOwnership(
+        prev,
+        filteredPosses,
+        rememberedLevelsRef.current.posses,
+        ownershipCatalog,
+      )
     })
-    if (tab === 'awakeners') {
-      setAwakenerSortHasPendingChanges(true)
-      return
-    }
-    if (tab === 'wheels') {
-      setWheelSortHasPendingChanges(true)
-    }
+    markPendingCollectionSort(tab, setAwakenerSortHasPendingChanges, setWheelSortHasPendingChanges)
   }
 
   function setFilteredEnlightenPreset(level: number) {
     const clampedLevel = clampOwnershipLevel(level)
     setOwnership((prev) => {
-      let next = prev
       if (tab === 'awakeners') {
-        for (const awakener of filteredAwakeners) {
-          const awakenerId = awakenerIdByName.get(awakener.name)
-          if (!awakenerId) {
-            continue
-          }
-          const currentOwnedLevel = getOwnedLevel(next, 'awakeners', awakenerId)
-          if (currentOwnedLevel === null) {
-            continue
-          }
-          next = setOwnedLevel(next, 'awakeners', awakenerId, clampedLevel, ownershipCatalog)
-        }
-        return next
+        return setFilteredAwakenerEnlighten(
+          prev,
+          filteredAwakeners,
+          awakenerIdByName,
+          clampedLevel,
+          ownershipCatalog,
+        )
       }
 
       if (tab === 'wheels') {
-        for (const wheel of filteredWheels) {
-          const currentOwnedLevel = getOwnedLevel(next, 'wheels', wheel.id)
-          if (currentOwnedLevel === null) {
-            continue
-          }
-          next = setOwnedLevel(next, 'wheels', wheel.id, clampedLevel, ownershipCatalog)
-        }
+        return setFilteredWheelEnlighten(prev, filteredWheels, clampedLevel, ownershipCatalog)
       }
-      return next
+
+      return prev
     })
 
-    if (tab === 'awakeners') {
-      setAwakenerSortHasPendingChanges(true)
-      return
-    }
-    if (tab === 'wheels') {
-      setWheelSortHasPendingChanges(true)
-    }
+    markPendingCollectionSort(tab, setAwakenerSortHasPendingChanges, setWheelSortHasPendingChanges)
   }
 
   function setFilteredAwakenerLevelsPreset(mode: '0' | '60' | '+10' | '-10') {
     if (tab !== 'awakeners') {
       return
     }
+
     setOwnership((prev) => {
-      let next = prev
-      const processedAwakenerIds = new Set<string>()
-      for (const awakener of filteredAwakeners) {
-        const awakenerId = awakenerIdByName.get(awakener.name)
-        if (!awakenerId) {
-          continue
-        }
-        if (processedAwakenerIds.has(awakenerId)) {
-          continue
-        }
-        const ownedLevel = getOwnedLevel(next, 'awakeners', awakenerId)
-        if (ownedLevel === null) {
-          continue
-        }
-        const currentLevel = getAwakenerLevel(next, awakenerId)
-        const nextLevel =
-          mode === '0'
-            ? 1
-            : mode === '60'
-              ? 60
-              : mode === '+10'
-                ? stepAwakenerLevelByTen(currentLevel, 1)
-                : stepAwakenerLevelByTen(currentLevel, -1)
-        next = setAwakenerLevel(next, awakenerId, nextLevel, ownershipCatalog)
-        const linkedAwakenerIds = linkedAwakenerIdsById.get(awakenerId) ?? [awakenerId]
-        for (const linkedAwakenerId of linkedAwakenerIds) {
-          processedAwakenerIds.add(linkedAwakenerId)
-        }
-      }
-      return next
+      return applyFilteredAwakenerLevelPreset(
+        prev,
+        filteredAwakeners,
+        awakenerIdByName,
+        linkedAwakenerIdsById,
+        mode,
+        ownershipCatalog,
+      )
     })
     setAwakenerSortHasPendingChanges(true)
   }

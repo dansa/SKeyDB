@@ -167,6 +167,75 @@ export function PickerWheelGhost({
   )
 }
 
+function getTeamWheelGhostWrapperClassName(removeIntent: boolean, isCovenant: boolean): string {
+  return `builder-drag-ghost w-[62px] border bg-slate-900/95 p-0.5 shadow-[0_8px_24px_rgba(2,6,23,0.5)] ${
+    removeIntent ? 'border-rose-300/75' : 'border-slate-400/70'
+  } ${isCovenant ? 'rounded-full' : ''} ${isCovenant ? 'w-[54px] border-0 bg-transparent p-0' : ''}`
+}
+
+function getTeamWheelGhostFrameClassName(isCovenant: boolean): string {
+  return `relative overflow-hidden border border-slate-300/45 bg-slate-900/70 ${
+    isCovenant ? 'aspect-square rounded-full' : 'aspect-[75/113]'
+  }`
+}
+
+function getTeamWheelGhostImageClassName(
+  isCovenant: boolean,
+  isOwned: boolean,
+  removeIntent: boolean,
+): string {
+  return `${
+    isCovenant
+      ? 'builder-card-covenant-image h-full w-full object-cover'
+      : 'builder-card-wheel-image h-full w-full object-cover'
+  } ${!isCovenant && !isOwned ? 'wheel-tile-unowned' : ''} ${
+    removeIntent ? 'brightness-[0.55] saturate-[0.45]' : ''
+  }`
+}
+
+function renderTeamWheelGhostRemoveOverlay(removeIntent: boolean, isCovenant: boolean) {
+  if (!removeIntent) {
+    return null
+  }
+
+  return (
+    <span
+      className={`pointer-events-none absolute inset-0 z-20 bg-slate-950/58 ${isCovenant ? 'rounded-full' : ''}`}
+    >
+      <span
+        className={`sigil-placeholder sigil-placeholder-wheel sigil-placeholder-no-plus sigil-placeholder-remove ${
+          isCovenant ? 'rounded-full' : ''
+        }`}
+      />
+      <span className="sigil-remove-x" />
+    </span>
+  )
+}
+
+function renderTeamWheelGhostVisual(
+  wheelId: string,
+  wheelAsset: string | undefined,
+  isCovenant: boolean,
+  isOwned: boolean,
+  removeIntent: boolean,
+) {
+  if (wheelAsset) {
+    return (
+      <img
+        alt={isCovenant ? '' : `${wheelId} wheel`}
+        className={getTeamWheelGhostImageClassName(isCovenant, isOwned, removeIntent)}
+        src={wheelAsset}
+      />
+    )
+  }
+
+  return (
+    <span className="relative block h-full w-full">
+      <span className="sigil-placeholder sigil-placeholder-wheel" />
+    </span>
+  )
+}
+
 export function TeamWheelGhost({
   wheelId,
   removeIntent = false,
@@ -182,47 +251,10 @@ export function TeamWheelGhost({
   const isOwned = ownedLevel !== null
 
   return (
-    <div
-      className={`builder-drag-ghost w-[62px] border bg-slate-900/95 p-0.5 shadow-[0_8px_24px_rgba(2,6,23,0.5)] ${
-        removeIntent ? 'border-rose-300/75' : 'border-slate-400/70'
-      } ${isCovenant ? 'rounded-full' : ''} ${
-        isCovenant ? 'w-[54px] border-0 bg-transparent p-0' : ''
-      }`}
-    >
-      <div
-        className={`relative overflow-hidden border border-slate-300/45 bg-slate-900/70 ${
-          isCovenant ? 'aspect-square rounded-full' : 'aspect-[75/113]'
-        }`}
-      >
-        {wheelAsset ? (
-          <img
-            alt={isCovenant ? '' : `${wheelId} wheel`}
-            className={`${
-              isCovenant
-                ? 'builder-card-covenant-image h-full w-full object-cover'
-                : 'builder-card-wheel-image h-full w-full object-cover'
-            } ${!isCovenant && !isOwned ? 'wheel-tile-unowned' : ''} ${
-              removeIntent ? 'brightness-[0.55] saturate-[0.45]' : ''
-            }`}
-            src={wheelAsset}
-          />
-        ) : (
-          <span className="relative block h-full w-full">
-            <span className="sigil-placeholder sigil-placeholder-wheel" />
-          </span>
-        )}
-        {removeIntent ? (
-          <span
-            className={`pointer-events-none absolute inset-0 z-20 bg-slate-950/58 ${isCovenant ? 'rounded-full' : ''}`}
-          >
-            <span
-              className={`sigil-placeholder sigil-placeholder-wheel sigil-placeholder-no-plus sigil-placeholder-remove ${
-                isCovenant ? 'rounded-full' : ''
-              }`}
-            />
-            <span className="sigil-remove-x" />
-          </span>
-        ) : null}
+    <div className={getTeamWheelGhostWrapperClassName(removeIntent, isCovenant)}>
+      <div className={getTeamWheelGhostFrameClassName(isCovenant)}>
+        {renderTeamWheelGhostVisual(wheelId, wheelAsset, isCovenant, isOwned, removeIntent)}
+        {renderTeamWheelGhostRemoveOverlay(removeIntent, isCovenant)}
         {!isCovenant && !isOwned ? <span className="builder-unowned-chip">Unowned</span> : null}
       </div>
     </div>

@@ -46,6 +46,72 @@ type BuilderActiveTeamPanelProps = {
   onRemoveActiveSelection: (slotId: string) => void
 }
 
+function getQuickLineupStepLabel(
+  quickLineupSession: QuickLineupSession | null,
+  teamSlots: TeamSlot[],
+): string | null {
+  const step = quickLineupSession?.currentStep
+  if (!step) {
+    return null
+  }
+  if (step.kind === 'posse') {
+    return 'Posse'
+  }
+
+  const slotNumber = step.slotId.replace('slot-', '')
+  const slot = teamSlots.find((entry) => entry.slotId === step.slotId)
+  const slotLabel = `Awakener ${slotNumber}`
+  const awakenerLabel = slot?.awakenerName
+    ? formatAwakenerNameForUi(slot.awakenerName)
+    : `Empty Slot ${slotNumber}`
+
+  if (step.kind === 'awakener') {
+    return slotLabel
+  }
+  if (step.kind === 'wheel') {
+    return `${awakenerLabel} - Wheel ${step.wheelIndex + 1}`
+  }
+  return `${awakenerLabel} - Covenant`
+}
+
+function getSlotAwakenerLevel(slot: TeamSlot, awakenerLevelByName: Map<string, number>): number {
+  if (!slot.awakenerName) {
+    return 60
+  }
+  if (slot.isSupport) {
+    return 90
+  }
+  return awakenerLevelByName.get(slot.awakenerName) ?? 60
+}
+
+function getSlotAwakenerOwnedLevel(
+  slot: TeamSlot,
+  ownedAwakenerLevelByName: Map<string, number | null>,
+): number | null {
+  if (!slot.awakenerName) {
+    return null
+  }
+  if (slot.isSupport) {
+    return 15
+  }
+  return ownedAwakenerLevelByName.get(slot.awakenerName) ?? null
+}
+
+function getSlotWheelOwnedLevels(
+  slot: TeamSlot,
+  ownedWheelLevelById: Map<string, number | null>,
+): [number | null, number | null] {
+  return slot.wheels.map((wheelId) => {
+    if (!wheelId) {
+      return null
+    }
+    if (slot.isSupport) {
+      return 15
+    }
+    return ownedWheelLevelById.get(wheelId) ?? null
+  }) as [number | null, number | null]
+}
+
 export function BuilderActiveTeamPanel({
   activeTeamId,
   activeTeamName,
@@ -78,29 +144,7 @@ export function BuilderActiveTeamPanel({
   onCovenantSlotClick,
   onRemoveActiveSelection,
 }: BuilderActiveTeamPanelProps) {
-  const currentQuickLineupLabel = (() => {
-    const step = quickLineupSession?.currentStep
-    if (!step) {
-      return null
-    }
-    if (step.kind === 'posse') {
-      return 'Posse'
-    }
-
-    const slot = teamSlots.find((entry) => entry.slotId === step.slotId)
-    const slotLabel = `Awakener ${step.slotId.replace('slot-', '')}`
-    const awakenerLabel = slot?.awakenerName
-      ? formatAwakenerNameForUi(slot.awakenerName)
-      : `Empty Slot ${step.slotId.replace('slot-', '')}`
-
-    if (step.kind === 'awakener') {
-      return slotLabel
-    }
-    if (step.kind === 'wheel') {
-      return `${awakenerLabel} - Wheel ${step.wheelIndex + 1}`
-    }
-    return `${awakenerLabel} - Covenant`
-  })()
+  const currentQuickLineupLabel = getQuickLineupStepLabel(quickLineupSession, teamSlots)
 
   return (
     <div className="px-4 pt-4 pb-1">
@@ -142,32 +186,9 @@ export function BuilderActiveTeamPanel({
             onCovenantSlotClick={onCovenantSlotClick}
             onRemoveActiveSelection={() => onRemoveActiveSelection(slot.slotId)}
             onWheelSlotClick={onWheelSlotClick}
-            awakenerLevel={
-              slot.awakenerName
-                ? slot.isSupport
-                  ? 90
-                  : (awakenerLevelByName.get(slot.awakenerName) ?? 60)
-                : 60
-            }
-            awakenerOwnedLevel={
-              slot.awakenerName
-                ? slot.isSupport
-                  ? 15
-                  : (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null)
-                : null
-            }
-            wheelOwnedLevels={[
-              slot.wheels[0]
-                ? slot.isSupport
-                  ? 15
-                  : (ownedWheelLevelById.get(slot.wheels[0]) ?? null)
-                : null,
-              slot.wheels[1]
-                ? slot.isSupport
-                  ? 15
-                  : (ownedWheelLevelById.get(slot.wheels[1]) ?? null)
-                : null,
-            ]}
+            awakenerLevel={getSlotAwakenerLevel(slot, awakenerLevelByName)}
+            awakenerOwnedLevel={getSlotAwakenerOwnedLevel(slot, ownedAwakenerLevelByName)}
+            wheelOwnedLevels={getSlotWheelOwnedLevels(slot, ownedWheelLevelById)}
             predictedDropHover={predictedDropHover}
             slot={slot}
             allowActiveRemoval={!quickLineupSession}

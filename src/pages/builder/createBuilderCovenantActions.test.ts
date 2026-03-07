@@ -1,8 +1,7 @@
-import {renderHook} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import type {ActiveSelection, TeamSlot} from './types'
-import {useBuilderCovenantActions} from './useBuilderCovenantActions'
+import {createBuilderCovenantActions} from './createBuilderCovenantActions'
 
 function buildSlots(): TeamSlot[] {
   return [
@@ -24,15 +23,15 @@ function buildSlots(): TeamSlot[] {
   ]
 }
 
-function createHook(options?: {teamSlots?: TeamSlot[]; resolvedActiveSelection?: ActiveSelection}) {
+function createActions(options?: {teamSlots?: TeamSlot[]; resolvedActiveSelection?: ActiveSelection}) {
   const setActiveTeamSlots = vi.fn()
   const setActiveSelection = vi.fn()
   const clearPendingDelete = vi.fn()
   const clearTransfer = vi.fn()
   const showToast = vi.fn()
 
-  const {result} = renderHook(() =>
-    useBuilderCovenantActions({
+  return {
+    actions: createBuilderCovenantActions({
       teamSlots: options?.teamSlots ?? buildSlots(),
       resolvedActiveSelection: options?.resolvedActiveSelection ?? null,
       setActiveTeamSlots,
@@ -41,10 +40,6 @@ function createHook(options?: {teamSlots?: TeamSlot[]; resolvedActiveSelection?:
       clearTransfer,
       showToast,
     }),
-  )
-
-  return {
-    actions: result.current,
     setActiveTeamSlots,
     setActiveSelection,
     clearPendingDelete,
@@ -53,9 +48,9 @@ function createHook(options?: {teamSlots?: TeamSlot[]; resolvedActiveSelection?:
   }
 }
 
-describe('useBuilderCovenantActions', () => {
+describe('createBuilderCovenantActions', () => {
   it('assigns picker covenant to target slot and activates covenant selection on drop', () => {
-    const {actions, setActiveSelection, setActiveTeamSlots} = createHook()
+    const {actions, setActiveSelection, setActiveTeamSlots} = createActions()
 
     actions.handleDropPickerCovenant('002', 'slot-2')
 
@@ -67,7 +62,7 @@ describe('useBuilderCovenantActions', () => {
   })
 
   it('swaps team covenant assignments between slots', () => {
-    const {actions, setActiveSelection, setActiveTeamSlots} = createHook({
+    const {actions, setActiveSelection, setActiveTeamSlots} = createActions({
       teamSlots: [
         {
           slotId: 'slot-1',
@@ -98,7 +93,7 @@ describe('useBuilderCovenantActions', () => {
   })
 
   it('shows guidance toast when picker covenant is clicked without active card/covenant selection', () => {
-    const {actions, showToast, setActiveTeamSlots} = createHook({
+    const {actions, showToast, setActiveTeamSlots} = createActions({
       resolvedActiveSelection: null,
     })
 
@@ -109,7 +104,7 @@ describe('useBuilderCovenantActions', () => {
   })
 
   it('assigns covenant from picker when awakener card is active and keeps selection unchanged', () => {
-    const {actions, setActiveSelection, setActiveTeamSlots} = createHook({
+    const {actions, setActiveSelection, setActiveTeamSlots} = createActions({
       resolvedActiveSelection: {kind: 'awakener', slotId: 'slot-2'},
     })
 

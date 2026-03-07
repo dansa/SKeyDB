@@ -17,19 +17,21 @@ export function useTimedToast({defaultDurationMs = 3200}: UseTimedToastOptions =
     setToastEntries([])
   }, [])
 
+  const dismissToast = useCallback((toastId: number) => {
+    timeoutRefs.current.delete(toastId)
+    setToastEntries((previous) => previous.filter((entry) => entry.id !== toastId))
+  }, [])
+
   const showToast = useCallback(
     (message: string, durationMs = defaultDurationMs) => {
       const toastId = nextToastIdRef.current
       nextToastIdRef.current += 1
 
       setToastEntries((previous) => [...previous, {id: toastId, message}])
-      const timeoutId = window.setTimeout(() => {
-        timeoutRefs.current.delete(toastId)
-        setToastEntries((previous) => previous.filter((entry) => entry.id !== toastId))
-      }, durationMs)
+      const timeoutId = window.setTimeout(() => dismissToast(toastId), durationMs)
       timeoutRefs.current.set(toastId, timeoutId)
     },
-    [defaultDurationMs],
+    [defaultDurationMs, dismissToast],
   )
 
   useEffect(

@@ -30,6 +30,10 @@ function isRealm(value: unknown): boolean {
   return typeof value === 'string' && VALID_REALMS.has(value)
 }
 
+function hasNonEmptyString(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0
+}
+
 function isOptionalString(value: unknown): boolean {
   return value === undefined || typeof value === 'string'
 }
@@ -45,66 +49,71 @@ function isOptionalBoolean(value: unknown): boolean {
   return value === undefined || typeof value === 'boolean'
 }
 
+function hasValidSlotIdentity(record: Record<string, unknown>): boolean {
+  return hasNonEmptyString(record.slotId)
+}
+
+function hasValidSlotWheels(record: Record<string, unknown>): boolean {
+  return (
+    Array.isArray(record.wheels) &&
+    record.wheels.length === 2 &&
+    record.wheels.every((wheelId) => wheelId === null || typeof wheelId === 'string')
+  )
+}
+
+function hasValidSlotMetadata(record: Record<string, unknown>): boolean {
+  if (!isOptionalString(record.awakenerName) || !isOptionalString(record.covenantId)) {
+    return false
+  }
+  if (!isOptionalBoolean(record.isSupport) || !isOptionalFiniteInteger(record.level)) {
+    return false
+  }
+  if (
+    (typeof record.awakenerName === 'string' && !record.awakenerName.trim()) ||
+    (typeof record.covenantId === 'string' && !record.covenantId.trim())
+  ) {
+    return false
+  }
+
+  return true
+}
+
+function resolveSlotRealmCandidate(record: Record<string, unknown>): unknown {
+  return record.realm ?? record.faction
+}
+
+function hasInvalidEmptySlotData(record: Record<string, unknown>): boolean {
+  const hasMetadata =
+    record.realm !== undefined ||
+    record.faction !== undefined ||
+    record.level !== undefined ||
+    record.covenantId !== undefined ||
+    record.isSupport !== undefined
+  const hasWheelData = Array.isArray(record.wheels) && record.wheels.some((wheelId) => wheelId !== null)
+  return hasMetadata || hasWheelData
+}
+
 function isSlot(value: unknown): value is TeamSlot {
   if (!value || typeof value !== 'object') {
     return false
   }
 
   const record = value as Record<string, unknown>
-  if (typeof record.slotId !== 'string' || !record.slotId.trim()) {
+  if (!hasValidSlotIdentity(record) || !hasValidSlotWheels(record) || !hasValidSlotMetadata(record)) {
     return false
   }
 
-  if (!Array.isArray(record.wheels) || record.wheels.length !== 2) {
-    return false
-  }
-  const hasValidWheels = record.wheels.every(
-    (wheelId) => wheelId === null || typeof wheelId === 'string',
-  )
-  if (!hasValidWheels) {
-    return false
-  }
-
-  if (!isOptionalString(record.awakenerName) || !isOptionalString(record.covenantId)) {
-    return false
-  }
-  if (!isOptionalBoolean(record.isSupport)) {
-    return false
-  }
-  if (typeof record.awakenerName === 'string' && !record.awakenerName.trim()) {
-    return false
-  }
-  if (typeof record.covenantId === 'string' && !record.covenantId.trim()) {
-    return false
-  }
-  if (!isOptionalFiniteInteger(record.level)) {
-    return false
-  }
-  const realmCandidate = record.realm ?? record.faction
+  const realmCandidate = resolveSlotRealmCandidate(record)
   if (realmCandidate !== undefined && !isRealm(realmCandidate)) {
     return false
   }
 
-  const hasAwakener =
-    typeof record.awakenerName === 'string' && record.awakenerName.trim().length > 0
+  const hasAwakener = hasNonEmptyString(record.awakenerName)
   if (!hasAwakener) {
-    const hasMetadata =
-      record.realm !== undefined ||
-      record.faction !== undefined ||
-      record.level !== undefined ||
-      record.covenantId !== undefined ||
-      record.isSupport !== undefined
-    const hasWheelData = record.wheels.some((wheelId) => wheelId !== null)
-    if (hasMetadata || hasWheelData) {
-      return false
-    }
-    return true
-  }
-  if (!isRealm(realmCandidate)) {
-    return false
+    return !hasInvalidEmptySlotData(record)
   }
 
-  return true
+  return isRealm(realmCandidate)
 }
 
 function isTeam(value: unknown): value is Team {

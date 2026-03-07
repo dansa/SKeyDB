@@ -1,8 +1,7 @@
-import {renderHook} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import type {ActiveSelection, TeamSlot, WheelUsageLocation} from './types'
-import {useBuilderWheelActions} from './useBuilderWheelActions'
+import {createBuilderWheelActions} from './createBuilderWheelActions'
 
 function buildSlots(): TeamSlot[] {
   return [
@@ -23,7 +22,7 @@ function buildSlots(): TeamSlot[] {
   ]
 }
 
-function createHook(options?: {
+function createActions(options?: {
   teamSlots?: TeamSlot[]
   resolvedActiveSelection?: ActiveSelection
   usedWheelByTeamOrder?: Map<string, WheelUsageLocation>
@@ -51,8 +50,8 @@ function createHook(options?: {
       ],
     ])
 
-  const {result} = renderHook(() =>
-    useBuilderWheelActions({
+  return {
+    actions: createBuilderWheelActions({
       clearPendingDelete,
       clearTransfer,
       effectiveActiveTeamId: 'team-1',
@@ -65,10 +64,6 @@ function createHook(options?: {
       usedWheelByTeamOrder,
       allowDupes: options?.allowDupes ?? false,
     }),
-  )
-
-  return {
-    actions: result.current,
     clearPendingDelete,
     clearTransfer,
     requestWheelTransfer,
@@ -78,9 +73,9 @@ function createHook(options?: {
   }
 }
 
-describe('useBuilderWheelActions', () => {
+describe('createBuilderWheelActions', () => {
   it('swaps wheel ownership within the active team when picker wheel is already used', () => {
-    const {actions, setActiveSelection, setActiveTeamSlots} = createHook()
+    const {actions, setActiveSelection, setActiveTeamSlots} = createActions()
 
     actions.handleDropPickerWheel('B01', 'slot-2', 1)
 
@@ -108,7 +103,7 @@ describe('useBuilderWheelActions', () => {
         },
       ],
     ])
-    const {actions, requestWheelTransfer, setActiveTeamSlots} = createHook({usedWheelByTeamOrder})
+    const {actions, requestWheelTransfer, setActiveTeamSlots} = createActions({usedWheelByTeamOrder})
 
     actions.handleDropPickerWheel('B01', 'slot-2', 0)
 
@@ -125,7 +120,7 @@ describe('useBuilderWheelActions', () => {
   })
 
   it('fills first empty wheel when awakener card is active and picker wheel is clicked', () => {
-    const {actions, setActiveSelection, setActiveTeamSlots} = createHook({
+    const {actions, setActiveSelection, setActiveTeamSlots} = createActions({
       resolvedActiveSelection: {kind: 'awakener', slotId: 'slot-2'},
       usedWheelByTeamOrder: new Map(),
     })
@@ -151,7 +146,7 @@ describe('useBuilderWheelActions', () => {
         },
       ],
     ])
-    const {actions, requestWheelTransfer, setActiveTeamSlots} = createHook({
+    const {actions, requestWheelTransfer, setActiveTeamSlots} = createActions({
       resolvedActiveSelection: {kind: 'wheel', slotId: 'slot-2', wheelIndex: 0},
       usedWheelByTeamOrder,
       allowDupes: true,
@@ -178,7 +173,7 @@ describe('useBuilderWheelActions', () => {
         },
       ],
     ])
-    const {actions, requestWheelTransfer, setActiveTeamSlots} = createHook({
+    const {actions, requestWheelTransfer, setActiveTeamSlots} = createActions({
       teamSlots: [
         {
           slotId: 'slot-1',
@@ -210,7 +205,7 @@ describe('useBuilderWheelActions', () => {
   })
 
   it('swaps wheel assignments between active-team slots when dragging between wheel sockets', () => {
-    const {actions, setActiveSelection, setActiveTeamSlots} = createHook({
+    const {actions, setActiveSelection, setActiveTeamSlots} = createActions({
       teamSlots: [
         {
           slotId: 'slot-1',

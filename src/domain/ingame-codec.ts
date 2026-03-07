@@ -30,6 +30,8 @@ type WheelCandidate = {
   unknown?: boolean
 }
 
+type IngameTokenDictionaries = ReturnType<typeof buildIngameTokenDictionaries>
+
 function normalizeWrappedPayload(code: string): string {
   const trimmed = code.trim()
   if (!trimmed.startsWith(INGAME_WRAPPER) || !trimmed.endsWith(INGAME_WRAPPER)) {
@@ -105,20 +107,27 @@ function parseWheelToken(
   }
 }
 
-export function decodeIngameTeamCode(code: string): DecodedIngameTeamCode {
-  const payload = normalizeWrappedPayload(code)
-  const dictionaries = buildIngameTokenDictionaries()
+function pushUnknownAwakenerWarning(
+  warnings: IngameImportWarning[],
+  slotIndex: number,
+  token: string,
+) {
+  warnings.push({
+    section: 'awakener',
+    slotIndex,
+    token,
+    reason: 'unknown_token',
+  })
+}
 
-  const warnings: IngameImportWarning[] = []
-  const emptySlots = createEmptyTeamSlots()
-
-  const awakeners = getAwakeners()
-  const awakeningById = new Map(awakeners.map((awakener) => [String(awakener.id), awakener]))
-  const wheelById = new Map(getWheels().map((wheel) => [wheel.id, wheel]))
-
+function decodeAwakenerSlots(
+  payload: string,
+  dictionaries: IngameTokenDictionaries,
+  awakeningById: Map<string, Awaited<ReturnType<typeof getAwakeners>>[number]>,
+  emptySlots: TeamSlot[],
+  warnings: IngameImportWarning[],
+): {slots: TeamSlot[]; cursor: number} {
   const awakenerTokenList = buildLongestTokenList(dictionaries.awakeners.byTokenId.keys())
-  const wheelTokenList = buildLongestTokenList(dictionaries.wheels.byTokenId.keys())
-
   let cursor = 0
   const slots: TeamSlot[] = emptySlots.map((slot) => ({...slot, wheels: [null, null]}))
 
@@ -126,14 +135,10 @@ export function decodeIngameTeamCode(code: string): DecodedIngameTeamCode {
     if (cursor >= payload.length) {
       throw new Error('Corrupted in-game code: missing awakener tokens.')
     }
+
     const token = findLongestTokenAt(payload, cursor, awakenerTokenList)
     if (!token) {
-      warnings.push({
-        section: 'awakener',
-        slotIndex,
-        token: payload[cursor],
-        reason: 'unknown_token',
-      })
+      pushUnknownAwakenerWarning(warnings, slotIndex, payload[cursor])
       cursor += 1
       continue
     }
@@ -141,12 +146,7 @@ export function decodeIngameTeamCode(code: string): DecodedIngameTeamCode {
     const awakenerId = dictionaries.awakeners.byTokenId.get(token)
     const awakener = awakenerId ? awakeningById.get(awakenerId) : undefined
     if (!awakener) {
-      warnings.push({
-        section: 'awakener',
-        slotIndex,
-        token,
-        reason: 'unknown_token',
-      })
+      pushUnknownAwakenerWarning(warnings, slotIndex, token)
       cursor += token.length
       continue
     }
@@ -160,60 +160,65 @@ export function decodeIngameTeamCode(code: string): DecodedIngameTeamCode {
     cursor += token.length
   }
 
-  const wheelTokenCount = TEAM_SLOT_COUNT * WHEEL_TOKENS_PER_SLOT
+  return {slots, cursor}
+}
+
+function decodeWheelCandidates(
+  payload: string,
+  cursor: number,
+  dictionaries: IngameTokenDictionaries,
+): {wheelCandidates: WheelCandidate[]; cursor: number} {
+  const wheelTokenList = buildLongestTokenList(dictionaries.wheels.byTokenId.keys())
   const wheelCandidates: WheelCandidate[] = []
-  for (let index = 0; index < wheelTokenCount; index += 1) {
+
+  for (let index = 0; index < TEAM_SLOT_COUNT * WHEEL_TOKENS_PER_SLOT; index += 1) {
     if (cursor >= payload.length - POSSE_TOKEN_LENGTH) {
       throw new Error('Corrupted in-game code: missing wheel token block.')
     }
-    const {candidate, nextCursor} = parseWheelToken(
-      payload,
-      cursor,
-      dictionaries.wheels.byTokenId,
-      wheelTokenList,
-    )
-    wheelCandidates.push(candidate)
-    cursor = nextCursor
+
+    const parsed = parseWheelToken(payload, cursor, dictionaries.wheels.byTokenId, wheelTokenList)
+    wheelCandidates.push(parsed.candidate)
+    cursor = parsed.nextCursor
   }
 
-  if (cursor >= payload.length) {
-    throw new Error('Corrupted in-game code: missing posse token.')
+  return {wheelCandidates, cursor}
+}
+
+function resolveDecodedWheelId(
+  candidate: WheelCandidate | undefined,
+  slotIndex: number,
+  field: 'wheelOne' | 'wheelTwo',
+  wheelById: Map<string, Awaited<ReturnType<typeof getWheels>>[number]>,
+  warnings: IngameImportWarning[],
+): string | null {
+  const wheelId = candidate?.wheelId
+  if (wheelId && wheelById.has(wheelId)) {
+    return wheelId
   }
 
-  const covenantBlock = payload.slice(cursor, payload.length - POSSE_TOKEN_LENGTH)
+  if (candidate && candidate.token !== 'a') {
+    warnings.push({
+      section: 'wheel',
+      slotIndex,
+      field,
+      token: candidate.token,
+      reason: 'unknown_token',
+    })
+  }
+
+  return null
+}
+
+function normalizeDecodedEquipment(
+  slots: TeamSlot[],
+  wheelCandidates: WheelCandidate[],
+  covenantBlock: string,
+  wheelById: Map<string, Awaited<ReturnType<typeof getWheels>>[number]>,
+  warnings: IngameImportWarning[],
+): TeamSlot[] {
+  const nextSlots = [...slots]
 
   for (let slotIndex = 0; slotIndex < TEAM_SLOT_COUNT; slotIndex += 1) {
-    const slot = slots[slotIndex]
-    const wheelOne = wheelCandidates[slotIndex * 2]
-    const wheelTwo = wheelCandidates[slotIndex * 2 + 1]
-    const currentWheels: [string | null, string | null] = [null, null]
-
-    const wheelOneId = wheelOne?.wheelId
-    if (wheelOneId && wheelById.has(wheelOneId)) {
-      currentWheels[0] = wheelOneId
-    } else if (wheelOne && wheelOne.token !== 'a') {
-      warnings.push({
-        section: 'wheel',
-        slotIndex,
-        field: 'wheelOne',
-        token: wheelOne.token,
-        reason: 'unknown_token',
-      })
-    }
-
-    const wheelTwoId = wheelTwo?.wheelId
-    if (wheelTwoId && wheelById.has(wheelTwoId)) {
-      currentWheels[1] = wheelTwoId
-    } else if (wheelTwo && wheelTwo.token !== 'a') {
-      warnings.push({
-        section: 'wheel',
-        slotIndex,
-        field: 'wheelTwo',
-        token: wheelTwo.token,
-        reason: 'unknown_token',
-      })
-    }
-
     const covenantStart = slotIndex * COVENANT_SLICES_PER_SLOT
     const covenantToken = covenantBlock.slice(
       covenantStart,
@@ -228,13 +233,36 @@ export function decodeIngameTeamCode(code: string): DecodedIngameTeamCode {
       })
     }
 
-    slots[slotIndex] = {
-      ...slot,
-      wheels: currentWheels,
+    nextSlots[slotIndex] = {
+      ...nextSlots[slotIndex],
+      wheels: [
+        resolveDecodedWheelId(
+          wheelCandidates[slotIndex * 2],
+          slotIndex,
+          'wheelOne',
+          wheelById,
+          warnings,
+        ),
+        resolveDecodedWheelId(
+          wheelCandidates[slotIndex * 2 + 1],
+          slotIndex,
+          'wheelTwo',
+          wheelById,
+          warnings,
+        ),
+      ],
       covenantId: undefined,
     }
   }
 
+  return nextSlots
+}
+
+function decodePosseId(
+  payload: string,
+  dictionaries: IngameTokenDictionaries,
+  warnings: IngameImportWarning[],
+): string | undefined {
   const posseToken = payload[payload.length - 1]
   const posseId = dictionaries.posses.byTokenId.get(posseToken)
   if (posseToken !== 'a' && !posseId) {
@@ -244,6 +272,43 @@ export function decodeIngameTeamCode(code: string): DecodedIngameTeamCode {
       reason: 'unknown_token',
     })
   }
+
+  return posseId
+}
+
+export function decodeIngameTeamCode(code: string): DecodedIngameTeamCode {
+  const payload = normalizeWrappedPayload(code)
+  const dictionaries = buildIngameTokenDictionaries()
+
+  const warnings: IngameImportWarning[] = []
+  const emptySlots = createEmptyTeamSlots()
+
+  const awakeners = getAwakeners()
+  const awakeningById = new Map(awakeners.map((awakener) => [String(awakener.id), awakener]))
+  const wheelById = new Map(getWheels().map((wheel) => [wheel.id, wheel]))
+
+  const decodedAwakeners = decodeAwakenerSlots(
+    payload,
+    dictionaries,
+    awakeningById,
+    emptySlots,
+    warnings,
+  )
+  const decodedWheels = decodeWheelCandidates(payload, decodedAwakeners.cursor, dictionaries)
+
+  if (decodedWheels.cursor >= payload.length) {
+    throw new Error('Corrupted in-game code: missing posse token.')
+  }
+
+  const covenantBlock = payload.slice(decodedWheels.cursor, payload.length - POSSE_TOKEN_LENGTH)
+  const slots = normalizeDecodedEquipment(
+    decodedAwakeners.slots,
+    decodedWheels.wheelCandidates,
+    covenantBlock,
+    wheelById,
+    warnings,
+  )
+  const posseId = decodePosseId(payload, dictionaries, warnings)
 
   return {
     team: {

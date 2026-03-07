@@ -42,7 +42,8 @@ export function buildScalingHover(
     const fv = fmtNum(v)
     const computed = computeStatValue(v, suffix, stat, stats)
     if (computed !== null) return `${fv}${suffix} ${stat} = ${computed}`
-    return `${fv}${suffix}${stat ? ` ${stat}` : ''}`
+    const statLabel = stat ? ` ${stat}` : ''
+    return `${fv}${suffix}${statLabel}`
   }
   const lines = values.map((v, i) => {
     const fv = fmtNum(v)

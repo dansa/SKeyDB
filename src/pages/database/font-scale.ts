@@ -31,16 +31,14 @@ export function scaledFontStyle(basePx: number): CSSProperties {
 }
 
 export function renderTextWithBreaks(text: string): ReactNode {
-  if (!text.includes('\n')) return text
+  const parts = text.split('\n')
   return createElement(
     Fragment,
     null,
-    ...text
-      .split('\n')
-      .flatMap((part, i) =>
-        i === 0
-          ? [createElement('span', {key: i}, part)]
-          : [createElement('br', {key: `br${i}`}), createElement('span', {key: i}, part)],
-      ),
+    ...parts.flatMap((part, i) =>
+      i === 0
+        ? [createElement('span', {key: i}, part)]
+        : [createElement('br', {key: `br${i}`}), createElement('span', {key: i}, part)],
+    ),
   )
 }

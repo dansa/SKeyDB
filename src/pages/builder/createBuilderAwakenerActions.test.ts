@@ -1,10 +1,9 @@
-import {renderHook} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import type {Awakener} from '@/domain/awakeners'
 
 import type {ActiveSelection, TeamSlot} from './types'
-import {useBuilderAwakenerActions} from './useBuilderAwakenerActions'
+import {createBuilderAwakenerActions} from './createBuilderAwakenerActions'
 
 const awakenerByName = new Map<string, Awakener>([
   [
@@ -31,7 +30,7 @@ function buildSlots(): TeamSlot[] {
   ]
 }
 
-function createHook(options?: {
+function createActions(options?: {
   teamSlots?: TeamSlot[]
   resolvedActiveSelection?: ActiveSelection
   usedAwakenerByIdentityKey?: Map<string, string>
@@ -45,8 +44,8 @@ function createHook(options?: {
   const clearTransfer = vi.fn()
   const notifyViolation = vi.fn()
 
-  const {result} = renderHook(() =>
-    useBuilderAwakenerActions({
+  return {
+    actions: createBuilderAwakenerActions({
       teamSlots: options?.teamSlots ?? buildSlots(),
       awakenerByName,
       effectiveActiveTeamId: 'team-1',
@@ -61,10 +60,6 @@ function createHook(options?: {
       allowDupes: options?.allowDupes ?? false,
       hasSupportAwakener: options?.hasSupportAwakener ?? false,
     }),
-  )
-
-  return {
-    actions: result.current,
     setActiveTeamSlots,
     setActiveSelection,
     requestAwakenerTransfer,
@@ -74,9 +69,9 @@ function createHook(options?: {
   }
 }
 
-describe('useBuilderAwakenerActions', () => {
+describe('createBuilderAwakenerActions', () => {
   it('handles drop assignment and activates dropped slot', () => {
-    const {actions, setActiveTeamSlots, setActiveSelection} = createHook({
+    const {actions, setActiveTeamSlots, setActiveSelection} = createActions({
       teamSlots: [
         {slotId: 'slot-1', wheels: [null, null]},
         {slotId: 'slot-2', wheels: [null, null]},
@@ -95,7 +90,7 @@ describe('useBuilderAwakenerActions', () => {
   })
 
   it('requests transfer for owning team instead of applying state update', () => {
-    const {actions, requestAwakenerTransfer, setActiveTeamSlots} = createHook({
+    const {actions, requestAwakenerTransfer, setActiveTeamSlots} = createActions({
       usedAwakenerByIdentityKey: new Map([['ramona', 'team-2']]),
     })
 
@@ -112,7 +107,7 @@ describe('useBuilderAwakenerActions', () => {
   })
 
   it('does not offer support when a support awakener is already used elsewhere in the build', () => {
-    const {actions, requestAwakenerTransfer} = createHook({
+    const {actions, requestAwakenerTransfer} = createActions({
       usedAwakenerByIdentityKey: new Map([['ramona', 'team-2']]),
       hasSupportAwakener: true,
     })
@@ -129,7 +124,7 @@ describe('useBuilderAwakenerActions', () => {
   })
 
   it('click assignment respects active awakener target slot', () => {
-    const {actions, setActiveTeamSlots} = createHook({
+    const {actions, setActiveTeamSlots} = createActions({
       teamSlots: [
         {
           slotId: 'slot-1',
@@ -152,7 +147,7 @@ describe('useBuilderAwakenerActions', () => {
   })
 
   it('allows same-identity assignment without transfer when dupes are enabled', () => {
-    const {actions, requestAwakenerTransfer, setActiveTeamSlots} = createHook({
+    const {actions, requestAwakenerTransfer, setActiveTeamSlots} = createActions({
       teamSlots: [
         {
           slotId: 'slot-1',

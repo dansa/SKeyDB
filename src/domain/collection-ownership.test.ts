@@ -144,7 +144,7 @@ describe('collection ownership persistence', () => {
     expect(ramonaId).toBeDefined()
     expect(ramonaTimewornId).toBeDefined()
     expect(defaultCatalog.linkedAwakenerGroups).toContainEqual(
-      [String(ramonaId), String(ramonaTimewornId)].sort(),
+      [String(ramonaId), String(ramonaTimewornId)].sort((a, b) => a.localeCompare(b)),
     )
   })
 

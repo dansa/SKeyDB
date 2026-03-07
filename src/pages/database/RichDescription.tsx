@@ -224,38 +224,77 @@ function buildTagTrailEntry(tag: Tag): TagTrailEntry {
   }
 }
 
-function resolveCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
-  if (name === 'Rouse') {
-    const c1 = fullData.cards['C1']
-    if (c1) return {card: c1, label: `Rouse · Cost ${c1.cost}`}
+function createDescriptionCardInfo(name: string, description: string, label: string): CardInfo {
+  return {
+    card: {name, cost: '—', description},
+    label,
   }
+}
+
+function findRouseCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
+  if (name !== 'Rouse') {
+    return null
+  }
+
+  const rouseCard = fullData.cards['C1']
+  if (!rouseCard) {
+    return null
+  }
+
+  return {card: rouseCard, label: `Rouse · Cost ${rouseCard.cost}`}
+}
+
+function findStandardCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
   for (const [key, card] of Object.entries(fullData.cards)) {
-    if (card.name === name) {
-      const slotLabel = key === 'C1' ? 'Rouse' : key
-      return {card, label: `${slotLabel} · Cost ${card.cost}`}
+    if (card.name !== name) {
+      continue
     }
+
+    const slotLabel = key === 'C1' ? 'Rouse' : key
+    return {card, label: `${slotLabel} · Cost ${card.cost}`}
   }
+
+  return null
+}
+
+function findExaltCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
   if (fullData.exalts.exalt.name === name) {
-    return {card: {name, cost: '—', description: fullData.exalts.exalt.description}, label: 'Exalt'}
+    return createDescriptionCardInfo(name, fullData.exalts.exalt.description, 'Exalt')
   }
+
   if (fullData.exalts.over_exalt.name === name) {
-    return {
-      card: {name, cost: '—', description: fullData.exalts.over_exalt.description},
-      label: 'Over Exalt',
-    }
+    return createDescriptionCardInfo(name, fullData.exalts.over_exalt.description, 'Over Exalt')
   }
+
+  return null
+}
+
+function findTalentCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
   for (const [key, talent] of Object.entries(fullData.talents)) {
     if (talent.name === name) {
-      return {card: {name, cost: '—', description: talent.description}, label: `Talent · ${key}`}
+      return createDescriptionCardInfo(name, talent.description, `Talent · ${key}`)
     }
   }
+
+  return null
+}
+
+function findEnlightenCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
   for (const [key, enlighten] of Object.entries(fullData.enlightens)) {
     if (enlighten.name === name) {
-      return {
-        card: {name, cost: '—', description: enlighten.description},
-        label: `Enlighten · ${key}`,
-      }
+      return createDescriptionCardInfo(name, enlighten.description, `Enlighten · ${key}`)
     }
   }
+
   return null
+}
+
+function resolveCardInfo(fullData: AwakenerFull, name: string): CardInfo | null {
+  return (
+    findRouseCardInfo(fullData, name) ??
+    findStandardCardInfo(fullData, name) ??
+    findExaltCardInfo(fullData, name) ??
+    findTalentCardInfo(fullData, name) ??
+    findEnlightenCardInfo(fullData, name)
+  )
 }

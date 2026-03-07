@@ -9,6 +9,48 @@ function findFirstEmptyWheelIndex(slot: TeamSlot | undefined): number | null {
   return firstEmptyIndex === -1 ? null : firstEmptyIndex
 }
 
+function resolveSlotLevelTarget(
+  overId: string,
+  overWheelZone: ReturnType<typeof parseWheelDropZoneId>,
+  overCovenantZone: ReturnType<typeof parseCovenantDropZoneId>,
+): string | null {
+  return overCovenantZone?.slotId ?? overWheelZone?.slotId ?? (overId.startsWith('slot-') ? overId : null)
+}
+
+function resolveWheelDropHover(
+  overId: string,
+  overWheelZone: ReturnType<typeof parseWheelDropZoneId>,
+  overCovenantZone: ReturnType<typeof parseCovenantDropZoneId>,
+  slotById: Map<string, TeamSlot>,
+): PredictedDropHover {
+  if (overWheelZone) {
+    return {kind: 'wheel', slotId: overWheelZone.slotId, wheelIndex: overWheelZone.wheelIndex}
+  }
+
+  const targetSlotId = resolveSlotLevelTarget(overId, null, overCovenantZone)
+  if (!targetSlotId) {
+    return null
+  }
+
+  const wheelIndex = findFirstEmptyWheelIndex(slotById.get(targetSlotId))
+  return wheelIndex === null ? null : {kind: 'wheel', slotId: targetSlotId, wheelIndex}
+}
+
+function resolveCovenantDropHover(
+  overId: string,
+  overWheelZone: ReturnType<typeof parseWheelDropZoneId>,
+  overCovenantZone: ReturnType<typeof parseCovenantDropZoneId>,
+  slotById: Map<string, TeamSlot>,
+): PredictedDropHover {
+  const targetSlotId = resolveSlotLevelTarget(overId, overWheelZone, overCovenantZone)
+  if (!targetSlotId) {
+    return null
+  }
+
+  const slot = slotById.get(targetSlotId)
+  return slot?.awakenerName ? {kind: 'covenant', slotId: targetSlotId} : null
+}
+
 export function resolvePredictedDropHover(
   dragData: DragData | null | undefined,
   overId: string | undefined,
@@ -22,33 +64,11 @@ export function resolvePredictedDropHover(
   const overCovenantZone = parseCovenantDropZoneId(overId)
 
   if (dragData.kind === 'picker-wheel' || dragData.kind === 'team-wheel') {
-    if (overWheelZone) {
-      return {kind: 'wheel', slotId: overWheelZone.slotId, wheelIndex: overWheelZone.wheelIndex}
-    }
-    const targetSlotId = overCovenantZone?.slotId ?? (overId.startsWith('slot-') ? overId : null)
-    if (!targetSlotId) {
-      return null
-    }
-    const wheelIndex = findFirstEmptyWheelIndex(slotById.get(targetSlotId))
-    if (wheelIndex === null) {
-      return null
-    }
-    return {kind: 'wheel', slotId: targetSlotId, wheelIndex}
+    return resolveWheelDropHover(overId, overWheelZone, overCovenantZone, slotById)
   }
 
   if (dragData.kind === 'picker-covenant' || dragData.kind === 'team-covenant') {
-    const targetSlotId =
-      overCovenantZone?.slotId ??
-      overWheelZone?.slotId ??
-      (overId.startsWith('slot-') ? overId : null)
-    if (!targetSlotId) {
-      return null
-    }
-    const slot = slotById.get(targetSlotId)
-    if (!slot?.awakenerName) {
-      return null
-    }
-    return {kind: 'covenant', slotId: targetSlotId}
+    return resolveCovenantDropHover(overId, overWheelZone, overCovenantZone, slotById)
   }
 
   return null

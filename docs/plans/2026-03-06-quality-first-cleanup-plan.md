@@ -10,15 +10,15 @@
 
 ---
 
-**Status:** Draft
-
-**Last updated:** 2026-03-06
+**Last updated:** 2026-03-07T10:20
 
 **Related docs:**
 - Notes: `docs/notes/2026-03-06-pr14-single-commit-audit.md`
 - Prior plan: `docs/plans/2026-03-06-pr14-salvage-plan.md`
 - Roadmap item: `docs/roadmap.md`
 - Backlog source: `docs/backlog.md`
+
+**Status:** In progress
 
 ## Scope
 
@@ -48,17 +48,25 @@
 ## Progress Snapshot
 
 - Done:
-  - Finished the full PR14 squashed-commit audit and documented which differences are mechanical, intentional current-branch divergences, or previously salvaged semantic work.
-  - Established that the next phase should optimize for the best final branch shape, not minimal churn.
-  - Chose a target of SonarJS `recommended` plus a small set of high-signal extras rather than the current limited subset or maximum possible strictness.
-  - Chose to treat PR14 as evidence and inspiration rather than a structural template.
+  - Finished the full PR14 squashed-commit audit.
+  - Established SonarJS `recommended` baseline; measured initial fallout at `81` errors.
+  - Completed Task 2 domain cleanup wave (`import-export.ts`, `ingame-codec.ts`, `team-rules.ts`, `collection-ownership.ts`). Backlog dropped to `73`.
+  - Completed the main Task 3 builder cleanup waves across DnD hooks, wheel actions, view-model, picker tiles, panels, and helper files. Backlog dropped to `34`.
+  - **Reverted Codex's artificial BuilderPage extractions** (`BuilderPageLayout.tsx`, `BuilderPageOverlayLayer.tsx`, `useBuilderPagePresentation.ts`) — these were mechanical prop-threading that increased complexity. See "Lessons Learned" below.
+  - **Completed genuine BuilderPage refactoring** (954 → 655 lines, max function complexity 5):
+    - Created 5 purpose-built hooks: `useBuilderResetUndo`, `usePreviewSlotDrag`, `useBuilderDndWrappers`, `useBuilderPosseActions`, `useSelectionDismiss`
+    - Extracted 2 components: `BuilderDragOverlay`, `BuilderToolbar`
+    - Bundled import/export dialog props, simplified forwarding closures, created stable shared callbacks
+    - Removed the per-file cognitive complexity override — no longer needed
+  - Branch-wide backlog now at `11` errors, all in pre-existing non-builder files.
 - In progress:
-  - Converting the agreed quality-first strategy into an execution-ready plan for the next thread.
+  - Starting the post-builder collection/state wave.
 - Next:
-  - Inventory the current lint fallout under the proposed SonarJS target before making code changes.
-  - Group the fallout into ownership waves and identify the highest-value refactors in each wave.
+  - Task 4: collection files (`CollectionPage.tsx`, `useCollectionViewModel.ts`, `OwnedAssetBoxExport.tsx`).
+  - Remaining domain regex/rich-text cleanup.
+  - Residual database/UI cleanup.
 - Blockers:
-  - None.
+  - `DragGhosts.test.tsx` has 1 pre-existing test failure from Codex's changes to `DragGhosts.tsx` (expects 8 wheel elements, gets 2). Needs investigation before committing.
 
 ## Verification
 
@@ -72,6 +80,15 @@
 **Files:**
 - Modify: `eslint.config.js`
 - Test: verification commands only (`npm run lint`)
+
+**Measured baseline target (2026-03-06):**
+
+- Adopt `sonarjs.configs.recommended` for `src/**/*.{ts,tsx}`.
+- Retain repo-owned `unused-imports/no-unused-imports` and `unused-imports/no-unused-vars` enforcement.
+- Disable low-signal or overlapping SonarJS rules that would create stylistic or duplicate-rule churn in this repo: `sonarjs/comment-regex`, `sonarjs/file-header`, `sonarjs/fixme-tag`, `sonarjs/no-commented-code`, `sonarjs/no-unused-function-argument`, `sonarjs/no-unused-vars`, `sonarjs/prefer-read-only-props`, `sonarjs/todo-tag`, `sonarjs/unused-import`, and `sonarjs/use-type-alias`.
+- Initial fallout after the ratchet: `81` errors across `12` rules. Top rule clusters: `sonarjs/no-nested-conditional` (`30`), `sonarjs/cognitive-complexity` (`25`), `sonarjs/different-types-comparison` (`6`), `sonarjs/slow-regex` (`5`), and `sonarjs/prefer-regexp-exec` (`4`).
+- Highest-concentration files from the first run: `src/pages/builder/BuilderSelectionPanel.tsx` (`8`), `src/pages/collection/useCollectionViewModel.ts` (`6`), `src/pages/CollectionPage.tsx` (`6`), `src/domain/import-export.ts` (`5`), and `src/pages/collection/OwnedAssetBoxExport.tsx` (`5`).
+- Because the repo pre-commit hook runs `npm run verify`, the standalone Task 1 commit cannot land while the branch intentionally fails lint; fold that commit into the first cleanup wave unless the commit strategy is changed deliberately.
 
 **Step 1: Write the failing test**
 
@@ -252,6 +269,53 @@ git commit -m "refactor: finish quality cleanup pass"
 - Prefer simplifying long view-model/orchestration functions by isolating state transitions or domain-derived transforms.
 - Preserve current-branch strictness checks, decode validation, bounds checks, and data-contract enforcement unless a stronger replacement is introduced.
 - When SonarJS suggests a cleanup that conflicts with a clearer repo-owned design, favor the clearer design and tune the rule set only if necessary.
+
+## Lessons Learned: BuilderPage Refactoring
+
+Codex's initial attempt at BuilderPage produced **artificial extractions** that made the file worse:
+
+- `BuilderPageLayout.tsx` — a shell component that received 40+ props and rendered them without owning any state.
+- `BuilderPageOverlayLayer.tsx` — a thin wrapper around DragOverlay that also just threaded props.
+- `useBuilderPagePresentation.ts` — a "hook" that bundled unrelated derived values without owning any state or effects.
+
+**Why these failed:** They satisfied the sonarjs cognitive-complexity rule by moving code out of the function, but the complexity didn't decrease — it just spread across more files. Every prop threaded through is a maintenance burden. A component that owns no state and just passes props is not a useful abstraction.
+
+**What worked instead:** Hooks and components that **own their state and effects**:
+- `useBuilderResetUndo` owns the pending-reset flag, undo snapshot, and timeout cleanup.
+- `usePreviewSlotDrag` owns the dragged team/slot state and derived values.
+- `BuilderDragOverlay` owns the derived owned-level lookups that only it needs.
+- `BuilderToolbar` is a self-contained visual zone with a clean boolean/callback interface.
+
+## Rules for Codex / AI Agent Refactoring
+
+These rules supplement `AGENTS.md` with specific guidance for automated refactoring tasks.
+
+### Component extraction rules
+
+1. **A new component must own something.** It should manage its own state, derive its own values, or encapsulate a visually/semantically distinct zone. A component that only receives props and renders them is not an extraction — it's indirection.
+2. **Count the props.** If a new component needs 15+ props to function, the extraction boundary is probably wrong. Good boundaries have narrow interfaces (5-10 props for complex components, fewer for simple ones).
+3. **The "delete test":** If you could delete the extracted component and inline its JSX back into the parent with zero logic changes, the extraction had no value.
+
+### Hook extraction rules
+
+1. **A hook must own state, effects, or refs.** A hook that only computes derived values from its arguments is a plain function, not a hook. Call it a function.
+2. **Group by lifecycle, not by lint pressure.** Extract a hook because related state and effects belong together, not because a function is "too long." The hook should make sense if you read only its file.
+3. **Don't create barrel hooks.** A hook that takes 20 arguments and returns 20 values is just moving code around. The arguments should be cohesive — if they aren't, the hook is doing too many things.
+
+### Lint rule satisfaction
+
+1. **Never mechanically satisfy a lint rule.** If the rule says "reduce cognitive complexity," the fix is to simplify the logic — not to move it to another file where the linter can't see it.
+2. **Challenge the threshold before creating artificial code.** If a page-level orchestrator genuinely needs complex wiring, it's better to raise the threshold with a comment than to create artificial extraction.
+3. **After refactoring, re-measure.** If the score didn't drop meaningfully at the original threshold, the refactoring didn't help.
+
+### General refactoring rules
+
+1. **Simplify forwarding closures.** `(a, b) => { fn(a, b) }` → `fn`. This is noise, not safety.
+2. **Bundle prop groups.** When a hook returns 15 values and 12 of them pass straight to a single child component, return a `childProps` bundle and spread it.
+3. **Make callbacks optional when the default is a noop.** `onComplete: () => {}` in every call site is a sign the API should use `onComplete?: () => void`.
+4. **Create stable callbacks.** If 3 hooks receive `() => setFoo(null)`, create one `const clearFoo = () => setFoo(null)` and share it.
+5. **Preserve test coverage.** Never introduce a change that breaks an existing test without understanding why. If a test breaks, fix the root cause — don't delete the test.
+6. **Run verification after each wave.** `tsc --noEmit`, `eslint` on touched files, and the nearest test suite. Do not batch verification to the end.
 
 ## Archive Trigger
 
