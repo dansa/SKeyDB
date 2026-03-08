@@ -224,6 +224,7 @@ function BuildCard({
   collapsible?: boolean
 }) {
   const hasSummary = Boolean(build.summary)
+  const hasNote = Boolean(build.note)
   const sectionTitle = showLabel ? build.label : undefined
 
   return (
@@ -248,6 +249,14 @@ function BuildCard({
         <DatabaseTabRow label='Recommended Covenants'>
           <CovenantRecommendationGrid build={build} />
         </DatabaseTabRow>
+
+        {hasNote ? (
+          <DatabaseTabRow label='Notes'>
+            <p className='max-w-2xl leading-relaxed text-slate-300/85' style={scaledFontStyle(12)}>
+              {build.note}
+            </p>
+          </DatabaseTabRow>
+        ) : null}
       </DatabaseTabSubsection>
     </DatabaseTabSection>
   )

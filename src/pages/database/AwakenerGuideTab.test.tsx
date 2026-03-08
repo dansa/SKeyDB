@@ -46,6 +46,7 @@ describe('AwakenerGuideTab', () => {
           {
             id: 'tank',
             label: 'Tank',
+            note: 'Flexible filler support. Use this slot to carry the wheels or covenants your team needs.',
             substatPriorityGroups: [['DEATH_RESISTANCE'], ['CON', 'DEF']],
             recommendedWheels: [
               {tier: 'BIS_SSR', wheelIds: ['ZL04']},
@@ -72,6 +73,12 @@ describe('AwakenerGuideTab', () => {
     expect(screen.getByText('Critical Point')).toBeInTheDocument()
     expect(screen.getByAltText(/crimson pulse covenant/i)).toBeInTheDocument()
     expect(screen.getByAltText(/cursed rabbit covenant/i)).toBeInTheDocument()
+    expect(screen.getByText('Notes')).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'Flexible filler support. Use this slot to carry the wheels or covenants your team needs.',
+      ),
+    ).toBeInTheDocument()
   })
 
   it('hides a redundant build heading when only one build exists', async () => {

@@ -839,7 +839,7 @@
       "C1": {
         "name": "Power of Blessing",
         "cost": "1",
-        "description": "Celeste gains (25/30/35/40/45/50) Aliemus. Gain 1 Tentacle. Celeste's healing increased by 10%. When HP Recovery occurs, gain (10/12/14/16/18/20% {ATK}) {Temporary Tentacle DMG}. {Retain}."
+        "description": "Celeste gains (25/30/35/40/45/50) Aliemus. Gain 1 Tentacle. Celeste's healing increased by 10%. When healing, gain (10/12/14/16/18/20% {ATK}) {Tentacle DMG}. {Retain}."
       },
       "C2": {
         "name": "Strike",

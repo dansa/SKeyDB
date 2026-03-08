@@ -36,6 +36,7 @@ const awakenerBuildSchema = z.object({
   id: z.string().trim().min(1),
   label: z.string().trim().min(1),
   summary: z.string().trim().min(1).optional(),
+  note: z.string().trim().min(1).optional(),
   substatPriorityGroups: z.array(z.array(z.enum(MAINSTAT_KEYS)).min(1)).min(1),
   recommendedWheelMainstats: z.array(z.enum(WHEEL_MAINSTAT_KEYS)).min(1).optional(),
   recommendedWheels: z.array(wheelRecommendationGroupSchema).min(1),

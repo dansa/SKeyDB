@@ -130,7 +130,7 @@
           },
           {
             "tier": "GOOD",
-            "wheelIds": ["SR28"]
+            "wheelIds": ["SR28", "C01", "SR14"]
           }
         ],
         "recommendedCovenantIds": ["015", "004", "008"],
@@ -164,8 +164,9 @@
             "wheelIds": ["SR18", "SR17"]
           }
         ],
-        "recommendedCovenantIds": ["009", "011", "020"],
-        "recommendedWheelMainstats": ["REALM_MASTERY", "SIGIL_YIELD"]
+        "recommendedCovenantIds": ["009", "020", "011"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
+        "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP", "DEATH_RESISTANCE"]
       },
       {
         "id": "dps-arc-2",
@@ -300,6 +301,7 @@
           }
         ],
         "recommendedCovenantIds": ["019", "008"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "REALM_MASTERY", "DMG_AMP"]
       }
     ]
@@ -336,7 +338,7 @@
       {
         "id": "tank-focus",
         "label": "Tank Focus",
-        "substatPriorityGroups": [["DMG_AMP"], ["DEATH_RESISTANCE"]],
+        "substatPriorityGroups": [["DMG_AMP"], ["KEYFLARE_REGEN", "DEATH_RESISTANCE"]],
         "recommendedWheels": [
           {
             "tier": "BIS_SSR",
@@ -356,12 +358,12 @@
           }
         ],
         "recommendedCovenantIds": ["010", "020"],
-        "recommendedWheelMainstats": ["DMG_AMP", "DEATH_RESISTANCE"]
+        "recommendedWheelMainstats": ["DMG_AMP", "KEYFLARE_REGEN", "DEATH_RESISTANCE"]
       },
       {
         "id": "support",
         "label": "Support",
-        "substatPriorityGroups": [["DMG_AMP"], ["DEATH_RESISTANCE"]],
+        "substatPriorityGroups": [["DMG_AMP"], ["KEYFLARE_REGEN", "DEATH_RESISTANCE"]],
         "recommendedWheels": [
           {
             "tier": "BIS_SSR",
@@ -381,7 +383,7 @@
           }
         ],
         "recommendedCovenantIds": ["006", "012"],
-        "recommendedWheelMainstats": ["DMG_AMP", "DEATH_RESISTANCE"]
+        "recommendedWheelMainstats": ["DMG_AMP", "KEYFLARE_REGEN", "DEATH_RESISTANCE"]
       }
     ]
   },
@@ -412,6 +414,7 @@
           }
         ],
         "recommendedCovenantIds": ["010", "008"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "ALIEMUS_REGEN", "DMG_AMP"]
       }
     ]
@@ -510,7 +513,7 @@
       {
         "id": "standard",
         "label": "Core",
-        "substatPriorityGroups": [["CRIT_DMG"], ["KEYFLARE_REGEN", "DMG_AMP"]],
+        "substatPriorityGroups": [["CRIT_RATE"], ["CRIT_DMG"], ["KEYFLARE_REGEN", "DMG_AMP"]],
         "recommendedWheels": [
           {
             "tier": "BIS_SSR",
@@ -530,7 +533,7 @@
           }
         ],
         "recommendedCovenantIds": ["016", "022"],
-        "recommendedWheelMainstats": ["CRIT_DMG", "KEYFLARE_REGEN", "DMG_AMP"]
+        "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
     ]
   },
@@ -588,7 +591,7 @@
           },
           {
             "tier": "GOOD",
-            "wheelIds": ["C16", "SR32"]
+            "wheelIds": ["C16"]
           }
         ],
         "recommendedCovenantIds": ["016", "005"],
@@ -619,7 +622,7 @@
           },
           {
             "tier": "GOOD",
-            "wheelIds": ["SR28"]
+            "wheelIds": ["SR28", "SR14"]
           }
         ],
         "recommendedCovenantIds": ["015", "010"],
@@ -634,7 +637,7 @@
       {
         "id": "standard",
         "label": "Core",
-        "substatPriorityGroups": [["KEYFLARE_REGEN"]],
+        "substatPriorityGroups": [["DEATH_RESISTANCE"], ["KEYFLARE_REGEN"]],
         "recommendedWheels": [
           {
             "tier": "BIS_SSR",
@@ -654,7 +657,8 @@
           }
         ],
         "recommendedCovenantIds": ["008", "010"],
-        "recommendedWheelMainstats": ["KEYFLARE_REGEN"]
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
+        "recommendedWheelMainstats": ["DEATH_RESISTANCE", "KEYFLARE_REGEN"]
       }
     ]
   },
@@ -830,6 +834,7 @@
           }
         ],
         "recommendedCovenantIds": ["002", "008"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP", "ALIEMUS_REGEN"]
       }
     ]
@@ -892,6 +897,7 @@
           }
         ],
         "recommendedCovenantIds": ["002", "008"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN"]
       },
       {
@@ -940,10 +946,10 @@
           },
           {
             "tier": "GOOD",
-            "wheelIds": ["SR24"]
+            "wheelIds": ["SR24", "SR44"]
           }
         ],
-        "recommendedCovenantIds": ["008", "009"],
+        "recommendedCovenantIds": ["008", "006", "009"],
         "recommendedWheelMainstats": ["DEATH_RESISTANCE", "KEYFLARE_REGEN"]
       }
     ]
@@ -971,7 +977,7 @@
           },
           {
             "tier": "GOOD",
-            "wheelIds": ["D07", "SR11"]
+            "wheelIds": ["D02", "D07", "SR11"]
           }
         ],
         "recommendedCovenantIds": ["016", "005"],
@@ -1031,6 +1037,7 @@
           }
         ],
         "recommendedCovenantIds": ["002", "001"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["ALIEMUS_REGEN", "KEYFLARE_REGEN", "DMG_AMP"]
       }
     ]
@@ -1114,6 +1121,7 @@
           }
         ],
         "recommendedCovenantIds": ["010", "008"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN"]
       }
     ]
@@ -1233,7 +1241,7 @@
             "wheelIds": ["SR02"]
           }
         ],
-        "recommendedCovenantIds": ["002", "019"],
+        "recommendedCovenantIds": ["002", "019", "015"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "CRIT_DMG"]
       }
     ]
@@ -1264,7 +1272,7 @@
             "wheelIds": ["C04", "C17", "SR17"]
           }
         ],
-        "recommendedCovenantIds": ["016", "019", "005"],
+        "recommendedCovenantIds": ["016", "019", "005", "008"],
         "recommendedWheelMainstats": ["CRIT_RATE", "DEATH_RESISTANCE"]
       }
     ]
@@ -1348,7 +1356,7 @@
           },
           {
             "tier": "GOOD",
-            "wheelIds": ["SR28"]
+            "wheelIds": ["SR28", "C01", "SR29"]
           }
         ],
         "recommendedCovenantIds": ["019", "016"],
@@ -1379,6 +1387,7 @@
           }
         ],
         "recommendedCovenantIds": ["020", "010", "002"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP"]
       }
     ]
@@ -1410,6 +1419,7 @@
           }
         ],
         "recommendedCovenantIds": ["022", "015", "002"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP"]
       }
     ]
@@ -1437,6 +1447,7 @@
           }
         ],
         "recommendedCovenantIds": ["020", "010"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "SIGIL_YIELD"]
       }
     ]
@@ -1463,7 +1474,7 @@
             "wheelIds": ["SR07"]
           }
         ],
-        "recommendedCovenantIds": ["005", "016"],
+        "recommendedCovenantIds": ["005", "016", "014"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
     ]
@@ -1696,6 +1707,7 @@
           }
         ],
         "recommendedCovenantIds": ["014", "008"],
+        "note": "Situational DPS setup. For more general defense, pivot to Feast from Afar or The Land of Nonexistence style utility instead.",
         "recommendedWheelMainstats": ["DEATH_RESISTANCE", "CRIT_RATE"]
       }
     ]
@@ -1820,6 +1832,7 @@
           }
         ],
         "recommendedCovenantIds": ["020", "015"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "SIGIL_YIELD", "DMG_AMP"]
       }
     ]
@@ -1889,7 +1902,7 @@
       {
         "id": "standard",
         "label": "Core",
-        "substatPriorityGroups": [["DMG_AMP"], ["SIGIL_YIELD"], ["DEATH_RESISTANCE"]],
+        "substatPriorityGroups": [["KEYFLARE_REGEN"], ["DMG_AMP"]],
         "recommendedWheels": [
           {
             "tier": "BIS_SSR",
@@ -1909,7 +1922,7 @@
           }
         ],
         "recommendedCovenantIds": ["022", "019"],
-        "recommendedWheelMainstats": ["DMG_AMP", "SIGIL_YIELD"]
+        "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP"]
       }
     ]
   },
@@ -1966,7 +1979,8 @@
             "wheelIds": ["SR02"]
           }
         ],
-        "recommendedCovenantIds": ["019", "002"],
+        "recommendedCovenantIds": ["019", "002", "008"],
+        "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["DMG_AMP", "KEYFLARE_REGEN"]
       }
     ]

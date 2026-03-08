@@ -39,6 +39,10 @@ function buildFixtureBuild(): AwakenerBuild {
   }
 }
 
+function getGoodWheelIds(build: AwakenerBuild | undefined): string[] {
+  return build?.recommendedWheels.find((group) => group.tier === 'GOOD')?.wheelIds ?? []
+}
+
 describe('awakener builds', () => {
   it('loads seeded build entries and caches the parsed array', async () => {
     const first = await loadAwakenerBuildEntries()
@@ -122,6 +126,30 @@ describe('awakener builds', () => {
         })
       })
     })
+  })
+
+  it('preserves manual compendium corrections in the curated data', async () => {
+    const entries = await loadAwakenerBuildEntries()
+
+    expect(getGoodWheelIds(getAwakenerBuildEntryById(3, entries)?.builds[0])).toEqual(
+      expect.arrayContaining(['C01', 'SR14']),
+    )
+    expect(getGoodWheelIds(getAwakenerBuildEntryById(14, entries)?.builds[0])).not.toContain('SR32')
+    expect(getAwakenerBuildEntryById(54, entries)?.builds[0].recommendedCovenantIds).toEqual([
+      '019',
+      '002',
+      '008',
+    ])
+    expect(getAwakenerBuildEntryById(33, entries)?.builds[0].recommendedCovenantIds).toEqual([
+      '016',
+      '019',
+      '005',
+      '008',
+    ])
+    expect(
+      getAwakenerBuildEntryById(4, entries)?.builds.find((build) => build.id === 'standard-support')
+        ?.note,
+    ).toMatch(/flexible filler support/i)
   })
 
   it('builds schema autocomplete with readable metadata for curated ids', () => {

@@ -293,6 +293,10 @@
       "type": "string",
       "minLength": 1
     },
+    "note": {
+      "type": "string",
+      "minLength": 1
+    },
     "mainstatKey": {
       "oneOf": [
         {
@@ -1031,7 +1035,7 @@
         },
         {
           "const": "004",
-          "title": "Scarlet Tremor",
+          "title": "Scarlet Embrace",
           "description": "Icon_Trinket_004"
         },
         {
@@ -1041,7 +1045,7 @@
         },
         {
           "const": "006",
-          "title": "Twisted Twins - Black",
+          "title": "Twisted Twins: Black",
           "description": "Icon_Trinket_006"
         },
         {
@@ -1051,7 +1055,7 @@
         },
         {
           "const": "009",
-          "title": "Twisted Twins - White",
+          "title": "Twisted Twins: White",
           "description": "Icon_Trinket_009"
         },
         {
@@ -1166,6 +1170,9 @@
         },
         "summary": {
           "$ref": "#/$defs/summary"
+        },
+        "note": {
+          "$ref": "#/$defs/note"
         },
         "substatPriorityGroups": {
           "type": "array",

@@ -81,6 +81,10 @@ export function buildAwakenerBuildsSchema() {
         type: 'string',
         minLength: 1,
       },
+      note: {
+        type: 'string',
+        minLength: 1,
+      },
       mainstatKey: {
         oneOf: createMainstatOptions(mainstats.map((mainstat) => mainstat.key)),
       },
@@ -130,6 +134,7 @@ export function buildAwakenerBuildsSchema() {
           id: {$ref: '#/$defs/buildId'},
           label: {type: 'string', minLength: 1},
           summary: {$ref: '#/$defs/summary'},
+          note: {$ref: '#/$defs/note'},
           substatPriorityGroups: {
             type: 'array',
             minItems: 1,
