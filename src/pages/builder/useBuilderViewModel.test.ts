@@ -431,6 +431,40 @@ describe('useBuilderViewModel', () => {
     })
   })
 
+  it('promotes recommended posses to the top when recommendation promotion is enabled', async () => {
+    const entries = await loadAwakenerBuildEntries()
+    const entry = requireDefined(getAwakenerBuildEntryById(27, entries))
+    const recommendedPosseIds = requireDefined(entry.recommendedPosseIds)
+    const {result} = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+    const targetSlot = requireDefined(result.current.teamSlots[0]?.slotId)
+
+    act(() => {
+      result.current.setActiveTeamSlots(
+        result.current.teamSlots.map((slot, index) =>
+          index === 0
+            ? {
+                ...slot,
+                awakenerName: 'kathigu-ra',
+                realm: 'CHAOS',
+                wheels: [null, null] as [string | null, string | null],
+              }
+            : slot,
+        ),
+      )
+      result.current.setPickerTab('posses')
+      result.current.setActiveSelection({kind: 'awakener', slotId: targetSlot})
+      result.current.setPromoteRecommendedGear(true)
+    })
+
+    await waitFor(() => {
+      expect(result.current.filteredPosses[0]?.id).toBe(recommendedPosseIds[0])
+    })
+  })
+
   it('renames a team via begin/commit flow', () => {
     const {result} = renderHook(() =>
       useBuilderViewModel({

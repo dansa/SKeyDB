@@ -61,9 +61,9 @@ export function useAwakenerBuildRecommendations({
       if (awakId === undefined) {
         continue
       }
-      const build = getPrimaryAwakenerBuild(entryMap.get(awakId))
-      if (build?.recommendedPosseIds) {
-        for (const posseId of build.recommendedPosseIds) {
+      const entry = entryMap.get(awakId)
+      if (entry?.recommendedPosseIds) {
+        for (const posseId of entry.recommendedPosseIds) {
           ids.add(posseId)
         }
       }

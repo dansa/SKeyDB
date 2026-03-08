@@ -1,7 +1,7 @@
 import {render, screen, waitFor} from '@testing-library/react'
 import {beforeEach, describe, expect, it, vi} from 'vitest'
 
-import {AwakenerGuideTab} from './AwakenerGuideTab'
+import {AwakenerBuildsTab} from './AwakenerBuildsTab'
 
 const {useAwakenerBuildEntries} = vi.hoisted(() => ({
   useAwakenerBuildEntries: vi.fn(),
@@ -11,7 +11,7 @@ vi.mock('../../domain/useAwakenerBuildEntries', () => ({
   useAwakenerBuildEntries,
 }))
 
-describe('AwakenerGuideTab', () => {
+describe('AwakenerBuildsTab', () => {
   beforeEach(() => {
     useAwakenerBuildEntries.mockReset()
   })
@@ -19,7 +19,7 @@ describe('AwakenerGuideTab', () => {
   it('shows a loading state while curated build data is resolving', () => {
     useAwakenerBuildEntries.mockReturnValue(null)
 
-    render(<AwakenerGuideTab awakenerId={27} />)
+    render(<AwakenerBuildsTab awakenerId={27} />)
 
     expect(screen.getByText('Loading...')).toBeInTheDocument()
   })
@@ -58,7 +58,7 @@ describe('AwakenerGuideTab', () => {
       },
     ])
 
-    render(<AwakenerGuideTab awakenerId={27} />)
+    render(<AwakenerBuildsTab awakenerId={27} />)
 
     expect(screen.getByText('DPS')).toBeInTheDocument()
     expect(screen.getByText('Tank')).toBeInTheDocument()
@@ -98,7 +98,7 @@ describe('AwakenerGuideTab', () => {
       },
     ])
 
-    render(<AwakenerGuideTab awakenerId={18} />)
+    render(<AwakenerBuildsTab awakenerId={18} />)
 
     await waitFor(() => {
       expect(screen.getByText('Manikin of Oblivion')).toBeInTheDocument()
@@ -109,7 +109,7 @@ describe('AwakenerGuideTab', () => {
   it('shows an empty state when no curated builds exist for the awakener', () => {
     useAwakenerBuildEntries.mockReturnValue([])
 
-    render(<AwakenerGuideTab awakenerId={99} />)
+    render(<AwakenerBuildsTab awakenerId={99} />)
 
     expect(screen.getByText('No curated builds available yet.')).toBeInTheDocument()
   })

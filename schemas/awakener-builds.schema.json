@@ -285,6 +285,285 @@
         }
       ]
     },
+    "awakenerName": {
+      "oneOf": [
+        {
+          "const": "24",
+          "title": "24",
+          "description": "SSR · CHAOS · ASSAULT · id 1"
+        },
+        {
+          "const": "agrippa",
+          "title": "agrippa",
+          "description": "SSR · CARO · WARDEN · id 2"
+        },
+        {
+          "const": "aigis",
+          "title": "aigis",
+          "description": "SSR · CARO · CHORUS · id 3"
+        },
+        {
+          "const": "alva",
+          "title": "alva",
+          "description": "SSR · CHAOS · WARDEN · id 4"
+        },
+        {
+          "const": "aurita",
+          "title": "aurita",
+          "description": "SSR · AEQUOR · ASSAULT · id 5"
+        },
+        {
+          "const": "caecus",
+          "title": "caecus",
+          "description": "SSR · AEQUOR · WARDEN · id 6"
+        },
+        {
+          "const": "casiah",
+          "title": "casiah",
+          "description": "SSR · ULTRA · CHORUS · id 7"
+        },
+        {
+          "const": "castor",
+          "title": "castor",
+          "description": "SSR · ULTRA · WARDEN · id 8"
+        },
+        {
+          "const": "celeste",
+          "title": "celeste",
+          "description": "SSR · AEQUOR · CHORUS · id 9"
+        },
+        {
+          "const": "clementine",
+          "title": "clementine",
+          "description": "SSR · ULTRA · CHORUS · id 10"
+        },
+        {
+          "const": "corposant",
+          "title": "corposant",
+          "description": "SSR · AEQUOR · WARDEN · id 11"
+        },
+        {
+          "const": "daffodil",
+          "title": "daffodil",
+          "description": "SSR · ULTRA · ASSAULT · id 12"
+        },
+        {
+          "const": "doll",
+          "title": "doll",
+          "description": "SR · CHAOS · CHORUS · id 13"
+        },
+        {
+          "const": "doll: inferno",
+          "title": "doll: inferno",
+          "description": "Genesis · CHAOS · CHORUS · id 18"
+        },
+        {
+          "const": "doresain",
+          "title": "doresain",
+          "description": "SSR · CARO · ASSAULT · id 14"
+        },
+        {
+          "const": "erica",
+          "title": "erica",
+          "description": "SSR · ULTRA · WARDEN · id 15"
+        },
+        {
+          "const": "faint",
+          "title": "faint",
+          "description": "SSR · CARO · WARDEN · id 16"
+        },
+        {
+          "const": "faros",
+          "title": "faros",
+          "description": "SSR · AEQUOR · CHORUS · id 17"
+        },
+        {
+          "const": "goliath",
+          "title": "goliath",
+          "description": "SSR · AEQUOR · ASSAULT · id 21"
+        },
+        {
+          "const": "hameln",
+          "title": "hameln",
+          "description": "SSR · CHAOS · CHORUS · id 22"
+        },
+        {
+          "const": "helot",
+          "title": "helot",
+          "description": "SSR · CARO · ASSAULT · id 23"
+        },
+        {
+          "const": "helot: catena",
+          "title": "helot: catena",
+          "description": "Genesis · CARO · ASSAULT · id 19"
+        },
+        {
+          "const": "horla",
+          "title": "horla",
+          "description": "SSR · ULTRA · CHORUS · id 24"
+        },
+        {
+          "const": "jenkins",
+          "title": "jenkins",
+          "description": "SSR · ULTRA · ASSAULT · id 25"
+        },
+        {
+          "const": "karen",
+          "title": "karen",
+          "description": "SSR · CHAOS · CHORUS · id 26"
+        },
+        {
+          "const": "kathigu-ra",
+          "title": "kathigu-ra",
+          "description": "SSR · CHAOS · ASSAULT · id 27"
+        },
+        {
+          "const": "leigh",
+          "title": "leigh",
+          "description": "SSR · CARO · CHORUS · id 28"
+        },
+        {
+          "const": "lily",
+          "title": "lily",
+          "description": "SSR · CHAOS · WARDEN · id 29"
+        },
+        {
+          "const": "liz",
+          "title": "liz",
+          "description": "SSR · ULTRA · ASSAULT · id 30"
+        },
+        {
+          "const": "lotan",
+          "title": "lotan",
+          "description": "SR · CHAOS · ASSAULT · id 31"
+        },
+        {
+          "const": "miryam",
+          "title": "miryam",
+          "description": "SSR · AEQUOR · CHORUS · id 32"
+        },
+        {
+          "const": "mouchette",
+          "title": "mouchette",
+          "description": "SSR · CHAOS · ASSAULT · id 33"
+        },
+        {
+          "const": "murphy",
+          "title": "murphy",
+          "description": "SSR · AEQUOR · WARDEN · id 34"
+        },
+        {
+          "const": "murphy: fauxborn",
+          "title": "murphy: fauxborn",
+          "description": "Genesis · AEQUOR · CHORUS · id 35"
+        },
+        {
+          "const": "nautila",
+          "title": "nautila",
+          "description": "SSR · CHAOS · WARDEN · id 36"
+        },
+        {
+          "const": "nymphaea",
+          "title": "nymphaea",
+          "description": "SSR · CHAOS · ASSAULT · id 37"
+        },
+        {
+          "const": "ogier",
+          "title": "ogier",
+          "description": "SR · CHAOS · WARDEN · id 38"
+        },
+        {
+          "const": "pandia",
+          "title": "pandia",
+          "description": "SSR · CHAOS · ASSAULT · id 39"
+        },
+        {
+          "const": "pickman",
+          "title": "pickman",
+          "description": "SSR · CARO · CHORUS · id 40"
+        },
+        {
+          "const": "pollux",
+          "title": "pollux",
+          "description": "SSR · ULTRA · ASSAULT · id 41"
+        },
+        {
+          "const": "ramona",
+          "title": "ramona",
+          "description": "SR · CHAOS · CHORUS · id 42"
+        },
+        {
+          "const": "ramona: timeworn",
+          "title": "ramona: timeworn",
+          "description": "Genesis · CHAOS · CHORUS · id 20"
+        },
+        {
+          "const": "ryker",
+          "title": "ryker",
+          "description": "SSR · CHAOS · CHORUS · id 43"
+        },
+        {
+          "const": "salvador",
+          "title": "salvador",
+          "description": "SSR · CARO · WARDEN · id 44"
+        },
+        {
+          "const": "sanga",
+          "title": "sanga",
+          "description": "SSR · AEQUOR · WARDEN · id 45"
+        },
+        {
+          "const": "sorel",
+          "title": "sorel",
+          "description": "SSR · CARO · ASSAULT · id 46"
+        },
+        {
+          "const": "tawil",
+          "title": "tawil",
+          "description": "SSR · CHAOS · CHORUS · id 47"
+        },
+        {
+          "const": "thais",
+          "title": "thais",
+          "description": "SSR · CARO · CHORUS · id 48"
+        },
+        {
+          "const": "tinct",
+          "title": "tinct",
+          "description": "SSR · ULTRA · CHORUS · id 49"
+        },
+        {
+          "const": "tulu",
+          "title": "tulu",
+          "description": "SSR · AEQUOR · ASSAULT · id 50"
+        },
+        {
+          "const": "uvhash",
+          "title": "uvhash",
+          "description": "SSR · CARO · ASSAULT · id 51"
+        },
+        {
+          "const": "wanda",
+          "title": "wanda",
+          "description": "SSR · ULTRA · WARDEN · id 52"
+        },
+        {
+          "const": "winkle",
+          "title": "winkle",
+          "description": "SSR · ULTRA · CHORUS · id 53"
+        },
+        {
+          "const": "xu",
+          "title": "xu",
+          "description": "SSR · CARO · CHORUS · id 54"
+        },
+        {
+          "const": "vortice",
+          "title": "vortice",
+          "description": "SSR · AEQUOR · TBD · id 55"
+        }
+      ]
+    },
     "buildId": {
       "type": "string",
       "minLength": 1
@@ -1130,6 +1409,250 @@
         }
       ]
     },
+    "posseId": {
+      "oneOf": [
+        {
+          "const": "encounter-in-pure-white",
+          "title": "Encounter In Pure White",
+          "description": "CHAOS · lily"
+        },
+        {
+          "const": "voices-in-your-head",
+          "title": "Voices In Your Head",
+          "description": "OTHER · shared"
+        },
+        {
+          "const": "warded-injection",
+          "title": "Warded Injection",
+          "description": "CHAOS · lily"
+        },
+        {
+          "const": "a-mouses-wisdom",
+          "title": "A Mouses Wisdom",
+          "description": "ULTRA · shared"
+        },
+        {
+          "const": "tiny-wish",
+          "title": "Tiny Wish",
+          "description": "CARO · aigis"
+        },
+        {
+          "const": "obsession-eternal",
+          "title": "Obsession Eternal",
+          "description": "AEQUOR · miryam"
+        },
+        {
+          "const": "unequal-exchange",
+          "title": "Unequal Exchange",
+          "description": "OTHER · shared"
+        },
+        {
+          "const": "funus-aeternum",
+          "title": "Funus Aeternum",
+          "description": "AEQUOR · murphy"
+        },
+        {
+          "const": "the-final-vow",
+          "title": "The Final Vow",
+          "description": "CHAOS · ogier"
+        },
+        {
+          "const": "auritas-treasure",
+          "title": "Auritas Treasure",
+          "description": "AEQUOR · aurita"
+        },
+        {
+          "const": "roaring-blood-and-sand",
+          "title": "Roaring Blood And Sand",
+          "description": "CARO · uvhash"
+        },
+        {
+          "const": "ephemeral-eternity",
+          "title": "Ephemeral Eternity",
+          "description": "ULTRA · erica"
+        },
+        {
+          "const": "feast-of-decay",
+          "title": "Feast Of Decay",
+          "description": "ULTRA · wanda"
+        },
+        {
+          "const": "bone-chilling-embrace",
+          "title": "Bone Chilling Embrace",
+          "description": "AEQUOR · sanga"
+        },
+        {
+          "const": "lakeside-glimpse",
+          "title": "Lakeside Glimpse",
+          "description": "CARO · agrippa"
+        },
+        {
+          "const": "gateway-of-retrospection",
+          "title": "Gateway Of Retrospection",
+          "description": "CHAOS · ramona: timeworn"
+        },
+        {
+          "const": "truth-behind-grey-mist",
+          "title": "Truth Behind Grey Mist",
+          "description": "ULTRA · daffodil"
+        },
+        {
+          "const": "midsummer-vision",
+          "title": "Midsummer Vision",
+          "description": "CHAOS · lily"
+        },
+        {
+          "const": "victory-of-roses",
+          "title": "Victory Of Roses",
+          "description": "CARO · sorel"
+        },
+        {
+          "const": "miracles-dawn",
+          "title": "Miracles Dawn",
+          "description": "CARO · salvador"
+        },
+        {
+          "const": "giants-reign",
+          "title": "Giants Reign",
+          "description": "AEQUOR · goliath"
+        },
+        {
+          "const": "24-all-of-her",
+          "title": "24 All Of Her",
+          "description": "CHAOS · shared"
+        },
+        {
+          "const": "the-lone-seed",
+          "title": "The Lone Seed",
+          "description": "CARO · thais"
+        },
+        {
+          "const": "the-mountains-resolve",
+          "title": "The Mountains Resolve",
+          "description": "CARO · helot: catena"
+        },
+        {
+          "const": "festival-of-tides",
+          "title": "Festival Of Tides",
+          "description": "AEQUOR · miryam"
+        },
+        {
+          "const": "springs-verse",
+          "title": "Springs Verse",
+          "description": "ULTRA · horla"
+        },
+        {
+          "const": "a-guns-cry",
+          "title": "A Guns Cry",
+          "description": "CHAOS · ryker"
+        },
+        {
+          "const": "symphony-fourth",
+          "title": "Symphony Fourth",
+          "description": "CHAOS · hameln"
+        },
+        {
+          "const": "the-gated-answer",
+          "title": "The Gated Answer",
+          "description": "CHAOS · tawil"
+        },
+        {
+          "const": "plague-of-illusions",
+          "title": "Plague Of Illusions",
+          "description": "CHAOS · doll: inferno"
+        },
+        {
+          "const": "blessing-of-the-stars",
+          "title": "Blessing Of The Stars",
+          "description": "AEQUOR · tulu"
+        },
+        {
+          "const": "black-swans-dance",
+          "title": "Black Swans Dance",
+          "description": "ULTRA · liz"
+        },
+        {
+          "const": "taverns-opening",
+          "title": "Taverns Opening",
+          "description": "OTHER · shared"
+        },
+        {
+          "const": "sacred-mending",
+          "title": "Sacred Mending",
+          "description": "ULTRA · clementine"
+        },
+        {
+          "const": "undying-thunder",
+          "title": "Undying Thunder",
+          "description": "AEQUOR · corposant"
+        },
+        {
+          "const": "derision-of-destiny",
+          "title": "Derision Of Destiny",
+          "description": "ULTRA · castor"
+        },
+        {
+          "const": "cruel-homage",
+          "title": "Cruel Homage",
+          "description": "CARO · doresain"
+        },
+        {
+          "const": "undying-sun",
+          "title": "Undying Sun",
+          "description": "CHAOS · kathigu-ra"
+        },
+        {
+          "const": "sacred-bleeding-heart",
+          "title": "Sacred Bleeding Heart",
+          "description": "ULTRA · pollux"
+        },
+        {
+          "const": "voracious-resolve",
+          "title": "Voracious Resolve",
+          "description": "OTHER · shared"
+        },
+        {
+          "const": "beachside-memento",
+          "title": "Beachside Memento",
+          "description": "OTHER · shared"
+        },
+        {
+          "const": "void-hues",
+          "title": "Void Hues",
+          "description": "CARO · pickman"
+        },
+        {
+          "const": "a-fleeting-dream",
+          "title": "A Fleeting Dream",
+          "description": "OTHER · shared"
+        },
+        {
+          "const": "wayward-ship",
+          "title": "Wayward Ship",
+          "description": "AEQUOR · murphy: fauxborn"
+        },
+        {
+          "const": "reunions-wish",
+          "title": "Reunions Wish",
+          "description": "OTHER · ramona: timeworn"
+        },
+        {
+          "const": "from-the-mist-realm",
+          "title": "From The Mist Realm",
+          "description": "CHAOS · mouchette"
+        },
+        {
+          "const": "manor-echoes",
+          "title": "Manor Echoes",
+          "description": "CARO · shared"
+        },
+        {
+          "const": "new-years-eve-fireworks",
+          "title": "New Year's Eve Fireworks",
+          "description": "OTHER · shared"
+        }
+      ]
+    },
     "substatPriorityGroup": {
       "type": "array",
       "minItems": 1,
@@ -1214,8 +1737,19 @@
         "awakenerId": {
           "$ref": "#/$defs/awakenerId"
         },
+        "awakenerName": {
+          "$ref": "#/$defs/awakenerName"
+        },
         "primaryBuildId": {
           "$ref": "#/$defs/buildId"
+        },
+        "recommendedPosseIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/posseId"
+          }
         },
         "builds": {
           "type": "array",

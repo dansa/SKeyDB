@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url'
 import awakenersLite from '../src/data/awakeners-lite.json' with {type: 'json'}
 import covenantsLite from '../src/data/covenants-lite.json' with {type: 'json'}
 import mainstats from '../src/data/mainstats.json' with {type: 'json'}
+import possesLite from '../src/data/posses-lite.json' with {type: 'json'}
 import wheelsLite from '../src/data/wheels-lite.json' with {type: 'json'}
 
 const __filename = fileURLToPath(import.meta.url)
@@ -36,6 +37,14 @@ function createAwakenerOptions() {
   }))
 }
 
+function createAwakenerNameOptions() {
+  return awakenersLite.map((awakener) => ({
+    const: awakener.name,
+    title: awakener.name,
+    description: `${awakener.rarity} · ${awakener.realm} · ${awakener.type} · id ${String(awakener.id)}`,
+  }))
+}
+
 function createWheelOptions() {
   const mainstatLabelByKey = new Map(mainstats.map((mainstat) => [mainstat.key, mainstat.label]))
 
@@ -51,6 +60,14 @@ function createCovenantOptions() {
     const: covenant.id,
     title: covenant.name,
     description: covenant.assetId,
+  }))
+}
+
+function createPosseOptions() {
+  return possesLite.map((posse) => ({
+    const: posse.id,
+    title: posse.name,
+    description: `${posse.realm} · ${posse.awakenerName ?? 'shared'}`,
   }))
 }
 
@@ -72,6 +89,9 @@ export function buildAwakenerBuildsSchema() {
     $defs: {
       awakenerId: {
         oneOf: createAwakenerOptions(),
+      },
+      awakenerName: {
+        oneOf: createAwakenerNameOptions(),
       },
       buildId: {
         type: 'string',
@@ -99,6 +119,9 @@ export function buildAwakenerBuildsSchema() {
       },
       covenantId: {
         oneOf: createCovenantOptions(),
+      },
+      posseId: {
+        oneOf: createPosseOptions(),
       },
       substatPriorityGroup: {
         type: 'array',
@@ -165,7 +188,14 @@ export function buildAwakenerBuildsSchema() {
         required: ['awakenerId', 'builds'],
         properties: {
           awakenerId: {$ref: '#/$defs/awakenerId'},
+          awakenerName: {$ref: '#/$defs/awakenerName'},
           primaryBuildId: {$ref: '#/$defs/buildId'},
+          recommendedPosseIds: {
+            type: 'array',
+            minItems: 1,
+            uniqueItems: true,
+            items: {$ref: '#/$defs/posseId'},
+          },
           builds: {
             type: 'array',
             minItems: 1,

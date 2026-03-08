@@ -41,17 +41,19 @@ const awakenerBuildSchema = z.object({
   recommendedWheelMainstats: z.array(z.enum(WHEEL_MAINSTAT_KEYS)).min(1).optional(),
   recommendedWheels: z.array(wheelRecommendationGroupSchema).min(1),
   recommendedCovenantIds: z.array(z.string().trim().min(1)).min(1),
-  recommendedPosseIds: z.array(z.string().trim().min(1)).min(1).optional(),
 })
 
 const awakenerBuildEntrySchema = z.object({
   awakenerId: z.number().int().positive(),
+  awakenerName: z.string().trim().min(1).optional(),
   primaryBuildId: z.string().trim().min(1).optional(),
+  recommendedPosseIds: z.array(z.string().trim().min(1)).min(1).optional(),
   builds: z.array(awakenerBuildSchema).min(1),
 })
 
 const awakenerBuildEntriesSchema = z.array(awakenerBuildEntrySchema).superRefine((entries, ctx) => {
-  const awakenerIdSet = new Set(getAwakeners().map((awakener) => awakener.id))
+  const awakenerById = new Map(getAwakeners().map((awakener) => [awakener.id, awakener]))
+  const awakenerIdSet = new Set(awakenerById.keys())
   const wheelIdSet = new Set(getWheels().map((wheel) => wheel.id))
   const covenantIdSet = new Set(getCovenants().map((covenant) => covenant.id))
   const posseIdSet = new Set(getPosses().map((posse) => posse.id))
@@ -72,6 +74,15 @@ const awakenerBuildEntriesSchema = z.array(awakenerBuildEntrySchema).superRefine
         code: 'custom',
         message: `Unknown awakenerId ${String(entry.awakenerId)}.`,
         path: [entryIndex, 'awakenerId'],
+      })
+    }
+
+    const expectedAwakenerName = awakenerById.get(entry.awakenerId)?.name
+    if (entry.awakenerName && expectedAwakenerName && entry.awakenerName !== expectedAwakenerName) {
+      ctx.addIssue({
+        code: 'custom',
+        message: `awakenerName "${entry.awakenerName}" does not match canonical awakener name "${expectedAwakenerName}" for id ${String(entry.awakenerId)}.`,
+        path: [entryIndex, 'awakenerName'],
       })
     }
 
@@ -172,27 +183,6 @@ const awakenerBuildEntriesSchema = z.array(awakenerBuildEntrySchema).superRefine
           })
         }
       })
-
-      if (build.recommendedPosseIds) {
-        const seenPosseIds = new Set<string>()
-        build.recommendedPosseIds.forEach((posseId, posseIndex) => {
-          if (seenPosseIds.has(posseId)) {
-            ctx.addIssue({
-              code: 'custom',
-              message: `Duplicate posse reference "${posseId}".`,
-              path: [entryIndex, 'builds', buildIndex, 'recommendedPosseIds', posseIndex],
-            })
-          }
-          seenPosseIds.add(posseId)
-          if (!posseIdSet.has(posseId)) {
-            ctx.addIssue({
-              code: 'custom',
-              message: `Unknown posse id "${posseId}".`,
-              path: [entryIndex, 'builds', buildIndex, 'recommendedPosseIds', posseIndex],
-            })
-          }
-        })
-      }
     })
 
     if (entry.primaryBuildId && !entry.builds.some((build) => build.id === entry.primaryBuildId)) {
@@ -200,6 +190,27 @@ const awakenerBuildEntriesSchema = z.array(awakenerBuildEntrySchema).superRefine
         code: 'custom',
         message: `primaryBuildId "${entry.primaryBuildId}" does not exist in builds.`,
         path: [entryIndex, 'primaryBuildId'],
+      })
+    }
+
+    if (entry.recommendedPosseIds) {
+      const seenPosseIds = new Set<string>()
+      entry.recommendedPosseIds.forEach((posseId, posseIndex) => {
+        if (seenPosseIds.has(posseId)) {
+          ctx.addIssue({
+            code: 'custom',
+            message: `Duplicate posse reference "${posseId}".`,
+            path: [entryIndex, 'recommendedPosseIds', posseIndex],
+          })
+        }
+        seenPosseIds.add(posseId)
+        if (!posseIdSet.has(posseId)) {
+          ctx.addIssue({
+            code: 'custom',
+            message: `Unknown posse id "${posseId}".`,
+            path: [entryIndex, 'recommendedPosseIds', posseIndex],
+          })
+        }
       })
     }
   })
@@ -297,13 +308,13 @@ export function getCovenantRecommendationIndex(
 }
 
 export function getPosseRecommendationIndex(
-  build: AwakenerBuild | null | undefined,
+  entry: AwakenerBuildEntry | null | undefined,
   posseId: string,
 ): number {
-  if (!build?.recommendedPosseIds) {
+  if (!entry?.recommendedPosseIds) {
     return -1
   }
-  return build.recommendedPosseIds.indexOf(posseId)
+  return entry.recommendedPosseIds.indexOf(posseId)
 }
 
 function getWheelRecommendationBucket(

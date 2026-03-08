@@ -345,10 +345,30 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
           (displayUnowned || isPosseOwnedById(posse.id)),
       )
     }
-    return sinkUnownedToBottom
-      ? sinkUnownedToEnd(result, (posse) => isPosseOwnedById(posse.id))
+
+    const promoted = promoteRecommendedGear
+      ? [...result].sort((left, right) => {
+          const leftRecommended = teamRecommendedPosseIds.has(left.id)
+          const rightRecommended = teamRecommendedPosseIds.has(right.id)
+          if (leftRecommended === rightRecommended) {
+            return 0
+          }
+          return leftRecommended ? -1 : 1
+        })
       : result
-  }, [posseFilter, searchedPosses, displayUnowned, sinkUnownedToBottom, isPosseOwnedById])
+
+    return sinkUnownedToBottom
+      ? sinkUnownedToEnd(promoted, (posse) => isPosseOwnedById(posse.id))
+      : promoted
+  }, [
+    posseFilter,
+    searchedPosses,
+    displayUnowned,
+    sinkUnownedToBottom,
+    isPosseOwnedById,
+    promoteRecommendedGear,
+    teamRecommendedPosseIds,
+  ])
   const filteredWheels = useMemo(() => {
     const query = pickerSearchByTab.wheels.trim().toLowerCase()
     const normalizedQuery = normalizeForSearch(query)

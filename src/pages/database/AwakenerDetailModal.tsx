@@ -14,10 +14,10 @@ import {getRealmIcon, getRealmLabel, getRealmTint} from '@/domain/factions'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getCardNamesFromFull} from '@/domain/rich-text'
 
+import {AwakenerBuildsTab} from './AwakenerBuildsTab'
 import {AwakenerDetailCards} from './AwakenerDetailCards'
 import {AwakenerDetailOverview} from './AwakenerDetailOverview'
 import {AwakenerDetailSidebar} from './AwakenerDetailSidebar'
-import {AwakenerGuideTab} from './AwakenerGuideTab'
 import {AwakenerTeamsTab} from './AwakenerTeamsTab'
 import {
   FONT_SCALE_OPTIONS,
@@ -36,7 +36,7 @@ interface AwakenerDetailModalProps {
 const TABS = [
   {id: 'overview', label: 'Overview'},
   {id: 'cards', label: 'Cards'},
-  {id: 'guide', label: 'Guide'},
+  {id: 'builds', label: 'Builds'},
   {id: 'teams', label: 'Teams'},
 ] as const
 
@@ -384,7 +384,7 @@ export function AwakenerDetailModal({awakener, onClose}: AwakenerDetailModalProp
                     stats={resolvedStats}
                   />
                 )}
-                {activeTab === 'guide' && <AwakenerGuideTab awakenerId={awakener.id} />}
+                {activeTab === 'builds' && <AwakenerBuildsTab awakenerId={awakener.id} />}
                 {activeTab === 'teams' && <AwakenerTeamsTab />}
               </div>
             </div>

@@ -21,7 +21,7 @@ import {
 } from './DatabaseTabSection'
 import {scaledFontStyle} from './font-scale'
 
-interface AwakenerGuideTabProps {
+interface AwakenerBuildsTabProps {
   awakenerId: number
 }
 
@@ -262,7 +262,7 @@ function BuildCard({
   )
 }
 
-export function AwakenerGuideTab({awakenerId}: AwakenerGuideTabProps) {
+export function AwakenerBuildsTab({awakenerId}: AwakenerBuildsTabProps) {
   const entries = useAwakenerBuildEntries()
 
   const entry = useMemo(() => {

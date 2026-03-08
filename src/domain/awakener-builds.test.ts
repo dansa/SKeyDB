@@ -20,6 +20,7 @@ interface SchemaChoiceContainer {
     wheelId: unknown
     covenantId: unknown
     awakenerId: unknown
+    awakenerName: unknown
   }
 }
 
@@ -56,6 +57,8 @@ describe('awakener builds', () => {
     expect(dollInferno?.builds).toHaveLength(1)
     expect(kathiguRa?.builds).toHaveLength(2)
     expect(kathiguRa?.primaryBuildId).toBe('dps')
+    expect(kathiguRa?.awakenerName).toBe('kathigu-ra')
+    expect(kathiguRa?.recommendedPosseIds).toEqual(['undying-sun'])
   })
 
   it('resolves the primary build and preserves grouped substat priorities', async () => {
@@ -157,6 +160,7 @@ describe('awakener builds', () => {
     const wheelOptions = getSchemaChoices(schema.$defs.wheelId)
     const covenantOptions = getSchemaChoices(schema.$defs.covenantId)
     const awakenerOptions = getSchemaChoices(schema.$defs.awakenerId)
+    const awakenerNameOptions = getSchemaChoices(schema.$defs.awakenerName)
 
     expect(wheelOptions).toContainEqual(
       expect.objectContaining({
@@ -175,6 +179,11 @@ describe('awakener builds', () => {
       expect.objectContaining({
         const: 18,
         title: 'doll: inferno',
+      }),
+    )
+    expect(awakenerNameOptions).toContainEqual(
+      expect.objectContaining({
+        const: 'doll: inferno',
       }),
     )
   })

@@ -53,7 +53,8 @@
         "recommendedCovenantIds": ["002", "008"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP"]
       }
-    ]
+    ],
+    "awakenerName": "24"
   },
   {
     "awakenerId": 2,
@@ -105,7 +106,8 @@
         "recommendedCovenantIds": ["020", "010"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "SIGIL_YIELD"]
       }
-    ]
+    ],
+    "awakenerName": "agrippa"
   },
   {
     "awakenerId": 3,
@@ -136,7 +138,8 @@
         "recommendedCovenantIds": ["015", "004", "008"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "aigis"
   },
   {
     "awakenerId": 4,
@@ -193,7 +196,8 @@
         "recommendedCovenantIds": ["019", "016"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "alva"
   },
   {
     "awakenerId": 5,
@@ -224,7 +228,8 @@
         "recommendedCovenantIds": ["004", "005"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "aurita"
   },
   {
     "awakenerId": 6,
@@ -276,7 +281,8 @@
         "recommendedCovenantIds": ["016", "022"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "caecus"
   },
   {
     "awakenerId": 7,
@@ -304,11 +310,13 @@
         "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "REALM_MASTERY", "DMG_AMP"]
       }
-    ]
+    ],
+    "awakenerName": "casiah"
   },
   {
     "awakenerId": 8,
     "primaryBuildId": "general-dps",
+    "recommendedPosseIds": ["derision-of-destiny"],
     "builds": [
       {
         "id": "general-dps",
@@ -385,7 +393,8 @@
         "recommendedCovenantIds": ["006", "012"],
         "recommendedWheelMainstats": ["DMG_AMP", "KEYFLARE_REGEN", "DEATH_RESISTANCE"]
       }
-    ]
+    ],
+    "awakenerName": "castor"
   },
   {
     "awakenerId": 9,
@@ -417,7 +426,8 @@
         "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "ALIEMUS_REGEN", "DMG_AMP"]
       }
-    ]
+    ],
+    "awakenerName": "celeste"
   },
   {
     "awakenerId": 10,
@@ -448,7 +458,8 @@
         "recommendedCovenantIds": ["015", "006"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "clementine"
   },
   {
     "awakenerId": 11,
@@ -504,7 +515,8 @@
         "recommendedCovenantIds": ["008", "010", "002"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DEATH_RESISTANCE"]
       }
-    ]
+    ],
+    "awakenerName": "corposant"
   },
   {
     "awakenerId": 12,
@@ -535,7 +547,8 @@
         "recommendedCovenantIds": ["016", "022"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "daffodil"
   },
   {
     "awakenerId": 13,
@@ -566,11 +579,13 @@
         "recommendedCovenantIds": ["002", "015", "008"],
         "recommendedWheelMainstats": ["ALIEMUS_REGEN", "KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "doll"
   },
   {
     "awakenerId": 14,
     "primaryBuildId": "standard",
+    "recommendedPosseIds": ["cruel-homage"],
     "builds": [
       {
         "id": "standard",
@@ -597,7 +612,8 @@
         "recommendedCovenantIds": ["016", "005"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "doresain"
   },
   {
     "awakenerId": 15,
@@ -628,7 +644,8 @@
         "recommendedCovenantIds": ["015", "010"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "erica"
   },
   {
     "awakenerId": 16,
@@ -660,7 +677,8 @@
         "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["DEATH_RESISTANCE", "KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "faint"
   },
   {
     "awakenerId": 17,
@@ -691,7 +709,8 @@
         "recommendedCovenantIds": ["020", "010", "002"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP", "ALIEMUS_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "faros"
   },
   {
     "awakenerId": 18,
@@ -722,11 +741,13 @@
         "recommendedCovenantIds": ["002", "019"],
         "recommendedWheelMainstats": ["ALIEMUS_REGEN", "KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "doll: inferno"
   },
   {
     "awakenerId": 19,
     "primaryBuildId": "standard",
+    "recommendedPosseIds": ["the-lone-seed"],
     "builds": [
       {
         "id": "standard",
@@ -753,7 +774,8 @@
         "recommendedCovenantIds": ["016", "005"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "helot: catena"
   },
   {
     "awakenerId": 20,
@@ -805,7 +827,8 @@
         "recommendedCovenantIds": ["011", "016", "019"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "ramona: timeworn"
   },
   {
     "awakenerId": 21,
@@ -837,7 +860,8 @@
         "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP", "ALIEMUS_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "goliath"
   },
   {
     "awakenerId": 22,
@@ -868,7 +892,8 @@
         "recommendedCovenantIds": ["015", "002"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "ALIEMUS_REGEN", "DMG_AMP"]
       }
-    ]
+    ],
+    "awakenerName": "hameln"
   },
   {
     "awakenerId": 23,
@@ -921,7 +946,8 @@
         "recommendedCovenantIds": ["016", "005"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "helot"
   },
   {
     "awakenerId": 24,
@@ -952,7 +978,8 @@
         "recommendedCovenantIds": ["008", "006", "009"],
         "recommendedWheelMainstats": ["DEATH_RESISTANCE", "KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "horla"
   },
   {
     "awakenerId": 25,
@@ -1008,7 +1035,8 @@
         "recommendedCovenantIds": ["002", "008"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "ALIEMUS_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "jenkins"
   },
   {
     "awakenerId": 26,
@@ -1040,11 +1068,13 @@
         "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["ALIEMUS_REGEN", "KEYFLARE_REGEN", "DMG_AMP"]
       }
-    ]
+    ],
+    "awakenerName": "karen"
   },
   {
     "awakenerId": 27,
     "primaryBuildId": "dps",
+    "recommendedPosseIds": ["undying-sun"],
     "builds": [
       {
         "id": "dps",
@@ -1092,7 +1122,8 @@
         "recommendedCovenantIds": ["020", "011"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "kathigu-ra"
   },
   {
     "awakenerId": 28,
@@ -1124,7 +1155,8 @@
         "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "leigh"
   },
   {
     "awakenerId": 29,
@@ -1155,7 +1187,8 @@
         "recommendedCovenantIds": ["020", "009", "008"],
         "recommendedWheelMainstats": ["DEATH_RESISTANCE", "KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "lily"
   },
   {
     "awakenerId": 30,
@@ -1186,7 +1219,8 @@
         "recommendedCovenantIds": ["022", "016"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "liz"
   },
   {
     "awakenerId": 31,
@@ -1217,7 +1251,8 @@
         "recommendedCovenantIds": ["019", "005"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "lotan"
   },
   {
     "awakenerId": 32,
@@ -1244,11 +1279,13 @@
         "recommendedCovenantIds": ["002", "019", "015"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "miryam"
   },
   {
     "awakenerId": 33,
     "primaryBuildId": "standard",
+    "recommendedPosseIds": ["from-the-mist-realm"],
     "builds": [
       {
         "id": "standard",
@@ -1275,7 +1312,8 @@
         "recommendedCovenantIds": ["016", "019", "005", "008"],
         "recommendedWheelMainstats": ["CRIT_RATE", "DEATH_RESISTANCE"]
       }
-    ]
+    ],
+    "awakenerName": "mouchette"
   },
   {
     "awakenerId": 34,
@@ -1306,7 +1344,8 @@
         "recommendedCovenantIds": ["015", "009"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP", "ALIEMUS_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "murphy"
   },
   {
     "awakenerId": 35,
@@ -1362,7 +1401,8 @@
         "recommendedCovenantIds": ["019", "016"],
         "recommendedWheelMainstats": ["CRIT_RATE", "KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "murphy: fauxborn"
   },
   {
     "awakenerId": 36,
@@ -1390,7 +1430,8 @@
         "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP"]
       }
-    ]
+    ],
+    "awakenerName": "nautila"
   },
   {
     "awakenerId": 37,
@@ -1422,7 +1463,8 @@
         "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP"]
       }
-    ]
+    ],
+    "awakenerName": "nymphaea"
   },
   {
     "awakenerId": 38,
@@ -1450,7 +1492,8 @@
         "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "SIGIL_YIELD"]
       }
-    ]
+    ],
+    "awakenerName": "ogier"
   },
   {
     "awakenerId": 39,
@@ -1477,7 +1520,8 @@
         "recommendedCovenantIds": ["005", "016", "014"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "pandia"
   },
   {
     "awakenerId": 40,
@@ -1533,7 +1577,8 @@
         "recommendedCovenantIds": ["019", "016"],
         "recommendedWheelMainstats": ["CRIT_DMG", "KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "pickman"
   },
   {
     "awakenerId": 41,
@@ -1560,7 +1605,8 @@
         "recommendedCovenantIds": ["016", "005"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "pollux"
   },
   {
     "awakenerId": 42,
@@ -1591,7 +1637,8 @@
         "recommendedCovenantIds": ["015", "001"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP", "ALIEMUS_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "ramona"
   },
   {
     "awakenerId": 43,
@@ -1622,7 +1669,8 @@
         "recommendedCovenantIds": ["004", "005"],
         "recommendedWheelMainstats": ["CRIT_RATE", "SIGIL_YIELD"]
       }
-    ]
+    ],
+    "awakenerName": "ryker"
   },
   {
     "awakenerId": 44,
@@ -1678,7 +1726,8 @@
         "recommendedCovenantIds": ["011", "016"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "salvador"
   },
   {
     "awakenerId": 45,
@@ -1710,7 +1759,8 @@
         "note": "Situational DPS setup. For more general defense, pivot to Feast from Afar or The Land of Nonexistence style utility instead.",
         "recommendedWheelMainstats": ["DEATH_RESISTANCE", "CRIT_RATE"]
       }
-    ]
+    ],
+    "awakenerName": "sanga"
   },
   {
     "awakenerId": 46,
@@ -1741,7 +1791,8 @@
         "recommendedCovenantIds": ["016", "014"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "sorel"
   },
   {
     "awakenerId": 47,
@@ -1772,7 +1823,8 @@
         "recommendedCovenantIds": ["019", "016", "005", "015"],
         "recommendedWheelMainstats": ["CRIT_RATE", "KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "tawil"
   },
   {
     "awakenerId": 48,
@@ -1803,7 +1855,8 @@
         "recommendedCovenantIds": ["015", "002"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "thais"
   },
   {
     "awakenerId": 49,
@@ -1835,7 +1888,8 @@
         "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "SIGIL_YIELD", "DMG_AMP"]
       }
-    ]
+    ],
+    "awakenerName": "tinct"
   },
   {
     "awakenerId": 50,
@@ -1866,7 +1920,8 @@
         "recommendedCovenantIds": ["002", "015"],
         "recommendedWheelMainstats": ["ALIEMUS_REGEN", "KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "tulu"
   },
   {
     "awakenerId": 51,
@@ -1893,7 +1948,8 @@
         "recommendedCovenantIds": ["016", "005"],
         "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
       }
-    ]
+    ],
+    "awakenerName": "uvhash"
   },
   {
     "awakenerId": 52,
@@ -1924,7 +1980,8 @@
         "recommendedCovenantIds": ["022", "019"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "DMG_AMP"]
       }
-    ]
+    ],
+    "awakenerName": "wanda"
   },
   {
     "awakenerId": 53,
@@ -1955,11 +2012,13 @@
         "recommendedCovenantIds": ["002", "015"],
         "recommendedWheelMainstats": ["KEYFLARE_REGEN", "ALIEMUS_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "winkle"
   },
   {
     "awakenerId": 54,
     "primaryBuildId": "standard",
+    "recommendedPosseIds": ["manor-echoes"],
     "builds": [
       {
         "id": "standard",
@@ -1983,6 +2042,7 @@
         "note": "Flexible filler support: this build does not depend on a specific wheel or covenant package, so use it to carry whatever utility your team needs.",
         "recommendedWheelMainstats": ["DMG_AMP", "KEYFLARE_REGEN"]
       }
-    ]
+    ],
+    "awakenerName": "xu"
   }
 ]
