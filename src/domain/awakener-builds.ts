@@ -1,5 +1,7 @@
 import {z} from 'zod'
 
+import awakenerBuildEntriesJson from '@/data/awakener-builds.json'
+
 import {getAwakeners} from './awakeners'
 import {getCovenants, type Covenant} from './covenants'
 import {
@@ -211,13 +213,16 @@ function getWheelTierOrder(tier: AwakenerBuildWheelTier): number {
   return AWAKENER_BUILD_WHEEL_TIERS.indexOf(tier)
 }
 
-export async function loadAwakenerBuildEntries(): Promise<AwakenerBuildEntry[]> {
+export function getAwakenerBuildEntries(): AwakenerBuildEntry[] {
   if (awakenerBuildEntriesCache) {
     return awakenerBuildEntriesCache
   }
-  const module = await import('@/data/awakener-builds.json')
-  awakenerBuildEntriesCache = awakenerBuildEntriesSchema.parse(module.default)
+  awakenerBuildEntriesCache = awakenerBuildEntriesSchema.parse(awakenerBuildEntriesJson)
   return awakenerBuildEntriesCache
+}
+
+export function loadAwakenerBuildEntries(): Promise<AwakenerBuildEntry[]> {
+  return Promise.resolve(getAwakenerBuildEntries())
 }
 
 export function buildAwakenerBuildEntryMap(

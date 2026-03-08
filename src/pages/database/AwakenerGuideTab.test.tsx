@@ -3,56 +3,29 @@ import {beforeEach, describe, expect, it, vi} from 'vitest'
 
 import {AwakenerGuideTab} from './AwakenerGuideTab'
 
-const {loadAwakenerBuildEntries} = vi.hoisted(() => ({
-  loadAwakenerBuildEntries: vi.fn(),
+const {useAwakenerBuildEntries} = vi.hoisted(() => ({
+  useAwakenerBuildEntries: vi.fn(),
 }))
 
-vi.mock('../../domain/awakener-builds', async () => {
-  const actual = await vi.importActual<typeof import('../../domain/awakener-builds')>(
-    '../../domain/awakener-builds',
-  )
-  return {
-    ...actual,
-    loadAwakenerBuildEntries,
-  }
-})
-
-function createDeferredPromise<T>() {
-  let resolvePromise: (value: T) => void = () => undefined
-  const promise = new Promise<T>((resolve) => {
-    resolvePromise = resolve
-  })
-  return {promise, resolve: resolvePromise}
-}
+vi.mock('../../domain/useAwakenerBuildEntries', () => ({
+  useAwakenerBuildEntries,
+}))
 
 describe('AwakenerGuideTab', () => {
   beforeEach(() => {
-    loadAwakenerBuildEntries.mockReset()
+    useAwakenerBuildEntries.mockReset()
   })
 
   it('shows a loading state while curated build data is resolving', () => {
-    const deferred = createDeferredPromise<
-      {
-        awakenerId: number
-        primaryBuildId?: string
-        builds: {
-          id: string
-          label: string
-          substatPriorityGroups: string[][]
-          recommendedWheels: {tier: string; wheelIds: string[]}[]
-          recommendedCovenantIds: string[]
-        }[]
-      }[]
-    >()
-    loadAwakenerBuildEntries.mockReturnValue(deferred.promise)
+    useAwakenerBuildEntries.mockReturnValue(null)
 
     render(<AwakenerGuideTab awakenerId={27} />)
 
     expect(screen.getByText('Loading...')).toBeInTheDocument()
   })
 
-  it('renders all configured builds and groups wheel recommendations by line', async () => {
-    loadAwakenerBuildEntries.mockResolvedValue([
+  it('renders all configured builds and groups wheel recommendations by line', () => {
+    useAwakenerBuildEntries.mockReturnValue([
       {
         awakenerId: 27,
         primaryBuildId: 'dps',
@@ -86,7 +59,7 @@ describe('AwakenerGuideTab', () => {
 
     render(<AwakenerGuideTab awakenerId={27} />)
 
-    expect(await screen.findByText('DPS')).toBeInTheDocument()
+    expect(screen.getByText('DPS')).toBeInTheDocument()
     expect(screen.getByText('Tank')).toBeInTheDocument()
     expect(screen.getByText('Damage-first setup.')).toBeInTheDocument()
     expect(screen.getByAltText('Crit DMG')).toBeInTheDocument()
@@ -102,7 +75,7 @@ describe('AwakenerGuideTab', () => {
   })
 
   it('hides a redundant build heading when only one build exists', async () => {
-    loadAwakenerBuildEntries.mockResolvedValue([
+    useAwakenerBuildEntries.mockReturnValue([
       {
         awakenerId: 18,
         primaryBuildId: 'core',
@@ -126,11 +99,11 @@ describe('AwakenerGuideTab', () => {
     expect(screen.queryByText('Core')).not.toBeInTheDocument()
   })
 
-  it('shows an empty state when no curated builds exist for the awakener', async () => {
-    loadAwakenerBuildEntries.mockResolvedValue([])
+  it('shows an empty state when no curated builds exist for the awakener', () => {
+    useAwakenerBuildEntries.mockReturnValue([])
 
     render(<AwakenerGuideTab awakenerId={99} />)
 
-    expect(await screen.findByText('No curated builds available yet.')).toBeInTheDocument()
+    expect(screen.getByText('No curated builds available yet.')).toBeInTheDocument()
   })
 })

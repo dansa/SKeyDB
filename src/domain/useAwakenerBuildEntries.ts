@@ -1,21 +1,9 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 
-import {loadAwakenerBuildEntries, type AwakenerBuildEntry} from './awakener-builds'
+import {getAwakenerBuildEntries, type AwakenerBuildEntry} from './awakener-builds'
 
 export function useAwakenerBuildEntries(): AwakenerBuildEntry[] | null {
-  const [entries, setEntries] = useState<AwakenerBuildEntry[] | null>(null)
-
-  useEffect(() => {
-    let cancelled = false
-    void loadAwakenerBuildEntries().then((data) => {
-      if (!cancelled) {
-        setEntries(data)
-      }
-    })
-    return () => {
-      cancelled = true
-    }
-  }, [])
+  const [entries] = useState<AwakenerBuildEntry[] | null>(() => getAwakenerBuildEntries())
 
   return entries
 }

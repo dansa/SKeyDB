@@ -97,6 +97,25 @@ vi.mock('../domain/awakener-builds', async () => {
 
   return {
     ...actual,
+    getAwakenerBuildEntries: () => [
+      {
+        awakenerId: 1,
+        primaryBuildId: 'standard',
+        builds: [
+          {
+            id: 'standard',
+            label: 'Core',
+            substatPriorityGroups: [['CRIT_DMG'], ['CRIT_RATE']],
+            recommendedWheelMainstats: ['KEYFLARE_REGEN', 'ALIEMUS_REGEN', 'CRIT_DMG'],
+            recommendedWheels: [
+              {tier: 'BIS_SSR', wheelIds: ['O02']},
+              {tier: 'GOOD', wheelIds: ['O01']},
+            ],
+            recommendedCovenantIds: ['c02', 'c01'],
+          },
+        ],
+      },
+    ],
     loadAwakenerBuildEntries: () =>
       Promise.resolve([
         {
