@@ -1,6 +1,7 @@
 import type {RefObject} from 'react'
 
 import {TabbedContainer} from '@/components/ui/TabbedContainer'
+import type {AwakenerBuild} from '@/domain/awakener-builds'
 import type {Awakener} from '@/domain/awakeners'
 import type {AwakenerSortKey, CollectionSortDirection} from '@/domain/collection-sorting'
 import type {Covenant} from '@/domain/covenants'
@@ -39,7 +40,12 @@ interface BuilderSelectionPanelProps {
   awakenerSortDirection: CollectionSortDirection
   awakenerSortGroupByRealm: boolean
   displayUnowned: boolean
+  sinkUnownedToBottom: boolean
   allowDupes: boolean
+  promoteRecommendedGear: boolean
+  promoteMatchingWheelMainstats: boolean
+  activeBuild?: AwakenerBuild
+  teamRecommendedPosseIds: Set<string>
   filteredAwakeners: Awakener[]
   filteredPosses: Posse[]
   filteredWheels: Wheel[]
@@ -64,7 +70,10 @@ interface BuilderSelectionPanelProps {
   onAwakenerSortDirectionToggle: () => void
   onAwakenerSortGroupByRealmChange: (nextGroupByRealm: boolean) => void
   onDisplayUnownedChange: (displayUnowned: boolean) => void
+  onSinkUnownedToBottomChange: (sinkUnownedToBottom: boolean) => void
   onAllowDupesChange: (allowDupes: boolean) => void
+  onPromoteRecommendedGearChange: (promoteRecommendedGear: boolean) => void
+  onPromoteMatchingWheelMainstatsChange: (promoteMatchingWheelMainstats: boolean) => void
   onAwakenerClick: (awakenerName: string) => void
   onSetActiveWheel: (wheelId?: string) => void
   onSetActiveCovenant: (covenantId?: string) => void
@@ -83,7 +92,12 @@ export function BuilderSelectionPanel({
   awakenerSortDirection,
   awakenerSortGroupByRealm,
   displayUnowned,
+  sinkUnownedToBottom,
   allowDupes,
+  promoteRecommendedGear,
+  promoteMatchingWheelMainstats,
+  activeBuild,
+  teamRecommendedPosseIds,
   filteredAwakeners,
   filteredPosses,
   filteredWheels,
@@ -108,7 +122,10 @@ export function BuilderSelectionPanel({
   onAwakenerSortDirectionToggle,
   onAwakenerSortGroupByRealmChange,
   onDisplayUnownedChange,
+  onSinkUnownedToBottomChange,
   onAllowDupesChange,
+  onPromoteRecommendedGearChange,
+  onPromoteMatchingWheelMainstatsChange,
   onAwakenerClick,
   onSetActiveWheel,
   onSetActiveCovenant,
@@ -132,11 +149,17 @@ export function BuilderSelectionPanel({
           awakenerSortGroupByRealm={awakenerSortGroupByRealm}
           awakenerSortKey={awakenerSortKey}
           displayUnowned={displayUnowned}
+          sinkUnownedToBottom={sinkUnownedToBottom}
+          promoteMatchingWheelMainstats={promoteMatchingWheelMainstats}
+          promoteRecommendedGear={promoteRecommendedGear}
           onAllowDupesChange={onAllowDupesChange}
           onAwakenerSortDirectionToggle={onAwakenerSortDirectionToggle}
           onAwakenerSortGroupByRealmChange={onAwakenerSortGroupByRealmChange}
           onAwakenerSortKeyChange={onAwakenerSortKeyChange}
           onDisplayUnownedChange={onDisplayUnownedChange}
+          onSinkUnownedToBottomChange={onSinkUnownedToBottomChange}
+          onPromoteMatchingWheelMainstatsChange={onPromoteMatchingWheelMainstatsChange}
+          onPromoteRecommendedGearChange={onPromoteRecommendedGearChange}
           pickerTab={pickerTab}
         />
 
@@ -157,6 +180,8 @@ export function BuilderSelectionPanel({
 
         <BuilderSelectionContent
           activePosseId={activePosseId}
+          activeBuild={activeBuild}
+          teamRecommendedPosseIds={teamRecommendedPosseIds}
           allowDupes={allowDupes}
           effectiveActiveTeamId={effectiveActiveTeamId}
           filteredAwakeners={filteredAwakeners}
@@ -171,6 +196,7 @@ export function BuilderSelectionPanel({
           ownedPosseLevelById={ownedPosseLevelById}
           ownedWheelLevelById={ownedWheelLevelById}
           pickerTab={pickerTab}
+          promoteMatchingWheelMainstats={promoteMatchingWheelMainstats}
           teamRealmSet={teamRealmSet}
           teams={teams}
           usedAwakenerIdentityKeys={usedAwakenerIdentityKeys}

@@ -935,6 +935,46 @@ a {
   filter: grayscale(0.9) brightness(0.72);
 }
 
+.builder-picker-recommendation-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 16px;
+  min-width: 16px;
+  border: 1px solid rgba(251, 191, 36, 0.34);
+  background: rgba(2, 8, 20, 0.82);
+  color: rgba(255, 247, 237, 0.95);
+  padding: 0 4px;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.32);
+}
+
+.builder-picker-recommendation-chip-icon {
+  padding: 2px;
+}
+
+.compact-art-tile {
+  min-width: 0;
+}
+
+.compact-art-tile-name {
+  line-height: 1.15;
+}
+
+.compact-art-tile-name-multiline {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  min-height: 2.3em;
+  overflow-wrap: anywhere;
+}
+
 .builder-unowned-chip {
   position: absolute;
   left: 1px;

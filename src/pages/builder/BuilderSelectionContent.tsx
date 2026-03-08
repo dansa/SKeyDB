@@ -1,3 +1,4 @@
+import type {AwakenerBuild} from '@/domain/awakener-builds'
 import type {Awakener} from '@/domain/awakeners'
 import type {Covenant} from '@/domain/covenants'
 import type {Posse} from '@/domain/posses'
@@ -15,6 +16,9 @@ interface BuilderSelectionContentProps {
   pickerTab: PickerTab
   allowDupes: boolean
   effectiveActiveTeamId: string
+  activeBuild?: AwakenerBuild
+  teamRecommendedPosseIds: Set<string>
+  promoteMatchingWheelMainstats: boolean
   filteredAwakeners: Awakener[]
   filteredWheels: Wheel[]
   filteredCovenants: Covenant[]
@@ -38,6 +42,9 @@ export function BuilderSelectionContent({
   pickerTab,
   allowDupes,
   effectiveActiveTeamId,
+  activeBuild,
+  teamRecommendedPosseIds,
+  promoteMatchingWheelMainstats,
   filteredAwakeners,
   filteredWheels,
   filteredCovenants,
@@ -80,17 +87,20 @@ export function BuilderSelectionContent({
 
         {pickerTab === 'wheels' ? (
           <WheelPickerGrid
+            activeBuild={activeBuild}
             allowDupes={allowDupes}
             effectiveActiveTeamId={effectiveActiveTeamId}
             filteredWheels={filteredWheels}
             onSetActiveWheel={onSetActiveWheel}
             ownedWheelLevelById={ownedWheelLevelById}
+            promoteMatchingWheelMainstats={promoteMatchingWheelMainstats}
             usedWheelByTeamOrder={usedWheelByTeamOrder}
           />
         ) : null}
 
         {pickerTab === 'covenants' ? (
           <CovenantPickerGrid
+            activeBuild={activeBuild}
             filteredCovenants={filteredCovenants}
             onSetActiveCovenant={onSetActiveCovenant}
           />
@@ -104,6 +114,7 @@ export function BuilderSelectionContent({
             filteredPosses={filteredPosses}
             onSetActivePosse={onSetActivePosse}
             ownedPosseLevelById={ownedPosseLevelById}
+            teamRecommendedPosseIds={teamRecommendedPosseIds}
             teams={teams}
             usedPosseByTeamOrder={usedPosseByTeamOrder}
           />

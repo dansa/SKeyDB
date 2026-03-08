@@ -18,6 +18,10 @@ const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirectio
 const BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
 const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
 const BUILDER_ALLOW_DUPES_KEY = 'skeydb.builder.allowDupes.v1'
+const BUILDER_PROMOTE_RECOMMENDED_GEAR_KEY = 'skeydb.builder.promoteRecommendedGear.v1'
+const BUILDER_PROMOTE_MATCHING_WHEEL_MAINSTATS_KEY =
+  'skeydb.builder.promoteMatchingWheelMainstats.v1'
+const BUILDER_SINK_UNOWNED_TO_BOTTOM_KEY = 'skeydb.builder.sinkUnownedToBottom.v1'
 const BUILDER_TEAM_PREVIEW_MODE_KEY = 'skeydb.builder.teamPreviewMode.v1'
 
 interface UseBuilderPreferencesOptions {
@@ -86,6 +90,36 @@ export function useBuilderPreferences({searchInputRef, storage}: UseBuilderPrefe
     }
     return false
   })
+  const [promoteRecommendedGear, setPromoteRecommendedGear] = useState(() => {
+    const stored = safeStorageRead(storage, BUILDER_PROMOTE_RECOMMENDED_GEAR_KEY)
+    if (stored === '1') {
+      return true
+    }
+    if (stored === '0') {
+      return false
+    }
+    return true
+  })
+  const [promoteMatchingWheelMainstats, setPromoteMatchingWheelMainstats] = useState(() => {
+    const stored = safeStorageRead(storage, BUILDER_PROMOTE_MATCHING_WHEEL_MAINSTATS_KEY)
+    if (stored === '1') {
+      return true
+    }
+    if (stored === '0') {
+      return false
+    }
+    return false
+  })
+  const [sinkUnownedToBottom, setSinkUnownedToBottom] = useState(() => {
+    const stored = safeStorageRead(storage, BUILDER_SINK_UNOWNED_TO_BOTTOM_KEY)
+    if (stored === '1') {
+      return true
+    }
+    if (stored === '0') {
+      return false
+    }
+    return false
+  })
   const [teamPreviewMode, setTeamPreviewMode] = useState<TeamPreviewMode>(() => {
     const stored = safeStorageRead(storage, BUILDER_TEAM_PREVIEW_MODE_KEY)
     if (stored === 'compact' || stored === 'expanded') {
@@ -117,6 +151,26 @@ export function useBuilderPreferences({searchInputRef, storage}: UseBuilderPrefe
   useEffect(() => {
     safeStorageWrite(storage, BUILDER_ALLOW_DUPES_KEY, allowDupes ? '1' : '0')
   }, [storage, allowDupes])
+
+  useEffect(() => {
+    safeStorageWrite(
+      storage,
+      BUILDER_PROMOTE_RECOMMENDED_GEAR_KEY,
+      promoteRecommendedGear ? '1' : '0',
+    )
+  }, [storage, promoteRecommendedGear])
+
+  useEffect(() => {
+    safeStorageWrite(
+      storage,
+      BUILDER_PROMOTE_MATCHING_WHEEL_MAINSTATS_KEY,
+      promoteMatchingWheelMainstats ? '1' : '0',
+    )
+  }, [storage, promoteMatchingWheelMainstats])
+
+  useEffect(() => {
+    safeStorageWrite(storage, BUILDER_SINK_UNOWNED_TO_BOTTOM_KEY, sinkUnownedToBottom ? '1' : '0')
+  }, [storage, sinkUnownedToBottom])
 
   useEffect(() => {
     safeStorageWrite(storage, BUILDER_TEAM_PREVIEW_MODE_KEY, teamPreviewMode)
@@ -158,8 +212,14 @@ export function useBuilderPreferences({searchInputRef, storage}: UseBuilderPrefe
     setPickerSearchByTab,
     displayUnowned,
     setDisplayUnowned,
+    sinkUnownedToBottom,
+    setSinkUnownedToBottom,
     allowDupes,
     setAllowDupes,
+    promoteRecommendedGear,
+    setPromoteRecommendedGear,
+    promoteMatchingWheelMainstats,
+    setPromoteMatchingWheelMainstats,
     teamPreviewMode,
     setTeamPreviewMode,
   }

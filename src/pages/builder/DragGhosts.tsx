@@ -1,24 +1,36 @@
 import {getAwakenerCardAsset, getAwakenerPortraitAsset} from '@/domain/awakener-assets'
 import {getCovenantAssetById} from '@/domain/covenant-assets'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
+import {getPosseAssetById} from '@/domain/posse-assets'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 
 import {BuilderTeamPreviewStrip} from './BuilderTeamPreviewStrip'
 import {CardWheelZone} from './CardWheelZone'
 import type {Team, TeamPreviewMode, TeamSlot} from './types'
 
-export function PickerAwakenerGhost({awakenerName}: {awakenerName: string}) {
-  const displayName = formatAwakenerNameForUi(awakenerName)
-  const portraitAsset = getAwakenerPortraitAsset(awakenerName)
+const PICKER_GHOST_CLASS =
+  'w-[62px] border border-slate-400/65 bg-slate-900/90 p-0.5 shadow-[0_6px_20px_rgba(2,6,23,0.45)]'
+const PICKER_GHOST_FRAME_CLASS = 'overflow-hidden border border-slate-300/45 bg-slate-900/70'
 
+function PickerDragGhostShell({
+  asset,
+  altText,
+  aspectClassName,
+  imageClassName,
+}: {
+  asset?: string
+  altText: string
+  aspectClassName: string
+  imageClassName?: string
+}) {
   return (
-    <div className='w-[72px] border border-slate-400/65 bg-slate-900/90 p-0.5 text-left shadow-[0_6px_20px_rgba(2,6,23,0.45)]'>
-      <div className='aspect-square overflow-hidden border border-slate-300/45 bg-slate-900/70'>
-        {portraitAsset ? (
+    <div className={PICKER_GHOST_CLASS}>
+      <div className={`${PICKER_GHOST_FRAME_CLASS} ${aspectClassName}`}>
+        {asset ? (
           <img
-            alt={`${displayName} portrait`}
-            className='h-full w-full object-cover'
-            src={portraitAsset}
+            alt={altText}
+            className={`h-full w-full object-cover ${imageClassName ?? ''}`}
+            src={asset}
           />
         ) : (
           <span className='relative block h-full w-full'>
@@ -26,8 +38,28 @@ export function PickerAwakenerGhost({awakenerName}: {awakenerName: string}) {
           </span>
         )}
       </div>
-      <p className='mt-0.5 truncate text-[10px] text-slate-100'>{displayName}</p>
     </div>
+  )
+}
+
+export function PickerAwakenerGhost({awakenerName}: {awakenerName: string}) {
+  const displayName = formatAwakenerNameForUi(awakenerName)
+  return (
+    <PickerDragGhostShell
+      altText={`${displayName} portrait`}
+      aspectClassName='aspect-square'
+      asset={getAwakenerPortraitAsset(awakenerName)}
+    />
+  )
+}
+
+export function PickerPosseGhost({posseId, posseName}: {posseId: string; posseName: string}) {
+  return (
+    <PickerDragGhostShell
+      altText={`${posseName} posse`}
+      aspectClassName='aspect-square'
+      asset={getPosseAssetById(posseId)}
+    />
   )
 }
 
@@ -134,36 +166,22 @@ export function PickerWheelGhost({
   wheelId: string
   isCovenant?: boolean
 }) {
-  const wheelAsset = isCovenant ? getCovenantAssetById(wheelId) : getWheelAssetById(wheelId)
-
+  if (isCovenant) {
+    return (
+      <PickerDragGhostShell
+        altText=''
+        aspectClassName='aspect-square'
+        asset={getCovenantAssetById(wheelId)}
+      />
+    )
+  }
   return (
-    <div
-      className={`w-[62px] border border-slate-400/65 bg-slate-900/90 p-0.5 shadow-[0_6px_20px_rgba(2,6,23,0.45)] ${
-        isCovenant ? 'rounded-full' : ''
-      } ${isCovenant ? 'w-[54px] border-0 bg-transparent p-0' : ''}`}
-    >
-      <div
-        className={`relative overflow-hidden border border-slate-300/45 bg-slate-900/70 ${
-          isCovenant ? 'aspect-square rounded-full' : 'aspect-[75/113]'
-        }`}
-      >
-        {wheelAsset ? (
-          <img
-            alt={isCovenant ? '' : `${wheelId} wheel`}
-            className={
-              isCovenant
-                ? 'builder-card-covenant-image h-full w-full object-cover'
-                : 'builder-card-wheel-image h-full w-full object-cover'
-            }
-            src={wheelAsset}
-          />
-        ) : (
-          <span className='relative block h-full w-full'>
-            <span className='sigil-placeholder sigil-placeholder-wheel' />
-          </span>
-        )}
-      </div>
-    </div>
+    <PickerDragGhostShell
+      altText={`${wheelId} wheel`}
+      aspectClassName='aspect-[75/113]'
+      asset={getWheelAssetById(wheelId)}
+      imageClassName='builder-picker-wheel-image'
+    />
   )
 }
 

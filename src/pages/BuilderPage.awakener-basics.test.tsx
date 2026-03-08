@@ -1,5 +1,5 @@
 import {fireEvent, render, screen, within} from '@testing-library/react'
-import {describe, expect, it} from 'vitest'
+import {describe, expect, it, vi} from 'vitest'
 
 import {COLLECTION_OWNERSHIP_KEY} from '@/domain/collection-ownership'
 
@@ -8,12 +8,17 @@ import './builder-page.integration-mocks'
 import {BuilderPage} from './BuilderPage'
 
 describe('BuilderPage awakener basics', () => {
-  it('uses icon-only empty placeholders without helper text', () => {
+  it('uses icon-only empty placeholders without helper text', async () => {
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined)
     const {container} = render(<BuilderPage />)
+    await Promise.resolve()
 
     expect(screen.queryByText(/tap to deploy/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/^wheel$/i)).not.toBeInTheDocument()
     expect(container.querySelectorAll('.sigil-placeholder').length).toBeGreaterThan(0)
+    expect(consoleErrorSpy).not.toHaveBeenCalled()
+
+    consoleErrorSpy.mockRestore()
   })
 
   it('adds to the first empty slot when clicking a picker portrait', () => {

@@ -8,6 +8,7 @@ function createUseBuilderDnd() {
   const onDropPickerAwakener = vi.fn()
   const onDropPickerWheel = vi.fn()
   const onDropPickerCovenant = vi.fn()
+  const onDropPickerPosse = vi.fn()
   const onDropTeamSlot = vi.fn()
   const onDropTeamWheel = vi.fn()
   const onDropTeamCovenant = vi.fn()
@@ -22,6 +23,7 @@ function createUseBuilderDnd() {
       onDropPickerAwakener,
       onDropPickerWheel,
       onDropPickerCovenant,
+      onDropPickerPosse,
       onDropTeamSlot,
       onDropTeamWheel,
       onDropTeamCovenant,
@@ -38,6 +40,7 @@ function createUseBuilderDnd() {
     onDropPickerAwakener,
     onDropPickerWheel,
     onDropPickerCovenant,
+    onDropPickerPosse,
     onDropTeamSlot,
     onDropTeamWheel,
     onDropTeamCovenant,
@@ -82,6 +85,17 @@ describe('useBuilderDnd', () => {
     } as never)
 
     expect(onDropPickerCovenant).toHaveBeenCalledWith('001', 'slot-2')
+  })
+
+  it('routes picker posse drop to posse handler', () => {
+    const {dnd, onDropPickerPosse} = createUseBuilderDnd()
+
+    dnd.handleDragEnd({
+      active: {data: {current: {kind: 'picker-posse', posseId: 'taverns-opening'}}},
+      over: {id: 'any-target'},
+    } as never)
+
+    expect(onDropPickerPosse).toHaveBeenCalledWith('taverns-opening')
   })
 
   it('routes team wheel drop to picker remove zone', () => {

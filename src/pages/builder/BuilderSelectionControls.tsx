@@ -17,12 +17,18 @@ interface BuilderSelectionControlsProps {
   awakenerSortDirection: CollectionSortDirection
   awakenerSortGroupByRealm: boolean
   displayUnowned: boolean
+  sinkUnownedToBottom: boolean
   allowDupes: boolean
+  promoteRecommendedGear: boolean
+  promoteMatchingWheelMainstats: boolean
   onAwakenerSortKeyChange: (nextKey: AwakenerSortKey) => void
   onAwakenerSortDirectionToggle: () => void
   onAwakenerSortGroupByRealmChange: (nextGroupByRealm: boolean) => void
   onDisplayUnownedChange: (displayUnowned: boolean) => void
+  onSinkUnownedToBottomChange: (sinkUnownedToBottom: boolean) => void
   onAllowDupesChange: (allowDupes: boolean) => void
+  onPromoteRecommendedGearChange: (promoteRecommendedGear: boolean) => void
+  onPromoteMatchingWheelMainstatsChange: (promoteMatchingWheelMainstats: boolean) => void
 }
 
 export function BuilderSelectionControls({
@@ -31,12 +37,18 @@ export function BuilderSelectionControls({
   awakenerSortDirection,
   awakenerSortGroupByRealm,
   displayUnowned,
+  sinkUnownedToBottom,
   allowDupes,
+  promoteRecommendedGear,
+  promoteMatchingWheelMainstats,
   onAwakenerSortKeyChange,
   onAwakenerSortDirectionToggle,
   onAwakenerSortGroupByRealmChange,
   onDisplayUnownedChange,
+  onSinkUnownedToBottomChange,
   onAllowDupesChange,
+  onPromoteRecommendedGearChange,
+  onPromoteMatchingWheelMainstatsChange,
 }: BuilderSelectionControlsProps) {
   const [isAwakenerSortExpanded, setIsAwakenerSortExpanded] = useState<boolean>(() => {
     if (typeof window === 'undefined') {
@@ -113,6 +125,21 @@ export function BuilderSelectionControls({
             variant='flat'
           />
         </div>
+        {displayUnowned ? (
+          <div className='flex items-center justify-between gap-3 pl-3 text-xs text-slate-300'>
+            <span>Move Unowned to Bottom</span>
+            <OwnedTogglePill
+              className='ownership-pill-builder'
+              offLabel='Off'
+              onLabel='On'
+              onToggle={() => {
+                onSinkUnownedToBottomChange(!sinkUnownedToBottom)
+              }}
+              owned={sinkUnownedToBottom}
+              variant='flat'
+            />
+          </div>
+        ) : null}
         <div className='flex items-center justify-between gap-3 text-xs text-slate-300'>
           <span>Allow Dupes</span>
           <OwnedTogglePill
@@ -126,6 +153,36 @@ export function BuilderSelectionControls({
             variant='flat'
           />
         </div>
+        {pickerTab === 'wheels' || pickerTab === 'covenants' ? (
+          <div className='flex items-center justify-between gap-3 text-xs text-slate-300'>
+            <span>Promote Recommendations</span>
+            <OwnedTogglePill
+              className='ownership-pill-builder'
+              offLabel='Off'
+              onLabel='On'
+              onToggle={() => {
+                onPromoteRecommendedGearChange(!promoteRecommendedGear)
+              }}
+              owned={promoteRecommendedGear}
+              variant='flat'
+            />
+          </div>
+        ) : null}
+        {pickerTab === 'wheels' && promoteRecommendedGear ? (
+          <div className='flex items-center justify-between gap-3 pl-3 text-xs text-slate-300'>
+            <span>Promote Mainstat Matches</span>
+            <OwnedTogglePill
+              className='ownership-pill-builder'
+              offLabel='Off'
+              onLabel='On'
+              onToggle={() => {
+                onPromoteMatchingWheelMainstatsChange(!promoteMatchingWheelMainstats)
+              }}
+              owned={promoteMatchingWheelMainstats}
+              variant='flat'
+            />
+          </div>
+        ) : null}
       </div>
     </div>
   )

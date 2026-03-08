@@ -10,9 +10,7 @@
     "key": "CRIT_DMG",
     "label": "Crit DMG",
     "iconId": "007",
-    "aliases": [
-      "crit damage"
-    ],
+    "aliases": ["crit damage"],
     "wheelFilter": true
   },
   {
@@ -26,27 +24,21 @@
     "key": "DMG_AMP",
     "label": "DMG Amp",
     "iconId": "004",
-    "aliases": [
-      "damage amplification"
-    ],
+    "aliases": ["damage amplification"],
     "wheelFilter": true
   },
   {
     "key": "ALIEMUS_REGEN",
     "label": "Aliemus Regen",
     "iconId": "003",
-    "aliases": [
-      "aliemus regen level"
-    ],
+    "aliases": ["aliemus regen level"],
     "wheelFilter": true
   },
   {
     "key": "KEYFLARE_REGEN",
     "label": "Keyflare Regen",
     "iconId": "005",
-    "aliases": [
-      "keyflare regen level"
-    ],
+    "aliases": ["keyflare regen level"],
     "wheelFilter": true
   },
   {
@@ -67,27 +59,21 @@
     "key": "ATK",
     "label": "ATK",
     "iconId": "010",
-    "aliases": [
-      "attack"
-    ],
+    "aliases": ["attack"],
     "wheelFilter": false
   },
   {
     "key": "DEF",
     "label": "DEF",
     "iconId": "009",
-    "aliases": [
-      "defense"
-    ],
+    "aliases": ["defense"],
     "wheelFilter": false
   },
   {
     "key": "CON",
     "label": "CON",
     "iconId": "011",
-    "aliases": [
-      "constitution"
-    ],
+    "aliases": ["constitution"],
     "wheelFilter": false
   }
 ]

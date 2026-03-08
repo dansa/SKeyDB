@@ -74,6 +74,7 @@ export type DragData =
   | {kind: 'picker-awakener'; awakenerName: string}
   | {kind: 'picker-wheel'; wheelId: string}
   | {kind: 'picker-covenant'; covenantId: string}
+  | {kind: 'picker-posse'; posseId: string; posseName: string}
   | {kind: 'team-slot'; slotId: string; awakenerName: string}
   | {kind: 'team-preview-slot'; teamId: string; slotId: string}
   | {kind: 'team-wheel'; slotId: string; wheelIndex: number; wheelId: string}

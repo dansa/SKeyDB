@@ -76,7 +76,7 @@ describe('BuilderPage team management', () => {
 
     const tavernsOpeningButton = screen.getByRole('button', {name: /taverns opening/i})
     expect(tavernsOpeningButton).toHaveAttribute('aria-disabled', 'true')
-    expect(tavernsOpeningButton).toHaveTextContent(/used in 1st team/i)
+    expect(tavernsOpeningButton).toHaveTextContent(/team 1/i)
 
     fireEvent.click(tavernsOpeningButton)
     expect(screen.getByRole('dialog', {name: /move taverns opening/i})).toBeInTheDocument()

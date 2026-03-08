@@ -9,8 +9,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.{js,mjs,cjs}\" \"eslint.config.js\" \"vite.config.ts\" \"prettier.config.cjs\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.{js,mjs,cjs}\" \"eslint.config.js\" \"vite.config.ts\" \"prettier.config.cjs\"",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.{js,mjs,cjs}\" \"src/data/**/*.json\" \"src/domain/persistence-contract.v1.json\" \"schemas/**/*.json\" \"package.json\" \"tools/react-sidecar/package.json\" \"eslint.config.js\" \"vite.config.ts\" \"prettier.config.cjs\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.{js,mjs,cjs}\" \"src/data/**/*.json\" \"src/domain/persistence-contract.v1.json\" \"schemas/**/*.json\" \"package.json\" \"tools/react-sidecar/package.json\" \"eslint.config.js\" \"vite.config.ts\" \"prettier.config.cjs\"",
     "lint": "eslint src scripts vite.config.ts eslint.config.js",
     "lint:react-sidecar": "node tools/react-sidecar/node_modules/eslint/bin/eslint.js --config tools/react-sidecar/eslint.config.js \"src/**/*.{tsx,jsx}\"",
     "lint:react-sidecar:setup": "npm install --prefix tools/react-sidecar",

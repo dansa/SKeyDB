@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react'
+import {fireEvent, render, screen, waitFor, within} from '@testing-library/react'
 import {describe, expect, it} from 'vitest'
 
 import './builder-page.integration-mocks'
@@ -51,7 +51,7 @@ describe('BuilderPage wheels', () => {
     fireEvent.click(screen.getByRole('button', {name: /merciful nurturing/i}))
 
     const wheelTile = screen.getByRole('button', {name: /merciful nurturing wheel/i})
-    expect(wheelTile).toHaveTextContent(/already used/i)
+    expect(wheelTile).toHaveTextContent(/in use/i)
   })
 
   it('keeps dedicated image scale classes for picker and card wheel tiles', () => {
@@ -91,6 +91,69 @@ describe('BuilderPage wheels', () => {
     fireEvent.click(mainstatCritRate)
     expect(raritySsr).toHaveAttribute('aria-pressed', 'true')
     expect(mainstatCritRate).toHaveAttribute('aria-pressed', 'true')
+  })
+
+  it('shows recommendation toggles on the wheels picker', () => {
+    render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('tab', {name: /wheels/i}))
+    fireEvent.click(screen.getByRole('button', {name: /sorting & toggles/i}))
+
+    expect(screen.getByText('Promote Recommendations')).toBeInTheDocument()
+    expect(screen.getByText('Promote Mainstat Matches')).toBeInTheDocument()
+  })
+
+  it('shows recommendation chips on promoted wheel tiles for the active awakener', async () => {
+    render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    fireEvent.click(screen.getByRole('button', {name: /change goliath/i}))
+    fireEvent.click(screen.getByRole('tab', {name: /wheels/i}))
+
+    await waitFor(() => {
+      const bisWheelTile = screen.getByRole('button', {name: /tablet of scriptures wheel/i})
+      expect(bisWheelTile).toHaveTextContent('BiS')
+      expect(screen.queryByAltText(/recommended mainstat crit dmg/i)).not.toBeInTheDocument()
+
+      const goodWheelTile = screen.getByRole('button', {name: /merciful nurturing wheel/i})
+      expect(goodWheelTile).toHaveTextContent('Good')
+    })
+  })
+
+  it('shows ordered mainstat chips only on non-tagged promoted fallback wheels', async () => {
+    render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    fireEvent.click(screen.getByRole('button', {name: /change goliath/i}))
+    fireEvent.click(screen.getByRole('tab', {name: /wheels/i}))
+    fireEvent.click(screen.getByRole('button', {name: /sorting & toggles/i}))
+    const promoteMainstatRow = screen.getByText('Promote Mainstat Matches').closest('div')
+    expect(promoteMainstatRow).not.toBeNull()
+    if (!promoteMainstatRow) {
+      throw new Error('Expected promote mainstat toggle row to be present')
+    }
+    fireEvent.click(within(promoteMainstatRow).getByRole('button'))
+
+    await waitFor(() => {
+      const wheelButtons = screen.getAllByRole('button')
+      const keyflareChip = screen.getByAltText(/recommended mainstat keyflare regen/i)
+      const aliemusChip = screen.getByAltText(/recommended mainstat aliemus regen/i)
+      expect(keyflareChip).toBeInTheDocument()
+      expect(aliemusChip).toBeInTheDocument()
+
+      const firstMainstatTile = keyflareChip.closest('button')
+      const secondMainstatTile = aliemusChip.closest('button')
+      expect(firstMainstatTile).not.toBeNull()
+      expect(secondMainstatTile).not.toBeNull()
+      if (!firstMainstatTile || !secondMainstatTile) {
+        throw new Error('Expected recommended mainstat chips to render inside wheel tiles')
+      }
+      expect(wheelButtons.indexOf(firstMainstatTile)).toBeLessThan(
+        wheelButtons.indexOf(secondMainstatTile),
+      )
+    })
   })
 
   it('uses standard plus sigil for unset wheel slots on cards', () => {

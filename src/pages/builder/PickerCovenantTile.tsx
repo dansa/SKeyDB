@@ -1,5 +1,7 @@
 import {useDraggable} from '@dnd-kit/core'
 
+import {CompactArtTile} from '@/components/ui/CompactArtTile'
+
 import type {DragData} from './types'
 
 interface PickerCovenantTileProps {
@@ -7,6 +9,7 @@ interface PickerCovenantTileProps {
   covenantName?: string
   covenantAsset?: string
   isNotSet?: boolean
+  recommendationLabel?: string
   onClick: () => void
 }
 
@@ -62,6 +65,7 @@ export function PickerCovenantTile({
   covenantName,
   covenantAsset,
   isNotSet = false,
+  recommendationLabel,
   onClick,
 }: PickerCovenantTileProps) {
   const draggableCovenantId = !isNotSet && covenantId ? covenantId : undefined
@@ -79,7 +83,7 @@ export function PickerCovenantTile({
   return (
     <button
       aria-label={isNotSet ? 'Not set covenant' : altText}
-      className={`border border-slate-500/45 bg-slate-900/55 p-1 text-left transition-colors hover:border-amber-200/45 ${
+      className={`builder-picker-tile border border-slate-500/45 bg-slate-900/55 p-1 text-left transition-colors hover:border-amber-200/45 ${
         isDragging ? 'scale-[0.98] opacity-60' : ''
       }`}
       onClick={onClick}
@@ -88,10 +92,18 @@ export function PickerCovenantTile({
       {...(draggableCovenantId ? dragAttributes : {})}
       {...(draggableCovenantId ? listeners : {})}
     >
-      <div className='relative aspect-square overflow-hidden border border-slate-400/35 bg-slate-900/70'>
-        {renderCovenantPreview(covenantAsset, isNotSet, altText)}
-      </div>
-      <p className='mt-1 truncate text-[11px] text-slate-200'>{covenantDisplayName}</p>
+      <CompactArtTile
+        chips={
+          !isNotSet && recommendationLabel ? (
+            <span className='builder-picker-recommendation-chip'>{recommendationLabel}</span>
+          ) : undefined
+        }
+        name={covenantDisplayName}
+        nameClassName='truncate'
+        nameTitle={covenantDisplayName}
+        preview={renderCovenantPreview(covenantAsset, isNotSet, altText)}
+        previewClassName='aspect-square border border-slate-400/35 bg-slate-900/70'
+      />
     </button>
   )
 }

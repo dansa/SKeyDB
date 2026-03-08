@@ -47,6 +47,24 @@ vi.mock('../domain/wheels', () => ({
       awakener: '',
       mainstatKey: 'ATK',
     },
+    {
+      id: 'O03',
+      assetId: 'Weapon_Full_O03',
+      name: 'Signal Through Silence',
+      rarity: 'SSR',
+      realm: 'AEQUOR',
+      awakener: 'goliath',
+      mainstatKey: 'KEYFLARE_REGEN',
+    },
+    {
+      id: 'O04',
+      assetId: 'Weapon_Full_O04',
+      name: 'Mute Witness',
+      rarity: 'SSR',
+      realm: 'AEQUOR',
+      awakener: 'goliath',
+      mainstatKey: 'ALIEMUS_REGEN',
+    },
   ],
   getWheelMainstatLabel: () => '',
 }))
@@ -71,6 +89,55 @@ vi.mock('../domain/covenants', () => ({
     {id: 'c02', assetId: 'Covenant_02', name: 'Signal Pulse'},
   ],
 }))
+
+vi.mock('../domain/awakener-builds', async () => {
+  const actual = await vi.importActual<typeof import('../domain/awakener-builds')>(
+    '../domain/awakener-builds',
+  )
+
+  return {
+    ...actual,
+    getAwakenerBuildEntries: () => [
+      {
+        awakenerId: 1,
+        primaryBuildId: 'standard',
+        builds: [
+          {
+            id: 'standard',
+            label: 'Core',
+            substatPriorityGroups: [['CRIT_DMG'], ['CRIT_RATE']],
+            recommendedWheelMainstats: ['KEYFLARE_REGEN', 'ALIEMUS_REGEN', 'CRIT_DMG'],
+            recommendedWheels: [
+              {tier: 'BIS_SSR', wheelIds: ['O02']},
+              {tier: 'GOOD', wheelIds: ['O01']},
+            ],
+            recommendedCovenantIds: ['c02', 'c01'],
+          },
+        ],
+      },
+    ],
+    loadAwakenerBuildEntries: () =>
+      Promise.resolve([
+        {
+          awakenerId: 1,
+          primaryBuildId: 'standard',
+          builds: [
+            {
+              id: 'standard',
+              label: 'Core',
+              substatPriorityGroups: [['CRIT_DMG'], ['CRIT_RATE']],
+              recommendedWheelMainstats: ['KEYFLARE_REGEN', 'ALIEMUS_REGEN', 'CRIT_DMG'],
+              recommendedWheels: [
+                {tier: 'BIS_SSR', wheelIds: ['O02']},
+                {tier: 'GOOD', wheelIds: ['O01']},
+              ],
+              recommendedCovenantIds: ['c02', 'c01'],
+            },
+          ],
+        },
+      ]),
+  }
+})
 
 vi.mock('../domain/wheel-assets', () => ({
   getWheelAssetById: (wheelId: string) => `/mock/wheels/${wheelId}.png`,

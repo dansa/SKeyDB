@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react'
+import {fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {describe, expect, it} from 'vitest'
 
 import './builder-page.integration-mocks'
@@ -55,5 +55,32 @@ describe('BuilderPage covenants', () => {
 
     expect(covenantTile).not.toBeNull()
     expect(covenantTile?.querySelector('.builder-covenant-placeholder-svg')).not.toBeNull()
+  })
+
+  it('shows recommendation promotion on covenants without the wheel-mainstat toggle', () => {
+    render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('tab', {name: /covenants/i}))
+    fireEvent.click(screen.getByRole('button', {name: /sorting & toggles/i}))
+
+    expect(screen.getByText('Promote Recommendations')).toBeInTheDocument()
+    expect(screen.queryByText('Promote Mainstat Matches')).not.toBeInTheDocument()
+  })
+
+  it('shows recommendation rank chips on promoted covenant tiles for the active awakener', async () => {
+    render(<BuilderPage />)
+
+    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.load(screen.getByAltText(/goliath card/i))
+    fireEvent.click(screen.getByRole('button', {name: /change goliath/i}))
+    fireEvent.click(screen.getByRole('tab', {name: /covenants/i}))
+
+    await waitFor(() => {
+      const firstTile = screen.getByRole('button', {name: /signal pulse covenant/i})
+      const secondTile = screen.getByRole('button', {name: /deus ex machina covenant/i})
+
+      expect(firstTile).toHaveTextContent('#1')
+      expect(secondTile).toHaveTextContent('#2')
+    })
   })
 })

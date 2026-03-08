@@ -19,9 +19,7 @@
     "label": "Alert",
     "description": "",
     "iconId": "",
-    "aliases": [
-      "Temporary Alert"
-    ],
+    "aliases": ["Temporary Alert"],
     "source": "agrippa, alva, erica"
   },
   {
@@ -91,9 +89,7 @@
     "label": "Barrier",
     "description": "",
     "iconId": "",
-    "aliases": [
-      "Temporary Barrier"
-    ],
+    "aliases": ["Temporary Barrier"],
     "source": "salvador, tawil, winkle"
   },
   {
@@ -308,9 +304,7 @@
     "label": "Counter",
     "description": "",
     "iconId": "",
-    "aliases": [
-      "Temporary Counter"
-    ]
+    "aliases": ["Temporary Counter"]
   },
   {
     "key": "CREATIVITY",
@@ -634,9 +628,7 @@
     "label": "Fortress",
     "description": "",
     "iconId": "",
-    "aliases": [
-      "Temporary Fortress"
-    ],
+    "aliases": ["Temporary Fortress"],
     "source": "vortice"
   },
   {
@@ -692,9 +684,7 @@
     "label": "Hand Limit",
     "description": "",
     "iconId": "",
-    "aliases": [
-      "Temporary Hand Limit"
-    ]
+    "aliases": ["Temporary Hand Limit"]
   },
   {
     "key": "HAPPINESS",
@@ -1296,9 +1286,7 @@
     "label": "STR",
     "description": "",
     "iconId": "",
-    "aliases": [
-      "Temporary STR"
-    ]
+    "aliases": ["Temporary STR"]
   },
   {
     "key": "STR_DOWN",
@@ -1326,10 +1314,7 @@
     "label": "Stun",
     "description": "Stunned for 1 turn. Cannot be stunned again this battle.",
     "iconId": "",
-    "aliases": [
-      "Fainted",
-      "Petrify"
-    ]
+    "aliases": ["Fainted", "Petrify"]
   },
   {
     "key": "SURGING_TIDES",
@@ -1352,9 +1337,7 @@
     "label": "Tentacle DMG",
     "description": "",
     "iconId": "",
-    "aliases": [
-      "Temporary Tentacle DMG"
-    ]
+    "aliases": ["Temporary Tentacle DMG"]
   },
   {
     "key": "TENTACLES",
@@ -1445,9 +1428,7 @@
     "label": "Vulnerability",
     "description": "",
     "iconId": "",
-    "aliases": [
-      "Vulnerable"
-    ]
+    "aliases": ["Vulnerable"]
   },
   {
     "key": "WEAKNESS",

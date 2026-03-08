@@ -55,8 +55,14 @@ export function BuilderPage() {
   const {
     displayUnowned,
     setDisplayUnowned,
+    sinkUnownedToBottom,
+    setSinkUnownedToBottom,
     allowDupes,
     setAllowDupes,
+    promoteRecommendedGear,
+    setPromoteRecommendedGear,
+    promoteMatchingWheelMainstats,
+    setPromoteMatchingWheelMainstats,
     teamPreviewMode,
     setTeamPreviewMode,
     quickLineupSession,
@@ -97,6 +103,8 @@ export function BuilderPage() {
     activePosse,
     activePosseAsset,
     activeSearchQuery,
+    activeBuild,
+    teamRecommendedPosseIds,
     filteredAwakeners,
     filteredPosses,
     filteredWheels,
@@ -271,6 +279,7 @@ export function BuilderPage() {
     onDropPickerAwakener: handleDropPickerAwakener,
     onDropPickerWheel: handleDropPickerWheel,
     onDropPickerCovenant: handleDropPickerCovenant,
+    onDropPickerPosse: handleSetActivePosse,
     onDropTeamSlot: swapActiveTeamSlots,
     onDropTeamSlotToPicker: clearTeamSlot,
     onDropTeamWheel: handleDropTeamWheel,
@@ -585,14 +594,20 @@ export function BuilderPage() {
             awakenerSortGroupByRealm={awakenerSortGroupByRealm}
             awakenerSortKey={awakenerSortKey}
             allowDupes={allowDupes}
+            activeBuild={activeBuild}
+            teamRecommendedPosseIds={teamRecommendedPosseIds}
             displayUnowned={displayUnowned}
+            sinkUnownedToBottom={sinkUnownedToBottom}
             effectiveActiveTeamId={effectiveActiveTeamId}
             filteredAwakeners={filteredAwakeners}
+            filteredCovenants={filteredCovenants}
             filteredPosses={filteredPosses}
+            filteredWheels={filteredWheels}
             ownedAwakenerLevelByName={ownedAwakenerLevelByName}
             ownedPosseLevelById={ownedPosseLevelById}
             ownedWheelLevelById={ownedWheelLevelById}
             onDisplayUnownedChange={setDisplayUnowned}
+            onSinkUnownedToBottomChange={setSinkUnownedToBottom}
             onAwakenerClick={handlePickerAwakenerClick}
             onAwakenerFilterChange={setAwakenerFilter}
             onAwakenerSortDirectionToggle={toggleAwakenerSortDirection}
@@ -601,6 +616,8 @@ export function BuilderPage() {
             onAllowDupesChange={setAllowDupes}
             onPickerTabChange={setPickerTab}
             onPosseFilterChange={setPosseFilter}
+            onPromoteMatchingWheelMainstatsChange={setPromoteMatchingWheelMainstats}
+            onPromoteRecommendedGearChange={setPromoteRecommendedGear}
             onWheelRarityFilterChange={setWheelRarityFilter}
             onWheelMainstatFilterChange={setWheelMainstatFilter}
             onSearchChange={(nextValue) => {
@@ -614,6 +631,8 @@ export function BuilderPage() {
             onSetActiveCovenant={handlePickerCovenantClick}
             pickerTab={pickerTab}
             posseFilter={posseFilter}
+            promoteMatchingWheelMainstats={promoteMatchingWheelMainstats}
+            promoteRecommendedGear={promoteRecommendedGear}
             wheelRarityFilter={wheelRarityFilter}
             wheelMainstatFilter={wheelMainstatFilter}
             searchInputRef={searchInputRef}
@@ -622,8 +641,6 @@ export function BuilderPage() {
             usedAwakenerIdentityKeys={usedAwakenerIdentityKeys}
             usedPosseByTeamOrder={usedPosseByTeamOrder}
             usedWheelByTeamOrder={usedWheelByTeamOrder}
-            filteredWheels={filteredWheels}
-            filteredCovenants={filteredCovenants}
           />
         </div>
       </section>

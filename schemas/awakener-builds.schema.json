@@ -1,0 +1,1223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Awakener Builds",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/entry"
+  },
+  "$defs": {
+    "awakenerId": {
+      "oneOf": [
+        {
+          "const": 1,
+          "title": "24",
+          "description": "SSR · CHAOS · ASSAULT"
+        },
+        {
+          "const": 2,
+          "title": "agrippa",
+          "description": "SSR · CARO · WARDEN"
+        },
+        {
+          "const": 3,
+          "title": "aigis",
+          "description": "SSR · CARO · CHORUS"
+        },
+        {
+          "const": 4,
+          "title": "alva",
+          "description": "SSR · CHAOS · WARDEN"
+        },
+        {
+          "const": 5,
+          "title": "aurita",
+          "description": "SSR · AEQUOR · ASSAULT"
+        },
+        {
+          "const": 6,
+          "title": "caecus",
+          "description": "SSR · AEQUOR · WARDEN"
+        },
+        {
+          "const": 7,
+          "title": "casiah",
+          "description": "SSR · ULTRA · CHORUS"
+        },
+        {
+          "const": 8,
+          "title": "castor",
+          "description": "SSR · ULTRA · WARDEN"
+        },
+        {
+          "const": 9,
+          "title": "celeste",
+          "description": "SSR · AEQUOR · CHORUS"
+        },
+        {
+          "const": 10,
+          "title": "clementine",
+          "description": "SSR · ULTRA · CHORUS"
+        },
+        {
+          "const": 11,
+          "title": "corposant",
+          "description": "SSR · AEQUOR · WARDEN"
+        },
+        {
+          "const": 12,
+          "title": "daffodil",
+          "description": "SSR · ULTRA · ASSAULT"
+        },
+        {
+          "const": 13,
+          "title": "doll",
+          "description": "SR · CHAOS · CHORUS"
+        },
+        {
+          "const": 18,
+          "title": "doll: inferno",
+          "description": "Genesis · CHAOS · CHORUS"
+        },
+        {
+          "const": 14,
+          "title": "doresain",
+          "description": "SSR · CARO · ASSAULT"
+        },
+        {
+          "const": 15,
+          "title": "erica",
+          "description": "SSR · ULTRA · WARDEN"
+        },
+        {
+          "const": 16,
+          "title": "faint",
+          "description": "SSR · CARO · WARDEN"
+        },
+        {
+          "const": 17,
+          "title": "faros",
+          "description": "SSR · AEQUOR · CHORUS"
+        },
+        {
+          "const": 21,
+          "title": "goliath",
+          "description": "SSR · AEQUOR · ASSAULT"
+        },
+        {
+          "const": 22,
+          "title": "hameln",
+          "description": "SSR · CHAOS · CHORUS"
+        },
+        {
+          "const": 23,
+          "title": "helot",
+          "description": "SSR · CARO · ASSAULT"
+        },
+        {
+          "const": 19,
+          "title": "helot: catena",
+          "description": "Genesis · CARO · ASSAULT"
+        },
+        {
+          "const": 24,
+          "title": "horla",
+          "description": "SSR · ULTRA · CHORUS"
+        },
+        {
+          "const": 25,
+          "title": "jenkins",
+          "description": "SSR · ULTRA · ASSAULT"
+        },
+        {
+          "const": 26,
+          "title": "karen",
+          "description": "SSR · CHAOS · CHORUS"
+        },
+        {
+          "const": 27,
+          "title": "kathigu-ra",
+          "description": "SSR · CHAOS · ASSAULT"
+        },
+        {
+          "const": 28,
+          "title": "leigh",
+          "description": "SSR · CARO · CHORUS"
+        },
+        {
+          "const": 29,
+          "title": "lily",
+          "description": "SSR · CHAOS · WARDEN"
+        },
+        {
+          "const": 30,
+          "title": "liz",
+          "description": "SSR · ULTRA · ASSAULT"
+        },
+        {
+          "const": 31,
+          "title": "lotan",
+          "description": "SR · CHAOS · ASSAULT"
+        },
+        {
+          "const": 32,
+          "title": "miryam",
+          "description": "SSR · AEQUOR · CHORUS"
+        },
+        {
+          "const": 33,
+          "title": "mouchette",
+          "description": "SSR · CHAOS · ASSAULT"
+        },
+        {
+          "const": 34,
+          "title": "murphy",
+          "description": "SSR · AEQUOR · WARDEN"
+        },
+        {
+          "const": 35,
+          "title": "murphy: fauxborn",
+          "description": "Genesis · AEQUOR · CHORUS"
+        },
+        {
+          "const": 36,
+          "title": "nautila",
+          "description": "SSR · CHAOS · WARDEN"
+        },
+        {
+          "const": 37,
+          "title": "nymphaea",
+          "description": "SSR · CHAOS · ASSAULT"
+        },
+        {
+          "const": 38,
+          "title": "ogier",
+          "description": "SR · CHAOS · WARDEN"
+        },
+        {
+          "const": 39,
+          "title": "pandia",
+          "description": "SSR · CHAOS · ASSAULT"
+        },
+        {
+          "const": 40,
+          "title": "pickman",
+          "description": "SSR · CARO · CHORUS"
+        },
+        {
+          "const": 41,
+          "title": "pollux",
+          "description": "SSR · ULTRA · ASSAULT"
+        },
+        {
+          "const": 42,
+          "title": "ramona",
+          "description": "SR · CHAOS · CHORUS"
+        },
+        {
+          "const": 20,
+          "title": "ramona: timeworn",
+          "description": "Genesis · CHAOS · CHORUS"
+        },
+        {
+          "const": 43,
+          "title": "ryker",
+          "description": "SSR · CHAOS · CHORUS"
+        },
+        {
+          "const": 44,
+          "title": "salvador",
+          "description": "SSR · CARO · WARDEN"
+        },
+        {
+          "const": 45,
+          "title": "sanga",
+          "description": "SSR · AEQUOR · WARDEN"
+        },
+        {
+          "const": 46,
+          "title": "sorel",
+          "description": "SSR · CARO · ASSAULT"
+        },
+        {
+          "const": 47,
+          "title": "tawil",
+          "description": "SSR · CHAOS · CHORUS"
+        },
+        {
+          "const": 48,
+          "title": "thais",
+          "description": "SSR · CARO · CHORUS"
+        },
+        {
+          "const": 49,
+          "title": "tinct",
+          "description": "SSR · ULTRA · CHORUS"
+        },
+        {
+          "const": 50,
+          "title": "tulu",
+          "description": "SSR · AEQUOR · ASSAULT"
+        },
+        {
+          "const": 51,
+          "title": "uvhash",
+          "description": "SSR · CARO · ASSAULT"
+        },
+        {
+          "const": 52,
+          "title": "wanda",
+          "description": "SSR · ULTRA · WARDEN"
+        },
+        {
+          "const": 53,
+          "title": "winkle",
+          "description": "SSR · ULTRA · CHORUS"
+        },
+        {
+          "const": 54,
+          "title": "xu",
+          "description": "SSR · CARO · CHORUS"
+        },
+        {
+          "const": 55,
+          "title": "vortice",
+          "description": "SSR · AEQUOR · TBD"
+        }
+      ]
+    },
+    "buildId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mainstatKey": {
+      "oneOf": [
+        {
+          "const": "CRIT_RATE",
+          "title": "Crit Rate"
+        },
+        {
+          "const": "CRIT_DMG",
+          "title": "Crit DMG"
+        },
+        {
+          "const": "REALM_MASTERY",
+          "title": "Realm Mastery"
+        },
+        {
+          "const": "DMG_AMP",
+          "title": "DMG Amp"
+        },
+        {
+          "const": "ALIEMUS_REGEN",
+          "title": "Aliemus Regen"
+        },
+        {
+          "const": "KEYFLARE_REGEN",
+          "title": "Keyflare Regen"
+        },
+        {
+          "const": "SIGIL_YIELD",
+          "title": "Sigil Yield"
+        },
+        {
+          "const": "DEATH_RESISTANCE",
+          "title": "Death Resistance"
+        },
+        {
+          "const": "ATK",
+          "title": "ATK"
+        },
+        {
+          "const": "DEF",
+          "title": "DEF"
+        },
+        {
+          "const": "CON",
+          "title": "CON"
+        }
+      ]
+    },
+    "wheelMainstatKey": {
+      "oneOf": [
+        {
+          "const": "CRIT_RATE",
+          "title": "Crit Rate"
+        },
+        {
+          "const": "CRIT_DMG",
+          "title": "Crit DMG"
+        },
+        {
+          "const": "REALM_MASTERY",
+          "title": "Realm Mastery"
+        },
+        {
+          "const": "DMG_AMP",
+          "title": "DMG Amp"
+        },
+        {
+          "const": "ALIEMUS_REGEN",
+          "title": "Aliemus Regen"
+        },
+        {
+          "const": "KEYFLARE_REGEN",
+          "title": "Keyflare Regen"
+        },
+        {
+          "const": "SIGIL_YIELD",
+          "title": "Sigil Yield"
+        },
+        {
+          "const": "DEATH_RESISTANCE",
+          "title": "Death Resistance"
+        }
+      ]
+    },
+    "wheelTier": {
+      "oneOf": [
+        {
+          "const": "BIS_SSR"
+        },
+        {
+          "const": "ALT_SSR"
+        },
+        {
+          "const": "BIS_SR"
+        },
+        {
+          "const": "GOOD"
+        }
+      ]
+    },
+    "wheelId": {
+      "oneOf": [
+        {
+          "const": "B01",
+          "title": "Merciful Nurturing",
+          "description": "SSR · CARO · thais · Keyflare Regen"
+        },
+        {
+          "const": "B02",
+          "title": "Tablet of Scriptures",
+          "description": "SSR · CARO · salvador · Sigil Yield"
+        },
+        {
+          "const": "B03",
+          "title": "Winter's Requiem",
+          "description": "SSR · CARO · aigis · Keyflare Regen"
+        },
+        {
+          "const": "B04",
+          "title": "By Rose Alone",
+          "description": "SSR · CARO · sorel · Crit Rate"
+        },
+        {
+          "const": "B05",
+          "title": "Chains Unbound",
+          "description": "SSR · CARO · helot · DMG Amp"
+        },
+        {
+          "const": "B05EX",
+          "title": "Drowning in Crimson",
+          "description": "SSR · CARO · helot: catena · DMG Amp"
+        },
+        {
+          "const": "B06",
+          "title": "Pale Descendant",
+          "description": "SSR · CARO · agrippa · Sigil Yield"
+        },
+        {
+          "const": "B07",
+          "title": "Bloody Feast",
+          "description": "SSR · CARO · uvhash · Crit DMG"
+        },
+        {
+          "const": "B08",
+          "title": "The Glutton's Tale",
+          "description": "SSR · CARO · leigh · Realm Mastery"
+        },
+        {
+          "const": "B09",
+          "title": "Lullaby Devoured",
+          "description": "SSR · CARO · faint · Death Resistance"
+        },
+        {
+          "const": "B10",
+          "title": "Kiss of Repose",
+          "description": "SSR · CARO · doresain · Crit DMG"
+        },
+        {
+          "const": "B12",
+          "title": "Paradoxical Realism",
+          "description": "SSR · CARO · pickman · Aliemus Regen"
+        },
+        {
+          "const": "B14",
+          "title": "Vain Regrets",
+          "description": "SSR · CARO · Xu · DMG Amp"
+        },
+        {
+          "const": "C01",
+          "title": "Rewinding Time",
+          "description": "SSR · CHAOS · ramona · Keyflare Regen"
+        },
+        {
+          "const": "C02",
+          "title": "Deathless Ascent",
+          "description": "SSR · CHAOS · doll · Aliemus Regen"
+        },
+        {
+          "const": "C02EX",
+          "title": "Manikin of Oblivion",
+          "description": "SSR · CHAOS · doll: inferno · Aliemus Regen"
+        },
+        {
+          "const": "C03",
+          "title": "Heart of a Knight",
+          "description": "SSR · CHAOS · ogier · Sigil Yield"
+        },
+        {
+          "const": "C04",
+          "title": "Celestial Beast",
+          "description": "SSR · CHAOS · lotan · Crit DMG"
+        },
+        {
+          "const": "C05",
+          "title": "Hour of Fortune",
+          "description": "SSR · CHAOS · ryker · Sigil Yield"
+        },
+        {
+          "const": "C06",
+          "title": "Aberrant Devour",
+          "description": "SSR · CHAOS · 24 · Aliemus Regen"
+        },
+        {
+          "const": "C07",
+          "title": "Memory Spiral",
+          "description": "SSR · CHAOS · nautila · Realm Mastery"
+        },
+        {
+          "const": "C08",
+          "title": "Gift of Decay",
+          "description": "SSR · CHAOS · nymphaea · DMG Amp"
+        },
+        {
+          "const": "C09",
+          "title": "Drifting in Desire",
+          "description": "SSR · CHAOS · pandia · Crit Rate"
+        },
+        {
+          "const": "C10",
+          "title": "Grace Through Pain",
+          "description": "SSR · CHAOS · lily · Death Resistance"
+        },
+        {
+          "const": "C11",
+          "title": "Will Unyielding",
+          "description": "SSR · CHAOS · alva · Death Resistance"
+        },
+        {
+          "const": "C12",
+          "title": "Silent Banquet",
+          "description": "SSR · CHAOS · karen · Aliemus Regen"
+        },
+        {
+          "const": "C15",
+          "title": "Wheel Unseen",
+          "description": "SSR · CHAOS · tawil · Keyflare Regen"
+        },
+        {
+          "const": "C16",
+          "title": "Amber-Tinted Death",
+          "description": "SSR · CHAOS · kathigu-ra · Crit DMG"
+        },
+        {
+          "const": "C17",
+          "title": "Doomsday Rampage",
+          "description": "SSR · CHAOS · mouchette · Death Resistance"
+        },
+        {
+          "const": "D01",
+          "title": "Fouetté",
+          "description": "SSR · ULTRA · liz · Crit Rate"
+        },
+        {
+          "const": "D02",
+          "title": "Treasured Rarity",
+          "description": "SSR · ULTRA · daffodil · Crit DMG"
+        },
+        {
+          "const": "D03",
+          "title": "Song of the Bound",
+          "description": "SSR · ULTRA · tinct · Sigil Yield"
+        },
+        {
+          "const": "D04",
+          "title": "Queen's Edict",
+          "description": "SSR · ULTRA · wanda · DMG Amp"
+        },
+        {
+          "const": "D05",
+          "title": "Incalculable Factor",
+          "description": "SSR · ULTRA · winkle · Aliemus Regen"
+        },
+        {
+          "const": "D06",
+          "title": "The Last Verse",
+          "description": "SSR · ULTRA · horla · Death Resistance"
+        },
+        {
+          "const": "D07",
+          "title": "Path Forsaken",
+          "description": "SSR · ULTRA · jenkins · Crit Rate"
+        },
+        {
+          "const": "D08",
+          "title": "Core Meltdown",
+          "description": "SSR · ULTRA · erica · Keyflare Regen"
+        },
+        {
+          "const": "D09",
+          "title": "Happy Magic Show",
+          "description": "SSR · ULTRA · casiah · Realm Mastery"
+        },
+        {
+          "const": "D11",
+          "title": "Unbearable Freedom",
+          "description": "SSR · ULTRA · castor · DMG Amp"
+        },
+        {
+          "const": "D12",
+          "title": "Eternal Requiem",
+          "description": "SSR · CHAOS · hameln · Keyflare Regen"
+        },
+        {
+          "const": "D13",
+          "title": "Veiled Anguish",
+          "description": "SSR · ULTRA · clementine · Keyflare Regen"
+        },
+        {
+          "const": "D14",
+          "title": "Twisted Knight Ballad",
+          "description": "SSR · ULTRA · pollux · Crit Rate"
+        },
+        {
+          "const": "JP01",
+          "title": "Special Training",
+          "description": "SSR · NEUTRAL · neutral · Crit Rate"
+        },
+        {
+          "const": "JP02",
+          "title": "School Day",
+          "description": "SSR · NEUTRAL · neutral · Sigil Yield"
+        },
+        {
+          "const": "JP03",
+          "title": "Dear Papa Noel",
+          "description": "SSR · NEUTRAL · neutral · Death Resistance"
+        },
+        {
+          "const": "JP04",
+          "title": "Coutdown Moment",
+          "description": "SSR · NEUTRAL · thais · Keyflare Regen"
+        },
+        {
+          "const": "N01",
+          "title": "Unsent Flowers",
+          "description": "R · NEUTRAL · ramona · Keyflare Regen"
+        },
+        {
+          "const": "N02",
+          "title": "Stepping Over the Muddy Roses",
+          "description": "R · NEUTRAL · ramona: timeworn · Keyflare Regen"
+        },
+        {
+          "const": "O01",
+          "title": "Hymn of the Sovereign",
+          "description": "SSR · AEQUOR · tulu · Aliemus Regen"
+        },
+        {
+          "const": "O02",
+          "title": "Shrouded Birth",
+          "description": "SSR · AEQUOR · murphy · Keyflare Regen"
+        },
+        {
+          "const": "O03",
+          "title": "Amidst the Downpour",
+          "description": "SSR · AEQUOR · faros · DMG Amp"
+        },
+        {
+          "const": "O04",
+          "title": "Fin of Sorrow",
+          "description": "SSR · AEQUOR · caecus · Sigil Yield"
+        },
+        {
+          "const": "O05",
+          "title": "Dream of the Sea",
+          "description": "SSR · AEQUOR · aurita · Crit Rate"
+        },
+        {
+          "const": "O06",
+          "title": "Blade of the Titan",
+          "description": "SSR · AEQUOR · goliath · Crit Rate"
+        },
+        {
+          "const": "O07",
+          "title": "Power of the Pious",
+          "description": "SSR · AEQUOR · miryam · Crit DMG"
+        },
+        {
+          "const": "O08",
+          "title": "Death of Ms. Coral",
+          "description": "SSR · AEQUOR · sanga · Death Resistance"
+        },
+        {
+          "const": "O09",
+          "title": "Sail of Providence",
+          "description": "SSR · AEQUOR · celeste · Realm Mastery"
+        },
+        {
+          "const": "O10",
+          "title": "Flamebound Navigator",
+          "description": "SSR · AEQUOR · corposant · Death Resistance"
+        },
+        {
+          "const": "O11",
+          "title": "Uteri Somnia",
+          "description": "SSR · AEQUOR · murphy: fauxborn · Keyflare Regen"
+        },
+        {
+          "const": "P01",
+          "title": "Gluttony",
+          "description": "R · NEUTRAL · neutral · Aliemus Regen"
+        },
+        {
+          "const": "P02",
+          "title": "Frenzy",
+          "description": "R · NEUTRAL · neutral · Keyflare Regen"
+        },
+        {
+          "const": "P03",
+          "title": "Favor",
+          "description": "R · NEUTRAL · neutral · Crit Rate"
+        },
+        {
+          "const": "P04",
+          "title": "Emerge",
+          "description": "R · NEUTRAL · neutral · Sigil Yield"
+        },
+        {
+          "const": "P05",
+          "title": "Delirium",
+          "description": "R · NEUTRAL · neutral · DMG Amp"
+        },
+        {
+          "const": "P06",
+          "title": "Whisper",
+          "description": "R · NEUTRAL · neutral · Death Resistance"
+        },
+        {
+          "const": "P07",
+          "title": "Hope",
+          "description": "R · NEUTRAL · neutral · Crit Rate"
+        },
+        {
+          "const": "P08",
+          "title": "Epiphany",
+          "description": "R · NEUTRAL · neutral · Realm Mastery"
+        },
+        {
+          "const": "P09",
+          "title": "Punishment",
+          "description": "R · NEUTRAL · neutral · Death Resistance"
+        },
+        {
+          "const": "P10",
+          "title": "Blessing",
+          "description": "R · NEUTRAL · neutral · DMG Amp"
+        },
+        {
+          "const": "P11",
+          "title": "Vitality",
+          "description": "R · NEUTRAL · neutral · Keyflare Regen"
+        },
+        {
+          "const": "P12",
+          "title": "Exile",
+          "description": "R · NEUTRAL · neutral · Realm Mastery"
+        },
+        {
+          "const": "P13",
+          "title": "Suction",
+          "description": "R · NEUTRAL · neutral · Crit DMG"
+        },
+        {
+          "const": "P14",
+          "title": "Aged",
+          "description": "R · NEUTRAL · neutral · Crit DMG"
+        },
+        {
+          "const": "P15",
+          "title": "Greed",
+          "description": "R · NEUTRAL · neutral · Aliemus Regen"
+        },
+        {
+          "const": "P16",
+          "title": "Insight",
+          "description": "R · NEUTRAL · neutral · Sigil Yield"
+        },
+        {
+          "const": "SR01",
+          "title": "Duty's Gravitas",
+          "description": "SR · NEUTRAL · neutral · Realm Mastery"
+        },
+        {
+          "const": "SR02",
+          "title": "Elevated Focus",
+          "description": "SR · NEUTRAL · neutral · Keyflare Regen"
+        },
+        {
+          "const": "SR03",
+          "title": "Cursed Binding",
+          "description": "SR · NEUTRAL · neutral · DMG Amp"
+        },
+        {
+          "const": "SR04",
+          "title": "Sever and Scar",
+          "description": "SR · NEUTRAL · neutral · DMG Amp"
+        },
+        {
+          "const": "SR05",
+          "title": "Cloaked in the Night",
+          "description": "SR · NEUTRAL · neutral · Death Resistance"
+        },
+        {
+          "const": "SR06",
+          "title": "Adventurer's Pack",
+          "description": "SR · NEUTRAL · neutral · Sigil Yield"
+        },
+        {
+          "const": "SR07",
+          "title": "Analysis of Death",
+          "description": "SR · NEUTRAL · neutral · Crit Rate"
+        },
+        {
+          "const": "SR08",
+          "title": "To My Dearest Friend",
+          "description": "SR · NEUTRAL · neutral · Crit DMG"
+        },
+        {
+          "const": "SR09",
+          "title": "Memory Syndrome",
+          "description": "SR · NEUTRAL · neutral · Death Resistance"
+        },
+        {
+          "const": "SR10",
+          "title": "Mind Barrier",
+          "description": "SR · NEUTRAL · neutral · Aliemus Regen"
+        },
+        {
+          "const": "SR11",
+          "title": "Critical Point",
+          "description": "SR · NEUTRAL · neutral · Crit DMG"
+        },
+        {
+          "const": "SR12",
+          "title": "Nobleman's Staff",
+          "description": "SR · NEUTRAL · neutral · Aliemus Regen"
+        },
+        {
+          "const": "SR13",
+          "title": "Data is Flesh",
+          "description": "SR · NEUTRAL · neutral · Realm Mastery"
+        },
+        {
+          "const": "SR14",
+          "title": "Moment of Reunion",
+          "description": "SR · NEUTRAL · neutral · Keyflare Regen"
+        },
+        {
+          "const": "SR15",
+          "title": "The Land of Nonexistence",
+          "description": "SR · NEUTRAL · neutral · Sigil Yield"
+        },
+        {
+          "const": "SR16",
+          "title": "Hand of Oblivion",
+          "description": "SR · NEUTRAL · neutral · Crit Rate"
+        },
+        {
+          "const": "SR17",
+          "title": "35mm Magic",
+          "description": "SR · NEUTRAL · lily · Death Resistance"
+        },
+        {
+          "const": "SR18",
+          "title": "Isarau's Gaze",
+          "description": "SR · NEUTRAL · wanda · DMG Amp"
+        },
+        {
+          "const": "SR19",
+          "title": "Man in the Mirror",
+          "description": "SR · NEUTRAL · salvador · Sigil Yield"
+        },
+        {
+          "const": "SR20",
+          "title": "Silver Cod's Determination",
+          "description": "SR · NEUTRAL · 24 · Crit Rate"
+        },
+        {
+          "const": "SR21",
+          "title": "Til the Snow Melts",
+          "description": "SR · NEUTRAL · helot: catena · DMG Amp"
+        },
+        {
+          "const": "SR22",
+          "title": "Deep Sea's Call",
+          "description": "SR · NEUTRAL · miryam · Crit DMG"
+        },
+        {
+          "const": "SR23",
+          "title": "Kiss of Farewell",
+          "description": "SR · NEUTRAL · thais · Aliemus Regen"
+        },
+        {
+          "const": "SR24",
+          "title": "Poetic Bygone Days",
+          "description": "SR · NEUTRAL · horla · Death Resistance"
+        },
+        {
+          "const": "SR25",
+          "title": "Million Loving Gaze",
+          "description": "SR · NEUTRAL · sorel · Crit Rate"
+        },
+        {
+          "const": "SR26",
+          "title": "Slumber Beneath the Glacier",
+          "description": "SR · NEUTRAL · murphy · Keyflare Regen"
+        },
+        {
+          "const": "SR27",
+          "title": "Fate Roulette",
+          "description": "SR · NEUTRAL · ryker · Sigil Yield"
+        },
+        {
+          "const": "SR28",
+          "title": "Gateway of Truth",
+          "description": "SR · NEUTRAL · tawil · Keyflare Regen"
+        },
+        {
+          "const": "SR29",
+          "title": "Never-Ending Performance",
+          "description": "SR · NEUTRAL · hameln · Crit Rate"
+        },
+        {
+          "const": "SR30",
+          "title": "Shepherd's Staff",
+          "description": "SR · NEUTRAL · doll: inferno · Aliemus Regen"
+        },
+        {
+          "const": "SR31",
+          "title": "Blue Stone Throne",
+          "description": "SR · NEUTRAL · tulu · Aliemus Regen"
+        },
+        {
+          "const": "SR32",
+          "title": "Hypnotic Pendulum",
+          "description": "SR · NEUTRAL · clementine · Keyflare Regen"
+        },
+        {
+          "const": "SR33",
+          "title": "Macabre Delicacies",
+          "description": "SR · NEUTRAL · doresain · Crit DMG"
+        },
+        {
+          "const": "SR34",
+          "title": "Witch's Wide-brimmed Hat",
+          "description": "SR · NEUTRAL · daffodil · DMG Amp"
+        },
+        {
+          "const": "SR35",
+          "title": "Blue-RInged Toxin",
+          "description": "SR · NEUTRAL · murphy: fauxborn · Keyflare Regen"
+        },
+        {
+          "const": "SR39",
+          "title": "Lone Feather",
+          "description": "SR · NEUTRAL · castor · DMG Amp"
+        },
+        {
+          "const": "SR40",
+          "title": "The Divus' Visage",
+          "description": "SR · NEUTRAL · pollux · Crit Rate"
+        },
+        {
+          "const": "SR41",
+          "title": "Navigator at Sea",
+          "description": "SR · NEUTRAL · corposant · Death Resistance"
+        },
+        {
+          "const": "SR42",
+          "title": "Thirsting Brush",
+          "description": "SR · NEUTRAL · pickman · Aliemus Regen"
+        },
+        {
+          "const": "SR43",
+          "title": "Impending Sun",
+          "description": "SR · NEUTRAL · kathigu-ra · Crit DMG"
+        },
+        {
+          "const": "SR44",
+          "title": "Light of Intellect",
+          "description": "SR · NEUTRAL · mouchette · Death Resistance"
+        },
+        {
+          "const": "SR45",
+          "title": "Magnolia's Lure",
+          "description": "SR · NEUTRAL · Xu · DMG Amp"
+        },
+        {
+          "const": "ZL01",
+          "title": "Spring in Yakutsk",
+          "description": "SSR · NEUTRAL · neutral · Keyflare Regen"
+        },
+        {
+          "const": "ZL02",
+          "title": "Sunfall",
+          "description": "SSR · NEUTRAL · neutral · DMG Amp"
+        },
+        {
+          "const": "ZL03",
+          "title": "Birth of a Soul",
+          "description": "SSR · NEUTRAL · neutral · Realm Mastery"
+        },
+        {
+          "const": "ZL04",
+          "title": "Dusk and Dawn",
+          "description": "SSR · NEUTRAL · neutral · Death Resistance"
+        },
+        {
+          "const": "ZL05",
+          "title": "Heart of Silver",
+          "description": "SSR · NEUTRAL · neutral · Keyflare Regen"
+        },
+        {
+          "const": "ZL06",
+          "title": "Annihilated Rebirth",
+          "description": "SSR · NEUTRAL · neutral · Aliemus Regen"
+        },
+        {
+          "const": "ZL07",
+          "title": "We Will Meet Again",
+          "description": "SSR · NEUTRAL · neutral · Realm Mastery"
+        }
+      ]
+    },
+    "covenantId": {
+      "oneOf": [
+        {
+          "const": "001",
+          "title": "Deus Ex Machina",
+          "description": "Icon_Trinket_001"
+        },
+        {
+          "const": "002",
+          "title": "Re-Evolution",
+          "description": "Icon_Trinket_002"
+        },
+        {
+          "const": "004",
+          "title": "Scarlet Tremor",
+          "description": "Icon_Trinket_004"
+        },
+        {
+          "const": "005",
+          "title": "Crimson Pulse",
+          "description": "Icon_Trinket_005"
+        },
+        {
+          "const": "006",
+          "title": "Twisted Twins - Black",
+          "description": "Icon_Trinket_006"
+        },
+        {
+          "const": "008",
+          "title": "Burial Ground's Sighs",
+          "description": "Icon_Trinket_008"
+        },
+        {
+          "const": "009",
+          "title": "Twisted Twins - White",
+          "description": "Icon_Trinket_009"
+        },
+        {
+          "const": "010",
+          "title": "Cursed Rabbit",
+          "description": "Icon_Trinket_010"
+        },
+        {
+          "const": "011",
+          "title": "Paradox",
+          "description": "Icon_Trinket_011"
+        },
+        {
+          "const": "012",
+          "title": "Photosynthesis Rite",
+          "description": "Icon_Trinket_012"
+        },
+        {
+          "const": "013",
+          "title": "Returnal Line",
+          "description": "Icon_Trinket_013"
+        },
+        {
+          "const": "014",
+          "title": "Ring of Chamber 36",
+          "description": "Icon_Trinket_014"
+        },
+        {
+          "const": "015",
+          "title": "Life Drain",
+          "description": "Icon_Trinket_015"
+        },
+        {
+          "const": "016",
+          "title": "April Tribute",
+          "description": "Icon_Trinket_016"
+        },
+        {
+          "const": "017",
+          "title": "Organic Form",
+          "description": "Icon_Trinket_017"
+        },
+        {
+          "const": "018",
+          "title": "Sweet Slug",
+          "description": "Icon_Trinket_018"
+        },
+        {
+          "const": "019",
+          "title": "Dream of Medicine",
+          "description": "Icon_Trinket_019"
+        },
+        {
+          "const": "020",
+          "title": "Feast from Afar",
+          "description": "Icon_Trinket_020"
+        },
+        {
+          "const": "021",
+          "title": "Unstained Chronicle",
+          "description": "Icon_Trinket_021"
+        },
+        {
+          "const": "022",
+          "title": "Steppenwolf",
+          "description": "Icon_Trinket_022"
+        },
+        {
+          "const": "023",
+          "title": "Chrysalis of the Maiden",
+          "description": "Icon_Trinket_023"
+        }
+      ]
+    },
+    "substatPriorityGroup": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/mainstatKey"
+      }
+    },
+    "recommendedWheelGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tier", "wheelIds"],
+      "properties": {
+        "tier": {
+          "$ref": "#/$defs/wheelTier"
+        },
+        "wheelIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/wheelId"
+          }
+        }
+      }
+    },
+    "build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "substatPriorityGroups", "recommendedWheels", "recommendedCovenantIds"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/buildId"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "$ref": "#/$defs/summary"
+        },
+        "substatPriorityGroups": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/substatPriorityGroup"
+          }
+        },
+        "recommendedWheelMainstats": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/wheelMainstatKey"
+          }
+        },
+        "recommendedWheels": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/recommendedWheelGroup"
+          }
+        },
+        "recommendedCovenantIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/covenantId"
+          }
+        }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["awakenerId", "builds"],
+      "properties": {
+        "awakenerId": {
+          "$ref": "#/$defs/awakenerId"
+        },
+        "primaryBuildId": {
+          "$ref": "#/$defs/buildId"
+        },
+        "builds": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/build"
+          }
+        }
+      }
+    }
+  }
+}

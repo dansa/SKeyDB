@@ -25,4 +25,12 @@ module.exports = {
   importOrderParserPlugins: ['typescript', 'jsx'],
   importOrderTypeScriptVersion: '5.9.3',
   importOrderCaseSensitive: false,
+  overrides: [
+    {
+      files: ['*.json'],
+      options: {
+        printWidth: 120,
+      },
+    },
+  ],
 }

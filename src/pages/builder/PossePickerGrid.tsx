@@ -1,8 +1,11 @@
+import {useDraggable} from '@dnd-kit/core'
+
+import {CompactArtTile} from '@/components/ui/CompactArtTile'
 import {getPosseAssetById} from '@/domain/posse-assets'
 import type {Posse} from '@/domain/posses'
 
-import type {Team} from './types'
-import {toOrdinal} from './utils'
+import {PICKER_STATUS_CLASS, PICKER_UNOWNED_CLASS} from './picker-status-labels'
+import type {DragData, Team} from './types'
 
 function getPosseTileClassName(
   isActive: boolean,
@@ -21,19 +24,20 @@ function getPosseTileClassName(
   return 'border-slate-500/45 bg-slate-900/55 hover:border-amber-200/45'
 }
 
-function getPosseTopLabel(blockedText: string | null, ownedLevel: number | null) {
+function getPosseTopLabel(
+  blockedText: string | null,
+  ownedLevel: number | null,
+): {text: string; className: string} | null {
   if (blockedText) {
     return {
       text: blockedText,
-      className:
-        'pointer-events-none absolute inset-x-0 top-0 truncate border-y border-slate-300/30 bg-slate-950/62 px-1 py-0.5 text-center text-[9px] tracking-wide text-slate-100/90',
+      className: PICKER_STATUS_CLASS,
     }
   }
   if (ownedLevel === null) {
     return {
       text: 'Unowned',
-      className:
-        'pointer-events-none absolute inset-x-0 top-0 truncate border-y border-rose-300/25 bg-slate-950/70 px-1 py-0.5 text-center text-[9px] tracking-wide text-rose-100/95',
+      className: PICKER_UNOWNED_CLASS,
     }
   }
   return null
@@ -46,6 +50,7 @@ interface PossePickerTileProps {
   isUsedByOtherTeam: boolean
   blockedText: string | null
   ownedLevel: number | null
+  recommendationLabel?: string
   onClick: () => void
 }
 
@@ -56,44 +61,65 @@ function PossePickerTile({
   isUsedByOtherTeam,
   blockedText,
   ownedLevel,
+  recommendationLabel,
   onClick,
 }: PossePickerTileProps) {
   const topLabel = getPosseTopLabel(blockedText, ownedLevel)
   const imageClassName = `h-full w-full object-cover ${ownedLevel === null ? 'builder-picker-art-unowned' : ''} ${
     blockedText ? 'builder-picker-art-dimmed' : ''
   }`
+  const {attributes, listeners, isDragging, setNodeRef} = useDraggable({
+    id: `picker-posse:${posse.id}`,
+    data: {kind: 'picker-posse', posseId: posse.id, posseName: posse.name} satisfies DragData,
+    disabled: isUsedByOtherTeam,
+  })
+  const dragAttributes = {...attributes} as Record<string, unknown>
+  delete dragAttributes['aria-disabled']
 
   return (
     <button
-      aria-disabled={isUsedByOtherTeam}
-      className={`border p-1 text-left transition-colors ${getPosseTileClassName(
+      aria-disabled={isUsedByOtherTeam ? 'true' : undefined}
+      className={`builder-picker-tile border p-1 text-left transition-colors ${getPosseTileClassName(
         isActive,
         isUsedByOtherTeam,
         ownedLevel,
-      )}`}
+      )} ${isDragging ? 'scale-[0.98] opacity-60' : ''}`}
       onClick={() => {
         onClick()
       }}
+      ref={setNodeRef}
       type='button'
+      {...dragAttributes}
+      {...listeners}
     >
-      <div className='relative aspect-square overflow-hidden border border-slate-400/35 bg-slate-900/70'>
-        {posseAsset ? (
-          <img
-            alt={`${posse.name} posse`}
-            className={imageClassName}
-            draggable={false}
-            src={posseAsset}
-          />
-        ) : (
-          <span className='relative block h-full w-full'>
-            <span className='sigil-placeholder' />
-          </span>
-        )}
-        {topLabel ? <span className={topLabel.className}>{topLabel.text}</span> : null}
-      </div>
-      <p className={`mt-1 truncate text-[11px] ${isActive ? 'text-amber-100' : 'text-slate-200'}`}>
-        {posse.name}
-      </p>
+      <CompactArtTile
+        chips={
+          recommendationLabel ? (
+            <span className='builder-picker-recommendation-chip'>{recommendationLabel}</span>
+          ) : undefined
+        }
+        name={posse.name}
+        nameClassName={`truncate ${isActive ? 'text-amber-100' : ''}`}
+        nameTitle={posse.name}
+        preview={
+          posseAsset ? (
+            <img
+              alt={`${posse.name} posse`}
+              className={imageClassName}
+              draggable={false}
+              src={posseAsset}
+            />
+          ) : (
+            <span className='relative block h-full w-full'>
+              <span className='sigil-placeholder' />
+            </span>
+          )
+        }
+        previewClassName='aspect-square border border-slate-400/35 bg-slate-900/70'
+        statusBar={
+          topLabel ? <span className={topLabel.className}>{topLabel.text}</span> : undefined
+        }
+      />
     </button>
   )
 }
@@ -104,6 +130,7 @@ interface PossePickerGridProps {
   teams: Team[]
   usedPosseByTeamOrder: Map<string, number>
   ownedPosseLevelById: Map<string, number | null>
+  teamRecommendedPosseIds: Set<string>
   allowDupes: boolean
   effectiveActiveTeamId: string
   onSetActivePosse: (posseId?: string) => void
@@ -115,14 +142,15 @@ export function PossePickerGrid({
   teams,
   usedPosseByTeamOrder,
   ownedPosseLevelById,
+  teamRecommendedPosseIds,
   allowDupes,
   effectiveActiveTeamId,
   onSetActivePosse,
 }: PossePickerGridProps) {
   return (
-    <div className='grid grid-cols-4 gap-2'>
+    <div className='grid grid-cols-4 items-start gap-2'>
       <button
-        className={`border p-1 text-left transition-colors ${
+        className={`builder-picker-tile border p-1 text-left transition-colors ${
           !activePosseId
             ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
             : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
@@ -132,12 +160,16 @@ export function PossePickerGrid({
         }}
         type='button'
       >
-        <div className='aspect-square overflow-hidden border border-slate-400/35 bg-slate-900/70'>
-          <span className='builder-disabled-icon'>
-            <span className='builder-disabled-icon__glyph' />
-          </span>
-        </div>
-        <p className='mt-1 truncate text-[11px] text-slate-200'>Not Set</p>
+        <CompactArtTile
+          name='Not Set'
+          nameClassName='truncate'
+          preview={
+            <span className='builder-disabled-icon'>
+              <span className='builder-disabled-icon__glyph' />
+            </span>
+          }
+          previewClassName='aspect-square border border-slate-400/35 bg-slate-900/70'
+        />
       </button>
 
       {filteredPosses.map((posse) => {
@@ -147,9 +179,7 @@ export function PossePickerGrid({
         const usedByTeam = usedByTeamOrder === undefined ? undefined : teams[usedByTeamOrder]
         const isUsedByOtherTeam =
           usedByTeamOrder !== undefined && usedByTeam?.id !== effectiveActiveTeamId
-        const blockedText = isUsedByOtherTeam
-          ? `Used in ${toOrdinal(usedByTeamOrder + 1)} team`
-          : null
+        const blockedText = isUsedByOtherTeam ? `Team ${String(usedByTeamOrder + 1)}` : null
         const ownedLevel = ownedPosseLevelById.get(posse.id) ?? null
 
         return (
@@ -164,6 +194,7 @@ export function PossePickerGrid({
             ownedLevel={ownedLevel}
             posse={posse}
             posseAsset={posseAsset}
+            recommendationLabel={teamRecommendedPosseIds.has(posse.id) ? 'Rec' : undefined}
           />
         )
       })}

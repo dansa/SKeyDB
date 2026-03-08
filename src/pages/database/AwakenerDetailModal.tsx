@@ -384,7 +384,7 @@ export function AwakenerDetailModal({awakener, onClose}: AwakenerDetailModalProp
                     stats={resolvedStats}
                   />
                 )}
-                {activeTab === 'guide' && <AwakenerGuideTab />}
+                {activeTab === 'guide' && <AwakenerGuideTab awakenerId={awakener.id} />}
                 {activeTab === 'teams' && <AwakenerTeamsTab />}
               </div>
             </div>

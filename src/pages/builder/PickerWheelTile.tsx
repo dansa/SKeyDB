@@ -1,5 +1,9 @@
 import {useDraggable} from '@dnd-kit/core'
 
+import {CompactArtTile} from '@/components/ui/CompactArtTile'
+import {getMainstatByKey, getMainstatIcon, type WheelMainstatKey} from '@/domain/mainstats'
+
+import {PICKER_STATUS_CLASS, PICKER_UNOWNED_CLASS} from './picker-status-labels'
 import type {DragData} from './types'
 
 interface PickerWheelTileProps {
@@ -11,6 +15,8 @@ interface PickerWheelTileProps {
   isInUse?: boolean
   isOwned?: boolean
   isNotSet?: boolean
+  recommendationLabel?: string
+  recommendedMainstatKey?: WheelMainstatKey
   onClick: () => void
 }
 
@@ -32,16 +38,14 @@ function getWheelTopLabel(
   if (blockedText) {
     return {
       text: blockedText,
-      className:
-        'pointer-events-none absolute inset-x-0 top-0 truncate border-y border-slate-300/30 bg-slate-950/62 px-1 py-0.5 text-center text-[9px] tracking-wide text-slate-100/90',
+      className: PICKER_STATUS_CLASS,
     }
   }
 
   if (!isNotSet && !isOwned) {
     return {
       text: 'Unowned',
-      className:
-        'pointer-events-none absolute inset-x-0 top-0 truncate border-y border-rose-300/25 bg-slate-950/70 px-1 py-0.5 text-center text-[9px] tracking-wide text-rose-100/95',
+      className: PICKER_UNOWNED_CLASS,
     }
   }
 
@@ -99,6 +103,8 @@ export function PickerWheelTile({
   isInUse = false,
   isOwned = true,
   isNotSet = false,
+  recommendationLabel,
+  recommendedMainstatKey,
   onClick,
 }: PickerWheelTileProps) {
   const isDimmed = isBlocked || isInUse || (!isOwned && !isNotSet)
@@ -118,7 +124,7 @@ export function PickerWheelTile({
   return (
     <button
       aria-disabled={isBlocked ? 'true' : undefined}
-      className={`border p-1 text-left transition-colors ${buttonStateClassName} ${
+      className={`builder-picker-tile border p-1 text-left transition-colors ${buttonStateClassName} ${
         isDragging ? 'scale-[0.98] opacity-60' : ''
       }`}
       onClick={onClick}
@@ -127,11 +133,46 @@ export function PickerWheelTile({
       {...(draggableWheelId ? dragAttributes : {})}
       {...(draggableWheelId ? listeners : {})}
     >
-      <div className='relative aspect-[75/113] overflow-hidden border border-slate-400/35 bg-slate-900/70'>
-        {renderWheelPreview(wheelAsset, wheelDisplayName, isOwned, isNotSet, isDimmed)}
-        {topLabel ? <span className={topLabel.className}>{topLabel.text}</span> : null}
-      </div>
-      <p className='mt-1 truncate text-[11px] text-slate-200'>{wheelDisplayName}</p>
+      <CompactArtTile
+        chips={
+          !isNotSet && (recommendationLabel || recommendedMainstatKey) ? (
+            <>
+              {recommendationLabel ? (
+                <span className='builder-picker-recommendation-chip'>{recommendationLabel}</span>
+              ) : null}
+              {recommendedMainstatKey && !recommendationLabel ? (
+                <RecommendedMainstatChip mainstatKey={recommendedMainstatKey} />
+              ) : null}
+            </>
+          ) : undefined
+        }
+        name={wheelDisplayName}
+        nameClassName='truncate'
+        nameTitle={wheelDisplayName}
+        preview={renderWheelPreview(wheelAsset, wheelDisplayName, isOwned, isNotSet, isDimmed)}
+        previewClassName='aspect-[75/113] border border-slate-400/35 bg-slate-900/70'
+        statusBar={
+          topLabel ? <span className={topLabel.className}>{topLabel.text}</span> : undefined
+        }
+      />
     </button>
+  )
+}
+
+function RecommendedMainstatChip({mainstatKey}: {mainstatKey: WheelMainstatKey}) {
+  const icon = getMainstatIcon(mainstatKey)
+  const label = getMainstatByKey(mainstatKey)?.label ?? mainstatKey
+  if (!icon) {
+    return null
+  }
+
+  return (
+    <span
+      aria-label={`Recommended mainstat ${label}`}
+      className='builder-picker-recommendation-chip builder-picker-recommendation-chip-icon'
+      title={`Recommended mainstat ${label}`}
+    >
+      <img alt={`Recommended mainstat ${label}`} className='h-3 w-3 object-contain' src={icon} />
+    </span>
   )
 }

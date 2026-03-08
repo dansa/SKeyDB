@@ -1,10 +1,17 @@
 import {createRef} from 'react'
 
-import {act, renderHook} from '@testing-library/react'
+import {act, renderHook, waitFor} from '@testing-library/react'
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 
+import {
+  getAwakenerBuildEntryById,
+  getPrimaryAwakenerBuild,
+  loadAwakenerBuildEntries,
+} from '@/domain/awakener-builds'
 import {getAwakenerIdentityKey} from '@/domain/awakener-identity'
 import {COLLECTION_OWNERSHIP_KEY, saveCollectionOwnership} from '@/domain/collection-ownership'
+import {compareWheelsForUi} from '@/domain/wheel-sort'
+import {getWheels} from '@/domain/wheels'
 
 import {
   BUILDER_PERSISTENCE_KEY,
@@ -22,6 +29,9 @@ const BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY = 'skeydb.builder.awakenerSortGro
 const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
 const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
 const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
+const BUILDER_PROMOTE_MATCHING_WHEEL_MAINSTATS_KEY =
+  'skeydb.builder.promoteMatchingWheelMainstats.v1'
+const BUILDER_PROMOTE_RECOMMENDED_GEAR_KEY = 'skeydb.builder.promoteRecommendedGear.v1'
 const BUILDER_TEAM_PREVIEW_MODE_KEY = 'skeydb.builder.teamPreviewMode.v1'
 
 function requireDefined<T>(value: T | null | undefined): T {
@@ -29,6 +39,11 @@ function requireDefined<T>(value: T | null | undefined): T {
     throw new Error('Expected value to be defined')
   }
   return value
+}
+
+async function getPrimaryBuild(awakenerId: number) {
+  const entries = await loadAwakenerBuildEntries()
+  return requireDefined(getPrimaryAwakenerBuild(getAwakenerBuildEntryById(awakenerId, entries)))
 }
 
 describe('useBuilderViewModel', () => {
@@ -39,6 +54,8 @@ describe('useBuilderViewModel', () => {
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_KEY_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)
     window.localStorage.removeItem(BUILDER_DISPLAY_UNOWNED_KEY)
+    window.localStorage.removeItem(BUILDER_PROMOTE_MATCHING_WHEEL_MAINSTATS_KEY)
+    window.localStorage.removeItem(BUILDER_PROMOTE_RECOMMENDED_GEAR_KEY)
     window.localStorage.removeItem(BUILDER_TEAM_PREVIEW_MODE_KEY)
   })
 
@@ -49,6 +66,8 @@ describe('useBuilderViewModel', () => {
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_KEY_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_DIRECTION_KEY)
     window.localStorage.removeItem(BUILDER_DISPLAY_UNOWNED_KEY)
+    window.localStorage.removeItem(BUILDER_PROMOTE_MATCHING_WHEEL_MAINSTATS_KEY)
+    window.localStorage.removeItem(BUILDER_PROMOTE_RECOMMENDED_GEAR_KEY)
     window.localStorage.removeItem(BUILDER_TEAM_PREVIEW_MODE_KEY)
   })
 
@@ -258,6 +277,158 @@ describe('useBuilderViewModel', () => {
         prev.id.localeCompare(next.id, undefined, {numeric: true, sensitivity: 'base'}),
       ).toBeLessThanOrEqual(0)
     }
+  })
+
+  it('promotes recommended wheels when the active awakener slot is used as the assignment target', async () => {
+    const build = await getPrimaryBuild(27)
+    const {result} = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+    const targetSlot = requireDefined(result.current.teamSlots[0]?.slotId)
+
+    act(() => {
+      result.current.setActiveTeamSlots(
+        result.current.teamSlots.map((slot, index) =>
+          index === 0
+            ? {
+                ...slot,
+                awakenerName: 'kathigu-ra',
+                realm: 'CHAOS',
+                wheels: [null, null] as [string | null, string | null],
+              }
+            : slot,
+        ),
+      )
+      result.current.setPickerTab('wheels')
+      result.current.setActiveSelection({kind: 'awakener', slotId: targetSlot})
+    })
+
+    await waitFor(() => {
+      expect(result.current.filteredWheels.slice(0, 3).map((wheel) => wheel.id)).toEqual(
+        build.recommendedWheels.flatMap((group) => group.wheelIds).slice(0, 3),
+      )
+    })
+  })
+
+  it('keeps fallback wheel ordering when recommendation promotion is disabled', async () => {
+    window.localStorage.setItem(BUILDER_PROMOTE_RECOMMENDED_GEAR_KEY, '0')
+    const fallbackTopIds = [...getWheels()]
+      .sort(compareWheelsForUi)
+      .slice(0, 10)
+      .map((wheel) => wheel.id)
+
+    const {result} = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+    const targetSlot = requireDefined(result.current.teamSlots[0]?.slotId)
+
+    act(() => {
+      result.current.setActiveTeamSlots(
+        result.current.teamSlots.map((slot, index) =>
+          index === 0
+            ? {
+                ...slot,
+                awakenerName: 'kathigu-ra',
+                realm: 'CHAOS',
+                wheels: [null, null] as [string | null, string | null],
+              }
+            : slot,
+        ),
+      )
+      result.current.setPickerTab('wheels')
+      result.current.setActiveSelection({kind: 'awakener', slotId: targetSlot})
+    })
+
+    await waitFor(() => {
+      expect(result.current.filteredWheels.slice(0, 10).map((wheel) => wheel.id)).toEqual(
+        fallbackTopIds,
+      )
+    })
+  })
+
+  it('promotes matching wheel mainstats ahead of non-matching fallback wheels when enabled', async () => {
+    const build = await getPrimaryBuild(27)
+    const recommendedWheelIds = new Set(build.recommendedWheels.flatMap((group) => group.wheelIds))
+    const {result} = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+    const targetSlot = requireDefined(result.current.teamSlots[0]?.slotId)
+
+    act(() => {
+      result.current.setActiveTeamSlots(
+        result.current.teamSlots.map((slot, index) =>
+          index === 0
+            ? {
+                ...slot,
+                awakenerName: 'kathigu-ra',
+                realm: 'CHAOS',
+                wheels: [null, null] as [string | null, string | null],
+              }
+            : slot,
+        ),
+      )
+      result.current.setPickerTab('wheels')
+      result.current.setActiveSelection({kind: 'awakener', slotId: targetSlot})
+      result.current.setPromoteMatchingWheelMainstats(true)
+    })
+
+    await waitFor(() => {
+      const matchingWheel = result.current.filteredWheels.find(
+        (wheel) =>
+          !recommendedWheelIds.has(wheel.id) &&
+          build.recommendedWheelMainstats?.includes(wheel.mainstatKey),
+      )
+      const nonMatchingWheel = result.current.filteredWheels.find(
+        (wheel) =>
+          !recommendedWheelIds.has(wheel.id) &&
+          !build.recommendedWheelMainstats?.includes(wheel.mainstatKey),
+      )
+
+      expect(matchingWheel).toBeDefined()
+      expect(nonMatchingWheel).toBeDefined()
+      expect(result.current.filteredWheels.indexOf(requireDefined(matchingWheel))).toBeLessThan(
+        result.current.filteredWheels.indexOf(requireDefined(nonMatchingWheel)),
+      )
+    })
+  })
+
+  it('promotes recommended covenants in configured order for the active slot awakener', async () => {
+    const build = await getPrimaryBuild(27)
+    const {result} = renderHook(() =>
+      useBuilderViewModel({
+        searchInputRef: createRef<HTMLInputElement>(),
+      }),
+    )
+    const targetSlot = requireDefined(result.current.teamSlots[0]?.slotId)
+
+    act(() => {
+      result.current.setActiveTeamSlots(
+        result.current.teamSlots.map((slot, index) =>
+          index === 0
+            ? {
+                ...slot,
+                awakenerName: 'kathigu-ra',
+                realm: 'CHAOS',
+                wheels: [null, null] as [string | null, string | null],
+              }
+            : slot,
+        ),
+      )
+      result.current.setPickerTab('covenants')
+      result.current.setActiveSelection({kind: 'awakener', slotId: targetSlot})
+    })
+
+    await waitFor(() => {
+      expect(result.current.filteredCovenants.slice(0, 2).map((covenant) => covenant.id)).toEqual(
+        build.recommendedCovenantIds.slice(0, 2),
+      )
+    })
   })
 
   it('renames a team via begin/commit flow', () => {

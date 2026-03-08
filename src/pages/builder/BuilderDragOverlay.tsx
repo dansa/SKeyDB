@@ -2,6 +2,7 @@ import {DragOverlay} from '@dnd-kit/core'
 
 import {
   PickerAwakenerGhost,
+  PickerPosseGhost,
   PickerWheelGhost,
   TeamCardGhost,
   TeamPreviewGhost,
@@ -68,6 +69,9 @@ export function BuilderDragOverlay({
       ) : null}
       {activeDrag?.kind === 'picker-covenant' ? (
         <PickerWheelGhost wheelId={activeDrag.covenantId} isCovenant />
+      ) : null}
+      {activeDrag?.kind === 'picker-posse' ? (
+        <PickerPosseGhost posseId={activeDrag.posseId} posseName={activeDrag.posseName} />
       ) : null}
       {activeDrag?.kind === 'team-slot' ? (
         <TeamCardGhost

@@ -16,6 +16,7 @@ interface UseBuilderDndOptions {
   onDropPickerAwakener: (awakenerName: string, targetSlotId: string) => void
   onDropPickerWheel: (wheelId: string, targetSlotId: string, targetWheelIndex?: number) => void
   onDropPickerCovenant: (covenantId: string, targetSlotId: string) => void
+  onDropPickerPosse: (posseId: string) => void
   onDropTeamSlot: (sourceSlotId: string, targetSlotId: string) => void
   onDropTeamWheel: (
     sourceSlotId: string,
@@ -39,6 +40,7 @@ export function useBuilderDnd({
   onDropPickerAwakener,
   onDropPickerWheel,
   onDropPickerCovenant,
+  onDropPickerPosse,
   onDropTeamSlot,
   onDropTeamWheel,
   onDropTeamWheelToSlot,
@@ -225,6 +227,9 @@ export function useBuilderDnd({
         return
       case 'picker-covenant':
         handlePickerCovenantDrop(data, overId, overCovenantZone)
+        return
+      case 'picker-posse':
+        onDropPickerPosse(data.posseId)
         return
       case 'team-slot':
         handleTeamSlotDrop(data, overId, overWheelZone, overCovenantZone)
