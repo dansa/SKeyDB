@@ -3,7 +3,9 @@ import {describe, expect, it} from 'vitest'
 import type {Awakener} from './awakeners'
 import {
   buildDatabaseAwakenerPath,
+  DATABASE_AWAKENER_TABS,
   findAwakenerByDatabaseSlug,
+  resolveDatabaseAwakenerTab,
   toDatabaseAwakenerSlug,
 } from './database-paths'
 
@@ -26,6 +28,9 @@ describe('database paths', () => {
     expect(buildDatabaseAwakenerPath(makeAwakener({name: 'helot: catena'}))).toBe(
       '/database/awk/helot-catena',
     )
+    expect(buildDatabaseAwakenerPath(makeAwakener({name: 'helot: catena'}), 'builds')).toBe(
+      '/database/awk/helot-catena/builds',
+    )
   })
 
   it('normalizes awakener names into shareable slugs', () => {
@@ -45,5 +50,13 @@ describe('database paths', () => {
 
   it('returns null for unknown slugs', () => {
     expect(findAwakenerByDatabaseSlug([makeAwakener({id: 1, name: 'thais'})], 'missing')).toBeNull()
+  })
+
+  it('resolves allowed database tab slugs', () => {
+    expect(resolveDatabaseAwakenerTab('builds')).toBe('builds')
+    expect(resolveDatabaseAwakenerTab('Builds')).toBe('builds')
+    expect(resolveDatabaseAwakenerTab(undefined)).toBeNull()
+    expect(resolveDatabaseAwakenerTab('missing')).toBeNull()
+    expect(DATABASE_AWAKENER_TABS).toEqual(['overview', 'cards', 'builds', 'teams'])
   })
 })

@@ -4,7 +4,12 @@ import {useNavigate, useParams} from 'react-router-dom'
 
 import emojiWke from '@/assets/emoji/Emoji_WKE_S_06.png'
 import {getAwakeners} from '@/domain/awakeners'
-import {buildDatabaseAwakenerPath, findAwakenerByDatabaseSlug} from '@/domain/database-paths'
+import {
+  buildDatabaseAwakenerPath,
+  findAwakenerByDatabaseSlug,
+  resolveDatabaseAwakenerTab,
+  type DatabaseAwakenerTab,
+} from '@/domain/database-paths'
 
 import {useGlobalCollectionSearchCapture} from './collection/useGlobalCollectionSearchCapture'
 import {AwakenerDetailModal} from './database/AwakenerDetailModal'
@@ -16,8 +21,9 @@ export function DatabasePage() {
   const vm = useDatabaseViewModel()
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const navigate = useNavigate()
-  const {awakenerSlug} = useParams<{awakenerSlug?: string}>()
+  const {awakenerSlug, tabSlug} = useParams<{awakenerSlug?: string; tabSlug?: string}>()
   const selectedAwakener = findAwakenerByDatabaseSlug(getAwakeners(), awakenerSlug)
+  const selectedTab = resolveDatabaseAwakenerTab(tabSlug) ?? 'overview'
 
   useGlobalCollectionSearchCapture({
     searchInputRef,
@@ -32,6 +38,16 @@ export function DatabasePage() {
     void navigate('/database', {replace: true})
   }, [awakenerSlug, navigate, selectedAwakener])
 
+  useEffect(() => {
+    if (!selectedAwakener || !tabSlug) {
+      return
+    }
+    if (resolveDatabaseAwakenerTab(tabSlug)) {
+      return
+    }
+    void navigate(buildDatabaseAwakenerPath(selectedAwakener), {replace: true})
+  }, [selectedAwakener, tabSlug, navigate])
+
   function openAwakenerDetail(awakenerId: number) {
     const awakener = getAwakeners().find((entry) => entry.id === awakenerId)
     if (!awakener) {
@@ -42,6 +58,13 @@ export function DatabasePage() {
 
   function closeDetail() {
     void navigate('/database', {replace: true})
+  }
+
+  function handleDetailTabChange(nextTab: DatabaseAwakenerTab) {
+    if (!selectedAwakener) {
+      return
+    }
+    void navigate(buildDatabaseAwakenerPath(selectedAwakener, nextTab), {replace: true})
   }
 
   return (
@@ -85,8 +108,10 @@ export function DatabasePage() {
       {selectedAwakener ? (
         <AwakenerDetailModal
           awakener={selectedAwakener}
+          initialTab={selectedTab}
           key={selectedAwakener.id}
           onClose={closeDetail}
+          onTabChange={handleDetailTabChange}
         />
       ) : null}
     </section>

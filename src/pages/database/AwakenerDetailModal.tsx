@@ -31,6 +31,8 @@ import {SkillLevelSlider} from './SkillLevelSlider'
 interface AwakenerDetailModalProps {
   awakener: Awakener
   onClose: () => void
+  initialTab?: TabId
+  onTabChange?: (tab: TabId) => void
 }
 
 const TABS = [
@@ -43,8 +45,13 @@ const TABS = [
 type TabId = (typeof TABS)[number]['id']
 const MOBILE_TAG_ROWS_HEIGHT = 46
 
-export function AwakenerDetailModal({awakener, onClose}: AwakenerDetailModalProps) {
-  const [activeTab, setActiveTab] = useState<TabId>('overview')
+export function AwakenerDetailModal({
+  awakener,
+  onClose,
+  initialTab,
+  onTabChange,
+}: AwakenerDetailModalProps) {
+  const [internalActiveTab, setInternalActiveTab] = useState<TabId>('overview')
   const [fullData, setFullData] = useState<AwakenerFull | null>(null)
   const [awakenerLevel, setAwakenerLevel] = useState(60)
   const [psycheSurgeOffset, setPsycheSurgeOffset] = useState(0)
@@ -69,9 +76,21 @@ export function AwakenerDetailModal({awakener, onClose}: AwakenerDetailModalProp
       : null
   }, [awakenerLevel, fullData, psycheSurgeOffset])
 
+  const activeTab = initialTab ?? internalActiveTab
+
+  const setActiveTab = useCallback(
+    (nextTab: TabId) => {
+      if (initialTab === undefined) {
+        setInternalActiveTab(nextTab)
+      }
+      onTabChange?.(nextTab)
+    },
+    [initialTab, onTabChange],
+  )
+
   const navigateToCards = useCallback(() => {
     setActiveTab('cards')
-  }, [])
+  }, [setActiveTab])
 
   const handleAwakenerLevelChange = useCallback((level: number) => {
     setAwakenerLevel(clampAwakenerDatabaseLevel(level))

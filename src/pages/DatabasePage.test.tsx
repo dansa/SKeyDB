@@ -58,8 +58,28 @@ vi.mock('../domain/mainstats', () => ({
 }))
 
 vi.mock('./database/AwakenerDetailModal', () => ({
-  AwakenerDetailModal: ({awakener, onClose}: {awakener: {name: string}; onClose: () => void}) => (
+  AwakenerDetailModal: ({
+    awakener,
+    onClose,
+    initialTab = 'overview',
+    onTabChange,
+  }: {
+    awakener: {name: string}
+    onClose: () => void
+    initialTab?: 'overview' | 'cards' | 'builds' | 'teams'
+    onTabChange?: (tab: 'overview' | 'cards' | 'builds' | 'teams') => void
+  }) => (
     <div aria-label={`${awakener.name} details`} role='dialog'>
+      <div>{`Active tab ${initialTab}`}</div>
+      <button
+        aria-label='Switch to builds tab'
+        onClick={() => {
+          onTabChange?.('builds')
+        }}
+        type='button'
+      >
+        Builds
+      </button>
       <button aria-label='Close detail' onClick={onClose} type='button'>
         Close
       </button>
@@ -82,6 +102,7 @@ function renderDatabasePage(initialEntry = '/database') {
       <Routes>
         <Route element={<DatabasePage />} path='/database' />
         <Route element={<DatabasePage />} path='/database/awk/:awakenerSlug' />
+        <Route element={<DatabasePage />} path='/database/awk/:awakenerSlug/:tabSlug' />
       </Routes>
       <LocationProbe />
     </MemoryRouter>,
@@ -193,11 +214,34 @@ describe('DatabasePage', () => {
     expect(screen.getByRole('dialog', {name: /beta details/})).toBeInTheDocument()
   })
 
+  it('opens detail modal from deep-linked awakener tab route', () => {
+    renderDatabasePage('/database/awk/beta/builds')
+
+    expect(screen.getByRole('dialog', {name: /beta details/})).toBeInTheDocument()
+    expect(screen.getByText('Active tab builds')).toBeInTheDocument()
+  })
+
+  it('updates url when switching detail tabs', () => {
+    renderDatabasePage('/database/awk/alpha')
+
+    fireEvent.click(screen.getByLabelText('Switch to builds tab'))
+
+    expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awk/alpha/builds')
+  })
+
   it('falls back to the database root when deep link slug is unknown', () => {
     renderDatabasePage('/database/awk/missing')
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database')
+  })
+
+  it('falls back to the awakener overview route when deep link tab is unknown', () => {
+    renderDatabasePage('/database/awk/alpha/missing')
+
+    expect(screen.getByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    expect(screen.getByText('Active tab overview')).toBeInTheDocument()
+    expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awk/alpha')
   })
 
   it('sorts awakeners by ATK stat descending', () => {
