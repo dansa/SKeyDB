@@ -1,9 +1,10 @@
 import {useState} from 'react'
 
-import {FaDiscord, FaGithub} from 'react-icons/fa6'
+import {FaApple, FaDiscord, FaGithub, FaGlobe, FaGooglePlay, FaSteam} from 'react-icons/fa6'
+import type {IconType} from 'react-icons/lib'
 
 import emojiAel from '@/assets/emoji/Emoji_AEL_E_05.png'
-import emojiPdyM09 from '@/assets/emoji/Emoji_PDY_M_09.png'
+import emojiRose from '@/assets/emoji/Emoji_AEL_K_08.png'
 
 import {changelogItems} from './home/changelog'
 
@@ -30,6 +31,23 @@ const databaseTasks: TaskItem[] = [
 ]
 
 const resourceTasks: TaskItem[] = [{label: 'Useful links and tools page', status: 'planned'}]
+
+interface PlayLinkItem {
+  label: string
+  href: string
+  icon: IconType
+}
+
+const morimensPlayLinks: PlayLinkItem[] = [
+  {label: 'Official Site', href: 'https://morimens.qookkagames.com/', icon: FaGlobe},
+  {label: 'Steam', href: 'https://store.steampowered.com/app/3052450', icon: FaSteam},
+  {label: 'App Store', href: 'https://apps.apple.com/us/app/morimens/id6447354150', icon: FaApple},
+  {
+    label: 'Google Play',
+    href: 'https://play.google.com/store/apps/details?id=com.qookkagames.z1.gp.hk',
+    icon: FaGooglePlay,
+  },
+]
 
 const statusLabel: Record<TaskStatus, string> = {
   planned: 'Planned',
@@ -92,6 +110,24 @@ export function HomePage() {
                 DMs open for questions, issues, angry messages, and mild existential debugging.
               </li>
             </ul>
+            <div className='mt-2'>
+              <p className='text-xs tracking-wide text-slate-400 uppercase'>Play Morimens on:</p>
+              <div className='mt-1.5 flex flex-wrap gap-2'>
+                {morimensPlayLinks.map((link) => {
+                  const LinkIcon = link.icon
+                  return (
+                    <a
+                      className='inline-flex items-center gap-1.5 border border-slate-500/45 bg-slate-900/65 px-2.5 py-1 text-xs text-slate-100 transition-colors hover:border-amber-200/50 hover:text-amber-100'
+                      href={link.href}
+                      key={link.label}
+                    >
+                      <LinkIcon aria-hidden className='text-sm' />
+                      <span>{link.label}</span>
+                    </a>
+                  )
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -151,33 +187,66 @@ export function HomePage() {
       </article>
 
       <article className='border border-slate-500/45 bg-slate-900/55 p-4'>
+        <h3 className='ui-title text-lg text-amber-100'>Project Contributors</h3>
+        <ul className='mt-2 space-y-2 text-sm text-slate-200'>
+          <li>
+            <img
+              alt=''
+              aria-hidden
+              className='mr-2 ml-1 inline! h-12 w-12 -scale-x-100 object-contain'
+              src={emojiRose}
+            />
+            Special omega-thanks to the contributors who have helped make this project possible.
+            <span
+              aria-hidden
+              className='col-span-2 mt-1.5 block h-px w-full bg-gradient-to-r from-amber-200/25 via-slate-300/15 to-transparent'
+            />
+          </li>
+          <li>
+            - DZ-David, Original database and team builder, which some of our data originates from.
+          </li>
+          <li>- V, Project management, data help/cleanup and a whole lot of other things</li>
+          <li>- Zekiel, Data collection/help, anti-tawil propaganda in my DMs + more</li>
+          <li>
+            - Ansu, Migration and restructuring of awakener json db, plus a lot of work on the
+            codebase.
+          </li>
+          <li>- Juno, Made the website icon and is working on our logo</li>
+          <li>- Happy, Working on our logo</li>
+          <li>
+            - Jynn, Invaluable help with awakener scaling mathematics, and is the actual source of
+            most our database text content.
+          </li>
+          <li>
+            - Fish, Collected and mapped out every covenant slice (and more) in the game, so that
+            our export codes actually work as they should.
+          </li>
+          <li>
+            - Frosthief, Also helped out a lot with collecting wheel mappings and more for the
+            export codes.
+          </li>
+          <li>
+            - Everyone else who has, or will, provide feedback, suggestions, or other contributions
+            to the project.
+          </li>
+        </ul>
+      </article>
+
+      <article className='border border-slate-500/45 bg-slate-900/55 p-4'>
         <h3 className='ui-title text-lg text-amber-100'>Attribution and Legal</h3>
         <ul className='mt-2 space-y-2 text-sm text-slate-200'>
           <li>
-            Awakener avatars/cards and posse images used in this project are currently sourced from{' '}
+            Posse images are currently - and Awakener avatars/cards were previously - sourced from{' '}
             <a className='text-link' href='https://morimens.huijiwiki.com/p/1'>
               Morimens HuijiWiki
             </a>
             .
           </li>
           <li>
-            HuijiWiki content for these assets is credited under{' '}
-            <a className='text-link' href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>
-              CC BY-NC-SA
-            </a>
-          </li>
-          <li>
-            Big thanks to the Huiji contributors for putting those resources together, it helped us
-            get going a lot quicker than we would have otherwise
-          </li>
-          <li>
-            And apologies for not adding this contribution notice sooner~
-            <img
-              alt=''
-              aria-hidden
-              className='ml-1 inline-block h-12 w-12 -scale-x-100 object-contain'
-              src={emojiPdyM09}
-            />
+            Big thanks to the Huiji contributors for putting those resources, and a lot of other
+            information together.
+            <br />
+            It has helped us get going a lot quicker than we would have otherwise.
           </li>
           <li aria-hidden className='py-1'>
             <span className='block h-px w-48 bg-gradient-to-r from-amber-200/45 via-slate-300/35 to-transparent' />

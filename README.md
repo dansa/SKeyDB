@@ -39,28 +39,31 @@ App runs on `http://127.0.0.1:5173`.
 - `docs/` - internal roadmap, backlog, plans, notes, and archive
 - `untracked/` - local scratch space (ignored by git)
 
-## Deployment Notes (GitHub Pages)
-This project can be deployed to GitHub Pages as a static site.
+## Contributors
+- `DZ-David`, Original database and team builder, which some of our data originates from.
+- `V`, Project management, data help/cleanup and a whole lot of other things
+- `Zekiel`, Data collection/help, anti-tawil propaganda in my DMs + more
+- `Ansu`, Migration and restructuring of awakener json db, plus a lot of work on the
+  codebase.
+- `Juno`, Made the website icon and is working on our logo
+- `Happy`, Working on our logo
+- `Jynn`, Invaluable help with awakener scaling mathematics, and is the actual source of
+  most our database text content.
+- `Fish`, Collected and mapped out every covenant slice (and more) in the game, so that
+  our export codes actually work as they should.
+- `Frosthief`, Also helped out a lot with collecting wheel mappings and more for the
+  export codes.
+- Everyone else who has, or will, provide feedback, suggestions, or other contributions
+  to the project.
 
-Routing is configured with `HashRouter`, so client-side routes work on GitHub Pages without server rewrites.
-
-Set the repo base path at build time with `VITE_BASE_PATH`:
-
-```bash
-# example for https://<user>.github.io/SKeyDB/
-$env:VITE_BASE_PATH='/SKeyDB/'
-npm run build
-```
-
-If deploying to a user/org root page (`https://<user>.github.io/`), you can keep the default `/` base.
 
 ## Attribution & Other contributions
-- Awakener avatars/cards and posse images used in this repo are currently sourced from Morimens HuijiWiki community pages:
+- Posse images are currently - and Awakener avatars/cards were previously - sourced from Morimens HuijiWiki community pages:
   - https://morimens.huijiwiki.com/p/1
 - HuijiWiki content for these assets is credited under CC BY-NC-SA:
   - https://creativecommons.org/licenses/by-nc-sa/4.0/
-- Big thanks to the Huiji contributors for putting those resources together, it helped us get going a lot quicker than we would have otherwise
-- Favicon logo was created and provided by community member `lavenderjun0`.
+- Big thanks to the Huiji contributors for putting those resources, and a lot of other information together. It helped us get going a lot quicker than we would have otherwise.
+
 
 ## Asset & IP Notice
 - SKeyDB is an unofficial, non-commercial fan project.
