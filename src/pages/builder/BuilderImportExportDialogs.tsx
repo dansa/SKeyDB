@@ -53,8 +53,10 @@ const ingameSupportContactNote = (
 function renderIngameImportWarning() {
   return (
     <p className='text-xs text-rose-300'>
-      In-game `@@...@@` import is work in progress. Covenants and posse slots are NOT supported yet
-      and will import as empty when using import codes from the game.
+      In-game `@@...@@` import is work in progress. Covenant/posse support is still limited, and
+      wheel token mappings are currently unstable after in-game export changes.
+      <br />
+      Unsupported or ambiguous wheel tokens may import as empty or incorrect wheels.
       <br />
       <br />
       {ingameSupportContactNote}
@@ -65,7 +67,10 @@ function renderIngameImportWarning() {
 function renderIngameExportWarning() {
   return (
     <p className='text-xs text-rose-300'>
-      In-game export is work in progress. Covenants and posses are NOT supported yet.
+      In-game export is work in progress. Covenant/posse support is still limited, and wheel token
+      mappings are currently unstable after in-game export changes.
+      <br />
+      In-game exported codes may not re-import with correct wheels until mappings are updated.
       <br />
       <br />
       {ingameSupportContactNote}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "event-story-vortice",
+    "title": "Call of the Moskstraumen",
+    "category": "gameplay-event",
+    "description": "Gameplay and story event featuring the new awakener Vortice. \n Obtain SR-Wheel \"Imprisoned Madness\", Posse \"Drowned Innocence\" and more.",
+    "startDate": "2026/03/09 09:00",
+    "endDate": "2026/03/23 09:00",
+    "pinned": true,
+    "featured": "Vortice"
+  },
+  {
+    "id": "event-dtide",
+    "title": "Regional D-Effect Zone",
+    "category": "d-tide",
+    "description": "Bi-weekly D-Tide raids. \n Complete to earn Silver, Black Offerings, Gnosis materials and more. \n Current Realm relic: Aequor Ring.",
+    "startDate": "2026/03/02 09:00",
+    "endDate": "2026/03/16 09:00",
+    "pinned": true,
+    "customArt": "/events/dtide-aequor.png"
+  },
+  {
+    "id": "event-curriculum-03",
+    "title": "Curriculum Honor",
+    "category": "curriculum",
+    "description": "Complete daily and weekly tasks to earn various rewards. \n T1: 680 Silver Prime - SSR wheel, 2500 Silver, 12 Luminous Cores and more. \n T2: 1280 Silver Prime - T1 + Exclusive Avatars, increased daily rewards and more.",
+    "startDate": "2026/03/01 09:00",
+    "endDate": "2026/03/31 09:00",
+    "customArt": "/events/curriculum.png",
+    "pricing": "680-1280 Silver Prime"
+  },
+  {
+    "id": "event-wheel-ryker",
+    "title": "Wheel Event: Lucky Winner",
+    "category": "wheel-event",
+    "description": "Limited-time SSR wheel acquisition event. \n Complete various tasks to obtain 4 copies & 25 Pure Cores. \n Premium track: Grants +12 copies & 25 Luminous Cores.",
+    "startDate": "2026/03/09 09:00",
+    "endDate": "2026/04/06 09:00",
+    "featured": "Stakes of Wisdom",
+    "pricing": "980 Silver Prime"
+  },
+  {
+    "id": "event-skin-24",
+    "title": "Skin: Crimson Heartwood",
+    "category": "skin",
+    "description": "Limited outfit for 24. Includes updated 2d-Sprites. \n IMPORTANT: REQUIRES 15 DAYS OF LOGIN TO OBTAIN!",
+    "startDate": "2026/02/23 09:00",
+    "endDate": "2026/03/23 09:00",
+    "featured": "24",
+    "customArt": "/events/24-crimson-kaede.png",
+    "pricing": "980 Silver Prime"
+  },
+  {
+    "id": "event-preorder-arachne",
+    "title": "Pre-order \"Conjugated Fates\"",
+    "category": "preorder",
+    "description": "Arachne preorder mission track. \n30 Luminous Cores, 20k Silver, 1 Prototype Horizon, 1 Timeloop. \n Purchase before April 6th to obtain an exclusive avatar.",
+    "startDate": "2026/03/23 09:00",
+    "endDate": "2026/05/04 11:59",
+    "featured": "Arachne",
+    "customArt": "/events/arachne-preorder.png",
+    "pricing": "1980 Silver Prime"
+  },
+  {
+    "id": "event-login-march",
+    "title": "Gifts from Mythag",
+    "category": "login",
+    "description": "28-day login rewards: 10 Luminous Cores, Rose Scrips and Investigation Badges.",
+    "startDate": "2026/03/09 09:00",
+    "endDate": "2026/04/06 09:00",
+    "customArt": "/events/gifts-from-mythag.png"
+  },
+  {
+    "id": "event-story-rerun-24",
+    "title": "Manifold Healing: Rerun",
+    "category": "gameplay-event",
+    "description": "RERUN: Gameplay and story event featuring 24. \n Obtain SR-Wheel \"Silver Cod's Determination\", Posse \"All of Her\" and more.",
+    "startDate": "2026/02/23 09:00",
+    "endDate": "2026/03/09 09:00",
+    "featured": "24"
+  },
+  {
+    "id": "event-story-rerun-wanda",
+    "title": "Feast of Flames: Rerun",
+    "category": "gameplay-event",
+    "description": "RERUN: Gameplay and story event featuring Wanda. \n Obtain SR-Wheel \"The Gaze of Isarawu\" and more.",
+    "startDate": "2026/03/23 09:00",
+    "endDate": "2026/04/06 09:00",
+    "featured": "Wanda",
+    "customArt": "/events/wanda-event.png"
+  }
+]

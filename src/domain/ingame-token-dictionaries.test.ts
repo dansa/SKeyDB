@@ -80,7 +80,7 @@ describe('buildIngameTokenDictionaries', () => {
   it('uses canonical posse ids rather than display names in the tracked token file', () => {
     const result = buildIngameTokenDictionaries()
 
-    expect(result.posses.byIdToken.get('manor-echoes')).toBe('3')
+    expect(result.posses.byIdToken.get('manor-echoes')).toBe('2')
     expect(result.posses.byIdToken.get('voices-in-your-head')).toBe('h')
     expect(result.posses.byIdToken.has('Manor Echoes')).toBe(false)
     expect(
@@ -95,15 +95,15 @@ describe('buildIngameTokenDictionaries', () => {
     const canonicalPosseEntryById = new Map(possesCanonical.map((entry) => [entry.id, entry.token]))
 
     expect(canonicalPosseEntryById.size).toBeLessThanOrEqual(posseIds.length)
-    expect(canonicalPosseEntryById.get('manor-echoes')).toBe('3')
+    expect(canonicalPosseEntryById.get('manor-echoes')).toBe('2')
     expect(canonicalPosseEntryById.get('voices-in-your-head')).toBe('h')
-    expect(canonicalPosseEntryById.get('auritas-treasure')).toBe('')
+    expect(canonicalPosseEntryById.get('auritas-treasure')).toBe('j')
   })
 
   it('preserves the discovered posse token mappings from the RE notes', () => {
     const canonicalPosseEntryById = new Map(possesCanonical.map((entry) => [entry.id, entry.token]))
 
-    expect(canonicalPosseEntryById.get('manor-echoes')).toBe('3')
+    expect(canonicalPosseEntryById.get('manor-echoes')).toBe('2')
     expect(canonicalPosseEntryById.get('from-the-mist-realm')).toBe('Z')
     expect(canonicalPosseEntryById.get('reunions-wish')).toBe('Y')
     expect(canonicalPosseEntryById.get('wayward-ship')).toBe('X')

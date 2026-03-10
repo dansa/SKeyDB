@@ -432,10 +432,10 @@
     "description": "Description coming soon..?"
   },
   {
-    "id": "portrait-temp-vortice",
+    "id": "portrait-o11",
     "kind": "PORTRAIT",
-    "awakenerIngameId": "TEMP_VORTICE",
-    "assetId": "Icon_Creation_Unique_TEMP_VORTICE",
+    "awakenerIngameId": "O11",
+    "assetId": "Icon_Creation_Unique_O11",
     "name": "Dimensional Image: Vortice",
     "description": "Description coming soon..?"
   }

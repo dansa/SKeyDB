@@ -269,6 +269,7 @@
     "JP02",
     "JP03",
     "JP04",
+    "JP06",
     "N01",
     "N02",
     "O01",
@@ -282,6 +283,7 @@
     "O09",
     "O10",
     "O11",
+    "O112",
     "P01",
     "P02",
     "P03",
@@ -340,6 +342,7 @@
     "SR43",
     "SR44",
     "SR45",
+    "SR46",
     "ZL01",
     "ZL02",
     "ZL03",
@@ -392,6 +395,10 @@
     {
       "id": "derision-of-destiny",
       "index": 36
+    },
+    {
+      "id": "drowned-innocence",
+      "index": 51
     },
     {
       "id": "encounter-in-pure-white",

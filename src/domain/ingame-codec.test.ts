@@ -116,7 +116,7 @@ describe('decodeIngameTeamCode', () => {
       ],
     }
 
-    expect(encodeIngameTeamCode(team)).toBe('@@UliXxW5aaxY1xVxDaaaa3@@')
+    expect(encodeIngameTeamCode(team)).toBe('@@UliXxW5aaxY1xVxDaaaa2@@')
   })
 
   it('encodes covenant set tokens into the covenant payload zone', () => {
@@ -151,7 +151,7 @@ describe('decodeIngameTeamCode', () => {
       ],
     }
 
-    expect(encodeIngameTeamCode(team)).toBe('@@UliXxW5aaxY1xVxDwaaa3@@')
+    expect(encodeIngameTeamCode(team)).toBe('@@UliXxW5aaxY1xVxDwaaa2@@')
   })
 
   it('leaves covenant unset and warns when a covenant token is unknown', () => {
@@ -169,7 +169,7 @@ describe('decodeIngameTeamCode', () => {
   })
 
   it('decodes legacy long covenant tails without shifting wheel or posse parsing', () => {
-    const code = '@@UliXxW5aaxY1xVxDaaaaaaaaax1aaaaaaaaaaaaaa3@@'
+    const code = '@@UliXxW5aaxY1xVxDaaaaaaaaax1aaaaaaaaaaaaaa2@@'
     const decoded = decodeIngameTeamCode(code)
 
     expect(decoded.team.slots[0].awakenerName).toBe('doll: inferno')

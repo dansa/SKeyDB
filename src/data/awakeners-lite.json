@@ -953,7 +953,6 @@
     "realm": "AEQUOR",
     "type": "ASSAULT",
     "faction": "The Fools",
-    "unreleased": true,
     "aliases": ["vortice"],
     "stats": {
       "CON": 149,
@@ -961,6 +960,6 @@
       "DEF": 122
     },
     "tags": ["Fortress", "Pursuit", "Dispel", "Tentacles"],
-    "ingameId": "TEMP_VORTICE"
+    "ingameId": "O11"
   }
 ]

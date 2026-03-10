@@ -45,11 +45,11 @@
   },
   {
     "id": "B12",
-    "token": "ye"
+    "token": "yd"
   },
   {
     "id": "B14",
-    "token": "yZ"
+    "token": "yX"
   },
   {
     "id": "C01",
@@ -161,7 +161,7 @@
   },
   {
     "id": "D13",
-    "token": "yg"
+    "token": "yf"
   },
   {
     "id": "D14",
@@ -172,16 +172,16 @@
     "token": "yL"
   },
   {
-    "id": "JP02",
-    "token": "yK"
-  },
-  {
     "id": "JP03",
     "token": "yU"
   },
   {
     "id": "JP04",
     "token": "yV"
+  },
+  {
+    "id": "JP06",
+    "token": "y8"
   },
   {
     "id": "N02",
@@ -225,11 +225,15 @@
   },
   {
     "id": "O10",
-    "token": "yf"
+    "token": "a"
   },
   {
     "id": "O11",
-    "token": "yq"
+    "token": "yp"
+  },
+  {
+    "id": "O112",
+    "token": "y6"
   },
   {
     "id": "P01",
@@ -457,11 +461,15 @@
   },
   {
     "id": "SR44",
-    "token": "yM"
+    "token": "yK"
   },
   {
     "id": "SR45",
-    "token": "yY"
+    "token": "yW"
+  },
+  {
+    "id": "SR46",
+    "token": "y7"
   },
   {
     "id": "ZL01",

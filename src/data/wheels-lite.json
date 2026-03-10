@@ -414,8 +414,8 @@
     "mainstatKey": "KEYFLARE_REGEN"
   },
   {
-    "id": "JP05",
-    "assetId": "TBD",
+    "id": "JP06",
+    "assetId": "Weapon_Full_JP06",
     "name": "Stakes of Wisdom",
     "rarity": "SSR",
     "realm": "NEUTRAL",
@@ -540,8 +540,8 @@
     "mainstatKey": "KEYFLARE_REGEN"
   },
   {
-    "id": "O12",
-    "assetId": "TBD",
+    "id": "O112",
+    "assetId": "Weapon_Full_O112",
     "name": "The Faraway Eden",
     "rarity": "SSR",
     "realm": "AEQUOR",
