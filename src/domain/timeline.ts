@@ -40,6 +40,23 @@ export const EVENT_CATEGORIES = [
 
 export type EventCategory = (typeof EVENT_CATEGORIES)[number]
 
+export const EVENT_CATEGORY_PRIORITY: Record<EventCategory, number> = {
+  story: 10,
+  'gameplay-event': 20,
+  raid: 30,
+  'd-tide': 40,
+  skin: 50,
+  curriculum: 60,
+  'wheel-event': 70,
+  login: 80,
+  preorder: 90,
+  battlepass: 100,
+  campaign: 110,
+  collab: 120,
+  maintenance: 130,
+  other: 999,
+}
+
 export interface EventEntry {
   id: string
   title: string
@@ -196,6 +213,11 @@ export function sortEventsByRelevance(events: EventEntry[], now?: Date): EventEn
     const order: Record<TimelineStatus, number> = {active: 0, upcoming: 1, ended: 2}
     if (order[statusA] !== order[statusB]) {
       return order[statusA] - order[statusB]
+    }
+    const catPriorityA = EVENT_CATEGORY_PRIORITY[a.category ?? 'other']
+    const catPriorityB = EVENT_CATEGORY_PRIORITY[b.category ?? 'other']
+    if (catPriorityA !== catPriorityB) {
+      return catPriorityA - catPriorityB
     }
     if (statusA === 'upcoming') {
       return new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
