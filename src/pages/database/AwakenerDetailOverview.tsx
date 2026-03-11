@@ -1,12 +1,13 @@
-import {useCallback} from 'react'
+import {useCallback, useMemo} from 'react'
 
+import enlightensStars from '@/assets/icons/Battle_Card_Buff_045.png'
 import type {Awakener} from '@/domain/awakeners'
 import type {AwakenerFull, AwakenerFullStats} from '@/domain/awakeners-full'
 import {getRelicPortraitAssetByAssetId} from '@/domain/relic-assets'
 import {getPortraitRelicByAwakenerIngameId} from '@/domain/relics'
 
 import {DetailSection, type DetailSectionItem} from './DetailSection'
-import {scaledFontStyle} from './font-scale'
+import {getStarSize, scaledFontStyle, type FontScale} from './font-scale'
 import {RichDescription} from './RichDescription'
 import {DATABASE_SECTION_TITLE_CLASS} from './text-styles'
 
@@ -16,6 +17,7 @@ interface AwakenerDetailOverviewProps {
   stats: AwakenerFullStats | null
   cardNames: Set<string>
   skillLevel: number
+  fontScale: FontScale
   onNavigateToCards?: () => void
 }
 
@@ -36,6 +38,7 @@ export function AwakenerDetailOverview({
   stats,
   cardNames,
   skillLevel,
+  fontScale,
   onNavigateToCards,
 }: AwakenerDetailOverviewProps) {
   const renderDescription = useCallback(
@@ -52,32 +55,58 @@ export function AwakenerDetailOverview({
     [cardNames, fullData, onNavigateToCards, skillLevel, stats],
   )
 
+  const enlightenItems = useMemo(() => {
+    if (!fullData) return []
+    const items = []
+    const starStyle = getStarSize(fontScale)
+
+    for (const key of ENLIGHTEN_ORDER) {
+      if (!hasEnlightenEntry(fullData, key)) continue
+
+      const entry = fullData.enlightens[key]
+      const starCount = parseInt(key.replace('E', ''))
+
+      items.push({
+        key,
+        label: (
+          <span className={`relative inline-flex items-center ${starStyle.space}`}>
+            {Array.from({length: starCount}).map((_, i) => (
+              <img
+                key={i}
+                src={enlightensStars}
+                alt={`E${(i + 1).toString()}`}
+                className='relative'
+                style={{width: starStyle.width, height: starStyle.height, top: starStyle.top}}
+              />
+            ))}
+          </span>
+        ),
+        name: entry.name,
+        description: entry.description,
+      })
+    }
+
+    const absoluteAxiom = hasEnlightenEntry(fullData, 'AbsoluteAxiom')
+      ? fullData.enlightens.AbsoluteAxiom
+      : hasEnlightenEntry(fullData, 'E4')
+        ? fullData.enlightens.E4
+        : null
+
+    if (absoluteAxiom) {
+      items.push({
+        key: 'AbsoluteAxiom',
+        label: 'Е15',
+        name: absoluteAxiom.name,
+        description: absoluteAxiom.description,
+      })
+    }
+
+    return items
+  }, [fullData, fontScale])
+
   if (!fullData) {
     return <p className='py-4 text-xs text-slate-400'>Loading...</p>
   }
-
-  const enlightenItems: DetailSectionItem[] = []
-  for (const key of ENLIGHTEN_ORDER) {
-    if (!hasEnlightenEntry(fullData, key)) {
-      continue
-    }
-    const entry = fullData.enlightens[key]
-    enlightenItems.push({key, label: key, name: entry.name, description: entry.description})
-  }
-  const absoluteAxiom = hasEnlightenEntry(fullData, 'AbsoluteAxiom')
-    ? fullData.enlightens.AbsoluteAxiom
-    : hasEnlightenEntry(fullData, 'E4')
-      ? fullData.enlightens.E4
-      : null
-  if (absoluteAxiom) {
-    enlightenItems.push({
-      key: 'AbsoluteAxiom',
-      label: 'Absolute Axiom (+12)',
-      name: absoluteAxiom.name,
-      description: absoluteAxiom.description,
-    })
-  }
-
   const talentItems: DetailSectionItem[] = []
   for (const key of TALENT_ORDER) {
     if (!hasTalentEntry(fullData, key)) {

@@ -392,6 +392,7 @@ export function AwakenerDetailModal({
                     fullData={fullData}
                     onNavigateToCards={navigateToCards}
                     skillLevel={skillLevel}
+                    fontScale={fontScale}
                     stats={resolvedStats}
                   />
                 )}

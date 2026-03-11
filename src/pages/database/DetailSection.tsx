@@ -5,7 +5,7 @@ import {DATABASE_ITEM_NAME_CLASS, DATABASE_SECTION_TITLE_CLASS} from './text-sty
 
 export interface DetailSectionItem {
   key: string
-  label: string
+  label: ReactNode
   name: string
   description: string
 }

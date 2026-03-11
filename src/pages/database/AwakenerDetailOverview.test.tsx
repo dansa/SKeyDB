@@ -74,6 +74,7 @@ describe('AwakenerDetailOverview', () => {
         cardNames={new Set()}
         fullData={TEST_FULL_DATA}
         skillLevel={1}
+        fontScale={'medium'}
         stats={TEST_FULL_DATA.stats}
       />,
     )

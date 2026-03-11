@@ -1,7 +1,7 @@
 [
   {
     "id": "banner-vortice",
-    "title": "Awaken - Maelstrom of Woe / Forsaken Isle",
+    "title": "Maelstrom of Woe / Forsaken Isle",
     "type": "awaken",
     "description": "Featured rate-up banners for Vortice and her SSR Wheel 'The Faraway Eden'.",
     "startDate": "2026/03/09 09:00",
@@ -11,7 +11,7 @@
   },
   {
     "id": "banner-triune-verdant-feb",
-    "title": "Awaken — Triune Verdant",
+    "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners, featuring the awakeners 24, Horla and Pickman.",
     "startDate": "2026/02/23 09:00",
@@ -20,7 +20,7 @@
   },
   {
     "id": "banner-sylvan-omen-feb",
-    "title": "Awaken — Sylvan Omen",
+    "title": "Sylvan Omen",
     "type": "rerun",
     "description": "Three rerun banners, featuring the Wheels Aberrant Devour, The Last Verse and Paradoxical Realism.",
     "startDate": "2026/02/23 09:00",
@@ -29,7 +29,7 @@
   },
   {
     "id": "banner-triune-verdant-mar",
-    "title": "Awaken — Triune Verdant",
+    "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners, featuring the awakeners Wanda, Salvador and Kathigu-ra.",
     "startDate": "2026/03/23 09:00",
@@ -38,7 +38,7 @@
   },
   {
     "id": "banner-sylvan-omen-mar",
-    "title": "Awaken — Sylvan Omen",
+    "title": "Sylvan Omen",
     "type": "rerun",
     "description": "Three rerun banners, featuring the Wheels Queen's Edict, Tablet of Scriptures, Amber-Tinted Death",
     "startDate": "2026/03/23 09:00",

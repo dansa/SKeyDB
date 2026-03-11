@@ -30,6 +30,18 @@ export function scaledFontStyle(basePx: number): CSSProperties {
   return {fontSize: `calc(var(--desc-font-scale, 1) * ${String(basePx)}px)`}
 }
 
+export const getStarSize = (scale: string) => {
+  switch (scale) {
+    case 'small':
+      return {width: '20px', height: '20px', space: '-space-x-2.5', top: '5px'}
+    case 'large':
+      return {width: '28px', height: '28px', space: '-space-x-3.5', top: '7px'}
+    case 'medium':
+    default:
+      return {width: '24px', height: '24px', space: '-space-x-3', top: '6px'}
+  }
+}
+
 export function renderTextWithBreaks(text: string): ReactNode {
   const parts = text.split('\n')
   return createElement(

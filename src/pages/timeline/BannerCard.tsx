@@ -19,7 +19,7 @@ import {getWheelAssetById} from '@/domain/wheel-assets'
 import {getWheels} from '@/domain/wheels'
 
 const BANNER_TYPE_LABEL: Record<BannerEntry['type'], string> = {
-  awaken: 'Awaken',
+  awaken: 'New Awakener',
   limited: 'Limited',
   standard: 'Standard',
   rerun: 'Rerun',
@@ -28,10 +28,20 @@ const BANNER_TYPE_LABEL: Record<BannerEntry['type'], string> = {
   combo: 'Combo',
 }
 
+const BANNER_TYPE_COLOR: Record<BannerEntry['type'], string> = {
+  awaken: 'text-amber-400/80',
+  limited: 'text-sky-400/80',
+  standard: 'text-slate-400/80',
+  rerun: 'text-violet-400/80',
+  selector: 'text-pink-400/80',
+  wheel: 'text-cyan-400/80',
+  combo: 'text-emerald-400/80',
+}
+
 const STATUS_CLASS: Record<TimelineStatus, string> = {
-  active: 'border-emerald-400/50 text-emerald-200 bg-emerald-950/60',
-  upcoming: 'border-sky-400/50 text-sky-200 bg-sky-950/60',
-  ended: 'border-slate-400/40 text-slate-400 bg-slate-900/60',
+  active: 'border-emerald-500 bg-slate-950 text-emerald-400',
+  upcoming: 'border-sky-500 bg-slate-950 text-sky-400',
+  ended: 'border-slate-500/40 bg-slate-900/60 text-slate-500',
 }
 
 const SKEW_PX = 14
@@ -443,7 +453,7 @@ export function BannerCard({banner, now}: BannerCardProps) {
 
   return (
     <article
-      className={`border bg-slate-900/55 ${isEnded ? 'border-slate-500/30 opacity-65' : 'border-slate-500/45'}`}
+      className={`flex flex-col overflow-hidden border bg-slate-900/55 ${isEnded ? 'border-slate-500/30 opacity-60 saturate-50' : status === 'upcoming' ? 'border-slate-500/40 opacity-70' : 'border-slate-500/45'}`}
     >
       <div className='relative aspect-[8/5] overflow-hidden bg-slate-950/80'>
         <div className='absolute inset-0 flex'>
@@ -472,26 +482,45 @@ export function BannerCard({banner, now}: BannerCardProps) {
         </div>
       </div>
 
-      <div className='flex flex-col gap-1.5 px-3 py-2'>
-        <div className='flex items-start justify-between gap-2'>
-          <div className='min-w-0'>
-            <h3 className='ui-title text-sm text-amber-100'>{banner.title}</h3>
-            <span className='text-[10px] tracking-wider text-slate-400 uppercase'>
+      <div
+        className={`flex flex-col border-t-[1px] px-4 py-3 ${isEnded ? 'border-t-slate-700' : 'border-t-slate-500/30'}`}
+      >
+        <div className='flex items-center justify-between gap-2'>
+          <div className='flex min-w-0 flex-col gap-1'>
+            <div className='flex items-center gap-2'>
+              {banner.pinned ? (
+                <span className='text-[10px] text-amber-300/80 drop-shadow-sm' title='Pinned'>
+                  &#x1F4CC;
+                </span>
+              ) : null}
+              <h3
+                className={`ui-title text-[15px] leading-tight font-bold tracking-tight ${isEnded ? 'text-slate-400' : 'text-slate-100'}`}
+              >
+                {banner.title}
+              </h3>
+            </div>
+            <span
+              className={`text-[10px] font-bold tracking-wider uppercase ${isEnded ? 'text-slate-500' : BANNER_TYPE_COLOR[banner.type]}`}
+            >
               {BANNER_TYPE_LABEL[banner.type]}
             </span>
           </div>
-          <div className='flex shrink-0 flex-col items-end gap-1'>
-            <span className={`border px-2 py-0.5 text-[10px] leading-none ${STATUS_CLASS[status]}`}>
+          <div className='flex shrink-0 flex-col items-end gap-0.5 pt-0.5'>
+            <span
+              className={`rounded-[2px] border px-1.5 py-0.5 text-[9px] font-medium tracking-wider ${STATUS_CLASS[status]}`}
+            >
               {status === 'active' ? 'Live' : status === 'upcoming' ? 'Soon' : 'Ended'}
             </span>
-            {countdown ? (
-              <span className='text-[10px] text-slate-300'>{formatCountdown(countdown)}</span>
+            {countdown && status !== 'ended' ? (
+              <span className='text-[10px] font-medium whitespace-nowrap text-slate-400 tabular-nums'>
+                {formatCountdown(countdown)}
+              </span>
             ) : null}
           </div>
         </div>
         {banner.description ? (
           <p
-            className='text-xs leading-relaxed whitespace-pre-line text-slate-300 [&_a]:text-amber-300 [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-amber-200'
+            className='mt-2.5 line-clamp-2 text-xs leading-relaxed text-slate-500'
             dangerouslySetInnerHTML={{__html: banner.description}}
           />
         ) : null}

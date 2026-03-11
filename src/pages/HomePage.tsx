@@ -202,33 +202,47 @@ export function HomePage() {
               className='col-span-2 mt-1.5 block h-px w-full bg-gradient-to-r from-amber-200/25 via-slate-300/15 to-transparent'
             />
           </li>
-          <li>
-            - DZ-David, Original database and team builder, which some of our data originates from.
-          </li>
-          <li>- V, Project management, data help/cleanup and a whole lot of other things</li>
-          <li>- Zekiel, Data collection/help, anti-tawil propaganda in my DMs + more</li>
-          <li>
-            - Ansu, Migration and restructuring of awakener json db, plus a lot of work on the
-            codebase.
-          </li>
-          <li>- Juno, Made the website icon and is working on our logo</li>
-          <li>- Happy, Working on our logo</li>
-          <li>
-            - Jynn, Invaluable help with awakener scaling mathematics, and is the actual source of
-            most our database text content.
-          </li>
-          <li>
-            - Fish, Collected and mapped out every covenant slice (and more) in the game, so that
-            our export codes actually work as they should.
-          </li>
-          <li>
-            - Frosthief, Also helped out a lot with collecting wheel mappings and more for the
-            export codes.
-          </li>
-          <li>
-            - Everyone else who has, or will, provide feedback, suggestions, or other contributions
-            to the project.
-          </li>
+          {[
+            {
+              name: 'DZ-David',
+              desc: 'Original database and team builder, which some of our data originates from.',
+            },
+            {
+              name: 'V',
+              desc: 'Project management, data help/cleanup and a whole lot of other things.',
+            },
+            {name: 'Zekiel', desc: 'Data collection/help, anti-tawil propaganda in my DMs + more.'},
+            {
+              name: 'Ansu',
+              desc: 'Migration and restructuring of awakener json db, plus a lot of work on the codebase.',
+            },
+            {name: 'Juno', desc: 'Made the website icon and is working on our logo.'},
+            {name: 'Happy', desc: 'Working on our logo.'},
+            {
+              name: 'Jynn',
+              desc: 'Invaluable help with awakener scaling mathematics, and is the actual source of most our database text content.',
+            },
+            {
+              name: 'Fish',
+              desc: 'Collected and mapped out every covenant slice (and more) in the game, so that our export codes actually work as they should.',
+            },
+            {
+              name: 'Frosthief',
+              desc: 'Also helped out a lot with collecting wheel mappings and more for the export codes.',
+            },
+            {
+              name: 'Everyone else',
+              desc: 'who has, or will, provide feedback, suggestions, or other contributions to the project.',
+            },
+          ].map((contributor) => (
+            <li key={contributor.name} className='leading-relaxed'>
+              <span className='font-bold tracking-wide text-amber-200/90'>{contributor.name}</span>
+
+              <span className='mx-2 text-slate-600'>—</span>
+
+              <span>{contributor.desc}</span>
+            </li>
+          ))}
         </ul>
       </article>
 
