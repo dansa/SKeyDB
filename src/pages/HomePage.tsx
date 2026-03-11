@@ -240,7 +240,7 @@ export function HomePage() {
 
               <span className='mx-2 text-slate-600'>—</span>
 
-              <span className='text-slate-300'>{contributor.desc}</span>
+              <span>{contributor.desc}</span>
             </li>
           ))}
         </ul>
