@@ -1,6 +1,7 @@
 import {fileURLToPath} from 'node:url'
 
 import js from '@eslint/js'
+import {importX} from 'eslint-plugin-import-x'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import sonarjs from 'eslint-plugin-sonarjs'
@@ -23,8 +24,17 @@ export default defineConfig([
       reactRefresh.configs.vite,
     ],
     plugins: {
+      'import-x': importX,
       sonarjs,
       'unused-imports': unusedImports,
+    },
+    settings: {
+      'import-x/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+        node: true,
+      },
     },
     languageOptions: {
       globals: globals.browser,
@@ -40,7 +50,8 @@ export default defineConfig([
       'no-console': ['warn', {allow: ['warn', 'error']}],
       'prefer-const': 'error',
       eqeqeq: 'error',
-      'no-duplicate-imports': ['error', {allowSeparateTypeImports: true}],
+      'import-x/no-duplicates': 'error',
+      'import-x/no-named-as-default': 'off',
       'sonarjs/no-collection-size-mischeck': 'error',
       'sonarjs/no-duplicated-branches': 'error',
       'sonarjs/no-gratuitous-expressions': 'error',
