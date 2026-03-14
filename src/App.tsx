@@ -13,6 +13,9 @@ const BuilderPage = lazy(() =>
 const CollectionPage = lazy(() =>
   import('./pages/CollectionPage').then((module) => ({default: module.CollectionPage})),
 )
+const BuilderV2Page = lazy(() =>
+  import('./pages/builder/v2/BuilderV2Page').then((module) => ({default: module.BuilderV2Page})),
+)
 const TimelinePage = lazy(() =>
   import('./pages/TimelinePage').then((module) => ({default: module.TimelinePage})),
 )
@@ -57,6 +60,7 @@ function App() {
             <Route element={<DatabasePage />} path='/database/awk/:awakenerSlug/:tabSlug' />
             <Route element={<TimelinePage />} path='/timeline' />
             <Route element={<BuilderPage />} path='/builder' />
+            <Route element={<BuilderV2Page />} path='/builder-v2' />
             <Route element={<CollectionPage />} path='/collection' />
             <Route element={<Navigate replace to='/' />} path='*' />
           </Routes>

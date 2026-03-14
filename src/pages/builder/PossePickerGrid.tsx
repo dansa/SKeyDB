@@ -148,7 +148,7 @@ export function PossePickerGrid({
   onSetActivePosse,
 }: PossePickerGridProps) {
   return (
-    <div className='grid grid-cols-4 items-start gap-2'>
+    <div className='grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] items-start gap-2'>
       <button
         className={`builder-picker-tile border p-1 text-left transition-colors ${
           !activePosseId

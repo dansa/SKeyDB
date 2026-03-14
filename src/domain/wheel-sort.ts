@@ -1,12 +1,13 @@
+import {chainComparators, compareMappedRank} from './sorting'
 import type {Wheel} from './wheels'
 
-const WHEEL_RARITY_ORDER: Record<Wheel['rarity'], number> = {
+const WHEEL_RARITY_RANK: Record<string, number> = {
   SSR: 0,
   SR: 1,
   R: 2,
 }
 
-const WHEEL_REALM_ORDER: Record<Wheel['realm'], number> = {
+const WHEEL_REALM_RANK: Record<string, number> = {
   CHAOS: 0,
   AEQUOR: 1,
   CARO: 2,
@@ -14,16 +15,8 @@ const WHEEL_REALM_ORDER: Record<Wheel['realm'], number> = {
   NEUTRAL: 4,
 }
 
-export function compareWheelsForUi(left: Wheel, right: Wheel): number {
-  const rarityOrderDiff = WHEEL_RARITY_ORDER[left.rarity] - WHEEL_RARITY_ORDER[right.rarity]
-  if (rarityOrderDiff !== 0) {
-    return rarityOrderDiff
-  }
-
-  const realmOrderDiff = WHEEL_REALM_ORDER[left.realm] - WHEEL_REALM_ORDER[right.realm]
-  if (realmOrderDiff !== 0) {
-    return realmOrderDiff
-  }
-
-  return left.id.localeCompare(right.id, undefined, {numeric: true, sensitivity: 'base'})
-}
+export const compareWheelsForUi = chainComparators<Wheel>(
+  (l, r) => compareMappedRank(l, r, WHEEL_RARITY_RANK, (w) => w.rarity),
+  (l, r) => compareMappedRank(l, r, WHEEL_REALM_RANK, (w) => w.realm),
+  (l, r) => l.id.localeCompare(r.id, undefined, {numeric: true, sensitivity: 'base'}),
+)

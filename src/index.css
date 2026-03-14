@@ -47,6 +47,32 @@
   --tabbed-surface-bg: color-mix(in oklab, var(--color-slate-900) 45%, transparent);
   --tabbed-tab-inactive-bg: rgba(2, 6, 23, 0.72);
   --tabbed-ear-height: 38px;
+
+  --accent-amber: rgba(251, 191, 36, 1);
+  --accent-amber-glow: rgba(251, 191, 36, 0.28);
+  --accent-amber-ring: rgba(251, 191, 36, 0.36);
+  --accent-amber-subtle: rgba(251, 191, 36, 0.12);
+  --accent-amber-border: rgba(251, 191, 36, 0.48);
+  --accent-amber-border-strong: rgba(251, 191, 36, 0.76);
+  --accent-orange-inset: rgba(251, 146, 60, 0.58);
+
+  --status-unowned-border: rgba(251, 113, 133, 0.28);
+  --status-unowned-bg: rgba(2, 8, 20, 0.64);
+  --status-unowned-text: rgba(255, 228, 230, 0.88);
+  --status-support-border: rgba(103, 232, 249, 0.36);
+  --status-support-bg: rgba(8, 32, 58, 0.7);
+  --status-support-text: rgba(223, 247, 255, 0.92);
+
+  --filter-unowned: grayscale(0.85) brightness(0.5);
+  --filter-dimmed: grayscale(0.9) brightness(0.72);
+
+  --scrollbar-thumb: rgba(148, 163, 184, 0.65);
+  --scrollbar-track: transparent;
+
+  --surface-dark: rgba(15, 23, 42, 0.7);
+  --surface-dark-deep: rgba(2, 6, 12, 0.92);
+  --surface-border: rgba(100, 116, 139, 0.55);
+  --surface-border-subtle: rgba(148, 163, 184, 0.22);
 }
 
 *,
@@ -567,17 +593,17 @@ a {
 }
 
 .builder-unowned-badge {
-  border-color: rgba(251, 113, 133, 0.28);
-  background: rgba(2, 8, 20, 0.64);
-  color: rgba(255, 228, 230, 0.88);
+  border-color: var(--status-unowned-border);
+  background: var(--status-unowned-bg);
+  color: var(--status-unowned-text);
 }
 
 .builder-support-badge {
   display: inline-block;
   margin-top: 2px;
-  border: 1px solid rgba(103, 232, 249, 0.36);
-  background: rgba(8, 32, 58, 0.7);
-  color: rgba(223, 247, 255, 0.92);
+  border: 1px solid var(--status-support-border);
+  background: var(--status-support-bg);
+  color: var(--status-support-text);
   padding: 0 5px;
   font-size: 9px;
   line-height: 1.35;
@@ -919,20 +945,17 @@ a {
   border-color: rgba(251, 191, 36, 0.8);
 }
 
-.wheel-tile-unowned {
-  filter: grayscale(0.85) brightness(0.5);
+.art-unowned,
+.wheel-tile-unowned,
+.builder-card-art-unowned,
+.builder-picker-art-unowned,
+.builder-team-posse-unowned {
+  filter: var(--filter-unowned);
 }
 
-.builder-card-art-unowned {
-  filter: grayscale(0.85) brightness(0.5);
-}
-
-.builder-picker-art-unowned {
-  filter: grayscale(0.85) brightness(0.5);
-}
-
+.art-dimmed,
 .builder-picker-art-dimmed {
-  filter: grayscale(0.9) brightness(0.72);
+  filter: var(--filter-dimmed);
 }
 
 .builder-picker-recommendation-chip {
@@ -992,9 +1015,9 @@ a {
 }
 
 .builder-unowned-chip {
-  border-color: rgba(251, 113, 133, 0.28);
-  background: rgba(2, 8, 20, 0.64);
-  color: rgba(255, 228, 230, 0.88);
+  border-color: var(--status-unowned-border);
+  background: var(--status-unowned-bg);
+  color: var(--status-unowned-text);
 }
 
 .builder-wheel-dupe {
@@ -1033,46 +1056,33 @@ a {
   grid-row: 1;
 }
 
-.builder-picker-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(148, 163, 184, 0.65) transparent;
-}
-
-.builder-picker-scrollbar::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.builder-picker-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.builder-picker-scrollbar::-webkit-scrollbar-thumb {
-  border: 3px solid transparent;
-  border-radius: 999px;
-  background-clip: padding-box;
-  background-color: rgba(148, 163, 184, 0.65);
-}
-
+.themed-scrollbar,
+.builder-picker-scrollbar,
 .collection-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: rgba(148, 163, 184, 0.65) transparent;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
+.themed-scrollbar::-webkit-scrollbar,
+.builder-picker-scrollbar::-webkit-scrollbar,
 .collection-scrollbar::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
+.themed-scrollbar::-webkit-scrollbar-track,
+.builder-picker-scrollbar::-webkit-scrollbar-track,
 .collection-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--scrollbar-track);
 }
 
+.themed-scrollbar::-webkit-scrollbar-thumb,
+.builder-picker-scrollbar::-webkit-scrollbar-thumb,
 .collection-scrollbar::-webkit-scrollbar-thumb {
   border: 3px solid transparent;
   border-radius: 999px;
   background-clip: padding-box;
-  background-color: rgba(148, 163, 184, 0.65);
+  background-color: var(--scrollbar-thumb);
 }
 
 .ownership-pill {
@@ -1903,19 +1913,15 @@ a {
   object-fit: contain;
 }
 
-.builder-team-posse-unowned {
-  filter: grayscale(0.85) brightness(0.5);
-}
-
 .builder-team-preview-unowned-chip {
   position: absolute;
   left: 1px;
   right: 1px;
   top: 1px;
   z-index: 12;
-  border: 1px solid rgba(251, 113, 133, 0.28);
-  background: rgba(2, 8, 20, 0.64);
-  color: rgba(255, 228, 230, 0.88);
+  border: 1px solid var(--status-unowned-border);
+  background: var(--status-unowned-bg);
+  color: var(--status-unowned-text);
   padding: 0 2px;
   font-size: 7px;
   line-height: 1.25;
@@ -1926,9 +1932,9 @@ a {
 }
 
 .builder-team-preview-support-chip {
-  border: 1px solid rgba(103, 232, 249, 0.34);
-  background: rgba(8, 32, 58, 0.78);
-  color: rgba(223, 247, 255, 0.94);
+  border: 1px solid var(--status-support-border);
+  background: var(--status-support-bg);
+  color: var(--status-support-text);
   padding: 0 2px;
   margin-bottom: 1px;
   font-size: 7px;

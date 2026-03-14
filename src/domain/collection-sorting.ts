@@ -1,3 +1,5 @@
+import {chainComparators, compareMappedRank, compareNumber, compareText} from './sorting'
+
 export type CollectionSortDirection = 'ASC' | 'DESC'
 export type AwakenerSortKey =
   | 'LEVEL'
@@ -71,7 +73,7 @@ export function resolveGroupByRealm(
   return defaults.groupByRealm
 }
 
-const realmPriorityByName: Record<string, number> = {
+const REALM_RANK: Record<string, number> = {
   CHAOS: 0,
   AEQUOR: 1,
   CARO: 2,
@@ -80,46 +82,20 @@ const realmPriorityByName: Record<string, number> = {
   OTHER: 5,
 }
 
-const rarityPriorityByName: Record<string, number> = {
+const RARITY_RANK: Record<string, number> = {
   GENESIS: 0,
   SSR: 1,
   SR: 2,
   R: 3,
 }
 
-function compareNumber(left: number, right: number, direction: CollectionSortDirection): number {
-  if (left === right) {
-    return 0
-  }
-  return direction === 'ASC' ? left - right : right - left
-}
+const compareRarity = (l: SortableCollectionEntry, r: SortableCollectionEntry) =>
+  compareMappedRank(l, r, RARITY_RANK, (e) => e.rarity)
 
-function compareText(left: string, right: string, direction: CollectionSortDirection): number {
-  const normalizedLeft = left.trim().toLowerCase()
-  const normalizedRight = right.trim().toLowerCase()
-  const comparison = normalizedLeft.localeCompare(normalizedRight)
-  return direction === 'ASC' ? comparison : -comparison
-}
+const compareRealm = (l: SortableCollectionEntry, r: SortableCollectionEntry) =>
+  compareMappedRank(l, r, REALM_RANK, (e) => e.realm)
 
-function compareRarity(left: SortableCollectionEntry, right: SortableCollectionEntry): number {
-  const leftRank =
-    rarityPriorityByName[left.rarity?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
-  const rightRank =
-    rarityPriorityByName[right.rarity?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
-  return leftRank - rightRank
-}
-
-function compareRealm(left: SortableCollectionEntry, right: SortableCollectionEntry): number {
-  const leftRank =
-    realmPriorityByName[left.realm?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
-  const rightRank =
-    realmPriorityByName[right.realm?.trim().toUpperCase() ?? ''] ?? Number.MAX_SAFE_INTEGER
-  return leftRank - rightRank
-}
-
-function compareIndex(left: SortableCollectionEntry, right: SortableCollectionEntry): number {
-  return left.index - right.index
-}
+const compareIndex = (l: SortableCollectionEntry, r: SortableCollectionEntry) => l.index - r.index
 
 function compareOwnedFirst(left: SortableCollectionEntry, right: SortableCollectionEntry): number {
   const leftOwned = left.owned !== false
@@ -130,97 +106,71 @@ function compareOwnedFirst(left: SortableCollectionEntry, right: SortableCollect
   return leftOwned ? -1 : 1
 }
 
-function compareByPriority(
-  left: SortableCollectionEntry,
-  right: SortableCollectionEntry,
-  comparators: ((left: SortableCollectionEntry, right: SortableCollectionEntry) => number)[],
-): number {
-  for (const comparator of comparators) {
-    const result = comparator(left, right)
-    if (result !== 0) {
-      return result
-    }
-  }
-  return 0
-}
-
 export function compareAwakenersForCollectionSort(
   left: SortableCollectionEntry,
   right: SortableCollectionEntry,
   config: AwakenerSortConfig,
 ): number {
-  const withOptionalRealm = (
-    comparators: ((left: SortableCollectionEntry, right: SortableCollectionEntry) => number)[],
-  ) => (config.groupByRealm ? [...comparators, compareRealm] : comparators)
+  const realmTail = config.groupByRealm ? [compareRealm] : []
 
   if (config.key === 'ENLIGHTEN') {
-    return compareByPriority(left, right, [
+    return chainComparators<SortableCollectionEntry>(
       compareOwnedFirst,
       (l, r) => compareNumber(l.enlighten, r.enlighten, config.direction),
       (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, 'DESC'),
       compareRarity,
-      ...withOptionalRealm([]),
+      ...realmTail,
       compareIndex,
       (l, r) => compareText(l.label, r.label, 'ASC'),
-    ])
+    )(left, right)
   }
 
   if (config.key === 'RARITY') {
-    return compareByPriority(left, right, [
+    return chainComparators<SortableCollectionEntry>(
       compareOwnedFirst,
       (l, r) => (config.direction === 'DESC' ? compareRarity(l, r) : compareRarity(r, l)),
       (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, 'DESC'),
-      ...withOptionalRealm([]),
+      ...realmTail,
       (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
       compareIndex,
       (l, r) => compareText(l.label, r.label, 'ASC'),
-    ])
+    )(left, right)
   }
 
   if (config.key === 'ALPHABETICAL') {
-    return compareByPriority(left, right, [
+    return chainComparators<SortableCollectionEntry>(
       compareOwnedFirst,
       (l, r) => compareText(l.label, r.label, config.direction),
       (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, 'DESC'),
       compareRarity,
-      ...withOptionalRealm([]),
+      ...realmTail,
       (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
       compareIndex,
-    ])
+    )(left, right)
   }
 
-  return compareByPriority(left, right, [
+  return chainComparators<SortableCollectionEntry>(
     compareOwnedFirst,
     (l, r) => compareNumber(l.level ?? 0, r.level ?? 0, config.direction),
     compareRarity,
-    ...withOptionalRealm([]),
+    ...realmTail,
     (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
     compareIndex,
     (l, r) => compareText(l.label, r.label, 'ASC'),
-  ])
+  )(left, right)
 }
 
-export function compareWheelsForCollectionDefaultSort(
-  left: SortableCollectionEntry,
-  right: SortableCollectionEntry,
-): number {
-  return compareByPriority(left, right, [
-    compareOwnedFirst,
-    compareRarity,
-    compareRealm,
-    (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
-    compareIndex,
-    (l, r) => compareText(l.label, r.label, 'ASC'),
-  ])
-}
+export const compareWheelsForCollectionDefaultSort = chainComparators<SortableCollectionEntry>(
+  compareOwnedFirst,
+  compareRarity,
+  compareRealm,
+  (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
+  compareIndex,
+  (l, r) => compareText(l.label, r.label, 'ASC'),
+)
 
-export function comparePossesForCollectionDefaultSort(
-  left: SortableCollectionEntry,
-  right: SortableCollectionEntry,
-): number {
-  return compareByPriority(left, right, [
-    compareOwnedFirst,
-    compareIndex,
-    (l, r) => compareText(l.label, r.label, 'ASC'),
-  ])
-}
+export const comparePossesForCollectionDefaultSort = chainComparators<SortableCollectionEntry>(
+  compareOwnedFirst,
+  compareIndex,
+  (l, r) => compareText(l.label, r.label, 'ASC'),
+)
