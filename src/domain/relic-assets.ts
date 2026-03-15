@@ -1,11 +1,11 @@
-const portraitRelicAssets = import.meta.glob<string>('../assets/relics/portraits/*.png', {
+const portraitRelicAssets = import.meta.glob<string>('../assets/relics/portraits/*.webp', {
   eager: true,
   import: 'default',
 })
 
 function basenameWithoutExt(assetPath: string): string {
   const filename = assetPath.split('/').at(-1) ?? assetPath
-  return filename.replace(/\.png$/i, '')
+  return filename.replace(/\.webp$/i, '')
 }
 
 const portraitRelicAssetById = new Map(
