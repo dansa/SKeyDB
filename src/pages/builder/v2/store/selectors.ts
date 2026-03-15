@@ -7,6 +7,7 @@ export const selectActiveTeamSlots = (s: BuilderStore) =>
   s.teams.find((t) => t.id === s.activeTeamId)?.slots ?? []
 export const selectActiveSelection = (s: BuilderStore) => s.activeSelection
 export const selectPickerTab = (s: BuilderStore) => s.pickerTab
-export const selectIsQuickLineupActive = (s: BuilderStore) => s.quickLineupSteps !== null
-export const selectQuickLineupStepIndex = (s: BuilderStore) => s.quickLineupStepIndex
-export const selectQuickLineupSteps = (s: BuilderStore) => s.quickLineupSteps
+export const selectIsQuickLineupActive = (s: BuilderStore) => s.quickLineupSessionState !== null
+export const selectQuickLineupStepIndex = (s: BuilderStore) =>
+  s.quickLineupSessionState?.currentStepIndex ?? 0
+export const selectQuickLineupSteps = (s: BuilderStore) => s.quickLineupSessionState?.steps ?? null

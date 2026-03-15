@@ -46,6 +46,7 @@ function getPosseTopLabel(
 interface PossePickerTileProps {
   posse: Posse
   posseAsset?: string
+  enableDragAndDrop?: boolean
   isActive: boolean
   isUsedByOtherTeam: boolean
   blockedText: string | null
@@ -57,6 +58,7 @@ interface PossePickerTileProps {
 function PossePickerTile({
   posse,
   posseAsset,
+  enableDragAndDrop = true,
   isActive,
   isUsedByOtherTeam,
   blockedText,
@@ -68,10 +70,11 @@ function PossePickerTile({
   const imageClassName = `h-full w-full object-cover ${ownedLevel === null ? 'builder-picker-art-unowned' : ''} ${
     blockedText ? 'builder-picker-art-dimmed' : ''
   }`
+  const draggableEnabled = enableDragAndDrop && !isUsedByOtherTeam
   const {attributes, listeners, isDragging, setNodeRef} = useDraggable({
     id: `picker-posse:${posse.id}`,
     data: {kind: 'picker-posse', posseId: posse.id, posseName: posse.name} satisfies DragData,
-    disabled: isUsedByOtherTeam,
+    disabled: !draggableEnabled,
   })
   const dragAttributes = {...attributes} as Record<string, unknown>
   delete dragAttributes['aria-disabled']
@@ -84,13 +87,15 @@ function PossePickerTile({
         isUsedByOtherTeam,
         ownedLevel,
       )} ${isDragging ? 'scale-[0.98] opacity-60' : ''}`}
+      data-picker-draggable={draggableEnabled ? 'true' : 'false'}
+      data-picker-kind='posse'
       onClick={() => {
         onClick()
       }}
       ref={setNodeRef}
       type='button'
-      {...dragAttributes}
-      {...listeners}
+      {...(draggableEnabled ? dragAttributes : {})}
+      {...(draggableEnabled ? listeners : {})}
     >
       <CompactArtTile
         chips={
@@ -132,6 +137,7 @@ interface PossePickerGridProps {
   ownedPosseLevelById: Map<string, number | null>
   teamRecommendedPosseIds: Set<string>
   allowDupes: boolean
+  enableDragAndDrop?: boolean
   effectiveActiveTeamId: string
   onSetActivePosse: (posseId?: string) => void
 }
@@ -144,6 +150,7 @@ export function PossePickerGrid({
   ownedPosseLevelById,
   teamRecommendedPosseIds,
   allowDupes,
+  enableDragAndDrop = true,
   effectiveActiveTeamId,
   onSetActivePosse,
 }: PossePickerGridProps) {
@@ -185,6 +192,7 @@ export function PossePickerGrid({
         return (
           <PossePickerTile
             blockedText={blockedText}
+            enableDragAndDrop={enableDragAndDrop}
             isActive={isActive}
             isUsedByOtherTeam={isUsedByOtherTeam}
             key={posse.id}

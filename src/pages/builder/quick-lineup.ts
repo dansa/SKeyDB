@@ -145,6 +145,44 @@ export function findQuickLineupStepIndex(
   })
 }
 
+function isGearStep(step: QuickLineupStep): step is Extract<QuickLineupStep, {slotId: string}> {
+  return step.kind === 'wheel' || step.kind === 'covenant'
+}
+
+function hasAwakenerAssigned(slotId: string, currentSlots: TeamSlot[]): boolean {
+  return Boolean(currentSlots.find((slot) => slot.slotId === slotId)?.awakenerName)
+}
+
+export function normalizeQuickLineupStepForSlots(
+  step: QuickLineupStep,
+  currentSlots: TeamSlot[],
+): QuickLineupStep {
+  if (!isGearStep(step) || hasAwakenerAssigned(step.slotId, currentSlots)) {
+    return step
+  }
+
+  return {kind: 'awakener', slotId: step.slotId}
+}
+
+export function findPreviousQuickLineupStepIndex(
+  session: InternalQuickLineupSession,
+  currentSlots: TeamSlot[],
+): number | null {
+  for (let index = session.currentStepIndex - 1; index >= 0; index -= 1) {
+    const step = getQuickLineupStepAtIndex(session, index)
+    if (step === null) {
+      continue
+    }
+
+    const normalizedStep = normalizeQuickLineupStepForSlots(step, currentSlots)
+    if (findQuickLineupStepIndex(session, normalizedStep) === index) {
+      return index
+    }
+  }
+
+  return null
+}
+
 export function findNextQuickLineupStepIndex(
   session: InternalQuickLineupSession,
   currentSlots: TeamSlot[],

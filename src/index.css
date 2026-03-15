@@ -99,6 +99,25 @@ body,
   isolation: isolate;
 }
 
+html[data-mobile-builder-snap='enabled'],
+body[data-mobile-builder-snap='enabled'] {
+  overscroll-behavior-y: contain;
+}
+
+[data-mobile-builder-snap-target='true'],
+[data-mobile-builder-exit-zone='true'] {
+  scroll-snap-align: start;
+}
+
+[data-mobile-builder-snap-target='true'] {
+  scroll-snap-stop: always;
+}
+
+[data-mobile-builder-exit-zone='true'] {
+  scroll-snap-align: end;
+  scroll-snap-stop: normal;
+}
+
 img,
 picture,
 video,
@@ -443,9 +462,15 @@ a {
 }
 
 .sigil-placeholder-card {
+  --sigil-plus-length: 40%;
+  --sigil-circle-size: 86%;
+  --sigil-diamond-diagonal: 74%;
+}
+
+.sigil-placeholder-thumb {
   --sigil-plus-length: 34%;
-  --sigil-circle-size: 75%;
-  --sigil-diamond-diagonal: 65%;
+  --sigil-circle-size: 58%;
+  --sigil-diamond-diagonal: 44%;
 }
 
 .sigil-placeholder-no-plus {

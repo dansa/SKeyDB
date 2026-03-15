@@ -1,14 +1,24 @@
-import {useCallback, useState, type ReactNode} from 'react'
+import {useCallback, useRef, useState, type ReactNode} from 'react'
 
 import {BuilderTeamsPanel} from '../BuilderTeamsPanel'
 import {useBuilderStore} from '../store/builder-store'
 import {selectActiveTeam} from '../store/selectors'
 import {TeamHeader} from '../TeamHeader'
 import {TeamTabs} from '../TeamTabs'
+import {
+  useMeasuredElementSize,
+  useMobileBuilderDocumentSnap,
+  usePreserveMobileBuilderViewportOnViewChange,
+  useRecenterMobileBuilderZone,
+  useStickyMobileBuilderPageSnap,
+  useViewportSize,
+} from './layout-hooks'
+import {shouldAllowMobileOverviewPageOverflow} from './mobile-overview-shell'
 import {MobileBuilderScreen} from './MobileBuilderScreen'
 import {MobileFocusedCard} from './MobileFocusedCard'
 import {MobileOverviewGrid} from './MobileOverviewGrid'
 import {MobilePickerDrawer} from './MobilePickerDrawer'
+import {MobileQuickLineup} from './MobileQuickLineup'
 import {MobileBuilderWideBar, MobileCurrentTeamBar} from './MobileToolbars'
 import {
   focusedView,
@@ -19,7 +29,7 @@ import {
 } from './MobileViewState'
 
 interface MobileLayoutProps {
-  renderPicker: (onItemSelected: () => void) => ReactNode
+  renderPicker: (options: {enableDragAndDrop: boolean; onItemSelected: () => void}) => ReactNode
   onImport: () => void
   onExportAll: () => void
   onExportIngame: () => void
@@ -29,6 +39,8 @@ interface MobileLayoutProps {
   shellMode?: 'device' | 'preview'
   utilityBar?: ReactNode
 }
+
+const SHORT_LANDSCAPE_SINGLE_ROW_TABS_MAX_HEIGHT = 400
 
 export function MobileLayout({
   renderPicker,
@@ -43,10 +55,36 @@ export function MobileLayout({
 }: MobileLayoutProps) {
   const [view, setView] = useState<MobileView>(OVERVIEW_VIEW)
   const [returnSlotIndex, setReturnSlotIndex] = useState(0)
+  const builderZoneRef = useRef<HTMLElement>(null)
+  const viewport = useViewportSize()
+  const {height: overviewChromeHeight, ref: overviewChromeRef} = useMeasuredElementSize()
   const clearSelection = useBuilderStore((s) => s.clearSelection)
   const setActiveSelection = useBuilderStore((s) => s.setActiveSelection)
   const setPickerTab = useBuilderStore((s) => s.setPickerTab)
   const activeTeam = useBuilderStore(selectActiveTeam)
+  const shouldUsePageSnap = true
+  const compactTabsLayout =
+    viewport.width > viewport.height &&
+    viewport.height > 0 &&
+    viewport.height <= SHORT_LANDSCAPE_SINGLE_ROW_TABS_MAX_HEIGHT
+      ? 'single-row-flex'
+      : 'auto'
+  const shouldAllowOverviewPageOverflow = shouldAllowMobileOverviewPageOverflow({
+    chromeHeight: overviewChromeHeight,
+    viewportHeight: viewport.height,
+    viewportWidth: viewport.width,
+  })
+  const activeViewKey =
+    view.kind === 'focused'
+      ? `focused:${String(view.slotIndex)}`
+      : view.kind === 'picker'
+        ? `picker:${view.context.target}:${view.context.slotId}:${String(view.context.wheelIndex ?? -1)}`
+        : view.kind
+
+  useMobileBuilderDocumentSnap(shouldUsePageSnap)
+  usePreserveMobileBuilderViewportOnViewChange(activeViewKey, shouldUsePageSnap, builderZoneRef)
+  useRecenterMobileBuilderZone(activeViewKey, shouldUsePageSnap, builderZoneRef)
+  useStickyMobileBuilderPageSnap(shouldUsePageSnap, builderZoneRef)
 
   const openFocusedSlot = useCallback((slotIndex: number) => {
     setReturnSlotIndex(slotIndex)
@@ -94,32 +132,33 @@ export function MobileLayout({
           onRequestReset={onRequestResetBuilder}
           onUndoReset={onUndoResetBuilder}
         />
-        <MobileBuilderScreen shellMode={shellMode} testId='mobile-overview-shell'>
-          <TeamTabs className='shrink-0' variant='compact' />
-          <TeamHeader className='shrink-0 border-b border-slate-500/45' compact />
-          {activeTeam ? (
-            <MobileCurrentTeamBar
-              onQuickLineup={handleQuickLineup}
-              teamId={activeTeam.id}
-              teamName={activeTeam.name}
-            />
-          ) : null}
+        <MobileBuilderScreen
+          allowPageOverflow={shouldAllowOverviewPageOverflow}
+          shellMode={shellMode}
+          testId='mobile-overview-shell'
+        >
+          <div data-testid='mobile-overview-chrome' ref={overviewChromeRef}>
+            <TeamTabs className='shrink-0' compactLayout={compactTabsLayout} variant='compact' />
+            <TeamHeader className='shrink-0 border-b border-slate-500/45' compact />
+            {activeTeam ? (
+              <MobileCurrentTeamBar
+                onQuickLineup={handleQuickLineup}
+                teamId={activeTeam.id}
+                teamName={activeTeam.name}
+              />
+            ) : null}
+          </div>
           <div className='flex min-h-0 flex-1 flex-col'>
             <MobileOverviewGrid onDeployEmpty={openFocusedSlot} onFocusSlot={openFocusedSlot} />
           </div>
         </MobileBuilderScreen>
       </>
     ) : view.kind === 'quick-lineup' ? (
-      <MobileBuilderScreen className='items-center justify-center' shellMode={shellMode}>
-        <p className='text-sm text-slate-400'>Quick Lineup — coming soon</p>
-        <button
-          className='mt-2 border border-slate-500/45 px-3 py-1 text-xs text-slate-300'
-          onClick={handleBackToOverview}
-          type='button'
-        >
-          ← Back to Overview
-        </button>
-      </MobileBuilderScreen>
+      <MobileQuickLineup
+        onExit={handleBackToOverview}
+        renderPicker={renderPicker}
+        shellMode={shellMode}
+      />
     ) : (
       <MobileFocusedCard
         onBack={handleBackToOverview}
@@ -141,20 +180,31 @@ export function MobileLayout({
           <div className='border-b border-slate-500/45 bg-slate-950/78 px-2 py-2'>{utilityBar}</div>
         ) : null}
 
-        <section className='relative border-y border-slate-500/45 bg-[#0c121c]'>
+        <section
+          ref={builderZoneRef}
+          className='relative border-y border-slate-500/45 bg-[#0c121c]'
+          data-testid='mobile-builder-zone'
+        >
           {builderContent}
 
           {view.kind === 'picker' ? (
             <MobilePickerDrawer
               context={view.context}
               onClose={returnToFocusedSlot}
-              picker={renderPicker(returnToFocusedSlot)}
+              picker={renderPicker({
+                enableDragAndDrop: false,
+                onItemSelected: returnToFocusedSlot,
+              })}
               returnSlotIndex={returnSlotIndex}
             />
           ) : null}
         </section>
 
-        <section className='border-b border-slate-500/45 bg-slate-950/40 px-2 py-3'>
+        <section
+          className='border-b border-slate-500/45 bg-slate-950/40 px-2 py-3'
+          data-mobile-builder-exit-zone='true'
+          data-testid='mobile-builder-teams-section'
+        >
           <BuilderTeamsPanel />
         </section>
       </div>

@@ -15,14 +15,16 @@ const wideLayout = {
 }
 
 describe('FocusedLoadout', () => {
-  it('keeps the wide empty covenant placeholder visually larger than the row placeholder', () => {
-    const {rerender} = render(<LandscapeLoadout layout={wideLayout} />)
+  it('renders the empty covenant placeholder with the shared sigil treatment in both layouts', () => {
+    const {container, rerender} = render(<LandscapeLoadout layout={wideLayout} />)
 
-    expect(screen.getByText('+C')).toHaveClass('text-[8px]')
+    expect(container.querySelector('.sigil-placeholder-thumb')).not.toBeNull()
+    expect(container).not.toHaveTextContent('+C')
 
     rerender(<LandscapeLoadout />)
 
-    expect(screen.getByText('+C')).toHaveClass('text-[7px]')
+    expect(container.querySelector('.sigil-placeholder-thumb')).not.toBeNull()
+    expect(container).not.toHaveTextContent('+C')
   })
 
   it('renders empty covenant placeholders as static tiles instead of inert buttons', () => {

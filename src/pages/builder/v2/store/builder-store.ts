@@ -13,7 +13,7 @@ export const useBuilderStore = create<BuilderStore>()(
   devtools(
     immer((set, get) => {
       const initial = loadInitialBuilderState()
-      const teamsSlice = createTeamsSlice(set)
+      const teamsSlice = createTeamsSlice(set, get)
 
       return {
         ...teamsSlice,

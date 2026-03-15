@@ -10,6 +10,7 @@ import type {DragData} from './types'
 
 interface PickerAwakenerTileProps {
   awakenerName: string
+  enableDragAndDrop?: boolean
   realm: string
   isRealmBlocked: boolean
   isInUse: boolean
@@ -51,6 +52,7 @@ function getAwakenerTopLabel(
 
 export function PickerAwakenerTile({
   awakenerName,
+  enableDragAndDrop = true,
   realm,
   isRealmBlocked,
   isInUse,
@@ -65,6 +67,7 @@ export function PickerAwakenerTile({
   const {attributes, listeners, isDragging, setNodeRef} = useDraggable({
     id: `picker:${awakenerName}`,
     data: {kind: 'picker-awakener', awakenerName} satisfies DragData,
+    disabled: !enableDragAndDrop,
   })
   const dragAttributes = {...attributes} as Record<string, unknown>
   delete dragAttributes['aria-disabled']
@@ -74,13 +77,15 @@ export function PickerAwakenerTile({
       className={`builder-picker-tile border border-slate-500/45 bg-slate-900/55 p-1 text-left transition-colors hover:border-amber-200/45 ${
         isDragging ? 'scale-[0.98] opacity-60' : ''
       } ${isDimmed ? 'opacity-55' : ''}`}
+      data-picker-draggable={enableDragAndDrop ? 'true' : 'false'}
+      data-picker-kind='awakener'
       data-realm-blocked={isRealmBlocked ? 'true' : 'false'}
       data-in-use={isInUse ? 'true' : 'false'}
       onClick={onClick}
       ref={setNodeRef}
       type='button'
-      {...dragAttributes}
-      {...listeners}
+      {...(enableDragAndDrop ? dragAttributes : {})}
+      {...(enableDragAndDrop ? listeners : {})}
     >
       <CompactArtTile
         name={displayName}

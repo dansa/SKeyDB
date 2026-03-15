@@ -6,18 +6,21 @@ import {PickerCovenantTile} from './PickerCovenantTile'
 
 interface CovenantPickerGridProps {
   activeBuild?: AwakenerBuild
+  enableDragAndDrop?: boolean
   filteredCovenants: Covenant[]
   onSetActiveCovenant: (covenantId?: string) => void
 }
 
 export function CovenantPickerGrid({
   activeBuild,
+  enableDragAndDrop = true,
   filteredCovenants,
   onSetActiveCovenant,
 }: CovenantPickerGridProps) {
   return (
     <div className='grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] items-start gap-2'>
       <PickerCovenantTile
+        enableDragAndDrop={enableDragAndDrop}
         isNotSet
         onClick={() => {
           onSetActiveCovenant(undefined)
@@ -31,6 +34,7 @@ export function CovenantPickerGrid({
             covenantAsset={covenantAsset}
             covenantId={covenant.id}
             covenantName={covenant.name}
+            enableDragAndDrop={enableDragAndDrop}
             key={covenant.id}
             onClick={() => {
               onSetActiveCovenant(covenant.id)

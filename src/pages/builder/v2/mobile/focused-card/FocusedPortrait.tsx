@@ -6,6 +6,7 @@ import {getRealmTint, normalizeRealmId} from '@/domain/factions'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 
 import type {TeamSlot} from '../../../types'
+import {BuilderSigilPlaceholder} from '../../BuilderPlaceholders'
 import {getMobileCardFrameStyle} from '../mobile-layout-metrics'
 
 interface FocusedPortraitProps {
@@ -118,8 +119,8 @@ export function EmptySlotDisplay({
       type='button'
     >
       <div className='text-center'>
-        <div className='mx-auto mb-1 flex h-10 w-10 rotate-45 items-center justify-center border border-dashed border-slate-600'>
-          <span className='-rotate-45 text-lg text-slate-500'>+</span>
+        <div className='relative mx-auto mb-1 h-[4.5rem] max-h-[42%] w-[4.5rem] max-w-[42%]'>
+          <BuilderSigilPlaceholder className='absolute inset-0' variant='card' />
         </div>
         <span className='text-xs text-slate-500'>Deploy Awakener</span>
       </div>

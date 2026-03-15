@@ -1,5 +1,6 @@
 import type {AwakenerSortKey, CollectionSortDirection} from '@/domain/collection-sorting'
 
+import type {InternalQuickLineupSession} from '../../quick-lineup'
 import type {
   ActiveSelection,
   AwakenerFilter,
@@ -22,7 +23,7 @@ export interface TeamsSlice {
   resetTeam: (teamId: string) => void
   applyTemplate: (templateId: 'DTIDE_5' | 'DTIDE_10') => void
   setActiveTeamId: (teamId: string) => void
-  setActiveTeamSlots: (nextSlots: TeamSlot[]) => void
+  setActiveTeamSlots: (nextSlots: TeamSlot[], preferredStep?: QuickLineupStep | null) => void
   updateActiveTeam: (updater: (team: Team) => Team) => void
   setTeams: (teams: Team[]) => void
   setPosseForActiveTeam: (posseId: string | undefined) => void
@@ -70,16 +71,15 @@ export interface PickerSlice {
 }
 
 export interface QuickLineupSlice {
-  quickLineupSteps: QuickLineupStep[] | null
-  quickLineupStepIndex: number
-  quickLineupOriginalTeam: Team | null
+  quickLineupSessionState: InternalQuickLineupSession | null
 
+  setQuickLineupSessionState: (session: InternalQuickLineupSession | null) => void
   startQuickLineup: (steps: QuickLineupStep[]) => void
   finishQuickLineup: () => void
   cancelQuickLineup: () => void
-  nextQuickLineupStep: () => void
-  prevQuickLineupStep: () => void
-  skipQuickLineupStep: () => void
+  nextQuickLineupStep: (expectedStepIndex?: number) => void
+  prevQuickLineupStep: (expectedStepIndex?: number) => void
+  skipQuickLineupStep: (expectedStepIndex?: number) => void
   jumpToQuickLineupStep: (step: QuickLineupStep) => void
 }
 

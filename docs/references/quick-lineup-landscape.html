@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=844, initial-scale=1" />
+<title>Quick Lineup — Landscape Reference (844 × 390)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #08111c; color: #e2e8f0; font-family: system-ui, sans-serif; }
+  body { width: 844px; height: 390px; overflow: hidden; display: flex; flex-direction: column; }
+
+  .portrait-filled-1 { background: linear-gradient(180deg, #4a2c6e 0%, #1e1b4b 60%, #0f172a 100%); }
+  .portrait-filled-2 { background: linear-gradient(180deg, #2c4a6e 0%, #1b2e4b 60%, #0f172a 100%); }
+  .portrait-filled-3 { background: linear-gradient(180deg, #6e2c2c 0%, #4b1b1b 60%, #0f172a 100%); }
+  .gear-filled { background: linear-gradient(135deg, #1e293b 0%, #475569 100%); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     HEADER BAR — spans full width, ~28px
+     ═══════════════════════════════════════════════════════ -->
+<div class="shrink-0 flex items-center justify-between border-b border-slate-500/45 bg-slate-950/80 px-3 py-1">
+  <div class="flex items-center gap-2">
+    <span class="text-[10px] font-bold tracking-wider text-amber-400 uppercase">Step 3 / 17</span>
+    <span class="text-[10px] text-slate-400">Lotan → Wheel 2</span>
+  </div>
+  <div class="flex items-center gap-2">
+    <button class="border border-slate-500/45 bg-slate-950/55 px-2.5 py-0.5 text-[10px] tracking-wider text-slate-300 uppercase">Cancel</button>
+    <button class="border border-emerald-400/50 bg-emerald-500/10 px-2.5 py-0.5 text-[10px] tracking-wider text-emerald-200 uppercase">Done</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     MAIN AREA — split layout: left slot cards | right picker
+     Left column: ~25-30% width (~210-250px)
+     Each slot card: portrait on left, 3×1 gear column on right
+     ═══════════════════════════════════════════════════════ -->
+<div class="flex min-h-0 flex-1">
+
+  <!-- ─── LEFT COLUMN: 4 slot cards stacked + nav footer ─── -->
+  <!-- ~25% of 844 = ~210px; using w-[220px] -->
+  <div class="flex w-[220px] shrink-0 flex-col border-r border-slate-500/45 bg-slate-900/30">
+
+    <!-- 4 slot cards in vertical column -->
+    <div class="flex min-h-0 flex-1 flex-col gap-1 p-2 pb-1">
+
+      <!-- SLOT 1: Lotan, filled, ACTIVE SLOT (amber border) -->
+      <!-- Each card: portrait left, gear right as [W1][W2][Cov] side by side -->
+      <!-- Wheels are 1:2 tall art, Cov is 1:1 square (smaller) -->
+      <div class="flex min-h-0 flex-1 overflow-hidden border-2 border-amber-500/60">
+        <!-- Portrait zone ~50% width -->
+        <button class="relative h-full shrink-0 overflow-hidden" style="width: 50%;" type="button">
+          <div class="portrait-filled-1 h-full w-full"></div>
+          <div class="absolute inset-x-0 top-0 px-1 pt-0.5" style="background: linear-gradient(180deg, rgba(8,15,28,0.85) 0%, transparent 100%);">
+            <span class="text-[7px] font-bold text-slate-100" style="text-shadow: 0 1px 2px rgba(0,0,0,0.9);">Lotan</span>
+          </div>
+        </button>
+        <!-- Gear: [W1][W2][Cov] side by side, wheels tall, cov square -->
+        <div class="flex min-h-0 min-w-0 flex-1 items-end gap-[2px] bg-slate-950/60 p-[2px]">
+          <!-- W1: filled, tall 1:2 -->
+          <button class="relative min-w-0 flex-1 self-stretch overflow-hidden border border-slate-300/30" type="button">
+            <div class="gear-filled h-full w-full"></div>
+            <span class="absolute bottom-0 right-0 bg-slate-900/80 px-0.5 text-[5px] text-slate-400">W1</span>
+          </button>
+          <!-- W2: ACTIVE TARGET (amber border) — empty, tall 1:2 -->
+          <button class="relative min-w-0 flex-1 self-stretch overflow-hidden border-2 border-amber-400/70" type="button">
+            <div class="flex h-full w-full items-center justify-center border border-dashed border-slate-600 bg-slate-900/60">
+              <span class="text-[6px] text-amber-400">+</span>
+            </div>
+            <span class="absolute bottom-0 right-0 bg-amber-900/60 px-0.5 text-[4px] font-bold text-amber-300">W2</span>
+          </button>
+          <!-- Cov: empty, 1:1 square, shorter than wheels -->
+          <button class="relative min-w-0 flex-1 overflow-hidden border border-slate-600/40" style="aspect-ratio: 1; align-self: flex-end;" type="button">
+            <div class="flex h-full w-full items-center justify-center border border-dashed border-slate-700/60 bg-slate-900/60">
+              <span class="text-[6px] text-slate-600">+</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- SLOT 2: Gaia, fully geared, NOT active -->
+      <div class="flex min-h-0 flex-1 overflow-hidden border border-slate-500/40">
+        <button class="relative h-full shrink-0 overflow-hidden" style="width: 50%;" type="button">
+          <div class="portrait-filled-2 h-full w-full"></div>
+          <div class="absolute inset-x-0 top-0 px-1 pt-0.5" style="background: linear-gradient(180deg, rgba(8,15,28,0.85) 0%, transparent 100%);">
+            <span class="text-[7px] font-bold text-slate-100" style="text-shadow: 0 1px 2px rgba(0,0,0,0.9);">Gaia</span>
+          </div>
+        </button>
+        <div class="flex min-h-0 min-w-0 flex-1 items-end gap-[2px] bg-slate-950/60 p-[2px]">
+          <button class="relative min-w-0 flex-1 self-stretch overflow-hidden border border-slate-300/30" type="button">
+            <div class="gear-filled h-full w-full"></div>
+          </button>
+          <button class="relative min-w-0 flex-1 self-stretch overflow-hidden border border-slate-300/30" type="button">
+            <div class="gear-filled h-full w-full"></div>
+          </button>
+          <button class="relative min-w-0 flex-1 overflow-hidden border border-slate-300/30" style="aspect-ratio: 1; align-self: flex-end;" type="button">
+            <div class="gear-filled h-full w-full"></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- SLOT 3: Rina, has awakener but no gear, NOT active -->
+      <div class="flex min-h-0 flex-1 overflow-hidden border border-slate-500/40">
+        <button class="relative h-full shrink-0 overflow-hidden" style="width: 50%;" type="button">
+          <div class="portrait-filled-3 h-full w-full"></div>
+          <div class="absolute inset-x-0 top-0 px-1 pt-0.5" style="background: linear-gradient(180deg, rgba(8,15,28,0.85) 0%, transparent 100%);">
+            <span class="text-[7px] font-bold text-slate-100" style="text-shadow: 0 1px 2px rgba(0,0,0,0.9);">Rina</span>
+          </div>
+        </button>
+        <div class="flex min-h-0 min-w-0 flex-1 items-end gap-[2px] bg-slate-950/60 p-[2px]">
+          <div class="min-w-0 flex-1 self-stretch border border-dashed border-slate-700/40 bg-slate-900/40"></div>
+          <div class="min-w-0 flex-1 self-stretch border border-dashed border-slate-700/40 bg-slate-900/40"></div>
+          <div class="min-w-0 flex-1 border border-dashed border-slate-700/40 bg-slate-900/40" style="aspect-ratio: 1; align-self: flex-end;"></div>
+        </div>
+      </div>
+
+      <!-- SLOT 4: Empty -->
+      <div class="flex min-h-0 flex-1 overflow-hidden border border-dashed border-slate-600/50">
+        <button class="relative flex h-full shrink-0 items-center justify-center overflow-hidden bg-slate-900/40" style="width: 50%;" type="button">
+          <div class="flex h-6 w-6 rotate-45 items-center justify-center border border-dashed border-slate-600/60">
+            <span class="-rotate-45 text-[10px] text-slate-600">+</span>
+          </div>
+        </button>
+        <div class="flex min-h-0 min-w-0 flex-1 items-end gap-[2px] bg-slate-950/40 p-[2px]">
+          <div class="min-w-0 flex-1 self-stretch border border-dashed border-slate-700/30 bg-slate-900/30"></div>
+          <div class="min-w-0 flex-1 self-stretch border border-dashed border-slate-700/30 bg-slate-900/30"></div>
+          <div class="min-w-0 flex-1 border border-dashed border-slate-700/30 bg-slate-900/30" style="aspect-ratio: 1; align-self: flex-end;"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Nav buttons — stacked at bottom -->
+    <div class="shrink-0 border-t border-slate-500/30 px-2 py-1 flex items-center gap-2">
+      <button class="flex-1 border border-slate-500/45 bg-slate-950/55 py-0.5 text-[9px] tracking-wider text-slate-300 uppercase">← Back</button>
+      <span class="text-[8px] text-slate-500">3/17</span>
+      <button class="flex-1 border border-amber-500/50 bg-amber-500/10 py-0.5 text-[9px] tracking-wider text-amber-300 uppercase">Skip →</button>
+    </div>
+  </div>
+
+  <!-- ─── RIGHT COLUMN: full picker (hideTabs=true) ─── -->
+  <div class="flex min-h-0 min-w-0 flex-1 flex-col bg-slate-950/85">
+    <!-- Sorting toggles (collapsed by default in landscape) -->
+    <div class="shrink-0 px-2 pt-1">
+      <button class="w-full flex items-center justify-between border border-slate-500/45 bg-slate-900/55 px-2 py-1 text-[9px] tracking-wider text-slate-300 uppercase">
+        <span>Sorting &amp; Toggles</span>
+        <span class="text-slate-500">›</span>
+      </button>
+    </div>
+
+    <!-- Search + rarity filters inline to save vertical space -->
+    <div class="shrink-0 flex items-center gap-2 px-2 pt-1">
+      <input
+        class="min-w-0 flex-1 border border-slate-500/45 bg-slate-900/70 px-2 py-1 text-[11px] text-slate-100 placeholder:text-slate-500"
+        placeholder="Search wheels..."
+        type="search"
+      />
+      <div class="flex gap-1">
+        <button class="border border-amber-200/60 bg-slate-800/80 px-1.5 py-0.5 text-[9px] text-amber-100">All</button>
+        <button class="border border-slate-500/45 bg-slate-900/55 px-1.5 py-0.5 text-[9px] text-slate-300">SSR</button>
+        <button class="border border-slate-500/45 bg-slate-900/55 px-1.5 py-0.5 text-[9px] text-slate-300">SR</button>
+        <button class="border border-slate-500/45 bg-slate-900/55 px-1.5 py-0.5 text-[9px] text-slate-300">R</button>
+      </div>
+    </div>
+
+    <!-- Mainstat filters -->
+    <div class="shrink-0 px-2 pt-1">
+      <div class="grid grid-cols-9 gap-1">
+        <button class="flex h-6 items-center justify-center border border-amber-200/60 bg-slate-800/80 text-[9px] text-amber-100">All</button>
+        <button class="flex h-6 items-center justify-center border border-slate-500/45 bg-slate-900/55 text-[9px] text-slate-300">CR</button>
+        <button class="flex h-6 items-center justify-center border border-slate-500/45 bg-slate-900/55 text-[9px] text-slate-300">CD</button>
+        <button class="flex h-6 items-center justify-center border border-slate-500/45 bg-slate-900/55 text-[9px] text-slate-300">RM</button>
+        <button class="flex h-6 items-center justify-center border border-slate-500/45 bg-slate-900/55 text-[9px] text-slate-300">DA</button>
+        <button class="flex h-6 items-center justify-center border border-slate-500/45 bg-slate-900/55 text-[9px] text-slate-300">AR</button>
+        <button class="flex h-6 items-center justify-center border border-slate-500/45 bg-slate-900/55 text-[9px] text-slate-300">KR</button>
+        <button class="flex h-6 items-center justify-center border border-slate-500/45 bg-slate-900/55 text-[9px] text-slate-300">SY</button>
+        <button class="flex h-6 items-center justify-center border border-slate-500/45 bg-slate-900/55 text-[9px] text-slate-300">DR</button>
+      </div>
+    </div>
+
+    <!-- Scrollable picker grid — wider = more columns -->
+    <div class="mt-1 min-h-0 flex-1 overflow-y-auto px-2 pb-2">
+      <div class="grid grid-cols-8 gap-1.5">
+        <div class="flex flex-col">
+          <div class="aspect-square border border-slate-500/40 bg-slate-800/40 flex items-center justify-center text-slate-600 text-[9px]">×</div>
+          <span class="mt-0.5 text-[8px] text-slate-400 truncate text-center">Not Set</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Grace Thr…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-amber-300/40"></div>
+          <span class="mt-0.5 text-[8px] text-amber-200 truncate text-center">Celestial B…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Rewinding…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Deathless…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Manikin…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Heart of…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Hour of…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Aberrant…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Memory…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Gift of…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Drifting…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Radiant…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Void Seal</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Crimson…</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="aspect-square gear-filled border border-slate-300/35"></div>
+          <span class="mt-0.5 text-[8px] text-slate-300 truncate text-center">Twilight…</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -3,6 +3,7 @@ import type {ReactNode} from 'react'
 import {getAwakenerPortraitAsset} from '@/domain/awakener-assets'
 
 import type {TeamSlot} from '../../../types'
+import {BuilderSigilPlaceholder} from '../../BuilderPlaceholders'
 import type {FocusedPosse} from './types'
 
 interface SlotThumbnailsProps {
@@ -84,7 +85,7 @@ export function SlotThumbnails({
           return (
             <button
               aria-current={isCurrent ? 'true' : undefined}
-              className={`flex aspect-square w-full items-center justify-center border border-dashed border-slate-600 ${
+              className={`relative flex aspect-square w-full items-center justify-center overflow-hidden border border-dashed border-slate-600 bg-slate-950/55 ${
                 isCurrent ? '' : 'opacity-30'
               }`}
               disabled={isCurrent}
@@ -92,7 +93,7 @@ export function SlotThumbnails({
               onClick={handleSelect}
               type='button'
             >
-              <span className='text-[8px] text-slate-500'>+</span>
+              <BuilderSigilPlaceholder className='absolute inset-0' variant='thumb' />
             </button>
           )
         }
@@ -140,8 +141,8 @@ export function FocusedPosseSquareButton({
           src={posseAsset}
         />
       ) : (
-        <span className='absolute inset-0 flex items-center justify-center text-sm text-slate-600'>
-          +
+        <span className='absolute inset-0 bg-slate-950/55'>
+          <BuilderSigilPlaceholder className='absolute inset-0' variant='thumb' />
         </span>
       )}
       <span className='absolute inset-0 bg-gradient-to-b from-transparent to-slate-950/90' />

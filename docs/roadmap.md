@@ -1,6 +1,6 @@
 # SKeyDB Roadmap
 
-Last updated: 2026-03-07
+Last updated: 2026-03-15
 
 ## Current priorities
 
@@ -21,7 +21,8 @@ Last updated: 2026-03-07
 
 ## Next larger passes
 
-- Mobile and compact builder layout pass.
+- Builder v2 tablet layout bundle.
+- Builder v2 desktop layout bundle.
 - Share-via-link flow with safe overwrite UX.
 - Multiple on-site saved planners.
 - Database detail modal: Guide and Teams tab content (placeholder shells exist).
@@ -29,6 +30,7 @@ Last updated: 2026-03-07
 
 ## Recently shipped foundations
 
+- Builder v2 mobile builder slice, including quick-lineup mode, page snap/staging, no-horizontal-scroll tab compaction, and short-shell overflow handling.
 - Repo strict TypeScript ESLint compliance cleanup, plus an optional isolated React sidecar lint diagnostic for high-value React rules.
 - Database detail modal: Overview and Cards tabs with rich text parsing, interactive skill/tag popovers, deep-linked awakener routes, exact level 1-90 stat scaling, font size accessibility controls (S/M/L), and shared rendering infrastructure for future tabs.
 - Database & Tools page initial pass with filters, search, sorting, basic modal.

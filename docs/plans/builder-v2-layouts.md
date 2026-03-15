@@ -1,12 +1,12 @@
-# Builder V2 Layouts — Focused + Overview Slice
+# Builder V2 Layouts — Mobile Slice Status
 
-**Status:** In progress  
-**Last updated:** 2026-03-14
+**Status:** Done  
+**Last updated:** 2026-03-15
 
 ## Goal
 
 Ship a coherent responsive builder experience across desktop/tablet/mobile with one interaction model and one sizing system.  
-This document tracks the completed focused+overview slice and what remains for quick lineup.
+This document tracks the shipped mobile builder slice and the handoff into tablet/desktop work.
 
 ## What Is Shipped In This Slice
 
@@ -17,6 +17,10 @@ This document tracks the completed focused+overview slice and what remains for q
 5. The top import/export/reset toolbar is outside the `svh` working shell.
 6. At rock-bottom card limits, overview overflow is handed to page scroll instead of inner grid scroll.
 7. Preview shell and device shell behavior are explicit (`preview` uses min-height; `device` uses fixed `svh` shell).
+8. Quick Lineup now ships as a real mobile mode with v1-grade start/cancel/finish semantics, portrait and landscape layouts, shared slot placeholder treatment, and inline picker routing.
+9. Mobile builder staging uses sticky page-level snap and view-transition preservation so the builder behaves like an app zone instead of a drifting page section.
+10. Picker drag-and-drop is disabled in mobile shells while team-row drag support stays intact.
+11. Compact tabs stay bounded without horizontal scroll, including short-landscape single-row handling and low-height overview overflow fallback.
 
 ## Key Architecture Decisions
 
@@ -28,12 +32,8 @@ This document tracks the completed focused+overview slice and what remains for q
 
 ## Completed Verification
 
-1. `npm run lint`
-2. `npm run test -- --run`
-3. `npm run build`
-
-`npm run verify` is still blocked by unrelated pre-existing Prettier drift outside this slice.
+1. `npm run verify`
 
 ## Next Slice
 
-Quick lineup mobile UX and examples are intentionally excluded from this commit set and handled separately.
+Tablet and desktop builder bundles are the next clear target. Mobile is in a good enough state to stop being the blocker.

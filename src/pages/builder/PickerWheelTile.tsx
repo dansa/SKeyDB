@@ -10,6 +10,7 @@ interface PickerWheelTileProps {
   wheelId?: string
   wheelName?: string
   wheelAsset?: string
+  enableDragAndDrop?: boolean
   blockedText?: string | null
   isBlocked?: boolean
   isInUse?: boolean
@@ -98,6 +99,7 @@ export function PickerWheelTile({
   wheelId,
   wheelName,
   wheelAsset,
+  enableDragAndDrop = true,
   blockedText = null,
   isBlocked = false,
   isInUse = false,
@@ -113,10 +115,11 @@ export function PickerWheelTile({
   const wheelDisplayName = getWheelDisplayName(isNotSet, wheelName, wheelId) ?? 'Wheel'
   const topLabel = getWheelTopLabel(blockedText, isNotSet, isOwned)
   const buttonStateClassName = getWheelTileClassName(isBlocked, isSoftDimmed)
+  const draggableEnabled = enableDragAndDrop && Boolean(draggableWheelId)
   const {attributes, listeners, isDragging, setNodeRef} = useDraggable({
     id: draggableWheelId ? `picker-wheel:${draggableWheelId}` : `picker-wheel:not-set`,
-    data: getWheelDragData(Boolean(draggableWheelId), draggableWheelId),
-    disabled: !draggableWheelId,
+    data: getWheelDragData(draggableEnabled, draggableWheelId),
+    disabled: !draggableEnabled,
   })
   const dragAttributes = {...attributes} as Record<string, unknown>
   delete dragAttributes['aria-disabled']
@@ -127,11 +130,13 @@ export function PickerWheelTile({
       className={`builder-picker-tile border p-1 text-left transition-colors ${buttonStateClassName} ${
         isDragging ? 'scale-[0.98] opacity-60' : ''
       }`}
+      data-picker-draggable={draggableEnabled ? 'true' : 'false'}
+      data-picker-kind='wheel'
       onClick={onClick}
       ref={setNodeRef}
       type='button'
-      {...(draggableWheelId ? dragAttributes : {})}
-      {...(draggableWheelId ? listeners : {})}
+      {...(draggableEnabled ? dragAttributes : {})}
+      {...(draggableEnabled ? listeners : {})}
     >
       <CompactArtTile
         chips={

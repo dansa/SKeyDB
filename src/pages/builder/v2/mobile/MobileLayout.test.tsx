@@ -41,8 +41,12 @@ function renderMobileLayout() {
       onImport={noop}
       onRequestResetBuilder={noop}
       onUndoResetBuilder={noop}
-      renderPicker={(onItemSelected) => (
-        <BuilderPickerPanel hideTabs onItemSelected={onItemSelected} />
+      renderPicker={({enableDragAndDrop, onItemSelected}) => (
+        <BuilderPickerPanel
+          enableDragAndDrop={enableDragAndDrop}
+          hideTabs
+          onItemSelected={onItemSelected}
+        />
       )}
     />,
   )
@@ -64,6 +68,103 @@ function setViewportSize(width: number, height: number) {
 describe('MobileLayout', () => {
   afterEach(() => {
     vi.unstubAllGlobals()
+  })
+
+  it('enables page-level snap for the device shell and removes it on unmount', async () => {
+    resetStore()
+
+    const view = renderMobileLayout()
+
+    await waitFor(() => {
+      expect(document.documentElement).toHaveAttribute('data-mobile-builder-snap', 'enabled')
+      expect(document.body).toHaveAttribute('data-mobile-builder-snap', 'enabled')
+    })
+
+    expect(screen.getByTestId('mobile-overview-shell')).toHaveAttribute(
+      'data-mobile-builder-snap-target',
+      'true',
+    )
+    expect(screen.getByTestId('mobile-builder-teams-section')).toHaveAttribute(
+      'data-mobile-builder-exit-zone',
+      'true',
+    )
+
+    view.unmount()
+
+    await waitFor(() => {
+      expect(document.documentElement).not.toHaveAttribute('data-mobile-builder-snap')
+      expect(document.body).not.toHaveAttribute('data-mobile-builder-snap')
+    })
+  })
+
+  it('keeps page-level snap enabled for preview shells too', async () => {
+    resetStore()
+
+    const noop = () => undefined
+    render(
+      <MobileLayout
+        canUndoResetBuilder={false}
+        onExportAll={noop}
+        onExportIngame={noop}
+        onImport={noop}
+        onRequestResetBuilder={noop}
+        onUndoResetBuilder={noop}
+        renderPicker={({
+          enableDragAndDrop,
+          onItemSelected,
+        }: {
+          enableDragAndDrop: boolean
+          onItemSelected: () => void
+        }) => (
+          <BuilderPickerPanel
+            enableDragAndDrop={enableDragAndDrop}
+            hideTabs
+            onItemSelected={onItemSelected}
+          />
+        )}
+        shellMode='preview'
+      />,
+    )
+
+    await waitFor(() => {
+      expect(document.documentElement).toHaveAttribute('data-mobile-builder-snap', 'enabled')
+      expect(document.body).toHaveAttribute('data-mobile-builder-snap', 'enabled')
+    })
+  })
+
+  it('keeps view swaps inside the builder zone without forcing a second page recenter', async () => {
+    resetStore()
+    seedSlot1Awakener('agrippa')
+
+    const scrollCalls: {element: HTMLElement; options: ScrollIntoViewOptions | undefined}[] = []
+    Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
+      configurable: true,
+      value: function scrollIntoView(options?: ScrollIntoViewOptions) {
+        scrollCalls.push({element: this as HTMLElement, options})
+      },
+    })
+
+    renderMobileLayout()
+
+    expect(scrollCalls).toHaveLength(0)
+
+    fireEvent.click(screen.getByRole('button', {name: /Agrippa card Agrippa/i}))
+
+    await waitFor(() => {
+      expect(screen.getByTestId('mobile-focused-shell')).toBeInTheDocument()
+    })
+
+    expect(scrollCalls).toHaveLength(0)
+
+    scrollCalls.length = 0
+
+    fireEvent.click(screen.getByRole('button', {name: /Quick Lineup/i}))
+
+    await waitFor(() => {
+      expect(screen.getByTestId('mobile-quick-lineup-shell')).toBeInTheDocument()
+    })
+
+    expect(scrollCalls).toHaveLength(0)
   })
 
   it('replaces the focused awakener and closes the picker drawer', async () => {
@@ -90,6 +191,25 @@ describe('MobileLayout', () => {
     })
 
     expect(screen.getByRole('button', {name: /Quick Lineup/i})).toBeInTheDocument()
+  })
+
+  it('disables picker drag and drop inside the mobile builder drawer', async () => {
+    resetStore()
+    seedSlot1Awakener('agrippa')
+
+    const {container} = renderMobileLayout()
+
+    fireEvent.click(screen.getByRole('button', {name: /Agrippa card Agrippa/i}))
+    fireEvent.click(screen.getByRole('button', {name: /Agrippa card/i}))
+
+    await waitFor(() => {
+      expect(screen.getByText(/Slot 1 — Change Awakener/i)).toBeInTheDocument()
+    })
+
+    expect(container.querySelector("[data-picker-kind='awakener']")).toHaveAttribute(
+      'data-picker-draggable',
+      'false',
+    )
   })
 
   it('fills the focused wheel slot and closes the picker drawer', async () => {
@@ -242,9 +362,7 @@ describe('MobileLayout', () => {
 
     expect(screen.getByTestId('mobile-focused-shell').textContent).toContain('Quick Lineup')
     expect(screen.getByTestId('mobile-focused-stage')).toHaveAttribute('data-stage', 'split')
-    expect(
-      screen.getByTestId('mobile-focused-shell').querySelector('.overflow-y-auto'),
-    ).not.toBeNull()
+    expect(screen.getByTestId('mobile-focused-shell').querySelector('.overflow-y-auto')).toBeNull()
   })
 
   it('keeps focused mode on the same viewport-height shell as overview', () => {
@@ -273,6 +391,7 @@ describe('MobileLayout', () => {
     renderMobileLayout()
 
     expect(screen.getByTestId('mobile-overview-shell')).toHaveClass('h-[100svh]')
+    expect(screen.getByTestId('mobile-overview-shell')).toHaveClass('min-h-[100svh]')
     expect(screen.getByTestId('mobile-overview-grid')).toHaveClass('h-full')
     expect(screen.getByTestId('mobile-overview-grid')).toHaveAttribute('data-columns', '2')
     expect(screen.getByTestId('mobile-overview-grid')).toHaveAttribute('data-rows', '2')
@@ -340,7 +459,98 @@ describe('MobileLayout', () => {
       height: '198px',
       width: '183px',
     })
-    expect(screen.getByTestId('mobile-overview-grid')).toHaveClass('overflow-y-auto')
+    expect(screen.getByTestId('mobile-overview-grid')).not.toHaveClass('overflow-y-auto')
+  })
+
+  it('falls back to a single-row tab strip on short landscape shells so the overview keeps its vertical room', () => {
+    resetStore()
+    setViewportSize(700, 300)
+    useBuilderStore.getState().applyTemplate('DTIDE_10')
+
+    renderMobileLayout()
+
+    expect(screen.getByTestId('team-tabs-compact')).toHaveAttribute(
+      'data-compact-layout',
+      'single-row-flex',
+    )
+  })
+
+  it('keeps the compact tabs on one row up through roughly 400px-tall landscape shells', () => {
+    resetStore()
+    setViewportSize(700, 400)
+    useBuilderStore.getState().applyTemplate('DTIDE_10')
+
+    renderMobileLayout()
+
+    expect(screen.getByTestId('team-tabs-compact')).toHaveAttribute(
+      'data-compact-layout',
+      'single-row-flex',
+    )
+  })
+
+  it('keeps overview on a fixed-height shell in normal cases so the grid can keep scaling within the viewport', () => {
+    resetStore()
+    setViewportSize(700, 300)
+    useBuilderStore.getState().applyTemplate('DTIDE_10')
+
+    renderMobileLayout()
+
+    expect(screen.getByTestId('mobile-overview-shell')).toHaveClass('h-[100svh]')
+    expect(screen.getByTestId('mobile-overview-shell')).toHaveClass('min-h-[100svh]')
+  })
+
+  it('switches overview to a growable shell on very short landscapes using the measured chrome height, without relying on grid feedback', async () => {
+    resetStore()
+    setViewportSize(700, 220)
+    useBuilderStore.getState().applyTemplate('DTIDE_10')
+
+    const originalGetBoundingClientRectDescriptor = Object.getOwnPropertyDescriptor(
+      HTMLElement.prototype,
+      'getBoundingClientRect',
+    )
+    const callOriginalGetBoundingClientRect = (element: HTMLElement) => {
+      const originalGetBoundingClientRect = originalGetBoundingClientRectDescriptor?.value as
+        | ((this: HTMLElement) => DOMRect)
+        | undefined
+
+      return originalGetBoundingClientRect
+        ? originalGetBoundingClientRect.call(element)
+        : DOMRect.fromRect({height: 0, width: 0, x: 0, y: 0})
+    }
+    Object.defineProperty(HTMLElement.prototype, 'getBoundingClientRect', {
+      configurable: true,
+      value: function getBoundingClientRect(this: HTMLElement) {
+        const testId = this.getAttribute('data-testid')
+
+        if (testId === 'mobile-overview-chrome') {
+          return DOMRect.fromRect({height: 118, width: 700, x: 0, y: 0})
+        }
+
+        return callOriginalGetBoundingClientRect(this)
+      },
+    })
+
+    try {
+      renderMobileLayout()
+
+      await waitFor(() => {
+        expect(screen.getByTestId('mobile-overview-shell')).toHaveClass('min-h-[100svh]')
+        expect(screen.getByTestId('mobile-overview-shell')).not.toHaveClass('h-[100svh]')
+      })
+
+      expect(screen.getByTestId('team-tabs-compact')).toHaveAttribute(
+        'data-compact-layout',
+        'single-row-flex',
+      )
+    } finally {
+      if (originalGetBoundingClientRectDescriptor) {
+        Object.defineProperty(
+          HTMLElement.prototype,
+          'getBoundingClientRect',
+          originalGetBoundingClientRectDescriptor,
+        )
+      }
+    }
   })
 
   it('prefers the shared four-by-one overview layout on roomy square viewports too', () => {
@@ -385,8 +595,18 @@ describe('MobileLayout', () => {
         onImport={noop}
         onRequestResetBuilder={noop}
         onUndoResetBuilder={noop}
-        renderPicker={(onItemSelected: () => void) => (
-          <BuilderPickerPanel hideTabs onItemSelected={onItemSelected} />
+        renderPicker={({
+          enableDragAndDrop,
+          onItemSelected,
+        }: {
+          enableDragAndDrop: boolean
+          onItemSelected: () => void
+        }) => (
+          <BuilderPickerPanel
+            enableDragAndDrop={enableDragAndDrop}
+            hideTabs
+            onItemSelected={onItemSelected}
+          />
         )}
         shellMode='preview'
         utilityBar={<div>Dev Switcher</div>}
@@ -395,8 +615,8 @@ describe('MobileLayout', () => {
 
     expect(screen.getByText(/Dev Switcher/i)).toBeInTheDocument()
     expect(screen.getByTestId('builder-v2-mobile-preview-shell')).toBeInTheDocument()
+    expect(screen.getByTestId('mobile-overview-shell')).toHaveClass('h-[100svh]')
     expect(screen.getByTestId('mobile-overview-shell')).toHaveClass('min-h-[100svh]')
-    expect(screen.getByTestId('mobile-overview-shell')).not.toHaveClass('h-[100svh]')
     expect(screen.queryByTestId('builder-v2-mobile-preview-frame')).not.toBeInTheDocument()
   })
 })

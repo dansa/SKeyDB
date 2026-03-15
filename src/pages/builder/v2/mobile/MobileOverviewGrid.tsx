@@ -6,6 +6,7 @@ import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 
 import type {TeamSlot} from '../../types'
+import {BuilderCovenantPlaceholder, BuilderSigilPlaceholder} from '../BuilderPlaceholders'
 import {useBuilderStore} from '../store/builder-store'
 import {selectActiveSelection, selectActiveTeamSlots} from '../store/selectors'
 import {useCollectionOwnership} from '../useCollectionOwnership'
@@ -31,13 +32,12 @@ export function MobileOverviewGrid({onFocusSlot, onDeployEmpty}: MobileOverviewG
   return (
     <div
       className={shouldLetPageScroll ? 'min-h-0' : 'h-full min-h-0'}
+      data-testid='mobile-overview-grid-frame'
       ref={ref}
       style={shouldLetPageScroll ? {minHeight: `${String(metrics.totalGridHeight)}px`} : undefined}
     >
       <div
-        className={`grid content-start gap-2 px-2 py-2 ${
-          shouldLetPageScroll ? '' : 'h-full min-h-0 overflow-y-auto'
-        }`.trim()}
+        className={`grid content-start gap-2 px-2 py-2 ${shouldLetPageScroll ? '' : 'h-full min-h-0'}`.trim()}
         data-columns={String(metrics.columns)}
         data-rows={String(metrics.rows)}
         data-testid='mobile-overview-grid'
@@ -94,8 +94,8 @@ function EmptySlotCell({cardStyle, onDeploy}: {cardStyle: CSSProperties; onDeplo
       type='button'
     >
       <div className='z-10 text-center'>
-        <div className='mx-auto mb-1 flex h-8 w-8 rotate-45 items-center justify-center border border-dashed border-slate-600'>
-          <span className='-rotate-45 text-sm text-slate-500'>+</span>
+        <div className='relative mx-auto mb-1 h-11 w-11'>
+          <BuilderSigilPlaceholder className='absolute inset-0' variant='card' />
         </div>
         <span className='text-[9px] text-slate-500'>Deploy</span>
       </div>
@@ -318,9 +318,7 @@ function OverviewWheelChip({asset, testId}: {asset?: string; testId: string}) {
         className={`${sharedClassName} border border-dashed border-slate-700/70 bg-slate-900/50`}
         data-testid={`${testId}-empty`}
       >
-        <span className='absolute inset-0 flex items-center justify-center text-[7px] text-slate-600'>
-          +
-        </span>
+        <BuilderSigilPlaceholder className='absolute inset-0' variant='wheel' />
       </div>
     )
   }
@@ -350,7 +348,7 @@ function OverviewCovenantTile({asset}: {asset?: string}) {
         className='flex aspect-square h-[60%] max-h-full shrink-0 items-center justify-center self-end border border-dashed border-slate-600 bg-slate-900/55'
         data-testid='mobile-overview-covenant-empty'
       >
-        <span className='text-[7px] text-slate-600'>+</span>
+        <BuilderCovenantPlaceholder className='h-full w-full' />
       </div>
     )
   }

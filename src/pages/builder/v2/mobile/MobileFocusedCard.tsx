@@ -86,10 +86,15 @@ export function MobileFocusedCard({
     slot.wheels[1] ? (ownedWheelLevelById.get(slot.wheels[1]) ?? null) : null,
   ]
   const wideStageMetrics = getWideFocusedStageMetrics(stageHostHeight || window.innerHeight)
-  const shouldScrollStage = wideStageMetrics.willScroll
+  const shouldAlignStageToTop = wideStageMetrics.willScroll
+  const shouldAllowPageOverflow = stageHostHeight > 0 && wideStageMetrics.willScroll
 
   return (
-    <MobileBuilderScreen shellMode={shellMode} testId='mobile-focused-shell'>
+    <MobileBuilderScreen
+      allowPageOverflow={shouldAllowPageOverflow}
+      shellMode={shellMode}
+      testId='mobile-focused-shell'
+    >
       <FocusedActionBar
         canClearSlot={Boolean(slot.awakenerName)}
         onBack={onBack}
@@ -100,8 +105,8 @@ export function MobileFocusedCard({
       <div
         ref={stageHostRef}
         className={`flex min-h-0 flex-1 flex-col items-center ${
-          shouldScrollStage
-            ? 'justify-start overflow-y-auto px-4 py-3'
+          shouldAlignStageToTop
+            ? 'justify-start px-4 py-3'
             : 'justify-center overflow-hidden px-4 py-3'
         }`}
       >

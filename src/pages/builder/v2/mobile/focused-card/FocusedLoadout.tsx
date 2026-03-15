@@ -5,6 +5,7 @@ import {getCovenantAssetById} from '@/domain/covenant-assets'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 
 import type {TeamSlot} from '../../../types'
+import {BuilderCovenantPlaceholder, BuilderSigilPlaceholder} from '../../BuilderPlaceholders'
 import type {WideFocusedStageMetrics} from '../focused-layout'
 import type {FocusedCardVariant, WheelOwnedLevels} from './types'
 
@@ -52,8 +53,8 @@ function GearTile({
       ) : null}
     </>
   ) : (
-    <span className='absolute inset-[2px] flex items-center justify-center border border-slate-700/70 bg-slate-900/60'>
-      <span className='text-[7px] text-slate-600'>+</span>
+    <span className='absolute inset-[2px] overflow-hidden border border-slate-700/70 bg-slate-900/60'>
+      <BuilderSigilPlaceholder className='absolute inset-0' variant='wheel' />
     </span>
   )
 
@@ -83,13 +84,11 @@ function GearTile({
 function CovenantTile({
   asset,
   className,
-  emptyLabelClassName = 'text-[7px]',
   imagePaddingClass,
   onClick,
 }: {
   asset?: string
   className: string
-  emptyLabelClassName?: string
   imagePaddingClass: string
   onClick?: () => void
 }) {
@@ -103,7 +102,7 @@ function CovenantTile({
       />
     </span>
   ) : (
-    <span className={`${emptyLabelClassName} text-slate-600`}>+C</span>
+    <BuilderCovenantPlaceholder className='h-full w-full' />
   )
 
   if (!onClick) {
@@ -207,12 +206,10 @@ function SlotLoadoutTiles({
 function EmptyLoadoutTiles({
   covenantButtonClassName,
   covenantImagePaddingClass,
-  covenantLabelClassName,
   wheelVariant = 'default',
 }: {
   covenantButtonClassName: string
   covenantImagePaddingClass: string
-  covenantLabelClassName?: string
   wheelVariant?: FocusedCardVariant
 }) {
   return (
@@ -222,7 +219,6 @@ function EmptyLoadoutTiles({
       ))}
       <CovenantTile
         className={covenantButtonClassName}
-        emptyLabelClassName={covenantLabelClassName}
         imagePaddingClass={covenantImagePaddingClass}
       />
     </>
@@ -271,7 +267,6 @@ export function LandscapeLoadout(props: LoadoutProps) {
           : 'flex aspect-square w-full items-center justify-center self-start overflow-hidden border border-slate-700/70 bg-slate-900/60'
       }
       covenantImagePaddingClass={isColumn ? 'p-1' : 'p-0.5'}
-      covenantLabelClassName={isColumn ? 'text-[8px]' : undefined}
       wheelVariant={isColumn ? 'wide' : 'default'}
     />
   ) : (

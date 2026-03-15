@@ -55,4 +55,33 @@ describe('BuilderPickerPanel', () => {
     expect(screen.getByText(/Promote Recommendations/i)).toBeInTheDocument()
     expect(screen.getByText(/^BiS$/i)).toBeInTheDocument()
   })
+
+  it('can disable picker drag and drop across all picker tabs', () => {
+    resetStore()
+
+    const {container} = render(<BuilderPickerPanel enableDragAndDrop={false} />)
+
+    expect(container.querySelector("[data-picker-kind='awakener']")).toHaveAttribute(
+      'data-picker-draggable',
+      'false',
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: /Wheels/i}))
+    expect(container.querySelector("[data-picker-kind='wheel']")).toHaveAttribute(
+      'data-picker-draggable',
+      'false',
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: /Covenants/i}))
+    expect(container.querySelector("[data-picker-kind='covenant']")).toHaveAttribute(
+      'data-picker-draggable',
+      'false',
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: /Posses/i}))
+    expect(container.querySelector("[data-picker-kind='posse']")).toHaveAttribute(
+      'data-picker-draggable',
+      'false',
+    )
+  })
 })

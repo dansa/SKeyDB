@@ -8,6 +8,7 @@ import {useInlineEditor} from '@/hooks/useInlineEditor'
 
 import {MAX_TEAMS} from '../team-collection'
 import type {Team, TeamSlot} from '../types'
+import {BuilderSigilPlaceholder} from './BuilderPlaceholders'
 import {SortableTeamRow} from './SortableTeamRow'
 import {useBuilderStore} from './store/builder-store'
 import {selectActiveTeamId, selectTeams} from './store/selectors'
@@ -46,9 +47,7 @@ function TeamPreviewThumb({slot, isOwned}: {slot: TeamSlot; isOwned: boolean}) {
   if (!slot.awakenerName) {
     return (
       <div className='relative aspect-square overflow-hidden border border-slate-600/50 bg-slate-950/55'>
-        <span className='absolute inset-0 flex items-center justify-center text-[10px] text-slate-600'>
-          +
-        </span>
+        <BuilderSigilPlaceholder className='absolute inset-0' variant='thumb' />
       </div>
     )
   }
@@ -118,7 +117,9 @@ function TeamPosseBadge({team, isOwned}: {team: Team; isOwned: boolean}) {
             src={posseAsset}
           />
         ) : (
-          <span className='text-[10px] text-slate-600'>+</span>
+          <span className='relative block h-full w-full bg-slate-950/55'>
+            <BuilderSigilPlaceholder className='absolute inset-0' variant='thumb' />
+          </span>
         )}
       </div>
     </div>

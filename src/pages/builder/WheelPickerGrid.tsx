@@ -28,6 +28,7 @@ interface WheelPickerGridProps {
   activeBuild?: AwakenerBuild
   filteredWheels: Wheel[]
   allowDupes: boolean
+  enableDragAndDrop?: boolean
   effectiveActiveTeamId: string
   ownedWheelLevelById: Map<string, number | null>
   promoteMatchingWheelMainstats: boolean
@@ -39,6 +40,7 @@ export function WheelPickerGrid({
   activeBuild,
   filteredWheels,
   allowDupes,
+  enableDragAndDrop = true,
   effectiveActiveTeamId,
   ownedWheelLevelById,
   promoteMatchingWheelMainstats,
@@ -48,6 +50,7 @@ export function WheelPickerGrid({
   return (
     <div className='grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] items-start gap-2'>
       <PickerWheelTile
+        enableDragAndDrop={enableDragAndDrop}
         isNotSet
         onClick={() => {
           onSetActiveWheel(undefined)
@@ -63,6 +66,7 @@ export function WheelPickerGrid({
         return (
           <PickerWheelTile
             blockedText={blockedText}
+            enableDragAndDrop={enableDragAndDrop}
             isBlocked={Boolean(isUsedByOtherTeam)}
             isInUse={Boolean(usedByTeam)}
             isOwned={(ownedWheelLevelById.get(wheel.id) ?? null) !== null}

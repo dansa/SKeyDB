@@ -91,10 +91,15 @@ function getCompactFilterChipClassName(isActive: boolean): string {
 
 interface BuilderPickerPanelProps {
   hideTabs?: boolean
+  enableDragAndDrop?: boolean
   onItemSelected?: () => void
 }
 
-export function BuilderPickerPanel({hideTabs = false, onItemSelected}: BuilderPickerPanelProps) {
+export function BuilderPickerPanel({
+  hideTabs = false,
+  enableDragAndDrop = true,
+  onItemSelected,
+}: BuilderPickerPanelProps) {
   const pickerTab = useBuilderStore(selectPickerTab)
   const setPickerTab = useBuilderStore((s) => s.setPickerTab)
   const activeTeamId = useBuilderStore(selectActiveTeamId)
@@ -378,6 +383,7 @@ export function BuilderPickerPanel({hideTabs = false, onItemSelected}: BuilderPi
       >
         {pickerTab === 'awakeners' ? (
           <AwakenerPickerGrid
+            enableDragAndDrop={enableDragAndDrop}
             allowDupes={picker.allowDupes}
             filteredAwakeners={picker.filteredAwakeners}
             onAwakenerClick={handleAwakenerClick}
@@ -391,6 +397,7 @@ export function BuilderPickerPanel({hideTabs = false, onItemSelected}: BuilderPi
           <WheelPickerGrid
             activeBuild={picker.activeBuild}
             allowDupes={picker.allowDupes}
+            enableDragAndDrop={enableDragAndDrop}
             effectiveActiveTeamId={activeTeamId}
             filteredWheels={picker.filteredWheels}
             onSetActiveWheel={handleSetWheel}
@@ -403,6 +410,7 @@ export function BuilderPickerPanel({hideTabs = false, onItemSelected}: BuilderPi
         {pickerTab === 'covenants' ? (
           <CovenantPickerGrid
             activeBuild={picker.activeBuild}
+            enableDragAndDrop={enableDragAndDrop}
             filteredCovenants={picker.filteredCovenants}
             onSetActiveCovenant={handleSetCovenant}
           />
@@ -412,6 +420,7 @@ export function BuilderPickerPanel({hideTabs = false, onItemSelected}: BuilderPi
           <PossePickerGrid
             activePosseId={activeTeam?.posseId ?? undefined}
             allowDupes={picker.allowDupes}
+            enableDragAndDrop={enableDragAndDrop}
             effectiveActiveTeamId={activeTeamId}
             filteredPosses={picker.filteredPosses}
             onSetActivePosse={handleSetPosse}

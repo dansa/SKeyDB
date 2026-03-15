@@ -41,8 +41,12 @@ export function BuilderV2Page() {
               onImport={actions.openImportDialog}
               onRequestResetBuilder={actions.requestReset}
               onUndoResetBuilder={actions.undoReset}
-              renderPicker={(onItemSelected) => (
-                <BuilderPickerPanel hideTabs onItemSelected={onItemSelected} />
+              renderPicker={({enableDragAndDrop, onItemSelected}) => (
+                <BuilderPickerPanel
+                  enableDragAndDrop={enableDragAndDrop}
+                  hideTabs
+                  onItemSelected={onItemSelected}
+                />
               )}
               shellMode={isPreviewingMobile ? 'preview' : 'device'}
               utilityBar={

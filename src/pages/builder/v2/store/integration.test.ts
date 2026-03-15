@@ -28,6 +28,18 @@ describe('builder store integration', () => {
 
   it('quick lineup flow: start → navigate → finish', () => {
     resetStore()
+    const seededSlots = [
+      {
+        awakenerName: 'Goliath',
+        level: 60,
+        realm: 'AEQUOR',
+        slotId: 'slot-1',
+        wheels: [null, null] as [null, null],
+      },
+      {slotId: 'slot-2', wheels: [null, null] as [null, null]},
+      {slotId: 'slot-3', wheels: [null, null] as [null, null]},
+      {slotId: 'slot-4', wheels: [null, null] as [null, null]},
+    ]
     const steps = [
       {kind: 'awakener' as const, slotId: 'slot-1'},
       {kind: 'wheel' as const, slotId: 'slot-1', wheelIndex: 0},
@@ -37,29 +49,30 @@ describe('builder store integration', () => {
 
     useBuilderStore.getState().startQuickLineup(steps)
     let state = useBuilderStore.getState()
-    expect(state.quickLineupSteps).toHaveLength(4)
-    expect(state.quickLineupStepIndex).toBe(0)
+    expect(state.quickLineupSessionState?.steps).toHaveLength(4)
+    expect(state.quickLineupSessionState?.currentStepIndex).toBe(0)
     expect(state.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-1'})
     expect(state.pickerTab).toBe('awakeners')
 
+    useBuilderStore.getState().setActiveTeamSlots(seededSlots)
     useBuilderStore.getState().nextQuickLineupStep()
     state = useBuilderStore.getState()
-    expect(state.quickLineupStepIndex).toBe(1)
+    expect(state.quickLineupSessionState?.currentStepIndex).toBe(1)
     expect(state.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-1', wheelIndex: 0})
     expect(state.pickerTab).toBe('wheels')
 
     useBuilderStore.getState().nextQuickLineupStep()
     state = useBuilderStore.getState()
-    expect(state.quickLineupStepIndex).toBe(2)
+    expect(state.quickLineupSessionState?.currentStepIndex).toBe(2)
 
     useBuilderStore.getState().nextQuickLineupStep()
     state = useBuilderStore.getState()
-    expect(state.quickLineupStepIndex).toBe(3)
+    expect(state.quickLineupSessionState?.currentStepIndex).toBe(3)
     expect(state.pickerTab).toBe('posses')
 
     useBuilderStore.getState().nextQuickLineupStep()
     state = useBuilderStore.getState()
-    expect(state.quickLineupSteps).toBeNull()
+    expect(state.quickLineupSessionState).toBeNull()
     expect(state.activeSelection).toBeNull()
   })
 
@@ -77,21 +90,34 @@ describe('builder store integration', () => {
     useBuilderStore.getState().cancelQuickLineup()
     const team = useBuilderStore.getState().teams.find((t) => t.id === teamId)
     expect(team?.posseId).toBe('original-posse')
-    expect(useBuilderStore.getState().quickLineupSteps).toBeNull()
+    expect(useBuilderStore.getState().quickLineupSessionState).toBeNull()
   })
 
   it('quick lineup prevStep navigates backward', () => {
     resetStore()
+    const seededSlots = [
+      {
+        awakenerName: 'Goliath',
+        level: 60,
+        realm: 'AEQUOR',
+        slotId: 'slot-1',
+        wheels: [null, null] as [null, null],
+      },
+      {slotId: 'slot-2', wheels: [null, null] as [null, null]},
+      {slotId: 'slot-3', wheels: [null, null] as [null, null]},
+      {slotId: 'slot-4', wheels: [null, null] as [null, null]},
+    ]
     const steps = [
       {kind: 'awakener' as const, slotId: 'slot-1'},
       {kind: 'wheel' as const, slotId: 'slot-1', wheelIndex: 0},
     ]
     useBuilderStore.getState().startQuickLineup(steps)
+    useBuilderStore.getState().setActiveTeamSlots(seededSlots)
     useBuilderStore.getState().nextQuickLineupStep()
-    expect(useBuilderStore.getState().quickLineupStepIndex).toBe(1)
+    expect(useBuilderStore.getState().quickLineupSessionState?.currentStepIndex).toBe(1)
 
     useBuilderStore.getState().prevQuickLineupStep()
-    expect(useBuilderStore.getState().quickLineupStepIndex).toBe(0)
+    expect(useBuilderStore.getState().quickLineupSessionState?.currentStepIndex).toBe(0)
     expect(useBuilderStore.getState().activeSelection).toEqual({kind: 'awakener', slotId: 'slot-1'})
   })
 
@@ -100,7 +126,7 @@ describe('builder store integration', () => {
     const steps = [{kind: 'awakener' as const, slotId: 'slot-1'}]
     useBuilderStore.getState().startQuickLineup(steps)
     useBuilderStore.getState().prevQuickLineupStep()
-    expect(useBuilderStore.getState().quickLineupStepIndex).toBe(0)
+    expect(useBuilderStore.getState().quickLineupSessionState?.currentStepIndex).toBe(0)
   })
 
   it('multi-team workflow: add teams, switch, modify independently', () => {

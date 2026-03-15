@@ -8,6 +8,7 @@ interface AwakenerPickerGridProps {
   teamRealmSet: Set<string>
   usedAwakenerIdentityKeys: Set<string>
   ownedAwakenerLevelByName: Map<string, number | null>
+  enableDragAndDrop?: boolean
   allowDupes: boolean
   onAwakenerClick: (awakenerName: string) => void
 }
@@ -17,6 +18,7 @@ export function AwakenerPickerGrid({
   teamRealmSet,
   usedAwakenerIdentityKeys,
   ownedAwakenerLevelByName,
+  enableDragAndDrop = true,
   allowDupes,
   onAwakenerClick,
 }: AwakenerPickerGridProps) {
@@ -25,6 +27,7 @@ export function AwakenerPickerGrid({
       {filteredAwakeners.map((awakener) => (
         <PickerAwakenerTile
           awakenerName={awakener.name}
+          enableDragAndDrop={enableDragAndDrop}
           isInUse={
             !allowDupes && usedAwakenerIdentityKeys.has(getAwakenerIdentityKey(awakener.name))
           }

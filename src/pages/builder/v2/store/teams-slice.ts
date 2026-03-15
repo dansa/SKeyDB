@@ -1,3 +1,4 @@
+import {reconcileQuickLineupSessionAfterSlotsChange} from '../../quick-lineup'
 import {
   addTeam,
   applyTeamTemplate,
@@ -8,9 +9,9 @@ import {
   resetTeam,
   type TeamTemplateId,
 } from '../../team-collection'
-import type {BuilderSet, TeamsSlice} from './types'
+import type {BuilderGet, BuilderSet, TeamsSlice} from './types'
 
-export function createTeamsSlice(set: BuilderSet): TeamsSlice {
+export function createTeamsSlice(set: BuilderSet, get: BuilderGet): TeamsSlice {
   const initialTeams = createInitialTeams()
 
   return {
@@ -68,13 +69,25 @@ export function createTeamsSlice(set: BuilderSet): TeamsSlice {
       })
     },
 
-    setActiveTeamSlots: (nextSlots) => {
+    setActiveTeamSlots: (nextSlots, preferredStep = null) => {
       set((state) => {
         const teamIndex = state.teams.findIndex((t) => t.id === state.activeTeamId)
         if (teamIndex !== -1) {
           state.teams[teamIndex].slots = nextSlots
         }
       })
+
+      const quickLineupSessionState = get().quickLineupSessionState
+      if (!quickLineupSessionState) {
+        return
+      }
+
+      const nextSession = reconcileQuickLineupSessionAfterSlotsChange(
+        quickLineupSessionState,
+        nextSlots,
+        preferredStep,
+      )
+      get().setQuickLineupSessionState(nextSession)
     },
 
     updateActiveTeam: (updater) => {

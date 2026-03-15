@@ -8,6 +8,7 @@ interface PickerCovenantTileProps {
   covenantId?: string
   covenantName?: string
   covenantAsset?: string
+  enableDragAndDrop?: boolean
   isNotSet?: boolean
   recommendationLabel?: string
   onClick: () => void
@@ -64,6 +65,7 @@ export function PickerCovenantTile({
   covenantId,
   covenantName,
   covenantAsset,
+  enableDragAndDrop = true,
   isNotSet = false,
   recommendationLabel,
   onClick,
@@ -72,10 +74,11 @@ export function PickerCovenantTile({
   const covenantDisplayName =
     getCovenantDisplayName(isNotSet, covenantName, covenantId) ?? 'Covenant'
   const altText = `${covenantDisplayName} covenant`
+  const draggableEnabled = enableDragAndDrop && Boolean(draggableCovenantId)
   const {attributes, listeners, isDragging, setNodeRef} = useDraggable({
     id: draggableCovenantId ? `picker-covenant:${draggableCovenantId}` : 'picker-covenant:not-set',
-    data: getCovenantDragData(Boolean(draggableCovenantId), draggableCovenantId),
-    disabled: !draggableCovenantId,
+    data: getCovenantDragData(draggableEnabled, draggableCovenantId),
+    disabled: !draggableEnabled,
   })
   const dragAttributes = {...attributes} as Record<string, unknown>
   delete dragAttributes['aria-disabled']
@@ -86,11 +89,13 @@ export function PickerCovenantTile({
       className={`builder-picker-tile border border-slate-500/45 bg-slate-900/55 p-1 text-left transition-colors hover:border-amber-200/45 ${
         isDragging ? 'scale-[0.98] opacity-60' : ''
       }`}
+      data-picker-draggable={draggableEnabled ? 'true' : 'false'}
+      data-picker-kind='covenant'
       onClick={onClick}
       ref={setNodeRef}
       type='button'
-      {...(draggableCovenantId ? dragAttributes : {})}
-      {...(draggableCovenantId ? listeners : {})}
+      {...(draggableEnabled ? dragAttributes : {})}
+      {...(draggableEnabled ? listeners : {})}
     >
       <CompactArtTile
         chips={

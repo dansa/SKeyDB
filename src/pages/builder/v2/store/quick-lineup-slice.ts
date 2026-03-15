@@ -1,96 +1,159 @@
+import {createEmptyTeamSlots} from '../../constants'
+import {
+  cloneTeam,
+  findNextQuickLineupStepIndex,
+  findPreviousQuickLineupStepIndex,
+  findQuickLineupStepIndex,
+  getQuickLineupStepAtIndex,
+  goToQuickLineupStep,
+  normalizeQuickLineupStepForSlots,
+  type InternalQuickLineupSession,
+} from '../../quick-lineup'
 import type {BuilderGet, BuilderSet, QuickLineupSlice, QuickLineupStep} from './types'
 
 export function createQuickLineupSlice(set: BuilderSet, get: BuilderGet): QuickLineupSlice {
   return {
-    quickLineupSteps: null,
-    quickLineupStepIndex: 0,
-    quickLineupOriginalTeam: null,
+    quickLineupSessionState: null,
+
+    setQuickLineupSessionState: (session) => {
+      set((state) => {
+        applyQuickLineupSessionState(state, session)
+      })
+    },
 
     startQuickLineup: (steps: QuickLineupStep[]) => {
       set((state) => {
-        const activeTeam = state.teams.find((t) => t.id === state.activeTeamId)
+        const activeTeam = state.teams.find((team) => team.id === state.activeTeamId)
         if (!activeTeam || steps.length === 0) {
           return
         }
-        state.quickLineupSteps = steps
-        state.quickLineupStepIndex = 0
-        state.quickLineupOriginalTeam = JSON.parse(JSON.stringify(activeTeam)) as typeof activeTeam
-        applyStepSelection(state, steps[0])
+
+        const session: InternalQuickLineupSession = {
+          currentStepIndex: 0,
+          history: [0],
+          originalTeam: cloneTeam(activeTeam),
+          steps,
+          teamId: activeTeam.id,
+        }
+
+        activeTeam.posseId = undefined
+        activeTeam.slots = createEmptyTeamSlots()
+        applyQuickLineupSessionState(state, session)
       })
     },
 
     finishQuickLineup: () => {
       set((state) => {
-        state.quickLineupSteps = null
-        state.quickLineupStepIndex = 0
-        state.quickLineupOriginalTeam = null
-        state.activeSelection = null
+        applyQuickLineupSessionState(state, null)
       })
     },
 
     cancelQuickLineup: () => {
       set((state) => {
-        if (state.quickLineupOriginalTeam) {
-          const teamIndex = state.teams.findIndex((t) => t.id === state.activeTeamId)
+        const session = state.quickLineupSessionState
+        if (session) {
+          const teamIndex = state.teams.findIndex((team) => team.id === session.teamId)
           if (teamIndex !== -1) {
-            state.teams[teamIndex] = state.quickLineupOriginalTeam
+            state.teams[teamIndex] = cloneTeam(session.originalTeam)
           }
         }
-        state.quickLineupSteps = null
-        state.quickLineupStepIndex = 0
-        state.quickLineupOriginalTeam = null
-        state.activeSelection = null
+        applyQuickLineupSessionState(state, null)
       })
     },
 
-    nextQuickLineupStep: () => {
-      set((state) => {
-        if (!state.quickLineupSteps) {
-          return
-        }
-        const nextIndex = state.quickLineupStepIndex + 1
-        if (nextIndex >= state.quickLineupSteps.length) {
-          state.quickLineupSteps = null
-          state.quickLineupStepIndex = 0
-          state.quickLineupOriginalTeam = null
-          state.activeSelection = null
-          return
-        }
-        state.quickLineupStepIndex = nextIndex
-        applyStepSelection(state, state.quickLineupSteps[nextIndex])
-      })
+    nextQuickLineupStep: (expectedStepIndex) => {
+      const state = get()
+      const session = state.quickLineupSessionState
+      if (!session) {
+        return
+      }
+
+      if (expectedStepIndex !== undefined && session.currentStepIndex !== expectedStepIndex) {
+        return
+      }
+
+      const activeTeam = state.teams.find((team) => team.id === state.activeTeamId)
+      const nextStepIndex = findNextQuickLineupStepIndex(session, activeTeam?.slots ?? [])
+      if (nextStepIndex === null) {
+        state.finishQuickLineup()
+        return
+      }
+
+      const nextSession = goToQuickLineupStep(session, nextStepIndex)
+      state.setQuickLineupSessionState(nextSession)
     },
 
-    prevQuickLineupStep: () => {
-      set((state) => {
-        if (!state.quickLineupSteps || state.quickLineupStepIndex <= 0) {
-          return
-        }
-        const prevIndex = state.quickLineupStepIndex - 1
-        state.quickLineupStepIndex = prevIndex
-        applyStepSelection(state, state.quickLineupSteps[prevIndex])
-      })
+    prevQuickLineupStep: (expectedStepIndex) => {
+      const state = get()
+      const session = state.quickLineupSessionState
+      if (!session) {
+        return
+      }
+
+      if (expectedStepIndex !== undefined && session.currentStepIndex !== expectedStepIndex) {
+        return
+      }
+
+      const activeTeam = state.teams.find((team) => team.id === state.activeTeamId)
+      const previousStepIndex = findPreviousQuickLineupStepIndex(session, activeTeam?.slots ?? [])
+      if (previousStepIndex === null) {
+        return
+      }
+
+      const nextSession = goToQuickLineupStep(session, previousStepIndex)
+      if (!nextSession) {
+        return
+      }
+
+      state.setQuickLineupSessionState(nextSession)
     },
 
-    skipQuickLineupStep: () => {
-      get().nextQuickLineupStep()
+    skipQuickLineupStep: (expectedStepIndex) => {
+      get().nextQuickLineupStep(expectedStepIndex)
     },
 
     jumpToQuickLineupStep: (step: QuickLineupStep) => {
-      set((state) => {
-        if (!state.quickLineupSteps) {
-          return
-        }
-        const index = state.quickLineupSteps.findIndex(
-          (s) => s.kind === step.kind && matchesStep(s, step),
-        )
-        if (index !== -1) {
-          state.quickLineupStepIndex = index
-          applyStepSelection(state, state.quickLineupSteps[index])
-        }
-      })
+      const state = get()
+      const session = state.quickLineupSessionState
+      if (!session) {
+        return
+      }
+
+      const activeTeam = state.teams.find((team) => team.id === state.activeTeamId)
+      const normalizedStep = normalizeQuickLineupStepForSlots(step, activeTeam?.slots ?? [])
+      const nextStepIndex = findQuickLineupStepIndex(session, normalizedStep)
+      if (nextStepIndex === -1) {
+        return
+      }
+
+      const nextSession = goToQuickLineupStep(session, nextStepIndex)
+      state.setQuickLineupSessionState(nextSession)
     },
   }
+}
+
+function applyQuickLineupSessionState(
+  state: {
+    activeSelection: {kind: string; slotId?: string; wheelIndex?: number} | null
+    pickerTab: string
+    quickLineupSessionState: InternalQuickLineupSession | null
+  },
+  session: InternalQuickLineupSession | null,
+): void {
+  state.quickLineupSessionState = session
+
+  if (!session) {
+    state.activeSelection = null
+    return
+  }
+
+  const currentStep = getQuickLineupStepAtIndex(session, session.currentStepIndex)
+  if (!currentStep) {
+    state.activeSelection = null
+    return
+  }
+
+  applyStepSelection(state, currentStep)
 }
 
 interface SelectionTarget {
@@ -112,23 +175,4 @@ function applyStepSelection(state: SelectionTarget, step: QuickLineupStep): void
     state.activeSelection = null
     state.pickerTab = 'posses'
   }
-}
-
-function matchesStep(a: QuickLineupStep, b: QuickLineupStep): boolean {
-  if (a.kind !== b.kind) {
-    return false
-  }
-  if (a.kind === 'posse') {
-    return true
-  }
-  if (a.kind === 'awakener' && b.kind === 'awakener') {
-    return a.slotId === b.slotId
-  }
-  if (a.kind === 'wheel' && b.kind === 'wheel') {
-    return a.slotId === b.slotId && a.wheelIndex === b.wheelIndex
-  }
-  if (a.kind === 'covenant' && b.kind === 'covenant') {
-    return a.slotId === b.slotId
-  }
-  return false
 }
