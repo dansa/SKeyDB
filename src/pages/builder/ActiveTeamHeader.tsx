@@ -1,6 +1,6 @@
 import type {CSSProperties} from 'react'
 
-import tempPosseIcon from '@/assets/posse/00-temposse.png'
+import tempPosseIcon from '@/assets/posse/00-temposse.webp'
 import {
   DEFAULT_REALM_TINT,
   getRealmIcon,

@@ -140,21 +140,21 @@ vi.mock('../domain/awakener-builds', async () => {
 })
 
 vi.mock('../domain/wheel-assets', () => ({
-  getWheelAssetById: (wheelId: string) => `/mock/wheels/${wheelId}.png`,
+  getWheelAssetById: (wheelId: string) => `/mock/wheels/${wheelId}.webp`,
 }))
 
 vi.mock('../domain/covenant-assets', () => ({
-  getCovenantAssetById: (covenantId: string) => `/mock/covenants/${covenantId}.png`,
+  getCovenantAssetById: (covenantId: string) => `/mock/covenants/${covenantId}.webp`,
 }))
 
 vi.mock('../domain/awakener-assets', () => ({
-  getAwakenerCardAsset: (awakenerName: string) => `/mock/awakeners/${awakenerName}-card.png`,
+  getAwakenerCardAsset: (awakenerName: string) => `/mock/awakeners/${awakenerName}-card.webp`,
   getAwakenerPortraitAsset: (awakenerName: string) =>
-    `/mock/awakeners/${awakenerName}-portrait.png`,
+    `/mock/awakeners/${awakenerName}-portrait.webp`,
 }))
 
 vi.mock('../domain/posse-assets', () => ({
-  getPosseAssetById: (posseId: string) => `/mock/posses/${posseId}.png`,
+  getPosseAssetById: (posseId: string) => `/mock/posses/${posseId}.webp`,
 }))
 
 beforeEach(() => {

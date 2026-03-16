@@ -39,7 +39,7 @@ function getWheelRealm(id) {
 }
 
 function parseWheelFile(filename) {
-  const match = filename.match(/^Weapon_Full_(.+)\.png$/i)
+  const match = filename.match(/^Weapon_Full_(.+)\.webp$/i)
   if (!match) {
     return null
   }
@@ -61,7 +61,7 @@ async function main() {
   const existingById = new Map(existingWheels.map((wheel) => [wheel.id, wheel]))
 
   const wheelFiles = (await fs.readdir(wheelsAssetsDir))
-    .filter((filename) => filename.toLowerCase().endsWith('.png'))
+    .filter((filename) => filename.toLowerCase().endsWith('.webp'))
     .sort((a, b) => a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'}))
 
   const wheels = []

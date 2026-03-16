@@ -3,8 +3,8 @@ import {useState} from 'react'
 import {FaApple, FaDiscord, FaGithub, FaGlobe, FaGooglePlay, FaSteam} from 'react-icons/fa6'
 import type {IconType} from 'react-icons/lib'
 
-import emojiAel from '@/assets/emoji/Emoji_AEL_E_05.png'
-import emojiRose from '@/assets/emoji/Emoji_AEL_K_08.png'
+import emojiAel from '@/assets/emoji/Emoji_AEL_E_05.webp'
+import emojiRose from '@/assets/emoji/Emoji_AEL_K_08.webp'
 
 import {changelogItems} from './home/changelog'
 
