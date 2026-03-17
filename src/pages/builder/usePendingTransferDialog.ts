@@ -4,8 +4,8 @@ import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getWheelById} from '@/domain/wheels'
 
 import {applyPendingTransfer, applySupportTransfer} from './transfer-resolution'
+import type {PendingTransfer} from './transfer-types'
 import type {Team} from './types'
-import type {PendingTransfer} from './useTransferConfirm'
 
 interface UsePendingTransferDialogOptions {
   pendingTransfer: PendingTransfer | null

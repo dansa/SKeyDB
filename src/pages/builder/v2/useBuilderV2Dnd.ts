@@ -10,21 +10,16 @@ import {
   type DragStartEvent,
 } from '@dnd-kit/core'
 
-import {awakenerByName} from '../constants'
 import {parseCovenantDropZoneId, parseWheelDropZoneId, PICKER_DROP_ZONE_ID} from '../dnd-ids'
 import {
-  assignAwakenerToSlot,
-  assignCovenantToSlot,
-  assignWheelToSlot,
   clearCovenantAssignment,
   clearSlotAssignment,
   clearWheelAssignment,
-  swapCovenantAssignments,
   swapSlotAssignments,
-  swapWheelAssignments,
 } from '../team-state'
 import type {DragData} from '../types'
 import {useBuilderStore} from './store/builder-store'
+import type {BuilderV2ActionsResult} from './useBuilderV2Actions'
 
 interface UseBuilderV2DndResult {
   activeDrag: DragData | null
@@ -36,7 +31,19 @@ interface UseBuilderV2DndResult {
   handleDragCancel: () => void
 }
 
-export function useBuilderV2Dnd(): UseBuilderV2DndResult {
+export function useBuilderV2Dnd(
+  actions: Pick<
+    BuilderV2ActionsResult,
+    | 'handleDropPickerAwakener'
+    | 'handleDropPickerCovenant'
+    | 'handleDropPickerWheel'
+    | 'handleDropTeamCovenant'
+    | 'handleDropTeamCovenantToSlot'
+    | 'handleDropTeamWheel'
+    | 'handleDropTeamWheelToSlot'
+    | 'handleSetActivePosse'
+  >,
+): UseBuilderV2DndResult {
   const [activeDrag, setActiveDrag] = useState<DragData | null>(null)
   const [isRemoveIntent, setIsRemoveIntent] = useState(false)
 
@@ -57,7 +64,7 @@ export function useBuilderV2Dnd(): UseBuilderV2DndResult {
     return overWheel?.slotId ?? overCovenant?.slotId ?? (isTeamSlotId(overId) ? overId : null)
   }
 
-  function applySlots(nextSlots: ReturnType<typeof assignAwakenerToSlot>['nextSlots']) {
+  function applySlots(nextSlots: ReturnType<typeof clearSlotAssignment>['nextSlots']) {
     useBuilderStore.getState().setActiveTeamSlots(nextSlots)
   }
 
@@ -113,35 +120,19 @@ export function useBuilderV2Dnd(): UseBuilderV2DndResult {
       case 'picker-awakener': {
         const targetSlotId = resolveSlotTarget(overId, overWheel, overCovenant)
         if (targetSlotId) {
-          const slots = getActiveSlots()
-          const result = assignAwakenerToSlot(
-            slots,
-            data.awakenerName,
-            targetSlotId,
-            awakenerByName,
-          )
-          applySlots(result.nextSlots)
+          actions.handleDropPickerAwakener(data.awakenerName, targetSlotId)
         }
         return
       }
 
       case 'picker-wheel': {
         if (overWheel) {
-          const slots = getActiveSlots()
-          const result = assignWheelToSlot(
-            slots,
-            overWheel.slotId,
-            overWheel.wheelIndex,
-            data.wheelId,
-          )
-          applySlots(result.nextSlots)
+          actions.handleDropPickerWheel(data.wheelId, overWheel.slotId, overWheel.wheelIndex)
           return
         }
         const targetSlotId = overCovenant?.slotId ?? (isTeamSlotId(overId) ? overId : null)
         if (targetSlotId) {
-          const slots = getActiveSlots()
-          const result = assignWheelToSlot(slots, targetSlotId, 0, data.wheelId)
-          applySlots(result.nextSlots)
+          actions.handleDropPickerWheel(data.wheelId, targetSlotId)
         }
         return
       }
@@ -149,15 +140,13 @@ export function useBuilderV2Dnd(): UseBuilderV2DndResult {
       case 'picker-covenant': {
         const targetSlotId = overCovenant?.slotId ?? (isTeamSlotId(overId) ? overId : null)
         if (targetSlotId) {
-          const slots = getActiveSlots()
-          const result = assignCovenantToSlot(slots, targetSlotId, data.covenantId)
-          applySlots(result.nextSlots)
+          actions.handleDropPickerCovenant(data.covenantId, targetSlotId)
         }
         return
       }
 
       case 'picker-posse': {
-        useBuilderStore.getState().setPosseForActiveTeam(data.posseId)
+        actions.handleSetActivePosse(data.posseId)
         return
       }
 
@@ -182,21 +171,16 @@ export function useBuilderV2Dnd(): UseBuilderV2DndResult {
           return
         }
         if (overWheel) {
-          const slots = getActiveSlots()
-          applySlots(
-            swapWheelAssignments(
-              slots,
-              data.slotId,
-              data.wheelIndex,
-              overWheel.slotId,
-              overWheel.wheelIndex,
-            ).nextSlots,
+          actions.handleDropTeamWheel(
+            data.slotId,
+            data.wheelIndex,
+            overWheel.slotId,
+            overWheel.wheelIndex,
           )
           return
         }
         if (isTeamSlotId(overId)) {
-          const slots = getActiveSlots()
-          applySlots(assignWheelToSlot(slots, overId, 0, data.wheelId).nextSlots)
+          actions.handleDropTeamWheelToSlot(data.slotId, data.wheelIndex, overId)
         }
         return
       }
@@ -213,13 +197,11 @@ export function useBuilderV2Dnd(): UseBuilderV2DndResult {
           return
         }
         if (overCovenant) {
-          const slots = getActiveSlots()
-          applySlots(swapCovenantAssignments(slots, data.slotId, overCovenant.slotId).nextSlots)
+          actions.handleDropTeamCovenant(data.slotId, overCovenant.slotId)
           return
         }
         if (isTeamSlotId(overId)) {
-          const slots = getActiveSlots()
-          applySlots(assignCovenantToSlot(slots, overId, data.covenantId).nextSlots)
+          actions.handleDropTeamCovenantToSlot(data.slotId, overId)
         }
         return
       }

@@ -170,4 +170,30 @@ describe('createBuilderAwakenerActions', () => {
       expect.objectContaining({slotId: 'slot-2', awakenerName: 'Goliath'}),
     ])
   })
+
+  it('treats moving a same-team support awakener as a local reassignment before cross-team transfer rules', () => {
+    const {actions, requestAwakenerTransfer, setActiveTeamSlots} = createActions({
+      teamSlots: [
+        {
+          slotId: 'slot-1',
+          awakenerName: 'Goliath',
+          realm: 'AEQUOR',
+          level: 90,
+          isSupport: true,
+          wheels: [null, null],
+        },
+        {slotId: 'slot-2', wheels: [null, null]},
+      ],
+      resolvedActiveSelection: {kind: 'awakener', slotId: 'slot-2'},
+      usedAwakenerByIdentityKey: new Map([['goliath', 'team-2']]),
+    })
+
+    actions.handlePickerAwakenerClick('Goliath')
+
+    expect(requestAwakenerTransfer).not.toHaveBeenCalled()
+    expect(setActiveTeamSlots).toHaveBeenCalledWith([
+      expect.objectContaining({slotId: 'slot-1', awakenerName: undefined, isSupport: undefined}),
+      expect.objectContaining({slotId: 'slot-2', awakenerName: 'Goliath', isSupport: undefined}),
+    ])
+  })
 })

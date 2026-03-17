@@ -1,3 +1,5 @@
+import type {ComponentProps} from 'react'
+
 import {fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
@@ -5,6 +7,7 @@ import '../../../builder-page.integration-mocks'
 
 import {BuilderPickerPanel} from '../BuilderPickerPanel'
 import {useBuilderStore} from '../store/builder-store'
+import {useBuilderV2Actions} from '../useBuilderV2Actions'
 import {MobileLayout} from './MobileLayout'
 
 function resetStore() {
@@ -31,6 +34,27 @@ function seedSlot1Awakener(awakenerName: 'agrippa' | 'casiah' = 'agrippa') {
   state.setPickerTab('awakeners')
 }
 
+function seedSupportSlot1Awakener() {
+  const state = useBuilderStore.getState()
+  const nextSlots = state.teams[0].slots.map((slot, index) =>
+    index === 0
+      ? {
+          ...slot,
+          awakenerName: 'agrippa',
+          isSupport: true,
+          realm: 'AEQUOR',
+          level: 90,
+          wheels: [null, null] as [null, null],
+          covenantId: undefined,
+        }
+      : slot,
+  )
+
+  state.setActiveTeamSlots(nextSlots)
+  state.clearSelection()
+  state.setPickerTab('awakeners')
+}
+
 function renderMobileLayout() {
   const noop = () => undefined
   return render(
@@ -42,7 +66,7 @@ function renderMobileLayout() {
       onRequestResetBuilder={noop}
       onUndoResetBuilder={noop}
       renderPicker={({enableDragAndDrop, onItemSelected}) => (
-        <BuilderPickerPanel
+        <TestPickerPanel
           enableDragAndDrop={enableDragAndDrop}
           hideTabs
           onItemSelected={onItemSelected}
@@ -50,6 +74,11 @@ function renderMobileLayout() {
       )}
     />,
   )
+}
+
+function TestPickerPanel(props: Omit<ComponentProps<typeof BuilderPickerPanel>, 'actions'>) {
+  const actions = useBuilderV2Actions()
+  return <BuilderPickerPanel actions={actions} {...props} />
 }
 
 function setViewportSize(width: number, height: number) {
@@ -116,7 +145,7 @@ describe('MobileLayout', () => {
           enableDragAndDrop: boolean
           onItemSelected: () => void
         }) => (
-          <BuilderPickerPanel
+          <TestPickerPanel
             enableDragAndDrop={enableDragAndDrop}
             hideTabs
             onItemSelected={onItemSelected}
@@ -257,6 +286,22 @@ describe('MobileLayout', () => {
     })
 
     expect(screen.getByText(/Deploy Awakener/i)).toBeInTheDocument()
+  })
+
+  it('shows support state in focused mobile view and preserves support max enlighten display', async () => {
+    resetStore()
+    seedSupportSlot1Awakener()
+
+    renderMobileLayout()
+
+    fireEvent.click(screen.getByRole('button', {name: /Agrippa card Agrippa/i}))
+
+    await waitFor(() => {
+      expect(screen.getByTestId('mobile-focused-shell')).toBeInTheDocument()
+    })
+
+    expect(screen.getByText(/^Support Awakener$/i)).toBeInTheDocument()
+    expect(screen.getByText(/Lv\. 90, Support Awakener, Enlighten 15/i)).toBeInTheDocument()
   })
 
   it('opens an empty overview slot without crashing', () => {
@@ -602,7 +647,7 @@ describe('MobileLayout', () => {
           enableDragAndDrop: boolean
           onItemSelected: () => void
         }) => (
-          <BuilderPickerPanel
+          <TestPickerPanel
             enableDragAndDrop={enableDragAndDrop}
             hideTabs
             onItemSelected={onItemSelected}

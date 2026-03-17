@@ -11,8 +11,8 @@ import {
   type TeamStateViolationCode,
 } from './team-state'
 import {validateBuilderTeams} from './team-validation'
+import type {PendingTransfer} from './transfer-types'
 import type {Team} from './types'
-import type {PendingTransfer} from './useTransferConfirm'
 
 function asRealmMembers(slots: Team['slots']) {
   return slots.flatMap((slot) => {

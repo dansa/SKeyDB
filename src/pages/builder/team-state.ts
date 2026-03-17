@@ -21,8 +21,21 @@ function asRealmMembers(slots: TeamSlot[]) {
   })
 }
 
-export function getTeamRealmSet(slots: TeamSlot[]): Set<string> {
-  return new Set(asRealmMembers(slots).map((member) => member.realm.trim().toUpperCase()))
+export function getTeamRealmSet(
+  slots: TeamSlot[],
+  options?: {excludeSlotId?: string},
+): Set<string> {
+  return new Set(
+    slots
+      .filter((slot) => slot.slotId !== options?.excludeSlotId)
+      .flatMap((slot) => {
+        if (!slot.awakenerName || !slot.realm) {
+          return []
+        }
+
+        return [slot.realm.trim().toUpperCase()]
+      }),
+  )
 }
 
 export function assignAwakenerToSlot(
@@ -60,8 +73,8 @@ export function assignAwakenerToSlot(
         ...slot,
         awakenerName,
         realm: awakener.realm,
-        level: slot.level ?? 60,
-        isSupport: slot.isSupport,
+        level: slot.isSupport ? 60 : (slot.level ?? 60),
+        isSupport: undefined,
         wheels: [null, null] as [null, null],
         covenantId: undefined,
       }

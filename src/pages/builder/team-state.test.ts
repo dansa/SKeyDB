@@ -13,6 +13,7 @@ import {
   clearCovenantAssignment,
   clearSlotAssignment,
   clearWheelAssignment,
+  getTeamRealmSet,
   swapSlotAssignments,
   swapWheelAssignments,
 } from './team-state'
@@ -70,6 +71,12 @@ describe('builder team state', () => {
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerName).toBe('Castor')
   })
 
+  it('can exclude the selected awakener slot when deriving team realms for replacement UI', () => {
+    const realms = getTeamRealmSet(teamSlotsForTestsWithTwoFactions(), {excludeSlotId: 'slot-1'})
+
+    expect(Array.from(realms)).toEqual(['AEQUOR'])
+  })
+
   it('treats alternate forms as globally unique within the team', () => {
     const slots = teamSlotsForTests()
     const withRamona = assignAwakenerToSlot(slots, 'Ramona', 'slot-2', awakenersByNameForTests)
@@ -106,6 +113,28 @@ describe('builder team state', () => {
     expect(replacedWithBase.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerName).toBe(
       'Ramona',
     )
+  })
+
+  it('clears support state when replacing a support slot assignment', () => {
+    const slots = [
+      {
+        slotId: 'slot-1',
+        awakenerName: 'Goliath',
+        realm: 'AEQUOR',
+        level: 90,
+        isSupport: true,
+        wheels: [null, null] as [null, null],
+      },
+      {slotId: 'slot-2', wheels: [null, null] as [null, null]},
+    ]
+
+    const result = assignAwakenerToSlot(slots, 'Ramona', 'slot-1', awakenersByNameForTests)
+
+    expect(result.nextSlots[0]).toMatchObject({
+      awakenerName: 'Ramona',
+      isSupport: undefined,
+      level: 60,
+    })
   })
 
   it('does not move an already slotted awakener when adding to first empty slot', () => {

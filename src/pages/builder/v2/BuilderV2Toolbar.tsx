@@ -3,11 +3,13 @@ import {Toast} from '@/components/ui/Toast'
 import {BuilderConfirmDialogs} from '../BuilderConfirmDialogs'
 import {BuilderImportExportDialogs} from '../BuilderImportExportDialogs'
 import {BuilderToolbar} from '../BuilderToolbar'
-import {useBuilderV2Actions} from './useBuilderV2Actions'
+import type {BuilderV2ActionsResult} from './useBuilderV2Actions'
 
-export function BuilderV2Toolbar() {
-  const actions = useBuilderV2Actions()
+interface BuilderV2ToolbarProps {
+  actions: BuilderV2ActionsResult
+}
 
+export function BuilderV2Toolbar({actions}: BuilderV2ToolbarProps) {
   return (
     <>
       <BuilderToolbar
@@ -24,8 +26,8 @@ export function BuilderV2Toolbar() {
       <BuilderConfirmDialogs
         deleteDialog={null}
         onCancelDelete={actions.noop}
-        transferDialog={null}
-        onCancelTransfer={actions.noop}
+        transferDialog={actions.transferDialog}
+        onCancelTransfer={actions.cancelTransfer}
         resetDialog={actions.resetDialog}
         onCancelReset={actions.cancelReset}
         resetTeamDialog={null}

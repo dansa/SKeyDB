@@ -23,7 +23,11 @@ export function useTimedToast({defaultDurationMs = 3200}: UseTimedToastOptions =
   }, [])
 
   const dismissToast = useCallback((toastId: number) => {
-    timeoutRefs.current.delete(toastId)
+    const timeoutId = timeoutRefs.current.get(toastId)
+    if (timeoutId !== undefined) {
+      window.clearTimeout(timeoutId)
+      timeoutRefs.current.delete(toastId)
+    }
     setToastEntries((previous) => previous.filter((entry) => entry.id !== toastId))
   }, [])
 
@@ -32,7 +36,22 @@ export function useTimedToast({defaultDurationMs = 3200}: UseTimedToastOptions =
       const toastId = nextToastIdRef.current
       nextToastIdRef.current += 1
 
-      setToastEntries((previous) => [...previous, {id: toastId, message}])
+      setToastEntries((previous) => {
+        const nextEntries = previous.filter((entry) => {
+          if (entry.message !== message) {
+            return true
+          }
+
+          const existingTimeoutId = timeoutRefs.current.get(entry.id)
+          if (existingTimeoutId !== undefined) {
+            window.clearTimeout(existingTimeoutId)
+            timeoutRefs.current.delete(entry.id)
+          }
+          return false
+        })
+
+        return [...nextEntries, {id: toastId, message}]
+      })
       const timeoutId = window.setTimeout(() => {
         dismissToast(toastId)
       }, durationMs)

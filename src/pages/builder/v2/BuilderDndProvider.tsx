@@ -12,10 +12,23 @@ import {
 import type {DragData} from '../types'
 import {useBuilderStore} from './store/builder-store'
 import {selectActiveTeamSlots} from './store/selectors'
+import {getDisplayedAwakenerOwnedLevel} from './support-display'
+import type {BuilderV2ActionsResult} from './useBuilderV2Actions'
 import {useBuilderV2Dnd} from './useBuilderV2Dnd'
 import {useCollectionOwnership} from './useCollectionOwnership'
 
 interface BuilderDndProviderProps {
+  actions: Pick<
+    BuilderV2ActionsResult,
+    | 'handleDropPickerAwakener'
+    | 'handleDropPickerCovenant'
+    | 'handleDropPickerWheel'
+    | 'handleDropTeamCovenant'
+    | 'handleDropTeamCovenantToSlot'
+    | 'handleDropTeamWheel'
+    | 'handleDropTeamWheelToSlot'
+    | 'handleSetActivePosse'
+  >
   children: ReactNode
 }
 
@@ -45,7 +58,14 @@ function DragGhostOverlay({
       return (
         <TeamCardGhost
           awakenerOwnedLevel={
-            slot?.awakenerName ? (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null) : null
+            slot
+              ? getDisplayedAwakenerOwnedLevel(
+                  slot,
+                  slot.awakenerName
+                    ? (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null)
+                    : null,
+                )
+              : null
           }
           removeIntent={isRemoveIntent}
           slot={slot}
@@ -75,7 +95,7 @@ function DragGhostOverlay({
   }
 }
 
-export function BuilderDndProvider({children}: BuilderDndProviderProps) {
+export function BuilderDndProvider({actions, children}: BuilderDndProviderProps) {
   const {
     activeDrag,
     isRemoveIntent,
@@ -84,7 +104,7 @@ export function BuilderDndProvider({children}: BuilderDndProviderProps) {
     handleDragOver,
     handleDragEnd,
     handleDragCancel,
-  } = useBuilderV2Dnd()
+  } = useBuilderV2Dnd(actions)
 
   return (
     <DndContext

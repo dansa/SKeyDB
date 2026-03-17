@@ -4,10 +4,10 @@ import {describe, expect, it, vi} from 'vitest'
 import type {TeamSlot} from '../../../types'
 import {SlotThumbnails} from './FocusedShared'
 
-function makeSlot(slotId: string, awakenerName?: string): TeamSlot {
+function makeSlot(slotId: string, awakenerName?: string, isSupport = false): TeamSlot {
   return {
     covenantId: undefined,
-    isSupport: false,
+    isSupport,
     level: 60,
     realm: awakenerName ? 'AEQUOR' : undefined,
     slotId,
@@ -33,5 +33,17 @@ describe('SlotThumbnails', () => {
 
     expect(onSelect).toHaveBeenCalledTimes(1)
     expect(onSelect).toHaveBeenCalledWith(1)
+  })
+
+  it('marks support thumbnails with a support badge', () => {
+    render(
+      <SlotThumbnails
+        currentIndex={0}
+        onSelect={() => undefined}
+        slots={[makeSlot('slot-1', 'agrippa', true), makeSlot('slot-2', 'casiah')]}
+      />,
+    )
+
+    expect(screen.getByText('S')).toBeInTheDocument()
   })
 })

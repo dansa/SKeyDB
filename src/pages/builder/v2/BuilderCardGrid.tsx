@@ -4,6 +4,7 @@ import {AwakenerCard} from '../AwakenerCard'
 import {clearSlotAssignment} from '../team-state'
 import {useBuilderStore} from './store/builder-store'
 import {selectActiveSelection, selectActiveTeamSlots} from './store/selectors'
+import {getDisplayedAwakenerOwnedLevel} from './support-display'
 import {useCollectionOwnership} from './useCollectionOwnership'
 
 export function BuilderCardGrid() {
@@ -71,9 +72,10 @@ export function BuilderCardGrid() {
             handleRemoveActiveSelection(slot.slotId)
           }}
           onWheelSlotClick={handleWheelSlotClick}
-          awakenerOwnedLevel={
-            slot.awakenerName ? (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null) : null
-          }
+          awakenerOwnedLevel={getDisplayedAwakenerOwnedLevel(
+            slot,
+            slot.awakenerName ? (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null) : null,
+          )}
           slot={slot}
           wheelOwnedLevels={[
             slot.wheels[0] ? (ownedWheelLevelById.get(slot.wheels[0]) ?? null) : null,

@@ -5,24 +5,18 @@ import {useDroppable} from '@dnd-kit/core'
 import {getAwakenerIdentityKey} from '@/domain/awakener-identity'
 
 import {AwakenerPickerGrid} from '../AwakenerPickerGrid'
-import {awakenerByName} from '../constants'
 import {CovenantPickerGrid} from '../CovenantPickerGrid'
 import {PICKER_DROP_ZONE_ID} from '../dnd-ids'
 import {PossePickerGrid} from '../PossePickerGrid'
-import {
-  assignAwakenerToFirstEmptySlot,
-  assignAwakenerToSlot,
-  assignCovenantToSlot,
-  assignWheelToSlot,
-} from '../team-state'
+import {getTeamRealmSet} from '../team-state'
 import type {
   AwakenerFilter,
   PickerTab,
   PosseFilter,
   WheelMainstatFilter,
   WheelRarityFilter,
-  WheelUsageLocation,
 } from '../types'
+import {buildUsedPosseByTeamOrder, buildUsedWheelByTeamOrder} from '../usage-maps'
 import {wheelMainstatFilterOptions} from '../wheel-mainstats'
 import {WheelPickerGrid} from '../WheelPickerGrid'
 import {PickerSortingToggles} from './PickerSortingToggles'
@@ -36,6 +30,7 @@ import {
   selectTeams,
 } from './store/selectors'
 import {useBuilderPickerState} from './useBuilderPickerState'
+import type {BuilderV2ActionsResult} from './useBuilderV2Actions'
 
 const pickerTabItems: {id: PickerTab; label: string}[] = [
   {id: 'awakeners', label: 'Awakeners'},
@@ -90,12 +85,23 @@ function getCompactFilterChipClassName(isActive: boolean): string {
 }
 
 interface BuilderPickerPanelProps {
+  actions: Pick<
+    BuilderV2ActionsResult,
+    | 'handleDropPickerAwakener'
+    | 'handleDropPickerCovenant'
+    | 'handleDropPickerWheel'
+    | 'handlePickerAwakenerClick'
+    | 'handlePickerCovenantClick'
+    | 'handlePickerWheelClick'
+    | 'handleSetActivePosse'
+  >
   hideTabs?: boolean
   enableDragAndDrop?: boolean
   onItemSelected?: () => void
 }
 
 export function BuilderPickerPanel({
+  actions,
   hideTabs = false,
   enableDragAndDrop = true,
   onItemSelected,
@@ -112,20 +118,16 @@ export function BuilderPickerPanel({
   const {setNodeRef: setDropRef} = useDroppable({id: PICKER_DROP_ZONE_ID})
 
   const teamRealmSet = useMemo(() => {
-    const realms = new Set<string>()
-    for (const slot of activeSlots) {
-      if (slot.awakenerName && slot.realm) {
-        realms.add(slot.realm.trim().toUpperCase())
-      }
-    }
-    return realms
-  }, [activeSlots])
+    return getTeamRealmSet(activeSlots, {
+      excludeSlotId: activeSelection?.kind === 'awakener' ? activeSelection.slotId : undefined,
+    })
+  }, [activeSelection, activeSlots])
 
   const usedAwakenerIdentityKeys = useMemo(() => {
     const keys = new Set<string>()
     for (const team of teams) {
       for (const slot of team.slots) {
-        if (slot.awakenerName) {
+        if (slot.awakenerName && !slot.isSupport) {
           keys.add(getAwakenerIdentityKey(slot.awakenerName))
         }
       }
@@ -134,104 +136,39 @@ export function BuilderPickerPanel({
   }, [teams])
 
   const usedWheelByTeamOrder = useMemo(() => {
-    const map = new Map<string, WheelUsageLocation>()
-    for (let i = 0; i < teams.length; i++) {
-      const team = teams[i]
-      for (const slot of team.slots) {
-        for (let wi = 0; wi < slot.wheels.length; wi++) {
-          const wheelId = slot.wheels[wi]
-          if (wheelId && !map.has(wheelId)) {
-            map.set(wheelId, {teamId: team.id, teamOrder: i, slotId: slot.slotId, wheelIndex: wi})
-          }
-        }
-      }
-    }
-    return map
+    return buildUsedWheelByTeamOrder(teams)
   }, [teams])
 
   const usedPosseByTeamOrder = useMemo(() => {
-    const map = new Map<string, number>()
-    for (let i = 0; i < teams.length; i++) {
-      const posseId = teams[i].posseId
-      if (posseId && !map.has(posseId)) {
-        map.set(posseId, i)
-      }
-    }
-    return map
+    return buildUsedPosseByTeamOrder(teams)
   }, [teams])
 
   const handleAwakenerClick = useCallback(
     (name: string) => {
-      const state = useBuilderStore.getState()
-      const team = state.teams.find((t) => t.id === state.activeTeamId)
-      if (!team) {
-        return
-      }
-
-      const selection = state.activeSelection
-      if (selection?.kind === 'awakener') {
-        const result = assignAwakenerToSlot(team.slots, name, selection.slotId, awakenerByName)
-        state.setActiveTeamSlots(result.nextSlots)
-      } else {
-        const result = assignAwakenerToFirstEmptySlot(team.slots, name, awakenerByName)
-        state.setActiveTeamSlots(result.nextSlots)
-      }
-      onItemSelected?.()
+      actions.handlePickerAwakenerClick(name, onItemSelected)
     },
-    [onItemSelected],
+    [actions, onItemSelected],
   )
 
   const handleSetWheel = useCallback(
     (wheelId?: string) => {
-      const state = useBuilderStore.getState()
-      const selection = state.activeSelection
-      if (selection?.kind !== 'wheel') {
-        return
-      }
-
-      const team = state.teams.find((t) => t.id === state.activeTeamId)
-      if (!team) {
-        return
-      }
-
-      const result = assignWheelToSlot(
-        team.slots,
-        selection.slotId,
-        selection.wheelIndex,
-        wheelId ?? null,
-      )
-      state.setActiveTeamSlots(result.nextSlots)
-      onItemSelected?.()
+      actions.handlePickerWheelClick(wheelId, onItemSelected)
     },
-    [onItemSelected],
+    [actions, onItemSelected],
   )
 
   const handleSetCovenant = useCallback(
     (covenantId?: string) => {
-      const state = useBuilderStore.getState()
-      const selection = state.activeSelection
-      if (selection?.kind !== 'covenant') {
-        return
-      }
-
-      const team = state.teams.find((t) => t.id === state.activeTeamId)
-      if (!team) {
-        return
-      }
-
-      const result = assignCovenantToSlot(team.slots, selection.slotId, covenantId)
-      state.setActiveTeamSlots(result.nextSlots)
-      onItemSelected?.()
+      actions.handlePickerCovenantClick(covenantId, onItemSelected)
     },
-    [onItemSelected],
+    [actions, onItemSelected],
   )
 
   const handleSetPosse = useCallback(
     (posseId?: string) => {
-      useBuilderStore.getState().setPosseForActiveTeam(posseId)
-      onItemSelected?.()
+      actions.handleSetActivePosse(posseId, onItemSelected)
     },
-    [onItemSelected],
+    [actions, onItemSelected],
   )
 
   return (

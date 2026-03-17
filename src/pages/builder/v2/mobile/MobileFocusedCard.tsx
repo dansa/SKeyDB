@@ -6,6 +6,7 @@ import {getPosses} from '@/domain/posses'
 import {clearSlotAssignment} from '../../team-state'
 import {useBuilderStore} from '../store/builder-store'
 import {selectActiveTeam, selectActiveTeamSlots} from '../store/selectors'
+import {getDisplayedAwakenerOwnedLevel} from '../support-display'
 import {useCollectionOwnership} from '../useCollectionOwnership'
 import {FocusedActionBar} from './focused-card/FocusedActionBar'
 import {WideFocusedStage} from './focused-card/FocusedStage'
@@ -78,9 +79,10 @@ export function MobileFocusedCard({
 
   const posse = activeTeam?.posseId ? posseById.get(activeTeam.posseId) : undefined
   const posseAsset = posse ? getPosseAssetById(posse.id) : undefined
-  const awakenerOwnedLevel = slot.awakenerName
-    ? (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null)
-    : null
+  const awakenerOwnedLevel = getDisplayedAwakenerOwnedLevel(
+    slot,
+    slot.awakenerName ? (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null) : null,
+  )
   const wheelOwnedLevels: WheelOwnedLevels = [
     slot.wheels[0] ? (ownedWheelLevelById.get(slot.wheels[0]) ?? null) : null,
     slot.wheels[1] ? (ownedWheelLevelById.get(slot.wheels[1]) ?? null) : null,

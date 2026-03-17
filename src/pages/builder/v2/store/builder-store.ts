@@ -2,11 +2,13 @@ import {create} from 'zustand'
 import {devtools} from 'zustand/middleware'
 import {immer} from 'zustand/middleware/immer'
 
+import {createOwnershipSlice, subscribeCollectionOwnership} from './ownership-slice'
 import {loadInitialBuilderState, subscribeAutosave} from './persistence'
 import {createPickerSlice} from './picker-slice'
 import {createQuickLineupSlice} from './quick-lineup-slice'
 import {createSelectionSlice} from './selection-slice'
 import {createTeamsSlice} from './teams-slice'
+import {createTransferSlice} from './transfer-slice'
 import type {BuilderStore} from './types'
 
 export const useBuilderStore = create<BuilderStore>()(
@@ -22,6 +24,8 @@ export const useBuilderStore = create<BuilderStore>()(
         ...createSelectionSlice(set),
         ...createPickerSlice(set),
         ...createQuickLineupSlice(set, get),
+        ...createTransferSlice(set),
+        ...createOwnershipSlice(set),
       }
     }),
     {name: 'builder-v2'},
@@ -29,3 +33,4 @@ export const useBuilderStore = create<BuilderStore>()(
 )
 
 subscribeAutosave(useBuilderStore)
+subscribeCollectionOwnership(useBuilderStore)

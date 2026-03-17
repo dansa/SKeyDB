@@ -461,7 +461,13 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
     )
   }, [pickerCovenants, pickerSearchByTab.covenants, promoteRecommendedGear, activeBuild])
 
-  const teamRealmSet = useMemo(() => getTeamRealmSet(teamSlots), [teamSlots])
+  const teamRealmSet = useMemo(
+    () =>
+      getTeamRealmSet(teamSlots, {
+        excludeSlotId: activeSelection?.kind === 'awakener' ? activeSelection.slotId : undefined,
+      }),
+    [activeSelection, teamSlots],
+  )
   const usedAwakenerByIdentityKey = useMemo(() => {
     const identityMap = new Map<string, string>()
     teams.forEach((team) => {

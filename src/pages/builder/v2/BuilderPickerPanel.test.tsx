@@ -1,3 +1,5 @@
+import type {ComponentProps} from 'react'
+
 import {fireEvent, render, screen} from '@testing-library/react'
 import {describe, expect, it} from 'vitest'
 
@@ -5,6 +7,7 @@ import '../../builder-page.integration-mocks'
 
 import {BuilderPickerPanel} from './BuilderPickerPanel'
 import {useBuilderStore} from './store/builder-store'
+import {useBuilderV2Actions} from './useBuilderV2Actions'
 
 function resetStore() {
   useBuilderStore.setState(useBuilderStore.getInitialState(), true)
@@ -29,11 +32,52 @@ function seedSlot1Awakener(awakenerName: 'goliath' | 'agrippa' = 'goliath') {
   state.clearSelection()
 }
 
+function seedTeamAwakeners(
+  awakeners: ({awakenerName: string; realm: string} | null)[],
+  selectedSlotId?: string,
+) {
+  const state = useBuilderStore.getState()
+  const nextSlots = state.teams[0].slots.map((slot, index) => {
+    const seeded = awakeners[index]
+    if (!seeded) {
+      return {
+        ...slot,
+        awakenerName: undefined,
+        realm: undefined,
+        level: undefined,
+        wheels: [null, null] as [null, null],
+        covenantId: undefined,
+      }
+    }
+
+    return {
+      ...slot,
+      awakenerName: seeded.awakenerName,
+      realm: seeded.realm,
+      level: 60,
+      wheels: [null, null] as [null, null],
+      covenantId: undefined,
+    }
+  })
+
+  state.setActiveTeamSlots(nextSlots)
+  if (selectedSlotId) {
+    state.setActiveSelection({kind: 'awakener', slotId: selectedSlotId})
+    return
+  }
+  state.clearSelection()
+}
+
+function TestPickerPanel(props: Omit<ComponentProps<typeof BuilderPickerPanel>, 'actions'>) {
+  const actions = useBuilderV2Actions()
+  return <BuilderPickerPanel actions={actions} {...props} />
+}
+
 describe('BuilderPickerPanel', () => {
   it('remembers search query per picker tab when switching tabs', () => {
     resetStore()
 
-    render(<BuilderPickerPanel />)
+    render(<TestPickerPanel />)
 
     fireEvent.change(screen.getByRole('searchbox'), {target: {value: 'agr'}})
     fireEvent.click(screen.getByRole('button', {name: /Wheels/i}))
@@ -48,7 +92,7 @@ describe('BuilderPickerPanel', () => {
     seedSlot1Awakener('goliath')
     useBuilderStore.getState().toggleWheelSelection('slot-1', 0)
 
-    render(<BuilderPickerPanel />)
+    render(<TestPickerPanel />)
 
     fireEvent.click(screen.getByRole('button', {name: /Sorting & Toggles/i}))
 
@@ -59,7 +103,7 @@ describe('BuilderPickerPanel', () => {
   it('can disable picker drag and drop across all picker tabs', () => {
     resetStore()
 
-    const {container} = render(<BuilderPickerPanel enableDragAndDrop={false} />)
+    const {container} = render(<TestPickerPanel enableDragAndDrop={false} />)
 
     expect(container.querySelector("[data-picker-kind='awakener']")).toHaveAttribute(
       'data-picker-draggable',
@@ -83,5 +127,23 @@ describe('BuilderPickerPanel', () => {
       'data-picker-draggable',
       'false',
     )
+  })
+
+  it('does not mark a new realm as blocked when replacing the slot that currently supplies the second realm', () => {
+    resetStore()
+    seedTeamAwakeners(
+      [
+        {awakenerName: 'goliath', realm: 'CHAOS'},
+        {awakenerName: 'ramona', realm: 'CHAOS'},
+        {awakenerName: 'helot', realm: 'CHAOS'},
+        {awakenerName: 'casiah', realm: 'CARO'},
+      ],
+      'slot-4',
+    )
+
+    render(<TestPickerPanel />)
+
+    const agrippaTile = screen.getByText('Agrippa').closest('button')
+    expect(agrippaTile).toHaveAttribute('data-realm-blocked', 'false')
   })
 })

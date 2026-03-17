@@ -31,7 +31,7 @@ export function BuilderV2Page() {
     const showMobileUtilityBar = isPreviewingMobile || layoutOverride !== 'auto'
 
     return (
-      <BuilderDndProvider>
+      <BuilderDndProvider actions={actions}>
         <>
           <div className='-mx-4 -my-4 overflow-x-hidden'>
             <MobileLayout
@@ -43,6 +43,7 @@ export function BuilderV2Page() {
               onUndoResetBuilder={actions.undoReset}
               renderPicker={({enableDragAndDrop, onItemSelected}) => (
                 <BuilderPickerPanel
+                  actions={actions}
                   enableDragAndDrop={enableDragAndDrop}
                   hideTabs
                   onItemSelected={onItemSelected}
@@ -67,10 +68,10 @@ export function BuilderV2Page() {
             onCancelDelete={actions.noop}
             onCancelReset={actions.cancelReset}
             onCancelResetTeam={actions.noop}
-            onCancelTransfer={actions.noop}
+            onCancelTransfer={actions.cancelTransfer}
             resetDialog={actions.resetDialog}
             resetTeamDialog={null}
-            transferDialog={null}
+            transferDialog={actions.transferDialog}
           />
           <Toast entries={actions.toastEntries} />
         </>
@@ -81,11 +82,11 @@ export function BuilderV2Page() {
   const toolbar = (
     <div className='space-y-2'>
       <div className='flex items-center justify-between'>{layoutSwitcher}</div>
-      <BuilderV2Toolbar />
+      <BuilderV2Toolbar actions={actions} />
     </div>
   )
 
-  const picker = <BuilderPickerPanel />
+  const picker = <BuilderPickerPanel actions={actions} />
   const activeTeamHeader = <BuilderV2ActiveTeamHeader />
   const teamCards = <BuilderCardGrid />
   const teamsPanel = <BuilderTeamsPanel />
@@ -105,5 +106,5 @@ export function BuilderV2Page() {
     )
   }
 
-  return <BuilderDndProvider>{layout}</BuilderDndProvider>
+  return <BuilderDndProvider actions={actions}>{layout}</BuilderDndProvider>
 }

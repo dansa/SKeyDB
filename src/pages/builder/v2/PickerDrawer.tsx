@@ -9,6 +9,30 @@ interface PickerDrawerProps {
 
 export function PickerDrawer({isOpen, onClose, position = 'right', children}: PickerDrawerProps) {
   const backdropRef = useRef<HTMLDivElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
+
+  const getFocusTargets = useCallback((): HTMLElement[] => {
+    const panel = panelRef.current
+    if (!panel) {
+      return []
+    }
+
+    const targets = Array.from(
+      panel.querySelectorAll<HTMLElement>(
+        [
+          'a[href]',
+          'button:not([disabled])',
+          'input:not([disabled])',
+          'select:not([disabled])',
+          'textarea:not([disabled])',
+          '[tabindex]:not([tabindex="-1"])',
+        ].join(','),
+      ),
+    ).filter((element) => !element.hasAttribute('disabled') && element.tabIndex !== -1)
+
+    return [panel, ...targets.filter((element) => element !== panel)]
+  }, [])
 
   const handleBackdropClick = useCallback(
     (event: React.MouseEvent) => {
@@ -24,17 +48,51 @@ export function PickerDrawer({isOpen, onClose, position = 'right', children}: Pi
       return
     }
 
+    previousFocusRef.current =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null
+
+    const focusTargets = getFocusTargets()
+    focusTargets[0]?.focus()
+
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
+        event.preventDefault()
         onClose()
+        return
       }
+
+      if (event.key !== 'Tab') {
+        return
+      }
+
+      const nextFocusTargets = getFocusTargets()
+      if (nextFocusTargets.length === 0) {
+        return
+      }
+
+      const currentIndex = nextFocusTargets.findIndex(
+        (element) => element === document.activeElement,
+      )
+      const nextIndex = event.shiftKey
+        ? currentIndex <= 0
+          ? nextFocusTargets.length - 1
+          : currentIndex - 1
+        : currentIndex === -1 || currentIndex === nextFocusTargets.length - 1
+          ? 0
+          : currentIndex + 1
+
+      event.preventDefault()
+      nextFocusTargets[nextIndex]?.focus()
     }
 
     document.addEventListener('keydown', handleKeyDown)
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
+      if (previousFocusRef.current?.isConnected) {
+        previousFocusRef.current.focus()
+      }
     }
-  }, [isOpen, onClose])
+  }, [getFocusTargets, isOpen, onClose])
 
   const isRight = position === 'right'
   const panelStyle = isRight
@@ -64,7 +122,15 @@ export function PickerDrawer({isOpen, onClose, position = 'right', children}: Pi
         ref={backdropRef}
         role='presentation'
       />
-      <div aria-modal={isOpen} className={panelClass} role='dialog' style={panelStyle}>
+      <div
+        aria-hidden={!isOpen}
+        aria-modal={isOpen || undefined}
+        className={panelClass}
+        ref={panelRef}
+        role='dialog'
+        style={panelStyle}
+        tabIndex={-1}
+      >
         {isOpen ? children : null}
       </div>
     </>

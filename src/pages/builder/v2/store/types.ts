@@ -2,6 +2,12 @@ import type {AwakenerSortKey, CollectionSortDirection} from '@/domain/collection
 
 import type {InternalQuickLineupSession} from '../../quick-lineup'
 import type {
+  PendingTransfer,
+  RequestAwakenerTransfer,
+  RequestPosseTransfer,
+  RequestWheelTransfer,
+} from '../../transfer-types'
+import type {
   ActiveSelection,
   AwakenerFilter,
   PickerTab,
@@ -83,13 +89,36 @@ export interface QuickLineupSlice {
   jumpToQuickLineupStep: (step: QuickLineupStep) => void
 }
 
+export interface TransferSlice {
+  pendingTransfer: PendingTransfer | null
+
+  requestAwakenerTransfer: (request: RequestAwakenerTransfer) => void
+  requestPosseTransfer: (request: RequestPosseTransfer) => void
+  requestWheelTransfer: (request: RequestWheelTransfer) => void
+  clearTransfer: () => void
+}
+
+export interface OwnershipSlice {
+  ownedAwakenerLevelByName: Map<string, number | null>
+  awakenerLevelByName: Map<string, number>
+  ownedWheelLevelById: Map<string, number | null>
+  ownedPosseLevelById: Map<string, number | null>
+
+  refreshCollectionOwnership: () => void
+}
+
 export type QuickLineupStep =
   | {kind: 'awakener'; slotId: string}
   | {kind: 'wheel'; slotId: string; wheelIndex: number}
   | {kind: 'covenant'; slotId: string}
   | {kind: 'posse'}
 
-export type BuilderStore = TeamsSlice & SelectionSlice & PickerSlice & QuickLineupSlice
+export type BuilderStore = TeamsSlice &
+  SelectionSlice &
+  PickerSlice &
+  QuickLineupSlice &
+  TransferSlice &
+  OwnershipSlice
 
 export type BuilderSet = (
   updater: BuilderStore | Partial<BuilderStore> | ((state: BuilderStore) => void),

@@ -58,6 +58,11 @@ export function FocusedPortrait({
         style={{background: 'linear-gradient(180deg, rgba(8,15,28,0.8) 0%, transparent 100%)'}}
       >
         <p className='text-sm leading-none font-bold text-slate-100'>{displayName}</p>
+        {slot.isSupport ? (
+          <span className='mt-1 inline-flex border border-amber-300/45 bg-slate-950/88 px-1.5 py-0.5 text-[9px] leading-none font-bold tracking-[0.08em] text-amber-200 uppercase'>
+            Support Awakener
+          </span>
+        ) : null}
         {slot.realm ? (
           <p className='mt-0.5 text-[9px]' style={{color: realmTint}}>
             {slot.realm.charAt(0).toUpperCase() + slot.realm.slice(1).toLowerCase()}
@@ -88,6 +93,9 @@ export function FocusedPortraitFooter({
 }) {
   return (
     <div className='flex items-end justify-between gap-3 text-left'>
+      <p className='sr-only'>
+        {`Lv. ${String(slot.level ?? 60)}, ${slot.isSupport ? 'Support Awakener, ' : ''}Enlighten ${String(awakenerOwnedLevel ?? 0)}`}
+      </p>
       <p className='text-xs font-bold text-slate-100'>
         <span className='text-[10px] text-slate-300'>Lv.</span>
         {String(slot.level ?? 60)}

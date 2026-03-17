@@ -40,4 +40,35 @@ describe('useTimedToast', () => {
       vi.useRealTimers()
     }
   })
+
+  it('refreshes an identical toast instead of stacking duplicates', () => {
+    vi.useFakeTimers()
+    try {
+      const {result} = renderHook(() => useTimedToast({defaultDurationMs: 1000}))
+
+      act(() => {
+        result.current.showToast('same realm')
+      })
+
+      act(() => {
+        vi.advanceTimersByTime(800)
+        result.current.showToast('same realm')
+      })
+
+      expect(result.current.toastEntries).toHaveLength(1)
+      expect(result.current.toastEntries[0]?.message).toBe('same realm')
+
+      act(() => {
+        vi.advanceTimersByTime(250)
+      })
+      expect(result.current.toastEntries).toHaveLength(1)
+
+      act(() => {
+        vi.advanceTimersByTime(751)
+      })
+      expect(result.current.toastEntries).toEqual([])
+    } finally {
+      vi.useRealTimers()
+    }
+  })
 })

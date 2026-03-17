@@ -1,3 +1,5 @@
+import type {ComponentProps} from 'react'
+
 import {fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
@@ -5,6 +7,7 @@ import '../../../builder-page.integration-mocks'
 
 import {BuilderPickerPanel} from '../BuilderPickerPanel'
 import {useBuilderStore} from '../store/builder-store'
+import {useBuilderV2Actions} from '../useBuilderV2Actions'
 import {MobileLayout} from './MobileLayout'
 
 const mockedMeasurement = {
@@ -61,7 +64,7 @@ function renderMobileLayout() {
       onRequestResetBuilder={noop}
       onUndoResetBuilder={noop}
       renderPicker={({enableDragAndDrop, onItemSelected}) => (
-        <BuilderPickerPanel
+        <TestPickerPanel
           enableDragAndDrop={enableDragAndDrop}
           hideTabs
           onItemSelected={onItemSelected}
@@ -69,6 +72,11 @@ function renderMobileLayout() {
       )}
     />,
   )
+}
+
+function TestPickerPanel(props: Omit<ComponentProps<typeof BuilderPickerPanel>, 'actions'>) {
+  const actions = useBuilderV2Actions()
+  return <BuilderPickerPanel actions={actions} {...props} />
 }
 
 function setViewportSize(width: number, height: number) {

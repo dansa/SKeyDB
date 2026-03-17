@@ -9,6 +9,7 @@ import type {TeamSlot} from '../../types'
 import {BuilderCovenantPlaceholder, BuilderSigilPlaceholder} from '../BuilderPlaceholders'
 import {useBuilderStore} from '../store/builder-store'
 import {selectActiveSelection, selectActiveTeamSlots} from '../store/selectors'
+import {getDisplayedAwakenerOwnedLevel} from '../support-display'
 import {useCollectionOwnership} from '../useCollectionOwnership'
 import {useMeasuredElementSize} from './layout-hooks'
 import {getMobileCardFrameStyle, getOverviewGridMetrics} from './mobile-layout-metrics'
@@ -21,6 +22,7 @@ interface MobileOverviewGridProps {
 export function MobileOverviewGrid({onFocusSlot, onDeployEmpty}: MobileOverviewGridProps) {
   const slots = useBuilderStore(selectActiveTeamSlots)
   const activeSelection = useBuilderStore(selectActiveSelection)
+  const {ownedAwakenerLevelByName} = useCollectionOwnership()
   const {height, ref, width} = useMeasuredElementSize()
   const metrics = getOverviewGridMetrics(width || window.innerWidth, height || window.innerHeight)
   const shouldLetPageScroll = metrics.requiresPageScroll
@@ -71,6 +73,7 @@ export function MobileOverviewGrid({onFocusSlot, onDeployEmpty}: MobileOverviewG
                 onFocus={() => {
                   onFocusSlot(index)
                 }}
+                ownedAwakenerLevelByName={ownedAwakenerLevelByName}
                 slot={slot}
               />
             </OverviewCellFrame>
@@ -107,19 +110,21 @@ function PopulatedSlotCell({
   cardStyle,
   isActive,
   onFocus,
+  ownedAwakenerLevelByName,
   slot,
 }: {
   cardStyle: CSSProperties
   slot: TeamSlot
   isActive: boolean
   onFocus: () => void
+  ownedAwakenerLevelByName: Map<string, number | null>
 }) {
-  const {ownedAwakenerLevelByName} = useCollectionOwnership()
   const displayName = slot.awakenerName ? formatAwakenerNameForUi(slot.awakenerName) : ''
   const cardAsset = slot.awakenerName ? getAwakenerCardAsset(slot.awakenerName) : undefined
-  const ownedAwakenerLevel = slot.awakenerName
-    ? (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null)
-    : null
+  const ownedAwakenerLevel = getDisplayedAwakenerOwnedLevel(
+    slot,
+    slot.awakenerName ? (ownedAwakenerLevelByName.get(slot.awakenerName) ?? null) : null,
+  )
 
   return (
     <button
@@ -162,6 +167,11 @@ function PopulatedSlotCell({
         >
           {displayName}
         </p>
+        {slot.isSupport ? (
+          <span className='mt-1 inline-flex border border-amber-300/45 bg-slate-950/88 px-1.5 py-0.5 text-[8px] leading-none font-bold tracking-[0.08em] text-amber-200 uppercase'>
+            Support
+          </span>
+        ) : null}
       </div>
 
       <OverviewHud ownedAwakenerLevel={ownedAwakenerLevel} slot={slot} />

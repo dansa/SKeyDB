@@ -106,7 +106,14 @@ export function SlotThumbnails({
             key={slot.slotId}
             onClick={handleSelect}
           >
-            <img alt='' className='h-full w-full object-cover' draggable={false} src={portrait} />
+            <span className='relative block h-full w-full'>
+              <img alt='' className='h-full w-full object-cover' draggable={false} src={portrait} />
+              {slot.isSupport ? (
+                <span className='absolute top-0 right-0 border-b border-l border-slate-400/50 bg-slate-950/92 px-1 text-[8px] leading-4 font-bold text-amber-300'>
+                  S
+                </span>
+              ) : null}
+            </span>
           </ThumbnailButton>
         )
       })}

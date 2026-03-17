@@ -28,4 +28,15 @@ describe('Toast', () => {
     expect(items[0]).toHaveTextContent('one')
     expect(items[1]).toHaveTextContent('two')
   })
+
+  it('uses the fixed viewport anchor on the container instead of each toast item', () => {
+    const {container} = render(<Toast messages={['one', 'two']} />)
+
+    const stack = container.firstElementChild
+    const items = screen.getAllByRole('status')
+
+    expect(stack?.className).toContain('fixed')
+    expect(items[0]?.className).not.toContain('fixed')
+    expect(items[1]?.className).not.toContain('fixed')
+  })
 })

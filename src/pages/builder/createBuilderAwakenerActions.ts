@@ -59,9 +59,17 @@ export function createBuilderAwakenerActions({
     }
 
     const identityKey = getAwakenerIdentityKey(awakenerName)
+    const localIdentitySlot = teamSlots.find(
+      (slot) => slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === identityKey,
+    )
     const owningTeamId = allowDupes ? undefined : usedAwakenerByIdentityKey.get(identityKey)
     const targetSlot = teamSlots.find((slot) => slot.slotId === targetSlotId)
-    if (owningTeamId && owningTeamId !== effectiveActiveTeamId && !targetSlot?.isSupport) {
+    if (
+      !localIdentitySlot &&
+      owningTeamId &&
+      owningTeamId !== effectiveActiveTeamId &&
+      !targetSlot?.isSupport
+    ) {
       clearPendingDelete()
       requestAwakenerTransfer({
         awakenerName,
@@ -99,11 +107,19 @@ export function createBuilderAwakenerActions({
     }
 
     const identityKey = getAwakenerIdentityKey(awakenerName)
+    const localIdentitySlot = teamSlots.find(
+      (slot) => slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === identityKey,
+    )
     const owningTeamId = allowDupes ? undefined : usedAwakenerByIdentityKey.get(identityKey)
     const targetSlot = targetSlotId
       ? teamSlots.find((slot) => slot.slotId === targetSlotId)
       : undefined
-    if (owningTeamId && owningTeamId !== effectiveActiveTeamId && !targetSlot?.isSupport) {
+    if (
+      !localIdentitySlot &&
+      owningTeamId &&
+      owningTeamId !== effectiveActiveTeamId &&
+      !targetSlot?.isSupport
+    ) {
       requestAwakenerTransfer({
         awakenerName,
         canUseSupport: !hasSupportAwakener,

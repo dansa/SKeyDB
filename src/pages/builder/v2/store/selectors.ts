@@ -11,3 +11,4 @@ export const selectIsQuickLineupActive = (s: BuilderStore) => s.quickLineupSessi
 export const selectQuickLineupStepIndex = (s: BuilderStore) =>
   s.quickLineupSessionState?.currentStepIndex ?? 0
 export const selectQuickLineupSteps = (s: BuilderStore) => s.quickLineupSessionState?.steps ?? null
+export const selectPendingTransfer = (s: BuilderStore) => s.pendingTransfer

@@ -8,10 +8,15 @@ interface BuilderConfirmDialogState {
   onConfirm: () => void
 }
 
+interface BuilderTransferDialogState extends BuilderConfirmDialogState {
+  supportLabel?: string
+  onSupport?: () => void
+}
+
 interface BuilderConfirmDialogsProps {
   deleteDialog: BuilderConfirmDialogState | null
   onCancelDelete: () => void
-  transferDialog: BuilderConfirmDialogState | null
+  transferDialog: BuilderTransferDialogState | null
   onCancelTransfer: () => void
   resetDialog: BuilderConfirmDialogState | null
   onCancelReset: () => void
