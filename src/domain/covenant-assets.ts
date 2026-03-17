@@ -1,11 +1,11 @@
-const covenantAssets = import.meta.glob<string>('../assets/covenants/*.png', {
+const covenantAssets = import.meta.glob<string>('../assets/covenants/*.webp', {
   eager: true,
   import: 'default',
 })
 
 function basenameWithoutExt(assetPath: string): string {
   const filename = assetPath.split('/').at(-1) ?? assetPath
-  return filename.replace(/\.png$/i, '')
+  return filename.replace(/\.webp$/i, '')
 }
 
 const covenantAssetByAssetId = new Map(

@@ -1,9 +1,9 @@
-const cardAssets = import.meta.glob<string>('../assets/awk-cards/*.png', {
+const cardAssets = import.meta.glob<string>('../assets/awk-cards/*.webp', {
   eager: true,
   import: 'default',
 })
 
-const portraitAssets = import.meta.glob<string>('../assets/awk-portraits/*.png', {
+const portraitAssets = import.meta.glob<string>('../assets/awk-portraits/*.webp', {
   eager: true,
   import: 'default',
 })
@@ -15,7 +15,7 @@ const explicitSlugByAwakenerName: Record<string, string> = {
 
 function basenameWithoutExt(assetPath: string): string {
   const filename = assetPath.split('/').at(-1) ?? assetPath
-  return filename.replace(/\.png$/i, '')
+  return filename.replace(/\.webp$/i, '')
 }
 
 function trimEdgeDashes(value: string): string {

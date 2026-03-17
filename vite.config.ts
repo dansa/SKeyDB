@@ -1,6 +1,8 @@
+import path from 'path'
+
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-import {configDefaults, defineConfig} from 'vitest/config'
+import {defineConfig} from 'vite'
 
 function getBasePath(): string {
   const configured = process.env.VITE_BASE_PATH?.trim()
@@ -11,27 +13,26 @@ function getBasePath(): string {
   return withLeadingSlash.endsWith('/') ? withLeadingSlash : `${withLeadingSlash}/`
 }
 
-// https://vite.dev/config/
 export default defineConfig({
   base: getBasePath(),
+
   plugins: [react(), tailwindcss()],
+
   resolve: {
-    tsconfigPaths: true,
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
   },
+
   server: {
     host: '127.0.0.1',
     port: 5173,
     strictPort: true,
   },
+
   preview: {
     host: '127.0.0.1',
     port: 5173,
     strictPort: true,
-  },
-  test: {
-    environment: 'jsdom',
-    globals: true,
-    setupFiles: './src/test/setup.ts',
-    exclude: [...configDefaults.exclude, '.worktrees/**', 'untracked/**'],
   },
 })

@@ -2,7 +2,7 @@ import {useEffect, useRef} from 'react'
 
 import {useNavigate, useParams} from 'react-router-dom'
 
-import emojiWke from '@/assets/emoji/Emoji_WKE_S_06.png'
+import emojiWke from '@/assets/emoji/Emoji_WKE_S_06.webp'
 import {getAwakeners} from '@/domain/awakeners'
 import {
   buildDatabaseAwakenerPath,

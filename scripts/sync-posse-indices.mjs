@@ -10,7 +10,7 @@ const possesPath = path.join(repoRoot, 'src', 'data', 'posses-lite.json')
 const posseAssetsDir = path.join(repoRoot, 'src', 'assets', 'posse')
 
 function parseAssetMeta(filename) {
-  const match = filename.match(/^(\d{2})-(.+)\.png$/i)
+  const match = filename.match(/^(\d{2})-(.+)\.webp$/i)
   if (!match) {
     return null
   }
@@ -23,7 +23,7 @@ function parseAssetMeta(filename) {
 async function main() {
   const posses = JSON.parse(await fs.readFile(possesPath, 'utf8'))
   const assetFilenames = (await fs.readdir(posseAssetsDir)).filter((name) =>
-    name.toLowerCase().endsWith('.png'),
+    name.toLowerCase().endsWith('.webp'),
   )
 
   const indexBySlug = new Map()
@@ -54,7 +54,7 @@ async function main() {
   if (missing.length > 0) {
     throw new Error(
       `Missing numbered asset files for posses: ${missing.join(', ')}. ` +
-        'Add matching NN-<id>.png files or adjust posse ids.',
+        'Add matching NN-<id>.webp files or adjust posse ids.',
     )
   }
 

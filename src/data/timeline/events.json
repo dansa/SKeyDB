@@ -13,11 +13,11 @@
     "id": "event-dtide",
     "title": "Regional D-Effect Zone",
     "category": "d-tide",
-    "description": "Bi-weekly D-Tide raids. \n Complete to earn Silver, Black Offerings, Gnosis materials and more. \n Current Realm relic: Aequor Ring.",
-    "startDate": "2026/03/02 09:00",
-    "endDate": "2026/03/16 09:00",
+    "description": "Bi-weekly D-Tide raids. \n Complete to earn Silver, Black Offerings, Gnosis materials and more. \n Current Realm relic: Caro Ring.",
+    "startDate": "2026/03/16 09:00",
+    "endDate": "2026/03/30 09:00",
     "pinned": true,
-    "customArt": "/events/dtide-aequor.png"
+    "customArt": "/events/dtide-caro.webp"
   },
   {
     "id": "event-curriculum-03",
@@ -26,7 +26,7 @@
     "description": "Complete daily and weekly tasks to earn various rewards. \n T1: 680 Silver Prime - SSR wheel, 2500 Silver, 12 Luminous Cores and more. \n T2: 1280 Silver Prime - T1 + Exclusive Avatars, increased daily rewards and more.",
     "startDate": "2026/03/01 09:00",
     "endDate": "2026/03/31 09:00",
-    "customArt": "/events/curriculum.png",
+    "customArt": "/events/curriculum.webp",
     "pricing": "680-1280 Silver Prime"
   },
   {
@@ -47,7 +47,7 @@
     "startDate": "2026/02/23 09:00",
     "endDate": "2026/03/23 09:00",
     "featured": "24",
-    "customArt": "/events/24-crimson-kaede.png",
+    "customArt": "/events/24-crimson-kaede.webp",
     "pricing": "980 Silver Prime"
   },
   {
@@ -58,7 +58,7 @@
     "startDate": "2026/04/06 09:00",
     "endDate": "2026/05/18 09:00",
     "featured": "Arachne",
-    "customArt": "/events/arachne-preorder.png",
+    "customArt": "/events/arachne-preorder.webp",
     "pricing": "1980 Silver Prime"
   },
   {
@@ -68,16 +68,7 @@
     "description": "28-day login rewards: 10 Luminous Cores, Rose Scrips and Investigation Badges.",
     "startDate": "2026/03/09 09:00",
     "endDate": "2026/04/06 09:00",
-    "customArt": "/events/gifts-from-mythag.png"
-  },
-  {
-    "id": "event-story-rerun-24",
-    "title": "Manifold Healing: Rerun",
-    "category": "gameplay-event",
-    "description": "RERUN: Gameplay and story event featuring 24. \n Obtain SR-Wheel \"Silver Cod's Determination\", Posse \"All of Her\" and more.",
-    "startDate": "2026/02/23 09:00",
-    "endDate": "2026/03/09 09:00",
-    "featured": "24"
+    "customArt": "/events/gifts-from-mythag.webp"
   },
   {
     "id": "event-story-rerun-wanda",
@@ -87,6 +78,15 @@
     "startDate": "2026/03/23 09:00",
     "endDate": "2026/04/06 09:00",
     "featured": "Wanda",
-    "customArt": "/events/wanda-event.png"
+    "customArt": "/events/wanda-event.webp"
+  },
+  {
+    "id": "phase-reversal",
+    "title": "Phase Reversal",
+    "category": "gameplay-event",
+    "description": "RERUN: PVP (Traphase) event. Participate in PVP matches to earn rewards including Posse \"Tavern's Opening\", emotes, silver, upgrade materials and more.",
+    "startDate": "2026/03/16 09:00",
+    "endDate": "2026/03/30 09:00",
+    "customArt": "/events/phase-reversal.webp"
   }
 ]

@@ -119,7 +119,7 @@ function getExportUnavailableReason(
 }
 
 const emojiAssets = Object.values(
-  import.meta.glob<string>('../../assets/emoji/*.png', {
+  import.meta.glob<string>('../../assets/emoji/*.webp', {
     eager: true,
     import: 'default',
   }),

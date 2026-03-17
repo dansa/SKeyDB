@@ -173,7 +173,7 @@ function EventRow({event, now}: EventRowProps) {
             ) : null}
           </div>
           {event.description ? (
-            <p className='mt-2.5 line-clamp-3 text-xs leading-relaxed whitespace-pre-line text-slate-400 drop-shadow-sm'>
+            <p className='mt-2.5 line-clamp-3 text-xs leading-relaxed text-balance whitespace-pre-line text-slate-400 drop-shadow-sm'>
               {event.description}
             </p>
           ) : null}
