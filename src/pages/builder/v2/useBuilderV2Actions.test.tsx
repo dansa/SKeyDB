@@ -31,6 +31,34 @@ function seedAwakener(teamIndex: number, awakenerName: string, realm: string, sl
   state.setTeams(nextTeams)
 }
 
+function seedSupportAwakener(
+  teamIndex: number,
+  awakenerName: string,
+  realm: string,
+  slotIndex = 0,
+) {
+  const state = useBuilderStore.getState()
+  const team = state.teams[teamIndex]
+  const nextSlots = team.slots.map((slot, index) =>
+    index === slotIndex
+      ? {
+          ...slot,
+          awakenerName,
+          realm,
+          level: 90,
+          isSupport: true,
+          wheels: [null, null] as [null, null],
+          covenantId: undefined,
+        }
+      : slot,
+  )
+
+  const nextTeams = state.teams.map((entry, index) =>
+    index === teamIndex ? {...entry, slots: nextSlots} : entry,
+  )
+  state.setTeams(nextTeams)
+}
+
 function seedWheel(teamIndex: number, wheelId: string, slotIndex = 0, wheelIndex = 0) {
   const state = useBuilderStore.getState()
   const team = state.teams[teamIndex]
@@ -291,6 +319,41 @@ describe('useBuilderV2Actions', () => {
     expect(useBuilderStore.getState().quickLineupSessionState?.currentStepIndex).toBe(1)
     expect(useBuilderStore.getState().teams[0].slots[0]).toMatchObject({
       awakenerName: 'agrippa',
+      isSupport: true,
+      level: 90,
+    })
+  })
+
+  it('keeps support state on a same-team support move instead of consuming the owning team copy', () => {
+    act(() => {
+      useBuilderStore.getState().addTeam()
+    })
+
+    seedAwakener(0, 'hameln', 'ULTRA', 2)
+    seedSupportAwakener(1, 'hameln', 'ULTRA', 2)
+
+    const team2Id = useBuilderStore.getState().teams[1].id
+    act(() => {
+      useBuilderStore.getState().setActiveTeamId(team2Id)
+      useBuilderStore.getState().setActiveSelection({kind: 'awakener', slotId: 'slot-4'})
+    })
+
+    const {result} = renderHook(() => useBuilderV2Actions())
+
+    act(() => {
+      result.current.handlePickerAwakenerClick('hameln')
+    })
+
+    expect(useBuilderStore.getState().pendingTransfer).toBeNull()
+    expect(useBuilderStore.getState().teams[0].slots[2]).toMatchObject({
+      awakenerName: 'hameln',
+    })
+    expect(useBuilderStore.getState().teams[1].slots[2]).toMatchObject({
+      awakenerName: undefined,
+      isSupport: undefined,
+    })
+    expect(useBuilderStore.getState().teams[1].slots[3]).toMatchObject({
+      awakenerName: 'hameln',
       isSupport: true,
       level: 90,
     })

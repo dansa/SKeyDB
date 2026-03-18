@@ -11,20 +11,18 @@ Its job is to reduce churn, keep logic in the right layer, and preserve repo-spe
 2. Repo policy:
 - this `AGENTS.md` is the repo-level instruction source
 
-3. Context+ workflow:
-- if a local `INSTRUCTIONS.md` file is present, treat it as supplemental guidance for Context+ MCP usage
-- use it only when Context+ is available and relevant to the task
-- do not assume other maintainers have that file or the same local MCP and Ollama setup
-- apply its principles where they fit this repo; do not import server-specific formatting rules blindly
+3. Supplemental local tooling:
+- if repo-local supplemental instruction files exist, treat them as tool-specific guidance only
+- do not let tool-specific guidance override repo ownership, verification, or docs-path rules
+- do not assume other maintainers have the same local MCP or tooling setup
 
 4. Task direction:
 - user requests define the task
 - they do not override higher-priority safety or runtime constraints
 
 5. Fallback:
-- if Context+ is unavailable or bound to the wrong root, fall back to repo-safe local tooling
-- if `INSTRUCTIONS.md` is absent, ignore it and continue with this file plus the active runtime rules
-- verify MCP state before trusting Context+ output again
+- fall back to repo-safe local tooling when optional MCP/tooling is unavailable or unreliable
+- for file search, filename lookup, and grep-style discovery, prefer FFF tools when available unless another tool is clearly a better fit
 
 ## 2) Repo Priorities
 
@@ -106,6 +104,23 @@ Its job is to reduce churn, keep logic in the right layer, and preserve repo-spe
 6. Styling-only passes:
 - keep them styling-only
 - if interaction semantics, accessibility, or state flow changes, treat it as behavior work and add regression coverage
+
+7. Use skills and delegation intentionally:
+- use installed skills explicitly when the task clearly matches them instead of recreating their workflow from memory
+- default mappings:
+- bug, test failure, or unexpected behavior -> `systematic-debugging`
+- multi-step implementation planning -> `writing-plans`
+- code review, regression scan, or diff review -> `code-review`
+- simplification or behavior-preserving cleanup -> `code-simplifier`
+- frontend or visual work -> relevant frontend/react/tailwind/ui skills
+- before claiming work is complete or fixed -> `verification-before-completion`
+- keep repo ownership and docs-path rules primary when a generic skill suggests a different default
+
+8. Use subagents where they help, not by default:
+- best fit: read-heavy exploration, scoped analysis, test/log triage, and bounded supporting work
+- avoid parallel write-heavy work unless ownership is clearly split and merge risk is low
+- do not treat delegation as a substitute for understanding ownership boundaries in this repo
+- verify delegated work with the same standards you would apply to local work before calling it done
 
 ## 5) Code-Shape Preferences
 
@@ -197,6 +212,7 @@ Its job is to reduce churn, keep logic in the right layer, and preserve repo-spe
 3. When to create a plan:
 - create or update a plan in `docs/plans/` for multi-step implementation work, non-trivial migrations, or work expected to span multiple sessions
 - do not create a dated plan for tiny one-shot edits unless the user asks for it
+- if a planning skill suggests another default path, use this repo's docs paths unless the user explicitly asks otherwise
 
 4. Plan format:
 - start from `docs/templates/plan-template.md`
@@ -219,20 +235,18 @@ Its job is to reduce churn, keep logic in the right layer, and preserve repo-spe
 - if priorities changed, update `docs/roadmap.md` or `docs/backlog.md` in the same pass
 - if a note is now the canonical explanation for a subsystem, make sure related plans link to it instead of repeating the same context
 
-## 9) Context+ Usage
+## 9) Optional Tooling
 
-1. Default behavior:
-- if present, use local `INSTRUCTIONS.md` as the primary guide for Context+ tool choice and ordering
-- prefer structural discovery over broad file reads
+1. Use optional tooling opportunistically:
+- prefer structural or deterministic tools when they materially reduce churn or improve confidence
+- do not block progress on optional MCP/tooling if local shell and repo-safe discovery are sufficient
 
-2. High-value Context+ usage:
-- use context tree or file skeleton views to scope work
-- use blast radius before deleting or heavily reshaping shared symbols
-- run static analysis after edits when the tool is available and appropriate
+2. Before risky reshape work:
+- if a tool can show blast radius, symbol usage, or deterministic analysis, prefer using it before deleting or heavily reshaping shared code
 
 3. Editing:
-- prefer `propose_commit` when it is available and compatible with the active environment
-- if the environment requires a different edit mechanism, follow the environment without treating that as a repo policy violation
+- follow the active environment's supported edit mechanism
+- do not treat any one optional tool as a repo-wide hard requirement
 
 ## 10) Agent-Specific Non-Goals
 

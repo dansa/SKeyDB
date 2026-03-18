@@ -193,7 +193,7 @@ describe('createBuilderAwakenerActions', () => {
     expect(requestAwakenerTransfer).not.toHaveBeenCalled()
     expect(setActiveTeamSlots).toHaveBeenCalledWith([
       expect.objectContaining({slotId: 'slot-1', awakenerName: undefined, isSupport: undefined}),
-      expect.objectContaining({slotId: 'slot-2', awakenerName: 'Goliath', isSupport: undefined}),
+      expect.objectContaining({slotId: 'slot-2', awakenerName: 'Goliath', isSupport: true}),
     ])
   })
 })

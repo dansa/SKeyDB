@@ -62,10 +62,19 @@ export function assignAwakenerToSlot(
         (slot) =>
           slot.awakenerName && getAwakenerIdentityKey(slot.awakenerName) === sourceIdentityKey,
       )?.slotId
+  const sourceSlot = sourceSlotId
+    ? currentSlots.find((slot) => slot.slotId === sourceSlotId)
+    : undefined
   const targetSlot = currentSlots.find((slot) => slot.slotId === slotId)
   if (sourceSlotId === slotId && targetSlot?.awakenerName === awakenerName) {
     return {nextSlots: currentSlots}
   }
+
+  const shouldPreserveSupportMove =
+    sourceSlotId !== undefined &&
+    sourceSlotId !== slotId &&
+    sourceSlot?.awakenerName === awakenerName &&
+    sourceSlot.isSupport === true
 
   const nextSlots = currentSlots.map((slot) => {
     if (slot.slotId === slotId) {
@@ -73,8 +82,12 @@ export function assignAwakenerToSlot(
         ...slot,
         awakenerName,
         realm: awakener.realm,
-        level: slot.isSupport ? 60 : (slot.level ?? 60),
-        isSupport: undefined,
+        level: shouldPreserveSupportMove
+          ? (sourceSlot.level ?? 90)
+          : slot.isSupport
+            ? 60
+            : (slot.level ?? 60),
+        isSupport: shouldPreserveSupportMove ? true : undefined,
         wheels: [null, null] as [null, null],
         covenantId: undefined,
       }

@@ -137,6 +137,33 @@ describe('builder team state', () => {
     })
   })
 
+  it('preserves support state when moving a same-team support awakener to another slot', () => {
+    const slots = [
+      {
+        slotId: 'slot-1',
+        awakenerName: 'Goliath',
+        realm: 'AEQUOR',
+        level: 90,
+        isSupport: true,
+        wheels: [null, null] as [null, null],
+      },
+      {slotId: 'slot-2', wheels: [null, null] as [null, null]},
+    ]
+
+    const result = assignAwakenerToSlot(slots, 'Goliath', 'slot-2', awakenersByNameForTests)
+
+    expect(result.nextSlots[0]).toMatchObject({
+      awakenerName: undefined,
+      isSupport: undefined,
+      level: undefined,
+    })
+    expect(result.nextSlots[1]).toMatchObject({
+      awakenerName: 'Goliath',
+      isSupport: true,
+      level: 90,
+    })
+  })
+
   it('does not move an already slotted awakener when adding to first empty slot', () => {
     const slots = [
       {
