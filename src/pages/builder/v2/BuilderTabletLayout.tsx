@@ -1,46 +1,83 @@
-import type {ReactNode} from 'react'
+import type {ReactNode, RefObject} from 'react'
 
-import {TeamHeader} from './TeamHeader'
-import {TeamTabs} from './TeamTabs'
+import {BuilderToolbarShell} from './BuilderToolbarShell'
+import {useMeasuredElementSize, useViewportSize} from './layout-hooks'
+import {
+  getTabletMainZoneHeight,
+  getTabletPickerHeight,
+  getTabletStageHeight,
+  TABLET_LAYOUT_MIN_HEIGHT_PX,
+} from './tablet-layout-metrics'
 
 interface BuilderTabletLayoutProps {
+  builderZoneRef?: RefObject<HTMLElement | null>
   toolbar: ReactNode
-  teamCards: ReactNode
+  teamStage: ReactNode
   picker: ReactNode
+  teamsPanel: ReactNode
 }
 
-export function BuilderTabletLayout({toolbar, teamCards, picker}: BuilderTabletLayoutProps) {
-  const quickLineupButton = (
-    <button
-      className='ml-4 border border-slate-500/45 px-2 py-0.5 text-[9px] tracking-wide text-slate-300 uppercase'
-      type='button'
-    >
-      Quick Lineup
-    </button>
-  )
+export function BuilderTabletLayout({
+  builderZoneRef,
+  toolbar,
+  teamStage,
+  picker,
+  teamsPanel,
+}: BuilderTabletLayoutProps) {
+  const viewport = useViewportSize()
+  const {ref: mainZoneRef, width: mainZoneWidth} = useMeasuredElementSize()
+  const mainZoneHeight = getTabletMainZoneHeight(viewport.height)
+  const pickerHeight = getTabletPickerHeight({mainZoneHeight, mainZoneWidth})
+  const stageHeight = getTabletStageHeight({mainZoneHeight, mainZoneWidth})
+  const shouldLockZoneHeight = viewport.height >= TABLET_LAYOUT_MIN_HEIGHT_PX
 
   return (
-    <div className='mx-auto w-full max-w-[900px] px-3 py-3'>
-      {toolbar ? <div className='mb-2'>{toolbar}</div> : null}
-
-      <div
-        className='flex flex-col overflow-hidden border border-slate-500/45'
-        style={{maxHeight: 'min(44dvh, 30rem)'}}
+    <div
+      className='mx-auto w-full max-w-[900px] px-2 py-2 sm:px-3 sm:py-3'
+      data-testid='builder-tablet-layout'
+    >
+      <section
+        className='min-w-0 overflow-hidden border border-slate-500/45 bg-[#0c121c]'
+        data-testid='builder-tablet-shell'
+        ref={builderZoneRef}
       >
-        {picker}
-      </div>
+        {toolbar ? <BuilderToolbarShell>{toolbar}</BuilderToolbarShell> : null}
+        <div
+          className='flex min-w-0 flex-col'
+          data-builder-main-zone='true'
+          data-mobile-builder-snap-target='true'
+          data-testid='builder-tablet-main-zone'
+          ref={mainZoneRef}
+          style={
+            shouldLockZoneHeight
+              ? {
+                  height: `${String(mainZoneHeight)}px`,
+                  minHeight: `${String(mainZoneHeight)}px`,
+                }
+              : {
+                  minHeight: `${String(mainZoneHeight)}px`,
+                }
+          }
+        >
+          <div
+            className='flex min-w-0 flex-col overflow-hidden border-b border-slate-500/45'
+            data-testid='builder-tablet-picker-shell'
+            style={pickerHeight > 0 ? {height: `${String(pickerHeight)}px`} : undefined}
+          >
+            {picker}
+          </div>
 
-      <TeamTabs className='mt-2' />
-      <TeamHeader
-        actions={quickLineupButton}
-        className='border border-t-0 border-slate-500/45'
-        showPosseName
-      />
-
-      <div className='border border-t-0 border-slate-500/45 px-3 pb-3 [&_.builder-card]:aspect-[25/50]'>
-        <div className='mt-2' style={{maxWidth: 'min(100%, 44rem)'}}>
-          {teamCards}
+          <div
+            className='min-h-0 min-w-0'
+            style={stageHeight > 0 ? {height: `${String(stageHeight)}px`} : undefined}
+          >
+            {teamStage}
+          </div>
         </div>
+      </section>
+
+      <div className='mt-3' data-mobile-builder-exit-zone='true'>
+        {teamsPanel}
       </div>
     </div>
   )

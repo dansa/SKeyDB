@@ -1,6 +1,6 @@
 # SKeyDB Backlog
 
-Last updated: 2026-03-06
+Last updated: 2026-03-19
 
 This file is for ideas worth remembering but not currently scheduled.
 
@@ -16,6 +16,10 @@ This file is for ideas worth remembering but not currently scheduled.
 
 - Review whether the current side-filter layout should stay or move toward a top-toolbar layout.
 - Add quick-select or paintbrush-style bulk editing for owned state, levels, and enlightens.
+
+## Builder
+
+- Investigate Firefox touch-simulation drag behavior in Builder V2 picker lists. Current state: `autoScroll={false}` is already set on the shared DnD context, but Firefox touch simulation can still scroll the picker while dragging a picker tile. Likely cause is native touch scrolling rather than DnD-kit auto-scroll. Do not blindly set `touch-action: none` on all picker tiles without real-device verification, since that may make the picker harder to scroll on actual mobile. If this becomes active work, verify on real touch hardware first and prefer a drag-handle approach over globally disabling touch scrolling on the whole tile.
 
 ## Database
 

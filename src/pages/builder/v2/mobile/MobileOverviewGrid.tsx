@@ -7,11 +7,11 @@ import {getWheelAssetById} from '@/domain/wheel-assets'
 
 import type {TeamSlot} from '../../types'
 import {BuilderCovenantPlaceholder, BuilderSigilPlaceholder} from '../BuilderPlaceholders'
+import {useMeasuredElementSize} from '../layout-hooks'
 import {useBuilderStore} from '../store/builder-store'
 import {selectActiveSelection, selectActiveTeamSlots} from '../store/selectors'
 import {getDisplayedAwakenerOwnedLevel} from '../support-display'
 import {useCollectionOwnership} from '../useCollectionOwnership'
-import {useMeasuredElementSize} from './layout-hooks'
 import {getMobileCardFrameStyle, getOverviewGridMetrics} from './mobile-layout-metrics'
 
 interface MobileOverviewGridProps {
@@ -91,7 +91,7 @@ function OverviewCellFrame({children}: {children: ReactNode}) {
 function EmptySlotCell({cardStyle, onDeploy}: {cardStyle: CSSProperties; onDeploy: () => void}) {
   return (
     <button
-      className='relative flex min-h-0 cursor-pointer items-center justify-center overflow-hidden border border-slate-500/60 bg-slate-700/15'
+      className='relative flex min-h-0 cursor-pointer items-center justify-center overflow-hidden border border-slate-500/60 bg-slate-700/15 transition-[background-color,border-color,box-shadow,filter] hover:border-amber-300/45 hover:bg-slate-800/20 hover:brightness-105'
       onClick={onDeploy}
       style={cardStyle}
       type='button'
@@ -128,10 +128,10 @@ function PopulatedSlotCell({
 
   return (
     <button
-      className={`relative min-h-0 cursor-pointer overflow-hidden border ${
+      className={`relative min-h-0 cursor-pointer overflow-hidden border transition-[border-color,box-shadow,filter] ${
         isActive
-          ? 'border-amber-400/75 shadow-[inset_0_-2px_0_0_rgba(251,146,60,0.9),0_0_16px_rgba(251,191,36,0.28)]'
-          : 'border-slate-500/60'
+          ? 'border-amber-400/75 shadow-[inset_0_-2px_0_0_rgba(251,146,60,0.9),0_0_16px_rgba(251,191,36,0.28)] hover:brightness-105'
+          : 'border-slate-500/60 hover:border-amber-300/45 hover:brightness-105'
       }`}
       onClick={onFocus}
       style={cardStyle}
@@ -325,7 +325,7 @@ function OverviewWheelChip({asset, testId}: {asset?: string; testId: string}) {
   if (!asset) {
     return (
       <div
-        className={`${sharedClassName} border border-dashed border-slate-700/70 bg-slate-900/50`}
+        className={`${sharedClassName} border border-slate-700/70 bg-slate-900/50`}
         data-testid={`${testId}-empty`}
       >
         <BuilderSigilPlaceholder className='absolute inset-0' variant='wheel' />
@@ -355,7 +355,7 @@ function OverviewCovenantTile({asset}: {asset?: string}) {
   if (!asset) {
     return (
       <div
-        className='flex aspect-square h-[60%] max-h-full shrink-0 items-center justify-center self-end border border-dashed border-slate-600 bg-slate-900/55'
+        className='flex aspect-square h-[60%] max-h-full shrink-0 items-center justify-center self-end border border-slate-600/70 bg-slate-900/55'
         data-testid='mobile-overview-covenant-empty'
       >
         <BuilderCovenantPlaceholder className='h-full w-full' />

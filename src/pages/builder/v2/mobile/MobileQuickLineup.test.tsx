@@ -16,8 +16,8 @@ const mockedMeasurement = {
   width: 0,
 }
 
-vi.mock('./layout-hooks', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('./layout-hooks')>()
+vi.mock('../layout-hooks', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../layout-hooks')>()
 
   return {
     ...actual,
@@ -62,6 +62,7 @@ function renderMobileLayout() {
       onExportIngame={noop}
       onImport={noop}
       onRequestResetBuilder={noop}
+      onRequestResetTeam={noop}
       onUndoResetBuilder={noop}
       renderPicker={({enableDragAndDrop, onItemSelected}) => (
         <TestPickerPanel
@@ -116,6 +117,8 @@ describe('MobileQuickLineup', () => {
     expect(useBuilderStore.getState().quickLineupSessionState?.steps).toHaveLength(17)
     expect(useBuilderStore.getState().teams[0]?.posseId).toBeUndefined()
     expect(useBuilderStore.getState().teams[0]?.slots[0]?.awakenerName).toBeUndefined()
+    expect(screen.getByRole('button', {name: /Next/i})).toBeInTheDocument()
+    expect(screen.queryByRole('button', {name: /^Skip$/i})).toBeNull()
   })
 
   it('advances to wheel 1 after picking an awakener in quick lineup', async () => {
@@ -162,6 +165,7 @@ describe('MobileQuickLineup', () => {
         onExportIngame={noop}
         onImport={noop}
         onRequestResetBuilder={noop}
+        onRequestResetTeam={noop}
         onUndoResetBuilder={noop}
         renderPicker={({
           onItemSelected,

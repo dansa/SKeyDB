@@ -4,7 +4,6 @@ interface MobileBuilderScreenProps extends HTMLAttributes<HTMLDivElement> {
   allowPageOverflow?: boolean
   children: ReactNode
   className?: string
-  shellMode?: 'device' | 'preview'
   testId?: string
 }
 
@@ -12,7 +11,6 @@ export function MobileBuilderScreen({
   allowPageOverflow = false,
   children,
   className = '',
-  shellMode: _shellMode = 'device',
   testId,
   ...rest
 }: MobileBuilderScreenProps) {
@@ -21,6 +19,7 @@ export function MobileBuilderScreen({
   return (
     <div
       className={`flex ${heightClass} w-full flex-col bg-[#0c121c] ${className}`.trim()}
+      data-builder-main-zone='true'
       data-mobile-builder-snap-target='true'
       data-testid={testId}
       {...rest}

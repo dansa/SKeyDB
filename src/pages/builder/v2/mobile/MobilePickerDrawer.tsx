@@ -1,5 +1,6 @@
 import type {ReactNode} from 'react'
 
+import {Button} from '@/components/ui/Button'
 import {getAwakenerCardAsset} from '@/domain/awakener-assets'
 
 import {useBuilderStore} from '../store/builder-store'
@@ -16,20 +17,15 @@ function getContextLabel(context: PickerContext): string {
 
 interface MobilePickerDrawerProps {
   context: PickerContext
-  returnSlotIndex: number
   onClose: () => void
   picker: ReactNode
 }
 
-export function MobilePickerDrawer({
-  context,
-  returnSlotIndex,
-  onClose,
-  picker,
-}: MobilePickerDrawerProps) {
+export function MobilePickerDrawer({context, onClose, picker}: MobilePickerDrawerProps) {
   const slots = useBuilderStore(selectActiveTeamSlots)
-  const slot = slots[returnSlotIndex]
-  const awakenerName = slot.awakenerName
+  const slotIndex = slots.findIndex((slot) => slot.slotId === context.slotId)
+  const slot = slotIndex >= 0 ? slots[slotIndex] : undefined
+  const awakenerName = slot?.awakenerName
   const cardAsset = awakenerName ? getAwakenerCardAsset(awakenerName) : undefined
 
   const panelStyle = {
@@ -40,7 +36,8 @@ export function MobilePickerDrawer({
   return (
     <div className='absolute inset-0 z-40 flex'>
       <button
-        className='relative flex flex-1 items-center justify-center bg-[#0c121c]/88 backdrop-blur-[1px]'
+        aria-label='Close picker'
+        className='relative flex flex-1 items-center justify-center bg-[#0c121c]/88 backdrop-blur-[1px] transition-[background-color,filter] hover:bg-[#0c121c]/92 hover:brightness-105'
         onClick={onClose}
         type='button'
       >
@@ -67,20 +64,16 @@ export function MobilePickerDrawer({
       >
         <div className='shrink-0 border-b border-slate-500/45 px-3 py-1.5'>
           <p className='text-[10px] font-bold text-amber-400'>
-            Slot {String(returnSlotIndex + 1)} &mdash; {getContextLabel(context)}
+            Slot {String((slotIndex >= 0 ? slotIndex : 0) + 1)} &mdash; {getContextLabel(context)}
           </p>
         </div>
 
         <div className='flex min-h-0 flex-1 flex-col overflow-hidden'>{picker}</div>
 
         <div className='shrink-0 border-t border-slate-500/45 px-2 py-1.5'>
-          <button
-            className='w-full border border-slate-500/45 py-1 text-[10px] text-slate-300'
-            onClick={onClose}
-            type='button'
-          >
+          <Button className='w-full py-1 text-[10px]' onClick={onClose} type='button'>
             Close
-          </button>
+          </Button>
         </div>
       </div>
     </div>

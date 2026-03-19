@@ -79,6 +79,12 @@ describe('QuickLineupSlotCard', () => {
       'data-filled',
       'false',
     )
+    expect(screen.getByTestId('quick-lineup-target-slot-1-wheel-1').innerHTML).not.toContain(
+      'border-dashed',
+    )
+    expect(screen.getByTestId('quick-lineup-target-slot-1-wheel-0').innerHTML).not.toContain(
+      'border-slate-200/15',
+    )
     expect(screen.getByTestId('quick-lineup-target-slot-1-covenant')).toHaveAttribute(
       'data-filled',
       'true',
@@ -105,6 +111,10 @@ describe('QuickLineupSlotCard', () => {
       'data-filled',
       'false',
     )
+    expect(screen.getByTestId('quick-lineup-slot-card-slot-1')).toHaveClass(
+      'hover:border-amber-300/45',
+    )
+    expect(screen.getByTestId('quick-lineup-wheels-zone-slot-1')).toHaveClass('items-center')
   })
 
   it('falls back to the portrait art when card art is unavailable', () => {

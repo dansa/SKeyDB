@@ -28,7 +28,7 @@ export function FocusedPortrait({
 
   return (
     <button
-      className='relative block w-full cursor-pointer overflow-hidden border border-amber-400/75'
+      className='relative block w-full cursor-pointer overflow-hidden border border-amber-400/75 transition-[border-color,box-shadow,filter] hover:border-amber-300/90 hover:brightness-105'
       onClick={onChangeAwakener}
       style={{
         ...getMobileCardFrameStyle({cardHeight}),
@@ -121,7 +121,7 @@ export function EmptySlotDisplay({
 }) {
   return (
     <button
-      className='flex w-full items-center justify-center border border-slate-500/60 bg-slate-700/15'
+      className='flex w-full items-center justify-center border border-slate-500/60 bg-slate-700/15 transition-[background-color,border-color,box-shadow,filter] hover:border-amber-300/45 hover:bg-slate-800/20 hover:brightness-105'
       onClick={onChangeAwakener}
       style={getMobileCardFrameStyle({cardHeight})}
       type='button'

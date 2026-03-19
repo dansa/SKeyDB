@@ -2,6 +2,7 @@ import {useState} from 'react'
 
 import {FaChevronDown, FaChevronRight} from 'react-icons/fa6'
 
+import {Button} from '@/components/ui/Button'
 import {CollectionSortControls} from '@/components/ui/CollectionSortControls'
 import {OwnedTogglePill} from '@/components/ui/OwnedTogglePill'
 import type {AwakenerSortKey, CollectionSortDirection} from '@/domain/collection-sorting'
@@ -43,7 +44,7 @@ function ToggleRow({
     <div
       className={`flex items-center justify-between gap-3 text-[10px] text-slate-300 ${inset ? 'pl-3' : ''}`}
     >
-      <span>{label}</span>
+      <span className='overflow-hidden text-ellipsis whitespace-nowrap'>{label}</span>
       <OwnedTogglePill
         className='ownership-pill-builder'
         offLabel='Off'
@@ -83,8 +84,8 @@ export function PickerSortingToggles({
 
   return (
     <div className='px-2 pt-1.5'>
-      <button
-        className='flex w-full items-center justify-between border border-slate-500/45 bg-slate-900/55 px-2 py-1 text-left text-[10px] tracking-wide text-slate-300 uppercase'
+      <Button
+        className='flex w-full items-center justify-between px-2 py-1 text-left text-[10px] tracking-wide uppercase'
         onClick={() => {
           setIsOpen((prev) => !prev)
         }}
@@ -96,7 +97,7 @@ export function PickerSortingToggles({
         ) : (
           <FaChevronRight aria-hidden className='text-[10px]' />
         )}
-      </button>
+      </Button>
 
       {isOpen ? (
         <div className='border border-t-0 border-slate-500/45 bg-slate-900/40 px-2 py-2'>

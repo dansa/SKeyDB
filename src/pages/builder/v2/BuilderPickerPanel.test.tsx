@@ -87,6 +87,51 @@ describe('BuilderPickerPanel', () => {
     expect(screen.getByRole('searchbox')).toHaveValue('agr')
   })
 
+  it('captures global typing into the active picker search and focuses the field', () => {
+    resetStore()
+
+    render(<TestPickerPanel />)
+
+    fireEvent.keyDown(window, {key: 'r'})
+    fireEvent.keyDown(window, {key: 'a'})
+    fireEvent.keyDown(window, {key: 'm'})
+
+    const searchbox = screen.getByRole('searchbox')
+    expect(searchbox).toHaveValue('ram')
+    expect(searchbox).toHaveFocus()
+  })
+
+  it('renders a wide sidebar picker layout when requested', () => {
+    resetStore()
+
+    render(<TestPickerPanel layoutVariant='wide-sidebar' />)
+
+    expect(screen.getByTestId('builder-picker-panel')).toHaveAttribute(
+      'data-layout-variant',
+      'wide-sidebar',
+    )
+    expect(screen.getByTestId('builder-picker-controls-rail')).toContainElement(
+      screen.getByRole('searchbox'),
+    )
+    expect(screen.getByTestId('builder-picker-controls-rail')).toContainElement(
+      screen.getByRole('button', {name: /Sorting & Toggles/i}),
+    )
+    expect(screen.getByTestId('builder-picker-controls-rail')).not.toContainElement(
+      screen.getByRole('button', {name: /Awakeners/i}),
+    )
+    expect(screen.getByTestId('builder-picker-results-shell')).toContainElement(
+      screen.getByRole('button', {name: /Awakeners/i}),
+    )
+    expect(screen.getByTestId('builder-picker-results-pane')).toBeInTheDocument()
+    expect(screen.getByTestId('builder-picker-filter-groups')).toHaveAttribute(
+      'data-layout',
+      'wide-sidebar',
+    )
+    expect(screen.getByTestId('builder-picker-controls-rail')).not.toHaveStyle({
+      overscrollBehaviorY: 'contain',
+    })
+  })
+
   it('shows wheel recommendation controls and chips for the active build', () => {
     resetStore()
     seedSlot1Awakener('goliath')

@@ -234,6 +234,31 @@ describe('useBuilderV2Actions', () => {
     )
   })
 
+  it('requires confirmation before resetting a populated current team', () => {
+    seedAwakener(0, 'agrippa', 'AEQUOR')
+
+    act(() => {
+      useBuilderStore.getState().setActiveSelection({kind: 'awakener', slotId: 'slot-1'})
+    })
+
+    const {result} = renderHook(() => useBuilderV2Actions())
+
+    act(() => {
+      result.current.requestResetTeam(useBuilderStore.getState().teams[0].id, 'Team 1')
+    })
+
+    expect(result.current.resetTeamDialog?.title).toBe('Reset Team 1')
+    expect(useBuilderStore.getState().teams[0]?.slots[0]?.awakenerName).toBe('agrippa')
+
+    act(() => {
+      result.current.resetTeamDialog?.onConfirm()
+    })
+
+    expect(result.current.resetTeamDialog).toBeNull()
+    expect(useBuilderStore.getState().teams[0]?.slots[0]?.awakenerName).toBeUndefined()
+    expect(useBuilderStore.getState().activeSelection).toBeNull()
+  })
+
   it('defers picker completion until a duplicate transfer is resolved and does not advance on cancel', () => {
     act(() => {
       useBuilderStore.getState().addTeam()

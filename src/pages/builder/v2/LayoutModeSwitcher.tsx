@@ -33,7 +33,8 @@ export function LayoutModeSwitcher({
                 : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
             }`}
             key={option.id}
-            onClick={() => {
+            onClick={(event) => {
+              event.currentTarget.blur()
               onOverrideChange(option.id)
             }}
             type='button'

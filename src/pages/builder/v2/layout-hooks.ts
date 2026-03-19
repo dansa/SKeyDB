@@ -1,7 +1,17 @@
 import {useEffect, useLayoutEffect, useRef, useState, type RefObject} from 'react'
 
-import {resolveMobilePageSnapTarget} from './mobile-page-snap'
-import {resolveMobileViewTransitionScrollDelta} from './mobile-view-transition'
+import {resolveBuilderPageSnapTarget} from './builder-page-snap'
+import {resolveBuilderViewTransitionScrollDelta} from './builder-view-transition'
+
+function createResizeMeasurementCleanup(measure: () => void, getFrameId: () => number) {
+  return () => {
+    window.removeEventListener('resize', measure)
+    const frameId = getFrameId()
+    if (frameId) {
+      cancelAnimationFrame(frameId)
+    }
+  }
+}
 
 function useElementSize({subtractPadding = false}: {subtractPadding?: boolean} = {}) {
   const ref = useRef<HTMLDivElement>(null)
@@ -52,12 +62,7 @@ function useElementSize({subtractPadding = false}: {subtractPadding?: boolean} =
       })
     }
 
-    const cleanup = () => {
-      window.removeEventListener('resize', measure)
-      if (frameId) {
-        cancelAnimationFrame(frameId)
-      }
-    }
+    const cleanup = createResizeMeasurementCleanup(measure, () => frameId)
 
     measure()
     window.addEventListener('resize', measure)
@@ -82,6 +87,82 @@ function useElementSize({subtractPadding = false}: {subtractPadding?: boolean} =
 
 export function useMeasuredElementSize() {
   return useElementSize()
+}
+
+export function useMeasuredElementRect() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [rect, setRect] = useState({height: 0, top: 0, width: 0})
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const element = ref.current
+    if (!element) {
+      return
+    }
+
+    let frameId = 0
+
+    const measure = () => {
+      if (frameId) {
+        return
+      }
+
+      frameId = requestAnimationFrame(() => {
+        frameId = 0
+
+        const bounds = element.getBoundingClientRect()
+        const nextRect = {
+          height: Math.round(Math.max(0, bounds.height)),
+          top: Math.round(bounds.top),
+          width: Math.round(Math.max(0, bounds.width)),
+        }
+
+        setRect((current) =>
+          current.height === nextRect.height &&
+          current.top === nextRect.top &&
+          current.width === nextRect.width
+            ? current
+            : nextRect,
+        )
+      })
+    }
+
+    const cleanup = createResizeMeasurementCleanup(measure, () => frameId)
+    const visualViewport = window.visualViewport
+
+    measure()
+    window.addEventListener('resize', measure)
+    window.addEventListener('scroll', measure, {passive: true})
+    visualViewport?.addEventListener('resize', measure)
+    visualViewport?.addEventListener('scroll', measure)
+
+    if (!('ResizeObserver' in window)) {
+      return () => {
+        window.removeEventListener('scroll', measure)
+        visualViewport?.removeEventListener('resize', measure)
+        visualViewport?.removeEventListener('scroll', measure)
+        cleanup()
+      }
+    }
+
+    const observer = new ResizeObserver(() => {
+      measure()
+    })
+    observer.observe(element)
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', measure)
+      visualViewport?.removeEventListener('resize', measure)
+      visualViewport?.removeEventListener('scroll', measure)
+      cleanup()
+    }
+  }, [])
+
+  return {...rect, ref}
 }
 
 export function useMeasuredElementInnerHeight() {
@@ -152,6 +233,7 @@ export function useViewportSize() {
 const MOBILE_BUILDER_SNAP_ATTRIBUTE = 'data-mobile-builder-snap'
 const MOBILE_BUILDER_SNAP_TARGET_SELECTOR = '[data-mobile-builder-snap-target="true"]'
 const MOBILE_BUILDER_EXIT_SELECTOR = '[data-mobile-builder-exit-zone="true"]'
+const MOBILE_PAGE_SNAP_ARM_DELAY_MS = 240
 const MOBILE_PAGE_SNAP_SETTLE_DELAY_MS = 120
 const MOBILE_PAGE_SNAP_RELEASE_DELAY_MS = 220
 
@@ -162,7 +244,7 @@ function getMobileBuilderSnapTarget(targetRef: RefObject<HTMLElement | null>) {
   )
 }
 
-export function useMobileBuilderDocumentSnap(enabled: boolean) {
+export function useBuilderPageSnapDocument(enabled: boolean) {
   useEffect(() => {
     if (typeof document === 'undefined' || !enabled) {
       return
@@ -183,19 +265,27 @@ export function useRecenterMobileBuilderZone(
   enabled: boolean,
   targetRef: RefObject<HTMLElement | null>,
 ) {
-  const hasMountedRef = useRef(false)
+  const hasInitializedRef = useRef(false)
+  const previousActiveKeyRef = useRef(activeKey)
 
   useEffect(() => {
     if (!enabled) {
-      hasMountedRef.current = false
+      hasInitializedRef.current = false
+      previousActiveKeyRef.current = activeKey
       return
     }
 
-    if (!hasMountedRef.current) {
-      hasMountedRef.current = true
+    if (!hasInitializedRef.current) {
+      hasInitializedRef.current = true
+      previousActiveKeyRef.current = activeKey
       return
     }
 
+    if (previousActiveKeyRef.current === activeKey) {
+      return
+    }
+
+    previousActiveKeyRef.current = activeKey
     const snapTarget = getMobileBuilderSnapTarget(targetRef)
 
     if (typeof snapTarget?.scrollIntoView !== 'function') {
@@ -237,7 +327,7 @@ export function usePreserveMobileBuilderViewportOnViewChange(
     const activeKeyChanged = previousActiveKeyRef.current !== activeKey
 
     if (activeKeyChanged) {
-      const scrollDelta = resolveMobileViewTransitionScrollDelta({
+      const scrollDelta = resolveBuilderViewTransitionScrollDelta({
         nextTargetTop,
         previousTargetTop: previousTargetTopRef.current,
       })
@@ -252,7 +342,7 @@ export function usePreserveMobileBuilderViewportOnViewChange(
   }, [activeKey, enabled, targetRef])
 }
 
-export function useStickyMobileBuilderPageSnap(
+export function useStickyBuilderPageSnap(
   enabled: boolean,
   targetRef: RefObject<HTMLElement | null>,
 ) {
@@ -269,6 +359,8 @@ export function useStickyMobileBuilderPageSnap(
 
     let settleTimeout = 0
     let releaseTimeout = 0
+    let armTimeout = 0
+    let isArmed = false
     let isSnapping = false
     let lastScrollTop = scrollingElement.scrollTop
 
@@ -282,15 +374,25 @@ export function useStickyMobileBuilderPageSnap(
         window.clearTimeout(releaseTimeout)
         releaseTimeout = 0
       }
+
+      if (armTimeout) {
+        window.clearTimeout(armTimeout)
+        armTimeout = 0
+      }
     }
+
+    armTimeout = window.setTimeout(() => {
+      isArmed = true
+      lastScrollTop = scrollingElement.scrollTop
+      armTimeout = 0
+    }, MOBILE_PAGE_SNAP_ARM_DELAY_MS)
 
     const handleScrollSettled = () => {
       if (isSnapping) {
         return
       }
 
-      const builderTarget =
-        targetRef.current?.querySelector<HTMLElement>(MOBILE_BUILDER_SNAP_TARGET_SELECTOR) ?? null
+      const builderTarget = getMobileBuilderSnapTarget(targetRef)
       const exitTarget = document.querySelector<HTMLElement>(MOBILE_BUILDER_EXIT_SELECTOR)
 
       if (!builderTarget) {
@@ -299,7 +401,7 @@ export function useStickyMobileBuilderPageSnap(
       }
 
       const currentScrollTop = scrollingElement.scrollTop
-      const targetKind = resolveMobilePageSnapTarget({
+      const targetKind = resolveBuilderPageSnapTarget({
         builderTop: builderTarget.getBoundingClientRect().top,
         currentScrollTop,
         exitTop: exitTarget?.getBoundingClientRect().top ?? null,
@@ -319,7 +421,7 @@ export function useStickyMobileBuilderPageSnap(
       isSnapping = true
       snapTarget.scrollIntoView({
         behavior: 'smooth',
-        block: targetKind === 'exit' ? 'end' : 'start',
+        block: 'start',
         inline: 'nearest',
       })
 
@@ -331,6 +433,11 @@ export function useStickyMobileBuilderPageSnap(
 
     const handleScroll = () => {
       if (isSnapping) {
+        return
+      }
+
+      if (!isArmed) {
+        lastScrollTop = scrollingElement.scrollTop
         return
       }
 

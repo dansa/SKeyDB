@@ -75,77 +75,79 @@
   --surface-border-subtle: rgba(148, 163, 184, 0.22);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  color: var(--text-main);
-  background: var(--bg-night);
-  font-family: 'Noto Sans', 'Trebuchet MS', sans-serif;
-}
+  body {
+    margin: 0;
+    min-width: 320px;
+    color: var(--text-main);
+    background: var(--bg-night);
+    font-family: 'Noto Sans', 'Trebuchet MS', sans-serif;
+  }
 
-html,
-body,
-#root {
-  min-height: 100%;
-}
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
 
-#root {
-  isolation: isolate;
-}
+  #root {
+    isolation: isolate;
+  }
 
-html[data-mobile-builder-snap='enabled'],
-body[data-mobile-builder-snap='enabled'] {
-  overscroll-behavior-y: contain;
-}
+  html[data-mobile-builder-snap='enabled'],
+  body[data-mobile-builder-snap='enabled'] {
+    overscroll-behavior-y: contain;
+  }
 
-[data-mobile-builder-snap-target='true'],
-[data-mobile-builder-exit-zone='true'] {
-  scroll-snap-align: start;
-}
+  [data-mobile-builder-snap-target='true'],
+  [data-mobile-builder-exit-zone='true'] {
+    scroll-snap-align: start;
+  }
 
-[data-mobile-builder-snap-target='true'] {
-  scroll-snap-stop: always;
-}
+  [data-mobile-builder-snap-target='true'] {
+    scroll-snap-stop: always;
+  }
 
-[data-mobile-builder-exit-zone='true'] {
-  scroll-snap-align: end;
-  scroll-snap-stop: normal;
-}
+  [data-mobile-builder-exit-zone='true'] {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
 
-button {
-  font-family: inherit;
-  font-size: 0.6875rem;
-  line-height: 1.1;
-}
+  button {
+    font-family: inherit;
+    font-size: 0.6875rem;
+    line-height: 1.1;
+  }
 
-p {
-  text-wrap: pretty;
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 @supports (interpolate-size: allow-keywords) {
   :root {
     interpolate-size: allow-keywords;
   }
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 .text-link {

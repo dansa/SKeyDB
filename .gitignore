@@ -25,4 +25,6 @@ dist-ssr
 untracked/*
 .mcp_data/*
 .worktrees/
+.superpowers/
+tmp-*.png
 INSTRUCTIONS.md

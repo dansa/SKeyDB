@@ -33,10 +33,10 @@ function ThumbnailButton({
   return (
     <button
       aria-current={isCurrent ? 'true' : undefined}
-      className={`aspect-square w-full overflow-hidden ${
+      className={`aspect-square w-full overflow-hidden transition-[background-color,border-color,box-shadow,filter] ${
         isCurrent
-          ? 'border-2 border-amber-500/60'
-          : 'cursor-pointer border border-slate-500/45 opacity-50'
+          ? 'border-2 border-amber-500/60 shadow-[0_0_12px_rgba(251,191,36,0.18)]'
+          : 'cursor-pointer border border-slate-500/45 opacity-50 hover:border-amber-300/45 hover:bg-slate-900/65 hover:opacity-80 hover:brightness-105'
       }`}
       disabled={disabled}
       onClick={onClick}
@@ -85,8 +85,10 @@ export function SlotThumbnails({
           return (
             <button
               aria-current={isCurrent ? 'true' : undefined}
-              className={`relative flex aspect-square w-full items-center justify-center overflow-hidden border border-dashed border-slate-600 bg-slate-950/55 ${
-                isCurrent ? '' : 'opacity-30'
+              className={`relative flex aspect-square w-full items-center justify-center overflow-hidden border transition-[background-color,border-color,box-shadow,filter] ${
+                isCurrent
+                  ? 'border-2 border-amber-500/60 bg-slate-950/72 shadow-[0_0_12px_rgba(251,191,36,0.18)]'
+                  : 'cursor-pointer border-slate-600/70 bg-slate-950/55 opacity-30 hover:border-amber-300/45 hover:bg-slate-900/65 hover:opacity-70 hover:brightness-105'
               }`}
               disabled={isCurrent}
               key={slot.slotId}
@@ -134,7 +136,7 @@ export function FocusedPosseSquareButton({
 }) {
   return (
     <button
-      className='relative flex shrink-0 items-end overflow-hidden border border-slate-500/45 bg-slate-950/65 text-left hover:border-amber-300/45'
+      className='relative flex shrink-0 items-end overflow-hidden border border-slate-500/45 bg-slate-950/65 text-left transition-[background-color,border-color,box-shadow,filter] hover:border-amber-300/45 hover:bg-slate-900/78 hover:brightness-105'
       data-testid='mobile-focused-posse-rail'
       onClick={onClick}
       style={{height: `${String(size)}px`, width: `${String(size)}px`}}

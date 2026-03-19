@@ -19,6 +19,7 @@ import {
 } from '../usage-maps'
 import {useBuilderImportExport} from '../useBuilderImportExport'
 import {useBuilderResetUndo} from '../useBuilderResetUndo'
+import {usePendingResetTeamDialog} from '../usePendingResetTeamDialog'
 import {usePendingTransferDialog} from '../usePendingTransferDialog'
 import {useBuilderStore} from './store/builder-store'
 import {
@@ -318,6 +319,16 @@ export function useBuilderV2Actions() {
     clearActiveSelection: storeClearSelection,
     showToast,
   })
+  const {
+    pendingResetTeamDialog: resetTeamDialog,
+    requestResetTeam,
+    clearPendingResetTeam: cancelResetTeam,
+  } = usePendingResetTeamDialog({
+    teams,
+    setTeams: setTeamsAdapter,
+    effectiveActiveTeamId: activeTeamId,
+    clearActiveSelection: storeClearSelection,
+  })
 
   const handleExportIngame = useCallback(() => {
     openTeamIngameExportDialog(activeTeamId)
@@ -397,7 +408,10 @@ export function useBuilderV2Actions() {
     transferDialog,
     canUndoReset,
     requestReset,
+    resetTeamDialog,
+    requestResetTeam,
     cancelReset,
+    cancelResetTeam,
     cancelTransfer,
     undoReset,
     handlePickerAwakenerClick,

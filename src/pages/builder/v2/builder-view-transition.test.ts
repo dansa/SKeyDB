@@ -1,11 +1,11 @@
 import {describe, expect, it} from 'vitest'
 
-import {resolveMobileViewTransitionScrollDelta} from './mobile-view-transition'
+import {resolveBuilderViewTransitionScrollDelta} from './builder-view-transition'
 
-describe('mobile view transition scroll delta', () => {
+describe('builder view transition scroll delta', () => {
   it('preserves the locked builder position when the next target shifts upward', () => {
     expect(
-      resolveMobileViewTransitionScrollDelta({
+      resolveBuilderViewTransitionScrollDelta({
         nextTargetTop: -78,
         previousTargetTop: 0,
       }),
@@ -14,7 +14,7 @@ describe('mobile view transition scroll delta', () => {
 
   it('preserves the locked builder position when the next target shifts downward', () => {
     expect(
-      resolveMobileViewTransitionScrollDelta({
+      resolveBuilderViewTransitionScrollDelta({
         nextTargetTop: 78,
         previousTargetTop: 0,
       }),
@@ -23,7 +23,7 @@ describe('mobile view transition scroll delta', () => {
 
   it('keeps a near-top offset stable instead of forcing a new alignment', () => {
     expect(
-      resolveMobileViewTransitionScrollDelta({
+      resolveBuilderViewTransitionScrollDelta({
         nextTargetTop: -75,
         previousTargetTop: 3,
       }),
@@ -32,7 +32,7 @@ describe('mobile view transition scroll delta', () => {
 
   it('does not preserve when the builder was not actually locked into place', () => {
     expect(
-      resolveMobileViewTransitionScrollDelta({
+      resolveBuilderViewTransitionScrollDelta({
         nextTargetTop: -12,
         previousTargetTop: 72,
       }),
@@ -41,7 +41,7 @@ describe('mobile view transition scroll delta', () => {
 
   it('still preserves small dom shifts when the stored top is stale', () => {
     expect(
-      resolveMobileViewTransitionScrollDelta({
+      resolveBuilderViewTransitionScrollDelta({
         nextTargetTop: -77,
         previousTargetTop: 72,
       }),
@@ -50,7 +50,7 @@ describe('mobile view transition scroll delta', () => {
 
   it('does not adjust for insignificant target movement', () => {
     expect(
-      resolveMobileViewTransitionScrollDelta({
+      resolveBuilderViewTransitionScrollDelta({
         nextTargetTop: 1,
         previousTargetTop: 0,
       }),

@@ -55,6 +55,15 @@ function resolveCovenantDropHover(
   return slot?.awakenerName ? {kind: 'covenant', slotId: targetSlotId} : null
 }
 
+function resolveAwakenerDropHover(
+  overId: string,
+  overWheelZone: ReturnType<typeof parseWheelDropZoneId>,
+  overCovenantZone: ReturnType<typeof parseCovenantDropZoneId>,
+): PredictedDropHover {
+  const targetSlotId = resolveSlotLevelTarget(overId, overWheelZone, overCovenantZone)
+  return targetSlotId ? {kind: 'slot', slotId: targetSlotId} : null
+}
+
 export function resolvePredictedDropHover(
   dragData: DragData | null | undefined,
   overId: string | undefined,
@@ -69,6 +78,10 @@ export function resolvePredictedDropHover(
 
   if (dragData.kind === 'picker-wheel' || dragData.kind === 'team-wheel') {
     return resolveWheelDropHover(overId, overWheelZone, overCovenantZone, slotById)
+  }
+
+  if (dragData.kind === 'picker-awakener' || dragData.kind === 'team-slot') {
+    return resolveAwakenerDropHover(overId, overWheelZone, overCovenantZone)
   }
 
   if (dragData.kind === 'picker-covenant' || dragData.kind === 'team-covenant') {

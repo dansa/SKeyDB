@@ -51,4 +51,35 @@ describe('TeamTabs', () => {
     })
     expect(screen.getByRole('button', {name: /^\+$/})).toBeInTheDocument()
   })
+
+  it('renders tablet tabs as a single attached rail that fits teams into one row without overflow metadata', () => {
+    resetStore()
+
+    const state = useBuilderStore.getState()
+    for (let index = state.teams.length; index < 10; index += 1) {
+      state.addTeam()
+    }
+
+    const renamedTeams = useBuilderStore.getState().teams.map((team, index) => ({
+      ...team,
+      name: `Long Team ${String(index + 1)}`,
+    }))
+    useBuilderStore.getState().setTeams(renamedTeams)
+
+    render(<TeamTabs variant='tablet' />)
+
+    expect(screen.getByTestId('team-tabs-compact')).toHaveAttribute(
+      'data-builder-tabs-variant',
+      'tablet',
+    )
+    expect(screen.getByTestId('team-tabs-compact')).toHaveAttribute('data-builder-tabs-fit', 'true')
+    expect(screen.getByTestId('team-tabs-compact')).not.toHaveClass('overflow-x-auto')
+    expect(screen.getByRole('button', {name: /^Long Team 1$/i}).parentElement).not.toHaveClass(
+      'max-w-[8rem]',
+    )
+    expect(screen.getByRole('button', {name: /^Long Team 1$/i})).not.toHaveAttribute(
+      'data-realm-tint',
+    )
+    expect(screen.getByRole('button', {name: /^\+$/})).toBeInTheDocument()
+  })
 })

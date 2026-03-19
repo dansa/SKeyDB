@@ -7,9 +7,9 @@ import {getWheelAssetById} from '@/domain/wheel-assets'
 
 import type {TeamSlot} from '../../../types'
 import {BuilderCovenantPlaceholder, BuilderSigilPlaceholder} from '../../BuilderPlaceholders'
+import {getQuickLineupStepForTarget, type QuickLineupSlotTarget} from '../../quick-lineup-model'
 import type {QuickLineupStep} from '../../store/types'
 import {getQuickLineupSlotCardMetrics} from '../quick-lineup-layout'
-import {getQuickLineupStepForTarget, type QuickLineupSlotTarget} from '../quick-lineup-model'
 
 interface QuickLineupSlotCardProps {
   activeTarget: QuickLineupSlotTarget | null
@@ -54,13 +54,19 @@ export function QuickLineupSlotCard({
     layout === 'portrait' ? 'flex h-full flex-col bg-slate-950/85' : 'flex h-full'
   const visualZoneClassName =
     layout === 'portrait' ? 'relative shrink-0' : 'relative h-full shrink-0'
+  const wheelZoneClassName =
+    layout === 'portrait'
+      ? 'flex min-w-0 flex-1 items-start gap-0.5 bg-slate-950/85 p-0.5'
+      : 'flex min-w-0 flex-1 items-center gap-0.5 bg-slate-950/85 p-0.5'
+  const wheelSlotFrameClassName =
+    layout === 'portrait' ? 'flex min-w-0 flex-1 items-start' : 'flex min-w-0 flex-1 items-center'
 
   return (
     <div
-      className={`overflow-hidden border bg-slate-950/70 ${
+      className={`overflow-hidden border bg-slate-950/70 transition-[background-color,border-color,box-shadow,filter] ${
         isActiveSlot
-          ? 'border-amber-400/80 shadow-[0_0_18px_rgba(251,191,36,0.2)]'
-          : 'border-slate-500/45'
+          ? 'border-amber-400/80 shadow-[0_0_18px_rgba(251,191,36,0.2)] hover:brightness-105'
+          : 'border-slate-500/45 hover:border-amber-300/45 hover:bg-slate-950/82 hover:brightness-105'
       }`}
       data-active-slot={String(isActiveSlot)}
       data-layout={layout}
@@ -104,11 +110,8 @@ export function QuickLineupSlotCard({
             targetIsActive={activeTarget === 'covenant'}
           />
         </div>
-        <div
-          className='flex min-w-0 flex-1 items-start gap-0.5 bg-slate-950/85 p-0.5'
-          data-testid={`quick-lineup-wheels-zone-${slot.slotId}`}
-        >
-          <div className='flex min-w-0 flex-1 items-start'>
+        <div className={wheelZoneClassName} data-testid={`quick-lineup-wheels-zone-${slot.slotId}`}>
+          <div className={wheelSlotFrameClassName}>
             <GearTargetButton
               asset={wheel0Asset}
               className='w-full min-w-0'
@@ -123,7 +126,7 @@ export function QuickLineupSlotCard({
               targetIsActive={activeTarget === 'wheel-0'}
             />
           </div>
-          <div className='flex min-w-0 flex-1 items-start'>
+          <div className={wheelSlotFrameClassName}>
             <GearTargetButton
               asset={wheel1Asset}
               className='w-full min-w-0'
@@ -164,7 +167,9 @@ function PortraitButton({
   return (
     <button
       className={`relative min-h-0 overflow-hidden ${
-        targetIsActive ? 'ring-1 ring-amber-300/90 ring-inset' : ''
+        targetIsActive
+          ? 'ring-1 ring-amber-300/90 ring-inset hover:brightness-105'
+          : 'transition-[filter,box-shadow] hover:brightness-105'
       } ${className ?? ''}`}
       data-active-target={String(targetIsActive)}
       data-filled={String(Boolean(asset))}
@@ -234,12 +239,12 @@ function GearTargetButton({
 }) {
   return (
     <button
-      className={`${floating ? 'absolute' : 'relative'} min-h-0 overflow-hidden border bg-slate-900/60 ${
+      className={`${floating ? 'absolute' : 'relative'} min-h-0 overflow-hidden border bg-slate-900/60 transition-[background-color,border-color,box-shadow,filter] ${
         targetIsActive
-          ? 'border-amber-300/90 shadow-[inset_0_0_0_1px_rgba(251,191,36,0.6)]'
+          ? 'border-amber-300/90 shadow-[inset_0_0_0_1px_rgba(251,191,36,0.6)] hover:brightness-105'
           : filled
-            ? 'border-slate-300/30'
-            : 'border-slate-700/60'
+            ? 'border-slate-300/30 hover:border-amber-300/45 hover:bg-slate-900/72 hover:brightness-105'
+            : 'border-slate-700/60 hover:border-amber-300/45 hover:bg-slate-900/72 hover:brightness-105'
       } ${className}`}
       data-active-target={String(targetIsActive)}
       data-filled={String(filled)}
@@ -249,7 +254,7 @@ function GearTargetButton({
       type='button'
     >
       {asset ? (
-        <span className='absolute inset-[1px] overflow-hidden border border-slate-200/15'>
+        <span className='absolute inset-[1px] overflow-hidden'>
           <img
             alt=''
             className='h-full w-full object-cover'
@@ -259,7 +264,7 @@ function GearTargetButton({
           />
         </span>
       ) : (
-        <span className='absolute inset-[1px] overflow-hidden border border-dashed border-slate-700/70 bg-slate-950/70'>
+        <span className='absolute inset-[1px] overflow-hidden bg-slate-950/70'>
           {target === 'covenant' ? (
             <BuilderCovenantPlaceholder className='h-full w-full' />
           ) : (

@@ -36,4 +36,29 @@ describe('FocusedLoadout', () => {
 
     expect(screen.queryByRole('button')).toBeNull()
   })
+
+  it('uses the same outer border and hover treatment for wheel and covenant tiles', () => {
+    render(
+      <LandscapeLoadout
+        onCovenantClick={() => undefined}
+        onWheelClick={() => undefined}
+        slot={{
+          covenantId: '001',
+          level: 60,
+          slotId: 'slot-1',
+          awakenerName: 'agrippa',
+          wheels: ['O01', null],
+        }}
+        wheelOwnedLevels={[null, null]}
+      />,
+    )
+
+    const [wheelButton] = screen.getAllByRole('button')
+    const covenantButton = screen.getAllByRole('button')[2]
+
+    expect(wheelButton).toHaveClass('border-slate-500/45')
+    expect(wheelButton).toHaveClass('hover:border-amber-400/50')
+    expect(covenantButton).toHaveClass('border-slate-500/45')
+    expect(covenantButton).toHaveClass('hover:border-amber-400/50')
+  })
 })

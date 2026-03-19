@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react'
+import {useMemo, useState, type ReactNode} from 'react'
 
 import {closestCenter, DndContext, DragOverlay} from '@dnd-kit/core'
 
@@ -9,7 +9,9 @@ import {
   TeamCardGhost,
   TeamWheelGhost,
 } from '../DragGhosts'
+import {resolvePredictedDropHover} from '../predicted-drop-hover'
 import type {DragData} from '../types'
+import {BuilderDndStateProvider} from './BuilderDndStateContext'
 import {useBuilderStore} from './store/builder-store'
 import {selectActiveTeamSlots} from './store/selectors'
 import {getDisplayedAwakenerOwnedLevel} from './support-display'
@@ -96,6 +98,7 @@ function DragGhostOverlay({
 }
 
 export function BuilderDndProvider({actions, children}: BuilderDndProviderProps) {
+  const slots = useBuilderStore(selectActiveTeamSlots)
   const {
     activeDrag,
     isRemoveIntent,
@@ -105,20 +108,55 @@ export function BuilderDndProvider({actions, children}: BuilderDndProviderProps)
     handleDragEnd,
     handleDragCancel,
   } = useBuilderV2Dnd(actions)
+  const [predictedDropHover, setPredictedDropHover] =
+    useState<ReturnType<typeof resolvePredictedDropHover>>(null)
+  const slotById = useMemo(() => new Map(slots.map((slot) => [slot.slotId, slot])), [slots])
+  const dndState = useMemo(
+    () => ({
+      activeDragKind: activeDrag?.kind ?? null,
+      predictedDropHover,
+    }),
+    [activeDrag?.kind, predictedDropHover],
+  )
+
+  function handleWrappedDragStart(event: Parameters<typeof handleDragStart>[0]) {
+    setPredictedDropHover(null)
+    handleDragStart(event)
+  }
+
+  function handleWrappedDragOver(event: Parameters<typeof handleDragOver>[0]) {
+    const overId = typeof event.over?.id === 'string' ? event.over.id : undefined
+    const dragData = event.active.data.current as DragData | undefined
+    setPredictedDropHover(resolvePredictedDropHover(dragData, overId, slotById))
+    handleDragOver(event)
+  }
+
+  function handleWrappedDragEnd(event: Parameters<typeof handleDragEnd>[0]) {
+    setPredictedDropHover(null)
+    handleDragEnd(event)
+  }
+
+  function handleWrappedDragCancel() {
+    setPredictedDropHover(null)
+    handleDragCancel()
+  }
 
   return (
-    <DndContext
-      collisionDetection={closestCenter}
-      onDragCancel={handleDragCancel}
-      onDragEnd={handleDragEnd}
-      onDragOver={handleDragOver}
-      onDragStart={handleDragStart}
-      sensors={sensors}
-    >
-      {children}
-      <DragOverlay dropAnimation={null}>
-        <DragGhostOverlay activeDrag={activeDrag} isRemoveIntent={isRemoveIntent} />
-      </DragOverlay>
-    </DndContext>
+    <BuilderDndStateProvider value={dndState}>
+      <DndContext
+        autoScroll={false}
+        collisionDetection={closestCenter}
+        onDragCancel={handleWrappedDragCancel}
+        onDragEnd={handleWrappedDragEnd}
+        onDragOver={handleWrappedDragOver}
+        onDragStart={handleWrappedDragStart}
+        sensors={sensors}
+      >
+        {children}
+        <DragOverlay dropAnimation={null}>
+          <DragGhostOverlay activeDrag={activeDrag} isRemoveIntent={isRemoveIntent} />
+        </DragOverlay>
+      </DndContext>
+    </BuilderDndStateProvider>
   )
 }

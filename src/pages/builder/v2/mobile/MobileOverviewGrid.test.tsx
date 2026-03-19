@@ -17,7 +17,7 @@ const {useCollectionOwnership} = vi.hoisted(() => ({
   })),
 }))
 
-vi.mock('./layout-hooks', () => ({
+vi.mock('../layout-hooks', () => ({
   useMeasuredElementSize: () => ({
     height: 66,
     ref: {current: null},

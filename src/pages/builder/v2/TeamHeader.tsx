@@ -1,4 +1,4 @@
-import {useMemo, type ReactNode} from 'react'
+import {useMemo} from 'react'
 
 import {getRealmLabel, getRealmTint, normalizeRealmId} from '@/domain/factions'
 import {getPosseAssetById} from '@/domain/posse-assets'
@@ -12,17 +12,10 @@ const posseById = new Map(posses.map((p) => [p.id, p]))
 
 interface TeamHeaderProps {
   className?: string
-  actions?: ReactNode
   compact?: boolean
-  showPosseName?: boolean
 }
 
-export function TeamHeader({
-  className = '',
-  actions,
-  compact = false,
-  showPosseName = false,
-}: TeamHeaderProps) {
+export function TeamHeader({className = '', compact = false}: TeamHeaderProps) {
   const activeTeam = useBuilderStore(selectActiveTeam)
   const teamSlots = useBuilderStore(selectActiveTeamSlots)
 
@@ -77,10 +70,6 @@ export function TeamHeader({
             </span>
           )}
         </div>
-        {showPosseName && posse ? (
-          <span className='text-[10px] text-slate-300'>{posse.name}</span>
-        ) : null}
-        {actions}
       </div>
     </div>
   )

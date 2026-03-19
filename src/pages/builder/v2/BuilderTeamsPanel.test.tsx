@@ -67,4 +67,28 @@ describe('BuilderTeamsPanel', () => {
       expect(useBuilderStore.getState().activeTeamId).toBe(useBuilderStore.getState().teams[1].id)
     })
   })
+
+  it('keeps the rename target pinned to the team that started editing', async () => {
+    resetStore()
+    const state = useBuilderStore.getState()
+    const originalTeamId = state.activeTeamId
+    state.addTeam()
+    state.setActiveTeamId(originalTeamId)
+
+    render(<BuilderTeamsPanel />)
+
+    fireEvent.click(screen.getAllByTitle(/Rename team/i)[0])
+
+    const nameInput = screen.getByRole('textbox')
+    fireEvent.change(nameInput, {target: {value: 'Renamed Team 1'}})
+
+    fireEvent.click(screen.getByText(/^Team 2$/i))
+    fireEvent.keyDown(screen.getByRole('textbox'), {key: 'Enter'})
+
+    await waitFor(() => {
+      expect(useBuilderStore.getState().teams[0].name).toBe('Renamed Team 1')
+    })
+
+    expect(useBuilderStore.getState().teams[1].name).toBe('Team 2')
+  })
 })

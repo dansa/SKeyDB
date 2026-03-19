@@ -4,7 +4,6 @@ import {getAwakenerPortraitAsset} from '@/domain/awakener-assets'
 import {getRealmTint} from '@/domain/factions'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getPosseAssetById} from '@/domain/posse-assets'
-import {useInlineEditor} from '@/hooks/useInlineEditor'
 
 import {MAX_TEAMS} from '../team-collection'
 import type {Team, TeamSlot} from '../types'
@@ -246,6 +245,8 @@ function TeamRenameRow({
 
 export function BuilderTeamsPanel() {
   const [isManageOpen, setIsManageOpen] = useState(false)
+  const [editingTeamId, setEditingTeamId] = useState<string | null>(null)
+  const [draftName, setDraftName] = useState('')
   const teams = useBuilderStore(selectTeams)
   const activeTeamId = useBuilderStore(selectActiveTeamId)
   const setActiveTeamId = useBuilderStore((state) => state.setActiveTeamId)
@@ -256,29 +257,32 @@ export function BuilderTeamsPanel() {
   const applyTemplate = useBuilderStore((state) => state.applyTemplate)
   const {ownedAwakenerLevelByName, ownedPosseLevelById} = useCollectionOwnership()
 
-  const renameEditor = useInlineEditor({
-    value: teams.find((team) => team.id === activeTeamId)?.name ?? '',
-    onCommit: (nextName) => {
-      if (renamingTeamId) {
-        renameTeam(renamingTeamId, nextName)
-      }
-    },
-    validate: (draft) => draft.trim() || 'Unnamed',
-  })
-
-  const renamingTeamId = renameEditor.isEditing ? activeTeamId : null
-
   const handleBeginRename = useCallback(
     (teamId: string) => {
       setActiveTeamId(teamId)
       const team = useBuilderStore.getState().teams.find((entry) => entry.id === teamId)
       if (team) {
-        renameEditor.setDraft(team.name)
-        renameEditor.beginEdit()
+        setDraftName(team.name)
+        setEditingTeamId(teamId)
       }
     },
-    [renameEditor, setActiveTeamId],
+    [setActiveTeamId],
   )
+
+  const handleCommitRename = useCallback(() => {
+    if (!editingTeamId) {
+      return
+    }
+
+    renameTeam(editingTeamId, draftName.trim() || 'Unnamed')
+    setEditingTeamId(null)
+    setDraftName('')
+  }, [draftName, editingTeamId, renameTeam])
+
+  const handleCancelRename = useCallback(() => {
+    setEditingTeamId(null)
+    setDraftName('')
+  }, [])
 
   const handleDelete = useCallback(
     (teamId: string) => {
@@ -370,12 +374,12 @@ export function BuilderTeamsPanel() {
           teams={teams}
           renderTeamRow={(team) => (
             <SortableTeamRow isActive={team.id === activeTeamId} key={team.id} teamId={team.id}>
-              {renamingTeamId === team.id ? (
+              {editingTeamId === team.id ? (
                 <TeamRenameRow
-                  draftValue={renameEditor.draftValue}
-                  onCancel={renameEditor.cancel}
-                  onCommit={renameEditor.commit}
-                  onDraftChange={renameEditor.setDraft}
+                  draftValue={draftName}
+                  onCancel={handleCancelRename}
+                  onCommit={handleCommitRename}
+                  onDraftChange={setDraftName}
                 />
               ) : (
                 <TeamRowContent

@@ -1,6 +1,6 @@
 import type {CSSProperties} from 'react'
 
-import {clamp, roundToTenth} from './layout-math'
+import {clamp, roundToTenth} from '../layout-math'
 
 export const MOBILE_CARD_MAX_WIDTH = 240
 export const MOBILE_CARD_MAX_HEIGHT = 600

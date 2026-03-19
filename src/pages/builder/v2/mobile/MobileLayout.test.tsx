@@ -1,6 +1,7 @@
-import type {ComponentProps} from 'react'
+import {StrictMode, type ComponentProps} from 'react'
 
-import {fireEvent, render, screen, waitFor} from '@testing-library/react'
+import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
+import {renderToStaticMarkup} from 'react-dom/server'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import '../../../builder-page.integration-mocks'
@@ -9,6 +10,7 @@ import {BuilderPickerPanel} from '../BuilderPickerPanel'
 import {useBuilderStore} from '../store/builder-store'
 import {useBuilderV2Actions} from '../useBuilderV2Actions'
 import {MobileLayout} from './MobileLayout'
+import {MobileQuickLineup} from './MobileQuickLineup'
 
 function resetStore() {
   useBuilderStore.setState(useBuilderStore.getInitialState(), true)
@@ -64,6 +66,7 @@ function renderMobileLayout() {
       onExportIngame={noop}
       onImport={noop}
       onRequestResetBuilder={noop}
+      onRequestResetTeam={noop}
       onUndoResetBuilder={noop}
       renderPicker={({enableDragAndDrop, onItemSelected}) => (
         <TestPickerPanel
@@ -113,6 +116,12 @@ describe('MobileLayout', () => {
       'data-mobile-builder-snap-target',
       'true',
     )
+    expect(screen.getByTestId('mobile-builder-zone')).not.toHaveAttribute(
+      'data-mobile-builder-snap-target',
+    )
+    expect(screen.getByTestId('builder-toolbar-shell')).not.toHaveAttribute(
+      'data-mobile-builder-snap-target',
+    )
     expect(screen.getByTestId('mobile-builder-teams-section')).toHaveAttribute(
       'data-mobile-builder-exit-zone',
       'true',
@@ -137,6 +146,7 @@ describe('MobileLayout', () => {
         onExportIngame={noop}
         onImport={noop}
         onRequestResetBuilder={noop}
+        onRequestResetTeam={noop}
         onUndoResetBuilder={noop}
         renderPicker={({
           enableDragAndDrop,
@@ -196,6 +206,194 @@ describe('MobileLayout', () => {
     expect(scrollCalls).toHaveLength(0)
   })
 
+  it('does not recenter the builder zone on initial mount under StrictMode', () => {
+    resetStore()
+
+    const scrollCalls: {element: HTMLElement; options: ScrollIntoViewOptions | undefined}[] = []
+    Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
+      configurable: true,
+      value: function scrollIntoView(options?: ScrollIntoViewOptions) {
+        scrollCalls.push({element: this as HTMLElement, options})
+      },
+    })
+
+    render(
+      <StrictMode>
+        <MobileLayout
+          canUndoResetBuilder={false}
+          onExportAll={() => undefined}
+          onExportIngame={() => undefined}
+          onImport={() => undefined}
+          onRequestResetBuilder={() => undefined}
+          onRequestResetTeam={() => undefined}
+          onUndoResetBuilder={() => undefined}
+          renderPicker={({enableDragAndDrop, onItemSelected}) => (
+            <TestPickerPanel
+              enableDragAndDrop={enableDragAndDrop}
+              hideTabs
+              onItemSelected={onItemSelected}
+            />
+          )}
+        />
+      </StrictMode>,
+    )
+
+    expect(scrollCalls).toHaveLength(0)
+  })
+
+  it('snaps the teams section back to its top edge instead of its bottom edge', () => {
+    resetStore()
+    setViewportSize(390, 844)
+    vi.useFakeTimers()
+
+    try {
+      const scrollingElement = document.documentElement
+      Object.defineProperty(document, 'scrollingElement', {
+        configurable: true,
+        value: scrollingElement,
+      })
+      scrollingElement.scrollTop = 1030
+
+      const scrollCalls: {element: HTMLElement; options: ScrollIntoViewOptions | undefined}[] = []
+      Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
+        configurable: true,
+        value: function scrollIntoView(options?: ScrollIntoViewOptions) {
+          scrollCalls.push({element: this as HTMLElement, options})
+        },
+      })
+
+      renderMobileLayout()
+
+      const builderShell = screen.getByTestId('mobile-overview-shell')
+      const exitZone = screen.getByTestId('mobile-builder-teams-section')
+
+      Object.defineProperty(builderShell, 'getBoundingClientRect', {
+        configurable: true,
+        value: () => ({
+          bottom: -58,
+          height: 900,
+          left: 0,
+          right: 390,
+          toJSON: () => ({}),
+          top: -958,
+          width: 390,
+          x: 0,
+          y: -958,
+        }),
+      })
+      Object.defineProperty(exitZone, 'getBoundingClientRect', {
+        configurable: true,
+        value: () => ({
+          bottom: 142,
+          height: 120,
+          left: 0,
+          right: 390,
+          toJSON: () => ({}),
+          top: 22,
+          width: 390,
+          x: 0,
+          y: 22,
+        }),
+      })
+
+      act(() => {
+        vi.advanceTimersByTime(241)
+      })
+
+      scrollingElement.scrollTop = 1080
+      fireEvent.scroll(window)
+      act(() => {
+        vi.advanceTimersByTime(121)
+      })
+
+      expect(scrollCalls).toHaveLength(1)
+      expect(scrollCalls[0]?.element).toBe(exitZone)
+      expect(scrollCalls[0]?.options).toMatchObject({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      })
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('ignores load-time scroll events until page snap arms, then still snaps later user scrolls', () => {
+    resetStore()
+    setViewportSize(390, 844)
+    vi.useFakeTimers()
+
+    try {
+      const scrollingElement = document.documentElement
+      Object.defineProperty(document, 'scrollingElement', {
+        configurable: true,
+        value: scrollingElement,
+      })
+      scrollingElement.scrollTop = 1030
+
+      const scrollCalls: {element: HTMLElement; options: ScrollIntoViewOptions | undefined}[] = []
+      Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
+        configurable: true,
+        value: function scrollIntoView(options?: ScrollIntoViewOptions) {
+          scrollCalls.push({element: this as HTMLElement, options})
+        },
+      })
+
+      renderMobileLayout()
+
+      const builderShell = screen.getByTestId('mobile-overview-shell')
+      const exitZone = screen.getByTestId('mobile-builder-teams-section')
+
+      Object.defineProperty(builderShell, 'getBoundingClientRect', {
+        configurable: true,
+        value: () => ({
+          bottom: -58,
+          height: 900,
+          left: 0,
+          right: 390,
+          toJSON: () => ({}),
+          top: -958,
+          width: 390,
+          x: 0,
+          y: -958,
+        }),
+      })
+      Object.defineProperty(exitZone, 'getBoundingClientRect', {
+        configurable: true,
+        value: () => ({
+          bottom: 142,
+          height: 120,
+          left: 0,
+          right: 390,
+          toJSON: () => ({}),
+          top: 22,
+          width: 390,
+          x: 0,
+          y: 22,
+        }),
+      })
+
+      scrollingElement.scrollTop = 1080
+      fireEvent.scroll(window)
+      act(() => {
+        vi.advanceTimersByTime(500)
+      })
+
+      expect(scrollCalls).toHaveLength(0)
+
+      scrollingElement.scrollTop = 1090
+      fireEvent.scroll(window)
+      act(() => {
+        vi.advanceTimersByTime(121)
+      })
+
+      expect(scrollCalls).toHaveLength(1)
+      expect(scrollCalls[0]?.element).toBe(exitZone)
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
   it('replaces the focused awakener and closes the picker drawer', async () => {
     resetStore()
     seedSlot1Awakener('agrippa')
@@ -238,6 +436,91 @@ describe('MobileLayout', () => {
     expect(container.querySelector("[data-picker-kind='awakener']")).toHaveAttribute(
       'data-picker-draggable',
       'false',
+    )
+  })
+
+  it('gives the picker scrim an accessible close name when the drawer is open', async () => {
+    resetStore()
+    seedSlot1Awakener('agrippa')
+
+    renderMobileLayout()
+
+    fireEvent.click(screen.getByRole('button', {name: /Agrippa card Agrippa/i}))
+    fireEvent.click(screen.getByRole('button', {name: /Agrippa card/i}))
+
+    await waitFor(() => {
+      expect(screen.getByText(/Slot 1 — Change Awakener/i)).toBeInTheDocument()
+    })
+
+    expect(screen.getByRole('button', {name: /Close picker/i})).toBeInTheDocument()
+  })
+
+  it('resolves the picker drawer slot title from picker context instead of local return state', async () => {
+    resetStore()
+    const state = useBuilderStore.getState()
+    state.setActiveTeamSlots(
+      state.teams[0].slots.map((slot, index) =>
+        index === 1
+          ? {
+              ...slot,
+              awakenerName: 'casiah',
+              realm: 'CARO',
+              level: 60,
+              wheels: [null, null] as [null, null],
+              covenantId: undefined,
+            }
+          : slot,
+      ),
+    )
+
+    renderMobileLayout()
+
+    fireEvent.click(screen.getByRole('button', {name: /Casiah card Casiah/i}))
+    fireEvent.click(screen.getByRole('button', {name: /Casiah card/i}))
+
+    await waitFor(() => {
+      expect(screen.getByText(/Slot 2 — Change Awakener/i)).toBeInTheDocument()
+    })
+  })
+
+  it('anchors the picker drawer to the builder content frame instead of the utility toolbar shell', async () => {
+    resetStore()
+    seedSlot1Awakener('agrippa')
+
+    const noop = () => undefined
+    render(
+      <MobileLayout
+        canUndoResetBuilder={false}
+        onExportAll={noop}
+        onExportIngame={noop}
+        onImport={noop}
+        onRequestResetBuilder={noop}
+        onRequestResetTeam={noop}
+        onUndoResetBuilder={noop}
+        renderPicker={({enableDragAndDrop, onItemSelected}) => (
+          <TestPickerPanel
+            enableDragAndDrop={enableDragAndDrop}
+            hideTabs
+            onItemSelected={onItemSelected}
+          />
+        )}
+        utilityBar={<div>Layout Override</div>}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: /Agrippa card Agrippa/i}))
+    fireEvent.click(screen.getByRole('button', {name: /Agrippa card/i}))
+
+    await waitFor(() => {
+      expect(screen.getByText(/Slot 1 — Change Awakener/i)).toBeInTheDocument()
+    })
+
+    expect(screen.getByTestId('mobile-builder-content-frame')).toContainElement(
+      screen.getByText(/Slot 1 — Change Awakener/i),
+    )
+    expect(screen.getByTestId('builder-toolbar-shell')).toHaveTextContent(/Layout Override/i)
+    expect(screen.getByTestId('builder-toolbar-shell')).not.toContainElement(
+      screen.getByText(/Slot 1 — Change Awakener/i),
     )
   })
 
@@ -628,6 +911,15 @@ describe('MobileLayout', () => {
     expect(screen.getByRole('button', {name: /^\+$/})).toBeInTheDocument()
   })
 
+  it('keeps the shared toolbar export-in-game guard on mobile when no active team is available', () => {
+    resetStore()
+    useBuilderStore.setState({activeTeamId: 'missing-team'})
+
+    renderMobileLayout()
+
+    expect(screen.getByRole('button', {name: /Export In-Game/i})).toBeDisabled()
+  })
+
   it('renders a utility bar and preview shell when mobile mode is forced on a wide viewport', () => {
     resetStore()
 
@@ -639,6 +931,7 @@ describe('MobileLayout', () => {
         onExportIngame={noop}
         onImport={noop}
         onRequestResetBuilder={noop}
+        onRequestResetTeam={noop}
         onUndoResetBuilder={noop}
         renderPicker={({
           enableDragAndDrop,
@@ -663,5 +956,15 @@ describe('MobileLayout', () => {
     expect(screen.getByTestId('mobile-overview-shell')).toHaveClass('h-[100svh]')
     expect(screen.getByTestId('mobile-overview-shell')).toHaveClass('min-h-[100svh]')
     expect(screen.queryByTestId('builder-v2-mobile-preview-frame')).not.toBeInTheDocument()
+  })
+
+  it('does not render an invalid Step 1 / 0 header before quick-lineup state exists', () => {
+    resetStore()
+
+    const markup = renderToStaticMarkup(
+      <MobileQuickLineup onExit={() => undefined} renderPicker={() => <div>Picker</div>} />,
+    )
+
+    expect(markup).not.toContain('Step 1 / 0')
   })
 })

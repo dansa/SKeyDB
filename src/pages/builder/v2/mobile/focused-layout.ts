@@ -1,4 +1,4 @@
-import {clamp, roundToTenth} from './layout-math'
+import {clamp, roundToTenth} from '../layout-math'
 import {
   MOBILE_CARD_MAX_HEIGHT,
   MOBILE_CARD_MAX_WIDTH,

@@ -3,8 +3,8 @@ import type {ReactNode} from 'react'
 import {useStickyMaxHeight} from './useStickyMaxHeight'
 
 interface BuilderDesktopLayoutProps {
-  toolbar?: ReactNode
-  activeTeamHeader?: ReactNode
+  toolbar: ReactNode
+  activeTeamHeader: ReactNode
   teamCards: ReactNode
   teamsPanel: ReactNode
   picker: ReactNode
@@ -21,7 +21,7 @@ export function BuilderDesktopLayout({
 
   return (
     <div className='mx-auto w-full max-w-[1400px] px-4 py-4'>
-      {toolbar ? <div className='mb-3'>{toolbar}</div> : null}
+      <div className='mb-3'>{toolbar}</div>
       <div className='grid items-start gap-4 lg:grid-cols-[minmax(0,1.65fr)_minmax(20rem,34vw)]'>
         <div className='min-w-0 space-y-3'>
           {activeTeamHeader}

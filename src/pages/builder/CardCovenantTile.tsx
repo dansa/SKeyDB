@@ -9,9 +9,11 @@ export interface CardCovenantTileProps {
   slotId: string
   covenantId: string | undefined
   interactive: boolean
+  allowActiveRemoval?: boolean
   activeDragKind?: DragData['kind'] | null
   predictedDropHover?: PredictedDropHover
   isActive: boolean
+  onRemove?: () => void
   onClick?: () => void
 }
 
@@ -103,9 +105,11 @@ export function CardCovenantTile({
   slotId,
   covenantId,
   interactive,
+  allowActiveRemoval = true,
   activeDragKind,
   predictedDropHover,
   isActive,
+  onRemove,
   onClick,
 }: CardCovenantTileProps) {
   const dropZoneId = makeCovenantDropZoneId(slotId)
@@ -149,6 +153,22 @@ export function CardCovenantTile({
         {...(draggableCovenantId ? attributes : {})}
         {...(draggableCovenantId ? listeners : {})}
       />
+      {allowActiveRemoval && isActive && covenantId ? (
+        <button
+          aria-label='Remove active covenant'
+          className='builder-card-remove-button absolute -top-0.5 -right-0.5 z-40 h-7 w-7'
+          data-card-remove='true'
+          onClick={(event) => {
+            event.preventDefault()
+            event.stopPropagation()
+            onRemove?.()
+          }}
+          type='button'
+        >
+          <span className='sigil-placeholder sigil-placeholder-no-plus sigil-placeholder-remove builder-card-remove-sigil builder-card-remove-sigil-wheel' />
+          <span className='sigil-remove-x builder-card-remove-x' />
+        </button>
+      ) : null}
       {tileVisual}
     </div>
   )

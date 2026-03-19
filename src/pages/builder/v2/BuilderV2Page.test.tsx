@@ -72,11 +72,14 @@ function createActionsMock() {
     handleExportIngame: vi.fn(),
     openImportDialog: vi.fn(),
     requestReset: vi.fn(),
+    requestResetTeam: vi.fn(),
     undoReset: vi.fn(),
     importExportDialogProps: {},
     resetDialog: null,
+    resetTeamDialog: null,
     transferDialog: null,
     cancelReset: vi.fn(),
+    cancelResetTeam: vi.fn(),
     cancelTransfer: vi.fn(),
     handlePickerAwakenerClick: vi.fn(() => true),
     handleDropPickerAwakener: vi.fn(),
@@ -143,6 +146,64 @@ describe('BuilderV2Page', () => {
     expect(screen.getByRole('button', {name: /Import/i})).toBeInTheDocument()
   })
 
+  it('keeps desktop export actions disabled when there are no teams or active team', () => {
+    useBuilderLayoutMode.mockReturnValue({
+      layoutMode: 'desktop',
+      layoutOverride: 'auto',
+      detectedMode: 'desktop',
+      setLayoutOverride: vi.fn(),
+    })
+    useBuilderV2Actions.mockReturnValue({
+      ...createActionsMock(),
+      teams: [],
+      activeTeam: null,
+    })
+
+    render(<BuilderV2Page />)
+
+    expect(screen.getByRole('button', {name: /Export All/i})).toBeDisabled()
+    expect(screen.getByRole('button', {name: /Export In-Game/i})).toBeDisabled()
+  })
+
+  it('applies the tablet width floor to the document instead of the inner tablet shell', () => {
+    useBuilderLayoutMode.mockReturnValue({
+      layoutMode: 'tablet',
+      layoutOverride: 'tablet',
+      detectedMode: 'mobile',
+      setLayoutOverride: vi.fn(),
+    })
+    useBuilderV2Actions.mockReturnValue(createActionsMock())
+
+    render(<BuilderV2Page />)
+
+    expect(document.documentElement.style.minWidth).toBe('600px')
+    expect(document.body.style.minWidth).toBe('600px')
+    expect(screen.getByTestId('builder-tablet-layout')).not.toHaveStyle({minWidth: '600px'})
+    expect(screen.getByTestId('builder-picker-panel')).toHaveAttribute(
+      'data-layout-variant',
+      'wide-sidebar',
+    )
+  })
+
+  it('keeps tablet export actions disabled when there are no teams or active team', () => {
+    useBuilderLayoutMode.mockReturnValue({
+      layoutMode: 'tablet',
+      layoutOverride: 'tablet',
+      detectedMode: 'tablet',
+      setLayoutOverride: vi.fn(),
+    })
+    useBuilderV2Actions.mockReturnValue({
+      ...createActionsMock(),
+      teams: [],
+      activeTeam: null,
+    })
+
+    render(<BuilderV2Page />)
+
+    expect(screen.getByRole('button', {name: /Export All/i})).toBeDisabled()
+    expect(screen.getByRole('button', {name: /Export In-Game/i})).toBeDisabled()
+  })
+
   it('passes the shared transfer dialog and cancel handler into confirm dialogs', () => {
     const transferDialog = {
       title: 'Move Agrippa',
@@ -154,6 +215,64 @@ describe('BuilderV2Page', () => {
       layoutMode: 'mobile',
       layoutOverride: 'auto',
       detectedMode: 'mobile',
+      setLayoutOverride: vi.fn(),
+    })
+    useBuilderV2Actions.mockReturnValue({
+      ...createActionsMock(),
+      cancelTransfer,
+      transferDialog,
+    })
+
+    render(<BuilderV2Page />)
+
+    expect(builderConfirmDialogsMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        onCancelTransfer: cancelTransfer,
+        transferDialog,
+      }),
+    )
+  })
+
+  it('passes the shared reset-team dialog and cancel handler into confirm dialogs', () => {
+    const resetTeamDialog = {
+      title: 'Reset Team 1',
+      message: 'Reset Team 1? This clears assigned awakeners, wheels, covenant, and posse.',
+      onConfirm: vi.fn(),
+    }
+    const cancelResetTeam = vi.fn()
+    useBuilderLayoutMode.mockReturnValue({
+      layoutMode: 'tablet',
+      layoutOverride: 'tablet',
+      detectedMode: 'tablet',
+      setLayoutOverride: vi.fn(),
+    })
+    useBuilderV2Actions.mockReturnValue({
+      ...createActionsMock(),
+      cancelResetTeam,
+      resetTeamDialog,
+    })
+
+    render(<BuilderV2Page />)
+
+    expect(builderConfirmDialogsMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        onCancelResetTeam: cancelResetTeam,
+        resetTeamDialog,
+      }),
+    )
+  })
+
+  it('keeps shared confirm dialog wiring on desktop layouts too', () => {
+    const transferDialog = {
+      title: 'Move Agrippa',
+      message: 'Agrippa is already used in Team 2. Move to Team 1?',
+      onConfirm: vi.fn(),
+    }
+    const cancelTransfer = vi.fn()
+    useBuilderLayoutMode.mockReturnValue({
+      layoutMode: 'desktop',
+      layoutOverride: 'auto',
+      detectedMode: 'desktop',
       setLayoutOverride: vi.fn(),
     })
     useBuilderV2Actions.mockReturnValue({

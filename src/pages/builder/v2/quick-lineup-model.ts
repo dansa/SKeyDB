@@ -1,7 +1,7 @@
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 
-import type {TeamSlot} from '../../types'
-import type {QuickLineupStep} from '../store/types'
+import type {TeamSlot} from '../types'
+import type {QuickLineupStep} from './store/types'
 
 export type QuickLineupSlotTarget = 'awakener' | 'wheel-0' | 'wheel-1' | 'covenant'
 

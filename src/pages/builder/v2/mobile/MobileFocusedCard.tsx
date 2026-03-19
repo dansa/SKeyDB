@@ -24,7 +24,6 @@ interface MobileFocusedCardProps {
   onChangeSlotIndex: (index: number) => void
   onOpenPicker: (context: PickerContext) => void
   onQuickLineup: () => void
-  shellMode?: 'device' | 'preview'
   slotIndex: number
 }
 
@@ -33,7 +32,6 @@ export function MobileFocusedCard({
   onChangeSlotIndex,
   onOpenPicker,
   onQuickLineup,
-  shellMode = 'device',
   slotIndex,
 }: MobileFocusedCardProps) {
   const {height: stageHostHeight, ref: stageHostRef} = useFocusedStageHostHeight()
@@ -92,11 +90,7 @@ export function MobileFocusedCard({
   const shouldAllowPageOverflow = stageHostHeight > 0 && wideStageMetrics.willScroll
 
   return (
-    <MobileBuilderScreen
-      allowPageOverflow={shouldAllowPageOverflow}
-      shellMode={shellMode}
-      testId='mobile-focused-shell'
-    >
+    <MobileBuilderScreen allowPageOverflow={shouldAllowPageOverflow} testId='mobile-focused-shell'>
       <FocusedActionBar
         canClearSlot={Boolean(slot.awakenerName)}
         onBack={onBack}

@@ -114,6 +114,37 @@ describe('teams slice', () => {
     expect(names).toEqual(['Wave 1', 'Wave 2', 'Wave 3', 'Wave 4', 'Wave 5'])
   })
 
+  it('applyTemplate keeps a populated overflow team active while trimming empty teams beyond slot 5', () => {
+    resetStore()
+    const state = useBuilderStore.getState()
+
+    for (let index = 0; index < 6; index += 1) {
+      state.addTeam()
+    }
+
+    const overflowTeam = useBuilderStore.getState().teams[5]
+    expect(overflowTeam).toBeDefined()
+
+    useBuilderStore.getState().setActiveTeamId(overflowTeam.id)
+    useBuilderStore.getState().setPosseForActiveTeam('preserve-overflow-team')
+
+    useBuilderStore.getState().applyTemplate('DTIDE_5')
+
+    const nextState = useBuilderStore.getState()
+
+    expect(nextState.teams).toHaveLength(6)
+    expect(nextState.activeTeamId).toBe(overflowTeam.id)
+    expect(nextState.teams[5]?.id).toBe(overflowTeam.id)
+    expect(nextState.teams[5]?.posseId).toBe('preserve-overflow-team')
+    expect(nextState.teams.slice(0, 5).map((team) => team.name)).toEqual([
+      'Wave 1',
+      'Wave 2',
+      'Wave 3',
+      'Wave 4',
+      'Wave 5',
+    ])
+  })
+
   it('setTeams replaces all teams', () => {
     resetStore()
     const customTeams = [

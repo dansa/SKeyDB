@@ -64,11 +64,13 @@ export function CardWheelZone({
         </div>
         <div className='builder-card-covenant-wrap shrink-0 self-end'>
           <CardCovenantTile
+            allowActiveRemoval={allowActiveRemoval}
             activeDragKind={activeDragKind}
             covenantId={slot.covenantId}
             interactive={interactive}
             isActive={isCovenantActive}
             onClick={onCovenantSlotClick}
+            onRemove={allowActiveRemoval ? onRemoveActiveWheel : undefined}
             predictedDropHover={predictedDropHover}
             slotId={slot.slotId}
           />

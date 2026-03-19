@@ -74,7 +74,7 @@ export function CollectionSortControls({
   const activeSortKey = sortOptions.includes(sortKey) ? sortKey : (sortOptions[0] ?? 'LEVEL')
   const isCompact = layout === 'compact'
   const controlClassName =
-    'h-6 min-w-0 border border-slate-500/55 bg-slate-950/90 px-2 text-[10px] leading-none text-slate-200 outline-none focus:border-amber-300/65'
+    'h-6 min-w-0 border border-slate-500/55 bg-slate-950/90 px-2 text-[10px] leading-none text-slate-200 outline-none transition-colors hover:border-amber-200/45 hover:bg-slate-950/95 focus:border-amber-300/65'
   const directionButtonClassName = 'h-6 w-[72px] px-2 text-[10px] leading-none'
 
   return (

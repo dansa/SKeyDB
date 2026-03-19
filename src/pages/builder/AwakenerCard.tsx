@@ -8,6 +8,7 @@ import {useAwakenerCardImage} from './useAwakenerCardImage'
 
 interface AwakenerCardProps {
   slot: TeamSlot
+  cardHeightScale?: number
   isActive?: boolean
   activeKind?: 'awakener' | 'wheel' | 'covenant' | null
   activeWheelIndex?: number | null
@@ -189,6 +190,7 @@ function renderAwakenerCardWheelZone({
 
 export function AwakenerCard({
   slot,
+  cardHeightScale = 1,
   isActive = false,
   activeKind = null,
   activeWheelIndex = null,
@@ -225,6 +227,7 @@ export function AwakenerCard({
   return (
     <article
       className={cardClassName}
+      style={{aspectRatio: `25 / ${String(56 * cardHeightScale)}`}}
       data-selection-owner='true'
       onClick={(event) => {
         const target = event.target as HTMLElement

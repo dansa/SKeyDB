@@ -30,12 +30,15 @@ function GearTile({
   ownedLevel: number | null
   variant?: FocusedCardVariant
 }) {
-  const className = `relative overflow-hidden bg-slate-700/30 p-px ${
+  const className = `relative overflow-hidden border border-slate-500/45 bg-slate-900/60 ${
     variant === 'wide' ? 'h-full w-full' : 'w-full'
-  } ${onClick ? 'cursor-pointer hover:brightness-110' : ''}`
+  } ${
+    onClick
+      ? 'cursor-pointer transition-[background-color,border-color,box-shadow,filter] hover:border-amber-400/50 hover:bg-slate-900/78 hover:brightness-105'
+      : ''
+  }`
   const content = asset ? (
     <>
-      <span className='absolute inset-0 border border-slate-200/45' />
       <span className='absolute inset-[2px] overflow-hidden border border-slate-200/20'>
         <img
           alt=''
@@ -273,8 +276,8 @@ export function LandscapeLoadout(props: LoadoutProps) {
     <SlotLoadoutTiles
       covenantButtonClassName={
         isColumn
-          ? 'flex h-full w-full cursor-pointer items-center justify-center self-end overflow-hidden border border-slate-500/45 bg-slate-900/60 hover:border-amber-400/50'
-          : 'flex aspect-square w-full cursor-pointer items-center justify-center self-start overflow-hidden border border-slate-500/45 bg-slate-900/60 hover:border-amber-400/50'
+          ? 'flex h-full w-full cursor-pointer items-center justify-center self-end overflow-hidden border border-slate-500/45 bg-slate-900/60 transition-[background-color,border-color,filter] hover:border-amber-400/50 hover:bg-slate-900/78 hover:brightness-105'
+          : 'flex aspect-square w-full cursor-pointer items-center justify-center self-start overflow-hidden border border-slate-500/45 bg-slate-900/60 transition-[background-color,border-color,filter] hover:border-amber-400/50 hover:bg-slate-900/78 hover:brightness-105'
       }
       covenantImagePaddingClass={isColumn ? 'p-1' : 'p-0.5'}
       onCovenantClick={props.onCovenantClick}

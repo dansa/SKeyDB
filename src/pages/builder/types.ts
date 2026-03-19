@@ -66,6 +66,7 @@ export type ActiveSelection =
   | null
 
 export type PredictedDropHover =
+  | {kind: 'slot'; slotId: string}
   | {kind: 'wheel'; slotId: string; wheelIndex: number}
   | {kind: 'covenant'; slotId: string}
   | null

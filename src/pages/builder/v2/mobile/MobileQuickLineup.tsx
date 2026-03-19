@@ -1,36 +1,33 @@
 import {useCallback, useEffect, useRef, type ReactNode} from 'react'
 
+import {Button} from '@/components/ui/Button'
+
 import {
   buildQuickLineupSteps,
   findPreviousQuickLineupStepIndex,
   type InternalQuickLineupSession,
 } from '../../quick-lineup'
-import {useBuilderStore} from '../store/builder-store'
-import {selectActiveTeamSlots} from '../store/selectors'
-import type {QuickLineupStep} from '../store/types'
-import {useMeasuredElementSize, useViewportSize} from './layout-hooks'
-import {MobileBuilderScreen} from './MobileBuilderScreen'
-import {getQuickLineupLayoutMetrics, getQuickLineupLayoutMode} from './quick-lineup-layout'
+import {useMeasuredElementSize, useViewportSize} from '../layout-hooks'
 import {
   getQuickLineupActiveTarget,
   getQuickLineupStepContextLabel,
   isQuickLineupSlotActive,
-} from './quick-lineup-model'
+} from '../quick-lineup-model'
+import {useBuilderStore} from '../store/builder-store'
+import {selectActiveTeamSlots} from '../store/selectors'
+import type {QuickLineupStep} from '../store/types'
+import {MobileBuilderScreen} from './MobileBuilderScreen'
+import {getQuickLineupLayoutMetrics, getQuickLineupLayoutMode} from './quick-lineup-layout'
 import {QuickLineupSlotCard} from './quick-lineup/QuickLineupSlotCard'
 
 interface MobileQuickLineupProps {
   onExit: () => void
   renderPicker: (options: {enableDragAndDrop: boolean; onItemSelected: () => void}) => ReactNode
-  shellMode?: 'device' | 'preview'
 }
 
 type QuickLineupStartupPhase = 'pending' | 'starting' | 'active'
 
-export function MobileQuickLineup({
-  onExit,
-  renderPicker,
-  shellMode = 'device',
-}: MobileQuickLineupProps) {
+export function MobileQuickLineup({onExit, renderPicker}: MobileQuickLineupProps) {
   const slots = useBuilderStore(selectActiveTeamSlots)
   const quickLineupSessionState = useBuilderStore((state) => state.quickLineupSessionState)
   const startQuickLineup = useBuilderStore((state) => state.startQuickLineup)
@@ -94,9 +91,22 @@ export function MobileQuickLineup({
     nextQuickLineupStep(quickLineupStepIndex)
   }, [nextQuickLineupStep, quickLineupStepIndex])
 
+  if (!quickLineupSessionState) {
+    return (
+      <MobileBuilderScreen
+        className='bg-[#0c121c]'
+        data-layout-mode={metrics.mode}
+        testId='mobile-quick-lineup-shell'
+      >
+        <div className='flex min-h-0 flex-1 items-center justify-center px-4 text-center text-xs tracking-[0.12em] text-slate-500 uppercase'>
+          Preparing Quick Lineup
+        </div>
+      </MobileBuilderScreen>
+    )
+  }
+
   return (
     <MobileBuilderScreen
-      shellMode={shellMode}
       testId='mobile-quick-lineup-shell'
       className='bg-[#0c121c]'
       data-layout-mode={metrics.mode}
@@ -110,8 +120,8 @@ export function MobileQuickLineup({
             <p className='truncate pt-1 text-[11px] text-slate-300'>{contextLabel}</p>
           </div>
           <div className='flex shrink-0 items-center gap-2'>
-            <HeaderButton label='Cancel' onClick={cancelQuickLineup} tone='default' />
-            <HeaderButton label='Finish' onClick={finishQuickLineup} tone='accent' />
+            <HeaderButton label='Cancel' onClick={cancelQuickLineup} variant='danger' />
+            <HeaderButton label='Finish' onClick={finishQuickLineup} variant='primary' />
           </div>
         </div>
       </header>
@@ -157,7 +167,7 @@ export function MobileQuickLineup({
               onBack={() => {
                 prevQuickLineupStep(quickLineupStepIndex)
               }}
-              onSkip={() => {
+              onNext={() => {
                 skipQuickLineupStep(quickLineupStepIndex)
               }}
               stepIndex={quickLineupStepIndex}
@@ -203,7 +213,7 @@ export function MobileQuickLineup({
                 onBack={() => {
                   prevQuickLineupStep(quickLineupStepIndex)
                 }}
-                onSkip={() => {
+                onNext={() => {
                   skipQuickLineupStep(quickLineupStepIndex)
                 }}
                 stepIndex={quickLineupStepIndex}
@@ -239,24 +249,21 @@ function getCurrentQuickLineupStep(session: InternalQuickLineupSession): QuickLi
 function HeaderButton({
   label,
   onClick,
-  tone,
+  variant,
 }: {
   label: string
   onClick: () => void
-  tone: 'accent' | 'default'
+  variant: 'danger' | 'primary'
 }) {
   return (
-    <button
-      className={`border px-2.5 py-1 text-[10px] tracking-[0.12em] uppercase ${
-        tone === 'accent'
-          ? 'border-emerald-300/45 bg-emerald-500/10 text-emerald-100'
-          : 'border-slate-500/45 bg-slate-950/55 text-slate-300'
-      }`}
+    <Button
+      className='px-2.5 py-1 text-[10px] tracking-[0.12em] uppercase'
       onClick={onClick}
       type='button'
+      variant={variant}
     >
       {label}
-    </button>
+    </Button>
   )
 }
 
@@ -264,14 +271,14 @@ function QuickLineupFooter({
   canGoBack,
   compact,
   onBack,
-  onSkip,
+  onNext,
   stepIndex,
   totalSteps,
 }: {
   canGoBack: boolean
   compact: boolean
   onBack: () => void
-  onSkip: () => void
+  onNext: () => void
   stepIndex: number
   totalSteps: number
 }) {
@@ -282,30 +289,27 @@ function QuickLineupFooter({
       }`}
     >
       <div className='flex items-center justify-between gap-2'>
-        <button
-          className={`border border-slate-500/45 bg-slate-950/55 tracking-[0.12em] text-slate-300 uppercase disabled:opacity-40 ${
-            compact ? 'flex-1 px-2 py-0.5 text-[9px]' : 'px-3 py-1 text-[10px]'
-          }`}
+        <Button
+          className={`tracking-[0.12em] uppercase ${compact ? 'flex-1 px-2 py-0.5 text-[9px]' : 'px-3 py-1 text-[10px]'}`}
           disabled={!canGoBack}
           onClick={onBack}
           type='button'
         >
           Back
-        </button>
+        </Button>
         <span className={compact ? 'text-[8px] text-slate-500' : 'text-[10px] text-slate-500'}>
           {compact
             ? `${String(stepIndex + 1)}/${String(totalSteps)}`
             : `${String(stepIndex + 1)} / ${String(totalSteps)}`}
         </span>
-        <button
-          className={`border border-amber-400/45 bg-amber-500/10 tracking-[0.12em] text-amber-200 uppercase ${
-            compact ? 'flex-1 px-2 py-0.5 text-[9px]' : 'px-3 py-1 text-[10px]'
-          }`}
-          onClick={onSkip}
+        <Button
+          className={`tracking-[0.12em] uppercase ${compact ? 'flex-1 px-2 py-0.5 text-[9px]' : 'px-3 py-1 text-[10px]'}`}
+          onClick={onNext}
           type='button'
+          variant='primary'
         >
-          Skip
-        </button>
+          Next
+        </Button>
       </div>
     </footer>
   )

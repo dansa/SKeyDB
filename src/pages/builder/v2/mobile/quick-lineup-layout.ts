@@ -1,4 +1,4 @@
-import {clamp, roundToTenth} from './layout-math'
+import {clamp, roundToTenth} from '../layout-math'
 
 export type QuickLineupLayoutMode = 'portrait' | 'landscape'
 

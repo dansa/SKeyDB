@@ -26,6 +26,22 @@ function makeSlots(): Map<string, TeamSlot> {
 }
 
 describe('resolvePredictedDropHover', () => {
+  it('predicts slot hover for awakener drops over nested wheel and covenant zones', () => {
+    const overWheelResult = resolvePredictedDropHover(
+      {kind: 'picker-awakener', awakenerName: 'agrippa'},
+      'dropzone:wheel:slot-1:1',
+      makeSlots(),
+    )
+    const overCovenantResult = resolvePredictedDropHover(
+      {kind: 'team-slot', slotId: 'slot-3', awakenerName: 'ramona'},
+      'dropzone:covenant:slot-1',
+      makeSlots(),
+    )
+
+    expect(overWheelResult).toEqual({kind: 'slot', slotId: 'slot-1'})
+    expect(overCovenantResult).toEqual({kind: 'slot', slotId: 'slot-1'})
+  })
+
   it('predicts direct wheel drop target', () => {
     const result = resolvePredictedDropHover(
       {kind: 'picker-wheel', wheelId: 'B01'},

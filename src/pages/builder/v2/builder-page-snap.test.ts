@@ -1,16 +1,16 @@
 import {describe, expect, it} from 'vitest'
 
-import {getMobilePageSnapThreshold, resolveMobilePageSnapTarget} from './mobile-page-snap'
+import {getBuilderPageSnapThreshold, resolveBuilderPageSnapTarget} from './builder-page-snap'
 
-describe('mobile page snap', () => {
+describe('builder page snap', () => {
   it('uses a forgiving threshold for phone-height viewports', () => {
-    expect(getMobilePageSnapThreshold(844)).toBe(96)
-    expect(getMobilePageSnapThreshold(390)).toBe(47)
+    expect(getBuilderPageSnapThreshold(844)).toBe(96)
+    expect(getBuilderPageSnapThreshold(390)).toBe(47)
   })
 
   it('snaps back into the builder when page scroll stops a few pixels above the shell', () => {
     expect(
-      resolveMobilePageSnapTarget({
+      resolveBuilderPageSnapTarget({
         builderTop: 3,
         currentScrollTop: 285,
         exitTop: 901,
@@ -22,7 +22,7 @@ describe('mobile page snap', () => {
 
   it('snaps back into the builder when page scroll stops a little past the shell top', () => {
     expect(
-      resolveMobilePageSnapTarget({
+      resolveBuilderPageSnapTarget({
         builderTop: -17,
         currentScrollTop: 305,
         exitTop: 883,
@@ -34,7 +34,7 @@ describe('mobile page snap', () => {
 
   it('does not snap when the page is still meaningfully away from either zone', () => {
     expect(
-      resolveMobilePageSnapTarget({
+      resolveBuilderPageSnapTarget({
         builderTop: 142,
         currentScrollTop: 146,
         exitTop: 1040,
@@ -46,7 +46,7 @@ describe('mobile page snap', () => {
 
   it('snaps to the teams section when scrolling down near the exit zone', () => {
     expect(
-      resolveMobilePageSnapTarget({
+      resolveBuilderPageSnapTarget({
         builderTop: -902,
         currentScrollTop: 1080,
         exitTop: 22,
@@ -58,7 +58,7 @@ describe('mobile page snap', () => {
 
   it('does not pin the exit zone when the user scrolls back upward from below', () => {
     expect(
-      resolveMobilePageSnapTarget({
+      resolveBuilderPageSnapTarget({
         builderTop: -910,
         currentScrollTop: 1060,
         exitTop: 18,

@@ -2,6 +2,7 @@ import {describe, expect, it} from 'vitest'
 
 import type {InternalQuickLineupSession} from '../../quick-lineup'
 import {
+  selectActiveTeamSlots,
   selectIsQuickLineupActive,
   selectQuickLineupStepIndex,
   selectQuickLineupSteps,
@@ -113,5 +114,13 @@ describe('quick lineup selectors', () => {
     expect(selectIsQuickLineupActive(state)).toBe(false)
     expect(selectQuickLineupStepIndex(state)).toBe(0)
     expect(selectQuickLineupSteps(state)).toBeNull()
+  })
+
+  it('returns a stable empty slots array when the active team is missing', () => {
+    const state = createBuilderStoreWithQuickLineup(null)
+    state.activeTeamId = 'missing-team'
+
+    expect(selectActiveTeamSlots(state)).toBe(selectActiveTeamSlots(state))
+    expect(selectActiveTeamSlots(state)).toEqual([])
   })
 })
