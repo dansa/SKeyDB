@@ -144,6 +144,11 @@ describe('BuilderV2Page', () => {
 
     expect(useBuilderV2Actions.mock.calls.length).toBeLessThanOrEqual(2)
     expect(screen.getByRole('button', {name: /Import/i})).toBeInTheDocument()
+    expect(screen.getByTestId('builder-picker-panel')).toHaveAttribute(
+      'data-layout-variant',
+      'stacked',
+    )
+    expect(screen.getByTestId('builder-team-stage')).toBeInTheDocument()
   })
 
   it('keeps desktop export actions disabled when there are no teams or active team', () => {

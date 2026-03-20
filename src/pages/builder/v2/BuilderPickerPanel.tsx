@@ -1,4 +1,4 @@
-import {useCallback, useMemo, useRef} from 'react'
+import {useCallback, useMemo, useRef, type CSSProperties} from 'react'
 
 import {useDroppable} from '@dnd-kit/core'
 
@@ -100,6 +100,7 @@ interface BuilderPickerPanelProps {
   enableDragAndDrop?: boolean
   layoutVariant?: 'stacked' | 'wide-sidebar'
   onItemSelected?: () => void
+  tileMinWidthPx?: number
 }
 
 export function BuilderPickerPanel({
@@ -108,6 +109,7 @@ export function BuilderPickerPanel({
   enableDragAndDrop = true,
   layoutVariant = 'stacked',
   onItemSelected,
+  tileMinWidthPx,
 }: BuilderPickerPanelProps) {
   const isWideSidebar = layoutVariant === 'wide-sidebar'
   const pickerTab = useBuilderStore(selectPickerTab)
@@ -350,11 +352,17 @@ export function BuilderPickerPanel({
     </div>
   )
 
+  const panelStyle =
+    tileMinWidthPx !== undefined
+      ? ({'--builder-picker-tile-min-width': `${String(tileMinWidthPx)}px`} as CSSProperties)
+      : undefined
+
   return (
     <div
       className='flex h-full min-h-0 flex-col bg-slate-950/85'
       data-layout-variant={layoutVariant}
       data-testid='builder-picker-panel'
+      style={panelStyle}
     >
       {!isWideSidebar ? pickerTabs : null}
       <div className={`min-h-0 flex-1 ${isWideSidebar ? 'flex overflow-hidden' : 'flex flex-col'}`}>

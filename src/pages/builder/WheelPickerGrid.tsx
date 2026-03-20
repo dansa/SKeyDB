@@ -48,7 +48,7 @@ export function WheelPickerGrid({
   onSetActiveWheel,
 }: WheelPickerGridProps) {
   return (
-    <div className='grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] items-start gap-2'>
+    <div className='grid grid-cols-[repeat(auto-fill,minmax(var(--builder-picker-tile-min-width,80px),1fr))] items-start gap-2'>
       <PickerWheelTile
         enableDragAndDrop={enableDragAndDrop}
         isNotSet

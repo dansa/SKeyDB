@@ -12,6 +12,7 @@ interface BuilderToolbarProps {
   onExportIngame: () => void
   onUndoReset: () => void
   onRequestReset: () => void
+  attached?: boolean
 }
 
 export function BuilderToolbar({
@@ -23,9 +24,10 @@ export function BuilderToolbar({
   onExportIngame,
   onUndoReset,
   onRequestReset,
+  attached = false,
 }: BuilderToolbarProps) {
   return (
-    <PageToolkitBar className='collection-toolkit-drawer' sticky>
+    <PageToolkitBar attached={attached} className='collection-toolkit-drawer' sticky={!attached}>
       <Button
         className='px-2 py-1 text-[10px] tracking-wide uppercase'
         onClick={onImport}

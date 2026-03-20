@@ -10,7 +10,12 @@ import {
   type DragStartEvent,
 } from '@dnd-kit/core'
 
-import {parseCovenantDropZoneId, parseWheelDropZoneId, PICKER_DROP_ZONE_ID} from '../dnd-ids'
+import {
+  parseCovenantDropZoneId,
+  parseWheelDropZoneId,
+  PICKER_DROP_ZONE_ID,
+  POSSE_DROP_ZONE_ID,
+} from '../dnd-ids'
 import {
   clearCovenantAssignment,
   clearSlotAssignment,
@@ -146,7 +151,9 @@ export function useBuilderV2Dnd(
       }
 
       case 'picker-posse': {
-        actions.handleSetActivePosse(data.posseId)
+        if (overId === POSSE_DROP_ZONE_ID) {
+          actions.handleSetActivePosse(data.posseId)
+        }
         return
       }
 

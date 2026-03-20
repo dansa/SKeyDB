@@ -1,5 +1,7 @@
 import type {CSSProperties} from 'react'
 
+import {useDroppable} from '@dnd-kit/core'
+
 import tempPosseIcon from '@/assets/posse/00-temposse.webp'
 import {
   DEFAULT_REALM_TINT,
@@ -9,6 +11,7 @@ import {
   normalizeRealmId,
 } from '@/domain/factions'
 
+import {POSSE_DROP_ZONE_ID} from './dnd-ids'
 import {TeamNameInlineEditor} from './TeamNameInlineEditor'
 
 interface ActiveTeamHeaderProps {
@@ -78,6 +81,7 @@ export function ActiveTeamHeader({
   onEditingTeamNameChange,
   onOpenPossePicker,
 }: ActiveTeamHeaderProps) {
+  const {setNodeRef: setPosseDropRef} = useDroppable({id: POSSE_DROP_ZONE_ID})
   const normalizedRealms = Array.from(new Set(teamRealms.map(normalizeRealmId))).slice(0, 2)
   const activeRealms = normalizedRealms
     .map((realmId) => realmMetaById.get(realmId))
@@ -153,7 +157,12 @@ export function ActiveTeamHeader({
         </p>
       </div>
 
-      <button className='builder-team-posse-button' onClick={onOpenPossePicker} type='button'>
+      <button
+        className='builder-team-posse-button'
+        onClick={onOpenPossePicker}
+        ref={setPosseDropRef}
+        type='button'
+      >
         <span className='builder-team-posse-copy'>
           <span className='ui-title text-xl text-amber-100'>Posse</span>
           <span className='text-xs tracking-wide text-slate-300/90'>

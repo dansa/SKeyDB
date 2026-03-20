@@ -1,6 +1,6 @@
 import {useMemo, useState, type ReactNode} from 'react'
 
-import {closestCenter, DndContext, DragOverlay} from '@dnd-kit/core'
+import {DndContext, DragOverlay} from '@dnd-kit/core'
 
 import {
   PickerAwakenerGhost,
@@ -11,6 +11,7 @@ import {
 } from '../DragGhosts'
 import {resolvePredictedDropHover} from '../predicted-drop-hover'
 import type {DragData} from '../types'
+import {builderCollisionDetection} from './builder-dnd-collision'
 import {BuilderDndStateProvider} from './BuilderDndStateContext'
 import {useBuilderStore} from './store/builder-store'
 import {selectActiveTeamSlots} from './store/selectors'
@@ -145,7 +146,7 @@ export function BuilderDndProvider({actions, children}: BuilderDndProviderProps)
     <BuilderDndStateProvider value={dndState}>
       <DndContext
         autoScroll={false}
-        collisionDetection={closestCenter}
+        collisionDetection={builderCollisionDetection}
         onDragCancel={handleWrappedDragCancel}
         onDragEnd={handleWrappedDragEnd}
         onDragOver={handleWrappedDragOver}

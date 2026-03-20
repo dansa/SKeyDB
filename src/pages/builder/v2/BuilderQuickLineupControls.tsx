@@ -8,11 +8,13 @@ import {selectActiveTeamSlots} from './store/selectors'
 interface BuilderQuickLineupControlsProps {
   compact?: boolean
   placement?: 'top' | 'bottom'
+  appearance?: 'default' | 'tablet'
 }
 
 export function BuilderQuickLineupControls({
   compact = false,
   placement = 'bottom',
+  appearance = compact ? 'tablet' : 'default',
 }: BuilderQuickLineupControlsProps) {
   const slots = useBuilderStore(selectActiveTeamSlots)
   const quickLineupSessionState = useBuilderStore((state) => state.quickLineupSessionState)
@@ -47,7 +49,7 @@ export function BuilderQuickLineupControls({
 
   const currentStep = quickLineupSessionState.steps[quickLineupSessionState.currentStepIndex]
   const canGoBack = findPreviousQuickLineupStepIndex(quickLineupSessionState, slots) !== null
-  if (compact && placement === 'top') {
+  if (appearance === 'tablet') {
     return (
       <div className='px-3 py-2' data-testid='builder-quick-lineup-controls'>
         <div className='flex items-start justify-between gap-3'>

@@ -10,6 +10,7 @@ const dndContextSpy = vi.fn()
 vi.mock('@dnd-kit/core', async () => {
   return {
     closestCenter: () => null,
+    pointerWithin: () => [],
     DndContext: ({autoScroll, children}: {autoScroll?: boolean; children: React.ReactNode}) => {
       dndContextSpy(autoScroll)
       return (

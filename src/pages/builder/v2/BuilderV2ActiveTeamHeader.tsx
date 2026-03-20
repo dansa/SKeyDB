@@ -1,10 +1,13 @@
 import {useCallback, useMemo, useState} from 'react'
 
+import {useDroppable} from '@dnd-kit/core'
+
 import {getRealmLabel, getRealmTint, normalizeRealmId} from '@/domain/factions'
 import {getPosseAssetById} from '@/domain/posse-assets'
 import {getPosses} from '@/domain/posses'
 
 import {ActiveTeamHeader} from '../ActiveTeamHeader'
+import {POSSE_DROP_ZONE_ID} from '../dnd-ids'
 import {useBuilderStore} from './store/builder-store'
 import {selectActiveTeam, selectActiveTeamSlots} from './store/selectors'
 import {useCollectionOwnership} from './useCollectionOwnership'
@@ -17,6 +20,7 @@ interface BuilderV2ActiveTeamHeaderProps {
 }
 
 export function BuilderV2ActiveTeamHeader({compact = false}: BuilderV2ActiveTeamHeaderProps) {
+  const {setNodeRef: setPosseDropRef} = useDroppable({id: POSSE_DROP_ZONE_ID})
   const activeTeam = useBuilderStore(selectActiveTeam)
   const teamSlots = useBuilderStore(selectActiveTeamSlots)
   const renameTeam = useBuilderStore((s) => s.renameTeam)
@@ -116,6 +120,7 @@ export function BuilderV2ActiveTeamHeader({compact = false}: BuilderV2ActiveTeam
           aria-label='Open posse picker'
           className='flex shrink-0 items-center gap-1.5 border border-slate-500/35 bg-slate-950/45 px-1.5 py-0.5 text-left transition-[background-color,border-color,filter] hover:border-amber-300/45 hover:bg-slate-900/72 hover:brightness-105'
           onClick={handleOpenPossePicker}
+          ref={setPosseDropRef}
           type='button'
         >
           <span className='text-[9px] tracking-[0.1em] text-slate-500 uppercase'>Posse</span>

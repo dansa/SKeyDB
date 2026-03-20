@@ -23,7 +23,7 @@ export function AwakenerPickerGrid({
   onAwakenerClick,
 }: AwakenerPickerGridProps) {
   return (
-    <div className='grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] gap-1.5'>
+    <div className='grid grid-cols-[repeat(auto-fill,minmax(var(--builder-picker-tile-min-width,80px),1fr))] gap-1.5'>
       {filteredAwakeners.map((awakener) => (
         <PickerAwakenerTile
           awakenerName={awakener.name}

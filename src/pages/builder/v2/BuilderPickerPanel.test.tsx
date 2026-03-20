@@ -132,6 +132,16 @@ describe('BuilderPickerPanel', () => {
     })
   })
 
+  it('can tighten stacked picker tile width for denser desktop result grids', () => {
+    resetStore()
+
+    render(<TestPickerPanel layoutVariant='stacked' tileMinWidthPx={72} />)
+
+    expect(screen.getByTestId('builder-picker-panel')).toHaveStyle({
+      '--builder-picker-tile-min-width': '72px',
+    })
+  })
+
   it('shows wheel recommendation controls and chips for the active build', () => {
     resetStore()
     seedSlot1Awakener('goliath')

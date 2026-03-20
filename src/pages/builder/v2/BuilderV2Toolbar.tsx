@@ -4,11 +4,13 @@ import type {BuilderV2ActionsResult} from './useBuilderV2Actions'
 
 interface BuilderV2ToolbarProps {
   actions: BuilderV2ActionsResult
+  attached?: boolean
 }
 
-export function BuilderV2Toolbar({actions}: BuilderV2ToolbarProps) {
+export function BuilderV2Toolbar({actions, attached = false}: BuilderV2ToolbarProps) {
   return (
     <BuilderToolbar
+      attached={attached}
       {...getBuilderWideBarProps({
         activeTeam: actions.activeTeam,
         canUndoReset: actions.canUndoReset,

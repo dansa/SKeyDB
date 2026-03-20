@@ -140,4 +140,47 @@ describe('BuilderTeamStage', () => {
     expect(gridWidthShell).not.toHaveClass('h-full')
     expect(gridBody).toHaveClass('min-h-0')
   })
+
+  it('can reuse the fitted tablet-style grid mechanics with the richer desktop header', () => {
+    resetStore()
+
+    render(<BuilderTeamStage fitGridToHeight onRequestResetTeam={() => undefined} />)
+
+    expect(screen.queryByTestId('builder-v2-compact-header')).not.toBeInTheDocument()
+    expect(screen.getByText(/^Posse$/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: /Quick Lineup/i})).toBeInTheDocument()
+    expect(screen.getByTestId('builder-card-grid').parentElement).not.toHaveClass('overflow-x-auto')
+  })
+
+  it('keeps desktop action controls below the builder cards while idle', () => {
+    resetStore()
+
+    render(<BuilderTeamStage fitGridToHeight onRequestResetTeam={() => undefined} />)
+
+    const cardGrid = screen.getByTestId('builder-card-grid')
+    const actionBar = screen.getByTestId('current-team-action-bar')
+
+    expect(cardGrid.compareDocumentPosition(actionBar) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(
+      0,
+    )
+    expect(screen.queryByRole('button', {name: /^Rename$/i})).not.toBeInTheDocument()
+    expect(actionBar).toHaveClass('justify-end')
+    expect(actionBar).not.toHaveClass('grid')
+  })
+
+  it('reuses the tablet quick-lineup chrome on desktop once quick lineup is active', async () => {
+    resetStore()
+
+    render(<BuilderTeamStage fitGridToHeight onRequestResetTeam={() => undefined} />)
+
+    fireEvent.click(screen.getByRole('button', {name: /Quick Lineup/i}))
+
+    const quickLineupControls = await screen.findByTestId('builder-quick-lineup-controls')
+
+    expect(screen.getByText(/Step 1 \/ 17/i)).toBeInTheDocument()
+    expect(screen.getByTestId('builder-quick-lineup-status')).toHaveTextContent(
+      /^Slot 1 -> Awakener$/i,
+    )
+    expect(quickLineupControls.firstElementChild).toHaveClass('justify-between')
+  })
 })

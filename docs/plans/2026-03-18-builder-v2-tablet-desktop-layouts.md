@@ -78,10 +78,16 @@
   - Added a first tablet-only wide picker body in `BuilderPickerPanel`: tabs still stay on top, but tablet now moves search/sorting/filters into a scrollable left rail and gives results the full remaining height in a separate right pane, preserving existing V2 picker state/actions.
   - Re-split the tablet wide picker so the left rail owns the full body height while picker tabs now sit above only the results column, reclaiming enough vertical room for denser tabs like Wheels without inventing a second tablet picker mode.
   - Locked the tablet snapped main zone to the shared `600px` minimum height contract, so short tablet heights now stop shrinking the overall builder area and hand overflow back to the page instead of crushing the builder stage below its readable card floor.
+  - Rebuilt desktop around the shared V2 team stage instead of the older header-plus-grid split, so desktop now inherits the integrated tabs/header/stage structure already established in tablet V2.
+  - Reworked the desktop builder stage to reuse the tablet-style fitted grid mechanics rather than the older desktop horizontal-scroll stage: desktop now keeps the richer active-team header while using the non-scrolling, width-shrinkable 4x1 card layout path.
+  - Switched desktop picker composition back to the top-stacked V2 picker inside a constrained right rail, and restored the V1 picker-height contract by coupling the rail minimum height to the measured builder stage while still capping it to the viewport via the sticky max-height hook.
+  - Locked desktop to an explicit two-column layout contract with a minimum grid width so narrower desktop viewports overflow horizontally instead of collapsing the picker below the builder.
+  - Attached desktop import/export/reset actions to the shared V2 header shell and placed the layout switcher in the same header chrome instead of leaving desktop as a separate floating toolbar arrangement.
+  - Added desktop regression coverage for the new builder/picker split and updated page-level V2 layout tests to assert the wide desktop picker plus shared team-stage composition.
 - In progress:
-  - Desktop completion remains the active follow-on for Builder V2 after the tablet/shared-stage slice shipped.
+  - Final desktop/mobile/tablet layout-switcher harmonization and any additional visual polish remain available as a smaller follow-up pass.
 - Next:
-  - Finish the desktop Builder V2 shell on top of the shipped shared non-mobile stage and top-level shared V2 helpers.
+  - Evaluate whether the shared layout switcher should gain a single dedicated utility component across all three layouts now that desktop also lives inside the header shell.
   - Revisit any folder-ownership split, including a possible dedicated `/tablet` area, only after desktop work makes the shared vs. tablet-only boundaries clearer.
 - Blockers:
   - None.

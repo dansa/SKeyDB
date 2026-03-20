@@ -1,4 +1,5 @@
 export const PICKER_DROP_ZONE_ID = 'dropzone:picker'
+export const POSSE_DROP_ZONE_ID = 'dropzone:posse'
 
 const WHEEL_DROP_ZONE_PREFIX = 'dropzone:wheel:'
 const COVENANT_DROP_ZONE_PREFIX = 'dropzone:covenant:'

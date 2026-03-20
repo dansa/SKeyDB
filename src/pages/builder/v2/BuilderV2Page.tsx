@@ -5,14 +5,13 @@ import {Toast} from '@/components/ui/Toast'
 import {BuilderConfirmDialogs} from '../BuilderConfirmDialogs'
 import {BuilderImportExportDialogs} from '../BuilderImportExportDialogs'
 import {getBuilderWideBarProps} from './builder-wide-bar-props'
-import {BuilderCardGrid} from './BuilderCardGrid'
 import {BuilderDesktopLayout} from './BuilderDesktopLayout'
 import {BuilderDndProvider} from './BuilderDndProvider'
 import {BuilderPickerPanel} from './BuilderPickerPanel'
 import {BuilderTabletLayout} from './BuilderTabletLayout'
 import {BuilderTeamsPanel} from './BuilderTeamsPanel'
 import {BuilderTeamStage} from './BuilderTeamStage'
-import {BuilderV2ActiveTeamHeader} from './BuilderV2ActiveTeamHeader'
+import {BuilderToolbarShell} from './BuilderToolbarShell'
 import {BuilderV2Toolbar} from './BuilderV2Toolbar'
 import {BuilderWideBar} from './BuilderWideBar'
 import {useBuilderPageSnapDocument, useStickyBuilderPageSnap} from './layout-hooks'
@@ -137,10 +136,10 @@ export function BuilderV2Page() {
   }
 
   const desktopToolbar = (
-    <div className='space-y-2'>
-      <div className='flex items-center justify-between'>{layoutSwitcher}</div>
-      <BuilderV2Toolbar actions={actions} />
-    </div>
+    <BuilderToolbarShell>
+      <LayoutSwitcherBanner label='Desktop Layout'>{layoutSwitcher}</LayoutSwitcherBanner>
+      <BuilderV2Toolbar actions={actions} attached />
+    </BuilderToolbarShell>
   )
   const tabletToolbar = (
     <>
@@ -171,12 +170,17 @@ export function BuilderV2Page() {
             }
           : undefined
       }
+      tileMinWidthPx={isTabletLayout ? undefined : 72}
     />
   )
-  const activeTeamHeader = <BuilderV2ActiveTeamHeader />
-  const teamCards = <BuilderCardGrid />
   const teamStage = (
-    <BuilderTeamStage compact={isTabletLayout} onRequestResetTeam={actions.requestResetTeam} />
+    <BuilderTeamStage
+      actionBarPlacement={isTabletLayout ? 'top' : 'bottom'}
+      compact={isTabletLayout}
+      fitGridToHeight={!isTabletLayout}
+      onRequestResetTeam={actions.requestResetTeam}
+      tabsVariant='tablet'
+    />
   )
   const teamsPanel = <BuilderTeamsPanel />
 
@@ -196,9 +200,8 @@ export function BuilderV2Page() {
   } else {
     layout = (
       <BuilderDesktopLayout
-        activeTeamHeader={activeTeamHeader}
         picker={picker}
-        teamCards={teamCards}
+        teamStage={teamStage}
         teamsPanel={teamsPanel}
         toolbar={desktopToolbar}
       />

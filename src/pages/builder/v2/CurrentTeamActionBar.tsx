@@ -8,6 +8,9 @@ interface CurrentTeamActionBarProps {
   onRequestResetTeam: (teamId: string, teamName: string) => void
   teamId: string
   teamName: string
+  placement?: 'top' | 'bottom'
+  dense?: boolean
+  showRename?: boolean
 }
 
 export function CurrentTeamActionBar({
@@ -15,6 +18,9 @@ export function CurrentTeamActionBar({
   onRequestResetTeam,
   teamId,
   teamName,
+  placement = 'top',
+  dense = false,
+  showRename = true,
 }: CurrentTeamActionBarProps) {
   const renameTeam = useBuilderStore((state) => state.renameTeam)
   const renameEditor = useInlineEditor({
@@ -25,11 +31,16 @@ export function CurrentTeamActionBar({
     validate: (draft) => draft.trim() || 'Unnamed',
   })
 
+  const shellClassName =
+    placement === 'bottom'
+      ? 'flex shrink-0 justify-end border-t border-slate-500/45 px-3 py-2'
+      : 'shrink-0 border-b border-slate-500/45 px-2 py-1.5'
+  const buttonClassName = dense
+    ? 'px-3 py-1 text-[10px] tracking-[0.08em] uppercase'
+    : 'px-2 py-1 text-[10px] tracking-[0.08em] uppercase'
+
   return (
-    <div
-      className='shrink-0 border-b border-slate-500/45 px-2 py-1.5'
-      data-testid='current-team-action-bar'
-    >
+    <div className={shellClassName} data-testid='current-team-action-bar'>
       {renameEditor.isEditing ? (
         <div className='flex items-center gap-2'>
           <input
@@ -61,16 +72,20 @@ export function CurrentTeamActionBar({
           </Button>
         </div>
       ) : (
-        <div className='grid grid-cols-3 gap-2'>
+        <div
+          className={
+            placement === 'bottom'
+              ? 'flex flex-wrap items-center justify-end gap-2'
+              : `grid gap-2 ${showRename ? 'grid-cols-3' : 'grid-cols-2'}`
+          }
+        >
+          {showRename ? (
+            <Button className={buttonClassName} onClick={renameEditor.beginEdit} type='button'>
+              Rename
+            </Button>
+          ) : null}
           <Button
-            className='px-2 py-1 text-[10px] tracking-[0.08em] uppercase'
-            onClick={renameEditor.beginEdit}
-            type='button'
-          >
-            Rename
-          </Button>
-          <Button
-            className='px-2 py-1 text-[10px] tracking-[0.08em] uppercase'
+            className={buttonClassName}
             onClick={() => {
               onRequestResetTeam(teamId, teamName)
             }}
@@ -80,7 +95,7 @@ export function CurrentTeamActionBar({
             Reset Team
           </Button>
           <Button
-            className='px-2 py-1 text-[10px] tracking-[0.08em] uppercase'
+            className={buttonClassName}
             onClick={onQuickLineup}
             type='button'
             variant='primary'
