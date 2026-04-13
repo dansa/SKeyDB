@@ -1,6 +1,7 @@
 interface SegmentedControlOption<T extends string> {
   value: T
   label: string
+  title?: string
 }
 
 interface SegmentedControlProps<T extends string> {
@@ -36,6 +37,7 @@ export function SegmentedControl<T extends string>({
             onClick={() => {
               onChange(option.value)
             }}
+            title={option.title}
             type='button'
           >
             {option.label}

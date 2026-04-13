@@ -12,10 +12,9 @@ import {
 } from '@/domain/database-paths'
 
 import {useGlobalCollectionSearchCapture} from './collection/useGlobalCollectionSearchCapture'
-import {AwakenerDetailModal} from './database/AwakenerDetailModal'
-import {DatabaseFilters} from './database/DatabaseFilters'
-import {DatabaseGrid} from './database/DatabaseGrid'
-import {useDatabaseViewModel} from './database/useDatabaseViewModel'
+import {AwakenerDetailModal} from './database/components/AwakenerDetail'
+import {DatabaseFilters, DatabaseGrid} from './database/components/DatabaseMain'
+import {useDatabaseViewModel} from './database/hooks/useDatabaseViewModel'
 
 export function DatabasePage() {
   const vm = useDatabaseViewModel()
@@ -23,7 +22,7 @@ export function DatabasePage() {
   const navigate = useNavigate()
   const {awakenerSlug, tabSlug} = useParams<{awakenerSlug?: string; tabSlug?: string}>()
   const selectedAwakener = findAwakenerByDatabaseSlug(getAwakeners(), awakenerSlug)
-  const selectedTab = resolveDatabaseAwakenerTab(tabSlug) ?? 'overview'
+  const selectedTab = resolveDatabaseAwakenerTab(tabSlug) ?? 'cards'
 
   useGlobalCollectionSearchCapture({
     searchInputRef,

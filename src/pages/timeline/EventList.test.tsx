@@ -1,8 +1,21 @@
 import {fireEvent, render, screen} from '@testing-library/react'
+import {vi} from 'vitest'
 
 import {type EventEntry} from '@/domain/timeline'
 
 import {EventList} from './EventList'
+
+vi.mock('@/domain/awakener-assets', () => ({
+  getAwakenerCardAsset: () => undefined,
+}))
+
+vi.mock('@/domain/wheel-assets', () => ({
+  getWheelAssetById: () => undefined,
+}))
+
+vi.mock('@/domain/wheels', () => ({
+  getWheels: () => [],
+}))
 
 describe('EventList', () => {
   it('keeps ended events collapsed by default, filters fluff archives, and shows rerun chips', () => {

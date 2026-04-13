@@ -4,21 +4,25 @@ const cardSchema = z.object({
   name: z.string(),
   cost: z.string(),
   description: z.string(),
+  label: z.string().optional(),
 })
 
 const exaltSchema = z.object({
   name: z.string(),
   description: z.string(),
+  label: z.string().optional(),
 })
 
 const talentSchema = z.object({
   name: z.string(),
   description: z.string(),
+  label: z.string().optional(),
 })
 
 const enlightenSchema = z.object({
   name: z.string(),
   description: z.string(),
+  label: z.string().optional(),
 })
 
 const statScalingSchema = z.object({
@@ -53,6 +57,7 @@ const fullStatsSchema = z.object({
   SigilYield: z.string(),
   DamageAmplification: z.string(),
   DeathResistance: z.string(),
+  BaseAliemus: z.string(),
 })
 
 const awakenerFullSchema = z.array(

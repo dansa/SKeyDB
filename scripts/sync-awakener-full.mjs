@@ -21,10 +21,11 @@ const FULL_STAT_KEYS = [
   'SigilYield',
   'DamageAmplification',
   'DeathResistance',
+  'BaseAliemus',
 ]
 const CARD_KEYS = ['C1', 'C2', 'C3', 'C4', 'C5']
 const TALENT_KEYS = ['T1', 'T2', 'T3', 'T4']
-const ENLIGHTEN_KEYS = ['E1', 'E2', 'E3']
+const ENLIGHTEN_KEYS = ['E1', 'E2', 'E3', 'E15']
 const DEFAULT_SECONDARY_STATS = {
   CritRate: '5%',
   CritDamage: '50%',
@@ -34,6 +35,7 @@ const DEFAULT_SECONDARY_STATS = {
   SigilYield: '0%',
   DamageAmplification: '0%',
   DeathResistance: '0%',
+  BaseAliemus: '100',
 }
 
 function toStringStat(value, fallback = '0') {

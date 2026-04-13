@@ -1,78 +1,96 @@
 import {describe, expect, it} from 'vitest'
 
-import {getCardNamesFromFull, parseRichDescription} from './rich-text'
+import {getCardNamesFromFull, parseRichDescription, type RichSegment} from './rich-text'
 
 const EMPTY_CARDS = new Set<string>()
+
+function expectLine(segments: RichSegment[], indented = false) {
+  return [{type: 'line', indented, segments}]
+}
 
 describe('parseRichDescription', () => {
   it('returns plain text when no tokens', () => {
     const result = parseRichDescription('Deal DMG to all enemies.', EMPTY_CARDS)
-    expect(result).toEqual([{type: 'text', value: 'Deal DMG to all enemies.'}])
+    expect(result).toEqual(expectLine([{type: 'text', value: 'Deal DMG to all enemies.'}]))
   })
 
   it('parses a stat token', () => {
     const result = parseRichDescription('Gain {ATK} bonus.', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'text', value: 'Gain '},
-      {type: 'stat', name: 'ATK'},
-      {type: 'text', value: ' bonus.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Gain '},
+        {type: 'stat', name: 'ATK'},
+        {type: 'text', value: ' bonus.'},
+      ]),
+    )
   })
 
   it('parses multiple stat tokens', () => {
     const result = parseRichDescription('{CON}, {ATK}, and {DEF}', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'stat', name: 'CON'},
-      {type: 'text', value: ', '},
-      {type: 'stat', name: 'ATK'},
-      {type: 'text', value: ', and '},
-      {type: 'stat', name: 'DEF'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'stat', name: 'CON'},
+        {type: 'text', value: ', '},
+        {type: 'stat', name: 'ATK'},
+        {type: 'text', value: ', and '},
+        {type: 'stat', name: 'DEF'},
+      ]),
+    )
   })
 
   it('parses a skill token when card name matches', () => {
     const cards = new Set(['Poof!'])
     const result = parseRichDescription('{Poof!}: Casiah gains 3 Aliemus.', cards)
-    expect(result).toEqual([
-      {type: 'skill', name: 'Poof!'},
-      {type: 'text', value: ': Casiah gains 3 Aliemus.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'skill', name: 'Poof!'},
+        {type: 'text', value: ': Casiah gains 3 Aliemus.'},
+      ]),
+    )
   })
 
   it('parses a skill token case-insensitively and preserves canonical card name', () => {
     const cards = new Set(['Vortex! Shell!'])
     const result = parseRichDescription('{vortex! shell!} triggers.', cards)
-    expect(result).toEqual([
-      {type: 'skill', name: 'Vortex! Shell!'},
-      {type: 'text', value: ' triggers.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'skill', name: 'Vortex! Shell!'},
+        {type: 'text', value: ' triggers.'},
+      ]),
+    )
   })
 
   it('classifies unknown tokens as mechanic', () => {
     const result = parseRichDescription('Inflict {Vulnerable} on all enemies.', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'text', value: 'Inflict '},
-      {type: 'mechanic', name: 'Vulnerable'},
-      {type: 'text', value: ' on all enemies.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Inflict '},
+        {type: 'mechanic', name: 'Vulnerable'},
+        {type: 'text', value: ' on all enemies.'},
+      ]),
+    )
   })
 
   it('parses scaling pattern with stat', () => {
     const result = parseRichDescription('Deal (10/12/14/16/18/20% {ATK}) DMG.', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'text', value: 'Deal '},
-      {type: 'scaling', values: [10, 12, 14, 16, 18, 20], suffix: '%', stat: 'ATK'},
-      {type: 'text', value: ' DMG.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Deal '},
+        {type: 'scaling', values: [10, 12, 14, 16, 18, 20], suffix: '%', stat: 'ATK'},
+        {type: 'text', value: ' DMG.'},
+      ]),
+    )
   })
 
   it('parses scaling pattern without stat', () => {
     const result = parseRichDescription('Gain (5/6/7/8/9/10) Aliemus.', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'text', value: 'Gain '},
-      {type: 'scaling', values: [5, 6, 7, 8, 9, 10], suffix: '', stat: null},
-      {type: 'text', value: ' Aliemus.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Gain '},
+        {type: 'scaling', values: [5, 6, 7, 8, 9, 10], suffix: '', stat: null},
+        {type: 'text', value: ' Aliemus.'},
+      ]),
+    )
   })
 
   it('parses scaling with decimal values', () => {
@@ -80,11 +98,13 @@ describe('parseRichDescription', () => {
       'Deal (12.5/15/17.5/20/22.5/25% {DEF}) Shield.',
       EMPTY_CARDS,
     )
-    expect(result).toEqual([
-      {type: 'text', value: 'Deal '},
-      {type: 'scaling', values: [12.5, 15, 17.5, 20, 22.5, 25], suffix: '%', stat: 'DEF'},
-      {type: 'text', value: ' Shield.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Deal '},
+        {type: 'scaling', values: [12.5, 15, 17.5, 20, 22.5, 25], suffix: '%', stat: 'DEF'},
+        {type: 'text', value: ' Shield.'},
+      ]),
+    )
   })
 
   it('handles scaling before bracket tokens in the same string', () => {
@@ -92,49 +112,59 @@ describe('parseRichDescription', () => {
       'Deal (10/12/14/16/18/20% {ATK}) DMG. Inflict {Poison}.',
       EMPTY_CARDS,
     )
-    expect(result).toEqual([
-      {type: 'text', value: 'Deal '},
-      {type: 'scaling', values: [10, 12, 14, 16, 18, 20], suffix: '%', stat: 'ATK'},
-      {type: 'text', value: ' DMG. Inflict '},
-      {type: 'mechanic', name: 'Poison'},
-      {type: 'text', value: '.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Deal '},
+        {type: 'scaling', values: [10, 12, 14, 16, 18, 20], suffix: '%', stat: 'ATK'},
+        {type: 'text', value: ' DMG. Inflict '},
+        {type: 'mechanic', name: 'Poison'},
+        {type: 'text', value: '.'},
+      ]),
+    )
   })
 
   it('handles unclosed bracket gracefully as plain text', () => {
     const result = parseRichDescription('Broken {token text', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'text', value: 'Broken '},
-      {type: 'text', value: '{token text'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Broken '},
+        {type: 'text', value: '{token text'},
+      ]),
+    )
   })
 
   it('handles empty brackets as plain text', () => {
     const result = parseRichDescription('Empty {} here.', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'text', value: 'Empty '},
-      {type: 'text', value: '{}'},
-      {type: 'text', value: ' here.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Empty '},
+        {type: 'text', value: '{}'},
+        {type: 'text', value: ' here.'},
+      ]),
+    )
   })
 
   it('skill takes priority over mechanic for matching card names', () => {
     const cards = new Set(['Strike', 'Defend'])
     const result = parseRichDescription('{Strike} and {Defend}', cards)
-    expect(result).toEqual([
-      {type: 'skill', name: 'Strike'},
-      {type: 'text', value: ' and '},
-      {type: 'skill', name: 'Defend'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'skill', name: 'Strike'},
+        {type: 'text', value: ' and '},
+        {type: 'skill', name: 'Defend'},
+      ]),
+    )
   })
 
   it('parses STR as a stat even though it is not a mainstat key', () => {
     const result = parseRichDescription('Gain {STR} equal to 8%.', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'text', value: 'Gain '},
-      {type: 'stat', name: 'STR'},
-      {type: 'text', value: ' equal to 8%.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Gain '},
+        {type: 'mechanic', name: 'STR'},
+        {type: 'text', value: ' equal to 8%.'},
+      ]),
+    )
   })
 
   it('parses temporary stat-prefixed tokens as stats', () => {
@@ -142,57 +172,101 @@ describe('parseRichDescription', () => {
       'Gain {Temporary Crit Rate} and {Temporary STR}.',
       EMPTY_CARDS,
     )
-    expect(result).toEqual([
-      {type: 'text', value: 'Gain '},
-      {type: 'stat', name: 'Temporary Crit Rate'},
-      {type: 'text', value: ' and '},
-      {type: 'stat', name: 'Temporary STR'},
-      {type: 'text', value: '.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Gain '},
+        {type: 'mechanic', name: 'Temporary Crit Rate'},
+        {type: 'text', value: ' and '},
+        {type: 'mechanic', name: 'Temporary STR'},
+        {type: 'text', value: '.'},
+      ]),
+    )
   })
 
   it('parses prose scaling "X% of {STAT}" pattern', () => {
     const result = parseRichDescription('Deal 7.5% of {CON} as DMG.', EMPTY_CARDS)
     expect(result).toEqual([
-      {type: 'text', value: 'Deal '},
-      {type: 'scaling', values: [7.5], suffix: '%', stat: 'CON'},
-      {type: 'text', value: ' as DMG.'},
+      {
+        type: 'line',
+        indented: false,
+        segments: [
+          {type: 'text', value: 'Deal '},
+          {type: 'scaling', values: [7.5], suffix: '%', stat: 'CON'},
+          {type: 'text', value: ' as DMG.'},
+        ],
+      },
+    ])
+  })
+
+  it('handles double newlines as paragraphs', () => {
+    const result = parseRichDescription('Line 1\n\nLine 2', EMPTY_CARDS)
+    expect(result).toEqual([
+      {
+        type: 'line',
+        indented: false,
+        segments: [{type: 'text', value: 'Line 1'}],
+      },
+      {type: 'paragraph'},
+      {
+        type: 'line',
+        indented: false,
+        segments: [{type: 'text', value: 'Line 2'}],
+      },
+    ])
+  })
+
+  it('handles line indentation with > prefix', () => {
+    const result = parseRichDescription('> Indented line', EMPTY_CARDS)
+    expect(result).toEqual([
+      {
+        type: 'line',
+        indented: true,
+        segments: [{type: 'text', value: 'Indented line'}],
+      },
     ])
   })
 
   it('parses prose scaling with integer value', () => {
     const result = parseRichDescription('Restore 10% of {DEF} as Shield.', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'text', value: 'Restore '},
-      {type: 'scaling', values: [10], suffix: '%', stat: 'DEF'},
-      {type: 'text', value: ' as Shield.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Restore '},
+        {type: 'scaling', values: [10], suffix: '%', stat: 'DEF'},
+        {type: 'text', value: ' as Shield.'},
+      ]),
+    )
   })
 
   it('does NOT parse prose scaling for non-computable stats', () => {
     const result = parseRichDescription('Gain 1% of {Death Resistance} bonus.', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'text', value: 'Gain 1% of '},
-      {type: 'stat', name: 'Death Resistance'},
-      {type: 'text', value: ' bonus.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Gain 1% of '},
+        {type: 'stat', name: 'Death Resistance'},
+        {type: 'text', value: ' bonus.'},
+      ]),
+    )
   })
 
   it('does NOT parse prose scaling for mechanic-type stats', () => {
     const result = parseRichDescription('Deal 50% of {Poison} DMG.', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'text', value: 'Deal 50% of '},
-      {type: 'mechanic', name: 'Poison'},
-      {type: 'text', value: ' DMG.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'text', value: 'Deal 50% of '},
+        {type: 'mechanic', name: 'Poison'},
+        {type: 'text', value: ' DMG.'},
+      ]),
+    )
   })
 
   it('classifies realm tokens as realm segments', () => {
     const result = parseRichDescription('{Chaos} realm bonus.', EMPTY_CARDS)
-    expect(result).toEqual([
-      {type: 'realm', name: 'Chaos'},
-      {type: 'text', value: ' realm bonus.'},
-    ])
+    expect(result).toEqual(
+      expectLine([
+        {type: 'realm', name: 'Chaos'},
+        {type: 'text', value: ' realm bonus.'},
+      ]),
+    )
   })
 
   it('parses a complex real-world description', () => {
@@ -201,25 +275,27 @@ describe('parseRichDescription', () => {
       'Casiah gains (25/30/35/40/45/50) Aliemus. {Rouse}: Gain (8/9.6/11.2/12.8/14.4/16% {ATK}) Temporary {STR} for each card played this turn.',
       cards,
     )
-    expect(result[0]).toEqual({type: 'text', value: 'Casiah gains '})
-    expect(result[1]).toEqual({
+    const line = result[0] as Extract<RichSegment, {type: 'line'}>
+    expect(line.type).toBe('line')
+    expect(line.segments[0]).toEqual({type: 'text', value: 'Casiah gains '})
+    expect(line.segments[1]).toEqual({
       type: 'scaling',
       values: [25, 30, 35, 40, 45, 50],
       suffix: '',
       stat: null,
     })
-    expect(result[2]).toEqual({type: 'text', value: ' Aliemus. '})
-    expect(result[3]).toEqual({type: 'mechanic', name: 'Rouse'})
-    expect(result[4]).toEqual({type: 'text', value: ': Gain '})
-    expect(result[5]).toEqual({
+    expect(line.segments[2]).toEqual({type: 'text', value: ' Aliemus. '})
+    expect(line.segments[3]).toEqual({type: 'mechanic', name: 'Rouse'})
+    expect(line.segments[4]).toEqual({type: 'text', value: ': Gain '})
+    expect(line.segments[5]).toEqual({
       type: 'scaling',
       values: [8, 9.6, 11.2, 12.8, 14.4, 16],
       suffix: '%',
       stat: 'ATK',
     })
-    expect(result[6]).toEqual({type: 'text', value: ' Temporary '})
-    expect(result[7]).toEqual({type: 'stat', name: 'STR'})
-    expect(result[8]).toEqual({type: 'text', value: ' for each card played this turn.'})
+    expect(line.segments[6]).toEqual({type: 'text', value: ' Temporary '})
+    expect(line.segments[7]).toEqual({type: 'mechanic', name: 'STR'})
+    expect(line.segments[8]).toEqual({type: 'text', value: ' for each card played this turn.'})
   })
 })
 

@@ -1,6 +1,6 @@
 import type {Awakener} from './awakeners'
 
-export const DATABASE_AWAKENER_TABS = ['overview', 'cards', 'builds', 'teams'] as const
+export const DATABASE_AWAKENER_TABS = ['copies', 'talents', 'cards', 'builds', 'teams'] as const
 
 export type DatabaseAwakenerTab = (typeof DATABASE_AWAKENER_TABS)[number]
 
@@ -37,10 +37,10 @@ export function resolveDatabaseAwakenerTab(tab: string | undefined): DatabaseAwa
 
 export function buildDatabaseAwakenerPath(
   awakener: Pick<Awakener, 'name'>,
-  tab: DatabaseAwakenerTab = 'overview',
+  tab: DatabaseAwakenerTab = 'cards',
 ): string {
   const slug = toDatabaseAwakenerSlug(awakener.name)
-  if (tab === 'overview') {
+  if (tab === 'cards') {
     return `/database/awk/${slug}`
   }
   return `/database/awk/${slug}/${tab}`

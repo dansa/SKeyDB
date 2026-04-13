@@ -1,6 +1,8 @@
 import {describe, expect, it} from 'vitest'
 
 import {
+  getColoredMainstatIcon,
+  getMainstatAccentColor,
   getMainstatIcon,
   getMainstats,
   getWheelFilterMainstats,
@@ -44,6 +46,13 @@ describe('mainstats', () => {
     expect(typeof getMainstatIcon('DEF')).toBe('string')
     expect(typeof getMainstatIcon('CON')).toBe('string')
     expect(typeof getMainstatIcon('CRIT_RATE')).toBe('string')
+  })
+
+  it('exposes colored icons and accent colors for stat UI rendering', () => {
+    expect(typeof getColoredMainstatIcon('CRIT_RATE')).toBe('string')
+    expect(getColoredMainstatIcon('ATK')).toBeUndefined()
+    expect(getMainstatAccentColor('ATK')).toBe('#a1525a')
+    expect(getMainstatAccentColor('CRIT_DMG')).toBe('#c8747c')
   })
 
   it('returns undefined for unknown mainstat key', () => {

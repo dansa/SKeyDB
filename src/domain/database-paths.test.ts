@@ -57,6 +57,6 @@ describe('database paths', () => {
     expect(resolveDatabaseAwakenerTab('Builds')).toBe('builds')
     expect(resolveDatabaseAwakenerTab(undefined)).toBeNull()
     expect(resolveDatabaseAwakenerTab('missing')).toBeNull()
-    expect(DATABASE_AWAKENER_TABS).toEqual(['overview', 'cards', 'builds', 'teams'])
+    expect(DATABASE_AWAKENER_TABS).toEqual(['copies', 'talents', 'cards', 'builds', 'teams'])
   })
 })

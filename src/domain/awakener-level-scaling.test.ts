@@ -49,6 +49,7 @@ function makeAwakener(overrides?: Partial<AwakenerFull>): AwakenerFull {
       SigilYield: '0%',
       DamageAmplification: '0%',
       DeathResistance: '0%',
+      BaseAliemus: '100',
     },
     primaryScalingBase: 30,
     statScaling: {
@@ -106,6 +107,7 @@ describe('resolveAwakenerStatsForLevel', () => {
       SigilYield: '0%',
       DamageAmplification: '0%',
       DeathResistance: '0%',
+      BaseAliemus: '100',
     })
 
     expect(resolveAwakenerStatsForLevel(awakener, 1)).toEqual({
@@ -120,6 +122,7 @@ describe('resolveAwakenerStatsForLevel', () => {
       SigilYield: '0%',
       DamageAmplification: '0%',
       DeathResistance: '0%',
+      BaseAliemus: '100',
     })
   })
 
@@ -137,6 +140,7 @@ describe('resolveAwakenerStatsForLevel', () => {
         SigilYield: '0%',
         DamageAmplification: '0%',
         DeathResistance: '0%',
+        BaseAliemus: '100',
       },
       substatScaling: {
         AliemusRegen: '0.4',

@@ -2,7 +2,7 @@
   {
     "key": "AFTERSHOCK",
     "label": "Aftershock",
-    "description": "",
+    "description": "Triggers the effect after discarding a card",
     "iconId": "",
     "aliases": []
   },
@@ -17,10 +17,11 @@
   {
     "key": "ALERT",
     "label": "Alert",
-    "description": "",
-    "iconId": "",
+    "description": "Increases shields received by X, where X is the number of stacks",
+    "iconId": "009",
     "aliases": ["Temporary Alert"],
-    "source": "agrippa, alva, erica"
+    "source": "agrippa, alva, erica",
+    "tint": "#76aac6"
   },
   {
     "key": "ANCIENT_CARESS",
@@ -33,7 +34,7 @@
   {
     "key": "ANGER",
     "label": "Anger",
-    "description": "",
+    "description": "Final DMG dealt by all Awakeners is increased by 20%. And increases the temporary Crit Rate and Crit DMG gained from {Resplendent Chapters}.",
     "iconId": "",
     "aliases": [],
     "source": "horla"
@@ -41,22 +42,22 @@
   {
     "key": "ARITHMETICA",
     "label": "Arithmetica",
-    "description": "",
-    "iconId": "",
+    "description": "Resource used for using cards",
+    "iconId": "094",
     "aliases": []
   },
   {
     "key": "ARITHMETICA_HARMONY",
     "label": "Arithmetica Harmony",
-    "description": "",
-    "iconId": "",
+    "description": "For every Command Card played after the 10th in a turn, gain 1 {Arithmetica Harmony}. Each stack increases card cost by 1 {Arithmetica}, which is then converted into 100% of the Awakener's {Keyflare Regen}.",
+    "iconId": "069",
     "aliases": [],
     "source": "uvhash"
   },
   {
     "key": "ARRIVAL_OF_THE_GODS_REALM",
     "label": "Arrival of the God's Realm",
-    "description": "",
+    "description": "Choose 1 Awakener to gain 25 Aliemus. Gain 2 {Arithmetica}. {Retain}. {Exhaust}.",
     "iconId": "",
     "aliases": [],
     "source": "miryam"
@@ -87,10 +88,11 @@
   {
     "key": "BARRIER",
     "label": "Barrier",
-    "description": "",
-    "iconId": "",
+    "description": "Negates all damage from the next instance of Active DMG, and removes 1 stack",
+    "iconId": "013",
     "aliases": ["Temporary Barrier"],
-    "source": "salvador, tawil, winkle"
+    "source": "salvador, tawil, winkle",
+    "tint": "#76aac6"
   },
   {
     "key": "BASIC_DEFENSE",
@@ -152,8 +154,10 @@
     "key": "BLEED",
     "label": "Bleed",
     "description": "",
-    "iconId": "",
-    "aliases": []
+    "iconId": "022",
+    "aliases": [],
+    "category": "debuff",
+    "tint": "#bb636d"
   },
   {
     "key": "BLESSED_BLOOD",
@@ -166,10 +170,11 @@
   {
     "key": "BLIGHTEN",
     "label": "Blighten",
-    "description": "",
-    "iconId": "",
+    "description": "Healing received -25%",
+    "iconId": "031",
     "aliases": [],
-    "source": "celeste"
+    "source": "celeste",
+    "tint": "#bb636d"
   },
   {
     "key": "BLOOD_OF_COITION",
@@ -223,14 +228,15 @@
     "key": "BURN",
     "label": "Burn",
     "description": "",
-    "iconId": "",
+    "iconId": "001",
     "aliases": [],
-    "source": "kathigu-ra"
+    "source": "kathigu-ra",
+    "category": "debuff"
   },
   {
     "key": "CALL_OF_THE_GODS_REALM",
     "label": "Call of the God's Realm",
-    "description": "",
+    "description": "Choose 1 Awakener to gain 25 Aliemus. Draw 2 cards. {Retain}. {Exhaust}.",
     "iconId": "",
     "aliases": [],
     "source": "miryam"
@@ -294,17 +300,19 @@
   {
     "key": "CORROSION",
     "label": "Corrosion",
-    "description": "",
-    "iconId": "",
+    "description": "When taking Active Damage, remove an equivalent amount of {Corrosion} stacks to inflict HP loss equal to 300% of the removed stacks. Non-Active or Tentacle Damage removes {Corrosion} stacks at 50% effectiveness.",
+    "iconId": "070",
     "aliases": [],
-    "source": "castor"
+    "source": "castor",
+    "tint": "#976798"
   },
   {
     "key": "COUNTER",
     "label": "Counter",
-    "description": "",
-    "iconId": "",
-    "aliases": ["Temporary Counter"]
+    "description": "When taking damage, deals damage to the attacker equal to the stacks you have.",
+    "iconId": "019",
+    "aliases": ["Temporary Counter"],
+    "tint": "#76aac6"
   },
   {
     "key": "CREATIVITY",
@@ -327,8 +335,25 @@
     "label": "Crimson Furnace",
     "description": "",
     "iconId": "",
-    "aliases": [],
-    "source": "24, salvador, xu"
+    "aliases": ["Crimson Furnace Healing"],
+    "source": "24, salvador, xu",
+    "tint": "#bb636d"
+  },
+  {
+    "key": "CRIT_DMG",
+    "label": "Crit DMG",
+    "description": "Increases the damage dealt by critical hits. Base value is 150%.",
+    "iconId": "007",
+    "aliases": ["Temporary Crit DMG", "crit damage"],
+    "tint": "#c38662"
+  },
+  {
+    "key": "CRIT_RATE",
+    "label": "Crit Rate",
+    "description": "Increases the chance of dealing a critical hit. Max value 100%.",
+    "iconId": "017",
+    "aliases": ["Temporary Crit Rate"],
+    "tint": "#c38662"
   },
   {
     "key": "CURSE",
@@ -370,6 +395,15 @@
     "source": "doresain"
   },
   {
+    "key": "DEPRESSED PERSONA",
+    "label": "Depressed Persona",
+    "description": "One of the 24 personalities aimed at buff the team",
+    "iconId": "",
+    "aliases": [],
+    "source": "24",
+    "tint": "#976798"
+  },
+  {
     "key": "DESCENDING_SCALE",
     "label": "Descending Scale",
     "description": "",
@@ -380,7 +414,7 @@
   {
     "key": "DEVOTION_TO_THE_GODS_REALM",
     "label": "Devotion to the God's Realm",
-    "description": "",
+    "description": "Choose 1 Awakener to gain 25 Aliemus. Apply 1 stack {Vulnerable} and {Weakness} to all enemies. {Retain}. {Exhaust}.",
     "iconId": "",
     "aliases": [],
     "source": "miryam"
@@ -388,9 +422,10 @@
   {
     "key": "DEVOUR",
     "label": "Devour",
-    "description": "",
+    "description": "The condition that if there is an {Embryo} in the hand - it devours it to obtain the effect specified afterwards",
     "iconId": "",
-    "aliases": []
+    "aliases": [],
+    "tint": "#bb636d"
   },
   {
     "key": "DIVINE_REALM_AEQUOR",
@@ -519,9 +554,10 @@
   {
     "key": "EMBRYO_FUSION",
     "label": "Embryo Fusion",
-    "description": "",
+    "description": "Mechanic that allows you to get an {Embryo} in hand. At 100% it puts the {Embryo} in hand and resets to 0%",
     "iconId": "",
-    "aliases": []
+    "aliases": [],
+    "tint": "#bb636d"
   },
   {
     "key": "ENDURE",
@@ -557,9 +593,10 @@
   {
     "key": "EXHAUST",
     "label": "Exhaust",
-    "description": "",
+    "description": "Removes this card from the deck",
     "iconId": "",
-    "aliases": []
+    "aliases": [],
+    "tint": "#bb636d"
   },
   {
     "key": "FANTASIA",
@@ -612,9 +649,10 @@
   {
     "key": "FIXED_DMG",
     "label": "Fixed DMG",
-    "description": "",
+    "description": "Deals a fixed amount of DMG, unaffected by states such as Strength, Weakness, or Vulnerability.",
     "iconId": "",
-    "aliases": []
+    "aliases": [],
+    "tint": "#c38662"
   },
   {
     "key": "FRAGILE",
@@ -650,10 +688,11 @@
   {
     "key": "GODS_REALM_PHANTASM",
     "label": "God's Realm Phantasm",
-    "description": "",
+    "description": "{Call of the God's Realm} or {Arrival of the God's Realm} or {Devotion to the God's Realm}",
     "iconId": "",
     "aliases": [],
-    "source": "miryam"
+    "source": "miryam",
+    "tint": "#c38662"
   },
   {
     "key": "GREAT_SWORDS_MIGHT",
@@ -752,7 +791,7 @@
   {
     "key": "INSIGHT",
     "label": "Insight",
-    "description": "",
+    "description": "Not a command card. Draws 1 card and gives 1 {Arithmetica}",
     "iconId": "",
     "aliases": []
   },
@@ -783,10 +822,11 @@
   {
     "key": "IRON_RESOLVE",
     "label": "Iron Resolve",
-    "description": "",
+    "description": "Gain X {STR} and {Tentacle DMG} at the start of every turn.",
     "iconId": "",
     "aliases": [],
-    "source": "miryam"
+    "source": "miryam",
+    "tint": "#c38662"
   },
   {
     "key": "IRREGULAR_FORM",
@@ -799,9 +839,10 @@
   {
     "key": "KEYFLARE",
     "label": "Keyflare",
-    "description": "",
-    "iconId": "",
-    "aliases": []
+    "description": "A resource that can be used for posse, character rouses in Ark 2, and for some mechanics. ",
+    "iconId": "035",
+    "aliases": [],
+    "tint": "#92a8b9"
   },
   {
     "key": "LEAP",
@@ -853,10 +894,11 @@
   {
     "key": "MADNESS",
     "label": "Madness",
-    "description": "",
-    "iconId": "",
+    "description": "Increases the number of damage instances by the number of stacks",
+    "iconId": "030",
     "aliases": [],
-    "source": "clementine, pandia"
+    "source": "clementine, pandia",
+    "tint": "#5d8f76"
   },
   {
     "key": "MALIGNANT_CHILD",
@@ -865,6 +907,15 @@
     "iconId": "",
     "aliases": [],
     "source": "pickman"
+  },
+  {
+    "key": "MANIC_PERSONA",
+    "label": "Manic Persona",
+    "description": "One of 24 personalities designed to deal damage",
+    "iconId": "",
+    "aliases": [],
+    "source": "24",
+    "tint": "#bb636d"
   },
   {
     "key": "MARVELOUS_DEBUFF",
@@ -996,24 +1047,27 @@
   {
     "key": "PHOBIC_FIXATION",
     "label": "Phobic Fixation",
-    "description": "",
-    "iconId": "",
+    "description": "DMG dealt reduces by 3% per stack.",
+    "iconId": "049",
     "aliases": [],
-    "source": "clementine"
+    "source": "clementine",
+    "tint": "#976798"
   },
   {
     "key": "PIERCE_DMG",
     "label": "Pierce DMG",
-    "description": "",
+    "description": "Deals damage to both HP and shields. Cannot be blocked by anything ({Barrier} / {Invulnerability})",
     "iconId": "",
-    "aliases": []
+    "aliases": [],
+    "tint": "#c38662"
   },
   {
     "key": "POISON",
     "label": "Poison",
-    "description": "",
-    "iconId": "",
-    "aliases": []
+    "description": "Deals X amount of damage at the end of the turn, where X is equal to the number of stacks on the owner. Does not get removed after dealing damage.",
+    "iconId": "006",
+    "aliases": [],
+    "tint": "#976798"
   },
   {
     "key": "POLAR_DUSKLIGHT",
@@ -1026,9 +1080,10 @@
   {
     "key": "PREPARE",
     "label": "Prepare",
-    "description": "",
+    "description": "Reduces the amount of {Arithmetica} required for the card at the end of each turn by X, where X is the number next to Prepare. Base value is 1.",
     "iconId": "",
-    "aliases": []
+    "aliases": [],
+    "tint": "#bb636d"
   },
   {
     "key": "PSYCHE_SURGE",
@@ -1048,10 +1103,11 @@
   {
     "key": "PSYCHIC_TRAUMA",
     "label": "Psychic Trauma",
-    "description": "",
-    "iconId": "",
+    "description": "DMG taken increases by 3% per stack.",
+    "iconId": "049",
     "aliases": [],
-    "source": "clementine"
+    "source": "clementine",
+    "tint": "#976798"
   },
   {
     "key": "QUACK_DICE",
@@ -1064,18 +1120,20 @@
   {
     "key": "QUASAR",
     "label": "Quasar",
-    "description": "",
+    "description": "When entering {Ultra Space} - reduces the cost of arithmetic by 1.\nUpon the first use of a card with a {Quasar} and if is not {Ultra Round}, it performs the effect corresponding to the effect.",
     "iconId": "",
     "aliases": [],
-    "source": "castor, clementine"
+    "source": "castor, clementine",
+    "tint": "#976798"
   },
   {
     "key": "RAGING_WAVES",
     "label": "Raging Waves",
-    "description": "",
+    "description": "Requires at least 1 permanent tentacle. {Tentacle DMG} - 125%. Each instance of Active DMG now also deals 1 tentacle strike equal to 50% of the current {Tentacle DMG}. Attacks at the end of the turn and then destroys one permanent tentacle",
     "iconId": "",
     "aliases": [],
-    "source": "miryam, murphy: fauxborn"
+    "source": "miryam, murphy: fauxborn",
+    "tint": "#bb636d"
   },
   {
     "key": "REBIRTH_TRIBUNAL",
@@ -1104,17 +1162,19 @@
   {
     "key": "RETAIN",
     "label": "Retain",
-    "description": "",
+    "description": "Remains in hand after the turn ends. It will continue to trigger subsequent effects",
     "iconId": "",
-    "aliases": []
+    "aliases": [],
+    "tint": "#bb636d"
   },
   {
     "key": "REVELATE_DEVOTION",
     "label": "Revelate Devotion",
-    "description": "",
+    "description": "Gain X shield at the start of every turn.",
     "iconId": "",
     "aliases": [],
-    "source": "miryam"
+    "source": "miryam",
+    "tint": "#c38662"
   },
   {
     "key": "RITE_OF_SPRING",
@@ -1127,10 +1187,11 @@
   {
     "key": "RITUAL",
     "label": "Ritual",
-    "description": "",
+    "description": "When a Command Card with {Ritual} is played, convert up to 3 {Sacrament} in hand into {Obsession}, gaining additional effects based on the number of conversions.",
     "iconId": "",
     "aliases": [],
-    "source": "miryam"
+    "source": "miryam",
+    "tint": "#c38662"
   },
   {
     "key": "RONDINO",
@@ -1143,7 +1204,7 @@
   {
     "key": "ROUSE",
     "label": "Rouse",
-    "description": "",
+    "description": "Unique buffs for each character that last until the end of the battle",
     "iconId": "",
     "aliases": []
   },
@@ -1269,10 +1330,11 @@
   {
     "key": "STAGNATION",
     "label": "Stagnation",
-    "description": "",
-    "iconId": "",
+    "description": "Increases the cost of {Arithmetica} by the number of stacks",
+    "iconId": "024",
     "aliases": [],
-    "source": "celeste, karen"
+    "source": "celeste, karen",
+    "tint": "#976798"
   },
   {
     "key": "STEAL",
@@ -1284,16 +1346,18 @@
   {
     "key": "STR",
     "label": "STR",
-    "description": "",
-    "iconId": "",
-    "aliases": ["Temporary STR"]
+    "description": "Increases Active DMG by the number of stacks",
+    "iconId": "021",
+    "aliases": ["Temporary STR"],
+    "tint": "#5d8f76"
   },
   {
     "key": "STR_DOWN",
     "label": "STR Down",
-    "description": "",
-    "iconId": "",
-    "aliases": []
+    "description": "Reduces Active DMG by the number of stacks",
+    "iconId": "037",
+    "aliases": [],
+    "tint": "#976798"
   },
   {
     "key": "STR_UP",
@@ -1319,25 +1383,28 @@
   {
     "key": "SURGING_TIDES",
     "label": "Surging Tides",
-    "description": "",
+    "description": "Basic stance. At the end of your turn, it strikes with tentacles dealing 100% of {Tentacle DMG} and grants 1 tentacle.",
     "iconId": "",
     "aliases": [],
-    "source": "miryam, murphy: fauxborn"
+    "source": "miryam, murphy: fauxborn",
+    "tint": "#2f5c82"
   },
   {
     "key": "SYMBIOSIS",
     "label": "Symbiosis",
-    "description": "",
-    "iconId": "",
+    "description": "Accumulating stacks of clementines, used by Exalt for {Psychic Trauma} and {Phobic Fixation}",
+    "iconId": "049",
     "aliases": [],
-    "source": "clementine"
+    "source": "clementine",
+    "tint": "#976798"
   },
   {
     "key": "TENTACLE_DMG",
     "label": "Tentacle DMG",
-    "description": "",
+    "description": "Damage dealt by the tentacles on hit. Also receives a bonus from {STR} equal to 0.5x",
     "iconId": "",
-    "aliases": ["Temporary Tentacle DMG"]
+    "aliases": ["Temporary Tentacle DMG"],
+    "tint": "#76aac6"
   },
   {
     "key": "TENTACLES",
@@ -1365,9 +1432,10 @@
   {
     "key": "TRANQUIL_SEA",
     "label": "Tranquil Sea",
-    "description": "",
+    "description": "Provides a shield equal to 8% of max HP. Tentacle DMG -50% and for each hit of the tentacles - provides a shield equal to 0.2% of max HP",
     "iconId": "",
-    "aliases": []
+    "aliases": [],
+    "tint": "#d3d7d8"
   },
   {
     "key": "TRUTH_IN_DELUSIONS",
@@ -1426,15 +1494,17 @@
   {
     "key": "VULNERABILITY",
     "label": "Vulnerability",
-    "description": "",
-    "iconId": "",
-    "aliases": ["Vulnerable"]
+    "description": "Increases damage received by the owner by 50%. Removes 1 stack at the end of the turn",
+    "iconId": "003",
+    "aliases": ["Vulnerable"],
+    "tint": "#bb636d"
   },
   {
     "key": "WEAKNESS",
     "label": "Weakness",
-    "description": "",
-    "iconId": "",
-    "aliases": []
+    "description": "Reduces damage dealt by the owner by 25%. Removes 1 stack at the end of the turn.",
+    "iconId": "005",
+    "aliases": [],
+    "tint": "#976798"
   }
 ]

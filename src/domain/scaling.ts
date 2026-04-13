@@ -57,18 +57,5 @@ export function buildScalingHover(
 export function formatScalingRange(values: number[], suffix: string): string {
   if (values.length <= 1) return `${fmtNum(values[0] ?? 0)}${suffix}`
 
-  const step = values[1] - values[0]
-  const isEvenlySpaced =
-    step !== 0 &&
-    values.every((v, i) => {
-      if (i === 0) return true
-      return Math.abs(v - values[i - 1] - step) < 0.001
-    })
-
-  if (isEvenlySpaced) {
-    const sign = step > 0 ? '+' : ''
-    return `${fmtNum(values[0])}${suffix} (${sign}${fmtNum(step)}${suffix}/Lv)`
-  }
-
-  return values.map((v) => fmtNum(v)).join('/') + suffix
+  return `${fmtNum(values[0])}~${fmtNum(values[values.length - 1])}${suffix}`
 }
