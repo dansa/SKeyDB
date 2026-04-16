@@ -9,6 +9,7 @@ import skills from '../src/data/awakeners/awakener-skills.json' with {type: 'jso
 import talents from '../src/data/awakeners/awakener-talents.json' with {type: 'json'}
 import derivedSkills from '../src/data/awakeners/derived-skills.json' with {type: 'json'}
 import {compileAwakenersFullV2} from '../src/domain/awakeners-full-v2-compiler.ts'
+import {formatGeneratedJsonFiles} from './format-generated-json.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -45,14 +46,16 @@ async function main() {
   await fs.rm(recordsOutputDir, {recursive: true, force: true})
   await fs.mkdir(recordsOutputDir, {recursive: true})
 
+  const recordOutputPaths = compiled.map((record) =>
+    path.join(recordsOutputDir, `${String(record.id)}.json`),
+  )
+
   await Promise.all(
-    compiled.map((record) =>
-      fs.writeFile(
-        path.join(recordsOutputDir, `${String(record.id)}.json`),
-        `${JSON.stringify(record, null, 2)}\n`,
-      ),
+    compiled.map((record, index) =>
+      fs.writeFile(recordOutputPaths[index], `${JSON.stringify(record, null, 2)}\n`),
     ),
   )
+  await formatGeneratedJsonFiles(repoRoot, [outputPath, recordsOutputDir])
 
   console.log(`Wrote ${path.relative(repoRoot, outputPath)}`)
   console.log(

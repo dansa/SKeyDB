@@ -111,8 +111,8 @@ export function AwakenerEnlightenInfluenceBadges({
         const badgeClass = getBadgeClass(badge, active)
         const badgeTitle = getBadgeTitle(badge, active)
         const openBadgeReference = getOpenBadgeReference(badge.referenceName)
+        const badgeKey = `${badge.kind}:${badge.id}`
         const commonProps = {
-          key: `${badge.kind}:${badge.id}`,
           onContextMenu: (event: MouseEvent<HTMLElement>) => {
             handleBadgeContextMenu(event, badge.slot)
           },
@@ -121,7 +121,7 @@ export function AwakenerEnlightenInfluenceBadges({
 
         if (!openBadgeReference) {
           return (
-            <span {...commonProps} className={badgeClass}>
+            <span key={badgeKey} {...commonProps} className={badgeClass}>
               {badge.label}
             </span>
           )
@@ -129,6 +129,7 @@ export function AwakenerEnlightenInfluenceBadges({
 
         return (
           <button
+            key={badgeKey}
             {...commonProps}
             className={`${badgeClass} cursor-pointer transition-colors hover:border-amber-50/80 hover:bg-amber-200/20 hover:text-amber-50 focus-visible:ring-1 focus-visible:ring-amber-100/80 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-950 focus-visible:outline-none`}
             onClick={openBadgeReference}

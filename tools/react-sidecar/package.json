@@ -3,10 +3,10 @@
   "private": true,
   "type": "module",
   "devDependencies": {
-    "@typescript-eslint/parser": "^8.56.1",
+    "@typescript-eslint/parser": "^8.58.2",
     "eslint": "^9.7.0",
     "eslint-plugin-react": "^7.37.5",
-    "globals": "^17.4.0",
-    "typescript": "~5.9.3"
+    "globals": "^17.5.0",
+    "typescript": "^6.0.2"
   }
 }
