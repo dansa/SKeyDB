@@ -158,15 +158,11 @@ export function useAwakenerDetailChrome({
       return
     }
 
-    const panel = panelRef.current
-    if (!panel) {
-      return
-    }
-
-    const focusableElements = getFocusableElements(panel)
+    const focusScope = event.currentTarget
+    const focusableElements = getFocusableElements(focusScope)
     if (focusableElements.length === 0) {
       event.preventDefault()
-      panel.focus()
+      panelRef.current?.focus()
       return
     }
 
@@ -176,7 +172,7 @@ export function useAwakenerDetailChrome({
       document.activeElement instanceof HTMLElement ? document.activeElement : null
 
     if (event.shiftKey) {
-      if (!activeElement || activeElement === firstElement || activeElement === panel) {
+      if (!activeElement || activeElement === firstElement || activeElement === panelRef.current) {
         event.preventDefault()
         lastElement.focus()
       }

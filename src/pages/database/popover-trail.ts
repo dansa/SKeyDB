@@ -1,5 +1,4 @@
 import type {AwakenerEnlightenRecord} from '@/domain/awakener-source-schema'
-import type {DescribedRecord} from '@/domain/description-records'
 
 import type {DatabaseReferenceEntry} from './database-reference-entry'
 
@@ -11,10 +10,7 @@ interface KeyedTrailEntry {
 
 export type TrailEntry = KeyedTrailEntry &
   DatabaseReferenceEntry & {
-    referenceId: string
-    record: DescribedRecord
-    descriptionRank: number | undefined
-    descriptionMaxRank: number | undefined
+    referenceId?: string
     selectedEnlightenSlot?: AwakenerEnlightenRecord['slot'] | null
     supportsNavigateToCards?: boolean
   }

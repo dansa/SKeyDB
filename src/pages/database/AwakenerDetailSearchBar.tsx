@@ -56,7 +56,7 @@ export function AwakenerDetailSearchBar({
   }, [activeIndex, hasResults])
 
   return (
-    <div className='relative w-full max-w-3xl' data-detail-modal-external='' ref={containerRef}>
+    <div className='relative w-full' data-detail-modal-external='' ref={containerRef}>
       <div className='flex items-center gap-2 border border-amber-200/45 bg-slate-950/[.97] px-3 py-2 shadow-[0_14px_34px_rgba(2,6,23,0.55)]'>
         <FaMagnifyingGlass className='h-3.5 w-3.5 shrink-0 text-slate-500' />
         <input

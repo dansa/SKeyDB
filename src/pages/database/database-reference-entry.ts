@@ -10,4 +10,10 @@ export interface DatabaseReferenceEntry {
   descriptionRank?: number
   descriptionMaxRank?: number
   influenceBadges?: DatabaseInfluenceBadge[]
+  detailLinks?: {
+    label: string
+    entry: KeyedDatabaseReferenceEntry
+  }[]
 }
+
+export type KeyedDatabaseReferenceEntry = DatabaseReferenceEntry & {key: string}

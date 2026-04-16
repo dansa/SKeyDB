@@ -16,7 +16,10 @@ import {
 import {buildDatabaseRichDescriptionText} from '@/domain/database-rich-text'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'
-import type {DatabaseReferenceEntry} from './database-reference-entry'
+import type {
+  DatabaseReferenceEntry,
+  KeyedDatabaseReferenceEntry,
+} from './database-reference-entry'
 import type {DatabaseRichTextContentProps} from './DatabaseRichTextContent'
 import {renderTextWithBreaks, scaledFontStyle} from './font-scale'
 import {DATABASE_ENTRY_TITLE_CLASS} from './text-styles'
@@ -34,6 +37,7 @@ interface DatabaseReferencePopoverProps {
   referenceLayer?: ResolvedAwakenerDatabaseReferenceLayer | null
   stats: FullStats | null
   onClose: () => void
+  onInfoEntryClick?: (entry: KeyedDatabaseReferenceEntry) => void
   onSkillTokenClick: (name: string) => void
   onMechanicTokenClick: (overlay: AwakenerOverlayRecord) => void
   onNavigateToCards?: () => void
@@ -71,6 +75,7 @@ export function DatabaseReferencePopover({
   referenceLayer = null,
   stats,
   onClose,
+  onInfoEntryClick,
   onSkillTokenClick,
   onMechanicTokenClick,
   onNavigateToCards,
@@ -82,8 +87,9 @@ export function DatabaseReferencePopover({
   const relatedReferences = getRelatedReferences(referenceLayer, entry.record)
   const isTopLayer = layerIndex === layerCount - 1
   const containerClass = isTopLayer
-    ? 'border-amber-200/40 bg-slate-950/[.985] shadow-[0_18px_40px_rgba(2,6,23,0.78)]'
-    : 'border-slate-600/50 bg-slate-950/[.95] shadow-[0_10px_24px_rgba(2,6,23,0.58)]'
+    ? 'bg-slate-950/[.985] shadow-[0_18px_40px_rgba(2,6,23,0.78)]'
+    : 'bg-slate-950/[.95] shadow-[0_10px_24px_rgba(2,6,23,0.58)]'
+  const detailLinks = entry.detailLinks ?? []
   const fallbackText = buildDatabaseRichDescriptionText(
     entry.record?.descriptionTemplate ?? entry.description,
     entry.keywordFooterText,
@@ -110,7 +116,7 @@ export function DatabaseReferencePopover({
 
   return (
     <div
-      className={`w-full border ${containerClass}`}
+      className={`w-full border border-amber-200/35 ${containerClass}`}
       onClick={(event) => {
         event.stopPropagation()
       }}
@@ -175,6 +181,38 @@ export function DatabaseReferencePopover({
             <DatabaseRichTextContent {...contentProps} />
           </Suspense>
         </p>
+        {detailLinks.length > 0 && onInfoEntryClick ? (
+          <div className='mt-3 border-t border-slate-700/45 pt-2.5'>
+            <p
+              className='mb-2 text-[10px] tracking-[0.18em] text-slate-500 uppercase'
+              style={scaledFontStyle(10)}
+            >
+              More Details
+            </p>
+            <div className='space-y-1.5'>
+              {detailLinks.map((detailLink) => (
+                <button
+                  className='block w-full border border-slate-700/45 bg-slate-900/45 px-2.5 py-2 text-left transition-colors hover:border-amber-200/40 hover:bg-slate-900/75'
+                  key={detailLink.entry.key}
+                  onClick={() => {
+                    onInfoEntryClick(detailLink.entry)
+                  }}
+                  type='button'
+                >
+                  <span className='block text-[11px] text-slate-200' style={scaledFontStyle(11)}>
+                    {detailLink.label}
+                  </span>
+                  <span
+                    className='mt-0.5 block truncate text-[10px] text-slate-500'
+                    style={scaledFontStyle(10)}
+                  >
+                    {detailLink.entry.label}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : null}
         {relatedReferences.length > 0 ? (
           <div className='mt-3 border-t border-slate-700/45 pt-2.5'>
             <p

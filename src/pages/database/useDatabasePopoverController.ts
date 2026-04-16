@@ -13,6 +13,7 @@ import {
 
 import type {DatabasePopoverContextValue} from './database-popover-context'
 import type {DatabasePopoverRootProps} from './DatabasePopoverRoot'
+import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
 import {
   closeTrailFromIndex,
   insertTrailEntryAfterIndex,
@@ -130,38 +131,50 @@ export function useDatabasePopoverController({
     [buildOverlayFallbackEntry, buildSelectedTrailEntry, resolveReferenceByName],
   )
 
+  const openRootTrailEntry = useCallback(
+    (entry: TrailEntry, event: MouseEvent<HTMLElement>) => {
+      event.stopPropagation()
+      if (isSameTrailRoot(trail, entry.key)) {
+        return
+      }
+      const anchorElement = event.currentTarget as HTMLElement
+      announceTrailOpened()
+      setTrailAnchorElement(anchorElement)
+      setTrailAnchorRect(anchorElement.getBoundingClientRect())
+      setTrail((prev) => openTrailRoot(prev, entry))
+    },
+    [announceTrailOpened, trail],
+  )
+
   const openRootReferenceByName = useCallback(
     (name: string, event: MouseEvent<HTMLElement>) => {
       const reference = resolveReferenceByName(name)
       if (!reference) {
         return
       }
-      const entry = buildSelectedTrailEntry(reference)
-      if (isSameTrailRoot(trail, entry.key)) {
-        return
-      }
-      const anchorElement = event.currentTarget as HTMLElement
-      announceTrailOpened()
-      setTrailAnchorElement(anchorElement)
-      setTrailAnchorRect(anchorElement.getBoundingClientRect())
-      setTrail((prev) => openTrailRoot(prev, entry))
+      openRootTrailEntry(buildSelectedTrailEntry(reference), event)
     },
-    [announceTrailOpened, buildSelectedTrailEntry, resolveReferenceByName, trail],
+    [buildSelectedTrailEntry, openRootTrailEntry, resolveReferenceByName],
+  )
+
+  const openRootInfo = useCallback(
+    (entry: KeyedDatabaseReferenceEntry, event: MouseEvent<HTMLElement>) => {
+      openRootTrailEntry(
+        {
+          ...entry,
+          supportsNavigateToCards: false,
+        },
+        event,
+      )
+    },
+    [openRootTrailEntry],
   )
 
   const openRootOverlay = useCallback(
     (overlay: AwakenerOverlayRecord, event: MouseEvent<HTMLElement>) => {
-      const entry = buildOverlayEntry(overlay)
-      if (isSameTrailRoot(trail, entry.key)) {
-        return
-      }
-      const anchorElement = event.currentTarget as HTMLElement
-      announceTrailOpened()
-      setTrailAnchorElement(anchorElement)
-      setTrailAnchorRect(anchorElement.getBoundingClientRect())
-      setTrail((prev) => openTrailRoot(prev, entry))
+      openRootTrailEntry(buildOverlayEntry(overlay), event)
     },
-    [announceTrailOpened, buildOverlayEntry, trail],
+    [buildOverlayEntry, openRootTrailEntry],
   )
 
   const openNestedReferenceByName = useCallback(
@@ -196,6 +209,15 @@ export function useDatabasePopoverController({
     [buildSelectedTrailEntry, resolveReferenceByName],
   )
 
+  const openNestedInfoFrom = useCallback((sourceIndex: number, entry: KeyedDatabaseReferenceEntry) => {
+    setTrail((prev) =>
+      insertTrailEntryAfterIndex(prev, sourceIndex, {
+        ...entry,
+        supportsNavigateToCards: false,
+      }),
+    )
+  }, [])
+
   const openNestedOverlayFrom = useCallback(
     (sourceIndex: number, overlay: AwakenerOverlayRecord) => {
       const entry = buildOverlayEntry(overlay)
@@ -220,6 +242,9 @@ export function useDatabasePopoverController({
       if (!referenceLayer) {
         return entry
       }
+      if (!entry.referenceId) {
+        return entry
+      }
       const liveReference = resolveAwakenerDatabaseReferenceInfoById(
         referenceLayer,
         entry.referenceId,
@@ -231,6 +256,7 @@ export function useDatabasePopoverController({
 
   const contextValue = useMemo<DatabasePopoverContextValue>(
     () => ({
+      openRootInfo,
       openRootReferenceByName,
       openRootOverlay,
       openNestedReferenceByName,
@@ -242,6 +268,7 @@ export function useDatabasePopoverController({
       clearTrail,
       openNestedOverlay,
       openNestedReferenceByName,
+      openRootInfo,
       openRootOverlay,
       openRootReferenceByName,
       trail.length,
@@ -263,6 +290,9 @@ export function useDatabasePopoverController({
           layerIndex: index,
           onClose: () => {
             closeTrailFrom(index)
+          },
+          onInfoEntryClick: (nextEntry: KeyedDatabaseReferenceEntry) => {
+            openNestedInfoFrom(index, nextEntry)
           },
           onMechanicTokenClick: (overlay: AwakenerOverlayRecord) => {
             openNestedOverlayFrom(index, overlay)
@@ -290,6 +320,7 @@ export function useDatabasePopoverController({
       closeTrailFrom,
       onNavigateToCards,
       onToggleEnlightenSlot,
+      openNestedInfoFrom,
       openNestedOverlayFrom,
       openNestedReferenceByNameFrom,
       referenceLayer,

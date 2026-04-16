@@ -31,6 +31,7 @@ export function PopoverTrailPanel({
   children,
 }: PopoverTrailPanelProps) {
   const ref = useRef<HTMLDivElement>(null)
+  const desktopCloseAllRef = useRef<HTMLDivElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
   const previouslyFocusedElementRef = useRef<HTMLElement | null>(null)
   const [viewportVersion, setViewportVersion] = useState(0)
@@ -55,13 +56,15 @@ export function PopoverTrailPanel({
     const activeAnchorRect = anchorElement?.isConnected
       ? anchorElement.getBoundingClientRect()
       : anchorRect
+    const desktopCloseAllHeight =
+      direction === 'down' ? (desktopCloseAllRef.current?.getBoundingClientRect().height ?? 0) : 0
 
     let left = manualPosition?.left ?? activeAnchorRect.left
     let top =
       manualPosition?.top ??
       (direction === 'up'
         ? activeAnchorRect.top - gap - rect.height
-        : activeAnchorRect.bottom + gap)
+        : activeAnchorRect.bottom + gap - desktopCloseAllHeight)
 
     if (left + rect.width > vw - margin) {
       left = vw - rect.width - margin
@@ -221,7 +224,10 @@ export function PopoverTrailPanel({
       tabIndex={-1}
     >
       {!isMobile ? (
-        <div className='pointer-events-none sticky top-0 z-[1] flex justify-end px-2 pt-2'>
+        <div
+          className='pointer-events-none sticky top-0 z-[1] flex justify-end px-2 pt-2'
+          ref={desktopCloseAllRef}
+        >
           <button
             className='pointer-events-auto border border-slate-600/55 bg-slate-950/92 px-2 py-1 text-[10px] tracking-[0.14em] text-slate-300 uppercase transition-colors hover:border-amber-200/55 hover:text-amber-100'
             onClick={onCloseAll}

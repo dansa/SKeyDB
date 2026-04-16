@@ -1,4 +1,4 @@
-import {render, screen, within} from '@testing-library/react'
+import {fireEvent, render, screen, within} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import type {
@@ -9,6 +9,7 @@ import type {FullStats, SubstatScaling} from '@/domain/awakener-source-schema'
 import type {Awakener} from '@/domain/awakeners'
 
 import {AwakenerDetailSidebar} from './AwakenerDetailSidebar'
+import {DatabasePopoverContext} from './database-popover-context'
 
 vi.mock('../../domain/awakener-assets', () => ({
   getAwakenerCardAsset: () => null,
@@ -51,6 +52,17 @@ const TEST_SUBSTAT_SCALING: SubstatScaling = {
   CritRate: '1.6%',
 }
 
+const TEST_SCALING_RECORD = {
+  stats: TEST_STATS,
+  primaryScalingBase: 20 as const,
+  statScaling: {
+    CON: 2,
+    ATK: 2,
+    DEF: 2,
+  },
+  substatScaling: TEST_SUBSTAT_SCALING,
+}
+
 const TEST_CONTROLS: AwakenerDatabaseControls = {
   enlightenOptions: [
     {value: null, label: 'E0'},
@@ -77,16 +89,30 @@ const TEST_SELECTION: AwakenerDatabaseSelection = {
 }
 
 describe('AwakenerDetailSidebar', () => {
-  it('keeps the level label in the slider, shows the Psyche Surge stepper, and exposes substat scaling on hover', () => {
+  it('keeps the level label in the slider, shows the Psyche Surge stepper, and exposes scaling info on demand', () => {
+    const openRootInfo = vi.fn()
     render(
-      <AwakenerDetailSidebar
-        awakener={TEST_AWAKENER}
-        controls={TEST_CONTROLS}
-        onPatchSelection={vi.fn()}
-        selection={TEST_SELECTION}
-        stats={TEST_STATS}
-        substatScaling={TEST_SUBSTAT_SCALING}
-      />,
+      <DatabasePopoverContext.Provider
+        value={{
+          closeAllPopovers: vi.fn(),
+          hasOpenPopovers: false,
+          openNestedOverlay: vi.fn(),
+          openNestedReferenceByName: vi.fn(),
+          openRootInfo,
+          openRootOverlay: vi.fn(),
+          openRootReferenceByName: vi.fn(),
+        }}
+      >
+        <AwakenerDetailSidebar
+          awakener={TEST_AWAKENER}
+          controls={TEST_CONTROLS}
+          onPatchSelection={vi.fn()}
+          scalingRecord={TEST_SCALING_RECORD}
+          selection={TEST_SELECTION}
+          stats={TEST_STATS}
+          substatScaling={TEST_SUBSTAT_SCALING}
+        />
+      </DatabasePopoverContext.Provider>,
     )
 
     expect(screen.getByRole('heading', {name: 'Attributes'})).toBeInTheDocument()
@@ -98,7 +124,23 @@ describe('AwakenerDetailSidebar', () => {
     expect(screen.getByTitle('Level scaling: +1.6% per 10 levels to Lv. 60')).toHaveTextContent(
       '14.6%',
     )
-    expect(screen.getByText(/psyche surge bonuses shown from e3\+0 to e3\+12/i)).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', {name: /scaling info/i}))
+
+    expect(openRootInfo).toHaveBeenCalledTimes(1)
+    expect(openRootInfo.mock.calls[0]?.[0]).toEqual(
+      expect.objectContaining({
+        description: expect.stringMatching(/Psyche Surge adds extra secondary-stat steps after E3/i),
+        detailLinks: [
+          expect.objectContaining({
+            label: 'Show exact breakpoints',
+          }),
+        ],
+        key: 'database:scaling-info',
+        label: 'Database Guide',
+        name: 'Scaling Information',
+      }),
+    )
   })
 
   it('shows attributes before progression in compact mode', () => {
@@ -108,6 +150,7 @@ describe('AwakenerDetailSidebar', () => {
         awakener={TEST_AWAKENER}
         controls={TEST_CONTROLS}
         onPatchSelection={vi.fn()}
+        scalingRecord={TEST_SCALING_RECORD}
         selection={TEST_SELECTION}
         stats={TEST_STATS}
         substatScaling={TEST_SUBSTAT_SCALING}

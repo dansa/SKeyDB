@@ -21,6 +21,7 @@ type TestPopoverProps = Omit<ComponentProps<typeof DatabaseReferencePopover>, 'e
   label: string
   description: string
   keywordFooterText?: string
+  detailLinks?: DatabaseReferencePopoverEntry['detailLinks']
   descriptionRecord?: DatabaseReferencePopoverEntry['record']
   descriptionRank?: number
   descriptionMaxRank?: number
@@ -38,6 +39,7 @@ function TestDatabaseReferencePopover({
   label,
   description,
   keywordFooterText,
+  detailLinks,
   descriptionRecord,
   descriptionRank,
   descriptionMaxRank,
@@ -49,6 +51,7 @@ function TestDatabaseReferencePopover({
     label,
     description,
     keywordFooterText,
+    detailLinks,
     record: descriptionRecord,
     descriptionRank,
     descriptionMaxRank,
@@ -117,6 +120,85 @@ describe('DatabaseReferencePopover', () => {
     expect(screen.getByText('E3')).toBeInTheDocument()
     expect(screen.getByText('T1')).toBeInTheDocument()
     expect(screen.getByRole('button', {name: 'Close skill popover'})).toHaveClass('h-8', 'w-8')
+  })
+
+  it('uses the same faint golden border for top and nested popovers', () => {
+    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
+
+    const {rerender, container} = render(
+      <TestDatabaseReferencePopover
+        description='Popover text'
+        label='Card · C4 · Cost 2'
+        layerCount={2}
+        layerIndex={1}
+        name='Symbiotic Aberration'
+        onClose={vi.fn()}
+        onMechanicTokenClick={vi.fn()}
+        onSkillTokenClick={vi.fn()}
+        referenceLayer={buildReferenceLayer()}
+        stats={null}
+      />,
+    )
+
+    expect(container.firstElementChild).toHaveClass('border-amber-200/35')
+    expect(container.firstElementChild).not.toHaveClass('border-slate-600/50')
+
+    rerender(
+      <TestDatabaseReferencePopover
+        description='Popover text'
+        label='Card · C4 · Cost 2'
+        layerCount={2}
+        layerIndex={0}
+        name='Symbiotic Aberration'
+        onClose={vi.fn()}
+        onMechanicTokenClick={vi.fn()}
+        onSkillTokenClick={vi.fn()}
+        referenceLayer={buildReferenceLayer()}
+        stats={null}
+      />,
+    )
+
+    expect(container.firstElementChild).toHaveClass('border-amber-200/35')
+    expect(container.firstElementChild).not.toHaveClass('border-slate-600/50')
+  })
+
+  it('renders nested detail links and opens them through the shared info callback', () => {
+    const onInfoEntryClick = vi.fn()
+    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
+
+    render(
+      <TestDatabaseReferencePopover
+        description='Popover text'
+        detailLinks={[
+          {
+            label: 'Show exact breakpoints',
+            entry: {
+              key: 'info.scaling.breakdown',
+              name: 'Scaling Breakdown',
+              label: 'Level & Psyche Surge Values',
+              description: 'Detailed scaling text.',
+            },
+          },
+        ]}
+        label='Database Guide'
+        name='Scaling Information'
+        onClose={vi.fn()}
+        onInfoEntryClick={onInfoEntryClick}
+        onMechanicTokenClick={vi.fn()}
+        onSkillTokenClick={vi.fn()}
+        referenceLayer={buildReferenceLayer()}
+        stats={null}
+      />,
+    )
+
+    expect(screen.getByText('More Details')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: /Show exact breakpoints/i}))
+    expect(onInfoEntryClick).toHaveBeenCalledWith(
+      expect.objectContaining({
+        key: 'info.scaling.breakdown',
+        label: 'Level & Psyche Surge Values',
+      }),
+    )
   })
 
   it('forwards nested badge opens through the shared reference callback', () => {

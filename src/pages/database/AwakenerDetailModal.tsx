@@ -153,33 +153,36 @@ export function AwakenerDetailModal({
       className='fixed inset-0 z-[900] flex items-center justify-center bg-slate-950/65 p-4 md:p-6 lg:p-10'
       onClick={handleOverlayClick}
     >
-      <div className='relative z-[901] flex h-full w-full max-w-6xl flex-col justify-center gap-3'>
+      <div
+        className='relative z-[901] flex h-full max-h-[calc(100dvh-2rem)] w-full max-w-6xl flex-col gap-2.5 md:max-h-[calc(100dvh-3rem)] md:gap-3 lg:max-h-[calc(100dvh-5rem)]'
+        data-detail-modal-shell=''
+        onKeyDown={handlePanelKeyDown}
+      >
+        <div className='shrink-0'>
+          <AwakenerDetailSearchBar
+            activeIndex={activeSearchIndex}
+            containerRef={searchContainerRef}
+            inputRef={searchInputRef}
+            isOpen={isSearchOpen}
+            onInputKeyDown={handleSearchInputKeyDown}
+            onInputFocus={() => {
+              openSearch()
+            }}
+            onQueryChange={handleSearchQueryChange}
+            onSelectAwakener={handleSelectAwakenerFromSearch}
+            query={searchQuery}
+            results={searchResults}
+          />
+        </div>
         <div
           aria-label={`${displayName} details`}
           aria-modal='true'
-          className='relative flex h-full max-h-[calc(90vh-3.75rem)] w-full flex-col overflow-hidden border border-amber-200/55 bg-slate-950/[.97] shadow-[0_18px_50px_rgba(2,6,23,0.72)]'
-          onKeyDown={handlePanelKeyDown}
+          className='relative flex min-h-0 flex-1 overflow-hidden border border-amber-200/55 bg-slate-950/[.97] shadow-[0_18px_50px_rgba(2,6,23,0.72)]'
           ref={panelRef}
           role='dialog'
           style={getDescriptionFontScaleStyle(fontScale)}
           tabIndex={-1}
         >
-          <div className='shrink-0 border-b border-slate-700/50 px-4 pt-4 pr-14 pb-3 md:px-5'>
-            <AwakenerDetailSearchBar
-              activeIndex={activeSearchIndex}
-              containerRef={searchContainerRef}
-              inputRef={searchInputRef}
-              isOpen={isSearchOpen}
-              onInputKeyDown={handleSearchInputKeyDown}
-              onInputFocus={() => {
-                openSearch()
-              }}
-              onQueryChange={handleSearchQueryChange}
-              onSelectAwakener={handleSelectAwakenerFromSearch}
-              query={searchQuery}
-              results={searchResults}
-            />
-          </div>
           <div className='absolute top-3 right-3 z-10 flex items-center gap-1.5' ref={settingsRef}>
             <button
               aria-expanded={isSettingsOpen}
@@ -211,20 +214,22 @@ export function AwakenerDetailModal({
               />
             ) : null}
           </div>
-          <div className='flex min-h-0 flex-1'>
-            <aside className='database-scrollbar hidden w-56 shrink-0 overflow-y-auto border-r border-slate-700/40 p-4 md:block lg:w-64'>
-              <AwakenerDetailSidebar
-                awakener={awakener}
-                controls={resolvedControls}
-                onPatchSelection={sessionActions.patchSelection}
-                selection={resolvedSelection}
-                stats={resolvedStats}
-                substatScaling={fullDataV2.substatScaling}
-              />
-            </aside>
+          <DatabasePopoverContext.Provider value={popoverContextValue}>
+            <div className='flex min-h-0 flex-1'>
+              <aside className='database-scrollbar hidden w-56 shrink-0 overflow-y-auto border-r border-slate-700/40 p-4 md:block lg:w-64'>
+                <AwakenerDetailSidebar
+                  awakener={awakener}
+                  controls={resolvedControls}
+                  onPatchSelection={sessionActions.patchSelection}
+                  scalingRecord={fullDataV2}
+                  selection={resolvedSelection}
+                  stats={resolvedStats}
+                  substatScaling={fullDataV2.substatScaling}
+                />
+              </aside>
 
-            <div className='flex min-h-0 min-w-0 flex-1 flex-col'>
-              <div className='shrink-0 px-5 pt-4 pb-0'>
+              <div className='flex min-h-0 min-w-0 flex-1 flex-col'>
+                <div className='shrink-0 px-5 pt-4 pb-0 md:pt-5'>
                 {awakener.unreleased ? (
                   <div className='mb-3 max-w-2xl border border-amber-500/30 bg-amber-950/20 px-3 py-2.5'>
                     <p className='text-[11px] leading-relaxed text-amber-100/75'>
@@ -348,22 +353,22 @@ export function AwakenerDetailModal({
                   </nav>
                 </div>
                 <div className='mt-0 h-px w-3/4 bg-slate-700/50' />
-              </div>
-
-              <div className='database-scrollbar flex-1 overflow-y-auto p-5 pr-8 lg:pr-16'>
-                <div className='mb-4 md:hidden'>
-                  <AwakenerDetailSidebar
-                    awakener={awakener}
-                    compact
-                    controls={resolvedControls}
-                    onPatchSelection={sessionActions.patchSelection}
-                    selection={resolvedSelection}
-                    stats={resolvedStats}
-                    substatScaling={fullDataV2.substatScaling}
-                  />
                 </div>
 
-                <DatabasePopoverContext.Provider value={popoverContextValue}>
+                <div className='database-scrollbar flex-1 overflow-y-auto p-5 pr-8 lg:pr-16'>
+                  <div className='mb-4 md:hidden'>
+                    <AwakenerDetailSidebar
+                      awakener={awakener}
+                      compact
+                      controls={resolvedControls}
+                      onPatchSelection={sessionActions.patchSelection}
+                      scalingRecord={fullDataV2}
+                      selection={resolvedSelection}
+                      stats={resolvedStats}
+                      substatScaling={fullDataV2.substatScaling}
+                    />
+                  </div>
+
                   <div
                     aria-labelledby={`${tabsetId}-tab-${activeTab}`}
                     className='max-w-2xl'
@@ -404,10 +409,10 @@ export function AwakenerDetailModal({
                     )}
                   </div>
                   <DatabasePopoverRoot {...popoverRootProps} fontScale={fontScale} />
-                </DatabasePopoverContext.Provider>
+                </div>
               </div>
             </div>
-          </div>
+          </DatabasePopoverContext.Provider>
         </div>
       </div>
     </div>

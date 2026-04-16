@@ -1,4 +1,4 @@
-import {lazy, Suspense, use, useEffect, useRef} from 'react'
+import {cache, lazy, Suspense, use, useEffect, useRef} from 'react'
 
 import {useLocation, useNavigate, useParams} from 'react-router-dom'
 
@@ -24,6 +24,7 @@ const AwakenerDetailModal = lazy(() =>
   })),
 )
 const databaseAwakeners = getAwakeners()
+const loadAwakenerFullV2ForSuspense = cache(loadAwakenerFullV2ById)
 
 export function DatabasePage() {
   const browseState = useDatabaseBrowseState()
@@ -161,7 +162,7 @@ function DatabaseAwakenerDetailRoute({
 }: DatabaseAwakenerDetailRouteProps) {
   const location = useLocation()
   const navigate = useNavigate()
-  const fullDataV2 = use(loadAwakenerFullV2ById(awakener.id)) ?? null
+  const fullDataV2 = use(loadAwakenerFullV2ForSuspense(awakener.id)) ?? null
 
   useEffect(() => {
     if (!fullDataV2) {

@@ -406,6 +406,14 @@ function getModalFocusableElements(dialog: HTMLElement) {
   )
 }
 
+function getDetailShell(): HTMLElement {
+  const shell = document.querySelector<HTMLElement>('[data-detail-modal-shell]')
+  if (!shell) {
+    throw new Error('Expected detail modal shell to be rendered')
+  }
+  return shell
+}
+
 describe('AwakenerDetailModal', () => {
   beforeEach(() => {
     mockHasOpenPopovers = false
@@ -436,8 +444,10 @@ describe('AwakenerDetailModal', () => {
     renderAwakenerDetailModal(awakener)
 
     const dialog = screen.getByRole('dialog', {name: /thais details/i})
+    const searchInput = screen.getByRole('combobox', {name: /jump to awakener/i})
 
-    expect(within(dialog).getByRole('combobox', {name: /jump to awakener/i})).toBeInTheDocument()
+    expect(searchInput).toBeInTheDocument()
+    expect(dialog).not.toContainElement(searchInput)
     expect(
       within(dialog).getByRole('tablist', {name: 'Awakener detail sections'}),
     ).toBeInTheDocument()
@@ -536,7 +546,8 @@ describe('AwakenerDetailModal', () => {
       expect(dialog).toHaveFocus()
     })
 
-    const focusableElements = getModalFocusableElements(dialog)
+    const detailShell = getDetailShell()
+    const focusableElements = getModalFocusableElements(detailShell)
     const firstElement = focusableElements[0]
     const lastElement = focusableElements[focusableElements.length - 1]
 
