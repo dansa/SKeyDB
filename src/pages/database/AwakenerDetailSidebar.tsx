@@ -90,7 +90,7 @@ function ScalingInfoButton({scalingRecord}: {scalingRecord: ScalingInfoRecord}) 
       type='button'
     >
       <FaCircleInfo className='h-2.5 w-2.5 text-amber-200/75' />
-      <span className='border-b border-dotted border-slate-500/45 uppercase tracking-[0.18em]'>
+      <span className='border-b border-dotted border-slate-500/45 tracking-[0.18em] uppercase'>
         Scaling info
       </span>
     </button>

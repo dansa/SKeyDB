@@ -7,8 +7,8 @@ import type {
   ResolvedAwakenerDatabaseReferenceLayer,
 } from '@/domain/awakeners-database-view'
 
-import {DatabasePopoverRoot} from './DatabasePopoverRoot'
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
+import {DatabasePopoverRoot} from './DatabasePopoverRoot'
 import {useDatabasePopoverController} from './useDatabasePopoverController'
 
 function buildSkillReferenceInfo(

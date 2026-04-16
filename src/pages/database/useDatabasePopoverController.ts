@@ -12,8 +12,8 @@ import {
 } from '@/domain/awakeners-database-view'
 
 import type {DatabasePopoverContextValue} from './database-popover-context'
-import type {DatabasePopoverRootProps} from './DatabasePopoverRoot'
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
+import type {DatabasePopoverRootProps} from './DatabasePopoverRoot'
 import {
   closeTrailFromIndex,
   insertTrailEntryAfterIndex,
@@ -209,14 +209,17 @@ export function useDatabasePopoverController({
     [buildSelectedTrailEntry, resolveReferenceByName],
   )
 
-  const openNestedInfoFrom = useCallback((sourceIndex: number, entry: KeyedDatabaseReferenceEntry) => {
-    setTrail((prev) =>
-      insertTrailEntryAfterIndex(prev, sourceIndex, {
-        ...entry,
-        supportsNavigateToCards: false,
-      }),
-    )
-  }, [])
+  const openNestedInfoFrom = useCallback(
+    (sourceIndex: number, entry: KeyedDatabaseReferenceEntry) => {
+      setTrail((prev) =>
+        insertTrailEntryAfterIndex(prev, sourceIndex, {
+          ...entry,
+          supportsNavigateToCards: false,
+        }),
+      )
+    },
+    [],
+  )
 
   const openNestedOverlayFrom = useCallback(
     (sourceIndex: number, overlay: AwakenerOverlayRecord) => {

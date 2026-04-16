@@ -1,8 +1,8 @@
-import {resolveAwakenerStatsForLevel} from './awakener-level-scaling'
-import {fmtNum} from './scaling'
-import type {AwakenerFullV2Record} from './awakeners-full-v2'
-
 import type {KeyedDatabaseReferenceEntry} from '@/pages/database/database-reference-entry'
+
+import {resolveAwakenerStatsForLevel} from './awakener-level-scaling'
+import type {AwakenerFullV2Record} from './awakeners-full-v2'
+import {fmtNum} from './scaling'
 
 const PRIMARY_STAT_KEYS = ['CON', 'ATK', 'DEF'] as const
 const PRIMARY_LEVEL_SUMMARY_LEVELS = [1, 60, 90] as const
@@ -38,9 +38,7 @@ function buildPrimaryStatLine(awakener: ScalingInfoRecord, statKey: PrimaryStatK
   return `${statKey}: ${getPrimaryStatGrowth(awakener, statKey)} · ${milestones.join(' · ')}`
 }
 
-function buildSubstatLines(
-  awakener: ScalingInfoRecord,
-): string[] {
+function buildSubstatLines(awakener: ScalingInfoRecord): string[] {
   const levelSixtyStats = resolveAwakenerStatsForLevel(awakener, 60)
 
   return Object.entries(awakener.substatScaling)
@@ -52,11 +50,11 @@ function buildSubstatLines(
     })
 }
 
-export function buildScalingInfoEntry(
-  awakener: ScalingInfoRecord,
-): KeyedDatabaseReferenceEntry {
+export function buildScalingInfoEntry(awakener: ScalingInfoRecord): KeyedDatabaseReferenceEntry {
   const substatLines = buildSubstatLines(awakener)
-  const primaryStatLines = PRIMARY_STAT_KEYS.map((statKey) => buildPrimaryStatLine(awakener, statKey))
+  const primaryStatLines = PRIMARY_STAT_KEYS.map((statKey) =>
+    buildPrimaryStatLine(awakener, statKey),
+  )
   const detailDescription = [
     'Primary',
     ...primaryStatLines,

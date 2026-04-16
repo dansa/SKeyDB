@@ -16,10 +16,7 @@ import {
 import {buildDatabaseRichDescriptionText} from '@/domain/database-rich-text'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'
-import type {
-  DatabaseReferenceEntry,
-  KeyedDatabaseReferenceEntry,
-} from './database-reference-entry'
+import type {DatabaseReferenceEntry, KeyedDatabaseReferenceEntry} from './database-reference-entry'
 import type {DatabaseRichTextContentProps} from './DatabaseRichTextContent'
 import {renderTextWithBreaks, scaledFontStyle} from './font-scale'
 import {DATABASE_ENTRY_TITLE_CLASS} from './text-styles'

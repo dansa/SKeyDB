@@ -4,8 +4,8 @@ import type {
   ResolvedAwakenerDatabaseShellView,
 } from '@/domain/awakeners-database-view'
 
-import {DatabaseReferencePopover} from './DatabaseReferencePopover'
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
+import {DatabaseReferencePopover} from './DatabaseReferencePopover'
 import type {FontScale} from './font-scale'
 import type {TrailEntry} from './popover-trail'
 import {PopoverTrailPanel} from './PopoverTrailPanel'

@@ -130,7 +130,9 @@ describe('AwakenerDetailSidebar', () => {
     expect(openRootInfo).toHaveBeenCalledTimes(1)
     expect(openRootInfo.mock.calls[0]?.[0]).toEqual(
       expect.objectContaining({
-        description: expect.stringMatching(/Psyche Surge adds extra secondary-stat steps after E3/i),
+        description: expect.stringMatching(
+          /Psyche Surge adds extra secondary-stat steps after E3/i,
+        ),
         detailLinks: [
           expect.objectContaining({
             label: 'Show exact breakpoints',

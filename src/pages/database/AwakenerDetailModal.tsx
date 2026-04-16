@@ -230,129 +230,136 @@ export function AwakenerDetailModal({
 
               <div className='flex min-h-0 min-w-0 flex-1 flex-col'>
                 <div className='shrink-0 px-5 pt-4 pb-0 md:pt-5'>
-                {awakener.unreleased ? (
-                  <div className='mb-3 max-w-2xl border border-amber-500/30 bg-amber-950/20 px-3 py-2.5'>
-                    <p className='text-[11px] leading-relaxed text-amber-100/75'>
-                      <strong className='font-semibold text-amber-200/90'>Pre-release data:</strong>{' '}
-                      Values and content are based on pre-release information and may change before
-                      or after release.
-                    </p>
-                  </div>
-                ) : null}
-                <div className='flex items-center gap-2.5 pr-14'>
-                  <div
-                    className={`h-14 w-14 shrink-0 overflow-hidden border border-slate-500/40 bg-gradient-to-b from-slate-800 to-slate-900 ${
-                      isMobileHeader ? '' : 'hidden'
-                    }`}
-                  >
-                    {portrait ? (
-                      <img
-                        alt=''
-                        className='h-full w-full object-cover object-top'
-                        draggable={false}
-                        src={portrait}
-                      />
-                    ) : (
-                      <div className='h-full w-full bg-[radial-gradient(circle_at_50%_28%,rgba(125,165,215,0.18),rgba(6,12,24,0.92)_70%)]' />
-                    )}
-                  </div>
-                  {!isMobileHeader ? (
-                    <img alt='' className='h-11 w-11 shrink-0' draggable={false} src={realmIcon} />
+                  {awakener.unreleased ? (
+                    <div className='mb-3 max-w-2xl border border-amber-500/30 bg-amber-950/20 px-3 py-2.5'>
+                      <p className='text-[11px] leading-relaxed text-amber-100/75'>
+                        <strong className='font-semibold text-amber-200/90'>
+                          Pre-release data:
+                        </strong>{' '}
+                        Values and content are based on pre-release information and may change
+                        before or after release.
+                      </p>
+                    </div>
                   ) : null}
-                  <div>
-                    <div className='flex items-center gap-2'>
-                      <h3 className='ui-title text-xl text-amber-100'>{displayName}</h3>
-                      {isMobileHeader ? (
+                  <div className='flex items-center gap-2.5 pr-14'>
+                    <div
+                      className={`h-14 w-14 shrink-0 overflow-hidden border border-slate-500/40 bg-gradient-to-b from-slate-800 to-slate-900 ${
+                        isMobileHeader ? '' : 'hidden'
+                      }`}
+                    >
+                      {portrait ? (
                         <img
                           alt=''
-                          className='h-5 w-5 shrink-0'
+                          className='h-full w-full object-cover object-top'
                           draggable={false}
-                          src={realmIcon}
+                          src={portrait}
                         />
-                      ) : null}
+                      ) : (
+                        <div className='h-full w-full bg-[radial-gradient(circle_at_50%_28%,rgba(125,165,215,0.18),rgba(6,12,24,0.92)_70%)]' />
+                      )}
                     </div>
-                    <p className='mt-0.5 text-xs text-slate-400'>
-                      <span style={{color: realmTint}}>{realmLabel}</span>
-                      <span className='mx-1.5 text-slate-600'>·</span>
-                      <span>
-                        {awakener.type
-                          ? awakener.type.charAt(0) + awakener.type.slice(1).toLowerCase()
-                          : '—'}
-                      </span>
-                      <span className='mx-1.5 text-slate-600'>·</span>
-                      <span>{awakener.faction}</span>
-                    </p>
-                    {awakener.tags.length > 0 ? (
-                      <div className='mt-1.5 max-w-xl'>
-                        <div
-                          className={`flex flex-wrap gap-1 overflow-hidden md:overflow-visible ${
-                            showAllTags
-                              ? 'max-h-[18rem] md:max-h-none'
-                              : 'max-h-[46px] md:max-h-none'
-                          }`}
-                          ref={tagsRef}
-                        >
-                          {awakener.tags.map((tag) => (
-                            <span
-                              className='border border-slate-600/40 bg-slate-800/50 px-1.5 py-0.5 text-[10px] text-slate-400'
-                              key={tag}
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        {canExpandTags ? (
-                          <button
-                            aria-expanded={showAllTags}
-                            className='mt-1 text-[10px] text-slate-500 transition-colors hover:text-slate-300 md:hidden'
-                            onClick={() => {
-                              setShowAllTags((prev) => !prev)
-                            }}
-                            type='button'
-                          >
-                            {showAllTags ? 'Show fewer tags' : 'Show all tags'}
-                          </button>
+                    {!isMobileHeader ? (
+                      <img
+                        alt=''
+                        className='h-11 w-11 shrink-0'
+                        draggable={false}
+                        src={realmIcon}
+                      />
+                    ) : null}
+                    <div>
+                      <div className='flex items-center gap-2'>
+                        <h3 className='ui-title text-xl text-amber-100'>{displayName}</h3>
+                        {isMobileHeader ? (
+                          <img
+                            alt=''
+                            className='h-5 w-5 shrink-0'
+                            draggable={false}
+                            src={realmIcon}
+                          />
                         ) : null}
                       </div>
-                    ) : null}
+                      <p className='mt-0.5 text-xs text-slate-400'>
+                        <span style={{color: realmTint}}>{realmLabel}</span>
+                        <span className='mx-1.5 text-slate-600'>·</span>
+                        <span>
+                          {awakener.type
+                            ? awakener.type.charAt(0) + awakener.type.slice(1).toLowerCase()
+                            : '—'}
+                        </span>
+                        <span className='mx-1.5 text-slate-600'>·</span>
+                        <span>{awakener.faction}</span>
+                      </p>
+                      {awakener.tags.length > 0 ? (
+                        <div className='mt-1.5 max-w-xl'>
+                          <div
+                            className={`flex flex-wrap gap-1 overflow-hidden md:overflow-visible ${
+                              showAllTags
+                                ? 'max-h-[18rem] md:max-h-none'
+                                : 'max-h-[46px] md:max-h-none'
+                            }`}
+                            ref={tagsRef}
+                          >
+                            {awakener.tags.map((tag) => (
+                              <span
+                                className='border border-slate-600/40 bg-slate-800/50 px-1.5 py-0.5 text-[10px] text-slate-400'
+                                key={tag}
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                          {canExpandTags ? (
+                            <button
+                              aria-expanded={showAllTags}
+                              className='mt-1 text-[10px] text-slate-500 transition-colors hover:text-slate-300 md:hidden'
+                              onClick={() => {
+                                setShowAllTags((prev) => !prev)
+                              }}
+                              type='button'
+                            >
+                              {showAllTags ? 'Show fewer tags' : 'Show all tags'}
+                            </button>
+                          ) : null}
+                        </div>
+                      ) : null}
+                    </div>
                   </div>
-                </div>
-                <div className='mt-3 max-w-2xl'>
-                  <nav
-                    aria-label='Awakener detail sections'
-                    className='flex min-w-0 flex-wrap gap-0.5'
-                    role='tablist'
-                  >
-                    {DATABASE_AWAKENER_TABS.map((tab) => (
-                      <button
-                        aria-controls={tabPanelId}
-                        aria-selected={activeTab === tab}
-                        className={`px-3.5 py-2 text-[11px] tracking-wide uppercase transition-colors ${
-                          activeTab === tab
-                            ? 'border-b-2 border-amber-200/70 text-amber-100'
-                            : 'border-b-2 border-transparent text-slate-400 hover:text-slate-200'
-                        }`}
-                        id={`${tabsetId}-tab-${tab}`}
-                        key={tab}
-                        onClick={() => {
-                          setActiveTab(tab)
-                        }}
-                        onKeyDown={(event) => {
-                          handleTabKeyDown(event, tab)
-                        }}
-                        ref={(element) => {
-                          tabButtonRefs.current[tab] = element
-                        }}
-                        role='tab'
-                        tabIndex={activeTab === tab ? 0 : -1}
-                        type='button'
-                      >
-                        {DATABASE_AWAKENER_TAB_LABELS[tab]}
-                      </button>
-                    ))}
-                  </nav>
-                </div>
-                <div className='mt-0 h-px w-3/4 bg-slate-700/50' />
+                  <div className='mt-3 max-w-2xl'>
+                    <nav
+                      aria-label='Awakener detail sections'
+                      className='flex min-w-0 flex-wrap gap-0.5'
+                      role='tablist'
+                    >
+                      {DATABASE_AWAKENER_TABS.map((tab) => (
+                        <button
+                          aria-controls={tabPanelId}
+                          aria-selected={activeTab === tab}
+                          className={`px-3.5 py-2 text-[11px] tracking-wide uppercase transition-colors ${
+                            activeTab === tab
+                              ? 'border-b-2 border-amber-200/70 text-amber-100'
+                              : 'border-b-2 border-transparent text-slate-400 hover:text-slate-200'
+                          }`}
+                          id={`${tabsetId}-tab-${tab}`}
+                          key={tab}
+                          onClick={() => {
+                            setActiveTab(tab)
+                          }}
+                          onKeyDown={(event) => {
+                            handleTabKeyDown(event, tab)
+                          }}
+                          ref={(element) => {
+                            tabButtonRefs.current[tab] = element
+                          }}
+                          role='tab'
+                          tabIndex={activeTab === tab ? 0 : -1}
+                          type='button'
+                        >
+                          {DATABASE_AWAKENER_TAB_LABELS[tab]}
+                        </button>
+                      ))}
+                    </nav>
+                  </div>
+                  <div className='mt-0 h-px w-3/4 bg-slate-700/50' />
                 </div>
 
                 <div className='database-scrollbar flex-1 overflow-y-auto p-5 pr-8 lg:pr-16'>
