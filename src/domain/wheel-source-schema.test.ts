@@ -1,9 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import {
-  wheelMainstatScalingSourceSchema,
-  wheelSourceDatasetSchema,
-} from './wheel-source-schema'
+import {wheelMainstatScalingSourceSchema, wheelSourceDatasetSchema} from './wheel-source-schema'
 
 describe('wheelSourceDatasetSchema', () => {
   it('rejects duplicate wheel ids', () => {
@@ -61,9 +58,7 @@ describe('wheelMainstatScalingSourceSchema', () => {
       })
       throw new Error('Expected duplicate wheel mainstat series parse to fail.')
     } catch (error) {
-      expect(String(error)).toContain(
-        'Duplicate wheel mainstat series key \\"SR:CRIT_RATE\\"',
-      )
+      expect(String(error)).toContain('Duplicate wheel mainstat series key \\"SR:CRIT_RATE\\"')
     }
   })
 })

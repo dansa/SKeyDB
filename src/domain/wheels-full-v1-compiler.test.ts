@@ -66,9 +66,7 @@ describe('compileWheelsFullV1', () => {
     expect(compiled.find((record) => record.id === 'SR25')?.descriptionTemplate).toContain(
       '{Devour}',
     )
-    expect(compiled.find((record) => record.id === 'P10')?.descriptionTemplate).toContain(
-      'Orisons',
-    )
+    expect(compiled.find((record) => record.id === 'P10')?.descriptionTemplate).toContain('Orisons')
     expect(compiled.find((record) => record.id === 'P10')?.descriptionTemplate).not.toContain(
       '{Painted Orisons}',
     )
@@ -81,10 +79,12 @@ describe('compileWheelsFullV1', () => {
       mainstatScaling: parsedWheelMainstatScaling,
     })
 
-    expect(compiled.find((record) => record.id === 'C06')?.descriptionArgs.StateArg1).toMatchObject({
-      kind: 'fixed',
-      value: '60',
-    })
+    expect(compiled.find((record) => record.id === 'C06')?.descriptionArgs.StateArg1).toMatchObject(
+      {
+        kind: 'fixed',
+        value: '60',
+      },
+    )
   })
 
   it('assigns the special N wheel mainstat series bucket', () => {

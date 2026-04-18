@@ -61,9 +61,11 @@ export const wheelSourceRecordSchema = describedRecordSchema.extend({
   ownerAwakenerId: z.number().int().positive().optional(),
 })
 
-export const wheelSourceDatasetSchema = z.array(wheelSourceRecordSchema).superRefine((records, ctx) => {
-  addDuplicateStringFieldIssue(records, 'id', 'wheel id', ctx)
-})
+export const wheelSourceDatasetSchema = z
+  .array(wheelSourceRecordSchema)
+  .superRefine((records, ctx) => {
+    addDuplicateStringFieldIssue(records, 'id', 'wheel id', ctx)
+  })
 
 export const wheelMainstatScalingSeriesSchema = z.object({
   seriesKey: nonEmptyStringSchema,
@@ -73,12 +75,14 @@ export const wheelMainstatScalingSeriesSchema = z.object({
   perLevel: nonEmptyStringSchema,
 })
 
-export const wheelMainstatScalingSourceSchema = z.object({
-  growthStartLevel: z.number().int().positive(),
-  series: z.array(wheelMainstatScalingSeriesSchema),
-}).superRefine((source, ctx) => {
-  addDuplicateStringFieldIssue(source.series, 'seriesKey', 'wheel mainstat series key', ctx)
-})
+export const wheelMainstatScalingSourceSchema = z
+  .object({
+    growthStartLevel: z.number().int().positive(),
+    series: z.array(wheelMainstatScalingSeriesSchema),
+  })
+  .superRefine((source, ctx) => {
+    addDuplicateStringFieldIssue(source.series, 'seriesKey', 'wheel mainstat series key', ctx)
+  })
 
 export type WheelMainstatScalingSeries = z.infer<typeof wheelMainstatScalingSeriesSchema>
 export type WheelMainstatScalingSource = z.infer<typeof wheelMainstatScalingSourceSchema>

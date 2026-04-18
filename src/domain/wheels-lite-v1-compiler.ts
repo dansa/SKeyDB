@@ -1,7 +1,11 @@
 import {z} from 'zod'
 
 import {type AwakenerOverlayRecord} from './awakener-source-schema.ts'
-import {WHEEL_MAINSTAT_KEYS, WHEEL_REALM_KEYS, WHEEL_SOURCE_RARITY_KEYS} from './wheel-source-schema.ts'
+import {
+  WHEEL_MAINSTAT_KEYS,
+  WHEEL_REALM_KEYS,
+  WHEEL_SOURCE_RARITY_KEYS,
+} from './wheel-source-schema.ts'
 import {type WheelFullV1Record} from './wheels-full-v1-compiler.ts'
 
 const nonEmptyStringSchema = z.string().trim().min(1)

@@ -1,6 +1,7 @@
 import {z} from 'zod'
 
 import {awakenerRosterSchema, descriptionArgsSchema} from './awakener-source-schema.ts'
+import {buildWheelMainstatSeriesKey} from './wheel-mainstat-scaling.ts'
 import {
   WHEEL_MAINSTAT_KEYS,
   WHEEL_REALM_KEYS,
@@ -9,7 +10,6 @@ import {
   type WheelMainstatScalingSource,
   type WheelSourceRecord,
 } from './wheel-source-schema.ts'
-import {buildWheelMainstatSeriesKey} from './wheel-mainstat-scaling.ts'
 
 const nonEmptyStringSchema = z.string().trim().min(1)
 

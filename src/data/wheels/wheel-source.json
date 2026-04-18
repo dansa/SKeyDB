@@ -11,31 +11,16 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "150",
-          "200",
-          "250",
-          "300"
-        ],
+        "values": ["150", "200", "250", "300"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
+        "values": ["3", "4", "5", "6"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ],
+        "values": ["13", "17", "21", "25"],
         "suffix": "%"
       }
     }
@@ -52,50 +37,25 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ],
+        "values": ["9", "11", "13", "15"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ],
+        "values": ["3", "4", "5", "6"],
         "suffix": "%"
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ]
+        "values": ["5", "6", "7", "8"]
       },
       "StateArg4": {
         "kind": "scaling",
-        "values": [
-          "60",
-          "80",
-          "100",
-          "120"
-        ]
+        "values": ["60", "80", "100", "120"]
       },
       "StateArg5": {
         "kind": "scaling",
-        "values": [
-          "22",
-          "28",
-          "34",
-          "40"
-        ],
+        "values": ["22", "28", "34", "40"],
         "suffix": "%"
       }
     }
@@ -112,21 +72,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ]
+        "values": ["6", "8", "10", "12"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -142,32 +92,17 @@
     "descriptionArgs": {
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "40",
-          "60",
-          "80",
-          "100"
-        ],
+        "values": ["40", "60", "80", "100"],
         "suffix": "%"
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ],
+        "values": ["15", "20", "25", "30"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "16",
-          "19",
-          "22",
-          "25"
-        ],
+        "values": ["16", "19", "22", "25"],
         "suffix": "%"
       }
     }
@@ -184,32 +119,17 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "22",
-          "28",
-          "34",
-          "40"
-        ],
+        "values": ["22", "28", "34", "40"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ],
+        "values": ["15", "20", "25", "30"],
         "suffix": "%"
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "20",
-          "25",
-          "30",
-          "35"
-        ],
+        "values": ["20", "25", "30", "35"],
         "suffix": "%"
       }
     }
@@ -226,12 +146,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "22",
-          "28",
-          "34",
-          "40"
-        ],
+        "values": ["22", "28", "34", "40"],
         "suffix": "%"
       }
     }
@@ -248,30 +163,15 @@
     "descriptionArgs": {
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "12",
-          "16",
-          "20",
-          "24"
-        ]
+        "values": ["12", "16", "20", "24"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ]
+        "values": ["6", "8", "10", "12"]
       }
     }
   },
@@ -287,21 +187,11 @@
     "descriptionArgs": {
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
+        "values": ["3", "4", "5", "6"]
       }
     }
   },
@@ -317,21 +207,11 @@
     "descriptionArgs": {
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -347,30 +227,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "26",
-          "34",
-          "42",
-          "50"
-        ]
+        "values": ["26", "34", "42", "50"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       }
     }
   },
@@ -386,32 +251,17 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "10",
-          "15",
-          "20",
-          "25"
-        ],
+        "values": ["10", "15", "20", "25"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ],
+        "values": ["2", "3", "4", "5"],
         "suffix": "%"
       },
       "StateArg4": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       }
     }
   },
@@ -427,32 +277,17 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ],
+        "values": ["6", "8", "10", "12"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ],
+        "values": ["9", "11", "13", "15"],
         "suffix": "%"
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -468,30 +303,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       }
     }
   },
@@ -507,12 +327,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "30",
-          "40",
-          "50",
-          "60"
-        ]
+        "values": ["30", "40", "50", "60"]
       }
     }
   },
@@ -528,21 +343,11 @@
     "descriptionArgs": {
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ]
+        "values": ["5", "6", "7", "8"]
       }
     }
   },
@@ -558,21 +363,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       }
     }
   },
@@ -588,21 +383,11 @@
     "descriptionArgs": {
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       }
     }
   },
@@ -618,12 +403,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "26",
-          "34",
-          "42",
-          "50"
-        ]
+        "values": ["26", "34", "42", "50"]
       }
     }
   },
@@ -643,12 +423,7 @@
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
+        "values": ["3", "4", "5", "6"]
       }
     }
   },
@@ -668,21 +443,11 @@
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "5",
-          "6",
-          "7"
-        ]
+        "values": ["4", "5", "6", "7"]
       }
     }
   },
@@ -698,30 +463,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "35",
-          "40",
-          "45",
-          "50"
-        ]
+        "values": ["35", "40", "45", "50"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       }
     }
   },
@@ -737,30 +487,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ]
+        "values": ["5", "6", "7", "8"]
       }
     }
   },
@@ -776,30 +511,15 @@
     "descriptionArgs": {
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ]
+        "values": ["5", "6", "7", "8"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -815,30 +535,15 @@
     "descriptionArgs": {
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "20",
-          "25",
-          "30",
-          "35"
-        ]
+        "values": ["20", "25", "30", "35"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "5",
-          "6",
-          "7"
-        ]
+        "values": ["4", "5", "6", "7"]
       }
     }
   },
@@ -854,12 +559,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -875,30 +575,15 @@
     "descriptionArgs": {
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ]
+        "values": ["2", "3", "4", "5"]
       }
     }
   },
@@ -914,22 +599,12 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ],
+        "values": ["13", "17", "21", "25"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ],
+        "values": ["3", "4", "5", "6"],
         "suffix": "%"
       }
     }
@@ -946,32 +621,17 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "20",
-          "25",
-          "30",
-          "35"
-        ],
+        "values": ["20", "25", "30", "35"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ],
+        "values": ["6", "8", "10", "12"],
         "suffix": "%"
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ],
+        "values": ["11", "14", "17", "20"],
         "suffix": "%"
       }
     }
@@ -988,21 +648,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "30",
-          "40",
-          "50",
-          "60"
-        ]
+        "values": ["30", "40", "50", "60"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       }
     }
   },
@@ -1018,32 +668,17 @@
     "descriptionArgs": {
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ],
+        "values": ["11", "14", "17", "20"],
         "suffix": "%"
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "7.5",
-          "9",
-          "10.5",
-          "12"
-        ],
+        "values": ["7.5", "9", "10.5", "12"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "55",
-          "70",
-          "85",
-          "100"
-        ],
+        "values": ["55", "70", "85", "100"],
         "suffix": "%"
       }
     }
@@ -1064,21 +699,11 @@
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ]
+        "values": ["2", "3", "4", "5"]
       }
     }
   },
@@ -1094,21 +719,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "55",
-          "70",
-          "85",
-          "100"
-        ]
+        "values": ["55", "70", "85", "100"]
       }
     }
   },
@@ -1124,41 +739,21 @@
     "descriptionArgs": {
       "StateArg4": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ],
+        "values": ["13", "17", "21", "25"],
         "suffix": "%"
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ],
+        "values": ["5", "6", "7", "8"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ]
+        "values": ["6", "8", "10", "12"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ],
+        "values": ["9", "11", "13", "15"],
         "suffix": "%"
       }
     }
@@ -1175,21 +770,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "140",
-          "160",
-          "180",
-          "200"
-        ]
+        "values": ["140", "160", "180", "200"]
       }
     }
   },
@@ -1205,21 +790,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "110",
-          "140",
-          "170",
-          "200"
-        ]
+        "values": ["110", "140", "170", "200"]
       }
     }
   },
@@ -1235,12 +810,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       }
     }
   },
@@ -1256,21 +826,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "9",
-          "12",
-          "15"
-        ]
+        "values": ["6", "9", "12", "15"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ]
+        "values": ["2", "3", "4", "5"]
       }
     }
   },
@@ -1286,30 +846,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
+        "values": ["3", "4", "5", "6"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "35",
-          "40",
-          "45",
-          "50"
-        ]
+        "values": ["35", "40", "45", "50"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ]
+        "values": ["6", "8", "10", "12"]
       }
     }
   },
@@ -1325,30 +870,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "35",
-          "50",
-          "65",
-          "80"
-        ]
+        "values": ["35", "50", "65", "80"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       }
     }
   },
@@ -1364,30 +894,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ]
+        "values": ["2", "3", "4", "5"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "50",
-          "60",
-          "70",
-          "80"
-        ]
+        "values": ["50", "60", "70", "80"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ]
+        "values": ["5", "6", "7", "8"]
       }
     }
   },
@@ -1403,39 +918,19 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "35",
-          "40",
-          "45",
-          "50"
-        ]
+        "values": ["35", "40", "45", "50"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       },
       "StateArg4": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       }
     }
   },
@@ -1451,22 +946,12 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "20",
-          "25",
-          "30",
-          "35"
-        ],
+        "values": ["20", "25", "30", "35"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ],
+        "values": ["9", "11", "13", "15"],
         "suffix": "%"
       }
     }
@@ -1482,12 +967,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "20",
-          "25",
-          "30",
-          "35"
-        ]
+        "values": ["20", "25", "30", "35"]
       }
     }
   },
@@ -1502,12 +982,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "35",
-          "40",
-          "45",
-          "50"
-        ]
+        "values": ["35", "40", "45", "50"]
       }
     }
   },
@@ -1522,12 +997,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "70",
-          "80",
-          "90",
-          "100"
-        ]
+        "values": ["70", "80", "90", "100"]
       }
     }
   },
@@ -1543,12 +1013,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "40",
-          "60",
-          "80",
-          "100"
-        ],
+        "values": ["40", "60", "80", "100"],
         "suffix": "%"
       }
     }
@@ -1564,12 +1029,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       }
     }
   },
@@ -1585,12 +1045,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "35",
-          "40",
-          "45",
-          "50"
-        ]
+        "values": ["35", "40", "45", "50"]
       }
     }
   },
@@ -1606,12 +1061,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "35",
-          "40",
-          "45",
-          "50"
-        ]
+        "values": ["35", "40", "45", "50"]
       }
     }
   },
@@ -1627,30 +1077,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "25",
-          "30",
-          "35",
-          "40"
-        ]
+        "values": ["25", "30", "35", "40"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
+        "values": ["3", "4", "5", "6"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ]
+        "values": ["2", "3", "4", "5"]
       }
     }
   },
@@ -1666,39 +1101,19 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ]
+        "values": ["5", "6", "7", "8"]
       },
       "StateArg4": {
         "kind": "scaling",
-        "values": [
-          "90",
-          "110",
-          "130",
-          "150"
-        ]
+        "values": ["90", "110", "130", "150"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       }
     }
   },
@@ -1714,12 +1129,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "55",
-          "70",
-          "85",
-          "100"
-        ],
+        "values": ["55", "70", "85", "100"],
         "suffix": "%"
       }
     }
@@ -1736,39 +1146,19 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "2.5",
-          "3",
-          "3.5",
-          "4"
-        ]
+        "values": ["2.5", "3", "3.5", "4"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       },
       "StateArg4": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ]
+        "values": ["6", "8", "10", "12"]
       }
     }
   },
@@ -1784,39 +1174,19 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "7",
-          "8",
-          "9"
-        ]
+        "values": ["6", "7", "8", "9"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
+        "values": ["3", "4", "5", "6"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "2.1",
-          "2.4",
-          "2.7",
-          "3"
-        ]
+        "values": ["2.1", "2.4", "2.7", "3"]
       },
       "StateArg4": {
         "kind": "scaling",
-        "values": [
-          "1.1",
-          "1.4",
-          "1.7",
-          "2"
-        ]
+        "values": ["1.1", "1.4", "1.7", "2"]
       }
     }
   },
@@ -1832,21 +1202,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "30",
-          "40",
-          "50",
-          "60"
-        ]
+        "values": ["30", "40", "50", "60"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "20",
-          "25",
-          "30",
-          "35"
-        ]
+        "values": ["20", "25", "30", "35"]
       }
     }
   },
@@ -1862,30 +1222,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "7",
-          "8",
-          "9",
-          "10"
-        ]
+        "values": ["7", "8", "9", "10"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -1901,21 +1246,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ]
+        "values": ["6", "8", "10", "12"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "1.5",
-          "2",
-          "2.5",
-          "3"
-        ]
+        "values": ["1.5", "2", "2.5", "3"]
       }
     }
   },
@@ -1931,21 +1266,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       }
     }
   },
@@ -1961,32 +1286,17 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ],
+        "values": ["15", "20", "25", "30"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ],
+        "values": ["11", "14", "17", "20"],
         "suffix": "%"
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ],
+        "values": ["13", "17", "21", "25"],
         "suffix": "%"
       }
     }
@@ -2003,30 +1313,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       }
     }
   },
@@ -2042,30 +1337,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "20",
-          "25",
-          "30",
-          "35"
-        ]
+        "values": ["20", "25", "30", "35"]
       }
     }
   },
@@ -2080,12 +1360,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ],
+        "values": ["11", "14", "17", "20"],
         "suffix": "%"
       }
     }
@@ -2101,12 +1376,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -2121,12 +1391,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       }
     }
   },
@@ -2141,12 +1406,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ]
+        "values": ["2", "3", "4", "5"]
       }
     }
   },
@@ -2161,12 +1421,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -2181,12 +1436,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "35",
-          "40",
-          "45",
-          "50"
-        ]
+        "values": ["35", "40", "45", "50"]
       }
     }
   },
@@ -2201,12 +1451,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ],
+        "values": ["2", "3", "4", "5"],
         "suffix": "%"
       }
     }
@@ -2222,12 +1467,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "400",
-          "600",
-          "800",
-          "1000"
-        ]
+        "values": ["400", "600", "800", "1000"]
       }
     }
   },
@@ -2242,12 +1482,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ],
+        "values": ["2", "3", "4", "5"],
         "suffix": "%"
       }
     }
@@ -2263,12 +1498,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ],
+        "values": ["15", "20", "25", "30"],
         "suffix": "%"
       }
     }
@@ -2284,12 +1514,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       }
     }
   },
@@ -2304,12 +1529,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       }
     }
   },
@@ -2324,12 +1544,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "22",
-          "28",
-          "34",
-          "40"
-        ],
+        "values": ["22", "28", "34", "40"],
         "suffix": "%"
       }
     }
@@ -2345,12 +1560,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "400",
-          "600",
-          "800",
-          "1000"
-        ]
+        "values": ["400", "600", "800", "1000"]
       }
     }
   },
@@ -2365,12 +1575,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       }
     }
   },
@@ -2385,12 +1590,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       }
     }
   },
@@ -2405,12 +1605,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ]
+        "values": ["2", "3", "4", "5"]
       }
     }
   },
@@ -2425,12 +1620,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -2445,21 +1635,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ]
+        "values": ["6", "8", "10", "12"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -2474,12 +1654,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ],
+        "values": ["6", "8", "10", "12"],
         "suffix": "%"
       }
     }
@@ -2495,32 +1670,17 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ],
+        "values": ["6", "8", "10", "12"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ],
+        "values": ["15", "20", "25", "30"],
         "suffix": "%"
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "40",
-          "60",
-          "80",
-          "100"
-        ],
+        "values": ["40", "60", "80", "100"],
         "suffix": "%"
       }
     }
@@ -2536,12 +1696,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "12",
-          "15",
-          "18"
-        ]
+        "values": ["9", "12", "15", "18"]
       }
     }
   },
@@ -2556,12 +1711,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       }
     }
   },
@@ -2576,12 +1726,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       }
     }
   },
@@ -2596,12 +1741,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "10",
-          "11",
-          "12"
-        ]
+        "values": ["9", "10", "11", "12"]
       }
     }
   },
@@ -2616,12 +1756,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "16",
-          "19",
-          "22",
-          "25"
-        ]
+        "values": ["16", "19", "22", "25"]
       }
     }
   },
@@ -2636,12 +1771,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       }
     }
   },
@@ -2656,21 +1786,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -2685,21 +1805,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -2714,12 +1824,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "20",
-          "30",
-          "40",
-          "50"
-        ]
+        "values": ["20", "30", "40", "50"]
       }
     }
   },
@@ -2734,12 +1839,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "22",
-          "28",
-          "34",
-          "40"
-        ]
+        "values": ["22", "28", "34", "40"]
       }
     }
   },
@@ -2754,12 +1854,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "22",
-          "28",
-          "34",
-          "40"
-        ]
+        "values": ["22", "28", "34", "40"]
       }
     }
   },
@@ -2775,21 +1870,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -2805,21 +1890,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "70",
-          "80",
-          "90",
-          "100"
-        ]
+        "values": ["70", "80", "90", "100"]
       }
     }
   },
@@ -2835,21 +1910,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "1.5",
-          "2.0",
-          "2.5",
-          "3.0"
-        ]
+        "values": ["1.5", "2.0", "2.5", "3.0"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "1.5",
-          "2.0",
-          "2.5",
-          "3.0"
-        ]
+        "values": ["1.5", "2.0", "2.5", "3.0"]
       }
     }
   },
@@ -2865,21 +1930,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "25",
-          "30",
-          "35",
-          "40"
-        ]
+        "values": ["25", "30", "35", "40"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "1",
-          "2",
-          "3",
-          "4"
-        ]
+        "values": ["1", "2", "3", "4"]
       }
     }
   },
@@ -2895,21 +1950,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       }
     }
   },
@@ -2925,21 +1970,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ]
+        "values": ["5", "6", "7", "8"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ]
+        "values": ["5", "6", "7", "8"]
       }
     }
   },
@@ -2955,21 +1990,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "1.5",
-          "2",
-          "2.5",
-          "3"
-        ]
+        "values": ["1.5", "2", "2.5", "3"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       }
     }
   },
@@ -2985,12 +2010,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "40",
-          "60",
-          "80",
-          "100"
-        ]
+        "values": ["40", "60", "80", "100"]
       }
     }
   },
@@ -3006,12 +2026,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ]
+        "values": ["6", "8", "10", "12"]
       }
     }
   },
@@ -3027,30 +2042,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "1.5",
-          "2",
-          "2.5",
-          "3"
-        ]
+        "values": ["1.5", "2", "2.5", "3"]
       }
     }
   },
@@ -3066,31 +2066,16 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ],
+        "values": ["5", "6", "7", "8"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
+        "values": ["3", "4", "5", "6"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ],
+        "values": ["3", "4", "5", "6"],
         "suffix": "%"
       }
     }
@@ -3107,12 +2092,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "350",
-          "400",
-          "450",
-          "500"
-        ]
+        "values": ["350", "400", "450", "500"]
       }
     }
   },
@@ -3128,12 +2108,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       }
     }
   },
@@ -3149,12 +2124,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "70",
-          "80",
-          "90",
-          "100"
-        ]
+        "values": ["70", "80", "90", "100"]
       }
     }
   },
@@ -3170,12 +2140,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ],
+        "values": ["4", "6", "8", "10"],
         "suffix": "%"
       }
     }
@@ -3192,12 +2157,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ],
+        "values": ["4", "6", "8", "10"],
         "suffix": "%"
       }
     }
@@ -3214,21 +2174,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "8",
-          "12",
-          "16",
-          "20"
-        ]
+        "values": ["8", "12", "16", "20"]
       }
     }
   },
@@ -3244,22 +2194,12 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "30",
-          "40",
-          "50",
-          "60"
-        ],
+        "values": ["30", "40", "50", "60"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ]
+        "values": ["5", "6", "7", "8"]
       }
     }
   },
@@ -3275,12 +2215,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "5",
-          "6",
-          "7",
-          "8"
-        ]
+        "values": ["5", "6", "7", "8"]
       }
     }
   },
@@ -3296,22 +2231,12 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "8",
-          "10",
-          "12"
-        ],
+        "values": ["6", "8", "10", "12"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ],
+        "values": ["4", "6", "8", "10"],
         "suffix": "%"
       }
     }
@@ -3328,12 +2253,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -3349,12 +2269,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       }
     }
   },
@@ -3370,12 +2285,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "13",
-          "17",
-          "21",
-          "25"
-        ]
+        "values": ["13", "17", "21", "25"]
       }
     }
   },
@@ -3391,22 +2301,12 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ],
+        "values": ["9", "11", "13", "15"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "14",
-          "16",
-          "18",
-          "20"
-        ],
+        "values": ["14", "16", "18", "20"],
         "suffix": "%"
       }
     }
@@ -3423,12 +2323,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "55",
-          "70",
-          "85",
-          "100"
-        ],
+        "values": ["55", "70", "85", "100"],
         "suffix": "%"
       }
     }
@@ -3445,22 +2340,12 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ],
+        "values": ["4", "6", "8", "10"],
         "suffix": "%"
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       }
     }
   },
@@ -3476,12 +2361,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       }
     }
   },
@@ -3496,12 +2376,7 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "9",
-          "11",
-          "13",
-          "15"
-        ]
+        "values": ["9", "11", "13", "15"]
       }
     }
   },
@@ -3516,21 +2391,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "11",
-          "14",
-          "17",
-          "20"
-        ]
+        "values": ["11", "14", "17", "20"]
       }
     }
   },
@@ -3545,30 +2410,15 @@
     "descriptionArgs": {
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ]
+        "values": ["4", "6", "8", "10"]
       },
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
+        "values": ["3", "4", "5", "6"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
+        "values": ["3", "4", "5", "6"]
       }
     }
   },
@@ -3583,21 +2433,11 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "125",
-          "150",
-          "175",
-          "200"
-        ]
+        "values": ["125", "150", "175", "200"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "700",
-          "800",
-          "900",
-          "1000"
-        ]
+        "values": ["700", "800", "900", "1000"]
       }
     }
   },
@@ -3612,30 +2452,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "1.5",
-          "2",
-          "2.5",
-          "3"
-        ]
+        "values": ["1.5", "2", "2.5", "3"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "6",
-          "9",
-          "12",
-          "15"
-        ]
+        "values": ["6", "9", "12", "15"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "15",
-          "20",
-          "25",
-          "30"
-        ]
+        "values": ["15", "20", "25", "30"]
       }
     }
   },
@@ -3650,30 +2475,15 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "7",
-          "8",
-          "9",
-          "10"
-        ]
+        "values": ["7", "8", "9", "10"]
       },
       "StateArg2": {
         "kind": "scaling",
-        "values": [
-          "2",
-          "3",
-          "4",
-          "5"
-        ]
+        "values": ["2", "3", "4", "5"]
       },
       "StateArg3": {
         "kind": "scaling",
-        "values": [
-          "10",
-          "15",
-          "20",
-          "25"
-        ]
+        "values": ["10", "15", "20", "25"]
       }
     }
   },
@@ -3688,15 +2498,9 @@
     "descriptionArgs": {
       "StateArg1": {
         "kind": "scaling",
-        "values": [
-          "4",
-          "6",
-          "8",
-          "10"
-        ],
+        "values": ["4", "6", "8", "10"],
         "suffix": "%"
       }
     }
   }
 ]
-
