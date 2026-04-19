@@ -5,19 +5,21 @@ import type {Wheel} from './wheels'
 import {searchWheels} from './wheels-search'
 
 function makeWheel(overrides: Partial<Wheel> & Pick<Wheel, 'id' | 'name'>): Wheel {
+  const {id, name, ...restOverrides} = overrides
+
   return {
-    id: overrides.id,
-    assetId: `Weapon_Full_${overrides.id}`,
-    name: overrides.name,
+    id,
+    assetId: `Weapon_Full_${id}`,
+    name,
     rarity: 'SSR',
     realm: 'CARO',
     awakener: 'alpha',
     ownerAwakenerId: 1,
     ownerAwakenerName: 'alpha',
-    aliases: [overrides.name],
+    aliases: [name],
     tags: [],
     mainstatKey: 'KEYFLARE_REGEN',
-    ...overrides,
+    ...restOverrides,
   }
 }
 

@@ -3,7 +3,7 @@ import {OwnedAssetBoxExport, type OwnedAssetBoxEntry} from './OwnedAssetBoxExpor
 export interface OwnedWheelBoxEntry {
   id: string
   name: string
-  rarity: 'SSR' | 'SR' | 'R'
+  rarity: 'SSR' | 'SR' | 'R' | 'N'
   realm: string
   index: number
   level: number
@@ -19,12 +19,14 @@ const wheelRarityOptions = [
   {value: 'SSR', label: 'SSR'},
   {value: 'SR', label: 'SR'},
   {value: 'R', label: 'R'},
+  {value: 'N', label: 'N'},
 ] as const
 
 const defaultIncludedRarities: Record<(typeof wheelRarityOptions)[number]['value'], boolean> = {
   SSR: true,
   SR: false,
   R: false,
+  N: false,
 }
 
 export function OwnedWheelBoxExport({entries, onStatusMessage}: OwnedWheelBoxExportProps) {

@@ -42,6 +42,7 @@ export function WheelDetailContent({
   const realmTint = getRealmTint(wheel.realm)
   const mainstatLabel = getMainstatByKey(wheel.mainstatKey)?.label ?? wheel.mainstatKey
   const mainstatIcon = getMainstatIcon(wheel.mainstatKey)
+  const ownerAwakenerId = wheel.ownerAwakenerId
   const ownerName = wheel.ownerAwakenerName ?? wheel.awakener
   const displayOwnerName = ownerName ? formatAwakenerNameForUi(ownerName) : null
   const lore = fullDataV1.lore ?? null
@@ -61,13 +62,13 @@ export function WheelDetailContent({
               <span className='text-amber-100/90'>{wheel.rarity}</span>
               <span className='text-slate-700'>•</span>
               <span style={{color: realmTint}}>{realmLabel}</span>
-              {wheel.ownerAwakenerId && ownerName && displayOwnerName ? (
+              {ownerAwakenerId && ownerName && displayOwnerName ? (
                 <>
                   <span className='text-slate-700'>•</span>
                   <button
                     className='cursor-pointer tracking-normal text-amber-100 normal-case transition-colors hover:text-amber-50'
                     onClick={() => {
-                      onSelectAwakener?.({id: wheel.ownerAwakenerId!, name: ownerName}, 'overview')
+                      onSelectAwakener?.({id: ownerAwakenerId, name: ownerName}, 'overview')
                     }}
                     type='button'
                   >

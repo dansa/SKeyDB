@@ -11,7 +11,7 @@ import type {WheelFullV1Record} from '@/domain/wheels-full-v1'
 
 import {WheelDetailModal} from './WheelDetailModal'
 
-const mockGetWheelAssetById = vi.fn(() => '/wheel.webp')
+const mockGetWheelAssetById = vi.fn((_wheelId: string): string | undefined => '/wheel.webp')
 
 vi.mock('@/domain/wheel-assets', () => ({
   getWheelAssetById: (wheelId: string) => mockGetWheelAssetById(wheelId),
@@ -251,7 +251,7 @@ describe('WheelDetailModal', () => {
     render(
       <WheelDetailModal
         fullDataV1={makeWheelFullRecord({
-          lore: null,
+          lore: undefined,
           ownerAwakenerId: undefined,
           ownerAwakenerName: undefined,
         })}

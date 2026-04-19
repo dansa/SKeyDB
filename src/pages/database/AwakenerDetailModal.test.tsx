@@ -17,7 +17,7 @@ import {
 } from './database-test-fixtures'
 
 const mockCloseAllPopovers = vi.fn()
-const mockGetAwakenerCardAsset = vi.fn(() => '/card.webp')
+const mockGetAwakenerCardAsset = vi.fn((_name: string): string | undefined => '/card.webp')
 let mockHasOpenPopovers = false
 
 vi.mock('./useDatabasePopoverController', () => ({

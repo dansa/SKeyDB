@@ -231,7 +231,7 @@ export function WheelLoreText({lore, previewLineCount = 4}: WheelLoreTextProps) 
   const [isExpanded, setIsExpanded] = useState(false)
   const paragraphs = buildLoreParagraphs(lore)
   const preview = trimLoreParagraphs(paragraphs, previewLineCount)
-  const previewHeight = `${previewLineCount * 1.625}rem`
+  const previewHeight = `${String(previewLineCount * 1.625)}rem`
 
   return (
     <div className='mt-2 max-w-[66ch]'>

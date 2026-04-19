@@ -136,7 +136,10 @@ export function DatabasePage() {
     })
   }
 
-  function handleModalAwakenerSelect(nextAwakener: Awakener, nextTab: DatabaseAwakenerTab) {
+  function handleModalAwakenerSelect(
+    nextAwakener: Pick<Awakener, 'id' | 'name'>,
+    nextTab: DatabaseAwakenerTab = 'overview',
+  ) {
     void navigate({
       pathname: buildDatabaseAwakenerPath(nextAwakener, nextTab),
       search: location.search,
@@ -251,7 +254,7 @@ interface DatabaseAwakenerDetailRouteProps {
   awakener: Awakener
   awakeners: Awakener[]
   onClose: () => void
-  onSelectAwakener: (awakener: Awakener, tab: DatabaseAwakenerTab) => void
+  onSelectAwakener: (awakener: Pick<Awakener, 'id' | 'name'>, tab?: DatabaseAwakenerTab) => void
   onSelectWheel?: (wheel: Pick<Wheel, 'name'>) => void
   onTabChange: (tab: DatabaseAwakenerTab) => void
   tabSlug?: string
@@ -316,7 +319,7 @@ interface DatabaseWheelDetailRouteProps {
   wheel: Wheel
   wheels: Wheel[]
   onClose: () => void
-  onSelectAwakener: (awakener: Awakener, tab: DatabaseAwakenerTab) => void
+  onSelectAwakener: (awakener: Pick<Awakener, 'id' | 'name'>, tab?: DatabaseAwakenerTab) => void
   onSelectWheel?: (wheel: Pick<Wheel, 'name'>) => void
 }
 

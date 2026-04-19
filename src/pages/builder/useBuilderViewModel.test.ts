@@ -256,7 +256,7 @@ describe('useBuilderViewModel', () => {
     const wheels = result.current.filteredWheels
     expect(wheels.length).toBeGreaterThan(0)
 
-    const rarityOrder = {SSR: 0, SR: 1, R: 2} as const
+    const rarityOrder = {SSR: 0, SR: 1, R: 2, N: 3} as const
     const realmOrder = {CHAOS: 0, AEQUOR: 1, CARO: 2, ULTRA: 3, NEUTRAL: 4} as const
 
     for (let index = 1; index < wheels.length; index += 1) {

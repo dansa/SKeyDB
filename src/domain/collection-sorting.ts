@@ -137,10 +137,10 @@ function compareOwnedFirst(left: SortableCollectionEntry, right: SortableCollect
   return leftOwned ? -1 : 1
 }
 
-function compareByPriority(
-  left: SortableCollectionEntry,
-  right: SortableCollectionEntry,
-  comparators: ((left: SortableCollectionEntry, right: SortableCollectionEntry) => number)[],
+function compareByPriority<TEntry extends SortableCollectionEntry>(
+  left: TEntry,
+  right: TEntry,
+  comparators: ((left: TEntry, right: TEntry) => number)[],
 ): number {
   for (const comparator of comparators) {
     const result = comparator(left, right)

@@ -15,14 +15,18 @@ export function useDatabaseDetailRouteRecord<TId, TRecord>({
 }: UseDatabaseDetailRouteRecordOptions<TId, TRecord>) {
   const location = useLocation()
   const navigate = useNavigate()
-  const [record, setRecord] = useState<TRecord | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
+  const [state, setState] = useState<{
+    id: TId
+    isLoading: boolean
+    record: TRecord | null
+  }>(() => ({
+    id,
+    isLoading: true,
+    record: null,
+  }))
 
   useEffect(() => {
     let isCancelled = false
-
-    setIsLoading(true)
-    setRecord(null)
 
     void loadRecord(id).then((nextRecord) => {
       if (isCancelled) {
@@ -30,12 +34,19 @@ export function useDatabaseDetailRouteRecord<TId, TRecord>({
       }
 
       if (nextRecord) {
-        setRecord(nextRecord)
-        setIsLoading(false)
+        setState({
+          id,
+          isLoading: false,
+          record: nextRecord,
+        })
         return
       }
 
-      setIsLoading(false)
+      setState({
+        id,
+        isLoading: false,
+        record: null,
+      })
       void navigate(
         {
           pathname: missingPathname,
@@ -50,5 +61,12 @@ export function useDatabaseDetailRouteRecord<TId, TRecord>({
     }
   }, [id, loadRecord, location.search, missingPathname, navigate])
 
-  return {isLoading, record}
+  if (state.id !== id) {
+    return {isLoading: true, record: null}
+  }
+
+  return {
+    isLoading: state.isLoading,
+    record: state.record,
+  }
 }
