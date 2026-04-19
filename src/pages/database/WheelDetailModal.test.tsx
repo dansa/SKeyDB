@@ -310,12 +310,10 @@ describe('WheelDetailModal', () => {
       />,
     )
 
-    await waitFor(() => {
-      expect(screen.getByRole('slider', {name: /^enhance$/i})).toHaveAttribute(
-        'aria-valuetext',
-        'E3 + 4',
-      )
-    })
+    expect(screen.getByRole('slider', {name: /^enhance$/i})).toHaveAttribute(
+      'aria-valuetext',
+      'E3 + 4',
+    )
   })
 
   it('persists expanding lore on open and applies it when loading the next wheel', async () => {

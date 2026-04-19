@@ -385,6 +385,7 @@ function DatabaseAwakenerDetailRoute({
 }: DatabaseAwakenerDetailRouteProps) {
   const location = useLocation()
   const navigate = useNavigate()
+  const resolvedTabSlug = resolveDatabaseAwakenerTab(tabSlug)
   const {isLoading, record: fullDataV2} = useDatabaseDetailRouteRecord({
     id: awakener.id,
     loadRecord: loadAwakenerFullV2ById,
@@ -392,21 +393,26 @@ function DatabaseAwakenerDetailRoute({
   })
 
   useEffect(() => {
-    if (!fullDataV2 || tabSlug !== 'cards') {
+    if (!fullDataV2 || !tabSlug || !resolvedTabSlug) {
+      return
+    }
+
+    const canonicalPath = buildDatabaseAwakenerPath(awakener, resolvedTabSlug)
+    if (location.pathname === canonicalPath) {
       return
     }
 
     void navigate(
       {
-        pathname: buildDatabaseAwakenerPath(awakener, 'skills'),
+        pathname: canonicalPath,
         search: location.search,
       },
       {replace: true},
     )
-  }, [awakener, fullDataV2, location.search, navigate, tabSlug])
+  }, [awakener, fullDataV2, location.pathname, location.search, navigate, resolvedTabSlug, tabSlug])
 
   useEffect(() => {
-    if (!fullDataV2 || !tabSlug || resolveDatabaseAwakenerTab(tabSlug)) {
+    if (!fullDataV2 || !tabSlug || resolvedTabSlug) {
       return
     }
 
@@ -417,7 +423,7 @@ function DatabaseAwakenerDetailRoute({
       },
       {replace: true},
     )
-  }, [awakener, fullDataV2, location.search, navigate, tabSlug])
+  }, [awakener, fullDataV2, location.search, navigate, resolvedTabSlug, tabSlug])
 
   if (isLoading) {
     return <div className='px-2 py-3 text-sm text-slate-300'>Loading awakener details...</div>

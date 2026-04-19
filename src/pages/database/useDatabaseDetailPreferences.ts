@@ -19,7 +19,7 @@ export function useDatabaseDetailPreferences() {
   const updatePreferences = useCallback((nextPartial: DatabaseDetailPreferencesPatch) => {
     setPreferences((previous) => {
       const next = mergeDatabaseDetailPreferences(previous, nextPartial)
-      writeDatabaseDetailPreferences(next)
+      writeDatabaseDetailPreferences(nextPartial)
       return next
     })
   }, [])

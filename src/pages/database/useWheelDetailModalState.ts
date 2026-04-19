@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo, useRef, useState} from 'react'
+import {useCallback, useMemo, useState} from 'react'
 
 import {clampWheelEnhanceLevel, resolveWheelDescriptionRank} from '@/domain/wheel-enhance'
 import {resolveWheelMainstatValue} from '@/domain/wheel-mainstat-scaling'
@@ -33,7 +33,6 @@ export function useWheelDetailModalState({
   const {preferences, updateSharedPreferences, updateWheelPreferences} =
     useDatabaseDetailPreferences()
   const [enhanceLevel, setEnhanceLevelState] = useState(preferences.wheel.defaultEnhanceLevel)
-  const previousWheelIdRef = useRef(wheel.id)
   const descriptionRank = useMemo(() => resolveWheelDescriptionRank(enhanceLevel), [enhanceLevel])
   const search = useWheelDetailSearch({
     onSelectWheel,
@@ -62,15 +61,6 @@ export function useWheelDetailModalState({
     searchContainerRef: search.searchContainerRef,
     searchInputRef: search.searchInputRef,
   })
-
-  useEffect(() => {
-    if (previousWheelIdRef.current === wheel.id) {
-      return
-    }
-
-    previousWheelIdRef.current = wheel.id
-    setEnhanceLevelState(preferences.wheel.defaultEnhanceLevel)
-  }, [preferences.wheel.defaultEnhanceLevel, wheel.id])
 
   const setEnhanceLevel = useCallback((level: number) => {
     setEnhanceLevelState(clampWheelEnhanceLevel(level))

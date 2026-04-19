@@ -638,6 +638,16 @@ describe('DatabasePage', () => {
     )
   })
 
+  it('canonicalizes mixed-case legacy tab routes onto the skills slug', async () => {
+    await renderDatabasePage('/database/awk/alpha/Cards')
+
+    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    expect(screen.getByText('Active tab skills')).toBeInTheDocument()
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awk/alpha/skills'),
+    )
+  })
+
   it('opens wheel browse routes inside the database shell', async () => {
     await renderDatabasePage('/database/wheels')
 

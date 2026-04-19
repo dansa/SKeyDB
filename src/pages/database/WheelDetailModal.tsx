@@ -36,6 +36,27 @@ export function WheelDetailModal({
   wheel,
   wheels = [wheel],
 }: WheelDetailModalProps) {
+  return (
+    <WheelDetailModalInner
+      fullDataV1={fullDataV1}
+      key={wheel.id}
+      onClose={onClose}
+      onSelectAwakener={onSelectAwakener}
+      onSelectWheel={onSelectWheel}
+      wheel={wheel}
+      wheels={wheels}
+    />
+  )
+}
+
+function WheelDetailModalInner({
+  fullDataV1,
+  onClose,
+  onSelectAwakener,
+  onSelectWheel,
+  wheel,
+  wheels = [wheel],
+}: WheelDetailModalProps) {
   const [isArtViewerOpen, setIsArtViewerOpen] = useState(false)
   const {
     chrome,
