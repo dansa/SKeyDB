@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:quiet": "tsc -b && vite build --logLevel error",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.{js,mjs,cjs}\" \"src/data/**/*.json\" \"src/domain/persistence-contract.v1.json\" \"schemas/**/*.json\" \"package.json\" \"tools/react-sidecar/package.json\" \"eslint.config.js\" \"vite.config.ts\" \"prettier.config.cjs\"",
     "format:changed": "node scripts/format-changed-files.mjs",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.{js,mjs,cjs}\" \"src/data/**/*.json\" \"src/domain/persistence-contract.v1.json\" \"schemas/**/*.json\" \"package.json\" \"tools/react-sidecar/package.json\" \"eslint.config.js\" \"vite.config.ts\" \"prettier.config.cjs\"",
@@ -22,6 +23,7 @@
     "test:quick": "vitest run --run src/pages/CollectionPage.test.tsx src/pages/collection/OwnedWheelBoxExport.test.tsx src/components/ui/DupeLevelDisplay.test.tsx",
     "test:watch": "vitest",
     "verify": "npm run data:refresh-awakener-v2 && npm run format && npm run lint && npm run test -- --run && npm run build",
+    "verify:pre-commit": "node scripts/pre-commit-verify.mjs",
     "data:compile-awakeners-full-v2": "node scripts/compile-awakeners-full-v2.mjs",
     "data:derive-awakeners-lite-v2": "node scripts/derive-awakeners-lite-v2.mjs",
     "data:refresh-awakener-v2": "npm run data:compile-awakeners-full-v2 && npm run data:derive-awakeners-lite-v2",
@@ -85,6 +87,6 @@
     "rollup": "^4.59.0"
   },
   "simple-git-hooks": {
-    "pre-commit": "npm run verify"
+    "pre-commit": "npm run verify:pre-commit"
   }
 }

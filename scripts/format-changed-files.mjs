@@ -1,19 +1,42 @@
 import {execFileSync, execSync} from 'node:child_process'
-import {existsSync} from 'node:fs'
+import {createHash} from 'node:crypto'
+import {existsSync, readFileSync} from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
 
+const args = new Set(process.argv.slice(2))
+const quiet = args.has('--quiet')
+const failOnWrite = args.has('--fail-on-write')
 const repoRoot = getRepoRoot()
 const changedFiles = collectChangedFiles(repoRoot)
 const prettierTargets = changedFiles.filter(isPrettierTarget)
 
 if (prettierTargets.length === 0) {
-  console.log('format-changed-files: no changed prettier targets')
+  if (!quiet) {
+    console.log('format-changed-files: no changed prettier targets')
+  }
   process.exit(0)
 }
 
-console.log(`format-changed-files: formatting ${prettierTargets.length} file(s)`)
+if (!quiet) {
+  console.log(`format-changed-files: formatting ${prettierTargets.length} file(s)`)
+}
+const hashesBeforeFormat = failOnWrite ? collectFileHashes(prettierTargets, repoRoot) : null
 runPrettier(prettierTargets, repoRoot)
+
+if (failOnWrite) {
+  const rewrittenTargets = collectRewrittenTargets(prettierTargets, repoRoot, hashesBeforeFormat)
+  if (rewrittenTargets.length > 0) {
+    console.error(
+      [
+        'format-changed-files: prettier rewrote files during pre-commit.',
+        'Review the changes and restage before committing again.',
+        ...rewrittenTargets.map((filePath) => `  - ${filePath}`),
+      ].join('\n'),
+    )
+    process.exit(1)
+  }
+}
 
 function getRepoRoot() {
   return execGit(['rev-parse', '--show-toplevel']).trim()
@@ -32,19 +55,48 @@ function getNpxCommand() {
 }
 
 function runPrettier(targets, cwd) {
+  const prettierArgs = ['prettier', '--write']
+  if (quiet) {
+    prettierArgs.push('--log-level', 'silent')
+  }
+
   if (process.platform === 'win32') {
-    const quotedTargets = targets.map((target) => `"${target.replaceAll('"', '\\"')}"`).join(' ')
-    execSync(`${getNpxCommand()} prettier --write ${quotedTargets}`, {
+    const quotedArgs = [...prettierArgs, ...targets]
+      .map((argument) => `"${argument.replaceAll('"', '\\"')}"`)
+      .join(' ')
+    execSync(`${getNpxCommand()} ${quotedArgs}`, {
       cwd,
       stdio: 'inherit',
     })
     return
   }
 
-  execFileSync(getNpxCommand(), ['prettier', '--write', ...targets], {
+  execFileSync(getNpxCommand(), [...prettierArgs, ...targets], {
     cwd,
     stdio: 'inherit',
   })
+}
+
+function collectFileHashes(filePaths, cwd) {
+  return new Map(
+    filePaths.map((filePath) => {
+      const absolutePath = path.join(cwd, filePath)
+      return [filePath, hashFile(absolutePath)]
+    }),
+  )
+}
+
+function collectRewrittenTargets(filePaths, cwd, previousHashes) {
+  return filePaths.filter((filePath) => {
+    const absolutePath = path.join(cwd, filePath)
+    return previousHashes.get(filePath) !== hashFile(absolutePath)
+  })
+}
+
+function hashFile(filePath) {
+  const hash = createHash('sha1')
+  hash.update(readFileSync(filePath))
+  return hash.digest('hex')
 }
 
 function collectChangedFiles(cwd) {
