@@ -1,4 +1,4 @@
-import type {ResolvedAwakenerDatabaseReferenceLayer} from '@/domain/awakeners-database-view'
+import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import type {WheelDatabaseDescriptionRecord} from '@/domain/description-records'
 import {getRealmLabel, getRealmTint} from '@/domain/factions'
 import {getMainstatByKey, getMainstatIcon} from '@/domain/mainstats'
@@ -16,7 +16,7 @@ interface WheelDetailContentProps {
   descriptionRank: number
   enhanceLevel: number
   mainstatValue: string
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer | null
+  referenceLayer: ResolvedDatabaseReferenceLayer | null
   wheelDescriptionRecord: WheelDatabaseDescriptionRecord
   onEnhanceLevelChange: (level: number) => void
   mobileArtwork?: React.ReactNode

@@ -6,55 +6,23 @@ import {
 } from './awakener-source-schema'
 import type {
   DatabaseDescribedEntry,
-  DatabaseReferenceInfo,
   ResolvedAwakenerDatabaseReferenceLayer,
   ResolvedAwakenerDatabaseShellView,
 } from './awakeners-database-view'
 import {type AwakenerFullV2Record} from './awakeners-full-v2'
 import {buildCardKeywordFooterText} from './card-keywords'
+import {
+  addDatabaseReferenceInfoToLookups,
+  buildAccessibleDatabaseOverlays,
+  buildDatabaseOverlayLookup,
+  buildDatabaseOverlayReferenceInfo,
+  type DatabaseReferenceInfo,
+} from './database-reference-layer'
 import {getDerivedSkills} from './derived-skills'
 import {resolveDescribedRecord, type DescribedRecord} from './description-records'
 import {buildWheelReferenceInfoEntries} from './wheels-database-reference-layer'
 
 type DatabaseReferenceKind = DatabaseReferenceInfo['kind']
-
-function normalize(value: string): string {
-  return value.trim().toLowerCase()
-}
-
-function addLookupValue<T>(lookup: Map<string, T>, key: string, value: T): void {
-  const normalized = normalize(key)
-  if (!normalized || lookup.has(normalized)) {
-    return
-  }
-
-  lookup.set(normalized, value)
-}
-
-function buildAccessibleOverlays(
-  record: AwakenerFullV2Record,
-  overlays: AwakenerOverlayRecord[],
-  overlayOverridesById: Record<string, AwakenerOverlayRecord>,
-): AwakenerOverlayRecord[] {
-  const accessible = overlays.filter(
-    (overlay) => overlay.ownerAwakenerId === undefined || overlay.ownerAwakenerId === record.id,
-  )
-
-  return accessible.map((overlay) => overlayOverridesById[overlay.id] ?? overlay)
-}
-
-function buildOverlayLookup(overlays: AwakenerOverlayRecord[]): Map<string, AwakenerOverlayRecord> {
-  const lookup = new Map<string, AwakenerOverlayRecord>()
-
-  for (const overlay of overlays) {
-    addLookupValue(lookup, overlay.displayName, overlay)
-    for (const alias of overlay.aliases) {
-      addLookupValue(lookup, alias, overlay)
-    }
-  }
-
-  return lookup
-}
 
 export function collectAwakenerDatabaseCardNames(
   record: Pick<AwakenerFullV2Record, 'cards' | 'talents' | 'enlightens' | 'derivedSkills'>,
@@ -112,25 +80,6 @@ export function collectAwakenerDatabaseCardNames(
   return names
 }
 
-function addReferenceInfo<TRecord extends DescribedRecord>(
-  lookup: Map<string, DatabaseReferenceInfo>,
-  key: string,
-  info: DatabaseReferenceInfo<TRecord>,
-): void {
-  addLookupValue(lookup, key, info)
-}
-
-function addReferenceInfoById<TRecord extends DescribedRecord>(
-  lookup: Map<string, DatabaseReferenceInfo>,
-  info: DatabaseReferenceInfo<TRecord>,
-): void {
-  if (lookup.has(info.id)) {
-    return
-  }
-
-  lookup.set(info.id, info)
-}
-
 function buildReferenceInfoFromEntry<TRecord extends DescribedRecord>(
   kind: DatabaseReferenceKind,
   entry: DatabaseDescribedEntry<TRecord>,
@@ -164,11 +113,7 @@ function addReferenceInfoToLookups<TRecord extends DescribedRecord>(
   info: DatabaseReferenceInfo<TRecord>,
   aliases: readonly string[] = [],
 ): void {
-  addReferenceInfo(byName, info.name, info)
-  addReferenceInfoById(byId, info)
-  for (const alias of aliases) {
-    addReferenceInfo(byName, alias, info)
-  }
+  addDatabaseReferenceInfoToLookups(byName, byId, info, aliases)
 }
 
 function addDescribedReferenceInfos<TRecord extends DescribedRecord>(
@@ -207,29 +152,7 @@ function buildGlobalDerivedReferenceInfo(
   }
 }
 
-export function buildAwakenerDatabaseOverlayLabel(overlay: AwakenerOverlayRecord): string {
-  return `${overlay.overlayType.charAt(0).toUpperCase()}${overlay.overlayType.slice(1)}`
-}
-
-function buildOverlayReferenceInfo(
-  overlay: AwakenerOverlayRecord,
-  stats: FullStats | null,
-): DatabaseReferenceInfo<AwakenerOverlayRecord> {
-  const resolved = resolveDescribedRecord(overlay, {stats}, {stats})
-  return {
-    kind: 'overlay',
-    id: overlay.id,
-    name: overlay.displayName,
-    label: buildAwakenerDatabaseOverlayLabel(overlay),
-    record: overlay,
-    description: resolved.description,
-    keywordFooterText: undefined,
-    descriptionRank: undefined,
-    descriptionMaxRank: undefined,
-    influencingEnlightenSlots: [],
-    influencingTalentIds: [],
-  }
-}
+export {buildDatabaseOverlayLabel as buildAwakenerDatabaseOverlayLabel} from './database-reference-layer'
 
 function buildReferenceLookups(
   shellView: ResolvedAwakenerDatabaseShellView,
@@ -280,7 +203,7 @@ function buildReferenceLookups(
     addReferenceInfoToLookups(
       byName,
       byId,
-      buildOverlayReferenceInfo(overlay, shellView.stats),
+      buildDatabaseOverlayReferenceInfo(overlay, shellView.stats),
       overlay.aliases,
     )
   }
@@ -304,8 +227,8 @@ export function buildAwakenerDatabaseReferenceLayer({
   derivedSkills = getDerivedSkills(),
 }: BuildAwakenerDatabaseReferenceLayerOptions): ResolvedAwakenerDatabaseReferenceLayer {
   const globalDerivedSkills = derivedSkills.filter((entry) => entry.ownerAwakenerId === undefined)
-  const accessibleOverlays = buildAccessibleOverlays(
-    shellView.record,
+  const accessibleOverlays = buildAccessibleDatabaseOverlays(
+    shellView.record.id,
     overlays,
     shellView.overlayOverridesById,
   )
@@ -319,6 +242,6 @@ export function buildAwakenerDatabaseReferenceLayer({
     accessibleOverlays,
     referenceInfoByName: referenceLookups.byName,
     referenceInfoById: referenceLookups.byId,
-    overlayByName: buildOverlayLookup(accessibleOverlays),
+    overlayByName: buildDatabaseOverlayLookup(accessibleOverlays),
   }
 }

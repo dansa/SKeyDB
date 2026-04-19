@@ -349,4 +349,29 @@ describe('WheelDetailModal', () => {
       screen.queryByRole('dialog', {name: /merciful nurturing full art/i}),
     ).not.toBeInTheDocument()
   })
+
+  it('does not mutate hidden wheel search while the art viewer overlay owns focus', () => {
+    render(
+      <WheelDetailModal
+        fullDataV1={makeWheelFullRecord()}
+        onClose={vi.fn()}
+        wheel={makeWheel()}
+        wheels={[makeWheel()]}
+      />,
+    )
+
+    const searchInput = screen.getByRole('combobox', {name: /jump to wheel/i})
+
+    fireEvent.click(
+      screen.getAllByRole('button', {name: /view full art for merciful nurturing/i})[0],
+    )
+
+    const overlay = screen.getByRole('dialog', {name: /merciful nurturing full art/i})
+    expect(overlay).toHaveFocus()
+
+    fireEvent.keyDown(window, {key: 'b'})
+
+    expect(searchInput).toHaveValue('')
+    expect(overlay).toHaveFocus()
+  })
 })

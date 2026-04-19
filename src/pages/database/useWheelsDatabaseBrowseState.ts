@@ -11,6 +11,7 @@ import {
   type WheelsDatabaseSortKey,
 } from '@/domain/wheels-database-browse-state'
 
+import {useBrowseQueryActions} from './useBrowseQueryActions'
 import {useUrlBackedBrowseState} from './useDatabaseBrowseState'
 
 export function useWheelsDatabaseBrowseState() {
@@ -19,28 +20,8 @@ export function useWheelsDatabaseBrowseState() {
     patchState: patchWheelsDatabaseBrowseState,
   })
   const {mainstatFilter, query, rarityFilter, realmFilter, sortDirection, sortKey} = browseState
-
-  const setQuery = useCallback(
-    (next: string) => {
-      commitBrowseState({query: next}, 'replace')
-    },
-    [commitBrowseState],
-  )
-
-  const appendSearchCharacter = useCallback(
-    (key: string) => {
-      commitBrowseState({query: query + key}, 'replace')
-    },
-    [commitBrowseState, query],
-  )
-
-  const removeSearchCharacter = useCallback(() => {
-    commitBrowseState({query: query.slice(0, -1)}, 'replace')
-  }, [commitBrowseState, query])
-
-  const clearQuery = useCallback(() => {
-    commitBrowseState({query: ''}, 'replace')
-  }, [commitBrowseState])
+  const {setQuery, appendSearchCharacter, removeSearchCharacter, clearQuery} =
+    useBrowseQueryActions<WheelsDatabaseBrowseState>(query, commitBrowseState)
 
   const setRealmFilter = useCallback(
     (next: WheelsDatabaseRealmFilterId) => {

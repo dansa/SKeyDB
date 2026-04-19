@@ -12,6 +12,7 @@ import {
 import {getFocusableElements} from './focus-scope'
 import {getDescriptionFontScaleStyle, type FontScale} from './font-scale'
 import {decideTrailDirection, isTrailMobileLayout} from './popover-trail'
+import {useSuppressDetailEntitySearchCapture} from './useDetailEntitySearch'
 
 interface PopoverTrailPanelProps {
   anchorRect: DOMRect
@@ -41,6 +42,7 @@ export function PopoverTrailPanel({
     ? anchorElement.getBoundingClientRect()
     : anchorRect
   const direction = isMobile ? 'down' : decideTrailDirection(currentAnchorRect, window.innerHeight)
+  useSuppressDetailEntitySearchCapture()
 
   const positionPanel = useCallback(() => {
     if (!ref.current || isMobile) {

@@ -2,10 +2,8 @@ import {useCallback, useMemo} from 'react'
 
 import enlightensStars from '@/assets/icons/Battle_Card_Buff_045.png'
 import type {Awakener} from '@/domain/awakeners'
-import type {
-  ResolvedAwakenerDatabaseReferenceLayer,
-  ResolvedAwakenerDatabaseShellView,
-} from '@/domain/awakeners-database-view'
+import type {ResolvedAwakenerDatabaseShellView} from '@/domain/awakeners-database-view'
+import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import {getRelicPortraitAssetByAssetId} from '@/domain/relic-assets'
 import {getPortraitRelicByAwakenerIngameId} from '@/domain/relics'
 
@@ -18,7 +16,7 @@ import {DATABASE_SECTION_TITLE_CLASS} from './text-styles'
 interface AwakenerDetailOverviewProps {
   awakener: Awakener
   shellView: ResolvedAwakenerDatabaseShellView | null
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer | null
+  referenceLayer: ResolvedDatabaseReferenceLayer | null
   fontScale: FontScale
   showVisibleScaling?: boolean
   showTagIcons?: boolean

@@ -1,5 +1,9 @@
 import {useId, type CSSProperties, type ReactNode, type RefObject} from 'react'
 
+import {CollectionSortControls} from '@/components/ui/CollectionSortControls'
+import type {CollectionSortDirection} from '@/domain/collection-sorting'
+import {getRealmIcon, getRealmLabel, getRealmTint} from '@/domain/factions'
+
 interface CatalogFiltersShellProps {
   searchLabel: string
   searchPlaceholder: string
@@ -22,6 +26,41 @@ interface CatalogFilterChipButtonProps {
   children: ReactNode
   onClick: () => void
   style?: CSSProperties
+}
+
+interface CatalogChipOption<TValue extends string> {
+  id: TValue
+  label: ReactNode
+  iconSrc?: string | null
+  activeStyle?: CSSProperties
+}
+
+interface CatalogChipFilterRowProps<TValue extends string> {
+  activeId: TValue
+  label: string
+  onChange: (next: TValue) => void
+  options: readonly CatalogChipOption<TValue>[]
+  controlsClassName?: string
+}
+
+interface CatalogRealmFilterRowProps<TValue extends string> {
+  activeRealm: TValue
+  allLabel?: ReactNode
+  label?: string
+  onChange: (next: TValue) => void
+  realms: readonly TValue[]
+}
+
+interface CatalogCompactSortRowProps<TSortKey extends string> {
+  sortKey: TSortKey
+  sortDirection: CollectionSortDirection
+  onSortKeyChange: (nextKey: TSortKey) => void
+  onSortDirectionToggle: () => void
+  sortOptions: readonly TSortKey[]
+  sortSelectAriaLabel: string
+  sortDirectionAriaLabel: string
+  getSortLabel?: (sortKey: TSortKey) => string
+  trailingContent?: ReactNode
 }
 
 function chipClass(active: boolean): string {
@@ -59,6 +98,98 @@ export function CatalogFilterChipButton({
     >
       {children}
     </button>
+  )
+}
+
+export function CatalogChipFilterRow<TValue extends string>({
+  activeId,
+  controlsClassName,
+  label,
+  onChange,
+  options,
+}: CatalogChipFilterRowProps<TValue>) {
+  return (
+    <CatalogFilterRow controlsClassName={controlsClassName} label={label}>
+      {options.map((option) => (
+        <CatalogFilterChipButton
+          active={activeId === option.id}
+          key={option.id}
+          onClick={() => {
+            onChange(option.id)
+          }}
+          style={activeId === option.id ? option.activeStyle : undefined}
+        >
+          {option.iconSrc ? (
+            <img
+              alt=''
+              className='h-3.5 w-3.5 object-contain'
+              draggable={false}
+              src={option.iconSrc}
+            />
+          ) : null}
+          {option.label}
+        </CatalogFilterChipButton>
+      ))}
+    </CatalogFilterRow>
+  )
+}
+
+export function CatalogRealmFilterRow<TValue extends string>({
+  activeRealm,
+  allLabel = 'All',
+  label = 'Realm',
+  onChange,
+  realms,
+}: CatalogRealmFilterRowProps<TValue>) {
+  const options = [
+    {id: 'ALL' as TValue, label: allLabel},
+    ...realms.map((realm) => ({
+      id: realm,
+      label: getRealmLabel(realm),
+      iconSrc: getRealmIcon(realm),
+      activeStyle: (() => {
+        const tint = getRealmTint(realm)
+        return {borderColor: `${tint}88`, color: tint}
+      })(),
+    })),
+  ]
+
+  return (
+    <CatalogChipFilterRow
+      activeId={activeRealm}
+      label={label}
+      onChange={onChange}
+      options={options}
+    />
+  )
+}
+
+export function CatalogCompactSortRow<TSortKey extends string>({
+  getSortLabel,
+  onSortDirectionToggle,
+  onSortKeyChange,
+  sortDirection,
+  sortDirectionAriaLabel,
+  sortKey,
+  sortOptions,
+  sortSelectAriaLabel,
+  trailingContent,
+}: CatalogCompactSortRowProps<TSortKey>) {
+  return (
+    <CatalogFilterRow label='Sort'>
+      <CollectionSortControls
+        getSortLabel={getSortLabel}
+        layout='compact'
+        onSortDirectionToggle={onSortDirectionToggle}
+        onSortKeyChange={onSortKeyChange}
+        sortDirection={sortDirection}
+        sortDirectionAriaLabel={sortDirectionAriaLabel}
+        sortKey={sortKey}
+        sortOptions={sortOptions}
+        sortSelectAriaLabel={sortSelectAriaLabel}
+      />
+      {trailingContent}
+    </CatalogFilterRow>
   )
 }
 

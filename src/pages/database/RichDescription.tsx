@@ -1,8 +1,8 @@
 import {lazy, Suspense} from 'react'
 
 import type {FullStats} from '@/domain/awakener-source-schema'
-import type {ResolvedAwakenerDatabaseReferenceLayer} from '@/domain/awakeners-database-view'
 import {buildDatabaseRichDescriptionText} from '@/domain/database-rich-text'
+import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import {resolveDescriptionTemplate} from '@/domain/description-args'
 import type {DescribedRecord} from '@/domain/description-records'
 
@@ -20,7 +20,7 @@ interface RichDescriptionProps {
   keywordFooterText?: string
   descriptionRank?: number
   descriptionMaxRank?: number
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer | null
+  referenceLayer: ResolvedDatabaseReferenceLayer | null
   skillLevel?: number
   stats?: FullStats | null
   showVisibleScaling?: boolean

@@ -1,7 +1,7 @@
 import {describe, expect, it} from 'vitest'
 
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
-import type {ResolvedAwakenerDatabaseReferenceLayer} from './awakeners-database-view'
+import type {ResolvedDatabaseReferenceLayer} from './database-reference-layer'
 import {buildDatabaseRichTextParseOptions, parseDatabaseRichDescription} from './database-rich-text'
 
 const TEST_OVERLAY: AwakenerOverlayRecord = {
@@ -30,12 +30,12 @@ describe('database-rich-text', () => {
         referenceInfoByName: new Map([
           ['strike', {kind: 'skill', id: 'skill.test.rouse'}],
           ['counter', {kind: 'overlay', id: 'overlay.test.counter'}],
-        ]) as ResolvedAwakenerDatabaseReferenceLayer['referenceInfoByName'],
+        ]) as ResolvedDatabaseReferenceLayer['referenceInfoByName'],
         accessibleOverlays: [TEST_OVERLAY],
         cardNames: new Set<string>(),
         referenceInfoById: new Map(),
         overlayByName: new Map(),
-      } satisfies ResolvedAwakenerDatabaseReferenceLayer,
+      } satisfies ResolvedDatabaseReferenceLayer,
     )
 
     expect(options).toEqual({
@@ -67,7 +67,7 @@ describe('database-rich-text', () => {
           referenceInfoByName: new Map(),
           referenceInfoById: new Map(),
           overlayByName: new Map(),
-        } satisfies ResolvedAwakenerDatabaseReferenceLayer,
+        } satisfies ResolvedDatabaseReferenceLayer,
       }),
     ).toEqual([
       {type: 'text', value: 'Gain '},

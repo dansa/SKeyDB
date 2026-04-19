@@ -1,5 +1,7 @@
 import {useEffect, useRef} from 'react'
 
+import {useSuppressDetailEntitySearchCapture} from './useDetailEntitySearch'
+
 interface DatabaseArtViewerOverlayProps {
   alt: string
   src: string
@@ -8,6 +10,7 @@ interface DatabaseArtViewerOverlayProps {
 
 export function DatabaseArtViewerOverlay({alt, onClose, src}: DatabaseArtViewerOverlayProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+  useSuppressDetailEntitySearchCapture()
 
   useEffect(() => {
     const previousFocusedElement =

@@ -15,11 +15,11 @@ import {buildAwakenerDatabaseReferenceLayer} from './awakeners-database-referenc
 import {
   resolveAwakenerDatabaseShellView,
   type AwakenerDatabaseViewOptions,
-  type ResolvedAwakenerDatabaseReferenceLayer,
   type ResolvedAwakenerDatabaseShellView,
 } from './awakeners-database-view'
 import {type AwakenerFullV2Record} from './awakeners-full-v2'
 import {getSoulforgeTalents, selectedEnlightenSlotSchema} from './awakeners-full-v2-contract'
+import type {ResolvedDatabaseReferenceLayer} from './database-reference-layer'
 import {resolveDescriptionArg} from './description-args'
 
 export {selectedEnlightenSlotSchema} from './awakeners-full-v2-contract'
@@ -39,7 +39,7 @@ export interface ResolvedAwakenerDatabaseState {
   controls: AwakenerDatabaseControls
   stats: FullStats
   shellView: ResolvedAwakenerDatabaseShellView
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer
+  referenceLayer: ResolvedDatabaseReferenceLayer
 }
 
 export interface AwakenerDatabaseControlOption {

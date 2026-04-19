@@ -1,3 +1,9 @@
+import {
+  normalizeBrowseQuery,
+  parseEnumSearchParam,
+  patchSearchParams,
+  setSearchParam,
+} from '@/domain/browse-state-search-params'
 import type {CollectionSortDirection} from '@/domain/collection-sorting'
 import {wheelMainstatFilterOptions, type WheelMainstatFilter} from '@/domain/wheel-mainstat-filters'
 
@@ -43,27 +49,6 @@ export function getDefaultWheelsDatabaseSortDirection(
 
 const WHEELS_DATABASE_MAINSTAT_FILTER_IDS = wheelMainstatFilterOptions.map((entry) => entry.id)
 
-function parseEnumParam<TValue extends string>(
-  rawValue: string | null,
-  allowedValues: readonly TValue[],
-  fallback: TValue,
-): TValue {
-  return rawValue && allowedValues.includes(rawValue as TValue) ? (rawValue as TValue) : fallback
-}
-
-function normalizeQuery(rawValue: string | null | undefined): string {
-  return rawValue?.trim() ?? ''
-}
-
-function updateSearchParam(params: URLSearchParams, key: string, value?: string) {
-  if (!value) {
-    params.delete(key)
-    return
-  }
-
-  params.set(key, value)
-}
-
 function parseSortDirection(
   rawValue: string | null,
   sortKey: WheelsDatabaseSortKey,
@@ -77,25 +62,25 @@ function parseSortDirection(
 export function parseWheelsDatabaseBrowseState(
   searchParams: URLSearchParams,
 ): WheelsDatabaseBrowseState {
-  const sortKey = parseEnumParam(
+  const sortKey = parseEnumSearchParam(
     searchParams.get('sort'),
     WHEELS_DATABASE_SORT_OPTIONS,
     WHEELS_DATABASE_BROWSE_DEFAULTS.sortKey,
   )
 
   return {
-    query: normalizeQuery(searchParams.get('q')),
-    realmFilter: parseEnumParam(
+    query: normalizeBrowseQuery(searchParams.get('q')),
+    realmFilter: parseEnumSearchParam(
       searchParams.get('realm'),
       WHEELS_DATABASE_REALM_FILTER_IDS,
       WHEELS_DATABASE_BROWSE_DEFAULTS.realmFilter,
     ),
-    rarityFilter: parseEnumParam(
+    rarityFilter: parseEnumSearchParam(
       searchParams.get('rarity'),
       WHEELS_DATABASE_RARITY_FILTER_IDS,
       WHEELS_DATABASE_BROWSE_DEFAULTS.rarityFilter,
     ),
-    mainstatFilter: parseEnumParam(
+    mainstatFilter: parseEnumSearchParam(
       searchParams.get('mainstat'),
       WHEELS_DATABASE_MAINSTAT_FILTER_IDS,
       WHEELS_DATABASE_BROWSE_DEFAULTS.mainstatFilter,
@@ -109,50 +94,57 @@ export function patchWheelsDatabaseBrowseState(
   searchParams: URLSearchParams,
   patch: Partial<WheelsDatabaseBrowseState>,
 ): URLSearchParams {
-  const nextParams = new URLSearchParams(searchParams)
-  const nextState = {
-    ...parseWheelsDatabaseBrowseState(searchParams),
-    ...patch,
-  }
-  if (patch.sortKey && patch.sortDirection === undefined) {
-    nextState.sortDirection = getDefaultWheelsDatabaseSortDirection(patch.sortKey)
-  }
-  const normalizedQuery = normalizeQuery(nextState.query)
-
-  updateSearchParam(nextParams, 'q', normalizedQuery || undefined)
-  updateSearchParam(
-    nextParams,
-    'realm',
-    nextState.realmFilter === WHEELS_DATABASE_BROWSE_DEFAULTS.realmFilter
-      ? undefined
-      : nextState.realmFilter,
+  return patchSearchParams(
+    searchParams,
+    patch,
+    parseWheelsDatabaseBrowseState,
+    (nextParams, patchedState) => {
+      setSearchParam(nextParams, 'q', normalizeBrowseQuery(patchedState.query))
+      setSearchParam(
+        nextParams,
+        'realm',
+        patchedState.realmFilter === WHEELS_DATABASE_BROWSE_DEFAULTS.realmFilter
+          ? undefined
+          : patchedState.realmFilter,
+      )
+      setSearchParam(
+        nextParams,
+        'rarity',
+        patchedState.rarityFilter === WHEELS_DATABASE_BROWSE_DEFAULTS.rarityFilter
+          ? undefined
+          : patchedState.rarityFilter,
+      )
+      setSearchParam(
+        nextParams,
+        'mainstat',
+        patchedState.mainstatFilter === WHEELS_DATABASE_BROWSE_DEFAULTS.mainstatFilter
+          ? undefined
+          : patchedState.mainstatFilter,
+      )
+      setSearchParam(
+        nextParams,
+        'sort',
+        patchedState.sortKey === WHEELS_DATABASE_BROWSE_DEFAULTS.sortKey
+          ? undefined
+          : patchedState.sortKey,
+      )
+      setSearchParam(
+        nextParams,
+        'dir',
+        patchedState.sortDirection === getDefaultWheelsDatabaseSortDirection(patchedState.sortKey)
+          ? undefined
+          : patchedState.sortDirection,
+      )
+    },
+    (currentState, nextPatch) => {
+      const nextState = {
+        ...currentState,
+        ...nextPatch,
+      }
+      if (nextPatch.sortKey && nextPatch.sortDirection === undefined) {
+        nextState.sortDirection = getDefaultWheelsDatabaseSortDirection(nextPatch.sortKey)
+      }
+      return nextState
+    },
   )
-  updateSearchParam(
-    nextParams,
-    'rarity',
-    nextState.rarityFilter === WHEELS_DATABASE_BROWSE_DEFAULTS.rarityFilter
-      ? undefined
-      : nextState.rarityFilter,
-  )
-  updateSearchParam(
-    nextParams,
-    'mainstat',
-    nextState.mainstatFilter === WHEELS_DATABASE_BROWSE_DEFAULTS.mainstatFilter
-      ? undefined
-      : nextState.mainstatFilter,
-  )
-  updateSearchParam(
-    nextParams,
-    'sort',
-    nextState.sortKey === WHEELS_DATABASE_BROWSE_DEFAULTS.sortKey ? undefined : nextState.sortKey,
-  )
-  updateSearchParam(
-    nextParams,
-    'dir',
-    nextState.sortDirection === getDefaultWheelsDatabaseSortDirection(nextState.sortKey)
-      ? undefined
-      : nextState.sortDirection,
-  )
-
-  return nextParams
 }

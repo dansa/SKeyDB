@@ -12,7 +12,6 @@ export type TrailEntry = KeyedTrailEntry &
   DatabaseReferenceEntry & {
     referenceId?: string
     selectedEnlightenSlot?: AwakenerEnlightenRecord['slot'] | null
-    supportsNavigateToCards?: boolean
   }
 
 const TRAIL_MIN_BELOW_SPACE = 260

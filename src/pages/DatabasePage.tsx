@@ -255,7 +255,7 @@ interface DatabaseAwakenerDetailRouteProps {
   awakeners: Awakener[]
   onClose: () => void
   onSelectAwakener: (awakener: Pick<Awakener, 'id' | 'name'>, tab?: DatabaseAwakenerTab) => void
-  onSelectWheel?: (wheel: Pick<Wheel, 'name'>) => void
+  onSelectWheel: (wheel: Pick<Wheel, 'name'>) => void
   onTabChange: (tab: DatabaseAwakenerTab) => void
   tabSlug?: string
 }

@@ -67,6 +67,23 @@ describe('CollectionSortControls', () => {
     ).not.toBeInTheDocument()
   })
 
+  it('supports omitting grouping props when callers do not expose grouping', () => {
+    render(
+      <CollectionSortControls<'ALPHABETICAL' | 'RARITY'>
+        onSortDirectionToggle={vi.fn()}
+        onSortKeyChange={vi.fn()}
+        sortDirection='DESC'
+        sortKey='ALPHABETICAL'
+        sortOptions={['ALPHABETICAL', 'RARITY']}
+      />,
+    )
+
+    expect(screen.getByRole('combobox', {name: /sort by/i})).toBeInTheDocument()
+    expect(
+      screen.queryByRole('button', {name: /toggle Grouping by realm/i}),
+    ).not.toBeInTheDocument()
+  })
+
   it('supports compact mode without heading text', () => {
     render(
       <CollectionSortControls

@@ -1,7 +1,7 @@
 import {type MouseEvent} from 'react'
 
 import type {AwakenerEnlightenRecord} from '@/domain/awakener-source-schema'
-import type {DatabaseInfluenceBadge} from '@/domain/awakeners-database-view'
+import type {DatabaseInfluenceBadge} from '@/domain/database-reference-layer'
 
 import {getEnlightenSlotLabel, isEnlightenSlotActive} from './awakener-enlighten-badges'
 import {useDatabasePopoverControllerContext} from './database-popover-context'

@@ -10,10 +10,10 @@ import {TogglePill} from './TogglePill'
 interface CollectionSortControlsProps<TSortKey extends string = AwakenerSortKey> {
   sortKey: TSortKey
   sortDirection: CollectionSortDirection
-  groupByRealm: boolean
+  groupByRealm?: boolean
   onSortKeyChange: (nextKey: TSortKey) => void
   onSortDirectionToggle: () => void
-  onGroupByRealmChange: (nextGroupByRealm: boolean) => void
+  onGroupByRealmChange?: (nextGroupByRealm: boolean) => void
   sortOptions?: readonly TSortKey[]
   showGroupByRealm?: boolean
   headingText?: string
@@ -69,7 +69,7 @@ export function CollectionSortControls<TSortKey extends string = AwakenerSortKey
   onSortDirectionToggle,
   onGroupByRealmChange,
   sortOptions,
-  showGroupByRealm = true,
+  showGroupByRealm,
   headingText = 'Sort',
   sortSelectAriaLabel = 'Sort by',
   sortDirectionAriaLabel = 'Toggle sort direction',
@@ -85,6 +85,9 @@ export function CollectionSortControls<TSortKey extends string = AwakenerSortKey
     : resolvedSortOptions.length > 0
       ? resolvedSortOptions[0]
       : sortKey
+  const resolvedGroupByRealm = groupByRealm ?? false
+  const resolvedShowGroupByRealm =
+    showGroupByRealm ?? (groupByRealm !== undefined && onGroupByRealmChange !== undefined)
   const isCompact = layout === 'compact'
   const controlClassName =
     'h-6 min-w-0 border border-slate-500/55 bg-slate-950/90 px-2 text-[10px] leading-none text-slate-200 outline-none focus:border-amber-300/65'
@@ -129,14 +132,14 @@ export function CollectionSortControls<TSortKey extends string = AwakenerSortKey
           </Button>
           {isCompact ? compactTrailingAction : null}
         </div>
-        {showGroupByRealm ? (
+        {resolvedShowGroupByRealm && onGroupByRealmChange ? (
           <div className='flex items-center justify-between gap-2'>
             <span className='text-[10px] tracking-wide text-slate-400 uppercase'>
               Group By Realm
             </span>
             <TogglePill
               ariaLabel={groupByRealmAriaLabel}
-              checked={groupByRealm}
+              checked={resolvedGroupByRealm}
               className='ownership-pill-builder'
               offLabel='Off'
               onChange={onGroupByRealmChange}

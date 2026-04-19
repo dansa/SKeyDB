@@ -68,6 +68,7 @@ export function AwakenerDetailModal({
   onClose,
   onTabChange,
   onSelectAwakener,
+  onSelectWheel,
 }: AwakenerDetailModalProps) {
   const tabButtonRefs = useRef<Partial<Record<DatabaseAwakenerTab, HTMLButtonElement | null>>>({})
   const [isArtViewerOpen, setIsArtViewerOpen] = useState(false)
@@ -106,6 +107,7 @@ export function AwakenerDetailModal({
     fullDataV2,
     onClose,
     onSelectAwakener,
+    onSelectWheel,
     onTabChange,
   })
   const {

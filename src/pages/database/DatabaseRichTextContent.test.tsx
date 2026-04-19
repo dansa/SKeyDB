@@ -2,7 +2,7 @@ import {fireEvent, render, screen} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import type {AwakenerOverlayRecord} from '@/domain/awakener-source-schema'
-import type {ResolvedAwakenerDatabaseReferenceLayer} from '@/domain/awakeners-database-view'
+import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 
 import {DatabaseRichTextContent} from './DatabaseRichTextContent'
 
@@ -15,14 +15,14 @@ const TEST_OVERLAY: AwakenerOverlayRecord = {
   descriptionArgs: {},
 }
 
-function buildReferenceLayer(): ResolvedAwakenerDatabaseReferenceLayer {
+function buildReferenceLayer(): ResolvedDatabaseReferenceLayer {
   return {
     accessibleOverlays: [TEST_OVERLAY],
     cardNames: new Set(['Strike']),
     overlayByName: new Map(),
     referenceInfoById: new Map(),
     referenceInfoByName: new Map(),
-  } as ResolvedAwakenerDatabaseReferenceLayer
+  } as ResolvedDatabaseReferenceLayer
 }
 
 describe('DatabaseRichTextContent', () => {

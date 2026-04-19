@@ -23,8 +23,18 @@ import {
   type DescribedRecord,
   type ResolvedDescribedRecord,
 } from './description-records'
+import type {
+  DatabaseInfluenceBadge,
+  ResolvedDatabaseReferenceLayer,
+} from './database-reference-layer'
 
 export {collectAwakenerDatabaseCardNames} from './awakeners-database-reference-layer'
+export type {
+  DatabaseInfluenceBadge,
+  DatabaseReferenceInfo,
+  DatabaseReferenceLayer,
+  ResolvedDatabaseReferenceLayer,
+} from './database-reference-layer'
 
 export interface AwakenerDatabaseViewOptions extends Partial<
   Pick<AwakenerFullV2ResolveOptions, 'selectedEnlightenSlot' | 'soulforgeLevel'>
@@ -38,29 +48,6 @@ export interface DatabaseDescribedEntry<TRecord extends DescribedRecord> {
   label: string
   record: TRecord
   resolved: ResolvedDescribedRecord<TRecord>
-  keywordFooterText?: string
-  descriptionRank: number | undefined
-  descriptionMaxRank: number | undefined
-  influencingEnlightenSlots: AwakenerEnlightenRecord['slot'][]
-  influencingTalentIds: string[]
-  influenceBadges?: DatabaseInfluenceBadge[]
-}
-
-export interface DatabaseInfluenceBadge {
-  kind: 'enlighten' | 'talent'
-  id: string
-  label: string
-  referenceName: string
-  slot?: AwakenerEnlightenRecord['slot']
-}
-
-export interface DatabaseReferenceInfo<TRecord extends DescribedRecord = DescribedRecord> {
-  kind: 'skill' | 'talent' | 'enlighten' | 'derived-skill' | 'overlay' | 'wheel'
-  id: string
-  name: string
-  label: string
-  record: TRecord
-  description: string
   keywordFooterText?: string
   descriptionRank: number | undefined
   descriptionMaxRank: number | undefined
@@ -85,15 +72,7 @@ export interface ResolvedAwakenerDatabaseShellView {
   promotedExtras: DatabaseDescribedEntry<DerivedSkillRecord>[]
 }
 
-export interface DatabaseReferenceLayer {
-  cardNames: Set<string>
-  accessibleOverlays: AwakenerOverlayRecord[]
-  referenceInfoByName: Map<string, DatabaseReferenceInfo>
-  referenceInfoById: Map<string, DatabaseReferenceInfo>
-  overlayByName: Map<string, AwakenerOverlayRecord>
-}
-
-export type ResolvedAwakenerDatabaseReferenceLayer = DatabaseReferenceLayer
+export type ResolvedAwakenerDatabaseReferenceLayer = ResolvedDatabaseReferenceLayer
 
 export type ResolvedAwakenerDatabaseView = ResolvedAwakenerDatabaseShellView &
   ResolvedAwakenerDatabaseReferenceLayer

@@ -4,7 +4,7 @@ import {fireEvent, render, screen} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import type {AwakenerOverlayRecord} from '@/domain/awakener-source-schema'
-import type {ResolvedAwakenerDatabaseReferenceLayer} from '@/domain/awakeners-database-view'
+import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 
 import {useDatabasePopoverControllerContext} from './database-popover-context'
 import {
@@ -21,7 +21,9 @@ type TestPopoverProps = Omit<ComponentProps<typeof DatabaseReferencePopover>, 'e
   label: string
   description: string
   keywordFooterText?: string
+  attributeRows?: DatabaseReferencePopoverEntry['attributeRows']
   detailLinks?: DatabaseReferencePopoverEntry['detailLinks']
+  navigationLabel?: DatabaseReferencePopoverEntry['navigationLabel']
   descriptionRecord?: DatabaseReferencePopoverEntry['record']
   descriptionRank?: number
   descriptionMaxRank?: number
@@ -39,7 +41,9 @@ function TestDatabaseReferencePopover({
   label,
   description,
   keywordFooterText,
+  attributeRows,
   detailLinks,
+  navigationLabel,
   descriptionRecord,
   descriptionRank,
   descriptionMaxRank,
@@ -51,7 +55,9 @@ function TestDatabaseReferencePopover({
     label,
     description,
     keywordFooterText,
+    attributeRows,
     detailLinks,
+    navigationLabel,
     record: descriptionRecord,
     descriptionRank,
     descriptionMaxRank,
@@ -63,8 +69,8 @@ function TestDatabaseReferencePopover({
 
 describe('DatabaseReferencePopover', () => {
   function buildReferenceLayer(
-    overrides: Partial<ResolvedAwakenerDatabaseReferenceLayer> = {},
-  ): ResolvedAwakenerDatabaseReferenceLayer {
+    overrides: Partial<ResolvedDatabaseReferenceLayer> = {},
+  ): ResolvedDatabaseReferenceLayer {
     return {
       accessibleOverlays: [],
       cardNames: new Set<string>(),
@@ -201,6 +207,41 @@ describe('DatabaseReferencePopover', () => {
     )
   })
 
+  it('renders wheel attribute rows and an explicit database navigation link', () => {
+    const onClose = vi.fn()
+    const onNavigate = vi.fn()
+    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
+
+    render(
+      <TestDatabaseReferencePopover
+        attributeRows={[
+          {
+            label: 'Crit DMG',
+            value: '18%',
+          },
+        ]}
+        description='Wheel text'
+        label='Wheel · SSR · Caro'
+        name='Amber-Tinted Death'
+        navigationLabel='Open in Wheels DB'
+        onClose={onClose}
+        onMechanicTokenClick={vi.fn()}
+        onNavigate={onNavigate}
+        onSkillTokenClick={vi.fn()}
+        referenceLayer={buildReferenceLayer()}
+        stats={null}
+      />,
+    )
+
+    expect(screen.getByText('Crit DMG')).toBeInTheDocument()
+    expect(screen.getByText('18%')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', {name: /Open in Wheels DB/i}))
+
+    expect(onNavigate).toHaveBeenCalledTimes(1)
+    expect(onClose).toHaveBeenCalledTimes(1)
+  })
+
   it('forwards nested badge opens through the shared reference callback', () => {
     const onSkillTokenClick = vi.fn()
     vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
@@ -272,7 +313,7 @@ describe('DatabaseReferencePopover', () => {
             influencingTalentIds: [],
           },
         ],
-      ]) as ResolvedAwakenerDatabaseReferenceLayer['referenceInfoByName'],
+      ]) as ResolvedDatabaseReferenceLayer['referenceInfoByName'],
       accessibleOverlays: [
         {
           id: 'overlay.global.rouse',
@@ -460,7 +501,7 @@ describe('DatabaseReferencePopover', () => {
             influencingTalentIds: [],
           },
         ],
-      ]) as ResolvedAwakenerDatabaseReferenceLayer['referenceInfoById'],
+      ]) as ResolvedDatabaseReferenceLayer['referenceInfoById'],
     })
 
     render(

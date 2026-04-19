@@ -129,6 +129,14 @@ function WheelsDatabaseBrowseStateHarness() {
       </button>
       <button
         onClick={() => {
+          state.setSortKey('ALPHABETICAL')
+        }}
+        type='button'
+      >
+        Set sort ALPHABETICAL
+      </button>
+      <button
+        onClick={() => {
           state.toggleSortDirection()
         }}
         type='button'
@@ -228,6 +236,14 @@ describe('useWheelsDatabaseBrowseState', () => {
     })
 
     expect(screen.getByTestId('location-search')).toHaveTextContent('')
+  })
+
+  it('resets the wheel sort direction to the new key default', () => {
+    renderWheelsBrowseStateHarness(['/database/wheels?sort=RARITY&dir=DESC'])
+
+    fireEvent.click(screen.getByRole('button', {name: 'Set sort ALPHABETICAL'}))
+
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?sort=ALPHABETICAL')
   })
 
   it('pushes wheel filter and sort changes into history', async () => {

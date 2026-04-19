@@ -2,14 +2,15 @@ import {useCallback, useEffect, useId, useMemo, useState, type MouseEvent} from 
 
 import type {AwakenerEnlightenRecord, AwakenerOverlayRecord} from '@/domain/awakener-source-schema'
 import {
-  buildAwakenerDatabaseOverlayLabel,
-  resolveAwakenerDatabaseReferenceInfo,
-  resolveAwakenerDatabaseReferenceInfoById,
-} from '@/domain/awakeners-database-reference-info'
-import {
+  buildDatabaseOverlayLabel,
   type DatabaseReferenceInfo,
-  type ResolvedAwakenerDatabaseReferenceLayer,
-} from '@/domain/awakeners-database-view'
+  type DatabaseReferenceLayer,
+  type ResolvedDatabaseReferenceLayer,
+} from '@/domain/database-reference-layer'
+import {
+  resolveDatabaseReferenceInfo,
+  resolveDatabaseReferenceInfoById,
+} from '@/domain/database-reference-info'
 
 import type {DatabasePopoverContextValue} from './database-popover-context'
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
@@ -23,10 +24,11 @@ import {
 } from './popover-trail'
 
 interface DatabasePopoverControllerOptions {
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer | null
+  referenceLayer: ResolvedDatabaseReferenceLayer | null
   selectedEnlightenSlot?: AwakenerEnlightenRecord['slot'] | null
   stats?: import('@/domain/awakener-source-schema').FullStats | null
   onNavigateToCards?: () => void
+  onNavigateToWheelPage?: (wheel: {name: string}) => void
   onToggleEnlightenSlot?: (slot: AwakenerEnlightenRecord['slot']) => void
   showVisibleScaling?: boolean
   showTagIcons?: boolean
@@ -39,6 +41,7 @@ export function useDatabasePopoverController({
   selectedEnlightenSlot = null,
   stats = null,
   onNavigateToCards,
+  onNavigateToWheelPage,
   onToggleEnlightenSlot,
   showVisibleScaling = true,
   showTagIcons = true,
@@ -77,6 +80,7 @@ export function useDatabasePopoverController({
     (
       reference: DatabaseReferenceInfo,
       selectedEnlightenSlot: TrailEntry['selectedEnlightenSlot'],
+      referenceLayerOverride: ResolvedDatabaseReferenceLayer | null = null,
     ): TrailEntry => ({
       key: `${reference.kind}:${reference.id}`,
       referenceId: reference.id,
@@ -88,47 +92,77 @@ export function useDatabasePopoverController({
       descriptionRank: reference.descriptionRank,
       descriptionMaxRank: reference.descriptionMaxRank,
       influenceBadges: reference.influenceBadges,
+      navigationTarget:
+        reference.kind === 'skill'
+          ? {kind: 'cards'}
+          : reference.kind === 'wheel'
+            ? {kind: 'wheel-page', wheelName: reference.name}
+            : undefined,
+      referenceLayerOverride,
       selectedEnlightenSlot,
-      supportsNavigateToCards: reference.kind === 'skill',
     }),
     [],
   )
 
   const buildSelectedTrailEntry = useCallback(
-    (reference: DatabaseReferenceInfo) => buildTrailEntry(reference, selectedEnlightenSlot),
+    (
+      reference: DatabaseReferenceInfo,
+      referenceLayerOverride: ResolvedDatabaseReferenceLayer | null = null,
+    ) => buildTrailEntry(reference, selectedEnlightenSlot, referenceLayerOverride),
     [buildTrailEntry, selectedEnlightenSlot],
   )
 
   const resolveReferenceByName = useCallback(
-    (name: string) =>
-      referenceLayer ? resolveAwakenerDatabaseReferenceInfo(referenceLayer, name) : null,
-    [referenceLayer],
+    (
+      layer: DatabaseReferenceLayer | null,
+      name: string,
+    ) => (layer ? resolveDatabaseReferenceInfo(layer, name) : null),
+    [],
+  )
+
+  const resolveReferenceByNameFromCurrentLayer = useCallback(
+    (name: string) => resolveReferenceByName(referenceLayer, name),
+    [referenceLayer, resolveReferenceByName],
   )
 
   const buildOverlayFallbackEntry = useCallback(
-    (overlay: AwakenerOverlayRecord): TrailEntry => ({
+    (
+      overlay: AwakenerOverlayRecord,
+      referenceLayerOverride: ResolvedDatabaseReferenceLayer | null = null,
+    ): TrailEntry => ({
       key: `overlay:${overlay.id}`,
       referenceId: overlay.id,
       name: overlay.displayName,
-      label: buildAwakenerDatabaseOverlayLabel(overlay),
+      label: buildDatabaseOverlayLabel(overlay),
       description: overlay.descriptionTemplate,
       record: overlay,
       descriptionRank: undefined,
       descriptionMaxRank: undefined,
-      supportsNavigateToCards: false,
+      referenceLayerOverride,
     }),
     [],
   )
 
   const buildOverlayEntry = useCallback(
-    (overlay: AwakenerOverlayRecord): TrailEntry => {
-      const info = resolveReferenceByName(overlay.displayName)
+    (
+      overlay: AwakenerOverlayRecord,
+      referenceLayerOverride: ResolvedDatabaseReferenceLayer | null = null,
+    ): TrailEntry => {
+      const info = resolveReferenceByName(
+        referenceLayerOverride ?? referenceLayer,
+        overlay.displayName,
+      )
       if (!info) {
-        return buildOverlayFallbackEntry(overlay)
+        return buildOverlayFallbackEntry(overlay, referenceLayerOverride)
       }
-      return buildSelectedTrailEntry(info)
+      return buildSelectedTrailEntry(info, referenceLayerOverride)
     },
-    [buildOverlayFallbackEntry, buildSelectedTrailEntry, resolveReferenceByName],
+    [
+      buildOverlayFallbackEntry,
+      buildSelectedTrailEntry,
+      referenceLayer,
+      resolveReferenceByName,
+    ],
   )
 
   const openRootTrailEntry = useCallback(
@@ -148,13 +182,13 @@ export function useDatabasePopoverController({
 
   const openRootReferenceByName = useCallback(
     (name: string, event: MouseEvent<HTMLElement>) => {
-      const reference = resolveReferenceByName(name)
+      const reference = resolveReferenceByNameFromCurrentLayer(name)
       if (!reference) {
         return
       }
       openRootTrailEntry(buildSelectedTrailEntry(reference), event)
     },
-    [buildSelectedTrailEntry, openRootTrailEntry, resolveReferenceByName],
+    [buildSelectedTrailEntry, openRootTrailEntry, resolveReferenceByNameFromCurrentLayer],
   )
 
   const openRootInfo = useCallback(
@@ -162,7 +196,6 @@ export function useDatabasePopoverController({
       openRootTrailEntry(
         {
           ...entry,
-          supportsNavigateToCards: false,
         },
         event,
       )
@@ -179,52 +212,75 @@ export function useDatabasePopoverController({
 
   const openNestedReferenceByName = useCallback(
     (name: string) => {
-      const reference = resolveReferenceByName(name)
-      if (!reference) {
-        return
-      }
-      const entry = buildSelectedTrailEntry(reference)
-      setTrail((prev) => insertTrailEntryAfterIndex(prev, prev.length - 1, entry))
+      setTrail((prev) => {
+        const sourceEntry = prev.at(-1)
+        const sourceLayer = sourceEntry?.referenceLayerOverride ?? referenceLayer
+        const reference = resolveReferenceByName(sourceLayer, name)
+        if (!reference) {
+          return prev
+        }
+        const entry = buildTrailEntry(
+          reference,
+          sourceEntry?.selectedEnlightenSlot ?? selectedEnlightenSlot,
+          sourceEntry?.referenceLayerOverride ?? null,
+        )
+        return insertTrailEntryAfterIndex(prev, prev.length - 1, entry)
+      })
     },
-    [buildSelectedTrailEntry, resolveReferenceByName],
+    [buildTrailEntry, referenceLayer, resolveReferenceByName, selectedEnlightenSlot],
   )
 
   const openNestedOverlay = useCallback(
     (overlay: AwakenerOverlayRecord) => {
-      const entry = buildOverlayEntry(overlay)
-      setTrail((prev) => insertTrailEntryAfterIndex(prev, prev.length - 1, entry))
+      setTrail((prev) => {
+        const sourceEntry = prev.at(-1)
+        const entry = buildOverlayEntry(overlay, sourceEntry?.referenceLayerOverride ?? null)
+        return insertTrailEntryAfterIndex(prev, prev.length - 1, entry)
+      })
     },
     [buildOverlayEntry],
   )
 
   const openNestedReferenceByNameFrom = useCallback(
     (sourceIndex: number, name: string) => {
-      const reference = resolveReferenceByName(name)
-      if (!reference) {
-        return
-      }
-      const entry = buildSelectedTrailEntry(reference)
-      setTrail((prev) => insertTrailEntryAfterIndex(prev, sourceIndex, entry))
+      setTrail((prev) => {
+        const sourceEntry = prev.at(sourceIndex)
+        const sourceLayer = sourceEntry?.referenceLayerOverride ?? referenceLayer
+        const reference = resolveReferenceByName(sourceLayer, name)
+        if (!reference) {
+          return prev
+        }
+        const entry = buildTrailEntry(
+          reference,
+          sourceEntry?.selectedEnlightenSlot ?? selectedEnlightenSlot,
+          sourceEntry?.referenceLayerOverride ?? null,
+        )
+        return insertTrailEntryAfterIndex(prev, sourceIndex, entry)
+      })
     },
-    [buildSelectedTrailEntry, resolveReferenceByName],
+    [buildTrailEntry, referenceLayer, resolveReferenceByName, selectedEnlightenSlot],
   )
 
   const openNestedInfoFrom = useCallback(
     (sourceIndex: number, entry: KeyedDatabaseReferenceEntry) => {
-      setTrail((prev) =>
-        insertTrailEntryAfterIndex(prev, sourceIndex, {
+      setTrail((prev) => {
+        const sourceEntry = prev.at(sourceIndex)
+        return insertTrailEntryAfterIndex(prev, sourceIndex, {
           ...entry,
-          supportsNavigateToCards: false,
-        }),
-      )
+          referenceLayerOverride: entry.referenceLayerOverride ?? sourceEntry?.referenceLayerOverride,
+        })
+      })
     },
     [],
   )
 
   const openNestedOverlayFrom = useCallback(
     (sourceIndex: number, overlay: AwakenerOverlayRecord) => {
-      const entry = buildOverlayEntry(overlay)
-      setTrail((prev) => insertTrailEntryAfterIndex(prev, sourceIndex, entry))
+      setTrail((prev) => {
+        const sourceEntry = prev.at(sourceIndex)
+        const entry = buildOverlayEntry(overlay, sourceEntry?.referenceLayerOverride ?? null)
+        return insertTrailEntryAfterIndex(prev, sourceIndex, entry)
+      })
     },
     [buildOverlayEntry],
   )
@@ -242,17 +298,17 @@ export function useDatabasePopoverController({
 
   const resolveLiveTrailEntry = useCallback(
     (entry: TrailEntry): TrailEntry => {
-      if (!referenceLayer) {
+      const liveReferenceLayer = entry.referenceLayerOverride ?? referenceLayer
+      if (!liveReferenceLayer) {
         return entry
       }
       if (!entry.referenceId) {
         return entry
       }
-      const liveReference = resolveAwakenerDatabaseReferenceInfoById(
-        referenceLayer,
-        entry.referenceId,
-      )
-      return liveReference ? buildSelectedTrailEntry(liveReference) : entry
+      const liveReference = resolveDatabaseReferenceInfoById(liveReferenceLayer, entry.referenceId)
+      return liveReference
+        ? buildSelectedTrailEntry(liveReference, entry.referenceLayerOverride ?? null)
+        : entry
     },
     [buildSelectedTrailEntry, referenceLayer],
   )
@@ -286,6 +342,7 @@ export function useDatabasePopoverController({
       stats,
       entries: trail.map((entry, index) => {
         const activeEntry = resolveLiveTrailEntry(entry)
+        const navigationTarget = activeEntry.navigationTarget
 
         return {
           activeEntry,
@@ -300,16 +357,22 @@ export function useDatabasePopoverController({
           onMechanicTokenClick: (overlay: AwakenerOverlayRecord) => {
             openNestedOverlayFrom(index, overlay)
           },
-          onNavigateToCards:
-            activeEntry.supportsNavigateToCards && onNavigateToCards
+          onNavigate:
+            navigationTarget?.kind === 'cards' && onNavigateToCards
               ? () => {
                   clearTrail()
                   onNavigateToCards()
                 }
-              : undefined,
+              : navigationTarget?.kind === 'wheel-page' && onNavigateToWheelPage
+                ? () => {
+                    clearTrail()
+                    onNavigateToWheelPage({name: navigationTarget.wheelName})
+                  }
+                : undefined,
           onSkillTokenClick: (name: string) => {
             openNestedReferenceByNameFrom(index, name)
           },
+          referenceLayer: activeEntry.referenceLayerOverride ?? referenceLayer,
         }
       }),
       onCloseAll: clearTrail,
@@ -322,6 +385,7 @@ export function useDatabasePopoverController({
       clearTrail,
       closeTrailFrom,
       onNavigateToCards,
+      onNavigateToWheelPage,
       onToggleEnlightenSlot,
       openNestedInfoFrom,
       openNestedOverlayFrom,

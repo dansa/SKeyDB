@@ -151,7 +151,6 @@ vi.mock('./database/AwakenerDetailModal', () => ({
     awakener,
     onClose,
     onSelectAwakener,
-    onSelectWheel,
     onTabChange,
   }: {
     activeTab?: 'overview' | 'cards' | 'builds' | 'teams'
@@ -161,7 +160,6 @@ vi.mock('./database/AwakenerDetailModal', () => ({
       awakener: {id: number; name: string},
       tab: 'overview' | 'cards' | 'builds' | 'teams',
     ) => void
-    onSelectWheel?: (wheel: {id: string; name: string}) => void
     onTabChange: (tab: 'overview' | 'cards' | 'builds' | 'teams') => void
   }) => (
     <div aria-label={`${awakener.name} details`} role='dialog'>
@@ -183,15 +181,6 @@ vi.mock('./database/AwakenerDetailModal', () => ({
         type='button'
       >
         Beta
-      </button>
-      <button
-        aria-label='Switch to Merciful Nurturing detail'
-        onClick={() => {
-          onSelectWheel?.({id: 'B01', name: 'Merciful Nurturing'})
-        }}
-        type='button'
-      >
-        Merciful Nurturing
       </button>
       <button aria-label='Close detail' onClick={onClose} type='button'>
         Close
@@ -709,23 +698,6 @@ describe('DatabasePage', () => {
       ),
     )
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=merciful&realm=CARO')
-  })
-
-  it('preserves search params when switching from an awakener modal to a wheel modal', async () => {
-    await renderDatabasePage('/database/awk/alpha?q=alpha&rarity=SSR')
-
-    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
-
-    await act(async () => {
-      fireEvent.click(screen.getByLabelText('Switch to Merciful Nurturing detail'))
-    })
-
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent(
-        '/database/wheels/merciful-nurturing',
-      ),
-    )
-    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=alpha&rarity=SSR')
   })
 
   it('filters wheels by the neutral realm without affecting other wheel routes', async () => {

@@ -36,13 +36,19 @@ describe('wheels-database-browse-state', () => {
     expect(WHEELS_DATABASE_BROWSE_DEFAULTS.sortDirection).toBe('DESC')
   })
 
+  it('normalizes padded or whitespace-only query params on read', () => {
+    expect(parseWheelsDatabaseBrowseState(new URLSearchParams('q=%20merciful%20')).query).toBe(
+      'merciful',
+    )
+    expect(parseWheelsDatabaseBrowseState(new URLSearchParams('q=%20%20%20')).query).toBe('')
+  })
+
   it('patches wheel browse params while preserving unrelated query values', () => {
-    const nextParams = patchWheelsDatabaseBrowseState(new URLSearchParams('foo=bar&q=merciful'), {
+    const nextParams = patchWheelsDatabaseBrowseState(new URLSearchParams('foo=bar&q= merciful '), {
       realmFilter: 'CARO',
       rarityFilter: 'SSR',
       mainstatFilter: 'KEYFLARE_REGEN',
       sortKey: 'RARITY',
-      sortDirection: 'DESC',
     })
 
     expect(nextParams.toString()).toBe(
@@ -53,7 +59,6 @@ describe('wheels-database-browse-state', () => {
   it('uses per-sort defaults when patching params', () => {
     const nextParams = patchWheelsDatabaseBrowseState(new URLSearchParams('foo=bar'), {
       sortKey: 'ALPHABETICAL',
-      sortDirection: 'ASC',
     })
 
     expect(nextParams.toString()).toBe('foo=bar&sort=ALPHABETICAL')

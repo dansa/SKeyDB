@@ -4,6 +4,7 @@ import {
   useMemo,
   useRef,
   useState,
+  useSyncExternalStore,
   type KeyboardEvent as ReactKeyboardEvent,
 } from 'react'
 
@@ -13,6 +14,38 @@ interface UseDetailEntitySearchOptions<TEntity> {
   items: TEntity[]
   searchItems: (items: TEntity[], query: string) => TEntity[]
   onSelectResult: (item: TEntity) => void
+}
+
+let searchCaptureSuppressionDepth = 0
+const searchCaptureSuppressionListeners = new Set<() => void>()
+
+function emitSearchCaptureSuppressionChange() {
+  searchCaptureSuppressionListeners.forEach((listener) => {
+    listener()
+  })
+}
+
+function subscribeToSearchCaptureSuppression(listener: () => void) {
+  searchCaptureSuppressionListeners.add(listener)
+  return () => {
+    searchCaptureSuppressionListeners.delete(listener)
+  }
+}
+
+function getSearchCaptureSuppressionSnapshot() {
+  return searchCaptureSuppressionDepth > 0
+}
+
+export function useSuppressDetailEntitySearchCapture() {
+  useEffect(() => {
+    searchCaptureSuppressionDepth += 1
+    emitSearchCaptureSuppressionChange()
+
+    return () => {
+      searchCaptureSuppressionDepth = Math.max(0, searchCaptureSuppressionDepth - 1)
+      emitSearchCaptureSuppressionChange()
+    }
+  }, [])
 }
 
 export function useDetailEntitySearch<TEntity>({
@@ -28,6 +61,11 @@ export function useDetailEntitySearch<TEntity>({
   const searchResults = useMemo(
     () => (searchQuery.trim().length > 0 ? searchItems(items, searchQuery) : []),
     [items, searchItems, searchQuery],
+  )
+  const isSearchCaptureSuppressed = useSyncExternalStore(
+    subscribeToSearchCaptureSuppression,
+    getSearchCaptureSuppressionSnapshot,
+    getSearchCaptureSuppressionSnapshot,
   )
   const activeSearchIndex =
     searchResults.length === 0 ? 0 : Math.min(searchActiveIndex, searchResults.length - 1)
@@ -70,6 +108,10 @@ export function useDetailEntitySearch<TEntity>({
 
   useEffect(() => {
     function handleGlobalSearchCapture(event: KeyboardEvent) {
+      if (isSearchCaptureSuppressed) {
+        return
+      }
+
       const action = getSearchCaptureAction({
         currentSearchValue: searchInputRef.current?.value ?? searchQuery,
         event,
@@ -100,7 +142,7 @@ export function useDetailEntitySearch<TEntity>({
     return () => {
       window.removeEventListener('keydown', handleGlobalSearchCapture)
     }
-  }, [focusSearchInput, searchQuery])
+  }, [focusSearchInput, isSearchCaptureSuppressed, searchQuery])
 
   const handleSearchInputKeyDown = useCallback(
     (event: ReactKeyboardEvent<HTMLInputElement>) => {

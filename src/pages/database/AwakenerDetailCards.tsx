@@ -7,9 +7,9 @@ import type {
 } from '@/domain/awakener-source-schema'
 import {
   type DatabaseDescribedEntry,
-  type ResolvedAwakenerDatabaseReferenceLayer,
   type ResolvedAwakenerDatabaseShellView,
 } from '@/domain/awakeners-database-view'
+import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'
 import {useDatabasePopoverControllerContext} from './database-popover-context'
@@ -23,7 +23,7 @@ import {
 
 interface AwakenerDetailCardsProps {
   shellView: ResolvedAwakenerDatabaseShellView | null
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer | null
+  referenceLayer: ResolvedDatabaseReferenceLayer | null
   onToggleEnlightenSlot?: (slot: AwakenerEnlightenRecord['slot']) => void
   showVisibleScaling?: boolean
   showTagIcons?: boolean

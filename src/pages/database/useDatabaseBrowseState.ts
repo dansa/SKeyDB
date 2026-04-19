@@ -13,6 +13,8 @@ import {
 } from '@/domain/database-browse-state'
 import type {DatabaseSortKey} from '@/domain/database-sorting'
 
+import {useBrowseQueryActions} from './useBrowseQueryActions'
+
 type BrowseHistoryMode = 'push' | 'replace'
 
 interface UseUrlBackedBrowseStateOptions<TState> {
@@ -49,28 +51,8 @@ export function useDatabaseBrowseState() {
   })
   const {groupByRealm, query, rarityFilter, realmFilter, sortDirection, sortKey, typeFilter} =
     browseState
-
-  const setQuery = useCallback(
-    (next: string) => {
-      commitBrowseState({query: next}, 'replace')
-    },
-    [commitBrowseState],
-  )
-
-  const appendSearchCharacter = useCallback(
-    (key: string) => {
-      commitBrowseState({query: query + key}, 'replace')
-    },
-    [commitBrowseState, query],
-  )
-
-  const removeSearchCharacter = useCallback(() => {
-    commitBrowseState({query: query.slice(0, -1)}, 'replace')
-  }, [commitBrowseState, query])
-
-  const clearQuery = useCallback(() => {
-    commitBrowseState({query: ''}, 'replace')
-  }, [commitBrowseState])
+  const {setQuery, appendSearchCharacter, removeSearchCharacter, clearQuery} =
+    useBrowseQueryActions<DatabaseBrowseState>(query, commitBrowseState)
 
   const setRealmFilter = useCallback(
     (next: RealmFilterId) => {

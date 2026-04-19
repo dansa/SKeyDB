@@ -3,10 +3,8 @@ import {lazy, Suspense} from 'react'
 import {createPortal} from 'react-dom'
 
 import type {AwakenerEnlightenRecord} from '@/domain/awakener-source-schema'
-import type {
-  ResolvedAwakenerDatabaseReferenceLayer,
-  ResolvedAwakenerDatabaseShellView,
-} from '@/domain/awakeners-database-view'
+import type {ResolvedAwakenerDatabaseShellView} from '@/domain/awakeners-database-view'
+import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 
 import type {DatabasePopoverPortalEntry} from './DatabasePopoverPortal'
 import type {FontScale} from './font-scale'
@@ -18,7 +16,7 @@ const DatabasePopoverPortal = lazy(() =>
 export interface DatabasePopoverRootProps {
   anchorElement?: HTMLElement | null
   anchorRect: DOMRect | null
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer | null
+  referenceLayer: ResolvedDatabaseReferenceLayer | null
   stats: ResolvedAwakenerDatabaseShellView['stats']
   entries: DatabasePopoverPortalEntry[]
   onCloseAll: () => void

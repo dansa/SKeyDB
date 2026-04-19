@@ -1,5 +1,5 @@
 import type {FullStats} from '@/domain/awakener-source-schema'
-import type {ResolvedAwakenerDatabaseReferenceLayer} from '@/domain/awakeners-database-view'
+import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import type {DescribedRecord} from '@/domain/description-records'
 
 import {RichDescription} from './RichDescription'
@@ -10,7 +10,7 @@ interface DatabaseScopedRichDescriptionProps {
   keywordFooterText?: string
   descriptionRank?: number
   descriptionMaxRank?: number
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer | null
+  referenceLayer: ResolvedDatabaseReferenceLayer | null
   skillLevel?: number
   stats?: FullStats | null
   showVisibleScaling?: boolean

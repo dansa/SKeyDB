@@ -8,11 +8,11 @@ import type {
   DerivedSkillRecord,
   FullStats,
 } from '@/domain/awakener-source-schema'
-import {resolveAwakenerDatabaseReferenceInfoById} from '@/domain/awakeners-database-reference-info'
 import {
   type DatabaseReferenceInfo,
-  type ResolvedAwakenerDatabaseReferenceLayer,
-} from '@/domain/awakeners-database-view'
+  type ResolvedDatabaseReferenceLayer,
+} from '@/domain/database-reference-layer'
+import {resolveDatabaseReferenceInfoById} from '@/domain/database-reference-info'
 import {buildDatabaseRichDescriptionText} from '@/domain/database-rich-text'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'
@@ -31,13 +31,13 @@ interface DatabaseReferencePopoverProps {
   entry: DatabaseReferencePopoverEntry
   selectedEnlightenSlot?: AwakenerEnlightenRecord['slot'] | null
   onToggleEnlightenSlot?: (slot: AwakenerEnlightenRecord['slot']) => void
-  referenceLayer?: ResolvedAwakenerDatabaseReferenceLayer | null
+  referenceLayer?: ResolvedDatabaseReferenceLayer | null
   stats: FullStats | null
   onClose: () => void
   onInfoEntryClick?: (entry: KeyedDatabaseReferenceEntry) => void
   onSkillTokenClick: (name: string) => void
   onMechanicTokenClick: (overlay: AwakenerOverlayRecord) => void
-  onNavigateToCards?: () => void
+  onNavigate?: () => void
   layerIndex?: number
   layerCount?: number
   showVisibleScaling?: boolean
@@ -49,7 +49,7 @@ function isDerivedRecord(record: DatabaseReferenceEntry['record']): record is De
 }
 
 function getRelatedReferences(
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer | null,
+  referenceLayer: ResolvedDatabaseReferenceLayer | null,
   record: DatabaseReferenceEntry['record'],
 ): DatabaseReferenceInfo[] {
   if (!referenceLayer || !isDerivedRecord(record) || record.nodeKind !== 'group') {
@@ -57,7 +57,7 @@ function getRelatedReferences(
   }
 
   return record.childDerivedSkillIds
-    .map((childId) => resolveAwakenerDatabaseReferenceInfoById(referenceLayer, childId))
+    .map((childId) => resolveDatabaseReferenceInfoById(referenceLayer, childId))
     .filter((entry): entry is DatabaseReferenceInfo => entry !== null)
 }
 
@@ -75,7 +75,7 @@ export function DatabaseReferencePopover({
   onInfoEntryClick,
   onSkillTokenClick,
   onMechanicTokenClick,
-  onNavigateToCards,
+  onNavigate,
   layerIndex = 0,
   layerCount = 1,
   showVisibleScaling = true,
@@ -87,6 +87,7 @@ export function DatabaseReferencePopover({
     ? 'bg-slate-950/[.985] shadow-[0_18px_40px_rgba(2,6,23,0.78)]'
     : 'bg-slate-950/[.95] shadow-[0_10px_24px_rgba(2,6,23,0.58)]'
   const detailLinks = entry.detailLinks ?? []
+  const attributeRows = entry.attributeRows ?? []
   const fallbackText = buildDatabaseRichDescriptionText(
     entry.record?.descriptionTemplate ?? entry.description,
     entry.keywordFooterText,
@@ -126,15 +127,14 @@ export function DatabaseReferencePopover({
           className='min-w-0 flex-1 cursor-grab select-none active:cursor-grabbing'
           data-popover-drag-handle=''
         >
-          {onNavigateToCards ? (
+          {onNavigate && !entry.navigationLabel ? (
             <button
               className={`${DATABASE_ENTRY_TITLE_CLASS} transition-colors hover:text-amber-100`}
               onClick={() => {
                 onClose()
-                onNavigateToCards()
+                onNavigate()
               }}
               style={scaledFontStyle(12)}
-              title='View in Cards tab'
               type='button'
             >
               {entry.name} ↗
@@ -147,6 +147,19 @@ export function DatabaseReferencePopover({
           <p className='text-slate-500' style={scaledFontStyle(10)}>
             {entry.label}
           </p>
+          {onNavigate && entry.navigationLabel ? (
+            <button
+              className='mt-1 text-[10px] tracking-[0.16em] text-amber-100/80 uppercase transition-colors hover:text-amber-50'
+              onClick={() => {
+                onClose()
+                onNavigate()
+              }}
+              style={scaledFontStyle(10)}
+              type='button'
+            >
+              {entry.navigationLabel} ↗
+            </button>
+          ) : null}
           {(entry.influenceBadges?.length ?? 0) > 0 ? (
             <div className='mt-1'>
               <AwakenerEnlightenInfluenceBadges
@@ -171,6 +184,30 @@ export function DatabaseReferencePopover({
         </button>
       </div>
       <div className='px-3 pb-3'>
+        {attributeRows.length > 0 ? (
+          <div className='mb-3 flex flex-wrap gap-2 border-b border-slate-700/45 pb-3'>
+            {attributeRows.map((row) => (
+              <div
+                className='flex min-w-0 items-center gap-2 border border-slate-700/45 bg-slate-900/45 px-2.5 py-2'
+                key={`${row.label}:${row.value}`}
+              >
+                {row.iconSrc ? (
+                  <img
+                    alt=''
+                    aria-hidden
+                    className='h-4 w-4 shrink-0 object-contain opacity-90'
+                    draggable={false}
+                    src={row.iconSrc}
+                  />
+                ) : null}
+                <span className='text-[10px] tracking-[0.16em] text-slate-500 uppercase'>
+                  {row.label}
+                </span>
+                <span className='font-["Droid_Serif"] text-[13px] text-amber-100'>{row.value}</span>
+              </div>
+            ))}
+          </div>
+        ) : null}
         <p className='leading-relaxed text-slate-400' style={scaledFontStyle(11)}>
           <Suspense
             fallback={fallbackText ? <span>{renderTextWithBreaks(fallbackText)}</span> : null}

@@ -1,4 +1,4 @@
-import {useMemo} from 'react'
+import {useCallback, useMemo, type MouseEvent, type MouseEventHandler} from 'react'
 
 import {CompactArtTile} from '@/components/ui/CompactArtTile'
 import {
@@ -12,7 +12,10 @@ import {getCovenants} from '@/domain/covenants'
 import {getMainstatByKey, getMainstatIcon, type MainstatKey} from '@/domain/mainstats'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 import {getWheelById} from '@/domain/wheels'
+import {getWheelFullV1ById, getWheelsFullV1} from '@/domain/wheels-full-v1'
 
+import {buildWheelPopoverEntry} from './buildWheelPopoverEntry'
+import {useDatabasePopoverControllerContext} from './database-popover-context'
 import {
   DatabaseTab,
   DatabaseTabRow,
@@ -42,6 +45,7 @@ function getWheelGroupByTier(build: AwakenerBuild, tier: AwakenerBuildWheelTier)
 }
 
 const covenantNameById = new Map(getCovenants().map((covenant) => [covenant.id, covenant.name]))
+const wheelFullDataRecords = getWheelsFullV1()
 
 function RecommendationTile({
   asset,
@@ -51,6 +55,7 @@ function RecommendationTile({
   imageClassName = '',
   tileClassName = 'builder-picker-tile w-24 border border-slate-500/45 bg-slate-900/55 p-1',
   aspectClassName = 'aspect-[75/113]',
+  onClick,
 }: {
   asset?: string
   altText: string
@@ -59,8 +64,9 @@ function RecommendationTile({
   imageClassName?: string
   tileClassName?: string
   aspectClassName?: string
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }) {
-  return (
+  const tile = (
     <CompactArtTile
       chips={<span className='builder-picker-recommendation-chip text-amber-100/95'>{chip}</span>}
       containerClassName={tileClassName}
@@ -80,6 +86,20 @@ function RecommendationTile({
       }
       previewClassName={`${aspectClassName} border border-slate-600/35 bg-slate-900/75`}
     />
+  )
+
+  if (!onClick) {
+    return tile
+  }
+
+  return (
+    <button
+      className='block text-left transition-transform hover:-translate-y-px'
+      onClick={onClick}
+      type='button'
+    >
+      {tile}
+    </button>
   )
 }
 
@@ -131,9 +151,11 @@ function SubstatIconChip({mainstatKey}: {mainstatKey: MainstatKey}) {
 function RecommendationLine({
   build,
   tiers,
+  onSelectWheelRecommendation,
 }: {
   build: AwakenerBuild
   tiers: AwakenerBuildWheelTier[]
+  onSelectWheelRecommendation?: (wheelId: string, event: MouseEvent<HTMLElement>) => void
 }) {
   const groups = tiers
     .map((tier) => getWheelGroupByTier(build, tier))
@@ -156,6 +178,13 @@ function RecommendationLine({
               imageClassName='builder-picker-wheel-image'
               key={`${group.tier}-${wheelId}`}
               label={wheel?.name ?? wheelId}
+              onClick={
+                onSelectWheelRecommendation
+                  ? (event) => {
+                      onSelectWheelRecommendation(wheelId, event)
+                    }
+                  : undefined
+              }
             />
           )
         }),
@@ -185,7 +214,24 @@ function CovenantRecommendationGrid({build}: {build: AwakenerBuild}) {
 }
 
 function WheelRecommendations({build}: {build: AwakenerBuild}) {
+  const popoverContext = useDatabasePopoverControllerContext()
   const hasGoodOptions = Boolean(getWheelGroupByTier(build, 'GOOD'))
+  const handleSelectWheelRecommendation = useCallback(
+    (wheelId: string, event: MouseEvent<HTMLElement>) => {
+      const openRootInfo = popoverContext?.openRootInfo
+      if (!openRootInfo) {
+        return
+      }
+
+      const wheelRecord = getWheelFullV1ById(wheelId, wheelFullDataRecords)
+      if (!wheelRecord) {
+        return
+      }
+
+      openRootInfo(buildWheelPopoverEntry(wheelRecord), event)
+    },
+    [popoverContext],
+  )
 
   return (
     <div className='space-y-2.5'>
@@ -194,7 +240,11 @@ function WheelRecommendations({build}: {build: AwakenerBuild}) {
           Top Picks
         </p>
         <div className='mt-1.5'>
-          <RecommendationLine build={build} tiers={PRIMARY_WHEEL_TIERS} />
+          <RecommendationLine
+            build={build}
+            onSelectWheelRecommendation={handleSelectWheelRecommendation}
+            tiers={PRIMARY_WHEEL_TIERS}
+          />
         </div>
       </div>
       {hasGoodOptions ? (
@@ -205,7 +255,11 @@ function WheelRecommendations({build}: {build: AwakenerBuild}) {
               Good Options
             </p>
             <div className='mt-1.5'>
-              <RecommendationLine build={build} tiers={['GOOD']} />
+              <RecommendationLine
+                build={build}
+                onSelectWheelRecommendation={handleSelectWheelRecommendation}
+                tiers={['GOOD']}
+              />
             </div>
           </div>
         </>

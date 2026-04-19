@@ -1,7 +1,7 @@
 import {useMemo, type MouseEvent} from 'react'
 
 import type {AwakenerOverlayRecord, FullStats} from '@/domain/awakener-source-schema'
-import type {ResolvedAwakenerDatabaseReferenceLayer} from '@/domain/awakeners-database-view'
+import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import {parseDatabaseRichDescription} from '@/domain/database-rich-text'
 import type {DescribedRecord} from '@/domain/description-records'
 
@@ -13,7 +13,7 @@ export interface DatabaseRichTextContentProps {
   keywordFooterText?: string
   descriptionRank?: number
   descriptionMaxRank?: number
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer | null
+  referenceLayer: ResolvedDatabaseReferenceLayer | null
   showVisibleScaling?: boolean
   showTagIcons?: boolean
   skillLevel: number

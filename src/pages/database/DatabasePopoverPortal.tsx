@@ -1,8 +1,6 @@
 import type {AwakenerEnlightenRecord, AwakenerOverlayRecord} from '@/domain/awakener-source-schema'
-import type {
-  ResolvedAwakenerDatabaseReferenceLayer,
-  ResolvedAwakenerDatabaseShellView,
-} from '@/domain/awakeners-database-view'
+import type {ResolvedAwakenerDatabaseShellView} from '@/domain/awakeners-database-view'
+import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
 import {DatabaseReferencePopover} from './DatabaseReferencePopover'
@@ -17,14 +15,15 @@ export interface DatabasePopoverPortalEntry {
   onClose: () => void
   onInfoEntryClick?: (entry: KeyedDatabaseReferenceEntry) => void
   onMechanicTokenClick: (overlay: AwakenerOverlayRecord) => void
-  onNavigateToCards?: () => void
+  onNavigate?: () => void
   onSkillTokenClick: (name: string) => void
+  referenceLayer?: ResolvedDatabaseReferenceLayer | null
 }
 
 interface DatabasePopoverPortalProps {
   anchorElement?: HTMLElement | null
   anchorRect: DOMRect
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer | null
+  referenceLayer: ResolvedDatabaseReferenceLayer | null
   stats: ResolvedAwakenerDatabaseShellView['stats']
   entries: DatabasePopoverPortalEntry[]
   onCloseAll: () => void
@@ -65,10 +64,10 @@ export function DatabasePopoverPortal({
           onClose={entry.onClose}
           onInfoEntryClick={entry.onInfoEntryClick}
           onMechanicTokenClick={entry.onMechanicTokenClick}
-          onNavigateToCards={entry.onNavigateToCards}
+          onNavigate={entry.onNavigate}
           onSkillTokenClick={entry.onSkillTokenClick}
           onToggleEnlightenSlot={onToggleEnlightenSlot}
-          referenceLayer={referenceLayer}
+          referenceLayer={entry.referenceLayer ?? referenceLayer}
           selectedEnlightenSlot={selectedEnlightenSlot}
           showTagIcons={showTagIcons}
           showVisibleScaling={showVisibleScaling}

@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo, useState} from 'react'
+import {useCallback, useMemo, useState} from 'react'
 
 import {clampWheelEnhanceLevel, resolveWheelDescriptionRank} from '@/domain/wheel-enhance'
 import {resolveWheelMainstatValue} from '@/domain/wheel-mainstat-scaling'
@@ -10,6 +10,7 @@ import {
 import type {WheelFullV1Record} from '@/domain/wheels-full-v1'
 
 import {useDatabaseDetailChrome} from './useDatabaseDetailChrome'
+import {useDatabaseDetailModalLifecycle} from './useDatabaseDetailModalLifecycle'
 import {useDatabasePopoverController} from './useDatabasePopoverController'
 import {useWheelDetailSearch} from './useWheelDetailSearch'
 
@@ -70,39 +71,15 @@ export function useWheelDetailModalState({
     [enhanceLevel, fullDataV1.mainstatSeriesKey],
   )
 
-  useEffect(() => {
-    function handleEscape(event: KeyboardEvent) {
-      if (event.key !== 'Escape') {
-        return
-      }
-
-      const searchIsFocused = document.activeElement === search.searchInputRef.current
-      if (searchIsFocused || search.searchQuery.trim().length > 0) {
-        event.preventDefault()
-        event.stopPropagation()
-        if (search.searchQuery.trim().length > 0) {
-          search.clearSearch()
-          return
-        }
-        search.closeSearch(true)
-        return
-      }
-
-      if (hasOpenPopovers) {
-        event.preventDefault()
-        event.stopPropagation()
-        closeAllPopovers()
-        return
-      }
-
-      onClose()
-    }
-
-    window.addEventListener('keydown', handleEscape)
-    return () => {
-      window.removeEventListener('keydown', handleEscape)
-    }
-  }, [closeAllPopovers, hasOpenPopovers, onClose, search])
+  useDatabaseDetailModalLifecycle({
+    clearSearch: search.clearSearch,
+    closeAllPopovers,
+    closeSearch: search.closeSearch,
+    hasOpenPopovers,
+    onClose,
+    searchInputRef: search.searchInputRef,
+    searchQuery: search.searchQuery,
+  })
 
   return {
     enhanceLevel,

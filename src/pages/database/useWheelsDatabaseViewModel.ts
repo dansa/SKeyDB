@@ -49,24 +49,34 @@ export function useWheelsDatabaseViewModel(
   allWheels: Wheel[],
   browseState: WheelsDatabaseBrowseState,
 ) {
+  const {mainstatFilter, query, rarityFilter, realmFilter, sortDirection, sortKey} = browseState
   const wheelIndexById = useMemo(
     () => new Map([...allWheels].sort(compareWheelsForUi).map((wheel, index) => [wheel.id, index])),
     [allWheels],
   )
 
   const filteredWheels = useMemo(() => {
-    const searched = searchWheels(allWheels, browseState.query)
-    const filtered = applyFilters(searched, browseState)
+    const searched = searchWheels(allWheels, query)
+    const filtered = applyFilters(searched, {mainstatFilter, rarityFilter, realmFilter})
     return [...filtered].sort((left, right) => {
       const leftEntry = toSortableWheelEntry(left, wheelIndexById)
       const rightEntry = toSortableWheelEntry(right, wheelIndexById)
 
       return compareWheelsForCollectionSort(leftEntry, rightEntry, {
-        key: browseState.sortKey,
-        direction: browseState.sortDirection,
+        key: sortKey,
+        direction: sortDirection,
       })
     })
-  }, [allWheels, browseState, wheelIndexById])
+  }, [
+    allWheels,
+    mainstatFilter,
+    query,
+    rarityFilter,
+    realmFilter,
+    sortDirection,
+    sortKey,
+    wheelIndexById,
+  ])
 
   return {
     wheels: filteredWheels,

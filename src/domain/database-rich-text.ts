@@ -1,6 +1,6 @@
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
-import type {ResolvedAwakenerDatabaseReferenceLayer} from './awakeners-database-view'
 import type {DescribedRecord} from './description-records'
+import type {ResolvedDatabaseReferenceLayer} from './database-reference-layer'
 import {parseRichDescription, type RichSegment, type RichTextParseOptions} from './rich-text'
 
 const EMPTY_CARD_NAMES = new Set<string>()
@@ -54,7 +54,7 @@ function shouldEnableFollowupLineBreaks(record: DescribedRecord): boolean {
 
 export function buildDatabaseRichTextParseOptions(
   record: DescribedRecord | undefined,
-  referenceLayer: ResolvedAwakenerDatabaseReferenceLayer | null | undefined,
+  referenceLayer: ResolvedDatabaseReferenceLayer | null | undefined,
   overlays?: readonly AwakenerOverlayRecord[],
 ): RichTextParseOptions | undefined {
   if (!record) {
@@ -112,7 +112,7 @@ interface ParseDatabaseRichDescriptionOptions {
   record?: DescribedRecord
   keywordFooterText?: string
   cardNames?: ReadonlySet<string>
-  referenceLayer?: ResolvedAwakenerDatabaseReferenceLayer | null
+  referenceLayer?: ResolvedDatabaseReferenceLayer | null
   overlays?: readonly AwakenerOverlayRecord[]
 }
 

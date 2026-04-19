@@ -1,12 +1,14 @@
-import {useCallback, useEffect} from 'react'
+import {useCallback} from 'react'
 
 import {type Awakener} from '@/domain/awakeners'
 import {type AwakenerFullV2Record} from '@/domain/awakeners-full-v2'
 import {type DatabaseAwakenerTab} from '@/domain/database-paths'
+import type {Wheel} from '@/domain/wheels'
 
 import {useAwakenerDetailChrome} from './useAwakenerDetailChrome'
 import {useAwakenerDetailDatabaseState} from './useAwakenerDetailDatabaseState'
 import {useAwakenerDetailSearch} from './useAwakenerDetailSearch'
+import {useDatabaseDetailModalLifecycle} from './useDatabaseDetailModalLifecycle'
 import {useDatabasePopoverController} from './useDatabasePopoverController'
 
 interface UseAwakenerDetailModalStateOptions {
@@ -16,6 +18,7 @@ interface UseAwakenerDetailModalStateOptions {
   fullDataV2: AwakenerFullV2Record
   onClose: () => void
   onSelectAwakener?: (awakener: Awakener, tab: DatabaseAwakenerTab) => void
+  onSelectWheel?: (wheel: Pick<Wheel, 'name'>) => void
   onTabChange: (tab: DatabaseAwakenerTab) => void
 }
 
@@ -26,6 +29,7 @@ export function useAwakenerDetailModalState({
   fullDataV2,
   onClose,
   onSelectAwakener,
+  onSelectWheel,
   onTabChange,
 }: UseAwakenerDetailModalStateOptions) {
   const search = useAwakenerDetailSearch({activeTab, awakeners, onSelectAwakener})
@@ -52,6 +56,7 @@ export function useAwakenerDetailModalState({
 
   const popoverController = useDatabasePopoverController({
     onNavigateToCards: navigateToCards,
+    onNavigateToWheelPage: onSelectWheel,
     onToggleEnlightenSlot: sessionActions.toggleEnlightenSlot,
     referenceLayer,
     selectedEnlightenSlot: resolvedSelection.selectedEnlightenSlot,
@@ -81,53 +86,19 @@ export function useAwakenerDetailModalState({
   const {clearSearch, closeSearch, searchInputRef, searchQuery} = search
   const {isSettingsOpen, setIsSettingsOpen} = chrome
 
-  useEffect(() => {
-    function handleEscape(event: KeyboardEvent) {
-      if (event.key !== 'Escape') {
-        return
-      }
-
-      const searchIsFocused = document.activeElement === searchInputRef.current
-      if (searchIsFocused || searchQuery.trim().length > 0) {
-        event.preventDefault()
-        event.stopPropagation()
-        if (searchQuery.trim().length > 0) {
-          clearSearch()
-          return
-        }
-        closeSearch(true)
-        return
-      }
-      if (isSettingsOpen) {
-        event.preventDefault()
-        event.stopPropagation()
-        setIsSettingsOpen(false)
-        return
-      }
-      if (hasOpenPopovers) {
-        event.preventDefault()
-        event.stopPropagation()
-        closeAllPopovers()
-        return
-      }
-      onClose()
-    }
-
-    window.addEventListener('keydown', handleEscape)
-    return () => {
-      window.removeEventListener('keydown', handleEscape)
-    }
-  }, [
+  useDatabaseDetailModalLifecycle({
     clearSearch,
     closeAllPopovers,
     closeSearch,
+    dismissSettings: () => {
+      setIsSettingsOpen(false)
+    },
     hasOpenPopovers,
     isSettingsOpen,
     onClose,
     searchInputRef,
     searchQuery,
-    setIsSettingsOpen,
-  ])
+  })
 
   return {
     activeSearchIndex: search.activeSearchIndex,

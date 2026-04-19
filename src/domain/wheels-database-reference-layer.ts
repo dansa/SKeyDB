@@ -1,25 +1,16 @@
 import {getAwakenerOverlays} from './awakener-overlays'
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
-import type {
-  DatabaseReferenceInfo,
-  ResolvedAwakenerDatabaseReferenceLayer,
-} from './awakeners-database-view'
 import {resolveDescribedRecord, type WheelDatabaseDescriptionRecord} from './description-records'
+import {
+  addDatabaseReferenceInfoToLookups,
+  buildAccessibleDatabaseOverlays,
+  buildDatabaseOverlayLookup,
+  buildDatabaseOverlayReferenceInfo,
+  type DatabaseReferenceInfo,
+  type ResolvedDatabaseReferenceLayer,
+} from './database-reference-layer'
 import {getRealmLabel} from './factions'
 import {getWheelsFullV1, type WheelFullV1Record} from './wheels-full-v1'
-
-function normalize(value: string): string {
-  return value.trim().toLowerCase()
-}
-
-function addLookupValue<T>(lookup: Map<string, T>, key: string, value: T): void {
-  const normalized = normalize(key)
-  if (!normalized || lookup.has(normalized)) {
-    return
-  }
-
-  lookup.set(normalized, value)
-}
 
 export function buildWheelDatabaseDescriptionRecord(
   record: WheelFullV1Record,
@@ -57,36 +48,6 @@ function buildWheelReferenceInfo(
   }
 }
 
-function buildOverlayReferenceInfo(
-  overlay: AwakenerOverlayRecord,
-): DatabaseReferenceInfo<AwakenerOverlayRecord> {
-  const resolved = resolveDescribedRecord(overlay)
-  return {
-    kind: 'overlay',
-    id: overlay.id,
-    name: overlay.displayName,
-    label: overlay.overlayType,
-    record: overlay,
-    description: resolved.description,
-    keywordFooterText: undefined,
-    descriptionRank: undefined,
-    descriptionMaxRank: undefined,
-    influencingEnlightenSlots: [],
-    influencingTalentIds: [],
-    influenceBadges: [],
-  }
-}
-
-function buildAccessibleOverlays(
-  ownerAwakenerId: number | undefined,
-  overlays: AwakenerOverlayRecord[],
-): AwakenerOverlayRecord[] {
-  return overlays.filter(
-    (overlay) =>
-      overlay.ownerAwakenerId === undefined || overlay.ownerAwakenerId === ownerAwakenerId,
-  )
-}
-
 interface BuildWheelReferenceInfoEntriesOptions {
   wheelRecords?: WheelFullV1Record[]
   activeWheelId?: string
@@ -115,7 +76,7 @@ export function buildWheelDatabaseReferenceLayer({
   activeWheelId,
   overlays = getAwakenerOverlays(),
   wheelRecords = getWheelsFullV1(),
-}: BuildWheelDatabaseReferenceLayerOptions = {}): ResolvedAwakenerDatabaseReferenceLayer {
+}: BuildWheelDatabaseReferenceLayerOptions = {}): ResolvedDatabaseReferenceLayer {
   const referenceInfoByName = new Map<string, DatabaseReferenceInfo>()
   const referenceInfoById = new Map<string, DatabaseReferenceInfo>()
   const wheelInfos = buildWheelReferenceInfoEntries({
@@ -124,31 +85,17 @@ export function buildWheelDatabaseReferenceLayer({
     wheelRecords,
   })
   const activeWheel = wheelRecords.find((record) => record.id === activeWheelId)
-  const accessibleOverlays = buildAccessibleOverlays(activeWheel?.ownerAwakenerId, overlays)
-  const overlayByName = new Map<string, AwakenerOverlayRecord>()
+  const accessibleOverlays = buildAccessibleDatabaseOverlays(activeWheel?.ownerAwakenerId, overlays)
+  const overlayByName = buildDatabaseOverlayLookup(accessibleOverlays)
 
   wheelInfos.forEach((info, index) => {
     const sourceRecord = wheelRecords[index]
-    addLookupValue(referenceInfoByName, info.name, info)
-    for (const alias of sourceRecord.aliases) {
-      addLookupValue(referenceInfoByName, alias, info)
-    }
-    if (!referenceInfoById.has(info.id)) {
-      referenceInfoById.set(info.id, info)
-    }
+    addDatabaseReferenceInfoToLookups(referenceInfoByName, referenceInfoById, info, sourceRecord.aliases)
   })
 
   for (const overlay of accessibleOverlays) {
-    const overlayInfo = buildOverlayReferenceInfo(overlay)
-    addLookupValue(referenceInfoByName, overlay.displayName, overlayInfo)
-    for (const alias of overlay.aliases) {
-      addLookupValue(referenceInfoByName, alias, overlayInfo)
-      addLookupValue(overlayByName, alias, overlay)
-    }
-    if (!referenceInfoById.has(overlay.id)) {
-      referenceInfoById.set(overlay.id, overlayInfo)
-    }
-    addLookupValue(overlayByName, overlay.displayName, overlay)
+    const overlayInfo = buildDatabaseOverlayReferenceInfo(overlay)
+    addDatabaseReferenceInfoToLookups(referenceInfoByName, referenceInfoById, overlayInfo, overlay.aliases)
   }
 
   return {

@@ -698,6 +698,53 @@ describe('AwakenerDetailModal', () => {
     })
   })
 
+  it('resets expanded tags when switching awakeners', async () => {
+    const originalScrollHeight = Object.getOwnPropertyDescriptor(
+      HTMLElement.prototype,
+      'scrollHeight',
+    )
+    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      configurable: true,
+      get() {
+        return 100
+      },
+    })
+
+    const onClose = vi.fn()
+    const first = makeAwakener(1, 'thais')
+    const second = makeAwakener(2, 'beta')
+    const firstWithTags = {
+      ...first,
+      tags: ['Bleed', 'Crit', 'Burn', 'Slow', 'Shield'],
+    }
+    const secondWithTags = {
+      ...second,
+      tags: ['Support', 'Heal', 'Haste', 'Dispel', 'Barrier'],
+    }
+
+    try {
+      const {rerender} = renderAwakenerDetailModal(firstWithTags, {onClose})
+
+      const toggle = await screen.findByRole('button', {name: 'Show all tags'})
+      fireEvent.click(toggle)
+
+      expect(screen.getByRole('button', {name: 'Show fewer tags'})).toBeInTheDocument()
+
+      rerender(createAwakenerDetailModalElement(secondWithTags, {onClose}))
+
+      await waitFor(() => {
+        expect(screen.getByRole('button', {name: 'Show all tags'})).toBeInTheDocument()
+      })
+      expect(screen.queryByRole('button', {name: 'Show fewer tags'})).not.toBeInTheDocument()
+    } finally {
+      if (originalScrollHeight) {
+        Object.defineProperty(HTMLElement.prototype, 'scrollHeight', originalScrollHeight)
+      } else {
+        delete (HTMLElement.prototype as {scrollHeight?: number}).scrollHeight
+      }
+    }
+  })
+
   it('passes the active awakener id to the builds tab', async () => {
     const onClose = vi.fn()
     const awakener = makeAwakener(1, 'thais')

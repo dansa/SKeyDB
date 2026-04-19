@@ -1,6 +1,7 @@
 import {render, screen, waitFor} from '@testing-library/react'
 import {beforeEach, describe, expect, it, vi} from 'vitest'
 
+import {useDatabasePopoverControllerContext} from './database-popover-context'
 import {AwakenerBuildsTab} from './AwakenerBuildsTab'
 
 const {getAwakenerBuildEntries} = vi.hoisted(() => ({
@@ -18,9 +19,14 @@ vi.mock('../../domain/awakener-builds', async () => {
   }
 })
 
+vi.mock('./database-popover-context', () => ({
+  useDatabasePopoverControllerContext: vi.fn(),
+}))
+
 describe('AwakenerBuildsTab', () => {
   beforeEach(() => {
     getAwakenerBuildEntries.mockReset()
+    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
   })
 
   it('renders all configured builds and groups wheel recommendations by line', () => {
@@ -111,5 +117,58 @@ describe('AwakenerBuildsTab', () => {
     render(<AwakenerBuildsTab awakenerId={99} />)
 
     expect(screen.getByText('No curated builds available yet.')).toBeInTheDocument()
+  })
+
+  it('opens a wheel preview popover entry from recommended wheel tiles', () => {
+    const openRootInfo = vi.fn()
+    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue({
+      closeAllPopovers: vi.fn(),
+      hasOpenPopovers: false,
+      openNestedOverlay: vi.fn(),
+      openNestedReferenceByName: vi.fn(),
+      openRootInfo,
+      openRootOverlay: vi.fn(),
+      openRootReferenceByName: vi.fn(),
+    })
+    getAwakenerBuildEntries.mockReturnValue([
+      {
+        awakenerId: 27,
+        primaryBuildId: 'dps',
+        builds: [
+          {
+            id: 'dps',
+            label: 'DPS',
+            substatPriorityGroups: [['CRIT_DMG'], ['ATK']],
+            recommendedWheels: [{tier: 'BIS_SSR', wheelIds: ['C16']}],
+            recommendedCovenantIds: ['005'],
+          },
+        ],
+      },
+    ])
+
+    render(<AwakenerBuildsTab awakenerId={27} />)
+
+    screen.getByRole('button', {name: /Amber-Tinted Death/i}).click()
+
+    expect(openRootInfo).toHaveBeenCalledWith(
+      expect.objectContaining({
+        name: 'Amber-Tinted Death',
+        navigationLabel: 'Open in Wheels DB',
+        navigationTarget: {
+          kind: 'wheel-page',
+          wheelName: 'Amber-Tinted Death',
+        },
+        attributeRows: [
+          expect.objectContaining({
+            label: 'Crit DMG',
+            value: expect.any(String),
+          }),
+        ],
+        referenceLayerOverride: expect.objectContaining({
+          referenceInfoById: expect.any(Map),
+        }),
+      }),
+      expect.any(Object),
+    )
   })
 })

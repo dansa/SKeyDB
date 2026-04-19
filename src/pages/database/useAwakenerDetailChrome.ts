@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState, type RefObject} from 'react'
+import {useCallback, useEffect, useRef, useState, type RefObject, type SetStateAction} from 'react'
 
 import {useDatabaseDetailChrome} from './useDatabaseDetailChrome'
 
@@ -29,9 +29,17 @@ export function useAwakenerDetailChrome({
   clickOutsideClosesPopovers,
   onClose,
 }: UseAwakenerDetailChromeOptions) {
-  const [showAllTags, setShowAllTags] = useState(false)
+  const [expandedAwakenerId, setExpandedAwakenerId] = useState<number | null>(null)
   const [canExpandTags, setCanExpandTags] = useState(false)
   const tagsRef = useRef<HTMLDivElement>(null)
+  const showAllTags = expandedAwakenerId === awakenerId
+  const setShowAllTags = useCallback(
+    (next: SetStateAction<boolean>) => {
+      const nextValue = typeof next === 'function' ? next(showAllTags) : next
+      setExpandedAwakenerId(nextValue ? awakenerId : null)
+    },
+    [awakenerId, showAllTags],
+  )
   const chrome = useDatabaseDetailChrome({
     clickOutsideClosesPopovers,
     closeAllPopovers,
