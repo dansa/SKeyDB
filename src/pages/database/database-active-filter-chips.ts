@@ -1,16 +1,37 @@
-import {getRealmLabel} from '@/domain/factions'
+import type {
+  DatabaseBrowseState,
+  RarityFilterId,
+  RealmFilterId,
+  TypeFilterId,
+} from '@/domain/database-browse-state'
+import {getRealmLabel} from '@/domain/realms'
 import {wheelMainstatFilterOptions} from '@/domain/wheel-mainstat-filters'
+import type {
+  WheelsDatabaseBrowseState,
+  WheelsDatabaseRarityFilterId,
+  WheelsDatabaseRealmFilterId,
+} from '@/domain/wheels-database-browse-state'
 
 import type {ActiveFilterChip} from './ActiveFilterChips'
 import {getTypeFilterLabel} from './database-browse-state'
-import type {useDatabaseBrowseState} from './useDatabaseBrowseState'
-import type {useWheelsDatabaseBrowseState} from './useWheelsDatabaseBrowseState'
 
-type AwakenerBrowseController = ReturnType<typeof useDatabaseBrowseState>
-type WheelBrowseController = ReturnType<typeof useWheelsDatabaseBrowseState>
+interface AwakenerActiveFilterActions {
+  clearQuery: () => void
+  setRealmFilter: (next: RealmFilterId) => void
+  setRarityFilter: (next: RarityFilterId) => void
+  setTypeFilter: (next: TypeFilterId) => void
+}
+
+interface WheelActiveFilterActions {
+  clearQuery: () => void
+  setRealmFilter: (next: WheelsDatabaseRealmFilterId) => void
+  setRarityFilter: (next: WheelsDatabaseRarityFilterId) => void
+  setMainstatFilter: (next: WheelsDatabaseBrowseState['mainstatFilter']) => void
+}
 
 export function buildAwakenerActiveFilterChips(
-  state: AwakenerBrowseController,
+  state: Pick<DatabaseBrowseState, 'query' | 'realmFilter' | 'rarityFilter' | 'typeFilter'>,
+  actions: AwakenerActiveFilterActions,
 ): ActiveFilterChip[] {
   const chips: ActiveFilterChip[] = []
 
@@ -19,7 +40,7 @@ export function buildAwakenerActiveFilterChips(
     chips.push({
       key: 'query',
       label: `Search: "${trimmedQuery}"`,
-      onClear: state.clearQuery,
+      onClear: actions.clearQuery,
     })
   }
 
@@ -28,7 +49,7 @@ export function buildAwakenerActiveFilterChips(
       key: 'realm',
       label: getRealmLabel(state.realmFilter),
       onClear: () => {
-        state.setRealmFilter('ALL')
+        actions.setRealmFilter('ALL')
       },
     })
   }
@@ -38,7 +59,7 @@ export function buildAwakenerActiveFilterChips(
       key: 'rarity',
       label: state.rarityFilter,
       onClear: () => {
-        state.setRarityFilter('ALL')
+        actions.setRarityFilter('ALL')
       },
     })
   }
@@ -48,7 +69,7 @@ export function buildAwakenerActiveFilterChips(
       key: 'type',
       label: getTypeFilterLabel(state.typeFilter),
       onClear: () => {
-        state.setTypeFilter('ALL')
+        actions.setTypeFilter('ALL')
       },
     })
   }
@@ -56,7 +77,13 @@ export function buildAwakenerActiveFilterChips(
   return chips
 }
 
-export function buildWheelActiveFilterChips(state: WheelBrowseController): ActiveFilterChip[] {
+export function buildWheelActiveFilterChips(
+  state: Pick<
+    WheelsDatabaseBrowseState,
+    'query' | 'realmFilter' | 'rarityFilter' | 'mainstatFilter'
+  >,
+  actions: WheelActiveFilterActions,
+): ActiveFilterChip[] {
   const chips: ActiveFilterChip[] = []
 
   const trimmedQuery = state.query.trim()
@@ -64,7 +91,7 @@ export function buildWheelActiveFilterChips(state: WheelBrowseController): Activ
     chips.push({
       key: 'query',
       label: `Search: "${trimmedQuery}"`,
-      onClear: state.clearQuery,
+      onClear: actions.clearQuery,
     })
   }
 
@@ -73,7 +100,7 @@ export function buildWheelActiveFilterChips(state: WheelBrowseController): Activ
       key: 'realm',
       label: getRealmLabel(state.realmFilter),
       onClear: () => {
-        state.setRealmFilter('ALL')
+        actions.setRealmFilter('ALL')
       },
     })
   }
@@ -83,7 +110,7 @@ export function buildWheelActiveFilterChips(state: WheelBrowseController): Activ
       key: 'rarity',
       label: state.rarityFilter,
       onClear: () => {
-        state.setRarityFilter('ALL')
+        actions.setRarityFilter('ALL')
       },
     })
   }
@@ -96,7 +123,7 @@ export function buildWheelActiveFilterChips(state: WheelBrowseController): Activ
       key: 'mainstat',
       label: mainstatLabel,
       onClear: () => {
-        state.setMainstatFilter('ALL')
+        actions.setMainstatFilter('ALL')
       },
     })
   }

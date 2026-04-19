@@ -1,4 +1,4 @@
-import {getRealmTint} from '@/domain/factions'
+import {getRealmAccent} from '@/domain/realms'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 import type {Wheel} from '@/domain/wheels'
 
@@ -14,7 +14,7 @@ export function WheelDetailArtwork({
   variant = 'sidebar',
 }: WheelDetailArtworkProps) {
   const asset = getWheelAssetById(wheel.id)
-  const lineTint = wheel.realm === 'NEUTRAL' ? '#f3eee1' : getRealmTint(wheel.realm)
+  const lineAccent = wheel.realm === 'NEUTRAL' ? '#f3eee1' : getRealmAccent(wheel.realm)
   const isCompact = variant === 'compact'
   const fullArtLabel = `View full art for ${wheel.name}`
   const rootClassName = isCompact
@@ -28,7 +28,7 @@ export function WheelDetailArtwork({
   return (
     <div
       className={rootClassName}
-      style={{'--wheel-art-line-color': lineTint} as React.CSSProperties}
+      style={{'--wheel-art-line-color': lineAccent} as React.CSSProperties}
     >
       <div aria-hidden={hideFrameFromAccessibilityTree || undefined} className={frameClassName}>
         {isCompact ? null : (

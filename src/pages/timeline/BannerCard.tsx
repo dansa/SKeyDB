@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import {getAwakenerCardAsset} from '@/domain/awakener-assets'
 import {getAwakeners} from '@/domain/awakeners'
 import {buildDatabaseAwakenerPath} from '@/domain/database-paths'
-import {getRealmIcon, getRealmTint} from '@/domain/factions'
+import {getRealmAccent, getRealmIcon} from '@/domain/realms'
 import {
   getTimelineCountdownDisplay,
   getTimelineStatus,
@@ -162,7 +162,7 @@ function getSliceClipStyle(index: number, total: number) {
 
 function SliceLabel({asset, total}: {asset: SliceAsset; total: number}) {
   const realmIcon = getRealmIcon(asset.realmId)
-  const realmTint = getRealmTint(asset.realmId)
+  const realmAccent = getRealmAccent(asset.realmId)
 
   const fontSize = total >= 4 ? 'text-[10px]' : total >= 3 ? 'text-xs' : 'text-sm'
   const iconSize = total >= 4 ? 'h-5.5 w-5.5' : total >= 3 ? 'h-6 w-6' : 'h-7 w-7'
@@ -182,7 +182,7 @@ function SliceLabel({asset, total}: {asset: SliceAsset; total: number}) {
         ) : null}
         <p
           className={`ui-title text-center ${fontSize} leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,1)]`}
-          style={{color: realmTint}}
+          style={{color: realmAccent}}
         >
           {asset.label}
         </p>

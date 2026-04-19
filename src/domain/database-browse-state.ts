@@ -7,6 +7,8 @@ import {
 import type {CollectionSortDirection} from '@/domain/collection-sorting'
 import type {DatabaseSortKey} from '@/domain/database-sorting'
 
+export type {DatabaseSortKey} from '@/domain/database-sorting'
+
 export const DATABASE_REALM_FILTER_IDS = ['ALL', 'AEQUOR', 'CARO', 'CHAOS', 'ULTRA'] as const
 export type RealmFilterId = (typeof DATABASE_REALM_FILTER_IDS)[number]
 export const DATABASE_RARITY_FILTER_IDS = ['ALL', 'Genesis', 'SSR', 'SR'] as const

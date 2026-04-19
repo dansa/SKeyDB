@@ -212,10 +212,10 @@ vi.mock('../../domain/name-format', () => ({
   formatAwakenerNameForUi: (name: string) => name,
 }))
 
-vi.mock('../../domain/factions', () => ({
+vi.mock('../../domain/realms', () => ({
   getRealmIcon: () => null,
   getRealmLabel: (realm: string) => realm,
-  getRealmTint: () => '#ffffff',
+  getRealmAccent: () => '#ffffff',
 }))
 
 vi.mock('./AwakenerDetailSidebar', () => ({

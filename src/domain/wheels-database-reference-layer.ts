@@ -9,7 +9,7 @@ import {
   type ResolvedDatabaseReferenceLayer,
 } from './database-reference-layer'
 import {resolveDescribedRecord, type WheelDatabaseDescriptionRecord} from './description-records'
-import {getRealmLabel} from './factions'
+import {getRealmLabel} from './realms'
 import {getWheelsFullV1, type WheelFullV1Record} from './wheels-full-v1'
 
 export function buildWheelDatabaseDescriptionRecord(

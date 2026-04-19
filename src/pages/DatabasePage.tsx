@@ -5,6 +5,7 @@ import {useLocation, useNavigate, useParams} from 'react-router-dom'
 import emojiWke from '@/assets/emoji/Emoji_WKE_S_06.webp'
 import {getAwakeners, type Awakener} from '@/domain/awakeners'
 import {loadAwakenerFullV2ById} from '@/domain/awakeners-full-v2-loader'
+import {DATABASE_SORT_OPTIONS, type DatabaseSortKey} from '@/domain/database-browse-state'
 import {buildDatabaseEntityBrowsePath} from '@/domain/database-entity-paths'
 import {
   buildDatabaseAwakenerPath,
@@ -16,6 +17,10 @@ import {
   type DatabaseAwakenerTab,
 } from '@/domain/database-paths'
 import {getWheels, type Wheel} from '@/domain/wheels'
+import {
+  WHEELS_DATABASE_SORT_OPTIONS,
+  type WheelsDatabaseSortKey,
+} from '@/domain/wheels-database-browse-state'
 import {loadWheelFullV1ById} from '@/domain/wheels-full-v1-loader'
 
 import {
@@ -25,7 +30,7 @@ import {
 import {DatabaseBrowseLayout} from './database/DatabaseBrowseLayout'
 import {DatabaseFilters} from './database/DatabaseFilters'
 import {DatabaseGrid} from './database/DatabaseGrid'
-import {DatabaseViewControls} from './database/DatabaseViewControls'
+import {EntityViewControls} from './database/EntityViewControls'
 import {useDatabaseBrowseState} from './database/useDatabaseBrowseState'
 import {useDatabaseDetailRouteRecord} from './database/useDatabaseDetailRouteRecord'
 import {useDatabaseViewModel} from './database/useDatabaseViewModel'
@@ -33,7 +38,6 @@ import {useWheelsDatabaseBrowseState} from './database/useWheelsDatabaseBrowseSt
 import {useWheelsDatabaseViewModel} from './database/useWheelsDatabaseViewModel'
 import {WheelDatabaseFilters} from './database/WheelDatabaseFilters'
 import {WheelGrid} from './database/WheelGrid'
-import {WheelViewControls} from './database/WheelViewControls'
 import {useGlobalSearchCapture} from './useGlobalSearchCapture'
 
 const AwakenerDetailModal = lazy(() =>
@@ -48,6 +52,52 @@ const WheelDetailModal = lazy(() =>
 )
 const databaseAwakeners = getAwakeners()
 const databaseWheels = getWheels()
+
+function getDatabaseSortLabel(sortKey: DatabaseSortKey): string {
+  if (sortKey === 'RARITY') {
+    return 'Rarity'
+  }
+  if (sortKey === 'ATK') {
+    return 'ATK'
+  }
+  if (sortKey === 'DEF') {
+    return 'DEF'
+  }
+  if (sortKey === 'CON') {
+    return 'CON'
+  }
+  return 'Alphabetical'
+}
+
+function getDatabaseSortDirectionLabel(
+  sortKey: DatabaseSortKey,
+  direction: 'ASC' | 'DESC',
+): string {
+  if (sortKey === 'ALPHABETICAL') {
+    return direction === 'ASC' ? 'A -> Z' : 'Z -> A'
+  }
+  return direction === 'ASC' ? 'Low -> High' : 'High -> Low'
+}
+
+function getWheelSortLabel(sortKey: WheelsDatabaseSortKey): string {
+  if (sortKey === 'RARITY') {
+    return 'Rarity'
+  }
+  if (sortKey === 'MAINSTAT') {
+    return 'Main stat'
+  }
+  return 'Alphabetical'
+}
+
+function getWheelSortDirectionLabel(
+  sortKey: WheelsDatabaseSortKey,
+  direction: 'ASC' | 'DESC',
+): string {
+  if (sortKey === 'RARITY') {
+    return direction === 'ASC' ? 'Low -> High' : 'High -> Low'
+  }
+  return direction === 'ASC' ? 'A -> Z' : 'Z -> A'
+}
 
 export function DatabasePage() {
   const awakenerBrowseState = useDatabaseBrowseState()
@@ -160,8 +210,18 @@ export function DatabasePage() {
     })
   }
 
-  const awakenerActiveFilterChips = buildAwakenerActiveFilterChips(awakenerBrowseState)
-  const wheelActiveFilterChips = buildWheelActiveFilterChips(wheelBrowseState)
+  const awakenerActiveFilterChips = buildAwakenerActiveFilterChips(awakenerBrowseState, {
+    clearQuery: awakenerBrowseState.clearQuery,
+    setRealmFilter: awakenerBrowseState.setRealmFilter,
+    setRarityFilter: awakenerBrowseState.setRarityFilter,
+    setTypeFilter: awakenerBrowseState.setTypeFilter,
+  })
+  const wheelActiveFilterChips = buildWheelActiveFilterChips(wheelBrowseState, {
+    clearQuery: wheelBrowseState.clearQuery,
+    setRealmFilter: wheelBrowseState.setRealmFilter,
+    setRarityFilter: wheelBrowseState.setRarityFilter,
+    setMainstatFilter: wheelBrowseState.setMainstatFilter,
+  })
 
   return (
     <section className='space-y-2.5 sm:space-y-3'>
@@ -204,11 +264,16 @@ export function DatabasePage() {
           totalCount={wheelViewModel.totalCount}
           unitNoun='wheels'
           viewControls={
-            <WheelViewControls
+            <EntityViewControls
+              getSortDirectionLabel={getWheelSortDirectionLabel}
+              getSortLabel={getWheelSortLabel}
               onSortDirectionToggle={wheelBrowseState.toggleSortDirection}
               onSortKeyChange={wheelBrowseState.setSortKey}
               sortDirection={wheelBrowseState.sortDirection}
+              sortDirectionAriaLabel='Toggle wheel sort direction'
               sortKey={wheelBrowseState.sortKey}
+              sortOptions={WHEELS_DATABASE_SORT_OPTIONS}
+              sortSelectAriaLabel='Wheel database sort key'
             />
           }
         />
@@ -242,13 +307,18 @@ export function DatabasePage() {
           totalCount={awakenerViewModel.totalCount}
           unitNoun='awakeners'
           viewControls={
-            <DatabaseViewControls
+            <EntityViewControls
+              getSortDirectionLabel={getDatabaseSortDirectionLabel}
+              getSortLabel={getDatabaseSortLabel}
               groupByRealm={awakenerBrowseState.groupByRealm}
               onGroupByRealmChange={awakenerBrowseState.setGroupByRealm}
               onSortDirectionToggle={awakenerBrowseState.toggleSortDirection}
               onSortKeyChange={awakenerBrowseState.setSortKey}
               sortDirection={awakenerBrowseState.sortDirection}
+              sortDirectionAriaLabel='Toggle database sort direction'
               sortKey={awakenerBrowseState.sortKey}
+              sortOptions={DATABASE_SORT_OPTIONS}
+              sortSelectAriaLabel='Database sort key'
             />
           }
         />

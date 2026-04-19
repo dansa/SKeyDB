@@ -1,7 +1,7 @@
 import Fuse from 'fuse.js'
 
-import {getRealmLabel} from './factions'
 import {getMainstatByKey} from './mainstats'
+import {getRealmLabel} from './realms'
 import {
   getBestSearchFieldMatch,
   getNormalizedSearchValues,

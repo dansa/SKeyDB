@@ -1,9 +1,9 @@
 import {getAwakenerCardAsset} from '@/domain/awakener-assets'
 import type {Awakener} from '@/domain/awakeners'
 import {getAwakenerTextColor, type AwakenerTextColorName} from '@/domain/awakeners-text-colors'
-import {getRealmTint} from '@/domain/factions'
 import {getMainstatIcon} from '@/domain/mainstats'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
+import {getRealmAccent} from '@/domain/realms'
 
 import {databaseCardTitleClampStyle, databaseCardTitleClassName} from './database-card-typography'
 import {DatabaseGridCardFrame} from './DatabaseGridCardFrame'
@@ -25,7 +25,7 @@ interface AwakenerGridCardProps {
 export function AwakenerGridCard({awakener, index, onSelect}: AwakenerGridCardProps) {
   const cardAsset = getAwakenerCardAsset(awakener.name)
   const displayName = formatAwakenerNameForUi(awakener.name)
-  const realmTint = getRealmTint(awakener.realm)
+  const realmAccent = getRealmAccent(awakener.realm)
   const stats = awakener.stats
   const prioritizeImage = index < PRIORITIZED_GRID_IMAGE_COUNT
 
@@ -40,7 +40,7 @@ export function AwakenerGridCard({awakener, index, onSelect}: AwakenerGridCardPr
         onSelect(awakener.id)
       }}
       prioritizeImage={prioritizeImage}
-      realmTint={realmTint}
+      realmAccent={realmAccent}
     >
       {stats ? (
         <div className='space-y-1.5'>

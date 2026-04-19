@@ -2,8 +2,8 @@ import {useDraggable} from '@dnd-kit/core'
 
 import {CompactArtTile} from '@/components/ui/CompactArtTile'
 import {getAwakenerPortraitAsset} from '@/domain/awakener-assets'
-import {getRealmTint} from '@/domain/factions'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
+import {getRealmAccent} from '@/domain/realms'
 
 import {PICKER_STATUS_CLASS, PICKER_UNOWNED_CLASS} from './picker-status-labels'
 import type {DragData} from './types'
@@ -60,7 +60,7 @@ export function PickerAwakenerTile({
   const displayName = formatAwakenerNameForUi(awakenerName)
   const portraitAsset = getAwakenerPortraitAsset(awakenerName)
   const isDimmed = isRealmBlocked || isInUse
-  const realmTint = getRealmTint(realm)
+  const realmAccent = getRealmAccent(realm)
   const topLabel = getAwakenerTopLabel(getAwakenerStatusText(isRealmBlocked, isInUse), isOwned)
   const {attributes, listeners, isDragging, setNodeRef} = useDraggable({
     id: `picker:${awakenerName}`,
@@ -89,7 +89,7 @@ export function PickerAwakenerTile({
         overlay={
           <span
             className='pointer-events-none absolute inset-0 z-10 border'
-            style={{borderColor: realmTint}}
+            style={{borderColor: realmAccent}}
           />
         }
         preview={

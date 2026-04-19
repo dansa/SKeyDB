@@ -7,9 +7,9 @@ import {CollectionSortControls} from '@/components/ui/CollectionSortControls'
 import {OwnedTogglePill} from '@/components/ui/OwnedTogglePill'
 import {TabbedContainer} from '@/components/ui/TabbedContainer'
 import {getAwakenerCardAsset} from '@/domain/awakener-assets'
-import {getRealmTint} from '@/domain/factions'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getPosseAssetById} from '@/domain/posse-assets'
+import {getRealmAccent} from '@/domain/realms'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 
 import {AwakenerLevelControl} from './AwakenerLevelControl'
@@ -133,7 +133,7 @@ function AwakenerCollectionCard({
         )}
         <span
           className='pointer-events-none absolute inset-0 z-10 border'
-          style={{borderColor: getRealmTint(awakener.realm)}}
+          style={{borderColor: getRealmAccent(awakener.realm)}}
         />
         <p className='collection-card-title ui-title'>{formatAwakenerNameForUi(awakener.name)}</p>
         <div className='collection-card-controls'>

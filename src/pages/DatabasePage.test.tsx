@@ -129,10 +129,10 @@ vi.mock('../domain/awakener-assets', () => ({
   getAwakenerPortraitAsset: () => null,
 }))
 
-vi.mock('../domain/factions', () => ({
+vi.mock('../domain/realms', () => ({
   getRealmIcon: () => null,
   getRealmLabel: (realm: string) => realm,
-  getRealmTint: () => '#ffffff',
+  getRealmAccent: () => '#ffffff',
 }))
 
 vi.mock('../domain/mainstats', () => ({

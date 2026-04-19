@@ -25,6 +25,11 @@ interface CollectionSortControlsProps<TSortKey extends string = AwakenerSortKey>
   className?: string
   getSortLabel?: (sortKey: TSortKey) => string
   getSortDirectionLabel?: (sortKey: TSortKey, direction: CollectionSortDirection) => string
+  compactLeadingLabel?: string
+  compactLabelClassName?: string
+  compactRowClassName?: string
+  compactControlClassName?: string
+  compactDirectionButtonClassName?: string
 }
 
 const defaultSortOptions: readonly AwakenerSortKey[] = [
@@ -80,6 +85,11 @@ export function CollectionSortControls<TSortKey extends string = AwakenerSortKey
   className,
   getSortLabel: getSortLabelOverride,
   getSortDirectionLabel,
+  compactLeadingLabel,
+  compactLabelClassName,
+  compactRowClassName,
+  compactControlClassName,
+  compactDirectionButtonClassName,
 }: CollectionSortControlsProps<TSortKey>) {
   const resolvedSortOptions = resolveSortOptions(sortOptions)
   const activeSortKey = resolvedSortOptions.includes(sortKey)
@@ -94,6 +104,12 @@ export function CollectionSortControls<TSortKey extends string = AwakenerSortKey
   const controlClassName =
     'h-8 min-w-0 border border-slate-700/70 bg-[linear-gradient(180deg,rgba(13,20,34,0.9),rgba(8,13,24,0.84))] px-2.5 text-[11px] leading-none text-slate-200 outline-none transition-colors focus:border-amber-300/60'
   const directionButtonClassName = 'h-8 px-2.5 text-[11px] leading-none'
+  const resolvedControlClassName = compactControlClassName
+    ? `${controlClassName} ${compactControlClassName}`
+    : controlClassName
+  const resolvedDirectionButtonClassName = compactDirectionButtonClassName
+    ? `${directionButtonClassName} ${compactDirectionButtonClassName}`
+    : directionButtonClassName
   const directionLabel =
     getSortDirectionLabel?.(activeSortKey, sortDirection) ??
     (sortDirection === 'DESC' ? 'High' : 'Low')
@@ -104,10 +120,19 @@ export function CollectionSortControls<TSortKey extends string = AwakenerSortKey
         {!isCompact ? (
           <div className='text-[10px] tracking-wide text-slate-400 uppercase'>{headingText}</div>
         ) : null}
-        <div className='flex flex-wrap items-center gap-1.5'>
+        <div className={compactRowClassName ?? 'flex flex-wrap items-center gap-1.5'}>
+          {isCompact && compactLeadingLabel ? (
+            <span
+              className={
+                compactLabelClassName ?? 'text-[10px] tracking-[0.16em] text-slate-500 uppercase'
+              }
+            >
+              {compactLeadingLabel}
+            </span>
+          ) : null}
           <select
             aria-label={sortSelectAriaLabel}
-            className={`flex-1 rounded-[2px] ${controlClassName}`}
+            className={`flex-1 rounded-[2px] ${resolvedControlClassName}`}
             onChange={(event) => {
               onSortKeyChange(event.target.value as TSortKey)
             }}
@@ -121,7 +146,7 @@ export function CollectionSortControls<TSortKey extends string = AwakenerSortKey
           </select>
           <Button
             aria-label={sortDirectionAriaLabel}
-            className={directionButtonClassName}
+            className={resolvedDirectionButtonClassName}
             onClick={onSortDirectionToggle}
             type='button'
             variant='secondary'

@@ -2,12 +2,12 @@ import type {CSSProperties} from 'react'
 
 import tempPosseIcon from '@/assets/posse/00-temposse.webp'
 import {
-  DEFAULT_REALM_TINT,
+  DEFAULT_REALM_ACCENT,
+  getRealmAccent,
   getRealmIcon,
   getRealmLabel,
-  getRealmTint,
   normalizeRealmId,
-} from '@/domain/factions'
+} from '@/domain/realms'
 
 import {TeamNameInlineEditor} from './TeamNameInlineEditor'
 
@@ -30,7 +30,7 @@ interface ActiveTeamHeaderProps {
 interface RealmMeta {
   label: string
   icon: string
-  tint: string
+  accent: string
 }
 
 function createRealmMeta(realmId: 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA'): RealmMeta | null {
@@ -42,7 +42,7 @@ function createRealmMeta(realmId: 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA'): RealmM
   return {
     label: getRealmLabel(realmId),
     icon,
-    tint: getRealmTint(realmId),
+    accent: getRealmAccent(realmId),
   }
 }
 
@@ -83,12 +83,12 @@ export function ActiveTeamHeader({
     .map((realmId) => realmMetaById.get(realmId))
     .filter((meta): meta is RealmMeta => Boolean(meta))
   const hasSingleRealm = activeRealms.length === 1
-  const tintA = activeRealms[0]?.tint ?? DEFAULT_REALM_TINT
-  const tintB = activeRealms[1]?.tint ?? tintA
+  const accentA = activeRealms[0]?.accent ?? DEFAULT_REALM_ACCENT
+  const accentB = activeRealms[1]?.accent ?? accentA
   const badgeStateClass = getBadgeStateClass(activeRealms.length)
   const badgeStyle = {
-    '--team-realm-tint-a': tintA,
-    '--team-realm-tint-b': tintB,
+    '--team-realm-tint-a': accentA,
+    '--team-realm-tint-b': accentB,
   } as CSSProperties
   const displayedPosseAsset = activePosseAsset ?? tempPosseIcon
   return (
@@ -138,7 +138,7 @@ export function ActiveTeamHeader({
             <>
               {activeRealms.map((realm, index) => (
                 <span key={realm.label}>
-                  <span className='builder-team-realm-label-segment' style={{color: realm.tint}}>
+                  <span className='builder-team-realm-label-segment' style={{color: realm.accent}}>
                     {realm.label}
                   </span>
                   {index < activeRealms.length - 1 ? (

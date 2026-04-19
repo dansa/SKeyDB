@@ -1,8 +1,8 @@
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import type {WheelDatabaseDescriptionRecord} from '@/domain/description-records'
-import {getRealmLabel, getRealmTint} from '@/domain/factions'
 import {getMainstatByKey, getMainstatIcon} from '@/domain/mainstats'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
+import {getRealmAccent, getRealmLabel} from '@/domain/realms'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullV1Record} from '@/domain/wheels-full-v1'
 
@@ -39,7 +39,7 @@ export function WheelDetailContent({
   wheelDescriptionRecord,
 }: WheelDetailContentProps) {
   const realmLabel = getRealmLabel(wheel.realm)
-  const realmTint = getRealmTint(wheel.realm)
+  const realmAccent = getRealmAccent(wheel.realm)
   const mainstatLabel = getMainstatByKey(wheel.mainstatKey)?.label ?? wheel.mainstatKey
   const mainstatIcon = getMainstatIcon(wheel.mainstatKey)
   const ownerAwakenerId = wheel.ownerAwakenerId
@@ -61,7 +61,7 @@ export function WheelDetailContent({
             <p className='mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] tracking-[0.18em] text-slate-500 uppercase'>
               <span className='text-amber-100/90'>{wheel.rarity}</span>
               <span className='text-slate-700'>•</span>
-              <span style={{color: realmTint}}>{realmLabel}</span>
+              <span style={{color: realmAccent}}>{realmLabel}</span>
               {ownerAwakenerId && ownerName && displayOwnerName ? (
                 <>
                   <span className='text-slate-700'>•</span>

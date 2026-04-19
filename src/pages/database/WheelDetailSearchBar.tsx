@@ -1,6 +1,6 @@
-import {getRealmLabel, getRealmTint} from '@/domain/factions'
 import {getMainstatByKey, getMainstatIcon} from '@/domain/mainstats'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
+import {getRealmAccent, getRealmLabel} from '@/domain/realms'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 import type {Wheel} from '@/domain/wheels'
 
@@ -74,7 +74,7 @@ function WheelSearchResultRow({wheel}: {wheel: Wheel}) {
         <div className='flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[11px] leading-none text-slate-500'>
           <span className='shrink-0'>{wheel.rarity}</span>
           <span className='mx-1.5 text-slate-700'>·</span>
-          <span className='shrink-0' style={{color: getRealmTint(wheel.realm)}}>
+          <span className='shrink-0' style={{color: getRealmAccent(wheel.realm)}}>
             {realmLabel}
           </span>
           <span className='mx-1.5 text-slate-700'>·</span>

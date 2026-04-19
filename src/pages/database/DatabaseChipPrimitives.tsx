@@ -1,6 +1,6 @@
 import type {CSSProperties, ReactNode} from 'react'
 
-import {getRealmIcon, getRealmLabel, getRealmTint} from '@/domain/factions'
+import {getRealmAccent, getRealmIcon, getRealmLabel} from '@/domain/realms'
 
 interface CatalogFilterRowProps {
   label: string
@@ -139,8 +139,8 @@ export function CatalogRealmFilterRow<TValue extends string>({
       label: getRealmLabel(realm),
       iconSrc: getRealmIcon(realm),
       activeStyle: (() => {
-        const tint = getRealmTint(realm)
-        return {borderColor: `${tint}88`, color: tint}
+        const accent = getRealmAccent(realm)
+        return {borderColor: `${accent}88`, color: accent}
       })(),
     })),
   ]

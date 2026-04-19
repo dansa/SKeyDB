@@ -14,8 +14,8 @@ import {getAwakenerCardAsset, getAwakenerPortraitAsset} from '@/domain/awakener-
 import {type Awakener} from '@/domain/awakeners'
 import {type AwakenerFullV2Record} from '@/domain/awakeners-full-v2'
 import {DATABASE_AWAKENER_TABS, type DatabaseAwakenerTab} from '@/domain/database-paths'
-import {getRealmIcon, getRealmLabel, getRealmTint} from '@/domain/factions'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
+import {getRealmAccent, getRealmIcon, getRealmLabel} from '@/domain/realms'
 import type {Wheel} from '@/domain/wheels'
 
 import {AwakenerDetailOverview} from './AwakenerDetailOverview'
@@ -120,7 +120,7 @@ export function AwakenerDetailModal({
     sessionRuntime
 
   const displayName = formatAwakenerNameForUi(awakener.name)
-  const realmTint = getRealmTint(awakener.realm)
+  const realmAccent = getRealmAccent(awakener.realm)
   const realmIcon = getRealmIcon(awakener.realm)
   const realmLabel = getRealmLabel(awakener.realm)
   const cardAsset = getAwakenerCardAsset(awakener.name)
@@ -327,7 +327,7 @@ export function AwakenerDetailModal({
                         ) : null}
                       </div>
                       <p className='mt-0.5 text-xs text-slate-400'>
-                        <span style={{color: realmTint}}>{realmLabel}</span>
+                        <span style={{color: realmAccent}}>{realmLabel}</span>
                         <span className='mx-1.5 text-slate-600'>·</span>
                         <span>
                           {awakener.type

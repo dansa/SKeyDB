@@ -10,7 +10,7 @@ import {
   getAwakenerTextHoverColor,
   getAwakenerTextUnderlineColor,
 } from '@/domain/awakeners-text-colors'
-import {DEFAULT_REALM_TINT, REALM_TINT_BY_LABEL} from '@/domain/factions'
+import {DEFAULT_REALM_ACCENT, REALM_ACCENT_BY_LABEL} from '@/domain/realms'
 
 export interface DatabaseTintPalette {
   base: string
@@ -66,7 +66,7 @@ export function getDatabaseOverlayTint(
 }
 
 export function getDatabaseRealmTint(realmLabel: string): DatabaseTintPalette {
-  return buildTintPalette(REALM_TINT_BY_LABEL[realmLabel] ?? DEFAULT_REALM_TINT)
+  return buildTintPalette(REALM_ACCENT_BY_LABEL[realmLabel] ?? DEFAULT_REALM_ACCENT)
 }
 
 export function getDatabaseDescriptionArgTint(

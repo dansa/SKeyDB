@@ -1,8 +1,8 @@
 import Fuse from 'fuse.js'
 
 import {getAwakeners} from './awakeners'
-import {getRealmLabel} from './factions'
 import type {Posse} from './posses'
+import {getRealmLabel} from './realms'
 import {
   getBestSearchFieldMatch,
   getNormalizedSearchValues,

@@ -1,7 +1,7 @@
 import {getAwakenerPortraitAsset} from '@/domain/awakener-assets'
 import type {Awakener} from '@/domain/awakeners'
-import {getRealmLabel, getRealmTint} from '@/domain/factions'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
+import {getRealmAccent, getRealmLabel} from '@/domain/realms'
 
 import {DatabaseDetailSearchBar} from './DatabaseDetailSearchBar'
 
@@ -73,7 +73,9 @@ function AwakenerSearchResultRow({awakener}: {awakener: Awakener}) {
           {formatAwakenerNameForUi(awakener.name)}
         </div>
         <div className='truncate text-[11px] text-slate-500'>
-          <span style={{color: getRealmTint(awakener.realm)}}>{getRealmLabel(awakener.realm)}</span>
+          <span style={{color: getRealmAccent(awakener.realm)}}>
+            {getRealmLabel(awakener.realm)}
+          </span>
           {awakener.type ? (
             <>
               <span className='mx-1.5 text-slate-700'>·</span>

@@ -9,8 +9,8 @@ vi.mock('@/domain/wheel-assets', () => ({
   getWheelAssetById: () => '/wheel.webp',
 }))
 
-vi.mock('@/domain/factions', () => ({
-  getRealmTint: () => '#ffffff',
+vi.mock('@/domain/realms', () => ({
+  getRealmAccent: () => '#ffffff',
 }))
 
 vi.mock('@/domain/mainstats', () => ({

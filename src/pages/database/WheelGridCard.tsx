@@ -1,5 +1,5 @@
-import {getRealmTint} from '@/domain/factions'
 import {getMainstatIcon} from '@/domain/mainstats'
+import {getRealmAccent} from '@/domain/realms'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 import type {Wheel} from '@/domain/wheels'
 
@@ -16,7 +16,7 @@ interface WheelGridCardProps {
 
 export function WheelGridCard({wheel, index, onSelect}: WheelGridCardProps) {
   const asset = getWheelAssetById(wheel.id)
-  const realmTint = getRealmTint(wheel.realm)
+  const realmAccent = getRealmAccent(wheel.realm)
   const mainstatIcon = getMainstatIcon(wheel.mainstatKey)
   const prioritizeImage = index < PRIORITIZED_GRID_IMAGE_COUNT
 
@@ -42,7 +42,7 @@ export function WheelGridCard({wheel, index, onSelect}: WheelGridCardProps) {
         onSelect(wheel.id)
       }}
       prioritizeImage={prioritizeImage}
-      realmTint={realmTint}
+      realmAccent={realmAccent}
     >
       <p className={databaseCardTitleClassName} style={databaseCardTitleClampStyle}>
         {wheel.name}

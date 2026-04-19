@@ -1,7 +1,7 @@
 import type {CSSProperties, ReactNode} from 'react'
 
 interface DatabaseGridCardFrameProps {
-  realmTint: string
+  realmAccent: string
   ariaLabel: string
   imageSrc: string | undefined
   imageAlt: string
@@ -23,7 +23,7 @@ export function DatabaseGridCardFrame({
   imageSrc,
   onSelect,
   prioritizeImage,
-  realmTint,
+  realmAccent,
 }: DatabaseGridCardFrameProps) {
   return (
     <article className='collection-item-card group/card p-0.5'>
@@ -31,8 +31,8 @@ export function DatabaseGridCardFrame({
         className='relative aspect-[5/9] overflow-hidden p-[1px] shadow-[0_8px_20px_rgba(2,6,23,0.24)] transition-[transform,box-shadow] duration-300 group-hover/card:-translate-y-0.5 group-hover/card:shadow-[0_14px_30px_rgba(2,6,23,0.34)]'
         style={
           {
-            '--realm-color': realmTint,
-            background: `linear-gradient(180deg, color-mix(in srgb, var(--realm-color) 92%, white 8%), rgba(71,85,105,0.92))`,
+            '--realm-accent': realmAccent,
+            background: `linear-gradient(180deg, color-mix(in srgb, var(--realm-accent) 92%, white 8%), rgba(71,85,105,0.92))`,
           } as CSSProperties
         }
       >
