@@ -1,8 +1,8 @@
 import {render, screen, waitFor} from '@testing-library/react'
 import {beforeEach, describe, expect, it, vi} from 'vitest'
 
-import {useDatabasePopoverControllerContext} from './database-popover-context'
 import {AwakenerBuildsTab} from './AwakenerBuildsTab'
+import {useDatabasePopoverControllerContext} from './database-popover-context'
 
 const {getAwakenerBuildEntries} = vi.hoisted(() => ({
   getAwakenerBuildEntries: vi.fn(),

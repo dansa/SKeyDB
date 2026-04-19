@@ -90,8 +90,8 @@ export function CollectionSortControls<TSortKey extends string = AwakenerSortKey
     showGroupByRealm ?? (groupByRealm !== undefined && onGroupByRealmChange !== undefined)
   const isCompact = layout === 'compact'
   const controlClassName =
-    'h-6 min-w-0 border border-slate-500/55 bg-slate-950/90 px-2 text-[10px] leading-none text-slate-200 outline-none focus:border-amber-300/65'
-  const directionButtonClassName = 'h-6 w-[72px] px-2 text-[10px] leading-none'
+    'h-8 min-w-0 border border-slate-700/70 bg-[linear-gradient(180deg,rgba(13,20,34,0.9),rgba(8,13,24,0.84))] px-2.5 text-[11px] leading-none text-slate-200 outline-none transition-colors focus:border-amber-300/60'
+  const directionButtonClassName = 'h-8 w-[78px] px-2.5 text-[11px] leading-none'
 
   return (
     <div className={className}>
@@ -99,10 +99,10 @@ export function CollectionSortControls<TSortKey extends string = AwakenerSortKey
         {!isCompact ? (
           <div className='text-[10px] tracking-wide text-slate-400 uppercase'>{headingText}</div>
         ) : null}
-        <div className='flex items-center gap-1'>
+        <div className='flex flex-wrap items-center gap-1.5'>
           <select
             aria-label={sortSelectAriaLabel}
-            className={`flex-1 rounded-none ${controlClassName}`}
+            className={`flex-1 rounded-[2px] ${controlClassName}`}
             onChange={(event) => {
               onSortKeyChange(event.target.value as TSortKey)
             }}

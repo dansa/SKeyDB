@@ -79,21 +79,23 @@ export function DatabaseFilters({
       query={query}
       searchInputRef={searchInputRef}
       searchLabel='Search awakeners'
-      searchPlaceholder='Search awakeners... (name, tags, realm, etc.)'
+      searchPlaceholder='Name, tag, realm, or role'
       totalCount={totalCount}
     >
-      <CatalogRealmFilterRow
-        activeRealm={realmFilter}
-        onChange={onRealmFilterChange}
-        realms={REALM_FILTERS}
-      />
+      <div className='grid gap-2 lg:grid-cols-2'>
+        <CatalogRealmFilterRow
+          activeRealm={realmFilter}
+          onChange={onRealmFilterChange}
+          realms={REALM_FILTERS}
+        />
 
-      <CatalogChipFilterRow
-        activeId={rarityFilter}
-        label='Rarity'
-        onChange={onRarityFilterChange}
-        options={rarityFilterTabs}
-      />
+        <CatalogChipFilterRow
+          activeId={rarityFilter}
+          label='Rarity'
+          onChange={onRarityFilterChange}
+          options={rarityFilterTabs}
+        />
+      </div>
 
       <CatalogChipFilterRow
         activeId={typeFilter}
@@ -112,10 +114,7 @@ export function DatabaseFilters({
         sortSelectAriaLabel='Database sort key'
         trailingContent={
           <>
-            <span className='mx-0.5 h-4 w-px bg-slate-600/40' />
-            <span className='text-[10px] tracking-wide text-slate-500 uppercase'>
-              Group By Realm
-            </span>
+            <span>Keep realms together</span>
             <TogglePill
               ariaLabel='Toggle grouping awakeners by realm'
               checked={groupByRealm}

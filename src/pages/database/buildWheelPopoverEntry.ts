@@ -6,7 +6,9 @@ import type {WheelFullV1Record} from '@/domain/wheels-full-v1'
 
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
 
-export function buildWheelPopoverEntry(wheelRecord: WheelFullV1Record): KeyedDatabaseReferenceEntry {
+export function buildWheelPopoverEntry(
+  wheelRecord: WheelFullV1Record,
+): KeyedDatabaseReferenceEntry {
   const referenceLayer = buildWheelDatabaseReferenceLayer({
     activeDescriptionRank: 1,
     activeWheelId: wheelRecord.id,

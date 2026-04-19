@@ -48,7 +48,7 @@ function getWheelSortLabel(sortKey: WheelsDatabaseSortKey): string {
     return 'Rarity'
   }
   if (sortKey === 'MAINSTAT') {
-    return 'Mainstat'
+    return 'Main stat'
   }
   return 'Alphabetical'
 }
@@ -77,31 +77,34 @@ export function WheelDatabaseFilters({
       query={query}
       searchInputRef={searchInputRef}
       searchLabel='Search wheels'
-      searchPlaceholder='Search wheels... (name, owner, realm, mainstat, effects)'
+      searchPlaceholder='Name, owner, realm, main stat, or effect'
       totalCount={totalCount}
     >
-      <CatalogRealmFilterRow
-        activeRealm={realmFilter}
-        onChange={onRealmFilterChange}
-        realms={REALM_FILTERS}
-      />
+      <div className='grid gap-2 lg:grid-cols-2'>
+        <CatalogRealmFilterRow
+          activeRealm={realmFilter}
+          onChange={onRealmFilterChange}
+          realms={REALM_FILTERS}
+        />
 
-      <CatalogChipFilterRow
-        activeId={rarityFilter}
-        label='Rarity'
-        onChange={onRarityFilterChange}
-        options={rarityFilterTabs}
-      />
+        <CatalogChipFilterRow
+          activeId={rarityFilter}
+          label='Rarity'
+          onChange={onRarityFilterChange}
+          options={rarityFilterTabs}
+        />
+      </div>
 
       <CatalogChipFilterRow
         activeId={mainstatFilter}
-        controlsClassName='grid min-w-0 flex-1 max-w-[calc(5*10rem+4*0.375rem)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr))] gap-1.5'
-        label='Mainstat'
+        controlsClassName='grid min-w-0 flex-1 grid-cols-2 gap-1.5 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'
+        label='Main stat'
         onChange={onMainstatFilterChange}
         options={wheelMainstatFilterOptions.map((entry) => ({
           id: entry.id,
           iconSrc: entry.iconAsset,
           label: entry.label,
+          mobileLabel: entry.label,
         }))}
       />
 

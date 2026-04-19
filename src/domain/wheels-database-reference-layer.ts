@@ -1,6 +1,5 @@
 import {getAwakenerOverlays} from './awakener-overlays'
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
-import {resolveDescribedRecord, type WheelDatabaseDescriptionRecord} from './description-records'
 import {
   addDatabaseReferenceInfoToLookups,
   buildAccessibleDatabaseOverlays,
@@ -9,6 +8,7 @@ import {
   type DatabaseReferenceInfo,
   type ResolvedDatabaseReferenceLayer,
 } from './database-reference-layer'
+import {resolveDescribedRecord, type WheelDatabaseDescriptionRecord} from './description-records'
 import {getRealmLabel} from './factions'
 import {getWheelsFullV1, type WheelFullV1Record} from './wheels-full-v1'
 
@@ -90,12 +90,22 @@ export function buildWheelDatabaseReferenceLayer({
 
   wheelInfos.forEach((info, index) => {
     const sourceRecord = wheelRecords[index]
-    addDatabaseReferenceInfoToLookups(referenceInfoByName, referenceInfoById, info, sourceRecord.aliases)
+    addDatabaseReferenceInfoToLookups(
+      referenceInfoByName,
+      referenceInfoById,
+      info,
+      sourceRecord.aliases,
+    )
   })
 
   for (const overlay of accessibleOverlays) {
     const overlayInfo = buildDatabaseOverlayReferenceInfo(overlay)
-    addDatabaseReferenceInfoToLookups(referenceInfoByName, referenceInfoById, overlayInfo, overlay.aliases)
+    addDatabaseReferenceInfoToLookups(
+      referenceInfoByName,
+      referenceInfoById,
+      overlayInfo,
+      overlay.aliases,
+    )
   }
 
   return {

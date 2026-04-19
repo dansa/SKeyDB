@@ -3,6 +3,8 @@ import {getMainstatIcon} from '@/domain/mainstats'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 import type {Wheel} from '@/domain/wheels'
 
+import {databaseCardTitleClampStyle, databaseCardTitleClassName} from './database-card-typography'
+
 const PRIORITIZED_GRID_IMAGE_COUNT = 24
 
 interface WheelGridCardProps {
@@ -18,13 +20,13 @@ export function WheelGridCard({wheel, index, onSelect}: WheelGridCardProps) {
   const prioritizeImage = index < PRIORITIZED_GRID_IMAGE_COUNT
 
   return (
-    <article className='collection-item-card group/card p-1'>
+    <article className='collection-item-card group/card p-0.5'>
       <div
-        className='relative aspect-[5/9] overflow-hidden p-[1px] transition-[transform,box-shadow] duration-300'
+        className='relative aspect-[5/9] overflow-hidden p-[1px] shadow-[0_8px_20px_rgba(2,6,23,0.24)] transition-[transform,box-shadow] duration-300 group-hover/card:-translate-y-0.5 group-hover/card:shadow-[0_14px_30px_rgba(2,6,23,0.34)]'
         style={
           {
             '--realm-color': realmTint,
-            background: `linear-gradient(to bottom, var(--realm-color), #475569)`,
+            background: `linear-gradient(180deg, color-mix(in srgb, var(--realm-color) 92%, white 8%), rgba(71,85,105,0.92))`,
           } as React.CSSProperties
         }
       >
@@ -54,30 +56,28 @@ export function WheelGridCard({wheel, index, onSelect}: WheelGridCardProps) {
             </div>
           )}
 
-          <div className='pointer-events-none absolute top-0 right-0 left-0 z-20 bg-gradient-to-b from-black/90 via-black/55 to-transparent p-2'>
-            <div className='flex items-start justify-between gap-2'>
-              <div className='flex items-center gap-1.5'>
-                {mainstatIcon ? (
-                  <span className='inline-flex h-6 w-6 items-center justify-center border border-slate-200/25 bg-black/35'>
-                    <img
-                      alt=''
-                      className='h-3.5 w-3.5 object-contain opacity-85'
-                      draggable={false}
-                      src={mainstatIcon}
-                    />
-                  </span>
-                ) : null}
-                <span className='border border-slate-300/25 bg-black/35 px-1.5 py-0.5 text-[10px] tracking-wide text-slate-200'>
-                  {wheel.rarity}
-                </span>
-              </div>
+          {mainstatIcon ? (
+            <div className='pointer-events-none absolute top-2 right-2 z-20 inline-flex h-7 w-7 items-center justify-center rounded-full border border-slate-200/20 bg-black/32 shadow-[0_2px_8px_rgba(2,6,23,0.24)] backdrop-blur-[1px]'>
+              <img
+                alt=''
+                className='h-4 w-4 object-contain opacity-90'
+                draggable={false}
+                src={mainstatIcon}
+              />
             </div>
-          </div>
+          ) : null}
 
-          <div className='pointer-events-none absolute right-0 bottom-0 left-0 z-20 bg-gradient-to-t from-black/90 via-black/70 to-transparent px-2 pt-8 pb-2'>
-            <p className='font-["Droid_Serif"] text-[15px] leading-[1.05] font-bold tracking-wide text-amber-100/90'>
-              {wheel.name}
-            </p>
+          <div
+            aria-hidden
+            className='pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[46%] bg-gradient-to-t from-black/90 via-black/66 via-42% to-transparent'
+          />
+
+          <div className='pointer-events-none absolute right-0 bottom-0 left-0 z-20 px-2.5 pt-12 pb-2.5'>
+            <div className='min-h-[2.2rem]'>
+              <p className={databaseCardTitleClassName} style={databaseCardTitleClampStyle}>
+                {wheel.name}
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -87,13 +87,7 @@ describe('useDatabaseDetailModalLifecycle', () => {
     const onClose = vi.fn()
 
     const {rerender} = renderHook(
-      ({
-        hasOpenPopovers,
-        isSettingsOpen,
-      }: {
-        hasOpenPopovers: boolean
-        isSettingsOpen: boolean
-      }) => {
+      ({hasOpenPopovers, isSettingsOpen}: {hasOpenPopovers: boolean; isSettingsOpen: boolean}) => {
         useDatabaseDetailModalLifecycle({
           clearSearch: vi.fn(),
           closeAllPopovers,

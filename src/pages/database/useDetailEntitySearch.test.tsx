@@ -4,10 +4,7 @@ import {act, render, renderHook, screen} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import {PopoverTrailPanel} from './PopoverTrailPanel'
-import {
-  useDetailEntitySearch,
-  useSuppressDetailEntitySearchCapture,
-} from './useDetailEntitySearch'
+import {useDetailEntitySearch, useSuppressDetailEntitySearchCapture} from './useDetailEntitySearch'
 
 function dispatchKey(key: string) {
   const event = new KeyboardEvent('keydown', {bubbles: true, key})
@@ -26,10 +23,7 @@ describe('useDetailEntitySearch', () => {
 
     function SearchSuppressedPopover() {
       useSuppressDetailEntitySearchCapture()
-      const anchorRect = useMemo(
-        () => new DOMRect(24, 24, 48, 24),
-        [],
-      )
+      const anchorRect = useMemo(() => new DOMRect(24, 24, 48, 24), [])
 
       return (
         <PopoverTrailPanel anchorRect={anchorRect} itemCount={1} onCloseAll={vi.fn()}>

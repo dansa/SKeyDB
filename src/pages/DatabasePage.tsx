@@ -18,7 +18,7 @@ import {
 import {getWheels, type Wheel} from '@/domain/wheels'
 import {loadWheelFullV1ById} from '@/domain/wheels-full-v1-loader'
 
-import {DatabaseEntityTabs} from './database/DatabaseEntityTabs'
+import {DatabaseBrowseLayout} from './database/DatabaseBrowseLayout'
 import {DatabaseFilters} from './database/DatabaseFilters'
 import {DatabaseGrid} from './database/DatabaseGrid'
 import {useDatabaseBrowseState} from './database/useDatabaseBrowseState'
@@ -26,7 +26,8 @@ import {useDatabaseDetailRouteRecord} from './database/useDatabaseDetailRouteRec
 import {useDatabaseViewModel} from './database/useDatabaseViewModel'
 import {useWheelsDatabaseBrowseState} from './database/useWheelsDatabaseBrowseState'
 import {useWheelsDatabaseViewModel} from './database/useWheelsDatabaseViewModel'
-import {WheelsDatabaseSection} from './database/WheelsDatabaseSection'
+import {WheelDatabaseFilters} from './database/WheelDatabaseFilters'
+import {WheelGrid} from './database/WheelGrid'
 import {useGlobalSearchCapture} from './useGlobalSearchCapture'
 
 const AwakenerDetailModal = lazy(() =>
@@ -154,35 +155,53 @@ export function DatabasePage() {
   }
 
   return (
-    <section className='space-y-3'>
-      <div className='flex items-center gap-2.5 border border-amber-500/30 bg-amber-950/20 px-3 py-2.5'>
+    <section className='space-y-2.5 sm:space-y-3'>
+      <div className='flex items-start gap-2.5 rounded-sm border border-amber-400/20 bg-[linear-gradient(180deg,rgba(120,53,15,0.18),rgba(69,26,3,0.12))] px-2.5 py-2 sm:items-center sm:gap-3 sm:px-3 sm:py-2.5'>
         <img
           alt=''
           aria-hidden
-          className='h-12 w-12 shrink-0 -scale-x-100 object-contain'
+          className='h-9 w-9 shrink-0 -scale-x-100 object-contain sm:h-12 sm:w-12'
           src={emojiWke}
         />
-        <p className='text-[11px] leading-relaxed text-amber-100/75'>
-          <strong className='font-semibold text-amber-200/90'>Work in Progress:</strong> This
-          database is still being built! Expect improvements to functionality, styling and Yes(!)
-          the popup is very ugly and needs big work. Thanks for your patience!
+        <p className='text-[10px] leading-relaxed text-amber-100/72 sm:text-[11px]'>
+          <strong className='font-semibold text-amber-200/90'>Database beta:</strong> Search,
+          filters, and detail views are live. We&apos;re still filling in data and polishing the UI,
+          so some entries and interactions may shift.
         </p>
       </div>
 
-      <div className='space-y-3'>
-        <DatabaseEntityTabs activeEntity={activeEntity} search={location.search} />
-
-        {activeEntity === 'wheels' ? (
-          <WheelsDatabaseSection
-            browseState={wheelBrowseState}
-            filteredCount={wheelViewModel.wheels.length}
-            onSelectWheel={openWheelDetail}
-            searchInputRef={searchInputRef}
-            totalCount={wheelViewModel.totalCount}
-            wheels={wheelViewModel.wheels}
-          />
-        ) : (
-          <>
+      {activeEntity === 'wheels' ? (
+        <DatabaseBrowseLayout
+          activeEntity={activeEntity}
+          description='Browse wheels by name, owner, realm, or main stat, then open a card for the full record.'
+          filters={
+            <WheelDatabaseFilters
+              filteredCount={wheelViewModel.wheels.length}
+              mainstatFilter={wheelBrowseState.mainstatFilter}
+              onMainstatFilterChange={wheelBrowseState.setMainstatFilter}
+              onQueryChange={wheelBrowseState.setQuery}
+              onRarityFilterChange={wheelBrowseState.setRarityFilter}
+              onRealmFilterChange={wheelBrowseState.setRealmFilter}
+              onSortDirectionToggle={wheelBrowseState.toggleSortDirection}
+              onSortKeyChange={wheelBrowseState.setSortKey}
+              query={wheelBrowseState.query}
+              rarityFilter={wheelBrowseState.rarityFilter}
+              realmFilter={wheelBrowseState.realmFilter}
+              searchInputRef={searchInputRef}
+              sortDirection={wheelBrowseState.sortDirection}
+              sortKey={wheelBrowseState.sortKey}
+              totalCount={wheelViewModel.totalCount}
+            />
+          }
+          results={<WheelGrid onSelectWheel={openWheelDetail} wheels={wheelViewModel.wheels} />}
+          search={location.search}
+          title='Wheels'
+        />
+      ) : (
+        <DatabaseBrowseLayout
+          activeEntity={activeEntity}
+          description='Browse awakeners by name, tag, realm, or role, then open a card for the full profile.'
+          filters={
             <DatabaseFilters
               filteredCount={awakenerViewModel.awakeners.length}
               groupByRealm={awakenerBrowseState.groupByRealm}
@@ -202,14 +221,17 @@ export function DatabasePage() {
               totalCount={awakenerViewModel.totalCount}
               typeFilter={awakenerBrowseState.typeFilter}
             />
-
+          }
+          results={
             <DatabaseGrid
               awakeners={awakenerViewModel.awakeners}
               onSelectAwakener={openAwakenerDetail}
             />
-          </>
-        )}
-      </div>
+          }
+          search={location.search}
+          title='Awakeners'
+        />
+      )}
 
       {selectedAwakener ? (
         <Suspense

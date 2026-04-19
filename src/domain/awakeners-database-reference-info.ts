@@ -1,7 +1,11 @@
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
 import type {ResolvedAwakenerDatabaseReferenceLayer} from './awakeners-database-view'
+import {
+  resolveDatabaseOverlay,
+  resolveDatabaseReferenceInfo,
+  resolveDatabaseReferenceInfoById,
+} from './database-reference-info'
 import type {DatabaseReferenceInfo} from './database-reference-layer'
-import {resolveDatabaseOverlay, resolveDatabaseReferenceInfo, resolveDatabaseReferenceInfoById} from './database-reference-info'
 
 export {buildDatabaseOverlayLabel as buildAwakenerDatabaseOverlayLabel} from './database-reference-layer'
 

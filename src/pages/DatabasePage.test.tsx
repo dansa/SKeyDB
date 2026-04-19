@@ -240,6 +240,10 @@ afterEach(() => {
   mockLoadWheelFullV1ById.mockClear()
 })
 
+function getResultsSummary(expectedText: string) {
+  return screen.getByText((_, element) => element?.textContent === expectedText)
+}
+
 async function renderDatabasePage(
   initialEntryOrEntries: string | string[] = '/database',
   initialIndex?: number,
@@ -296,11 +300,11 @@ async function renderDatabasePage(
 }
 
 describe('DatabasePage', () => {
-  it('renders work-in-progress banner', async () => {
+  it('renders database beta banner', async () => {
     await renderDatabasePage()
 
-    expect(screen.getByText('Work in Progress:')).toBeInTheDocument()
-    expect(screen.getByText(/still being built/)).toBeInTheDocument()
+    expect(screen.getByText('Database beta:')).toBeInTheDocument()
+    expect(screen.getByText(/Search, filters, and detail views are live\./)).toBeInTheDocument()
   })
 
   it('renders all awakeners in the grid by default', async () => {
@@ -310,7 +314,7 @@ describe('DatabasePage', () => {
     expect(screen.getByLabelText('View details for Alpha')).toBeInTheDocument()
     expect(screen.getByLabelText('View details for Beta')).toBeInTheDocument()
     expect(screen.getByLabelText('View details for Gamma')).toBeInTheDocument()
-    expect(screen.getByText('3/3')).toBeInTheDocument()
+    expect(getResultsSummary('3 shown/3 total')).toBeInTheDocument()
   })
 
   it('filters awakeners by realm', async () => {
@@ -322,7 +326,7 @@ describe('DatabasePage', () => {
     expect(screen.getByLabelText('View details for Alpha')).toBeInTheDocument()
     expect(screen.getByLabelText('View details for Gamma')).toBeInTheDocument()
     expect(screen.queryByLabelText('View details for Beta')).not.toBeInTheDocument()
-    expect(screen.getByText('2/3')).toBeInTheDocument()
+    expect(getResultsSummary('2 shown/3 total')).toBeInTheDocument()
     expect(chaosFilter).toHaveAttribute('aria-pressed', 'true')
     expect(
       screen
@@ -339,7 +343,7 @@ describe('DatabasePage', () => {
     expect(screen.getByLabelText('View details for Beta')).toBeInTheDocument()
     expect(screen.queryByLabelText('View details for Alpha')).not.toBeInTheDocument()
     expect(screen.queryByLabelText('View details for Gamma')).not.toBeInTheDocument()
-    expect(screen.getByText('1/3')).toBeInTheDocument()
+    expect(getResultsSummary('1 shown/3 total')).toBeInTheDocument()
   })
 
   it('filters awakeners by rarity', async () => {

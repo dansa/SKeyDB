@@ -17,16 +17,16 @@ import {
   type ResolvedAwakenerFullV2Record,
 } from './awakeners-full-v2-resolver'
 import {buildCardKeywordFooterText} from './card-keywords'
+import type {
+  DatabaseInfluenceBadge,
+  ResolvedDatabaseReferenceLayer,
+} from './database-reference-layer'
 import {getDerivedSkills} from './derived-skills'
 import {
   resolveDescribedRecord,
   type DescribedRecord,
   type ResolvedDescribedRecord,
 } from './description-records'
-import type {
-  DatabaseInfluenceBadge,
-  ResolvedDatabaseReferenceLayer,
-} from './database-reference-layer'
 
 export {collectAwakenerDatabaseCardNames} from './awakeners-database-reference-layer'
 export type {

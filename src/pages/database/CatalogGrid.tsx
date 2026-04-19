@@ -8,7 +8,7 @@ interface CatalogGridProps<TItem> {
 }
 
 const DEFAULT_GRID_CLASS_NAME =
-  'grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7'
+  'grid content-start grid-cols-2 gap-[clamp(0.75rem,1vw,1.05rem)] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7'
 
 export function CatalogGrid<TItem>({
   className = DEFAULT_GRID_CLASS_NAME,
@@ -17,7 +17,11 @@ export function CatalogGrid<TItem>({
   renderItem,
 }: CatalogGridProps<TItem>) {
   if (items.length === 0) {
-    return <div className='py-12 text-center text-sm text-slate-400'>{emptyMessage}</div>
+    return (
+      <div className='rounded-sm border border-slate-700/55 bg-[linear-gradient(180deg,rgba(15,23,42,0.4),rgba(9,15,27,0.28))] px-4 py-12 text-center text-sm text-slate-400 shadow-[inset_0_1px_0_rgba(148,163,184,0.04)]'>
+        {emptyMessage}
+      </div>
+    )
   }
 
   return <div className={className}>{items.map((item, index) => renderItem(item, index))}</div>

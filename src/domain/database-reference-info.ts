@@ -1,6 +1,9 @@
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
-import type {DatabaseReferenceInfo, ResolvedDatabaseReferenceLayer} from './database-reference-layer'
-import {normalizeDatabaseReferenceName} from './database-reference-layer'
+import {
+  normalizeDatabaseReferenceName,
+  type DatabaseReferenceInfo,
+  type ResolvedDatabaseReferenceLayer,
+} from './database-reference-layer'
 
 export function resolveDatabaseReferenceInfo(
   view: ResolvedDatabaseReferenceLayer,

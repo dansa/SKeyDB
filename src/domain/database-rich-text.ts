@@ -1,6 +1,6 @@
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
-import type {DescribedRecord} from './description-records'
 import type {ResolvedDatabaseReferenceLayer} from './database-reference-layer'
+import type {DescribedRecord} from './description-records'
 import {parseRichDescription, type RichSegment, type RichTextParseOptions} from './rich-text'
 
 const EMPTY_CARD_NAMES = new Set<string>()

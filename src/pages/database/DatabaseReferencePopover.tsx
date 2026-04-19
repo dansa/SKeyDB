@@ -8,11 +8,11 @@ import type {
   DerivedSkillRecord,
   FullStats,
 } from '@/domain/awakener-source-schema'
+import {resolveDatabaseReferenceInfoById} from '@/domain/database-reference-info'
 import {
   type DatabaseReferenceInfo,
   type ResolvedDatabaseReferenceLayer,
 } from '@/domain/database-reference-layer'
-import {resolveDatabaseReferenceInfoById} from '@/domain/database-reference-info'
 import {buildDatabaseRichDescriptionText} from '@/domain/database-rich-text'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'

@@ -2,15 +2,15 @@ import {useCallback, useEffect, useId, useMemo, useState, type MouseEvent} from 
 
 import type {AwakenerEnlightenRecord, AwakenerOverlayRecord} from '@/domain/awakener-source-schema'
 import {
+  resolveDatabaseReferenceInfo,
+  resolveDatabaseReferenceInfoById,
+} from '@/domain/database-reference-info'
+import {
   buildDatabaseOverlayLabel,
   type DatabaseReferenceInfo,
   type DatabaseReferenceLayer,
   type ResolvedDatabaseReferenceLayer,
 } from '@/domain/database-reference-layer'
-import {
-  resolveDatabaseReferenceInfo,
-  resolveDatabaseReferenceInfoById,
-} from '@/domain/database-reference-info'
 
 import type {DatabasePopoverContextValue} from './database-popover-context'
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
@@ -113,10 +113,8 @@ export function useDatabasePopoverController({
   )
 
   const resolveReferenceByName = useCallback(
-    (
-      layer: DatabaseReferenceLayer | null,
-      name: string,
-    ) => (layer ? resolveDatabaseReferenceInfo(layer, name) : null),
+    (layer: DatabaseReferenceLayer | null, name: string) =>
+      layer ? resolveDatabaseReferenceInfo(layer, name) : null,
     [],
   )
 
@@ -157,12 +155,7 @@ export function useDatabasePopoverController({
       }
       return buildSelectedTrailEntry(info, referenceLayerOverride)
     },
-    [
-      buildOverlayFallbackEntry,
-      buildSelectedTrailEntry,
-      referenceLayer,
-      resolveReferenceByName,
-    ],
+    [buildOverlayFallbackEntry, buildSelectedTrailEntry, referenceLayer, resolveReferenceByName],
   )
 
   const openRootTrailEntry = useCallback(
@@ -267,7 +260,8 @@ export function useDatabasePopoverController({
         const sourceEntry = prev.at(sourceIndex)
         return insertTrailEntryAfterIndex(prev, sourceIndex, {
           ...entry,
-          referenceLayerOverride: entry.referenceLayerOverride ?? sourceEntry?.referenceLayerOverride,
+          referenceLayerOverride:
+            entry.referenceLayerOverride ?? sourceEntry?.referenceLayerOverride,
         })
       })
     },

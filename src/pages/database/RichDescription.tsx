@@ -1,8 +1,8 @@
 import {lazy, Suspense} from 'react'
 
 import type {FullStats} from '@/domain/awakener-source-schema'
-import {buildDatabaseRichDescriptionText} from '@/domain/database-rich-text'
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
+import {buildDatabaseRichDescriptionText} from '@/domain/database-rich-text'
 import {resolveDescriptionTemplate} from '@/domain/description-args'
 import type {DescribedRecord} from '@/domain/description-records'
 
