@@ -1,5 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
+import {resolveAwakenerStatsForLevel} from './awakener-level-scaling'
 import {buildAwakenerRosterMap, getAwakenerRoster, getAwakenerRosterById} from './awakener-roster'
 
 describe('awakener-roster', () => {
@@ -71,5 +72,37 @@ describe('awakener-roster', () => {
     expect(
       roster.every((entry) => entry.searchTags === undefined || Array.isArray(entry.searchTags)),
     ).toBe(true)
+  })
+
+  it('stores Arachne primary scaling that reproduces the provided level breakpoints', () => {
+    const roster = getAwakenerRoster()
+    const arachne = roster.find((entry) => entry.displayName === 'arachne')
+
+    expect(arachne).toEqual(
+      expect.objectContaining({
+        primaryScalingBase: 30,
+        statScaling: {
+          CON: 1.6,
+          ATK: 1.15,
+          DEF: 1.55,
+        },
+      }),
+    )
+
+    if (!arachne) {
+      throw new Error('Expected arachne in the source roster')
+    }
+
+    expect(
+      [1, 10, 20, 30, 40, 50, 60].map((level) => resolveAwakenerStatsForLevel(arachne, level).CON),
+    ).toEqual(['50', '64', '80', '96', '112', '128', '144'])
+
+    expect(
+      [1, 10, 20, 30, 40, 50, 60].map((level) => resolveAwakenerStatsForLevel(arachne, level).ATK),
+    ).toEqual(['36', '46', '58', '69', '81', '92', '104'])
+
+    expect(
+      [1, 10, 20, 30, 40, 50, 60].map((level) => resolveAwakenerStatsForLevel(arachne, level).DEF),
+    ).toEqual(['49', '62', '78', '93', '109', '124', '140'])
   })
 })

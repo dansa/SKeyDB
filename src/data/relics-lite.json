@@ -312,6 +312,14 @@
     "description": "At the start of the turn, Casiah gains 15 Aliemus. Drawing 1 card grants Casiah 1 Aliemus. When Casiah unleashes Exalt, all enemies lose 26 {STR}."
   },
   {
+    "id": "portrait-d10",
+    "kind": "PORTRAIT",
+    "assetId": "Icon_Creation_Unique_Common",
+    "name": "Dimensional Image: Arachne",
+    "awakenerIngameId": "D10",
+    "description": "At the start of each turn, Arachne gains 15 Aliemus. {Strike} and {Defense} immediately trigger {Pursuit}: {Infinite Threads} once, with each taking effect at most once per turn."
+  },
+  {
     "id": "portrait-d11",
     "kind": "PORTRAIT",
     "assetId": "Icon_Creation_Unique_D11",

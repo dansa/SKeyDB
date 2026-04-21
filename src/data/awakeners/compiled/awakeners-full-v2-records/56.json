@@ -1,0 +1,280 @@
+{
+  "id": 56,
+  "key": "arachne",
+  "displayName": "arachne",
+  "ingameId": "D10",
+  "faction": "The Unknowable",
+  "realm": "ULTRA",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "aliases": ["arachne"],
+  "searchTags": ["Spider", "Divine Realm"],
+  "stats": {
+    "CON": "144",
+    "ATK": "104",
+    "DEF": "140",
+    "CritRate": "5%",
+    "CritDamage": "50%",
+    "AliemusRegen": "0",
+    "KeyflareRegen": "15",
+    "RealmMastery": "24",
+    "SigilYield": "0%",
+    "DamageAmplification": "0%",
+    "DeathResistance": "16.8%"
+  },
+  "primaryScalingBase": 30,
+  "statScaling": {"CON": 1.6, "ATK": 1.15, "DEF": 1.55},
+  "substatScaling": {"DeathResistance": "2.8%", "RealmMastery": "4"},
+  "assets": {"portraitKey": "arachne", "iconKey": "arachne"},
+  "cards": {
+    "C1": {
+      "descriptionTemplate": "Arachne gains [Energy:Arg1] Aliemus. {Rouse}: {Annihilation} is changed to: choose 1 Command Card from {Ultra Space}, take it out and make it trigger twice the next time it is played, and make the next played Command Card trigger {Dimension Shuttle}.",
+      "descriptionArgs": {"Arg1": {"kind": "scaling", "values": ["25", "30", "35", "40", "45", "50"]}},
+      "id": "skill.arachne.puppet-stage-unveiled",
+      "ownerAwakenerId": 56,
+      "kind": "rouse",
+      "displayName": "Puppet Stage Unveiled",
+      "cost": "2",
+      "cardKeywords": [{"id": "mechanic.retain"}],
+      "variants": []
+    },
+    "C2": {
+      "descriptionTemplate": "Deal [Damage:Arg1] DMG. Arachne obtains [Energy:Arg2] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {"kind": "scaling", "values": ["10", "12", "14", "16", "18", "20"], "suffix": "%", "stat": "ATK"},
+        "Arg2": {"kind": "scaling", "values": ["5", "6", "7", "8", "9", "10"]}
+      },
+      "id": "skill.arachne.strike",
+      "ownerAwakenerId": 56,
+      "kind": "strike",
+      "displayName": "Strike",
+      "cost": "1",
+      "cardKeywords": [],
+      "variants": []
+    },
+    "C3": {
+      "descriptionTemplate": "Obtain [Block:Arg1] Shield. Arachne obtains [Energy:Arg2] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {"kind": "scaling", "values": ["10", "12", "14", "16", "18", "20"], "suffix": "%", "stat": "DEF"},
+        "Arg2": {"kind": "scaling", "values": ["5", "6", "7", "8", "9", "10"]}
+      },
+      "id": "skill.arachne.defense",
+      "ownerAwakenerId": 56,
+      "kind": "defense",
+      "displayName": "Defense",
+      "cost": "1",
+      "cardKeywords": [],
+      "variants": []
+    },
+    "C4": {
+      "descriptionTemplate": "Deal [Damage:Arg1] {Final Verdict} to all enemies, then generate 1 {Guiding Strings} and place it into hand.",
+      "descriptionArgs": {"Arg1": {"kind": "scaling", "values": ["300", "360", "420", "480", "540", "600"], "suffix": "%", "stat": "ATK"}},
+      "id": "skill.arachne.eternal-loom",
+      "ownerAwakenerId": 56,
+      "kind": "command",
+      "displayName": "Eternal Loom",
+      "cost": "1",
+      "cardKeywords": [],
+      "variants": []
+    },
+    "C5": {
+      "descriptionTemplate": "Gain [Block:Arg1] Shield. Other Awakeners gain [Energy:Arg2] Aliemus. The next {Eternal Loom} generates an additional {Guiding Strings} and places it into the Draw Pile and Discard Pile.",
+      "descriptionArgs": {
+        "Arg1": {"kind": "scaling", "values": ["35", "42", "49", "56", "63", "70"], "suffix": "%", "stat": "DEF"},
+        "Arg2": {"kind": "scaling", "values": ["5", "6", "7", "8", "9", "10"]}
+      },
+      "id": "skill.arachne.fate-binding-web",
+      "ownerAwakenerId": 56,
+      "kind": "command",
+      "displayName": "Fate-Binding Web",
+      "cost": "3",
+      "cardKeywords": [],
+      "variants": []
+    },
+    "Exalt": {
+      "descriptionTemplate": "Gain [Block:Arg1] Shield and Temporary DMG Amplification +[Arg2], removing {Stagnation} from all cards in hand. {Singularity Warp}: For the rest of this turn, whenever another Awakener plays a Command Card, consume 1 {Weaver} to unleash {Pursuit}: {Infinite Threads}.",
+      "descriptionArgs": {
+        "Arg1": {"kind": "scaling", "values": ["100", "120", "140", "160", "180", "200"], "suffix": "%", "stat": "DEF"},
+        "Arg2": {"kind": "scaling", "values": ["75", "80", "85", "90", "95", "100"], "suffix": "%"}
+      },
+      "id": "skill.arachne.moira-as-i-decree",
+      "ownerAwakenerId": 56,
+      "kind": "exalt",
+      "displayName": "Moira, As I Decree",
+      "cost": "150",
+      "cardKeywords": [],
+      "variants": []
+    },
+    "OverExalt": {
+      "descriptionTemplate": "Generate up to 5 Temporary Base Copies of all cards with {Singularity Beacon} in hand and {Ultra Space}, randomly place them into the Draw Pile or Discard Pile, and set their Arithmetica Cost to 0.",
+      "descriptionArgs": {},
+      "id": "skill.arachne.elegy-over-fate",
+      "ownerAwakenerId": 56,
+      "kind": "over_exalt",
+      "displayName": "Elegy Over Fate",
+      "cardKeywords": [],
+      "variants": []
+    },
+    "promotedExtras": []
+  },
+  "talents": {
+    "T1": {
+      "descriptionTemplate": "When Arachne is in the team, the {Ultra} Realm reweaves into {Singularity: Ultra}.\n{Dimension Shuttle}: After playing the first Command Card each turn, move a Temporary Base Copy of it to {Ultra Space}. Grant the original and the copy 25 stacks of {Singularity Beacon}. This cannot trigger during {Ultra} Rounds.\n{Singularity Beacon}: Each stack increases Final DMG, {STR}/{Tentacle DMG} Generation, and Fixed {Poison}/{Counter} effects by 2%. Increases Final Shield, HP Recovery, and {STR⯆} effects by 1%. Removed after play. Cards with this effect cannot trigger {Dimension Shuttle}.\n{Ultra Space}: When full, ending the turn activates {Ultra Space} immediately instead of initiating an {Ultra Round}: Discard all non-{Retain} cards, trigger their {Fleeting} effects, draw all {Ultra Space} cards, and set Arithmetica to 5. This current turn is treated as an {Ultra Round}.\n{Singularity Annihilation}: Draw the leftmost card from {Ultra Space}. 3 turns cooldown.\nUpon starting exploration, the team gains +50% DMG Amplification and 15 stacks of {Singularity Prism}.\n{Singularity Prism}: All Command Cards gain {Singularity Beacon} bonuses equal to these stacks.\n{Ultra} Mastery: For each 1 point of Realm Mastery, {Singularity Beacon} stacks from {Singularity Prism} and {Dimension Shuttle} increase by 0.05%.\nPure {Ultra}: If the team consists only of {Ultra} or {Chaos} Awakeners, the {Ultra} Mastery effect and Realm DMG Amplification are doubled.",
+      "descriptionArgs": {},
+      "id": "talent.arachne.threads-of-fate",
+      "ownerAwakenerId": 56,
+      "displayName": "Threads of Fate",
+      "upgradeTargetIds": [],
+      "upgradePatches": []
+    },
+    "T2": {
+      "descriptionTemplate": "Obtain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {"Arg1": {"kind": "linear", "base": "5", "gainPerLevel": "5"}},
+      "id": "talent.arachne.madness-omen",
+      "ownerAwakenerId": 56,
+      "displayName": "Madness Omen",
+      "maxLevel": 12,
+      "upgradeTargetIds": [],
+      "upgradePatches": []
+    },
+    "T3": {
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF are increased by [Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nArachne deals +[Arg3]% {Final Verdict}. The {Final Verdict} dealt to Mutant enemies is doubled.",
+      "descriptionArgs": {
+        "Arg1": {"kind": "linear", "base": "3", "gainPerLevel": "3"},
+        "Arg2": {"kind": "linear", "base": "50", "gainPerLevel": "50"},
+        "Arg3": {"kind": "scaling", "values": ["30", "37", "44", "51", "58", "65", "72", "79", "86", "100"]}
+      },
+      "id": "talent.arachne.soulforge-aptitude",
+      "ownerAwakenerId": 56,
+      "displayName": "Soulforge Aptitude",
+      "maxLevel": 10,
+      "hasLevelScaledDescription": true,
+      "upgradeTargetIds": [],
+      "upgradePatches": []
+    },
+    "extraTalents": []
+  },
+  "enlightens": {
+    "E1": {
+      "descriptionTemplate": "Arachne's Exalt grants +25% Temporary DMG Amplification. For every point of Realm Mastery provided by Arachne and her equipped WoD & Covenant, the Temporary DMG Amplification additionally +0.25%.",
+      "descriptionArgs": {},
+      "id": "enlighten.arachne.future-as-i-forsesee",
+      "ownerAwakenerId": 56,
+      "slot": "E1",
+      "displayName": "Future, As I Foresee",
+      "upgradeTargetIds": ["skill.arachne.moira-as-i-decree"],
+      "upgradePatches": [
+        {
+          "targetId": "skill.arachne.moira-as-i-decree",
+          "targetType": "skill",
+          "operation": "override_args",
+          "descriptionArgs": {
+            "Arg2": {
+              "kind": "scaling",
+              "values": ["93.75", "100", "106.25", "112.5", "118.75", "125"],
+              "suffix": "%",
+              "substatBonus": {"substat": "RealmMastery", "multiplier": "0.25", "suffix": "%", "mode": "additive"}
+            }
+          }
+        }
+      ]
+    },
+    "E2": {
+      "descriptionTemplate": "{Eternal Loom} deals +50% {Final Verdict}. {Fate-Binding Web} gains {Prepare} and {Retain}.",
+      "descriptionArgs": {},
+      "id": "enlighten.arachne.universe-as-i-conceive",
+      "ownerAwakenerId": 56,
+      "slot": "E2",
+      "displayName": "Universe, As I Conceive",
+      "upgradeTargetIds": ["skill.arachne.eternal-loom", "skill.arachne.fate-binding-web"],
+      "upgradePatches": [
+        {
+          "targetId": "skill.arachne.eternal-loom",
+          "targetType": "skill",
+          "operation": "override_args",
+          "descriptionArgs": {"Arg1": {"kind": "scaling", "values": ["450", "540", "630", "720", "810", "900"], "suffix": "%", "stat": "ATK"}}
+        },
+        {
+          "targetId": "skill.arachne.fate-binding-web",
+          "targetType": "skill",
+          "operation": "card_keywords",
+          "descriptionArgs": {},
+          "addCardKeywords": [{"id": "mechanic.prepare", "value": 1}, {"id": "mechanic.retain"}]
+        }
+      ]
+    },
+    "E3": {
+      "descriptionTemplate": "{Weaver} stack cap increases from 3 to 5, and {Singularity Prism} gained from {Infinite Threads} is doubled.",
+      "descriptionArgs": {},
+      "id": "enlighten.arachne.destiny-as-i-arrange",
+      "ownerAwakenerId": 56,
+      "slot": "E3",
+      "displayName": "Destiny, As I Arrange",
+      "upgradeTargetIds": ["overlay.arachne.weaver", "derived.arachne.infinite-threads"],
+      "upgradePatches": [
+        {
+          "targetId": "overlay.arachne.weaver",
+          "targetType": "overlay",
+          "operation": "replace_description",
+          "descriptionTemplate": "The Fate {Weaver} draws her threads. Max 5 stacks, persist across battles, and can be consumed by Exalt to unleash {Pursuit}: {Infinite Threads}.",
+          "descriptionArgs": {}
+        },
+        {
+          "targetId": "derived.arachne.infinite-threads",
+          "targetType": "derived-skill",
+          "operation": "override_args",
+          "descriptionArgs": {"Arg1": {"kind": "fixed", "value": "10"}}
+        }
+      ]
+    },
+    "AbsoluteAxiom": {
+      "descriptionTemplate": "{Rouse} {Puppet Stage Unveiled} is enhanced: After triggering {Annihilation}, immediately deal {Fixed DMG} equal to 50% {Final Verdict} to all enemies. The DMG Amplification and Shield gained from the next Exalt +50%.",
+      "descriptionArgs": {},
+      "id": "enlighten.arachne.moiraes-finale",
+      "ownerAwakenerId": 56,
+      "slot": "AbsoluteAxiom",
+      "displayName": "Moirae's Finale",
+      "upgradeTargetIds": ["skill.arachne.puppet-stage-unveiled"],
+      "upgradePatches": [
+        {
+          "targetId": "skill.arachne.puppet-stage-unveiled",
+          "targetType": "skill",
+          "operation": "replace_description",
+          "descriptionTemplate": "Arachne gains [Energy:Arg1] Aliemus. {Rouse}: {Annihilation} is changed to: choose 1 Command Card from {Ultra Space}, take it out and make it trigger twice the next time it is played, and make the next played Command Card trigger {Dimension Shuttle}. After using {Annihilation}, immediately deal {Fixed DMG} equal to 50% {Final Verdict} to all enemies, and the DMG Amplification and Shield gained from the next Exalt +50%.",
+          "descriptionArgs": {}
+        }
+      ]
+    }
+  },
+  "derivedSkills": [
+    {
+      "descriptionTemplate": "Lose 2% Max HP, gain 1 stack of {Weaver}. This battle, HP lost from {Guiding Strings} and {Final Verdict} dealt by Arachne +10%. {Fleeting}: Arachne randomly gains 15-30 Aliemus.",
+      "descriptionArgs": {},
+      "id": "derived.arachne.guiding-strings",
+      "ownerAwakenerId": 56,
+      "displayName": "Guiding Strings",
+      "cost": "0",
+      "derivedFromId": "skill.arachne.eternal-loom",
+      "rootSkillId": "skill.arachne.eternal-loom",
+      "childDerivedSkillIds": [],
+      "cardKeywords": [{"id": "mechanic.exhaust"}],
+      "variants": []
+    },
+    {
+      "descriptionTemplate": "Gain [Arg1] stacks of {Singularity Prism}, deal [Damage:Arg2] {Final Verdict} to the enemy with lowest HP.",
+      "descriptionArgs": {
+        "Arg1": {"kind": "fixed", "value": "5"},
+        "Arg2": {"kind": "scaling", "values": ["1200", "1440", "1680", "1920", "2160", "2400"], "suffix": "%", "stat": "ATK"}
+      },
+      "id": "derived.arachne.infinite-threads",
+      "ownerAwakenerId": 56,
+      "displayName": "Infinite Threads",
+      "cost": "0",
+      "derivedFromId": "skill.arachne.moira-as-i-decree",
+      "rootSkillId": "skill.arachne.moira-as-i-decree",
+      "childDerivedSkillIds": [],
+      "cardKeywords": [],
+      "variants": []
+    }
+  ]
+}

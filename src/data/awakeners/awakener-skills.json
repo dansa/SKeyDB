@@ -4433,7 +4433,7 @@
     "ownerAwakenerId": 31,
     "kind": "over_exalt",
     "displayName": "Until the Planet's End",
-    "descriptionTemplate": "Deal an additional {Fixed DMG} equal to 15% of the target's Max HP to all enemies. The Base DMG of {Beast of chaos} is increased by 100% for this battle.",
+    "descriptionTemplate": "Deal an additional {Fixed DMG} equal to 15% of the target's Max HP to all enemies. The Base DMG of {Beast of Chaos} is increased by 100% for this battle.",
     "descriptionArgs": {},
     "cardKeywords": []
   },
@@ -8180,6 +8180,136 @@
     "kind": "over_exalt",
     "displayName": "Moskstraumen! BOOM!",
     "descriptionTemplate": "The Crit. DMG gained per Tentacle Sacrificed is doubled. The next 5 {Vortex! Shell!} unleashed trigger 2 times.",
+    "descriptionArgs": {},
+    "cardKeywords": []
+  },
+  {
+    "id": "skill.arachne.puppet-stage-unveiled",
+    "ownerAwakenerId": 56,
+    "kind": "rouse",
+    "displayName": "Puppet Stage Unveiled",
+    "descriptionTemplate": "Arachne gains [Energy:Arg1] Aliemus. {Rouse}: {Annihilation} is changed to: choose 1 Command Card from {Ultra Space}, take it out and make it trigger twice the next time it is played, and make the next played Command Card trigger {Dimension Shuttle}.",
+    "descriptionArgs": {
+      "Arg1": {
+        "kind": "scaling",
+        "values": ["25", "30", "35", "40", "45", "50"]
+      }
+    },
+    "cost": "2",
+    "cardKeywords": [
+      {
+        "id": "mechanic.retain"
+      }
+    ]
+  },
+  {
+    "id": "skill.arachne.strike",
+    "ownerAwakenerId": 56,
+    "kind": "strike",
+    "displayName": "Strike",
+    "descriptionTemplate": "Deal [Damage:Arg1] DMG. Arachne obtains [Energy:Arg2] Aliemus.",
+    "descriptionArgs": {
+      "Arg1": {
+        "kind": "scaling",
+        "values": ["10", "12", "14", "16", "18", "20"],
+        "suffix": "%",
+        "stat": "ATK"
+      },
+      "Arg2": {
+        "kind": "scaling",
+        "values": ["5", "6", "7", "8", "9", "10"]
+      }
+    },
+    "cost": "1",
+    "cardKeywords": []
+  },
+  {
+    "id": "skill.arachne.defense",
+    "ownerAwakenerId": 56,
+    "kind": "defense",
+    "displayName": "Defense",
+    "descriptionTemplate": "Obtain [Block:Arg1] Shield. Arachne obtains [Energy:Arg2] Aliemus.",
+    "descriptionArgs": {
+      "Arg1": {
+        "kind": "scaling",
+        "values": ["10", "12", "14", "16", "18", "20"],
+        "suffix": "%",
+        "stat": "DEF"
+      },
+      "Arg2": {
+        "kind": "scaling",
+        "values": ["5", "6", "7", "8", "9", "10"]
+      }
+    },
+    "cost": "1",
+    "cardKeywords": []
+  },
+  {
+    "id": "skill.arachne.eternal-loom",
+    "ownerAwakenerId": 56,
+    "kind": "command",
+    "displayName": "Eternal Loom",
+    "descriptionTemplate": "Deal [Damage:Arg1] {Final Verdict} to all enemies, then generate 1 {Guiding Strings} and place it into hand.",
+    "descriptionArgs": {
+      "Arg1": {
+        "kind": "scaling",
+        "values": ["300", "360", "420", "480", "540", "600"],
+        "suffix": "%",
+        "stat": "ATK"
+      }
+    },
+    "cost": "1",
+    "cardKeywords": []
+  },
+  {
+    "id": "skill.arachne.fate-binding-web",
+    "ownerAwakenerId": 56,
+    "kind": "command",
+    "displayName": "Fate-Binding Web",
+    "descriptionTemplate": "Gain [Block:Arg1] Shield. Other Awakeners gain [Energy:Arg2] Aliemus. The next {Eternal Loom} generates an additional {Guiding Strings} and places it into the Draw Pile and Discard Pile.",
+    "descriptionArgs": {
+      "Arg1": {
+        "kind": "scaling",
+        "values": ["35", "42", "49", "56", "63", "70"],
+        "suffix": "%",
+        "stat": "DEF"
+      },
+      "Arg2": {
+        "kind": "scaling",
+        "values": ["5", "6", "7", "8", "9", "10"]
+      }
+    },
+    "cost": "3",
+    "cardKeywords": []
+  },
+  {
+    "id": "skill.arachne.moira-as-i-decree",
+    "ownerAwakenerId": 56,
+    "kind": "exalt",
+    "displayName": "Moira, As I Decree",
+    "descriptionTemplate": "Gain [Block:Arg1] Shield and Temporary DMG Amplification +[Arg2], removing {Stagnation} from all cards in hand. {Singularity Warp}: For the rest of this turn, whenever another Awakener plays a Command Card, consume 1 {Weaver} to unleash {Pursuit}: {Infinite Threads}.",
+    "descriptionArgs": {
+      "Arg1": {
+        "kind": "scaling",
+        "values": ["100", "120", "140", "160", "180", "200"],
+        "suffix": "%",
+        "stat": "DEF"
+      },
+      "Arg2": {
+        "kind": "scaling",
+        "values": ["75", "80", "85", "90", "95", "100"],
+        "suffix": "%"
+      }
+    },
+    "cost": "150",
+    "cardKeywords": []
+  },
+  {
+    "id": "skill.arachne.elegy-over-fate",
+    "ownerAwakenerId": 56,
+    "kind": "over_exalt",
+    "displayName": "Elegy Over Fate",
+    "descriptionTemplate": "Generate up to 5 Temporary Base Copies of all cards with {Singularity Beacon} in hand and {Ultra Space}, randomly place them into the Draw Pile or Discard Pile, and set their Arithmetica Cost to 0.",
     "descriptionArgs": {},
     "cardKeywords": []
   }

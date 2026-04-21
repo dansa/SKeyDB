@@ -672,5 +672,17 @@
     "aliases": ["vortice"],
     "stats": {"CON": 149, "ATK": 180, "DEF": 122},
     "tags": ["Aftershock", "Dispel", "Divine Realm", "Fixed DMG", "Fortress", "Pursuit", "Tentacles"]
+  },
+  {
+    "id": 56,
+    "name": "arachne",
+    "ingameId": "D10",
+    "faction": "The Unknowable",
+    "realm": "ULTRA",
+    "rarity": "SSR",
+    "type": "CHORUS",
+    "aliases": ["arachne"],
+    "stats": {"CON": 144, "ATK": 104, "DEF": 140},
+    "tags": ["Counter", "Divine Realm", "Fixed DMG", "Poison", "Pursuit", "Spider", "Stagnation", "STR Down", "STR Up"]
   }
 ]

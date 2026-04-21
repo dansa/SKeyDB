@@ -98,7 +98,7 @@ const TEST_SHELL_VIEW = makeDatabaseShellView({
     }),
     makeDatabaseDescribedEntry({
       key: 'AbsoluteAxiom',
-      label: 'Final Rule',
+      label: 'Absolute Axiom',
       record: makeEnlightenRecord({
         id: 'enlighten.aa',
         displayName: 'Infinite Singularity',
@@ -144,9 +144,9 @@ describe('AwakenerDetailOverview', () => {
     expect(screen.getByText('Face Death in Fiery Resolve').closest('p')).toHaveTextContent(
       /Face Death in Fiery Resolve.*Over-Exaltation/,
     )
-    expect(screen.getByRole('button', {name: 'Final Rule'})).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: 'Absolute Axiom'})).toBeInTheDocument()
     expect(screen.getByText('Infinite Singularity').closest('p')).toHaveTextContent(
-      /Infinite Singularity.*Final Rule/,
+      /Infinite Singularity.*Absolute Axiom/,
     )
 
     fireEvent.click(screen.getByRole('button', {name: 'Over-Exaltation'}))

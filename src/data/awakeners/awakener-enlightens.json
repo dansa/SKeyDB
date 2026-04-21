@@ -2278,7 +2278,7 @@
     "ownerAwakenerId": 31,
     "slot": "E3",
     "displayName": "Timeless Solitude",
-    "descriptionTemplate": "{Beast of chaos} increases the number of DMG instances by 1, and additionally places 2 {Strike} cards with added {Exhaust} and {Fleeting} into hand.",
+    "descriptionTemplate": "{Beast of Chaos} increases the number of DMG instances by 1, and additionally places 2 {Strike} cards with added {Exhaust} and {Fleeting} into hand.",
     "descriptionArgs": {},
     "upgradeTargetIds": ["skill.lotan.beast-of-chaos"],
     "upgradePatches": [
@@ -4327,6 +4327,121 @@
             "value": "50"
           }
         }
+      }
+    ]
+  },
+  {
+    "id": "enlighten.arachne.destiny-as-i-arrange",
+    "ownerAwakenerId": 56,
+    "slot": "E3",
+    "displayName": "Destiny, As I Arrange",
+    "descriptionTemplate": "{Weaver} stack cap increases from 3 to 5, and {Singularity Prism} gained from {Infinite Threads} is doubled.",
+    "descriptionArgs": {},
+    "upgradeTargetIds": ["overlay.arachne.weaver", "derived.arachne.infinite-threads"],
+    "upgradePatches": [
+      {
+        "targetId": "overlay.arachne.weaver",
+        "targetType": "overlay",
+        "operation": "replace_description",
+        "descriptionTemplate": "The Fate {Weaver} draws her threads. Max 5 stacks, persist across battles, and can be consumed by Exalt to unleash {Pursuit}: {Infinite Threads}.",
+        "descriptionArgs": {}
+      },
+      {
+        "targetId": "derived.arachne.infinite-threads",
+        "targetType": "derived-skill",
+        "operation": "override_args",
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "fixed",
+            "value": "10"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "enlighten.arachne.future-as-i-forsesee",
+    "ownerAwakenerId": 56,
+    "slot": "E1",
+    "displayName": "Future, As I Foresee",
+    "descriptionTemplate": "Arachne's Exalt grants +25% Temporary DMG Amplification. For every point of Realm Mastery provided by Arachne and her equipped WoD & Covenant, the Temporary DMG Amplification additionally +0.25%.",
+    "descriptionArgs": {},
+    "upgradeTargetIds": ["skill.arachne.moira-as-i-decree"],
+    "upgradePatches": [
+      {
+        "targetId": "skill.arachne.moira-as-i-decree",
+        "targetType": "skill",
+        "operation": "override_args",
+        "descriptionArgs": {
+          "Arg2": {
+            "kind": "scaling",
+            "values": ["93.75", "100", "106.25", "112.5", "118.75", "125"],
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "RealmMastery",
+              "multiplier": "0.25",
+              "suffix": "%",
+              "mode": "additive"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "enlighten.arachne.moiraes-finale",
+    "ownerAwakenerId": 56,
+    "slot": "AbsoluteAxiom",
+    "displayName": "Moirae's Finale",
+    "descriptionTemplate": "{Rouse} {Puppet Stage Unveiled} is enhanced: After triggering {Annihilation}, immediately deal {Fixed DMG} equal to 50% {Final Verdict} to all enemies. The DMG Amplification and Shield gained from the next Exalt +50%.",
+    "descriptionArgs": {},
+    "upgradeTargetIds": ["skill.arachne.puppet-stage-unveiled"],
+    "upgradePatches": [
+      {
+        "targetId": "skill.arachne.puppet-stage-unveiled",
+        "targetType": "skill",
+        "operation": "replace_description",
+        "descriptionTemplate": "Arachne gains [Energy:Arg1] Aliemus. {Rouse}: {Annihilation} is changed to: choose 1 Command Card from {Ultra Space}, take it out and make it trigger twice the next time it is played, and make the next played Command Card trigger {Dimension Shuttle}. After using {Annihilation}, immediately deal {Fixed DMG} equal to 50% {Final Verdict} to all enemies, and the DMG Amplification and Shield gained from the next Exalt +50%.",
+        "descriptionArgs": {}
+      }
+    ]
+  },
+  {
+    "id": "enlighten.arachne.universe-as-i-conceive",
+    "ownerAwakenerId": 56,
+    "slot": "E2",
+    "displayName": "Universe, As I Conceive",
+    "descriptionTemplate": "{Eternal Loom} deals +50% {Final Verdict}. {Fate-Binding Web} gains {Prepare} and {Retain}.",
+    "descriptionArgs": {},
+    "upgradeTargetIds": ["skill.arachne.eternal-loom", "skill.arachne.fate-binding-web"],
+    "upgradePatches": [
+      {
+        "targetId": "skill.arachne.eternal-loom",
+        "targetType": "skill",
+        "operation": "override_args",
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": ["450", "540", "630", "720", "810", "900"],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        }
+      },
+      {
+        "targetId": "skill.arachne.fate-binding-web",
+        "targetType": "skill",
+        "operation": "card_keywords",
+        "addCardKeywords": [
+          {
+            "id": "mechanic.prepare",
+            "value": 1
+          },
+          {
+            "id": "mechanic.retain"
+          }
+        ],
+        "descriptionArgs": {}
       }
     ]
   }

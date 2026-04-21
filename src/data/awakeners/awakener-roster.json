@@ -2139,5 +2139,44 @@
       "iconKey": "vortice"
     },
     "searchTags": ["Dispel", "Divine Realm", "Tentacles"]
+  },
+  {
+    "id": 56,
+    "key": "arachne",
+    "displayName": "arachne",
+    "ingameId": "D10",
+    "faction": "The Unknowable",
+    "realm": "ULTRA",
+    "rarity": "SSR",
+    "type": "CHORUS",
+    "aliases": ["arachne"],
+    "stats": {
+      "CON": "144",
+      "ATK": "104",
+      "DEF": "140",
+      "CritRate": "5%",
+      "CritDamage": "50%",
+      "AliemusRegen": "0",
+      "KeyflareRegen": "15",
+      "RealmMastery": "24",
+      "SigilYield": "0%",
+      "DamageAmplification": "0%",
+      "DeathResistance": "16.8%"
+    },
+    "primaryScalingBase": 30,
+    "statScaling": {
+      "CON": 1.6,
+      "ATK": 1.15,
+      "DEF": 1.55
+    },
+    "substatScaling": {
+      "DeathResistance": "2.8%",
+      "RealmMastery": "4"
+    },
+    "assets": {
+      "portraitKey": "arachne",
+      "iconKey": "arachne"
+    },
+    "searchTags": ["Spider", "Divine Realm"]
   }
 ]

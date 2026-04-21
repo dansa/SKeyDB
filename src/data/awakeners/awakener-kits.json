@@ -1312,5 +1312,30 @@
       "E2": "enlighten.vortice.roaring-abyss",
       "E3": "enlighten.vortice.shackled-impulse"
     }
+  },
+  {
+    "awakenerId": 56,
+    "cards": {
+      "C1": "skill.arachne.puppet-stage-unveiled",
+      "C2": "skill.arachne.strike",
+      "C3": "skill.arachne.defense",
+      "C4": "skill.arachne.eternal-loom",
+      "C5": "skill.arachne.fate-binding-web",
+      "Exalt": "skill.arachne.moira-as-i-decree",
+      "OverExalt": "skill.arachne.elegy-over-fate",
+      "promotedExtras": []
+    },
+    "talents": {
+      "extraTalentIds": [],
+      "T1": "talent.arachne.threads-of-fate",
+      "T2": "talent.arachne.madness-omen",
+      "T3": "talent.arachne.soulforge-aptitude"
+    },
+    "enlightens": {
+      "E1": "enlighten.arachne.future-as-i-forsesee",
+      "E2": "enlighten.arachne.universe-as-i-conceive",
+      "E3": "enlighten.arachne.destiny-as-i-arrange",
+      "AbsoluteAxiom": "enlighten.arachne.moiraes-finale"
+    }
   }
 ]

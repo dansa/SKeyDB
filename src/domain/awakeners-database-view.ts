@@ -440,7 +440,7 @@ function buildEnlightenEntries(
 
   if (enlightens.AbsoluteAxiom) {
     entries.push(
-      resolveEnlightenEntry('AbsoluteAxiom', 'Final Rule', enlightens.AbsoluteAxiom, stats),
+      resolveEnlightenEntry('AbsoluteAxiom', 'Absolute Axiom', enlightens.AbsoluteAxiom, stats),
     )
   }
 

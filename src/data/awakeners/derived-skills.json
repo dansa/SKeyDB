@@ -1302,6 +1302,43 @@
     "cardKeywords": []
   },
   {
+    "id": "derived.arachne.guiding-strings",
+    "ownerAwakenerId": 56,
+    "displayName": "Guiding Strings",
+    "descriptionTemplate": "Lose 2% Max HP, gain 1 stack of {Weaver}. This battle, HP lost from {Guiding Strings} and {Final Verdict} dealt by Arachne +10%. {Fleeting}: Arachne randomly gains 15-30 Aliemus.",
+    "descriptionArgs": {},
+    "derivedFromId": "skill.arachne.eternal-loom",
+    "rootSkillId": "skill.arachne.eternal-loom",
+    "cardKeywords": [
+      {
+        "id": "mechanic.exhaust"
+      }
+    ],
+    "cost": "0"
+  },
+  {
+    "id": "derived.arachne.infinite-threads",
+    "ownerAwakenerId": 56,
+    "displayName": "Infinite Threads",
+    "descriptionTemplate": "Gain [Arg1] stacks of {Singularity Prism}, deal [Damage:Arg2] {Final Verdict} to the enemy with lowest HP.",
+    "descriptionArgs": {
+      "Arg1": {
+        "kind": "fixed",
+        "value": "5"
+      },
+      "Arg2": {
+        "kind": "scaling",
+        "values": ["1200", "1440", "1680", "1920", "2160", "2400"],
+        "suffix": "%",
+        "stat": "ATK"
+      }
+    },
+    "derivedFromId": "skill.arachne.moira-as-i-decree",
+    "rootSkillId": "skill.arachne.moira-as-i-decree",
+    "cardKeywords": [],
+    "cost": "0"
+  },
+  {
     "id": "derived.global.embryo",
     "displayName": "Embryo",
     "descriptionTemplate": "{Caro} Awakeners consume this on Exalt to trigger {Devour}. On play: One Awakener gains [Energy:Arg1] Aliemus and +[Arg2]% Crit Rate this turn.",

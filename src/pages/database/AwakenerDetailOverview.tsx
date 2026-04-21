@@ -122,10 +122,10 @@ export function AwakenerDetailOverview({
             style={scaledFontStyle(12)}
             type='button'
           >
-            Final Rule
+            Absolute Axiom
           </button>
         ) : (
-          'Final Rule'
+          'Absolute Axiom'
         ),
         name: absoluteAxiom.record.displayName,
         description: absoluteAxiom.resolved.description,

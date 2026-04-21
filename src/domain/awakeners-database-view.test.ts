@@ -460,7 +460,7 @@ describe('awakeners-database-view', () => {
       {key: 'E1', label: 'Enlighten · E1'},
       {key: 'E2', label: 'Enlighten · E2'},
       {key: 'E3', label: 'Enlighten · E3'},
-      {key: 'AbsoluteAxiom', label: 'Final Rule'},
+      {key: 'AbsoluteAxiom', label: 'Absolute Axiom'},
     ])
     expect(view.promotedExtras.map((entry) => entry.key)).toEqual(['promoted:derived.test.extra'])
     expect(view.derivedSkills.map((entry) => entry.key)).toEqual([

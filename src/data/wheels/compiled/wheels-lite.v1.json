@@ -494,6 +494,19 @@
     "mainstatKey": "REALM_MASTERY"
   },
   {
+    "id": "D10",
+    "assetId": "Weapon_Full_D10",
+    "name": "Eternal Weave",
+    "rarity": "SSR",
+    "realm": "ULTRA",
+    "awakener": "arachne",
+    "ownerAwakenerId": 56,
+    "ownerAwakenerName": "arachne",
+    "aliases": ["Eternal Weave"],
+    "tags": ["Dimension Shuttle", "Pursuit"],
+    "mainstatKey": "REALM_MASTERY"
+  },
+  {
     "id": "D11",
     "assetId": "Weapon_Full_D11",
     "name": "Unbearable Freedom",
@@ -600,6 +613,17 @@
     "awakener": "",
     "aliases": ["Stakes of Wisdom"],
     "tags": ["Exhaust", "Innate", "Retain"],
+    "mainstatKey": "CRIT_DMG"
+  },
+  {
+    "id": "JP12",
+    "assetId": "Weapon_Full_JP12",
+    "name": "Private Afternoon",
+    "rarity": "SSR",
+    "realm": "NEUTRAL",
+    "awakener": "",
+    "aliases": ["Private Afternoon"],
+    "tags": ["Exhaust", "Retain"],
     "mainstatKey": "CRIT_DMG"
   },
   {
@@ -1382,6 +1406,17 @@
     "aliases": ["Blue-Ringed Toxin"],
     "tags": [],
     "mainstatKey": "KEYFLARE_REGEN"
+  },
+  {
+    "id": "SR36",
+    "assetId": "Weapon_Full_SR36",
+    "name": "Rota Fortunae",
+    "rarity": "SR",
+    "realm": "NEUTRAL",
+    "awakener": "",
+    "aliases": ["Rota Fortunae"],
+    "tags": ["Pursuit"],
+    "mainstatKey": "REALM_MASTERY"
   },
   {
     "id": "SR39",
