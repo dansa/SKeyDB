@@ -1,0 +1,14 @@
+{
+  "id": "JP12",
+  "assetId": "Weapon_Full_JP12",
+  "name": "Private Afternoon",
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "aliases": ["Private Afternoon"],
+  "searchTags": [],
+  "mainstatKey": "CRIT_DMG",
+  "mainstatSeriesKey": "SSR:CRIT_DMG",
+  "descriptionTemplate": "Team Unique: After exploration starts, shuffle 1 \"Private Afternoon\" into the Draw Pile. \"Private Afternoon\": Consume 1 Arithmetica. Temporary Crit. DMG +[StateArg1]%. {Retain}. {Exhaust}.",
+  "descriptionArgs": {"StateArg1": {"kind": "scaling", "values": ["50", "60", "70", "80"], "suffix": "%"}},
+  "lore": "Morning rides meant trotting with local squires to gauge their stance on the Reform Bill; luncheons required trading flattery with high-society matrons. At dinner, there were hollow, endless pre-meal prayers under silver candelabras, and even after the opera, the theater corridors were a gauntlet of ceaseless social pleasantries.\n\n\"Only afternoon tea on the back lawn feels like the only time that's truly mine.\"\n\"You are my first guest for afternoon tea. I'll let you choose the topic then.\"\n\nSorel lifted a freshly poured cup of black tea.\n\"What would you like to know? Count de Cremay's stance on the Reform Bill? The Beaumont family's political gambling? Or perhaps a Viscountess's secrets?\"\n\"None? You only care about the taste of this pink dessert?\"\nShe took a slow sip, her gaze finally settling on you.\n\"Then, by all means, have a taste.\"\n\"Some things must be experienced firsthand to be truly understood.\"\n\"Wouldn't you agree, my esteemed-Excellency?\"\n\nBlack mist began to seep from the collar and cuffs of the guest's uniform, churning into a mass of dark chaos.\n\"Hehehe... do you really think you can escape your fate?\"\n\"The sun is perfect, and I intend to enjoy my rare moment of leisure first,\" Sorel replied. \"If you wish to sample the season's finest tea and sponge cake, help yourself. Otherwise, come back when my break is over.\""
+}

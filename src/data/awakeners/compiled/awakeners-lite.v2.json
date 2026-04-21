@@ -683,6 +683,6 @@
     "type": "CHORUS",
     "aliases": ["arachne"],
     "stats": {"CON": 144, "ATK": 104, "DEF": 140},
-    "tags": ["Counter", "Divine Realm", "Fixed DMG", "Poison", "Pursuit", "Spider", "Stagnation", "STR Up"]
+    "tags": ["Counter", "Divine Realm", "Fixed DMG", "Poison", "Pursuit", "Spider", "Stagnation", "STR Down", "STR Up"]
   }
 ]
