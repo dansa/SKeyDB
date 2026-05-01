@@ -29,8 +29,6 @@
     "data:derive-awakeners-lite-v2": "node scripts/derive-awakeners-lite-v2.mjs",
     "data:refresh-awakener-v2": "npm run data:generate-awakener-overlays && npm run data:compile-awakeners-full-v2 && npm run data:derive-awakeners-lite-v2",
     "data:compile-wheels-full-v1": "node scripts/compile-wheels-full-v1.mjs",
-    "data:derive-wheels-lite-v1": "node scripts/derive-wheels-lite-v1.mjs",
-    "data:refresh-wheel-v1": "npm run data:compile-wheels-full-v1 && npm run data:derive-wheels-lite-v1",
     "data:sync-awakener-ids": "node scripts/sync-awakener-ids.mjs",
     "data:sync-posse-indices": "node scripts/sync-posse-indices.mjs",
     "data:sync-public-v2": "node scripts/sync-public-v2-data.mjs",

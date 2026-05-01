@@ -415,9 +415,9 @@ export function createDefaultCollectionOwnershipCatalog(): CollectionOwnershipCa
     const identityKey = getAwakenerIdentityKey(awakener.name)
     const entry = linkedAwakenerIdsByIdentity.get(identityKey)
     if (entry) {
-      entry.push(String(awakener.id))
+      entry.push(awakener.id)
     } else {
-      linkedAwakenerIdsByIdentity.set(identityKey, [String(awakener.id)])
+      linkedAwakenerIdsByIdentity.set(identityKey, [awakener.id])
     }
   }
 
@@ -426,7 +426,7 @@ export function createDefaultCollectionOwnershipCatalog(): CollectionOwnershipCa
     .map((group) => [...group].sort((left, right) => left.localeCompare(right)))
 
   return {
-    awakenerIds: awakeners.map((awakener) => String(awakener.id)),
+    awakenerIds: awakeners.map((awakener) => awakener.id),
     wheelIds: getWheels().map((wheel) => wheel.id),
     posseIds: getPosses().map((posse) => posse.id),
     linkedAwakenerGroups,
