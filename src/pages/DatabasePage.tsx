@@ -4,7 +4,7 @@ import {useLocation, useNavigate, useParams} from 'react-router-dom'
 
 import emojiWke from '@/assets/emoji/Emoji_WKE_S_06.webp'
 import {getAwakeners, type Awakener} from '@/domain/awakeners'
-import {loadAwakenerFullV2ById} from '@/domain/awakeners-full-v2-loader'
+import {loadPublicV2AwakenerFullById} from '@/domain/public-v2-detail-loaders'
 import {DATABASE_SORT_OPTIONS, type DatabaseSortKey} from '@/domain/database-browse-state'
 import {buildDatabaseEntityBrowsePath} from '@/domain/database-entity-paths'
 import {
@@ -21,7 +21,7 @@ import {
   WHEELS_DATABASE_SORT_OPTIONS,
   type WheelsDatabaseSortKey,
 } from '@/domain/wheels-database-browse-state'
-import {loadWheelFullV1ById} from '@/domain/wheels-full-v1-loader'
+import {loadWheelFullV2ById} from '@/domain/wheels-full-v2-loader'
 
 import {
   buildAwakenerActiveFilterChips,
@@ -387,8 +387,8 @@ function DatabaseAwakenerDetailRoute({
   const navigate = useNavigate()
   const resolvedTabSlug = resolveDatabaseAwakenerTab(tabSlug)
   const {isLoading, record: fullDataV2} = useDatabaseDetailRouteRecord({
-    id: awakener.numericId ?? 0,
-    loadRecord: loadAwakenerFullV2ById,
+    id: awakener.id,
+    loadRecord: loadPublicV2AwakenerFullById,
     missingPathname: buildDatabaseEntityBrowsePath('awakeners'),
   })
 
@@ -465,7 +465,7 @@ function DatabaseWheelDetailRoute({
 }: DatabaseWheelDetailRouteProps) {
   const {isLoading, record: fullDataV1} = useDatabaseDetailRouteRecord({
     id: wheel.id,
-    loadRecord: loadWheelFullV1ById,
+    loadRecord: loadWheelFullV2ById,
     missingPathname: buildDatabaseWheelBrowsePath(),
   })
 

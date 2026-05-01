@@ -4,14 +4,10 @@ import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import {DatabasePage} from './DatabasePage'
 
-let mockAwakenersFullV2 = [{id: 1}, {id: 2}, {id: 3}]
-let mockLoadPromiseCache = new Map<number, Promise<{id: number} | undefined>>()
-let mockWheelsFullV1 = [{id: 'B01'}, {id: 'D12'}]
+let mockAwakenersFullV2 = [{id: 'awakener-0001'}, {id: 'awakener-0002'}, {id: 'awakener-0003'}]
+let mockLoadPromiseCache = new Map<string, Promise<{id: string} | undefined>>()
+let mockWheelsFullV1 = [{id: 'wheel-0001'}, {id: 'wheel-0040'}]
 let mockWheelLoadPromiseCache = new Map<string, Promise<{id: string} | undefined>>()
-const mockWheelFullV1IdByCanonicalId = new Map([
-  ['wheel-0001', 'B01'],
-  ['wheel-0040', 'D12'],
-])
 const wheelMockState = vi.hoisted(() => {
   const wheels = [
     {
@@ -55,7 +51,7 @@ const wheelMockState = vi.hoisted(() => {
     wheels,
   }
 })
-const mockLoadAwakenerFullV2ById = vi.fn((id: number) => {
+const mockLoadAwakenerFullV2ById = vi.fn((id: string) => {
   const cachedPromise = mockLoadPromiseCache.get(id)
   if (cachedPromise) {
     return cachedPromise
@@ -72,8 +68,7 @@ const mockLoadWheelFullV1ById = vi.fn((id: string) => {
     return cachedPromise
   }
 
-  const fullV1Id = mockWheelFullV1IdByCanonicalId.get(id) ?? id
-  const recordPromise = Promise.resolve(mockWheelsFullV1.find((entry) => entry.id === fullV1Id))
+  const recordPromise = Promise.resolve(mockWheelsFullV1.find((entry) => entry.id === id))
   mockWheelLoadPromiseCache.set(id, recordPromise)
 
   return recordPromise
@@ -120,16 +115,16 @@ vi.mock('../domain/awakeners', () => ({
   ],
 }))
 
-vi.mock('../domain/awakeners-full-v2-loader', () => ({
-  loadAwakenerFullV2ById: (id: number) => mockLoadAwakenerFullV2ById(id),
+vi.mock('../domain/public-v2-detail-loaders', () => ({
+  loadPublicV2AwakenerFullById: (id: string) => mockLoadAwakenerFullV2ById(id),
 }))
 
 vi.mock('../domain/wheels', () => ({
   getWheels: () => wheelMockState.wheels,
 }))
 
-vi.mock('../domain/wheels-full-v1-loader', () => ({
-  loadWheelFullV1ById: (id: string) => mockLoadWheelFullV1ById(id),
+vi.mock('../domain/wheels-full-v2-loader', () => ({
+  loadWheelFullV2ById: (id: string) => mockLoadWheelFullV1ById(id),
 }))
 
 vi.mock('../domain/awakener-assets', () => ({
@@ -240,9 +235,9 @@ vi.mock('./database/WheelDetailModal', () => ({
 
 afterEach(() => {
   vi.restoreAllMocks()
-  mockAwakenersFullV2 = [{id: 1}, {id: 2}, {id: 3}]
+  mockAwakenersFullV2 = [{id: 'awakener-0001'}, {id: 'awakener-0002'}, {id: 'awakener-0003'}]
   mockLoadPromiseCache = new Map()
-  mockWheelsFullV1 = [{id: 'B01'}, {id: 'D12'}]
+  mockWheelsFullV1 = [{id: 'wheel-0001'}, {id: 'wheel-0040'}]
   mockWheelLoadPromiseCache = new Map()
   mockLoadAwakenerFullV2ById.mockClear()
   mockLoadWheelFullV1ById.mockClear()
@@ -617,7 +612,7 @@ describe('DatabasePage', () => {
   })
 
   it('falls back to the database root when a deep-linked awakener is missing V2 data', async () => {
-    mockAwakenersFullV2 = [{id: 1}, {id: 3}]
+    mockAwakenersFullV2 = [{id: 'awakener-0001'}, {id: 'awakener-0003'}]
     mockLoadPromiseCache = new Map()
 
     await renderDatabasePage('/database/awk/beta')

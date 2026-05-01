@@ -1,17 +1,17 @@
 import {describe, expect, it} from 'vitest'
 
-import {getWheelFullV1ById, getWheelsFullV1} from './wheels-full-v1'
 import {loadWheelFullV1ById} from './wheels-full-v1-loader'
 
 describe('wheels-full-v1-loader', () => {
-  it('loads individual records that match the compiled full dataset', async () => {
-    const records = getWheelsFullV1()
-    const b03 = getWheelFullV1ById('B03', records)
-
-    await expect(loadWheelFullV1ById('B03')).resolves.toEqual(b03)
+  it('loads individual records from public V2 chunks by canonical id', async () => {
+    await expect(loadWheelFullV1ById('wheel-0003')).resolves.toMatchObject({
+      id: 'wheel-0003',
+      name: "Winter's Requiem",
+      mainstatSeriesKey: 'SSR:KEYFLARE_REGEN',
+    })
   })
 
-  it('returns undefined when no compiled record exists for an id', async () => {
+  it('returns undefined when no public V2 record exists for an id', async () => {
     await expect(loadWheelFullV1ById('NOPE')).resolves.toBeUndefined()
   })
 })
