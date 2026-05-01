@@ -1,0 +1,54 @@
+{
+  "id": "skill.celeste.defense",
+  "ownerAwakenerId": "awakener-0009",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Celeste gains [Energy:Arg2] Aliemus. Activate 1 Tentacle to attack the enemy, dealing [Arg3]% {Tentacle DMG}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "0",
+      "substatBonus": {
+        "substat": "RealmMastery",
+        "multiplier": "0.5"
+      },
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.talent.celeste.voyage-horn.skill.celeste.defense",
+      "upgraderId": "talent.celeste.voyage-horn",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

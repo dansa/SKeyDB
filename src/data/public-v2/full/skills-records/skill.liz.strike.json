@@ -1,0 +1,81 @@
+{
+  "id": "skill.liz.strike",
+  "ownerAwakenerId": "awakener-0030",
+  "slot": "Strike",
+  "kind": "strike",
+  "displayName": "Strike",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Liz obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.liz.eternal-flames.skill.liz.strike",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.liz.eternal-flames",
+      "ownerAwakenerId": "awakener-0030",
+      "operation": "mixed",
+      "ownerAwakenerName": "Liz",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "50",
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Liz obtains [Energy:Arg2] Aliemus. {Leap}: Apply [Arg3]% DMG {Poison}."
+      }
+    }
+  ]
+}

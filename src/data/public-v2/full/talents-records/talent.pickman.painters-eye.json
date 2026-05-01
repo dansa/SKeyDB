@@ -1,0 +1,8 @@
+{
+  "id": "talent.pickman.painters-eye",
+  "ownerAwakenerId": "awakener-0040",
+  "displayName": "Painter's Eye",
+  "family": "passive",
+  "descriptionTemplate": "After Pickman triggers the {Discover} effect or uses {Chromaphage}, he gains 1 stack of {Creativity}.",
+  "descriptionArgs": {}
+}

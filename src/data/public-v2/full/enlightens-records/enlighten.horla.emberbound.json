@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.horla.emberbound",
+  "ownerAwakenerId": "awakener-0024",
+  "slot": "E1",
+  "displayName": "Emberbound",
+  "descriptionTemplate": "{Snarl Psalm}: Applies 1 stack of {Vulnerable} to all enemies.\n{Elegy Psalm}: Applies 1 stack of {Weakness} to all enemies.",
+  "descriptionArgs": {}
+}

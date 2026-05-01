@@ -1,0 +1,120 @@
+{
+  "id": "posse-0012",
+  "name": "Ephemeral Eternity",
+  "descriptionTemplate": "Gain [Arg4] Arithmetica. Choose an Awakener; place their [Arg1] {plural:[Arg1]|copy|copies} of \"Strike\" and [Arg1] {plural:[Arg1]|copy|copies} of \"Defense\" into your hand, and grant them {Exhaust} and {Fleeting}. If the current Realm is {Ultra}, gain [Arg2] Temp. {STR} and [Arg3] Temp. {Alert}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.02
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg3": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.005
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "The mechanical doll rejected the newborn spirit's promise of eternity, as the core's current scorched her soul. Before her body could no longer hold, she had one last task to complete—",
+  "realm": "ULTRA",
+  "assetId": "posse-icon-12",
+  "imageAssetId": "CG_SD_S_D08_3",
+  "lineupToken": "m"
+}

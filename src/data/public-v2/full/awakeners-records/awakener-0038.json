@@ -1,0 +1,94 @@
+{
+  "id": "awakener-0038",
+  "numericId": 38,
+  "name": "Ogier",
+  "ingameId": "C03",
+  "lineupToken": "D",
+  "realm": "CHAOS",
+  "rarity": "SR",
+  "type": "WARDEN",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "ogier",
+    "iconKey": "ogier"
+  },
+  "baseStatsLv1": {
+    "CON": 36,
+    "ATK": 31,
+    "DEF": 39
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 2,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.7,
+    "ATK": 1.45,
+    "DEF": 1.85
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 2,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Ogier",
+    "birthday": "5-May",
+    "gender": "Male",
+    "height": "5 feet (self-proclaimed)",
+    "weight": "66lbs",
+    "gnosticIndex": "22",
+    "characteristic": "Cleanse Fragile    Temporary STR",
+    "introduction": "Condenses a formless barrier from viscous slime, then raises a spear to signal teammates and initiate the charge.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Every word and action embodies loyalty, every move reflects virtue.\nAlthough \"knowing propriety and righteousness, being strict with oneself\" is deeply engraved in the soul, this virtuous knight undoubtedly still bears the appearance of a child.\nBut please do not worry, even if the price is eternal demise, Ogier will spare no effort to fulfill his lord's commands.\nMay that day never come.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "A.F.2@2, November, a major earthquake struck the Beren region.\nThe next day, two professors were ordered to head to the disaster area to search for the missing Mythag investigation team.\nThe team was last active along the Mare Internum coast, primarily tasked with exploring, excavating historical relics, and searching for possible leads related to the \"D-phenomenon.\" \nOn November 8, at the location where team members were reportedly last seen, Professor @2 discovered an unrecorded palace ruin and recovered a Mythag-standard silver key, numbered I-@2, but did not find any team members.\nOn November 9, two Silvers were unearthed at the site, which were later taken back to Londinium and sealed due to their historical value, to be Awakened on another day.",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "\"If it's your first time carrying out an investigation mission, go find little Ogier to accompany you!\" \nIn response to the anxiety of new investigators, experienced seniors always offer this advice. Ogier's popularity among students is evident from this. \nAlthough his old-fashioned personality occasionally causes minor incidents, they support each other and lift one another up. Ogier always achieves the most harmonious rhythm with the investigators. In recent years, having Ogier accompany new investigators on their first missions has become a consensus among everyone at the school. Jokes like \"Ogier prepares a cloak for female investigators\" and \"Ogier blushes when he sees legs\" have also spread among the students. \nThe title of \"Death Knight\" has gradually been forgotten, drowned in trust and warmth, leaving only a tiny thorn embedded in the young boy's heart.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Few people in school remember that the boy was once called the \"Death Knight\". \nOnly at midnight does the scenery of that day transform into a nightmare, infiltrating the boy's dreams.\nThe dissoluted bodies invading the campus, the collapsed bell tower, the barely surviving \"Keeper\". \n\"Don't cry, Ogier, it's not your fault...\" \nThe iron cavalry invading the home, the tilted palace, the black blood flowing from the princess's fingers.\n\"Don't sacrifice yourself for me, Ogier, you've done enough already...\" \nThe grains of memory entwined with pain wash over the boy's spirit.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "— How can this not be his fault? What he has done is far from enough.\nWith such extreme self-blame, Ogier executes his tasks at twice the frequency of other Awakeners, burying \"Death\" under universally praised \"Virtue\".\nThe excessive work and the words of gratitude from young Investigators seem to wash away the pain etched into the Soul.\nChronic ailments are pushed into the Shadows of the heart, emitting a rotting smell, secretly leading the knight towards the deep black mire.\n\"Sorry? Hello?\"\nSomeone came to Ogier with a ray of sunshine, or a gust of wind.\n\"Senior said Ogier will join me and Ramona to carry out my initial Investigation task, right?\"\nHe couldn't protect the princess for a second time, but Heaven gave him another chance to protect the \"Keeper\".\n\"My name is Ogier, and it is an honor to form a Contract with you. I will guard your Life with my Soul. Today's vow will be remembered forever.\"",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Fools",
+  "aliases": [
+    "ogier"
+  ],
+  "searchTags": [
+    "Dispel"
+  ]
+}

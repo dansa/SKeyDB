@@ -1,0 +1,8 @@
+{
+  "id": "talent.nautila.daily-maintenance",
+  "ownerAwakenerId": "awakener-0036",
+  "displayName": "Daily Maintenance",
+  "family": "passive",
+  "descriptionTemplate": "For each 1 Realm Mastery Attributes Nautila possesses, the {Counter} DMG from {Ready and Set} +0.25%.",
+  "descriptionArgs": {}
+}

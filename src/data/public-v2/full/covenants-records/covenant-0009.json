@@ -1,0 +1,24 @@
+{
+  "id": "covenant-0009",
+  "name": "Paradox",
+  "assetId": "covenant-icon-011",
+  "lore": "Inevitable, but accidental. Shackled, but unbound.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "Keyflare Regen Level +[Arg1]",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "7.2"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "Team Unique: Increases the wielder's Base Aliemus by 20. Increases Crit. Rate, Crit. DMG, Shield, and HP Recovery of the wielder's Command Cards by 20%.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "f"
+}

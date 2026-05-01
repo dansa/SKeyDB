@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.barrier",
+  "displayName": "Barrier",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "When attacked, cancel out the DMG and remove 1 stack.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_013",
+  "textColor": "shield"
+}

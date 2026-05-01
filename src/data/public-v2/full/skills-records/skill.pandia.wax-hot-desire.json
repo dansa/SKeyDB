@@ -1,0 +1,90 @@
+{
+  "id": "skill.pandia.wax-hot-desire",
+  "ownerAwakenerId": "awakener-0039",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Wax-Hot Desire",
+  "descriptionTemplate": "Obtain [Counterattack:Arg2] stacks of {Counter}. {Steal} [Arg1] {STR} from all enemies. Remove all enemies' {Counter}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "8",
+        "9.6",
+        "11.2",
+        "12.8",
+        "14.4",
+        "16"
+      ],
+      "suffix": "%",
+      "stat": "ATK",
+      "rounding": "ceil"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "7.2",
+        "8.4",
+        "9.6",
+        "10.8",
+        "12"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pandia.blazing-desire.skill.pandia.wax-hot-desire",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.pandia.blazing-desire",
+      "ownerAwakenerId": "awakener-0039",
+      "operation": "mixed",
+      "ownerAwakenerName": "Pandia",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "8",
+              "9.6",
+              "11.2",
+              "12.8",
+              "14.4",
+              "16"
+            ],
+            "suffix": "%",
+            "stat": "ATK",
+            "rounding": "ceil"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "6",
+              "7.2",
+              "8.4",
+              "9.6",
+              "10.8",
+              "12"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "20"
+          }
+        },
+        "descriptionTemplate": "Obtain [Counterattack:Arg2] stacks of {Counter}. {Steal} [Arg1] {STR} from all enemies. Remove all enemies' {Counter}. Gain [Energy:Arg3] Aliemus."
+      }
+    }
+  ]
+}

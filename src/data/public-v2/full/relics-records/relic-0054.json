@@ -1,0 +1,19 @@
+{
+  "id": "relic-0054",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Xu",
+  "assetId": "Icon_Creation_Unique_B14",
+  "ownerAwakenerId": "awakener-0054",
+  "ownerAwakenerName": "Xu",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "descriptionTemplate": "At turn start, Xu gains [Arg1] Aliemus and inflicts 1 stack of {Spellbound} on all enemies. The first Command Card Xu plays each turn will trigger the {Resonance} effect.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "lore": null
+}

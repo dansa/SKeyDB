@@ -1,0 +1,10 @@
+{
+  "id": "derived.clementine.psychic-trauma",
+  "displayName": "Conversion: Psychic Trauma",
+  "descriptionTemplate": "For every 1 stack of {Symbiosis} removed, inflict 1 stack of {Psychic Trauma} on all enemies. Each stack of {Psychic Trauma} increases DMG taken by 3%.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "skill.clementine.lifeform-reconstruction",
+  "rootSkillId": "skill.clementine.lifeform-reconstruction",
+  "ownerAwakenerId": "awakener-0010"
+}

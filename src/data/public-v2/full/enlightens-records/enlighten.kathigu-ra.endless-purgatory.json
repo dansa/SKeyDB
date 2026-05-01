@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.kathigu-ra.endless-purgatory",
+  "ownerAwakenerId": "awakener-0027",
+  "slot": "E3",
+  "displayName": "Endless Purgatory",
+  "descriptionTemplate": "At the start of the battle, apply 1 stack of {Fiamma} to all Kathigu-Ra's Default Command Cards. For each stack of {Combust} gained, Kathigu-Ra's Base DMG +5% for this battle.",
+  "descriptionArgs": {}
+}

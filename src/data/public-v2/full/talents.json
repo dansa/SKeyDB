@@ -1,0 +1,3505 @@
+{
+  "schemaVersion": 1,
+  "scope": "talents",
+  "recordCount": 154,
+  "records": [
+    {
+      "id": "talent.24.madness-omen",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.24.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nBase DMG caused by \"24\" +[Arg3]%, and Final DMG to \"Sculptors' Association\" enemies +[Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "20",
+            "23",
+            "26",
+            "29",
+            "32",
+            "35",
+            "38",
+            "41",
+            "44",
+            "50"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "17",
+            "19",
+            "21",
+            "23",
+            "25",
+            "27",
+            "29",
+            "31",
+            "35"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.agrippa.madness-omen",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.agrippa.seal-of-the-pact",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Seal of the Pact",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% Sigil Yield Agrippa and her equipped WoD & Covenant have, the Base Shield of {Pale Blessing} +0.5%, and Base {Poison} +1%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.agrippa.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Colorless Spiral} increases {Embryo Fusion} by [Arg3]%. When {Devour} is triggered, 1 {Colorless Spiral} in hand has its Arithmetica Cost -1.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "20"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.aigis.madness-omen",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.aigis.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAigis obtains [Arg3]% of her Keyflare Regen as Keyflare after playing the first Command Card each Turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90",
+            "100"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.alva.dynamic-vision",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Dynamic Vision",
+      "family": "passive",
+      "descriptionTemplate": ": For every 1% {Death Resistance} that Alva has, the Base DMG +0.5%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.alva.madness-omen",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.alva.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe base DMG of \"Strike\" and {Precision Slash} +an amount equal to [Arg3]% of the Shield gained this turn. Alva's Final DMG dealt to the {Caro} Realm enemies +[Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "20"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "20",
+            "23",
+            "26",
+            "29",
+            "32",
+            "35",
+            "38",
+            "41",
+            "44",
+            "50"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.aurita.happy-little-fairy",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Happy Little Fairy",
+      "family": "passive",
+      "descriptionTemplate": "For every 1 Aliemus Regen Level in Aurita, at the start of battle, obtain 1% of Aurita's ATK as {Tentacle DMG}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.aurita.madness-omen",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.aurita.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nFor every {Gland Division} consumed by {Clamorous Ocean}, Aurita's DMG output for the rest of the battle +[Arg3]% ATK. When at least 20 {Gland Division} cards are consumed in a Boss Battle, {Gland Division} deals +1 instance of DMG when played or consumed.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "3",
+            "3.5",
+            "4",
+            "4.5",
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7",
+            "8"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.caecus.madness-omen",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.caecus.rebellious-spikes",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Rebellious Spikes",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% Sigil Yield that Caecus has, \"Basic Strike\" enjoys a 1% {Counter} bonus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.caecus.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe first Caecus Command Card played each turn restores HP equal to [Arg3]% of his CON. The Tentacle attack and {Counter} effect of {Bloodline of Heresy} additionally deal [Arg4]% DMG.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "17",
+            "19",
+            "21",
+            "23",
+            "25",
+            "27",
+            "29",
+            "31",
+            "35"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100",
+            "110",
+            "120",
+            "130",
+            "150"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.casiah.madness-omen",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.casiah.master-of-magic",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Master of Magic",
+      "family": "passive",
+      "descriptionTemplate": "For every 1 Realm Mastery provided by Casiah and her equipped Wheel of Destiny & Covenant, {Magic Carnival} increases all of Casiah's Base DMG by 0.2%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.casiah.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThe Awakener's CON, ATK, and DEF increase by [Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAt the start of battle, if there are any \"Beast\" enemies, Casiah's {STR} Generation +[Arg3]% during this battle. After {Poof!} is released for the first time each turn, it triggers the {Aftershock} effect of the card shuffled into the Draw Pile",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "17",
+            "19",
+            "21",
+            "23",
+            "25",
+            "27",
+            "29",
+            "31",
+            "35"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.castor.cleansing-feathers",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Cleansing Feathers",
+      "family": "passive",
+      "descriptionTemplate": "Playing {Onyx Plume} for the first time each turn inflicts 840% of Castor's ATK as {Corrosion} on the target and grants 10 Aliemus.\nFor every 1% DMG Amplification that Castor has, the Base amount of {Corrosion} inflicted +1%.\nAfter the battle, {Corrosion} inflicted by Castor permanently +20% during this Exploration.\n{Corrosion} inflicted in Boss Battles doubles.\nAfter inflicting {Corrosion}, Castor's DMG output +5% of the amount of {Corrosion} inflicted this turn.\nDMG dealt by Castor does not remove {Corrosion}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.castor.madness-omen",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.castor.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nPlaying {Onyx Plume} will not add {Arithmetica Harmony}. {Corrosion} inflicted with {Cleansing Feathers} +[Arg3]% of Castor's ATK. {Corrosion} inflicted to enemies of the \"Church of the Lightbearers\" +[Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "200",
+            "220",
+            "240",
+            "260",
+            "280",
+            "300",
+            "320",
+            "340",
+            "360",
+            "400"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "20",
+            "23",
+            "26",
+            "29",
+            "32",
+            "35",
+            "38",
+            "41",
+            "44",
+            "50"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.celeste.madness-omen",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.celeste.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nCeleste generates [Arg3]% more {Tentacle DMG}, and after playing the first Command Card each turn, trigger the Talent {Voyage Horn} an additional 4 times.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "20",
+            "23",
+            "26",
+            "29",
+            "32",
+            "35",
+            "38",
+            "41",
+            "44",
+            "50"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.celeste.voyage-horn",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Voyage Horn",
+      "family": "passive",
+      "descriptionTemplate": "After Celeste plays a Command Card, trigger 1 Tentacle to attack the enemy. For each point of Realm Mastery that Celeste, her WoDs, and Covenant have, this activation deals an additional 0.5% {Tentacle DMG}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.clementine.hive-resonance",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Hive Resonance",
+      "family": "passive",
+      "descriptionTemplate": "Clementine's Command Card gains 1 stack of {Symbiosis} after dealing Damage.\nEach 1 Keyflare Regen attribute provided by Clementine and her equipped Wheel of Destiny & Covenant increases Crit. Rate and Crit. DMG by 0.35%.\nAt the start of the {Ultra Round}, remove all enemies' {Psychic Trauma} and {Phobic Fixation}. For each stack of {Psychic Trauma} removed from all enemies, gain 50 Keyflare; for each stack of {Phobic Fixation} removed from all enemies, other Awakeners gain 2 Aliemus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.clementine.madness-omen",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.clementine.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe Strength gained by all Awakeners +[Arg3]%.\nWhen Clementine deals DMG to \"Insectoid\" enemies, she inflicts a {Bleed} effect equal to [Arg4]% of the DMG dealt. The first time each turn Clementine provides a Shield or recovers HP, \"Insectoid\" enemies temporarily lose Strength equal to [Arg5]% of Clementine's DEF.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90",
+            "100"
+          ]
+        },
+        "Arg5": {
+          "kind": "scaling",
+          "values": [
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "30"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.corposant.cinders",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Cinders",
+      "family": "passive",
+      "descriptionTemplate": "Every 1% {Death Resistance} Corposant and her equipped WoD & Covenant have, increase her Base DMG by 0.2% and Shield by 0.05%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.corposant.madness-omen",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.corposant.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAt the start of battle, all enemies take [Arg3]% more {Tentacle DMG}. This effect doubles against {Aequor} enemies. The DMG dealt by {Lightning Retribution} to {Aequor} enemies +[Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90",
+            "100"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.daffodil.madness-omen",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.daffodil.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nWhen {Ashen Ruins} refreshes, the discount chance +[Arg3]%, and the discount rate +[Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "5"
+        },
+        "Arg4": {
+          "kind": "linear",
+          "base": "1",
+          "gainPerLevel": "1"
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.doll.gnosis-deconstruction",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Gnosis Deconstruction",
+      "family": "passive",
+      "descriptionTemplate": "For every 1 Aliemus Regen Level attribute Doll has, increase the HP Recovery effects of {Outer Surgery} and {Equivalent Exchange} by 0.5%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.doll.madness-omen",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.doll.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nDoll's Aliemus Generation and Exalt Healing Effect +[Arg3]%, and for each other {Chaos} Realm Awakener in the team, this effect is further increased by [Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.doresain.casket-harvest",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Casket Harvest",
+      "family": "passive",
+      "descriptionTemplate": "Doresain gathers 1 {Corpse} after killing an enemy or dealing Exalt DMG to a Boss.\nHe can keep up to 3 stacks of {Corpse}, which is {Retained} throughout the exploration.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.doresain.festering-grace",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Festering Grace",
+      "family": "passive",
+      "descriptionTemplate": "After Doresain gains a {Corpse}, put 1 \"Evernight's Revel\" into hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.doresain.madness-omen",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus at the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.doresain.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAll teammates' {STR} Generation effect +[Arg3]%. When Doresain kills \"Departed\" enemies, he obtains [Arg4] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "30",
+            "32",
+            "34",
+            "36",
+            "38",
+            "40",
+            "42",
+            "44",
+            "46",
+            "50"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.erica.external-power-source",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "External Power Source",
+      "family": "passive",
+      "descriptionTemplate": "For every 1 Keyflare Regen Level provided by Erica and her equipped Wheel of Destiny & Covenant, {Electromagnetic Blast} grants Erica 0.5% Temporary Crit. Rate and Crit. DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.erica.madness-omen",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.erica.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAt the start of battle, gain {STR} equal to [Arg3]% of Erica's ATK and {Alert} equal to [Arg4]% of Erica's DEF.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "1",
+            "1.2",
+            "1.4",
+            "1.6",
+            "1.8",
+            "2",
+            "2.2",
+            "2.4",
+            "2.6",
+            "3"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.faint.madness-omen",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.faint.secondary-swaddle",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Secondary Swaddle",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% {Death Resistance} attribute Faint has, increase the {Counter} provided by {Cradle of Stars} and {Boundless Starlight} by 0.2%, and increase the effectiveness condition of {Death Resistance} by 2%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.faint.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThe Awakeners' CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nFaint's {STR} Reduction effect +10%. After playing Faint's Command Cards, temporarily {Steal} {STR} equal to [Arg3]% of Faint's ATK from all \"Humanoid\" enemies. Triggers up to 3 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "10"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.faros.homesick",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Homesick",
+      "family": "passive",
+      "descriptionTemplate": "Faros gains 0.4% additional Shield from {Lost City of Lemuria} for every 1% DMG Amplification attribute.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.faros.madness-omen",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.faros.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nFaros inflicts [Arg3]% more {Poison}. {Lost City of Lemuria} causes all Tentacles to strike 1 additional time at turn end, but each attack deals only 25% DMG.\nWhen there are 1/2/3 other {Lemurian} Awakeners in the team, DMG Amplification +20%/50%/100%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.doll-inferno.madness-omen",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.doll-inferno.path-of-annihilation",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Path of Annihilation",
+      "family": "passive",
+      "descriptionTemplate": "In Boss Battles, at turn start and after \"Doll: Inferno\" releases Exalt, obtain 1 stack of {Finale}. {Finale} can have a maximum of 10 stacks, and when it reaches 10 stacks, place 1 {Illusion's End} into hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.doll-inferno.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAfter Exploration begins, all Awakeners' {Poison}, {Counter}, and Base DMG +[Arg3]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.helot-catena.madness-omen",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.helot-catena.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Sanguine Fetters} enjoys an additional [Arg3]% {STR} bonus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "100",
+            "130",
+            "160",
+            "190",
+            "220",
+            "250",
+            "280",
+            "310",
+            "340",
+            "400"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.ramona-timeworn.madness-omen",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.ramona-timeworn.silverheart-resonance",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Silverheart Resonance",
+      "family": "passive",
+      "descriptionTemplate": "Ramona: Timeworn obtains an additional 2.5 Keyflare Regen attribute. Each Affinity level additionally grants Ramona: Timeworn 0.5 Keyflare Regen attribute.\nFor each Keyflare Regen Level attribute, the {Loop} effect of \"Basic Strike\" grants Ramona: Timeworn 0.2% Crit. Rate, and the {Loop} effect of \"Basic Defense\" grants Ramona: Timeworn 0.2 Aliemus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.ramona-timeworn.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nRamona: Timeworn's Keyflare Regen +[Arg3]%. At the start of battle, obtain Keyflare equal to [Arg4]% of Ramona: Timeworn's Keyflare Regen.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100",
+            "110",
+            "120",
+            "130",
+            "150"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.goliath.madness-omen",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.goliath.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nGoliath's Base DMG +[Arg3]%, and {Blade's Dominion} temporarily increases Goliath's Final DMG by [Arg4]%.\nWhen there are 1/2/3 other {Lemurian} Awakeners in the team, all Awakeners' {STR} Generation +6%/15%/30%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "20",
+            "23",
+            "26",
+            "29",
+            "32",
+            "35",
+            "38",
+            "41",
+            "44",
+            "50"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "6",
+            "7",
+            "7",
+            "8",
+            "8",
+            "9",
+            "9",
+            "10"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.hameln.madness-omen",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.hameln.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAfter playing \"Insight,\" gain Temporary {STR} equal to [Arg3]% of ATK, and trigger {Crescendo} once. This effect can trigger up to 5 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "10"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.helot.madness-omen",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.helot.pain-sigil",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Pain Sigil",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% DMG Amplification attribute Helot has, {Surviving Impasse} increases the DMG Helot deals in this turn by 0.3%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.helot.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nHelot's Final DMG against \"Snowfield\" enemies +[Arg3]%. If Helot has consumed {Embryo} this turn, her next DMG dealt this turn has its Crit. DMG +[Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "17",
+            "19",
+            "21",
+            "23",
+            "25",
+            "27",
+            "29",
+            "31",
+            "35"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "30",
+            "32",
+            "34",
+            "36",
+            "38",
+            "40",
+            "42",
+            "44",
+            "46",
+            "50"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.horla.madness-omen",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.horla.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAt the start of Boss Battles, gain {Death Resistance} equal to [Arg3]% of Horla's {Death Resistance} attribute. Each time {Death Resistance} is triggered, the corresponding {Emotion} effect of {Resplendent Chapters} +[Arg4]% until turn end.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100",
+            "110",
+            "120",
+            "130",
+            "150"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.horla.writing-with-feeling",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Writing with Feeling",
+      "family": "passive",
+      "descriptionTemplate": "Horla's \"Strike\" and \"Defend\" Command Cards are treated as Psalms.\nWhen Horla's Command Cards trigger their {Leap} Effect, she enters the {Emotion} state associated with that Psalm. Horla can only have one {Emotion} state active at a time, and triggering a different Psalm's {Leap} Effect will change the {Emotion} state to the corresponding {Emotion}. Each {Emotion} has a team-wide passive buff that is active while Horla remains in that {Emotion}. Each {Emotion} state enhances a different effect of Horla's Exalt. The {Emotion} state persists throughout the exploration.\nFor every 1% {Death Resistance} Horla has, the passive effect value of Horla's current {Emotion} state +0.1% of the original value.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.jenkins.a-common-enemy",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "A Common Enemy",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% Crit. Rate provided by Jenkin and her equipped Wheel of Destiny & Covenant, the Base DMG of \"Basic Strike\" and {Get 'em! Brown!} +2%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.jenkins.madness-omen",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.jenkins.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe first 10 {Get 'em! Brown!} cards played each turn will not add {Arithmetica Harmony}.\nJenkin's DMG +[Arg3]% of her ATK.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "20",
+            "24",
+            "28",
+            "32",
+            "36",
+            "40",
+            "44",
+            "48",
+            "52",
+            "60"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.karen.madness-omen",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.karen.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nFor each {Marvelous Cuisine} in hand, Karen's Healing effect +[Arg4]%, up to 3 stacks. Every time {Marvelous Cuisine} is played, Karen's {Poison} effect +[Arg3]% during this battle, up to 20 stacks.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "12",
+            "14",
+            "16",
+            "18",
+            "20",
+            "22",
+            "24",
+            "26",
+            "30"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.kathigu-ra.madness-omen",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.kathigu-ra.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Fiamma}'s buff effects +[Arg3]%. After each turn starts and before the discard cards phase, clear all {Burn} from cards in hand. Kathigu-Ra gains 1 stack of {Combust} for each stack of {Burn} cleared.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "20"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.kathigu-ra.the-living-flame",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "The Living Flame",
+      "family": "passive",
+      "descriptionTemplate": "At turn start, randomly apply 1 stack of {Fiamma} to 1 Kathigu-Ra's Command Card in hand.\nFor each stack of {Fiamma} consumed by Kathigu-Ra, gain 1 stack of {Combust}.\nWhen {Combust} reaches 10 stacks, gain 2 Arithmetica and upgrade all {Solarflare} to {Hyperflare}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.leigh.madness-omen",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.leigh.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nLeigh's {STR} Generation effect +[Arg4]%. After playing Leigh's Command Card, gain {STR} equal to [Arg3]% of Leigh's ATK. This effect can increase by up to 200% based on current lost HP. Triggers up to 3 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "1",
+            "1.1",
+            "1.2",
+            "1.3",
+            "1.4",
+            "1.5",
+            "1.6",
+            "1.7",
+            "1.8",
+            "2"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.lily.madness-omen",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.lily.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe Final DMG of Lily's \"Strike\" +[Arg3]%, and the increase is doubled during Boss Battle. After being attacked by an {Ultra} enemy, gain a Delayed HP Recovery equal to [Arg4]% of the HP lost from the attack.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "17",
+            "19",
+            "21",
+            "23",
+            "25",
+            "27",
+            "29",
+            "31",
+            "35"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.lily.surging-darkness",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Surging Darkness",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% {Death Resistance} Lily and her equipped WoD & Covenant have, the Base Shield of {Forbidden Swamp} and \"Basic Defense\" +0.25%, and in Boss Battles, the accumulation and limit of {Endure} increase by 0.25%.\nWhen Lily is in the team, gain 1 stack of {Endure} for each lost HP, with an {Endure} stack limit equal to Max HP.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.liz.madness-omen",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.liz.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAt the start of a battle, place a {Corrupted Flames} with {Exhaust} into hand, and increase the Base DMG of {Green Flames} and its related derived cards by [Arg3]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.lotan.madness-omen",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.lotan.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nLotan's Command Card Base DMG +[Arg3]%. For each instance of DMG Lotan deals, Lotan's Active DMG +2% for the rest of this turn, up to [Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90",
+            "100"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "20"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.miryam.madness-omen",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.miryam.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAll Awakener's {Tentacle DMG} +[Arg3]%.\nWhen there are 1/2/3 other {Lemurian} Awakeners in the team, the {Tentacle DMG} generated by all Awakeners is additionally increased by 6%/15%/30%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "20"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.miryam.undying-piety",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Undying Piety",
+      "family": "passive",
+      "descriptionTemplate": "At the start of the battle, place 1 {Obsession} into hand.\nMiryam's \"Basic Strike\" enjoys 50% {Tentacle DMG} bonus.\nFor every 1% Crit. DMG provided by Miryam and her equipped Wheel of Destiny & Covenant, enhance her Exalt's {STR} Generation, {Tentacle DMG}, Aliemus, and {Poison} Application/Trigger effects by 0.2%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.mouchette.dramatic-encounter",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Dramatic Encounter",
+      "family": "passive",
+      "descriptionTemplate": "For every 2 \"Strike\" cards played, Mouchette performs a {Pursuit}, randomly dealing 1 instance of DMG equal to 30% of Mouchette's ATK (counts as \"Strike\"). This effect can trigger up to 4 times per turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.mouchette.madness-omen",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Obtain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.mouchette.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nMouchette's Final DMG against \"Dominator\" enemies +[Arg5]%. All Awakeners' \"Strike\" Base DMG +[Arg3]%. After triggering {Death Resistance}, Mouchette gains [Arg4] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "17",
+            "19",
+            "21",
+            "23",
+            "25",
+            "27",
+            "29",
+            "31",
+            "35"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "20",
+            "23",
+            "26",
+            "29",
+            "32",
+            "35",
+            "38",
+            "41",
+            "44",
+            "50"
+          ]
+        },
+        "Arg5": {
+          "kind": "scaling",
+          "values": [
+            "20",
+            "23",
+            "26",
+            "29",
+            "32",
+            "35",
+            "38",
+            "41",
+            "44",
+            "50"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.murphy.madness-omen",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.murphy.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Tentacle DMG} +[Arg3]% of the Sacrificed HP when a {Sacrifice} is performed.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "3",
+            "3.3",
+            "3.6",
+            "3.9",
+            "4.2",
+            "4.5",
+            "4.8",
+            "5.1",
+            "5.4",
+            "6"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.murphy-fauxborn.divine-realms-order",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Divine Realm's Order",
+      "family": "passive",
+      "descriptionTemplate": "When Murphy: Fauxborn is in the team, the {Aequor Realm} ascends to {Divine Realm: Aequor}.\n{Tentacle DMG} is changed to 5% of the team's Max HP.\nTeam DMG Amplification +50% after exploration begins (Effect doubled if the team is entirely {Aequor} and {Chaos} Awakeners, though no additional starting Tentacles will be obtained).\nTentacle Gathering effect is removed.\n{Divine Realm: Tentacle Stance} features the following new effects:\n{Divine Realm: Tranquil Sea}: Immediately generate Shield equal to 25% Max HP, and Tentacles will no longer attack at turn end; 3 turns cooldown.\n{Divine Realm: Raging Waves}: {Tentacle DMG} × 125% for the turn; after dealing Active DMG, 1 Tentacle attacks; lose 1 Tentacle at turn end; 3 turns cooldown.\nRealm Mastery is counted as {Divine Realm: Aequor Mastery}:\nEach point provides: {Tranquil Sea} Stance's Shield Generation +0.025% Max HP. {Raging Waves} Stance's {Tentacle DMG} +0.025%. Effect doubled if the team is entirely {Aequor} and {Chaos} Awakeners.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.murphy-fauxborn.madness-omen",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.murphy-fauxborn.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nWhenever Murphy: Fauxborn deals DMG, inflict {Sacrifice} stacks equal to [Arg3]% of DMG dealt on the target. {Life Seal} state's {Birth Ritual} stack increase effect is doubled.\nWhen there are 1/2/3 other {Lemurian} Awakeners in the team: Max HP +6%/15%/30%; gain Shield equal to 50%/125%/250% of Murphy: Fauxborn's DEF after any {Lemurian} Awakener uses Exalt. Limited to once per turn; does not benefit from Shield Generation Boost.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "14",
+            "18",
+            "22",
+            "26",
+            "30",
+            "34",
+            "38",
+            "42",
+            "50"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.nautila.daily-maintenance",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Daily Maintenance",
+      "family": "passive",
+      "descriptionTemplate": "For each 1 Realm Mastery Attributes Nautila possesses, the {Counter} DMG from {Ready and Set} +0.25%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.nautila.madness-omen",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.nautila.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nNautila's {Counter} Generation +[Arg3]%. Before unleashing {Ready and Set}, gain Temporary {Counter} equivalent to [Arg4]% of Permanent {Counter}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "16.5",
+            "18",
+            "19.5",
+            "21",
+            "22.5",
+            "24",
+            "25.5",
+            "27",
+            "30"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "20",
+            "23",
+            "26",
+            "29",
+            "32",
+            "35",
+            "38",
+            "41",
+            "44",
+            "50"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.nymphaea.immerse",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Immerse",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% DMG Amplification attribute Nymphaea has, the Base {Poison} Effect caused by {Knell of Death} and {Passage of the Ego} +0.5%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.nymphaea.madness-omen",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.nymphaea.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nNymphaea's {Poison} trigger effect +[Arg3]%. All Awakeners inflict +10% {Poison}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "17",
+            "19",
+            "21",
+            "23",
+            "25",
+            "27",
+            "29",
+            "31",
+            "35"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.ogier.formless-refinement",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Formless Refinement",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% Sigil Yield Ogier has, the Temporary {STR} gained from {Seven Arts and Virtues} +3%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.ogier.madness-omen",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.ogier.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nOgier's Shield Generation +[Arg3]%, and each time his Exalt is played, his Shield Generation in this battle +an additional 1% of DEF.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.pandia.madness-omen",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.pandia.punishment-time",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Punishment Time",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% Crit. Rate provided by Pandia or her Wheel of Destiny and Covenant, the Permanent {Counter} she produces +0.2%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.pandia.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Whip of Madness} gains {Retain} and {Prepare}. Pandia's Final DMG against targets with attack intention +[Arg3]%, which +5% per additional attack instance, up to 20%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.pickman.madness-omen",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.pickman.painters-eye",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Painter's Eye",
+      "family": "passive",
+      "descriptionTemplate": "After Pickman triggers the {Discover} effect or uses {Chromaphage}, he gains 1 stack of {Creativity}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.pickman.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Truth in Delusion} additionally increases the Final DMG dealt by other Awakeners' Exalt this turn by [Arg3]%, and after use, Pickman's Base Aliemus -5.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.pollux.atonement-by-pain",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Atonement by Pain",
+      "family": "passive",
+      "descriptionTemplate": "The first Command Card Pollux plays in a turn deals DMG+200% of his ATK, generates Shield +50% of his DEF, and +10 Aliemus.\nAfter the battle, Pollux's Base DMG and the {Atonement by Pain} DMG effect +20% in exploration, and the {Atonement by Pain} DMG effect is doubled in Boss Battle.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.pollux.madness-omen",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.pollux.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe Base DMG of {Atonement by Pain} increase by [Arg3]% of Pollux's ATK.\nFor every 50 stacks of {Sin Mark}, add 1 {Sacred Heart} to your hand.\nWhen {Sin Mark} reaches 100 stacks, pull 1 Pollux's Skill Card after {Sacred Heart} is {Exhausted} at {ordinal:3rd} play.\nWhen dealing DMG, the effect of {Sin Mark} is doubled against enemies of the \"Church of the Lightbearers\".",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100",
+            "110",
+            "120",
+            "130",
+            "150"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.ramona.madness-omen",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.ramona.silverheart-resonance",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Silverheart Resonance",
+      "family": "passive",
+      "descriptionTemplate": "Ramona gains an additional 2.5 Keyflare Regen attribute. Each Affinity level additionally grants Ramona 0.5 Keyflare Regen attribute.\nFor each point of Keyflare Regen Level, increase the Base DMG of {Queen's Sword} by 1%, and after playing, gain 0.75 temporary Realm Mastery.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.ramona.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nRamona's Keyflare Regen +[Arg3]%. At the start of battle, obtain Keyflare equal to [Arg4]% of Ramona's Keyflare Regen.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100",
+            "110",
+            "120",
+            "130",
+            "150"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.ryker.madness-omen",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.ryker.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakeners' CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nRyker gains +[Arg3]% Crit. Rate and +[Arg4]% Black Sigil Yield. If at least 500 Black Sigils have been obtained through battle, upgrade 1 {Chaotic Legacy} at the start of next battle.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "20"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "40",
+            "44",
+            "48",
+            "52",
+            "56",
+            "60",
+            "64",
+            "68",
+            "72",
+            "80"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.ryker.winner-takes-all",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Winner Takes All",
+      "family": "passive",
+      "descriptionTemplate": "Ryker obtains 5 Black Sigils upon killing an enemy. For every 1% Sigil Yield Ryker has, the amount obtained +1%, up to 5 times per exploration.\nAfter obtaining 75/150/300 Black Sigils through battle, relic capacity +1, and at the end of the battle, choose a {Chaotic Legacy} to add to the relic list.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.salvador.madness-omen",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.salvador.origin-of-all-life",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Origin of All Life",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% Sigil Yield attribute Salvador possesses, the maximum of the {Crimson Furnace} +0.15% Max HP.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.salvador.shepard-of-the-souls",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Shepard of the Souls",
+      "family": "passive",
+      "descriptionTemplate": "Salvador's Furnace Healing benefits from the HP Recovery Boost.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.salvador.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAfter selecting {Perception} in {Ashen Ruins}, Max HP +[Arg3]% of original Max HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "2.5",
+            "2.75",
+            "3",
+            "3.25",
+            "3.5",
+            "3.75",
+            "4",
+            "4.25",
+            "4.5",
+            "5"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.sanga.enlightenment-of-death",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Enlightenment of Death",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% {Death Resistance} Sanga and her equipped WoD & Covenant have, increase the Aliemus gained from \"Basic Strike\" and \"Basic Defense\" by 0.03 points, and {The Lost Art} enjoys an additional 0.15% Crit. Rate and DMG bonus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.sanga.madness-omen",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.sanga.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nWhen Sanga generates Shield, the {Tentacle DMG} +an amount equal to [Arg3]% of the Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "3",
+            "3.3",
+            "3.6",
+            "3.9",
+            "4.2",
+            "4.5",
+            "4.8",
+            "5.1",
+            "5.4",
+            "6"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.sorel.guardian-of-vanity",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Guardian of Vanity",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% Crit. Rate Sorel and her equipped WoD & Covenant have, increase the Aliemus obtained from \"Basic Defense\" by 0.2.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.sorel.madness-omen",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.sorel.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF are increase by [Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nSorel gains Temporary {STR} equal to [Arg3]% of her ATK after {Devour}, triggering a maximum of 5 times per round.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "16.5",
+            "18",
+            "19.5",
+            "21",
+            "22.5",
+            "24",
+            "25.5",
+            "27",
+            "30"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.tawil.madness-omen",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.tawil.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} level.\nThe Awakeners' CON, Attack, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nWhen Tawil plays a card originally belonging to other Awakeners in the team, the corresponding Awakeners' Final DMG, Shield, and HP Recovery in this turn +[Arg3]%, and this effect does not stack.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "25"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.thais.madness-omen",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.thais.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThais gains [Arg3]% of Keyflare Regen as Keyflare when Devouring an {Embryo}, and the effect is doubled when Devouring a {Scion of Purity}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90",
+            "100"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.tinct.madness-omen",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.tinct.planetary-traveler",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Planetary Traveler",
+      "family": "passive",
+      "descriptionTemplate": "For every 1% Sigil Yield provided by Tinct and her equipped Wheel of Destiny & Covenant, {Starlight Aurora} gains an additional 0.15% Temporary Crit. Rate.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.tinct.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThe Awakeners' CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nPlaying {Distant Melody} temporarily reduces the DMG dealt by all \"Humanoid\" enemies by [Arg4]%, this effect can't be stacked. For each negative state dispelled by {Requiem}, [Arg3] Aliemus are gained.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "20"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.tulu.divine-kings-power",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Divine King's Power",
+      "family": "passive",
+      "descriptionTemplate": "For every point of Aliemus Regen Level Tulu and his equipped WoD & Covenant have, \"Strike\" enjoys +5% {Tentacle DMG} and {STR} bonus. {Abyss Order} receives 15% {Tentacle DMG} and {STR} DMG boost.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.tulu.madness-omen",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.tulu.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nEach Tentacle's attack increases Temporary {Tentacle DMG} by [Arg3]% of Tulu's ATK, up to [Arg4] {plural:[Arg4]|time|times} per turn.\nWhen there are 1/2/3 other {Lemurian} Awakeners in the team, all enemies receive 10%/25%/50% more {Tentacle DMG}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "2.5"
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "25"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.uvhash.madness-omen",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.uvhash.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe first [Arg3] {Screech, Blood!} cards played each turn do not add {Arithmetica Harmony}. Uvhash's Base DMG +[Arg4]%, and the effect doubles when HP is below 25%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "10"
+        },
+        "Arg4": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.wanda.madness-omen",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.wanda.revelation",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Revelation",
+      "family": "passive",
+      "descriptionTemplate": "At turn start, obtain 1 stack of {Dreamlure}.\nConsuming 1 stack of {Dreamlure} increases the {Counter} for {Keeper of the Lost} and {Necropolis of Dreams} by 5% ATK in this battle.\nFor every 1% DMG Amplification attribute provided by Wanda and her equipped Wheel of Destiny & Covenant, the {Counter} for {Necropolis of Dreams} +0.75%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.wanda.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAll teammates' {STR} Reduction effect +[Arg3]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.winkle.madness-omen",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.winkle.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAfter unleashing {Annihilation}, Winkle gains [Arg3] Aliemus, with a 3-turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "12",
+            "14",
+            "16",
+            "18",
+            "20",
+            "22",
+            "24",
+            "26",
+            "30"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.xu.madness-omen",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.xu.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAll Awakeners' {Poison} Trigger effect +[Arg3]%.\nEach stack of {Spellbound} additionally reduces the DMG dealt by \"Humanoid\" enemies by 1%, and when {Spellbound} is removed, each stack deals {Fixed DMG} equal to [DescArg1]% of target's Max HP on \"Humanoid\" enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "7",
+            "9",
+            "11",
+            "13",
+            "15",
+            "17",
+            "19",
+            "21",
+            "25"
+          ]
+        },
+        "DescArg1": {
+          "kind": "scaling",
+          "values": [
+            "1",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        }
+      },
+      "maxLevel": 10,
+      "hasLevelScaledDescription": true
+    },
+    {
+      "id": "talent.vortice.lightless-bottom",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Lightless Bottom",
+      "family": "passive",
+      "descriptionTemplate": "When \"Vortice\" is in the team, the {Aequor Realm} transforms into {Divine Realm: Aequor}.\n{Tentacle DMG} is changed to 5% of the team's Max HP.\nTeam DMG Amplification +50% after exploration begins (Effect doubled if the team is entirely {Aequor} and {Chaos} Awakeners, though no additional starting Tentacles will be obtained).\nTentacle Gathering effect is removed.\n{Divine Realm: Tentacle Stance} features the following new effects:\n{Divine Realm: Tranquil Sea}: Immediately generate Shield equal to 25% Max HP, and Tentacles will no longer attack at turn end; 3 turns cooldown.\n{Divine Realm: Raging Waves}: {Tentacle DMG} × 125% for the turn; after dealing Active DMG, 1 Tentacle attacks; lose 1 Tentacle at turn end; 3 turns cooldown.\nRealm Mastery is counted as {Divine Realm: Aequor Mastery}:\nEach point provides: {Tranquil Sea} Stance's Shield Generation +0.025% Max HP. {Raging Waves} Stance's {Tentacle DMG} +0.025%. Effect doubled if the team is entirely {Aequor} and {Chaos} Awakeners.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "talent.vortice.madness-omen",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "After the exploration starts, gain [Arg1] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.vortice.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Vortex! Shell!} Base {Fixed DMG} +[Arg3]%.\nVortice removes the target's {Fortress} and \"Temporary {Fortress}\" effects before unleashing Exalt; if successfully removed, this Exalt's Crit. DMG +[Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "80",
+            "92",
+            "104",
+            "116",
+            "128",
+            "140",
+            "152",
+            "164",
+            "176",
+            "200"
+          ]
+        },
+        "Arg4": {
+          "kind": "scaling",
+          "values": [
+            "20",
+            "23",
+            "26",
+            "29",
+            "32",
+            "35",
+            "38",
+            "41",
+            "44",
+            "50"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.arachne.madness-omen",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "5",
+          "gainPerLevel": "5"
+        }
+      },
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.arachne.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "descriptionTemplate": "This talent is only effective in {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nArachne deals +[Arg3]% {Final Verdict}. The {Final Verdict} dealt to Mutant enemies is doubled.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "linear",
+          "base": "3",
+          "gainPerLevel": "3"
+        },
+        "Arg2": {
+          "kind": "linear",
+          "base": "50",
+          "gainPerLevel": "50"
+        },
+        "Arg3": {
+          "kind": "scaling",
+          "values": [
+            "30",
+            "37",
+            "44",
+            "51",
+            "58",
+            "65",
+            "72",
+            "79",
+            "86",
+            "100"
+          ]
+        }
+      },
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.arachne.threads-of-fate",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Threads of Fate",
+      "family": "passive",
+      "descriptionTemplate": "When Arachne is in the team, the {Ultra} Realm reweaves into {Singularity: Ultra}.\nDimension Shuttle: After playing the first Command Card each turn, move a Temporary Base Copy of it to {Ultra Space}. Grant the original and the copy 25 stacks of {Singularity Beacon}. This cannot trigger during {Ultra Rounds}.\n{Singularity Beacon}: Each stack increases Final DMG, {STR}/{Tentacle DMG} Generation, and Fixed {Poison}/{Counter} effects by 2%. Increases Final Shield, HP Recovery, and {STR⯆} effects by 1%. Removed after play. Cards with this effect cannot trigger Dimension Shuttle.\n{Ultra Space}: When full, ending the turn activates {Ultra Space} immediately instead of initiating an {Ultra Round}: Discard all non-{Retain} cards, trigger their {Fleeting} effects, draw all {Ultra Space} cards, and set Arithmetica to 5. This current turn is treated as an {Ultra Round}.\n{Singularity Annihilation}: Draw the leftmost card from {Ultra Space}. 3 turns cooldown.\nUpon starting exploration, the team gains +50% DMG Amplification and 15 stacks of {Singularity Prism}.\n{Singularity Prism}: All Command Cards gain {Singularity Beacon} bonuses equal to these stacks.\n{Ultra Mastery}: For each 1 point of Realm Mastery, {Singularity Beacon} stacks from {Singularity Prism} and Dimension Shuttle increase by 0.05%.\n{Pure Ultra}: If the team consists only of {Ultra} or {Chaos} Awakeners, the {Ultra Mastery} effect and Realm DMG Amplification are doubled.",
+      "descriptionArgs": {}
+    }
+  ]
+}

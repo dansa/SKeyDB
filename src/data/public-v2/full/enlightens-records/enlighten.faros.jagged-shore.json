@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.faros.jagged-shore",
+  "ownerAwakenerId": "awakener-0017",
+  "slot": "E1",
+  "displayName": "Jagged Shore",
+  "descriptionTemplate": "{Ocean of Elation} enjoys 100% more {Tentacle DMG} bonus.",
+  "descriptionArgs": {}
+}

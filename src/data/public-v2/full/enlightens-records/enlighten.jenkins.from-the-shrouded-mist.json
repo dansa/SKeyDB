@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.jenkins.from-the-shrouded-mist",
+  "ownerAwakenerId": "awakener-0025",
+  "slot": "AbsoluteAxiom",
+  "displayName": "From the Shrouded Mist",
+  "descriptionTemplate": "{Rouse} {Spatial Fold} is enhanced: Jenkin enjoys 2× the Crit. DMG effect of {Spatial Fold} and {Mistborn Street Urchin}.",
+  "descriptionArgs": {}
+}

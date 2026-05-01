@@ -1,0 +1,97 @@
+{
+  "id": "awakener-0006",
+  "numericId": 6,
+  "name": "Caecus",
+  "ingameId": "O04",
+  "lineupToken": "M",
+  "realm": "AEQUOR",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "caecus",
+    "iconKey": "caecus"
+  },
+  "baseStatsLv1": {
+    "CON": 41,
+    "ATK": 33,
+    "DEF": 36
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 2,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.95,
+    "ATK": 1.55,
+    "DEF": 1.7
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 2,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Caecus",
+    "birthday": "11-Nov",
+    "gender": "Male",
+    "height": "5'5''",
+    "weight": "114.6lbs",
+    "gnosticIndex": "21",
+    "characteristic": "Counter Enemies    Tentacle DMG",
+    "introduction": "Erects all body spines to counterattack invading enemies and uses their bloodline power to heal self.",
+    "awakerIntroduction": "Has powerful HP Healing and stacking {Counter} Ability, performing well against enemies with multi-hit attacks.\nExalt and {Protective Scales} can deal more {Counter} DMG.\nIn this level, Caecus will be brought into battle at Level 50, Skill Level 5, and Enlighten Level 3. He will Obtain 10 Aliemus each turn, and the enemy will receive Enhance on the first turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "He always wandered by the lakeside with a gloomy expression. Gradually, the students began to refer to the lakeside as \"the Territory of the Sullen Half-Fish Man\". Thus, he came every day like a lord, solemnly inspecting his domain. When he dove into the lake bottom, the swirling bubbles gently enveloped him; underwater, the jeers from the shore seemed to fade into obscurity.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "A.F. 3@1, January.\nOn the Devil's Reef off the eastern coast of the Agló Republic, local fishermen reported they had salvaged \"a strangely shaped corpse\"—short and hunched, with protruding eyeballs, partially hardened skin, webbed fingers, and the most bizarre feature being symmetrical red marks on either side of the neck. If it weren't for the student uniform it wore, it would be hard to consider it a \"human corpse.\" \nWhen the investigators arrived, the strange corpse had already been burned by frightened fishermen as an omen, leaving only a suitcase that was quite popular among students at the time. The suitcase contained no change of clothes, only some illegible manuscripts, a compass, and a photograph of a middle-aged woman.",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Since the @2 incident, Caecus has reconciled with us and become an external member of the Awakening system. His understanding of @1 knowledge is merely superficial, yet he is eager to showcase and share it. \n In front of people like Tulu, Miryam, and Goliath, he is filled with humility, but he casts a gloomy and unfriendly gaze toward other races—especially humans. Researchers who have read the files understand his paranoia, but some hot-tempered Awakeners cannot tolerate it. This tense atmosphere often requires Sylvia to mediate and diffuse the situation, and a trust relationship has gradually developed between Caecus and Sylvia. \n Under Sylvia's guidance, Caecus has awakened the \"tolerance of higher races,\" avoiding provocations from others without comment. \n \"That child often recalls his human mother with warmth. It is said that a mother is the benchmark for a child's understanding of the world, and his hostility toward humans is essentially acquired. So, he just lacks some guidance and care,\" Sylvia wrote in her psychological counseling records.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Caecus despised humans, even as a child. \nOnce, he saved a drowning little girl but was accused by other children of being a monster; he tried to keep his distance, yet they chased him, shouting \"stinky frogman.\" \n\nDuring those gloomy years, the only glimmer of hope for him came from Uncle Oren's letters. His vast knowledge contained endless tales of monsters that captivated young Caecus. However, the happiness was fleeting, as Uncle Oren inexplicably vanished a few years later.\nAt the age of 16, Caecus returned to visit his grandfather and accidentally discovered Oren's manuscript. He finally understood the noble meaning hidden within the twisted patterns on his body.\nHmph, humanity is ultimately a lowly species.\nFrom then on, he no longer succumbed to pessimism but patiently waited for the day destiny would arrive.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Haven't you had such dreams? Suddenly inheriting a massive fortune, suddenly gaining immense power... enough to trample those who once disdained and hurt us.\nThen, at the moment you wake up, faced with relentless reality, you fall deeper into despair.\nBut my dream is true, my fate has arrived.\n\nKnow this: you are the weak ones.\n\nCan physical frailty and a wilting soul not uphold a noble bloodline? No, that's impossible, because the name Oren is our family's pride and symbol. Endowed with the bloodline and name, I am no longer that bullied freak; I am someone with noble blood.\n\nSo... please... stop looking at me with those suffocating eyes...",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Hybrid",
+  "aliases": [
+    "caecus"
+  ],
+  "searchTags": [
+    "Dispel",
+    "Heal",
+    "Tentacles"
+  ]
+}

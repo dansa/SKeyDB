@@ -1,0 +1,45 @@
+{
+  "id": "skill.ramona-timeworn.entropy-undone",
+  "ownerAwakenerId": "awakener-0020",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Entropy Undone",
+  "descriptionTemplate": "Ramona: Timeworn gains [Energy:Arg1] Aliemus. {Rouse}: When Ramona: Timeworn plays a card without triggering {Loop}, she gains 1 stack of {Negentropy} and gain [Arg2] Keyflare, up to 3 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "50"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ramona-timeworn.infinite-singularity.skill.ramona-timeworn.entropy-undone",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.ramona-timeworn.infinite-singularity",
+      "ownerAwakenerId": "awakener-0020",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Ramona: Timeworn",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Ramona: Timeworn gains [Energy:Arg1] Aliemus. {Rouse}: When Ramona: Timeworn plays a card without triggering {Loop}, she gains 1 stack of {Negentropy} and gains [Arg2] Keyflare."
+      }
+    }
+  ]
+}

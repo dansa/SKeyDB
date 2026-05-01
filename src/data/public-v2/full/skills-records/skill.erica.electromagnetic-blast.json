@@ -1,0 +1,117 @@
+{
+  "id": "skill.erica.electromagnetic-blast",
+  "ownerAwakenerId": "awakener-0015",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Electromagnetic Blast",
+  "descriptionTemplate": "Erica gains [Arg4]% Temporary Crit. Rate and Crit. DMG. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG to all enemies and apply [Arg3] {plural:[Arg3]|stack|stacks}{Weakness} and {Vulnerable}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "42",
+        "49",
+        "56",
+        "63",
+        "70"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "42",
+        "49",
+        "56",
+        "63",
+        "70"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "0",
+      "substatBonus": {
+        "substat": "KeyflareRegen",
+        "multiplier": "0.5"
+      },
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.erica.force-circuit.skill.erica.electromagnetic-blast",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.erica.force-circuit",
+      "ownerAwakenerId": "awakener-0015",
+      "operation": "mixed",
+      "ownerAwakenerName": "Erica",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "35",
+              "42",
+              "49",
+              "56",
+              "63",
+              "70"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "35",
+              "42",
+              "49",
+              "56",
+              "63",
+              "70"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "1"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "0",
+            "substatBonus": {
+              "substat": "KeyflareRegen",
+              "multiplier": "0.5"
+            },
+            "suffix": "%"
+          },
+          "Arg7": {
+            "kind": "fixed",
+            "value": "1"
+          }
+        },
+        "descriptionTemplate": "Erica gains [Arg4]% Temporary Crit. Rate and Crit. DMG. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG to all enemies and apply [Arg3] {plural:[Arg3]|stack|stacks}{Weakness} and {Vulnerable}. This skill additionally enjoys a [Arg7]x {STR} and {Alert} bonus."
+      }
+    },
+    {
+      "id": "upgrade.talent.erica.external-power-source.skill.erica.electromagnetic-blast",
+      "upgraderId": "talent.erica.external-power-source",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

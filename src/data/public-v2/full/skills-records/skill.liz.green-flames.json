@@ -1,0 +1,38 @@
+{
+  "id": "skill.liz.green-flames",
+  "ownerAwakenerId": "awakener-0030",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Green Flames",
+  "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG}, inflict [Arg2]% of DMG as {Poison}. At turn end, if in hand or in {Ultra Space}, upgrade to {Corrupted Flames}. Can be played with insufficient Arithmetica, changing its effect to Gain [Energy:Arg3] Aliemus and {Exhaust}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2"
+}

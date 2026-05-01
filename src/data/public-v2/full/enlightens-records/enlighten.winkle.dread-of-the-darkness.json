@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.winkle.dread-of-the-darkness",
+  "ownerAwakenerId": "awakener-0053",
+  "slot": "E1",
+  "displayName": "Dread of the Darkness",
+  "descriptionTemplate": "\"Basic Strike\" and {Energy Beam} DMG enjoys a 25% {Counter} bonus.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.lily.never-forget",
+  "ownerAwakenerId": "awakener-0029",
+  "slot": "E3",
+  "displayName": "Never Forget...",
+  "descriptionTemplate": "At turn start, obtain {Endure} equal to 10% Max HP. {Undying Flower Upon Slime} and {Strike to Protect} only remove half of the {Endure}.",
+  "descriptionArgs": {}
+}

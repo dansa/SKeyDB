@@ -1,0 +1,97 @@
+{
+  "id": "awakener-build-0044",
+  "awakenerId": "awakener-0044",
+  "primaryBuildId": "support",
+  "builds": [
+    {
+      "id": "support",
+      "label": "Support",
+      "substatPriorityGroups": [
+        [
+          "KEYFLARE_REGEN"
+        ]
+      ],
+      "recommendedWheels": [
+        {
+          "tier": "BIS_SSR",
+          "wheelIds": [
+            "wheel-0002"
+          ]
+        },
+        {
+          "tier": "ALT_SSR",
+          "wheelIds": [
+            "wheel-0014"
+          ]
+        },
+        {
+          "tier": "BIS_SR",
+          "wheelIds": [
+            "wheel-0089"
+          ]
+        },
+        {
+          "tier": "GOOD",
+          "wheelIds": [
+            "wheel-0095",
+            "wheel-0035"
+          ]
+        }
+      ],
+      "recommendedCovenantIds": [
+        "covenant-0009",
+        "covenant-0008"
+      ],
+      "recommendedWheelMainstats": [
+        "KEYFLARE_REGEN"
+      ]
+    },
+    {
+      "id": "dps",
+      "label": "DPS",
+      "substatPriorityGroups": [
+        [
+          "CRIT_RATE",
+          "CRIT_DMG"
+        ],
+        [
+          "KEYFLARE_REGEN"
+        ]
+      ],
+      "recommendedWheels": [
+        {
+          "tier": "BIS_SSR",
+          "wheelIds": [
+            "wheel-0002"
+          ]
+        },
+        {
+          "tier": "ALT_SSR",
+          "wheelIds": [
+            "wheel-0055"
+          ]
+        },
+        {
+          "tier": "BIS_SR",
+          "wheelIds": [
+            "wheel-0083"
+          ]
+        },
+        {
+          "tier": "GOOD",
+          "wheelIds": [
+            "wheel-0035"
+          ]
+        }
+      ],
+      "recommendedCovenantIds": [
+        "covenant-0009",
+        "covenant-0014"
+      ],
+      "recommendedWheelMainstats": [
+        "CRIT_RATE",
+        "CRIT_DMG"
+      ]
+    }
+  ]
+}

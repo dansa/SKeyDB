@@ -1,0 +1,25 @@
+{
+  "id": "covenant-0021",
+  "name": "Chrysalis of the Maiden",
+  "assetId": "covenant-icon-023",
+  "lore": "O Great Homunculus, we proffer unto thee a vessel pure and without blemish.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "Crit. Rate +[Arg1]%",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "7.2",
+          "suffix": "%"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "Team Unique. The wielder gains 8% Temporary Crit. DMG for each Tentacle after consuming an {Embryo} for the first time each turn, up to 80%.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "C"
+}

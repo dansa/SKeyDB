@@ -1,0 +1,41 @@
+{
+  "id": "derived.xu.enthrall",
+  "displayName": "Enthrall",
+  "descriptionTemplate": "Remove all enemies' {Spellbound}. For each stack removed: {Crimson Furnace} +[Arg3]; cause {Fixed DMG} equal to [Arg1]% of the target's Max HP; trigger [Arg2]% {Poison}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "40",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "20",
+      "suffix": "%",
+      "stat": "CON"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "skill.xu.mist-bound-vow",
+  "rootSkillId": "skill.xu.mist-bound-vow",
+  "ownerAwakenerId": "awakener-0054",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.xu.nirvanas-kiss.derived.xu.enthrall",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.xu.nirvanas-kiss",
+      "ownerAwakenerId": "awakener-0054",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Xu",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Remove all enemies' {Spellbound}. For each stack removed: {Crimson Furnace} +[Arg3]; cause {Fixed DMG} equal to [Arg1]% of the target's Max HP; trigger [Arg2]% {Poison}."
+      }
+    }
+  ]
+}

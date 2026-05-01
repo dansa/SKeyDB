@@ -1,0 +1,41 @@
+{
+  "id": "skill.ramona.first-doctrine",
+  "ownerAwakenerId": "awakener-0042",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "First Doctrine",
+  "descriptionTemplate": "Ramona gains [Energy:Arg1] Aliemus. {Rouse}: After Ramona plays a card, she gains 1 Arithmetica, up to 3 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ramona.sublime-tempering.skill.ramona.first-doctrine",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.ramona.sublime-tempering",
+      "ownerAwakenerId": "awakener-0042",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Ramona",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Ramona gains [Energy:Arg1] Aliemus. {Rouse}: After Ramona plays a card, she gains 1 Arithmetica and increases the Base DMG dealt by Ramona by 10%, up to 3 times per turn."
+      }
+    }
+  ]
+}

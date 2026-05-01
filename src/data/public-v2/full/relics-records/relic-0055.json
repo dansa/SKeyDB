@@ -1,0 +1,19 @@
+{
+  "id": "relic-0055",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Vortice",
+  "assetId": "Icon_Creation_Unique_O11",
+  "ownerAwakenerId": "awakener-0055",
+  "ownerAwakenerName": "Vortice",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "descriptionTemplate": "At turn start, Vortice gains [Arg1] Aliemus. The first {Charge!} or {Reload!} played each turn takes effect twice.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "lore": null
+}

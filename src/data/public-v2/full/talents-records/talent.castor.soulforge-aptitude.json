@@ -1,0 +1,50 @@
+{
+  "id": "talent.castor.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0008",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nPlaying {Onyx Plume} will not add {Arithmetica Harmony}. {Corrosion} inflicted with {Cleansing Feathers} +[Arg3]% of Castor's ATK. {Corrosion} inflicted to enemies of the \"Church of the Lightbearers\" +[Arg4]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "200",
+        "220",
+        "240",
+        "260",
+        "280",
+        "300",
+        "320",
+        "340",
+        "360",
+        "400"
+      ]
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "23",
+        "26",
+        "29",
+        "32",
+        "35",
+        "38",
+        "41",
+        "44",
+        "50"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

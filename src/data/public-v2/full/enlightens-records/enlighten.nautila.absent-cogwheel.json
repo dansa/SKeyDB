@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.nautila.absent-cogwheel",
+  "ownerAwakenerId": "awakener-0036",
+  "slot": "E2",
+  "displayName": "Absent Cogwheel",
+  "descriptionTemplate": "{No Trespassing} Obtain {Prepare 1}.",
+  "descriptionArgs": {}
+}

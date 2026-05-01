@@ -1,0 +1,524 @@
+{
+  "schemaVersion": 1,
+  "scope": "covenants",
+  "recordCount": 21,
+  "records": [
+    {
+      "id": "covenant-0001",
+      "name": "Deus Ex Machina",
+      "assetId": "covenant-icon-001",
+      "lore": "The machine is purity absolute; the divine is supreme.\nWhat descends is no mere thread, but Ariadne herself.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Realm Mastery +[Arg1]",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "12"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Gain 1 Arithmetica in the first turn of each battle, and gain an additional 1 Arithmetica every 4 turns during boss battles.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "k"
+    },
+    {
+      "id": "covenant-0002",
+      "name": "Re-evolution",
+      "assetId": "covenant-icon-002",
+      "lore": "Proliferate, proliferate! Let the souls infused with the blood of the Mother Tree spread across the world.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Aliemus Regen Level +[Arg1]",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "2.4"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique: Gain 35 Aliemus at the start of exploration. After using Exalt in this battle, gain 2 Aliemus at turn end. This effect can stack up to 3 times.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "m"
+    },
+    {
+      "id": "covenant-0003",
+      "name": "Scarlet Embrace",
+      "assetId": "covenant-icon-004",
+      "lore": "The fabled architect of the automatons, who destroyed his creations with his own hands.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Crit. Rate +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "4.8",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "the wielder gains 35 Keyflare when dealing Damage, or 70 Keyflare for Crit. DMG. This effect can trigger up to 3 times per turn.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "t"
+    },
+    {
+      "id": "covenant-0004",
+      "name": "Crimson Pulse",
+      "assetId": "covenant-icon-005",
+      "lore": "The fabled architect of the automatons, who nourished his creations with his own blood.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Crit. DMG +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "7.2",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "After releasing Posse, the wielder gains 30% Temporary Crit. Rate.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "h"
+    },
+    {
+      "id": "covenant-0005",
+      "name": "Twisted Twins: Black",
+      "assetId": "covenant-icon-006",
+      "lore": "Blood-dark sacrifice. May the Twins bless your body.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Crit. Rate +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "4.8",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "At the start of odd turns, add the wielder's \"Strike\" with {Fleeting} and {Exhaust} to your hand.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "B"
+    },
+    {
+      "id": "covenant-0006",
+      "name": "Burial Ground's Sighs",
+      "assetId": "covenant-icon-008",
+      "lore": "I spit on your grave.\nFor you have found a rare peace in death.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "{Death Resistance} +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "16.8",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "At the start of the level, {Death Resistance} +25%. After triggering {Death Resistance}, the wielder gains 50 Aliemus.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "D"
+    },
+    {
+      "id": "covenant-0007",
+      "name": "Twisted Twins: White",
+      "assetId": "covenant-icon-009",
+      "lore": "Mist-white prayers. May the Twins bless your soul.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "{Death Resistance} +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "16.8",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Even-numbered turn starts: Add the wielder's \"Defense\" with {Fleeting} and {Exhaust} to your hand.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "s"
+    },
+    {
+      "id": "covenant-0008",
+      "name": "Cursed Rabbit",
+      "assetId": "covenant-icon-010",
+      "lore": "Everyone will love the fluffy white rabbit, including the lovely Alice.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Realm Mastery +[Arg1]",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "12"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "The wielder's Shield and HP Recovery increase by 12%.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "e"
+    },
+    {
+      "id": "covenant-0009",
+      "name": "Paradox",
+      "assetId": "covenant-icon-011",
+      "lore": "Inevitable, but accidental. Shackled, but unbound.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Keyflare Regen Level +[Arg1]",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "7.2"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique: Increases the wielder's Base Aliemus by 20. Increases Crit. Rate, Crit. DMG, Shield, and HP Recovery of the wielder's Command Cards by 20%.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "f"
+    },
+    {
+      "id": "covenant-0010",
+      "name": "Photosynthesis Rite",
+      "assetId": "covenant-icon-012",
+      "lore": "Science is spectral analysis; art is photosynthesis.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "DMG Amplification +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "7.2",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique. When the wielder's Command Card enters {Ultra Space}, {Embryo Fusion} +25%~50%, the lower the current HP, the higher the {Embryo Fusion} gained.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "l"
+    },
+    {
+      "id": "covenant-0011",
+      "name": "Returnal Line",
+      "assetId": "covenant-icon-013",
+      "lore": "Rise once more, O sunken city fated for rebirth. Return to us, @3!",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Realm Mastery +[Arg1]",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "12"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique: At the start of next battle, gain {STR} equal to 12% of the wielder's ATK. If the current Realm is {Aequor}, the effect changes to \"At turn start, there is a (50 + 0.25 * team's Realm Mastery)% chance to gain 1 stack of Tentacle Gathering. Multiple stacks can be gained if the probability exceeds 100%, and the chance doubles in Boss Battles.\"",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "d"
+    },
+    {
+      "id": "covenant-0012",
+      "name": "Ring of Chamber 36",
+      "assetId": "covenant-icon-014",
+      "lore": "Spin, then forget—this is all of her life.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Aliemus Regen Level +[Arg1]",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "2.4"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique. Keyflare cap and Posse Keyflare cost +200. Exalt Crit. Rate, Crit. DMG, Shield, and HP Recovery +30%.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "r"
+    },
+    {
+      "id": "covenant-0013",
+      "name": "Life Drain",
+      "assetId": "covenant-icon-015",
+      "lore": "The cord binds child to mother, a conduit for the fetus to drain an infinite future.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Keyflare Regen Level +[Arg1]",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "7.2"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique: At turn end, gain Keyflare equal to 200% of the equipping character's Keyflare Regen. If the current Realm is {Caro}, the effect changes to increase {Embryo Fusion} by +1% for every 5 Keyflare Regen.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "n"
+    },
+    {
+      "id": "covenant-0014",
+      "name": "April Tribute",
+      "assetId": "covenant-icon-016",
+      "lore": "Laid to rest in the spring of 18@2; the headstones stand as a chorus of silent hymns.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Crit. DMG +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "7.2",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique: At turn start, if the enemies' total HP is above 75%, the wielder's Temporary Crit. Rate and Crit. DMG increase by 35%.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "b"
+    },
+    {
+      "id": "covenant-0015",
+      "name": "Organic Form",
+      "assetId": "covenant-icon-017",
+      "lore": "Loneliness, love, despair, then death. Such is the fate of Lepidoptera.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Sigil Yield +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "3.6",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique. At the start of exploration, reduce up to 100% {Death Resistance}. For each 1% reduced, increase the wielder's Aliemus by 0.15%.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "g"
+    },
+    {
+      "id": "covenant-0016",
+      "name": "Sweet Slug",
+      "assetId": "covenant-icon-018",
+      "lore": "A lethal sweetness fills the air. Beware—the cloying grip of death is upon you.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "{Death Resistance} +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "25.2",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique. If {Annihilation} is unleashed and the Tentacle Stance is switched within 1 turn, the wielder's Shield, Healing, and Final DMG +25% this turn, with a 3-turn cooldown.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "p"
+    },
+    {
+      "id": "covenant-0017",
+      "name": "Dream of Medicine",
+      "assetId": "covenant-icon-019",
+      "lore": "A thousand years ago, five minutes was equivalent to forty ounces of fine sand.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "DMG Amplification +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "4.8",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique: Lose 8 Black Sigils after the battle ends. At the start of the battle, shuffle an original copy of each of the wielder's {Innate} Command Cards (except for Strike and Defense) into the Draw Pile.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "o"
+    },
+    {
+      "id": "covenant-0018",
+      "name": "Feast from Afar",
+      "assetId": "covenant-icon-020",
+      "lore": "Feast amidst the carols; celebrate the ruin of the world we once called home.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Sigil Yield +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "3.6",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "At the start of the exploration, gain 10 Black Sigils. The wielder's \"Defense\" increases Shield by 60%.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "A"
+    },
+    {
+      "id": "covenant-0019",
+      "name": "Unstained Chronicle",
+      "assetId": "covenant-icon-021",
+      "lore": "A gaze cast from the heart of eternity. Incorruptible, untainted, and absolute.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Keyflare Regen Level +[Arg1]",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "7.2"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique: After using Posse, recover HP equal to 12% of the wielder's CON, increasing with the percentage of lost HP, up to 24% of the wielder's CON.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "v"
+    },
+    {
+      "id": "covenant-0020",
+      "name": "Steppenwolf",
+      "assetId": "covenant-icon-022",
+      "lore": "Awoo, awoo!\nMasked and vengeful, the lone wolf roars and springs for the kill.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "DMG Amplification +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "4.8",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Wielder's Base DMG dealt +20%, and the {Poison} and {Counter} they deal +10%.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "w"
+    },
+    {
+      "id": "covenant-0021",
+      "name": "Chrysalis of the Maiden",
+      "assetId": "covenant-icon-023",
+      "lore": "O Great Homunculus, we proffer unto thee a vessel pure and without blemish.",
+      "setEffects": [
+        {
+          "set": 3,
+          "descriptionTemplate": "Crit. Rate +[Arg1]%",
+          "descriptionArgs": {
+            "Arg1": {
+              "kind": "fixed",
+              "value": "7.2",
+              "suffix": "%"
+            }
+          }
+        },
+        {
+          "set": 6,
+          "descriptionTemplate": "Team Unique. The wielder gains 8% Temporary Crit. DMG for each Tentacle after consuming an {Embryo} for the first time each turn, up to 80%.",
+          "descriptionArgs": {}
+        }
+      ],
+      "lineupToken": "C"
+    }
+  ]
+}

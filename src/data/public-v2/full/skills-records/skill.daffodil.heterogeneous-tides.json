@@ -1,0 +1,38 @@
+{
+  "id": "skill.daffodil.heterogeneous-tides",
+  "ownerAwakenerId": "awakener-0012",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Heterogeneous Tides",
+  "descriptionTemplate": "Obtain [Power:Arg1] {STR} and {Vulnerable} the front-row enemies. {Leap}: Change to: Obtain [Power:Arg2] {Temporary STR} and {Vulnerable} the front-row enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "2.4",
+        "2.8",
+        "3.2",
+        "3.6",
+        "4"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1"
+}

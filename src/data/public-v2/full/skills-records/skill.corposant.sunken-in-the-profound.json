@@ -1,0 +1,66 @@
+{
+  "id": "skill.corposant.sunken-in-the-profound",
+  "ownerAwakenerId": "awakener-0011",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Sunken in the Profound",
+  "descriptionTemplate": "Corposant gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, add 2 {Pilot} cards into hand. After switching to the {Tranquil Sea} stance, gain [Block:Arg2] Shield, with a 3-turn cooldown.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "DEF",
+      "substatBonus": {
+        "substat": "DeathResistance",
+        "multiplier": "0.05",
+        "mode": "scale_base"
+      }
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.corposant.unquenched-unfelled-undimmed.skill.corposant.sunken-in-the-profound",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.corposant.unquenched-unfelled-undimmed",
+      "ownerAwakenerId": "awakener-0011",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Corposant",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Corposant gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, add 2 {Pilot} into hand. For the first {Lightning Retribution} and {Ominous Semaphore} Corposant plays each turn, place 1 additional {Pilot} into hand. {Pilot} effect +50%. After switching to {Tranquil Sea} stance, gain [Block:Arg2] Shield, with a 3-turn cooldown."
+      }
+    },
+    {
+      "id": "upgrade.talent.corposant.cinders.skill.corposant.sunken-in-the-profound",
+      "upgraderId": "talent.corposant.cinders",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "enlighten.nymphaea.oceans-vessel",
+  "ownerAwakenerId": "awakener-0037",
+  "slot": "E1",
+  "displayName": "Ocean's Vessel",
+  "descriptionTemplate": "{Knell of Death} {Poison} dealt +100% and grants Shield equal to [Arg1]% of DEF (effect scales with {Knell of Death} skill level).",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "100"
+    }
+  }
+}

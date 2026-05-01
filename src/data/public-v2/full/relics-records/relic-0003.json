@@ -1,0 +1,78 @@
+{
+  "id": "relic-0003",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Aigis",
+  "assetId": "Icon_Creation_Unique_B03",
+  "ownerAwakenerId": "awakener-0003",
+  "ownerAwakenerName": "Aigis",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "descriptionTemplate": "At turn start, Aigis gains [Arg1] Aliemus. When Aigis deals DMG to enemies with Vulnerable, she also steals [Arg2] Temporary {STR}, up to [Arg3] {plural:[Arg3]|time|times} per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "ceil",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.0125
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "lore": null
+}

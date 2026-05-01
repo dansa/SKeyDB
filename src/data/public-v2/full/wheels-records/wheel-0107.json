@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0107",
+  "name": "Blue Stone Throne",
+  "assetId": "Weapon_Full_SR31",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "ALIEMUS_REGEN",
+  "descriptionTemplate": "Team Unique: At the start of the battle, grant the \"Immortal Dominion\" effect to all Command Cards in the Draw Pile with Arithmetica consumption greater than or equal to 3. This card has the {Retain} effect. After being played, all Awakeners temporarily increase their Crit. Rate by [StateArg1]% and remove \"Immortal Dominion.\" If the current Realm is {Aequor}, gain 1 Arithmetica after \"Immortal Dominion\" is removed.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "In the endless abyss, the Azure Throne stands sentinel,\nThe sky hangs low, the stars tremble, and all creation is silent.\n\nAncient and mysterious entities have been utterly annihilated,\nYet across generations, mortals chant their hymns in dreams.\nThe abyssal waters and secrets long sealed in dust,\nYour whispers surge like a tide, drowning the ravines of the soul.\n\nIn that boundless dreamscape, the Prophet and the Madman walk together,\nIn pursuit of the intangible spirit, fear and reverence intertwined.\nThe path entangled with dark algae, like a destiny being spun,\nGradually drawing the hearts of the lost toward that Azure Throne.\nAh, the universe's absurdity and its truth,\nWhere dream and reality intersect, an eternal brilliance flickers.",
+  "lineupToken": "x7"
+}

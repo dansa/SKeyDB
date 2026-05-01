@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.final-rule",
+  "displayName": "Final Rule",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Absolute Axiom"
+  ],
+  "descriptionTemplate": "When the Psyche Surge of the Awakener reaches +12, the {Absolute Axiom} is activated, granting unique effects.",
+  "descriptionArgs": {}
+}

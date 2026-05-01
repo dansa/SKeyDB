@@ -1,0 +1,96 @@
+{
+  "id": "awakener-0044",
+  "numericId": 44,
+  "name": "Salvador",
+  "ingameId": "B02",
+  "lineupToken": "R",
+  "realm": "CARO",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "salvador",
+    "iconKey": "salvador"
+  },
+  "baseStatsLv1": {
+    "CON": 66,
+    "ATK": 42,
+    "DEF": 66
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 2,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 2.1,
+    "ATK": 1.35,
+    "DEF": 2.1
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 2,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Salvador",
+    "birthday": "30-May",
+    "gender": "Male",
+    "height": "6'1.6''",
+    "weight": "165lbs",
+    "gnosticIndex": "45",
+    "characteristic": "Arithmetica Support    Shield to Offense",
+    "introduction": "Accumulates infinite benevolence in the Crimson Furnace, providing emergency support when an ally is injured.",
+    "awakerIntroduction": "Unique {Crimson Furnace} accumulation from Command Cards, HP, and even enemy Damage.\nCan flexibly convert furnace recovery into substantial Shields or Damage.\nIn this quest, a level 50 Salvador with skill level 5 and Enlighten 3 will join, starting with 50% Crit. Rate, gaining 20 Aliemus each turn, but enemies receive 150 Temporary {STR} in the first two turns.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "You need not fear his black eye patch; the smothering darkness will not obscure his boundless compassion. The sightless body may have perished, yet the will for redemption endures. Before him, everything should be loved, and everything will be loved in turn.\nThe words of the Our Father are forever engraved onto the Tablet, and through these blessed flesh and bones, He will bestow upon you \"The Blessing\".",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "Report on Anomalous Events in the Londinium Church District (Confidential)\n\nA.F. 315, February 3rd: During the anomalous event in the Londinium Church District, Bishop Salvador utilized the power of \"The Blessing\" to heal the Mythag Keeper and the residents of Londinium, exposing his identity as an Awakener in the process.\nDue to the insufficient spirit power of the linker, Bishop Salvador chose to exhaust himself to sustain \"The Blessing\" until the Keeper and the Awakener Ogier shattered the core of said anomaly—the Ritual Mirror. Subsequently, the Keeper took over Salvador's link, and \"The Blessing\" healed all individuals present, preventing any casualties.\nIt was discovered that Bishop Salvador's original linker was the former Bishop of the Church District, now the Archbishop of Londinium ■■■■■.\nIn A.F. 300, the Archbishop had accidentally awakened Salvador after coming into contact with the Holy Ash. Over the next five years, Salvador had served as an assistant priest in the Church District, succeeding him as the Bishop of the Church District following ■■■■■'s promotion.\nAfter the incident, the Keeper agreed to keep Bishop Salvador's Awakener identity confidential; thus, this information was not shared with the Mystia Treaty Committee. Apart from the core personnel of Mythag University, no one is currently aware of his identity as an Awakener.",
+        "unlockCondition": "Affinity Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Every time His Excellency the Bishop visits Mythag University, he is warmly welcomed by teachers and students alike.\nThe young Awakeners would tug at his hand, asking him to tell more stories from before the Flood. Students would also seek his counsel, inquiring if the Bishop would lend an ear to their troubles and woes. Even the seemingly cold and strong Awakeners and knowledgable professors approach the Bishop when he has free time: either to share their nightmares or to discuss the truths of the Soul.\nHis patience is unending, never tiring; Anyone may find acceptance and warmth with him.\n\"Of course, my child, is there aught I can do for you?\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "\"...In the southern Constante Federation, there was told a legend of 'The Blessing Bishop.' Before the Flood, 'The Blessing Bishop' came from the Central Church, and in his devotion and kindness, established the only orphanage in the area, sheltering the many sick and displaced refugees during a devastating plague.\nThe plague was fierce, sparing noone from its wrath. The bishop prayed day and night, eventually receiving the Father's blessing—a life-giving tablet. He performed miracles, resurrecting the dead and healing those gravely ill from the plague, using his own flesh and blood as divine offerings. Yet regardless of his miracles, this benevolent bishop was framed as a cohort of demons, and ultimately sentenced to death by burning at the stake.\nCoincidentally, during the same period, there were reports of a 'Blood Heretic' in the central @2 (now near Bondos in the southern Constante Federation). According to the 'Continental Inquisition Heresy Records,' this heretic held a tablet marked with demonic symbols, performing rituals with flesh and blood, and conducting wicked ceremonies on moonless nights. The heretic was captured by the Inquisition in 107 BD,and in his sincere repentance to the Father, was also sentenced to death by burning at the stake.\n Undeniably, there are many similarities between 'The Blessing Bishop' and the 'Blood Heretic': The same era, same region, same use of tablets and rituals. Considering the Inquisition's strong subjectivity, it is likely they stigmatized certain individuals as heretics. If we were to believe coincidences, the legendary 'Blessing Bishop' might have indeed been real, possibly even the 'Blood Heretic' recorded by the Inquisition...\"\n—Excerpt from 'Our Gods: Religion and Folk Beliefs in Southern Constante Federation'",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "\"The benevolent Father once said: Cherish all things within the sky, on the ground, in the water, and in the soil. For all beings are my offspring.\n\"Thus, I say: Render all suffering unto me. Let those tormented by life or plagued by disease be made whole. Let all pain and madness melt as frost before the rising sun. Let you, my brethren, receive joy everlasting. \n\"Burn me, grind my bones to dust, and rend my flesh asunder. For as long as you can find solace, I have little complaints.\"\n—B.F. 1@1, May 30, Sal @1doMartin @2I @1as, left at @3 the Tribunal",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Out of the Aeons",
+  "aliases": [
+    "salvador"
+  ],
+  "searchTags": [
+    "Heal",
+    "Self-Harm"
+  ]
+}

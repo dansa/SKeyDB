@@ -1,0 +1,22 @@
+{
+  "id": "overlay.xu.enthrall",
+  "displayName": "Enthrall",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Remove all enemies' {Spellbound}. Each stack removed causes {Fixed DMG} equal to [Arg1]% of the target's Max HP and triggers [Arg2]% {Poison}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "40",
+      "suffix": "%"
+    }
+  },
+  "ownerAwakenerId": "awakener-0054",
+  "iconId": "Battle_Card_Buff_080",
+  "textColor": "damage"
+}

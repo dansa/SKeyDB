@@ -1,0 +1,23 @@
+{
+  "id": "relic-0015",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Erica",
+  "assetId": "Icon_Creation_Unique_D08",
+  "ownerAwakenerId": "awakener-0015",
+  "ownerAwakenerName": "Erica",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "descriptionTemplate": "At turn start, Erica gains [Arg1] Aliemus. After playing [Arg2] Command Cards within 1 turn, Erica gains 2 Arithmetica and doubles the {STR} and {Alert} bonuses for {Electromagnetic Blast} in this battle.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "lore": null
+}

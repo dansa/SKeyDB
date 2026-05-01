@@ -1,0 +1,25 @@
+{
+  "id": "posse-0036",
+  "name": "Derision of Destiny",
+  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Energy:Arg3]. Draw [Arg2] {plural:[Arg2]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. If Castor is in your team, increase his Temp. DMG Amplification by [Arg1]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "lore": "They always brush past fleeting hopes at the wrong time.\nOnce, that tender hand guided him towards the light of freedom.\nAs he desperately flapped his wings and broke free from the prison of fate once more, why did that familiar hand pierce through his chest at this moment?",
+  "realm": "ULTRA",
+  "assetId": "posse-icon-36",
+  "imageAssetId": "CG_SD_L_D11_1",
+  "lineupToken": "O"
+}

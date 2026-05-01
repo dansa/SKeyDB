@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "scope": "relics",
+  "recordCount": 56,
+  "records": [
+    {
+      "id": "relic-0001",
+      "name": "Dimensional Image: \"24\"",
+      "assetId": "Icon_Creation_Unique_C06",
+      "ownerAwakenerId": "awakener-0001",
+      "ownerAwakenerName": "24"
+    },
+    {
+      "id": "relic-0002",
+      "name": "Dimensional Image: Agrippa",
+      "assetId": "Icon_Creation_Unique_B06",
+      "ownerAwakenerId": "awakener-0002",
+      "ownerAwakenerName": "Agrippa"
+    },
+    {
+      "id": "relic-0003",
+      "name": "Dimensional Image: Aigis",
+      "assetId": "Icon_Creation_Unique_B03",
+      "ownerAwakenerId": "awakener-0003",
+      "ownerAwakenerName": "Aigis"
+    },
+    {
+      "id": "relic-0004",
+      "name": "Dimensional Image: Alva",
+      "assetId": "Icon_Creation_Unique_C11",
+      "ownerAwakenerId": "awakener-0004",
+      "ownerAwakenerName": "Alva"
+    },
+    {
+      "id": "relic-0005",
+      "name": "Dimensional Image: Aurita",
+      "assetId": "Icon_Creation_Unique_O05",
+      "ownerAwakenerId": "awakener-0005",
+      "ownerAwakenerName": "Aurita"
+    },
+    {
+      "id": "relic-0006",
+      "name": "Dimensional Image: Caecus",
+      "assetId": "Icon_Creation_Unique_O04",
+      "ownerAwakenerId": "awakener-0006",
+      "ownerAwakenerName": "Caecus"
+    },
+    {
+      "id": "relic-0007",
+      "name": "Dimensional Image: Casiah",
+      "assetId": "Icon_Creation_Unique_D09",
+      "ownerAwakenerId": "awakener-0007",
+      "ownerAwakenerName": "Casiah"
+    },
+    {
+      "id": "relic-0008",
+      "name": "Dimensional Image: Castor",
+      "assetId": "Icon_Creation_Unique_D11",
+      "ownerAwakenerId": "awakener-0008",
+      "ownerAwakenerName": "Castor"
+    },
+    {
+      "id": "relic-0009",
+      "name": "Dimensional Image: Celeste",
+      "assetId": "Icon_Creation_Unique_O09",
+      "ownerAwakenerId": "awakener-0009",
+      "ownerAwakenerName": "Celeste"
+    },
+    {
+      "id": "relic-0010",
+      "name": "Dimensional Image: Clementine",
+      "assetId": "Icon_Creation_Unique_D13",
+      "ownerAwakenerId": "awakener-0010",
+      "ownerAwakenerName": "Clementine"
+    },
+    {
+      "id": "relic-0011",
+      "name": "Dimensional Image: Corposant",
+      "assetId": "Icon_Creation_Unique_O10",
+      "ownerAwakenerId": "awakener-0011",
+      "ownerAwakenerName": "Corposant"
+    },
+    {
+      "id": "relic-0012",
+      "name": "Dimensional Image: Daffodil",
+      "assetId": "Icon_Creation_Unique_D02",
+      "ownerAwakenerId": "awakener-0012",
+      "ownerAwakenerName": "Daffodil"
+    },
+    {
+      "id": "relic-0013",
+      "name": "Dimensional Image: Doll",
+      "assetId": "Icon_Creation_Unique_C02",
+      "ownerAwakenerId": "awakener-0013",
+      "ownerAwakenerName": "Doll"
+    },
+    {
+      "id": "relic-0014",
+      "name": "Dimensional Image: Doresain",
+      "assetId": "Icon_Creation_Unique_B10",
+      "ownerAwakenerId": "awakener-0014",
+      "ownerAwakenerName": "Doresain"
+    },
+    {
+      "id": "relic-0015",
+      "name": "Dimensional Image: Erica",
+      "assetId": "Icon_Creation_Unique_D08",
+      "ownerAwakenerId": "awakener-0015",
+      "ownerAwakenerName": "Erica"
+    },
+    {
+      "id": "relic-0016",
+      "name": "Dimensional Image: Faint",
+      "assetId": "Icon_Creation_Unique_B09",
+      "ownerAwakenerId": "awakener-0016",
+      "ownerAwakenerName": "Faint"
+    },
+    {
+      "id": "relic-0017",
+      "name": "Dimensional Image: Faros",
+      "assetId": "Icon_Creation_Unique_O03",
+      "ownerAwakenerId": "awakener-0017",
+      "ownerAwakenerName": "Faros"
+    },
+    {
+      "id": "relic-0018",
+      "name": "Dimensional Image: Doll: Inferno",
+      "assetId": "Icon_Creation_Unique_C02EX",
+      "ownerAwakenerId": "awakener-0018",
+      "ownerAwakenerName": "Doll: Inferno"
+    },
+    {
+      "id": "relic-0019",
+      "name": "Dimensional Image: Helot: Catena",
+      "assetId": "Icon_Creation_Unique_B05EX",
+      "ownerAwakenerId": "awakener-0019",
+      "ownerAwakenerName": "Helot: Catena"
+    },
+    {
+      "id": "relic-0020",
+      "name": "Dimensional Image: Ramona: Timeworn",
+      "assetId": "Icon_Creation_Unique_C01EX",
+      "ownerAwakenerId": "awakener-0020",
+      "ownerAwakenerName": "Ramona: Timeworn"
+    },
+    {
+      "id": "relic-0021",
+      "name": "Dimensional Image: Goliath",
+      "assetId": "Icon_Creation_Unique_O06",
+      "ownerAwakenerId": "awakener-0021",
+      "ownerAwakenerName": "Goliath"
+    },
+    {
+      "id": "relic-0022",
+      "name": "Dimensional Image: Hameln",
+      "assetId": "Icon_Creation_Unique_D12",
+      "ownerAwakenerId": "awakener-0022",
+      "ownerAwakenerName": "Hameln"
+    },
+    {
+      "id": "relic-0023",
+      "name": "Dimensional Image: Helot",
+      "assetId": "Icon_Creation_Unique_B05",
+      "ownerAwakenerId": "awakener-0023",
+      "ownerAwakenerName": "Helot"
+    },
+    {
+      "id": "relic-0024",
+      "name": "Dimensional Image: Horla",
+      "assetId": "Icon_Creation_Unique_D06",
+      "ownerAwakenerId": "awakener-0024",
+      "ownerAwakenerName": "Horla"
+    },
+    {
+      "id": "relic-0025",
+      "name": "Dimensional Image: Jenkin",
+      "assetId": "Icon_Creation_Unique_D07",
+      "ownerAwakenerId": "awakener-0025",
+      "ownerAwakenerName": "Jenkin"
+    },
+    {
+      "id": "relic-0026",
+      "name": "Dimensional Image: Karen",
+      "assetId": "Icon_Creation_Unique_C12",
+      "ownerAwakenerId": "awakener-0026",
+      "ownerAwakenerName": "Karen"
+    },
+    {
+      "id": "relic-0027",
+      "name": "Dimensional Image: Kathigu-Ra",
+      "assetId": "Icon_Creation_Unique_C16",
+      "ownerAwakenerId": "awakener-0027",
+      "ownerAwakenerName": "Kathigu-Ra"
+    },
+    {
+      "id": "relic-0028",
+      "name": "Dimensional Image: Leigh",
+      "assetId": "Icon_Creation_Unique_B08",
+      "ownerAwakenerId": "awakener-0028",
+      "ownerAwakenerName": "Leigh"
+    },
+    {
+      "id": "relic-0029",
+      "name": "Dimensional Image: Lily",
+      "assetId": "Icon_Creation_Unique_C10",
+      "ownerAwakenerId": "awakener-0029",
+      "ownerAwakenerName": "Lily"
+    },
+    {
+      "id": "relic-0030",
+      "name": "Dimensional Image: Liz",
+      "assetId": "Icon_Creation_Unique_D01",
+      "ownerAwakenerId": "awakener-0030",
+      "ownerAwakenerName": "Liz"
+    },
+    {
+      "id": "relic-0031",
+      "name": "Dimensional Image: Lotan",
+      "assetId": "Icon_Creation_Unique_C04",
+      "ownerAwakenerId": "awakener-0031",
+      "ownerAwakenerName": "Lotan"
+    },
+    {
+      "id": "relic-0032",
+      "name": "Dimensional Image: Miryam",
+      "assetId": "Icon_Creation_Unique_O07",
+      "ownerAwakenerId": "awakener-0032",
+      "ownerAwakenerName": "Miryam"
+    },
+    {
+      "id": "relic-0033",
+      "name": "Dimensional Image: Mouchette",
+      "assetId": "Icon_Creation_Unique_C17",
+      "ownerAwakenerId": "awakener-0033",
+      "ownerAwakenerName": "Mouchette"
+    },
+    {
+      "id": "relic-0034",
+      "name": "Dimensional Image: Murphy",
+      "assetId": "Icon_Creation_Unique_O02",
+      "ownerAwakenerId": "awakener-0034",
+      "ownerAwakenerName": "Murphy"
+    },
+    {
+      "id": "relic-0035",
+      "name": "Dimensional Image: Murphy: Fauxborn",
+      "assetId": "Icon_Creation_Unique_O02EX",
+      "ownerAwakenerId": "awakener-0035",
+      "ownerAwakenerName": "Murphy: Fauxborn"
+    },
+    {
+      "id": "relic-0036",
+      "name": "Dimensional Image: Nautila",
+      "assetId": "Icon_Creation_Unique_C07",
+      "ownerAwakenerId": "awakener-0036",
+      "ownerAwakenerName": "Nautila"
+    },
+    {
+      "id": "relic-0037",
+      "name": "Dimensional Image: Nymphaea",
+      "assetId": "Icon_Creation_Unique_C08",
+      "ownerAwakenerId": "awakener-0037",
+      "ownerAwakenerName": "Nymphaea"
+    },
+    {
+      "id": "relic-0038",
+      "name": "Dimensional Image: Ogier",
+      "assetId": "Icon_Creation_Unique_C03",
+      "ownerAwakenerId": "awakener-0038",
+      "ownerAwakenerName": "Ogier"
+    },
+    {
+      "id": "relic-0039",
+      "name": "Dimensional Image: Pandia",
+      "assetId": "Icon_Creation_Unique_C09",
+      "ownerAwakenerId": "awakener-0039",
+      "ownerAwakenerName": "Pandia"
+    },
+    {
+      "id": "relic-0040",
+      "name": "Dimensional Image: Pickman",
+      "assetId": "Icon_Creation_Unique_B12",
+      "ownerAwakenerId": "awakener-0040",
+      "ownerAwakenerName": "Pickman"
+    },
+    {
+      "id": "relic-0041",
+      "name": "Dimensional Image: Pollux",
+      "assetId": "Icon_Creation_Unique_D14",
+      "ownerAwakenerId": "awakener-0041",
+      "ownerAwakenerName": "Pollux"
+    },
+    {
+      "id": "relic-0042",
+      "name": "Dimensional Image: Ramona",
+      "assetId": "Icon_Creation_Unique_C01",
+      "ownerAwakenerId": "awakener-0042",
+      "ownerAwakenerName": "Ramona"
+    },
+    {
+      "id": "relic-0043",
+      "name": "Dimensional Image: Ryker",
+      "assetId": "Icon_Creation_Unique_C05",
+      "ownerAwakenerId": "awakener-0043",
+      "ownerAwakenerName": "Ryker"
+    },
+    {
+      "id": "relic-0044",
+      "name": "Dimensional Image: Salvador",
+      "assetId": "Icon_Creation_Unique_B02",
+      "ownerAwakenerId": "awakener-0044",
+      "ownerAwakenerName": "Salvador"
+    },
+    {
+      "id": "relic-0045",
+      "name": "Dimensional Image: Sanga",
+      "assetId": "Icon_Creation_Unique_O08",
+      "ownerAwakenerId": "awakener-0045",
+      "ownerAwakenerName": "Sanga"
+    },
+    {
+      "id": "relic-0046",
+      "name": "Dimensional Image: Sorel",
+      "assetId": "Icon_Creation_Unique_B04",
+      "ownerAwakenerId": "awakener-0046",
+      "ownerAwakenerName": "Sorel"
+    },
+    {
+      "id": "relic-0047",
+      "name": "Dimensional Image: Tawil",
+      "assetId": "Icon_Creation_Unique_C15",
+      "ownerAwakenerId": "awakener-0047",
+      "ownerAwakenerName": "Tawil"
+    },
+    {
+      "id": "relic-0048",
+      "name": "Dimensional Image: Thais",
+      "assetId": "Icon_Creation_Unique_B01",
+      "ownerAwakenerId": "awakener-0048",
+      "ownerAwakenerName": "Thais"
+    },
+    {
+      "id": "relic-0049",
+      "name": "Dimensional Image: Tinct",
+      "assetId": "Icon_Creation_Unique_D03",
+      "ownerAwakenerId": "awakener-0049",
+      "ownerAwakenerName": "Tinct"
+    },
+    {
+      "id": "relic-0050",
+      "name": "Dimensional Image: Tulu",
+      "assetId": "Icon_Creation_Unique_O01",
+      "ownerAwakenerId": "awakener-0050",
+      "ownerAwakenerName": "Tulu"
+    },
+    {
+      "id": "relic-0051",
+      "name": "Dimensional Image: Uvhash",
+      "assetId": "Icon_Creation_Unique_B07",
+      "ownerAwakenerId": "awakener-0051",
+      "ownerAwakenerName": "Uvhash"
+    },
+    {
+      "id": "relic-0052",
+      "name": "Dimensional Image: Wanda",
+      "assetId": "Icon_Creation_Unique_D04",
+      "ownerAwakenerId": "awakener-0052",
+      "ownerAwakenerName": "Wanda"
+    },
+    {
+      "id": "relic-0053",
+      "name": "Dimensional Image: Winkle",
+      "assetId": "Icon_Creation_Unique_D05",
+      "ownerAwakenerId": "awakener-0053",
+      "ownerAwakenerName": "Winkle"
+    },
+    {
+      "id": "relic-0054",
+      "name": "Dimensional Image: Xu",
+      "assetId": "Icon_Creation_Unique_B14",
+      "ownerAwakenerId": "awakener-0054",
+      "ownerAwakenerName": "Xu"
+    },
+    {
+      "id": "relic-0055",
+      "name": "Dimensional Image: Vortice",
+      "assetId": "Icon_Creation_Unique_O11",
+      "ownerAwakenerId": "awakener-0055",
+      "ownerAwakenerName": "Vortice"
+    },
+    {
+      "id": "relic-0056",
+      "name": "Dimensional Image: Arachne",
+      "assetId": "Icon_Creation_Unique_D10",
+      "ownerAwakenerId": "awakener-0056",
+      "ownerAwakenerName": "Arachne"
+    }
+  ]
+}

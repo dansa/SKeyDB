@@ -1,0 +1,11 @@
+{
+  "id": "overlay.horla.metaphor",
+  "displayName": "Metaphor",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Metaphors"
+  ],
+  "descriptionTemplate": "Each type of {Metaphor} can have a maximum of 3 stacks. Different {Metaphors} will enhance different effects of the Psalms:\n{Snarl Psalm}: Consumes all {Anger} {Metaphors}, each stack of {Metaphor} deals an additional 2 instances of DMG.\n{Elegy Psalm}: Consumes all {Grief} {Metaphors}, each stack of {Metaphor} provides additional HP Recovery.\n{Carol Psalm}: Consumes all {Happiness} {Metaphors}, each stack of {Metaphor} grants an additional 10 Aliemus.\n{Dirge Psalm}: Consumes all {Fear} {Metaphors}, each stack of {Metaphor} grants an additional {STR}.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0024"
+}

@@ -1,0 +1,99 @@
+{
+  "id": "awakener-0017",
+  "numericId": 17,
+  "name": "Faros",
+  "ingameId": "O03",
+  "lineupToken": "q",
+  "realm": "AEQUOR",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "faros",
+    "iconKey": "faros"
+  },
+  "baseStatsLv1": {
+    "CON": 26,
+    "ATK": 28,
+    "DEF": 32
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.2,
+    "ATK": 1.3,
+    "DEF": 1.5
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Faros",
+    "birthday": "8-Apr",
+    "gender": "Female",
+    "height": "5'5.7''",
+    "weight": "?",
+    "gnosticIndex": "23",
+    "characteristic": "Tentacle Generation    Replenish Hand",
+    "introduction": "Infects enemies with Viperous Venom-imbued Tentacles to humiliate them and uses their devoted faith to grant their team Cards, indicating the path forward.",
+    "awakerIntroduction": "Exalt and {Rouse} provides quick card shuffling, improving your team's margin for error.\n{Deep Currents} makes Tentacles inflict {Poison} on all enemies with each attack. Combine this with {Ocean of Elation} to inflict a large amount of {Poison} on enemies at once.\nIn this stage, you will enter battle with Faros at Level 50, Skill Level 5, and Enlighten 3. The enemy will gain Enhance on the first turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Beware, siren's mesmerizing charm lurks under her seemingly calm and rational words. Never show curiousity about the maybe different appearance beneath her malformed hemlet; never forget her long-lasting dissatisfaction with that humanoid body.\nHer gleaming light once lured moths to the molten warmth. Her burning fire once guided the lost to their doom. But now, only confusion flickers in her lighthouse, overlooking the disorienting sea.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "The past three years have seen a large number of shipwreck incidents in the Monge Triangle sea area, accompanied by several cases of totally missing.\nAccording to a sailor's testimony, a \"woman with a glowing head\" has been witnessed on the deck of the victim vessel during the rescue operation.\nThe field investigators rushed to the Monge Triangle sea area, but his ship had lost contact after arrivial. When the reinforcements finally found the spearhead ship, it had already lost power, drifting by the current towards the center of the Monge Triangle. All crew members were severely dehydrated and feeble. Massive hallucinations with acute intensity have been reported.\nDuring the medical examination of the crew, a Silvercore was found among Investigator Ivors' personal belongings. The investigator himself consistently denied any contact between the ship and any Awakener.\nThe Silvercore was later sealed by the Awakener Department, numbered 6291-S-S-01, scheduled to use as teaching materials for pre-investigators in A.F. 315.",
+        "unlockCondition": "Affinity Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Like a real lighthouse, most of the time her presence is nothing more than a steady glow at a corner, peaceful, isolated. Her words only illuminates when confusion stirs the air, while her guidances clearer than nautical navigation.\nOnly when she meets with other Aequor visitors does the light reveal her shadow, twisting under paranoid madness.\nIn contrast to her serene and intellectual appearance, Faros has unexpectedly profound knowledge in ocean voyages. Despite the unresolved suspicions of abducting and sacrificing sailors, she has assisted the university in revising numerous nautical documents under the Keeper's supervision.\nAccording to feedback from sailors of cooperative vessels, Faros's revisions, though effective, often (though not clear whether she is intentionally or not) steer the course towards the Monge Triangle.\nThe university has then prohibited Faros from accessing any ocean-related materials.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "The radiance of devotion illuminates her pilgrimage. A glorious ascension for the most devout follower of her true lord. A golden promise for the most loyal subject of her king.\nIt collapses. The Divine Realm is a sinking lie, a fortress without foundation, a vine drifting away from its soil. Her dolor billows. Her desolation turmoils. The remaining faith in the Divine Realm cannot keeps Faros afloat anymore. The poor wanderer eventually drowned.\nDiving deep into the sea, her love and hatred agitates into swelling waves. The water whirls and spumes and eddies, splendor as the ceremony fireworks in her memory, a festival almost like a solace.\nHer final torched gaze before being beheaded by the hero, must have been cling to the Divine Realm she couldn't forgo.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Return to her home, trace back to her origin, reunion with her lost dreamshe doesn't care how does her wish reflect in people's words. Even her body has altered to an Awakener, tides of her homeland still clamor in her soul.\nThe breath of sea-bottom volcanoes dissipated from her ears. The ocean's dreams writhing with ecstasies obscured from her eyes. Only her obsession with the Divine Realm still gleaming, more glorious than ever.\nMind her docility, a mere temporarily disguise. Her king's throne calls to her, like a lighthouse reaches through the aeons; her sacrifice will always be everything, like a wick's devotion to the light.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Fools",
+  "aliases": [
+    "faros"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Dispel",
+    "Draw",
+    "Hand Limit",
+    "Tentacles"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "skill.hameln.laudable-masterpiece",
+  "ownerAwakenerId": "awakener-0022",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Laudable Masterpiece",
+  "descriptionTemplate": "Hameln gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, place 1 {Symphony of Harmony} into hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.hameln.all-realms-resound.skill.hameln.laudable-masterpiece",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.hameln.all-realms-resound",
+      "ownerAwakenerId": "awakener-0022",
+      "operation": "mixed",
+      "ownerAwakenerName": "Hameln",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "5"
+          }
+        },
+        "descriptionTemplate": "Hameln gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, place 1 {Symphony of Harmony} into hand. At turn start, for every card with {Rondino} or {Crescendo}, Hameln gains [Energy:Arg2] Aliemus. When unleashing {Primal Chord}, for every 2 Command Cards with {Rondino} or {Crescendo} exist, DMG count +1"
+      }
+    }
+  ]
+}

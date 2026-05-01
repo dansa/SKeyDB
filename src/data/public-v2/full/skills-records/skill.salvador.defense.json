@@ -1,0 +1,89 @@
+{
+  "id": "skill.salvador.defense",
+  "ownerAwakenerId": "awakener-0044",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Salvador obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.salvador.divine-proxy.skill.salvador.defense",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.salvador.divine-proxy",
+      "ownerAwakenerId": "awakener-0044",
+      "operation": "mixed",
+      "ownerAwakenerName": "Salvador",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "3",
+              "3.6",
+              "4.2",
+              "4.8",
+              "5.4",
+              "6"
+            ],
+            "suffix": "%",
+            "stat": "CON"
+          }
+        },
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Salvador obtains [Energy:Arg2] Aliemus. Accumulate [Heal:Arg3] {Crimson Furnace} Healing."
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.caecus.unbending-resolve",
+  "ownerAwakenerId": "awakener-0006",
+  "slot": "OverExalt",
+  "displayName": "Unbending Resolve",
+  "descriptionTemplate": "One Tentacle attacks 5 times, obtaining a 25% {Counter} to DMG dealt.",
+  "descriptionArgs": {}
+}

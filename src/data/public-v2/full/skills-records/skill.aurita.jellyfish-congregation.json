@@ -1,0 +1,10 @@
+{
+  "id": "skill.aurita.jellyfish-congregation",
+  "ownerAwakenerId": "awakener-0005",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Jellyfish Congregation",
+  "descriptionTemplate": "Grants an additional 24% ATK {STR} and {Tentacle DMG}. For the next 5 times {Gland Division} is played, draw 1 Card.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

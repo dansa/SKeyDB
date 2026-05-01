@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.infinite-devour",
+  "displayName": "Infinite Devour",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "If {Embryo} cards are in hand, consume all to trigger the {Devour} effect once per {Embryo}.",
+  "descriptionArgs": {}
+}

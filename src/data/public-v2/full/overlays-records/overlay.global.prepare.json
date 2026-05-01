@@ -1,0 +1,20 @@
+{
+  "id": "overlay.global.prepare",
+  "displayName": "Prepare",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Prepare 1",
+    "Prepare 2",
+    "Prepare 3",
+    "Prepare 4",
+    "Prepare 5"
+  ],
+  "descriptionTemplate": "At turn end, Arithmetica Cost -[Layer], This effect triggers even if discarded.",
+  "descriptionArgs": {
+    "Layer": {
+      "kind": "fixed",
+      "value": "X"
+    }
+  },
+  "textColor": "damage"
+}

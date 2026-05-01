@@ -1,0 +1,87 @@
+{
+  "id": "skill.leigh.sanguivore",
+  "ownerAwakenerId": "awakener-0028",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Sanguivore",
+  "descriptionTemplate": "Leigh gains [Energy:Arg1] Aliemus. {Rouse}: After Leigh plays a card, {Embryo Fusion} +[Blood:Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.leigh.insatiable-craving.skill.leigh.sanguivore",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.leigh.insatiable-craving",
+      "ownerAwakenerId": "awakener-0028",
+      "operation": "mixed",
+      "ownerAwakenerName": "Leigh",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20"
+            ],
+            "suffix": "%"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "10",
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "5"
+          }
+        },
+        "descriptionTemplate": "Leigh gains [Energy:Arg1] Aliemus. {Rouse}: After Leigh plays a card, {Embryo Fusion} +[Blood:Arg2]%, and the next Exalt is Enhanced: gain Temporary {STR} equal to [Arg3]% of Permanent {STR}, stacking up to [Arg4] times."
+      }
+    }
+  ]
+}

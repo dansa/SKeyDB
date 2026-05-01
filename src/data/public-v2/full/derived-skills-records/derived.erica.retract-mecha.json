@@ -1,0 +1,39 @@
+{
+  "id": "derived.erica.retract-mecha",
+  "displayName": "Retract: Mecha",
+  "descriptionTemplate": "Gain [Arg1] Temporary {Alert}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Fragile} state. Whenever a card enters {Ultra Space}, transform into {Unleash: Mecha}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "2.5",
+        "3",
+        "3.5",
+        "4",
+        "4.5",
+        "5"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "skill.erica.unleash-mecha",
+  "rootSkillId": "skill.erica.unleash-mecha",
+  "ownerAwakenerId": "awakener-0015",
+  "cost": "0",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.erica.auto-rectification.derived.erica.retract-mecha",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.erica.auto-rectification",
+      "ownerAwakenerId": "awakener-0015",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Erica",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Arg1] Temporary {Alert}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Fragile} State. Place 1 of Erica's \"Defense\" with {Exhaust} into hand. Whenever a card enters {Ultra Space}, transform into {Unleash: Mecha}."
+      }
+    }
+  ]
+}

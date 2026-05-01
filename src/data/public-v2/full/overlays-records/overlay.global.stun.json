@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.stun",
+  "displayName": "Stun",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Stunned. Unable to act.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_023",
+  "textColor": "misc"
+}

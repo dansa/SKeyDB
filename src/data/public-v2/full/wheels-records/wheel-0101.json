@@ -1,0 +1,28 @@
+{
+  "id": "wheel-0101",
+  "name": "Million Loving Gaze",
+  "assetId": "Weapon_Full_SR25",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_RATE",
+  "descriptionTemplate": "Team Unique: Increases the DMG dealt by the wielder by [StateArg1]% of their Attack. If the current Realm is {Caro}, each time the Devouring Effect is triggered, it further increases the DMG dealt by the wielder by 3% of their Attack.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "lore": "It slithers through the vast chaos, only occasionally casting a fleeting glance at the beings crawling in the world.\n\nThose who catch its eye, like Sorel, are offered \"Contract terms\" that are hard to refuse. \nThose coarse and tedious, it strips of their flesh, leaving behind an eye that can no longer weep.\nThese eyes are also known as \"the favoured ones.\" \n\nThey flicker in and out in the cave, filled with both hope and despair, awaiting His Summon.\nYet a thousand years pass, ten thousand years pass, the favoured ones remain forgotten in the shadows.\n\n\"Then... you must have been left behind for some reason. What is your mission?\" \n\"We are waiting.\" \n\"Waiting for what?\" \n\"Just waiting.\" \n\"Will it cause pain?\" \n\"On the contrary. The love of the adult fills us entirely. Because that's the only thing we can do.\" \n\"Only by understanding this can one become a true believer.\"",
+  "lineupToken": "xU"
+}

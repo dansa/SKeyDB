@@ -1,0 +1,13 @@
+{
+  "id": "overlay.global.ultra-space",
+  "displayName": "Ultra Space",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "{Dimension Shuttle}: After playing the first Command Card each turn, move a Temporary Base Copy of it to {Ultra Space}. This cannot trigger during {Ultra Round}.\n{Ultra Round}: Upon entering an {Ultra Round}, place all cards in {Ultra Space} into hand instead of drawing. DMG, Shield, HP Recovery, Keyflare, Aliemus, {STR} changes, {Poison}, {Counter}, and {Bleed} caused during {Ultra Round} -25%.\n{Annihilation}: Once per turn, remove the leftmost card in {Ultra Space} and gain 1 \"Insight\".\n{Ultra Mastery}: For each 1 point of Realm Mastery, there is a [StateArg1]% probability at turn start to gain 1 \"Insight\". If the probability exceeds 100%, multiple copies can be obtained.\n{Pure Ultra}: If the team consists only of {Ultra} Awakeners, the {Ultra Mastery} effect is doubled, and the team is no longer affected by the stat reduction during {Ultra Round}.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "fixed",
+      "value": "X"
+    }
+  }
+}

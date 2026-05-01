@@ -1,0 +1,21 @@
+{
+  "id": "posse-0032",
+  "name": "Black Swan's Dance",
+  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg2], and the Temp. Crit. Rate & Crit. DMG of their Command Cards by [Arg1]%. If Liz is in your team, create 1 {Corrupted Flames} with {Exhaust}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "lore": "Light steps. A sharp turn. A spin. At the crescendo of the music, she dives headlong into flames. Burn. Burning is the only answer her dance can give.",
+  "realm": "ULTRA",
+  "assetId": "posse-icon-32",
+  "imageAssetId": "CG_SD_S_D01_1",
+  "lineupToken": "B"
+}

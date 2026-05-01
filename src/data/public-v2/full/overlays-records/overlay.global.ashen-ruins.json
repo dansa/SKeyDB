@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.ashen-ruins",
+  "displayName": "Ashen Ruins",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Shop node found during exploration.\n\"The sunken ruins of Limoria, where the presence behind them desires to exchange mysterious powers for Black Sigils in your hands.\"",
+  "descriptionArgs": {}
+}

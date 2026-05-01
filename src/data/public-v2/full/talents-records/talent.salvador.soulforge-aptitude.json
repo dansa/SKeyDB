@@ -1,0 +1,35 @@
+{
+  "id": "talent.salvador.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0044",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAfter selecting {Perception} in {Ashen Ruins}, Max HP +[Arg3]% of original Max HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "2.5",
+        "2.75",
+        "3",
+        "3.25",
+        "3.5",
+        "3.75",
+        "4",
+        "4.25",
+        "4.5",
+        "5"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

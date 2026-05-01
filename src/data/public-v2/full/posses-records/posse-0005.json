@@ -1,0 +1,16 @@
+{
+  "id": "posse-0005",
+  "name": "Tiny Wish",
+  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg1].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "35"
+    }
+  },
+  "lore": "On the day of her sixth birthday, the girl made a wish:\nTo have a toy bear named \"Bobo,\" and for love—not too much, just a little.\nThe girl has never been good at fantasizing, nor is she a greedy person.",
+  "realm": "FADED_LEGACY",
+  "assetId": "posse-icon-05",
+  "imageAssetId": "CG_C01_001",
+  "lineupToken": "i"
+}

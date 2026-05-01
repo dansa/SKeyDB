@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0100",
+  "name": "Poetic Bygone Days",
+  "assetId": "Weapon_Full_SR24",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DEATH_RESISTANCE",
+  "descriptionTemplate": "Team Unique: At the start of battle, draw 1 Command Card of the wielder and have a [StateArg1]% chance to reduce its Arithmetica Cost by 1. Each time {Death Resistance} is triggered, this effect is repeated once.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "40",
+        "60",
+        "80",
+        "100"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Since her poems became popular in Cité, her friends have been even more diligent in bringing her flowers.\n\"There's no need for so many flowers, Colette. It's just too wasteful.\"\nToday's roses are piled up with those from yesterday, the day before, and the day before that. The old flowers have even started to rot due to overcrowding.\n\"How can it be wasteful? We agreed before to exchange my flowers for your poems.\"\nColette shook her head, looking at her somewhat awkwardly.\nYes, exchanging flowers for poems—that was their agreement. She could sense that something seemed to have changed, but she was unwilling to think further.\nShe continued to write poetry, day and night. Once, her poems flowed effortlessly from her pen, but now, her writing has become somewhat labored.\nThe looks on her friends' faces as they bring flowers have started to feel increasingly unfamiliar. As she gazes at the quickly decaying roses filling her room and smells their rotten scent, she genuinely feels regret and melancholy.\nBut she has never stopped her pen from moving.\n\"I will use the flowers that grow from this land to buy us clothes and food. One day, I will even buy the house up there!\"\n\"Everyone has something they were born to do. I was born to work for this garden, for that house... and you, you were born to write poetry.\"\n\"I believe in you, Horla! From today onwards, I will keep all your poems safe. In the future, I will exchange my flowers for your poems!\"\nFlowers and poetry are the promises they make to each other.\nShe will never stop her pen.",
+  "lineupToken": "xR"
+}

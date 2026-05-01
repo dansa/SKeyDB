@@ -1,0 +1,74 @@
+{
+  "id": "posse-0025",
+  "name": "Festival of Tides",
+  "descriptionTemplate": "Draw 2 cards. Recover 2 Arithmetica. All Awakeners lose 5 Aliemus. If your Tentacle Stance is {Tranquil Sea}, inflict [Arg1] {Poison} on all enemies. Inflict 3× that much {Poison} instead in Boss Battle.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountDamagePower"
+                  },
+                  {
+                    "const": 0.01
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.08
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "accountDamagePower",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "The High Priestess of Lemuria never expects a response from the ocean.\n\nShe offers everything to the ocean, which has nothing to do with the ocean.",
+  "realm": "AEQUOR",
+  "assetId": "posse-icon-25",
+  "imageAssetId": "CG_SD_L_O07_3",
+  "lineupToken": "C"
+}

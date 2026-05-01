@@ -1,0 +1,55 @@
+{
+  "id": "skill.aigis.a-small-wish",
+  "ownerAwakenerId": "awakener-0003",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "A Small Wish",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG and inflict [Arg2] {plural:[Arg2]|turn|turns} of {Vulnerable}. {Embryo Fusion} +[Arg3]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "12",
+        "14.4",
+        "16.8",
+        "19.2",
+        "21.6",
+        "24"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.aigis.nightborne-wings.skill.aigis.a-small-wish",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.aigis.nightborne-wings",
+      "ownerAwakenerId": "awakener-0003",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Aigis",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG and inflict [Arg2] {plural:[Arg2]|turn|turns} of {Vulnerable}. {Embryo Fusion} +[Arg3]%. When {Devour} is triggered, move {A Small Wish} from the Discard Pile to your hand and reduce its Arithmetica Cost to 0."
+      }
+    }
+  ]
+}

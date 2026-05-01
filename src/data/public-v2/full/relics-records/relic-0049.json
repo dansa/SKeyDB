@@ -1,0 +1,23 @@
+{
+  "id": "relic-0049",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Tinct",
+  "assetId": "Icon_Creation_Unique_D03",
+  "ownerAwakenerId": "awakener-0049",
+  "ownerAwakenerName": "Tinct",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "descriptionTemplate": "At turn start, Tinct gains [Arg1] Aliemus. After triggering a {Leap} with Tinct's Command Card, return it to hand and reduce its Arithmetica Cost by 1. This effect can occur a maximum of [Arg2] {plural:[Arg2]|time|times} per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": null
+}

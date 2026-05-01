@@ -1,0 +1,158 @@
+{
+  "id": "skill.pandia.honey-colored-tragedy",
+  "ownerAwakenerId": "awakener-0039",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Honey-Colored Tragedy",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies 2 times. Each stack of {Counter} increases DMG by [Arg2]. Obtain [Power:Arg3] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "2.4",
+        "2.8",
+        "3.2",
+        "3.6",
+        "4"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pandia.sweet-surrender.skill.pandia.honey-colored-tragedy",
+      "upgraderSlot": "OverExalt",
+      "upgraderId": "enlighten.pandia.sweet-surrender",
+      "ownerAwakenerId": "awakener-0039",
+      "operation": "mixed",
+      "ownerAwakenerName": "Pandia",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "60",
+              "72",
+              "84",
+              "96",
+              "108",
+              "120"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "1"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "2.5",
+              "3",
+              "3.5",
+              "4",
+              "4.5",
+              "5"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies 2 times. Each stack of {Counter} increases DMG by [Arg2]. Obtain [Power:Arg3] {STR}. Obtain [Counterattack:Arg4] stacks of {Counter}."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.pandia.youre-being-naughty.skill.pandia.honey-colored-tragedy",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.pandia.youre-being-naughty",
+      "ownerAwakenerId": "awakener-0039",
+      "operation": "mixed",
+      "ownerAwakenerName": "Pandia",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "60",
+              "72",
+              "84",
+              "96",
+              "108",
+              "120"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "1"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "2.5",
+              "3",
+              "3.5",
+              "4",
+              "4.5",
+              "5"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies 2 times. Each stack of {Counter} increases DMG by [Arg2]. Obtain [Power:Arg3] {STR}. Obtain [Counterattack:Arg4] stacks of {Counter}."
+      }
+    }
+  ]
+}

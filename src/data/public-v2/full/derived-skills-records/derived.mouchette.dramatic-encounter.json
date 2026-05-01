@@ -1,0 +1,22 @@
+{
+  "id": "derived.mouchette.dramatic-encounter",
+  "displayName": "Dramatic Encounter",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to a random enemy [Arg2] {plural:[Arg2]|time|times}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "skill.mouchette.mist-realm-vestige",
+  "rootSkillId": "skill.mouchette.mist-realm-vestige",
+  "ownerAwakenerId": "awakener-0033",
+  "cost": "0"
+}

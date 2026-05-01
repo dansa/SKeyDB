@@ -1,0 +1,34 @@
+{
+  "id": "wheel-0025",
+  "name": "Will Unyielding",
+  "assetId": "Weapon_Full_C11",
+  "ownerAwakenerId": "awakener-0004",
+  "ownerAwakenerName": "Alva",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "DEATH_RESISTANCE",
+  "descriptionTemplate": "Team Unique: The wielder's base DMG and Shield increase by [StateArg1]%. At the start of exploration, add one of the wielder's \"Strike\" and one \"Defense\" to the deck. After the wielder plays \"Defense,\" the next \"Strike\"'s Crit. Rate and Crit. DMG increase by 15%. After the wielder plays \"Strike,\" the next \"Defense\"'s Shield +15%. Can stack up to 3 times.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ]
+    }
+  },
+  "lore": "\"Retreat, retreat!\"\n\"Retreat to @3! Move quickly!\"\n\"Help, help me! Don't abandon me!\"\n\"Leave him behind, retreat now—Alva!\"\nThe soldier wielding the gunblade surged forward, explosions erupting around her, blending with the clamor of battle, screams, and the blaring war horn. Blood drenched the earth, its stench overpowering even the smell of gunpowder. Lifeless soldiers lay scattered, their uniforms dyed a vivid red regardless of their original colors.\nAlva clenched her teeth, pushing forward against the relentless onslaught of enemies. She spotted him—a young man crying for help, pinned to the ground, desperately fending off a towering enemy's dagger.\nA deafening gunshot and searing pain struck simultaneously; the nearby enemy collapsed slowly. Alva spun around and slashed, enduring the agony in her leg as she lunged forward, driving her blade into her opponent's chest and pulling the trigger.\nBlood sprayed everywhere; she hastily wiped her face, only to realize the young man was gone.\nShe glanced down—a knife protruded from her left knee, blood gushing out.\nTearing a strip of cloth from her cloak to staunch the bleeding, she used her gunblade as a makeshift crutch and limped after her unit.",
+  "lineupToken": "G"
+}

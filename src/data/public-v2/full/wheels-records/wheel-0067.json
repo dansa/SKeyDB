@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0067",
+  "name": "Hope",
+  "assetId": "Weapon_Full_P07",
+  "ownerAwakenerName": null,
+  "rarity": "R",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_RATE",
+  "descriptionTemplate": "Team Unique: Recover [StateArg1]% of lost HP after walking a new Tile. After using an Emergency Gnosis, increase all Awakeners' Crit. Rate and Crit. DMG by 100%. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Blessings for the birds and the bees.",
+  "lineupToken": "xm"
+}

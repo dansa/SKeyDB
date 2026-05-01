@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.divine-realm-surging-tides",
+  "displayName": "Divine Realm: Surging Tides",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Default Tentacle stance at turn start, with 100% {Tentacle DMG}. At turn end, if still in {Surging Tides} stance, gain 1 Permanent Tentacle.",
+  "descriptionArgs": {}
+}

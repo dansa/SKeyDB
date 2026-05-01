@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.clementine.soul-healing-journey",
+  "ownerAwakenerId": "awakener-0010",
+  "slot": "E2",
+  "displayName": "Soul Healing Journey",
+  "descriptionTemplate": "{Lifeform Reconstruction} additionally gains 200% of Clementine's Keyflare Regen as Keyflare. For each stack of {Symbiosis} removed, Clementine's Base DMG +3%. At the end of each battle, Clementine's Base DMG +25%.",
+  "descriptionArgs": {}
+}

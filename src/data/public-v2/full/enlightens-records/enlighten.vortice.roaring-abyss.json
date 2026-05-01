@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.vortice.roaring-abyss",
+  "ownerAwakenerId": "awakener-0055",
+  "slot": "E2",
+  "displayName": "Roaring Abyss",
+  "descriptionTemplate": "Vortice's \"Strike\" and \"Defense\" increase the next Vortice Exalt's Crit. Rate by +10%, and reduce the next {Reload!} Arithmetica Cost by 1.",
+  "descriptionArgs": {}
+}

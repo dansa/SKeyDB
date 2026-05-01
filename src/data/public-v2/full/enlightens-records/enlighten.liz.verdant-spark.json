@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.liz.verdant-spark",
+  "ownerAwakenerId": "awakener-0030",
+  "slot": "E1",
+  "displayName": "Verdant Spark",
+  "descriptionTemplate": "{Corrupted Flames} will upgrade to {Deadly Flames} if it remains in the hand or {Ultra Space} at turn end.",
+  "descriptionArgs": {}
+}

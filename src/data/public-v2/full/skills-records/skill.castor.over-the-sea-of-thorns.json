@@ -1,0 +1,10 @@
+{
+  "id": "skill.castor.over-the-sea-of-thorns",
+  "ownerAwakenerId": "awakener-0008",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Over the Sea of Thorns",
+  "descriptionTemplate": "Add 3 additional {Onyx Plume} to your hand. This turn, increase the amount of Shield {Retained} by {Onyx Plume} by 10% of Castor's DEF, and each time you play an {Onyx Plume} card, additionally inflict Castor's ATK*140% stacks of {Corrosion}.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

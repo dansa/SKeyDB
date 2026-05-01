@@ -1,0 +1,34 @@
+{
+  "id": "wheel-0088",
+  "name": "Nobleman's Staff",
+  "assetId": "Weapon_Full_SR12",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "ALIEMUS_REGEN",
+  "descriptionTemplate": "Team Unique: Increases the base Exalt DMG of the wielder by [StateArg1]%, and increases shield and HP Recovery by [StateArg2]%.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "There are many speculations circulating in the Mythag campus about Lord Dexter's staff.\n\n\"There's no doubt that the lord's staff hides as many secrets as his smile.\nIs it inlaid with silver capable of harnessing the power of the Awakeners, or is it secretly filled with gunpowder, ready to transform into a firearm?\nLet Lord Dexter reveal it for us!\"\n\nAfter quickly noting down the opening remarks, Hannah aimed her camera at Lord Dexter, eagerly awaiting the words from the holder himself.\n\n\"This? Nothing special, just the daily staff custom-made for the Dexter family.\nThe gem used on mine is even less precious than my brother's.\nIf I had to say what makes it special...\nIt has once been stained with my parents' and brother's blood; does that count?\"",
+  "lineupToken": "H"
+}

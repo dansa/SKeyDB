@@ -1,0 +1,39 @@
+{
+  "id": "derived.miryam.heretical-faith",
+  "displayName": "Heretical Faith",
+  "descriptionTemplate": "Miryam gains [Energy:Arg3] Aliemus.{Rouse}: Tentacle Limit and Tentacle Count +1, apply 1 layer of {Weakness} and {Vulnerable} to all enemies. Put 1 {The End of Belief} into your hand. Choose: {Iron Resolve} or {Revelate Devotion}.",
+  "descriptionArgs": {
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.prepare",
+      "value": 3
+    },
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "derivedFromId": "skill.miryam.testament-of-faith",
+  "rootSkillId": "skill.miryam.testament-of-faith",
+  "ownerAwakenerId": "awakener-0032",
+  "childDerivedSkillIds": [
+    "derived.miryam.iron-resolve",
+    "derived.miryam.revelate-devotion",
+    "derived.miryam.the-end-of-belief"
+  ],
+  "cost": "6"
+}

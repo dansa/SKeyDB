@@ -33,6 +33,7 @@
     "data:refresh-wheel-v1": "npm run data:compile-wheels-full-v1 && npm run data:derive-wheels-lite-v1",
     "data:sync-awakener-ids": "node scripts/sync-awakener-ids.mjs",
     "data:sync-posse-indices": "node scripts/sync-posse-indices.mjs",
+    "data:sync-public-v2": "node scripts/sync-public-v2-data.mjs",
     "data:sync-wheel-data": "node scripts/sync-wheel-data.mjs",
     "prepare": "node scripts/install-git-hooks.mjs"
   },

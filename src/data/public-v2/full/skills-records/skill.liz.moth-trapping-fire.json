@@ -1,0 +1,29 @@
+{
+  "id": "skill.liz.moth-trapping-fire",
+  "ownerAwakenerId": "awakener-0030",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Moth-Trapping Fire",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield, put 1 {Exhaust} {Green Flames} into hand. {Leap}: Before the start of next turn, each time you are attacked, put 1 {Exhaust} {Green Flames} into hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "24",
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2"
+}

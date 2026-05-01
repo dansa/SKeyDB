@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.tranquil-sea",
+  "displayName": "Tranquil Sea",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "This turn, {Tentacle DMG} -50%, gain [Block:Arg1] Shield. Further gain [Block:Arg2] Shield every time Tentacle attacks.",
+  "descriptionArgs": {}
+}

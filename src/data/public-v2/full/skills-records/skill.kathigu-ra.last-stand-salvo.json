@@ -1,0 +1,132 @@
+{
+  "id": "skill.kathigu-ra.last-stand-salvo",
+  "ownerAwakenerId": "awakener-0027",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Last Stand Salvo",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG twice, gain [Power:Arg2] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "3",
+        "3.6",
+        "4.2",
+        "4.8",
+        "5.4",
+        "6"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.kathigu-ra.astral-meltdown.skill.kathigu-ra.last-stand-salvo",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.kathigu-ra.astral-meltdown",
+      "ownerAwakenerId": "awakener-0027",
+      "operation": "mixed",
+      "ownerAwakenerName": "Kathigu-Ra",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "3",
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "3",
+              "3.6",
+              "4.2",
+              "4.8",
+              "5.4",
+              "6"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG twice, gain [Power:Arg4] {STR}, and gain an additional [Power:Arg3] {STR} when possessing 3 stacks of {Fiamma}."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.kathigu-ra.endless-purgatory.skill.kathigu-ra.last-stand-salvo",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.kathigu-ra.endless-purgatory",
+      "ownerAwakenerId": "awakener-0027",
+      "operation": "mixed",
+      "ownerAwakenerName": "Kathigu-Ra",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "3",
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "3",
+              "3.6",
+              "4.2",
+              "4.8",
+              "5.4",
+              "6"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG twice, gain [Power:Arg4] {STR}, and gain an additional [Power:Arg3] {STR} when possessing 3 stacks of {Fiamma}."
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "posse-0010",
+  "name": "Aurita's Treasure",
+  "descriptionTemplate": "Draw [Arg1] {plural:[Arg1]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. If the Realm includes {Aequor}, increase {Tentacle DMG} by [Arg2].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.01
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "Glass tank. Fish tank. Palace.\n\nCall it whatever you like. It is a small paradise where Aurita's friends reside, free from Dissolution and suffering.",
+  "realm": "AEQUOR",
+  "assetId": "posse-icon-10",
+  "imageAssetId": "CG_SD_S_O05_2",
+  "lineupToken": "j"
+}

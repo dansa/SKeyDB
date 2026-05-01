@@ -1,0 +1,10 @@
+{
+  "id": "skill.wanda.lost-dreams-guide",
+  "ownerAwakenerId": "awakener-0052",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Lost Dream's Guide",
+  "descriptionTemplate": "No longer consume {Dreamlure}, simultaneously trigger {Hypnotic Veins}, {Slumber Counter}, and {Echoes of Whispers}.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

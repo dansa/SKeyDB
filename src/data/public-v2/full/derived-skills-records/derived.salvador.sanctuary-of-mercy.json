@@ -1,0 +1,28 @@
+{
+  "id": "derived.salvador.sanctuary-of-mercy",
+  "displayName": "Sanctuary of Mercy",
+  "descriptionTemplate": "Gain [Arg1] {plural:[Arg1]|stack|stacks} of Temporary {Barrier}, {Embryo Fusion} +[Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "100",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "derivedFromId": "skill.salvador.benediction",
+  "rootSkillId": "skill.salvador.benediction",
+  "ownerAwakenerId": "awakener-0044",
+  "cost": "0"
+}

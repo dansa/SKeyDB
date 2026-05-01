@@ -1,0 +1,10 @@
+{
+  "id": "skill.tinct.cosmic-symphony",
+  "ownerAwakenerId": "awakener-0049",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Cosmic Symphony",
+  "descriptionTemplate": "Set the Arithmetica Cost of 5 random cards in hand to 0 until turn end.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

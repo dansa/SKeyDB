@@ -1,0 +1,50 @@
+{
+  "id": "talent.ryker.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0043",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakeners' CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nRyker gains +[Arg3]% Crit. Rate and +[Arg4]% Black Sigil Yield. If at least 500 Black Sigils have been obtained through battle, upgrade 1 {Chaotic Legacy} at the start of next battle.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "20"
+      ]
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "40",
+        "44",
+        "48",
+        "52",
+        "56",
+        "60",
+        "64",
+        "68",
+        "72",
+        "80"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

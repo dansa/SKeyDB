@@ -1,0 +1,75 @@
+{
+  "id": "skill.doll-inferno.defense",
+  "ownerAwakenerId": "awakener-0018",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. \"Doll: Inferno\" obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.doll-inferno.envoy-of-extinction.skill.doll-inferno.defense",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.doll-inferno.envoy-of-extinction",
+      "ownerAwakenerId": "awakener-0018",
+      "operation": "override_args",
+      "ownerAwakenerName": "Doll: Inferno",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

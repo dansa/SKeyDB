@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.corposant.willing-sacrifice",
+  "ownerAwakenerId": "awakener-0011",
+  "slot": "E3",
+  "displayName": "Willing Sacrifice",
+  "descriptionTemplate": "{To Sail the Sundered Tides} makes all enemies Vulnerable for 1 turn, increases Temporary Crit. DMG by 20%, and each time {Death Resistance} is triggered in this battle, it further +10%.",
+  "descriptionArgs": {}
+}

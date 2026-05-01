@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.casiah.a-thousand-and-one-miracles",
+  "ownerAwakenerId": "awakener-0007",
+  "slot": "AbsoluteAxiom",
+  "displayName": "A Thousand and One Miracles",
+  "descriptionTemplate": "{Rouse} {Opening Act} is enhanced: Whenever any Awakener plays \"Strike,\" Casiah's {Opening Act} is triggered, generating Temporary {STR}.",
+  "descriptionArgs": {}
+}

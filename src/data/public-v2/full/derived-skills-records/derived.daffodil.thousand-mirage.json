@@ -1,0 +1,15 @@
+{
+  "id": "derived.daffodil.thousand-mirage",
+  "displayName": "Thousand Mirage",
+  "descriptionTemplate": "Synthetic group wrapper for Thousand Mirage customization. Browse base cards and potential extra-effect choices separately.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "skill.daffodil.sea-of-primordial-essence",
+  "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "ownerAwakenerId": "awakener-0012",
+  "nodeKind": "group",
+  "childDerivedSkillIds": [
+    "derived.daffodil.thousand-mirage-base-cards",
+    "derived.daffodil.thousand-mirage-extra-effects"
+  ]
+}

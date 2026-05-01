@@ -1,0 +1,11 @@
+{
+  "id": "posse-0007",
+  "name": "Unequal Exchange",
+  "descriptionTemplate": "Draw 4 cards.",
+  "descriptionArgs": {},
+  "lore": "Mythag usually discourages me from contacting that merchant, but if it's to save everyone from this mire...",
+  "realm": "OTHER",
+  "assetId": "posse-icon-07",
+  "imageAssetId": "SScene_DaffodilShop_Bones",
+  "lineupToken": "e"
+}

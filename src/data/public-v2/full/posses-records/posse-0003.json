@@ -1,0 +1,112 @@
+{
+  "id": "posse-0003",
+  "name": "Warded Injection",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. If current HP is below 25%, recover [Heal:Arg2] HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.1
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.1
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "She said \"it doesn't hurt\"... but that must be a lie; she is clearly the child most afraid of pain.",
+  "realm": "FADED_LEGACY",
+  "assetId": "posse-icon-03",
+  "imageAssetId": "CG_C04_002",
+  "lineupToken": "b"
+}

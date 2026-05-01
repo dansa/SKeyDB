@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.goliath.ascent-of-the-tyrant",
+  "ownerAwakenerId": "awakener-0021",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Ascent of the Tyrant",
+  "descriptionTemplate": "{Rouse} {Preemptive Revenge} is enhanced: Goliath gains an additional 300% {STR} Bonus while in {Raging Waves} stance.",
+  "descriptionArgs": {}
+}

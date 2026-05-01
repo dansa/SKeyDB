@@ -1,0 +1,25 @@
+{
+  "id": "covenant-0010",
+  "name": "Photosynthesis Rite",
+  "assetId": "covenant-icon-012",
+  "lore": "Science is spectral analysis; art is photosynthesis.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "DMG Amplification +[Arg1]%",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "7.2",
+          "suffix": "%"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "Team Unique. When the wielder's Command Card enters {Ultra Space}, {Embryo Fusion} +25%~50%, the lower the current HP, the higher the {Embryo Fusion} gained.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "l"
+}

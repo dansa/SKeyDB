@@ -1,0 +1,11 @@
+{
+  "id": "derived.doll-inferno.self-destruct-finale",
+  "displayName": "Self-Destruct: Finale",
+  "descriptionTemplate": "Max HP reduced by 10%. Trigger the {Elation} and \"Curse\" effects.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "derived.doll-inferno.illusions-end",
+  "rootSkillId": "skill.doll-inferno.self-destruct",
+  "ownerAwakenerId": "awakener-0018",
+  "cost": "2"
+}

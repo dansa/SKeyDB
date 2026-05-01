@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.agrippa.lady-of-labyrinths",
+  "ownerAwakenerId": "awakener-0002",
+  "slot": "OverExalt",
+  "displayName": "Lady of Labyrinths",
+  "descriptionTemplate": "Draw 2 Command Cards from Agrippa that are not Strike or Defense. Reduce the Arithmetica Cost of 2 such cards by 1 this turn.",
+  "descriptionArgs": {}
+}

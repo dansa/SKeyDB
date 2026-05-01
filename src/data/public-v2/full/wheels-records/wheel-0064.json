@@ -1,0 +1,39 @@
+{
+  "id": "wheel-0064",
+  "name": "Emerge",
+  "assetId": "Weapon_Full_P04",
+  "ownerAwakenerName": null,
+  "rarity": "R",
+  "realm": "NEUTRAL",
+  "mainstatKey": "SIGIL_YIELD",
+  "descriptionTemplate": "Team Unique: D-Mark Store refresh attempts +1, refresh cost reduced by [StateArg1] Black Sigils. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "add",
+        "args": [
+          {
+            "const": 2.0
+          },
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "wheelRefinementLevel"
+              },
+              {
+                "const": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "wheelRefinementLevel"
+      ]
+    }
+  },
+  "lore": "After a great many years of amassing tremendous power, we hereby declare—",
+  "lineupToken": "xp"
+}

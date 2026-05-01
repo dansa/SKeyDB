@@ -1,0 +1,9 @@
+{
+  "id": "overlay.hameln.crescendo",
+  "displayName": "Crescendo",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Play this card to grant Hameln 3 Aliemus.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0022"
+}

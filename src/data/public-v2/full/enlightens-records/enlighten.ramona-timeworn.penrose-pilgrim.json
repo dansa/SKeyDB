@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.ramona-timeworn.penrose-pilgrim",
+  "ownerAwakenerId": "awakener-0020",
+  "slot": "E1",
+  "displayName": "Penrose Pilgrim",
+  "descriptionTemplate": "Gain 1 stack of {Negentropy} at turn end.",
+  "descriptionArgs": {}
+}

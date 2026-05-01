@@ -1,0 +1,89 @@
+{
+  "id": "skill.uvhash.screech-blood",
+  "ownerAwakenerId": "awakener-0051",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Screech, Blood!",
+  "descriptionTemplate": "Lose [Arg1]% Current HP. Deal [Damage:Arg2] DMG to all enemies. Obtain [Power:Arg3] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "2.4",
+        "2.8",
+        "3.2",
+        "3.6",
+        "4"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "0",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.uvhash.the-gladiator.skill.uvhash.screech-blood",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.uvhash.the-gladiator",
+      "ownerAwakenerId": "awakener-0051",
+      "operation": "override_args",
+      "ownerAwakenerName": "Uvhash",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "fixed",
+            "value": "10",
+            "suffix": "%"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "19.5",
+              "23.4",
+              "27.3",
+              "31.2",
+              "35.1",
+              "39"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "2.6",
+              "3.12",
+              "3.64",
+              "4.16",
+              "4.68",
+              "5.2"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        }
+      }
+    }
+  ]
+}

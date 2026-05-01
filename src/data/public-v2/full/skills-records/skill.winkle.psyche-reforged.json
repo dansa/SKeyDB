@@ -1,0 +1,67 @@
+{
+  "id": "skill.winkle.psyche-reforged",
+  "ownerAwakenerId": "awakener-0053",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Psyche Reforged",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield, discard all cards in hand, and for each card discarded, the Shield gained +50%. {Leap}: Do not discard cards and draw 1 card; the Shield gained +100%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "24",
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.winkle.forsaken-homeland.skill.winkle.psyche-reforged",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.winkle.forsaken-homeland",
+      "ownerAwakenerId": "awakener-0053",
+      "operation": "mixed",
+      "ownerAwakenerName": "Winkle",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "20",
+              "24",
+              "28",
+              "32",
+              "36",
+              "40"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          }
+        },
+        "descriptionTemplate": "Gain [Block:Arg1] Shield, discard all hands, for each card discarded, the Shield Generation +50% and gain [Block:Arg2] points of Delayed Shield. {Leap}: No longer discard cards and draw 2 cards, the Shield Generation +100%."
+      }
+    }
+  ]
+}

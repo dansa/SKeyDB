@@ -1,0 +1,175 @@
+{
+  "id": "skill.murphy-fauxborn.waltz-of-lemuria",
+  "ownerAwakenerId": "awakener-0035",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Waltz of Lemuria",
+  "descriptionTemplate": "Gain Keyflare equal to [Arg6]% Keyflare Regen. Trigger different effects based on current Tentacle Stance:\n{Surging Tides}: {Tentacle DMG} +[TentaclePower:Arg8], generate 1 Tentacle.\n{Tranquil Sea}: Gain [Block:Arg9] Shield, {Retain} 50% Shield to next turn.\n{Raging Waves}: Deal [Damage:Arg4] DMG [Arg3] {plural:[Arg3]|time|times} to the enemy with Highest HP, which enjoys a [Arg5]% {Tentacle DMG} bonus.",
+  "descriptionArgs": {
+    "Arg3": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg5": {
+      "kind": "scaling",
+      "values": [
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75"
+      ],
+      "suffix": "%"
+    },
+    "Arg6": {
+      "kind": "scaling",
+      "values": [
+        "200",
+        "220",
+        "240",
+        "260",
+        "280",
+        "300"
+      ],
+      "suffix": "%"
+    },
+    "Arg8": {
+      "kind": "scaling",
+      "values": [
+        "10.5",
+        "12.6",
+        "14.7",
+        "16.8",
+        "18.9",
+        "21"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg9": {
+      "kind": "scaling",
+      "values": [
+        "41",
+        "49.2",
+        "57.4",
+        "65.6",
+        "73.8",
+        "82"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.murphy-fauxborn.kneelers-supplication.skill.murphy-fauxborn.waltz-of-lemuria",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.murphy-fauxborn.kneelers-supplication",
+      "ownerAwakenerId": "awakener-0035",
+      "operation": "override_args",
+      "ownerAwakenerName": "Murphy: Fauxborn",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg3": {
+            "kind": "fixed",
+            "value": "5"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "30",
+              "36",
+              "42",
+              "48",
+              "54",
+              "60"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg5": {
+            "kind": "scaling",
+            "values": [
+              "50",
+              "55",
+              "60",
+              "65",
+              "70",
+              "75"
+            ],
+            "suffix": "%"
+          },
+          "Arg6": {
+            "kind": "scaling",
+            "values": [
+              "200",
+              "220",
+              "240",
+              "260",
+              "280",
+              "300"
+            ],
+            "suffix": "%"
+          },
+          "Arg8": {
+            "kind": "scaling",
+            "values": [
+              "11.55",
+              "13.86",
+              "16.17",
+              "18.48",
+              "20.79",
+              "23.1"
+            ],
+            "suffix": "%",
+            "stat": "ATK",
+            "substatBonus": {
+              "substat": "KeyflareRegen",
+              "multiplier": "0.2",
+              "mode": "scale_base"
+            }
+          },
+          "Arg9": {
+            "kind": "scaling",
+            "values": [
+              "45.1",
+              "54.12",
+              "63.14",
+              "72.16",
+              "81.18",
+              "90.2"
+            ],
+            "suffix": "%",
+            "stat": "DEF",
+            "substatBonus": {
+              "substat": "KeyflareRegen",
+              "multiplier": "0.2",
+              "mode": "scale_base"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

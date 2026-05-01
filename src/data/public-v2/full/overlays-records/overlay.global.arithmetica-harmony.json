@@ -1,0 +1,15 @@
+{
+  "id": "overlay.global.arithmetica-harmony",
+  "displayName": "Arithmetica Harmony",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "After playing [DescArg1] Command Cards, enter the {Arithmetica Harmony} state.",
+  "descriptionArgs": {
+    "DescArg1": {
+      "kind": "fixed",
+      "value": "11"
+    }
+  },
+  "iconId": "Battle_Card_Buff_069",
+  "textColor": "misc"
+}

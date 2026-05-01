@@ -1,0 +1,13 @@
+{
+  "id": "overlay.global.divine-realm-raging-waves",
+  "displayName": "Divine Realm: Raging Waves",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "This turn, {Tentacle DMG} becomes [Arg2]%, after dealing Active DMG, causes 1 Tentacle to attack the enemy. Loses 1 Tentacle at turn end. This stance can only be chosen when the current Permanent Tentacle Count exceeds 1, with a 3-turn cooldown.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "fixed",
+      "value": "X"
+    }
+  }
+}

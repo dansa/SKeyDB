@@ -1,0 +1,11 @@
+{
+  "id": "derived.tawil.utopian-veil",
+  "displayName": "Utopian Veil",
+  "descriptionTemplate": "View 3 Posse and choose 1 to release immediately.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "derived.tawil.memories",
+  "rootSkillId": "skill.tawil.pinions-of-time",
+  "ownerAwakenerId": "awakener-0047",
+  "cost": "0"
+}

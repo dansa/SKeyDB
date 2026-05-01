@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.corposant.sextants-calculation",
+  "ownerAwakenerId": "awakener-0011",
+  "slot": "E2",
+  "displayName": "Sextant's Calculation",
+  "descriptionTemplate": "{Ominous Semaphore} inflicts Weakness on all enemies for 1 Turn. For each Tentacle present, {Pilot}'s Shield, Strength, and {Tentacle DMG} increase by 5%, up to 50%.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,13 @@
+{
+  "id": "overlay.global.delayed-sacrifice",
+  "displayName": "Delayed Sacrifice",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "This status also counts as {Sacrifice}, gaining [Layer] {plural:[Layer]|stack|stacks} of the {Sacrifice} state at the start of next turn.",
+  "descriptionArgs": {
+    "Layer": {
+      "kind": "fixed",
+      "value": "X"
+    }
+  }
+}

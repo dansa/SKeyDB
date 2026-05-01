@@ -1,0 +1,39 @@
+{
+  "id": "skill.faros.lost-city-of-lemuria",
+  "ownerAwakenerId": "awakener-0017",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Lost City of Lemuria",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Dispel self {Vulnerable} state. Choose up to 3 cards from the Draw Pile and add them to your hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "36",
+        "43.2",
+        "50.4",
+        "57.6",
+        "64.8",
+        "72"
+      ],
+      "suffix": "%",
+      "stat": "DEF",
+      "substatBonus": {
+        "substat": "DamageAmplification",
+        "multiplier": "0.4",
+        "mode": "scale_base"
+      }
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.talent.faros.homesick.skill.faros.lost-city-of-lemuria",
+      "upgraderId": "talent.faros.homesick",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

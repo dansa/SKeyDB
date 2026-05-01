@@ -1,0 +1,11 @@
+{
+  "id": "overlay.doresain.corpse",
+  "displayName": "Corpse",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Corpses can be eaten by certain {Caro} Awakener(s) to trigger special effects. You can keep up to 3 Corpses, which is carried over to the next battle.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0014",
+  "iconId": "Battle_Card_Buff_076",
+  "textColor": "misc"
+}

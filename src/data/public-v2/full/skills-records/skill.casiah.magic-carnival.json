@@ -1,0 +1,80 @@
+{
+  "id": "skill.casiah.magic-carnival",
+  "ownerAwakenerId": "awakener-0007",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Magic Carnival",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Draw [Arg2] {plural:[Arg2]|card|cards}. For each Casiah Command Card drawn, deal [Damage:Arg1] DMG to a random enemy. Increase all of Casiah's Base DMG by [Arg3]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "45",
+        "54",
+        "63",
+        "72",
+        "81",
+        "90"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "0",
+      "substatBonus": {
+        "substat": "RealmMastery",
+        "multiplier": "0.2"
+      },
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.casiah.veil-of-illusion.skill.casiah.magic-carnival",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.casiah.veil-of-illusion",
+      "ownerAwakenerId": "awakener-0007",
+      "operation": "mixed",
+      "ownerAwakenerName": "Casiah",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "45",
+              "54",
+              "63",
+              "72",
+              "81",
+              "90"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "4"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "0",
+            "substatBonus": {
+              "substat": "RealmMastery",
+              "multiplier": "0.2"
+            },
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Draw [Arg2] {plural:[Arg2]|card|cards}. For each Symptom Card, State Card, or Casiah's Command Card drawn, deal [Damage:Arg1] DMG to a random enemy. Increase Casiah's Base DMG by [Arg3]%."
+      }
+    }
+  ]
+}

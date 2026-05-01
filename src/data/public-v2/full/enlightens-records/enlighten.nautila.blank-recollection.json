@@ -1,0 +1,20 @@
+{
+  "id": "enlighten.nautila.blank-recollection",
+  "ownerAwakenerId": "awakener-0036",
+  "slot": "E1",
+  "displayName": "Blank Recollection",
+  "descriptionTemplate": "\"Basic Strike\" gains {Counter} equal to [Arg1]% of ATK.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    }
+  }
+}

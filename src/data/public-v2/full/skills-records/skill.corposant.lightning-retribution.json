@@ -1,0 +1,128 @@
+{
+  "id": "skill.corposant.lightning-retribution",
+  "ownerAwakenerId": "awakener-0011",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Lightning Retribution",
+  "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, with a [Arg3]% {Tentacle DMG} Bonus, and each time DMG is dealt, target's {Tentacle DMG} taken this turn +[Arg4]%. Add [Arg5] copies of {Pilot} into hand. {Aftershock}: This card returns to the top of the Draw Pile.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "42",
+        "49",
+        "56",
+        "63",
+        "70"
+      ],
+      "suffix": "%",
+      "stat": "ATK",
+      "substatBonus": {
+        "substat": "DeathResistance",
+        "multiplier": "0.2",
+        "mode": "scale_base"
+      }
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "75",
+        "80",
+        "85",
+        "90",
+        "95",
+        "100"
+      ],
+      "suffix": "%"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "5",
+      "suffix": "%"
+    },
+    "Arg5": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "4",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.corposant.unquenched-unfelled-undimmed.skill.corposant.lightning-retribution",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.corposant.unquenched-unfelled-undimmed",
+      "ownerAwakenerId": "awakener-0011",
+      "operation": "override_args",
+      "ownerAwakenerName": "Corposant",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "35",
+              "42",
+              "49",
+              "56",
+              "63",
+              "70"
+            ],
+            "suffix": "%",
+            "stat": "ATK",
+            "substatBonus": {
+              "substat": "DeathResistance",
+              "multiplier": "0.2",
+              "mode": "scale_base"
+            }
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "5"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "75",
+              "80",
+              "85",
+              "90",
+              "95",
+              "100"
+            ],
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "5",
+            "suffix": "%"
+          },
+          "Arg5": {
+            "kind": "fixed",
+            "value": "2"
+          }
+        }
+      }
+    },
+    {
+      "id": "upgrade.talent.corposant.cinders.skill.corposant.lightning-retribution",
+      "upgraderId": "talent.corposant.cinders",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

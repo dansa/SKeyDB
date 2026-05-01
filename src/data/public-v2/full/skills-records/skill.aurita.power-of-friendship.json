@@ -1,0 +1,39 @@
+{
+  "id": "skill.aurita.power-of-friendship",
+  "ownerAwakenerId": "awakener-0005",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Power of Friendship",
+  "descriptionTemplate": "{Tentacle DMG} +[TentaclePower:Arg1]. Discard all cards in hand, then draw the same amount of cards. Shuffle 1 {Gland Division} into the Discard Pile.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.aurita.bubbling-journey.skill.aurita.power-of-friendship",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.aurita.bubbling-journey",
+      "ownerAwakenerId": "awakener-0005",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Aurita",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "{Tentacle DMG} +[TentaclePower:Arg1]. Discard all cards in hand, then draw the same amount +1 cards. Shuffle 1 {Gland Division} into the Discard Pile."
+      }
+    }
+  ]
+}

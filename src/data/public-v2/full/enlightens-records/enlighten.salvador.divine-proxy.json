@@ -1,0 +1,20 @@
+{
+  "id": "enlighten.salvador.divine-proxy",
+  "ownerAwakenerId": "awakener-0044",
+  "slot": "E1",
+  "displayName": "Divine Proxy",
+  "descriptionTemplate": "\"Basic Defense\" accumulates a {Crimson Furnace} recovery amount equivalent to CON [Arg1]% (increases with the level of \"Defense\"). For every 2 {Crimson Furnace} recovery accumulated in this battle, increase the DMG of \"Basic Strike\" by 1.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "3",
+        "3.6",
+        "4.2",
+        "4.8",
+        "5.4",
+        "6"
+      ]
+    }
+  }
+}

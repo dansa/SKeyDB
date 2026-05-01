@@ -1,0 +1,25 @@
+{
+  "id": "skill.ramona-timeworn.sight-unbound",
+  "ownerAwakenerId": "awakener-0020",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Sight Unbound",
+  "descriptionTemplate": "Obtain [Power:Arg1] {STR}. Choose 1 card from the Draw Pile and add it to your hand, reducing its Arithmetica Cost by 1. {Loop}: Instead, choose 1 card from the Draw Pile or Discard Pile and add it to your hand, setting its Arithmetica Cost to 0.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "3",
+        "3.6",
+        "4.2",
+        "4.8",
+        "5.4",
+        "6"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2"
+}

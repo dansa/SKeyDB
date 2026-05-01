@@ -1,0 +1,47 @@
+{
+  "id": "skill.wanda.necropolis-of-dreams",
+  "ownerAwakenerId": "awakener-0052",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Necropolis of Dreams",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield and [Counterattack:Arg2] stacks of {Counter}. The next {Leap} this turn is guaranteed to trigger. Choose to consume {Dreamlure} stacks to trigger {Slumber Counter} or {Echoes of Whispers}. If the number of {Dreamlure} stacks is less than 5, obtain 1 stack of {Dreamlure}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.talent.wanda.revelation.skill.wanda.necropolis-of-dreams",
+      "upgraderId": "talent.wanda.revelation",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

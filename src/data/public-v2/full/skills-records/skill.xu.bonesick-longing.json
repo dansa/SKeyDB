@@ -1,0 +1,87 @@
+{
+  "id": "skill.xu.bonesick-longing",
+  "ownerAwakenerId": "awakener-0054",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Bonesick Longing",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies (guaranteed Crit) and trigger [Arg2]% {Poison}. {Resonance 3}: {Embryo Fusion} +[Arg4]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "150",
+        "180",
+        "210",
+        "240",
+        "270",
+        "300"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "80",
+      "suffix": "%"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.xu.enmity-of-the-heart.skill.xu.bonesick-longing",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.xu.enmity-of-the-heart",
+      "ownerAwakenerId": "awakener-0054",
+      "operation": "mixed",
+      "ownerAwakenerName": "Xu",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "80",
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "50",
+            "suffix": "%"
+          },
+          "Arg6": {
+            "kind": "fixed",
+            "value": "15",
+            "substatBonus": {
+              "substat": "DamageAmplification",
+              "multiplier": "0.2"
+            },
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies (guaranteed Crit) and trigger [Arg2]% {Poison}. {Embryo Fusion} +[Arg6]%. {Resonance 3}: {Embryo Fusion} +[Arg4]%."
+      }
+    }
+  ]
+}

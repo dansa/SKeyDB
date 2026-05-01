@@ -1,0 +1,44 @@
+{
+  "id": "wheel-0013",
+  "name": "Vain Regrets",
+  "assetId": "Weapon_Full_B14",
+  "ownerAwakenerId": "awakener-0054",
+  "ownerAwakenerName": "Xu",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "mainstatKey": "DMG_AMP",
+  "descriptionTemplate": "Team Unique: The Fixed {Poison} & {Poison} Trigger effects caused by the wielder +[StateArg1]%. {Caro} Realm's automatic {Embryo Fusion} +[StateArg2]%. When the wielder first triggers {Resonance} each turn, other Awakeners gain [StateArg3] Aliemus.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ]
+    }
+  },
+  "lore": "<Italic:\"Do you regret it now?\">\n\nThe ancient deity, reborn from a resplendent glazed goblet, inhaled her scent. It lingered like a ghost upon her shoulder as he pushed open the window to usher in a night breeze laced with a faint fragrance.\n\n\"A single furrow of my brow causes beacon fires to flare along the city walls. If I smile, tribute boats from every land sail up the rivers, laden with wonders: rare treasures, exotic beasts, honeyed brews, and delicacies. I am the most precious treasure of the entire dynasty—why should I regret?\"\n\nFlushed with wine, she giggled and nestled into plush cushions of silk and fur, drowsy and content.\n...\n<Italic:\"Do you regret it now?\">\n\nThe ancient deity, bound to a wisp of incense, conversed with him. Faint, illusory smoke drifted down from the pavilion, tracing the outline of a flower bud as its petals unfurled.\n\n\"They exhaust themselves in a fever of plots and rivalries, while I reap the rewards without lifting a finger. The higher they climb, the harder they fall—but I? I already have everything. If anyone is due for regret, it certainly isn't me.\"\n\nWith a cheeky grin, he refilled the jug and casually plucked a soft twig to tease the insects chirping in their cage.\n...\n<Italic:\"Do you regret it now?\">\n\nThe ancient deity, emerging from the well in the form of swirling mist, chuckled softly in her ear. Its tendrils brushed through her hair and shook loose a plump white magnolia from its branch.\n\n\"I have love, I have bonds, I have warm congee when I return home at sunset, and I also have fine wine for joyous gatherings. How could I regret? Truly, I do not.\"\n\nShe picked up the <Italic:huadian> to put it on her forehead. The warm, golden candlelight swayed along the hem of her skirt; her gaze clung earnestly to the window, waiting for the one who would return.\n...\n<Italic:\"Do you regret it now?\">\n\nThe hem of her skirt, once elegant, is now spattered with the foul mire before the Palace Gates. The guards who yesterday offered her fawning gifts now stand deaf to her wailing pleas; two cold halberds cross and fall, sealing away her last path to life. \n\nThe mist heaves a long, lingering sigh. Then, crimson blood blooms upon the snow, only to be utterly buried by the next winter squall.\n...\n<Italic:\"Do you regret it now?\"> \n\nPearls from the South Seas spill from sandalwood chests, shattering against the green-stone floor. The crisp, clattering music of their fall is more melodious than any music. \n\nThe scrolls he most cherished—those he hung before his desk to admire daily—tumble into the hall. The brushwork of a master's landscape is pierced and shredded by a blade's tip, much like the sovereign lands he ignored as they were poisoned by the fires of war. \n\nThe mist curls in mockery. Then, a fire ignites, and the carved beams and painted rafters are reduced to the dying embers of a fallen dynasty.\n\n<Italic:\"Do you regret it now?\"> \n\nThe man whose name she once tasted upon her tongue never returns. Along a distant river lie withered bones; upon a silken pillow a beauty waits in vain. \n\nDid he become a trusted minister to the Emperor, or a consort to the Princess? Did he linger amidst the \"flowers\" of the pleasure quarters, never to look back? Or was he devoured by famished refugees, serving as mere grain for a year of disaster? \n\nThe mist murmurs in ambiguous tones, yet it never grants her the answer she so desperately seeks.\n\nThe most precious treasure in the dynasty's heyday becomes the most cherished burial offering when the dynasty falls.\nThe most carefree favorite of a flourishing family becomes the most ideal scapegoat when the family declines.\n\nAnd as for the last story—it is one that is all too common in this world.",
+  "lineupToken": "yX"
+}

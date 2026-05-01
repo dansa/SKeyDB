@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.chaos",
+  "displayName": "Chaos",
+  "overlayType": "realm",
+  "aliases": [],
+  "descriptionTemplate": "{Chaos} Awakeners can {break through realm restrictions} and form lineups with Awakeners from other realms, providing different symbiotic effects. Any lineup that includes a {Chaos} Awakener gains an additional 100% {Death Resistance}.\nCompared to other Realm teams, {Chaos} Realm teams gain Keyflare faster and can select from all available Porses when releasing the second Posse, and the selected Posse will trigger twice. Therefore, {Chaos} Realm teams rely more on coordination between Posses, and choosing the right Posse can greatly enhance the strength of a {Chaos} Realm team!",
+  "descriptionArgs": {}
+}

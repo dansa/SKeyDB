@@ -1,0 +1,95 @@
+{
+  "id": "awakener-0014",
+  "numericId": 14,
+  "name": "Doresain",
+  "ingameId": "B10",
+  "lineupToken": "xi",
+  "realm": "CARO",
+  "rarity": "SSR",
+  "type": "ASSAULT",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "doresain",
+    "iconKey": "doresain"
+  },
+  "baseStatsLv1": {
+    "CON": 52,
+    "ATK": 55,
+    "DEF": 45
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 52.4,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0.8,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.65,
+    "ATK": 1.75,
+    "DEF": 1.45
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 2.4,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0.8,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Doresain",
+    "birthday": "20-Nov",
+    "gender": "Male",
+    "height": "6'1.7''",
+    "weight": "137lbs",
+    "gnosticIndex": "37.58",
+    "characteristic": "Multi-hit Damage    Critical Hit",
+    "introduction": "An elegant epicure. Deals devastating damage to foes with low HP. When devouring the corpses of departed enemies, he empowers himself and drains their lingering vitality.",
+    "awakerIntroduction": "An elegant epicure who delivers fated demise to anguished souls.\nHe savors the remnants of the dead with gluttonous delight, converting their essence into HP restoration and unleashing devastating damage!\nIn this stage, you will enter battle with a Level 50 Doresain, Skill Level 5, Enlighten 3. Doresain's attacks are guaranteed to be critical hits in this battle.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "The founder of Necrovia, the eternal king of ghouls. \nHis banquet is worthy of the deepest anticipation—grand dining hall, elegant dance, and those exquisite dishes handcrafted from corpses will surely be unforgettable for your entire life.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "The abandoned cemetery in the northwest of London County has been listed as an absolute forbidden zone by local residents since AF 3@2.\nAccording to archived reports from The Times and Scotland Yard's missing persons files, 37 people have gone missing in the thick night fog of the cemetery in recent years, including: Cyril, a habitual grave robber with a taste for noble tombs; Cook, a shivering vagrant seeking shelter; Officer Grayson, who stumbled in during patrol; and White, the Oxford scholar who studied how medieval bones were laid to rest.\nAll vanished when the fog grew thick, leaving not even a scrap of fabric for search teams to find.\nPrior to AF 3@2, the MTC had always treated the area as barely worth noting in their ledgers.\nThat changed when the Duke of Derbyshire—Samuel Curzon, that notorious patron of unnatural studies—failed to return from his midnight visit.\nRoyal inquiries have a way of focusing attention, and soon a special operation was mounted.\nIn July of AF 3@2, Elias ThOrnn led twelve armed agents and three silver-equipped mediums into the cemetery's hungry mists.\nTheir anti-hypothermia medication hissed in its cases; their directional locators spun like dowsing rods in a haunted well.\nAfter advancing precisely 1.2 kilometers in tight formation, they found it—a hexagonal entrance hidden beneath the shattered statue of the Ghoul King, its stone face worn smooth by centuries of bad weather and worse company.\nFive thousand steps down (each counted twice by nervous lips) brought them to the temple.\nWhere they expected charnel houses and stacked bones, they found instead 800 square meters of impossible precision: floors flatter than mathematics, air cleaner than a surgical theater.\nOnly the altar broke the perfection—2.3 meters of granite carved with endless thorns, wreathed in black mist that clung like cobwebs to something moving inside.\nThere knelt the Duke, dressed for dinner but quite dead, showing no marks save those left by perfect preservation.\nWhen the mist was disturbed, he came apart like sugar in tea—dissolving until even the mass spectrometers wept empty data.\nThen the mist turned its attention to the living.\nEvery investigator heard the same voice—cultured, gentle, the sort that might recite poetry before the cutting begins:\n\"Please do not seek out Necrovia. Please do not disturb the King of the Ghouls during his meal.\"\n\"Consider this your final warning.\"\nThey awoke outside the rusted gates, equipment intact but all recordings curiously blank.\nLater, the MTC chairman and Miskatonic's occult dean would visit, then quietly declare the matter closed.\nThe cemetery now only punishes those who come seeking secrets; mere wanderers get off with nothing worse than lost hours and strange dreams.\nBut sometimes, when the fog rolls in particularly thick, the locals swear they can hear something chewing below their feet.\n\n——Investigation Report on the Abandoned Cemetery of Etherington",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "After leaving Necrovia, Doresain demonstrated remarkable adaptability within human society. This was inevitable; for him, human society was not a new beginning, but rather a return.\nHis speech, mannerisms, demeanor, and etiquette were flawless, maintaining the aura of a monarch while showing none of the arrogance typically festering in those who have held power too long.\nDoresain does not avoid social interaction, yet he shows little interest in topics like politics, economics, or academia. The only thing drawing him to such occasions is food.\nBeyond mere appreciation of cuisine, Doresain takes visceral pleasure in the kitchen process itself—from ingredient selection and preparation techniques to spice usage and heat control. His vast culinary knowledge and refined taste captivate everyone he converses with.\nThey come to realize all their previous decades of dining were nothing more than hurried survival, no different from beasts eating merely to stay alive. Even those unfortunate souls born without a sense of taste can experience food's artistry through his descriptions, achieving what he calls \"a rebirth of flavor perception.\"\nThis revelation is inseparable from Doresain's impeccable manners—he understands with crystal clarity the differences between human and ghoul culinary preferences. He respects these species distinctions and has no desire to impose his own tastes on others.\n\"Some people always regard difference as heresy,\" he remarks, the ghost of a smile playing about his lips. \"In my city-state, such behavior was considered profoundly inelegant. I celebrate individual differences. It is precisely through these variations that we discover food's greatest beauties.\"\nThen the purple mist around him swirls as he adds, voice dropping to a intimate murmur: \"But you are different, Keeper. As such a singular being in this world... I believe you, above all others, might experience unparalleled beauty in the act of eating, just as I do...\"\nAs he speaks these words, Doresain's smile flickers through the violet haze like the grin of some elegant, patient serpent whispering in your ear, waiting to lead you out of—or perhaps into—a very particular Garden of Eden.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "When Doresain awoke in the sunless temple of Necrovia, pain slithered through him like a nest of awakened serpents. The poison's work was unfinished, its blades still carving hymns of agony from his abdomen outward, thorned and relentless. He'd known his father's wine was tainted—had seen the old king's trembling hands, the shadows whispering behind his eyes—yet he drank it anyway, smiling as the bitterness kissed his throat.\nClever. Kind. Unshakable. By every measure, Doresain had been the perfect heir. But in a city where the living called corpse-eating a sin, even princes were not spared the pyre. He'd tried to teach them—the poetry of decay, the sacrament of bones—but understanding was a bridge between worlds, and his family had burned it long ago.\nHe never expected to open his eyes again. Yet here he was, choking on a new torment. The black mist coiled around him, alive with teeth and hunger, peeling him apart layer by layer. It gnawed. It sculpted. His flesh regrew only to be stripped anew, a grotesque dance of devouring and rebirth. His scream was soundless, lost in the temple's hollow belly.\nThen—a flavor. Unimaginable. Divine. Amid the rending and the howling dark, it bloomed on his tongue: the god of Necrovia was feasting on him, and the taste was ecstasy. Pain dissolved. Poison became ambrosia. The god's laughter echoed in his marrow, their suffering and rapture now one and the same.\nFor seven nights, the feast endured. When Doresain rose at last, the altar's chill still humming in his veins, he felt no rage, no sorrow. Only gratitude. His murderers had given him a gift—the exquisite last meal of his own flesh, the delirious joy of being known.\nBeyond the temple, the full moon hung like a bone-white hook. Necrovia knelt in the dark, and its new king smiled.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "He had once believed that his entire life existed for the pursuit of ultimate deliciousness.\nThe duties of a crown prince, the estrangement from loved ones, the weight of moral teachings... He had cast all this pain aside in his relentless quest for culinary perfection.\nFrom prince to monarch, from mortal to divine, his hunger never waned. He mastered every cooking technique, could detect the most fleeting nuance in every corpse's flavor profile.\nHe attained everything he desired, yet after each ephemeral moment of satisfaction, that hollow feeling remained - like a flavor just beyond his palate's reach.\nIt wasn't until he consumed Celina's corpse and glimpsed her lingering soul that understanding came.\nThe stories etched in flesh before death's arrival, the unfinished yearnings that clung to bones - these were the missing ingredients he'd been chasing, the true essence he'd been tasting without realizing.\n\"Eating is remembrance; every feast a reunion between departed and living\" —these are the words carved into Necrovia's throne. He will grant those who seek his protection remembrance and eternal rest.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Out of the Aeons",
+  "aliases": [
+    "doresain"
+  ],
+  "searchTags": [
+    "Self-Harm"
+  ]
+}

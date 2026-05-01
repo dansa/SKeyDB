@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.thais.the-birthing-deep",
+  "ownerAwakenerId": "awakener-0048",
+  "slot": "AbsoluteAxiom",
+  "displayName": "The Birthing Deep",
+  "descriptionTemplate": "{Rouse} {Ad Matrem Vocatus} is enhanced: Thais's Exalt additionally creates 1 copy of the selected card.",
+  "descriptionArgs": {}
+}

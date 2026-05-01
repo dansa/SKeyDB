@@ -1,0 +1,11 @@
+{
+  "id": "skill.goliath.abyssal-depths-power",
+  "ownerAwakenerId": "awakener-0021",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Abyssal Depths' Power",
+  "descriptionTemplate": "Choose: {Usurp} or {Dormancy}. Place 3 {Blade's Dominion} into hand.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "cost": "100"
+}

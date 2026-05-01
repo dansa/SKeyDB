@@ -1,0 +1,112 @@
+{
+  "id": "posse-0019",
+  "name": "Victory of Roses",
+  "descriptionTemplate": "Draw 2 cards and gain [Arg1] Temp. {STR}. If the Realm includes {Caro}, consume 10% of your HP to gain another [Arg2] Temp. {STR}, and another [Arg2] Temp. {STR} for each {Embryo} in your hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.045
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.015
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "The graceful rose has achieved her complete victory.\n\nShe has returned to the noble rose surrounded by the crowd like stars around the moon, with only the gaze directed at you proclaiming the secret adventure experienced with you at the opera house.",
+  "realm": "CARO",
+  "assetId": "posse-icon-19",
+  "imageAssetId": "CG_SD_L_B04_4",
+  "lineupToken": "u"
+}

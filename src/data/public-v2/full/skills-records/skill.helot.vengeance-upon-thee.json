@@ -1,0 +1,41 @@
+{
+  "id": "skill.helot.vengeance-upon-thee",
+  "ownerAwakenerId": "awakener-0023",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Vengeance Upon Thee",
+  "descriptionTemplate": "Helot gains [Energy:Arg1] Aliemus. {Rouse}: Helot's cards gain {Retain}. At turn end, boost the DMG of {Shattering Strike} and the Base DMG of {Lasting Loathe} by 10%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.helot.the-final-arbiter.skill.helot.vengeance-upon-thee",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.helot.the-final-arbiter",
+      "ownerAwakenerId": "awakener-0023",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Helot",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Helot gains [Energy:Arg1] Aliemus. {Rouse}: When played, the Strike Bonus of {Shattering Strike} and the Base DMG of {Lasting Loathe} +50%. At turn end, the Strike Bonus of {Shattering Strike} and the Base DMG of {Lasting Loathe} +10%. Helot's cards gain {Retain}."
+      }
+    }
+  ]
+}

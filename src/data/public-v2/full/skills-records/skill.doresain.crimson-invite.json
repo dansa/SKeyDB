@@ -1,0 +1,95 @@
+{
+  "id": "skill.doresain.crimson-invite",
+  "ownerAwakenerId": "awakener-0014",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Crimson Invite",
+  "descriptionTemplate": "Doresain gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}. DMG dealt by Doresain gains an additional [Arg3]% {STR} bonus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "24",
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "200",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.doresain.styx-uncrossed.skill.doresain.crimson-invite",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.doresain.styx-uncrossed",
+      "ownerAwakenerId": "awakener-0014",
+      "operation": "mixed",
+      "ownerAwakenerName": "Doresain",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "20",
+              "24",
+              "28",
+              "32",
+              "36",
+              "40"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "200",
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "20",
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Doresain gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}. DMG dealt by Doresain gains an extra [Arg3]% {STR} Bonus. Deal {Fixed DMG} equal to [Arg4]% of current HP to all enemies. After Doresain's first kill each turn, deal {Fixed DMG} equal to the overflow DMG to all other enemies."
+      }
+    }
+  ]
+}

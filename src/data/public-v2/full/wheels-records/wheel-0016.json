@@ -1,0 +1,35 @@
+{
+  "id": "wheel-0016",
+  "name": "Manikin of Oblivion",
+  "assetId": "Weapon_Full_C02EX",
+  "ownerAwakenerId": "awakener-0018",
+  "ownerAwakenerName": "Doll: Inferno",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "ALIEMUS_REGEN",
+  "descriptionTemplate": "Team Unique: The wielder's Aliemus, {Poison}, and HP Recovery effects +[StateArg1]%. After the wielder unleashes Exalt, they gain Aliemus equal to [StateArg2]% of the Aliemus consumed.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "People always like to define boundaries and symbols based on their own standards.\nHow narrow-minded, ignorant, and pathetic it is to confine the world within human flesh.\nShe abandoned her physical form early on, yet still could not reach the true boundaries.\nThe river of knowledge is chaotic and endless, and the black void has once again caught up with her.\nSilently, she confronted it. If tangible aspects cannot reveal the totality of the world, could the void behind it hold the true answer?\nShe staked her life in the most insane gamble.\nShe finally saw the end.\nThe gate of truth opened wide, and the face of the world was instantly overturned.\nSo it is, so it is.\nShe desperately wanted everyone to see the truth within the void and be freed from their futile struggles.\nOnce, she stood atop the waves, leading the world forward.\nNow, she still wields the shepherd's whip, joyfully guiding it into the Abyss.\nPeople, terrified, expelled her, calling her a madwoman.\nHow strange, she thought.\nBut in my eyes, you are no different.",
+  "lineupToken": "xW"
+}

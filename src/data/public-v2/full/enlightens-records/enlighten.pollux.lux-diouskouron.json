@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.pollux.lux-diouskouron",
+  "ownerAwakenerId": "awakener-0041",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Lux Diouskouron",
+  "descriptionTemplate": "{Rouse} {Path of Ablution} is enhanced: Make {Sacred Heart} inflict 100% DMG as {Bleed}. When a {Sacred Heart} is played and shuffled back, make that card cost 0 Arithmetica an additionally inflict 100% DMG as {Bleed} this turn.",
+  "descriptionArgs": {}
+}

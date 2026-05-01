@@ -1,0 +1,10 @@
+{
+  "id": "skill.24.aberrant-vivisection",
+  "ownerAwakenerId": "awakener-0001",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Aberrant Vivisection",
+  "descriptionTemplate": "Obtain 24 Realm Mastery. The next Command Card of \"24\" will be effective 3 times.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.sorel.vintage-nectar",
+  "ownerAwakenerId": "awakener-0046",
+  "slot": "E2",
+  "displayName": "Vintage Nectar",
+  "descriptionTemplate": "{Elegance of Rose} DMG +25%, and each instance of DMG dealt temporarily increases Crit. Rate by 5%.",
+  "descriptionArgs": {}
+}

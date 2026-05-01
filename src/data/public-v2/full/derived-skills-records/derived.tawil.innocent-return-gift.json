@@ -1,0 +1,16 @@
+{
+  "id": "derived.tawil.innocent-return-gift",
+  "displayName": "Innocent Return Gift",
+  "descriptionTemplate": "Choose an Awakener to gain [Energy:Arg1] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "60"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "derived.tawil.memories",
+  "rootSkillId": "skill.tawil.pinions-of-time",
+  "ownerAwakenerId": "awakener-0047",
+  "cost": "0"
+}

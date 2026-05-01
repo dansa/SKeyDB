@@ -1,0 +1,10 @@
+{
+  "id": "skill.salvador.rite-of-creation",
+  "ownerAwakenerId": "awakener-0044",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Rite of Creation",
+  "descriptionTemplate": "DMG Taken → {Crimson Furnace} Healing conversion effect +250%. \"Basic Strike\" and {End of Suffering} enjoy an additional 100% {STR} bonus. Within this exploration, {Crimson Furnace} Limit +2% of Max HP, up to 10%.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

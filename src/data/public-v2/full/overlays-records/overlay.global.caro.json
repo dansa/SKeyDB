@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.caro",
+  "displayName": "Caro",
+  "overlayType": "realm",
+  "aliases": [],
+  "descriptionTemplate": "When the {Embryo Fusion} of the {Caro} team reaches 100%, you will obtain one {Embryo}. Exalting Aliemus consumes {Embryo} to trigger a powerful {Devour} effect. Therefore, try to have {Embryo} in your hand when Exalting; otherwise, the {Caro} team cannot utilize its full potential.\nAfter each battle, 5% of Max HP healing is accumulated into the {Crimson Furnace}. If there are unused {Embryo}, each {Embryo} also contributes 5% of Max HP healing to the Furnace. The {Crimson Furnace} can be used to restore the party's HP, and can be converted into healing once per turn. The Keeper must carefully plan when to use the {Crimson Furnace} to turn the tide of battle.",
+  "descriptionArgs": {}
+}

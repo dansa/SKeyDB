@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0080",
+  "name": "Sever and Scar",
+  "assetId": "Weapon_Full_SR04",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DMG_AMP",
+  "descriptionTemplate": "Team Unique: The wielder's \"Strike\" causes the target enemy to lose Temporary {STR} equal to [StateArg1]% the wielder's ATK. This effect can trigger a maximum of 3 times per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "A doctor's duty is to heal.\n\nBut there happens to be a treatment that demands the sharpest blade: to cut through skin, pierce muscle, and open the chest.\nIt requires removing the rot, and then trusting the body to heal on its own.\n\nThis should not count as her sin.\nYet after every surgery, she would find herself telling the girl some stories, as if to make up for it.\n\nShe wasn't a good storyteller; her words were fragmented, disjointed.\nStill, the girl listened intently.\n\nWhere her hands once cut, the flesh seems to draw strength from those words, slowly and stubbornly mending itself...",
+  "lineupToken": "xE"
+}

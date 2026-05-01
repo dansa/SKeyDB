@@ -1,0 +1,14 @@
+{
+  "id": "derived.global.light-cone-boundary",
+  "displayName": "Light Cone Boundary",
+  "descriptionTemplate": "Max out Keyflare and all Awakeners' Aliemus.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "derivedFromId": null,
+  "rootSkillId": null,
+  "cost": "0"
+}

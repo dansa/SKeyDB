@@ -1,0 +1,84 @@
+{
+  "id": "skill.castor.stygian-wings",
+  "ownerAwakenerId": "awakener-0008",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Stygian Wings",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield, inflict {Weakness} on all enemies for 1 turn. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile, Gain [Block:Arg3] Shield.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.castor.unyielding-will.skill.castor.stygian-wings",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.castor.unyielding-will",
+      "ownerAwakenerId": "awakener-0008",
+      "operation": "mixed",
+      "ownerAwakenerName": "Castor",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "5"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          }
+        },
+        "descriptionTemplate": "Gain [Block:Arg1] Shield, inflict {Weakness} on all enemies for 1 turn. For every {Onyx Plume} in hand, Gain [Energy:Arg2] Aliemus. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile, Gain [Block:Arg3] Shield."
+      }
+    }
+  ]
+}

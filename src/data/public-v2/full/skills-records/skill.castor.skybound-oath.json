@@ -1,0 +1,66 @@
+{
+  "id": "skill.castor.skybound-oath",
+  "ownerAwakenerId": "awakener-0008",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Skybound Oath",
+  "descriptionTemplate": "Castor gains [Energy:Arg1] Aliemus. {Rouse}: Castor's DMG always critically hits; after playing {Onyx Plume}, inflict [Arg2] {plural:[Arg2]|stack|stacks} of {Corrosion} on the target. Gain +50% Shield from keeping {Onyx Plume} cards in hand at turn ends.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "140",
+        "168",
+        "196",
+        "224",
+        "252",
+        "280"
+      ],
+      "suffix": "%",
+      "stat": "ATK",
+      "substatBonus": {
+        "substat": "DamageAmplification",
+        "multiplier": "1",
+        "mode": "scale_base"
+      }
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.castor.nox-diouskouron.skill.castor.skybound-oath",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.castor.nox-diouskouron",
+      "ownerAwakenerId": "awakener-0008",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Castor",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Castor gains [Energy:Arg1] Aliemus. {Rouse}: Castor's DMG always critically hits; after playing {Onyx Plume}, inflict [Arg2] {plural:[Arg2]|stack|stacks} of {Corrosion} on the target. Gain +50% Shield from keeping {Onyx Plume} cards in hand at turn ends. The first time {Onyx Plume} is played each turn, inflict {Corrosion} equal to Talent {Cleansing Feathers} on all enemies, and the HP lost when {Corrosion} is removed increases from 300% to 500%."
+      }
+    },
+    {
+      "id": "upgrade.talent.castor.cleansing-feathers.skill.castor.skybound-oath",
+      "upgraderId": "talent.castor.cleansing-feathers",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

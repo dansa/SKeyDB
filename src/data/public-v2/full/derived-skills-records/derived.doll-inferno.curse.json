@@ -1,0 +1,57 @@
+{
+  "id": "derived.doll-inferno.curse",
+  "displayName": "Curse",
+  "descriptionTemplate": "All enemies Temp. {STR⯆} -[Exhaustion:Arg2].",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "24",
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "skill.doll-inferno.self-destruct",
+  "rootSkillId": "skill.doll-inferno.self-destruct",
+  "ownerAwakenerId": "awakener-0018",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.doll-inferno.borealis-visitor.derived.doll-inferno.curse",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.doll-inferno.borealis-visitor",
+      "ownerAwakenerId": "awakener-0018",
+      "operation": "mixed",
+      "ownerAwakenerName": "Doll: Inferno",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "fixed",
+            "value": "1"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "20",
+              "24",
+              "28",
+              "32",
+              "36",
+              "40"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          }
+        },
+        "descriptionTemplate": "Inflict {Weakness} on all enemies for [Arg1] {plural:[Arg1]|turn|turns}, and temporarily reduce their {STR⯆} by [Exhaustion:Arg2]."
+      }
+    }
+  ]
+}

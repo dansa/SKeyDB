@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.leap",
+  "displayName": "Leap",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "If this card triggers \"Dimension Shuttle\" after being played or is currently in an {Ultra Round}, trigger the subsequent effect.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,97 @@
+{
+  "id": "awakener-0043",
+  "numericId": 43,
+  "name": "Ryker",
+  "ingameId": "C05",
+  "lineupToken": "W",
+  "realm": "CHAOS",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "ryker",
+    "iconKey": "ryker"
+  },
+  "baseStatsLv1": {
+    "CON": 62,
+    "ATK": 52,
+    "DEF": 50
+  },
+  "substatsLv1": {
+    "CritRate": 5.8,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 2,
+    "ATK": 1.65,
+    "DEF": 1.6
+  },
+  "substatScaling": {
+    "CritRate": 0.8,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Ryker",
+    "birthday": "6-Jun",
+    "gender": "Male",
+    "height": "?",
+    "weight": "102lbs",
+    "gnosticIndex": "?",
+    "characteristic": "Replenish Hand    Black Sigil Acquisition",
+    "introduction": "Draws a large number of cards and win Chaotic Legacy Relics by obtaining Black Sigils.",
+    "awakerIntroduction": "Ryker's Exalt and Skills yield randomized results; the better your luck, the greater the rewards.\n{Rouse} grants or allows selection of upgrades for {Chaotic Legacy}.\nIn this stage, Ryker and Lotan will be deployed at Level 50, Skill Level 5, Enlighten Level 3. Ryker initially has a 25% Crit. Rate boost, all {Chaotic Legacy} Relics, and an additional set of Cards. The enemy receives Temporary Strengthening in the first round.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Ryker is known as the \"Lucky Detective\" by his detective friends.\nAs the name suggests, he is a lucky person: whenever he places a bet, he wins ten times the stake; and whenever he guesses, he chooses the right answer.\nThe \"Lucky Detective\" doesn't have to be an actual detective; he stumbled upon solving many cases just by chance, and so he was embraced on this path.\nHe doesn't solve cases by deduction, but relies on luck. Just a tour around the crime scene and he stumbles upon the culprit; just walking along the road, he picks up the key evidence.\nWith such good fortune, he has spent twenty-five smooth years.\nHe never worries about yesterday, nor frets about tomorrow.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "The Silver from Ryker's awakening was excavated from the interior of the renowned Remouahe monument, the Triangular Giant Tower. It is streamlined and perfectly bullet-shaped, matching the size and form of bullets used in the SAA revolver, embedded within the skull of a young male corpse.\nTouching this Silver evokes magnificent and grand visions of the Triangular Giant Tower, causing the body to instinctively curl up and crawl. If the toucher resists desperately and looks ahead, they will see the blurred figure of a crowned man backlit, followed by an instant interruption of consciousness, causing the Silver to naturally slip from their fingers.\n\"The tip of the Triangular Tower has not yet been eroded; it should be a scene soon after its completion.\"—Researcher B.R. Longman\n\"I can hear horrifying whispers from dark souls.\"—Researcher K. Waters\n\"I must denounce the inhumane experiments arranged for us by Mythag. The side effects of repeatedly touching this Silver are enough to cause complete loss of bodily control. In short, I refuse to touch it again.\"—Researcher L. Lopez",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "After the @3@1 Event, Ryker became a special advisor at Mythag University.\nRyker is a competent advisor. From the mysterious disappearance of professors or inexplicable damage to instruments, to trivial matters such as searching for cats and dogs, Ryker can patiently and swiftly deliver satisfactory results.\nSoon, due to his unique appearance, dignified and elegant demeanor, and helpful habits, Ryker became an idol figure beloved by countless young men and women in Mythag.\nProfessor Dexter once lamented, \"The spotlight has been stolen by the youth.\"\nBut as he gradually became integrated into the campus, everyone noticed that Ryker's time in front of people began to decrease.\nMeanwhile, in a certain abandoned basement of Mythag, the sound of dice rolling began to occur frequently.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "At the age of twenty-five, Ryker encountered a strange suspect while investigating a murder case in a locked room.\nAfter obtaining an absolutely complete chain of evidence, the suspect mysteriously vanished from the police station, with the handcuffs still intact. Of course, this was the responsibility of the on-duty police, but Ryker still received his reward.\nRyker took this reward and traveled overseas for a vacation. He then encountered the fleeing suspect by a stall. The suspect was placing bets, and upon seeing Ryker, remained unfazed, merely inviting him to join the game and promising that if Ryker won, he would willingly surrender.\n\nRyker didn't win a single round.\n\nHe lost his pipe, lost his tie, lost his hat, and lost his trench coat.\nWhen he was completely naked, the suspect returned all his clothes to him, stating that those stakes were too small. Without hesitation, Ryker asked what the suspect wanted to bet on and readily agreed when the other proposed wagering an arm.\n\nAfter several additional stakes, the suspect pulled out a revolver. Facing a life-or-death gamble, Ryker picked up the gun without hesitation and aimed it at his temple.\nAfter a gunshot, Ryker collapsed. The suspect summoned back his undead to mock his ignorance. However, Ryker's first words were, \"What are we betting on next?\"\n\nHis arrogance finally piqued the demon's interest. The suspect, whose true name was \"N@2@3,\" decided to let the wager continue.\n\n\"N\" produced three top hats and told him to make the \"best choice\" that would allow him to restore his body.\nRyker chose a hat, and \"N\" opened one that was empty, asking if he wanted to change his choice. Ryker shook his head.\n\n- Don't you understand probability?\n- I just believe in my luck.\n\n\"N\" revealed the third top hat, which was also empty. Finally, he lifted Ryker's hat, and inside was a mass of strange black mist. The mist surged toward Ryker, transforming into a bizarre beastly form. \"N\" replaced him with the body that had already been wagered.\n\n- For one with the keen sense of a beast, isn't this incarnation a perfect match? So, this is the \"best choice\"!",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "When the mountaineer reaches the peak of Elworth.\nWhen the competitor lifts the world's number one trophy.\nWhen the devout listens to the Revelation in dreams.\nWhen victory comes too easily, the accompanying satisfaction may turn into bland inertia.\nLooking around, there are no opponents, no fun at all.\nOn the surface, Ryker yearns for an exhilarating game, craving the heart-pounding moment after an ALL-IN, desiring the surge of adrenaline.\n\"There is no need to say those things. Only I understand you. What you truly desire is simply failure.\nLet me grant you the sweetest failure.\"",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Fools",
+  "aliases": [
+    "ryker"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Draw",
+    "Keyflare"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "talent.murphy-fauxborn.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0035",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nWhenever Murphy: Fauxborn deals DMG, inflict {Sacrifice} stacks equal to [Arg3]% of DMG dealt on the target. {Life Seal} state's {Birth Ritual} stack increase effect is doubled.\nWhen there are 1/2/3 other {Lemurian} Awakeners in the team: Max HP +6%/15%/30%; gain Shield equal to 50%/125%/250% of Murphy: Fauxborn's DEF after any {Lemurian} Awakener uses Exalt. Limited to once per turn; does not benefit from Shield Generation Boost.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "14",
+        "18",
+        "22",
+        "26",
+        "30",
+        "34",
+        "38",
+        "42",
+        "50"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

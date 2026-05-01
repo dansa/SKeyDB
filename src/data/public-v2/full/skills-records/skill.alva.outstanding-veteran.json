@@ -1,0 +1,86 @@
+{
+  "id": "skill.alva.outstanding-veteran",
+  "ownerAwakenerId": "awakener-0004",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Outstanding Veteran",
+  "descriptionTemplate": "Alva gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Arg2] {Alert}. DMG from Alva's Command Cards increases with current Shield, increasing by 2 DMG for each point of Shield.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "3",
+        "3.6",
+        "4.2",
+        "4.8",
+        "5.4",
+        "6"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.alva.crusade-to-utopia.skill.alva.outstanding-veteran",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.alva.crusade-to-utopia",
+      "ownerAwakenerId": "awakener-0004",
+      "operation": "mixed",
+      "ownerAwakenerName": "Alva",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "3",
+              "3.6",
+              "4.2",
+              "4.8",
+              "5.4",
+              "6"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "40",
+            "suffix": "%",
+            "stat": "DEF"
+          }
+        },
+        "descriptionTemplate": "Alva gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Arg2] {Alert}. DMG dealt by Alva's Command Cards scales with current Shield, +2 per Shield point. The first time DMG is dealt each turn, gain [Block:Arg3] Shield."
+      }
+    }
+  ]
+}

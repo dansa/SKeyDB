@@ -1,0 +1,49 @@
+{
+  "id": "skill.clementine.defense",
+  "ownerAwakenerId": "awakener-0010",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield, Clementine obtains [Energy:Arg3] Aliemus. {Quasar}: Obtain [Power:Arg4] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "7.5",
+        "9",
+        "10.5",
+        "12",
+        "13.5",
+        "15"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1"
+}

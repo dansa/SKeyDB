@@ -1,0 +1,98 @@
+{
+  "id": "awakener-0049",
+  "numericId": 49,
+  "name": "Tinct",
+  "ingameId": "D03",
+  "lineupToken": "p",
+  "realm": "ULTRA",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "tinct",
+    "iconKey": "tinct"
+  },
+  "baseStatsLv1": {
+    "CON": 28,
+    "ATK": 26,
+    "DEF": 27
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.3,
+    "ATK": 1.2,
+    "DEF": 1.25
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Tinct",
+    "birthday": "7-Mar",
+    "gender": "Female",
+    "height": "5'4''",
+    "weight": "110lbs",
+    "gnosticIndex": "23.67",
+    "characteristic": "Strength Steal    Cost Reduction",
+    "introduction": "Uses transcendent singing to reduce the Arithmetica Cost of a large number of cards in hand and boosts teammates' battle morale.",
+    "awakerIntroduction": "{Rouse} can grant Tinct all Command Cards with random effects, randomly obtaining {Weakness}, {Vulnerable}, Draw, Arithmetica, and Aliemus abilities.\nExalt can reduce the Arithmetica Cost of five Hand cards by 1 while also enhancing Tinct's base \"Strike\" DMG.\nBy accumulating Strength and base \"Strike\" DMG, using \"Strike\" can deal massive Damage.\nIn this level, you will carry a Level 50 Tinct with Skill Level 5 and 3 Enlightenments, gaining 15 Aliemus each turn, and the enemy will gain Enhance on the first turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "She is the singer among the stars, the shimmering stardust.\nShe is the bird trapped in a gilded cage, the discarded phonograph.\nWhen her home planet collapse into the void, she is compelled to embrace the hope of life, becoming a wanderer in the unclaimed depths of space, an eternal seeker singing in search of home.\n\"Sister... Though I am the one who can walk freely among us, you have always been the one supporting me.\"",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "In the \"P-063 Opera House @2 Event,\" a metal box was discovered in a corner of the burnt backstage, and the Silver inside was recovered.\nThe current instruments at Mythag University are unable to identify the material of the box. After consulting @2 documents and analyzing its decorative engravings, Professor Doll concluded that the box might originate from an extinct civilization that perished in an explosion centuries ago.\nThe Silver remains quiet and unremarkable while inside the box but emits a continuous humming sound when removed. Professor Doll suspects that the metal box functions as a signal blocker, preventing special frequency signals from resonating with the Silver.\nThe model of the resonating Silver has also been identified.",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "After reuniting with Faint, Tinct settled down at Mythag University. After being injured again in the P-063 @ 2 Event, Tinct became even more fearful of strangers, leading her to become reclusive. Unlike her powerful and melodious singing voice, her everyday conversational tone is sweet and clear, but few have had the chance to hear it.\nSome well-meaning individuals attempted to promote Tinct's performances on campus, even finding posters from her early opera house performances and plastering them around the campus.\nTinct is unwilling to cater to these wishes; such enthusiasm only stirs up memories of a past she wants to forget.\n\"End this absurd tragedy. As long as I'm by your side, I have no other desires. If possible, I wouldn't mind being forgotten by this world.\"\n\"Don't, Tinct. The days we will spend together are still long ahead. This is no longer our home planet, and I am no longer your burden. You should find the things you want to do and live for yourself.\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Unlike her obviously petite sister, Tinct's deformity manifests in other ways.\nWhether it be mistletoe or hermit crabs, Tinct resembles a spirit body unable to survive without other individuals.\nOn the desolate planet, everything she did was to cure Faint's illness; she was willing to try any possible way to sustain her sister's life, even at the cost of enduring what ordinary people could not bear.\nShe paid no heed to the nobles' mockery and humiliation, always conducting unequal trades with them calmly and placidly, even pleading for their mercy—which granted her a seat to escape the desolate planet. The moment she secured it, she gave it to Faint without hesitation.\nYet, at the last moment, Faint pushed Tinct onto the star stream fleeing the desolate planet—hoping her sister could finally free herself and start anew on a new planet.\nHowever, after the desolate planet's annihilation, Tinct embarked on a selfless drifting journey to find Faint, uncaring of being manipulated by others. Such Tinct was discovered by the @2 Church, and subsequently ended up in @3's hands.\nTinct never resisted. Rather, she hoped someone would tell her what was best to do—even if it were lies, deception, or an ephemeral illusion, it was better than standing paralyzed with no clue what to do.\nAt least, that suggested there was still hope for Faint's future.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "At this point, discussing \"my own life\" with me may be asking too much.\nI have grown accustomed to dissipating into the high skies and concealing myself among the stars.\nThe person the onlookers are gazing at is not me; I am not the one being played with like a music box, nor the one drifting through the desolate starry sky. That is merely a tool selling its voice for survival, a walking corpse wandering in search of Faint. Only by believing that others' value far surpasses my own can I find meaning in all this effort.\nSo, at this point, please don't make me notice myself anymore.\n\n\"But, dear sister, don't dwell on those memories that have already passed.\nOpen your eyes and take a look—your one-of-a-kind song has already resounded throughout the universe.\"",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Among the Stars",
+  "aliases": [
+    "tinct"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Dispel",
+    "Draw",
+    "Strike"
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "id": "skill.wanda.keeper-of-the-lost",
+  "ownerAwakenerId": "awakener-0052",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Keeper of the Lost",
+  "descriptionTemplate": "Gain [Counterattack:Arg1] stacks of {Counter}. Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg2]; if there is only one enemy, the {STR} Reduction effect +50%. {Leap}: Consumes 5 stacks of {Dreamlure}; if successful, gain an additional [Arg3] {plural:[Arg3]|stack|stacks} of {Counter}, otherwise gain 2 stacks of {Dreamlure}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "16",
+        "19.2",
+        "22.4",
+        "25.6",
+        "28.8",
+        "32"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "4",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.wanda.lakeborne-dweller.skill.wanda.keeper-of-the-lost",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.wanda.lakeborne-dweller",
+      "ownerAwakenerId": "awakener-0052",
+      "operation": "override_args",
+      "ownerAwakenerName": "Wanda",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "28.75",
+              "34.5",
+              "40.25",
+              "46",
+              "51.75",
+              "57.5"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "16",
+              "19.2",
+              "22.4",
+              "25.6",
+              "28.8",
+              "32"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "45",
+              "54",
+              "63",
+              "72",
+              "81",
+              "90"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        }
+      }
+    },
+    {
+      "id": "upgrade.enlighten.wanda.the-revelation.skill.wanda.keeper-of-the-lost",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.wanda.the-revelation",
+      "ownerAwakenerId": "awakener-0052",
+      "operation": "override_args",
+      "ownerAwakenerName": "Wanda",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "28.75",
+              "34.5",
+              "40.25",
+              "46",
+              "51.75",
+              "57.5"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "16",
+              "19.2",
+              "22.4",
+              "25.6",
+              "28.8",
+              "32"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "30",
+              "36",
+              "42",
+              "48",
+              "54",
+              "60"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        }
+      }
+    }
+  ]
+}

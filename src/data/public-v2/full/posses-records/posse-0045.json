@@ -1,0 +1,16 @@
+{
+  "id": "posse-0045",
+  "name": "Reunion Wish",
+  "descriptionTemplate": "Return 1 Command Card from the Discard Pile to your hand. If Ramona is in the team, the next Command Card she plays this turn takes effect [Arg1] {plural:[Arg1]|time|times}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "Countless longings transform into shooting stars, rushing to your reunion once again.",
+  "realm": "OTHER",
+  "assetId": "posse-icon-47",
+  "imageAssetId": "CG_SD_S_WB2_3",
+  "lineupToken": "Y"
+}

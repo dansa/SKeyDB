@@ -1,0 +1,44 @@
+{
+  "id": "wheel-0012",
+  "name": "Paradoxical Realism",
+  "assetId": "Weapon_Full_B12",
+  "ownerAwakenerId": "awakener-0040",
+  "ownerAwakenerName": "Pickman",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "mainstatKey": "ALIEMUS_REGEN",
+  "descriptionTemplate": "Team Unique: The wielder's Aliemus and {STR} Generation +[StateArg1]%. After unleashing Exalt, the Final DMG, Shield, and Healing from other Awakeners' Exalts this turn +[StateArg2]%. If this Exalt triggered {Devour}, the wielder gains [StateArg3] Aliemus.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ]
+    }
+  },
+  "lore": "He saw the church spire melting like a candle, dripping down onto the priest's pure white wings.\nThe saints in the stained glass rotted into skeletons at high speed, then instantaneously regressed into infants.\nSharp and soft geometric shapes were recited from the mouths of the faithful, filling the entire hall.\n\nHe saw the train station's space folding repeatedly into non-Euclidean space, the distant platform just within reach, while the nearby ticket gate was impossibly far away.\nThe clock in the hall rotated counter-clockwise, and the bony crowd walked backwards, pulled by invisible lines, as thick violet smoke drifted from the clouds into the mouth of the train.\n\nHe saw the \"void\" in the forest take shape, with trees, rocks, and vines merely outlining the translucent contour drawn by the \"void\".\nThe swan's feathers were constantly changing mosaic colors, and where they swam, the lake water solidified into translucent stained glass.\nBeneath the bench where couples cuddled, a vivid orange-yellow shadow was trying to gnaw at its owner's ankle.\n\nHe saw the notes of the opera hall beating down on the audience like raindrops, and he saw the graveyard gently rise and fall, like the skin of a breathing giant beast...\n\nHe saw a lot, so much. He told what he saw to his mother, teachers, and friends, and painted what he saw into his artwork.\nHe wanted to bring the world he saw before people, but the number of people around him grew fewer, and one world drifted further from him.\n\nBut why is this? He merely recorded what he saw.\nPickman couldn't understand.\n\nSad Pickman stood before the mirror.\nHe saw a ghoul grinning at him with sharp, toothy jaws.\n\n\"There is nothing more important than witnessing the real. Madness, chaos, greed...\nDo you want to see, Pickman?\"\n\nThe enlightened Pickman smiled at him and stepped into the mirror.\n\nHe only wanted to witness the most extreme madness of reality with his own eyes and faithfully depict it on his canvas.\n\nHe is neither human nor ghoul.\n\nHe is just Pickman, the realist painter.",
+  "lineupToken": "yd"
+}

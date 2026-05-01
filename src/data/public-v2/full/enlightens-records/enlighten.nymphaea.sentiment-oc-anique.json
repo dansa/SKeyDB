@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.nymphaea.sentiment-oc-anique",
+  "ownerAwakenerId": "awakener-0037",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Sentiment Océanique",
+  "descriptionTemplate": "{Rouse} {Drowning in Sorrow} is enhanced: At turn end, {Poison} inflicted by Nymphaea additionally +25%.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,35 @@
+{
+  "id": "wheel-0055",
+  "name": "Blade of the Titan",
+  "assetId": "Weapon_Full_O06",
+  "ownerAwakenerId": "awakener-0021",
+  "ownerAwakenerName": "Goliath",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "mainstatKey": "CRIT_RATE",
+  "descriptionTemplate": "Team Unique: After the wielder finishes using Exalt, their Crit. DMG +[StateArg1]% for the rest of this turn. The wielder's cards in hand have a [StateArg2]% chance to reduce Arithmetica Cost by 1 this turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "40",
+        "50",
+        "60"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "25",
+        "30",
+        "35"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Separate. Experience. Flood in. Invade.\n\nScholars have long debated the true meaning of the Semitic root \"p-l-sh\" among the Perishites.\nFor the first time in his life, Goliath felt that these old scholars possessed some genuine insight, for these four brief words almost encapsulated his life as a Perishite.\n\nThe Perishites are indeed a maritime people.\nThey are like schools of long-tailed sharks, drawn to inhabitable islands by the scent of blood, then slaughtering all the natives there.\n\nThe Perishites never tire.\nThey never linger; when everything settles, their restless instincts drive them to move on, seeking new prey.\n\nThe Perishites don't care about tomorrow.\nThey squander their plundered wealth at an astonishing speed, drinking the last drop of wine, then breeding, fighting, and betraying with reckless abandon...\n\nAs they set sail, Goliath looked back at the trail left by the ships on the sea.\nThe blood of the Perishites, the blood of the natives, the blood of enemies, the blood of seabirds...\nIt merged into one, like dark red ink spilling into an endless blue.\n\nThe next day, the sun rose as usual, the sea shimmered like countless shards of broken gold, and everything vanished without a trace.\nThey were in the ocean, yet the ocean had forgotten them.",
+  "lineupToken": "1"
+}

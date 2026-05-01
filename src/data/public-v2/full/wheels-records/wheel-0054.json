@@ -1,0 +1,85 @@
+{
+  "id": "wheel-0054",
+  "name": "Dream of the Sea",
+  "assetId": "Weapon_Full_O05",
+  "ownerAwakenerId": "awakener-0005",
+  "ownerAwakenerName": "Aurita",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "mainstatKey": "CRIT_RATE",
+  "descriptionTemplate": "Team Unique: After the wielder plays a card, the wielder gains 1 point of Aliemus. At the start of combat, gain [StateArg1]% of the wielder's Attack as {STR}, and if the current Realm is {Aequor}, additionally gain [StateArg2]% of {Tentacle DMG}. Subsequently, at the start of each following turn, gain [StateArg3]% of the wielder's Attack as {STR}, and if the current Realm is {Aequor}, additionally gain [StateArg4]% of {Tentacle DMG}.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "add",
+        "args": [
+          {
+            "const": 6.0
+          },
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "wheelRefinementLevel"
+              },
+              {
+                "const": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "wheelRefinementLevel"
+      ]
+    },
+    "StateArg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "add",
+        "args": [
+          {
+            "const": 3.0
+          },
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "wheelRefinementLevel"
+              },
+              {
+                "const": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "wheelRefinementLevel"
+      ]
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "2.1",
+        "2.4",
+        "2.7",
+        "3"
+      ],
+      "suffix": "%"
+    },
+    "StateArg4": {
+      "kind": "scaling",
+      "values": [
+        "1.1",
+        "1.4",
+        "1.7",
+        "2"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "When Aurita was born, the impact of the great flood on the city had completely faded, but in the remote towns, people were still struggling to survive.\n\nThe flood made people begin to fear the sea and rivers; those who could leave had already departed, and those who remain in this small fishing village are mostly women and children who find it difficult to establish themselves elsewhere.\nIn this dull and quiet place, Aurita is the only child.\n\nShe stubbornly believes in the fairy tales her grandmother told her—that her parents have returned to the sea, waiting for Aurita to grow up. Once she grows up, they will all be reunited and become a happy family again.\n\nWhen she was still unable to speak, it felt as if she had once slept in a warm embrace, but Aurita can no longer remember many things about her parents.\nHowever, as a child who grew up in a silent place, Aurita does not understand \"loneliness\" or \"desolation\"; she has her own group of friends.\n\nUnlike those adults who were terrified by the flood, Aurita has never feared the sea.\nAs a resident of the Ocean King's domain, she naturally has to befriend the sea.\nAurita learns to play with the \"locals\".\nShe mimics the way clams move and dances, learning from clownfish as they swim through the seagrass.\nShe lies on the shellback of a leatherback turtle, drifting away from the land with the waves.\nIn the sea, bathed in moonlight, she plays with a swarm of jellyfish.\n\nShe is joy, she is imagination, she is a sprite.\n\nShe is a dream.",
+  "lineupToken": "9"
+}

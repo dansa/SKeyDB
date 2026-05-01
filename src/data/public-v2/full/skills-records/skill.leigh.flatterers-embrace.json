@@ -1,0 +1,105 @@
+{
+  "id": "skill.leigh.flatterers-embrace",
+  "ownerAwakenerId": "awakener-0028",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Flatterer's Embrace",
+  "descriptionTemplate": "[{Devour}: Restore [Arg4]% of lost HP. Dispel self {Vulnerable} state.] Restore [Heal:Arg1] HP. Obtain [Power:Arg2] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "40",
+        "48",
+        "56",
+        "64",
+        "72",
+        "80"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "16",
+      "rounding": "ceil",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.leigh.basement-journal.skill.leigh.flatterers-embrace",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.leigh.basement-journal",
+      "ownerAwakenerId": "awakener-0028",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Leigh",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "[{Devour}: Restore [Arg4]% lost HP, dispel self {Vulnerable} status. The {STR} gained from this {Flatterer's Embrace} is doubled.] Restore [Heal:Arg1] HP. Obtain [Power:Arg2] {STR}."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.leigh.insatiable-craving.skill.leigh.flatterers-embrace",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.leigh.insatiable-craving",
+      "ownerAwakenerId": "awakener-0028",
+      "operation": "mixed",
+      "ownerAwakenerName": "Leigh",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "40",
+              "48",
+              "56",
+              "64",
+              "72",
+              "80"
+            ],
+            "suffix": "%",
+            "stat": "CON",
+            "rounding": "ceil"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "16",
+            "rounding": "ceil",
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "[{Devour}: Restore [Arg4]% lost HP, dispel self {Vulnerable} status. The {STR} gained from this {Flatterer's Embrace} is doubled.] Restore [Heal:Arg1] HP. Obtain [Power:Arg2] {STR}."
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "derived.global.silver-key-gleam",
+  "displayName": "Silver Key Gleam",
+  "descriptionTemplate": "Choose one of the 3 unlocked random Posse to release immediately.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "derivedFromId": null,
+  "rootSkillId": null,
+  "cost": "0"
+}

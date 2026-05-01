@@ -1,0 +1,53 @@
+{
+  "id": "skill.murphy-fauxborn.tidal-sacrament",
+  "ownerAwakenerId": "awakener-0035",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Tidal Sacrament",
+  "descriptionTemplate": "Murphy: Fauxborn gains [Energy:Arg1] Aliemus. {Rouse}: DMG dealt by Murphy: Fauxborn inflicts [Arg2]% {Sacrifice}. At turn start, gain 1 stack of {Life Seal}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "38",
+        "41",
+        "44",
+        "47",
+        "50"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.murphy-fauxborn.celestial-resonance.skill.murphy-fauxborn.tidal-sacrament",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.murphy-fauxborn.celestial-resonance",
+      "ownerAwakenerId": "awakener-0035",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Murphy: Fauxborn",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Murphy: Fauxborn gains [Energy:Arg1] Aliemus. {Rouse}: Murphy: Fauxborn inflicts [Arg2]% of the DMG she deals as {Sacrifice} stacks on the target. Gain 2 stacks of {Life Seal}. At turn start, gain 1 stack of {Life Seal}. At turn end, if in {Surging Tides} stance, gain 1 extra stack of {Life Seal}."
+      }
+    }
+  ]
+}

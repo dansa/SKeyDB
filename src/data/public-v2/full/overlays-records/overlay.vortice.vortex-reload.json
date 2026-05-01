@@ -1,0 +1,11 @@
+{
+  "id": "overlay.vortice.vortex-reload",
+  "displayName": "Vortex Reload",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "After other Awakeners unleash Exalt, consume 1 stack, and Vortice unleashes {Vortex! Shell!} as a {Pursuit}.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0055",
+  "iconId": "Battle_Card_Buff_081",
+  "textColor": "shield"
+}

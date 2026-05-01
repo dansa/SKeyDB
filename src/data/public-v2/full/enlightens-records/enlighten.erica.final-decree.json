@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.erica.final-decree",
+  "ownerAwakenerId": "awakener-0015",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Final Decree",
+  "descriptionTemplate": "{Rouse} {Parameter Fitting} is enhanced: After Erica unleashes Exalt, her Exalt additionaly enjoys a 1x {STR} and {Alert} bonuses.",
+  "descriptionArgs": {}
+}

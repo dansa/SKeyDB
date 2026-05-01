@@ -1,0 +1,8 @@
+{
+  "id": "talent.ramona.silverheart-resonance",
+  "ownerAwakenerId": "awakener-0042",
+  "displayName": "Silverheart Resonance",
+  "family": "passive",
+  "descriptionTemplate": "Ramona gains an additional 2.5 Keyflare Regen attribute. Each Affinity level additionally grants Ramona 0.5 Keyflare Regen attribute.\nFor each point of Keyflare Regen Level, increase the Base DMG of {Queen's Sword} by 1%, and after playing, gain 0.75 temporary Realm Mastery.",
+  "descriptionArgs": {}
+}

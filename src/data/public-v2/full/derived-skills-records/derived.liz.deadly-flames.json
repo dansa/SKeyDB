@@ -1,0 +1,37 @@
+{
+  "id": "derived.liz.deadly-flames",
+  "displayName": "Deadly Flames",
+  "descriptionTemplate": "Deal [Damage:Arg2] {Pierce DMG} [Arg1] {plural:[Arg1]|time|times} to a random enemy, and inflict {Poison} equal to 50% of the Damage. When Arithmetica is insufficient, it can still be forced out, but the effect changes to gaining [Energy:Arg3] Aliemus and {Exhaust} after played.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "7"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "derivedFromId": "skill.liz.omens-descent",
+  "rootSkillId": "skill.liz.omens-descent",
+  "ownerAwakenerId": "awakener-0030",
+  "cost": "2"
+}

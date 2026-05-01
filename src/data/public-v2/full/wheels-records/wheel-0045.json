@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0045",
+  "name": "Dear Papa Noel",
+  "assetId": "Weapon_Full_JP03",
+  "ownerAwakenerName": null,
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DEATH_RESISTANCE",
+  "descriptionTemplate": "Team Unique: Your first purchase of an \"Orison\" in the \"D-Mark\" store or your first purchase of a discounted item in the {Ashen Ruins} has a [StateArg1]% chance to cost 0 Black Sigils. This can trigger only once per Exploration.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "70",
+        "80",
+        "90",
+        "100"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "\"O you who walk in lifelong penance, may this gift warm your soul, may the Father's love soothe your agony, and bring you sweet, peaceful dreams.\"\n\nThe silver-frosted night neared its end, and the candlelight flickered low.\nFor the first time in a long while, Salvador set aside the heavy stone tablets.\nHe exchanged his solemn, austere robes for a warm, crimson-velvet outfit.\nIn preparation for the coming Solstice Passage, he had visited Daffodil's shop to prepare holiday surprises for the students of Mythag.\n\n\"This is the last gift box...\"\nSalvador settled quietly onto an old chair in a corner of the campus.\nExhaustion finally overtook him, and he unconsciously drifted into a deep slumber.\nIt was a sweet dream.\nThe gift box at his feet mysteriously opened—four gingerbread girls leaped out, their frosting-dotted eyes shining brightly.\nThe scents of cinnamon and clove whirled in a circle in the cold air.\nThat fragrance stirred long-buried memories.\nHe found himself once more in the cathedral cloisters of his childhood, the melting toffee on his tongue sending quiet signals of sweetness.\nAll the blessings once tainted by suffering and plague now quietly awakened, twirling softly to the rhythm of this sugary waltz.\n\nMeanwhile, four sneaky little figures crept toward the sleeping Salvador.\n\"Master... will Master think we are naughty...?\"\n\"Hehe... Aurita's getting so, so curious! Hurry, open it! One, two... wow, so many gingerbread cookies!\"\n\"You, you said your name out loud...! What if... people are gonna hate us...!\"\n\"Then we can just push it on Brown! We're good girls! Didn't do anything!\"\n\nSalvador heard the little gingerbread girls chattering, and felt one of them hop onto his lap, the distinct scent of cinnamon brushing against his wrinkled hand.\nHe realized with a gentle jolt that these were not the phantom sweets of his dream, but the mischievous children of reality.\nHe could easily imagine their happy, glowing faces as they snuck open the gift box.\nFor this moment of beauty, happiness, and peace, he was willing to bear any pain.\n\n\"Oh... my beard, are they tying it to my hair?\"\n\nSalvador pretended to remain fast asleep, allowing the children to continue their joyful \"secret mission.\"",
+  "lineupToken": "yS"
+}

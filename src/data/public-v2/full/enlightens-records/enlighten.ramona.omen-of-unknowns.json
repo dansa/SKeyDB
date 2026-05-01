@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.ramona.omen-of-unknowns",
+  "ownerAwakenerId": "awakener-0042",
+  "slot": "E2",
+  "displayName": "Omen of Unknowns",
+  "descriptionTemplate": "{Assault Thesis} grants an additional 35 Keyflare Regen for every 1 Arithmetica Cost of each drawn card",
+  "descriptionArgs": {}
+}

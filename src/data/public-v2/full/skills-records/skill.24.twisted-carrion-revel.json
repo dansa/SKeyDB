@@ -1,0 +1,25 @@
+{
+  "id": "skill.24.twisted-carrion-revel",
+  "ownerAwakenerId": "awakener-0001",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Twisted Carrion Revel",
+  "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG}, increasing the Base DMG of {Twisted Carrion Revel} by 20% for this battle,\n\"24\" switches between Depressed and Manic Personas. Trigger additional effects based on the current {Realm and Persona}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "75",
+        "90",
+        "105",
+        "120",
+        "135",
+        "150"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100"
+}

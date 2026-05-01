@@ -1,0 +1,128 @@
+{
+  "id": "skill.lotan.beast-of-chaos",
+  "ownerAwakenerId": "awakener-0031",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Beast of Chaos",
+  "descriptionTemplate": "Dispel self {Weakness} state. Deal [Damage:Arg1] DMG to all enemies. For each \"Strike\" played in this battle, increase the DMG by [Arg2].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "40",
+        "48",
+        "56",
+        "64",
+        "72",
+        "80"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "8",
+        "9.6",
+        "11.2",
+        "12.8",
+        "14.4",
+        "16"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.lotan.primal-leviathan.skill.lotan.beast-of-chaos",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.lotan.primal-leviathan",
+      "ownerAwakenerId": "awakener-0031",
+      "operation": "mixed",
+      "ownerAwakenerName": "Lotan",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "40",
+              "48",
+              "56",
+              "64",
+              "72",
+              "80"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "24",
+              "28.8",
+              "33.6",
+              "38.4",
+              "43.2",
+              "48"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "2"
+          }
+        },
+        "descriptionTemplate": "Dispel self {Weakness} state. Deal [Damage:Arg1] DMG to all enemies [Arg3] {plural:[Arg3]|time|times}. In this battle, for each \"Strike\" played, increase DMG by [Arg2]. Add 2 \"Strike\" cards with {Exhaust} and {Fleeting} to your hand."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.lotan.timeless-solitude.skill.lotan.beast-of-chaos",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.lotan.timeless-solitude",
+      "ownerAwakenerId": "awakener-0031",
+      "operation": "mixed",
+      "ownerAwakenerName": "Lotan",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "40",
+              "48",
+              "56",
+              "64",
+              "72",
+              "80"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "8",
+              "9.6",
+              "11.2",
+              "12.8",
+              "14.4",
+              "16"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "2"
+          }
+        },
+        "descriptionTemplate": "Dispel self {Weakness} state. Deal [Damage:Arg1] DMG to all enemies [Arg3] {plural:[Arg3]|time|times}. In this battle, for each \"Strike\" played, increase DMG by [Arg2]. Add 2 \"Strike\" cards with {Exhaust} and {Fleeting} to your hand."
+      }
+    }
+  ]
+}

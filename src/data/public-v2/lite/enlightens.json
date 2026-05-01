@@ -1,0 +1,1687 @@
+{
+  "schemaVersion": 1,
+  "scope": "enlightens",
+  "recordCount": 280,
+  "records": [
+    {
+      "id": "enlighten.24.hysteria",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Hysteria",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.24.restraint-bonds",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Restraint Bonds",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.24.pavlovian-conditioning-study",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Pavlovian Conditioning Study",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.24.aberrant-vivisection",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Aberrant Vivisection",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.24.animus-projection",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Animus Projection",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.agrippa.the-usurper",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "The Usurper",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.agrippa.ashes-and-skulls",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Ashes and Skulls",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.agrippa.spider-queens-kiss",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Spider Queen's Kiss",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.agrippa.lady-of-labyrinths",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Lady of Labyrinths",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.agrippa.covenant-of-no-return",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Covenant of No Return",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.aigis.the-witness",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "The Witness",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.aigis.sugary-aroma",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Sugary Aroma",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.aigis.nightborne-wings",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Nightborne Wings",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.aigis.gaze-out-of-the-aeons",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Gaze Out of the Aeons",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.aigis.crystallized-tear",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Crystallized Tear",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.alva.unyielding-bastion",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Unyielding Bastion",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.alva.relentless-fighter",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Relentless Fighter",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.alva.all-for-justice",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "All for Justice",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.alva.justice-and-truth",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Justice and Truth",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.alva.crusade-to-utopia",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Crusade to Utopia",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.aurita.bubbling-journey",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Bubbling Journey",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.aurita.slick-slide-adventure",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Slick-Slide Adventure",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.aurita.lets-all-have-fun-together",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Let's All Have Fun Together!",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.aurita.jellyfish-congregation",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Jellyfish Congregation",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.aurita.sparkling-friendship",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Sparkling Friendship",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.caecus.bloodline-awaken",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Bloodline Awaken",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.caecus.spike-amalgamation",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Spike Amalgamation",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.caecus.outcasts-anguish",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Outcast's Anguish",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.caecus.unbending-resolve",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Unbending Resolve",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.caecus.fury-of-the-inchoate",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Fury of the Inchoate",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.casiah.minds-whisper",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Mind's Whisper",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.casiah.veil-of-illusion",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Veil of Illusion",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.casiah.legendary-copycat",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Legendary Copycat",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.casiah.unfettered-mirth",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Unfettered Mirth",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.casiah.a-thousand-and-one-miracles",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "A Thousand and One Miracles",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.castor.caged-underground",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Caged Underground",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.castor.unyielding-will",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Unyielding Will",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.castor.sky-eclipsing-wings",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Sky-Eclipsing Wings",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.castor.over-the-sea-of-thorns",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Over the Sea of Thorns",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.castor.nox-diouskouron",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Nox Diouskouron",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.celeste.solitary-mast",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Solitary Mast",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.celeste.ancestral-beacon",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Ancestral Beacon",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.celeste.beyond-joy-and-sorrow",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Beyond Joy and Sorrow",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.celeste.divine-vigil",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Divine Vigil",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.celeste.imaginary-cathuria",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Imaginary Cathuria",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.clementine.knocking-on-minds-portal",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Knocking on Mind's Portal",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.clementine.soul-healing-journey",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Soul Healing Journey",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.clementine.you-will-recover",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "You Will Recover",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.clementine.subconscious-corrosion",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Subconscious Corrosion",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.clementine.collective-unconscious",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Collective Unconscious",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.corposant.lodestars-whisper",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "lodestar's Whisper",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.corposant.sextants-calculation",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Sextant's Calculation",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.corposant.willing-sacrifice",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Willing Sacrifice",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.corposant.face-death-in-fiery-resolve",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Face Death in Fiery Resolve",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.corposant.unquenched-unfelled-undimmed",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Unquenched, Unfelled, Undimmed",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.daffodil.infinite-passage",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Infinite Passage",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.daffodil.mist-of-avarice",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Mist of Avarice",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.daffodil.essence-sediment",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Essence Sediment",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.daffodil.phantasmal-haze",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Phantasmal Haze",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.daffodil.dead-souls",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Dead Souls",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.doll.pure-rationality",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Pure Rationality",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.doll.beyond-death",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Beyond Death",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.doll.flesh-transcended",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Flesh Transcended",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.doll.psyche-dissection",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Psyche Dissection",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.doll.ego-restructured",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Ego Restructured",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.doresain.feasts-overture",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Feast's Overture",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.doresain.hollow-whispers",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Hollow Whispers",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.doresain.evernights-revel",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Evernight's Revel",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.doresain.pandemonium-glut",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Pandemonium Glut",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.doresain.styx-uncrossed",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Styx Uncrossed",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.erica.auto-rectification",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Auto-Rectification",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.erica.force-circuit",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Force Circuit",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.erica.system-reboot",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "System Reboot",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.erica.multiple-calculations",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Multiple Calculations",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.erica.final-decree",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Final Decree",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.faint.binary-stars",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Binary Stars",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.faint.withering-hymn",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Withering Hymn",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.faint.cradle-of-love",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Cradle of Love",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.faint.blossom-from-cocoon",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Blossom from Cocoon",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.faint.ever-barren-rainbow",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Ever-Barren Rainbow",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.faros.jagged-shore",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Jagged Shore",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.faros.congealed-ambergris",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Congealed Ambergris",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.faros.flickering-candle",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Flickering Candle",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.faros.light-of-the-lost",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Light of the Lost",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.faros.to-the-radiant-shore",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "To the Radiant Shore",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.doll-inferno.borealis-visitor",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Borealis Visitor",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.doll-inferno.resonant-mycelium",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Resonant Mycelium",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.doll-inferno.envoy-of-extinction",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Envoy of Extinction",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.doll-inferno.madness-infection",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Madness Infection",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.doll-inferno.every-world-drowned",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Every World, Drowned",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.helot-catena.endless-slaughter",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Endless Slaughter",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.helot-catena.vengeance-unchained",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Vengeance Unchained",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.helot-catena.remnants-requiem",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Remnant's Requiem",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.helot-catena.fettered-malice",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Fettered Malice",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.helot-catena.death-knell-decree",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Death Knell Decree",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.ramona-timeworn.penrose-pilgrim",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Penrose Pilgrim",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.ramona-timeworn.klein-bottle-voyager",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Klein Bottle Voyager",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.ramona-timeworn.mobius-captive",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Mobius Captive",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.ramona-timeworn.reach-into-yesterday",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Reach into Yesterday",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.ramona-timeworn.infinite-singularity",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Infinite Singularity",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.goliath.death-is-rebirth",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Death is Rebirth",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.goliath.rule-by-the-strongest",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Rule by the Strongest",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.goliath.boundless-ambition",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Boundless Ambition",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.goliath.giants-grip",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Giant's Grip",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.goliath.ascent-of-the-tyrant",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Ascent of the Tyrant",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.hameln.mind-concerto",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Mind Concerto",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.hameln.oneiric-waltz",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Oneiric Waltz",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.hameln.moonlit-rhapsody",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Moonlit Rhapsody",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.hameln.the-final-sonata",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "The Final Sonata",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.hameln.all-realms-resound",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "All Realms Resound",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.helot.regents-heir",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Regent's Heir",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.helot.sacred-half",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Sacred Half",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.helot.the-chainbreaker",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "The Chainbreaker",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.helot.blood-for-blood",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Blood for Blood",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.helot.the-final-arbiter",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "The Final Arbiter",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.horla.emberbound",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Emberbound",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.horla.chamber-of-shadows",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Chamber of Shadows",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.horla.blossoms-and-verses-reunited",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Blossoms and Verses Reunited",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.horla.ink-stained-sonnet",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Ink-Stained Sonnet",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.horla.spring-in-the-embers",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Spring in the Embers",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.jenkins.red-ribbon",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Red Ribbon",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.jenkins.golden-butterflys-memories",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Golden Butterfly's Memories",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.jenkins.obsidian-dissolution",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Obsidian Dissolution",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.jenkins.gotcha",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Gotcha!",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.jenkins.from-the-shrouded-mist",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "From the Shrouded Mist",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.karen.maids-decree",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Maid's Decree",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.karen.creamy-frosting",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Creamy Frosting",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.karen.fermented-recipes",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Fermented Recipes",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.karen.bounteous-feast",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Bounteous Feast",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.karen.mistmoon-banquet",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Mistmoon Banquet",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.kathigu-ra.everburning-flame",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Everburning Flame",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.kathigu-ra.astral-meltdown",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Astral Meltdown",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.kathigu-ra.endless-purgatory",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Endless Purgatory",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.kathigu-ra.all-melting-truth",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "All-Melting Truth",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.kathigu-ra.ashen-finale",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Ashen Finale",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.leigh.newborn-sanguivore",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Newborn Sanguivore",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.leigh.step-into-the-sunlight",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Step into the Sunlight",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.leigh.basement-journal",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Basement Journal",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.leigh.pallid-bloodied-kiss",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Pallid Bloodied Kiss",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.leigh.insatiable-craving",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Insatiable Craving",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.lily.blackened-nourishment",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Blackened Nourishment",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.lily.viscous-devour",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Viscous Devour",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.lily.never-forget",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Never Forget...",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.lily.at-your-behest",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "At Your Behest",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.lily.lilium-immaculatum",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Lilium Immaculatum",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.liz.verdant-spark",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Verdant Spark",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.liz.eternal-flames",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Eternal Flames",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.liz.last-dawnlight",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Last Dawnlight",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.liz.omens-descent",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Omen's Descent",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.liz.burning-tribute",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Burning Tribute",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.lotan.swords-unleashed",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Swords Unleashed",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.lotan.surging-warlust",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Surging Warlust",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.lotan.timeless-solitude",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Timeless Solitude",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.lotan.until-the-planets-end",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Until the Planet's End",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.lotan.primal-leviathan",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Primal Leviathan",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.miryam.solitary-pilgrimage",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Solitary Pilgrimage",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.miryam.the-ultimate-descent",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "The Ultimate Descent",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.miryam.vanitys-collapse",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Vanity's Collapse",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.miryam.unacquainted-pain",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Unacquainted Pain",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.miryam.homeland-resurgence",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Homeland Resurgence",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.mouchette.mist-realm-traveler",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Mist Realm Traveler",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.mouchette.irretrievable-past",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Irretrievable Past",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.mouchette.cleave-out-a-future",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Cleave Out a Future",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.mouchette.tornado-of-annihilation",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Tornado of Annihilation☆!",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.mouchette.ego-beyond-the-fog",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Ego Beyond the Fog",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.murphy.silent-defiance",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Silent Defiance",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.murphy.inextricable-bloodline",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Inextricable Bloodline",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.murphy.emancipating-touch",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Emancipating Touch",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.murphy.oath-of-liberation",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Oath of Liberation",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.murphy.defiant-providence",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Defiant Providence",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.murphy-fauxborn.kneelers-supplication",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Kneeler's Supplication",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.murphy-fauxborn.inverted-pregnancy",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Inverted Pregnancy",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.murphy-fauxborn.profane-apocalypse",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Profane Apocalypse",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.murphy-fauxborn.aetherial-loop",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Aetherial Loop",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.murphy-fauxborn.celestial-resonance",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Celestial Resonance",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.nautila.blank-recollection",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Blank Recollection",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.nautila.absent-cogwheel",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Absent Cogwheel",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.nautila.forgotten-dreams",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Forgotten Dreams",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.nautila.vroom-vroom",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Vroom Vroom!",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.nautila.ace-mechanist",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Ace Mechanist",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.nymphaea.oceans-vessel",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Ocean's Vessel",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.nymphaea.silent-permeation",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Silent Permeation",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.nymphaea.frostbloom-tide",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Frostbloom Tide",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.nymphaea.abyssal-funeral-rites",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Abyssal Funeral Rites",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.nymphaea.sentiment-oc-anique",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Sentiment Océanique",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.ogier.honesty-unto-thyself",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Honesty Unto Thyself",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.ogier.mercy-for-the-meek",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Mercy for the Meek",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.ogier.sacrifice-for-justice",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Sacrifice for Justice",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.ogier.resolute-devotion",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Resolute Devotion",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.ogier.deathless-loyalty",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Deathless Loyalty",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.pandia.embrace-the-pain",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Embrace the Pain",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.pandia.blazing-desire",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Blazing Desire",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.pandia.youre-being-naughty",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "You're Being Naughty...",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.pandia.sweet-surrender",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Sweet Surrender",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.pandia.manifesto-of-loving-discipline",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Manifesto of Loving Discipline",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.pickman.cross-hatched-rendering",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Cross-Hatched Rendering",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.pickman.centered-composition",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Centered Composition",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.pickman.invocation-of-the-muse",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Invocation of the Muse",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.pickman.art-is-madness",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Art is Madness",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.pickman.world-in-the-painting",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "World in the Painting",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.pollux.lightbearers-herald",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Lightbearer's Herald",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.pollux.flames-of-salvation",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Flames of Salvation",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.pollux.divine-revelation",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Divine Revelation",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.pollux.the-nightbreaker",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "The Nightbreaker",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.pollux.lux-diouskouron",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Lux Diouskouron",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.ramona.innocent-departure",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Innocent Departure",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.ramona.omen-of-unknowns",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Omen of Unknowns",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.ramona.precious-ties",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Precious Ties",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.ramona.labyrinth-of-thought",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Labyrinth of Thought",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.ramona.sublime-tempering",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Sublime Tempering",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.ryker.fortunes-boon",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Fortune's Boon",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.ryker.honest-return",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Honest Return",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.ryker.certain-gain",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Certain Gain",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.ryker.jackpot",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Jackpot!",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.ryker.fortune-favors-the-damned",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Fortune Favors the Damned",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.salvador.divine-proxy",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Divine Proxy",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.salvador.book-of-genesis",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Book of Genesis",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.salvador.salvations-hand",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Salvation's Hand",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.salvador.rite-of-creation",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Rite of Creation",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.salvador.bitter-eucharist",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Bitter Eucharist",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.sanga.melodic-sculpting",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Melodic Sculpting",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.sanga.kneel-before-beauty",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Kneel Before Beauty",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.sanga.artistic-dionysia",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Artistic Dionysia",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.sanga.the-sea-of-corals",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "The Sea of Corals",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.sanga.oblivion-takes-all",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Oblivion Takes All",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.sorel.flowing-rill",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Flowing Rill",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.sorel.vintage-nectar",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Vintage Nectar",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.sorel.lustrous-pearl",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Lustrous Pearl",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.sorel.roses-infinite-desire",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Rose's Infinite Desire",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.sorel.carlate-profond",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Écarlate Profond",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.tawil.boundless-sagacity",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Boundless Sagacity",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.tawil.omniscient-and-omnipotent",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Omniscient and Omnipotent",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.tawil.nonexistent-existence",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Nonexistent Existence",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.tawil.infinite-radiant-brilliance",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Infinite Radiant Brilliance",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.tawil.the-first-logos",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "The First Logos",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.thais.forests-embrace",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Forest's Embrace",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.thais.seed-of-chaos",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Seed of Chaos",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.thais.everlasting-cycle",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Everlasting Cycle",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.thais.sacred-relics-perpetuity",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Sacred Relic's Perpetuity",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.thais.the-birthing-deep",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "The Birthing Deep",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.tinct.stellar-reverberation",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Stellar Reverberation",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.tinct.midnight-elegy",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Midnight Elegy",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.tinct.falling-skyward",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Falling Skyward",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.tinct.cosmic-symphony",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Cosmic Symphony",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.tinct.when-crimson-meets-thorns",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "When Crimson Meets Thorns",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.tulu.nocturnal-murmurs",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Nocturnal Murmurs",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.tulu.touch-of-revival",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Touch of Revival",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.tulu.the-stars-are-right",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "The Stars Are Right",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.tulu.the-promised-day",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "The Promised Day",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.tulu.lone-king",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Lone King",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.uvhash.the-gladiator",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "The Gladiator",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.uvhash.roman-elegy",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Roman Elegy",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.uvhash.sorcerers-end",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Sorcerer's End",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.uvhash.gift-of-surging-blood",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Gift of Surging Blood",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.uvhash.paean-of-twisted-fury",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Paean of Twisted Fury",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.wanda.the-revelation",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "The Revelation",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.wanda.lakeborne-dweller",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Lakeborne Dweller",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.wanda.venus-and-fur",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Venus and Fur",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.wanda.lost-dreams-guide",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Lost Dream's Guide",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.wanda.black-stone-decree",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Black Stone Decree",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.winkle.dread-of-the-darkness",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Dread of the Darkness",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.winkle.forsaken-homeland",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Forsaken Homeland",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.winkle.rebirth-through-death",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Rebirth Through Death",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.winkle.space-time-fold",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Space-Time Fold",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.winkle.thus-spoke-the-outcast",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Thus Spoke the Outcast",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.xu.enmity-of-the-heart",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Enmity of the Heart",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.xu.fan-and-scythe",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Fan and Scythe",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.xu.nirvanas-kiss",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Nirvana's Kiss",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.xu.karmic-grave",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Karmic Grave",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.xu.gu-wang-yan",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Gu Wang Yan",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.vortice.endless-tide",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Endless Tide",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.vortice.roaring-abyss",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Roaring Abyss",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.vortice.shackled-impulse",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Shackled Impulse",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.vortice.moskstraumen-boom",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Moskstraumen! BOOM!",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.vortice.bang-pop-boom",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "BANG! POP! BOOM!",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "id": "enlighten.arachne.future-as-i-foresee",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Future, As I Foresee",
+      "slot": "E1"
+    },
+    {
+      "id": "enlighten.arachne.universe-as-i-conceive",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Universe, As I Conceive",
+      "slot": "E2"
+    },
+    {
+      "id": "enlighten.arachne.destiny-as-i-arrange",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Destiny, As I Arrange",
+      "slot": "E3"
+    },
+    {
+      "id": "enlighten.arachne.elegy-over-fate",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Elegy Over Fate",
+      "slot": "OverExalt"
+    },
+    {
+      "id": "enlighten.arachne.moiraes-finale",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Moirae's Finale",
+      "slot": "AbsoluteAxiom"
+    }
+  ]
+}

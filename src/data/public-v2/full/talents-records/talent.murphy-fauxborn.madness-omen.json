@@ -1,0 +1,15 @@
+{
+  "id": "talent.murphy-fauxborn.madness-omen",
+  "ownerAwakenerId": "awakener-0035",
+  "displayName": "Madness Omen",
+  "family": "madness_omen",
+  "descriptionTemplate": "Gain [Arg1] Aliemus after the start of exploration.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "5",
+      "gainPerLevel": "5"
+    }
+  },
+  "maxLevel": 12
+}

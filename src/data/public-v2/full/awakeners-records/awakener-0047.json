@@ -1,0 +1,99 @@
+{
+  "id": "awakener-0047",
+  "numericId": 47,
+  "name": "Tawil",
+  "ingameId": "C15",
+  "lineupToken": "X",
+  "realm": "CHAOS",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "tawil",
+    "iconKey": "tawil"
+  },
+  "baseStatsLv1": {
+    "CON": 47,
+    "ATK": 47,
+    "DEF": 47
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 17.4,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.5,
+    "ATK": 1.5,
+    "DEF": 1.5
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 2.4,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Tawil",
+    "birthday": "31-Dec",
+    "gender": "Female",
+    "height": "5'5''",
+    "weight": "???",
+    "gnosticIndex": "Immeasurable",
+    "characteristic": "Suggested Translation",
+    "introduction": "Tawil knows all and can utilize any Skill for their own purposes, using Keyflare as a resource to launch attacks.",
+    "awakerIntroduction": "The all-knowing sage, possessing infinite wisdom, skillfully masters all skills, searching for the best path among countless possibilities.\nCan provide a large amount of Keyflare for the team and also convert Keyflare into winged strikes against enemies.\nIn this level, Tawil and Lotan will participate at Level 50, Skill Level 5, and Enlighten Level 3, gaining 100 Aliemus and increasing Keyflare Regen by 50 at the start of battle.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Tawil does not exist in the current world. Their existence would draw the attention of the 'Supreme Will,' so They cannot and must not exist. Wisdom and silence are all The Gatekeeper can offer to these tireless seekers. In Their daily vigil, Tawil quietly bestows Their wisdom, courage, and silent blessings upon the fate of humanity.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "In a mysterious dream, I first saw Them.\nIn an endless and foggy space, They guarded a majestic and eternal Gate linking countless vast universes. Beyond the deep cracks of the Gate, strange illusions flickered like undeciphered signals. Upon catching a signal, I felt my body vanish, aimlessly floating among the stars, enshrouded by an incredible darkness. I was terrified; the dream violently shook, the heavy Gate irresistibly opening, with countless sphere-like objects shining like stars beyond it. The vast and unfathomable scene made me dizzy... and the Gate's guardian—Tawil—silently and eternally watched me.\n—Ward Phillips, Silver Key Notes",
+        "unlockCondition": "Affinity Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Tawil has manifested in Mythag only three times.\nThe first time, Tawil ignited the spark of \"Wisdom.\" The Gatekeeper opened the passage to dream, imparting rare Knowledge to the ignorant founders of Mythag. They provided Mythag's original \"think tank,\" along with clues and insights about Dissolution.\nThe second time, Tawil delivered the prophecy of \"Change.\" The Black Pool churned, welcoming the Arrival of the one who would \"Transform\" the world.\nThe third time, They transmitted the signal of \"Finale.\" Their cries and wails resonated across the earth, yet could not prevent the inevitable descent of Chaos and Destruction.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Kadath is not the only dream Tawil seeks to protect.\nThe Gatekeeper has witnessed the birth and destruction of countless planets and galaxies, with the histories of past and future sedimented into knowledge, absorbed into the Ultimate Gate behind Them. With a gaze full of compassion, Tawil looks down upon these scenes, which dissolve into fleeting glimpses in Their dreams, vanishing into the darkness of the boundless abyss.\nTawil once stepped onto a piece of land, but in the moment They glanced back, everything They cherished crumbled beneath the breath of the \"Supreme Will.\"\nAfter endless repetitions, They finally realized a harsh truth: Their very existence serves as the prelude to a nightmare; Their immense presence alone draws the gaze of the \"Supreme Will.\" Their interference would only bring deeper misfortune to the world They hold dear.\nThus, Tawil retreated. Tawil fell silent.\nUntil They perceived a glimmer of change emanating from \"It\" within the drifting fragments of consciousness in the infinite expanse...",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "As the Aeon of Sagacity's Proxy and Gatekeeper, Tawil has not lacked the desire to explore Their own essence. Tawil yearns to walk the earth like those The Gatekeeper watches over, witnessing the changes in civilization and the vicissitudes of history, gathering all They see into a treasury called 'Omniscience.' But Their existence does not allow Them to abandon Their post. Deep in Tawil's heart, perhaps what They envy most is the girl who carries a thread of Their will...",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Gateway",
+  "aliases": [
+    "tawil"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Discard",
+    "Draw",
+    "Keyflare",
+    "Max HP DMG"
+  ]
+}

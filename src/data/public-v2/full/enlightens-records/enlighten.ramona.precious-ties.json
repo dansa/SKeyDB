@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.ramona.precious-ties",
+  "ownerAwakenerId": "awakener-0042",
+  "slot": "E3",
+  "displayName": "Precious Ties",
+  "descriptionTemplate": "After releasing the Posse, Ramona's Temporary Crit. Rate + 50%. {Mundus Decree} shuffles 1 \"Insight\" into the Draw Pile.",
+  "descriptionArgs": {}
+}

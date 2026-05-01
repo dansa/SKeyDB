@@ -1,0 +1,19 @@
+{
+  "id": "overlay.global.raging-waves",
+  "displayName": "Raging Waves",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "This turn, {Tentacle DMG} becomes [Arg1]%, after dealing Active DMG, causes 1 Tentacle to attack the target enemy, dealing [Arg3]% {Tentacle DMG}, and loses 1 Tentacle at turn end. This stance can only be chosen when the current Permanent Tentacle Count exceeds 1.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "125",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    }
+  }
+}

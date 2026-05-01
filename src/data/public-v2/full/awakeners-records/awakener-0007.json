@@ -1,0 +1,97 @@
+{
+  "id": "awakener-0007",
+  "numericId": 7,
+  "name": "Casiah",
+  "ingameId": "D09",
+  "lineupToken": "n",
+  "realm": "ULTRA",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "casiah",
+    "iconKey": "casiah"
+  },
+  "baseStatsLv1": {
+    "CON": 29,
+    "ATK": 30,
+    "DEF": 26
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 15,
+    "RealmMastery": 4,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.35,
+    "ATK": 1.4,
+    "DEF": 1.2
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 0,
+    "RealmMastery": 4,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Casiah",
+    "birthday": "1-Apr",
+    "gender": "Female",
+    "height": "4'12''",
+    "weight": "99lbs",
+    "gnosticIndex": "21.75",
+    "characteristic": "Replenish Hand    Temporary STR",
+    "introduction": "Able to draw or replace a large number of cards as if performing magic, and gain Temporary Strength to enhance damage.",
+    "awakerIntroduction": "Exalt can deal area DMG and draw cards; the more Command Cards, States, or Symptom Cards drawn, the greater the number of DMG instances dealt.\n{Poof!} can reshuffle the hand while discarding State or Symptom Cards to gain Aliemus.\n{Telekinesis} takes cards from {Ultra Space} in exchange for high DMG and Arithmetica resources.\nIn this stage, Casiah will be deployed at Level 50, Skill Level 5, Enlighten Level 3, and the first attack from the boss enemy will receive an Enhance.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Let's dance! Dance with joy, dance with madness! Laugh with her and heat up the atmosphere to the max.\nThen, it will be time for the main character to appear.\nUnder the spotlight, the mad magician reaches into her tall hat. What she pulls out from the endless void—colorful ribbons, a soaring white dove, or the claw of a terrifying monster—only she knows.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "A.F. 3@2, April 1, Silver Storage and Management Room, Mythag University Awakener System, Londinium\nSilver G411, along with Silver G410, was purchased by Lord Dexter from \"Lady Narcissus.\" The individual measures 1.85 cm in length and 0.4 cm at its widest point, with a shape resembling a rhombicuboctahedron. Regardless of the angle or position from which it is observed, G411 emits bright yellow diamond-shaped ripples that radiate outward from the observer's visual center. Prolonged observation may cause the observer to experience mental disorientation, diminished emotional feedback, and even lead to Wooden Man Syndrome (potential symptoms include complete emotional loss, loss of desire, malnutrition, and even death due to lack of appetite), requiring timely psychological and emotional intervention.\nAlthough its negative effects are milder compared to most Silvers, it is still recommended to store it in a sealed container and avoid direct viewing after removal to minimize the risk of emotional disturbances caused by G411.\n\n—Excerpt from <Italic:\"Mythag University Silver Storage Records.\">",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "\"Tired of the mundane park? Bored with dull animal exhibitions? Then come to Casiah's Magical Carnival! For kids who love animals, there are tenor-singing lions, ballet-dancing flamingos, acrobatic elephants, and the world's only donkey tamer! For couples looking to enhance their connection, try our unique spinning live horses for a rare romantic experience! For warriors lacking true excitement in life, challenge the mirror maze personally designed by the carnival master. If you manage to take away those 41 mischievous visitors who never came out, you can win great prizes!\nBesides these exclusive entertainment facilities, Magician Casiah will also show you a world of marvelous festivities, bringing you body segmentation, human metamorphosis, extreme escapes, and more magic! Lucky audience members can even participate in the show on stage, experiencing Master Casiah's exquisite cutting techniques. It will redefine your perception, making your daily life seem much more mundane! Best of all, it's all free, free! Your joy is Master Casiah's best reward!\nMythag University folks, this weekend, on the field behind the cafeteria, Master Casiah will be waiting for you!\n\nNote: Once entering the carnival, attendees must fully experience it; mid-way exits are not allowed. Those with low tolerance and fragile spirit or heart should enter cautiously.\nThe carnival is not responsible for any symptoms such as appetite loss, limb dismemberment, eye loss, or abdominal tearing that occur afterward.\"\n—\"The Grand Opening of Magician Casiah's Magical Carnival!\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "From her childhood, Casiah exhibited a high degree of mimicry talent.\nNo matter how intricate the dance, she could replicate it after just one viewing; no matter how complex the magic trick, she could master it after being taught just once. Voice, expression, even smile and temperament—Casiah could perfectly replicate them, even to the point of blurring the line between real and fake. If she had a different background or profession, perhaps she could have led a different life because of this talent.\nUnfortunately, she was just a child growing up in an obscure circus. The circus people only thought of profiting from her talent, while those outside the circus—they only cared to purchase joy and had no intention of offering sympathy.\nNo one cared for Casiah's happiness, but fortunately, Casiah did not care either. Every time she looked at the laughing audience, at the arguing troupe members, at the fortune teller silently weeping over her photos, she only felt a detached curiosity: why did they make those expressions offstage? Why did they insist on performing when no one was watching? Why did they call it their \"emotional outpouring\"?\nWhat is happiness? What is sadness? What did the \"benefactor\" who slit her throat say about the despair and fear of near-death? \nAs a human, she could not find the answers to these questions, but as a child of magic, as a being capable of collecting \"emotions\" from others, perhaps she could finally gain an experience she had never possessed.\nThus, she founded the Magical Carnival and brought it around the world.\nPeople come to purchase joy, but the price is all their desires.\n\"Come, come, come to my carnival! Just a tad bit of joy, a bit of sorrow, and you can see the most spectacular show of the century!\"",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Casiah reached into the hat, and it was empty.\nCasiah reached into the door, and it was empty.\nCasiah reached into her chest, and it was empty.\nThe collected joys and sorrows, fears and angers, the warmth and coldness of humanity, the noise before the curtain, the cheers during the twists, the whistles at the highlights, the applause at the closing, and the indifference at dispersal all slipped away from this hollow chest, leaving no trace of ever existing.\nCasiah imitated the expressions of the audience in the mirror—the wrinkles at the corners of the eyes, the flow of muscles, the curvature of lips—clearly identical to those people, yet devoid of any true meaning.\nIf only she could perceive... If only she could transcend imitation... If only she could become one of them... Or, if only someone could remain...\nThen surely this \"void\" in her chest would be filled.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Unknowable",
+  "aliases": [
+    "casiah"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Discard",
+    "Draw"
+  ]
+}

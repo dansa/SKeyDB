@@ -1,0 +1,29 @@
+{
+  "id": "skill.helot-catena.crimson-shackles",
+  "ownerAwakenerId": "awakener-0019",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Crimson Shackles",
+  "descriptionTemplate": "Lose 10% of current HP, randomly deal [Damage:Arg1] DMG 2 times and inflict {Bleed} equal to 50% DMG dealt. After playing 3 times, transform into {Bloodthirsty Flail}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "12.5",
+        "15",
+        "17.5",
+        "20",
+        "22.5",
+        "25"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.echo"
+    }
+  ],
+  "cost": "1"
+}

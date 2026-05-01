@@ -1,0 +1,17 @@
+{
+  "id": "posse-0041",
+  "name": "Beachside Memento",
+  "descriptionTemplate": "Choose an Awakener; create 1 of their basic Strike Commands. It has {Exhaust}. Every {ordinal:3rd} time this is unleashed, instead create 1 {Fleeting Beauty} and gain +[Arg1]% Temp. Crit. Rate.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "20",
+      "suffix": "%"
+    }
+  },
+  "lore": "Every party has its end, but the memories etched in the soul never cease. No matter how many times, when recalling this frozen moment, longing will surge like a tide.",
+  "realm": "OTHER",
+  "assetId": "posse-icon-43",
+  "imageAssetId": "CG_SD_L_FarewellNeverland_1",
+  "lineupToken": "T"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "skill.ryker.unexpected-gain",
+  "ownerAwakenerId": "awakener-0043",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Unexpected Gain",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Choose 1 card from the Draw Pile and add it to your hand. If it's a {Critical Hit}, the selected card's Arithmetica Cost -1.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "24",
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ryker.fortunes-boon.skill.ryker.unexpected-gain",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.ryker.fortunes-boon",
+      "ownerAwakenerId": "awakener-0043",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Ryker",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Choose 1 card from the Draw Pile and place it into hand. If it's a {Critical Hit}, reduce the chosen card's Arithmetica Cost by 2."
+      }
+    }
+  ]
+}

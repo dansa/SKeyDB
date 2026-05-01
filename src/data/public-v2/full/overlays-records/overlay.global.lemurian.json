@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.lemurian",
+  "displayName": "Lemurian",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "",
+  "descriptionArgs": {}
+}

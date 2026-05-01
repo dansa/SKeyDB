@@ -1,0 +1,99 @@
+{
+  "id": "awakener-0023",
+  "numericId": 23,
+  "name": "Helot",
+  "ingameId": "B05",
+  "lineupToken": "F",
+  "realm": "CARO",
+  "rarity": "SSR",
+  "type": "ASSAULT",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "helot",
+    "iconKey": "helot"
+  },
+  "baseStatsLv1": {
+    "CON": 37,
+    "ATK": 36,
+    "DEF": 27
+  },
+  "substatsLv1": {
+    "CritRate": 5.8,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.75,
+    "ATK": 1.7,
+    "DEF": 1.25
+  },
+  "substatScaling": {
+    "CritRate": 0.8,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Helot",
+    "birthday": "25-Dec",
+    "gender": "Female",
+    "height": "1.07bēma",
+    "weight": "75mina",
+    "gnosticIndex": "26",
+    "characteristic": "High Single-Hit DMG    Strength Growth",
+    "introduction": "An avenger who continuously restrains and builds up Strength, delivering a single devastating strike to bring an End to the enemy.",
+    "awakerIntroduction": "Exalt significantly boosts \"Strike\" DMG in this turn.\nThe more \"Strike\" cards you have in hand, the higher the DMG of {Shattering Strike} will be, and the greater the {STR} bonus it enjoys. Combine \"Strike\" with Exalt to deal massive DMG in one go.\nIn this level, Helot will join the battle at Level 50, with Skill Level 5 and 3 Enlightenments. At the start of the Battle, you will Obtain 3 \"Strike\" cards, gain 30% {Embryo Fusion} each turn, 10 Aliemus, and 6 {STR}. The enemy will gain Enhance on their first turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "She was not born to drink blood. Once, she also basked in fleeting warmth, like a blossoming flower. Betrayal and imprisonment fueled the flames of rebellion. The fire of vengeance scorched Maysia. Consumed by endless hatred, her heart is now closed to everyone...",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "The Evrotas archaeological team has been plagued by a mysterious illness for ten days, with no signs of improvement. \nThe illness strikes without warning but with overwhelming force. Patients typically suffer from severe phantasms, accompanied by loss of bodily sensation and sensory deficits, which worsen over time, eventually leading to paralysis of one side or even the entire body. Although the contagion appears to be confined to the archaeological site on the west bank of the Evrotas River, with most patients being workers and resident scholars, authorities cannot rule out the possibility of further spread. \nA worker who had previously worked at the archaeological site told reporters that symptoms of the illness emerged fifteen days ago—on the very day the ancient shackles were unearthed. Readers familiar with the related archaeological news will undoubtedly recall the well-preserved, rust-free shackles that clearly belonged to an ancient civilization. They arrived in the Kingdom of Leo yesterday and have been handed over to Mythag University for further research. The connection between the illness and the shackles carries a mysterious significance. \n\"Ever since we dug it up, something has felt off at the camp,\" the worker told reporters. \"Many people have been having strange dreams, dreaming of a girl locked in a cage by chains, and some at midnight... This is a curse—the curse of the shackles! There can be no other explanation.\" \nAs of the report date, relevant departments have taken control of the area, strictly prohibiting any personnel from entering or leaving. The Evrotas archaeological operation has now been completely suspended. \n—\"The Ancient Curse? Strange Illness Sweeps the Evrotas Archaeological Team.\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Helot is a sharp, cold blade.\nAwakeners who have worked with her say she's an effective weapon, strong and always mission-ready. Once given a kill order, no matter how powerful the enemy, she will break through and take their head.\nBut that's all.\nShe might protect her team, but it's just following orders, not out of care. She doesn't trust them; they can't trust her to guard their backs.\nWhat they don't know is that to her, turning a blade on allies is despicable, contemptible, and deserving of punishment.\nShe knows the evil of betrayal and would never turn her sword against comrades.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "The girl is dressed in a simple dress, her skin still stings from the rough washing earlier. She doesn't understand why soldiers brought her here; the noble master's house is no place for slaves to come and go freely, and she is far from the age to serve here.\nThe lady in the snowy white gown sits upright in the chair, and the girl lowers her head, trembling from fear and nervousness.\n\"I wasn't wrong after all...\" the lady says, \"So much like, really so like.\"\nLike? Does that mean she resembles someone?\n\"Very good, very well.\" The lady claps her hands happily, \"It's you. From today on, I will be your mother, do you remember?\"\nMother? But she already has a mother. Her mother is at home, crying out loud when she was taken away.\nWhat will happen to her mother?\nConfusion and misunderstanding swirl in the girl's mind; she wants to ask for answers but also understands that the master's words are commands for slaves, and a slave that disobeys commands will be severely punished.\n\"I remember, Madam.\"\n\"What a good child. Let me think... I'll call you Helot, does that name please you, Helot? You must like it very much. Come, put on this dress and show it to mommy.\"",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "The lady high above took her hand, promising to give her all the love in the world.\nShe believed in the lady's gentleness and the master's indulgence, trusted every smile and every hug, unaware that in their eyes, she was merely a pet—something to be discarded the moment it posed any threat.\nThey personally threw her into a cage, shattering her trust. But neither the warden's whip nor the torment from her kin hurt as much as the betrayal from her loved ones.\nHate, such hate! She hated them for their lies that won her genuine heart, hated them for using her life to create this painful farce. If trusting others led to this, then she would forever rely only on herself.\nHer trust belongs solely to herself.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Fools",
+  "aliases": [
+    "helot"
+  ],
+  "searchTags": [
+    "Discard",
+    "Draw",
+    "Hand Limit",
+    "Self-Harm",
+    "Strike"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "skill.faros.defense",
+  "ownerAwakenerId": "awakener-0017",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Faros obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.faros.congealed-ambergris.skill.faros.defense",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.faros.congealed-ambergris",
+      "ownerAwakenerId": "awakener-0017",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Faros",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Faros gains [Energy:Arg2] Aliemus. Make 1 Tentacle Attack 2 times, but deal only 50% DMG."
+      }
+    }
+  ]
+}

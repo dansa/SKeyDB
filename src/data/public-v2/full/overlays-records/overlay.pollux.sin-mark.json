@@ -1,0 +1,11 @@
+{
+  "id": "overlay.pollux.sin-mark",
+  "displayName": "Sin Mark",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Each stack grants Pollux's damage a 1% {Bleed} effect.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0041",
+  "iconId": "Battle_Card_Buff_078",
+  "textColor": "affliction"
+}

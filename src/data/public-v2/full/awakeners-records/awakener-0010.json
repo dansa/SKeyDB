@@ -1,0 +1,96 @@
+{
+  "id": "awakener-0010",
+  "numericId": 10,
+  "name": "Clementine",
+  "ingameId": "D13",
+  "lineupToken": "9",
+  "realm": "ULTRA",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "clementine",
+    "iconKey": "clementine"
+  },
+  "baseStatsLv1": {
+    "CON": 44,
+    "ATK": 52,
+    "DEF": 42
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 17.4,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0.8,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.4,
+    "ATK": 1.65,
+    "DEF": 1.35
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 2.4,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0.8,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Clementine",
+    "birthday": "16-Aug",
+    "gender": "Female",
+    "height": "5'5.7''",
+    "weight": "102lbs",
+    "gnosticIndex": "21.31",
+    "characteristic": "Multi-hit Damage    Critical Hit",
+    "introduction": "Builds up Symbiosis, hypnotizes enemies to reduce their damage, or inflicts Trauma on enemies to increase the damage they take.",
+    "awakerIntroduction": "The gentle and elegant psychologist can gradually sense the emotional buildup of the patients during communication, accumulating {Symbiosis}. After releasing the Exalt, they can consume {Symbiosis} to manipulate their spirit state, instilling {Fear} to dismantle the enemies' combat will, or implanting trauma to instantly {Destroy} their mental defenses.\nIn this level, Clementine will fight with level 50, skill level 5, and Enlighten 3, with Keyflare Regen increased by 50, gaining 20 Aliemus per round.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Everyone wears different masks of personality, and she chose the one that most numbs the heart —\n\nShe smiles gently, saying every expression and every word so soothing, making the patients who come for psychological counseling genuinely feel they have met their soulmate and guide in this life.\nThat is enough.\n\nThe doomed moth needs not to know the ending, only to follow her guidance.\n\nIn that seemingly warm redemption, the flames consume, no turning back.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "I do not believe Robert would commit suicide by gunshot. No, I do not believe it.\n\nHe received a medal for bravery and solved many difficult murder cases; he is a determined veteran agent. Most importantly, he was about to get married, and the girl loved him back, so there must be a conspiracy here! Someone murdered him and staged it as a suicide scene!\n\nWhoever the murderer is, I will find him and make him pay. This is something I must do as a brother and an agent.\n\n...\n\nThe scene had no clues, so I had to return to my hometown, which was the last place Robert visited before his suicide. After many inquiries, I learned that he had entered deep into the mountains.\n\nAs for why he went there, I suspect it has something to do with local traditions: the first child in every family is taken to the mountains during their coming-of-age ceremony.\n\nSince my parents moved away from here when we were young, Robert never practiced this tradition. I think it was the sense of responsibility before starting a family that awakened his adherence to tradition.\n\nRegardless, I need to take a trip to the deep mountains. After finishing this entry, I’ll set off immediately.\n\n...\n\nA grand structure was carved out in the mountains, I do not know which era it belongs to, I can't tell. I only know that cruel rituals have been continuously conducted here, with dismembered limbs and larvae... I can't write anymore.\n\n...\n\nThese larvae... no, those are not my grandparents, not my ancestors... I cannot have the bloodline of a monster. Ah—\n\n...\n\n...I was discovered by the monsters conducting the rituals; they want to turn me into a monster too!\n\n...\n\nIf someone reads this diary, kill me, immediately...@2\n\n...\n\nPraise the great @2, hiss @2... Praise blind folly @4... hssss... @1 hiss...\n\n—Excerpt from the diary of the late involved agent @3, with omissions",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "<Thank you, Clementine, I feel much better. You really are the person who understands me best in this world.>\n\n When entering and exiting Clementine's counseling room, the Keeper often hears such voices. Regardless of how those patients and Awakeners were before they entered, they emerge light-footed and beaming with smiles.\n\n There was even a time when the Keeper saw Clementine providing psychological counseling to a stray cat that accidentally wandered into the consultation room.\n\n The results are apparent; everyone who has undergone counseling has praised Clementine, rapidly spreading her influence. However, this also brought troubles —\n\n \"Good afternoon, Keeper.\"  \n\nClementine appeared with a smile on your path, and you weren't surprised; her continuously ringing communicator had already said it all. Those patients who trusted her unconditionally have become her eyes and ears, helping her achieve various goals, whether directly or indirectly.\n\n \"I think that even if you wanted to become the mayor of this city, those who received counseling would unconditionally help you achieve that.\"  \n\nFacing the Keeper's joke, Clementine smiled nonchalantly.\n\n \"I'm not interested in any of that.\"  \n\nYes, Clementine is not interested in those things. Thankfully, she is not.\n\n Otherwise, the dark secrets poured out during psychological counseling would be enough to disturb this city.\n\n \"Right now, I just want to explore the secrets deep within your heart, Keeper.\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "In fact, the true Clementine had already died the moment the Passing Great Will became a parasite.\n\nWhat broke free from that altar full of flesh and blood was a newborn with a great essence, far surpassing human life.\n\nNew life, old memories. The body nurtured by this planet, the soul born from the depths of the universe.\n\nSuch a contradictory existence puzzled Clementine, but soon, the hunger from the Soul left her unable to think.\n\nHuman food is so bland; only painful memories are somewhat palatable. And the more torment and despair those memories carry, the sweeter and more delicious they taste.\n\nIn that moment, she finally understood her way of survival.\n\n\"Speak to me, whether it be pain or despair, show it all to me.\"\n\nShe sat behind her desk, gazing maliciously at the patient who came for consultation, her expression filled with tenderness, enough to disarm anyone.\n\nThat was the disguise and mask of insect hunting.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "At first, some trivial pain could satisfy her. \n\nThen, her craving for sweetness led her to embrace more and more malice during psychological guidance. \n\nThis malice surged like a river, flooding one after another island of the soul. \n\nBut it was not enough. Far from it. \n\nOnly with the awakening of that ancient long dream, will the entire world turn into a sea of pain, bringing ultimate joy. \n\nSo, she was excited, she prayed, she waited. \n\nWhen everything merged into chaos, she would bow her head, joyfully savoring the most extreme lament of the world. \n\nEven if this sea of pain would drown her.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Unknowable",
+  "aliases": [
+    "clementine"
+  ],
+  "searchTags": [
+    "Dispel",
+    "Keyflare"
+  ]
+}

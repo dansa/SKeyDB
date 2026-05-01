@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.void",
+  "displayName": "Void",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "At turn end, all Awakeners lose Aliemus.",
+  "descriptionArgs": {},
+  "iconId": "IconS_Buff_029",
+  "textColor": "aliemus"
+}

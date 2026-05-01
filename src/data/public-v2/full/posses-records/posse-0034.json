@@ -1,0 +1,112 @@
+{
+  "id": "posse-0034",
+  "name": "Sacred Mending",
+  "descriptionTemplate": "Recover [Heal:Arg1] HP and gain [Arg2] {STR}. If Clementine is in your team, add 1 extra instance of the following effects to her next Command Card you play: DMG, Shield, HP Recovery, Aliemus, and Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.07
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.02
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "She has healed countless patients, guiding them toward rebirth, and everything now is just a psychological therapy.\nThe only special thing is that the patient is herself.",
+  "realm": "ULTRA",
+  "assetId": "posse-icon-34",
+  "imageAssetId": "CG_C202_005",
+  "lineupToken": "M"
+}

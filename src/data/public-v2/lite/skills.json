@@ -1,0 +1,2751 @@
+{
+  "schemaVersion": 1,
+  "scope": "skills",
+  "recordCount": 392,
+  "records": [
+    {
+      "id": "skill.24.mediating-personalities",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Mediating Personalities",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.24.strike",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.24.defense",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.24.symbiotic-aberration",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Symbiotic Aberration",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.24.frenzied-slash",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Frenzied Slash",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.24.twisted-carrion-revel",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Twisted Carrion Revel",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.24.aberrant-vivisection",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Aberrant Vivisection",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.agrippa.path-of-the-lost",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Path of the Lost",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.agrippa.strike",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.agrippa.defense",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.agrippa.reluctant-alms",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Reluctant Alms",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.agrippa.colorless-spiral",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Colorless Spiral",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.agrippa.pale-blessing",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Pale Blessing",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.agrippa.lady-of-labyrinths",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Lady of Labyrinths",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.aigis.stagnant-curse",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Stagnant Curse",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.aigis.strike",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.aigis.defense",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.aigis.a-small-wish",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "A Small Wish",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.aigis.decomposition",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Decomposition",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.aigis.eye-of-eternity",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Eye of Eternity",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.aigis.gaze-out-of-the-aeons",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Gaze Out of the Aeons",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.alva.outstanding-veteran",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Outstanding Veteran",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.alva.strike",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.alva.defense",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.alva.combat-stance",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Combat Stance",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.alva.precision-slash",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Precision Slash",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.alva.endless-justice",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Endless Justice",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.alva.justice-and-truth",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Justice and Truth",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.aurita.self-proliferation",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Self-Proliferation",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.aurita.strike",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.aurita.defense",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.aurita.gland-division",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Gland Division",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.aurita.power-of-friendship",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Power of Friendship",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.aurita.clamorous-ocean",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Clamorous Ocean",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.aurita.jellyfish-congregation",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Jellyfish Congregation",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.caecus.metamorphosed-body",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Metamorphosed Body",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.caecus.strike",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.caecus.defense",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.caecus.protective-scales",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Protective Scales",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.caecus.shattered-halberd",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Shattered Halberd",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.caecus.bloodline-of-heresy",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Bloodline of Heresy",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.caecus.unbending-resolve",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Unbending Resolve",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.casiah.opening-act",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Opening Act",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.casiah.strike",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.casiah.defense",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.casiah.telekinesis",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Telekinesis",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.casiah.poof",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Poof!",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.casiah.magic-carnival",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Magic Carnival",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.casiah.unfettered-mirth",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Unfettered Mirth",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.castor.skybound-oath",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Skybound Oath",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.castor.strike",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.castor.defense",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.castor.umbral-flight",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Umbral Flight",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.castor.stygian-wings",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Stygian Wings",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.castor.dirge-of-the-unbroken",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Dirge of the Unbroken",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.castor.over-the-sea-of-thorns",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Over the Sea of Thorns",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.celeste.power-of-blessing",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Power of Blessing",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.celeste.strike",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.celeste.defense",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.celeste.tintless-dream",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Tintless Dream",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.celeste.everlasting-phantasm",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Everlasting Phantasm",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.celeste.undying-bird-of-paradise",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Undying Bird of Paradise",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.celeste.divine-vigil",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Divine Vigil",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.clementine.call-of-shaggai",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Call of Shaggai",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.clementine.strike",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.clementine.defense",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.clementine.pain-extraction",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Pain Extraction",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.clementine.soulsalve",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Soulsalve",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.clementine.lifeform-reconstruction",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Lifeform Reconstruction",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.clementine.subconscious-corrosion",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Subconscious Corrosion",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.corposant.sunken-in-the-profound",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Sunken in the Profound",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.corposant.strike",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.corposant.defense",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.corposant.lightning-retribution",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Lightning Retribution",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.corposant.ominous-semaphore",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Ominous Semaphore",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.corposant.to-sail-the-sundered-tides",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "To Sail the Sundered Tides",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.corposant.face-death-in-fiery-resolve",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Face Death in Fiery Resolve",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.daffodil.dimensional-projection",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Dimensional Projection",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.daffodil.strike",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.daffodil.defense",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.daffodil.skull-reaver",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Skull Reaver",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.daffodil.heterogeneous-tides",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Heterogeneous Tides",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.daffodil.sea-of-primordial-essence",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Sea of Primordial Essence",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.daffodil.phantasmal-haze",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Phantasmal Haze",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.doll.flesh-detached",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Flesh Detached",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.doll.strike",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.doll.defense",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.doll.outer-surgery",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Outer Surgery",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.doll.equivalent-exchange",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Equivalent Exchange",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.doll.rationality-truth-and-reality",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Rationality, Truth, and Reality",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.doll.psyche-dissection",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Psyche Dissection",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.doresain.crimson-invite",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Crimson Invite",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.doresain.strike",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.doresain.defense",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.doresain.dirge-of-the-fallen",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Dirge of the Fallen",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.doresain.netherward-path",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Netherward Path",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.doresain.necrotic-gala",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Necrotic Gala",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.doresain.pandemonium-glut",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Pandemonium Glut",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.erica.parameter-fitting",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Parameter Fitting",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.erica.strike",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.erica.defense",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.erica.unleash-mecha",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Unleash: Mecha",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.erica.function-overload",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Function Overload",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.erica.electromagnetic-blast",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Electromagnetic Blast",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.erica.multiple-calculations",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Multiple Calculations",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.faint.boundless-starlight",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Boundless Starlight",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.faint.strike",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.faint.defense",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.faint.nutrient-absorption",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Nutrient Absorption",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.faint.sprouting-bud",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Sprouting Bud",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.faint.cradle-of-stars",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Cradle of Stars",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.faint.blossom-from-cocoon",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Blossom from Cocoon",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.faros.abyssal-obsession",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Abyssal Obsession",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.faros.strike",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.faros.defense",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.faros.ocean-of-elation",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Ocean of Elation",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.faros.deep-currents",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Deep Currents",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.faros.lost-city-of-lemuria",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Lost City of Lemuria",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.faros.light-of-the-lost",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Light of the Lost",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.doll-inferno.soulblight",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Soulblight",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.doll-inferno.strike",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.doll-inferno.defense",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.doll-inferno.self-destruct",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Self-Destruct",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.doll-inferno.fates-descent",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Fate's Descent",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.doll-inferno.terminal-of-truth-and-abyss",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Terminal of Truth and Abyss",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.doll-inferno.madness-infection",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Madness Infection",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.helot-catena.reapers-declaration",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Reaper's Declaration",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.helot-catena.strike",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.helot-catena.defense",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.helot-catena.hatred-unleashed",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Hatred Unleashed",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.helot-catena.crimson-shackles",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Crimson Shackles",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.helot-catena.sanguine-fetters",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Sanguine Fetters",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.helot-catena.fettered-malice",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Fettered Malice",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.ramona-timeworn.entropy-undone",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Entropy Undone",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.ramona-timeworn.strike",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.ramona-timeworn.defense",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.ramona-timeworn.predetermined-strike",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Predetermined Strike",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.ramona-timeworn.sight-unbound",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Sight Unbound",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.ramona-timeworn.paradox-converged",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Paradox Converged",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.ramona-timeworn.reach-into-yesterday",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Reach into Yesterday",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.goliath.preemptive-revenge",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Preemptive Revenge",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.goliath.strike",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.goliath.defense",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.goliath.decapitation-damage",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Decapitation Damage",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.goliath.law-of-the-strongest",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Law of the Strongest",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.goliath.abyssal-depths-power",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Abyssal Depths' Power",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.goliath.giants-grip",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Giant's Grip",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.hameln.laudable-masterpiece",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Laudable Masterpiece",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.hameln.strike",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.hameln.defense",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.hameln.soul-overture",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Soul Overture",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.hameln.memory-rondo",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Memory Rondo",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.hameln.primal-chord",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Primal Chord",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.hameln.the-final-sonata",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "The Final Sonata",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.helot.vengeance-upon-thee",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Vengeance Upon Thee",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.helot.strike",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.helot.defense",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.helot.shattering-strike",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Shattering Strike",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.helot.lasting-loathe",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Lasting Loathe",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.helot.surviving-impasse",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Surviving Impasse",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.helot.blood-for-blood",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Blood for Blood",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.horla.prelude-verse",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Prelude Verse",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.horla.snarl-psalm",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Snarl Psalm",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.horla.elegy-psalm",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Elegy Psalm",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.horla.carol-psalm",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Carol Psalm",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.horla.dirge-psalm",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Dirge Psalm",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.horla.resplendent-chapters",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Resplendent Chapters",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.horla.ink-stained-sonnet",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Ink-Stained Sonnet",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.jenkins.spatial-fold",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Spatial Fold",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.jenkins.strike",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.jenkins.defense",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.jenkins.mice-assemble",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Mice Assemble",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.jenkins.get-em-brown",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Get 'em! Brown!",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.jenkins.mistborn-street-urchin",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Mistborn Street Urchin",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.jenkins.gotcha",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Gotcha!",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.karen.dance-of-the-gibbous-moon",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Dance of the Gibbous Moon",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.karen.strike",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.karen.defense",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.karen.toad-stew",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Toad Stew",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.karen.silent-fealty",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Silent Fealty",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.karen.heres-your-meal",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Here's Your Meal!",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.karen.bounteous-feast",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Bounteous Feast",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.kathigu-ra.karmic-embers",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Karmic Embers",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.kathigu-ra.strike",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.kathigu-ra.defense",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.kathigu-ra.last-stand-salvo",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Last Stand Salvo",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.kathigu-ra.solarflare",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Solarflare",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.kathigu-ra.world-ending-inferno",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "World-Ending Inferno",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.kathigu-ra.all-melting-truth",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "All-Melting Truth",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.leigh.sanguivore",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Sanguivore",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.leigh.strike",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.leigh.defense",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.leigh.pain-of-unfulfilled-desires",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Pain of Unfulfilled Desires",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.leigh.pain-and-pleasure",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Pain and Pleasure",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.leigh.flatterers-embrace",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Flatterer's Embrace",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.leigh.pallid-bloodied-kiss",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Pallid Bloodied Kiss",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.lily.slime-convergence",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Slime Convergence",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.lily.strike",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.lily.defense",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.lily.strike-to-protect",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Strike to Protect",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.lily.forbidden-swamp",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Forbidden Swamp",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.lily.undying-flower-upon-slime",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Undying Flower Upon Slime",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.lily.at-your-behest",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "At Your Behest",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.liz.emerald-reflection",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Emerald Reflection",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.liz.strike",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.liz.defense",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.liz.moth-trapping-fire",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Moth-Trapping Fire",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.liz.green-flames",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Green Flames",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.liz.dance-to-destruction",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Dance to Destruction",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.liz.omens-descent",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Omen's Descent",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.lotan.battle-thirst",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Battle Thirst",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.lotan.strike",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.lotan.defense",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.lotan.blade-of-defiance",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Blade of Defiance",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.lotan.tides-of-hubris",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Tides of Hubris",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.lotan.beast-of-chaos",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Beast of Chaos",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.lotan.until-the-planets-end",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Until the Planet's End",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.miryam.testament-of-faith",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Testament of Faith",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.miryam.strike",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.miryam.defense",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.miryam.exalted-pyre",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Exalted Pyre",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.miryam.the-chosen-one",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "The Chosen One",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.miryam.pray-to-the-abyss",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Pray to the Abyss",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.miryam.unacquainted-pain",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Unacquainted Pain",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.mouchette.mist-realm-vestige",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Mist Realm Vestige",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.mouchette.strike",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.mouchette.defense",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.mouchette.mortal-blast",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Mortal Blast",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.mouchette.shining-crush",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Shining☆Crush",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.mouchette.shining-tornado",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Shining☆Tornado",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.mouchette.tornado-of-annihilation",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Tornado of Annihilation☆!",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.murphy.made-into-being",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Made Into Being",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.murphy.strike",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.murphy.defense",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.murphy.vortex-reversed",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Vortex Reversed",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.murphy.divine-maidens-birth",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Divine Maiden's Birth",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.murphy.delusions-heir",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Delusion's Heir",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.murphy.oath-of-liberation",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Oath of Liberation",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.murphy-fauxborn.tidal-sacrament",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Tidal Sacrament",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.murphy-fauxborn.strike",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.murphy-fauxborn.defense",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.murphy-fauxborn.waltz-of-lemuria",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Waltz of Lemuria",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.murphy-fauxborn.abyss-hymns",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Abyss Hymns",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.murphy-fauxborn.princess-of-delusions",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Princess of Delusions",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.murphy-fauxborn.aetherial-loop",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Aetherial Loop",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.nautila.maintenance-expert",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Maintenance Expert",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.nautila.strike",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.nautila.defense",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.nautila.no-trespassing",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "No Trespassing",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.nautila.short-term-memory",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Short-Term Memory",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.nautila.ready-and-set",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Ready and Set",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.nautila.vroom-vroom",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Vroom Vroom!",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.nymphaea.drowning-in-sorrow",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Drowning in Sorrow",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.nymphaea.strike",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.nymphaea.defense",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.nymphaea.midnight-tide",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Midnight Tide",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.nymphaea.knell-of-death",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Knell of Death",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.nymphaea.passage-of-the-ego",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Passage of the Ego",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.nymphaea.abyssal-funeral-rites",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Abyssal Funeral Rites",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.ogier.knights-zeal",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Knight's Zeal",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.ogier.strike",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.ogier.defense",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.ogier.unstable-barrier",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Unstable Barrier",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.ogier.piercing-strike",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Piercing Strike",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.ogier.seven-arts-and-virtues",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Seven Arts and Virtues",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.ogier.resolute-devotion",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Resolute Devotion",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.pandia.give-and-take",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Give and Take",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.pandia.strike",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.pandia.defense",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.pandia.whip-of-madness",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Whip of Madness",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.pandia.wax-hot-desire",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Wax-Hot Desire",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.pandia.honey-colored-tragedy",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Honey-Colored Tragedy",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.pandia.sweet-surrender",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Sweet Surrender",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.pickman.morgue-studio",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Morgue Studio",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.pickman.strike",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.pickman.defense",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.pickman.chromaphage",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Chromaphage",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.pickman.lifelike-rendition",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Lifelike Rendition",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.pickman.truth-in-delusion",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Truth in Delusion",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.pickman.art-is-madness",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Art is Madness",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.pollux.path-of-ablution",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Path of Ablution",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.pollux.strike",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.pollux.defense",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.pollux.soulsearing-light",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Soulsearing Light",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.pollux.cleansing-judgement",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Cleansing Judgement",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.pollux.sinless-verdict",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Sinless Verdict",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.pollux.the-nightbreaker",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "The Nightbreaker",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.ramona.first-doctrine",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "First Doctrine",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.ramona.strike",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.ramona.defense",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.ramona.queens-sword",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Queen's Sword",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.ramona.assault-thesis",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Assault Thesis",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.ramona.mundus-decree",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Mundus Decree",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.ramona.labyrinth-of-thought",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Labyrinth of Thought",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.ryker.exceptional-luck",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Exceptional Luck",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.ryker.strike",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.ryker.defense",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.ryker.unexpected-gain",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Unexpected Gain",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.ryker.showdown",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Showdown",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.ryker.all-in",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "All-in!",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.ryker.jackpot",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Jackpot!",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.salvador.benediction",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Benediction",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.salvador.strike",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.salvador.defense",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.salvador.blessed-are-the-bones",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Blessed are the Bones",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.salvador.end-of-suffering",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "End of Suffering",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.salvador.he-who-protects",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "He Who Protects",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.salvador.rite-of-creation",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Rite of Creation",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.sanga.realm-of-oblivion",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Realm of Oblivion",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.sanga.strike",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.sanga.defense",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.sanga.beautys-mercy",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Beauty's Mercy",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.sanga.opus-of-isolation",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Opus of Isolation",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.sanga.the-lost-art",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "The Lost Art",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.sanga.the-sea-of-corals",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "The Sea of Corals",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.sorel.host-ladys-privilege",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Host Lady's Privilege",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.sorel.strike",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.sorel.defense",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.sorel.elegance-of-rose",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Elegance of Rose",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.sorel.diamond-in-the-rough",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Diamond in the Rough",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.sorel.carousel-of-ambition",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Carousel of Ambition",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.sorel.roses-infinite-desire",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Rose's Infinite Desire",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.tawil.the-silver-key-gate",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "The Silver Key Gate",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.tawil.strike",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.tawil.defense",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.tawil.omniscient-verity",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Omniscient Verity",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.tawil.pinions-of-time",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Pinions of Time",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.tawil.omnifex-convergence",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Omnifex Convergence",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.tawil.infinite-radiant-brilliance",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Infinite Radiant Brilliance",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.thais.ad-matrem-vocatus",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Ad Matrem Vocatus",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.thais.strike",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.thais.defense",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.thais.ancient-caress",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Ancient Caress",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.thais.sacred-bloods-instinct",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Sacred Blood's Instinct",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.thais.ritual-of-abundance",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Ritual of Abundance",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.thais.sacred-relics-perpetuity",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Sacred Relic's Perpetuity",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.tinct.voices-from-beyond",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Voices from Beyond",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.tinct.strike",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.tinct.defense",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.tinct.requiem",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Requiem",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.tinct.distant-melody",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Distant Melody",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.tinct.starlight-aurora",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Starlight Aurora",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.tinct.cosmic-symphony",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Cosmic Symphony",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.tulu.immortal-majesty",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Immortal Majesty",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.tulu.strike",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.tulu.defense",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.tulu.abyss-order",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Abyss Order",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.tulu.when-lemuria-returns",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "When Lemuria Returns",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.tulu.when-the-stars-are-right",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "When the Stars Are Right",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.tulu.the-promised-day",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "The Promised Day",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.uvhash.vermilion-rite",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Vermilion Rite",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.uvhash.strike",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.uvhash.defense",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.uvhash.boil-blood",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Boil, Blood!",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.uvhash.screech-blood",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Screech, Blood!",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.uvhash.hymn-of-blood-and-sand",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Hymn of Blood and Sand",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.uvhash.gift-of-surging-blood",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Gift of Surging Blood",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.wanda.living-deads-delirium",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Living Dead's Delirium",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.wanda.strike",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.wanda.defense",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.wanda.keeper-of-the-lost",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Keeper of the Lost",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.wanda.spine-needle-chains",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Spine Needle Chains",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.wanda.necropolis-of-dreams",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Necropolis of Dreams",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.wanda.lost-dreams-guide",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Lost Dream's Guide",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.winkle.self-imprisonment",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Self-Imprisonment",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.winkle.strike",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.winkle.defense",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.winkle.energy-beam",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Energy Beam",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.winkle.psyche-reforged",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Psyche Reforged",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.winkle.formless-shifting",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Formless Shifting",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.winkle.space-time-fold",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Space-Time Fold",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.xu.lady-of-dreamless-land",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Lady of Dreamless Land",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.xu.strike",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.xu.defense",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.xu.bonesick-longing",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Bonesick Longing",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.xu.fan-sealed-kiss",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Fan-Sealed Kiss",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.xu.mist-bound-vow",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Mist-Bound Vow",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.xu.karmic-grave",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Karmic Grave",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.vortice.here-it-goes",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "HERE IT GOES!",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.vortice.strike",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.vortice.defense",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.vortice.charge",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Charge!",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.vortice.reload",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Reload!",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.vortice.abyssal-vortex-cannon",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Abyssal! Vortex! Cannon!",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.vortice.moskstraumen-boom",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Moskstraumen! BOOM!",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    },
+    {
+      "id": "skill.arachne.puppet-stage-unveiled",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Puppet Stage Unveiled",
+      "slot": "Rouse",
+      "kind": "rouse"
+    },
+    {
+      "id": "skill.arachne.strike",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Strike",
+      "slot": "Strike",
+      "kind": "strike"
+    },
+    {
+      "id": "skill.arachne.defense",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Defense",
+      "slot": "Defense",
+      "kind": "defense"
+    },
+    {
+      "id": "skill.arachne.eternal-loom",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Eternal Loom",
+      "slot": "Skill1",
+      "kind": "command"
+    },
+    {
+      "id": "skill.arachne.fate-binding-web",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Fate-Binding Web",
+      "slot": "Skill2",
+      "kind": "command"
+    },
+    {
+      "id": "skill.arachne.moira-as-i-decree",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Moira, As I Decree",
+      "slot": "Exalt",
+      "kind": "exalt"
+    },
+    {
+      "id": "skill.arachne.elegy-over-fate",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Elegy Over Fate",
+      "slot": "OverExalt",
+      "kind": "over_exalt"
+    }
+  ]
+}

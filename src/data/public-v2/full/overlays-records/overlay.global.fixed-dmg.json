@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.fixed-dmg",
+  "displayName": "Fixed DMG",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Deals a fixed amount of DMG, unaffected by states such as Strength, Weakness, or {Vulnerability}.",
+  "descriptionArgs": {}
+}

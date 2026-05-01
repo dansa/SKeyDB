@@ -1,0 +1,63 @@
+{
+  "id": "skill.kathigu-ra.world-ending-inferno",
+  "ownerAwakenerId": "awakener-0027",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "World-Ending Inferno",
+  "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies, which enjoys [Arg2]% {STR} bonus. Draw 2 Kathigu-Ra's Command Cards and apply 1 stack of {Fiamma} to 3 Kathigu-Ra's Command Cards in hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "100",
+        "120",
+        "140",
+        "160",
+        "180",
+        "200"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "300",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.kathigu-ra.endless-purgatory.skill.kathigu-ra.world-ending-inferno",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.kathigu-ra.endless-purgatory",
+      "ownerAwakenerId": "awakener-0027",
+      "operation": "override_args",
+      "ownerAwakenerName": "Kathigu-Ra",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "100",
+              "120",
+              "140",
+              "160",
+              "180",
+              "200"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "300",
+            "suffix": "%"
+          }
+        }
+      }
+    }
+  ]
+}

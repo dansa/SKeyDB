@@ -1,0 +1,41 @@
+{
+  "id": "skill.arachne.puppet-stage-unveiled",
+  "ownerAwakenerId": "awakener-0056",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Puppet Stage Unveiled",
+  "descriptionTemplate": "Arachne gains [Energy:Arg1] Aliemus. {Rouse}: {Annihilation} is changed to: choose 1 Command Card from {Ultra Space}, take it out and make it trigger twice the next time it is played, and make the next played Command Card trigger {Dimension Shuttle}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.arachne.moiraes-finale.skill.arachne.puppet-stage-unveiled",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.arachne.moiraes-finale",
+      "ownerAwakenerId": "awakener-0056",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Arachne",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Arachne gains [Energy:Arg1] Aliemus. {Rouse}: {Annihilation} is changed to: choose 1 Command Card from {Ultra Space}, take it out and make it trigger twice the next time it is played, and make the next played Command Card trigger {Dimension Shuttle}. After using {Annihilation}, immediately deal {Fixed DMG} equal to 50% {Final Verdict} to all enemies, and the DMG Amplification and Shield gained from the next Exalt +50%."
+      }
+    }
+  ]
+}

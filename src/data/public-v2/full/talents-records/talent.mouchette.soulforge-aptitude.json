@@ -1,0 +1,65 @@
+{
+  "id": "talent.mouchette.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0033",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nMouchette's Final DMG against \"Dominator\" enemies +[Arg5]%. All Awakeners' \"Strike\" Base DMG +[Arg3]%. After triggering {Death Resistance}, Mouchette gains [Arg4] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "17",
+        "19",
+        "21",
+        "23",
+        "25",
+        "27",
+        "29",
+        "31",
+        "35"
+      ]
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "23",
+        "26",
+        "29",
+        "32",
+        "35",
+        "38",
+        "41",
+        "44",
+        "50"
+      ]
+    },
+    "Arg5": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "23",
+        "26",
+        "29",
+        "32",
+        "35",
+        "38",
+        "41",
+        "44",
+        "50"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

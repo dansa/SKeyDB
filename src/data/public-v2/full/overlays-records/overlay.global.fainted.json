@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.fainted",
+  "displayName": "Fainted",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Cannot perform any actions until turn end.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_023",
+  "textColor": "misc"
+}

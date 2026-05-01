@@ -1,0 +1,11 @@
+{
+  "id": "derived.pickman.inspiration",
+  "displayName": "Inspiration!",
+  "descriptionTemplate": "Consume 1 stack of {Fantasia}, choose all {Discover} effects. Gain 1 stack of {Creativity}.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "skill.pickman.chromaphage",
+  "rootSkillId": "skill.pickman.chromaphage",
+  "ownerAwakenerId": "awakener-0040",
+  "cost": "0"
+}

@@ -1,0 +1,100 @@
+{
+  "id": "awakener-0035",
+  "numericId": 35,
+  "name": "Murphy: Fauxborn",
+  "ingameId": "O02EX",
+  "lineupToken": "H",
+  "realm": "AEQUOR",
+  "rarity": "Genesis",
+  "type": "CHORUS",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "murphy-fauxborn",
+    "iconKey": "murphy-fauxborn"
+  },
+  "baseStatsLv1": {
+    "CON": 35,
+    "ATK": 42,
+    "DEF": 41
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 51.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 17.4,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.1,
+    "ATK": 1.35,
+    "DEF": 1.3
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 1.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 2.4,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Murphy: Fauxborn",
+    "birthday": "22-Dec",
+    "gender": "Female",
+    "height": "4'8.7''",
+    "weight": "92.5lbs",
+    "gnosticIndex": "21.21",
+    "characteristic": "Tentacle Activation    Replenish Arithmetica",
+    "introduction": "As the Divine Mother, she grants blessings and sanctuary to her subjects. Her ultimate power allows her to consecrate the lives of her enemies as a sacrifice.",
+    "awakerIntroduction": "As the Divine Mother revered by Seafarers, she establishes a new order to protect all her subjects, significantly enhancing the base effect of the {Aequor Realm}.\nInverted Fate grants her supreme power, allowing her to consecrate the lives of ther enemies as a {Sacrifice} to the god. However, a taboo power often comes with a steep price...\nIn this Stage, \"Murphy: Fauxborn\"and \"Tulu\" will be deployed, both at Level 50, with Skill Level 5 and Enlighten Level 3.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "She always arrogantly refers to herself as the \"Divine Mother,\" coldly and hostily keeping everyone outside her safe perimeter. It's difficult for those meeting her for the first time to connect her with the spoiled little princess.\n\"But they are essentially the same person,\" the Keeper, however, stubbornly insists to everyone. \"You'd know if you ever saw her wolf down a cupcake alone.\"",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "Recorder: Erich von Werner\nDate: November 7, 19@1\nCoordinates: 68°14′S, 67°10′W\nDue to an unusual number of floating sperm whale carcasses in our route, we were forced to land on this cursed island of ice. Below a glacial waterfall in the south shore fjord, the expedition team discovered the remains of a fifty-foot-long cephalopod. Its body was a deep indigo blue, densely covered in phosphorescent, luminous blue concentric rings, the edges of which secreted a thin layer of mucus. After we sampled and purified the substance, an unsettling quantity of blue crystals precipitated from the mucus.\nThe suckers on the creature's arms exceeded two feet in diameter, and the inner walls of the suckers were etched with patterns resembling an unknown script. The main nerve cord was in a semi-transparent, gelatinous state, maintaining a faint pulse even in the -30°C environment (see attached Figure D-7). Dr. Harris, the accompanying biologist, attempted to collect a tissue sample from the nerve cord, but the moment the scalpel made contact, the entire carcass instantly disintegrated into powder. Indigo-blue dust became visible, suspended throughout the laboratory.\n\nDuring the voyage home, Dr. Harris developed persistent delirium. He repeatedly drew geometric shapes combining spirals and polyhedrons on the cabin walls, screaming, \"They are spawning beneath the Antarctic ice sheet!\" On the morning of the second day, a patrolling crew member found him drowned in the ballast water tank. Autopsy revealed his alveoli were filled with indigo-blue microorganisms (identical to the octopus corpse dust). The captain ordered the incineration of all clothing that had come into contact with the samples.\nMay no one else ever touch the nightmare lurking beneath the ice.\n\n— Appendix No. 37, Antarctic Expedition Log",
+        "unlockCondition": "Affinity Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "After being awakened, Murphy: Fauxborn frequently has a dream of escaping. In the end of that dream, she holds her \"Mother's\" dagger and plunges it through her own chest under the brilliant moonlight. The dream then abruptly ends, and the moment she opens her eyes, they meet the gaze of the ivory statue at the foot of her bed.\nIn Mythag, Murphy: Fauxborn acts like a younger version of her \"Nurturer.\" She wears white mourning clothes year-round, rarely laughs or speaks lightly with others. Only when the conversation turns to her preference for sweets does a crack appear in her flawless, saintly facade.\n<Italic:(Archivist's Annotation: I hope next time she wishes to enjoy cupcakes, she will ask for it immediately, rather than leaving a note requesting delivery to her room after everyone's afternoon tea has ended.)\nShe maintains a distance from any Awakener with relation to the Seafarers. Unlike her other-world counterpart, she never deliberately avoids contact with them; however, the frozen, emotionless expression and thinly veiled hostility in her sarcasm subconsciously drive away those who don't want a confrontation.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Murphy: Fauxborn has died once before.\nIt was not a willing step through the threshold called \"Divine Descent\"; she witnessed the \"God\" being born from her own chest. How ridiculous: it was a hideous, unconscious, and unknowing mass, yet she was forced to give up her vibrant, splendid life for it.\nMore ironically, the twisted fate remained relentless. At the moment the God was born into the world, she accepted the unwilling sacrifice through intense pain. After a long period resembling sleep, Murphy opened her eyes in astonishment, only to find the scene before her identical to her final moments.\n\"Murphy\" died. \"Murphy: Fauxborn\" was Awakened.\nHer Linker is a squirming blood clot, deaf and mute, that she herself gave birth to.\nThe God gives birth to the Princess, the Princess re-conceives the God, and the God reawakens her remains. A pathological fate clings tightly to her, an endless, unbreakable cycle. Her devout mother is ecstatic, the Seafarers prostrate themselves in prayer, and her dignity is restored, more glorious than ever before.\nBut the original \"Murphy\" is truly gone forever. The girl who once, with a burst of foolish innocence, attempted to rebel against an unfair destiny, now embraces the crown of vanity she once despised and boards a cruise ship that can never reach the other shore.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "\"I am the Daughter of God, and simultaneously the Bearer of God.\"\nThis is how she confirms her authority. Only by maintaining this universally admired dignity can she preserve a precarious balance. So what if it's hypocrisy? So what if it's a delusion? Who isn't living in the \"present\" moment?\nMurphy holds the swaddling cloth, which conceals the grotesque Divine Fetus, and acts as the God's proxy, speaking one lie after another:\n\"He has descended.\" \"The Divine Realm will rise.\" \"Please wait for the next moment of Stellar Alignment.\"\nRather than letting others' hypocrisy fabricate an illusion, she would rather decorate this prison with her own hands to a likeness she finds acceptable. As long as the \"Mother,\" \"Companions,\" and \"Servants\" she desires are still by her side, whether it is superficial deference or insincere mystification, she accepts it and finds it sweet.\n\"My name is Murphy, the Princess who bore the God. Regarding Lemuria, regarding the Seafarers' long-cherished wish... you need not inquire. I have my own arrangements.\"",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Out of the Aeons",
+  "aliases": [
+    "murphy: fauxborn",
+    "g-murphy"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Divine Realm",
+    "Draw",
+    "Keyflare",
+    "Tentacles"
+  ]
+}

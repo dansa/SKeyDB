@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.alva.unyielding-bastion",
+  "ownerAwakenerId": "awakener-0004",
+  "slot": "E1",
+  "displayName": "Unyielding Bastion",
+  "descriptionTemplate": "{Combat Stance} is considered \"Defense\".",
+  "descriptionArgs": {}
+}

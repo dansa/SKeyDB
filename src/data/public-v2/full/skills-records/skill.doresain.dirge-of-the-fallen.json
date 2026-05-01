@@ -1,0 +1,43 @@
+{
+  "id": "skill.doresain.dirge-of-the-fallen",
+  "ownerAwakenerId": "awakener-0014",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Dirge of the Fallen",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to the enemy with lowest HP. This DMG enjoys [Arg2]% {STR} bonus. Gain [Power:Arg3] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "80",
+        "96",
+        "112",
+        "128",
+        "144",
+        "160"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "300",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3"
+}

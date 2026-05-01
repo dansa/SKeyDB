@@ -1,0 +1,33 @@
+{
+  "id": "overlay.celeste.revival",
+  "displayName": "Revival",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Upon receiving lethal DMG in this battle, revive and restore X% HP. Can only be triggered once per battle.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0009",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.celeste.beyond-joy-and-sorrow.overlay.celeste.revival",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.celeste.beyond-joy-and-sorrow",
+      "ownerAwakenerId": "awakener-0009",
+      "operation": "mixed",
+      "ownerAwakenerName": "Celeste",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg2": {
+            "kind": "fixed",
+            "value": "X"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "25"
+          }
+        },
+        "descriptionTemplate": "Revives upon receiving lethal DMG during this battle, restores [Arg2]% HP and grants all Awakeners [Energy:Arg4] Aliemus. This revive Effect can only be triggered again after 6 turns."
+      }
+    }
+  ]
+}

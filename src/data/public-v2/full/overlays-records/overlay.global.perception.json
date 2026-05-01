@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.perception",
+  "displayName": "Perception",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "An exploration store option that trades HP for Black Sigils.",
+  "descriptionArgs": {}
+}

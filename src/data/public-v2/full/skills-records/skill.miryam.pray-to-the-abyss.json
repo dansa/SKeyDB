@@ -1,0 +1,140 @@
+{
+  "id": "skill.miryam.pray-to-the-abyss",
+  "ownerAwakenerId": "awakener-0032",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Pray to the Abyss",
+  "descriptionTemplate": "Place [Arg4] {Sacrament} into your hand, inflict [{Poison}:Arg5] {Poison} on all enemies. Gain effects based on Tentacle Stance: {Surging Tides}: gain [Power:Arg1] {STR} and [TentaclePower:Arg1] {Tentacle DMG}; {Tranquil Sea}: other Awakeners gain [Energy:Arg2] Aliemus; {Raging Waves}: trigger [Arg3]% of the {Poison} effect on all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "75",
+        "80",
+        "85",
+        "90",
+        "95",
+        "100"
+      ],
+      "suffix": "%"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg5": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.miryam.vanitys-collapse.skill.miryam.pray-to-the-abyss",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.miryam.vanitys-collapse",
+      "ownerAwakenerId": "awakener-0032",
+      "operation": "override_args",
+      "ownerAwakenerName": "Miryam",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15"
+            ]
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "75",
+              "80",
+              "85",
+              "90",
+              "95",
+              "100"
+            ],
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "1"
+          },
+          "Arg5": {
+            "kind": "scaling",
+            "values": [
+              "30",
+              "36",
+              "42",
+              "48",
+              "54",
+              "60"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        }
+      }
+    },
+    {
+      "id": "upgrade.talent.miryam.undying-piety.skill.miryam.pray-to-the-abyss",
+      "upgraderId": "talent.miryam.undying-piety",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

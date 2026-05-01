@@ -1,0 +1,96 @@
+{
+  "id": "awakener-0013",
+  "numericId": 13,
+  "name": "Doll",
+  "ingameId": "C02",
+  "lineupToken": "l",
+  "realm": "CHAOS",
+  "rarity": "SR",
+  "type": "CHORUS",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "doll",
+    "iconKey": "doll"
+  },
+  "baseStatsLv1": {
+    "CON": 24,
+    "ATK": 19,
+    "DEF": 26
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0.8,
+    "KeyflareRegen": 16.2,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.1,
+    "ATK": 0.9,
+    "DEF": 1.2
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0.8,
+    "KeyflareRegen": 1.2,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Doll",
+    "birthday": "11-Jan",
+    "gender": "Female",
+    "height": "5'2''",
+    "weight": "90lbs",
+    "gnosticIndex": "22",
+    "characteristic": "Cleanse Vulnerable    HP Recovery",
+    "introduction": "Provides their team with perfected research results, granting Aliemus and restoring a large amount of HP.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Used flasks must be cleaned to look as good as new, tables burnt in experiments polished until they shine, and scales recalibrated every three days. Her fervor and respect for science and the mysteries of the world set high standards for everyone and everything around her.\nOf course, these standards also apply to herself—after all, not everyone can calmly embrace death and willingly become an Awakener.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "Doll is an indispensable figure at Mythag University and in the entire academic community. \nAmong the Awakeners managed by the school, Doll is neither the most stable in gnostic index nor the strongest in combat abilities, but she is certainly the calmest and most rational one. \nFor some Awakeners who were once human, the initial phase of \"being reborn\" is often accompanied by confusion, panic, and agitation. However, Doll seems unaffected by such \"growing pains.\" \nOn the second day after being awakened, she returned to the laboratory and compiled a technical manual that integrates outer domain knowledge and human wisdom within a year. \nCurrently, Doll spends half her time innovating \"silver chip technology\" and the other half \"cleaning up the mess for stupid students.\" \n— By the way, based on the influence of h-dim existence, Doll employed an unknown language in writing that \"Technical Manual,\" and the translation work is being orderly conducted during her leisure time",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "\"Unforgiving Critiques\", \"Low-scoring Test Papers\", \"Substandard Research Reports\"\nDuring Doll's decades of teaching career, few students obtained certificates from her. Most students were driven away by her overly harsh attitude and turned to other professors. Over time, Professor Doll's notorious reputation spread among the students.\nBut there are still students who believe she uses these standards to select \"disciples\". Only those with the strongest will deserve to hold the key to open the door of truth and follow her to unveil the reality of the world.\nSupported by such a belief, even though the possibility of graduating under Doll is minuscule, applications for mentorship under Doll still continuously flood her office.\nSometimes, Ramona, who was temporarily called to review the applications, couldn't help but think that if the students believed this way, it wouldn't be so bad.\nIn Ramona's view, she merely held the standard of awakeners to demand human students, nothing more",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Doll's joining is the only highlight of Mythag University in the eyes of the outside world.\nCountless scholars lament that even a prodigy cannot escape the shackles of the mundane—she actually chose to be enrolled by an obscure university for wealth, tainted by the smell of copper.\nWhile the outside world condemns her self-degradation, Doll has obtained something more precious than gold at Mythag University.\nShe has crossed the boundaries of material science, touching the veil of reality, beneath which lies something she would give her life to pursue.\nResearching the dangers of \"silver chip technology\" is no less perilous than dancing on the edge of a blade, and Doll has become the most earnest, diligent, and excellent dancer.\nWhen the D-mark appears, the scientific dancer does not cease her movement; instead, she spins within the limited time, either sedimenting or crystallizing her unique dance steps.\nUntil the D-phenomenon severely injures her physical body, spreading to her mind and eroding her rationality.\nEven so, she remains far from the center of truth.\nThus, the flame of life has dimmed, leaving the brilliant star of knowledge with this farewell: \"Awake me before the world forgets me.\"",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "A new star of science and knowledge rises in an ordinary worker's family.\nMost of Doll's childhood was filled with the sounds of cylinder throbs and gear operations.\nBut a love for machinery was not enough to support the girl in climbing the rugged and steep mountain of science.\nWhat led her onto the path of knowledge was a plague.\nAn unknown madness raged through the city; hospitals were overcrowded, the morgue was overwhelmed, and everyone was on edge.\n\"The city's graveyards aren't enough—dig up grandma or burn mom, you have to choose one.\"\nThus, Doll watched her mother disappear into the flames.\nUnlike others who were cremated, among the fragments and ashes she once called \"mother,\" there flowed a shimmering silver mass.\n\"I want to know if I can see her again.\"\n\"I want to know if her kind soul is inside that.\"\n\"I want to know if that silver substance is the genesis of life, if it is the essence of the soul.\"\n\"I want to know if everything in this world has a common starting point.\"\nBefore getting the answers, Doll will not bow to the D-phenomenon.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Among the Stars",
+  "aliases": [
+    "doll"
+  ],
+  "searchTags": [
+    "Discard",
+    "Dispel",
+    "Heal"
+  ]
+}

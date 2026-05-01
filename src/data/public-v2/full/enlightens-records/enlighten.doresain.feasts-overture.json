@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.doresain.feasts-overture",
+  "ownerAwakenerId": "awakener-0014",
+  "slot": "E1",
+  "displayName": "Feast's Overture",
+  "descriptionTemplate": "For every 1% Crit. DMG Doresain and his equipped WoD & Covenant have, increase his Crit. Rate by 0.1%.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,9 @@
+{
+  "id": "overlay.global.echo",
+  "displayName": "Echo",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "After playing this card, it returns to your hand. The Orison is disabled until turn end.",
+  "descriptionArgs": {},
+  "textColor": "damage"
+}

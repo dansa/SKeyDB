@@ -1,0 +1,43 @@
+{
+  "id": "skill.alva.combat-stance",
+  "ownerAwakenerId": "awakener-0004",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Combat Stance",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. If in hand at turn end, generate Shield 1 more time next time it is played. Dispel all Awakeners' {Sealed} states.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.alva.unyielding-bastion.skill.alva.combat-stance",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.alva.unyielding-bastion",
+      "ownerAwakenerId": "awakener-0004",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Alva",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. If in hand at turn end, generate Shield 1 more time next time it is played. Dispel all Awakeners' {Sealed} states. Considered as \"Defense\"."
+      }
+    }
+  ]
+}

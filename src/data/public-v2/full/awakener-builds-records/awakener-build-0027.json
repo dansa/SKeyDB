@@ -1,0 +1,108 @@
+{
+  "id": "awakener-build-0027",
+  "awakenerId": "awakener-0027",
+  "primaryBuildId": "dps",
+  "recommendedPosseIds": [
+    "posse-0038"
+  ],
+  "builds": [
+    {
+      "id": "dps",
+      "label": "DPS",
+      "substatPriorityGroups": [
+        [
+          "CRIT_RATE"
+        ],
+        [
+          "CRIT_DMG"
+        ],
+        [
+          "KEYFLARE_REGEN"
+        ],
+        [
+          "DMG_AMP"
+        ]
+      ],
+      "recommendedWheels": [
+        {
+          "tier": "BIS_SSR",
+          "wheelIds": [
+            "wheel-0055"
+          ]
+        },
+        {
+          "tier": "ALT_SSR",
+          "wheelIds": [
+            "wheel-0028"
+          ]
+        },
+        {
+          "tier": "BIS_SR",
+          "wheelIds": [
+            "wheel-0083"
+          ]
+        }
+      ],
+      "recommendedCovenantIds": [
+        "covenant-0014",
+        "covenant-0004"
+      ],
+      "recommendedWheelMainstats": [
+        "CRIT_RATE",
+        "CRIT_DMG"
+      ]
+    },
+    {
+      "id": "tank",
+      "label": "Tank",
+      "substatPriorityGroups": [
+        [
+          "CRIT_RATE"
+        ],
+        [
+          "CRIT_DMG"
+        ],
+        [
+          "KEYFLARE_REGEN"
+        ],
+        [
+          "DMG_AMP"
+        ]
+      ],
+      "recommendedWheels": [
+        {
+          "tier": "BIS_SSR",
+          "wheelIds": [
+            "wheel-0025"
+          ]
+        },
+        {
+          "tier": "ALT_SSR",
+          "wheelIds": [
+            "wheel-0055"
+          ]
+        },
+        {
+          "tier": "BIS_SR",
+          "wheelIds": [
+            "wheel-0091"
+          ]
+        },
+        {
+          "tier": "GOOD",
+          "wheelIds": [
+            "wheel-0035"
+          ]
+        }
+      ],
+      "recommendedCovenantIds": [
+        "covenant-0018",
+        "covenant-0009"
+      ],
+      "recommendedWheelMainstats": [
+        "CRIT_RATE",
+        "CRIT_DMG"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "wheel-0072",
+  "name": "Exile",
+  "assetId": "Weapon_Full_P12",
+  "ownerAwakenerName": null,
+  "rarity": "R",
+  "realm": "NEUTRAL",
+  "mainstatKey": "REALM_MASTERY",
+  "descriptionTemplate": "Team Unique: Symptom Cards can be sold for [StateArg1] Black Sigils. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\".",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "13",
+        "17",
+        "21",
+        "25"
+      ]
+    }
+  },
+  "lore": "My soul is a tomb.",
+  "lineupToken": "xj"
+}

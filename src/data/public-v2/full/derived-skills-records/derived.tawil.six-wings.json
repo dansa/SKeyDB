@@ -1,0 +1,32 @@
+{
+  "id": "derived.tawil.six-wings",
+  "displayName": "Six Wings",
+  "descriptionTemplate": "Can be played by consuming 500 Keyflare when Arithmetica is insufficient. Deal 6 instances of [Damage:Arg1] {Pierce DMG}. You can choose one out of six {Memories} to trigger its effect; this \"Memory\" cannot be selected again during this exploration.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "derivedFromId": "derived.tawil.four-wings",
+  "rootSkillId": "skill.tawil.pinions-of-time",
+  "ownerAwakenerId": "awakener-0047",
+  "childDerivedSkillIds": [
+    "derived.tawil.memories"
+  ],
+  "cost": "2"
+}

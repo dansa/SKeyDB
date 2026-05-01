@@ -1,0 +1,55 @@
+{
+  "id": "awakener-build-0012",
+  "awakenerId": "awakener-0012",
+  "primaryBuildId": "standard",
+  "builds": [
+    {
+      "id": "standard",
+      "label": "Core",
+      "substatPriorityGroups": [
+        [
+          "CRIT_DMG"
+        ],
+        [
+          "KEYFLARE_REGEN",
+          "DMG_AMP"
+        ]
+      ],
+      "recommendedWheels": [
+        {
+          "tier": "BIS_SSR",
+          "wheelIds": [
+            "wheel-0055"
+          ]
+        },
+        {
+          "tier": "ALT_SSR",
+          "wheelIds": [
+            "wheel-0031"
+          ]
+        },
+        {
+          "tier": "BIS_SR",
+          "wheelIds": [
+            "wheel-0083"
+          ]
+        },
+        {
+          "tier": "GOOD",
+          "wheelIds": [
+            "wheel-0121"
+          ]
+        }
+      ],
+      "recommendedCovenantIds": [
+        "covenant-0014",
+        "covenant-0020"
+      ],
+      "recommendedWheelMainstats": [
+        "CRIT_DMG",
+        "KEYFLARE_REGEN",
+        "DMG_AMP"
+      ]
+    }
+  ]
+}

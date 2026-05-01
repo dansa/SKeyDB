@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.karen.bounteous-feast",
+  "ownerAwakenerId": "awakener-0026",
+  "slot": "OverExalt",
+  "displayName": "Bounteous Feast",
+  "descriptionTemplate": "Shuffle 1 {Marvelous Cuisine} into the Draw Pile and Discard Pile respectively.",
+  "descriptionArgs": {}
+}

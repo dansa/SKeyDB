@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.liz.last-dawnlight",
+  "ownerAwakenerId": "awakener-0030",
+  "slot": "E3",
+  "displayName": "Last Dawnlight",
+  "descriptionTemplate": "{Dance to Destruction}: Draw 1 card for every 2 cards discarded.",
+  "descriptionArgs": {}
+}

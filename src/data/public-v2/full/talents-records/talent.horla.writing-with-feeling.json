@@ -1,0 +1,8 @@
+{
+  "id": "talent.horla.writing-with-feeling",
+  "ownerAwakenerId": "awakener-0024",
+  "displayName": "Writing with Feeling",
+  "family": "passive",
+  "descriptionTemplate": "Horla's \"Strike\" and \"Defend\" Command Cards are treated as Psalms.\nWhen Horla's Command Cards trigger their {Leap} Effect, she enters the {Emotion} state associated with that Psalm. Horla can only have one {Emotion} state active at a time, and triggering a different Psalm's {Leap} Effect will change the {Emotion} state to the corresponding {Emotion}. Each {Emotion} has a team-wide passive buff that is active while Horla remains in that {Emotion}. Each {Emotion} state enhances a different effect of Horla's Exalt. The {Emotion} state persists throughout the exploration.\nFor every 1% {Death Resistance} Horla has, the passive effect value of Horla's current {Emotion} state +0.1% of the original value.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,25 @@
+{
+  "id": "wheel-0014",
+  "name": "Rewinding Time",
+  "assetId": "Weapon_Full_C01",
+  "ownerAwakenerId": "awakener-0042",
+  "ownerAwakenerName": "Ramona",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "KEYFLARE_REGEN",
+  "descriptionTemplate": "Team Unique: After playing the wielder's Command Card, there is a [StateArg1]% chance to return it to your hand from the Discard Pile. This effect can only trigger once per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "40",
+        "50",
+        "60"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "The great sword was long and heavy, capable of slicing a person in half with enough force.\n\nThe dagger was light and nimble, easy to hide, perfect for a surprise attack.\n\nThe curved sword was beautifully arched, the blade sharp, easily embedding itself into flesh and opening a deep gash.\n\nThe firearm was quick and domineering, the crossbow silent and swift, various metal parts glinting coldly under the light. Ten-year-old Ramona stood in front of the wall full of weapons, her face showing an unexpected maturity and seriousness for her age.\n\n\"Which one do you want?\" The voice of her caretaker - no, the father who raised her - came from behind, \"Once you choose, I will help you find a teacher.\"\n\nWhich one? The weight of the great sword was both an advantage and a disadvantage; the dagger couldn't handle longer weapons; the curved sword, although long, always inflicted a lot of unnecessary damage; firearms were too loud, and crossbows could easily run out of ammo.\n\nAfter observing the training ground of Mythag for so many days, she knew she could spot the weaknesses of both combatants at a glance and nearly instinctively plan the attack routes. Those things that required abundant experience to know could be deduced in just a second for her. No, what she needed was something more precise, a weapon that could inflict the greatest damage with the least force.\n\nThe girl pondered for a moment, moved a stool from the side, stood on it, and reached for the rapier hanging high above.\n\nLong, elegant, agile, and lightweight, it could accurately inflict harm - yes, that's it, it met all her requirements",
+  "lineupToken": "Z"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "enlighten.pandia.youre-being-naughty",
+  "ownerAwakenerId": "awakener-0039",
+  "slot": "E3",
+  "displayName": "You're Being Naughty...",
+  "descriptionTemplate": "{Honey-Colored Tragedy} doubles Base DMG and grants a {Counter} equal to [Arg1]% of ATK.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%"
+    }
+  }
+}

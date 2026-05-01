@@ -1,0 +1,47 @@
+{
+  "id": "skill.pollux.cleansing-judgement",
+  "ownerAwakenerId": "awakener-0041",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Cleansing Judgement",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}. This card is automatically put in your hand when entering {Ultra Round}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "70",
+        "84",
+        "98",
+        "112",
+        "126",
+        "140"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pollux.flames-of-salvation.skill.pollux.cleansing-judgement",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.pollux.flames-of-salvation",
+      "ownerAwakenerId": "awakener-0041",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Pollux",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}. Arithmetica Cost -1 for every {Sacred Heart} played. This card is automatically put in your hand when entering {Ultra Round}."
+      }
+    }
+  ]
+}

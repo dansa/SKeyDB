@@ -1,0 +1,9 @@
+{
+  "id": "overlay.doll-inferno.finale",
+  "displayName": "Finale",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "When you have 10 stacks of {Finale}, place 1 {Illusion's End} into hand.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0018"
+}

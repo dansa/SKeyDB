@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.nymphaea.silent-permeation",
+  "ownerAwakenerId": "awakener-0037",
+  "slot": "E2",
+  "displayName": "Silent Permeation",
+  "descriptionTemplate": "{Midnight Tide} DMG +33%. The first 3 Symptom Cards played each turn increase {Midnight Tide} DMG by 10% of ATK for the rest of the battle.",
+  "descriptionArgs": {}
+}

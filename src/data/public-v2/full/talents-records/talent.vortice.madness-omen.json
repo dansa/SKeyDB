@@ -1,0 +1,15 @@
+{
+  "id": "talent.vortice.madness-omen",
+  "ownerAwakenerId": "awakener-0055",
+  "displayName": "Madness Omen",
+  "family": "madness_omen",
+  "descriptionTemplate": "After the exploration starts, gain [Arg1] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "5",
+      "gainPerLevel": "5"
+    }
+  },
+  "maxLevel": 12
+}

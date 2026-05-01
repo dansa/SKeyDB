@@ -1,0 +1,24 @@
+{
+  "id": "relic-0036",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Nautila",
+  "assetId": "Icon_Creation_Unique_C07",
+  "ownerAwakenerId": "awakener-0036",
+  "ownerAwakenerName": "Nautila",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "descriptionTemplate": "At turn start, Nautila gains [Arg1] Aliemus. After using Nautila's \"Exalt,\" gain {Counter} and Delayed Shield equal to [Arg2]% of the current Shield, triggering at most once per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "20",
+      "suffix": "%"
+    }
+  },
+  "lore": null
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.murphy-fauxborn.celestial-resonance",
+  "ownerAwakenerId": "awakener-0035",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Celestial Resonance",
+  "descriptionTemplate": "{Rouse} {Tidal Sacrament} is enhanced: When played, immediately gain 2 stacks of {Life Seal}. If in the {Surging Tides} stance at turn end, gain 1 additional stack of {Life Seal}.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,153 @@
+{
+  "id": "skill.miryam.defense",
+  "ownerAwakenerId": "awakener-0032",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Miryam obtains [Energy:Arg2] Aliemus. {Ritual}: Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg3]/[Exhaustion:Arg4]/[Exhaustion:Arg5].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "12.5",
+        "15",
+        "17.5",
+        "20",
+        "22.5",
+        "25"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg5": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.miryam.vanitys-collapse.skill.miryam.defense",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.miryam.vanitys-collapse",
+      "ownerAwakenerId": "awakener-0032",
+      "operation": "override_args",
+      "ownerAwakenerName": "Miryam",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "6.5",
+              "7.8",
+              "9.1",
+              "10.4",
+              "11.7",
+              "13"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "16.25",
+              "19.5",
+              "22.75",
+              "26",
+              "29.25",
+              "32.5"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg5": {
+            "kind": "scaling",
+            "values": [
+              "32.5",
+              "39",
+              "45.5",
+              "52",
+              "58.5",
+              "65"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        }
+      }
+    }
+  ]
+}

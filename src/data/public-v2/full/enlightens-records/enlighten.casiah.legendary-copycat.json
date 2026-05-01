@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.casiah.legendary-copycat",
+  "ownerAwakenerId": "awakener-0007",
+  "slot": "E3",
+  "displayName": "Legendary Copycat",
+  "descriptionTemplate": "{Telekinesis} gains {Aftershock}: Shuffle 1 \"Insight\" into the Draw Pile.",
+  "descriptionArgs": {}
+}

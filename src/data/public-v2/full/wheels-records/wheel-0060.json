@@ -1,0 +1,45 @@
+{
+  "id": "wheel-0060",
+  "name": "The Faraway Eden",
+  "assetId": "Weapon_Full_O11",
+  "ownerAwakenerId": "awakener-0055",
+  "ownerAwakenerName": "Vortice",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "mainstatKey": "REALM_MASTERY",
+  "descriptionTemplate": "Team Unique: Gain Aliemus equal to [StateArg1]% Base Aliemus at the start of battle. The wielder's Exalt Final DMG +a percentage equal to [StateArg2]% of Base Aliemus.\nWhen switching to the {Raging Waves} stance, gain Temporary Realm Mastery equal to [StateArg3]% of your current Realm Mastery. 3-turn cooldown.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "13",
+        "17",
+        "21",
+        "25"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "25",
+        "30",
+        "35"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "This is an island marked on no nautical chart.\nSince its birth, the virus known as \"civilization\" has never set foot upon its pristine shores.\nThere is only sand, jungle, an endless stretch of sea... and one small girl.\n.........\n\"Papa! Mama! Fish!\"\n\"Whistle—\"\nTwo dolphins glide leisurely to the girl's side, their cries melodic and clear.\nOne lifts her onto its back; the other takes the stunned fish from her hands and swallows it in a single gulp.\n\"Whistle—\"\n\"Hehe. Vortice! Strong!\"\nLike a child untouched by the world, the girl flexes her small arms, beaming at the praise from \"Papa\" and \"Mama.\"\n\"Today, sun! Good!\"\n\"Vortice! Papa! Mama! Swim!\"\nAt her words, the dolphin carrying her lets out a soft trill and begins a slow circle around the little island.\nWarm sunlight spills over the girl, dispelling the damp chill that has lingered for days. A gentle breeze rustles through her hair, carrying the ocean's lazy breath.\nLaughter, splashing, playful cries. On this isolated isle, there are no burdens of the modern world—only the most primal, purest joy.\nAs always, the two creatures and one girl spend another simple, carefree day.\n.........\nUntil the endless calling rises up and devours that tranquility whole.\n\"Come back... Come back...\"\n\"@1 needs you... @2...@4... needs you...\"",
+  "lineupToken": "y6"
+}

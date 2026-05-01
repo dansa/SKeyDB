@@ -1,0 +1,19 @@
+{
+  "id": "wheel-0049",
+  "name": "Roses in Mud",
+  "assetId": "Weapon_Full_N02",
+  "ownerAwakenerName": null,
+  "rarity": "N",
+  "realm": "NEUTRAL",
+  "mainstatKey": "KEYFLARE_REGEN",
+  "descriptionTemplate": "Team Unique: If the wielder is the Awakener \"Ramona: Timeworn,\" the Affinity gained by other Awakeners upon completing the stage +[StateArg1]%, but the wielder does not gain any Affinity.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    }
+  },
+  "lore": "In a loop that cannot be recorded, Ramona: Timeworn steps over the flowerbed behind the clock tower.\nOut of the corner of her eye, she catches sight of the rose garden, where clusters of vibrant flowers are blooming fiercely.\nAfter a rare moment of pause, she casts aside all unnecessary thoughts and continues her journey to the final battlefield.\nThe mud splashes onto the crimson petals, quickly devoured by the dark D-Slime, leaving only a proud silhouette in the wind.",
+  "lineupToken": "yY"
+}

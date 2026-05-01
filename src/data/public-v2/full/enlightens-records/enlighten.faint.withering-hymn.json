@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.faint.withering-hymn",
+  "ownerAwakenerId": "awakener-0016",
+  "slot": "E2",
+  "displayName": "Withering Hymn",
+  "descriptionTemplate": "\"Basic Defense\" Shield Generation +25% and grants {Counter} equal to the amount of Shield.",
+  "descriptionArgs": {}
+}

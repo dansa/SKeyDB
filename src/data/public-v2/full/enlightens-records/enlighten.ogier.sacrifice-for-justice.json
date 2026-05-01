@@ -1,0 +1,13 @@
+{
+  "id": "enlighten.ogier.sacrifice-for-justice",
+  "ownerAwakenerId": "awakener-0038",
+  "slot": "E3",
+  "displayName": "Sacrifice for Justice",
+  "descriptionTemplate": "{Unstable Barrier} Shield +28% and grants {STR} equal to [Arg1]% of ATK (effect scales with {Unstable Barrier} skill level).",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "28"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.vortice.bang-pop-boom",
+  "ownerAwakenerId": "awakener-0055",
+  "slot": "AbsoluteAxiom",
+  "displayName": "BANG! POP! BOOM!",
+  "descriptionTemplate": "{Rouse} {HERE IT GOES!} is enhanced: After {Pursuit}, the next Exalt's {Tentacle DMG} Bonus increases from 150% to 200%, and the next Exalt deals {Fixed DMG} equal to 1% of Max HP to the highest HP enemy, stacking up to 5 times.",
+  "descriptionArgs": {}
+}

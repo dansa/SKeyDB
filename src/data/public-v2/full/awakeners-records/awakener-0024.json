@@ -1,0 +1,96 @@
+{
+  "id": "awakener-0024",
+  "numericId": 24,
+  "name": "Horla",
+  "ingameId": "D06",
+  "lineupToken": "B",
+  "realm": "ULTRA",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "horla",
+    "iconKey": "horla"
+  },
+  "baseStatsLv1": {
+    "CON": 36,
+    "ATK": 38,
+    "DEF": 33
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 5.6
+  },
+  "statScaling": {
+    "CON": 1.15,
+    "ATK": 1.2,
+    "DEF": 1.05
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 5.6
+  },
+  "profile": {
+    "title": "Horla",
+    "birthday": "14-Feb",
+    "gender": "Female",
+    "height": "5'42''",
+    "weight": "89lbs",
+    "gnosticIndex": "21.12",
+    "characteristic": "Delayed Healing    Weaken Enemy",
+    "introduction": "Different Emotions provide powerful buffs and alter the effect of her Exalt.",
+    "awakerIntroduction": "Horla's 4 Psalm cards feature distinct effects, Trigger a {Leap} to enter one of four emotional states: {Happiness}, {Anger}, {Grief}, or {Fear}.\nEach state grants unique bonuses to all Awakeners, with Horla's Exalt receiving enhanced effects.\nIn this trial, try out Level 50 Horla and Lotan with Skill Level 5 and Enlighten Level 3. The enemy will gain enhancements on the first turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Rose's spike pierces the poetry page, leaving transparent bloodstains. The scent of alcohol fills the air, and colorless flames spread everywhere.\nIn that blaze, Horla holds the last poem, silently marking the end of the concealed genius poet's path.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "At the beginning of A.F. 3@2, during the renovation of the city named Cité, an anomaly was discovered in a fire-damaged garden: ashes climbed the burnt walls of the greenhouse like vines, and the ash roses blooming on the vines shimmered with a metallic hue.\nFollowing the trail of the vines, an investigator from Mythag University retrieved this Silver. The moment she touched the silver powder, her fingertips were scorched black without any pain, but tears inexplicably rolled down her cheeks.\nThe weeping came without reason and dissipated into the ashes in an instant.",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "It seems that Horla possesses a peculiar magic, drawing teachers and students who yearn for poetry and beauty to her side involuntarily.\nHorla doesn't like to publish her poems, but the students of Mythag still manage to catch glimpses of her verses. The lines flowing from her pen often sweep across the campus in no time.\nAs the morning dew rises, someone softly recites her lines under the bell tower; at dusk, Nymphaea sits on a bench in Myda Square, flipping through her collection; after nightfall, students gather in the auditorium to rehearse the chapters she wrote.\nHowever, even when graciously invited, Horla rarely pays attention to these activities, let alone participate in them personally. The mournful tone of those words and tearful occasions often leave her feeling lost.\n\"Have I spread new sorrow again?\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "This is a city of flowers and poetry, where a lingering love poem is equivalent to a freshly cut rose and can be exchanged for a week's food for a family of three. The emergence of a masterpiece also signifies that a talented poet will rise to fame.\nThat person used to be a gardener who spent her days with fertilizer and dead branches, relishing the flattery and admiration brought by elegant verses. She no longer tended to gardening matters, even locking the greenhouse and forbidding anyone from entering the flower room.\nWhen asked by others, she would only reply that there was \"Inspiration\" hidden in the greenhouse.\nThey were born insignificant, the children of noble retainers. With the establishment of the Constante Federation, the old nobles were purged, and they lost their place to stay.\nThat was a maid who grew up accompanying the young lady but showed her talent for writing early on — but how could a servant read poetry?\nSurrounded by an ever-changing environment, the talent for poetry could not provide the girl with survival capabilities. Everything made the girl even more out of place and more melancholic and sad.\nUntil the gardener extended her hand — that hand, cut by thorns, bestowed upon her a garden. In this tiny kingdom, they spent the happiest time of their lives.\nThe peaceful life began to change with a poem received from the gardener.\nHer friend's talent was so moving that she wanted more people to see this poem dedicated to a friend.\nThe shy and melancholic friend was unwilling to sign, so the gardener signed her name in the signature place — \"If published, it would also be convenient for them to send reward money.\"\nThe gardener's change also started from the first draft fee.\nShe could not understand why she suddenly went from protector to burden.\nShe could not understand why her friend could effortlessly gain all the love and praise, while her own hard work was defenseless before talent.\nBlinded by desire and jealousy, she began to use her friend's trust to deceive her creations. The deceitful behavior could not be turned back. The seed was buried in the gardener's heart from the beginning, and as the reputation of the talented poet spread, it began to sprout, blooming into a bud during a street interview — the fervent fans asked the gardener questions about those secret and lingering emotions in the poems, which the gardener could not read and was soaked in sweat, hurriedly leaving the scene. Returning to the flower room late at night, faced with her friend's concerned gaze, the panicking flowers bloomed at that moment.\nAfter a fire shocking Cité, the talented poet announced her retreat, disappearing with the wealth and fame she earned in a short time.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "\"Horla, from today onward, I will treasure all your poems. In the future, I'll trade my flowers for your poems!\"\n\"Colette, you will definitely come back to save me...right?\"",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Outlanders",
+  "aliases": [
+    "horla"
+  ],
+  "searchTags": [
+    "Death Resistance",
+    "Heal"
+  ]
+}

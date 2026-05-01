@@ -1,0 +1,39 @@
+{
+  "id": "skill.goliath.law-of-the-strongest",
+  "ownerAwakenerId": "awakener-0021",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Law of the Strongest",
+  "descriptionTemplate": "Gain [Power:Arg1] {STR}. Temporarily remove all enemies' {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "2.4",
+        "2.8",
+        "3.2",
+        "3.6",
+        "4"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.goliath.rule-by-the-strongest.skill.goliath.law-of-the-strongest",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.goliath.rule-by-the-strongest",
+      "ownerAwakenerId": "awakener-0021",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Goliath",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Power:Arg1] {STR}. Temporarily remove all enemies' {STR}, and gain the same amount of Temporary {STR}."
+      }
+    }
+  ]
+}

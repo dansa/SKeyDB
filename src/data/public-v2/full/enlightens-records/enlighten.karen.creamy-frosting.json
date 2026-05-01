@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.karen.creamy-frosting",
+  "ownerAwakenerId": "awakener-0026",
+  "slot": "E2",
+  "displayName": "Creamy Frosting",
+  "descriptionTemplate": "\"The {Toad Stew}'s {Poison} and HP Recovery effects +25%.\"",
+  "descriptionArgs": {}
+}

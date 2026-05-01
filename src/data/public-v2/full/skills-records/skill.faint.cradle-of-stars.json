@@ -1,0 +1,67 @@
+{
+  "id": "skill.faint.cradle-of-stars",
+  "ownerAwakenerId": "awakener-0016",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Cradle of Stars",
+  "descriptionTemplate": "[{Devour}: Place 1 \"Sprouting Bud\" with 0 Arithmetica Cost into hand and attach {Exhaust}. Inflict {Weakness} to all Enemies for 2 turns.] Obtain [Counterattack:Arg1] stacks of {Counter}. If {Death Resistance} is less than [Arg2]%, then +[Arg3]%. Dispel self {Fragile}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "60",
+        "72",
+        "84",
+        "96",
+        "108",
+        "120"
+      ],
+      "suffix": "%",
+      "stat": "ATK",
+      "substatBonus": {
+        "substat": "DeathResistance",
+        "multiplier": "0.2",
+        "mode": "scale_base"
+      }
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "200",
+        "220",
+        "240",
+        "260",
+        "280",
+        "300"
+      ],
+      "substatBonus": {
+        "substat": "DeathResistance",
+        "multiplier": "2"
+      },
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "100",
+        "110",
+        "120",
+        "130",
+        "140",
+        "150"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.talent.faint.secondary-swaddle.skill.faint.cradle-of-stars",
+      "upgraderId": "talent.faint.secondary-swaddle",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "skill.erica.function-overload",
+  "ownerAwakenerId": "awakener-0015",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Function Overload",
+  "descriptionTemplate": "If the consumed Arithmetica is even, deal [Damage:Arg2] DMG X+2 times. Otherwise, Gain [Block:Arg3] Shield X+1 times.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "7.5",
+        "9",
+        "10.5",
+        "12",
+        "13.5",
+        "15"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "X",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.erica.system-reboot.skill.erica.function-overload",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.erica.system-reboot",
+      "ownerAwakenerId": "awakener-0015",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Erica",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "If the consumed Arithmetica is even, deal [Damage:Arg2] DMG X+2 times. Otherwise, gain [Block:Arg3] Shield X+1 times. {Leap}: Both effects are active simultaneously."
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "enlighten.ramona.innocent-departure",
+  "ownerAwakenerId": "awakener-0042",
+  "slot": "E1",
+  "displayName": "Innocent Departure",
+  "descriptionTemplate": "{Queen's Sword} deals +1 instance of DMG and gains Temporary {STR} equal to [Arg1]% of ATK with each DMG dealt. (effect scales with {Queen's Sword} skill level). When discarded, obtain an equal amount of Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "2.5",
+        "3",
+        "3.5",
+        "4",
+        "4.5",
+        "5"
+      ],
+      "suffix": "%"
+    }
+  }
+}

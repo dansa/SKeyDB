@@ -1,0 +1,25 @@
+{
+  "id": "covenant-0007",
+  "name": "Twisted Twins: White",
+  "assetId": "covenant-icon-009",
+  "lore": "Mist-white prayers. May the Twins bless your soul.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "{Death Resistance} +[Arg1]%",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "16.8",
+          "suffix": "%"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "Even-numbered turn starts: Add the wielder's \"Defense\" with {Fleeting} and {Exhaust} to your hand.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "s"
+}

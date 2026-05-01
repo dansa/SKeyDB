@@ -1,0 +1,99 @@
+{
+  "id": "awakener-0004",
+  "numericId": 4,
+  "name": "Alva",
+  "ingameId": "C11",
+  "lineupToken": "G",
+  "realm": "CHAOS",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "alva",
+    "iconKey": "alva"
+  },
+  "baseStatsLv1": {
+    "CON": 32,
+    "ATK": 34,
+    "DEF": 37
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 5.6
+  },
+  "statScaling": {
+    "CON": 1.5,
+    "ATK": 1.6,
+    "DEF": 1.75
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 5.6
+  },
+  "profile": {
+    "title": "Alva",
+    "birthday": "20-Jan",
+    "gender": "Female",
+    "height": "5'8''",
+    "weight": "143lbs",
+    "gnosticIndex": "22.3",
+    "characteristic": "Anti-Seca    Alert Boost",
+    "introduction": "A veteran of the battlefield who excels at stacking large amounts of Shield and converting Shield into Blade for attacks.",
+    "awakerIntroduction": "Possesses strong defense and single-target DMG capabilities; the higher the Shield, the greater the DMG dealt by {Precision Slash}.\nAfter {Rouse}, all DMG dealt by Alva will enjoy Shield bonus.\n{Combat Stance} has the ability to dispel Exalt Seals, and during Exalt, Symptoms or State Cards can be discarded to gain additional draws.\nIn this stage, Alva will be deployed at Level 50, Skill Level 5, Enlightened Level 3, and enemies will receive a buff in their first round.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Alva is very satisfied with her prosthetic limb.\n\"After that battle, I never imagined I would stand again. It's an honor to have the chance to fight for justice once more.\"\nAs for the low moans coming from the dormitory at midnight, just consider them non-existent when the new sun rises above the horizon.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "A.F.18@1/@1/@2 Infantry Regiment, the Kingdom of Remouahe, Port Alexandria\nThe situation in Port Alexandria is stabilizing. The 3rd and 4th battalions, along with three companies of musketeers, have crossed the canal to proceed to @4 for the next stage of operations. Now only the 1st battalion and a company of musketeers remain in Port Alexandria.\nA squad encountered rebels during a patrol and quickly dealt with them. They brought back an interesting trinket that looks like silver but is heavier. I've stored it in the safe; the commander will like this gift.\n.....\nDay 13 of the garrison, soldiers from various companies are showing abnormal behavior, including but not limited to attacking comrades, officers, destroying inventory, and military equipment. These soldiers, along with the earlier madmen, are now under my direct supervision in confinement.\nTheir eyes are bloodshot, and they drool, looking more like pitiful animals than soldiers. Madness is spreading here; I'm worried it will become a plague.\n.....\nDay 30 of the garrison.\nTo date, 370 soldiers have shown mad behavior. After 20 days of severe hysteria, 331 of them developed limb numbness and paralysis. Their aggression remains strong; two military doctors were bitten while trying to treat them.\nThe madness continues to spread. I've reported the situation, hoping for swift action.\n.....\nThe Committee took over the Alexandria garrison for 10 days; people still fall into madness, my brothers one after another. Why are only we suffering this damned plague? Why are the locals fine? Why do the rebels who hassle us remain unaffected?\nMy head hurts more and more, and the doctors are helpless—they fell into madness before me and became those biting monsters.\nI fear I will also go mad.\nThey say we have to wait for the Mythag University people. Damn them, we fought for our country, we shouldn't be treated this way.\n.....\nI know now, I finally know. It's a vengeful spirit within that piece of silver, seeking revenge on all who invaded this land. That one-legged woman wants us to leave, wants us all gone, to return everything here to its original owners. Yes, yes, it should be this way, we never should've come, never started this war, I @1@3@4@2@1@2@3\n— Excerpt from the \"@2 Infantry Regiment 1st Battalion Acting Commander's Log\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Hannah: Ms. Alva, you've been at Mythag University for quite a while. You're very popular; some girls even handed me love letters for you! Want me to read them?\nAlva: That's really... cough, I mean, thank you everyone? But wasn't I here to share my day?\nHannah: Didn't know the instructor had such a cute side! I might hide outside campus after this interview publishes, to avoid jealous girls! So, back to the point, can you share a day of the charming instructor's life?\nAlva: I'm afraid you'll be disappointed; my day is ordinary. I get up at 4 AM for exercises to adapt my leg to activity.\nAt 6 AM I go to the cafeteria. Though I don't need to eat as an Awakener, it's a habit.\n8-12 AM, I guide investigators in combat, sometimes extra training for Keepers. Afternoon training adjusts with the schedule, sometimes at 1 PM, sometimes at 3 PM.\nWeekly, I go to Nautila for prosthetic tuning. Though she forgets things, she does good work; every maintenance lessens my pain.\nHannah: What do you do for fun?\nAlva: Fun... an unfamiliar concept to me. Recently, I went to the beach with Aurita and the others; spending time with these innocent kids relaxes me. Swimming also benefits physical strength. Back when I was a recruit, my instructor—\nHannah: That's all for today! For more of Alva's stories, stay tuned for the next \"Mythag Daily Share\"!\n—Excerpt from Mythag Daily's \"Special Interview Column: Mythag Daily Share\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Her teenage years were spent in a military camp. \nLike all children raised in military camps, she firmly believes in the glory of the legion and regards it as her life. Her world is simple: what the commander acknowledges is right, and what the commander forbids is wrong. \n\"Swing your sword towards the enemy; we will grant true freedom to this land; strike down the invading army; do not feel sympathy for them; current sacrifices are all for future stability and prosperity.\"\nShe trained under such slogans and entered the battlefield with them. After a desperate rescue mission, she received an injured leg and the title of a war hero. From then on, she retired with medals and became a new recruit instructor, completely unaware of how this injured leg would reveal a new world to her. \nHumbled by her injury, Alva angrily left the army. Once on the streets, she truly discovered how the commander's glorious speeches were nothing but lies—liberation was merely a pretext for invasion, and people in foreign lands suffered greatly. \nThis was not her ideal nation; this was not a radiant future without blood and tears. \nThus, she raised the blade of atonement against her former comrades and vowed to fight for true justice.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Alva had doubted her righteousness, but those bewildered days and nights brought her profound enlightenment.\nIllusions are tangible.\nThe initial starting point never changed; the justice she fights for is not an organization turned aggressor, not an individual shouting slogans, but a genuine existence within her beliefs.\n\nAll life, all innocence, all dreams, aspirations, and beautiful yearnings can easily turn to ash under gunfire.\nWhat is lost in war will never return, like hellish demons devouring all goodness.\nThus, those who start wars for selfish desires must also taste the ashes of destruction. There will be true heroes, with noble intentions, selflessly fighting for the bright future of all.\nThis is the value called justice.\n......\n\nWrong, then correct it.\nMake the sacrifices worthwhile, make this phantom pain of severed legs and limbs worthwhile.\nIf there is anything unfortunate destroyed, reclaim it with these new prosthetics.\nThose small and fragile things will never lose their shine.\nEverything is for that truly bloodless, tearless utopia.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Outlanders",
+  "aliases": [
+    "alva"
+  ],
+  "searchTags": [
+    "Death Resistance",
+    "Discard",
+    "Dispel",
+    "Draw",
+    "Strike"
+  ]
+}

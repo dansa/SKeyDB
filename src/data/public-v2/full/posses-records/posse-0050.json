@@ -1,0 +1,67 @@
+{
+  "id": "posse-0050",
+  "name": "Orbis Fatum",
+  "descriptionTemplate": "Gain [Arg1] Shield and [Arg2]% Temporary DMG Amplification. If \"Arachne\" is in the party, draw 1 {Eternal Loom} and reduce its Arithmetica Cost by 1.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.08
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    }
+  },
+  "lore": "Spin, measure, sever.\nThe goddess of destiny knows neither joy nor sorrow; the wheel of fate turns for all eternity.",
+  "realm": "ULTRA",
+  "assetId": "posse-icon-52",
+  "imageAssetId": "CG_C205_005",
+  "lineupToken": "1"
+}

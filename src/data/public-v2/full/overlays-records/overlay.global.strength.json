@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.strength",
+  "displayName": "STR⯆",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Reduce Active and {Tentacle DMG}.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_037",
+  "textColor": "affliction"
+}

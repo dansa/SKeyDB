@@ -1,0 +1,29 @@
+{
+  "id": "skill.faros.deep-currents",
+  "ownerAwakenerId": "awakener-0017",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Deep Currents",
+  "descriptionTemplate": "Within this turn, after causing {Tentacle DMG}, [{Poison}:Arg1] {plural:[{Poison}:Arg1]|stack|stacks} of {Poison} are applied to all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "10.8",
+        "12.6",
+        "14.4",
+        "16.2",
+        "18"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "1"
+}

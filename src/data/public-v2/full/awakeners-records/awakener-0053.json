@@ -1,0 +1,98 @@
+{
+  "id": "awakener-0053",
+  "numericId": 53,
+  "name": "Winkle",
+  "ingameId": "D05",
+  "lineupToken": "u",
+  "realm": "ULTRA",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "winkle",
+    "iconKey": "winkle"
+  },
+  "baseStatsLv1": {
+    "CON": 30,
+    "ATK": 27,
+    "DEF": 34
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0.8,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.4,
+    "ATK": 1.25,
+    "DEF": 1.6
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0.8,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Winkle",
+    "birthday": "7-Sep",
+    "gender": "Female",
+    "height": "5'6''",
+    "weight": "123lbs",
+    "gnosticIndex": "21.7",
+    "characteristic": "Aliemus Supply    Delayed Draw",
+    "introduction": "Provides Aliemus to other allies and spends all cards in hand to generate a large amount of Shield.",
+    "awakerIntroduction": "Possesses strong defense and the ability to provide Aliemus.\nExalt grants a significant amount of Aliemus to another Awakeners, enabling them to release more Exalts or even multiple Exalts in one turn.\n{Rouse} grants {Counter} when applying Shield, providing {Counter} against multi-hit enemies.\nIn this quest, Winkle and Lotan, both at Level 50 with Skill Level 5 and Enlighten Level 3, will join. They gain benefits during trial battles, while enemies are strengthened in the first turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Winkle's office is known as the North Star of Mythag University. It is always brightly lit, with every potentially shadowy corner illuminated by various light sources—from lanterns to kerosene lamps, tungsten bulbs to candles.\nHer fear of darkness even causes her to avoid sleep, so she sits beneath the largest lamp, writing incomprehensible symbols on scattered draft papers, day and night.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "Time: A.F. 299, @1, @2\nLocation: Lab UG-C03, @2@1, @4, Londinium.\nParticipants: @1, @2, @4, @3\nTest Subject: W\nSubject Info:\nThe body is an adult human female, born on June 18, A.F. 280, origin unknown. She died of illness while studying at @2 University and was subsequently occupied by the extraterrestrial spiritual entity @1, reviving her to continue her previous life.\n@1 possesses the abilities of spiritual transfer and replacement and can visually perceive dissolution. Although human bodies cannot perceive dissolution, the abilities of @1's race allowed the subject to perceive its existence on a spiritual level. Therefore, when the subject first observed dissolution 2 years and 8 months ago, she attempted spiritual transfer to avoid further erosion.\nDespite @1 retaining the ability to perceive dissolution, the subject could not escape its impact, resulting in failed spiritual migration. After multiple attempts, she actively contacted @3 University, hoping to become an Awakener, which directly led to this experiment.\n—Excerpt from <Italic:\"Experiment Record: Feasibility of Silver Extraction from Living Bodies\">",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Hanna: How did you know that Mythag University could help you? You see, the general perception of us has always been \"a remote ordinary university.\" Was it Ramona who told you?  \nWinkle: Oh no, no, it wasn't. Even though she did lead me in, I don't have a deep relationship with Ramona. My race, @1, has the ability of cross-temporal and spatial mental migration, so we know many things... Knowledge about Mythag is just one of them.  \nHanna: So, you learned about the way to cross the Mist and directly knock on the door through that \"Knowledge\"?  \nWinkle: I admit, I didn't know about the Mist. I was just walking, and somehow ended up here. Speaking of the Mist, do you know how terrifying that section of road by the entrance is? There are no streetlights, and when the fog settles, even the sunlight grows weaker—all those dark shadows...  \nHanna: Is that also the reason you don't like leaving the office—fear of shadows?  \nWinkle: Shadows? No, no, you don't understand. Besides shadows, there's so much blackness, so many places where it could hide... it.  \nHanna: It?  \nWinkle: Shh! Lower your voice! You'll bring it here—no, it's not intelligent, but why, why is it that even though I'm here @2@3@1  \nHanna: Miss Winkle, are you okay?  \nWinkle: @2@3@1...  \nHanna: Miss Winkle?  \nWinkle: Enough, get out! I don't want to be interviewed! Your shadow recorder notes are all black, black, black, black—get out, get out, get out!  \nHanna: Miss Winkle—  \n—Excerpt from Hanna Peasley's recording titled \"0810, Winkle Interview (Failed Attempt 1)\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Winkle once had a name of her own.\nThat name was imbued with her parents' love,\nRepeatedly written by friends as cherished memories,\nMarked on the calendar alongside her birthday.\n\nWinkle once had a face of her own.\nThat face grew under her parents' watchful eyes,\nExpressing joy and sorrow with friends,\nCaptured in memories through photographs.\n\nWinkle once had a home of her own,\nFar from and unlike Kadath.\nIt vanished along with her parents' existence,\nDevoured by a black @2 and then completely disappeared.\n\nWinkle harbors a deep, overwhelming fear.\nIt is dark, terrifying, devouring everything, irrational.\nIt dissolves, erodes, and wears everything down completely,\nWhen touched, existence itself turns to ash.\n\nWinkle only retains a name she once had.\nA human body cannot pronounce it, nor mimic it,\nShe closes her eyes in extreme fatigue,\nPraying for a dream where she hears that familiar call once more.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Survival is both instinct and an inescapable burden. In the face of a death that erases memory, she alone is proof they ever existed—her parents, her friends, everything from her hometown.\nSo, she fled to an untainted world, to this ocean-covered planet, finding new life in the body of a deceased human girl.\nBut the black death has infinite patience.\nHuman eyes cannot see the Dissolution, but she knows what the cold at the edge of consciousness means, what the darkness in her mind represents—what humans call Dissolution has caught up, unknowingly binding her Spirit and Body.\nShe tried to flee over and over, only to fail each time, until utterly exhausted, her Spirit torn to its limit, she dragged her Body to the one place she hoped might offer salvation.\nNo matter what, she wanted to live.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Among the Stars",
+  "aliases": [
+    "winkle"
+  ],
+  "searchTags": [
+    "Discard",
+    "Dispel",
+    "Draw",
+    "Keyflare"
+  ]
+}

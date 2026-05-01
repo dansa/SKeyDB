@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.winkle.thus-spoke-the-outcast",
+  "ownerAwakenerId": "awakener-0053",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Thus Spoke the Outcast",
+  "descriptionTemplate": "{Rouse} {Self-Imprisonment} is enhanced: When played, another Awakener with the lowest Aliemus gains 50 Aliemus.",
+  "descriptionArgs": {}
+}

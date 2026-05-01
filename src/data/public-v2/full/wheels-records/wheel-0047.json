@@ -1,0 +1,33 @@
+{
+  "id": "wheel-0047",
+  "name": "Stakes of Wisdom",
+  "assetId": "Weapon_Full_JP06",
+  "ownerAwakenerName": null,
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_DMG",
+  "descriptionTemplate": "Team Unique: After exploration starts, shuffle 1 {Stakes of Wisdom} into the Draw Pile. {Stakes of Wisdom}: Cost 1 Arithmetica. Shuffle all Command Cards in hand randomly into the Draw Pile. Shuffled Command Cards have a [StateArg1]% chance to take effect 1 additional time when played next, and for each Command Card shuffled in, all Awakeners gain 2 Aliemus. {Retain}. {Exhaust}. {Innate}.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "13",
+        "17",
+        "21",
+        "25"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    }
+  },
+  "lore": "At the entrance of a lavishly gilded club, a doorman in a crisp white shirt raises a hand, politely barring Ryker's path.\n\n\"Sir, you possess no invitation and are not a member. I'm afraid entry is impossible.\"\n\n\"Is that so? Quite the predicament...\"\n\nRyker strokes his chin, putting on a show of deep thought. In truth, he is simply biding his time. He is waiting for the suspect in the case at hand. He is waiting for that destined blessing of fate.\n\nSure enough, his patience pays off.\n\n\"If it isn't the Lucky Detective! Londinium's finest,\" a voice calls out. \"Come, I'd be more than happy to vouch for you.\"\n\nA gentleman steps forward, a gracious smile on his face that doesn't quite reach his eyes. \"I've long wanted to witness that legendary luck of yours. Please, don't disappoint me...\"\n\nThe look in the man's eyes is laced with pure malice. Such expressions are common in this club; one can hardly expect gamblers chasing a high to play by the rules. When Ryker realizes he is being set up, he doesn't mind in the least. He simply curls the corner of his mouth and calmly picks up his whist cards.\n\nNo need to rush—the game has only just begun, hasn't it?\n\nThe first round passes, then the second, then the third. One game follows another until Ryker has lost every last chip.\n\n\"Lucky Detective, it seems your luck has finally deserted you,\" the gentleman sneers. \"Then again, no one can be blessed by Fate forever.\" He leans over the table, his gaze hungry. \"Care to continue? It's a shame, Detective—you have nothing left.\"\n\n\"Nothing left? I wouldn't say that.\"\n\nThe detective, who has lost every single round, smiles and gestures to himself. \"I still have this fine suit, this expensive cane, and...\"\n\nHe pauses, drawing a small, compact device from his breast pocket. He smiles, turning it over in his fingers as he lowers his voice. \"I'll admit your cheating methods are remarkably clever. Even the owner of this club couldn't crack them; he had to seek my help. But even the most ingenious scheme takes time, requires execution, and demands coordination.\"\n\nHe taps the device. \"As luck would have it, this little gadget from Mythag has already clearly recorded the evidence of you and your accomplices cheating in this club just now.\"\n\nThe gentleman freezes. His expression shifts from shock to a simmering, murderous fury. His accomplices are even more incensed, itching to teach the detective a lesson. But with so many eyes watching, the gentleman doesn't dare make a rash move—and besides, the detective has offered him a choice he cannot refuse.\n\n\"How about one more wager?\" Ryker asks. \"If you win, this little device—and my life—will be yours. You know what I mean.\"\n\n\"And if I lose?\"\n\n\"Then I'm afraid you'll have to turn yourself in.\" Ryker gives a casual shrug, flashing a gleaming grin. \"Do you really think you'll lose? A true gambler only ever believes they'll win.\"\n\nIndeed, every gambler believes the next hand is theirs. No one in this room could refuse such a wager.\n\nThe whist cards flow across the table once more—playing, covering, seizing—until, at last, a winner is decided.\n\n\"Lucky~\"\n\nWithout sparing the loser another glance, Ryker laughs and flings his winnings into the air with a wave of his hand. The already boisterous club erupts into total fervor. The air fills with the cries of people scrambling for coins, the shrieks of those claiming their windfalls, and peals of wild laughter.\n\nAmid the chaos, Ryker slips the Mythag-issued decorative device—a standard trinket anyone can buy—back into his breast pocket. He pats the invitation bearing his own name in his trouser pocket, curls his lip, and presses down the brim of his hat.\n\nA true gambler only ever believes they will win.\n\nBecause he is certain that no matter what he does, the blessing of fate will always walk beside him.",
+  "lineupToken": "y8"
+}

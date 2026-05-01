@@ -1,0 +1,50 @@
+{
+  "id": "skill.tinct.defense",
+  "ownerAwakenerId": "awakener-0049",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Tinct obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.tinct.midnight-elegy.skill.tinct.defense",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.tinct.midnight-elegy",
+      "ownerAwakenerId": "awakener-0049",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Tinct",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield 2 times. Tinct gains [Energy:Arg2] Aliemus. {Leap}: Gain Aliemus one more time."
+      }
+    }
+  ]
+}

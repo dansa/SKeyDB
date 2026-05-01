@@ -1,0 +1,95 @@
+{
+  "id": "awakener-0002",
+  "numericId": 2,
+  "name": "Agrippa",
+  "ingameId": "B06",
+  "lineupToken": "S",
+  "realm": "CARO",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "agrippa",
+    "iconKey": "agrippa"
+  },
+  "baseStatsLv1": {
+    "CON": 35,
+    "ATK": 30,
+    "DEF": 36
+  },
+  "substatsLv1": {
+    "CritRate": 6.6,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.65,
+    "ATK": 1.4,
+    "DEF": 1.7
+  },
+  "substatScaling": {
+    "CritRate": 1.6,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Agrippa",
+    "birthday": "15-Apr",
+    "gender": "Female",
+    "height": "5'2''",
+    "weight": "90lbs",
+    "gnosticIndex": "?",
+    "characteristic": "Alert Growth    Poison Combo",
+    "introduction": "Provides a large amount of Embryo Fusion while injecting toxins into enemies to disrupt their sanity.",
+    "awakerIntroduction": "Possesses powerful defensive capabilities and the ability to inflict {Poison}. Triggering {Devour} grants permanent attack and defense growth.\n{Reluctant Alms} has the ability to double the current {Embryo Fusion}.\nWhen {Devour} is triggered, {Colorless Spiral} can return from the Discard Pile to the Hand, allowing it to be played multiple times in a turn.\nIn this level, Agrippa will join the battle at Level 50, with Skill Level 5 and 3 Enlightenments. Each turn, she gains 30% {Embryo Fusion} and 10 Aliemus.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Before the flames of history consumed everything, Agrippa was Capua's crown jewel.\nReckless and unrestrained, she fiercely whipped the silent gladiators; she loathed being stared at, as it exposed her inner vulnerability. But when it came to training slaves, Agrippa was an expert. Perhaps you'd be interested in the twenty different whips in her bedroom—specially prepared for you.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "@3Built in the Second Samnite period, decorated in the exquisite Third Pompeian and Lemovician styles, this is a typical residence of the wealthy merchant class during the Roman era. Featuring two courtyards and four triclinia, @1@1\n.....all reduced to ashes in the famous slave uprising... According to contemporaneous anecdotes, a massive pale spider was sealed beneath the ruins, referred to by locals as the \"God of the Maze,\" and they firmly believe that those who tread upon the spider's territory will become disoriented among countless passages and entrances, ultimately becoming hosts for its offspring.\nAn interesting horror story, but it will not deter us @2@1\n—Excerpt from \"@2Archaeological Notes on the Ruins\"\n\n.....The situation is dire, Sir Goodman. Moretti and his party have been missing for several days now. We all understand this has nothing to do with the legend of the \"God of the Maze,\" yet it is indeed unsettling. We have decided to end the investigation early and return to Durham.\nAdditionally, the archaeological team discovered a cluster of Silver-like objects in the ruins, which may be related to the @1 you mentioned earlier...\n—Excerpt from Clarkson Johnson's \"A Letter to Goodman\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Arithmetic: Zero points. Aurita even scored 2 points.\nEnglish: Failing. It took a long time to understand the difference between \"shift\" and \"bullshit.\"\n......\nHistory: Failing. Claimed Caligula was the most outstanding Roman emperor because he built many arenas.\n\nDanger Rating: C. Shows a degree of aggression when interacting with other Awakeners. Not a serious threat; no special attention needed.\nNotes: This individual has almost no self-care abilities (another victim poisoned by slavery), requires constant attention, and must not be allowed to use snowflake cream as a dental cleaner again.\n—Excerpt from A.F. 313, \"Mythag Annual Student Profile.\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Even when the gladiators burned the training ground and hung her parents' heads high on the wall, Agrippa couldn't believe it—how could these lowly, meek slaves have such audacity?\nIn Rome, there were two kinds of people: those who enslave and those who are enslaved.\nAgrippa was fortunate. She was the daughter of the largest gladiator training ground owner in Capua. She roamed freely, fearing nothing, doing as she pleased.\nBut now, she's like a frightened rabbit, cowering in the basement, with the revelry outside seeming like Hell.\nSlave rebellion. Such a foreign term. Agrippa is only fifteen; there's so much in this world she doesn't understand.\nIn the shadows, she sees a pair of red glowing eyes. It's Uvhash, the greatest money-maker in the training ground, locked underground due to its danger.\nThey never got along, and no one knows what they discussed that night. After the bloody night of flames, Agrippa was found dead in the dark depths, completely alone. She wasn't killed by slaves—someone drained her blood entirely.\nOf course, her head was eventually severed too, hung next to her parents', facing Rome.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "It was... a dazzling daylight and heat wave, an ecstasy of indulgent revelry.\nCheers roared like waves, the warriors bathed in blood and glory in the arena.\nThe girl returned home reluctantly, still wielding her whip, mercilessly striking the dazed gladiator in front of her.\n\nThis was her battlefield.\n\nThere were no thrilling duels, no flowers or applause. The tall warriors were the gentlest reindeer; all her curses and fury dissolved into the dark void, leaving not even a whisper of wind.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Outlanders",
+  "aliases": [
+    "agrippa"
+  ],
+  "searchTags": [
+    "Draw"
+  ]
+}

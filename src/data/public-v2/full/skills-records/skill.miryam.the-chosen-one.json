@@ -1,0 +1,137 @@
+{
+  "id": "skill.miryam.the-chosen-one",
+  "ownerAwakenerId": "awakener-0032",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "The Chosen One",
+  "descriptionTemplate": "Choose 1 other Awakeners to Gain [Energy:Arg2] Aliemus. {Ritual}: Gain [Arg4]/[Arg5]/[Arg6] Aliemus.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "38",
+        "41",
+        "44",
+        "47",
+        "50"
+      ]
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "10"
+    },
+    "Arg5": {
+      "kind": "fixed",
+      "value": "25"
+    },
+    "Arg6": {
+      "kind": "fixed",
+      "value": "50"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.miryam.the-ultimate-descent.skill.miryam.the-chosen-one",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.miryam.the-ultimate-descent",
+      "ownerAwakenerId": "awakener-0032",
+      "operation": "mixed",
+      "ownerAwakenerName": "Miryam",
+      "upgraderType": "enlighten",
+      "patch": {
+        "cardKeywords": [
+          {
+            "id": "mechanic.retain"
+          },
+          {
+            "id": "mechanic.prepare",
+            "value": 1
+          }
+        ],
+        "descriptionArgs": {
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "35",
+              "38",
+              "41",
+              "44",
+              "47",
+              "50"
+            ]
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "20"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "10"
+          },
+          "Arg5": {
+            "kind": "fixed",
+            "value": "25"
+          },
+          "Arg6": {
+            "kind": "fixed",
+            "value": "50"
+          }
+        },
+        "descriptionTemplate": "Choose 1 other Awakeners to Gain [Energy:Arg2] Aliemus, Realm Mastery +[Arg3]. {Ritual}: Gain an additional [Arg4]/[Arg5]/[Arg6] Aliemus."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.miryam.vanitys-collapse.skill.miryam.the-chosen-one",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.miryam.vanitys-collapse",
+      "ownerAwakenerId": "awakener-0032",
+      "operation": "mixed",
+      "ownerAwakenerName": "Miryam",
+      "upgraderType": "enlighten",
+      "patch": {
+        "cardKeywords": [
+          {
+            "id": "mechanic.retain"
+          },
+          {
+            "id": "mechanic.prepare",
+            "value": 1
+          }
+        ],
+        "descriptionArgs": {
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "35",
+              "38",
+              "41",
+              "44",
+              "47",
+              "50"
+            ]
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "20"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "13"
+          },
+          "Arg5": {
+            "kind": "fixed",
+            "value": "32.5"
+          },
+          "Arg6": {
+            "kind": "fixed",
+            "value": "65"
+          }
+        },
+        "descriptionTemplate": "Choose 1 other Awakeners to Gain [Energy:Arg2] Aliemus, Realm Mastery +[Arg3]. {Ritual}: Gain an additional [Arg4]/[Arg5]/[Arg6] Aliemus."
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "talent.castor.cleansing-feathers",
+  "ownerAwakenerId": "awakener-0008",
+  "displayName": "Cleansing Feathers",
+  "family": "passive",
+  "descriptionTemplate": "Playing {Onyx Plume} for the first time each turn inflicts 840% of Castor's ATK as {Corrosion} on the target and grants 10 Aliemus.\nFor every 1% DMG Amplification that Castor has, the Base amount of {Corrosion} inflicted +1%.\nAfter the battle, {Corrosion} inflicted by Castor permanently +20% during this Exploration.\n{Corrosion} inflicted in Boss Battles doubles.\nAfter inflicting {Corrosion}, Castor's DMG output +5% of the amount of {Corrosion} inflicted this turn.\nDMG dealt by Castor does not remove {Corrosion}.",
+  "descriptionArgs": {}
+}

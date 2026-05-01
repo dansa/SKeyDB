@@ -1,0 +1,11 @@
+{
+  "id": "overlay.pickman.creativity",
+  "displayName": "Creativity",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "When Pickman has 10 stacks of {Creativity} and uses Exalt, he consumes all {Creativity} stacks to gain one stack of {Fantasia}. This also grants 15 Aliemus to all teammates. His {Creativity} can stack up to 10 and is preserved between battles.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0040",
+  "iconId": "Battle_Card_Buff_077",
+  "textColor": "misc"
+}

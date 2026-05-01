@@ -1,0 +1,17 @@
+{
+  "id": "posse-0027",
+  "name": "A Gun's Cry",
+  "descriptionTemplate": "Create 1 {Shining Octahedron Dice} and gain [Arg1]% Temporary Crit. Rate.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    }
+  },
+  "lore": "Bang—\nA gunshot that splits the sky pierces the heart of the mastermind behind the conspiracy.\n\nDeath is not the end of life, but merely the peak of the puzzle's twist.",
+  "realm": "CHAOS",
+  "assetId": "posse-icon-27",
+  "imageAssetId": "CG_SD_S_C05_9",
+  "lineupToken": "D"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "skill.ogier.piercing-strike",
+  "ownerAwakenerId": "awakener-0038",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Piercing Strike",
+  "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG}, inflict [Arg2] {plural:[Arg2]|turn|turns} of {Vulnerable}, which enjoys a 200% {STR} bonus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ogier.honesty-unto-thyself.skill.ogier.piercing-strike",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.ogier.honesty-unto-thyself",
+      "ownerAwakenerId": "awakener-0038",
+      "operation": "mixed",
+      "ownerAwakenerName": "Ogier",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "50",
+              "60",
+              "70",
+              "80",
+              "90",
+              "100"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "2"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG}, inflict [Arg2] {plural:[Arg2]|turn|turns}{Vulnerable}, and enjoys a 300% {STR} bonus."
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "posse-0043",
+  "name": "A Fleeting Dream",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield and Temporary {STR} equal to 10% of the current Shield.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.15
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "Everything beautiful, complete, and soft leads to one's downfall, and you choose to become your own executioner, personally severing your soul from the warm bed of dreams.\nAfter piercing through the false veil, you look back, and those smiling faces are frozen within pale lines, waiting for your true return.",
+  "realm": "OTHER",
+  "assetId": "posse-icon-45",
+  "imageAssetId": "SScene_HTPArtboard",
+  "lineupToken": "W"
+}

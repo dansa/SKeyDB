@@ -1,0 +1,98 @@
+{
+  "id": "awakener-0009",
+  "numericId": 9,
+  "name": "Celeste",
+  "ingameId": "O09",
+  "lineupToken": "h",
+  "realm": "AEQUOR",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "celeste",
+    "iconKey": "celeste"
+  },
+  "baseStatsLv1": {
+    "CON": 21,
+    "ATK": 20,
+    "DEF": 21
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 4,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 2.8
+  },
+  "statScaling": {
+    "CON": 1,
+    "ATK": 0.95,
+    "DEF": 1
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 4,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 2.8
+  },
+  "profile": {
+    "title": "Celeste",
+    "birthday": "15-Mar",
+    "gender": "Female",
+    "height": "5'5''",
+    "weight": "?",
+    "gnosticIndex": "?",
+    "characteristic": "Temporary Tentacle    Death Immunity",
+    "introduction": "A blessed maiden who guards allies from the brink of death, and uses the power of dreams to heal.",
+    "awakerIntroduction": "Comprehensive Arithmetica supply, Healing, and {Tentacle DMG} enhancement Assist Ability.\nAfter Exalt, resurrect upon taking lethal DMG once per battle.\nIn this quest, a Level 50 Celeste with Skill Level 5 and Enlighten 3 will join, gaining 20 Aliemus each turn, and enemies are strengthened in the first turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Her ethereal beauty is always reminiscent of the bird of heaven, spreading its glossy wings towards utopia as her white dress fluttering in caressing breezes.\nHowever, does the girl herself who perches on the mast ever imagine herself flying upon the azure sky?",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "On July 3, A.F.3@1, being invited by the Nathaniel Forbes Green Foundation, Mythag University participated in the investigation towards the \"ghost ship\" Sona-Nyl.\nUpon boarding the barque which had been declared sunk ten years ago, the communication signal from investigator Fingal Johansen had immediately out of reach.\nOn July 10, A.F.3@1, the university eventually managed to get him. Located at the northern shore of Leo Heights with 300 nautical miles away from the original destination, investigator Johansen declared that he lost sense of time and space at the second he stepped on Sona-Nyl, and could not recall anything that happened onboard.\nInvestigator Johansen can hitherto only vaguely remember a word: Elysian.\nDue to the unharmful nature of the ghost ship itself, Mythag University decide to terminate the investigation today (A.F.3@1 year, December 24).\n\"File: Investigation of the Sona-Nyl Crash.\"",
+        "unlockCondition": "Affinity Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Grabbed by Doll upon the moment of joining the university, Celeste has undergone a series of comprehensive assessment.\nAs an Awakener summoned from non-standard process, Celeste's mental state is incredibly stable. However, neither her spirit intensity nor her Gnostic index which evaluates the strength of slivercore meets the Awakener's standard.\nYet she still emerged into this world as an Awakener, like a flower with invisible petals brusts in abysmal nothingness.\nAlthough no abnormalities has shown in daily activities or field missions, data record reveals Celeste's concerning situation: her will, already faint, continues to evansce.\nBy now, the Awakening Department is organizing a small order to sustain Celeste's existence by supplying religious belief. Those who are interested in joining and proficient in aquatic activities could contact Teacher Sylvia for further infomation.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "On the thirty-first day following the celestial bird, Sona-Nyl sails into a sea shrouded by streaming mist.\nCeleste perches high on the mast, gazing upon her people below. Notes of the lutanist drift in sweet melodies. Songs praying for a smooth journey echo betwixt.\n\nShe does not aware of their destination, nor does she evaluate how much wealth and fame bestowing across the sea. She does not care whether the prayers are pious, nor does she unsettled by the rumors about her power, circulating surreptitiously around the sea. Being asked to bless the voyage, she does not need words to complete her duty.\n\nAnd when the music ceases and the mist lifts, the sailors behold only a resistless raging sea. Lightning tears through the sky. Black rain pours down, bursting thunders of gigantic spray. Rushing torrent captures the fragile barque and throws it into the gaping abyss.\n\n\"God has forsaken us!\" Kindreds scream in desperation. Bellows imprison her into the lightless dungeon.\nNeglected and derelicted, the protector is left alone unquestioned with her failed duty, and one last lingering confusion.\n\nWhy... why did the barque sink?\n\nThe chain that once manacled her to the mast drown into the roaring splash. She plummets into the depth...\nLike a white bird with snapped wings flaking from the sky.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Our good friend, the resourceful Hannah Peaslee, somehow dug up the research materials on Celeste. Thanks to this audacious reporter, both the originally confidential materials and her brief interview with Celeste has now spreaded into every corner.\n\nAfter reading the confidential materials, Hannah posed a question to her usually emotionless face.\n\n\"Most Awakeners have unfulfilled wishes, which lie in their basic motivations for cooperating with the university. However, your wish section is blank in this material. Don't you have any desire to accomplish anything? Or what is your meaning as an Awakener?\"\n\n\"I have, I do have.\"\n\nThe girl's expression showed no cracks, as ethereal and noble as usual. If it were not for that brief answer and the anxiety within, the reporter would have almost thought that she miss the question.\n\n\n\"I will find my wish... everyone wishes so. Therefore I will find it.\"\n\nHer soft voice resounded, delicate and fragile like an easily shattered dream.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Outlanders",
+  "aliases": [
+    "celeste"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Dispel",
+    "Heal",
+    "Tentacles"
+  ]
+}

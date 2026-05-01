@@ -1,0 +1,114 @@
+{
+  "id": "skill.doll.rationality-truth-and-reality",
+  "ownerAwakenerId": "awakener-0013",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Rationality, Truth, and Reality",
+  "descriptionTemplate": "Dispel self {Vulnerable} state. Restore [Heal:Arg1] HP, and other Awakeners Gain [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "32",
+        "38.4",
+        "44.8",
+        "51.2",
+        "57.6",
+        "64"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.doll.flesh-transcended.skill.doll.rationality-truth-and-reality",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.doll.flesh-transcended",
+      "ownerAwakenerId": "awakener-0013",
+      "operation": "mixed",
+      "ownerAwakenerName": "Doll",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "40",
+              "48",
+              "56",
+              "64",
+              "72",
+              "80"
+            ],
+            "suffix": "%",
+            "stat": "CON"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          }
+        },
+        "descriptionTemplate": "Dispel self {Vulnerable} state. Restore [Heal:Arg1] HP, and all Awakeners Gain [Energy:Arg2] Aliemus."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.doll.psyche-dissection.skill.doll.rationality-truth-and-reality",
+      "upgraderSlot": "OverExalt",
+      "upgraderId": "enlighten.doll.psyche-dissection",
+      "ownerAwakenerId": "awakener-0013",
+      "operation": "mixed",
+      "ownerAwakenerName": "Doll",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "40",
+              "48",
+              "56",
+              "64",
+              "72",
+              "80"
+            ],
+            "suffix": "%",
+            "stat": "CON"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          }
+        },
+        "descriptionTemplate": "Dispel self {Vulnerable} state. Restore [Heal:Arg1] HP, and all Awakeners Gain [Energy:Arg2] Aliemus."
+      }
+    }
+  ]
+}

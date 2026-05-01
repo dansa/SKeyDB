@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.poison",
+  "displayName": "Poison",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "At turn end, take DMG equal to stacks.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_006",
+  "textColor": "affliction"
+}

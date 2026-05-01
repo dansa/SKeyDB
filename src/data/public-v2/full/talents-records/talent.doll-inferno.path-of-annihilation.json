@@ -1,0 +1,8 @@
+{
+  "id": "talent.doll-inferno.path-of-annihilation",
+  "ownerAwakenerId": "awakener-0018",
+  "displayName": "Path of Annihilation",
+  "family": "passive",
+  "descriptionTemplate": "In Boss Battles, at turn start and after \"Doll: Inferno\" releases Exalt, obtain 1 stack of {Finale}. {Finale} can have a maximum of 10 stacks, and when it reaches 10 stacks, place 1 {Illusion's End} into hand.",
+  "descriptionArgs": {}
+}

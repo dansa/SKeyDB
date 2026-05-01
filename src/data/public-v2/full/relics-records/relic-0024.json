@@ -1,0 +1,23 @@
+{
+  "id": "relic-0024",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Horla",
+  "assetId": "Icon_Creation_Unique_D06",
+  "ownerAwakenerId": "awakener-0024",
+  "ownerAwakenerName": "Horla",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "descriptionTemplate": "At turn start, Horla gains [Arg1] Aliemus. At the start of the battle, gain [Arg2] {plural:[Arg2]|stack|stacks} of {Metaphor} for all emotions, increasing the {Metaphor} effect by 50%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": null
+}

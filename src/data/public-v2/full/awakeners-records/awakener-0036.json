@@ -1,0 +1,95 @@
+{
+  "id": "awakener-0036",
+  "numericId": 36,
+  "name": "Nautila",
+  "ingameId": "C07",
+  "lineupToken": "g",
+  "realm": "CHAOS",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "nautila",
+    "iconKey": "nautila"
+  },
+  "baseStatsLv1": {
+    "CON": 40,
+    "ATK": 25,
+    "DEF": 42
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 4,
+    "SigilYield": 0,
+    "DamageAmplification": 0.8,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.9,
+    "ATK": 1.15,
+    "DEF": 2
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 4,
+    "SigilYield": 0,
+    "DamageAmplification": 0.8,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Nautila",
+    "birthday": "29-Jul",
+    "gender": "Female",
+    "height": "5'2''",
+    "weight": "105lbs",
+    "gnosticIndex": "21.3",
+    "characteristic": "Defensive Burst    Recycle Discards",
+    "introduction": "Her sturdy shell bolsters your team's defense, using spikes on the shell to counterattack incoming rivals.",
+    "awakerIntroduction": "Possesses strong defensive and stacking {Counter} abilities, which become even more powerful after {Rouse}.\nThe higher the Current Shield, the more Shield gained from Exalt; the higher the Current {Counter}, the greater the AoE DMG dealt by Exalt.\nIn this level, Nautila and Doll will join the battle at Level 50, Skill Level 5, and Enlighten 3, gaining 10 Aliemus per turn, with enemies receiving Enhance on the first turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "She seems to be constantly circling around the motorcycle named \"Phantasm\": tightening a screw here, adjusting a pipe there... It's an endless project, and although many believe she has done the best repairs, she still immerses herself in it day after day. \nThe reason lies in that vague feeling of \"something is still missing\".",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "A.F. 3@2, a D-phenomenon occurred in coastal towns of the Agló Republic, spreading outward in a spiral from the port, affecting an area hundreds of meters wide and causing @1 deaths.\nInvestigations traced the phenomenon back to a fishing boat that set out on A.F. 3@2 @1 @1@1, catching a silver-patterned cod-like creature.\nThe creature's soft body ruptured when cut by a sharp tool, releasing fluid laden with shell fragments and other residues. Upon reaching the port, shell-like growths had appeared among the catch but were ignored until a fisherman perceived himself as a shell, twisting his body and ending up hospitalized. Only then was the event reported.\nMythag personnel later located the source of the phenomenon at @4 cannery, removed it, and secured Silver O-36.\n—<Italic:\"Awakening System Silver Acquisition Report: O-36\">",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Three months after being Awakened, Investigators and Keepers threw a party for Nautila. Not to celebrate her arrival, but to celebrate that she finally remembered the name \"Mythag University.\"\nAlthough she forgot it again the next day, parties can always be held again. Who knows? Maybe in another three months, she will truly remember.\nIt's hard to say whether Nautila's goldfish-like memory is a side effect of Dissolution or a result of Silver deficiency. However, short-term memory loss isn't entirely a bad thing. For a diligent mechanic, forgetting which screw was tightened means tightening them all over again—ensuring the equipment maintained by her is more durable.\nDoll really likes her for it; after all, not everyone has the skill to make machinery last for a decade with just one repair.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Whenever night falls, Nautila will burrow into the storeroom with her mother, pick up various tools, and piece together a unicycle called Phantasm.  \n\"Why not just buy one directly?\" the young girl looked up and asked her mother, who was holding the tools, \"Then we could go out and adventure right away.\"  \nHer mother held her hand, teaching her how to weld metal quickly and well while saying:  \n\"Machines, like people, each have different temperaments and personalities. Only those who truly understand us can spend longer time with us.\"  \n\"Like friends?\"  \n\"Except that machines are made by us—that's right, like friends.\"  \nThe huge wheels must be sturdy, and the engine must be durable, because once they set off, they won't easily turn back. They want to travel the world together and complete a grand adventure.  \nIllness took her mother away, leaving behind a workshop full of tools but void of life. Nautila held the unfinished Phantasm, determined to complete her and her mother's dream with this cold friend.  \nUntil the last journey.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "A.F. 315, January, @2\nDr. Sylvia suggested that I jot down my thoughts in a notebook to help train my memory. Everyone says doctors know a lot and can surely help me. So I'm counting on it; tomorrow, I mustn't forget the purpose of this notebook! \n Today, I completed the production and assembly of the exhaust pipe. Now it can exhaust air without interfering with the auxiliary hose's movement. This should be the last step, right? At least I haven't found any issues so far, but I can't rule out forgetting a screw somewhere... That's right, I must have forgotten something—either a screw or a pipe, or maybe bearing lubrication? Engine oil? Honestly, I've always had this nagging feeling that something's off with the Phantom. It's always... lacking? Is that the word? It misses a crucial component, even more critical than the engine. Without it, I can't set off, can't embark on that journey into the unknown, because that is ours. @2 \n Why am I saying ours? Who am I with? Did I... have someone? I remember, it seems like... @2 @4 @3 \n Uh, my head hurts so much. \n But this notebook feels quite useful; that way, I can continue recalling from here tomorrow, and who knows, maybe I really will remember? \n — The only entry in Nautila's diary.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Fools",
+  "aliases": [
+    "nautila"
+  ],
+  "searchTags": [
+    "Dispel"
+  ]
+}

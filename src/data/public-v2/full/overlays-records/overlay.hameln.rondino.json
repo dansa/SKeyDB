@@ -1,0 +1,23 @@
+{
+  "id": "overlay.hameln.rondino",
+  "displayName": "Rondino",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "When played, takes effect 2 times and changes to {Crescendo}",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0022",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.hameln.oneiric-waltz.overlay.hameln.rondino",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.hameln.oneiric-waltz",
+      "ownerAwakenerId": "awakener-0022",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Hameln",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Arithmetica Cost -2, takes effect 2 times, then changes to {Crescendo}"
+      }
+    }
+  ]
+}

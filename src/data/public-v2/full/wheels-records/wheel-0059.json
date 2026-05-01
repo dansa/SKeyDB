@@ -1,0 +1,45 @@
+{
+  "id": "wheel-0059",
+  "name": "Flamebound Navigator",
+  "assetId": "Weapon_Full_O10",
+  "ownerAwakenerId": "awakener-0011",
+  "ownerAwakenerName": "Corposant",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "mainstatKey": "DEATH_RESISTANCE",
+  "descriptionTemplate": "Team Unique: The Shield caused by the wielder's Exalt +[StateArg1]%. After releasing Exalt, all Awakeners' Temporary Crit. DMG +[StateArg2]%, with each Tentacle increasing by 1%. After each exploration, trigger {Death Resistance} for the first time, restoring [StateArg3]% of Max HP at the start of next turn",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "13",
+        "17",
+        "21",
+        "25"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "\"With mundane copper and iron, we measure the trajectories of stars, but the endless abyss has its own algorithm, ever-changing.\"\n\nIn the gradually sinking cruise ship, Corposant recited the \"Elegy of the Coxwain.\"\n\nShe had long been aware of her fate and had already chosen her destiny; thus, facing death, she felt no fear, only calmness—calmly burning, calmly completing her last navigation.\n\nBut the burning flames were too intense; she could not see the way ahead, could not make a sound, nor wave a flag. In such imperfect guidance, could the ship navigate correctly?\n\nShe did not know, and thus felt fear and worry.\n\nAt this moment, the \"Elegy of the Coxwain\" offered guidance: \"Young navigator, you shall be embraced by the brine, becoming the guiding phosphorescence.\"\n\nGuiding phosphorescence? Corposant fell silent. She had indeed heard the tales of St. Elmo's Fire among sailors, but how could a mere mortal body transform into the sacred light illuminating the world?\n\nYet even with hope fading, Corposant continuously prayed within her heart: praying that she could fulfill her duty, completing the final guidance.\n\nNo one could hear this prayer except for Corposant herself, but that was enough—\n\nIn the darkness, the Silver core, nourished by Dissolution slime, burst forth with intense light, fulfilling her final wish.\n\n\"The Tidal Black Book will record your name, causing the raging waves to compose an eternal requiem for you.\"\n\nUltimately, she died to the sea as foretold in the \"Elegy of the Coxwain.\"\n\nBut she transcended the \"Elegy of the Coxwain.\"\n\nThat was the arrogance and counsel of human navigators when facing the sea, yet now, she had become St. Elmo's Fire, eternally guiding the ships.",
+  "lineupToken": "ye"
+}

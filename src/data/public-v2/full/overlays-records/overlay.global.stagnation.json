@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.stagnation",
+  "displayName": "Stagnation",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Increase a card's Arithmetica Cost.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_024",
+  "textColor": "affliction"
+}

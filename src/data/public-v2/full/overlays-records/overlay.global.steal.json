@@ -1,0 +1,12 @@
+{
+  "id": "overlay.global.steal",
+  "displayName": "Steal",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Stealing"
+  ],
+  "descriptionTemplate": "Temporarily reduce target's {STR⯆} and gain the same amount of Temporary {STR}.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_014",
+  "textColor": "affliction"
+}

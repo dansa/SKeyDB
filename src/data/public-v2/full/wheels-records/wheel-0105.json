@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0105",
+  "name": "Never-Ending Performance",
+  "assetId": "Weapon_Full_SR29",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_RATE",
+  "descriptionTemplate": "Team Unique: At turn end, the wielder gains 5 Aliemus. After the wielder releases Exalt, the next Command Card played by the wielder this turn increases its Crit. Rate, Crit. DMG, Shield, and health recovery by [StateArg1]%.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "\"Not perfect enough, practice ten more times tonight. Your talent is mediocre; if you want to enter the orchestra, you must work harder, understand?\"\n\"Yes, father.\"\nWhat kind of performance can be called perfect?\nHis hands flew around without stopping, allowing no mistakes.\nHe chastised his distracting thoughts, despising his mediocrity.\nCountless notes surrounded him; day after day, everything in his life revolved around music.\nFortunately, he was getting closer to a perfect performance each day, gazing at the light at the end of the road in his dreams, yet feeling as if he could never reach it.\nThe craving for perfection had engraved itself into his soul, yet not everyone is willing to feel this way.\n\"Presenting the most perfect music for His Majesty and the world, isn't that the duty of the orchestra?\"\nHe looked at the faces that concealed dissatisfaction, as if they were scornful of his former self.\nFather, the court orchestra is nothing more than that.\nHe cast aside the once-revered goal and stubbornly continued down the path of pursuing perfection.\nHe could not stop his hands to reach out to them, just as he could not halt the hand of his former self.\nEach day, he was playing continuously.\nMusic is his life.\nAside from music, he had nothing.",
+  "lineupToken": "x2"
+}

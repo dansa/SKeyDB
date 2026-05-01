@@ -1,0 +1,82 @@
+{
+  "id": "skill.thais.strike",
+  "ownerAwakenerId": "awakener-0048",
+  "slot": "Strike",
+  "kind": "strike",
+  "displayName": "Strike",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Thais obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.thais.everlasting-cycle.skill.thais.strike",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.thais.everlasting-cycle",
+      "ownerAwakenerId": "awakener-0048",
+      "operation": "mixed",
+      "ownerAwakenerName": "Thais",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "1",
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Thais obtains [Energy:Arg2] Aliemus. Obtain [Power:Arg3] {STR}."
+      }
+    }
+  ]
+}

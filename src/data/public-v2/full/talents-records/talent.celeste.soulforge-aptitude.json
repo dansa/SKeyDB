@@ -1,0 +1,35 @@
+{
+  "id": "talent.celeste.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0009",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nCeleste generates [Arg3]% more {Tentacle DMG}, and after playing the first Command Card each turn, trigger the Talent {Voyage Horn} an additional 4 times.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "23",
+        "26",
+        "29",
+        "32",
+        "35",
+        "38",
+        "41",
+        "44",
+        "50"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

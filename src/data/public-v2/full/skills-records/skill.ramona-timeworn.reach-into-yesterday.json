@@ -1,0 +1,10 @@
+{
+  "id": "skill.ramona-timeworn.reach-into-yesterday",
+  "ownerAwakenerId": "awakener-0020",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Reach into Yesterday",
+  "descriptionTemplate": "Obtain 3 stacks of {Negentropy}, ignore the stacks limit. Reduce the Arithmetica Cost of copied cards to 0.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

@@ -1,0 +1,62 @@
+{
+  "id": "posse-0006",
+  "name": "Obsession Eternal",
+  "descriptionTemplate": "Gain [Arg1] {STR}, then gain Temporary {STR} equal to 25% of your permanent {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.03
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "Given her obsession, I have a vague feeling that this millennia-spanning ritual has yet to reach its end...",
+  "realm": "FADED_LEGACY",
+  "assetId": "posse-icon-06",
+  "imageAssetId": "CG_C05_003",
+  "lineupToken": "g"
+}

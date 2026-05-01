@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0091",
+  "name": "The Land of Nonexistence",
+  "assetId": "Weapon_Full_SR15",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "SIGIL_YIELD",
+  "descriptionTemplate": "Team Unique: At the start of exploration, add one \"Defense\" of the wielder to the deck, increasing the Shield of the wielder's \"Defense\" by [StateArg1]%.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "22",
+        "28",
+        "34",
+        "40"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Tawil sleeps at the bottom of the Black Pool.\n\nThere, it is eternally silent and dark, filled only with a despairing blackness.\n\nNo guests have ever visited here, and no sounds have ever reached here.\n\nThis is a place where Destruction cannot reach—\n\nBecause disaster have already arrived.\n\nAs the master of time and sequences, she has witnessed far too many painful ends.\n\nAs a part of the rules, she is powerless to stop the night from falling.\n\nIn this case, she can only lie dormant in the realm of non-existence, awaiting the arrival of the one who can be called a \"variable.\"\n\nThat person will undoubtedly come.",
+  "lineupToken": "M"
+}

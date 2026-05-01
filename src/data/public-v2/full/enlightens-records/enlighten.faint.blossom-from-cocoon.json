@@ -1,0 +1,20 @@
+{
+  "id": "enlighten.faint.blossom-from-cocoon",
+  "ownerAwakenerId": "awakener-0016",
+  "slot": "OverExalt",
+  "displayName": "Blossom from Cocoon",
+  "descriptionTemplate": "Temporarily reduces all enemies' {STR⯆} by [Arg1]% of their DEF (scales with {Cradle of Stars} level up).",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "40",
+        "48",
+        "56",
+        "64",
+        "72",
+        "80"
+      ]
+    }
+  }
+}

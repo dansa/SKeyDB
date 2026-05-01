@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.goliath.giants-grip",
+  "ownerAwakenerId": "awakener-0021",
+  "slot": "OverExalt",
+  "displayName": "Giant's Grip",
+  "descriptionTemplate": "When choosing {Usurp}, the Base DMG of {Blade's Dominion} placed in hand +400%, and its Arithmetica Cost becomes 0. When choosing {Dormancy}, do not place {Blade's Dominion}; instead, add 2 copies of {Decapitation Damage} to your hand, granting them the effects of {Exhaust}, {Prepare 1}, and {Retain}.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,44 @@
+{
+  "id": "wheel-0022",
+  "name": "Gift of Decay",
+  "assetId": "Weapon_Full_C08",
+  "ownerAwakenerId": "awakener-0037",
+  "ownerAwakenerName": "Nymphaea",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "DMG_AMP",
+  "descriptionTemplate": "Team Unique: The wielder's {Poison} effect +[StateArg1]%. Before the wielder releases an Exalt, they first apply {Poison} equal to [StateArg2]% of their ATK to all enemies. After using a Posse, the wielder gains [StateArg3] Aliemus.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "13",
+        "17",
+        "21",
+        "25"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ]
+    }
+  },
+  "lore": "\"People are born with the tide and die with the ebb.\"\nThis is a legend that has been passed down in Nymphaea's hometown.\n\nThe villagers of Sevada do not fear death; to them, the sprouting and wilting of life are like the rise and fall of the tide, both part of nature.\nThey love the blue sky, the ocean, the flocks of seagulls, and the calla lilies blooming in the morning sun.\nThey despise steam, iron tracks, and all things too heavily marked by human intervention—interference with life is included in that disdain.\nTo cut one's life short is unacceptable in the eyes of the Sevadians.\n\nNymphaea is not a typical Sevadian.\nFor instance, she is always drawn to the atmosphere of shipwrecks.\nA dead shipwreck is home to countless lives: fish, water plants, various shellfish...\nHere, life and death intertwine in a mysterious and sacred manner.\nWith calmness, Nymphaea approaches the wreck, as if stepping into an immensely solemn cathedral.\n\nDuring the years when her father took her on trips to relax, Nymphaea saw a five-act play.\nThe content of that play has long faded from her memory; it seemed to tell the life of an ancient emperor.\nHe lived a chaotic life filled with military campaigns north and south, only to die from a shameful conspiracy.\nShe remembers one line:\n<Italic:Cowards die many times before their deaths; the valiant never taste of death but once.>\n\nYears later, when Nymphaea steps into the cold seawater, pained by her longing for life, that line floats through her mind:\n\"The valiant never taste of death but once...\"\nSo she wipes her tears, says goodbye to her parents one last time, and continues towards the shipwreck in her heart.\nShe will become her own warrior.",
+  "lineupToken": "o"
+}

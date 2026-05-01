@@ -1,0 +1,11 @@
+{
+  "id": "overlay.global.retain",
+  "displayName": "Retain",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Retained"
+  ],
+  "descriptionTemplate": "Card will not enter the Discard Pile, but instead remains in your hand.",
+  "descriptionArgs": {},
+  "textColor": "damage"
+}

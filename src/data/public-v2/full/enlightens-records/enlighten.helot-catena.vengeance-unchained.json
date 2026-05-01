@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.helot-catena.vengeance-unchained",
+  "ownerAwakenerId": "awakener-0019",
+  "slot": "E2",
+  "displayName": "Vengeance Unchained",
+  "descriptionTemplate": "{Hatred Unleashed}: If HP is below 50%, the Strength obtained is doubled. The {Prepare} Effect of {Bloodthirsty Flail} is changed to {Prepare 2}.",
+  "descriptionArgs": {}
+}

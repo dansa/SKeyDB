@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.agrippa.ashes-and-skulls",
+  "ownerAwakenerId": "awakener-0002",
+  "slot": "E2",
+  "displayName": "Ashes and Skulls",
+  "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" triggers 10% {Poison} on all enemies.",
+  "descriptionArgs": {}
+}

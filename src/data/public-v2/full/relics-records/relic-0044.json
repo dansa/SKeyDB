@@ -1,0 +1,28 @@
+{
+  "id": "relic-0044",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Salvador",
+  "assetId": "Icon_Creation_Unique_B02",
+  "ownerAwakenerId": "awakener-0044",
+  "ownerAwakenerName": "Salvador",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "descriptionTemplate": "At turn start, Salvador gains [Arg1] Aliemus. Each time he accumulates {Crimson Furnace}, he also gains [Arg2]% {STR} of the accumulated amount. Salvador's \"Strike\" and {End of Suffering} additionally receive a [Arg3]x {STR} bonus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": null
+}

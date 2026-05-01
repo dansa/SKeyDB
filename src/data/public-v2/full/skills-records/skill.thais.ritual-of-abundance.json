@@ -1,0 +1,244 @@
+{
+  "id": "skill.thais.ritual-of-abundance",
+  "ownerAwakenerId": "awakener-0048",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Ritual of Abundance",
+  "descriptionTemplate": "[{Devour}: Grant other Awakeners [Energy:Arg1] Aliemus.] Deal [Damage:Arg2] DMG to all enemies and inflict {Bleed} equal to [Arg3]% DMG dealt, {Poison} equal to [Arg4]% DMG dealt, and gain {Counter} equal to [Arg5]% DMG dealt. Choose 1 non-Derived Command Card in hand, adding its [Arg7] {plural:[Arg7]|Base Copy|Base Copies} with {Exhaust}, {Fleeting} and -[Arg6] Arithmetica Cost to hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "45",
+        "54",
+        "63",
+        "72",
+        "81",
+        "90"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "100",
+        "110",
+        "120",
+        "130",
+        "140",
+        "150"
+      ],
+      "suffix": "%"
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "38",
+        "41",
+        "44",
+        "47",
+        "50"
+      ],
+      "suffix": "%"
+    },
+    "Arg5": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25"
+      ],
+      "suffix": "%"
+    },
+    "Arg6": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg7": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.thais.everlasting-cycle.skill.thais.ritual-of-abundance",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.thais.everlasting-cycle",
+      "ownerAwakenerId": "awakener-0048",
+      "operation": "override_args",
+      "ownerAwakenerName": "Thais",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "45",
+              "54",
+              "63",
+              "72",
+              "81",
+              "90"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "100",
+              "110",
+              "120",
+              "130",
+              "140",
+              "150"
+            ],
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "35",
+              "38",
+              "41",
+              "44",
+              "47",
+              "50"
+            ],
+            "suffix": "%"
+          },
+          "Arg5": {
+            "kind": "scaling",
+            "values": [
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25"
+            ],
+            "suffix": "%"
+          },
+          "Arg6": {
+            "kind": "fixed",
+            "value": "2"
+          },
+          "Arg7": {
+            "kind": "fixed",
+            "value": "2"
+          }
+        }
+      }
+    },
+    {
+      "id": "upgrade.enlighten.thais.seed-of-chaos.skill.thais.ritual-of-abundance",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.thais.seed-of-chaos",
+      "ownerAwakenerId": "awakener-0048",
+      "operation": "override_args",
+      "ownerAwakenerName": "Thais",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "45",
+              "54",
+              "63",
+              "72",
+              "81",
+              "90"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "100",
+              "110",
+              "120",
+              "130",
+              "140",
+              "150"
+            ],
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "35",
+              "38",
+              "41",
+              "44",
+              "47",
+              "50"
+            ],
+            "suffix": "%"
+          },
+          "Arg5": {
+            "kind": "scaling",
+            "values": [
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25"
+            ],
+            "suffix": "%"
+          },
+          "Arg6": {
+            "kind": "fixed",
+            "value": "2"
+          },
+          "Arg7": {
+            "kind": "fixed",
+            "value": "2"
+          }
+        }
+      }
+    }
+  ]
+}

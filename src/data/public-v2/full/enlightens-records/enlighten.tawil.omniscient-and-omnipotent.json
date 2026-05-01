@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.tawil.omniscient-and-omnipotent",
+  "ownerAwakenerId": "awakener-0047",
+  "slot": "E2",
+  "displayName": "Omniscient and Omnipotent",
+  "descriptionTemplate": "{Omnifex Convergence} cards obtained via {Discover} gain {Prepare 1}.",
+  "descriptionArgs": {}
+}

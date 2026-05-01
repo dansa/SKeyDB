@@ -1,0 +1,2504 @@
+{
+  "schemaVersion": 1,
+  "scope": "enlightens",
+  "recordCount": 280,
+  "records": [
+    {
+      "id": "enlighten.24.hysteria",
+      "ownerAwakenerId": "awakener-0001",
+      "slot": "E1",
+      "displayName": "Hysteria",
+      "descriptionTemplate": "{Frenzied Slash} increases Base DMG by 33%. While in Depressed Persona, the Arithmetica Cost of corresponding Cards is reduced by an additional 1; while in Manic Persona, the number of hits is increased by additional 1.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.24.restraint-bonds",
+      "ownerAwakenerId": "awakener-0001",
+      "slot": "E2",
+      "displayName": "Restraint Bonds",
+      "descriptionTemplate": "{Symbiotic Aberration} generates 2 more Aliemus. In Depressed state, inflict Weakness on all enemies for 1 turn; in Manic state, inflict Vulnerable on all enemies for 1 turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.24.pavlovian-conditioning-study",
+      "ownerAwakenerId": "awakener-0001",
+      "slot": "E3",
+      "displayName": "Pavlovian Conditioning Study",
+      "descriptionTemplate": "At turn end, \"24\" obtains 10 Aliemus. Each time \"24\" releases Exalt, the Aliemus obtained from this effect in battle +1.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.24.aberrant-vivisection",
+      "ownerAwakenerId": "awakener-0001",
+      "slot": "OverExalt",
+      "displayName": "Aberrant Vivisection",
+      "descriptionTemplate": "Obtain 24 Realm Mastery. The next Command Card of \"24\" will be effective 3 times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.24.animus-projection",
+      "ownerAwakenerId": "awakener-0001",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Animus Projection",
+      "descriptionTemplate": "{Rouse} {Mediating Personalities} is enhanced: The Persona Effect Bonus of \"24\"'s Command Cards is doubled; this effect expires after \"24\" unleashes Exalt each turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.agrippa.the-usurper",
+      "ownerAwakenerId": "awakener-0002",
+      "slot": "E1",
+      "displayName": "The Usurper",
+      "descriptionTemplate": "{Reluctant Alms} reduces the Arithmetica Cost of the highest-cost Card in hand by 1 for this turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.agrippa.ashes-and-skulls",
+      "ownerAwakenerId": "awakener-0002",
+      "slot": "E2",
+      "displayName": "Ashes and Skulls",
+      "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" triggers 10% {Poison} on all enemies.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.agrippa.spider-queens-kiss",
+      "ownerAwakenerId": "awakener-0002",
+      "slot": "E3",
+      "displayName": "Spider Queen's Kiss",
+      "descriptionTemplate": "{Colorless Spiral} increases Base DMG by 50%, and playing it grants {Embryo Fusion} +20%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.agrippa.lady-of-labyrinths",
+      "ownerAwakenerId": "awakener-0002",
+      "slot": "OverExalt",
+      "displayName": "Lady of Labyrinths",
+      "descriptionTemplate": "Draw 2 Command Cards from Agrippa that are not Strike or Defense. Reduce the Arithmetica Cost of 2 such cards by 1 this turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.agrippa.covenant-of-no-return",
+      "ownerAwakenerId": "awakener-0002",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Covenant of No Return",
+      "descriptionTemplate": "{Rouse} {Path of the Lost} is enhanced: Each time Agrippa inflicts or triggers {Poison}, Shield Generation at turn end +50%. This effect stacks up to 5.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.aigis.the-witness",
+      "ownerAwakenerId": "awakener-0003",
+      "slot": "E1",
+      "displayName": "The Witness",
+      "descriptionTemplate": "For each stack of Vulnerable state on the target of \"Strike,\" {Embryo Fusion} +5%, up to 30%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.aigis.sugary-aroma",
+      "ownerAwakenerId": "awakener-0003",
+      "slot": "E2",
+      "displayName": "Sugary Aroma",
+      "descriptionTemplate": "For each Vulnerable stack on the target, the Final DMG of {Decomposition} +5%, up to 500%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.aigis.nightborne-wings",
+      "ownerAwakenerId": "awakener-0003",
+      "slot": "E3",
+      "displayName": "Nightborne Wings",
+      "descriptionTemplate": "Whenever you {Devour}, put {A Small Wish} from the Discard Pile into hand and set its Arithmetica Cost to 0.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.aigis.gaze-out-of-the-aeons",
+      "ownerAwakenerId": "awakener-0003",
+      "slot": "OverExalt",
+      "displayName": "Gaze Out of the Aeons",
+      "descriptionTemplate": "All Awakeners' DMG +25% this turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.aigis.crystallized-tear",
+      "ownerAwakenerId": "awakener-0003",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Crystallized Tear",
+      "descriptionTemplate": "{Rouse} {Stagnant Curse} is enhanced: After Agis unleashes Exalt, her next \"Defense\" takes effect 3 times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.alva.unyielding-bastion",
+      "ownerAwakenerId": "awakener-0004",
+      "slot": "E1",
+      "displayName": "Unyielding Bastion",
+      "descriptionTemplate": "{Combat Stance} is considered \"Defense\".",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.alva.relentless-fighter",
+      "ownerAwakenerId": "awakener-0004",
+      "slot": "E2",
+      "displayName": "Relentless Fighter",
+      "descriptionTemplate": "{Endless Justice} Draw quantity +1.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.alva.all-for-justice",
+      "ownerAwakenerId": "awakener-0004",
+      "slot": "E3",
+      "displayName": "All for Justice",
+      "descriptionTemplate": "{Endless Justice} grants Alva a 50% Temporary Crit. Rate and Crit. DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.alva.justice-and-truth",
+      "ownerAwakenerId": "awakener-0004",
+      "slot": "OverExalt",
+      "displayName": "Justice and Truth",
+      "descriptionTemplate": "Add 1 {Combat Stance} and {Precision Slash} with {Exhaust} to your hand. Alva's Crit. DMG in this battle +25%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.alva.crusade-to-utopia",
+      "ownerAwakenerId": "awakener-0004",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Crusade to Utopia",
+      "descriptionTemplate": "{Rouse} {Outstanding Veteran} is enhanced: The first time Alva's Command Card deals DMG each turn, gain Shield equal to 40% DEF.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.aurita.bubbling-journey",
+      "ownerAwakenerId": "awakener-0005",
+      "slot": "E1",
+      "displayName": "Bubbling Journey",
+      "descriptionTemplate": "{Power of Friendship} allows you to draw 1 additional card.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.aurita.slick-slide-adventure",
+      "ownerAwakenerId": "awakener-0005",
+      "slot": "E2",
+      "displayName": "Slick-Slide Adventure",
+      "descriptionTemplate": "{Gland Division} and {Clamorous Ocean} increase Base DMG by 100%, dealing {Pierce DMG}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.aurita.lets-all-have-fun-together",
+      "ownerAwakenerId": "awakener-0005",
+      "slot": "E3",
+      "displayName": "Let's All Have Fun Together!",
+      "descriptionTemplate": "\"Basic Defense\" draws 1 card. Every 3 turns, add 1 {Gland Division} with {Exhaust} and {Fleeting}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.aurita.jellyfish-congregation",
+      "ownerAwakenerId": "awakener-0005",
+      "slot": "OverExalt",
+      "displayName": "Jellyfish Congregation",
+      "descriptionTemplate": "Grants an additional 24% ATK {STR} and {Tentacle DMG}. For the next 5 times {Gland Division} is played, draw 1 Card.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.aurita.sparkling-friendship",
+      "ownerAwakenerId": "awakener-0005",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Sparkling Friendship",
+      "descriptionTemplate": "{Rouse} {Self-Proliferation} is enhanced: Aurita's \"Strike\" deals {Pierce DMG} and triggers 2 additional instances of DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.caecus.bloodline-awaken",
+      "ownerAwakenerId": "awakener-0006",
+      "slot": "E1",
+      "displayName": "Bloodline Awaken",
+      "descriptionTemplate": "{Shattered Halberd} grants [Arg1] Aliemus. (effect scales with {Shattered Halberd} skill level)",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.caecus.spike-amalgamation",
+      "ownerAwakenerId": "awakener-0006",
+      "slot": "E2",
+      "displayName": "Spike Amalgamation",
+      "descriptionTemplate": "{Protective Scales} Shield Generation 20% and gains {Retain}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.caecus.outcasts-anguish",
+      "ownerAwakenerId": "awakener-0006",
+      "slot": "E3",
+      "displayName": "Outcast's Anguish",
+      "descriptionTemplate": "Heal HP equal to 7.5% of CON at turn end.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.caecus.unbending-resolve",
+      "ownerAwakenerId": "awakener-0006",
+      "slot": "OverExalt",
+      "displayName": "Unbending Resolve",
+      "descriptionTemplate": "One Tentacle attacks 5 times, obtaining a 25% {Counter} to DMG dealt.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.caecus.fury-of-the-inchoate",
+      "ownerAwakenerId": "awakener-0006",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Fury of the Inchoate",
+      "descriptionTemplate": "{Rouse} {Metamorphosed Body} is enhanced: After Caecus plays a card, 1 Tentacle performs an attack and gains {Counter} equal to 50% of DMG dealt.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.casiah.minds-whisper",
+      "ownerAwakenerId": "awakener-0007",
+      "slot": "E1",
+      "displayName": "Mind's Whisper",
+      "descriptionTemplate": "For every card {Poof!} shuffled in, the Sorcerer gains 3 Aliemus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.casiah.veil-of-illusion",
+      "ownerAwakenerId": "awakener-0007",
+      "slot": "E2",
+      "displayName": "Veil of Illusion",
+      "descriptionTemplate": "{Magic Carnival} draws an additional card. Drawing a Symptom or State card also deals 1 instance of DMG to a random enemy.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.casiah.legendary-copycat",
+      "ownerAwakenerId": "awakener-0007",
+      "slot": "E3",
+      "displayName": "Legendary Copycat",
+      "descriptionTemplate": "{Telekinesis} gains {Aftershock}: Shuffle 1 \"Insight\" into the Draw Pile.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.casiah.unfettered-mirth",
+      "ownerAwakenerId": "awakener-0007",
+      "slot": "OverExalt",
+      "displayName": "Unfettered Mirth",
+      "descriptionTemplate": "This Exalt's DMG instance ×2. The following 5 Casiah Command Cards grant {STR} equal to 8% Casiah's ATK.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.casiah.a-thousand-and-one-miracles",
+      "ownerAwakenerId": "awakener-0007",
+      "slot": "AbsoluteAxiom",
+      "displayName": "A Thousand and One Miracles",
+      "descriptionTemplate": "{Rouse} {Opening Act} is enhanced: Whenever any Awakener plays \"Strike,\" Casiah's {Opening Act} is triggered, generating Temporary {STR}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.castor.caged-underground",
+      "ownerAwakenerId": "awakener-0008",
+      "slot": "E1",
+      "displayName": "Caged Underground",
+      "descriptionTemplate": "At the start of the battle, place 1 {Onyx Plume} into hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.castor.unyielding-will",
+      "ownerAwakenerId": "awakener-0008",
+      "slot": "E2",
+      "displayName": "Unyielding Will",
+      "descriptionTemplate": "For every {Onyx Plume} in hand, playing {Stygian Wings} grants 5 Aliemus. For every {Onyx Plume} you play, the Arithmetica Cost of {Umbral Flight} -1 this turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.castor.sky-eclipsing-wings",
+      "ownerAwakenerId": "awakener-0008",
+      "slot": "E3",
+      "displayName": "Sky-Eclipsing Wings",
+      "descriptionTemplate": "For every 3 {Onyx Plume} you play, obtain 1 Arithmetica and increase Castor's Final DMG by 10% in this battle.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.castor.over-the-sea-of-thorns",
+      "ownerAwakenerId": "awakener-0008",
+      "slot": "OverExalt",
+      "displayName": "Over the Sea of Thorns",
+      "descriptionTemplate": "Add 3 additional {Onyx Plume} to your hand. This turn, increase the amount of Shield {Retained} by {Onyx Plume} by 10% of Castor's DEF, and each time you play an {Onyx Plume} card, additionally inflict Castor's ATK*140% stacks of {Corrosion}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.castor.nox-diouskouron",
+      "ownerAwakenerId": "awakener-0008",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Nox Diouskouron",
+      "descriptionTemplate": "{Rouse} {Skybound Oath} is enhanced: Castor's first {Onyx Plume} each turn inflicts {Cleansing Feathers} {Corrosion} on all enemies. {Corrosion} removal DMG: 300% → 500%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.celeste.solitary-mast",
+      "ownerAwakenerId": "awakener-0009",
+      "slot": "E1",
+      "displayName": "Solitary Mast",
+      "descriptionTemplate": "{Everlasting Phantasm} is {Retained}, and the healing effect +20%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.celeste.ancestral-beacon",
+      "ownerAwakenerId": "awakener-0009",
+      "slot": "E2",
+      "displayName": "Ancestral Beacon",
+      "descriptionTemplate": "{Tintless Dream} retains for each turn; the next time it is played, it will restore an additional amount of HP equal to [Arg1]% of CON (the effect increases with the level of {Tintless Dream}).",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "12",
+            "14",
+            "16",
+            "18",
+            "20"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.celeste.beyond-joy-and-sorrow",
+      "ownerAwakenerId": "awakener-0009",
+      "slot": "E3",
+      "displayName": "Beyond Joy and Sorrow",
+      "descriptionTemplate": "{Undying Bird of Paradise} triggers {Revival}, and all Awakeners obtain 25 Aliemus and can apply the {Revival} effect again after an interval of 6 turns.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.celeste.divine-vigil",
+      "ownerAwakenerId": "awakener-0009",
+      "slot": "OverExalt",
+      "displayName": "Divine Vigil",
+      "descriptionTemplate": "Place 3 {Tintless Dream} cards that boost healing by 50% into hand and attach {Exhaust}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.celeste.imaginary-cathuria",
+      "ownerAwakenerId": "awakener-0009",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Imaginary Cathuria",
+      "descriptionTemplate": "{Rouse} {Power of Blessing} is enhanced: When triggers resurrect of {Undying Bird of Paradise}, immediately gain Temporary {Tentacle DMG} equal to 150% of Celeste's ATK. This effect doubles in Boss Battles.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.clementine.knocking-on-minds-portal",
+      "ownerAwakenerId": "awakener-0010",
+      "slot": "E1",
+      "displayName": "Knocking on Mind's Portal",
+      "descriptionTemplate": "Obtain 5 stacks of {Symbiosis} when the battle begins. Base DMG of {Lifeform Reconstruction} +20%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.clementine.soul-healing-journey",
+      "ownerAwakenerId": "awakener-0010",
+      "slot": "E2",
+      "displayName": "Soul Healing Journey",
+      "descriptionTemplate": "{Lifeform Reconstruction} additionally gains 200% of Clementine's Keyflare Regen as Keyflare. For each stack of {Symbiosis} removed, Clementine's Base DMG +3%. At the end of each battle, Clementine's Base DMG +25%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.clementine.you-will-recover",
+      "ownerAwakenerId": "awakener-0010",
+      "slot": "E3",
+      "displayName": "You Will Recover",
+      "descriptionTemplate": "At turn end, obtain 2 stacks of {Symbiosis}. The stacking limit for {Symbiosis}, {Psychic Trauma}, and {Phobic Fixation} is increased to 15.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.clementine.subconscious-corrosion",
+      "ownerAwakenerId": "awakener-0010",
+      "slot": "OverExalt",
+      "displayName": "Subconscious Corrosion",
+      "descriptionTemplate": "Gain {STR} equal to 50% of Clementine's ATK and Keyflare equivalent to 300% of Clementine's Keyflare Regen. Removing {Symbiosis} simultaneously triggers the effects of {Psychic Trauma} and {Phobic Fixation}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.clementine.collective-unconscious",
+      "ownerAwakenerId": "awakener-0010",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Collective Unconscious",
+      "descriptionTemplate": "{Rouse} {Call of Shaggai} is enhanced: DMG instances dealt by Clementine +1, and the {Symbiosis} cap increases to 20.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.corposant.lodestars-whisper",
+      "ownerAwakenerId": "awakener-0011",
+      "slot": "E1",
+      "displayName": "lodestar's Whisper",
+      "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" gain 5 Aliemus, and obtain {Aftershock}: the next Aliemus gained from playing a card +5, stacking up to 2 times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.corposant.sextants-calculation",
+      "ownerAwakenerId": "awakener-0011",
+      "slot": "E2",
+      "displayName": "Sextant's Calculation",
+      "descriptionTemplate": "{Ominous Semaphore} inflicts Weakness on all enemies for 1 Turn. For each Tentacle present, {Pilot}'s Shield, Strength, and {Tentacle DMG} increase by 5%, up to 50%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.corposant.willing-sacrifice",
+      "ownerAwakenerId": "awakener-0011",
+      "slot": "E3",
+      "displayName": "Willing Sacrifice",
+      "descriptionTemplate": "{To Sail the Sundered Tides} makes all enemies Vulnerable for 1 turn, increases Temporary Crit. DMG by 20%, and each time {Death Resistance} is triggered in this battle, it further +10%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.corposant.face-death-in-fiery-resolve",
+      "ownerAwakenerId": "awakener-0011",
+      "slot": "OverExalt",
+      "displayName": "Face Death in Fiery Resolve",
+      "descriptionTemplate": "Obtain 3 Tentacles. The discarded card {Aftershock} Effect triggers an additional time.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.corposant.unquenched-unfelled-undimmed",
+      "ownerAwakenerId": "awakener-0011",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Unquenched, Unfelled, Undimmed",
+      "descriptionTemplate": "{Rouse} {Sunken in the Profound} is enhanced: The first {Lightning Retribution} and {Ominous Semaphore} Corposant plays each turn place 1 additional {Pilot} into hand. {Pilot} effect +50%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.daffodil.infinite-passage",
+      "ownerAwakenerId": "awakener-0012",
+      "slot": "E1",
+      "displayName": "Infinite Passage",
+      "descriptionTemplate": "\"Basic Strike\" enjoys 2x {STR} bonus and gains {Leap}: Obtain 1 Arithmetica. \"Basic Defense\" grants {STR} equal to [Arg1]% of ATK and gains {Leap}: Obtain 1 Arithmetica.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "1",
+            "1.2",
+            "1.4",
+            "1.6",
+            "1.8",
+            "2"
+          ],
+          "suffix": "%",
+          "stat": "ATK"
+        }
+      }
+    },
+    {
+      "id": "enlighten.daffodil.mist-of-avarice",
+      "ownerAwakenerId": "awakener-0012",
+      "slot": "E2",
+      "displayName": "Mist of Avarice",
+      "descriptionTemplate": "When Daffodil kills an enemy by any means, the team's Crit. Rate is permanently increased by 5% for this stage.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.daffodil.essence-sediment",
+      "ownerAwakenerId": "awakener-0012",
+      "slot": "E3",
+      "displayName": "Essence Sediment",
+      "descriptionTemplate": "Each time an \"Insight\" card is played, Daffodil gains 2 Aliemus and Strength equal to 1% of ATK, with a maximum of 5 triggers per turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.daffodil.phantasmal-haze",
+      "ownerAwakenerId": "awakener-0012",
+      "slot": "OverExalt",
+      "displayName": "Phantasmal Haze",
+      "descriptionTemplate": "Additionally, place 2 copies of \"Thousand Mirage\" into hand, increasing the Base DMG of {Skull Reaver} by 50% in this battle.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.daffodil.dead-souls",
+      "ownerAwakenerId": "awakener-0012",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Dead Souls",
+      "descriptionTemplate": "{Rouse} {Dimensional Projection} is enhanced: When played, immediately generate 1 Temporary {Skull Reaver} with 0 Arithmetica Cost and place it into {Ultra Space}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doll.pure-rationality",
+      "ownerAwakenerId": "awakener-0013",
+      "slot": "E1",
+      "displayName": "Pure Rationality",
+      "descriptionTemplate": "{Outer Surgery} increases the number of Weakness turns by 1 and increases Heal amount by 33%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doll.beyond-death",
+      "ownerAwakenerId": "awakener-0013",
+      "slot": "E2",
+      "displayName": "Beyond Death",
+      "descriptionTemplate": "{Equivalent Exchange} increases Base HP recovery and discard HP recovery effects by 20%. For each card discarded, an additional amount of HP is recovered and an equal amount of shield is obtained.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doll.flesh-transcended",
+      "ownerAwakenerId": "awakener-0013",
+      "slot": "E3",
+      "displayName": "Flesh Transcended",
+      "descriptionTemplate": "{Rationality, Truth, and Reality} Healing +25%, and the Aliemus Regen also benefits Doll.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doll.psyche-dissection",
+      "ownerAwakenerId": "awakener-0013",
+      "slot": "OverExalt",
+      "displayName": "Psyche Dissection",
+      "descriptionTemplate": "At turn start, restore HP equal to [Arg1]% of Doll's CON, lasting for 3 turns. (effect scales with {Rationality, Truth, and Reality} skill level).",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "40",
+            "48",
+            "56",
+            "64",
+            "72",
+            "80"
+          ],
+          "suffix": "%",
+          "stat": "CON"
+        }
+      }
+    },
+    {
+      "id": "enlighten.doll.ego-restructured",
+      "ownerAwakenerId": "awakener-0013",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Ego Restructured",
+      "descriptionTemplate": "{Rouse} {Flesh Detached} is enhanced: Doll's \"Strike\" and \"Defense\" now also generate Shield.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doresain.feasts-overture",
+      "ownerAwakenerId": "awakener-0014",
+      "slot": "E1",
+      "displayName": "Feast's Overture",
+      "descriptionTemplate": "For every 1% Crit. DMG Doresain and his equipped WoD & Covenant have, increase his Crit. Rate by 0.1%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doresain.hollow-whispers",
+      "ownerAwakenerId": "awakener-0014",
+      "slot": "E2",
+      "displayName": "Hollow Whispers",
+      "descriptionTemplate": "For every 1% HP missing, Doresain's Command Cards' Base DMG, Shield, and Aliemus +1%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doresain.evernights-revel",
+      "ownerAwakenerId": "awakener-0014",
+      "slot": "E3",
+      "displayName": "Evernight's Revel",
+      "descriptionTemplate": "\"Evernight's Revel\" Base DMG further +300%. Each time played, this turn's subsequent\"Evernight's Revel\" enjoy an additional 100% {STR} bonus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doresain.pandemonium-glut",
+      "ownerAwakenerId": "awakener-0014",
+      "slot": "OverExalt",
+      "displayName": "Pandemonium Glut",
+      "descriptionTemplate": "The Crit. Rate of this Exalt further +25%, the Final DMG of this Exalt +100%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doresain.styx-uncrossed",
+      "ownerAwakenerId": "awakener-0014",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Styx Uncrossed",
+      "descriptionTemplate": "{Rouse} {Crimson Invite} is enhanced: When played, immediately deal {Fixed DMG} equal to 20% of current HP to all enemies. After Doresain's first kill each turn, deal {Fixed DMG} equal to the overflow DMG to all other enemies.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.erica.auto-rectification",
+      "ownerAwakenerId": "awakener-0015",
+      "slot": "E1",
+      "displayName": "Auto-Rectification",
+      "descriptionTemplate": "{Unleash: Mecha} places 1 \"Basic Strike\" with {Exhaust} into hand, and {Retract: Mecha} places 1 \"Basic Defense\" with {Exhaust} into hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.erica.force-circuit",
+      "ownerAwakenerId": "awakener-0015",
+      "slot": "E2",
+      "displayName": "Force Circuit",
+      "descriptionTemplate": "{Electromagnetic Blast} enjoys an additional 1x {STR} and {Alert} Buff.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.erica.system-reboot",
+      "ownerAwakenerId": "awakener-0015",
+      "slot": "E3",
+      "displayName": "System Reboot",
+      "descriptionTemplate": "{Function Overload} {Leap}: Has both DMG and Shield effects.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.erica.multiple-calculations",
+      "ownerAwakenerId": "awakener-0015",
+      "slot": "OverExalt",
+      "displayName": "Multiple Calculations",
+      "descriptionTemplate": "{Electromagnetic Blast} Base DMG and Shield Generation by 50%. Erica's \"Basic Strike\" deals an additional 1 instance of DMG, and \"Basic Defense\" grants an additional 1 Shield, lasting for 3 Turns.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.erica.final-decree",
+      "ownerAwakenerId": "awakener-0015",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Final Decree",
+      "descriptionTemplate": "{Rouse} {Parameter Fitting} is enhanced: After Erica unleashes Exalt, her Exalt additionaly enjoys a 1x {STR} and {Alert} bonuses.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.faint.binary-stars",
+      "ownerAwakenerId": "awakener-0016",
+      "slot": "E1",
+      "displayName": "Binary Stars",
+      "descriptionTemplate": "\"Basic Strike\" deals DMG twice and grants Temporary {Counter} equal to 50% of DMG dealt.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.faint.withering-hymn",
+      "ownerAwakenerId": "awakener-0016",
+      "slot": "E2",
+      "displayName": "Withering Hymn",
+      "descriptionTemplate": "\"Basic Defense\" Shield Generation +25% and grants {Counter} equal to the amount of Shield.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.faint.cradle-of-love",
+      "ownerAwakenerId": "awakener-0016",
+      "slot": "E3",
+      "displayName": "Cradle of Love",
+      "descriptionTemplate": "Each time {Death Resistance} is triggered, deal 100% {Counter} {Fixed DMG} to front row enemies. Each time {Death Resistance} is triggered in this battle, increase {Fixed DMG} by 25%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.faint.blossom-from-cocoon",
+      "ownerAwakenerId": "awakener-0016",
+      "slot": "OverExalt",
+      "displayName": "Blossom from Cocoon",
+      "descriptionTemplate": "Temporarily reduces all enemies' {STR⯆} by [Arg1]% of their DEF (scales with {Cradle of Stars} level up).",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "40",
+            "48",
+            "56",
+            "64",
+            "72",
+            "80"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.faint.ever-barren-rainbow",
+      "ownerAwakenerId": "awakener-0016",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Ever-Barren Rainbow",
+      "descriptionTemplate": "{Rouse} {Boundless Starlight} is enhanced: When played, immediately and permanently {Steal} {STR} equal to 20% of ATK from all enemies.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.faros.jagged-shore",
+      "ownerAwakenerId": "awakener-0017",
+      "slot": "E1",
+      "displayName": "Jagged Shore",
+      "descriptionTemplate": "{Ocean of Elation} enjoys 100% more {Tentacle DMG} bonus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.faros.congealed-ambergris",
+      "ownerAwakenerId": "awakener-0017",
+      "slot": "E2",
+      "displayName": "Congealed Ambergris",
+      "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" allow 1 Tentacle to attack once, but only deal 50% DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.faros.flickering-candle",
+      "ownerAwakenerId": "awakener-0017",
+      "slot": "E3",
+      "displayName": "Flickering Candle",
+      "descriptionTemplate": "At turn end, for each card in hand, trigger 3% {Poison} on all enemies and gain 3 Aliemus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.faros.light-of-the-lost",
+      "ownerAwakenerId": "awakener-0017",
+      "slot": "OverExalt",
+      "displayName": "Light of the Lost",
+      "descriptionTemplate": "Hand Limit +2. At turn end, choose 1 card to {Retain} and reduce its Arithmetica Cost by 1 for 3 turns.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.faros.to-the-radiant-shore",
+      "ownerAwakenerId": "awakener-0017",
+      "slot": "AbsoluteAxiom",
+      "displayName": "To the Radiant Shore",
+      "descriptionTemplate": "{Rouse} {Abyssal Obsession} is enhanced: After Faros plays a card, Tentacles inflict {Poison} equal to 3% of {Tentacle DMG} generated this turn, up to 3 times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doll-inferno.borealis-visitor",
+      "ownerAwakenerId": "awakener-0018",
+      "slot": "E1",
+      "displayName": "Borealis Visitor",
+      "descriptionTemplate": "\"{Self-Destruct} Transformation\" applies 1 turn of Vulnerable to all enemies when {Elation} is chosen, and applies 1 turn of Weakness to all enemies when \"Curse\" is chosen.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doll-inferno.resonant-mycelium",
+      "ownerAwakenerId": "awakener-0018",
+      "slot": "E2",
+      "displayName": "Resonant Mycelium",
+      "descriptionTemplate": "{Terminal of Truth and Abyss} and {Fate's Descent} increase the Base {Poison} amount by 50%, with an additional 15% increase for each stack of {Finale}. The stacking cap for {Finale} stacks has been removed.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doll-inferno.envoy-of-extinction",
+      "ownerAwakenerId": "awakener-0018",
+      "slot": "E3",
+      "displayName": "Envoy of Extinction",
+      "descriptionTemplate": "\"Strike\" and \"Defense\" additionally generate Aliemus equal to 5% of Doll: Inferno's Base Aliemus. The {Fixed DMG} of {Illusion's End} is increased from 25% to 30%, and additionally heals 30% lost HP.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doll-inferno.madness-infection",
+      "ownerAwakenerId": "awakener-0018",
+      "slot": "OverExalt",
+      "displayName": "Madness Infection",
+      "descriptionTemplate": "This Exalt provides 2x Aliemus, and all Awakeners' {Poison}, {Counter}, and Base DMG increase by 10%. In Boss Battles, obtain an additional stack of {Finale}. {Finale Form}: For every 10 Aliemus consumed, trigger an additional 3% {Poison} on all enemies.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.doll-inferno.every-world-drowned",
+      "ownerAwakenerId": "awakener-0018",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Every World, Drowned",
+      "descriptionTemplate": "{Rouse} {Soulblight} is enhanced: Each stack of {Finale} increases team DMG Amplification by 8%, and {Illusion's End} grants all Awakeners 30% Base Aliemus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.helot-catena.endless-slaughter",
+      "ownerAwakenerId": "awakener-0019",
+      "slot": "E1",
+      "displayName": "Endless Slaughter",
+      "descriptionTemplate": "\"Basic Strike\" grants \"Helot: Catena\" a temporary 15% increase in Crit. Rate and Crit. DMG. \"Basic Defense\" triggers 15% {Bleed} stacks on all enemies.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.helot-catena.vengeance-unchained",
+      "ownerAwakenerId": "awakener-0019",
+      "slot": "E2",
+      "displayName": "Vengeance Unchained",
+      "descriptionTemplate": "{Hatred Unleashed}: If HP is below 50%, the Strength obtained is doubled. The {Prepare} Effect of {Bloodthirsty Flail} is changed to {Prepare 2}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.helot-catena.remnants-requiem",
+      "ownerAwakenerId": "awakener-0019",
+      "slot": "E3",
+      "displayName": "Remnant's Requiem",
+      "descriptionTemplate": "At the start of the battle, add 1 {Irregular Form: Chains} to your hand. {Sanguine Fetters} breaks the target's shield and prevents the target from obtaining Shield for 1 turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.helot-catena.fettered-malice",
+      "ownerAwakenerId": "awakener-0019",
+      "slot": "OverExalt",
+      "displayName": "Fettered Malice",
+      "descriptionTemplate": "\"Helot: Catena\" Crit. DMG +35%. Temporary hand limit +2. Add 1 {Hatred Unleashed} and {Crimson Shackles} to hand, reducing their Arithmetica Cost by 1.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.helot-catena.death-knell-decree",
+      "ownerAwakenerId": "awakener-0019",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Death Knell Decree",
+      "descriptionTemplate": "{Rouse} {Reaper's Declaration} is enhanced: After Helot: Catena unleashes Exalt, grant each different Command Card of hers in hand 35 stacks of {Temporary Enhance}, removed at turn end or after being played.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ramona-timeworn.penrose-pilgrim",
+      "ownerAwakenerId": "awakener-0020",
+      "slot": "E1",
+      "displayName": "Penrose Pilgrim",
+      "descriptionTemplate": "Gain 1 stack of {Negentropy} at turn end.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ramona-timeworn.klein-bottle-voyager",
+      "ownerAwakenerId": "awakener-0020",
+      "slot": "E2",
+      "displayName": "Klein Bottle Voyager",
+      "descriptionTemplate": "Each time you use a Posse, Ramona: Timeworn gains +25% Temporary Crit. Rate and Temporary Crit. DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ramona-timeworn.mobius-captive",
+      "ownerAwakenerId": "awakener-0020",
+      "slot": "E3",
+      "displayName": "Mobius Captive",
+      "descriptionTemplate": "Exalt {Paradox Converged}: Choose any unlocked Posse to replace the current one. It will be restored after use or at the end of the battle.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ramona-timeworn.reach-into-yesterday",
+      "ownerAwakenerId": "awakener-0020",
+      "slot": "OverExalt",
+      "displayName": "Reach into Yesterday",
+      "descriptionTemplate": "Obtain 3 stacks of {Negentropy}, ignore the stacks limit. Reduce the Arithmetica Cost of copied cards to 0.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ramona-timeworn.infinite-singularity",
+      "ownerAwakenerId": "awakener-0020",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Infinite Singularity",
+      "descriptionTemplate": "{Rouse} {Entropy Undone} is enhanced: The limit on activations per turn is removed.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.goliath.death-is-rebirth",
+      "ownerAwakenerId": "awakener-0021",
+      "slot": "E1",
+      "displayName": "Death is Rebirth",
+      "descriptionTemplate": "{Decapitation Damage} gains a Strength buff that doubles for each Tentacle.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.goliath.rule-by-the-strongest",
+      "ownerAwakenerId": "awakener-0021",
+      "slot": "E2",
+      "displayName": "Rule by the Strongest",
+      "descriptionTemplate": "{Law of the Strongest}: Aside from removing {STR} from all enemies, gain the same amount Temporary {STR}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.goliath.boundless-ambition",
+      "ownerAwakenerId": "awakener-0021",
+      "slot": "E3",
+      "displayName": "Boundless Ambition",
+      "descriptionTemplate": "{Abyssal Depths' Power} grants Goliath 25% Temporary Crit. Rate when choosing {Usurp}, or 25 Aliemus when choosing {Dormancy}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.goliath.giants-grip",
+      "ownerAwakenerId": "awakener-0021",
+      "slot": "OverExalt",
+      "displayName": "Giant's Grip",
+      "descriptionTemplate": "When choosing {Usurp}, the Base DMG of {Blade's Dominion} placed in hand +400%, and its Arithmetica Cost becomes 0. When choosing {Dormancy}, do not place {Blade's Dominion}; instead, add 2 copies of {Decapitation Damage} to your hand, granting them the effects of {Exhaust}, {Prepare 1}, and {Retain}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.goliath.ascent-of-the-tyrant",
+      "ownerAwakenerId": "awakener-0021",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Ascent of the Tyrant",
+      "descriptionTemplate": "{Rouse} {Preemptive Revenge} is enhanced: Goliath gains an additional 300% {STR} Bonus while in {Raging Waves} stance.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.hameln.mind-concerto",
+      "ownerAwakenerId": "awakener-0022",
+      "slot": "E1",
+      "displayName": "Mind Concerto",
+      "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" obtain Temporary {STR} equivalent to 10% of ATK. If either {Rondino} or {Crescendo} are triggered, the obtained Temporary {STR} is doubled.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.hameln.oneiric-waltz",
+      "ownerAwakenerId": "awakener-0022",
+      "slot": "E2",
+      "displayName": "Oneiric Waltz",
+      "descriptionTemplate": "{Rondino} reduces the Arithmetica Cost of granted cards by 2.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.hameln.moonlit-rhapsody",
+      "ownerAwakenerId": "awakener-0022",
+      "slot": "E3",
+      "displayName": "Moonlit Rhapsody",
+      "descriptionTemplate": "After triggering the {Melody} effect or playing the {Symphony of Harmony}, Hameln gains 1% Crit. Rate and Crit. DMG. For every 10 triggers, the number of DMG instances of {Soul Overture} and {Primal Chord} +1 in this battle, up to 3 times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.hameln.the-final-sonata",
+      "ownerAwakenerId": "awakener-0022",
+      "slot": "OverExalt",
+      "displayName": "The Final Sonata",
+      "descriptionTemplate": "Each time DMG is dealt, randomly apply 1 {Marvelous Debuff} to the target. Choose 1 additional card when adding {Rondino}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.hameln.all-realms-resound",
+      "ownerAwakenerId": "awakener-0022",
+      "slot": "AbsoluteAxiom",
+      "displayName": "All Realms Resound",
+      "descriptionTemplate": "{Rouse} {Laudable Masterpiece} is enhanced: At turn start, for every 1 Command Card with {Rondino} or {Crescendo}, Hameln gains 5 Aliemus. When Hameln unleashes Exalt, for every 2 Command Cards with {Rondino} or {Crescendo}, deal +1 hit.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.helot.regents-heir",
+      "ownerAwakenerId": "awakener-0023",
+      "slot": "E1",
+      "displayName": "Regent's Heir",
+      "descriptionTemplate": "At the start of the battle, place 1 {Irregular Form} into hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.helot.sacred-half",
+      "ownerAwakenerId": "awakener-0023",
+      "slot": "E2",
+      "displayName": "Sacred Half",
+      "descriptionTemplate": "\"Basic Defense\" grants Helot 25% Temporary Crit. Rate.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.helot.the-chainbreaker",
+      "ownerAwakenerId": "awakener-0023",
+      "slot": "E3",
+      "displayName": "The Chainbreaker",
+      "descriptionTemplate": "\"Strike\" grants Helot 5% Crit. DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.helot.blood-for-blood",
+      "ownerAwakenerId": "awakener-0023",
+      "slot": "OverExalt",
+      "displayName": "Blood for Blood",
+      "descriptionTemplate": "Temporarily increase hand limit by 2, add 2 {Irregular Form} to hand, and Helot gains 25% Crit. DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.helot.the-final-arbiter",
+      "ownerAwakenerId": "awakener-0023",
+      "slot": "AbsoluteAxiom",
+      "displayName": "The Final Arbiter",
+      "descriptionTemplate": "{Rouse} {Vengeance Upon Thee} is enhanced: Upon playing, the Strike Bonus of {Shattering Strike} and the Base DMG of {Lasting Loathe} +50%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.horla.emberbound",
+      "ownerAwakenerId": "awakener-0024",
+      "slot": "E1",
+      "displayName": "Emberbound",
+      "descriptionTemplate": "{Snarl Psalm}: Applies 1 stack of {Vulnerable} to all enemies.\n{Elegy Psalm}: Applies 1 stack of {Weakness} to all enemies.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.horla.chamber-of-shadows",
+      "ownerAwakenerId": "awakener-0024",
+      "slot": "E2",
+      "displayName": "Chamber of Shadows",
+      "descriptionTemplate": "Horla's Psalms gain {Retain}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.horla.blossoms-and-verses-reunited",
+      "ownerAwakenerId": "awakener-0024",
+      "slot": "E3",
+      "displayName": "Blossoms and Verses Reunited",
+      "descriptionTemplate": "Each time the first \"Psalm\" is played in a turn, Horla gains 10 Aliemus.\nEnhance the bonus effect corresponding to the current {Emotion} state when using {Resplendent Chapters} from 150% to 250%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.horla.ink-stained-sonnet",
+      "ownerAwakenerId": "awakener-0024",
+      "slot": "OverExalt",
+      "displayName": "Ink-Stained Sonnet",
+      "descriptionTemplate": "Further increase the {Emotion} state bonus effect to 600%. Obtain 3 stacks of universal {Metaphor}, which can be treated as a {Metaphor} of any {Emotion}. Universal {Metaphor} takes priority for being consumed when a {Leap} effect is triggered.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.horla.spring-in-the-embers",
+      "ownerAwakenerId": "awakener-0024",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Spring in the Embers",
+      "descriptionTemplate": "{Rouse} {Prelude Verse} is enhanced: After triggering {Annihilation}, Horla's next Command Card played this turn will {Leap}. Whenever Horla consumes ≥ 3 stacks of {Metaphor}, current {Emotion}'s effect +25% temporarily (cannot stack).",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.jenkins.red-ribbon",
+      "ownerAwakenerId": "awakener-0025",
+      "slot": "E1",
+      "displayName": "Red Ribbon",
+      "descriptionTemplate": "For each use of {Get 'em! Brown!} in this battle, the Base DMG of {Swarm Impact} +[Arg1]% of ATK (effect scales with {Get 'em! Brown!} skill level).",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "2.5",
+            "3",
+            "3.5",
+            "4",
+            "4.5",
+            "5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.jenkins.golden-butterflys-memories",
+      "ownerAwakenerId": "awakener-0025",
+      "slot": "E2",
+      "displayName": "Golden Butterfly's Memories",
+      "descriptionTemplate": "\"Basic Defense\" draws 2 cards; if they are not Jenkin's, discard them.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.jenkins.obsidian-dissolution",
+      "ownerAwakenerId": "awakener-0025",
+      "slot": "E3",
+      "displayName": "Obsidian Dissolution",
+      "descriptionTemplate": "{Mistborn Street Urchin} grants 1 extra {Get 'em! Brown!}",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.jenkins.gotcha",
+      "ownerAwakenerId": "awakener-0025",
+      "slot": "OverExalt",
+      "displayName": "Gotcha!",
+      "descriptionTemplate": "Place 1 {Ultimate Assemble!} with {Exhaust} into hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.jenkins.from-the-shrouded-mist",
+      "ownerAwakenerId": "awakener-0025",
+      "slot": "AbsoluteAxiom",
+      "displayName": "From the Shrouded Mist",
+      "descriptionTemplate": "{Rouse} {Spatial Fold} is enhanced: Jenkin enjoys 2× the Crit. DMG effect of {Spatial Fold} and {Mistborn Street Urchin}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.karen.maids-decree",
+      "ownerAwakenerId": "awakener-0026",
+      "slot": "E1",
+      "displayName": "Maid's Decree",
+      "descriptionTemplate": "{Silent Fealty} maximum stack count increased to 3.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.karen.creamy-frosting",
+      "ownerAwakenerId": "awakener-0026",
+      "slot": "E2",
+      "displayName": "Creamy Frosting",
+      "descriptionTemplate": "\"The {Toad Stew}'s {Poison} and HP Recovery effects +25%.\"",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.karen.fermented-recipes",
+      "ownerAwakenerId": "awakener-0026",
+      "slot": "E3",
+      "displayName": "Fermented Recipes",
+      "descriptionTemplate": "{Marvelous Cuisine} has a 50% chance to trigger a random Marvelous Effect, including gaining 10 Aliemus for self, granting 5 Aliemus to allies, making all enemies Vulnerable for 1 turn, inflicting Weakness on all enemies for 1 turn, drawing 1 card, or obtaining 200 Keyflare.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.karen.bounteous-feast",
+      "ownerAwakenerId": "awakener-0026",
+      "slot": "OverExalt",
+      "displayName": "Bounteous Feast",
+      "descriptionTemplate": "Shuffle 1 {Marvelous Cuisine} into the Draw Pile and Discard Pile respectively.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.karen.mistmoon-banquet",
+      "ownerAwakenerId": "awakener-0026",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Mistmoon Banquet",
+      "descriptionTemplate": "{Rouse} {Dance of the Gibbous Moon} is enhanced: At turn end, if Karen's Command Card is {Retained}, trigger HP Recovery and Aliemus Generation effects twice.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.kathigu-ra.everburning-flame",
+      "ownerAwakenerId": "awakener-0027",
+      "slot": "E1",
+      "displayName": "Everburning Flame",
+      "descriptionTemplate": "\"Strike\" and \"Defense\" cards' Basic DMG, Shield, and Aliemus generated +50%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.kathigu-ra.astral-meltdown",
+      "ownerAwakenerId": "awakener-0027",
+      "slot": "E2",
+      "displayName": "Astral Meltdown",
+      "descriptionTemplate": "When {Solarflare} has 3 stacks of {Fiamma}, its Base DMG +50%. When {Last Stand Salvo} has 3 stacks of {Fiamma}, gain additional {STR} equal to 3% Kathigu-Ra's ATK.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.kathigu-ra.endless-purgatory",
+      "ownerAwakenerId": "awakener-0027",
+      "slot": "E3",
+      "displayName": "Endless Purgatory",
+      "descriptionTemplate": "At the start of the battle, apply 1 stack of {Fiamma} to all Kathigu-Ra's Default Command Cards. For each stack of {Combust} gained, Kathigu-Ra's Base DMG +5% for this battle.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.kathigu-ra.all-melting-truth",
+      "ownerAwakenerId": "awakener-0027",
+      "slot": "OverExalt",
+      "displayName": "All-Melting Truth",
+      "descriptionTemplate": "Deal 2 additional instances of DMG, and instead randomly apply 5 stacks of {Fiamma} to the Kathigu-Ra's Command Cards in hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.kathigu-ra.ashen-finale",
+      "ownerAwakenerId": "awakener-0027",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Ashen Finale",
+      "descriptionTemplate": "{Rouse} {Karmic Embers} is enhanced: The Final DMG and {STR} effects of each stack of {Fiamma} +30%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.leigh.newborn-sanguivore",
+      "ownerAwakenerId": "awakener-0028",
+      "slot": "E1",
+      "displayName": "Newborn Sanguivore",
+      "descriptionTemplate": "{Pain and Pleasure} deals {Pierce DMG}, Obtain {Retain}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.leigh.step-into-the-sunlight",
+      "ownerAwakenerId": "awakener-0028",
+      "slot": "E2",
+      "displayName": "Step into the Sunlight",
+      "descriptionTemplate": "{Pain of Unfulfilled Desires} Obtain 10 Aliemus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.leigh.basement-journal",
+      "ownerAwakenerId": "awakener-0028",
+      "slot": "E3",
+      "displayName": "Basement Journal",
+      "descriptionTemplate": "When {Flatterer's Embrace} triggers {Devour}, the obtained Strength is doubled.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.leigh.pallid-bloodied-kiss",
+      "ownerAwakenerId": "awakener-0028",
+      "slot": "OverExalt",
+      "displayName": "Pallid Bloodied Kiss",
+      "descriptionTemplate": "Obtain 100% more {STR}, and all Awakener gain a 10% increase in Crit. Rate and Crit. DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.leigh.insatiable-craving",
+      "ownerAwakenerId": "awakener-0028",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Insatiable Craving",
+      "descriptionTemplate": "{Rouse} {Sanguivore} is enhanced: After Leigh plays a card, her next Exalt is enhanced: gain Temporary {STR} equal to 10% of Permanent {STR}. This effect stacks up to 5 times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.lily.blackened-nourishment",
+      "ownerAwakenerId": "awakener-0029",
+      "slot": "E1",
+      "displayName": "Blackened Nourishment",
+      "descriptionTemplate": "When your current HP is below 50%, {Forbidden Swamp} gains an additional shield, and the {Poison} effect is doubled.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.lily.viscous-devour",
+      "ownerAwakenerId": "awakener-0029",
+      "slot": "E2",
+      "displayName": "Viscous Devour",
+      "descriptionTemplate": "{Strike to Protect} {Prepare 1} upgraded to {Prepare 2}, Base DMG and Crit. Rate increased by 20%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.lily.never-forget",
+      "ownerAwakenerId": "awakener-0029",
+      "slot": "E3",
+      "displayName": "Never Forget...",
+      "descriptionTemplate": "At turn start, obtain {Endure} equal to 10% Max HP. {Undying Flower Upon Slime} and {Strike to Protect} only remove half of the {Endure}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.lily.at-your-behest",
+      "ownerAwakenerId": "awakener-0029",
+      "slot": "OverExalt",
+      "displayName": "At Your Behest",
+      "descriptionTemplate": "Increase {Endure} Limit by 100% for this battle, granting {Endure} equal to Max HP. Add 2 {Strike to Protect} cards with additional {Exhaust} to your hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.lily.lilium-immaculatum",
+      "ownerAwakenerId": "awakener-0029",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Lilium Immaculatum",
+      "descriptionTemplate": "{Rouse} {Slime Convergence} is enhanced: after Exalt, each attack taken this turn make the next {Strike to Protect} consumes and converts 40% more {Endure} stacks into effect. This effect stacks up to 5.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.liz.verdant-spark",
+      "ownerAwakenerId": "awakener-0030",
+      "slot": "E1",
+      "displayName": "Verdant Spark",
+      "descriptionTemplate": "{Corrupted Flames} will upgrade to {Deadly Flames} if it remains in the hand or {Ultra Space} at turn end.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.liz.eternal-flames",
+      "ownerAwakenerId": "awakener-0030",
+      "slot": "E2",
+      "displayName": "Eternal Flames",
+      "descriptionTemplate": "\"Basic Strike\" gains {Leap}: Applies 50% DMG as {Poison}; \"Basic Defense\" gains {Leap}: Triggers 25% {Poison} on all enemies.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.liz.last-dawnlight",
+      "ownerAwakenerId": "awakener-0030",
+      "slot": "E3",
+      "displayName": "Last Dawnlight",
+      "descriptionTemplate": "{Dance to Destruction}: Draw 1 card for every 2 cards discarded.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.liz.omens-descent",
+      "ownerAwakenerId": "awakener-0030",
+      "slot": "OverExalt",
+      "displayName": "Omen's Descent",
+      "descriptionTemplate": "Upgrade all {Green Flames} and {Corrupted Flames} in your hand to {Deadly Flames}. For 3 turns, at turn start, this effect will repeat once.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.liz.burning-tribute",
+      "ownerAwakenerId": "awakener-0030",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Burning Tribute",
+      "descriptionTemplate": "{Rouse} {Emerald Reflection} is enhanced: For every 3 instances of DMG dealt by Liz, her DMG in this battle is permanently increased by 15% of her ATK.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.lotan.swords-unleashed",
+      "ownerAwakenerId": "awakener-0031",
+      "slot": "E1",
+      "displayName": "Swords Unleashed",
+      "descriptionTemplate": "{Blade of Defiance} is considered as \"Strike.\" Lotan's Base Strike DMG +30%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.lotan.surging-warlust",
+      "ownerAwakenerId": "awakener-0031",
+      "slot": "E2",
+      "displayName": "Surging Warlust",
+      "descriptionTemplate": "{Tides of Hubris} is considered as \"Strike,\" and the Strength obtained is doubled.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.lotan.timeless-solitude",
+      "ownerAwakenerId": "awakener-0031",
+      "slot": "E3",
+      "displayName": "Timeless Solitude",
+      "descriptionTemplate": "{Beast of Chaos} increases the number of DMG instances by 1, and additionally places 2 \"Basic Strike\" cards with added {Exhaust} and {Fleeting} into hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.lotan.until-the-planets-end",
+      "ownerAwakenerId": "awakener-0031",
+      "slot": "OverExalt",
+      "displayName": "Until the Planet's End",
+      "descriptionTemplate": "Deal an additional {Fixed DMG} equal to 15% of the target's Max HP to all enemies. The Base DMG of {Beast of Chaos} +100% for this battle.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.lotan.primal-leviathan",
+      "ownerAwakenerId": "awakener-0031",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Primal Leviathan",
+      "descriptionTemplate": "{Rouse} {Battle Thirst} is enhanced: After Lotan plays \"Defense,\" the next {Blade of Defiance} played this turn activates 2 times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.miryam.solitary-pilgrimage",
+      "ownerAwakenerId": "awakener-0032",
+      "slot": "E1",
+      "displayName": "Solitary Pilgrimage",
+      "descriptionTemplate": "{Exalted Pyre} temporarily increases Temporary Crit. DMG by 15% of Miryam's Base Crit. DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.miryam.the-ultimate-descent",
+      "ownerAwakenerId": "awakener-0032",
+      "slot": "E2",
+      "displayName": "The Ultimate Descent",
+      "descriptionTemplate": "{The Chosen One} increases Realm Mastery by 20 points, gains {Prepare 1} and {Retain}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.miryam.vanitys-collapse",
+      "ownerAwakenerId": "awakener-0032",
+      "slot": "E3",
+      "displayName": "Vanity's Collapse",
+      "descriptionTemplate": "{Ritual} effect +30%. For each {Sacrament} converted into {Obsession}, increase Miryam's Base DMG and the Base {Poison} of {Pray to the Abyss} by 15% in this battle.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.miryam.unacquainted-pain",
+      "ownerAwakenerId": "awakener-0032",
+      "slot": "OverExalt",
+      "displayName": "Unacquainted Pain",
+      "descriptionTemplate": "Additionally places 2 copies of {Sacrament} into hand, increasing the Tentacle Limit and Tentacle Count by +1.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.miryam.homeland-resurgence",
+      "ownerAwakenerId": "awakener-0032",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Homeland Resurgence",
+      "descriptionTemplate": "{Rouse} {Testament of Faith} is enhanced: For every 2 {Sacrament} cards flipped, place 1 {Divine Realm's Illusion} into hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.mouchette.mist-realm-traveler",
+      "ownerAwakenerId": "awakener-0033",
+      "slot": "E1",
+      "displayName": "Mist Realm Traveler",
+      "descriptionTemplate": "For every 1% {Death Resistance} Mouchette and her equipped WoD & Covenant have, her Crit. Rate and Crit. DMG + 0.15%. Each time {Death Resistance} is triggered, the Crit. DMG provided by {Mist Realm Traveler} +100% for this battle.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.mouchette.irretrievable-past",
+      "ownerAwakenerId": "awakener-0033",
+      "slot": "E2",
+      "displayName": "Irretrievable Past",
+      "descriptionTemplate": "{Mortal Blast} generates 1 temporary copy of the last played other \"Strike\" and makes its Arithmetica Cost -1.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.mouchette.cleave-out-a-future",
+      "ownerAwakenerId": "awakener-0033",
+      "slot": "E3",
+      "displayName": "Cleave Out a Future",
+      "descriptionTemplate": "{Shining☆Tornado} grants Mouchette +1 hits count this turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.mouchette.tornado-of-annihilation",
+      "ownerAwakenerId": "awakener-0033",
+      "slot": "OverExalt",
+      "displayName": "Tornado of Annihilation☆!",
+      "descriptionTemplate": "{Over-Exalt}: Hits count +1; for each {Death Resistance} triggered this battle, +1 additional hit.\nSet the Arithmetica Cost of the next {Shining☆Crush} to 0. First release each battle additionally inflicts {Fainted} on all enemies.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.mouchette.ego-beyond-the-fog",
+      "ownerAwakenerId": "awakener-0033",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Ego Beyond the Fog",
+      "descriptionTemplate": "{Rouse} {Mist Realm Vestige} is enhanced: When played, immediately generate 2 Temporary {Mortal Blast} cards with 0 Arithmetica Cost. Mouchette's Talent \"Dramatic Encounter\" trigger limit per turn increases to 5.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.murphy.silent-defiance",
+      "ownerAwakenerId": "awakener-0034",
+      "slot": "E1",
+      "displayName": "Silent Defiance",
+      "descriptionTemplate": "{Vortex Reversed} is {Retained}. For every 2 Tentacles, deal an additional instance of DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.murphy.inextricable-bloodline",
+      "ownerAwakenerId": "awakener-0034",
+      "slot": "E2",
+      "displayName": "Inextricable Bloodline",
+      "descriptionTemplate": "\"Basic Strike\" grants {Tentacle DMG} equal to [Arg1]% of Murphy's ATK, while \"Basic Defense\" grants {Tentacle DMG} equal to [Arg2]% of Murphy's ATK (effects scale with \"Strike\" and \"Defense\" skill levels).",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "1.5",
+            "1.8",
+            "2.1",
+            "2.4",
+            "2.7",
+            "3"
+          ]
+        },
+        "Arg2": {
+          "kind": "scaling",
+          "values": [
+            "1.5",
+            "1.8",
+            "2.1",
+            "2.4",
+            "2.7",
+            "3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.murphy.emancipating-touch",
+      "ownerAwakenerId": "awakener-0034",
+      "slot": "E3",
+      "displayName": "Emancipating Touch",
+      "descriptionTemplate": "At turn end, Murphy obtains 5 Aliemus. After releasing the Posse, remove 2% Max HP's {Sacrifice}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.murphy.oath-of-liberation",
+      "ownerAwakenerId": "awakener-0034",
+      "slot": "OverExalt",
+      "displayName": "Oath of Liberation",
+      "descriptionTemplate": "At turn start, obtain a Shield equal to 60% DEF and {Tentacle DMG} equal to 10% ATK, generating 2 temporary Tentacles that last for 3 turns.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.murphy.defiant-providence",
+      "ownerAwakenerId": "awakener-0034",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Defiant Providence",
+      "descriptionTemplate": "{Rouse} {Made Into Being} is enhanced: Murphy's first {Vortex Reversed} played each turn deals ×2 hits; her first {Divine Maiden's Birth} played each turn generates ×2 Arithmetica.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.murphy-fauxborn.kneelers-supplication",
+      "ownerAwakenerId": "awakener-0035",
+      "slot": "E1",
+      "displayName": "Kneeler's Supplication",
+      "descriptionTemplate": "{Waltz of Lemuria} {Tentacle DMG}, Shield Generation, and Final DMG +10%, with an additional 0.2% increase for each point of Keyflare Regen Level.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.murphy-fauxborn.inverted-pregnancy",
+      "ownerAwakenerId": "awakener-0035",
+      "slot": "E2",
+      "displayName": "Inverted Pregnancy",
+      "descriptionTemplate": "Murphy: Fauxborn's Crit. Rate +3% per Tentacle. Murphy: Fauxborn's Crit. DMG +3% per 1% Max HP value of {Sacrifice} or {Delayed Sacrifice} stacks.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.murphy-fauxborn.profane-apocalypse",
+      "ownerAwakenerId": "awakener-0035",
+      "slot": "E3",
+      "displayName": "Profane Apocalypse",
+      "descriptionTemplate": "Draw 1 {Abyss Hymns} when \"Strike\" or \"Defense\" is used. Takes effect once per turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.murphy-fauxborn.aetherial-loop",
+      "ownerAwakenerId": "awakener-0035",
+      "slot": "OverExalt",
+      "displayName": "Aetherial Loop",
+      "descriptionTemplate": "Inflict +5 stacks of {Birth Ritual}. Generate 3 {Waltz of Lemuria} with 2 Arithmetica Cost, with {Prepare} and {Exhaust}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.murphy-fauxborn.celestial-resonance",
+      "ownerAwakenerId": "awakener-0035",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Celestial Resonance",
+      "descriptionTemplate": "{Rouse} {Tidal Sacrament} is enhanced: When played, immediately gain 2 stacks of {Life Seal}. If in the {Surging Tides} stance at turn end, gain 1 additional stack of {Life Seal}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.nautila.blank-recollection",
+      "ownerAwakenerId": "awakener-0036",
+      "slot": "E1",
+      "displayName": "Blank Recollection",
+      "descriptionTemplate": "\"Basic Strike\" gains {Counter} equal to [Arg1]% of ATK.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "10",
+            "12",
+            "14",
+            "16",
+            "18",
+            "20"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.nautila.absent-cogwheel",
+      "ownerAwakenerId": "awakener-0036",
+      "slot": "E2",
+      "displayName": "Absent Cogwheel",
+      "descriptionTemplate": "{No Trespassing} Obtain {Prepare 1}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.nautila.forgotten-dreams",
+      "ownerAwakenerId": "awakener-0036",
+      "slot": "E3",
+      "displayName": "Forgotten Dreams",
+      "descriptionTemplate": "Increases {Fixed DMG} of {Ready and Set} by 50%. After release, gain Immune to {Fragile}, Weakness, and Vulnerable for 1 turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.nautila.vroom-vroom",
+      "ownerAwakenerId": "awakener-0036",
+      "slot": "OverExalt",
+      "displayName": "Vroom Vroom!",
+      "descriptionTemplate": "Current Shield +50%, ignore the Shield Limit. Increases {Fixed DMG} against all enemies to 500% of {Counter}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.nautila.ace-mechanist",
+      "ownerAwakenerId": "awakener-0036",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Ace Mechanist",
+      "descriptionTemplate": "{Rouse} {Maintenance Expert} is enhanced: All Awakeners' Fixed {Counter} +25%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.nymphaea.oceans-vessel",
+      "ownerAwakenerId": "awakener-0037",
+      "slot": "E1",
+      "displayName": "Ocean's Vessel",
+      "descriptionTemplate": "{Knell of Death} {Poison} dealt +100% and grants Shield equal to [Arg1]% of DEF (effect scales with {Knell of Death} skill level).",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "100"
+        }
+      }
+    },
+    {
+      "id": "enlighten.nymphaea.silent-permeation",
+      "ownerAwakenerId": "awakener-0037",
+      "slot": "E2",
+      "displayName": "Silent Permeation",
+      "descriptionTemplate": "{Midnight Tide} DMG +33%. The first 3 Symptom Cards played each turn increase {Midnight Tide} DMG by 10% of ATK for the rest of the battle.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.nymphaea.frostbloom-tide",
+      "ownerAwakenerId": "awakener-0037",
+      "slot": "E3",
+      "displayName": "Frostbloom Tide",
+      "descriptionTemplate": "After releasing {Passage of the Ego}, in this battle, the number of {Poison} stacks applied by {Passage of the Ego} +[Arg1]% of ATK (the effect scales with the level of {Passage of the Ego}).",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "45",
+            "54",
+            "63",
+            "72",
+            "81",
+            "90"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.nymphaea.abyssal-funeral-rites",
+      "ownerAwakenerId": "awakener-0037",
+      "slot": "OverExalt",
+      "displayName": "Abyssal Funeral Rites",
+      "descriptionTemplate": "Increases the {Poison} effect caused by Nymphaea by 50% for 3 turns.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.nymphaea.sentiment-oc-anique",
+      "ownerAwakenerId": "awakener-0037",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Sentiment Océanique",
+      "descriptionTemplate": "{Rouse} {Drowning in Sorrow} is enhanced: At turn end, {Poison} inflicted by Nymphaea additionally +25%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ogier.honesty-unto-thyself",
+      "ownerAwakenerId": "awakener-0038",
+      "slot": "E1",
+      "displayName": "Honesty Unto Thyself",
+      "descriptionTemplate": "{Piercing Strike} inflicts +1 turn of Vulnerable; Base DMG by +100%; enjoys +100% {STR} bonus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ogier.mercy-for-the-meek",
+      "ownerAwakenerId": "awakener-0038",
+      "slot": "E2",
+      "displayName": "Mercy for the Meek",
+      "descriptionTemplate": "{Seven Arts and Virtues} increases shield by 20%. If the character is in a {Fragile} state, {Seven Arts and Virtues} grants an additional 33% shield.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ogier.sacrifice-for-justice",
+      "ownerAwakenerId": "awakener-0038",
+      "slot": "E3",
+      "displayName": "Sacrifice for Justice",
+      "descriptionTemplate": "{Unstable Barrier} Shield +28% and grants {STR} equal to [Arg1]% of ATK (effect scales with {Unstable Barrier} skill level).",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "28"
+        }
+      }
+    },
+    {
+      "id": "enlighten.ogier.resolute-devotion",
+      "ownerAwakenerId": "awakener-0038",
+      "slot": "OverExalt",
+      "displayName": "Resolute Devotion",
+      "descriptionTemplate": "Shield gain increased by 200%, Ogier's DMG instances +1, lasting 3 turns.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ogier.deathless-loyalty",
+      "ownerAwakenerId": "awakener-0038",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Deathless Loyalty",
+      "descriptionTemplate": "{Rouse} {Knight's Zeal} is enhanced: If {Death Resistance} has been triggered this battle, Ogier's Exalt generates 3 times the Temporary {STR} instead.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pandia.embrace-the-pain",
+      "ownerAwakenerId": "awakener-0039",
+      "slot": "E1",
+      "displayName": "Embrace the Pain",
+      "descriptionTemplate": "\"Basic Strike\" gains a Temporary {Counter} equal to 50% of DMG. \"Basic Defense\" gains {Counter} equivalent to [Arg1]% of ATK.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50"
+        }
+      }
+    },
+    {
+      "id": "enlighten.pandia.blazing-desire",
+      "ownerAwakenerId": "awakener-0039",
+      "slot": "E2",
+      "displayName": "Blazing Desire",
+      "descriptionTemplate": "{Wax-Hot Desire} gains 20 Aliemus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pandia.youre-being-naughty",
+      "ownerAwakenerId": "awakener-0039",
+      "slot": "E3",
+      "displayName": "You're Being Naughty...",
+      "descriptionTemplate": "{Honey-Colored Tragedy} doubles Base DMG and grants a {Counter} equal to [Arg1]% of ATK.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "15",
+            "18",
+            "21",
+            "24",
+            "27",
+            "30"
+          ],
+          "suffix": "%"
+        }
+      }
+    },
+    {
+      "id": "enlighten.pandia.sweet-surrender",
+      "ownerAwakenerId": "awakener-0039",
+      "slot": "OverExalt",
+      "displayName": "Sweet Surrender",
+      "descriptionTemplate": "Inflict \"Vulnerable\" on all enemies before dealing DMG. Obtain {Counter} equal to [Arg1]% of ATK.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "75"
+        }
+      }
+    },
+    {
+      "id": "enlighten.pandia.manifesto-of-loving-discipline",
+      "ownerAwakenerId": "awakener-0039",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Manifesto of Loving Discipline",
+      "descriptionTemplate": "{Rouse} {Give and Take} is enhanced: When Pandia gains Permanent {Counter}, gain {STR} equal to 3% of that value.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pickman.cross-hatched-rendering",
+      "ownerAwakenerId": "awakener-0040",
+      "slot": "E1",
+      "displayName": "Cross-Hatched Rendering",
+      "descriptionTemplate": "\"Strike\" or \"Defense\" draws 1 \"Skill\" from deployed Awakeners, takes effect up to 1 time per turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pickman.centered-composition",
+      "ownerAwakenerId": "awakener-0040",
+      "slot": "E2",
+      "displayName": "Centered Composition",
+      "descriptionTemplate": "The Painted {Orisons} are upgraded to {Advanced Orisons}, and the Painted {Silver Relics} are upgraded to {Golden Relics}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pickman.invocation-of-the-muse",
+      "ownerAwakenerId": "awakener-0040",
+      "slot": "E3",
+      "displayName": "Invocation of the Muse",
+      "descriptionTemplate": "After Pickman consumes {Creativity}, he additionally gains 50 Aliemus, and can use Exalt 2 times this turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pickman.art-is-madness",
+      "ownerAwakenerId": "awakener-0040",
+      "slot": "OverExalt",
+      "displayName": "Art is Madness",
+      "descriptionTemplate": "Gain 1 stack of {Fantasia} and additionally {Discover} 1 time.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pickman.world-in-the-painting",
+      "ownerAwakenerId": "awakener-0040",
+      "slot": "AbsoluteAxiom",
+      "displayName": "World in the Painting",
+      "descriptionTemplate": "{Rouse} {Morgue Studio} is enhanced: The duration of the Painted Golden Relic created by {Lifelike Rendition} increases from 1 turn to 2 turns.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pollux.lightbearers-herald",
+      "ownerAwakenerId": "awakener-0041",
+      "slot": "E1",
+      "displayName": "Lightbearer's Herald",
+      "descriptionTemplate": "At the start of the battle, put 1 {Sacred Heart} into your hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pollux.flames-of-salvation",
+      "ownerAwakenerId": "awakener-0041",
+      "slot": "E2",
+      "displayName": "Flames of Salvation",
+      "descriptionTemplate": "For each card in hand, \"Strike\" and \"Defense\" generate +1 Aliemus.\nFor each {Sacred Heart} played, the Arithmetica Cost of the next {Cleansing Judgement} -1.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pollux.divine-revelation",
+      "ownerAwakenerId": "awakener-0041",
+      "slot": "E3",
+      "displayName": "Divine Revelation",
+      "descriptionTemplate": "When {Exhausted} at its {ordinal:3rd} use, {Sacred Heart} causes Pollux's next Command Card to take effect 1 additional time.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pollux.the-nightbreaker",
+      "ownerAwakenerId": "awakener-0041",
+      "slot": "OverExalt",
+      "displayName": "The Nightbreaker",
+      "descriptionTemplate": "In this turn, all Pollux Command Cards gain +50% {Atonement by Pain} effect; his next Command Card takes effect 1 more time. Place 1 more {Sacred Heart} into hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.pollux.lux-diouskouron",
+      "ownerAwakenerId": "awakener-0041",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Lux Diouskouron",
+      "descriptionTemplate": "{Rouse} {Path of Ablution} is enhanced: Make {Sacred Heart} inflict 100% DMG as {Bleed}. When a {Sacred Heart} is played and shuffled back, make that card cost 0 Arithmetica an additionally inflict 100% DMG as {Bleed} this turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ramona.innocent-departure",
+      "ownerAwakenerId": "awakener-0042",
+      "slot": "E1",
+      "displayName": "Innocent Departure",
+      "descriptionTemplate": "{Queen's Sword} deals +1 instance of DMG and gains Temporary {STR} equal to [Arg1]% of ATK with each DMG dealt. (effect scales with {Queen's Sword} skill level). When discarded, obtain an equal amount of Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "2.5",
+            "3",
+            "3.5",
+            "4",
+            "4.5",
+            "5"
+          ],
+          "suffix": "%"
+        }
+      }
+    },
+    {
+      "id": "enlighten.ramona.omen-of-unknowns",
+      "ownerAwakenerId": "awakener-0042",
+      "slot": "E2",
+      "displayName": "Omen of Unknowns",
+      "descriptionTemplate": "{Assault Thesis} grants an additional 35 Keyflare Regen for every 1 Arithmetica Cost of each drawn card",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ramona.precious-ties",
+      "ownerAwakenerId": "awakener-0042",
+      "slot": "E3",
+      "displayName": "Precious Ties",
+      "descriptionTemplate": "After releasing the Posse, Ramona's Temporary Crit. Rate + 50%. {Mundus Decree} shuffles 1 \"Insight\" into the Draw Pile.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ramona.labyrinth-of-thought",
+      "ownerAwakenerId": "awakener-0042",
+      "slot": "OverExalt",
+      "displayName": "Labyrinth of Thought",
+      "descriptionTemplate": "Apply {Weakness} and {Vulnerable} to all enemies for 1 turn. The next released Posse will take effect 2 times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ramona.sublime-tempering",
+      "ownerAwakenerId": "awakener-0042",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Sublime Tempering",
+      "descriptionTemplate": "{Rouse} {First Doctrine} is enhanced: Each activation increases Ramona's Base DMG by an additional 10%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ryker.fortunes-boon",
+      "ownerAwakenerId": "awakener-0043",
+      "slot": "E1",
+      "displayName": "Fortune's Boon",
+      "descriptionTemplate": "{Unexpected Gain} will also reduce the Arithmetica Cost of the chosen Card by an additional 1 if a {Critical Hit} occurs. {Showdown} grants Ryker an additional 3 Aliemus for every {Critical Hit}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ryker.honest-return",
+      "ownerAwakenerId": "awakener-0043",
+      "slot": "E2",
+      "displayName": "Honest Return",
+      "descriptionTemplate": "Obtain 15 Black Sigils at the start of the exploration. For every 1% of Sigil Yield attribute Ryker has, the amount of Black Sigil obtained in this way +1%, and it will also increase the progress of {Winner Takes All}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ryker.certain-gain",
+      "ownerAwakenerId": "awakener-0043",
+      "slot": "E3",
+      "displayName": "Certain Gain",
+      "descriptionTemplate": "For every 1 Black Sigil consumed, increase the Base DMG of {All-in!} by 0.5% for this exploration. Ryker's \"Base Strike\" and \"Base Defense\" can consume 3 Black Sigils and activate twice when Arithmetica is insufficient.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ryker.jackpot",
+      "ownerAwakenerId": "awakener-0043",
+      "slot": "OverExalt",
+      "displayName": "Jackpot!",
+      "descriptionTemplate": "{All-in!} deals 3 instances DMG and reduces the Arithmetica Cost of drawn Cards by 1.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.ryker.fortune-favors-the-damned",
+      "ownerAwakenerId": "awakener-0043",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Fortune Favors the Damned",
+      "descriptionTemplate": "{Rouse} {Exceptional Luck} is enhanced: Immediately gain a {Chaotic Legacy} or upgrade it once. All of Ryker's d6 dice become d8 dice.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.salvador.divine-proxy",
+      "ownerAwakenerId": "awakener-0044",
+      "slot": "E1",
+      "displayName": "Divine Proxy",
+      "descriptionTemplate": "\"Basic Defense\" accumulates a {Crimson Furnace} recovery amount equivalent to CON [Arg1]% (increases with the level of \"Defense\"). For every 2 {Crimson Furnace} recovery accumulated in this battle, increase the DMG of \"Basic Strike\" by 1.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "3",
+            "3.6",
+            "4.2",
+            "4.8",
+            "5.4",
+            "6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.salvador.book-of-genesis",
+      "ownerAwakenerId": "awakener-0044",
+      "slot": "E2",
+      "displayName": "Book of Genesis",
+      "descriptionTemplate": "{Blessed are the Bones} {Embryo Fusion} +15%; the accumulated healing from the {Crimson Furnace} increases with the number of turns, increasing each turn by an amount equal to [Arg1]% of CON (increases with the level of {Blessed are the Bones}); {End of Suffering} Crit. Rate + 25%, and you obtain {Prepare 1}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "0.75",
+            "0.9",
+            "1.05",
+            "1.2",
+            "1.35",
+            "1.5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.salvador.salvations-hand",
+      "ownerAwakenerId": "awakener-0044",
+      "slot": "E3",
+      "displayName": "Salvation's Hand",
+      "descriptionTemplate": "At turn start, accumulate {Crimson Furnace} Healing equal to 6% of CON. Exalt {He Who Protects} grants Salvador a 35% Temporary Crit. DMG increase.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.salvador.rite-of-creation",
+      "ownerAwakenerId": "awakener-0044",
+      "slot": "OverExalt",
+      "displayName": "Rite of Creation",
+      "descriptionTemplate": "DMG Taken → {Crimson Furnace} Healing conversion effect +250%. \"Basic Strike\" and {End of Suffering} enjoy an additional 100% {STR} bonus. Within this exploration, {Crimson Furnace} Limit +2% of Max HP, up to 10%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.salvador.bitter-eucharist",
+      "ownerAwakenerId": "awakener-0044",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Bitter Eucharist",
+      "descriptionTemplate": "{Rouse} {Benediction} is enhanced: {Crimson Furnace} accumulated by {He Who Protects} and {Blessed are the Bones} +25%. When {Liberation} is selected for {End of Suffering}, every 1% Max HP consumed from Furnace grants +5% Final DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.sanga.melodic-sculpting",
+      "ownerAwakenerId": "awakener-0045",
+      "slot": "E1",
+      "displayName": "Melodic Sculpting",
+      "descriptionTemplate": "{Opus of Isolation} immediately grants a shield equal to [Arg1]% of DEF. (effect stacks with {Opus of Isolation} skill level.)",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "8",
+            "9.6",
+            "11.2",
+            "12.8",
+            "14.4",
+            "16"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.sanga.kneel-before-beauty",
+      "ownerAwakenerId": "awakener-0045",
+      "slot": "E2",
+      "displayName": "Kneel Before Beauty",
+      "descriptionTemplate": "{Beauty's Mercy} gains an additional shield equal to [Arg1]% of DEF for each Tentacle present. (The effect increases with the level of {Beauty's Mercy}.)",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "3",
+            "3.6",
+            "4.2",
+            "4.8",
+            "5.4",
+            "6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.sanga.artistic-dionysia",
+      "ownerAwakenerId": "awakener-0045",
+      "slot": "E3",
+      "displayName": "Artistic Dionysia",
+      "descriptionTemplate": "{The Lost Art} increases Base DMG and Shield Generation by 25%, with an additional 25% Crit. Rate and Crit. DMG bonus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.sanga.the-sea-of-corals",
+      "ownerAwakenerId": "awakener-0045",
+      "slot": "OverExalt",
+      "displayName": "The Sea of Corals",
+      "descriptionTemplate": "Shield obtained +200%. {The Lost Art} and \"Basic Strike\" enjoy an additional 100% Shield bonus during this battle.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.sanga.oblivion-takes-all",
+      "ownerAwakenerId": "awakener-0045",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Oblivion Takes All",
+      "descriptionTemplate": "{Rouse} {Realm of Oblivion} is enhanced: Sanga's Final DMG +10%. For each Permanent Tentacle, Sanga's Shield Generation and Final DMG +3%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.sorel.flowing-rill",
+      "ownerAwakenerId": "awakener-0046",
+      "slot": "E1",
+      "displayName": "Flowing Rill",
+      "descriptionTemplate": "If current HP is below 50%, \"Basic Strike\" deals 2 instances of DMG, {Embryo Fusion} +10%. \"Basic Defense\" gains 2 Shield, {Embryo Fusion} +10%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.sorel.vintage-nectar",
+      "ownerAwakenerId": "awakener-0046",
+      "slot": "E2",
+      "displayName": "Vintage Nectar",
+      "descriptionTemplate": "{Elegance of Rose} DMG +25%, and each instance of DMG dealt temporarily increases Crit. Rate by 5%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.sorel.lustrous-pearl",
+      "ownerAwakenerId": "awakener-0046",
+      "slot": "E3",
+      "displayName": "Lustrous Pearl",
+      "descriptionTemplate": "At the start of battle, {Embryo Fusion} +25%. Each time {Death Resistance} is triggered, {Embryo Fusion} +25%. For each instance of DMG Sorel deals this turn, her DMG dealt this turn +3% of her ATK.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.sorel.roses-infinite-desire",
+      "ownerAwakenerId": "awakener-0046",
+      "slot": "OverExalt",
+      "displayName": "Rose's Infinite Desire",
+      "descriptionTemplate": "Makes the next 3 Command Cards of Sorel take effect 2 times. Each time this Exalt deals DMG, at turn end, it heals HP equal to CON [Arg1]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2.5"
+        }
+      }
+    },
+    {
+      "id": "enlighten.sorel.carlate-profond",
+      "ownerAwakenerId": "awakener-0046",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Écarlate Profond",
+      "descriptionTemplate": "{Rouse} {Host Lady's Privilege} is enhanced: Each time Sorel deals DMG: Her own Temporary Final DMG +2%, other Awakeners' Temporary Final DMG +1%, up to 15 times per turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tawil.boundless-sagacity",
+      "ownerAwakenerId": "awakener-0047",
+      "slot": "E1",
+      "displayName": "Boundless Sagacity",
+      "descriptionTemplate": "{Omniscient Verity} reduces the Arithmetica of the card it changes into by 1. {Pinions of Time} places an additional \"Insight\" into hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tawil.omniscient-and-omnipotent",
+      "ownerAwakenerId": "awakener-0047",
+      "slot": "E2",
+      "displayName": "Omniscient and Omnipotent",
+      "descriptionTemplate": "{Omnifex Convergence} cards obtained via {Discover} gain {Prepare 1}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tawil.nonexistent-existence",
+      "ownerAwakenerId": "awakener-0047",
+      "slot": "E3",
+      "displayName": "Nonexistent Existence",
+      "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" grant Tawil 3% Crit. Rate and Crit. DMG, up to 30%. When triggering {Death Resistance} for the first time during exploration, place one {Echoes of the Past} into hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tawil.infinite-radiant-brilliance",
+      "ownerAwakenerId": "awakener-0047",
+      "slot": "OverExalt",
+      "displayName": "Infinite Radiant Brilliance",
+      "descriptionTemplate": "Tawil's DMG, Shield Generation, and HP Recovery temporarily increase by 35%. {Discover} 3 skill cards from 10 instead of 5 current realm cards and immediately obtain 3 Arithmetica.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tawil.the-first-logos",
+      "ownerAwakenerId": "awakener-0047",
+      "slot": "AbsoluteAxiom",
+      "displayName": "The First Logos",
+      "descriptionTemplate": "{Rouse} {The Silver Key Gate} is enhanced: After Tawil unleashes Exalt, all Awakeners' Command Card Final DMG +15% this turn, and the next 1 other Awakener's Command Card takes effect 1 additional time.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.thais.forests-embrace",
+      "ownerAwakenerId": "awakener-0048",
+      "slot": "E1",
+      "displayName": "Forest's Embrace",
+      "descriptionTemplate": "Obtaining {Ancient Caress} increases Strength by 50%, and the effects of {Sacred Blood's Instinct} are doubled.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.thais.seed-of-chaos",
+      "ownerAwakenerId": "awakener-0048",
+      "slot": "E2",
+      "displayName": "Seed of Chaos",
+      "descriptionTemplate": "{Ritual of Abundance} also reduces the Arithmetica Cost of the Base Copy placed into hand by 1.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.thais.everlasting-cycle",
+      "ownerAwakenerId": "awakener-0048",
+      "slot": "E3",
+      "displayName": "Everlasting Cycle",
+      "descriptionTemplate": "In the {Caro} Realm, the {Embryo Fusion} obtained automatically each turn +50%. \"Basic Strike\" and \"Basic Defense\" gain Strength equivalent to 1% of ATK.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.thais.sacred-relics-perpetuity",
+      "ownerAwakenerId": "awakener-0048",
+      "slot": "OverExalt",
+      "displayName": "Sacred Relic's Perpetuity",
+      "descriptionTemplate": "For the next 3 turns, at turn start, attempt to convert 1 {Embryo} into {Scion of Purity}. If there are no {Embryo}, add 1 {Embryo} to your hand.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.thais.the-birthing-deep",
+      "ownerAwakenerId": "awakener-0048",
+      "slot": "AbsoluteAxiom",
+      "displayName": "The Birthing Deep",
+      "descriptionTemplate": "{Rouse} {Ad Matrem Vocatus} is enhanced: Thais's Exalt additionally creates 1 copy of the selected card.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tinct.stellar-reverberation",
+      "ownerAwakenerId": "awakener-0049",
+      "slot": "E1",
+      "displayName": "Stellar Reverberation",
+      "descriptionTemplate": "\"Basic Strike\" deals DMG twice and gains {Leap}: Deal DMG for one more time.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tinct.midnight-elegy",
+      "ownerAwakenerId": "awakener-0049",
+      "slot": "E2",
+      "displayName": "Midnight Elegy",
+      "descriptionTemplate": "\"Basic Defense\" grants 2 instances of Shields and gains {Leap}: Gain Aliemus for one more time.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tinct.falling-skyward",
+      "ownerAwakenerId": "awakener-0049",
+      "slot": "E3",
+      "displayName": "Falling Skyward",
+      "descriptionTemplate": "{Distant Melody} and {Starlight Aurora} gain an equivalent amount of Crit. Rate along with Crit. DMG.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tinct.cosmic-symphony",
+      "ownerAwakenerId": "awakener-0049",
+      "slot": "OverExalt",
+      "displayName": "Cosmic Symphony",
+      "descriptionTemplate": "Set the Arithmetica Cost of 5 random cards in hand to 0 until turn end.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tinct.when-crimson-meets-thorns",
+      "ownerAwakenerId": "awakener-0049",
+      "slot": "AbsoluteAxiom",
+      "displayName": "When Crimson Meets Thorns",
+      "descriptionTemplate": "{Rouse} {Voices from Beyond} is enhanced: The first time Tinct plays a \"Skill\" each turn, generate 1 Temporary \"Strike\" with 0 Arithmetica Cost.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tulu.nocturnal-murmurs",
+      "ownerAwakenerId": "awakener-0050",
+      "slot": "E1",
+      "displayName": "Nocturnal Murmurs",
+      "descriptionTemplate": "{Abyss Order} commands Tentacles to attack all enemies. If the current Stance is {Tranquil Sea}, Arithmetica Cost -2.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tulu.touch-of-revival",
+      "ownerAwakenerId": "awakener-0050",
+      "slot": "E2",
+      "displayName": "Touch of Revival",
+      "descriptionTemplate": "\"Basic Strike\" gains Temporary {STR} and Temporary {Tentacle DMG} equal to [Arg1]% of Tulu's ATK, while \"Basic Defense\" gains Temporary {STR} and Temporary {Tentacle DMG} equal to [Arg2]% of Tulu's ATK (effects scale with the levels of \"Strike\" and \"Defense\").",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "4",
+            "4.8",
+            "5.6",
+            "6.4",
+            "7.2",
+            "8"
+          ]
+        },
+        "Arg2": {
+          "kind": "scaling",
+          "values": [
+            "4",
+            "4.8",
+            "5.6",
+            "6.4",
+            "7.2",
+            "8"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.tulu.the-stars-are-right",
+      "ownerAwakenerId": "awakener-0050",
+      "slot": "E3",
+      "displayName": "The Stars Are Right",
+      "descriptionTemplate": "At turn end, Tulu obtains 5 Aliemus. {When Lemuria Returns} increases Temporary Crit. Rate by 15%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tulu.the-promised-day",
+      "ownerAwakenerId": "awakener-0050",
+      "slot": "OverExalt",
+      "displayName": "The Promised Day",
+      "descriptionTemplate": "Command all Tentacles to attack twice at turn end.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.tulu.lone-king",
+      "ownerAwakenerId": "awakener-0050",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Lone King",
+      "descriptionTemplate": "{Rouse} {Immortal Majesty} is enhanced: After Tulu unleashes Exalt, all enemies take +10% {Tentacle DMG}, stacking up to 5 times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.uvhash.the-gladiator",
+      "ownerAwakenerId": "awakener-0051",
+      "slot": "E1",
+      "displayName": "The Gladiator",
+      "descriptionTemplate": "{Screech, Blood!} Base DMG and {STR} increase by 30%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.uvhash.roman-elegy",
+      "ownerAwakenerId": "awakener-0051",
+      "slot": "E2",
+      "displayName": "Roman Elegy",
+      "descriptionTemplate": "{Boil, Blood!} Base DMG +33%, and deals 2 additional instances of DMG when HP is below 25%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.uvhash.sorcerers-end",
+      "ownerAwakenerId": "awakener-0051",
+      "slot": "E3",
+      "displayName": "Sorcerer's End",
+      "descriptionTemplate": "{Hymn of Blood and Sand} enjoys an additional 1x {STR} multiplier with each {Devour}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.uvhash.gift-of-surging-blood",
+      "ownerAwakenerId": "awakener-0051",
+      "slot": "OverExalt",
+      "displayName": "Gift of Surging Blood",
+      "descriptionTemplate": "Fill your hand with {Screech, Blood!} with {Exhaust} and {Fleeting}. Uvhash deals 1 more instance of DMG this turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.uvhash.paean-of-twisted-fury",
+      "ownerAwakenerId": "awakener-0051",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Paean of Twisted Fury",
+      "descriptionTemplate": "{Rouse} {Vermilion Rite} is enhanced: Uvhash's Exalt Final DMG +25%. This effect doubles when HP is below 25%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.wanda.the-revelation",
+      "ownerAwakenerId": "awakener-0052",
+      "slot": "E1",
+      "displayName": "The Revelation",
+      "descriptionTemplate": "{Spine Needle Chains} increases Crit. Rate by 25%, and {Keeper of the Lost} increases Base {Counter} amount by 15%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.wanda.lakeborne-dweller",
+      "ownerAwakenerId": "awakener-0052",
+      "slot": "E2",
+      "displayName": "Lakeborne Dweller",
+      "descriptionTemplate": "Upgrade all effects when consuming {Dreamlure}: {Necropolis of Dreams} consumes 5 stacks to additionally obtain 15 Aliemus, and when consuming 10 stacks, it additionally causes 5% DMG reduction; {Spine Needle Chains} doubles the Strength reduction effect; {Keeper of the Lost} increases the additional {Counter} amount by 50%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.wanda.venus-and-fur",
+      "ownerAwakenerId": "awakener-0052",
+      "slot": "E3",
+      "displayName": "Venus and Fur",
+      "descriptionTemplate": "After the battle, obtain 5 additional Black Sigils. This effect is enhanced by the Sigil Yield. After Wanda plays a card, gain 1 stack of {Dreamlure}. This effect can trigger up to 2 times per turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.wanda.lost-dreams-guide",
+      "ownerAwakenerId": "awakener-0052",
+      "slot": "OverExalt",
+      "displayName": "Lost Dream's Guide",
+      "descriptionTemplate": "No longer consume {Dreamlure}, simultaneously trigger {Hypnotic Veins}, {Slumber Counter}, and {Echoes of Whispers}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.wanda.black-stone-decree",
+      "ownerAwakenerId": "awakener-0052",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Black Stone Decree",
+      "descriptionTemplate": "{Rouse} {Living Dead's Delirium} is enhanced: After Wanda unleashes Exalt, her next 2 Command Cards take effect 1 additional time.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.winkle.dread-of-the-darkness",
+      "ownerAwakenerId": "awakener-0053",
+      "slot": "E1",
+      "displayName": "Dread of the Darkness",
+      "descriptionTemplate": "\"Basic Strike\" and {Energy Beam} DMG enjoys a 25% {Counter} bonus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.winkle.forsaken-homeland",
+      "ownerAwakenerId": "awakener-0053",
+      "slot": "E2",
+      "displayName": "Forsaken Homeland",
+      "descriptionTemplate": "{Psyche Reforged} grants Shield equal to [Arg1]% of DEF for each card discarded (the effect increases with the level of {Psyche Reforged}). Draw 1 card immediately if {Leap} is triggered.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "scaling",
+          "values": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"
+          ]
+        }
+      }
+    },
+    {
+      "id": "enlighten.winkle.rebirth-through-death",
+      "ownerAwakenerId": "awakener-0053",
+      "slot": "E3",
+      "displayName": "Rebirth Through Death",
+      "descriptionTemplate": "{Formless Shifting} increases Shield Generation and {Counter} by 25%. The selected Awakener can release Exalt twice this turn before entering cooldown.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.winkle.space-time-fold",
+      "ownerAwakenerId": "awakener-0053",
+      "slot": "OverExalt",
+      "displayName": "Space-Time Fold",
+      "descriptionTemplate": "Grants the selected Awakener 35 Aliemus at turn start for 3 turns.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.winkle.thus-spoke-the-outcast",
+      "ownerAwakenerId": "awakener-0053",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Thus Spoke the Outcast",
+      "descriptionTemplate": "{Rouse} {Self-Imprisonment} is enhanced: When played, another Awakener with the lowest Aliemus gains 50 Aliemus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.xu.enmity-of-the-heart",
+      "ownerAwakenerId": "awakener-0054",
+      "slot": "E1",
+      "displayName": "Enmity of the Heart",
+      "descriptionTemplate": "{Bonesick Longing}: {Embryo Fusion} +15%. For every 1% of DMG Amplification that Xu, her Wheels of Destiny, and Covenants have, the {Embryo Fusion} gained from this effect +0.2%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.xu.fan-and-scythe",
+      "ownerAwakenerId": "awakener-0054",
+      "slot": "E2",
+      "displayName": "Fan and Scythe",
+      "descriptionTemplate": "\"Strike\" and\" \"Defense\" gain {Resonance 3}: additionally gain 15 Aliemus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.xu.nirvanas-kiss",
+      "ownerAwakenerId": "awakener-0054",
+      "slot": "E3",
+      "displayName": "Nirvana's Kiss",
+      "descriptionTemplate": "Max {Spellbound} stacks increases from 5 to 10. {Mist-Bound Vow} doubles the {Resonance} effect for Xu's next Command Card.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.xu.karmic-grave",
+      "ownerAwakenerId": "awakener-0054",
+      "slot": "OverExalt",
+      "displayName": "Karmic Grave",
+      "descriptionTemplate": "{Embryo Fusion} +100%. When choosing \"Betroth,\" the {Poison} and {Spellbound} inflicted is tripled; when choosing \"Enthrall,\" accumulate {Crimson Furnace} equal to 15% CON for each stack of {Spellbound} removed.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.xu.gu-wang-yan",
+      "ownerAwakenerId": "awakener-0054",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Gu Wang Yan",
+      "descriptionTemplate": "{Rouse} {Lady of Dreamless Land} is enhanced: The {Spellbound} cap increases to 15, and the first Command Card Xu plays each turn takes effect 1 additional time.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.vortice.endless-tide",
+      "ownerAwakenerId": "awakener-0055",
+      "slot": "E1",
+      "displayName": "Endless Tide",
+      "descriptionTemplate": "{Vortex! Shell!} additionally deals {Fixed DMG} equal to 0.5% Target's Max HP. Realm Mastery +50 after using {Abyssal! Vortex! Cannon!}.\nFor each point of Realm Mastery that Vortice, her WoDs, and Covenants have, {Vortex! Shell!} deals extra {Fixed DMG} equal to 0.005% Target's Max HP. Realm Mastery +0.5 after using {Abyssal! Vortex! Cannon!}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.vortice.roaring-abyss",
+      "ownerAwakenerId": "awakener-0055",
+      "slot": "E2",
+      "displayName": "Roaring Abyss",
+      "descriptionTemplate": "Vortice's \"Strike\" and \"Defense\" increase the next Vortice Exalt's Crit. Rate by +10%, and reduce the next {Reload!} Arithmetica Cost by 1.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.vortice.shackled-impulse",
+      "ownerAwakenerId": "awakener-0055",
+      "slot": "E3",
+      "displayName": "Shackled Impulse",
+      "descriptionTemplate": "{Abyssal! Vortex! Cannon!} now deals 3x DMG to the enemy with the highest HP instead of 2x. For every 20 Aliemus spent, other Awakeners gain 1 Aliemus.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.vortice.moskstraumen-boom",
+      "ownerAwakenerId": "awakener-0055",
+      "slot": "OverExalt",
+      "displayName": "Moskstraumen! BOOM!",
+      "descriptionTemplate": "The Crit. DMG gained per Tentacle Sacrificed is doubled. The next 5 {Vortex! Shell!} unleashed trigger 2 times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.vortice.bang-pop-boom",
+      "ownerAwakenerId": "awakener-0055",
+      "slot": "AbsoluteAxiom",
+      "displayName": "BANG! POP! BOOM!",
+      "descriptionTemplate": "{Rouse} {HERE IT GOES!} is enhanced: After {Pursuit}, the next Exalt's {Tentacle DMG} Bonus increases from 150% to 200%, and the next Exalt deals {Fixed DMG} equal to 1% of Max HP to the highest HP enemy, stacking up to 5 times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.arachne.future-as-i-foresee",
+      "ownerAwakenerId": "awakener-0056",
+      "slot": "E1",
+      "displayName": "Future, As I Foresee",
+      "descriptionTemplate": "Arachne's Exalt grants +25% Temporary DMG Amplification.\n\nFor every point of Realm Mastery provided by Arachne and her equipped WoD & Covenant, the Temporary DMG Amplification additionally +0.25%.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.arachne.universe-as-i-conceive",
+      "ownerAwakenerId": "awakener-0056",
+      "slot": "E2",
+      "displayName": "Universe, As I Conceive",
+      "descriptionTemplate": "{Eternal Loom} deals +50% {Final Verdict}. {Fate-Binding Web} gains {Prepare} and {Retain}.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.arachne.destiny-as-i-arrange",
+      "ownerAwakenerId": "awakener-0056",
+      "slot": "E3",
+      "displayName": "Destiny, As I Arrange",
+      "descriptionTemplate": "{Weaver} stack cap increases from 3 to 5, and {Singularity Prism} gained from {Infinite Threads} is doubled.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.arachne.elegy-over-fate",
+      "ownerAwakenerId": "awakener-0056",
+      "slot": "OverExalt",
+      "displayName": "Elegy Over Fate",
+      "descriptionTemplate": "Generate up to 5 Temporary Base Copies of all cards with {Singularity Beacon} in hand and {Ultra Space}, randomly place them into the Draw Pile or Discard Pile, and set their Arithmetica Cost to 0.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "enlighten.arachne.moiraes-finale",
+      "ownerAwakenerId": "awakener-0056",
+      "slot": "AbsoluteAxiom",
+      "displayName": "Moirae's Finale",
+      "descriptionTemplate": "{Rouse} {Puppet Stage Unveiled} is enhanced: After triggering {Annihilation}, immediately deal {Fixed DMG} equal to 50% {Final Verdict} to all enemies. The DMG Amplification and Shield gained from the next Exalt +50%.",
+      "descriptionArgs": {}
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "id": "skill.karen.silent-fealty",
+  "ownerAwakenerId": "awakener-0026",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Silent Fealty",
+  "descriptionTemplate": "Restore [Heal:Arg1] HP and gain [Block:Arg2] Shield. If held at turn end, Arithmetica Cost +1, and both HP restoration and Shield are doubled. Stacks up to [Arg3] {plural:[Arg3]|time|times}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "4.5",
+        "5.4",
+        "6.3",
+        "7.2",
+        "8.1",
+        "9"
+      ],
+      "suffix": "%",
+      "stat": "CON",
+      "rounding": "ceil"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "4.5",
+        "5.4",
+        "6.3",
+        "7.2",
+        "8.1",
+        "9"
+      ],
+      "suffix": "%",
+      "stat": "DEF",
+      "rounding": "ceil"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.karen.maids-decree.skill.karen.silent-fealty",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.karen.maids-decree",
+      "ownerAwakenerId": "awakener-0026",
+      "operation": "override_args",
+      "ownerAwakenerName": "Karen",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "4.5",
+              "5.4",
+              "6.3",
+              "7.2",
+              "8.1",
+              "9"
+            ],
+            "suffix": "%",
+            "stat": "CON",
+            "rounding": "ceil"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "4.5",
+              "5.4",
+              "6.3",
+              "7.2",
+              "8.1",
+              "9"
+            ],
+            "suffix": "%",
+            "stat": "DEF",
+            "rounding": "ceil"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "3"
+          }
+        }
+      }
+    }
+  ]
+}

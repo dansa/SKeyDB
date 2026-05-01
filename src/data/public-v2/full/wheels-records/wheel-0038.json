@@ -1,0 +1,43 @@
+{
+  "id": "wheel-0038",
+  "name": "Happy Magic Show",
+  "assetId": "Weapon_Full_D09",
+  "ownerAwakenerId": "awakener-0007",
+  "ownerAwakenerName": "Casiah",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "mainstatKey": "REALM_MASTERY",
+  "descriptionTemplate": "Team Unique: After the wielder releases an Exalt, they gain [StateArg1] Aliemus and [StateArg2] Keyflare, repeating once for every 4 cards in hand. If the current Realm is {Ultra}, after the wielder's Cards enter {Ultra Space}, they gain Temporary {STR} equal to [StateArg3]% of the wielder's Attack, triggering up to 2 times per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "\"My masterpiece? Hmm—so curious, huh? Alright, alright, after all, it's a request from a VVIP. But a plain narration wouldn't suit my title as a master magician, so let me present it to you through a grand performance!\nCome, come, please take your seat in the VIP area. The suspenseful magical memory show filled with money and betrayal is about to begin!\"\n-------\nWith a snap of her fingers, the lights came on, and Casiah's magic hat floated in mid-air. Its yellow opening opened and closed, surprisingly emitting Casiah's voice.\n\"Not long ago, in a not-so-distant place, there was a circus with rabbits, clowns, lions, and elephants—\"\nAs the hat shook, out tumbled a rabbit, a clown, a lion, and an elephant. The drumbeat grew increasingly urgent, accompanied by the sound of cannon blasts. Casiah, dressed in splendid theatrical attire, emerged from the hat and placed it on her own head.\n\"Most importantly, there was a talented and gifted magician's apprentice!\"\n-------\nThe apprentice's growth was met with applause, even attracting a lavishly dressed investor. Strangely, ever since the investor joined them, rabbits, clowns, lions, elephants... many people and animals disappeared one by one. The stage emptied significantly, yet the apprentice seemed oblivious, repeating her former routine until the investor handed her a glass of wine.\nThe apprentice drank the wine, fainted, and the stage instantly went dark. Faint sighs drifted from the darkness.\n\"That was when I first understood regret.\"\n-------\n\"But is regret enough? I want to know how it feels when the benefactor cries, how it feels when the audience laughs. I want to know more, much more. At that moment—\nI opened my eyes.\"\nPaper confetti exploded in the air, fragments fluttering down. Casiah suddenly appeared in the center of the stage. She tapped the brim of her hat, and the top hat opened wide, revealing a dazzling light.\n\"I opened my eyes and realized that all emotions are light, all can be stored in my magic hat.\nNow, please relax, my dear VIP. The next segment won't hurt at all—it will only make you feel a bit numb, a little indifferent to life...\"",
+  "lineupToken": "S"
+}

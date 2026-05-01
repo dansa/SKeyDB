@@ -1,0 +1,128 @@
+{
+  "id": "skill.vortice.abyssal-vortex-cannon",
+  "ownerAwakenerId": "awakener-0055",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Abyssal! Vortex! Cannon!",
+  "descriptionTemplate": "Dispel {Burn} from all Cards in hand. Deal DMG equal to [Arg7]% {Tentacle DMG} Bonus to all enemies, dealing 2x DMG to the enemy with the highest HP. {Sacrifice} up to 3 additional Permanent Tentacles, each increasing this Exalt's Crit. DMG by +50%.",
+  "descriptionArgs": {
+    "Arg7": {
+      "kind": "scaling",
+      "values": [
+        "500",
+        "550",
+        "600",
+        "650",
+        "700",
+        "750"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.vortice.bang-pop-boom.skill.vortice.abyssal-vortex-cannon",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.vortice.bang-pop-boom",
+      "ownerAwakenerId": "awakener-0055",
+      "operation": "mixed",
+      "ownerAwakenerName": "Vortice",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg6": {
+            "kind": "fixed",
+            "value": "50",
+            "substatBonus": {
+              "substat": "RealmMastery",
+              "multiplier": "0.5"
+            }
+          },
+          "Arg7": {
+            "kind": "scaling",
+            "values": [
+              "500",
+              "550",
+              "600",
+              "650",
+              "700",
+              "750"
+            ],
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Dispel {Burn} from all Cards in hand. Deal DMG equal to [Arg7]% {Tentacle DMG} Bonus to all enemies, dealing 3x DMG to the enemy with the highest HP. {Sacrifice} up to 3 additional Permanent Tentacles, each increasing this Exalt's Crit. DMG by +50%. Gain [Arg6] Realm Mastery, and for every 20 Aliemus spent, other Awakeners gain 1 Aliemus."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.vortice.endless-tide.skill.vortice.abyssal-vortex-cannon",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.vortice.endless-tide",
+      "ownerAwakenerId": "awakener-0055",
+      "operation": "mixed",
+      "ownerAwakenerName": "Vortice",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg6": {
+            "kind": "fixed",
+            "value": "50",
+            "substatBonus": {
+              "substat": "RealmMastery",
+              "multiplier": "0.5"
+            }
+          },
+          "Arg7": {
+            "kind": "scaling",
+            "values": [
+              "500",
+              "550",
+              "600",
+              "650",
+              "700",
+              "750"
+            ],
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Dispel {Burn} from all dards in hand. Deal DMG equal to [Arg7]% {Tentacle DMG} Bonus to all enemies, dealing 2x DMG to the enemy with the highest HP. {Sacrifice} up to 3 extra Permanent Tentacles, each increasing this Exalt's Crit. DMG by +50%. Gain [Arg6] Realm Mastery."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.vortice.shackled-impulse.skill.vortice.abyssal-vortex-cannon",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.vortice.shackled-impulse",
+      "ownerAwakenerId": "awakener-0055",
+      "operation": "mixed",
+      "ownerAwakenerName": "Vortice",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg6": {
+            "kind": "fixed",
+            "value": "50",
+            "substatBonus": {
+              "substat": "RealmMastery",
+              "multiplier": "0.5"
+            }
+          },
+          "Arg7": {
+            "kind": "scaling",
+            "values": [
+              "500",
+              "550",
+              "600",
+              "650",
+              "700",
+              "750"
+            ],
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Dispel {Burn} from all Cards in hand. Deal DMG equal to [Arg7]% {Tentacle DMG} Bonus to all enemies, dealing 3x DMG to the enemy with the highest HP. {Sacrifice} up to 3 additional Permanent Tentacles, each increasing this Exalt's Crit. DMG by +50%. Gain [Arg6] Realm Mastery, and for every 20 Aliemus spent, other Awakeners gain 1 Aliemus."
+      }
+    }
+  ]
+}

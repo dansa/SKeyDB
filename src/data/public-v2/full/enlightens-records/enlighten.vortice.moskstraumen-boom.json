@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.vortice.moskstraumen-boom",
+  "ownerAwakenerId": "awakener-0055",
+  "slot": "OverExalt",
+  "displayName": "Moskstraumen! BOOM!",
+  "descriptionTemplate": "The Crit. DMG gained per Tentacle Sacrificed is doubled. The next 5 {Vortex! Shell!} unleashed trigger 2 times.",
+  "descriptionArgs": {}
+}

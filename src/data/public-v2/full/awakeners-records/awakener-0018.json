@@ -1,0 +1,100 @@
+{
+  "id": "awakener-0018",
+  "numericId": 18,
+  "name": "Doll: Inferno",
+  "ingameId": "C02EX",
+  "lineupToken": "U",
+  "realm": "CHAOS",
+  "rarity": "Genesis",
+  "type": "CHORUS",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "doll-inferno",
+    "iconKey": "doll-inferno"
+  },
+  "baseStatsLv1": {
+    "CON": 35,
+    "ATK": 28,
+    "DEF": 38
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0.8,
+    "KeyflareRegen": 16.2,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.1,
+    "ATK": 0.9,
+    "DEF": 1.2
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0.8,
+    "KeyflareRegen": 1.2,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Doll: Inferno",
+    "birthday": "11-Jan",
+    "gender": "Female",
+    "height": "5'2''",
+    "weight": "89.9lbs",
+    "gnosticIndex": "42.31",
+    "characteristic": "HP Healing    High Single-Hit DMG",
+    "introduction": "Provides healing and a large amount of Aliemus to your team. In boss battles, it activates the Engine of Destruction to end its enemies.",
+    "awakerIntroduction": "A skilled researcher who provides reliable battlefield support, capable of both strengthening allies and weakening enemies while generating large amounts of Aliemus.\nDuring boss fights, she gradually builds power by accumulating {Finale} stacks, eventually unleashing the devastating {Illusion's End} attack. Once activated, she becomes more aggressive until the battle concludes.\nFor this stage, you have access to Doll: Inferno and Nymphaea, both set at Level 50 with Skill Level 5 and Enlighten 3. At turn start, Doll: Inferno automatically gains 50 additional Aliemus and 1 stack of {Finale}.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Genius and madness are separated by a fine line. Once the brightest genius of Mythag, her downfall was like a collapsing building, leaving only the most deranged fiend crawling out from the ruins of reason.\nShe routinely donned the cloak of science, pouring life, humanity, love, and destruction into the crucible, concocting a poison to annihilate the world.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "Before all the truths were revealed, no one suspected that Doll was the true mastermind behind those shocking events.\nAfter all, her presence in Mythag and the Dissolution Front had always been like a pillar and a beacon, an unwavering support for everyone.\nWhen countless stars in the human night sky were dissolved and scattered, this unshakable beacon of humanity was cruelly extinguished, becoming a force in the shadows aligned with darkness.\nTornadoes, floods, earthquakes... These inefficient killings clearly did not align with a genius's plan; she used her undiminished intellect to transform the Silver chip technology she once took pride in into a deadly weapon to \"reshape the world,\" delivering waves of destruction to unseen corners of Mythag.\nWhen she was finally captured, the doll's body could no longer be precisely controlled by her corroded brain. Her once calm face was now filled with a twisted and eerie expression, as if meeting her gaze would drag you into the abyss of madness.\nEveryone unanimously chose to ignore her occasional vague mutterings, even though they might reveal the truth about the world.\nBecause her story once again proved that humans ultimately need meaning to survive.",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Due to the fact that the Genesis Awakener, formerly known as the \"Brain in a jar,\" has a history of breaking free from the S355 restrainer, it has been relocated by Dean Czort and placed in a new special dissolution restrainer.\nThis restrainer is located deep within the Black Pool. To ensure that there are no other instruments or items within a 30-meter radius of the restrainer, the Black Pool monitoring team has arranged for at least one patrol every 60 minutes.\nDuring monitoring, it has been noted that this Awakener remains conscious and almost never engages in sleep activities. The Awakener once attempted to narrate to the patrol members about its previous illegal Silver chip modification experiments, and a team member fell into madness after brief communication.\nCurrently, all patrol teams consist of three members, who are strictly prohibited from making contact or conversing with the Awakener and must wear soundproof earmuffs throughout the patrol.\n......\nThe confidentiality restriction level of this Awakener has reached the highest level of Awakener management. No one informed of the details is allowed to disclose information about this Awakener inside or outside of Mythag, and without the dean's approval and personal escort, visits are prohibited.\n— Excerpted from \"Mythag Black Pool Monitoring Team Report Records\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "As someone at the forefront of Dissolution research, Doll has long been acutely aware of the encroaching footsteps of annihilation steadily pursuing her from behind. Moreover, she is all too familiar with the concept of Dissolution itself. \nThrough her relentless yet often fruitless pursuit of truth, Doll gradually comes to realize that human bodies may possess an inherent blindness—those bound to reality can never perceive the scenery of the other shore, no matter how hard they try. \nSo, as the black sludge dissolves the body, will it also guide the soul to the true other shore? \nShe sits silently alongside the ancient tablets' maxims, allowing Dissolution to erode her mind. Regardless of what lies at the end of this path, she can no longer turn back. \nFortunate yet unfortunate, she has wagered her very existence for the chance to enter the inner side of the world. In an instant, reality, illusion, and destruction simultaneously engulf her. \nIn the blink of an eye, she witnesses everything in the universe—the essence of Dissolution, the truth of the world—all that she has yearned for in life is here. \nAll scientific beliefs and rational convictions dissolve into bubbles, and the once-unshakable spiritual barrier crumbles abruptly. \nThe genius known as Doll has vanished; what remains now is merely a vessel occupied by nothingness.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "All meaning dissipates like sand, the world's false curtain fades in her eyes, and everything returns to the most primordial darkness.  \nIn this final performance on the pitch-black stage, the dancer of science still dances with all her might.  \nShe no longer cares about being slowly devoured by dissolution, as the ending of the play was written from the very beginning.  \nAs in the past, she will unreservedly dedicate the power of genius to the world in a manner closest to the truth.  \nIf you ask her gently, she will insist that she still holds love for humanity and the world; she wants to end all suffering in the world and bring people back to their true, original home.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Among the Stars",
+  "aliases": [
+    "doll: inferno",
+    "g-doll"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Draw",
+    "Heal",
+    "Max HP DMG",
+    "Self-Harm"
+  ]
+}

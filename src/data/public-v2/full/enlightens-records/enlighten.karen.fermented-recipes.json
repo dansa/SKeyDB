@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.karen.fermented-recipes",
+  "ownerAwakenerId": "awakener-0026",
+  "slot": "E3",
+  "displayName": "Fermented Recipes",
+  "descriptionTemplate": "{Marvelous Cuisine} has a 50% chance to trigger a random Marvelous Effect, including gaining 10 Aliemus for self, granting 5 Aliemus to allies, making all enemies Vulnerable for 1 turn, inflicting Weakness on all enemies for 1 turn, drawing 1 card, or obtaining 200 Keyflare.",
+  "descriptionArgs": {}
+}

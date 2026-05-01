@@ -1,0 +1,36 @@
+{
+  "id": "overlay.global.usable-x-times",
+  "displayName": "Usable X times",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Usable 1 times",
+    "Useable 1 times",
+    "Usable 2 times",
+    "Useable 2 times",
+    "Usable 3 times",
+    "Useable 3 times",
+    "Usable 4 times",
+    "Useable 4 times",
+    "Usable 5 times",
+    "Useable 5 times",
+    "Usable 6 times",
+    "Useable 6 times",
+    "Usable 7 times",
+    "Useable 7 times",
+    "Usable 8 times",
+    "Useable 8 times",
+    "Usable 9 times",
+    "Useable 9 times",
+    "Usable 10 times",
+    "Useable 10 times",
+    "Useable X times"
+  ],
+  "descriptionTemplate": "Only enters the Discard Pile and resets the count after being used [Layer] times, but \"Orison\" only takes effect the first time it is used.",
+  "descriptionArgs": {
+    "Layer": {
+      "kind": "fixed",
+      "value": "X"
+    }
+  },
+  "textColor": "damage"
+}

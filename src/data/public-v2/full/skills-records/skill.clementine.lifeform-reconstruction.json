@@ -1,0 +1,194 @@
+{
+  "id": "skill.clementine.lifeform-reconstruction",
+  "ownerAwakenerId": "awakener-0010",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Lifeform Reconstruction",
+  "descriptionTemplate": "Remove all your {Symbiosis}, then transform into either {Psychic Trauma} or {Phobic Fixation} on all enemies. Deal [Damage:Arg1] DMG to all enemies. Gain Keyflare equal to [Arg2]% of Clementine's Keyflare Regen.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "150",
+        "180",
+        "210",
+        "240",
+        "270",
+        "300"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "150",
+        "180",
+        "210",
+        "240",
+        "270",
+        "300"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.clementine.knocking-on-minds-portal.skill.clementine.lifeform-reconstruction",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.clementine.knocking-on-minds-portal",
+      "ownerAwakenerId": "awakener-0010",
+      "operation": "override_args",
+      "ownerAwakenerName": "Clementine",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "180",
+              "216",
+              "252",
+              "288",
+              "324",
+              "360"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ],
+            "suffix": "%"
+          }
+        }
+      }
+    },
+    {
+      "id": "upgrade.enlighten.clementine.soul-healing-journey.skill.clementine.lifeform-reconstruction",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.clementine.soul-healing-journey",
+      "ownerAwakenerId": "awakener-0010",
+      "operation": "mixed",
+      "ownerAwakenerName": "Clementine",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "180",
+              "216",
+              "252",
+              "288",
+              "324",
+              "360"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "350",
+              "380",
+              "410",
+              "440",
+              "470",
+              "500"
+            ],
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Remove all {Symbiosis} from self, and choose to convert them into {Psychic Trauma} or {Phobic Fixation} for all enemies, increasing Clementine's Base DMG by 3% for each stack removed. Deal [Damage:Arg1] DMG to all enemies. Gain Keyflare equal to [Arg2]% of Clementine's Keyflare Regen."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.clementine.subconscious-corrosion.skill.clementine.lifeform-reconstruction",
+      "upgraderSlot": "OverExalt",
+      "upgraderId": "enlighten.clementine.subconscious-corrosion",
+      "ownerAwakenerId": "awakener-0010",
+      "operation": "mixed",
+      "ownerAwakenerName": "Clementine",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "180",
+              "216",
+              "252",
+              "288",
+              "324",
+              "360"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "350",
+              "380",
+              "410",
+              "440",
+              "470",
+              "500"
+            ],
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Remove all {Symbiosis} from self, and choose to convert them into {Psychic Trauma} or {Phobic Fixation} for all enemies, increasing Clementine's Base DMG by 3% for each stack removed. Deal [Damage:Arg1] DMG to all enemies. Gain Keyflare equal to [Arg2]% of Clementine's Keyflare Regen."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.clementine.you-will-recover.skill.clementine.lifeform-reconstruction",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.clementine.you-will-recover",
+      "ownerAwakenerId": "awakener-0010",
+      "operation": "mixed",
+      "ownerAwakenerName": "Clementine",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "180",
+              "216",
+              "252",
+              "288",
+              "324",
+              "360"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "350",
+              "380",
+              "410",
+              "440",
+              "470",
+              "500"
+            ],
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Remove all {Symbiosis} from self, and choose to convert them into {Psychic Trauma} or {Phobic Fixation} for all enemies, increasing Clementine's Base DMG by 3% for each stack removed. Deal [Damage:Arg1] DMG to all enemies. Gain Keyflare equal to [Arg2]% of Clementine's Keyflare Regen."
+      }
+    }
+  ]
+}

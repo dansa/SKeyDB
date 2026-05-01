@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0070",
+  "name": "Blessing",
+  "assetId": "Weapon_Full_P10",
+  "ownerAwakenerName": null,
+  "rarity": "R",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DMG_AMP",
+  "descriptionTemplate": "Team Unique: After a normal battle ends, the number of available {Orisons} becomes 4. {Orisons} on the wielder's cards has a [StateArg1]% chance to upgrade to Advanced. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Immortal. Eternal.",
+  "lineupToken": "xl"
+}

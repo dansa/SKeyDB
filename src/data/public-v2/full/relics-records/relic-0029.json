@@ -1,0 +1,19 @@
+{
+  "id": "relic-0029",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Lily",
+  "assetId": "Icon_Creation_Unique_C10",
+  "ownerAwakenerId": "awakener-0029",
+  "ownerAwakenerName": "Lily",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "descriptionTemplate": "At turn start, Lily gains [Arg1] Aliemus. Lily's {Endure} limit +100%, and when releasing {Undying Flower Upon Slime} or {Strike to Protect}, Lily restores HP equal to 8% of the {Endure} stacks.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "lore": null
+}

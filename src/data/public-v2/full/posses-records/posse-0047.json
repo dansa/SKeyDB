@@ -1,0 +1,62 @@
+{
+  "id": "posse-0047",
+  "name": "Manor Echoes",
+  "descriptionTemplate": "Gain 1 Arithmetica and temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg1] for 1 turn. If \"Xu\" is in the team, inflict 1 stack of {Spellbound} on all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.041
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "The secluded manor holds too many secrets—of power, of obsession, of desire.\nOf the glimpse the evil deity casts upon the mortal world, brimming with love both \"delighted\" and \"twisted.\"",
+  "realm": "CARO",
+  "assetId": "posse-icon-49",
+  "imageAssetId": "CG_SD_S_B14_1",
+  "lineupToken": "2"
+}

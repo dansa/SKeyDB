@@ -1,0 +1,145 @@
+{
+  "id": "skill.uvhash.hymn-of-blood-and-sand",
+  "ownerAwakenerId": "awakener-0051",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Hymn of Blood and Sand",
+  "descriptionTemplate": "[{Devour}: Subsequent {Hymn of Blood and Sand} DMG +[Arg4], {STR} multiplier +[Arg3] during this battle.] Deal [Damage:Arg1] DMG to all enemies. This DMG enjoys a ×[Arg2] {STR} multiplier. Obtain Aliemus equal to Uvhash's Aliemus Regen.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "80",
+        "96",
+        "112",
+        "128",
+        "144",
+        "160"
+      ],
+      "suffix": "%",
+      "stat": "ATK",
+      "rounding": "ceil"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "80",
+        "96",
+        "112",
+        "128",
+        "144",
+        "160"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.uvhash.paean-of-twisted-fury.skill.uvhash.hymn-of-blood-and-sand",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.uvhash.paean-of-twisted-fury",
+      "ownerAwakenerId": "awakener-0051",
+      "operation": "override_args",
+      "ownerAwakenerName": "Uvhash",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "80",
+              "96",
+              "112",
+              "128",
+              "144",
+              "160"
+            ],
+            "suffix": "%",
+            "stat": "ATK",
+            "rounding": "ceil"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "3"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "2"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "80",
+              "96",
+              "112",
+              "128",
+              "144",
+              "160"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        }
+      }
+    },
+    {
+      "id": "upgrade.enlighten.uvhash.sorcerers-end.skill.uvhash.hymn-of-blood-and-sand",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.uvhash.sorcerers-end",
+      "ownerAwakenerId": "awakener-0051",
+      "operation": "override_args",
+      "ownerAwakenerName": "Uvhash",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "80",
+              "96",
+              "112",
+              "128",
+              "144",
+              "160"
+            ],
+            "suffix": "%",
+            "stat": "ATK",
+            "rounding": "ceil"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "3"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "2"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "80",
+              "96",
+              "112",
+              "128",
+              "144",
+              "160"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        }
+      }
+    }
+  ]
+}

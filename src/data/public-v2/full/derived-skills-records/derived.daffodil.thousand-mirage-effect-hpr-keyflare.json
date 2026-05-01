@@ -1,0 +1,16 @@
+{
+  "id": "derived.daffodil.thousand-mirage-effect-hpr-keyflare",
+  "displayName": "Hpr. Keyflare",
+  "descriptionTemplate": "Obtain [Arg1] Keyflare. In this battle, the base DMG of {Skull Reaver} and \"Thousand Mirage\" +10%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "500"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
+  "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "ownerAwakenerId": "awakener-0012",
+  "cost": "0"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.faros.flickering-candle",
+  "ownerAwakenerId": "awakener-0017",
+  "slot": "E3",
+  "displayName": "Flickering Candle",
+  "descriptionTemplate": "At turn end, for each card in hand, trigger 3% {Poison} on all enemies and gain 3 Aliemus.",
+  "descriptionArgs": {}
+}

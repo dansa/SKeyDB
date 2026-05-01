@@ -1,0 +1,25 @@
+{
+  "id": "derived.daffodil.thousand-mirage-effect-hpr-brawn",
+  "displayName": "Hpr. Brawn",
+  "descriptionTemplate": "Enjoys an additional 4x {STR} Buff. Obtain [Power:Arg1] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
+  "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "ownerAwakenerId": "awakener-0012",
+  "cost": "0"
+}

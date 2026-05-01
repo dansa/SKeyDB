@@ -1,0 +1,95 @@
+{
+  "id": "awakener-0015",
+  "numericId": 15,
+  "name": "Erica",
+  "ingameId": "D08",
+  "lineupToken": "V",
+  "realm": "ULTRA",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "erica",
+    "iconKey": "erica"
+  },
+  "baseStatsLv1": {
+    "CON": 39,
+    "ATK": 38,
+    "DEF": 38
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 17.4,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.85,
+    "ATK": 1.8,
+    "DEF": 1.8
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 2.4,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Erica",
+    "birthday": "29-Sep",
+    "gender": "Female",
+    "height": "5'6.9''",
+    "weight": "183lbs",
+    "gnosticIndex": "???",
+    "characteristic": "Offense & Defense    Form Shift",
+    "introduction": "Provides temporary Burst Strength or Alert, making them a great asset for both offense and defense.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Doll conducted extensive research on her but found no components in her torso, limbs, head, or pelvis that support vocalization. How she speaks remains one of Mythag's many mysteries.\nIn most cases, she communicates normally with others, but sometimes, the mysterious vocal component seems to have a mind of its own, uttering chilling and eerie words that send shivers down one's spine.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "On A.F. 297, @1, @1 03:47, an unexplained explosion occurred southeast of @3 Republic @1@2@1 town. The shockwave triggered a 3.8 magnitude earthquake in the area, noticeable shaking reached villages 5 kilometers away from @1@2@1 town.\nAfter the incident, @1@2@1 town lost contact with other regions, and surrounding residents could not recall the town's location. Based on this, the Committee dispatched members for investigation, and dissolution material was detected at the edge of @1@2@1 town.\nAfter sealing off the small town, Mythag University investigators performed dissolution body clearing operations and recovered the E-1929 Silver from a strongly dissolved area suspected to be the explosion's center.\nE-1929 is particularly unique; its Gnostic index has been in an irregular fluctuation state for an extended period and emits a ticking sound like gears, only maintaining brief stability when linked with mechanical fragments recovered from the strong dissolution area. Based on this characteristic, the Mythag University Awakening Department wrapped E-1929 in mechanical fragments and quickly awakened it once the Gnostic Index tended to stabilize.\n—<Italic:\"E-1929 Silver Acquisition and Awakening Report Summary\">",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Yesterday at 6 PM, room CB-101, located in the basement of the Prince Building at Mythag University, was damaged by unknown individuals. The reinforced door was severely damaged, and there were black lightning-like scorch marks on both the interior and exterior walls, leaving the scene in disarray.\n\"Instantaneous super strong currents can lead to such markings, \" Dr. Adams from the Electrical Engineering department commented on the scorch marks on the wall, \"This requires an enormous voltage. If it were an ordinary device, it would be quite large and hard to conceal. But if it were silver... anything is possible.\"\nGiven that silver is under strict supervision within the awakening department, it is hard to imagine someone could use silver privately without detection, thus more attention turns to the Awakeners who possess silver energy.\n\"I would say, it was definitely her,\" a student from the awakening department who wished to remain anonymous told the reporter. When asked specifically who it was, he appeared somewhat nervous, \"It's 'her', the one known as 'Tick-Tock'! Haven't you heard the continuous current sound from her body? Whenever I think of electricity, I think of her, no doubt about it.\" \nMany students expressed similar suspicions. However, this Awakener, who acted like a mechanical puppet with a strange smile, was not without support; several investigators publicly backed Erica and urged everyone to focus on facts and evidence, warning against causing harm to others due to personal biases.\nIn response, Dr. Sokolova, the deputy head of the awakening department, declined to comment. The incident is still under further investigation.\n— Excerpt from \"Mythag Daily\", \"Initial Investigation of the CB-101 Room Explosion Incident\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Hannah: In your view, is there any difference between the automaton you once were and the you now?\nErica: The former me retained \"emotions.\" \nHannah: What kind of emotions specifically, if you are willing to share?\nErica: I'm sorry, I don't understand your question.\nHannah: Uh, that is, if you feel this question is too personal, you don't have to answer.\nErica: I cannot perceive \"willingness or not,\" I'm very sorry.\nHannah: Then... could you tell me what your emotions were at that time?\nErica: The corporeal me survived the explosion: happiness, information.\nRealizing my spirit was transferred and preserved onto the automaton: nervousness, excitement.\nNoticing consciousness gradually slipping out of control and a strong desire for destruction arising: nervousness, fear, protection.\nHannah: Protection?\nErica: I'm very sorry, detailed information has been lost.\nHannah: Then let's change the question; this is something our readers wish to know as well. Why do you not have emotions now? What happened?\nErica: For unknown reasons, I was unable to restore sanity through the spirit link. The university took necessary measures to suppress all emotions with Silver devices, reducing aggressiveness and danger while retaining intelligence and utility.\n—Excerpt from \"Mythag Daily,\" \"Awakeners' Faculty Interview: Tick-Tock Person\"",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Hannah: Do you remember what happened before your disassembly?\nErica: The automaton's behavior began to spiral out of control, consciousness experienced fractures, and during those fractures, it would destroy everything. Everything would perish beneath the currents and flames.\nHannah: Erica?\nErica: ...\nHannah: I can't be that lucky to encounter the \"Tick-Tock Effect,\" right... Erica?\nErica: The head component is operational again; I apologize for the inconvenience earlier.\nAs I just mentioned, the automaton recognized its increasing threat to humans, and because it still regarded itself as human at that time, it was in great pain.\nHannah: You mentioned protection before; does that mean protecting humans?\nErica: Yes, the automaton hoped to protect.\nHannah: Then why didn't you tell me that just now?\nErica: ...\nHannah: Do I need to change the question?\nErica: No. I am no longer burdened by emotions and can answer.\nUpon realizing its own danger, the automaton attempted to short-circuit its body before the consciousness fragmentation to minimize self-inflicted damage.\nIn the end, the protection failed, and the human friend died.\nThe automaton felt sadness, regret, and despair.\nThe automaton self-destructed to ensure it would cause no more destruction, and then the Silver was recovered by Mythag University, creating me, Erica, body number EA307881.\n—Excerpt from a recording by Hannah Piszley titled \"0711, Tick-Tock Person Exclusive Interview\"",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Hybrid",
+  "aliases": [
+    "erica"
+  ],
+  "searchTags": [
+    "Dispel",
+    "Keyflare"
+  ]
+}

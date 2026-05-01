@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.aigis.crystallized-tear",
+  "ownerAwakenerId": "awakener-0003",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Crystallized Tear",
+  "descriptionTemplate": "{Rouse} {Stagnant Curse} is enhanced: After Agis unleashes Exalt, her next \"Defense\" takes effect 3 times.",
+  "descriptionArgs": {}
+}

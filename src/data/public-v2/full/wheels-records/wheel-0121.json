@@ -1,0 +1,34 @@
+{
+  "id": "wheel-0121",
+  "name": "Sunfall",
+  "assetId": "Weapon_Full_ZL02",
+  "ownerAwakenerName": null,
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DMG_AMP",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG, {Poison}, and {Counter} +[StateArg1]%. Crit. Rate and Crit. DMG +[StateArg2]%.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "A.F. 314, on a deep winter night, the sound of an explosion echoed through the Akutlin.\n\nThe earth trembled, and the woods were illuminated as if it were midday.\nAccompanied by the shrieks of life and the wails of nature, the village was razed to the ground.\n\nAccording to Dexter, a pre-college student in the Awaken system who participated in the \"Akut disaster Investigation,\" among the flames shooting into the sky that night, colors of black and silver shone brightly.",
+  "lineupToken": "N"
+}

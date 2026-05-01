@@ -1,0 +1,29 @@
+{
+  "id": "wheel-0019",
+  "name": "Hour of Fortune",
+  "assetId": "Weapon_Full_C05",
+  "ownerAwakenerId": "awakener-0043",
+  "ownerAwakenerName": "Ryker",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "SIGIL_YIELD",
+  "descriptionTemplate": "Team Unique: At the start of battle, the wielder's Command Card Crit. Rate +[StateArg1]% for each relic possessed. After using Exalt, roll a 4-sided die; the wielder gains Aliemus and Temporary Crit. DMG equal to [StateArg2] times the roll result. If the roll is 4 or higher, other Awakeners also gain half.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "fixed",
+      "value": "3",
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    }
+  },
+  "lore": "Follow the Taym downstream, turn right onto Beckman Street, walk about a hundred feet, and you'll find the \"Ryker Detective Agency\" tucked in an unassuming corner.\n\nDespite being Londinium's most successful detective agency, it has no bookshelves crammed with professional tomes, no walls plastered with clippings, and certainly no elegant afternoon tea.\n\nMost likely, you'll only find an \"Back Soon\" sign on the door and a tired old dog curled up beside it.\n\nIf you're lucky, on a clear Sunday morning, you might catch the famous detective returning from a night of drinking.\nHe is fresh from a gambling table, his pockets nearly empty, and that's when you can throw him any requests: finding a lost cat, rescuing a mother who joined a cult, gathering evidence of an affair...\nIf you've got the fee, he'll take the case.\n\n\"I enjoy those moments right before death, and that's why I was born to be a gambler.\"\n\"And a detective? I must say, I don't see how finding a cat relates to dying.\"\n\"No, you don't get it... The search for truth is captivating in itself—big case or small. It's like...\" \n\"Like heading to a date with death.\"",
+  "lineupToken": "xJ"
+}

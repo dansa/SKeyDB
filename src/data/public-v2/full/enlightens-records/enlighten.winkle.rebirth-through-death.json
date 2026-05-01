@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.winkle.rebirth-through-death",
+  "ownerAwakenerId": "awakener-0053",
+  "slot": "E3",
+  "displayName": "Rebirth Through Death",
+  "descriptionTemplate": "{Formless Shifting} increases Shield Generation and {Counter} by 25%. The selected Awakener can release Exalt twice this turn before entering cooldown.",
+  "descriptionArgs": {}
+}

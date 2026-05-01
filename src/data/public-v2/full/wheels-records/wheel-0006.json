@@ -1,0 +1,25 @@
+{
+  "id": "wheel-0006",
+  "name": "Drowning in Crimson",
+  "assetId": "Weapon_Full_B05EX",
+  "ownerAwakenerId": "awakener-0019",
+  "ownerAwakenerName": "Helot: Catena",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "mainstatKey": "DMG_AMP",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]%. Before Exalt, Temporary hand size +1, draw 1 Command Card. In {Caro} realm, triggering {Devour} temporarily increases Crit. DMG by [StateArg1]%, once per turn",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "22",
+        "28",
+        "34",
+        "40"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "She once questioned countless times in the dead of night: Why must she endure this endless pain?\nNo one answered.\nHer hoarse whispers turned into fragments, never reaching the ears of any god.\nHer pain festered, turning into pus and brewing deeper hatred.\nOne day, she noticed black liquid oozing from the people around her, resembling her own blood.\nThey quickly descended into madness, just like her.\nPerhaps it was their pain; she watched coldly, feeling a faint sense of satisfaction.\nBut if that was pain, hadn't she long been consumed by the darkness?\nShe approached the lingering blackness and unexpectedly found freedom.\nYet the freedom brought no relief; she was like a demon exiled to Hell for millennia, her desires corroded by hatred.\nHer body bound in shackles, her soul weighed down by lead.\nOnly the eerie screams could cleanse her heavy soul, allowing her to breathe freely.\nCome, taste what I have tasted, and become me.\nShe found red to be a marvelous color.\nShe finally understood: Pain has no reason.\nEither drink it yourself or invite others to share.\nTonight, she poured the bitter wine, inviting the entire town.",
+  "lineupToken": "xY"
+}

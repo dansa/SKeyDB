@@ -1,0 +1,103 @@
+{
+  "id": "awakener-0029",
+  "numericId": 29,
+  "name": "Lily",
+  "ingameId": "C10",
+  "lineupToken": "w",
+  "realm": "CHAOS",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "lily",
+    "iconKey": "lily"
+  },
+  "baseStatsLv1": {
+    "CON": 56,
+    "ATK": 41,
+    "DEF": 56
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 2.8
+  },
+  "statScaling": {
+    "CON": 1.8,
+    "ATK": 1.3,
+    "DEF": 1.8
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 2.8
+  },
+  "profile": {
+    "title": "Lily",
+    "birthday": "15-Jun",
+    "gender": "Female",
+    "height": "4'4.2''",
+    "weight": "340lbs",
+    "gnosticIndex": "27.6",
+    "characteristic": "Max HP    Stronger When Hurt",
+    "introduction": "Converts the pain it endures into fury to eliminate enemies or into HP to aid allies.",
+    "awakerIntroduction": "Has powerful Defense abilities that gets stronger as HP drops.\nThe more pain, the more {Madness}; unleashing lethal {STR} in desperate situations.\nIn this quest, a level 50 Lily with Skill level 5 and Enlighten 3 will join the battle.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Yearning for an entity she calls \"Mommy,\" this girl obediently follows her \"Master\"'s commands.\nHer true name lost to the world, she is known only by the form she now inhabits: a delicate white filament, reminiscent of a lily, blooming at the center of a giant eyeball made of black sludge. Hence, they named her Lily.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "When trying to query records of Lily Oswood, Erica triggered 81 error alerts. As someone who was once forgotten by the world, Lily's birth records and medical history have turned into a handful of black sludge.\nBut we can still observe her silver shape through special instruments: delicate twists, resembling strands of intertwined hair—more accurately, like a child's lanugo.\nIt is particularly noteworthy that Lily always expresses a special attachment to linkers, and perhaps identifying herself as \"mother\" rather than calling herself a \"companion\" or \"master\" may help to bridge a quicker relationship with her",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "The aftereffects of incomplete awakening, coupled with the psychological impact of switching Links, have caused significant regression in Lily's character and mentality. Her silence on campus is evident to all.\nApart from staying close to the Keeper and Awakener Lotan, Lily is rarely seen alone around the campus. She doesn't attend classes nor join other Awakeners in their games. When not in battle, she quietly awaits orders in her dorm.\nLily's room window faces the Silver Key Tomb at the back of the campus. As the sun sets, she stands by the window, staring blankly at the tomb bathed in faint yellow light.\nThe Silver Key-shaped tombstones cast long shadows in the setting sun, and Lily stands in silence, just like the tombstones outside.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "\"Mom, Mom, Lily didn't cry when she got the shot!\"\n\"Lily is so brave!\"\n\"Yeah, Lily doesn't hurt. Thinking about Mom coming back to be with Lily makes it feel like it doesn't hurt!\"\n...\n\"Master, give me an order.\"\n\"Lie down on the operating table; the operation will start in fifteen minutes. Did you take your medicine on time?\"\n\"I did, Master.\"\n\"Cut here. It doesn't hurt, right?\"\n\"... It doesn't hurt, Master.\"",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "If only she had not awakened, those who are lost in the abyss should not gaze directly at the dazzling sun wheel.  \nShe should be a numb experiment material, someone buried by this world, and should not possess the perception of pain or the desire to be loved.  \nHer mother's lingering attachment created the tragedy of her life, while Lily is still caught in the confusion of \"whether to obey the arrangement of the world.\"  \nPerhaps one day, she will find the answer from someone who defies fate",
+        "unlockCondition": "Affinity Level 9"
+      },
+      {
+        "kind": "story",
+        "title": "Story: V",
+        "content": "The small soul, which should have been lost to the river of history, relied on her mother's wish, the abundant spiritual energy from establishing the magic circle with @1@2@1, and the fusion with the giant creature frozen beneath Elworth, resurrecting as the monster \"Lily\".\nDue to incomplete awakening, Lily at the beginning had no consciousness, merely a combat doll that obeyed orders.\nFrancis Oswood, a member of the Sculptors' Association, used Lily as a prototype to conduct illegal experiments lasting @2 years. From Francis's diary, it was known that Lily's state back then was extremely unstable, often going out of control and causing localized destruction, which forced Francis to frequently change residences.\nWith the intake of the gnosis elixir and the implantation of the silver chip, Lily regained her perception and some memories on an undocumented day. After some twists and turns, Francis took over the almost bankrupt Lai Hospital and transformed it into a testing ground.\nDuring the \"Hellhound\" incident in Lai Town No. L-776, her mother, Francis Oswood, was trapped in her self-created anomalous dimension and lost contact.",
+        "unlockCondition": "Affinity Level 10"
+      }
+    ]
+  },
+  "faction": "Hybrid",
+  "aliases": [
+    "lily"
+  ],
+  "searchTags": [
+    "Death Resistance",
+    "Heal",
+    "Strike"
+  ]
+}

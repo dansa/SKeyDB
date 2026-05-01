@@ -1,0 +1,23 @@
+{
+  "id": "wheel-0071",
+  "name": "Vitality",
+  "assetId": "Weapon_Full_P11",
+  "ownerAwakenerName": null,
+  "rarity": "R",
+  "realm": "NEUTRAL",
+  "mainstatKey": "KEYFLARE_REGEN",
+  "descriptionTemplate": "Team Unique: Rest Areas provide an additional option: {Destroy} up to 3 Symptom cards, obtain [StateArg1] Black Sigils. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ]
+    }
+  },
+  "lore": "On the brink of death, the will to live ignites.",
+  "lineupToken": "xi"
+}

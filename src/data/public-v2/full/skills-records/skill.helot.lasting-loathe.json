@@ -1,0 +1,30 @@
+{
+  "id": "skill.helot.lasting-loathe",
+  "ownerAwakenerId": "awakener-0023",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Lasting Loathe",
+  "descriptionTemplate": "Lose [Arg1]% Current HP. Deal [Damage:Arg2] DMG to all enemies and an equal amount of {Bleed}. Generate 2 random Awakeners' \"Strike\" cards, place them into hand, and attach {Exhaust}. This card is considered \"Strike\".",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1"
+}

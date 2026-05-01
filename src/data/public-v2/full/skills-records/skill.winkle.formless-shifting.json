@@ -1,0 +1,102 @@
+{
+  "id": "skill.winkle.formless-shifting",
+  "ownerAwakenerId": "awakener-0053",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Formless Shifting",
+  "descriptionTemplate": "Dispel self {Fragile} state and gain [Block:Arg1] Shield. Obtain [Counterattack:Arg3] stacks of {Counter}. Choose 1 other Awakeners to grant them [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "38",
+        "41",
+        "44",
+        "47",
+        "50"
+      ]
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "24",
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.winkle.rebirth-through-death.skill.winkle.formless-shifting",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.winkle.rebirth-through-death",
+      "ownerAwakenerId": "awakener-0053",
+      "operation": "mixed",
+      "ownerAwakenerName": "Winkle",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "37.5",
+              "45",
+              "52.5",
+              "60",
+              "67.5",
+              "75"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "35",
+              "38",
+              "41",
+              "44",
+              "47",
+              "50"
+            ]
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Dispel self {Fragile} state and gain [Block:Arg1] Shield. Obtain [Counterattack:Arg3] stacks of {Counter}. Choose 1 other Awakeners to Gain [Energy:Arg2] Aliemus and make that Awakener release 2 Exalt Bursts this turn before entering cooldown."
+      }
+    }
+  ]
+}

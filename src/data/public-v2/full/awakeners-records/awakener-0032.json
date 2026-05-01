@@ -1,0 +1,98 @@
+{
+  "id": "awakener-0032",
+  "numericId": 32,
+  "name": "Miryam",
+  "ingameId": "O07",
+  "lineupToken": "A",
+  "realm": "AEQUOR",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "miryam",
+    "iconKey": "miryam"
+  },
+  "baseStatsLv1": {
+    "CON": 33,
+    "ATK": 52,
+    "DEF": 28
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 52.4,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.05,
+    "ATK": 1.65,
+    "DEF": 0.9
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 2.4,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Miryam",
+    "birthday": "2-Jul",
+    "gender": "Female",
+    "height": "5'7''",
+    "weight": "110lbs",
+    "gnosticIndex": "22.61",
+    "characteristic": "Tentacle Generation    Aliemus Support",
+    "introduction": "She uses her power as the High Priestess to command more Tentacles, and wields the Sacrificial Dagger to poison enemies.",
+    "awakerIntroduction": "Command Cards possess unique {Ritual} effects that convert {Sacrament} to enhance them.\nUsing Exalt not only grants more {Sacrament}, but also yields different effects based on your Tentacle Stances.\nThe three {Rouse} abilities play sequentially, each offering distinct effects, ultimately granting continuous acquisition of the powerful buff card {Divine Realm's Illusion}.\nIn this stage, Miryam and Aurita (Level 50, Skill Level 5, Enlighten Level 3) are deployed. Maximum Hand Size +2. Miryam starts with 35 Aliemus and gains 20 Aliemus each turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Draped in black, Miryam's emaciated body was concealed beneath her robes.\nSilent, she bore a countenance of devout sorrow, much like the Virgin in a mural, exuding endless mystery.\nShe poured her entire being into waiting for a special moment.\nIt is almost here; the appointed day draws near.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "The rumors of humans landing in the polar regions have intensified this century. In response, Mythag University and the Mystia Treaty Committee have collaborated to form a joint investigation team.\nIn December of A.F. 3@1, the joint investigation team ventured deep into the Elworth ice fields with the aim of recovering potential mystical artifacts before the arrival of secular expedition teams.\n......\nOn December 10, A.F. 3@1, Investigator Johansson accidentally fell into an ice cave, discovering a hollow space beneath the ice field. The altitude is too low; the melting ice will submerge the hollow within three days. We must complete our exploration before temperatures continue to rise.\nOn December 12, A.F. 3@1, there are reasons to believe that a cult has long used the hollow as a sacrificial pit. At the bottom of the cave, we discovered countless humanoid skeletons. Yes, humanoid—with cartilaginous fins connected to their skulls.\n......\nOn December 13, A.F. 3@1, damn, damn, damn, damn! At the peak of the bone mountain, the investigator discovered the recent remains of a human!!!\nThe cult may not have yet withdrawn from the polar region. Due to the Committee's foolish \"persistence,\" no Awakener investigators were permitted to accompany us. We must leave immediately!\n——\"Motion on Blockading the Wild Sea Route: Part One\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Miryam led a simple, ascetic life on campus: solitude, contemplation, silent prayer, cleaning, and labor, repeating daily.\nShe was indifferent to others' awe, caution, discussions, and curiosity. In the campus far from her homeland, she seemed to have found a new form of spiritual practice.\nIn fact, she didn't mind conversations. If you were willing to spare some time, she would narrate the greatness of that immortal deity, the distant prehistoric civilizations, and the eternal kingdom ruled by the wise young king. Every time she spoke of it, her eyes would reveal a compassion that the listener could not grasp.\nNotably, Miryam showed unusual devotion and respect for Tulu, despite Tulu's indifferent attitude.\nIf it became necessary to negotiate with Miryam, seeking Tulu's help might bring about a favorable change in the situation.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "She was born before recorded human history, in an ancient civilization that can no longer be verified.\nThere, the people from the stars built glorious realms and temples dedicated to immortal gods. She grew up immersed in faith, devout from a young age, determined to become an apostle of the gods.\nHowever, divine callings are not easily attained; she yearned for miracles and wonders but never witnessed any.\nIt was not until Tulu ascended to the throne that she finally rose to the position of high priestess—an unforgettable moment filled with profound ecstasy and joy that shook her very spirit.\nShe finally witnessed a miracle and understood the truth: this young king was the embodiment of the immortal she had longed for.\nYears later, a catastrophic flood destroyed their civilization. She heard the final prophecy about immortality from Tulu and returned to the temple to pray until her last breath.\nAfter countless ages, new humans repopulated the land, and the events of prehistory were forgotten.\nThus, Miryam's trials had only just begun.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "The unenlightened are pitiful, for they cannot comprehend the true essence of immortality. Worldly conflicts are meaningless, as they are but shallow diversions in the grand scheme of things.\nI have gazed upon it, I have tasted it, and I have long understood my purpose.\nBut, oh, how cruel is fate! Why did you... not choose your most loyal Priest once more?\n—It must be that you are bestowing upon me a trial, testing my faith. In the farthest reaches from my homeland, in moments devoid of your grace, my faith has endured through millennia, unwavering.\nI could not be the one to welcome your rebirth, but I have prepared everything for it. I will seek out a new eternal realm for you... The mix of resentment and honor weighs heavily upon me, and I must bear this responsibility alone...\nForgive my ugly jealousy. As long as I can once again witness your majesty, as long as I can rebuild your kingdom, I am willing to do anything.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Out of the Aeons",
+  "aliases": [
+    "miryam"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Draw",
+    "Heal",
+    "Tentacles"
+  ]
+}

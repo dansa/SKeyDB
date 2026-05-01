@@ -1,0 +1,10 @@
+{
+  "id": "derived.salvador.dedication",
+  "displayName": "Dedication",
+  "descriptionTemplate": "Heal with blood. After dealing Damage, lose 10% of current HP and gain an equivalent amount of healing from the {Crimson Furnace}.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "skill.salvador.end-of-suffering",
+  "rootSkillId": "skill.salvador.end-of-suffering",
+  "ownerAwakenerId": "awakener-0044"
+}

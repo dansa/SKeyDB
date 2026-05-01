@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.ogier.resolute-devotion",
+  "ownerAwakenerId": "awakener-0038",
+  "slot": "OverExalt",
+  "displayName": "Resolute Devotion",
+  "descriptionTemplate": "Shield gain increased by 200%, Ogier's DMG instances +1, lasting 3 turns.",
+  "descriptionArgs": {}
+}

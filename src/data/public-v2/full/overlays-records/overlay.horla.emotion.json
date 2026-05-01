@@ -1,0 +1,9 @@
+{
+  "id": "overlay.horla.emotion",
+  "displayName": "Emotion",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "When Horla's Command Cards trigger their {Leap} Effect, she enters the corresponding {Emotion} state.\nHorla can only have one {Emotion} active at a time, and each {Emotion} grants a team-wide passive buff while active.\nThe current {Emotion} also enhances a different effect of {Resplendent Chapters}.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0024"
+}

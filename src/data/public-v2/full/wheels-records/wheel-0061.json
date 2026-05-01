@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0061",
+  "name": "Gluttony",
+  "assetId": "Weapon_Full_P01",
+  "ownerAwakenerName": null,
+  "rarity": "R",
+  "realm": "NEUTRAL",
+  "mainstatKey": "ALIEMUS_REGEN",
+  "descriptionTemplate": "Team Unique: After a normal battle, you can choose to forgo an Orison and increase Max HP by [StateArg1]%. Takes effect up to 2 times. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "All things become mine.",
+  "lineupToken": "xs"
+}

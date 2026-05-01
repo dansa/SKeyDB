@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.doll.pure-rationality",
+  "ownerAwakenerId": "awakener-0013",
+  "slot": "E1",
+  "displayName": "Pure Rationality",
+  "descriptionTemplate": "{Outer Surgery} increases the number of Weakness turns by 1 and increases Heal amount by 33%.",
+  "descriptionArgs": {}
+}

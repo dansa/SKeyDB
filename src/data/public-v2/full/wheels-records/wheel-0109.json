@@ -1,0 +1,34 @@
+{
+  "id": "wheel-0109",
+  "name": "Macabre Delicacies",
+  "assetId": "Weapon_Full_SR33",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_DMG",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]%. Whenever the wielder kills an enemy, accumulate {Crimson Furnace} equal to [StateArg2]% of the wielder's ATK if the current Realm is {Caro}.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "8",
+        "12",
+        "16",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Only the quietly dying are worth savoring.\nThe living struggle, and struggle makes the taste bitter.\n\nWhen the platter arrives, the heart at its center is still faintly warm, its surface rising slightly as if mid-beat.\nTwo eyes gaze up from the side, their pupils boiled docile—milky white, preserving a final instant of shock.\n\nHe lifts the knife, then pauses.\n\nThe soul inside still screams.\nA poet's heart, steeped in sickness and relief, yet tangled with one last regret.\nHe sets the blade down.\nFolds his hands.\nListens.\n\nTo truly honor this dish, he must wait.\n\nWait for the obsession in the meat to unravel.\nWait for the poet's last memories to soften into aroma—ink and herbs, a lover's trembling breath, the shyness of dawn.\n\nHe inhales deeply.\nThe air hums with stories.\n\nUnder the whispering tree, he sits, patient as a grave.\nThe fruit will fall when it is ripe.",
+  "lineupToken": "yO"
+}

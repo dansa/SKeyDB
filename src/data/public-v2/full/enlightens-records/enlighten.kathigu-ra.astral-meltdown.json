@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.kathigu-ra.astral-meltdown",
+  "ownerAwakenerId": "awakener-0027",
+  "slot": "E2",
+  "displayName": "Astral Meltdown",
+  "descriptionTemplate": "When {Solarflare} has 3 stacks of {Fiamma}, its Base DMG +50%. When {Last Stand Salvo} has 3 stacks of {Fiamma}, gain additional {STR} equal to 3% Kathigu-Ra's ATK.",
+  "descriptionArgs": {}
+}

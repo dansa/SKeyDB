@@ -1,0 +1,65 @@
+{
+  "id": "skill.caecus.shattered-halberd",
+  "ownerAwakenerId": "awakener-0006",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Shattered Halberd",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG and gain an equal amount of {Counter}, enjoying a 50% {Tentacle DMG} bonus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.caecus.bloodline-awaken.skill.caecus.shattered-halberd",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.caecus.bloodline-awaken",
+      "ownerAwakenerId": "awakener-0006",
+      "operation": "mixed",
+      "ownerAwakenerName": "Caecus",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20"
+            ]
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG and gain an equal amount of {Counter} with a 50% {Tentacle DMG} bonus. Gain [Energy:Arg2] Aliemus."
+      }
+    }
+  ]
+}

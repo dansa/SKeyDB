@@ -1,0 +1,97 @@
+{
+  "id": "skill.corposant.defense",
+  "ownerAwakenerId": "awakener-0011",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Corposant obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF",
+      "substatBonus": {
+        "substat": "DeathResistance",
+        "multiplier": "0.05",
+        "mode": "scale_base"
+      }
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.corposant.lodestars-whisper.skill.corposant.defense",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.corposant.lodestars-whisper",
+      "ownerAwakenerId": "awakener-0011",
+      "operation": "mixed",
+      "ownerAwakenerName": "Corposant",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "DEF",
+            "substatBonus": {
+              "substat": "DeathResistance",
+              "multiplier": "0.05",
+              "mode": "scale_base"
+            }
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "5"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15"
+            ]
+          }
+        },
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Corposant obtains [Energy:Arg4] Aliemus. {Aftershock}: This card generates [Arg3] more Aliemus next time, up to 2 stacks."
+      }
+    },
+    {
+      "id": "upgrade.talent.corposant.cinders.skill.corposant.defense",
+      "upgraderId": "talent.corposant.cinders",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

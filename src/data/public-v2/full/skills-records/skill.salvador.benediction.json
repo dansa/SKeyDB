@@ -1,0 +1,54 @@
+{
+  "id": "skill.salvador.benediction",
+  "ownerAwakenerId": "awakener-0044",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Benediction",
+  "descriptionTemplate": "Salvador gains [Energy:Arg1] Aliemus. {Rouse}: Place 1 {Sanctuary of Mercy} into hand. At the end of the turn, gain [Power:Arg2] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "2.5",
+        "3",
+        "3.5",
+        "4",
+        "4.5",
+        "5"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.salvador.bitter-eucharist.skill.salvador.benediction",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.salvador.bitter-eucharist",
+      "ownerAwakenerId": "awakener-0044",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Salvador",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Salvador gains [Energy:Arg1] Aliemus. {Rouse}: Place 1 {Sanctuary of Mercy} into hand. At turn end, gain [Power:Arg2] {STR}. {Crimson Furnace} accumulated by {He Who Protects} and {Blessed are the Bones} +25%, and when {Liberation} is selected for {End of Suffering}, every 1% of Max HP consumed from {Crimson Furnace} grants +5% Final DMG."
+      }
+    }
+  ]
+}

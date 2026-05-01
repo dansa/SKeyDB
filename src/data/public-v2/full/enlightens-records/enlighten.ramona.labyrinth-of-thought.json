@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.ramona.labyrinth-of-thought",
+  "ownerAwakenerId": "awakener-0042",
+  "slot": "OverExalt",
+  "displayName": "Labyrinth of Thought",
+  "descriptionTemplate": "Apply {Weakness} and {Vulnerable} to all enemies for 1 turn. The next released Posse will take effect 2 times.",
+  "descriptionArgs": {}
+}

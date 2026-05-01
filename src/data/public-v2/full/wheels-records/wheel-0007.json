@@ -1,0 +1,45 @@
+{
+  "id": "wheel-0007",
+  "name": "Pale Descendant",
+  "assetId": "Weapon_Full_B06",
+  "ownerAwakenerId": "awakener-0002",
+  "ownerAwakenerName": "Agrippa",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "mainstatKey": "SIGIL_YIELD",
+  "descriptionTemplate": "Team Unique: The wielder's Shield Generation +[StateArg3]%; the wielder's \"Defense\" inflicts [StateArg1]% of {Poison} on the enemy with the highest HP. If the current realm is {Caro}, when applying {Poison}, {Embryo Fusion} +[StateArg2]%. This effect triggers up to 3 times per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "12",
+        "16",
+        "20",
+        "24"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Wind surges from all directions as you stand at the entrance of the maze with a candle in hand.\n\nYou feel a bit lost.\n\nIt seems that just a moment ago, you were in Mythag's cafeteria, listening to Charlotte tell tales about the library's underground maze.\n\nAnd now, you are wandering through one passageway after another in your pajamas, bleary-eyed.\n\n\"Charlotte, Charlotte...\"\n\nA rustling fills the air as white spiders pour in like a tide, coalescing into a pale girl.\n\nShe sits on a swing fashioned from chunks of flesh, swinging back and forth.\n\n\"Here you are,\" she says.\n\n\"I'm looking for my friend, Charlotte.\nShe got lost, and I have to find her...\"\nYou are on the brink of tears.\n\nThe girl giggles.\nShe jumps off the swing and steps toward you.\n\n\"Don't you remember? Our deal...\"\nShe places her hand on your belly, then her eyes light up as if she suddenly realizes something.\n\n\"Oh, right. You've already become my offspring, so you don't remember anything.\"\n\n\"Offspring...?\" \nYou look down and feel where your skins touch.\n\nThe warm sensation, like spider silk, burrows beneath your skin and threads its way deep into veins.\n\nThe girl gives a sly blink and leans close, whispering in your ear:\n\"Charlotte... is right inside you.\"",
+  "lineupToken": "xA"
+}

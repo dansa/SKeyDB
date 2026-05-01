@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.tinct.falling-skyward",
+  "ownerAwakenerId": "awakener-0049",
+  "slot": "E3",
+  "displayName": "Falling Skyward",
+  "descriptionTemplate": "{Distant Melody} and {Starlight Aurora} gain an equivalent amount of Crit. Rate along with Crit. DMG.",
+  "descriptionArgs": {}
+}

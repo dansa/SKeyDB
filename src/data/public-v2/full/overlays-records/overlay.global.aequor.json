@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.aequor",
+  "displayName": "Aequor",
+  "overlayType": "realm",
+  "aliases": [
+    "Aequor Realm"
+  ],
+  "descriptionTemplate": "At the start of an {Aequor} team battle, generate 1 {Tentacle}. The {Tentacle} attacks front-row enemies at turn end. You can check the current {Tentacle DMG} and attack count via the formula below the Tentacle icon. Some Awakeners can increase the Tentacle Count and their DMG, dealing significant damage at turn end.",
+  "descriptionArgs": {}
+}

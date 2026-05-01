@@ -1,0 +1,100 @@
+{
+  "id": "skill.jenkins.get-em-brown",
+  "ownerAwakenerId": "awakener-0025",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Get 'em! Brown!",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. In this battle, the DMG dealt by {Get 'em! Brown!} +[Arg2]. {Leap}: This skill additionally benefits from an additional 1x {STR} bonus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.jenkins.red-ribbon.skill.jenkins.get-em-brown",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.jenkins.red-ribbon",
+      "ownerAwakenerId": "awakener-0025",
+      "operation": "mixed",
+      "ownerAwakenerName": "Jenkin",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "2.5",
+              "3",
+              "3.5",
+              "4",
+              "4.5",
+              "5"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. In this battle, the DMG of {Get 'em! Brown!} +[Arg2], and the DMG of {Swarm Impact} +[Arg3]. {Leap}: Enjoys an additional 1x {STR} bonus."
+      }
+    },
+    {
+      "id": "upgrade.talent.jenkins.a-common-enemy.skill.jenkins.get-em-brown",
+      "upgraderId": "talent.jenkins.a-common-enemy",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

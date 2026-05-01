@@ -1,0 +1,11 @@
+{
+  "id": "posse-0001",
+  "name": "Encounter in Pure White",
+  "descriptionTemplate": "Discard your hand, then draw that many cards plus 2.",
+  "descriptionArgs": {},
+  "lore": "I hope Lily's medical record is blank, just like the snowy field where we first met.",
+  "realm": "FADED_LEGACY",
+  "assetId": "posse-icon-01",
+  "imageAssetId": "CG_C03_002",
+  "lineupToken": "d"
+}

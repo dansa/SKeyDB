@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.uvhash.the-gladiator",
+  "ownerAwakenerId": "awakener-0051",
+  "slot": "E1",
+  "displayName": "The Gladiator",
+  "descriptionTemplate": "{Screech, Blood!} Base DMG and {STR} increase by 30%.",
+  "descriptionArgs": {}
+}

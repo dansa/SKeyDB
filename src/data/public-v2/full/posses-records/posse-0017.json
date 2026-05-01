@@ -1,0 +1,70 @@
+{
+  "id": "posse-0017",
+  "name": "Truth Behind Grey Mist",
+  "descriptionTemplate": "Gain [Arg1] {STR} and create [Arg2] {Insight}. If in an {Ultra Round}, instead create [Arg3] {Insight}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.015
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "A breeze lifts her long hair, and the reflection of the grey sea of fog briefly appears before vanishing into thin air. Before you stands the same elegant and composed her. But you know, it is not an illusion.",
+  "realm": "ULTRA",
+  "assetId": "posse-icon-17",
+  "imageAssetId": "CG_SD_L_D02_3",
+  "lineupToken": "v"
+}

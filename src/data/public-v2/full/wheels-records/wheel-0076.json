@@ -1,0 +1,23 @@
+{
+  "id": "wheel-0076",
+  "name": "Insight",
+  "assetId": "Weapon_Full_P16",
+  "ownerAwakenerName": null,
+  "rarity": "R",
+  "realm": "NEUTRAL",
+  "mainstatKey": "SIGIL_YIELD",
+  "descriptionTemplate": "Team Unique: Vision +1 during exploration, gain [StateArg1] Black Sigil after the map is fully revealed. At the start of Boss Battles, {Weakness} and {Vulnerable} all enemies for 1 turn. In the {Astral Reign}, the effect is changed to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ]
+    }
+  },
+  "lore": "Seeing is believing.",
+  "lineupToken": "xv"
+}

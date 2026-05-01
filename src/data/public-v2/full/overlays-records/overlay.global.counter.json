@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.counter",
+  "displayName": "Counter",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "When attacked, deal DMG equal to the number of {Counter} stacks to the attacker.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_019",
+  "textColor": "shield"
+}

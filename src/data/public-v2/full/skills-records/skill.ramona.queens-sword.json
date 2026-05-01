@@ -1,0 +1,177 @@
+{
+  "id": "skill.ramona.queens-sword",
+  "ownerAwakenerId": "awakener-0042",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Queen's Sword",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}. After playing, increase the DMG count of {Queen's Sword} by 1, up to [Arg3] {plural:[Arg3]|time|times}. Gain [Arg7] Temporary Realm Mastery.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK",
+      "substatBonus": {
+        "substat": "KeyflareRegen",
+        "multiplier": "1",
+        "mode": "scale_base"
+      }
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg7": {
+      "kind": "fixed",
+      "value": "0",
+      "substatBonus": {
+        "substat": "KeyflareRegen",
+        "multiplier": "0.75"
+      }
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ramona.innocent-departure.skill.ramona.queens-sword",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.ramona.innocent-departure",
+      "ownerAwakenerId": "awakener-0042",
+      "operation": "mixed",
+      "ownerAwakenerName": "Ramona",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "ATK",
+            "substatBonus": {
+              "substat": "KeyflareRegen",
+              "multiplier": "1",
+              "mode": "scale_base"
+            }
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "2.5",
+              "3",
+              "3.5",
+              "4",
+              "4.5",
+              "5"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg5": {
+            "kind": "fixed",
+            "value": "3"
+          },
+          "Arg6": {
+            "kind": "fixed",
+            "value": "6"
+          },
+          "Arg7": {
+            "kind": "fixed",
+            "value": "0",
+            "substatBonus": {
+              "substat": "KeyflareRegen",
+              "multiplier": "0.75"
+            }
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg5] {plural:[Arg5]|time|times}, gaining [Power:Arg4] Temporary {STR} each time DMG is dealt. After playing, increase the number of DMG instances for {Queen's Sword} by 1, up to [Arg6] {plural:[Arg6]|time|times}. Gain [Arg7] Temporary Realm Mastery. {Aftershock}: Obtain an equal amount of Keyflare."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.ramona.precious-ties.skill.ramona.queens-sword",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.ramona.precious-ties",
+      "ownerAwakenerId": "awakener-0042",
+      "operation": "mixed",
+      "ownerAwakenerName": "Ramona",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "ATK",
+            "substatBonus": {
+              "substat": "KeyflareRegen",
+              "multiplier": "1",
+              "mode": "scale_base"
+            }
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "2.5",
+              "3",
+              "3.5",
+              "4",
+              "4.5",
+              "5"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg5": {
+            "kind": "fixed",
+            "value": "3"
+          },
+          "Arg6": {
+            "kind": "fixed",
+            "value": "6"
+          },
+          "Arg7": {
+            "kind": "fixed",
+            "value": "0",
+            "substatBonus": {
+              "substat": "KeyflareRegen",
+              "multiplier": "0.75"
+            }
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg5] {plural:[Arg5]|time|times}, gaining [Power:Arg4] Temporary {STR} each time DMG is dealt. After playing, increase the number of DMG instances for {Queen's Sword} by 1, up to [Arg6] {plural:[Arg6]|time|times}. Gain [Arg7] Temporary Realm Mastery. {Aftershock}: Obtain Keyflare equal to the amount gained from playing this card."
+      }
+    },
+    {
+      "id": "upgrade.talent.ramona.silverheart-resonance.skill.ramona.queens-sword",
+      "upgraderId": "talent.ramona.silverheart-resonance",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

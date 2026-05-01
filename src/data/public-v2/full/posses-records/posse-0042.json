@@ -1,0 +1,16 @@
+{
+  "id": "posse-0042",
+  "name": "Void Hues",
+  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg1], and shuffle 1 {Insight} into the Draw Pile. If Pickman is in your team, he gains 1 stack of {Creativity}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "20"
+    }
+  },
+  "lore": "The rotting phantasm gives birth to a distorted neon on the retina—\nthus the concept of \"color\" transcends the virtual world, leaving only the delirious hues flowing on the corpse of reality.",
+  "realm": "CARO",
+  "assetId": "posse-icon-44",
+  "imageAssetId": "CG_SD_S_B12_1",
+  "lineupToken": "U"
+}

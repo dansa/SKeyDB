@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.hameln.oneiric-waltz",
+  "ownerAwakenerId": "awakener-0022",
+  "slot": "E2",
+  "displayName": "Oneiric Waltz",
+  "descriptionTemplate": "{Rondino} reduces the Arithmetica Cost of granted cards by 2.",
+  "descriptionArgs": {}
+}

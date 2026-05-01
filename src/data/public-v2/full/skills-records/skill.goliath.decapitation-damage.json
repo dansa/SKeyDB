@@ -1,0 +1,62 @@
+{
+  "id": "skill.goliath.decapitation-damage",
+  "ownerAwakenerId": "awakener-0021",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Decapitation Damage",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. If the target's HP is below 25% or if the target is killed, refund the Arithmetica Cost. {STR} multiplies the effect by [Arg2] on {Decapitation Damage}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "60",
+        "72",
+        "84",
+        "96",
+        "108",
+        "120"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.goliath.death-is-rebirth.skill.goliath.decapitation-damage",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.goliath.death-is-rebirth",
+      "ownerAwakenerId": "awakener-0021",
+      "operation": "mixed",
+      "ownerAwakenerName": "Goliath",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "60",
+              "72",
+              "84",
+              "96",
+              "108",
+              "120"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "3"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. If the Target's HP is below 25% or the Target is Killed, return Arithmetica Cost. {STR} has [Arg2] {plural:[Arg2]|time|times} effectiveness on {Decapitation Damage}. For each Tentacle, Strength has an additional 1 time effectiveness."
+      }
+    }
+  ]
+}

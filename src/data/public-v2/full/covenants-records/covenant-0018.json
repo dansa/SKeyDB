@@ -1,0 +1,25 @@
+{
+  "id": "covenant-0018",
+  "name": "Feast from Afar",
+  "assetId": "covenant-icon-020",
+  "lore": "Feast amidst the carols; celebrate the ruin of the world we once called home.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "Sigil Yield +[Arg1]%",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "3.6",
+          "suffix": "%"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "At the start of the exploration, gain 10 Black Sigils. The wielder's \"Defense\" increases Shield by 60%.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "A"
+}

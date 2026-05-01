@@ -1,0 +1,20 @@
+{
+  "id": "enlighten.salvador.book-of-genesis",
+  "ownerAwakenerId": "awakener-0044",
+  "slot": "E2",
+  "displayName": "Book of Genesis",
+  "descriptionTemplate": "{Blessed are the Bones} {Embryo Fusion} +15%; the accumulated healing from the {Crimson Furnace} increases with the number of turns, increasing each turn by an amount equal to [Arg1]% of CON (increases with the level of {Blessed are the Bones}); {End of Suffering} Crit. Rate + 25%, and you obtain {Prepare 1}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "0.75",
+        "0.9",
+        "1.05",
+        "1.2",
+        "1.35",
+        "1.5"
+      ]
+    }
+  }
+}

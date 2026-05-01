@@ -1,0 +1,10 @@
+{
+  "id": "skill.helot.blood-for-blood",
+  "ownerAwakenerId": "awakener-0023",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Blood for Blood",
+  "descriptionTemplate": "Temporarily increase hand limit by 2, add 2 {Irregular Form} to hand, and Helot gains 25% Crit. DMG.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

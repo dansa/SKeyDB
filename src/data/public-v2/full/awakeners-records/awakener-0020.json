@@ -1,0 +1,97 @@
+{
+  "id": "awakener-0020",
+  "numericId": 20,
+  "name": "Ramona: Timeworn",
+  "ingameId": "C01EX",
+  "lineupToken": "j",
+  "realm": "CHAOS",
+  "rarity": "Genesis",
+  "type": "CHORUS",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "ramona-timeworn",
+    "iconKey": "ramona-timeworn"
+  },
+  "baseStatsLv1": {
+    "CON": 32,
+    "ATK": 32,
+    "DEF": 32
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 17.4,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.5,
+    "ATK": 1.5,
+    "DEF": 1.5
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 2.4,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Ramona: Timeworn",
+    "birthday": "12-Dec",
+    "gender": "Female",
+    "height": "5'5''",
+    "weight": "102lbs",
+    "gnosticIndex": "25",
+    "characteristic": "Search for Cards    Multi-Hit Damage",
+    "introduction": "Draws strength from past commands, then unleashes a Predetermined Strike to deal massive single-instance damage.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "She calculated the speed of her sword, the angle to avoid attacks.\nShe calculated the feasibility of escape plans and the probability of the world moving toward the future.\nUntil the very end, she never stopped calculating.\nJust as she never stopped walking this desolate path.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "■ File Number: AF315-C01\n■ Awakener Codename: @2 Walker\nThis Awakener was first observed in A.F. 315, @1.\nDuring the initial \"Artificial Domain\" experiment, influenced by the psychic resonance of the homogenous object, the \"Artificial Domain\" based on the Spirit Realm of our university's @2-level student Ramona Dexter unexpectedly broke through dimensional boundaries.\nAt that time, the Keeper confirmed the existence of the world outside dimensions for the first time in that \"Artificial Domain\" and also confirmed how @2's power would affect Ramona Dexter.\nThereafter, researches on the \"Genesis Awakeners\" was officially launched by the Awakener Sciences Research Institute.\nMeanwhile, the planning of the teaching plan for new Power Control course for Ramona Dexter is also on the agenda.",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "\"Ramona\" shows great restraint in appearing. As she mentioned, she only manifests in this world when called by the Keeper.\nShe always comes and goes swiftly, seemingly not wanting to engage further with our world beyond battle.\nIs it fear of the nightmares that plague her? Or fear of longing for the things she has lost... We cannot know.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "She had an enviable birth: an orphan raised as the sole heir—how fortunate.\nShe had remarkable wisdom: speaking at one, debating at two, beginning her enlightenment at three.\nShe had admirable talent: a photographic memory and mastery of the sword. At an incredibly young age, she passed Mythag University's rigorous preparatory courses with full marks.\nShe had companions she could rely on, with whom she could venture into darkness and the unknown.\n<Italic:She had...>",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "When occupying Ramona's body, \"Ramona\" has never walked through the campus.\nLotan's boldness, Ogier's shy loyalty, William's calm composure, Doll's strict seriousness... No one remembers these moments more than she does.\nBut she always kept in mind: these beautiful things no longer belong to her.\nNow, she needs to focus entirely on protecting another destined person... This is also to protect another precarious world and another innocent version of herself.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Unknowable",
+  "aliases": [
+    "ramona: timeworn",
+    "g-ramona"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Draw",
+    "Keyflare"
+  ]
+}

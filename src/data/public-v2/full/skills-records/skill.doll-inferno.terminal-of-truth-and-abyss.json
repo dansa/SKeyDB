@@ -1,0 +1,148 @@
+{
+  "id": "skill.doll-inferno.terminal-of-truth-and-abyss",
+  "ownerAwakenerId": "awakener-0018",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Terminal of Truth and Abyss",
+  "descriptionTemplate": "other Awakeners Gain [Energy:Arg1] Aliemus, inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on all enemies, and temporarily increase the team's DMG Amplification by [Arg3]%. {Finale Form}: Draw 3 additional cards, obtain 3 Arithmetica, trigger 50% of {Poison} on all enemies, and increase \"Doll: Inferno\"'s Base Aliemus by 50, up to 3 times.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "50",
+        "60",
+        "70",
+        "80",
+        "90",
+        "100"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "38",
+        "41",
+        "44",
+        "47",
+        "50"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.doll-inferno.envoy-of-extinction.skill.doll-inferno.terminal-of-truth-and-abyss",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.doll-inferno.envoy-of-extinction",
+      "ownerAwakenerId": "awakener-0018",
+      "operation": "override_args",
+      "ownerAwakenerName": "Doll: Inferno",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "75",
+              "90",
+              "105",
+              "120",
+              "135",
+              "150"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "35",
+              "38",
+              "41",
+              "44",
+              "47",
+              "50"
+            ],
+            "suffix": "%"
+          }
+        }
+      }
+    },
+    {
+      "id": "upgrade.enlighten.doll-inferno.resonant-mycelium.skill.doll-inferno.terminal-of-truth-and-abyss",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.doll-inferno.resonant-mycelium",
+      "ownerAwakenerId": "awakener-0018",
+      "operation": "override_args",
+      "ownerAwakenerName": "Doll: Inferno",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "75",
+              "90",
+              "105",
+              "120",
+              "135",
+              "150"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "35",
+              "38",
+              "41",
+              "44",
+              "47",
+              "50"
+            ],
+            "suffix": "%"
+          }
+        }
+      }
+    }
+  ]
+}

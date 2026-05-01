@@ -1,0 +1,33 @@
+{
+  "id": "skill.hameln.soul-overture",
+  "ownerAwakenerId": "awakener-0022",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Soul Overture",
+  "descriptionTemplate": "Randomly deal 3 instances of [Damage:Arg1] {Pierce DMG}. Each hit has a 50% chance to randomly apply 1 {Marvelous Debuff} to the target. If used with 0 Arithmetica Cost, it Deal an additional 2 hits.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3"
+}

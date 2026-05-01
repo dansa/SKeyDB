@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.wanda.venus-and-fur",
+  "ownerAwakenerId": "awakener-0052",
+  "slot": "E3",
+  "displayName": "Venus and Fur",
+  "descriptionTemplate": "After the battle, obtain 5 additional Black Sigils. This effect is enhanced by the Sigil Yield. After Wanda plays a card, gain 1 stack of {Dreamlure}. This effect can trigger up to 2 times per turn.",
+  "descriptionArgs": {}
+}

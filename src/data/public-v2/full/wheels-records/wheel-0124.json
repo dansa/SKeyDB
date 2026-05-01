@@ -1,0 +1,43 @@
+{
+  "id": "wheel-0124",
+  "name": "Heart of Silver",
+  "assetId": "Weapon_Full_ZL05",
+  "ownerAwakenerName": null,
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "KEYFLARE_REGEN",
+  "descriptionTemplate": "Team Unique: Upon releasing Posse, gain [StateArg1]% of the wielder's ATK as {STR} and Shield equal to [StateArg2]% of their DEF. Upon using an Emergency Gnosis, all Awakeners gain [StateArg3] Aliemus at turn end.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "1.5",
+        "2",
+        "2.5",
+        "3"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "9",
+        "12",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ]
+    }
+  },
+  "lore": "It was a silver-white, clear, and spotless heart.\n\nMade of pure silver, it beat steadily inside its mechanical frame.\n\nIt had once been stained by blood, smeared by mud.\n\nBut as death's shadow fell, it returned at last to its original form.",
+  "lineupToken": "x6"
+}

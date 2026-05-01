@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.murphy.emancipating-touch",
+  "ownerAwakenerId": "awakener-0034",
+  "slot": "E3",
+  "displayName": "Emancipating Touch",
+  "descriptionTemplate": "At turn end, Murphy obtains 5 Aliemus. After releasing the Posse, remove 2% Max HP's {Sacrifice}.",
+  "descriptionArgs": {}
+}

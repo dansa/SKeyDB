@@ -1,0 +1,35 @@
+{
+  "id": "talent.pollux.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0041",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe Base DMG of {Atonement by Pain} increase by [Arg3]% of Pollux's ATK.\nFor every 50 stacks of {Sin Mark}, add 1 {Sacred Heart} to your hand.\nWhen {Sin Mark} reaches 100 stacks, pull 1 Pollux's Skill Card after {Sacred Heart} is {Exhausted} at {ordinal:3rd} play.\nWhen dealing DMG, the effect of {Sin Mark} is doubled against enemies of the \"Church of the Lightbearers\".",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "50",
+        "60",
+        "70",
+        "80",
+        "90",
+        "100",
+        "110",
+        "120",
+        "130",
+        "150"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

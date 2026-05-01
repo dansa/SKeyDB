@@ -1,0 +1,54 @@
+{
+  "id": "skill.ryker.exceptional-luck",
+  "ownerAwakenerId": "awakener-0043",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Exceptional Luck",
+  "descriptionTemplate": "Ryker gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}. In this battle, Gain a selected {Chaotic Legacy} Relic, or upgrade an already owned {Chaotic Legacy}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "7.2",
+        "8.4",
+        "9.6",
+        "10.8",
+        "12"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ryker.fortune-favors-the-damned.skill.ryker.exceptional-luck",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.ryker.fortune-favors-the-damned",
+      "ownerAwakenerId": "awakener-0043",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Ryker",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Ryker gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}. In this battle, gain a chosen {Chaotic Legacy} Relic or upgrade an already owned {Chaotic Legacy} Relic; this triggers 2 times in succession. All of Ryker's six-sided dice are upgraded to eight-sided dice."
+      }
+    }
+  ]
+}

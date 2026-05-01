@@ -1,0 +1,35 @@
+{
+  "id": "talent.murphy.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0034",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Tentacle DMG} +[Arg3]% of the Sacrificed HP when a {Sacrifice} is performed.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "3",
+        "3.3",
+        "3.6",
+        "3.9",
+        "4.2",
+        "4.5",
+        "4.8",
+        "5.1",
+        "5.4",
+        "6"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.xu.fan-and-scythe",
+  "ownerAwakenerId": "awakener-0054",
+  "slot": "E2",
+  "displayName": "Fan and Scythe",
+  "descriptionTemplate": "\"Strike\" and\" \"Defense\" gain {Resonance 3}: additionally gain 15 Aliemus.",
+  "descriptionArgs": {}
+}

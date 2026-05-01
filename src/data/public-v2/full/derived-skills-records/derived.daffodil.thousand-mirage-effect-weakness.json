@@ -1,0 +1,11 @@
+{
+  "id": "derived.daffodil.thousand-mirage-effect-weakness",
+  "displayName": "Weakness",
+  "descriptionTemplate": "Apply 1 stack of {Weakness} to all enemies.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
+  "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "ownerAwakenerId": "awakener-0012",
+  "cost": "0"
+}

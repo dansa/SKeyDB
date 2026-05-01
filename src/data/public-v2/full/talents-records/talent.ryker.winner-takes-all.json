@@ -1,0 +1,8 @@
+{
+  "id": "talent.ryker.winner-takes-all",
+  "ownerAwakenerId": "awakener-0043",
+  "displayName": "Winner Takes All",
+  "family": "passive",
+  "descriptionTemplate": "Ryker obtains 5 Black Sigils upon killing an enemy. For every 1% Sigil Yield Ryker has, the amount obtained +1%, up to 5 times per exploration.\nAfter obtaining 75/150/300 Black Sigils through battle, relic capacity +1, and at the end of the battle, choose a {Chaotic Legacy} to add to the relic list.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,34 @@
+{
+  "id": "wheel-0079",
+  "name": "Cursed Binding",
+  "assetId": "Weapon_Full_SR03",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DMG_AMP",
+  "descriptionTemplate": "Team Unique: The wielder's {Poison} inflicted +[StateArg1]%. \"Strike\" deals DMG equal to [StateArg2]% of the attacker's ATK as {Poison}. This effect can trigger a maximum of 3 times per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "The first half of his life was chaotic, dark, and bloody.\n\nEat. Sleep. Repeat.\nThen he opened his eyes and gained awareness.\n\nThey say he devoured all his siblings and became the sole survivor.\n\nThey say he is the offspring of the Great Serpent and a human.\n\nA black, cursed collar encircles his neck.\nIt keeps him alive, controls him, and ensures he can never defy the Church.\n\nHe is full of questions, curious about the world, yet at the very moment of his birth, he was stripped of all other possibilities.\n\nBeautiful, dangerous.\nSecretive, flamboyant.\nHe is all of these.\n\nSadly, these barely scratch the surface of his essence.\n\nAny pity you feel for Albino because of this account will lead you to ruin.",
+  "lineupToken": "6"
+}

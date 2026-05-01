@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.ramona.sublime-tempering",
+  "ownerAwakenerId": "awakener-0042",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Sublime Tempering",
+  "descriptionTemplate": "{Rouse} {First Doctrine} is enhanced: Each activation increases Ramona's Base DMG by an additional 10%.",
+  "descriptionArgs": {}
+}

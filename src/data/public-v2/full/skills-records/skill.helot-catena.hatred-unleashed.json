@@ -1,0 +1,52 @@
+{
+  "id": "skill.helot-catena.hatred-unleashed",
+  "ownerAwakenerId": "awakener-0019",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Hatred Unleashed",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG and equal {Bleed} to all enemies, and gain [Power:Arg2] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "2.4",
+        "2.8",
+        "3.2",
+        "3.6",
+        "4"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.helot-catena.vengeance-unchained.skill.helot-catena.hatred-unleashed",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.helot-catena.vengeance-unchained",
+      "ownerAwakenerId": "awakener-0019",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Helot: Catena",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG and equal {Bleed} to all enemies, and gain [Power:Arg2] {STR}. If HP is below 50%, the gained {STR} is doubled."
+      }
+    }
+  ]
+}

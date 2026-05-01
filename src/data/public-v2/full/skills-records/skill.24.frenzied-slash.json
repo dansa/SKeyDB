@@ -1,0 +1,62 @@
+{
+  "id": "skill.24.frenzied-slash",
+  "ownerAwakenerId": "awakener-0001",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Frenzied Slash",
+  "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}.\nDepressed Persona: Reduces the Arithmetica Cost of the card with the highest cost in your hand by 1, and obtain Temporary {Retain}. Manic Persona: DMG instances +2",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.24.hysteria.skill.24.frenzied-slash",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.24.hysteria",
+      "ownerAwakenerId": "awakener-0001",
+      "operation": "mixed",
+      "ownerAwakenerName": "\"24\"",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "20",
+              "24",
+              "28",
+              "32",
+              "36",
+              "40"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "3"
+          }
+        },
+        "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}.\nDepressed Persona: Reduces the Arithmetica Cost of the card with the highest cost in your hand by 1, and obtain Temporary {Retain}. Manic Persona: DMG instances +3"
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "talent.kathigu-ra.the-living-flame",
+  "ownerAwakenerId": "awakener-0027",
+  "displayName": "The Living Flame",
+  "family": "passive",
+  "descriptionTemplate": "At turn start, randomly apply 1 stack of {Fiamma} to 1 Kathigu-Ra's Command Card in hand.\nFor each stack of {Fiamma} consumed by Kathigu-Ra, gain 1 stack of {Combust}.\nWhen {Combust} reaches 10 stacks, gain 2 Arithmetica and upgrade all {Solarflare} to {Hyperflare}.",
+  "descriptionArgs": {}
+}

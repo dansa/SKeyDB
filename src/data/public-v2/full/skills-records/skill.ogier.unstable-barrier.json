@@ -1,0 +1,75 @@
+{
+  "id": "skill.ogier.unstable-barrier",
+  "ownerAwakenerId": "awakener-0038",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Unstable Barrier",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield X+1 times. For each 1 Arithmetica consumed, Gain [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "7",
+        "8.4",
+        "9.8",
+        "11.2",
+        "12.6",
+        "14"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "X",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ogier.sacrifice-for-justice.skill.ogier.unstable-barrier",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.ogier.sacrifice-for-justice",
+      "ownerAwakenerId": "awakener-0038",
+      "operation": "mixed",
+      "ownerAwakenerName": "Ogier",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "9",
+              "10.8",
+              "12.6",
+              "14.4",
+              "16.2",
+              "18"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "3",
+              "3.6",
+              "4.2",
+              "4.8",
+              "5.4",
+              "6"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "5"
+          }
+        },
+        "descriptionTemplate": "Gain [Block:Arg1] Shield X+1 times. For every 1 Arithmetica consumed, Gain [Energy:Arg3] Aliemus. Obtain [Power:Arg2] {STR}."
+      }
+    }
+  ]
+}

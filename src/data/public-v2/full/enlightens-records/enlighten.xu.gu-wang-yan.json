@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.xu.gu-wang-yan",
+  "ownerAwakenerId": "awakener-0054",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Gu Wang Yan",
+  "descriptionTemplate": "{Rouse} {Lady of Dreamless Land} is enhanced: The {Spellbound} cap increases to 15, and the first Command Card Xu plays each turn takes effect 1 additional time.",
+  "descriptionArgs": {}
+}

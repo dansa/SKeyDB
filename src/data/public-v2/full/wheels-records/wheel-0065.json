@@ -1,0 +1,23 @@
+{
+  "id": "wheel-0065",
+  "name": "Delirium",
+  "assetId": "Weapon_Full_P05",
+  "ownerAwakenerName": null,
+  "rarity": "R",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DMG_AMP",
+  "descriptionTemplate": "Team Unique: Reduce the cost of {Rouse} Cards in D-Mark Store by [StateArg1] Black Sigils. the wielder's {Rouse} card gains {Innate}. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ]
+    }
+  },
+  "lore": "Call its name: Erexis.",
+  "lineupToken": "xo"
+}

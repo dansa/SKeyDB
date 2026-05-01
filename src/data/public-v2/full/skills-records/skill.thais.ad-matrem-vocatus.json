@@ -1,0 +1,41 @@
+{
+  "id": "skill.thais.ad-matrem-vocatus",
+  "ownerAwakenerId": "awakener-0048",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Ad Matrem Vocatus",
+  "descriptionTemplate": "Thais gains [Energy:Arg1] Aliemus. {Rouse}: Immediately gain 1 {Scion of Purity}. Whenever a Posse is used, transform an {Embryo} in hand into a {Scion of Purity}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.thais.the-birthing-deep.skill.thais.ad-matrem-vocatus",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.thais.the-birthing-deep",
+      "ownerAwakenerId": "awakener-0048",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Thais",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Thais gains [Energy:Arg1] Aliemus. {Rouse}: Immediately gain 1 {Scion of Purity}. Whenever a Posse is released, transform 1 {Embryo} in hand into 1 {Scion of Purity}. {Ritual of Abundance} additionally places 1 extra copy into your hand."
+      }
+    }
+  ]
+}

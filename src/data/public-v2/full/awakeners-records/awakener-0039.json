@@ -1,0 +1,93 @@
+{
+  "id": "awakener-0039",
+  "numericId": 39,
+  "name": "Pandia",
+  "ingameId": "C09",
+  "lineupToken": "b",
+  "realm": "CHAOS",
+  "rarity": "SSR",
+  "type": "ASSAULT",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "pandia",
+    "iconKey": "pandia"
+  },
+  "baseStatsLv1": {
+    "CON": 32,
+    "ATK": 37,
+    "DEF": 33
+  },
+  "substatsLv1": {
+    "CritRate": 5.8,
+    "CritDamage": 52.4,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.5,
+    "ATK": 1.75,
+    "DEF": 1.55
+  },
+  "substatScaling": {
+    "CritRate": 0.8,
+    "CritDamage": 2.4,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Pandia",
+    "birthday": "28-Oct",
+    "gender": "Female",
+    "height": "4'9.9''",
+    "weight": "86lbs",
+    "gnosticIndex": "21.06",
+    "characteristic": "Counter Enemies    Multiple Hits",
+    "introduction": "Strikes rivals while gaining a large amount of Counter, leaving any would-be retaliators in excruciating pain.",
+    "awakerIntroduction": "Through {Rouse} and Command Cards, you can quickly stack {Counter}. The higher the DMG dealt, the more {Counter} you Obtain.\nThe higher your Current {Counter}, the greater the AoE DMG caused by Exalt. If there is only 1 enemy, Exalt will also deal an additional instance of DMG.\nIn this stage, Pandia will join the battle at Level 50, with Skill Level 5 and 3 Enlighten. Enemies will gain Enhance on their first turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "A tinkling sweet laugh echoes hollowly, and a petite figure appears in dim candlelight. She is both the fear and desire of the condemned, the dew and poison for the dying, bringing sweet pain and romantic madness. The \"snap\" from her ever-present whip on the skin is an evil symphony playing in the darkness.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "Awakening Material: Silver Core #G752a, unearthed from a festering mud heap at the ruins of Londinium's Newgate Prison. Investigator @2 accidentally slipped on a shattered skull while walking through the dim, grimy prison corridor and stumbled upon it by chance.\n\nThe awakening result deviated from expectations—what emerged from the black D-Slime was not some vicious death-row convict or a hulking executioner, but a petite young maiden with a sly smile.",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "\"Be wary of Pandia. Her danger is not reflected by her appearance. She's a demon.\"\nThese are the heartfelt words of countless investigators, born from bitter experience.\nPandia often creates sweet traps, luring other researchers or Awakeners into master-slave Contracts, then mercilessly manipulating their emotions and Souls.\nConversations with Pandia always end fruitlessly. She insists that she is merely spreading joy with her new lovers, and the Contracts are voluntary. After all, she also lets her slaves taste the sweet fruits.\nHowever, there is someone at the school who can counter Pandia. Whenever Sorel passes by Pandia's dormitory, Pandia falls silent, no matter the topic. Rumor has it that Pandia once suffered a major setback while trying to beguile Sorel, but the truth remains a mystery.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "\"O sinners, this is the abyss of Desire, the bottom of Hell. The black hound roars here, the stench spreads here, and the death knell tolls here. You have gathered here due to your indulgent desires and cruel actions, and what awaits you is suffering and death.\"\nPandia once served in Newgate Prison, the most oppressive, gloomy, and sunless filthy corner of Londinium. Once bloodied heavy criminals were shackled and stripped of their dignity, kneeling to her in the Maze-like cell area, kissing her leather boots, humbly calling themselves her servants.\nWhenever a new execution took place, she would summon new death row inmates, asking them to appreciate their own demise. As the executed squirmed in the hemp rope, she liked to sit high up, watching the worst of the worst tremble in fear and desperation.\nBut there was also a \"Hell Cat\" who observed that Pandia came to the iron gate of Newgate Prison countless times, tiptoeing to gaze outside London, as if waiting for a visitor from afar.\n\"In fact, I too can only be, a part of the miserable dark and damp dungeon that I can never escape.\"",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "\"Master, whip me.\"\nThe fire of desire burned in her eyes that should have dried up, melting wax dripping like tears.\nThirst, pain, curses, filth—all the humiliation she craved, all the pleasures she offered, finally arrived upon her in this moment.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Outlanders",
+  "aliases": [
+    "pandia"
+  ],
+  "searchTags": []
+}

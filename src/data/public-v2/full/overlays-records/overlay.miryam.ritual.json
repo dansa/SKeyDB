@@ -1,0 +1,9 @@
+{
+  "id": "overlay.miryam.ritual",
+  "displayName": "Ritual",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Convert up to 3 {Sacrament} in hand into {Obsession}, gaining different additional effects based on the number of conversions.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0032"
+}

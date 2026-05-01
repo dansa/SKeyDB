@@ -1,0 +1,17 @@
+{
+  "id": "derived.daffodil.thousand-mirage-effect-critical-fateweaving",
+  "displayName": "Critical Fateweaving",
+  "descriptionTemplate": "Temporary Crit. Rate +[Arg1]%. In this battle, the base DMG of {Skull Reaver} and \"Thousand Mirage\" +5%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
+  "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "ownerAwakenerId": "awakener-0012",
+  "cost": "0"
+}

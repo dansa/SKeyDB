@@ -1,0 +1,10 @@
+{
+  "id": "skill.kathigu-ra.all-melting-truth",
+  "ownerAwakenerId": "awakener-0027",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "All-Melting Truth",
+  "descriptionTemplate": "Deal 2 additional instances of DMG, and instead randomly apply 5 stacks of {Fiamma} to the Kathigu-Ra's Command Cards in hand.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

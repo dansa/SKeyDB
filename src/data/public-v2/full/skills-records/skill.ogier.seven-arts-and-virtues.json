@@ -1,0 +1,168 @@
+{
+  "id": "skill.ogier.seven-arts-and-virtues",
+  "ownerAwakenerId": "awakener-0038",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Seven Arts and Virtues",
+  "descriptionTemplate": "Dispel self {Fragile} state. Gain [Block:Arg1] shield. Obtain [Power:Arg2] Temporary {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK",
+      "substatBonus": {
+        "substat": "SigilYield",
+        "multiplier": "3",
+        "mode": "scale_base"
+      }
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ogier.deathless-loyalty.skill.ogier.seven-arts-and-virtues",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.ogier.deathless-loyalty",
+      "ownerAwakenerId": "awakener-0038",
+      "operation": "mixed",
+      "ownerAwakenerName": "Ogier",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "36",
+              "43.2",
+              "50.4",
+              "57.6",
+              "64.8",
+              "72"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "ATK",
+            "substatBonus": {
+              "substat": "SigilYield",
+              "multiplier": "3",
+              "mode": "scale_base"
+            }
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "12",
+              "14.4",
+              "16.8",
+              "19.2",
+              "21.6",
+              "24"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          }
+        },
+        "descriptionTemplate": "If team currently has {Fragile} state, dispel it and Gain [Block:Arg3] Shield. Gain [Block:Arg1] Shield. Obtain [Power:Arg2] Temporary {STR}."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.ogier.mercy-for-the-meek.skill.ogier.seven-arts-and-virtues",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.ogier.mercy-for-the-meek",
+      "ownerAwakenerId": "awakener-0038",
+      "operation": "mixed",
+      "ownerAwakenerName": "Ogier",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "36",
+              "43.2",
+              "50.4",
+              "57.6",
+              "64.8",
+              "72"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "ATK",
+            "substatBonus": {
+              "substat": "SigilYield",
+              "multiplier": "3",
+              "mode": "scale_base"
+            }
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "12",
+              "14.4",
+              "16.8",
+              "19.2",
+              "21.6",
+              "24"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          }
+        },
+        "descriptionTemplate": "If team currently has {Fragile} state, dispel it and Gain [Block:Arg3] Shield. Gain [Block:Arg1] Shield. Obtain [Power:Arg2] Temporary {STR}."
+      }
+    },
+    {
+      "id": "upgrade.talent.ogier.formless-refinement.skill.ogier.seven-arts-and-virtues",
+      "upgraderId": "talent.ogier.formless-refinement",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

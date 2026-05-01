@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.helot.the-final-arbiter",
+  "ownerAwakenerId": "awakener-0023",
+  "slot": "AbsoluteAxiom",
+  "displayName": "The Final Arbiter",
+  "descriptionTemplate": "{Rouse} {Vengeance Upon Thee} is enhanced: Upon playing, the Strike Bonus of {Shattering Strike} and the Base DMG of {Lasting Loathe} +50%.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.helot.sacred-half",
+  "ownerAwakenerId": "awakener-0023",
+  "slot": "E2",
+  "displayName": "Sacred Half",
+  "descriptionTemplate": "\"Basic Defense\" grants Helot 25% Temporary Crit. Rate.",
+  "descriptionArgs": {}
+}

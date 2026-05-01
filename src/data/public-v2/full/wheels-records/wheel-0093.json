@@ -1,0 +1,34 @@
+{
+  "id": "wheel-0093",
+  "name": "35mm Magic",
+  "assetId": "Weapon_Full_SR17",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DEATH_RESISTANCE",
+  "descriptionTemplate": "Team Unique: The Shields and {Poison} caused by the wielder increase by [StateArg1]%. Each time {Death Resistance} is triggered, all Awakeners gain [StateArg2]% Temporary Crit. Rate and Crit. DMG.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Francis once told Lily that stories hold magic.\n\nBack then, Francis would sit by the window with a storybook, her lab coat warmed by the early summer sun, giving off a soft, comforting scent.\n\nFrancis spoke in a gentle, unhurried voice, but the long night of surgery had drained her. Before the story could end, she drifted into sleep.\n\nLily never held it against her mother.\n\nShe felt deeply reassured watching her rest against the windowsill, her face tired yet peaceful.\n\n\nNow, film carries stories and magic where books once did, just as new reels replace old ones damaged by children's mishandling, and the laughter of new friends replaces those quiet afternoons, warm yet tinged with ache.\n\nYet those buried memories still glow, like exposed film hidden in some forgotten drawer—unseen, but never dim.",
+  "lineupToken": "xM"
+}

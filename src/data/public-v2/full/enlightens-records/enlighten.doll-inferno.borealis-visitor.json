@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.doll-inferno.borealis-visitor",
+  "ownerAwakenerId": "awakener-0018",
+  "slot": "E1",
+  "displayName": "Borealis Visitor",
+  "descriptionTemplate": "\"{Self-Destruct} Transformation\" applies 1 turn of Vulnerable to all enemies when {Elation} is chosen, and applies 1 turn of Weakness to all enemies when \"Curse\" is chosen.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.karen.maids-decree",
+  "ownerAwakenerId": "awakener-0026",
+  "slot": "E1",
+  "displayName": "Maid's Decree",
+  "descriptionTemplate": "{Silent Fealty} maximum stack count increased to 3.",
+  "descriptionArgs": {}
+}

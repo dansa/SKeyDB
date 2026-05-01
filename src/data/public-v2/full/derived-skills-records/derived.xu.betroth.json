@@ -1,0 +1,29 @@
+{
+  "id": "derived.xu.betroth",
+  "displayName": "Betroth",
+  "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Spellbound} on all enemies. {Poison} inflicted +200%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "6"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "skill.xu.mist-bound-vow",
+  "rootSkillId": "skill.xu.mist-bound-vow",
+  "ownerAwakenerId": "awakener-0054",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.xu.nirvanas-kiss.derived.xu.betroth",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.xu.nirvanas-kiss",
+      "ownerAwakenerId": "awakener-0054",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Xu",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Spellbound} on all enemies. {Poison} inflicted +200%."
+      }
+    }
+  ]
+}

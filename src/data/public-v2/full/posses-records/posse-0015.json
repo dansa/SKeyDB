@@ -1,0 +1,124 @@
+{
+  "id": "posse-0015",
+  "name": "Lakeside Glimpse",
+  "descriptionTemplate": "Inflict [Arg2] {Poison} on the highest HP enemy, and gain [Block:Arg1] Shield. If {Devour} has been triggered this turn, trigger half of that enemy's {Poison} instead of gaining Shield.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.06
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountDamagePower"
+                  },
+                  {
+                    "const": 0.01
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.14
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "accountDamagePower",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "The lake in Cambrian Valley shimmers with crystal-clear waters.\n\nThe clamor of the maze gradually fades away, leaving only you and the newly freed girl to savor this tranquil moment.",
+  "realm": "CARO",
+  "assetId": "posse-icon-15",
+  "imageAssetId": "CG_SD_S_B06_2",
+  "lineupToken": "o"
+}

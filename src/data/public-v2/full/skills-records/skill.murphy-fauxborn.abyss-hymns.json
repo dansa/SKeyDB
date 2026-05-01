@@ -1,0 +1,29 @@
+{
+  "id": "skill.murphy-fauxborn.abyss-hymns",
+  "ownerAwakenerId": "awakener-0035",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Abyss Hymns",
+  "descriptionTemplate": "Gain 2 Arithmetica and draw 2 cards. Suffer {Sacrifice} equal to [Arg1]% Max HP at the start of next turn. {Aftershock}: Remove {Sacrifice} stacks equal to [Float:Arg2]% Max HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "5",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "2.5",
+        "3",
+        "3.5",
+        "4",
+        "4.5",
+        "5"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "0"
+}

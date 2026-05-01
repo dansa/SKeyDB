@@ -1,0 +1,50 @@
+{
+  "id": "skill.aurita.defense",
+  "ownerAwakenerId": "awakener-0005",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Aurita obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.aurita.lets-all-have-fun-together.skill.aurita.defense",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.aurita.lets-all-have-fun-together",
+      "ownerAwakenerId": "awakener-0005",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Aurita",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield, draw 1 Card. Aurita obtains [Energy:Arg2] Aliemus."
+      }
+    }
+  ]
+}

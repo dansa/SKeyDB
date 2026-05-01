@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.divine-realm-aequor-mastery",
+  "displayName": "Divine Realm: Aequor Mastery",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Each point of Realm Mastery increases {Divine Realm: Tranquil Sea} Shield Generation by 0.025% Max HP and increases {Divine Realm: Raging Waves} {Tentacle DMG} by 0.025%. This effect is doubled if the team is entirely {Aequor} and {Chaos} Awakeners.",
+  "descriptionArgs": {}
+}

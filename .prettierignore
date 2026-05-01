@@ -4,6 +4,7 @@
 !tools/react-sidecar/package.json
 !schemas/**/*.json
 !src/data/**/*.json
+src/data/public-v2/**/*.json
 !src/domain/persistence-contract.v1.json
 package-lock.json
 dist

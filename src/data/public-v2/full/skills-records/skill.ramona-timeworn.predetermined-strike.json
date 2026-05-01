@@ -1,0 +1,29 @@
+{
+  "id": "skill.ramona-timeworn.predetermined-strike",
+  "ownerAwakenerId": "awakener-0020",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Predetermined Strike",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG, {STR} is [Arg2]× more effective on {Predetermined Strike}. Each time a Posse is used, the {STR} multiplier +1 for this battle. {Loop}: Choose {Rebirth Tribunal} or {Ode to Tomorrow}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "50",
+        "60",
+        "70",
+        "80",
+        "90",
+        "100"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3"
+}

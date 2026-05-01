@@ -1,0 +1,25 @@
+{
+  "id": "covenant-0020",
+  "name": "Steppenwolf",
+  "assetId": "covenant-icon-022",
+  "lore": "Awoo, awoo!\nMasked and vengeful, the lone wolf roars and springs for the kill.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "DMG Amplification +[Arg1]%",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "4.8",
+          "suffix": "%"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "Wielder's Base DMG dealt +20%, and the {Poison} and {Counter} they deal +10%.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "w"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.corposant.lodestars-whisper",
+  "ownerAwakenerId": "awakener-0011",
+  "slot": "E1",
+  "displayName": "lodestar's Whisper",
+  "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" gain 5 Aliemus, and obtain {Aftershock}: the next Aliemus gained from playing a card +5, stacking up to 2 times.",
+  "descriptionArgs": {}
+}

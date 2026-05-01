@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.doll.beyond-death",
+  "ownerAwakenerId": "awakener-0013",
+  "slot": "E2",
+  "displayName": "Beyond Death",
+  "descriptionTemplate": "{Equivalent Exchange} increases Base HP recovery and discard HP recovery effects by 20%. For each card discarded, an additional amount of HP is recovered and an equal amount of shield is obtained.",
+  "descriptionArgs": {}
+}

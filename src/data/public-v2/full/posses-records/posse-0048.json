@@ -1,0 +1,74 @@
+{
+  "id": "posse-0048",
+  "name": "Year-End Sparks",
+  "descriptionTemplate": "Temporary Crit. Rate +15%, gain 1 Arithmetica. The first time unleashed in this battle, deal [Arg3] {Ancient Embers} to all enemies.",
+  "descriptionArgs": {
+    "Arg3": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountDamagePower"
+                  },
+                  {
+                    "const": 0.01
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.3
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "accountDamagePower",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "Year after year, the blossoms return unchanged;\nSeason after season, I long for our reunion.\n\nThis Spring Festival is so brief, so sweet, like a beautiful dream. My dear, when you stand beside your beloved, hand in hand,\ngazing upon the countless fireworks lighting the sky... pray, do not forget the devotion of this humble heart.",
+  "realm": "OTHER",
+  "assetId": "posse-icon-50",
+  "imageAssetId": "CG_SD_L_SF1_03",
+  "lineupToken": "3"
+}

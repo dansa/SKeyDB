@@ -1,0 +1,51 @@
+{
+  "id": "skill.helot.surviving-impasse",
+  "ownerAwakenerId": "awakener-0023",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Surviving Impasse",
+  "descriptionTemplate": "[{Devour}: Draw [Arg1] \"Strike\" cards, Temporary Hand Limit +2, increase the Base DMG of Helot's \"Strike\" by [Arg3]% for this battle.] Dispel self {Weakness} and Temporary {STR} debuffs. In this turn, \"Strike\" DMG +[Arg2]%, Helot's DMG output +[Arg4]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "80",
+        "84",
+        "88",
+        "92",
+        "96",
+        "100"
+      ],
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "10",
+      "suffix": "%"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "0",
+      "substatBonus": {
+        "substat": "DamageAmplification",
+        "multiplier": "0.3"
+      },
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.talent.helot.pain-sigil.skill.helot.surviving-impasse",
+      "upgraderId": "talent.helot.pain-sigil",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

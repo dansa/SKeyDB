@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.fortress",
+  "displayName": "Fortress",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Each stack reduces DMG taken by 1%.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_046",
+  "textColor": "shield"
+}

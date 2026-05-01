@@ -1,0 +1,71 @@
+{
+  "id": "posse-0011",
+  "name": "Roaring Blood and Sand",
+  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg2]. Gain [Arg3] {STR}. If the Realm includes {Caro}, consume 10% of your HP to increase {Embryo Fusion} by +[Arg4]%.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "fixed",
+      "value": "20"
+    },
+    "Arg3": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.02
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "20",
+      "suffix": "%"
+    }
+  },
+  "lore": "Crimson twilight, swirling sand.\n\nUpon the boundless dunes, a warrior born without hesitation bites into his wrist, returning his blood to the sky and earth.",
+  "realm": "CARO",
+  "assetId": "posse-icon-11",
+  "imageAssetId": "CG_SD_S_B07_4",
+  "lineupToken": "k"
+}

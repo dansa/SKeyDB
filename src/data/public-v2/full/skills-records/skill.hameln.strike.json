@@ -1,0 +1,82 @@
+{
+  "id": "skill.hameln.strike",
+  "ownerAwakenerId": "awakener-0022",
+  "slot": "Strike",
+  "kind": "strike",
+  "displayName": "Strike",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Hameln obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.hameln.mind-concerto.skill.hameln.strike",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.hameln.mind-concerto",
+      "ownerAwakenerId": "awakener-0022",
+      "operation": "mixed",
+      "ownerAwakenerName": "Hameln",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "10",
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Hameln obtains [Energy:Arg2] Aliemus. Obtain [Power:Arg3] Temporary {STR}. If either {Rondino} or {Crescendo} are triggered, the obtained Temporary {STR} is doubled."
+      }
+    }
+  ]
+}

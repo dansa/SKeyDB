@@ -1,0 +1,89 @@
+{
+  "id": "skill.tulu.defense",
+  "ownerAwakenerId": "awakener-0050",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Tulu obtains [Energy:Arg2] Aliemus. {Aftershock}: Command 1 Tentacle to attack.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.tulu.touch-of-revival.skill.tulu.defense",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.tulu.touch-of-revival",
+      "ownerAwakenerId": "awakener-0050",
+      "operation": "mixed",
+      "ownerAwakenerName": "Tulu",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "4",
+              "4.8",
+              "5.6",
+              "6.4",
+              "7.2",
+              "8"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Tulu obtains [Energy:Arg2] Aliemus. Obtain [TentaclePower:Arg3] Temporary {Tentacle DMG} and [Power:Arg3] Temporary {STR}. {Aftershock}: Command 1 Tentacle to attack."
+      }
+    }
+  ]
+}

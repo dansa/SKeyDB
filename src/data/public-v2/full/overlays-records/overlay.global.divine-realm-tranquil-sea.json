@@ -1,0 +1,13 @@
+{
+  "id": "overlay.global.divine-realm-tranquil-sea",
+  "displayName": "Divine Realm: Tranquil Sea",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Further gain [Block:Arg3] Shield. Tentacles will no longer attack at turn end, with a 3-turn cooldown.",
+  "descriptionArgs": {
+    "Arg3": {
+      "kind": "fixed",
+      "value": "X"
+    }
+  }
+}

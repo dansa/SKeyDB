@@ -1,0 +1,81 @@
+{
+  "id": "skill.sorel.strike",
+  "ownerAwakenerId": "awakener-0046",
+  "slot": "Strike",
+  "kind": "strike",
+  "displayName": "Strike",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Sorel obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.sorel.flowing-rill.skill.sorel.strike",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.sorel.flowing-rill",
+      "ownerAwakenerId": "awakener-0046",
+      "operation": "mixed",
+      "ownerAwakenerName": "Sorel",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "10",
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. If current HP is below 50%, deal an additional 1 instance of DMG, {Embryo Fusion} +[Blood:Arg3]%. Sorel obtains [Energy:Arg2] Aliemus."
+      }
+    }
+  ]
+}

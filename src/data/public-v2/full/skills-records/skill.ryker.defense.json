@@ -1,0 +1,50 @@
+{
+  "id": "skill.ryker.defense",
+  "ownerAwakenerId": "awakener-0043",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Ryker obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ryker.certain-gain.skill.ryker.defense",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.ryker.certain-gain",
+      "ownerAwakenerId": "awakener-0043",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Ryker",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Ryker obtains [Energy:Arg2] Aliemus. If Arithmetica is insufficient, consume 3 Black Sigils to play it twice."
+      }
+    }
+  ]
+}

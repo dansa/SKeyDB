@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.uvhash.gift-of-surging-blood",
+  "ownerAwakenerId": "awakener-0051",
+  "slot": "OverExalt",
+  "displayName": "Gift of Surging Blood",
+  "descriptionTemplate": "Fill your hand with {Screech, Blood!} with {Exhaust} and {Fleeting}. Uvhash deals 1 more instance of DMG this turn.",
+  "descriptionArgs": {}
+}

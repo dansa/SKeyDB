@@ -1,0 +1,82 @@
+{
+  "id": "skill.hameln.defense",
+  "ownerAwakenerId": "awakener-0022",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Hameln obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.hameln.mind-concerto.skill.hameln.defense",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.hameln.mind-concerto",
+      "ownerAwakenerId": "awakener-0022",
+      "operation": "mixed",
+      "ownerAwakenerName": "Hameln",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "10",
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Hameln obtains [Energy:Arg2] Aliemus. Obtain [Power:Arg3] Temporary {STR}. If either {Rondino} or {Crescendo} are triggered, the obtained Temporary {STR} is doubled."
+      }
+    }
+  ]
+}

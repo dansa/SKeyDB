@@ -1,0 +1,35 @@
+{
+  "id": "wheel-0009",
+  "name": "The Glutton's Tale",
+  "assetId": "Weapon_Full_B08",
+  "ownerAwakenerId": "awakener-0028",
+  "ownerAwakenerName": "Leigh",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "mainstatKey": "REALM_MASTERY",
+  "descriptionTemplate": "Team Unique: The wielder's Healing effect +[StateArg2]%. At turn start, gain Temporary {STR} and Shield equal to [StateArg1]% of the HP lost last turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "<Bold:January 24>\nI smell terrible.\nToday, while riding home with Teresa the housekeeper, we passed through the South Anpus District.\nIt was not a pleasant experience.\nIt's a dangerous place. Some people have strange wounds, like triangular holes.\nTeresa the housekeeper says it's the punishment from the Arrival for the heretics.\n\n<Bold:February 22>\nI've had a fever for a month.\nFinally, I ate something today. Fresh steak, tender, juicy...\nYes, juicy.\nRed, sweet, and delicious.\nAll the mirrors at home have been removed, and even Bobby doesn't dare look at me.\nHehe. They don't know that at night, I can see my reflection in the window's shadow.\nOn my face, neck, chest... from top to bottom, densely packed,\ngrown with black triangles.\n\n<Bold:March 17>\nMy cornea feels as if covered with a red veil.\nThe world turned the color of blood.\nFather yelled at me from within the blood mist, the first time he spoke to me so loudly.\nHe was close, but his voice was distant. I smelled despair, disgust, and blood.\nDo not take me away, do not...",
+  "lineupToken": "xk"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.doresain.evernights-revel",
+  "ownerAwakenerId": "awakener-0014",
+  "slot": "E3",
+  "displayName": "Evernight's Revel",
+  "descriptionTemplate": "\"Evernight's Revel\" Base DMG further +300%. Each time played, this turn's subsequent\"Evernight's Revel\" enjoy an additional 100% {STR} bonus.",
+  "descriptionArgs": {}
+}

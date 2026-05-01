@@ -1,0 +1,55 @@
+{
+  "id": "wheel-0053",
+  "name": "Fin of Sorrow",
+  "assetId": "Weapon_Full_O04",
+  "ownerAwakenerId": "awakener-0006",
+  "ownerAwakenerName": "Caecus",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "mainstatKey": "SIGIL_YIELD",
+  "descriptionTemplate": "Team Unique: The wielder's Shield and HP Recovery +[StateArg1]% of their CON. The wielder's {Counter} dealt +[StateArg3]%. After playing \"Defense,\" gain {Counter} equal to [StateArg4]% of their DEF. At the start of battle, gain {STR} equal to [StateArg2]% of their CON. If the current realm is {Aequor}, gain additional {Tentacle DMG} of the same amount.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "2.5",
+        "3",
+        "3.5",
+        "4"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg4": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "(The following answers are excerpted from Dr. Clementine's diagnostic manual for reference only)\n\n\n1. Caecus.\n\n2. 16, 17...? Who knows.\nWhy should I care? I'm already dead.\n\n3. A rural fishing village, you wouldn't find its name on any map.\n\n4. I don't want to say.\n\n5. Freak. Ugly. Silly pig. Stupid @1... these are rather common.\n\n6. Shimmering golden catfish face, abbreviated as \"catfish face\".\n\n7. Rainy days.\n\n8. I don't know. When it rains, I walk back and forth on the beach...\nIt's been a few years. I just look in the distance, nothing else.\n\n9. I SAID I DON'T #¥% KNOW, @1 GET LOST!!\n-------\n\n14. Umm... maybe it's because, Uncle Ornn once told me he would come take me \"home\" in a big sailboat when it rained...\n\n15. Yes, he fulfilled his promise...\nI drifted at the bottom of the sea for several days, starving and thirsty, every part of my body in pain...\nThen I saw Uncle Ornn and his white sailboat.\nHis whole body... No, his whole skeleton, to be precise, was hanging on the mast of the sailboat—he also failed his transformation.\nThen, with my last strength, I drifted over and sat on the mast with him.\n\n16. We promised to go home together.",
+  "lineupToken": "e"
+}

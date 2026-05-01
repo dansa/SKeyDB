@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.pursuit",
+  "displayName": "Pursuit",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "A follow-up attack that automatically triggers when its condition is met.",
+  "descriptionArgs": {}
+}

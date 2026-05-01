@@ -1,0 +1,11 @@
+{
+  "id": "posse-0044",
+  "name": "Wayward Ship",
+  "descriptionTemplate": "Gain 1 Arithmetica, and apply 5 stacks of {Birth Ritual} to all enemies. If \"Murphy: Fauxborn\" is in the team, draw 1 {Waltz of Lemuria}.",
+  "descriptionArgs": {},
+  "lore": "The Apostle of the Sea kneels devoutly at the Maiden's feet, offering a kiss of fidelity—she has traveled too far on the wrong course.",
+  "realm": "AEQUOR",
+  "assetId": "posse-icon-46",
+  "imageAssetId": "CG_C204_002",
+  "lineupToken": "X"
+}

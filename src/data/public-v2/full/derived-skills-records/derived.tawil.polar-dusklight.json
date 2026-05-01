@@ -1,0 +1,11 @@
+{
+  "id": "derived.tawil.polar-dusklight",
+  "displayName": "Polar Dusklight",
+  "descriptionTemplate": "Choose 1 card from the Draw Pile or Discard Pile and add it to your hand, reducing its Arithmetica Cost to 0.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "derived.tawil.memories",
+  "rootSkillId": "skill.tawil.pinions-of-time",
+  "ownerAwakenerId": "awakener-0047",
+  "cost": "0"
+}

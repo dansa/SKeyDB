@@ -1,0 +1,78 @@
+{
+  "id": "posse-0030",
+  "name": "Plague of Illusions",
+  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg1], and inflict [Arg2] {Poison} on all enemies. For each 1% of HP the target is missing, trigger 1% of their {Poison}, up to 50%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "20"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountDamagePower"
+                  },
+                  {
+                    "const": 0.01
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.045
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "accountDamagePower",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "The Void is a plague brought by the Hidden Truth, erasing all colors and painting everything gray.\nDo not look directly into those mad Eyes; be careful, she may have already infected you.",
+  "realm": "CHAOS",
+  "assetId": "posse-icon-30",
+  "imageAssetId": "SScene_DollLab",
+  "lineupToken": "J"
+}

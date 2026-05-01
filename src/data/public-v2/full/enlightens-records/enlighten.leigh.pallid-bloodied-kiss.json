@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.leigh.pallid-bloodied-kiss",
+  "ownerAwakenerId": "awakener-0028",
+  "slot": "OverExalt",
+  "displayName": "Pallid Bloodied Kiss",
+  "descriptionTemplate": "Obtain 100% more {STR}, and all Awakener gain a 10% increase in Crit. Rate and Crit. DMG.",
+  "descriptionArgs": {}
+}

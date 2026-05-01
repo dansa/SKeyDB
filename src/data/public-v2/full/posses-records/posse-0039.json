@@ -1,0 +1,21 @@
+{
+  "id": "posse-0039",
+  "name": "Sacred Bleeding Heart",
+  "descriptionTemplate": "Draw 1 card and reduce its Arithmetica Cost by 1. If a Command Card is drawn, its owner gains [Arg1]% Temporary Crit. DMG. If Pollux is in the team, gain [Arg2] {plural:[Arg2]|stack|stacks} of {Sin Mark}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "lore": "He finally recovered all his memories and strength, but at the cost of everything he wanted to protect.\nHe has come too late.\nOnly tears of blood filled with hatred and remorse burned in his trembling heart.",
+  "realm": "ULTRA",
+  "assetId": "posse-icon-41",
+  "imageAssetId": "CG_SD_S_D14_1",
+  "lineupToken": "V"
+}

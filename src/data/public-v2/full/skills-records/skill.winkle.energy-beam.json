@@ -1,0 +1,61 @@
+{
+  "id": "skill.winkle.energy-beam",
+  "ownerAwakenerId": "awakener-0053",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Energy Beam",
+  "descriptionTemplate": "Remove all enemy {Barrier} and deal [Damage:Arg1] DMG and 1 turn of {Weakness}. Gain [Arg3] Keyflare. {Leap}: Instead, obtains [Energy:Arg2] Aliemus",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20"
+      ]
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "150",
+        "160",
+        "170",
+        "180",
+        "190",
+        "200"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.winkle.dread-of-the-darkness.skill.winkle.energy-beam",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.winkle.dread-of-the-darkness",
+      "ownerAwakenerId": "awakener-0053",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Winkle",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Remove all enemy {Barrier} and deal [Damage:Arg1] DMG, inflict 1 turn of {Weakness}. Gain [Arg3] Keyflare. {Leap}: Instead obtains [Energy:Arg2] Aliemus. Dealt DMG enjoys a 25% {Counter} bonus."
+      }
+    }
+  ]
+}

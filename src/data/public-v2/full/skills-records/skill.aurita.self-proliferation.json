@@ -1,0 +1,45 @@
+{
+  "id": "skill.aurita.self-proliferation",
+  "ownerAwakenerId": "awakener-0005",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Self-Proliferation",
+  "descriptionTemplate": "Aurita gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, and add 2 {Gland Division} into hand. When Aurita deals DMG, have [Arg2] Tentacles attack once.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.aurita.sparkling-friendship.skill.aurita.self-proliferation",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.aurita.sparkling-friendship",
+      "ownerAwakenerId": "awakener-0005",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Aurita",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Aurita gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, and add 2 {Gland Division} into hand. When Aurita deals DMG, have [Arg2] Tentacles attack once. Aurita's \"Strike\" deals {Pierce DMG} and attack +2 times."
+      }
+    }
+  ]
+}

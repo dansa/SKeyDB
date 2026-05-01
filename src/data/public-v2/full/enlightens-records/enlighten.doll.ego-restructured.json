@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.doll.ego-restructured",
+  "ownerAwakenerId": "awakener-0013",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Ego Restructured",
+  "descriptionTemplate": "{Rouse} {Flesh Detached} is enhanced: Doll's \"Strike\" and \"Defense\" now also generate Shield.",
+  "descriptionArgs": {}
+}

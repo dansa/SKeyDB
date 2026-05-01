@@ -1,0 +1,25 @@
+{
+  "id": "covenant-0014",
+  "name": "April Tribute",
+  "assetId": "covenant-icon-016",
+  "lore": "Laid to rest in the spring of 18@2; the headstones stand as a chorus of silent hymns.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "Crit. DMG +[Arg1]%",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "7.2",
+          "suffix": "%"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "Team Unique: At turn start, if the enemies' total HP is above 75%, the wielder's Temporary Crit. Rate and Crit. DMG increase by 35%.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "b"
+}

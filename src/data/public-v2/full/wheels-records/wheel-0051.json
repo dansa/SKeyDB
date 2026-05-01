@@ -1,0 +1,54 @@
+{
+  "id": "wheel-0051",
+  "name": "Shrouded Birth",
+  "assetId": "Weapon_Full_O02",
+  "ownerAwakenerId": "awakener-0034",
+  "ownerAwakenerName": "Murphy",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "mainstatKey": "KEYFLARE_REGEN",
+  "descriptionTemplate": "Team Unique: The wielder's Shield Generation +[StateArg1]%. When generating Shield, all allies gain Temporary Crit. Rate of [StateArg3]% and Keyflare from the wielder's Keyflare Regen by [StateArg4]%, up to 2 times per turn. If the current realm is {Aequor}, each time a Tentacle attacks, the wielder gains 1 point of Aliemus, up to [StateArg2] per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ]
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "suffix": "%"
+    },
+    "StateArg4": {
+      "kind": "scaling",
+      "values": [
+        "90",
+        "110",
+        "130",
+        "150"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Mother. Mother.\nMurphy has lost most of the memories related to her.\nIt is said that her dying mother protected her, blood choking in her throat.\nThen people rushed forward, rudely separating them.\nIn that moment, Murphy saw her mother's face. That face was frantic, yet very beautiful.\nAfter she began to remember, she had a new \"mother\".\nGentle and cautious, she would fulfill all of Murphy's unreasonable demands while maintaining a distance that was neither too far nor too close.\nJust as Murphy thought their relationship would continue like this forever, like Miryam's unchanging expression, she was lifted high upon the dark Throne and saw the glowing \"Egg\" in her dreams.\nIt sparkled in the dark night, like an eye or a star. Ethereal songs surrounded the sanctuary:\n<Italic:From the @1 of her daughter, the God descends @1...>\nShe was given a great mission, both related and unrelated to her: to become the mother who brings the God back to life.\nHow strange. She still does not understand what a mother is, what a daughter is, yet she must begin to learn to be a \"mother\".\nMurphy recalled that frantic, beautiful face, and the sweet yet bitter taste on her tongue.\nThat beautiful person does not want me to fall into the grave like this, right?",
+  "lineupToken": "m"
+}

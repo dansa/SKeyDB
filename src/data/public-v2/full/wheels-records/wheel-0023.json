@@ -1,0 +1,45 @@
+{
+  "id": "wheel-0023",
+  "name": "Drifting in Desire",
+  "assetId": "Weapon_Full_C09",
+  "ownerAwakenerId": "awakener-0039",
+  "ownerAwakenerName": "Pandia",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "CRIT_RATE",
+  "descriptionTemplate": "Team Unique: The wielder's {Counter} +[StateArg3]%. For each attack received, gain Temporary {STR} equal to [StateArg1]% of the wielder's ATK. After the wielder uses Exalt, gain {Counter} equal to [StateArg2]% of the wielder's ATK.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "13",
+        "17",
+        "21",
+        "25"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Tap, tap, tap.\nFootsteps approach. A gentleman in a top hat walks through the ruins, standing before a dying guard.\nGentleman: What are you doing here?\n\n(The gentleman suffers from severe stuttering, while the guard likes to beat around the bush. For your reading convenience, only the key points of the conversation are recorded.)\n\nGuard: I'm guarding the prison.\nThe gentleman looked around the deserted field and the slowly collapsing ruins tainted with dissolution.\nGentleman: But there is no prison here, nor prisoners. Your kingdom no longer exists.\nGuard: I'm guarding the prison.\nGentleman: Why?\nThe guard lifted her head, a childlike face filled with confusion and determination.\nGuard: I don't know... I want to go home.\nGuard: I'm guarding the prison for that lord. If the lord is pleased, I can go home.\nShe doesn't even know who that lord is or why she should guard it.\nThe gentleman doesn't ask further, as if it were the most natural thing.\nGentleman: What is your hometown like?\nGuard: It's only winter and night there, with endless forests and seas.\nGentleman: Doesn't sound livable.\nGuard: I hate daylight. Do you see? I'm made of wax. If I touch the sun, I will disappear.\nGuard: So I hide here, unable to go home by myself.\nThe gentleman nods thoughtfully. Suddenly, he becomes excited.\nGentleman: What a coincidence! You're made of wax, and I happen to be a wax sculptor.\nGentleman: Let's make a pact—I can let you walk in daylight and help you find your way home. In return, you will be my assistant.\nGuard: Assistant, what's that?\nGentleman: You can guard my wax museum for me. It's different from this prison; it's art, and art never collapses.\nGuard: Is art that powerful?\nThe gentleman laughs happily.\nGentleman: Yes, it is that powerful.\n\nAt the end of the story, the guard followed the gentleman muddleheadedly, just as she had come to this prison muddleheadedly.\nShe has always been someone who goes with the flow.",
+  "lineupToken": "xd"
+}

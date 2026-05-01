@@ -1,0 +1,45 @@
+{
+  "id": "wheel-0056",
+  "name": "Power of the Pious",
+  "assetId": "Weapon_Full_O07",
+  "ownerAwakenerId": "awakener-0032",
+  "ownerAwakenerName": "Miryam",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "mainstatKey": "CRIT_DMG",
+  "descriptionTemplate": "Team Unique: The wielder's Aliemus Generation +[StateArg1]%, and {Poison} +[StateArg2]%. After the wielder deals DMG, all Awakeners gain a Temporary Crit. DMG increase equal to [StateArg3]% of the wielder's Crit. DMG, effective up to 1 time per turn. If the current realm is {Aequor}, at the start of combat, both the Tentacle limit and the number of Tentacles increase by 1.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "O Master of Lemuria, hear my prayer.\n\nGrant me your prophecy, bestow your insight,\n\nSo I may restore your kingdom.\n\nIn this faithless land, upon this ice-field ringed by sea,\n\nErect your pillars, and build your temple.\n\n\nO Master of Abyss, receive these offerings.\n\nPure flesh from a full-moon lamb, a strong heart from a grown bull,\n\nSharp eyes from a soaring eagle, and hard bones from a cruising whale.\n\nLapis is your throne, gold your crown,\n\nGrant me your dream, tell me your divine words,\n\nSo I may restore your form.\n\nIn the abyss under the ice, in the realm beneath the waves,\n\nI offer the mother born at the right time.\n\n\nO All-knowing King of Lemuria, please answer my prayer.\n\nCenturies have passed since you descended into your long slumber.\n\nIn your name I act, and your glory I proclaim, never ceasing.\n\nMy faith is firm, my heart devout.\n\nYou are the only Godking, the embodiment of immortality.\n\nMay you end my wait, return to the world, and let me hear your words of wisdom.",
+  "lineupToken": "xK"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0046",
+  "name": "Countdown Moment",
+  "assetId": "Weapon_Full_JP04",
+  "ownerAwakenerName": null,
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "KEYFLARE_REGEN",
+  "descriptionTemplate": "Team Unique: At the start of exploration, add 1 card \"5: Countdown\" to the deck. \"5: Countdown\": Draw 1 card after played, shuffle the next \"Countdown\" into the Discard Pile, {Destroy}. \"0: Countdown\": Draw 3 cards, gain 3 Arithmetica, and have a [StateArg1]% chance to shuffle \"5: Countdown\" into the Discard Pile, {Retain}, {Destroy}.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "40",
+        "60",
+        "80",
+        "100"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "In the new year, you decide to hold an unprecedented ceremony to solemnly welcome the passage of time.\nTo this end, you have been preparing for a long time. You light candles, letting their warm glow illuminate the winter night on campus; you set up a high platform in the center of the training ground, covered with a deep red velvet cloth adorned with intricate patterns. you even cut countless colorful ribbons wrapped in gold foil and silver gauze by hand, hoping that this countdown moment transcends the melancholy of farewell, transforming into an everlasting mark embraced by the year-end and the new year.\nBut... something is still missing.\nYou walk deep into the old warehouse, brushing away layers of dust, and finally find that antique clock. Its shell is worn, the hands have long since broken and fallen due to the erosion of time, and it is clearly unusable.\nJust when you are at your wits end, Thais appears, quietly standing behind a brand new clock.\nThat clock feels incredibly familiar. She still smiles playfully, but there is a certain gentle certainty hidden in her eyes.\n\"What do you think? This clock, paired with my dance, will surely be the grandest ceremony.\"\n\"This... can't be Tavi's clock, can it?\"\n\"Oh, you know she has been all alone in the pool, it's too dull for her.\"\n\"Letting her join our ceremony and feel my love might spark her interest a bit~\"\nMidnight quietly arrives, and Thais stands before the giant clock, like a gft wrapped by time itself.\nThe ribbons swirl around her body like unburned fireworks, creating golden-red and silver-blue ripples in the flowing light. The plump bow at her waist is the last knot tied by the new year—she is the grandest gift of the year-end, wrapped in joyful satin, waiting to be unsealed by time.\nHer arms slowly rise, her fingertips tracing the light and shadow, ultimately pointing to the hanging clock behind her. Twelve numbers connect in a halo on the clock face, dancing at her fingertips.\nThe congregation gazes at Thais's exuberant dance, seemingly infected by the joyous atmostphere, beginning to sway in rhythm with her.\nAnd as the chime falls, she lightly taps with her fingertip, touching the beginning of eternity. The bound gift opens its arms, transforming all the celebration stored at year-end into a shower of blessings that scatter across the world.",
+  "lineupToken": "yT"
+}

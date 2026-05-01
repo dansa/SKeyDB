@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.liz.eternal-flames",
+  "ownerAwakenerId": "awakener-0030",
+  "slot": "E2",
+  "displayName": "Eternal Flames",
+  "descriptionTemplate": "\"Basic Strike\" gains {Leap}: Applies 50% DMG as {Poison}; \"Basic Defense\" gains {Leap}: Triggers 25% {Poison} on all enemies.",
+  "descriptionArgs": {}
+}

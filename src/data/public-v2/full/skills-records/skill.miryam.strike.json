@@ -1,0 +1,105 @@
+{
+  "id": "skill.miryam.strike",
+  "ownerAwakenerId": "awakener-0032",
+  "slot": "Strike",
+  "kind": "strike",
+  "displayName": "Strike",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG, which enjoys a 50% {Tentacle DMG} bonus. Miryam obtains [Energy:Arg2] Aliemus. {Ritual}: Final DMG +[Arg4]%/[Arg5]%/[Arg6]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "100",
+      "suffix": "%"
+    },
+    "Arg5": {
+      "kind": "fixed",
+      "value": "250",
+      "suffix": "%"
+    },
+    "Arg6": {
+      "kind": "fixed",
+      "value": "500",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.miryam.vanitys-collapse.skill.miryam.strike",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.miryam.vanitys-collapse",
+      "ownerAwakenerId": "awakener-0032",
+      "operation": "override_args",
+      "ownerAwakenerName": "Miryam",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "130",
+            "suffix": "%"
+          },
+          "Arg5": {
+            "kind": "fixed",
+            "value": "325",
+            "suffix": "%"
+          },
+          "Arg6": {
+            "kind": "fixed",
+            "value": "650",
+            "suffix": "%"
+          }
+        }
+      }
+    }
+  ]
+}

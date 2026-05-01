@@ -1,0 +1,11 @@
+{
+  "id": "derived.daffodil.thousand-mirage-effect-hpr-finesse",
+  "displayName": "Hpr. Finesse",
+  "descriptionTemplate": "Draw 2 cards.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
+  "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "ownerAwakenerId": "awakener-0012",
+  "cost": "0"
+}

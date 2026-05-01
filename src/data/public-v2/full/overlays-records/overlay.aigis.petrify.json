@@ -1,0 +1,11 @@
+{
+  "id": "overlay.aigis.petrify",
+  "displayName": "Petrify",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Cannot act for 1 turn. Petrified enemies can't be Petrified again.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0003",
+  "iconId": "Battle_Card_Buff_023",
+  "textColor": "misc"
+}

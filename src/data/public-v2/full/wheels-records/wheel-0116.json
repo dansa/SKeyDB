@@ -1,0 +1,34 @@
+{
+  "id": "wheel-0116",
+  "name": "Impending Sun",
+  "assetId": "Weapon_Full_SR43",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_DMG",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG is boosted by [StateArg1]%. After playing 5 Command Cards from the wielder, the wielder gains [StateArg2]% Temporary Crit. Rate. This effect can only trigger once per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "The sun emits over 300 sextillion joules of energy every second, a tiny fraction of which travels over 14.7 billion meters through space in the form of light and heat toward Earth.\n\nThis energy sustains all life on Earth, allowing all species across its complex, vast, and chaotic three domains to proliferate and evolve.\n\n\n\n\"This is the truth of the world, unchanging under any circumstances.\"\n\nHe constantly reminded himself of this to maintain his mental stability.\n\n\"But why... is it so hot, so bright?\"\n\nBecause that which lay 14.7 billion meters away was slowly filling his pupils.\n\nLight and heat radiated from his eyes, burning every inch of his noble body.\n\n\"I understand now, I understand now, I understand why light takes 8 minutes and 20 seconds to reach Earth.\"\n\n\"Because we cannot afford the cost of facing the light directly.\"\n\nAs he accepted everything, he began to laugh out loud.\n\n\"So it turns out I was closer to the Sun than Icarus ever was.\"",
+  "lineupToken": "yE"
+}

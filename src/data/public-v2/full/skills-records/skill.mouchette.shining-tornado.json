@@ -1,0 +1,52 @@
+{
+  "id": "skill.mouchette.shining-tornado",
+  "ownerAwakenerId": "awakener-0033",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Shining☆Tornado",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. This turn, all Awakeners' \"Strike\" DMG +[Arg3].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "250",
+        "300",
+        "350",
+        "400",
+        "450",
+        "500"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "125",
+        "150",
+        "175",
+        "200",
+        "225",
+        "250"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.mouchette.cleave-out-a-future.skill.mouchette.shining-tornado",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.mouchette.cleave-out-a-future",
+      "ownerAwakenerId": "awakener-0033",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Mouchette",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. This turn, Mouchette's hits count +1, and all Awakeners' \"Strike\" DMG +[Arg3]."
+      }
+    }
+  ]
+}

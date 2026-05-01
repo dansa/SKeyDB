@@ -1,0 +1,12 @@
+{
+  "id": "overlay.global.str",
+  "displayName": "STR",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Strength"
+  ],
+  "descriptionTemplate": "Increase Active DMG dealt.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_021",
+  "textColor": "heal"
+}

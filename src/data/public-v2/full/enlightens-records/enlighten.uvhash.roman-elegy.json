@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.uvhash.roman-elegy",
+  "ownerAwakenerId": "awakener-0051",
+  "slot": "E2",
+  "displayName": "Roman Elegy",
+  "descriptionTemplate": "{Boil, Blood!} Base DMG +33%, and deals 2 additional instances of DMG when HP is below 25%.",
+  "descriptionArgs": {}
+}

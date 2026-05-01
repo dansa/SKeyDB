@@ -1,0 +1,74 @@
+{
+  "id": "relic-0008",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Castor",
+  "assetId": "Icon_Creation_Unique_D11",
+  "ownerAwakenerId": "awakener-0008",
+  "ownerAwakenerName": "Castor",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "descriptionTemplate": "At turn start, Castor gains [Arg1] Aliemus. Place 2 {Onyx Plume} into hand at the start of battle. Gain [Arg2] Temporary {STR} when {Onyx Plume} is played for the first time each turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "ceil",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.075
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": null
+}

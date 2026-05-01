@@ -1,0 +1,11 @@
+{
+  "id": "posse-0031",
+  "name": "Blessing of the Stars",
+  "descriptionTemplate": "Choose either \"{Slumber}\" or \"{Arouse}\".",
+  "descriptionArgs": {},
+  "lore": "He chose that Crown, and that Crown also chose him.\nThe soul of the new king resonated with the ancient god in an instant. An overwhelming shadow appeared behind him, bringing eternal peace to the nation.",
+  "realm": "AEQUOR",
+  "assetId": "posse-icon-31",
+  "imageAssetId": "CG_SD_S_O01_3",
+  "lineupToken": "K"
+}

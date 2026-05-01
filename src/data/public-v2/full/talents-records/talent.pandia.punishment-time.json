@@ -1,0 +1,8 @@
+{
+  "id": "talent.pandia.punishment-time",
+  "ownerAwakenerId": "awakener-0039",
+  "displayName": "Punishment Time",
+  "family": "passive",
+  "descriptionTemplate": "For every 1% Crit. Rate provided by Pandia or her Wheel of Destiny and Covenant, the Permanent {Counter} she produces +0.2%.",
+  "descriptionArgs": {}
+}

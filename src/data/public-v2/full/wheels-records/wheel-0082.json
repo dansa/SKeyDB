@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0082",
+  "name": "Adventurer's Pack",
+  "assetId": "Weapon_Full_SR06",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "SIGIL_YIELD",
+  "descriptionTemplate": "Team Unique: After playing the wielder's \"Defense,\" gain Temporary {STR} equal to [StateArg1]% the wielder's ATK.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "12",
+        "15",
+        "18"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "No one is born a captain; at least Elton wasn't.\n\nBefore becoming a captain, he drifted between the navy and merchant ships, nearly turning pirate more than once.\n\nFortunately, he finally settled aboard an exploration vessel.\nThe ship sailed around the polar continent, each landing a new adventure.\n\nHis job was to carry the gears for the frail scientists.\nHe was proud of it: what he carried might be the keys to changing the world.\nAnd the scientists might be the ones to rewrite history.\n\nThat was what Elton believed—until an ice storm trapped them in a cave, and until a band of cultists attacked them under the cover of night.",
+  "lineupToken": "xF"
+}

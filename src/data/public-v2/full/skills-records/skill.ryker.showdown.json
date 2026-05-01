@@ -1,0 +1,88 @@
+{
+  "id": "skill.ryker.showdown",
+  "ownerAwakenerId": "awakener-0043",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Showdown",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG 1~[Arg4] {plural:[Arg4]|time|times}, gaining [Energy:Arg2] Aliemus. If it deals 6 or more instances of DMG, obtain 1 {Unexpected Gain} with {Exhaust} and 0 Arithmetica Cost.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "6"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ryker.fortunes-boon.skill.ryker.showdown",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.ryker.fortunes-boon",
+      "ownerAwakenerId": "awakener-0043",
+      "operation": "mixed",
+      "ownerAwakenerName": "Ryker",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15"
+            ]
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "3"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "6"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG 1~[Arg4] {plural:[Arg4]|time|times}, obtains [Energy:Arg2] Aliemus, and for each Crit. Hit, gain an additional [Arg3] Aliemus. If 6 or more instances of DMG are dealt, obtain 1 {Unexpected Gain} with {Exhaust} and 0 Arithmetica Cost."
+      }
+    }
+  ]
+}

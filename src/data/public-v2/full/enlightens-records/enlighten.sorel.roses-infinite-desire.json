@@ -1,0 +1,13 @@
+{
+  "id": "enlighten.sorel.roses-infinite-desire",
+  "ownerAwakenerId": "awakener-0046",
+  "slot": "OverExalt",
+  "displayName": "Rose's Infinite Desire",
+  "descriptionTemplate": "Makes the next 3 Command Cards of Sorel take effect 2 times. Each time this Exalt deals DMG, at turn end, it heals HP equal to CON [Arg1]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2.5"
+    }
+  }
+}

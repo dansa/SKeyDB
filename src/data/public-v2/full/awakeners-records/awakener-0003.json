@@ -1,0 +1,96 @@
+{
+  "id": "awakener-0003",
+  "numericId": 3,
+  "name": "Aigis",
+  "ingameId": "B03",
+  "lineupToken": "J",
+  "realm": "CARO",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "aigis",
+    "iconKey": "aigis"
+  },
+  "baseStatsLv1": {
+    "CON": 27,
+    "ATK": 32,
+    "DEF": 29
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 17.4,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0.8,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.25,
+    "ATK": 1.5,
+    "DEF": 1.35
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 2.4,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0.8,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Aigis",
+    "birthday": "27-Jun",
+    "gender": "Female",
+    "height": "4'6''",
+    "weight": "70lbs",
+    "gnosticIndex": "25.8",
+    "characteristic": "Petrify Control    Vulnerable Enemy",
+    "introduction": "Petrifies enemies with her eye, rendering them unable to act and making them fragile.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Do not approach, do not touch, do not look directly, do not pity; there are beings in this world that are meant to dwell alone in the darkness.\nThough it is not her intention, if you gaze affectionately into her eyes because of her frail figure, timid voice, or childlike clothing, you will fall into eternal stillness and silence.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "According to the \"Cataclysm Event Record III,\" the Keeper brought back this piece of Silver Core from the Londinium Orphanage. Accompanying the Silver Core was a tiny, patch-covered teddy bear.\nThis Silver weighs about 2.1 grams, is slender and smooth, resembling a teardrop. Those who come into direct contact with the Silver will fall into a Stasis State, maintaining the posture of touching the Silver until Awakened by someone else. To prevent accidental contact, Researcher Doll kept this Silver in a closed glass orb and replaced the teddy bear's eyes.\n\"It looks as if it has been crying every day.\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Jenkin pressed against the crack of the door to the counseling room, straining to listen.\nSylvia's voice was gentle and warm, while Aigis's sounded like a mosquito's whimper, intermittent and hard to decipher.\n\"Aigis, you need to learn to say no.\"\n\"But I... don't want to be a burden... I want to... repay...\"\n\"Aigis hasn't been a burden to anyone. You see, Keeper allows you to move freely in school without any restrictions, isn't that a sign of trust?\"\n\"You promised me not to casually agree to unreasonable requests from others. Especially from Caraboo, helping her with her confinement and cleaning will only cause trouble for our Keeper, okay?\"\n\"Jenkin, how did you get in here?\"\n\"J-Jenkin! I... I agreed to Caraboo myself! C-Calm down!\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "On a clear morning twelve years ago, in the eastern district of Londinium, a baby girl tightly wrapped in a scarf appeared at the door of the poorhouse. This was not uncommon in the paranoid eastern district, but what angered young Sarah was that, in the harsh winter, the heartless abandoner had also wrapped the baby girl's mouth and nose in the scarf. Moreover, this baby girl neither cried nor made a fuss; if not for those clear and bright eyes blinking a few times under the impact, Sarah would have almost thought she was dead.\nJust as Sarah thought she would become another \"sister\" to a well-behaved child, the then-director sent this child, for the price of one Leo Fang, to the tailor of the eastern district market.\n\"We can't afford to raise that child. Becoming a tailor's daughter, although she will suffer a bit, at least she can learn a skill.\"\nWhat can a child not even two months old know about \"skills\"?\nFeeling her empty stomach, Sarah did not refute the director's decision.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Fearful of light, fearful of gaze, fearful of love, fearful of embrace.\nDesiring light, desiring gaze, desiring love, desiring embrace.\nIf only I could avoid harming others, if only I wouldn't trouble others, if only I were as smart as Tiuog, if only I were as brave as Jenkin...\nThen I wouldn't be scorched by the blazing sun, nor despised by others, right?\nWith unfounded worries, the doll cautiously reached out its pale, almost translucent hand from the shadow into the sunlight.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Hybrid",
+  "aliases": [
+    "aigis"
+  ],
+  "searchTags": [
+    "Draw",
+    "Keyflare",
+    "Stun"
+  ]
+}

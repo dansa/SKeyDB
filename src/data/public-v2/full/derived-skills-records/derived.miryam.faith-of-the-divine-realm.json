@@ -1,0 +1,23 @@
+{
+  "id": "derived.miryam.faith-of-the-divine-realm",
+  "displayName": "Faith of the Divine Realm",
+  "descriptionTemplate": "Choose an Awakener to gain [Arg1] Aliemus. {Weakness} and {Vulnerable} all enemies for 1 turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "25"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "derivedFromId": "derived.miryam.divine-realms-illusion",
+  "rootSkillId": "skill.miryam.testament-of-faith",
+  "ownerAwakenerId": "awakener-0032",
+  "cost": "0"
+}

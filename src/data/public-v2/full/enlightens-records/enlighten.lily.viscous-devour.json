@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.lily.viscous-devour",
+  "ownerAwakenerId": "awakener-0029",
+  "slot": "E2",
+  "displayName": "Viscous Devour",
+  "descriptionTemplate": "{Strike to Protect} {Prepare 1} upgraded to {Prepare 2}, Base DMG and Crit. Rate increased by 20%.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.ryker.fortunes-boon",
+  "ownerAwakenerId": "awakener-0043",
+  "slot": "E1",
+  "displayName": "Fortune's Boon",
+  "descriptionTemplate": "{Unexpected Gain} will also reduce the Arithmetica Cost of the chosen Card by an additional 1 if a {Critical Hit} occurs. {Showdown} grants Ryker an additional 3 Aliemus for every {Critical Hit}.",
+  "descriptionArgs": {}
+}

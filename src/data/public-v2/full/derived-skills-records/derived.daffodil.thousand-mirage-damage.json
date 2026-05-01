@@ -1,0 +1,36 @@
+{
+  "id": "derived.daffodil.thousand-mirage-damage",
+  "displayName": "Thousand Mirage",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. This DMG receives a [Arg2]x {STR} bonus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "150",
+        "180",
+        "210",
+        "240",
+        "270",
+        "300"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "derivedFromId": "derived.daffodil.thousand-mirage-base-cards",
+  "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "ownerAwakenerId": "awakener-0012",
+  "cost": "4"
+}

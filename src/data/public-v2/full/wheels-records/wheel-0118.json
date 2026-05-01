@@ -1,0 +1,33 @@
+{
+  "id": "wheel-0118",
+  "name": "Magnolia's Lure",
+  "assetId": "Weapon_Full_SR45",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DMG_AMP",
+  "descriptionTemplate": "Team Unique: The Fixed {Poison} & {Poison} Trigger effects caused by the wielder +[StateArg1]%. The wielder gains [StateArg2] Aliemus the first time they trigger {Resonance} each turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ]
+    }
+  },
+  "lore": "That was the second year after my father and I had moved to Shanghai. Evelyne's tearful complaints in her letter left me distraught, and I had already resolved to part ways with her.\n\nShanghai is a land draped in silk and ebony, where every vulture has sensed the chaos stirring in its slumber. Here, paper notes trade for their weight in gold, and whoever commands the shipping routes can move mountains of wealth at a pittance.\n\nYet Evelyne—perhaps driven by the neurosis of her obscure and tainted lineage—clung to her so-called ancestral message. She believed that in the East, sinister deities are worshipped by Their offshoots; that like deep-sea fish, They dangle swaying, delicious bait to lure prey into a slow, imperceptible feast.\n\nShe was wrong. Shanghai bears not the faintest tang of the brine. There is only the pervasive scent of white magnolia—so cloyingly sweet it drowns the senses in equal parts rapture and terror. The very magnolias that ensnared both my father and me.\n\n...Then, I saw her. The instant the woman named \"Xu\" appeared, I knew I could never tear myself away from this ancient soil.\n\nShe made me want to pull her close; she made me want to make her mine; she made me want to @3. She made made MADE Me mE want WANT wAnTwantWANT to SLICE HER, CUT HER, HACK HER forever forEVERFOREVERforever... @2@3@2!!\n\nAh... Why am I here? What am I supposed to take away? Who... am I? It no longer matters. She invited me, and now I sit at the table in that grand mansion.\n\nMy father—as mad now as I—wears a docile smile. A dazzling array of exquisite side dishes fills the table, though the lidded metal tray seems... out of place.\n\nXu sits in the sunset, a golden halo rimming her silhouette against the dying light. Slowly, she lowers her black fan. \n\nShe looks like Evelyne, like my childhood playmate, like a fleeting lover from some hazy romance... like my mother. Her face is as serene and exquisitely sculpted as a gilded temple idol.\n\nI hear no slurping. I smell no copper tang of blood from my father. I only stare, entranced, at that face—then at the pale, slender hand that reaches out, lifts the lid, and selects a choice piece of meat. With two thin wooden sticks, she pinches it up, raising it toward me.\n\nShe calls to me. The rendered animal fat drips onto the corner of my mouth. \"Young sir,\" she says, \"you should eat something.\"\n\nObedient and numb, I open my mouth. The magnolia is already in bloom; it rustles softly, swaying down toward me. \n\n—<Italic:Journal of the Nameless>.",
+  "lineupToken": "yW"
+}

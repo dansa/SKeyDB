@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.thais.seed-of-chaos",
+  "ownerAwakenerId": "awakener-0048",
+  "slot": "E2",
+  "displayName": "Seed of Chaos",
+  "descriptionTemplate": "{Ritual of Abundance} also reduces the Arithmetica Cost of the Base Copy placed into hand by 1.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,15 @@
+{
+  "id": "skill.pandia.sweet-surrender",
+  "ownerAwakenerId": "awakener-0039",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Sweet Surrender",
+  "descriptionTemplate": "Inflict \"Vulnerable\" on all enemies before dealing DMG. Obtain {Counter} equal to [Arg1]% of ATK.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "75"
+    }
+  },
+  "cardKeywords": []
+}

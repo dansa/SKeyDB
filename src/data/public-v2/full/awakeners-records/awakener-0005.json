@@ -1,0 +1,95 @@
+{
+  "id": "awakener-0005",
+  "numericId": 5,
+  "name": "Aurita",
+  "ingameId": "O05",
+  "lineupToken": "o",
+  "realm": "AEQUOR",
+  "rarity": "SSR",
+  "type": "ASSAULT",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "aurita",
+    "iconKey": "aurita"
+  },
+  "baseStatsLv1": {
+    "CON": 26,
+    "ATK": 28,
+    "DEF": 25
+  },
+  "substatsLv1": {
+    "CritRate": 6.6,
+    "CritDamage": 50,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.2,
+    "ATK": 1.3,
+    "DEF": 1.15
+  },
+  "substatScaling": {
+    "CritRate": 1.6,
+    "CritDamage": 0,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Aurita",
+    "birthday": "8-Jun",
+    "gender": "Female",
+    "height": "5'10.5''",
+    "weight": "45lbs",
+    "gnosticIndex": "21.11",
+    "characteristic": "Multi-hit DMG    Pierce Protection",
+    "introduction": "Continuously splits glands to perform low Arithmetica Cost attacks, and consumes all glands at once to launch a full-scale assault when necessary.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "In solitude, the ocean spirit of demise was welcomed, achieving a miraculous continuation on land.\nWhether born cheerful or choosing to forget to escape pain, the straightforward innocence radiates immeasurable allure, compelling people to join her camp—perhaps this is her little strategy to expand the \"Companion Team\".",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "During the investigation along the southern coast of Cornwall, I discovered an abandoned village that does not appear on any map. After surveying, we confirmed it to be a village \"erased from existence\" due to the outbreak of the D-phenomenon.\nIn the village, we collected a large number of anomalous marine biological samples, including: carnivorous clams, heat-resistant ice sea angels, and most notably, \"amphibious jellyfish\" found everywhere.\nIn a former house that had become a jellyfish nest, we recovered a fluid Silver weighing approximately 11.85 drams. When attempting to remove this Silver from the site, the investigation team was attacked by aberrant jellyfish; fortunately, all the glands of these anomalous amphibious jellyfish had decayed, posing no neurotoxic threat.\n— \"A.F. Year 308, Third Field Investigation in Biology\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Don't expect much from the intellect of jellyfish; Aurita cannot comprehend what she has experienced. All she can affirm is that she once lived in that deserted village. Whenever past stories come up, she deflects the conversation by pretending to understand, so Aurita contributes little to the study of D-Phenomenon or clade disturbances.\nHowever, as a rare harmless Awakener, Aurita is deeply loved by the staff and students of the awakening system, and the Czort leading the research in dissolution biology is particularly concerned about her.\nBy the way, she gained the ability for split proliferation after merging with the jellyfish's collective consciousness. Even if what proliferates are just ordinary jellyfish, Aurita excitedly holds up her \"companions\" to boast door-to-door—though she doesn't realize that each time she presents one, it's the same jellyfish.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "March\nWelcome to the Atlantic Aquarium Tour! I'm your guide, Aurita. Watch your step when boarding the jellyfish cart!\nThe tanks display rare jellyfish from tropical seas, ta-da! Look—\nApril\nWhat? What's going on... Where did everyone go... Director! Director! The jellyfish, Aurita's jellyfish, are all gone!\nThe aquarium never had jellyfish exhibits? But I remember...\nMay\nWith too few exhibits and no guests, we can't keep operating... Goodbye, everyone...\nIf, if we ever have another tour, please come find Aurita!\nJune\nAurita is so tired... Am I sick...\nAh... it's the jellyfish! Sorry, Aurita can't spread diatoms for you.\nWhen Aurita gets better, we'll swim together again.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "A fishing village with exceptionally clear waters, its shores adorned like the Milky Way on a midsummer night, resounds with the cheerful laughter of caravans—those memories that no longer exist occasionally flash back, only to be quickly forgotten.\nAs long as there are companions constantly emerging by her side, new memories can always be created, and the jellyfish are always present—this is what Aurita believes.\nAfter all, it is in their nature and destiny as jellyfish to thrive by drifting, multiplying, and overwhelming enemies with sheer numbers.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Fools",
+  "aliases": [
+    "aurita"
+  ],
+  "searchTags": [
+    "Discard",
+    "Draw"
+  ]
+}

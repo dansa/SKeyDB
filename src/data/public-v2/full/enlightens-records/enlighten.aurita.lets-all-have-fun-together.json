@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.aurita.lets-all-have-fun-together",
+  "ownerAwakenerId": "awakener-0005",
+  "slot": "E3",
+  "displayName": "Let's All Have Fun Together!",
+  "descriptionTemplate": "\"Basic Defense\" draws 1 card. Every 3 turns, add 1 {Gland Division} with {Exhaust} and {Fleeting}.",
+  "descriptionArgs": {}
+}

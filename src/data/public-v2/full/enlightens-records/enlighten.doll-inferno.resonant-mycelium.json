@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.doll-inferno.resonant-mycelium",
+  "ownerAwakenerId": "awakener-0018",
+  "slot": "E2",
+  "displayName": "Resonant Mycelium",
+  "descriptionTemplate": "{Terminal of Truth and Abyss} and {Fate's Descent} increase the Base {Poison} amount by 50%, with an additional 15% increase for each stack of {Finale}. The stacking cap for {Finale} stacks has been removed.",
+  "descriptionArgs": {}
+}

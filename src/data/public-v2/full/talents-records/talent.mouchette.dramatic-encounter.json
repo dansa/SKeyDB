@@ -1,0 +1,8 @@
+{
+  "id": "talent.mouchette.dramatic-encounter",
+  "ownerAwakenerId": "awakener-0033",
+  "displayName": "Dramatic Encounter",
+  "family": "passive",
+  "descriptionTemplate": "For every 2 \"Strike\" cards played, Mouchette performs a {Pursuit}, randomly dealing 1 instance of DMG equal to 30% of Mouchette's ATK (counts as \"Strike\"). This effect can trigger up to 4 times per turn.",
+  "descriptionArgs": {}
+}

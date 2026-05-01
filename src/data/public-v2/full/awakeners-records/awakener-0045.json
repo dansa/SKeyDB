@@ -1,0 +1,97 @@
+{
+  "id": "awakener-0045",
+  "numericId": 45,
+  "name": "Sanga",
+  "ingameId": "O08",
+  "lineupToken": "K",
+  "realm": "AEQUOR",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "sanga",
+    "iconKey": "sanga"
+  },
+  "baseStatsLv1": {
+    "CON": 34,
+    "ATK": 27,
+    "DEF": 40
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 5.6
+  },
+  "statScaling": {
+    "CON": 1.6,
+    "ATK": 1.25,
+    "DEF": 1.9
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 5.6
+  },
+  "profile": {
+    "title": "Sanga",
+    "birthday": "31-Oct",
+    "gender": "Female",
+    "height": "5'5''",
+    "weight": "176lbs",
+    "gnosticIndex": "22.98",
+    "characteristic": "Sustained Protection    Tentacle Growth",
+    "introduction": "Creates stone sculptures to defend against subsequent attacks, with \"The Lost Art\" dealing more damage as the Shield increases.",
+    "awakerIntroduction": "Has powerful Defense and the ability to permanently generate Tentacles; more Tentacles mean stronger defense.\nExalt deals AoE DMG, and Shield increase the amount of DMG dealt.\nIn this quest, a level 50 Sanga with skill level 5 and Enlighten level 3 will join. Enemies will be strengthened in the first turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "The artist from Cité cares not for other people. She only pursues the absolute form of purified beauty, which etching the ephemeral moments into eternity.\nAs her inspiration surging forth, her chisel never ceases; as her works witnessing completion, her body submerges in coral-colored shades. In the corner of her workshop which she pays no heed, her agony and delight intertwine, sprouting from her very existence.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "\"In the year of A.F.3@2, the Marine Ecology Team of Mythag University discovered an oddly shaped coral reef while conducting species observations in the southern seas...\n\"Have found peculiar fragments; probably consist of elements wholly unspotted on Earth. Flexibility preserved in water, but hardened quickly after exposed to air. The joint research conducted by the Biology and Astronomy departments suggests that it is highly likely to be classified as unknown extraterrestrial material...\"\n\n\"Awakened at A.F.3@1, awaken code-name Sanga.\nThe sculpting behaviour has been performed since awakening. The resulting art style, known for its bizarre surfaces and grotesque lines, is difficult to attribute to any specific genre. Though constantly unsettling its viewers, those works stay far from helping the dissolution research.\"",
+        "unlockCondition": "Affinity Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "\"At the day of @1 @1, the university cemetery was vandalized again. This marks the third grave-robbing incident this month.\nAfter weeks of investigation, the Awakener Sanga has been preliminarily identified as the suspect by the association.\nNo doubt anyone visiting her workshop would be shocked by those various grotesque and blasphemous ocean-themed sculptures before questioning their material sources: the shell necklace Natasha wore for her burial; Aberdeen granite that shared similarities with tombstones. Unlike Pickman, who loves explaining his artistic concepts, Sanga is more elusive—our all queries resulting in nothing more than a smile.\nDon't touch her chisel, and don't stay alone with her in her workshop—Professor Dexter warned us. However, radical measures are necessary to uncover the truth behind the grave robberies.\nIt's 00:45 on @1 @1. Member @2 of the Detective Enthusiast Association has sneaked into Sanga's workshop. Wish me good @3\"\n—Excerpt from \"Detective Enthusiast Association, Investigation Record S-618\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Cité Art Salon Exhibition, A.F.2@1.\n\"Let me take her home!\" The assailant shouted while hammering at the sculptor August's final work, \"The Nameless Ms. Coral,\" before hastily stopped by the congregation. However, this unstrung old man had surprisingly turned out to be none other than the long-reclusive August himself.\nFor a time, speculations and discussions about \"The Nameless Ms. Coral\" flooded in.\nSome people said it was inspired by a female apprentice named Sanga, who was the actual owner of August's best works. August is merely a shameful plagiarist.\nSome people said that Sanga came from an illustrious family—her father was a renowned writer, and her brother was a diplomat. In order to pursue the sculpture art, she disengaged with her family and set alone to Paris, living penuriously until her death.\nSome people said Sanga suffered from a strange illness. Ominous black ooze streamed on her body, and her each carving transformed a part of her flesh into coral. \"The Nameless Ms. Coral\" was actually her coraled appearance, not a sculpture at all.\nOther people said...\nThe apprentice, the devoted, the patient. Words pile upon Ms. Coral, sculpting her as the crowd dispersed from the exhibition hall. She blinks in the pouring moonlight. She's still waiting, and waiting—for her moment of returning home.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Watched by countless nights, the sculptor suffered from Dissolution slips beneath the murmuring waves, falling into writhing dreams:\nAs Lemuria's spirals inflamed by her kindreds, its majestic walls arise in her hands.\nAs the Father and His servants slumbering into epics, their statues find immortality under her carving.\nHer senses dull. Her body stiffens. Her chisel nearly escapes.\nCoral-like white mists have crept to her forearms. Hands tremble under her gaze. A smile flickers. Her life will fade like an extinguishing candle, while her body will step beyond eternal's door.\nHer wish fullfilled as she sinking onto the seabed. Coral shattering to foam, black slime of Dissolution threads into the ocean—she finally embraces the City long-lost in currents, and mingles with its splendor—together, ever after.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Outlanders",
+  "aliases": [
+    "sanga"
+  ],
+  "searchTags": [
+    "Death Resistance",
+    "Dispel",
+    "Tentacles"
+  ]
+}

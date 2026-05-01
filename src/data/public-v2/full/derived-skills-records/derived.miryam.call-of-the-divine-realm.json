@@ -1,0 +1,23 @@
+{
+  "id": "derived.miryam.call-of-the-divine-realm",
+  "displayName": "Call of the Divine Realm",
+  "descriptionTemplate": "Choose an Awakener to gain [Arg1] Aliemus. Draw 2 cards.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "25"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "derivedFromId": "derived.miryam.divine-realms-illusion",
+  "rootSkillId": "skill.miryam.testament-of-faith",
+  "ownerAwakenerId": "awakener-0032",
+  "cost": "0"
+}

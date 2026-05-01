@@ -1,0 +1,8 @@
+{
+  "id": "talent.doresain.festering-grace",
+  "ownerAwakenerId": "awakener-0014",
+  "displayName": "Festering Grace",
+  "family": "passive",
+  "descriptionTemplate": "After Doresain gains a {Corpse}, put 1 \"Evernight's Revel\" into hand.",
+  "descriptionArgs": {}
+}

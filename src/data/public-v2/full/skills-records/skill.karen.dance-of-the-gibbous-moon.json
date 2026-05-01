@@ -1,0 +1,71 @@
+{
+  "id": "skill.karen.dance-of-the-gibbous-moon",
+  "ownerAwakenerId": "awakener-0026",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Dance of the Gibbous Moon",
+  "descriptionTemplate": "Karen gains [Energy:Arg1] Aliemus. {Rouse}: After Karen plays a card, restore [Heal:Arg2] HP and Gain [Energy:Arg3] Aliemus. After playing {Marvelous Cuisine}, inflict [{Poison}:Arg4] {plural:[{Poison}:Arg4]|stack|stacks} of {Poison} on all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "7.2",
+        "8.4",
+        "9.6",
+        "10.8",
+        "12"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.karen.mistmoon-banquet.skill.karen.dance-of-the-gibbous-moon",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.karen.mistmoon-banquet",
+      "ownerAwakenerId": "awakener-0026",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Karen",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Karen gains [Energy:Arg1] Aliemus. {Rouse}: After Karen plays a card, recover [Heal:Arg2] HP and gain [Energy:Arg3] Aliemus. At the end of the turn, if Karen's Command Card is {Retained}, the HP Recovery and Aliemus Generation trigger 2 times. After playing {Marvelous Cuisine}, inflict [{Poison}:Arg4] stacks of {Poison} on all enemies."
+      }
+    }
+  ]
+}

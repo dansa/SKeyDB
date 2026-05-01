@@ -1,0 +1,50 @@
+{
+  "id": "skill.faros.abyssal-obsession",
+  "ownerAwakenerId": "awakener-0017",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Abyssal Obsession",
+  "descriptionTemplate": "Faros gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. For each card Faros plays, draw [Arg2] {plural:[Arg2]|card|cards}, trigger [Arg3]% {Poison} on all enemies, up to 3 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "5",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.faros.to-the-radiant-shore.skill.faros.abyssal-obsession",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.faros.to-the-radiant-shore",
+      "ownerAwakenerId": "awakener-0017",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Faros",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Faros gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. For each card Faros plays, draw [Arg2] {plural:[Arg2]|card|cards}, trigger [Arg3]% {Poison} on all enemies, and when Tentacles deal DMG this turn, additionally inflict {Poison} equal to 3% of DMG dealt, up to 3 times per turn."
+      }
+    }
+  ]
+}

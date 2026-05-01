@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0114",
+  "name": "Navigator at Sea",
+  "assetId": "Weapon_Full_SR41",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DEATH_RESISTANCE",
+  "descriptionTemplate": "Team Unique: At the start of battle, gain a Shield equal to [StateArg1]% of the wielder's DEF. After triggering {Death Resistance}, trigger this effect again at the start of next turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Toot—Toot—\n\nAs the sound of the horn echoed, the cruise ship safely docked under the guidance of Corposant.\n\nPassengers laughed as they descended the gangway, tipping their hats to thank her, while sailors rushed over to express their praise.\n\n\"Well done, Corposant. If it weren't for your early warning, we would have been swallowed by the storm.\"\n\n\"Yeah, thanks to your correct guidance, we didn't get lost in the sea!\"\n\nThe sailors laughed, patted her shoulder, and gave her a thumbs-up.\n\nIn fact, Corposant could never adapt to such close social interactions; her rigid and rational mind had no thoughts beyond \"work\" and \"duty.\"\n\nSo, she could only attribute this to a part of \"work\" and \"duty.\"\n\n\"I was just doing my job. As a helmsman, my duty is to guide you safely home.\"\n\nA polite but dull response, yet the sailors who knew her well laughed heartily, bidding her farewell, singing sea shanties, and leaving the harbor with arms over each other.\n\n\"The Nautilus can finally set sail. Depart, Nautilus.\"\n\nThe singing gradually faded away, while Corposant remained on the shore, preparing for the future voyage.\n\nThe sea is unpredictable, no helmsman can guarantee victory every time; she cannot either. But she is willing to spend countless hours to increase even the slightest odds of success.\n\nChecking, patrolling, learning, verifying, it seems that \"work\" is the only thing left in her life.\n\nYet she is willing because all of this is for that moment, the successful helmsmanship, leading everyone home safely.",
+  "lineupToken": "yv"
+}

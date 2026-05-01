@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.pollux.lightbearers-herald",
+  "ownerAwakenerId": "awakener-0041",
+  "slot": "E1",
+  "displayName": "Lightbearer's Herald",
+  "descriptionTemplate": "At the start of the battle, put 1 {Sacred Heart} into your hand.",
+  "descriptionArgs": {}
+}

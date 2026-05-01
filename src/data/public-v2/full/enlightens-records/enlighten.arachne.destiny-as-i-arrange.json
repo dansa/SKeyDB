@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.arachne.destiny-as-i-arrange",
+  "ownerAwakenerId": "awakener-0056",
+  "slot": "E3",
+  "displayName": "Destiny, As I Arrange",
+  "descriptionTemplate": "{Weaver} stack cap increases from 3 to 5, and {Singularity Prism} gained from {Infinite Threads} is doubled.",
+  "descriptionArgs": {}
+}

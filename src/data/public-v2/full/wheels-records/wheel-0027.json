@@ -1,0 +1,50 @@
+{
+  "id": "wheel-0027",
+  "name": "Wheel Unseen",
+  "assetId": "Weapon_Full_C15",
+  "ownerAwakenerId": "awakener-0047",
+  "ownerAwakenerName": "Tawil",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "KEYFLARE_REGEN",
+  "descriptionTemplate": "Team Unique: Keyflare Cap +100%. Hand Limit +2, cannot stack with other WoDs with the same effect. Increases the wielder's Keyflare Regen by [StateArg1]%. After the wielder plays a card, in this turn, the Crit. Rate, Crit. DMG, Shield Generation, Aliemus Generation, and {STR} Generation of the wielder's Command Cards +[StateArg2]%, stacking up to 5 times.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "13",
+        "17",
+        "21",
+        "25"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "add",
+        "args": [
+          {
+            "const": 3.0
+          },
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "wheelRefinementLevel"
+              },
+              {
+                "const": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "wheelRefinementLevel"
+      ]
+    }
+  },
+  "lore": "When someone knows all of the past and future, they are met not with joy but with endless sorrow and despair.\nHer eyes see the threads behind everything—one end linked to the past, the other to the future.\nThese threads are called fate.\nHow does she view those around her?\nPeople are kind and loving, yet arrogant and doubtful.\nBut their fates, as well as humanity's destiny, are sealed from the moment they meet.\nShe must love them; otherwise, why would she repeatedly offer help and give them fire?\nShe must hold expectations for them; otherwise, why would she walk into the shadow of reincarnation amidst destruction?\nBecause of love, she feels sorrow.\nBecause of expectation, she often feels disappointment.\nShe is deeply trapped in a black swamp, tirelessly sorting through countless black threads.\nThe wheel of fate turns again and again.\nShe sees greedy flames sweep across the sky.\nShe sees blind stubbornness leading to self-destruction.\nShe sees insane delusions accelerating destruction.\nChaos will always come.\nHope and despair rotate in vain, endlessly.\nUntil she sees a fleeting starlight in the darkness.\nThat light, though faint, shines powerfully in her long night.\nIn that moment of seeing it, she sheds a tear.",
+  "lineupToken": "xV"
+}

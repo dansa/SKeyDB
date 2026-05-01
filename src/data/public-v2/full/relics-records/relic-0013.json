@@ -1,0 +1,23 @@
+{
+  "id": "relic-0013",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Doll",
+  "assetId": "Icon_Creation_Unique_C02",
+  "ownerAwakenerId": "awakener-0013",
+  "ownerAwakenerName": "Doll",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "descriptionTemplate": "At turn start, Doll gains [Arg1] Aliemus. After the battle starts, set the Arithmetica Cost of Doll's {Equivalent Exchange} to 0. Once it is played, draw [Arg2] extra cards in the next turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": null
+}

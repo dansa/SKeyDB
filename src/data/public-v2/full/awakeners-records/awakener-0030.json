@@ -1,0 +1,96 @@
+{
+  "id": "awakener-0030",
+  "numericId": 30,
+  "name": "Liz",
+  "ingameId": "D01",
+  "lineupToken": "d",
+  "realm": "ULTRA",
+  "rarity": "SSR",
+  "type": "ASSAULT",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "liz",
+    "iconKey": "liz"
+  },
+  "baseStatsLv1": {
+    "CON": 29,
+    "ATK": 39,
+    "DEF": 31
+  },
+  "substatsLv1": {
+    "CritRate": 6.6,
+    "CritDamage": 51.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.35,
+    "ATK": 1.85,
+    "DEF": 1.45
+  },
+  "substatScaling": {
+    "CritRate": 1.6,
+    "CritDamage": 1.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Liz",
+    "birthday": "31-Jan",
+    "gender": "Female",
+    "height": "5'5''",
+    "weight": "?",
+    "gnosticIndex": "?",
+    "characteristic": "Poison Burst    Resource Cycle",
+    "introduction": "Constantly grows the emerald flame in Ultra Space or in hand, then unleashes Exalt to release it all at once, burning away enemies.",
+    "awakerIntroduction": "At turn end, if \"Green Flame\" is in your hand or the {Ultra Space}, it will upgrade to {Corrupted Green Flame}. After upgrading, it can deal higher DMG and apply {Poison}.\nWhen facing multi-hit Damage, you can gain multiple {Green Flames} through {Moth-Trapping Fire}.\nExalt can release all Liz's cards in hand without Arithmetica, accumulating a large number of {Green Flames} to deal extremely high burst Damage.\nIn this level, you will bring \"Liz\" at level 50, skill level 5, and enlightenment level 3 into battle, gaining 7 {STR} and 15 {Chaos} per turn, and after the start of the {Ultra Round}, an additional 100 {Chaos}. The enemies will receive an Enhance on their first turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "She dances within the embrace of green flames, their dim flickering light falling across the dancer's young, devotion-filled face. With every turn, the emerald fire ignites the souls of the wicked, burning away every impurity upon the stage.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "A.F. 31@1, December, the police received a report from the manager of the second theater in @2 Garden. The reporter claimed that there had been four small-scale fires in the theater within a week, and rumors of the \"Ballet Ghost\" were rampant among the members of the dance troupe renting the theater.\nTo ensure the smooth premiere of the ballet \"Swan's Lament,\" the police launched a joint investigation with the West District Fire Department.\nThe day before the performance, Mythag University finally took over the investigation. The investigators noted traces of Gnosis residue behind several fire points. Eventually, Investigator @3 discovered an Awakener in the underground ruins of the second theater.\nThis Awakener was not a mindless individual; she identified herself as \"Liz.\" After communication, the Awakener Liz eventually admitted to her arson crime. After the premiere of \"Swan's Lament,\" Investigator @3 took Liz back to Mythag University for formal incorporation.\n\nAccording to historical records, when the fire broke out at the second theater in @2 Garden on A.F. 29@1, a ballet was being performed. Among those who perished in the flames were a number of nobles in the audience, as well as a young prima ballerina named \"Elizabeth Sur.\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Liz is a reliable Awakener; although her attitude cannot be called \"enthusiastic\", she shows considerable cooperation with all school affairs.\nThe only concern is that, though Liz spends every night in the dance classroom, no one has seen her true dance performance.\nAs an excellent ballet dancer, Liz's name has appeared in several related publications. Unfortunately, due to the impact of the D-phenomenon, the information department of the awakening system could only determine that Liz had stepped onto the stage of the second theater in A.F. 29@1.\nSchool reporter Hannah Peasley proposed gathering dance enthusiasts on campus, using their passion for dance to \"open Awakener Liz's heart\".\nCurrently, this proposal has yet to be approved by the Awakener Management Office.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Day 45 of joining the dance troupe, I stood on stage as the lead performer.\nThe scorching lights hit the hem of my skirt, and the tiny diamonds reflected a dazzling beauty. The glare made it hard to see, but the thunderous applause told me my performance was more brilliant than any gem.\nIn the constant spinning, all the dust in the world is purified by the dance, sending the beauty of dance and art to the world. This is my wish and mission as a dancer—\n\nBut who are those people lurking in the dark corners beneath the stage?\n\nLisette, the girl known for her carefree and upright nature, why is she whispering with that notorious lord?\nAngelica, the genius who always looks down on other dancers, why is she lifting her skirt for that infamous playboy?\n\nSuch disgrace... such filth! Oh God, my muse, please tell me, what must I do to guard my stage from the darkness, what light is needed to dispel this filth—",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "This is the Promised Land, an artistic utopia, the ultimate paradise—dance should be the dancer's home, maintaining eternal purity.\nAs long as I burn, filth cannot taint our Church... This is my mission, my hope... Allow me to burn brightly, and I will cleanse all impurity for everyone.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Fools",
+  "aliases": [
+    "liz"
+  ],
+  "searchTags": [
+    "Discard",
+    "Draw"
+  ]
+}

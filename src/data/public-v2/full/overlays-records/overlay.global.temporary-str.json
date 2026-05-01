@@ -1,0 +1,15 @@
+{
+  "id": "overlay.global.temporary-str",
+  "displayName": "Temporary STR",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "This turn, DMG dealt +[Layer].",
+  "descriptionArgs": {
+    "Layer": {
+      "kind": "fixed",
+      "value": "X"
+    }
+  },
+  "iconId": "Battle_Card_Buff_021",
+  "textColor": "heal"
+}

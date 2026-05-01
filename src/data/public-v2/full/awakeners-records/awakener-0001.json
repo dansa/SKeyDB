@@ -1,0 +1,99 @@
+{
+  "id": "awakener-0001",
+  "numericId": 1,
+  "name": "\"24\"",
+  "ingameId": "C06",
+  "lineupToken": "T",
+  "realm": "CHAOS",
+  "rarity": "SSR",
+  "type": "ASSAULT",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "24",
+    "iconKey": "24"
+  },
+  "baseStatsLv1": {
+    "CON": 52,
+    "ATK": 66,
+    "DEF": 30
+  },
+  "substatsLv1": {
+    "CritRate": 6.6,
+    "CritDamage": 50,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.65,
+    "ATK": 2.1,
+    "DEF": 0.95
+  },
+  "substatScaling": {
+    "CritRate": 1.6,
+    "CritDamage": 0,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "\"24\"",
+    "birthday": "19-Jul",
+    "gender": "Female",
+    "height": "5'6''",
+    "weight": "?",
+    "gnosticIndex": "21.86",
+    "characteristic": "High Single-Hit DMG    Exalt Amplification",
+    "introduction": "Adapts to different realms in various forms, acting as a hunter who constantly switches between \"Depressive\" and \"Manic\" personalities.",
+    "awakerIntroduction": "Possesses both Depressed and Manic stances, starting in the Depressed stance. Releasing Exalt will switch stances, and Card effects vary in different stances.\nBoth Exalt and {Rouse} have unique Effects in different Realms. Exalt will also trigger different Effects based on the Depressed and Manic stances.\nIn this stage, \"24\" and teammates from different Realms will be deployed, all at Level 50, Skill Level 5, Gnosis Level 3.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "In solitude, one must act as a team. The 24 minds are crowded—they whisper and chuckle in the dark, tearing at 24's soul and craving to devour her. The stench from the corner sewer, the fluttering cotton in the work area, the stale black bread... The past has long faded, and no one remembers the ordinary worker from the East District. She has finally shed her weary body, only to step into a new quagmire.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "Awakener ID: MA-C06\nDanger Level: A\nSpecial Containment Procedures: MA-C06 is currently housed in Awakener Observation Room 7 with dim lighting. Fearing mind control by @3, MA-C06 refuses to sleep, only provided with a chair.\nDue to good behavior and friendly attitude, MA-C06 is allowed to use the greenhouse and explore parts of the campus with an Investigator escort.\n—\"Awakener Containment FileMA-C06\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Mythag uses the silver extracted from the bodies of the deceased to create the Awakener.\nThe Sculptors' Association induce the formation of silver from living bodies and refine it into the Awakener.\nThese are two entirely different ideologies. The latter, while having an extremely high ceiling, clearly violates ethical standards, thus becoming a taboo Research that persists despite prohibitions.\nAfter the Wax Museum incident, 24 was brought back to Mythag. She spent a long time in the campus observation rooms and research labs, necessitating personal supervision whenever she went out.\nUndoubtedly, this is an extremely uncontrollable living Awakener. During the subsequent observation period of half a year, 24's body continuously split into many personalities.\nShe suddenly found herself with unfamiliar friends and enemies, bought many strange items, and even learned to speak Chinese without realizing it.\nHer life is never short of \"surprises\".\n\"24 is a discrete function composed of a series of isolated points,\" Doll commented, \"Do not believe every word she says.\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "24 discovered that their home was robbed less than a month after moving in.\nFirst it was cheese, then bread, milk, tomatoes... food in the house always seemed to diminish a little bit without a sound.\nShe patiently stayed for several days and finally caught the culprit—a mouse. It weaved left and right to avoid the traps set by 24, grabbed two mushrooms, and disappeared behind the cellar door.\n24 opened the cellar door, descending the damp, moldy steps, only to find it led to an underground waterway.\nThe mouse scurried into the shadows holding the mushrooms. 24 followed, catching a glimpse of bright eyes in the darkness, resembling a wolf pup. She wrapped herself in tattered cloth and covered with old newspapers in the nearly sub-zero temperatures, shivering all over.\n24's heart was slightly pricked.\n\"Mushrooms are best not eaten raw, you can get sick.\" \nThe child remained silent.\n24 went to cook a pot of mushroom soup, and placed a small bowl on the table before going to sleep. She had to get up by 6 AM every day for work, hardly having any rest time.\nThe next day when she woke up, the bowl was still in its original position, but the soup was entirely gone.\nAfter that, 24 occasionally cooked a little more food to treat the neighbor downstairs. They would also occasionally return her some small gifts, usually some trinkets or toys found from who knows where...\n\nA new tacit understanding was thus established",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "On a snowy day in November that year, 24 fell ill.\nAfter a week of high-intensity work, she developed a severe fever and lay in bed for several days.\nIn a daze, she seemed to hear little mice whimpering in her ears. After an unknown amount of time, someone stood beside her.\nShe recognized those eyes — it was the child from the sewer. Covered in mud, she handed a dirty pill to 24.\n\"For you, take it,\" the child said bluntly, her voice pleasant — it turned out she was a girl.\n24 looked at the wounds on her elbow and face but didn't ask where the pills came from. She tightly grasped the girl's hand.\nThe girl awkwardly hummed a few times, coolly saying, \"I won't leave. I'll go when you're better.\"\nEven if I get better, don't leave.\n24 silently replied in her heart.\nThe first winter snow fell in Londinium for a whole week. On the day the snow stopped, 24 was very happy because not only had her fever subsided, but she had also gained a sister.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Hybrid",
+  "aliases": [
+    "24",
+    "twenty-four"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Hand Limit",
+    "Keyflare",
+    "Tentacles"
+  ]
+}

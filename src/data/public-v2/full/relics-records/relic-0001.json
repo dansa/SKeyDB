@@ -1,0 +1,24 @@
+{
+  "id": "relic-0001",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: \"24\"",
+  "assetId": "Icon_Creation_Unique_C06",
+  "ownerAwakenerId": "awakener-0001",
+  "ownerAwakenerName": "24",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "descriptionTemplate": "At turn start, \"24\" gains [Arg1] Aliemus. At turn start, if \"24\" is in the \"Depressed Persona\" state at turn start, she gains an additional [Arg2] Aliemus; if in the \"Manic Persona\" state, her Temporary Crit. Rate and Temporary Crit. DMG +[Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "24",
+      "suffix": "%"
+    }
+  },
+  "lore": null
+}

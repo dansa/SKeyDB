@@ -1,0 +1,50 @@
+{
+  "id": "skill.pickman.strike",
+  "ownerAwakenerId": "awakener-0040",
+  "slot": "Strike",
+  "kind": "strike",
+  "displayName": "Strike",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Pickman obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pickman.cross-hatched-rendering.skill.pickman.strike",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.pickman.cross-hatched-rendering",
+      "ownerAwakenerId": "awakener-0040",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Pickman",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Pickman obtains [Energy:Arg2] Aliemus. Randomly draw 1 \"Skill,\" which takes effect up to 1 time per turn."
+      }
+    }
+  ]
+}

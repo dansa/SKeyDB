@@ -1,0 +1,35 @@
+{
+  "id": "talent.kathigu-ra.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0027",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Fiamma}'s buff effects +[Arg3]%. After each turn starts and before the discard cards phase, clear all {Burn} from cards in hand. Kathigu-Ra gains 1 stack of {Combust} for each stack of {Burn} cleared.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "20"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

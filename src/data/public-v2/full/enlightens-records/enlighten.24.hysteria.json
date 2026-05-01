@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.24.hysteria",
+  "ownerAwakenerId": "awakener-0001",
+  "slot": "E1",
+  "displayName": "Hysteria",
+  "descriptionTemplate": "{Frenzied Slash} increases Base DMG by 33%. While in Depressed Persona, the Arithmetica Cost of corresponding Cards is reduced by an additional 1; while in Manic Persona, the number of hits is increased by additional 1.",
+  "descriptionArgs": {}
+}

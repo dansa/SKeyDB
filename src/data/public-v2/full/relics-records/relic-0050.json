@@ -1,0 +1,27 @@
+{
+  "id": "relic-0050",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Tulu",
+  "assetId": "Icon_Creation_Unique_O01",
+  "ownerAwakenerId": "awakener-0050",
+  "ownerAwakenerName": "Tulu",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "descriptionTemplate": "At turn start, Tulu gains [Arg1] Aliemus. The Aliemus Cost for Tulu -[Arg2], and after releasing Exalt, it instantly generates [Arg3] Temporary Tentacles.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "10"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": null
+}

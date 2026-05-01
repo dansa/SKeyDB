@@ -1,0 +1,27 @@
+{
+  "id": "relic-0053",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Winkle",
+  "assetId": "Icon_Creation_Unique_D05",
+  "ownerAwakenerId": "awakener-0053",
+  "ownerAwakenerName": "Winkle",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "descriptionTemplate": "At turn start, Winkle gains [Arg1] Aliemus. Each time another Awakeners unleashes Exalt, Winkle gains [Arg2] Aliemus, and the Arithmetica Cost of {Psyche Reforged} in hand -[Arg3].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": null
+}

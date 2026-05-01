@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.xu.karmic-grave",
+  "ownerAwakenerId": "awakener-0054",
+  "slot": "OverExalt",
+  "displayName": "Karmic Grave",
+  "descriptionTemplate": "{Embryo Fusion} +100%. When choosing \"Betroth,\" the {Poison} and {Spellbound} inflicted is tripled; when choosing \"Enthrall,\" accumulate {Crimson Furnace} equal to 15% CON for each stack of {Spellbound} removed.",
+  "descriptionArgs": {}
+}

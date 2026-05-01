@@ -1,0 +1,52 @@
+{
+  "id": "wheel-0041",
+  "name": "Veiled Anguish",
+  "assetId": "Weapon_Full_D13",
+  "ownerAwakenerId": "awakener-0010",
+  "ownerAwakenerName": "Clementine",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "mainstatKey": "KEYFLARE_REGEN",
+  "descriptionTemplate": "Team Unique: The wielder's Exalt Base DMG +[StateArg1]%, and Keyflare Regen +[StateArg2]. After entering {Ultra Round}, all Awakeners obtain [StateArg4] Aliemus. After releasing {Annihilation}, the wielder obtains [StateArg3] Aliemus.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ]
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ]
+    },
+    "StateArg4": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ]
+    }
+  },
+  "lore": "Clementine was not a strong child, so when afflicted by a strange illness, tormented by pain and the looming death, she would often awake in the dead of night, crying silently.\nAnd each morning after her cries, a \"Gift\" would appear at her bedside.\nA few pieces of lavishly wrapped candy, trendy hair accessories, and adorably stuffed bears...\nBut what left the deepest impression was a specimen of a cocoon.\nAt that time, she was gravely ill, bedridden, struggling to lift up the specimen to gaze at the life within the light-pierced cocoon.\nThat life was sleeping, but that life had achieved eternity.\nWhile she was nearing true death.\nThinking of this, her tears silently fell. But a pair of hands wiped her tears away.\n\"Don't cry, Clementine. Someday, you too will be reborn like these cocoons.\"\n\"I will give you new life.\"\nHer father never lied, at least not to her, so Clementine had no doubt in his words.\nShe trusted her father, and so when she entered that profane mountain, she did so without hesitation, and when she endured the agonizing pain of dissolving flesh, she did so without complaint.\nBecause she believed all this was the price and necessary process for rebirth.\nWhen all the pain and despair were over, she would heal, return to the place called \"home,\" and reunite with her only family.",
+  "lineupToken": "yf"
+}

@@ -1,0 +1,85 @@
+{
+  "id": "skill.horla.dirge-psalm",
+  "ownerAwakenerId": "awakener-0024",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Dirge Psalm",
+  "descriptionTemplate": "Gain [Power:Arg1] {STR}. Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg2]. {Leap}: Switch {Emotion} state to {Fear}. For each stack of {Fear} {Metaphor} consumed, gain an additional [Power:Arg3] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "7.5",
+        "9",
+        "10.5",
+        "12",
+        "13.5",
+        "15"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "3",
+        "3.6",
+        "4.2",
+        "4.8",
+        "5.4",
+        "6"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.horla.blossoms-and-verses-reunited.skill.horla.dirge-psalm",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.horla.blossoms-and-verses-reunited",
+      "ownerAwakenerId": "awakener-0024",
+      "operation": "override_card_keywords",
+      "ownerAwakenerName": "Horla",
+      "upgraderType": "enlighten",
+      "patch": {
+        "cardKeywords": [
+          {
+            "id": "mechanic.retain"
+          }
+        ]
+      }
+    },
+    {
+      "id": "upgrade.enlighten.horla.chamber-of-shadows.skill.horla.dirge-psalm",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.horla.chamber-of-shadows",
+      "ownerAwakenerId": "awakener-0024",
+      "operation": "override_card_keywords",
+      "ownerAwakenerName": "Horla",
+      "upgraderType": "enlighten",
+      "patch": {
+        "cardKeywords": [
+          {
+            "id": "mechanic.retain"
+          }
+        ]
+      }
+    }
+  ]
+}

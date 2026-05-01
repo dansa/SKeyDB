@@ -1,0 +1,11 @@
+{
+  "id": "derived.daffodil.thousand-mirage-effect-pierce-critical-hit",
+  "displayName": "Pierce Critical Hit",
+  "descriptionTemplate": "This card's Crit. Rate and Crit. DMG increase by 50%, dealing {Pierce DMG}.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
+  "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "ownerAwakenerId": "awakener-0012",
+  "cost": "0"
+}

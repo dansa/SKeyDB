@@ -1,0 +1,25 @@
+{
+  "id": "derived.daffodil.thousand-mirage-effect-blessing",
+  "displayName": "Blessing",
+  "descriptionTemplate": "Immune to {Fragile}, {Weakness}, {Vulnerable} for 1 turn. Gain [Block:Arg1] Shield.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
+  "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "ownerAwakenerId": "awakener-0012",
+  "cost": "0"
+}

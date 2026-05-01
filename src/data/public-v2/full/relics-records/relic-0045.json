@@ -1,0 +1,74 @@
+{
+  "id": "relic-0045",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Sanga",
+  "assetId": "Icon_Creation_Unique_O08",
+  "ownerAwakenerId": "awakener-0045",
+  "ownerAwakenerName": "Sanga",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "descriptionTemplate": "At turn start, Sanga gains [Arg1] Aliemus. At the start of the battle, grant all of Sanga's Command Cards {Retain} and {Prepare 1}, and gain [Arg2] Shield.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "ceil",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.03
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": null
+}

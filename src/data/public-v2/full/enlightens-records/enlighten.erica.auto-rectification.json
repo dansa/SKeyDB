@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.erica.auto-rectification",
+  "ownerAwakenerId": "awakener-0015",
+  "slot": "E1",
+  "displayName": "Auto-Rectification",
+  "descriptionTemplate": "{Unleash: Mecha} places 1 \"Basic Strike\" with {Exhaust} into hand, and {Retract: Mecha} places 1 \"Basic Defense\" with {Exhaust} into hand.",
+  "descriptionArgs": {}
+}

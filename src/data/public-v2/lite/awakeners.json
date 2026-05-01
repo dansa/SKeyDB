@@ -1,0 +1,1281 @@
+{
+  "schemaVersion": 1,
+  "scope": "awakeners",
+  "recordCount": 56,
+  "records": [
+    {
+      "id": "awakener-0001",
+      "numericId": 1,
+      "name": "\"24\"",
+      "ingameId": "C06",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "24",
+        "iconKey": "24"
+      },
+      "faction": "Hybrid",
+      "aliases": [
+        "24",
+        "twenty-four"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Hand Limit",
+        "Keyflare",
+        "Tentacles"
+      ],
+      "lineupToken": "T"
+    },
+    {
+      "id": "awakener-0002",
+      "numericId": 2,
+      "name": "Agrippa",
+      "ingameId": "B06",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "agrippa",
+        "iconKey": "agrippa"
+      },
+      "faction": "Outlanders",
+      "aliases": [
+        "agrippa"
+      ],
+      "searchTags": [
+        "Draw"
+      ],
+      "lineupToken": "S"
+    },
+    {
+      "id": "awakener-0003",
+      "numericId": 3,
+      "name": "Aigis",
+      "ingameId": "B03",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "aigis",
+        "iconKey": "aigis"
+      },
+      "faction": "Hybrid",
+      "aliases": [
+        "aigis"
+      ],
+      "searchTags": [
+        "Draw",
+        "Keyflare",
+        "Stun"
+      ],
+      "lineupToken": "J"
+    },
+    {
+      "id": "awakener-0004",
+      "numericId": 4,
+      "name": "Alva",
+      "ingameId": "C11",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "alva",
+        "iconKey": "alva"
+      },
+      "faction": "Outlanders",
+      "aliases": [
+        "alva"
+      ],
+      "searchTags": [
+        "Death Resistance",
+        "Discard",
+        "Dispel",
+        "Draw",
+        "Strike"
+      ],
+      "lineupToken": "G"
+    },
+    {
+      "id": "awakener-0005",
+      "numericId": 5,
+      "name": "Aurita",
+      "ingameId": "O05",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "aurita",
+        "iconKey": "aurita"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "aurita"
+      ],
+      "searchTags": [
+        "Discard",
+        "Draw"
+      ],
+      "lineupToken": "o"
+    },
+    {
+      "id": "awakener-0006",
+      "numericId": 6,
+      "name": "Caecus",
+      "ingameId": "O04",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "caecus",
+        "iconKey": "caecus"
+      },
+      "faction": "Hybrid",
+      "aliases": [
+        "caecus"
+      ],
+      "searchTags": [
+        "Dispel",
+        "Heal",
+        "Tentacles"
+      ],
+      "lineupToken": "M"
+    },
+    {
+      "id": "awakener-0007",
+      "numericId": 7,
+      "name": "Casiah",
+      "ingameId": "D09",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "casiah",
+        "iconKey": "casiah"
+      },
+      "faction": "The Unknowable",
+      "aliases": [
+        "casiah"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Discard",
+        "Draw"
+      ],
+      "lineupToken": "n"
+    },
+    {
+      "id": "awakener-0008",
+      "numericId": 8,
+      "name": "Castor",
+      "ingameId": "D11",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "castor",
+        "iconKey": "castor"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "castor"
+      ],
+      "searchTags": [
+        "Draw"
+      ],
+      "lineupToken": "7"
+    },
+    {
+      "id": "awakener-0009",
+      "numericId": 9,
+      "name": "Celeste",
+      "ingameId": "O09",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "celeste",
+        "iconKey": "celeste"
+      },
+      "faction": "Outlanders",
+      "aliases": [
+        "celeste"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Dispel",
+        "Heal",
+        "Tentacles"
+      ],
+      "lineupToken": "h"
+    },
+    {
+      "id": "awakener-0010",
+      "numericId": 10,
+      "name": "Clementine",
+      "ingameId": "D13",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "clementine",
+        "iconKey": "clementine"
+      },
+      "faction": "The Unknowable",
+      "aliases": [
+        "clementine"
+      ],
+      "searchTags": [
+        "Dispel",
+        "Keyflare"
+      ],
+      "lineupToken": "9"
+    },
+    {
+      "id": "awakener-0011",
+      "numericId": 11,
+      "name": "Corposant",
+      "ingameId": "O10",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "corposant",
+        "iconKey": "corposant"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "corposant"
+      ],
+      "searchTags": [
+        "Death Resistance",
+        "Discard",
+        "Draw",
+        "Tentacles"
+      ],
+      "lineupToken": "6"
+    },
+    {
+      "id": "awakener-0012",
+      "numericId": 12,
+      "name": "Daffodil",
+      "ingameId": "D02",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "daffodil",
+        "iconKey": "daffodil"
+      },
+      "faction": "The Unknowable",
+      "aliases": [
+        "daffodil"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Draw",
+        "Keyflare"
+      ],
+      "lineupToken": "I"
+    },
+    {
+      "id": "awakener-0013",
+      "numericId": 13,
+      "name": "Doll",
+      "ingameId": "C02",
+      "realm": "CHAOS",
+      "rarity": "SR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "doll",
+        "iconKey": "doll"
+      },
+      "faction": "Among the Stars",
+      "aliases": [
+        "doll"
+      ],
+      "searchTags": [
+        "Discard",
+        "Dispel",
+        "Heal"
+      ],
+      "lineupToken": "l"
+    },
+    {
+      "id": "awakener-0014",
+      "numericId": 14,
+      "name": "Doresain",
+      "ingameId": "B10",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "doresain",
+        "iconKey": "doresain"
+      },
+      "faction": "Out of the Aeons",
+      "aliases": [
+        "doresain"
+      ],
+      "searchTags": [
+        "Self-Harm"
+      ],
+      "lineupToken": "xi"
+    },
+    {
+      "id": "awakener-0015",
+      "numericId": 15,
+      "name": "Erica",
+      "ingameId": "D08",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "erica",
+        "iconKey": "erica"
+      },
+      "faction": "Hybrid",
+      "aliases": [
+        "erica"
+      ],
+      "searchTags": [
+        "Dispel",
+        "Keyflare"
+      ],
+      "lineupToken": "V"
+    },
+    {
+      "id": "awakener-0016",
+      "numericId": 16,
+      "name": "Faint",
+      "ingameId": "B09",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "faint",
+        "iconKey": "faint"
+      },
+      "faction": "Among the Stars",
+      "aliases": [
+        "faint"
+      ],
+      "searchTags": [
+        "Death Resistance",
+        "Dispel",
+        "Heal"
+      ],
+      "lineupToken": "s"
+    },
+    {
+      "id": "awakener-0017",
+      "numericId": 17,
+      "name": "Faros",
+      "ingameId": "O03",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "faros",
+        "iconKey": "faros"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "faros"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Dispel",
+        "Draw",
+        "Hand Limit",
+        "Tentacles"
+      ],
+      "lineupToken": "q"
+    },
+    {
+      "id": "awakener-0018",
+      "numericId": 18,
+      "name": "Doll: Inferno",
+      "ingameId": "C02EX",
+      "realm": "CHAOS",
+      "rarity": "Genesis",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "doll-inferno",
+        "iconKey": "doll-inferno"
+      },
+      "faction": "Among the Stars",
+      "aliases": [
+        "doll: inferno",
+        "g-doll"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Draw",
+        "Heal",
+        "Max HP DMG",
+        "Self-Harm"
+      ],
+      "lineupToken": "U"
+    },
+    {
+      "id": "awakener-0019",
+      "numericId": 19,
+      "name": "Helot: Catena",
+      "ingameId": "B05EX",
+      "realm": "CARO",
+      "rarity": "Genesis",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "helot-catena",
+        "iconKey": "helot-catena"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "helot: catena",
+        "g-helot"
+      ],
+      "searchTags": [
+        "Draw",
+        "Hand Limit",
+        "Heal",
+        "Self-Harm",
+        "Strike"
+      ],
+      "lineupToken": "i"
+    },
+    {
+      "id": "awakener-0020",
+      "numericId": 20,
+      "name": "Ramona: Timeworn",
+      "ingameId": "C01EX",
+      "realm": "CHAOS",
+      "rarity": "Genesis",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "ramona-timeworn",
+        "iconKey": "ramona-timeworn"
+      },
+      "faction": "The Unknowable",
+      "aliases": [
+        "ramona: timeworn",
+        "g-ramona"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Draw",
+        "Keyflare"
+      ],
+      "lineupToken": "j"
+    },
+    {
+      "id": "awakener-0021",
+      "numericId": 21,
+      "name": "Goliath",
+      "ingameId": "O06",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "goliath",
+        "iconKey": "goliath"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "goliath"
+      ],
+      "searchTags": [],
+      "lineupToken": "f"
+    },
+    {
+      "id": "awakener-0022",
+      "numericId": 22,
+      "name": "Hameln",
+      "ingameId": "D12",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "hameln",
+        "iconKey": "hameln"
+      },
+      "faction": "The Unknowable",
+      "aliases": [
+        "hameln"
+      ],
+      "searchTags": [
+        "Arithmetica"
+      ],
+      "lineupToken": "Y"
+    },
+    {
+      "id": "awakener-0023",
+      "numericId": 23,
+      "name": "Helot",
+      "ingameId": "B05",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "helot",
+        "iconKey": "helot"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "helot"
+      ],
+      "searchTags": [
+        "Discard",
+        "Draw",
+        "Hand Limit",
+        "Self-Harm",
+        "Strike"
+      ],
+      "lineupToken": "F"
+    },
+    {
+      "id": "awakener-0024",
+      "numericId": 24,
+      "name": "Horla",
+      "ingameId": "D06",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "horla",
+        "iconKey": "horla"
+      },
+      "faction": "Outlanders",
+      "aliases": [
+        "horla"
+      ],
+      "searchTags": [
+        "Death Resistance",
+        "Heal"
+      ],
+      "lineupToken": "B"
+    },
+    {
+      "id": "awakener-0025",
+      "numericId": 25,
+      "name": "Jenkin",
+      "ingameId": "D07",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "jenkins",
+        "iconKey": "jenkins"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "jenkins"
+      ],
+      "searchTags": [
+        "Draw"
+      ],
+      "lineupToken": "L"
+    },
+    {
+      "id": "awakener-0026",
+      "numericId": 26,
+      "name": "Karen",
+      "ingameId": "C12",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "karen",
+        "iconKey": "karen"
+      },
+      "faction": "Outlanders",
+      "aliases": [
+        "karen"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Dispel",
+        "Draw",
+        "Heal",
+        "Keyflare"
+      ],
+      "lineupToken": "m"
+    },
+    {
+      "id": "awakener-0027",
+      "numericId": 27,
+      "name": "Kathigu-Ra",
+      "ingameId": "C16",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "kathigu-ra",
+        "iconKey": "kathigu-ra"
+      },
+      "faction": "Among the Stars",
+      "aliases": [
+        "kathigu-ra",
+        "kathigura"
+      ],
+      "searchTags": [
+        "Discard",
+        "Dispel",
+        "Draw"
+      ],
+      "lineupToken": "1"
+    },
+    {
+      "id": "awakener-0028",
+      "numericId": 28,
+      "name": "Leigh",
+      "ingameId": "B08",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "leigh",
+        "iconKey": "leigh"
+      },
+      "faction": "Hybrid",
+      "aliases": [
+        "leigh"
+      ],
+      "searchTags": [
+        "Dispel",
+        "Heal",
+        "Self-Harm"
+      ],
+      "lineupToken": "P"
+    },
+    {
+      "id": "awakener-0029",
+      "numericId": 29,
+      "name": "Lily",
+      "ingameId": "C10",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "lily",
+        "iconKey": "lily"
+      },
+      "faction": "Hybrid",
+      "aliases": [
+        "lily"
+      ],
+      "searchTags": [
+        "Death Resistance",
+        "Heal",
+        "Strike"
+      ],
+      "lineupToken": "w"
+    },
+    {
+      "id": "awakener-0030",
+      "numericId": 30,
+      "name": "Liz",
+      "ingameId": "D01",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "liz",
+        "iconKey": "liz"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "liz"
+      ],
+      "searchTags": [
+        "Discard",
+        "Draw"
+      ],
+      "lineupToken": "d"
+    },
+    {
+      "id": "awakener-0031",
+      "numericId": 31,
+      "name": "Lotan",
+      "ingameId": "C04",
+      "realm": "CHAOS",
+      "rarity": "SR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "lotan",
+        "iconKey": "lotan"
+      },
+      "faction": "Out of the Aeons",
+      "aliases": [
+        "lotan"
+      ],
+      "searchTags": [
+        "Dispel",
+        "Max HP DMG",
+        "Strike"
+      ],
+      "lineupToken": "k"
+    },
+    {
+      "id": "awakener-0032",
+      "numericId": 32,
+      "name": "Miryam",
+      "ingameId": "O07",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "miryam",
+        "iconKey": "miryam"
+      },
+      "faction": "Out of the Aeons",
+      "aliases": [
+        "miryam"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Draw",
+        "Heal",
+        "Tentacles"
+      ],
+      "lineupToken": "A"
+    },
+    {
+      "id": "awakener-0033",
+      "numericId": 33,
+      "name": "Mouchette",
+      "ingameId": "C17",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "mouchette",
+        "iconKey": "mouchette"
+      },
+      "faction": "Outlanders",
+      "aliases": [
+        "mouchette"
+      ],
+      "searchTags": [
+        "Death Resistance",
+        "Strike",
+        "Stun"
+      ],
+      "lineupToken": "xg"
+    },
+    {
+      "id": "awakener-0034",
+      "numericId": 34,
+      "name": "Murphy",
+      "ingameId": "O02",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "murphy",
+        "iconKey": "murphy"
+      },
+      "faction": "Hybrid",
+      "aliases": [
+        "murphy"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Keyflare",
+        "Tentacles"
+      ],
+      "lineupToken": "r"
+    },
+    {
+      "id": "awakener-0035",
+      "numericId": 35,
+      "name": "Murphy: Fauxborn",
+      "ingameId": "O02EX",
+      "realm": "AEQUOR",
+      "rarity": "Genesis",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "murphy-fauxborn",
+        "iconKey": "murphy-fauxborn"
+      },
+      "faction": "Out of the Aeons",
+      "aliases": [
+        "murphy: fauxborn",
+        "g-murphy"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Divine Realm",
+        "Draw",
+        "Keyflare",
+        "Tentacles"
+      ],
+      "lineupToken": "H"
+    },
+    {
+      "id": "awakener-0036",
+      "numericId": 36,
+      "name": "Nautila",
+      "ingameId": "C07",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "nautila",
+        "iconKey": "nautila"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "nautila"
+      ],
+      "searchTags": [
+        "Dispel"
+      ],
+      "lineupToken": "g"
+    },
+    {
+      "id": "awakener-0037",
+      "numericId": 37,
+      "name": "Nymphaea",
+      "ingameId": "C08",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "nymphaea",
+        "iconKey": "nymphaea"
+      },
+      "faction": "Outlanders",
+      "aliases": [
+        "nymphaea"
+      ],
+      "searchTags": [],
+      "lineupToken": "v"
+    },
+    {
+      "id": "awakener-0038",
+      "numericId": 38,
+      "name": "Ogier",
+      "ingameId": "C03",
+      "realm": "CHAOS",
+      "rarity": "SR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "ogier",
+        "iconKey": "ogier"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "ogier"
+      ],
+      "searchTags": [
+        "Dispel"
+      ],
+      "lineupToken": "D"
+    },
+    {
+      "id": "awakener-0039",
+      "numericId": 39,
+      "name": "Pandia",
+      "ingameId": "C09",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "pandia",
+        "iconKey": "pandia"
+      },
+      "faction": "Outlanders",
+      "aliases": [
+        "pandia"
+      ],
+      "searchTags": [],
+      "lineupToken": "b"
+    },
+    {
+      "id": "awakener-0040",
+      "numericId": 40,
+      "name": "Pickman",
+      "ingameId": "B12",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "pickman",
+        "iconKey": "pickman"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "pickman"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Draw"
+      ],
+      "lineupToken": "0"
+    },
+    {
+      "id": "awakener-0041",
+      "numericId": 41,
+      "name": "Pollux",
+      "ingameId": "D14",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "pollux",
+        "iconKey": "pollux"
+      },
+      "faction": "Hybrid",
+      "aliases": [
+        "pollux"
+      ],
+      "searchTags": [
+        "Discard",
+        "Draw"
+      ],
+      "lineupToken": "3"
+    },
+    {
+      "id": "awakener-0042",
+      "numericId": 42,
+      "name": "Ramona",
+      "ingameId": "C01",
+      "realm": "CHAOS",
+      "rarity": "SR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "ramona",
+        "iconKey": "ramona"
+      },
+      "faction": "The Unknowable",
+      "aliases": [
+        "ramona"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Discard",
+        "Draw",
+        "Keyflare"
+      ],
+      "lineupToken": "N"
+    },
+    {
+      "id": "awakener-0043",
+      "numericId": 43,
+      "name": "Ryker",
+      "ingameId": "C05",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "ryker",
+        "iconKey": "ryker"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "ryker"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Draw",
+        "Keyflare"
+      ],
+      "lineupToken": "W"
+    },
+    {
+      "id": "awakener-0044",
+      "numericId": 44,
+      "name": "Salvador",
+      "ingameId": "B02",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "salvador",
+        "iconKey": "salvador"
+      },
+      "faction": "Out of the Aeons",
+      "aliases": [
+        "salvador"
+      ],
+      "searchTags": [
+        "Heal",
+        "Self-Harm"
+      ],
+      "lineupToken": "R"
+    },
+    {
+      "id": "awakener-0045",
+      "numericId": 45,
+      "name": "Sanga",
+      "ingameId": "O08",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "sanga",
+        "iconKey": "sanga"
+      },
+      "faction": "Outlanders",
+      "aliases": [
+        "sanga"
+      ],
+      "searchTags": [
+        "Death Resistance",
+        "Dispel",
+        "Tentacles"
+      ],
+      "lineupToken": "K"
+    },
+    {
+      "id": "awakener-0046",
+      "numericId": 46,
+      "name": "Sorel",
+      "ingameId": "B04",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "sorel",
+        "iconKey": "sorel"
+      },
+      "faction": "Outlanders",
+      "aliases": [
+        "sorel"
+      ],
+      "searchTags": [
+        "Death Resistance",
+        "Heal",
+        "Self-Harm"
+      ],
+      "lineupToken": "C"
+    },
+    {
+      "id": "awakener-0047",
+      "numericId": 47,
+      "name": "Tawil",
+      "ingameId": "C15",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "tawil",
+        "iconKey": "tawil"
+      },
+      "faction": "Gateway",
+      "aliases": [
+        "tawil"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Discard",
+        "Draw",
+        "Keyflare",
+        "Max HP DMG"
+      ],
+      "lineupToken": "X"
+    },
+    {
+      "id": "awakener-0048",
+      "numericId": 48,
+      "name": "Thais",
+      "ingameId": "B01",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "thais",
+        "iconKey": "thais"
+      },
+      "faction": "Out of the Aeons",
+      "aliases": [
+        "thais"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Keyflare"
+      ],
+      "lineupToken": "O"
+    },
+    {
+      "id": "awakener-0049",
+      "numericId": 49,
+      "name": "Tinct",
+      "ingameId": "D03",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "tinct",
+        "iconKey": "tinct"
+      },
+      "faction": "Among the Stars",
+      "aliases": [
+        "tinct"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Dispel",
+        "Draw",
+        "Strike"
+      ],
+      "lineupToken": "p"
+    },
+    {
+      "id": "awakener-0050",
+      "numericId": 50,
+      "name": "Tulu",
+      "ingameId": "O01",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "tulu",
+        "iconKey": "tulu"
+      },
+      "faction": "Out of the Aeons",
+      "aliases": [
+        "tulu"
+      ],
+      "searchTags": [
+        "Dispel",
+        "Divine Realm",
+        "Tentacles"
+      ],
+      "lineupToken": "e"
+    },
+    {
+      "id": "awakener-0051",
+      "numericId": 51,
+      "name": "Uvhash",
+      "ingameId": "B07",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "uvhash",
+        "iconKey": "uvhash"
+      },
+      "faction": "Outlanders",
+      "aliases": [
+        "uvhash"
+      ],
+      "searchTags": [
+        "Self-Harm"
+      ],
+      "lineupToken": "Q"
+    },
+    {
+      "id": "awakener-0052",
+      "numericId": 52,
+      "name": "Wanda",
+      "ingameId": "D04",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "wanda",
+        "iconKey": "wanda"
+      },
+      "faction": "Among the Stars",
+      "aliases": [
+        "wanda"
+      ],
+      "searchTags": [],
+      "lineupToken": "E"
+    },
+    {
+      "id": "awakener-0053",
+      "numericId": 53,
+      "name": "Winkle",
+      "ingameId": "D05",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "assets": {
+        "portraitKey": "winkle",
+        "iconKey": "winkle"
+      },
+      "faction": "Among the Stars",
+      "aliases": [
+        "winkle"
+      ],
+      "searchTags": [
+        "Discard",
+        "Dispel",
+        "Draw",
+        "Keyflare"
+      ],
+      "lineupToken": "u"
+    },
+    {
+      "id": "awakener-0054",
+      "numericId": 54,
+      "name": "Xu",
+      "ingameId": "B14",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "xu",
+        "iconKey": "xu"
+      },
+      "faction": "The Unknowable",
+      "aliases": [
+        "xu"
+      ],
+      "searchTags": [
+        "Arithmetica",
+        "Max HP DMG"
+      ],
+      "lineupToken": "xk"
+    },
+    {
+      "id": "awakener-0055",
+      "numericId": 55,
+      "name": "Vortice",
+      "ingameId": "O11",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "assets": {
+        "portraitKey": "vortice",
+        "iconKey": "vortice"
+      },
+      "faction": "The Fools",
+      "aliases": [
+        "vortice"
+      ],
+      "searchTags": [
+        "Dispel",
+        "Divine Realm",
+        "Tentacles"
+      ],
+      "lineupToken": "xo"
+    },
+    {
+      "id": "awakener-0056",
+      "numericId": 56,
+      "name": "Arachne",
+      "ingameId": "D10",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "assets": {
+        "portraitKey": "arachne",
+        "iconKey": "arachne"
+      },
+      "faction": "The Unknowable",
+      "aliases": [
+        "arachne"
+      ],
+      "searchTags": [
+        "Spider",
+        "Divine Realm"
+      ],
+      "lineupToken": "4"
+    }
+  ]
+}

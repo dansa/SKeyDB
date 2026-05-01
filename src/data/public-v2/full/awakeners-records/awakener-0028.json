@@ -1,0 +1,97 @@
+{
+  "id": "awakener-0028",
+  "numericId": 28,
+  "name": "Leigh",
+  "ingameId": "B08",
+  "lineupToken": "P",
+  "realm": "CARO",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "leigh",
+    "iconKey": "leigh"
+  },
+  "baseStatsLv1": {
+    "CON": 19,
+    "ATK": 19,
+    "DEF": 19
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 4,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 2.8
+  },
+  "statScaling": {
+    "CON": 0.9,
+    "ATK": 0.9,
+    "DEF": 0.9
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 4,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 2.8
+  },
+  "profile": {
+    "title": "Leigh",
+    "birthday": "28-Jun",
+    "gender": "Female",
+    "height": "5'3''",
+    "weight": "91lbs",
+    "gnosticIndex": "22.05",
+    "characteristic": "HP Healing    Strength Boost",
+    "introduction": "Converts pain into strength, allowing for significant healing when HP is low.",
+    "awakerIntroduction": "Exalt can restore a significant amount of HP, with more healing at lower HP levels.\nAfter {Rouse}, playing your own Command Card can enhance {Embryo Fusion}, thus obtaining more {Embryo} to provide resource support for the {Caro} team.\nIn this level, Leigh will be brought into battle at Level 50, Skill Level 5, and Enlighten Level 3.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Shh... Don't panic. It's just the sound of rotting rats in the damp cellar. From the deepest abyss, a crimson desire emerges. The imprisoned souls yearn for blood, just as the blind long for light and the hedonists crave lust. Pleasing her is simple: scold and humiliate her to your heart's content.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "......\nExperiment Date: A.F. @1, @2\nExperiment Objective: Observe and record the mutation response of dissolution patients after organ transplantation\nExperiment Steps: @3 @4\nTransplantation experiment on the deceased brother of the subject to observe rejection between direct relatives. The unfortunate individual was shot dead while evading police capture. @3 The experiment was highly successful; the wound turned red and sprouted tentacles... blood gushed out like rubies.\n@3 @3\nThe subject demonstrated remarkable endurance, refusing morphine injections.\nPost-experiment, her bloodlust intensified, and her temperament became... indescribable, not a type I am adept at handling.\n—Excerpt from Herbert's \"Dissolution Experiment Records, Group #4\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Staying away from the library basement, the cemetery, and Leigh has always been the consensus among students.\nA pale and frail girl enjoys provoking others and then happily savoring their anger, like the serpent from the Garden of Eden, timely offering a secretive lure: Hurt me... Come on...\nMost of the time, she receives glares, confusion, and curses in return. Only once did she finally get what she wanted—Uvhash unhesitatingly beat her up and even took a tooth from her. He is someone with no curiosity about others, seeing everything as it should be.\nWatching the warrior dash away gracefully, Leigh smiled contentedly as the soft morning light bathed her. Yet another sunny day.\nI still have plenty of teeth; take them all... Anyone, take them all...",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "A.F. @2, @1\nDear Lord Cavendish:\n\nPlease forgive me. I took the liberty of asking Butler Frey to bring me paper and pen. I am struggling to maintain my last shred of sanity and dignity as I write this letter. Suffering from a grave illness, I have not seen Mother, Bobby, or you, and this longing is enough to drive me mad.\nIt has been...353 days since I was locked in the basement? I'm not sure; perhaps it's 326 days.\nIt's freezing here, and there's an overwhelming stench of decay everywhere. My wounds are oozing black slime, and the rats have gnawed them beyond recognition. But it's fine; pain is good—it keeps one alert.\n\"An evil vampire,\" \"bringing shame to the family\"... isolating me was undoubtedly a wise decision. My soul has long been controlled by a devil. As I write this letter, I have just drained the blood of a deceased homeless man. Butler Frey said you commanded him to fetch me from the street. Although the taste was somewhat off, I'm still glad to know that you care about me.\nAlso... could you provide me with a blanket? I currently have no clothing to cover myself with; the winter in Londinium is unbearably cold.\nEven now, I fondly recall the times we spent together at the Worthing estate during our childhood.\n\nYour sincere sister,\nLeigh\n—Excerpt from \"Kensington Vampire Incident: Case Summary C-601\"",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "The taste of rust spread in the air.\nThat is... the taste of \"food\".\nThe girl slowly opened her eyes. After being injected with a large dose of sedatives for a long time, her mind was in chaos. Lying in front of her was a Beagle with its throat bitten off, apparently called... Bambi? Bobby?\nJust as the girl was lost in memories, a sharp pain shot through her abdomen — she was attacked by \"food\". At that moment, the bound homeless man trembled, seemingly shouting loudly.\n\"Vampire! Monster... monster!!\"\nHowever, the girl paid no heed, only absentmindedly stroking the blood on her abdomen.\nA large amount of warm blood poured out of the wound, like slippery satin, joyfully spilling everywhere.\nIt turns out, she could still feel pain, she could still bleed.\nThe girl silently shed tears. She extended her frail hands soaked in blood, gently caressing the \"prey's\" cheek.\n\"Next, could you please use a little more strength?\"",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Hybrid",
+  "aliases": [
+    "leigh"
+  ],
+  "searchTags": [
+    "Dispel",
+    "Heal",
+    "Self-Harm"
+  ]
+}

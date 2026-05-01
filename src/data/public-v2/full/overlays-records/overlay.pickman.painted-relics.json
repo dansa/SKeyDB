@@ -1,0 +1,13 @@
+{
+  "id": "overlay.pickman.painted-relics",
+  "displayName": "Painted Relics",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Golden Relics",
+    "Silver Relics",
+    "Painted Silver Relics"
+  ],
+  "descriptionTemplate": "Includes the following \"{Astral Reign} Relics\": Malignant Child, Rite of Spring, Iron Lock, Filigree Agate, Blessed Blood, Rusted Saw, Gilded Reverie, Bloody Pebble.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0040"
+}

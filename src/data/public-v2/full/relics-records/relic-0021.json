@@ -1,0 +1,23 @@
+{
+  "id": "relic-0021",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Goliath",
+  "assetId": "Icon_Creation_Unique_O06",
+  "ownerAwakenerId": "awakener-0021",
+  "ownerAwakenerName": "Goliath",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "descriptionTemplate": "At turn start, Goliath gains [Arg1] Aliemus. If Goliath deals DMG [Arg2] {plural:[Arg2]|time|times} within 1 turn, the DMG dealt by Goliath in this battle enjoys an additional 1x {STR} bonus, with a cooldown of 3 turns.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "lore": null
+}

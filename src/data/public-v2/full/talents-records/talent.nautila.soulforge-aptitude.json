@@ -1,0 +1,50 @@
+{
+  "id": "talent.nautila.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0036",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nNautila's {Counter} Generation +[Arg3]%. Before unleashing {Ready and Set}, gain Temporary {Counter} equivalent to [Arg4]% of Permanent {Counter}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "16.5",
+        "18",
+        "19.5",
+        "21",
+        "22.5",
+        "24",
+        "25.5",
+        "27",
+        "30"
+      ]
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "23",
+        "26",
+        "29",
+        "32",
+        "35",
+        "38",
+        "41",
+        "44",
+        "50"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

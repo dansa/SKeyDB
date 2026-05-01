@@ -1,0 +1,77 @@
+{
+  "id": "skill.lily.forbidden-swamp",
+  "ownerAwakenerId": "awakener-0029",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Forbidden Swamp",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield and inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on all enemies. For every 1% {Death Resistance} Lily has, the Base Shield +0.25%. Until the start of next turn, gain [Arg3] {plural:[Arg3]|stack|stacks} of {Endure} for each attack received.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "12",
+        "14.4",
+        "16.8",
+        "19.2",
+        "21.6",
+        "24"
+      ],
+      "suffix": "%",
+      "stat": "DEF",
+      "substatBonus": {
+        "substat": "DeathResistance",
+        "multiplier": "0.25",
+        "mode": "scale_base"
+      }
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "40",
+        "48",
+        "56",
+        "64",
+        "72",
+        "80"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "24",
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.lily.blackened-nourishment.skill.lily.forbidden-swamp",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.lily.blackened-nourishment",
+      "ownerAwakenerId": "awakener-0029",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Lily",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield and inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} to all enemies. For every 1% {Death Resistance} Lily has, the Base Shield +0.25%. Until the start of next turn, gain [Arg3] {plural:[Arg3]|stack|stacks} of {Endure} for each attack received. If HP is below 50%, gain an additional Shield and the applied {Poison} is doubled."
+      }
+    },
+    {
+      "id": "upgrade.talent.lily.surging-darkness.skill.lily.forbidden-swamp",
+      "upgraderId": "talent.lily.surging-darkness",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

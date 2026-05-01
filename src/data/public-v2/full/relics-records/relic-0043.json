@@ -1,0 +1,19 @@
+{
+  "id": "relic-0043",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Ryker",
+  "assetId": "Icon_Creation_Unique_C05",
+  "ownerAwakenerId": "awakener-0043",
+  "ownerAwakenerName": "Ryker",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "descriptionTemplate": "At turn start, Ryker gains [Arg1] Aliemus. The result of the first dice roll each turn is always maxed out.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "lore": null
+}

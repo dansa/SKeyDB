@@ -1,0 +1,89 @@
+{
+  "id": "skill.tulu.immortal-majesty",
+  "ownerAwakenerId": "awakener-0050",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Immortal Majesty",
+  "descriptionTemplate": "Tulu gains [Energy:Arg1] Aliemus. {Rouse}: Tentacle Limit +1. For each Arithmetica consumed or each Tulu Command Card discarded, Gain [TentaclePower:Arg2] {Tentacle DMG} and [Power:Arg2] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "1.2",
+        "1.44",
+        "1.68",
+        "1.92",
+        "2.16",
+        "2.4"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.tulu.lone-king.skill.tulu.immortal-majesty",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.tulu.lone-king",
+      "ownerAwakenerId": "awakener-0050",
+      "operation": "mixed",
+      "ownerAwakenerName": "Tulu",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "1.2",
+              "1.44",
+              "1.68",
+              "1.92",
+              "2.16",
+              "2.4"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "10",
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "5"
+          }
+        },
+        "descriptionTemplate": "Tulu gains [Energy:Arg1] Aliemus. {Rouse}: Tentacle Limit +1. For each Arithmetica spent by Tulu's Command Cards or each Tulu Command Card discarded, gain [TentaclePower:Arg2] {Tentacle DMG} and [Power:Arg2] {STR}. After Tulu unleashes Exalt, all enemies' {Tentacle DMG} taken +[Arg3]%, stacking up to [Arg4] {plural:[Arg4]|time|times}."
+      }
+    }
+  ]
+}

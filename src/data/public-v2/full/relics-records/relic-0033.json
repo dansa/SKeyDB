@@ -1,0 +1,24 @@
+{
+  "id": "relic-0033",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Mouchette",
+  "assetId": "Icon_Creation_Unique_C17",
+  "ownerAwakenerId": "awakener-0033",
+  "ownerAwakenerName": "Mouchette",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "descriptionTemplate": "At turn start, Mouchette gains [Arg1] Aliemus and generates 1 Temporary Strike with an Arithmetica Cost of 0. Each time \"Dramatic Encounter\" is triggered, increase the Base DMG and Strike DMG increase effect of {Shining☆Tornado} by [Arg2]% for this battle.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5",
+      "suffix": "%"
+    }
+  },
+  "lore": null
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.sorel.flowing-rill",
+  "ownerAwakenerId": "awakener-0046",
+  "slot": "E1",
+  "displayName": "Flowing Rill",
+  "descriptionTemplate": "If current HP is below 50%, \"Basic Strike\" deals 2 instances of DMG, {Embryo Fusion} +10%. \"Basic Defense\" gains 2 Shield, {Embryo Fusion} +10%.",
+  "descriptionArgs": {}
+}

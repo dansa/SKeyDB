@@ -1,0 +1,25 @@
+{
+  "id": "covenant-0006",
+  "name": "Burial Ground's Sighs",
+  "assetId": "covenant-icon-008",
+  "lore": "I spit on your grave.\nFor you have found a rare peace in death.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "{Death Resistance} +[Arg1]%",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "16.8",
+          "suffix": "%"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "At the start of the level, {Death Resistance} +25%. After triggering {Death Resistance}, the wielder gains 50 Aliemus.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "D"
+}

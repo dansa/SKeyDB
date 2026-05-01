@@ -1,0 +1,124 @@
+{
+  "id": "skill.wanda.spine-needle-chains",
+  "ownerAwakenerId": "awakener-0052",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Spine Needle Chains",
+  "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}; this damage enjoys [Arg4]% {Counter} bonus. Each attack temporarily reduces the target's {STR⯆} by [Exhaustion:Arg3]. {Leap}: Spend 5 {Dreamlure}. If successful, refund the Arithmetica consumed and deal damage 2 more times; otherwise, gain 2 {Dreamlure}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "1.25",
+        "1.5",
+        "1.75",
+        "2",
+        "2.25",
+        "2.5"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.wanda.lakeborne-dweller.skill.wanda.spine-needle-chains",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.wanda.lakeborne-dweller",
+      "ownerAwakenerId": "awakener-0052",
+      "operation": "mixed",
+      "ownerAwakenerName": "Wanda",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "5"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "2.5",
+              "3",
+              "3.5",
+              "4",
+              "4.5",
+              "5"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20"
+            ],
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}; this damage enjoys [Arg4]% {Counter} bonus. Each attack temporarily reduces the target's {STR⯆} by [Exhaustion:Arg3]. This card gains +25% Crit. Rate. {Leap}: Spend 5 {Dreamlure}. If successful, refund the Arithmetica consumed and deal damage 2 more times; otherwise, gain 2 {Dreamlure}."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.wanda.the-revelation.skill.wanda.spine-needle-chains",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.wanda.the-revelation",
+      "ownerAwakenerId": "awakener-0052",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Wanda",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}; this damage enjoys [Arg4]% {Counter} bonus. Each attack temporarily reduces the target's {STR⯆} by [Exhaustion:Arg3]. This card gains +25% Crit. Rate. {Leap}: Spend 5 {Dreamlure}. If successful, refund the Arithmetica consumed and deal damage 2 more times; otherwise, gain 2 {Dreamlure}."
+      }
+    }
+  ]
+}

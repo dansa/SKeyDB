@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.aigis.nightborne-wings",
+  "ownerAwakenerId": "awakener-0003",
+  "slot": "E3",
+  "displayName": "Nightborne Wings",
+  "descriptionTemplate": "Whenever you {Devour}, put {A Small Wish} from the Discard Pile into hand and set its Arithmetica Cost to 0.",
+  "descriptionArgs": {}
+}

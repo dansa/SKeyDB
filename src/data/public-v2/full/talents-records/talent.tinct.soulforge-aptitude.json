@@ -1,0 +1,50 @@
+{
+  "id": "talent.tinct.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0049",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThe Awakeners' CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nPlaying {Distant Melody} temporarily reduces the DMG dealt by all \"Humanoid\" enemies by [Arg4]%, this effect can't be stacked. For each negative state dispelled by {Requiem}, [Arg3] Aliemus are gained.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "15"
+      ]
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "20"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

@@ -1,0 +1,66 @@
+{
+  "id": "posse-0035",
+  "name": "Undying Thunder",
+  "descriptionTemplate": "Draw [Arg2] {plural:[Arg2]|card|cards}. Gain [Arg1] Shield. If Corposant is in your team, create 1 {Pilot}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.06
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "Burn, burn, burn.\nEven if my bones and blood are boiling, even if my flesh is charred, I will squeeze out the last drop of blood in my body to shine bright.\nBecause in this darkness, I am the only guide.",
+  "realm": "AEQUOR",
+  "assetId": "posse-icon-35",
+  "imageAssetId": "CG_SD_L_O10_2",
+  "lineupToken": "N"
+}

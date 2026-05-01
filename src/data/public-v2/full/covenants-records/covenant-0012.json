@@ -1,0 +1,24 @@
+{
+  "id": "covenant-0012",
+  "name": "Ring of Chamber 36",
+  "assetId": "covenant-icon-014",
+  "lore": "Spin, then forget—this is all of her life.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "Aliemus Regen Level +[Arg1]",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2.4"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "Team Unique. Keyflare cap and Posse Keyflare cost +200. Exalt Crit. Rate, Crit. DMG, Shield, and HP Recovery +30%.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "r"
+}

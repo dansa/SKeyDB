@@ -1,0 +1,93 @@
+{
+  "id": "awakener-0037",
+  "numericId": 37,
+  "name": "Nymphaea",
+  "ingameId": "C08",
+  "lineupToken": "v",
+  "realm": "CHAOS",
+  "rarity": "SSR",
+  "type": "ASSAULT",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "nymphaea",
+    "iconKey": "nymphaea"
+  },
+  "baseStatsLv1": {
+    "CON": 20,
+    "ATK": 32,
+    "DEF": 21
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 16.2,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 0.95,
+    "ATK": 1.5,
+    "DEF": 1
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 1.2,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Nymphaea",
+    "birthday": "7-Dec",
+    "gender": "Female",
+    "height": "5'1''",
+    "weight": "90lbs",
+    "gnosticIndex": "21.05",
+    "characteristic": "Trigger Poison    Weakness to Enemy",
+    "introduction": "Applies Poison and Weakness to continuously torment opponents while ensuring your team's safety.",
+    "awakerIntroduction": "Quickly stack {Poison} on enemies using Command Cards, then trigger the enemy's {Poison} effect with Exalt to deal massive DMG.\nThe DMG and {Poison} from {Midnight Tide} will increase as you play Symptom Cards.\nThe {Poison} applied by Exalt will increase with each use.\nIn this battle, bring Nymphaea with a Level of 50, Skill Level 5, and 3 Enlightened, and Obtain 3 Symptom Cards at the Start of the Battle.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "This projected body remains in the form of a girl who passed away prematurely. With tattered clothes, pale skin, and eyes filled with shadows of the past, it silently tells of a history entwined with illness and suffering.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "This is a souvenir Professor Dexter brought back from the Febvre Coast.\nThe mild ocean climate of Febvre is very pleasant. The century-old Sevada Sanatorium is located by the seashore, attracting countless vacationers each year.\nIn this glass bottle, wrapped in seaweed, are some translucent powders. It is neither a message left by shipwreck survivors nor a local sand art piece. Professor Dexter has noticed that the bottle contains silver essence powder, meaning it houses a spirit.\nHe said he bought it from a local fisherman who hesitantly narrated recent strange encounters. A few days ago, early in the morning, the fisherman encountered an unusual fish swarm while fishing. It was neither the breeding season nor the wintering season, yet the swarm lingered. When the heavy nets were pulled up, they found a strange bottle. The fisherman, curious but uneasy, feared the bottle might bring bad luck or a curse. After this, no fish were caught in this area for several days.",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "She treats every person and every Awakener with great kindness, never showing any signs of aggression. Most of the time, she stays quietly in her room, gazing out the window. At her bedside, we discovered several well-worn classical novels, along with handwritten essays and poems on notepaper, written in a delicate, graceful hand.\n\n\"Compared to that Maiden, I am clearly the lucky one.\" She whispered to the shimmering campus pond, facing the setting sun.\n\nShe rarely takes part in outdoor activities—though rather than saying she is unwilling, it might be more accurate to say she simply doesn't know how. That Maiden-like Awakener seems to lack a great deal of common knowledge about everyday life.\n\nOn several occasions, we also witnessed her conversing with the fish in the fountain in a strange sound—like bubbles being exhaled, or the hoarse gurgle of someone drowning. Yet her expression remained calm and serene, as if she were exchanging comfort with a dear friend. In that moment, we all believed she had found true peace.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "One step, then another, I slowly walked into the water. The nurse at the sanatorium never allowed me to go this far. I hope a patient who will soon be unable to afford the sanatorium's fees doesn't cause her too much blame.\nThe sunset's afterglow reflected on the sea. Waves approached gently, lifting my skirt softly. The seawater's body temperature felt warm like a mother's embrace.\nMy body had never felt as light as it did at this moment; a desolate volcano lay within my chest, and now only the sea breeze remained there.\n\"Let's go home.\"\nI heard the sea calling me in my parents' voices. They went to the other side of the sea to raise money for my treatment. If I hadn't been given such an unfortunate body, they wouldn't have had to struggle so much. If only I could vanish quietly into the sea on a moonlit night... I had thought this countless times, but thinking of my parents' sorrowful faces, I could only give up.\nBut one day, on a moonlit night, the ship my parents were on quietly disappeared into the sea.\n\"Let's go home.\"\nI used all my strength to quicken my pace. The sea always calmly accepts all the suffering souls, and for me, the place where my parents are is the eternal refuge.\nWhen the darkness descends from all sides, I was finally able to breathe freely for the first time in my life",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "I love the sea. Febvre's sea. The Prussian blue sea. The sea with warm, moist breezes. The sea that looks like a painting from the sanatorium's window. The sea with returning sails. The sea nurturing countless lives like a mother.\nNow, I've finally returned to the tranquil sea, back to before birth, back to being enveloped in my mother's amniotic fluid. The currents gather the unfortunate Fragments, piecing me together among bones and coral. The deep-sea fish swim past, listening to the laments of fate's suffering.\nMother, if I could be born again, would I be happier?",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Outlanders",
+  "aliases": [
+    "nymphaea"
+  ],
+  "searchTags": []
+}

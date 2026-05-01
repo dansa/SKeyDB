@@ -1,0 +1,96 @@
+{
+  "id": "awakener-0054",
+  "numericId": 54,
+  "name": "Xu",
+  "ingameId": "B14",
+  "lineupToken": "xk",
+  "realm": "CARO",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "xu",
+    "iconKey": "xu"
+  },
+  "baseStatsLv1": {
+    "CON": 70,
+    "ATK": 42,
+    "DEF": 39
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 2.8
+  },
+  "statScaling": {
+    "CON": 2.25,
+    "ATK": 1.35,
+    "DEF": 1.25
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 2.8
+  },
+  "profile": {
+    "title": "Xu",
+    "birthday": "1-Jun",
+    "gender": "Female",
+    "height": "?+5'52''",
+    "weight": "?+105lbs",
+    "gnosticIndex": "43.34",
+    "characteristic": "Multi-hit Damage    Critical Hit",
+    "introduction": "Her intoxicating charm shatters the enemy's will to fight, and the bone-deep poison seeping through their body erupts violently the moment they succumb.",
+    "awakerIntroduction": "An elegant and alluring Eastern \"deity.\" When she lowers her fan, all beings fall entranced by her lethal charm.\n\nThe pleasure born of desire clings like a bone-deep {Poison}, luring mortals to willingly dissolve into silence within the vows of passion she bestows.\nIn this stage, you will deploy Xu and Ramona at Level 50, Skill Level 5, and Enlighten Level 3. At turn start, place 1 \"Adv. Insight\" and 1 {Embryo} into hand; inflict 1 stack of {Spellbound} on all enemies.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Elegant, alluring—an Eastern \"deity\" of fatal charm.\nLegend has it that when she lowers her fan, you will see the face of your most beloved reflected beneath.\nYet legends are merely legends. Pray that her gaze never falls upon you. Once she seeps into your memories like a pervasive night mist, nothing will remain of your mind but a delirious, hollow obsession.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "In A.F. @16@1, a cargo ship with no traceable voyage records or authorized paperwork silently docked at the Londinium Freight Harbor.\nThe vessel was later confirmed to have originated from a port in the ancient Panlong Empire of the Far East. On the night of its arrival, harbor workers and nearby residents reported a collective dream of an Eastern woman with raven hair, obsidian eyes, and skin like ivory.\n\nWitnesses described her as both \"fascinating\" and \"hauntingly familiar.\" Notably, several male witnesses exhibited catatonic symptoms while providing their accounts.\nMythag's Investigators searched the ship immediately. Strangely, despite pervasive sounds of giggling and high-level Gnostic Responses, no trace of a Silver Core was initially found.\nThe following day, Lord Dexter entered the hold. Inside a ceramic vase that had already been searched multiple times, he discovered a Silver Core enveloped in a thin, clinging mist. As of A.F. 314, this Silver Core was deemed \"unawakenable\" by all known methods.\n\nIt was not until the arrival of the current Keeper, @3, that the Silver Core awakened spontaneously. The resulting entity identifies herself as \"Xu\" and has requested a permanent link with @3.\n\n—Excerpt from \"Mythag University Silver Core Storage Records",
+        "unlockCondition": "Affinity Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Xu appeared on campus just as naturally as she once drifted through palaces, royal tents, and various societies in the Far East. No one can say for certain when she first appeared.\nTo all who meet her, she feels instinctively familiar—a long-lost friend, or perhaps a cherished lover—even if they have never shared a single moment of their lives.\n\nOnly a rare few among the Awakeners maintain a preternatural wariness of her. Or, more accurately, only those of exceptional power can detect the anomaly: Xu, clinging and pervasive like a mist, seeping into their memories.\n The Mythag Administration once debated whether she required strict containment, even considering the development of specialized countermeasures. Yet, Xu dissolved these anxieties with a series of clandestine deals and a single promise:\n\n\"My intentions do not lie with these little ones.\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "...To offer sacrifice where none is due is named Profane Rites. It is a delusion that devours the wealth of the people, persisting despite every decree of prohibition.\n\nThe coastal folk are steeped in the habit of venerating false gods, driven by a passion for raising rustic shrines and unhallowed altars. Vast fortunes are squandered while fields and looms lie fallow, yet the hamlets remain blind to the rot within. Time and again, the magistrates raze these dens to the ground, only for them to sprout anew the moment the garrison withdraws.\n\nMost grievous are the foreign vagabonds. Settling among our villages, they have taken their own sacred icons and turned them upside down, distorting them to resemble the sign for a \"Well\"—the character \"井\".\n\nThe deities enshrined therein—both the masters and their attendants—possess verifiable histories; they are largely women who met with violent or unjust ends. In the beginning, the flock consisted of mere peasant women, stage-players, and common streetwalkers.\n\nBut soon, wife brings husband, mother brings son, and the prostitute brings her patron. Having swollen in rank, they form shadow factions for private gain. It has become a dark wonder to see entire clusters of villages rally behind a single figure—some to infiltrate the halls of officialdom, others to raise private militias to wage war upon their neighbors.\n\n@4@4@3@2\nThe following handwriting is illegible, except for several lines of very neat handwriting in @3. Translated by the Linguistics Department, the text reads:\n\n<Italic:\"Shameless old wretch. His views are so warped, his prose so utterly tedious. I was bored, so I raised a few crickets to watch them fight—and still, he must wag his tongue and prattle on about it...\"\n<Bold:\"It's none of your damn business.\">>\n\n—Excerpt from a handwritten copy of <Italic:Wild Fox Study Gazetter>.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Have you ever felt the world grow so deathly quiet that you felt the urge to shatter something, just to hear the sound?\n\nLust is the silver vase she hurls; the prey startled by its chime... they will slaughter for love and be slaughtered by love, until their spirit is bled dry and only a hollow shell remains.\n\nThen, those drained husks will offer her ever greater dominion, staining everything in sight with a bloody, delicious chaos.\nA chaos that never ends.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Unknowable",
+  "aliases": [
+    "xu"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Max HP DMG"
+  ]
+}

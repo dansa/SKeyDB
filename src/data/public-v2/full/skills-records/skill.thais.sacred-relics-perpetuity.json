@@ -1,0 +1,10 @@
+{
+  "id": "skill.thais.sacred-relics-perpetuity",
+  "ownerAwakenerId": "awakener-0048",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Sacred Relic's Perpetuity",
+  "descriptionTemplate": "For the next 3 turns, at turn start, attempt to convert 1 {Embryo} into {Scion of Purity}. If there are no {Embryo}, add 1 {Embryo} to your hand.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

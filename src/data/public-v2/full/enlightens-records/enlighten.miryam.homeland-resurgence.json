@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.miryam.homeland-resurgence",
+  "ownerAwakenerId": "awakener-0032",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Homeland Resurgence",
+  "descriptionTemplate": "{Rouse} {Testament of Faith} is enhanced: For every 2 {Sacrament} cards flipped, place 1 {Divine Realm's Illusion} into hand.",
+  "descriptionArgs": {}
+}

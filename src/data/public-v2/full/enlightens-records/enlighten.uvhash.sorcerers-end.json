@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.uvhash.sorcerers-end",
+  "ownerAwakenerId": "awakener-0051",
+  "slot": "E3",
+  "displayName": "Sorcerer's End",
+  "descriptionTemplate": "{Hymn of Blood and Sand} enjoys an additional 1x {STR} multiplier with each {Devour}.",
+  "descriptionArgs": {}
+}

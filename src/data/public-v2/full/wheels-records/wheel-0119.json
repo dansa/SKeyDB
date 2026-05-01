@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0119",
+  "name": "Imprisoned Madness",
+  "assetId": "Weapon_Full_SR46",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "REALM_MASTERY",
+  "descriptionTemplate": "Team Unique: When switching to the {Raging Waves} stance, gain Temporary Realm Mastery equal to [StateArg1]% of your current Realm Mastery. 3-turn cooldown.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Eat eat eat eat...\nDelusions born of bewitchment.\nCrush crush crush crush...\nIncoherent murmurs of the abyss.\nDestroy! Destroy!! DESTROY!!! DESTROY!!!!\nUnstoppable, unbridled madness.\n\"Vortice hungry.\"\nThe girl gorged on chunks of flesh still dripping with blood. No matter how much she ate, the emptiness in her stomach refused to fade.\n\"Vortice thirsty.\"\nThe girl gulped the rank, rotting seawater. No matter how much she drank, the parched burning in her throat would not relent.\n\"Vortice sleepy.\"\nThe girl hit herself to stay awake. No matter how long she slept, the exhaustion in her mind never lifted.\nFor only pure destruction can appease the Thing within.\n\"But... Vortice says NO!\"\nThe girl defied the siren call of fate. She bound herself in specialized steel—a cage she can never shed.\nShe forged herself into an unbreakable prison; she used her own existence as the shackles to imprison the madness from the deep.\n\"Vortice, lock the bad thing!\"\nAnd so, the great whirlpool Moskstraumen, which appeared in AF 1■■ and claimed countless lives, fell into absolute silence at the end of AF 31■.",
+  "lineupToken": "y7"
+}

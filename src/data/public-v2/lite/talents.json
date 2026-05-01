@@ -1,0 +1,1043 @@
+{
+  "schemaVersion": 1,
+  "scope": "talents",
+  "recordCount": 154,
+  "records": [
+    {
+      "id": "talent.24.madness-omen",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.24.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0001",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.agrippa.madness-omen",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.agrippa.seal-of-the-pact",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Seal of the Pact",
+      "family": "passive"
+    },
+    {
+      "id": "talent.agrippa.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0002",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.aigis.madness-omen",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.aigis.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0003",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.alva.dynamic-vision",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Dynamic Vision",
+      "family": "passive"
+    },
+    {
+      "id": "talent.alva.madness-omen",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.alva.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0004",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.aurita.happy-little-fairy",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Happy Little Fairy",
+      "family": "passive"
+    },
+    {
+      "id": "talent.aurita.madness-omen",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.aurita.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0005",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.caecus.madness-omen",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.caecus.rebellious-spikes",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Rebellious Spikes",
+      "family": "passive"
+    },
+    {
+      "id": "talent.caecus.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0006",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.casiah.madness-omen",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.casiah.master-of-magic",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Master of Magic",
+      "family": "passive"
+    },
+    {
+      "id": "talent.casiah.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0007",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.castor.cleansing-feathers",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Cleansing Feathers",
+      "family": "passive"
+    },
+    {
+      "id": "talent.castor.madness-omen",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.castor.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0008",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.celeste.madness-omen",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.celeste.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.celeste.voyage-horn",
+      "ownerAwakenerId": "awakener-0009",
+      "displayName": "Voyage Horn",
+      "family": "passive"
+    },
+    {
+      "id": "talent.clementine.hive-resonance",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Hive Resonance",
+      "family": "passive"
+    },
+    {
+      "id": "talent.clementine.madness-omen",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.clementine.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0010",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.corposant.cinders",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Cinders",
+      "family": "passive"
+    },
+    {
+      "id": "talent.corposant.madness-omen",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.corposant.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0011",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.daffodil.madness-omen",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.daffodil.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0012",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.doll.gnosis-deconstruction",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Gnosis Deconstruction",
+      "family": "passive"
+    },
+    {
+      "id": "talent.doll.madness-omen",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.doll.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0013",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.doresain.casket-harvest",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Casket Harvest",
+      "family": "passive"
+    },
+    {
+      "id": "talent.doresain.festering-grace",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Festering Grace",
+      "family": "passive"
+    },
+    {
+      "id": "talent.doresain.madness-omen",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.doresain.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0014",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.erica.external-power-source",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "External Power Source",
+      "family": "passive"
+    },
+    {
+      "id": "talent.erica.madness-omen",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.erica.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0015",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.faint.madness-omen",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.faint.secondary-swaddle",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Secondary Swaddle",
+      "family": "passive"
+    },
+    {
+      "id": "talent.faint.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0016",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.faros.homesick",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Homesick",
+      "family": "passive"
+    },
+    {
+      "id": "talent.faros.madness-omen",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.faros.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0017",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.doll-inferno.madness-omen",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.doll-inferno.path-of-annihilation",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Path of Annihilation",
+      "family": "passive"
+    },
+    {
+      "id": "talent.doll-inferno.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0018",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.helot-catena.madness-omen",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.helot-catena.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0019",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.ramona-timeworn.madness-omen",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.ramona-timeworn.silverheart-resonance",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Silverheart Resonance",
+      "family": "passive"
+    },
+    {
+      "id": "talent.ramona-timeworn.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0020",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.goliath.madness-omen",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.goliath.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0021",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.hameln.madness-omen",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.hameln.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0022",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.helot.madness-omen",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.helot.pain-sigil",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Pain Sigil",
+      "family": "passive"
+    },
+    {
+      "id": "talent.helot.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0023",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.horla.madness-omen",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.horla.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.horla.writing-with-feeling",
+      "ownerAwakenerId": "awakener-0024",
+      "displayName": "Writing with Feeling",
+      "family": "passive"
+    },
+    {
+      "id": "talent.jenkins.a-common-enemy",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "A Common Enemy",
+      "family": "passive"
+    },
+    {
+      "id": "talent.jenkins.madness-omen",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.jenkins.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0025",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.karen.madness-omen",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.karen.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0026",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.kathigu-ra.madness-omen",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.kathigu-ra.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.kathigu-ra.the-living-flame",
+      "ownerAwakenerId": "awakener-0027",
+      "displayName": "The Living Flame",
+      "family": "passive"
+    },
+    {
+      "id": "talent.leigh.madness-omen",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.leigh.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0028",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.lily.madness-omen",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.lily.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.lily.surging-darkness",
+      "ownerAwakenerId": "awakener-0029",
+      "displayName": "Surging Darkness",
+      "family": "passive"
+    },
+    {
+      "id": "talent.liz.madness-omen",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.liz.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0030",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.lotan.madness-omen",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.lotan.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0031",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.miryam.madness-omen",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.miryam.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.miryam.undying-piety",
+      "ownerAwakenerId": "awakener-0032",
+      "displayName": "Undying Piety",
+      "family": "passive"
+    },
+    {
+      "id": "talent.mouchette.dramatic-encounter",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Dramatic Encounter",
+      "family": "passive"
+    },
+    {
+      "id": "talent.mouchette.madness-omen",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.mouchette.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0033",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.murphy.madness-omen",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.murphy.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0034",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.murphy-fauxborn.divine-realms-order",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Divine Realm's Order",
+      "family": "passive"
+    },
+    {
+      "id": "talent.murphy-fauxborn.madness-omen",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.murphy-fauxborn.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0035",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.nautila.daily-maintenance",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Daily Maintenance",
+      "family": "passive"
+    },
+    {
+      "id": "talent.nautila.madness-omen",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.nautila.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0036",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.nymphaea.immerse",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Immerse",
+      "family": "passive"
+    },
+    {
+      "id": "talent.nymphaea.madness-omen",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.nymphaea.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0037",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.ogier.formless-refinement",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Formless Refinement",
+      "family": "passive"
+    },
+    {
+      "id": "talent.ogier.madness-omen",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.ogier.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0038",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.pandia.madness-omen",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.pandia.punishment-time",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Punishment Time",
+      "family": "passive"
+    },
+    {
+      "id": "talent.pandia.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0039",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.pickman.madness-omen",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.pickman.painters-eye",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Painter's Eye",
+      "family": "passive"
+    },
+    {
+      "id": "talent.pickman.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0040",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.pollux.atonement-by-pain",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Atonement by Pain",
+      "family": "passive"
+    },
+    {
+      "id": "talent.pollux.madness-omen",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.pollux.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0041",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.ramona.madness-omen",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.ramona.silverheart-resonance",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Silverheart Resonance",
+      "family": "passive"
+    },
+    {
+      "id": "talent.ramona.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0042",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.ryker.madness-omen",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.ryker.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.ryker.winner-takes-all",
+      "ownerAwakenerId": "awakener-0043",
+      "displayName": "Winner Takes All",
+      "family": "passive"
+    },
+    {
+      "id": "talent.salvador.madness-omen",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.salvador.origin-of-all-life",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Origin of All Life",
+      "family": "passive"
+    },
+    {
+      "id": "talent.salvador.shepard-of-the-souls",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Shepard of the Souls",
+      "family": "passive"
+    },
+    {
+      "id": "talent.salvador.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0044",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.sanga.enlightenment-of-death",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Enlightenment of Death",
+      "family": "passive"
+    },
+    {
+      "id": "talent.sanga.madness-omen",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.sanga.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0045",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.sorel.guardian-of-vanity",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Guardian of Vanity",
+      "family": "passive"
+    },
+    {
+      "id": "talent.sorel.madness-omen",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.sorel.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0046",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.tawil.madness-omen",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.tawil.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0047",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.thais.madness-omen",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.thais.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0048",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.tinct.madness-omen",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.tinct.planetary-traveler",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Planetary Traveler",
+      "family": "passive"
+    },
+    {
+      "id": "talent.tinct.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0049",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.tulu.divine-kings-power",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Divine King's Power",
+      "family": "passive"
+    },
+    {
+      "id": "talent.tulu.madness-omen",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.tulu.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0050",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.uvhash.madness-omen",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.uvhash.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0051",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.wanda.madness-omen",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.wanda.revelation",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Revelation",
+      "family": "passive"
+    },
+    {
+      "id": "talent.wanda.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0052",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.winkle.madness-omen",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.winkle.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0053",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.xu.madness-omen",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.xu.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0054",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.vortice.lightless-bottom",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Lightless Bottom",
+      "family": "passive"
+    },
+    {
+      "id": "talent.vortice.madness-omen",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.vortice.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0055",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.arachne.madness-omen",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Madness Omen",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "id": "talent.arachne.soulforge-aptitude",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Soulforge Aptitude",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "id": "talent.arachne.threads-of-fate",
+      "ownerAwakenerId": "awakener-0056",
+      "displayName": "Threads of Fate",
+      "family": "passive"
+    }
+  ]
+}

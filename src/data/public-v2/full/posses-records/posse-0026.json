@@ -1,0 +1,11 @@
+{
+  "id": "posse-0026",
+  "name": "Spring's Verse",
+  "descriptionTemplate": "Choose one of four {Poetry Pages} that haven't been chosen; reset after all {Poems} have been chosen.",
+  "descriptionArgs": {},
+  "lore": "Pray, accept my poem, this offering of spring to the garden.\nIn our desolate lives, the roses dwell in deep red.",
+  "realm": "ULTRA",
+  "assetId": "posse-icon-26",
+  "imageAssetId": "CG_SD_L_D06_9",
+  "lineupToken": "A"
+}

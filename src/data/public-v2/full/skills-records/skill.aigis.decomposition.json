@@ -1,0 +1,59 @@
+{
+  "id": "skill.aigis.decomposition",
+  "ownerAwakenerId": "awakener-0003",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Decomposition",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG, which enjoys a 2x {STR} bonus. If the target is {Vulnerable}, refund the Arithmetica Cost of the card and draw 1 card.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "60",
+        "72",
+        "84",
+        "96",
+        "108",
+        "120"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.aigis.sugary-aroma.skill.aigis.decomposition",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.aigis.sugary-aroma",
+      "ownerAwakenerId": "awakener-0003",
+      "operation": "mixed",
+      "ownerAwakenerName": "Aigis",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "60",
+              "72",
+              "84",
+              "96",
+              "108",
+              "120"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "5",
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG, enjoys a 2x {STR} bonus. If the target is {Vulnerable}, refund the Arithmetica used for this card and draw 1 card. For each stack of {Vulnerable} on the target, increase the Final DMG of {Decomposition} by [Arg2]%, up to 500%."
+      }
+    }
+  ]
+}

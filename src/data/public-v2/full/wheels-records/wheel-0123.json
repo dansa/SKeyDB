@@ -1,0 +1,32 @@
+{
+  "id": "wheel-0123",
+  "name": "Dusk and Dawn",
+  "assetId": "Weapon_Full_ZL04",
+  "ownerAwakenerName": null,
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DEATH_RESISTANCE",
+  "descriptionTemplate": "Team Unique: Gain [StateArg1] Keyflare at turn end. Gain [StateArg2] Keyflare after triggering {Death Resistance}. Using Emergency Gnosis increases Arithmetica cap by 3 and allows you to draw 3 cards per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "125",
+        "150",
+        "175",
+        "200"
+      ]
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "700",
+        "800",
+        "900",
+        "1000"
+      ]
+    }
+  },
+  "lore": "They rowed through the dark river—pale, silent, exhausted.\n\nA hazy mist stretched out its tendrils and pulled them into the darkness, leaving them to wander an endless night.\n\nThen, they saw a beam of light.\n\nIt was the dawn light from a distant shore, flickering, yet bright enough to reach their dim souls.\n\nSo they followed it, rowing clumsily through the dark, until they reached the break of dawn;\n\nuntil they stood before you.\n\n\nPerhaps this is just a fleeting encounter, but they wave and shout with all they have.\nEveryone is bathed in the sacred light.\nEveryone is smiling.\n\nThey say—\n\nMay every gathering be cherished like a feast.\nMay sincere hearts never cease to beat.\nMay the Silver Key light our path.",
+  "lineupToken": "xT"
+}

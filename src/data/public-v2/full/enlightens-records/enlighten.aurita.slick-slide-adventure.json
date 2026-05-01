@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.aurita.slick-slide-adventure",
+  "ownerAwakenerId": "awakener-0005",
+  "slot": "E2",
+  "displayName": "Slick-Slide Adventure",
+  "descriptionTemplate": "{Gland Division} and {Clamorous Ocean} increase Base DMG by 100%, dealing {Pierce DMG}.",
+  "descriptionArgs": {}
+}

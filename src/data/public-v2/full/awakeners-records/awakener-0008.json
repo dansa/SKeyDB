@@ -1,0 +1,95 @@
+{
+  "id": "awakener-0008",
+  "numericId": 8,
+  "name": "Castor",
+  "ingameId": "D11",
+  "lineupToken": "7",
+  "realm": "ULTRA",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "castor",
+    "iconKey": "castor"
+  },
+  "baseStatsLv1": {
+    "CON": 52,
+    "ATK": 47,
+    "DEF": 55
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 51.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.65,
+    "ATK": 1.5,
+    "DEF": 1.75
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 1.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Castor",
+    "birthday": "20-Jun",
+    "gender": "Male",
+    "height": "6'0.3''\n(wingspan 9'9.8'')",
+    "weight": "205 lbs",
+    "gnosticIndex": "23.39",
+    "characteristic": "Multi-hit Damage    Critical Hit",
+    "introduction": "With wings that stir violent winds to shield his allies, Castor's Onyx Plumes cause lethal \"Corrosion,\" inflicting massive HP loss upon enemies when they take DMG this turn.",
+    "awakerIntroduction": "The unyielding lone bird, summoning storms with his wings to protect his own.\nHis descent scatters Onyx Plumes, each one carrying deadly {Corrosion}, dealing severe HP loss to enemies struck this turn.\nIn this stage, Castor and Jenkin (Lv. 50, Skill Lv. 5, Enlighten 3) will deploy. Battle start grants 100 Aliemus, plus 30 each turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "If born into an ordinary family, Castor might have grown into a modest young man as warm and steady as a tree. But now, he is the only one among the twins who retained a complete Body and Soul; he remains silent like a stone, waiting to bury that ember the two of them shared in their youth deep within, never giving up, never wavering.\nThose already matured wings, capable of stirring up a storm, are now retracted in dormancy, as a bird quietly awaits the moment the cage door opens to once again soar in the sky.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "While I was on a mission far away from Londinium, on that barren plateau known for its poverty, I happened to discover an astonishing account in a mountain village that had only a few remaining residents.\nOn the night the monster appeared, it seemed as if the sky was shrouded by some strange shadow, fog rolling on the ground, while a dim green hue emerged from deep within the clouds, a phenomenon not just of nature, but a projection of a living, breathing entity.\nDeep in the desolate mountains where tall trees stood, a roar, like a wave of fury, suddenly resonated—a howl from something that did not belong to any creature, stirring the deepest fears of instinct within people.\nA massive shadow sped past, shaking the entire mountain along with its obscuring presence, and all the branches and leaves of the trees trembled, creating a synchronized whisper-like rustle.\n\"I saw it! Those long, dense tendrils, those eyes glowing green, that must be the source of that terrifying shadow above. It noticed me, even locked onto me! I truly thought my life would end at that moment, but perhaps it had just had its fill, and before I blacked out from suffocation, it mercifully turned away.\" \nThis is the only interview with an official witness, and the villagers, still entrenched in nightmares, refuse to recall more details. However, from existing signs, this massive dark green monster, besides having demolished part of the mountains and leaving a few remnants of beast corpses with only strands of blood, did not show greater aggression, like a normal beast feeding. Perhaps its approach to the village stemmed solely from a curious peek.\nBut in the face of any unknown horror, we evidently need to prepare for the worst; I will continue my investigation on the @3 plateau for half a month, and if there are any other notable danger signals, I will include them in the mission report at any time.\n\n——Excerpt from the Mythag Field Investigation Notes 19@2 Annual Record",
+        "unlockCondition": "Affinity Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "The experience of interacting with Castor often reveals two strikingly contrasting extremes.\nAt first glance, his overly serious and composed demeanor closely resembles that of a middle-aged clerk who has spent twenty years working at Londinium Bank: rigid, unromantic, drained of all vitality by monotonous work. When he frowns, he indeed carries a saint-like presence—calm yet exuding authority without raising his voice.\nHowever, upon deeper interaction, you'll discover that all his seemingly conservative behaviors stem from an extremely limited knowledge base and an unparalleled level of bluntness, to the point where he takes any joke directed at him completely seriously.\nHe often clutches a thick notebook, ceaselessly questioning the Keeper as if he were a toddler still learning to speak. Faced with such earnest and sincere gaze, most people find it difficult to express disdain for those naive questions.\nBeyond scriptures related to various beliefs, Castor is insatiably curious about any new knowledge, especially regarding modern society and science; he has even developed a strong interest in experimental research. After being ruthlessly ignored by Doll: Inferno, he turned to relentlessly pursue poor Winkle, who tries to escape from him daily.\nIf he were in a school classroom, he would be the kind of diligent student adored by teachers—he does not see studying as a burden, but rather views the freedom to absorb interesting knowledge as a heartfelt joy.\nHowever, while the teacher might feel content, some boastful Awakeners become infuriated when faced with his endless logical inquiries, unable to answer them, leaving behind a bewildered Castor reflecting on the profound difficulty of learning and the long road ahead.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "What is the price of pursuing freedom and escaping the church? The twins anticipated horrifying punishments, even the loss of their own lives, but they never expected that the most painful thing was never the physical torture, but the flaying of the soul.\nCastor stared with bloodshot eyes as Pollux's treasured, lively and magnificent wings were brutally torn off. His own lips were bitten raw, and he waited in madness and guilt, craving for the same pain to befall him.\nHowever, Juliette merely waved her hand, and the severely injured Castor was taken down like a broken sack, thrown into a pool filled with d-slime for the \"sin-effacement rite.\"\nThe black, viscous slime soaked his injured body, seeping into every wound and covering every feather, making it even harder to breathe.\nIn the cycle of wounds repeatedly corroding and healing, the image of the torn-out wings spiraled in Castor's dazed mind. He sat in the small cage in agony, wishing he could bear all the torment for his brother. He wished he had been the one to have his wings pulled out that day, yet later he resolutely thought that he must use these wings to fly with his brother towards freedom again.\nCastor endured day after day in this hellish pool; time became unperceivable through pain. It felt like waiting for dozens of years, waiting until Castor nearly died again, before he finally crawled out from that dark hell. The eager eyes he faced were met with a cold and disdainful gaze.\n\"Stop looking at me with that disgusting look! Let me give you another piece of advice, Lord Castor. You and I are merely serving as the Twin Divi of the Lightbearer together. Leave me alone unless you have a serious matter to discuss. It gets annoying, you know?\"\nCastor did not understand why his brother had completely forgotten him, but he finally realized the meaning of Juliette's deeply meaningful gaze when he left the pool of sin—because she now tightly held the collar that could control him, a guarantee of her absolute confidence.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Twins are born with nothing but each other, yet Castor continues to savor the taste of loss.\nBeing hurt, forgotten, and betrayed, that silent heart is not made of iron, but he keeps getting back up.\n\"But it's okay, I will hold on to your share too,\" Castor said, looking at his brother, who was disfigured, believing blindly.\nIn his heart, he tightly clutched that faint flame, tirelessly resisting the knife-like wind and snow.\nOne day, he will climb to the peak of freedom and use his wings to touch the sky's low-hanging curtain.\nHe believes that the end of that thorny path must be the bright daylight promised by his younger brother in childhood.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Fools",
+  "aliases": [
+    "castor"
+  ],
+  "searchTags": [
+    "Draw"
+  ]
+}

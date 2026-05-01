@@ -1,0 +1,97 @@
+{
+  "id": "awakener-0046",
+  "numericId": 46,
+  "name": "Sorel",
+  "ingameId": "B04",
+  "lineupToken": "C",
+  "realm": "CARO",
+  "rarity": "SSR",
+  "type": "ASSAULT",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "sorel",
+    "iconKey": "sorel"
+  },
+  "baseStatsLv1": {
+    "CON": 45,
+    "ATK": 64,
+    "DEF": 33
+  },
+  "substatsLv1": {
+    "CritRate": 6.6,
+    "CritDamage": 51.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.45,
+    "ATK": 2.05,
+    "DEF": 1.05
+  },
+  "substatScaling": {
+    "CritRate": 1.6,
+    "CritDamage": 1.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Sorel",
+    "birthday": "9-Feb",
+    "gender": "Female",
+    "height": "5'7''",
+    "weight": "130lbs",
+    "gnosticIndex": "23.1421",
+    "characteristic": "Multi-hit DMG    HP Healing",
+    "introduction": "Deals high-frequency damage with a graceful waltz and heals itself with the enemy's blood.",
+    "awakerIntroduction": "The lower the HP, the stronger the DMG and Healing.\nStockpile embryos in advance, and unleash a burst of Aliemus through infinite {Devour} to deal massive DMG at once.\nIn this level, Sorel will be brought into battle with a carrying Level of 50, Skill Level 5, and 3 Enlighten, starting with 40% HP.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "A silver tongue is the nectar exuded by budding flowers, and courtiers are the bees and butterflies that flit around their swaying petals.\nThorns born of desire have unknowingly entwined the flower-decorated window tightly.\nEven if her character is condemned by the world and her hands bleed from the cuts of the crown, she will never relinquish the power she has embraced.\nAfter all, this is the true nourishment that allows the rose to bloom.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "\"The Salon\" has quietly risen in the upper class of Londinium at an unknown time.\nIn this mysterious salon, some have had the chance to receive portraits painted by masters, some have dined with the Prime Minister, and others have even received a promise from the Queen herself.\nThe organizer, the venue, and the timing of the event remain a mystery. People only know that everyone can obtain what they desire most in the salon.\nBut no one knows what kind of guest will earn the host's favor and receive an invitation.\nEven the eloquent Lord Dexter was turned away by the salon's master.\n\"I'm very sorry, but the host currently prefers to invite artistic luminaries.\"\n\"Nobles? Please await future invitations.\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "At first, it was just a glass of grape soda that replaced red wine.\nIn an unnoticed corner, Sorel appeared pitiful, drinking with two or three students.\nThen, it was a small afternoon tea.\nIn the student cafeteria, Sorel hesitated over the macarons pushed towards her, revealing a hint of reluctance and sincerity.\nFinally, it was a grand salon, the blooming of a rose.\nThe lounge was adorned with flowers and jewels, brilliant roses mingling with naive students, and everyone enjoyed themselves.\nThe newly appointed Keeper witnessed all this and silently prayed that her next step would not be \"becoming the principal of Mythag University.\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Sorel knows she is beautiful, and in her heart, she regards this beauty as a gift from heaven.\nAs long as she pleads with tearful eyes, people will show her pity; by simply acting pitiful, those who admire her will unconditionally take her side.\nHowever, beauty is worthless in the face of true power.\nFor the first time, facing parents who wish to trade her to nobility for their own future, Sorel's tears tasted the bitterness of failure.\nIs there anyone who can help her? Anyone who can take her away from her ignorant and backward fate?\nIs there something, somewhere, that can transform her beauty into a real weapon?\nAs Sorel sobs with her face buried in her hands, an agent of deep destiny arrives before her.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Even now, as an Awakener, Sorel cannot forget those nobles who fawned over her; she cannot forget their faces, one after another, etched with flattery.\n\nHow utterly nauseating those smiling faces were: slick, mercenary, every one of them oozing desire and calculation, yet she had no choice but to weave a gentle web around each one.\n\nShe would weave the most meticulous of webs, reaching into every dark corner, winning over every person, seizing every piece of leverage. She had to be like water slowly brought to a boil, letting those people sink deeper and deeper, so that by the time they wished to remove their masks, they would find there was no escape.\n\nBut when she finally came to her senses, the one with no escape turned out to be herself.\n\nNo escape. No rest. No surrender.\n\nSorel has long since lost the right to turn back. Aside from standing above everyone, there is no other path for her to walk.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Outlanders",
+  "aliases": [
+    "sorel"
+  ],
+  "searchTags": [
+    "Death Resistance",
+    "Heal",
+    "Self-Harm"
+  ]
+}

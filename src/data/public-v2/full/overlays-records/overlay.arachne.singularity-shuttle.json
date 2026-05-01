@@ -1,0 +1,11 @@
+{
+  "id": "overlay.arachne.singularity-shuttle",
+  "displayName": "Dimension Shuttle",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Singularity Shuttle"
+  ],
+  "descriptionTemplate": "After playing the first Command Card each turn, move a Temporary Base Copy of it to {Ultra Space}. This cannot trigger during {Ultra Rounds}.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0056"
+}

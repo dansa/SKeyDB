@@ -1,0 +1,62 @@
+{
+  "id": "posse-0037",
+  "name": "Cruel Homage",
+  "descriptionTemplate": "{Steal} [Arg1] {STR} from all enemies. If Doresain is in your team, he gains 1 {Corpse}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.04
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "The full moon has risen to the zenith, and the King of the Ghouls salutes you.\nTonight, we drink in hatred from the skulls of our enemies.\nTonight, we measure eternity with the ribs of our lovers.",
+  "realm": "CARO",
+  "assetId": "posse-icon-39",
+  "imageAssetId": "CG_C203_003",
+  "lineupToken": "S"
+}

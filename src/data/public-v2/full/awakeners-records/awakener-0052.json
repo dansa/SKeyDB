@@ -1,0 +1,93 @@
+{
+  "id": "awakener-0052",
+  "numericId": 52,
+  "name": "Wanda",
+  "ingameId": "D04",
+  "lineupToken": "E",
+  "realm": "ULTRA",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "wanda",
+    "iconKey": "wanda"
+  },
+  "baseStatsLv1": {
+    "CON": 55,
+    "ATK": 35,
+    "DEF": 64
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.75,
+    "ATK": 1.1,
+    "DEF": 2.05
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Wanda",
+    "birthday": "2-Nov",
+    "gender": "Female",
+    "height": "5'7''",
+    "weight": "121lbs",
+    "gnosticIndex": "23.41",
+    "characteristic": "High Counter    Trigger Leap",
+    "introduction": "Commanding deadly thorns, she establishes a formidable defense by stacking Counter effects, then unleashes them to deal DMG.",
+    "awakerIntroduction": "Wanda possesses powerful {Counter} abilities and unique effects that trigger {Leap}.\nPlay Cards to accumulate {Dreamlure}, then flexibly consume it to enhance her abilities. Stack {Counter} to weaken enemies and boost damage.\nIn this stage, \"Wanda\" (Level 50, Skill Level 5, Enlighten Level 3) will be deployed.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Wanda is smart, rich, and beautiful. As she says, she lives for pleasure. She turns men into her slaves and places her moonlit, cold feet on their backs. The crowned Venus, she is the embodiment of evil and dreams; in this dark shadow, her slender figure shines.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "Travel info: Curious History Exploration - Luxurious 7-Day Tour to Cambrian Castle\nDate: A.F.3@2 June 18th-25th\nGuide: Thomas @2@1\nBrief itinerary:\nCome on, uncover the mystery of the most infamous haunted castle from 300 years ago—Cambrian Castle!\nWe're tired of reading about the seductive lady and her twenty-five attendants in old books and silent films; it's all the same—so boring!\nAccording to a Mythag expert who wishes to remain anonymous, there's been a new discovery in the area! @2@1 covered in thorns...\nCall quickly @2@1@1. This trip will be unforgettable, chills guaranteed!\n—Excerpt from \"Worster Tour Group Disappearance CaseFile Summary: Evidence S-145\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "On her first day at Mythag, Wanda was severely accused of \"arbitrarily trampling on others\".\nAccording to a student who wished to remain anonymous, he just happened to pass by the library and accidentally made eye contact with Wanda, and was then thrown to the ground. @2 was put on @3 (the student refused to disclose more details).\nThe process of Damage took no more than five minutes, and the situation was severe and appalling.\nThe Mythag Disciplinary Committee (hereinafter referred to as MDC) expressed high concern and deep sympathy regarding this matter. A specialized task force has been established to conduct thorough ideological and behavioral reform for Wanda, in order to help her quickly integrate into campus life.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "At the onset of the terrible plague, Wanda ordered the castle gates to be welded shut, retreating into a life of complete isolation and indulgence.\nThere were jesters jesting and poets reciting spontaneously. There were musicians playing, as well as food and wine.\nAll joy and peace resided within the castle, while the outside was a world shrouded in @2 darkness.\nJust as the area outside the walls became a wasteland, Wanda held an exceptionally luxurious masquerade for her hundreds of followers.\nIt was a three-day, three-night extravagant and debauched revelry. As the midnight bell tolled on the third day, some guests went completely mad, while others turned into puddles of black goo. Wanda's face cracked like porcelain, black @2 oozing from the seams of her mask.\nFrightened followers huddled next to Wanda, trembling, but she remained calm.\nWith a whip, she commanded those who had gone completely mad to continue drinking and playing music without pause.\nThe bizarre masquerade ended on the fourth morning, and the opulent hall was filled with black @2 sludge and red blood.\nNo one knew what had transpired here.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "\"Indulgence and lust lead to eternal fire as a warning...\"\nFor 23 days, the monk stood outside her gate, reciting monotonous scriptures.\nWanda had him tied up and brought in.\nThe monk said, 'Why worry about suffering? Where the Lord's spirit is, there is freedom.'\nShe stripped him.\nThe monk said, 'Why worry about clothes? The lilies of the field neither spin nor bow.'\nShe severed his limbs.\nThe monk said, 'Why worry about blood? All flesh dies.'\nWanda laughed, 'I will not only make you bleed, but also turn you into my slave, forever.'\n'Why?' the monk lifted his head, 'Shouldn't you show mercy to your companion as I showed mercy to you?'\nWanda studied the monk. His eyes were as blue as the clear sky.\nShe gouged out his eyes.\nUnable to bear the torture, the monk eventually died. The local parish feared her wealth and power, and no one dared to accuse her.\nBefore dying, the monk said, '@2 is near, you should...'\nYears passed, and Wanda had long forgotten the monk's face and name, only remembering his eyes. On the night she was about to be devoured by @2, she recalled the monk's unfinished words.\n'@2 is near, you should...'\nIn her blurred consciousness, she speculated on the monk's last words, but found nothing.\"",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Among the Stars",
+  "aliases": [
+    "wanda"
+  ],
+  "searchTags": []
+}

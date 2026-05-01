@@ -1,0 +1,124 @@
+{
+  "id": "posse-0013",
+  "name": "Feast of Decay",
+  "descriptionTemplate": "Gain [Arg1] {Counter} and inflict [Arg2] Temp. {STR⯆} on all enemies. If in an {Ultra Round}, deal DMG equal to your {Counter} to all enemies instead of inflicting {STR⯆}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountDamagePower"
+                  },
+                  {
+                    "const": 0.01
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.06
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "accountDamagePower",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.03
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": "The feast has reached its peak. The queen of Cambrian laughed heartily, raising her glass to you amidst the revelry and D-Slime.",
+  "realm": "ULTRA",
+  "assetId": "posse-icon-13",
+  "imageAssetId": "CG_SD_S_D04_4",
+  "lineupToken": "q"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "skill.24.symbiotic-aberration",
+  "ownerAwakenerId": "awakener-0001",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Symbiotic Aberration",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. \"24\" obtains [Energy:Arg2] Aliemus.\nDepressed Persona: Also grants other Awakeners the same amount of Aliemus. Manic Persona: The amount of Aliemus gained is tripled",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "8"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.24.restraint-bonds.skill.24.symbiotic-aberration",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.24.restraint-bonds",
+      "ownerAwakenerId": "awakener-0001",
+      "operation": "mixed",
+      "ownerAwakenerName": "\"24\"",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "10"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. \"24\" obtains [Energy:Arg2] Aliemus.\nDepressed Persona: Grants other Awakeners an equal amount of Aliemus, inflict {Weakness} on all enemies for 1 turn. Manic Persona: Obtains 3x the amount of Aliemus, inflict {Vulnerable} on all enemies for 1 turn"
+      }
+    }
+  ]
+}

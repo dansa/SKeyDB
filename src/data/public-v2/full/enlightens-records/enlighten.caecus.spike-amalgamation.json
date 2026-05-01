@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.caecus.spike-amalgamation",
+  "ownerAwakenerId": "awakener-0006",
+  "slot": "E2",
+  "displayName": "Spike Amalgamation",
+  "descriptionTemplate": "{Protective Scales} Shield Generation 20% and gains {Retain}.",
+  "descriptionArgs": {}
+}

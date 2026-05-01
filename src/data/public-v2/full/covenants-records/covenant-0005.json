@@ -1,0 +1,25 @@
+{
+  "id": "covenant-0005",
+  "name": "Twisted Twins: Black",
+  "assetId": "covenant-icon-006",
+  "lore": "Blood-dark sacrifice. May the Twins bless your body.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "Crit. Rate +[Arg1]%",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "4.8",
+          "suffix": "%"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "At the start of odd turns, add the wielder's \"Strike\" with {Fleeting} and {Exhaust} to your hand.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "B"
+}

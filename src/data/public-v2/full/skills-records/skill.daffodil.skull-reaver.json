@@ -1,0 +1,38 @@
+{
+  "id": "skill.daffodil.skull-reaver",
+  "ownerAwakenerId": "awakener-0012",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Skull Reaver",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to the enemy with the lowest HP, which enjoys a 5x {STR} bonus. After Daffodil kills an enemy in any way, the Base DMG of {Skull Reaver} permanently +25% for the rest of this stage. {Leap}: Instead, deal [Damage:Arg2] DMG to the enemy with the highest HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "50",
+        "60",
+        "70",
+        "80",
+        "90",
+        "100"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "75",
+        "90",
+        "105",
+        "120",
+        "135",
+        "150"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3"
+}

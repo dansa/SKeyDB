@@ -1,0 +1,23 @@
+{
+  "id": "wheel-0077",
+  "name": "Duty's Gravitas",
+  "assetId": "Weapon_Full_SR01",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "REALM_MASTERY",
+  "descriptionTemplate": "Team Unique: After the wielder triggers Exalt, all allies gain [StateArg1] Aliemus.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    }
+  },
+  "lore": "The acting dean is an oddity on the Mythag campus.\n\nAlmost each Mythag investigator has unique abilities, while she is one of the very few with no powers beyond ordinary human limits.\n\nYet she holds this vital role.\n\nBorn into an ordinary family in the Elke Kingdom, she grew fierce and tenacious, shaped by local traditions.\n\nLater, her fellow prisoner in the camp, Sophia, ignited her passion for academic research.\n\nHer remarkable academic achievements made her the most trusted student of her mentor, the former dean of the Mythag University Biological Institute.\n\nThus, after her mentor disappeared, she naturally stepped in as acting dean.\n\nUnder her steadfast leadership, the institute's research continues to run smoothly.\n\n\"Fear no violence, fear no power. And so, fear no duty.\"",
+  "lineupToken": "5"
+}

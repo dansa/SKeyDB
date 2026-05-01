@@ -1,0 +1,11 @@
+{
+  "id": "overlay.ramona-timeworn.loop",
+  "displayName": "Loop",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Ramona: Timeworn: Unique additional effect of Ramona's Command Card, triggered when there are 3 stacks of {Negentropy}. The {Loop} will carry over to the next Battle.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0020",
+  "iconId": "Battle_Card_Buff_038",
+  "textColor": "light"
+}

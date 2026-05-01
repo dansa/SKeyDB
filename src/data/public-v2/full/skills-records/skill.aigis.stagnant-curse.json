@@ -1,0 +1,45 @@
+{
+  "id": "skill.aigis.stagnant-curse",
+  "ownerAwakenerId": "awakener-0003",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Stagnant Curse",
+  "descriptionTemplate": "Aigis gains [Energy:Arg1] Aliemus. {Rouse}: After Aigis plays a card, apply [Arg2] {plural:[Arg2]|turn|turns} of {Vulnerable} to all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.aigis.crystallized-tear.skill.aigis.stagnant-curse",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.aigis.crystallized-tear",
+      "ownerAwakenerId": "awakener-0003",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Aigis",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Aigis gains [Energy:Arg1] Aliemus. {Rouse}: After Aigis plays a card, inflict [Arg2] {plural:[Arg2]|turn|turns} of {Vulnerable} on all enemies. After Aigis unleashes her Exalt, her next \"Defense\" takes effect 3 times."
+      }
+    }
+  ]
+}

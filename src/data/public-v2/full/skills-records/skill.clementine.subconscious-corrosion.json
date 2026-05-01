@@ -1,0 +1,10 @@
+{
+  "id": "skill.clementine.subconscious-corrosion",
+  "ownerAwakenerId": "awakener-0010",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Subconscious Corrosion",
+  "descriptionTemplate": "Gain {STR} equal to 50% of Clementine's ATK and Keyflare equivalent to 300% of Clementine's Keyflare Regen. Removing {Symbiosis} simultaneously triggers the effects of {Psychic Trauma} and {Phobic Fixation}.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

@@ -1,0 +1,24 @@
+{
+  "id": "covenant-0011",
+  "name": "Returnal Line",
+  "assetId": "covenant-icon-013",
+  "lore": "Rise once more, O sunken city fated for rebirth. Return to us, @3!",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "Realm Mastery +[Arg1]",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "12"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "Team Unique: At the start of next battle, gain {STR} equal to 12% of the wielder's ATK. If the current Realm is {Aequor}, the effect changes to \"At turn start, there is a (50 + 0.25 * team's Realm Mastery)% chance to gain 1 stack of Tentacle Gathering. Multiple stacks can be gained if the probability exceeds 100%, and the chance doubles in Boss Battles.\"",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "d"
+}

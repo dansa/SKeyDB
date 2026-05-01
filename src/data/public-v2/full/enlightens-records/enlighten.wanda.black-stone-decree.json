@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.wanda.black-stone-decree",
+  "ownerAwakenerId": "awakener-0052",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Black Stone Decree",
+  "descriptionTemplate": "{Rouse} {Living Dead's Delirium} is enhanced: After Wanda unleashes Exalt, her next 2 Command Cards take effect 1 additional time.",
+  "descriptionArgs": {}
+}

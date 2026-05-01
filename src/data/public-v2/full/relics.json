@@ -1,0 +1,1717 @@
+{
+  "schemaVersion": 1,
+  "scope": "relics",
+  "recordCount": 56,
+  "records": [
+    {
+      "id": "relic-0001",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: \"24\"",
+      "assetId": "Icon_Creation_Unique_C06",
+      "ownerAwakenerId": "awakener-0001",
+      "ownerAwakenerName": "24",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, \"24\" gains [Arg1] Aliemus. At turn start, if \"24\" is in the \"Depressed Persona\" state at turn start, she gains an additional [Arg2] Aliemus; if in the \"Manic Persona\" state, her Temporary Crit. Rate and Temporary Crit. DMG +[Arg2]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "24",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0002",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Agrippa",
+      "assetId": "Icon_Creation_Unique_B06",
+      "ownerAwakenerId": "awakener-0002",
+      "ownerAwakenerName": "Agrippa",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Agrippa gains [Arg1] Aliemus. {Reluctant Alms} will also reduce Agrippa's Arithmetica Cost by [Arg2] for this turn, triggering a maximum of once per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0003",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Aigis",
+      "assetId": "Icon_Creation_Unique_B03",
+      "ownerAwakenerId": "awakener-0003",
+      "ownerAwakenerName": "Aigis",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Aigis gains [Arg1] Aliemus. When Aigis deals DMG to enemies with Vulnerable, she also steals [Arg2] Temporary {STR}, up to [Arg3] {plural:[Arg3]|time|times} per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "ceil",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountStageGrowth"
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "const": 1.0
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "op": "min",
+                                "args": [
+                                  {
+                                    "var": "ownedPosseCount"
+                                  },
+                                  {
+                                    "const": 50.0
+                                  }
+                                ]
+                              },
+                              {
+                                "const": 0.01
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "const": 0.0125
+                  }
+                ]
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0004",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Alva",
+      "assetId": "Icon_Creation_Unique_C11",
+      "ownerAwakenerId": "awakener-0004",
+      "ownerAwakenerName": "Alva",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Alva gains [Arg1] Aliemus. Within 1 turn, after playing the [Arg2]nd \"Defense\" card, place a {Precision Slash} with {Exhaust} into hand; after playing the [Arg3]nd \"Strike\" card, place a {Combat Stance} with {Exhaust} into hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0005",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Aurita",
+      "assetId": "Icon_Creation_Unique_O05",
+      "ownerAwakenerId": "awakener-0005",
+      "ownerAwakenerName": "Aurita",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Aurita gains [Arg1] Aliemus. The DMG count of {Gland Division} +[Arg2], and after playing Aurita's \"Defense,\" 1 {Gland Division} is added to hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0006",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Caecus",
+      "assetId": "Icon_Creation_Unique_O04",
+      "ownerAwakenerId": "awakener-0006",
+      "ownerAwakenerName": "Caecus",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Caecus gains [Arg1] Aliemus. When Caecus gains a Shield, he regains [Arg2]% of the Shield amount as HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0007",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Casiah",
+      "assetId": "Icon_Creation_Unique_D09",
+      "ownerAwakenerId": "awakener-0007",
+      "ownerAwakenerName": "Casiah",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At turn start, Casiah gains [Arg1] Aliemus. Drawing 1 card grants Casiah [Arg2] Aliemus. When Casiah unleashes Exalt, all enemies lose [Arg3] {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg3": {
+          "kind": "computed",
+          "expression": {
+            "op": "ceil",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountStageGrowth"
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "const": 1.0
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "op": "min",
+                                "args": [
+                                  {
+                                    "var": "ownedPosseCount"
+                                  },
+                                  {
+                                    "const": 50.0
+                                  }
+                                ]
+                              },
+                              {
+                                "const": 0.01
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "const": 0.03
+                  }
+                ]
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0008",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Castor",
+      "assetId": "Icon_Creation_Unique_D11",
+      "ownerAwakenerId": "awakener-0008",
+      "ownerAwakenerName": "Castor",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At turn start, Castor gains [Arg1] Aliemus. Place 2 {Onyx Plume} into hand at the start of battle. Gain [Arg2] Temporary {STR} when {Onyx Plume} is played for the first time each turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "ceil",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountStageGrowth"
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "const": 1.0
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "op": "min",
+                                "args": [
+                                  {
+                                    "var": "ownedPosseCount"
+                                  },
+                                  {
+                                    "const": 50.0
+                                  }
+                                ]
+                              },
+                              {
+                                "const": 0.01
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "const": 0.075
+                  }
+                ]
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0009",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Celeste",
+      "assetId": "Icon_Creation_Unique_O09",
+      "ownerAwakenerId": "awakener-0009",
+      "ownerAwakenerName": "Celeste",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Celeste gains [Arg1] Aliemus. Before turn end, for each Command Card of Celeste in hand, 1 Tentacle attacks an enemy and restores [Heal:Arg2] HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "ceil",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountStageGrowth"
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "const": 1.0
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "op": "min",
+                                "args": [
+                                  {
+                                    "var": "ownedPosseCount"
+                                  },
+                                  {
+                                    "const": 50.0
+                                  }
+                                ]
+                              },
+                              {
+                                "const": 0.01
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "const": 0.02
+                  }
+                ]
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0010",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Clementine",
+      "assetId": "Icon_Creation_Unique_D13",
+      "ownerAwakenerId": "awakener-0010",
+      "ownerAwakenerName": "Clementine",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At the start of turn, Clementine gains [Arg1] Aliemus. Clementine's Command Cards' DMG dealt, Shield Generation, HP Recovery, Aliemus Generation, and Keyflare Generation effects increase by 1.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0011",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Corposant",
+      "assetId": "Icon_Creation_Unique_O10",
+      "ownerAwakenerId": "awakener-0011",
+      "ownerAwakenerName": "Corposant",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Corposant gains [Arg1] Aliemus and 1 Temporary Tentacle. Whenever {Death Resistance} is triggered, Corposant gains [Arg2] Aliemus, and places 1 {Lightning Retribution} with 0 Arithmetica Cost and {Exhaust} into hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "30"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0012",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Daffodil",
+      "assetId": "Icon_Creation_Unique_D02",
+      "ownerAwakenerId": "awakener-0012",
+      "ownerAwakenerName": "Daffodil",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At turn start, Daffodil gains [Arg1] Aliemus and 1 \"Insight\" card. The Strength gained from {Heterogeneous Tides} +[Arg2]%, and each card played permanently increases it further by [Arg3]% for this exploration, up to [Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "10",
+          "suffix": "%"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "150",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0013",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Doll",
+      "assetId": "Icon_Creation_Unique_C02",
+      "ownerAwakenerId": "awakener-0013",
+      "ownerAwakenerName": "Doll",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Doll gains [Arg1] Aliemus. After the battle starts, set the Arithmetica Cost of Doll's {Equivalent Exchange} to 0. Once it is played, draw [Arg2] extra cards in the next turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0014",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Doresain",
+      "assetId": "Icon_Creation_Unique_B10",
+      "ownerAwakenerId": "awakener-0014",
+      "ownerAwakenerName": "Doresain",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Doresain gains [Arg1] Aliemus and [Arg2] {STR}. When Doresain consumes a {Corpse}, he gains Temporary {STR} equal to 20% of Doresain's Permanent {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "ceil",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountStageGrowth"
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "const": 1.0
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "op": "min",
+                                "args": [
+                                  {
+                                    "var": "ownedPosseCount"
+                                  },
+                                  {
+                                    "const": 50.0
+                                  }
+                                ]
+                              },
+                              {
+                                "const": 0.01
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "const": 0.02
+                  }
+                ]
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0015",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Erica",
+      "assetId": "Icon_Creation_Unique_D08",
+      "ownerAwakenerId": "awakener-0015",
+      "ownerAwakenerName": "Erica",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At turn start, Erica gains [Arg1] Aliemus. After playing [Arg2] Command Cards within 1 turn, Erica gains 2 Arithmetica and doubles the {STR} and {Alert} bonuses for {Electromagnetic Blast} in this battle.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "3"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0016",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Faint",
+      "assetId": "Icon_Creation_Unique_B09",
+      "ownerAwakenerId": "awakener-0016",
+      "ownerAwakenerName": "Faint",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Faint gains [Arg1] Aliemus. Faint's Shield, {Counter}, and HP recovery effects +[Arg2]%. Each time {Death Resistance} is triggered, this effect +[Arg3]% for the current exploration, up to [Arg4] {plural:[Arg4]|time|times}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "5",
+          "suffix": "%"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0017",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Faros",
+      "assetId": "Icon_Creation_Unique_O03",
+      "ownerAwakenerId": "awakener-0017",
+      "ownerAwakenerName": "Faros",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Faros gains [Arg1] Aliemus. For every 2 instances of {Tentacle DMG} dealt, Faros' {Poison} and Shield effects in this battle +[Arg2]%, up to 50%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0018",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Doll: Inferno",
+      "assetId": "Icon_Creation_Unique_C02EX",
+      "ownerAwakenerId": "awakener-0018",
+      "ownerAwakenerName": "Doll: Inferno",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Doll: Inferno gains [Arg1] Aliemus. After Doll: Inferno unleashes Exalt, for every [Arg2] Aliemus consumed, other Awakeners gain 1 point of Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "20"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0019",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Helot: Catena",
+      "assetId": "Icon_Creation_Unique_B05EX",
+      "ownerAwakenerId": "awakener-0019",
+      "ownerAwakenerName": "Helot: Catena",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Helot: Catena gains [Arg1] Aliemus. Helot: Catena's Active DMG adds [Arg2]% Bleeding, and killing an enemy causes Bleeding equal to the excess DMG to other enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "20",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0020",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Ramona: Timeworn",
+      "assetId": "Icon_Creation_Unique_C01EX",
+      "ownerAwakenerId": "awakener-0020",
+      "ownerAwakenerName": "Ramona: Timeworn",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Ramona: Timeworn gains [Arg1] Aliemus. The first time {Loop} is triggered each turn, gain [Arg2] Keyflare and [Arg3] {plural:[Arg3]|stack|stacks} of {Negentropy}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "500"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0021",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Goliath",
+      "assetId": "Icon_Creation_Unique_O06",
+      "ownerAwakenerId": "awakener-0021",
+      "ownerAwakenerName": "Goliath",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Goliath gains [Arg1] Aliemus. If Goliath deals DMG [Arg2] {plural:[Arg2]|time|times} within 1 turn, the DMG dealt by Goliath in this battle enjoys an additional 1x {STR} bonus, with a cooldown of 3 turns.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "3"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0022",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Hameln",
+      "assetId": "Icon_Creation_Unique_D12",
+      "ownerAwakenerId": "awakener-0022",
+      "ownerAwakenerName": "Hameln",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Hameln gains [Arg1] Aliemus. The Arithmetica Cost of {Soul Overture} -[Arg2], and the Base DMG count is +[Arg3].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0023",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Helot",
+      "assetId": "Icon_Creation_Unique_B05",
+      "ownerAwakenerId": "awakener-0023",
+      "ownerAwakenerName": "Helot",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Helot gains [Arg1] Aliemus. Each time a card is discarded, Helot gains [Arg2] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0024",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Horla",
+      "assetId": "Icon_Creation_Unique_D06",
+      "ownerAwakenerId": "awakener-0024",
+      "ownerAwakenerName": "Horla",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At turn start, Horla gains [Arg1] Aliemus. At the start of the battle, gain [Arg2] {plural:[Arg2]|stack|stacks} of {Metaphor} for all emotions, increasing the {Metaphor} effect by 50%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0025",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Jenkin",
+      "assetId": "Icon_Creation_Unique_D07",
+      "ownerAwakenerId": "awakener-0025",
+      "ownerAwakenerName": "Jenkin",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At turn start, Jenkin gains [Arg1] Aliemus, with Final DMG +[Arg2]%. The Base DMG and DMG growth of {Get 'em! Brown!} are +[Arg3]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "200",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0026",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Karen",
+      "assetId": "Icon_Creation_Unique_C12",
+      "ownerAwakenerId": "awakener-0026",
+      "ownerAwakenerName": "Karen",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Karen gains [Arg1] Aliemus. Playing {Silent Fealty} will return double the {Exhausted} Arithmetica, with a cooldown of [Arg2] {plural:[Arg2]|turn|turns}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "3"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0027",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Kathigu-Ra",
+      "assetId": "Icon_Creation_Unique_C16",
+      "ownerAwakenerId": "awakener-0027",
+      "ownerAwakenerName": "Kathigu-Ra",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Kathigu-Ra gains [Arg1] Aliemus. After accumulating 10 stacks of {Fiamma}, immediately draw 1 Kathigu-Ra's Command Card and grant it 3 stacks of {Fiamma}. This effect will not accumulate stacks for the rest of this turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0028",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Leigh",
+      "assetId": "Icon_Creation_Unique_B08",
+      "ownerAwakenerId": "awakener-0028",
+      "ownerAwakenerName": "Leigh",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Leigh gains [Arg1] Aliemus. Whenever she loses HP, she gains [Arg2] {STR}, up to [Arg3] {plural:[Arg3]|time|times} per battle. After stacking [Arg3] {plural:[Arg3]|time|times}, the Arithmetica Cost of {Pain and Pleasure} -2, and the DMG count +1.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "8"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "10"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0029",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Lily",
+      "assetId": "Icon_Creation_Unique_C10",
+      "ownerAwakenerId": "awakener-0029",
+      "ownerAwakenerName": "Lily",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Lily gains [Arg1] Aliemus. Lily's {Endure} limit +100%, and when releasing {Undying Flower Upon Slime} or {Strike to Protect}, Lily restores HP equal to 8% of the {Endure} stacks.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0030",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Liz",
+      "assetId": "Icon_Creation_Unique_D01",
+      "ownerAwakenerId": "awakener-0030",
+      "ownerAwakenerName": "Liz",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At turn start, Liz gains [Arg1] Aliemus. Cards discarded by {Dance to Destruction} takes effect 1 more time, with a 3-turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0031",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Lotan",
+      "assetId": "Icon_Creation_Unique_C04",
+      "ownerAwakenerId": "awakener-0031",
+      "ownerAwakenerName": "Lotan",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Lotan gains [Arg1] Aliemus. After the first use of Lotan's \"Defense\" each turn, place [Arg2] additional {Exhaust} and {Fleeting} cards with the Illusion's {Blade of Defiance} into hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0032",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Miryam",
+      "assetId": "Icon_Creation_Unique_O07",
+      "ownerAwakenerId": "awakener-0032",
+      "ownerAwakenerName": "Miryam",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Miryam gains [Arg1] Aliemus and puts 1 {Sacrament} into hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0033",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Mouchette",
+      "assetId": "Icon_Creation_Unique_C17",
+      "ownerAwakenerId": "awakener-0033",
+      "ownerAwakenerName": "Mouchette",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Mouchette gains [Arg1] Aliemus and generates 1 Temporary Strike with an Arithmetica Cost of 0. Each time \"Dramatic Encounter\" is triggered, increase the Base DMG and Strike DMG increase effect of {Shining☆Tornado} by [Arg2]% for this battle.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0034",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Murphy",
+      "assetId": "Icon_Creation_Unique_O02",
+      "ownerAwakenerId": "awakener-0034",
+      "ownerAwakenerName": "Murphy",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Murphy gains [Arg1] Aliemus. Murphy's \"Strike\" and \"Defense\" can convert [Arg2]% of the {Sacrifice} into Temporary {Tentacle DMG}, but can only take effect once per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "25",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0035",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Murphy: Fauxborn",
+      "assetId": "Icon_Creation_Unique_O02EX",
+      "ownerAwakenerId": "awakener-0035",
+      "ownerAwakenerName": "Murphy: Fauxborn",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Murphy: Fauxborn gains [Arg1] Aliemus. {Waltz of Lemuria} takes effect 3 times every {ordinal:3rd} play.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0036",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Nautila",
+      "assetId": "Icon_Creation_Unique_C07",
+      "ownerAwakenerId": "awakener-0036",
+      "ownerAwakenerName": "Nautila",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Nautila gains [Arg1] Aliemus. After using Nautila's \"Exalt,\" gain {Counter} and Delayed Shield equal to [Arg2]% of the current Shield, triggering at most once per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "20",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0037",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Nymphaea",
+      "assetId": "Icon_Creation_Unique_C08",
+      "ownerAwakenerId": "awakener-0037",
+      "ownerAwakenerName": "Nymphaea",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Nymphaea gains [Arg1] Aliemus. After playing Nymphaea's \"Strike,\" the {Poison} dealt by \"Nymphaea\" in this battle +[Arg2]%. After playing Nymphaea's \"Defense,\" it triggers [Arg3]% {Poison} to all enemies. Each effect can take place at most once per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0038",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Ogier",
+      "assetId": "Icon_Creation_Unique_C03",
+      "ownerAwakenerId": "awakener-0038",
+      "ownerAwakenerName": "Ogier",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Ogier gains [Arg1] Aliemus. After the first time Ogier plays {Piercing Strike} or \"Strike\" in each turn, the Shield and {STR} Ogier generates in that turn +[Arg2]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0039",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Pandia",
+      "assetId": "Icon_Creation_Unique_C09",
+      "ownerAwakenerId": "awakener-0039",
+      "ownerAwakenerName": "Pandia",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Pandia gains [Arg1] Aliemus. After Pandia performs an Exalt, she gains Permanent {Counter} equivalent to [Arg2]% of her Temporary {Counter}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "20",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0040",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Pickman",
+      "assetId": "Icon_Creation_Unique_B12",
+      "ownerAwakenerId": "awakener-0040",
+      "ownerAwakenerName": "Pickman",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At the start of the turn, Pickman gains [Arg1] Aliemus. For each stack of {Creativity} gained, randomly reduce the Arithmetica Cost of 1 card in hand by 1 for this turn. When Pickman consumes {Creativity}, all Awakeners additionally gain [Arg2] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0041",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Pollux",
+      "assetId": "Icon_Creation_Unique_D14",
+      "ownerAwakenerId": "awakener-0041",
+      "ownerAwakenerName": "Pollux",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At turn start, Pollux gains [Arg1] Aliemus. At the start of the battle, gain 1 {Sacred Heart}. When {Exhausted} at its {ordinal:3rd} use, {Sacred Heart} inflicts Vulnerable on all enemies and deal DMG twice.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0042",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Ramona",
+      "assetId": "Icon_Creation_Unique_C01",
+      "ownerAwakenerId": "awakener-0042",
+      "ownerAwakenerName": "Ramona",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Ramona gains [Arg1] Aliemus. For every [Arg2]rd Command Card played, that Command Card takes effect 1 additional time and gains [Arg3] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "3"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "250"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0043",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Ryker",
+      "assetId": "Icon_Creation_Unique_C05",
+      "ownerAwakenerId": "awakener-0043",
+      "ownerAwakenerName": "Ryker",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Ryker gains [Arg1] Aliemus. The result of the first dice roll each turn is always maxed out.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0044",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Salvador",
+      "assetId": "Icon_Creation_Unique_B02",
+      "ownerAwakenerId": "awakener-0044",
+      "ownerAwakenerName": "Salvador",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Salvador gains [Arg1] Aliemus. Each time he accumulates {Crimson Furnace}, he also gains [Arg2]% {STR} of the accumulated amount. Salvador's \"Strike\" and {End of Suffering} additionally receive a [Arg3]x {STR} bonus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0045",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Sanga",
+      "assetId": "Icon_Creation_Unique_O08",
+      "ownerAwakenerId": "awakener-0045",
+      "ownerAwakenerName": "Sanga",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Sanga gains [Arg1] Aliemus. At the start of the battle, grant all of Sanga's Command Cards {Retain} and {Prepare 1}, and gain [Arg2] Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "ceil",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountStageGrowth"
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "const": 1.0
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "op": "min",
+                                "args": [
+                                  {
+                                    "var": "ownedPosseCount"
+                                  },
+                                  {
+                                    "const": 50.0
+                                  }
+                                ]
+                              },
+                              {
+                                "const": 0.01
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "const": 0.03
+                  }
+                ]
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0046",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Sorel",
+      "assetId": "Icon_Creation_Unique_B04",
+      "ownerAwakenerId": "awakener-0046",
+      "ownerAwakenerName": "Sorel",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Sorel gains [Arg1] Aliemus. For each instance of DMG dealt by Sorel, {Embryo Fusion} +[Arg2]%, up to [Arg3] {plural:[Arg3]|time|times} per turn. After triggering 10 times, Sorel's Final DMG in this battle +[Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "10"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "5",
+          "suffix": "%"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0047",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Tawil",
+      "assetId": "Icon_Creation_Unique_C15",
+      "ownerAwakenerId": "awakener-0047",
+      "ownerAwakenerName": "Tawil",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "descriptionTemplate": "At turn start, Tawil gains [Arg1] Aliemus. If [Arg2] of Tawil's Command Cards are played in one turn, add 1 {Silver Key Dawn} to hand, cooldown [Arg3] {plural:[Arg3]|turn|turns}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "6"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "3"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0048",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Thais",
+      "assetId": "Icon_Creation_Unique_B01",
+      "ownerAwakenerId": "awakener-0048",
+      "ownerAwakenerName": "Thais",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Thais gains [Arg1] Aliemus. After playing [Arg2] Command Cards in one turn, Thais gains 1 {Scion of Purity} and [Arg3] Temporary {STR}, with a cooldown of [Arg4] {plural:[Arg4]|turn|turns}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg3": {
+          "kind": "computed",
+          "expression": {
+            "op": "ceil",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountStageGrowth"
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "const": 1.0
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "op": "min",
+                                "args": [
+                                  {
+                                    "var": "ownedPosseCount"
+                                  },
+                                  {
+                                    "const": 50.0
+                                  }
+                                ]
+                              },
+                              {
+                                "const": 0.01
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "const": 0.12
+                  }
+                ]
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "3"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0049",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Tinct",
+      "assetId": "Icon_Creation_Unique_D03",
+      "ownerAwakenerId": "awakener-0049",
+      "ownerAwakenerName": "Tinct",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At turn start, Tinct gains [Arg1] Aliemus. After triggering a {Leap} with Tinct's Command Card, return it to hand and reduce its Arithmetica Cost by 1. This effect can occur a maximum of [Arg2] {plural:[Arg2]|time|times} per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0050",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Tulu",
+      "assetId": "Icon_Creation_Unique_O01",
+      "ownerAwakenerId": "awakener-0050",
+      "ownerAwakenerName": "Tulu",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Tulu gains [Arg1] Aliemus. The Aliemus Cost for Tulu -[Arg2], and after releasing Exalt, it instantly generates [Arg3] Temporary Tentacles.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0051",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Uvhash",
+      "assetId": "Icon_Creation_Unique_B07",
+      "ownerAwakenerId": "awakener-0051",
+      "ownerAwakenerName": "Uvhash",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Uvhash gains [Arg1] Aliemus. Uvhash's Base Aliemus -[Arg2], which further -5 every time he releases Exalt. He can release Exalt [Arg3] {plural:[Arg3]|time|times} per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0052",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Wanda",
+      "assetId": "Icon_Creation_Unique_D04",
+      "ownerAwakenerId": "awakener-0052",
+      "ownerAwakenerName": "Wanda",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At turn start, Wanda gains [Arg1] Aliemus and [Arg2] {plural:[Arg2]|stack|stacks} of {Dreamlure}. If this is an {Ultra Round}, additionally put 1 Temporary {Spine Needle Chains} and {Keeper of the Lost} into hand, and cause Wanda's next Command Card to take effect 2 times.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0053",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Winkle",
+      "assetId": "Icon_Creation_Unique_D05",
+      "ownerAwakenerId": "awakener-0053",
+      "ownerAwakenerName": "Winkle",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "At turn start, Winkle gains [Arg1] Aliemus. Each time another Awakeners unleashes Exalt, Winkle gains [Arg2] Aliemus, and the Arithmetica Cost of {Psyche Reforged} in hand -[Arg3].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0054",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Xu",
+      "assetId": "Icon_Creation_Unique_B14",
+      "ownerAwakenerId": "awakener-0054",
+      "ownerAwakenerName": "Xu",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "descriptionTemplate": "At turn start, Xu gains [Arg1] Aliemus and inflicts 1 stack of {Spellbound} on all enemies. The first Command Card Xu plays each turn will trigger the {Resonance} effect.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0055",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Vortice",
+      "assetId": "Icon_Creation_Unique_O11",
+      "ownerAwakenerId": "awakener-0055",
+      "ownerAwakenerName": "Vortice",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "descriptionTemplate": "At turn start, Vortice gains [Arg1] Aliemus. The first {Charge!} or {Reload!} played each turn takes effect twice.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": null
+    },
+    {
+      "id": "relic-0056",
+      "kind": "PORTRAIT",
+      "relicType": "DIMENSIONAL_IMAGE",
+      "name": "Dimensional Image: Arachne",
+      "assetId": "Icon_Creation_Unique_D10",
+      "ownerAwakenerId": "awakener-0056",
+      "ownerAwakenerName": "Arachne",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "descriptionTemplate": "Arachne gains [Arg1] Aliemus at turn start. \"Strike\" and \"Defense\" immediately trigger {Pursuit}: {Infinite Threads} once, with each taking effect at most once per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": null
+    }
+  ]
+}

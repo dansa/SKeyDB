@@ -1,0 +1,23 @@
+{
+  "id": "wheel-0068",
+  "name": "Epiphany",
+  "assetId": "Weapon_Full_P08",
+  "ownerAwakenerName": null,
+  "rarity": "R",
+  "realm": "NEUTRAL",
+  "mainstatKey": "REALM_MASTERY",
+  "descriptionTemplate": "Team Unique: After each stage starts, gain [StateArg1] Keyflare. At the start of a Boss Battle, gain 2 Arithmetica. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "400",
+        "600",
+        "800",
+        "1000"
+      ]
+    }
+  },
+  "lore": "See that which cannot be seen; hear that which cannot be heard.",
+  "lineupToken": "xu"
+}

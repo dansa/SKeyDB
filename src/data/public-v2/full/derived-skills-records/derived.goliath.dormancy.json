@@ -1,0 +1,35 @@
+{
+  "id": "derived.goliath.dormancy",
+  "displayName": "Dormancy",
+  "descriptionTemplate": "Add 2 {Decapitation Damage} to your hand and grant them {Exhaust}, {Prepare 1}, and {Retain}. Increase the Base DMG of {Blade's Dominion} and {Decapitation Damage} by 25% for this battle. Goliath obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "fixed",
+      "value": "25"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "skill.goliath.abyssal-depths-power",
+  "rootSkillId": "skill.goliath.abyssal-depths-power",
+  "ownerAwakenerId": "awakener-0021",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.goliath.boundless-ambition.derived.goliath.dormancy",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.goliath.boundless-ambition",
+      "ownerAwakenerId": "awakener-0021",
+      "operation": "mixed",
+      "ownerAwakenerName": "Goliath",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg2": {
+            "kind": "fixed",
+            "value": "25"
+          }
+        },
+        "descriptionTemplate": "Add 3 {Blade's Dominion} to your hand. Increase the Base DMG of {Blade's Dominion} and {Decapitation Damage} by 25% in this battle. Goliath obtains [Energy:Arg2] Aliemus."
+      }
+    }
+  ]
+}

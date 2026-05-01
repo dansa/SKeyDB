@@ -1,0 +1,35 @@
+{
+  "id": "wheel-0037",
+  "name": "Core Meltdown",
+  "assetId": "Weapon_Full_D08",
+  "ownerAwakenerId": "awakener-0015",
+  "ownerAwakenerName": "Erica",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "mainstatKey": "KEYFLARE_REGEN",
+  "descriptionTemplate": "Team Unique: The Base DMG of the wielder's \"Strike\" +25%, and the Base Shield of \"Defense\" +25%. When playing the wielder's \"Strike, \" gain Temporary {STR} equal to the wielder's ATK [StateArg1]%, and when playing the wielder's \"Defense, \" gain Temporary {Alert} equal to the wielder's DEF [StateArg2]%. If the current realm is {Ultra}, receive a Temporary {STR} and Temporary {Alert} when entering the {Ultra Round}",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "9",
+        "12",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "A.F.@1/@1/@2\n\n08:00\n\nAssemble parts numbered 107 to 133.\n\nC-type components just need this final adjustment, and once completed, they'll be used as the energy core for the automaton \"Tick-tock Man.\" \n\nI wanted to assemble it personally, but @2 said the supervisor needs to learn to trust their coworkers.\n\nHow shameless! It's obviously her who checks the parts until midnight.\n\n-------\n\nA.F.@1/@1/@2\n\n00:21\n\nThe MF311000 motor has been assembled; the gears fit, and the pipes flow freely. Currently, all skills are functioning normally. Final adjustments are about to commence.\n\n13:07\n\nSpecial energy S has been connected. The MF311000 motor is running well and fits perfectly with the EA307850 artificial body, which is functioning normally.\n\n@2 is quite optimistic. She thinks we can go farther this time than before. I reminded her not to forget what happened during the fifth awakening attempt, and she just plugged her ears and said she couldn't hear. If I hadn't reacted quickly then, the flames from the self-igniting energy core would have scorched her hair.\n\nShe really should experience the feeling of being bald—maybe that way, she'd learn to be cautious.\n\n-------\n\nA.F.@1/@1/@2\n\n14:55\n\nFinal preparations completed. Energy ready. Containment device activated. Containment state: good. The torso will be installed after awakening is completed.\n\n15:00\n\nCommenced the 13th activation attempt of \"Tick-tock Man.\" \n\n15:05\n\nThe torso EA307853 is operating normally, and the MF311000 motor is functioning correctly. The neck joint of \"Tick-tock Man\" is moving well, and the head components are operating normally.\n\n15:15\n\n\"Tick-tock Man\" successfully executed blinking, gaze-following, and mouth-opening commands. The motor exhibits a heating phenomenon, but it remains within acceptable limits.\n\nPreparing to install the limbs. May the heavens bless us for success this time.\n\n18:07\n\nWhile executing walking commands, the motor core melted, and the circuits burned out. Special energy S remained intact.\n\n@2 is very protective of this special energy. Even I am forbidden to touch it. I think I can understand—it truly is a mysterious object. It looks just like ordinary metallic silver and doesn't seem capable of energy storage, yet it can power the automaton, and such high temperatures haven't damaged it. It's simply incredible.\n\nIf this thing could be mass-produced or extensively mined...\n\nPerhaps I should find a day to ask her again. I don't know how much longer she'll spend on this automaton. If one day she herself turns into an automaton, I wouldn't be surprised.",
+  "lineupToken": "s"
+}

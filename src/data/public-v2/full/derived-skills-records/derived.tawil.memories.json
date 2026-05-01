@@ -1,0 +1,19 @@
+{
+  "id": "derived.tawil.memories",
+  "displayName": "Memories",
+  "descriptionTemplate": "Choose 1 of these {Memories} to trigger its effect. A chosen memory cannot be selected again during this exploration.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "derived.tawil.six-wings",
+  "rootSkillId": "skill.tawil.pinions-of-time",
+  "ownerAwakenerId": "awakener-0047",
+  "nodeKind": "group",
+  "childDerivedSkillIds": [
+    "derived.tawil.innocent-return-gift",
+    "derived.tawil.mutated-heart",
+    "derived.tawil.honey-mead",
+    "derived.tawil.emissarys-verdict",
+    "derived.tawil.utopian-veil",
+    "derived.tawil.polar-dusklight"
+  ]
+}

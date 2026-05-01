@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.lily.lilium-immaculatum",
+  "ownerAwakenerId": "awakener-0029",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Lilium Immaculatum",
+  "descriptionTemplate": "{Rouse} {Slime Convergence} is enhanced: after Exalt, each attack taken this turn make the next {Strike to Protect} consumes and converts 40% more {Endure} stacks into effect. This effect stacks up to 5.",
+  "descriptionArgs": {}
+}

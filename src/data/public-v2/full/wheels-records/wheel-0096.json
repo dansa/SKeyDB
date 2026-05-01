@@ -1,0 +1,33 @@
+{
+  "id": "wheel-0096",
+  "name": "Silver Cod's Determination",
+  "assetId": "Weapon_Full_SR20",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_RATE",
+  "descriptionTemplate": "Team Unique: The wielder enters the Silver Cod persona after exploration begins. Switch between the Silver Cod and Cat personas after using Exalt.\nSilver Cod: Gain [StateArg1] Keyflare after dealing Damage. Cat: Gain a Temporary Crit. DMG increase of +[StateArg2]% after dealing Damage. These effects share a maximum of 5 triggers per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40"
+      ]
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "<Bold:Silver Cod 24>\nEvery time I pass that fish and chips restaurant, I can't help but want to scream.\nWhy is it always the silver cod that suffers? We're not even real cod!\nIs it our fault that our flesh is firm and delicious?\n\n<Bold:Cat 24>\nSlurp slurp... meow, meow (indeed, indeed)!\n\n<Bold:Silver Cod 24>\nIn the Leonian Kingdom, a silver cod dies every minute to become a human meal.\nYes, as we speak, 10 silver cod have already perished.\nTen in total! Father above, do you hear their cries?\n\n<Bold:Cat 24>\nUh... meow? Meow meow, meow meow (where is it)?\n\n<Bold:Silver Cod 24>\nIt's just a metaphor, silly. You may be a bit dim, but you have a heart of gold, overcoming the base instincts and shortsightedness of a cat.\nListen, I have a plan. I need your help to make it happen...\n\n—Excerpt from \"Explosion at Big John's Fish and Chips: Case Summary Testimony B-03.\" Due to overcrowding at Bethlehem Mental Hospital, the suspect was rejected and held in Londinium Tower for 23 days before being released.",
+  "lineupToken": "xP"
+}

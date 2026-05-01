@@ -1,0 +1,87 @@
+{
+  "id": "skill.karen.toad-stew",
+  "ownerAwakenerId": "awakener-0026",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Toad Stew",
+  "descriptionTemplate": "Inflict [{Poison}:Arg1] {plural:[{Poison}:Arg1]|stack|stacks} of {Poison} and 1 turn of {Weakness} on all enemies, and heal for [Heal:Arg2] HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "24",
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.karen.creamy-frosting.skill.karen.toad-stew",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.karen.creamy-frosting",
+      "ownerAwakenerId": "awakener-0026",
+      "operation": "override_args",
+      "ownerAwakenerName": "Karen",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "12.5",
+              "15",
+              "17.5",
+              "20",
+              "22.5",
+              "25"
+            ],
+            "suffix": "%",
+            "stat": "CON"
+          }
+        }
+      }
+    }
+  ]
+}

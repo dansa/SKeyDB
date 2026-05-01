@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.pierce-dmg",
+  "displayName": "Pierce DMG",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "DMG reduces both Shield and HP. Cannot be Immuned.",
+  "descriptionArgs": {}
+}

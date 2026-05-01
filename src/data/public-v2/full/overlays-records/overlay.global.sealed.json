@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.sealed",
+  "displayName": "Sealed",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Cannot unleash Exalt; remove 1 stack at turn end.",
+  "descriptionArgs": {}
+}

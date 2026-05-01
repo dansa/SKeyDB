@@ -1,0 +1,80 @@
+{
+  "id": "skill.lotan.tides-of-hubris",
+  "ownerAwakenerId": "awakener-0031",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Tides of Hubris",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies, obtain [Power:Arg2] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "7.5",
+        "9",
+        "10.5",
+        "12",
+        "13.5",
+        "15"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "2.5",
+        "3",
+        "3.5",
+        "4",
+        "4.5",
+        "5"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.lotan.surging-warlust.skill.lotan.tides-of-hubris",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.lotan.surging-warlust",
+      "ownerAwakenerId": "awakener-0031",
+      "operation": "mixed",
+      "ownerAwakenerName": "Lotan",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "7.5",
+              "9",
+              "10.5",
+              "12",
+              "13.5",
+              "15"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies, gain [Power:Arg2] {STR}. Treated as \"Strike\"."
+      }
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "id": "awakener-0019",
+  "numericId": 19,
+  "name": "Helot: Catena",
+  "ingameId": "B05EX",
+  "lineupToken": "i",
+  "realm": "CARO",
+  "rarity": "Genesis",
+  "type": "ASSAULT",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "helot-catena",
+    "iconKey": "helot-catena"
+  },
+  "baseStatsLv1": {
+    "CON": 55,
+    "ATK": 53,
+    "DEF": 39
+  },
+  "substatsLv1": {
+    "CritRate": 5.8,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.75,
+    "ATK": 1.7,
+    "DEF": 1.25
+  },
+  "substatScaling": {
+    "CritRate": 0.8,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 1.6,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Helot: Catena",
+    "birthday": "25-Dec",
+    "gender": "Female",
+    "height": "1.07bēma",
+    "weight": "71mina",
+    "gnosticIndex": "37",
+    "characteristic": "Chain Strike    Strike Card Amplify",
+    "introduction": "Uses unique techniques to combo enemies, finishing off rivals with Bleed damage.",
+    "awakerIntroduction": "Flexibly use the chain to strike enemies, dealing DMG while applying a large amount of {Bleed}.\nPre-accumulate hand cards and look for opportunities to release Exalt to gain powerful Buffs, and use the {Devour} effect to reduce the Arithmetica Cost of all your Cards.\nIn this level, you will bring Helot: Catena at Level 50, Skill Level 5, and with 3 Enlighten. The initial HP is 40%, and at the end of each turn, you will gain 50 Aliemus and 100% {Embryo Fusion} Level.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Since the day she entered the prison, her memories have been stained with blood. \nThe once mundane and warm recollections now feel like false dreams, blurred and cracked, turning into sharp Fragments embedded in her Caro. \nShe can no longer recall the gentle embrace or caring faces; only eternal hatred and Question remain in her heart. \nPain, humiliation, Betrayal... What caused all this suffering? \nShe asks herself daily, but until freedom arrives, no one answers. \nSo, she decides to seek the answers herself, interrogating every dirty heart torn from their screaming chests.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "I seem to be involved in some supernatural event, recording all my findings here...\nWe were finishing our archaeology at Evrotas when I woke up and found the rest of the team had vanished, and the town looked like it reverted to a thousand years ago overnight.\nAncient ruins had risen, restoring the town to its original state, including countless residents turned to skeletons.\nExcitement, shock, and fear gripped my mind. Despite having seen countless skeletons, I tremble at the sight before me. Anyone experiencing this would be even more terrified.\nEveryone in this town seemed to have been brutally massacred by one person. Skeletons lay in the streets, in houses. The town gate is inexplicably tightly closed, and bodies trying to escape but brutally killed piled up by the gate, forming a small hill of bones.\nI found no exceptions, men, women, old people, children... so many were killed by a massive blunt weapon, their bodies or heads smashed. Staring at the dry bones, I almost saw the blood flowing.\nWhat happened here?\n...\nI searched aimlessly, found no clues until I entered the prison.\nThe sight there was particularly gruesome, the perpetrator destroyed the entire prison in great anger. The walls had twisted, brownish words, seeming to be written in blood by someone dying, I carefully distinguished, it seemed to read \"evil spirit\".\nEvil spirit? Does this refer to the killer, or did the town truly experience some supernatural event?\nIndeed, slaughtering the entire town alone is unimaginable, only a true ghost could ruthlessly take so many lives.\nAfter leaving the prison, the town seemed to have subtly changed, I could smell a faint bloody scent.\nWhile I sought a way out, the sudden sound of chains echoed through the town, as if someone was dragging something heavy forward.\nEvil spirit! It's the evil spirit... it's after me! I ran desperately, but the horrifying chain sound followed me everywhere.\nI was exhausted, hid under a table in a home, locked the door, but the chain sound still chased me. I heard it coming closer...\nI wish this were just a dream, that everything would disappear when I wake up, wait... the sound seems to be gone, maybe the spirit has left?\n...\nResearcher Note: The normal handwriting ends here, only three twisted words remain, roughly deciphered as:\nThe door opened\n—Excerpt from a deceased archaeologist's diary in the Evrotas Archaeological Team",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Those who meet her for the first time have no desire to approach or communicate, as their survival instincts fervently warn them to stay away.\nShe is completely mad, or rather, a wild beast through and through.\nIf given the choice again, she might prefer to be a beast rather than endure everything as a human.\nShe trusts no one, and when her scarlet eyes gaze upon you, what you see is not suspicion but indifference and murderous intent.\nShe has long since scorned suspicion, seeing all people as equally base.\nIf you need advice on dealing with her, do not attempt to tame a true beast, for it is anything but docile. At the slightest opportunity, her claws and fangs will pierce your throat.\nLeave her presence before she focuses on you, and pray that her next prey is not you.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "She grew up into a kind and gentle individual under the care and guidance of that lady, resembling a true noblewoman. However, due to an act of kindness towards a slave, she was ruthlessly abandoned by her \"parents.\" \nThe Spartans never accepted her, and all her kin harbored deep-seated hatred toward her. \nIn an instant, she became a betrayer in everyone's eyes, losing her sense of self. \nIn the prison, a strong malice emanated from everyone, as if it were a contagious disease, even though they had never met. \nThe torment in the dark seemed eternal, and she became neurotically fearful of anyone approaching, unable to sleep each day, finding solace only when fainting, allowing her to close her eyes in peace; yet upon waking, she plunged back into endless nightmares. \nWhat exactly did she do wrong? How did things come to this? \nHer resentment found no outlet, unable to comprehend the logic of fate. \nWas it because she was guilty? \nBut if she were guilty, then the guilt of everyone else would be tenfold. \nThe accumulated hatred transformed into bitterness, endless anger burning through her veins day and night, until one day it finally burned down the cage that trapped her. \nThe chains that had entwined her for years now wrapped around the necks of those who shouted, and the chains had long since melded with her body; they were truly a handy weapon. She gripped the blood-stained chains to pursue each filthy soul. \nRed, red, warm red, stinking red. \nLook, she knew it all along; no one's soul is pure white.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Her life's experiences seemed crafted to bring her suffering. Kindness, tolerance, compassion, trust—all the tender aspects of her humanity were torn away, discarded along with gory flesh. \nThe word \"forgiveness\" was absent from her vocabulary; only the blood and hatred of others could resolve her own. \nBlood for blood, the fairest law revered by both warriors and slaves. \nA volcano that had simmered for a thousand years erupted in one night, and a hand crawled out of the underworld onto human soil. \nIt was a vengeful spirit, seeking to flood the world with rivers of crimson.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Fools",
+  "aliases": [
+    "helot: catena",
+    "g-helot"
+  ],
+  "searchTags": [
+    "Draw",
+    "Hand Limit",
+    "Heal",
+    "Self-Harm",
+    "Strike"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "skill.xu.lady-of-dreamless-land",
+  "ownerAwakenerId": "awakener-0054",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Lady of Dreamless Land",
+  "descriptionTemplate": "Xu gains [Energy:Arg1] Aliemus. {Rouse}: The first time each type of Xu's Command Cards triggers {Resonance} effect per turn, its Arithmetica Cost becomes 0.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.xu.gu-wang-yan.skill.xu.lady-of-dreamless-land",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.xu.gu-wang-yan",
+      "ownerAwakenerId": "awakener-0054",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Xu",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Xu gains [Energy:Arg1] Aliemus. {Rouse}: The first time each type of Xu's Command Cards triggers {Resonance} effect per turn, its Arithmetica Cost becomes 0. The max stack of {Spellbound} is increased to 15, and the first Command Card Xu plays each turn takes effect 1 additional time."
+      }
+    }
+  ]
+}

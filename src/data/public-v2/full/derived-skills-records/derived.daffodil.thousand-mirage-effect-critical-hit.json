@@ -1,0 +1,22 @@
+{
+  "id": "derived.daffodil.thousand-mirage-effect-critical-hit",
+  "displayName": "Critical Hit",
+  "descriptionTemplate": "Increase Crit. Rate by [Arg1]% and Crit. DMG by [Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
+  "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "ownerAwakenerId": "awakener-0012",
+  "cost": "0"
+}

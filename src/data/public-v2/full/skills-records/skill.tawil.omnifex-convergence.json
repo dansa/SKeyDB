@@ -1,0 +1,49 @@
+{
+  "id": "skill.tawil.omnifex-convergence",
+  "ownerAwakenerId": "awakener-0047",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Omnifex Convergence",
+  "descriptionTemplate": "Obtain [Arg1] Keyflare. Present 5 Skill cards from the current Realm, choose to {Discover} up to 3 of them, and make them Tawil's cards with {Exhaust} and {Retain}. The next Tawil's Command Card you play takes effect twice.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "100",
+        "120",
+        "140",
+        "160",
+        "180",
+        "200"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.tawil.nonexistent-existence.skill.tawil.omnifex-convergence",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.tawil.nonexistent-existence",
+      "ownerAwakenerId": "awakener-0047",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Tawil",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Obtain [Arg1] Keyflare. Present 5 Skill cards from the current Realm, choose to {Discover} up to 3 of them, and make them Tawil's cards with {Exhaust}, {Prepare 1}, and {Retain}. The next Tawil's Command Card you play takes effect twice."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.tawil.omniscient-and-omnipotent.skill.tawil.omnifex-convergence",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.tawil.omniscient-and-omnipotent",
+      "ownerAwakenerId": "awakener-0047",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Tawil",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Obtain [Arg1] Keyflare. Present 5 Skill cards from the current Realm, choose to {Discover} up to 3 of them, and make them Tawil's cards with {Exhaust}, {Prepare 1}, and {Retain}. The next Tawil's Command Card you play takes effect twice."
+      }
+    }
+  ]
+}

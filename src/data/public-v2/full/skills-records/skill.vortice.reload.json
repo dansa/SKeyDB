@@ -1,0 +1,15 @@
+{
+  "id": "skill.vortice.reload",
+  "ownerAwakenerId": "awakener-0055",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Reload!",
+  "descriptionTemplate": "Gain 1 stack of {Vortex Reload}, {Useable 3 times}.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2"
+}

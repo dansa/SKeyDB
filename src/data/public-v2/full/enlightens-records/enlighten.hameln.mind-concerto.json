@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.hameln.mind-concerto",
+  "ownerAwakenerId": "awakener-0022",
+  "slot": "E1",
+  "displayName": "Mind Concerto",
+  "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" obtain Temporary {STR} equivalent to 10% of ATK. If either {Rondino} or {Crescendo} are triggered, the obtained Temporary {STR} is doubled.",
+  "descriptionArgs": {}
+}

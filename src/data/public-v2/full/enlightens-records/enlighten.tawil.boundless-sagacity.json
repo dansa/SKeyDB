@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.tawil.boundless-sagacity",
+  "ownerAwakenerId": "awakener-0047",
+  "slot": "E1",
+  "displayName": "Boundless Sagacity",
+  "descriptionTemplate": "{Omniscient Verity} reduces the Arithmetica of the card it changes into by 1. {Pinions of Time} places an additional \"Insight\" into hand.",
+  "descriptionArgs": {}
+}

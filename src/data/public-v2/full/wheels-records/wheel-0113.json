@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0113",
+  "name": "The Divus' Visage",
+  "assetId": "Weapon_Full_SR40",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_RATE",
+  "descriptionTemplate": "Team Unique: In the {Ultra Round}: Gain 3 stacks of \"Alight\". When the wielder plays a Command Card, consume 1 stack to increase its Final DMG and Shield Generation by [StateArg1]%.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "\"The Divus is the one watched over by the Lightbearer, born beneath His blessing.\n\n\"The Divus must spread His will, bestowing light upon the devout and the righteous.\n\n\"He must keep the purity of his soul.\n\n\"He shall renounce worldly desires, practice devotion, and serve the Light wholeheartedly.\n\n\"The Divus must not speak excessively, nor utter falsehood.\n\n\"He shall stay far from sins, distance himself from the sinful, and never be polluted by the polluted souls.\"\n\n\nFrom the moment his memory began, these commandments had wrapped around him like chains, lifting him onto a revered pedestal from which he was forbidden to lose composure, to bow his head, or to indulge in a feeling.\n\n\nThey draped him in wide, splendid robes. They surrounded him with countless squires. He played the part of the sacred representative as required, looking down upon the devout believers who knelt to carefully kiss his hem.\n\n\nThe Divus should be this way. No one cared what emotions or preferences lay beneath that proud and unchanging facade. He had worn the haughty smile for so long that he no longer knew what face he wished to wear when he was alone.\n\n\n\"Your Holiness, it is time for the Rite of Benediction.\" A maid, her head perpetually bowed, arranged the next segment of his immutable life.\n\n\nHe turned. He raised his head. The smile was there at once, a sacred mask he had long since become. Beneath it, all the confusion, the void, the loneliness, were sealed away as if they had never been.",
+  "lineupToken": "yD"
+}

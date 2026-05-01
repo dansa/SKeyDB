@@ -1,0 +1,24 @@
+{
+  "id": "covenant-0002",
+  "name": "Re-evolution",
+  "assetId": "covenant-icon-002",
+  "lore": "Proliferate, proliferate! Let the souls infused with the blood of the Mother Tree spread across the world.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "Aliemus Regen Level +[Arg1]",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2.4"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "Team Unique: Gain 35 Aliemus at the start of exploration. After using Exalt in this battle, gain 2 Aliemus at turn end. This effect can stack up to 3 times.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "m"
+}

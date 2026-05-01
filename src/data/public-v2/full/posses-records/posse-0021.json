@@ -1,0 +1,66 @@
+{
+  "id": "posse-0021",
+  "name": "Giant's Reign",
+  "descriptionTemplate": "Recover 1 Arithmetica and gain [Arg1] {STR}. Increase a chosen Awakener's Aliemus by [Arg2]. If your Tentacle Stance is {Raging Waves}, instead gain +15% Temporary Crit. Rate & Crit. DMG.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "mul",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "accountStageGrowth"
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "const": 1.0
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "min",
+                        "args": [
+                          {
+                            "var": "ownedPosseCount"
+                          },
+                          {
+                            "const": 50.0
+                          }
+                        ]
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "const": 0.015
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "lore": "The way of the conqueror is to never give up, to never admit defeat.\n\nEven if the horizon has devoured the light, he will still lift the unquenchable sun with brawn.",
+  "realm": "AEQUOR",
+  "assetId": "posse-icon-21",
+  "imageAssetId": "CG_SD_S_O06_8",
+  "lineupToken": "s"
+}

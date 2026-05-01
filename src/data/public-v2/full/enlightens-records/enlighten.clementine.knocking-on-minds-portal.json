@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.clementine.knocking-on-minds-portal",
+  "ownerAwakenerId": "awakener-0010",
+  "slot": "E1",
+  "displayName": "Knocking on Mind's Portal",
+  "descriptionTemplate": "Obtain 5 stacks of {Symbiosis} when the battle begins. Base DMG of {Lifeform Reconstruction} +20%.",
+  "descriptionArgs": {}
+}

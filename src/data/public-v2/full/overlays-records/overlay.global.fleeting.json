@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.fleeting",
+  "displayName": "Fleeting",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "If kept in hand during discard phase, {Exhaust}. Won't reappear.",
+  "descriptionArgs": {}
+}

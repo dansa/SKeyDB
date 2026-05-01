@@ -1,0 +1,27 @@
+{
+  "id": "relic-0051",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Uvhash",
+  "assetId": "Icon_Creation_Unique_B07",
+  "ownerAwakenerId": "awakener-0051",
+  "ownerAwakenerName": "Uvhash",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "descriptionTemplate": "At turn start, Uvhash gains [Arg1] Aliemus. Uvhash's Base Aliemus -[Arg2], which further -5 every time he releases Exalt. He can release Exalt [Arg3] {plural:[Arg3]|time|times} per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "10"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": null
+}

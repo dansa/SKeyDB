@@ -1,0 +1,10 @@
+{
+  "id": "derived.ramona-timeworn.ode-to-tomorrow",
+  "displayName": "Ode to Tomorrow",
+  "descriptionTemplate": "Deal double DMG and gain 3 times Keyflare, but {Exhaust} after playing.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "skill.ramona-timeworn.predetermined-strike",
+  "rootSkillId": "skill.ramona-timeworn.predetermined-strike",
+  "ownerAwakenerId": "awakener-0020"
+}

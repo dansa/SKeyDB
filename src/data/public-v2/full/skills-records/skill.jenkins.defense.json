@@ -1,0 +1,50 @@
+{
+  "id": "skill.jenkins.defense",
+  "ownerAwakenerId": "awakener-0025",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Jenkin obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.jenkins.golden-butterflys-memories.skill.jenkins.defense",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.jenkins.golden-butterflys-memories",
+      "ownerAwakenerId": "awakener-0025",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Jenkin",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Jenkin obtains [Energy:Arg2] Aliemus. Draw 2 Cards, and discard them if they are not Jenkin's."
+      }
+    }
+  ]
+}

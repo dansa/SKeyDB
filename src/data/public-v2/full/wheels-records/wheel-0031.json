@@ -1,0 +1,63 @@
+{
+  "id": "wheel-0031",
+  "name": "Treasured Rarity",
+  "assetId": "Weapon_Full_D02",
+  "ownerAwakenerId": "awakener-0012",
+  "ownerAwakenerName": "Daffodil",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "mainstatKey": "CRIT_DMG",
+  "descriptionTemplate": "Team Unique: Gain [StateArg1] Black Sigils each time an enemy dies. After the wielder kills an enemy, the wielder's Crit. DMG in this level permanently +[StateArg2]%, stacking up to 5 stacks. Each time the wielder triggers the {Leap} effect, increase the Final DMG dealt by the wielder this turn by [StateArg3]%, stacking up to 3 stacks.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "computed",
+      "expression": {
+        "op": "add",
+        "args": [
+          {
+            "const": 2.0
+          },
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "wheelRefinementLevel"
+              },
+              {
+                "const": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "wheelRefinementLevel"
+      ]
+    },
+    "StateArg4": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "12",
+        "15",
+        "18"
+      ]
+    }
+  },
+  "lore": "The first time you saw a living golem was at the scholar lady's house.\n\n\"Even now, she still amazes me. To me, she is the universe itself.\"\n\nThe golem gives you a mechanical smile, muttering incomprehensibly.\n\nYou gaze into her gray eyes, feeling like you are in a surging gray ocean, the shimmering waves moving from one horizon to another.\n\nBefore leaving, the scholar lady hands you a worn booklet with notes on making golems.\n\nThat night, you spread it out to study the scribbled formulas and spells, but your mind is filled with the golem's elusive smile.\n\nYou never forget her.\n\nDays later, you find an excuse to visit again.\n\nYou step over piles of books, tools, and skeletons, pull aside heavy curtains and entwined cobwebs, finally squatting before the golem.\n\nThe scholar lady is huddled in a corner, looking haggard and drained of light in just a few days.\n\n\"You came... just like them.\"\n\nThe scholar lady coughs weakly.\n\n\"Yes... I came.\"\n\nYou pick up the golem's hand and kiss it repeatedly.\n\nIts cool fingertips brush against your neck, causing a slight pain. You close your eyes.\n\nWhen you wake up, you are bathed in warm white sunlight, your body fluctuating with gentle waves.\n\nYou feel unprecedented lightness, as if your soul has left your body.\n\nYou turn your head and see gray-black heads.\n\nThey wail, twist, like dark wildflowers scattered across the gray primeval ocean.\n\n\"No—\"\n\nYour throat chokes out black mucus, and you can no longer move.\n\nIt turns out you have become one of those heads.\n\n\"In June of Year 2, renowned alchemist Romalin Ludwig was found mysteriously dead in his study, his head missing. The mysterious alchemy manual also disappeared...\"\n\n(This content is recorded in Volume 2 of \"Alchemy Anecdotes\" from Mythag Library)",
+  "lineupToken": "l"
+}

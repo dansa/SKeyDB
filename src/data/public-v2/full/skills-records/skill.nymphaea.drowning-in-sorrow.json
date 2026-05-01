@@ -1,0 +1,100 @@
+{
+  "id": "skill.nymphaea.drowning-in-sorrow",
+  "ownerAwakenerId": "awakener-0037",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Drowning in Sorrow",
+  "descriptionTemplate": "Nymphaea gains [Energy:Arg1] Aliemus. {Rouse}: After Nymphaea plays a card, she gains [Energy:Arg2] Aliemus. At turn end, increase the amount of {Poison} Nymphaea inflicts by [Arg3]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.nymphaea.sentiment-oc-anique.skill.nymphaea.drowning-in-sorrow",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.nymphaea.sentiment-oc-anique",
+      "ownerAwakenerId": "awakener-0037",
+      "operation": "mixed",
+      "ownerAwakenerName": "Nymphaea",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "30",
+              "31",
+              "32",
+              "33",
+              "34",
+              "35"
+            ],
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Nymphaea gains [Energy:Arg1] Aliemus. {Rouse}: After Nymphaea plays a card, gain [Energy:Arg2] Aliemus. At turn end, {Poison} inflicted by Nymphaea +[Arg4]%."
+      }
+    }
+  ]
+}

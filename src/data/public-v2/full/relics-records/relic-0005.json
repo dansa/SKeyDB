@@ -1,0 +1,23 @@
+{
+  "id": "relic-0005",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Aurita",
+  "assetId": "Icon_Creation_Unique_O05",
+  "ownerAwakenerId": "awakener-0005",
+  "ownerAwakenerName": "Aurita",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "descriptionTemplate": "At turn start, Aurita gains [Arg1] Aliemus. The DMG count of {Gland Division} +[Arg2], and after playing Aurita's \"Defense,\" 1 {Gland Division} is added to hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": null
+}

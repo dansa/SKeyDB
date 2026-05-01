@@ -1,0 +1,2312 @@
+{
+  "schemaVersion": 1,
+  "scope": "posses",
+  "recordCount": 50,
+  "records": [
+    {
+      "id": "posse-0001",
+      "name": "Encounter in Pure White",
+      "descriptionTemplate": "Discard your hand, then draw that many cards plus 2.",
+      "descriptionArgs": {},
+      "lore": "I hope Lily's medical record is blank, just like the snowy field where we first met.",
+      "realm": "FADED_LEGACY",
+      "assetId": "posse-icon-01",
+      "imageAssetId": "CG_C03_002",
+      "lineupToken": "d"
+    },
+    {
+      "id": "posse-0002",
+      "name": "Voices in Your Head",
+      "descriptionTemplate": "Inflict 1 turn of {Weakness} and {Vulnerable} on each enemy, and {Steal} [Arg1] {STR} from them.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.01
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "The moment your hands clasped, you saw confusion and bewilderment in each other's eyes.\nFragmented melodies converge here, for you have long forgotten the past.\nA silent symphony is about to be composed, for you are determined to step into the future.",
+      "realm": "FADED_LEGACY",
+      "assetId": "posse-icon-02",
+      "imageAssetId": "CG_C00_014",
+      "lineupToken": "h"
+    },
+    {
+      "id": "posse-0003",
+      "name": "Warded Injection",
+      "descriptionTemplate": "Gain [Block:Arg1] Shield. If current HP is below 25%, recover [Heal:Arg2] HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.1
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.1
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "She said \"it doesn't hurt\"... but that must be a lie; she is clearly the child most afraid of pain.",
+      "realm": "FADED_LEGACY",
+      "assetId": "posse-icon-03",
+      "imageAssetId": "CG_C04_002",
+      "lineupToken": "b"
+    },
+    {
+      "id": "posse-0004",
+      "name": "A Mouse's Wisdom",
+      "descriptionTemplate": "Recover 3 Arithmetica.",
+      "descriptionArgs": {},
+      "lore": "The little mouse and its owner share many traits:\nCunning, bravery, and speed...\nThey freely roam the gaps between the scattered houses in the Eastern District, using the sky as their blanket and rooftops as their bed.\nThey thrive in the corners of the city.",
+      "realm": "FADED_LEGACY",
+      "assetId": "posse-icon-04",
+      "imageAssetId": "CG_C02_006",
+      "lineupToken": "c"
+    },
+    {
+      "id": "posse-0005",
+      "name": "Tiny Wish",
+      "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg1].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "35"
+        }
+      },
+      "lore": "On the day of her sixth birthday, the girl made a wish:\nTo have a toy bear named \"Bobo,\" and for love—not too much, just a little.\nThe girl has never been good at fantasizing, nor is she a greedy person.",
+      "realm": "FADED_LEGACY",
+      "assetId": "posse-icon-05",
+      "imageAssetId": "CG_C01_001",
+      "lineupToken": "i"
+    },
+    {
+      "id": "posse-0006",
+      "name": "Obsession Eternal",
+      "descriptionTemplate": "Gain [Arg1] {STR}, then gain Temporary {STR} equal to 25% of your permanent {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.03
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "Given her obsession, I have a vague feeling that this millennia-spanning ritual has yet to reach its end...",
+      "realm": "FADED_LEGACY",
+      "assetId": "posse-icon-06",
+      "imageAssetId": "CG_C05_003",
+      "lineupToken": "g"
+    },
+    {
+      "id": "posse-0007",
+      "name": "Unequal Exchange",
+      "descriptionTemplate": "Draw 4 cards.",
+      "descriptionArgs": {},
+      "lore": "Mythag usually discourages me from contacting that merchant, but if it's to save everyone from this mire...",
+      "realm": "OTHER",
+      "assetId": "posse-icon-07",
+      "imageAssetId": "SScene_DaffodilShop_Bones",
+      "lineupToken": "e"
+    },
+    {
+      "id": "posse-0008",
+      "name": "Funus Aeternum",
+      "descriptionTemplate": "Increase all Awakeners' Aliemus by 15. Suffer a Delayed {Sacrifice} equal to 5% of your Max HP.",
+      "descriptionArgs": {},
+      "lore": "I couldn't help her much; she single-handedly stopped the false god's descent.\nHer soul will not fade; she will forever shine as a star of freedom.",
+      "realm": "FADED_LEGACY",
+      "assetId": "posse-icon-08",
+      "imageAssetId": "CG_C06_010",
+      "lineupToken": "f"
+    },
+    {
+      "id": "posse-0009",
+      "name": "The Final Vow",
+      "descriptionTemplate": "Gain +[Arg1]% Temporary Crit. Rate and [Arg2] Temporary {STR}. If you're in a Boss Battle and have played no cards this turn, attempt to trigger {Death Resistance} [Arg3] {plural:[Arg3]|time|times}. If successful, gain [Block:Arg4] Shield. This effect can only trigger [Arg5] {plural:[Arg5]|time|times} per battle.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "25",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.02
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg4": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.4
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg5": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "The knight had sworn to guard those dear to him with this lance. Now it pierces his chest, yet only to keep danger at bay—his final vow fulfilled.",
+      "realm": "CHAOS",
+      "assetId": "posse-icon-09",
+      "imageAssetId": "CG_SD_S_C03_1",
+      "lineupToken": "l"
+    },
+    {
+      "id": "posse-0010",
+      "name": "Aurita's Treasure",
+      "descriptionTemplate": "Draw [Arg1] {plural:[Arg1]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. If the Realm includes {Aequor}, increase {Tentacle DMG} by [Arg2].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "3"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.01
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "Glass tank. Fish tank. Palace.\n\nCall it whatever you like. It is a small paradise where Aurita's friends reside, free from Dissolution and suffering.",
+      "realm": "AEQUOR",
+      "assetId": "posse-icon-10",
+      "imageAssetId": "CG_SD_S_O05_2",
+      "lineupToken": "j"
+    },
+    {
+      "id": "posse-0011",
+      "name": "Roaring Blood and Sand",
+      "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg2]. Gain [Arg3] {STR}. If the Realm includes {Caro}, consume 10% of your HP to increase {Embryo Fusion} by +[Arg4]%.",
+      "descriptionArgs": {
+        "Arg2": {
+          "kind": "fixed",
+          "value": "20"
+        },
+        "Arg3": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.02
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "20",
+          "suffix": "%"
+        }
+      },
+      "lore": "Crimson twilight, swirling sand.\n\nUpon the boundless dunes, a warrior born without hesitation bites into his wrist, returning his blood to the sky and earth.",
+      "realm": "CARO",
+      "assetId": "posse-icon-11",
+      "imageAssetId": "CG_SD_S_B07_4",
+      "lineupToken": "k"
+    },
+    {
+      "id": "posse-0012",
+      "name": "Ephemeral Eternity",
+      "descriptionTemplate": "Gain [Arg4] Arithmetica. Choose an Awakener; place their [Arg1] {plural:[Arg1]|copy|copies} of \"Strike\" and [Arg1] {plural:[Arg1]|copy|copies} of \"Defense\" into your hand, and grant them {Exhaust} and {Fleeting}. If the current Realm is {Ultra}, gain [Arg2] Temp. {STR} and [Arg3] Temp. {Alert}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.02
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg3": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.005
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "The mechanical doll rejected the newborn spirit's promise of eternity, as the core's current scorched her soul. Before her body could no longer hold, she had one last task to complete—",
+      "realm": "ULTRA",
+      "assetId": "posse-icon-12",
+      "imageAssetId": "CG_SD_S_D08_3",
+      "lineupToken": "m"
+    },
+    {
+      "id": "posse-0013",
+      "name": "Feast of Decay",
+      "descriptionTemplate": "Gain [Arg1] {Counter} and inflict [Arg2] Temp. {STR⯆} on all enemies. If in an {Ultra Round}, deal DMG equal to your {Counter} to all enemies instead of inflicting {STR⯆}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountDamagePower"
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.06
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "accountDamagePower",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.03
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "The feast has reached its peak. The queen of Cambrian laughed heartily, raising her glass to you amidst the revelry and D-Slime.",
+      "realm": "ULTRA",
+      "assetId": "posse-icon-13",
+      "imageAssetId": "CG_SD_S_D04_4",
+      "lineupToken": "q"
+    },
+    {
+      "id": "posse-0014",
+      "name": "Bone-Chilling Embrace",
+      "descriptionTemplate": "Recover [Arg1] Arithmetica and gain [Block:Arg2] Delayed Shield. If your Tentacle Stance is {Surging Tides}, instead summon [Arg3] Tentacles.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.1
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "Flesh dissolves into the sea, bones harden into coral. Her gaze burns; she embraces you and sculpts you.\n\nShe promises to take you home.",
+      "realm": "AEQUOR",
+      "assetId": "posse-icon-14",
+      "imageAssetId": "CG_SD_S_O08_1",
+      "lineupToken": "n"
+    },
+    {
+      "id": "posse-0015",
+      "name": "Lakeside Glimpse",
+      "descriptionTemplate": "Inflict [Arg2] {Poison} on the highest HP enemy, and gain [Block:Arg1] Shield. If {Devour} has been triggered this turn, trigger half of that enemy's {Poison} instead of gaining Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.06
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountDamagePower"
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.14
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "accountDamagePower",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "The lake in Cambrian Valley shimmers with crystal-clear waters.\n\nThe clamor of the maze gradually fades away, leaving only you and the newly freed girl to savor this tranquil moment.",
+      "realm": "CARO",
+      "assetId": "posse-icon-15",
+      "imageAssetId": "CG_SD_S_B06_2",
+      "lineupToken": "o"
+    },
+    {
+      "id": "posse-0016",
+      "name": "Gateway of Retrospection",
+      "descriptionTemplate": "Search your Draw Pile for [Arg1] {plural:[Arg1]|card|cards} to put into your hand, and reduce their Arithmetica Cost by [Arg2].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "The girl has lost count of her cycles and can no longer recall the histories she altered.\n\nThis is the last chance, the final rewind. Her sword pierced Tawil's core, but she only had time to grasp that person's hand before sinking together into the Black Pool.",
+      "realm": "CHAOS",
+      "assetId": "posse-icon-16",
+      "imageAssetId": "CG_SD_S_C01EX_1",
+      "lineupToken": "p"
+    },
+    {
+      "id": "posse-0017",
+      "name": "Truth Behind Grey Mist",
+      "descriptionTemplate": "Gain [Arg1] {STR} and create [Arg2] {Insight}. If in an {Ultra Round}, instead create [Arg3] {Insight}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.015
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "A breeze lifts her long hair, and the reflection of the grey sea of fog briefly appears before vanishing into thin air. Before you stands the same elegant and composed her. But you know, it is not an illusion.",
+      "realm": "ULTRA",
+      "assetId": "posse-icon-17",
+      "imageAssetId": "CG_SD_L_D02_3",
+      "lineupToken": "v"
+    },
+    {
+      "id": "posse-0018",
+      "name": "Midsummer Vision",
+      "descriptionTemplate": "Draw a card; if the drawn card is a Command or {Rouse} card, reduce its Arithmetica Cost to 0 and increase its owner's Aliemus by [Arg1]. Otherwise, discard that card and repeat this process.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20"
+        }
+      },
+      "lore": "It was a fleeting, ethereal dream of a night, light and soft, not captured on film but flowing through the memory of every photographer.",
+      "realm": "CHAOS",
+      "assetId": "posse-icon-18",
+      "imageAssetId": "CG_SD_L_C10_3",
+      "lineupToken": "w"
+    },
+    {
+      "id": "posse-0019",
+      "name": "Victory of Roses",
+      "descriptionTemplate": "Draw 2 cards and gain [Arg1] Temp. {STR}. If the Realm includes {Caro}, consume 10% of your HP to gain another [Arg2] Temp. {STR}, and another [Arg2] Temp. {STR} for each {Embryo} in your hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.045
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.015
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "The graceful rose has achieved her complete victory.\n\nShe has returned to the noble rose surrounded by the crowd like stars around the moon, with only the gaze directed at you proclaiming the secret adventure experienced with you at the opera house.",
+      "realm": "CARO",
+      "assetId": "posse-icon-19",
+      "imageAssetId": "CG_SD_L_B04_4",
+      "lineupToken": "u"
+    },
+    {
+      "id": "posse-0020",
+      "name": "Miracle's Dawn",
+      "descriptionTemplate": "Gain [Arg1] {STR}. Until your next turn, whenever you take Active DMG, gain Delayed Shield equal to [Arg2]% of that DMG. If the Realm includes {Caro}, instead accumulate {Crimson Furnace} equal to 10% of that DMG.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.02
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10",
+          "suffix": "%"
+        }
+      },
+      "lore": "Miracle's Dawn descends upon the Church tainted by Madness, at the cost of the blood of the willing sacrifice and the immaculate lover.",
+      "realm": "CARO",
+      "assetId": "posse-icon-20",
+      "imageAssetId": "CG_SD_L_B02_2",
+      "lineupToken": "r"
+    },
+    {
+      "id": "posse-0021",
+      "name": "Giant's Reign",
+      "descriptionTemplate": "Recover 1 Arithmetica and gain [Arg1] {STR}. Increase a chosen Awakener's Aliemus by [Arg2]. If your Tentacle Stance is {Raging Waves}, instead gain +15% Temporary Crit. Rate & Crit. DMG.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.015
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": "The way of the conqueror is to never give up, to never admit defeat.\n\nEven if the horizon has devoured the light, he will still lift the unquenchable sun with brawn.",
+      "realm": "AEQUOR",
+      "assetId": "posse-icon-21",
+      "imageAssetId": "CG_SD_S_O06_8",
+      "lineupToken": "s"
+    },
+    {
+      "id": "posse-0022",
+      "name": "All of Her",
+      "descriptionTemplate": "Increase {Realm Mastery} by [Arg1]. Increase a chosen Awakener's Aliemus by [Energy:Arg2].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "24"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "24"
+        }
+      },
+      "lore": "All 24 merge into one, dissolving into starlight.\n\nHer personality becomes whole through division, and her body endures through fission.\n\nThere is only one 24 in this world, and she embodies them all.",
+      "realm": "CHAOS",
+      "assetId": "posse-icon-22",
+      "imageAssetId": "CG_SD_S_C06_3",
+      "lineupToken": "t"
+    },
+    {
+      "id": "posse-0023",
+      "name": "The Lone Seed",
+      "descriptionTemplate": "Choose a Non-Derived Command Card in hand and create a Base Copy of it. The copy has {Exhaust}. Increase its owner's Aliemus by [Arg1].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": "She will pass the Lone Seed to your tongue.\nThe strength of blood, the faith of inheritance, the courage to transcend, and deep affection... she entrusts everything to you.",
+      "realm": "CARO",
+      "assetId": "posse-icon-23",
+      "imageAssetId": "CG_C07_002",
+      "lineupToken": "G"
+    },
+    {
+      "id": "posse-0024",
+      "name": "The Mountains' Resolve",
+      "descriptionTemplate": "Choose an Awakener; draw 2 of their Command Cards.",
+      "descriptionArgs": {},
+      "lore": "The towering mountains of the frigid glacier devour the valiant warriors and mad beasts, covering the remnants of stories with pure white snow.\nBut when spring comes next year, faint signs of life will finally traverse the blizzard. The mountains have long prepared for this awakening.",
+      "realm": "CARO",
+      "assetId": "posse-icon-24",
+      "imageAssetId": "CG_SD_L_B05EX_4",
+      "lineupToken": "E"
+    },
+    {
+      "id": "posse-0025",
+      "name": "Festival of Tides",
+      "descriptionTemplate": "Draw 2 cards. Recover 2 Arithmetica. All Awakeners lose 5 Aliemus. If your Tentacle Stance is {Tranquil Sea}, inflict [Arg1] {Poison} on all enemies. Inflict 3× that much {Poison} instead in Boss Battle.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountDamagePower"
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.08
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "accountDamagePower",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "The High Priestess of Lemuria never expects a response from the ocean.\n\nShe offers everything to the ocean, which has nothing to do with the ocean.",
+      "realm": "AEQUOR",
+      "assetId": "posse-icon-25",
+      "imageAssetId": "CG_SD_L_O07_3",
+      "lineupToken": "C"
+    },
+    {
+      "id": "posse-0026",
+      "name": "Spring's Verse",
+      "descriptionTemplate": "Choose one of four {Poetry Pages} that haven't been chosen; reset after all {Poems} have been chosen.",
+      "descriptionArgs": {},
+      "lore": "Pray, accept my poem, this offering of spring to the garden.\nIn our desolate lives, the roses dwell in deep red.",
+      "realm": "ULTRA",
+      "assetId": "posse-icon-26",
+      "imageAssetId": "CG_SD_L_D06_9",
+      "lineupToken": "A"
+    },
+    {
+      "id": "posse-0027",
+      "name": "A Gun's Cry",
+      "descriptionTemplate": "Create 1 {Shining Octahedron Dice} and gain [Arg1]% Temporary Crit. Rate.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        }
+      },
+      "lore": "Bang—\nA gunshot that splits the sky pierces the heart of the mastermind behind the conspiracy.\n\nDeath is not the end of life, but merely the peak of the puzzle's twist.",
+      "realm": "CHAOS",
+      "assetId": "posse-icon-27",
+      "imageAssetId": "CG_SD_S_C05_9",
+      "lineupToken": "D"
+    },
+    {
+      "id": "posse-0028",
+      "name": "Symphony Fourth",
+      "descriptionTemplate": "If the Arithmetica Cost of the next card you play this turn is 3 or more, recover 2 Arithmetica. Otherwise, draw 2 cards. If this is the {ordinal:4th} time this Posse was unleashed this battle, instead create 4 {Insight}.",
+      "descriptionArgs": {},
+      "lore": "Notes gather into a surging sea of stars, the theme dances in the grand deep space.\nClose your eyes and listen. Listen to the end of the universe, listen to the climax of the universe.",
+      "realm": "CHAOS",
+      "assetId": "posse-icon-28",
+      "imageAssetId": "CG_C08_009",
+      "lineupToken": "I"
+    },
+    {
+      "id": "posse-0029",
+      "name": "Answer of the Gate",
+      "descriptionTemplate": "{Discover} 3 random Posses; unleash 1 and gain [Arg1] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "200"
+        }
+      },
+      "lore": "The Truth of all things lies beyond the Gate.\nShe remains silent here, bearing all the inquiries, responding with silence.\nThe one she awaits will eventually write their own answer.",
+      "realm": "CHAOS",
+      "assetId": "posse-icon-29",
+      "imageAssetId": "CG_C09_001",
+      "lineupToken": "H"
+    },
+    {
+      "id": "posse-0030",
+      "name": "Plague of Illusions",
+      "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg1], and inflict [Arg2] {Poison} on all enemies. For each 1% of HP the target is missing, trigger 1% of their {Poison}, up to 50%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountDamagePower"
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.045
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "accountDamagePower",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "The Void is a plague brought by the Hidden Truth, erasing all colors and painting everything gray.\nDo not look directly into those mad Eyes; be careful, she may have already infected you.",
+      "realm": "CHAOS",
+      "assetId": "posse-icon-30",
+      "imageAssetId": "SScene_DollLab",
+      "lineupToken": "J"
+    },
+    {
+      "id": "posse-0031",
+      "name": "Blessing of the Stars",
+      "descriptionTemplate": "Choose either \"{Slumber}\" or \"{Arouse}\".",
+      "descriptionArgs": {},
+      "lore": "He chose that Crown, and that Crown also chose him.\nThe soul of the new king resonated with the ancient god in an instant. An overwhelming shadow appeared behind him, bringing eternal peace to the nation.",
+      "realm": "AEQUOR",
+      "assetId": "posse-icon-31",
+      "imageAssetId": "CG_SD_S_O01_3",
+      "lineupToken": "K"
+    },
+    {
+      "id": "posse-0032",
+      "name": "Black Swan's Dance",
+      "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg2], and the Temp. Crit. Rate & Crit. DMG of their Command Cards by [Arg1]%. If Liz is in your team, create 1 {Corrupted Flames} with {Exhaust}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": "Light steps. A sharp turn. A spin. At the crescendo of the music, she dives headlong into flames. Burn. Burning is the only answer her dance can give.",
+      "realm": "ULTRA",
+      "assetId": "posse-icon-32",
+      "imageAssetId": "CG_SD_S_D01_1",
+      "lineupToken": "B"
+    },
+    {
+      "id": "posse-0033",
+      "name": "Tavern's Opening",
+      "descriptionTemplate": "Generate 1 {Leah's Coin} and shuffle it into the Discard Pile.",
+      "descriptionArgs": {},
+      "lore": "When one world comes to an end, the prologue of another world begins. Stories will be passed down by people alongside fine wine, but time will write answers for all things.",
+      "realm": "OTHER",
+      "assetId": "posse-icon-33",
+      "imageAssetId": "CG_SD_MyTurn_01",
+      "lineupToken": "L"
+    },
+    {
+      "id": "posse-0034",
+      "name": "Sacred Mending",
+      "descriptionTemplate": "Recover [Heal:Arg1] HP and gain [Arg2] {STR}. If Clementine is in your team, add 1 extra instance of the following effects to her next Command Card you play: DMG, Shield, HP Recovery, Aliemus, and Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.07
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.02
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "She has healed countless patients, guiding them toward rebirth, and everything now is just a psychological therapy.\nThe only special thing is that the patient is herself.",
+      "realm": "ULTRA",
+      "assetId": "posse-icon-34",
+      "imageAssetId": "CG_C202_005",
+      "lineupToken": "M"
+    },
+    {
+      "id": "posse-0035",
+      "name": "Undying Thunder",
+      "descriptionTemplate": "Draw [Arg2] {plural:[Arg2]|card|cards}. Gain [Arg1] Shield. If Corposant is in your team, create 1 {Pilot}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.06
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "Burn, burn, burn.\nEven if my bones and blood are boiling, even if my flesh is charred, I will squeeze out the last drop of blood in my body to shine bright.\nBecause in this darkness, I am the only guide.",
+      "realm": "AEQUOR",
+      "assetId": "posse-icon-35",
+      "imageAssetId": "CG_SD_L_O10_2",
+      "lineupToken": "N"
+    },
+    {
+      "id": "posse-0036",
+      "name": "Derision of Destiny",
+      "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Energy:Arg3]. Draw [Arg2] {plural:[Arg2]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. If Castor is in your team, increase his Temp. DMG Amplification by [Arg1]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      },
+      "lore": "They always brush past fleeting hopes at the wrong time.\nOnce, that tender hand guided him towards the light of freedom.\nAs he desperately flapped his wings and broke free from the prison of fate once more, why did that familiar hand pierce through his chest at this moment?",
+      "realm": "ULTRA",
+      "assetId": "posse-icon-36",
+      "imageAssetId": "CG_SD_L_D11_1",
+      "lineupToken": "O"
+    },
+    {
+      "id": "posse-0037",
+      "name": "Cruel Homage",
+      "descriptionTemplate": "{Steal} [Arg1] {STR} from all enemies. If Doresain is in your team, he gains 1 {Corpse}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.04
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "The full moon has risen to the zenith, and the King of the Ghouls salutes you.\nTonight, we drink in hatred from the skulls of our enemies.\nTonight, we measure eternity with the ribs of our lovers.",
+      "realm": "CARO",
+      "assetId": "posse-icon-39",
+      "imageAssetId": "CG_C203_003",
+      "lineupToken": "S"
+    },
+    {
+      "id": "posse-0038",
+      "name": "Undying Sun",
+      "descriptionTemplate": "Recover 1 Arithmetica and gain [Arg1]% Temp. DMG Amplification. If Kathigu-Ra is in your team, draw 1 of her cards and apply 1 stack of {Fiamma} to it",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        }
+      },
+      "lore": "Even if the false black sun has obscured the sky, the true sun will never extinguish.\nThe brief sunset at this moment is meant to burst forth a more blazing sun.\nNow, the sun burning with amber flames rises again, never to set again.",
+      "realm": "CHAOS",
+      "assetId": "posse-icon-40",
+      "imageAssetId": "CG_SD_S_C16_2",
+      "lineupToken": "R"
+    },
+    {
+      "id": "posse-0039",
+      "name": "Sacred Bleeding Heart",
+      "descriptionTemplate": "Draw 1 card and reduce its Arithmetica Cost by 1. If a Command Card is drawn, its owner gains [Arg1]% Temporary Crit. DMG. If Pollux is in the team, gain [Arg2] {plural:[Arg2]|stack|stacks} of {Sin Mark}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "25",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      },
+      "lore": "He finally recovered all his memories and strength, but at the cost of everything he wanted to protect.\nHe has come too late.\nOnly tears of blood filled with hatred and remorse burned in his trembling heart.",
+      "realm": "ULTRA",
+      "assetId": "posse-icon-41",
+      "imageAssetId": "CG_SD_S_D14_1",
+      "lineupToken": "V"
+    },
+    {
+      "id": "posse-0040",
+      "name": "Voracious Resolve",
+      "descriptionTemplate": "{Discover} 1 of 3 basic Skill Commands from the Awakeners in your team; it has {Exhaust}, and its Arithmetica Cost -1. If the Realm includes {Caro}, you may choose \"Gobble Up!\"",
+      "descriptionArgs": {},
+      "lore": "This is the Promised Land sworn by Mythag to her warriors—where jars overflow with honey and cabinets groan with meat.\nNo force may bar the brave; what is theirs by right, they shall claim.",
+      "realm": "CARO",
+      "assetId": "posse-icon-42",
+      "imageAssetId": "SScene_SchoolKitchen",
+      "lineupToken": "Q"
+    },
+    {
+      "id": "posse-0041",
+      "name": "Beachside Memento",
+      "descriptionTemplate": "Choose an Awakener; create 1 of their basic Strike Commands. It has {Exhaust}. Every {ordinal:3rd} time this is unleashed, instead create 1 {Fleeting Beauty} and gain +[Arg1]% Temp. Crit. Rate.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20",
+          "suffix": "%"
+        }
+      },
+      "lore": "Every party has its end, but the memories etched in the soul never cease. No matter how many times, when recalling this frozen moment, longing will surge like a tide.",
+      "realm": "OTHER",
+      "assetId": "posse-icon-43",
+      "imageAssetId": "CG_SD_L_FarewellNeverland_1",
+      "lineupToken": "T"
+    },
+    {
+      "id": "posse-0042",
+      "name": "Void Hues",
+      "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg1], and shuffle 1 {Insight} into the Draw Pile. If Pickman is in your team, he gains 1 stack of {Creativity}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20"
+        }
+      },
+      "lore": "The rotting phantasm gives birth to a distorted neon on the retina—\nthus the concept of \"color\" transcends the virtual world, leaving only the delirious hues flowing on the corpse of reality.",
+      "realm": "CARO",
+      "assetId": "posse-icon-44",
+      "imageAssetId": "CG_SD_S_B12_1",
+      "lineupToken": "U"
+    },
+    {
+      "id": "posse-0043",
+      "name": "A Fleeting Dream",
+      "descriptionTemplate": "Gain [Block:Arg1] Shield and Temporary {STR} equal to 10% of the current Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.15
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "Everything beautiful, complete, and soft leads to one's downfall, and you choose to become your own executioner, personally severing your soul from the warm bed of dreams.\nAfter piercing through the false veil, you look back, and those smiling faces are frozen within pale lines, waiting for your true return.",
+      "realm": "OTHER",
+      "assetId": "posse-icon-45",
+      "imageAssetId": "SScene_HTPArtboard",
+      "lineupToken": "W"
+    },
+    {
+      "id": "posse-0044",
+      "name": "Wayward Ship",
+      "descriptionTemplate": "Gain 1 Arithmetica, and apply 5 stacks of {Birth Ritual} to all enemies. If \"Murphy: Fauxborn\" is in the team, draw 1 {Waltz of Lemuria}.",
+      "descriptionArgs": {},
+      "lore": "The Apostle of the Sea kneels devoutly at the Maiden's feet, offering a kiss of fidelity—she has traveled too far on the wrong course.",
+      "realm": "AEQUOR",
+      "assetId": "posse-icon-46",
+      "imageAssetId": "CG_C204_002",
+      "lineupToken": "X"
+    },
+    {
+      "id": "posse-0045",
+      "name": "Reunion Wish",
+      "descriptionTemplate": "Return 1 Command Card from the Discard Pile to your hand. If Ramona is in the team, the next Command Card she plays this turn takes effect [Arg1] {plural:[Arg1]|time|times}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "Countless longings transform into shooting stars, rushing to your reunion once again.",
+      "realm": "OTHER",
+      "assetId": "posse-icon-47",
+      "imageAssetId": "CG_SD_S_WB2_3",
+      "lineupToken": "Y"
+    },
+    {
+      "id": "posse-0046",
+      "name": "From the Mist Realm",
+      "descriptionTemplate": "Draw 2 \"Strike\" cards. If \"Mouchette\" is in the team, reduce their Arithmetica Cost by 1.",
+      "descriptionArgs": {},
+      "lore": "She is Mouchette, the vanguard of the A.U.G.E. from a distant realm. Having endured a baptism of silver and blood within this world, she has been forged anew. This badge, imbued with the essence of \"home,\" stands as the eternal witness to her journey across the dimensions.",
+      "realm": "CHAOS",
+      "assetId": "posse-icon-48",
+      "imageAssetId": "CG_SD_S_C17_01",
+      "lineupToken": "Z"
+    },
+    {
+      "id": "posse-0047",
+      "name": "Manor Echoes",
+      "descriptionTemplate": "Gain 1 Arithmetica and temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg1] for 1 turn. If \"Xu\" is in the team, inflict 1 stack of {Spellbound} on all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.041
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "The secluded manor holds too many secrets—of power, of obsession, of desire.\nOf the glimpse the evil deity casts upon the mortal world, brimming with love both \"delighted\" and \"twisted.\"",
+      "realm": "CARO",
+      "assetId": "posse-icon-49",
+      "imageAssetId": "CG_SD_S_B14_1",
+      "lineupToken": "2"
+    },
+    {
+      "id": "posse-0048",
+      "name": "Year-End Sparks",
+      "descriptionTemplate": "Temporary Crit. Rate +15%, gain 1 Arithmetica. The first time unleashed in this battle, deal [Arg3] {Ancient Embers} to all enemies.",
+      "descriptionArgs": {
+        "Arg3": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "accountDamagePower"
+                      },
+                      {
+                        "const": 0.01
+                      }
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.3
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "accountDamagePower",
+            "ownedPosseCount"
+          ]
+        }
+      },
+      "lore": "Year after year, the blossoms return unchanged;\nSeason after season, I long for our reunion.\n\nThis Spring Festival is so brief, so sweet, like a beautiful dream. My dear, when you stand beside your beloved, hand in hand,\ngazing upon the countless fireworks lighting the sky... pray, do not forget the devotion of this humble heart.",
+      "realm": "OTHER",
+      "assetId": "posse-icon-50",
+      "imageAssetId": "CG_SD_L_SF1_03",
+      "lineupToken": "3"
+    },
+    {
+      "id": "posse-0049",
+      "name": "Drowned Innocence",
+      "descriptionTemplate": "Choose an Awakener to gain 15 Aliemus, while other Awakeners gain 5 Aliemus. Vortice: Immediately unleash {Vortex! Shell!} as a {Pursuit}.",
+      "descriptionArgs": {},
+      "lore": "She plunged into the icy sea without hesitation, fully aware that the vortex would claim her life.\nBecause in her pure, innocent mind, this was the only way to save her friends.",
+      "realm": "AEQUOR",
+      "assetId": "posse-icon-51",
+      "imageAssetId": "CG_SD_S_O11_02",
+      "lineupToken": "5"
+    },
+    {
+      "id": "posse-0050",
+      "name": "Orbis Fatum",
+      "descriptionTemplate": "Gain [Arg1] Shield and [Arg2]% Temporary DMG Amplification. If \"Arachne\" is in the party, draw 1 {Eternal Loom} and reduce its Arithmetica Cost by 1.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "expression": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.08
+              }
+            ]
+          },
+          "inputs": [
+            "accountStageGrowth",
+            "ownedPosseCount"
+          ]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      },
+      "lore": "Spin, measure, sever.\nThe goddess of destiny knows neither joy nor sorrow; the wheel of fate turns for all eternity.",
+      "realm": "ULTRA",
+      "assetId": "posse-icon-52",
+      "imageAssetId": "CG_C205_005",
+      "lineupToken": "1"
+    }
+  ]
+}

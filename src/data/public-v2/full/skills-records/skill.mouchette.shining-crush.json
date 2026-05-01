@@ -1,0 +1,40 @@
+{
+  "id": "skill.mouchette.shining-crush",
+  "ownerAwakenerId": "awakener-0033",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Shining☆Crush",
+  "descriptionTemplate": "Counts as \"Strike\". Deal [Damage:Arg1] DMG to a random enemy [Arg2] {plural:[Arg2]|time|times}, gain [Energy:Arg3] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "22",
+        "24",
+        "26",
+        "28",
+        "30"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3"
+}

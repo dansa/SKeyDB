@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.goliath.rule-by-the-strongest",
+  "ownerAwakenerId": "awakener-0021",
+  "slot": "E2",
+  "displayName": "Rule by the Strongest",
+  "descriptionTemplate": "{Law of the Strongest}: Aside from removing {STR} from all enemies, gain the same amount Temporary {STR}.",
+  "descriptionArgs": {}
+}

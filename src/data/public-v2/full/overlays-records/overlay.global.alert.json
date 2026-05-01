@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.alert",
+  "displayName": "Alert",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Increase Shield generation.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_009",
+  "textColor": "shield"
+}

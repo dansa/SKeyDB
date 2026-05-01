@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.ogier.honesty-unto-thyself",
+  "ownerAwakenerId": "awakener-0038",
+  "slot": "E1",
+  "displayName": "Honesty Unto Thyself",
+  "descriptionTemplate": "{Piercing Strike} inflicts +1 turn of Vulnerable; Base DMG by +100%; enjoys +100% {STR} bonus.",
+  "descriptionArgs": {}
+}

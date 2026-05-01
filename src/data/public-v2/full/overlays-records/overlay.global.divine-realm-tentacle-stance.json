@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.divine-realm-tentacle-stance",
+  "displayName": "Divine Realm: Tentacle Stance",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "{Divine Realm: Tentacle Stance} has three selectable forms, with different effects from the standard {Aequor} Realm: {Divine Realm: Surging Tides}, {Divine Realm: Tranquil Sea}, and {Divine Realm: Raging Waves}.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,97 @@
+{
+  "id": "awakener-0034",
+  "numericId": 34,
+  "name": "Murphy",
+  "ingameId": "O02",
+  "lineupToken": "r",
+  "realm": "AEQUOR",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "murphy",
+    "iconKey": "murphy"
+  },
+  "baseStatsLv1": {
+    "CON": 45,
+    "ATK": 49,
+    "DEF": 55
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0.8,
+    "KeyflareRegen": 16.2,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.45,
+    "ATK": 1.55,
+    "DEF": 1.75
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0.8,
+    "KeyflareRegen": 1.2,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Murphy",
+    "birthday": "22-Dec",
+    "gender": "Female",
+    "height": "4'8.7''",
+    "weight": "92.5lbs",
+    "gnosticIndex": "21.21",
+    "characteristic": "Tentacle Activation    Replenish Arithmetica",
+    "introduction": "Withstands a Sacrifice Ritual to resist high enemy damage and commands Tentacles to launch a full-scale attack.",
+    "awakerIntroduction": "Possesses unique protective abilities that transform enemy DMG into {Sacrifice}.\nUsing cards can grant a number of Tentacles that ignore the Tentacle Limit.\nFlexibly overdrawing {Sacrifice} to exchange for DEF can provide more powerful short-term combat power.\nIn this stage, \"Murphy\" will be deployed at Level 50, Skill Level 5, and Enlighten Level 3.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Proud, willful, self-centered... Many who have interacted with her would describe her personality in such ways. She seemed to have always been treated like the center of the universe in her previous living environment, perhaps it was this meticulous care that cultivated her spoiled nature.\n\"Hey! What are you looking at? Didn't I say that if I call you three times, you must respond to this young lady!\"\n--- One must be very careful even when reading the documents.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "Year 3@2 Summer, legends of sea monsters spread across the Irian Isles.\nFishermen claimed to have spotted a five-story-tall cephalopod near the shore. Its skin was deep crimson, with black concentric rings on its tentacles.\nI heard this rumor while verifying suspected D-phenomenon in Mianland with Senior Johansen. The next day, the senior set sail for the Irian Isles, and I wrote this report in the Amirante Ocean.\nOn the third day of sailing, vast fish carcasses appeared: mackerel, flounder, dolphins, and even a pregnant sperm whale—I swear! Old sailors blamed oxygen depletion caused by overbreeding, but I felt like we were missing something...\nOn the eighth day of sailing, my seasickness worsened, and severe nausea made it nearly impossible to eat. Despite nearing the Irian Isles, Johansen insisted on returning@3... I didn't understand, but I trusted the senior.\n—Bale Columbus \"Year 3@2 Summer Internship Report\"",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "After being Awakened, we finally learned what kind of life Murphy led in the Order.\nShe spends a lot of time on her appearance before going out, always carrying a parasol. Afternoon tea is at 4 PM, accompanied by milk tea and strawberry jam scones. Maintaining cleanliness and elegance, living like a lady—this is her destiny, and she insists on living as such no matter where she is.\n(Note from the Archivist: I think her grabbing beef pudding with her hands is far from ladylike...)\nEven without servants to command, she lives exactly as she wishes, which is somewhat comforting.\nDue to a certain Event, she rarely interacts with Awakeners Miriam and Goliath, often ignoring them. She displays a complex expression when meeting Awakener Tulu.\nTalking about the past makes her irritable. Perhaps she just needs more time to heal.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "\"You bear a noble mission, the hope of His return to the world.\"\n\"Be good, obey... When He wakes again, everyone will dwell in the eternal realm.\"\nThe secret girl, whose birth could not be revealed, became the high priest's treasure for some reason. The once-neglected infant transformed into the saint linked to destiny and a mysterious civilization.\nThe ascetic mother raised her; worship and adoration surrounded her. Whatever she desired, someone would offer without hesitation.\nHad the D-phenomenon not occurred, had the vessel of God not weakened, she would have simply succeeded the high priest, leading the followers in an orderly manner.\nYet, everything she gained came at a heavy price—a fate she never wished for, predestined to end inescapably.\nTo become the Mother of God, bearing the prophesied child—the glory of the saint demanded her willing sacrifice of body and life.\nThe day a second heart began beating in her chest, her soul turned into a surging torrent, destined to vanish with time.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "The arrogance of disregarding others is merely an empty show of force. Beneath that elegant dress lies a rebellious heart known only to herself.\nTrapped in a beautiful cage crafted by sacred narratives, Murphy understands better than anyone the hypocrisy of humans and gods: the gaze of the congregation upon her is nothing but fear and pity, and the care shown by her \"nurturers\" is merely for a sacrificial offering. The end goal of her mission will not be glory, but her own death — she already knows the outcome. How could she be lost in the distant kingdom painted by doctrines?\nThe plans for deification, the revival of the old king, so many unrealistic expectations placed upon her — yet no one has ever cared whether she is willing to accept a doomed fate for an uncertain future.\nThe canary does not wish to remain forever trapped in a cage; thus it flaps its wings toward the thorny fence. Determined to wager her life to break free from the shackles of destiny, she must now decide the direction of her flight herself.\n\"My name is Murphy... don't think you can order me around! I know what I should do and what I shouldn't do.\"",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Hybrid",
+  "aliases": [
+    "murphy"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Keyflare",
+    "Tentacles"
+  ]
+}

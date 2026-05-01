@@ -1,0 +1,41 @@
+{
+  "id": "derived.daffodil.thousand-mirage-poison",
+  "displayName": "Thousand Mirage",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. This DMG enjoys a [Arg2]x {STR} bonus. Inflict {Poison} equal to [Arg3]% DMG dealt.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "50",
+        "60",
+        "70",
+        "80",
+        "90",
+        "100"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "derivedFromId": "derived.daffodil.thousand-mirage-base-cards",
+  "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "ownerAwakenerId": "awakener-0012",
+  "cost": "0"
+}

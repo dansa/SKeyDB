@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.aigis.the-witness",
+  "ownerAwakenerId": "awakener-0003",
+  "slot": "E1",
+  "displayName": "The Witness",
+  "descriptionTemplate": "For each stack of Vulnerable state on the target of \"Strike,\" {Embryo Fusion} +5%, up to 30%.",
+  "descriptionArgs": {}
+}

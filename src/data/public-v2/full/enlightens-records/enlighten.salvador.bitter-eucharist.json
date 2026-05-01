@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.salvador.bitter-eucharist",
+  "ownerAwakenerId": "awakener-0044",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Bitter Eucharist",
+  "descriptionTemplate": "{Rouse} {Benediction} is enhanced: {Crimson Furnace} accumulated by {He Who Protects} and {Blessed are the Bones} +25%. When {Liberation} is selected for {End of Suffering}, every 1% Max HP consumed from Furnace grants +5% Final DMG.",
+  "descriptionArgs": {}
+}

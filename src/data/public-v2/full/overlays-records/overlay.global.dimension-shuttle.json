@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.dimension-shuttle",
+  "displayName": "Dimension Shuttle",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "After playing the first Command Card each turn, move a Temporary Base Copy of it to {Ultra Space}. This cannot trigger during {Ultra Rounds}.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,78 @@
+{
+  "id": "relic-0007",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Casiah",
+  "assetId": "Icon_Creation_Unique_D09",
+  "ownerAwakenerId": "awakener-0007",
+  "ownerAwakenerName": "Casiah",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "descriptionTemplate": "At turn start, Casiah gains [Arg1] Aliemus. Drawing 1 card grants Casiah [Arg2] Aliemus. When Casiah unleashes Exalt, all enemies lose [Arg3] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg3": {
+      "kind": "computed",
+      "expression": {
+        "op": "ceil",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.03
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    }
+  },
+  "lore": null
+}

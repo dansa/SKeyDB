@@ -1,0 +1,82 @@
+{
+  "id": "relic-0048",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Thais",
+  "assetId": "Icon_Creation_Unique_B01",
+  "ownerAwakenerId": "awakener-0048",
+  "ownerAwakenerName": "Thais",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "descriptionTemplate": "At turn start, Thais gains [Arg1] Aliemus. After playing [Arg2] Command Cards in one turn, Thais gains 1 {Scion of Purity} and [Arg3] Temporary {STR}, with a cooldown of [Arg4] {plural:[Arg4]|turn|turns}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg3": {
+      "kind": "computed",
+      "expression": {
+        "op": "ceil",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "accountStageGrowth"
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "const": 1.0
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "op": "min",
+                            "args": [
+                              {
+                                "var": "ownedPosseCount"
+                              },
+                              {
+                                "const": 50.0
+                              }
+                            ]
+                          },
+                          {
+                            "const": 0.01
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "const": 0.12
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "accountStageGrowth",
+        "ownedPosseCount"
+      ]
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "lore": null
+}

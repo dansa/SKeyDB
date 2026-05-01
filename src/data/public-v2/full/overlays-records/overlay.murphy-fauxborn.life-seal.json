@@ -1,0 +1,9 @@
+{
+  "id": "overlay.murphy-fauxborn.life-seal",
+  "displayName": "Life Seal",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Each stack grants the next {Princess of Delusions} +20% {Birth Ritual}, up to 5 stacks, at which point the next {Princess of Delusions} DMG count doubles.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0035"
+}

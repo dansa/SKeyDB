@@ -1,0 +1,95 @@
+{
+  "id": "awakener-0022",
+  "numericId": 22,
+  "name": "Hameln",
+  "ingameId": "D12",
+  "lineupToken": "Y",
+  "realm": "CHAOS",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "hameln",
+    "iconKey": "hameln"
+  },
+  "baseStatsLv1": {
+    "CON": 47,
+    "ATK": 49,
+    "DEF": 45
+  },
+  "substatsLv1": {
+    "CritRate": 5.8,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 17.4,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.5,
+    "ATK": 1.55,
+    "DEF": 1.45
+  },
+  "substatScaling": {
+    "CritRate": 0.8,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 2.4,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Hameln",
+    "birthday": "21-Sep",
+    "gender": "Male",
+    "height": "5'10''",
+    "weight": "121lbs",
+    "gnosticIndex": "22.46",
+    "characteristic": "Suggested Translation",
+    "introduction": "His Rondino cards deal damage and allow your cards to take effect multiple times, while also generating a large amount of \"Insight\".",
+    "awakerIntroduction": "Hameln elegantly manipulates notes to reduce card Arithmetica Costs and allow them to take effect multiple times.\nHis performance delivers continuous {Pierce DMG}, weakening the enemy's will and dismantling their defenses.\nIn this trial, try Lv. 50, Skill Lv. 5, Enlighten 3 Hameln, who gains 35 additional Aliemus per turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "At first glance, Hameln always reminded you of a kind of Eastern porcelain—white, luxurious, with graceful curves and a wave-like gentle sheen, yet somewhat cold to the touch.\nBeneath that respectable, meticulous exterior lies a soul of extreme, empty purity. His entire life revolved around a single thought, like a machine programmed with one command, devoid of all other responses.\nTo him, everything was merely a sequence of musical notes.\nPlay, play, endlessly play.",
+        "unlockCondition": "Awakener has reached level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "A.F. 31@1, @1, @2, a famous tycoon who loved collecting music was found dead in his study by his butler late at night. There were no visible wounds or signs of poisoning on his body, and a strangely satisfied smile lingered on his lips.\nFollowing extensive examination by forensic experts, the death was ruled an accidental one, as the room was locked with no way to get inside.\nHowever, doctors could not provide a reasonable explanation for why this robust tycoon, who was in good health and even enjoyed horseback riding, suddenly died on such an ordinary and quiet night. Under pressure from his family, the police handed over the case to the Committee.\nInitially intending to quietly resolve the matter, the Committee unexpectedly detected traces of Gnosis on scattered sheet music found on the tycoon's desk. The eerie sheet music was sent to Mythag posthaste, where research identified it as fragments of the lost second half of the famous \"Requiem in A Minor.\" The final page of the score remained incomplete, with numerous frantic drafts scattered around, seemingly attempts by the tycoon to complete it.\nScholars at Mythag speculated that this attempt to complete the score caused the tycoon's descent into madness and eventual death, completing the awakening ceremony in an unconventional manner and prompting its immediate sealing.\nFor a long time, Mythag found no evidence of this unknown Awakener appearing or causing harm, causing the case to gradually fade from investigators' minds and into obscurity.\nOnly scholars in the field of music continued to yearn for the sealed half-sheet, hoping for the legendary composer to emerge.",
+        "unlockCondition": "Affinity Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Hameln did not always appear before students. Even though he was willing to attend Mythag's musical events and guide the less adept students, most of the time, he played alone in a soundproof room or in secluded woods.\nExcept for official events, he called all of his playing simply \"practice,\" as if the practice was endless, and the perfect performance would never arrive.\n People praised his work, \"Such a diligent and humble master,\" they sung, intoxicated by its melody.\nYet, Hameln never knew humility; his words were always straightforward and overly harsh.\nSuch an obsessive pursuit of perfection in music made his classes a primary source of stress for students, earning him the title the \"devil's teacher.\"\nIf, for some reason, you wished to get his attention, simply play the wrong note, and his frowning expression would be upon you almost immediately.\nHe bore no grudge against those he \"tormented,\" merely imposing his passionate, impossibly perfect standard upon them, even if it was much milder compared to what he demanded of himself.\nHe was like a horse with a carrot dangling overhead, forever striving for somethung unattainable.\nExcept for pausing for the elegant dancer, he rarely initiated contact with other Awakeners. However, he always displayed a surprising patience with requests and initiating conversation.\nPerhaps it wasn't indifference that hindered him, but too narrow a mind.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Talent seemed to be a rare favor of destiny. Hameln had never witnessed it in anyone around him during his long adolescence. It became a vague image—a symbol driving him forward under his father's whip.\nHe firmly believed that relentless diligence was the endless ladder to the perfection just out of reach. Even when he stood at the pinnacle of the world stage, it remained an unchanging truth.\nThis was until he met someone that could stand beside him.\n\"What a dazzling genius!\" they cried: this gift of so-called talent was not within him, but another.\nFrom festering envy and jealousy, he suddenly felt an indescribable confusion and helplessness.\nWithout such talent, can I still reach the perfect end?\nThe rungs of the ladder of diligence had suddenly turned to ashes, while the door to perfection remained ever distant.\nHe often lingered outside the crowds that swarmed this genius, deliberately aloof.\nBut whenever he looked in that direction, he always silently rehearsed his greetings.\nThose mediocre insects always surrounded them, murmuring malicious whispers.\nHe was far too clumsy, silent for so long without being able to argue.\nWords meant little, he thought. Let music be his medium—for only music is the perfect language; surely they would understand.\nHowever, fate was a fickle beast, and would always come to reclaim the gifts it had so generously given.\nGeniuses die young, and yet the mediocre still stand.\nIn the past, provocations and scheming had never shaken him in the slightest.\nYet at this moment, looking at the stack of unsent, unsatisfactory music scores, he could only shed tears of anger.\nHameln suddenly understood: before reaching this perfect kingdom of heaven, he must use all means available in world below.\nFortunately, compared to those mediocre people, he already possessed the intellect to do it.\nAfter all, in his eyes, everything was nothing more than a calculation, like notes arranged on a score.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "His life was monotonous and dull, with loneliness as a contant companion, alongside feelings of resentment, confusion and hatred that had long been digested since before he could even remember.\nNow, he has become one with music, transcending mere passion—unavoidable, inescapable.\nAll that remains to him is music.\nKeep moving upward; do not look back at those nine hundred and ninety-nine steps behind.\nAfter all, he has already touched the ultimate melody, the destined flute.\nAccept this endless flow of music, and let it saturate your soul and dreams.\nFor he has long since used his own soul as an instrument to resonate with yours.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Unknowable",
+  "aliases": [
+    "hameln"
+  ],
+  "searchTags": [
+    "Arithmetica"
+  ]
+}

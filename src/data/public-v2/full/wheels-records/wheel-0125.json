@@ -1,0 +1,74 @@
+{
+  "id": "wheel-0125",
+  "name": "Annihilated Rebirth",
+  "assetId": "Weapon_Full_ZL06",
+  "ownerAwakenerName": null,
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "ALIEMUS_REGEN",
+  "descriptionTemplate": "Team Unique: After the wielder releases Exalt, Exalt Base DMG +[StateArg1]%, Shield and HP Recovery +[StateArg2]%, stacking up to 5 times. After completing exploration, the Affinity gained by the wielder +[StateArg3]%.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "computed",
+      "expression": {
+        "op": "add",
+        "args": [
+          {
+            "const": 7.0
+          },
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "wheelRefinementLevel"
+              },
+              {
+                "const": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "wheelRefinementLevel"
+      ]
+    },
+    "StateArg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "add",
+        "args": [
+          {
+            "const": 2.0
+          },
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "wheelRefinementLevel"
+              },
+              {
+                "const": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "wheelRefinementLevel"
+      ]
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "15",
+        "20",
+        "25"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "You step onto a barren, lifeless wasteland.\n\nAll traces of humanity have long vanished. Withered souls trudge through ash and smog, barely clinging to breath.\n\nSurvival here is no triumph. \nNo one knows where the journey ends. They wander, and wander, and wander still, trapped in an eternal loop of desolation.\n\nUntil their steps falter, and they collapse onto the scorched earth, eyes turned skyward, hands reaching out to plead:\n\nMay my journey's end become a new beginning.\n\nLet these bones be soil, be sustenance, be spring, so that fragile shoots may rise again through dust.",
+  "lineupToken": "yH"
+}

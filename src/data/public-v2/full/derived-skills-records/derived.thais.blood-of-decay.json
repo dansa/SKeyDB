@@ -1,0 +1,34 @@
+{
+  "id": "derived.thais.blood-of-decay",
+  "displayName": "Blood of Decay",
+  "descriptionTemplate": "{Vulnerable} all enemies for [Arg1] {plural:[Arg1]|turn|turns}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [],
+  "derivedFromId": "skill.thais.sacred-bloods-instinct",
+  "rootSkillId": "skill.thais.sacred-bloods-instinct",
+  "ownerAwakenerId": "awakener-0048",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.thais.forests-embrace.derived.thais.blood-of-decay",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.thais.forests-embrace",
+      "ownerAwakenerId": "awakener-0048",
+      "operation": "override_args",
+      "ownerAwakenerName": "Thais",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "fixed",
+            "value": "2"
+          }
+        }
+      }
+    }
+  ]
+}

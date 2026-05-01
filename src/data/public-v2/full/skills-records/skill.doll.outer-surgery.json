@@ -1,0 +1,71 @@
+{
+  "id": "skill.doll.outer-surgery",
+  "ownerAwakenerId": "awakener-0013",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Outer Surgery",
+  "descriptionTemplate": "Restore [Heal:Arg1] HP. Inflict all enemies with [Arg2] {plural:[Arg2]|stack|stacks} of {Weakness}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "CON",
+      "substatBonus": {
+        "substat": "AliemusRegen",
+        "multiplier": "0.5",
+        "mode": "scale_base"
+      }
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.doll.pure-rationality.skill.doll.outer-surgery",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.doll.pure-rationality",
+      "ownerAwakenerId": "awakener-0013",
+      "operation": "override_args",
+      "ownerAwakenerName": "Doll",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "20",
+              "24",
+              "28",
+              "32",
+              "36",
+              "40"
+            ],
+            "suffix": "%",
+            "stat": "CON",
+            "substatBonus": {
+              "substat": "AliemusRegen",
+              "multiplier": "0.5",
+              "mode": "scale_base"
+            }
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "2"
+          }
+        }
+      }
+    }
+  ]
+}

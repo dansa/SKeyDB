@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.ryker.fortune-favors-the-damned",
+  "ownerAwakenerId": "awakener-0043",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Fortune Favors the Damned",
+  "descriptionTemplate": "{Rouse} {Exceptional Luck} is enhanced: Immediately gain a {Chaotic Legacy} or upgrade it once. All of Ryker's d6 dice become d8 dice.",
+  "descriptionArgs": {}
+}

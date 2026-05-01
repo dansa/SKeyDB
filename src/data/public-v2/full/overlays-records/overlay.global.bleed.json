@@ -1,0 +1,15 @@
+{
+  "id": "overlay.global.bleed",
+  "displayName": "Bleed",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "At turn end, take DMG equal to stacks and remove this state.",
+  "descriptionArgs": {
+    "Layer": {
+      "kind": "fixed",
+      "value": "X"
+    }
+  },
+  "iconId": "Battle_Card_Buff_022",
+  "textColor": "damage"
+}

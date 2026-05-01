@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.jenkins.golden-butterflys-memories",
+  "ownerAwakenerId": "awakener-0025",
+  "slot": "E2",
+  "displayName": "Golden Butterfly's Memories",
+  "descriptionTemplate": "\"Basic Defense\" draws 2 cards; if they are not Jenkin's, discard them.",
+  "descriptionArgs": {}
+}

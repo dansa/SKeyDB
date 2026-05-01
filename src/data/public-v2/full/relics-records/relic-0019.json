@@ -1,0 +1,24 @@
+{
+  "id": "relic-0019",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Helot: Catena",
+  "assetId": "Icon_Creation_Unique_B05EX",
+  "ownerAwakenerId": "awakener-0019",
+  "ownerAwakenerName": "Helot: Catena",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "descriptionTemplate": "At turn start, Helot: Catena gains [Arg1] Aliemus. Helot: Catena's Active DMG adds [Arg2]% Bleeding, and killing an enemy causes Bleeding equal to the excess DMG to other enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "20",
+      "suffix": "%"
+    }
+  },
+  "lore": null
+}

@@ -1,0 +1,819 @@
+{
+  "schemaVersion": 1,
+  "scope": "overlays",
+  "recordCount": 123,
+  "records": [
+    {
+      "id": "overlay.global.aequor",
+      "displayName": "Aequor",
+      "overlayType": "realm",
+      "aliases": [
+        "Aequor Realm"
+      ]
+    },
+    {
+      "id": "overlay.global.caro",
+      "displayName": "Caro",
+      "overlayType": "realm",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.chaos",
+      "displayName": "Chaos",
+      "overlayType": "realm",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.divine-realm-aequor",
+      "displayName": "Divine Realm: Aequor",
+      "overlayType": "realm",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.ultra",
+      "displayName": "Ultra",
+      "overlayType": "realm",
+      "aliases": []
+    },
+    {
+      "id": "overlay.24.realm-and-persona",
+      "displayName": "Realm and Persona",
+      "overlayType": "tag",
+      "aliases": [
+        "Realm and Persona Effects"
+      ]
+    },
+    {
+      "id": "overlay.global.aftershock",
+      "displayName": "Aftershock",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.alert",
+      "displayName": "Alert",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.horla.anger",
+      "displayName": "Anger",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.annihilation",
+      "displayName": "Annihilation",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.arithmetica-harmony",
+      "displayName": "Arithmetica Harmony",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.ashen-ruins",
+      "displayName": "Ashen Ruins",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.astral-reign",
+      "displayName": "Astral Reign",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.barrier",
+      "displayName": "Barrier",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.xu.betroth",
+      "displayName": "Betroth",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.murphy-fauxborn.birth-ritual",
+      "displayName": "Birth Ritual",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.bleed",
+      "displayName": "Bleed",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.blighten",
+      "displayName": "Blighten",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.burn",
+      "displayName": "Burn",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.ryker.chaotic-legacy",
+      "displayName": "Chaotic Legacy",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.kathigu-ra.combust",
+      "displayName": "Combust",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.doresain.corpse",
+      "displayName": "Corpse",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.castor.corrosion",
+      "displayName": "Corrosion",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.counter",
+      "displayName": "Counter",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.pickman.creativity",
+      "displayName": "Creativity",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.hameln.crescendo",
+      "displayName": "Crescendo",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.crimson-furnace",
+      "displayName": "Crimson Furnace",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.death-resistance",
+      "displayName": "Death Resistance",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.delayed-sacrifice",
+      "displayName": "Delayed Sacrifice",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.destroy",
+      "displayName": "Destroy",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.devour",
+      "displayName": "Devour",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.arachne.singularity-shuttle",
+      "displayName": "Dimension Shuttle",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Singularity Shuttle"
+      ]
+    },
+    {
+      "id": "overlay.global.dimension-shuttle",
+      "displayName": "Dimension Shuttle",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.discover",
+      "displayName": "Discover",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.divine-realm-aequor-mastery",
+      "displayName": "Divine Realm: Aequor Mastery",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.divine-realm-raging-waves",
+      "displayName": "Divine Realm: Raging Waves",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.divine-realm-surging-tides",
+      "displayName": "Divine Realm: Surging Tides",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.divine-realm-tentacle-stance",
+      "displayName": "Divine Realm: Tentacle Stance",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.divine-realm-tranquil-sea",
+      "displayName": "Divine Realm: Tranquil Sea",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.wanda.dreamlure",
+      "displayName": "Dreamlure",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.echo",
+      "displayName": "Echo",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.embryo-fusion",
+      "displayName": "Embryo Fusion",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.horla.emotion",
+      "displayName": "Emotion",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.lily.endure",
+      "displayName": "Endure",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.xu.enthrall",
+      "displayName": "Enthrall",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.exhaust",
+      "displayName": "Exhaust",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Exhausted"
+      ]
+    },
+    {
+      "id": "overlay.global.fainted",
+      "displayName": "Fainted",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.pickman.fantasia",
+      "displayName": "Fantasia",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.horla.fear",
+      "displayName": "Fear",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.kathigu-ra.fiamma",
+      "displayName": "Fiamma",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.final-rule",
+      "displayName": "Final Rule",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Absolute Axiom"
+      ]
+    },
+    {
+      "id": "overlay.arachne.final-verdict",
+      "displayName": "Final Verdict",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.doll-inferno.finale",
+      "displayName": "Finale",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.doll-inferno.finale-form",
+      "displayName": "Finale Form",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.fixed-dmg",
+      "displayName": "Fixed DMG",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.fleeting",
+      "displayName": "Fleeting",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.fortress",
+      "displayName": "Fortress",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.fragile",
+      "displayName": "Fragile",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.horla.grief",
+      "displayName": "Grief",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.horla.happiness",
+      "displayName": "Happiness",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.infinite-devour",
+      "displayName": "Infinite Devour",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.innate",
+      "displayName": "Innate",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.leap",
+      "displayName": "Leap",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.lemurian",
+      "displayName": "Lemurian",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.murphy-fauxborn.life-seal",
+      "displayName": "Life Seal",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.ramona-timeworn.loop",
+      "displayName": "Loop",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.madness",
+      "displayName": "Madness",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.hameln.marvelous-debuff",
+      "displayName": "Marvelous Debuff",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.hameln.melody",
+      "displayName": "Melody",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.horla.metaphor",
+      "displayName": "Metaphor",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Metaphors"
+      ]
+    },
+    {
+      "id": "overlay.wanda.murmurs",
+      "displayName": "Murmurs",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Murmur"
+      ]
+    },
+    {
+      "id": "overlay.ramona-timeworn.negentropy",
+      "displayName": "Negentropy",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.over-exalt",
+      "displayName": "Over-Exalt",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Over Exalt"
+      ]
+    },
+    {
+      "id": "overlay.pickman.painted-orisons",
+      "displayName": "Painted Orisons",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Advanced Orisons",
+        "Orisons"
+      ]
+    },
+    {
+      "id": "overlay.pickman.painted-relics",
+      "displayName": "Painted Relics",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Golden Relics",
+        "Silver Relics",
+        "Painted Silver Relics"
+      ]
+    },
+    {
+      "id": "overlay.global.perception",
+      "displayName": "Perception",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.aigis.petrify",
+      "displayName": "Petrify",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.clementine.phobic-fixation",
+      "displayName": "Phobic Fixation",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.pierce-dmg",
+      "displayName": "Pierce DMG",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.poison",
+      "displayName": "Poison",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.prepare",
+      "displayName": "Prepare",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Prepare 1",
+        "Prepare 2",
+        "Prepare 3",
+        "Prepare 4",
+        "Prepare 5"
+      ]
+    },
+    {
+      "id": "overlay.clementine.psychic-trauma",
+      "displayName": "Psychic Trauma",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.pure-ultra",
+      "displayName": "Pure Ultra",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.pursuit",
+      "displayName": "Pursuit",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.quasar",
+      "displayName": "Quasar",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.raging-waves",
+      "displayName": "Raging Waves",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.resonance",
+      "displayName": "Resonance",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Resonance 1",
+        "Resonance 2",
+        "Resonance 3",
+        "Resonance 4",
+        "Resonance 5"
+      ]
+    },
+    {
+      "id": "overlay.global.retain",
+      "displayName": "Retain",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Retained"
+      ]
+    },
+    {
+      "id": "overlay.celeste.revival",
+      "displayName": "Revival",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.miryam.ritual",
+      "displayName": "Ritual",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.hameln.rondino",
+      "displayName": "Rondino",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.rouse",
+      "displayName": "Rouse",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Keyflare Rouse"
+      ]
+    },
+    {
+      "id": "overlay.global.sacrifice",
+      "displayName": "Sacrifice",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.sealed",
+      "displayName": "Sealed",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.pollux.sin-mark",
+      "displayName": "Sin Mark",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.arachne.singularity-annihilation",
+      "displayName": "Singularity Annihilation",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.arachne.singularity-beacon",
+      "displayName": "Singularity Beacon",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.arachne.singularity-prism",
+      "displayName": "Singularity Prism",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.arachne.singularity-warp",
+      "displayName": "Singularity Warp",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.arachne.singularity-ultra",
+      "displayName": "Singularity: Ultra",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.xu.spellbound",
+      "displayName": "Spellbound",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.stagnation",
+      "displayName": "Stagnation",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.steal",
+      "displayName": "Steal",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Stealing"
+      ]
+    },
+    {
+      "id": "overlay.global.str",
+      "displayName": "STR",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Strength"
+      ]
+    },
+    {
+      "id": "overlay.global.strength",
+      "displayName": "STR⯆",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.stun",
+      "displayName": "Stun",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.surging-tides",
+      "displayName": "Surging Tides",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.clementine.symbiosis",
+      "displayName": "Symbiosis",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.temporary-counter",
+      "displayName": "Temporary Counter",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.temporary-enhance",
+      "displayName": "Temporary Enhance",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.temporary-str",
+      "displayName": "Temporary STR",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.tentacle-dmg",
+      "displayName": "Tentacle DMG",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.tranquil-sea",
+      "displayName": "Tranquil Sea",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.ultra-mastery",
+      "displayName": "Ultra Mastery",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.ultra-round",
+      "displayName": "Ultra Round",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Ultra Rounds"
+      ]
+    },
+    {
+      "id": "overlay.global.ultra-space",
+      "displayName": "Ultra Space",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.usable-x-times",
+      "displayName": "Usable X times",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Usable 1 times",
+        "Useable 1 times",
+        "Usable 2 times",
+        "Useable 2 times",
+        "Usable 3 times",
+        "Useable 3 times",
+        "Usable 4 times",
+        "Useable 4 times",
+        "Usable 5 times",
+        "Useable 5 times",
+        "Usable 6 times",
+        "Useable 6 times",
+        "Usable 7 times",
+        "Useable 7 times",
+        "Usable 8 times",
+        "Useable 8 times",
+        "Usable 9 times",
+        "Useable 9 times",
+        "Usable 10 times",
+        "Useable 10 times",
+        "Useable X times"
+      ]
+    },
+    {
+      "id": "overlay.global.void",
+      "displayName": "Void",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.vortice.vortex-reload",
+      "displayName": "Vortex Reload",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.vulnerable",
+      "displayName": "Vulnerable",
+      "overlayType": "mechanic",
+      "aliases": [
+        "Vulnerability"
+      ]
+    },
+    {
+      "id": "overlay.global.weakness",
+      "displayName": "Weakness",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.arachne.weaver",
+      "displayName": "Weaver",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "id": "overlay.global.forbidden-lore",
+      "displayName": "Forbidden Lore",
+      "overlayType": "help",
+      "aliases": [
+        "Forbidden Lore Level",
+        "Somatic Research",
+        "Esoteric Research",
+        "Occult Research"
+      ]
+    }
+  ]
+}

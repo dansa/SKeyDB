@@ -1,0 +1,92 @@
+{
+  "id": "skill.leigh.pain-of-unfulfilled-desires",
+  "ownerAwakenerId": "awakener-0028",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Pain of Unfulfilled Desires",
+  "descriptionTemplate": "Lose [Arg1]% Current HP. {Embryo Fusion}+[Blood:Arg3]%. Obtain [Power:Arg2] Temporary {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "22",
+        "24",
+        "26",
+        "28",
+        "30"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "0",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.leigh.step-into-the-sunlight.skill.leigh.pain-of-unfulfilled-desires",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.leigh.step-into-the-sunlight",
+      "ownerAwakenerId": "awakener-0028",
+      "operation": "mixed",
+      "ownerAwakenerName": "Leigh",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "fixed",
+            "value": "10",
+            "suffix": "%"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "20",
+              "22",
+              "24",
+              "26",
+              "28",
+              "30"
+            ],
+            "suffix": "%"
+          },
+          "Arg5": {
+            "kind": "fixed",
+            "value": "10"
+          }
+        },
+        "descriptionTemplate": "Lose [Arg1]% Current HP. {Embryo Fusion}+[Blood:Arg3]%. Obtain [Power:Arg2] Temporary {STR}. Gain [Energy:Arg5] Aliemus."
+      }
+    }
+  ]
+}

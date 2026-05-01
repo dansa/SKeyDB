@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.wanda.the-revelation",
+  "ownerAwakenerId": "awakener-0052",
+  "slot": "E1",
+  "displayName": "The Revelation",
+  "descriptionTemplate": "{Spine Needle Chains} increases Crit. Rate by 25%, and {Keeper of the Lost} increases Base {Counter} amount by 15%.",
+  "descriptionArgs": {}
+}

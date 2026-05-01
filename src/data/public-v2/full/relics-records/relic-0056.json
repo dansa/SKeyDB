@@ -1,0 +1,19 @@
+{
+  "id": "relic-0056",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Arachne",
+  "assetId": "Icon_Creation_Unique_D10",
+  "ownerAwakenerId": "awakener-0056",
+  "ownerAwakenerName": "Arachne",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "descriptionTemplate": "Arachne gains [Arg1] Aliemus at turn start. \"Strike\" and \"Defense\" immediately trigger {Pursuit}: {Infinite Threads} once, with each taking effect at most once per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "lore": null
+}

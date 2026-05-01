@@ -1,0 +1,66 @@
+{
+  "id": "skill.doll-inferno.soulblight",
+  "ownerAwakenerId": "awakener-0018",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Soulblight",
+  "descriptionTemplate": "Doll: Inferno gains [Energy:Arg1] Aliemus. {Rouse}: At the end of the turn, recover [Heal:Arg2] HP and gain Aliemus equal to its own Aliemus Regen. {Finale Form}: No longer recovers HP; instead, inflicts {Poison} on all enemies at [Arg3]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "38",
+        "41",
+        "44",
+        "47",
+        "50"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.doll-inferno.every-world-drowned.skill.doll-inferno.soulblight",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.doll-inferno.every-world-drowned",
+      "ownerAwakenerId": "awakener-0018",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Doll: Inferno",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Doll: Inferno gains [Energy:Arg1] Aliemus. {Rouse}: For each stack of {Finale}, DMG Amplification +8%. {Illusion's End} grants all Awakeners 30% Base Aliemus. At turn end, recover [Heal:Arg2] HP and gain Aliemus equal to the Aliemus Regen. {Finale Form}: No longer recover HP, instead trigger [Arg3]% {Poison} on all enemies."
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "talent.casiah.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0007",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThe Awakener's CON, ATK, and DEF increase by [Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAt the start of battle, if there are any \"Beast\" enemies, Casiah's {STR} Generation +[Arg3]% during this battle. After {Poof!} is released for the first time each turn, it triggers the {Aftershock} effect of the card shuffled into the Draw Pile",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "17",
+        "19",
+        "21",
+        "23",
+        "25",
+        "27",
+        "29",
+        "31",
+        "35"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

@@ -1,0 +1,15 @@
+{
+  "id": "overlay.global.temporary-counter",
+  "displayName": "Temporary Counter",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "This turn, each time you are attacked, deal [Layer] DMG to the attacker.",
+  "descriptionArgs": {
+    "Layer": {
+      "kind": "fixed",
+      "value": "X"
+    }
+  },
+  "iconId": "Battle_Card_Buff_019",
+  "textColor": "shield"
+}

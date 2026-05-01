@@ -1,0 +1,93 @@
+{
+  "id": "awakener-0021",
+  "numericId": 21,
+  "name": "Goliath",
+  "ingameId": "O06",
+  "lineupToken": "f",
+  "realm": "AEQUOR",
+  "rarity": "SSR",
+  "type": "ASSAULT",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "goliath",
+    "iconKey": "goliath"
+  },
+  "baseStatsLv1": {
+    "CON": 44,
+    "ATK": 42,
+    "DEF": 35
+  },
+  "substatsLv1": {
+    "CritRate": 6.6,
+    "CritDamage": 51.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 2.05,
+    "ATK": 2,
+    "DEF": 1.65
+  },
+  "substatScaling": {
+    "CritRate": 1.6,
+    "CritDamage": 1.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Goliath",
+    "birthday": "20-May",
+    "gender": "Male",
+    "height": "9'4.2''",
+    "weight": "?",
+    "gnosticIndex": "?",
+    "characteristic": "Strength Burst    STR Steal",
+    "introduction": "Swings a heavy blade with the power of a great blade to slay enemies. Their Tentacle damage and Strength make them even more powerful.",
+    "awakerIntroduction": "{Blade's Dominion} and {Decapitation Damage} have high DMG and multiple {STR} buffs, capable of dealing massive DMG to single and group enemies.\n{Decapitation Damage} can also return Arithmetica Cost when attacking low-HP enemies or causing a kill.\nExalt can choose to {Usurp} or {Dormancy}, selecting the timing for growth or burst to deal more Damage.\nIn this level, Goliath will be brought into battle at Level 50, with Skill Level 5 and 3 Enlighten.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "He is but the giant. His silhouette aweing, his power indestructible. His weapon, a colossal blade that no one else can lift. His victories, gleaming like oiled fur on the blade's fang, nourished by countless wars and savage  sacrifices. His trophies, a mountain of heads severed from his enemies and kins, crowned by his own on the top.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "On April 2, A.F.3@2, a temple remain in the Ashdod region was vandalized.\nAs the only one who had university education, I, a mere visitor, was invited by the regional administrator to participate in the architectural assessment of the ruins. Haha, I should never let them know that my \"university\" isn't quite what it seems.\nOn the afternoon of April 3, I entered the center of the temple. Ancient Semitics used it as a place of worship, and their pagan belief once flourished among the pillars before lost in history.\nYet what appeared before me was a sculpture that could be mistaken by no one. I clearly knew that the folds on its clothes should indicate the texture of striped linen.\nHowever, its both hands were broken, its head severed from the body, and its lower limbs shattered on the threshold. Mucilage covered everywhere like the trace of a sticky slug. Upon inspection, there were few peculiar scratches buried within, accompanied by a giant, webbed footprint.\nThe pagan belief may still circulate nearby, but a formal investigation is not urgently necessary. I will extend my stay in the Ashdod region.\nFin@1@2sen, \"An account of a trip around five cities of the Philistines\"",
+        "unlockCondition": "Affinity Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Goliath is tyrannical and ruthless, but his power is undeniable. According to Miss Erica's battle records, his brutal brawn can no doubt gurantee his advantage even in isolated and vicious situations. I believe that Goliath does not care about the level of his partner's ability just because no one can hold a candle to him in his world.\nHowever, everytime Goliath faces Miryam, fear always seeps from his eyes uncontrollably. It's hard to imagine what kind of existence would evoke such awe from this despotic ruler and brutal former-king.\nAdditionally, he has shown unusual concern for Miss Murphy. Sometimes he was witnessed to wander around the university's surrounding maze, maybe waiting for Murphy to return from her mission. Sometimes he would distantly observe Murphy's condition, seemingly worrying about possible injuries during her tasks.\nMiss Peaslee also notices this. Once she said to me half-jokingly, \"Hey, don't you think he's trying to be an ordinary father?\"\n\"Observation record from an intern researcher\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "A scar jagged across his neck. A declaration of death for his people, while a coronation of majestic power for him.\nWhen exile marks his failure, bitterness drown his breath; when despration hollows for surrender, and tides clamor for sacrificehe prays to the God for the power. His transcendent power.\nThus the God's apostle accepts his prayer, severing his head as an offering.\nThus the God's apostle acknowledges his prayer, emplacing the remnants of immortal on his exposed cervical spine.\nThus the God's apostle answers his prayer, leading him into the sanctum of eternity.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "Beheading death's cold embrace, he survived and transformed. The glitter on his blade fades. The mask of apostle conceals his savage expression.\nHe did revere instinctively when that miracle manifested. But no god could capture his fear, and no cult could earn his faith.\nA giant should not yield to others. A warrior should not lower his head.\nHis past already wreathed in dust, his war still longing for final triumph. The desire for conquest run through his veins, etching into bones like a sigil bearing the bestowed power. Perhaps, one day, death will end his dominion. Perhaps, one day, he will rise to the sole supremacy.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Fools",
+  "aliases": [
+    "goliath"
+  ],
+  "searchTags": []
+}

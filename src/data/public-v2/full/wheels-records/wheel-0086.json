@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0086",
+  "name": "Mind Barrier",
+  "assetId": "Weapon_Full_SR10",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "ALIEMUS_REGEN",
+  "descriptionTemplate": "Team Unique: After Exalt, gain Shield equal to [StateArg1]% of the wielder's DEF.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "16",
+        "19",
+        "22",
+        "25"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "At Mythag, the person you must not provoke is none other than Ms. Sylvia, assuming Doll ranks second.\n\nAs the only psychologist at Mythag, this mysterious woman not only comforts investigators traumatized by missions but also calms the turbulent emotions of Awakeners. She does not fear Awakeners; instead, she confronts them mentally—what a formidable figure.\n\nDriven by curiosity and lacking proper respect, some freshmen sneaked into Ms. Sylvia's clinic late at night.\n\nThen, they lost consciousness. The next morning, they woke up in the campus square with throbbing headaches but an unprecedented clarity of mind.\n\nSomeone picked up a note that had fallen from their pockets:\n\n\"If you need psychological counseling, please make an appointment with Ms. Erica in advance—\nSylvia\"",
+  "lineupToken": "J"
+}

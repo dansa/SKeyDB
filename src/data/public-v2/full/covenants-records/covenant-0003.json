@@ -1,0 +1,25 @@
+{
+  "id": "covenant-0003",
+  "name": "Scarlet Embrace",
+  "assetId": "covenant-icon-004",
+  "lore": "The fabled architect of the automatons, who destroyed his creations with his own hands.",
+  "setEffects": [
+    {
+      "set": 3,
+      "descriptionTemplate": "Crit. Rate +[Arg1]%",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "4.8",
+          "suffix": "%"
+        }
+      }
+    },
+    {
+      "set": 6,
+      "descriptionTemplate": "the wielder gains 35 Keyflare when dealing Damage, or 70 Keyflare for Crit. DMG. This effect can trigger up to 3 times per turn.",
+      "descriptionArgs": {}
+    }
+  ],
+  "lineupToken": "t"
+}

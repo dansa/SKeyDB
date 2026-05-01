@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.nautila.forgotten-dreams",
+  "ownerAwakenerId": "awakener-0036",
+  "slot": "E3",
+  "displayName": "Forgotten Dreams",
+  "descriptionTemplate": "Increases {Fixed DMG} of {Ready and Set} by 50%. After release, gain Immune to {Fragile}, Weakness, and Vulnerable for 1 turn.",
+  "descriptionArgs": {}
+}

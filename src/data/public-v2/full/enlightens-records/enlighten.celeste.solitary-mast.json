@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.celeste.solitary-mast",
+  "ownerAwakenerId": "awakener-0009",
+  "slot": "E1",
+  "displayName": "Solitary Mast",
+  "descriptionTemplate": "{Everlasting Phantasm} is {Retained}, and the healing effect +20%.",
+  "descriptionArgs": {}
+}

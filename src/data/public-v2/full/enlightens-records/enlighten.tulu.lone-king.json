@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.tulu.lone-king",
+  "ownerAwakenerId": "awakener-0050",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Lone King",
+  "descriptionTemplate": "{Rouse} {Immortal Majesty} is enhanced: After Tulu unleashes Exalt, all enemies take +10% {Tentacle DMG}, stacking up to 5 times.",
+  "descriptionArgs": {}
+}

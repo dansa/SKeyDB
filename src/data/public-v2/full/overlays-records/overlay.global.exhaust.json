@@ -1,0 +1,11 @@
+{
+  "id": "overlay.global.exhaust",
+  "displayName": "Exhaust",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Exhausted"
+  ],
+  "descriptionTemplate": "After playing, this card is removed from deck instead of discarded.",
+  "descriptionArgs": {},
+  "textColor": "damage"
+}

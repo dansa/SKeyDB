@@ -1,0 +1,9 @@
+{
+  "id": "overlay.arachne.final-verdict",
+  "displayName": "Final Verdict",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "If the target's HP is equal to or below the number of stacks, remove all {Final Verdict} and instantly kill them.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0056"
+}

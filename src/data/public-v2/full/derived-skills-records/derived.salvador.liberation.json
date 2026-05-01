@@ -1,0 +1,10 @@
+{
+  "id": "derived.salvador.liberation",
+  "displayName": "Liberation",
+  "descriptionTemplate": "Pain for pain. Consume all remaining Healing from the {Crimson Furnace}, each point consumed increases DMG dealt by 3 (9 during a Boss Battle).",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "skill.salvador.end-of-suffering",
+  "rootSkillId": "skill.salvador.end-of-suffering",
+  "ownerAwakenerId": "awakener-0044"
+}

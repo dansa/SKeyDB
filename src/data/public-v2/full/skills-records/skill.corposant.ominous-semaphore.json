@@ -1,0 +1,70 @@
+{
+  "id": "skill.corposant.ominous-semaphore",
+  "ownerAwakenerId": "awakener-0011",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Ominous Semaphore",
+  "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Put [Arg2] {Pilot} into hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "22",
+        "24",
+        "26",
+        "28",
+        "30"
+      ]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.corposant.sextants-calculation.skill.corposant.ominous-semaphore",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.corposant.sextants-calculation",
+      "ownerAwakenerId": "awakener-0011",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Corposant",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Put [Arg2] {Pilot} into hand. Apply {Weakness} to all enemies for 1 turn."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.corposant.unquenched-unfelled-undimmed.skill.corposant.ominous-semaphore",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.corposant.unquenched-unfelled-undimmed",
+      "ownerAwakenerId": "awakener-0011",
+      "operation": "mixed",
+      "ownerAwakenerName": "Corposant",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "20",
+              "22",
+              "24",
+              "26",
+              "28",
+              "30"
+            ]
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "1"
+          }
+        },
+        "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Put [Arg2] {Pilot} into hand. Apply {Weakness} to all enemies for 1 turn."
+      }
+    }
+  ]
+}

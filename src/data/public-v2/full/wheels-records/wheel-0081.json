@@ -1,0 +1,44 @@
+{
+  "id": "wheel-0081",
+  "name": "Cloaked in the Night",
+  "assetId": "Weapon_Full_SR05",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DEATH_RESISTANCE",
+  "descriptionTemplate": "Team Unique: The wielder's {Counter} +[StateArg1]%. \"Defense\" grants Temporary {Counter} equal to the wielder's DEF ×[StateArg2]%. In Boss Battles, this becomes 3 times the Temporary {Counter}. After {Death Resistance} triggers, deals {Fixed DMG} equal to the wielder's {Counter} stack count [StateArg3]% to all enemies.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "40",
+        "60",
+        "80",
+        "100"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "The giant beast lurks in the night.\n\nInside the cabin, a mother wails for her lost daughter, finally breaking through the restraint she held all day.\n\nEvery midnight, her grief bursts forth, raw and unhidden.\n\nIt begins with sobs and rises to howls, then comes the calling of the name that no longer belongs to the beast.\n\nThe agony in her voice pierces the beast's heart, a heart that remains entirely human.\n\n<Italic:Come home, Lisa.>\n<Italic:Oh, my Lisa.>\n\nThe beast remains silent.\n\nIt curls up in the darkness and falls into a deep sleep.\n\nOne day, it will return—to the place called \"home\".",
+  "lineupToken": "V"
+}

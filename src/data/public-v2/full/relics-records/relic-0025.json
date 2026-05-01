@@ -1,0 +1,29 @@
+{
+  "id": "relic-0025",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Jenkin",
+  "assetId": "Icon_Creation_Unique_D07",
+  "ownerAwakenerId": "awakener-0025",
+  "ownerAwakenerName": "Jenkin",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "descriptionTemplate": "At turn start, Jenkin gains [Arg1] Aliemus, with Final DMG +[Arg2]%. The Base DMG and DMG growth of {Get 'em! Brown!} are +[Arg3]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "200",
+      "suffix": "%"
+    }
+  },
+  "lore": null
+}

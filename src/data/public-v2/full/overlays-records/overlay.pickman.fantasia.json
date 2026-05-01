@@ -1,0 +1,11 @@
+{
+  "id": "overlay.pickman.fantasia",
+  "displayName": "Fantasia",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "When Pickman triggers the {Discover} effect, provide the {Inspiration!} option: Consume 1 stack of {Fantasia}, choose all {Discover} effects, and gain 1 stack of {Creativity}.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0040",
+  "iconId": "Battle_Card_Buff_066",
+  "textColor": "misc"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.celeste.beyond-joy-and-sorrow",
+  "ownerAwakenerId": "awakener-0009",
+  "slot": "E3",
+  "displayName": "Beyond Joy and Sorrow",
+  "descriptionTemplate": "{Undying Bird of Paradise} triggers {Revival}, and all Awakeners obtain 25 Aliemus and can apply the {Revival} effect again after an interval of 6 turns.",
+  "descriptionArgs": {}
+}

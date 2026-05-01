@@ -1,0 +1,54 @@
+{
+  "id": "skill.lily.slime-convergence",
+  "ownerAwakenerId": "awakener-0029",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Slime Convergence",
+  "descriptionTemplate": "Lily gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, gain 10% Max HP:{Endure}. When Lily applies a Shield, inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on the enemy with the highest HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "33.75",
+        "40.5",
+        "47.25",
+        "54",
+        "60.75",
+        "67.5"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.lily.lilium-immaculatum.skill.lily.slime-convergence",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.lily.lilium-immaculatum",
+      "ownerAwakenerId": "awakener-0029",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Lily",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Lily gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, gain {Endure} equal to 10% of Max HP. When Lily applies a Shield, inflict [{Poison}:Arg2] stacks of {Poison} on the enemy with the highest HP. Exalt makes each hit received this turn increases the {Endure} consumption effect of the next {Strike to Protect} by 40%, stacking up to 5 times."
+      }
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "id": "skill.celeste.tintless-dream",
+  "ownerAwakenerId": "awakener-0009",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Tintless Dream",
+  "descriptionTemplate": "Heal [Heal:Arg1] HP. Gain [Arg2] Arithmetica and dispel Hand {Stagnation} state. Trigger 1 Tentacle Attack on the enemy, dealing [Arg3]% {Tentacle DMG}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "0",
+      "substatBonus": {
+        "substat": "RealmMastery",
+        "multiplier": "0.5"
+      },
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.celeste.ancestral-beacon.skill.celeste.tintless-dream",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.celeste.ancestral-beacon",
+      "ownerAwakenerId": "awakener-0009",
+      "operation": "mixed",
+      "ownerAwakenerName": "Celeste",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ],
+            "suffix": "%",
+            "stat": "CON",
+            "rounding": "ceil"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "1"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "CON"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "0",
+            "substatBonus": {
+              "substat": "RealmMastery",
+              "multiplier": "0.5"
+            },
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Heal [Heal:Arg1] HP. Gain [Arg2] Arithmetica and dispel Hand {Stagnation} state. For every {Retain} 1 turn, heal an additional [Arg3] HP on the next play. Trigger 1 Tentacle to attack the enemy, dealing [Arg4]% {Tentacle DMG}."
+      }
+    },
+    {
+      "id": "upgrade.talent.celeste.voyage-horn.skill.celeste.tintless-dream",
+      "upgraderId": "talent.celeste.voyage-horn",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "overlay.ryker.chaotic-legacy",
+  "displayName": "Chaotic Legacy",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Includes the following three relics:\n\"Lucky Windcoat\": Increases all Awakener Crit. Rates by 10%. All Ryker and dice rolls will never result in the minimum value.\n{Upgrade}: The Crit. Rate increase changes to 15%, and the maximum value of random results +1.\n\"Octahedron Dice\": Each time a Posse is activated, add 1 \"{Octahedron Dice}\" to your hand.\n{Upgrade}: Change to add 1 \"{Shining Octahedron Dice}\" to your hand.\n\"Big Mouth Button\": At turn start and when Ryker or dice's random effect triggers, gain 50 Keyflare and 2% Crit. DMG, up to 30% Crit. DMG.\n{Upgrade}: Change to gain 100 Keyflare and 4% Crit. DMG, up to 50% Crit. DMG.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0043"
+}

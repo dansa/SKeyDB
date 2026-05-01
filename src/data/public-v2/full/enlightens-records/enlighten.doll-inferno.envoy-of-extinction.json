@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.doll-inferno.envoy-of-extinction",
+  "ownerAwakenerId": "awakener-0018",
+  "slot": "E3",
+  "displayName": "Envoy of Extinction",
+  "descriptionTemplate": "\"Strike\" and \"Defense\" additionally generate Aliemus equal to 5% of Doll: Inferno's Base Aliemus. The {Fixed DMG} of {Illusion's End} is increased from 25% to 30%, and additionally heals 30% lost HP.",
+  "descriptionArgs": {}
+}

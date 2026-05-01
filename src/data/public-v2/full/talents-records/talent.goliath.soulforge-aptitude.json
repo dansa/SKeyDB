@@ -1,0 +1,50 @@
+{
+  "id": "talent.goliath.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0021",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nGoliath's Base DMG +[Arg3]%, and {Blade's Dominion} temporarily increases Goliath's Final DMG by [Arg4]%.\nWhen there are 1/2/3 other {Lemurian} Awakeners in the team, all Awakeners' {STR} Generation +6%/15%/30%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "23",
+        "26",
+        "29",
+        "32",
+        "35",
+        "38",
+        "41",
+        "44",
+        "50"
+      ]
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "6",
+        "7",
+        "7",
+        "8",
+        "8",
+        "9",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

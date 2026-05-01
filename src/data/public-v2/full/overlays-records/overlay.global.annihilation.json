@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.annihilation",
+  "displayName": "Annihilation",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Remove the card on the far left of the {Ultra Space}, and immediately add 1 \"Insight\" to your hand. {Annihilation} can only be used once per Turn.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,98 @@
+{
+  "id": "awakener-0027",
+  "numericId": 27,
+  "name": "Kathigu-Ra",
+  "ingameId": "C16",
+  "lineupToken": "1",
+  "realm": "CHAOS",
+  "rarity": "SSR",
+  "type": "ASSAULT",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "kathigu-ra",
+    "iconKey": "kathigu-ra"
+  },
+  "baseStatsLv1": {
+    "CON": 49,
+    "ATK": 58,
+    "DEF": 44
+  },
+  "substatsLv1": {
+    "CritRate": 5.8,
+    "CritDamage": 52.4,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.55,
+    "ATK": 1.85,
+    "DEF": 1.4
+  },
+  "substatScaling": {
+    "CritRate": 0.8,
+    "CritDamage": 2.4,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Kathigu-Ra",
+    "birthday": "30-Aug",
+    "gender": "Female",
+    "height": "6'0''",
+    "weight": "135lbs",
+    "gnosticIndex": "29.7",
+    "characteristic": "Multi-hit Damage    Critical Hit",
+    "introduction": "The blazing sun that burns everything with scorching flames, consuming more Arithmetica to greatly enhance damage output.",
+    "awakerIntroduction": "Kathigu-Ra, {The Living Flame}, engulfs all opposition in fire.\nLingering {Fiamma} converts to {Combust} stacks, causing unstoppable eruptions at threshold.\nIn this stage, Kathigu-Ra will enter battle with Level 50, Skill level 5, Enlighten 3, gaining 5 Arithmetica, 30 Aliemus, and 50 {STR} per turn.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Kathigu-ra excels at using her signature smile to draw out the cruel and crazy chill from the deepest reaches of awareness in all observers.\nThose two inseparable twin guns, with the powder dust swirling around the barrels, warn all those ill-intentioned petty criminals that the sacrifice of the nameless is the cornerstone of all greatness.\nHowever, anyone who has dealt with her will understand that hunting these ordinary, unsunlit people is merely her pastime during boring daily life.\nAfter all, when she truly opens fire, the gun barrels are void of gunpowder.",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "■File Number: DIOL-A3-1\n■Awakener Code Name: ■■■■\nA.F.3@2, this Awakener initiated contact with Mythag.\n\n\"Sun! Sun! I saw the Sun! No! No!! Destroy it! Or we will all die!\"\n\nAccording to eyewitness accounts, the involved personnel shouted the above statement upon discovering this Awakener, and then ordered relevant units to attack it.\n\nDue to the incorrect judgment of the involved personnel, this Awakener displayed extreme aggression, directly resulting in the destruction of 31 anti-Awakener units, 76 standard equipment sets, and 2 academic buildings, with total property damage estimated at @2@4. The case has now been transferred to the relevant department for accountability procedures.\n\nPost-incident investigation revealed that this individual had been brainwashed by the Church of the Lightbearers. For subsequent details, please refer to related documents, as it will not be elaborated in this file.\n\nAfter a period of communication, negotiation personnel successfully convinced the Awakener to abandon its aggressive stance. Subsequently, the Awakener handed a letter signed by Lord Dexter to the school administration, claiming it was the last possession of a missing Investigator. Later confirmation by Lord Dexter verified the authenticity of the letter.\n\nIt is currently known that, through the mediation of Professor Doll, this Awakener has reached a certain agreement with the school administration. In exchange for some unspecified compensation, the Awakener has agreed to undertake certain commissions that the school finds difficult or inconvenient to handle directly.\n\nGiven the destructive capability demonstrated by this Awakener, despite displaying the highest level of stability and communicability in subsequent conversations, the Committee has decided to include it in the DIOL and will continue updating its file under the highest protocol.\n\nMay the Silver Key guide us.\n\nRecorder: L. Nadia",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "■File Number: DIOL-A3-9\n■Awakener Code: ■■■■\n\nFrom continuous observation, it appears this Awakener does not show any unusual interest in Mythag—she seems almost indifferent. She only comes to campus when accepting commissions and leaves quickly afterward.\nAlthough the returned investigation report indeed records several instances of her lingering on campus for extended periods,\n\nfurther investigation revealed that her primary reason for staying was helping students resolve certain issues. It has been determined there is no security threat involved, so no intervention is necessary.\n\nOne point worth noting is that this Awakener appears unusually interested in the Keeper. She has repeatedly brought the Keeper @3 items classified as contraband and invited the Keeper to various dinners attended by unknown individuals. Considering the Keeper's importance to Mythag, if this Awakener attempts any dangerous action against the Keeper, at least four γ-class armed personnel must be arranged to ensure the Keeper's safe evacuation.\n\nRecorder: K. Trak\n\n(Small handwriting on the back of the file)\nHey, buddy. Or perhaps sister—it doesn't matter.\nThe last poor bastard quit, and now I'm stuck with this damn project.\nIf you're reading this, it means you're not some lazy good-for-nothing, but rather someone observant. Give yourself a round of applause.\nListen, although we keep saying we're \"monitoring her secretly,\" I feel like she already knows about us—it's just that she chooses to ignore it.\nI don't understand why we are monitoring someone like her. Although our first encounter had some misunderstandings, that was entirely caused by cultists, and had nothing to do with her personally.\nBesides, her relationship with the students—especially the Keeper—is like a grandmother buying candy for her grandchild! Surely nobody constantly suspects their own grandmother of planning to sacrifice them to cultists... Well, actually, maybe somewhere that really is the case—but that's not important!\nWhat matters is, if she truly has ulterior motives, I guarantee whatever she intends to do has already begun unnoticed, long before the Committee slowly drags out its ridiculous countermeasures.\nPhew, feels good to vent. Anyway, I've decided to remove her from this list before the Committee does something unforgivable to her.\nAnd once those bastards really piss her off—I promise it won't just be two buildings destroyed next time. I hope I'm dead by then, or else I'll probably die a very painful death.\nIf you're the one who will be watching her next, remember—not any rash actions. If you don't like her, just treat her like a mercenary hired to handle dirty work for the school. Unless she clearly shows signs of instability, under no circumstances should you provoke direct confrontation!\nOf course, if you want a little gift... I doubt she'll mind that you once monitored her. Go ahead and ask boldly. Honestly, the snacks in her pockets are actually pretty tasty.\n—Karapolis Trak, your fellow friend who curses the Committee alongside you.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "■File Number: DIOL-A3-27\n■Awakener Code Name: ■■■■\n\nBased on the behavior patterns, decision-making style, and attitude toward various tasks of this Awakener (hereinafter referred to as Kathigu-Ra), investigators conducted relevant speculations and later launched detailed investigations. The following content is now being synchronized:\nKathigu-Ra is an orphan from Region @2; their parents abandoned them during early childhood.\nKathigu-Ra survived in that region by unknown means and took in many unfortunate children. It should be noted that this process involved extensive use of bloody and violent methods. In one well-documented case, the subject brutally murdered all family members of one of the individuals they had taken in.\nFor a long time afterward, Kathigu-Ra and their subordinates mainly earned income through secretive commissions such as gangland killings, factional conflicts, looting stolen goods, and other black-on-black criminal activities.\nAccording to local testimonies and combined with data from that area, it has been preliminarily inferred that there was a specific point in time when a group centered around Kathigu-Ra and the children they had taken in successfully consolidated control over the majority of the region's criminal organizations.\nCurrently, we still cannot determine exactly how Kathigu-Ra became an Awakener, but the timeframe aligns with the destruction of the Lantern Church outpost in that area. Given Kathigu-Ra's evident disdain for the Church of the Lightbearers, it is reasonably speculated that their transformation into an Awakener may have been connected to the Church.\nAccording to incomplete statistics, up to now, Kathigu-Ra has destroyed 43 Lantern Church outposts, including 7 major outposts, 12 divine-summoning altars, and 17 research facilities.\n\nBased on the above investigation report and the daily behavioral patterns of this Awakener, the Committee, under the proposal of Honorary Chairman K. Trak, has re-evaluated the threat level posed by Kathigu-Ra. The evaluation results are recorded as follows:\nAfter deliberation by all committee members, this Awakener poses no direct or indirect threat to Mythag. Provided the current cooperation treaty remains unchanged, no intervention regarding its existence or actions is necessary.\nTherefore, it is hereby decided that Kathigu-Ra shall be removed from DIOL, and all related investigation activities shall be suspended immediately. All file records shall be fully sealed, and no personnel below Ω clearance are permitted access.\n\nRecorder: K. Trak\n(Small handwriting at the bottom of the document)\nCongratulations! Finally managed to get those overly cautious fools to cancel this damned project. Not bad for all the time I wasted pushing things forward.\nThis concludes the final record concerning Lady Kathigu-Ra. Unless something unexpected occurs, no further documentation will be added under this file number. So whoever you are, feel free to close this cursed folder now, step outside for some fresh air, and focus your attention on more deserving subjects!\n— Karapolis Trak, your good friend who has become a member of the idle class.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "(Small text at the beginning of the file)\nDamn it, how did you find this file? I clearly forbade anyone from accessing it... Well, since you're able to see this file, it means your clearance is far above mine, which indicates you're one of Them, so naturally I have no authority to stop you from knowing these things.\n\nHowever, please keep in mind, this file should not exist anywhere. The following content is not any formal investigation, but rather an unofficial product composed by myself through secondary inferences based on certain real situations.\n\nI must seriously remind you that the process of compiling this file contains a large amount of investigative methods that cannot be described in detail, subjective assumptions from personal thinking, and even acts of accepting bribes from investigated subjects. If you are not bothered by my aforementioned actions, please continue reading. I guarantee with my reputation that the following content is undeniably authentic.\n\n■Subject Number: ■■■■-A■■-SSS\n■Awakener Codename: Lord of Combustion\n\"Honestly, I don't really like fighting.\"\nI was quite surprised to hear such an answer, considering in all the reports, investigators would use words like \"madness,\" \"joy,\" and \"elation\" when describing her in combat.\nI originally thought her attitude toward fighting was \"not initiating, not hating, not refusing,\" never expecting her to actually feel disgusted by the act itself.\nAs the conversation continued deeper, I gradually began to understand certain things. When I asked if I could record these words, Kathigu-Ra generously gave me permission to do so.\n\n\"You must understand, for most people in this world, simply being alive is already a luxury.\"\nI expressed agreement with this statement. Although most people I've encountered live comfortable lives—I could even go to the biggest opera house in Lentienni anytime I wanted—I clearly know the hidden truth of this world, and how many people are carrying burdens behind my comfortable life.\n\n\"Therefore, in many cases, intense fighting spirit is the price you pay to stay alive.\"\n\"We don't get to choose how we live. Once you step into the mud, it's nearly impossible to pull yourself out again.\"\nI originally wanted to argue against this viewpoint, but upon carefully recalling several cases, I found they were all people who could hardly be considered ordinary. As for those nameless nobodies, they mostly only exist within the memoirs of others.\n\"Perhaps some naive person might say, if that's the case, then why not just not do it from the beginning? That idea sounds good. I once carved it onto a certain tombstone to commemorate someone who strictly followed that principle.\"\n\"To protect everyone in this cruel world, I must appear strong and mad enough to make the ever-present malice hesitate.\"\n\"Of course, those emotions I display during battle are not fake. I truly enjoy the sensations battle brings me.\"\n\"It might be a bit hard to understand, but it's like how you might enjoy the content of your job, but not the act of working itself.\"\nUpon hearing this explanation, I immediately understood her meaning. Indeed, I really enjoy prying into others' privacy to satisfy my own guilty curiosity, but that doesn't mean I enjoy having to drag myself out of bed at eight o'clock every morning and follow orders to stay somewhere the entire day.\n\n\"When I was first abandoned, I was just like many other girls—lost, hesitant, and clueless.\"\n\"I hoped to receive help from others, but the world gave me nothing but countless betrayals and pains.\"\n\"Gradually, I began using cruelty and madness to forge armor against malice, adapting to everything in this world like drinking poison to quench thirst.\"\n\"Until finally, they melted within the ceaseless flames, merging with my flesh and blood.\"\nAs if to prove her words just now, Kathigu-Ra suddenly gave me an extremely cruel, evil, and mad smile, so much that I spilled the pale yellow liquid in my cup all over myself.\nOh, maybe it's a good thing, because this way, if I ever lose muscle control and accidentally spill something, I can naturally explain it as just the drink I spilled earlier.\nIn the end, Kathigu-Ra never directly answered my question, but I think my previous judgment was correct—she simply shouldn't exist within DIOL.\n—Recorder Karapolis Trak\n\n\"My original wish was simply to have a home.\"\n\"A home without betrayal, without pain, filled with laughter and joy.\"\n\"Unfortunately, I didn't understand until that day.\"\n\"This was the most luxurious delusion in this cruel world.\"\n—Kathigu-Ra",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Among the Stars",
+  "aliases": [
+    "kathigu-ra",
+    "kathigura"
+  ],
+  "searchTags": [
+    "Discard",
+    "Dispel",
+    "Draw"
+  ]
+}

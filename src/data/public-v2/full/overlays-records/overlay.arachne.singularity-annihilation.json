@@ -1,0 +1,9 @@
+{
+  "id": "overlay.arachne.singularity-annihilation",
+  "displayName": "Singularity Annihilation",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Draw the leftmost card from {Ultra Space}. 3 turns cooldown.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0056"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "wheel-0032",
+  "name": "Song of the Bound",
+  "assetId": "Weapon_Full_D03",
+  "ownerAwakenerId": "awakener-0049",
+  "ownerAwakenerName": "Tinct",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "mainstatKey": "SIGIL_YIELD",
+  "descriptionTemplate": "Team Unique: At the start of exploration, add one \"Insight\" and the wielder's \"Strike\" to the deck. the wielder's \"Strike\" Base DMG +[StateArg1]%, and after playing, there is a [StateArg2]% chance to draw 1 card. This effect can trigger a maximum of once per turn. If the current Realm is {Ultra} and during the {Ultra Round}, the \"Strike\" will place 1 \"Insight\" into hand, triggering a maximum of once during that turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "55",
+        "70",
+        "85",
+        "100"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Humans are creatures who love to sing, and so are the people of Wild Star.\n\nMelodies rise freely from their throats, without any intention or purpose.\n\nScattered by the wind into stray notes, they fade away with passing emotions.\n\nIt is said that every wandering tribe in the desert has its own songs.\n\nBut the Desolate-born lost theirs.\n\nAlong with their song, they also lost their name.\n\nNo one knows what the planet was originally called.\n\nIt is a cursed world, scorched by drought, storms, famine...\n\nDisasters came one after another, until the planet was utterly broken.\n\nThe rich and powerful, dressed in finery, boarded arks and left.\nThe planet became desolate, home only to the unblessed, the lowly.\n\nAll of them were abandoned.\n\nSince then, the Desolate-born decided they needed no laughter, no poetry, and no songs.\n\nThey will remember the pain of abandonment, forever crawling through the white desert, until the day the planet ends.",
+  "lineupToken": "X"
+}

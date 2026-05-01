@@ -1,0 +1,27 @@
+{
+  "id": "relic-0028",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Leigh",
+  "assetId": "Icon_Creation_Unique_B08",
+  "ownerAwakenerId": "awakener-0028",
+  "ownerAwakenerName": "Leigh",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "descriptionTemplate": "At turn start, Leigh gains [Arg1] Aliemus. Whenever she loses HP, she gains [Arg2] {STR}, up to [Arg3] {plural:[Arg3]|time|times} per battle. After stacking [Arg3] {plural:[Arg3]|time|times}, the Arithmetica Cost of {Pain and Pleasure} -2, and the DMG count +1.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "8"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "10"
+    }
+  },
+  "lore": null
+}

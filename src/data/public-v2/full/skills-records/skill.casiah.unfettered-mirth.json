@@ -1,0 +1,10 @@
+{
+  "id": "skill.casiah.unfettered-mirth",
+  "ownerAwakenerId": "awakener-0007",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Unfettered Mirth",
+  "descriptionTemplate": "This Exalt's DMG instance ×2. The following 5 Casiah Command Cards grant {STR} equal to 8% Casiah's ATK.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

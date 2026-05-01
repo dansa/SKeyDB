@@ -1,0 +1,70 @@
+{
+  "id": "skill.murphy-fauxborn.princess-of-delusions",
+  "ownerAwakenerId": "awakener-0035",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Princess of Delusions",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Suffer {Sacrifice} equal to [Arg2]% Max HP at the start of next turn.\nInflict [Arg3] {plural:[Arg3]|stack|stacks} of {Birth Ritual} on all enemies. Deal [Damage:Arg5] DMG [Arg4] {plural:[Arg4]|time|times} to the enemy with Highest HP, which enjoys an [Arg6]% {Tentacle DMG} bonus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "40",
+        "48",
+        "56",
+        "64",
+        "72",
+        "80"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "10",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg5": {
+      "kind": "scaling",
+      "values": [
+        "40",
+        "48",
+        "56",
+        "64",
+        "72",
+        "80"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg6": {
+      "kind": "scaling",
+      "values": [
+        "100",
+        "110",
+        "120",
+        "130",
+        "140",
+        "150"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100"
+}

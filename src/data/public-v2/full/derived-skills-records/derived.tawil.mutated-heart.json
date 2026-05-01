@@ -1,0 +1,11 @@
+{
+  "id": "derived.tawil.mutated-heart",
+  "displayName": "Mutated Heart",
+  "descriptionTemplate": "Discard all cards in your hand and draw a number of cards equal to that quantity +3.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "derived.tawil.memories",
+  "rootSkillId": "skill.tawil.pinions-of-time",
+  "ownerAwakenerId": "awakener-0047",
+  "cost": "0"
+}

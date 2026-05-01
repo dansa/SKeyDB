@@ -1,0 +1,8 @@
+{
+  "id": "talent.vortice.lightless-bottom",
+  "ownerAwakenerId": "awakener-0055",
+  "displayName": "Lightless Bottom",
+  "family": "passive",
+  "descriptionTemplate": "When \"Vortice\" is in the team, the {Aequor Realm} transforms into {Divine Realm: Aequor}.\n{Tentacle DMG} is changed to 5% of the team's Max HP.\nTeam DMG Amplification +50% after exploration begins (Effect doubled if the team is entirely {Aequor} and {Chaos} Awakeners, though no additional starting Tentacles will be obtained).\nTentacle Gathering effect is removed.\n{Divine Realm: Tentacle Stance} features the following new effects:\n{Divine Realm: Tranquil Sea}: Immediately generate Shield equal to 25% Max HP, and Tentacles will no longer attack at turn end; 3 turns cooldown.\n{Divine Realm: Raging Waves}: {Tentacle DMG} × 125% for the turn; after dealing Active DMG, 1 Tentacle attacks; lose 1 Tentacle at turn end; 3 turns cooldown.\nRealm Mastery is counted as {Divine Realm: Aequor Mastery}:\nEach point provides: {Tranquil Sea} Stance's Shield Generation +0.025% Max HP. {Raging Waves} Stance's {Tentacle DMG} +0.025%. Effect doubled if the team is entirely {Aequor} and {Chaos} Awakeners.",
+  "descriptionArgs": {}
+}

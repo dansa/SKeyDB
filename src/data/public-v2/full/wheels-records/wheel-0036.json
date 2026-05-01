@@ -1,0 +1,25 @@
+{
+  "id": "wheel-0036",
+  "name": "Path Forsaken",
+  "assetId": "Weapon_Full_D07",
+  "ownerAwakenerId": "awakener-0025",
+  "ownerAwakenerName": "Jenkin",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "mainstatKey": "CRIT_RATE",
+  "descriptionTemplate": "Team Unique: After the wielder deals DMG, there is a [StateArg1]% chance to draw 1 of their Command Cards and reduce its Arithmetica Cost by 1. This effect activates only once per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "The girl opens her eyes to find herself in darkness.\n\"Hey!\" she shouts, \"Is anyone there?\"\nThe echo wavers and fades in the space with no visible boundaries as she takes a deep breath and shouts again, \"Sister, Brown, Westie!\"\n\"Is anyone there—\"\nA louder question than before drifts away and slowly returns. A few strands of bluish light seem to be drawn in by the echo from afar, formed by countless hovering, dust-like particles, winding through the air like serpents, rising and falling like waves. A continuous stream of light passes by the girl standing still, quickly turning the entire realm into a sea of stars, the tiny particles swishing through the girl's fingers and hair, leaving no trace.\n\"What is this...?\"\nThe glowing dust undulates slightly around her, offering no response.\n\"I remember the wax museum, I remember my sister, I... seem to have died. Is this heaven?\" She looks around, \"Why is there not even an angel here? It can't be hell, can it!\"\nHer voice falls beside her ear, and this time, even the echo does not appear again.\nAn inexplicable sense of loneliness arises from deep within her heart, and in a daze, she feels as if she has returned to before she met her sister and Brown. The foul odor from the dark sewer permeates, she is cold and hungry, yet unable to leave because someone pushed her down and a large barrel pressed down on top of the sewer.\nShe slaps her face and steps forward.\nThe dust parts in front of her, then gathers behind her. Lift a leg, set it down, lift a leg, set it down. She keeps walking and walking, unsure how long she has been walking or how far. Ahead of her are more dust and darkness, and behind her, whether the direction she came from or the path she had walked, has already left no trace until —\n\"Awake succeeded, Jenkin, Jenkin, can you hear me?\"",
+  "lineupToken": "2"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "skill.alva.precision-slash",
+  "ownerAwakenerId": "awakener-0004",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Precision Slash",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Each point of Shield increases DMG by 2. In this turn, for every 1 \"Defense\" played, Arithmetica Cost -1. Counts as a \"Strike\".",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "60",
+        "72",
+        "84",
+        "96",
+        "108",
+        "120"
+      ],
+      "suffix": "%",
+      "stat": "ATK",
+      "substatBonus": {
+        "substat": "DeathResistance",
+        "multiplier": "0.5",
+        "mode": "scale_base"
+      }
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.talent.alva.dynamic-vision.skill.alva.precision-slash",
+      "upgraderId": "talent.alva.dynamic-vision",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

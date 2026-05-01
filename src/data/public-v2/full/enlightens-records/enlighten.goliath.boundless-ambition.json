@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.goliath.boundless-ambition",
+  "ownerAwakenerId": "awakener-0021",
+  "slot": "E3",
+  "displayName": "Boundless Ambition",
+  "descriptionTemplate": "{Abyssal Depths' Power} grants Goliath 25% Temporary Crit. Rate when choosing {Usurp}, or 25 Aliemus when choosing {Dormancy}.",
+  "descriptionArgs": {}
+}

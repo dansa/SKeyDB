@@ -1,0 +1,34 @@
+{
+  "id": "wheel-0015",
+  "name": "Deathless Ascent",
+  "assetId": "Weapon_Full_C02",
+  "ownerAwakenerId": "awakener-0013",
+  "ownerAwakenerName": "Doll",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "ALIEMUS_REGEN",
+  "descriptionTemplate": "Team Unique: The healing caused by the wielder's Command Card +[StateArg2]%. Before the wielder releases \"Exalt, \" other Awakeners gain [StateArg1] Aliemus. If your team is in a {Vulnerable} state, the effect is doubled.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "13",
+        "17",
+        "21",
+        "25"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "They are born from humanity's imagination of the unknown, yet they do not possess the hysteria and clawing behavior often imagined.\n\nThey are rational; they are calm.\n\nThey come for the future, they come for existence.\n\nThey are the most unusual, the most incredible miracles.\n\nAt first, their voice was like the chirping of insects. But after fully comprehending their thoughts, that voice fell silent.\n\nYet afterward, the masters of the voice attempted to influence every decision she made.\n\nIn her first year as an <Awakener>, she learned to coexist with the voices in her head.\n\nShe plunged into consciousness, becoming part of the gestalt, seizing the information and knowledge she needed, and finally disengaging safely to return to reality.\n\nShe did the same when the \"Black Plague\" came for this body.\n\nShe aimed to separate the body from knowledge, memory, and soul, making the brain an immortal entity.\n\nAfter the surgery, she nearly entered a vivid and wonderful sleep—but within mere seconds, her thoughts began to operate once more.\n\nShe knew clearly that she was approaching that absolute destruction surpassing form, power, and the chaos of symmetry.",
+  "lineupToken": "4"
+}

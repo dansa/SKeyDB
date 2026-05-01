@@ -1,0 +1,16 @@
+{
+  "id": "posse-0029",
+  "name": "Answer of the Gate",
+  "descriptionTemplate": "{Discover} 3 random Posses; unleash 1 and gain [Arg1] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "The Truth of all things lies beyond the Gate.\nShe remains silent here, bearing all the inquiries, responding with silence.\nThe one she awaits will eventually write their own answer.",
+  "realm": "CHAOS",
+  "assetId": "posse-icon-29",
+  "imageAssetId": "CG_C09_001",
+  "lineupToken": "H"
+}

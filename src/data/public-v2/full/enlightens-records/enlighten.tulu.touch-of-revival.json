@@ -1,0 +1,31 @@
+{
+  "id": "enlighten.tulu.touch-of-revival",
+  "ownerAwakenerId": "awakener-0050",
+  "slot": "E2",
+  "displayName": "Touch of Revival",
+  "descriptionTemplate": "\"Basic Strike\" gains Temporary {STR} and Temporary {Tentacle DMG} equal to [Arg1]% of Tulu's ATK, while \"Basic Defense\" gains Temporary {STR} and Temporary {Tentacle DMG} equal to [Arg2]% of Tulu's ATK (effects scale with the levels of \"Strike\" and \"Defense\").",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "4.8",
+        "5.6",
+        "6.4",
+        "7.2",
+        "8"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "4.8",
+        "5.6",
+        "6.4",
+        "7.2",
+        "8"
+      ]
+    }
+  }
+}

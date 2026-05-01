@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.xu.nirvanas-kiss",
+  "ownerAwakenerId": "awakener-0054",
+  "slot": "E3",
+  "displayName": "Nirvana's Kiss",
+  "descriptionTemplate": "Max {Spellbound} stacks increases from 5 to 10. {Mist-Bound Vow} doubles the {Resonance} effect for Xu's next Command Card.",
+  "descriptionArgs": {}
+}

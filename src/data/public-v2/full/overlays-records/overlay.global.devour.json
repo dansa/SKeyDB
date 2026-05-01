@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.devour",
+  "displayName": "Devour",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "If {Embryo} is in hand, consume 1 to trigger the {Devour} effect.",
+  "descriptionArgs": {}
+}

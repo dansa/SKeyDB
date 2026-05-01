@@ -1,0 +1,50 @@
+{
+  "id": "talent.24.soulforge-aptitude",
+  "ownerAwakenerId": "awakener-0001",
+  "displayName": "Soulforge Aptitude",
+  "family": "soulforge_aptitude",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nBase DMG caused by \"24\" +[Arg3]%, and Final DMG to \"Sculptors' Association\" enemies +[Arg4]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "23",
+        "26",
+        "29",
+        "32",
+        "35",
+        "38",
+        "41",
+        "44",
+        "50"
+      ]
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "17",
+        "19",
+        "21",
+        "23",
+        "25",
+        "27",
+        "29",
+        "31",
+        "35"
+      ]
+    }
+  },
+  "maxLevel": 10
+}

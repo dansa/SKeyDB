@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0104",
+  "name": "Gateway of Truth",
+  "assetId": "Weapon_Full_SR28",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "KEYFLARE_REGEN",
+  "descriptionTemplate": "Team Unique: After the start of the battle, gain Keyflare equal to [StateArg1]% of the wielder's Keyflare Regen. The first Posse issuance in each battle repeats this effect.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "200",
+        "300",
+        "400",
+        "500"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "She is the embodiment of wisdom.\n\nShe holds all the knowledge in the world—the highest aim of every scholar in Mythag.\n\nEven hearing a single word from her can bring sudden, profound enlightenment.\n\nYet she calls herself only a gatekeeper.\n\nWhat kind of gate?\n\nNo one has ever seen it, so the scholars call it \"Truth.\"\n\nShe is the gatekeeper of truth, the Athena of Mythag.\n\nTawil never denies this—nor confirms it.\n\nShe simply watches—\nwatching this place and this world with a constant, silent compassion.\n\nIf you ever see that gate, you'll find a familiar eye upon it.\n\nIts gaze is calm and eternal.\nIt pierces through time, through your very soul.",
+  "lineupToken": "x5"
+}

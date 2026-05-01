@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.jenkins.obsidian-dissolution",
+  "ownerAwakenerId": "awakener-0025",
+  "slot": "E3",
+  "displayName": "Obsidian Dissolution",
+  "descriptionTemplate": "{Mistborn Street Urchin} grants 1 extra {Get 'em! Brown!}",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,137 @@
+{
+  "id": "skill.lily.strike-to-protect",
+  "ownerAwakenerId": "awakener-0029",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Strike to Protect",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a {Critical Hit} occurs, the trigger ratio increases to [Arg4]%. This is considered a \"Strike\". For each stack of {Endure}, increase DMG by 2 and remove {Endure} after use.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "75",
+        "90",
+        "105",
+        "120",
+        "135",
+        "150"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "100",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "4",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.lily.never-forget.skill.lily.strike-to-protect",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.lily.never-forget",
+      "ownerAwakenerId": "awakener-0029",
+      "operation": "mixed",
+      "ownerAwakenerName": "Lily",
+      "upgraderType": "enlighten",
+      "patch": {
+        "cardKeywords": [
+          {
+            "id": "mechanic.retain"
+          },
+          {
+            "id": "mechanic.prepare",
+            "value": 2
+          }
+        ],
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "90",
+              "108",
+              "126",
+              "144",
+              "162",
+              "180"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "50",
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "100",
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a {Critical Hit} occurs, the trigger rate increases to [Arg4]%. Considered a \"Strike\". For each stack of {Endure}, increase DMG by 2, and remove half of the {Endure} after use. This card's Crit. Rate +20%."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.lily.viscous-devour.skill.lily.strike-to-protect",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.lily.viscous-devour",
+      "ownerAwakenerId": "awakener-0029",
+      "operation": "mixed",
+      "ownerAwakenerName": "Lily",
+      "upgraderType": "enlighten",
+      "patch": {
+        "cardKeywords": [
+          {
+            "id": "mechanic.retain"
+          },
+          {
+            "id": "mechanic.prepare",
+            "value": 2
+          }
+        ],
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "90",
+              "108",
+              "126",
+              "144",
+              "162",
+              "180"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "50",
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "100",
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a {Critical Hit} occurs, the trigger rate increases to [Arg4]%. Treated as a Strike. For each stack of {Endure}, increase DMG by 2, and remove {Endure} after use. This card's Crit. Rate +20%."
+      }
+    }
+  ]
+}

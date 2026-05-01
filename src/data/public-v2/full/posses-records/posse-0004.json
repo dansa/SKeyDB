@@ -1,0 +1,11 @@
+{
+  "id": "posse-0004",
+  "name": "A Mouse's Wisdom",
+  "descriptionTemplate": "Recover 3 Arithmetica.",
+  "descriptionArgs": {},
+  "lore": "The little mouse and its owner share many traits:\nCunning, bravery, and speed...\nThey freely roam the gaps between the scattered houses in the Eastern District, using the sky as their blanket and rooftops as their bed.\nThey thrive in the corners of the city.",
+  "realm": "FADED_LEGACY",
+  "assetId": "posse-icon-04",
+  "imageAssetId": "CG_C02_006",
+  "lineupToken": "c"
+}

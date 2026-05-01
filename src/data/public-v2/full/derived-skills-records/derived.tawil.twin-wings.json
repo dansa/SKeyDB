@@ -1,0 +1,43 @@
+{
+  "id": "derived.tawil.twin-wings",
+  "displayName": "Twin Wings",
+  "descriptionTemplate": "Can be played by consuming 500 Keyflare when Arithmetica is insufficient. Deal [Damage:Arg1] DMG 2 times, and Tawil obtains [Energy:Arg2] Aliemus. Draw a card. Shuffle {Four Wings} into the Draw Pile.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "24",
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "derivedFromId": "skill.tawil.pinions-of-time",
+  "rootSkillId": "skill.tawil.pinions-of-time",
+  "ownerAwakenerId": "awakener-0047",
+  "childDerivedSkillIds": [
+    "derived.tawil.four-wings"
+  ],
+  "cost": "2"
+}

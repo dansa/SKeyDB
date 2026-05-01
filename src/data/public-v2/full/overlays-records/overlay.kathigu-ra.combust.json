@@ -1,0 +1,9 @@
+{
+  "id": "overlay.kathigu-ra.combust",
+  "displayName": "Combust",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "When {Combust} reaches 10 stacks, gain 2 Arithmetica and upgrade all {Solarflare} to {Hyperflare}.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0027"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.agrippa.covenant-of-no-return",
+  "ownerAwakenerId": "awakener-0002",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Covenant of No Return",
+  "descriptionTemplate": "{Rouse} {Path of the Lost} is enhanced: Each time Agrippa inflicts or triggers {Poison}, Shield Generation at turn end +50%. This effect stacks up to 5.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,16 @@
+{
+  "id": "posse-0018",
+  "name": "Midsummer Vision",
+  "descriptionTemplate": "Draw a card; if the drawn card is a Command or {Rouse} card, reduce its Arithmetica Cost to 0 and increase its owner's Aliemus by [Arg1]. Otherwise, discard that card and repeat this process.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "20"
+    }
+  },
+  "lore": "It was a fleeting, ethereal dream of a night, light and soft, not captured on film but flowing through the memory of every photographer.",
+  "realm": "CHAOS",
+  "assetId": "posse-icon-18",
+  "imageAssetId": "CG_SD_L_C10_3",
+  "lineupToken": "w"
+}

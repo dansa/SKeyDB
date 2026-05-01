@@ -1,0 +1,24 @@
+{
+  "id": "relic-0017",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Faros",
+  "assetId": "Icon_Creation_Unique_O03",
+  "ownerAwakenerId": "awakener-0017",
+  "ownerAwakenerName": "Faros",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "descriptionTemplate": "At turn start, Faros gains [Arg1] Aliemus. For every 2 instances of {Tentacle DMG} dealt, Faros' {Poison} and Shield effects in this battle +[Arg2]%, up to 50%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1",
+      "suffix": "%"
+    }
+  },
+  "lore": null
+}

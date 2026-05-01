@@ -1,0 +1,97 @@
+{
+  "id": "awakener-0042",
+  "numericId": 42,
+  "name": "Ramona",
+  "ingameId": "C01",
+  "lineupToken": "N",
+  "realm": "CHAOS",
+  "rarity": "SR",
+  "type": "CHORUS",
+  "primaryScalingBase": 20,
+  "assets": {
+    "portraitKey": "ramona",
+    "iconKey": "ramona"
+  },
+  "baseStatsLv1": {
+    "CON": 32,
+    "ATK": 32,
+    "DEF": 32
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 17.4,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.5,
+    "ATK": 1.5,
+    "DEF": 1.5
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 2.4,
+    "RealmMastery": 2,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Ramona",
+    "birthday": "12-Dec",
+    "gender": "Female",
+    "height": "5'5''",
+    "weight": "102lbs",
+    "gnosticIndex": "25",
+    "characteristic": "Search for Cards    Multi-Hit Damage",
+    "introduction": "Provides your team with essential card support, then pierces through rivals with gradually accelerating sword techniques.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "The Awakener's file manager has transferred her file to the student administration several times, but she has repeatedly sent it back herself, burying it under a mountain of documents.\n\"Just leave it here. It will eventually need to be delivered.\"\nHer tone remains as calm as ever, but her gaze flickers unpredictably.\n\nWhat monumental emotions lie beneath this calm?",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "When Ramona first appeared on campus, it stirred up a huge commotion.\nAt Mythag University, where Awakeners walked everywhere and peculiar people were common, having silver hair and heterochromia was not noteworthy. What made Ramona the topic of conversation was her identity as the \"professor's daughter.\" \nEveryone crowded outside the mathematics department's office, hoping to catch a glimpse of Miss Dexter. There were so many people that the professor had to seek help from Miss Lotan to disperse the crowd. \nOnce Ramona grew a bit older, and the professor finally felt comfortable letting her run around campus, those students who were sent away by Lotan found opportunities to speak to her. \n\"What kind of person is the Noble Lady? Sorry, that character doesn't exist yet. I'm an orphan; my father kindly adopted me.\" \nTo escape the entanglement, the little girl calmly revealed the truth, leaving everyone in guilt as she gracefully walked away.",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "At the age of ten, Ramona became a regular at the university training grounds. Daring to accept training from the Black-clad Swordsman despite being human, she earned the admiration of many investigators.\nAfter officially beginning her prerequisite courses, her eidetic memory, perfect test scores, and elegant yet deadly swordsmanship elevated her status at Mythag. Discipline and excellence became her defining traits.\nHowever, many were puzzled as to why, despite her outstanding abilities, Ramona never received solo missions. Having been admitted early, she spent a full five years in prerequisite courses, watching cohort after cohort of investigators enter the world of mysticism.\nWhat was she waiting for? What mission had been entrusted to her?\nThe answer came when the new Keeper enrolled.",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "Dreams are projections of memories, reflections of daily life, and a summation of human existence.\nSince childhood, Ramona has often had the same dream.\nImmersed in warm, turbid water, she felt an intimate connection with something unknown, while hollow and monotonous drumbeats rippled through the water.\nUpon waking, she always felt an emptiness, as if something had been taken away or erased from her life.\nBut to avoid worrying her father and troubling her already busy teachers, Ramona swallowed the questions that nearly escaped her throat and returned to her daily routine.",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "She knows everything.\nShe knows the bell tower rings in emergencies, that the Eridanus meteor shower will return in ten years, and that she possesses a unique power.\nShe knows nothing.\nShe doesn't know the secret spice in the cafeteria's curry recipe, how to calculate the radius of a planet after its annihilation, or the direction her future will take.\nShe finds it hard to let go of everything around her, yet cannot resist the path her intuition reveals.\nOn the journey toward truth and normalcy, Ramona needs steadfast companions to help her secure the road back to everyday life.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "The Unknowable",
+  "aliases": [
+    "ramona"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Discard",
+    "Draw",
+    "Keyflare"
+  ]
+}

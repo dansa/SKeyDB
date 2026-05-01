@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.daffodil.phantasmal-haze",
+  "ownerAwakenerId": "awakener-0012",
+  "slot": "OverExalt",
+  "displayName": "Phantasmal Haze",
+  "descriptionTemplate": "Additionally, place 2 copies of \"Thousand Mirage\" into hand, increasing the Base DMG of {Skull Reaver} by 50% in this battle.",
+  "descriptionArgs": {}
+}

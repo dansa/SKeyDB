@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.mouchette.mist-realm-traveler",
+  "ownerAwakenerId": "awakener-0033",
+  "slot": "E1",
+  "displayName": "Mist Realm Traveler",
+  "descriptionTemplate": "For every 1% {Death Resistance} Mouchette and her equipped WoD & Covenant have, her Crit. Rate and Crit. DMG + 0.15%. Each time {Death Resistance} is triggered, the Crit. DMG provided by {Mist Realm Traveler} +100% for this battle.",
+  "descriptionArgs": {}
+}

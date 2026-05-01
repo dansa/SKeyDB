@@ -1,0 +1,11 @@
+{
+  "id": "overlay.castor.corrosion",
+  "displayName": "Corrosion",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "When taking Active DMG or {Tentacle DMG}, remove an equivalent amount of {Corrosion} stacks and suffer HP loss equal to 300% of the removed stacks. Other types of DMG removes {Corrosion} stacks at 50% effectiveness.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0008",
+  "iconId": "Battle_Card_Buff_070",
+  "textColor": "affliction"
+}

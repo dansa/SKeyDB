@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.thais.everlasting-cycle",
+  "ownerAwakenerId": "awakener-0048",
+  "slot": "E3",
+  "displayName": "Everlasting Cycle",
+  "descriptionTemplate": "In the {Caro} Realm, the {Embryo Fusion} obtained automatically each turn +50%. \"Basic Strike\" and \"Basic Defense\" gain Strength equivalent to 1% of ATK.",
+  "descriptionArgs": {}
+}

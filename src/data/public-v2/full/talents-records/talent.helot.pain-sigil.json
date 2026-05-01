@@ -1,0 +1,8 @@
+{
+  "id": "talent.helot.pain-sigil",
+  "ownerAwakenerId": "awakener-0023",
+  "displayName": "Pain Sigil",
+  "family": "passive",
+  "descriptionTemplate": "For every 1% DMG Amplification attribute Helot has, {Surviving Impasse} increases the DMG Helot deals in this turn by 0.3%.",
+  "descriptionArgs": {}
+}

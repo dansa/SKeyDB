@@ -1,0 +1,9 @@
+{
+  "id": "overlay.arachne.singularity-ultra",
+  "displayName": "Singularity: Ultra",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "{Dimension Shuttle}: After playing the first Command Card each turn, move a Temporary Base Copy of it to {Ultra Space}. Grant the original and the copy 25 stacks of {Singularity Beacon}. This cannot trigger during {Ultra} Rounds.\n{Singularity Beacon}: Each stack increases Final DMG, {STR}/{Tentacle DMG} Generation, and Fixed {Poison}/{Counter} effects by 2%. Increases Final Shield, HP Recovery, and {STR⯆} effects by 1%. Removed after play. Cards with this effect cannot trigger {Dimension Shuttle}.\n{Ultra Space}: When full, ending the turn activates {Ultra Space} immediately instead of initiating an {Ultra Round}: Discard all non-{Retain} cards, trigger their {Fleeting} effects, draw all {Ultra Space} cards, and set Arithmetica to 5. This current turn is treated as an {Ultra Round}.\n{Singularity Annihilation}: Draw the leftmost card from {Ultra Space}. 3 turns cooldown.\nUpon starting exploration, the team gains +50% DMG Amplification and 15 stacks of {Singularity Prism}.\n{Singularity Prism}: All Command Cards gain {Singularity Beacon} bonuses equal to these stacks.\n{Ultra} Mastery: For each 1 point of Realm Mastery, {Singularity Beacon} stacks from {Singularity Prism} and {Dimension Shuttle} increase by 0.05%.\nPure {Ultra}: If the team consists only of {Ultra} or {Chaos} Awakeners, the {Ultra} Mastery effect and Realm DMG Amplification are doubled.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0056"
+}

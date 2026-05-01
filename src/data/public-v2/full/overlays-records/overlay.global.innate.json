@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.innate",
+  "displayName": "Innate",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Always appears in the starting hand.",
+  "descriptionArgs": {}
+}

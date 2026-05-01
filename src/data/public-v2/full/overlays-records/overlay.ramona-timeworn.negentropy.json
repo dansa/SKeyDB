@@ -1,0 +1,11 @@
+{
+  "id": "overlay.ramona-timeworn.negentropy",
+  "displayName": "Negentropy",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "With 3 {Negentropy} stacks, using Ramona: Timeworn's Command Cards consumes all stacks and triggers the extra {Loop} effect. (Max 3 stacks)",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0020",
+  "iconId": "Battle_Card_Buff_039",
+  "textColor": "light"
+}

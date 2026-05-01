@@ -1,0 +1,45 @@
+{
+  "id": "wheel-0028",
+  "name": "Amber-Tinted Death",
+  "assetId": "Weapon_Full_C16",
+  "ownerAwakenerId": "awakener-0027",
+  "ownerAwakenerName": "Kathigu-Ra",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "CRIT_DMG",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG dealt +[StateArg1]%, and {STR} Generation +[StateArg2]%. After playing the wielder's Command Card, gain Temporary {STR} equal to [StateArg3]% of the wielder's ATK, triggering up to 5 times per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "25",
+        "30",
+        "35"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Most of the time, death always arrives silently, before a human's consciousness has a chance to react. The reaper would have already crept close, claiming that tender, fragile life.\n\nHowever, it is said that in a remote desert unknown to most, there exists an amber-tinted death god. She brings Amber-Tinted Death with her amber fire and amber gun, after issuing a formal proclamation.\n\nThe man stood on the sandy sea beneath the moonlit night, his hand gripping the firearm trembling ceaselessly. He stared intently at Kathigu-Ra's amber silhouette without blinking, not daring to relax for even a moment.\n\nCold sweat dripped from his forehead, falling heavily into the hearts of everyone behind him. He had brought many people along, but at this moment, very few of them were actually useful.\n\nHe couldn't understand—this was supposed to be a simple mission to loot an abandoned warehouse, so why had he encountered the legendary death god?\n\n\"You mean the death god? That's just an idle rumor from before,\" Kathigu-Ra said indifferently.\n\n\"I used to coat them in amber; perhaps you could still find some leftover paint clinging to the surface?\"\n\nShe generously displayed the twin guns in her hands to the person before her.\n\n\"The amber-colored flame at the muzzle is just a special substance I sprinkled on.\"\n\nHer finger plunged into the barrel, rotating once around before pulling out some unknown powder.\n\n\"The so-called death god is merely an image I once crafted for myself.\"\n\n\"It was powerful, mysterious, and omnipotent.\"\n\n\"It helped me intimidate those incompetent petty villains.\"\n\nShe spoke arrogantly, completely unconcerned about the increasingly fierce gaze from the man before her.\n\nShe spoke as if no one else was present, entirely unaware that danger was already approaching.\n\nWhen the bullets finally rained down upon her, shock and bewilderment flickered in her eyes—\n\nmerely to conceal that subtle hint of excitement and madness buried deep within her subconscious.\n\n...\n\nThe gunfire ceased, and everything unfolded exactly as she had anticipated.\n\nShe stood at the center of the battlefield, everything around her scorched and marked by fire.\n\nKathigu-Ra performed only two actions—raising the gun, and firing.\n\nWhen she lifted the spear, death danced behind all things, equally casting its omen upon all.\n\nWhen she pulled the trigger, flames engulfed everything, offering the world a sea of amber blossoms.\n\n\"They have accompanied me through many years, bearing silent witness to endless bloodshed and death.\"\n\n\"They were once forced to wear the disguise of lies, used to hide my own weakness and helplessness.\"\n\n\"Now, they are no longer just rumors.\"",
+  "lineupToken": "yn"
+}

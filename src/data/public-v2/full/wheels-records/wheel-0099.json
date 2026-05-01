@@ -1,0 +1,34 @@
+{
+  "id": "wheel-0099",
+  "name": "Kiss of Farewell",
+  "assetId": "Weapon_Full_SR23",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "ALIEMUS_REGEN",
+  "descriptionTemplate": "Team Unique: After the wielder releases Exalt, they gain Strength equal to [StateArg1]% of the wielder's ATK. If the current Realm is {Caro}, after releasing Exalt, {Embryo Fusion} ++[StateArg2]%.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "1.5",
+        "2",
+        "2.5",
+        "3"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "The girl, reborn from black blood, lifted the sacred blood seed of the Mother Tree amid the desert's thousand-year sandstorms.\n\n\"As long as this seed survives in the world, the tree's bloodline will not end.\"\n\nThen a thousand years passed.\n\nThis seed traveled with the tree's descendants, witnessing glory and ruin, displacement and loss, dying and rising again.\n\nFinally, as the mighty river turned into thick black blood, it completed its final inheritance.\n\nIt was a fiery and tangled kiss, filled with unfulfilled desires and unspoken parting sorrows, enveloping the new heir together with the warm heartbeat.\n\nThat agate-like color, that jade-like sheen, will outlast the black end, pulsing with life.\n\nThen, the first seed of the new world will rise from the ground under her blessing, growing into a colossal tree that covers the sky.",
+  "lineupToken": "xS"
+}

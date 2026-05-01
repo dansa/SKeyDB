@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.castor.unyielding-will",
+  "ownerAwakenerId": "awakener-0008",
+  "slot": "E2",
+  "displayName": "Unyielding Will",
+  "descriptionTemplate": "For every {Onyx Plume} in hand, playing {Stygian Wings} grants 5 Aliemus. For every {Onyx Plume} you play, the Arithmetica Cost of {Umbral Flight} -1 this turn.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "skill.ryker.jackpot",
+  "ownerAwakenerId": "awakener-0043",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Jackpot!",
+  "descriptionTemplate": "{All-in!} deals 3 instances DMG and reduces the Arithmetica Cost of drawn Cards by 1.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

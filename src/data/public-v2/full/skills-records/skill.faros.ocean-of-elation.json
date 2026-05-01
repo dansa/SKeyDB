@@ -1,0 +1,97 @@
+{
+  "id": "skill.faros.ocean-of-elation",
+  "ownerAwakenerId": "awakener-0017",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Ocean of Elation",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG and an equal amount of {Poison}, which enjoys a [Arg4]% {Tentacle DMG} bonus. Generate [Arg2] Temporary Tentacles. {Tentacle DMG} +[TentaclePower:Arg3].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "16",
+        "19.2",
+        "22.4",
+        "25.6",
+        "28.8",
+        "32"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "2.5",
+        "3",
+        "3.5",
+        "4",
+        "4.5",
+        "5"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.faros.jagged-shore.skill.faros.ocean-of-elation",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.faros.jagged-shore",
+      "ownerAwakenerId": "awakener-0017",
+      "operation": "override_args",
+      "ownerAwakenerName": "Faros",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "16",
+              "19.2",
+              "22.4",
+              "25.6",
+              "28.8",
+              "32"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "1"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "2.5",
+              "3",
+              "3.5",
+              "4",
+              "4.5",
+              "5"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "100",
+            "suffix": "%"
+          }
+        }
+      }
+    }
+  ]
+}

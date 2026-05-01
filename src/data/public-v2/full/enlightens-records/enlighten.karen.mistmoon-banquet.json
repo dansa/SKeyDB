@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.karen.mistmoon-banquet",
+  "ownerAwakenerId": "awakener-0026",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Mistmoon Banquet",
+  "descriptionTemplate": "{Rouse} {Dance of the Gibbous Moon} is enhanced: At turn end, if Karen's Command Card is {Retained}, trigger HP Recovery and Aliemus Generation effects twice.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,111 @@
+{
+  "id": "skill.goliath.preemptive-revenge",
+  "ownerAwakenerId": "awakener-0021",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Preemptive Revenge",
+  "descriptionTemplate": "Goliath gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. When Goliath deals DMG, gain [Power:Arg2] {STR} and [TentaclePower:Arg3] {Tentacle DMG}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "2.4",
+        "2.8",
+        "3.2",
+        "3.6",
+        "4"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "2.4",
+        "2.8",
+        "3.2",
+        "3.6",
+        "4"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.goliath.ascent-of-the-tyrant.skill.goliath.preemptive-revenge",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.goliath.ascent-of-the-tyrant",
+      "ownerAwakenerId": "awakener-0021",
+      "operation": "mixed",
+      "ownerAwakenerName": "Goliath",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "2",
+              "2.4",
+              "2.8",
+              "3.2",
+              "3.6",
+              "4"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "2",
+              "2.4",
+              "2.8",
+              "3.2",
+              "3.6",
+              "4"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "300",
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Goliath gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. When Goliath deals DMG, gain [Power:Arg2] {STR} and [TentaclePower:Arg3] {Tentacle DMG}. While in {Raging Waves} stance, Goliath's Command Cards gain an additional [Arg4]% {STR} Bonus."
+      }
+    }
+  ]
+}

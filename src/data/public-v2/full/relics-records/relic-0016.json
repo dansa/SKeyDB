@@ -1,0 +1,33 @@
+{
+  "id": "relic-0016",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Faint",
+  "assetId": "Icon_Creation_Unique_B09",
+  "ownerAwakenerId": "awakener-0016",
+  "ownerAwakenerName": "Faint",
+  "rarity": "SSR",
+  "realm": "CARO",
+  "descriptionTemplate": "At turn start, Faint gains [Arg1] Aliemus. Faint's Shield, {Counter}, and HP recovery effects +[Arg2]%. Each time {Death Resistance} is triggered, this effect +[Arg3]% for the current exploration, up to [Arg4] {plural:[Arg4]|time|times}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "5",
+      "suffix": "%"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "lore": null
+}

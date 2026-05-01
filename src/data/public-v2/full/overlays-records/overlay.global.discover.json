@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.discover",
+  "displayName": "Discover",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Generates random options to choose from.",
+  "descriptionArgs": {}
+}

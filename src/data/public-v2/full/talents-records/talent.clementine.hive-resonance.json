@@ -1,0 +1,8 @@
+{
+  "id": "talent.clementine.hive-resonance",
+  "ownerAwakenerId": "awakener-0010",
+  "displayName": "Hive Resonance",
+  "family": "passive",
+  "descriptionTemplate": "Clementine's Command Card gains 1 stack of {Symbiosis} after dealing Damage.\nEach 1 Keyflare Regen attribute provided by Clementine and her equipped Wheel of Destiny & Covenant increases Crit. Rate and Crit. DMG by 0.35%.\nAt the start of the {Ultra Round}, remove all enemies' {Psychic Trauma} and {Phobic Fixation}. For each stack of {Psychic Trauma} removed from all enemies, gain 50 Keyflare; for each stack of {Phobic Fixation} removed from all enemies, other Awakeners gain 2 Aliemus.",
+  "descriptionArgs": {}
+}

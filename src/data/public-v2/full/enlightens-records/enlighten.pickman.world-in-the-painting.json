@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.pickman.world-in-the-painting",
+  "ownerAwakenerId": "awakener-0040",
+  "slot": "AbsoluteAxiom",
+  "displayName": "World in the Painting",
+  "descriptionTemplate": "{Rouse} {Morgue Studio} is enhanced: The duration of the Painted Golden Relic created by {Lifelike Rendition} increases from 1 turn to 2 turns.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.madness",
+  "displayName": "Madness",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Each stack increases instances of DMG dealt by 1.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_030",
+  "textColor": "heal"
+}

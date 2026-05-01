@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.helot-catena.fettered-malice",
+  "ownerAwakenerId": "awakener-0019",
+  "slot": "OverExalt",
+  "displayName": "Fettered Malice",
+  "descriptionTemplate": "\"Helot: Catena\" Crit. DMG +35%. Temporary hand limit +2. Add 1 {Hatred Unleashed} and {Crimson Shackles} to hand, reducing their Arithmetica Cost by 1.",
+  "descriptionArgs": {}
+}

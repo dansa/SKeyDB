@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0069",
+  "name": "Punishment",
+  "assetId": "Weapon_Full_P09",
+  "ownerAwakenerName": null,
+  "rarity": "R",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DEATH_RESISTANCE",
+  "descriptionTemplate": "Team Unique: After the Boss Battle starts, consume up to 50 Black Sigils, with each point of Black Sigil consumed granting [StateArg1]% {Death Resistance}. In the {Astral Reign}, the effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "The root of all evil.",
+  "lineupToken": "xt"
+}

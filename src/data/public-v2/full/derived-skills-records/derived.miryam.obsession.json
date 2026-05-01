@@ -1,0 +1,23 @@
+{
+  "id": "derived.miryam.obsession",
+  "displayName": "Obsession",
+  "descriptionTemplate": "Miryam gains [Arg1] Aliemus. At turn end, if this card is in hand, it will transform into {Sacrament} at the cost of reducing the next turn's Draw by 1.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "derivedFromId": "derived.miryam.sacrament",
+  "rootSkillId": "skill.miryam.pray-to-the-abyss",
+  "ownerAwakenerId": "awakener-0032",
+  "cost": "0"
+}

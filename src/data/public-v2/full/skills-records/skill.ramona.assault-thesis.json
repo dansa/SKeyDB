@@ -1,0 +1,58 @@
+{
+  "id": "skill.ramona.assault-thesis",
+  "ownerAwakenerId": "awakener-0042",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Assault Thesis",
+  "descriptionTemplate": "Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg1]. Draw 1 card.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "7.5",
+        "9",
+        "10.5",
+        "12",
+        "13.5",
+        "15"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ramona.omen-of-unknowns.skill.ramona.assault-thesis",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.ramona.omen-of-unknowns",
+      "ownerAwakenerId": "awakener-0042",
+      "operation": "mixed",
+      "ownerAwakenerName": "Ramona",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "7.5",
+              "9",
+              "10.5",
+              "12",
+              "13.5",
+              "15"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "35"
+          }
+        },
+        "descriptionTemplate": "Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg1]. Draw 1 card. For each point of Arithmetica the drawn card costs, obtain [Arg2] Keyflare."
+      }
+    }
+  ]
+}

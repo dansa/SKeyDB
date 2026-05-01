@@ -1,0 +1,14 @@
+{
+  "id": "overlay.hameln.melody",
+  "displayName": "Melody",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Collective term for Hameln's {Melody} effects: {Rondino} and {Crescendo}.",
+  "descriptionArgs": {},
+  "ownerAwakenerId": "awakener-0022",
+  "nodeKind": "group",
+  "childOverlayIds": [
+    "overlay.hameln.rondino",
+    "overlay.hameln.crescendo"
+  ]
+}

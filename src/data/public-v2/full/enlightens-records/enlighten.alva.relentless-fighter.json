@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.alva.relentless-fighter",
+  "ownerAwakenerId": "awakener-0004",
+  "slot": "E2",
+  "displayName": "Relentless Fighter",
+  "descriptionTemplate": "{Endless Justice} Draw quantity +1.",
+  "descriptionArgs": {}
+}

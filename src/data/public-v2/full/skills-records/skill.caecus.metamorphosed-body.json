@@ -1,0 +1,111 @@
+{
+  "id": "skill.caecus.metamorphosed-body",
+  "ownerAwakenerId": "awakener-0006",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Metamorphosed Body",
+  "descriptionTemplate": "Caecus gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. Whenever Caecus plays 1 card, restore [Heal:Arg2] HP and gain [Counterattack:Arg3] stacks of {Counter}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "7",
+        "8.4",
+        "9.8",
+        "11.2",
+        "12.6",
+        "14"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "7",
+        "8.4",
+        "9.8",
+        "11.2",
+        "12.6",
+        "14"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.caecus.fury-of-the-inchoate.skill.caecus.metamorphosed-body",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.caecus.fury-of-the-inchoate",
+      "ownerAwakenerId": "awakener-0006",
+      "operation": "mixed",
+      "ownerAwakenerName": "Caecus",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "7",
+              "8.4",
+              "9.8",
+              "11.2",
+              "12.6",
+              "14"
+            ],
+            "suffix": "%",
+            "stat": "CON"
+          },
+          "Arg3": {
+            "kind": "scaling",
+            "values": [
+              "7",
+              "8.4",
+              "9.8",
+              "11.2",
+              "12.6",
+              "14"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "50",
+            "suffix": "%"
+          }
+        },
+        "descriptionTemplate": "Caecus gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. For each card Caecus plays, restore [Heal:Arg2] HP and gain [Counterattack:Arg3] {plural:[Counterattack:Arg3]|stack|stacks} of {Counter}. 1 Tentacle performs an attack and gains {Counter} equal to [Arg4]% of DMG dealt."
+      }
+    }
+  ]
+}

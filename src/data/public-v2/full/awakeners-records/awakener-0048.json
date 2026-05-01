@@ -1,0 +1,96 @@
+{
+  "id": "awakener-0048",
+  "numericId": 48,
+  "name": "Thais",
+  "ingameId": "B01",
+  "lineupToken": "O",
+  "realm": "CARO",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "primaryScalingBase": 30,
+  "assets": {
+    "portraitKey": "thais",
+    "iconKey": "thais"
+  },
+  "baseStatsLv1": {
+    "CON": 49,
+    "ATK": 47,
+    "DEF": 44
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 17.4,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.55,
+    "ATK": 1.5,
+    "DEF": 1.4
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 2.4,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Thais",
+    "birthday": "19-Apr",
+    "gender": "Female",
+    "height": "5'9''",
+    "weight": "149lbs",
+    "gnosticIndex": "28.4",
+    "characteristic": "Copy Cards    Aliemus Supply",
+    "introduction": "She gives birth to scions of the Holy Tree to allow more Devour triggers, while her Ritual of Abundance produces copies of skill cards.",
+    "awakerIntroduction": "Thais boasts the unique ability to copy Cards, and those copied Cards come with a reduced Arithmetica Cost.\nUpon {Rouse}, gain {Scion of Purity}. When consumed by {Caro} characters' Exalt, it triggers the Devouring effect twice. When unleashing Posse, convert {Embryo} into {Scion of Purity}.\nIn this stage, you'll deploy Awakener \"Thais\" and \"Ramona\" (Level 50, Skill Level 5, Enlighten Level 3), alongside the Tiny Wish Posse.",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "content": "Adorned with jewels, draped in delicate veils, her heart concealed beneath layers of beauty.\nMany think Thais is a vain and frivolous person, but perhaps this is merely one of the masks she wears.\n\"Hey, what are you writing? Let me help you—\"",
+        "unlockCondition": "Awakener Level 1"
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "content": "The flood that swept across the world carried away the sediment of civilization but also washed away the dust of history. \nAfter the disaster, people caught glimpses of fragments of forgotten history from the ruins of Mosul. \nThe \"Tree\" stands at the confluence of two rivers, flowing with bright red sap, irrigating civilization as it flows downstream. \nThe \"Tree\" is eternal, evergreen for millennia. \nScholars of ancient history ultimately concluded that the \"Tree\" does not exist as a physical entity; rather, it is a metaphor for ancient civilization and a spiritual symbol. \nIn unseen corners, seeds take root everywhere in the world.",
+        "unlockCondition": "Awakener Level 3"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "content": "Mythag awakens and contains many Awakeners, but none are as unique as Thais.\nShe helps female students choose makeup for dates, she helps the disheartened regain hope, and she helps Investigators who are mentally crushed step out of the shadows.\nLike a lover, a sister, and even more like a mother, she always manages to construct a quagmire called \"Love\", quietly drawing people in and making them unconsciously willing to give everything for her—\nAfter preventing students from drinking the mysterious liquid provided by Thais for the third time, the Awakener Management issued a restraining order against her.\n\"Thais is strictly prohibited from approaching all students without the escort of a Keeper.\"",
+        "unlockCondition": "Affinity Level 5"
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "content": "@2This name has been recorded multiple times in history.\nPriests, mothers, queens, and witches... this name has been adorned with too many different titles, making it difficult for historians to determine which identity truly represents the Awakener we know today.\nThais herself does not hesitate to share her past with us — it is all her, yet not entirely her.\n\"A noble birth defines her.\"\nThais will always be the most radiant girl in the Temple, as the child of the High Priest, she is as graceful as a swan and as gentle as moonlight.\n\"Kneeling before the Tree defines her.\"\nThais is the brightest leaf on the \"Tree,\" her devotion has earned her the blessings of the \"Tree.\" \n\"Having her blood fully drained defines her.\"\nIn the face of disaster, when the buildings collapsed, the ancient and ignorant civilization chose the best among them — her.\n\"Flowing with tree sap in her veins defines her.\"\nThe revered \"Tree\" makes its own choices. Its branches take root within her, granting believers nearly eternal life.\n\"But desiring the destruction of civilization does not define her.\"\nWhat Thais desires has never been the end of the world.\n\"But Miss Thais, what do you truly desire?\"\n\"Ah, didn't we agree? When the fruit between us ripens, you will know the answer.\"",
+        "unlockCondition": "Affinity Level 7"
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "content": "It is real.\nIt is a gaze cast by God, a branch extending into the universe.\nIt delights in the grandeur of history and hungers for the prosperity of civilization.\nIt seeks to transcend withering and overcome death.\nShe desires deep chanting, sandy soil and salty wind, silver leaves, and Mosul's moonlight.\nHarlot, witch, sorceress... These epithets from mankind mean nothing.\nIf even a single drop of blood escapes the black encroachment, they will reclaim eternity.",
+        "unlockCondition": "Affinity Level 9"
+      }
+    ]
+  },
+  "faction": "Out of the Aeons",
+  "aliases": [
+    "thais"
+  ],
+  "searchTags": [
+    "Arithmetica",
+    "Keyflare"
+  ]
+}

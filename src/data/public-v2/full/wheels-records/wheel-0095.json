@@ -1,0 +1,28 @@
+{
+  "id": "wheel-0095",
+  "name": "Man in the Mirror",
+  "assetId": "Weapon_Full_SR19",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "SIGIL_YIELD",
+  "descriptionTemplate": "Team Unique: At turn end, the wielder gains [StateArg1] Aliemus. When taking DMG, gain Shield equal to [StateArg2]% of the DMG at the start of next turn. If the current Realm is {Caro}, gain {Crimson Furnace} Healing equal to [StateArg2]% of the DMG instead.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "1.5",
+        "2",
+        "2.5",
+        "3"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "The mysterious lady approached her after the funeral.\n\n\"Poor child,\" she said, \"you shouldn't have had to go through this.\"\n\n\"Don't you know? After he caused Millie's death, Thompson went after him.\n\nThat scum Edward should have died last year, but someone saved him.\"\n\n\"Why? Oh, how should I know? Maybe they're two of a kind, or maybe... the 'saint' himself didn't realize his own sin.\nWhat was his line again? Ah yes, forgiveness. Forgiveness for sinners, for the crimes they commit.\"\n\n\"He believes everyone deserves a second chance. What do you think?\nShould we give Edward another chance, after he took Millie, your sister, and your mother?\"\n\n\"Exactly. People like him never change. So, you know what to do, right?\"\n\nShe was right. Such people never change.\nTo end these people, to end this evil, this tragedy, the only way is...\n\nTo expose their desires, lay bare their ugliness, let them tear each other apart, purge them completely—\nand welcome a land without sin.",
+  "lineupToken": "xO"
+}

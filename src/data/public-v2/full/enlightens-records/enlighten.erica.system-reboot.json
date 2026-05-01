@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.erica.system-reboot",
+  "ownerAwakenerId": "awakener-0015",
+  "slot": "E3",
+  "displayName": "System Reboot",
+  "descriptionTemplate": "{Function Overload} {Leap}: Has both DMG and Shield effects.",
+  "descriptionArgs": {}
+}

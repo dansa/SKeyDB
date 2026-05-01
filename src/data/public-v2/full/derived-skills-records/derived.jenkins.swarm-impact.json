@@ -1,0 +1,36 @@
+{
+  "id": "derived.jenkins.swarm-impact",
+  "displayName": "Swarm Impact",
+  "descriptionTemplate": "Deal [Damage:Arg2] DMG to a random enemy [Arg1] {plural:[Arg1]|time|times}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "0"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "derivedFromId": "skill.jenkins.mice-assemble",
+  "rootSkillId": "skill.jenkins.mice-assemble",
+  "ownerAwakenerId": "awakener-0025",
+  "cost": "1"
+}

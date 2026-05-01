@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.doll-inferno.every-world-drowned",
+  "ownerAwakenerId": "awakener-0018",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Every World, Drowned",
+  "descriptionTemplate": "{Rouse} {Soulblight} is enhanced: Each stack of {Finale} increases team DMG Amplification by 8%, and {Illusion's End} grants all Awakeners 30% Base Aliemus.",
+  "descriptionArgs": {}
+}

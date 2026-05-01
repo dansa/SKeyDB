@@ -1,0 +1,75 @@
+{
+  "id": "skill.doresain.necrotic-gala",
+  "ownerAwakenerId": "awakener-0014",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Necrotic Gala",
+  "descriptionTemplate": "[{Devour}: The Crit. Rate of this Exalt +[Arg2]%. Gain [Power:Arg1] {STR}.]\nDeal [Damage:Arg3] DMG to the enemy with lowest HP. This DMG enjoys [Arg4]% {STR} bonus. For every 1% HP the target is missing, the Final DMG of this Exalt +3%.\nIf there are 3 stacks of {Corpse}, Doresain eats them all to recover [Heal:Arg5] HP and double the Crit. DMG bonus of this hit.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "12.5",
+        "15",
+        "17.5",
+        "20",
+        "22.5",
+        "25"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "120",
+        "144",
+        "168",
+        "192",
+        "216",
+        "240"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "500",
+      "suffix": "%"
+    },
+    "Arg5": {
+      "kind": "scaling",
+      "values": [
+        "100",
+        "120",
+        "140",
+        "160",
+        "180",
+        "200"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.doresain.evernights-revel.skill.doresain.necrotic-gala",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.doresain.evernights-revel",
+      "ownerAwakenerId": "awakener-0014",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Doresain",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "[{Devour}: The Crit. Rate of this Exalt +[Arg2]%. Gain [Power:Arg1] {STR}.]Deal [Damage:Arg3] DMG to the enemy with lowest HP. This DMG enjoys [Arg4]% {STR} bonus. For every 1% HP the target is missing, the Final DMG of this Exalt +3%.If there are 3 stacks of {Corpse}, Doresain eats them all to recover [Heal:Arg5] HP and double the Crit. DMG bonus of this hit."
+      }
+    }
+  ]
+}

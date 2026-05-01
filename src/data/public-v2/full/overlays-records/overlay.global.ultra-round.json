@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.ultra-round",
+  "displayName": "Ultra Round",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Ultra Rounds"
+  ],
+  "descriptionTemplate": "Upon entering an {Ultra Round}, place all cards in {Ultra Space} into hand instead of drawing. DMG, Shield, HP Recovery, Keyflare, Aliemus, {STR} changes, {Poison}, {Counter}, and {Bleed} caused during {Ultra Rounds} -25%.",
+  "descriptionArgs": {}
+}

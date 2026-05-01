@@ -1,0 +1,50 @@
+{
+  "id": "skill.daffodil.strike",
+  "ownerAwakenerId": "awakener-0012",
+  "slot": "Strike",
+  "kind": "strike",
+  "displayName": "Strike",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Daffodil obtains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.daffodil.infinite-passage.skill.daffodil.strike",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.daffodil.infinite-passage",
+      "ownerAwakenerId": "awakener-0012",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Daffodil",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG, which enjoys a 2x {STR} bonus. Daffodil obtains [Energy:Arg2] Aliemus. {Leap}: Obtain 1 Arithmetica."
+      }
+    }
+  ]
+}

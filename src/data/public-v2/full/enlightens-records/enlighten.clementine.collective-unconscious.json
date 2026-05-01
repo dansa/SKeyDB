@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.clementine.collective-unconscious",
+  "ownerAwakenerId": "awakener-0010",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Collective Unconscious",
+  "descriptionTemplate": "{Rouse} {Call of Shaggai} is enhanced: DMG instances dealt by Clementine +1, and the {Symbiosis} cap increases to 20.",
+  "descriptionArgs": {}
+}

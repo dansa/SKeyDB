@@ -1,0 +1,42 @@
+{
+  "id": "skill.faint.sprouting-bud",
+  "ownerAwakenerId": "awakener-0016",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Sprouting Bud",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield, and restore [Heal:Arg2] HP. If {Death Resistance} has been triggered in this battle, this card will take effect one additional time.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3"
+}

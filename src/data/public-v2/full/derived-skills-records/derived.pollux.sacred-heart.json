@@ -1,0 +1,52 @@
+{
+  "id": "derived.pollux.sacred-heart",
+  "displayName": "Sacred Heart",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG and gain 3 stacks of {Sin Mark}. After playing, shuffle this card to the top of the Draw Pile. On the {ordinal:3rd} play, {Exhaust} and allow the next command card to benefit from the {Atonement by Pain} effect.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "70",
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "derivedFromId": "skill.pollux.sinless-verdict",
+  "rootSkillId": "skill.pollux.sinless-verdict",
+  "ownerAwakenerId": "awakener-0041",
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pollux.divine-revelation.derived.pollux.sacred-heart",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.pollux.divine-revelation",
+      "ownerAwakenerId": "awakener-0041",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Pollux",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG and gain 3 stacks of {Sin Mark}. After playing, shuffle this card into the top of the Draw Pile. On the {ordinal:3rd} play, {Exhaust} and make your next Command Card benefit from the {Atonement by Pain} effect, applying it 2 times."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.pollux.lux-diouskouron.derived.pollux.sacred-heart",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.pollux.lux-diouskouron",
+      "ownerAwakenerId": "awakener-0041",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Pollux",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG and gain 3 stacks of {Sin Mark}. After playing, shuffle this card into the top of the Draw Pile. On the {ordinal:3rd} play, {Exhaust} and make your next Command Card benefit from the {Atonement by Pain} effect, applying it 2 times."
+      }
+    }
+  ]
+}

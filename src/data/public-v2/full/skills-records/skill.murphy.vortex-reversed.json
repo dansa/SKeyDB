@@ -1,0 +1,72 @@
+{
+  "id": "skill.murphy.vortex-reversed",
+  "ownerAwakenerId": "awakener-0034",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Vortex Reversed",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies, with a [Arg4]% {Tentacle DMG} bonus. Apply {Weakness} and {Vulnerable} for [Arg2] {plural:[Arg2]|turn|turns}. Remove [Arg3]% {Sacrifice} stacks.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "38",
+        "41",
+        "44",
+        "47",
+        "50"
+      ],
+      "suffix": "%"
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "35",
+        "38",
+        "41",
+        "44",
+        "47",
+        "50"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.murphy.silent-defiance.skill.murphy.vortex-reversed",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.murphy.silent-defiance",
+      "ownerAwakenerId": "awakener-0034",
+      "operation": "mixed",
+      "ownerAwakenerName": "Murphy",
+      "upgraderType": "enlighten",
+      "patch": {
+        "cardKeywords": [
+          {
+            "id": "mechanic.retain"
+          }
+        ],
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies, and deal an additional 1 instance of DMG for every 2 Tentacles, with the DMG enjoying [Arg4]% {Tentacle DMG} bonus. Apply {Weakness} and {Vulnerable} for [Arg2] {plural:[Arg2]|turn|turns}. Remove [Arg3]% {Sacrifice} stacks."
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "wheel-0097",
+  "name": "Til the Snow Melts",
+  "assetId": "Weapon_Full_SR21",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DMG_AMP",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]%. At the start of the battle, the wielder gains 25 stacks of \"Snow\". Playing a card grants 2 Aliemus and removes 1 stack. Once all \"Snow\" stacks are removed, the wielder gains [StateArg2]% Crit. Rate.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "She stood atop the peak, raising the black spike in her hand.\n\nIn the raging blizzard, she faced the mountain of madness—and the fate that had abandoned, betrayed, and crushed her.\n\nShe would win in the end;\nthe snow would melt, and she would return in a new form.\n\nThat was what she had said.\n\nElworth is a land of extreme cold, where the snow never recedes.\n\nThis is common knowledge.\n\nJust as no warrior, however strong, could challenge a transcendent being, just as no man could overcome their own fate.\n\nAnd yet, the snow on that mountain melted anyway. Didn't it?",
+  "lineupToken": "xZ"
+}

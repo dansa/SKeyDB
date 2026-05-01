@@ -1,0 +1,37 @@
+{
+  "id": "skill.ramona.mundus-decree",
+  "ownerAwakenerId": "awakener-0042",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Mundus Decree",
+  "descriptionTemplate": "Gain [Arg1] Keyflare. Choose 1 card from the Draw Pile or Discard Pile, add it to your hand, and reduce its Arithmetica Cost to 0.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "100",
+        "120",
+        "140",
+        "160",
+        "180",
+        "200"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ramona.precious-ties.skill.ramona.mundus-decree",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.ramona.precious-ties",
+      "ownerAwakenerId": "awakener-0042",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Ramona",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Obtain [Arg1] Keyflare. Choose 1 card from the Draw Pile or Discard Pile and add it to your hand, reducing its Arithmetica Cost to 0. Shuffle 1 {Insight} into the Draw Pile."
+      }
+    }
+  ]
+}

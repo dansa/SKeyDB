@@ -1,0 +1,75 @@
+{
+  "id": "skill.kathigu-ra.defense",
+  "ownerAwakenerId": "awakener-0027",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Kathigu-Ra gains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.kathigu-ra.everburning-flame.skill.kathigu-ra.defense",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.kathigu-ra.everburning-flame",
+      "ownerAwakenerId": "awakener-0027",
+      "operation": "override_args",
+      "ownerAwakenerName": "Kathigu-Ra",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "DEF"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "7.5",
+              "9",
+              "10.5",
+              "12",
+              "13.5",
+              "15"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

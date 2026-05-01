@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.death-resistance",
+  "displayName": "Death Resistance",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "When taking fatal DMG, there is a chance to trigger {Death Resistance} and survive at 1 HP. Each trigger halves your {Death Resistance} % and subsequent {Death Resistance} gains during this exploration.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_012",
+  "textColor": "heal"
+}

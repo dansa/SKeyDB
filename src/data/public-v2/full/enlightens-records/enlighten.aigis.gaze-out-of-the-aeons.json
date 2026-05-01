@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.aigis.gaze-out-of-the-aeons",
+  "ownerAwakenerId": "awakener-0003",
+  "slot": "OverExalt",
+  "displayName": "Gaze Out of the Aeons",
+  "descriptionTemplate": "All Awakeners' DMG +25% this turn.",
+  "descriptionArgs": {}
+}

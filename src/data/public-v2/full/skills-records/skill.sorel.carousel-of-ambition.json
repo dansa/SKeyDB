@@ -1,0 +1,59 @@
+{
+  "id": "skill.sorel.carousel-of-ambition",
+  "ownerAwakenerId": "awakener-0046",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Carousel of Ambition",
+  "descriptionTemplate": "[{Infinite Devour}: This {Carousel of Ambition} deals +[Arg3] {plural:[Arg3]|instance|instances} of DMG, HP Recovery +[Heal:Arg6].] Randomly deal [Damage:Arg2] DMG [Arg1] {plural:[Arg1]|time|times}. Restore [Heal:Arg4] HP at turn end.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "6"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": [
+        "15",
+        "18",
+        "21",
+        "24",
+        "27",
+        "30"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    },
+    "Arg6": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "4.8",
+        "5.6",
+        "6.4",
+        "7.2",
+        "8"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100"
+}

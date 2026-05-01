@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.doresain.hollow-whispers",
+  "ownerAwakenerId": "awakener-0014",
+  "slot": "E2",
+  "displayName": "Hollow Whispers",
+  "descriptionTemplate": "For every 1% HP missing, Doresain's Command Cards' Base DMG, Shield, and Aliemus +1%.",
+  "descriptionArgs": {}
+}

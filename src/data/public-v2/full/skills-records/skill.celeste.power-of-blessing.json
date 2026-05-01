@@ -1,0 +1,86 @@
+{
+  "id": "skill.celeste.power-of-blessing",
+  "ownerAwakenerId": "awakener-0009",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Power of Blessing",
+  "descriptionTemplate": "Celeste gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. Celeste's Healing +10%. When healing, gain +[TentaclePower:Arg2] {Tentacle DMG}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.celeste.imaginary-cathuria.skill.celeste.power-of-blessing",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.celeste.imaginary-cathuria",
+      "ownerAwakenerId": "awakener-0009",
+      "operation": "mixed",
+      "ownerAwakenerName": "Celeste",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "150",
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Celeste gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. Celeste's Healing +10%. When healing, Temporary {Tentacle DMG} +[TentaclePower:Arg2]. When triggers resurrect of {Undying Bird of Paradise}, Temporary {Tentacle DMG} +[TentaclePower:Arg3], with the effect doubled in Boss Battles."
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "skill.agrippa.path-of-the-lost",
+  "ownerAwakenerId": "awakener-0002",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Path of the Lost",
+  "descriptionTemplate": "Agrippa gains [Energy:Arg1] Aliemus. {Rouse}: {Poison} applied by Agrippa increases by 50%. At the end of the turn, gain [Block:Arg2] Shield.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.agrippa.covenant-of-no-return.skill.agrippa.path-of-the-lost",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.agrippa.covenant-of-no-return",
+      "ownerAwakenerId": "awakener-0002",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Agrippa",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Agrippa gains [Energy:Arg1] Aliemus. {Rouse}: {Poison} applied by Agrippa +50%. At turn end, gain [Block:Arg2] Shield. Each time Agrippa inflicts or triggers {Poison} in the turn, this Shield +50%, up to 5 stacks."
+      }
+    }
+  ]
+}

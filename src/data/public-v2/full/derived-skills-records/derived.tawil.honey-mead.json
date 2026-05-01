@@ -1,0 +1,11 @@
+{
+  "id": "derived.tawil.honey-mead",
+  "displayName": "Honey Mead",
+  "descriptionTemplate": "Obtain 1 stack of Temporary {Barrier}.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "derived.tawil.memories",
+  "rootSkillId": "skill.tawil.pinions-of-time",
+  "ownerAwakenerId": "awakener-0047",
+  "cost": "0"
+}

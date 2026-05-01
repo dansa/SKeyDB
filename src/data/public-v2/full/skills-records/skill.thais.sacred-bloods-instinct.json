@@ -1,0 +1,38 @@
+{
+  "id": "skill.thais.sacred-bloods-instinct",
+  "ownerAwakenerId": "awakener-0048",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Sacred Blood's Instinct",
+  "descriptionTemplate": "{Embryo Fusion} +[Blood:Arg1]%, obtain Keyflare equivalent to 2× Thais's Keyflare Regen. Choose:{Blood of Fear}, {Blood of Decay}, {Blood of Coition}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38",
+        "40"
+      ],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.thais.forests-embrace.skill.thais.sacred-bloods-instinct",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.thais.forests-embrace",
+      "ownerAwakenerId": "awakener-0048",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Thais",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "{Embryo Fusion} +[Blood:Arg1]%, obtain Keyflare equivalent to 2× Thais's Keyflare Regen. Choose:{Blood of Fear}, {Blood of Decay}, {Blood of Coition}."
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.sorel.carlate-profond",
+  "ownerAwakenerId": "awakener-0046",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Écarlate Profond",
+  "descriptionTemplate": "{Rouse} {Host Lady's Privilege} is enhanced: Each time Sorel deals DMG: Her own Temporary Final DMG +2%, other Awakeners' Temporary Final DMG +1%, up to 15 times per turn.",
+  "descriptionArgs": {}
+}

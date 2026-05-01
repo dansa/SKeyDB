@@ -1,0 +1,8 @@
+{
+  "id": "talent.sanga.enlightenment-of-death",
+  "ownerAwakenerId": "awakener-0045",
+  "displayName": "Enlightenment of Death",
+  "family": "passive",
+  "descriptionTemplate": "For every 1% {Death Resistance} Sanga and her equipped WoD & Covenant have, increase the Aliemus gained from \"Basic Strike\" and \"Basic Defense\" by 0.03 points, and {The Lost Art} enjoys an additional 0.15% Crit. Rate and DMG bonus.",
+  "descriptionArgs": {}
+}

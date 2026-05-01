@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.vortice.endless-tide",
+  "ownerAwakenerId": "awakener-0055",
+  "slot": "E1",
+  "displayName": "Endless Tide",
+  "descriptionTemplate": "{Vortex! Shell!} additionally deals {Fixed DMG} equal to 0.5% Target's Max HP. Realm Mastery +50 after using {Abyssal! Vortex! Cannon!}.\nFor each point of Realm Mastery that Vortice, her WoDs, and Covenants have, {Vortex! Shell!} deals extra {Fixed DMG} equal to 0.005% Target's Max HP. Realm Mastery +0.5 after using {Abyssal! Vortex! Cannon!}.",
+  "descriptionArgs": {}
+}

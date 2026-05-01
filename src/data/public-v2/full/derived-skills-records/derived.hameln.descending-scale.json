@@ -1,0 +1,11 @@
+{
+  "id": "derived.hameln.descending-scale",
+  "displayName": "Descending Scale",
+  "descriptionTemplate": "The next non-Derived Command Card you play has -2 Arithmetica Cost.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "derivedFromId": "derived.hameln.symphony-of-harmony",
+  "rootSkillId": "skill.hameln.laudable-masterpiece",
+  "ownerAwakenerId": "awakener-0022",
+  "cost": "0"
+}

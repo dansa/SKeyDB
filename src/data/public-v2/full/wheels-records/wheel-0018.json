@@ -1,0 +1,25 @@
+{
+  "id": "wheel-0018",
+  "name": "Celestial Beast",
+  "assetId": "Weapon_Full_C04",
+  "ownerAwakenerId": "awakener-0031",
+  "ownerAwakenerName": "Lotan",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "CRIT_DMG",
+  "descriptionTemplate": "Team Unique: The Base DMG of the wielder's \"Strike\" and \"Exalt\" +[StateArg1]%. After the wielder uses \"Strike,\" they gain a 5% Temporary Crit. Rate, stacking up to 3 times per turn. Upon reaching 3 stacks, they gain 15% Temporary Crit. DMG.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "26",
+        "34",
+        "42",
+        "50"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "Time flowed, and Lotan could no longer clearly recall her memories of the planet's birth.\n\nShe only remembered that she was a chosen being.\n\n\nThis was a story that took place before all concepts had arisen.\n\n\"Life\" had not yet taken root, and the \"Gods\" were still far beyond the heavens.\n\nWithin this chaotic nebula, Chaos collided with Chaos, and matter gradually took form amidst the impacts and turbulence.\n\nStars gathered dust, rocks rose into mountainous shapes, and atmospheres condensed into vast bodies of water.\n\nThen, this place was declared a \"planet.\"\n\n\nThe soul of Chaos, trapped within the cage of time, crashed against the newborn soil.\n\nUnable to control its savage nature, driven by the urge to destroy, It toppled countless mountains and filled countless rivers and lakes.\n\nThen—The \"Gods\" crossed the distant stars and descended upon the barren world.\n\n\nThe \"Gods\" brought the seeds of civilization, and also imprisoned the soul of Chaos within a \"structured\" body.\n\n\"Make a pact with me...\"\n\nFacing the roaring Spirit of Chaos, the white-robed \"God\" whispered.\n\n\"A great civilization will be born here.\"\n\n\"You will meet wise but inactive philosophers, and clash with uncertain blades... In the future, you will no longer be ruled by destruction and devastation.\"\n\n\"Until that day comes... Until we are reunited, protect this place for me.\"",
+  "lineupToken": "c"
+}

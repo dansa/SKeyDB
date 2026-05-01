@@ -1,0 +1,54 @@
+{
+  "id": "skill.casiah.opening-act",
+  "ownerAwakenerId": "awakener-0007",
+  "slot": "Rouse",
+  "kind": "rouse",
+  "displayName": "Opening Act",
+  "descriptionTemplate": "Casiah gains [Energy:Arg1] Aliemus. {Rouse}: Casiah gains [Power:Arg2] Temporary {STR} for each card played.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ]
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "8",
+        "9.6",
+        "11.2",
+        "12.8",
+        "14.4",
+        "16"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.casiah.a-thousand-and-one-miracles.skill.casiah.opening-act",
+      "upgraderSlot": "AbsoluteAxiom",
+      "upgraderId": "enlighten.casiah.a-thousand-and-one-miracles",
+      "ownerAwakenerId": "awakener-0007",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Casiah",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Casiah gains [Energy:Arg1] Aliemus. {Rouse}: Each time Casiah plays 1 card, gain [Power:Arg2] Temporary {STR}. All Awakeners also trigger this effect when playing \"Strike\"."
+      }
+    }
+  ]
+}

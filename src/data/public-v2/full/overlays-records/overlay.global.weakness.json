@@ -1,0 +1,10 @@
+{
+  "id": "overlay.global.weakness",
+  "displayName": "Weakness",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "All DMG dealt -25%, remove 1 stack at turn end.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_005",
+  "textColor": "affliction"
+}

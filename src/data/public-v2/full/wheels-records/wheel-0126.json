@@ -1,0 +1,24 @@
+{
+  "id": "wheel-0126",
+  "name": "We Will Meet Again",
+  "assetId": "Weapon_Full_ZL07",
+  "ownerAwakenerName": null,
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "REALM_MASTERY",
+  "descriptionTemplate": "Team Unique: After switching Tentacle Stances, using {Crimson Furnace}, or unleashing {Annihilation}, draw the wielder's Command Card ×1; each effect has a cooldown of 3 turns. After the Exploration, all Awakeners in the team gain +[StateArg1]% Affinity.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "You and Ramona couldn't promise to meet again.\n\nAs the Gate slowly closed, the temporary farewell you'd envisioned in your hearts solidified into an inevitable eternity.\n\nSo, when she lightly hooked your little finger in those final, fleeting moments...\nit was already an unexpected and fortunate reunion.\n\n\"You haven't changed at all,\" she says.\n\nFor these words—for the faint warmth of her fingertip—you would give everything to leap across the galaxy and meet her, even across two worlds.\n\nNext year on this day, you vow with a pinky promise.",
+  "lineupToken": "yR"
+}

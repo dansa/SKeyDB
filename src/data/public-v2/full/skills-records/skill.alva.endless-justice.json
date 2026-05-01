@@ -1,0 +1,51 @@
+{
+  "id": "skill.alva.endless-justice",
+  "ownerAwakenerId": "awakener-0004",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Endless Justice",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all State Cards and Symptom Cards from your hand, and draw a number of cards equal to the quantity discarded.{Vulnerable} All enemies for 1 turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "50",
+        "60",
+        "70",
+        "80",
+        "90",
+        "100"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.alva.all-for-justice.skill.alva.endless-justice",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.alva.all-for-justice",
+      "ownerAwakenerId": "awakener-0004",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Alva",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all State Cards and Symptom Cards from your Hand, and draw a number of Cards equal to the number discarded +1. {Vulnerable} all enemies for 1 turn. Alva gains 50% Temporary Crit. Rate and Crit. DMG."
+      }
+    },
+    {
+      "id": "upgrade.enlighten.alva.relentless-fighter.skill.alva.endless-justice",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.alva.relentless-fighter",
+      "ownerAwakenerId": "awakener-0004",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Alva",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all State Cards and Symptom Cards from your hand, and draw a number of Cards equal to the quantity discarded +1. {Vulnerable} All enemies for 1 turn."
+      }
+    }
+  ]
+}

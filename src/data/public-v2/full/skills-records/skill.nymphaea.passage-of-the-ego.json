@@ -1,0 +1,110 @@
+{
+  "id": "skill.nymphaea.passage-of-the-ego",
+  "ownerAwakenerId": "awakener-0037",
+  "slot": "Exalt",
+  "kind": "exalt",
+  "displayName": "Passage of the Ego",
+  "descriptionTemplate": "Inflict [{Poison}:Arg1] {plural:[{Poison}:Arg1]|stack|stacks} of {Poison} on all enemies and trigger [Arg3]% of {Poison}. Obtain [Power:Arg2] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "45",
+        "54",
+        "63",
+        "72",
+        "81",
+        "90"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "4.5",
+        "5.4",
+        "6.3",
+        "7.2",
+        "8.1",
+        "9"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "120",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.nymphaea.frostbloom-tide.skill.nymphaea.passage-of-the-ego",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.nymphaea.frostbloom-tide",
+      "ownerAwakenerId": "awakener-0037",
+      "operation": "mixed",
+      "ownerAwakenerName": "Nymphaea",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "45",
+              "54",
+              "63",
+              "72",
+              "81",
+              "90"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "4.5",
+              "5.4",
+              "6.3",
+              "7.2",
+              "8.1",
+              "9"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "120",
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": [
+              "45",
+              "54",
+              "63",
+              "72",
+              "81",
+              "90"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          }
+        },
+        "descriptionTemplate": "Inflict [{Poison}:Arg1] {plural:[{Poison}:Arg1]|stack|stacks} of {Poison} on all enemies and trigger [Arg3]% of {Poison}. Obtain [Power:Arg2] {STR}. Subsequent uses of {Passage of the Ego} in this battle inflict [{Poison}:Arg4] more stacks of {Poison}."
+      }
+    },
+    {
+      "id": "upgrade.talent.nymphaea.immerse.skill.nymphaea.passage-of-the-ego",
+      "upgraderId": "talent.nymphaea.immerse",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "skill.nautila.no-trespassing",
+  "ownerAwakenerId": "awakener-0036",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "No Trespassing",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield and [Counterattack:Arg2] stacks of Temporary {Counter}. In Boss Battles, gain 3 times Temporary {Counter}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "24",
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "80",
+        "96",
+        "112",
+        "128",
+        "144",
+        "160"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.nautila.absent-cogwheel.skill.nautila.no-trespassing",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.nautila.absent-cogwheel",
+      "ownerAwakenerId": "awakener-0036",
+      "operation": "override_card_keywords",
+      "ownerAwakenerName": "Nautila",
+      "upgraderType": "enlighten",
+      "patch": {
+        "cardKeywords": [
+          {
+            "id": "mechanic.retain"
+          },
+          {
+            "id": "mechanic.prepare",
+            "value": 1
+          }
+        ]
+      }
+    }
+  ]
+}

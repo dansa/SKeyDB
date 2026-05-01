@@ -1,0 +1,12 @@
+{
+  "id": "overlay.global.vulnerable",
+  "displayName": "Vulnerable",
+  "overlayType": "mechanic",
+  "aliases": [
+    "Vulnerability"
+  ],
+  "descriptionTemplate": "All DMG taken +50%, remove 1 stack at turn end.",
+  "descriptionArgs": {},
+  "iconId": "Battle_Card_Buff_003",
+  "textColor": "damage"
+}

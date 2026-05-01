@@ -1,0 +1,50 @@
+{
+  "id": "skill.murphy-fauxborn.defense",
+  "ownerAwakenerId": "awakener-0035",
+  "slot": "Defense",
+  "kind": "defense",
+  "displayName": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Murphy: Fauxborn gains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "DEF"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.murphy-fauxborn.profane-apocalypse.skill.murphy-fauxborn.defense",
+      "upgraderSlot": "E3",
+      "upgraderId": "enlighten.murphy-fauxborn.profane-apocalypse",
+      "ownerAwakenerId": "awakener-0035",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Murphy: Fauxborn",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Murphy: Fauxborn gains [Energy:Arg2] Aliemus. Draw 1 {Abyss Hymns}, takes effect once per turn."
+      }
+    }
+  ]
+}

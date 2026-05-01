@@ -1,0 +1,10 @@
+{
+  "id": "skill.tulu.the-promised-day",
+  "ownerAwakenerId": "awakener-0050",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "The Promised Day",
+  "descriptionTemplate": "Command all Tentacles to attack twice at turn end.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

@@ -1,0 +1,39 @@
+{
+  "id": "skill.erica.unleash-mecha",
+  "ownerAwakenerId": "awakener-0015",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Unleash: Mecha",
+  "descriptionTemplate": "Obtain [Power:Arg1] Temporary {STR}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Weakness} state. Whenever 1 card enters {Ultra Space}, transform to {Retract: Mecha}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "0",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.erica.auto-rectification.skill.erica.unleash-mecha",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.erica.auto-rectification",
+      "ownerAwakenerId": "awakener-0015",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Erica",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Obtain [Power:Arg1] Temporary {STR}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Weakness} state. Add 1 \"Strike\" with {Exhaust} attached by Erica to your hand. Whenever a card enters the {Ultra Space}, transform into {Retract: Mecha}."
+      }
+    }
+  ]
+}

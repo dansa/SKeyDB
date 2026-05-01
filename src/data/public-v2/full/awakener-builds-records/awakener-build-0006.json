@@ -1,0 +1,101 @@
+{
+  "id": "awakener-build-0006",
+  "awakenerId": "awakener-0006",
+  "primaryBuildId": "defence",
+  "builds": [
+    {
+      "id": "defence",
+      "label": "Defence",
+      "substatPriorityGroups": [
+        [
+          "KEYFLARE_REGEN"
+        ],
+        [
+          "ALIEMUS_REGEN",
+          "DMG_AMP"
+        ]
+      ],
+      "recommendedWheels": [
+        {
+          "tier": "BIS_SSR",
+          "wheelIds": [
+            "wheel-0053"
+          ]
+        },
+        {
+          "tier": "ALT_SSR",
+          "wheelIds": [
+            "wheel-0122"
+          ]
+        },
+        {
+          "tier": "BIS_SR",
+          "wheelIds": [
+            "wheel-0091"
+          ]
+        },
+        {
+          "tier": "GOOD",
+          "wheelIds": [
+            "wheel-0095",
+            "wheel-0089",
+            "wheel-0081",
+            "wheel-0078"
+          ]
+        }
+      ],
+      "recommendedCovenantIds": [
+        "covenant-0018",
+        "covenant-0008"
+      ],
+      "recommendedWheelMainstats": [
+        "KEYFLARE_REGEN",
+        "ALIEMUS_REGEN",
+        "DMG_AMP"
+      ]
+    },
+    {
+      "id": "counter-carry",
+      "label": "Counter Carry",
+      "substatPriorityGroups": [
+        [
+          "CRIT_RATE"
+        ],
+        [
+          "CRIT_DMG"
+        ],
+        [
+          "KEYFLARE_REGEN"
+        ]
+      ],
+      "recommendedWheels": [
+        {
+          "tier": "BIS_SSR",
+          "wheelIds": [
+            "wheel-0121"
+          ]
+        },
+        {
+          "tier": "ALT_SSR",
+          "wheelIds": [
+            "wheel-0055"
+          ]
+        },
+        {
+          "tier": "BIS_SR",
+          "wheelIds": [
+            "wheel-0084"
+          ]
+        }
+      ],
+      "recommendedCovenantIds": [
+        "covenant-0014",
+        "covenant-0020"
+      ],
+      "recommendedWheelMainstats": [
+        "CRIT_RATE",
+        "CRIT_DMG"
+      ]
+    }
+  ]
+}

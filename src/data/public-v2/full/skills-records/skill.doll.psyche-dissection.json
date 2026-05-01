@@ -1,0 +1,24 @@
+{
+  "id": "skill.doll.psyche-dissection",
+  "ownerAwakenerId": "awakener-0013",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Psyche Dissection",
+  "descriptionTemplate": "At turn start, restore HP equal to [Arg1]% of Doll's CON, lasting for 3 turns. (effect scales with {Rationality, Truth, and Reality} skill level).",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "40",
+        "48",
+        "56",
+        "64",
+        "72",
+        "80"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    }
+  },
+  "cardKeywords": []
+}

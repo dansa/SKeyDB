@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.faros.congealed-ambergris",
+  "ownerAwakenerId": "awakener-0017",
+  "slot": "E2",
+  "displayName": "Congealed Ambergris",
+  "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" allow 1 Tentacle to attack once, but only deal 50% DMG.",
+  "descriptionArgs": {}
+}

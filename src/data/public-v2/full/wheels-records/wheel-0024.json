@@ -1,0 +1,60 @@
+{
+  "id": "wheel-0024",
+  "name": "Grace Through Pain",
+  "assetId": "Weapon_Full_C10",
+  "ownerAwakenerId": "awakener-0029",
+  "ownerAwakenerName": "Lily",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "DEATH_RESISTANCE",
+  "descriptionTemplate": "Team Unique: The wielder's {Poison} and Shield Generation +[StateArg3]%. the wielder's \"Strike\" Crit. Rate and Crit. DMG increase by [StateArg1]%, and gain a Shield equal to [StateArg2]% of Max HP. The Shield Effect can only activate once per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "25",
+        "30",
+        "35"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "computed",
+      "expression": {
+        "op": "add",
+        "args": [
+          {
+            "const": 4.0
+          },
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "wheelRefinementLevel"
+              },
+              {
+                "const": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": [
+        "wheelRefinementLevel"
+      ]
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "\"What is memory?\" \n\"It is what you have forgotten.\" \n\nLily has a forgetful mother. \nShe forgets to call Lily for meals, forgets to give Lily her medicine, and even forgets Lily's name. \n\"What should I do?\" \nLily sat on the hospital bed, pretending to be deep in thought, and sighed. \nSuch a mother is truly worrying. \n\nLater, Lily wrote her name on a wooden board and hung it around her neck every day. \nThat should help her remember, right? \nAt first, her mother could still laugh and say she was overreacting, that it was just a complication from long-term fatigue. \n\nGradually, she began to show confusion and impatience: \n\"Lily... what is Lily?\" \nAmber eyes gazed at Lily, carrying a hint of veiled caution. \nIt turned out that when the meaning of words is forgotten, the harmony temporarily maintained through language will ultimately disappear. \n\nLily hugged her mother. \nThe heartbeats of mother and daughter were merely inches apart, yet she felt extremely lonely. \n\nAfter that day, Lily put away the wooden board, no longer indulged in her mother's affection, and stopped reminding her that she had gone hungry for many days. \nShe was a sick patient on the brink of death, numbly waiting for the verdict of death. \nShe was a distant spectator, watching herself being injected, anesthetized, and manipulated into any form her mother wished her to be. \nThe happy words exchanged between mother and daughter, the soft embraces... \nThose joyful memories flashing like dreamy bubbles were carefully locked in Lily's heart. \nOnly on some weary nights did she reluctantly take them out and gently savor them.",
+  "lineupToken": "R"
+}

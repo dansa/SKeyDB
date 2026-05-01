@@ -1,0 +1,59 @@
+{
+  "id": "skill.tulu.abyss-order",
+  "ownerAwakenerId": "awakener-0050",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Abyss Order",
+  "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies, which enjoys an additional [Arg3]% {Tentacle DMG} and {STR} bonus. Make all Tentacles attack [Arg2] {plural:[Arg2]|time|times}, dealing {Pierce DMG}. {Aftershock}: Command 1 Tentacle to attack.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "30",
+        "36",
+        "42",
+        "48",
+        "54",
+        "60"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "0",
+      "substatBonus": {
+        "substat": "AliemusRegen",
+        "multiplier": "15"
+      },
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "4",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.tulu.nocturnal-murmurs.skill.tulu.abyss-order",
+      "upgraderSlot": "E1",
+      "upgraderId": "enlighten.tulu.nocturnal-murmurs",
+      "ownerAwakenerId": "awakener-0050",
+      "operation": "replace_description",
+      "ownerAwakenerName": "Tulu",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies, which enjoys an additional [Arg3]% {Tentacle DMG} and {STR} bonus. Make all Tentacles attack [Arg2] {plural:[Arg2]|time|times}, dealing {Pierce DMG}. If the current Stance is {Tranquil Sea}, reduce Arithmetica Cost by 2. {Aftershock}: Command 1 Tentacle to attack."
+      }
+    },
+    {
+      "id": "upgrade.talent.tulu.divine-kings-power.skill.tulu.abyss-order",
+      "upgraderId": "talent.tulu.divine-kings-power",
+      "operation": "link_only",
+      "upgraderType": "talent",
+      "patch": {}
+    }
+  ]
+}

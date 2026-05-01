@@ -1,0 +1,8 @@
+{
+  "id": "talent.lily.surging-darkness",
+  "ownerAwakenerId": "awakener-0029",
+  "displayName": "Surging Darkness",
+  "family": "passive",
+  "descriptionTemplate": "For every 1% {Death Resistance} Lily and her equipped WoD & Covenant have, the Base Shield of {Forbidden Swamp} and \"Basic Defense\" +0.25%, and in Boss Battles, the accumulation and limit of {Endure} increase by 0.25%.\nWhen Lily is in the team, gain 1 stack of {Endure} for each lost HP, with an {Endure} stack limit equal to Max HP.",
+  "descriptionArgs": {}
+}

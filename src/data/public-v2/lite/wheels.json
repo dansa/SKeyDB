@@ -1,0 +1,1287 @@
+{
+  "schemaVersion": 1,
+  "scope": "wheels",
+  "recordCount": 130,
+  "records": [
+    {
+      "id": "wheel-0001",
+      "name": "Merciful Nurturing",
+      "assetId": "Weapon_Full_B01",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0048",
+      "ownerAwakenerName": "Thais",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "xb"
+    },
+    {
+      "id": "wheel-0002",
+      "name": "Tablet of Scriptures",
+      "assetId": "Weapon_Full_B02",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0044",
+      "ownerAwakenerName": "Salvador",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "xC"
+    },
+    {
+      "id": "wheel-0003",
+      "name": "Winter's Requiem",
+      "assetId": "Weapon_Full_B03",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0003",
+      "ownerAwakenerName": "Aigis",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "W"
+    },
+    {
+      "id": "wheel-0004",
+      "name": "By Rose Alone",
+      "assetId": "Weapon_Full_B04",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0046",
+      "ownerAwakenerName": "Sorel",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "xc"
+    },
+    {
+      "id": "wheel-0005",
+      "name": "Chains Unbound",
+      "assetId": "Weapon_Full_B05",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0023",
+      "ownerAwakenerName": "Helot",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "3"
+    },
+    {
+      "id": "wheel-0006",
+      "name": "Drowning in Crimson",
+      "assetId": "Weapon_Full_B05EX",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0019",
+      "ownerAwakenerName": "Helot: Catena",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "xY"
+    },
+    {
+      "id": "wheel-0007",
+      "name": "Pale Descendant",
+      "assetId": "Weapon_Full_B06",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0002",
+      "ownerAwakenerName": "Agrippa",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "xA"
+    },
+    {
+      "id": "wheel-0008",
+      "name": "Bloody Feast",
+      "assetId": "Weapon_Full_B07",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0051",
+      "ownerAwakenerName": "Uvhash",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "0"
+    },
+    {
+      "id": "wheel-0009",
+      "name": "The Glutton's Tale",
+      "assetId": "Weapon_Full_B08",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0028",
+      "ownerAwakenerName": "Leigh",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "xk"
+    },
+    {
+      "id": "wheel-0010",
+      "name": "Lullaby Devoured",
+      "assetId": "Weapon_Full_B09",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0016",
+      "ownerAwakenerName": "Faint",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "C"
+    },
+    {
+      "id": "wheel-0011",
+      "name": "Kiss of Repose",
+      "assetId": "Weapon_Full_B10",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0014",
+      "ownerAwakenerName": "Doresain",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "yP"
+    },
+    {
+      "id": "wheel-0012",
+      "name": "Paradoxical Realism",
+      "assetId": "Weapon_Full_B12",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0040",
+      "ownerAwakenerName": "Pickman",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "yd"
+    },
+    {
+      "id": "wheel-0013",
+      "name": "Vain Regrets",
+      "assetId": "Weapon_Full_B14",
+      "rarity": "SSR",
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0054",
+      "ownerAwakenerName": "Xu",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "yX"
+    },
+    {
+      "id": "wheel-0014",
+      "name": "Rewinding Time",
+      "assetId": "Weapon_Full_C01",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0042",
+      "ownerAwakenerName": "Ramona",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "Z"
+    },
+    {
+      "id": "wheel-0015",
+      "name": "Deathless Ascent",
+      "assetId": "Weapon_Full_C02",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0013",
+      "ownerAwakenerName": "Doll",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "4"
+    },
+    {
+      "id": "wheel-0016",
+      "name": "Manikin of Oblivion",
+      "assetId": "Weapon_Full_C02EX",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0018",
+      "ownerAwakenerName": "Doll: Inferno",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "xW"
+    },
+    {
+      "id": "wheel-0017",
+      "name": "Heart of a Knight",
+      "assetId": "Weapon_Full_C03",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0038",
+      "ownerAwakenerName": "Ogier",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "8"
+    },
+    {
+      "id": "wheel-0018",
+      "name": "Celestial Beast",
+      "assetId": "Weapon_Full_C04",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0031",
+      "ownerAwakenerName": "Lotan",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "c"
+    },
+    {
+      "id": "wheel-0019",
+      "name": "Hour of Fortune",
+      "assetId": "Weapon_Full_C05",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0043",
+      "ownerAwakenerName": "Ryker",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "xJ"
+    },
+    {
+      "id": "wheel-0020",
+      "name": "Aberrant Devour",
+      "assetId": "Weapon_Full_C06",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0001",
+      "ownerAwakenerName": "24",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "n"
+    },
+    {
+      "id": "wheel-0021",
+      "name": "Memory Spiral",
+      "assetId": "Weapon_Full_C07",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0036",
+      "ownerAwakenerName": "Nautila",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "7"
+    },
+    {
+      "id": "wheel-0022",
+      "name": "Gift of Decay",
+      "assetId": "Weapon_Full_C08",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0037",
+      "ownerAwakenerName": "Nymphaea",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "o"
+    },
+    {
+      "id": "wheel-0023",
+      "name": "Drifting in Desire",
+      "assetId": "Weapon_Full_C09",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0039",
+      "ownerAwakenerName": "Pandia",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "xd"
+    },
+    {
+      "id": "wheel-0024",
+      "name": "Grace Through Pain",
+      "assetId": "Weapon_Full_C10",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0029",
+      "ownerAwakenerName": "Lily",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "R"
+    },
+    {
+      "id": "wheel-0025",
+      "name": "Will Unyielding",
+      "assetId": "Weapon_Full_C11",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0004",
+      "ownerAwakenerName": "Alva",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "G"
+    },
+    {
+      "id": "wheel-0026",
+      "name": "Silent Banquet",
+      "assetId": "Weapon_Full_C12",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0026",
+      "ownerAwakenerName": "Karen",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "xh"
+    },
+    {
+      "id": "wheel-0027",
+      "name": "Wheel Unseen",
+      "assetId": "Weapon_Full_C15",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0047",
+      "ownerAwakenerName": "Tawil",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "xV"
+    },
+    {
+      "id": "wheel-0028",
+      "name": "Amber-Tinted Death",
+      "assetId": "Weapon_Full_C16",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0027",
+      "ownerAwakenerName": "Kathigu-Ra",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "yn"
+    },
+    {
+      "id": "wheel-0029",
+      "name": "Doomsday Rampage",
+      "assetId": "Weapon_Full_C17",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0033",
+      "ownerAwakenerName": "Mouchette",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "yM"
+    },
+    {
+      "id": "wheel-0030",
+      "name": "Fouetté",
+      "assetId": "Weapon_Full_D01",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0030",
+      "ownerAwakenerName": "Liz",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "t"
+    },
+    {
+      "id": "wheel-0031",
+      "name": "Treasured Rarity",
+      "assetId": "Weapon_Full_D02",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0012",
+      "ownerAwakenerName": "Daffodil",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "l"
+    },
+    {
+      "id": "wheel-0032",
+      "name": "Song of the Bound",
+      "assetId": "Weapon_Full_D03",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0049",
+      "ownerAwakenerName": "Tinct",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "X"
+    },
+    {
+      "id": "wheel-0033",
+      "name": "Queen's Edict",
+      "assetId": "Weapon_Full_D04",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0052",
+      "ownerAwakenerName": "Wanda",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "D"
+    },
+    {
+      "id": "wheel-0034",
+      "name": "Incalculable Factor",
+      "assetId": "Weapon_Full_D05",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0053",
+      "ownerAwakenerName": "Winkle",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "xf"
+    },
+    {
+      "id": "wheel-0035",
+      "name": "The Last Verse",
+      "assetId": "Weapon_Full_D06",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0024",
+      "ownerAwakenerName": "Horla",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "k"
+    },
+    {
+      "id": "wheel-0036",
+      "name": "Path Forsaken",
+      "assetId": "Weapon_Full_D07",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0025",
+      "ownerAwakenerName": "Jenkin",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "2"
+    },
+    {
+      "id": "wheel-0037",
+      "name": "Core Meltdown",
+      "assetId": "Weapon_Full_D08",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0015",
+      "ownerAwakenerName": "Erica",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "s"
+    },
+    {
+      "id": "wheel-0038",
+      "name": "Happy Magic Show",
+      "assetId": "Weapon_Full_D09",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0007",
+      "ownerAwakenerName": "Casiah",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "S"
+    },
+    {
+      "id": "wheel-0039",
+      "name": "Unbearable Freedom",
+      "assetId": "Weapon_Full_D11",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0008",
+      "ownerAwakenerName": "Castor",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "yb"
+    },
+    {
+      "id": "wheel-0040",
+      "name": "Eternal Requiem",
+      "assetId": "Weapon_Full_D12",
+      "rarity": "SSR",
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0022",
+      "ownerAwakenerName": "Hameln",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "xX"
+    },
+    {
+      "id": "wheel-0041",
+      "name": "Veiled Anguish",
+      "assetId": "Weapon_Full_D13",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0010",
+      "ownerAwakenerName": "Clementine",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "yf"
+    },
+    {
+      "id": "wheel-0042",
+      "name": "Twisted Knight Ballad",
+      "assetId": "Weapon_Full_D14",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0041",
+      "ownerAwakenerName": "Pollux",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "yg"
+    },
+    {
+      "id": "wheel-0043",
+      "name": "Special Training",
+      "assetId": "Weapon_Full_JP01",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "yJ"
+    },
+    {
+      "id": "wheel-0044",
+      "name": "School Day",
+      "assetId": "Weapon_Full_JP02",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "yI"
+    },
+    {
+      "id": "wheel-0045",
+      "name": "Dear Papa Noel",
+      "assetId": "Weapon_Full_JP03",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "yS"
+    },
+    {
+      "id": "wheel-0046",
+      "name": "Countdown Moment",
+      "assetId": "Weapon_Full_JP04",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "yT"
+    },
+    {
+      "id": "wheel-0047",
+      "name": "Stakes of Wisdom",
+      "assetId": "Weapon_Full_JP06",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "y8"
+    },
+    {
+      "id": "wheel-0048",
+      "name": "Unsent Flowers",
+      "assetId": "Weapon_Full_N01",
+      "rarity": "N",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "ya"
+    },
+    {
+      "id": "wheel-0049",
+      "name": "Roses in Mud",
+      "assetId": "Weapon_Full_N02",
+      "rarity": "N",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "yY"
+    },
+    {
+      "id": "wheel-0050",
+      "name": "Hymn of the Sovereign",
+      "assetId": "Weapon_Full_O01",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0050",
+      "ownerAwakenerName": "Tulu",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "B"
+    },
+    {
+      "id": "wheel-0051",
+      "name": "Shrouded Birth",
+      "assetId": "Weapon_Full_O02",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0034",
+      "ownerAwakenerName": "Murphy",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "m"
+    },
+    {
+      "id": "wheel-0052",
+      "name": "Amidst the Downpour",
+      "assetId": "Weapon_Full_O03",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0017",
+      "ownerAwakenerName": "Faros",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "v"
+    },
+    {
+      "id": "wheel-0053",
+      "name": "Fin of Sorrow",
+      "assetId": "Weapon_Full_O04",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0006",
+      "ownerAwakenerName": "Caecus",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "e"
+    },
+    {
+      "id": "wheel-0054",
+      "name": "Dream of the Sea",
+      "assetId": "Weapon_Full_O05",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0005",
+      "ownerAwakenerName": "Aurita",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "9"
+    },
+    {
+      "id": "wheel-0055",
+      "name": "Blade of the Titan",
+      "assetId": "Weapon_Full_O06",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0021",
+      "ownerAwakenerName": "Goliath",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "1"
+    },
+    {
+      "id": "wheel-0056",
+      "name": "Power of the Pious",
+      "assetId": "Weapon_Full_O07",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0032",
+      "ownerAwakenerName": "Miryam",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "xK"
+    },
+    {
+      "id": "wheel-0057",
+      "name": "Death of Ms. Coral",
+      "assetId": "Weapon_Full_O08",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0045",
+      "ownerAwakenerName": "Sanga",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "A"
+    },
+    {
+      "id": "wheel-0058",
+      "name": "Sail of Providence",
+      "assetId": "Weapon_Full_O09",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0009",
+      "ownerAwakenerName": "Celeste",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "f"
+    },
+    {
+      "id": "wheel-0059",
+      "name": "Flamebound Navigator",
+      "assetId": "Weapon_Full_O10",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0011",
+      "ownerAwakenerName": "Corposant",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "ye"
+    },
+    {
+      "id": "wheel-0060",
+      "name": "The Faraway Eden",
+      "assetId": "Weapon_Full_O11",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0055",
+      "ownerAwakenerName": "Vortice",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "y6"
+    },
+    {
+      "id": "wheel-0061",
+      "name": "Gluttony",
+      "assetId": "Weapon_Full_P01",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "xs"
+    },
+    {
+      "id": "wheel-0062",
+      "name": "Frenzy",
+      "assetId": "Weapon_Full_P02",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "xr"
+    },
+    {
+      "id": "wheel-0063",
+      "name": "Favor",
+      "assetId": "Weapon_Full_P03",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "xq"
+    },
+    {
+      "id": "wheel-0064",
+      "name": "Emerge",
+      "assetId": "Weapon_Full_P04",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "xp"
+    },
+    {
+      "id": "wheel-0065",
+      "name": "Delirium",
+      "assetId": "Weapon_Full_P05",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "xo"
+    },
+    {
+      "id": "wheel-0066",
+      "name": "Whisper",
+      "assetId": "Weapon_Full_P06",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "xn"
+    },
+    {
+      "id": "wheel-0067",
+      "name": "Hope",
+      "assetId": "Weapon_Full_P07",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "xm"
+    },
+    {
+      "id": "wheel-0068",
+      "name": "Epiphany",
+      "assetId": "Weapon_Full_P08",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "xu"
+    },
+    {
+      "id": "wheel-0069",
+      "name": "Punishment",
+      "assetId": "Weapon_Full_P09",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "xt"
+    },
+    {
+      "id": "wheel-0070",
+      "name": "Blessing",
+      "assetId": "Weapon_Full_P10",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "xl"
+    },
+    {
+      "id": "wheel-0071",
+      "name": "Vitality",
+      "assetId": "Weapon_Full_P11",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "xi"
+    },
+    {
+      "id": "wheel-0072",
+      "name": "Exile",
+      "assetId": "Weapon_Full_P12",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "xj"
+    },
+    {
+      "id": "wheel-0073",
+      "name": "Suction",
+      "assetId": "Weapon_Full_P13",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "g"
+    },
+    {
+      "id": "wheel-0074",
+      "name": "Aged",
+      "assetId": "Weapon_Full_P14",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "i"
+    },
+    {
+      "id": "wheel-0076",
+      "name": "Insight",
+      "assetId": "Weapon_Full_P16",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "xv"
+    },
+    {
+      "id": "wheel-0077",
+      "name": "Duty's Gravitas",
+      "assetId": "Weapon_Full_SR01",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "5"
+    },
+    {
+      "id": "wheel-0078",
+      "name": "Elevated Focus",
+      "assetId": "Weapon_Full_SR02",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "xD"
+    },
+    {
+      "id": "wheel-0079",
+      "name": "Cursed Binding",
+      "assetId": "Weapon_Full_SR03",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "6"
+    },
+    {
+      "id": "wheel-0080",
+      "name": "Sever and Scar",
+      "assetId": "Weapon_Full_SR04",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "xE"
+    },
+    {
+      "id": "wheel-0081",
+      "name": "Cloaked in the Night",
+      "assetId": "Weapon_Full_SR05",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "V"
+    },
+    {
+      "id": "wheel-0082",
+      "name": "Adventurer's Pack",
+      "assetId": "Weapon_Full_SR06",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "xF"
+    },
+    {
+      "id": "wheel-0083",
+      "name": "Analysis of Death",
+      "assetId": "Weapon_Full_SR07",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "xG"
+    },
+    {
+      "id": "wheel-0084",
+      "name": "To My Dearest Friend",
+      "assetId": "Weapon_Full_SR08",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "xH"
+    },
+    {
+      "id": "wheel-0085",
+      "name": "Memory Syndrome",
+      "assetId": "Weapon_Full_SR09",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "xI"
+    },
+    {
+      "id": "wheel-0086",
+      "name": "Mind Barrier",
+      "assetId": "Weapon_Full_SR10",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "J"
+    },
+    {
+      "id": "wheel-0087",
+      "name": "Critical Point",
+      "assetId": "Weapon_Full_SR11",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "U"
+    },
+    {
+      "id": "wheel-0088",
+      "name": "Nobleman's Staff",
+      "assetId": "Weapon_Full_SR12",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "H"
+    },
+    {
+      "id": "wheel-0089",
+      "name": "Data is Flesh",
+      "assetId": "Weapon_Full_SR13",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "I"
+    },
+    {
+      "id": "wheel-0090",
+      "name": "Moment of Reunion",
+      "assetId": "Weapon_Full_SR14",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "r"
+    },
+    {
+      "id": "wheel-0091",
+      "name": "The Land of Nonexistence",
+      "assetId": "Weapon_Full_SR15",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "M"
+    },
+    {
+      "id": "wheel-0092",
+      "name": "Hand of Oblivion",
+      "assetId": "Weapon_Full_SR16",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "K"
+    },
+    {
+      "id": "wheel-0093",
+      "name": "35mm Magic",
+      "assetId": "Weapon_Full_SR17",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "xM"
+    },
+    {
+      "id": "wheel-0094",
+      "name": "The Gaze of Isarawu",
+      "assetId": "Weapon_Full_SR18",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "xN"
+    },
+    {
+      "id": "wheel-0095",
+      "name": "Man in the Mirror",
+      "assetId": "Weapon_Full_SR19",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "xO"
+    },
+    {
+      "id": "wheel-0096",
+      "name": "Silver Cod's Determination",
+      "assetId": "Weapon_Full_SR20",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "xP"
+    },
+    {
+      "id": "wheel-0097",
+      "name": "Til the Snow Melts",
+      "assetId": "Weapon_Full_SR21",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "xZ"
+    },
+    {
+      "id": "wheel-0098",
+      "name": "Deep Sea's Call",
+      "assetId": "Weapon_Full_SR22",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "xQ"
+    },
+    {
+      "id": "wheel-0099",
+      "name": "Kiss of Farewell",
+      "assetId": "Weapon_Full_SR23",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "xS"
+    },
+    {
+      "id": "wheel-0100",
+      "name": "Poetic Bygone Days",
+      "assetId": "Weapon_Full_SR24",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "xR"
+    },
+    {
+      "id": "wheel-0101",
+      "name": "Million Loving Gaze",
+      "assetId": "Weapon_Full_SR25",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "xU"
+    },
+    {
+      "id": "wheel-0102",
+      "name": "Slumber Beneath the Glacier",
+      "assetId": "Weapon_Full_SR26",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "x4"
+    },
+    {
+      "id": "wheel-0103",
+      "name": "Fate Roulette",
+      "assetId": "Weapon_Full_SR27",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "SIGIL_YIELD",
+      "lineupToken": "x3"
+    },
+    {
+      "id": "wheel-0104",
+      "name": "Gateway of Truth",
+      "assetId": "Weapon_Full_SR28",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "x5"
+    },
+    {
+      "id": "wheel-0105",
+      "name": "Never-Ending Performance",
+      "assetId": "Weapon_Full_SR29",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "x2"
+    },
+    {
+      "id": "wheel-0106",
+      "name": "Shepherd's Staff",
+      "assetId": "Weapon_Full_SR30",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "x1"
+    },
+    {
+      "id": "wheel-0107",
+      "name": "Blue Stone Throne",
+      "assetId": "Weapon_Full_SR31",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "x7"
+    },
+    {
+      "id": "wheel-0109",
+      "name": "Macabre Delicacies",
+      "assetId": "Weapon_Full_SR33",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "yO"
+    },
+    {
+      "id": "wheel-0110",
+      "name": "Witch's Wide-brimmed Hat",
+      "assetId": "Weapon_Full_SR34",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "x8"
+    },
+    {
+      "id": "wheel-0111",
+      "name": "Blue-Ringed Toxin",
+      "assetId": "Weapon_Full_SR35",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "yQ"
+    },
+    {
+      "id": "wheel-0112",
+      "name": "Lone Feather",
+      "assetId": "Weapon_Full_SR39",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "yq"
+    },
+    {
+      "id": "wheel-0113",
+      "name": "The Divus' Visage",
+      "assetId": "Weapon_Full_SR40",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "yD"
+    },
+    {
+      "id": "wheel-0114",
+      "name": "Navigator at Sea",
+      "assetId": "Weapon_Full_SR41",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "yv"
+    },
+    {
+      "id": "wheel-0115",
+      "name": "Thirsting Brush",
+      "assetId": "Weapon_Full_SR42",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "yt"
+    },
+    {
+      "id": "wheel-0116",
+      "name": "Impending Sun",
+      "assetId": "Weapon_Full_SR43",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "yE"
+    },
+    {
+      "id": "wheel-0117",
+      "name": "Light of Intellect",
+      "assetId": "Weapon_Full_SR44",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "yK"
+    },
+    {
+      "id": "wheel-0118",
+      "name": "Magnolia's Lure",
+      "assetId": "Weapon_Full_SR45",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "yW"
+    },
+    {
+      "id": "wheel-0119",
+      "name": "Imprisoned Madness",
+      "assetId": "Weapon_Full_SR46",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "y7"
+    },
+    {
+      "id": "wheel-0120",
+      "name": "Spring in Yakutsk",
+      "assetId": "Weapon_Full_ZL01",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "u"
+    },
+    {
+      "id": "wheel-0121",
+      "name": "Sunfall",
+      "assetId": "Weapon_Full_ZL02",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DMG_AMP",
+      "lineupToken": "N"
+    },
+    {
+      "id": "wheel-0122",
+      "name": "Birth of a Soul",
+      "assetId": "Weapon_Full_ZL03",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "O"
+    },
+    {
+      "id": "wheel-0123",
+      "name": "Dusk and Dawn",
+      "assetId": "Weapon_Full_ZL04",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "lineupToken": "xT"
+    },
+    {
+      "id": "wheel-0124",
+      "name": "Heart of Silver",
+      "assetId": "Weapon_Full_ZL05",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "x6"
+    },
+    {
+      "id": "wheel-0125",
+      "name": "Annihilated Rebirth",
+      "assetId": "Weapon_Full_ZL06",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "yH"
+    },
+    {
+      "id": "wheel-0126",
+      "name": "We Will Meet Again",
+      "assetId": "Weapon_Full_ZL07",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "yR"
+    },
+    {
+      "id": "wheel-0128",
+      "name": "Eternal Weave",
+      "assetId": "Weapon_Full_D10",
+      "rarity": "SSR",
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0056",
+      "ownerAwakenerName": "Arachne",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "yi"
+    },
+    {
+      "id": "wheel-0130",
+      "name": "Private Afternoon",
+      "assetId": "Weapon_Full_JP12",
+      "rarity": "SSR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "CRIT_DMG",
+      "lineupToken": "y9"
+    },
+    {
+      "id": "wheel-0131",
+      "name": "Uteri Somnia",
+      "assetId": "Weapon_Full_O02EX",
+      "rarity": "SSR",
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0035",
+      "ownerAwakenerName": "Murphy: Fauxborn",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "yp"
+    },
+    {
+      "id": "wheel-0132",
+      "name": "Rota Fortunae",
+      "assetId": "Weapon_Full_SR36",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "yu"
+    },
+    {
+      "id": "wheel-0136",
+      "name": "Greed",
+      "assetId": "Weapon_Full_P15",
+      "rarity": "R",
+      "realm": "NEUTRAL",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "lineupToken": "xB"
+    },
+    {
+      "id": "wheel-0137",
+      "name": "Hypnotic Pendulum",
+      "assetId": "Weapon_Full_SR32",
+      "rarity": "SR",
+      "realm": "NEUTRAL",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "lineupToken": "x0"
+    }
+  ]
+}

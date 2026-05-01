@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.pickman.art-is-madness",
+  "ownerAwakenerId": "awakener-0040",
+  "slot": "OverExalt",
+  "displayName": "Art is Madness",
+  "descriptionTemplate": "Gain 1 stack of {Fantasia} and additionally {Discover} 1 time.",
+  "descriptionArgs": {}
+}

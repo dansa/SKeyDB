@@ -1,0 +1,10 @@
+{
+  "id": "skill.winkle.space-time-fold",
+  "ownerAwakenerId": "awakener-0053",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Space-Time Fold",
+  "descriptionTemplate": "Grants the selected Awakener 35 Aliemus at turn start for 3 turns.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

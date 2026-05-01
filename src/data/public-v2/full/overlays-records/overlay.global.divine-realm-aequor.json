@@ -1,0 +1,8 @@
+{
+  "id": "overlay.global.divine-realm-aequor",
+  "displayName": "Divine Realm: Aequor",
+  "overlayType": "realm",
+  "aliases": [],
+  "descriptionTemplate": "When certain Awakeners are in the team, the {Aequor} Realm ascends to {Divine Realm: Aequor}. {Tentacle DMG} is changed to 5% of the team's Max HP. Team DMG Amplification +50% after exploration begins; this effect is doubled if the team is entirely {Aequor} and {Chaos} Awakeners, though no additional starting Tentacles are obtained. Tentacle Gathering is removed, {Divine Realm: Tentacle Stance} replaces the standard Tentacle Stance, and Realm Mastery is counted as {Divine Realm: Aequor Mastery}.",
+  "descriptionArgs": {}
+}

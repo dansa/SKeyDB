@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.liz.omens-descent",
+  "ownerAwakenerId": "awakener-0030",
+  "slot": "OverExalt",
+  "displayName": "Omen's Descent",
+  "descriptionTemplate": "Upgrade all {Green Flames} and {Corrupted Flames} in your hand to {Deadly Flames}. For 3 turns, at turn start, this effect will repeat once.",
+  "descriptionArgs": {}
+}

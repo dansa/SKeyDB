@@ -1,0 +1,23 @@
+{
+  "id": "wheel-0085",
+  "name": "Memory Syndrome",
+  "assetId": "Weapon_Full_SR09",
+  "ownerAwakenerName": null,
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DEATH_RESISTANCE",
+  "descriptionTemplate": "Team Unique: After playing a Symptom card, the wielder gains [StateArg1] Aliemus. This effect triggers up to 2 times per turn. After playing a Command Card, the wielder gains 1 Aliemus.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ]
+    }
+  },
+  "lore": "Crowley held the title of \"Most Popular Mentor\" every year he taught.\n\nHis slightly awkward West Constante accent and genuine smile won over countless students, including Herbert.\n\nIn A.F.2@1, Crowley defied objections and took Herbert, who was unremarkable at that time, as his student.\n\nTogether, they crossed mountains, forded streams, and trekked deserts, leaving footprints outside one D-Rift after another.\n\n\nHerbert can still remember the shock of seeing a D-Rift for the first time.\n\nCrowley stood before the billowing black mist, his silhouette small against it.\n\n\"Shh—can you hear that?\"\n\nHerbert closed his eyes.\nAll he heard was the sound of a silent, rolling ocean; the world seemed to drift away.\n\nCrowley was thrilled.\n\"This is poetry,\" he said.\n\"The most mysterious, profound poetry in the universe.\"\n\nYears later, Herbert's memories of Crowley had mostly faded—\nhow they worked together, argued, and even how he \"accidentally\" killed him.\n\nBut he would always remember that smile beneath the black mist.\nIn that moment, he saw the poetry.",
+  "lineupToken": "xI"
+}

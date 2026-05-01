@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.faint.ever-barren-rainbow",
+  "ownerAwakenerId": "awakener-0016",
+  "slot": "AbsoluteAxiom",
+  "displayName": "Ever-Barren Rainbow",
+  "descriptionTemplate": "{Rouse} {Boundless Starlight} is enhanced: When played, immediately and permanently {Steal} {STR} equal to 20% of ATK from all enemies.",
+  "descriptionArgs": {}
+}

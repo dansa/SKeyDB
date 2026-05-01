@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.ramona-timeworn.klein-bottle-voyager",
+  "ownerAwakenerId": "awakener-0020",
+  "slot": "E2",
+  "displayName": "Klein Bottle Voyager",
+  "descriptionTemplate": "Each time you use a Posse, Ramona: Timeworn gains +25% Temporary Crit. Rate and Temporary Crit. DMG.",
+  "descriptionArgs": {}
+}

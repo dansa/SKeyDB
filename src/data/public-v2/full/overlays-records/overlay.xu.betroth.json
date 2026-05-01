@@ -1,0 +1,16 @@
+{
+  "id": "overlay.xu.betroth",
+  "displayName": "Betroth",
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Spellbound} on all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "ownerAwakenerId": "awakener-0054",
+  "iconId": "Battle_Card_Buff_080",
+  "textColor": "damage"
+}

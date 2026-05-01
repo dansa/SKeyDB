@@ -1,0 +1,10 @@
+{
+  "id": "skill.celeste.divine-vigil",
+  "ownerAwakenerId": "awakener-0009",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Divine Vigil",
+  "descriptionTemplate": "Place 3 {Tintless Dream} cards that boost healing by 50% into hand and attach {Exhaust}.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

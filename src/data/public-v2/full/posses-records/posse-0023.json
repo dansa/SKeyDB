@@ -1,0 +1,16 @@
+{
+  "id": "posse-0023",
+  "name": "The Lone Seed",
+  "descriptionTemplate": "Choose a Non-Derived Command Card in hand and create a Base Copy of it. The copy has {Exhaust}. Increase its owner's Aliemus by [Arg1].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "lore": "She will pass the Lone Seed to your tongue.\nThe strength of blood, the faith of inheritance, the courage to transcend, and deep affection... she entrusts everything to you.",
+  "realm": "CARO",
+  "assetId": "posse-icon-23",
+  "imageAssetId": "CG_C07_002",
+  "lineupToken": "G"
+}

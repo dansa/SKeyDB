@@ -1,0 +1,88 @@
+{
+  "id": "skill.sorel.elegance-of-rose",
+  "ownerAwakenerId": "awakener-0046",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Elegance of Rose",
+  "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg3] {plural:[Arg3]|time|times}. Restore [Heal:Arg2] HP at turn end.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "12",
+        "14.4",
+        "16.8",
+        "19.2",
+        "21.6",
+        "24"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "suffix": "%",
+      "stat": "CON"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "4"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.sorel.vintage-nectar.skill.sorel.elegance-of-rose",
+      "upgraderSlot": "E2",
+      "upgraderId": "enlighten.sorel.vintage-nectar",
+      "ownerAwakenerId": "awakener-0046",
+      "operation": "mixed",
+      "ownerAwakenerName": "Sorel",
+      "upgraderType": "enlighten",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": [
+              "15",
+              "18",
+              "21",
+              "24",
+              "27",
+              "30"
+            ],
+            "suffix": "%",
+            "stat": "ATK"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ],
+            "suffix": "%",
+            "stat": "CON"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "4"
+          }
+        },
+        "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg3] {plural:[Arg3]|time|times}. For each instance of DMG dealt, Temporarily Crit. Rate +5%. Restore [Heal:Arg2] HP at turn end"
+      }
+    }
+  ]
+}

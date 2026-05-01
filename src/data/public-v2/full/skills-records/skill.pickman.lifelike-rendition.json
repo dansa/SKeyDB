@@ -1,0 +1,28 @@
+{
+  "id": "skill.pickman.lifelike-rendition",
+  "ownerAwakenerId": "awakener-0040",
+  "slot": "Skill2",
+  "kind": "command",
+  "displayName": "Lifelike Rendition",
+  "descriptionTemplate": "{Embryo Fusion} +[Arg1]%. Remove {Void} state. {Discover} 3 {Painted Silver Relics} and choose 1 to obtain. The Relic lasts for [Arg2] {plural:[Arg2]|turn|turns}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "20",
+        "22",
+        "24",
+        "26",
+        "28",
+        "30"
+      ],
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2"
+}

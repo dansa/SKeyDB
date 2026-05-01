@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.helot-catena.remnants-requiem",
+  "ownerAwakenerId": "awakener-0019",
+  "slot": "E3",
+  "displayName": "Remnant's Requiem",
+  "descriptionTemplate": "At the start of the battle, add 1 {Irregular Form: Chains} to your hand. {Sanguine Fetters} breaks the target's shield and prevents the target from obtaining Shield for 1 turn.",
+  "descriptionArgs": {}
+}

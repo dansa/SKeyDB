@@ -1,0 +1,8 @@
+{
+  "id": "talent.pollux.atonement-by-pain",
+  "ownerAwakenerId": "awakener-0041",
+  "displayName": "Atonement by Pain",
+  "family": "passive",
+  "descriptionTemplate": "The first Command Card Pollux plays in a turn deals DMG+200% of his ATK, generates Shield +50% of his DEF, and +10 Aliemus.\nAfter the battle, Pollux's Base DMG and the {Atonement by Pain} DMG effect +20% in exploration, and the {Atonement by Pain} DMG effect is doubled in Boss Battle.",
+  "descriptionArgs": {}
+}

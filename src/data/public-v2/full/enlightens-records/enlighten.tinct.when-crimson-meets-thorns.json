@@ -1,0 +1,8 @@
+{
+  "id": "enlighten.tinct.when-crimson-meets-thorns",
+  "ownerAwakenerId": "awakener-0049",
+  "slot": "AbsoluteAxiom",
+  "displayName": "When Crimson Meets Thorns",
+  "descriptionTemplate": "{Rouse} {Voices from Beyond} is enhanced: The first time Tinct plays a \"Skill\" each turn, generate 1 Temporary \"Strike\" with 0 Arithmetica Cost.",
+  "descriptionArgs": {}
+}

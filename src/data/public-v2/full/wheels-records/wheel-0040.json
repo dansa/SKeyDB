@@ -1,0 +1,45 @@
+{
+  "id": "wheel-0040",
+  "name": "Eternal Requiem",
+  "assetId": "Weapon_Full_D12",
+  "ownerAwakenerId": "awakener-0022",
+  "ownerAwakenerName": "Hameln",
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "KEYFLARE_REGEN",
+  "descriptionTemplate": "Team Unique: At the start of exploration, shuffle 1 \"Silver Key Radiance\" with {Destroy} into the Draw Pile. After releasing Posse, the wielder's Crit. DMG +[StateArg1]%. When the wielder deals DMG, gain Keyflare equal to [StateArg2]% of the wielder's Keyflare Regen and [StateArg3]% Temporary Crit. Rate, up to 5 times per turn.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "50",
+        "60",
+        "70",
+        "80"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "He always pushed himself hard and drove away all his companions with his harshness, thinking he would walk this path alone forever in pursuit of musical perfection.\nThe heights are cold, and he accepted this destined fate.\nUntil he heard that person's performance.\nIt had nothing to do with perfection. The music was too unrestrained, like the person himself, sometimes deviating from the score and even suddenly forgetting parts. Then, his hands would improvise with clever, lively melodies, earning surprise and praise.\nHe watched him, as if watching a musical sprite play among the notes.\nThis is what his father called talent, indeed. He was deeply attracted, like everyone else, but he couldn't change his steps.\nHe was too ordinary and foolish, only able to traverse this laboriously paved path.\nEveryone followed that person, and he grew further and further apart.\nHe longed to be close to him, but besides playing, he knew nothing else.\nHow to converse with him? What kind of score would attract his attention?\nHe composed scores as if drafting opening words. Until he had no chance to speak again.\nDeep regret consumed him, making all else meaningless.\nOnly that unfinished letter remained, meant for the departed soul.\nHe exhausted himself, ultimately collapsing before the score, dreaming without reaching the end of the path.\nIf I can never reach the end, what is my life's persistence for?\nDistant flute music from the light pacified his questioning soul.\nIn a daze, he picked up the flute, realizing his true mission.\nWith his ceaseless playing, bring eternal peace.",
+  "lineupToken": "xX"
+}

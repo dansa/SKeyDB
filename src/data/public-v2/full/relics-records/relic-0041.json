@@ -1,0 +1,19 @@
+{
+  "id": "relic-0041",
+  "kind": "PORTRAIT",
+  "relicType": "DIMENSIONAL_IMAGE",
+  "name": "Dimensional Image: Pollux",
+  "assetId": "Icon_Creation_Unique_D14",
+  "ownerAwakenerId": "awakener-0041",
+  "ownerAwakenerName": "Pollux",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "descriptionTemplate": "At turn start, Pollux gains [Arg1] Aliemus. At the start of the battle, gain 1 {Sacred Heart}. When {Exhausted} at its {ordinal:3rd} use, {Sacred Heart} inflicts Vulnerable on all enemies and deal DMG twice.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "lore": null
+}

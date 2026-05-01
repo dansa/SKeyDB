@@ -1,0 +1,10 @@
+{
+  "id": "skill.jenkins.gotcha",
+  "ownerAwakenerId": "awakener-0025",
+  "slot": "OverExalt",
+  "kind": "over_exalt",
+  "displayName": "Gotcha!",
+  "descriptionTemplate": "Place 1 {Ultimate Assemble!} with {Exhaust} into hand.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

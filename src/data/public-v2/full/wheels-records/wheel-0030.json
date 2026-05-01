@@ -1,0 +1,45 @@
+{
+  "id": "wheel-0030",
+  "name": "Fouetté",
+  "assetId": "Weapon_Full_D01",
+  "ownerAwakenerId": "awakener-0030",
+  "ownerAwakenerName": "Liz",
+  "rarity": "SSR",
+  "realm": "ULTRA",
+  "mainstatKey": "CRIT_RATE",
+  "descriptionTemplate": "Team Unique: The wielder's Active DMG +an amount equal to the wielder's ATK ×[StateArg3]%. After playing or discarding 1 of the wielder's Command Cards, deal DMG equal to the wielder's ATK ×[StateArg1]% as {Poison} to a random enemy once. After the {Ultra Round} ends, there is a [StateArg2]% chance to trigger 100% {Poison} on all enemies.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": [
+        "7.5",
+        "9",
+        "10.5",
+        "12"
+      ],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": [
+        "55",
+        "70",
+        "85",
+        "100"
+      ],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": [
+        "11",
+        "14",
+        "17",
+        "20"
+      ],
+      "suffix": "%"
+    }
+  },
+  "lore": "On a grand stage, a young girl is dancing.\nHer hair is tightly coiled into a bun, adorned with white feathers and a delicate crown. Her pure white dress flares out with her movements, twirling gracefully to the mournful sound of violins.\nWith arms extended and toes pointed, the white swan lowers its neck, sharing its sorrow and grief with the prince.\nYoung Liz watches with her mouth slightly open, captivated by the graceful figure on stage. That dancer is her cousin, who came to live with them before Liz was born and trained rigorously under their grandmother. Usually plain and quiet, her cousin has never appeared so vibrant, like a swan ready to take flight. She, along with everyone else in the theater, is entranced by her cousin's Shadow.\nLiz's heart beats faster and faster—how enviable! She too wants to be that swan, to leave her mark on the eternal stage. She knows she can do it. Didn't her grandmother praise her long, straight legs when she thought Liz wasn't listening? Didn't her cousin, the former prima ballerina, say she had great potential? Yes, once she starts, once she puts on those pointe shoes, people will come from distant cities to watch her perform. She will be the greatest dancer of this century, a shining star in the world of ballet!\nAt that time, she didn't know the only thing awaiting her was scorching flames.",
+  "lineupToken": "t"
+}

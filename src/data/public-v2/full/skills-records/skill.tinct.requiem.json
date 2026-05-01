@@ -1,0 +1,38 @@
+{
+  "id": "skill.tinct.requiem",
+  "ownerAwakenerId": "awakener-0049",
+  "slot": "Skill1",
+  "kind": "command",
+  "displayName": "Requiem",
+  "descriptionTemplate": "Dispel self {Fragile}, {Weakness}, and {Vulnerable} states. {Steal} [Arg1] {STR} from all enemies. Next card is guaranteed to trigger the {Leap} effect in this turn. {Leap}: Instead, {Steal} [Arg2] {STR} from the front-row enemy.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": [
+        "7.5",
+        "9",
+        "10.5",
+        "12",
+        "13.5",
+        "15"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": [
+        "17.5",
+        "21",
+        "24.5",
+        "28",
+        "31.5",
+        "35"
+      ],
+      "suffix": "%",
+      "stat": "ATK"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2"
+}

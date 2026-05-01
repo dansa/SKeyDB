@@ -1,0 +1,17 @@
+{
+  "id": "posse-0038",
+  "name": "Undying Sun",
+  "descriptionTemplate": "Recover 1 Arithmetica and gain [Arg1]% Temp. DMG Amplification. If Kathigu-Ra is in your team, draw 1 of her cards and apply 1 stack of {Fiamma} to it",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    }
+  },
+  "lore": "Even if the false black sun has obscured the sky, the true sun will never extinguish.\nThe brief sunset at this moment is meant to burst forth a more blazing sun.\nNow, the sun burning with amber flames rises again, never to set again.",
+  "realm": "CHAOS",
+  "assetId": "posse-icon-40",
+  "imageAssetId": "CG_SD_S_C16_2",
+  "lineupToken": "R"
+}
