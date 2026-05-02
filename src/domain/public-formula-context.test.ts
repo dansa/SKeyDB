@@ -30,7 +30,7 @@ describe('public-formula-context', () => {
     expect(context).toEqual({
       accountLevel: 33,
       ownedPosseCount: 1,
-      wheelRefinementLevel: 4,
+      wheelRefinementLevel: 3,
     })
   })
 
@@ -63,9 +63,10 @@ describe('public-formula-context', () => {
   })
 
   it('uses the existing wheel enhancement clamp for wheel refinement level', () => {
-    expect(buildPublicFormulaContext({wheelEnhanceLevel: 999}).wheelRefinementLevel).toBe(15)
+    expect(buildPublicFormulaContext({wheelEnhanceLevel: 999}).wheelRefinementLevel).toBe(3)
     expect(buildPublicFormulaContext({wheelEnhanceLevel: -3}).wheelRefinementLevel).toBe(0)
     expect(buildPublicFormulaContext({wheelEnhanceLevel: 2.9}).wheelRefinementLevel).toBe(2)
+    expect(buildPublicFormulaContext({wheelEnhanceLevel: 4}).wheelRefinementLevel).toBe(3)
   })
 
   it('keeps the public formula context type closed to reviewed keys', () => {

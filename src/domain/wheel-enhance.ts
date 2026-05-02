@@ -9,19 +9,23 @@ export function clampWheelEnhanceLevel(level: number): number {
 }
 
 export function resolveWheelDescriptionRank(enhanceLevel: number): number {
+  return resolveWheelDescriptionFormulaLevel(enhanceLevel) + 1
+}
+
+export function resolveWheelDescriptionFormulaLevel(enhanceLevel: number): number {
   const normalizedLevel = clampWheelEnhanceLevel(enhanceLevel)
 
   if (normalizedLevel === 0) {
-    return 1
+    return 0
   }
   if (normalizedLevel === 1) {
-    return 2
+    return 1
   }
   if (normalizedLevel === 2) {
-    return 3
+    return 2
   }
 
-  return 4
+  return 3
 }
 
 export function getWheelEnhanceDiamondCount(enhanceLevel: number): number {

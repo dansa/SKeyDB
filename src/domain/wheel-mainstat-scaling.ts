@@ -133,7 +133,7 @@ export function resolveWheelMainstatValue(
   }
 
   const normalizedLevel = Math.max(0, Math.floor(enhanceLevel))
-  const growthSteps = Math.max(0, normalizedLevel - parsedWheelMainstatScaling.growthStartLevel)
+  const growthSteps = Math.max(0, normalizedLevel - parsedWheelMainstatScaling.growthStartLevel + 1)
 
   return formatWheelMainstatValue(
     baseValue.numericValue + perLevel.numericValue * growthSteps,

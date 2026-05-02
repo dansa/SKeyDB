@@ -1,7 +1,7 @@
 import type {CollectionOwnershipState} from './collection-ownership'
 import {clampAccountLevel} from './gameplay-math-metadata'
 import {getPosses} from './posses'
-import {clampWheelEnhanceLevel} from './wheel-enhance'
+import {resolveWheelDescriptionFormulaLevel} from './wheel-enhance'
 
 export interface PublicFormulaContext {
   accountLevel?: number
@@ -38,7 +38,7 @@ export function buildPublicFormulaContext(
   }
 
   if (typeof input.wheelEnhanceLevel === 'number') {
-    context.wheelRefinementLevel = clampWheelEnhanceLevel(input.wheelEnhanceLevel)
+    context.wheelRefinementLevel = resolveWheelDescriptionFormulaLevel(input.wheelEnhanceLevel)
   }
 
   return context
