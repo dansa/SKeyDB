@@ -11,6 +11,8 @@ vi.mock('../domain/awakeners', () => ({
       faction: 'Among the Stars',
       realm: 'CHAOS',
       aliases: ['goliath'],
+      tags: [],
+      lineupToken: 'f',
     },
     {
       id: 'awakener-0042',
@@ -19,6 +21,8 @@ vi.mock('../domain/awakeners', () => ({
       faction: 'The Fools',
       realm: 'CHAOS',
       aliases: ['ramona'],
+      tags: [],
+      lineupToken: 'N',
     },
     {
       id: 'awakener-0020',
@@ -27,6 +31,8 @@ vi.mock('../domain/awakeners', () => ({
       faction: 'The Fools',
       realm: 'CHAOS',
       aliases: ['timeworn ramona'],
+      tags: [],
+      lineupToken: 'j',
     },
     {
       id: 'awakener-0002',
@@ -35,6 +41,8 @@ vi.mock('../domain/awakeners', () => ({
       faction: 'Outlanders',
       realm: 'AEQUOR',
       aliases: ['agrippa'],
+      tags: [],
+      lineupToken: 'S',
     },
     {
       id: 'awakener-0007',
@@ -43,6 +51,8 @@ vi.mock('../domain/awakeners', () => ({
       faction: 'The Fools',
       realm: 'CARO',
       aliases: ['casiah'],
+      tags: [],
+      lineupToken: 'n',
     },
   ],
 }))
@@ -57,6 +67,9 @@ vi.mock('../domain/wheels', () => ({
       realm: 'AEQUOR',
       awakener: 'goliath',
       mainstatKey: 'CRIT_RATE',
+      aliases: ['Merciful Nurturing'],
+      tags: [],
+      lineupToken: 'm',
     },
     {
       id: 'wheel-0051',
@@ -66,6 +79,9 @@ vi.mock('../domain/wheels', () => ({
       realm: 'AEQUOR',
       awakener: 'goliath',
       mainstatKey: 'CRIT_DMG',
+      aliases: ['Tablet of Scriptures'],
+      tags: [],
+      lineupToken: 'v',
     },
     {
       id: 'wheel-0077',
@@ -75,6 +91,9 @@ vi.mock('../domain/wheels', () => ({
       realm: 'NEUTRAL',
       awakener: '',
       mainstatKey: 'ATK',
+      aliases: ['Training Relic'],
+      tags: [],
+      lineupToken: '5',
     },
     {
       id: 'wheel-0052',
@@ -84,6 +103,9 @@ vi.mock('../domain/wheels', () => ({
       realm: 'AEQUOR',
       awakener: 'goliath',
       mainstatKey: 'KEYFLARE_REGEN',
+      aliases: ['Signal Through Silence'],
+      tags: [],
+      lineupToken: 'e',
     },
     {
       id: 'wheel-0053',
@@ -93,6 +115,9 @@ vi.mock('../domain/wheels', () => ({
       realm: 'AEQUOR',
       awakener: 'goliath',
       mainstatKey: 'ALIEMUS_REGEN',
+      aliases: ['Mute Witness'],
+      tags: [],
+      lineupToken: '9',
     },
   ],
   getWheelMainstatLabel: () => '',
@@ -107,15 +132,23 @@ vi.mock('../domain/posses', () => ({
       realm: 'CHAOS',
       isFadedLegacy: false,
       awakenerName: 'goliath',
+      lineupToken: 'L',
     },
-    {id: 'posse-0003', index: 1, name: 'Warded Injection', realm: 'AEQUOR', isFadedLegacy: false},
+    {
+      id: 'posse-0003',
+      index: 1,
+      name: 'Warded Injection',
+      realm: 'AEQUOR',
+      isFadedLegacy: false,
+      lineupToken: 'b',
+    },
   ],
 }))
 
 vi.mock('../domain/covenants', () => ({
   getCovenants: () => [
-    {id: 'c01', assetId: 'Covenant_01', name: 'Deus Ex Machina'},
-    {id: 'c02', assetId: 'Covenant_02', name: 'Signal Pulse'},
+    {id: 'c01', assetId: 'Covenant_01', name: 'Deus Ex Machina', lineupToken: 'k'},
+    {id: 'c02', assetId: 'Covenant_02', name: 'Signal Pulse', lineupToken: 'm'},
   ],
 }))
 

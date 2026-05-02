@@ -1,155 +1,75 @@
 import {describe, expect, it} from 'vitest'
 
-import possesCanonical from '@/data/ingame-tokens/posses.json'
-
 import {
   buildIngameTokenDictionaries,
   buildTokenDictionaryFromEntries,
-  type CanonicalTokenEntry,
+  type LineupTokenEntry,
 } from './ingame-token-dictionaries'
-import {getPosses} from './posses'
 
 describe('buildTokenDictionaryFromEntries', () => {
-  it('maps ids and tokens when entries are unique', () => {
+  it('maps public ids and lineup tokens when entries are unique', () => {
     const result = buildTokenDictionaryFromEntries({
       category: 'awakeners',
-      ids: ['a', 'b'],
-      sourceEntries: [
-        {id: 'a', token: 'x'},
-        {id: 'b', token: 'y'},
+      entries: [
+        {id: 'awakener-0001', lineupToken: 'x'},
+        {id: 'awakener-0002', lineupToken: 'y'},
       ],
     })
 
-    expect(result.byIdToken.get('a')).toBe('x')
-    expect(result.byIdToken.get('b')).toBe('y')
-    expect(result.byTokenId.get('x')).toBe('a')
-    expect(result.byTokenId.get('y')).toBe('b')
+    expect(result.byIdToken.get('awakener-0001')).toBe('x')
+    expect(result.byIdToken.get('awakener-0002')).toBe('y')
+    expect(result.byTokenId.get('x')).toBe('awakener-0001')
+    expect(result.byTokenId.get('y')).toBe('awakener-0002')
     expect(result.issues).toEqual([])
   })
 
-  it('reports duplicate tokens and excludes ambiguous mappings', () => {
+  it('reports duplicate tokens and excludes ambiguous reverse mappings', () => {
     const result = buildTokenDictionaryFromEntries({
       category: 'wheels',
-      ids: ['a', 'b'],
-      sourceEntries: [
-        {id: 'a', token: 'x'},
-        {id: 'b', token: 'x'},
+      entries: [
+        {id: 'wheel-0001', lineupToken: 'x'},
+        {id: 'wheel-0002', lineupToken: 'x'},
       ],
     })
 
     expect(result.byTokenId.has('x')).toBe(false)
-    expect(result.byIdToken.get('a')).toBe('x')
-    expect(result.byIdToken.get('b')).toBe('x')
-    expect(result.issues.some((issue) => issue.kind === 'duplicate_token')).toBe(true)
-  })
-
-  it('reports missing ids from the canonical catalog', () => {
-    const result = buildTokenDictionaryFromEntries({
-      category: 'posses',
-      ids: ['a', 'b'],
-      sourceEntries: [{id: 'a', token: 'x'}],
-    })
-
-    expect(result.byIdToken.get('a')).toBe('x')
-    expect(result.byIdToken.has('b')).toBe(false)
-    expect(
-      result.issues.some((issue) => issue.kind === 'missing_token_for_id' && issue.id === 'b'),
-    ).toBe(true)
-  })
-
-  it('reports unknown source ids', () => {
-    const result = buildTokenDictionaryFromEntries({
-      category: 'awakeners',
-      ids: ['a'],
-      sourceEntries: [{id: 'z', token: 'x'}],
-    })
-
-    expect(
-      result.issues.some((issue) => issue.kind === 'unknown_source_id' && issue.id === 'z'),
-    ).toBe(true)
+    expect(result.byIdToken.get('wheel-0001')).toBe('x')
+    expect(result.byIdToken.get('wheel-0002')).toBe('x')
+    expect(result.issues).toEqual([{category: 'wheels', kind: 'duplicate_token', token: 'x'}])
   })
 })
 
 describe('buildIngameTokenDictionaries', () => {
-  it('builds non-empty awakeners and wheels dictionaries from raw data', () => {
+  it('builds non-empty dictionaries from public V2 lineupToken fields', () => {
     const result = buildIngameTokenDictionaries()
+
     expect(result.awakeners.byIdToken.size).toBeGreaterThan(40)
     expect(result.wheels.byIdToken.size).toBeGreaterThan(100)
-  })
-
-  it('uses canonical posse ids rather than display names in the tracked token file', () => {
-    const result = buildIngameTokenDictionaries()
-
-    expect(result.posses.byIdToken.get('posse-0047')).toBe('2')
-    expect(result.posses.byIdToken.get('posse-0002')).toBe('h')
-    expect(result.posses.byIdToken.has('Manor Echoes')).toBe(false)
-    expect(
-      result.issues.some(
-        (issue) => issue.category === 'posses' && issue.kind === 'unknown_source_id',
-      ),
-    ).toBe(false)
-  })
-
-  it('tracks every posse id in the canonical token file and leaves unresolved tokens blank', () => {
-    const posseIds = getPosses().map((posse) => posse.id)
-    const canonicalPosseEntryById = new Map(possesCanonical.map((entry) => [entry.id, entry.token]))
-
-    expect(canonicalPosseEntryById.size).toBeLessThanOrEqual(posseIds.length)
-    expect(canonicalPosseEntryById.get('manor-echoes')).toBe('2')
-    expect(canonicalPosseEntryById.get('voices-in-your-head')).toBe('h')
-    expect(canonicalPosseEntryById.get('auritas-treasure')).toBe('j')
-  })
-
-  it('preserves the discovered posse token mappings from the RE notes', () => {
-    const canonicalPosseEntryById = new Map(possesCanonical.map((entry) => [entry.id, entry.token]))
-
-    expect(canonicalPosseEntryById.get('manor-echoes')).toBe('2')
-    expect(canonicalPosseEntryById.get('from-the-mist-realm')).toBe('Z')
-    expect(canonicalPosseEntryById.get('reunions-wish')).toBe('Y')
-    expect(canonicalPosseEntryById.get('wayward-ship')).toBe('X')
-    expect(canonicalPosseEntryById.get('cruel-homage')).toBe('S')
-    expect(canonicalPosseEntryById.get('sacred-mending')).toBe('M')
-    expect(canonicalPosseEntryById.get('plague-of-illusions')).toBe('J')
-    expect(canonicalPosseEntryById.get('the-gated-answer')).toBe('H')
-    expect(canonicalPosseEntryById.get('symphony-fourth')).toBe('I')
-    expect(canonicalPosseEntryById.get('festival-of-tides')).toBe('C')
-    expect(canonicalPosseEntryById.get('the-lone-seed')).toBe('G')
-    expect(canonicalPosseEntryById.get('truth-behind-grey-mist')).toBe('v')
-    expect(canonicalPosseEntryById.get('gateway-of-retrospection')).toBe('p')
-    expect(canonicalPosseEntryById.get('the-final-vow')).toBe('l')
-    expect(canonicalPosseEntryById.get('funus-aeternum')).toBe('f')
-    expect(canonicalPosseEntryById.get('obsession-eternal')).toBe('g')
-    expect(canonicalPosseEntryById.get('warded-injection')).toBe('b')
-    expect(canonicalPosseEntryById.get('encounter-in-pure-white')).toBe('d')
-    expect(canonicalPosseEntryById.get('a-mouses-wisdom')).toBe('c')
-    expect(canonicalPosseEntryById.get('tiny-wish')).toBe('i')
-    expect(canonicalPosseEntryById.get('voices-in-your-head')).toBe('h')
-  })
-
-  it('builds non-empty covenant dictionaries from raw data', () => {
-    const result = buildIngameTokenDictionaries()
-
     expect(result.covenants.byIdToken.size).toBe(21)
-    expect(result.covenants.byIdToken.get('covenant-0020')).toBe('w')
-    expect(result.covenants.byTokenId.get('w')).toBe('covenant-0020')
+    expect(result.posses.byIdToken.size).toBe(50)
+    expect(result.issues).toEqual([])
   })
 
-  it('produces issue metadata for unresolved mappings', () => {
+  it('uses current public V2 ids and tokens for known lineup examples', () => {
     const result = buildIngameTokenDictionaries()
-    expect(result.issues.length).toBeGreaterThan(0)
+
+    expect(result.awakeners.byIdToken.get('awakener-0056')).toBe('4')
+    expect(result.wheels.byIdToken.get('wheel-0128')).toBe('yi')
+    expect(result.covenants.byIdToken.get('covenant-0020')).toBe('w')
+    expect(result.posses.byIdToken.get('posse-0002')).toBe('h')
+
+    expect(result.awakeners.byTokenId.get('4')).toBe('awakener-0056')
+    expect(result.wheels.byTokenId.get('yi')).toBe('wheel-0128')
+    expect(result.covenants.byTokenId.get('w')).toBe('covenant-0020')
+    expect(result.posses.byTokenId.get('h')).toBe('posse-0002')
   })
 })
 
-describe('raw token data type guard', () => {
-  it('accepts basic raw token entry shape', () => {
-    const entry: CanonicalTokenEntry = {id: 'a', token: 'x1'}
-    expect(entry.id).toBe('a')
-    expect(entry.token).toBe('x1')
-  })
+describe('lineup token entry type guard', () => {
+  it('accepts the public id plus lineupToken shape', () => {
+    const entry: LineupTokenEntry = {id: 'awakener-0001', lineupToken: 'x1'}
 
-  it('accepts covenant token entry shape', () => {
-    const entry: CanonicalTokenEntry = {id: '001', token: 'k'}
-    expect(entry.id).toBe('001')
-    expect(entry.token).toBe('k')
+    expect(entry.id).toBe('awakener-0001')
+    expect(entry.lineupToken).toBe('x1')
   })
 })

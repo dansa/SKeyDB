@@ -41,6 +41,7 @@ export function makeTestAwakener(
     rarity: 'SSR',
     aliases: [overrides.name],
     tags: [],
+    lineupToken: 'a',
     ...overrides,
     id:
       typeof overrides.id === 'number'

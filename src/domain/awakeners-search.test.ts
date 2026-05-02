@@ -77,6 +77,7 @@ describe('searchAwakeners', () => {
         realm: 'CHAOS',
         faction: 'Test',
         tags: [],
+        lineupToken: 'a',
       },
       {
         id: 'awakener-0002',
@@ -86,6 +87,7 @@ describe('searchAwakeners', () => {
         realm: 'AEQUOR',
         faction: 'Test',
         tags: ['Counter'],
+        lineupToken: 'b',
       },
     ]
 

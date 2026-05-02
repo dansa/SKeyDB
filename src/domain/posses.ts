@@ -14,6 +14,7 @@ const publicPossesLiteSchema = z
         id: z.string().regex(/^posse-\d{4}$/),
         name: nonEmptyStringSchema,
         realm: nonEmptyStringSchema,
+        lineupToken: nonEmptyStringSchema,
       }),
     ),
     metadata: z.record(z.string(), z.unknown()).optional(),
@@ -30,6 +31,7 @@ export interface Posse {
   name: string
   realm: string
   isFadedLegacy: boolean
+  lineupToken: string
 }
 
 function getPosseIndex(publicId: string): number {
@@ -47,6 +49,7 @@ const parsedPosses = publicPossesLiteSchema.parse(publicPossesLite).records.map(
     name: posse.name,
     realm: posse.realm,
     isFadedLegacy: posse.realm === 'FADED_LEGACY',
+    lineupToken: posse.lineupToken,
   }),
 )
 

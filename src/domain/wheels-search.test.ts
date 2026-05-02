@@ -19,6 +19,7 @@ function makeWheel(overrides: Partial<Wheel> & Pick<Wheel, 'id' | 'name'>): Whee
     aliases: [name],
     tags: [],
     mainstatKey: 'KEYFLARE_REGEN',
+    lineupToken: 'a',
     ...restOverrides,
   }
 }

@@ -24,6 +24,7 @@ function makeAwakener(overrides: Partial<Awakener>): Awakener {
     type: 'ASSAULT',
     aliases: ['Thais'],
     tags: [],
+    lineupToken: 'a',
     ...overrides,
   }
 }
@@ -39,6 +40,7 @@ function makeWheel(overrides: Partial<Wheel>): Wheel {
     aliases: ['Merciful Nurturing'],
     tags: ['Caro'],
     mainstatKey: 'KEYFLARE_REGEN',
+    lineupToken: 'a',
     ...overrides,
   }
 }

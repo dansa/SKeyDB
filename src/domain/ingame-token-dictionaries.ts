@@ -1,30 +1,18 @@
-import awakenersCanonical from '@/data/ingame-tokens/awakeners.json'
-import covenantsCanonical from '@/data/ingame-tokens/covenants.json'
-import possesCanonical from '@/data/ingame-tokens/posses.json'
-import wheelsCanonical from '@/data/ingame-tokens/wheels.json'
-
 import {getAwakeners} from './awakeners'
 import {getCovenants} from './covenants'
-import {
-  migrateAwakenerIdV1ToV2,
-  migrateCovenantIdV1ToV2,
-  migratePosseIdV1ToV2,
-  migrateWheelIdV1ToV2,
-} from './persistence-id-migration.v2'
 import {getPosses} from './posses'
 import {getWheels} from './wheels'
 
 export type IngameTokenCategory = 'awakeners' | 'wheels' | 'covenants' | 'posses'
 
-export interface CanonicalTokenEntry {
+export interface LineupTokenEntry {
   id: string
-  token: string
+  lineupToken: string
 }
 
 export interface IngameDictionaryIssue {
   category: IngameTokenCategory
-  kind: 'duplicate_token' | 'missing_token_for_id' | 'unknown_source_id'
-  id?: string
+  kind: 'duplicate_token'
   token?: string
 }
 
@@ -36,46 +24,26 @@ export interface IngameTokenDictionaryBuildResult {
 
 interface BuildTokenDictionaryInput {
   category: IngameTokenCategory
-  ids: string[]
-  sourceEntries: CanonicalTokenEntry[]
-}
-
-const canonicalAwakenerEntries: CanonicalTokenEntry[] = awakenersCanonical
-const canonicalCovenantEntries: CanonicalTokenEntry[] = covenantsCanonical
-const canonicalPosseEntries: CanonicalTokenEntry[] = possesCanonical
-const canonicalWheelEntries: CanonicalTokenEntry[] = wheelsCanonical
-
-function normalizeTokenEntries(
-  entries: CanonicalTokenEntry[],
-  migrateId: (id: string) => string | undefined,
-): CanonicalTokenEntry[] {
-  return entries.map((entry) => ({...entry, id: migrateId(entry.id) ?? entry.id}))
+  entries: LineupTokenEntry[]
 }
 
 export function buildTokenDictionaryFromEntries({
   category,
-  ids,
-  sourceEntries,
+  entries,
 }: BuildTokenDictionaryInput): IngameTokenDictionaryBuildResult {
   const issues: IngameDictionaryIssue[] = []
-  const allowedIds = new Set(ids)
   const provisionalByIdToken = new Map<string, string>()
   const provisionalByTokenIds = new Map<string, string[]>()
 
-  for (const entry of sourceEntries) {
-    if (!entry.id || !entry.token) {
+  for (const entry of entries) {
+    if (!entry.id || !entry.lineupToken) {
       continue
     }
 
-    if (!allowedIds.has(entry.id)) {
-      issues.push({category, kind: 'unknown_source_id', id: entry.id, token: entry.token})
-      continue
-    }
-
-    provisionalByIdToken.set(entry.id, entry.token)
-    const existingTokenIds = provisionalByTokenIds.get(entry.token) ?? []
+    provisionalByIdToken.set(entry.id, entry.lineupToken)
+    const existingTokenIds = provisionalByTokenIds.get(entry.lineupToken) ?? []
     existingTokenIds.push(entry.id)
-    provisionalByTokenIds.set(entry.token, existingTokenIds)
+    provisionalByTokenIds.set(entry.lineupToken, existingTokenIds)
   }
 
   const byIdToken = new Map<string, string>(provisionalByIdToken)
@@ -87,12 +55,6 @@ export function buildTokenDictionaryFromEntries({
       continue
     }
     byTokenId.set(token, mappedIds[0])
-  }
-
-  for (const id of ids) {
-    if (!byIdToken.has(id)) {
-      issues.push({category, kind: 'missing_token_for_id', id})
-    }
   }
 
   return {
@@ -118,26 +80,34 @@ export function buildIngameTokenDictionaries(): IngameTokenDictionaries {
 
   const awakenerDictionary = buildTokenDictionaryFromEntries({
     category: 'awakeners',
-    ids: awakeners.map((awakener) => awakener.id),
-    sourceEntries: normalizeTokenEntries(canonicalAwakenerEntries, migrateAwakenerIdV1ToV2),
+    entries: awakeners.map((awakener) => ({
+      id: awakener.id,
+      lineupToken: awakener.lineupToken,
+    })),
   })
 
   const wheelDictionary = buildTokenDictionaryFromEntries({
     category: 'wheels',
-    ids: wheels.map((wheel) => wheel.id),
-    sourceEntries: normalizeTokenEntries(canonicalWheelEntries, migrateWheelIdV1ToV2),
+    entries: wheels.map((wheel) => ({
+      id: wheel.id,
+      lineupToken: wheel.lineupToken,
+    })),
   })
 
   const covenantDictionary = buildTokenDictionaryFromEntries({
     category: 'covenants',
-    ids: covenants.map((covenant) => covenant.id),
-    sourceEntries: normalizeTokenEntries(canonicalCovenantEntries, migrateCovenantIdV1ToV2),
+    entries: covenants.map((covenant) => ({
+      id: covenant.id,
+      lineupToken: covenant.lineupToken,
+    })),
   })
 
   const posseDictionary = buildTokenDictionaryFromEntries({
     category: 'posses',
-    ids: posses.map((posse) => posse.id),
-    sourceEntries: normalizeTokenEntries(canonicalPosseEntries, migratePosseIdV1ToV2),
+    entries: posses.map((posse) => ({
+      id: posse.id,
+      lineupToken: posse.lineupToken,
+    })),
   })
 
   return {

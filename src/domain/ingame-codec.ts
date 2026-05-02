@@ -3,7 +3,6 @@ import type {Team, TeamSlot} from '@/pages/builder/types'
 
 import {getAwakeners} from './awakeners'
 import {buildIngameTokenDictionaries} from './ingame-token-dictionaries'
-import {migrateAwakenerIdV1ToV2} from './persistence-id-migration.v2'
 import {getWheels} from './wheels'
 
 const INGAME_WRAPPER = '@@'
@@ -408,10 +407,7 @@ function encodeAwakenerToken(
   if (!slot.awakenerName) {
     return 'a'
   }
-  const rawAwakenerId = awakenersByNameId.get(slot.awakenerName)
-  const awakenerId = rawAwakenerId
-    ? (migrateAwakenerIdV1ToV2(rawAwakenerId) ?? rawAwakenerId)
-    : undefined
+  const awakenerId = awakenersByNameId.get(slot.awakenerName)
   if (!awakenerId) {
     throw new Error(
       `Cannot export in-game team code: slot ${String(slotIndex + 1)} awakener "${slot.awakenerName}" is not representable.`,

@@ -27,6 +27,7 @@ const publicWheelsLiteSchema = z
           .optional(),
         ownerAwakenerName: nonEmptyStringSchema.optional(),
         mainstatKey: z.enum(WHEEL_MAINSTAT_KEYS),
+        lineupToken: nonEmptyStringSchema,
       }),
     ),
     metadata: z.record(z.string(), z.unknown()).optional(),
@@ -49,6 +50,7 @@ export interface Wheel {
   aliases: string[]
   tags: string[]
   mainstatKey: WheelMainstatKey
+  lineupToken: string
 }
 
 const parsedWheels: Wheel[] = publicWheelsLiteSchema
@@ -65,6 +67,7 @@ const parsedWheels: Wheel[] = publicWheelsLiteSchema
     aliases: [wheel.name],
     tags: [],
     mainstatKey: wheel.mainstatKey,
+    lineupToken: wheel.lineupToken,
   }))
 const wheelById = new Map(parsedWheels.map((wheel) => [wheel.id, wheel]))
 

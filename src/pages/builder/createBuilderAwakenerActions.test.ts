@@ -15,6 +15,7 @@ const awakenerByName = new Map<string, Awakener>([
       realm: 'AEQUOR',
       aliases: ['Goliath'],
       tags: [],
+      lineupToken: 'a',
     },
   ],
   [
@@ -26,6 +27,7 @@ const awakenerByName = new Map<string, Awakener>([
       realm: 'CHAOS',
       aliases: ['Ramona'],
       tags: [],
+      lineupToken: 'b',
     },
   ],
 ])

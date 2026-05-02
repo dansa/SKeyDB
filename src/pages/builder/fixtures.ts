@@ -12,6 +12,7 @@ export const awakenersByNameForTests = new Map<string, Awakener>([
       realm: 'AEQUOR',
       aliases: ['Goliath'],
       tags: [],
+      lineupToken: 'a',
     },
   ],
   [
@@ -23,6 +24,7 @@ export const awakenersByNameForTests = new Map<string, Awakener>([
       realm: 'AEQUOR',
       aliases: ['Miryam'],
       tags: [],
+      lineupToken: 'b',
     },
   ],
   [
@@ -34,6 +36,7 @@ export const awakenersByNameForTests = new Map<string, Awakener>([
       realm: 'CHAOS',
       aliases: ['Ramona'],
       tags: [],
+      lineupToken: 'c',
     },
   ],
   [
@@ -45,6 +48,7 @@ export const awakenersByNameForTests = new Map<string, Awakener>([
       realm: 'CHAOS',
       aliases: ['Ramona: Timeworn'],
       tags: [],
+      lineupToken: 'd',
     },
   ],
   [
@@ -56,6 +60,7 @@ export const awakenersByNameForTests = new Map<string, Awakener>([
       realm: 'CARO',
       aliases: ['Castor'],
       tags: [],
+      lineupToken: 'e',
     },
   ],
   [
@@ -67,6 +72,7 @@ export const awakenersByNameForTests = new Map<string, Awakener>([
       realm: 'CHAOS',
       aliases: ['Helot'],
       tags: [],
+      lineupToken: 'f',
     },
   ],
 ])

@@ -14,6 +14,7 @@ const publicCovenantsLiteSchema = z
         id: z.string().regex(/^covenant-\d{4}$/),
         assetId: nonEmptyStringSchema.regex(/^covenant-icon-\d{3}$/),
         name: nonEmptyStringSchema,
+        lineupToken: nonEmptyStringSchema,
       }),
     ),
     metadata: z.record(z.string(), z.unknown()).optional(),
@@ -28,6 +29,7 @@ export interface Covenant {
   id: string
   assetId: string
   name: string
+  lineupToken: string
 }
 
 const parsedCovenants = publicCovenantsLiteSchema.parse(publicCovenantsLite).records.map(
@@ -35,6 +37,7 @@ const parsedCovenants = publicCovenantsLiteSchema.parse(publicCovenantsLite).rec
     id: covenant.id,
     assetId: covenant.assetId,
     name: covenant.name,
+    lineupToken: covenant.lineupToken,
   }),
 )
 

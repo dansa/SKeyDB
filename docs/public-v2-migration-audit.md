@@ -135,6 +135,7 @@ intentional compatibility questions.
 
 Current state after the no-shim cleanup pass:
 
+- `npm run verify` passes after removing the stale root lite/token data slice.
 - `npx tsc -b --pretty false` passes.
 - `npm run data:check-public-v2` passes.
 - The broader targeted Vitest migration slice passes.
@@ -161,3 +162,9 @@ Current state after the no-shim cleanup pass:
 - Tightened public V2 schema validation for core scope fields and upgrade entry shape.
 - Switched wheel mainstat scaling to public V2 wheel metadata instead of a website-owned constant.
 - Accepted public V2 aggregate metadata in runtime validators.
+- Removed the retired root covenant/wheel/relic lite data files. Covenants/wheels now expose public
+  V2 `lineupToken` fields from lite records, and relic portrait lookup now uses public V2 full relic
+  `ownerAwakenerId`/`assetId`.
+- Removed the local in-game token dictionary data and old wheel sync script. In-game import/export
+  dictionaries are now derived from public V2 `lineupToken` metadata on awakeners, wheels, covenants,
+  and posses.

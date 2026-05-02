@@ -32,6 +32,7 @@ const TEST_AWAKENER: Awakener = {
   rarity: 'SSR',
   aliases: ['thais'],
   tags: [],
+  lineupToken: 'a',
 }
 
 const TEST_STATS: FullStats = {

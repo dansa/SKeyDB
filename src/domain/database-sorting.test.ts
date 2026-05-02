@@ -14,6 +14,7 @@ function makeAwakener(overrides: Partial<Awakener>): Awakener {
     type: 'ASSAULT',
     aliases: ['Alpha'],
     tags: [],
+    lineupToken: 'a',
     stats: {
       CON: 100,
       ATK: 100,

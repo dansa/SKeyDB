@@ -1,18 +1,17 @@
 # Awakener In-Game ID Map Note
 
-Last updated: 2026-04-15
+Last updated: 2026-05-02
 
 ## Why this exists
 
-- Preserve the manually sourced mapping between awakeners and in-game portrait relic IDs.
-- Provide one canonical reference for awakener `ingameId` values in the canonical roster dataset and `relics-lite.json` portrait linkage.
+- Preserve the public V2 mapping between awakeners and in-game portrait relic asset IDs.
+- Document the convention that public V2 relic portrait assets follow `Icon_Creation_Unique_<ingameId>`, while UI linkage uses public `ownerAwakenerId`.
 
 ## Current state
 
-- `src/data/awakeners/awakener-roster.json` now stores `ingameId` for all mapped awakeners.
-- `src/data/relics-lite.json` portrait entries are keyed by `awakenerIngameId` and now come from the generated relic dataset rather than a stale hand-maintained blob.
+- `src/data/public-v2/lite/awakeners.json` stores `ingameId` for mapped awakeners.
+- `src/data/public-v2/full/relics.json` portrait entries are keyed by public `ownerAwakenerId` and carry stable generated `assetId` values.
 - Portrait relic naming convention in data: `Dimensional Image: <Character>`.
-- `vortice` currently uses temporary linkage via `TEMP_VORTICE` until official release IDs/assets are available.
 
 ## Key decisions or observations
 

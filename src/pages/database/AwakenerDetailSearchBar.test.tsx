@@ -28,6 +28,7 @@ const RESULTS: Awakener[] = [
     rarity: 'SSR',
     aliases: ['alpha'],
     tags: [],
+    lineupToken: 'a',
   },
   {
     id: 'awakener-0002',
@@ -38,6 +39,7 @@ const RESULTS: Awakener[] = [
     rarity: 'SSR',
     aliases: ['beta'],
     tags: [],
+    lineupToken: 'b',
   },
 ]
 

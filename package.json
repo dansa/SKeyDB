@@ -27,7 +27,6 @@
     "data:sync-awakener-ids": "node scripts/sync-awakener-ids.mjs",
     "data:check-public-v2": "node scripts/sync-public-v2-data.mjs --check",
     "data:sync-public-v2": "node scripts/sync-public-v2-data.mjs",
-    "data:sync-wheel-data": "node scripts/sync-wheel-data.mjs",
     "prepare": "node scripts/install-git-hooks.mjs"
   },
   "dependencies": {

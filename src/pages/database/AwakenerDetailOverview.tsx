@@ -5,7 +5,7 @@ import type {Awakener} from '@/domain/awakeners'
 import type {ResolvedAwakenerDatabaseShellView} from '@/domain/awakeners-database-view'
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import {getRelicPortraitAssetByAssetId} from '@/domain/relic-assets'
-import {getPortraitRelicByAwakenerIngameId} from '@/domain/relics'
+import {getPortraitRelicByAwakenerId} from '@/domain/relics'
 
 import {useDatabasePopoverControllerContext} from './database-popover-context'
 import {DatabaseScopedRichDescription} from './DatabaseScopedRichDescription'
@@ -161,7 +161,7 @@ export function AwakenerDetailOverview({
       descriptionMaxRank: entry.descriptionMaxRank,
     }))
 
-  const portraitRelic = getPortraitRelicByAwakenerIngameId(awakener.ingameId)
+  const portraitRelic = getPortraitRelicByAwakenerId(awakener.id)
   const portraitRelicAsset = portraitRelic
     ? getRelicPortraitAssetByAssetId(portraitRelic.assetId)
     : undefined

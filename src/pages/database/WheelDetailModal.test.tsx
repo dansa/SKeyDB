@@ -35,6 +35,7 @@ function makeWheel(overrides: Partial<Wheel> = {}): Wheel {
     aliases: ['Merciful Nurturing'],
     tags: ['Embryo Fusion'],
     mainstatKey: 'KEYFLARE_REGEN',
+    lineupToken: 'a',
     ...overrides,
   }
 }

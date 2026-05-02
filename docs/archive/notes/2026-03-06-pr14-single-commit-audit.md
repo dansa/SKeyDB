@@ -219,7 +219,7 @@ Last updated: 2026-03-06
       - `src/data/awakeners-lite.json`
       - `src/data/awakeners-full.json`
       - `src/data/mainstats.json`
-      - `src/data/relics-lite.json`
+      - retired relic lite data
       - `src/data/tags.json`
     - Notes:
       - `src/main.tsx`, `src/test/setup.ts`, and `src/pages/builder-page.integration-mocks.ts` differ only by import rewrites and minor harness cleanup.

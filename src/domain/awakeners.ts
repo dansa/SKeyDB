@@ -32,6 +32,7 @@ const publicAwakenersLiteSchema = z
           .optional(),
         aliases: z.array(z.string().trim().min(1)).optional(),
         searchTags: z.array(z.string().trim().min(1)).optional(),
+        lineupToken: z.string().trim().min(1),
       }),
     ),
     metadata: z.record(z.string(), z.unknown()).optional(),
@@ -72,6 +73,7 @@ export interface Awakener {
   stats?: AwakenerLiteStats
   tags: string[]
   unreleased?: boolean
+  lineupToken: string
 }
 
 const publicFullAwakenerById = new Map(
@@ -139,6 +141,7 @@ const parsedAwakeners = publicAwakenersLiteSchema
       aliases,
       stats: getPublicStats(awakener.id),
       tags,
+      lineupToken: awakener.lineupToken,
     }
   })
 assertUniqueIngameIds(parsedAwakeners)

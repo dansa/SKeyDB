@@ -14,7 +14,7 @@ import {
 } from './database-test-fixtures'
 
 vi.mock('../../domain/relics', () => ({
-  getPortraitRelicByAwakenerIngameId: () => null,
+  getPortraitRelicByAwakenerId: () => null,
 }))
 
 vi.mock('../../domain/relic-assets', () => ({

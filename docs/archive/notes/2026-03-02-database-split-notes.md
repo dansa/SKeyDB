@@ -140,14 +140,14 @@ Why:
 
 Recommended direction:
 
-- `wheels-lite.json`
+- wheel lite public records
   - identity
   - rarity
   - realm
   - awakener
   - main stat
   - any search/sort tags actually needed on the list surface
-- `wheels-full.json`
+- wheel full public records
   - future detail text, recommendations, extended descriptions, etc.
 
 This is not fully specified yet, but the architectural direction should match awakeners.

@@ -17,6 +17,7 @@ const AWAKENERS: Awakener[] = [
     rarity: 'SSR',
     aliases: ['alpha'],
     tags: [],
+    lineupToken: 'a',
   },
   {
     id: 'awakener-0002',
@@ -27,6 +28,7 @@ const AWAKENERS: Awakener[] = [
     rarity: 'SR',
     aliases: ['beta'],
     tags: [],
+    lineupToken: 'b',
   },
 ]
 

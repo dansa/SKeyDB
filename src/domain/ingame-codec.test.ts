@@ -192,7 +192,7 @@ describe('decodeIngameTeamCode', () => {
     const team: Team = {
       id: 'team-3',
       name: 'Team 3',
-      posseId: 'posse-0050',
+      posseId: 'posse-9999',
       slots: [
         {
           slotId: 'slot-1',
@@ -207,6 +207,6 @@ describe('decodeIngameTeamCode', () => {
       ],
     }
 
-    expect(() => encodeIngameTeamCode(team)).toThrow(/posse "posse-0050" is not representable/)
+    expect(() => encodeIngameTeamCode(team)).toThrow(/posse "posse-9999" is not representable/)
   })
 })
