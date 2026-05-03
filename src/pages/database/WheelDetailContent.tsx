@@ -2,7 +2,7 @@ import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-l
 import type {WheelDatabaseDescriptionRecord} from '@/domain/description-records'
 import {getMainstatByKey, getMainstatIcon} from '@/domain/mainstats'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
-import {buildPublicFormulaContext} from '@/domain/public-formula-context'
+import type {PublicFormulaContext} from '@/domain/public-formula-context'
 import {getRealmAccent, getRealmLabel} from '@/domain/realms'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullV2Record} from '@/domain/wheels-full-v2'
@@ -35,6 +35,7 @@ interface WheelDetailContentProps {
   enhanceLevel: number
   mainstatValue: string
   referenceLayer: ResolvedDatabaseReferenceLayer | null
+  formulaContext?: PublicFormulaContext
   showTagIcons?: boolean
   expandLoreByDefault?: boolean
   wheelDescriptionRecord: WheelDatabaseDescriptionRecord
@@ -50,6 +51,7 @@ export function WheelDetailContent({
   descriptionRank,
   enhanceLevel,
   fullDataV2,
+  formulaContext,
   mainstatValue,
   mobileArtwork,
   onEnhanceLevelChange,
@@ -144,7 +146,7 @@ export function WheelDetailContent({
           >
             <RichDescription
               descriptionRank={descriptionRank}
-              formulaContext={buildPublicFormulaContext({wheelEnhanceLevel: enhanceLevel})}
+              formulaContext={formulaContext}
               record={wheelDescriptionRecord}
               referenceLayer={referenceLayer}
               showTagIcons={showTagIcons}

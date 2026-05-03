@@ -102,24 +102,35 @@ describe('public-description-args', () => {
         },
       ),
     ).toBe('Increase final DMG by 4%.')
+    expect(
+      buildDescriptionArgHover(arg, {
+        formulaContext: {accountLevel: 33, ownedPosseCount: 0},
+        maxRank: 6,
+      }),
+    ).toBe('Account Lv 33: 4%')
   })
 
   it('derives occult research depth from account level and owned posse count', () => {
+    const arg: PublicDescriptionArg = {
+      kind: 'computed',
+      formulaKey: 'scaled',
+      baseFormula: 'occultResearchDepth',
+      rounding: 'ceil',
+      inputs: ['accountLevel', 'ownedPosseCount'],
+    }
+
     expect(
-      evaluatePublicFormulaExpression(
-        {
-          kind: 'computed',
-          formulaKey: 'scaled',
-          baseFormula: 'occultResearchDepth',
-          rounding: 'ceil',
-          inputs: ['accountLevel', 'ownedPosseCount'],
-        },
-        {accountLevel: 1, ownedPosseCount: 100},
-      ),
+      evaluatePublicFormulaExpression(arg, {accountLevel: 1, ownedPosseCount: 100}),
     ).toStrictEqual({
       resolved: true,
       value: 106,
     })
+    expect(
+      buildDescriptionArgHover(arg, {
+        formulaContext: {accountLevel: 1, ownedPosseCount: 100},
+        maxRank: 6,
+      }),
+    ).toBe('Account Lv 1, 50 posses: 106')
   })
 
   it('resolves wheel refinement linear computed args from wheel refinement level', () => {

@@ -2,6 +2,7 @@ import {fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {beforeEach, describe, expect, it, vi} from 'vitest'
 
 import {resolveDescriptionTemplate} from '@/domain/description-args'
+import {buildPublicFormulaContext} from '@/domain/public-formula-context'
 import {
   buildWheelMainstatSeriesKey,
   resolveWheelMainstatValue,
@@ -378,6 +379,50 @@ describe('WheelDetailModal', () => {
     await waitFor(() => {
       expect(screen.getByText('Show Less')).toBeInTheDocument()
     })
+  })
+
+  it('uses the shared account level setting for computed public formulas', () => {
+    const wheel = makeWheel()
+    const fullDataV2 = makeWheelFullRecord({
+      descriptionTemplate: 'Gain [StateArg1] charge.',
+      descriptionArgs: {
+        StateArg1: {
+          kind: 'computed',
+          formulaKey: 'scaled',
+          baseFormula: 'accountStageGrowth',
+          multiplier: 0.025,
+          inputs: ['accountLevel'],
+        },
+      },
+    })
+
+    render(
+      <WheelDetailModal fullDataV2={fullDataV2} onClose={vi.fn()} wheel={wheel} wheels={[wheel]} />,
+    )
+
+    expect(
+      screen.getByText(
+        resolveDescriptionTemplate(fullDataV2.descriptionTemplate, fullDataV2.descriptionArgs, {
+          formulaContext: buildPublicFormulaContext({accountLevel: 50}),
+        }),
+      ),
+    ).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open detail settings'}))
+    fireEvent.change(screen.getByRole('spinbutton', {name: 'Account level'}), {
+      target: {value: '70'},
+    })
+
+    expect(window.localStorage.getItem('database-detail-preferences')).toContain(
+      '"accountLevel":70',
+    )
+    expect(
+      screen.getByText(
+        resolveDescriptionTemplate(fullDataV2.descriptionTemplate, fullDataV2.descriptionArgs, {
+          formulaContext: buildPublicFormulaContext({accountLevel: 70}),
+        }),
+      ),
+    ).toBeInTheDocument()
   })
 
   it('omits owner and lore chrome when the wheel has no owner or lore data', () => {

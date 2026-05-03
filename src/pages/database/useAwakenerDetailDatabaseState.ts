@@ -7,7 +7,10 @@ import {
   type AwakenerDatabaseSelection,
 } from '@/domain/awakener-database-state'
 import {type AwakenerFullV2Record} from '@/domain/awakeners-full-v2'
+import {loadCollectionOwnership} from '@/domain/collection-ownership'
 import {resolveDatabaseDetailDefaultSelection} from '@/domain/database-detail-preferences'
+import {buildPublicFormulaContext} from '@/domain/public-formula-context'
+import {getBrowserLocalStorage} from '@/domain/storage'
 
 import {useDatabaseDetailPreferences} from './useDatabaseDetailPreferences'
 
@@ -20,6 +23,15 @@ export function useAwakenerDetailDatabaseState({
 }: UseAwakenerDetailDatabaseStateOptions) {
   const {preferences, updateAwakenerPreferences, updateSharedPreferences} =
     useDatabaseDetailPreferences()
+  const [collectionOwnership] = useState(() => loadCollectionOwnership(getBrowserLocalStorage()))
+  const formulaContext = useMemo(
+    () =>
+      buildPublicFormulaContext({
+        accountLevel: preferences.shared.accountLevel,
+        collectionOwnership,
+      }),
+    [collectionOwnership, preferences.shared.accountLevel],
+  )
 
   const defaultSelection = useMemo(
     () => resolveDatabaseDetailDefaultSelection(fullDataV2, preferences),
@@ -38,8 +50,8 @@ export function useAwakenerDetailDatabaseState({
   }, [defaultSelection, fullDataV2.id])
 
   const resolvedDatabaseState = useMemo(
-    () => resolveAwakenerDatabaseState(fullDataV2, selection),
-    [fullDataV2, selection],
+    () => resolveAwakenerDatabaseState(fullDataV2, selection, {formulaContext}),
+    [formulaContext, fullDataV2, selection],
   )
 
   const handlePatchDefaultSelection = useCallback(

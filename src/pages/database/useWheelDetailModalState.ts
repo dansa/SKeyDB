@@ -1,6 +1,8 @@
 import {useCallback, useMemo, useState} from 'react'
 
+import {loadCollectionOwnership} from '@/domain/collection-ownership'
 import {buildPublicFormulaContext} from '@/domain/public-formula-context'
+import {getBrowserLocalStorage} from '@/domain/storage'
 import {clampWheelEnhanceLevel, resolveWheelDescriptionRank} from '@/domain/wheel-enhance'
 import {resolveWheelMainstatValue} from '@/domain/wheel-mainstat-scaling'
 import type {Wheel} from '@/domain/wheels'
@@ -33,6 +35,7 @@ export function useWheelDetailModalState({
 }: UseWheelDetailModalStateOptions) {
   const {preferences, updateSharedPreferences, updateWheelPreferences} =
     useDatabaseDetailPreferences()
+  const [collectionOwnership] = useState(() => loadCollectionOwnership(getBrowserLocalStorage()))
   const [enhanceLevel, setEnhanceLevelState] = useState(preferences.wheel.defaultEnhanceLevel)
   const descriptionRank = useMemo(() => resolveWheelDescriptionRank(enhanceLevel), [enhanceLevel])
   const search = useWheelDetailSearch({
@@ -40,8 +43,13 @@ export function useWheelDetailModalState({
     wheels,
   })
   const formulaContext = useMemo(
-    () => buildPublicFormulaContext({wheelEnhanceLevel: enhanceLevel}),
-    [enhanceLevel],
+    () =>
+      buildPublicFormulaContext({
+        accountLevel: preferences.shared.accountLevel,
+        collectionOwnership,
+        wheelEnhanceLevel: enhanceLevel,
+      }),
+    [collectionOwnership, enhanceLevel, preferences.shared.accountLevel],
   )
   const referenceLayer = useMemo(
     () =>
@@ -100,6 +108,7 @@ export function useWheelDetailModalState({
   return {
     enhanceLevel,
     descriptionRank,
+    formulaContext,
     preferences,
     popoverContextValue: contextValue,
     popoverRootProps,

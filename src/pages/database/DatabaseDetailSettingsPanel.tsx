@@ -1,6 +1,7 @@
 import type {ReactNode} from 'react'
 
 import type {DatabaseDetailSharedPreferences} from '@/domain/database-detail-preferences'
+import {clampAccountLevel} from '@/domain/gameplay-math-metadata'
 
 import {FONT_SCALE_OPTIONS} from './font-scale'
 
@@ -59,26 +60,53 @@ export function DatabaseDetailSettingsPanel({
         </div>
 
         <div>
-          <p className='mb-1 text-[10px] tracking-[0.16em] text-slate-500 uppercase'>
-            Default text size
-          </p>
-          <div className='flex items-center gap-1'>
-            {FONT_SCALE_OPTIONS.map((option) => (
-              <button
-                className={`min-w-8 border px-2 py-1 text-[10px] tracking-wide uppercase transition-colors ${
-                  sharedPreferences.fontScale === option.id
-                    ? 'border-amber-200/60 bg-amber-200/12 text-amber-100'
-                    : 'border-slate-600/35 bg-slate-950/50 text-slate-400 hover:border-slate-400/50 hover:text-slate-200'
-                }`}
-                key={option.id}
-                onClick={() => {
-                  onUpdateSharedPreferences({fontScale: option.id})
+          <div className='grid gap-3 sm:grid-cols-[minmax(0,1fr)_7rem] sm:items-end'>
+            <div>
+              <p className='mb-1 text-[10px] tracking-[0.16em] text-slate-500 uppercase'>
+                Default text size
+              </p>
+              <div className='flex items-center gap-1'>
+                {FONT_SCALE_OPTIONS.map((option) => (
+                  <button
+                    className={`min-w-8 border px-2 py-1 text-[10px] tracking-wide uppercase transition-colors ${
+                      sharedPreferences.fontScale === option.id
+                        ? 'border-amber-200/60 bg-amber-200/12 text-amber-100'
+                        : 'border-slate-600/35 bg-slate-950/50 text-slate-400 hover:border-slate-400/50 hover:text-slate-200'
+                    }`}
+                    key={option.id}
+                    onClick={() => {
+                      onUpdateSharedPreferences({fontScale: option.id})
+                    }}
+                    type='button'
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <label>
+              <span className='mb-1 block text-[10px] tracking-[0.16em] text-slate-500 uppercase'>
+                Account level
+              </span>
+              <input
+                aria-label='Account level'
+                className='database-account-level-input w-full border border-slate-600/45 bg-slate-950/70 px-2 py-1 text-right text-[12px] text-amber-100 outline-none focus:border-amber-200/60'
+                max={100}
+                min={1}
+                onBlur={(event) => {
+                  event.currentTarget.value = String(sharedPreferences.accountLevel)
                 }}
-                type='button'
-              >
-                {option.label}
-              </button>
-            ))}
+                onChange={(event) => {
+                  onUpdateSharedPreferences({
+                    accountLevel: clampAccountLevel(Number(event.target.value)),
+                  })
+                }}
+                step={1}
+                type='number'
+                value={sharedPreferences.accountLevel}
+              />
+            </label>
           </div>
         </div>
 

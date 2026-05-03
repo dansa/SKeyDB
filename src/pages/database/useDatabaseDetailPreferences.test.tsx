@@ -31,6 +31,7 @@ describe('useDatabaseDetailPreferences', () => {
           showTagIcons: true,
           clickOutsideClosesPopovers: true,
           fontScale: 'small',
+          accountLevel: 50,
         },
         awakener: {
           showVisibleScaling: true,
@@ -52,6 +53,7 @@ describe('useDatabaseDetailPreferences', () => {
           showTagIcons: true,
           clickOutsideClosesPopovers: true,
           fontScale: 'small',
+          accountLevel: 50,
         },
         awakener: {
           showVisibleScaling: true,
@@ -73,6 +75,7 @@ describe('useDatabaseDetailPreferences', () => {
         showTagIcons: true,
         clickOutsideClosesPopovers: true,
         fontScale: 'large',
+        accountLevel: 50,
       },
       awakener: {
         showVisibleScaling: true,

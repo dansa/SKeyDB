@@ -28,6 +28,7 @@ import {fmtNum} from '@/domain/scaling'
 import {renderTextWithBreaks} from './font-scale'
 import {
   DATABASE_INTERACTIVE_TOKEN_CLASS,
+  DATABASE_POPOVER_INTERACTIVE_SCALING_TOKEN_CLASS,
   DATABASE_POPOVER_SCALING_TOKEN_CLASS,
   DATABASE_POPOVER_STAT_TOKEN_CLASS,
   DATABASE_REFERENCE_TOKEN_CLASS,
@@ -466,7 +467,9 @@ function DescriptionArgSegmentView({
   const isInteractive = hasDescriptionArgInteractiveHover(arg)
   const formulaText = resolved.formattedTotalValue.replaceAll('{', '').replaceAll('}', '')
   const scalingClass =
-    variant === 'popover' ? DATABASE_POPOVER_SCALING_TOKEN_CLASS : DATABASE_SCALING_TOKEN_CLASS
+    variant === 'popover'
+      ? DATABASE_POPOVER_INTERACTIVE_SCALING_TOKEN_CLASS
+      : DATABASE_SCALING_TOKEN_CLASS
   const statClass =
     variant === 'popover' ? DATABASE_POPOVER_STAT_TOKEN_CLASS : DATABASE_STAT_TOKEN_CLASS
   const plainClass =

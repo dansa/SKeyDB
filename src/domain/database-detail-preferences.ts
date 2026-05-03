@@ -7,6 +7,7 @@ import {
   type AwakenerDatabaseSelection,
 } from './awakener-database-state'
 import {type AwakenerFullV2Record} from './awakeners-full-v2'
+import {clampAccountLevel} from './gameplay-math-metadata'
 import {
   getBrowserLocalStorage,
   safeStorageRead,
@@ -24,6 +25,7 @@ export interface DatabaseDetailSharedPreferences {
   showTagIcons: boolean
   clickOutsideClosesPopovers: boolean
   fontScale: DatabaseDetailFontScale
+  accountLevel: number
 }
 
 export interface DatabaseAwakenerDetailPreferences {
@@ -52,6 +54,7 @@ const DEFAULT_DATABASE_DETAIL_SHARED_PREFERENCES: DatabaseDetailSharedPreference
   showTagIcons: true,
   clickOutsideClosesPopovers: true,
   fontScale: 'small',
+  accountLevel: 50,
 }
 
 const DEFAULT_DATABASE_DETAIL_AWAKENER_PREFERENCES: DatabaseAwakenerDetailPreferences = {
@@ -70,6 +73,7 @@ const databaseDetailSharedPreferencesSchema = z.object({
     .boolean()
     .default(DEFAULT_DATABASE_DETAIL_SHARED_PREFERENCES.clickOutsideClosesPopovers),
   fontScale: fontScaleSchema.default(DEFAULT_DATABASE_DETAIL_SHARED_PREFERENCES.fontScale),
+  accountLevel: z.number().default(DEFAULT_DATABASE_DETAIL_SHARED_PREFERENCES.accountLevel),
 })
 
 const databaseDetailAwakenerPreferencesSchema = z.object({
@@ -116,6 +120,7 @@ function extractLegacyPreferences(input: Record<string, unknown>) {
       showTagIcons: input.showTagIcons,
       clickOutsideClosesPopovers: input.clickOutsideClosesPopovers,
       fontScale: input.fontScale,
+      accountLevel: input.accountLevel,
     },
     awakener: {
       showVisibleScaling: input.showVisibleScaling,
@@ -141,6 +146,7 @@ export function normalizeDatabaseDetailPreferences(input: unknown = {}): Databas
       showTagIcons: parsed.shared.showTagIcons,
       clickOutsideClosesPopovers: parsed.shared.clickOutsideClosesPopovers,
       fontScale: parsed.shared.fontScale,
+      accountLevel: clampAccountLevel(parsed.shared.accountLevel),
     },
     awakener: {
       showVisibleScaling: parsed.awakener.showVisibleScaling,

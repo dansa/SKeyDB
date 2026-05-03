@@ -32,6 +32,7 @@ describe('database-detail-preferences', () => {
           showTagIcons: false,
           clickOutsideClosesPopovers: false,
           fontScale: 'large',
+          accountLevel: 999,
         },
         awakener: {
           showVisibleScaling: false,
@@ -53,6 +54,7 @@ describe('database-detail-preferences', () => {
         showTagIcons: false,
         clickOutsideClosesPopovers: false,
         fontScale: 'large',
+        accountLevel: 100,
       },
       awakener: {
         showVisibleScaling: false,
@@ -78,6 +80,7 @@ describe('database-detail-preferences', () => {
           showTagIcons: false,
           clickOutsideClosesPopovers: false,
           fontScale: 'medium',
+          accountLevel: 77,
         },
         awakener: {
           showVisibleScaling: false,
@@ -101,6 +104,7 @@ describe('database-detail-preferences', () => {
         showTagIcons: false,
         clickOutsideClosesPopovers: false,
         fontScale: 'medium',
+        accountLevel: 77,
       },
       awakener: {
         showVisibleScaling: false,
@@ -136,6 +140,7 @@ describe('database-detail-preferences', () => {
           shared: {
             clickOutsideClosesPopovers: false,
             fontScale: 'medium',
+            accountLevel: 42,
           },
           awakener: {
             showVisibleScaling: false,
@@ -161,6 +166,7 @@ describe('database-detail-preferences', () => {
         showTagIcons: true,
         clickOutsideClosesPopovers: false,
         fontScale: 'medium',
+        accountLevel: 42,
       },
       awakener: {
         showVisibleScaling: false,
@@ -186,6 +192,7 @@ describe('database-detail-preferences', () => {
         showTagIcons: false,
         clickOutsideClosesPopovers: false,
         fontScale: 'medium',
+        accountLevel: 22,
         defaultSelection: {
           awakenerLevel: 90,
           psycheSurgeOffset: 2,
@@ -203,6 +210,7 @@ describe('database-detail-preferences', () => {
         showTagIcons: false,
         clickOutsideClosesPopovers: false,
         fontScale: 'medium',
+        accountLevel: 22,
       },
       awakener: {
         showVisibleScaling: false,

@@ -62,6 +62,7 @@ function WheelDetailModalInner({
     chrome,
     descriptionRank,
     enhanceLevel,
+    formulaContext,
     preferences,
     popoverContextValue,
     popoverRootProps,
@@ -179,6 +180,7 @@ function WheelDetailModalInner({
                     enhanceLevel={enhanceLevel}
                     expandLoreByDefault={preferences.wheel.expandLoreByDefault}
                     fullDataV2={fullDataV2}
+                    formulaContext={formulaContext}
                     mainstatValue={resolvedMainstatValue}
                     mobileArtwork={
                       <WheelDetailArtwork

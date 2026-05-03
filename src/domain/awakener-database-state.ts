@@ -242,7 +242,7 @@ export function resolveAwakenerDatabaseState(
       ...extraViewOptions,
       skillLevel: normalizedSelection.skillLevel,
       stats,
-      formulaContext: buildPublicFormulaContext(),
+      formulaContext: extraViewOptions.formulaContext ?? buildPublicFormulaContext(),
       selectedEnlightenSlot: normalizedSelection.selectedEnlightenSlot,
       soulforgeLevel: normalizedSelection.soulforgeLevel,
     },

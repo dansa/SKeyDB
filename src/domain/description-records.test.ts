@@ -121,7 +121,7 @@ describe('description-records', () => {
       throw new Error('Missing enlighten.24.hysteria')
     }
 
-    expect(resolveDescribedRecord(overlay).description).toContain('Temp. {STR⯆} -32.')
+    expect(resolveDescribedRecord(overlay).description).toContain('Temp. {STR⯆} -13.')
     expect(resolveDescribedRecord(derived).description).toContain(
       'One Awakener gains 30 Aliemus and +10% Crit Rate this turn.',
     )

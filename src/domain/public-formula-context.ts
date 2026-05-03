@@ -16,6 +16,7 @@ export interface PublicFormulaContextInput {
 }
 
 const CURRENT_PUBLIC_POSSE_IDS = new Set(getPosses().map((posse) => posse.id))
+const DEFAULT_PUBLIC_ACCOUNT_LEVEL = 50
 
 function countOwnedCurrentPublicPosses(collectionOwnership: CollectionOwnershipState): number {
   let count = 0
@@ -31,7 +32,7 @@ export function buildPublicFormulaContext(
   input: PublicFormulaContextInput = {},
 ): PublicFormulaContext {
   const context: PublicFormulaContext = {
-    accountLevel: clampAccountLevel(input.accountLevel),
+    accountLevel: clampAccountLevel(input.accountLevel ?? DEFAULT_PUBLIC_ACCOUNT_LEVEL),
     ownedPosseCount: input.collectionOwnership
       ? countOwnedCurrentPublicPosses(input.collectionOwnership)
       : CURRENT_PUBLIC_POSSE_IDS.size,

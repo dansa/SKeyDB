@@ -4,6 +4,7 @@ import {
   type PublicDescriptionArg,
   type PublicFormulaContext,
 } from './public-description-args'
+import {buildPublicFormulaContext} from './public-formula-context'
 import {fmtNum} from './scaling'
 
 const COMPUTABLE_STAT_KEYS = new Set(['ATK', 'DEF', 'CON'])
@@ -431,10 +432,21 @@ export function formatDescriptionArgProgression(
 function buildDescriptionArgFormula(
   arg: PublicDescriptionArg,
   resolved: ResolvedDescriptionArg,
+  formulaContext: PublicFormulaContext = {},
 ): string {
   const displayFormula = getDisplayFormula(arg)
   if (displayFormula) {
     return formatHoverDisplayText(displayFormula)
+  }
+
+  if (arg.kind === 'computed' && arg.formulaKey === 'scaled') {
+    const context = buildPublicFormulaContext(formulaContext)
+    const ownedPosseText = arg.inputs.includes('ownedPosseCount')
+      ? `, ${String(context.ownedPosseCount ?? 0)} posses`
+      : ''
+    return formatHoverDisplayText(
+      `Account Lv ${String(context.accountLevel ?? 50)}${ownedPosseText}: ${resolved.formattedTotalValue}`,
+    )
   }
 
   if (!('substatBonus' in arg) || !arg.substatBonus) {
@@ -495,7 +507,16 @@ export function buildDescriptionArgHover(
       stats: context.stats,
       formulaContext: context.formulaContext,
     })
-    return buildDescriptionArgFormula(arg, resolved)
+    return buildDescriptionArgFormula(arg, resolved, context.formulaContext)
+  }
+
+  if (arg.kind === 'computed' && arg.formulaKey === 'scaled') {
+    const resolved = resolveDescriptionArg(arg, {
+      rank: context.rank,
+      stats: context.stats,
+      formulaContext: context.formulaContext,
+    })
+    return buildDescriptionArgFormula(arg, resolved, context.formulaContext)
   }
 
   const progression = getDescriptionArgProgression(arg, context)

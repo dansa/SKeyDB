@@ -303,6 +303,35 @@ describe('RichSegmentRenderer', () => {
     expect(token).toHaveAttribute('title', expect.stringMatching(/Lv12: 60/))
   })
 
+  it('keeps hover affordance styling for interactive description args in popovers', () => {
+    render(
+      <RichSegmentRenderer
+        descriptionArgs={{
+          Arg1: {
+            kind: 'computed',
+            formulaKey: 'scaled',
+            baseFormula: 'accountStageGrowth',
+            multiplier: 0.0065,
+            inputs: ['accountLevel'],
+          },
+          Arg2: {
+            kind: 'fixed',
+            value: '6',
+          },
+        }}
+        formulaContext={{accountLevel: 50}}
+        segment={{type: 'descriptionArg', argKey: 'Arg1', channel: null}}
+        skillLevel={1}
+        stats={BASE_STATS}
+        variant='popover'
+      />,
+    )
+
+    const token = screen.getByTitle(/Account Lv 50:/)
+    expect(token).toHaveClass('cursor-help')
+    expect(token).toHaveClass('underline')
+  })
+
   it('renders fixed description args without a fake hover tooltip', () => {
     render(
       <RichSegmentRenderer

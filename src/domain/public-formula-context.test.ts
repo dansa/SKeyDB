@@ -55,8 +55,8 @@ describe('public-formula-context', () => {
     )
   })
 
-  it('defaults account level to the public metadata max and clamps configured levels', () => {
-    expect(buildPublicFormulaContext().accountLevel).toBe(100)
+  it('defaults account level to the modal setting default and clamps configured levels', () => {
+    expect(buildPublicFormulaContext().accountLevel).toBe(50)
     expect(buildPublicFormulaContext({accountLevel: -10}).accountLevel).toBe(1)
     expect(buildPublicFormulaContext({accountLevel: 999}).accountLevel).toBe(100)
     expect(buildPublicFormulaContext({accountLevel: 33.9}).accountLevel).toBe(33)
