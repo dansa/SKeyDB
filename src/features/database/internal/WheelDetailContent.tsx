@@ -5,6 +5,7 @@ import {getMainstatByKey, getMainstatIcon} from '@/domain/mainstats'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
 import {getRealmAccent, getRealmLabel} from '@/domain/realms'
+import {buildWheelMainstatHover} from '@/domain/wheel-mainstat-scaling'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
 
@@ -64,6 +65,7 @@ export function WheelDetailContent({
   const realmAccent = getRealmAccent(wheel.realm)
   const mainstatLabel = getMainstatByKey(wheel.mainstatKey)?.label ?? wheel.mainstatKey
   const mainstatIcon = getMainstatIcon(wheel.mainstatKey)
+  const mainstatHover = buildWheelMainstatHover(fullData.mainstatSeriesKey, enhanceLevel)
   const ownerAwakenerId = wheel.ownerAwakenerId
   const ownerName = wheel.ownerAwakenerName ?? wheel.awakener
   const displayOwnerName = ownerName ? formatAwakenerNameForUi(ownerName) : null
@@ -123,7 +125,9 @@ export function WheelDetailContent({
                 style={getDatabaseDetailValueStyle()}
               >
                 <span className={DATABASE_DETAIL_VALUE_LABEL_CLASS}>{mainstatLabel}</span>
-                <span className={DATABASE_DETAIL_VALUE_CLASS}>{mainstatValue}</span>
+                <span className={DATABASE_DETAIL_VALUE_CLASS} title={mainstatHover}>
+                  {mainstatValue}
+                </span>
               </div>
             </div>
           </div>

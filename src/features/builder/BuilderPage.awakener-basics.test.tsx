@@ -115,19 +115,14 @@ describe('BuilderPage awakener basics', () => {
     expect(screen.queryByRole('button', {name: /change goliath/i})).not.toBeInTheDocument()
   })
 
-  it('opens active card awakener details by public id without toggling selection', () => {
+  it('keeps database detail shortcuts scoped to picker tiles', () => {
     render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
     fireEvent.load(screen.getByAltText(/goliath card/i))
-    fireEvent.click(screen.getAllByTitle(/open goliath details overlay/i)[1])
 
-    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
-      kind: 'awakener',
-      id: 'awakener-0021',
-      source: 'builder-overlay',
-    })
-    expect(screen.queryByRole('button', {name: /remove active awakener/i})).not.toBeInTheDocument()
+    expect(screen.getAllByTitle(/open goliath details overlay/i)).toHaveLength(1)
+    expect(screen.queryByRole('button', {name: /open database page/i})).not.toBeInTheDocument()
   })
 
   it('displays collection awakener level as read-only Lv text on builder cards', () => {
@@ -159,11 +154,12 @@ describe('BuilderPage awakener basics', () => {
     fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
 
     const goliathPortrait = screen.getByAltText(/goliath portrait/i)
-    const goliathPickerButton = goliathPortrait.closest('button')
+    const goliathPickerTile = goliathPortrait.closest('.builder-picker-tile')
+    const goliathPickerButton = screen.getByRole('button', {name: /goliath portrait/i})
 
-    expect(goliathPickerButton).not.toBeNull()
+    expect(goliathPickerTile).not.toBeNull()
     expect(goliathPickerButton).toHaveAttribute('data-in-use', 'true')
-    expect(goliathPickerButton).toHaveTextContent(/already used/i)
+    expect(goliathPickerTile).toHaveTextContent(/already used/i)
   })
 
   it('captures global typing into the active picker search', () => {
@@ -185,11 +181,12 @@ describe('BuilderPage awakener basics', () => {
     fireEvent.click(screen.getByRole('button', {name: /ramona portrait/i}))
 
     const timewornPortrait = screen.getByAltText(/ramona: timeworn portrait/i)
-    const timewornPickerButton = timewornPortrait.closest('button')
+    const timewornPickerTile = timewornPortrait.closest('.builder-picker-tile')
+    const timewornPickerButton = screen.getByRole('button', {name: /ramona: timeworn portrait/i})
 
-    expect(timewornPickerButton).not.toBeNull()
+    expect(timewornPickerTile).not.toBeNull()
     expect(timewornPickerButton).toHaveAttribute('data-in-use', 'true')
-    expect(timewornPickerButton).toHaveTextContent(/already used/i)
+    expect(timewornPickerTile).toHaveTextContent(/already used/i)
   })
 
   it('replaces the active card when clicking an awakener in picker', () => {

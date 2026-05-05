@@ -121,6 +121,8 @@ vi.mock('@/domain/awakeners', () => ({
       tags: ['Heal', 'Bleed'],
     },
   ],
+  resolveAwakenerLiteStatsForLevel: (awakener: {stats?: {CON: number; ATK: number; DEF: number}}) =>
+    awakener.stats,
 }))
 
 vi.mock('@/domain/wheels', () => ({

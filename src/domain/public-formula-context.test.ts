@@ -69,6 +69,20 @@ describe('public-formula-context', () => {
     expect(buildPublicFormulaContext({wheelEnhanceLevel: 4}).wheelRefinementLevel).toBe(3)
   })
 
+  it('preserves already resolved formula context values when normalizing a context', () => {
+    expect(
+      buildPublicFormulaContext({
+        accountLevel: 70,
+        ownedPosseCount: 7,
+        wheelRefinementLevel: 2,
+      }),
+    ).toEqual({
+      accountLevel: 70,
+      ownedPosseCount: 7,
+      wheelRefinementLevel: 2,
+    })
+  })
+
   it('keeps the public formula context type closed to reviewed keys', () => {
     const context = {
       accountLevel: 100,

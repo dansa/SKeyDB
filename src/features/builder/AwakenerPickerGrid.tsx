@@ -10,7 +10,6 @@ interface AwakenerPickerGridProps {
   ownedAwakenerLevelByName: Map<string, number | null>
   allowDupes: boolean
   onAwakenerClick: (awakenerId: string) => void
-  onOpenAwakenerDatabasePage: (awakener: Awakener) => void
   onOpenAwakenerDetail: (awakener: Awakener) => void
 }
 
@@ -21,11 +20,10 @@ export function AwakenerPickerGrid({
   ownedAwakenerLevelByName,
   allowDupes,
   onAwakenerClick,
-  onOpenAwakenerDatabasePage,
   onOpenAwakenerDetail,
 }: AwakenerPickerGridProps) {
   return (
-    <div className='grid grid-cols-4 gap-1.5'>
+    <div className='grid grid-cols-[repeat(4,minmax(0,1fr))] gap-1.5'>
       {filteredAwakeners.map((awakener) => (
         <PickerAwakenerTile
           awakenerId={awakener.id}
@@ -40,9 +38,6 @@ export function AwakenerPickerGrid({
           key={awakener.id}
           onClick={() => {
             onAwakenerClick(awakener.id)
-          }}
-          onOpenDatabasePage={() => {
-            onOpenAwakenerDatabasePage(awakener)
           }}
           onOpenDetail={() => {
             onOpenAwakenerDetail(awakener)

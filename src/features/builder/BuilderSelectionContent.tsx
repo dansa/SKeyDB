@@ -33,13 +33,9 @@ interface BuilderSelectionContentProps {
   usedPosseByTeamOrder: Map<string, number>
   usedWheelByTeamOrder: Map<string, WheelUsageLocation>
   onAwakenerClick: (awakenerName: string) => void
-  onOpenAwakenerDatabasePage: (awakener: Awakener) => void
   onOpenAwakenerDetail: (awakener: Awakener) => void
-  onOpenWheelDatabasePage: (wheel: Wheel) => void
   onOpenWheelDetail: (wheel: Wheel) => void
-  onOpenCovenantDatabasePage: (covenant: Covenant) => void
   onOpenCovenantDetail: (covenant: Covenant) => void
-  onOpenPosseDatabasePage: (posse: Posse) => void
   onOpenPosseDetail: (posse: Posse) => void
   onSetActiveWheel: (wheelId?: string) => void
   onSetActiveCovenant: (covenantId?: string) => void
@@ -67,13 +63,9 @@ export function BuilderSelectionContent({
   usedPosseByTeamOrder,
   usedWheelByTeamOrder,
   onAwakenerClick,
-  onOpenAwakenerDatabasePage,
   onOpenAwakenerDetail,
-  onOpenWheelDatabasePage,
   onOpenWheelDetail,
-  onOpenCovenantDatabasePage,
   onOpenCovenantDetail,
-  onOpenPosseDatabasePage,
   onOpenPosseDetail,
   onSetActiveWheel,
   onSetActiveCovenant,
@@ -95,7 +87,6 @@ export function BuilderSelectionContent({
             allowDupes={allowDupes}
             filteredAwakeners={filteredAwakeners}
             onAwakenerClick={onAwakenerClick}
-            onOpenAwakenerDatabasePage={onOpenAwakenerDatabasePage}
             onOpenAwakenerDetail={onOpenAwakenerDetail}
             ownedAwakenerLevelByName={ownedAwakenerLevelByName}
             teamRealmSet={teamRealmSet}
@@ -110,7 +101,6 @@ export function BuilderSelectionContent({
             effectiveActiveTeamId={effectiveActiveTeamId}
             filteredWheels={filteredWheels}
             onSetActiveWheel={onSetActiveWheel}
-            onOpenWheelDatabasePage={onOpenWheelDatabasePage}
             onOpenWheelDetail={onOpenWheelDetail}
             ownedWheelLevelById={ownedWheelLevelById}
             promoteMatchingWheelMainstats={promoteMatchingWheelMainstats}
@@ -123,7 +113,6 @@ export function BuilderSelectionContent({
             activeBuild={activeBuild}
             filteredCovenants={filteredCovenants}
             onSetActiveCovenant={onSetActiveCovenant}
-            onOpenCovenantDatabasePage={onOpenCovenantDatabasePage}
             onOpenCovenantDetail={onOpenCovenantDetail}
           />
         ) : null}
@@ -135,7 +124,6 @@ export function BuilderSelectionContent({
             effectiveActiveTeamId={effectiveActiveTeamId}
             filteredPosses={filteredPosses}
             onSetActivePosse={onSetActivePosse}
-            onOpenPosseDatabasePage={onOpenPosseDatabasePage}
             onOpenPosseDetail={onOpenPosseDetail}
             ownedPosseLevelById={ownedPosseLevelById}
             teamRecommendedPosseIds={teamRecommendedPosseIds}

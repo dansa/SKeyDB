@@ -7,6 +7,9 @@ const liteStatsSchema = z.object({
   ATK: z.number(),
   DEF: z.number(),
 })
+const PRIMARY_STAT_KEYS = ['CON', 'ATK', 'DEF'] as const
+const BASIC_MAX_LEVEL = 60
+const PRIMARY_STAT_FORMULA_EPSILON = 1e-9
 
 const publicV3AwakenerCatalogRecordSchema = z
   .object({
@@ -20,7 +23,9 @@ const publicV3AwakenerCatalogRecordSchema = z
     type: z.string().trim().min(1).optional(),
     aliases: z.array(z.string().trim().min(1)).optional(),
     searchTags: z.array(z.string().trim().min(1)).optional(),
+    primaryScalingBase: z.number().optional(),
     baseStatsLv1: liteStatsSchema,
+    statScaling: liteStatsSchema.optional(),
     lineupToken: z.string().trim().min(1),
   })
   .loose()
@@ -30,6 +35,8 @@ export interface AwakenerLiteStats {
   ATK: number
   DEF: number
 }
+
+export type AwakenerStatScaling = AwakenerLiteStats
 
 export interface Awakener {
   id: string
@@ -42,6 +49,8 @@ export interface Awakener {
   type?: string
   aliases: string[]
   stats?: AwakenerLiteStats
+  primaryScalingBase?: number
+  statScaling?: AwakenerStatScaling
   tags: string[]
   unreleased?: boolean
   lineupToken: string
@@ -71,6 +80,39 @@ function resolveCanonicalAwakenerName(awakener: {name: string; aliases?: string[
   return awakener.name.trim().toLowerCase()
 }
 
+function normalizeAwakenerLiteStatLevel(level: number): number {
+  if (!Number.isFinite(level)) {
+    return BASIC_MAX_LEVEL
+  }
+  return Math.max(1, Math.round(level))
+}
+
+export function resolveAwakenerLiteStatsForLevel(
+  awakener: Pick<Awakener, 'primaryScalingBase' | 'statScaling' | 'stats'>,
+  level: number,
+): AwakenerLiteStats | undefined {
+  if (!awakener.stats) {
+    return undefined
+  }
+  if (awakener.primaryScalingBase === undefined || !awakener.statScaling) {
+    return awakener.stats
+  }
+
+  const normalizedLevel = normalizeAwakenerLiteStatLevel(level)
+  const resolvedStats = {...awakener.stats}
+  for (const key of PRIMARY_STAT_KEYS) {
+    const growthPerLevel = awakener.statScaling[key]
+    if (!Number.isFinite(growthPerLevel)) {
+      continue
+    }
+    resolvedStats[key] = Math.ceil(
+      (awakener.primaryScalingBase + normalizedLevel) * growthPerLevel -
+        PRIMARY_STAT_FORMULA_EPSILON,
+    )
+  }
+  return resolvedStats
+}
+
 const parsedAwakeners = getPublicCatalogRecords('awakeners')
   .map((record) => publicV3AwakenerCatalogRecordSchema.parse(record))
   .map((awakener): Awakener => {
@@ -89,6 +131,8 @@ const parsedAwakeners = getPublicCatalogRecords('awakeners')
       type: awakener.type,
       aliases,
       stats: awakener.baseStatsLv1,
+      primaryScalingBase: awakener.primaryScalingBase,
+      statScaling: awakener.statScaling,
       tags,
       lineupToken: awakener.lineupToken,
     }

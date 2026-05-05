@@ -16,8 +16,13 @@ const catalog = {
 
 function createStorage() {
   const store = new Map<string, string>()
+  let readCount = 0
   return {
-    getItem: (key: string) => store.get(key) ?? null,
+    getItem: (key: string) => {
+      readCount += 1
+      return store.get(key) ?? null
+    },
+    getReadCount: () => readCount,
     setItem: (key: string, value: string) => {
       store.set(key, value)
     },
@@ -122,6 +127,38 @@ describe('collectionOwnershipStore', () => {
 
     expect(store.getState().save()).toBe(true)
     expect(storage.getItem(COLLECTION_OWNERSHIP_KEY)).toContain('"displayUnowned":false')
+  })
+
+  it('does not replace live ownership when the hydrated snapshot is unchanged', () => {
+    const storage = createStorage()
+    storage.setItem(
+      COLLECTION_OWNERSHIP_KEY,
+      JSON.stringify({
+        version: 2,
+        updatedAt: '2026-01-01T00:00:00.000Z',
+        payload: {
+          ownedAwakeners: {'awakener-0001': 2},
+          awakenerLevels: {'awakener-0001': 70},
+          ownedWheels: {},
+          ownedPosses: {},
+          displayUnowned: false,
+        },
+      }),
+    )
+
+    const store = createCollectionOwnershipStore({catalog, storage})
+    store.getState().hydrate()
+    store.getState().setOwnedLevel('wheels', 'wheel-0001', 5)
+
+    store.getState().hydrate()
+
+    expect(storage.getReadCount()).toBeGreaterThan(0)
+    expect(store.getState().ownership.ownedAwakeners).toEqual({
+      'awakener-0001': 2,
+      'awakener-0002': 2,
+    })
+    expect(store.getState().ownership.ownedWheels).toEqual({'wheel-0001': 5})
+    expect(store.getState().ownership.displayUnowned).toBe(false)
   })
 
   it('imports ownership snapshots into live state and persists canonical current ids', () => {

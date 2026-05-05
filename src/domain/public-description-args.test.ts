@@ -107,10 +107,18 @@ describe('public-description-args', () => {
         formulaContext: {accountLevel: 33, ownedPosseCount: 0},
         maxRank: 6,
       }),
-    ).toBe('Account Lv 33: 4%')
+    ).toBe(
+      [
+        'Account Growth Bonus',
+        'Account Lv 33: 243 base growth',
+        'Effect multiplier: 1.3%',
+        '',
+        '243 × 1.3% = 4%',
+      ].join('\n'),
+    )
   })
 
-  it('derives occult research depth from account level and owned posse count', () => {
+  it('derives normal occult research while explaining its Astral Reign value', () => {
     const arg: PublicDescriptionArg = {
       kind: 'computed',
       formulaKey: 'scaled',
@@ -123,29 +131,58 @@ describe('public-description-args', () => {
       evaluatePublicFormulaExpression(arg, {accountLevel: 1, ownedPosseCount: 100}),
     ).toStrictEqual({
       resolved: true,
-      value: 106,
+      value: 71,
+    })
+    expect(
+      resolveDescriptionArg(arg, {formulaContext: {accountLevel: 1, ownedPosseCount: 100}}),
+    ).toMatchObject({
+      formattedTotalValue: '71 (106)',
     })
     expect(
       buildDescriptionArgHover(arg, {
         formulaContext: {accountLevel: 1, ownedPosseCount: 100},
         maxRank: 6,
       }),
-    ).toBe('Account Lv 1, 50 posses: 106')
+    ).toBe(
+      [
+        'Forbidden Lore Scaling',
+        'Base (Account Lv 1): Occult Research 70.1 = 71',
+        'Astral Reign: 50 Posses add +50% to Research → 106',
+      ].join('\n'),
+    )
   })
 
   it('resolves wheel refinement linear computed args from wheel refinement level', () => {
+    const arg: PublicDescriptionArg = {
+      kind: 'computed',
+      formulaKey: 'wheelRefinementLinear',
+      baseValue: 5,
+      perLevel: 1.5,
+      inputs: ['wheelRefinementLevel'],
+      suffix: '%',
+    }
+
     expect(
-      evaluatePublicFormulaExpression(
-        {
-          kind: 'computed',
-          formulaKey: 'wheelRefinementLinear',
-          baseValue: 5,
-          perLevel: 1.5,
-          inputs: ['wheelRefinementLevel'],
-        },
-        {accountLevel: 100, ownedPosseCount: 0, wheelRefinementLevel: 4},
-      ),
-    ).toStrictEqual({resolved: true, value: 11})
+      evaluatePublicFormulaExpression(arg, {
+        accountLevel: 100,
+        ownedPosseCount: 0,
+        wheelRefinementLevel: 3,
+      }),
+    ).toStrictEqual({resolved: true, value: 9.5})
+    expect(
+      buildDescriptionArgHover(arg, {
+        formulaContext: {accountLevel: 100, ownedPosseCount: 0, wheelRefinementLevel: 3},
+      }),
+    ).toBe(
+      [
+        'Wheel Enlighten Bonus',
+        'Current Enlighten tier: 3',
+        'Base value: 5%',
+        'Per tier: +1.5%',
+        '',
+        '5% + (3 × 1.5%) = 9.5%',
+      ].join('\n'),
+    )
   })
 
   it('falls back gracefully when computed arg context is missing', () => {

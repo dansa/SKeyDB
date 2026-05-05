@@ -11,6 +11,7 @@ import {dbDetailRegistry} from './dbDetailRegistry'
 interface MockDetailRenderOptions {
   callbacks: {
     onClose: () => void
+    onTabChange: (tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams') => void
     onSelectWheel: (wheel: {id: string; name: string}) => void
   }
   item: {
@@ -45,6 +46,14 @@ vi.mock('./dbDetailRegistry', async () => {
               Refer wheel
             </button>
             <span>Active tab: {item.activeTab}</span>
+            <button
+              onClick={() => {
+                callbacks.onTabChange('skills')
+              }}
+              type='button'
+            >
+              Show skills tab
+            </button>
           </div>
         )),
       },
@@ -192,6 +201,35 @@ describe('DbDetailModalHost overlay entries', () => {
       {kind: 'awakener', id: 'awakener-0021', source: 'builder-overlay'},
       {kind: 'wheel', id: 'wheel-0050', source: 'reference'},
     ])
+  })
+
+  it('keeps awakener overlay tab state local to the modal host', async () => {
+    const onTabChange = vi.fn()
+
+    render(
+      <MemoryRouter initialEntries={['/builder']}>
+        <DbDetailModalHost
+          awakeners={awakeners}
+          callbacks={{
+            onClose: vi.fn(),
+            onSelectAwakener: vi.fn(),
+            onSelectCovenant: vi.fn(),
+            onSelectWheel: vi.fn(),
+            onTabChange,
+          }}
+          routeItem={null}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    dbDetailStore.getState().openDetail({kind: 'awakener', id: 'awakener-0021'}, 'builder-overlay')
+
+    expect(await screen.findByText('Active tab: overview')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: /show skills tab/i}))
+
+    expect(await screen.findByText('Active tab: skills')).toBeInTheDocument()
+    expect(onTabChange).not.toHaveBeenCalled()
   })
 
   it('pops missing overlay records without navigating away from the current page', async () => {

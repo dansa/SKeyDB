@@ -6,13 +6,7 @@ import {TabbedContainer} from '@/components/ui/TabbedContainer'
 import {Toast} from '@/components/ui/Toast'
 import {useTimedToast} from '@/components/ui/useTimedToast'
 import type {Awakener} from '@/domain/awakeners'
-import {getCovenants, type Covenant} from '@/domain/covenants'
-import {
-  buildDatabaseAwakenerPath,
-  buildDatabaseCovenantPath,
-  buildDatabasePossePath,
-  buildDatabaseWheelPath,
-} from '@/domain/database-paths'
+import type {Covenant} from '@/domain/covenants'
 import type {Posse} from '@/domain/posses'
 import {getWheels, type Wheel} from '@/domain/wheels'
 import {DbDetailModalHost} from '@/features/database/detail/DbDetailModalHost'
@@ -541,27 +535,8 @@ export function BuilderPage() {
     setActiveSelection(null)
   }
 
-  function openDatabasePage(path: string) {
-    window.location.assign(path)
-  }
-
   function openAwakenerDetailOverlay(awakener: Awakener) {
     dbDetailStore.getState().openDetail({kind: 'awakener', id: awakener.id}, 'builder-overlay')
-  }
-
-  function openSlotAwakenerDetailOverlay(slot: TeamSlot) {
-    if (!slot.awakenerId) {
-      return
-    }
-    dbDetailStore.getState().openDetail({kind: 'awakener', id: slot.awakenerId}, 'builder-overlay')
-  }
-
-  function openSlotAwakenerDatabasePage(slot: TeamSlot) {
-    const awakener = slot.awakenerId ? awakenerById.get(slot.awakenerId) : undefined
-    if (!awakener) {
-      return
-    }
-    openDatabasePage(buildDatabaseAwakenerPath(awakener))
   }
 
   function openWheelDetailOverlay(wheelId: string) {
@@ -572,44 +547,12 @@ export function BuilderPage() {
     openWheelDetailOverlay(wheel.id)
   }
 
-  function openWheelDatabasePage(wheelId: string) {
-    const wheel = getWheels().find((entry) => entry.id === wheelId)
-    if (!wheel) {
-      return
-    }
-    openDatabasePage(buildDatabaseWheelPath(wheel))
-  }
-
-  function openPickerWheelDatabasePage(wheel: Wheel) {
-    openDatabasePage(buildDatabaseWheelPath(wheel))
-  }
-
   function openCovenantDetailOverlay(covenant: Covenant) {
     dbDetailStore.getState().openDetail({kind: 'covenant', id: covenant.id}, 'builder-overlay')
   }
 
-  function openCovenantDetailOverlayById(covenantId: string) {
-    dbDetailStore.getState().openDetail({kind: 'covenant', id: covenantId}, 'builder-overlay')
-  }
-
-  function openCovenantDatabasePage(covenant: Covenant) {
-    openDatabasePage(buildDatabaseCovenantPath(covenant))
-  }
-
-  function openCovenantDatabasePageById(covenantId: string) {
-    const covenant = getCovenants().find((entry) => entry.id === covenantId)
-    if (!covenant) {
-      return
-    }
-    openDatabasePage(buildDatabaseCovenantPath(covenant))
-  }
-
   function openPosseDetailOverlay(posse: Posse) {
     dbDetailStore.getState().openDetail({kind: 'posse', id: posse.id}, 'builder-overlay')
-  }
-
-  function openPosseDatabasePage(posse: Posse) {
-    openDatabasePage(buildDatabasePossePath(posse))
   }
 
   return (
@@ -690,12 +633,6 @@ export function BuilderPage() {
                   onStartQuickLineup={startQuickLineup}
                   onCardClick={handleCardClick}
                   onRemoveActiveSelection={handleRemoveActiveSelection}
-                  onOpenAwakenerDatabasePage={openSlotAwakenerDatabasePage}
-                  onOpenAwakenerDetail={openSlotAwakenerDetailOverlay}
-                  onOpenWheelDatabasePage={openWheelDatabasePage}
-                  onOpenWheelDetail={openWheelDetailOverlay}
-                  onOpenCovenantDatabasePage={openCovenantDatabasePageById}
-                  onOpenCovenantDetail={openCovenantDetailOverlayById}
                   onCovenantSlotClick={handleCovenantSlotClick}
                   onSkipQuickLineupStep={skipQuickLineupStep}
                   onWheelSlotClick={handleWheelSlotClick}
@@ -760,15 +697,9 @@ export function BuilderPage() {
             onDisplayUnownedChange={setDisplayUnowned}
             onSinkUnownedToBottomChange={setSinkUnownedToBottom}
             onAwakenerClick={handlePickerAwakenerClick}
-            onOpenAwakenerDatabasePage={(awakener) => {
-              openDatabasePage(buildDatabaseAwakenerPath(awakener))
-            }}
             onOpenAwakenerDetail={openAwakenerDetailOverlay}
-            onOpenWheelDatabasePage={openPickerWheelDatabasePage}
             onOpenWheelDetail={openPickerWheelDetailOverlay}
-            onOpenCovenantDatabasePage={openCovenantDatabasePage}
             onOpenCovenantDetail={openCovenantDetailOverlay}
-            onOpenPosseDatabasePage={openPosseDatabasePage}
             onOpenPosseDetail={openPosseDetailOverlay}
             onAwakenerFilterChange={setAwakenerFilter}
             onAwakenerSortDirectionToggle={toggleAwakenerSortDirection}

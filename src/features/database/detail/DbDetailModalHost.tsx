@@ -4,7 +4,11 @@ import {useLocation, useNavigate} from 'react-router-dom'
 
 import type {Awakener} from '@/domain/awakeners'
 import {getCovenants, type Covenant} from '@/domain/covenants'
-import {buildDatabaseAwakenerPath, resolveDatabaseAwakenerTab} from '@/domain/database-paths'
+import {
+  buildDatabaseAwakenerPath,
+  resolveDatabaseAwakenerTab,
+  type DatabaseAwakenerTab,
+} from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
 import {getPosses} from '@/domain/posses'
 import type {Wheel} from '@/domain/wheels'
@@ -44,10 +48,11 @@ function resolveOverlayRouteItem(
   ref: EntityRef,
   awakeners: Awakener[],
   wheels: Wheel[],
+  activeAwakenerTab: DatabaseAwakenerTab = 'overview',
 ): DatabaseDetailRouteItem | null {
   if (ref.kind === 'awakener') {
     const item = awakeners.find((awakener) => awakener.id === ref.id)
-    return item ? {kind: 'awakener', item, activeTab: 'overview'} : null
+    return item ? {kind: 'awakener', item, activeTab: activeAwakenerTab} : null
   }
   if (ref.kind === 'wheel') {
     const item = wheels.find((wheel) => wheel.id === ref.id)
@@ -219,7 +224,14 @@ function DbDetailOverlayModal({
   callbacks,
   wheels,
 }: DbDetailOverlayModalProps) {
-  const routeItem = resolveOverlayRouteItem(activeRef, awakeners, wheels)
+  const activeRefKey = `${activeRef.kind}:${activeRef.id}`
+  const [overlayAwakenerTabState, setOverlayAwakenerTabState] = useState<{
+    activeTab: DatabaseAwakenerTab
+    refKey: string
+  }>(() => ({activeTab: 'overview', refKey: activeRefKey}))
+  const overlayAwakenerTab =
+    overlayAwakenerTabState.refKey === activeRefKey ? overlayAwakenerTabState.activeTab : 'overview'
+  const routeItem = resolveOverlayRouteItem(activeRef, awakeners, wheels, overlayAwakenerTab)
   const registryEntry = dbDetailRegistry[activeRef.kind]
   const {isLoading, record} = useDbDetailOverlayRecord(activeRef.id, registryEntry.loadRecord)
 
@@ -253,6 +265,9 @@ function DbDetailOverlayModal({
       ...callbacks,
       onClose: () => {
         dbDetailStore.getState().popDetail()
+      },
+      onTabChange: (nextTab) => {
+        setOverlayAwakenerTabState({activeTab: nextTab, refKey: activeRefKey})
       },
       onSelectAwakener: (awakener) => {
         const ref = resolveAwakenerRef(awakeners, awakener)

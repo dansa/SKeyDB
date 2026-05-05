@@ -1,6 +1,7 @@
 import {z} from 'zod'
 
 import {gameplayMathMetadata} from './gameplay-math-metadata'
+import {formatWheelEnhanceLevelLabel} from './wheel-enhance'
 
 export const WHEEL_MAINSTAT_KEYS = [
   'CRIT_RATE',
@@ -98,6 +99,10 @@ function formatWheelMainstatValue(value: number, suffix: string): string {
   return `${formatted}${suffix}`
 }
 
+function formatSignedWheelMainstatValue(value: number, suffix: string): string {
+  return `${value >= 0 ? '+' : ''}${formatWheelMainstatValue(value, suffix)}`
+}
+
 export function getWheelMainstatScaling(): WheelMainstatScalingSource {
   return parsedWheelMainstatScaling
 }
@@ -139,4 +144,44 @@ export function resolveWheelMainstatValue(
     baseValue.numericValue + perLevel.numericValue * growthSteps,
     baseValue.suffix,
   )
+}
+
+export function buildWheelMainstatHover(
+  seriesOrKey: string | WheelMainstatScalingSeries,
+  enhanceLevel: number,
+): string {
+  const series = typeof seriesOrKey === 'string' ? getWheelMainstatSeries(seriesOrKey) : seriesOrKey
+  if (!series) {
+    throw new Error(
+      `Unknown wheel mainstat scaling series "${
+        typeof seriesOrKey === 'string' ? seriesOrKey : seriesOrKey.seriesKey
+      }".`,
+    )
+  }
+
+  const baseValue = parseWheelMainstatScalar(series.baseValue)
+  const perLevel = parseWheelMainstatScalar(series.perLevel)
+  if (baseValue.suffix !== perLevel.suffix) {
+    throw new Error(`Mismatched wheel mainstat suffixes for "${series.seriesKey}".`)
+  }
+
+  const normalizedLevel = Math.max(0, Math.floor(enhanceLevel))
+  const growthSteps = Math.max(0, normalizedLevel - parsedWheelMainstatScaling.growthStartLevel + 1)
+  const growthStartsAfter = formatWheelEnhanceLevelLabel(
+    Math.max(0, parsedWheelMainstatScaling.growthStartLevel - 1),
+  )
+  const currentEnhance = formatWheelEnhanceLevelLabel(normalizedLevel)
+  const resolvedValue = resolveWheelMainstatValue(series, normalizedLevel)
+
+  return [
+    'Wheel Main Stat',
+    `Base value: ${series.baseValue}`,
+    `Enhance growth: ${formatSignedWheelMainstatValue(
+      perLevel.numericValue,
+      perLevel.suffix,
+    )} per level after ${growthStartsAfter}`,
+    `Current Enhance: ${currentEnhance}`,
+    '',
+    `${series.baseValue} + (${String(growthSteps)} × ${series.perLevel}) = ${resolvedValue}`,
+  ].join('\n')
 }

@@ -225,7 +225,17 @@ describe('RichSegmentRenderer', () => {
     )
 
     expect(screen.getByText('12%')).toBeInTheDocument()
-    expect(screen.getByText('12%')).toHaveAttribute('title', 'Lv1: 12%')
+    expect(screen.getByText('12%')).toHaveAttribute(
+      'title',
+      [
+        'Wheel Enlighten Bonus',
+        'Current Enlighten tier: 4',
+        'Base value: 0%',
+        'Per tier: +3%',
+        '',
+        '0% + (4 × 3%) = 12%',
+      ].join('\n'),
+    )
   })
 
   it('does not present a numeric value for computed args when formula context is missing', () => {

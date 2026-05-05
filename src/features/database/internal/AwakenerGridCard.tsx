@@ -1,5 +1,5 @@
 import {getAwakenerCardAsset} from '@/domain/awakener-assets'
-import type {Awakener} from '@/domain/awakeners'
+import {resolveAwakenerLiteStatsForLevel, type Awakener} from '@/domain/awakeners'
 import {getAwakenerTextColor, type AwakenerTextColorName} from '@/domain/awakeners-text-colors'
 import {getMainstatIcon} from '@/domain/mainstats'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
@@ -17,6 +17,7 @@ const STAT_DISPLAY: {key: 'CON' | 'ATK' | 'DEF'; colorName: AwakenerTextColorNam
 ]
 
 const PRIORITIZED_GRID_IMAGE_COUNT = 24
+const DATABASE_GRID_AWAKENER_STAT_LEVEL = 60
 
 interface AwakenerGridCardProps {
   awakener: Awakener
@@ -28,7 +29,7 @@ export function AwakenerGridCard({awakener, index, onSelect}: AwakenerGridCardPr
   const cardAsset = getAwakenerCardAsset(awakener.name)
   const displayName = formatAwakenerNameForUi(awakener.name)
   const realmAccent = getRealmAccent(awakener.realm)
-  const stats = awakener.stats
+  const stats = resolveAwakenerLiteStatsForLevel(awakener, DATABASE_GRID_AWAKENER_STAT_LEVEL)
   const prioritizeImage = index < PRIORITIZED_GRID_IMAGE_COUNT
 
   return (

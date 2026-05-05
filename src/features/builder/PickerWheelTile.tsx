@@ -1,10 +1,14 @@
 import {useDraggable} from '@dnd-kit/core'
-import {FaArrowUpRightFromSquare, FaCircleInfo} from 'react-icons/fa6'
+import {FaCircleInfo} from 'react-icons/fa6'
 
 import {getMainstatByKey, getMainstatIcon, type WheelMainstatKey} from '@/domain/mainstats'
 import {CompactArtTile} from '@/ui/cards/CompactArtTile'
 
-import {PICKER_STATUS_CLASS, PICKER_UNOWNED_CLASS} from './picker-status-labels'
+import {
+  PICKER_RECOMMENDATION_CLASS,
+  PICKER_STATUS_CLASS,
+  PICKER_UNOWNED_CLASS,
+} from './picker-status-labels'
 import type {DragData} from './types'
 
 interface PickerWheelTileProps {
@@ -19,7 +23,6 @@ interface PickerWheelTileProps {
   recommendationLabel?: string
   recommendedMainstatKey?: WheelMainstatKey
   onClick: () => void
-  onOpenDatabasePage?: () => void
   onOpenDetail?: () => void
 }
 
@@ -109,7 +112,6 @@ export function PickerWheelTile({
   recommendationLabel,
   recommendedMainstatKey,
   onClick,
-  onOpenDatabasePage,
   onOpenDetail,
 }: PickerWheelTileProps) {
   const isDimmed = isBlocked || isInUse || (!isOwned && !isNotSet)
@@ -127,24 +129,46 @@ export function PickerWheelTile({
   delete dragAttributes['aria-disabled']
 
   return (
-    <div className='group relative'>
-      <button
-        aria-disabled={isBlocked ? 'true' : undefined}
-        className={`builder-picker-tile border p-1 text-left transition-colors ${buttonStateClassName} ${
+    <div className='group relative min-w-0'>
+      <div
+        className={`builder-picker-tile relative w-full min-w-0 border p-1 text-left transition-colors ${buttonStateClassName} ${
           isDragging ? 'scale-[0.98] opacity-60' : ''
         }`}
-        onClick={onClick}
-        ref={setNodeRef}
-        type='button'
-        {...(draggableWheelId ? dragAttributes : {})}
-        {...(draggableWheelId ? listeners : {})}
       >
+        <button
+          aria-disabled={isBlocked ? 'true' : undefined}
+          aria-label={isNotSet ? 'Clear wheel selection' : `${wheelDisplayName} wheel`}
+          className='absolute inset-0 z-20 cursor-pointer border-0 bg-transparent p-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-amber-200/70'
+          onClick={onClick}
+          ref={setNodeRef}
+          type='button'
+          {...(draggableWheelId ? dragAttributes : {})}
+          {...(draggableWheelId ? listeners : {})}
+        />
         <CompactArtTile
+          actionPlacement='caption'
+          actions={
+            !isNotSet ? (
+              <button
+                aria-label='Open details overlay'
+                className='builder-picker-detail-action inline-flex items-center justify-center text-slate-400 hover:text-amber-100 focus-visible:text-amber-100 focus-visible:outline-none'
+                onClick={(event) => {
+                  event.preventDefault()
+                  event.stopPropagation()
+                  onOpenDetail?.()
+                }}
+                title={`Open ${wheelDisplayName} details overlay`}
+                type='button'
+              >
+                <FaCircleInfo aria-hidden className='h-3 w-3' />
+              </button>
+            ) : undefined
+          }
           chips={
             !isNotSet && (recommendationLabel || recommendedMainstatKey) ? (
               <>
                 {recommendationLabel ? (
-                  <span className='builder-picker-recommendation-chip'>{recommendationLabel}</span>
+                  <span className={PICKER_RECOMMENDATION_CLASS}>{recommendationLabel}</span>
                 ) : null}
                 {recommendedMainstatKey && !recommendationLabel ? (
                   <RecommendedMainstatChip mainstatKey={recommendedMainstatKey} />
@@ -152,46 +176,21 @@ export function PickerWheelTile({
               </>
             ) : undefined
           }
+          chipPlacement='overlay-stack'
           name={wheelDisplayName}
           nameClassName='truncate'
           nameTitle={wheelDisplayName}
           preview={renderWheelPreview(wheelAsset, wheelDisplayName, isOwned, isNotSet, isDimmed)}
           previewClassName='aspect-[75/113] border border-slate-400/35 bg-slate-900/70'
           statusBar={
-            topLabel ? <span className={topLabel.className}>{topLabel.text}</span> : undefined
+            topLabel ? (
+              <span className={topLabel.className} title={topLabel.text}>
+                {topLabel.text}
+              </span>
+            ) : undefined
           }
         />
-      </button>
-      {!isNotSet ? (
-        <div className='absolute top-1 right-1 z-30 flex gap-1'>
-          <button
-            aria-label='Open details overlay'
-            className='inline-flex h-6 w-6 items-center justify-center border border-slate-200/25 bg-slate-950/85 text-slate-200 hover:border-amber-200/55 hover:text-amber-100'
-            onClick={(event) => {
-              event.preventDefault()
-              event.stopPropagation()
-              onOpenDetail?.()
-            }}
-            title={`Open ${wheelDisplayName} details overlay`}
-            type='button'
-          >
-            <FaCircleInfo aria-hidden className='h-3 w-3' />
-          </button>
-          <button
-            aria-label='Open database page'
-            className='inline-flex h-6 w-6 items-center justify-center border border-slate-200/25 bg-slate-950/85 text-slate-200 hover:border-amber-200/55 hover:text-amber-100'
-            onClick={(event) => {
-              event.preventDefault()
-              event.stopPropagation()
-              onOpenDatabasePage?.()
-            }}
-            title={`Open ${wheelDisplayName} database page`}
-            type='button'
-          >
-            <FaArrowUpRightFromSquare aria-hidden className='h-3 w-3' />
-          </button>
-        </div>
-      ) : null}
+      </div>
     </div>
   )
 }
@@ -206,7 +205,7 @@ function RecommendedMainstatChip({mainstatKey}: {mainstatKey: WheelMainstatKey})
   return (
     <span
       aria-label={`Recommended mainstat ${label}`}
-      className='builder-picker-recommendation-chip builder-picker-recommendation-chip-icon'
+      className={`${PICKER_RECOMMENDATION_CLASS} builder-picker-recommendation-chip-icon`}
       title={`Recommended mainstat ${label}`}
     >
       <img alt={`Recommended mainstat ${label}`} className='h-3 w-3 object-contain' src={icon} />

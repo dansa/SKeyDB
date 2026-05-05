@@ -15,10 +15,6 @@ interface CardWheelZoneProps {
   activeDragKind?: DragData['kind'] | null
   predictedDropHover?: PredictedDropHover
   onRemoveActiveWheel?: () => void
-  onOpenWheelDatabasePage?: (wheelId: string) => void
-  onOpenWheelDetail?: (wheelId: string) => void
-  onOpenCovenantDatabasePage?: (covenantId: string) => void
-  onOpenCovenantDetail?: (covenantId: string) => void
   onWheelSlotClick?: (wheelIndex: number) => void
   onCovenantSlotClick?: () => void
   awakenerLevel?: number
@@ -38,10 +34,6 @@ export function CardWheelZone({
   activeDragKind = null,
   predictedDropHover = null,
   onRemoveActiveWheel,
-  onOpenWheelDatabasePage,
-  onOpenWheelDetail,
-  onOpenCovenantDatabasePage,
-  onOpenCovenantDetail,
   onWheelSlotClick,
   onCovenantSlotClick,
   awakenerLevel = 60,
@@ -77,8 +69,6 @@ export function CardWheelZone({
             interactive={interactive}
             isActive={isCovenantActive}
             onClick={onCovenantSlotClick}
-            onOpenDatabasePage={onOpenCovenantDatabasePage}
-            onOpenDetail={onOpenCovenantDetail}
             predictedDropHover={predictedDropHover}
             slotId={slot.slotId}
           />
@@ -97,8 +87,6 @@ export function CardWheelZone({
             ownedLevel={wheelOwnedLevels[index] ?? null}
             showOwnership={showOwnership}
             onRemove={allowActiveRemoval ? onRemoveActiveWheel : undefined}
-            onOpenDatabasePage={onOpenWheelDatabasePage}
-            onOpenDetail={onOpenWheelDetail}
             predictedDropHover={predictedDropHover}
             slotId={slot.slotId}
             wheelId={wheelId}

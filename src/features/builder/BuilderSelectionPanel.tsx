@@ -78,13 +78,9 @@ interface BuilderSelectionPanelProps {
   onPromoteRecommendedGearChange: (promoteRecommendedGear: boolean) => void
   onPromoteMatchingWheelMainstatsChange: (promoteMatchingWheelMainstats: boolean) => void
   onAwakenerClick: (awakenerName: string) => void
-  onOpenAwakenerDatabasePage: (awakener: Awakener) => void
   onOpenAwakenerDetail: (awakener: Awakener) => void
-  onOpenWheelDatabasePage: (wheel: Wheel) => void
   onOpenWheelDetail: (wheel: Wheel) => void
-  onOpenCovenantDatabasePage: (covenant: Covenant) => void
   onOpenCovenantDetail: (covenant: Covenant) => void
-  onOpenPosseDatabasePage: (posse: Posse) => void
   onOpenPosseDetail: (posse: Posse) => void
   onSetActiveWheel: (wheelId?: string) => void
   onSetActiveCovenant: (covenantId?: string) => void
@@ -141,13 +137,9 @@ export function BuilderSelectionPanel({
   onPromoteRecommendedGearChange,
   onPromoteMatchingWheelMainstatsChange,
   onAwakenerClick,
-  onOpenAwakenerDatabasePage,
   onOpenAwakenerDetail,
-  onOpenWheelDatabasePage,
   onOpenWheelDetail,
-  onOpenCovenantDatabasePage,
   onOpenCovenantDetail,
-  onOpenPosseDatabasePage,
   onOpenPosseDetail,
   onSetActiveWheel,
   onSetActiveCovenant,
@@ -224,13 +216,9 @@ export function BuilderSelectionPanel({
           filteredPosses={filteredPosses}
           filteredWheels={filteredWheels}
           onAwakenerClick={onAwakenerClick}
-          onOpenAwakenerDatabasePage={onOpenAwakenerDatabasePage}
           onOpenAwakenerDetail={onOpenAwakenerDetail}
-          onOpenWheelDatabasePage={onOpenWheelDatabasePage}
           onOpenWheelDetail={onOpenWheelDetail}
-          onOpenCovenantDatabasePage={onOpenCovenantDatabasePage}
           onOpenCovenantDetail={onOpenCovenantDetail}
-          onOpenPosseDatabasePage={onOpenPosseDatabasePage}
           onOpenPosseDetail={onOpenPosseDetail}
           onSetActiveCovenant={onSetActiveCovenant}
           onSetActivePosse={onSetActivePosse}

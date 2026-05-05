@@ -1,6 +1,6 @@
 import type {ReactNode, WheelEvent} from 'react'
 
-import {FaRotateRight} from 'react-icons/fa6'
+import {FaCircleInfo, FaRotateRight} from 'react-icons/fa6'
 
 import {Button} from '@/components/ui/Button'
 import {CollectionSortControls} from '@/components/ui/CollectionSortControls'
@@ -86,6 +86,24 @@ function renderCollectionRightActions(model: CollectionViewModel): ReactNode {
   return null
 }
 
+function CollectionCardDetailButton({label, onClick}: {label: string; onClick: () => void}) {
+  return (
+    <button
+      aria-label={label}
+      className='collection-card-detail-button absolute top-1 right-1 z-[16] inline-flex h-6 w-6 items-center justify-center border border-slate-300/50 bg-slate-950/82 text-slate-100 shadow-sm transition-colors hover:border-amber-200/80 hover:text-amber-100 focus-visible:border-amber-200/80 focus-visible:ring-2 focus-visible:ring-amber-200/25 focus-visible:outline-none'
+      onClick={(event) => {
+        event.preventDefault()
+        event.stopPropagation()
+        onClick()
+      }}
+      title={label}
+      type='button'
+    >
+      <FaCircleInfo aria-hidden className='h-3 w-3' />
+    </button>
+  )
+}
+
 function AwakenerCollectionCard({
   awakener,
   awakenerId,
@@ -125,18 +143,12 @@ function AwakenerCollectionCard({
           }}
           type='button'
         />
-        <button
-          aria-label={`Open details for ${formatAwakenerNameForUi(awakener.name)}`}
-          className='absolute top-1 right-1 z-[16] border border-slate-300/60 bg-slate-950/80 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-slate-100 uppercase shadow-sm hover:border-amber-200/80 hover:text-amber-100'
-          onClick={(event) => {
-            event.preventDefault()
-            event.stopPropagation()
+        <CollectionCardDetailButton
+          label={`Open details for ${formatAwakenerNameForUi(awakener.name)}`}
+          onClick={() => {
             onOpenDetail({kind: 'awakener', id: awakenerId})
           }}
-          type='button'
-        >
-          Details
-        </button>
+        />
         {cardAsset ? (
           <img
             alt={`${formatAwakenerNameForUi(awakener.name)} card`}
@@ -221,18 +233,12 @@ function WheelCollectionCard({
           }}
           type='button'
         />
-        <button
-          aria-label={`Open details for ${wheel.name}`}
-          className='absolute top-1 right-1 z-[16] border border-slate-300/60 bg-slate-950/80 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-slate-100 uppercase shadow-sm hover:border-amber-200/80 hover:text-amber-100'
-          onClick={(event) => {
-            event.preventDefault()
-            event.stopPropagation()
+        <CollectionCardDetailButton
+          label={`Open details for ${wheel.name}`}
+          onClick={() => {
             onOpenDetail({kind: 'wheel', id: wheel.id})
           }}
-          type='button'
-        >
-          Details
-        </button>
+        />
         {wheelAsset ? (
           <img
             alt={`${wheel.name} wheel`}
@@ -297,18 +303,12 @@ function PosseCollectionCard({
           }}
           type='button'
         />
-        <button
-          aria-label={`Open details for ${posse.name}`}
-          className='absolute top-1 right-1 z-[16] border border-slate-300/60 bg-slate-950/80 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-slate-100 uppercase shadow-sm hover:border-amber-200/80 hover:text-amber-100'
-          onClick={(event) => {
-            event.preventDefault()
-            event.stopPropagation()
+        <CollectionCardDetailButton
+          label={`Open details for ${posse.name}`}
+          onClick={() => {
             onOpenDetail({kind: 'posse', id: posse.id})
           }}
-          type='button'
-        >
-          Details
-        </button>
+        />
         {asset ? (
           <img
             alt={`${posse.name} posse`}

@@ -1,8 +1,6 @@
 import {useDraggable, useDroppable} from '@dnd-kit/core'
-import {FaArrowUpRightFromSquare, FaCircleInfo} from 'react-icons/fa6'
 
 import {getCovenantAssetById} from '@/domain/covenant-assets'
-import {getCovenants} from '@/domain/covenants'
 
 import {makeCovenantDropZoneId} from './dnd-ids'
 import type {DragData, PredictedDropHover} from './types'
@@ -15,11 +13,7 @@ export interface CardCovenantTileProps {
   predictedDropHover?: PredictedDropHover
   isActive: boolean
   onClick?: () => void
-  onOpenDatabasePage?: (covenantId: string) => void
-  onOpenDetail?: (covenantId: string) => void
 }
-
-const covenantNameById = new Map(getCovenants().map((covenant) => [covenant.id, covenant.name]))
 
 function CovenantPlaceholderSvg() {
   return (
@@ -113,8 +107,6 @@ export function CardCovenantTile({
   predictedDropHover,
   isActive,
   onClick,
-  onOpenDatabasePage,
-  onOpenDetail,
 }: CardCovenantTileProps) {
   const dropZoneId = makeCovenantDropZoneId(slotId)
   const {isOver, setNodeRef: setDroppableRef} = useDroppable({id: dropZoneId})
@@ -157,36 +149,6 @@ export function CardCovenantTile({
         {...(draggableCovenantId ? attributes : {})}
         {...(draggableCovenantId ? listeners : {})}
       />
-      {covenantId ? (
-        <div className='pointer-events-auto absolute top-0.5 left-0.5 z-40 flex gap-0.5'>
-          <button
-            aria-label='Open details overlay'
-            className='inline-flex h-5 w-5 items-center justify-center border border-slate-200/25 bg-slate-950/85 text-slate-200 hover:border-amber-200/55 hover:text-amber-100'
-            onClick={(event) => {
-              event.preventDefault()
-              event.stopPropagation()
-              onOpenDetail?.(covenantId)
-            }}
-            title={`Open ${covenantNameById.get(covenantId) ?? covenantId} details overlay`}
-            type='button'
-          >
-            <FaCircleInfo aria-hidden className='h-2.5 w-2.5' />
-          </button>
-          <button
-            aria-label='Open database page'
-            className='inline-flex h-5 w-5 items-center justify-center border border-slate-200/25 bg-slate-950/85 text-slate-200 hover:border-amber-200/55 hover:text-amber-100'
-            onClick={(event) => {
-              event.preventDefault()
-              event.stopPropagation()
-              onOpenDatabasePage?.(covenantId)
-            }}
-            title={`Open ${covenantNameById.get(covenantId) ?? covenantId} database page`}
-            type='button'
-          >
-            <FaArrowUpRightFromSquare aria-hidden className='h-2.5 w-2.5' />
-          </button>
-        </div>
-      ) : null}
       {tileVisual}
     </div>
   )

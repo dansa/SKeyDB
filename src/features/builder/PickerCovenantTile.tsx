@@ -1,8 +1,9 @@
 import {useDraggable} from '@dnd-kit/core'
-import {FaArrowUpRightFromSquare, FaCircleInfo} from 'react-icons/fa6'
+import {FaCircleInfo} from 'react-icons/fa6'
 
 import {CompactArtTile} from '@/ui/cards/CompactArtTile'
 
+import {PICKER_RECOMMENDATION_CLASS} from './picker-status-labels'
 import type {DragData} from './types'
 
 interface PickerCovenantTileProps {
@@ -12,7 +13,6 @@ interface PickerCovenantTileProps {
   isNotSet?: boolean
   recommendationLabel?: string
   onClick: () => void
-  onOpenDatabasePage?: () => void
   onOpenDetail?: () => void
 }
 
@@ -70,7 +70,6 @@ export function PickerCovenantTile({
   isNotSet = false,
   recommendationLabel,
   onClick,
-  onOpenDatabasePage,
   onOpenDetail,
 }: PickerCovenantTileProps) {
   const draggableCovenantId = !isNotSet && covenantId ? covenantId : undefined
@@ -86,61 +85,53 @@ export function PickerCovenantTile({
   delete dragAttributes['aria-disabled']
 
   return (
-    <div className='group relative'>
-      <button
-        aria-label={isNotSet ? 'Not set covenant' : altText}
-        className={`builder-picker-tile border border-slate-500/45 bg-slate-900/55 p-1 text-left transition-colors hover:border-amber-200/45 ${
+    <div className='group relative min-w-0'>
+      <div
+        className={`builder-picker-tile relative w-full min-w-0 border border-slate-500/45 bg-slate-900/55 p-1 text-left transition-colors hover:border-amber-200/45 ${
           isDragging ? 'scale-[0.98] opacity-60' : ''
         }`}
-        onClick={onClick}
-        ref={setNodeRef}
-        type='button'
-        {...(draggableCovenantId ? dragAttributes : {})}
-        {...(draggableCovenantId ? listeners : {})}
       >
+        <button
+          aria-label={isNotSet ? 'Not set covenant' : altText}
+          className='absolute inset-0 z-20 cursor-pointer border-0 bg-transparent p-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-amber-200/70'
+          onClick={onClick}
+          ref={setNodeRef}
+          type='button'
+          {...(draggableCovenantId ? dragAttributes : {})}
+          {...(draggableCovenantId ? listeners : {})}
+        />
         <CompactArtTile
-          chips={
-            !isNotSet && recommendationLabel ? (
-              <span className='builder-picker-recommendation-chip'>{recommendationLabel}</span>
+          actionPlacement='caption'
+          actions={
+            !isNotSet ? (
+              <button
+                aria-label='Open details overlay'
+                className='builder-picker-detail-action inline-flex items-center justify-center text-slate-400 hover:text-amber-100 focus-visible:text-amber-100 focus-visible:outline-none'
+                onClick={(event) => {
+                  event.preventDefault()
+                  event.stopPropagation()
+                  onOpenDetail?.()
+                }}
+                title={`Open ${covenantDisplayName} details overlay`}
+                type='button'
+              >
+                <FaCircleInfo aria-hidden className='h-3 w-3' />
+              </button>
             ) : undefined
           }
+          chips={
+            !isNotSet && recommendationLabel ? (
+              <span className={PICKER_RECOMMENDATION_CLASS}>{recommendationLabel}</span>
+            ) : undefined
+          }
+          chipPlacement='overlay-stack'
           name={covenantDisplayName}
           nameClassName='truncate'
           nameTitle={covenantDisplayName}
           preview={renderCovenantPreview(covenantAsset, isNotSet, altText)}
           previewClassName='aspect-square border border-slate-400/35 bg-slate-900/70'
         />
-      </button>
-      {!isNotSet ? (
-        <div className='absolute top-1 right-1 z-30 flex gap-1'>
-          <button
-            aria-label='Open details overlay'
-            className='inline-flex h-6 w-6 items-center justify-center border border-slate-200/25 bg-slate-950/85 text-slate-200 hover:border-amber-200/55 hover:text-amber-100'
-            onClick={(event) => {
-              event.preventDefault()
-              event.stopPropagation()
-              onOpenDetail?.()
-            }}
-            title={`Open ${covenantDisplayName} details overlay`}
-            type='button'
-          >
-            <FaCircleInfo aria-hidden className='h-3 w-3' />
-          </button>
-          <button
-            aria-label='Open database page'
-            className='inline-flex h-6 w-6 items-center justify-center border border-slate-200/25 bg-slate-950/85 text-slate-200 hover:border-amber-200/55 hover:text-amber-100'
-            onClick={(event) => {
-              event.preventDefault()
-              event.stopPropagation()
-              onOpenDatabasePage?.()
-            }}
-            title={`Open ${covenantDisplayName} database page`}
-            type='button'
-          >
-            <FaArrowUpRightFromSquare aria-hidden className='h-3 w-3' />
-          </button>
-        </div>
-      ) : null}
+      </div>
     </div>
   )
 }

@@ -214,19 +214,19 @@
       "inputs": ["accountLevel"]
     },
     "esotericResearchDepth": {
-      "formulaKey": "accountLevelCurveWithOwnedPosseBonus",
+      "formulaKey": "accountLevelCurve",
       "baseField": "stageGrow",
-      "ownedPosseCap": 50,
-      "ownedPosseBonusPerCount": 0.01,
+      "astralReignOwnedPosseCap": 50,
+      "astralReignOwnedPosseBonusPerCount": 0.01,
       "inputs": ["accountLevel", "ownedPosseCount"]
     },
     "occultResearchDepth": {
-      "formulaKey": "accountLevelCurveWithDamagePowerAndOwnedPosseBonus",
+      "formulaKey": "accountLevelCurveWithDamagePower",
       "baseField": "stageGrow",
       "damagePowerField": "accountDamagePower",
       "damagePowerDivisor": 100,
-      "ownedPosseCap": 50,
-      "ownedPosseBonusPerCount": 0.01,
+      "astralReignOwnedPosseCap": 50,
+      "astralReignOwnedPosseBonusPerCount": 0.01,
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
   }

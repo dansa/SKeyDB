@@ -279,7 +279,17 @@ describe('DatabaseReferencePopover', () => {
       />,
     )
 
-    expect(await screen.findByText('12')).toHaveAttribute('title', 'Lv1: 12')
+    expect(await screen.findByText('12')).toHaveAttribute(
+      'title',
+      [
+        'Wheel Enlighten Bonus',
+        'Current Enlighten tier: 4',
+        'Base value: 0',
+        'Per tier: +3',
+        '',
+        '0 + (4 × 3) = 12',
+      ].join('\n'),
+    )
     expect(screen.queryByText('—')).not.toBeInTheDocument()
   })
 

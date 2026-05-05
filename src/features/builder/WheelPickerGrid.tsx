@@ -33,7 +33,6 @@ interface WheelPickerGridProps {
   promoteMatchingWheelMainstats: boolean
   usedWheelByTeamOrder: Map<string, WheelUsageLocation>
   onSetActiveWheel: (wheelId?: string) => void
-  onOpenWheelDatabasePage: (wheel: Wheel) => void
   onOpenWheelDetail: (wheel: Wheel) => void
 }
 
@@ -46,11 +45,10 @@ export function WheelPickerGrid({
   promoteMatchingWheelMainstats,
   usedWheelByTeamOrder,
   onSetActiveWheel,
-  onOpenWheelDatabasePage,
   onOpenWheelDetail,
 }: WheelPickerGridProps) {
   return (
-    <div className='grid grid-cols-4 items-start gap-2'>
+    <div className='grid grid-cols-[repeat(4,minmax(0,1fr))] items-start gap-2'>
       <PickerWheelTile
         isNotSet
         onClick={() => {
@@ -73,9 +71,6 @@ export function WheelPickerGrid({
             key={wheel.id}
             onClick={() => {
               onSetActiveWheel(wheel.id)
-            }}
-            onOpenDatabasePage={() => {
-              onOpenWheelDatabasePage(wheel)
             }}
             onOpenDetail={() => {
               onOpenWheelDetail(wheel)

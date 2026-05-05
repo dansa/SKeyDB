@@ -1,11 +1,15 @@
 import {useDraggable} from '@dnd-kit/core'
-import {FaArrowUpRightFromSquare, FaCircleInfo} from 'react-icons/fa6'
+import {FaCircleInfo} from 'react-icons/fa6'
 
 import {getPosseAssetById} from '@/domain/posse-assets'
 import type {Posse} from '@/domain/posses'
 import {CompactArtTile} from '@/ui/cards/CompactArtTile'
 
-import {PICKER_STATUS_CLASS, PICKER_UNOWNED_CLASS} from './picker-status-labels'
+import {
+  PICKER_RECOMMENDATION_CLASS,
+  PICKER_STATUS_CLASS,
+  PICKER_UNOWNED_CLASS,
+} from './picker-status-labels'
 import type {DragData, Team} from './types'
 
 function getPosseTileClassName(
@@ -53,7 +57,6 @@ interface PossePickerTileProps {
   ownedLevel: number | null
   recommendationLabel?: string
   onClick: () => void
-  onOpenDatabasePage: () => void
   onOpenDetail: () => void
 }
 
@@ -66,7 +69,6 @@ function PossePickerTile({
   ownedLevel,
   recommendationLabel,
   onClick,
-  onOpenDatabasePage,
   onOpenDetail,
 }: PossePickerTileProps) {
   const topLabel = getPosseTopLabel(blockedText, ownedLevel)
@@ -82,28 +84,49 @@ function PossePickerTile({
   delete dragAttributes['aria-disabled']
 
   return (
-    <div className='group relative'>
-      <button
-        aria-disabled={isUsedByOtherTeam ? 'true' : undefined}
-        className={`builder-picker-tile border p-1 text-left transition-colors ${getPosseTileClassName(
+    <div className='group relative min-w-0'>
+      <div
+        className={`builder-picker-tile relative w-full min-w-0 border p-1 text-left transition-colors ${getPosseTileClassName(
           isActive,
           isUsedByOtherTeam,
           ownedLevel,
         )} ${isDragging ? 'scale-[0.98] opacity-60' : ''}`}
-        onClick={() => {
-          onClick()
-        }}
-        ref={setNodeRef}
-        type='button'
-        {...dragAttributes}
-        {...listeners}
       >
+        <button
+          aria-disabled={isUsedByOtherTeam ? 'true' : undefined}
+          aria-label={`${posse.name} posse`}
+          className='absolute inset-0 z-20 cursor-pointer border-0 bg-transparent p-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-amber-200/70'
+          onClick={() => {
+            onClick()
+          }}
+          ref={setNodeRef}
+          type='button'
+          {...dragAttributes}
+          {...listeners}
+        />
         <CompactArtTile
+          actionPlacement='caption'
+          actions={
+            <button
+              aria-label='Open details overlay'
+              className='builder-picker-detail-action inline-flex items-center justify-center text-slate-400 hover:text-amber-100 focus-visible:text-amber-100 focus-visible:outline-none'
+              onClick={(event) => {
+                event.preventDefault()
+                event.stopPropagation()
+                onOpenDetail()
+              }}
+              title={`Open ${posse.name} details overlay`}
+              type='button'
+            >
+              <FaCircleInfo aria-hidden className='h-3 w-3' />
+            </button>
+          }
           chips={
             recommendationLabel ? (
-              <span className='builder-picker-recommendation-chip'>{recommendationLabel}</span>
+              <span className={PICKER_RECOMMENDATION_CLASS}>{recommendationLabel}</span>
             ) : undefined
           }
+          chipPlacement='overlay-stack'
           name={posse.name}
           nameClassName={`truncate ${isActive ? 'text-amber-100' : ''}`}
           nameTitle={posse.name}
@@ -123,37 +146,13 @@ function PossePickerTile({
           }
           previewClassName='aspect-square border border-slate-400/35 bg-slate-900/70'
           statusBar={
-            topLabel ? <span className={topLabel.className}>{topLabel.text}</span> : undefined
+            topLabel ? (
+              <span className={topLabel.className} title={topLabel.text}>
+                {topLabel.text}
+              </span>
+            ) : undefined
           }
         />
-      </button>
-      <div className='absolute top-1 right-1 z-30 flex gap-1'>
-        <button
-          aria-label='Open details overlay'
-          className='inline-flex h-6 w-6 items-center justify-center border border-slate-200/25 bg-slate-950/85 text-slate-200 hover:border-amber-200/55 hover:text-amber-100'
-          onClick={(event) => {
-            event.preventDefault()
-            event.stopPropagation()
-            onOpenDetail()
-          }}
-          title={`Open ${posse.name} details overlay`}
-          type='button'
-        >
-          <FaCircleInfo aria-hidden className='h-3 w-3' />
-        </button>
-        <button
-          aria-label='Open database page'
-          className='inline-flex h-6 w-6 items-center justify-center border border-slate-200/25 bg-slate-950/85 text-slate-200 hover:border-amber-200/55 hover:text-amber-100'
-          onClick={(event) => {
-            event.preventDefault()
-            event.stopPropagation()
-            onOpenDatabasePage()
-          }}
-          title={`Open ${posse.name} database page`}
-          type='button'
-        >
-          <FaArrowUpRightFromSquare aria-hidden className='h-3 w-3' />
-        </button>
       </div>
     </div>
   )
@@ -169,7 +168,6 @@ interface PossePickerGridProps {
   allowDupes: boolean
   effectiveActiveTeamId: string
   onSetActivePosse: (posseId?: string) => void
-  onOpenPosseDatabasePage: (posse: Posse) => void
   onOpenPosseDetail: (posse: Posse) => void
 }
 
@@ -183,13 +181,12 @@ export function PossePickerGrid({
   allowDupes,
   effectiveActiveTeamId,
   onSetActivePosse,
-  onOpenPosseDatabasePage,
   onOpenPosseDetail,
 }: PossePickerGridProps) {
   return (
-    <div className='grid grid-cols-4 items-start gap-2'>
+    <div className='grid grid-cols-[repeat(4,minmax(0,1fr))] items-start gap-2'>
       <button
-        className={`builder-picker-tile border p-1 text-left transition-colors ${
+        className={`builder-picker-tile w-full min-w-0 border p-1 text-left transition-colors ${
           !activePosseId
             ? 'border-amber-200/60 bg-slate-800/80 text-amber-100'
             : 'border-slate-500/45 bg-slate-900/55 text-slate-300 hover:border-amber-200/45'
@@ -229,9 +226,6 @@ export function PossePickerGrid({
             key={posse.id}
             onClick={() => {
               onSetActivePosse(posse.id)
-            }}
-            onOpenDatabasePage={() => {
-              onOpenPosseDatabasePage(posse)
             }}
             onOpenDetail={() => {
               onOpenPosseDetail(posse)

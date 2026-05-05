@@ -69,6 +69,8 @@ vi.mock('@/domain/awakeners', () => ({
       tags: [],
     },
   ],
+  resolveAwakenerLiteStatsForLevel: (awakener: {stats?: {CON: number; ATK: number; DEF: number}}) =>
+    awakener.stats,
 }))
 
 vi.mock('@/domain/derived-skills', () => ({

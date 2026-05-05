@@ -75,8 +75,9 @@ describe('BuilderPage team management', () => {
     fireEvent.click(screen.getByRole('tab', {name: /^team 2$/i}))
 
     const tavernsOpeningButton = screen.getByRole('button', {name: /taverns opening/i})
+    const tavernsOpeningTile = tavernsOpeningButton.closest('.builder-picker-tile')
     expect(tavernsOpeningButton).toHaveAttribute('aria-disabled', 'true')
-    expect(tavernsOpeningButton).toHaveTextContent(/team 1/i)
+    expect(tavernsOpeningTile).toHaveTextContent(/team 1/i)
 
     fireEvent.click(tavernsOpeningButton)
     expect(screen.getByRole('dialog', {name: /move taverns opening/i})).toBeInTheDocument()

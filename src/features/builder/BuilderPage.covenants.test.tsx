@@ -64,7 +64,7 @@ describe('BuilderPage covenants', () => {
     expect(screen.getByRole('button', {name: /remove active awakener/i})).toBeInTheDocument()
   })
 
-  it('opens active card covenant details by public id without selecting the covenant slot', () => {
+  it('does not render database detail shortcuts on active card covenant tiles', () => {
     render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
@@ -79,19 +79,12 @@ describe('BuilderPage covenants', () => {
       throw new Error('Expected populated active card covenant tile')
     }
 
-    fireEvent.click(
-      within(activeCardCovenantTile).getByTitle(/open deus ex machina details overlay/i),
-    )
-
-    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
-      kind: 'covenant',
-      id: 'c01',
-      source: 'builder-overlay',
-    })
-    expect(screen.queryByRole('button', {name: /remove active covenant/i})).not.toBeInTheDocument()
     expect(
-      within(activeCardCovenantTile).getByTitle(/open deus ex machina database page/i),
-    ).toBeInTheDocument()
+      within(activeCardCovenantTile).queryByTitle(/open deus ex machina details overlay/i),
+    ).not.toBeInTheDocument()
+    expect(
+      within(activeCardCovenantTile).queryByTitle(/open deus ex machina database page/i),
+    ).not.toBeInTheDocument()
   })
 
   it('renders the unset covenant slot with the svg placeholder frame', () => {
@@ -127,9 +120,13 @@ describe('BuilderPage covenants', () => {
     fireEvent.click(screen.getByRole('tab', {name: /covenants/i}))
 
     await waitFor(() => {
-      const firstTile = screen.getByRole('button', {name: /signal pulse covenant/i})
-      const secondTile = screen.getByRole('button', {name: /deus ex machina covenant/i})
+      const firstButton = screen.getByRole('button', {name: /signal pulse covenant/i})
+      const secondButton = screen.getByRole('button', {name: /deus ex machina covenant/i})
+      const firstTile = firstButton.closest('.builder-picker-tile')
+      const secondTile = secondButton.closest('.builder-picker-tile')
 
+      expect(firstTile).not.toBeNull()
+      expect(secondTile).not.toBeNull()
       expect(firstTile).toHaveTextContent('#1')
       expect(secondTile).toHaveTextContent('#2')
     })

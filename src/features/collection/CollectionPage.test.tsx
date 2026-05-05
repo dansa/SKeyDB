@@ -1,7 +1,9 @@
 import {act, fireEvent, render, screen, within} from '@testing-library/react'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
+import {createEmptyCollectionOwnershipState} from '@/domain/collection-ownership'
 import {COLLECTION_OWNERSHIP_KEY} from '@/features/collection/collectionMigrations'
+import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import {CollectionPage} from './CollectionPage'
@@ -25,6 +27,8 @@ vi.mock('@/domain/awakeners', () => ({
       aliases: ['ogi'],
     },
   ],
+  resolveAwakenerLiteStatsForLevel: (awakener: {stats?: {CON: number; ATK: number; DEF: number}}) =>
+    awakener.stats,
 }))
 
 vi.mock('@/domain/wheels', () => ({
@@ -114,6 +118,7 @@ vi.mock('@/features/database/detail/DbDetailModalHost', async () => {
 afterEach(() => {
   vi.restoreAllMocks()
   window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
+  collectionOwnershipStore.getState().replaceOwnership(createEmptyCollectionOwnershipState())
   dbDetailStore.getState().closeAllDetails()
 })
 
@@ -348,7 +353,11 @@ describe('CollectionPage global search capture', () => {
   it('opens awakener details from the card affordance without toggling ownership', async () => {
     render(<CollectionPage />)
 
-    fireEvent.click(screen.getByRole('button', {name: /open details for ramona/i}))
+    const detailsButton = screen.getByRole('button', {name: /open details for ramona/i})
+    expect(detailsButton).toHaveClass('collection-card-detail-button')
+    expect(detailsButton).toHaveTextContent('')
+
+    fireEvent.click(detailsButton)
 
     expect(await screen.findByRole('dialog')).toHaveTextContent(
       'Detail host: awakener:awakener-0042',

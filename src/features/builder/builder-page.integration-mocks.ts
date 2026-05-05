@@ -1,5 +1,8 @@
 import {afterEach, beforeEach, vi} from 'vitest'
 
+import {createEmptyCollectionOwnershipState} from '@/domain/collection-ownership'
+import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
+
 import {BUILDER_PERSISTENCE_KEY} from './builder-persistence'
 
 vi.mock('../../domain/awakeners', () => ({
@@ -221,8 +224,10 @@ vi.mock('../../domain/posse-assets', () => ({
 
 beforeEach(() => {
   window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
+  collectionOwnershipStore.getState().replaceOwnership(createEmptyCollectionOwnershipState())
 })
 
 afterEach(() => {
   window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
+  collectionOwnershipStore.getState().replaceOwnership(createEmptyCollectionOwnershipState())
 })

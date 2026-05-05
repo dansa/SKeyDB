@@ -45,12 +45,6 @@ interface BuilderActiveTeamPanelProps {
   onWheelSlotClick: (slotId: string, wheelIndex: number) => void
   onCovenantSlotClick: (slotId: string) => void
   onRemoveActiveSelection: (slotId: string) => void
-  onOpenAwakenerDatabasePage: (slot: TeamSlot) => void
-  onOpenAwakenerDetail: (slot: TeamSlot) => void
-  onOpenWheelDatabasePage: (wheelId: string) => void
-  onOpenWheelDetail: (wheelId: string) => void
-  onOpenCovenantDatabasePage: (covenantId: string) => void
-  onOpenCovenantDetail: (covenantId: string) => void
 }
 
 function getQuickLineupStepLabel(
@@ -153,12 +147,6 @@ export function BuilderActiveTeamPanel({
   onWheelSlotClick,
   onCovenantSlotClick,
   onRemoveActiveSelection,
-  onOpenAwakenerDatabasePage,
-  onOpenAwakenerDetail,
-  onOpenWheelDatabasePage,
-  onOpenWheelDetail,
-  onOpenCovenantDatabasePage,
-  onOpenCovenantDetail,
 }: BuilderActiveTeamPanelProps) {
   const currentQuickLineupLabel = getQuickLineupStepLabel(quickLineupSession, teamSlots)
 
@@ -203,12 +191,6 @@ export function BuilderActiveTeamPanel({
             onRemoveActiveSelection={() => {
               onRemoveActiveSelection(slot.slotId)
             }}
-            onOpenAwakenerDatabasePage={onOpenAwakenerDatabasePage}
-            onOpenAwakenerDetail={onOpenAwakenerDetail}
-            onOpenWheelDatabasePage={onOpenWheelDatabasePage}
-            onOpenWheelDetail={onOpenWheelDetail}
-            onOpenCovenantDatabasePage={onOpenCovenantDatabasePage}
-            onOpenCovenantDetail={onOpenCovenantDetail}
             onWheelSlotClick={onWheelSlotClick}
             awakenerLevel={getSlotAwakenerLevel(slot, awakenerLevelByName)}
             awakenerOwnedLevel={getSlotAwakenerOwnedLevel(slot, ownedAwakenerLevelByName)}

@@ -1,6 +1,7 @@
 import type {FullStats} from './awakener-source-schema'
 import {
   evaluatePublicFormulaExpression,
+  getPublicScaledFormulaBreakdown,
   type PublicDescriptionArg,
   type PublicFormulaContext,
 } from './public-description-args'
@@ -53,6 +54,18 @@ function formatSubstatLabel(substat: string): string {
 function formatHoverDisplayText(text: string): string {
   return text.replaceAll('{', '').replaceAll('}', '')
 }
+
+const HOVER_NUMBER_FORMATTER = new Intl.NumberFormat('en-US', {
+  maximumFractionDigits: 0,
+})
+
+const HOVER_DECIMAL_FORMATTER = new Intl.NumberFormat('en-US', {
+  maximumFractionDigits: 1,
+})
+
+const HOVER_FACTOR_FORMATTER = new Intl.NumberFormat('en-US', {
+  maximumFractionDigits: 2,
+})
 
 function ceilDisplayValue(value: number): number {
   return Math.ceil(value - 1e-9)
@@ -250,6 +263,152 @@ function formatLiteralValue(rawValue: string, suffix: string, stat: string | nul
   return `${rawValue}${suffix}${statSuffix}`
 }
 
+function formatHoverFormulaNumber(value: number): string {
+  if (Math.abs(value) >= 100) {
+    return HOVER_NUMBER_FORMATTER.format(Math.round(value))
+  }
+  return HOVER_DECIMAL_FORMATTER.format(value)
+}
+
+function formatHoverPercentMultiplier(value: number): string {
+  return `${formatHoverFormulaNumber(value * 100)}%`
+}
+
+function formatHoverEffectMultiplier(value: number): {
+  formulaValue: string
+  rowValue: string
+} {
+  if (Math.abs(value) >= 1) {
+    const factor = formatHoverFormulaFactor(value)
+    return {
+      formulaValue: factor,
+      rowValue: `×${factor}`,
+    }
+  }
+
+  const percent = formatHoverPercentMultiplier(value)
+  return {
+    formulaValue: percent,
+    rowValue: percent,
+  }
+}
+
+function formatHoverComputedValue(value: number, suffix: string): string {
+  return `${formatHoverFormulaNumber(value)}${suffix}`
+}
+
+function formatHoverFormulaFactor(value: number): string {
+  return HOVER_FACTOR_FORMATTER.format(value)
+}
+
+function hasAstralReignResearchBonus(
+  breakdown: ReturnType<typeof getPublicScaledFormulaBreakdown>,
+): breakdown is ReturnType<typeof getPublicScaledFormulaBreakdown> & {
+  ownedPosseCount: number
+  ownedPosseMultiplier: number
+} {
+  return (
+    breakdown.ownedPosseCount !== null &&
+    breakdown.ownedPosseMultiplier !== null &&
+    breakdown.ownedPosseCount > 0 &&
+    breakdown.ownedPosseMultiplier > 1
+  )
+}
+
+function resolveScaledFormulaResultValue(baseValue: number, multiplier: number | null): number {
+  return multiplier === null ? baseValue : baseValue * multiplier
+}
+
+function formatScaledFormulaResultText(value: number, suffix: string): string {
+  return formatHoverComputedValue(ceilDisplayValue(value), suffix)
+}
+
+function buildScaledComputedFormulaHover(
+  arg: Extract<PublicDescriptionArg, {kind: 'computed'; formulaKey: 'scaled'}>,
+  resolved: ResolvedDescriptionArg,
+  formulaContext: PublicFormulaContext = {},
+): string {
+  const breakdown = getPublicScaledFormulaBreakdown(arg, formulaContext)
+  const baseValueText = formatHoverFormulaNumber(breakdown.baseValue)
+  const baseContextText =
+    breakdown.baseLabelPlacement === 'before'
+      ? `${breakdown.baseLabel} ${baseValueText}`
+      : `${baseValueText} ${breakdown.baseLabel}`
+
+  if (hasAstralReignResearchBonus(breakdown)) {
+    const multiplierText =
+      breakdown.multiplier === null ? null : formatHoverEffectMultiplier(breakdown.multiplier)
+    const baseFormulaText =
+      multiplierText === null
+        ? baseContextText
+        : `${baseContextText} × ${multiplierText.formulaValue}`
+    const baseResultValue = resolveScaledFormulaResultValue(
+      breakdown.baseValue,
+      breakdown.multiplier,
+    )
+    const astralResearchValue = breakdown.baseValue * breakdown.ownedPosseMultiplier
+    const astralResultValue = resolveScaledFormulaResultValue(
+      astralResearchValue,
+      breakdown.multiplier,
+    )
+
+    return formatHoverDisplayText(
+      [
+        breakdown.title,
+        `Base (Account Lv ${String(breakdown.accountLevel)}): ${baseFormulaText} = ${formatScaledFormulaResultText(baseResultValue, resolved.suffix)}`,
+        `Astral Reign: ${String(breakdown.ownedPosseCount)} Posses add +${String(breakdown.ownedPosseCount)}% to Research → ${formatScaledFormulaResultText(astralResultValue, resolved.suffix)}`,
+      ].join('\n'),
+    )
+  }
+
+  const rows = [breakdown.title, `Account Lv ${String(breakdown.accountLevel)}: ${baseContextText}`]
+  const formulaTerms = [baseValueText]
+
+  if (breakdown.multiplier !== null) {
+    const multiplierText = formatHoverEffectMultiplier(breakdown.multiplier)
+    rows.push(`Effect multiplier: ${multiplierText.rowValue}`)
+    formulaTerms.push(multiplierText.formulaValue)
+  }
+
+  return formatHoverDisplayText(
+    [
+      ...rows,
+      '',
+      `${formulaTerms.join(' × ')} = ${
+        resolved.totalValue === null
+          ? resolved.formattedTotalValue
+          : formatScaledFormulaResultText(resolved.totalValue, resolved.suffix)
+      }`,
+    ].join('\n'),
+  )
+}
+
+function buildWheelEnlightenFormulaHover(
+  arg: Extract<PublicDescriptionArg, {kind: 'computed'; formulaKey: 'wheelRefinementLinear'}>,
+  resolved: ResolvedDescriptionArg,
+  formulaContext: PublicFormulaContext = {},
+): string {
+  if (typeof formulaContext.wheelRefinementLevel !== 'number') {
+    return ''
+  }
+
+  const suffix = inferSuffix(arg)
+  const tier = Math.max(0, Math.floor(formulaContext.wheelRefinementLevel))
+  const baseValue = formatHoverComputedValue(arg.baseValue, suffix)
+  const perTierValue = formatHoverComputedValue(arg.perLevel, suffix)
+
+  return formatHoverDisplayText(
+    [
+      'Wheel Enlighten Bonus',
+      `Current Enlighten tier: ${String(tier)}`,
+      `Base value: ${baseValue}`,
+      `Per tier: +${perTierValue}`,
+      '',
+      `${baseValue} + (${String(tier)} × ${perTierValue}) = ${resolved.formattedTotalValue}`,
+    ].join('\n'),
+  )
+}
+
 function shouldCeilDisplayedTotalValue(
   arg: PublicDescriptionArg,
   _baseValue: number | null,
@@ -287,6 +446,48 @@ function resolveAbsoluteValue(
   return ceilDisplayValue((totalValue / 100) * statValue)
 }
 
+function formatDescriptionArgTotalValue(
+  arg: PublicDescriptionArg,
+  rawBaseValue: string,
+  baseValue: number | null,
+  totalValue: number | null,
+  suffix: string,
+  stat: string | null,
+  formulaContext: PublicFormulaContext | undefined,
+): string {
+  const primaryValue =
+    totalValue === null
+      ? formatLiteralValue(rawBaseValue, suffix, stat)
+      : formatResolvedValue(
+          shouldCeilDisplayedTotalValue(arg, baseValue) ? ceilDisplayValue(totalValue) : totalValue,
+          suffix,
+          stat,
+        )
+
+  if (
+    totalValue === null ||
+    arg.kind !== 'computed' ||
+    arg.formulaKey !== 'scaled' ||
+    getSubstatBonus(arg)
+  ) {
+    return primaryValue
+  }
+
+  const breakdown = getPublicScaledFormulaBreakdown(arg, buildPublicFormulaContext(formulaContext))
+  if (!hasAstralReignResearchBonus(breakdown)) {
+    return primaryValue
+  }
+
+  const astralResearchValue = breakdown.baseValue * breakdown.ownedPosseMultiplier
+  const astralResultValue = resolveScaledFormulaResultValue(
+    astralResearchValue,
+    breakdown.multiplier,
+  )
+  const astralValue = formatResolvedValue(ceilDisplayValue(astralResultValue), suffix, stat)
+
+  return astralValue === primaryValue ? primaryValue : `${primaryValue} (${astralValue})`
+}
+
 export function resolveDescriptionArg(
   arg: PublicDescriptionArg,
   context: DescriptionArgResolveContext = {},
@@ -308,14 +509,15 @@ export function resolveDescriptionArg(
   const suffix = inferSuffix(arg)
   const stat = inferStat(arg, suffix)
   const formattedBaseValue = baseValue === null ? '' : formatResolvedValue(baseValue, suffix, stat)
-  const formattedTotalValue =
-    totalValue === null
-      ? formatLiteralValue(rawBaseValue, suffix, stat)
-      : formatResolvedValue(
-          shouldCeilDisplayedTotalValue(arg, baseValue) ? ceilDisplayValue(totalValue) : totalValue,
-          suffix,
-          stat,
-        )
+  const formattedTotalValue = formatDescriptionArgTotalValue(
+    arg,
+    rawBaseValue,
+    baseValue,
+    totalValue,
+    suffix,
+    stat,
+    context.formulaContext,
+  )
 
   return {
     input: arg,
@@ -440,13 +642,7 @@ function buildDescriptionArgFormula(
   }
 
   if (arg.kind === 'computed' && arg.formulaKey === 'scaled') {
-    const context = buildPublicFormulaContext(formulaContext)
-    const ownedPosseText = arg.inputs.includes('ownedPosseCount')
-      ? `, ${String(context.ownedPosseCount ?? 0)} posses`
-      : ''
-    return formatHoverDisplayText(
-      `Account Lv ${String(context.accountLevel ?? 50)}${ownedPosseText}: ${resolved.formattedTotalValue}`,
-    )
+    return buildScaledComputedFormulaHover(arg, resolved, buildPublicFormulaContext(formulaContext))
   }
 
   if (!('substatBonus' in arg) || !arg.substatBonus) {
@@ -517,6 +713,15 @@ export function buildDescriptionArgHover(
       formulaContext: context.formulaContext,
     })
     return buildDescriptionArgFormula(arg, resolved, context.formulaContext)
+  }
+
+  if (arg.kind === 'computed') {
+    const resolved = resolveDescriptionArg(arg, {
+      rank: context.rank,
+      stats: context.stats,
+      formulaContext: context.formulaContext,
+    })
+    return buildWheelEnlightenFormulaHover(arg, resolved, context.formulaContext)
   }
 
   const progression = getDescriptionArgProgression(arg, context)

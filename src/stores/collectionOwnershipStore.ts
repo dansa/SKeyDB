@@ -50,8 +50,9 @@ interface CreateCollectionOwnershipStoreOptions {
 function loadHydratedOwnership(
   storage: StorageLike | null,
   catalog: CollectionOwnershipCatalog,
+  rawSnapshot = safeStorageRead(storage, COLLECTION_OWNERSHIP_KEY),
+  legacyRawSnapshot = safeStorageRead(storage, COLLECTION_OWNERSHIP_LEGACY_KEY),
 ): Pick<CollectionOwnershipStoreState, 'ownership' | 'persistenceStatus'> {
-  const rawSnapshot = safeStorageRead(storage, COLLECTION_OWNERSHIP_KEY)
   if (rawSnapshot !== null) {
     const parsed = parseCollectionOwnershipSnapshot(rawSnapshot, catalog)
     return parsed.ok
@@ -59,7 +60,6 @@ function loadHydratedOwnership(
       : {ownership: normalizeCollectionOwnershipState(null, catalog), persistenceStatus: 'blocked'}
   }
 
-  const legacyRawSnapshot = safeStorageRead(storage, COLLECTION_OWNERSHIP_LEGACY_KEY)
   if (legacyRawSnapshot !== null) {
     const parsed = parseCollectionOwnershipSnapshot(legacyRawSnapshot, catalog)
     if (parsed.ok) {
@@ -81,12 +81,31 @@ export function createCollectionOwnershipStore({
     wheels: {},
     posses: {},
   }
+  let hydratedCurrentSnapshot: string | null | undefined
+  let hydratedLegacySnapshot: string | null | undefined
 
   return createStore<CollectionOwnershipStoreState>()((set, get) => ({
     ownership: initialOwnership,
     persistenceStatus: 'idle',
     hydrate: () => {
-      set(loadHydratedOwnership(storage, catalog))
+      const rawSnapshot = safeStorageRead(storage, COLLECTION_OWNERSHIP_KEY)
+      const legacyRawSnapshot =
+        rawSnapshot === null ? safeStorageRead(storage, COLLECTION_OWNERSHIP_LEGACY_KEY) : null
+
+      if (
+        get().persistenceStatus !== 'idle' &&
+        rawSnapshot === hydratedCurrentSnapshot &&
+        legacyRawSnapshot === hydratedLegacySnapshot
+      ) {
+        return
+      }
+
+      set(loadHydratedOwnership(storage, catalog, rawSnapshot, legacyRawSnapshot))
+      hydratedCurrentSnapshot = safeStorageRead(storage, COLLECTION_OWNERSHIP_KEY)
+      hydratedLegacySnapshot =
+        hydratedCurrentSnapshot === null
+          ? safeStorageRead(storage, COLLECTION_OWNERSHIP_LEGACY_KEY)
+          : null
     },
     save: () => {
       if (get().persistenceStatus === 'blocked') {

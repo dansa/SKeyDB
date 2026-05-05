@@ -8,7 +8,6 @@ interface CovenantPickerGridProps {
   activeBuild?: AwakenerBuild
   filteredCovenants: Covenant[]
   onSetActiveCovenant: (covenantId?: string) => void
-  onOpenCovenantDatabasePage: (covenant: Covenant) => void
   onOpenCovenantDetail: (covenant: Covenant) => void
 }
 
@@ -16,11 +15,10 @@ export function CovenantPickerGrid({
   activeBuild,
   filteredCovenants,
   onSetActiveCovenant,
-  onOpenCovenantDatabasePage,
   onOpenCovenantDetail,
 }: CovenantPickerGridProps) {
   return (
-    <div className='grid grid-cols-4 items-start gap-2'>
+    <div className='grid grid-cols-[repeat(4,minmax(0,1fr))] items-start gap-2'>
       <PickerCovenantTile
         isNotSet
         onClick={() => {
@@ -38,9 +36,6 @@ export function CovenantPickerGrid({
             key={covenant.id}
             onClick={() => {
               onSetActiveCovenant(covenant.id)
-            }}
-            onOpenDatabasePage={() => {
-              onOpenCovenantDatabasePage(covenant)
             }}
             onOpenDetail={() => {
               onOpenCovenantDetail(covenant)

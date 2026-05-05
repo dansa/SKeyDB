@@ -11,6 +11,7 @@ import {
   resolveDescriptionArgs,
   resolveDescriptionTemplate,
 } from './description-args'
+import type {PublicDescriptionArg} from './public-description-args'
 import {loadPublicAwakenerDetailById} from './public-detail-record-adapters'
 
 async function loadResolvedSkill(
@@ -353,5 +354,111 @@ describe('description-args', () => {
     )
 
     expect(rendered).toBe('Inflict 2 stacks on the 3rd play.')
+  })
+
+  it('explains scaled computed formula hovers with player-facing math labels', () => {
+    const arg: PublicDescriptionArg = {
+      kind: 'computed',
+      formulaKey: 'scaled',
+      baseFormula: 'occultResearchDepth',
+      multiplier: 0.045,
+      inputs: ['accountLevel', 'ownedPosseCount'],
+    }
+
+    expect(
+      buildDescriptionArgHover(arg, {
+        formulaContext: {
+          accountLevel: 75,
+          ownedPosseCount: 42,
+        },
+      }),
+    ).toBe(
+      [
+        'Forbidden Lore Scaling',
+        'Base (Account Lv 75): Occult Research 3,579 × 4.5% = 162',
+        'Astral Reign: 42 Posses add +42% to Research → 229',
+      ].join('\n'),
+    )
+  })
+
+  it('shows the normal value first and Astral Reign value second for Forbidden Lore scaling', () => {
+    const arg: PublicDescriptionArg = {
+      kind: 'computed',
+      formulaKey: 'scaled',
+      baseFormula: 'esotericResearchDepth',
+      multiplier: 0.04,
+      inputs: ['accountLevel', 'ownedPosseCount'],
+    }
+
+    const context = {
+      formulaContext: {
+        accountLevel: 67,
+        ownedPosseCount: 28,
+      },
+    }
+
+    expect(resolveDescriptionTemplate('{Steal} [Arg1] {STR}', {Arg1: arg}, context)).toBe(
+      '{Steal} 36 (46) {STR}',
+    )
+    expect(buildDescriptionArgHover(arg, context)).toBe(
+      [
+        'Forbidden Lore Scaling',
+        'Base (Account Lv 67): Esoteric Research 897 × 4% = 36',
+        'Astral Reign: 28 Posses add +28% to Research → 46',
+      ].join('\n'),
+    )
+  })
+
+  it('explains Forbidden Lore research conversions without percent-looking multipliers', () => {
+    const arg: PublicDescriptionArg = {
+      kind: 'computed',
+      formulaKey: 'scaled',
+      baseFormula: 'somaticResearchHpMultiplier',
+      multiplier: 100,
+      inputs: ['accountLevel'],
+    }
+
+    expect(
+      buildDescriptionArgHover(arg, {
+        formulaContext: {
+          accountLevel: 67,
+        },
+      }),
+    ).toBe(
+      [
+        'Forbidden Lore Scaling',
+        'Account Lv 67: Somatic Research 2.5',
+        'Effect multiplier: ×100',
+        '',
+        '2.5 × 100 = 250',
+      ].join('\n'),
+    )
+  })
+
+  it('keeps the scaled formula explanation generic when there is no posse bonus', () => {
+    const arg: PublicDescriptionArg = {
+      kind: 'computed',
+      formulaKey: 'scaled',
+      baseFormula: 'accountStageGrowth',
+      multiplier: 0.045,
+      inputs: ['accountLevel'],
+    }
+
+    expect(
+      buildDescriptionArgHover(arg, {
+        formulaContext: {
+          accountLevel: 75,
+          ownedPosseCount: 42,
+        },
+      }),
+    ).toBe(
+      [
+        'Account Growth Bonus',
+        'Account Lv 75: 1,011 base growth',
+        'Effect multiplier: 4.5%',
+        '',
+        '1,011 × 4.5% = 46',
+      ].join('\n'),
+    )
   })
 })

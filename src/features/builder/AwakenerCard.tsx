@@ -1,5 +1,3 @@
-import {FaArrowUpRightFromSquare, FaCircleInfo} from 'react-icons/fa6'
-
 import {getAwakenerCardAsset} from '@/domain/awakener-assets'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 
@@ -24,12 +22,6 @@ interface AwakenerCardProps {
   onWheelSlotClick?: (slotId: string, wheelIndex: number) => void
   onCovenantSlotClick?: (slotId: string) => void
   onRemoveActiveSelection?: () => void
-  onOpenAwakenerDatabasePage?: (slot: TeamSlot) => void
-  onOpenAwakenerDetail?: (slot: TeamSlot) => void
-  onOpenWheelDatabasePage?: (wheelId: string) => void
-  onOpenWheelDetail?: (wheelId: string) => void
-  onOpenCovenantDatabasePage?: (covenantId: string) => void
-  onOpenCovenantDetail?: (covenantId: string) => void
 }
 
 function shouldIgnoreCardClick(target: HTMLElement): boolean {
@@ -144,49 +136,6 @@ function renderRemoveAwakenerButton(
   )
 }
 
-function renderAwakenerDetailActions(
-  slot: TeamSlot,
-  displayName: string,
-  hasAwakener: boolean,
-  onOpenAwakenerDatabasePage?: (slot: TeamSlot) => void,
-  onOpenAwakenerDetail?: (slot: TeamSlot) => void,
-) {
-  if (!hasAwakener) {
-    return null
-  }
-
-  return (
-    <div className='absolute top-1 left-1 z-40 flex gap-1'>
-      <button
-        aria-label='Open details overlay'
-        className='inline-flex h-7 w-7 items-center justify-center border border-slate-200/25 bg-slate-950/85 text-slate-200 hover:border-amber-200/55 hover:text-amber-100'
-        onClick={(event) => {
-          event.preventDefault()
-          event.stopPropagation()
-          onOpenAwakenerDetail?.(slot)
-        }}
-        type='button'
-        title={`Open ${displayName} details overlay`}
-      >
-        <FaCircleInfo aria-hidden className='h-3 w-3' />
-      </button>
-      <button
-        aria-label='Open database page'
-        className='inline-flex h-7 w-7 items-center justify-center border border-slate-200/25 bg-slate-950/85 text-slate-200 hover:border-amber-200/55 hover:text-amber-100'
-        onClick={(event) => {
-          event.preventDefault()
-          event.stopPropagation()
-          onOpenAwakenerDatabasePage?.(slot)
-        }}
-        type='button'
-        title={`Open ${displayName} database page`}
-      >
-        <FaArrowUpRightFromSquare aria-hidden className='h-3 w-3' />
-      </button>
-    </div>
-  )
-}
-
 function renderAwakenerCardWheelZone({
   cardImageLoaded,
   activeDragKind,
@@ -201,10 +150,6 @@ function renderAwakenerCardWheelZone({
   allowActiveRemoval,
   wheelOwnedLevels,
   predictedDropHover,
-  onOpenWheelDatabasePage,
-  onOpenWheelDetail,
-  onOpenCovenantDatabasePage,
-  onOpenCovenantDetail,
 }: {
   cardImageLoaded: boolean
   activeDragKind: DragData['kind'] | null
@@ -219,10 +164,6 @@ function renderAwakenerCardWheelZone({
   allowActiveRemoval: boolean
   wheelOwnedLevels: [number | null, number | null]
   predictedDropHover: PredictedDropHover | null
-  onOpenWheelDatabasePage?: (wheelId: string) => void
-  onOpenWheelDetail?: (wheelId: string) => void
-  onOpenCovenantDatabasePage?: (covenantId: string) => void
-  onOpenCovenantDetail?: (covenantId: string) => void
 }) {
   if (!cardImageLoaded) {
     return null
@@ -236,10 +177,6 @@ function renderAwakenerCardWheelZone({
       interactive
       onCovenantSlotClick={() => onCovenantSlotClick?.(slot.slotId)}
       onRemoveActiveWheel={onRemoveActiveSelection}
-      onOpenWheelDatabasePage={onOpenWheelDatabasePage}
-      onOpenWheelDetail={onOpenWheelDetail}
-      onOpenCovenantDatabasePage={onOpenCovenantDatabasePage}
-      onOpenCovenantDetail={onOpenCovenantDetail}
       onWheelSlotClick={(wheelIndex) => onWheelSlotClick?.(slot.slotId, wheelIndex)}
       awakenerLevel={awakenerLevel}
       awakenerOwnedLevel={awakenerOwnedLevel}
@@ -267,12 +204,6 @@ export function AwakenerCard({
   onWheelSlotClick,
   onCovenantSlotClick,
   onRemoveActiveSelection,
-  onOpenAwakenerDatabasePage,
-  onOpenAwakenerDetail,
-  onOpenWheelDatabasePage,
-  onOpenWheelDetail,
-  onOpenCovenantDatabasePage,
-  onOpenCovenantDetail,
 }: AwakenerCardProps) {
   const awakenerName = getSlotAwakenerName(slot)
   const hasAwakener = Boolean(awakenerName)
@@ -308,13 +239,6 @@ export function AwakenerCard({
       ref={setDroppableRef}
     >
       {renderRemoveAwakenerButton(hasRemovableAwakenerSelection, onRemoveActiveSelection)}
-      {renderAwakenerDetailActions(
-        slot,
-        displayName,
-        hasAwakener,
-        onOpenAwakenerDatabasePage,
-        onOpenAwakenerDetail,
-      )}
       <button
         aria-label={hitboxLabel}
         className='builder-card-hitbox absolute inset-0 z-10'
@@ -351,10 +275,6 @@ export function AwakenerCard({
             allowActiveRemoval,
             wheelOwnedLevels,
             predictedDropHover,
-            onOpenWheelDatabasePage,
-            onOpenWheelDetail,
-            onOpenCovenantDatabasePage,
-            onOpenCovenantDetail,
           })}
         </>
       ) : (

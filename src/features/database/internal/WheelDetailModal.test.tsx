@@ -4,6 +4,7 @@ import {beforeEach, describe, expect, it, vi} from 'vitest'
 import {resolveDescriptionTemplate} from '@/domain/description-args'
 import {buildPublicFormulaContext} from '@/domain/public-formula-context'
 import {
+  buildWheelMainstatHover,
   buildWheelMainstatSeriesKey,
   resolveWheelMainstatValue,
 } from '@/domain/wheel-mainstat-scaling'
@@ -141,6 +142,9 @@ describe('WheelDetailModal', () => {
       target: {value: '4'},
     })
 
+    expect(
+      screen.getByText(resolveWheelMainstatValue(fullData.mainstatSeriesKey, 4)),
+    ).toHaveAttribute('title', buildWheelMainstatHover(fullData.mainstatSeriesKey, 4))
     expect(
       screen.getAllByText(resolveWheelMainstatValue(fullData.mainstatSeriesKey, 4)).length,
     ).toBeGreaterThan(0)
