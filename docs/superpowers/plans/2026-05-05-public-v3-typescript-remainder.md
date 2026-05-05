@@ -107,28 +107,28 @@ What remains:
 
 Do this before large moves so failures are crisp.
 
-- [ ] Add or update tests for covenant popover hydration in `src/domain/global-database-reference-layer.test.ts`.
+- [x] Add or update tests for covenant popover hydration in `src/domain/global-database-reference-layer.test.ts`.
   - Expected behavior: covenant reference hydration includes every set effect for the covenant, not only `setEffects[0]`.
   - Focused command: `npm run test -- --run src/domain/global-database-reference-layer.test.ts`.
 
-- [ ] Fix `src/domain/global-database-reference-layer.ts` to hydrate covenants through `loadPublicV2CovenantFullById` or the new current-named detail loader and join all set effects.
+- [x] Fix `src/domain/global-database-reference-layer.ts` to hydrate covenants through `loadPublicV2CovenantFullById` or the new current-named detail loader and join all set effects.
   - Remove the `getCovenantsFullV2().find(...).setEffects[0]` path.
   - Verify the focused test passes.
 
-- [ ] Add covenant search tests in `src/domain/covenants-search.test.ts`.
+- [x] Add covenant search tests in `src/domain/covenants-search.test.ts`.
   - Cases: same-priority results sort by display name, raw asset ids like `covenant-icon-001` do not create user-facing search hits, generated aliases/tokens still search correctly.
   - Focused command: `npm run test -- --run src/domain/covenants-search.test.ts`.
 
-- [ ] Fix `src/domain/covenants-search.ts`.
+- [x] Fix `src/domain/covenants-search.ts`.
   - Remove `covenant.assetId` from indexed supplemental values.
   - Add the locale-compare tiebreaker used by the other search modules.
   - Reuse a shared priority helper after Phase 1 creates it, or keep the local fix here and delete the local helper in Phase 1.
 
-- [ ] Add a direct asset integrity test in `src/domain/covenant-assets.test.ts`.
+- [x] Add a direct asset integrity test in `src/domain/covenant-assets.test.ts`.
   - Every covenant must resolve icon and full-art assets through the V3 asset index and current local asset files.
   - Focused command: `npm run test -- --run src/domain/covenant-assets.test.ts`.
 
-- [ ] Add a route/query regression test in `src/pages/DatabasePage.test.tsx`.
+- [x] Add a route/query regression test in `src/pages/DatabasePage.test.tsx`.
   - Cases: generated canonical slug redirects preserve only entity-valid query params; invalid slugs render a browse redirect; old `/database/awk/:slug` redirects to `/database/awakeners/:slug`.
   - Focused command: `npm run test -- --run src/pages/DatabasePage.test.tsx`.
 
@@ -141,47 +141,47 @@ Phase 0 exit criteria:
 
 This phase turns the current V3 wiring into a stable TypeScript boundary.
 
-- [ ] Create `src/domain/entities/types.ts`.
+- [x] Create `src/domain/entities/types.ts`.
   - Export current public `EntityKind`, `EntityRef`, root entity interfaces, entity-scope mapping helpers, and branded ID guard functions.
   - Source `EntityKind` and `EntityRef` from `src/data-access/public-data/contract.ts` rather than duplicating string unions.
 
-- [ ] Create `src/domain/entities/display.ts`.
+- [x] Create `src/domain/entities/display.ts`.
   - Move display-only helpers such as canonical name formatting, realm/mainstat labels, and generated route display helpers here.
   - Keep display helpers pure and data-input based.
 
-- [ ] Create `src/domain/entities/description.ts`.
+- [x] Create `src/domain/entities/description.ts`.
   - Centralize rich description record builders for awakeners, wheels, posses, covenants, child skills, overlays, talents, enlightens, and derived skills.
   - Keep formula-context inputs explicit so metadata math cannot become implicit global state.
 
-- [ ] Create `src/domain/entities/search.ts`.
+- [x] Create `src/domain/entities/search.ts`.
   - Move `toPriority` and shared direct/fuzzy merge helpers out of per-entity search modules.
   - Keep entity-specific Fuse weights and cutoffs local where behavior differs.
 
-- [ ] Create `src/domain/public-detail-record-adapters.ts`.
+- [x] Create `src/domain/public-detail-record-adapters.ts`.
   - Move V3 detail loading/adaptation out of `public-v2-detail-loaders.ts`.
   - Export current-named functions such as `loadPublicAwakenerDetailById`, `loadPublicWheelDetailById`, `loadPublicPosseDetailById`, and `loadPublicCovenantDetailById`.
   - Use Zod schemas or typed parser helpers at adapter input points instead of `as unknown as`.
 
-- [ ] Replace `src/domain/public-v2-detail-loaders.ts` directly.
+- [x] Replace `src/domain/public-v2-detail-loaders.ts` directly.
   - Create current-named detail loaders in `public-detail-record-adapters.ts`.
   - Update all runtime callers in the same phase.
   - Delete the V2-named module before Phase 1 exits unless a test fixture still imports it.
 
-- [ ] Replace runtime imports of `loadPublicV2*FullById` with current-named detail loaders.
+- [x] Replace runtime imports of `loadPublicV2*FullById` with current-named detail loaders.
   - Primary consumers: `src/pages/DatabasePage.tsx`, `src/pages/database/AwakenerBuildsTab.tsx`, detail route hooks, and tests.
   - Focused command: `npm run test -- --run src/domain/public-v2-detail-loaders.test.ts src/pages/DatabasePage.test.tsx`.
 
-- [ ] Tighten architecture boundary tests.
+- [x] Tighten architecture boundary tests.
   - Update `src/domain/public-v2-runtime-boundary.test.ts` or create `src/architecture/public-data-boundary.test.ts`.
   - Assert generated V3 JSON imports stay in `src/data-access/public-data/**`.
   - Assert runtime code does not add new `public-v2` data adapters.
   - Assert domain runtime files do not contain `as unknown as` except named, reviewed compatibility files.
 
-- [ ] Replace domain casts with parser/adapters.
+- [x] Replace domain casts with parser/adapters.
   - Target files: `src/domain/awakener-kits.ts`, `src/domain/awakener-roster.ts`, `src/domain/awakeners-lite-v2.ts`, `src/domain/covenants-full-v2.ts`, `src/domain/posses-full-v2.ts`, `src/domain/wheels-full-v2.ts`, `src/domain/public-v3-awakener-record-adapters.ts`.
   - Verification: new boundary test passes and existing domain tests pass.
 
-- [ ] Source builder and collection catalog facts from V3 repositories.
+- [x] Source builder and collection catalog facts from V3 repositories.
   - Update `src/domain/collection-ownership.ts` so `createDefaultCollectionOwnershipCatalog()` reads `getPublicCollectionCatalog()` instead of rebuilding all grouping facts from root getters.
   - Update builder helper modules to use `getPublicBuilderCatalog()` for valid option IDs and lineup token mappings.
   - Keep user-owned state out of generated catalog data.
@@ -197,32 +197,32 @@ Phase 1 exit criteria:
 
 This phase creates the feature folder target without changing detail modal behavior yet.
 
-- [ ] Create `src/features/database/routes.tsx`.
+- [x] Create `src/features/database/routes.tsx`.
   - Define database route objects/elements for browse and detail paths.
   - Route old `/database/awk/:slug` paths through explicit redirect handling.
   - Use React Router params instead of manual string splitting.
 
-- [ ] Create `src/features/database/DatabaseLayout.tsx`.
+- [x] Create `src/features/database/DatabaseLayout.tsx`.
   - Move the beta notice, tab layout, and shared browse frame out of `src/pages/DatabasePage.tsx`.
   - Keep detail host integration out until Phase 3.
 
-- [ ] Create `src/features/database/browse/entityBrowseRegistry.ts`.
+- [x] Create `src/features/database/browse/entityBrowseRegistry.ts`.
   - Registry entries define entity ID, scope, title, unit noun, catalog source, search function, filter component, chip builder, view controls, grid component, and allowed URL params.
   - Registry replaces `activeEntity === 'x'` render branching for browse.
 
-- [ ] Create `src/features/database/browse/useEntityBrowseController.ts`.
+- [x] Create `src/features/database/browse/useEntityBrowseController.ts`.
   - Own active entity, sanitized search params, active search actions, reset filters, filtered count, total count, and open-detail callback.
   - Replace the four-way `useGlobalSearchCapture` if/else blocks with `activeBrowseController.searchActions`.
 
-- [ ] Move URL-backed browse state modules into the feature.
+- [x] Move URL-backed browse state modules into the feature.
   - Move `src/pages/database/useDatabaseBrowseState.ts`, `useWheelsDatabaseBrowseState.ts`, and `useSimpleArtifactDatabaseBrowseState.ts` into `src/features/database/browse`.
   - Keep domain parsing helpers in `src/domain` if they are pure and tested.
 
-- [ ] Replace `src/pages/DatabasePage.tsx` directly with the feature implementation.
+- [x] Replace `src/pages/DatabasePage.tsx` directly with the feature implementation.
   - Prefer moving the file to `src/features/database/DatabasePage.tsx` and updating imports rather than leaving a wrapper.
   - If a tiny wrapper is useful for one commit-sized step, delete it before Phase 2 exits.
 
-- [ ] Update tests.
+- [x] Update tests.
   - Move route/browse tests from `src/pages/DatabasePage.test.tsx` into `src/features/database/DatabaseRoutes.test.tsx`.
   - Delete the old page-level test file once the feature route tests cover the same behavior.
   - Focused command: `npm run test -- --run src/features/database/DatabaseRoutes.test.tsx src/pages/DatabasePage.test.tsx`.
@@ -237,46 +237,46 @@ Phase 2 exit criteria:
 
 This phase removes page-coupled modal ownership.
 
-- [ ] Create `src/stores/dbDetailStore.ts`.
+- [x] Create `src/stores/dbDetailStore.ts`.
   - Store a stack of `{kind, id}` entries plus source metadata: database route-bound, builder overlay, collection overlay.
   - Actions: `openDetail`, `replaceRouteDetail`, `pushReferenceDetail`, `popDetail`, `closeAllDetails`, `syncFromRoute`.
   - The store does not load generated data.
 
-- [ ] Create `src/stores/preferencesStore.ts`.
+- [x] Create `src/stores/preferencesStore.ts`.
   - Move database detail preferences from per-modal `useState` into a Zustand vanilla store.
   - Keep synchronous localStorage writes in store actions.
   - Update `src/pages/database/useDatabaseDetailPreferences.ts` to read/write through the store during the move.
 
-- [ ] Move search suppression into a store-backed API.
+- [x] Move search suppression into a store-backed API.
   - Replace module-level `searchCaptureSuppressionDepth` and listeners in `src/pages/database/useDetailEntitySearch.ts`.
   - Store latest search query in a ref during render so keydown listener does not re-register on every character.
 
-- [ ] Create `src/features/database/detail/dbDetailRegistry.tsx`.
+- [x] Create `src/features/database/detail/dbDetailRegistry.tsx`.
   - Registry maps entity kind to detail loader, body component, label, missing route behavior, and cross-entity select behavior.
   - Include awakeners, wheels, posses, and covenants in the first pass.
 
-- [ ] Create `src/features/database/detail/DbDetailShell.tsx`.
+- [x] Create `src/features/database/detail/DbDetailShell.tsx`.
   - Own modal shell chrome, settings button, close button, art viewer hook, popover root, keyboard lifecycle, and focus management.
   - Existing body components receive loaded record, formula context, reference layer, and navigation actions.
 
-- [ ] Create `src/features/database/detail/DbDetailModalHost.tsx`.
+- [x] Create `src/features/database/detail/DbDetailModalHost.tsx`.
   - Reads `dbDetailStore`.
   - For route-bound database details, invalid IDs render a browse redirect.
   - For builder/collection overlays, invalid IDs close that stack entry without navigation.
   - Reference clicks call `pushReferenceDetail({kind, id})`.
 
-- [ ] Split detail bodies.
+- [x] Split detail bodies.
   - Move `AwakenerDetailModal` internals into `AwakenerDetailBody.tsx`.
   - Move `WheelDetailModal` internals into `WheelDetailBody.tsx`.
   - Split `SimpleArtifactDetailModal` into `PosseDetailBody.tsx` and `CovenantDetailBody.tsx`.
   - Delete `src/domain/simple-artifact-database-reference-layer.ts` after body code uses scoped description/reference helpers.
 
-- [ ] Convert route-bound detail rendering to the host.
+- [x] Convert route-bound detail rendering to the host.
   - `DatabaseRoutes` derives route `{kind, id}` through generated route resolver and syncs `dbDetailStore`.
   - `DbDetailModalHost` renders the top route-bound modal.
   - Close from a route-bound detail navigates to the current entity browse route with sanitized search.
 
-- [ ] Update lifecycle/effect tests.
+- [x] Update lifecycle/effect tests.
   - Tests: preferences shared across concurrently mounted detail bodies, search suppression stack increments/decrements safely, Escape handler does not depend on changing booleans, invalid detail routes redirect during render.
   - Focused command: `npm run test -- --run src/features/database/detail src/pages/database/useDetailEntitySearch.test.tsx src/pages/database/useDatabaseDetailPreferences.test.tsx`.
 
@@ -290,35 +290,35 @@ Phase 3 exit criteria:
 
 This phase removes the largest user-data risk: runtime name identity.
 
-- [ ] Create `src/features/builder/builderMigrations.ts`.
+- [x] Create `src/features/builder/builderMigrations.ts`.
   - Move shipped V1 and current builder migration logic out of `src/pages/builder/builder-persistence.ts`.
   - Resolve old names/codes/groups through public ID migration maps and V3 builder/entity indexes.
   - Update imports directly; do not preserve branch-local V2 API names for compatibility.
 
-- [ ] Create `src/stores/builderDraftStore.ts`.
+- [x] Create `src/stores/builderDraftStore.ts`.
   - Store teams, active team ID, quick lineup state, active selection, edit state, and autosave actions.
   - Persist public IDs only.
   - Keep display preferences in existing builder preference storage unless Phase 6 moves them to `preferencesStore`.
 
-- [ ] Change runtime `TeamSlot` in `src/features/builder/types.ts`.
+- [x] Change runtime `TeamSlot` in `src/features/builder/types.ts`.
   - Replace `awakenerName?: string` with `awakenerId?: string`.
   - Keep display helpers that resolve name/realm/rarity from entity repository.
   - Wheels, covenants, and posses remain public IDs.
 
-- [ ] Update builder action modules.
+- [x] Update builder action modules.
   - Move and update `createBuilderAwakenerActions.ts`, `createBuilderWheelActions.ts`, `createBuilderCovenantActions.ts`, `createBuilderPosseActions.ts`, `team-state.ts`, `transfer-resolution.ts`, and quick-lineup helpers to use public IDs.
   - Search, ownership checks, duplicate prevention, and recommendation logic must not compare by display name.
 
-- [ ] Move builder page files into `src/features/builder`.
+- [x] Move builder page files into `src/features/builder`.
   - Update `src/App.tsx` to import the feature page directly.
   - Delete `src/pages/BuilderPage.tsx` after the import moves.
   - `useBuilderViewModel.ts` should become a composition of store selectors and pure derived selectors, not one large hook with autosave, filters, searches, ownership, quick lineup, and UI edit state mixed together.
 
-- [ ] Integrate builder with `DbDetailModalHost`.
+- [x] Integrate builder with `DbDetailModalHost`.
   - Picker cards and active team cards open detail overlays by public `EntityRef`.
   - Explicit "open database page" action navigates to the canonical generated route.
 
-- [ ] Add migration and behavior tests.
+- [x] Add migration and behavior tests.
   - Tests: V1 name-based builder draft loads into ID runtime; current public-ID draft round-trips; duplicate/transfer/quick-lineup behavior does not shuffle units; import/export still accepts shipped formats.
   - Focused command: `npm run test -- --run src/features/builder src/pages/builder/builder-persistence.test.ts src/domain/persistence-contract.test.ts`.
 
@@ -332,29 +332,29 @@ Phase 4 exit criteria:
 
 This phase makes collection state reactive and catalog-driven.
 
-- [ ] Create `src/features/collection/collectionMigrations.ts`.
+- [x] Create `src/features/collection/collectionMigrations.ts`.
   - Move parse/serialize/migration helpers out of `src/domain/collection-ownership.ts` where they are persistence-specific.
   - Keep pure ownership math separate from storage IO.
 
-- [ ] Create `src/stores/collectionOwnershipStore.ts`.
+- [x] Create `src/stores/collectionOwnershipStore.ts`.
   - Store ownership state, display unowned flag, awakener levels, remembered levels, import/export actions, and persistence status.
   - Seed valid IDs and linked groups from `getPublicCollectionCatalog()`.
   - Persist user deltas keyed by public IDs.
 
-- [ ] Refactor `src/domain/collection-ownership.ts`.
+- [x] Refactor `src/domain/collection-ownership.ts`.
   - Keep pure functions: normalize, set owned level, clear entry, linked-awakener level propagation, snapshot parse/serialize.
   - Remove direct dependence on `getAwakeners`, `getWheels`, and `getPosses` after catalog injection exists.
 
-- [ ] Move collection page files into `src/features/collection`.
+- [x] Move collection page files into `src/features/collection`.
   - Update `src/App.tsx` to import the feature page directly.
   - Delete `src/pages/CollectionPage.tsx` after the import moves.
   - `useCollectionViewModel.ts` should consume `collectionOwnershipStore` selectors and pure sort/filter selectors.
 
-- [ ] Integrate collection with `DbDetailModalHost`.
+- [x] Integrate collection with `DbDetailModalHost`.
   - Collection cards open detail overlays by public `EntityRef`.
   - Export-rendering components continue to receive the exact data shape they need; do not mix export layout state into the ownership store.
 
-- [ ] Add migration and behavior tests.
+- [x] Add migration and behavior tests.
   - Tests: V1 collection ownership migrates to current IDs; linked awakener groups preserve ownership/level; import/export snapshots round-trip; bulk filtered actions only affect visible filtered public IDs.
   - Focused command: `npm run test -- --run src/features/collection src/domain/collection-ownership.test.ts src/pages/collection/useCollectionViewModel.test.ts`.
 
@@ -368,19 +368,19 @@ Phase 5 exit criteria:
 
 This phase happens after feature behavior is stable so components move once.
 
-- [ ] Create `src/ui/search`.
+- [x] Create `src/ui/search`.
   - Move `DatabaseSearchInput`, search capture helpers that are not database-specific, and reusable search empty/loading primitives.
 
-- [ ] Create `src/ui/filters`.
+- [x] Create `src/ui/filters`.
   - Move segmented controls, select wrappers, active filter chips, and filter layout primitives that are used by database/builder/collection.
 
-- [ ] Create `src/ui/cards`.
+- [x] Create `src/ui/cards`.
   - Move `DatabaseGridCardFrame`, common catalog card typography, wheel/posse/covenant tile primitives where they are not feature-specific.
 
-- [ ] Create `src/ui/modal`.
+- [x] Create `src/ui/modal`.
   - Move modal shell primitives, focus scope helpers, art viewer overlay primitives, and settings panel primitives after `DbDetailShell` is stable.
 
-- [ ] Update imports across feature modules.
+- [x] Update imports across feature modules.
   - Feature modules may compose UI primitives, but UI primitives may not import feature modules.
   - Add an architecture test if cycles or reverse imports appear.
 
@@ -393,19 +393,19 @@ Phase 6 exit criteria:
 
 This phase makes feature folders the actual application structure.
 
-- [ ] Update `src/App.tsx`.
+- [x] Update `src/App.tsx`.
   - Import route elements from `src/features/database/routes.tsx`, `src/features/builder/BuilderPage.tsx`, and `src/features/collection/CollectionPage.tsx`.
   - Remove repeated database route declarations from `App.tsx` when the database feature exports its route children.
 
-- [ ] Delete migrated feature implementations under `src/pages`.
+- [x] Delete migrated feature implementations under `src/pages`.
   - Delete `src/pages/DatabasePage.tsx`, `src/pages/BuilderPage.tsx`, and `src/pages/CollectionPage.tsx` after `src/App.tsx` imports the feature pages/routes.
   - Keep only genuinely generic pages such as home and timeline in `src/pages`.
 
-- [ ] Move tests to feature paths.
+- [x] Move tests to feature paths.
   - `src/pages/DatabasePage.test.tsx` becomes `src/features/database/DatabaseRoutes.test.tsx`.
   - Builder and collection integration tests move under their feature folders or keep a single app-route smoke file.
 
-- [ ] Run focused route and app tests.
+- [x] Run focused route and app tests.
   - Command: `npm run test -- --run src/App.test.tsx src/features/database/DatabaseRoutes.test.tsx src/features/builder src/features/collection`.
 
 Phase 7 exit criteria:
@@ -417,19 +417,19 @@ Phase 7 exit criteria:
 
 This phase removes old scaffolding without breaking shipped user data.
 
-- [ ] Delete current-named replacements' old shims.
+- [x] Delete current-named replacements' old shims.
   - Delete `src/domain/public-v2-detail-loaders.ts` after all runtime imports use current-named detail loaders.
   - Rename or delete `awakeners-lite-v2.ts`, `awakeners-full-v2.ts`, `wheels-full-v2.ts`, `posses-full-v2.ts`, and `covenants-full-v2.ts` only after their exported shapes have current homes.
 
-- [ ] Delete frontend-derived compiler helpers replaced by V3 indexes.
+- [x] Delete frontend-derived compiler helpers replaced by V3 indexes.
   - Targets include frontend slug derivation as authority, global reference stubs generated from runtime joins, asset stem inference as public contract, and numeric owner bridges.
   - Keep pure display slug fallback helpers only for noncanonical UI labels, never for identity.
 
-- [ ] Preserve shipped persistence fixtures and migration maps.
+- [x] Preserve shipped persistence fixtures and migration maps.
   - `src/domain/persistence-contract.v1.json` and tests for shipped V1 inputs stay.
   - Rename exported constants to `*_CURRENT` where possible while keeping compatibility exports for importers that still use V2 names.
 
-- [ ] Add final architecture tests.
+- [x] Add final architecture tests.
   - No runtime `public-v2` module names outside shipped V1 persistence migration history.
   - No generated JSON imports outside `src/data-access/public-data`.
   - No domain/runtime `as unknown as` casts outside explicitly allowed generic UI typing.
@@ -442,30 +442,33 @@ Phase 8 exit criteria:
 
 ## Phase 9: Full Verification And Browser Smoke
 
-- [ ] Run `npm run format:changed`.
-- [ ] Run `npm run lint`.
-- [ ] Run `npm run test:bounded`.
-- [ ] Run `npm run build`.
-- [ ] Browser smoke database:
+- [x] Run `npm run format:changed`.
+- [x] Run `npm run lint`.
+- [x] Run `npx tsc -p tsconfig.app.json --noEmit --pretty false`.
+- [x] Run `npm run test:bounded`.
+  - Passed 155 files / 984 tests.
+- [x] Run `npm run build`.
+  - Passed with only the Vite/Rolldown plugin timing warning.
+- [x] Browser smoke database:
   - `/database`
-  - `/database/awakeners/mason`
+  - `/database/awakeners/goliath`
   - `/database/wheels/blue-ringed-toxin`
   - `/database/posses?realm=CHAOS&q=voice`
   - `/database/posses/voices-in-your-head`
   - `/database/covenants?q=deus`
   - `/database/covenants/deus-ex-machina`
   - old `/database/awk/:slug` redirect
-- [ ] Browser smoke builder:
+- [x] Browser smoke builder:
   - Load a V1/local saved draft fixture.
   - Assign awakeners, wheels, covenant, and posse.
   - Open details from picker and team cards.
   - Export/import and confirm units stay in their slots.
-- [ ] Browser smoke collection:
+- [x] Browser smoke collection:
   - Load a V1/local ownership fixture.
   - Toggle awakeners, wheels, and posses.
   - Change linked awakeners and confirm linked levels stay unified.
   - Export/import ownership.
-- [ ] Slime/output sweep:
+- [x] Slime/output sweep:
   - Search rendered snapshots and built assets for `[StateArg`, `[DescArg`, `[Arg`, `NaN`, `undefined`, raw formula tokens, and unparsed template markers.
   - Re-run targeted formula/detail tests for metadata math, substat scaling, covenant set effects, posse effects, wheel mainstat/substat output, and awakener upgrade descriptions.
 

@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import type {Team} from '@/pages/builder/types'
+import type {Team} from '@/features/builder/types'
 
 import {decodeImportCode, encodeMultiTeamCode, encodeSingleTeamCode} from './import-export'
 
@@ -12,13 +12,19 @@ function makeTeam(name: string): Team {
     slots: [
       {
         slotId: 'slot-1',
-        awakenerName: 'goliath',
+        awakenerId: 'awakener-0021',
         realm: 'AEQUOR',
         level: 60,
         wheels: ['wheel-0095', 'wheel-0096'],
         covenantId: 'covenant-0001',
       },
-      {slotId: 'slot-2', awakenerName: 'ramona', realm: 'CHAOS', level: 60, wheels: [null, null]},
+      {
+        slotId: 'slot-2',
+        awakenerId: 'awakener-0042',
+        realm: 'CHAOS',
+        level: 60,
+        wheels: [null, null],
+      },
       {slotId: 'slot-3', wheels: [null, null]},
       {slotId: 'slot-4', wheels: [null, null]},
     ],
@@ -45,7 +51,8 @@ describe('import-export codec', () => {
     if (parsed.kind !== 'single') return
     expect(parsed.team.name).toBe('Team 1')
     expect(parsed.team.posseId).toBe('posse-0033')
-    expect(parsed.team.slots[0].awakenerName).toBe('goliath')
+    expect(parsed.team.slots[0].awakenerId).toBe('awakener-0021')
+    expect('awakenerName' in parsed.team.slots[0]).toBe(false)
     expect(parsed.team.slots[0].wheels).toEqual(['wheel-0095', 'wheel-0096'])
     expect(parsed.team.slots[0].covenantId).toBe('covenant-0001')
   })
@@ -65,6 +72,8 @@ describe('import-export codec', () => {
     expect(parsed.team.posseId).toBe('posse-0033')
     expect(parsed.team.slots[0].wheels).toEqual(['wheel-0095', 'wheel-0096'])
     expect(parsed.team.slots[0].covenantId).toBe('covenant-0001')
+    expect(parsed.team.slots[0].awakenerId).toBe('awakener-0021')
+    expect('awakenerName' in parsed.team.slots[0]).toBe(false)
   })
 
   it('throws when a selected posse is not representable in the frozen standard-code byte contract', () => {
@@ -82,17 +91,19 @@ describe('import-export codec', () => {
     expect(parsed.kind).toBe('single')
     if (parsed.kind !== 'single') return
     expect(parsed.team.posseId).toBe('posse-0033')
-    expect(parsed.team.slots[0].awakenerName).toBe('goliath')
+    expect(parsed.team.slots[0].awakenerId).toBe('awakener-0021')
+    expect('awakenerName' in parsed.team.slots[0]).toBe(false)
     expect(parsed.team.slots[0].wheels).toEqual(['wheel-0095', 'wheel-0096'])
     expect(parsed.team.slots[0].covenantId).toBe('covenant-0001')
-    expect(parsed.team.slots[1].awakenerName).toBe('ramona')
+    expect(parsed.team.slots[1].awakenerId).toBe('awakener-0042')
+    expect('awakenerName' in parsed.team.slots[1]).toBe(false)
   })
 
   it('round-trips Vortice in standard t1 export codes even without in-game @@ token support', () => {
     const team = makeTeam('Vortice Team')
     team.slots[0] = {
       slotId: 'slot-1',
-      awakenerName: 'vortice',
+      awakenerId: 'awakener-0055',
       realm: 'AEQUOR',
       level: 60,
       wheels: [null, null],
@@ -103,7 +114,8 @@ describe('import-export codec', () => {
 
     expect(parsed.kind).toBe('single')
     if (parsed.kind !== 'single') return
-    expect(parsed.team.slots[0].awakenerName).toBe('vortice')
+    expect(parsed.team.slots[0].awakenerId).toBe('awakener-0055')
+    expect('awakenerName' in parsed.team.slots[0]).toBe(false)
     expect(parsed.team.slots[0].realm).toBe('AEQUOR')
     expect(parsed.team.slots[0].wheels).toEqual([null, null])
   })
@@ -125,7 +137,7 @@ describe('import-export codec', () => {
     const teams = [makeTeam('Team 1'), makeTeam('Team 2')]
     teams[1].slots[0] = {
       slotId: 'slot-1',
-      awakenerName: 'goliath',
+      awakenerId: 'awakener-0021',
       realm: 'AEQUOR',
       level: 90,
       isSupport: true,
@@ -133,7 +145,7 @@ describe('import-export codec', () => {
     }
     teams[1].slots[1] = {
       slotId: 'slot-2',
-      awakenerName: 'ramona',
+      awakenerId: 'awakener-0042',
       realm: 'CHAOS',
       level: 88,
       wheels: [null, null],
@@ -172,7 +184,8 @@ describe('import-export codec', () => {
 
     expect(parsed.kind).toBe('single')
     if (parsed.kind !== 'single') return
-    expect(parsed.team.slots[2].awakenerName).toBeUndefined()
+    expect(parsed.team.slots[2].awakenerId).toBeUndefined()
+    expect('awakenerName' in parsed.team.slots[2]).toBe(false)
     expect(parsed.team.slots[2].wheels).toEqual([null, null])
     expect(parsed.team.slots[2].covenantId).toBeUndefined()
   })
@@ -185,7 +198,8 @@ describe('import-export codec', () => {
     const parsed = decodeImportCode('@@NDklaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaad@@')
     expect(parsed.kind).toBe('single')
     if (parsed.kind !== 'single') return
-    expect(parsed.team.slots.every((slot) => Boolean(slot.awakenerName))).toBe(true)
+    expect(parsed.team.slots.every((slot) => Boolean(slot.awakenerId))).toBe(true)
+    expect(parsed.team.slots.every((slot) => !('awakenerName' in slot))).toBe(true)
   })
 
   it('extracts and imports @@ code from full copied in-game block text', () => {
@@ -203,7 +217,8 @@ The Lone Seed
     const parsed = decodeImportCode(pasted)
     expect(parsed.kind).toBe('single')
     if (parsed.kind !== 'single') return
-    expect(parsed.team.slots.every((slot) => Boolean(slot.awakenerName))).toBe(true)
+    expect(parsed.team.slots.every((slot) => Boolean(slot.awakenerId))).toBe(true)
+    expect(parsed.team.slots.every((slot) => !('awakenerName' in slot))).toBe(true)
   })
 
   it('extracts t1 code from surrounding text', () => {

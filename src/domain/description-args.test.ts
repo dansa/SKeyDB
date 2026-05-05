@@ -2,7 +2,7 @@ import {describe, expect, it} from 'vitest'
 
 import type {AwakenerSkillRecord} from './awakener-source-schema'
 import {getAwakenerTalentById, getAwakenerTalents} from './awakener-talents'
-import {resolveAwakenerFullV2Record} from './awakeners-full-v2-resolver'
+import {resolveAwakenerFullRecord} from './awakeners-full-resolver'
 import {
   buildDescriptionArgHover,
   formatDescriptionArgProgression,
@@ -11,19 +11,19 @@ import {
   resolveDescriptionArgs,
   resolveDescriptionTemplate,
 } from './description-args'
-import {loadPublicV2AwakenerFullById} from './public-v2-detail-loaders'
+import {loadPublicAwakenerDetailById} from './public-detail-record-adapters'
 
 async function loadResolvedSkill(
   awakenerId: number,
   skillId: string,
 ): Promise<AwakenerSkillRecord> {
-  const record = await loadPublicV2AwakenerFullById(awakenerId)
+  const record = await loadPublicAwakenerDetailById(awakenerId)
   expect(record).toBeDefined()
   if (!record) {
     throw new Error(`Missing awakener ${String(awakenerId)}`)
   }
 
-  const resolvedRecord = resolveAwakenerFullV2Record(record).record
+  const resolvedRecord = resolveAwakenerFullRecord(record).record
   const cards = [
     resolvedRecord.cards.C1,
     resolvedRecord.cards.C2,
@@ -220,13 +220,13 @@ describe('description-args', () => {
   })
 
   it('supports additive-factor substat bonuses from Arachne enlighten patches', async () => {
-    const record = await loadPublicV2AwakenerFullById(56)
+    const record = await loadPublicAwakenerDetailById(56)
     expect(record).toBeDefined()
     if (!record) {
       throw new Error('Missing Arachne public V2 record')
     }
 
-    const resolvedRecord = resolveAwakenerFullV2Record(record, {
+    const resolvedRecord = resolveAwakenerFullRecord(record, {
       selectedEnlightenSlot: 'E3',
     }).record
 
@@ -258,8 +258,8 @@ describe('description-args', () => {
     expect(rendered).toContain('Inflict 51.8% {ATK} stacks of {Poison} on all enemies.')
   })
 
-  it('renders public V2 detail upgrade patch templates with resolved arg totals', async () => {
-    const xu = await loadPublicV2AwakenerFullById(54)
+  it('renders public detail upgrade patch templates with resolved arg totals', async () => {
+    const xu = await loadPublicAwakenerDetailById(54)
     if (!xu) {
       throw new Error('Missing Xu public V2 record')
     }

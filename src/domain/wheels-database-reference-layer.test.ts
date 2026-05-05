@@ -3,9 +3,9 @@ import {describe, expect, it} from 'vitest'
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
 import {resolveDatabaseOverlay, resolveDatabaseReferenceInfo} from './database-reference-info'
 import {buildWheelDatabaseReferenceLayer} from './wheels-database-reference-layer'
-import type {WheelFullV2Record} from './wheels-full-v2'
+import type {WheelFullRecord} from './wheels-full'
 
-function buildWheelRecord(): WheelFullV2Record {
+function buildWheelRecord(): WheelFullRecord {
   return {
     id: 'wheel-0001',
     assetId: 'Weapon_Full_B01',

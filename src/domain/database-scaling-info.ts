@@ -1,7 +1,5 @@
-import type {KeyedDatabaseReferenceEntry} from '@/pages/database/database-reference-entry'
-
 import {resolveAwakenerStatsForLevel} from './awakener-level-scaling'
-import type {AwakenerFullV2Record} from './awakeners-full-v2'
+import type {AwakenerFullRecord} from './awakeners-full'
 import {fmtNum} from './scaling'
 
 const PRIMARY_STAT_KEYS = ['CON', 'ATK', 'DEF'] as const
@@ -18,9 +16,19 @@ const SUBSTAT_LABELS: Record<string, string> = {
 }
 
 export type ScalingInfoRecord = Pick<
-  AwakenerFullV2Record,
+  AwakenerFullRecord,
   'stats' | 'primaryScalingBase' | 'statScaling' | 'substatScaling'
 >
+interface ScalingInfoReferenceEntry {
+  key: string
+  name: string
+  label: string
+  description: string
+  detailLinks?: {
+    label: string
+    entry: ScalingInfoReferenceEntry
+  }[]
+}
 type PrimaryStatKey = (typeof PRIMARY_STAT_KEYS)[number]
 
 function getPrimaryStatGrowth(
@@ -50,7 +58,7 @@ function buildSubstatLines(awakener: ScalingInfoRecord): string[] {
     })
 }
 
-export function buildScalingInfoEntry(awakener: ScalingInfoRecord): KeyedDatabaseReferenceEntry {
+export function buildScalingInfoEntry(awakener: ScalingInfoRecord): ScalingInfoReferenceEntry {
   const substatLines = buildSubstatLines(awakener)
   const primaryStatLines = PRIMARY_STAT_KEYS.map((statKey) =>
     buildPrimaryStatLine(awakener, statKey),

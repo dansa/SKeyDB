@@ -1,21 +1,27 @@
+import {z} from 'zod'
+
 import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
 
 import {awakenerKitsDatasetSchema, type AwakenerKitRecord} from './awakener-source-schema'
 import {numericAwakenerId} from './public-v3-awakener-record-adapters'
 
-interface PublicOwnedRecord {
-  id: string
-  ownerAwakenerId: string
-  slot?: string
-  family?: string
-}
+const publicOwnedRecordSchema = z.object({
+  id: z.string(),
+  ownerAwakenerId: z.string(),
+  slot: z.string().optional(),
+  family: z.string().optional(),
+})
+
+const publicOwnedRecordsSchema = z.array(publicOwnedRecordSchema)
+
+type PublicOwnedRecord = z.infer<typeof publicOwnedRecordSchema>
 
 let awakenerKitsCache: AwakenerKitRecord[] | null = null
 
 function requireOwnedRecord(records: PublicOwnedRecord[], slot: string, ownerId: string): string {
   const record = records.find((entry) => entry.ownerAwakenerId === ownerId && entry.slot === slot)
   if (!record) {
-    throw new Error(`Missing public V2 kit record for ${ownerId} slot ${slot}.`)
+    throw new Error(`Missing public kit record for ${ownerId} slot ${slot}.`)
   }
   return record.id
 }
@@ -29,9 +35,9 @@ function optionalOwnedRecord(
 }
 
 function adaptPublicAwakenerToKit(record: {id: string; numericId: number}): AwakenerKitRecord {
-  const skills = getPublicCatalogRecords('skills') as unknown as PublicOwnedRecord[]
-  const talents = getPublicCatalogRecords('talents') as unknown as PublicOwnedRecord[]
-  const enlightens = getPublicCatalogRecords('enlightens') as unknown as PublicOwnedRecord[]
+  const skills = publicOwnedRecordsSchema.parse(getPublicCatalogRecords('skills'))
+  const talents = publicOwnedRecordsSchema.parse(getPublicCatalogRecords('talents'))
+  const enlightens = publicOwnedRecordsSchema.parse(getPublicCatalogRecords('enlightens'))
   const ownerTalents = talents.filter((entry) => entry.ownerAwakenerId === record.id)
   const passiveTalents = ownerTalents.filter((entry) => entry.family === 'passive')
 

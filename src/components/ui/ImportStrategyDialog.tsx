@@ -1,5 +1,6 @@
+import {ModalFrame} from '@/ui/modal/ModalFrame'
+
 import {Button} from './Button'
-import {ModalFrame} from './ModalFrame'
 
 interface ImportStrategyDialogProps {
   conflictSummary: string

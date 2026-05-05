@@ -2,16 +2,16 @@ import {lazy, Suspense} from 'react'
 
 import {Navigate, NavLink, Route, Routes} from 'react-router-dom'
 
+import {DatabaseRouteElements} from './features/database/routes'
 import {HomePage} from './pages/HomePage'
 
-const DatabasePage = lazy(() =>
-  import('./pages/DatabasePage').then((module) => ({default: module.DatabasePage})),
-)
 const BuilderPage = lazy(() =>
-  import('./pages/BuilderPage').then((module) => ({default: module.BuilderPage})),
+  import('./features/builder/BuilderPage').then((module) => ({default: module.BuilderPage})),
 )
 const CollectionPage = lazy(() =>
-  import('./pages/CollectionPage').then((module) => ({default: module.CollectionPage})),
+  import('./features/collection/CollectionPage').then((module) => ({
+    default: module.CollectionPage,
+  })),
 )
 const TimelinePage = lazy(() =>
   import('./pages/TimelinePage').then((module) => ({default: module.TimelinePage})),
@@ -52,17 +52,7 @@ function App() {
         >
           <Routes>
             <Route element={<HomePage />} path='/' />
-            <Route element={<DatabasePage />} path='/database' />
-            <Route element={<DatabasePage />} path='/database/wheels/:wheelSlug' />
-            <Route element={<DatabasePage />} path='/database/wheels' />
-            <Route element={<DatabasePage />} path='/database/posses/:posseSlug' />
-            <Route element={<DatabasePage />} path='/database/posses' />
-            <Route element={<DatabasePage />} path='/database/covenants/:covenantSlug' />
-            <Route element={<DatabasePage />} path='/database/covenants' />
-            <Route element={<DatabasePage />} path='/database/awakeners/:awakenerSlug' />
-            <Route element={<DatabasePage />} path='/database/awakeners/:awakenerSlug/:tabSlug' />
-            <Route element={<DatabasePage />} path='/database/awk/:awakenerSlug' />
-            <Route element={<DatabasePage />} path='/database/awk/:awakenerSlug/:tabSlug' />
+            {DatabaseRouteElements}
             <Route element={<TimelinePage />} path='/timeline' />
             <Route element={<BuilderPage />} path='/builder' />
             <Route element={<CollectionPage />} path='/collection' />

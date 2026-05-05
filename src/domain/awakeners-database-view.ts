@@ -9,13 +9,13 @@ import {
   type FullStats,
 } from './awakener-source-schema'
 import {buildAwakenerDatabaseReferenceLayer} from './awakeners-database-reference-layer'
-import {type AwakenerFullV2Record} from './awakeners-full-v2'
-import {isSoulforgeTalent} from './awakeners-full-v2-contract'
+import {type AwakenerFullRecord} from './awakeners-full'
+import {isSoulforgeTalent} from './awakeners-full-contract'
 import {
-  resolveAwakenerFullV2Record,
-  type AwakenerFullV2ResolveOptions,
-  type ResolvedAwakenerFullV2Record,
-} from './awakeners-full-v2-resolver'
+  resolveAwakenerFullRecord,
+  type AwakenerFullResolveOptions,
+  type ResolvedAwakenerFullRecord,
+} from './awakeners-full-resolver'
 import {buildCardKeywordFooterText} from './card-keywords'
 import type {
   DatabaseInfluenceBadge,
@@ -38,7 +38,7 @@ export type {
 } from './database-reference-layer'
 
 export interface AwakenerDatabaseViewOptions extends Partial<
-  Pick<AwakenerFullV2ResolveOptions, 'selectedEnlightenSlot' | 'soulforgeLevel'>
+  Pick<AwakenerFullResolveOptions, 'selectedEnlightenSlot' | 'soulforgeLevel'>
 > {
   skillLevel?: number
   stats?: FullStats | null
@@ -59,13 +59,13 @@ export interface DatabaseDescribedEntry<TRecord extends DescribedRecord> {
 }
 
 export interface ResolvedAwakenerDatabaseShellView {
-  selection: ResolvedAwakenerFullV2Record['selection']
+  selection: ResolvedAwakenerFullRecord['selection']
   skillLevel: number
   stats: FullStats | null
   formulaContext?: PublicFormulaContext
   activeEnlightenIds: string[]
-  record: AwakenerFullV2Record
-  resolvedRecord: ResolvedAwakenerFullV2Record['record']
+  record: AwakenerFullRecord
+  resolvedRecord: ResolvedAwakenerFullRecord['record']
   overlayOverridesById: Record<string, AwakenerOverlayRecord>
   overlayInfluenceBadgesById: Record<string, DatabaseInfluenceBadge[]>
   commandCards: DatabaseDescribedEntry<AwakenerSkillRecord>[]
@@ -78,6 +78,10 @@ export interface ResolvedAwakenerDatabaseShellView {
 }
 
 export type ResolvedAwakenerDatabaseReferenceLayer = ResolvedDatabaseReferenceLayer
+
+function isAwakenerEnlightenSlot(value: unknown): value is AwakenerEnlightenRecord['slot'] {
+  return typeof value === 'string' && (ENLIGHTEN_SLOT_KEYS as readonly string[]).includes(value)
+}
 
 export type ResolvedAwakenerDatabaseView = ResolvedAwakenerDatabaseShellView &
   ResolvedAwakenerDatabaseReferenceLayer
@@ -387,7 +391,7 @@ const COMMAND_CARD_SPECS = [
 ] as const
 
 function buildCommandCardEntries(
-  cards: AwakenerFullV2Record['cards'],
+  cards: AwakenerFullRecord['cards'],
   skillLevel: number,
   stats: FullStats | null,
   formulaContext: PublicFormulaContext | undefined,
@@ -409,7 +413,7 @@ function buildCommandCardEntries(
 }
 
 function buildExaltEntries(
-  cards: AwakenerFullV2Record['cards'],
+  cards: AwakenerFullRecord['cards'],
   skillLevel: number,
   stats: FullStats | null,
   formulaContext: PublicFormulaContext | undefined,
@@ -450,7 +454,7 @@ function buildExaltEntries(
 const TALENT_SLOT_KEYS = ['T1', 'T2', 'T3', 'T4'] as const
 
 function buildTalentEntries(
-  talents: AwakenerFullV2Record['talents'],
+  talents: AwakenerFullRecord['talents'],
   stats: FullStats | null,
   formulaContext: PublicFormulaContext | undefined,
   soulforgeLevel: number | undefined,
@@ -485,7 +489,7 @@ function buildTalentEntries(
 }
 
 function buildEnlightenEntries(
-  enlightens: AwakenerFullV2Record['enlightens'],
+  enlightens: AwakenerFullRecord['enlightens'],
   stats: FullStats | null,
   formulaContext: PublicFormulaContext | undefined,
 ): DatabaseDescribedEntry<AwakenerEnlightenRecord>[] {
@@ -533,7 +537,7 @@ function buildDerivedEntries(
 }
 
 function buildEnlightenInfluenceByTargetId(
-  record: AwakenerFullV2Record,
+  record: AwakenerFullRecord,
 ): Map<string, AwakenerEnlightenRecord['slot'][]> {
   const influenceByTargetId = new Map<string, AwakenerEnlightenRecord['slot'][]>()
 
@@ -547,15 +551,19 @@ function buildEnlightenInfluenceByTargetId(
     }
   }
 
-  for (const target of getPublicV2UpgradeTargets(record)) {
+  for (const target of getPublicUpgradeTargets(record)) {
     for (const upgrade of target.upgrades ?? []) {
       if (upgrade.upgraderType !== 'enlighten') {
         continue
       }
-      const slot = slotByEnlightenId.get(upgrade.upgraderId) ?? upgrade.upgraderSlot
-      if (!slot) {
+      if (typeof upgrade.upgraderId !== 'string') {
         continue
       }
+      const slotCandidate = slotByEnlightenId.get(upgrade.upgraderId) ?? upgrade.upgraderSlot
+      if (!isAwakenerEnlightenSlot(slotCandidate)) {
+        continue
+      }
+      const slot = slotCandidate
       const existing = influenceByTargetId.get(target.id) ?? []
       if (!existing.includes(slot)) {
         existing.push(slot)
@@ -567,7 +575,7 @@ function buildEnlightenInfluenceByTargetId(
   return influenceByTargetId
 }
 
-function buildTalentInfluenceByTargetId(record: AwakenerFullV2Record): Map<string, string[]> {
+function buildTalentInfluenceByTargetId(record: AwakenerFullRecord): Map<string, string[]> {
   const influenceByTargetId = new Map<string, string[]>()
   const talentIds = new Set(
     [
@@ -579,9 +587,13 @@ function buildTalentInfluenceByTargetId(record: AwakenerFullV2Record): Map<strin
     ].flatMap((talent) => (talent ? [talent.id] : [])),
   )
 
-  for (const target of getPublicV2UpgradeTargets(record)) {
+  for (const target of getPublicUpgradeTargets(record)) {
     for (const upgrade of target.upgrades ?? []) {
-      if (upgrade.upgraderType !== 'talent' || !talentIds.has(upgrade.upgraderId)) {
+      if (
+        upgrade.upgraderType !== 'talent' ||
+        typeof upgrade.upgraderId !== 'string' ||
+        !talentIds.has(upgrade.upgraderId)
+      ) {
         continue
       }
       const existing = influenceByTargetId.get(target.id) ?? []
@@ -595,9 +607,9 @@ function buildTalentInfluenceByTargetId(record: AwakenerFullV2Record): Map<strin
   return influenceByTargetId
 }
 
-function getPublicV2UpgradeTargets(
-  record: AwakenerFullV2Record,
-): {id: string; upgrades?: AwakenerFullV2Record['cards']['C1']['upgrades']}[] {
+function getPublicUpgradeTargets(
+  record: AwakenerFullRecord,
+): {id: string; upgrades?: AwakenerFullRecord['cards']['C1']['upgrades']}[] {
   return [
     record.cards.C1,
     record.cards.C2,
@@ -613,7 +625,7 @@ function getPublicV2UpgradeTargets(
 }
 
 export function resolveAwakenerDatabaseView(
-  record: AwakenerFullV2Record,
+  record: AwakenerFullRecord,
   options: AwakenerDatabaseViewOptions = {},
   overlays: AwakenerOverlayRecord[] = getAwakenerOverlays(),
   derivedSkills: DerivedSkillRecord[] = getDerivedSkills(),
@@ -632,14 +644,14 @@ export function resolveAwakenerDatabaseView(
 }
 
 export function resolveAwakenerDatabaseShellView(
-  record: AwakenerFullV2Record,
+  record: AwakenerFullRecord,
   options: AwakenerDatabaseViewOptions = {},
   overlays: AwakenerOverlayRecord[] = getAwakenerOverlays(),
 ): ResolvedAwakenerDatabaseShellView {
   const skillLevel = Math.max(1, Math.floor(options.skillLevel ?? 1))
   const stats = options.stats ?? null
   const formulaContext = options.formulaContext
-  const resolvedRecord = resolveAwakenerFullV2Record(
+  const resolvedRecord = resolveAwakenerFullRecord(
     record,
     {
       selectedEnlightenSlot: options.selectedEnlightenSlot,

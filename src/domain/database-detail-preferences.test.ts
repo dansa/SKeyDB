@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import type {AwakenerFullV2Record} from './awakeners-full-v2'
+import type {AwakenerFullRecord} from './awakeners-full'
 import {
   DEFAULT_DATABASE_DETAIL_PREFERENCES,
   normalizeDatabaseDetailPreferences,
@@ -256,7 +256,7 @@ describe('database-detail-preferences', () => {
   })
 })
 
-function buildRecord(): AwakenerFullV2Record {
+function buildRecord(): AwakenerFullRecord {
   return {
     id: 1,
     key: 'test',

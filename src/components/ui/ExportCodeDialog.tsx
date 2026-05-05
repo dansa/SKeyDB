@@ -1,7 +1,8 @@
 import {useEffect, useRef, type ReactNode} from 'react'
 
+import {ModalFrame} from '@/ui/modal/ModalFrame'
+
 import {Button} from './Button'
-import {ModalFrame} from './ModalFrame'
 
 interface ExportCodeDialogProps {
   title: string

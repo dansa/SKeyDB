@@ -18,7 +18,7 @@ import {
   resolveAwakenerDatabaseShellView,
   resolveAwakenerDatabaseView,
 } from './awakeners-database-view'
-import type {AwakenerFullV2Record} from './awakeners-full-v2'
+import type {AwakenerFullRecord} from './awakeners-full'
 import type {PublicDescriptionArg} from './public-description-args'
 
 const TEST_STATS: FullStats = {
@@ -125,7 +125,7 @@ function buildEnlighten(
   }
 }
 
-function buildRecord(): AwakenerFullV2Record {
+function buildRecord(): AwakenerFullRecord {
   const baseTalent = buildTalent('talent.test.base', 'Base Talent')
   const e1 = buildEnlighten('enlighten.test.e1', 'E1')
   const e2 = buildEnlighten('enlighten.test.e2', 'E2')
@@ -258,7 +258,7 @@ function buildRecord(): AwakenerFullV2Record {
         ],
       },
     ],
-  } as unknown as AwakenerFullV2Record
+  } as unknown as AwakenerFullRecord
 }
 
 function buildOverlayRecords(): AwakenerOverlayRecord[] {

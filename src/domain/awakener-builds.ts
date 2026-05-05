@@ -1,17 +1,16 @@
 import {z} from 'zod'
 
 import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicBuilderCatalog} from '@/data-access/public-data/collectionRepository'
 
-import {getAwakeners} from './awakeners'
-import {getCovenants, type Covenant} from './covenants'
+import type {Covenant} from './covenants'
 import {
   MAINSTAT_KEYS,
   WHEEL_MAINSTAT_KEYS,
   type MainstatKey,
   type WheelMainstatKey,
 } from './mainstats'
-import {getPosses} from './posses'
-import {getWheels, type Wheel} from './wheels'
+import type {Wheel} from './wheels'
 
 export const AWAKENER_BUILD_WHEEL_TIERS = ['BIS_SSR', 'ALT_SSR', 'BIS_SR', 'GOOD'] as const
 
@@ -52,15 +51,30 @@ const awakenerBuildEntrySchema = z.object({
   builds: z.array(awakenerBuildSchema).min(1),
 })
 
+function getBuilderOptionIdSet(optionKey: string): Set<string> {
+  return new Set(getPublicBuilderCatalog().options[optionKey] ?? [])
+}
+
 const awakenerBuildEntriesSchema = z.array(awakenerBuildEntrySchema).superRefine((entries, ctx) => {
-  const awakenerById = new Map(getAwakeners().map((awakener) => [awakener.id, awakener]))
-  const awakenerIdSet = new Set(awakenerById.keys())
-  const wheelIdSet = new Set(getWheels().map((wheel) => wheel.id))
-  const covenantIdSet = new Set(getCovenants().map((covenant) => covenant.id))
-  const posseIdSet = new Set(getPosses().map((posse) => posse.id))
+  const awakenerById = new Map(
+    getPublicCatalogRecords('awakeners').map((awakener) => [awakener.id, awakener]),
+  )
+  const awakenerIdSet = getBuilderOptionIdSet('awakeners')
+  const awakenerBuildIdSet = getBuilderOptionIdSet('awakenerBuilds')
+  const wheelIdSet = getBuilderOptionIdSet('wheels')
+  const covenantIdSet = getBuilderOptionIdSet('covenants')
+  const posseIdSet = getBuilderOptionIdSet('posses')
   const seenAwakenerIds = new Set<string>()
 
   entries.forEach((entry, entryIndex) => {
+    if (!awakenerBuildIdSet.has(entry.id)) {
+      ctx.addIssue({
+        code: 'custom',
+        message: `Unknown awakener build id ${entry.id}.`,
+        path: [entryIndex, 'id'],
+      })
+    }
+
     if (seenAwakenerIds.has(entry.awakenerId)) {
       ctx.addIssue({
         code: 'custom',

@@ -17,13 +17,13 @@ import {
   type AwakenerDatabaseViewOptions,
   type ResolvedAwakenerDatabaseShellView,
 } from './awakeners-database-view'
-import {type AwakenerFullV2Record} from './awakeners-full-v2'
-import {getSoulforgeTalents, selectedEnlightenSlotSchema} from './awakeners-full-v2-contract'
+import {type AwakenerFullRecord} from './awakeners-full'
+import {getSoulforgeTalents, selectedEnlightenSlotSchema} from './awakeners-full-contract'
 import type {ResolvedDatabaseReferenceLayer} from './database-reference-layer'
 import {resolveDescriptionArg} from './description-args'
 import {buildPublicFormulaContext} from './public-formula-context'
 
-export {selectedEnlightenSlotSchema} from './awakeners-full-v2-contract'
+export {selectedEnlightenSlotSchema} from './awakeners-full-contract'
 
 export const awakenerDatabaseSelectionSchema = z.object({
   awakenerLevel: z.number().default(60),
@@ -61,7 +61,7 @@ export interface AwakenerDatabaseControls {
 }
 
 function getAvailableEnlightenSlots(
-  record: AwakenerFullV2Record,
+  record: AwakenerFullRecord,
 ): NonNullable<AwakenerDatabaseSelection['selectedEnlightenSlot']>[] {
   return buildEnlightenOptions(record)
     .map((option) => option.value)
@@ -93,7 +93,7 @@ function normalizeSoulforgeLevel(level: number | null): number {
   return Math.max(0, Math.floor(level))
 }
 
-function buildEnlightenOptions(record: AwakenerFullV2Record): AwakenerDatabaseControlOption[] {
+function buildEnlightenOptions(record: AwakenerFullRecord): AwakenerDatabaseControlOption[] {
   return [
     {value: null, label: 'E0'},
     {value: 'E1', label: 'E1'},
@@ -104,7 +104,7 @@ function buildEnlightenOptions(record: AwakenerFullV2Record): AwakenerDatabaseCo
 }
 
 function normalizeSelectedEnlightenSlotForRecord(
-  record: AwakenerFullV2Record,
+  record: AwakenerFullRecord,
   slot: AwakenerDatabaseSelection['selectedEnlightenSlot'],
 ): AwakenerDatabaseSelection['selectedEnlightenSlot'] {
   if (slot === null) {
@@ -123,7 +123,7 @@ function normalizeSelectedEnlightenSlotForRecord(
 }
 
 function normalizeSoulforgeLevelForRecord(
-  record: AwakenerFullV2Record,
+  record: AwakenerFullRecord,
   level: AwakenerDatabaseSelection['soulforgeLevel'],
 ): AwakenerDatabaseSelection['soulforgeLevel'] {
   const controls = getAwakenerDatabaseControls(record)
@@ -138,9 +138,7 @@ function normalizeSoulforgeLevelForRecord(
   )
 }
 
-export function getAwakenerDatabaseControls(
-  record: AwakenerFullV2Record,
-): AwakenerDatabaseControls {
+export function getAwakenerDatabaseControls(record: AwakenerFullRecord): AwakenerDatabaseControls {
   const soulforgeTalents = getSoulforgeTalents(record.talents)
   const canAdjustPsycheSurge = Object.values(record.substatScaling).some((value) => Boolean(value))
   const soulforgeLevelMax = soulforgeTalents.reduce<number | null>((max, entry) => {
@@ -186,7 +184,7 @@ export function getDefaultAwakenerDatabaseSelection(): AwakenerDatabaseSelection
 }
 
 export function normalizeAwakenerDatabaseSelectionForRecord(
-  record: AwakenerFullV2Record,
+  record: AwakenerFullRecord,
   selection: Partial<AwakenerDatabaseSelection> = {},
 ): AwakenerDatabaseSelection {
   const normalized = normalizeAwakenerDatabaseSelection(selection)
@@ -202,7 +200,7 @@ export function normalizeAwakenerDatabaseSelectionForRecord(
 }
 
 export function patchAwakenerDatabaseSelection(
-  record: AwakenerFullV2Record,
+  record: AwakenerFullRecord,
   previousSelection: Partial<AwakenerDatabaseSelection> = {},
   nextPartial: Partial<AwakenerDatabaseSelection> = {},
 ): AwakenerDatabaseSelection {
@@ -214,7 +212,7 @@ export function patchAwakenerDatabaseSelection(
 }
 
 export function resolveAwakenerDatabaseState(
-  record: AwakenerFullV2Record,
+  record: AwakenerFullRecord,
   selection: Partial<AwakenerDatabaseSelection> = {},
   extraViewOptions: Omit<
     AwakenerDatabaseViewOptions,
@@ -259,7 +257,7 @@ export function resolveAwakenerDatabaseState(
 }
 
 function resolveSoulforgePrimaryStatBonusPercent(
-  record: AwakenerFullV2Record,
+  record: AwakenerFullRecord,
   soulforgeLevel: number,
 ): number {
   if (soulforgeLevel <= 0) {

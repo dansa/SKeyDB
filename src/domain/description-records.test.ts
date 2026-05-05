@@ -4,21 +4,21 @@ import {getAwakenerEnlightenById, getAwakenerEnlightens} from './awakener-enligh
 import {getAwakenerOverlays, resolveAwakenerOverlay} from './awakener-overlays'
 import type {AwakenerSkillRecord} from './awakener-source-schema'
 import {getAwakenerTalentById, getAwakenerTalents} from './awakener-talents'
-import {resolveAwakenerFullV2Record} from './awakeners-full-v2-resolver'
+import {resolveAwakenerFullRecord} from './awakeners-full-resolver'
 import {getDerivedSkillById, getDerivedSkills} from './derived-skills'
 import {resolveDescribedRecord} from './description-records'
-import {loadPublicV2AwakenerFullById} from './public-v2-detail-loaders'
+import {loadPublicAwakenerDetailById} from './public-detail-record-adapters'
 
 async function loadResolvedSkill(
   awakenerId: number,
   skillId: string,
 ): Promise<AwakenerSkillRecord> {
-  const record = await loadPublicV2AwakenerFullById(awakenerId)
+  const record = await loadPublicAwakenerDetailById(awakenerId)
   if (!record) {
     throw new Error(`Missing awakener ${String(awakenerId)}`)
   }
 
-  const resolvedRecord = resolveAwakenerFullV2Record(record).record
+  const resolvedRecord = resolveAwakenerFullRecord(record).record
   const cards = [
     resolvedRecord.cards.C1,
     resolvedRecord.cards.C2,

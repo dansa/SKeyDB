@@ -1,5 +1,6 @@
 import Fuse from 'fuse.js'
 
+import {collectDirectMatches, mergeDirectAndFuzzyMatches, toPriority} from './entities/search'
 import type {Posse} from './posses'
 import {getPublicSearchSupplementalValues} from './public-search-values'
 import {getRealmLabel} from './realms'
@@ -51,23 +52,12 @@ export function searchPosses(posses: Posse[], query: string): Posse[] {
 
   const queryLength = normalizedQuery.length
   const indexedPosses = getIndexedPosses(posses)
-  const directMatches = indexedPosses
-    .map((record) => ({
-      record,
-      priority: getPosseSearchPriority(record, normalizedQuery, queryLength),
-    }))
-    .filter(
-      (match): match is {record: IndexedPosseRecord; priority: number} => match.priority !== null,
-    )
-    .sort((left, right) => {
-      if (left.priority !== right.priority) {
-        return left.priority - right.priority
-      }
-      return left.record.posse.name.localeCompare(right.record.posse.name, undefined, {
-        sensitivity: 'base',
-      })
-    })
-    .map((match) => match.record.posse)
+  const directMatches = collectDirectMatches({
+    records: indexedPosses,
+    getPriority: (record) => getPosseSearchPriority(record, normalizedQuery, queryLength),
+    getDisplayName: (record) => record.posse.name,
+    getEntity: (record) => record.posse,
+  })
 
   if (queryLength < 3) {
     return directMatches
@@ -84,8 +74,7 @@ export function searchPosses(posses: Posse[], query: string): Posse[] {
     return fuzzyMatches
   }
 
-  const directMatchIds = new Set(directMatches.map((posse) => posse.id))
-  return [...directMatches, ...fuzzyMatches.filter((posse) => !directMatchIds.has(posse.id))]
+  return mergeDirectAndFuzzyMatches(directMatches, fuzzyMatches, (posse) => posse.id)
 }
 
 function getIndexedPosses(posses: Posse[]): IndexedPosseRecord[] {
@@ -195,11 +184,4 @@ function getPrimaryPriorityMap(queryLength: number): Record<SearchFieldMatchKind
     wordPrefix: 2,
     contains: 6,
   }
-}
-
-function toPriority(
-  match: {kind: SearchFieldMatchKind} | null,
-  priorities: Record<SearchFieldMatchKind, number>,
-): number | null {
-  return match ? priorities[match.kind] : null
 }

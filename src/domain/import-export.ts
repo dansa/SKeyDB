@@ -1,14 +1,14 @@
-import {createEmptyTeamSlots} from '@/pages/builder/constants'
-import type {Team, TeamSlot} from '@/pages/builder/types'
+import {createEmptyTeamSlots} from '@/features/builder/constants'
+import type {Team, TeamSlot} from '@/features/builder/types'
 
 import {getAwakeners} from './awakeners'
 import {getCovenants} from './covenants'
 import {decodeIngameTeamCode, type IngameImportWarning} from './ingame-codec'
 import {
-  migrateAwakenerNameV1ToV2,
-  migrateCovenantIdV1ToV2,
-  migratePosseIdV1ToV2,
-  migrateWheelIdV1ToV2,
+  migrateAwakenerNameV1ToCurrent,
+  migrateCovenantIdV1ToCurrent,
+  migratePosseIdV1ToCurrent,
+  migrateWheelIdV1ToCurrent,
 } from './persistence-id-migration'
 import {getPosses} from './posses'
 import standardCodeContract from './standard-code-contract.v1.json'
@@ -89,27 +89,35 @@ const standardPosseLegacyIdByIndex = new Map(
 )
 
 function getAwakenerStandardIdByName(awakenerName: string): string | undefined {
-  const v2Id = migrateAwakenerNameV1ToV2(awakenerName)
-  if (v2Id) {
-    return v2Id
+  const currentId = migrateAwakenerNameV1ToCurrent(awakenerName)
+  if (currentId) {
+    return currentId
   }
 
-  const currentId = awakenerIdByName.get(awakenerName)
-  return currentId && standardAwakenerIndexById.has(currentId) ? currentId : undefined
+  const runtimeId = awakenerIdByName.get(awakenerName)
+  return runtimeId && standardAwakenerIndexById.has(runtimeId) ? runtimeId : undefined
+}
+
+function getAwakenerStandardId(slot: TeamSlot): string | undefined {
+  if (slot.awakenerId) {
+    return standardAwakenerIndexById.has(slot.awakenerId) ? slot.awakenerId : undefined
+  }
+  const legacyName = (slot as TeamSlot & {awakenerName?: string}).awakenerName
+  return legacyName ? getAwakenerStandardIdByName(legacyName) : undefined
 }
 
 function getStandardWheelId(wheelId: string): string | undefined {
-  return standardWheelIndexById.has(wheelId) ? wheelId : migrateWheelIdV1ToV2(wheelId)
+  return standardWheelIndexById.has(wheelId) ? wheelId : migrateWheelIdV1ToCurrent(wheelId)
 }
 
 function getStandardCovenantId(covenantId: string): string | undefined {
   return standardCovenantIndexById.has(covenantId)
     ? covenantId
-    : migrateCovenantIdV1ToV2(covenantId)
+    : migrateCovenantIdV1ToCurrent(covenantId)
 }
 
 function getStandardPosseId(posseId: string): string | undefined {
-  return standardPosseIndexById.has(posseId) ? posseId : migratePosseIdV1ToV2(posseId)
+  return standardPosseIndexById.has(posseId) ? posseId : migratePosseIdV1ToCurrent(posseId)
 }
 
 function resolveCurrentId(
@@ -178,12 +186,12 @@ function base64UrlToBytes(value: string): Uint8Array {
 }
 
 function pushSlotBytes(buffer: number[], slot: TeamSlot, options?: {includeSupport?: boolean}) {
-  const awakenerStandardId = slot.awakenerName
-    ? getAwakenerStandardIdByName(slot.awakenerName)
-    : undefined
-  if (slot.awakenerName && !awakenerStandardId) {
+  const awakenerStandardId = getAwakenerStandardId(slot)
+  const legacyName = (slot as TeamSlot & {awakenerName?: string}).awakenerName
+  if ((slot.awakenerId || legacyName) && !awakenerStandardId) {
+    const awakenerLabel = slot.awakenerId ?? legacyName ?? 'unknown'
     throw new Error(
-      `Awakener "${slot.awakenerName}" is not representable in the frozen standard export format.`,
+      `Awakener "${awakenerLabel}" is not representable in the frozen standard export format.`,
     )
   }
   const awakenerIndex = awakenerStandardId
@@ -315,21 +323,27 @@ function decodeSlot(
   const isSupport = options?.includeSupport ? (encodedLevel & supportLevelFlag) !== 0 : false
   const level = encodedLevel & levelValueMask
 
-  const awakener = getDecodedAwakener(awakenerId)
-  const decodedWheels: [string | null, string | null] = awakener
+  const decodedAwakener = getDecodedAwakener(awakenerId)
+  const decodedWheels: [string | null, string | null] = decodedAwakener
     ? [getDecodedWheelId(wheelOne), getDecodedWheelId(wheelTwo)]
     : [null, null]
-  const covenantId = awakener ? getDecodedCovenantId(covenant) : undefined
-
-  return {
+  const covenantId = decodedAwakener ? getDecodedCovenantId(covenant) : undefined
+  const slot: TeamSlot = {
     slotId,
-    awakenerName: awakener?.name,
-    realm: awakener?.realm,
-    level: awakener ? level || 60 : undefined,
-    isSupport: awakener && isSupport ? true : undefined,
     wheels: decodedWheels,
-    covenantId,
   }
+  if (decodedAwakener) {
+    slot.awakenerId = decodedAwakener.id
+    slot.realm = decodedAwakener.realm
+    slot.level = level || 60
+  }
+  if (decodedAwakener && isSupport) {
+    slot.isSupport = true
+  }
+  if (covenantId) {
+    slot.covenantId = covenantId
+  }
+  return slot
 }
 
 function decodeTeam(

@@ -1,12 +1,12 @@
 import Fuse from 'fuse.js'
 
 import type {Covenant} from './covenants'
+import {collectDirectMatches, mergeDirectAndFuzzyMatches, toPriority} from './entities/search'
 import {getPublicSearchAliases, getPublicSearchSupplementalValues} from './public-search-values'
 import {
   getBestSearchFieldMatch,
   getNormalizedSearchValues,
   normalizeForSearch,
-  type SearchFieldMatchKind,
 } from './search-utils'
 
 interface IndexedCovenantRecord {
@@ -25,17 +25,12 @@ export function searchCovenants(covenants: Covenant[], query: string): Covenant[
     return covenants
   }
 
-  const directMatches = getIndexedCovenants(covenants)
-    .map((record) => ({
-      record,
-      priority: getCovenantSearchPriority(record, normalizedQuery),
-    }))
-    .filter(
-      (match): match is {record: IndexedCovenantRecord; priority: number} =>
-        match.priority !== null,
-    )
-    .sort((left, right) => left.priority - right.priority)
-    .map((match) => match.record.covenant)
+  const directMatches = collectDirectMatches({
+    records: getIndexedCovenants(covenants),
+    getPriority: (record) => getCovenantSearchPriority(record, normalizedQuery),
+    getDisplayName: (record) => record.covenant.name,
+    getEntity: (record) => record.covenant,
+  })
 
   if (normalizedQuery.length < 3) {
     return directMatches
@@ -46,8 +41,7 @@ export function searchCovenants(covenants: Covenant[], query: string): Covenant[
     .filter((result) => (result.score ?? 1) <= 0.52)
     .map((result) => result.item.covenant)
 
-  const directIds = new Set(directMatches.map((covenant) => covenant.id))
-  return [...directMatches, ...fuzzyMatches.filter((covenant) => !directIds.has(covenant.id))]
+  return mergeDirectAndFuzzyMatches(directMatches, fuzzyMatches, (covenant) => covenant.id)
 }
 
 function getIndexedCovenants(covenants: Covenant[]): IndexedCovenantRecord[] {
@@ -63,7 +57,6 @@ function getIndexedCovenants(covenants: Covenant[]): IndexedCovenantRecord[] {
     normalizedSupplemental: getNormalizedSearchValues([
       ...getPublicSearchAliases('covenants', covenant.id),
       ...getPublicSearchSupplementalValues('covenants', covenant.id),
-      covenant.assetId,
     ]),
   }))
   indexedCovenantCache.set(covenants, indexed)
@@ -101,7 +94,6 @@ function getCovenantSearchPriority(
     [
       ...getPublicSearchAliases('covenants', record.covenant.id),
       ...getPublicSearchSupplementalValues('covenants', record.covenant.id),
-      record.covenant.assetId,
     ],
     normalizedQuery,
   )
@@ -112,11 +104,4 @@ function getCovenantSearchPriority(
   ].filter((priority): priority is number => priority !== null)
 
   return priorities.length > 0 ? Math.min(...priorities) : null
-}
-
-function toPriority(
-  match: {kind: SearchFieldMatchKind} | null,
-  priorities: Record<SearchFieldMatchKind, number>,
-): number | null {
-  return match ? priorities[match.kind] : null
 }

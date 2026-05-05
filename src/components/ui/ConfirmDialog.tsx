@@ -1,5 +1,6 @@
+import {ModalFrame} from '@/ui/modal/ModalFrame'
+
 import {Button, type ButtonVariant} from './Button'
-import {ModalFrame} from './ModalFrame'
 
 interface ConfirmDialogProps {
   title: string

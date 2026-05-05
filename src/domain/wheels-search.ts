@@ -1,5 +1,6 @@
 import Fuse from 'fuse.js'
 
+import {collectDirectMatches, mergeDirectAndFuzzyMatches, toPriority} from './entities/search'
 import {getMainstatByKey} from './mainstats'
 import {getPublicSearchAliases, getPublicSearchSupplementalValues} from './public-search-values'
 import {getRealmLabel} from './realms'
@@ -34,23 +35,12 @@ export function searchWheels(wheels: Wheel[], query: string): Wheel[] {
 
   const queryLength = normalizedQuery.length
   const indexedWheels = getIndexedWheels(wheels)
-  const directMatches = indexedWheels
-    .map((record) => ({
-      record,
-      priority: getWheelSearchPriority(record, normalizedQuery, queryLength),
-    }))
-    .filter(
-      (match): match is {record: IndexedWheelRecord; priority: number} => match.priority !== null,
-    )
-    .sort((left, right) => {
-      if (left.priority !== right.priority) {
-        return left.priority - right.priority
-      }
-      return left.record.wheel.name.localeCompare(right.record.wheel.name, undefined, {
-        sensitivity: 'base',
-      })
-    })
-    .map((match) => match.record.wheel)
+  const directMatches = collectDirectMatches({
+    records: indexedWheels,
+    getPriority: (record) => getWheelSearchPriority(record, normalizedQuery, queryLength),
+    getDisplayName: (record) => record.wheel.name,
+    getEntity: (record) => record.wheel,
+  })
 
   if (queryLength < 3) {
     return directMatches
@@ -69,8 +59,7 @@ export function searchWheels(wheels: Wheel[], query: string): Wheel[] {
     return fuzzyMatches
   }
 
-  const directMatchIds = new Set(directMatches.map((wheel) => wheel.id))
-  return [...directMatches, ...fuzzyMatches.filter((wheel) => !directMatchIds.has(wheel.id))]
+  return mergeDirectAndFuzzyMatches(directMatches, fuzzyMatches, (wheel) => wheel.id)
 }
 
 function getIndexedWheels(wheels: Wheel[]): IndexedWheelRecord[] {
@@ -154,8 +143,8 @@ function getWheelSearchPriority(
       : null
 
   const priorities = [
-    toPriority(nameMatch, getNamePriorityMap(queryLength)),
-    toPriority(aliasMatch, getAliasPriorityMap(queryLength)),
+    toPriority(nameMatch, getNamePriorityMap(queryLength), {ignorePriorityAtOrAbove: 99}),
+    toPriority(aliasMatch, getAliasPriorityMap(queryLength), {ignorePriorityAtOrAbove: 99}),
     toPriority(supplementalMatch, {
       exact: 8,
       prefix: 9,
@@ -169,18 +158,6 @@ function getWheelSearchPriority(
   }
 
   return Math.min(...priorities)
-}
-
-function toPriority(
-  match: {kind: SearchFieldMatchKind} | null,
-  priorities: Record<SearchFieldMatchKind, number>,
-): number | null {
-  if (!match) {
-    return null
-  }
-
-  const priority = priorities[match.kind]
-  return priority >= 99 ? null : priority
 }
 
 function getNamePriorityMap(queryLength: number): Record<SearchFieldMatchKind, number> {

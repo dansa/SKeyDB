@@ -1,34 +1,53 @@
+import {z} from 'zod'
+
 import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
 
-import {awakenerRosterDatasetSchema, type AwakenerRosterRecord} from './awakener-source-schema'
+import {
+  awakenerRosterDatasetSchema,
+  fullStatsSchema,
+  primaryScalingBaseSchema,
+  statScalingSchema,
+  substatScalingSchema,
+  type AwakenerRosterRecord,
+} from './awakener-source-schema'
 
-interface PublicAwakenersEnvelope {
-  records: {
-    id: string
-    numericId: number
-    baseStatsLv1: Partial<Record<keyof AwakenerRosterRecord['stats'], number>>
-    faction: string
-    ingameId?: string
-    name: string
-    primaryScalingBase: AwakenerRosterRecord['primaryScalingBase']
-    rarity?: string
-    realm: string
-    searchTags?: string[]
-    statScaling: AwakenerRosterRecord['statScaling']
-    substatScaling: Partial<Record<keyof AwakenerRosterRecord['substatScaling'], number>>
-    type?: string
-    aliases?: string[]
-    route?: {
-      slug?: string
-    }
-  }[]
-}
+const numericBaseStatsSchema = z.object({
+  CON: z.number().optional(),
+  ATK: z.number().optional(),
+  DEF: z.number().optional(),
+})
+
+const numericSubstatScalingSchema = z.record(z.string(), z.number())
+
+const publicAwakenerRosterRecordSchema = z.object({
+  id: z.string(),
+  numericId: z.number(),
+  baseStatsLv1: numericBaseStatsSchema,
+  faction: z.string(),
+  ingameId: z.string().optional(),
+  name: z.string(),
+  primaryScalingBase: primaryScalingBaseSchema,
+  rarity: z.string().optional(),
+  realm: z.string(),
+  searchTags: z.array(z.string()).optional(),
+  statScaling: statScalingSchema,
+  substatScaling: numericSubstatScalingSchema,
+  type: z.string().optional(),
+  aliases: z.array(z.string()).optional(),
+  route: z
+    .object({
+      slug: z.string().optional(),
+    })
+    .optional(),
+})
+
+const publicAwakenerRosterRecordsSchema = z.array(publicAwakenerRosterRecordSchema)
+
+type PublicAwakenerRosterRecord = z.infer<typeof publicAwakenerRosterRecordSchema>
 
 let awakenerRosterCache: AwakenerRosterRecord[] | null = null
 
-function adaptPublicAwakener(
-  record: PublicAwakenersEnvelope['records'][number],
-): AwakenerRosterRecord {
+function adaptPublicAwakener(record: PublicAwakenerRosterRecord): AwakenerRosterRecord {
   const assetKey = record.route?.slug ?? record.id
   const fullStats = {
     CON: record.baseStatsLv1.CON ?? 0,
@@ -55,16 +74,20 @@ function adaptPublicAwakener(
     type: record.type,
     aliases: record.aliases ?? [record.name],
     searchTags: record.searchTags ?? [],
-    stats: Object.fromEntries(
-      Object.entries(fullStats).map(([key, value]) => [key, String(value)]),
-    ) as AwakenerRosterRecord['stats'],
+    stats: fullStatsSchema.parse(
+      Object.fromEntries(Object.entries(fullStats).map(([key, value]) => [key, String(value)])),
+    ),
     primaryScalingBase: record.primaryScalingBase,
     statScaling: record.statScaling,
-    substatScaling: Object.fromEntries(
-      Object.entries(record.substatScaling).map(([key, value]) => [key, String(value)]),
-    ) as AwakenerRosterRecord['substatScaling'],
+    substatScaling: substatScalingSchema.parse(
+      Object.fromEntries(recordSubstatScalingEntries(record)),
+    ),
     assets: {portraitKey: assetKey, iconKey: assetKey},
   }
+}
+
+function recordSubstatScalingEntries(record: PublicAwakenerRosterRecord): [string, string][] {
+  return Object.entries(record.substatScaling).map(([key, value]) => [key, String(value)])
 }
 
 export function getAwakenerRoster(): AwakenerRosterRecord[] {
@@ -73,9 +96,9 @@ export function getAwakenerRoster(): AwakenerRosterRecord[] {
   }
 
   awakenerRosterCache = awakenerRosterDatasetSchema.parse(
-    (getPublicCatalogRecords('awakeners') as unknown as PublicAwakenersEnvelope['records']).map(
-      adaptPublicAwakener,
-    ),
+    publicAwakenerRosterRecordsSchema
+      .parse(getPublicCatalogRecords('awakeners'))
+      .map(adaptPublicAwakener),
   )
   return awakenerRosterCache
 }

@@ -1,6 +1,7 @@
 import Fuse from 'fuse.js'
 
 import type {Awakener} from './awakeners'
+import {collectDirectMatches, mergeDirectAndFuzzyMatches, toPriority} from './entities/search'
 import {getPublicSearchAliases, getPublicSearchSupplementalValues} from './public-search-values'
 import {getRealmLabel} from './realms'
 import {
@@ -33,24 +34,12 @@ export function searchAwakeners(awakeners: Awakener[], query: string): Awakener[
 
   const queryLength = normalizedQuery.length
   const indexedAwakeners = getIndexedAwakeners(awakeners)
-  const directMatches = indexedAwakeners
-    .map((record) => ({
-      record,
-      priority: getAwakenerSearchPriority(record, normalizedQuery, queryLength),
-    }))
-    .filter(
-      (match): match is {record: IndexedAwakenerRecord; priority: number} =>
-        match.priority !== null,
-    )
-    .sort((left, right) => {
-      if (left.priority !== right.priority) {
-        return left.priority - right.priority
-      }
-      return left.record.awakener.name.localeCompare(right.record.awakener.name, undefined, {
-        sensitivity: 'base',
-      })
-    })
-    .map((match) => match.record.awakener)
+  const directMatches = collectDirectMatches({
+    records: indexedAwakeners,
+    getPriority: (record) => getAwakenerSearchPriority(record, normalizedQuery, queryLength),
+    getDisplayName: (record) => record.awakener.name,
+    getEntity: (record) => record.awakener,
+  })
 
   if (queryLength < 3) {
     return directMatches
@@ -70,8 +59,7 @@ export function searchAwakeners(awakeners: Awakener[], query: string): Awakener[
     return fuzzyMatches
   }
 
-  const directMatchIds = new Set(directMatches.map((awakener) => awakener.id))
-  return [...directMatches, ...fuzzyMatches.filter((awakener) => !directMatchIds.has(awakener.id))]
+  return mergeDirectAndFuzzyMatches(directMatches, fuzzyMatches, (awakener) => awakener.id)
 }
 
 function getIndexedAwakeners(awakeners: Awakener[]): IndexedAwakenerRecord[] {
@@ -207,13 +195,6 @@ function getAliasPriorityMap(queryLength: number): Record<SearchFieldMatchKind, 
     wordPrefix: 5,
     contains: 8,
   }
-}
-
-function toPriority(
-  match: {kind: SearchFieldMatchKind} | null,
-  priorities: Record<SearchFieldMatchKind, number>,
-): number | null {
-  return match ? priorities[match.kind] : null
 }
 
 function isRelevantAwakenerFuzzyMatch(

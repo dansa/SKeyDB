@@ -1,16 +1,16 @@
 import {describe, expect, it} from 'vitest'
 
 import {collectAwakenerDatabaseCardNames} from './awakeners-database-view'
-import {type AwakenerFullV2Record} from './awakeners-full-v2'
-import {getAwakenersLiteV2} from './awakeners-lite-v2'
+import {type AwakenerFullRecord} from './awakeners-full'
+import {getAwakenersLite} from './awakeners-lite'
 import {resolveDescribedRecord} from './description-records'
-import {loadPublicV2AwakenerFullById} from './public-v2-detail-loaders'
+import {loadPublicAwakenerDetailById} from './public-detail-record-adapters'
 import {parseRichDescription} from './rich-text'
 
 const EMPTY_CARDS = new Set<string>()
 
-async function loadAwakenerByName(name: string): Promise<AwakenerFullV2Record> {
-  const liteAwakener = getAwakenersLiteV2().find(
+async function loadAwakenerByName(name: string): Promise<AwakenerFullRecord> {
+  const liteAwakener = getAwakenersLite().find(
     (entry) => entry.name.toLowerCase() === name.toLowerCase(),
   )
   expect(liteAwakener).toBeDefined()
@@ -18,7 +18,7 @@ async function loadAwakenerByName(name: string): Promise<AwakenerFullV2Record> {
     throw new Error(`Missing awakener fixture: ${name}`)
   }
 
-  const awakener = await loadPublicV2AwakenerFullById(liteAwakener.id)
+  const awakener = await loadPublicAwakenerDetailById(liteAwakener.id)
   expect(awakener).toBeDefined()
   if (!awakener) {
     throw new Error(`Missing awakener fixture: ${name}`)

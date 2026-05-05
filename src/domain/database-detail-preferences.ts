@@ -6,7 +6,7 @@ import {
   selectedEnlightenSlotSchema,
   type AwakenerDatabaseSelection,
 } from './awakener-database-state'
-import {type AwakenerFullV2Record} from './awakeners-full-v2'
+import {type AwakenerFullRecord} from './awakeners-full'
 import {clampAccountLevel} from './gameplay-math-metadata'
 import {
   getBrowserLocalStorage,
@@ -205,7 +205,7 @@ export function writeDatabaseDetailPreferences(
 }
 
 export function resolveDatabaseDetailDefaultSelection(
-  record: AwakenerFullV2Record,
+  record: AwakenerFullRecord,
   preferences:
     | DatabaseDetailPreferencesPatch
     | DatabaseDetailPreferences = DEFAULT_DATABASE_DETAIL_PREFERENCES,

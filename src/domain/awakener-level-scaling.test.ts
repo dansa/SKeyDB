@@ -6,10 +6,10 @@ import {
   resolveAwakenerStatsForLevel,
 } from './awakener-level-scaling'
 import {getAwakeners} from './awakeners'
-import {type AwakenerFullV2Record} from './awakeners-full-v2'
-import {getAwakenersLiteV2} from './awakeners-lite-v2'
+import {type AwakenerFullRecord} from './awakeners-full'
+import {getAwakenersLite} from './awakeners-lite'
 import {resolveDescribedRecord} from './description-records'
-import {loadPublicV2AwakenerFullById} from './public-v2-detail-loaders'
+import {loadPublicAwakenerDetailById} from './public-detail-record-adapters'
 
 const CANONICAL_LEVEL_ONE_SUBSTATS = {
   CritRate: '5%',
@@ -34,7 +34,7 @@ const CANONICAL_SUBSTAT_SUFFIXES = {
 } as const
 
 type StatScaledAwakener = Pick<
-  AwakenerFullV2Record,
+  AwakenerFullRecord,
   'displayName' | 'stats' | 'primaryScalingBase' | 'statScaling' | 'substatScaling'
 > & {
   talents: {displayName: string; descriptionTemplate: string}[]
@@ -70,10 +70,10 @@ function makeAwakener(overrides?: Partial<StatScaledAwakener>): StatScaledAwaken
   }
 }
 
-async function loadAwakenersFullV2(): Promise<AwakenerFullV2Record[]> {
+async function loadAwakenersFullV2(): Promise<AwakenerFullRecord[]> {
   return Promise.all(
-    getAwakenersLiteV2().map(async (awakener) => {
-      const record = await loadPublicV2AwakenerFullById(awakener.id)
+    getAwakenersLite().map(async (awakener) => {
+      const record = await loadPublicAwakenerDetailById(awakener.id)
       if (!record) {
         throw new Error(`Missing public V2 awakener ${String(awakener.id)}`)
       }
@@ -83,24 +83,24 @@ async function loadAwakenersFullV2(): Promise<AwakenerFullV2Record[]> {
 }
 
 function findAwakenerByName(
-  awakeners: AwakenerFullV2Record[],
+  awakeners: AwakenerFullRecord[],
   displayName: string,
-): AwakenerFullV2Record | undefined {
+): AwakenerFullRecord | undefined {
   const normalizedName = displayName.toLowerCase()
   return awakeners.find((awakener) => awakener.displayName.toLowerCase() === normalizedName)
 }
 
-function getTalentEntries(awakener: Pick<AwakenerFullV2Record, 'talents'>): {
+function getTalentEntries(awakener: Pick<AwakenerFullRecord, 'talents'>): {
   key: string
   displayName: string
   descriptionTemplate: string
-  talent: NonNullable<AwakenerFullV2Record['talents']['T1']>
+  talent: NonNullable<AwakenerFullRecord['talents']['T1']>
 }[] {
   const entries: {
     key: string
     displayName: string
     descriptionTemplate: string
-    talent: NonNullable<AwakenerFullV2Record['talents']['T1']>
+    talent: NonNullable<AwakenerFullRecord['talents']['T1']>
   }[] = []
 
   for (const [slot, talent] of [

@@ -1,12 +1,23 @@
 import type {PublicRecord} from '@/data-access/public-data/contract'
 
-import type {
-  AwakenerEnlightenRecord,
-  AwakenerOverlayRecord,
-  AwakenerSkillRecord,
-  AwakenerTalentRecord,
-  DerivedSkillRecord,
+import {
+  awakenerOverlaySchema,
+  awakenersEnlightenSchema,
+  awakenerSkillSchema,
+  awakenerTalentSchema,
+  derivedSkillSchema,
+  type AwakenerEnlightenRecord,
+  type AwakenerOverlayRecord,
+  type AwakenerSkillRecord,
+  type AwakenerTalentRecord,
+  type DerivedSkillRecord,
 } from './awakener-source-schema'
+
+const publicV3AwakenerSkillSchema = awakenerSkillSchema.loose()
+const publicV3AwakenerTalentSchema = awakenerTalentSchema.loose()
+const publicV3AwakenerEnlightenSchema = awakenersEnlightenSchema.loose()
+const publicV3DerivedSkillSchema = derivedSkillSchema.loose()
+const publicV3AwakenerOverlaySchema = awakenerOverlaySchema.loose()
 
 export type PublicV3OwnedRecord = PublicRecord & {
   ownerAwakenerId?: string
@@ -68,53 +79,53 @@ export function skillKindFromPublicSlot(slot: string | undefined): AwakenerSkill
 }
 
 export function adaptPublicV3SkillRecord(record: PublicV3SkillRecord): AwakenerSkillRecord {
-  return {
+  return publicV3AwakenerSkillSchema.parse({
     ...record,
     ownerAwakenerId: numericAwakenerId(record.ownerAwakenerId ?? ''),
     kind: skillKindFromPublicSlot(record.slot),
     displayName: record.name,
     cardKeywords: record.cardKeywords ?? [],
     variants: [],
-  } as unknown as AwakenerSkillRecord
+  })
 }
 
 export function adaptPublicV3TalentRecord(record: PublicV3TalentRecord): AwakenerTalentRecord {
-  return {
+  return publicV3AwakenerTalentSchema.parse({
     ...record,
     ownerAwakenerId: numericAwakenerId(record.ownerAwakenerId ?? ''),
     displayName: record.name,
     hasLevelScaledDescription: record.maxLevel !== undefined,
-  } as unknown as AwakenerTalentRecord
+  })
 }
 
 export function adaptPublicV3EnlightenRecord(
   record: PublicV3EnlightenRecord,
 ): AwakenerEnlightenRecord {
-  return {
+  return publicV3AwakenerEnlightenSchema.parse({
     ...record,
     ownerAwakenerId: numericAwakenerId(record.ownerAwakenerId ?? ''),
     displayName: record.name,
-  } as unknown as AwakenerEnlightenRecord
+  })
 }
 
 export function adaptPublicV3DerivedSkillRecord(
   record: PublicV3DerivedSkillRecord,
 ): DerivedSkillRecord {
-  return {
+  return publicV3DerivedSkillSchema.parse({
     ...record,
     ownerAwakenerId: optionalNumericAwakenerId(record.ownerAwakenerId),
     displayName: record.name,
     childDerivedSkillIds: record.childDerivedSkillIds ?? [],
     cardKeywords: record.cardKeywords ?? [],
     variants: [],
-  } as unknown as DerivedSkillRecord
+  })
 }
 
 export function adaptPublicV3OverlayRecord(record: PublicV3OverlayRecord): AwakenerOverlayRecord {
-  return {
+  return publicV3AwakenerOverlaySchema.parse({
     ...record,
     ownerAwakenerId: optionalNumericAwakenerId(record.ownerAwakenerId),
     displayName: record.name,
     aliases: record.aliases ?? [],
-  } as unknown as AwakenerOverlayRecord
+  })
 }

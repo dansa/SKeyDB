@@ -1,7 +1,4 @@
-import {getAwakeners} from './awakeners'
-import {getCovenants} from './covenants'
-import {getPosses} from './posses'
-import {getWheels} from './wheels'
+import {getPublicBuilderCatalog} from '@/data-access/public-data/collectionRepository'
 
 export type IngameTokenCategory = 'awakeners' | 'wheels' | 'covenants' | 'posses'
 
@@ -73,41 +70,26 @@ export interface IngameTokenDictionaries {
 }
 
 export function buildIngameTokenDictionaries(): IngameTokenDictionaries {
-  const awakeners = getAwakeners()
-  const wheels = getWheels()
-  const covenants = getCovenants()
-  const posses = getPosses()
+  const catalog = getPublicBuilderCatalog()
 
   const awakenerDictionary = buildTokenDictionaryFromEntries({
     category: 'awakeners',
-    entries: awakeners.map((awakener) => ({
-      id: awakener.id,
-      lineupToken: awakener.lineupToken,
-    })),
+    entries: buildLineupTokenEntries(catalog.options.awakeners, catalog.lineupTokens),
   })
 
   const wheelDictionary = buildTokenDictionaryFromEntries({
     category: 'wheels',
-    entries: wheels.map((wheel) => ({
-      id: wheel.id,
-      lineupToken: wheel.lineupToken,
-    })),
+    entries: buildLineupTokenEntries(catalog.options.wheels, catalog.lineupTokens),
   })
 
   const covenantDictionary = buildTokenDictionaryFromEntries({
     category: 'covenants',
-    entries: covenants.map((covenant) => ({
-      id: covenant.id,
-      lineupToken: covenant.lineupToken,
-    })),
+    entries: buildLineupTokenEntries(catalog.options.covenants, catalog.lineupTokens),
   })
 
   const posseDictionary = buildTokenDictionaryFromEntries({
     category: 'posses',
-    entries: posses.map((posse) => ({
-      id: posse.id,
-      lineupToken: posse.lineupToken,
-    })),
+    entries: buildLineupTokenEntries(catalog.options.posses, catalog.lineupTokens),
   })
 
   return {
@@ -122,4 +104,14 @@ export function buildIngameTokenDictionaries(): IngameTokenDictionaries {
       ...posseDictionary.issues,
     ],
   }
+}
+
+function buildLineupTokenEntries(
+  ids: readonly string[],
+  lineupTokens: Record<string, string>,
+): LineupTokenEntry[] {
+  return ids.flatMap((id) => {
+    const lineupToken = lineupTokens[id]
+    return lineupToken ? [{id, lineupToken}] : []
+  })
 }

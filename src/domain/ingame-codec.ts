@@ -1,5 +1,5 @@
-import {createEmptyTeamSlots} from '@/pages/builder/constants'
-import type {Team, TeamSlot} from '@/pages/builder/types'
+import {createEmptyTeamSlots} from '@/features/builder/constants'
+import type {Team, TeamSlot} from '@/features/builder/types'
 
 import {getAwakeners} from './awakeners'
 import {buildIngameTokenDictionaries} from './ingame-token-dictionaries'
@@ -147,7 +147,7 @@ function decodeAwakenerSlots(
 
     slots[slotIndex] = {
       ...slots[slotIndex],
-      awakenerName: awakener.name,
+      awakenerId: awakener.id,
       realm: awakener.realm,
       level: 60,
     }
@@ -400,23 +400,23 @@ export function decodeIngameTeamCode(code: string): DecodedIngameTeamCode {
 
 function encodeAwakenerToken(
   slot: TeamSlot,
-  awakenersByNameId: Map<string, string>,
+  awakeningById: Map<string, Awaited<ReturnType<typeof getAwakeners>>[number]>,
   byIdToken: Map<string, string>,
   slotIndex: number,
 ): string {
-  if (!slot.awakenerName) {
+  if (!slot.awakenerId) {
     return 'a'
   }
-  const awakenerId = awakenersByNameId.get(slot.awakenerName)
-  if (!awakenerId) {
+  const awakener = awakeningById.get(slot.awakenerId)
+  if (!awakener) {
     throw new Error(
-      `Cannot export in-game team code: slot ${String(slotIndex + 1)} awakener "${slot.awakenerName}" is not representable.`,
+      `Cannot export in-game team code: slot ${String(slotIndex + 1)} awakener "${slot.awakenerId}" is not representable.`,
     )
   }
-  const token = byIdToken.get(awakenerId)
+  const token = byIdToken.get(slot.awakenerId)
   if (!token) {
     throw new Error(
-      `Cannot export in-game team code: slot ${String(slotIndex + 1)} awakener "${slot.awakenerName}" (${awakenerId}) has no in-game token.`,
+      `Cannot export in-game team code: slot ${String(slotIndex + 1)} awakener "${awakener.name}" (${slot.awakenerId}) has no in-game token.`,
     )
   }
   return token
@@ -445,7 +445,7 @@ function encodeCovenantBlock(
   dictionaries: IngameTokenDictionaries,
   slotIndex: number,
 ): string {
-  if (!slot.awakenerName || !slot.covenantId) {
+  if (!slot.awakenerId || !slot.covenantId) {
     return EMPTY_COVENANT_TOKEN
   }
   const token = dictionaries.covenants.byIdToken.get(slot.covenantId)
@@ -459,14 +459,14 @@ function encodeCovenantBlock(
 
 export function encodeIngameTeamCode(team: Team): string {
   const dictionaries = buildIngameTokenDictionaries()
-  const awakenersByNameId = new Map(getAwakeners().map((awakener) => [awakener.name, awakener.id]))
+  const awakeningById = new Map(getAwakeners().map((awakener) => [awakener.id, awakener]))
   const payloadTokens: string[] = []
   const fallbackSlots = createEmptyTeamSlots()
 
   for (let slotIndex = 0; slotIndex < TEAM_SLOT_COUNT; slotIndex += 1) {
     const slot = team.slots[slotIndex] ?? fallbackSlots[slotIndex]
     payloadTokens.push(
-      encodeAwakenerToken(slot, awakenersByNameId, dictionaries.awakeners.byIdToken, slotIndex),
+      encodeAwakenerToken(slot, awakeningById, dictionaries.awakeners.byIdToken, slotIndex),
     )
   }
 

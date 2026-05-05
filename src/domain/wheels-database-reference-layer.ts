@@ -11,14 +11,14 @@ import {
 import {resolveDescribedRecord, type WheelDatabaseDescriptionRecord} from './description-records'
 import type {PublicFormulaContext} from './public-formula-context'
 import {getRealmLabel} from './realms'
-import {getWheelsFullV2, type WheelFullV2Record} from './wheels-full-v2'
+import {getWheelsFull, type WheelFullRecord} from './wheels-full'
 
 export function buildWheelDatabaseDescriptionRecord(record: {
   id: string
   name: string
   ownerAwakenerId?: string
   descriptionTemplate: string
-  descriptionArgs: WheelFullV2Record['descriptionArgs']
+  descriptionArgs: WheelFullRecord['descriptionArgs']
 }): WheelDatabaseDescriptionRecord {
   return {
     id: record.id,
@@ -31,7 +31,7 @@ export function buildWheelDatabaseDescriptionRecord(record: {
 }
 
 function buildWheelReferenceInfo(
-  record: WheelFullV2Record,
+  record: WheelFullRecord,
   descriptionRank: number,
   formulaContext?: PublicFormulaContext,
 ): DatabaseReferenceInfo<WheelDatabaseDescriptionRecord> {
@@ -55,7 +55,7 @@ function buildWheelReferenceInfo(
 }
 
 interface BuildWheelReferenceInfoEntriesOptions {
-  wheelRecords?: WheelFullV2Record[]
+  wheelRecords?: WheelFullRecord[]
   activeWheelId?: string
   activeDescriptionRank?: number
   formulaContext?: PublicFormulaContext
@@ -65,7 +65,7 @@ export function buildWheelReferenceInfoEntries({
   activeDescriptionRank = 1,
   activeWheelId,
   formulaContext,
-  wheelRecords = getWheelsFullV2(),
+  wheelRecords = getWheelsFull(),
 }: BuildWheelReferenceInfoEntriesOptions = {}): DatabaseReferenceInfo<WheelDatabaseDescriptionRecord>[] {
   return wheelRecords.map((record) =>
     buildWheelReferenceInfo(
@@ -85,7 +85,7 @@ export function buildWheelDatabaseReferenceLayer({
   activeWheelId,
   formulaContext,
   overlays = getAwakenerOverlays(),
-  wheelRecords = getWheelsFullV2(),
+  wheelRecords = getWheelsFull(),
 }: BuildWheelDatabaseReferenceLayerOptions = {}): ResolvedDatabaseReferenceLayer {
   const referenceInfoByName = new Map<string, DatabaseReferenceInfo>()
   const referenceInfoById = new Map<string, DatabaseReferenceInfo>()

@@ -9,8 +9,8 @@ import {
   resolveAwakenerDatabaseState,
 } from './awakener-database-state'
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
-import {type AwakenerFullV2Record} from './awakeners-full-v2'
-import {loadPublicV2AwakenerFullById} from './public-v2-detail-loaders'
+import {type AwakenerFullRecord} from './awakeners-full'
+import {loadPublicAwakenerDetailById} from './public-detail-record-adapters'
 
 describe('awakener-database-state', () => {
   it('normalizes and clamps database selection inputs', () => {
@@ -31,7 +31,7 @@ describe('awakener-database-state', () => {
   })
 
   it('resolves stats and described view from one selection object', async () => {
-    const thais = await loadPublicV2AwakenerFullById(48)
+    const thais = await loadPublicAwakenerDetailById(48)
     expect(thais).toBeDefined()
     if (!thais) {
       throw new Error('Missing canonical Thais V2 record')
@@ -134,7 +134,7 @@ describe('awakener-database-state', () => {
   })
 
   it('detects soulforge aptitude from public V2 T-slots, not just extra talents', async () => {
-    const twentyFour = await loadPublicV2AwakenerFullById(1)
+    const twentyFour = await loadPublicAwakenerDetailById(1)
     expect(twentyFour).toBeDefined()
     if (!twentyFour) {
       throw new Error('Missing canonical 24 V2 record')
@@ -148,7 +148,7 @@ describe('awakener-database-state', () => {
   })
 
   it('keeps public V2 overlay upgrade badges on overlay popover references', async () => {
-    const xu = await loadPublicV2AwakenerFullById('awakener-0054')
+    const xu = await loadPublicAwakenerDetailById('awakener-0054')
     expect(xu).toBeDefined()
     if (!xu) {
       throw new Error('Missing public V2 Xu record')
@@ -171,7 +171,7 @@ describe('awakener-database-state', () => {
   })
 
   it('keeps public V2 link-only talent influence badges on affected skills', async () => {
-    const agrippa = await loadPublicV2AwakenerFullById('awakener-0002')
+    const agrippa = await loadPublicAwakenerDetailById('awakener-0002')
     expect(agrippa).toBeDefined()
     if (!agrippa) {
       throw new Error('Missing public V2 Agrippa record')
@@ -249,7 +249,7 @@ describe('awakener-database-state', () => {
   })
 })
 
-function buildSoulforgeFixture(): AwakenerFullV2Record {
+function buildSoulforgeFixture(): AwakenerFullRecord {
   return {
     id: 999,
     key: 'tester',

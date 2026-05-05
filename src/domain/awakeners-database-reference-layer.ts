@@ -9,7 +9,7 @@ import type {
   ResolvedAwakenerDatabaseReferenceLayer,
   ResolvedAwakenerDatabaseShellView,
 } from './awakeners-database-view'
-import {type AwakenerFullV2Record} from './awakeners-full-v2'
+import {type AwakenerFullRecord} from './awakeners-full'
 import {buildCardKeywordFooterText} from './card-keywords'
 import {
   addDatabaseReferenceInfoToLookups,
@@ -25,7 +25,7 @@ import {buildWheelReferenceInfoEntries} from './wheels-database-reference-layer'
 type DatabaseReferenceKind = DatabaseReferenceInfo['kind']
 
 export function collectAwakenerDatabaseCardNames(
-  record: Pick<AwakenerFullV2Record, 'cards' | 'talents' | 'enlightens' | 'derivedSkills'>,
+  record: Pick<AwakenerFullRecord, 'cards' | 'talents' | 'enlightens' | 'derivedSkills'>,
   derivedSkills: DerivedSkillRecord[] = getDerivedSkills(),
 ): Set<string> {
   const names = new Set<string>()

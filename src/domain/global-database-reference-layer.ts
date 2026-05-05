@@ -7,6 +7,7 @@ import type {
 } from './awakener-source-schema'
 import {buildCardKeywordFooterText} from './card-keywords'
 import {getCovenants, type Covenant} from './covenants'
+import type {CovenantFullRecord} from './covenants-full'
 import {
   addDatabaseReferenceInfoToLookups,
   buildDatabaseOverlayLookup,
@@ -22,7 +23,7 @@ import {
   type WheelDatabaseDescriptionRecord,
 } from './description-records'
 import {getPosses, type Posse} from './posses'
-import type {PosseFullV2Record} from './posses-full-v2'
+import type {PosseFullRecord} from './posses-full'
 import type {PublicFormulaContext} from './public-formula-context'
 import {getRealmLabel} from './realms'
 import {getWheels, type Wheel} from './wheels'
@@ -35,7 +36,7 @@ type ArtifactDescriptionRecord =
 
 export function buildPosseDatabaseDescriptionRecord(
   record: Pick<
-    PosseFullV2Record,
+    PosseFullRecord,
     'id' | 'name' | 'ownerAwakenerId' | 'descriptionTemplate' | 'descriptionArgs'
   >,
 ): PosseDatabaseDescriptionRecord {
@@ -104,6 +105,48 @@ function buildArtifactReferenceStub(
     influencingEnlightenSlots: [],
     influencingTalentIds: [],
     influenceBadges: [],
+  }
+}
+
+function buildCovenantSetEffectReferenceInfo(
+  record: CovenantFullRecord,
+  label: string,
+  formulaContext?: PublicFormulaContext,
+): DatabaseReferenceInfo<ArtifactDescriptionRecord> | null {
+  const setInfos = record.setEffects.map((setEffect) => ({
+    label: `${setEffect.set.toString()} Set`,
+    info: buildArtifactReferenceInfo(
+      buildCovenantDatabaseDescriptionRecord({
+        id: `${record.id}:${setEffect.set.toString()}`,
+        name: record.name,
+        descriptionTemplate: setEffect.descriptionTemplate,
+        descriptionArgs: setEffect.descriptionArgs,
+      }),
+      `Covenant · ${setEffect.set.toString()} Set`,
+      formulaContext,
+    ),
+  }))
+
+  if (setInfos.length === 0) {
+    return null
+  }
+
+  const description = setInfos
+    .map(({info, label: setLabel}) => `${setLabel}: ${info.description}`)
+    .join('\n\n')
+
+  return {
+    ...setInfos[0].info,
+    id: record.id,
+    name: record.name,
+    label,
+    record: buildCovenantDatabaseDescriptionRecord({
+      id: record.id,
+      name: record.name,
+      descriptionTemplate: description,
+      descriptionArgs: {},
+    }),
+    description,
   }
 }
 
@@ -315,8 +358,8 @@ export async function hydrateGlobalDatabaseReferenceInfo(
   }
 
   if (info.kind === 'wheel') {
-    const {getWheelFullV2ById, getWheelsFullV2} = await import('./wheels-full-v2')
-    const record = getWheelFullV2ById(info.id, getWheelsFullV2())
+    const {getWheelFullById, getWheelsFull} = await import('./wheels-full')
+    const record = getWheelFullById(info.id, getWheelsFull())
     if (!record) {
       return info
     }
@@ -328,8 +371,8 @@ export async function hydrateGlobalDatabaseReferenceInfo(
   }
 
   if (info.kind === 'posse') {
-    const {getPosseFullV2ById, getPossesFullV2} = await import('./posses-full-v2')
-    const record = getPosseFullV2ById(info.id, getPossesFullV2())
+    const {getPosseFullById, getPossesFull} = await import('./posses-full')
+    const record = getPosseFullById(info.id, getPossesFull())
     if (!record) {
       return info
     }
@@ -340,21 +383,11 @@ export async function hydrateGlobalDatabaseReferenceInfo(
     )
   }
 
-  const {getCovenantsFullV2} = await import('./covenants-full-v2')
-  const record = getCovenantsFullV2().find((entry) => entry.id === info.id)
-  const setEffect = record?.setEffects[0]
-  if (!record || !setEffect) {
+  const {loadPublicCovenantDetailById} = await import('./public-detail-record-adapters')
+  const record = await loadPublicCovenantDetailById(info.id)
+  if (!record) {
     return info
   }
 
-  return buildArtifactReferenceInfo(
-    buildCovenantDatabaseDescriptionRecord({
-      id: record.id,
-      name: record.name,
-      descriptionTemplate: setEffect.descriptionTemplate,
-      descriptionArgs: setEffect.descriptionArgs,
-    }),
-    info.label,
-    formulaContext,
-  )
+  return buildCovenantSetEffectReferenceInfo(record, info.label, formulaContext) ?? info
 }
