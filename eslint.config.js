@@ -85,7 +85,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['vite.config.ts'],
+    files: ['vite.config.ts', 'vitest.config.ts'],
     extends: [
       js.configs.recommended,
       tseslint.configs.strictTypeChecked,

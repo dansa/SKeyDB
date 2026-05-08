@@ -3,9 +3,10 @@ import process from 'node:process'
 
 const projectRoot = process.cwd()
 
-runNodeScript('scripts/format-changed-files.mjs', ['--quiet', '--fail-on-write'])
+runNodeScript('scripts/format-changed-files.mjs', ['--staged', '--quiet', '--fail-on-write'])
 runScript('lint')
 runScript('test:bounded')
+runScript('test:scripts')
 runScript('build:quiet')
 
 function runScript(scriptName, extraArgs = []) {

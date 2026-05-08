@@ -2,6 +2,7 @@
 **/*.json
 !package.json
 !tools/react-sidecar/package.json
+!tsconfig*.json
 !schemas/**/*.json
 !src/data/**/*.json
 src/data/public-v2/**/*.json

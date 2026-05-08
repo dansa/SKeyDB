@@ -1,5 +1,6 @@
-import { defineConfig, configDefaults } from 'vitest/config'
 import path from 'path'
+
+import {configDefaults, defineConfig} from 'vitest/config'
 
 export default defineConfig({
   resolve: {
@@ -13,9 +14,6 @@ export default defineConfig({
     globals: true,
     include: ['src/**/*.{test,spec}.{ts,tsx,mts,mjs,js,jsx}'],
     setupFiles: './src/test/setup.ts',
-    exclude: [
-      ...configDefaults.exclude,
-      '.worktrees/**',
-    ],
+    exclude: [...configDefaults.exclude, '.worktrees/**'],
   },
 })
