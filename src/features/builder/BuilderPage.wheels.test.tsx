@@ -47,9 +47,9 @@ describe('BuilderPage wheels', () => {
                 },
                 devicePixelContentBoxSize: [],
                 target,
-              } as ResizeObserverEntry,
+              },
             ],
-            this as unknown as ResizeObserver,
+            this,
           )
         }
       }

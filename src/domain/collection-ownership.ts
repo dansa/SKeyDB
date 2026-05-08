@@ -285,9 +285,7 @@ function omitOwnershipIds(
   ids: Iterable<string>,
 ): Record<string, number> {
   const omittedIds = new Set(ids)
-  return Object.fromEntries(
-    Object.entries(map).filter(([entryId]) => !omittedIds.has(entryId)),
-  ) as Record<string, number>
+  return Object.fromEntries(Object.entries(map).filter(([entryId]) => !omittedIds.has(entryId)))
 }
 
 export function createDefaultCollectionOwnershipCatalog(): CollectionOwnershipCatalog {

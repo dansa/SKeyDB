@@ -68,7 +68,7 @@ export function searchPublicEntities<TEntity extends PublicSearchableEntity>(
     .search(normalizedQuery)
     .filter((result) => isRelevantPublicFuzzyMatch(result.item, normalizedQuery, result.score ?? 1))
     .filter((result) => (result.score ?? 1) <= 0.52)
-    .map((result) => result.item.entity as TEntity)
+    .map((result) => result.item.entity)
 
   if (directMatches.length === 0) {
     return fuzzyMatches
@@ -101,28 +101,21 @@ function getPublicSearchFuse<TEntity extends PublicSearchableEntity>(
   scope: SearchablePublicDataScope,
   entities: TEntity[],
   options: PublicSearchOptions<TEntity>,
-): Fuse<IndexedPublicSearchRecord<PublicSearchableEntity>> {
-  return new Fuse(
-    getIndexedPublicSearchRecords(
-      scope,
-      entities,
-      options,
-    ) as IndexedPublicSearchRecord<PublicSearchableEntity>[],
-    {
-      threshold: 0.58,
-      ignoreLocation: true,
-      includeScore: true,
-      minMatchCharLength: 2,
-      keys: [
-        {name: 'normalizedFields.name', weight: 0.48},
-        {name: 'normalizedFields.alias', weight: 0.22},
-        {name: 'normalizedFields.owner', weight: 0.16},
-        {name: 'normalizedFields.tag', weight: 0.08},
-        {name: 'normalizedFields.facet', weight: 0.06},
-        {name: 'normalizedFields.token', weight: 0.04},
-      ],
-    },
-  )
+): Fuse<IndexedPublicSearchRecord<TEntity>> {
+  return new Fuse(getIndexedPublicSearchRecords(scope, entities, options), {
+    threshold: 0.58,
+    ignoreLocation: true,
+    includeScore: true,
+    minMatchCharLength: 2,
+    keys: [
+      {name: 'normalizedFields.name', weight: 0.48},
+      {name: 'normalizedFields.alias', weight: 0.22},
+      {name: 'normalizedFields.owner', weight: 0.16},
+      {name: 'normalizedFields.tag', weight: 0.08},
+      {name: 'normalizedFields.facet', weight: 0.06},
+      {name: 'normalizedFields.token', weight: 0.04},
+    ],
+  })
 }
 
 function fieldsFromDocument(
@@ -158,9 +151,7 @@ function mergeSearchFields(...fieldSets: SearchFields[]): SearchFields {
       merged[fieldName] = uniqueSearchValues([...(merged[fieldName] ?? []), ...values])
     }
   }
-  return Object.fromEntries(
-    Object.entries(merged).filter(([, values]) => values.length > 0),
-  ) as SearchFields
+  return Object.fromEntries(Object.entries(merged).filter(([, values]) => values.length > 0))
 }
 
 function normalizeSearchFields(fields: SearchFields): SearchFields {
@@ -169,7 +160,7 @@ function normalizeSearchFields(fields: SearchFields): SearchFields {
       fieldName,
       getNormalizedSearchValues(values),
     ]),
-  ) as SearchFields
+  )
 }
 
 function getPublicSearchPriority<TEntity extends PublicSearchableEntity>(

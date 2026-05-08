@@ -1,7 +1,6 @@
 import {z} from 'zod'
 
 import {AWAKENER_TEXT_COLOR_NAMES} from './awakeners-text-colors.ts'
-import type {PublicFormulaKey} from './public-description-args'
 
 const nonEmptyStringSchema = z.string().trim().min(1)
 
@@ -117,7 +116,7 @@ export const descriptionArgSchema = z.discriminatedUnion('kind', [
       baseFormula: publicScaledBaseFormulaSchema,
       multiplier: z.number().optional(),
       rounding: z.literal('ceil').optional(),
-      inputs: z.array(publicFormulaKeySchema) as z.ZodType<PublicFormulaKey[]>,
+      inputs: z.array(publicFormulaKeySchema),
       channel: descriptionArgChannelSchema.optional(),
       suffix: nonEmptyStringSchema.optional(),
       stat: z.enum(SCALING_ARG_STAT_KEYS).optional(),

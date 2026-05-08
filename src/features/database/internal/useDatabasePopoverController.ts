@@ -87,9 +87,9 @@ export function useDatabasePopoverController({
       clearTrail()
     }
 
-    window.addEventListener(TRAIL_OPENED_EVENT, handleTrailOpened as EventListener)
+    window.addEventListener(TRAIL_OPENED_EVENT, handleTrailOpened)
     return () => {
-      window.removeEventListener(TRAIL_OPENED_EVENT, handleTrailOpened as EventListener)
+      window.removeEventListener(TRAIL_OPENED_EVENT, handleTrailOpened)
     }
   }, [clearTrail, ownerId])
 

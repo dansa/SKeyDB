@@ -231,7 +231,7 @@ describe('public-description-args', () => {
 
   it('treats unknown computed formula keys as unresolved', () => {
     expect(
-      evaluatePublicFormulaExpression({kind: 'computed', formulaKey: 'unknown'} as never),
+      evaluatePublicFormulaExpression({kind: 'computed', formulaKey: 'unknown'}),
     ).toStrictEqual({
       resolved: false,
       value: null,

@@ -145,7 +145,7 @@ function buildReferenceLayer(
       ['B01', wheelReference],
     ]),
     overlayByName: new Map(),
-  } as unknown as ResolvedDatabaseReferenceLayer
+  }
 }
 
 const TEST_SCALING_INFO_ENTRY: KeyedDatabaseReferenceEntry = {

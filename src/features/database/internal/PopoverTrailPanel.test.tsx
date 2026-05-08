@@ -15,7 +15,7 @@ function makeRect(overrides: Partial<DOMRect> = {}): DOMRect {
     left: 0,
     toJSON: () => ({}),
     ...overrides,
-  } as DOMRect
+  }
 }
 
 afterEach(() => {

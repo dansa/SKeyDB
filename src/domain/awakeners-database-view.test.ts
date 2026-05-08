@@ -461,7 +461,7 @@ describe('awakeners-database-view', () => {
           perLevel: 3,
           inputs: ['wheelRefinementLevel'],
         } satisfies PublicDescriptionArg,
-      } as unknown as AwakenerSkillRecord['descriptionArgs'],
+      },
     }
 
     const view = resolveAwakenerDatabaseView(

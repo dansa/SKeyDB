@@ -98,13 +98,7 @@ describe('persistence contract', () => {
   })
 
   it('keeps current persistence contract ids canonical against public V3 catalogs', () => {
-    const contract = currentPersistenceContract as {
-      version: number
-      awakeners: CurrentContractEntry[]
-      wheels: CurrentContractEntry[]
-      covenants: CurrentContractEntry[]
-      posses: CurrentContractEntry[]
-    }
+    const contract = currentPersistenceContract
 
     expect(contract.version).toBe(2)
     expect(contract.awakeners).toEqual(contract.awakeners.map((entry) => ({id: entry.id})))

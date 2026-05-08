@@ -364,7 +364,7 @@ describe('DatabaseReferencePopover', () => {
             influencingTalentIds: [],
           },
         ],
-      ]) as ResolvedDatabaseReferenceLayer['referenceInfoByName'],
+      ]),
       accessibleOverlays: [
         {
           id: 'overlay.global.rouse',
@@ -553,7 +553,7 @@ describe('DatabaseReferencePopover', () => {
             influencingTalentIds: [],
           },
         ],
-      ]) as ResolvedDatabaseReferenceLayer['referenceInfoById'],
+      ]),
     })
 
     render(
@@ -658,7 +658,7 @@ describe('DatabaseReferencePopover', () => {
             influencingTalentIds: [],
           },
         ],
-      ]) as ResolvedDatabaseReferenceLayer['referenceInfoById'],
+      ]),
       referenceInfoByName: new Map([
         [
           'thousand mirage',
@@ -684,7 +684,7 @@ describe('DatabaseReferencePopover', () => {
             influencingTalentIds: [],
           },
         ],
-      ]) as ResolvedDatabaseReferenceLayer['referenceInfoByName'],
+      ]),
     })
 
     render(

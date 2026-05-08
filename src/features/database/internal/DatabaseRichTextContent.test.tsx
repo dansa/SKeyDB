@@ -22,7 +22,7 @@ function buildReferenceLayer(): ResolvedDatabaseReferenceLayer {
     overlayByName: new Map(),
     referenceInfoById: new Map(),
     referenceInfoByName: new Map(),
-  } as ResolvedDatabaseReferenceLayer
+  }
 }
 
 describe('DatabaseRichTextContent', () => {
