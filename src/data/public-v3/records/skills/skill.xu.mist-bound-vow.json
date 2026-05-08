@@ -33,10 +33,15 @@
   "upgrades": [
     {
       "id": "upgrade.enlighten.xu.nirvanas-kiss.skill.xu.mist-bound-vow",
-      "operation": "link_only",
+      "operation": "replace_description",
       "upgraderId": "enlighten.xu.nirvanas-kiss",
       "upgraderType": "enlighten",
-      "patch": {}
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0054",
+      "ownerAwakenerName": "Xu",
+      "patch": {
+        "descriptionTemplate": "[{Devour}: Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg1].] Gain [Arg2] Arithmetica and inflict [{Poison}:Arg3] {plural:[{Poison}:Arg3]|stack|stacks} of {Poison} on all enemies. The {Resonance} effect for Xu's next Command Card is doubled. Choose: {Betroth} or {Enthrall}."
+      }
     }
   ],
   "ownerAwakenerName": "Xu"

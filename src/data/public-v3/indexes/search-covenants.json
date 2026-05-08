@@ -95,11 +95,11 @@
     {
       "kind": "covenant",
       "id": "covenant-0010",
-      "name": "Photosynthesis Rite",
+      "name": "Photosynthesis Ritual",
       "aliases": [],
-      "tokens": ["photosynthesis", "photosynthesis rite", "rite"],
+      "tokens": ["photosynthesis", "photosynthesis ritual", "ritual"],
       "fields": {
-        "name": ["Photosynthesis Rite", "photosynthesis-rite"]
+        "name": ["Photosynthesis Ritual", "photosynthesis-ritual"]
       }
     },
     {
@@ -205,11 +205,11 @@
     {
       "kind": "covenant",
       "id": "covenant-0021",
-      "name": "Chrysalis of the Maiden",
+      "name": "Cocoon of the Maiden",
       "aliases": [],
-      "tokens": ["chrysalis", "chrysalis of the maiden", "maiden", "of", "the"],
+      "tokens": ["cocoon", "cocoon of the maiden", "maiden", "of", "the"],
       "fields": {
-        "name": ["Chrysalis of the Maiden", "chrysalis-of-the-maiden"]
+        "name": ["Cocoon of the Maiden", "cocoon-of-the-maiden"]
       }
     }
   ]

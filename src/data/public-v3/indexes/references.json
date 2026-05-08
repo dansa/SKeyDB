@@ -865,12 +865,6 @@
         "id": "skill.pickman.chromaphage"
       }
     ],
-    "chrysalis of the maiden": [
-      {
-        "kind": "covenant",
-        "id": "covenant-0021"
-      }
-    ],
     "cinders": [
       {
         "kind": "talent",
@@ -917,6 +911,12 @@
       {
         "kind": "wheel",
         "id": "wheel-0081"
+      }
+    ],
+    "cocoon of the maiden": [
+      {
+        "kind": "covenant",
+        "id": "covenant-0021"
       }
     ],
     "collective unconscious": [
@@ -4387,7 +4387,7 @@
         "id": "overlay.clementine.phobic-fixation"
       }
     ],
-    "photosynthesis rite": [
+    "photosynthesis ritual": [
       {
         "kind": "covenant",
         "id": "covenant-0010"

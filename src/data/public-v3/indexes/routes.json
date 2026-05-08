@@ -1472,11 +1472,11 @@
         "canonicalSlug": "burial-grounds-sighs",
         "canonicalPath": "/database/covenants/burial-grounds-sighs"
       },
-      "chrysalis-of-the-maiden": {
+      "cocoon-of-the-maiden": {
         "kind": "covenant",
         "id": "covenant-0021",
-        "canonicalSlug": "chrysalis-of-the-maiden",
-        "canonicalPath": "/database/covenants/chrysalis-of-the-maiden"
+        "canonicalSlug": "cocoon-of-the-maiden",
+        "canonicalPath": "/database/covenants/cocoon-of-the-maiden"
       },
       "crimson-pulse": {
         "kind": "covenant",
@@ -1526,11 +1526,11 @@
         "canonicalSlug": "paradox",
         "canonicalPath": "/database/covenants/paradox"
       },
-      "photosynthesis-rite": {
+      "photosynthesis-ritual": {
         "kind": "covenant",
         "id": "covenant-0010",
-        "canonicalSlug": "photosynthesis-rite",
-        "canonicalPath": "/database/covenants/photosynthesis-rite"
+        "canonicalSlug": "photosynthesis-ritual",
+        "canonicalPath": "/database/covenants/photosynthesis-ritual"
       },
       "re-evolution": {
         "kind": "covenant",
@@ -8626,7 +8626,20 @@
     "awakeners": {},
     "wheels": {},
     "relics": {},
-    "covenants": {},
+    "covenants": {
+      "photosynthesis-rite": {
+        "kind": "covenant",
+        "id": "covenant-0010",
+        "canonicalSlug": "photosynthesis-ritual",
+        "canonicalPath": "/database/covenants/photosynthesis-ritual"
+      },
+      "chrysalis-of-the-maiden": {
+        "kind": "covenant",
+        "id": "covenant-0021",
+        "canonicalSlug": "cocoon-of-the-maiden",
+        "canonicalPath": "/database/covenants/cocoon-of-the-maiden"
+      }
+    },
     "posses": {},
     "skills": {},
     "derived-skills": {},

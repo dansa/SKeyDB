@@ -1736,10 +1736,10 @@
     "covenant-0010": {
       "kind": "covenant",
       "id": "covenant-0010",
-      "name": "Photosynthesis Rite",
+      "name": "Photosynthesis Ritual",
       "route": {
-        "slug": "photosynthesis-rite",
-        "canonicalPath": "/database/covenants/photosynthesis-rite"
+        "slug": "photosynthesis-ritual",
+        "canonicalPath": "/database/covenants/photosynthesis-ritual"
       },
       "assets": {
         "icon": "asset-covenant-0010-icon"
@@ -1868,10 +1868,10 @@
     "covenant-0021": {
       "kind": "covenant",
       "id": "covenant-0021",
-      "name": "Chrysalis of the Maiden",
+      "name": "Cocoon of the Maiden",
       "route": {
-        "slug": "chrysalis-of-the-maiden",
-        "canonicalPath": "/database/covenants/chrysalis-of-the-maiden"
+        "slug": "cocoon-of-the-maiden",
+        "canonicalPath": "/database/covenants/cocoon-of-the-maiden"
       },
       "assets": {
         "icon": "asset-covenant-0021-icon"

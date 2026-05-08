@@ -2,10 +2,10 @@
   "schemaVersion": 3,
   "kind": "covenant",
   "id": "covenant-0010",
-  "name": "Photosynthesis Rite",
+  "name": "Photosynthesis Ritual",
   "route": {
-    "slug": "photosynthesis-rite",
-    "canonicalPath": "/database/covenants/photosynthesis-rite"
+    "slug": "photosynthesis-ritual",
+    "canonicalPath": "/database/covenants/photosynthesis-ritual"
   },
   "assets": {
     "icon": "asset-covenant-0010-icon"
