@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
   "gameDataVersion": "compiled-sha256-8760ebcb1a08b6bf",
-  "generatedAt": "2026-05-06T18:44:49Z",
-  "buildId": "2026-05-06T18:44:49Z",
+  "generatedAt": "2026-05-08T01:07:31Z",
+  "buildId": "2026-05-08T01:07:31Z",
   "build": {
     "gameDataVersion": "compiled-sha256-8760ebcb1a08b6bf",
     "recordCount": 1433,
@@ -77,6 +77,7 @@
     }
   },
   "indexes": {
+    "scopes": "indexes/scopes.json",
     "entities": "indexes/entities.json",
     "routes": "indexes/routes.json",
     "assets": "indexes/assets.json",
@@ -171,6 +172,10 @@
     "indexes/routes.json": {
       "bytes": 327674,
       "sha256": "ec50cdcf6fdc25745dec9367e3348426d68ded08c0ce32e6fd218593fd9ee388"
+    },
+    "indexes/scopes.json": {
+      "bytes": 4913,
+      "sha256": "6b8d799ea312fa24d6600a53a062f720aaca9f194773ba82fa2bf3e7b738c7df"
     },
     "indexes/search-awakeners.json": {
       "bytes": 72654,
