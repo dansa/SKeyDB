@@ -1,6 +1,11 @@
 import {getPublicCatalog} from './catalogRepository'
-import type {PublicDataScope, PublicRecord} from './contract'
+import type {PublicRecord} from './contract'
 import {publicRecordSchema} from './schemas'
+import {
+  assertPublicRecordForScope,
+  assertPublicScopeCapability,
+  type SnapshotPublicDataScope,
+} from './scopeRegistry'
 
 const recordSnapshots: Partial<Record<string, unknown>> = import.meta.glob(
   '../../data/public-v3/records/{covenants,derived-skills,enlightens,overlays,posses,relics,skills,talents,wheels}/*.json',
@@ -12,14 +17,15 @@ const recordSnapshots: Partial<Record<string, unknown>> = import.meta.glob(
 
 const recordSnapshotCache = new Map<string, PublicRecord | undefined>()
 
-function buildRecordPath(scope: PublicDataScope, id: string): string {
+function buildRecordPath(scope: SnapshotPublicDataScope, id: string): string {
   return `../../data/public-v3/records/${scope}/${id}.json`
 }
 
 export function getPublicRecordSnapshot(
-  scope: PublicDataScope,
+  scope: SnapshotPublicDataScope,
   id: string,
 ): PublicRecord | undefined {
+  assertPublicScopeCapability(scope, 'snapshot')
   const cacheKey = `${scope}:${id}`
   if (recordSnapshotCache.has(cacheKey)) {
     return recordSnapshotCache.get(cacheKey)
@@ -32,15 +38,14 @@ export function getPublicRecordSnapshot(
   }
 
   const record = publicRecordSchema.parse(recordJson)
-  if (record.id !== id) {
-    throw new Error(`Public V3 record path id "${id}" loaded record "${record.id}".`)
-  }
+  assertPublicRecordForScope(scope, record, id)
 
   recordSnapshotCache.set(cacheKey, record)
   return record
 }
 
-export function getPublicRecordSnapshots(scope: PublicDataScope): PublicRecord[] {
+export function getPublicRecordSnapshots(scope: SnapshotPublicDataScope): PublicRecord[] {
+  assertPublicScopeCapability(scope, 'snapshot')
   return getPublicCatalog(scope).records.flatMap((record) => {
     const snapshot = getPublicRecordSnapshot(scope, record.id)
     return snapshot ? [snapshot] : []

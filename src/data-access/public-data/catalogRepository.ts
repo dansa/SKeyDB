@@ -18,6 +18,7 @@ import {
   type PublicDataScope,
 } from './contract'
 import {publicCatalogSchema} from './schemas'
+import {assertPublicCatalogForScope} from './scopeRegistry'
 
 const catalogJsonByScope = {
   'awakener-builds': awakenerBuildsCatalogJson,
@@ -36,9 +37,11 @@ const catalogJsonByScope = {
 const catalogCache = new Map<PublicDataScope, PublicCatalog>()
 
 export function getPublicCatalog(scope: PublicDataScope): PublicCatalog {
-  return getOrCreateMapValue(catalogCache, scope, () =>
-    publicCatalogSchema.parse(catalogJsonByScope[scope]),
-  )
+  return getOrCreateMapValue(catalogCache, scope, () => {
+    const catalog = publicCatalogSchema.parse(catalogJsonByScope[scope])
+    assertPublicCatalogForScope(scope, catalog)
+    return catalog
+  })
 }
 
 export function getPublicCatalogRecords(scope: PublicDataScope): PublicCatalogRecord[] {

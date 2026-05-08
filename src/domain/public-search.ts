@@ -1,6 +1,7 @@
 import Fuse from 'fuse.js'
 
-import type {PublicDataScope, PublicSearchDocument} from '@/data-access/public-data/contract'
+import type {PublicSearchDocument} from '@/data-access/public-data/contract'
+import type {SearchablePublicDataScope} from '@/data-access/public-data/scopeRegistry'
 import {getPublicSearchDocument} from '@/data-access/public-data/searchRepository'
 
 import {collectDirectMatches, mergeDirectAndFuzzyMatches, toPriority} from './entities/search'
@@ -33,15 +34,15 @@ interface IndexedPublicSearchRecord<TEntity extends PublicSearchableEntity> {
 
 const indexedSearchCache = new WeakMap<
   readonly PublicSearchableEntity[],
-  Map<PublicDataScope, IndexedPublicSearchRecord<PublicSearchableEntity>[]>
+  Map<SearchablePublicDataScope, IndexedPublicSearchRecord<PublicSearchableEntity>[]>
 >()
 const fuseSearchCache = new WeakMap<
   readonly PublicSearchableEntity[],
-  Map<PublicDataScope, Fuse<IndexedPublicSearchRecord<PublicSearchableEntity>>>
+  Map<SearchablePublicDataScope, Fuse<IndexedPublicSearchRecord<PublicSearchableEntity>>>
 >()
 
 export function searchPublicEntities<TEntity extends PublicSearchableEntity>(
-  scope: PublicDataScope,
+  scope: SearchablePublicDataScope,
   entities: TEntity[],
   query: string,
   options: PublicSearchOptions<TEntity> = {},
@@ -86,7 +87,7 @@ export function searchPublicEntities<TEntity extends PublicSearchableEntity>(
 }
 
 function getIndexedPublicSearchRecords<TEntity extends PublicSearchableEntity>(
-  scope: PublicDataScope,
+  scope: SearchablePublicDataScope,
   entities: TEntity[],
   options: PublicSearchOptions<TEntity>,
 ): IndexedPublicSearchRecord<TEntity>[] {
@@ -110,15 +111,19 @@ function getIndexedPublicSearchRecords<TEntity extends PublicSearchableEntity>(
     }
   })
 
-  const nextByScope: Map<PublicDataScope, IndexedPublicSearchRecord<PublicSearchableEntity>[]> =
-    cachedByScope ?? new Map<PublicDataScope, IndexedPublicSearchRecord<PublicSearchableEntity>[]>()
+  const nextByScope: Map<
+    SearchablePublicDataScope,
+    IndexedPublicSearchRecord<PublicSearchableEntity>[]
+  > =
+    cachedByScope ??
+    new Map<SearchablePublicDataScope, IndexedPublicSearchRecord<PublicSearchableEntity>[]>()
   nextByScope.set(scope, indexed as IndexedPublicSearchRecord<PublicSearchableEntity>[])
   indexedSearchCache.set(entities, nextByScope)
   return indexed
 }
 
 function getPublicSearchFuse<TEntity extends PublicSearchableEntity>(
-  scope: PublicDataScope,
+  scope: SearchablePublicDataScope,
   entities: TEntity[],
   options: PublicSearchOptions<TEntity>,
 ): Fuse<IndexedPublicSearchRecord<PublicSearchableEntity>> {
@@ -150,10 +155,10 @@ function getPublicSearchFuse<TEntity extends PublicSearchableEntity>(
   )
 
   const nextByScope: Map<
-    PublicDataScope,
+    SearchablePublicDataScope,
     Fuse<IndexedPublicSearchRecord<PublicSearchableEntity>>
   > = cachedByScope ??
-  new Map<PublicDataScope, Fuse<IndexedPublicSearchRecord<PublicSearchableEntity>>>()
+  new Map<SearchablePublicDataScope, Fuse<IndexedPublicSearchRecord<PublicSearchableEntity>>>()
   nextByScope.set(scope, fuse)
   fuseSearchCache.set(entities, nextByScope)
   return fuse

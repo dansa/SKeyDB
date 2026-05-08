@@ -8,7 +8,7 @@ const liteStatsSchema = z.object({
   DEF: z.number(),
 })
 
-const publicAwakenerLiteRecordSchema = z.object({
+const publicAwakenerCatalogLiteRecordSchema = z.object({
   id: z.string(),
   numericId: z.number(),
   name: z.string(),
@@ -27,7 +27,7 @@ const publicAwakenerLiteRecordSchema = z.object({
   baseStatsLv1: liteStatsSchema,
 })
 
-const publicAwakenerLiteRecordsSchema = z.array(publicAwakenerLiteRecordSchema)
+const publicAwakenerCatalogLiteRecordsSchema = z.array(publicAwakenerCatalogLiteRecordSchema)
 
 export const awakenerLiteRecordSchema = z.object({
   id: z.number().int().positive(),
@@ -49,9 +49,14 @@ export type AwakenerLiteRecord = z.infer<typeof awakenerLiteRecordSchema>
 
 let awakenersLiteCache: AwakenerLiteRecord[] | null = null
 
-type PublicAwakenerLiteRecord = z.infer<typeof publicAwakenerLiteRecordSchema>
+type PublicAwakenerCatalogLiteRecord = z.infer<typeof publicAwakenerCatalogLiteRecordSchema>
 
-function resolveCanonicalAwakenerName(record: PublicAwakenerLiteRecord) {
+function getPublicAwakenerCatalogLiteRecords(): PublicAwakenerCatalogLiteRecord[] {
+  // The public awakener catalog is currently the intentional lite/summary source.
+  return publicAwakenerCatalogLiteRecordsSchema.parse(getPublicCatalogRecords('awakeners'))
+}
+
+function resolveCanonicalAwakenerName(record: PublicAwakenerCatalogLiteRecord) {
   const alias = record.aliases?.find((entry) => !entry.trim().startsWith('g-'))?.trim()
   if (alias) {
     return alias
@@ -63,7 +68,9 @@ function resolveCanonicalAwakenerName(record: PublicAwakenerLiteRecord) {
   return record.name.trim().toLowerCase()
 }
 
-function adaptPublicAwakenerLite(record: PublicAwakenerLiteRecord): AwakenerLiteRecord {
+function adaptPublicAwakenerCatalogLite(
+  record: PublicAwakenerCatalogLiteRecord,
+): AwakenerLiteRecord {
   const name = resolveCanonicalAwakenerName(record)
 
   return {
@@ -86,9 +93,7 @@ export function getAwakenersLite(): AwakenerLiteRecord[] {
   }
 
   awakenersLiteCache = awakenerLiteDatasetSchema.parse(
-    publicAwakenerLiteRecordsSchema
-      .parse(getPublicCatalogRecords('awakeners'))
-      .map(adaptPublicAwakenerLite),
+    getPublicAwakenerCatalogLiteRecords().map(adaptPublicAwakenerCatalogLite),
   )
   return awakenersLiteCache
 }

@@ -1,6 +1,7 @@
 import {getOrCreateMapValue} from './cache'
 import type {PublicDataScope, PublicRecord} from './contract'
 import {publicRecordSchema} from './schemas'
+import {assertPublicRecordForScope, assertPublicScopeCapability} from './scopeRegistry'
 
 type JsonLoader = () => Promise<unknown>
 
@@ -21,6 +22,7 @@ export function loadPublicRecord(
   scope: PublicDataScope,
   id: string,
 ): Promise<PublicRecord | undefined> {
+  assertPublicScopeCapability(scope, 'detailRecord')
   const cacheKey = `${scope}:${id}`
   return getOrCreateMapValue(recordPromiseCache, cacheKey, async () => {
     const loader = recordLoaders[buildRecordPath(scope, id)]
@@ -28,9 +30,7 @@ export function loadPublicRecord(
       return undefined
     }
     const record = publicRecordSchema.parse(await loader())
-    if (record.id !== id) {
-      throw new Error(`Public V3 record path id "${id}" loaded record "${record.id}".`)
-    }
+    assertPublicRecordForScope(scope, record, id)
     return record
   })
 }

@@ -1,6 +1,7 @@
 import {describe, expect, it} from 'vitest'
 
 import {resolvePublicAsset, resolvePublicEntityAsset} from './assetRepository'
+import {PUBLIC_DATA_SCOPES} from './contract'
 import {getPublicRecordSnapshot, getPublicRecordSnapshots} from './recordSnapshots'
 import {resolvePublicReferenceToken} from './referenceRepository'
 import {
@@ -11,7 +12,12 @@ import {
   getPublicManifest,
   loadPublicRecord,
 } from './repository'
-import {resolvePublicRoute} from './routeResolver'
+import {getPublicRoutesIndex, resolvePublicRoute} from './routeResolver'
+import {
+  getPublicScopeDescriptor,
+  type SearchablePublicDataScope,
+  type SnapshotPublicDataScope,
+} from './scopeRegistry'
 import {getPublicSearchDocuments} from './searchRepository'
 
 describe('public-data repository', () => {
@@ -120,5 +126,59 @@ describe('public-data repository', () => {
       id: 'wheel-0001',
       descriptionTemplate: expect.stringContaining('Hand Limit'),
     })
+  })
+
+  it('rejects public-data scopes without search support instead of returning an empty index', () => {
+    const unsupportedSearchScope = 'skills' as SearchablePublicDataScope
+
+    expect(() => getPublicSearchDocuments(unsupportedSearchScope)).toThrow(
+      'Public V3 scope "skills" does not support search indexes.',
+    )
+  })
+
+  it('rejects public-data scopes without synchronous snapshot support', () => {
+    const unsupportedSnapshotScope = 'awakeners' as SnapshotPublicDataScope
+
+    expect(() => getPublicRecordSnapshots(unsupportedSnapshotScope)).toThrow(
+      'Public V3 scope "awakeners" does not support synchronous record snapshots.',
+    )
+  })
+
+  it('keeps manifest, catalog, route, and search invariants aligned with scope descriptors', () => {
+    const manifest = getPublicManifest()
+    const searchableScopes = PUBLIC_DATA_SCOPES.filter(
+      (scope): scope is SearchablePublicDataScope =>
+        getPublicScopeDescriptor(scope).capabilities.includes('search'),
+    )
+
+    for (const scope of PUBLIC_DATA_SCOPES) {
+      const descriptor = getPublicScopeDescriptor(scope)
+      const catalog = getPublicCatalog(scope)
+
+      expect(catalog.scope).toBe(scope)
+      expect(catalog.kind).toBe(descriptor.kind)
+      expect(catalog.records).toHaveLength(manifest.scopes[scope].count)
+
+      for (const record of catalog.records) {
+        expect(record.kind).toBe(descriptor.kind)
+        expect(record.id.startsWith(descriptor.idPrefix)).toBe(true)
+
+        expect(descriptor.hasRouteIndex).toBe(true)
+      }
+
+      const routeEntries = Object.values(getPublicRoutesIndex().routes[scope] ?? {})
+      expect(routeEntries).toHaveLength(catalog.records.length)
+      expect(routeEntries.map((entry) => [entry.kind, entry.id]).sort()).toEqual(
+        catalog.records.map((record) => [record.kind, record.id]).sort(),
+      )
+    }
+
+    for (const scope of searchableScopes) {
+      const descriptor = getPublicScopeDescriptor(scope)
+      for (const document of getPublicSearchDocuments(scope)) {
+        expect(document.kind).toBe(descriptor.kind)
+        expect(document.id.startsWith(descriptor.idPrefix)).toBe(true)
+      }
+    }
   })
 })

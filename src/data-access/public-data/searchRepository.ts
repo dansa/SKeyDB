@@ -5,46 +5,59 @@ import searchRelicsJson from '@/data/public-v3/indexes/search-relics.json'
 import searchWheelsJson from '@/data/public-v3/indexes/search-wheels.json'
 
 import {getOrCreateMapValue} from './cache'
-import type {PublicDataScope, PublicSearchDocument, PublicSearchIndex} from './contract'
+import type {PublicSearchDocument, PublicSearchIndex} from './contract'
 import {publicSearchIndexSchema} from './schemas'
+import {
+  assertPublicEntityForScope,
+  assertPublicScopeCapability,
+  type SearchablePublicDataScope,
+} from './scopeRegistry'
 
-const searchJsonByScope: Partial<Record<PublicDataScope, unknown>> = {
+const searchJsonByScope = {
   awakeners: searchAwakenersJson,
   covenants: searchCovenantsJson,
   posses: searchPossesJson,
   relics: searchRelicsJson,
   wheels: searchWheelsJson,
-}
+} satisfies Record<SearchablePublicDataScope, unknown>
 
-const emptySearchIndexByScope = new Map<PublicDataScope, PublicSearchIndex>()
+const searchCache = new Map<SearchablePublicDataScope, PublicSearchIndex>()
+const searchDocumentByIdCache = new Map<
+  SearchablePublicDataScope,
+  Map<string, PublicSearchDocument>
+>()
 
-const searchCache = new Map<PublicDataScope, PublicSearchIndex>()
-const searchDocumentByIdCache = new Map<PublicDataScope, Map<string, PublicSearchDocument>>()
-
-function getPublicSearchIndex(scope: PublicDataScope): PublicSearchIndex {
+function getPublicSearchIndex(scope: SearchablePublicDataScope): PublicSearchIndex {
+  assertPublicScopeCapability(scope, 'search')
   const searchJson = searchJsonByScope[scope]
-  if (searchJson === undefined) {
-    return getOrCreateMapValue(emptySearchIndexByScope, scope, () => ({
-      schemaVersion: 3,
-      scope,
-      records: [],
-    }))
-  }
-  return getOrCreateMapValue(searchCache, scope, () => publicSearchIndexSchema.parse(searchJson))
+  return getOrCreateMapValue(searchCache, scope, () => {
+    const searchIndex = publicSearchIndexSchema.parse(searchJson)
+    if (searchIndex.scope !== scope) {
+      throw new Error(
+        `Public V3 search index scope "${searchIndex.scope}" does not match requested scope "${scope}".`,
+      )
+    }
+    for (const record of searchIndex.records) {
+      assertPublicEntityForScope(scope, record.kind, record.id)
+    }
+    return searchIndex
+  })
 }
 
-export function getPublicSearchDocuments(scope: PublicDataScope): PublicSearchDocument[] {
+export function getPublicSearchDocuments(scope: SearchablePublicDataScope): PublicSearchDocument[] {
   return getPublicSearchIndex(scope).records
 }
 
 export function getPublicSearchDocument(
-  scope: PublicDataScope,
+  scope: SearchablePublicDataScope,
   id: string,
 ): PublicSearchDocument | undefined {
   return getPublicSearchDocumentMap(scope).get(id)
 }
 
-function getPublicSearchDocumentMap(scope: PublicDataScope): Map<string, PublicSearchDocument> {
+function getPublicSearchDocumentMap(
+  scope: SearchablePublicDataScope,
+): Map<string, PublicSearchDocument> {
   const cached = searchDocumentByIdCache.get(scope)
   if (cached) {
     return cached

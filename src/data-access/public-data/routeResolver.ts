@@ -11,7 +11,7 @@ import {publicRoutesIndexSchema} from './schemas'
 
 let routesIndexCache: PublicRoutesIndex | undefined
 
-function getPublicRoutesIndex(): PublicRoutesIndex {
+export function getPublicRoutesIndex(): PublicRoutesIndex {
   routesIndexCache ??= publicRoutesIndexSchema.parse(routesIndexJson)
   return routesIndexCache
 }
