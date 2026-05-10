@@ -5,6 +5,7 @@ import {
   resolvePublicEntityAsset,
 } from '@/data-access/public-data/assetRepository'
 import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
 
 import {getAwakeners} from './awakeners'
 import {resolveDescriptionTemplate} from './description-args'
@@ -99,6 +100,7 @@ function assertPortraitRelicsLinkedToKnownAwakeners(relics: PortraitRelic[]) {
 
 assertPortraitRelicsLinkedToKnownAwakeners(portraitRelics)
 const portraitRelicByAwakenerId = buildPortraitRelicByAwakenerIdMap(portraitRelics)
+const relicDescriptionByIdPromises = new Map<string, Promise<string>>()
 
 function getRelicPublicAssetId(relicId: string): string {
   const assetIndexId = resolvePublicEntityAsset(relicId, 'icon')
@@ -120,4 +122,21 @@ export function getPortraitRelicByAwakenerId(
     return undefined
   }
   return portraitRelicByAwakenerId.get(awakenerId)
+}
+
+export async function loadRelicDescriptionById(relicId: string): Promise<string> {
+  const cachedPromise = relicDescriptionByIdPromises.get(relicId)
+  if (cachedPromise) {
+    return cachedPromise
+  }
+
+  const descriptionPromise = loadPublicRecord('relics', relicId).then((record) => {
+    if (!record) {
+      return ''
+    }
+    const relic = publicRelicRecordSchema.parse(record)
+    return renderRelicDescription(relic.descriptionTemplate, relic.descriptionArgs)
+  })
+  relicDescriptionByIdPromises.set(relicId, descriptionPromise)
+  return descriptionPromise
 }

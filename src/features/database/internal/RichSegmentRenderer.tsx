@@ -180,8 +180,9 @@ export function RichSegmentRenderer({
       const desc = overlay?.descriptionTemplate.trim()
       const tint = getDatabaseOverlayTint(overlay)
       const tintStyle = getDatabaseTintedTokenStyle(tint)
-      const title = !overlay || !desc ? 'Details coming soon' : undefined
-      if (overlay && desc && onMechanicClick) {
+      const canOpenOverlay = Boolean(overlay && onMechanicClick)
+      const title = !overlay || (!desc && !canOpenOverlay) ? 'Details coming soon' : undefined
+      if (overlay && onMechanicClick) {
         return (
           <InteractiveToken
             ariaLabel={segment.name}

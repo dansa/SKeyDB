@@ -1,6 +1,11 @@
 import {describe, expect, it, vi} from 'vitest'
 
+import {
+  buildDatabaseOverlayReferenceInfo,
+  type DatabaseReferenceInfo,
+} from './database-reference-layer'
 import {parseDatabaseRichDescription} from './database-rich-text'
+import {resolveDescriptionTemplate} from './description-args'
 import {
   buildCovenantDatabaseDescriptionRecord,
   buildPosseDatabaseDescriptionRecord,
@@ -54,6 +59,66 @@ describe('hydrateGlobalDatabaseReferenceInfo', () => {
     expect(loadPublicWheelDetailById).toHaveBeenCalledWith('wheel-0001')
     expect(info.description).not.toBe('')
     expect(info.kind).toBe('wheel')
+  })
+
+  it('hydrates catalog-backed overlay descriptions through per-record detail loading', async () => {
+    const loadPublicOverlayDetailById = vi.spyOn(
+      publicDetailRecordAdapters,
+      'loadPublicOverlayDetailById',
+    )
+    const info = await hydrateGlobalDatabaseReferenceInfo(
+      buildDatabaseOverlayReferenceInfo({
+        id: 'overlay.global.counter',
+        displayName: 'Counter',
+        overlayType: 'mechanic',
+        aliases: [],
+        iconId: 'IconS_Buff_019',
+        descriptionTemplate: '',
+        descriptionArgs: {},
+      }),
+    )
+
+    expect(loadPublicOverlayDetailById).toHaveBeenCalledWith('overlay.global.counter')
+    expect(info.description).toContain('When attacked')
+    expect(
+      resolveDescriptionTemplate(info.record.descriptionTemplate, info.record.descriptionArgs),
+    ).toContain('{Counter}')
+    expect(info.kind).toBe('overlay')
+  })
+
+  it('hydrates catalog-backed derived skill descriptions through per-record detail loading', async () => {
+    const loadPublicDerivedSkillDetailById = vi.spyOn(
+      publicDetailRecordAdapters,
+      'loadPublicDerivedSkillDetailById',
+    )
+    const info: DatabaseReferenceInfo = {
+      kind: 'derived-skill',
+      id: 'derived.arachne.guiding-strings',
+      name: 'Guiding Strings',
+      label: 'Derived · Guiding Strings',
+      record: {
+        id: 'derived.arachne.guiding-strings',
+        displayName: 'Guiding Strings',
+        descriptionTemplate: '',
+        descriptionArgs: {},
+        cardKeywords: [],
+        childDerivedSkillIds: [],
+        variants: [],
+      },
+      description: '',
+      keywordFooterText: undefined,
+      descriptionRank: 1,
+      descriptionMaxRank: 6,
+      influencingEnlightenSlots: [],
+      influencingTalentIds: [],
+      influenceBadges: [],
+    }
+
+    const hydrated = await hydrateGlobalDatabaseReferenceInfo(info)
+
+    expect(loadPublicDerivedSkillDetailById).toHaveBeenCalledWith('derived.arachne.guiding-strings')
+    expect(hydrated.description).toContain('Lose 2% Max HP')
+    expect(hydrated.kind).toBe('derived-skill')
   })
 
   it('hydrates posse descriptions through per-record detail loading', async () => {

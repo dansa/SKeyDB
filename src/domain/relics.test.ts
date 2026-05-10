@@ -5,7 +5,12 @@ import {loadPublicRecord} from '@/data-access/public-data/repository'
 import {getAwakeners} from './awakeners'
 import {resolveDescriptionTemplate} from './description-args'
 import type {PublicDescriptionArg} from './public-description-args'
-import {getPortraitRelicByAwakenerId, getPortraitRelics, getRelics} from './relics'
+import {
+  getPortraitRelicByAwakenerId,
+  getPortraitRelics,
+  getRelics,
+  loadRelicDescriptionById,
+} from './relics'
 
 function renderPublicRecordDescription(record: Awaited<ReturnType<typeof loadPublicRecord>>) {
   if (typeof record?.descriptionTemplate !== 'string') {
@@ -101,5 +106,10 @@ describe('getPortraitRelicByAwakenerId', () => {
     expect(getPortraitRelicByAwakenerId('awakener-0002')?.description).toBe('')
     expect(getPortraitRelicByAwakenerId('awakener-0047')?.description).toBe('')
     expect(getPortraitRelicByAwakenerId('awakener-0033')?.description).toBe('')
+  })
+
+  it('loads portrait relic descriptions from per-record detail JSON on demand', async () => {
+    await expect(loadRelicDescriptionById('relic-0002')).resolves.toContain('{Reluctant Alms}')
+    await expect(loadRelicDescriptionById('relic-0047')).resolves.toContain('{Silver Key Dawn}')
   })
 })

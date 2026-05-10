@@ -1,7 +1,11 @@
 import {fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
-import type {AwakenerEnlightenRecord, AwakenerSkillRecord} from '@/domain/awakener-source-schema'
+import type {
+  AwakenerEnlightenRecord,
+  AwakenerOverlayRecord,
+  AwakenerSkillRecord,
+} from '@/domain/awakener-source-schema'
 import type {
   DatabaseReferenceInfo,
   ResolvedDatabaseReferenceLayer,
@@ -128,23 +132,47 @@ function buildReferenceLayer(
     influencingTalentIds: [],
     influenceBadges: [],
   }
+  const overlayReference: DatabaseReferenceInfo = {
+    kind: 'overlay',
+    id: 'overlay.global.counter',
+    name: 'Counter',
+    label: 'Mechanic',
+    record: {
+      id: 'overlay.global.counter',
+      displayName: 'Counter',
+      overlayType: 'mechanic',
+      aliases: [],
+      iconId: 'IconS_Buff_019',
+      descriptionTemplate: '',
+      descriptionArgs: {},
+    },
+    description: '',
+    keywordFooterText: undefined,
+    descriptionRank: undefined,
+    descriptionMaxRank: undefined,
+    influencingEnlightenSlots: [],
+    influencingTalentIds: [],
+    influenceBadges: [],
+  }
 
   return {
     cardNames: new Set<string>(),
-    accessibleOverlays: [],
+    accessibleOverlays: [overlayReference.record as AwakenerOverlayRecord],
     referenceInfoByName: new Map([
       ['strike', strikeReference],
       ['guard', guardReference],
       ['computed', computedReference],
       ['merciful nurturing', wheelReference],
+      ['counter', overlayReference],
     ]),
     referenceInfoById: new Map([
       ['skill.test.strike', strikeReference],
       ['skill.test.guard', guardReference],
       ['skill.test.computed', computedReference],
       ['B01', wheelReference],
+      ['overlay.global.counter', overlayReference],
     ]),
-    overlayByName: new Map(),
+    overlayByName: new Map([['counter', overlayReference.record as AwakenerOverlayRecord]]),
   }
 }
 
@@ -232,6 +260,18 @@ function ControllerHarness({
           type='button'
         >
           Open Computed
+        </button>
+        <button
+          onClick={(event) => {
+            const overlay = referenceLayer?.overlayByName.get('counter')
+            if (!overlay) {
+              throw new Error('Expected Counter overlay')
+            }
+            popoverController.contextValue.openRootOverlay(overlay, event)
+          }}
+          type='button'
+        >
+          Open Counter
         </button>
         <button
           onClick={(event) => {
@@ -359,6 +399,31 @@ describe('useDatabasePopoverController', () => {
       expect(screen.queryByText('Hydrated wheel text.')).not.toBeInTheDocument()
       expect(screen.getByText('Guard text.')).toBeInTheDocument()
     })
+  })
+
+  it('hydrates catalog-backed root overlay popovers before opening them', async () => {
+    const hydrateGlobalDatabaseReferenceInfo = vi.spyOn(
+      globalDatabaseReferenceLayer,
+      'hydrateGlobalDatabaseReferenceInfo',
+    )
+    const referenceLayer = buildReferenceLayer('Base text.')
+
+    render(<ControllerHarness referenceLayer={referenceLayer} />)
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Counter'}))
+
+    await waitFor(() => {
+      expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledWith(
+        expect.objectContaining({
+          id: 'overlay.global.counter',
+          kind: 'overlay',
+        }),
+        undefined,
+        null,
+      )
+    })
+    expect(await screen.findByText(/When attacked/)).toBeInTheDocument()
+    expect(screen.queryByText('Details coming soon')).not.toBeInTheDocument()
   })
 
   it('threads formula context from controller options into popover content', async () => {

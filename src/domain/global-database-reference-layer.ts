@@ -1,9 +1,12 @@
 import {getAwakenerOverlays} from './awakener-overlays'
 import {getAwakenerSkills} from './awakener-skills'
 import type {
+  AwakenerEnlightenRecord,
   AwakenerOverlayRecord,
   AwakenerSkillRecord,
+  AwakenerTalentRecord,
   DerivedSkillRecord,
+  FullStats,
 } from './awakener-source-schema'
 import {buildCardKeywordFooterText} from './card-keywords'
 import {getCovenants, type Covenant} from './covenants'
@@ -202,6 +205,54 @@ function buildAwakenerSkillReferenceInfo(
   }
 }
 
+function buildAwakenerTalentReferenceInfo(
+  record: AwakenerTalentRecord,
+  formulaContext?: PublicFormulaContext,
+): DatabaseReferenceInfo<AwakenerTalentRecord> {
+  const resolved = resolveDescribedRecord(
+    record,
+    {rank: record.maxLevel ?? 1, formulaContext},
+    {maxRank: record.maxLevel, formulaContext},
+  )
+
+  return {
+    kind: 'talent',
+    id: record.id,
+    name: record.displayName,
+    label: `Talent · ${record.displayName}`,
+    record,
+    description: resolved.description,
+    keywordFooterText: undefined,
+    descriptionRank: record.maxLevel ?? 1,
+    descriptionMaxRank: record.maxLevel,
+    influencingEnlightenSlots: [],
+    influencingTalentIds: [],
+    influenceBadges: [],
+  }
+}
+
+function buildAwakenerEnlightenReferenceInfo(
+  record: AwakenerEnlightenRecord,
+  formulaContext?: PublicFormulaContext,
+): DatabaseReferenceInfo<AwakenerEnlightenRecord> {
+  const resolved = resolveDescribedRecord(record, {formulaContext}, {formulaContext})
+
+  return {
+    kind: 'enlighten',
+    id: record.id,
+    name: record.displayName,
+    label: `Enlighten · ${record.slot}`,
+    record,
+    description: resolved.description,
+    keywordFooterText: undefined,
+    descriptionRank: undefined,
+    descriptionMaxRank: undefined,
+    influencingEnlightenSlots: [],
+    influencingTalentIds: [],
+    influenceBadges: [],
+  }
+}
+
 function buildOverlayNameSet(overlays: AwakenerOverlayRecord[]): Set<string> {
   const names = new Set<string>()
   for (const overlay of overlays) {
@@ -352,9 +403,42 @@ export function buildGlobalDatabaseReferenceLayer({
 export async function hydrateGlobalDatabaseReferenceInfo(
   info: DatabaseReferenceInfo,
   formulaContext?: PublicFormulaContext,
+  stats: FullStats | null = null,
 ): Promise<DatabaseReferenceInfo> {
-  if (info.description || !['wheel', 'posse', 'covenant'].includes(info.kind)) {
+  if (info.description) {
     return info
+  }
+
+  if (info.kind === 'skill') {
+    const {loadPublicSkillDetailById} = await import('./public-detail-record-adapters')
+    const record = await loadPublicSkillDetailById(info.id)
+    return record ? buildAwakenerSkillReferenceInfo(record, formulaContext) : info
+  }
+
+  if (info.kind === 'talent') {
+    const {loadPublicTalentDetailById} = await import('./public-detail-record-adapters')
+    const record = await loadPublicTalentDetailById(info.id)
+    return record ? buildAwakenerTalentReferenceInfo(record, formulaContext) : info
+  }
+
+  if (info.kind === 'enlighten') {
+    const {loadPublicEnlightenDetailById} = await import('./public-detail-record-adapters')
+    const record = await loadPublicEnlightenDetailById(info.id)
+    return record ? buildAwakenerEnlightenReferenceInfo(record, formulaContext) : info
+  }
+
+  if (info.kind === 'derived-skill') {
+    const {loadPublicDerivedSkillDetailById} = await import('./public-detail-record-adapters')
+    const record = await loadPublicDerivedSkillDetailById(info.id)
+    return record ? buildDerivedSkillReferenceInfo(record, formulaContext) : info
+  }
+
+  if (info.kind === 'overlay') {
+    const {loadPublicOverlayDetailById} = await import('./public-detail-record-adapters')
+    const record = await loadPublicOverlayDetailById(info.id)
+    return record
+      ? buildDatabaseOverlayReferenceInfo(record, stats, info.influenceBadges ?? [], formulaContext)
+      : info
   }
 
   if (info.kind === 'wheel') {

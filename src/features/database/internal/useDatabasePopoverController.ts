@@ -42,7 +42,16 @@ interface DatabasePopoverControllerOptions {
 }
 
 const TRAIL_OPENED_EVENT = 'database:trail-opened'
-const LAZY_GLOBAL_REFERENCE_KINDS = new Set(['wheel', 'posse', 'covenant'])
+const LAZY_GLOBAL_REFERENCE_KINDS = new Set([
+  'covenant',
+  'derived-skill',
+  'enlighten',
+  'overlay',
+  'posse',
+  'skill',
+  'talent',
+  'wheel',
+])
 
 function needsLazyReferenceHydration(reference: DatabaseReferenceInfo): boolean {
   return !reference.description && LAZY_GLOBAL_REFERENCE_KINDS.has(reference.kind)
@@ -135,8 +144,8 @@ export function useDatabasePopoverController({
 
   const hydrateReference = useCallback(
     (reference: DatabaseReferenceInfo) =>
-      hydrateGlobalDatabaseReferenceInfo(reference, formulaContext),
-    [formulaContext],
+      hydrateGlobalDatabaseReferenceInfo(reference, formulaContext, stats),
+    [formulaContext, stats],
   )
 
   const resolveReferenceByName = useCallback(
@@ -267,9 +276,40 @@ export function useDatabasePopoverController({
 
   const openRootOverlay = useCallback(
     (overlay: AwakenerOverlayRecord, event: DatabasePopoverAnchorEvent) => {
-      openRootTrailEntry(buildOverlayEntry(overlay), event)
+      event.stopPropagation()
+      const entry = buildOverlayEntry(overlay)
+      const reference =
+        (referenceLayer ? resolveDatabaseReferenceInfoById(referenceLayer, overlay.id) : null) ??
+        resolveReferenceByNameFromCurrentLayer(overlay.displayName)
+      if (!reference || !needsLazyReferenceHydration(reference)) {
+        openRootTrailEntry(entry, event)
+        return
+      }
+
+      const anchorElement = event.currentTarget
+      const anchorRect = anchorElement.getBoundingClientRect()
+      const hydrationRequest = invalidateRootHydration()
+      void hydrateReference(reference).then((hydratedReference) => {
+        if (hydrationRequest !== rootHydrationRequestRef.current) {
+          return
+        }
+        openRootTrailEntryAtAnchor(
+          buildSelectedTrailEntry(hydratedReference),
+          anchorElement,
+          anchorRect,
+        )
+      })
     },
-    [buildOverlayEntry, openRootTrailEntry],
+    [
+      buildOverlayEntry,
+      buildSelectedTrailEntry,
+      hydrateReference,
+      invalidateRootHydration,
+      openRootTrailEntry,
+      openRootTrailEntryAtAnchor,
+      referenceLayer,
+      resolveReferenceByNameFromCurrentLayer,
+    ],
   )
 
   const openNestedReferenceByName = useCallback(
@@ -313,11 +353,41 @@ export function useDatabasePopoverController({
     (overlay: AwakenerOverlayRecord) => {
       setTrail((prev) => {
         const sourceEntry = prev.at(-1)
+        const sourceLayer = sourceEntry?.referenceLayerOverride ?? referenceLayer
+        const reference =
+          (sourceLayer ? resolveDatabaseReferenceInfoById(sourceLayer, overlay.id) : null) ??
+          resolveReferenceByName(sourceLayer, overlay.displayName)
+        if (reference && needsLazyReferenceHydration(reference)) {
+          const sourceIndex = prev.length - 1
+          const sourceKey = sourceEntry?.key
+          void hydrateReference(reference).then((hydratedReference) => {
+            setTrail((current) => {
+              const currentSourceEntry = current.at(sourceIndex)
+              if (!sourceKey || currentSourceEntry?.key !== sourceKey) {
+                return current
+              }
+              const entry = buildTrailEntry(
+                hydratedReference,
+                currentSourceEntry.selectedEnlightenSlot ?? selectedEnlightenSlot,
+                currentSourceEntry.referenceLayerOverride ?? null,
+              )
+              return insertTrailEntryAfterIndex(current, sourceIndex, entry)
+            })
+          })
+          return prev
+        }
         const entry = buildOverlayEntry(overlay, sourceEntry?.referenceLayerOverride ?? null)
         return insertTrailEntryAfterIndex(prev, prev.length - 1, entry)
       })
     },
-    [buildOverlayEntry],
+    [
+      buildOverlayEntry,
+      buildTrailEntry,
+      hydrateReference,
+      referenceLayer,
+      resolveReferenceByName,
+      selectedEnlightenSlot,
+    ],
   )
 
   const openNestedReferenceByNameFrom = useCallback(
@@ -374,11 +444,40 @@ export function useDatabasePopoverController({
     (sourceIndex: number, overlay: AwakenerOverlayRecord) => {
       setTrail((prev) => {
         const sourceEntry = prev.at(sourceIndex)
+        const sourceLayer = sourceEntry?.referenceLayerOverride ?? referenceLayer
+        const reference =
+          (sourceLayer ? resolveDatabaseReferenceInfoById(sourceLayer, overlay.id) : null) ??
+          resolveReferenceByName(sourceLayer, overlay.displayName)
+        if (reference && needsLazyReferenceHydration(reference)) {
+          const sourceKey = sourceEntry?.key
+          void hydrateReference(reference).then((hydratedReference) => {
+            setTrail((current) => {
+              const currentSourceEntry = current.at(sourceIndex)
+              if (!sourceKey || currentSourceEntry?.key !== sourceKey) {
+                return current
+              }
+              const entry = buildTrailEntry(
+                hydratedReference,
+                currentSourceEntry.selectedEnlightenSlot ?? selectedEnlightenSlot,
+                currentSourceEntry.referenceLayerOverride ?? null,
+              )
+              return insertTrailEntryAfterIndex(current, sourceIndex, entry)
+            })
+          })
+          return prev
+        }
         const entry = buildOverlayEntry(overlay, sourceEntry?.referenceLayerOverride ?? null)
         return insertTrailEntryAfterIndex(prev, sourceIndex, entry)
       })
     },
-    [buildOverlayEntry],
+    [
+      buildOverlayEntry,
+      buildTrailEntry,
+      hydrateReference,
+      referenceLayer,
+      resolveReferenceByName,
+      selectedEnlightenSlot,
+    ],
   )
 
   const closeTrailFrom = useCallback((index: number) => {

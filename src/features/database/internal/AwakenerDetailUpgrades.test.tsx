@@ -15,6 +15,7 @@ import {
 
 vi.mock('@/domain/relics', () => ({
   getPortraitRelicByAwakenerId: () => null,
+  loadRelicDescriptionById: vi.fn(),
 }))
 
 vi.mock('@/domain/relic-assets', () => ({

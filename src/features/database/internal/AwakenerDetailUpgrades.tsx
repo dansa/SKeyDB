@@ -1,11 +1,11 @@
-import {useCallback, useMemo} from 'react'
+import {useCallback, useEffect, useMemo, useState} from 'react'
 
 import enlightensStars from '@/assets/icons/Battle_Card_Buff_045.webp'
 import type {Awakener} from '@/domain/awakeners'
 import type {ResolvedAwakenerDatabaseShellView} from '@/domain/awakeners-database-view'
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import {getRelicPortraitAssetByAssetId} from '@/domain/relic-assets'
-import {getPortraitRelicByAwakenerId} from '@/domain/relics'
+import {getPortraitRelicByAwakenerId, loadRelicDescriptionById} from '@/domain/relics'
 
 import {useDatabasePopoverControllerContext} from './database-popover-context'
 import {DatabaseScopedRichDescription} from './DatabaseScopedRichDescription'
@@ -34,6 +34,33 @@ export function AwakenerDetailUpgrades({
   showTagIcons = true,
 }: AwakenerDetailUpgradesProps) {
   const popoverController = useDatabasePopoverControllerContext()
+  const portraitRelic = getPortraitRelicByAwakenerId(awakener.id)
+  const [loadedPortraitRelicDescription, setLoadedPortraitRelicDescription] = useState<{
+    relicId: string
+    description: string
+  } | null>(null)
+  useEffect(() => {
+    let isCurrent = true
+    if (!portraitRelic) {
+      return () => {
+        isCurrent = false
+      }
+    }
+
+    void loadRelicDescriptionById(portraitRelic.id).then((description) => {
+      if (isCurrent) {
+        setLoadedPortraitRelicDescription({relicId: portraitRelic.id, description})
+      }
+    })
+
+    return () => {
+      isCurrent = false
+    }
+  }, [portraitRelic])
+  const portraitRelicDescription =
+    loadedPortraitRelicDescription && loadedPortraitRelicDescription.relicId === portraitRelic?.id
+      ? loadedPortraitRelicDescription.description
+      : (portraitRelic?.description ?? '')
   const renderDescription = useCallback(
     (item: DetailSectionItem) => (
       <DatabaseScopedRichDescription
@@ -161,7 +188,6 @@ export function AwakenerDetailUpgrades({
       descriptionMaxRank: entry.descriptionMaxRank,
     }))
 
-  const portraitRelic = getPortraitRelicByAwakenerId(awakener.id)
   const portraitRelicAsset = portraitRelic
     ? getRelicPortraitAssetByAssetId(portraitRelic.assetId)
     : undefined
@@ -196,7 +222,7 @@ export function AwakenerDetailUpgrades({
                     showVisibleScaling={showVisibleScaling}
                     skillLevel={shellView.skillLevel}
                     stats={shellView.stats}
-                    text={portraitRelic.description}
+                    text={portraitRelicDescription}
                   />
                 </p>
               </div>

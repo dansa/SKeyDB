@@ -13,6 +13,11 @@ import {
   primaryScalingBaseSchema,
   statScalingSchema,
   substatScalingSchema,
+  type AwakenerEnlightenRecord,
+  type AwakenerOverlayRecord,
+  type AwakenerSkillRecord,
+  type AwakenerTalentRecord,
+  type DerivedSkillRecord,
 } from './awakener-source-schema'
 import type {AwakenerFullRecord} from './awakeners-full'
 import type {CovenantFullRecord} from './covenants-full'
@@ -57,15 +62,25 @@ type PublicV3EnlightenRecord = PublicRecord & {
   slot?: string
 }
 type PublicV3OverlayRecord = PublicRecord & {
+  aliases?: string[]
+  descriptionArgs?: unknown
+  descriptionTemplate?: string
+  iconId?: string
   ownerAwakenerId?: string
+  overlayType?: string
   upgrades?: PublicV3UpgradeEntry[]
 }
 type PublicV3SkillRecord = PublicRecord & {
+  cardKeywords?: unknown[]
+  descriptionArgs?: unknown
+  descriptionTemplate?: string
   ownerAwakenerId?: string
   slot?: string
   upgrades?: PublicV3UpgradeEntry[]
 }
 type PublicV3TalentRecord = PublicRecord & {
+  descriptionArgs?: unknown
+  descriptionTemplate?: string
   family?: string
   maxLevel?: number
   ownerAwakenerId?: string
@@ -171,6 +186,7 @@ const awakenerFullByIdPromises = new Map<string, Promise<AwakenerFullRecord | un
 const wheelFullByIdPromises = new Map<string, Promise<WheelFullRecord | undefined>>()
 const posseFullByIdPromises = new Map<string, Promise<PosseFullRecord | undefined>>()
 const covenantFullByIdPromises = new Map<string, Promise<CovenantFullRecord | undefined>>()
+const detailRecordByIdPromises = new Map<string, Promise<PublicRecord | undefined>>()
 const SUBSTAT_PERCENT_KEYS = new Set([
   'CritRate',
   'CritDamage',
@@ -193,6 +209,25 @@ function isPublicPosseId(id: string): boolean {
 
 function isPublicCovenantId(id: string): boolean {
   return /^covenant-\d{4}$/.test(id)
+}
+
+function isPublicRecordId(scope: PublicDataScope, id: string): boolean {
+  switch (scope) {
+    case 'derived-skills':
+      return /^derived\.[a-z0-9][a-z0-9.-]*$/.test(id)
+    case 'enlightens':
+      return /^enlighten\.[a-z0-9][a-z0-9.-]*$/.test(id)
+    case 'overlays':
+      return /^overlay\.[a-z0-9][a-z0-9.-]*$/.test(id)
+    case 'relics':
+      return /^relic-\d{4}$/.test(id)
+    case 'skills':
+      return /^skill\.[a-z0-9][a-z0-9.-]*$/.test(id)
+    case 'talents':
+      return /^talent\.[a-z0-9][a-z0-9.-]*$/.test(id)
+    default:
+      return false
+  }
 }
 
 function resolvePublicAwakenerId(awakenerId: string | number): string | undefined {
@@ -316,6 +351,25 @@ async function loadPublicRecordsByIds<TRecord extends PublicRecord>(
 ): Promise<TRecord[]> {
   const records = await Promise.all((ids ?? []).map((id) => loadPublicRecord(scope, id)))
   return records.filter((record): record is TRecord => Boolean(record))
+}
+
+async function loadPublicDetailRecordById<TRecord extends PublicRecord>(
+  scope: PublicDataScope,
+  id: string,
+): Promise<TRecord | undefined> {
+  if (!isPublicRecordId(scope, id)) {
+    return undefined
+  }
+
+  const cacheKey = `${scope}:${id}`
+  const cachedPromise = detailRecordByIdPromises.get(cacheKey)
+  if (cachedPromise) {
+    return cachedPromise as Promise<TRecord | undefined>
+  }
+
+  const recordPromise = loadPublicRecord(scope, id)
+  detailRecordByIdPromises.set(cacheKey, recordPromise)
+  return recordPromise as Promise<TRecord | undefined>
 }
 
 function parsePublicDetailRecord(scope: 'awakeners', value: unknown): PublicV3AwakenerRecord
@@ -566,4 +620,45 @@ export async function loadPublicCovenantDetailById(
   )
   covenantFullByIdPromises.set(covenantId, recordPromise)
   return recordPromise
+}
+
+export async function loadPublicSkillDetailById(
+  skillId: string,
+): Promise<AwakenerSkillRecord | undefined> {
+  const record = await loadPublicDetailRecordById<PublicV3SkillRecord>('skills', skillId)
+  return record ? adaptPublicV3SkillRecord(record) : undefined
+}
+
+export async function loadPublicTalentDetailById(
+  talentId: string,
+): Promise<AwakenerTalentRecord | undefined> {
+  const record = await loadPublicDetailRecordById<PublicV3TalentRecord>('talents', talentId)
+  return record ? adaptPublicV3TalentRecord(record) : undefined
+}
+
+export async function loadPublicEnlightenDetailById(
+  enlightenId: string,
+): Promise<AwakenerEnlightenRecord | undefined> {
+  const record = await loadPublicDetailRecordById<PublicV3EnlightenRecord>(
+    'enlightens',
+    enlightenId,
+  )
+  return record ? adaptPublicV3EnlightenRecord(record) : undefined
+}
+
+export async function loadPublicDerivedSkillDetailById(
+  derivedSkillId: string,
+): Promise<DerivedSkillRecord | undefined> {
+  const record = await loadPublicDetailRecordById<PublicV3DerivedSkillRecord>(
+    'derived-skills',
+    derivedSkillId,
+  )
+  return record ? adaptPublicV3DerivedSkillRecord(record) : undefined
+}
+
+export async function loadPublicOverlayDetailById(
+  overlayId: string,
+): Promise<AwakenerOverlayRecord | undefined> {
+  const record = await loadPublicDetailRecordById<PublicV3OverlayRecord>('overlays', overlayId)
+  return record ? adaptPublicV3OverlayRecord(record) : undefined
 }

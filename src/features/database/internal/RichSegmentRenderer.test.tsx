@@ -691,6 +691,30 @@ describe('RichSegmentRenderer', () => {
     )
   })
 
+  it('keeps catalog-backed mechanic tokens clickable so detail can hydrate on demand', () => {
+    const onMechanicClick = vi.fn()
+    const catalogOverlay: AwakenerOverlayRecord = {
+      ...TEST_OVERLAY,
+      descriptionTemplate: '',
+    }
+
+    render(
+      <RichSegmentRenderer
+        onMechanicClick={onMechanicClick}
+        overlays={[catalogOverlay]}
+        segment={{type: 'mechanic', name: 'Counter'}}
+        skillLevel={1}
+        stats={null}
+        variant='inline'
+      />,
+    )
+
+    const button = screen.getByRole('button', {name: 'Counter'})
+    expect(button).not.toHaveAttribute('title', 'Details coming soon')
+    fireEvent.click(button)
+    expect(onMechanicClick).toHaveBeenCalledWith(catalogOverlay, expect.any(Object))
+  })
+
   it('renders mechanic tokens as plain text when details exist but no popover callback is provided', () => {
     render(
       <RichSegmentRenderer
