@@ -1,5 +1,7 @@
 import {describe, expect, it} from 'vitest'
 
+import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {PUBLIC_DATA_SCOPES, type PublicDataScope} from '@/data-access/public-data/contract'
 import {loadPublicRecord} from '@/data-access/public-data/repository'
 
 import type {AwakenerSkillRecord} from './awakener-source-schema'
@@ -15,6 +17,17 @@ import {
 import type {PublicDescriptionArg} from './public-description-args'
 import {loadPublicAwakenerDetailById} from './public-detail-record-adapters'
 import {adaptPublicV3TalentRecord} from './public-v3-awakener-record-adapters'
+
+const DETAIL_DESCRIPTION_SCOPES: PublicDataScope[] = [...PUBLIC_DATA_SCOPES]
+const DESCRIPTION_ARG_KEY_PATTERN = String.raw`(?:(?:StateArg|DescArg|Arg)\d+|[A-Za-z][A-Za-z0-9_]*)`
+const DESCRIPTION_ARG_TOKEN_PATTERN = new RegExp(
+  String.raw`\[(?:(?:[A-Za-z]+|\{[^}\]]+\}):)?(?<argKey>${DESCRIPTION_ARG_KEY_PATTERN})\]`,
+  'g',
+)
+const PLURAL_MACRO_PATTERN = new RegExp(
+  String.raw`\{plural:(?<argToken>\[(?:(?:[A-Za-z]+|\{[^}\]]+\}):)?${DESCRIPTION_ARG_KEY_PATTERN}\])\|(?<singular>[^|{}]+)\|(?<plural>[^{}]+)\}`,
+  'g',
+)
 
 async function loadResolvedSkill(
   awakenerId: number,
@@ -46,6 +59,64 @@ async function loadResolvedSkill(
 }
 
 describe('description-args', () => {
+  it('keeps public description arg tokens aligned with detail record args', async () => {
+    const issues: string[] = []
+
+    for (const scope of DETAIL_DESCRIPTION_SCOPES) {
+      const records = await Promise.all(
+        getPublicCatalogRecords(scope).map((entry) => loadPublicRecord(scope, entry.id)),
+      )
+
+      for (const record of records) {
+        if (!record || typeof record.descriptionTemplate !== 'string') {
+          continue
+        }
+
+        const descriptionArgs =
+          typeof record.descriptionArgs === 'object'
+            ? (record.descriptionArgs as Record<string, unknown>)
+            : {}
+        for (const match of record.descriptionTemplate.matchAll(DESCRIPTION_ARG_TOKEN_PATTERN)) {
+          const argKey = match.groups?.argKey
+          if (argKey && !Object.hasOwn(descriptionArgs, argKey)) {
+            issues.push(`${record.id}: missing description arg ${argKey} for ${match[0]}`)
+          }
+        }
+
+        let pluralIndex = record.descriptionTemplate.indexOf('{plural:')
+        while (pluralIndex >= 0) {
+          PLURAL_MACRO_PATTERN.lastIndex = pluralIndex
+          const match = PLURAL_MACRO_PATTERN.exec(record.descriptionTemplate)
+          if (match?.index !== pluralIndex) {
+            issues.push(
+              `${record.id}: malformed plural macro near ${record.descriptionTemplate.slice(pluralIndex, pluralIndex + 80)}`,
+            )
+          }
+          pluralIndex = record.descriptionTemplate.indexOf('{plural:', pluralIndex + 1)
+        }
+      }
+    }
+
+    expect(issues).toEqual([])
+  })
+
+  it('resolves named public arg keys inside plural macros', async () => {
+    const delayedSacrifice = await loadPublicRecord('overlays', 'overlay.global.delayed-sacrifice')
+    expect(delayedSacrifice).toBeDefined()
+    if (!delayedSacrifice) {
+      throw new Error('Missing overlay.global.delayed-sacrifice')
+    }
+
+    const rendered = resolveDescriptionTemplate(
+      delayedSacrifice.descriptionTemplate as string,
+      delayedSacrifice.descriptionArgs as Record<string, PublicDescriptionArg>,
+    )
+
+    expect(rendered).toContain('gaining X stacks of the {Sacrifice} state')
+    expect(rendered).not.toContain('plural:')
+    expect(rendered).not.toContain('[Layer]')
+  })
+
   it('resolves linear talent ladders across non-skill max levels', async () => {
     const talentRecord = await loadPublicRecord('talents', 'talent.xu.soulforge-aptitude')
     const talent = talentRecord ? adaptPublicV3TalentRecord(talentRecord) : undefined

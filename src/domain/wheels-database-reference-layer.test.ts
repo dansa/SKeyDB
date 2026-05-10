@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import type {AwakenerOverlayRecord} from './awakener-source-schema'
+import type {AwakenerOverlayRecord, DerivedSkillRecord} from './awakener-source-schema'
 import {resolveDatabaseOverlay, resolveDatabaseReferenceInfo} from './database-reference-info'
 import {buildWheelDatabaseReferenceLayer} from './wheels-database-reference-layer'
 import type {WheelFullRecord} from './wheels-full'
@@ -38,10 +38,25 @@ function buildOverlayRecords(): AwakenerOverlayRecord[] {
   ]
 }
 
+function buildDerivedSkillRecords(): DerivedSkillRecord[] {
+  return [
+    {
+      id: 'derived.global.embryo',
+      displayName: 'Embryo',
+      descriptionTemplate: '{Caro} Awakeners consume this on Exalt.',
+      descriptionArgs: {},
+      cardKeywords: [],
+      childDerivedSkillIds: [],
+      variants: [],
+    },
+  ]
+}
+
 describe('wheels-database-reference-layer', () => {
   it('resolves overlay aliases through the neutral reference contract with shared labels', () => {
     const referenceLayer = buildWheelDatabaseReferenceLayer({
       activeWheelId: 'wheel-0001',
+      derivedSkills: buildDerivedSkillRecords(),
       overlays: buildOverlayRecords(),
       wheelRecords: [buildWheelRecord()],
     })
@@ -60,5 +75,55 @@ describe('wheels-database-reference-layer', () => {
         displayName: 'Status',
       }),
     )
+  })
+
+  it('resolves global derived cards referenced from wheel descriptions', () => {
+    const referenceLayer = buildWheelDatabaseReferenceLayer({
+      activeWheelId: 'wheel-0001',
+      derivedSkills: buildDerivedSkillRecords(),
+      overlays: buildOverlayRecords(),
+      wheelRecords: [
+        {
+          ...buildWheelRecord(),
+          descriptionTemplate: 'Consume {Embryo}.',
+        },
+      ],
+    })
+
+    expect(referenceLayer.cardNames.has('Embryo')).toBe(true)
+    expect(resolveDatabaseReferenceInfo(referenceLayer, 'Embryo')).toEqual(
+      expect.objectContaining({
+        kind: 'derived-skill',
+        id: 'derived.global.embryo',
+        name: 'Embryo',
+      }),
+    )
+  })
+
+  it('does not pull owner-specific overlays into ownerless wheel reference layers by alias alone', () => {
+    const referenceLayer = buildWheelDatabaseReferenceLayer({
+      activeWheelId: 'wheel-0001',
+      derivedSkills: buildDerivedSkillRecords(),
+      overlays: [
+        {
+          id: 'overlay.pickman.painted-orisons',
+          displayName: 'Painted Orisons',
+          ownerAwakenerId: 40,
+          overlayType: 'mechanic',
+          aliases: ['Orisons'],
+          descriptionTemplate: 'Painted Orisons text.',
+          descriptionArgs: {},
+        },
+      ],
+      wheelRecords: [
+        {
+          ...buildWheelRecord(),
+          ownerAwakenerId: undefined,
+          descriptionTemplate: 'Team Unique: Increase available {Orisons}.',
+        },
+      ],
+    })
+
+    expect(resolveDatabaseReferenceInfo(referenceLayer, 'Orisons')).toBeNull()
   })
 })

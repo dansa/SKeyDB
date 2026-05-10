@@ -77,4 +77,34 @@ describe('database-rich-text', () => {
       {type: 'text', value: '.'},
     ])
   })
+
+  it('parses named public arg keys inside plural macros', () => {
+    expect(
+      parseDatabaseRichDescription({
+        record: {
+          id: 'overlay.global.delayed-sacrifice',
+          displayName: 'Delayed Sacrifice',
+          overlayType: 'mechanic',
+          aliases: [],
+          descriptionTemplate:
+            'Gaining [Layer] {plural:[Layer]|stack|stacks} of the {Sacrifice} state.',
+          descriptionArgs: {
+            Layer: {
+              kind: 'fixed',
+              value: 'X',
+            },
+          },
+        },
+        cardNames: new Set<string>(),
+      }),
+    ).toEqual([
+      {type: 'text', value: 'Gaining '},
+      {type: 'descriptionArg', argKey: 'Layer', channel: null},
+      {type: 'text', value: ' '},
+      {type: 'argPlural', argKey: 'Layer', channel: null, singular: 'stack', plural: 'stacks'},
+      {type: 'text', value: ' of the '},
+      {type: 'mechanic', name: 'Sacrifice'},
+      {type: 'text', value: ' state.'},
+    ])
+  })
 })

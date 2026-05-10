@@ -92,10 +92,12 @@ const KNOWN_REALMS = new Set(['Chaos', 'Aequor', 'Caro', 'Ultra'])
 
 const SCALING_RE = /\((\d[\d./]*(?:\/\d[\d./]*)+)(%)?\s*(?:\{([^}]+)\})?\)/
 const PROSE_SCALING_RE = /(\d+(?:\.\d+)?)(%)\s+of\s+\{([^}]+)\}/
-const DESCRIPTION_ARG_RE =
-  /\[(?:(?<channel>[A-Za-z]+|\{[^}\]]+\}):)?(?<argKey>(?:StateArg|DescArg|Arg)\d+)\]/
+const DESCRIPTION_ARG_KEY_PATTERN = String.raw`(?:StateArg|DescArg|Arg)\d+|[A-Za-z][A-Za-z0-9_]*`
+const DESCRIPTION_ARG_RE = new RegExp(
+  String.raw`\[(?:(?<channel>[A-Za-z]+|\{[^}\]]+\}):)?(?<argKey>${DESCRIPTION_ARG_KEY_PATTERN})\]`,
+)
 const PLURAL_MACRO_RE =
-  /\{plural:(?<argToken>\[(?:(?:[A-Za-z]+|\{[^}\]]+\}):)?(?:StateArg|DescArg|Arg)\d+\])\|(?<singular>[^|{}]+)\|(?<plural>[^{}]+)\}/
+  /\{plural:(?<argToken>\[(?:(?:[A-Za-z]+|\{[^}\]]+\}):)?(?:(?:StateArg|DescArg|Arg)\d+|[A-Za-z][A-Za-z0-9_]*)\])\|(?<singular>[^|{}]+)\|(?<plural>[^{}]+)\}/
 const ORDINAL_MACRO_RE = /\{ordinal:(?<value>[^{}]+)\}/
 
 type NextRichMatch =

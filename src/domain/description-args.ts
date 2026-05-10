@@ -9,12 +9,16 @@ import {buildPublicFormulaContext} from './public-formula-context'
 import {fmtNum} from './scaling'
 
 const COMPUTABLE_STAT_KEYS = new Set(['ATK', 'DEF', 'CON'])
-const ARG_TOKEN_PATTERN =
-  /\[(?:(?<channel>[A-Za-z]+|\{[^}\]]+\}):)?(?<argKey>(?:StateArg|DescArg|Arg)\d+)\]/g
-const ARG_TOKEN_EXTRACT_PATTERN =
-  /\[(?:(?<channel>[A-Za-z]+|\{[^}\]]+\}):)?(?<argKey>(?:StateArg|DescArg|Arg)\d+)\]/
+const DESCRIPTION_ARG_KEY_PATTERN = String.raw`(?:StateArg|DescArg|Arg)\d+|[A-Za-z][A-Za-z0-9_]*`
+const ARG_TOKEN_PATTERN = new RegExp(
+  String.raw`\[(?:(?<channel>[A-Za-z]+|\{[^}\]]+\}):)?(?<argKey>${DESCRIPTION_ARG_KEY_PATTERN})\]`,
+  'g',
+)
+const ARG_TOKEN_EXTRACT_PATTERN = new RegExp(
+  String.raw`\[(?:(?<channel>[A-Za-z]+|\{[^}\]]+\}):)?(?<argKey>${DESCRIPTION_ARG_KEY_PATTERN})\]`,
+)
 const PLURAL_MACRO_PATTERN =
-  /\{plural:(?<argToken>\[(?:(?:[A-Za-z]+|\{[^}\]]+\}):)?(?:StateArg|DescArg|Arg)\d+\])\|(?<singular>[^|{}]+)\|(?<plural>[^{}]+)\}/g
+  /\{plural:(?<argToken>\[(?:(?:[A-Za-z]+|\{[^}\]]+\}):)?(?:(?:StateArg|DescArg|Arg)\d+|[A-Za-z][A-Za-z0-9_]*)\])\|(?<singular>[^|{}]+)\|(?<plural>[^{}]+)\}/g
 const ORDINAL_MACRO_PATTERN = /\{ordinal:(?<value>[^{}]+)\}/g
 
 export interface DescriptionArgResolveContext {

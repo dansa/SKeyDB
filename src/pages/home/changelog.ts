@@ -5,6 +5,21 @@ export interface ChangelogItem {
 
 export const changelogItems: ChangelogItem[] = [
   {
+    date: '2026-05-10',
+    summary:
+      'Database browsing got a mobile polish pass: Awakeners and Wheels now use adaptive cards, compact dossier layouts on narrow screens, and cleaner filter controls.',
+  },
+  {
+    date: '2026-05-10',
+    summary:
+      'Database pages should feel lighter on first load now, with detail data fetched as needed instead of eagerly loading the whole database up front.',
+  },
+  {
+    date: '2026-05-10',
+    summary:
+      'Database card visuals were tuned across Awakeners, Wheels, Posses, and Covenants, including realm styling, hover feel, art framing, and small-screen spacing.',
+  },
+  {
     date: '2026-05-08',
     summary:
       'The database is much bigger now: Wheels, Posses, and Covenants have their own browse pages and detail popups alongside Awakeners.',
