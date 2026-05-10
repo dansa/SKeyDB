@@ -5,6 +5,8 @@ export type TrailDirection = 'up' | 'down'
 interface KeyedTrailEntry {
   key: string
   rect?: DOMRect
+  anchorElement?: HTMLElement
+  direction?: TrailDirection
 }
 
 export interface SkillTrailEntry extends KeyedTrailEntry {

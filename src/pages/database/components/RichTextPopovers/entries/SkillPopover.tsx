@@ -1,14 +1,16 @@
-import costIcon from '@/assets/icons/UI_Battel_White_Buff_094.png'
+import {memo, useCallback, useMemo} from 'react'
+
 import type {AwakenerFullStats} from '@/domain/awakeners-full'
-import {getColoredMainstatIcon} from '@/domain/mainstats'
 import {nextRichSegmentKey} from '@/pages/database/components/RichText/rich-segment-keys'
 import {memoizedParseRichDescription} from '@/pages/database/components/RichText/rich-text-cache'
 import {getDatabaseSkillNameColor} from '@/pages/database/utils/text-styles'
 
 import {RichSegmentRenderer} from '../../RichText/RichSegmentRenderer'
+import {ExpandableContent} from '../core/ExpandableContent'
 import type {PopoverHeaderModel} from '../core/popover-header-model'
 import {type TokenNavigationRequest} from '../core/popover-navigation'
 import {PopoverContent, PopoverShell} from '../core/PopoverShell'
+import {SkillHeaderIcon, SkillHeaderValue, type SkillType} from './SkillHeaderEyebrow'
 
 type SkillPopoverProps = Readonly<{
   name: string
@@ -18,16 +20,16 @@ type SkillPopoverProps = Readonly<{
   stats: AwakenerFullStats | null
   onClose: () => void
   onTokenNavigate: (request: TokenNavigationRequest) => void
-  onNavigateToCards?: () => void
+  onNavigateToCards?: (targetName?: string) => void
   skillLevel: number
   cost?: string
-  skillType?: 'command' | 'exalt' | 'talent' | 'enlighten'
+  skillType?: SkillType
   depth?: number
   totalDepth?: number
   onBack?: () => void
 }>
 
-export function SkillPopover({
+export const SkillPopover = memo(function SkillPopover({
   name,
   label,
   description,
@@ -43,8 +45,11 @@ export function SkillPopover({
   totalDepth,
   onBack,
 }: SkillPopoverProps) {
-  const segments = memoizedParseRichDescription(description, cardNames)
-  const isCommand = skillType === 'command'
+  const segments = useMemo(
+    () => memoizedParseRichDescription(description, cardNames),
+    [description, cardNames],
+  )
+
   const isExalt = skillType === 'exalt'
   const isRouse = label.toLowerCase() === 'rouse' || name.toLowerCase() === 'rouse'
   const skillNameColor = getDatabaseSkillNameColor({
@@ -53,65 +58,58 @@ export function SkillPopover({
     isRouse,
   })
 
-  const aliemusIcon = getColoredMainstatIcon('ALIEMUS_REGEN')
-  const baseAliemus = stats?.BaseAliemus ? Number.parseInt(stats.BaseAliemus, 10) : 100
-  const exaltValue = isExalt
-    ? name.toLowerCase().includes('over')
-      ? baseAliemus * 2
-      : baseAliemus
-    : null
-
   const segmentKeyCounts = new Map<string, number>()
 
-  const eyebrow = isCommand ? (
-    <span
-      className='inline-flex items-center gap-1.5 text-slate-300'
-      style={{fontSize: 'calc(var(--desc-font-scale, 1) * 12px)'}}
-    >
-      <img
-        alt=''
-        aria-hidden='true'
-        className='h-[1.4em] w-[1.4em] object-contain opacity-90'
-        draggable={false}
-        src={costIcon}
-      />
-      <span className='pt-0.5 font-medium' style={{color: '#ededed'}}>
-        {cost ?? label}
-      </span>
-    </span>
-  ) : isExalt ? (
-    <span
-      className='inline-flex items-center gap-1.5 text-slate-300'
-      style={{fontSize: 'calc(var(--desc-font-scale, 1) * 12px)'}}
-    >
-      {aliemusIcon && (
-        <img
-          alt=''
-          aria-hidden='true'
-          className='h-[1.1em] w-[1.1em] translate-y-[1px] object-contain'
-          draggable={false}
-          src={aliemusIcon}
+  const handleNavigateToCards = useCallback(() => {
+    onClose()
+    onNavigateToCards?.(name)
+  }, [name, onClose, onNavigateToCards])
+
+  const headerContent = (
+    <span className='flex min-w-0 items-center gap-1.5 overflow-hidden'>
+      <SkillHeaderIcon isInteractive={!!onNavigateToCards} name={name} skillType={skillType} />
+      <span className='flex min-w-0 items-baseline gap-2 overflow-hidden transition-colors'>
+        <SkillHeaderValue
+          cost={cost}
+          isInteractive={!!onNavigateToCards}
+          label={label}
+          name={name}
+          skillType={skillType}
+          stats={stats}
         />
-      )}
-      <span className='pt-0.5 font-medium text-amber-200/90'>{exaltValue}</span>
-    </span>
-  ) : (
-    <span
-      className='shrink-0 text-slate-500 italic'
-      style={{fontSize: 'calc(var(--desc-font-scale, 1) * 11px)'}}
-    >
-      {label}
+        <span className='mx-0.5 h-[1em] w-px shrink-0 translate-y-[0.15em] bg-white/10' />
+        <span
+          className={`min-w-0 overflow-hidden text-ellipsis whitespace-nowrap transition-colors ${
+            onNavigateToCards ? 'group-hover:!text-amber-100' : ''
+          }`}
+          style={{
+            color: skillNameColor,
+          }}
+        >
+          {name}
+        </span>
+
+        <span
+          className={`flex shrink-0 items-center overflow-hidden transition-all duration-300 ease-in-out ${
+            onNavigateToCards ? 'max-w-[1.2em] opacity-100' : 'max-w-0 opacity-0'
+          }`}
+        >
+          <span className='ml-1 text-slate-600 transition-colors group-hover:text-amber-300'>
+            &#8599;
+          </span>
+        </span>
+      </span>
     </span>
   )
 
   const header: PopoverHeaderModel = {
-    title: onNavigateToCards ? (
+    title: (
       <button
-        className='flex min-w-0 items-center gap-2 text-left transition-colors hover:text-amber-100'
-        onClick={() => {
-          onClose()
-          onNavigateToCards()
-        }}
+        className={`group flex w-fit min-w-0 items-center text-left transition-all ${
+          onNavigateToCards ? 'cursor-pointer' : 'cursor-default'
+        }`}
+        disabled={!onNavigateToCards}
+        onClick={handleNavigateToCards}
         style={{
           fontFamily: 'inherit',
           fontSize: 'inherit',
@@ -119,54 +117,37 @@ export function SkillPopover({
           letterSpacing: 'inherit',
           lineHeight: 'inherit',
         }}
-        title='View in Skills tab'
+        title={onNavigateToCards ? 'View in Skills tab' : undefined}
         type='button'
       >
-        <span className='flex min-w-0 items-center gap-3.5 overflow-hidden'>
-          {eyebrow}
-          <span
-            className='min-w-0 overflow-hidden text-ellipsis whitespace-nowrap'
-            style={{
-              color: skillNameColor,
-            }}
-          >
-            {name}
-          </span>
-          <span className='shrink-0 text-slate-600'>&#8599;</span>
-        </span>
+        {headerContent}
       </button>
-    ) : (
-      <span className='flex min-w-0 items-center gap-3.5 overflow-hidden'>
-        {eyebrow}
-        <span
-          className='min-w-0 overflow-hidden text-ellipsis whitespace-nowrap'
-          style={{
-            color: skillNameColor,
-          }}
-        >
-          {name}
-        </span>
-      </span>
     ),
   }
 
-  const depthIndicator =
-    totalDepth && totalDepth > 1 ? `Step ${String(depth)} of ${String(totalDepth)}` : undefined
-
   return (
-    <PopoverShell depthIndicator={depthIndicator} header={header} onBack={onBack} onClose={onClose}>
+    <PopoverShell
+      className='max-w-[560px] min-w-[280px]'
+      depth={depth}
+      header={header}
+      onBack={onBack}
+      onClose={onClose}
+      totalDepth={totalDepth}
+    >
       <PopoverContent className='mt-1.5'>
-        {segments.map((segment) => (
-          <RichSegmentRenderer
-            key={nextRichSegmentKey(segmentKeyCounts, segment)}
-            onTokenNavigate={onTokenNavigate}
-            segment={segment}
-            skillLevel={skillLevel}
-            stats={stats}
-            variant='popover'
-          />
-        ))}
+        <ExpandableContent>
+          {segments.map((segment) => (
+            <RichSegmentRenderer
+              key={nextRichSegmentKey(segmentKeyCounts, segment)}
+              onTokenNavigate={onTokenNavigate}
+              segment={segment}
+              skillLevel={skillLevel}
+              stats={stats}
+              variant='popover'
+            />
+          ))}
+        </ExpandableContent>
       </PopoverContent>
     </PopoverShell>
   )
-}
+})

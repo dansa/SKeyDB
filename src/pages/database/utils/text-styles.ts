@@ -2,12 +2,15 @@ import {DEFAULT_REALM_TINT, REALM_TINT_BY_LABEL} from '@/domain/factions'
 
 export const DATABASE_SECTION_TITLE_CLASS = 'ui-title px-4 pt-3 pb-2 text-slate-200'
 export const DATABASE_ITEM_NAME_CLASS = 'font-semibold text-amber-200/90 leading-tight'
+
+export const DATABASE_POPOVER_HEADER_FONT_SIZE = 'calc(var(--desc-font-scale, 1) * 14px)'
+export const DATABASE_POPOVER_CONTENT_FONT_SIZE = 'calc(var(--desc-font-scale, 1) * 12px)'
+
 export const DATABASE_ENTRY_TITLE_CLASS =
   'text-[13px] font-semibold tracking-wide text-amber-200/90 leading-tight'
-export const DATABASE_POPOVER_SHELL_CLASS =
-  'w-max max-w-[min(calc(100vw-2rem),480px)] overflow-hidden border border-white/4 bg-slate-950/98 shadow-sm'
+export const DATABASE_POPOVER_SHELL_CLASS = 'mx-auto w-full border border-white/4 bg-slate-950'
 export const DATABASE_POPOVER_HEADER_CLASS =
-  'relative -mx-3.5 -mt-2.5 mb-2 flex items-center justify-between gap-5 bg-transparent px-3.5 pt-3.5 pb-2'
+  'relative mb-2 flex items-center justify-between gap-3 bg-transparent pb-1'
 export const DATABASE_POPOVER_DIVIDER_CLASS =
   'mt-0.5 mb-2 h-px w-full bg-linear-to-r from-white/8 via-white/3 to-transparent'
 export const DATABASE_POPOVER_SURFACE_STYLE = {} as const

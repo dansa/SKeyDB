@@ -1,9 +1,17 @@
-import {useCallback, useRef} from 'react'
+import {useCallback, useEffect, useRef} from 'react'
 
 import {POPOVER_TIMINGS} from './popover-config'
 
 export function useHoverIntent(onOpen: (anchorElement: HTMLElement) => void) {
   const timerRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current !== null) {
+        window.clearTimeout(timerRef.current)
+      }
+    }
+  }, [])
 
   const onMouseEnter = useCallback(
     (event: React.MouseEvent) => {

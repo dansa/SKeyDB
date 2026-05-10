@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react'
+import {render, screen} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import type {AwakenerFullStats} from '@/domain/awakeners-full'
@@ -48,12 +48,10 @@ describe('ScalingPopover', () => {
   })
 
   it('renders a back-enabled depth indicator for nested scaling chains', () => {
-    const onBack = vi.fn()
-
     render(
       <ScalingPopover
         depth={3}
-        onBack={onBack}
+        onBack={vi.fn()}
         onClose={vi.fn()}
         stat='DEF'
         stats={BASE_STATS}
@@ -63,8 +61,7 @@ describe('ScalingPopover', () => {
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', {name: 'Step 3 of 4'}))
-    expect(onBack).toHaveBeenCalledTimes(1)
+    expect(screen.getByText('3')).toBeInTheDocument()
   })
 
   it('renders split columns for larger scaling tables and custom level labels', () => {

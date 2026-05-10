@@ -18,14 +18,21 @@ type NestedOpeners = Readonly<{
     name: string,
     sourceIndex: number,
     anchorElement: PopoverAnchorElement,
+    sourceIsFloating?: boolean,
   ) => void
-  openNestedTagTrail: (tag: Tag, sourceIndex: number, anchorElement: PopoverAnchorElement) => void
+  openNestedTagTrail: (
+    tag: Tag,
+    sourceIndex: number,
+    anchorElement: PopoverAnchorElement,
+    sourceIsFloating?: boolean,
+  ) => void
   openNestedScalingTrail: (
     values: number[],
     suffix: string,
     stat: string | null,
     sourceIndex: number,
     anchorElement: PopoverAnchorElement,
+    sourceIsFloating?: boolean,
   ) => void
 }>
 
@@ -33,6 +40,7 @@ export type TrailEntryRenderContext = Readonly<{
   depth: number
   totalDepth: number
   sourceIndex: number
+  sourceIsFloating?: boolean
   cardNames: Set<string>
   skillLevel: number
   stats: AwakenerFullStats | null
@@ -69,10 +77,20 @@ function createNestedTokenNavigator(context: TrailEntryRenderContext) {
   return (request: TokenNavigationRequest) => {
     switch (request.kind) {
       case 'skill':
-        context.openNestedSkillTrail(request.name, context.sourceIndex, request.anchorElement)
+        context.openNestedSkillTrail(
+          request.name,
+          context.sourceIndex,
+          request.anchorElement,
+          context.sourceIsFloating,
+        )
         return
       case 'tag':
-        context.openNestedTagTrail(request.tag, context.sourceIndex, request.anchorElement)
+        context.openNestedTagTrail(
+          request.tag,
+          context.sourceIndex,
+          request.anchorElement,
+          context.sourceIsFloating,
+        )
         return
       case 'scaling':
         context.openNestedScalingTrail(
@@ -81,6 +99,7 @@ function createNestedTokenNavigator(context: TrailEntryRenderContext) {
           request.stat,
           context.sourceIndex,
           request.anchorElement,
+          context.sourceIsFloating,
         )
     }
   }
@@ -130,11 +149,21 @@ function renderTagTrailEntry(entry: TagTrailEntry, context: TrailEntryRenderCont
 }
 
 function renderScalingTrailEntry(entry: ScalingTrailEntry, context: TrailEntryRenderContext) {
+  const isPsycheSurgeScaling = entry.key.startsWith('scaling-preview-')
+
   return (
     <ScalingPopover
-      currentLevel={context.sourceIndex === 0 ? context.skillLevel : 0}
+      currentLevel={
+        isPsycheSurgeScaling
+          ? entry.currentLevel
+          : context.sourceIndex === 0
+            ? context.skillLevel
+            : 0
+      }
       depth={context.depth}
       key={entry.key}
+      levelLabelPrefix={isPsycheSurgeScaling ? 'E3+' : 'Lv.'}
+      levelStart={isPsycheSurgeScaling ? 0 : 1}
       onBack={context.onBack}
       onClose={context.onClose}
       stat={entry.stat}

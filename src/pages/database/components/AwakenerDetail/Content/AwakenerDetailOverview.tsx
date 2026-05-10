@@ -15,7 +15,7 @@ type AwakenerDetailOverviewProps = Readonly<{
   cardNames: Set<string>
   skillLevel: number
   fontScale: FontScale
-  onNavigateToCards?: () => void
+  onNavigateToCards?: (targetName?: string) => void
   mode: 'copies' | 'talents'
   realmTint?: string
 }>

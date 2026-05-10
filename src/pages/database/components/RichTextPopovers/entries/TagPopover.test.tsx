@@ -34,14 +34,13 @@ describe('TagPopover', () => {
       throw new Error('Expected Weakness tag fixture to exist')
     }
 
-    const onBack = vi.fn()
     const onClose = vi.fn()
 
     render(
       <TagPopover
         cardNames={new Set()}
         depth={2}
-        onBack={onBack}
+        onBack={vi.fn()}
         onClose={onClose}
         onTokenNavigate={vi.fn()}
         skillLevel={1}
@@ -51,10 +50,9 @@ describe('TagPopover', () => {
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', {name: 'Step 2 of 3'}))
+    expect(screen.getByText('2')).toBeInTheDocument() // Corner depth
     fireEvent.click(screen.getByRole('button', {name: 'Close popover'}))
 
-    expect(onBack).toHaveBeenCalledTimes(1)
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 

@@ -4,25 +4,15 @@ import {describe, expect, it, vi} from 'vitest'
 import {PopoverContent, PopoverFooter, PopoverHeader} from './PopoverAtoms'
 
 describe('PopoverAtoms', () => {
-  it('renders a string title fallback with close and depth controls', () => {
+  it('renders a string title fallback with close controls', () => {
     const onClose = vi.fn()
-    const onBack = vi.fn()
 
-    render(
-      <PopoverHeader
-        depthIndicator='Step 2 of 3'
-        onBack={onBack}
-        onClose={onClose}
-        title='Fallback Title'
-      />,
-    )
+    render(<PopoverHeader onClose={onClose} title='Fallback Title' />)
 
     expect(screen.getByText('Fallback Title')).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', {name: 'Step 2 of 3'}))
     fireEvent.click(screen.getByRole('button', {name: 'Close popover'}))
 
-    expect(onBack).toHaveBeenCalledTimes(1)
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 
@@ -55,10 +45,18 @@ describe('PopoverAtoms', () => {
     expect(onAction).toHaveBeenCalledTimes(1)
   })
 
-  it('disables the depth indicator when no back handler exists', () => {
-    render(<PopoverHeader depthIndicator='Step 1 of 1' onClose={vi.fn()} title='Title' />)
-
-    expect(screen.getByRole('button', {name: 'Step 1 of 1'})).toBeDisabled()
+  it('uses center alignment for header content', () => {
+    render(
+      <PopoverHeader
+        header={{
+          title: 'Title',
+          eyebrow: 'Eyebrow',
+        }}
+        onClose={vi.fn()}
+      />,
+    )
+    const contentWrapper = screen.getByText('Title').parentElement
+    expect(contentWrapper).toHaveClass('items-center')
   })
 
   it('renders content and footer wrappers with their children', () => {

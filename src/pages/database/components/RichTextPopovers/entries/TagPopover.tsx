@@ -1,3 +1,5 @@
+import {memo, useMemo} from 'react'
+
 import type {AwakenerFullStats} from '@/domain/awakeners-full'
 import {getTagColor, getTagIcon, type Tag} from '@/domain/tags'
 
@@ -20,7 +22,7 @@ type TagPopoverProps = Readonly<{
   onBack?: () => void
 }>
 
-export function TagPopover({
+export const TagPopover = memo(function TagPopover({
   tag,
   cardNames,
   onClose,
@@ -31,7 +33,10 @@ export function TagPopover({
   totalDepth,
   onBack,
 }: TagPopoverProps) {
-  const segments = memoizedParseRichDescription(tag.description, cardNames)
+  const segments = useMemo(
+    () => memoizedParseRichDescription(tag.description, cardNames),
+    [tag.description, cardNames],
+  )
   const color = getTagColor(tag)
   const icon = tag.iconId && getTagIcon(tag.iconId) ? getTagIcon(tag.iconId) : null
   const segmentKeyCounts = new Map<string, number>()
@@ -46,11 +51,15 @@ export function TagPopover({
     },
   }
 
-  const depthIndicator =
-    totalDepth && totalDepth > 1 ? `Step ${String(depth)} of ${String(totalDepth)}` : undefined
-
   return (
-    <PopoverShell depthIndicator={depthIndicator} header={header} onBack={onBack} onClose={onClose}>
+    <PopoverShell
+      className='max-w-[340px] min-w-[240px]'
+      depth={depth}
+      header={header}
+      onBack={onBack}
+      onClose={onClose}
+      totalDepth={totalDepth}
+    >
       <PopoverContent className='mt-1.5'>
         {segments.map((segment) => (
           <RichSegmentRenderer
@@ -65,4 +74,4 @@ export function TagPopover({
       </PopoverContent>
     </PopoverShell>
   )
-}
+})

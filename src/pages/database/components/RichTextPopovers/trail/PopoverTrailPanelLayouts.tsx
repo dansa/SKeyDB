@@ -1,15 +1,8 @@
-import React, {isValidElement, useCallback, useLayoutEffect, useRef, type ReactNode} from 'react'
+import React, {isValidElement, useCallback, useEffect, useState, type ReactNode} from 'react'
 
-import {POPOVER_LAYOUT} from '../core/popover-config'
+import type {TrailEntry} from '@/pages/database/utils/popover-trail'
 
-type SinglePopoverProps = Readonly<{
-  anchorRect: DOMRect
-  direction: 'up' | 'down'
-  zIndex: number
-  children: ReactNode
-  mountRef: React.RefObject<HTMLDivElement | null>
-  onPosition: () => void
-}>
+import {SinglePopover} from './SinglePopover'
 
 type MobilePopoverTrailPanelProps = Readonly<{
   children: ReactNode[]
@@ -21,63 +14,12 @@ type MobilePopoverTrailPanelProps = Readonly<{
 type DesktopPopoverTrailPanelProps = Readonly<{
   children: ReactNode[]
   currentAnchorRect: DOMRect
-  entryRects?: (DOMRect | undefined)[]
+  trailRects?: (DOMRect | undefined)[]
   direction: 'up' | 'down'
   containerRef: React.RefObject<HTMLDivElement | null>
+  trail?: TrailEntry[]
+  floating?: TrailEntry[]
 }>
-
-function SinglePopover({
-  anchorRect,
-  direction,
-  zIndex,
-  children,
-  mountRef,
-  onPosition,
-}: SinglePopoverProps) {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useLayoutEffect(() => {
-    if (!ref.current) return
-    const el = ref.current
-    const rect = el.getBoundingClientRect()
-    const vw = globalThis.innerWidth
-    const vh = globalThis.innerHeight
-    const margin = POPOVER_LAYOUT.MARGIN
-    const gap = POPOVER_LAYOUT.GAP
-
-    let left = anchorRect.left
-    if (left + rect.width > vw - margin) {
-      left = vw - rect.width - margin
-    }
-    if (left < margin) {
-      left = margin
-    }
-
-    let top = direction === 'up' ? anchorRect.top - gap - rect.height : anchorRect.bottom + gap
-
-    if (top + rect.height > vh - margin) {
-      top = vh - rect.height - margin
-    }
-    if (top < margin) {
-      top = margin
-    }
-
-    el.style.top = `${String(top)}px`
-    el.style.left = `${String(left)}px`
-    onPosition()
-    mountRef.current ??= el
-  }, [anchorRect, direction, mountRef, onPosition])
-
-  return (
-    <div
-      className='fixed max-h-[calc(100vh-24px)] w-max max-w-[min(24rem,calc(100vw-24px))] bg-transparent shadow-none'
-      ref={ref}
-      style={{top: 0, left: -9999, zIndex: 950 + zIndex}}
-    >
-      {children}
-    </div>
-  )
-}
 
 export function MobilePopoverTrailPanel({
   children,
@@ -85,23 +27,43 @@ export function MobilePopoverTrailPanel({
   onCloseTop,
   containerRef,
 }: MobilePopoverTrailPanelProps) {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, 10)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [])
+
   return (
     <div
-      className='fixed bottom-4 left-1/2 z-950 flex w-max max-w-[min(24rem,calc(100vw-24px))] -translate-x-1/2 flex-col items-center'
+      className='pointer-events-none fixed right-0 bottom-4 left-0 z-950 flex flex-col items-center px-4'
       data-skill-popover=''
       ref={containerRef}
     >
-      {itemCount > 1 && (
-        <button
-          className='mb-1.5 flex items-center gap-1.5 border border-slate-700/60 bg-slate-950/98 px-3 py-1.5 text-xs font-semibold text-amber-200/80 shadow-lg backdrop-blur transition-colors hover:border-amber-500/60 hover:text-amber-100'
-          onClick={onCloseTop}
-          type='button'
-        >
-          <span className='text-amber-400'>&#8592;</span>
-          <span>Back</span>
-        </button>
-      )}
-      <div className='w-max max-w-full'>{children[itemCount - 1]}</div>
+      <div
+        className='pointer-events-auto flex w-full max-w-[min(24rem,100%)] flex-col items-center'
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'none' : 'translateY(10px)',
+          transition: 'transform 300ms ease-out, opacity 250ms ease-out',
+        }}
+      >
+        {itemCount > 1 && (
+          <button
+            className='mb-3 flex items-center gap-1.5 rounded-full border border-amber-200/20 bg-slate-900 px-4 py-2 text-[11px] font-bold tracking-wide text-amber-100 shadow-xl active:scale-95'
+            onClick={onCloseTop}
+            type='button'
+          >
+            <span className='text-amber-400'>&#8592;</span>
+            <span>BACK</span>
+          </button>
+        )}
+        <div className='flex w-full justify-center shadow-2xl'>{children[itemCount - 1]}</div>
+      </div>
     </div>
   )
 }
@@ -109,27 +71,43 @@ export function MobilePopoverTrailPanel({
 export function DesktopPopoverTrailPanel({
   children,
   currentAnchorRect,
-  entryRects,
+  trailRects,
   direction,
   containerRef,
+  trail = [],
+  floating = [],
 }: DesktopPopoverTrailPanelProps) {
-  const positionNoop = useCallback(() => undefined, [])
+  const positionNoop = useCallback(() => {
+    return undefined
+  }, [])
+
+  const allEntries = [...floating, ...trail]
 
   return (
     <div data-skill-popover='' ref={containerRef}>
       {children.map((child, index) => {
-        const entryRect = entryRects?.[index]
-        const rect = index === 0 ? currentAnchorRect : (entryRect ?? currentAnchorRect)
-        const childKey =
-          isValidElement(child) && child.key !== null
+        const entry = allEntries[index] as TrailEntry | undefined
+        const isFloating = index < floating.length
+        const trailIndex = isFloating ? -1 : index - floating.length
+
+        const rect = isFloating
+          ? (entry?.rect ?? currentAnchorRect)
+          : trailIndex === 0
+            ? currentAnchorRect
+            : (entry?.rect ?? trailRects?.[trailIndex] ?? entry?.rect ?? currentAnchorRect)
+
+        const entryDirection = entry?.direction ?? direction
+        const childKey = entry
+          ? entry.key
+          : isValidElement(child) && child.key !== null
             ? child.key
-            : `popover-${String(rect.left)}-${String(rect.top)}-${String(rect.width)}-${String(
-                rect.height,
-              )}`
+            : `popover-${String(index)}`
+
         return (
           <SinglePopover
             anchorRect={rect}
-            direction={direction}
+            direction={entryDirection}
+            id={childKey}
             key={childKey}
             mountRef={containerRef}
             onPosition={positionNoop}

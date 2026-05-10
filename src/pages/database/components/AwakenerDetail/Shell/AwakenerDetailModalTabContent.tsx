@@ -11,7 +11,7 @@ type AwakenerDetailModalTabContentProps = Readonly<{
   cardNames: Set<string>
   fontScale: FontScale
   fullData: AwakenerFull | null
-  onNavigateToCards: () => void
+  onNavigateToCards: (targetName?: string) => void
   skillLevel: number
   stats: AwakenerFullStats | null
   realmTint?: string

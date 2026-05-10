@@ -1,12 +1,13 @@
-import {fireEvent, render, screen} from '@testing-library/react'
+import {act, fireEvent, render, screen} from '@testing-library/react'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import type {AwakenerFull} from '@/domain/awakeners-full'
 import {resolveTag} from '@/domain/tags'
 
+import {GlobalPopoverContainer} from '../RichTextPopovers/trail/GlobalPopoverContainer'
 import * as popoverRenderersModule from '../RichTextPopovers/trail/popover-renderers'
+import {usePopoverStore} from '../RichTextPopovers/trail/usePopoverStore'
 import {RichDescription} from './RichDescription'
-import * as richDescriptionTrailModule from './useRichDescriptionTrail'
 
 vi.mock('../RichTextPopovers/trail/PopoverTrailPanel', () => ({
   PopoverTrailPanel: ({
@@ -96,13 +97,14 @@ const TEST_FULL_DATA: AwakenerFull = {
 }
 
 afterEach(() => {
+  act(() => {
+    usePopoverStore.getState().clear()
+  })
   vi.restoreAllMocks()
 })
 
 describe('RichDescription', () => {
   it('routes trail rendering through renderTrailEntry and preserves close callbacks for nested entries', () => {
-    const closeTrailTop = vi.fn()
-    const closeTrailFrom = vi.fn()
     const anchorElement = document.createElement('button')
     document.body.appendChild(anchorElement)
     anchorElement.getBoundingClientRect = () =>
@@ -118,45 +120,44 @@ describe('RichDescription', () => {
         toJSON: () => ({}),
       }) as DOMRect
 
-    vi.spyOn(richDescriptionTrailModule, 'useRichDescriptionTrail').mockReturnValue({
-      trail: [
-        {
-          key: 'skill:strike',
-          kind: 'skill',
-          name: 'Strike',
-          label: 'C1',
-          description: 'Strike description',
-        },
-        {
-          key: 'tag:weakness',
-          kind: 'tag',
-          tag: {
-            key: 'weakness',
-            label: 'Weakness',
-            description: 'desc',
-            iconId: 'UI_Battle_White_Buff_001',
-            aliases: [],
+    act(() => {
+      usePopoverStore.setState({
+        trail: [
+          {
+            key: 'skill:strike',
+            kind: 'skill',
+            name: 'Strike',
+            label: 'C1',
+            description: 'Strike description',
           },
+          {
+            key: 'tag:weakness',
+            kind: 'tag',
+            tag: {
+              key: 'weakness',
+              label: 'Weakness',
+              description: 'desc',
+              iconId: 'UI_Battle_White_Buff_001',
+              aliases: [],
+            },
+          },
+          {
+            key: 'scaling:atk',
+            kind: 'scaling',
+            values: [10, 20],
+            suffix: '%',
+            stat: 'ATK',
+          },
+        ],
+        anchorRect: anchorElement.getBoundingClientRect(),
+        anchorElement,
+        renderContext: {
+          cardNames: new Set(['Strike']),
+          fullData: TEST_FULL_DATA,
+          skillLevel: 1,
+          stats: TEST_FULL_DATA.stats,
         },
-        {
-          key: 'scaling:atk',
-          kind: 'scaling',
-          values: [10, 20],
-          suffix: '%',
-          stat: 'ATK',
-        },
-      ],
-      trailAnchorRect: anchorElement.getBoundingClientRect(),
-      trailAnchorElement: anchorElement,
-      clearTrail: vi.fn(),
-      openSkillTrail: vi.fn(),
-      openTagTrail: vi.fn(),
-      openScalingTrail: vi.fn(),
-      openNestedSkillTrail: vi.fn(),
-      openNestedTagTrail: vi.fn(),
-      openNestedScalingTrail: vi.fn(),
-      closeTrailTop,
-      closeTrailFrom,
+      })
     })
 
     const renderTrailEntrySpy = vi
@@ -176,13 +177,16 @@ describe('RichDescription', () => {
       ))
 
     render(
-      <RichDescription
-        cardNames={new Set(['Strike'])}
-        fullData={TEST_FULL_DATA}
-        skillLevel={1}
-        stats={TEST_FULL_DATA.stats}
-        text='Ignored because trail is mocked.'
-      />,
+      <>
+        <RichDescription
+          cardNames={new Set(['Strike'])}
+          fullData={TEST_FULL_DATA}
+          skillLevel={1}
+          stats={TEST_FULL_DATA.stats}
+          text='Ignored because trail is mocked.'
+        />
+        <GlobalPopoverContainer />
+      </>,
     )
 
     expect(renderTrailEntrySpy).toHaveBeenCalledTimes(3)
@@ -190,25 +194,31 @@ describe('RichDescription', () => {
     expect(renderTrailEntrySpy.mock.calls[1]?.[1]).toMatchObject({depth: 2, totalDepth: 3})
     expect(renderTrailEntrySpy.mock.calls[2]?.[1]).toMatchObject({depth: 3, totalDepth: 3})
 
-    fireEvent.click(screen.getByRole('button', {name: 'Back tag:weakness'}))
-    expect(closeTrailFrom).toHaveBeenCalledWith(1)
-
+    // Test "Close scaling:atk" first (at index 2)
     fireEvent.click(screen.getByRole('button', {name: 'Close scaling:atk'}))
-    expect(closeTrailFrom).toHaveBeenCalledWith(2)
+    expect(usePopoverStore.getState().trail.length).toBe(2)
 
+    // Re-render happens, tag:weakness is still there. Test "Back tag:weakness" (at index 1)
+    fireEvent.click(screen.getByRole('button', {name: 'Back tag:weakness'}))
+    expect(usePopoverStore.getState().trail.length).toBe(1)
+
+    // Test "Close top"
     fireEvent.click(screen.getByRole('button', {name: 'Close top'}))
-    expect(closeTrailTop).toHaveBeenCalledTimes(1)
+    expect(usePopoverStore.getState().trail.length).toBe(0)
   })
 
   it('opens a skill popover when a rendered card token is clicked', () => {
     render(
-      <RichDescription
-        cardNames={new Set(['Strike'])}
-        fullData={TEST_FULL_DATA}
-        skillLevel={1}
-        stats={TEST_FULL_DATA.stats}
-        text='Use {Strike}.'
-      />,
+      <>
+        <RichDescription
+          cardNames={new Set(['Strike'])}
+          fullData={TEST_FULL_DATA}
+          skillLevel={1}
+          stats={TEST_FULL_DATA.stats}
+          text='Use {Strike}.'
+        />
+        <GlobalPopoverContainer />
+      </>,
     )
 
     fireEvent.click(screen.getByRole('button', {name: 'Strike'}))
@@ -222,13 +232,16 @@ describe('RichDescription', () => {
     }
 
     render(
-      <RichDescription
-        cardNames={new Set()}
-        fullData={TEST_FULL_DATA}
-        skillLevel={1}
-        stats={TEST_FULL_DATA.stats}
-        text='Applies {Weakness}.'
-      />,
+      <>
+        <RichDescription
+          cardNames={new Set()}
+          fullData={TEST_FULL_DATA}
+          skillLevel={1}
+          stats={TEST_FULL_DATA.stats}
+          text='Applies {Weakness}.'
+        />
+        <GlobalPopoverContainer />
+      </>,
     )
 
     fireEvent.click(screen.getByRole('button', {name: 'Weakness'}))
@@ -237,13 +250,16 @@ describe('RichDescription', () => {
 
   it('opens a scaling popover when a scaling token is clicked', () => {
     render(
-      <RichDescription
-        cardNames={new Set()}
-        fullData={TEST_FULL_DATA}
-        skillLevel={1}
-        stats={TEST_FULL_DATA.stats}
-        text='Deals (10/20% ATK) damage.'
-      />,
+      <>
+        <RichDescription
+          cardNames={new Set()}
+          fullData={TEST_FULL_DATA}
+          skillLevel={1}
+          stats={TEST_FULL_DATA.stats}
+          text='Deals (10/20% ATK) damage.'
+        />
+        <GlobalPopoverContainer />
+      </>,
     )
 
     fireEvent.click(screen.getByRole('button', {name: '20'}))
@@ -252,13 +268,16 @@ describe('RichDescription', () => {
 
   it('treats Rouse as a clickable card token when it exists only in full card data', () => {
     render(
-      <RichDescription
-        cardNames={new Set()}
-        fullData={TEST_FULL_DATA}
-        skillLevel={1}
-        stats={TEST_FULL_DATA.stats}
-        text='Triggers {Rouse}.'
-      />,
+      <>
+        <RichDescription
+          cardNames={new Set()}
+          fullData={TEST_FULL_DATA}
+          skillLevel={1}
+          stats={TEST_FULL_DATA.stats}
+          text='Triggers {Rouse}.'
+        />
+        <GlobalPopoverContainer />
+      </>,
     )
 
     fireEvent.click(screen.getByRole('button', {name: 'Rouse'}))
@@ -269,14 +288,17 @@ describe('RichDescription', () => {
     const onNavigateToCards = vi.fn()
 
     render(
-      <RichDescription
-        cardNames={new Set(['Strike'])}
-        fullData={TEST_FULL_DATA}
-        onNavigateToCards={onNavigateToCards}
-        skillLevel={1}
-        stats={TEST_FULL_DATA.stats}
-        text='Use {Strike}.'
-      />,
+      <>
+        <RichDescription
+          cardNames={new Set(['Strike'])}
+          fullData={TEST_FULL_DATA}
+          onNavigateToCards={onNavigateToCards}
+          skillLevel={1}
+          stats={TEST_FULL_DATA.stats}
+          text='Use {Strike}.'
+        />
+        <GlobalPopoverContainer />
+      </>,
     )
 
     fireEvent.click(screen.getByRole('button', {name: 'Strike'}))
@@ -290,13 +312,16 @@ describe('RichDescription', () => {
 
   it('recognizes "exalt" and "over_exalt" as interactive tokens', () => {
     render(
-      <RichDescription
-        cardNames={new Set()}
-        fullData={TEST_FULL_DATA}
-        skillLevel={1}
-        stats={TEST_FULL_DATA.stats}
-        text='Trigger {exalt} and then {over_exalt}.'
-      />,
+      <>
+        <RichDescription
+          cardNames={new Set()}
+          fullData={TEST_FULL_DATA}
+          skillLevel={1}
+          stats={TEST_FULL_DATA.stats}
+          text='Trigger {exalt} and then {over_exalt}.'
+        />
+        <GlobalPopoverContainer />
+      </>,
     )
 
     expect(screen.getByRole('button', {name: 'exalt'})).toBeInTheDocument()

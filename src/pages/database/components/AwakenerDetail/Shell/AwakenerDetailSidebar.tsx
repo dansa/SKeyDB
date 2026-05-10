@@ -1,4 +1,4 @@
-import {memo, useEffect, useMemo, useState} from 'react'
+import {memo, useEffect, useId, useMemo, useState} from 'react'
 
 import {getAwakenerCardAsset} from '@/domain/awakener-assets'
 import {
@@ -6,11 +6,11 @@ import {
   resolveAwakenerStatsForLevel,
 } from '@/domain/awakener-level-scaling'
 import type {Awakener} from '@/domain/awakeners'
-import type {
-  AwakenerFull,
-  AwakenerFullStats,
-  AwakenerStatScaling,
-  AwakenerSubstatScaling,
+import {
+  type AwakenerFull,
+  type AwakenerFullStats,
+  type AwakenerStatScaling,
+  type AwakenerSubstatScaling,
 } from '@/domain/awakeners-full'
 import {
   getColoredMainstatIcon,
@@ -19,10 +19,10 @@ import {
   type MainstatKey,
 } from '@/domain/mainstats'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
-import {AwakenerLevelSlider} from '@/pages/database/components/DatabaseMain'
-import {ScalingPopover} from '@/pages/database/components/RichTextPopovers/entries/ScalingPopover'
-import {scaledFontStyle} from '@/pages/database/utils/font-scale'
 
+import {scaledFontStyle} from '../../../utils/font-scale'
+import {AwakenerLevelSlider} from '../../DatabaseMain'
+import {usePopoverStore} from '../../RichTextPopovers/trail/usePopoverStore'
 import {DetailLevelSlider, SkillLevelSlider} from '../Controls'
 
 const STAT_DISPLAY_ORDER = [
@@ -31,9 +31,9 @@ const STAT_DISPLAY_ORDER = [
   'DEF',
   'CritRate',
   'CritDamage',
-  'RealmMastery',
   'AliemusRegen',
   'KeyflareRegen',
+  'RealmMastery',
   'SigilYield',
   'DamageAmplification',
   'DeathResistance',
@@ -74,15 +74,7 @@ const PSYCHE_SURGE_OFFSETS = Array.from({length: 13}, (_, index) => index)
 const SIDEBAR_SCALING_VALUE_BASE_CLASS =
   'db-dash-underline db-dash-underline-hover cursor-help font-bold text-slate-200 [--db-dash-strength:34%] [--db-dash-hover-strength:44%] hover:text-slate-100'
 
-type SidebarScalingPreviewSource = Pick<
-  AwakenerFull,
-  'stats' | 'primaryScalingBase' | 'statScaling' | 'substatScaling'
->
-
-interface SidebarScalingPopoverPosition {
-  left: number
-  top: number
-}
+type SidebarScalingPreviewSource = AwakenerFull
 
 function parseScalingPreviewValue(rawValue: string): {value: number; suffix: string} | null {
   const match = /^(-?\d+(?:\.\d+)?)(%)?$/.exec(rawValue.trim())
@@ -112,80 +104,28 @@ const SidebarAttributes = memo(function SidebarAttributes({
   scalingPreviewSource: SidebarScalingPreviewSource | null
   level: number
 }) {
-  const [activeScalingKey, setActiveScalingKey] = useState<keyof AwakenerSubstatScaling | null>(
-    null,
+  const trail = usePopoverStore((state) => state.trail)
+  const openRoot = usePopoverStore((state) => state.openRoot)
+  const clear = usePopoverStore((state) => state.clear)
+  const updateRenderContext = usePopoverStore((state) => state.updateRenderContext)
+
+  const ownerId = useId()
+
+  const renderContext = useMemo(
+    () => ({
+      fullData: scalingPreviewSource ?? null,
+      cardNames: new Set<string>(),
+      skillLevel: level,
+      stats,
+    }),
+    [scalingPreviewSource, level, stats],
   )
-  const [scalingPopoverPosition, setScalingPopoverPosition] =
-    useState<SidebarScalingPopoverPosition | null>(null)
-
-  const scalingPreview = useMemo(() => {
-    if (!activeScalingKey || !scalingPreviewSource) {
-      return null
-    }
-
-    const values = PSYCHE_SURGE_OFFSETS.map((offset) => {
-      const rawValue = resolveAwakenerStatsForLevel(scalingPreviewSource, level, offset)[
-        activeScalingKey
-      ]
-      return parseScalingPreviewValue(rawValue)
-    })
-
-    if (values.some((entry) => entry === null)) {
-      return null
-    }
-
-    const typedValues = values as {value: number; suffix: string}[]
-    return {
-      suffix: typedValues[0]?.suffix ?? '',
-      values: typedValues.map((entry) => entry.value),
-    }
-  }, [activeScalingKey, level, scalingPreviewSource])
 
   useEffect(() => {
-    if (activeScalingKey === null) {
-      return
-    }
+    updateRenderContext(renderContext, ownerId)
+  }, [renderContext, ownerId, updateRenderContext])
 
-    function handleViewportChange() {
-      setActiveScalingKey(null)
-      setScalingPopoverPosition(null)
-    }
-
-    globalThis.addEventListener('resize', handleViewportChange)
-    globalThis.addEventListener('scroll', handleViewportChange, true)
-    return () => {
-      globalThis.removeEventListener('resize', handleViewportChange)
-      globalThis.removeEventListener('scroll', handleViewportChange, true)
-    }
-  }, [activeScalingKey])
-
-  function positionScalingPopover(trigger: HTMLButtonElement) {
-    const anchorRect = trigger.getBoundingClientRect()
-    const modalRect = trigger.closest('dialog')?.getBoundingClientRect()
-    const boundary = modalRect ?? {
-      top: 8,
-      right: globalThis.innerWidth - 8,
-      bottom: globalThis.innerHeight - 8,
-      left: 8,
-    }
-    const estimatedPopoverWidth = 288
-    const estimatedPopoverHeight = 236
-    const gutter = 12
-
-    let left = anchorRect.right + gutter
-    if (left + estimatedPopoverWidth > boundary.right - 8) {
-      left = anchorRect.left - estimatedPopoverWidth - gutter
-    }
-    left = Math.max(boundary.left + 8, Math.min(left, boundary.right - estimatedPopoverWidth - 8))
-
-    let top = anchorRect.top
-    if (top + estimatedPopoverHeight > boundary.bottom - 8) {
-      top = anchorRect.bottom - estimatedPopoverHeight
-    }
-    top = Math.max(boundary.top + 8, Math.min(top, boundary.bottom - estimatedPopoverHeight - 8))
-
-    setScalingPopoverPosition({left, top})
-  }
+  const activeTrailKeys = new Set(trail.map((t) => t.key))
 
   function renderStatRow(key: (typeof STAT_DISPLAY_ORDER)[number]) {
     const value = stats[key]
@@ -203,7 +143,9 @@ const SidebarAttributes = memo(function SidebarAttributes({
       dominantPrimaryScaling !== null &&
       isPrimaryStat &&
       statScaling?.[key as keyof AwakenerStatScaling] === dominantPrimaryScaling
-    const isScalingPreviewOpen = activeScalingKey === key
+
+    const popoverKey = `scaling-preview-${key}`
+    const isScalingPreviewOpen = activeTrailKeys.has(popoverKey)
     const labelClass = isHighlightedSubstat
       ? 'font-bold text-slate-400'
       : isPrimaryStat
@@ -216,26 +158,25 @@ const SidebarAttributes = memo(function SidebarAttributes({
           ? 'font-bold text-slate-200'
           : 'font-bold text-slate-200'
         : 'text-slate-500/60'
+
     const rowContent = (
       <>
-        <span
-          className={`flex min-w-0 items-center ${labelClass} ${compact ? 'gap-0.5' : 'gap-1.5'}`}
-        >
-          {isHighlightedSubstat && coloredIcon ? (
-            <img
-              alt=''
-              className={`${compact ? 'h-3.5 w-3.5' : 'h-4 w-4'} object-contain`}
-              draggable={false}
-              src={coloredIcon}
-            />
-          ) : icon ? (
-            isPrimaryStat ? (
-              <span
-                className={`${compact ? 'h-3.5 w-3.5' : 'h-4 w-4'} shrink-0`}
+        <div className='flex min-w-0 items-center gap-1.5'>
+          <span
+            className='ml-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center'
+            style={{
+              filter:
+                isHighlightedSubstat || isPrimaryStat ? undefined : 'grayscale(1) opacity(0.3)',
+              transform: 'translateY(-1px)',
+            }}
+          >
+            {isPrimaryStat ? (
+              <div
+                className='h-full w-full'
                 style={{
                   backgroundColor: accentColor,
-                  WebkitMaskImage: `url(${icon})`,
-                  maskImage: `url(${icon})`,
+                  WebkitMaskImage: `url(${icon ?? ''})`,
+                  maskImage: `url(${icon ?? ''})`,
                   WebkitMaskSize: 'contain',
                   maskSize: 'contain',
                   WebkitMaskRepeat: 'no-repeat',
@@ -243,18 +184,16 @@ const SidebarAttributes = memo(function SidebarAttributes({
                 }}
               />
             ) : (
-              <img
-                alt=''
-                className={`${compact ? 'h-3.5 w-3.5' : 'h-4 w-4'} object-contain opacity-60`}
-                draggable={false}
-                src={icon}
-              />
-            )
-          ) : null}
-          <span className='whitespace-nowrap'>{STAT_LABELS[key]}</span>
-        </span>
+              <img alt='' className='h-full w-full object-contain' src={coloredIcon ?? icon} />
+            )}
+          </span>
+          <span className={`${labelClass} whitespace-nowrap`} style={scaledFontStyle(9)}>
+            {STAT_LABELS[key]}
+          </span>
+        </div>
         <span
-          className={`inline-flex items-center justify-end text-right ${valueClass}`}
+          className={`${valueClass} text-right whitespace-nowrap`}
+          style={scaledFontStyle(9)}
           title={statTitle}
         >
           {value}
@@ -272,13 +211,39 @@ const SidebarAttributes = memo(function SidebarAttributes({
                 : 'h-full min-h-0 gap-x-3 px-2 py-0.5 text-[12px]'
             } ${isScalingPreviewOpen ? 'bg-white/4' : 'hover:bg-white/3'}`}
             onClick={(event) => {
-              if (activeScalingKey === key) {
-                setActiveScalingKey(null)
-                setScalingPopoverPosition(null)
+              if (isScalingPreviewOpen) {
+                clear()
                 return
               }
-              positionScalingPopover(event.currentTarget)
-              setActiveScalingKey(key as keyof AwakenerSubstatScaling)
+              if (!scalingPreviewSource) return
+              const targetValues = PSYCHE_SURGE_OFFSETS.map((offset) => {
+                const rawValue = resolveAwakenerStatsForLevel(scalingPreviewSource, level, offset)[
+                  key as keyof AwakenerSubstatScaling
+                ]
+                return parseScalingPreviewValue(rawValue)
+              })
+              if (targetValues.some((entry) => entry === null)) return
+
+              const typedValues = targetValues as {value: number; suffix: string}[]
+              openRoot(
+                {
+                  key: popoverKey,
+                  kind: 'scaling',
+                  stat: STAT_LABELS[key],
+                  suffix: typedValues[0]?.suffix ?? '',
+                  values: typedValues.map((e) => e.value),
+                  currentLevel: enlightenOffset,
+                },
+                event.currentTarget,
+                event.currentTarget.getBoundingClientRect(),
+                {
+                  cardNames: new Set(),
+                  fullData: scalingPreviewSource,
+                  skillLevel: level,
+                  stats,
+                },
+                ownerId,
+              )
             }}
             type='button'
           >
@@ -295,32 +260,6 @@ const SidebarAttributes = memo(function SidebarAttributes({
             {rowContent}
           </div>
         )}
-
-        {isHighlightedSubstat &&
-        isScalingPreviewOpen &&
-        scalingPreview &&
-        scalingPopoverPosition ? (
-          <div
-            className='fixed z-950'
-            style={{
-              left: `${String(scalingPopoverPosition.left)}px`,
-              top: `${String(scalingPopoverPosition.top)}px`,
-            }}
-          >
-            <ScalingPopover
-              currentLevel={enlightenOffset}
-              levelLabelPrefix='E3+'
-              levelStart={0}
-              onClose={() => {
-                setActiveScalingKey(null)
-              }}
-              stat={STAT_LABELS[key]}
-              stats={null}
-              suffix={scalingPreview.suffix}
-              values={scalingPreview.values}
-            />
-          </div>
-        ) : null}
       </div>
     )
   }

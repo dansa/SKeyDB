@@ -68,7 +68,7 @@ describe('popover trail panel hooks and layouts', () => {
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', {name: /Back/}))
+    fireEvent.click(screen.getByRole('button', {name: /BACK/i}))
 
     expect(screen.getByText('Second')).toBeInTheDocument()
     expect(onCloseTop).toHaveBeenCalledTimes(1)
@@ -136,8 +136,8 @@ describe('popover trail panel hooks and layouts', () => {
     }
 
     await waitFor(() => {
-      expect(positioned.style.left).toBe('168px')
-      expect(positioned.style.top).toBe('88px')
+      expect(positioned.style.left).toBe('180px')
+      expect(positioned.style.top).toBe('100px')
     })
   })
 })

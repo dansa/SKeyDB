@@ -1,13 +1,9 @@
 import {useCallback, useMemo} from 'react'
 
-import {createPortal} from 'react-dom'
-
 import type {AwakenerFull, AwakenerFullStats} from '@/domain/awakeners-full'
 import {type RichSegment} from '@/domain/rich-text'
 
 import {type TokenNavigationRequest} from '../RichTextPopovers/core/popover-navigation'
-import {renderTrailEntry} from '../RichTextPopovers/trail/popover-renderers'
-import {PopoverTrailPanel} from '../RichTextPopovers/trail/PopoverTrailPanel'
 import {hasRouseRichDescriptionCard} from './rich-description-entries'
 import {nextRichSegmentKey} from './rich-segment-keys'
 import {memoizedParseRichDescription} from './rich-text-cache'
@@ -20,7 +16,7 @@ type RichDescriptionProps = Readonly<{
   fullData: AwakenerFull | null
   stats: AwakenerFullStats | null
   skillLevel: number
-  onNavigateToCards?: () => void
+  onNavigateToCards?: (targetName?: string) => void
 }>
 
 export function RichDescription({
@@ -44,27 +40,13 @@ export function RichDescription({
   }, [cardNames, fullData])
 
   const segments: RichSegment[] = memoizedParseRichDescription(text, rouseAwareCards)
-  const {
-    trail,
-    trailAnchorRect,
-    trailAnchorElement,
-    clearTrail,
-    openSkillTrail,
-    openTagTrail,
-    openScalingTrail,
-    openNestedSkillTrail,
-    openNestedTagTrail,
-    openNestedScalingTrail,
-    closeTrailTop,
-    closeTrailFrom,
-  } = useRichDescriptionTrail(fullData)
-
-  const handleNavigateToCards = useCallback(() => {
-    if (onNavigateToCards) {
-      clearTrail()
-      onNavigateToCards()
-    }
-  }, [clearTrail, onNavigateToCards])
+  const {openSkillTrail, openTagTrail, openScalingTrail} = useRichDescriptionTrail(
+    fullData,
+    rouseAwareCards,
+    stats,
+    skillLevel,
+    onNavigateToCards,
+  )
 
   const handleRootTokenNavigate = useCallback(
     (request: TokenNavigationRequest) => {
@@ -89,52 +71,7 @@ export function RichDescription({
     stats,
   )
 
-  return (
-    <>
-      {renderedSegments}
-      {trail.length > 0 &&
-        trailAnchorRect &&
-        trailAnchorElement &&
-        createPortal(
-          <PopoverTrailPanel
-            anchorElement={trailAnchorElement}
-            anchorRect={trailAnchorRect}
-            entryRects={trail.map((entry) => entry.rect)}
-            itemCount={trail.length}
-            onCloseTop={closeTrailTop}
-          >
-            {trail.map((entry, index) => {
-              const depth = index + 1
-              const totalDepth = trail.length
-              const onBack =
-                index > 0
-                  ? () => {
-                      closeTrailFrom(index)
-                    }
-                  : undefined
-
-              return renderTrailEntry(entry, {
-                cardNames: rouseAwareCards,
-                depth,
-                onBack,
-                onClose: () => {
-                  closeTrailFrom(index)
-                },
-                onNavigateToCards: onNavigateToCards ? handleNavigateToCards : undefined,
-                openNestedScalingTrail,
-                openNestedSkillTrail,
-                openNestedTagTrail,
-                skillLevel,
-                sourceIndex: index,
-                stats,
-                totalDepth,
-              })
-            })}
-          </PopoverTrailPanel>,
-          document.body,
-        )}
-    </>
-  )
+  return <>{renderedSegments}</>
 }
 
 function renderRichDescriptionSegments(

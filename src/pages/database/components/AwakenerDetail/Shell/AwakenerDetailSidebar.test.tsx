@@ -3,10 +3,12 @@ import {describe, expect, it, vi} from 'vitest'
 
 import type {Awakener} from '@/domain/awakeners'
 import type {
+  AwakenerFull,
   AwakenerFullStats,
   AwakenerStatScaling,
   AwakenerSubstatScaling,
 } from '@/domain/awakeners-full'
+import {GlobalPopoverContainer} from '@/pages/database/components/RichTextPopovers/trail/GlobalPopoverContainer'
 
 import {AwakenerDetailSidebar} from './AwakenerDetailSidebar'
 
@@ -74,29 +76,41 @@ const TEST_STAT_SCALING: AwakenerStatScaling = {
   DEF: 1.1,
 }
 
-const TEST_SCALING_PREVIEW_SOURCE = {
+const TEST_SCALING_PREVIEW_SOURCE: AwakenerFull = {
+  id: 1,
+  name: 'thais',
   stats: TEST_STATS,
   primaryScalingBase: 30 as const,
   statScaling: TEST_STAT_SCALING,
   substatScaling: TEST_SUBSTAT_SCALING,
+  cards: {},
+  exalts: {
+    exalt: {name: 'Exalt', description: 'desc'},
+    over_exalt: {name: 'Over Exalt', description: 'desc'},
+  },
+  talents: {},
+  enlightens: {},
 }
 
 describe('AwakenerDetailSidebar', () => {
   it('shows brighter primary stats, highlights scaling substats, and opens a psyche surge bubble for scaling rows', () => {
     render(
-      <AwakenerDetailSidebar
-        awakener={TEST_AWAKENER}
-        enlightenOffset={0}
-        level={60}
-        onLevelChange={vi.fn()}
-        onPsycheSurgeChange={vi.fn()}
-        onSkillLevelChange={vi.fn()}
-        scalingPreviewSource={TEST_SCALING_PREVIEW_SOURCE}
-        skillLevel={4}
-        statScaling={TEST_STAT_SCALING}
-        stats={TEST_STATS}
-        substatScaling={TEST_SUBSTAT_SCALING}
-      />,
+      <>
+        <AwakenerDetailSidebar
+          awakener={TEST_AWAKENER}
+          enlightenOffset={0}
+          level={60}
+          onLevelChange={vi.fn()}
+          onPsycheSurgeChange={vi.fn()}
+          onSkillLevelChange={vi.fn()}
+          scalingPreviewSource={TEST_SCALING_PREVIEW_SOURCE}
+          skillLevel={4}
+          statScaling={TEST_STAT_SCALING}
+          stats={TEST_STATS}
+          substatScaling={TEST_SUBSTAT_SCALING}
+        />
+        <GlobalPopoverContainer />
+      </>,
     )
 
     expect(screen.queryByRole('heading', {name: 'Attributes'})).not.toBeInTheDocument()
@@ -104,10 +118,16 @@ describe('AwakenerDetailSidebar', () => {
     expect(screen.getByText('Level slider 60')).toBeInTheDocument()
     expect(screen.getByText('Skill slider 4')).toBeInTheDocument()
 
-    expect(screen.getByText('ATK').parentElement).toHaveClass('text-slate-400')
+    expect(screen.getByText('ATK')).toHaveClass('text-slate-400')
     expect(screen.getByText('135')).toHaveClass('text-slate-200')
     expect(screen.getByText('50%')).toHaveClass('text-slate-500/60')
-    expect(document.querySelector('img[src="color-CRIT_RATE"]')).not.toBeNull()
+
+    const maskedIcons = Array.from(document.querySelectorAll('div[style*="mask-image"]'))
+    const critRateIcon = maskedIcons.find((el) =>
+      el.getAttribute('style')?.includes('background-color: rgb(216, 181, 106)'),
+    )
+    expect(critRateIcon).not.toBeNull()
+
     expect(screen.getByTitle('Level scaling: +1.6% per 10 levels to Lv. 60')).toHaveTextContent(
       '14.6%',
     )
@@ -126,20 +146,23 @@ describe('AwakenerDetailSidebar', () => {
 
   it('supports a collapsible configuration block in compact mode', () => {
     render(
-      <AwakenerDetailSidebar
-        awakener={TEST_AWAKENER}
-        compact
-        enlightenOffset={0}
-        level={60}
-        onLevelChange={vi.fn()}
-        onPsycheSurgeChange={vi.fn()}
-        onSkillLevelChange={vi.fn()}
-        scalingPreviewSource={TEST_SCALING_PREVIEW_SOURCE}
-        skillLevel={4}
-        statScaling={TEST_STAT_SCALING}
-        stats={TEST_STATS}
-        substatScaling={TEST_SUBSTAT_SCALING}
-      />,
+      <>
+        <AwakenerDetailSidebar
+          awakener={TEST_AWAKENER}
+          compact
+          enlightenOffset={0}
+          level={60}
+          onLevelChange={vi.fn()}
+          onPsycheSurgeChange={vi.fn()}
+          onSkillLevelChange={vi.fn()}
+          scalingPreviewSource={TEST_SCALING_PREVIEW_SOURCE}
+          skillLevel={4}
+          statScaling={TEST_STAT_SCALING}
+          stats={TEST_STATS}
+          substatScaling={TEST_SUBSTAT_SCALING}
+        />
+        <GlobalPopoverContainer />
+      </>,
     )
 
     // Initially expanded
@@ -165,19 +188,22 @@ describe('AwakenerDetailSidebar', () => {
 
   it('renders both Configuration and Attributes headers in desktop mode without toggle', () => {
     render(
-      <AwakenerDetailSidebar
-        awakener={TEST_AWAKENER}
-        enlightenOffset={0}
-        level={60}
-        onLevelChange={vi.fn()}
-        onPsycheSurgeChange={vi.fn()}
-        onSkillLevelChange={vi.fn()}
-        scalingPreviewSource={TEST_SCALING_PREVIEW_SOURCE}
-        skillLevel={4}
-        statScaling={TEST_STAT_SCALING}
-        stats={TEST_STATS}
-        substatScaling={TEST_SUBSTAT_SCALING}
-      />,
+      <>
+        <AwakenerDetailSidebar
+          awakener={TEST_AWAKENER}
+          enlightenOffset={0}
+          level={60}
+          onLevelChange={vi.fn()}
+          onPsycheSurgeChange={vi.fn()}
+          onSkillLevelChange={vi.fn()}
+          scalingPreviewSource={TEST_SCALING_PREVIEW_SOURCE}
+          skillLevel={4}
+          statScaling={TEST_STAT_SCALING}
+          stats={TEST_STATS}
+          substatScaling={TEST_SUBSTAT_SCALING}
+        />
+        <GlobalPopoverContainer />
+      </>,
     )
 
     expect(screen.getByText('Level slider 60')).toBeInTheDocument()

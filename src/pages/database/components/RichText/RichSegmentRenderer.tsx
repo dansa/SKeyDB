@@ -1,3 +1,5 @@
+import {memo} from 'react'
+
 import type {AwakenerFullStats} from '@/domain/awakeners-full'
 import type {RichSegment} from '@/domain/rich-text'
 
@@ -15,7 +17,9 @@ type RichSegmentRendererProps = Readonly<{
 
 const INDENT_MARKER = '\u2022'
 
-export function RichSegmentRenderer(props: RichSegmentRendererProps) {
+export const RichSegmentRenderer = memo(function RichSegmentRenderer(
+  props: RichSegmentRendererProps,
+) {
   const {segment} = props
   const Renderer = SEGMENT_RENDERERS[segment.type]
 
@@ -37,9 +41,9 @@ export function RichSegmentRenderer(props: RichSegmentRendererProps) {
     default:
       return null
   }
-}
+})
 
-function RichLineView(
+const RichLineView = memo(function RichLineView(
   props: RichSegmentRendererProps & {segment: Extract<RichSegment, {type: 'line'}>},
 ) {
   const {segment} = props
@@ -62,7 +66,7 @@ function RichLineView(
       ))}
     </div>
   )
-}
+})
 
 function RichIndentMarker() {
   return (

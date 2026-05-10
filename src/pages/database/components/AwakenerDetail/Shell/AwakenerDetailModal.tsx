@@ -176,9 +176,14 @@ export function AwakenerDetailModal({
     [initialTab, onTabChange, setInternalActiveTab],
   )
 
-  const navigateToCards = useCallback(() => {
-    setActiveTab('cards')
-  }, [setActiveTab])
+  const navigateToCards = useCallback(
+    (_targetName?: string) => {
+      setActiveTab('cards')
+      // targetName is handled by useRichDescriptionTrail's handleNavigateToCards
+      // which wraps this callback.
+    },
+    [setActiveTab],
+  )
 
   const handleAwakenerLevelChange = useCallback(
     (level: number) => {

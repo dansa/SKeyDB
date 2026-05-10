@@ -1,8 +1,10 @@
 export const POPOVER_LAYOUT = {
   MARGIN: 12,
   GAP: 6,
-  MAX_WIDTH: 480,
+  MAX_WIDTH: 600,
   BASE_Z_INDEX: 950,
+  MAX_CONTENT_HEIGHT: 240,
+  ANIMATION_SLIDE_OFFSET: 12,
 } as const
 
 export const POPOVER_TIMINGS = {

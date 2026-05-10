@@ -58,9 +58,15 @@ function createAnchorElement(rect: Partial<DOMRect> = {}) {
   return anchorElement
 }
 
+const TEST_STATS = TEST_FULL_DATA.stats
+const TEST_CARD_NAMES = new Set(['Strike', 'Guard'])
+const TEST_SKILL_LEVEL = 1
+
 describe('useRichDescriptionTrail', () => {
   it('accepts only live HTMLElement anchors for root and nested opening', () => {
-    const {result} = renderHook(() => useRichDescriptionTrail(TEST_FULL_DATA))
+    const {result} = renderHook(() =>
+      useRichDescriptionTrail(TEST_FULL_DATA, TEST_CARD_NAMES, TEST_STATS, TEST_SKILL_LEVEL),
+    )
     const validAnchor = createAnchorElement()
     const fakeEvent = {currentTarget: validAnchor} as unknown as HTMLElement
 
@@ -86,7 +92,9 @@ describe('useRichDescriptionTrail', () => {
   })
 
   it('opens and deduplicates root skill trails', () => {
-    const {result} = renderHook(() => useRichDescriptionTrail(TEST_FULL_DATA))
+    const {result} = renderHook(() =>
+      useRichDescriptionTrail(TEST_FULL_DATA, TEST_CARD_NAMES, TEST_STATS, TEST_SKILL_LEVEL),
+    )
 
     act(() => {
       result.current.openSkillTrail('Strike', createAnchorElement())
@@ -99,8 +107,12 @@ describe('useRichDescriptionTrail', () => {
   })
 
   it('clears a previous owner trail when another trail opens', () => {
-    const first = renderHook(() => useRichDescriptionTrail(TEST_FULL_DATA))
-    const second = renderHook(() => useRichDescriptionTrail(TEST_FULL_DATA))
+    const first = renderHook(() =>
+      useRichDescriptionTrail(TEST_FULL_DATA, TEST_CARD_NAMES, TEST_STATS, TEST_SKILL_LEVEL),
+    )
+    const second = renderHook(() =>
+      useRichDescriptionTrail(TEST_FULL_DATA, TEST_CARD_NAMES, TEST_STATS, TEST_SKILL_LEVEL),
+    )
 
     act(() => {
       first.result.current.openSkillTrail('Strike', createAnchorElement())
@@ -116,7 +128,9 @@ describe('useRichDescriptionTrail', () => {
   })
 
   it('trims descendants when opening nested entries from an earlier index and resets anchors when closed', () => {
-    const {result} = renderHook(() => useRichDescriptionTrail(TEST_FULL_DATA))
+    const {result} = renderHook(() =>
+      useRichDescriptionTrail(TEST_FULL_DATA, TEST_CARD_NAMES, TEST_STATS, TEST_SKILL_LEVEL),
+    )
 
     act(() => {
       result.current.openSkillTrail('Strike', createAnchorElement())

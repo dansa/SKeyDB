@@ -20,7 +20,6 @@ function makeRect(overrides: Partial<DOMRect> = {}): DOMRect {
 
 afterEach(() => {
   vi.restoreAllMocks()
-  document.body.innerHTML = ''
 })
 
 describe('PopoverTrailPanel', () => {
@@ -111,7 +110,7 @@ describe('PopoverTrailPanel', () => {
     if (!container) {
       throw new Error('Expected popover trail panel to render')
     }
-    // The actual positioned element is the first child (SinglePopover)
+
     const panel = container.firstElementChild as HTMLDivElement
 
     await waitFor(() => {

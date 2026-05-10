@@ -14,6 +14,7 @@ import {
 import {useGlobalCollectionSearchCapture} from './collection/useGlobalCollectionSearchCapture'
 import {AwakenerDetailModal} from './database/components/AwakenerDetail'
 import {DatabaseFilters, DatabaseGrid} from './database/components/DatabaseMain'
+import {usePopoverStore} from './database/components/RichTextPopovers/trail/usePopoverStore'
 import {useDatabaseViewModel} from './database/hooks/useDatabaseViewModel'
 
 export function DatabasePage() {
@@ -23,6 +24,14 @@ export function DatabasePage() {
   const {awakenerSlug, tabSlug} = useParams<{awakenerSlug?: string; tabSlug?: string}>()
   const selectedAwakener = findAwakenerByDatabaseSlug(getAwakeners(), awakenerSlug)
   const selectedTab = resolveDatabaseAwakenerTab(tabSlug) ?? 'cards'
+
+  const clearPopovers = usePopoverStore((state) => state.clear)
+
+  useEffect(() => {
+    return () => {
+      clearPopovers()
+    }
+  }, [clearPopovers])
 
   useGlobalCollectionSearchCapture({
     searchInputRef,

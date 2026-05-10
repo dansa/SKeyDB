@@ -82,6 +82,7 @@ export function buildRichDescriptionSkillTrailEntry(
   label: string,
   skillType: SkillTrailEntry['skillType'],
   rect?: DOMRect,
+  anchorElement?: HTMLElement,
 ): SkillTrailEntry {
   return {
     kind: 'skill',
@@ -92,15 +93,21 @@ export function buildRichDescriptionSkillTrailEntry(
     cost: card.cost,
     skillType,
     rect,
+    anchorElement,
   }
 }
 
-export function buildRichDescriptionTagTrailEntry(tag: Tag, rect?: DOMRect): TagTrailEntry {
+export function buildRichDescriptionTagTrailEntry(
+  tag: Tag,
+  rect?: DOMRect,
+  anchorElement?: HTMLElement,
+): TagTrailEntry {
   return {
     kind: 'tag',
     key: `tag:${tag.key}`,
     tag,
     rect,
+    anchorElement,
   }
 }
 
@@ -109,6 +116,7 @@ export function buildRichDescriptionScalingTrailEntry(
   suffix: string,
   stat: string | null,
   rect?: DOMRect,
+  anchorElement?: HTMLElement,
 ): ScalingTrailEntry {
   return {
     kind: 'scaling',
@@ -117,6 +125,7 @@ export function buildRichDescriptionScalingTrailEntry(
     suffix,
     stat,
     rect,
+    anchorElement,
   }
 }
 

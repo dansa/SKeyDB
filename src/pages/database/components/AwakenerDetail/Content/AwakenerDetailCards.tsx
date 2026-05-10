@@ -128,7 +128,11 @@ export function AwakenerDetailCards({
             const isRouse = card.label ? card.label.toLowerCase() === 'rouse' : key === 'C1'
 
             return (
-              <div className='border border-white/4 bg-white/2 px-3.5 py-2.5 shadow-sm' key={key}>
+              <div
+                className='border border-white/4 bg-white/2 px-3.5 py-2.5 shadow-sm'
+                data-skill-name={card.name}
+                key={key}
+              >
                 <div className='flex items-center justify-between gap-3'>
                   <div className='flex min-w-0 items-center gap-2.5'>
                     <span

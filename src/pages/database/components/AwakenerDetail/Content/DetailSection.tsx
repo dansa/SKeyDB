@@ -45,6 +45,7 @@ export function DetailSection({
           {items.map((item) => (
             <div
               className='border border-white/4 bg-white/2 px-3.5 py-2.5 shadow-sm'
+              data-skill-name={item.name}
               key={item.key}
             >
               <div

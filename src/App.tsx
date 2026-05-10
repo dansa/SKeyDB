@@ -2,6 +2,7 @@ import {lazy, Suspense} from 'react'
 
 import {Navigate, NavLink, Route, Routes} from 'react-router-dom'
 
+import {GlobalPopoverContainer} from './pages/database/components/RichTextPopovers/trail/GlobalPopoverContainer'
 import {HomePage} from './pages/HomePage'
 
 const DatabasePage = lazy(() =>
@@ -62,6 +63,8 @@ function App() {
           </Routes>
         </Suspense>
       </main>
+
+      <GlobalPopoverContainer />
     </div>
   )
 }

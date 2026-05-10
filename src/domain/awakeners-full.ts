@@ -104,3 +104,8 @@ export async function loadAwakenersFull(): Promise<AwakenerFull[]> {
 export function getAwakenerFullById(id: number, data: AwakenerFull[]): AwakenerFull | undefined {
   return data.find((entry) => entry.id === id)
 }
+
+export function getExaltValue(name: string, stats: AwakenerFullStats | null): number {
+  const baseAliemus = stats?.BaseAliemus ? Number.parseInt(stats.BaseAliemus, 10) : 100
+  return name.toLowerCase().includes('over') ? baseAliemus * 2 : baseAliemus
+}

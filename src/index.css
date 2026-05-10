@@ -80,6 +80,8 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 @layer base {
@@ -103,6 +105,8 @@ p {
 a {
   color: inherit;
   text-decoration: none;
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 .db-dash-underline {
