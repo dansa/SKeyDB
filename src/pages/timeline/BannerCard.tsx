@@ -1,5 +1,6 @@
 import {useEffect, useMemo, useRef, useState, type MouseEvent} from 'react'
 
+import {FaChevronRight} from 'react-icons/fa6'
 import {Link} from 'react-router-dom'
 
 import type {EntityRef} from '@/domain/entities/types'
@@ -26,67 +27,33 @@ const BANNER_TYPE_LABEL: Record<BannerEntry['type'], string> = {
 }
 
 const BANNER_TYPE_COLOR: Record<BannerEntry['type'], string> = {
-  awaken: 'text-amber-400/80',
-  limited: 'text-sky-400/80',
+  awaken: 'text-amber-300/90',
+  limited: 'text-sky-300/90',
   standard: 'text-slate-400/80',
-  rerun: 'text-violet-400/80',
-  selector: 'text-pink-400/80',
-  wheel: 'text-cyan-400/80',
-  combo: 'text-emerald-400/80',
+  rerun: 'text-violet-300/90',
+  selector: 'text-pink-300/90',
+  wheel: 'text-cyan-300/90',
+  combo: 'text-emerald-300/90',
 }
 
 const STATUS_CLASS: Record<TimelineStatus, string> = {
-  active: 'border-emerald-500 bg-slate-950 text-emerald-400',
-  upcoming: 'border-sky-500 bg-slate-950 text-sky-400',
-  ended: 'border-slate-500/40 bg-slate-900/60 text-slate-500',
+  active: 'timeline-event-chip--status-active',
+  upcoming: 'timeline-event-chip--status-upcoming',
+  ended: 'timeline-event-chip--status-ended',
 }
 
-const SKEW_PX = 14
-const BORDER_INSET = 1
 const CYCLE_INTERVAL_MS = 2500
 const TRANSITION_DURATION_MS = 800
-
-function buildClipPath(index: number, total: number): string {
-  if (total <= 1) {
-    return 'none'
-  }
-
-  const s = String(SKEW_PX)
-  const b = String(BORDER_INSET)
-  const isFirst = index === 0
-  const isLast = index === total - 1
-
-  if (isFirst) {
-    return `polygon(0 0, calc(100% - ${b}px) 0, calc(100% - ${s}px - ${b}px) 100%, 0 100%)`
-  }
-  if (isLast) {
-    return `polygon(calc(${s}px + ${b}px) 0, 100% 0, 100% 100%, calc(${b}px) 100%)`
-  }
-  return `polygon(calc(${s}px + ${b}px) 0, calc(100% - ${b}px) 0, calc(100% - ${s}px - ${b}px) 100%, calc(${b}px) 100%)`
-}
 
 type SliceAsset = TimelineFeaturedAsset
 
 interface BannerSliceProps {
   unit: BannerFeaturedUnit
-  index: number
   onOpenDetail?: (ref: EntityRef) => void
-  total: number
 }
 
-function getSliceShellStyle(index: number) {
-  return {
-    flex: '1 1 0',
-    minWidth: 0,
-    marginLeft: index === 0 ? 0 : -SKEW_PX,
-  }
-}
-
-function getSliceClipStyle(index: number, total: number) {
-  return {
-    ...getSliceShellStyle(index),
-    clipPath: buildClipPath(index, total),
-  }
+function getSliceShellStyle(): {flex: string; minWidth: number} {
+  return {flex: '1 1 0', minWidth: 0}
 }
 
 function SliceLabel({asset, total}: {asset: SliceAsset; total: number}) {
@@ -120,9 +87,9 @@ function SliceLabel({asset, total}: {asset: SliceAsset; total: number}) {
   )
 }
 
-function SliceLabelSlot({asset, index, total}: {asset: SliceAsset; index: number; total: number}) {
+function SliceLabelSlot({asset, total}: {asset: SliceAsset; total: number}) {
   return (
-    <div className='relative block h-full shrink-0' style={getSliceShellStyle(index)}>
+    <div className='relative block h-full shrink-0' style={getSliceShellStyle()}>
       <SliceLabel asset={asset} total={total} />
     </div>
   )
@@ -186,7 +153,7 @@ function SliceDetailTarget({
   )
 }
 
-function BannerArtSlice({unit, index, onOpenDetail, total}: BannerSliceProps) {
+function BannerArtSlice({unit, onOpenDetail}: BannerSliceProps) {
   const asset = resolveTimelineFeaturedAsset(unit)
 
   const imgClass = asset.isWheel
@@ -196,7 +163,7 @@ function BannerArtSlice({unit, index, onOpenDetail, total}: BannerSliceProps) {
   return (
     <div
       className='group/slice relative block h-full shrink-0 overflow-hidden transition-[filter] duration-150 hover:brightness-110 focus-visible:brightness-110'
-      style={getSliceClipStyle(index, total)}
+      style={getSliceShellStyle()}
       title={asset.label}
     >
       <div className='h-full w-full transition-transform duration-300 ease-out group-hover/slice:-translate-y-1 group-hover/slice:scale-[1.03]'>
@@ -366,9 +333,7 @@ function resolvePoolSlots(poolSlots: BannerPoolSlot[]): ResolvedVisualSlot[] {
 interface PoolBannerSliceProps {
   assets: SliceAsset[]
   frame: PoolCycleFrame
-  index: number
   onOpenDetail?: (ref: EntityRef) => void
-  total: number
 }
 
 function PoolSliceLayer({asset}: {asset: SliceAsset}) {
@@ -389,7 +354,7 @@ function PoolSliceLayer({asset}: {asset: SliceAsset}) {
   )
 }
 
-function PoolBannerSlice({assets, frame, index, onOpenDetail, total}: PoolBannerSliceProps) {
+function PoolBannerSlice({assets, frame, onOpenDetail}: PoolBannerSliceProps) {
   const [layers, setLayers] = useState<{a: number; b: number; front: 'a' | 'b'}>({
     a: frame.activeIdx,
     b: frame.activeIdx,
@@ -415,7 +380,7 @@ function PoolBannerSlice({assets, frame, index, onOpenDetail, total}: PoolBanner
   return (
     <div
       className={`group/slice relative block h-full shrink-0 overflow-hidden ${hasLink ? 'transition-[filter] duration-150 hover:brightness-110' : ''}`}
-      style={getSliceClipStyle(index, total)}
+      style={getSliceShellStyle()}
     >
       <div
         className='absolute inset-0 overflow-hidden transition-opacity ease-in-out'
@@ -499,28 +464,24 @@ export function BannerCard({banner, now, onOpenDetail}: BannerCardProps) {
 
   return (
     <article
-      className={`flex flex-col overflow-hidden border bg-slate-900/55 ${isEnded ? 'border-slate-500/30 opacity-60 saturate-50' : status === 'upcoming' ? 'border-slate-500/40 opacity-70' : 'border-slate-500/45'}`}
+      className={`group/banner grid min-h-full grid-cols-[8.25rem_minmax(0,1fr)] overflow-hidden rounded-[2px] border shadow-[inset_0_1px_0_rgba(255,244,202,0.035)] transition-[border-color,filter,transform,box-shadow] duration-150 sm:grid-cols-[minmax(12rem,0.54fr)_minmax(0,0.46fr)] ${isEnded ? 'border-slate-700/25 opacity-60 saturate-40' : status === 'upcoming' ? 'border-slate-700/35 opacity-80' : 'border-slate-700/45 hover:border-amber-200/40 hover:brightness-105'} ${showPinned ? 'border-amber-300/45 bg-[linear-gradient(180deg,rgba(37,28,16,0.34),rgba(10,16,28,0.92))] ring-1 ring-amber-300/10 ring-inset' : 'bg-[linear-gradient(180deg,rgba(15,23,42,0.78),rgba(8,13,24,0.94))]'}`}
     >
-      <div className='relative aspect-[8/5] overflow-hidden bg-slate-950/80'>
+      <div className='relative min-h-[9.25rem] overflow-hidden border-r border-slate-700/35 bg-slate-950/80 sm:min-h-[11.25rem]'>
         <div className='absolute inset-0 flex'>
           {visualSlots && visualSlots.length > 0 ? (
             visualSlots.map((vs, i) => (
               <PoolBannerSlice
                 assets={vs.assets}
                 frame={cycleFrames[vs.cycleFrameIndex]}
-                index={i}
                 key={i}
                 onOpenDetail={onOpenDetail}
-                total={visualSlots.length}
               />
             ))
           ) : displayAssets.length > 0 ? (
-            displaySlices.map((unit, index) => (
+            displaySlices.map((unit) => (
               <BannerArtSlice
-                index={index}
                 key={`${unit.kind}-${unit.name}`}
                 onOpenDetail={onOpenDetail}
-                total={displaySlices.length}
                 unit={unit}
               />
             ))
@@ -529,14 +490,13 @@ export function BannerCard({banner, now, onOpenDetail}: BannerCardProps) {
           )}
         </div>
         {hasSliceArt ? (
-          <div className='pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-slate-950 from-15% via-slate-950/75 to-transparent' />
+          <div className='pointer-events-none absolute inset-x-0 bottom-0 z-10 h-20 bg-gradient-to-t from-slate-950 from-15% via-slate-950/60 to-transparent' />
         ) : null}
         {visualLabelAssets && visualLabelAssets.length > 0 ? (
           <div className='pointer-events-none absolute inset-0 z-20 flex'>
             {visualLabelAssets.map((asset, index) => (
               <SliceLabelSlot
                 asset={asset}
-                index={index}
                 key={`${asset.label}-${String(index)}`}
                 total={visualLabelAssets.length}
               />
@@ -547,7 +507,6 @@ export function BannerCard({banner, now, onOpenDetail}: BannerCardProps) {
             {displayAssets.map((asset, index) => (
               <SliceLabelSlot
                 asset={asset}
-                index={index}
                 key={`${asset.label}-${String(index)}`}
                 total={displayAssets.length}
               />
@@ -557,50 +516,51 @@ export function BannerCard({banner, now, onOpenDetail}: BannerCardProps) {
       </div>
 
       <div
-        className={`flex flex-col border-t-[1px] px-4 py-3 ${isEnded ? 'border-t-slate-700' : 'border-t-slate-500/30'}`}
+        className={`relative flex min-w-0 flex-1 flex-col gap-2 px-3 py-3 sm:px-4 sm:py-3.5 ${isEnded ? 'text-slate-500' : 'text-slate-100'}`}
       >
-        <div className='flex items-center justify-between gap-2'>
+        <div className='flex items-start justify-between gap-3' title={countdownDisplay?.title}>
           <div className='flex min-w-0 flex-col gap-1'>
-            <div className='flex items-center gap-2'>
-              {showPinned ? (
-                <span className='text-[10px] text-amber-300/80 drop-shadow-sm' title='Pinned'>
-                  &#x1F4CC;
-                </span>
-              ) : null}
-              <h3
-                className={`ui-title text-[15px] leading-tight font-bold tracking-tight ${isEnded ? 'text-slate-400' : 'text-slate-100'}`}
-              >
-                {banner.title}
-              </h3>
-            </div>
+            <h3
+              className={`ui-title line-clamp-3 min-w-0 text-base leading-tight tracking-tight ${isEnded ? 'text-slate-500' : 'text-amber-50'}`}
+            >
+              {banner.title}
+            </h3>
             <span
-              className={`text-[10px] font-bold tracking-wider uppercase ${isEnded ? 'text-slate-500' : BANNER_TYPE_COLOR[banner.type]}`}
+              className={`text-[10px] font-bold tracking-[0.12em] uppercase ${isEnded ? 'text-slate-600' : BANNER_TYPE_COLOR[banner.type]}`}
             >
               {BANNER_TYPE_LABEL[banner.type]}
             </span>
           </div>
-          <div
-            className='flex shrink-0 flex-col items-end gap-0.5 pt-0.5'
-            title={countdownDisplay?.title}
+          <span
+            className={`timeline-event-chip timeline-event-chip--status shrink-0 ${STATUS_CLASS[status]}`}
           >
-            <span
-              className={`rounded-[2px] border px-1.5 py-0.5 text-[9px] font-medium tracking-wider ${STATUS_CLASS[status]}`}
-            >
-              {status === 'active' ? 'Live' : status === 'upcoming' ? 'Soon' : 'Ended'}
-            </span>
-            {countdownDisplay ? (
-              <span className='text-[10px] font-medium whitespace-nowrap text-slate-400 tabular-nums'>
-                {countdownDisplay.text}
-              </span>
-            ) : null}
-          </div>
+            {status === 'active' ? 'Live' : status === 'upcoming' ? 'Soon' : 'Ended'}
+          </span>
         </div>
         {banner.description ? (
           <p
-            className='mt-2.5 line-clamp-2 text-xs leading-relaxed text-slate-500'
+            className='line-clamp-3 text-xs leading-relaxed text-slate-400'
             dangerouslySetInnerHTML={{__html: banner.description}}
           />
         ) : null}
+        <div
+          className='mt-auto flex items-center justify-between gap-2 pt-1'
+          title={countdownDisplay?.title}
+        >
+          {countdownDisplay ? (
+            <span className='text-[11px] font-medium whitespace-nowrap text-slate-400 tabular-nums'>
+              {countdownDisplay.text}
+            </span>
+          ) : (
+            <span />
+          )}
+          <span
+            aria-hidden
+            className={`grid h-6 w-6 place-items-center border text-[10px] transition-colors ${isEnded ? 'border-slate-700/30 text-slate-600' : 'border-slate-600/50 text-slate-400 group-hover/banner:border-amber-200/40 group-hover/banner:text-amber-100'}`}
+          >
+            <FaChevronRight />
+          </span>
+        </div>
       </div>
     </article>
   )

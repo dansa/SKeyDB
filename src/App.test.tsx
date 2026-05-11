@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react'
+import {render, screen, within} from '@testing-library/react'
 import {MemoryRouter} from 'react-router-dom'
 
 import App from './App'
@@ -12,24 +12,26 @@ describe('App shell', () => {
     )
 
     expect(screen.getByRole('heading', {level: 1, name: /skeydb/i})).toBeInTheDocument()
-    expect(screen.getByRole('link', {name: /database/i})).toBeInTheDocument()
-    expect(screen.getByRole('link', {name: /builder/i})).toBeInTheDocument()
-    expect(screen.getByRole('link', {name: /collection/i})).toBeInTheDocument()
+    const desktopNav = screen.getByRole('navigation', {name: /primary navigation desktop/i})
+    expect(within(desktopNav).getByRole('link', {name: /database/i})).toBeInTheDocument()
+    expect(within(desktopNav).getByRole('link', {name: /builder/i})).toBeInTheDocument()
+    expect(within(desktopNav).getByRole('link', {name: /collection/i})).toBeInTheDocument()
   })
 
-  it('uses a mobile-safe header layout that allows nav wrapping', () => {
+  it('uses separate desktop and mobile navigation surfaces', () => {
     render(
       <MemoryRouter>
         <App />
       </MemoryRouter>,
     )
 
-    const nav = screen.getByRole('navigation')
-    const headerRow = nav.parentElement
+    const desktopNav = screen.getByRole('navigation', {name: /primary navigation desktop/i})
+    const mobileNav = screen.getByRole('navigation', {name: /primary navigation mobile/i})
+    const menuButton = screen.getByRole('button', {name: /menu/i})
 
-    expect(headerRow).toHaveClass('flex-col')
-    expect(headerRow).toHaveClass('md:flex-row')
-    expect(nav).toHaveClass('flex-wrap')
-    expect(nav).toHaveClass('w-full')
+    expect(desktopNav).toHaveClass('hidden')
+    expect(desktopNav).toHaveClass('md:flex')
+    expect(mobileNav).toHaveClass('md:hidden')
+    expect(menuButton).toHaveClass('md:hidden')
   })
 })

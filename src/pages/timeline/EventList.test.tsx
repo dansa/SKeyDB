@@ -46,7 +46,7 @@ describe('EventList', () => {
       'title',
       'Mar 9, 2026 - Mar 12, 2026',
     )
-    expect(screen.getByTitle('Pinned')).toBeInTheDocument()
+    expect(screen.queryByTitle('Pinned')).not.toBeInTheDocument()
     expect(screen.queryByText('Archived Story Event')).not.toBeInTheDocument()
     expect(screen.queryByText('Archived Login Event')).not.toBeInTheDocument()
 
@@ -54,7 +54,7 @@ describe('EventList', () => {
 
     expect(screen.getByText('Archived Story Event')).toBeInTheDocument()
     expect(screen.queryByText('Archived Login Event')).not.toBeInTheDocument()
-    expect(screen.getAllByTitle('Pinned')).toHaveLength(1)
+    expect(screen.queryByTitle('Pinned')).not.toBeInTheDocument()
   })
 
   it('opens featured event details from a visible entity chip', () => {

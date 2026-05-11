@@ -27,7 +27,7 @@ export function TimelineArchiveSection({
     <div className='mt-4 space-y-3'>
       <button
         aria-expanded={expanded}
-        className='flex w-full items-center gap-3 text-left transition-colors hover:text-slate-300'
+        className='flex min-h-10 w-full items-center gap-3 text-left transition-colors hover:text-slate-300 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none sm:min-h-8'
         onClick={onToggle}
         type='button'
       >

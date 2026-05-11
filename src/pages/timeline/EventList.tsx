@@ -60,26 +60,10 @@ const CATEGORY_TINT: Record<EventCategory, string> = {
   other: 'timeline-event-chip--slate',
 }
 
-const CATEGORY_BORDER_LEFT: Record<EventCategory, string> = {
-  story: 'border-l-amber-400',
-  raid: 'border-l-red-400',
-  battlepass: 'border-l-violet-400',
-  'gameplay-event': 'border-l-amber-400',
-  'd-tide': 'border-l-red-400',
-  curriculum: 'border-l-violet-400',
-  login: 'border-l-teal-400',
-  skin: 'border-l-pink-400',
-  'wheel-event': 'border-l-cyan-400',
-  preorder: 'border-l-orange-400',
-  maintenance: 'border-l-slate-400',
-  campaign: 'border-l-emerald-400',
-  collab: 'border-l-fuchsia-400',
-  other: 'border-l-slate-400',
-}
-
 const RERUN_TINT = 'timeline-event-chip--rerun'
 const EVENT_META_CHIP_CLASS = 'timeline-event-chip'
 const MUTED_CHIP_CLASS = 'timeline-event-chip--muted'
+type TimelineEventStatusFilter = 'all' | TimelineStatus
 
 function getEventDetailTargetTint(kind: EntityRef['kind']): string {
   return kind === 'wheel' ? 'timeline-event-chip--wheel' : 'timeline-event-chip--awakener'
@@ -182,7 +166,6 @@ function EventRow({event, now, onOpenDetail}: EventRowProps) {
   const showPinned = event.pinned === true && status === 'active'
   const cat = event.category ?? 'other'
   const catTint = isEnded ? MUTED_CHIP_CLASS : CATEGORY_TINT[cat]
-  const wrapperBorderLeft = isEnded ? 'border-l-slate-700' : CATEGORY_BORDER_LEFT[cat]
 
   const hasCustomArt = event.customArt && /^https?:\/\/|^\//.test(event.customArt)
   const featuredArt = resolveEventArt(
@@ -193,28 +176,56 @@ function EventRow({event, now, onOpenDetail}: EventRowProps) {
 
   return (
     <li
-      className={`group/event-row overflow-hidden border bg-slate-900/55 ${isEnded ? 'border-slate-500/25 opacity-60 saturate-50' : status === 'upcoming' ? 'border-slate-500/40 opacity-70' : 'border-slate-500/40'} ${showPinned ? '!border-l-amber-400 bg-amber-400/5 ring-1 ring-amber-400/10 ring-inset' : wrapperBorderLeft}`}
+      className={`group/event-row overflow-hidden border transition-[border-color,filter,transform] duration-150 ${isEnded ? 'border-slate-700/25 opacity-60 saturate-40' : status === 'upcoming' ? 'border-slate-700/35 opacity-80' : 'border-slate-700/40 hover:border-amber-200/30 hover:brightness-105'} ${showPinned ? 'border-amber-300/40 bg-amber-400/[0.03]' : 'bg-[linear-gradient(180deg,rgba(15,23,42,0.78),rgba(10,16,28,0.88))]'}`}
     >
-      <div className='flex h-full'>
-        <div className='flex min-w-0 flex-1 flex-col py-3 pl-5'>
-          <div className='grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-start gap-x-2'>
-            <div className='flex min-w-0 items-center gap-2'>
-              {showPinned ? (
-                <span
-                  className='shrink-0 text-[10px] text-amber-300/80 drop-shadow-sm'
-                  title='Pinned'
+      <div
+        className={`grid h-full ${featuredArt ? 'grid-cols-[6rem_minmax(0,1fr)] sm:grid-cols-[8rem_minmax(0,1fr)]' : 'grid-cols-1'}`}
+      >
+        {featuredArt ? (
+          <div className='relative min-h-[6.5rem] overflow-hidden border-r border-slate-700/30 bg-slate-950/80 sm:min-h-[7.5rem]'>
+            <div className='absolute inset-0'>
+              <EventArtSlice art={featuredArt} />
+            </div>
+            <div className='pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-slate-950/60' />
+          </div>
+        ) : null}
+        <div className='flex min-w-0 flex-1 flex-col justify-between px-3 py-2.5 sm:px-4 sm:py-3'>
+          <div className='flex items-start justify-between gap-3'>
+            <div className='flex min-w-0 flex-col gap-1.5'>
+              <div className='flex min-w-0 items-center gap-2'>
+                <h4
+                  className={`min-w-0 truncate text-[14px] leading-tight font-bold tracking-tight sm:text-[15px] ${isEnded ? 'text-slate-500' : 'text-slate-100'}`}
                 >
-                  &#x1F4CC;
-                </span>
-              ) : null}
-              <h4
-                className={`ui-title min-w-0 truncate text-base font-bold tracking-tight drop-shadow-sm ${isEnded ? 'text-slate-400' : 'text-slate-100'}`}
-              >
-                {event.title}
-              </h4>
+                  {event.title}
+                </h4>
+              </div>
+              <div className='flex flex-wrap items-center gap-1.5'>
+                <span className={`${EVENT_META_CHIP_CLASS} ${catTint}`}>{CATEGORY_LABEL[cat]}</span>
+                {event.rerun ? (
+                  <span
+                    className={`${EVENT_META_CHIP_CLASS} ${isEnded ? MUTED_CHIP_CLASS : RERUN_TINT}`}
+                  >
+                    Rerun
+                  </span>
+                ) : null}
+                {featuredArt && onOpenDetail
+                  ? featuredArt.detailTargets.map((target) => (
+                      <EventDetailTargetChip
+                        key={`${target.ref.kind}-${target.ref.id}`}
+                        onOpenDetail={onOpenDetail}
+                        target={target}
+                      />
+                    ))
+                  : null}
+                {event.pricing ? (
+                  <span className={`${EVENT_META_CHIP_CLASS} timeline-event-chip--price`}>
+                    {event.pricing}
+                  </span>
+                ) : null}
+              </div>
             </div>
             <div
-              className='ml-auto flex shrink-0 flex-col items-end justify-center gap-0.5'
+              className='flex shrink-0 flex-col items-end gap-1 pt-0.5'
               title={countdownDisplay?.title}
             >
               <span
@@ -223,52 +234,44 @@ function EventRow({event, now, onOpenDetail}: EventRowProps) {
                 {STATUS_LABEL[status]}
               </span>
               {countdownDisplay ? (
-                <span className='text-[10px] font-medium whitespace-nowrap text-slate-400 drop-shadow-sm'>
+                <span className='text-[10px] font-medium whitespace-nowrap text-slate-500 tabular-nums'>
                   {countdownDisplay.text}
                 </span>
               ) : null}
             </div>
           </div>
-          <div className='mt-0.5 flex flex-wrap items-center gap-1.5'>
-            <span className={`${EVENT_META_CHIP_CLASS} ${catTint}`}>{CATEGORY_LABEL[cat]}</span>
-            {event.rerun ? (
-              <span
-                className={`${EVENT_META_CHIP_CLASS} ${isEnded ? MUTED_CHIP_CLASS : RERUN_TINT}`}
-              >
-                Rerun
-              </span>
-            ) : null}
-            {featuredArt && onOpenDetail
-              ? featuredArt.detailTargets.map((target) => (
-                  <EventDetailTargetChip
-                    key={`${target.ref.kind}-${target.ref.id}`}
-                    onOpenDetail={onOpenDetail}
-                    target={target}
-                  />
-                ))
-              : null}
-            {event.pricing ? (
-              <span className={`${EVENT_META_CHIP_CLASS} timeline-event-chip--price`}>
-                {event.pricing}
-              </span>
-            ) : null}
-          </div>
           {event.description ? (
-            <p className='mt-2.5 line-clamp-3 text-xs leading-relaxed text-balance whitespace-pre-line text-slate-400 drop-shadow-sm'>
+            <p className='mt-2 hidden text-xs leading-relaxed text-balance whitespace-pre-line text-slate-400 sm:line-clamp-2'>
               {event.description}
             </p>
           ) : null}
         </div>
-        {featuredArt ? (
-          <div
-            className='relative w-16 shrink-0 bg-slate-950/80'
-            style={{clipPath: 'polygon(12px 0, 100% 0, 100% 100%, 0 100%)'}}
+      </div>
+    </li>
+  )
+}
+
+function EventArchiveTeaser({itemCount, onOpen}: {itemCount: number; onOpen: () => void}) {
+  return (
+    <li className='overflow-hidden border border-slate-600/45 bg-[linear-gradient(120deg,rgba(15,23,42,0.78),rgba(8,14,25,0.9))]'>
+      <div className='grid min-h-32 grid-cols-[minmax(0,1fr)_6.5rem]'>
+        <div className='flex min-w-0 flex-col justify-center px-4 py-4'>
+          <h3 className='ui-title text-base text-amber-50'>View ended events</h3>
+          <p className='mt-1 text-xs leading-5 text-slate-400'>Browse past windows and rewards.</p>
+          <button
+            className='mt-3 inline-flex h-8 w-fit items-center border border-amber-200/45 bg-[linear-gradient(180deg,rgba(141,105,45,0.62),rgba(61,43,22,0.72))] px-3 text-[11px] font-bold text-amber-50 transition-colors hover:border-amber-100/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none'
+            onClick={onOpen}
+            type='button'
           >
-            <div className='absolute inset-0'>
-              <EventArtSlice art={featuredArt} />
-            </div>
-          </div>
-        ) : null}
+            View Archive
+          </button>
+        </div>
+        <div className='relative overflow-hidden bg-slate-950/55'>
+          <span className='sigil-placeholder sigil-placeholder-card opacity-55' />
+          <span className='absolute right-3 bottom-3 text-[10px] font-bold tracking-[0.12em] text-slate-500 uppercase'>
+            {itemCount} ended
+          </span>
+        </div>
       </div>
     </li>
   )
@@ -278,42 +281,63 @@ interface EventListProps {
   events: EventEntry[]
   now?: Date
   onOpenDetail?: (ref: EntityRef) => void
+  statusFilter?: TimelineEventStatusFilter
 }
 
-export function EventList({events, now, onOpenDetail}: EventListProps) {
+export function EventList({events, now, onOpenDetail, statusFilter = 'all'}: EventListProps) {
   const [showEnded, setShowEnded] = useState(false)
 
   if (events.length === 0) {
     return <p className='px-3 py-4 text-sm text-slate-400'>No events to display.</p>
   }
 
-  const active = events.filter((e) => getTimelineStatus(e.startDate, e.endDate, now) === 'active')
+  const statusMatches = (status: TimelineStatus) =>
+    statusFilter === 'all' || statusFilter === status
+
+  const active = events.filter(
+    (e) => getTimelineStatus(e.startDate, e.endDate, now) === 'active' && statusMatches('active'),
+  )
   const upcoming = events.filter(
-    (e) => getTimelineStatus(e.startDate, e.endDate, now) === 'upcoming',
+    (e) =>
+      getTimelineStatus(e.startDate, e.endDate, now) === 'upcoming' && statusMatches('upcoming'),
   )
   const ended = events.filter(
     (e) =>
       getTimelineStatus(e.startDate, e.endDate, now) === 'ended' &&
+      (statusFilter === 'ended' || statusFilter === 'active' || statusFilter === 'all') &&
       shouldDisplayEndedEventInArchive(e),
   )
+  const revealEnded = showEnded || statusFilter === 'ended'
+
+  if (active.length === 0 && upcoming.length === 0 && ended.length === 0) {
+    return <p className='px-3 py-4 text-sm text-slate-400'>No events to display.</p>
+  }
 
   return (
-    <div className='space-y-6'>
+    <div className='space-y-5'>
       {active.length > 0 && (
-        <ul className='grid gap-2 sm:grid-cols-2'>
+        <ul className='grid gap-3 md:grid-cols-2'>
           {active.map((event) => (
             <EventRow event={event} key={event.id} now={now} onOpenDetail={onOpenDetail} />
           ))}
+          {ended.length > 0 && !revealEnded ? (
+            <EventArchiveTeaser
+              itemCount={ended.length}
+              onOpen={() => {
+                setShowEnded(true)
+              }}
+            />
+          ) : null}
         </ul>
       )}
 
       {upcoming.length > 0 && (
         <div className='space-y-3'>
           <div className='flex items-center gap-3'>
-            <h4 className='ui-title text-sm text-slate-400'>Upcoming</h4>
-            <div className='h-px flex-1 bg-gradient-to-r from-slate-500/30 to-transparent' />
+            <h3 className='ui-title text-sm text-slate-400'>Upcoming events</h3>
+            <div className='h-px flex-1 bg-gradient-to-r from-amber-200/20 via-slate-500/25 to-transparent' />
           </div>
-          <ul className='grid gap-2 sm:grid-cols-2'>
+          <ul className='grid gap-3 md:grid-cols-2'>
             {upcoming.map((event) => (
               <EventRow event={event} key={event.id} now={now} onOpenDetail={onOpenDetail} />
             ))}
@@ -323,13 +347,15 @@ export function EventList({events, now, onOpenDetail}: EventListProps) {
 
       {ended.length > 0 ? (
         <TimelineArchiveSection
-          contentClassName='grid gap-2 sm:grid-cols-2'
-          expanded={showEnded}
+          contentClassName='grid gap-3 md:grid-cols-2'
+          dividerClassName='bg-gradient-to-r from-amber-200/15 via-slate-500/20 to-transparent'
+          expanded={revealEnded}
           itemCount={ended.length}
           onToggle={() => {
             setShowEnded((current) => !current)
           }}
-          title='Ended'
+          title='Ended events'
+          titleClassName='text-slate-400'
         >
           {ended.map((event) => (
             <EventRow event={event} key={event.id} now={now} onOpenDetail={onOpenDetail} />

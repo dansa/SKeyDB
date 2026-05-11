@@ -77,7 +77,7 @@ describe('TimelinePage', () => {
     expect(screen.getByText('Active Banner')).toBeInTheDocument()
     expect(screen.queryByText('Archived Banner')).not.toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', {name: /ended/i}))
+    fireEvent.click(screen.getByRole('button', {name: /ended banners/i}))
 
     expect(screen.getByText('Archived Banner')).toBeInTheDocument()
   })
@@ -95,5 +95,39 @@ describe('TimelinePage', () => {
       'timeline-overlay',
     )
     expect(screen.getByTestId('timeline-detail-host')).toBeInTheDocument()
+  })
+
+  it('filters the timeline surface between events and banners', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
+
+    render(<TimelinePage />)
+
+    expect(screen.getByText('No events to display.')).toBeInTheDocument()
+    expect(screen.getByText('Active Banner')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', {name: 'Events'}))
+
+    expect(screen.getByText('No events to display.')).toBeInTheDocument()
+    expect(screen.queryByText('Active Banner')).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', {name: 'Banners'}))
+
+    expect(screen.queryByText('No events to display.')).not.toBeInTheDocument()
+    expect(screen.getByText('Active Banner')).toBeInTheDocument()
+  })
+
+  it('shows archived banners when the ended state filter is active', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
+
+    render(<TimelinePage />)
+
+    expect(screen.queryByText('Archived Banner')).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', {name: 'Ended'}))
+
+    expect(screen.queryByText('Active Banner')).not.toBeInTheDocument()
+    expect(screen.getByText('Archived Banner')).toBeInTheDocument()
   })
 })
