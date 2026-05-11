@@ -5,6 +5,8 @@ import {getWheelAssetById} from '@/domain/wheel-assets'
 import type {Wheel} from '@/domain/wheels'
 import {SearchCombobox} from '@/ui/search/SearchCombobox'
 
+import {DATABASE_ACCENT_TEXT_CLASS, getDatabaseAccentTextStyle} from './text-styles'
+
 interface WheelDetailSearchBarProps {
   containerRef?: React.RefObject<HTMLDivElement | null>
   inputRef: React.RefObject<HTMLInputElement | null>
@@ -73,7 +75,10 @@ function WheelSearchResultRow({wheel}: {wheel: Wheel}) {
         <div className='flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[11px] leading-none text-slate-500'>
           <span className='shrink-0'>{wheel.rarity}</span>
           <span className='mx-1.5 text-slate-700'>·</span>
-          <span className='shrink-0' style={{color: getRealmAccent(wheel.realm)}}>
+          <span
+            className={`shrink-0 ${DATABASE_ACCENT_TEXT_CLASS}`}
+            style={getDatabaseAccentTextStyle(getRealmAccent(wheel.realm))}
+          >
             {realmLabel}
           </span>
           <span className='mx-1.5 text-slate-700'>·</span>

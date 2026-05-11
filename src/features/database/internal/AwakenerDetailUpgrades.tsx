@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo, useState} from 'react'
+import {useCallback, useEffect, useMemo, useState, type CSSProperties} from 'react'
 
 import enlightensStars from '@/assets/icons/Battle_Card_Buff_045.webp'
 import type {Awakener} from '@/domain/awakeners'
@@ -24,6 +24,14 @@ interface AwakenerDetailUpgradesProps {
 
 const ENLIGHTEN_ORDER = ['E1', 'E2', 'E3'] as const
 const TALENT_ORDER = ['T1', 'T2', 'T3', 'T4'] as const
+
+function getEnlightenStarStyle(starStyle: ReturnType<typeof getStarSize>): CSSProperties {
+  return {
+    width: starStyle.width,
+    height: starStyle.height,
+    top: starStyle.top,
+  }
+}
 
 export function AwakenerDetailUpgrades({
   awakener,
@@ -105,7 +113,7 @@ export function AwakenerDetailUpgrades({
                 src={enlightensStars}
                 alt={`E${(i + 1).toString()}`}
                 className='relative'
-                style={{width: starStyle.width, height: starStyle.height, top: starStyle.top}}
+                style={getEnlightenStarStyle(starStyle)}
               />
             ))}
           </span>

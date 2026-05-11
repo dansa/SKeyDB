@@ -21,7 +21,7 @@ export function useWheelsDatabaseBrowseState() {
   })
   const {mainstatFilter, query, rarityFilter, realmFilter, sortDirection, sortKey} = browseState
   const {setQuery, appendSearchCharacter, removeSearchCharacter, clearQuery} =
-    useBrowseQueryActions<WheelsDatabaseBrowseState>(query, commitBrowseState)
+    useBrowseQueryActions(query, commitBrowseState)
 
   const setRealmFilter = useCallback(
     (next: WheelsDatabaseRealmFilterId) => {

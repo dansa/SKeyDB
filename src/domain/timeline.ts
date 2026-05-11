@@ -240,19 +240,23 @@ export function getTimelineCountdownDisplay(
   return {text: formatCountdown(countdown), title}
 }
 
+function getActivePinnedPriority(pinned: boolean | undefined, status: TimelineStatus): number {
+  return status === 'active' && pinned ? 0 : 1
+}
+
 export function sortBannersByRelevance(banners: BannerEntry[], now?: Date): BannerEntry[] {
   const reference = now ?? new Date()
   return [...banners].sort((a, b) => {
-    const pinnedA = a.pinned ? 0 : 1
-    const pinnedB = b.pinned ? 0 : 1
-    if (pinnedA !== pinnedB) {
-      return pinnedA - pinnedB
-    }
     const statusA = getTimelineStatus(a.startDate, a.endDate, reference)
     const statusB = getTimelineStatus(b.startDate, b.endDate, reference)
     const order: Record<TimelineStatus, number> = {active: 0, upcoming: 1, ended: 2}
     if (order[statusA] !== order[statusB]) {
       return order[statusA] - order[statusB]
+    }
+    const pinnedA = getActivePinnedPriority(a.pinned, statusA)
+    const pinnedB = getActivePinnedPriority(b.pinned, statusB)
+    if (pinnedA !== pinnedB) {
+      return pinnedA - pinnedB
     }
     if (statusA === 'upcoming') {
       return new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
@@ -267,16 +271,16 @@ export function sortBannersByRelevance(banners: BannerEntry[], now?: Date): Bann
 export function sortEventsByRelevance(events: EventEntry[], now?: Date): EventEntry[] {
   const reference = now ?? new Date()
   return [...events].sort((a, b) => {
-    const pinnedA = a.pinned ? 0 : 1
-    const pinnedB = b.pinned ? 0 : 1
-    if (pinnedA !== pinnedB) {
-      return pinnedA - pinnedB
-    }
     const statusA = getTimelineStatus(a.startDate, a.endDate, reference)
     const statusB = getTimelineStatus(b.startDate, b.endDate, reference)
     const order: Record<TimelineStatus, number> = {active: 0, upcoming: 1, ended: 2}
     if (order[statusA] !== order[statusB]) {
       return order[statusA] - order[statusB]
+    }
+    const pinnedA = getActivePinnedPriority(a.pinned, statusA)
+    const pinnedB = getActivePinnedPriority(b.pinned, statusB)
+    if (pinnedA !== pinnedB) {
+      return pinnedA - pinnedB
     }
     if (statusA === 'ended') {
       return new Date(b.endDate).getTime() - new Date(a.endDate).getTime()

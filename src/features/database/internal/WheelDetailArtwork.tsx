@@ -1,3 +1,5 @@
+import type {CSSProperties} from 'react'
+
 import {getRealmAccent} from '@/domain/realms'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 import type {Wheel} from '@/domain/wheels'
@@ -6,6 +8,12 @@ interface WheelDetailArtworkProps {
   wheel: Wheel
   variant?: 'sidebar' | 'compact'
   onOpenFullArt?: () => void
+}
+
+type WheelArtLineStyle = CSSProperties & {'--wheel-art-line-color': string}
+
+function getWheelArtLineStyle(lineAccent: string): WheelArtLineStyle {
+  return {'--wheel-art-line-color': lineAccent}
 }
 
 export function WheelDetailArtwork({
@@ -26,10 +34,7 @@ export function WheelDetailArtwork({
   const hideFrameFromAccessibilityTree = !asset || !onOpenFullArt
 
   return (
-    <div
-      className={rootClassName}
-      style={{'--wheel-art-line-color': lineAccent} as React.CSSProperties}
-    >
+    <div className={rootClassName} style={getWheelArtLineStyle(lineAccent)}>
       <div aria-hidden={hideFrameFromAccessibilityTree || undefined} className={frameClassName}>
         {isCompact ? null : (
           <>

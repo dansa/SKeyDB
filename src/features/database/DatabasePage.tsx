@@ -1,6 +1,6 @@
 import {useEffect} from 'react'
 
-import {useLocation, useNavigate, useParams} from 'react-router-dom'
+import {useLocation, useNavigate, useParams, type NavigateFunction} from 'react-router-dom'
 
 import {resolvePublicRoute} from '@/data-access/public-data/routeResolver'
 import type {Awakener} from '@/domain/awakeners'
@@ -58,6 +58,54 @@ function buildCanonicalAwakenerRoutePath(
   return tab === 'overview' ? basePath : `${basePath}/${tab}`
 }
 
+interface DetailRouteCorrectionParams {
+  activeSearch: string
+  browsePath: string
+  canonicalPath: string | null
+  hasSelectedDetail: boolean
+  locationPathname: string
+  navigate: NavigateFunction
+  slug: string | undefined
+}
+
+function useDetailRouteCorrection({
+  activeSearch,
+  browsePath,
+  canonicalPath,
+  hasSelectedDetail,
+  locationPathname,
+  navigate,
+  slug,
+}: DetailRouteCorrectionParams) {
+  useEffect(() => {
+    if (slug && !hasSelectedDetail) {
+      void navigate(
+        {
+          pathname: browsePath,
+          search: activeSearch,
+        },
+        {replace: true},
+      )
+    }
+  }, [activeSearch, browsePath, hasSelectedDetail, navigate, slug])
+
+  useEffect(() => {
+    if (!slug || !hasSelectedDetail || !canonicalPath) {
+      return
+    }
+    if (locationPathname === canonicalPath) {
+      return
+    }
+    void navigate(
+      {
+        pathname: canonicalPath,
+        search: activeSearch,
+      },
+      {replace: true},
+    )
+  }, [activeSearch, canonicalPath, hasSelectedDetail, locationPathname, navigate, slug])
+}
+
 interface DatabasePageProps {
   routeEntity?: DatabaseEntityId
 }
@@ -80,137 +128,56 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
     navigate,
   })
   const activeSearch = browseController.activeSearch
+  const canonicalAwakenerPath =
+    awakenerSlug && selectedAwakener && !tabSlug
+      ? buildCanonicalAwakenerRoutePath(selectedAwakener, awakenerSlug, selectedTab)
+      : null
+  const canonicalWheelPath =
+    wheelSlug && selectedWheel ? buildDatabaseWheelPath(selectedWheel) : null
+  const canonicalPossePath =
+    posseSlug && selectedPosse ? buildDatabasePossePath(selectedPosse) : null
+  const canonicalCovenantPath =
+    covenantSlug && selectedCovenant ? buildDatabaseCovenantPath(selectedCovenant) : null
 
-  useEffect(() => {
-    if (awakenerSlug && !selectedAwakener) {
-      void navigate(
-        {
-          pathname: buildDatabaseEntityBrowsePath('awakeners'),
-          search: activeSearch,
-        },
-        {replace: true},
-      )
-    }
-  }, [activeSearch, awakenerSlug, navigate, selectedAwakener])
-
-  useEffect(() => {
-    if (!awakenerSlug || !selectedAwakener) {
-      return
-    }
-    if (tabSlug) {
-      return
-    }
-    const canonicalPath = buildCanonicalAwakenerRoutePath(
-      selectedAwakener,
-      awakenerSlug,
-      selectedTab,
-    )
-    if (location.pathname === canonicalPath) {
-      return
-    }
-    void navigate(
-      {
-        pathname: canonicalPath,
-        search: activeSearch,
-      },
-      {replace: true},
-    )
-  }, [
+  useDetailRouteCorrection({
     activeSearch,
-    awakenerSlug,
-    location.pathname,
+    browsePath: buildDatabaseEntityBrowsePath('awakeners'),
+    canonicalPath: canonicalAwakenerPath,
+    hasSelectedDetail: Boolean(selectedAwakener),
+    locationPathname: location.pathname,
     navigate,
-    selectedAwakener,
-    selectedTab,
-    tabSlug,
-  ])
+    slug: awakenerSlug,
+  })
 
-  useEffect(() => {
-    if (wheelSlug && !selectedWheel) {
-      void navigate(
-        {
-          pathname: buildDatabaseWheelBrowsePath(),
-          search: activeSearch,
-        },
-        {replace: true},
-      )
-    }
-  }, [activeSearch, navigate, selectedWheel, wheelSlug])
+  useDetailRouteCorrection({
+    activeSearch,
+    browsePath: buildDatabaseWheelBrowsePath(),
+    canonicalPath: canonicalWheelPath,
+    hasSelectedDetail: Boolean(selectedWheel),
+    locationPathname: location.pathname,
+    navigate,
+    slug: wheelSlug,
+  })
 
-  useEffect(() => {
-    if (!wheelSlug || !selectedWheel) {
-      return
-    }
-    const canonicalPath = buildDatabaseWheelPath(selectedWheel)
-    if (location.pathname === canonicalPath) {
-      return
-    }
-    void navigate(
-      {
-        pathname: canonicalPath,
-        search: activeSearch,
-      },
-      {replace: true},
-    )
-  }, [activeSearch, location.pathname, navigate, selectedWheel, wheelSlug])
+  useDetailRouteCorrection({
+    activeSearch,
+    browsePath: buildDatabasePosseBrowsePath(),
+    canonicalPath: canonicalPossePath,
+    hasSelectedDetail: Boolean(selectedPosse),
+    locationPathname: location.pathname,
+    navigate,
+    slug: posseSlug,
+  })
 
-  useEffect(() => {
-    if (posseSlug && !selectedPosse) {
-      void navigate(
-        {
-          pathname: buildDatabasePosseBrowsePath(),
-          search: activeSearch,
-        },
-        {replace: true},
-      )
-    }
-  }, [activeSearch, navigate, posseSlug, selectedPosse])
-
-  useEffect(() => {
-    if (!posseSlug || !selectedPosse) {
-      return
-    }
-    const canonicalPath = buildDatabasePossePath(selectedPosse)
-    if (location.pathname === canonicalPath) {
-      return
-    }
-    void navigate(
-      {
-        pathname: canonicalPath,
-        search: activeSearch,
-      },
-      {replace: true},
-    )
-  }, [activeSearch, location.pathname, navigate, posseSlug, selectedPosse])
-
-  useEffect(() => {
-    if (covenantSlug && !selectedCovenant) {
-      void navigate(
-        {
-          pathname: buildDatabaseCovenantBrowsePath(),
-          search: activeSearch,
-        },
-        {replace: true},
-      )
-    }
-  }, [activeSearch, covenantSlug, navigate, selectedCovenant])
-
-  useEffect(() => {
-    if (!covenantSlug || !selectedCovenant) {
-      return
-    }
-    const canonicalPath = buildDatabaseCovenantPath(selectedCovenant)
-    if (location.pathname === canonicalPath) {
-      return
-    }
-    void navigate(
-      {
-        pathname: canonicalPath,
-        search: activeSearch,
-      },
-      {replace: true},
-    )
-  }, [activeSearch, covenantSlug, location.pathname, navigate, selectedCovenant])
+  useDetailRouteCorrection({
+    activeSearch,
+    browsePath: buildDatabaseCovenantBrowsePath(),
+    canonicalPath: canonicalCovenantPath,
+    hasSelectedDetail: Boolean(selectedCovenant),
+    locationPathname: location.pathname,
+    navigate,
+    slug: covenantSlug,
+  })
 
   const closeDetail = browseController.closeDetail
   const routeDetailItem = selectedAwakener

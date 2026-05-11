@@ -16,6 +16,10 @@ let mockAwakenerDetails = [{id: 'awakener-0001'}, {id: 'awakener-0002'}, {id: 'a
 let mockLoadPromiseCache = new Map<string, Promise<{id: string} | undefined>>()
 let mockWheelDetails = [{id: 'wheel-0001'}, {id: 'wheel-0040'}]
 let mockWheelLoadPromiseCache = new Map<string, Promise<{id: string} | undefined>>()
+let mockPosseDetails = [{id: 'posse-0001'}, {id: 'posse-0002'}]
+let mockPosseLoadPromiseCache = new Map<string, Promise<{id: string} | undefined>>()
+let mockCovenantDetails = [{id: 'covenant-0001'}, {id: 'covenant-0002'}]
+let mockCovenantLoadPromiseCache = new Map<string, Promise<{id: string} | undefined>>()
 const wheelMockState = vi.hoisted(() => {
   const wheels = [
     {
@@ -78,6 +82,28 @@ const mockLoadWheelDetailById = vi.fn((id: string) => {
 
   const recordPromise = Promise.resolve(mockWheelDetails.find((entry) => entry.id === id))
   mockWheelLoadPromiseCache.set(id, recordPromise)
+
+  return recordPromise
+})
+const mockLoadPosseDetailById = vi.fn((id: string) => {
+  const cachedPromise = mockPosseLoadPromiseCache.get(id)
+  if (cachedPromise) {
+    return cachedPromise
+  }
+
+  const recordPromise = Promise.resolve(mockPosseDetails.find((entry) => entry.id === id))
+  mockPosseLoadPromiseCache.set(id, recordPromise)
+
+  return recordPromise
+})
+const mockLoadCovenantDetailById = vi.fn((id: string) => {
+  const cachedPromise = mockCovenantLoadPromiseCache.get(id)
+  if (cachedPromise) {
+    return cachedPromise
+  }
+
+  const recordPromise = Promise.resolve(mockCovenantDetails.find((entry) => entry.id === id))
+  mockCovenantLoadPromiseCache.set(id, recordPromise)
 
   return recordPromise
 })
@@ -171,8 +197,8 @@ vi.mock('@/domain/covenants', () => ({
 vi.mock('@/domain/public-detail-record-adapters', () => ({
   loadPublicAwakenerDetailById: (id: string) => mockLoadAwakenerDetailById(id),
   loadPublicWheelDetailById: (id: string) => mockLoadWheelDetailById(id),
-  loadPublicPosseDetailById: () => Promise.resolve(undefined),
-  loadPublicCovenantDetailById: () => Promise.resolve(undefined),
+  loadPublicPosseDetailById: (id: string) => mockLoadPosseDetailById(id),
+  loadPublicCovenantDetailById: (id: string) => mockLoadCovenantDetailById(id),
 }))
 
 vi.mock('@/domain/awakener-assets', () => ({
@@ -291,6 +317,24 @@ vi.mock('@/features/database/internal/WheelDetailModal', () => ({
   ),
 }))
 
+vi.mock('@/features/database/internal/SimpleArtifactDetailModal', () => ({
+  SimpleArtifactDetailModal: ({
+    item,
+    kind,
+    onClose,
+  }: {
+    item: {name: string}
+    kind: 'posse' | 'covenant'
+    onClose: () => void
+  }) => (
+    <div aria-label={`${item.name} ${kind} details`} role='dialog'>
+      <button aria-label={`Close ${kind} detail`} onClick={onClose} type='button'>
+        Close {kind}
+      </button>
+    </div>
+  ),
+}))
+
 beforeAll(async () => {
   await import('./DatabasePage')
 })
@@ -301,8 +345,14 @@ afterEach(() => {
   mockLoadPromiseCache = new Map()
   mockWheelDetails = [{id: 'wheel-0001'}, {id: 'wheel-0040'}]
   mockWheelLoadPromiseCache = new Map()
+  mockPosseDetails = [{id: 'posse-0001'}, {id: 'posse-0002'}]
+  mockPosseLoadPromiseCache = new Map()
+  mockCovenantDetails = [{id: 'covenant-0001'}, {id: 'covenant-0002'}]
+  mockCovenantLoadPromiseCache = new Map()
   mockLoadAwakenerDetailById.mockClear()
   mockLoadWheelDetailById.mockClear()
+  mockLoadPosseDetailById.mockClear()
+  mockLoadCovenantDetailById.mockClear()
 })
 
 function getResultsSummary(expectedText: string) {
@@ -737,6 +787,17 @@ describe('DatabasePage', () => {
     })
   })
 
+  it('preserves query params when falling back from an unknown deep link tab', async () => {
+    await renderDatabasePage('/database/awk/alpha/missing?q=alpha&realm=CHAOS')
+
+    await expectAwakenerDetailRouteEndState({
+      dialogName: /alpha details/,
+      path: '/database/awakeners/alpha',
+      tab: 'overview',
+    })
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=alpha&realm=CHAOS')
+  })
+
   it('canonicalizes legacy cards tab routes onto the skills slug', async () => {
     await renderDatabasePage('/database/awk/alpha/cards')
 
@@ -755,6 +816,23 @@ describe('DatabasePage', () => {
       path: '/database/awakeners/alpha/skills',
       tab: 'skills',
     })
+  })
+
+  it('replaces legacy tab aliases while preserving query params', async () => {
+    await renderDatabasePage(['/database', '/database/awk/alpha/Cards?q=alpha&realm=CHAOS'], 1)
+
+    await expectAwakenerDetailRouteEndState({
+      dialogName: /alpha details/,
+      path: '/database/awakeners/alpha/skills',
+      tab: 'skills',
+    })
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=alpha&realm=CHAOS')
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
+    })
+
+    await waitFor(() => expect(screen.getByTestId('location-path')).toHaveTextContent('/database'))
   })
 
   it('preserves generated canonical awakener slugs and only entity-valid query params', async () => {
@@ -880,6 +958,67 @@ describe('DatabasePage', () => {
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=sigil&realm=CHAOS')
   })
 
+  it('captures global search keystrokes for the active simple artifact entity only', async () => {
+    await renderDatabasePage('/database/posses')
+
+    fireEvent.keyDown(window, {key: 's'})
+
+    expect(screen.getByRole('searchbox')).toHaveValue('s')
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=s')
+
+    fireEvent.click(screen.getByRole('link', {name: 'Covenants'}))
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/covenants'),
+    )
+    await waitFor(() => expect(screen.getByTestId('location-search')).toBeEmptyDOMElement())
+
+    fireEvent.keyDown(window, {key: 'o'})
+
+    expect(screen.getByRole('searchbox')).toHaveValue('o')
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=o')
+  })
+
+  it('does not capture global search keystrokes while a detail route is open', async () => {
+    await renderDatabasePage('/database/posses')
+
+    fireEvent.click(screen.getByLabelText('View details for Silent Sigil'))
+    expect(
+      await screen.findByRole('dialog', {name: /silent sigil posse details/i}),
+    ).toBeInTheDocument()
+
+    fireEvent.keyDown(window, {key: 'x'})
+
+    expect(screen.getByTestId('location-path')).toHaveTextContent('/database/posses/silent-sigil')
+    expect(screen.getByTestId('location-search')).toBeEmptyDOMElement()
+  })
+
+  it('preserves sanitized posse search params when opening and closing detail routes', async () => {
+    await renderDatabasePage('/database/posses?q=sigil&realm=CHAOS&mainstat=KEYFLARE_REGEN')
+
+    await waitFor(() =>
+      expect(screen.getByTestId('location-search')).toHaveTextContent('?q=sigil&realm=CHAOS'),
+    )
+
+    fireEvent.click(screen.getByLabelText('View details for Silent Sigil'))
+
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent(
+        '/database/posses/silent-sigil',
+      ),
+    )
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=sigil&realm=CHAOS')
+    expect(
+      await screen.findByRole('dialog', {name: /silent sigil posse details/i}),
+    ).toBeInTheDocument()
+
+    fireEvent.click(screen.getByLabelText('Close posse detail'))
+
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/posses'),
+    )
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=sigil&realm=CHAOS')
+  })
+
   it('initializes and writes covenant search through query params', async () => {
     await renderDatabasePage('/database/covenants?q=oath')
 
@@ -891,6 +1030,31 @@ describe('DatabasePage', () => {
     fireEvent.change(screen.getByRole('searchbox'), {target: {value: 'iron'}})
 
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=iron')
+  })
+
+  it('preserves sanitized covenant search params when opening and closing detail routes', async () => {
+    await renderDatabasePage('/database/covenants?q=oath&realm=CHAOS')
+
+    await waitFor(() => expect(screen.getByTestId('location-search')).toHaveTextContent('?q=oath'))
+
+    fireEvent.click(screen.getByLabelText('View details for Oath of Glass'))
+
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent(
+        '/database/covenants/oath-of-glass',
+      ),
+    )
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=oath')
+    expect(
+      await screen.findByRole('dialog', {name: /oath of glass covenant details/i}),
+    ).toBeInTheDocument()
+
+    fireEvent.click(screen.getByLabelText('Close covenant detail'))
+
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/covenants'),
+    )
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=oath')
   })
 
   it('clears unrelated entity params when switching database tabs', async () => {

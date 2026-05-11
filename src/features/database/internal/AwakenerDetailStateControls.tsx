@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react'
+import type {CSSProperties, ReactNode} from 'react'
 
 import type {
   AwakenerDatabaseControls,
@@ -16,6 +16,12 @@ interface AwakenerDetailStateControlsProps {
 
 function ControlLabel({children}: {children: ReactNode}) {
   return <p className='text-[9px] tracking-wide text-slate-500 uppercase'>{children}</p>
+}
+
+function getEnlightenOptionsGridStyle(optionCount: number): CSSProperties {
+  return {
+    gridTemplateColumns: `repeat(${String(Math.max(optionCount, 1))}, minmax(0, 1fr))`,
+  }
 }
 
 function SegmentedButton({
@@ -92,9 +98,7 @@ export function AwakenerDetailStateControls({
         <ControlLabel>Enlighten</ControlLabel>
         <div
           className='grid gap-1.5'
-          style={{
-            gridTemplateColumns: `repeat(${String(Math.max(controls.enlightenOptions.length, 1))}, minmax(0, 1fr))`,
-          }}
+          style={getEnlightenOptionsGridStyle(controls.enlightenOptions.length)}
         >
           {controls.enlightenOptions.map((option) => (
             <SegmentedButton

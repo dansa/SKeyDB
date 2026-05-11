@@ -38,6 +38,76 @@ interface UseEntityBrowseControllerOptions {
   navigate: NavigateFunction
 }
 
+interface EntitySearchActions {
+  appendSearchCharacter: (character: string) => void
+  clearQuery: () => void
+  removeSearchCharacter: () => void
+}
+
+function createOpenDetailHandler<TEntry extends {id: string}>(
+  entries: readonly TEntry[],
+  buildPath: (entry: TEntry) => string,
+  navigate: NavigateFunction,
+  activeSearch: string,
+) {
+  return (entryId: string) => {
+    const entry = entries.find((candidate) => candidate.id === entryId)
+    if (!entry) {
+      return
+    }
+
+    void navigate({
+      pathname: buildPath(entry),
+      search: activeSearch,
+    })
+  }
+}
+
+function useActiveEntitySearchControls({
+  activeEntity,
+  isDetailOpen,
+  locationPathname,
+  locationSearch,
+  navigate,
+  searchActionsByEntity,
+}: UseEntityBrowseControllerOptions & {
+  searchActionsByEntity: Record<DatabaseEntityId, EntitySearchActions>
+}) {
+  const searchInputRef = useRef<HTMLInputElement | null>(null)
+  const activeSearch = sanitizeDatabaseEntitySearch(activeEntity, locationSearch)
+  const browsePath = buildDatabaseEntityBrowsePath(activeEntity)
+
+  useEffect(() => {
+    if (locationSearch === activeSearch) {
+      return
+    }
+
+    void navigate(
+      {
+        pathname: locationPathname,
+        search: activeSearch,
+      },
+      {replace: true},
+    )
+  }, [activeSearch, locationPathname, locationSearch, navigate])
+
+  const activeSearchActions = searchActionsByEntity[activeEntity]
+
+  useGlobalSearchCapture({
+    enabled: !isDetailOpen,
+    searchInputRef,
+    onAppendCharacter: activeSearchActions.appendSearchCharacter,
+    onRemoveCharacter: activeSearchActions.removeSearchCharacter,
+    onClearSearch: activeSearchActions.clearQuery,
+  })
+
+  return {
+    activeSearch,
+    browsePath,
+    searchInputRef,
+  }
+}
+
 export function useEntityBrowseController({
   activeEntity,
   isDetailOpen,
@@ -61,83 +131,45 @@ export function useEntityBrowseController({
     () => searchCovenants(databaseCovenants, covenants.query),
     [covenants.query],
   )
-  const searchInputRef = useRef<HTMLInputElement | null>(null)
-  const activeSearch = sanitizeDatabaseEntitySearch(activeEntity, locationSearch)
-  const browsePath = buildDatabaseEntityBrowsePath(activeEntity)
-
-  useEffect(() => {
-    if (locationSearch === activeSearch) {
-      return
-    }
-
-    void navigate(
-      {
-        pathname: locationPathname,
-        search: activeSearch,
-      },
-      {replace: true},
-    )
-  }, [activeSearch, locationPathname, locationSearch, navigate])
-
   const searchActionsByEntity = {
     awakeners: awakeners,
     wheels,
     posses,
     covenants,
   }
-  const activeSearchActions = searchActionsByEntity[activeEntity]
-
-  useGlobalSearchCapture({
-    enabled: !isDetailOpen,
-    searchInputRef,
-    onAppendCharacter: activeSearchActions.appendSearchCharacter,
-    onRemoveCharacter: activeSearchActions.removeSearchCharacter,
-    onClearSearch: activeSearchActions.clearQuery,
+  const {activeSearch, browsePath, searchInputRef} = useActiveEntitySearchControls({
+    activeEntity,
+    isDetailOpen,
+    locationPathname,
+    locationSearch,
+    navigate,
+    searchActionsByEntity,
   })
 
-  function openAwakenerDetail(awakenerId: string) {
-    const awakener = databaseAwakeners.find((entry) => entry.id === awakenerId)
-    if (!awakener) {
-      return
-    }
-    void navigate({
-      pathname: buildDatabaseAwakenerPath(awakener),
-      search: activeSearch,
-    })
-  }
-
-  function openWheelDetail(wheelId: string) {
-    const wheel = databaseWheels.find((entry) => entry.id === wheelId)
-    if (!wheel) {
-      return
-    }
-    void navigate({
-      pathname: buildDatabaseWheelPath(wheel),
-      search: activeSearch,
-    })
-  }
-
-  function openPosseDetail(posseId: string) {
-    const posse = databasePosses.find((entry) => entry.id === posseId)
-    if (!posse) {
-      return
-    }
-    void navigate({
-      pathname: buildDatabasePossePath(posse),
-      search: activeSearch,
-    })
-  }
-
-  function openCovenantDetail(covenantId: string) {
-    const covenant = databaseCovenants.find((entry) => entry.id === covenantId)
-    if (!covenant) {
-      return
-    }
-    void navigate({
-      pathname: buildDatabaseCovenantPath(covenant),
-      search: activeSearch,
-    })
-  }
+  const openAwakenerDetail = createOpenDetailHandler(
+    databaseAwakeners,
+    buildDatabaseAwakenerPath,
+    navigate,
+    activeSearch,
+  )
+  const openWheelDetail = createOpenDetailHandler(
+    databaseWheels,
+    buildDatabaseWheelPath,
+    navigate,
+    activeSearch,
+  )
+  const openPosseDetail = createOpenDetailHandler(
+    databasePosses,
+    buildDatabasePossePath,
+    navigate,
+    activeSearch,
+  )
+  const openCovenantDetail = createOpenDetailHandler(
+    databaseCovenants,
+    buildDatabaseCovenantPath,
+    navigate,
+    activeSearch,
+  )
 
   function closeDetail() {
     void navigate({pathname: browsePath, search: activeSearch})

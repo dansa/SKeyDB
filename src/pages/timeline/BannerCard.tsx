@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 import {getAwakenerCardAsset} from '@/domain/awakener-assets'
 import {getAwakeners} from '@/domain/awakeners'
-import {buildDatabaseAwakenerPath} from '@/domain/database-paths'
+import {buildDatabaseAwakenerPath, buildDatabaseWheelPath} from '@/domain/database-paths'
 import {getRealmAccent, getRealmIcon} from '@/domain/realms'
 import {
   getTimelineCountdownDisplay,
@@ -57,6 +57,11 @@ function findAwakenerRealm(name: string): string | undefined {
   return findAwakener(name)?.realm
 }
 
+function findWheel(name: string) {
+  const needle = name.toLowerCase()
+  return getWheels().find((w) => w.name.toLowerCase() === needle)
+}
+
 function findSignatureWheel(awakenerName: string) {
   const needle = awakenerName.toLowerCase()
   return getWheels().find((w) => w.awakener.toLowerCase() === needle && w.rarity === 'SSR')
@@ -92,11 +97,23 @@ interface SliceAsset {
 function resolveSliceAsset(unit: BannerFeaturedUnit): SliceAsset {
   if (unit.customArt) {
     const awakener = unit.kind === 'awakener' ? findAwakener(unit.name) : undefined
+    const wheel =
+      unit.kind === 'wheel'
+        ? findWheel(unit.name)
+        : unit.kind === 'wheel-auto'
+          ? findSignatureWheel(unit.name)
+          : undefined
     return {
       url: unit.customArt,
       label: unit.name,
-      linkTo: awakener ? buildDatabaseAwakenerPath({name: unit.name}) : undefined,
-      realmId: unit.realmId ?? (unit.kind === 'wheel' ? undefined : awakener?.realm),
+      linkTo: wheel
+        ? buildDatabaseWheelPath(wheel)
+        : awakener
+          ? buildDatabaseAwakenerPath(awakener)
+          : undefined,
+      realmId:
+        unit.realmId ??
+        (unit.kind === 'wheel' || unit.kind === 'wheel-auto' ? wheel?.realm : awakener?.realm),
       isWheel: unit.kind === 'wheel' || unit.kind === 'wheel-auto',
     }
   }
@@ -110,12 +127,11 @@ function resolveSliceAsset(unit: BannerFeaturedUnit): SliceAsset {
     }
   }
   if (unit.kind === 'wheel') {
-    const needle = unit.name.toLowerCase()
-    const wheel = getWheels().find((w) => w.name.toLowerCase() === needle)
+    const wheel = findWheel(unit.name)
     return {
       url: wheel ? getWheelAssetById(wheel.id) : undefined,
       label: unit.name,
-      linkTo: undefined,
+      linkTo: wheel ? buildDatabaseWheelPath(wheel) : undefined,
       realmId: unit.realmId ?? wheel?.realm,
       isWheel: true,
     }
@@ -133,7 +149,7 @@ function resolveSliceAsset(unit: BannerFeaturedUnit): SliceAsset {
   return {
     url: wheel ? getWheelAssetById(wheel.id) : undefined,
     label: wheel?.name ?? unit.name,
-    linkTo: undefined,
+    linkTo: wheel ? buildDatabaseWheelPath(wheel) : undefined,
     realmId: unit.realmId ?? wheel?.realm ?? findAwakenerRealm(unit.name),
     isWheel: true,
   }
@@ -222,7 +238,12 @@ function BannerArtSlice({unit, index, total}: BannerSliceProps) {
         )}
       </div>
       {asset.linkTo ? (
-        <Link className='absolute inset-0 z-30' title={asset.label} to={asset.linkTo} />
+        <Link
+          aria-label={asset.label}
+          className='absolute inset-0 z-30'
+          title={asset.label}
+          to={asset.linkTo}
+        />
       ) : null}
     </div>
   )
@@ -438,7 +459,12 @@ function PoolBannerSlice({assets, frame, index, total}: PoolBannerSliceProps) {
         <PoolSliceLayer asset={assetB} />
       </div>
       {frontAsset.linkTo ? (
-        <Link className='absolute inset-0 z-20' title={frontAsset.label} to={frontAsset.linkTo} />
+        <Link
+          aria-label={frontAsset.label}
+          className='absolute inset-0 z-20'
+          title={frontAsset.label}
+          to={frontAsset.linkTo}
+        />
       ) : null}
     </div>
   )
@@ -491,6 +517,7 @@ export function BannerCard({banner, now}: BannerCardProps) {
       return slot.assets[assetIndex] ?? slot.assets[0]
     })
   }, [cycleFrames, visualSlots])
+  const showPinned = banner.pinned === true && status === 'active'
 
   return (
     <article
@@ -555,7 +582,7 @@ export function BannerCard({banner, now}: BannerCardProps) {
         <div className='flex items-center justify-between gap-2'>
           <div className='flex min-w-0 flex-col gap-1'>
             <div className='flex items-center gap-2'>
-              {banner.pinned ? (
+              {showPinned ? (
                 <span className='text-[10px] text-amber-300/80 drop-shadow-sm' title='Pinned'>
                   &#x1F4CC;
                 </span>

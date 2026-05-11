@@ -2,7 +2,11 @@ import {fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {MemoryRouter, useLocation} from 'react-router-dom'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
+import type {CovenantFullRecord} from '@/domain/covenants-full'
+import type {PosseFullRecord} from '@/domain/posses-full'
 import type {Wheel} from '@/domain/wheels'
+import type {WheelFullRecord} from '@/domain/wheels-full'
+import {makeTestAwakenerFullRecord} from '@/features/database/internal/database-test-fixtures'
 import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import {DbDetailModalHost} from './DbDetailModalHost'
@@ -125,12 +129,42 @@ const wheels: Wheel[] = [
   },
 ]
 
+const mockAwakenerRecord = makeTestAwakenerFullRecord({id: 21, displayName: 'goliath'})
+const mockWheelRecord: WheelFullRecord = {
+  id: 'wheel-0050',
+  assetId: 'Weapon_Full_O01',
+  name: 'Merciful Nurturing',
+  rarity: 'SSR',
+  realm: 'AEQUOR',
+  awakener: 'goliath',
+  aliases: [],
+  searchTags: [],
+  mainstatKey: 'CRIT_RATE',
+  mainstatSeriesKey: 'SSR:CRIT_RATE',
+  descriptionTemplate: '',
+  descriptionArgs: {},
+}
+const mockPosseRecord: PosseFullRecord = {
+  id: 'posse-0001',
+  name: 'Test Posse',
+  realm: 'OTHER',
+  assetId: 'KeyToken_Skill_01',
+  descriptionTemplate: '',
+  descriptionArgs: {},
+}
+const mockCovenantRecord: CovenantFullRecord = {
+  id: 'covenant-0001',
+  name: 'Test Covenant',
+  assetId: 'covenant-icon-001',
+  setEffects: [],
+}
+
 afterEach(() => {
   dbDetailStore.getState().closeAllDetails()
-  vi.mocked(dbDetailRegistry.awakener.loadRecord).mockResolvedValue({id: 'record-awakener'})
-  vi.mocked(dbDetailRegistry.wheel.loadRecord).mockResolvedValue({id: 'record-wheel'})
-  vi.mocked(dbDetailRegistry.posse.loadRecord).mockResolvedValue({id: 'record-posse'})
-  vi.mocked(dbDetailRegistry.covenant.loadRecord).mockResolvedValue({id: 'record-covenant'})
+  vi.mocked(dbDetailRegistry.awakener.loadRecord).mockResolvedValue(mockAwakenerRecord)
+  vi.mocked(dbDetailRegistry.wheel.loadRecord).mockResolvedValue(mockWheelRecord)
+  vi.mocked(dbDetailRegistry.posse.loadRecord).mockResolvedValue(mockPosseRecord)
+  vi.mocked(dbDetailRegistry.covenant.loadRecord).mockResolvedValue(mockCovenantRecord)
 })
 
 function LocationProbe() {

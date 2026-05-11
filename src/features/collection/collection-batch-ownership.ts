@@ -67,6 +67,35 @@ export function clearFilteredAwakenerOwnership(
   return next
 }
 
+export function markFilteredAwakenerOwnership(
+  ownership: CollectionOwnershipState,
+  filteredAwakeners: readonly Awakener[],
+  awakenerIdByName: Map<string, string>,
+  rememberedAwakenerLevels: RememberedOwnershipLevels,
+  ownershipCatalog: CollectionOwnershipCatalog,
+): CollectionOwnershipState {
+  let next = ownership
+
+  for (const awakener of filteredAwakeners) {
+    const awakenerId = awakenerIdByName.get(awakener.name)
+    if (!awakenerId) {
+      continue
+    }
+
+    const currentLevel = getOwnedLevel(next, 'awakeners', awakenerId)
+    const rememberedLevel = rememberedAwakenerLevels[awakenerId]
+    next = setOwnedLevel(
+      next,
+      'awakeners',
+      awakenerId,
+      currentLevel ?? rememberedLevel ?? 0,
+      ownershipCatalog,
+    )
+  }
+
+  return next
+}
+
 export function clearFilteredWheelOwnership(
   ownership: CollectionOwnershipState,
   filteredWheels: readonly Wheel[],
@@ -86,6 +115,29 @@ export function clearFilteredWheelOwnership(
   return next
 }
 
+export function markFilteredWheelOwnership(
+  ownership: CollectionOwnershipState,
+  filteredWheels: readonly Wheel[],
+  rememberedWheelLevels: RememberedOwnershipLevels,
+  ownershipCatalog: CollectionOwnershipCatalog,
+): CollectionOwnershipState {
+  let next = ownership
+
+  for (const wheel of filteredWheels) {
+    const currentLevel = getOwnedLevel(next, 'wheels', wheel.id)
+    const rememberedLevel = rememberedWheelLevels[wheel.id]
+    next = setOwnedLevel(
+      next,
+      'wheels',
+      wheel.id,
+      currentLevel ?? rememberedLevel ?? 0,
+      ownershipCatalog,
+    )
+  }
+
+  return next
+}
+
 export function clearFilteredPosseOwnership(
   ownership: CollectionOwnershipState,
   filteredPosses: readonly Posse[],
@@ -100,6 +152,29 @@ export function clearFilteredPosseOwnership(
       rememberedPosseLevels[posse.id] = currentLevel
     }
     next = clearOwnedEntry(next, 'posses', posse.id, ownershipCatalog)
+  }
+
+  return next
+}
+
+export function markFilteredPosseOwnership(
+  ownership: CollectionOwnershipState,
+  filteredPosses: readonly Posse[],
+  rememberedPosseLevels: RememberedOwnershipLevels,
+  ownershipCatalog: CollectionOwnershipCatalog,
+): CollectionOwnershipState {
+  let next = ownership
+
+  for (const posse of filteredPosses) {
+    const currentLevel = getOwnedLevel(next, 'posses', posse.id)
+    const rememberedLevel = rememberedPosseLevels[posse.id]
+    next = setOwnedLevel(
+      next,
+      'posses',
+      posse.id,
+      currentLevel ?? rememberedLevel ?? 0,
+      ownershipCatalog,
+    )
   }
 
   return next

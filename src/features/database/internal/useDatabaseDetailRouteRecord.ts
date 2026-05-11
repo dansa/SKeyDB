@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useCallback, useEffect, useState} from 'react'
 
 import {useLocation, useNavigate} from 'react-router-dom'
 
@@ -8,13 +8,17 @@ interface UseDatabaseDetailRouteRecordOptions<TId, TRecord> {
   missingPathname: string
 }
 
-export function useDatabaseDetailRouteRecord<TId, TRecord>({
+interface UseDatabaseDetailRecordOptions<TId, TRecord> {
+  id: TId
+  loadRecord: (id: TId) => Promise<TRecord | undefined>
+  onMissingRecord?: () => void
+}
+
+export function useDatabaseDetailRecord<TId, TRecord>({
   id,
   loadRecord,
-  missingPathname,
-}: UseDatabaseDetailRouteRecordOptions<TId, TRecord>) {
-  const location = useLocation()
-  const navigate = useNavigate()
+  onMissingRecord,
+}: UseDatabaseDetailRecordOptions<TId, TRecord>) {
   const [state, setState] = useState<{
     id: TId
     isLoading: boolean
@@ -33,33 +37,21 @@ export function useDatabaseDetailRouteRecord<TId, TRecord>({
         return
       }
 
-      if (nextRecord) {
-        setState({
-          id,
-          isLoading: false,
-          record: nextRecord,
-        })
-        return
-      }
-
       setState({
         id,
         isLoading: false,
-        record: null,
+        record: nextRecord ?? null,
       })
-      void navigate(
-        {
-          pathname: missingPathname,
-          search: location.search,
-        },
-        {replace: true},
-      )
+
+      if (!nextRecord) {
+        onMissingRecord?.()
+      }
     })
 
     return () => {
       isCancelled = true
     }
-  }, [id, loadRecord, location.search, missingPathname, navigate])
+  }, [id, loadRecord, onMissingRecord])
 
   if (state.id !== id) {
     return {isLoading: true, record: null}
@@ -69,4 +61,24 @@ export function useDatabaseDetailRouteRecord<TId, TRecord>({
     isLoading: state.isLoading,
     record: state.record,
   }
+}
+
+export function useDatabaseDetailRouteRecord<TId, TRecord>({
+  id,
+  loadRecord,
+  missingPathname,
+}: UseDatabaseDetailRouteRecordOptions<TId, TRecord>) {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const onMissingRecord = useCallback(() => {
+    void navigate(
+      {
+        pathname: missingPathname,
+        search: location.search,
+      },
+      {replace: true},
+    )
+  }, [location.search, missingPathname, navigate])
+
+  return useDatabaseDetailRecord({id, loadRecord, onMissingRecord})
 }

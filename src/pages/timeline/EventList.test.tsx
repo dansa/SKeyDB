@@ -15,6 +15,7 @@ describe('EventList', () => {
         endDate: '2026-03-12T00:00:00.000Z',
         category: 'story',
         rerun: true,
+        pinned: true,
       },
       {
         id: 'ended-story',
@@ -22,6 +23,7 @@ describe('EventList', () => {
         startDate: '2026-03-01T00:00:00.000Z',
         endDate: '2026-03-08T00:00:00.000Z',
         category: 'story',
+        pinned: true,
       },
       {
         id: 'ended-login',
@@ -40,6 +42,7 @@ describe('EventList', () => {
       'title',
       'Mar 9, 2026 - Mar 12, 2026',
     )
+    expect(screen.getByTitle('Pinned')).toBeInTheDocument()
     expect(screen.queryByText('Archived Story Event')).not.toBeInTheDocument()
     expect(screen.queryByText('Archived Login Event')).not.toBeInTheDocument()
 
@@ -47,5 +50,6 @@ describe('EventList', () => {
 
     expect(screen.getByText('Archived Story Event')).toBeInTheDocument()
     expect(screen.queryByText('Archived Login Event')).not.toBeInTheDocument()
+    expect(screen.getAllByTitle('Pinned')).toHaveLength(1)
   })
 })

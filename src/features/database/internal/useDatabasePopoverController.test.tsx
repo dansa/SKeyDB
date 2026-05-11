@@ -209,18 +209,21 @@ const TEST_WHEEL_PREVIEW_ENTRY: KeyedDatabaseReferenceEntry = {
 function ControllerHarness({
   referenceLayer,
   selectedEnlightenSlot = null,
+  onNavigateToSkills,
   onNavigateToWheelPage,
   onOuterClick,
   formulaContext,
 }: {
   referenceLayer: ResolvedDatabaseReferenceLayer | null
   selectedEnlightenSlot?: AwakenerEnlightenRecord['slot'] | null
+  onNavigateToSkills?: () => void
   onNavigateToWheelPage?: (wheel: {id: string; name: string}) => void
   onOuterClick?: () => void
   formulaContext?: PublicFormulaContext
 }) {
   const popoverController = useDatabasePopoverController({
     formulaContext,
+    onNavigateToSkills,
     onNavigateToWheelPage,
     referenceLayer,
     selectedEnlightenSlot,
@@ -401,6 +404,40 @@ describe('useDatabasePopoverController', () => {
     })
   })
 
+  it('ignores stale nested hydration after the source root is replaced', async () => {
+    let resolveHydration: ((reference: DatabaseReferenceInfo) => void) | undefined
+    vi.spyOn(
+      globalDatabaseReferenceLayer,
+      'hydrateGlobalDatabaseReferenceInfo',
+    ).mockImplementationOnce(
+      (reference) =>
+        new Promise<DatabaseReferenceInfo>((resolve) => {
+          resolveHydration = () => {
+            resolve({...reference, description: 'Hydrated counter text.'})
+          }
+        }),
+    )
+    const referenceLayer = buildReferenceLayer('Gain {Counter}.')
+
+    render(<ControllerHarness referenceLayer={referenceLayer} />)
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
+    fireEvent.click(await screen.findByRole('button', {name: 'Counter'}))
+    fireEvent.click(screen.getByRole('button', {name: 'Open Guard'}))
+    expect(await screen.findByText('Guard text.')).toBeInTheDocument()
+
+    const counterReference = referenceLayer.referenceInfoById.get('overlay.global.counter')
+    if (!counterReference) {
+      throw new Error('Expected test counter reference')
+    }
+    resolveHydration?.(counterReference)
+
+    await waitFor(() => {
+      expect(screen.queryByText('Hydrated counter text.')).not.toBeInTheDocument()
+      expect(screen.getByText('Guard text.')).toBeInTheDocument()
+    })
+  })
+
   it('hydrates catalog-backed root overlay popovers before opening them', async () => {
     const hydrateGlobalDatabaseReferenceInfo = vi.spyOn(
       globalDatabaseReferenceLayer,
@@ -411,6 +448,32 @@ describe('useDatabasePopoverController', () => {
     render(<ControllerHarness referenceLayer={referenceLayer} />)
 
     fireEvent.click(screen.getByRole('button', {name: 'Open Counter'}))
+
+    await waitFor(() => {
+      expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledWith(
+        expect.objectContaining({
+          id: 'overlay.global.counter',
+          kind: 'overlay',
+        }),
+        undefined,
+        null,
+      )
+    })
+    expect(await screen.findByText(/When attacked/)).toBeInTheDocument()
+    expect(screen.queryByText('Details coming soon')).not.toBeInTheDocument()
+  })
+
+  it('hydrates catalog-backed nested overlay popovers from rich-text tokens', async () => {
+    const hydrateGlobalDatabaseReferenceInfo = vi.spyOn(
+      globalDatabaseReferenceLayer,
+      'hydrateGlobalDatabaseReferenceInfo',
+    )
+    const referenceLayer = buildReferenceLayer('Gain {Counter}.')
+
+    render(<ControllerHarness referenceLayer={referenceLayer} />)
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
+    fireEvent.click(await screen.findByRole('button', {name: 'Counter'}))
 
     await waitFor(() => {
       expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledWith(
@@ -440,6 +503,23 @@ describe('useDatabasePopoverController', () => {
     expect(screen.queryByText('—')).not.toBeInTheDocument()
   })
 
+  it('routes skill reference entries to the skills view from title navigation', async () => {
+    const onNavigateToSkills = vi.fn()
+
+    render(
+      <ControllerHarness
+        onNavigateToSkills={onNavigateToSkills}
+        referenceLayer={buildReferenceLayer('Base text.')}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
+    fireEvent.click(await screen.findByRole('button', {name: 'Strike ↗'}))
+
+    expect(onNavigateToSkills).toHaveBeenCalledOnce()
+    expect(screen.queryByText('Base text.')).not.toBeInTheDocument()
+  })
+
   it('routes explicit wheel preview entries to the wheel database page', async () => {
     const onNavigateToWheelPage = vi.fn()
 
@@ -457,5 +537,25 @@ describe('useDatabasePopoverController', () => {
       id: 'wheel.preview.B01',
       name: 'Merciful Nurturing',
     })
+  })
+
+  it('routes hydrated wheel reference titles to the wheel database page', async () => {
+    const onNavigateToWheelPage = vi.fn()
+
+    render(
+      <ControllerHarness
+        onNavigateToWheelPage={onNavigateToWheelPage}
+        referenceLayer={buildReferenceLayer('Base text.')}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Wheel'}))
+    fireEvent.click(await screen.findByRole('button', {name: 'Merciful Nurturing ↗'}))
+
+    expect(onNavigateToWheelPage).toHaveBeenCalledWith({
+      id: 'B01',
+      name: 'Merciful Nurturing',
+    })
+    expect(screen.queryByText('Wheel text.')).not.toBeInTheDocument()
   })
 })

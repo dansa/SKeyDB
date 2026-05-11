@@ -122,7 +122,7 @@ function EventRow({event, now}: EventRowProps) {
   const status = getTimelineStatus(event.startDate, event.endDate, now)
   const countdownDisplay = getTimelineCountdownDisplay(event.startDate, event.endDate, now)
   const isEnded = status === 'ended'
-  const isPinned = event.pinned === true
+  const showPinned = event.pinned === true && status === 'active'
   const cat = event.category ?? 'other'
   const catTint = isEnded
     ? 'border-slate-500/20 border-l-slate-600 bg-slate-600/10 text-slate-400'
@@ -138,12 +138,12 @@ function EventRow({event, now}: EventRowProps) {
 
   return (
     <li
-      className={`overflow-hidden border bg-slate-900/55 ${isEnded ? 'border-slate-500/25 opacity-60 saturate-50' : status === 'upcoming' ? 'border-slate-500/40 opacity-70' : 'border-slate-500/40'} ${isPinned && !isEnded ? '!border-l-amber-400 bg-amber-400/5 ring-1 ring-amber-400/10 ring-inset' : wrapperBorderLeft}`}
+      className={`overflow-hidden border bg-slate-900/55 ${isEnded ? 'border-slate-500/25 opacity-60 saturate-50' : status === 'upcoming' ? 'border-slate-500/40 opacity-70' : 'border-slate-500/40'} ${showPinned ? '!border-l-amber-400 bg-amber-400/5 ring-1 ring-amber-400/10 ring-inset' : wrapperBorderLeft}`}
     >
       <div className='flex h-full'>
         <div className='flex min-w-0 flex-1 flex-col py-3 pl-5'>
           <div className='flex flex-wrap items-center gap-x-2 gap-y-0'>
-            {isPinned ? (
+            {showPinned ? (
               <span className='text-[10px] text-amber-300/80 drop-shadow-sm' title='Pinned'>
                 &#x1F4CC;
               </span>

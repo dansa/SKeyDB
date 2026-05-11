@@ -27,6 +27,8 @@ import {fmtNum} from '@/domain/scaling'
 
 import {renderTextWithBreaks} from './font-scale'
 import {
+  DATABASE_ACCENT_TEXT_CLASS,
+  DATABASE_INHERIT_FONT_SIZE_CLASS,
   DATABASE_INTERACTIVE_TOKEN_CLASS,
   DATABASE_POPOVER_INTERACTIVE_SCALING_TOKEN_CLASS,
   DATABASE_POPOVER_SCALING_TOKEN_CLASS,
@@ -37,6 +39,7 @@ import {
   DATABASE_STAT_TOKEN_CLASS,
   DATABASE_TINTED_TOKEN_CLASS,
   DATABASE_UNIMPLEMENTED_TOKEN_CLASS,
+  getDatabaseAccentTextStyle,
   getDatabaseDescriptionArgTint,
   getDatabaseOverlayTint,
   getDatabaseRealmTint,
@@ -62,6 +65,16 @@ interface RichSegmentRendererProps {
 }
 
 export type ActivationEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>
+
+const OVERLAY_TOKEN_ICON_STYLE: CSSProperties = {
+  display: 'inline',
+  width: '0.95em',
+  height: '0.95em',
+  objectFit: 'contain',
+  verticalAlign: 'middle',
+  position: 'relative',
+  top: '-0.04em',
+}
 
 interface RichScalingSegmentProps {
   segment: ScalingSegment
@@ -151,11 +164,10 @@ export function RichSegmentRenderer({
       return (
         <InteractiveToken
           ariaLabel={segment.name}
-          className={DATABASE_INTERACTIVE_TOKEN_CLASS}
+          className={`${DATABASE_INTERACTIVE_TOKEN_CLASS} ${DATABASE_INHERIT_FONT_SIZE_CLASS}`}
           onActivate={(event) => {
             onSkillClick(segment.name, event)
           }}
-          style={{fontSize: 'inherit'}}
         >
           {segment.name}
         </InteractiveToken>
@@ -186,11 +198,11 @@ export function RichSegmentRenderer({
         return (
           <InteractiveToken
             ariaLabel={segment.name}
-            className={`${DATABASE_INTERACTIVE_TOKEN_CLASS}${tintStyle ? ` ${DATABASE_TINTED_TOKEN_CLASS}` : ''} inline whitespace-nowrap`}
+            className={`${DATABASE_INTERACTIVE_TOKEN_CLASS} ${DATABASE_INHERIT_FONT_SIZE_CLASS}${tintStyle ? ` ${DATABASE_TINTED_TOKEN_CLASS}` : ''} inline whitespace-nowrap`}
             onActivate={(event) => {
               onMechanicClick(overlay, event)
             }}
-            style={{...tintStyle, fontSize: 'inherit'}}
+            style={tintStyle}
             title={title}
           >
             <OverlayTokenLabel
@@ -222,17 +234,21 @@ export function RichSegmentRenderer({
         return (
           <InteractiveToken
             ariaLabel={segment.name}
-            className={`${DATABASE_INTERACTIVE_TOKEN_CLASS} ${DATABASE_TINTED_TOKEN_CLASS}`}
+            className={`${DATABASE_INTERACTIVE_TOKEN_CLASS} ${DATABASE_INHERIT_FONT_SIZE_CLASS} ${DATABASE_TINTED_TOKEN_CLASS}`}
             onActivate={(event) => {
               onMechanicClick(overlay, event)
             }}
-            style={{...tintStyle, fontSize: 'inherit'}}
+            style={tintStyle}
           >
             {segment.name}
           </InteractiveToken>
         )
       }
-      return <span style={{color: tint.base}}>{segment.name}</span>
+      return (
+        <span className={DATABASE_ACCENT_TEXT_CLASS} style={getDatabaseAccentTextStyle(tint.base)}>
+          {segment.name}
+        </span>
+      )
     }
 
     case 'scaling':
@@ -342,15 +358,7 @@ function OverlayTokenLabel({
         className='select-none'
         draggable={false}
         src={iconUrl}
-        style={{
-          display: 'inline',
-          width: '0.95em',
-          height: '0.95em',
-          objectFit: 'contain',
-          verticalAlign: 'middle',
-          position: 'relative',
-          top: '-0.04em',
-        }}
+        style={OVERLAY_TOKEN_ICON_STYLE}
       />
       <span className={textClassName} style={textStyle}>
         {name}

@@ -133,6 +133,14 @@ a {
   text-decoration-color: var(--database-token-hover-color) !important;
 }
 
+.database-accent-text {
+  color: var(--database-accent-color);
+}
+
+.database-inherit-font-size {
+  font-size: inherit;
+}
+
 .compact-filter-chip {
   min-width: 0;
   padding: 6px 3px;

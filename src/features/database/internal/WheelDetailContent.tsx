@@ -26,6 +26,7 @@ import {
   getDatabaseDetailValueStyle,
 } from './database-detail-typography'
 import {RichDescription} from './RichDescription'
+import {DATABASE_ACCENT_TEXT_CLASS, getDatabaseAccentTextStyle} from './text-styles'
 import {WheelEnhanceControl} from './WheelEnhanceControl'
 import {WheelLoreText} from './WheelLoreText'
 
@@ -81,7 +82,12 @@ export function WheelDetailContent({
             <p className={`${DATABASE_DETAIL_META_ROW_CLASS} ${DATABASE_DETAIL_HEADER_META_CLASS}`}>
               <span className={DATABASE_DETAIL_META_PRIMARY_CLASS}>{wheel.rarity}</span>
               <span className={DATABASE_DETAIL_META_SEPARATOR_CLASS}>•</span>
-              <span style={{color: realmAccent}}>{realmLabel}</span>
+              <span
+                className={DATABASE_ACCENT_TEXT_CLASS}
+                style={getDatabaseAccentTextStyle(realmAccent)}
+              >
+                {realmLabel}
+              </span>
               <OwnerAwakenerMetaLink
                 onSelectAwakener={onSelectAwakener}
                 ownerAwakenerId={ownerAwakenerId}

@@ -33,6 +33,25 @@ export const COVENANT_DATABASE_BROWSE_DEFAULTS: CovenantDatabaseBrowseState = {
   query: '',
 }
 
+interface SimpleArtifactDatabaseBrowseState {
+  query: string
+}
+
+function patchSimpleArtifactDatabaseBrowseState<TState extends SimpleArtifactDatabaseBrowseState>(
+  searchParams: URLSearchParams,
+  patch: Partial<TState>,
+  parseState: (searchParams: URLSearchParams) => TState,
+  writeAdditionalParams?: (nextParams: URLSearchParams, nextState: TState) => void,
+): URLSearchParams {
+  const nextState = {...parseState(searchParams), ...patch}
+  const nextParams = new URLSearchParams()
+
+  setSearchParam(nextParams, 'q', normalizeBrowseQuery(nextState.query))
+  writeAdditionalParams?.(nextParams, nextState)
+
+  return nextParams
+}
+
 export function getPosseDatabaseRealmFilterLabel(realmFilter: PosseDatabaseRealmFilterId): string {
   switch (realmFilter) {
     case 'ALL':
@@ -71,19 +90,20 @@ export function patchPosseDatabaseBrowseState(
   searchParams: URLSearchParams,
   patch: Partial<PosseDatabaseBrowseState>,
 ): URLSearchParams {
-  const nextState = {...parsePosseDatabaseBrowseState(searchParams), ...patch}
-  const nextParams = new URLSearchParams()
-
-  setSearchParam(nextParams, 'q', normalizeBrowseQuery(nextState.query))
-  setSearchParam(
-    nextParams,
-    'realm',
-    nextState.realmFilter === POSSE_DATABASE_BROWSE_DEFAULTS.realmFilter
-      ? undefined
-      : nextState.realmFilter,
+  return patchSimpleArtifactDatabaseBrowseState(
+    searchParams,
+    patch,
+    parsePosseDatabaseBrowseState,
+    (nextParams, nextState) => {
+      setSearchParam(
+        nextParams,
+        'realm',
+        nextState.realmFilter === POSSE_DATABASE_BROWSE_DEFAULTS.realmFilter
+          ? undefined
+          : nextState.realmFilter,
+      )
+    },
   )
-
-  return nextParams
 }
 
 export function parseCovenantDatabaseBrowseState(
@@ -98,10 +118,9 @@ export function patchCovenantDatabaseBrowseState(
   searchParams: URLSearchParams,
   patch: Partial<CovenantDatabaseBrowseState>,
 ): URLSearchParams {
-  const nextState = {...parseCovenantDatabaseBrowseState(searchParams), ...patch}
-  const nextParams = new URLSearchParams()
-
-  setSearchParam(nextParams, 'q', normalizeBrowseQuery(nextState.query))
-
-  return nextParams
+  return patchSimpleArtifactDatabaseBrowseState(
+    searchParams,
+    patch,
+    parseCovenantDatabaseBrowseState,
+  )
 }

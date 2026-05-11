@@ -20,7 +20,7 @@ export function usePosseDatabaseBrowseState() {
   })
   const {query, realmFilter} = browseState
   const {setQuery, appendSearchCharacter, removeSearchCharacter, clearQuery} =
-    useBrowseQueryActions<PosseDatabaseBrowseState>(query, commitBrowseState)
+    useBrowseQueryActions(query, commitBrowseState)
 
   const setRealmFilter = useCallback(
     (next: PosseDatabaseRealmFilterId) => {
@@ -52,7 +52,7 @@ export function useCovenantDatabaseBrowseState() {
   })
   const {query} = browseState
   const {setQuery, appendSearchCharacter, removeSearchCharacter, clearQuery} =
-    useBrowseQueryActions<CovenantDatabaseBrowseState>(query, commitBrowseState)
+    useBrowseQueryActions(query, commitBrowseState)
 
   const resetFilters = useCallback(() => {
     commitBrowseState({query: ''}, 'push')

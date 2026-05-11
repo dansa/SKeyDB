@@ -49,6 +49,9 @@ import {
   clearFilteredAwakenerOwnership,
   clearFilteredPosseOwnership,
   clearFilteredWheelOwnership,
+  markFilteredAwakenerOwnership,
+  markFilteredPosseOwnership,
+  markFilteredWheelOwnership,
   markPendingCollectionSort,
   setFilteredAwakenerEnlighten,
   setFilteredWheelEnlighten,
@@ -500,62 +503,33 @@ export function useCollectionViewModel() {
 
   function markFilteredOwned() {
     updateOwnership((prev) => {
-      let next = prev
-
       if (tab === 'awakeners') {
-        for (const awakener of filteredAwakeners) {
-          const awakenerId = awakenerIdByName.get(awakener.name)
-          if (!awakenerId) {
-            continue
-          }
-          const currentLevel = getOwnedLevel(next, 'awakeners', awakenerId)
-          const rememberedLevel = rememberedLevelsRef.current.awakeners[awakenerId]
-          next = setOwnedLevel(
-            next,
-            'awakeners',
-            awakenerId,
-            currentLevel ?? rememberedLevel ?? 0,
-            ownershipCatalog,
-          )
-        }
-        return next
-      }
-
-      if (tab === 'wheels') {
-        for (const wheel of filteredWheels) {
-          const currentLevel = getOwnedLevel(next, 'wheels', wheel.id)
-          const rememberedLevel = rememberedLevelsRef.current.wheels[wheel.id]
-          next = setOwnedLevel(
-            next,
-            'wheels',
-            wheel.id,
-            currentLevel ?? rememberedLevel ?? 0,
-            ownershipCatalog,
-          )
-        }
-        return next
-      }
-
-      for (const posse of filteredPosses) {
-        const currentLevel = getOwnedLevel(next, 'posses', posse.id)
-        const rememberedLevel = rememberedLevelsRef.current.posses[posse.id]
-        next = setOwnedLevel(
-          next,
-          'posses',
-          posse.id,
-          currentLevel ?? rememberedLevel ?? 0,
+        return markFilteredAwakenerOwnership(
+          prev,
+          filteredAwakeners,
+          awakenerIdByName,
+          rememberedLevelsRef.current.awakeners,
           ownershipCatalog,
         )
       }
-      return next
+
+      if (tab === 'wheels') {
+        return markFilteredWheelOwnership(
+          prev,
+          filteredWheels,
+          rememberedLevelsRef.current.wheels,
+          ownershipCatalog,
+        )
+      }
+
+      return markFilteredPosseOwnership(
+        prev,
+        filteredPosses,
+        rememberedLevelsRef.current.posses,
+        ownershipCatalog,
+      )
     })
-    if (tab === 'awakeners') {
-      setAwakenerSortHasPendingChanges(true)
-      return
-    }
-    if (tab === 'wheels') {
-      setWheelSortHasPendingChanges(true)
-    }
+    markPendingCollectionSort(tab, setAwakenerSortHasPendingChanges, setWheelSortHasPendingChanges)
   }
 
   function markFilteredUnowned() {

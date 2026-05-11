@@ -155,6 +155,13 @@ vi.mock('../../domain/covenants', () => ({
   ],
 }))
 
+vi.mock('@/domain/public-detail-record-adapters', () => ({
+  loadPublicAwakenerDetailById: () => Promise.resolve(undefined),
+  loadPublicCovenantDetailById: () => Promise.resolve(undefined),
+  loadPublicPosseDetailById: () => Promise.resolve(undefined),
+  loadPublicWheelDetailById: () => Promise.resolve(undefined),
+}))
+
 vi.mock('../../domain/awakener-builds', async () => {
   const actual = await vi.importActual<typeof import('../../domain/awakener-builds')>(
     '../../domain/awakener-builds',

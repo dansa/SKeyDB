@@ -42,7 +42,11 @@ export const DATABASE_POPOVER_INTERACTIVE_SCALING_TOKEN_CLASS =
 export const DATABASE_REFERENCE_TOKEN_CLASS =
   'select-text underline decoration-solid decoration-1 underline-offset-[1px] decoration-amber-200/35 text-amber-100/85'
 
+export const DATABASE_ACCENT_TEXT_CLASS = 'database-accent-text'
+export const DATABASE_INHERIT_FONT_SIZE_CLASS = 'database-inherit-font-size'
 export const DATABASE_TINTED_TOKEN_CLASS = 'database-tinted-token'
+
+type DatabaseAccentTextStyle = CSSProperties & {'--database-accent-color': string}
 
 function buildTintPalette(base: string): DatabaseTintPalette {
   return {
@@ -86,6 +90,10 @@ export function getDatabaseDescriptionArgTint(
         hover: getAwakenerTextHoverColor(tintName),
       }
     : null
+}
+
+export function getDatabaseAccentTextStyle(accentColor: string): DatabaseAccentTextStyle {
+  return {'--database-accent-color': accentColor}
 }
 
 export function getDatabaseTintedTokenStyle(

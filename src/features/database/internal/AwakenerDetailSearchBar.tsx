@@ -4,6 +4,8 @@ import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getRealmAccent, getRealmLabel} from '@/domain/realms'
 import {SearchCombobox} from '@/ui/search/SearchCombobox'
 
+import {DATABASE_ACCENT_TEXT_CLASS, getDatabaseAccentTextStyle} from './text-styles'
+
 interface AwakenerDetailSearchBarProps {
   containerRef?: React.RefObject<HTMLDivElement | null>
   inputRef: React.RefObject<HTMLInputElement | null>
@@ -72,7 +74,10 @@ function AwakenerSearchResultRow({awakener}: {awakener: Awakener}) {
           {formatAwakenerNameForUi(awakener.name)}
         </div>
         <div className='truncate text-[11px] text-slate-500'>
-          <span style={{color: getRealmAccent(awakener.realm)}}>
+          <span
+            className={DATABASE_ACCENT_TEXT_CLASS}
+            style={getDatabaseAccentTextStyle(getRealmAccent(awakener.realm))}
+          >
             {getRealmLabel(awakener.realm)}
           </span>
           {awakener.type ? (

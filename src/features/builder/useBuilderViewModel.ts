@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo, useState, type RefObject} from 'react'
+import {useEffect, useMemo, useState, type RefObject} from 'react'
 
 import {useStore} from 'zustand'
 
@@ -22,6 +22,7 @@ import {searchWheels} from '@/domain/wheels-search'
 import {builderDraftStore, type BuilderDraftFocus} from '@/stores/builderDraftStore'
 import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 
+import {createBuilderOwnershipProjection} from './builder-ownership-projection'
 import {loadBuilderDraft, saveBuilderDraft, type BuilderDraftPayload} from './builder-persistence'
 import {allAwakeners} from './constants'
 import {getPublicQuickLineupSession} from './quick-lineup'
@@ -212,64 +213,23 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
     [],
   )
   const pickerWheels = useMemo(() => [...getWheels()], [])
-  const awakenerIdByName = useMemo(
-    () => new Map(pickerAwakeners.map((awakener) => [awakener.name, awakener.id])),
-    [pickerAwakeners],
-  )
-  const ownedAwakenerLevelByName = useMemo(
+  const {
+    ownedAwakenerLevelByName,
+    awakenerLevelByName,
+    ownedWheelLevelById,
+    ownedPosseLevelById,
+    isAwakenerOwnedByName,
+    isWheelOwnedById,
+    isPosseOwnedById,
+  } = useMemo(
     () =>
-      new Map(
-        pickerAwakeners.map((awakener) => {
-          const awakenerId = awakenerIdByName.get(awakener.name)
-          const level =
-            typeof awakenerId === 'string'
-              ? (collectionOwnership.ownedAwakeners[awakenerId] ?? null)
-              : null
-          return [awakener.name, level]
-        }),
-      ),
-    [pickerAwakeners, awakenerIdByName, collectionOwnership.ownedAwakeners],
-  )
-  const awakenerLevelByName = useMemo(
-    () =>
-      new Map(
-        pickerAwakeners.map((awakener) => {
-          const awakenerId = awakenerIdByName.get(awakener.name)
-          const level =
-            typeof awakenerId === 'string'
-              ? (collectionOwnership.awakenerLevels[awakenerId] ?? 60)
-              : 60
-          return [awakener.name, level]
-        }),
-      ),
-    [pickerAwakeners, awakenerIdByName, collectionOwnership.awakenerLevels],
-  )
-  const ownedWheelLevelById = useMemo(
-    () =>
-      new Map(
-        pickerWheels.map((wheel) => [wheel.id, collectionOwnership.ownedWheels[wheel.id] ?? null]),
-      ),
-    [pickerWheels, collectionOwnership.ownedWheels],
-  )
-  const ownedPosseLevelById = useMemo(
-    () =>
-      new Map(
-        pickerPosses.map((posse) => [posse.id, collectionOwnership.ownedPosses[posse.id] ?? null]),
-      ),
-    [pickerPosses, collectionOwnership.ownedPosses],
-  )
-
-  const isAwakenerOwnedByName = useCallback(
-    (awakenerName: string) => ownedAwakenerLevelByName.get(awakenerName) !== null,
-    [ownedAwakenerLevelByName],
-  )
-  const isWheelOwnedById = useCallback(
-    (wheelId: string) => (ownedWheelLevelById.get(wheelId) ?? null) !== null,
-    [ownedWheelLevelById],
-  )
-  const isPosseOwnedById = useCallback(
-    (posseId: string) => (ownedPosseLevelById.get(posseId) ?? null) !== null,
-    [ownedPosseLevelById],
+      createBuilderOwnershipProjection({
+        awakeners: pickerAwakeners,
+        wheels: pickerWheels,
+        posses: pickerPosses,
+        ownership: collectionOwnership,
+      }),
+    [pickerAwakeners, pickerWheels, pickerPosses, collectionOwnership],
   )
 
   const activePosse = useMemo(

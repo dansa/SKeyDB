@@ -1,10 +1,12 @@
 import {act, renderHook} from '@testing-library/react'
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 
+import {createEmptyCollectionOwnershipState} from '@/domain/collection-ownership'
 import {
   COLLECTION_OWNERSHIP_KEY,
   COLLECTION_OWNERSHIP_LEGACY_KEY,
 } from '@/features/collection/collectionMigrations'
+import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 
 import {createInitialRememberedLevels, useCollectionViewModel} from './useCollectionViewModel'
 
@@ -15,6 +17,7 @@ describe('useCollectionViewModel', () => {
     window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
     window.localStorage.removeItem(COLLECTION_OWNERSHIP_LEGACY_KEY)
     window.localStorage.removeItem(COLLECTION_AWAKENER_SORT_KEY)
+    collectionOwnershipStore.getState().replaceOwnership(createEmptyCollectionOwnershipState())
   })
 
   afterEach(() => {
@@ -309,6 +312,75 @@ describe('useCollectionViewModel', () => {
       result.current.toggleOwned('posses', 'posse-0001')
     })
 
+    expect(result.current.wheelSortHasPendingChanges).toBe(false)
+  })
+
+  it('marks filtered awakeners owned with remembered levels and pending sort', () => {
+    const {result} = renderHook(() => useCollectionViewModel())
+
+    act(() => {
+      result.current.increaseLevel('awakeners', 'awakener-0042')
+      result.current.increaseLevel('awakeners', 'awakener-0042')
+      result.current.markFilteredUnowned()
+      result.current.applyAwakenerSortChanges()
+    })
+    expect(result.current.getAwakenerOwnedLevel('ramona')).toBeNull()
+    expect(result.current.awakenerSortHasPendingChanges).toBe(false)
+
+    act(() => {
+      result.current.markFilteredOwned()
+    })
+
+    expect(result.current.getAwakenerOwnedLevel('ramona')).toBe(2)
+    expect(result.current.getAwakenerOwnedLevel('ramona: timeworn')).toBe(2)
+    expect(result.current.awakenerSortHasPendingChanges).toBe(true)
+    expect(result.current.wheelSortHasPendingChanges).toBe(false)
+  })
+
+  it('marks filtered wheels owned with remembered levels and pending sort', () => {
+    const {result} = renderHook(() => useCollectionViewModel())
+
+    act(() => {
+      result.current.setTab('wheels')
+    })
+    act(() => {
+      result.current.increaseLevel('wheels', 'wheel-0095')
+      result.current.increaseLevel('wheels', 'wheel-0095')
+      result.current.increaseLevel('wheels', 'wheel-0095')
+      result.current.markFilteredUnowned()
+      result.current.applyWheelSortChanges()
+    })
+    expect(result.current.getWheelOwnedLevel('wheel-0095')).toBeNull()
+    expect(result.current.wheelSortHasPendingChanges).toBe(false)
+
+    act(() => {
+      result.current.markFilteredOwned()
+    })
+
+    expect(result.current.getWheelOwnedLevel('wheel-0095')).toBe(3)
+    expect(result.current.wheelSortHasPendingChanges).toBe(true)
+    expect(result.current.awakenerSortHasPendingChanges).toBe(false)
+  })
+
+  it('marks filtered posses owned without marking sort pending', () => {
+    const {result} = renderHook(() => useCollectionViewModel())
+
+    act(() => {
+      result.current.setTab('posses')
+    })
+    act(() => {
+      result.current.markFilteredUnowned()
+    })
+    expect(result.current.getPosseOwnedLevel('posse-0001')).toBeNull()
+    expect(result.current.awakenerSortHasPendingChanges).toBe(false)
+    expect(result.current.wheelSortHasPendingChanges).toBe(false)
+
+    act(() => {
+      result.current.markFilteredOwned()
+    })
+
+    expect(result.current.getPosseOwnedLevel('posse-0001')).toBe(0)
+    expect(result.current.awakenerSortHasPendingChanges).toBe(false)
     expect(result.current.wheelSortHasPendingChanges).toBe(false)
   })
 })

@@ -50,19 +50,34 @@ export type DatabaseDetailRouteItem =
   | {kind: 'posse'; item: Posse}
   | {kind: 'covenant'; item: Covenant}
 
-interface DatabaseDetailRenderOptions {
+export type DatabaseDetailRouteItemByKind = {
+  [Kind in DatabaseDetailKind]: Extract<DatabaseDetailRouteItem, {kind: Kind}>
+}
+
+interface DatabaseDetailRecordByKind {
+  awakener: AwakenerFullRecord
+  wheel: WheelFullRecord
+  posse: PosseFullRecord
+  covenant: CovenantFullRecord
+}
+
+interface DatabaseDetailRenderOptions<Kind extends DatabaseDetailKind> {
   awakeners: Awakener[]
   callbacks: DatabaseDetailRenderCallbacks
-  item: DatabaseDetailRouteItem
-  record: object
+  item: DatabaseDetailRouteItemByKind[Kind]
+  record: DatabaseDetailRecordByKind[Kind]
   wheels: Wheel[]
 }
 
-interface DatabaseDetailRegistryEntry {
-  loadRecord: (id: string) => Promise<object | undefined>
+interface DatabaseDetailRegistryEntry<Kind extends DatabaseDetailKind> {
+  loadRecord: (id: string) => Promise<DatabaseDetailRecordByKind[Kind] | undefined>
   loadingLabel: string
   missingBrowsePath: string
-  render: (options: DatabaseDetailRenderOptions) => ReactNode
+  render: (options: DatabaseDetailRenderOptions<Kind>) => ReactNode
+}
+
+export type DatabaseDetailRegistry = {
+  [Kind in DatabaseDetailKind]: DatabaseDetailRegistryEntry<Kind>
 }
 
 async function loadAwakenerDetailRecord(id: string) {
@@ -89,22 +104,18 @@ async function loadCovenantDetailRecord(id: string) {
   return loadPublicCovenantDetailById(id)
 }
 
-export const dbDetailRegistry: Record<DatabaseDetailKind, DatabaseDetailRegistryEntry> = {
+export const dbDetailRegistry: DatabaseDetailRegistry = {
   awakener: {
     loadRecord: loadAwakenerDetailRecord,
     loadingLabel: 'Loading awakener details...',
     missingBrowsePath: buildDatabaseEntityBrowsePath('awakeners'),
     render: ({awakeners, callbacks, item, record}) => {
-      if (item.kind !== 'awakener') {
-        throw new Error('Awakener detail registry received a non-awakener item')
-      }
-
       return (
         <AwakenerDetailModal
           activeTab={item.activeTab}
           awakener={item.item}
           awakeners={awakeners}
-          fullData={record as AwakenerFullRecord}
+          fullData={record}
           key={item.item.id}
           onClose={callbacks.onClose}
           onSelectAwakener={callbacks.onSelectAwakener}
@@ -120,13 +131,9 @@ export const dbDetailRegistry: Record<DatabaseDetailKind, DatabaseDetailRegistry
     loadingLabel: 'Loading wheel details...',
     missingBrowsePath: buildDatabaseWheelBrowsePath(),
     render: ({callbacks, item, record, wheels}) => {
-      if (item.kind !== 'wheel') {
-        throw new Error('Wheel detail registry received a non-wheel item')
-      }
-
       return (
         <WheelDetailModal
-          fullData={record as WheelFullRecord}
+          fullData={record}
           key={item.item.id}
           onClose={callbacks.onClose}
           onSelectAwakener={callbacks.onSelectAwakener}
@@ -142,13 +149,9 @@ export const dbDetailRegistry: Record<DatabaseDetailKind, DatabaseDetailRegistry
     loadingLabel: 'Loading posse details...',
     missingBrowsePath: buildDatabasePosseBrowsePath(),
     render: ({callbacks, item, record}) => {
-      if (item.kind !== 'posse') {
-        throw new Error('Posse detail registry received a non-posse item')
-      }
-
       return (
         <SimpleArtifactDetailModal
-          fullData={record as PosseFullRecord}
+          fullData={record}
           item={item.item}
           kind='posse'
           onClose={callbacks.onClose}
@@ -162,13 +165,9 @@ export const dbDetailRegistry: Record<DatabaseDetailKind, DatabaseDetailRegistry
     loadingLabel: 'Loading covenant details...',
     missingBrowsePath: buildDatabaseCovenantBrowsePath(),
     render: ({callbacks, item, record}) => {
-      if (item.kind !== 'covenant') {
-        throw new Error('Covenant detail registry received a non-covenant item')
-      }
-
       return (
         <SimpleArtifactDetailModal
-          fullData={record as CovenantFullRecord}
+          fullData={record}
           item={item.item}
           kind='covenant'
           onClose={callbacks.onClose}

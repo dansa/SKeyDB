@@ -70,25 +70,12 @@
     "description": "Featured rate-up banners for Arachne and her SSR Wheel 'Eternal Weave'.",
     "startDate": "2026/04/20 09:00",
     "endDate": "2026/05/18 09:00",
-    "featured": [
-      {
-        "name": "Arachne",
-        "kind": "awakener",
-        "customArt": "/banners/arachne-char.webp",
-        "realmId": "ULTRA"
-      },
-      {
-        "name": "Eternal Weave",
-        "kind": "wheel",
-        "customArt": "/banners/arachne-wheel.webp",
-        "realmId": "ULTRA"
-      }
-    ],
+    "featured": ["Arachne", "Eternal Weave"],
     "pinned": true
   },
   {
     "id": "banner-moonless-guide",
-    "title": "Moonless Guide",
+    "title": "Kaleido Recollections: Faded Legacy",
     "type": "combo",
     "description": "Premium banner featuring all limited Awakeners and Wheels of Destiny from \"Faded Legacy\"",
     "startDate": "2026/05/05 09:00",

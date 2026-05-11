@@ -61,7 +61,7 @@ export function useDatabaseBrowseState() {
     typeFilter,
   } = browseState
   const {setQuery, appendSearchCharacter, removeSearchCharacter, clearQuery} =
-    useBrowseQueryActions<DatabaseBrowseState>(query, commitBrowseState)
+    useBrowseQueryActions(query, commitBrowseState)
 
   const setRealmFilter = useCallback(
     (next: RealmFilterId) => {

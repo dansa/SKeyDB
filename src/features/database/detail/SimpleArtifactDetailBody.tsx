@@ -19,6 +19,10 @@ import {
   getDatabaseDetailSectionHeadingStyle,
 } from '@/features/database/internal/database-detail-typography'
 import {RichDescription} from '@/features/database/internal/RichDescription'
+import {
+  DATABASE_ACCENT_TEXT_CLASS,
+  getDatabaseAccentTextStyle,
+} from '@/features/database/internal/text-styles'
 import {WheelLoreText} from '@/features/database/internal/WheelLoreText'
 
 import {OwnerAwakenerMetaLink} from './OwnerAwakenerMetaLink'
@@ -152,7 +156,10 @@ export function PosseMeta({
 
   return (
     <p className={`${DATABASE_DETAIL_META_ROW_CLASS} ${DATABASE_DETAIL_HEADER_META_CLASS}`}>
-      <span className={DATABASE_DETAIL_META_PRIMARY_CLASS} style={{color: realmAccent}}>
+      <span
+        className={`${DATABASE_DETAIL_META_PRIMARY_CLASS} ${DATABASE_ACCENT_TEXT_CLASS}`}
+        style={getDatabaseAccentTextStyle(realmAccent)}
+      >
         {realmLabel}
       </span>
       <OwnerAwakenerMetaLink

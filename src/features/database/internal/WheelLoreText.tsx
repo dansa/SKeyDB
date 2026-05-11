@@ -71,6 +71,19 @@ const LORE_REDACTION_GLYPHS = {
   },
 } as const
 
+type WheelLorePreviewStyle = CSSProperties & {'--wheel-lore-preview-height': string}
+
+function getLoreRedactionGlyphStyle(width: number): CSSProperties {
+  return {
+    width: `calc(var(--desc-font-scale, 1) * ${String(width)}px)`,
+    height: 'calc(var(--desc-font-scale, 1) * 14px)',
+  }
+}
+
+function getWheelLorePreviewStyle(previewHeight: string): WheelLorePreviewStyle {
+  return {'--wheel-lore-preview-height': previewHeight}
+}
+
 function formatLoreTokenLabel(token: string): string {
   return token.replace(/([a-z])([A-Z])/g, '$1 $2')
 }
@@ -93,10 +106,7 @@ function WheelLoreRedaction({level}: {level: 1 | 2 | 3 | 4}) {
             data-glyph-key={glyphKey}
             data-lore-redaction-glyph=''
             key={buildLoreKey('wheel-lore-redaction-glyph', level, glyphIndex)}
-            style={{
-              width: `calc(var(--desc-font-scale, 1) * ${String(glyph.width)}px)`,
-              height: 'calc(var(--desc-font-scale, 1) * 14px)',
-            }}
+            style={getLoreRedactionGlyphStyle(glyph.width)}
             viewBox={glyph.viewBox}
           >
             {glyph.paths.map((path, pathIndex) => (
@@ -250,10 +260,7 @@ export function WheelLoreText({
   return (
     <div className='mt-2 max-w-[66ch]'>
       {preview.truncated ? (
-        <div
-          className='wheel-lore-disclosure'
-          style={{'--wheel-lore-preview-height': previewHeight} as CSSProperties}
-        >
+        <div className='wheel-lore-disclosure' style={getWheelLorePreviewStyle(previewHeight)}>
           <div
             className={`wheel-lore-body space-y-3 ${DATABASE_DETAIL_BODY_CLASS}`}
             data-expanded={isExpanded ? 'true' : 'false'}

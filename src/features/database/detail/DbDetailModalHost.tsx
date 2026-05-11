@@ -12,7 +12,10 @@ import {
 import type {EntityRef} from '@/domain/entities/types'
 import {getPosses} from '@/domain/posses'
 import type {Wheel} from '@/domain/wheels'
-import {useDatabaseDetailRouteRecord} from '@/features/database/internal/useDatabaseDetailRouteRecord'
+import {
+  useDatabaseDetailRecord,
+  useDatabaseDetailRouteRecord,
+} from '@/features/database/internal/useDatabaseDetailRouteRecord'
 import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import {
@@ -20,6 +23,7 @@ import {
   type DatabaseDetailKind,
   type DatabaseDetailRenderCallbacks,
   type DatabaseDetailRouteItem,
+  type DatabaseDetailRouteItemByKind,
 } from './dbDetailRegistry'
 
 type DatabaseDetailRef = EntityRef & {kind: DatabaseDetailKind}
@@ -114,48 +118,16 @@ function resolveCovenantRef(
   return byName ? {kind: 'covenant', id: byName.id} : null
 }
 
-function useDbDetailOverlayRecord(
-  id: string,
-  loadRecord: (id: string) => Promise<object | undefined>,
-) {
-  const [state, setState] = useState<{
-    id: string
-    isLoading: boolean
-    record: object | null
-  }>(() => ({
-    id,
-    isLoading: true,
-    record: null,
-  }))
-
-  useEffect(() => {
-    let isCancelled = false
-
-    void loadRecord(id).then((nextRecord) => {
-      if (isCancelled) {
-        return
-      }
-
-      setState({
-        id,
-        isLoading: false,
-        record: nextRecord ?? null,
-      })
-    })
-
-    return () => {
-      isCancelled = true
-    }
-  }, [id, loadRecord])
-
-  if (state.id !== id) {
-    return {isLoading: true, record: null}
+function resolveAwakenerTabCanonicalPath(
+  awakener: Awakener,
+  tabSlug: string | undefined,
+): string | null {
+  if (!tabSlug) {
+    return null
   }
 
-  return {
-    isLoading: state.isLoading,
-    record: state.record,
-  }
+  const resolvedTab = resolveDatabaseAwakenerTab(tabSlug)
+  return buildDatabaseAwakenerPath(awakener, resolvedTab ?? 'overview')
 }
 
 export function DbDetailModalHost({
@@ -237,8 +209,6 @@ function DbDetailOverlayModal({
   const overlayAwakenerTab =
     overlayAwakenerTabState.refKey === activeRefKey ? overlayAwakenerTabState.activeTab : 'overview'
   const routeItem = resolveOverlayRouteItem(activeRef, awakeners, wheels, overlayAwakenerTab)
-  const registryEntry = dbDetailRegistry[activeRef.kind]
-  const {isLoading, record} = useDbDetailOverlayRecord(activeRef.id, registryEntry.loadRecord)
 
   useEffect(() => {
     if (!routeItem) {
@@ -246,15 +216,114 @@ function DbDetailOverlayModal({
     }
   }, [routeItem])
 
-  useEffect(() => {
-    if (routeItem && !isLoading && !record) {
+  const overlayCallbacks = {
+    ...callbacks,
+    onClose: () => {
       dbDetailStore.getState().popDetail()
-    }
-  }, [isLoading, record, routeItem])
+    },
+    onTabChange: (nextTab: DatabaseAwakenerTab) => {
+      setOverlayAwakenerTabState({activeTab: nextTab, refKey: activeRefKey})
+    },
+    onSelectAwakener: (awakener: Pick<Awakener, 'id' | 'name'>) => {
+      const ref = resolveAwakenerRef(awakeners, awakener)
+      if (ref) {
+        dbDetailStore.getState().pushReferenceDetail(ref)
+      }
+    },
+    onSelectWheel: (wheel: Pick<Wheel, 'name'> & Partial<Pick<Wheel, 'id'>>) => {
+      const ref = resolveWheelRef(wheels, wheel)
+      if (ref) {
+        dbDetailStore.getState().pushReferenceDetail(ref)
+      }
+    },
+    onSelectCovenant: (covenant: Pick<Covenant, 'name'> & Partial<Pick<Covenant, 'id'>>) => {
+      const ref = resolveCovenantRef(covenant)
+      if (ref) {
+        dbDetailStore.getState().pushReferenceDetail(ref)
+      }
+    },
+  }
 
   if (!routeItem) {
     return null
   }
+
+  if (routeItem.kind === 'awakener') {
+    return (
+      <DbDetailOverlayModalContent
+        awakeners={awakeners}
+        callbacks={overlayCallbacks}
+        id={activeRef.id}
+        kind='awakener'
+        routeItem={routeItem}
+        wheels={wheels}
+      />
+    )
+  }
+  if (routeItem.kind === 'wheel') {
+    return (
+      <DbDetailOverlayModalContent
+        awakeners={awakeners}
+        callbacks={overlayCallbacks}
+        id={activeRef.id}
+        kind='wheel'
+        routeItem={routeItem}
+        wheels={wheels}
+      />
+    )
+  }
+  if (routeItem.kind === 'posse') {
+    return (
+      <DbDetailOverlayModalContent
+        awakeners={awakeners}
+        callbacks={overlayCallbacks}
+        id={activeRef.id}
+        kind='posse'
+        routeItem={routeItem}
+        wheels={wheels}
+      />
+    )
+  }
+  return (
+    <DbDetailOverlayModalContent
+      awakeners={awakeners}
+      callbacks={overlayCallbacks}
+      id={activeRef.id}
+      kind='covenant'
+      routeItem={routeItem}
+      wheels={wheels}
+    />
+  )
+}
+
+interface DbDetailOverlayModalContentProps<Kind extends DatabaseDetailKind> {
+  awakeners: Awakener[]
+  callbacks: DatabaseDetailRenderCallbacks
+  id: string
+  kind: Kind
+  routeItem: DatabaseDetailRouteItemByKind[Kind]
+  wheels: Wheel[]
+}
+
+function DbDetailOverlayModalContent<Kind extends DatabaseDetailKind>({
+  awakeners,
+  callbacks,
+  id,
+  kind,
+  routeItem,
+  wheels,
+}: DbDetailOverlayModalContentProps<Kind>) {
+  const registryEntry = dbDetailRegistry[kind]
+  const {isLoading, record} = useDatabaseDetailRecord({
+    id,
+    loadRecord: registryEntry.loadRecord,
+  })
+
+  useEffect(() => {
+    if (!isLoading && !record) {
+      dbDetailStore.getState().popDetail()
+    }
+  }, [isLoading, record])
 
   if (isLoading) {
     return <div className='px-2 py-3 text-sm text-slate-300'>{registryEntry.loadingLabel}</div>
@@ -266,33 +335,7 @@ function DbDetailOverlayModal({
 
   return registryEntry.render({
     awakeners,
-    callbacks: {
-      ...callbacks,
-      onClose: () => {
-        dbDetailStore.getState().popDetail()
-      },
-      onTabChange: (nextTab) => {
-        setOverlayAwakenerTabState({activeTab: nextTab, refKey: activeRefKey})
-      },
-      onSelectAwakener: (awakener) => {
-        const ref = resolveAwakenerRef(awakeners, awakener)
-        if (ref) {
-          dbDetailStore.getState().pushReferenceDetail(ref)
-        }
-      },
-      onSelectWheel: (wheel) => {
-        const ref = resolveWheelRef(wheels, wheel)
-        if (ref) {
-          dbDetailStore.getState().pushReferenceDetail(ref)
-        }
-      },
-      onSelectCovenant: (covenant) => {
-        const ref = resolveCovenantRef(covenant)
-        if (ref) {
-          dbDetailStore.getState().pushReferenceDetail(ref)
-        }
-      },
-    },
+    callbacks,
     item: routeItem,
     record,
     wheels,
@@ -316,49 +359,91 @@ function DbDetailRouteModal({
   tabSlug,
   wheels,
 }: DbDetailRouteModalProps) {
+  if (routeItem.kind === 'awakener') {
+    return (
+      <DbDetailAwakenerRouteModal
+        activeRef={activeRef}
+        awakeners={awakeners}
+        callbacks={callbacks}
+        routeItem={routeItem}
+        tabSlug={tabSlug}
+        wheels={wheels}
+      />
+    )
+  }
+  if (routeItem.kind === 'wheel') {
+    return (
+      <DbDetailWheelRouteModal
+        activeRef={activeRef}
+        awakeners={awakeners}
+        callbacks={callbacks}
+        routeItem={routeItem}
+        wheels={wheels}
+      />
+    )
+  }
+  if (routeItem.kind === 'posse') {
+    return (
+      <DbDetailPosseRouteModal
+        activeRef={activeRef}
+        awakeners={awakeners}
+        callbacks={callbacks}
+        routeItem={routeItem}
+        wheels={wheels}
+      />
+    )
+  }
+  return (
+    <DbDetailCovenantRouteModal
+      activeRef={activeRef}
+      awakeners={awakeners}
+      callbacks={callbacks}
+      routeItem={routeItem}
+      wheels={wheels}
+    />
+  )
+}
+
+interface DbDetailKindRouteModalProps<Kind extends DatabaseDetailKind> {
+  activeRef: EntityRef
+  awakeners: Awakener[]
+  callbacks: DatabaseDetailRenderCallbacks
+  routeItem: Extract<DatabaseDetailRouteItem, {kind: Kind}>
+  tabSlug?: string
+  wheels: Wheel[]
+}
+
+function DbDetailAwakenerRouteModal({
+  activeRef,
+  awakeners,
+  callbacks,
+  routeItem,
+  tabSlug,
+  wheels,
+}: DbDetailKindRouteModalProps<'awakener'>) {
   const location = useLocation()
   const navigate = useNavigate()
-  const registryEntry = dbDetailRegistry[routeItem.kind]
+  const registryEntry = dbDetailRegistry.awakener
   const {isLoading, record} = useDatabaseDetailRouteRecord({
     id: activeRef.id,
     loadRecord: registryEntry.loadRecord,
     missingPathname: registryEntry.missingBrowsePath,
   })
-  const resolvedTabSlug =
-    routeItem.kind === 'awakener' && tabSlug ? resolveDatabaseAwakenerTab(tabSlug) : null
+  const canonicalTabPath = resolveAwakenerTabCanonicalPath(routeItem.item, tabSlug)
 
   useEffect(() => {
-    if (routeItem.kind !== 'awakener' || !record || !tabSlug || !resolvedTabSlug) {
-      return
-    }
-
-    const canonicalPath = buildDatabaseAwakenerPath(routeItem.item, resolvedTabSlug)
-    if (location.pathname === canonicalPath) {
+    if (!record || !canonicalTabPath || location.pathname === canonicalTabPath) {
       return
     }
 
     void navigate(
       {
-        pathname: canonicalPath,
+        pathname: canonicalTabPath,
         search: location.search,
       },
       {replace: true},
     )
-  }, [location.pathname, location.search, navigate, record, resolvedTabSlug, routeItem, tabSlug])
-
-  useEffect(() => {
-    if (routeItem.kind !== 'awakener' || !record || !tabSlug || resolvedTabSlug) {
-      return
-    }
-
-    void navigate(
-      {
-        pathname: buildDatabaseAwakenerPath(routeItem.item),
-        search: location.search,
-      },
-      {replace: true},
-    )
-  }, [location.search, navigate, record, resolvedTabSlug, routeItem, tabSlug])
+  }, [canonicalTabPath, location.pathname, location.search, navigate, record])
 
   if (isLoading) {
     return <div className='px-2 py-3 text-sm text-slate-300'>{registryEntry.loadingLabel}</div>
@@ -375,4 +460,79 @@ function DbDetailRouteModal({
     record,
     wheels,
   })
+}
+
+function DbDetailWheelRouteModal({
+  activeRef,
+  awakeners,
+  callbacks,
+  routeItem,
+  wheels,
+}: DbDetailKindRouteModalProps<'wheel'>) {
+  const registryEntry = dbDetailRegistry.wheel
+  const {isLoading, record} = useDatabaseDetailRouteRecord({
+    id: activeRef.id,
+    loadRecord: registryEntry.loadRecord,
+    missingPathname: registryEntry.missingBrowsePath,
+  })
+
+  if (isLoading) {
+    return <div className='px-2 py-3 text-sm text-slate-300'>{registryEntry.loadingLabel}</div>
+  }
+
+  if (!record) {
+    return null
+  }
+
+  return registryEntry.render({awakeners, callbacks, item: routeItem, record, wheels})
+}
+
+function DbDetailPosseRouteModal({
+  activeRef,
+  awakeners,
+  callbacks,
+  routeItem,
+  wheels,
+}: DbDetailKindRouteModalProps<'posse'>) {
+  const registryEntry = dbDetailRegistry.posse
+  const {isLoading, record} = useDatabaseDetailRouteRecord({
+    id: activeRef.id,
+    loadRecord: registryEntry.loadRecord,
+    missingPathname: registryEntry.missingBrowsePath,
+  })
+
+  if (isLoading) {
+    return <div className='px-2 py-3 text-sm text-slate-300'>{registryEntry.loadingLabel}</div>
+  }
+
+  if (!record) {
+    return null
+  }
+
+  return registryEntry.render({awakeners, callbacks, item: routeItem, record, wheels})
+}
+
+function DbDetailCovenantRouteModal({
+  activeRef,
+  awakeners,
+  callbacks,
+  routeItem,
+  wheels,
+}: DbDetailKindRouteModalProps<'covenant'>) {
+  const registryEntry = dbDetailRegistry.covenant
+  const {isLoading, record} = useDatabaseDetailRouteRecord({
+    id: activeRef.id,
+    loadRecord: registryEntry.loadRecord,
+    missingPathname: registryEntry.missingBrowsePath,
+  })
+
+  if (isLoading) {
+    return <div className='px-2 py-3 text-sm text-slate-300'>{registryEntry.loadingLabel}</div>
+  }
+
+  if (!record) {
+    return null
+  }
+
+  return registryEntry.render({awakeners, callbacks, item: routeItem, record, wheels})
 }

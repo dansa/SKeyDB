@@ -7,7 +7,9 @@ import {
   getTimelineStatus,
   normalizeEventCategory,
   parseGameDate,
+  sortBannersByRelevance,
   sortEventsByRelevance,
+  type BannerEntry,
   type EventEntry,
 } from './timeline'
 
@@ -76,8 +78,50 @@ describe('timeline date and status helpers', () => {
   })
 })
 
+describe('sortBannersByRelevance', () => {
+  it('uses pinned only for active banners and keeps ended banners date-sorted', () => {
+    const now = new Date('2026-03-10T00:00:00.000Z')
+    const banners: BannerEntry[] = [
+      {
+        id: 'older-pinned-ended',
+        title: 'Older Pinned Ended',
+        type: 'rerun',
+        startDate: '2026-03-01T00:00:00.000Z',
+        endDate: '2026-03-04T00:00:00.000Z',
+        pinned: true,
+      },
+      {
+        id: 'active',
+        title: 'Active',
+        type: 'limited',
+        startDate: '2026-03-09T00:00:00.000Z',
+        endDate: '2026-03-12T00:00:00.000Z',
+      },
+      {
+        id: 'pinned-active',
+        title: 'Pinned Active',
+        type: 'limited',
+        startDate: '2026-03-09T00:00:00.000Z',
+        endDate: '2026-03-13T00:00:00.000Z',
+        pinned: true,
+      },
+      {
+        id: 'recent-ended',
+        title: 'Recent Ended',
+        type: 'rerun',
+        startDate: '2026-03-01T00:00:00.000Z',
+        endDate: '2026-03-08T00:00:00.000Z',
+      },
+    ]
+
+    const sortedIds = sortBannersByRelevance(banners, now).map((banner) => banner.id)
+
+    expect(sortedIds).toEqual(['pinned-active', 'active', 'recent-ended', 'older-pinned-ended'])
+  })
+})
+
 describe('sortEventsByRelevance', () => {
-  it('sorts by pinned first, then active/upcoming/ended relevance', () => {
+  it('sorts by active pinned first, then active/upcoming/ended relevance', () => {
     const now = new Date('2026-03-10T00:00:00.000Z')
     const events: EventEntry[] = [
       {
@@ -101,17 +145,24 @@ describe('sortEventsByRelevance', () => {
       {
         id: 'pinned-upcoming',
         title: 'Pinned Upcoming',
-        startDate: '2026-03-14T00:00:00.000Z',
-        endDate: '2026-03-15T00:00:00.000Z',
+        startDate: '2026-03-16T00:00:00.000Z',
+        endDate: '2026-03-17T00:00:00.000Z',
+        pinned: true,
+      },
+      {
+        id: 'pinned-active',
+        title: 'Pinned Active',
+        startDate: '2026-03-09T00:00:00.000Z',
+        endDate: '2026-03-13T00:00:00.000Z',
         pinned: true,
       },
     ]
 
     const sortedIds = sortEventsByRelevance(events, now).map((event) => event.id)
-    expect(sortedIds).toEqual(['pinned-upcoming', 'active', 'upcoming', 'ended'])
+    expect(sortedIds).toEqual(['pinned-active', 'active', 'upcoming', 'pinned-upcoming', 'ended'])
   })
 
-  it('sorts ended events by most recent end date before category priority', () => {
+  it('sorts ended events by most recent end date before category priority or pinned state', () => {
     const now = new Date('2026-03-10T00:00:00.000Z')
     const events: EventEntry[] = [
       {
@@ -120,6 +171,7 @@ describe('sortEventsByRelevance', () => {
         startDate: '2026-03-01T00:00:00.000Z',
         endDate: '2026-03-04T00:00:00.000Z',
         category: 'story',
+        pinned: true,
       },
       {
         id: 'recent-maintenance',
