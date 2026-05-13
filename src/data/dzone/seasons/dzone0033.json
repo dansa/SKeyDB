@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 3,
+  "scope": "dzone-season",
+  "recordCount": 1,
+  "records": [
+    {
+      "id": "dzone-0033",
+      "period": 33,
+      "name": "Dissoluted Abyss",
+      "start": "2025-04-28T01:00:00Z",
+      "end": "2025-05-12T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "waves": [
+        {
+          "id": "d-effect-zone-wave-1",
+          "name": "D-Effect Zone: Wave 1",
+          "initialRelicIds": ["relic-9022"],
+          "monsterIds": [
+            "dzone-monster-0214",
+            "dzone-monster-0216",
+            "dzone-monster-0031",
+            "dzone-monster-0124",
+            "dzone-monster-0146",
+            "dzone-monster-0145",
+            "dzone-monster-0101"
+          ]
+        },
+        {
+          "id": "d-effect-zone-wave-2",
+          "name": "D-Effect Zone: Wave 2",
+          "initialRelicIds": ["relic-9001"],
+          "monsterIds": [
+            "dzone-monster-0034",
+            "dzone-monster-0227",
+            "dzone-monster-0223",
+            "dzone-monster-0023",
+            "dzone-monster-0035",
+            "dzone-monster-0078",
+            "dzone-monster-0077",
+            "dzone-monster-0307",
+            "dzone-monster-0213"
+          ]
+        },
+        {
+          "id": "d-effect-zone-wave-3",
+          "name": "D-Effect Zone: Wave 3",
+          "initialRelicIds": ["relic-9019"],
+          "monsterIds": ["dzone-monster-0196"]
+        },
+        {
+          "id": "d-effect-zone-wave-4",
+          "name": "D-Effect Zone: Wave 4",
+          "initialRelicIds": ["relic-9012"],
+          "monsterIds": ["dzone-monster-0209", "dzone-monster-0302", "dzone-monster-0304"]
+        },
+        {
+          "id": "d-effect-zone-wave-5",
+          "name": "D-Effect Zone: Wave 5",
+          "initialRelicIds": ["relic-9015"],
+          "monsterIds": [
+            "dzone-monster-0166",
+            "dzone-monster-0258",
+            "dzone-monster-0101",
+            "dzone-monster-0100",
+            "dzone-monster-0017",
+            "dzone-monster-0132",
+            "dzone-monster-0117",
+            "dzone-monster-0020",
+            "dzone-monster-0133",
+            "dzone-monster-0274",
+            "dzone-monster-0273",
+            "dzone-monster-0126",
+            "dzone-monster-0278"
+          ]
+        }
+      ]
+    }
+  ]
+}

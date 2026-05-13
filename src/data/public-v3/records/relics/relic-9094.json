@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9094",
+  "name": "Chrono Pendulum \"Treasure δ\"",
+  "route": {
+    "slug": "chrono-pendulum-treasure-delta",
+    "canonicalPath": "/database/relics/chrono-pendulum-treasure-delta"
+  },
+  "assets": {
+    "icon": "asset-relic-9094-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "At the start of the battle, increase the Arithmetica Limit by 1 and {Rouse} all Awakeners. For the next 5 turns, gain one Relic at turn start: \"Signal Relay, Rite of Spring, Hierophant's Staff, {Omen {Ritual} Bird}, Chrono Pendulum: Projection\".",
+  "descriptionArgs": {}
+}

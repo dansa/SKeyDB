@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9003",
+  "name": "Filigree Agate+",
+  "route": {
+    "slug": "filigree-agate",
+    "canonicalPath": "/database/relics/filigree-agate"
+  },
+  "assets": {
+    "icon": "asset-relic-9003-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Gain [Arg1] Temporary {STR} whenever DMG is dealt, up to 15 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.015,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "It's probably just ordinary agate patterns. Perhaps."
+}

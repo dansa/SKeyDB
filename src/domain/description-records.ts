@@ -17,6 +17,7 @@ import {
   type ResolvedDescriptionArg,
 } from './description-args'
 import type {PosseFullRecord} from './posses-full'
+import type {PublicDescriptionArg} from './public-description-args'
 import type {WheelFullRecord} from './wheels-full'
 
 export interface WheelDatabaseDescriptionRecord {
@@ -45,6 +46,14 @@ export interface CovenantDatabaseDescriptionRecord {
   descriptionArgs: CovenantSetEffectRecord['descriptionArgs']
 }
 
+export interface RelicDatabaseDescriptionRecord {
+  id: string
+  kind: 'relic'
+  displayName: string
+  descriptionTemplate: string
+  descriptionArgs: Record<string, PublicDescriptionArg>
+}
+
 export type DescribedRecord =
   | AwakenerSkillRecord
   | AwakenerTalentRecord
@@ -54,6 +63,7 @@ export type DescribedRecord =
   | WheelDatabaseDescriptionRecord
   | PosseDatabaseDescriptionRecord
   | CovenantDatabaseDescriptionRecord
+  | RelicDatabaseDescriptionRecord
 
 export interface ResolvedDescribedRecordArgEntry {
   key: string

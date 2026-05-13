@@ -19,6 +19,7 @@ import type {PublicFormulaContext} from '@/domain/public-formula-context'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'
 import type {DatabaseReferenceEntry, KeyedDatabaseReferenceEntry} from './database-reference-entry'
+import {DatabaseLoreMarkupText} from './DatabaseLoreMarkupText'
 import type {DatabaseRichTextContentProps} from './DatabaseRichTextContent'
 import {renderTextWithBreaks, scaledFontStyle} from './font-scale'
 import {DATABASE_ENTRY_TITLE_CLASS} from './text-styles'
@@ -80,6 +81,15 @@ function buildRelatedReferenceEntry(entry: DatabaseReferenceInfo): KeyedDatabase
     descriptionMaxRank: entry.descriptionMaxRank,
     influenceBadges: entry.influenceBadges,
   }
+}
+
+function descriptionSectionClassName(tone: 'default' | 'lore' | undefined): string {
+  return [
+    'leading-relaxed text-slate-400',
+    tone === 'lore' ? 'font-["Droid_Serif"] italic text-slate-300/88' : '',
+  ]
+    .filter(Boolean)
+    .join(' ')
 }
 
 export function DatabaseReferencePopover({
@@ -147,6 +157,15 @@ export function DatabaseReferencePopover({
       }}
     >
       <div className='flex items-start justify-between px-3 pt-2.5 pb-1.5'>
+        {entry.thumbnail ? (
+          <img
+            alt={entry.thumbnail.alt ?? ''}
+            aria-hidden={entry.thumbnail.alt ? undefined : true}
+            className='mr-2 h-10 w-10 shrink-0 border border-slate-700/55 bg-slate-900/70 object-contain'
+            draggable={false}
+            src={entry.thumbnail.src}
+          />
+        ) : null}
         <div
           className='min-w-0 flex-1 cursor-grab select-none active:cursor-grabbing'
           data-popover-drag-handle=''
@@ -161,16 +180,18 @@ export function DatabaseReferencePopover({
               style={scaledFontStyle(12)}
               type='button'
             >
-              {entry.name} ↗
+              <DatabaseLoreMarkupText keyPrefix='database-popover-title-link' text={entry.name} /> ↗
             </button>
           ) : (
             <p className={DATABASE_ENTRY_TITLE_CLASS} style={scaledFontStyle(12)}>
-              {entry.name}
+              <DatabaseLoreMarkupText keyPrefix='database-popover-title' text={entry.name} />
             </p>
           )}
-          <p className='text-slate-500' style={scaledFontStyle(10)}>
-            {entry.label}
-          </p>
+          {entry.label ? (
+            <p className='text-slate-500' style={scaledFontStyle(10)}>
+              {entry.label}
+            </p>
+          ) : null}
           {onNavigate && entry.navigationLabel ? (
             <button
               className='mt-1 text-[10px] tracking-[0.16em] text-amber-100/80 uppercase transition-colors hover:text-amber-50'
@@ -197,8 +218,8 @@ export function DatabaseReferencePopover({
           ) : null}
         </div>
         <button
-          aria-label='Close skill popover'
-          className='-mt-1 -mr-1 ml-1 inline-flex h-8 w-8 shrink-0 items-center justify-center text-slate-500 transition-colors hover:text-amber-100'
+          aria-label='Close database popover'
+          className='-mt-1 -mr-1 ml-1 inline-flex h-8 w-8 shrink-0 items-center justify-center text-slate-500 transition-colors hover:text-amber-100 focus-visible:text-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200/30'
           onClick={() => {
             onClose()
           }}
@@ -248,10 +269,16 @@ export function DatabaseReferencePopover({
                 : section.description
               return (
                 <div key={section.label}>
-                  <p className='mb-1 text-[11px] text-slate-400' style={scaledFontStyle(11)}>
+                  <p
+                    className='ui-title mb-1 text-[12px] text-amber-100/82'
+                    style={scaledFontStyle(12)}
+                  >
                     {section.label}
                   </p>
-                  <p className='leading-relaxed text-slate-400' style={scaledFontStyle(11)}>
+                  <p
+                    className={descriptionSectionClassName(section.tone)}
+                    style={scaledFontStyle(11)}
+                  >
                     <Suspense
                       fallback={
                         sectionFallbackSourceText ? (

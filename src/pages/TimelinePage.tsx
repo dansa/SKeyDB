@@ -1,7 +1,9 @@
-import {useState, type CSSProperties, type ReactNode} from 'react'
+import {useState, type ReactNode} from 'react'
 
 import realmBadgeAequor from '@/assets/ui/realm-badge-aequor.webp'
 import {getAwakeners} from '@/domain/awakeners'
+import {getCurrentDzoneSeason, getLatestDzoneSeason} from '@/domain/dzone'
+import {getDzoneSeasonRealmName} from '@/domain/dzone-season-realm'
 import type {EntityRef} from '@/domain/entities/types'
 import {
   getTimelineCountdownDisplay,
@@ -13,6 +15,7 @@ import {timelineBanners, timelineEvents} from '@/domain/timeline-data'
 import {getWheels} from '@/domain/wheels'
 import {DbDetailModalHost} from '@/features/database/detail/DbDetailModalHost'
 import {dbDetailStore} from '@/stores/dbDetailStore'
+import {SeasonMasthead} from '@/ui/masthead/SeasonMasthead'
 
 import {EventList} from './timeline/EventList'
 import {TimelineBannersSection} from './timeline/TimelineBannersSection'
@@ -39,9 +42,12 @@ function selectDZoneEvent(events: EventEntry[], now: Date): EventEntry | undefin
   )
 }
 
-function getDZoneRealmName(event: EventEntry | undefined): string {
+function getDZoneRealmName(event: EventEntry | undefined, now: Date): string {
   const match = event?.description?.match(/Current Realm relic:\s*([^.\n]+)/i)
-  return match?.[1]?.trim() ?? 'Aequor Ring'
+  const eventRealmName = match?.[1]?.trim()
+  if (eventRealmName) return eventRealmName
+
+  return getDzoneSeasonRealmName(getCurrentDzoneSeason(now) ?? getLatestDzoneSeason())
 }
 
 export function TimelinePage() {
@@ -52,6 +58,9 @@ export function TimelinePage() {
 
   const events = sortEventsByRelevance(timelineEvents, now)
   const dZoneEvent = selectDZoneEvent(events, now)
+  const dZoneCountdownDisplay = dZoneEvent
+    ? getTimelineCountdownDisplay(dZoneEvent.startDate, dZoneEvent.endDate, now)
+    : null
   const showEvents = contentFilter !== 'banners'
   const showBanners = contentFilter !== 'events'
 
@@ -61,25 +70,33 @@ export function TimelinePage() {
 
   return (
     <section className='timeline-v2 -mt-4 md:-mt-5'>
-      <header className='timeline-v2-hero'>
-        <div className='timeline-v2-hero-inner'>
-          <h1 className='sr-only'>Events & Banners</h1>
-          <div aria-label='Timeline content' className='timeline-v2-filter-list' role='group'>
-            {CONTENT_FILTERS.map((filter) => (
-              <TimelineFilterButton
-                active={contentFilter === filter.id}
-                key={filter.id}
-                onClick={() => {
-                  setContentFilter(filter.id)
-                }}
-              >
-                {filter.label}
-              </TimelineFilterButton>
-            ))}
-          </div>
-          <DZoneSeasonPanel event={dZoneEvent} now={now} />
+      <SeasonMasthead
+        layout='timeline'
+        summary={{
+          ariaLabel: 'D-Zone season',
+          artSrc: dZoneEvent?.customArt,
+          countdown: dZoneCountdownDisplay,
+          emblemSrc: realmBadgeAequor,
+          kicker: 'Current Season',
+          name: getDZoneRealmName(dZoneEvent, now),
+          to: '/d-zone',
+        }}
+      >
+        <h1 className='sr-only'>Events & Banners</h1>
+        <div aria-label='Timeline content' className='timeline-v2-filter-list' role='group'>
+          {CONTENT_FILTERS.map((filter) => (
+            <TimelineFilterButton
+              active={contentFilter === filter.id}
+              key={filter.id}
+              onClick={() => {
+                setContentFilter(filter.id)
+              }}
+            >
+              {filter.label}
+            </TimelineFilterButton>
+          ))}
         </div>
-      </header>
+      </SeasonMasthead>
 
       <div className='-my-[0.6rem] space-y-7'>
         {showEvents ? (
@@ -113,41 +130,6 @@ export function TimelinePage() {
         wheels={wheels}
       />
     </section>
-  )
-}
-
-function DZoneSeasonPanel({event, now}: {event: EventEntry | undefined; now: Date}) {
-  const countdownDisplay = event
-    ? getTimelineCountdownDisplay(event.startDate, event.endDate, now)
-    : null
-  const realmName = getDZoneRealmName(event)
-  const seasonStyle = event?.customArt
-    ? ({'--timeline-season-art': `url(${event.customArt})`} as CSSProperties)
-    : undefined
-
-  return (
-    <aside aria-label='D-Zone season' className='timeline-v2-season' style={seasonStyle}>
-      <div className='timeline-v2-season-copy'>
-        <p className='timeline-v2-season-kicker'>D-Zone Season</p>
-        <p className='timeline-v2-season-name ui-title'>{realmName}</p>
-        <div className='timeline-v2-season-meta'>
-          {countdownDisplay ? (
-            <span className='timeline-v2-season-countdown' title={countdownDisplay.title}>
-              {countdownDisplay.text}
-            </span>
-          ) : null}
-        </div>
-      </div>
-      <div aria-hidden className='timeline-v2-season-emblem'>
-        <img
-          alt=''
-          className='timeline-v2-season-icon'
-          decoding='async'
-          draggable={false}
-          src={realmBadgeAequor}
-        />
-      </div>
-    </aside>
   )
 }
 

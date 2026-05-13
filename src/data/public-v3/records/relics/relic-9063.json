@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9063",
+  "name": "Foreign Stamp Album+",
+  "route": {
+    "slug": "foreign-stamp-album",
+    "canonicalPath": "/database/relics/foreign-stamp-album"
+  },
+  "assets": {
+    "icon": "asset-relic-9063-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After using {Keyflare Rouse}, grant {Retain} and {Prepare} to the [Arg1] {plural:[Arg1]|card|cards} with the highest Arithmetica in your hand before the next play, and gain [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "4"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "Quantified longing."
+}

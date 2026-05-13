@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9074",
+  "name": "Chrono Pendulum \"Buildup\"",
+  "route": {
+    "slug": "chrono-pendulum-buildup",
+    "canonicalPath": "/database/relics/chrono-pendulum-buildup"
+  },
+  "assets": {
+    "icon": "asset-relic-9074-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "Picking up grants all Awakeners 30 Aliemus. Each release of Exalt increases the Count by 1 point. After releasing the Posse, gain [Arg1] Temporary {Alert}, [Arg2] Temporary {STR}, and all Awakeners gain 6 Aliemus, consuming all Count, with each Count point taking effect 1 additional time.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.006,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  }
+}

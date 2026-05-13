@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9076",
+  "name": "Chrono Pendulum \"Stubborn\"",
+  "route": {
+    "slug": "chrono-pendulum-stubborn",
+    "canonicalPath": "/database/relics/chrono-pendulum-stubborn"
+  },
+  "assets": {
+    "icon": "asset-relic-9076-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "\"Strike \"Damage and \"Defense \"Shield increase by 30%. If you play 4 or more \"Strike\" and \"Defense\" cards in one turn, draw 2 cards and gain 1 Arithmetica at the start of next turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  }
+}

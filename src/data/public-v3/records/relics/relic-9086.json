@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9086",
+  "name": "Chrono Pendulum \"Balance\"",
+  "route": {
+    "slug": "chrono-pendulum-balance",
+    "canonicalPath": "/database/relics/chrono-pendulum-balance"
+  },
+  "assets": {
+    "icon": "asset-relic-9086-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "At turn end: The Awakener with the lowest Aliemus gains 35 Aliemus. If current HP is at or above 50%, gain [Arg1] {STR}. If current HP is below 50%, restore [Arg2] HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.01,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  }
+}

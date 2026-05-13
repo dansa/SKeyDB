@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9001",
+  "name": "Preserved Butterfly+",
+  "route": {
+    "slug": "preserved-butterfly",
+    "canonicalPath": "/database/relics/preserved-butterfly"
+  },
+  "assets": {
+    "icon": "asset-relic-9001-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After using {Keyflare Rouse}, gain [Arg1] Shield and [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.3,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "To this day, he is still deeply loved by someone."
+}

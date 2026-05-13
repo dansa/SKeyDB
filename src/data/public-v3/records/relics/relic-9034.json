@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9034",
+  "name": "Eerie Hook",
+  "route": {
+    "slug": "eerie-hook",
+    "canonicalPath": "/database/relics/eerie-hook"
+  },
+  "assets": {
+    "icon": "asset-relic-9034-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "When you play 4 Command Cards belonging to different Awakeners within a single turn, increase the Final DMG dealt by all Awakeners this turn by [Arg1]%, and lose [Arg2] Aliemus. This can only be triggered once per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "35",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "lore": "Species that are difficult to identify."
+}

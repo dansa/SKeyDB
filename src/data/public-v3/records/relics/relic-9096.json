@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9096",
+  "name": "Chrono Pendulum \"Treasure ε\"",
+  "route": {
+    "slug": "chrono-pendulum-treasure-epsilon",
+    "canonicalPath": "/database/relics/chrono-pendulum-treasure-epsilon"
+  },
+  "assets": {
+    "icon": "asset-relic-9096-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "At the start of the battle, the Arithmetica Limit +1, and {Rouse} all Awakeners. For the next 5 turns, gain a relic at turn start: \"Putney Morning Post, Principles of Aesthetics, Mob Song, Broken Visage, Chrono Pendulum: Reciprocate\".",
+  "descriptionArgs": {}
+}

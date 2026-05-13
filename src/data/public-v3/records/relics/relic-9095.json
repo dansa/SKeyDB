@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9095",
+  "name": "Chrono Pendulum \"Treasure γ\"",
+  "route": {
+    "slug": "chrono-pendulum-treasure-gamma",
+    "canonicalPath": "/database/relics/chrono-pendulum-treasure-gamma"
+  },
+  "assets": {
+    "icon": "asset-relic-9095-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "At the start of the battle, increase the Arithmetica Limit by +1 and {Rouse} all Awakeners. For the next 5 turns, gain one Relic at turn start: \"Mythag Insignia, Doctor's Case, Proto Battery, {Mind Engraving}, Chrono Pendulum: Evolution\".",
+  "descriptionArgs": {}
+}

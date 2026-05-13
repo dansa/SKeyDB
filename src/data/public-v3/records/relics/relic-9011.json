@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9011",
+  "name": "Forgotten Prelude+",
+  "route": {
+    "slug": "forgotten-prelude",
+    "canonicalPath": "/database/relics/forgotten-prelude"
+  },
+  "assets": {
+    "icon": "asset-relic-9011-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {Counter} and [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.3,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "\"How foolish humans are, blindly believing simply because it's antiquated.\""
+}

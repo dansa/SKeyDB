@@ -439,7 +439,7 @@ body,
 }
 
 .mobile-site-nav-open {
-  max-height: 7rem;
+  max-height: 9rem;
   border-top-color: oklch(72% 0.07 83 / 0.18);
   padding-block: 0.25rem 0.5rem;
 }

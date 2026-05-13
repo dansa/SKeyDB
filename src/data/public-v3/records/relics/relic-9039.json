@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9039",
+  "name": "Black Candle",
+  "route": {
+    "slug": "black-candle",
+    "canonicalPath": "/database/relics/black-candle"
+  },
+  "assets": {
+    "icon": "asset-relic-9039-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Increase all Awakeners' Base DMG by [Arg1]%. Each time the deck is reset, an additional [Arg2]% is granted, but a \"Stagger\" card is added to your hand. The maximum increase is [Arg3]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "10",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "100",
+      "suffix": "%"
+    }
+  },
+  "lore": "Burn in clarity, fall into illusion."
+}

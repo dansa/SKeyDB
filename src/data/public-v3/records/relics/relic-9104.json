@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9104",
+  "name": "Differential Engine+",
+  "route": {
+    "slug": "differential-engine",
+    "canonicalPath": "/database/relics/differential-engine"
+  },
+  "assets": {
+    "icon": "asset-relic-9104-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After using Exalt 4 times in one turn, gain [Arg1] Arithmetica. 3 turns cooldown.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "6"
+    }
+  },
+  "lore": "\"It changed history.\""
+}

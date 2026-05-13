@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9047",
+  "name": "In Twilight+",
+  "route": {
+    "slug": "in-twilight",
+    "canonicalPath": "/database/relics/in-twilight"
+  },
+  "assets": {
+    "icon": "asset-relic-9047-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At the end of the round, if Keyflare is full, consumes [Arg1] Keyflare to put a {Silver Key Dawn} into your hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "350"
+    }
+  },
+  "lore": "Let's take a photo together! Experience the feeling of real pain."
+}

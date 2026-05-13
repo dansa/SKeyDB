@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9091",
+  "name": "Chrono Pendulum \"Plague\"",
+  "route": {
+    "slug": "chrono-pendulum-plague",
+    "canonicalPath": "/database/relics/chrono-pendulum-plague"
+  },
+  "assets": {
+    "icon": "asset-relic-9091-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "At the start of the battle, shuffle 3 random Symptom Cards into your deck. At turn start, draw 1 card. Playing each Symptom Card grants 2 Arithmetica. Discarding each Symptom Card grants all Awakeners 5 Aliemus, up to 5 times per turn.",
+  "descriptionArgs": {}
+}

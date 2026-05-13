@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9070",
+  "name": "Chrono Pendulum \"Stars\"",
+  "route": {
+    "slug": "chrono-pendulum-stars",
+    "canonicalPath": "/database/relics/chrono-pendulum-stars"
+  },
+  "assets": {
+    "icon": "asset-relic-9070-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "At the start of the first battle turn, add \"Echoes of Lost Shadows\" to your hand; on the second turn, add \"Silver Key {Resonance}\"; on the third turn, add {Echoes of the Past}.",
+  "descriptionArgs": {}
+}

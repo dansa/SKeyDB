@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9042",
+  "name": "\"Ultra Ring\"",
+  "route": {
+    "slug": "ultra-ring",
+    "canonicalPath": "/database/relics/ultra-ring"
+  },
+  "assets": {
+    "icon": "asset-relic-9042-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SSR",
+  "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Ultra} Awakener gains its \"Dimensional Image\". For each {Ultra} Awakener in the team, increase the Relic Capacity by +1.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30"
+    }
+  },
+  "lore": "Endless dimensions overlapped, at this moment \"I\" am infinitely complete."
+}

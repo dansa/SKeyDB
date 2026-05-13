@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9002",
+  "name": "Rite of Spring+",
+  "route": {
+    "slug": "rite-of-spring",
+    "canonicalPath": "/database/relics/rite-of-spring"
+  },
+  "assets": {
+    "icon": "asset-relic-9002-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} to all enemies, with the effect doubled in Boss Battles. All Awakener base DMG is +[Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    }
+  },
+  "lore": "Amid the laughter of the night, the silhouette of the canoe glides effortlessly across the lake."
+}

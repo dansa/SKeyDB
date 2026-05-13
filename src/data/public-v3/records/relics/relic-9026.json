@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9026",
+  "name": "Arcane Gloves+",
+  "route": {
+    "slug": "arcane-gloves",
+    "canonicalPath": "/database/relics/arcane-gloves"
+  },
+  "assets": {
+    "icon": "asset-relic-9026-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After playing a card, if the number of cards in hand is less than or equal to [Arg1], draw [Arg2] {plural:[Arg2]|card|cards}. This effect can trigger up to [Arg3] {plural:[Arg3]|time|times} per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "\"Don't be afraid, it's just an illusion.\""
+}

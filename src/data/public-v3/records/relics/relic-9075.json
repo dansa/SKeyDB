@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9075",
+  "name": "Chrono Pendulum \"Trance\"",
+  "route": {
+    "slug": "chrono-pendulum-trance",
+    "canonicalPath": "/database/relics/chrono-pendulum-trance"
+  },
+  "assets": {
+    "icon": "asset-relic-9075-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Temporary {STR} and [Arg2] Temporary {Tentacle DMG}, with a maximum of 12 triggers per turn. If 4 instances of DMG are dealt in a single turn, apply 1 stack of {Vulnerable} to all enemies and gain [Arg3] Shield. If 8 instances of DMG are dealt in the same turn, apply 1 stack of {Weakness} to all enemies and restore [Arg3] HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.008,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.004,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg3": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9067",
+  "name": "Chrono Pendulum \"Slumber\"",
+  "route": {
+    "slug": "chrono-pendulum-slumber",
+    "canonicalPath": "/database/relics/chrono-pendulum-slumber"
+  },
+  "assets": {
+    "icon": "asset-relic-9067-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "All Awakeners' Keyflare Regen +30. After releasing Posse, shuffle 3 \"Insight\" into your deck.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9055",
+  "name": "Putney Morning Post+",
+  "route": {
+    "slug": "putney-morning-post",
+    "canonicalPath": "/database/relics/putney-morning-post"
+  },
+  "assets": {
+    "icon": "asset-relic-9055-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the Battle, and gain [Arg2] Arithmetica after receiving {Counter} for the first time each turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "Your most thoughtful toilet companion."
+}

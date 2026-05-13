@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9027",
+  "name": "Mythag Insignia+",
+  "route": {
+    "slug": "mythag-insignia",
+    "canonicalPath": "/database/relics/mythag-insignia"
+  },
+  "assets": {
+    "icon": "asset-relic-9027-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After using {Keyflare Rouse}, gain [Arg1] Arithmetica and [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "4"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "Badges distributed to Investigators by Mythag University. They not only symbolize the wearer's identity but also serve as tools for remote communication."
+}

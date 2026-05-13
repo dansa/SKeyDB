@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9006",
+  "name": "Doctor's Case+",
+  "route": {
+    "slug": "doctors-case",
+    "canonicalPath": "/database/relics/doctors-case"
+  },
+  "assets": {
+    "icon": "asset-relic-9006-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At the start of the turn, if HP is below 50%, Temporary DMG Amplification +[Arg1]%. If HP is below 25%, draw [Arg2] additional cards and gain [Arg2] Arithmetica.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "A briefcase symbolizing the identity of a doctor, very heavy.  Opening it does not guarantee it belongs to a true doctor."
+}

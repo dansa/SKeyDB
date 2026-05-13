@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9022",
+  "name": "Vitality Injection+",
+  "route": {
+    "slug": "vitality-injection",
+    "canonicalPath": "/database/relics/vitality-injection"
+  },
+  "assets": {
+    "icon": "asset-relic-9022-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Max Arithmetica +[Arg1].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "Twitching is also a form of vitality."
+}

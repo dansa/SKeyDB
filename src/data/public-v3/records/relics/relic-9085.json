@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9085",
+  "name": "Chrono Pendulum \"Benediction\"",
+  "route": {
+    "slug": "chrono-pendulum-benediction",
+    "canonicalPath": "/database/relics/chrono-pendulum-benediction"
+  },
+  "assets": {
+    "icon": "asset-relic-9085-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "At the start of the first turn of battle, add \"Prion Virus\" to your hand; in the {ordinal:3rd} turn, add \"Gluttonous Attack\" to your hand; after triggering {Death Resistance}, add \"Cocoon of {Revival}\" to your hand.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9031",
+  "name": "Vision Corrector+",
+  "route": {
+    "slug": "vision-corrector",
+    "canonicalPath": "/database/relics/vision-corrector"
+  },
+  "assets": {
+    "icon": "asset-relic-9031-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Increase the DMG of the first five attacks dealt each turn by [Arg1]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    }
+  },
+  "lore": "Someone once discovered the truth through it."
+}

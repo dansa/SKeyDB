@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9036",
+  "name": "Pathwalker's Remains",
+  "route": {
+    "slug": "pathwalkers-remains",
+    "canonicalPath": "/database/relics/pathwalkers-remains"
+  },
+  "assets": {
+    "icon": "asset-relic-9036-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At turn start, gain [Arg1] {Counter}. After using Exalt [Arg2] {plural:[Arg2]|time|times} in one turn, remove [Arg3]% Permanent {Counter}, and gain [Arg4]% of the removed amount as Temporary {Counter}. Cooldown: [Arg5] {plural:[Arg5]|turn|turns}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.2,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "500",
+      "suffix": "%"
+    },
+    "Arg5": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "lore": "A sacred part. Even though it has separated from the body, its footprints have spread across the world."
+}

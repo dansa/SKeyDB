@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9018",
+  "name": "Blessed Blood+",
+  "route": {
+    "slug": "blessed-blood",
+    "canonicalPath": "/database/relics/blessed-blood"
+  },
+  "assets": {
+    "icon": "asset-relic-9018-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At turn end, restore [Heal:Arg1] HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.1,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "It is sweet and mellow, with a fragrance of roses."
+}

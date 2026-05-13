@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9019",
+  "name": "Ritual Dagger+",
+  "route": {
+    "slug": "ritual-dagger",
+    "canonicalPath": "/database/relics/ritual-dagger"
+  },
+  "assets": {
+    "icon": "asset-relic-9019-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "When attacked by an enemy, deal 1 instance of {Fixed DMG} equal to [Arg3]% of your team's Max HP. This DMG enjoys a [Arg2]% {Counter} bonus. Each enemy can trigger this effect up to 1 time per turn.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "fixed",
+      "value": "200",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    }
+  },
+  "lore": "A dagger with a curved blade, commonly used in sacrificial rituals."
+}

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 3,
+  "scope": "dzone-season",
+  "recordCount": 1,
+  "records": [
+    {
+      "id": "dzone-0027",
+      "period": 27,
+      "name": "Dissoluted Abyss",
+      "start": "2025-02-03T01:00:00Z",
+      "end": "2025-02-17T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "waves": [
+        {
+          "id": "d-effect-zone-wave-1",
+          "name": "D-Effect Zone: Wave 1",
+          "initialRelicIds": ["relic-9079"],
+          "monsterIds": [
+            "dzone-monster-0108",
+            "dzone-monster-0124",
+            "dzone-monster-0079",
+            "dzone-monster-0084",
+            "dzone-monster-0023",
+            "dzone-monster-0164",
+            "dzone-monster-0015"
+          ]
+        },
+        {
+          "id": "d-effect-zone-wave-2",
+          "name": "D-Effect Zone: Wave 2",
+          "initialRelicIds": ["relic-9066"],
+          "monsterIds": [
+            "dzone-monster-0134",
+            "dzone-monster-0024",
+            "dzone-monster-0083",
+            "dzone-monster-0098",
+            "dzone-monster-0097",
+            "dzone-monster-0023",
+            "dzone-monster-0164",
+            "dzone-monster-0015"
+          ]
+        },
+        {
+          "id": "d-effect-zone-wave-3",
+          "name": "D-Effect Zone: Wave 3",
+          "initialRelicIds": ["relic-9081"],
+          "monsterIds": [
+            "dzone-monster-0270",
+            "dzone-monster-0090",
+            "dzone-monster-0076",
+            "dzone-monster-0131",
+            "dzone-monster-0021",
+            "dzone-monster-0084",
+            "dzone-monster-0125",
+            "dzone-monster-0138",
+            "dzone-monster-0066",
+            "dzone-monster-0112",
+            "dzone-monster-0104"
+          ]
+        },
+        {
+          "id": "d-effect-zone-wave-4",
+          "name": "D-Effect Zone: Wave 4",
+          "initialRelicIds": ["relic-9068"],
+          "monsterIds": [
+            "dzone-monster-0183",
+            "dzone-monster-0018",
+            "dzone-monster-0282",
+            "dzone-monster-0137",
+            "dzone-monster-0131",
+            "dzone-monster-0106",
+            "dzone-monster-0122",
+            "dzone-monster-0158",
+            "dzone-monster-0272",
+            "dzone-monster-0149"
+          ]
+        },
+        {
+          "id": "d-effect-zone-wave-5",
+          "name": "D-Effect Zone: Wave 5",
+          "initialRelicIds": ["relic-9108"],
+          "monsterIds": ["dzone-monster-0255"]
+        }
+      ]
+    }
+  ]
+}

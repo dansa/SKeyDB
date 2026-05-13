@@ -1,0 +1,2345 @@
+{
+  "schemaVersion": 3,
+  "scope": "monsters",
+  "recordCount": 311,
+  "records": [
+    {
+      "id": "dzone-monster-0264",
+      "name": "\"24\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "A mysterious lady who crawled out of a wax sculpture. Her mind is extremely chaotic, likely a patient in the late stages of hysteria.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C06_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0034",
+      "name": "\"@2 Blesser\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0009"],
+      "descriptionTemplate": "The Hive Will extends to wherever its claws reach.",
+      "assetName": "Portrait_Small_Monster_S2C0204",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0300",
+      "name": "\"@2 Performer\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "What kind of melody lies hidden beneath the trajectory of the conductor's baton?",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D12_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0226",
+      "name": "\"@2 Protector\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0009"],
+      "descriptionTemplate": "The Hive Will perceives all within its sight.",
+      "assetName": "Portrait_Small_Monster_S2C0203",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0214",
+      "name": "\"@2 Silver @1 Integration\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0007"],
+      "descriptionTemplate": "Distorted limbs twisted together.",
+      "assetName": "Portrait_Small_Monster_S0903",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0305",
+      "name": "\"@2 cannot @1 transfer\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0007"],
+      "descriptionTemplate": "The signal drifts in the air shrouded in gray mist.",
+      "assetName": "Portrait_Small_Monster_S0902",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0279",
+      "name": "\"Abyss Dweller\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0013"],
+      "descriptionTemplate": "A mysterious young man who travels with the Seafarers. His jagged spines and fish-like ear fins betray that he is no ordinary person.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_O04_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0080",
+      "name": "\"An Eye for an Eye\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0003"],
+      "descriptionTemplate": "Wax sculpture outcasts huddled underground, always ready to give everything for the art of Master Rogers.",
+      "assetName": "Portrait_Small_Monster_C0204_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0048",
+      "name": "\"Apostle of the Edict\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A servant remade to embody the \"Divine Mother's\" will, tasked with ensuring her commands are fulfilled.",
+      "assetName": "Portrait_Small_Monster_S2C0402",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0052",
+      "name": "\"Apostle of the Sea\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0013"],
+      "descriptionTemplate": "In this moment, she acts not from madness, but from deepest faith.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_O07_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0174",
+      "name": "\"Apostle of the Sea\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0013"],
+      "descriptionTemplate": "She has given up resisting the erosion of \"Cataclysms,\" and the pollution of the spirit dimension has turned the once noble and powerful Awakener completely mad.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_O07_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0154",
+      "name": "\"Argonas\"",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0013"],
+      "descriptionTemplate": "A marine creature mutated by the influence of \"the Unknown.\" Its softened shell has fused tightly with its flesh, and it can no longer spread itself like a sail.",
+      "assetName": "Portrait_Small_Monster_C0601"
+    },
+    {
+      "id": "dzone-monster-0293",
+      "name": "\"Blade of Utopia\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "Leader of the Aram Tribe. She will serve as their banner, blade, and shield, guiding her people to a new future and awaiting Her return.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C11_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0047",
+      "name": "\"Blessed Priest\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A distorted entity forged by the High Priestess, powerful and deeply trusted.",
+      "assetName": "Portrait_Small_Monster_S2C0403",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0270",
+      "name": "\"Blossom of Sludge\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "Lily, driven to madness by eerie whispers.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C10_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0211",
+      "name": "\"Brain in a Vat\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "When her voice came through the communicator, it was the most reassuring moment of your mission. You have relied on her exceptional wisdom enough.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C02_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0304",
+      "name": "\"Brain in a Vat\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0008"],
+      "descriptionTemplate": "The moment her voice comes through the communicator is the most reassuring part of your mission. You have relied on her brilliant mind long enough. Sever the Link with her.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C02_AF",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0196",
+      "name": "\"Breath of Fertility\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0012"],
+      "descriptionTemplate": "\"Defeat them, soothe them—but even if you glimpse my illusions, do not fall for them.\"",
+      "assetName": "Portrait_Minihead_EnemyAwaker_B01_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0150",
+      "name": "\"Caregiver\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Its appearance has changed dramatically, vaguely familiar. After several exchanges of glances, you realize this is a Seafarer's acolyte who cannot resist the influence of \"Cataclysm.\"",
+      "assetName": "Portrait_Small_Monster_C0603"
+    },
+    {
+      "id": "dzone-monster-0129",
+      "name": "\"Cerberus\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0019"],
+      "descriptionTemplate": "The skull of the greedy hound. Its ominous gaze has fixed upon you.",
+      "assetName": "Portrait_Small_Monster_C0405",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0065",
+      "name": "\"Chainbreaker\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0012"],
+      "descriptionTemplate": "A swift Awakener assassin who calls herself Helot. She seems to have a subtle connection with Lily.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_B05_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0023",
+      "name": "\"Charitable\" Kenny",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "He used to be a good man, willing to work 20 hours a day just to \"raise\" the neighbor's orphan.",
+      "assetName": "Portrait_Small_Monster_S0701_AT"
+    },
+    {
+      "id": "dzone-monster-0022",
+      "name": "\"Controlled\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Driven by the instinct of life, it willingly sustains the parasite.",
+      "assetName": "Portrait_Small_Monster_C0603",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0209",
+      "name": "\"Corrupted Brain\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "She stepped through the Gateway, finally seeing the truth of the universe's blind chaos. Oh, you foolish souls—to bow and embrace destruction is the only future that exists.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C02EX_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0135",
+      "name": "\"Crimson\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0012"],
+      "descriptionTemplate": "The oldest Golem in the world who came from the distant stars.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_B07_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0145",
+      "name": "\"Current\"",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Interference-type Dissolute infused with Aequor power, as beautiful as tropical coral.",
+      "assetName": "Portrait_Small_Monster_S0102_CT"
+    },
+    {
+      "id": "dzone-monster-0128",
+      "name": "\"Dimensional Hole\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0007"],
+      "descriptionTemplate": "A mutant formed from a large mass of D-Slime. It splits when its HP runs low.",
+      "assetName": "Portrait_Small_Monster_S0103_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0231",
+      "name": "\"Divus: The Onyx Plume\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0014"],
+      "descriptionTemplate": "\"I will reclaim our freedom, Pollux...\"",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D11_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0074",
+      "name": "\"Dying Whistle\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A wild horse covered in Dissolution wounds. Large and remarkably vital, though its Dissolution wounds also make it more vulnerable.",
+      "assetName": "Portrait_Small_Monster_S0203_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0246",
+      "name": "\"Endless Hunger\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0017", "enemy-characteristic-0012"],
+      "descriptionTemplate": "The priest of the royal altar, responsible for laying the deceased to rest, offers them to Necrovia's king as per the wish of mournful memory.",
+      "assetName": "Portrait_Small_Monster_S2C0303",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0071",
+      "name": "\"Eternal Assistant\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Low-ranking priests of the Eternal Kingdom. They are not permitted to enter the temple without the High Priestess's approval.",
+      "assetName": "Portrait_Small_Monster_C0503",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0155",
+      "name": "\"Eternal Host\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "It offers its flesh to the Unknown without restraint. No one cares about its will.",
+      "assetName": "Portrait_Small_Monster_C0602_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0018",
+      "name": "\"Eternal Zealot\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Killing, chanting, sacrifice... For the Eternal Kingdom, they will offer everything.",
+      "assetName": "Portrait_Small_Monster_C0502",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0081",
+      "name": "\"Find the Answer Within\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0006", "enemy-characteristic-0003"],
+      "descriptionTemplate": "A product of the Sculptors' Association's modifications. Brainwashed and filled with conviction, it grows stronger with every battle.",
+      "assetName": "Portrait_Small_Monster_S0302_BT_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0068",
+      "name": "\"Garmr?\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0006", "enemy-characteristic-0004", "enemy-characteristic-0014"],
+      "descriptionTemplate": "A creature formed from drifting Dimension fragments, living in harmony with its trophies.",
+      "assetName": "Portrait_Small_Monster_C0402_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0184",
+      "name": "\"Gentleman\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0016"],
+      "descriptionTemplate": "The Sculptors gained Juliette's approval with this set of statues. The Church of the Lightbearers never wastes any relic.",
+      "assetName": "Portrait_Small_Monster_C0802"
+    },
+    {
+      "id": "dzone-monster-0146",
+      "name": "\"Geometric Shape\"",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007", "enemy-characteristic-0014"],
+      "descriptionTemplate": "Interference-type Dissolute infused with Dimensional power, whose dripping D-Slime might distort light.",
+      "assetName": "Portrait_Small_Monster_S0102_DT"
+    },
+    {
+      "id": "dzone-monster-0283",
+      "name": "\"Guard of Iensmo\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "It merges with the D-Hyperplasia so seamlessly and so beautifully that you almost believe it was always meant to be this way.",
+      "assetName": "Portrait_Small_Monster_C0603_AT_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0252",
+      "name": "\"Guardian of the Lantern\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0016", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Ordinary follower of the Church of the Lightbearers. Blindly worships the destruction proclaimed in their doctrine.",
+      "assetName": "Portrait_Small_Monster_S0402_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0024",
+      "name": "\"Helpful\" Jackson",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "He used to be a good man, willing to stand guard on rainy nights for every passerby, just to ensure everyone \"returns home safely.\"",
+      "assetName": "Portrait_Small_Monster_S0701_CT"
+    },
+    {
+      "id": "dzone-monster-0157",
+      "name": "\"Host\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0013"],
+      "descriptionTemplate": "It offers its flesh to the Unknown without restraint. No one cares about its will.",
+      "assetName": "Portrait_Small_Monster_C0602",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0218",
+      "name": "\"Hypnotic Shaggai\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0014"],
+      "descriptionTemplate": "A consistently gentle psychiatrist, always maintaining an appropriate smile.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D13_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0277",
+      "name": "\"Hysteric\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Once well-versed in Socrates, once a believer in Freud. What a shame—now there is nothing left but hysterical screams.",
+      "assetName": "Portrait_Small_Monster_C0102_DT",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0109",
+      "name": "\"Iron Pickaxe\" Lucen",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "He once had a family. Now only madness remains. He is capable of Heavy Blow, and attacks can make him flinch.",
+      "assetName": "Portrait_Small_Monster_C0102_BT_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0063",
+      "name": "\"Key to the Gate\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "Guardian of the Gate of Extremes, an existence beyond time and space, a symbol of absolute wisdom.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C15_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0164",
+      "name": "\"Kind-hearted\" Freeman",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "He used to be a good man, willing to sweep 20 streets a day so others could \"peek\" at the tranquility of Londinium.",
+      "assetName": "Portrait_Small_Monster_S0701_BT"
+    },
+    {
+      "id": "dzone-monster-0103",
+      "name": "\"Lady Chatterley\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015", "enemy-characteristic-0003"],
+      "descriptionTemplate": "Red wine, desserts, the sweetness of romance—all of it is gone. Standing before you is a woman consumed by bitterness and resentment.",
+      "assetName": "Portrait_Small_Monster_C0203_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0050",
+      "name": "\"Lady of the Depths\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0013"],
+      "descriptionTemplate": "\"I am neither the first sacrifice nor the last... but I wish to live!\"",
+      "assetName": "Portrait_Minihead_EnemyAwaker_O02_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0185",
+      "name": "\"Lady\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0016"],
+      "descriptionTemplate": "The Sculptors gained Juliette's approval with this set of statues. The Church of the Lightbearers never wastes any relic.",
+      "assetName": "Portrait_Small_Monster_C0803"
+    },
+    {
+      "id": "dzone-monster-0203",
+      "name": "\"Lampshade\" Aisha",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015", "enemy-characteristic-0002", "enemy-characteristic-0016"],
+      "descriptionTemplate": "Once a hero, now standing guard beside Juliette. Together they wait for a future of eternal light.",
+      "assetName": "Portrait_Small_Monster_C0805_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0053",
+      "name": "\"Lemurian Deipara\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0013"],
+      "descriptionTemplate": "The weak, naive \"Her\" is dead—now, she is the noble \"Divine Mother,\" the unassailable \"Heavenly Queen.\"",
+      "assetName": "Portrait_Minihead_EnemyAwaker_O02EX_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0075",
+      "name": "\"Listen to the Revelation\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015", "enemy-characteristic-0003"],
+      "descriptionTemplate": "A cyborg consumed by obsession, yearning for revelation. It calls upon its believers and strengthens them.",
+      "assetName": "Portrait_Small_Monster_S0303_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0190",
+      "name": "\"Little Bee\"",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0002"],
+      "descriptionTemplate": "That is what its trainer calls it. Relatively gentle in nature, but mind its spines.",
+      "assetName": "Portrait_Small_Monster_S0601"
+    },
+    {
+      "id": "dzone-monster-0187",
+      "name": "\"Little Wasp\"",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0002"],
+      "descriptionTemplate": "The most troublesome member for any trainer. Naturally irritable—watch out for its spines.",
+      "assetName": "Portrait_Small_Monster_S0601"
+    },
+    {
+      "id": "dzone-monster-0245",
+      "name": "\"Lord of Necrovia\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0012"],
+      "descriptionTemplate": "\"Rude gestures are not befitting a guest's etiquette, {Male=Mr.,Female=Miss} Keeper.\"",
+      "assetName": "Portrait_Minihead_EnemyAwaker_B10_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0045",
+      "name": "\"Luminary\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0013", "enemy-characteristic-0016"],
+      "descriptionTemplate": "\"Forever may the Light shine...\"",
+      "assetName": "Portrait_Small_Monster_S2C0404",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0144",
+      "name": "\"Maiden of the Gibbous Moon\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "Sorel's closest maid, obsessed with every manner of skin-whitening formulas.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C12_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0229",
+      "name": "\"Mareel Glow\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0013"],
+      "descriptionTemplate": "She calculates, plans, and raises the banner. She will complete her mission, no matter the cost.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_O10_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0268",
+      "name": "\"Matron\" Sarah",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "I'm sorry... It's all my fault...",
+      "assetName": "Portrait_Small_Monster_C0102_CT",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0219",
+      "name": "\"Matron\" Sarah",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Sarah, lost in Madness beyond her control, bears a faint silver scar at the corner of her forehead.",
+      "assetName": "Portrait_Small_Monster_C0102_CT",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0062",
+      "name": "\"Mistbound Sojourner\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A girl summoned from another world by the \"Sect of Astral Dawn.\" Beneath her adorable appearance lies madness beyond mortal comprehension.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C17_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0008",
+      "name": "\"Mr. Lawrence\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015", "enemy-characteristic-0003"],
+      "descriptionTemplate": "The weight of his duties has long since bent his back. Work, work, work—that is his life now.",
+      "assetName": "Portrait_Small_Monster_C0202_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0281",
+      "name": "\"N\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0019"],
+      "descriptionTemplate": "A mist of chaos that lurks throughout the world, delighting in the suffering and despair of humanity.",
+      "assetName": "Portrait_Small_Monster_DCB04_01_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0191",
+      "name": "\"N\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0019"],
+      "descriptionTemplate": "A mist of chaos that lurks throughout the world, delighting in the suffering and despair of humanity.",
+      "assetName": "Portrait_Small_Monster_DCB04_01_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0161",
+      "name": "\"Neferure\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006"],
+      "descriptionTemplate": "Sleep, Neferure. Sleep, my dear child. Sleep through a childhood far too brief, in a dream that grows with the wind.",
+      "assetName": "Portrait_Small_Monster_S0801",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0276",
+      "name": "\"Ocean Star\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0007", "enemy-characteristic-0013"],
+      "descriptionTemplate": "The \"Dimension Hole\" influenced by the power of deep sea. After much thought, Czort still decided to give it a splendid name.",
+      "assetName": "Portrait_Small_Monster_S0103_CT_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0120",
+      "name": "\"Oceanic Memories\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0017", "enemy-characteristic-0013"],
+      "descriptionTemplate": "He set out to sea in pursuit of a living. Now that it is becoming a fading memory, he has long since lost the place he once called home.",
+      "assetName": "Portrait_Small_Monster_C0504_BT",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0153",
+      "name": "\"Ognotz\"",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0013"],
+      "descriptionTemplate": "A marine creature mutated by the influence of \"the Unknown.\" Its softened shell has fused tightly with its flesh; forcibly separating them would strip it of any chance of ever reaching the other shore.",
+      "assetName": "Portrait_Small_Monster_C0601"
+    },
+    {
+      "id": "dzone-monster-0151",
+      "name": "\"Pain\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Before diving into the ocean and crossing the sea, it remembered that Pain Street was a narrow path leading to the square.",
+      "assetName": "Portrait_Small_Monster_C0602_AT"
+    },
+    {
+      "id": "dzone-monster-0089",
+      "name": "\"Painkiller\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Take a deep breath, count to ten. The pain will fade soon. She will protect other allied units.",
+      "assetName": "Portrait_Small_Monster_C0103_BT_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0240",
+      "name": "\"Palace Housekeeper\" Fran",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0017", "enemy-characteristic-0012"],
+      "descriptionTemplate": "The oath of eternal companionship was made long before the pledge of utmost loyalty.",
+      "assetName": "Portrait_Small_Monster_S2C0303_AT",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0152",
+      "name": "\"Parasite\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "The Seafarer, mutated by the influence of the \"Cataclysm,\" grows parasitic growths from the inside out, devouring it into an empty shell.",
+      "assetName": "Portrait_Small_Monster_C0602"
+    },
+    {
+      "id": "dzone-monster-0257",
+      "name": "\"Petrifying Eyes\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0012"],
+      "descriptionTemplate": "For those she wishes to protect, she can become strong. Ensure sufficient Arithmetica to counter her stasis curse.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_B03_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0254",
+      "name": "\"Pohnpei Hymn\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "High-ranking priests deeply trusted by the High Priestess. They prostrate themselves at her feet and bow in submission.",
+      "assetName": "Portrait_Small_Monster_C0503_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0311",
+      "name": "\"Priest of the Abyss\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0017", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Hearken to His voice. Bow... before His glory!",
+      "assetName": "Portrait_Small_Monster_S2C0304",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0001",
+      "name": "\"Primordial Devoutee\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0013"],
+      "descriptionTemplate": "The guardian of the Eternal Kingdom's gate, a lighthouse for homebound souls.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_O03_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0149",
+      "name": "\"Reflection of Celephais\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Coral, parasites... Do different hyperplasias come from the same source of Cataclysm? We don't know.",
+      "assetName": "Portrait_Small_Monster_C0603_AT"
+    },
+    {
+      "id": "dzone-monster-0067",
+      "name": "\"Replacement\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0003"],
+      "descriptionTemplate": "One of the countless predecessors of little George. Even the most careful preservation cannot withstand the wear of time.",
+      "assetName": "Portrait_Small_Monster_C0204",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0043",
+      "name": "\"Sacrifice\"",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Whatever it once was, it is now but a vessel awaiting the \"Divine Messenger.\"",
+      "assetName": "Portrait_Small_Monster_C0501"
+    },
+    {
+      "id": "dzone-monster-0054",
+      "name": "\"Sacrifice\"",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Whatever it once was, it is now but a vessel awaiting the \"Divine Messenger.\"",
+      "assetName": "Portrait_Small_Monster_C0501"
+    },
+    {
+      "id": "dzone-monster-0085",
+      "name": "\"Sanguivore Patient\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0012"],
+      "descriptionTemplate": "A pale girl lurking in the corner, seemingly with a particular fondness for blood.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_B08_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0110",
+      "name": "\"Scuttler\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0014"],
+      "descriptionTemplate": "She is elusive, intimately familiar with every alley in the East District; she is the \"Scuttler\".",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D07_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0171",
+      "name": "\"Sea Cave Special\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0018", "enemy-characteristic-0012"],
+      "descriptionTemplate": "One day the seed will sprout, and the sprout will grow into a mighty tree—if it has never been tainted.",
+      "assetName": "Portrait_Small_Monster_C0703",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0170",
+      "name": "\"Serket\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0018", "enemy-characteristic-0012"],
+      "descriptionTemplate": "Beware of every withered vine of Remouahe, and beware its blood-red square pupils.",
+      "assetName": "Portrait_Small_Monster_C0702",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0280",
+      "name": "\"Skull Huntress\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0014"],
+      "descriptionTemplate": "A mysterious merchant from the past who gauges everything through trade.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D02_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0183",
+      "name": "\"Slumbering Sovereign\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0013"],
+      "descriptionTemplate": "When the Stars Are Right, He will end his eons-long slumber and return to His throne. Whether this is what He truly desires, however, remains unknown.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_O01_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0284",
+      "name": "\"Sophia\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A sorrowful fate has twisted her. Everything is hatred. Everything is injustice.",
+      "assetName": "Portrait_Small_Monster_DCB02_02",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0147",
+      "name": "\"Stereo\"",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007", "enemy-characteristic-0014"],
+      "descriptionTemplate": "Interference-type Dissolute infused with Dimensional power, whose dripping D-Slime might distort light.",
+      "assetName": "Portrait_Small_Monster_S0102_DT"
+    },
+    {
+      "id": "dzone-monster-0091",
+      "name": "\"Surgical Blade\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Lie down, relax. The doctor will cut away all your troubles. An individual with very high ATK.",
+      "assetName": "Portrait_Small_Monster_C0103_AT_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0099",
+      "name": "\"Sweet Demon\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "A lively girl skilled in... \"special training.\" She already has 102 slaves and is searching for her destined next one.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C09_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0202",
+      "name": "\"Tawil\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0019"],
+      "descriptionTemplate": "Proxy of the Aeon of Sagacity. Wielder of Knowledge. Guide of Mythag. A Foe to Be Feared.",
+      "assetName": "Portrait_Small_Monster_A0003",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0005",
+      "name": "\"Tela Perpetua\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "Master of the web. Prisoner of the web.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D10_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0163",
+      "name": "\"The Apostle of Judgment\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "She cast aside her human form and her humanity, all to bring a fleeting happiness. But can extreme benevolence still be called benevolence?",
+      "assetName": "Portrait_Small_Monster_DCB02_01_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0160",
+      "name": "\"The Echo of Ensereire\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Coral, parasites... Do different hyperplasias come from the same source of Cataclysm? We don't know.",
+      "assetName": "Portrait_Small_Monster_C0603_AT",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0262",
+      "name": "\"The Final Mire\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007"],
+      "descriptionTemplate": "D-Slime grants all things an equal end. We will all become one.",
+      "assetName": "Portrait_Small_Monster_A0002",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0143",
+      "name": "\"The Great Magician Houdini\"",
+      "characteristicIds": ["enemy-characteristic-0001"],
+      "descriptionTemplate": "The Great Magician Houdini makes a dazzling entrance. According to her poster, 41 people have gone missing at her performances.",
+      "assetName": "Portrait_Small_Monster_DCC10_01_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0073",
+      "name": "\"The Heart of Strigoi?\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0004"],
+      "descriptionTemplate": "It is said to possess two hearts that beat as one. No one knows what will happen if one of them is pierced.",
+      "assetName": "Portrait_Small_Monster_C0302_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0247",
+      "name": "\"The Living Flame\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "\"Dominion over countless fire spirits, The Living Flame shall descend from the heavens in amber flames. When He arrives, all things shall face equal death.\"",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C16_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0249",
+      "name": "\"The Painter\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0012"],
+      "descriptionTemplate": "I will reveal this world's true reality...",
+      "assetName": "Portrait_Minihead_EnemyAwaker_B12_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0301",
+      "name": "\"The Sage\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "No words are needed to describe her. She is Ramona. Sever the link with her.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C01_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0309",
+      "name": "\"The Sage\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "A phantom drawn from your memories. You know it is not real.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C01_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0142",
+      "name": "\"The Sorcerer\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0014"],
+      "descriptionTemplate": "\"Oh no! Where's my \"Londinium Crime Records\"? I went through all that trouble to borrow it from the police!\" While the librarian wails, Casiah the great magician is absorbing new \"emotions\" from the sea of knowledge.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D09_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0113",
+      "name": "\"The Void Claims All\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0007"],
+      "descriptionTemplate": "D-Slime grants death to all things equally. All things fade and become one.",
+      "assetName": "Portrait_Small_Monster_A0002_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0200",
+      "name": "\"Tick-Tock Man\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0014"],
+      "descriptionTemplate": "Erica has completely gone mad... Is it due to the Black Pool?",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D08_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0148",
+      "name": "\"Tide\"",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Interference-type Dissolute infused with Aequor power, as beautiful as tropical coral.",
+      "assetName": "Portrait_Small_Monster_S0102_CT"
+    },
+    {
+      "id": "dzone-monster-0285",
+      "name": "\"To Ensure Continuity\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015", "enemy-characteristic-0003", "enemy-characteristic-0014"],
+      "descriptionTemplate": "This place is filled with a yearning for survival. He seeks it out like a moth drawn to flame.",
+      "assetName": "Portrait_Small_Monster_S0303_AT_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0175",
+      "name": "\"To Horla\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0018"],
+      "descriptionTemplate": "In the only poem she wrote, she described gardens, sunshine, and laughter. She buried her friend's body with petals. In the poem, she was as kind as a rose.",
+      "assetName": "Portrait_Small_Monster_DCD06_01_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0111",
+      "name": "\"Vengeance Blade\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0013"],
+      "descriptionTemplate": "A mighty warrior wielding a heavy blade with the strength of a giant.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_O06_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0210",
+      "name": "\"Virtue Knight\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "The young knight once swore allegiance to you and has never broken his vow.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C03_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0302",
+      "name": "\"Virtue Knight\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0008"],
+      "descriptionTemplate": "The young Knight once swore allegiance to you, and he never broke his oath. Sever the Link with him.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C03_AF",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0159",
+      "name": "\"Wallachia\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Before diving into the ocean and crossing the sea, it thought it wouldn't carry such a bloodline.",
+      "assetName": "Portrait_Small_Monster_C0602_AT",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0263",
+      "name": "\"Water Lily\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "She was once a lonely, drifting fallen petal. Now she is a resident and barrier of the Rye Sanatorium.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C08_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0094",
+      "name": "\"Whale Leap\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "Lotan, bored with the journey, has fallen into a maddening desire for battle. Beware her unyielding will after Rouse—she can remove multiple stacks of Weakness and Vulnerable each turn.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C04_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0303",
+      "name": "\"Whale Leap\"",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0008"],
+      "descriptionTemplate": "Your swordsmanship teacher, your first fearless warrior. Sever the Link with her.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C04_AF",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0108",
+      "name": "\"Wick Attendant\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0016", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A pastor of the Church of the Lightbearers. They relay the will of the Lantern, directing the congregation in Dissolution zones.",
+      "assetName": "Portrait_Small_Monster_S0403_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0002",
+      "name": "Abyssal Spider",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0014", "enemy-characteristic-0006"],
+      "descriptionTemplate": "Fragments of a broken fate cast into the Abyssal Prison, coalesced into arachnid forms by the will of Nefraea.",
+      "assetName": "Portrait_Small_Monster_S2C0501_AT"
+    },
+    {
+      "id": "dzone-monster-0006",
+      "name": "Abyssal Spider Cluster",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0014", "enemy-characteristic-0006"],
+      "descriptionTemplate": "They mimic the gait of Leng Spiders, yet have no threads to cling to. Masterless servants, attending to a future that has already been erased.",
+      "assetName": "Portrait_Small_Monster_S2C0501_AT"
+    },
+    {
+      "id": "dzone-monster-0003",
+      "name": "Abyssal Squire",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0006", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A Maid who has fallen into the Abyssal Prison. She maintains her composure, endlessly repeating the motions of wiping, tidying, and smiling within the void of agony—serving a stage that no longer exists.",
+      "assetName": "Portrait_Small_Monster_S2C0502_BT"
+    },
+    {
+      "id": "dzone-monster-0136",
+      "name": "Aequor Hybrid Mutant",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007", "enemy-characteristic-0013"],
+      "descriptionTemplate": "A composite-type Dissolution Mutant affected by Aequor's power. Czort specifically reminded not to give them overly fanciful names.",
+      "assetName": "Portrait_Small_Monster_S0103_CT"
+    },
+    {
+      "id": "dzone-monster-0275",
+      "name": "Aequor Super Mutant",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007", "enemy-characteristic-0013"],
+      "descriptionTemplate": "A hyper-variant Mutant Dissolute affected by the power of deep seas. Czort specifically reminded not to give them overly fanciful names.",
+      "assetName": "Portrait_Small_Monster_S0103_CT",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0182",
+      "name": "Afumza",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0019"],
+      "descriptionTemplate": "The deity of Elworth, remade by the Lantern, ignites the eternal and undying Frostfire for the rebirth of the snow mountains.",
+      "assetName": "Portrait_Small_Monster_DCB05_01",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0297",
+      "name": "Agent",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0002"],
+      "descriptionTemplate": "The lower-ranking the member, the more exhilarated they feel about this rare and significant operation.",
+      "assetName": "Portrait_Small_Monster_S0603_BT"
+    },
+    {
+      "id": "dzone-monster-0286",
+      "name": "Aram Guard Captain",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "After each generation's bonfire feast, the most outstanding seeds will grow to become the new Guard Captain.",
+      "assetName": "Portrait_Small_Monster_C0704_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0287",
+      "name": "Aram Heron",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0006", "enemy-characteristic-0003"],
+      "descriptionTemplate": "Born from the flame of the sacred tree, the self-made one leads you all into the realm of death.",
+      "assetName": "Portrait_Small_Monster_C0706_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0289",
+      "name": "Aram Lantern",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0016"],
+      "descriptionTemplate": "A manifestation of the Lightbearer's symbol. Do not question the source of its Gnosis.",
+      "assetName": "Portrait_Small_Monster_C0705"
+    },
+    {
+      "id": "dzone-monster-0025",
+      "name": "Aram Lantern",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0016"],
+      "descriptionTemplate": "A manifestation of the Lightbearer's symbol. Do not question the source of its Gnosis.",
+      "assetName": "Portrait_Small_Monster_C0705"
+    },
+    {
+      "id": "dzone-monster-0288",
+      "name": "Aram Warrior",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Aramites possess an extraordinary ability to proliferate, but the warriors of Aram are still someone's son, someone's father.",
+      "assetName": "Portrait_Small_Monster_C0704"
+    },
+    {
+      "id": "dzone-monster-0168",
+      "name": "Aram Warrior",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Aramites possess an extraordinary ability to proliferate, but the warriors of Aram are still someone's son, someone's father.",
+      "assetName": "Portrait_Small_Monster_C0704"
+    },
+    {
+      "id": "dzone-monster-0176",
+      "name": "Aram Warrior",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Aramites possess an extraordinary ability to proliferate, but the warriors of Aram are still someone's son, someone's father.",
+      "assetName": "Portrait_Small_Monster_C0704"
+    },
+    {
+      "id": "dzone-monster-0178",
+      "name": "Aram Warrior",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Aramites possess an extraordinary ability to proliferate, but the warriors of Aram are still someone's son, someone's father.",
+      "assetName": "Portrait_Small_Monster_C0704"
+    },
+    {
+      "id": "dzone-monster-0213",
+      "name": "Ashen Dissolute",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007"],
+      "descriptionTemplate": "Born from ash, most of its spiritual essence has been worn away by Dissolution.",
+      "assetName": "Portrait_Small_Monster_S0901"
+    },
+    {
+      "id": "dzone-monster-0031",
+      "name": "Ashen Dissolute",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007"],
+      "descriptionTemplate": "Born from ash, most of its spiritual essence has been worn away by Dissolution.",
+      "assetName": "Portrait_Small_Monster_S0901"
+    },
+    {
+      "id": "dzone-monster-0014",
+      "name": "Avant-Garde Art",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007", "enemy-characteristic-0003"],
+      "descriptionTemplate": "The art of combining wax sculpture with Dissolution. Once exhibited at the Cité Expo, it was withdrawn after causing widespread panic.",
+      "assetName": "Portrait_Small_Monster_S0103_BT",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0049",
+      "name": "Average Servant",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A servant who reshapes itself to better serve the \"Divine Mother's\" will, proud in its mission.",
+      "assetName": "Portrait_Small_Monster_S2C0402"
+    },
+    {
+      "id": "dzone-monster-0064",
+      "name": "Balefire Ballerina",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0014"],
+      "descriptionTemplate": "The love for ballet, the reverence for art... The dancer will fully express it with the burning of the fouled emerald flames.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D01_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0101",
+      "name": "Basic Exercise I",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007", "enemy-characteristic-0003"],
+      "descriptionTemplate": "Simple wax sculpture drafts. Twisted into impossible shapes, they offer no complaint.",
+      "assetName": "Portrait_Small_Monster_S0101_BT"
+    },
+    {
+      "id": "dzone-monster-0118",
+      "name": "Basic Exercise II",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007", "enemy-characteristic-0003"],
+      "descriptionTemplate": "Simple wax sculpture drafts. Twisted into impossible shapes, they offer no complaint.",
+      "assetName": "Portrait_Small_Monster_S0101_BT"
+    },
+    {
+      "id": "dzone-monster-0038",
+      "name": "Blightfin Fry",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "Fry mutated by ritual's influence, now rotting and decayed.",
+      "assetName": "Portrait_Small_Monster_S2C0401"
+    },
+    {
+      "id": "dzone-monster-0039",
+      "name": "Blightfin Swarm",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "Putrid fry assemble, a stench-ridden swarm of decay.",
+      "assetName": "Portrait_Small_Monster_S2C0401"
+    },
+    {
+      "id": "dzone-monster-0060",
+      "name": "Blightfin Tyrant",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "The fry has become king—this decaying body immortalized by faith.",
+      "assetName": "Portrait_Small_Monster_S2C0401",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0298",
+      "name": "Captain",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0002"],
+      "descriptionTemplate": "A mid-level officer of the Mystia Treaty Committee, with solid personal ability and strong leadership qualities.",
+      "assetName": "Portrait_Small_Monster_S0604",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0186",
+      "name": "Cat Detective",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0002"],
+      "descriptionTemplate": "Some jobs are not reserved for canines alone.",
+      "assetName": "Portrait_Small_Monster_S0602"
+    },
+    {
+      "id": "dzone-monster-0029",
+      "name": "Cat Warrior",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0002"],
+      "descriptionTemplate": "An experimental product of the Mystia Treaty Committee. It has injured seven trainers so far.",
+      "assetName": "Portrait_Small_Monster_S0602"
+    },
+    {
+      "id": "dzone-monster-0272",
+      "name": "Chanter",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0004", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A devout believer of the Eternal Kingdom and the most faithful servant of the Sovereign.",
+      "assetName": "Portrait_Small_Monster_C0503"
+    },
+    {
+      "id": "dzone-monster-0282",
+      "name": "Child of Enchantment",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0013", "enemy-characteristic-0012"],
+      "descriptionTemplate": "Those wild ideas in its head are destined to die before they ever see the light of day.",
+      "assetName": "Portrait_Small_Monster_C0604_CT"
+    },
+    {
+      "id": "dzone-monster-0156",
+      "name": "Child of Slumber",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0013", "enemy-characteristic-0012"],
+      "descriptionTemplate": "If it could choose, it would not want to wake up either.",
+      "assetName": "Portrait_Small_Monster_C0604"
+    },
+    {
+      "id": "dzone-monster-0158",
+      "name": "Child of Water",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0013", "enemy-characteristic-0012"],
+      "descriptionTemplate": "Contrary to all expectations, it hates water.",
+      "assetName": "Portrait_Small_Monster_C0604_BT"
+    },
+    {
+      "id": "dzone-monster-0256",
+      "name": "Claw of Swift Assault",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006", "enemy-characteristic-0004", "enemy-characteristic-0014"],
+      "descriptionTemplate": "A pursuing foot that tears through dimensional rifts, catching every reckless soul.",
+      "assetName": "Portrait_Small_Monster_C0403",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0076",
+      "name": "Collaborative Dissolute",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007"],
+      "descriptionTemplate": "A small monster born from D-Slime. It poses little threat.",
+      "assetName": "Portrait_Small_Monster_S0101"
+    },
+    {
+      "id": "dzone-monster-0011",
+      "name": "Collaborative Dissolute",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007"],
+      "descriptionTemplate": "A small monster born from D-Slime. It poses little threat.",
+      "assetName": "Portrait_Small_Monster_S0101"
+    },
+    {
+      "id": "dzone-monster-0086",
+      "name": "Composite Dissolute",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007"],
+      "descriptionTemplate": "A mutant formed from a large mass of D-Slime. It splits when its HP runs low.",
+      "assetName": "Portrait_Small_Monster_S0103"
+    },
+    {
+      "id": "dzone-monster-0310",
+      "name": "Corpse Excrescence",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0017", "enemy-characteristic-0012"],
+      "descriptionTemplate": "A product of Necrovia's secret arts: a fearless warrior, a passable dessert.",
+      "assetName": "Portrait_Small_BUnit_Monster_S2C0301_BT"
+    },
+    {
+      "id": "dzone-monster-0232",
+      "name": "Corpse Excrescence",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0017", "enemy-characteristic-0012"],
+      "descriptionTemplate": "A product of Necrovia's secret arts: a fearless warrior, a passable dessert.",
+      "assetName": "Portrait_Small_BUnit_Monster_S2C0301_BT"
+    },
+    {
+      "id": "dzone-monster-0233",
+      "name": "Corpse Excrescence",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0017", "enemy-characteristic-0012"],
+      "descriptionTemplate": "A product of Necrovia's secret arts: a fearless warrior, a passable dessert.",
+      "assetName": "Portrait_Small_BUnit_Monster_S2C0301_BT"
+    },
+    {
+      "id": "dzone-monster-0295",
+      "name": "Countess",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007"],
+      "descriptionTemplate": "\"Dearest Countess, my once desire. Now, you have become my loyal guard. Offer her a poem on my behalf.\"",
+      "assetName": "Portrait_Small_Monster_DCD06_03",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0224",
+      "name": "Cruel \"Father\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0016", "enemy-characteristic-0015", "enemy-characteristic-0003"],
+      "descriptionTemplate": "Test subjects have no parents, yet still long for someone to take on the role of \"father\"—even if he is unqualified.",
+      "assetName": "Portrait_Small_Monster_C0802",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0055",
+      "name": "Cursed Brood",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0013", "enemy-characteristic-0012"],
+      "descriptionTemplate": "At times, Miryam wonders: Is this a redundant cycle of rebirth, or God's acknowledgment of her devotion?",
+      "assetName": "Portrait_Small_Monster_C0604_CT"
+    },
+    {
+      "id": "dzone-monster-0112",
+      "name": "D-Slime",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007"],
+      "descriptionTemplate": "This is nothing but D-Slime. Don't think about what's inside.",
+      "assetName": "Portrait_Small_Monster_A0002"
+    },
+    {
+      "id": "dzone-monster-0009",
+      "name": "Devouring Howl",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A stray dog driven into a frenzy by the deepening Dissolution. Its attacks are swift and relentless, leaving little room to defend.",
+      "assetName": "Portrait_Small_Monster_S0202_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0095",
+      "name": "Devout Followers",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Ordinary follower of the Church of the Lightbearers. Blindly worships the destruction proclaimed in their doctrine.",
+      "assetName": "Portrait_Small_Monster_S0402",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0105",
+      "name": "Dimension Fragment",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0014"],
+      "descriptionTemplate": "Fragile, drifting dimension fragments. When the rifts of dimensions are torn open, they drift and scatter.",
+      "assetName": "Portrait_Small_Monster_C0401"
+    },
+    {
+      "id": "dzone-monster-0123",
+      "name": "Dimension Fragment",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0014"],
+      "descriptionTemplate": "Fragile, drifting dimension fragments. When the rifts of dimensions are torn open, they drift and scatter.",
+      "assetName": "Portrait_Small_Monster_C0401"
+    },
+    {
+      "id": "dzone-monster-0127",
+      "name": "Dimensional Beasts",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0004", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A creature formed from drifting Dimension fragments, living in harmony with its trophies.",
+      "assetName": "Portrait_Small_Monster_C0402"
+    },
+    {
+      "id": "dzone-monster-0119",
+      "name": "Dimensional Hunter",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006", "enemy-characteristic-0004", "enemy-characteristic-0014"],
+      "descriptionTemplate": "A creature formed from drifting Dimension fragments, living in harmony with its trophies.",
+      "assetName": "Portrait_Small_Monster_C0402",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0093",
+      "name": "Dimensional Rendclaw",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0007"],
+      "descriptionTemplate": "A pursuing foot that tears through dimensional rifts, catching every reckless soul.",
+      "assetName": "Portrait_Small_Monster_C0403_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0069",
+      "name": "Dissoluted Hound",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A stray dog covered in Dissolution marks. Its attacks are swift and relentless.",
+      "assetName": "Portrait_Small_Monster_S0202"
+    },
+    {
+      "id": "dzone-monster-0066",
+      "name": "Dissoluted Humanoid",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A human corroded by D-Slime. Forms twisted, visages bleak.",
+      "assetName": "Portrait_Small_Monster_A0001"
+    },
+    {
+      "id": "dzone-monster-0079",
+      "name": "Dissoluted Humanoid",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A human corroded by D-Slime. Forms twisted, visages bleak.",
+      "assetName": "Portrait_Small_Monster_A0001"
+    },
+    {
+      "id": "dzone-monster-0104",
+      "name": "Dissoluted Mad Horse",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A wild horse covered in Dissolution wounds. Large and remarkably vital, though its Dissolution wounds also make it more vulnerable.",
+      "assetName": "Portrait_Small_Monster_S0203"
+    },
+    {
+      "id": "dzone-monster-0084",
+      "name": "Dissoluted Rat King",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A tail soaked in Dissolution binds them together. They suffer, yet cannot be parted.",
+      "assetName": "Portrait_Small_Monster_S0201"
+    },
+    {
+      "id": "dzone-monster-0115",
+      "name": "Dissoluted Rat King",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A tail soaked in Dissolution binds them together. They suffer, yet cannot be parted.",
+      "assetName": "Portrait_Small_Monster_S0201"
+    },
+    {
+      "id": "dzone-monster-0116",
+      "name": "Dissoluted Rat King",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A tail soaked in Dissolution binds them together. They suffer, yet cannot be parted.",
+      "assetName": "Portrait_Small_Monster_S0201"
+    },
+    {
+      "id": "dzone-monster-0078",
+      "name": "Doctor",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Their diagnosis is your death. She will protect other allied units.",
+      "assetName": "Portrait_Small_Monster_C0103_BT"
+    },
+    {
+      "id": "dzone-monster-0036",
+      "name": "Doomscale Fry",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "Fry warped by ritual, spreading misfortune and calamity.",
+      "assetName": "Portrait_Small_Monster_S2C0401"
+    },
+    {
+      "id": "dzone-monster-0041",
+      "name": "Doomscale Swarm",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "Cursed fry converge, a cataclysmic wave of doom.",
+      "assetName": "Portrait_Small_Monster_S2C0401"
+    },
+    {
+      "id": "dzone-monster-0058",
+      "name": "Doomscale Tyrant",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "The fry has become king—one day, misfortune and disaster will sweep the world.",
+      "assetName": "Portrait_Small_Monster_S2C0401",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0292",
+      "name": "Elite Aram Guard",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "He guards Aram's future but never questions what it will look like.",
+      "assetName": "Portrait_Small_Monster_C0704",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0198",
+      "name": "Elite Operative",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0002"],
+      "descriptionTemplate": "Fewer retreats, fewer rewards. More risks, more trouble.",
+      "assetName": "Portrait_Small_Monster_S0603_AT",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0227",
+      "name": "Embrace Evolution",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0009"],
+      "descriptionTemplate": "The world is burning; only those who are enlightened to abandon everything can attain redemption.",
+      "assetName": "Portrait_Small_Monster_S2C0203",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0217",
+      "name": "Embrace You and Me",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007"],
+      "descriptionTemplate": "\"Dear, can I hold you in my arms one more time?\"",
+      "assetName": "Portrait_Small_Monster_S0903"
+    },
+    {
+      "id": "dzone-monster-0216",
+      "name": "Emergency Contact",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007"],
+      "descriptionTemplate": "\"Sis, I want so badly to hear your voice just one more time.\"",
+      "assetName": "Portrait_Small_Monster_S0902"
+    },
+    {
+      "id": "dzone-monster-0032",
+      "name": "Emergency Contact",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007"],
+      "descriptionTemplate": "\"Sis, I want so badly to hear your voice just one more time.\"",
+      "assetName": "Portrait_Small_Monster_S0902"
+    },
+    {
+      "id": "dzone-monster-0291",
+      "name": "Eternal Light: Nubian Giant Tree",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0018", "enemy-characteristic-0016", "enemy-characteristic-0012"],
+      "descriptionTemplate": "It no longer conceals its core. \"Forever may the Light shine.\"",
+      "assetName": "Portrait_Small_Monster_C0703_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0207",
+      "name": "Expedition Leader",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0005"],
+      "descriptionTemplate": "He refused to abandon his teammates swallowed by the mountains. He turned back. He got what he wished for.",
+      "assetName": "Portrait_Small_Monster_S0502",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0117",
+      "name": "Experimental Work I",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007", "enemy-characteristic-0003"],
+      "descriptionTemplate": "A cutting-edge wax sculpture draft, filled with the sculptor's boundless imagination and exploration of Dissolution.",
+      "assetName": "Portrait_Small_Monster_S0102_BT"
+    },
+    {
+      "id": "dzone-monster-0100",
+      "name": "Experimental Work II",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007", "enemy-characteristic-0003"],
+      "descriptionTemplate": "A cutting-edge wax sculpture draft, filled with the sculptor's boundless imagination and exploration of Dissolution.",
+      "assetName": "Portrait_Small_Monster_S0102_BT"
+    },
+    {
+      "id": "dzone-monster-0015",
+      "name": "Fastrunner",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A nimble street kid from the East District. He launches a swift attack from the very start.",
+      "assetName": "Portrait_Small_Monster_C0101_AT"
+    },
+    {
+      "id": "dzone-monster-0220",
+      "name": "Feel the Evolution",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0009"],
+      "descriptionTemplate": "The world is burning; only those who listen to the universe's hum can attain redemption.",
+      "assetName": "Portrait_Small_Monster_S2C0204",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0294",
+      "name": "Fetal Movement: Nubia Cub",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0018", "enemy-characteristic-0012"],
+      "descriptionTemplate": "A small creature with goat hooves, its body entangled with abnormal flesh. It disappears instantly upon receiving a fatal wound.",
+      "assetName": "Portrait_Small_Monster_C0701_AT"
+    },
+    {
+      "id": "dzone-monster-0057",
+      "name": "Filthy Brood",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0013", "enemy-characteristic-0012"],
+      "descriptionTemplate": "At times, Miryam wonders: Is this a redundant cycle of rebirth, or God's acknowledgment of her devotion?",
+      "assetName": "Portrait_Small_Monster_C0604"
+    },
+    {
+      "id": "dzone-monster-0222",
+      "name": "First Variant",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0009"],
+      "descriptionTemplate": "A human in the early stages of the \"@2 Ritual,\" crossing beyond their own limits and stepping toward the threshold of evolution.",
+      "assetName": "Portrait_Small_Monster_S2C0201"
+    },
+    {
+      "id": "dzone-monster-0035",
+      "name": "First Variant",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0009"],
+      "descriptionTemplate": "A human in the early stages of the \"@2 Ritual,\" crossing beyond their own limits and stepping toward the threshold of evolution.",
+      "assetName": "Portrait_Small_Monster_S2C0201"
+    },
+    {
+      "id": "dzone-monster-0180",
+      "name": "Flower of Avarice",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0018"],
+      "descriptionTemplate": "Greed is the only image of life. Is it not?",
+      "assetName": "Portrait_Small_Monster_DCD06_01"
+    },
+    {
+      "id": "dzone-monster-0179",
+      "name": "Flower of Desire",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0018"],
+      "descriptionTemplate": "In the garden of the past, desire was the only nourishment.",
+      "assetName": "Portrait_Small_Monster_DCD06_01"
+    },
+    {
+      "id": "dzone-monster-0181",
+      "name": "Follower",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "In Cité's poetry, they follow Colette's path.",
+      "assetName": "Portrait_Small_Monster_DCD06_02"
+    },
+    {
+      "id": "dzone-monster-0037",
+      "name": "Foulblood Fry",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "Fry corrupted by ritual, inheriting tainted bloodlines.",
+      "assetName": "Portrait_Small_Monster_S2C0401"
+    },
+    {
+      "id": "dzone-monster-0040",
+      "name": "Foulblood Swarm",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "Fry of tainted blood gather, forming a defiled tide of filth.",
+      "assetName": "Portrait_Small_Monster_S2C0401"
+    },
+    {
+      "id": "dzone-monster-0059",
+      "name": "Foulblood Tyrant",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "The fry has become king—this foul bloodline grows stronger daily.",
+      "assetName": "Portrait_Small_Monster_S2C0401",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0130",
+      "name": "Frenzied Wild Dog",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A stray dog driven mad by Dissolution. Its attacks are swift and relentless.",
+      "assetName": "Portrait_Small_Monster_S0202",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0236",
+      "name": "Ghoul Attendant",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0017", "enemy-characteristic-0012"],
+      "descriptionTemplate": "Residents of Necrovia are everywhere—awkward diners and coarse ingredients.",
+      "assetName": "Portrait_Small_Monster_S2C0302"
+    },
+    {
+      "id": "dzone-monster-0239",
+      "name": "Ghoul Attendant",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0017", "enemy-characteristic-0012"],
+      "descriptionTemplate": "Residents of Necrovia are everywhere—awkward diners and coarse ingredients.",
+      "assetName": "Portrait_Small_Monster_S2C0302"
+    },
+    {
+      "id": "dzone-monster-0238",
+      "name": "Ghoul Guard",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0017", "enemy-characteristic-0012"],
+      "descriptionTemplate": "He fought to protect both the royal estate and the meals within it.",
+      "assetName": "Portrait_Small_Monster_S2C0302",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0237",
+      "name": "Ghoul Guard Captain",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0017", "enemy-characteristic-0012"],
+      "descriptionTemplate": "They have no remarkable talents to speak of, only the courage to willingly sacrifice themselves for Necrovia.",
+      "assetName": "Portrait_Small_Monster_S2C0302",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0097",
+      "name": "Hardhitter",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A strong street kid from the East District. His attacks can weaken enemies, and he deploys a shield to protect himself.",
+      "assetName": "Portrait_Small_Monster_C0101_BT"
+    },
+    {
+      "id": "dzone-monster-0260",
+      "name": "Helot",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0012"],
+      "descriptionTemplate": "A swift Awakener assassin who calls herself Helot. She seems to have a subtle connection with Lily.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_B05_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0092",
+      "name": "Hunting Dog's Claw",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0004", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A pursuing foot that tears through dimensional rifts, catching every reckless soul.",
+      "assetName": "Portrait_Small_Monster_C0403"
+    },
+    {
+      "id": "dzone-monster-0188",
+      "name": "Interdimensional Student",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0014"],
+      "descriptionTemplate": "On these monsters from another dimension, you can see the mark of Mythag.",
+      "assetName": "Portrait_Small_Monster_C0801"
+    },
+    {
+      "id": "dzone-monster-0189",
+      "name": "Interdimensional Student",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0014"],
+      "descriptionTemplate": "On these monsters from another dimension, you can see the mark of Mythag.",
+      "assetName": "Portrait_Small_Monster_C0801"
+    },
+    {
+      "id": "dzone-monster-0124",
+      "name": "Interference-Type Dissolute",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007"],
+      "descriptionTemplate": "A medium-sized monster born from D-Slime. Its attacks disrupt the minds of its enemies.",
+      "assetName": "Portrait_Small_Monster_S0102"
+    },
+    {
+      "id": "dzone-monster-0125",
+      "name": "Interference-Type Dissolute",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007"],
+      "descriptionTemplate": "A medium-sized monster born from D-Slime. Its attacks disrupt the minds of its enemies.",
+      "assetName": "Portrait_Small_Monster_S0102"
+    },
+    {
+      "id": "dzone-monster-0098",
+      "name": "King of Kids",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A battle-hardened King of Kids. The bottle in his hand inflicts wounds.",
+      "assetName": "Portrait_Small_Monster_C0101_CT"
+    },
+    {
+      "id": "dzone-monster-0266",
+      "name": "Koum",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A large, dog-like monster. Why would it leave behind human bite marks?",
+      "assetName": "Portrait_Small_Monster_C0303",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0269",
+      "name": "Koum",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A large, dog-like monster. Why would it leave behind human bite marks?",
+      "assetName": "Portrait_Small_Monster_C0303",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0088",
+      "name": "Lantern",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0016"],
+      "descriptionTemplate": "A manifestation of the Lightbearer's symbol. Do not question the source of its Gnosis.",
+      "assetName": "Portrait_Small_Monster_S0401"
+    },
+    {
+      "id": "dzone-monster-0131",
+      "name": "Lantern",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0016"],
+      "descriptionTemplate": "A manifestation of the Lightbearer's symbol. Do not question the source of its Gnosis.",
+      "assetName": "Portrait_Small_Monster_S0401"
+    },
+    {
+      "id": "dzone-monster-0042",
+      "name": "Lantern Believer",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0013", "enemy-characteristic-0016"],
+      "descriptionTemplate": "Ordinary devotees of the Church of the Lightbearers, who left home for faith.",
+      "assetName": "Portrait_Small_Monster_S2C0404"
+    },
+    {
+      "id": "dzone-monster-0051",
+      "name": "Lantern Devotee",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0013", "enemy-characteristic-0016"],
+      "descriptionTemplate": "Believers in \"the wick that burns shall be redeemed,\" fearless through devotion.",
+      "assetName": "Portrait_Small_Monster_S2C0404",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0250",
+      "name": "Lantern Pastor",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"],
+      "descriptionTemplate": "A pastor of the Church of the Lightbearers. They relay the will of the Lantern, directing the congregation in Dissolution zones.",
+      "assetName": "Portrait_Small_Monster_S0403"
+    },
+    {
+      "id": "dzone-monster-0201",
+      "name": "Lantern: Commander",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0002", "enemy-characteristic-0016"],
+      "descriptionTemplate": "An outstanding officer of the Mystia Treaty Committee and the Lantern's Escort Captain. She keeps watch over the flame until its light spreads to every corner.",
+      "assetName": "Portrait_Small_Monster_C0805",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0197",
+      "name": "Lantern: Defender",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0002", "enemy-characteristic-0016"],
+      "descriptionTemplate": "A former Committee member chosen by the Lantern. She prostrates herself under the Lantern's control, yearning for its light to fall upon her.",
+      "assetName": "Portrait_Small_Monster_C0805"
+    },
+    {
+      "id": "dzone-monster-0253",
+      "name": "Large Skirt",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0003"],
+      "descriptionTemplate": "A haughty lady in outdated formal wear. Whatever you do, do not show her the latest fashion magazine.",
+      "assetName": "Portrait_Small_Monster_C0203",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0026",
+      "name": "Large Skirt",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015", "enemy-characteristic-0003"],
+      "descriptionTemplate": "A haughty lady in outdated formal wear. Whatever you do, do not show her the latest fashion magazine.",
+      "assetName": "Portrait_Small_Monster_C0203",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0072",
+      "name": "Lightbearer Followers",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"],
+      "descriptionTemplate": "Ordinary follower of the Church of the Lightbearers. Blindly worships the destruction proclaimed in their doctrine.",
+      "assetName": "Portrait_Small_Monster_S0402"
+    },
+    {
+      "id": "dzone-monster-0004",
+      "name": "Lost One",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0007"],
+      "descriptionTemplate": "Every face was once the lifetime of some world, or some person.",
+      "assetName": "Portrait_Small_Monster_S2C0503"
+    },
+    {
+      "id": "dzone-monster-0251",
+      "name": "Mad Horse of Agony",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A wild horse covered in Dissolution wounds. Large and remarkably vital, though its Dissolution wounds also make it more vulnerable.",
+      "assetName": "Portrait_Small_Monster_S0203",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0007",
+      "name": "Mad Stonebreaker",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015"],
+      "descriptionTemplate": "He once had a family. Now only madness remains. He is capable of Heavy Blow, and attacks can make him flinch.",
+      "assetName": "Portrait_Small_Monster_C0102_BT",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0194",
+      "name": "Major",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015", "enemy-characteristic-0002"],
+      "descriptionTemplate": "A senior officer of the Mystia Treaty Committee, recipient of the Imperial Medal, and decorated veteran of multiple operations against Dissolution.",
+      "assetName": "Portrait_Small_Monster_S0604_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0242",
+      "name": "Martyr",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0017", "enemy-characteristic-0013"],
+      "descriptionTemplate": "They carry out the will of the gods; no one cares about survival or destruction, no one cares about error or correctness.",
+      "assetName": "Portrait_Small_Monster_S2C0304",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0215",
+      "name": "Merge You and Me",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007"],
+      "descriptionTemplate": "The end has come. The remnant spirits call out to one another: please merge into one with my spirit.",
+      "assetName": "Portrait_Small_Monster_S0903",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0221",
+      "name": "Merge into One",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0009"],
+      "descriptionTemplate": "In the ritual of fusion, it is impossible to tell which part belongs to \"you\" and which belongs to \"me.\"",
+      "assetName": "Portrait_Small_Monster_S2C0204"
+    },
+    {
+      "id": "dzone-monster-0033",
+      "name": "Metamorph",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0009"],
+      "descriptionTemplate": "A human in the late stages of the \"@2 Ritual.\" In the agony of dissolving flesh, it shall transcend the limits of humanity.",
+      "assetName": "Portrait_Small_Monster_S2C0202"
+    },
+    {
+      "id": "dzone-monster-0223",
+      "name": "Metamorph",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0009"],
+      "descriptionTemplate": "A human in the late stages of the \"@2 Ritual.\" In the agony of dissolving flesh, it shall transcend the limits of humanity.",
+      "assetName": "Portrait_Small_Monster_S2C0202"
+    },
+    {
+      "id": "dzone-monster-0228",
+      "name": "Metamorph",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0009"],
+      "descriptionTemplate": "A human in the late stages of the \"@2 Ritual.\" In the agony of dissolving flesh, it shall transcend the limits of humanity.",
+      "assetName": "Portrait_Small_Monster_S2C0202"
+    },
+    {
+      "id": "dzone-monster-0195",
+      "name": "Mr. Integrity",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0003", "enemy-characteristic-0016"],
+      "descriptionTemplate": "The wick is about to break his back. Why is there no one to support him by the shoulder?",
+      "assetName": "Portrait_Small_Monster_C0802",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0192",
+      "name": "Ms. Humility",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0003", "enemy-characteristic-0016"],
+      "descriptionTemplate": "The light is about to melt her face. Why is no one holding an umbrella for her?",
+      "assetName": "Portrait_Small_Monster_C0803",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0020",
+      "name": "Multidimensional Entity",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0003", "enemy-characteristic-0014"],
+      "descriptionTemplate": "A person who has strayed into dimensional fissures, their body torn by space. Their loyalty to the Sculptors' Association remains unwavering.",
+      "assetName": "Portrait_Small_Monster_S0301_BT"
+    },
+    {
+      "id": "dzone-monster-0206",
+      "name": "Mutated Penguin",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "Since Dissolution and Frostfire have descended upon this land, tranquility has become a luxury for the creatures of Elworth.",
+      "assetName": "Portrait_Small_Monster_S0501"
+    },
+    {
+      "id": "dzone-monster-0208",
+      "name": "Mutated Penguin",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "Since Dissolution and Frostfire have descended upon this land, tranquility has become a luxury for the creatures of Elworth.",
+      "assetName": "Portrait_Small_Monster_S0501"
+    },
+    {
+      "id": "dzone-monster-0169",
+      "name": "Nubia",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0018", "enemy-characteristic-0012"],
+      "descriptionTemplate": "Beware of every withered vine of Remouahe, and beware its blood-red square pupils.",
+      "assetName": "Portrait_Small_Monster_C0702"
+    },
+    {
+      "id": "dzone-monster-0167",
+      "name": "Nubia Cub",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0018", "enemy-characteristic-0012"],
+      "descriptionTemplate": "It has the hooves of a goat, and will instantly vanish when the pupil at the center of its body is pierced.",
+      "assetName": "Portrait_Small_Monster_C0701"
+    },
+    {
+      "id": "dzone-monster-0290",
+      "name": "Nubia, the Holy River",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0018", "enemy-characteristic-0012"],
+      "descriptionTemplate": "Beware of every withered vine of Remouahe; its pulsating heart will drive you to become part of the Holy river's flow.",
+      "assetName": "Portrait_Small_Monster_C0702_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0172",
+      "name": "Nubian Giant Tree",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0018", "enemy-characteristic-0012"],
+      "descriptionTemplate": "One day the seed will sprout, and the sprout will grow into a mighty tree—if it has never been tainted.",
+      "assetName": "Portrait_Small_Monster_C0703"
+    },
+    {
+      "id": "dzone-monster-0296",
+      "name": "Operative",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0002"],
+      "descriptionTemplate": "The lower-ranking the member, the more exhilarated they feel about this rare and significant operation.",
+      "assetName": "Portrait_Small_Monster_S0603_AT"
+    },
+    {
+      "id": "dzone-monster-0061",
+      "name": "Oracle Steward",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0017", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Offering all in worship to their god—their will unshaken, their faith unbroken.",
+      "assetName": "Portrait_Small_Monster_S2C0304",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0137",
+      "name": "Pure White Rat King",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "Dissolution and cold—the two Grim Reapers of Londinium's deep winter.",
+      "assetName": "Portrait_Small_Monster_S0201_BT"
+    },
+    {
+      "id": "dzone-monster-0138",
+      "name": "Pure White Rat King",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "Dissolution and cold—the two Grim Reapers of Londinium's deep winter.",
+      "assetName": "Portrait_Small_Monster_S0201_BT"
+    },
+    {
+      "id": "dzone-monster-0019",
+      "name": "Pure White Rat King",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "Dissolution and cold—the two Grim Reapers of Londinium's deep winter.",
+      "assetName": "Portrait_Small_Monster_S0201_BT"
+    },
+    {
+      "id": "dzone-monster-0016",
+      "name": "Pustules",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004"],
+      "descriptionTemplate": "A black, pustule-like monster in the shape of an eyeball.",
+      "assetName": "Portrait_Small_Monster_C0301"
+    },
+    {
+      "id": "dzone-monster-0265",
+      "name": "Pustules",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004"],
+      "descriptionTemplate": "A black, pustule-like monster in the shape of an eyeball.",
+      "assetName": "Portrait_Small_Monster_C0301"
+    },
+    {
+      "id": "dzone-monster-0255",
+      "name": "Rampaging Skull Hunter",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Slippery and slimy—a warm home for the skulls.",
+      "assetName": "Portrait_Small_Monster_DCD02_02_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0090",
+      "name": "Rebel Child of Fate",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0004"],
+      "descriptionTemplate": "It once resisted the fate of enslavement.",
+      "assetName": "Portrait_Small_Monster_C0302",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0056",
+      "name": "Rotten Brood",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0013", "enemy-characteristic-0012"],
+      "descriptionTemplate": "At times, Miryam wonders: Is this a redundant cycle of rebirth, or God's acknowledgment of her devotion?",
+      "assetName": "Portrait_Small_Monster_C0604_BT"
+    },
+    {
+      "id": "dzone-monster-0106",
+      "name": "Sailor's Lament",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0017", "enemy-characteristic-0013"],
+      "descriptionTemplate": "A sailor who once sank into the deep sea alongside a cargo ship. His tear of anguish has merged with the vessel, never to part.",
+      "assetName": "Portrait_Small_Monster_C0504_BT"
+    },
+    {
+      "id": "dzone-monster-0107",
+      "name": "Sailor's Lament",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0017", "enemy-characteristic-0013"],
+      "descriptionTemplate": "The memory of sailors who sank with their cargo is etched into the ship's timbers, never to fade.",
+      "assetName": "Portrait_Small_Monster_C0504_AT"
+    },
+    {
+      "id": "dzone-monster-0306",
+      "name": "Schizophrenic",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "\"Doctor, doctor! You told me I was already cured—so why do my hallucinations still exist?\"",
+      "assetName": "Portrait_Small_Monster_C0102_DT",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0121",
+      "name": "Sea Creature",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "The Shapeshifters have chosen this form—ancient and enduring. Beware their Parasite Attack.",
+      "assetName": "Portrait_Small_Monster_C0501"
+    },
+    {
+      "id": "dzone-monster-0122",
+      "name": "Sea Creature",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "The Shapeshifters have chosen this form—flexible and resilient. Beware their Parasite Attack.",
+      "assetName": "Portrait_Small_Monster_C0501"
+    },
+    {
+      "id": "dzone-monster-0087",
+      "name": "Seafarer",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Loyal servants. Dutiful sons. Devout believers. Any word that stands for loyalty will describe them.",
+      "assetName": "Portrait_Small_Monster_C0502"
+    },
+    {
+      "id": "dzone-monster-0234",
+      "name": "Seafarer Excrescence",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0017", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Created by the Seafarers with Necrovia's forbidden arts, containing everything a Seafarer needs...except faith.",
+      "assetName": "Portrait_Small_BUnit_Monster_S2C0301_CT"
+    },
+    {
+      "id": "dzone-monster-0235",
+      "name": "Seafarer Excrescence",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0017", "enemy-characteristic-0013"],
+      "descriptionTemplate": "Created by the Seafarers with Necrovia's forbidden arts, containing everything a Seafarer needs...except faith.",
+      "assetName": "Portrait_Small_BUnit_Monster_S2C0301_CT"
+    },
+    {
+      "id": "dzone-monster-0141",
+      "name": "Seafarer Guard",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "The bond of blood granted them status above their kin. They swore to forever act at the command of their master.",
+      "assetName": "Portrait_Small_Monster_C0502_BT_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0271",
+      "name": "Seafarer's Elite Guard",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0004", "enemy-characteristic-0013"],
+      "descriptionTemplate": "The bond of blood granted them status above their kin. They swore to live and die for the arrival of the god.",
+      "assetName": "Portrait_Small_Monster_C0502_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0241",
+      "name": "Seafarer's Remains",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0017", "enemy-characteristic-0013"],
+      "descriptionTemplate": "They are still alive, yet they are already dead. Within their suffering minds, only one memory remains—only the Gaze of our Lord can drive away the pain.",
+      "assetName": "Portrait_Small_Monster_S2C0304"
+    },
+    {
+      "id": "dzone-monster-0299",
+      "name": "Senior Agent",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0002"],
+      "descriptionTemplate": "Fewer retreats, fewer rewards. More risks, more trouble.",
+      "assetName": "Portrait_Small_Monster_S0603_BT",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0102",
+      "name": "Senior Pastor",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A pastor of the Church of the Lightbearers. They relay the will of the Lantern, directing the congregation in Dissolution zones.",
+      "assetName": "Portrait_Small_Monster_S0403",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0193",
+      "name": "Sergeant Major",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0002"],
+      "descriptionTemplate": "A junior officer of the Mystia Treaty Committee, typically serving as a combat squad captain.",
+      "assetName": "Portrait_Small_Monster_S0604"
+    },
+    {
+      "id": "dzone-monster-0166",
+      "name": "Shadow\"24\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
+      "descriptionTemplate": "Born from the shadows, \"24\" despises all things weak—including mice.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_C06_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0199",
+      "name": "Shadow's Loyal Hound",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "He does not mind lurking in the shadows for Juliette's light. To be Juliette's hound is the most noble honor of his life.",
+      "assetName": "Portrait_Small_Monster_C0804_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0225",
+      "name": "Silent \"Mother\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0016", "enemy-characteristic-0015", "enemy-characteristic-0003"],
+      "descriptionTemplate": "Test subjects have no parents, yet still long for someone to take on the role of \"mother\"—even if she is unqualified.",
+      "assetName": "Portrait_Small_Monster_C0803",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0162",
+      "name": "Sinful Offspring: Nubia Cub",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0018", "enemy-characteristic-0012"],
+      "descriptionTemplate": "A small monster with hooves, its body covered in mysterious markings. It vanishes instantly upon receiving a fatal blow.",
+      "assetName": "Portrait_Small_Monster_C0701_BOSSSIZE"
+    },
+    {
+      "id": "dzone-monster-0244",
+      "name": "Skeletal Sentinel",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0017", "enemy-characteristic-0012"],
+      "descriptionTemplate": "He guards the decayed bones of his kin. He guards the lingering souls of his companions.",
+      "assetName": "Portrait_Small_Monster_S2C0303",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0204",
+      "name": "Snow Mountain's Cocoon",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0005"],
+      "descriptionTemplate": "A courageous and strong expedition member. Elworth's most beloved sacrifice.",
+      "assetName": "Portrait_Small_Monster_S0503"
+    },
+    {
+      "id": "dzone-monster-0205",
+      "name": "Snow Offering",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0005"],
+      "descriptionTemplate": "The snow mountain licked his flesh. The snow mountain devoured his bones. The snow mountain enslaves his soul, seeking the next sacrifice.",
+      "assetName": "Portrait_Small_Monster_S0503",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0139",
+      "name": "Snow-Covered Bud",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0005"],
+      "descriptionTemplate": "A white, eyeball-shaped pustule monster that looks oddly familiar. Could it be frozen?",
+      "assetName": "Portrait_Small_Monster_C0301_AT"
+    },
+    {
+      "id": "dzone-monster-0021",
+      "name": "Snowthirst Bud",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0004", "enemy-characteristic-0005"],
+      "descriptionTemplate": "A white, eyeball-shaped pustule monster that looks oddly familiar—and it is truly not afraid of the cold!",
+      "assetName": "Portrait_Small_Monster_C0301_AT"
+    },
+    {
+      "id": "dzone-monster-0248",
+      "name": "Spider of the Labyrinth",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0012"],
+      "descriptionTemplate": "Those who enter the spider's territory will ultimately lose their way in the countless passages and entrances.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_B06_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0083",
+      "name": "Stonebreaker",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "The Stonebreaker's mind has been eaten away by Dissolution, and the iron pickaxe in its hands has become a weapon. It builds up strength and unleashes a Super Heavy Blow on the third turn.",
+      "assetName": "Portrait_Small_Monster_C0102_BT"
+    },
+    {
+      "id": "dzone-monster-0030",
+      "name": "Stranded Exploration Team",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0005"],
+      "descriptionTemplate": "The snow mountain devoured those brave yet ignorant humans, leaving them no peace even in death.",
+      "assetName": "Portrait_Small_Monster_S0502"
+    },
+    {
+      "id": "dzone-monster-0082",
+      "name": "Stubborn Obssession",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0003", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A cyborg consumed by obsession, bound to this place. It calls upon its believers and strengthens them.",
+      "assetName": "Portrait_Small_Monster_S0303",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0077",
+      "name": "Surgeon",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015"],
+      "descriptionTemplate": "The doctor's blade was meant to cut away malady. Instead, it brings pain. An individual with very high ATK.",
+      "assetName": "Portrait_Small_Monster_C0103_AT"
+    },
+    {
+      "id": "dzone-monster-0230",
+      "name": "Swordsmanship Instructor",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015", "enemy-characteristic-0002"],
+      "descriptionTemplate": "The finest swordsmanship elites selected from all treaty nations. Handle with care.",
+      "assetName": "Portrait_Small_Monster_S0603_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0013",
+      "name": "Tailor",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A tailor driven mad by Dissolution, cutting flesh instead of fabric. High Attack frequency.",
+      "assetName": "Portrait_Small_Monster_C0102_AT"
+    },
+    {
+      "id": "dzone-monster-0173",
+      "name": "The Awakened",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0003", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A product of the Sculptors' Association's modifications. Brainwashed and filled with conviction, it grows stronger with every battle.",
+      "assetName": "Portrait_Small_Monster_S0302_BT"
+    },
+    {
+      "id": "dzone-monster-0046",
+      "name": "The Chosen One",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A grotesque being crafted by the High Priestess, driven by absolute loyalty.",
+      "assetName": "Portrait_Small_Monster_S2C0403",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0278",
+      "name": "The Delirious",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A Hysterical patient who left of his own accord, no longer able to tell reality from memory.",
+      "assetName": "Portrait_Small_Monster_C0102_DT"
+    },
+    {
+      "id": "dzone-monster-0140",
+      "name": "The Forsaken",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A Hysterical patient abandoned by his beloved, no longer able to tell reality from memory.",
+      "assetName": "Portrait_Small_Monster_C0102_DT"
+    },
+    {
+      "id": "dzone-monster-0212",
+      "name": "The Missing One",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0008"],
+      "descriptionTemplate": "The end has come. The remnant spirits call out to one another: please make contact with me.",
+      "assetName": "Portrait_Small_Monster_S0902",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0126",
+      "name": "The Obsessed",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0003", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A cyborg consumed by obsession, yearning for revelation. It calls upon its believers and strengthens them.",
+      "assetName": "Portrait_Small_Monster_S0303"
+    },
+    {
+      "id": "dzone-monster-0027",
+      "name": "The Poet",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007"],
+      "descriptionTemplate": "A steadfast supporter—this is the fullest image she can project.",
+      "assetName": "Portrait_Small_Monster_DCD06_03"
+    },
+    {
+      "id": "dzone-monster-0044",
+      "name": "The Preaching One",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A malformed creation of the High Priestess, weak and commonplace.",
+      "assetName": "Portrait_Small_Monster_S2C0403"
+    },
+    {
+      "id": "dzone-monster-0096",
+      "name": "The Proclaimer",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0003", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A product of the Sculptors' Association's modifications. Brainwashed and filled with conviction, it grows stronger with every battle.",
+      "assetName": "Portrait_Small_Monster_S0302_AT"
+    },
+    {
+      "id": "dzone-monster-0261",
+      "name": "The Pure Cavity",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0007", "enemy-characteristic-0003"],
+      "descriptionTemplate": "A fusion of D-Slime and wax sculptures. Kind-hearted, but unbearable to look at. It splits when its HP runs low.",
+      "assetName": "Portrait_Small_Monster_S0103_BT",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0017",
+      "name": "The Supplicant",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0003"],
+      "descriptionTemplate": "A product of the Sculptors' Association' modifications, the Dissolution Symptom is gradually deepening...",
+      "assetName": "Portrait_Small_Monster_S0301"
+    },
+    {
+      "id": "dzone-monster-0028",
+      "name": "The Thirster",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
+      "descriptionTemplate": "In Cité's verse, they long for Colette's blessing.",
+      "assetName": "Portrait_Small_Monster_DCD06_02"
+    },
+    {
+      "id": "dzone-monster-0259",
+      "name": "The Worshipper",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0003", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A product of the Sculptors' Association's modifications. Brainwashed and filled with conviction, it grows stronger with every battle.",
+      "assetName": "Portrait_Small_Monster_S0302_BT"
+    },
+    {
+      "id": "dzone-monster-0243",
+      "name": "Tomb Overseer",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0017", "enemy-characteristic-0012"],
+      "descriptionTemplate": "A gifted ghoul, bearing the expectations of the royal estate—what task could be more important than creating an excellent food storage facility?",
+      "assetName": "Portrait_Small_Monster_S2C0303"
+    },
+    {
+      "id": "dzone-monster-0267",
+      "name": "Top Hat",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0003"],
+      "descriptionTemplate": "A silent gentleman who always walks with a slight bow, offering his lady companion flattering words only when the moment calls for it.",
+      "assetName": "Portrait_Small_Monster_C0202",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0177",
+      "name": "Top Hat",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015", "enemy-characteristic-0003"],
+      "descriptionTemplate": "A silent gentleman who always walks with a slight bow, offering his lady companion flattering words only when the moment calls for it.",
+      "assetName": "Portrait_Small_Monster_C0202",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0258",
+      "name": "Transcendent Gaze",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0003", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A product of the Sculptors' Association's modifications. Brainwashed and filled with conviction, it grows stronger with every battle.",
+      "assetName": "Portrait_Small_Monster_S0302_AT",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0070",
+      "name": "Twin Abscesses",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0004"],
+      "descriptionTemplate": "The fate of the twins intertwines as one, pulling at each other, entangling one another. There is nowhere to run.",
+      "assetName": "Portrait_Small_Monster_C0302"
+    },
+    {
+      "id": "dzone-monster-0307",
+      "name": "Ultimate Beauty",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0009"],
+      "descriptionTemplate": "In a distorted rebirth, it transcended itself and attained the most perfect form of life.",
+      "assetName": "Portrait_Small_Monster_S2C0203"
+    },
+    {
+      "id": "dzone-monster-0308",
+      "name": "Ultimate Beauty",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0009"],
+      "descriptionTemplate": "In a distorted rebirth, it transcended itself and attained the most perfect form of life.",
+      "assetName": "Portrait_Small_Monster_S2C0203"
+    },
+    {
+      "id": "dzone-monster-0114",
+      "name": "Ultra-Dissolute",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007"],
+      "descriptionTemplate": "A mutant formed from a large mass of D-Slime. It splits when its HP runs low.",
+      "assetName": "Portrait_Small_Monster_S0103",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0165",
+      "name": "Watcher",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0003", "enemy-characteristic-0014"],
+      "descriptionTemplate": "A clumsy thief wandering through an abandoned factory.",
+      "assetName": "Portrait_Small_Monster_S0303_AT"
+    },
+    {
+      "id": "dzone-monster-0273",
+      "name": "Wax Sculpture Caretaker",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0003"],
+      "descriptionTemplate": "56 people have died under her careful care. She will protect other allied units.",
+      "assetName": "Portrait_Small_Monster_C0103_DT"
+    },
+    {
+      "id": "dzone-monster-0274",
+      "name": "Wax Sculpture Doctor",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0003"],
+      "descriptionTemplate": "Precise and cold as a scalpel. An individual with very high ATK.",
+      "assetName": "Portrait_Small_Monster_C0103_CT"
+    },
+    {
+      "id": "dzone-monster-0010",
+      "name": "Wax Sculpture Gentleman",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0003", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A dejected new-age gentleman who despises all things soft—including himself.",
+      "assetName": "Portrait_Small_Monster_C0202"
+    },
+    {
+      "id": "dzone-monster-0132",
+      "name": "Wax Sculpture Housecat",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0003"],
+      "descriptionTemplate": "If it could choose, it would prefer to be called \"Little Cookie.\"",
+      "assetName": "Portrait_Small_Monster_C0201"
+    },
+    {
+      "id": "dzone-monster-0012",
+      "name": "Wax Sculpture Lady",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0003", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A prim and proper old-fashioned lady who, even as a wax sculpture, never misses her daily afternoon tea.",
+      "assetName": "Portrait_Small_Monster_C0203"
+    },
+    {
+      "id": "dzone-monster-0133",
+      "name": "Wax Sculpture Wildcat",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0006", "enemy-characteristic-0003"],
+      "descriptionTemplate": "It was once free as the wind.",
+      "assetName": "Portrait_Small_Monster_C0201"
+    },
+    {
+      "id": "dzone-monster-0134",
+      "name": "Wrench Jackson",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
+      "descriptionTemplate": "His football gear does not quite fit, but his rust-covered wrench hits hard and inflicts many wounds.",
+      "assetName": "Portrait_Small_Monster_C0101_CT_BOSSSIZE",
+      "badges": ["Boss"]
+    }
+  ]
+}

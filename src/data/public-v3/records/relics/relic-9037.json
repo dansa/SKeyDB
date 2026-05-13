@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9037",
+  "name": "Trickster's Hat",
+  "route": {
+    "slug": "tricksters-hat",
+    "canonicalPath": "/database/relics/tricksters-hat"
+  },
+  "assets": {
+    "icon": "asset-relic-9037-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After the draw phase, draw [Arg1] {plural:[Arg1]|additional card|additional cards}. and choose [Arg2] {plural:[Arg2]|card|cards} from your hand to discard.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "Welcome to Miss Casiah's Wonderland Circus! Be careful, don't touch the magic items. If you get bitten, it could be bad. Last time it tasted blood, the outcome was terrible.  The top hat winked as if ready to emerge."
+}

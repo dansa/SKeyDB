@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9109",
+  "name": "Chrono Pendulum \"Wish ζ\"",
+  "route": {
+    "slug": "chrono-pendulum-wish-zeta",
+    "canonicalPath": "/database/relics/chrono-pendulum-wish-zeta"
+  },
+  "assets": {
+    "icon": "asset-relic-9109-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "At the start of the battle, increase Arithmetica Limit by 1 and {Rouse} all Awakeners. At the start of odd-numbered turns, choose 1 out of 2 Relics to gain, lasting for 5 odd-numbered turns.",
+  "descriptionArgs": {}
+}

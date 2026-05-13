@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 3,
+  "scope": "dzones",
+  "recordCount": 60,
+  "records": [
+    {
+      "id": "dzone-0001",
+      "period": 1,
+      "name": "Dissoluted Abyss",
+      "start": "2024-01-31T21:00:00Z",
+      "end": "2024-02-14T20:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0001.json"
+    },
+    {
+      "id": "dzone-0002",
+      "period": 2,
+      "name": "Dissoluted Abyss",
+      "start": "2024-02-14T21:00:00Z",
+      "end": "2024-02-28T20:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0002.json"
+    },
+    {
+      "id": "dzone-0003",
+      "period": 3,
+      "name": "Dissoluted Abyss",
+      "start": "2024-02-28T21:00:00Z",
+      "end": "2024-03-14T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0003.json"
+    },
+    {
+      "id": "dzone-0004",
+      "period": 4,
+      "name": "Dissoluted Abyss",
+      "start": "2024-03-14T01:00:00Z",
+      "end": "2024-03-28T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0004.json"
+    },
+    {
+      "id": "dzone-0005",
+      "period": 5,
+      "name": "Dissoluted Abyss",
+      "start": "2024-03-28T01:00:00Z",
+      "end": "2024-04-11T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0005.json"
+    },
+    {
+      "id": "dzone-0006",
+      "period": 6,
+      "name": "Dissoluted Abyss",
+      "start": "2024-04-11T01:00:00Z",
+      "end": "2024-04-27T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0006.json"
+    },
+    {
+      "id": "dzone-0007",
+      "period": 7,
+      "name": "Dissoluted Abyss",
+      "start": "2024-04-27T01:00:00Z",
+      "end": "2024-05-11T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0007.json"
+    },
+    {
+      "id": "dzone-0008",
+      "period": 8,
+      "name": "Dissoluted Abyss",
+      "start": "2024-05-11T01:00:00Z",
+      "end": "2024-05-25T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0008.json"
+    },
+    {
+      "id": "dzone-0009",
+      "period": 9,
+      "name": "Dissoluted Abyss",
+      "start": "2024-05-25T01:00:00Z",
+      "end": "2024-06-10T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0009.json"
+    },
+    {
+      "id": "dzone-0010",
+      "period": 10,
+      "name": "Dissoluted Abyss",
+      "start": "2024-06-10T01:00:00Z",
+      "end": "2024-06-24T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0010.json"
+    },
+    {
+      "id": "dzone-0011",
+      "period": 11,
+      "name": "Dissoluted Abyss",
+      "start": "2024-06-24T01:00:00Z",
+      "end": "2024-07-08T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0011.json"
+    },
+    {
+      "id": "dzone-0012",
+      "period": 12,
+      "name": "Dissoluted Abyss",
+      "start": "2024-07-08T01:00:00Z",
+      "end": "2024-07-22T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0012.json"
+    },
+    {
+      "id": "dzone-0013",
+      "period": 13,
+      "name": "Dissoluted Abyss",
+      "start": "2024-07-22T01:00:00Z",
+      "end": "2024-08-05T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0013.json"
+    },
+    {
+      "id": "dzone-0014",
+      "period": 14,
+      "name": "Dissoluted Abyss",
+      "start": "2024-08-05T01:00:00Z",
+      "end": "2024-08-19T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0014.json"
+    },
+    {
+      "id": "dzone-0015",
+      "period": 15,
+      "name": "Dissoluted Abyss",
+      "start": "2024-08-19T01:00:00Z",
+      "end": "2024-09-02T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0015.json"
+    },
+    {
+      "id": "dzone-0016",
+      "period": 16,
+      "name": "Dissoluted Abyss",
+      "start": "2024-09-02T01:00:00Z",
+      "end": "2024-09-16T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0016.json"
+    },
+    {
+      "id": "dzone-0017",
+      "period": 17,
+      "name": "Dissoluted Abyss",
+      "start": "2024-09-16T01:00:00Z",
+      "end": "2024-09-30T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0017.json"
+    },
+    {
+      "id": "dzone-0018",
+      "period": 18,
+      "name": "Dissoluted Abyss",
+      "start": "2024-09-30T01:00:00Z",
+      "end": "2024-10-14T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0018.json"
+    },
+    {
+      "id": "dzone-0019",
+      "period": 19,
+      "name": "Dissoluted Abyss",
+      "start": "2024-10-14T01:00:00Z",
+      "end": "2024-10-28T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0019.json"
+    },
+    {
+      "id": "dzone-0020",
+      "period": 20,
+      "name": "Dissoluted Abyss",
+      "start": "2024-10-28T01:00:00Z",
+      "end": "2024-11-11T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0020.json"
+    },
+    {
+      "id": "dzone-0021",
+      "period": 21,
+      "name": "Dissoluted Abyss",
+      "start": "2024-11-11T01:00:00Z",
+      "end": "2024-11-25T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0021.json"
+    },
+    {
+      "id": "dzone-0022",
+      "period": 22,
+      "name": "Dissoluted Abyss",
+      "start": "2024-11-25T01:00:00Z",
+      "end": "2024-12-09T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0022.json"
+    },
+    {
+      "id": "dzone-0023",
+      "period": 23,
+      "name": "Dissoluted Abyss",
+      "start": "2024-12-09T01:00:00Z",
+      "end": "2024-12-23T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0023.json"
+    },
+    {
+      "id": "dzone-0024",
+      "period": 24,
+      "name": "Dissoluted Abyss",
+      "start": "2024-12-23T01:00:00Z",
+      "end": "2025-01-06T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0024.json"
+    },
+    {
+      "id": "dzone-0025",
+      "period": 25,
+      "name": "Dissoluted Abyss",
+      "start": "2025-01-06T01:00:00Z",
+      "end": "2025-01-20T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0025.json"
+    },
+    {
+      "id": "dzone-0026",
+      "period": 26,
+      "name": "Dissoluted Abyss",
+      "start": "2025-01-20T01:00:00Z",
+      "end": "2025-02-03T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0026.json"
+    },
+    {
+      "id": "dzone-0027",
+      "period": 27,
+      "name": "Dissoluted Abyss",
+      "start": "2025-02-03T01:00:00Z",
+      "end": "2025-02-17T00:59:58Z",
+      "stageEffect": "Faded Legacy",
+      "realm": null,
+      "seasonPath": "seasons/dzone0027.json"
+    },
+    {
+      "id": "dzone-0028",
+      "period": 28,
+      "name": "Dissoluted Abyss",
+      "start": "2025-02-17T01:00:00Z",
+      "end": "2025-03-03T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": null,
+      "seasonPath": "seasons/dzone0028.json"
+    },
+    {
+      "id": "dzone-0029",
+      "period": 29,
+      "name": "Dissoluted Abyss",
+      "start": "2025-03-03T01:00:00Z",
+      "end": "2025-03-17T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": null,
+      "seasonPath": "seasons/dzone0029.json"
+    },
+    {
+      "id": "dzone-0030",
+      "period": 30,
+      "name": "Dissoluted Abyss",
+      "start": "2025-03-17T01:00:00Z",
+      "end": "2025-03-31T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": null,
+      "seasonPath": "seasons/dzone0030.json"
+    },
+    {
+      "id": "dzone-0031",
+      "period": 31,
+      "name": "Dissoluted Abyss",
+      "start": "2025-03-31T01:00:00Z",
+      "end": "2025-04-14T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": null,
+      "seasonPath": "seasons/dzone0031.json"
+    },
+    {
+      "id": "dzone-0032",
+      "period": 32,
+      "name": "Dissoluted Abyss",
+      "start": "2025-04-14T01:00:00Z",
+      "end": "2025-04-28T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": null,
+      "seasonPath": "seasons/dzone0032.json"
+    },
+    {
+      "id": "dzone-0033",
+      "period": 33,
+      "name": "Dissoluted Abyss",
+      "start": "2025-04-28T01:00:00Z",
+      "end": "2025-05-12T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": null,
+      "seasonPath": "seasons/dzone0033.json"
+    },
+    {
+      "id": "dzone-0034",
+      "period": 34,
+      "name": "Dissoluted Abyss",
+      "start": "2025-05-12T01:00:00Z",
+      "end": "2025-05-26T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "AEQUOR",
+      "seasonPath": "seasons/dzone0034.json"
+    },
+    {
+      "id": "dzone-0035",
+      "period": 35,
+      "name": "Dissoluted Abyss",
+      "start": "2025-05-26T01:00:00Z",
+      "end": "2025-06-09T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CARO",
+      "seasonPath": "seasons/dzone0035.json"
+    },
+    {
+      "id": "dzone-0036",
+      "period": 36,
+      "name": "Dissoluted Abyss",
+      "start": "2025-06-09T01:00:00Z",
+      "end": "2025-06-23T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "ULTRA",
+      "seasonPath": "seasons/dzone0036.json"
+    },
+    {
+      "id": "dzone-0037",
+      "period": 37,
+      "name": "Dissoluted Abyss",
+      "start": "2025-06-23T01:00:00Z",
+      "end": "2025-07-07T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CHAOS",
+      "seasonPath": "seasons/dzone0037.json"
+    },
+    {
+      "id": "dzone-0038",
+      "period": 38,
+      "name": "Dissoluted Abyss",
+      "start": "2025-07-07T01:00:00Z",
+      "end": "2025-07-21T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CARO",
+      "seasonPath": "seasons/dzone0038.json"
+    },
+    {
+      "id": "dzone-0039",
+      "period": 39,
+      "name": "Dissoluted Abyss",
+      "start": "2025-07-21T01:00:00Z",
+      "end": "2025-08-04T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CARO",
+      "seasonPath": "seasons/dzone0039.json"
+    },
+    {
+      "id": "dzone-0040",
+      "period": 40,
+      "name": "Dissoluted Abyss",
+      "start": "2025-08-04T01:00:00Z",
+      "end": "2025-08-18T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "AEQUOR",
+      "seasonPath": "seasons/dzone0040.json"
+    },
+    {
+      "id": "dzone-0041",
+      "period": 41,
+      "name": "Dissoluted Abyss",
+      "start": "2025-08-18T01:00:00Z",
+      "end": "2025-09-01T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "ULTRA",
+      "seasonPath": "seasons/dzone0041.json"
+    },
+    {
+      "id": "dzone-0042",
+      "period": 42,
+      "name": "Dissoluted Abyss",
+      "start": "2025-09-01T01:00:00Z",
+      "end": "2025-09-15T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CHAOS",
+      "seasonPath": "seasons/dzone0042.json"
+    },
+    {
+      "id": "dzone-0043",
+      "period": 43,
+      "name": "Dissoluted Abyss",
+      "start": "2025-09-15T01:00:00Z",
+      "end": "2025-09-29T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CARO",
+      "seasonPath": "seasons/dzone0043.json"
+    },
+    {
+      "id": "dzone-0044",
+      "period": 44,
+      "name": "Dissoluted Abyss",
+      "start": "2025-09-29T01:00:00Z",
+      "end": "2025-10-13T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "AEQUOR",
+      "seasonPath": "seasons/dzone0044.json"
+    },
+    {
+      "id": "dzone-0045",
+      "period": 45,
+      "name": "Dissoluted Abyss",
+      "start": "2025-10-13T01:00:00Z",
+      "end": "2025-10-27T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CHAOS",
+      "seasonPath": "seasons/dzone0045.json"
+    },
+    {
+      "id": "dzone-0046",
+      "period": 46,
+      "name": "Dissoluted Abyss",
+      "start": "2025-10-27T01:00:00Z",
+      "end": "2025-11-10T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "ULTRA",
+      "seasonPath": "seasons/dzone0046.json"
+    },
+    {
+      "id": "dzone-0047",
+      "period": 47,
+      "name": "Dissoluted Abyss",
+      "start": "2025-11-10T01:00:00Z",
+      "end": "2025-11-24T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CARO",
+      "seasonPath": "seasons/dzone0047.json"
+    },
+    {
+      "id": "dzone-0048",
+      "period": 48,
+      "name": "Dissoluted Abyss",
+      "start": "2025-11-24T01:00:00Z",
+      "end": "2025-12-08T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "AEQUOR",
+      "seasonPath": "seasons/dzone0048.json"
+    },
+    {
+      "id": "dzone-0049",
+      "period": 49,
+      "name": "Dissoluted Abyss",
+      "start": "2025-12-08T01:00:00Z",
+      "end": "2025-12-22T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "ULTRA",
+      "seasonPath": "seasons/dzone0049.json"
+    },
+    {
+      "id": "dzone-0050",
+      "period": 50,
+      "name": "Dissoluted Abyss",
+      "start": "2025-12-22T01:00:00Z",
+      "end": "2026-01-05T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CHAOS",
+      "seasonPath": "seasons/dzone0050.json"
+    },
+    {
+      "id": "dzone-0051",
+      "period": 51,
+      "name": "Dissoluted Abyss",
+      "start": "2026-01-05T01:00:00Z",
+      "end": "2026-01-19T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "AEQUOR",
+      "seasonPath": "seasons/dzone0051.json"
+    },
+    {
+      "id": "dzone-0052",
+      "period": 52,
+      "name": "Dissoluted Abyss",
+      "start": "2026-01-19T01:00:00Z",
+      "end": "2026-02-02T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CARO",
+      "seasonPath": "seasons/dzone0052.json"
+    },
+    {
+      "id": "dzone-0053",
+      "period": 53,
+      "name": "Dissoluted Abyss",
+      "start": "2026-02-02T01:00:00Z",
+      "end": "2026-02-16T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "ULTRA",
+      "seasonPath": "seasons/dzone0053.json"
+    },
+    {
+      "id": "dzone-0054",
+      "period": 54,
+      "name": "Dissoluted Abyss",
+      "start": "2026-02-16T01:00:00Z",
+      "end": "2026-03-02T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CHAOS",
+      "seasonPath": "seasons/dzone0054.json"
+    },
+    {
+      "id": "dzone-0055",
+      "period": 55,
+      "name": "Dissoluted Abyss",
+      "start": "2026-03-02T01:00:00Z",
+      "end": "2026-03-16T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "AEQUOR",
+      "seasonPath": "seasons/dzone0055.json"
+    },
+    {
+      "id": "dzone-0056",
+      "period": 56,
+      "name": "Dissoluted Abyss",
+      "start": "2026-03-16T01:00:00Z",
+      "end": "2026-03-30T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CARO",
+      "seasonPath": "seasons/dzone0056.json"
+    },
+    {
+      "id": "dzone-0057",
+      "period": 57,
+      "name": "Dissoluted Abyss",
+      "start": "2026-03-30T01:00:00Z",
+      "end": "2026-04-13T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "ULTRA",
+      "seasonPath": "seasons/dzone0057.json"
+    },
+    {
+      "id": "dzone-0058",
+      "period": 58,
+      "name": "Dissoluted Abyss",
+      "start": "2026-04-13T01:00:00Z",
+      "end": "2026-04-27T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "CHAOS",
+      "seasonPath": "seasons/dzone0058.json"
+    },
+    {
+      "id": "dzone-0059",
+      "period": 59,
+      "name": "Dissoluted Abyss",
+      "start": "2026-04-27T01:00:00Z",
+      "end": "2026-05-11T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "ULTRA",
+      "seasonPath": "seasons/dzone0059.json"
+    },
+    {
+      "id": "dzone-0060",
+      "period": 60,
+      "name": "Dissoluted Abyss",
+      "start": "2026-05-11T01:00:00Z",
+      "end": "2026-05-25T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "AEQUOR",
+      "seasonPath": "seasons/dzone0060.json"
+    }
+  ]
+}

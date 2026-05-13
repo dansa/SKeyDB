@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9057",
+  "name": "Silver Tongue+",
+  "route": {
+    "slug": "silver-tongue",
+    "canonicalPath": "/database/relics/silver-tongue"
+  },
+  "assets": {
+    "icon": "asset-relic-9057-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "All Awakeners gain [Arg1] Keyflare from their first \"Command Card\" each turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "Not only merchants are eloquent, but also the devout."
+}

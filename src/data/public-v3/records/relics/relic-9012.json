@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9012",
+  "name": "Brand-New Wallet+",
+  "route": {
+    "slug": "brand-new-wallet",
+    "canonicalPath": "/database/relics/brand-new-wallet"
+  },
+  "assets": {
+    "icon": "asset-relic-9012-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After using {Keyflare Rouse}, draw [Arg1] {plural:[Arg1]|card|cards} and gain [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "4"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "A leather wallet engraved with the emblem of Mythag University. It is now empty, containing nothing."
+}

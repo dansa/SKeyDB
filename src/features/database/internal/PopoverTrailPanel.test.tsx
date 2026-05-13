@@ -166,6 +166,10 @@ describe('PopoverTrailPanel', () => {
     expect(
       await screen.findByRole('dialog', {name: 'Database reference details'}),
     ).toBeInTheDocument()
+    expect(screen.getByRole('dialog', {name: 'Database reference details'})).toHaveAttribute(
+      'aria-modal',
+      'true',
+    )
     await waitFor(() => {
       expect(screen.getByRole('button', {name: 'Close all'})).toHaveFocus()
     })

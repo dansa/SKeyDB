@@ -1057,6 +1057,1759 @@
         "relicType": "DIMENSIONAL_IMAGE",
         "owner": "awakener-0056"
       }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9001",
+      "name": "Preserved Butterfly+",
+      "aliases": [],
+      "tokens": ["butterfly", "d", "d zone initial relic", "initial", "preserved", "preserved butterfly", "relic", "zone"],
+      "fields": {
+        "name": ["Preserved Butterfly+", "preserved-butterfly"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9002",
+      "name": "Rite of Spring+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "of", "relic", "rite", "rite of spring", "spring", "zone"],
+      "fields": {
+        "name": ["Rite of Spring+", "rite-of-spring"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9003",
+      "name": "Filigree Agate+",
+      "aliases": [],
+      "tokens": ["agate", "d", "d zone initial relic", "filigree", "filigree agate", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Filigree Agate+", "filigree-agate"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9004",
+      "name": "\"Aequor Ring\"",
+      "aliases": [],
+      "tokens": ["aequor", "aequor ring", "d", "d zone initial relic", "initial", "relic", "ring", "ssr", "zone"],
+      "fields": {
+        "name": ["\"Aequor Ring\"", "aequor-ring"],
+        "facet": ["SSR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9005",
+      "name": "Lucky Rabbit's Paw+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "lucky", "lucky rabbits paw", "paw", "rabbits", "relic", "zone"],
+      "fields": {
+        "name": ["Lucky Rabbit's Paw+", "lucky-rabbits-paw"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9006",
+      "name": "Doctor's Case+",
+      "aliases": [],
+      "tokens": ["case", "d", "d zone initial relic", "doctors", "doctors case", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Doctor's Case+", "doctors-case"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9007",
+      "name": "Iron Lock+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "iron", "iron lock", "lock", "relic", "zone"],
+      "fields": {
+        "name": ["Iron Lock+", "iron-lock"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9008",
+      "name": "Uncanny Salve+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "relic", "salve", "uncanny", "uncanny salve", "zone"],
+      "fields": {
+        "name": ["Uncanny Salve+", "uncanny-salve"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9009",
+      "name": "Laurel Cufflinks+",
+      "aliases": [],
+      "tokens": ["cufflinks", "d", "d zone initial relic", "initial", "laurel", "laurel cufflinks", "relic", "zone"],
+      "fields": {
+        "name": ["Laurel Cufflinks+", "laurel-cufflinks"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9010",
+      "name": "Forgotten Loom+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "forgotten", "forgotten loom", "initial", "loom", "relic", "zone"],
+      "fields": {
+        "name": ["Forgotten Loom+", "forgotten-loom"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9011",
+      "name": "Forgotten Prelude+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "forgotten", "forgotten prelude", "initial", "prelude", "relic", "zone"],
+      "fields": {
+        "name": ["Forgotten Prelude+", "forgotten-prelude"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9012",
+      "name": "Brand-New Wallet+",
+      "aliases": [],
+      "tokens": ["brand", "brand new wallet", "d", "d zone initial relic", "initial", "new", "relic", "wallet", "zone"],
+      "fields": {
+        "name": ["Brand-New Wallet+", "brand-new-wallet"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9013",
+      "name": "True North Compass+",
+      "aliases": [],
+      "tokens": ["compass", "d", "d zone initial relic", "initial", "north", "relic", "true", "true north compass", "zone"],
+      "fields": {
+        "name": ["True North Compass+", "true-north-compass"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9014",
+      "name": "Proto Battery+",
+      "aliases": [],
+      "tokens": ["battery", "d", "d zone initial relic", "initial", "proto", "proto battery", "relic", "zone"],
+      "fields": {
+        "name": ["Proto Battery+", "proto-battery"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9015",
+      "name": "Our Home+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "home", "initial", "our", "our home", "relic", "zone"],
+      "fields": {
+        "name": ["Our Home+", "our-home"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9016",
+      "name": "Crimson Brooch+",
+      "aliases": [],
+      "tokens": ["brooch", "crimson", "crimson brooch", "d", "d zone initial relic", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Crimson Brooch+", "crimson-brooch"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9017",
+      "name": "Malignant Child+",
+      "aliases": [],
+      "tokens": ["child", "d", "d zone initial relic", "initial", "malignant", "malignant child", "relic", "zone"],
+      "fields": {
+        "name": ["Malignant Child+", "malignant-child"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9018",
+      "name": "Blessed Blood+",
+      "aliases": [],
+      "tokens": ["blessed", "blessed blood", "blood", "d", "d zone initial relic", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Blessed Blood+", "blessed-blood"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9019",
+      "name": "Ritual Dagger+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "dagger", "initial", "relic", "ritual", "ritual dagger", "zone"],
+      "fields": {
+        "name": ["Ritual Dagger+", "ritual-dagger"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9020",
+      "name": "Arcana Relic+",
+      "aliases": [],
+      "tokens": ["arcana", "arcana relic", "d", "d zone initial relic", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Arcana Relic+", "arcana-relic"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9021",
+      "name": "Celestial Astrolabe+",
+      "aliases": [],
+      "tokens": ["astrolabe", "celestial", "celestial astrolabe", "d", "d zone initial relic", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Celestial Astrolabe+", "celestial-astrolabe"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9022",
+      "name": "Vitality Injection+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "injection", "relic", "vitality", "vitality injection", "zone"],
+      "fields": {
+        "name": ["Vitality Injection+", "vitality-injection"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9023",
+      "name": "Mute Jukebox+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "jukebox", "mute", "mute jukebox", "relic", "zone"],
+      "fields": {
+        "name": ["Mute Jukebox+", "mute-jukebox"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9024",
+      "name": "Nettle Vest+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "nettle", "nettle vest", "relic", "vest", "zone"],
+      "fields": {
+        "name": ["Nettle Vest+", "nettle-vest"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9025",
+      "name": "Highest Honor+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "highest", "highest honor", "honor", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Highest Honor+", "highest-honor"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9026",
+      "name": "Arcane Gloves+",
+      "aliases": [],
+      "tokens": ["arcane", "arcane gloves", "d", "d zone initial relic", "gloves", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Arcane Gloves+", "arcane-gloves"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9027",
+      "name": "Mythag Insignia+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "insignia", "mythag", "mythag insignia", "relic", "zone"],
+      "fields": {
+        "name": ["Mythag Insignia+", "mythag-insignia"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9028",
+      "name": "Truth Unbound+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "relic", "truth", "truth unbound", "unbound", "zone"],
+      "fields": {
+        "name": ["Truth Unbound+", "truth-unbound"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9029",
+      "name": "Rusty Lancet+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "lancet", "relic", "rusty", "rusty lancet", "zone"],
+      "fields": {
+        "name": ["Rusty Lancet+", "rusty-lancet"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9030",
+      "name": "Guardian Hand+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "guardian", "guardian hand", "hand", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Guardian Hand+", "guardian-hand"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9031",
+      "name": "Vision Corrector+",
+      "aliases": [],
+      "tokens": ["corrector", "d", "d zone initial relic", "initial", "relic", "vision", "vision corrector", "zone"],
+      "fields": {
+        "name": ["Vision Corrector+", "vision-corrector"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9032",
+      "name": "Veil of the Nameless Deity+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "deity", "initial", "nameless", "of", "relic", "the", "veil", "veil of the nameless deity", "zone"],
+      "fields": {
+        "name": ["Veil of the Nameless Deity+", "veil-of-the-nameless-deity"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9033",
+      "name": "Deceased's Chrono+",
+      "aliases": [],
+      "tokens": ["chrono", "d", "d zone initial relic", "deceaseds", "deceaseds chrono", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Deceased's Chrono+", "deceaseds-chrono"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9034",
+      "name": "Eerie Hook",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "eerie", "eerie hook", "hook", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Eerie Hook", "eerie-hook"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9035",
+      "name": "Wailing Bell",
+      "aliases": [],
+      "tokens": ["bell", "d", "d zone initial relic", "initial", "relic", "wailing", "wailing bell", "zone"],
+      "fields": {
+        "name": ["Wailing Bell", "wailing-bell"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9036",
+      "name": "Pathwalker's Remains",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "pathwalkers", "pathwalkers remains", "relic", "remains", "zone"],
+      "fields": {
+        "name": ["Pathwalker's Remains", "pathwalkers-remains"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9037",
+      "name": "Trickster's Hat",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "hat", "initial", "relic", "tricksters", "tricksters hat", "zone"],
+      "fields": {
+        "name": ["Trickster's Hat", "tricksters-hat"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9038",
+      "name": "Omen Ritual Bird",
+      "aliases": [],
+      "tokens": ["bird", "d", "d zone initial relic", "initial", "omen", "omen ritual bird", "relic", "ritual", "zone"],
+      "fields": {
+        "name": ["Omen Ritual Bird", "omen-ritual-bird"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9039",
+      "name": "Black Candle",
+      "aliases": [],
+      "tokens": ["black", "black candle", "candle", "d", "d zone initial relic", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Black Candle", "black-candle"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9040",
+      "name": "Salvific Limb",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "limb", "relic", "salvific", "salvific limb", "zone"],
+      "fields": {
+        "name": ["Salvific Limb", "salvific-limb"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9041",
+      "name": "\"Caro Ring\"",
+      "aliases": [],
+      "tokens": ["caro", "caro ring", "d", "d zone initial relic", "initial", "relic", "ring", "ssr", "zone"],
+      "fields": {
+        "name": ["\"Caro Ring\"", "caro-ring"],
+        "facet": ["SSR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9042",
+      "name": "\"Ultra Ring\"",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "relic", "ring", "ssr", "ultra", "ultra ring", "zone"],
+      "fields": {
+        "name": ["\"Ultra Ring\"", "ultra-ring"],
+        "facet": ["SSR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9043",
+      "name": "\"Chaos Ring\"",
+      "aliases": [],
+      "tokens": ["chaos", "chaos ring", "d", "d zone initial relic", "initial", "relic", "ring", "ssr", "zone"],
+      "fields": {
+        "name": ["\"Chaos Ring\"", "chaos-ring"],
+        "facet": ["SSR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9044",
+      "name": "Kaleidoscope+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "kaleidoscope", "relic", "zone"],
+      "fields": {
+        "name": ["Kaleidoscope+", "kaleidoscope"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9045",
+      "name": "Fleeting Beauty+",
+      "aliases": [],
+      "tokens": ["beauty", "d", "d zone initial relic", "fleeting", "fleeting beauty", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Fleeting Beauty+", "fleeting-beauty"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9046",
+      "name": "Prophet's Lamp+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "lamp", "prophets", "prophets lamp", "relic", "zone"],
+      "fields": {
+        "name": ["Prophet's Lamp+", "prophets-lamp"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9047",
+      "name": "In Twilight+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "in", "in twilight", "initial", "relic", "twilight", "zone"],
+      "fields": {
+        "name": ["In Twilight+", "in-twilight"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9048",
+      "name": "Serpent's Husk+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "husk", "initial", "relic", "serpents", "serpents husk", "zone"],
+      "fields": {
+        "name": ["Serpent's Husk+", "serpents-husk"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9049",
+      "name": "Safe Passage+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "passage", "relic", "safe", "safe passage", "zone"],
+      "fields": {
+        "name": ["Safe Passage+", "safe-passage"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9050",
+      "name": "Solar Disc+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "disc", "initial", "relic", "solar", "solar disc", "zone"],
+      "fields": {
+        "name": ["Solar Disc+", "solar-disc"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9051",
+      "name": "Relic of the Past+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "of", "past", "relic", "relic of the past", "the", "zone"],
+      "fields": {
+        "name": ["Relic of the Past+", "relic-of-the-past"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9052",
+      "name": "Harford's Elixir+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "elixir", "harfords", "harfords elixir", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Harford's Elixir+", "harfords-elixir"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9053",
+      "name": "Hierophant's Staff+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "hierophants", "hierophants staff", "initial", "relic", "staff", "zone"],
+      "fields": {
+        "name": ["Hierophant's Staff+", "hierophants-staff"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9054",
+      "name": "Silent Prelude+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "prelude", "relic", "silent", "silent prelude", "zone"],
+      "fields": {
+        "name": ["Silent Prelude+", "silent-prelude"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9055",
+      "name": "Putney Morning Post+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "morning", "post", "putney", "putney morning post", "relic", "zone"],
+      "fields": {
+        "name": ["Putney Morning Post+", "putney-morning-post"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9056",
+      "name": "Tiny Music Box+",
+      "aliases": [],
+      "tokens": ["box", "d", "d zone initial relic", "initial", "music", "relic", "tiny", "tiny music box", "zone"],
+      "fields": {
+        "name": ["Tiny Music Box+", "tiny-music-box"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9057",
+      "name": "Silver Tongue+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "relic", "silver", "silver tongue", "tongue", "zone"],
+      "fields": {
+        "name": ["Silver Tongue+", "silver-tongue"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9058",
+      "name": "Stellar Brew+",
+      "aliases": [],
+      "tokens": ["brew", "d", "d zone initial relic", "initial", "relic", "stellar", "stellar brew", "zone"],
+      "fields": {
+        "name": ["Stellar Brew+", "stellar-brew"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9059",
+      "name": "Forsaken Blood+",
+      "aliases": [],
+      "tokens": ["blood", "d", "d zone initial relic", "forsaken", "forsaken blood", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Forsaken Blood+", "forsaken-blood"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9060",
+      "name": "Voyager's Parasol+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "parasol", "relic", "voyagers", "voyagers parasol", "zone"],
+      "fields": {
+        "name": ["Voyager's Parasol+", "voyagers-parasol"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9061",
+      "name": "Easter Moment+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "easter", "easter moment", "initial", "moment", "relic", "zone"],
+      "fields": {
+        "name": ["Easter Moment+", "easter-moment"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9062",
+      "name": "Rhind Papyrus+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "papyrus", "relic", "rhind", "rhind papyrus", "zone"],
+      "fields": {
+        "name": ["Rhind Papyrus+", "rhind-papyrus"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9063",
+      "name": "Foreign Stamp Album+",
+      "aliases": [],
+      "tokens": ["album", "d", "d zone initial relic", "foreign", "foreign stamp album", "initial", "relic", "stamp", "zone"],
+      "fields": {
+        "name": ["Foreign Stamp Album+", "foreign-stamp-album"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9064",
+      "name": "Tilted Scales+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "relic", "scales", "tilted", "tilted scales", "zone"],
+      "fields": {
+        "name": ["Tilted Scales+", "tilted-scales"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9065",
+      "name": "Chrono Pendulum \"Deepen\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum deepen", "d", "d zone initial relic", "deepen", "initial", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Deepen\"", "chrono-pendulum-deepen"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9066",
+      "name": "Chrono Pendulum \"Wings\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum wings", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "wings", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Wings\"", "chrono-pendulum-wings"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9067",
+      "name": "Chrono Pendulum \"Slumber\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum slumber", "d", "d zone initial relic", "initial", "pendulum", "relic", "slumber", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Slumber\"", "chrono-pendulum-slumber"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9068",
+      "name": "Chrono Pendulum \"Eye\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum eye", "d", "d zone initial relic", "eye", "initial", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Eye\"", "chrono-pendulum-eye"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9069",
+      "name": "Chrono Pendulum \"Moon\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum moon", "d", "d zone initial relic", "initial", "moon", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Moon\"", "chrono-pendulum-moon"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9070",
+      "name": "Chrono Pendulum \"Stars\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum stars", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "stars", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Stars\"", "chrono-pendulum-stars"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9071",
+      "name": "Chrono Pendulum \"Unclean\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum unclean", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "unclean", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Unclean\"", "chrono-pendulum-unclean"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9072",
+      "name": "Chrono Pendulum \"Submersion\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum submersion", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "submersion", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Submersion\"", "chrono-pendulum-submersion"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9073",
+      "name": "Chrono Pendulum \"Occult\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum occult", "d", "d zone initial relic", "initial", "occult", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Occult\"", "chrono-pendulum-occult"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9074",
+      "name": "Chrono Pendulum \"Buildup\"",
+      "aliases": [],
+      "tokens": ["buildup", "chrono", "chrono pendulum buildup", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Buildup\"", "chrono-pendulum-buildup"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9075",
+      "name": "Chrono Pendulum \"Trance\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum trance", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "trance", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Trance\"", "chrono-pendulum-trance"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9076",
+      "name": "Chrono Pendulum \"Stubborn\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum stubborn", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "stubborn", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Stubborn\"", "chrono-pendulum-stubborn"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9077",
+      "name": "Chrono Pendulum \"Charge\"",
+      "aliases": [],
+      "tokens": ["charge", "chrono", "chrono pendulum charge", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Charge\"", "chrono-pendulum-charge"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9078",
+      "name": "Chrono Pendulum \"Proliferate\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum proliferate", "d", "d zone initial relic", "initial", "pendulum", "proliferate", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Proliferate\"", "chrono-pendulum-proliferate"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9079",
+      "name": "Chrono Pendulum \"End\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum end", "d", "d zone initial relic", "end", "initial", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"End\"", "chrono-pendulum-end"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9080",
+      "name": "Chrono Pendulum \"Reciprocate\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum reciprocate", "d", "d zone initial relic", "initial", "pendulum", "reciprocate", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Reciprocate\"", "chrono-pendulum-reciprocate"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9081",
+      "name": "Chrono Pendulum \"Sleepless\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum sleepless", "d", "d zone initial relic", "initial", "pendulum", "relic", "sleepless", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Sleepless\"", "chrono-pendulum-sleepless"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9082",
+      "name": "Chrono Pendulum \"Illusion\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum illusion", "d", "d zone initial relic", "illusion", "initial", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Illusion\"", "chrono-pendulum-illusion"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9083",
+      "name": "Chrono Pendulum \"Startle\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum startle", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "startle", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Startle\"", "chrono-pendulum-startle"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9084",
+      "name": "Chrono Pendulum \"Twins\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum twins", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "twins", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Twins\"", "chrono-pendulum-twins"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9085",
+      "name": "Chrono Pendulum \"Benediction\"",
+      "aliases": [],
+      "tokens": ["benediction", "chrono", "chrono pendulum benediction", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Benediction\"", "chrono-pendulum-benediction"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9086",
+      "name": "Chrono Pendulum \"Balance\"",
+      "aliases": [],
+      "tokens": ["balance", "chrono", "chrono pendulum balance", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Balance\"", "chrono-pendulum-balance"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9087",
+      "name": "Chrono Pendulum \"Surge\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum surge", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "surge", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Surge\"", "chrono-pendulum-surge"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9088",
+      "name": "Chrono Pendulum \"Evolution\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum evolution", "d", "d zone initial relic", "evolution", "initial", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Evolution\"", "chrono-pendulum-evolution"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9089",
+      "name": "Chrono Pendulum \"Projection\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum projection", "d", "d zone initial relic", "initial", "pendulum", "projection", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Projection\"", "chrono-pendulum-projection"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9090",
+      "name": "Chrono Pendulum \"Breeding\"",
+      "aliases": [],
+      "tokens": ["breeding", "chrono", "chrono pendulum breeding", "d", "d zone initial relic", "initial", "pendulum", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Breeding\"", "chrono-pendulum-breeding"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9091",
+      "name": "Chrono Pendulum \"Plague\"",
+      "aliases": [],
+      "tokens": ["chrono", "chrono pendulum plague", "d", "d zone initial relic", "initial", "pendulum", "plague", "relic", "sr", "zone"],
+      "fields": {
+        "name": ["Chrono Pendulum \"Plague\"", "chrono-pendulum-plague"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9092",
+      "name": "Chrono Pendulum \"Treasure α\"",
+      "aliases": [],
+      "tokens": [
+        "alpha",
+        "chrono",
+        "chrono pendulum treasure",
+        "chrono pendulum treasure alpha",
+        "d",
+        "d zone initial relic",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "treasure",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Treasure α\"", "chrono-pendulum-treasure-alpha"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9093",
+      "name": "Chrono Pendulum \"Treasure β\"",
+      "aliases": [],
+      "tokens": [
+        "beta",
+        "chrono",
+        "chrono pendulum treasure",
+        "chrono pendulum treasure beta",
+        "d",
+        "d zone initial relic",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "treasure",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Treasure β\"", "chrono-pendulum-treasure-beta"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9094",
+      "name": "Chrono Pendulum \"Treasure δ\"",
+      "aliases": [],
+      "tokens": [
+        "chrono",
+        "chrono pendulum treasure",
+        "chrono pendulum treasure delta",
+        "d",
+        "d zone initial relic",
+        "delta",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "treasure",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Treasure δ\"", "chrono-pendulum-treasure-delta"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9095",
+      "name": "Chrono Pendulum \"Treasure γ\"",
+      "aliases": [],
+      "tokens": [
+        "chrono",
+        "chrono pendulum treasure",
+        "chrono pendulum treasure gamma",
+        "d",
+        "d zone initial relic",
+        "gamma",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "treasure",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Treasure γ\"", "chrono-pendulum-treasure-gamma"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9096",
+      "name": "Chrono Pendulum \"Treasure ε\"",
+      "aliases": [],
+      "tokens": [
+        "chrono",
+        "chrono pendulum treasure",
+        "chrono pendulum treasure epsilon",
+        "d",
+        "d zone initial relic",
+        "epsilon",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "treasure",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Treasure ε\"", "chrono-pendulum-treasure-epsilon"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9097",
+      "name": "Chrono Pendulum \"Wish β\"",
+      "aliases": [],
+      "tokens": [
+        "beta",
+        "chrono",
+        "chrono pendulum wish",
+        "chrono pendulum wish beta",
+        "d",
+        "d zone initial relic",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "wish",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Wish β\"", "chrono-pendulum-wish-beta"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9098",
+      "name": "Chrono Pendulum \"Wish α\"",
+      "aliases": [],
+      "tokens": [
+        "alpha",
+        "chrono",
+        "chrono pendulum wish",
+        "chrono pendulum wish alpha",
+        "d",
+        "d zone initial relic",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "wish",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Wish α\"", "chrono-pendulum-wish-alpha"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9099",
+      "name": "Chrono Pendulum \"Wish ε\"",
+      "aliases": [],
+      "tokens": [
+        "chrono",
+        "chrono pendulum wish",
+        "chrono pendulum wish epsilon",
+        "d",
+        "d zone initial relic",
+        "epsilon",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "wish",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Wish ε\"", "chrono-pendulum-wish-epsilon"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9100",
+      "name": "Chrono Pendulum \"Wish γ\"",
+      "aliases": [],
+      "tokens": [
+        "chrono",
+        "chrono pendulum wish",
+        "chrono pendulum wish gamma",
+        "d",
+        "d zone initial relic",
+        "gamma",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "wish",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Wish γ\"", "chrono-pendulum-wish-gamma"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9101",
+      "name": "Chrono Pendulum \"Wish δ\"",
+      "aliases": [],
+      "tokens": [
+        "chrono",
+        "chrono pendulum wish",
+        "chrono pendulum wish delta",
+        "d",
+        "d zone initial relic",
+        "delta",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "wish",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Wish δ\"", "chrono-pendulum-wish-delta"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9102",
+      "name": "Other Tongue+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "other", "other tongue", "relic", "tongue", "zone"],
+      "fields": {
+        "name": ["Other Tongue+", "other-tongue"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9103",
+      "name": "Arcana Archive+",
+      "aliases": [],
+      "tokens": ["arcana", "arcana archive", "archive", "d", "d zone initial relic", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Arcana Archive+", "arcana-archive"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9104",
+      "name": "Differential Engine+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "differential", "differential engine", "engine", "initial", "relic", "zone"],
+      "fields": {
+        "name": ["Differential Engine+", "differential-engine"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9105",
+      "name": "Neurotoxin+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "neurotoxin", "relic", "zone"],
+      "fields": {
+        "name": ["Neurotoxin+", "neurotoxin"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9106",
+      "name": "Weeping Pipe+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "pipe", "relic", "weeping", "weeping pipe", "zone"],
+      "fields": {
+        "name": ["Weeping Pipe+", "weeping-pipe"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9107",
+      "name": "Radium Jawbone+",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "initial", "jawbone", "radium", "radium jawbone", "relic", "zone"],
+      "fields": {
+        "name": ["Radium Jawbone+", "radium-jawbone"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9108",
+      "name": "Chrono Pendulum \"Wish η\"",
+      "aliases": [],
+      "tokens": [
+        "chrono",
+        "chrono pendulum wish",
+        "chrono pendulum wish eta",
+        "d",
+        "d zone initial relic",
+        "eta",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "wish",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Wish η\"", "chrono-pendulum-wish-eta"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9109",
+      "name": "Chrono Pendulum \"Wish ζ\"",
+      "aliases": [],
+      "tokens": [
+        "chrono",
+        "chrono pendulum wish",
+        "chrono pendulum wish zeta",
+        "d",
+        "d zone initial relic",
+        "initial",
+        "pendulum",
+        "relic",
+        "sr",
+        "wish",
+        "zeta",
+        "zone"
+      ],
+      "fields": {
+        "name": ["Chrono Pendulum \"Wish ζ\"", "chrono-pendulum-wish-zeta"],
+        "facet": ["SR", "D-Zone Initial Relic"]
+      },
+      "facets": {
+        "rarity": "SR",
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9110",
+      "name": "Jade Imprint",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "imprint", "initial", "jade", "jade imprint", "relic", "zone"],
+      "fields": {
+        "name": ["Jade Imprint", "jade-imprint"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9111",
+      "name": "Mind Engraving",
+      "aliases": [],
+      "tokens": ["d", "d zone initial relic", "engraving", "initial", "mind", "mind engraving", "relic", "zone"],
+      "fields": {
+        "name": ["Mind Engraving", "mind-engraving"],
+        "facet": ["D-Zone Initial Relic"]
+      },
+      "facets": {
+        "relicType": "D-Zone Initial Relic"
+      }
     }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9088",
+  "name": "Chrono Pendulum \"Evolution\"",
+  "route": {
+    "slug": "chrono-pendulum-evolution",
+    "canonicalPath": "/database/relics/chrono-pendulum-evolution"
+  },
+  "assets": {
+    "icon": "asset-relic-9088-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "Each time a Command Card belonging to a different Awakener than the last one played is played, that Awakener gains 3 Aliemus and accumulates 1 stack of {Vitality}. Upon accumulating 10 stacks, all {Vitality} is cleared, and one random Command Card with {Exhaust} and Arithmetica Cost reduced by 1 is placed in hand for each Awakener. This effect can activate a maximum of 1 time per turn.",
+  "descriptionArgs": {}
+}

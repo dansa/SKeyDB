@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9069",
+  "name": "Chrono Pendulum \"Moon\"",
+  "route": {
+    "slug": "chrono-pendulum-moon",
+    "canonicalPath": "/database/relics/chrono-pendulum-moon"
+  },
+  "assets": {
+    "icon": "asset-relic-9069-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "When picked up, the team's Sigil Yield becomes 150% of the original value. After HP Recovery, all Awakeners gain 3 Aliemus, after losing HP, gain [Arg1] {STR} and {Tentacle DMG}, with a maximum combined effect of 5 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.01,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  }
+}

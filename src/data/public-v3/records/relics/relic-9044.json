@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9044",
+  "name": "Kaleidoscope+",
+  "route": {
+    "slug": "kaleidoscope",
+    "canonicalPath": "/database/relics/kaleidoscope"
+  },
+  "assets": {
+    "icon": "asset-relic-9044-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At the start of the battle, gain [Arg1]% DMG Amplification. For each Command Card played by a different Awakener, gain an additional [Arg1]% Temporary DMG Amplification.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    }
+  },
+  "lore": "What you think and see are all illusions."
+}

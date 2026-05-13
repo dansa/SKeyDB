@@ -1,22 +1,26 @@
-const portraitRelicAssets = import.meta.glob<string>('../assets/relics/portraits/*.webp', {
+import {resolvePublicAssetBySourceAssetId} from '@/data-access/public-data/assetRepository'
+
+const relicAssets = import.meta.glob<string>('../assets/relics/*.webp', {
   eager: true,
   import: 'default',
 })
 
-function basenameWithoutExt(assetPath: string): string {
-  const filename = assetPath.split('/').at(-1) ?? assetPath
-  return filename.replace(/\.webp$/i, '')
+function toRelicAssetModulePath(sourcePath: string): string {
+  return sourcePath.replace(/^src\/assets\//, '../assets/')
 }
 
-const portraitRelicAssetById = new Map(
-  Object.entries(portraitRelicAssets).map(([assetPath, url]) => [
-    basenameWithoutExt(assetPath),
-    url,
-  ]),
-)
+function getRelicAssetUrl(sourcePath: string | undefined): string | undefined {
+  if (!sourcePath) return undefined
+  return relicAssets[toRelicAssetModulePath(sourcePath.replaceAll('\\', '/'))]
+}
+
+export function getRelicAssetByAssetId(assetId: string): string | undefined {
+  const asset = resolvePublicAssetBySourceAssetId(assetId, {kind: 'relic', slot: 'icon'})
+  return getRelicAssetUrl(asset?.availability.path)
+}
 
 export function getRelicPortraitAssetByAssetId(assetId: string): string | undefined {
-  return portraitRelicAssetById.get(assetId)
+  return getRelicAssetByAssetId(assetId)
 }
 
 export function getRelicPortraitAssetByIngameId(ingameId: string): string | undefined {

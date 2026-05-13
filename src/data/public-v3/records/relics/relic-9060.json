@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9060",
+  "name": "Voyager's Parasol+",
+  "route": {
+    "slug": "voyagers-parasol",
+    "canonicalPath": "/database/relics/voyagers-parasol"
+  },
+  "assets": {
+    "icon": "asset-relic-9060-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Restores [Heal:Arg1] HP and grants [Arg2] Keyflare after using {Keyflare Rouse}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.2,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "Bloom in the Lightless Land"
+}

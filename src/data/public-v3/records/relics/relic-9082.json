@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9082",
+  "name": "Chrono Pendulum \"Illusion\"",
+  "route": {
+    "slug": "chrono-pendulum-illusion",
+    "canonicalPath": "/database/relics/chrono-pendulum-illusion"
+  },
+  "assets": {
+    "icon": "asset-relic-9082-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "Shuffle 1 \"Insight\" into the Draw Pile for every 4 hits, up to 3 times per turn. After an Exalt, play and {Exhaust} all \"Insight\" in the Draw Pile.",
+  "descriptionArgs": {}
+}

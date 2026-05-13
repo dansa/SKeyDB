@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9005",
+  "name": "Lucky Rabbit's Paw+",
+  "route": {
+    "slug": "lucky-rabbits-paw",
+    "canonicalPath": "/database/relics/lucky-rabbits-paw"
+  },
+  "assets": {
+    "icon": "asset-relic-9005-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "The first \"Posse\" each turn refunds [Arg1]% of the consumed Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    }
+  },
+  "lore": "Not so lucky for the rabbit."
+}

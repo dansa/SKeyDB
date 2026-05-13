@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9083",
+  "name": "Chrono Pendulum \"Startle\"",
+  "route": {
+    "slug": "chrono-pendulum-startle",
+    "canonicalPath": "/database/relics/chrono-pendulum-startle"
+  },
+  "assets": {
+    "icon": "asset-relic-9083-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "When the current Arithmetica is odd, it gains an additional [Arg2] Temporary {Alert}. When the current Arithmetica is even, it gains an additional [Arg1] Temporary {STR} and [Arg3] Temporary {Tentacle DMG}. Each Golden Relic increases the effect of this Relic by 50%, and each Cursed Relic increases it by 80%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.048,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.016,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg3": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.024,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  }
+}

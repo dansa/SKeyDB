@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9107",
+  "name": "Radium Jawbone+",
+  "route": {
+    "slug": "radium-jawbone",
+    "canonicalPath": "/database/relics/radium-jawbone"
+  },
+  "assets": {
+    "icon": "asset-relic-9107-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Fixed DMG} equal to [Arg1]% of your team's Max HP and trigger [Arg2]% {Poison}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "X",
+      "displayFormula": "Max HP * 0.30 * SpiritResearchDepthMultiplier"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    }
+  },
+  "lore": "Displayed in a private collector's showroom. The collector was captivated by its beautiful fluorescence, admiring it day and night, until he eventually withered away and became one of its kind."
+}

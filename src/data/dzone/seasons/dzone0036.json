@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 3,
+  "scope": "dzone-season",
+  "recordCount": 1,
+  "records": [
+    {
+      "id": "dzone-0036",
+      "period": 36,
+      "name": "Dissoluted Abyss",
+      "start": "2025-06-09T01:00:00Z",
+      "end": "2025-06-23T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "waves": [
+        {
+          "id": "d-effect-zone-wave-1",
+          "name": "D-Effect Zone: Wave 1",
+          "initialRelicIds": ["relic-9034", "relic-9042"],
+          "monsterIds": [
+            "dzone-monster-0009",
+            "dzone-monster-0137",
+            "dzone-monster-0153",
+            "dzone-monster-0132",
+            "dzone-monster-0133",
+            "dzone-monster-0116",
+            "dzone-monster-0190",
+            "dzone-monster-0029",
+            "dzone-monster-0186",
+            "dzone-monster-0124",
+            "dzone-monster-0178"
+          ]
+        },
+        {
+          "id": "d-effect-zone-wave-2",
+          "name": "D-Effect Zone: Wave 2",
+          "initialRelicIds": ["relic-9024", "relic-9042"],
+          "monsterIds": [
+            "dzone-monster-0226",
+            "dzone-monster-0220",
+            "dzone-monster-0013",
+            "dzone-monster-0223",
+            "dzone-monster-0222",
+            "dzone-monster-0308",
+            "dzone-monster-0088",
+            "dzone-monster-0072",
+            "dzone-monster-0025"
+          ]
+        },
+        {
+          "id": "d-effect-zone-wave-3",
+          "name": "D-Effect Zone: Wave 3",
+          "initialRelicIds": ["relic-9036", "relic-9042"],
+          "monsterIds": ["dzone-monster-0143"]
+        },
+        {
+          "id": "d-effect-zone-wave-4",
+          "name": "D-Effect Zone: Wave 4",
+          "initialRelicIds": ["relic-9105", "relic-9042"],
+          "monsterIds": ["dzone-monster-0283", "dzone-monster-0022", "dzone-monster-0272"]
+        },
+        {
+          "id": "d-effect-zone-wave-5",
+          "name": "D-Effect Zone: Wave 5",
+          "initialRelicIds": ["relic-9018", "relic-9042"],
+          "monsterIds": [
+            "dzone-monster-0094",
+            "dzone-monster-0207",
+            "dzone-monster-0019",
+            "dzone-monster-0208",
+            "dzone-monster-0139",
+            "dzone-monster-0021",
+            "dzone-monster-0152",
+            "dzone-monster-0151",
+            "dzone-monster-0204"
+          ]
+        }
+      ]
+    }
+  ]
+}

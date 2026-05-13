@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9017",
+  "name": "Malignant Child+",
+  "route": {
+    "slug": "malignant-child",
+    "canonicalPath": "/database/relics/malignant-child"
+  },
+  "assets": {
+    "icon": "asset-relic-9017-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} to all enemies, with the effect doubled in Boss Battles. All Awakeners' Base DMG is +[Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    }
+  },
+  "lore": "Born of pure evil, even though it was not its own will."
+}

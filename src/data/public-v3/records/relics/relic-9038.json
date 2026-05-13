@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9038",
+  "name": "Omen Ritual Bird",
+  "route": {
+    "slug": "omen-ritual-bird",
+    "canonicalPath": "/database/relics/omen-ritual-bird"
+  },
+  "assets": {
+    "icon": "asset-relic-9038-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Gain [Arg1] Strength at the start of the battle. At turn start, for each [Arg2] Permanent {STR}, gain [Arg3] Temporary {STR}, up to [Arg4] Temporary {STR}, and lose Shield equals to half of the Temporary {STR} gained by that Relic at turn end.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.05,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "4"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "The withered corpse let out a screech."
+}

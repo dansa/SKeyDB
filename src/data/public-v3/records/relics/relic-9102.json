@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9102",
+  "name": "Other Tongue+",
+  "route": {
+    "slug": "other-tongue",
+    "canonicalPath": "/database/relics/other-tongue"
+  },
+  "assets": {
+    "icon": "asset-relic-9102-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "\"Strike\" inflicts {Poison} equal to [Arg1]% of DMG dealt, with a maximum of [Arg2] per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "X",
+      "displayFormula": "20 * (1 + 0.01 * runtime value)"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.8,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "It is not a demon, but it indeed conveys whispers from beyond the mortal realm."
+}

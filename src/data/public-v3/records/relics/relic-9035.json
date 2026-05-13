@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9035",
+  "name": "Wailing Bell",
+  "route": {
+    "slug": "wailing-bell",
+    "canonicalPath": "/database/relics/wailing-bell"
+  },
+  "assets": {
+    "icon": "asset-relic-9035-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At turn start, draw [Arg1] less cards. Gain 1 Arithmetica for each Card played with Arithmetica Cost >= [Arg2], triggering up to [Arg3] {plural:[Arg3]|time|times} per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "lore": "Ding, ding, the child is crying; Ding, ding, the child is screaming. Ding, ding, the child is wailing; Ding, ding, it's hungry, you know."
+}

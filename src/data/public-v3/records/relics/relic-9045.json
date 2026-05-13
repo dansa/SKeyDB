@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9045",
+  "name": "Fleeting Beauty+",
+  "route": {
+    "slug": "fleeting-beauty",
+    "canonicalPath": "/database/relics/fleeting-beauty"
+  },
+  "assets": {
+    "icon": "asset-relic-9045-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Gain [Arg1] Keyflare when \"Exalt\" is released.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "Preserve the beauty of fleeting moments forever."
+}

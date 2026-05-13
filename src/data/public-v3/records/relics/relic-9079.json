@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9079",
+  "name": "Chrono Pendulum \"End\"",
+  "route": {
+    "slug": "chrono-pendulum-end",
+    "canonicalPath": "/database/relics/chrono-pendulum-end"
+  },
+  "assets": {
+    "icon": "asset-relic-9079-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "Upon pickup, increase the team's DMG Amplification by 30%. Every {ordinal:4th} instance of DMG dealt will be a Critical Hit, and Crit. DMG +50%. If the hit results in a kill, gain 5 Black Sigil.",
+  "descriptionArgs": {}
+}

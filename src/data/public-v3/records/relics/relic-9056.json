@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9056",
+  "name": "Tiny Music Box+",
+  "route": {
+    "slug": "tiny-music-box",
+    "canonicalPath": "/database/relics/tiny-music-box"
+  },
+  "assets": {
+    "icon": "asset-relic-9056-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Gain [Arg1] {STR} at the start of the battle. Each time you play a card with {Exhaust}, gain [Arg2] Temporary {STR}, triggering up to 10 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.07,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Dexter's mansion has many collections. Before it was broken, the Tiny Music Box was Miss Dexter's favorite toy. As time passed, when Miss Dexter found it again, its gears were loose, the music off-key, but it still kept spinning."
+}

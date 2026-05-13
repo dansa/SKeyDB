@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9064",
+  "name": "Tilted Scales+",
+  "route": {
+    "slug": "tilted-scales",
+    "canonicalPath": "/database/relics/tilted-scales"
+  },
+  "assets": {
+    "icon": "asset-relic-9064-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Before turn end, each Awakener to which a Command Card in hand belongs gains [Arg1] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "6"
+    }
+  },
+  "lore": "No longer symbolizes justice."
+}

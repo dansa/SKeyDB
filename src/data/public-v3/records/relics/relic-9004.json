@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9004",
+  "name": "\"Aequor Ring\"",
+  "route": {
+    "slug": "aequor-ring",
+    "canonicalPath": "/database/relics/aequor-ring"
+  },
+  "assets": {
+    "icon": "asset-relic-9004-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SSR",
+  "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Aequor} Awakener gains their \"Dimensional Image\". For each {Aequor} Awakener in the team, increase the Relic Capacity by +1.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30"
+    }
+  },
+  "lore": "The sleepers in the abyssal ocean begin to show the forgotten authority to the world."
+}

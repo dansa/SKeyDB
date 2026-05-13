@@ -16,6 +16,12 @@ const CollectionPage = lazy(() =>
 const TimelinePage = lazy(() =>
   import('./pages/TimelinePage').then((module) => ({default: module.TimelinePage})),
 )
+const DZonePage = lazy(() =>
+  import('./pages/DZonePage').then((module) => ({default: module.DZonePage})),
+)
+const DZoneHistoryPage = lazy(() =>
+  import('./pages/DZoneHistoryPage').then((module) => ({default: module.DZoneHistoryPage})),
+)
 
 interface NavItem {
   label: string
@@ -35,6 +41,7 @@ const NAV_ITEMS: NavItem[] = [
     mobilePriority: 'always',
   },
   {label: 'Events', to: '/timeline', mobilePriority: 'always'},
+  {label: 'D-Zone', to: '/d-zone', mobilePriority: 'wide'},
   {label: 'Builder', to: '/builder', mobilePriority: 'compact'},
   {label: 'Collection', to: '/collection', mobilePriority: 'wide'},
 ]
@@ -213,6 +220,8 @@ function App() {
             <Route element={<HomePage />} path='/' />
             {DatabaseRouteElements}
             <Route element={<TimelinePage />} path='/timeline' />
+            <Route element={<DZonePage />} path='/d-zone' />
+            <Route element={<DZoneHistoryPage />} path='/d-zone/history' />
             <Route element={<BuilderPage />} path='/builder' />
             <Route element={<CollectionPage />} path='/collection' />
             <Route element={<Navigate replace to='/' />} path='*' />

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9106",
+  "name": "Weeping Pipe+",
+  "route": {
+    "slug": "weeping-pipe",
+    "canonicalPath": "/database/relics/weeping-pipe"
+  },
+  "assets": {
+    "icon": "asset-relic-9106-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "The Base DMG dealt by all Awakeners +[Arg1]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "60",
+      "suffix": "%"
+    }
+  },
+  "lore": "Is this the product of hatred or the result of revenge?"
+}

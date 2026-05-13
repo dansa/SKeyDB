@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9021",
+  "name": "Celestial Astrolabe+",
+  "route": {
+    "slug": "celestial-astrolabe",
+    "canonicalPath": "/database/relics/celestial-astrolabe"
+  },
+  "assets": {
+    "icon": "asset-relic-9021-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After using {Keyflare Rouse}, increase the Base DMG dealt by all Awakeners by [Arg1]% and gain [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "20",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "The wonders of the universe."
+}

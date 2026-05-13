@@ -18,6 +18,8 @@ import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
 import {DatabasePopoverRoot} from './DatabasePopoverRoot'
 import {useDatabasePopoverController} from './useDatabasePopoverController'
 
+const COLD_POPOVER_FIND_OPTIONS = {timeout: 3000}
+
 function buildSkillReferenceInfo(
   id: string,
   name: string,
@@ -313,7 +315,9 @@ describe('useDatabasePopoverController', () => {
     )
 
     fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
-    expect(await screen.findByText('Base text.')).toBeInTheDocument()
+    expect(
+      await screen.findByText('Base text.', undefined, COLD_POPOVER_FIND_OPTIONS),
+    ).toBeInTheDocument()
 
     rerender(
       <ControllerHarness

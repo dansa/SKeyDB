@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9077",
+  "name": "Chrono Pendulum \"Charge\"",
+  "route": {
+    "slug": "chrono-pendulum-charge",
+    "canonicalPath": "/database/relics/chrono-pendulum-charge"
+  },
+  "assets": {
+    "icon": "asset-relic-9077-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "Each card played grants [Arg1] Temporary {STR} and recovers [Arg2] HP. After dealing Active DMG, remove [Arg2] {STR} gained from this Relic. The Awakener gains 30 Aliemus for each enemy killed.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.024,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.008,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9065",
+  "name": "Chrono Pendulum \"Deepen\"",
+  "route": {
+    "slug": "chrono-pendulum-deepen",
+    "canonicalPath": "/database/relics/chrono-pendulum-deepen"
+  },
+  "assets": {
+    "icon": "asset-relic-9065-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "Crit. Rate +25%; double the first DMG dealt each turn.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9072",
+  "name": "Chrono Pendulum \"Submersion\"",
+  "route": {
+    "slug": "chrono-pendulum-submersion",
+    "canonicalPath": "/database/relics/chrono-pendulum-submersion"
+  },
+  "assets": {
+    "icon": "asset-relic-9072-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "After triggering an Exalt, the next command card played takes effect twice.",
+  "descriptionArgs": {}
+}

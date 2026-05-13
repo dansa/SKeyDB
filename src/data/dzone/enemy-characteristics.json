@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 3,
+  "scope": "enemy-characteristics",
+  "recordCount": 19,
+  "records": [
+    {
+      "id": "enemy-characteristic-0013",
+      "name": "Aequor",
+      "descriptionTemplate": "They come from the depths of the sea."
+    },
+    {
+      "id": "enemy-characteristic-0008",
+      "name": "Awakener",
+      "descriptionTemplate": "Powerful individuals Awakened by the Silver. Be cautious if you encounter them."
+    },
+    {
+      "id": "enemy-characteristic-0006",
+      "name": "Beast",
+      "descriptionTemplate": "Maddened beings that destroy all mercilessly."
+    },
+    {
+      "id": "enemy-characteristic-0012",
+      "name": "Caro",
+      "descriptionTemplate": "They are composed of aberrant flesh."
+    },
+    {
+      "id": "enemy-characteristic-0002",
+      "name": "Committee",
+      "descriptionTemplate": "Avoid these monochrome hunters, for their purge is ruthless."
+    },
+    {
+      "id": "enemy-characteristic-0017",
+      "name": "Departed",
+      "descriptionTemplate": "A creature formed after the body dies, with the soul residing elsewhere. Beings that devour both flesh and soul share similar traits."
+    },
+    {
+      "id": "enemy-characteristic-0001",
+      "name": "Dominion",
+      "descriptionTemplate": "Immensely powerful foes that spawn anomalies."
+    },
+    {
+      "id": "enemy-characteristic-0010",
+      "name": "Empty Shell",
+      "descriptionTemplate": "Though weak on their own, they are frightening when they gather together."
+    },
+    {
+      "id": "enemy-characteristic-0015",
+      "name": "Humanoid",
+      "descriptionTemplate": "Still retaining an obvious human shape, it could have been a familiar face from the street corner."
+    },
+    {
+      "id": "enemy-characteristic-0009",
+      "name": "Insectoid",
+      "descriptionTemplate": "They are insectoid beings, embodying a single, shared hive mind."
+    },
+    {
+      "id": "enemy-characteristic-0011",
+      "name": "Kynde",
+      "descriptionTemplate": "The elites among the enemies, a single one is a formidable challenge."
+    },
+    {
+      "id": "enemy-characteristic-0016",
+      "name": "Lightbearers",
+      "descriptionTemplate": "A group of mad devotees who see the black dissolution as the light of salvation."
+    },
+    {
+      "id": "enemy-characteristic-0007",
+      "name": "Mutant",
+      "descriptionTemplate": "Mysterious creatures born from the Dissolution, their very structures are a complete unknown."
+    },
+    {
+      "id": "enemy-characteristic-0018",
+      "name": "Plant",
+      "descriptionTemplate": "They are no longer content to simply nourish the world."
+    },
+    {
+      "id": "enemy-characteristic-0019",
+      "name": "Primordial Shadow",
+      "descriptionTemplate": "Upon encountering them, move away quickly. This is the only advice you'll get."
+    },
+    {
+      "id": "enemy-characteristic-0003",
+      "name": "Sculptors",
+      "descriptionTemplate": "A group of cruel scientists and radical fusion experimenters."
+    },
+    {
+      "id": "enemy-characteristic-0005",
+      "name": "Snowfield",
+      "descriptionTemplate": "They originate from the icy wilderness."
+    },
+    {
+      "id": "enemy-characteristic-0014",
+      "name": "Ultra",
+      "descriptionTemplate": "They bear the marks of dimension traversal."
+    },
+    {
+      "id": "enemy-characteristic-0004",
+      "name": "Unknown",
+      "descriptionTemplate": "Unseen by humanity, these mysterious creatures defy any scientific classification."
+    }
+  ]
+}

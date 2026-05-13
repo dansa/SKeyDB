@@ -39,6 +39,17 @@ describe('getRelics', () => {
     })
   })
 
+  it('enforces unique relic ids at the public relic boundary', () => {
+    const relics = getRelics()
+    const uniqueRelicIds = new Set(relics.map((relic) => relic.id))
+
+    expect(uniqueRelicIds.size).toBe(relics.length)
+  })
+
+  it('resolves public relic icon assets at the boundary', () => {
+    expect(getRelics().every((relic) => relic.assetId.trim().length > 0)).toBe(true)
+  })
+
   it('does not leak unresolved source placeholders or wrappers into generated descriptions', () => {
     const relics = getRelics()
     expect(relics.every((relic) => !relic.description.includes('[Arg'))).toBe(true)
@@ -51,6 +62,12 @@ describe('getPortraitRelics', () => {
     const portraits = getPortraitRelics()
     expect(portraits.length).toBeGreaterThan(0)
     expect(portraits.every((relic) => relic.ownerAwakenerId.trim().length > 0)).toBe(true)
+  })
+
+  it('does not silently drop portrait relics missing owner links', () => {
+    expect(getRelics().filter((relic) => relic.kind === 'PORTRAIT')).toHaveLength(
+      getPortraitRelics().length,
+    )
   })
 
   it('enforces unique public awakener ids for portrait relic linkage', () => {

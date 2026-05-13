@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9024",
+  "name": "Nettle Vest+",
+  "route": {
+    "slug": "nettle-vest",
+    "canonicalPath": "/database/relics/nettle-vest"
+  },
+  "assets": {
+    "icon": "asset-relic-9024-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Gain [Arg1] {Counter} at the start of battle, effects are doubled in Boss Battles.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.4,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Unable to identify the liquid that has been contaminated."
+}

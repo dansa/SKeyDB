@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9051",
+  "name": "Relic of the Past+",
+  "route": {
+    "slug": "relic-of-the-past",
+    "canonicalPath": "/database/relics/relic-of-the-past"
+  },
+  "assets": {
+    "icon": "asset-relic-9051-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At the start of battle and after triggering {Death Resistance}, gain [Arg1] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1000"
+    }
+  },
+  "lore": "An offering once presented."
+}

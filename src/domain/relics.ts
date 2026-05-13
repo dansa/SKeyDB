@@ -15,9 +15,18 @@ const nonEmptyStringSchema = z.string().trim().min(1)
 
 const publicRelicRecordSchema = z
   .object({
+    kind: z.literal('relic').optional(),
     id: z.string().regex(/^relic-\d{4}$/),
     relicType: nonEmptyStringSchema.optional(),
+    rarity: nonEmptyStringSchema.optional(),
     name: nonEmptyStringSchema,
+    route: z
+      .object({
+        slug: nonEmptyStringSchema,
+        canonicalPath: nonEmptyStringSchema,
+      })
+      .optional(),
+    assets: z.record(nonEmptyStringSchema, nonEmptyStringSchema).default({}),
     ownerAwakenerId: z
       .string()
       .regex(/^awakener-\d{4}$/)
@@ -25,8 +34,11 @@ const publicRelicRecordSchema = z
     ownerAwakenerName: nonEmptyStringSchema.optional(),
     descriptionTemplate: z.string().default(''),
     descriptionArgs: publicDescriptionArgsSchema.default({}),
+    lore: z.string().optional(),
   })
   .loose()
+
+export type PublicRelicRecord = z.infer<typeof publicRelicRecordSchema>
 
 function renderRelicDescription(
   descriptionTemplate: string,
@@ -68,9 +80,17 @@ const parsedRelics: Relic[] = getPublicCatalogRecords('relics')
     }),
   )
 
-const portraitRelics: PortraitRelic[] = parsedRelics.filter(
-  (relic): relic is PortraitRelic => relic.kind === 'PORTRAIT' && !!relic.ownerAwakenerId,
-)
+function assertPortraitRelicsHaveOwnerAwakenerIds(relics: Relic[]) {
+  for (const relic of relics) {
+    if (relic.kind === 'PORTRAIT' && !relic.ownerAwakenerId) {
+      throw new Error(`Portrait relic "${relic.id}" is missing ownerAwakenerId.`)
+    }
+  }
+}
+
+function isPortraitRelic(relic: Relic): relic is PortraitRelic {
+  return relic.kind === 'PORTRAIT' && Boolean(relic.ownerAwakenerId)
+}
 
 function buildPortraitRelicByAwakenerIdMap(relics: PortraitRelic[]): Map<string, PortraitRelic> {
   const byAwakenerId = new Map<string, PortraitRelic>()
@@ -86,6 +106,18 @@ function buildPortraitRelicByAwakenerIdMap(relics: PortraitRelic[]): Map<string,
   return byAwakenerId
 }
 
+function buildRelicByIdMap(relics: Relic[]): Map<string, Relic> {
+  const byId = new Map<string, Relic>()
+  for (const relic of relics) {
+    const existing = byId.get(relic.id)
+    if (existing) {
+      throw new Error(`Duplicate relic id "${relic.id}".`)
+    }
+    byId.set(relic.id, relic)
+  }
+  return byId
+}
+
 function assertPortraitRelicsLinkedToKnownAwakeners(relics: PortraitRelic[]) {
   const knownAwakenerIds = new Set(getAwakeners().map((awakener) => awakener.id))
 
@@ -98,7 +130,10 @@ function assertPortraitRelicsLinkedToKnownAwakeners(relics: PortraitRelic[]) {
   }
 }
 
+assertPortraitRelicsHaveOwnerAwakenerIds(parsedRelics)
+const portraitRelics: PortraitRelic[] = parsedRelics.filter(isPortraitRelic)
 assertPortraitRelicsLinkedToKnownAwakeners(portraitRelics)
+const relicById = buildRelicByIdMap(parsedRelics)
 const portraitRelicByAwakenerId = buildPortraitRelicByAwakenerIdMap(portraitRelics)
 const relicDescriptionByIdPromises = new Map<string, Promise<string>>()
 
@@ -109,6 +144,10 @@ function getRelicPublicAssetId(relicId: string): string {
 
 export function getRelics(): Relic[] {
   return parsedRelics
+}
+
+export function getRelicById(relicId: string): Relic | undefined {
+  return relicById.get(relicId)
 }
 
 export function getPortraitRelics(): PortraitRelic[] {
@@ -124,17 +163,21 @@ export function getPortraitRelicByAwakenerId(
   return portraitRelicByAwakenerId.get(awakenerId)
 }
 
+export async function loadRelicRecordById(relicId: string): Promise<PublicRelicRecord | undefined> {
+  const record = await loadPublicRecord('relics', relicId)
+  return record ? publicRelicRecordSchema.parse(record) : undefined
+}
+
 export async function loadRelicDescriptionById(relicId: string): Promise<string> {
   const cachedPromise = relicDescriptionByIdPromises.get(relicId)
   if (cachedPromise) {
     return cachedPromise
   }
 
-  const descriptionPromise = loadPublicRecord('relics', relicId).then((record) => {
-    if (!record) {
+  const descriptionPromise = loadRelicRecordById(relicId).then((relic) => {
+    if (!relic) {
       return ''
     }
-    const relic = publicRelicRecordSchema.parse(record)
     return renderRelicDescription(relic.descriptionTemplate, relic.descriptionArgs)
   })
   relicDescriptionByIdPromises.set(relicId, descriptionPromise)

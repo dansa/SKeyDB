@@ -1451,6 +1451,11 @@
     ],
     "rarity": [
       {
+        "value": "SR",
+        "label": "SR",
+        "order": 1000
+      },
+      {
         "value": "SSR",
         "label": "SSR",
         "order": 1000

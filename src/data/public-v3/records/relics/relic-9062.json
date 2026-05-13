@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9062",
+  "name": "Rhind Papyrus+",
+  "route": {
+    "slug": "rhind-papyrus",
+    "canonicalPath": "/database/relics/rhind-papyrus"
+  },
+  "assets": {
+    "icon": "asset-relic-9062-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the battle. After applying {Poison} for the first time each turn, draw [Arg2] {plural:[Arg2]|card|cards}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "Here is the question: 10 monks share 6 loaves of bread. How much does each monk receive?"
+}

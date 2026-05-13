@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9073",
+  "name": "Chrono Pendulum \"Occult\"",
+  "route": {
+    "slug": "chrono-pendulum-occult",
+    "canonicalPath": "/database/relics/chrono-pendulum-occult"
+  },
+  "assets": {
+    "icon": "asset-relic-9073-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Shield. At turn start, for every 3 remaining Shield, gain 1 point of Temporary {STR} and {Tentacle DMG}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.015,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  }
+}

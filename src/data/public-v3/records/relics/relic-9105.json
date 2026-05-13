@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9105",
+  "name": "Neurotoxin+",
+  "route": {
+    "slug": "neurotoxin",
+    "canonicalPath": "/database/relics/neurotoxin"
+  },
+  "assets": {
+    "icon": "asset-relic-9105-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At the start of battle, Inflict [Arg1] {Poison} to all enemies, with double effect in Boss Battles.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.8,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Extract, Refine."
+}

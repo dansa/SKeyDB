@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9087",
+  "name": "Chrono Pendulum \"Surge\"",
+  "route": {
+    "slug": "chrono-pendulum-surge",
+    "canonicalPath": "/database/relics/chrono-pendulum-surge"
+  },
+  "assets": {
+    "icon": "asset-relic-9087-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "Crit. Rate and Crit. DMG +100%. For each instance of DMG/{Tentacle DMG} dealt this turn, all Awakeners' Crit. Rate and Crit. DMG -10%, up to 50%. {Poison} and {Counter} DMG +10%, up to 50%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "11"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9029",
+  "name": "Rusty Lancet+",
+  "route": {
+    "slug": "rusty-lancet",
+    "canonicalPath": "/database/relics/rusty-lancet"
+  },
+  "assets": {
+    "icon": "asset-relic-9029-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "\"Strike\" additionally deals DMG equal to [Arg1]% of the Awakener's ATK 2 more times, triggering up to 3 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "60",
+      "suffix": "%"
+    }
+  },
+  "lore": "Not suitable for cutting live tissue."
+}

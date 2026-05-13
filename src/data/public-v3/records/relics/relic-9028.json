@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9028",
+  "name": "Truth Unbound+",
+  "route": {
+    "slug": "truth-unbound",
+    "canonicalPath": "/database/relics/truth-unbound"
+  },
+  "assets": {
+    "icon": "asset-relic-9028-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakeners' {Counter} and Relics' {Counter} DMG +[Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "200"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "20",
+      "suffix": "%"
+    }
+  },
+  "lore": "It conveys countless secrets, whether spoken actively or passively."
+}

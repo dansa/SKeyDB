@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9071",
+  "name": "Chrono Pendulum \"Unclean\"",
+  "route": {
+    "slug": "chrono-pendulum-unclean",
+    "canonicalPath": "/database/relics/chrono-pendulum-unclean"
+  },
+  "assets": {
+    "icon": "asset-relic-9071-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "When picked up, the team's Realm Mastery increases to 150% of its base value. After playing the {ordinal:5th} Command Card each turn, all Awakeners gain 20 Aliemus.",
+  "descriptionArgs": {}
+}

@@ -24,6 +24,7 @@ type TestPopoverProps = Omit<ComponentProps<typeof DatabaseReferencePopover>, 'e
   description: string
   keywordFooterText?: string
   attributeRows?: DatabaseReferencePopoverEntry['attributeRows']
+  thumbnail?: DatabaseReferencePopoverEntry['thumbnail']
   detailLinks?: DatabaseReferencePopoverEntry['detailLinks']
   navigationLabel?: DatabaseReferencePopoverEntry['navigationLabel']
   descriptionRecord?: DatabaseReferencePopoverEntry['record']
@@ -45,6 +46,7 @@ function TestDatabaseReferencePopover({
   description,
   keywordFooterText,
   attributeRows,
+  thumbnail,
   detailLinks,
   navigationLabel,
   descriptionRecord,
@@ -60,6 +62,7 @@ function TestDatabaseReferencePopover({
     description,
     keywordFooterText,
     attributeRows,
+    thumbnail,
     detailLinks,
     navigationLabel,
     record: descriptionRecord,
@@ -129,7 +132,29 @@ describe('DatabaseReferencePopover', () => {
     expect(screen.getByText('E1')).toBeInTheDocument()
     expect(screen.getByText('E3')).toBeInTheDocument()
     expect(screen.getByText('T1')).toBeInTheDocument()
-    expect(screen.getByRole('button', {name: 'Close skill popover'})).toHaveClass('h-8', 'w-8')
+    expect(screen.getByRole('button', {name: 'Close database popover'})).toHaveClass('h-8', 'w-8')
+  })
+
+  it('renders lore markup and optional thumbnails in the popover header', () => {
+    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
+
+    render(
+      <TestDatabaseReferencePopover
+        description='Monster text'
+        label='D-Zone Monster'
+        name='@2 Blesser'
+        onClose={vi.fn()}
+        onMechanicTokenClick={vi.fn()}
+        onSkillTokenClick={vi.fn()}
+        referenceLayer={buildReferenceLayer()}
+        stats={null}
+        thumbnail={{src: '/monster-preview/blesser.webp', alt: 'Blesser'}}
+      />,
+    )
+
+    expect(screen.getByText('Blesser')).toBeInTheDocument()
+    expect(screen.getByLabelText('Redacted lore text')).toBeInTheDocument()
+    expect(screen.getByAltText('Blesser')).toHaveAttribute('src', '/monster-preview/blesser.webp')
   })
 
   it('uses the same faint golden border for top and nested popovers', () => {

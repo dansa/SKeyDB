@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9040",
+  "name": "Salvific Limb",
+  "route": {
+    "slug": "salvific-limb",
+    "canonicalPath": "/database/relics/salvific-limb"
+  },
+  "assets": {
+    "icon": "asset-relic-9040-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At the start of the battle, inflict [Arg1] {Poison} on all enemies. At turn start, remove [Arg2]% of the enemy's {Poison} and inflict [Arg3]% of the removed amount as {Bleeding}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.8,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "500",
+      "suffix": "%"
+    }
+  },
+  "lore": "A sacred part. Even when separated from the body, its warmth can still be felt."
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9023",
+  "name": "Mute Jukebox+",
+  "route": {
+    "slug": "mute-jukebox",
+    "canonicalPath": "/database/relics/mute-jukebox"
+  },
+  "assets": {
+    "icon": "asset-relic-9023-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After playing a Non-Derived Command Card, shuffle [Arg1] temporary copies of that card with its Arithmetica Cost reduced by 2 into the Draw Pile. Cooldown: 3 turns.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "His voice faded into the wind."
+}

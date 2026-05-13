@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9058",
+  "name": "Stellar Brew+",
+  "route": {
+    "slug": "stellar-brew",
+    "canonicalPath": "/database/relics/stellar-brew"
+  },
+  "assets": {
+    "icon": "asset-relic-9058-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After every 5 uses of \"Exalt,\" the next [Arg1] Non-Derived Command Card takes effect 1 more time.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "Wandering among the stars."
+}

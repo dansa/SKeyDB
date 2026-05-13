@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9009",
+  "name": "Laurel Cufflinks+",
+  "route": {
+    "slug": "laurel-cufflinks",
+    "canonicalPath": "/database/relics/laurel-cufflinks"
+  },
+  "assets": {
+    "icon": "asset-relic-9009-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After using {Keyflare Rouse}, all Awakeners gain [Arg1] Aliemus and [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "20"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "Silver cufflinks engraved with osmanthus leaf patterns. Finely crafted and gleaming, they once embodied the friendship of two children."
+}

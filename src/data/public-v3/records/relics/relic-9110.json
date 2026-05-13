@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9110",
+  "name": "Jade Imprint",
+  "route": {
+    "slug": "jade-imprint",
+    "canonicalPath": "/database/relics/jade-imprint"
+  },
+  "assets": {
+    "icon": "asset-relic-9110-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After using {Keyflare Rouse}, choose [Arg1] Non-Derived Command Card corresponding to that Awakener in your hand. {Exhaust} that card to place [Arg2] Base Copy of it into the Draw Pile, hand, and Discard Pile respectively.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "This imprint endures for millennia without decay."
+}

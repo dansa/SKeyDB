@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9090",
+  "name": "Chrono Pendulum \"Breeding\"",
+  "route": {
+    "slug": "chrono-pendulum-breeding",
+    "canonicalPath": "/database/relics/chrono-pendulum-breeding"
+  },
+  "assets": {
+    "icon": "asset-relic-9090-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "When picked up, add {Retain} to all Command Cards. At turn end, if the number of cards in hand is greater than or equal to 5, reduce the Arithmetica Cost of 3 random cards in hand by 1; otherwise, draw 3 cards.",
+  "descriptionArgs": {}
+}

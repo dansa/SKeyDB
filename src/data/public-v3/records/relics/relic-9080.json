@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9080",
+  "name": "Chrono Pendulum \"Reciprocate\"",
+  "route": {
+    "slug": "chrono-pendulum-reciprocate",
+    "canonicalPath": "/database/relics/chrono-pendulum-reciprocate"
+  },
+  "assets": {
+    "icon": "asset-relic-9080-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "After Exalt, draw 1 card. For each discarded card, all Awakeners gain 3 Aliemus, up to 15 per turn.",
+  "descriptionArgs": {}
+}

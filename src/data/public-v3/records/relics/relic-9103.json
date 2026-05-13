@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9103",
+  "name": "Arcana Archive+",
+  "route": {
+    "slug": "arcana-archive",
+    "canonicalPath": "/database/relics/arcana-archive"
+  },
+  "assets": {
+    "icon": "asset-relic-9103-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "When you play 2 consecutive cards with higher Arithmetica Cost than the previous one, gain [Arg1] {Counter}, up to 3 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.12,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "The flow of fate."
+}

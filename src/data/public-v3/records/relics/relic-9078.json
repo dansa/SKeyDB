@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9078",
+  "name": "Chrono Pendulum \"Proliferate\"",
+  "route": {
+    "slug": "chrono-pendulum-proliferate",
+    "canonicalPath": "/database/relics/chrono-pendulum-proliferate"
+  },
+  "assets": {
+    "icon": "asset-relic-9078-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "After releasing an Exalt, apply [Arg1] {Poison} to a random enemy. For each Command Card played, gain [Arg2] Temporary {Counter}. Every 4 turns, deal DMG to all enemies equal to the sum of their {Poison} stacks and your {Counter} stacks.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.1,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.03,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  }
+}

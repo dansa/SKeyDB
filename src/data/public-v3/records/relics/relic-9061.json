@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9061",
+  "name": "Easter Moment+",
+  "route": {
+    "slug": "easter-moment",
+    "canonicalPath": "/database/relics/easter-moment"
+  },
+  "assets": {
+    "icon": "asset-relic-9061-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At turn start, all Awakeners whose Aliemus is insufficient to unleash Exalt gain [Arg1] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "20"
+    }
+  },
+  "lore": "Enjoy the fun, but do not eat."
+}

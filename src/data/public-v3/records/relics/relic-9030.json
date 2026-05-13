@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9030",
+  "name": "Guardian Hand+",
+  "route": {
+    "slug": "guardian-hand",
+    "canonicalPath": "/database/relics/guardian-hand"
+  },
+  "assets": {
+    "icon": "asset-relic-9030-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At turn start, if HP is below 25%, gain [Arg1] Shield.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.25,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "The hand that prays, the fist that remains steadfast."
+}

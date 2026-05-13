@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9052",
+  "name": "Harford's Elixir+",
+  "route": {
+    "slug": "harfords-elixir",
+    "canonicalPath": "/database/relics/harfords-elixir"
+  },
+  "assets": {
+    "icon": "asset-relic-9052-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "The first \"Posse\" each turn grants Temporary DMG Amplification +[Arg1]%, with stronger effects at lower HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    }
+  },
+  "lore": "Medicine of unknown composition. It is said that the renowned violinist Eric has a particular fondness for it."
+}

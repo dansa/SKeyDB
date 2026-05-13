@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9032",
+  "name": "Veil of the Nameless Deity+",
+  "route": {
+    "slug": "veil-of-the-nameless-deity",
+    "canonicalPath": "/database/relics/veil-of-the-nameless-deity"
+  },
+  "assets": {
+    "icon": "asset-relic-9032-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "All Awakeners gain [Arg1] Aliemus when 4 different Awakeners' Command Cards are played consecutively in the same turn. 3-turn cooldown.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "40"
+    }
+  },
+  "lore": "Do not look directly at the gods."
+}

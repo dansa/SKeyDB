@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9043",
+  "name": "\"Chaos Ring\"",
+  "route": {
+    "slug": "chaos-ring",
+    "canonicalPath": "/database/relics/chaos-ring"
+  },
+  "assets": {
+    "icon": "asset-relic-9043-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SSR",
+  "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Chaos} Awakener gains its \"Dimensional Image\". For each {Chaos} Awakener in the team, increase the Relic Capacity by +1.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30"
+    }
+  },
+  "lore": "Chaos is formless, chaos is intangible; chaos has merged into all things."
+}

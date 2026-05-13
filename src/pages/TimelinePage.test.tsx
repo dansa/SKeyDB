@@ -1,4 +1,5 @@
 import {fireEvent, render, screen} from '@testing-library/react'
+import {MemoryRouter} from 'react-router-dom'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import {TimelinePage} from './TimelinePage'
@@ -77,6 +78,14 @@ vi.mock('./timeline/EventList', () => ({
   EventList: () => <div>No events to display.</div>,
 }))
 
+function renderTimelinePage() {
+  return render(
+    <MemoryRouter>
+      <TimelinePage />
+    </MemoryRouter>,
+  )
+}
+
 afterEach(() => {
   vi.useRealTimers()
   detailStoreMocks.openDetail.mockReset()
@@ -88,7 +97,7 @@ describe('TimelinePage', () => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
 
-    render(<TimelinePage />)
+    renderTimelinePage()
 
     expect(screen.getByText('Active Banner')).toBeInTheDocument()
     expect(screen.getByText('Upcoming banners')).toBeInTheDocument()
@@ -104,7 +113,7 @@ describe('TimelinePage', () => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
 
-    render(<TimelinePage />)
+    renderTimelinePage()
 
     fireEvent.click(screen.getByRole('button', {name: 'Active Banner'}))
 
@@ -119,7 +128,7 @@ describe('TimelinePage', () => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
 
-    render(<TimelinePage />)
+    renderTimelinePage()
 
     expect(screen.getByRole('group', {name: 'Timeline content'})).toBeInTheDocument()
     expect(screen.getByText('No events to display.')).toBeInTheDocument()
@@ -143,7 +152,7 @@ describe('TimelinePage', () => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
 
-    render(<TimelinePage />)
+    renderTimelinePage()
 
     expect(screen.queryByRole('button', {name: 'Live'})).not.toBeInTheDocument()
     expect(screen.queryByRole('button', {name: 'Upcoming'})).not.toBeInTheDocument()
@@ -155,11 +164,12 @@ describe('TimelinePage', () => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
 
-    render(<TimelinePage />)
+    renderTimelinePage()
 
-    expect(screen.getByRole('complementary', {name: 'D-Zone season'})).toHaveTextContent(
-      'Caro Ring',
-    )
+    const seasonLink = screen.getByRole('link', {name: 'D-Zone season'})
+    expect(seasonLink).toHaveAttribute('href', '/d-zone')
+    expect(seasonLink).toHaveTextContent('Current Season')
+    expect(seasonLink).toHaveTextContent('Caro Ring')
     expect(screen.getByText('Ends in 2d 0h')).toBeInTheDocument()
   })
 })

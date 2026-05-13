@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9010",
+  "name": "Forgotten Loom+",
+  "route": {
+    "slug": "forgotten-loom",
+    "canonicalPath": "/database/relics/forgotten-loom"
+  },
+  "assets": {
+    "icon": "asset-relic-9010-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakener and Relic {Poison} effects are +[Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "200"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "20",
+      "suffix": "%"
+    }
+  },
+  "lore": "A kind mother mends the wounds of the heart."
+}

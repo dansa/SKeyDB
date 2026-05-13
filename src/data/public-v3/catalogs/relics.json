@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "relics",
   "kind": "relic",
-  "recordCount": 56,
+  "recordCount": 167,
   "records": [
     {
       "kind": "relic",
@@ -955,6 +955,1492 @@
       "ownerAwakenerId": "awakener-0056",
       "ownerAwakenerName": "Arachne",
       "relicType": "DIMENSIONAL_IMAGE"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9001",
+      "name": "Preserved Butterfly+",
+      "route": {
+        "slug": "preserved-butterfly",
+        "canonicalPath": "/database/relics/preserved-butterfly"
+      },
+      "assets": {
+        "icon": "asset-relic-9001-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9002",
+      "name": "Rite of Spring+",
+      "route": {
+        "slug": "rite-of-spring",
+        "canonicalPath": "/database/relics/rite-of-spring"
+      },
+      "assets": {
+        "icon": "asset-relic-9002-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9003",
+      "name": "Filigree Agate+",
+      "route": {
+        "slug": "filigree-agate",
+        "canonicalPath": "/database/relics/filigree-agate"
+      },
+      "assets": {
+        "icon": "asset-relic-9003-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9004",
+      "name": "\"Aequor Ring\"",
+      "route": {
+        "slug": "aequor-ring",
+        "canonicalPath": "/database/relics/aequor-ring"
+      },
+      "assets": {
+        "icon": "asset-relic-9004-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9005",
+      "name": "Lucky Rabbit's Paw+",
+      "route": {
+        "slug": "lucky-rabbits-paw",
+        "canonicalPath": "/database/relics/lucky-rabbits-paw"
+      },
+      "assets": {
+        "icon": "asset-relic-9005-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9006",
+      "name": "Doctor's Case+",
+      "route": {
+        "slug": "doctors-case",
+        "canonicalPath": "/database/relics/doctors-case"
+      },
+      "assets": {
+        "icon": "asset-relic-9006-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9007",
+      "name": "Iron Lock+",
+      "route": {
+        "slug": "iron-lock",
+        "canonicalPath": "/database/relics/iron-lock"
+      },
+      "assets": {
+        "icon": "asset-relic-9007-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9008",
+      "name": "Uncanny Salve+",
+      "route": {
+        "slug": "uncanny-salve",
+        "canonicalPath": "/database/relics/uncanny-salve"
+      },
+      "assets": {
+        "icon": "asset-relic-9008-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9009",
+      "name": "Laurel Cufflinks+",
+      "route": {
+        "slug": "laurel-cufflinks",
+        "canonicalPath": "/database/relics/laurel-cufflinks"
+      },
+      "assets": {
+        "icon": "asset-relic-9009-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9010",
+      "name": "Forgotten Loom+",
+      "route": {
+        "slug": "forgotten-loom",
+        "canonicalPath": "/database/relics/forgotten-loom"
+      },
+      "assets": {
+        "icon": "asset-relic-9010-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9011",
+      "name": "Forgotten Prelude+",
+      "route": {
+        "slug": "forgotten-prelude",
+        "canonicalPath": "/database/relics/forgotten-prelude"
+      },
+      "assets": {
+        "icon": "asset-relic-9011-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9012",
+      "name": "Brand-New Wallet+",
+      "route": {
+        "slug": "brand-new-wallet",
+        "canonicalPath": "/database/relics/brand-new-wallet"
+      },
+      "assets": {
+        "icon": "asset-relic-9012-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9013",
+      "name": "True North Compass+",
+      "route": {
+        "slug": "true-north-compass",
+        "canonicalPath": "/database/relics/true-north-compass"
+      },
+      "assets": {
+        "icon": "asset-relic-9013-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9014",
+      "name": "Proto Battery+",
+      "route": {
+        "slug": "proto-battery",
+        "canonicalPath": "/database/relics/proto-battery"
+      },
+      "assets": {
+        "icon": "asset-relic-9014-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9015",
+      "name": "Our Home+",
+      "route": {
+        "slug": "our-home",
+        "canonicalPath": "/database/relics/our-home"
+      },
+      "assets": {
+        "icon": "asset-relic-9015-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9016",
+      "name": "Crimson Brooch+",
+      "route": {
+        "slug": "crimson-brooch",
+        "canonicalPath": "/database/relics/crimson-brooch"
+      },
+      "assets": {
+        "icon": "asset-relic-9016-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9017",
+      "name": "Malignant Child+",
+      "route": {
+        "slug": "malignant-child",
+        "canonicalPath": "/database/relics/malignant-child"
+      },
+      "assets": {
+        "icon": "asset-relic-9017-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9018",
+      "name": "Blessed Blood+",
+      "route": {
+        "slug": "blessed-blood",
+        "canonicalPath": "/database/relics/blessed-blood"
+      },
+      "assets": {
+        "icon": "asset-relic-9018-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9019",
+      "name": "Ritual Dagger+",
+      "route": {
+        "slug": "ritual-dagger",
+        "canonicalPath": "/database/relics/ritual-dagger"
+      },
+      "assets": {
+        "icon": "asset-relic-9019-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9020",
+      "name": "Arcana Relic+",
+      "route": {
+        "slug": "arcana-relic",
+        "canonicalPath": "/database/relics/arcana-relic"
+      },
+      "assets": {
+        "icon": "asset-relic-9020-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9021",
+      "name": "Celestial Astrolabe+",
+      "route": {
+        "slug": "celestial-astrolabe",
+        "canonicalPath": "/database/relics/celestial-astrolabe"
+      },
+      "assets": {
+        "icon": "asset-relic-9021-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9022",
+      "name": "Vitality Injection+",
+      "route": {
+        "slug": "vitality-injection",
+        "canonicalPath": "/database/relics/vitality-injection"
+      },
+      "assets": {
+        "icon": "asset-relic-9022-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9023",
+      "name": "Mute Jukebox+",
+      "route": {
+        "slug": "mute-jukebox",
+        "canonicalPath": "/database/relics/mute-jukebox"
+      },
+      "assets": {
+        "icon": "asset-relic-9023-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9024",
+      "name": "Nettle Vest+",
+      "route": {
+        "slug": "nettle-vest",
+        "canonicalPath": "/database/relics/nettle-vest"
+      },
+      "assets": {
+        "icon": "asset-relic-9024-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9025",
+      "name": "Highest Honor+",
+      "route": {
+        "slug": "highest-honor",
+        "canonicalPath": "/database/relics/highest-honor"
+      },
+      "assets": {
+        "icon": "asset-relic-9025-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9026",
+      "name": "Arcane Gloves+",
+      "route": {
+        "slug": "arcane-gloves",
+        "canonicalPath": "/database/relics/arcane-gloves"
+      },
+      "assets": {
+        "icon": "asset-relic-9026-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9027",
+      "name": "Mythag Insignia+",
+      "route": {
+        "slug": "mythag-insignia",
+        "canonicalPath": "/database/relics/mythag-insignia"
+      },
+      "assets": {
+        "icon": "asset-relic-9027-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9028",
+      "name": "Truth Unbound+",
+      "route": {
+        "slug": "truth-unbound",
+        "canonicalPath": "/database/relics/truth-unbound"
+      },
+      "assets": {
+        "icon": "asset-relic-9028-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9029",
+      "name": "Rusty Lancet+",
+      "route": {
+        "slug": "rusty-lancet",
+        "canonicalPath": "/database/relics/rusty-lancet"
+      },
+      "assets": {
+        "icon": "asset-relic-9029-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9030",
+      "name": "Guardian Hand+",
+      "route": {
+        "slug": "guardian-hand",
+        "canonicalPath": "/database/relics/guardian-hand"
+      },
+      "assets": {
+        "icon": "asset-relic-9030-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9031",
+      "name": "Vision Corrector+",
+      "route": {
+        "slug": "vision-corrector",
+        "canonicalPath": "/database/relics/vision-corrector"
+      },
+      "assets": {
+        "icon": "asset-relic-9031-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9032",
+      "name": "Veil of the Nameless Deity+",
+      "route": {
+        "slug": "veil-of-the-nameless-deity",
+        "canonicalPath": "/database/relics/veil-of-the-nameless-deity"
+      },
+      "assets": {
+        "icon": "asset-relic-9032-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9033",
+      "name": "Deceased's Chrono+",
+      "route": {
+        "slug": "deceaseds-chrono",
+        "canonicalPath": "/database/relics/deceaseds-chrono"
+      },
+      "assets": {
+        "icon": "asset-relic-9033-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9034",
+      "name": "Eerie Hook",
+      "route": {
+        "slug": "eerie-hook",
+        "canonicalPath": "/database/relics/eerie-hook"
+      },
+      "assets": {
+        "icon": "asset-relic-9034-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9035",
+      "name": "Wailing Bell",
+      "route": {
+        "slug": "wailing-bell",
+        "canonicalPath": "/database/relics/wailing-bell"
+      },
+      "assets": {
+        "icon": "asset-relic-9035-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9036",
+      "name": "Pathwalker's Remains",
+      "route": {
+        "slug": "pathwalkers-remains",
+        "canonicalPath": "/database/relics/pathwalkers-remains"
+      },
+      "assets": {
+        "icon": "asset-relic-9036-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9037",
+      "name": "Trickster's Hat",
+      "route": {
+        "slug": "tricksters-hat",
+        "canonicalPath": "/database/relics/tricksters-hat"
+      },
+      "assets": {
+        "icon": "asset-relic-9037-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9038",
+      "name": "Omen Ritual Bird",
+      "route": {
+        "slug": "omen-ritual-bird",
+        "canonicalPath": "/database/relics/omen-ritual-bird"
+      },
+      "assets": {
+        "icon": "asset-relic-9038-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9039",
+      "name": "Black Candle",
+      "route": {
+        "slug": "black-candle",
+        "canonicalPath": "/database/relics/black-candle"
+      },
+      "assets": {
+        "icon": "asset-relic-9039-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9040",
+      "name": "Salvific Limb",
+      "route": {
+        "slug": "salvific-limb",
+        "canonicalPath": "/database/relics/salvific-limb"
+      },
+      "assets": {
+        "icon": "asset-relic-9040-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9041",
+      "name": "\"Caro Ring\"",
+      "route": {
+        "slug": "caro-ring",
+        "canonicalPath": "/database/relics/caro-ring"
+      },
+      "assets": {
+        "icon": "asset-relic-9041-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9042",
+      "name": "\"Ultra Ring\"",
+      "route": {
+        "slug": "ultra-ring",
+        "canonicalPath": "/database/relics/ultra-ring"
+      },
+      "assets": {
+        "icon": "asset-relic-9042-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9043",
+      "name": "\"Chaos Ring\"",
+      "route": {
+        "slug": "chaos-ring",
+        "canonicalPath": "/database/relics/chaos-ring"
+      },
+      "assets": {
+        "icon": "asset-relic-9043-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9044",
+      "name": "Kaleidoscope+",
+      "route": {
+        "slug": "kaleidoscope",
+        "canonicalPath": "/database/relics/kaleidoscope"
+      },
+      "assets": {
+        "icon": "asset-relic-9044-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9045",
+      "name": "Fleeting Beauty+",
+      "route": {
+        "slug": "fleeting-beauty",
+        "canonicalPath": "/database/relics/fleeting-beauty"
+      },
+      "assets": {
+        "icon": "asset-relic-9045-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9046",
+      "name": "Prophet's Lamp+",
+      "route": {
+        "slug": "prophets-lamp",
+        "canonicalPath": "/database/relics/prophets-lamp"
+      },
+      "assets": {
+        "icon": "asset-relic-9046-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9047",
+      "name": "In Twilight+",
+      "route": {
+        "slug": "in-twilight",
+        "canonicalPath": "/database/relics/in-twilight"
+      },
+      "assets": {
+        "icon": "asset-relic-9047-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9048",
+      "name": "Serpent's Husk+",
+      "route": {
+        "slug": "serpents-husk",
+        "canonicalPath": "/database/relics/serpents-husk"
+      },
+      "assets": {
+        "icon": "asset-relic-9048-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9049",
+      "name": "Safe Passage+",
+      "route": {
+        "slug": "safe-passage",
+        "canonicalPath": "/database/relics/safe-passage"
+      },
+      "assets": {
+        "icon": "asset-relic-9049-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9050",
+      "name": "Solar Disc+",
+      "route": {
+        "slug": "solar-disc",
+        "canonicalPath": "/database/relics/solar-disc"
+      },
+      "assets": {
+        "icon": "asset-relic-9050-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9051",
+      "name": "Relic of the Past+",
+      "route": {
+        "slug": "relic-of-the-past",
+        "canonicalPath": "/database/relics/relic-of-the-past"
+      },
+      "assets": {
+        "icon": "asset-relic-9051-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9052",
+      "name": "Harford's Elixir+",
+      "route": {
+        "slug": "harfords-elixir",
+        "canonicalPath": "/database/relics/harfords-elixir"
+      },
+      "assets": {
+        "icon": "asset-relic-9052-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9053",
+      "name": "Hierophant's Staff+",
+      "route": {
+        "slug": "hierophants-staff",
+        "canonicalPath": "/database/relics/hierophants-staff"
+      },
+      "assets": {
+        "icon": "asset-relic-9053-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9054",
+      "name": "Silent Prelude+",
+      "route": {
+        "slug": "silent-prelude",
+        "canonicalPath": "/database/relics/silent-prelude"
+      },
+      "assets": {
+        "icon": "asset-relic-9054-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9055",
+      "name": "Putney Morning Post+",
+      "route": {
+        "slug": "putney-morning-post",
+        "canonicalPath": "/database/relics/putney-morning-post"
+      },
+      "assets": {
+        "icon": "asset-relic-9055-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9056",
+      "name": "Tiny Music Box+",
+      "route": {
+        "slug": "tiny-music-box",
+        "canonicalPath": "/database/relics/tiny-music-box"
+      },
+      "assets": {
+        "icon": "asset-relic-9056-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9057",
+      "name": "Silver Tongue+",
+      "route": {
+        "slug": "silver-tongue",
+        "canonicalPath": "/database/relics/silver-tongue"
+      },
+      "assets": {
+        "icon": "asset-relic-9057-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9058",
+      "name": "Stellar Brew+",
+      "route": {
+        "slug": "stellar-brew",
+        "canonicalPath": "/database/relics/stellar-brew"
+      },
+      "assets": {
+        "icon": "asset-relic-9058-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9059",
+      "name": "Forsaken Blood+",
+      "route": {
+        "slug": "forsaken-blood",
+        "canonicalPath": "/database/relics/forsaken-blood"
+      },
+      "assets": {
+        "icon": "asset-relic-9059-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9060",
+      "name": "Voyager's Parasol+",
+      "route": {
+        "slug": "voyagers-parasol",
+        "canonicalPath": "/database/relics/voyagers-parasol"
+      },
+      "assets": {
+        "icon": "asset-relic-9060-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9061",
+      "name": "Easter Moment+",
+      "route": {
+        "slug": "easter-moment",
+        "canonicalPath": "/database/relics/easter-moment"
+      },
+      "assets": {
+        "icon": "asset-relic-9061-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9062",
+      "name": "Rhind Papyrus+",
+      "route": {
+        "slug": "rhind-papyrus",
+        "canonicalPath": "/database/relics/rhind-papyrus"
+      },
+      "assets": {
+        "icon": "asset-relic-9062-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9063",
+      "name": "Foreign Stamp Album+",
+      "route": {
+        "slug": "foreign-stamp-album",
+        "canonicalPath": "/database/relics/foreign-stamp-album"
+      },
+      "assets": {
+        "icon": "asset-relic-9063-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9064",
+      "name": "Tilted Scales+",
+      "route": {
+        "slug": "tilted-scales",
+        "canonicalPath": "/database/relics/tilted-scales"
+      },
+      "assets": {
+        "icon": "asset-relic-9064-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9065",
+      "name": "Chrono Pendulum \"Deepen\"",
+      "route": {
+        "slug": "chrono-pendulum-deepen",
+        "canonicalPath": "/database/relics/chrono-pendulum-deepen"
+      },
+      "assets": {
+        "icon": "asset-relic-9065-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9066",
+      "name": "Chrono Pendulum \"Wings\"",
+      "route": {
+        "slug": "chrono-pendulum-wings",
+        "canonicalPath": "/database/relics/chrono-pendulum-wings"
+      },
+      "assets": {
+        "icon": "asset-relic-9066-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9067",
+      "name": "Chrono Pendulum \"Slumber\"",
+      "route": {
+        "slug": "chrono-pendulum-slumber",
+        "canonicalPath": "/database/relics/chrono-pendulum-slumber"
+      },
+      "assets": {
+        "icon": "asset-relic-9067-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9068",
+      "name": "Chrono Pendulum \"Eye\"",
+      "route": {
+        "slug": "chrono-pendulum-eye",
+        "canonicalPath": "/database/relics/chrono-pendulum-eye"
+      },
+      "assets": {
+        "icon": "asset-relic-9068-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9069",
+      "name": "Chrono Pendulum \"Moon\"",
+      "route": {
+        "slug": "chrono-pendulum-moon",
+        "canonicalPath": "/database/relics/chrono-pendulum-moon"
+      },
+      "assets": {
+        "icon": "asset-relic-9069-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9070",
+      "name": "Chrono Pendulum \"Stars\"",
+      "route": {
+        "slug": "chrono-pendulum-stars",
+        "canonicalPath": "/database/relics/chrono-pendulum-stars"
+      },
+      "assets": {
+        "icon": "asset-relic-9070-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9071",
+      "name": "Chrono Pendulum \"Unclean\"",
+      "route": {
+        "slug": "chrono-pendulum-unclean",
+        "canonicalPath": "/database/relics/chrono-pendulum-unclean"
+      },
+      "assets": {
+        "icon": "asset-relic-9071-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9072",
+      "name": "Chrono Pendulum \"Submersion\"",
+      "route": {
+        "slug": "chrono-pendulum-submersion",
+        "canonicalPath": "/database/relics/chrono-pendulum-submersion"
+      },
+      "assets": {
+        "icon": "asset-relic-9072-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9073",
+      "name": "Chrono Pendulum \"Occult\"",
+      "route": {
+        "slug": "chrono-pendulum-occult",
+        "canonicalPath": "/database/relics/chrono-pendulum-occult"
+      },
+      "assets": {
+        "icon": "asset-relic-9073-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9074",
+      "name": "Chrono Pendulum \"Buildup\"",
+      "route": {
+        "slug": "chrono-pendulum-buildup",
+        "canonicalPath": "/database/relics/chrono-pendulum-buildup"
+      },
+      "assets": {
+        "icon": "asset-relic-9074-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9075",
+      "name": "Chrono Pendulum \"Trance\"",
+      "route": {
+        "slug": "chrono-pendulum-trance",
+        "canonicalPath": "/database/relics/chrono-pendulum-trance"
+      },
+      "assets": {
+        "icon": "asset-relic-9075-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9076",
+      "name": "Chrono Pendulum \"Stubborn\"",
+      "route": {
+        "slug": "chrono-pendulum-stubborn",
+        "canonicalPath": "/database/relics/chrono-pendulum-stubborn"
+      },
+      "assets": {
+        "icon": "asset-relic-9076-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9077",
+      "name": "Chrono Pendulum \"Charge\"",
+      "route": {
+        "slug": "chrono-pendulum-charge",
+        "canonicalPath": "/database/relics/chrono-pendulum-charge"
+      },
+      "assets": {
+        "icon": "asset-relic-9077-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9078",
+      "name": "Chrono Pendulum \"Proliferate\"",
+      "route": {
+        "slug": "chrono-pendulum-proliferate",
+        "canonicalPath": "/database/relics/chrono-pendulum-proliferate"
+      },
+      "assets": {
+        "icon": "asset-relic-9078-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9079",
+      "name": "Chrono Pendulum \"End\"",
+      "route": {
+        "slug": "chrono-pendulum-end",
+        "canonicalPath": "/database/relics/chrono-pendulum-end"
+      },
+      "assets": {
+        "icon": "asset-relic-9079-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9080",
+      "name": "Chrono Pendulum \"Reciprocate\"",
+      "route": {
+        "slug": "chrono-pendulum-reciprocate",
+        "canonicalPath": "/database/relics/chrono-pendulum-reciprocate"
+      },
+      "assets": {
+        "icon": "asset-relic-9080-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9081",
+      "name": "Chrono Pendulum \"Sleepless\"",
+      "route": {
+        "slug": "chrono-pendulum-sleepless",
+        "canonicalPath": "/database/relics/chrono-pendulum-sleepless"
+      },
+      "assets": {
+        "icon": "asset-relic-9081-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9082",
+      "name": "Chrono Pendulum \"Illusion\"",
+      "route": {
+        "slug": "chrono-pendulum-illusion",
+        "canonicalPath": "/database/relics/chrono-pendulum-illusion"
+      },
+      "assets": {
+        "icon": "asset-relic-9082-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9083",
+      "name": "Chrono Pendulum \"Startle\"",
+      "route": {
+        "slug": "chrono-pendulum-startle",
+        "canonicalPath": "/database/relics/chrono-pendulum-startle"
+      },
+      "assets": {
+        "icon": "asset-relic-9083-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9084",
+      "name": "Chrono Pendulum \"Twins\"",
+      "route": {
+        "slug": "chrono-pendulum-twins",
+        "canonicalPath": "/database/relics/chrono-pendulum-twins"
+      },
+      "assets": {
+        "icon": "asset-relic-9084-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9085",
+      "name": "Chrono Pendulum \"Benediction\"",
+      "route": {
+        "slug": "chrono-pendulum-benediction",
+        "canonicalPath": "/database/relics/chrono-pendulum-benediction"
+      },
+      "assets": {
+        "icon": "asset-relic-9085-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9086",
+      "name": "Chrono Pendulum \"Balance\"",
+      "route": {
+        "slug": "chrono-pendulum-balance",
+        "canonicalPath": "/database/relics/chrono-pendulum-balance"
+      },
+      "assets": {
+        "icon": "asset-relic-9086-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9087",
+      "name": "Chrono Pendulum \"Surge\"",
+      "route": {
+        "slug": "chrono-pendulum-surge",
+        "canonicalPath": "/database/relics/chrono-pendulum-surge"
+      },
+      "assets": {
+        "icon": "asset-relic-9087-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9088",
+      "name": "Chrono Pendulum \"Evolution\"",
+      "route": {
+        "slug": "chrono-pendulum-evolution",
+        "canonicalPath": "/database/relics/chrono-pendulum-evolution"
+      },
+      "assets": {
+        "icon": "asset-relic-9088-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9089",
+      "name": "Chrono Pendulum \"Projection\"",
+      "route": {
+        "slug": "chrono-pendulum-projection",
+        "canonicalPath": "/database/relics/chrono-pendulum-projection"
+      },
+      "assets": {
+        "icon": "asset-relic-9089-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9090",
+      "name": "Chrono Pendulum \"Breeding\"",
+      "route": {
+        "slug": "chrono-pendulum-breeding",
+        "canonicalPath": "/database/relics/chrono-pendulum-breeding"
+      },
+      "assets": {
+        "icon": "asset-relic-9090-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9091",
+      "name": "Chrono Pendulum \"Plague\"",
+      "route": {
+        "slug": "chrono-pendulum-plague",
+        "canonicalPath": "/database/relics/chrono-pendulum-plague"
+      },
+      "assets": {
+        "icon": "asset-relic-9091-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9092",
+      "name": "Chrono Pendulum \"Treasure α\"",
+      "route": {
+        "slug": "chrono-pendulum-treasure-alpha",
+        "canonicalPath": "/database/relics/chrono-pendulum-treasure-alpha"
+      },
+      "assets": {
+        "icon": "asset-relic-9092-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9093",
+      "name": "Chrono Pendulum \"Treasure β\"",
+      "route": {
+        "slug": "chrono-pendulum-treasure-beta",
+        "canonicalPath": "/database/relics/chrono-pendulum-treasure-beta"
+      },
+      "assets": {
+        "icon": "asset-relic-9093-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9094",
+      "name": "Chrono Pendulum \"Treasure δ\"",
+      "route": {
+        "slug": "chrono-pendulum-treasure-delta",
+        "canonicalPath": "/database/relics/chrono-pendulum-treasure-delta"
+      },
+      "assets": {
+        "icon": "asset-relic-9094-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9095",
+      "name": "Chrono Pendulum \"Treasure γ\"",
+      "route": {
+        "slug": "chrono-pendulum-treasure-gamma",
+        "canonicalPath": "/database/relics/chrono-pendulum-treasure-gamma"
+      },
+      "assets": {
+        "icon": "asset-relic-9095-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9096",
+      "name": "Chrono Pendulum \"Treasure ε\"",
+      "route": {
+        "slug": "chrono-pendulum-treasure-epsilon",
+        "canonicalPath": "/database/relics/chrono-pendulum-treasure-epsilon"
+      },
+      "assets": {
+        "icon": "asset-relic-9096-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9097",
+      "name": "Chrono Pendulum \"Wish β\"",
+      "route": {
+        "slug": "chrono-pendulum-wish-beta",
+        "canonicalPath": "/database/relics/chrono-pendulum-wish-beta"
+      },
+      "assets": {
+        "icon": "asset-relic-9097-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9098",
+      "name": "Chrono Pendulum \"Wish α\"",
+      "route": {
+        "slug": "chrono-pendulum-wish-alpha",
+        "canonicalPath": "/database/relics/chrono-pendulum-wish-alpha"
+      },
+      "assets": {
+        "icon": "asset-relic-9098-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9099",
+      "name": "Chrono Pendulum \"Wish ε\"",
+      "route": {
+        "slug": "chrono-pendulum-wish-epsilon",
+        "canonicalPath": "/database/relics/chrono-pendulum-wish-epsilon"
+      },
+      "assets": {
+        "icon": "asset-relic-9099-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9100",
+      "name": "Chrono Pendulum \"Wish γ\"",
+      "route": {
+        "slug": "chrono-pendulum-wish-gamma",
+        "canonicalPath": "/database/relics/chrono-pendulum-wish-gamma"
+      },
+      "assets": {
+        "icon": "asset-relic-9100-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9101",
+      "name": "Chrono Pendulum \"Wish δ\"",
+      "route": {
+        "slug": "chrono-pendulum-wish-delta",
+        "canonicalPath": "/database/relics/chrono-pendulum-wish-delta"
+      },
+      "assets": {
+        "icon": "asset-relic-9101-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9102",
+      "name": "Other Tongue+",
+      "route": {
+        "slug": "other-tongue",
+        "canonicalPath": "/database/relics/other-tongue"
+      },
+      "assets": {
+        "icon": "asset-relic-9102-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9103",
+      "name": "Arcana Archive+",
+      "route": {
+        "slug": "arcana-archive",
+        "canonicalPath": "/database/relics/arcana-archive"
+      },
+      "assets": {
+        "icon": "asset-relic-9103-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9104",
+      "name": "Differential Engine+",
+      "route": {
+        "slug": "differential-engine",
+        "canonicalPath": "/database/relics/differential-engine"
+      },
+      "assets": {
+        "icon": "asset-relic-9104-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9105",
+      "name": "Neurotoxin+",
+      "route": {
+        "slug": "neurotoxin",
+        "canonicalPath": "/database/relics/neurotoxin"
+      },
+      "assets": {
+        "icon": "asset-relic-9105-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9106",
+      "name": "Weeping Pipe+",
+      "route": {
+        "slug": "weeping-pipe",
+        "canonicalPath": "/database/relics/weeping-pipe"
+      },
+      "assets": {
+        "icon": "asset-relic-9106-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9107",
+      "name": "Radium Jawbone+",
+      "route": {
+        "slug": "radium-jawbone",
+        "canonicalPath": "/database/relics/radium-jawbone"
+      },
+      "assets": {
+        "icon": "asset-relic-9107-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9108",
+      "name": "Chrono Pendulum \"Wish η\"",
+      "route": {
+        "slug": "chrono-pendulum-wish-eta",
+        "canonicalPath": "/database/relics/chrono-pendulum-wish-eta"
+      },
+      "assets": {
+        "icon": "asset-relic-9108-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9109",
+      "name": "Chrono Pendulum \"Wish ζ\"",
+      "route": {
+        "slug": "chrono-pendulum-wish-zeta",
+        "canonicalPath": "/database/relics/chrono-pendulum-wish-zeta"
+      },
+      "assets": {
+        "icon": "asset-relic-9109-icon"
+      },
+      "rarity": "SR",
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9110",
+      "name": "Jade Imprint",
+      "route": {
+        "slug": "jade-imprint",
+        "canonicalPath": "/database/relics/jade-imprint"
+      },
+      "assets": {
+        "icon": "asset-relic-9110-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-9111",
+      "name": "Mind Engraving",
+      "route": {
+        "slug": "mind-engraving",
+        "canonicalPath": "/database/relics/mind-engraving"
+      },
+      "assets": {
+        "icon": "asset-relic-9111-icon"
+      },
+      "relicType": "D-Zone Initial Relic"
     }
   ]
 }

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9033",
+  "name": "Deceased's Chrono+",
+  "route": {
+    "slug": "deceaseds-chrono",
+    "canonicalPath": "/database/relics/deceaseds-chrono"
+  },
+  "assets": {
+    "icon": "asset-relic-9033-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "When \"Defense\" is played, gain [Arg1] Temporary {Counter}, triggers a maximum of 3 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.35,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Carrying memories and sorrow, moving toward the unknown."
+}

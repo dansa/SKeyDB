@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9015",
+  "name": "Our Home+",
+  "route": {
+    "slug": "our-home",
+    "canonicalPath": "/database/relics/our-home"
+  },
+  "assets": {
+    "icon": "asset-relic-9015-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {STR} and [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.05,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "They were together in the past, and they will always be together in the future. They are a close-knit and loving family."
+}

@@ -1,0 +1,1075 @@
+.d-zone-page {
+  --d-zone-border: oklch(72% 0.07 84 / 0.34);
+  --d-zone-border-muted: oklch(58% 0.04 232 / 0.34);
+  --d-zone-panel: oklch(10.5% 0.025 252 / 0.76);
+  --d-zone-panel-strong: oklch(8.5% 0.024 252 / 0.9);
+  --d-zone-gold: oklch(78% 0.1 84);
+  --d-zone-low-radius: 3px;
+  --d-zone-compact-icon-size: 2.35rem;
+  --d-zone-wave-header-height: 2rem;
+  --d-zone-wave-toggle-size: 2rem;
+  --d-zone-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --d-zone-motion-ease-soft: cubic-bezier(0.25, 1, 0.5, 1);
+  --d-zone-realm-header-core: oklch(46% 0.06 220 / 0.13);
+  --d-zone-realm-header-aura: oklch(45% 0.08 205 / 0.14);
+  --d-zone-realm-header-wash: oklch(18% 0.04 245 / 0.28);
+  --d-zone-realm-emblem-glow: oklch(72% 0.08 205 / 0.16);
+  --d-zone-realm-emblem-glow-strong: oklch(72% 0.08 205 / 0.1);
+  position: relative;
+}
+
+.d-zone-season-inspector--realm-aequor {
+  --d-zone-realm-header-core: oklch(52% 0.09 215 / 0.13);
+  --d-zone-realm-header-aura: oklch(50% 0.1 205 / 0.1);
+  --d-zone-realm-header-wash: oklch(20% 0.05 225 / 0.24);
+  --d-zone-realm-emblem-glow: oklch(73% 0.11 205 / 0.16);
+  --d-zone-realm-emblem-glow-strong: oklch(73% 0.11 205 / 0.1);
+}
+
+.d-zone-season-inspector--realm-caro {
+  --d-zone-realm-header-core: oklch(50% 0.12 28 / 0.11);
+  --d-zone-realm-header-aura: oklch(55% 0.11 18 / 0.09);
+  --d-zone-realm-header-wash: oklch(19% 0.055 18 / 0.2);
+  --d-zone-realm-emblem-glow: oklch(66% 0.13 28 / 0.16);
+  --d-zone-realm-emblem-glow-strong: oklch(66% 0.13 28 / 0.1);
+}
+
+.d-zone-season-inspector--realm-chaos {
+  --d-zone-realm-header-core: oklch(61% 0.1 88 / 0.1);
+  --d-zone-realm-header-aura: oklch(57% 0.11 96 / 0.08);
+  --d-zone-realm-header-wash: oklch(22% 0.045 92 / 0.19);
+  --d-zone-realm-emblem-glow: oklch(77% 0.1 88 / 0.16);
+  --d-zone-realm-emblem-glow-strong: oklch(77% 0.1 88 / 0.1);
+}
+
+.d-zone-season-inspector--realm-ultra {
+  --d-zone-realm-header-core: oklch(55% 0.12 305 / 0.12);
+  --d-zone-realm-header-aura: oklch(50% 0.12 292 / 0.1);
+  --d-zone-realm-header-wash: oklch(19% 0.055 286 / 0.21);
+  --d-zone-realm-emblem-glow: oklch(72% 0.12 305 / 0.16);
+  --d-zone-realm-emblem-glow-strong: oklch(72% 0.12 305 / 0.1);
+}
+
+.d-zone-season-inspector--realm-legacy {
+  --d-zone-realm-header-core: oklch(47% 0.045 245 / 0.13);
+  --d-zone-realm-header-aura: oklch(59% 0.065 78 / 0.09);
+  --d-zone-realm-header-wash: oklch(18% 0.035 248 / 0.28);
+  --d-zone-realm-emblem-glow: oklch(70% 0.05 82 / 0.16);
+  --d-zone-realm-emblem-glow-strong: oklch(70% 0.05 82 / 0.1);
+}
+
+.d-zone-hero-copy {
+  position: relative;
+  min-width: 0;
+}
+
+.d-zone-wave-kicker {
+  margin: 0;
+  color: oklch(77% 0.058 84 / 0.76);
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.d-zone-hero-title {
+  max-width: 19ch;
+  color: oklch(95% 0.034 84);
+  font-size: 1.95rem;
+  line-height: 1.02;
+  text-shadow: 0 0.1rem 0.9rem oklch(3% 0.02 252 / 0.8);
+}
+
+.d-zone-hero-meta {
+  margin-top: 0.7rem;
+  color: oklch(77% 0.032 250 / 0.86);
+  font-size: 0.84rem;
+  font-weight: 650;
+}
+
+.d-zone-hero-description {
+  max-width: 47rem;
+  margin-top: 0.9rem;
+  color: oklch(75% 0.024 250 / 0.84);
+  font-family: 'Droid Serif', Georgia, serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.28;
+}
+
+.d-zone-history-cta {
+  display: inline-flex;
+  min-height: 2.1rem;
+  align-items: center;
+  border: 1px solid oklch(76% 0.08 84 / 0.42);
+  margin-top: 1rem;
+  background: oklch(13% 0.032 246 / 0.7);
+  color: oklch(91% 0.05 84);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 0.46rem 0.8rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.d-zone-history-cta:hover,
+.d-zone-history-cta:focus-visible {
+  border-color: oklch(84% 0.11 84 / 0.72);
+  background: oklch(19% 0.04 246 / 0.78);
+  color: oklch(98% 0.04 84);
+}
+
+.d-zone-season-inspector {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--d-zone-border-muted);
+  border-radius: var(--d-zone-low-radius);
+  margin-top: 0.35rem;
+  background:
+    radial-gradient(circle at 82% 0%, oklch(40% 0.08 205 / 0.16), transparent 19rem),
+    linear-gradient(90deg, oklch(14% 0.03 246 / 0.32), transparent 58%), var(--d-zone-panel);
+  box-shadow: inset 0 1px 0 oklch(88% 0.04 84 / 0.05);
+}
+
+.d-zone-season-inspector--with-header {
+  margin-top: 0;
+}
+
+.d-zone-season-inspector-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  border-bottom: 1px solid oklch(58% 0.04 232 / 0.28);
+  background:
+    radial-gradient(circle at 86% 26%, var(--d-zone-realm-header-core), transparent 8rem),
+    radial-gradient(circle at 70% 42%, var(--d-zone-realm-header-aura), transparent 20rem),
+    linear-gradient(90deg, var(--d-zone-realm-header-wash), transparent 64%),
+    linear-gradient(180deg, oklch(12% 0.03 246 / 0.86), oklch(8% 0.025 252 / 0.62));
+  padding: 1rem 1.4rem;
+}
+
+.d-zone-season-inspector-copy {
+  max-width: 37rem;
+  min-width: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.d-zone-season-realm-emblem {
+  display: grid;
+  width: 94px;
+  height: 94px;
+  place-items: center;
+  margin-left: 1.2rem;
+  opacity: 0.74;
+}
+
+.d-zone-season-realm-emblem-image {
+  width: 100%;
+  height: 100%;
+  max-width: 94px;
+  max-height: 94px;
+  object-fit: contain;
+  filter: drop-shadow(0 0.55rem 1rem oklch(2% 0.018 252 / 0.8))
+    drop-shadow(0 0 0.95rem var(--d-zone-realm-emblem-glow))
+    drop-shadow(0 0 1.55rem var(--d-zone-realm-emblem-glow-strong));
+}
+
+.d-zone-season-number {
+  color: oklch(80% 0.08 84 / 0.88);
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.d-zone-season-title {
+  margin-top: 0.42rem;
+  color: oklch(96% 0.034 84);
+  font-size: 1.9rem;
+  line-height: 1.02;
+  text-shadow: 0 0.1rem 0.9rem oklch(3% 0.02 252 / 0.8);
+}
+
+.d-zone-stage-chips {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.d-zone-stage-chip-label {
+  border: 1px solid oklch(72% 0.07 84 / 0.24);
+  background: oklch(7% 0.022 252 / 0.58);
+  color: oklch(83% 0.05 84 / 0.92);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  padding: 0.32rem 0.44rem;
+  text-transform: uppercase;
+}
+
+.d-zone-season-realm-badge {
+  width: 1.55rem;
+  height: 1.55rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0.35rem 0.65rem oklch(2% 0.018 252 / 0.78));
+}
+
+.d-zone-season-realm-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.d-zone-season-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  color: oklch(78% 0.032 250 / 0.9);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.d-zone-season-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.d-zone-season-date-icon {
+  width: 0.8rem;
+  height: 0.8rem;
+  color: oklch(78% 0.04 84 / 0.78);
+}
+
+.d-zone-season-countdown {
+  color: oklch(78% 0.1 128 / 0.9);
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.d-zone-season-description {
+  max-width: 32rem;
+  margin-top: 0.88rem;
+  color: oklch(76% 0.024 250 / 0.86);
+  font-family: 'Droid Serif', Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.d-zone-season-wave-list {
+  display: grid;
+  gap: 0.48rem;
+  padding: 0.65rem;
+}
+
+.d-zone-wave-card {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: stretch;
+  border: 1px solid oklch(58% 0.04 232 / 0.34);
+  border-radius: var(--d-zone-low-radius);
+  background:
+    linear-gradient(90deg, oklch(14% 0.03 246 / 0.28), transparent 46%), oklch(8% 0.023 252 / 0.46);
+  transition:
+    border-color 180ms var(--d-zone-motion-ease-soft),
+    box-shadow 180ms var(--d-zone-motion-ease-soft),
+    background-color 180ms var(--d-zone-motion-ease-soft);
+}
+
+.d-zone-wave-card[data-wave-motion='opening'] {
+  border-color: oklch(72% 0.07 84 / 0.44);
+  box-shadow:
+    inset 0 1px 0 oklch(88% 0.04 84 / 0.06),
+    0 0.5rem 1.4rem oklch(2% 0.018 252 / 0.18);
+}
+
+.d-zone-wave-index {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  padding-top: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+.d-zone-wave-index-number {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  color: oklch(93% 0.06 84);
+  font-family: 'Droid Serif', Georgia, serif;
+  font-size: 1.18rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.d-zone-wave-content {
+  display: grid;
+  position: relative;
+  min-width: 0;
+  grid-template-columns: minmax(10.5rem, 12.2rem) minmax(0, 1fr);
+  grid-template-rows: var(--d-zone-wave-header-height) auto;
+  column-gap: 1rem;
+  padding: 0.5rem 0.85rem 0.9rem;
+}
+
+.d-zone-wave-heading {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  z-index: 2;
+  margin: 0;
+}
+
+.d-zone-wave-toggle {
+  display: grid;
+  width: var(--d-zone-wave-toggle-size);
+  height: var(--d-zone-wave-toggle-size);
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: oklch(82% 0.04 250 / 0.9);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.d-zone-wave-toggle:hover,
+.d-zone-wave-toggle:focus-visible {
+  color: oklch(92% 0.06 84);
+}
+
+.d-zone-wave-toggle:focus-visible {
+  outline: 2px solid oklch(84% 0.1 84 / 0.38);
+  outline-offset: 2px;
+}
+
+.d-zone-wave-toggle-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.d-zone-wave-toggle-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  transition: transform 170ms var(--d-zone-motion-ease);
+}
+
+.d-zone-wave-toggle[aria-expanded='true'] .d-zone-wave-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.d-zone-section-heading {
+  display: flex;
+  min-width: 0;
+  min-height: var(--d-zone-wave-header-height);
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0;
+  color: oklch(90% 0.036 84);
+}
+
+.d-zone-section-heading--relics {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.d-zone-section-heading--monsters {
+  grid-column: 2;
+  grid-row: 1;
+  padding-right: calc(var(--d-zone-wave-toggle-size) + 0.55rem);
+}
+
+.d-zone-section-heading h3 {
+  min-width: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.d-zone-section-mark {
+  width: 0.38rem;
+  height: 0.38rem;
+  background: oklch(78% 0.08 84 / 0.76);
+  transform: rotate(45deg);
+}
+
+.d-zone-wave-body {
+  display: contents;
+}
+
+.d-zone-wave-section {
+  min-width: 0;
+}
+
+.d-zone-wave-body .d-zone-wave-section:first-child {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.d-zone-wave-body .d-zone-wave-section:last-child {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.d-zone-relic-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.42rem;
+}
+
+.d-zone-wave-card--collapsed .d-zone-relic-list {
+  display: flex;
+  min-width: 0;
+  flex-wrap: nowrap;
+  gap: 0.42rem;
+  overflow: hidden;
+}
+
+.d-zone-relic-button {
+  display: grid;
+  min-width: 0;
+  min-height: 3.1rem;
+  grid-template-columns: 2.38rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid oklch(70% 0.05 84 / 0.26);
+  background: linear-gradient(90deg, oklch(6.5% 0.02 252 / 0.84), oklch(13% 0.035 246 / 0.56));
+  color: oklch(88% 0.028 250);
+  cursor: pointer;
+  padding: 0.38rem 0.48rem;
+  text-align: left;
+  transition:
+    border-color 150ms var(--d-zone-motion-ease-soft),
+    background-color 150ms var(--d-zone-motion-ease-soft);
+}
+
+.d-zone-relic-button > .d-zone-relic-icon-frame {
+  border: 0;
+  background: transparent;
+}
+
+.d-zone-relic-button--compact {
+  width: var(--d-zone-compact-icon-size);
+  min-height: var(--d-zone-compact-icon-size);
+  height: var(--d-zone-compact-icon-size);
+  flex: 0 0 var(--d-zone-compact-icon-size);
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 0.12rem;
+}
+
+.d-zone-relic-button:hover,
+.d-zone-relic-button:focus-visible {
+  border-color: oklch(82% 0.1 84 / 0.62);
+  background-color: oklch(16% 0.034 246 / 0.72);
+}
+
+.d-zone-relic-button:focus-visible,
+.d-zone-monster-tile:focus-visible {
+  outline: 2px solid oklch(84% 0.1 84 / 0.62);
+  outline-offset: -2px;
+}
+
+.d-zone-relic-icon-frame {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid oklch(70% 0.05 84 / 0.22);
+  background: oklch(4.5% 0.018 252 / 0.72);
+}
+
+.d-zone-relic-button--compact .d-zone-relic-icon-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: oklch(4.5% 0.018 252 / 0.86);
+}
+
+.d-zone-relic-icon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0.25rem 0.45rem oklch(2% 0.018 252 / 0.72));
+}
+
+.d-zone-relic-button--compact .d-zone-relic-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.d-zone-relic-icon-fallback,
+.d-zone-monster-art-fallback {
+  color: oklch(70% 0.03 250 / 0.72);
+  font-family: 'Droid Serif', Georgia, serif;
+  font-size: 1rem;
+}
+
+.d-zone-relic-copy {
+  min-width: 0;
+}
+
+.d-zone-relic-name {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  color: oklch(93% 0.034 84);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.12;
+  text-overflow: ellipsis;
+}
+
+.d-zone-monster-grid {
+  display: flex;
+  position: relative;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 0.36rem;
+}
+
+.d-zone-wave-card--collapsed .d-zone-monster-grid {
+  overflow: hidden;
+  flex-wrap: nowrap;
+  gap: 0.42rem;
+}
+
+.d-zone-wave-card--collapsed .d-zone-monster-grid--overflowing::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 2.2rem;
+  background: linear-gradient(90deg, transparent, oklch(8% 0.023 252 / 0.92));
+  content: '';
+  pointer-events: none;
+}
+
+.d-zone-monster-tile {
+  position: relative;
+  display: grid;
+  flex: 0 0 4.35rem;
+  min-width: 0;
+  gap: 0.24rem;
+  border: 1px solid oklch(60% 0.04 232 / 0.32);
+  background: var(--d-zone-panel-strong);
+  color: oklch(87% 0.028 250);
+  cursor: pointer;
+  padding: 0.16rem;
+  text-align: center;
+  transition: border-color 150ms var(--d-zone-motion-ease-soft);
+}
+
+.d-zone-monster-tile--compact {
+  flex: 0 0 var(--d-zone-compact-icon-size);
+  width: var(--d-zone-compact-icon-size);
+  height: var(--d-zone-compact-icon-size);
+  gap: 0;
+  padding: 0.12rem;
+}
+
+.d-zone-monster-tile--compact .d-zone-monster-art {
+  width: 150%;
+  height: 150%;
+}
+
+.d-zone-monster-tile--compact .d-zone-monster-badge {
+  display: none;
+}
+
+.d-zone-monster-tile:hover,
+.d-zone-monster-tile:focus-visible {
+  border-color: oklch(82% 0.1 84 / 0.58);
+}
+
+.d-zone-monster-art-frame {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 1;
+  place-items: center;
+  overflow: hidden;
+  background: oklch(5% 0.018 252 / 0.76);
+}
+
+.d-zone-monster-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.d-zone-monster-badge {
+  position: absolute;
+  top: 0.18rem;
+  left: 0.18rem;
+  z-index: 1;
+  overflow: hidden;
+  background: oklch(43% 0.1 28 / 0.92);
+  color: oklch(95% 0.034 84);
+  font-size: 0.54rem;
+  line-height: 1;
+  padding: 0.15rem 0.3rem;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+
+.d-zone-monster-name {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  color: oklch(78% 0.03 250 / 0.9);
+  font-size: 0.56rem;
+  font-weight: 750;
+  line-height: 1.08;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.d-zone-wave-card[data-wave-motion='opening']
+  .d-zone-relic-button:not(.d-zone-relic-button--compact),
+.d-zone-wave-card[data-wave-motion='opening']
+  .d-zone-monster-tile:not(.d-zone-monster-tile--compact) {
+  animation: d-zone-wave-item-in 180ms var(--d-zone-motion-ease-soft) both;
+}
+
+.d-zone-wave-card[data-wave-motion='opening'] .d-zone-relic-copy,
+.d-zone-wave-card[data-wave-motion='opening'] .d-zone-monster-name,
+.d-zone-wave-card[data-wave-motion='opening'] .d-zone-monster-badge {
+  animation: d-zone-wave-detail-in 160ms var(--d-zone-motion-ease-soft) both;
+}
+
+.d-zone-wave-card[data-wave-motion='opening'] .d-zone-monster-tile:nth-child(2) {
+  animation-delay: 12ms;
+}
+
+.d-zone-wave-card[data-wave-motion='opening'] .d-zone-monster-tile:nth-child(3) {
+  animation-delay: 24ms;
+}
+
+.d-zone-wave-card[data-wave-motion='opening'] .d-zone-monster-tile:nth-child(4) {
+  animation-delay: 36ms;
+}
+
+.d-zone-wave-card[data-wave-motion='opening'] .d-zone-monster-tile:nth-child(5) {
+  animation-delay: 48ms;
+}
+
+.d-zone-wave-card[data-wave-motion='opening'] .d-zone-monster-tile:nth-child(n + 6) {
+  animation-delay: 60ms;
+}
+
+@keyframes d-zone-wave-item-in {
+  from {
+    opacity: 0.78;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes d-zone-wave-detail-in {
+  from {
+    opacity: 0.28;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 42rem) {
+  .d-zone-hero-title {
+    font-size: 2.65rem;
+  }
+}
+
+@media (min-width: 72rem) {
+  .d-zone-hero-title {
+    font-size: 3rem;
+  }
+
+  .d-zone-wave-content {
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  .d-zone-wave-card--expanded .d-zone-monster-tile {
+    flex-basis: 4.55rem;
+  }
+}
+
+.d-zone-history-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-bottom: 1px solid oklch(58% 0.04 232 / 0.24);
+  margin: -0.25rem -2rem 1rem;
+  color: oklch(72% 0.032 250 / 0.9);
+  font-size: 0.78rem;
+  font-weight: 780;
+  padding: 0.72rem 2rem;
+}
+
+.d-zone-history-breadcrumbs a {
+  color: oklch(91% 0.034 84);
+  text-decoration: none;
+}
+
+.d-zone-history-breadcrumbs a:hover,
+.d-zone-history-breadcrumbs a:focus-visible {
+  color: oklch(98% 0.04 84);
+}
+
+.d-zone-history-breadcrumbs svg {
+  width: 0.56rem;
+  height: 0.56rem;
+  color: oklch(76% 0.05 84 / 0.64);
+}
+
+.d-zone-history-shell {
+  display: grid;
+  gap: 1.05rem;
+  align-items: start;
+}
+
+.d-zone-history-sidebar {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  position: sticky;
+  top: 1rem;
+  border: 1px solid var(--d-zone-border-muted);
+  border-radius: var(--d-zone-low-radius);
+  background:
+    radial-gradient(circle at 8% 0%, oklch(38% 0.08 205 / 0.12), transparent 18rem),
+    var(--d-zone-panel);
+  padding: 0.95rem 0 1rem 1rem;
+  max-height: calc(100vh - 2.25rem);
+  overflow: hidden;
+}
+
+.d-zone-history-heading-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  align-items: start;
+  padding-right: 1rem;
+}
+
+.d-zone-history-title-copy {
+  min-width: 0;
+}
+
+.d-zone-history-title {
+  color: oklch(96% 0.034 84);
+  font-size: 2rem;
+  line-height: 1.03;
+  text-shadow: 0 0.1rem 0.9rem oklch(3% 0.02 252 / 0.78);
+}
+
+.d-zone-history-title-copy p {
+  margin-top: 0.55rem;
+  color: oklch(77% 0.024 250 / 0.86);
+  font-size: 0.84rem;
+  line-height: 1.25;
+}
+
+.d-zone-history-count-card {
+  display: grid;
+  min-width: 6.2rem;
+  justify-items: center;
+  border: 1px solid oklch(70% 0.05 84 / 0.26);
+  border-radius: var(--d-zone-low-radius);
+  background: oklch(7% 0.022 252 / 0.62);
+  padding: 0.62rem 0.66rem;
+}
+
+.d-zone-history-count-icon {
+  width: 1rem;
+  height: 1rem;
+  color: oklch(80% 0.09 84 / 0.92);
+}
+
+.d-zone-history-count-value {
+  margin-top: 0.16rem;
+  color: oklch(88% 0.08 84);
+  font-family: 'Droid Serif', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.d-zone-history-count-label {
+  margin-top: 0.28rem;
+  color: oklch(75% 0.028 250 / 0.86);
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.d-zone-history-controls {
+  margin-top: 1.2rem;
+  padding-right: 1rem;
+}
+
+.d-zone-history-search,
+.d-zone-history-sort {
+  position: relative;
+  min-width: 0;
+}
+
+.d-zone-history-search input {
+  width: 100%;
+  min-height: 2.45rem;
+  border: 1px solid oklch(60% 0.04 232 / 0.36);
+  border-radius: var(--d-zone-low-radius);
+  background: oklch(6.5% 0.02 252 / 0.56);
+  color: oklch(88% 0.026 250);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.d-zone-history-search input {
+  padding: 0 0.75rem 0 2.1rem;
+}
+
+.d-zone-history-search input::placeholder {
+  color: oklch(66% 0.026 250 / 0.68);
+}
+
+.d-zone-history-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  width: 0.82rem;
+  height: 0.82rem;
+  color: oklch(70% 0.028 250 / 0.72);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.d-zone-history-sort select {
+  appearance: none;
+  padding: 0 1.8rem 0 0.72rem;
+}
+
+.d-zone-history-sort-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.72rem;
+  width: 0.62rem;
+  height: 0.62rem;
+  color: oklch(76% 0.05 84 / 0.78);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.d-zone-history-search input:focus-visible,
+.d-zone-history-sort select:focus-visible {
+  border-color: oklch(82% 0.1 84 / 0.62);
+  outline: 2px solid oklch(84% 0.1 84 / 0.22);
+  outline-offset: 2px;
+}
+
+.d-zone-history-year-list {
+  display: grid;
+  min-height: 0;
+  align-content: start;
+  gap: 0.4rem;
+  margin-top: 1.1rem;
+  overflow-y: auto;
+  padding-right: 0.7rem;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
+.d-zone-history-year-group {
+  border-bottom: 1px solid oklch(58% 0.04 232 / 0.22);
+  padding-bottom: 0.36rem;
+}
+
+.d-zone-history-year-button {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 0.7rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.65rem;
+  border: 0;
+  background: transparent;
+  color: oklch(92% 0.034 84);
+  cursor: pointer;
+  font-family: 'Droid Serif', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 0.55rem 0.18rem;
+  text-align: left;
+}
+
+.d-zone-history-year-chevron {
+  width: 0.62rem;
+  height: 0.62rem;
+  color: oklch(78% 0.07 84 / 0.78);
+  transition: transform 150ms ease;
+}
+
+.d-zone-history-year-button[aria-expanded='true'] .d-zone-history-year-chevron {
+  transform: rotate(90deg);
+}
+
+.d-zone-history-year-count {
+  min-width: 2rem;
+  border-radius: var(--d-zone-low-radius);
+  background: oklch(13% 0.032 246 / 0.78);
+  color: oklch(74% 0.032 250 / 0.88);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 850;
+  padding: 0.24rem 0.42rem;
+  text-align: center;
+}
+
+.d-zone-history-season-list {
+  display: grid;
+  gap: 0.42rem;
+  padding: 0.14rem 0.28rem 0.55rem;
+}
+
+.d-zone-history-season-button {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(6.8rem, 1fr) minmax(9.8rem, auto);
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid oklch(60% 0.04 232 / 0.32);
+  border-radius: var(--d-zone-low-radius);
+  background: oklch(10% 0.026 246 / 0.72);
+  color: oklch(77% 0.026 250 / 0.9);
+  cursor: pointer;
+  min-height: 2.5rem;
+  padding: 0.38rem 0.52rem;
+  text-align: left;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.d-zone-history-season-button:hover,
+.d-zone-history-season-button:focus-visible {
+  border-color: oklch(76% 0.07 84 / 0.5);
+  background: oklch(14% 0.034 246 / 0.76);
+}
+
+.d-zone-history-season-button:focus-visible {
+  outline: 2px solid oklch(84% 0.1 84 / 0.3);
+  outline-offset: 2px;
+}
+
+.d-zone-history-season-button--selected {
+  border-color: oklch(78% 0.1 84 / 0.72);
+  background: linear-gradient(90deg, oklch(43% 0.09 78 / 0.78), oklch(26% 0.06 70 / 0.76));
+  color: oklch(97% 0.036 84);
+  box-shadow: inset 0 0 0 1px oklch(88% 0.08 84 / 0.16);
+}
+
+.d-zone-history-season-period {
+  display: grid;
+  width: 2rem;
+  height: 1.55rem;
+  place-items: center;
+  border: 1px solid oklch(58% 0.04 232 / 0.28);
+  border-radius: 999px;
+  background: oklch(6% 0.02 252 / 0.52);
+  color: inherit;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.d-zone-history-season-name {
+  min-width: 0;
+  overflow: hidden;
+  color: oklch(96% 0.034 84);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.08;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.25rem;
+}
+
+.d-zone-history-season-realm-badge,
+.d-zone-history-season-realm-empty {
+  display: inline;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.d-zone-history-season-realm-badge {
+  object-fit: contain;
+  filter: drop-shadow(0 0.15rem 0.25rem oklch(2% 0.018 252 / 0.7));
+  transform: scale(0.8);
+}
+
+.d-zone-history-season-date {
+  min-width: 0;
+  overflow: hidden;
+  color: oklch(77% 0.026 250 / 0.7);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+
+@media (min-width: 90rem) {
+  .d-zone-history-shell {
+    grid-template-columns: minmax(16rem, 24rem) minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .d-zone-wave-card,
+  .d-zone-relic-button,
+  .d-zone-monster-tile,
+  .d-zone-wave-toggle-icon {
+    transition: none;
+  }
+
+  .d-zone-wave-card[data-wave-motion='opening'] .d-zone-relic-button,
+  .d-zone-wave-card[data-wave-motion='opening'] .d-zone-relic-copy,
+  .d-zone-wave-card[data-wave-motion='opening'] .d-zone-monster-tile,
+  .d-zone-wave-card[data-wave-motion='opening'] .d-zone-monster-name,
+  .d-zone-wave-card[data-wave-motion='opening'] .d-zone-monster-badge {
+    animation: none;
+  }
+}

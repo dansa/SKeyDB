@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9048",
+  "name": "Serpent's Husk+",
+  "route": {
+    "slug": "serpents-husk",
+    "canonicalPath": "/database/relics/serpents-husk"
+  },
+  "assets": {
+    "icon": "asset-relic-9048-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "All Awakeners' base effects for HP healing and Shield are +[Arg1]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "20",
+      "suffix": "%"
+    }
+  },
+  "lore": "Rebirth from self-mutilation"
+}

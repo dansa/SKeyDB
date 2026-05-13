@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9046",
+  "name": "Prophet's Lamp+",
+  "route": {
+    "slug": "prophets-lamp",
+    "canonicalPath": "/database/relics/prophets-lamp"
+  },
+  "assets": {
+    "icon": "asset-relic-9046-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After the first \"Posse\" in each turn, apply [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} to all enemies and gain [Arg2] {plural:[Arg2]|stack|stacks} of {Counter}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.15,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.075,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Grant your wish."
+}

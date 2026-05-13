@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9008",
+  "name": "Uncanny Salve+",
+  "route": {
+    "slug": "uncanny-salve",
+    "canonicalPath": "/database/relics/uncanny-salve"
+  },
+  "assets": {
+    "icon": "asset-relic-9008-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Use {Keyflare Rouse} to inflict [Arg1] {Poison} on all enemies and gain [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.6,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "Some kind of homemade ointment for external injuries. Do not use without a doctor's guidance."
+}

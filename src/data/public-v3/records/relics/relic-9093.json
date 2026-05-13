@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9093",
+  "name": "Chrono Pendulum \"Treasure β\"",
+  "route": {
+    "slug": "chrono-pendulum-treasure-beta",
+    "canonicalPath": "/database/relics/chrono-pendulum-treasure-beta"
+  },
+  "assets": {
+    "icon": "asset-relic-9093-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "At the start of the battle, Max Arithmetica +1 and {Rouse} all Awakeners. In the next 5 turns, gain 1 Relic at turn start: Honeyed Ink, Mute Jukebox, Stellar Brew, {Trickster's Hat}, Chrono Pendulum: Surge.",
+  "descriptionArgs": {}
+}

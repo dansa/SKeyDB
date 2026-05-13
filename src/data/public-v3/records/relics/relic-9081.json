@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9081",
+  "name": "Chrono Pendulum \"Sleepless\"",
+  "route": {
+    "slug": "chrono-pendulum-sleepless",
+    "canonicalPath": "/database/relics/chrono-pendulum-sleepless"
+  },
+  "assets": {
+    "icon": "asset-relic-9081-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "Draw 1 card each time Arithmetica is spent, up to 5 times per turn. Gain 2 Arithmetica whenever the deck is reshuffled.",
+  "descriptionArgs": {}
+}

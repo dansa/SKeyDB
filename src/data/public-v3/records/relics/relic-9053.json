@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9053",
+  "name": "Hierophant's Staff+",
+  "route": {
+    "slug": "hierophants-staff",
+    "canonicalPath": "/database/relics/hierophants-staff"
+  },
+  "assets": {
+    "icon": "asset-relic-9053-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of battle. Deal Active DMG and inflict [Arg2] {Poison} on all enemies, triggering up to 5 times per round.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Unsanctioned Piety"
+}

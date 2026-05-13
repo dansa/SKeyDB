@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9007",
+  "name": "Iron Lock+",
+  "route": {
+    "slug": "iron-lock",
+    "canonicalPath": "/database/relics/iron-lock"
+  },
+  "assets": {
+    "icon": "asset-relic-9007-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "After releasing \"Exalt, \" gain [Arg1] Temporary {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.0625,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "A thick and sturdy lock, difficult to open without a key. Of course, this is nothing for a master thief"
+}

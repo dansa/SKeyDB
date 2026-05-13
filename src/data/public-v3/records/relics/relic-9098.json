@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9098",
+  "name": "Chrono Pendulum \"Wish α\"",
+  "route": {
+    "slug": "chrono-pendulum-wish-alpha",
+    "canonicalPath": "/database/relics/chrono-pendulum-wish-alpha"
+  },
+  "assets": {
+    "icon": "asset-relic-9098-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SR",
+  "descriptionTemplate": "At the start of battle, increase Arithmetica Limit by 1 and {Rouse} all Awakeners. At the start of odd turns, {Discover} a Relic, up to five times.",
+  "descriptionArgs": {}
+}

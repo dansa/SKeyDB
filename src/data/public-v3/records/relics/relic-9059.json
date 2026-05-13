@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9059",
+  "name": "Forsaken Blood+",
+  "route": {
+    "slug": "forsaken-blood",
+    "canonicalPath": "/database/relics/forsaken-blood"
+  },
+  "assets": {
+    "icon": "asset-relic-9059-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "All Awakeners Base DMG +[Arg1]%. Immediately before unleashing Exalt, temporarily increase the Base DMG dealt by this Awakener by [Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "20",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    }
+  },
+  "lore": "Gradually melting away."
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9049",
+  "name": "Safe Passage+",
+  "route": {
+    "slug": "safe-passage",
+    "canonicalPath": "/database/relics/safe-passage"
+  },
+  "assets": {
+    "icon": "asset-relic-9049-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of battle. After taking damage, gain [Arg2] {Counter}, triggering a maximum of 3 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Looks like he didn't make it out either."
+}

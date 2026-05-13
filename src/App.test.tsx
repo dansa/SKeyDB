@@ -11,6 +11,8 @@ interface MatchMediaEntry {
 }
 
 const originalMatchMedia = window.matchMedia
+const DZONE_ROUTE_FIND_TIMEOUT_MS = 8000
+const DZONE_ROUTE_TEST_TIMEOUT_MS = 10000
 
 afterEach(() => {
   window.matchMedia = originalMatchMedia
@@ -80,6 +82,7 @@ describe('App shell', () => {
     expect(screen.getByRole('heading', {level: 1, name: /skeydb/i})).toBeInTheDocument()
     const desktopNav = screen.getByRole('navigation', {name: /primary navigation desktop/i})
     expect(within(desktopNav).getByRole('link', {name: /database/i})).toBeInTheDocument()
+    expect(within(desktopNav).getByRole('link', {name: /d-zone/i})).toBeInTheDocument()
     expect(within(desktopNav).getByRole('link', {name: /builder/i})).toBeInTheDocument()
     expect(within(desktopNav).getByRole('link', {name: /collection/i})).toBeInTheDocument()
   })
@@ -190,6 +193,61 @@ describe('App shell', () => {
       'site-mobile-menu-button--active-compact',
     )
   })
+
+  it('marks the mobile menu button when the active wide overflow link is hidden', () => {
+    mockMatchMedia({'(min-width: 30rem)': true, '(min-width: 40rem)': false})
+
+    render(
+      <MemoryRouter initialEntries={['/d-zone']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('button', {name: /more/i})).toHaveClass(
+      'site-mobile-menu-button--active-wide',
+    )
+  })
+
+  it(
+    'routes to the D-zone page',
+    async () => {
+      render(
+        <MemoryRouter initialEntries={['/d-zone']}>
+          <App />
+        </MemoryRouter>,
+      )
+
+      expect(
+        await screen.findByRole(
+          'heading',
+          {level: 1, name: 'D-Effect Zone'},
+          {timeout: DZONE_ROUTE_FIND_TIMEOUT_MS},
+        ),
+      ).toBeInTheDocument()
+      expect(screen.getByText(/Season 60 · May 11, 2026 - May 25, 2026/)).toBeInTheDocument()
+    },
+    DZONE_ROUTE_TEST_TIMEOUT_MS,
+  )
+
+  it(
+    'routes to the D-zone history page',
+    async () => {
+      render(
+        <MemoryRouter initialEntries={['/d-zone/history']}>
+          <App />
+        </MemoryRouter>,
+      )
+
+      expect(
+        await screen.findByRole(
+          'heading',
+          {level: 1, name: 'D-Zone Archive'},
+          {timeout: DZONE_ROUTE_FIND_TIMEOUT_MS},
+        ),
+      ).toBeInTheDocument()
+    },
+    DZONE_ROUTE_TEST_TIMEOUT_MS,
+  )
 })
 
 function getMobileOverflowNav(): HTMLElement {

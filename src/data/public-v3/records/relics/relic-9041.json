@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9041",
+  "name": "\"Caro Ring\"",
+  "route": {
+    "slug": "caro-ring",
+    "canonicalPath": "/database/relics/caro-ring"
+  },
+  "assets": {
+    "icon": "asset-relic-9041-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "rarity": "SSR",
+  "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Caro} Awakener gains its \"Dimensional Image\". For each {Caro} Awakener in the team, increase the Relic Capacity by +1.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30"
+    }
+  },
+  "lore": "From unyielding suffering, ascension has been achieved."
+}

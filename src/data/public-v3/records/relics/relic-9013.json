@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-9013",
+  "name": "True North Compass+",
+  "route": {
+    "slug": "true-north-compass",
+    "canonicalPath": "/database/relics/true-north-compass"
+  },
+  "assets": {
+    "icon": "asset-relic-9013-icon"
+  },
+  "relicType": "D-Zone Initial Relic",
+  "descriptionTemplate": "At turn start, draw [Arg1] {plural:[Arg1]|card|cards}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "lore": "The indication is not a direction, but rather a magnetic field."
+}
