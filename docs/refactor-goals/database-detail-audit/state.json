@@ -44,7 +44,7 @@
       "name": "src/features/database/**",
       "status": "mapped",
       "evidence": ["S1 database React scout"],
-      "next": "Implemented C1, C2, and C3; queued candidates C7 and C9."
+      "next": "Implemented C1, C2, C3, and C9; queued candidate C7."
     },
     {
       "name": "public detail record adapters/resolvers",
@@ -56,7 +56,7 @@
       "name": "rich text/reference rendering",
       "status": "mapped",
       "evidence": ["docs/archive/plans/2026-05-16-refactor-heavy-slices.md R3", "S1 rich/reference scout"],
-      "next": "Implemented C2, C3, and C6; queued candidate C9."
+      "next": "Implemented C2, C3, C6, and C9."
     },
     {
       "name": "popover/detail modal/tab controller flows",
@@ -192,7 +192,7 @@
         "src/domain/database-reference-layer-audit.test.ts"
       ],
       "evidence": ["Awakener, wheel, and global layers repeat lookup/card-name construction and rebuild wheel reference entries."],
-      "next": "Implemented by W6 in commit pending."
+      "next": "Implemented by W6 in commit a76a6e9."
     },
     {
       "id": "C7",
@@ -224,13 +224,13 @@
       "id": "C9",
       "title": "RichSegmentRenderer component split",
       "source_task": "S1",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "src/features/database/internal/RichSegmentRenderer.tsx",
         "src/features/database/internal/RichSegmentRenderer.test.tsx"
       ],
       "evidence": ["Renderer branches across text, skill, reference, stat, mechanic, realm, scaling, description args, plural args, and overlay icon effects."],
-      "next": "Queued as a strong follow-up root-fix: bounded component split after C6."
+      "next": "Implemented by W7 in commit pending."
     },
     {
       "id": "C10",
@@ -760,9 +760,7 @@
           "npx prettier --check src/domain/rich-text.ts src/domain/rich-text.test.ts src/domain/database-rich-text.ts src/features/database/internal/DatabaseRichTextContent.tsx docs/refactor-goals/database-detail-audit/state.json docs/refactor-goals/database-detail-audit/worklog.md",
           "git diff --check"
         ],
-        "risks": [
-          "Full pre-commit suite is pending for this slice commit."
-        ],
+        "risks": [],
         "followups_not_done": [
           "C6 reference-layer accumulator",
           "C7 popover controller hook split",
@@ -888,6 +886,111 @@
         "followups_not_done": [
           "C8 public V3 child schema unknown fields",
           "C9 RichSegmentRenderer component split",
+          "C7 popover controller hook split"
+        ],
+        "learning_lint_candidates": [],
+        "scope_expansion_requested": false
+      }
+    },
+    {
+      "id": "J7",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose rich segment renderer split",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-react",
+        "$refactor-complexity",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/database-detail-audit/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/features/collection/**"
+      ],
+      "expected_output": "Select the next bounded database/detail UI root-fix slice.",
+      "receipt": {
+        "decision": "C9 selected as W7 because RichSegmentRenderer mixes segment dispatch, interactivity, overlay lookup/icon loading, scaling display, description-arg formula display, plural resolution, and variant styling in one component while existing characterization coverage is strong.",
+        "root_fix": "Split renderer responsibilities into local components/helpers with stable public props and unchanged visual/interaction contracts.",
+        "validation": [
+          "src/features/database/internal/RichSegmentRenderer.test.tsx",
+          "src/features/database/internal/DatabaseRichTextContent.test.tsx"
+        ]
+      }
+    },
+    {
+      "id": "W7",
+      "role": "worker",
+      "status": "done",
+      "title": "Split rich segment renderer responsibilities",
+      "skills": [
+        "$refactor-react",
+        "$refactor-complexity",
+        "$refactor-characterization-tests",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "src/features/database/internal/RichSegmentRenderer.tsx",
+        "src/features/database/internal/RichSegmentRenderer.test.tsx",
+        "src/features/database/internal/DatabaseRichTextContent.test.tsx",
+        "src/features/database/internal/RichSegmentTokens.tsx",
+        "src/features/database/internal/RichScalingSegment.tsx",
+        "src/features/database/internal/RichDescriptionArgSegment.tsx",
+        "docs/refactor-goals/database-detail-audit/state.json",
+        "docs/refactor-goals/database-detail-audit/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/features/collection/**",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "Split RichSegmentRenderer into local responsibility-focused components/helpers, preserve public props, styling, callbacks, keyboard behavior, icon loading, and formula/scaling behavior, run targeted rich-renderer tests, and record receipt.",
+      "receipt": {
+        "slice": "Split rich segment renderer responsibilities",
+        "files_changed": [
+          "src/features/database/internal/RichSegmentRenderer.tsx",
+          "src/features/database/internal/RichSegmentTokens.tsx",
+          "src/features/database/internal/RichScalingSegment.tsx",
+          "src/features/database/internal/RichDescriptionArgSegment.tsx"
+        ],
+        "what_got_simpler": [
+          "RichSegmentRenderer now focuses on segment dispatch.",
+          "Token interactivity, overlay lookup/icon rendering, scaling rendering, and description arg/plural resolution live in local focused modules.",
+          "Existing ActivationEvent and renderer variant type seams remain available from RichSegmentRenderer."
+        ],
+        "behavior_preserved": [
+          "Skill, mechanic, and realm callbacks plus keyboard activation are unchanged.",
+          "Overlay lookup still uses overlayByName first and falls back to the overlay list.",
+          "Overlay icon cache/load behavior is unchanged.",
+          "Inline and popover scaling output is unchanged.",
+          "Description arg formula, hover, tint, visible scaling, and plural behavior are unchanged.",
+          "DatabaseRichTextContent parse-to-render seam remains unchanged."
+        ],
+        "current_complexity": "Before: one component mixed segment dispatch, token interactivity, overlay lookup, icon loading, scaling display, description arg formula display, plural resolution, and variant styling.",
+        "expected_complexity_after": "After: the dispatch component delegates independent token/scaling/description-arg responsibilities to local focused components.",
+        "root_fix_patch_decision": "Root-fix slice selected because the repeated renderer complexity was local, strongly covered, and better solved by reshaping the component boundary than by adding smaller guards.",
+        "dependency_review": "Not needed; no package or lockfile changes.",
+        "harness_update_considered": "No durable harness update needed; existing renderer and rich text content tests covered the behavior.",
+        "validation": [
+          "npm test -- --run src/features/database/internal/RichSegmentRenderer.test.tsx src/features/database/internal/DatabaseRichTextContent.test.tsx --pool=forks --maxWorkers=1",
+          "npx tsc -p tsconfig.app.json --noEmit --pretty false",
+          "npx prettier --check src/features/database/internal/RichSegmentRenderer.tsx src/features/database/internal/RichSegmentRenderer.test.tsx src/features/database/internal/DatabaseRichTextContent.test.tsx src/features/database/internal/RichSegmentTokens.tsx src/features/database/internal/RichScalingSegment.tsx src/features/database/internal/RichDescriptionArgSegment.tsx docs/refactor-goals/database-detail-audit/state.json docs/refactor-goals/database-detail-audit/worklog.md",
+          "git diff --check"
+        ],
+        "validation_run": [
+          "npm test -- --run src/features/database/internal/RichSegmentRenderer.test.tsx src/features/database/internal/DatabaseRichTextContent.test.tsx --pool=forks --maxWorkers=1",
+          "npx tsc -p tsconfig.app.json --noEmit --pretty false",
+          "npx prettier --check src/features/database/internal/RichSegmentRenderer.tsx src/features/database/internal/RichSegmentRenderer.test.tsx src/features/database/internal/DatabaseRichTextContent.test.tsx src/features/database/internal/RichSegmentTokens.tsx src/features/database/internal/RichScalingSegment.tsx src/features/database/internal/RichDescriptionArgSegment.tsx docs/refactor-goals/database-detail-audit/state.json docs/refactor-goals/database-detail-audit/worklog.md",
+          "git diff --check"
+        ],
+        "risks": [
+          "Full pre-commit suite is pending for this slice commit."
+        ],
+        "followups_not_done": [
+          "C8 public V3 child schema unknown fields",
           "C7 popover controller hook split"
         ],
         "learning_lint_candidates": [],

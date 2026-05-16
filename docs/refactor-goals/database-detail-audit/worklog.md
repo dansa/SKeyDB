@@ -118,5 +118,23 @@
 - Simplification: shared lookup insertion policy now lives in `DatabaseReferenceLookupAccumulator`; shared derived-skill reference-info construction now lives in `buildDatabaseDerivedSkillReferenceInfo`.
 - Refactor review: pass after correcting a potential semantic drift where awakener-layer global derived references briefly received `formulaContext`; final behavior keeps prior rank/stats-only resolution there.
 - Validation: targeted reference-layer tests passed with 19 tests; broader `src/domain` sweep passed with 77 files / 520 tests; `npx tsc -p tsconfig.app.json --noEmit --pretty false` passed; Prettier check passed; `git diff --check` passed.
-- Commit: pending this slice commit.
+- Commit: `a76a6e9 refactor: centralize database reference lookups`. Pre-commit ran lint, `test:bounded` (186 files / 1231 tests), script tests, and `build:quiet`.
 - Next: queue C9 rich segment renderer split as the next strong root-fix candidate; C8 needs characterization first; C7 remains queued.
+
+### 2026-05-16 - W7 selected
+
+- Judge decision: selected C9 because `RichSegmentRenderer` still owns too many independent responsibilities in one component after the lookup/parser root-fixes, and the existing renderer tests cover the risky interactions.
+- Active task: `W7` split rich segment renderer responsibilities.
+- Root-fix shape: keep the public `RichSegmentRenderer` props stable, split local token/scaling/description-arg responsibilities into focused components or helpers, and avoid any visual redesign or popover controller change.
+- Validation planned: `npm test -- --run src/features/database/internal/RichSegmentRenderer.test.tsx src/features/database/internal/DatabaseRichTextContent.test.tsx --pool=forks --maxWorkers=1`, `npx tsc -p tsconfig.app.json --noEmit --pretty false`, Prettier, `git diff --check`, packet checker.
+
+### 2026-05-16 - W7 implemented and reviewed
+
+- Slice: rich segment renderer component split.
+- Files changed: `src/features/database/internal/RichSegmentRenderer.tsx`, `src/features/database/internal/RichSegmentTokens.tsx`, `src/features/database/internal/RichScalingSegment.tsx`, `src/features/database/internal/RichDescriptionArgSegment.tsx`.
+- Characterization: no test churn; existing renderer and rich-text content tests already cover token clicks/keyboard activation, overlay icons, scaling, formula args, plurals, tinting, and the parse-to-render seam.
+- Simplification: main renderer now handles segment dispatch while token interactivity, overlay label/icon behavior, scaling display, and description arg/plural rendering live in focused local modules.
+- Refactor review: pass. Public props, `ActivationEvent`, variant typing, callbacks, styling, and rendered behavior are preserved; no parser/domain/popover controller changes.
+- Validation: `npm test -- --run src/features/database/internal/RichSegmentRenderer.test.tsx src/features/database/internal/DatabaseRichTextContent.test.tsx --pool=forks --maxWorkers=1` passed with 33 tests; `npx tsc -p tsconfig.app.json --noEmit --pretty false` passed; Prettier check passed; `git diff --check` passed.
+- Commit: pending this slice commit.
+- Next: C8 needs characterization first; C7 remains queued behind a concrete controller smell.
