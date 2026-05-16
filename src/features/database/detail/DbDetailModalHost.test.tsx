@@ -16,7 +16,7 @@ interface MockDetailRenderOptions {
   callbacks: {
     onClose: () => void
     onTabChange: (tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams') => void
-    onSelectWheel: (wheel: {id: string; name: string}) => void
+    onSelectWheel: (wheel: {id?: string; name: string}) => void
   }
   item: {
     activeTab?: string
@@ -48,6 +48,14 @@ vi.mock('./dbDetailRegistry', async () => {
               type='button'
             >
               Refer wheel
+            </button>
+            <button
+              onClick={() => {
+                callbacks.onSelectWheel({name: ' Merciful Nurturing '})
+              }}
+              type='button'
+            >
+              Refer wheel by name
             </button>
             <span>Active tab: {item.activeTab}</span>
             <button
@@ -242,7 +250,37 @@ describe('DbDetailModalHost overlay entries', () => {
     )
 
     openDetailInAct({kind: 'awakener', id: 'awakener-0021'}, 'builder-overlay')
-    fireEvent.click(await screen.findByRole('button', {name: /refer wheel/i}))
+    fireEvent.click(await screen.findByRole('button', {name: /^refer wheel$/i}))
+
+    expect(
+      await screen.findByRole('dialog', {name: /merciful nurturing details/i}),
+    ).toBeInTheDocument()
+    expect(dbDetailStore.getState().stack).toEqual([
+      {kind: 'awakener', id: 'awakener-0021', source: 'builder-overlay'},
+      {kind: 'wheel', id: 'wheel-0050', source: 'reference'},
+    ])
+  })
+
+  it('pushes overlay wheel references by fallback normalized name when id is missing', async () => {
+    render(
+      <MemoryRouter initialEntries={['/builder']}>
+        <DbDetailModalHost
+          awakeners={awakeners}
+          callbacks={{
+            onClose: vi.fn(),
+            onSelectAwakener: vi.fn(),
+            onSelectCovenant: vi.fn(),
+            onSelectWheel: vi.fn(),
+            onTabChange: vi.fn(),
+          }}
+          routeItem={null}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    openDetailInAct({kind: 'awakener', id: 'awakener-0021'}, 'builder-overlay')
+    fireEvent.click(await screen.findByRole('button', {name: /refer wheel by name/i}))
 
     expect(
       await screen.findByRole('dialog', {name: /merciful nurturing details/i}),

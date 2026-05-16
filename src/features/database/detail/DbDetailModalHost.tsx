@@ -1,4 +1,4 @@
-import {Suspense, useEffect, useState, useSyncExternalStore} from 'react'
+import {Suspense, useCallback, useEffect, useMemo, useState, useSyncExternalStore} from 'react'
 
 import {useLocation, useNavigate} from 'react-router-dom'
 
@@ -28,6 +28,16 @@ import {
 
 type DatabaseDetailRef = EntityRef & {kind: DatabaseDetailKind}
 
+interface DetailRefLookup {
+  awakenersById: Map<string, Awakener>
+  awakenersByName: Map<string, Awakener>
+  covenantsById: Map<string, Covenant>
+  covenantsByName: Map<string, Covenant>
+  possesById: Map<string, ReturnType<typeof getPosses>[number]>
+  wheelsById: Map<string, Wheel>
+  wheelsByName: Map<string, Wheel>
+}
+
 interface DbDetailModalHostProps {
   awakeners: Awakener[]
   callbacks: DatabaseDetailRenderCallbacks
@@ -48,73 +58,120 @@ function isDatabaseDetailKind(kind: EntityRef['kind']): kind is DatabaseDetailKi
   return kind in dbDetailRegistry
 }
 
+function normalizeDetailName(name: string) {
+  return name.trim().toLowerCase()
+}
+
+function setFirstNormalizedNameMatch<T extends {name: string}>(lookup: Map<string, T>, item: T) {
+  const normalizedName = normalizeDetailName(item.name)
+  if (!lookup.has(normalizedName)) {
+    lookup.set(normalizedName, item)
+  }
+}
+
+function setFirstIdMatch<T extends {id: string}>(lookup: Map<string, T>, item: T) {
+  if (!lookup.has(item.id)) {
+    lookup.set(item.id, item)
+  }
+}
+
+function buildDetailRefLookup(awakeners: Awakener[], wheels: Wheel[]): DetailRefLookup {
+  const lookup: DetailRefLookup = {
+    awakenersById: new Map(),
+    awakenersByName: new Map(),
+    covenantsById: new Map(),
+    covenantsByName: new Map(),
+    possesById: new Map(),
+    wheelsById: new Map(),
+    wheelsByName: new Map(),
+  }
+
+  for (const awakener of awakeners) {
+    setFirstIdMatch(lookup.awakenersById, awakener)
+    setFirstNormalizedNameMatch(lookup.awakenersByName, awakener)
+  }
+
+  for (const wheel of wheels) {
+    setFirstIdMatch(lookup.wheelsById, wheel)
+    setFirstNormalizedNameMatch(lookup.wheelsByName, wheel)
+  }
+
+  for (const posse of getPosses()) {
+    setFirstIdMatch(lookup.possesById, posse)
+  }
+
+  for (const covenant of getCovenants()) {
+    setFirstIdMatch(lookup.covenantsById, covenant)
+    setFirstNormalizedNameMatch(lookup.covenantsByName, covenant)
+  }
+
+  return lookup
+}
+
 function resolveOverlayRouteItem(
   ref: EntityRef,
-  awakeners: Awakener[],
-  wheels: Wheel[],
+  lookup: DetailRefLookup,
   activeAwakenerTab: DatabaseAwakenerTab = 'overview',
 ): DatabaseDetailRouteItem | null {
   if (ref.kind === 'awakener') {
-    const item = awakeners.find((awakener) => awakener.id === ref.id)
+    const item = lookup.awakenersById.get(ref.id)
     return item ? {kind: 'awakener', item, activeTab: activeAwakenerTab} : null
   }
   if (ref.kind === 'wheel') {
-    const item = wheels.find((wheel) => wheel.id === ref.id)
+    const item = lookup.wheelsById.get(ref.id)
     return item ? {kind: 'wheel', item} : null
   }
   if (ref.kind === 'posse') {
-    const item = getPosses().find((posse) => posse.id === ref.id)
+    const item = lookup.possesById.get(ref.id)
     return item ? {kind: 'posse', item} : null
   }
   if (ref.kind === 'covenant') {
-    const item = getCovenants().find((covenant) => covenant.id === ref.id)
+    const item = lookup.covenantsById.get(ref.id)
     return item ? {kind: 'covenant', item} : null
   }
   return null
 }
 
 function resolveAwakenerRef(
-  awakeners: Awakener[],
+  lookup: DetailRefLookup,
   awakener: Pick<Awakener, 'id' | 'name'>,
 ): EntityRef | null {
-  const byId = awakeners.find((entry) => entry.id === awakener.id)
+  const byId = lookup.awakenersById.get(awakener.id)
   if (byId) {
     return {kind: 'awakener', id: byId.id}
   }
 
-  const normalizedName = awakener.name.trim().toLowerCase()
-  const byName = awakeners.find((entry) => entry.name.trim().toLowerCase() === normalizedName)
+  const byName = lookup.awakenersByName.get(normalizeDetailName(awakener.name))
   return byName ? {kind: 'awakener', id: byName.id} : null
 }
 
 function resolveWheelRef(
-  wheels: Wheel[],
+  lookup: DetailRefLookup,
   wheel: Pick<Wheel, 'name'> & Partial<Pick<Wheel, 'id'>>,
 ): EntityRef | null {
   if ('id' in wheel && typeof wheel.id === 'string') {
-    const byId = wheels.find((entry) => entry.id === wheel.id)
+    const byId = lookup.wheelsById.get(wheel.id)
     if (byId) {
       return {kind: 'wheel', id: byId.id}
     }
   }
 
-  const normalizedName = wheel.name.trim().toLowerCase()
-  const byName = wheels.find((entry) => entry.name.trim().toLowerCase() === normalizedName)
+  const byName = lookup.wheelsByName.get(normalizeDetailName(wheel.name))
   return byName ? {kind: 'wheel', id: byName.id} : null
 }
 
 function resolveCovenantRef(
+  lookup: DetailRefLookup,
   covenant: Pick<Covenant, 'name'> & Partial<Pick<Covenant, 'id'>>,
 ): EntityRef | null {
   if ('id' in covenant && typeof covenant.id === 'string') {
-    const byId = getCovenants().find((entry) => entry.id === covenant.id)
+    const byId = lookup.covenantsById.get(covenant.id)
     if (byId) {
       return {kind: 'covenant', id: byId.id}
     }
   }
 
-  const normalizedName = covenant.name.trim().toLowerCase()
-  const byName = getCovenants().find((entry) => entry.name.trim().toLowerCase() === normalizedName)
+  const byName = lookup.covenantsByName.get(normalizeDetailName(covenant.name))
   return byName ? {kind: 'covenant', id: byName.id} : null
 }
 
@@ -208,7 +265,11 @@ function DbDetailOverlayModal({
   }>(() => ({activeTab: 'overview', refKey: activeRefKey}))
   const overlayAwakenerTab =
     overlayAwakenerTabState.refKey === activeRefKey ? overlayAwakenerTabState.activeTab : 'overview'
-  const routeItem = resolveOverlayRouteItem(activeRef, awakeners, wheels, overlayAwakenerTab)
+  const detailRefLookup = useMemo(
+    () => buildDetailRefLookup(awakeners, wheels),
+    [awakeners, wheels],
+  )
+  const routeItem = resolveOverlayRouteItem(activeRef, detailRefLookup, overlayAwakenerTab)
 
   useEffect(() => {
     if (!routeItem) {
@@ -216,33 +277,53 @@ function DbDetailOverlayModal({
     }
   }, [routeItem])
 
-  const overlayCallbacks = {
-    ...callbacks,
-    onClose: () => {
-      dbDetailStore.getState().popDetail()
-    },
-    onTabChange: (nextTab: DatabaseAwakenerTab) => {
+  const onClose = useCallback(() => {
+    dbDetailStore.getState().popDetail()
+  }, [])
+  const onTabChange = useCallback(
+    (nextTab: DatabaseAwakenerTab) => {
       setOverlayAwakenerTabState({activeTab: nextTab, refKey: activeRefKey})
     },
-    onSelectAwakener: (awakener: Pick<Awakener, 'id' | 'name'>) => {
-      const ref = resolveAwakenerRef(awakeners, awakener)
+    [activeRefKey],
+  )
+  const onSelectAwakener = useCallback(
+    (awakener: Pick<Awakener, 'id' | 'name'>) => {
+      const ref = resolveAwakenerRef(detailRefLookup, awakener)
       if (ref) {
         dbDetailStore.getState().pushReferenceDetail(ref)
       }
     },
-    onSelectWheel: (wheel: Pick<Wheel, 'name'> & Partial<Pick<Wheel, 'id'>>) => {
-      const ref = resolveWheelRef(wheels, wheel)
+    [detailRefLookup],
+  )
+  const onSelectWheel = useCallback(
+    (wheel: Pick<Wheel, 'name'> & Partial<Pick<Wheel, 'id'>>) => {
+      const ref = resolveWheelRef(detailRefLookup, wheel)
       if (ref) {
         dbDetailStore.getState().pushReferenceDetail(ref)
       }
     },
-    onSelectCovenant: (covenant: Pick<Covenant, 'name'> & Partial<Pick<Covenant, 'id'>>) => {
-      const ref = resolveCovenantRef(covenant)
+    [detailRefLookup],
+  )
+  const onSelectCovenant = useCallback(
+    (covenant: Pick<Covenant, 'name'> & Partial<Pick<Covenant, 'id'>>) => {
+      const ref = resolveCovenantRef(detailRefLookup, covenant)
       if (ref) {
         dbDetailStore.getState().pushReferenceDetail(ref)
       }
     },
-  }
+    [detailRefLookup],
+  )
+  const overlayCallbacks = useMemo<DatabaseDetailRenderCallbacks>(
+    () => ({
+      ...callbacks,
+      onClose,
+      onSelectAwakener,
+      onSelectCovenant,
+      onSelectWheel,
+      onTabChange,
+    }),
+    [callbacks, onClose, onSelectAwakener, onSelectCovenant, onSelectWheel, onTabChange],
+  )
 
   if (!routeItem) {
     return null
@@ -373,10 +454,11 @@ function DbDetailRouteModal({
   }
   if (routeItem.kind === 'wheel') {
     return (
-      <DbDetailWheelRouteModal
+      <DbDetailNonAwakenerRouteModal
         activeRef={activeRef}
         awakeners={awakeners}
         callbacks={callbacks}
+        kind='wheel'
         routeItem={routeItem}
         wheels={wheels}
       />
@@ -384,20 +466,22 @@ function DbDetailRouteModal({
   }
   if (routeItem.kind === 'posse') {
     return (
-      <DbDetailPosseRouteModal
+      <DbDetailNonAwakenerRouteModal
         activeRef={activeRef}
         awakeners={awakeners}
         callbacks={callbacks}
+        kind='posse'
         routeItem={routeItem}
         wheels={wheels}
       />
     )
   }
   return (
-    <DbDetailCovenantRouteModal
+    <DbDetailNonAwakenerRouteModal
       activeRef={activeRef}
       awakeners={awakeners}
       callbacks={callbacks}
+      kind='covenant'
       routeItem={routeItem}
       wheels={wheels}
     />
@@ -408,9 +492,15 @@ interface DbDetailKindRouteModalProps<Kind extends DatabaseDetailKind> {
   activeRef: EntityRef
   awakeners: Awakener[]
   callbacks: DatabaseDetailRenderCallbacks
-  routeItem: Extract<DatabaseDetailRouteItem, {kind: Kind}>
+  routeItem: DatabaseDetailRouteItemByKind[Kind]
   tabSlug?: string
   wheels: Wheel[]
+}
+
+interface DbDetailNonAwakenerRouteModalProps<
+  Kind extends Exclude<DatabaseDetailKind, 'awakener'>,
+> extends DbDetailKindRouteModalProps<Kind> {
+  kind: Kind
 }
 
 function DbDetailAwakenerRouteModal({
@@ -462,64 +552,15 @@ function DbDetailAwakenerRouteModal({
   })
 }
 
-function DbDetailWheelRouteModal({
+function DbDetailNonAwakenerRouteModal<Kind extends Exclude<DatabaseDetailKind, 'awakener'>>({
   activeRef,
   awakeners,
   callbacks,
+  kind,
   routeItem,
   wheels,
-}: DbDetailKindRouteModalProps<'wheel'>) {
-  const registryEntry = dbDetailRegistry.wheel
-  const {isLoading, record} = useDatabaseDetailRouteRecord({
-    id: activeRef.id,
-    loadRecord: registryEntry.loadRecord,
-    missingPathname: registryEntry.missingBrowsePath,
-  })
-
-  if (isLoading) {
-    return <div className='px-2 py-3 text-sm text-slate-300'>{registryEntry.loadingLabel}</div>
-  }
-
-  if (!record) {
-    return null
-  }
-
-  return registryEntry.render({awakeners, callbacks, item: routeItem, record, wheels})
-}
-
-function DbDetailPosseRouteModal({
-  activeRef,
-  awakeners,
-  callbacks,
-  routeItem,
-  wheels,
-}: DbDetailKindRouteModalProps<'posse'>) {
-  const registryEntry = dbDetailRegistry.posse
-  const {isLoading, record} = useDatabaseDetailRouteRecord({
-    id: activeRef.id,
-    loadRecord: registryEntry.loadRecord,
-    missingPathname: registryEntry.missingBrowsePath,
-  })
-
-  if (isLoading) {
-    return <div className='px-2 py-3 text-sm text-slate-300'>{registryEntry.loadingLabel}</div>
-  }
-
-  if (!record) {
-    return null
-  }
-
-  return registryEntry.render({awakeners, callbacks, item: routeItem, record, wheels})
-}
-
-function DbDetailCovenantRouteModal({
-  activeRef,
-  awakeners,
-  callbacks,
-  routeItem,
-  wheels,
-}: DbDetailKindRouteModalProps<'covenant'>) {
-  const registryEntry = dbDetailRegistry.covenant
+}: DbDetailNonAwakenerRouteModalProps<Kind>) {
+  const registryEntry = dbDetailRegistry[kind]
   const {isLoading, record} = useDatabaseDetailRouteRecord({
     id: activeRef.id,
     loadRecord: registryEntry.loadRecord,
