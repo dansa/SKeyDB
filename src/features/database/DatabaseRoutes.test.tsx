@@ -8,195 +8,39 @@ import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {MemoryRouter, Routes, useLocation, useNavigate} from 'react-router-dom'
 import {afterEach, beforeAll, describe, expect, it, vi} from 'vitest'
 
+import {createMockPublicCatalog, createMockPublicDetailLoaders} from '@/test/publicCatalogFixtures'
+
 import {DatabaseRouteElements} from './routes'
 
-let mockAwakenerDetails = [{id: 'awakener-0001'}, {id: 'awakener-0002'}, {id: 'awakener-0003'}]
-let mockLoadPromiseCache = new Map<string, Promise<{id: string} | undefined>>()
-let mockWheelDetails = [{id: 'wheel-0001'}, {id: 'wheel-0040'}]
-let mockWheelLoadPromiseCache = new Map<string, Promise<{id: string} | undefined>>()
-let mockPosseDetails = [{id: 'posse-0001'}, {id: 'posse-0002'}]
-let mockPosseLoadPromiseCache = new Map<string, Promise<{id: string} | undefined>>()
-let mockCovenantDetails = [{id: 'covenant-0001'}, {id: 'covenant-0002'}]
-let mockCovenantLoadPromiseCache = new Map<string, Promise<{id: string} | undefined>>()
-const wheelMockState = vi.hoisted(() => {
-  const wheels = [
-    {
-      id: 'wheel-0001',
-      assetId: 'Weapon_Full_B01',
-      name: 'Merciful Nurturing',
-      rarity: 'SSR',
-      realm: 'CARO',
-      awakener: 'alpha',
-      ownerAwakenerId: 'awakener-0001',
-      ownerAwakenerName: 'alpha',
-      aliases: ['Merciful Nurturing'],
-      tags: ['Caro', 'Embryo Fusion'],
-      mainstatKey: 'KEYFLARE_REGEN',
-    },
-    {
-      id: 'wheel-0040',
-      assetId: 'Weapon_Full_D12',
-      name: 'Shared Dream',
-      rarity: 'SR',
-      realm: 'CHAOS',
-      awakener: '',
-      aliases: ['Shared Dream'],
-      tags: ['Chaos'],
-      mainstatKey: 'CRIT_RATE',
-    },
-    {
-      id: 'wheel-9999',
-      assetId: 'Weapon_Full_N07',
-      name: 'Quiet Orbit',
-      rarity: 'R',
-      realm: 'NEUTRAL',
-      awakener: '',
-      aliases: ['Quiet Orbit'],
-      tags: ['Neutral'],
-      mainstatKey: 'HP',
-    },
-  ] as const
-
-  return {
-    wheels,
-  }
-})
-const mockLoadAwakenerDetailById = vi.fn((id: string) => {
-  const cachedPromise = mockLoadPromiseCache.get(id)
-  if (cachedPromise) {
-    return cachedPromise
-  }
-
-  const recordPromise = Promise.resolve(mockAwakenerDetails.find((entry) => entry.id === id))
-  mockLoadPromiseCache.set(id, recordPromise)
-
-  return recordPromise
-})
-const mockLoadWheelDetailById = vi.fn((id: string) => {
-  const cachedPromise = mockWheelLoadPromiseCache.get(id)
-  if (cachedPromise) {
-    return cachedPromise
-  }
-
-  const recordPromise = Promise.resolve(mockWheelDetails.find((entry) => entry.id === id))
-  mockWheelLoadPromiseCache.set(id, recordPromise)
-
-  return recordPromise
-})
-const mockLoadPosseDetailById = vi.fn((id: string) => {
-  const cachedPromise = mockPosseLoadPromiseCache.get(id)
-  if (cachedPromise) {
-    return cachedPromise
-  }
-
-  const recordPromise = Promise.resolve(mockPosseDetails.find((entry) => entry.id === id))
-  mockPosseLoadPromiseCache.set(id, recordPromise)
-
-  return recordPromise
-})
-const mockLoadCovenantDetailById = vi.fn((id: string) => {
-  const cachedPromise = mockCovenantLoadPromiseCache.get(id)
-  if (cachedPromise) {
-    return cachedPromise
-  }
-
-  const recordPromise = Promise.resolve(mockCovenantDetails.find((entry) => entry.id === id))
-  mockCovenantLoadPromiseCache.set(id, recordPromise)
-
-  return recordPromise
-})
+const mockPublicCatalog = createMockPublicCatalog()
+const mockPublicDetailLoaders = createMockPublicDetailLoaders()
 
 vi.mock('@/domain/awakeners', () => ({
-  getAwakeners: () => [
-    {
-      id: 'awakener-0001',
-      numericId: 1,
-      name: 'alpha',
-      faction: 'The Fools',
-      realm: 'CHAOS',
-      rarity: 'SSR',
-      type: 'ASSAULT',
-      aliases: ['alpha'],
-      stats: {CON: 100, ATK: 200, DEF: 80},
-      tags: ['Bleed', 'Crit'],
-    },
-    {
-      id: 'awakener-0002',
-      numericId: 2,
-      name: 'beta',
-      faction: 'Outlanders',
-      realm: 'AEQUOR',
-      rarity: 'SR',
-      type: 'WARDEN',
-      aliases: ['beta'],
-      stats: {CON: 150, ATK: 90, DEF: 180},
-      tags: ['Draw', 'STR Up'],
-    },
-    {
-      id: 'awakener-0003',
-      numericId: 3,
-      name: 'gamma',
-      faction: 'Hybrid',
-      realm: 'CHAOS',
-      rarity: 'Genesis',
-      type: 'CHORUS',
-      aliases: ['gamma'],
-      stats: {CON: 120, ATK: 150, DEF: 130},
-      tags: ['Heal', 'Bleed'],
-    },
-  ],
+  getAwakeners: () => mockPublicCatalog.awakeners,
   resolveAwakenerLiteStatsForLevel: (awakener: {stats?: {CON: number; ATK: number; DEF: number}}) =>
     awakener.stats,
 }))
 
 vi.mock('@/domain/wheels', () => ({
-  getWheels: () => wheelMockState.wheels,
+  getWheels: () => mockPublicCatalog.wheels,
   getWheelMainstatLabel: (wheel: {mainstatKey: string}) => wheel.mainstatKey,
 }))
 
 vi.mock('@/domain/posses', () => ({
-  getPosses: () => [
-    {
-      id: 'posse-0001',
-      index: 1,
-      name: 'Silent Sigil',
-      realm: 'CHAOS',
-      isFadedLegacy: false,
-      lineupToken: 'silent-sigil',
-    },
-    {
-      id: 'posse-0002',
-      index: 2,
-      name: 'Aequor Banner',
-      realm: 'AEQUOR',
-      isFadedLegacy: false,
-      lineupToken: 'aequor-banner',
-    },
-  ],
+  getPosses: () => mockPublicCatalog.posses,
 }))
 
 vi.mock('@/domain/covenants', () => ({
-  getCovenants: () => [
-    {
-      id: 'covenant-0001',
-      assetId: 'Icon_Covenant_01',
-      name: 'Oath of Glass',
-      lineupToken: 'oath-of-glass',
-    },
-    {
-      id: 'covenant-0002',
-      assetId: 'Icon_Covenant_02',
-      name: 'Iron Promise',
-      lineupToken: 'iron-promise',
-    },
-  ],
+  getCovenants: () => mockPublicCatalog.covenants,
 }))
 
 vi.mock('@/domain/public-detail-record-adapters', () => ({
-  loadPublicAwakenerDetailById: (id: string) => mockLoadAwakenerDetailById(id),
-  loadPublicWheelDetailById: (id: string) => mockLoadWheelDetailById(id),
-  loadPublicPosseDetailById: (id: string) => mockLoadPosseDetailById(id),
-  loadPublicCovenantDetailById: (id: string) => mockLoadCovenantDetailById(id),
+  loadPublicAwakenerDetailById: (id: string) =>
+    mockPublicDetailLoaders.loadPublicAwakenerDetailById(id),
+  loadPublicWheelDetailById: (id: string) => mockPublicDetailLoaders.loadPublicWheelDetailById(id),
+  loadPublicPosseDetailById: (id: string) => mockPublicDetailLoaders.loadPublicPosseDetailById(id),
+  loadPublicCovenantDetailById: (id: string) =>
+    mockPublicDetailLoaders.loadPublicCovenantDetailById(id),
 }))
 
 vi.mock('@/domain/awakener-assets', () => ({
@@ -339,18 +183,7 @@ beforeAll(async () => {
 
 afterEach(() => {
   vi.restoreAllMocks()
-  mockAwakenerDetails = [{id: 'awakener-0001'}, {id: 'awakener-0002'}, {id: 'awakener-0003'}]
-  mockLoadPromiseCache = new Map()
-  mockWheelDetails = [{id: 'wheel-0001'}, {id: 'wheel-0040'}]
-  mockWheelLoadPromiseCache = new Map()
-  mockPosseDetails = [{id: 'posse-0001'}, {id: 'posse-0002'}]
-  mockPosseLoadPromiseCache = new Map()
-  mockCovenantDetails = [{id: 'covenant-0001'}, {id: 'covenant-0002'}]
-  mockCovenantLoadPromiseCache = new Map()
-  mockLoadAwakenerDetailById.mockClear()
-  mockLoadWheelDetailById.mockClear()
-  mockLoadPosseDetailById.mockClear()
-  mockLoadCovenantDetailById.mockClear()
+  mockPublicDetailLoaders.reset()
 })
 
 function getResultsSummary(expectedText: string) {
@@ -615,8 +448,7 @@ describe('DatabasePage', () => {
   })
 
   it('falls back to the database root when a deep-linked awakener is missing current public data', async () => {
-    mockAwakenerDetails = [{id: 'awakener-0001'}, {id: 'awakener-0003'}]
-    mockLoadPromiseCache = new Map()
+    mockPublicDetailLoaders.setAwakenerDetails([{id: 'awakener-0001'}, {id: 'awakener-0003'}])
 
     await renderDatabasePage('/database/awk/beta')
 

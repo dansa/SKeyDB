@@ -48,6 +48,7 @@
   - R4/R5 D-Zone route and inspector state slice completed: history selection/year/query helpers and inspector disclosure/alert state helpers are extracted and characterized.
   - R3 rich description token grammar slice completed: arg-token, plural macro, ordinal macro, and channel normalization grammar now live in one shared module with parser/resolver characterization.
   - R8 shared jsdom layout/window helper slice completed: element rect, offsetHeight, and static matchMedia mock restoration now live in shared test infrastructure.
+  - R9 database public catalog fixture slice completed: database route test catalog data and detail loader cache mocks moved into explicit shared fixture builders.
 - In progress:
   - None.
 - Next:
@@ -67,7 +68,7 @@
 | R6 | Timeline entity resolution preindex | Done | Medium-high | Medium timeline plumbing | `npm test -- --run src/pages/timeline/timelineArtworkModel.test.ts src/pages/timeline/BannerCard.test.tsx src/pages/timeline/EventList.test.tsx --pool=forks --maxWorkers=1` |
 | R7 | Timeline derived pool builder extraction | Done | Medium-high | Medium domain | `npm test -- --run src/domain/timeline-data.test.ts --pool=forks --maxWorkers=1` |
 | R8 | Shared jsdom layout/window test helpers | Done | Medium | Small-medium test infra | `npm test -- --run src/features/builder/BuilderPage.wheels.test.tsx src/pages/DZoneHistoryPage.test.tsx --pool=forks --maxWorkers=1` |
-| R9 | Shared public catalog test fixtures | Proposed | Medium-high | Medium test infra | `npm test -- --run src/features/database/DatabaseRoutes.test.tsx src/features/collection/CollectionPage.test.tsx --pool=forks --maxWorkers=1` |
+| R9 | Shared public catalog test fixtures | Done | Medium-high | Medium test infra | `npm test -- --run src/features/database/DatabaseRoutes.test.tsx src/features/collection/CollectionPage.test.tsx --pool=forks --maxWorkers=1` |
 
 ## R1: Public V3 Detail Adapter Trust Boundary
 
@@ -343,6 +344,12 @@
 
 **Stop condition:**
 - Stop before migrating builder/collection UI tests unless their rework scope allows it.
+
+**Completion notes:**
+- Completed 2026-05-16.
+- `publicCatalogFixtures.ts` now owns the database route test's explicit public catalog arrays and cached public detail loader mocks.
+- `DatabaseRoutes.test.tsx` still registers its domain/module mocks locally, preserving route wiring visibility while removing repeated catalog/detail setup.
+- Migration intentionally stopped before builder and collection tests per the slice stop condition.
 
 ## Suggested Execution Order
 
