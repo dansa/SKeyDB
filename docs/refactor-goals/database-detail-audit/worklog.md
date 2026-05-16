@@ -45,4 +45,22 @@
 - Simplification: database rich text now passes `referenceLayer.overlayByName`; mechanic/realm rendering performs normalized map lookup before falling back to the existing list scan.
 - Refactor review: pass. No dependency change, no builder/collection/app shell touch, no public prop behavior removed.
 - Validation: `npm test -- --run src/features/database/internal/RichSegmentRenderer.test.tsx src/features/database/internal/DatabaseRichTextContent.test.tsx src/domain/database-rich-text.test.ts --pool=forks --maxWorkers=1` passed with 37 tests; `npx tsc -p tsconfig.app.json --noEmit --pretty false` passed; Prettier check passed after formatting `RichSegmentRenderer.tsx`; `git diff --check` passed.
-- Next: run packet checker and commit W2 as the second product slice.
+- Commit: `5e3ecae refactor: use overlay lookup for rich tokens`. Pre-commit ran lint, `test:bounded` (186 files / 1227 tests), script tests, and `build:quiet`.
+- Next: queue a public detail adapter owned-record index slice.
+
+### 2026-05-16 - W3 selected
+
+- Judge decision: selected C4 because public awakener detail adaptation repeatedly scans owned child records by slot/family inside the public detail adapter.
+- Active task: `W3` index owned public awakener records before adaptation.
+- Allowed files: `src/domain/public-detail-record-adapters.ts`, `src/domain/public-detail-record-adapters.test.ts`, and this packet.
+- Validation planned: `npm test -- --run src/domain/public-detail-record-adapters.test.ts src/domain/public-v3-awakener-record-adapters.test.ts src/domain/public-data-runtime-boundary.test.ts --pool=forks --maxWorkers=1`, `npx tsc -p tsconfig.app.json --noEmit --pretty false`, `git diff --check`, packet checker.
+
+### 2026-05-16 - W3 implemented and reviewed
+
+- Slice: owned public awakener record index inside `public-detail-record-adapters.ts`.
+- Files changed: `src/domain/public-detail-record-adapters.ts`.
+- Characterization: no new test added; existing public-detail adapter tests cover composed cards/talents/enlightens, optional public records, promoted extras, cache cloning, and upgrade retention at the public boundary.
+- Simplification: repeated slot/family `.find()` calls became one internal `OwnedAwakenerRecordIndex` built from loaded owned records.
+- Refactor review: pass. First-match semantics, missing-slot error text, optional OverExalt/AbsoluteAxiom, and passive talent ordering are preserved.
+- Validation: `npm test -- --run src/domain/public-detail-record-adapters.test.ts src/domain/public-v3-awakener-record-adapters.test.ts src/domain/public-data-runtime-boundary.test.ts --pool=forks --maxWorkers=1` passed with 35 tests; `npx tsc -p tsconfig.app.json --noEmit --pretty false` passed; Prettier check passed after formatting `public-detail-record-adapters.ts`; `git diff --check` passed.
+- Next: run packet checker and commit W3 as the third product slice.

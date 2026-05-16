@@ -136,7 +136,7 @@
         "src/features/database/internal/RichSegmentRenderer.test.tsx"
       ],
       "evidence": ["Renderer scans overlays and aliases per mechanic/realm segment while reference layer already exposes overlayByName."],
-      "next": "Implemented by W2; commit pending."
+      "next": "Implemented by W2 in commit 5e3ecae."
     },
     {
       "id": "C3",
@@ -157,14 +157,14 @@
       "id": "C4",
       "title": "OwnedAwakenerRecordIndex for public detail child record slot/family selection",
       "source_task": "S1",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "src/domain/public-detail-record-adapters.ts",
         "src/domain/public-detail-record-adapters.test.ts",
         "src/domain/public-v3-awakener-record-adapters.test.ts"
       ],
       "evidence": ["getSlotRecord/requireSlotRecord/getTalentByFamily repeat child record selection inside the public detail adapter."],
-      "next": "Queue after C1 or rich/reference slice; preserve missing-slot errors."
+      "next": "Implemented by W3; commit pending."
     },
     {
       "id": "C5",
@@ -479,6 +479,100 @@
         "followups_not_done": [
           "C3 rich text parse context",
           "C4 public adapter owned record index"
+        ],
+        "learning_lint_candidates": [],
+        "scope_expansion_requested": false
+      }
+    },
+    {
+      "id": "J3",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose public detail adapter owned-record index slice",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-typescript",
+        "$refactor-complexity",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/database-detail-audit/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/features/collection/**"
+      ],
+      "expected_output": "Select the next bounded domain/public-detail implementation slice.",
+      "receipt": {
+        "decision": "C4 selected as W3 because public-detail child slot/family selection is in the user's adapter/resolver scope, repeatedly scans the same owned records, and can be refactored inside one adapter boundary with existing public-detail characterization.",
+        "root_fix": "Create an internal owned-record index and adapt cards/talents/enlightens from it instead of patching individual find calls.",
+        "validation": [
+          "src/domain/public-detail-record-adapters.test.ts",
+          "src/domain/public-v3-awakener-record-adapters.test.ts",
+          "src/domain/public-data-runtime-boundary.test.ts"
+        ]
+      }
+    },
+    {
+      "id": "W3",
+      "role": "worker",
+      "status": "done",
+      "title": "Index owned public awakener records before adaptation",
+      "skills": [
+        "$refactor-typescript",
+        "$refactor-complexity",
+        "$refactor-architecture"
+      ],
+      "allowed_files": [
+        "src/domain/public-detail-record-adapters.ts",
+        "src/domain/public-detail-record-adapters.test.ts",
+        "docs/refactor-goals/database-detail-audit/state.json",
+        "docs/refactor-goals/database-detail-audit/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/features/collection/**",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "Replace repeated owned skill/enlighten/talent slot/family scans with an internal index while preserving current optional/missing behavior and adapter output.",
+      "receipt": {
+        "slice": "Index owned public awakener records before adaptation",
+        "files_changed": [
+          "src/domain/public-detail-record-adapters.ts"
+        ],
+        "what_got_simpler": [
+          "Owned public skill slots, enlighten slots, and talent families are indexed once before adaptation.",
+          "Cards, talents, and enlightens read from the index instead of repeating find scans."
+        ],
+        "behavior_preserved": [
+          "First matching slot/family wins.",
+          "Required missing slots throw the same error text.",
+          "OverExalt and AbsoluteAxiom remain optional.",
+          "Passive talent and extraTalents ordering remains based on the owned talent array."
+        ],
+        "current_complexity": "Before: each card/enlighten slot and named talent lookup scanned the owned child arrays independently.",
+        "expected_complexity_after": "After: one pass builds slot/family maps; adaptation uses direct lookups.",
+        "root_fix_patch_decision": "Root-fix slice selected because the repeated scans shared one adapter-owned concept boundary.",
+        "dependency_review": "Not needed; no package or lockfile changes.",
+        "harness_update_considered": "No durable harness update needed; existing public adapter boundary tests cover the behavior.",
+        "validation": [
+          "npm test -- --run src/domain/public-detail-record-adapters.test.ts src/domain/public-v3-awakener-record-adapters.test.ts src/domain/public-data-runtime-boundary.test.ts --pool=forks --maxWorkers=1",
+          "npx tsc -p tsconfig.app.json --noEmit --pretty false",
+          "npx prettier --check src/domain/public-detail-record-adapters.ts docs/refactor-goals/database-detail-audit/state.json docs/refactor-goals/database-detail-audit/worklog.md",
+          "git diff --check"
+        ],
+        "validation_run": [
+          "npm test -- --run src/domain/public-detail-record-adapters.test.ts src/domain/public-v3-awakener-record-adapters.test.ts src/domain/public-data-runtime-boundary.test.ts --pool=forks --maxWorkers=1",
+          "npx tsc -p tsconfig.app.json --noEmit --pretty false",
+          "npx prettier --check src/domain/public-detail-record-adapters.ts docs/refactor-goals/database-detail-audit/state.json docs/refactor-goals/database-detail-audit/worklog.md",
+          "git diff --check"
+        ],
+        "risks": [
+          "No bespoke missing-slot fixture was added because the helper remains internal and existing public-detail adapter tests exercise composed cards/talents/enlightens and optional records at the public boundary."
+        ],
+        "followups_not_done": [
+          "C5 awakeners full resolver patched-record casts"
         ],
         "learning_lint_candidates": [],
         "scope_expansion_requested": false
