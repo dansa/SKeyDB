@@ -3,6 +3,8 @@ import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import './builder-page.integration-mocks'
 
+import {installElementRectMock} from '@/test/domLayoutMocks'
+
 import {BuilderPage} from './BuilderPage'
 
 afterEach(() => {
@@ -58,55 +60,26 @@ describe('BuilderPage wheels', () => {
 
     vi.stubGlobal('ResizeObserver', ResizeObserverMock)
     vi.stubGlobal('innerHeight', 950)
-    const getBoundingClientRectSpy = vi
-      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
-      .mockImplementation(function mockGetBoundingClientRect(this: HTMLElement) {
-        if (this instanceof HTMLElement && this.dataset.builderMainZone === 'true') {
-          return {
-            bottom: 760,
-            height: 604,
-            left: 0,
-            right: 0,
-            toJSON() {
-              return {}
-            },
-            top: 156,
-            width: 0,
-            x: 0,
-            y: 156,
-          }
-        }
-
-        if (this instanceof HTMLElement && this.dataset.pickerZone === 'true') {
-          return {
-            bottom: 760,
-            height: 0,
-            left: 0,
-            right: 0,
-            toJSON() {
-              return {}
-            },
-            top: 157,
-            width: 0,
-            x: 0,
-            y: 157,
-          }
-        }
-
+    const restoreElementRectMock = installElementRectMock((element) => {
+      if (element.dataset.builderMainZone === 'true') {
         return {
-          bottom: 0,
-          height: 0,
-          left: 0,
-          right: 0,
-          toJSON() {
-            return {}
-          },
-          top: 0,
-          width: 0,
-          x: 0,
-          y: 0,
+          bottom: 760,
+          height: 604,
+          top: 156,
+          y: 156,
         }
-      })
+      }
+
+      if (element.dataset.pickerZone === 'true') {
+        return {
+          bottom: 760,
+          top: 157,
+          y: 157,
+        }
+      }
+
+      return {}
+    })
 
     try {
       render(<BuilderPage />)
@@ -139,7 +112,7 @@ describe('BuilderPage wheels', () => {
         expect(scrollContainer?.classList.contains('min-h-0')).toBe(true)
       }
     } finally {
-      getBoundingClientRectSpy.mockRestore()
+      restoreElementRectMock()
     }
   })
 

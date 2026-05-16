@@ -3,6 +3,12 @@ import userEvent from '@testing-library/user-event'
 import {MemoryRouter, useLocation, useNavigate} from 'react-router-dom'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
+import {
+  installElementRectMock,
+  installOffsetHeightFromRectMock,
+  installStaticMatchMediaMock,
+} from '@/test/domLayoutMocks'
+
 import {DZoneHistoryPage} from './DZoneHistoryPage'
 
 vi.mock('@/features/database/internal/DatabasePopoverRoot', () => ({
@@ -80,73 +86,26 @@ function getDrawerBackdropButton() {
 }
 
 function installWaveCardLayoutMock() {
-  const originalGetBoundingClientRect = Object.getOwnPropertyDescriptor(
-    HTMLElement.prototype,
-    'getBoundingClientRect',
-  )
-  const originalOffsetHeight = Object.getOwnPropertyDescriptor(
-    HTMLElement.prototype,
-    'offsetHeight',
-  )
-
-  HTMLElement.prototype.getBoundingClientRect = function getMockBoundingClientRect(
-    this: HTMLElement,
-  ): DOMRect {
-    const inlineHeight = Number.parseFloat(this.style.height)
-    const height = this.classList.contains('d-zone-wave-card')
+  const restoreElementRectMock = installElementRectMock((element) => {
+    const inlineHeight = Number.parseFloat(element.style.height)
+    const height = element.classList.contains('d-zone-wave-card')
       ? Number.isFinite(inlineHeight)
         ? inlineHeight
-        : this.classList.contains('d-zone-wave-card--expanded')
+        : element.classList.contains('d-zone-wave-card--expanded')
           ? 328
           : 96
       : 0
 
-    return new DOMRect(0, 0, 100, height)
-  }
-
-  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
-    configurable: true,
-    get: function getMockOffsetHeight(this: HTMLElement) {
-      return Math.round(this.getBoundingClientRect().height)
-    },
+    return {
+      height,
+      width: 100,
+    }
   })
+  const restoreOffsetHeightMock = installOffsetHeightFromRectMock()
 
   return () => {
-    if (originalGetBoundingClientRect) {
-      Object.defineProperty(
-        HTMLElement.prototype,
-        'getBoundingClientRect',
-        originalGetBoundingClientRect,
-      )
-    }
-    if (originalOffsetHeight) {
-      Object.defineProperty(HTMLElement.prototype, 'offsetHeight', originalOffsetHeight)
-    }
-  }
-}
-
-function installMatchMediaMock() {
-  const originalMatchMedia = window.matchMedia
-
-  Object.defineProperty(window, 'matchMedia', {
-    configurable: true,
-    value: vi.fn().mockReturnValue({
-      addEventListener: vi.fn(),
-      addListener: vi.fn(),
-      dispatchEvent: vi.fn(),
-      matches: false,
-      media: '(prefers-reduced-motion: reduce)',
-      onchange: null,
-      removeEventListener: vi.fn(),
-      removeListener: vi.fn(),
-    }),
-  })
-
-  return () => {
-    Object.defineProperty(window, 'matchMedia', {
-      configurable: true,
-      value: originalMatchMedia,
-    })
+    restoreOffsetHeightMock()
+    restoreElementRectMock()
   }
 }
 
@@ -301,7 +260,10 @@ describe('DZoneHistoryPage', () => {
   it('keeps wave card height in sync after an interrupted toggle animation', () => {
     vi.useFakeTimers()
     const restoreLayoutMock = installWaveCardLayoutMock()
-    const restoreMatchMediaMock = installMatchMediaMock()
+    const restoreMatchMediaMock = installStaticMatchMediaMock({
+      matches: false,
+      media: '(prefers-reduced-motion: reduce)',
+    })
 
     try {
       renderHistoryPage()

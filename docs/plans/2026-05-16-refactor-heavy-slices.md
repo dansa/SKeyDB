@@ -47,6 +47,7 @@
   - R6/R7 timeline resolver and derived-pool slice completed: entity lookup is preindexed, derived banner pool logic is extracted, and linked-pair/missing-wheel behavior is characterized.
   - R4/R5 D-Zone route and inspector state slice completed: history selection/year/query helpers and inspector disclosure/alert state helpers are extracted and characterized.
   - R3 rich description token grammar slice completed: arg-token, plural macro, ordinal macro, and channel normalization grammar now live in one shared module with parser/resolver characterization.
+  - R8 shared jsdom layout/window helper slice completed: element rect, offsetHeight, and static matchMedia mock restoration now live in shared test infrastructure.
 - In progress:
   - None.
 - Next:
@@ -65,7 +66,7 @@
 | R5 | D-Zone season inspector state model | Done | Medium-high | Medium React/domain helper | `npm test -- --run src/pages/DZonePage.test.tsx src/pages/DZoneHistoryPage.test.tsx src/pages/d-zone/DZoneWaveCard.test.tsx --pool=forks --maxWorkers=1` |
 | R6 | Timeline entity resolution preindex | Done | Medium-high | Medium timeline plumbing | `npm test -- --run src/pages/timeline/timelineArtworkModel.test.ts src/pages/timeline/BannerCard.test.tsx src/pages/timeline/EventList.test.tsx --pool=forks --maxWorkers=1` |
 | R7 | Timeline derived pool builder extraction | Done | Medium-high | Medium domain | `npm test -- --run src/domain/timeline-data.test.ts --pool=forks --maxWorkers=1` |
-| R8 | Shared jsdom layout/window test helpers | Proposed | Medium | Small-medium test infra | `npm test -- --run src/features/builder/BuilderPage.wheels.test.tsx src/pages/DZoneHistoryPage.test.tsx --pool=forks --maxWorkers=1` |
+| R8 | Shared jsdom layout/window test helpers | Done | Medium | Small-medium test infra | `npm test -- --run src/features/builder/BuilderPage.wheels.test.tsx src/pages/DZoneHistoryPage.test.tsx --pool=forks --maxWorkers=1` |
 | R9 | Shared public catalog test fixtures | Proposed | Medium-high | Medium test infra | `npm test -- --run src/features/database/DatabaseRoutes.test.tsx src/features/collection/CollectionPage.test.tsx --pool=forks --maxWorkers=1` |
 
 ## R1: Public V3 Detail Adapter Trust Boundary
@@ -312,6 +313,12 @@
 
 **Stop condition:**
 - Do not refactor builder or collection product code.
+
+**Completion notes:**
+- Completed 2026-05-16.
+- `domLayoutMocks.ts` now owns shared prototype/window restoration for element rects, offsetHeight-from-rect, and static matchMedia mocks.
+- Builder and D-Zone tests keep their scenario-specific layout rules inline while delegating shared jsdom cleanup mechanics to the helper.
+- Targeted verification preserved builder picker shell sizing and D-Zone interrupted wave-card height behavior.
 
 ## R9: Shared Public Catalog Test Fixtures
 
