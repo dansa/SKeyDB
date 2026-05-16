@@ -44,7 +44,7 @@
       "name": "src/features/database/**",
       "status": "mapped",
       "evidence": ["S1 database React scout"],
-      "next": "Active worker slice W1 covers C1; queued candidates C2, C3, C7, and C9."
+      "next": "Implemented C1, C2, and C3; queued candidates C7 and C9."
     },
     {
       "name": "public detail record adapters/resolvers",
@@ -56,7 +56,7 @@
       "name": "rich text/reference rendering",
       "status": "mapped",
       "evidence": ["docs/archive/plans/2026-05-16-refactor-heavy-slices.md R3", "S1 rich/reference scout"],
-      "next": "Queued candidates C2, C3, C6, and C9."
+      "next": "Implemented C2 and C3; queued candidates C6 and C9."
     },
     {
       "name": "popover/detail modal/tab controller flows",
@@ -142,7 +142,7 @@
       "id": "C3",
       "title": "Rich text parse context should avoid rebuilding token lookup per render",
       "source_task": "S1",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "src/domain/rich-text.ts",
         "src/domain/database-rich-text.ts",
@@ -151,7 +151,7 @@
         "src/domain/database-rich-text.test.ts"
       ],
       "evidence": ["parseRichDescription rebuilds normalized card-name lookup on every parse."],
-      "next": "Characterize precedence before implementation."
+      "next": "Implemented by W5 in commit pending."
     },
     {
       "id": "C4",
@@ -177,7 +177,7 @@
         "src/domain/awakeners-database-view.test.ts"
       ],
       "evidence": ["requireCardRecord returns PatchableCardRecord and callers cast to skill/derived records."],
-      "next": "Implemented by W4; commit pending."
+      "next": "Implemented by W4 in commit d9a4da4."
     },
     {
       "id": "C6",
@@ -665,6 +665,109 @@
         "followups_not_done": [
           "C3 rich text parse context",
           "C6 reference-layer accumulator"
+        ],
+        "learning_lint_candidates": [],
+        "scope_expansion_requested": false
+      }
+    },
+    {
+      "id": "J5",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose rich text parse-context slice",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-complexity",
+        "$refactor-characterization-tests",
+        "$refactor-architecture"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/database-detail-audit/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/features/collection/**"
+      ],
+      "expected_output": "Select the next bounded rich-text parser implementation slice.",
+      "receipt": {
+        "decision": "C3 selected as W5 because rich text parsing rebuilds normalized card-name and parse-option lookup state on every parse, and the direct parser/database-rich-text tests are strong enough for a behavior-preserving context extraction.",
+        "root_fix": "Introduce a reusable parse context while keeping the existing parseRichDescription API as a wrapper.",
+        "validation": [
+          "src/domain/rich-text.test.ts",
+          "src/domain/database-rich-text.test.ts",
+          "src/features/database/internal/DatabaseRichTextContent.test.tsx"
+        ]
+      }
+    },
+    {
+      "id": "W5",
+      "role": "worker",
+      "status": "done",
+      "title": "Reuse rich text parse context",
+      "skills": [
+        "$refactor-complexity",
+        "$refactor-architecture",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/domain/rich-text.ts",
+        "src/domain/rich-text.test.ts",
+        "src/domain/database-rich-text.ts",
+        "src/domain/database-rich-text.test.ts",
+        "src/features/database/internal/DatabaseRichTextContent.tsx",
+        "src/features/database/internal/DatabaseRichTextContent.test.tsx",
+        "docs/refactor-goals/database-detail-audit/state.json",
+        "docs/refactor-goals/database-detail-audit/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/features/collection/**",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "Extract/reuse a rich text parse context so database rendering can avoid rebuilding normalized card-name/options lookup on every parse while preserving parse precedence and current public parser API.",
+      "receipt": {
+        "slice": "Reuse rich text parse context",
+        "files_changed": [
+          "src/domain/rich-text.ts",
+          "src/domain/rich-text.test.ts",
+          "src/domain/database-rich-text.ts",
+          "src/features/database/internal/DatabaseRichTextContent.tsx"
+        ],
+        "what_got_simpler": [
+          "Rich text parsing can reuse a normalized card-name and parse-option context.",
+          "Database rich text rendering memoizes that parse context for the current reference layer and record while keeping text/description args parse-specific."
+        ],
+        "behavior_preserved": [
+          "parseRichDescription remains the public wrapper API.",
+          "Parser precedence for card names, excluded skills, overlay mechanics, stats, realms, scaling, and description args is unchanged.",
+          "Keyword footer text and descriptionArgs still belong to each parse call rather than the reusable context."
+        ],
+        "current_complexity": "Before: parseRichDescription rebuilt the normalized card-name lookup and normalized parse options on every parse.",
+        "expected_complexity_after": "After: callers that parse repeatedly for a stable record/reference layer can build a RichTextParseContext once and reuse it.",
+        "root_fix_patch_decision": "Root-fix slice selected because the repeated lookup construction shared one parser boundary and the existing wrapper API could stay stable.",
+        "dependency_review": "Not needed; no package or lockfile changes.",
+        "harness_update_considered": "No durable harness update needed; added a focused parser characterization test for context reuse with per-parse args.",
+        "validation": [
+          "npm test -- --run src/domain/rich-text.test.ts src/domain/database-rich-text.test.ts src/features/database/internal/DatabaseRichTextContent.test.tsx --pool=forks --maxWorkers=1",
+          "npx tsc -p tsconfig.app.json --noEmit --pretty false",
+          "npx prettier --check src/domain/rich-text.ts src/domain/rich-text.test.ts src/domain/database-rich-text.ts src/features/database/internal/DatabaseRichTextContent.tsx docs/refactor-goals/database-detail-audit/state.json docs/refactor-goals/database-detail-audit/worklog.md",
+          "git diff --check"
+        ],
+        "validation_run": [
+          "npm test -- --run src/domain/rich-text.test.ts src/domain/database-rich-text.test.ts src/features/database/internal/DatabaseRichTextContent.test.tsx --pool=forks --maxWorkers=1",
+          "npx tsc -p tsconfig.app.json --noEmit --pretty false",
+          "npx prettier --check src/domain/rich-text.ts src/domain/rich-text.test.ts src/domain/database-rich-text.ts src/features/database/internal/DatabaseRichTextContent.tsx docs/refactor-goals/database-detail-audit/state.json docs/refactor-goals/database-detail-audit/worklog.md",
+          "git diff --check"
+        ],
+        "risks": [
+          "Full pre-commit suite is pending for this slice commit."
+        ],
+        "followups_not_done": [
+          "C6 reference-layer accumulator",
+          "C7 popover controller hook split",
+          "C8 public V3 child schema unknown fields",
+          "C9 RichSegmentRenderer component split"
         ],
         "learning_lint_candidates": [],
         "scope_expansion_requested": false

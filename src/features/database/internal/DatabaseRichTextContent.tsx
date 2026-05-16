@@ -2,7 +2,10 @@ import {useMemo} from 'react'
 
 import type {AwakenerOverlayRecord, FullStats} from '@/domain/awakener-source-schema'
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
-import {parseDatabaseRichDescription} from '@/domain/database-rich-text'
+import {
+  buildDatabaseRichTextParseContext,
+  parseDatabaseRichDescriptionWithContext,
+} from '@/domain/database-rich-text'
 import type {DescribedRecord} from '@/domain/description-records'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
 
@@ -11,6 +14,8 @@ import {
   type ActivationEvent,
   type RichSegmentRendererVariant,
 } from './RichSegmentRenderer'
+
+const EMPTY_CARD_NAMES = new Set<string>()
 
 export interface DatabaseRichTextContentProps {
   text?: string
@@ -46,15 +51,24 @@ export function DatabaseRichTextContent({
   onMechanicClick,
 }: DatabaseRichTextContentProps) {
   const resolvedOverlays = useMemo(() => referenceLayer?.accessibleOverlays ?? [], [referenceLayer])
+  const parseContext = useMemo(
+    () =>
+      buildDatabaseRichTextParseContext(
+        referenceLayer?.cardNames ?? EMPTY_CARD_NAMES,
+        record,
+        referenceLayer,
+      ),
+    [record, referenceLayer],
+  )
   const segments = useMemo(
     () =>
-      parseDatabaseRichDescription({
+      parseDatabaseRichDescriptionWithContext({
         text,
         record,
         keywordFooterText,
-        referenceLayer,
+        context: parseContext,
       }),
-    [keywordFooterText, record, referenceLayer, text],
+    [keywordFooterText, parseContext, record, text],
   )
 
   return (

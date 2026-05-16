@@ -1,7 +1,13 @@
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
 import type {ResolvedDatabaseReferenceLayer} from './database-reference-layer'
 import type {DescribedRecord} from './description-records'
-import {parseRichDescription, type RichSegment, type RichTextParseOptions} from './rich-text'
+import {
+  buildRichTextParseContext,
+  parseRichDescriptionWithContext,
+  type RichSegment,
+  type RichTextParseContext,
+  type RichTextParseOptions,
+} from './rich-text'
 
 const EMPTY_CARD_NAMES = new Set<string>()
 
@@ -116,6 +122,38 @@ interface ParseDatabaseRichDescriptionOptions {
   overlays?: readonly AwakenerOverlayRecord[]
 }
 
+interface ParseDatabaseRichDescriptionWithContextOptions {
+  text?: string
+  record?: DescribedRecord
+  keywordFooterText?: string
+  context: RichTextParseContext
+}
+
+export function buildDatabaseRichTextParseContext(
+  cardNames: ReadonlySet<string>,
+  record: DescribedRecord | undefined,
+  referenceLayer: ResolvedDatabaseReferenceLayer | null | undefined,
+  overlays?: readonly AwakenerOverlayRecord[],
+): RichTextParseContext {
+  return buildRichTextParseContext(
+    cardNames,
+    buildDatabaseRichTextParseOptions(record, referenceLayer, overlays),
+  )
+}
+
+export function parseDatabaseRichDescriptionWithContext({
+  text,
+  record,
+  keywordFooterText,
+  context,
+}: ParseDatabaseRichDescriptionWithContextOptions): RichSegment[] {
+  return parseRichDescriptionWithContext(
+    buildDatabaseRichDescriptionText(record?.descriptionTemplate ?? text, keywordFooterText),
+    context,
+    record?.descriptionArgs,
+  )
+}
+
 export function parseDatabaseRichDescription({
   text,
   record,
@@ -124,10 +162,12 @@ export function parseDatabaseRichDescription({
   referenceLayer,
   overlays,
 }: ParseDatabaseRichDescriptionOptions): RichSegment[] {
-  return parseRichDescription(
-    buildDatabaseRichDescriptionText(record?.descriptionTemplate ?? text, keywordFooterText),
+  const context = buildDatabaseRichTextParseContext(
     cardNames ?? referenceLayer?.cardNames ?? EMPTY_CARD_NAMES,
-    record?.descriptionArgs,
-    buildDatabaseRichTextParseOptions(record, referenceLayer, overlays),
+    record,
+    referenceLayer,
+    overlays,
   )
+
+  return parseDatabaseRichDescriptionWithContext({text, record, keywordFooterText, context})
 }

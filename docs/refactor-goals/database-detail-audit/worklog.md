@@ -81,4 +81,23 @@
 - Simplification: `rebuildRecordFromMaps` now uses `requireSkillRecord` and `requireDerivedRecord` instead of terminal casts.
 - Refactor review: pass. Missing-card error text is preserved, new wrong-shape errors are explicit, no dependency or scope changes.
 - Validation: `npm test -- --run src/domain/awakeners-full-resolver.test.ts src/domain/awakeners-database-view.test.ts src/domain/public-detail-record-adapters.test.ts --pool=forks --maxWorkers=1` passed with 40 tests; `npx tsc -p tsconfig.app.json --noEmit --pretty false` passed; Prettier check passed; `git diff --check` passed.
-- Next: run packet checker and commit W4 as the fourth product slice.
+- Commit: `d9a4da4 refactor: narrow patched awakener records`. Pre-commit ran lint, `test:bounded` (186 files / 1227 tests), script tests, and `build:quiet`.
+- Next: queue the rich text parse-context slice.
+
+### 2026-05-16 - W5 selected
+
+- Judge decision: selected C3 because `parseRichDescription` rebuilds normalized card names and parse options per call, while database rendering can reuse a stable context for a given reference layer/record/options set.
+- Active task: `W5` reuse rich text parse context.
+- Allowed files: `src/domain/rich-text.ts`, `src/domain/database-rich-text.ts`, related direct tests, `DatabaseRichTextContent.tsx`, and this packet.
+- Validation planned: `npm test -- --run src/domain/rich-text.test.ts src/domain/database-rich-text.test.ts src/features/database/internal/DatabaseRichTextContent.test.tsx --pool=forks --maxWorkers=1`, `npx tsc -p tsconfig.app.json --noEmit --pretty false`, `git diff --check`, packet checker.
+
+### 2026-05-16 - W5 implemented and reviewed
+
+- Slice: rich text parse-context reuse.
+- Files changed: `src/domain/rich-text.ts`, `src/domain/rich-text.test.ts`, `src/domain/database-rich-text.ts`, `src/features/database/internal/DatabaseRichTextContent.tsx`.
+- Characterization: added a parser test proving a reused context still keeps description args parse-specific.
+- Simplification: parser callers can build a `RichTextParseContext` once; database rich text memoizes that context for the current record/reference layer while preserving the existing `parseRichDescription` wrapper.
+- Refactor review: pass. Parser precedence and database rich-text behavior are preserved; no dependency, builder, collection, or app shell changes.
+- Validation: `npm test -- --run src/domain/rich-text.test.ts src/domain/database-rich-text.test.ts src/features/database/internal/DatabaseRichTextContent.test.tsx --pool=forks --maxWorkers=1` passed with 46 tests; `npx tsc -p tsconfig.app.json --noEmit --pretty false` passed; Prettier check passed; `git diff --check` passed.
+- Commit: pending this slice commit.
+- Next: queue the reference-layer accumulator or popover-controller slice.
