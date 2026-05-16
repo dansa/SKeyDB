@@ -58,6 +58,31 @@ describe('timelineArtworkModel', () => {
     })
   })
 
+  it('propagates detail opt-outs to linked wheel-auto visual slots', () => {
+    const poolSlots: BannerPoolSlot[] = [
+      {
+        linked: true,
+        pool: [{name: 'Arachne', kind: 'awakener', detailLink: false}],
+      },
+    ]
+
+    const visualSlots = resolvePoolSlots(poolSlots)
+
+    expect(visualSlots).toHaveLength(2)
+    expect(visualSlots[0].assets[0]).toMatchObject({
+      detailRef: undefined,
+      label: 'Arachne',
+      linkTo: undefined,
+      isWheel: false,
+    })
+    expect(visualSlots[1].assets[0]).toMatchObject({
+      detailRef: undefined,
+      label: 'Eternal Weave',
+      linkTo: undefined,
+      isWheel: true,
+    })
+  })
+
   it('skips empty pool slots before artwork rendering', () => {
     const visualSlots = resolvePoolSlots([
       {pool: []},
@@ -105,5 +130,25 @@ describe('timelineArtworkModel', () => {
 
     expect(getVisualSlotSignature(slot)).toContain('Arachne')
     expect(getVisualSlotSignature(slot)).toContain('/database/awakeners/arachne')
+    expect(getVisualSlotSignature(slot)).toContain('awakener:')
+  })
+
+  it('includes detail refs in visual slot signatures to force safe remounts', () => {
+    const signature = getVisualSlotSignature({
+      cycleFrameIndex: 0,
+      assets: [
+        {
+          detailRef: {kind: 'awakener', id: 'awakener-a'},
+          isWheel: false,
+          label: 'Shared',
+          linkTo: '/database/shared',
+          realmId: 'AEQUOR',
+          url: '/shared.webp',
+        },
+      ],
+    })
+
+    expect(signature).toContain('awakener:awakener-a')
+    expect(signature).toContain('AEQUOR')
   })
 })

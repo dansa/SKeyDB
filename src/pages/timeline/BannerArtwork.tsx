@@ -25,6 +25,7 @@ const SLICE_DETAIL_TARGET_CLASS =
   'absolute inset-0 z-30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-amber-100/95 focus-visible:shadow-[inset_0_0_0_1px_rgba(15,23,42,0.85)]'
 const POOL_MONTAGE_LAYER_CLASS =
   'absolute inset-0 overflow-hidden transition-opacity ease-in-out motion-reduce:transition-none'
+const EMPTY_FEATURED: BannerFeaturedUnit[] = []
 const EMPTY_POOL_SLOTS: BannerPoolSlot[] = []
 
 const imagePreloadCache = new Map<string, Promise<void>>()
@@ -570,8 +571,9 @@ export function BannerArtwork({
   title,
   onOpenDetail,
 }: BannerArtworkProps) {
-  const displaySlices = expandFeatured(featured ?? [])
-  const displayAssets = resolveFeaturedAssets(displaySlices)
+  const effectiveFeatured = featured ?? EMPTY_FEATURED
+  const displaySlices = useMemo(() => expandFeatured(effectiveFeatured), [effectiveFeatured])
+  const displayAssets = useMemo(() => resolveFeaturedAssets(displaySlices), [displaySlices])
   const effectivePoolSlots = poolSlots ?? EMPTY_POOL_SLOTS
   const visualSlots = useMemo(
     () => (effectivePoolSlots.length > 0 ? resolvePoolSlots(effectivePoolSlots) : null),

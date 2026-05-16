@@ -6,6 +6,9 @@ import type {BannerFeaturedUnit} from '@/domain/timeline'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 import {getWheels} from '@/domain/wheels'
 
+type TimelineAwakener = ReturnType<typeof getAwakeners>[number]
+type TimelineWheel = ReturnType<typeof getWheels>[number]
+
 export interface TimelineFeaturedAsset {
   url: string | undefined
   label: string
@@ -15,21 +18,56 @@ export interface TimelineFeaturedAsset {
   detailRef: EntityRef | undefined
 }
 
+interface TimelineEntityIndexes {
+  awakenerByName: Map<string, TimelineAwakener>
+  signatureWheelByAwakenerName: Map<string, TimelineWheel>
+  wheelByName: Map<string, TimelineWheel>
+}
+
+function getLookupKey(name: string): string {
+  return name.toLowerCase()
+}
+
+function setFirstIndexedValue<T>(map: Map<string, T>, key: string, value: T) {
+  if (!map.has(key)) {
+    map.set(key, value)
+  }
+}
+
+function buildTimelineEntityIndexes(
+  awakeners: TimelineAwakener[],
+  wheels: TimelineWheel[],
+): TimelineEntityIndexes {
+  const awakenerByName = new Map<string, TimelineAwakener>()
+  const signatureWheelByAwakenerName = new Map<string, TimelineWheel>()
+  const wheelByName = new Map<string, TimelineWheel>()
+
+  awakeners.forEach((awakener) => {
+    setFirstIndexedValue(awakenerByName, getLookupKey(awakener.name), awakener)
+  })
+
+  wheels.forEach((wheel) => {
+    setFirstIndexedValue(wheelByName, getLookupKey(wheel.name), wheel)
+    if (wheel.rarity === 'SSR') {
+      setFirstIndexedValue(signatureWheelByAwakenerName, getLookupKey(wheel.awakener), wheel)
+    }
+  })
+
+  return {awakenerByName, signatureWheelByAwakenerName, wheelByName}
+}
+
+const timelineEntityIndexes = buildTimelineEntityIndexes(getAwakeners(), getWheels())
+
 export function findTimelineAwakener(name: string) {
-  const needle = name.toLowerCase()
-  return getAwakeners().find((awakener) => awakener.name.toLowerCase() === needle)
+  return timelineEntityIndexes.awakenerByName.get(getLookupKey(name))
 }
 
 export function findTimelineWheel(name: string) {
-  const needle = name.toLowerCase()
-  return getWheels().find((wheel) => wheel.name.toLowerCase() === needle)
+  return timelineEntityIndexes.wheelByName.get(getLookupKey(name))
 }
 
 export function findTimelineSignatureWheel(awakenerName: string) {
-  const needle = awakenerName.toLowerCase()
-  return getWheels().find(
-    (wheel) => wheel.awakener.toLowerCase() === needle && wheel.rarity === 'SSR',
-  )
+  return timelineEntityIndexes.signatureWheelByAwakenerName.get(getLookupKey(awakenerName))
 }
 
 export function resolveTimelineFeaturedAsset(unit: BannerFeaturedUnit): TimelineFeaturedAsset {

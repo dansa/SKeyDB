@@ -44,6 +44,7 @@
 - Done:
   - Initial scout pass completed across domain/data-access, timeline, D-Zone, tests, TypeScript, and harness/scripts.
   - Small safe cleanup pass completed for D-Zone drawer timer cleanup, timeline category/tag helpers, and script execution hardening.
+  - R6/R7 timeline resolver and derived-pool slice completed: entity lookup is preindexed, derived banner pool logic is extracted, and linked-pair/missing-wheel behavior is characterized.
 - In progress:
   - None.
 - Next:
@@ -60,8 +61,8 @@
 | R3 | Rich description token grammar dedupe | Proposed | Medium-high | Medium domain | `npm run test:unit -- src/domain/description-args.test.ts src/domain/database-rich-text.test.ts src/domain/public-description-args.test.ts` |
 | R4 | D-Zone history route/view-model boundary | Proposed | High | Medium React/page model | `npm test -- --run src/pages/DZoneHistoryPage.test.tsx src/pages/d-zone/d-zone-history-view-model.test.ts --pool=forks --maxWorkers=1` |
 | R5 | D-Zone season inspector state model | Proposed | Medium-high | Medium React/domain helper | `npm test -- --run src/pages/DZonePage.test.tsx src/pages/DZoneHistoryPage.test.tsx src/pages/d-zone/DZoneWaveCard.test.tsx --pool=forks --maxWorkers=1` |
-| R6 | Timeline entity resolution preindex | Proposed | Medium-high | Medium timeline plumbing | `npm test -- --run src/pages/timeline/timelineArtworkModel.test.ts src/pages/timeline/BannerCard.test.tsx src/pages/timeline/EventList.test.tsx --pool=forks --maxWorkers=1` |
-| R7 | Timeline derived pool builder extraction | Proposed | Medium-high | Medium domain | `npm test -- --run src/domain/timeline-data.test.ts --pool=forks --maxWorkers=1` |
+| R6 | Timeline entity resolution preindex | Done | Medium-high | Medium timeline plumbing | `npm test -- --run src/pages/timeline/timelineArtworkModel.test.ts src/pages/timeline/BannerCard.test.tsx src/pages/timeline/EventList.test.tsx --pool=forks --maxWorkers=1` |
+| R7 | Timeline derived pool builder extraction | Done | Medium-high | Medium domain | `npm test -- --run src/domain/timeline-data.test.ts --pool=forks --maxWorkers=1` |
 | R8 | Shared jsdom layout/window test helpers | Proposed | Medium | Small-medium test infra | `npm test -- --run src/features/builder/BuilderPage.wheels.test.tsx src/pages/DZoneHistoryPage.test.tsx --pool=forks --maxWorkers=1` |
 | R9 | Shared public catalog test fixtures | Proposed | Medium-high | Medium test infra | `npm test -- --run src/features/database/DatabaseRoutes.test.tsx src/features/collection/CollectionPage.test.tsx --pool=forks --maxWorkers=1` |
 
@@ -230,6 +231,12 @@
 **Stop condition:**
 - Do not introduce alias matching unless explicitly requested.
 
+**Completion notes:**
+- Completed 2026-05-16.
+- `timelineDetailResolution.ts` now uses prebuilt lookup indexes for awakeners, wheels, and SSR signature wheels.
+- `timelineArtworkModel.ts` caches repeated unit resolution per batch and keys visual slots with detail refs to avoid stale click targets.
+- Characterization added for resolver semantics, linked detail opt-outs, and signature identity.
+
 ## R7: Timeline Derived Pool Builder Extraction
 
 **Problem:** `timeline-data.ts` owns Zod validation, art resolution, featured unit normalization, and derived premium pool generation in one module.
@@ -255,6 +262,12 @@
 
 **Stop condition:**
 - Do not change banner JSON schema unless the slice explicitly expands.
+
+**Completion notes:**
+- Completed 2026-05-16.
+- `timeline-banner-pools.ts` now owns featured unit normalization, explicit pool-slot expansion, and derived pool construction.
+- `timeline-data.ts` keeps JSON validation/loading and delegates banner pool construction to the extracted module.
+- Characterization added for linked-pair missing SSR wheel errors via injected test data.
 
 ## R8: Shared JSDOM Layout/Window Test Helpers
 

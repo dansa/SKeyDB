@@ -2,6 +2,7 @@ import {describe, expect, it} from 'vitest'
 
 import rawBanners from '@/data/timeline/banners.json'
 
+import {resolveTimelineBannerDerivedPool} from './timeline-banner-pools'
 import {loadTimelineBanners, timelineBanners, timelineEvents} from './timeline-data'
 
 describe('timeline data loading', () => {
@@ -224,6 +225,61 @@ describe('timeline data loading', () => {
         },
       ]),
     ).toThrow(/empty linked pool/i)
+  })
+
+  it('rejects linkedPairs derived pools when a derived SSR awakener lacks an SSR wheel', () => {
+    expect(() =>
+      resolveTimelineBannerDerivedPool(
+        {
+          availabilityTypes: ['LIMITED_TEST_POOL'],
+          linkedPairs: true,
+        },
+        'test-linked-missing-wheel',
+        {
+          awakeners: [
+            {
+              aliases: ['Wheel Owner'],
+              availabilityType: 'LIMITED_TEST_POOL',
+              faction: 'test',
+              id: 'awakener-9001',
+              lineupToken: 'wheel-owner',
+              name: 'Wheel Owner',
+              rarity: 'SSR',
+              realm: 'test',
+              tags: [],
+            },
+            {
+              aliases: ['Missing Wheel'],
+              availabilityType: 'LIMITED_TEST_POOL',
+              faction: 'test',
+              id: 'awakener-9002',
+              lineupToken: 'missing-wheel',
+              name: 'Missing Wheel',
+              rarity: 'SSR',
+              realm: 'test',
+              tags: [],
+            },
+          ],
+          wheels: [
+            {
+              aliases: ['Owned SSR Wheel'],
+              assetId: 'test-wheel',
+              awakener: 'wheel owner',
+              id: 'wheel-9001',
+              lineupToken: 'owned-ssr-wheel',
+              mainstatKey: 'CRIT_RATE',
+              name: 'Owned SSR Wheel',
+              ownerAwakenerId: 'awakener-9001',
+              rarity: 'SSR',
+              realm: 'NEUTRAL',
+              tags: [],
+            },
+          ],
+        },
+      ),
+    ).toThrow(
+      /Timeline banner "test-linked-missing-wheel" linkedPairs derivedPool includes awakeners without SSR wheels: Missing Wheel\./,
+    )
   })
 
   it('loads Song of Perennial Wandering Hameln rerun teasers', () => {
