@@ -1,12 +1,16 @@
 import {describe, expect, it} from 'vitest'
 
 import {
+  EVENT_CATEGORIES,
+  EVENT_CATEGORY_METADATA,
+  EVENT_CATEGORY_PRIORITY,
   formatCountdown,
   getTimelineCountdown,
   getTimelineCountdownDisplay,
   getTimelineStatus,
   normalizeEventCategory,
   parseGameDate,
+  shouldDisplayEndedEventInArchive,
   sortBannersByRelevance,
   sortEventsByRelevance,
   type BannerEntry,
@@ -26,6 +30,24 @@ describe('timeline date and status helpers', () => {
     expect(normalizeEventCategory('gameplay-event')).toBe('gameplay-event')
     expect(normalizeEventCategory('unknown-category')).toBe('other')
     expect(normalizeEventCategory(undefined)).toBeUndefined()
+  })
+
+  it('keeps event category priority and archive visibility derived from metadata', () => {
+    expect(Object.keys(EVENT_CATEGORY_METADATA)).toEqual([...EVENT_CATEGORIES])
+    expect(EVENT_CATEGORY_PRIORITY).toEqual(
+      Object.fromEntries(
+        EVENT_CATEGORIES.map((category) => [category, EVENT_CATEGORY_METADATA[category].priority]),
+      ),
+    )
+    expect(
+      shouldDisplayEndedEventInArchive({
+        id: 'ended-login',
+        title: 'Ended Login',
+        startDate: '2026-03-01T00:00:00.000Z',
+        endDate: '2026-03-02T00:00:00.000Z',
+        category: 'login',
+      }),
+    ).toBe(false)
   })
 
   it('resolves upcoming, active and ended statuses', () => {

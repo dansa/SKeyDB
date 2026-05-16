@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState, type KeyboardEvent} from 'react'
+import {useEffect, useRef, useState, type KeyboardEvent, type RefObject} from 'react'
 
 import {FaChevronRight, FaMagnifyingGlass, FaXmark} from 'react-icons/fa6'
 
@@ -46,24 +46,19 @@ function getFocusableElements(container: HTMLElement): HTMLElement[] {
   )
 }
 
-export function DZoneHistoryBrowser({
+function useDrawerModalBehavior({
   browserOpen,
-  expandedYears,
-  forceExpandedYears,
-  groups,
+  drawerRef,
   openerElement,
-  search,
-  selectedSeasonId,
-  onBackdropClose,
   onClose,
-  onSearchChange,
-  onSelectSeason,
-  onToggleYear,
-}: DZoneHistoryBrowserProps) {
-  const drawerRef = useRef<HTMLElement>(null)
+}: {
+  browserOpen: boolean
+  drawerRef: RefObject<HTMLElement | null>
+  openerElement: HTMLElement | null
+  onClose: () => void
+}) {
   const onCloseRef = useRef(onClose)
   const openerElementRef = useRef(openerElement)
-  const [archiveNoteOpen, setArchiveNoteOpen] = useState(false)
 
   useEffect(() => {
     onCloseRef.current = onClose
@@ -81,7 +76,7 @@ export function DZoneHistoryBrowser({
     const originalOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
-    window.setTimeout(() => {
+    const focusTimer = window.setTimeout(() => {
       const drawer = drawerRef.current
       if (!drawer) {
         return
@@ -106,11 +101,32 @@ export function DZoneHistoryBrowser({
     document.addEventListener('keydown', handleDocumentKeyDown)
 
     return () => {
+      window.clearTimeout(focusTimer)
       document.body.style.overflow = originalOverflow
       document.removeEventListener('keydown', handleDocumentKeyDown)
       openerElementRef.current?.focus()
     }
-  }, [browserOpen])
+  }, [browserOpen, drawerRef])
+}
+
+export function DZoneHistoryBrowser({
+  browserOpen,
+  expandedYears,
+  forceExpandedYears,
+  groups,
+  openerElement,
+  search,
+  selectedSeasonId,
+  onBackdropClose,
+  onClose,
+  onSearchChange,
+  onSelectSeason,
+  onToggleYear,
+}: DZoneHistoryBrowserProps) {
+  const drawerRef = useRef<HTMLElement>(null)
+  const [archiveNoteOpen, setArchiveNoteOpen] = useState(false)
+
+  useDrawerModalBehavior({browserOpen, drawerRef, openerElement, onClose})
 
   function handleDrawerKeyDown(event: KeyboardEvent<HTMLElement>) {
     if (!browserOpen || event.key !== 'Tab') {

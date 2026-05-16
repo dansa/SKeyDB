@@ -16,4 +16,4 @@ This folder is for active implementation plans only.
 
 Current state:
 
-- No active implementation plans.
+- `2026-05-16-refactor-heavy-slices.md` - draft ledger for larger refactor slices discovered during the May 2026 scout pass.

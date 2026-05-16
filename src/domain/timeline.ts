@@ -64,26 +64,40 @@ export const EVENT_CATEGORIES = [
 
 export type EventCategory = (typeof EVENT_CATEGORIES)[number]
 
-export const EVENT_CATEGORY_PRIORITY: Record<EventCategory, number> = {
-  story: 10,
-  'gameplay-event': 20,
-  raid: 30,
-  'd-tide': 40,
-  skin: 50,
-  curriculum: 60,
-  'wheel-event': 70,
-  anniversary: 80,
-  milestone: 90,
-  login: 100,
-  preorder: 110,
-  battlepass: 120,
-  bundle: 130,
-  collab: 140,
-  maintenance: 150,
-  other: 999,
+export interface EventCategoryMetadata {
+  label: string
+  priority: number
+  docsBadgeColor: string
+  hideEndedFromArchive?: boolean
 }
 
-const HIDDEN_ENDED_EVENT_CATEGORIES = new Set<EventCategory>(['d-tide', 'curriculum', 'login'])
+export const EVENT_CATEGORY_METADATA: Record<EventCategory, EventCategoryMetadata> = {
+  story: {label: 'Story', priority: 10, docsBadgeColor: 'Amber'},
+  raid: {label: 'Raid', priority: 30, docsBadgeColor: 'Red'},
+  battlepass: {label: 'Battlepass', priority: 120, docsBadgeColor: 'Violet'},
+  'gameplay-event': {label: 'Event', priority: 20, docsBadgeColor: 'Amber'},
+  'd-tide': {label: 'D-Tide', priority: 40, docsBadgeColor: 'Red', hideEndedFromArchive: true},
+  curriculum: {
+    label: 'Curriculum',
+    priority: 60,
+    docsBadgeColor: 'Violet',
+    hideEndedFromArchive: true,
+  },
+  login: {label: 'Login', priority: 100, docsBadgeColor: 'Teal', hideEndedFromArchive: true},
+  skin: {label: 'Skin', priority: 50, docsBadgeColor: 'Violet'},
+  'wheel-event': {label: 'Wheel', priority: 70, docsBadgeColor: 'Blue'},
+  anniversary: {label: 'Anniversary', priority: 80, docsBadgeColor: 'Teal'},
+  milestone: {label: 'Milestone', priority: 90, docsBadgeColor: 'Gold'},
+  preorder: {label: 'Preorder', priority: 110, docsBadgeColor: 'Orange'},
+  bundle: {label: 'Bundle', priority: 130, docsBadgeColor: 'Champagne'},
+  collab: {label: 'Collab', priority: 140, docsBadgeColor: 'Violet'},
+  maintenance: {label: 'Maintenance', priority: 150, docsBadgeColor: 'Slate'},
+  other: {label: 'Event', priority: 999, docsBadgeColor: 'Slate'},
+}
+
+export const EVENT_CATEGORY_PRIORITY: Record<EventCategory, number> = Object.fromEntries(
+  EVENT_CATEGORIES.map((category) => [category, EVENT_CATEGORY_METADATA[category].priority]),
+) as Record<EventCategory, number>
 
 export interface EventEntry {
   id: string
@@ -110,7 +124,7 @@ export function normalizeEventCategory(category: string | undefined): EventCateg
 }
 
 export function shouldDisplayEndedEventInArchive(event: EventEntry): boolean {
-  return !HIDDEN_ENDED_EVENT_CATEGORIES.has(event.category ?? 'other')
+  return EVENT_CATEGORY_METADATA[event.category ?? 'other'].hideEndedFromArchive !== true
 }
 
 export type TimelineStatus = 'active' | 'upcoming' | 'ended'

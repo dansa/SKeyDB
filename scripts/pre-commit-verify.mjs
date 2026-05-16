@@ -1,4 +1,4 @@
-import {execFileSync, execSync} from 'node:child_process'
+import {execFileSync} from 'node:child_process'
 import process from 'node:process'
 
 const projectRoot = process.cwd()
@@ -10,8 +10,12 @@ runScript('test:scripts')
 runScript('build:quiet')
 
 function runScript(scriptName, extraArgs = []) {
-  const command = ['npm', 'run', scriptName, ...extraArgs].join(' ')
-  execSync(command, {
+  const npmExecPath = process.env.npm_execpath
+  const {args, command} = npmExecPath
+    ? {command: process.execPath, args: [npmExecPath, 'run', scriptName, ...extraArgs]}
+    : getNpmInvocation(scriptName, extraArgs)
+
+  execFileSync(command, args, {
     cwd: projectRoot,
     stdio: 'inherit',
   })
@@ -22,4 +26,15 @@ function runNodeScript(scriptPath, args = []) {
     cwd: projectRoot,
     stdio: 'inherit',
   })
+}
+
+function getNpmInvocation(scriptName, extraArgs) {
+  if (process.platform !== 'win32') {
+    return {command: 'npm', args: ['run', scriptName, ...extraArgs]}
+  }
+
+  return {
+    command: process.env.ComSpec ?? 'cmd.exe',
+    args: ['/d', '/s', '/c', 'npm', 'run', scriptName, ...extraArgs],
+  }
 }

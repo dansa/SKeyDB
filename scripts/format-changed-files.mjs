@@ -1,4 +1,4 @@
-import {execFileSync, execSync} from 'node:child_process'
+import {execFileSync} from 'node:child_process'
 import {createHash} from 'node:crypto'
 import {existsSync, readFileSync} from 'node:fs'
 import path from 'node:path'
@@ -73,31 +73,18 @@ function readStagedFile(filePath) {
   return execGit(['show', `:${filePath}`])
 }
 
-function getNpxCommand() {
-  return process.platform === 'win32' ? 'npx.cmd' : 'npx'
-}
-
 function runPrettier(targets, cwd) {
-  const prettierArgs = ['prettier', '--write', '--ignore-unknown']
+  const prettierCli = path.join(cwd, 'node_modules', 'prettier', 'bin', 'prettier.cjs')
+  const prettierArgs = ['--write', '--ignore-unknown']
   if (quiet) {
     prettierArgs.push('--log-level', 'silent')
   }
 
   for (const targetChunk of chunkTargets(targets)) {
-    if (process.platform === 'win32') {
-      const quotedArgs = [...prettierArgs, ...targetChunk]
-        .map((argument) => `"${argument.replaceAll('"', '\\"')}"`)
-        .join(' ')
-      execSync(`${getNpxCommand()} ${quotedArgs}`, {
-        cwd,
-        stdio: 'inherit',
-      })
-    } else {
-      execFileSync(getNpxCommand(), [...prettierArgs, ...targetChunk], {
-        cwd,
-        stdio: 'inherit',
-      })
-    }
+    execFileSync(process.execPath, [prettierCli, ...prettierArgs, ...targetChunk], {
+      cwd,
+      stdio: 'inherit',
+    })
   }
 }
 

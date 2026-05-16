@@ -40,16 +40,21 @@ Array of event objects. Each event appears as a card in the Events section.
 
 | Category | Badge Color | Use For |
 |----------|-------------|---------|
-| `gameplay-event` | Amber | New character story events, story reruns |
-| `d-tide` | Red | Rotating raid / competitive PvE |
-| `curriculum` | Violet | Seasonal task-track passes |
-| `login` | Teal | Daily login bonus events |
-| `skin` | Pink | Outfit / skin releases |
-| `wheel-event` | Cyan | Wheel acquisition events (gacha for wheels) |
+| `story` | Amber | Story events and story reruns |
+| `raid` | Red | Raid and competitive PvE events |
+| `battlepass` | Violet | Battle pass events |
+| `gameplay-event` | Amber | General gameplay events |
+| `d-tide` | Red | Rotating D-Tide events; ended entries are hidden from the archive |
+| `curriculum` | Violet | Seasonal task-track passes; ended entries are hidden from the archive |
+| `login` | Teal | Daily login bonus events; ended entries are hidden from the archive |
+| `skin` | Violet | Outfit / skin releases |
+| `wheel-event` | Blue | Wheel acquisition events (gacha for wheels) |
+| `anniversary` | Teal | Anniversary events |
+| `milestone` | Gold | Milestone events and rewards |
 | `preorder` | Orange | Upcoming character preorder bundles |
+| `bundle` | Champagne | Shop bundles and package events |
+| `collab` | Violet | Collaboration events |
 | `maintenance` | Slate | Server maintenance windows |
-| `campaign` | Emerald | Double drops, resource campaigns |
-| `collab` | Fuchsia | Collaboration events |
 | `other` | Slate | Anything that doesn't fit above |
 
 ### Art Alignment

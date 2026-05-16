@@ -30,3 +30,15 @@ export function getBannerDisplayTags(banner: BannerEntry): BannerTag[] {
   if (banner.tags && banner.tags.length > 0) return banner.tags
   return banner.preliminary ? ([banner.type, 'preliminary'] satisfies BannerTag[]) : [banner.type]
 }
+
+function isBannerTag(tag: string): tag is BannerTag {
+  return tag in BANNER_TAG_LABEL
+}
+
+export function getBannerTagLabel(tag: string): string {
+  return isBannerTag(tag) ? BANNER_TAG_LABEL[tag] : tag
+}
+
+export function getBannerTagColor(tag: string, fallbackClass: string): string {
+  return isBannerTag(tag) ? BANNER_TAG_COLOR[tag] : fallbackClass
+}

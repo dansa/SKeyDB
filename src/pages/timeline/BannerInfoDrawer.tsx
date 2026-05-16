@@ -2,10 +2,10 @@ import {Fragment} from 'react'
 
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
 
-import type {BannerEntry, BannerTag} from '@/domain/timeline'
+import type {BannerEntry} from '@/domain/timeline'
 import {formatTimelinePrice, type TimelinePriceDisplayMode} from '@/domain/timeline-pricing'
 
-import {BANNER_TAG_COLOR, BANNER_TAG_LABEL, getBannerDisplayTags} from './bannerTagDisplay'
+import {getBannerDisplayTags, getBannerTagColor, getBannerTagLabel} from './bannerTagDisplay'
 import {TimelineRichText} from './TimelineRichText'
 
 const DRAWER_BASE_CLASS =
@@ -133,14 +133,10 @@ function BannerDrawerBody({
                 ) : null}
                 <span
                   className={
-                    isEnded
-                      ? 'text-slate-600'
-                      : tag in BANNER_TAG_COLOR
-                        ? BANNER_TAG_COLOR[tag as BannerTag]
-                        : 'text-slate-300/88'
+                    isEnded ? 'text-slate-600' : getBannerTagColor(tag, 'text-slate-300/88')
                   }
                 >
-                  {tag in BANNER_TAG_LABEL ? BANNER_TAG_LABEL[tag as BannerTag] : tag}
+                  {getBannerTagLabel(tag)}
                 </span>
               </Fragment>
             ))}

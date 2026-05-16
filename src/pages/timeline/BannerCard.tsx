@@ -1,17 +1,12 @@
 import {Fragment, useState} from 'react'
 
 import type {EntityRef} from '@/domain/entities/types'
-import {
-  getTimelineCountdownDisplay,
-  getTimelineStatus,
-  type BannerEntry,
-  type BannerTag,
-} from '@/domain/timeline'
+import {getTimelineCountdownDisplay, getTimelineStatus, type BannerEntry} from '@/domain/timeline'
 import {formatTimelinePrice, type TimelinePriceDisplayMode} from '@/domain/timeline-pricing'
 
 import {BannerArtwork} from './BannerArtwork'
 import {BannerInfoDrawer} from './BannerInfoDrawer'
-import {BANNER_TAG_COLOR, BANNER_TAG_LABEL, getBannerDisplayTags} from './bannerTagDisplay'
+import {getBannerDisplayTags, getBannerTagColor, getBannerTagLabel} from './bannerTagDisplay'
 
 const BANNER_CARD_BASE_CLASS =
   'group/banner relative aspect-[8/5] w-full max-w-[30rem] overflow-hidden rounded-[2px] border shadow-[0_12px_26px_rgba(2,6,23,0.28),inset_0_1px_0_rgba(255,244,202,0.05)] transition-[border-color,box-shadow] duration-150 motion-reduce:transition-none'
@@ -136,16 +131,8 @@ function BannerCardHero({
           &middot;
         </span>
       ) : null}
-      <span
-        className={
-          isEnded
-            ? 'text-slate-500'
-            : tag in BANNER_TAG_COLOR
-              ? BANNER_TAG_COLOR[tag as BannerTag]
-              : 'text-slate-300/90'
-        }
-      >
-        {tag in BANNER_TAG_LABEL ? BANNER_TAG_LABEL[tag as BannerTag] : tag}
+      <span className={isEnded ? 'text-slate-500' : getBannerTagColor(tag, 'text-slate-300/90')}>
+        {getBannerTagLabel(tag)}
       </span>
     </Fragment>
   )

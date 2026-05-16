@@ -2,6 +2,7 @@ import {useRef, useState, type ReactNode} from 'react'
 
 import type {EntityRef} from '@/domain/entities/types'
 import {
+  EVENT_CATEGORY_METADATA,
   getTimelineCountdownDisplay,
   getTimelineStatus,
   type BannerFeaturedUnit,
@@ -13,25 +14,6 @@ import {formatTimelinePrice, type TimelinePriceDisplayMode} from '@/domain/timel
 import {EventDescriptionPreview, EventDescriptionShelf} from './EventDescription'
 import {resolveTimelineFeaturedAsset} from './timelineDetailResolution'
 import {useEventDescriptionOverflow} from './useEventDescriptionOverflow'
-
-const CATEGORY_LABEL: Record<EventCategory, string> = {
-  story: 'Story',
-  raid: 'Raid',
-  battlepass: 'Battlepass',
-  'gameplay-event': 'Event',
-  'd-tide': 'D-Tide',
-  curriculum: 'Curriculum',
-  login: 'Login',
-  skin: 'Skin',
-  'wheel-event': 'Wheel',
-  anniversary: 'Anniversary',
-  milestone: 'Milestone',
-  preorder: 'Preorder',
-  bundle: 'Bundle',
-  maintenance: 'Maintenance',
-  collab: 'Collab',
-  other: 'Event',
-}
 
 type EventMetaTone =
   | 'amber'
@@ -257,7 +239,7 @@ function EventTaxonomyLine({
       key: 'category',
       element: (
         <EventMetaText isEnded={isEnded} primary tone={CATEGORY_TONE[category]}>
-          {CATEGORY_LABEL[category]}
+          {EVENT_CATEGORY_METADATA[category].label}
         </EventMetaText>
       ),
       primary: true,
