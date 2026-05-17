@@ -268,10 +268,10 @@
       "id": "C22",
       "title": "Timeline page orchestration seam",
       "source_task": "timeline-scout",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": "src/pages/TimelinePage.tsx; timeline routing/data helpers; tests",
-      "evidence": "TimelinePage combines URL state, data selection, D-zone parsing, detail modal wiring, masthead config, filters, and section layout.",
-      "next": "Queue only after smaller Timeline helper slices reduce risk."
+      "evidence": "Implemented in W14. Split TimelinePage orchestration into Timeline-local controls, page section, D-zone summary helper, and section-scroll hook; TimelinePage now keeps URL state, data composition, and modal wiring while helpers own UI controls, masthead summary derivation, and scroll effect.",
+      "next": "Implemented as Timeline-local architecture seam; no route semantics, modal store behavior, or domain data changed."
     },
     {
       "id": "C23",
@@ -2477,6 +2477,168 @@
           "M2"
         ]
       }
+    },
+    {
+      "id": "J14",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose Timeline page orchestration seam slice",
+      "skills": [
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "src/pages/TimelinePage.tsx",
+        "src/pages/timeline/TimelineContentControls.tsx",
+        "src/pages/timeline/TimelinePageSection.tsx",
+        "src/pages/timeline/timelineDZoneSummary.ts",
+        "src/pages/timeline/useTimelineSectionScroll.ts",
+        "src/pages/TimelinePage.test.tsx",
+        "src/pages/timeline/EventList.test.tsx",
+        "src/pages/timeline/TimelineArchiveSection.test.tsx",
+        "docs/refactor-goals/cross-surface-ui-normalization/**"
+      ],
+      "protected_files": [
+        "src/features/database/detail/**",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "Timeline-local page orchestration helpers with route and modal behavior preserved.",
+      "receipt": {
+        "evidence": [
+          "TimelinePage mixed URL state, section scroll effect, masthead D-zone derivation, control markup, section headers, data composition, and modal wiring.",
+          "C10 had already moved repeated active/upcoming/ended section rendering out of the page-adjacent children, making this page seam safe to cut."
+        ],
+        "selected_candidates": [
+          "C22"
+        ],
+        "why_root_fix": "Move cohesive Timeline-only UI/effect/model responsibilities into local helpers while leaving route state and modal wiring in the page.",
+        "what_not_to_change": "No search-param semantics, reduced-motion scroll behavior, `timeline-overlay` detail source, D-zone summary fallback, or filter button a11y semantics.",
+        "verification": [
+          "npx vitest run src/pages/TimelinePage.test.tsx src/pages/timeline/EventList.test.tsx src/pages/timeline/TimelineArchiveSection.test.tsx",
+          "npm run lint",
+          "npm run build:quiet",
+          "git diff --check",
+          "browser check for /timeline"
+        ]
+      }
+    },
+    {
+      "id": "W14",
+      "role": "worker",
+      "status": "done",
+      "title": "Split Timeline page orchestration helpers",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture"
+      ],
+      "allowed_files": [
+        "src/pages/TimelinePage.tsx",
+        "src/pages/timeline/TimelineContentControls.tsx",
+        "src/pages/timeline/TimelinePageSection.tsx",
+        "src/pages/timeline/timelineDZoneSummary.ts",
+        "src/pages/timeline/useTimelineSectionScroll.ts",
+        "src/pages/TimelinePage.test.tsx",
+        "src/pages/timeline/EventList.test.tsx",
+        "src/pages/timeline/TimelineArchiveSection.test.tsx"
+      ],
+      "protected_files": [
+        "src/features/database/detail/**",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "TimelinePage delegates controls, section header, D-zone summary, and section scroll to local helpers.",
+      "receipt": {
+        "slice": "Timeline page orchestration seam for C22.",
+        "evidence": [
+          "Added `TimelineContentControls` for content/price controls and `TimelinePageSection` for page section headers.",
+          "Added `timelineDZoneSummary.ts` for D-zone event selection, realm fallback, and countdown summary.",
+          "Added `useTimelineSectionScroll` for section scroll and reduced-motion behavior.",
+          "TimelinePage now composes helpers and keeps route state/detail modal wiring."
+        ],
+        "files_changed": [
+          "src/pages/TimelinePage.tsx",
+          "src/pages/timeline/TimelineContentControls.tsx",
+          "src/pages/timeline/TimelinePageSection.tsx",
+          "src/pages/timeline/timelineDZoneSummary.ts",
+          "src/pages/timeline/useTimelineSectionScroll.ts"
+        ],
+        "what_got_simpler": "TimelinePage no longer owns local button components, price-mode markup, section-header markup, D-zone summary parsing, or the scroll effect body.",
+        "behavior_preserved": "View and section search params, content/price controls, reduced-motion scroll behavior, D-zone masthead text/countdown, and detail overlay source are preserved.",
+        "current_complexity": "TimelinePage mixed page composition with UI controls, effects, and D-zone summary derivation.",
+        "expected_complexity_after": "Small Timeline-local helpers own controls, effects, and summary derivation; TimelinePage stays at route/data/modal composition level.",
+        "data_access_render_invariants": "No timeline data, sort order, routing, price-mode semantics, or modal store calls changed.",
+        "root_fix_patch_decision": "Root fix for Timeline page orchestration responsibility.",
+        "dependency_review": "Not needed; no package files changed.",
+        "characterization": "TimelinePage tests pin filters, scroll behavior, masthead D-zone data, and detail overlay source; EventList/Archive tests cover child section behavior.",
+        "harness_update_considered": "No harness update needed.",
+        "validation_run": [
+          "npx vitest run src/pages/TimelinePage.test.tsx src/pages/timeline/EventList.test.tsx src/pages/timeline/TimelineArchiveSection.test.tsx -> 21 tests passed",
+          "npm run lint -> passed",
+          "npm run build:quiet -> passed after widening useTimelineSectionScroll to accept undefined from parseTimelineSectionId",
+          "git diff --check -> passed",
+          "goal checker -> passed",
+          "browser check for /timeline -> controls, D-zone masthead summary, event/banner sections, and archive toggles rendered"
+        ],
+        "risks": "Medium; page responsibilities moved into helpers, but existing route/effect tests cover the critical semantics.",
+        "followups_not_done": [
+          "C7"
+        ],
+        "scope_expansion_requested": false
+      }
+    },
+    {
+      "id": "R14",
+      "role": "review",
+      "status": "done",
+      "title": "Review Timeline page orchestration seam",
+      "skills": [
+        "$refactor-review"
+      ],
+      "allowed_files": [
+        "W14 diff and goal packet"
+      ],
+      "protected_files": [],
+      "expected_output": "Verdict, validation evidence, and C22 register update.",
+      "receipt": {
+        "evidence": [
+          "W14 moved cohesive Timeline-local responsibilities out of TimelinePage without touching domain data or database detail internals.",
+          "Focused TimelinePage tests passed and still cover the search-param and scroll behavior that moved."
+        ],
+        "verdict": "pass-with-followups",
+        "simplification_check": {
+          "before": "TimelinePage owned route state, controls, masthead summary parsing, scroll effect, section header markup, and modal wiring.",
+          "after": "Page owns route/data/modal composition while helpers own controls, scroll effect, D-zone summary, and section header.",
+          "net": "Clearer page boundary with local helper seams."
+        },
+        "governance_check": {
+          "intake": "completed from user prompt",
+          "focus_area_coverage": "covers C22 Timeline architecture seam",
+          "candidate_register": "C22 implemented",
+          "root_fix_patch": "Timeline-local root fix",
+          "dependency_review": "not needed",
+          "characterization": "TimelinePage route/effect tests",
+          "maintenance": "M1/M2 remain queued"
+        },
+        "validation": [
+          "focused Timeline tests passed",
+          "npm run lint passed",
+          "npm run build:quiet passed",
+          "git diff --check passed",
+          "goal checker passed",
+          "browser check for /timeline passed"
+        ],
+        "followups": [
+          "C3-C5 terminal reconciliation",
+          "C7-C8",
+          "C12",
+          "M1",
+          "M2"
+        ]
+      }
     }
   ],
   "final_audit": {
@@ -2496,7 +2658,6 @@
       "C7 Timeline banner artwork complexity cleanup",
       "C8 database browse render-derived work terminal decision",
       "C12 shared compact disclosure row terminal decision",
-      "C22 Timeline page orchestration seam",
       "M1/M2 maintenance follow-ups"
     ]
   }

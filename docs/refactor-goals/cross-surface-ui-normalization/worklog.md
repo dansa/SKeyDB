@@ -323,3 +323,26 @@
   - Mobile browser checks for `/database` and `/database/wheels` passed: one-open-panel behavior and panel visibility were correct.
 - Review verdict: pass-with-followups.
 - State transition: W13 done. R13 done. C19 implemented.
+
+### 2026-05-17 - W13 checkpoint committed and W14 opened
+
+- Commit: `d46dca5 refactor: share database mobile filters`.
+- Commit validation: The repo pre-commit hook ran `npm run lint`, `npm run test:bounded`, `npm run test:scripts`, and `npm run build:quiet`; all passed.
+- Decision: J14 selected C22 because `TimelinePage` still mixed route state, masthead D-zone derivation, section scroll behavior, content/price controls, section headers, data composition, and modal wiring.
+- State transition: J14 done. W14 active for Timeline-local page orchestration helpers.
+
+### 2026-05-17 - W14 implemented and reviewed
+
+- Slice: Timeline page orchestration seam for C22.
+- Files changed: `src/pages/TimelinePage.tsx`, `src/pages/timeline/TimelineContentControls.tsx`, `TimelinePageSection.tsx`, `timelineDZoneSummary.ts`, and `useTimelineSectionScroll.ts`.
+- What changed: Moved content/price controls, section header markup, D-zone masthead summary derivation, and section scroll effect into Timeline-local helpers.
+- Behavior preserved: `view` and `section` search params, reduced-motion scroll behavior, D-zone masthead text/countdown, price display controls, and `timeline-overlay` detail source.
+- Validation:
+  - `npx vitest run src/pages/TimelinePage.test.tsx src/pages/timeline/EventList.test.tsx src/pages/timeline/TimelineArchiveSection.test.tsx` passed, 21 tests.
+  - `npm run lint` passed.
+  - `npm run build:quiet` passed after widening `useTimelineSectionScroll` to accept `undefined` from `parseTimelineSectionId`.
+  - `git diff --check` passed.
+  - Goal checker passed.
+  - Browser check for `/timeline` passed with controls, D-zone masthead summary, event/banner sections, and archive toggles rendered.
+- Review verdict: pass-with-followups.
+- State transition: W14 done. R14 done. C22 implemented.
