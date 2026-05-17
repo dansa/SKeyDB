@@ -7,11 +7,11 @@ import {getDzoneSeasonById, getDzoneSeasonSummaries, getLatestDzoneSeason} from 
 import {getDzoneMonsterPreviewAsset} from '@/domain/dzone-assets'
 import {getDzoneSeasonSummaryDisplayName} from '@/domain/dzone-season-realm'
 
+import {getDZoneCountdownDisplay} from './d-zone/d-zone-countdown'
 import {formatDzoneSeasonDateRange} from './d-zone/d-zone-date-format'
 import {
   buildDZoneHistoryYearGroups,
   createDZoneHistoryExpandedYearsState,
-  getDZoneHistoryCountdownDisplay,
   getDZoneHistoryExpandedYearsForSelection,
   getDZoneHistoryNextSearchParams,
   getDZoneHistoryNormalizedSearchTerm,
@@ -52,7 +52,7 @@ export function DZoneHistoryPage() {
     ? getDzoneRealmBadgeAsset(selectedSummary.realm)
     : undefined
   const selectedDateRange = formatDzoneSeasonDateRange(selectedSeason)
-  const countdownDisplay = getDZoneHistoryCountdownDisplay(selectedSeason, now)
+  const countdownDisplay = getDZoneCountdownDisplay(selectedSeason, now)
   const normalizedSearchTerm = getDZoneHistoryNormalizedSearchTerm(searchTerm)
   const visibleSeasons = getDZoneHistoryVisibleSeasons(summaries, searchTerm)
   const yearGroups = buildDZoneHistoryYearGroups(visibleSeasons)

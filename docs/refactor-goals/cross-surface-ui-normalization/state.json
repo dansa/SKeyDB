@@ -187,10 +187,10 @@
       "id": "C13",
       "title": "D-zone countdown helper",
       "source_task": "dzone-scout",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": "src/pages/DZonePage.tsx; src/pages/d-zone/d-zone-history-view-model.ts; tests",
-      "evidence": "Current and history pages duplicate countdown logic.",
-      "next": "Queue as a small D-zone behavior-preserving helper slice."
+      "evidence": "Implemented in W7. Added `getDZoneCountdownDisplay` in `d-zone-countdown.ts`, migrated current/history pages to it, and moved countdown tests to the helper boundary.",
+      "next": "Implemented as D-zone-local behavior helper."
     },
     {
       "id": "C14",
@@ -1391,6 +1391,159 @@
           "C3-C8",
           "C10",
           "C12-C13",
+          "C15",
+          "C18-C22",
+          "M1",
+          "M2"
+        ]
+      }
+    },
+    {
+      "id": "J7",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose D-zone countdown helper slice",
+      "skills": [
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "src/pages/DZonePage.tsx",
+        "src/pages/DZoneHistoryPage.tsx",
+        "src/pages/d-zone/d-zone-countdown.ts",
+        "src/pages/d-zone/d-zone-countdown.test.ts",
+        "src/pages/d-zone/d-zone-history-view-model.ts",
+        "src/pages/d-zone/d-zone-history-view-model.test.ts",
+        "docs/refactor-goals/cross-surface-ui-normalization/**"
+      ],
+      "protected_files": [
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "One D-zone-local countdown helper used by current and history pages.",
+      "receipt": {
+        "evidence": [
+          "DZonePage has a local `getDzoneCountdownDisplay` and the history view model has equivalent active-only countdown logic.",
+          "The behavior is D-zone-specific but delegates to Timeline domain status/countdown helpers."
+        ],
+        "selected_candidates": [
+          "C13"
+        ],
+        "why_root_fix": "A small D-zone helper removes duplicate active-only countdown logic while preserving page-specific rendering.",
+        "what_not_to_change": "No route behavior, no date formatting behavior, no Timeline domain changes.",
+        "verification": [
+          "npx vitest run src/pages/d-zone/d-zone-history-view-model.test.ts src/pages/DZonePage.test.tsx src/pages/DZoneHistoryPage.test.tsx",
+          "npm run lint",
+          "git diff --check"
+        ]
+      }
+    },
+    {
+      "id": "W7",
+      "role": "worker",
+      "status": "done",
+      "title": "Implement shared D-zone countdown helper",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react"
+      ],
+      "allowed_files": [
+        "src/pages/DZonePage.tsx",
+        "src/pages/DZoneHistoryPage.tsx",
+        "src/pages/d-zone/d-zone-countdown.ts",
+        "src/pages/d-zone/d-zone-countdown.test.ts",
+        "src/pages/d-zone/d-zone-history-view-model.ts",
+        "src/pages/d-zone/d-zone-history-view-model.test.ts"
+      ],
+      "protected_files": [
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "D-zone countdown helper plus migrated current/history callers and focused test coverage.",
+      "receipt": {
+        "slice": "Shared D-zone countdown helper for C13.",
+        "evidence": [
+          "Added `getDZoneCountdownDisplay` in `src/pages/d-zone/d-zone-countdown.ts`.",
+          "`DZonePage` and `DZoneHistoryPage` now use the same active-only countdown helper.",
+          "Moved countdown behavior coverage from the history view-model test to `d-zone-countdown.test.ts`."
+        ],
+        "files_changed": [
+          "src/pages/DZonePage.tsx",
+          "src/pages/DZoneHistoryPage.tsx",
+          "src/pages/d-zone/d-zone-countdown.ts",
+          "src/pages/d-zone/d-zone-countdown.test.ts",
+          "src/pages/d-zone/d-zone-history-view-model.ts",
+          "src/pages/d-zone/d-zone-history-view-model.test.ts"
+        ],
+        "what_got_simpler": "Active-only D-zone countdown behavior now lives in one helper instead of a page-local function and history view-model function.",
+        "behavior_preserved": "Only active seasons return countdown text; ended seasons return an empty string; page rendering and date formatting remain unchanged.",
+        "current_complexity": "Two separate functions implemented equivalent active-season checks.",
+        "expected_complexity_after": "One helper used by current and history pages.",
+        "data_access_render_invariants": "No route/query, season selection, or Timeline domain behavior changed.",
+        "root_fix_patch_decision": "Root fix for the D-zone countdown concept.",
+        "dependency_review": "Not needed; no package files changed.",
+        "characterization": "Focused helper test pins active/ended behavior; D-zone page tests and browser checks cover integration.",
+        "harness_update_considered": "No harness update needed.",
+        "validation_run": [
+          "npx vitest run src/pages/d-zone/d-zone-countdown.test.ts src/pages/d-zone/d-zone-history-view-model.test.ts src/pages/DZonePage.test.tsx src/pages/DZoneHistoryPage.test.tsx -> 23 tests passed",
+          "npm run lint -> passed",
+          "npm run build:quiet -> passed",
+          "git diff --check -> passed",
+          "goal checker -> passed",
+          "browser checks for /d-zone and /d-zone/history -> no overflow; countdown and waves rendered"
+        ],
+        "risks": "Low; helper delegates to the same Timeline domain status/countdown functions.",
+        "followups_not_done": [],
+        "scope_expansion_requested": false
+      }
+    },
+    {
+      "id": "R7",
+      "role": "review",
+      "status": "done",
+      "title": "Review D-zone countdown helper",
+      "skills": [
+        "$refactor-review"
+      ],
+      "allowed_files": [
+        "W7 diff and goal packet"
+      ],
+      "protected_files": [],
+      "expected_output": "Verdict, validation evidence, and C13 register update.",
+      "receipt": {
+        "evidence": [
+          "W7 moved duplicated countdown logic into one D-zone-local helper.",
+          "It did not change Timeline domain code, date formatting, routes, or season selection.",
+          "Focused tests, lint, build, diff check, packet checker, and browser checks passed."
+        ],
+        "verdict": "pass-with-followups",
+        "simplification_check": {
+          "before": "Current page and history view model had equivalent active-only countdown logic.",
+          "after": "Both pages call `getDZoneCountdownDisplay`.",
+          "net": "Reduced duplicate behavior logic and moved characterization to the helper boundary."
+        },
+        "governance_check": {
+          "intake": "completed from user prompt",
+          "focus_area_coverage": "covers C13 D-zone helper simplification",
+          "candidate_register": "C13 implemented",
+          "root_fix_patch": "D-zone-local root fix",
+          "dependency_review": "not needed",
+          "characterization": "focused helper test plus page tests",
+          "maintenance": "M1/M2 remain queued"
+        },
+        "validation": [
+          "focused tests passed",
+          "npm run lint passed",
+          "npm run build:quiet passed",
+          "git diff --check passed",
+          "goal checker passed",
+          "browser checks passed"
+        ],
+        "followups": [
+          "C3-C8",
+          "C10",
+          "C12",
           "C15",
           "C18-C22",
           "M1",

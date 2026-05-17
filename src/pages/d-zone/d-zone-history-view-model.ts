@@ -1,6 +1,5 @@
-import type {DzoneSeason, DzoneSeasonSummary} from '@/domain/dzone'
+import type {DzoneSeasonSummary} from '@/domain/dzone'
 import {getDzoneSeasonSummaryDisplayName} from '@/domain/dzone-season-realm'
-import {getTimelineCountdownDisplay, getTimelineStatus} from '@/domain/timeline'
 
 import {formatDzoneSeasonDateRange} from './d-zone-date-format'
 
@@ -110,15 +109,6 @@ export function toggleDZoneHistoryExpandedYear(
     nextYears.add(toggledYear)
   }
   return {selectedSeasonId, years: nextYears}
-}
-
-export function getDZoneHistoryCountdownDisplay(season: DzoneSeason, now: Date): string {
-  const status = getTimelineStatus(season.start, season.end, now)
-  if (status !== 'active') {
-    return ''
-  }
-
-  return getTimelineCountdownDisplay(season.start, season.end, now)?.text ?? ''
 }
 
 export function getDZoneHistoryNextSearchParams(

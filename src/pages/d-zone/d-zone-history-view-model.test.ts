@@ -1,11 +1,10 @@
 import {describe, expect, it} from 'vitest'
 
-import {getDzoneSeasonById, getDzoneSeasonSummaries} from '@/domain/dzone'
+import {getDzoneSeasonSummaries} from '@/domain/dzone'
 
 import {
   buildDZoneHistoryYearGroups,
   createDZoneHistoryExpandedYearsState,
-  getDZoneHistoryCountdownDisplay,
   getDZoneHistoryExpandedYearsForSelection,
   getDZoneHistoryNextSearchParams,
   getDZoneHistoryVisibleSeasons,
@@ -80,20 +79,5 @@ describe('d-zone history view model', () => {
 
     expect(nextParams.toString()).toBe('foo=bar&season=dzone-0002')
     expect(currentParams.toString()).toBe('foo=bar&season=dzone-0001')
-  })
-
-  it('only displays countdown text for active selected seasons', () => {
-    const activeSeason = getDzoneSeasonById('dzone-0060')
-    const endedSeason = getDzoneSeasonById('dzone-0001')
-
-    if (!activeSeason || !endedSeason) {
-      throw new Error('Expected fixture seasons to exist.')
-    }
-    expect(
-      getDZoneHistoryCountdownDisplay(activeSeason, new Date('2026-05-12T00:00:00.000Z')),
-    ).toMatch(/^Ends in/)
-    expect(getDZoneHistoryCountdownDisplay(endedSeason, new Date('2026-05-12T00:00:00.000Z'))).toBe(
-      '',
-    )
   })
 })
