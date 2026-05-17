@@ -21,6 +21,13 @@ describe('timeline data loading', () => {
       (event) => event.id === 'event-campaign-half-anniversary',
     )
     const dreamyRendezvous = timelineEvents.find((event) => event.id === 'event-dreamy-rendezvous')
+    const meowch = timelineEvents.find((event) => event.id === 'event-meowch-obliged')
+    const giftBoxes = timelineEvents.find((event) => event.id === 'event-curated-gift-boxes')
+    const preorder = timelineEvents.find((event) => event.id === 'event-preorder-unfading-memories')
+    const season33Login = timelineEvents.find((event) => event.id === 'event-login-season-33')
+    const season34Curriculum = timelineEvents.find(
+      (event) => event.id === 'event-curriculum-season-34',
+    )
     const collabEvent = timelineEvents.find((event) => event.id === 'event-story-saya')
     const collabBanner = timelineBanners.find((banner) => banner.id === 'banner-saya-no-uta-collab')
 
@@ -35,6 +42,36 @@ describe('timeline data loading', () => {
       pricing: '3980 Silver Prime',
       title: 'Dreamy Rendezvous',
     })
+    expect(meowch).toMatchObject({
+      category: 'anniversary',
+      endDate: '2026-06-29T01:00:00.000Z',
+      startDate: '2026-05-18T01:00:00.000Z',
+    })
+    expect(meowch?.description).toContain('Entry closes June 15')
+    expect(giftBoxes).toMatchObject({
+      category: 'bundle',
+      pricing: '688-2688 Silver Prime',
+      title: 'New Arrivals Gift Boxes',
+    })
+    expect(giftBoxes?.description).toContain('1280 Silver Prime')
+    expect(preorder).toMatchObject({
+      category: 'preorder',
+      pricing: '1980 Silver Prime',
+      title: 'Pre-order "Unfading Memories"',
+    })
+    expect(season33Login).toMatchObject({
+      category: 'login',
+      endDate: '2026-06-15T01:00:00.000Z',
+      startDate: '2026-05-18T01:00:00.000Z',
+      title: 'Gifts from Mythag',
+    })
+    expect(season34Curriculum).toMatchObject({
+      category: 'curriculum',
+      endDate: '2026-06-29T01:00:00.000Z',
+      startDate: '2026-06-15T01:00:00.000Z',
+      title: 'Curriculum Honor',
+    })
+    expect(season34Curriculum?.description).toContain('doubled EXP')
     expect(collabEvent).toMatchObject({
       category: 'gameplay-event',
       endDate: '2026-08-24T01:00:00.000Z',
@@ -295,7 +332,7 @@ describe('timeline data loading', () => {
       endDate: '2026-06-29T01:00:00.000Z',
       pricing: 'Free',
       startDate: '2026-06-15T01:00:00.000Z',
-      title: 'Ouverture Universell',
+      title: 'Ouvertüre Universell',
     })
     expect(skin?.featured?.map((unit) => unit.name)).toEqual(['Hameln'])
     expect(skin?.customArt).toContain('hameln-skin')

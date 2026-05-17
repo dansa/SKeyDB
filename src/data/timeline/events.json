@@ -167,7 +167,7 @@
     "id": "event-campaign-half-anniversary",
     "title": "To the Stars",
     "category": "anniversary",
-    "description": "2.5th Anniversary commemorative login event.\n Log in daily to claim up to 16 copies of the limited SSR Wheel \"To the Star\".",
+    "description": "2.5th Anniversary commemorative login event.\n Log in daily to claim up to 16 copies of the limited SSR Wheel \"To the Stars\".",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
     "customArt": "/events/to-the-star.webp"
@@ -187,9 +187,9 @@
     "id": "event-meowch-obliged",
     "title": "Meowch Obliged!",
     "category": "anniversary",
-    "description": "Capture Dimension Black Cats, complete personal goals and contribute to the global campus goal. \n Rewards include 10k Silver, Formless Ones' Invitations and Gnosis materials.",
+    "description": "Capture Dimensional Black Cats across 7 Astral Reign boss stages.\n Entry closes June 15; active runs last until at least June 29 and may extend if global capture goals are still unfinished.\n Rewards include 10k Silver, Formless Ones' Invitations and Gnosis materials.",
     "startDate": "2026/05/18 09:00",
-    "endDate": "2026/06/15 09:00",
+    "endDate": "2026/06/29 09:00",
     "customArt": "/events/meowch-obliged.webp"
   },
   {
@@ -204,13 +204,13 @@
   },
   {
     "id": "event-curated-gift-boxes",
-    "title": "Curated Gift Boxes",
+    "title": "New Arrivals Gift Boxes",
     "category": "bundle",
-    "description": "Limited avatar gift boxes: \"Ode in Embers\" and \"Celestial Accord\". \n Each box includes 10 Formless Ones' Invitations, 1 Prototype Horizon and 1 Timeloop Copy. \n Each gift box costs 1980 Silver Prime and can be purchased once.",
+    "description": "Limited avatar gift boxes: \"Ode in Embers\" and \"Celestial Accord\".\n Each avatar box includes 10 Formless Ones' Invitations, 1 Prototype Horizon and 1 Timeloop Copy for 1280 Silver Prime.\n Selected bundles \"Summer Fireworks\" and \"Summer Matsuri\" are also available during the listing period.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
     "customArt": "/events/curated-gift-boxes.webp",
-    "pricing": "1980 Silver Prime"
+    "pricing": "688-2688 Silver Prime"
   },
   {
     "id": "event-dreamy-offering",
@@ -222,10 +222,28 @@
     "customArt": "/events/dreamy-offering.webp"
   },
   {
-    "id": "event-preorder-memories-eternal",
-    "title": "Pre-order \"Memories Eternal\"",
+    "id": "event-login-season-33",
+    "title": "Gifts from Mythag",
+    "category": "login",
+    "description": "Season 33 login rewards: 10 Luminous Cores for 7 cumulative logins, with additional cumulative login rewards.",
+    "startDate": "2026/05/18 09:00",
+    "endDate": "2026/06/15 09:00",
+    "customArt": "/events/gifts-from-mythag.webp"
+  },
+  {
+    "id": "event-curriculum-season-33",
+    "title": "Curriculum Honor",
+    "category": "curriculum",
+    "description": "Season 33 Curriculum rewards include limited avatars for Saya, Doll: Inferno and Caecus, plus Traphase emotes for Nautila, Goliath and Karen.",
+    "startDate": "2026/05/18 09:00",
+    "endDate": "2026/06/15 09:00",
+    "customArt": "/events/curriculum.webp"
+  },
+  {
+    "id": "event-preorder-unfading-memories",
+    "title": "Pre-order \"Unfading Memories\"",
     "category": "preorder",
-    "description": "Saya preorder mission track. \n30 Luminous Cores, 20k Silver, 1 Prototype Horizon, 1 Timeloop and more. \n Purchase before May 30th to obtain the \"Bon Appetite\" avatar and 10 Formless Ones' Invitations.",
+    "description": "Pre-order Chronicle \"Unfading Memories\" mission track.\n 30 Luminous Cores, 20k Silver, 1 Prototype Horizon, 1 Timeloop Copy, Dreamsparks and Dreamshards.\n Purchase before May 30th to obtain the \"Bon Appetite\" avatar and 10 Formless Ones' Invitations.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
     "customArt": "/events/saya-collab.webp",
@@ -242,14 +260,32 @@
   },
   {
     "id": "event-skin-hameln",
-    "title": "Ouverture Universell",
+    "title": "Ouvertüre Universell",
     "category": "skin",
-    "description": "Complete tasks to unlock the \"Ouverture Universell\" skin for Hameln for free. \n After the event ends, \"Hameln: Ouverture Universell\" will be available in Garment Ordering for 680 Silver Prime.",
+    "description": "Complete tasks to unlock the \"Ouvertüre Universell\" skin for Hameln for free.\n After the event ends, \"Hameln: Ouvertüre Universell\" will be available in Garment Ordering for 680 Silver Prime.",
     "startDate": "2026/06/15 09:00",
     "endDate": "2026/06/29 09:00",
     "featured": "Hameln",
     "customArt": "/events/hameln-skin.webp",
     "pricing": "Free"
+  },
+  {
+    "id": "event-login-season-34",
+    "title": "Gifts from Mythag",
+    "category": "login",
+    "description": "Season 34 login rewards: 10 Luminous Cores for 7 cumulative logins, with additional cumulative login rewards.",
+    "startDate": "2026/06/15 09:00",
+    "endDate": "2026/06/29 09:00",
+    "customArt": "/events/gifts-from-mythag.webp"
+  },
+  {
+    "id": "event-curriculum-season-34",
+    "title": "Curriculum Honor",
+    "category": "curriculum",
+    "description": "Season 34 Curriculum rewards include limited avatars for Thais, Pharos and Ryker, plus Traphase emotes for Uvhash, Aurita and Jenkin. The shorter season has doubled EXP and reduced Silver Prime costs for direct Premium Topic activation and upgrades.",
+    "startDate": "2026/06/15 09:00",
+    "endDate": "2026/06/29 09:00",
+    "customArt": "/events/curriculum.webp"
   },
   {
     "id": "event-story-rerun-invisible-symphony",
