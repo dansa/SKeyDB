@@ -94,3 +94,26 @@
   - Browser check for `/timeline` passed with no horizontal overflow; banner hero metadata and drawer toggle present.
 - Review verdict: pass-with-followups.
 - State transition: W3 done. R3 done. C11 implemented.
+
+### 2026-05-17 - W3 checkpoint committed and W4 opened
+
+- Commit: `2e3f166 refactor: share timeline banner metadata`.
+- Commit validation: The repo pre-commit hook ran `npm run lint`, `npm run test:bounded`, `npm run test:scripts`, and `npm run build:quiet`; all passed.
+- Decision: J4 selected C17 because database card title markup and first-24 image priority are repeated across awakener, wheel, and simple-artifact cards.
+- State transition: J4 done. W4 active for a database-internal card title/priority helper. This stays inside `src/features/database/internal/**` and does not create a global card abstraction.
+
+### 2026-05-17 - W4 implemented and reviewed
+
+- Slice: Database-internal card title and image priority helpers for C17.
+- Files changed: `AwakenerGridCard.tsx`, `WheelGridCard.tsx`, `SimpleArtifactGridCard.tsx`, new `DatabaseGridCardTitle.tsx`, and new `database-grid-card-priority.ts`.
+- What changed: Shared the repeated title class/title-attribute pattern and the first-24 eager image priority rule across database card producers.
+- Behavior preserved: Card frame layout, accessible open actions, title text, route semantics, asset lookup, and eager/lazy image boundary.
+- Validation:
+  - `npx vitest run src/features/database/internal/DatabaseGrid.test.tsx src/features/database/internal/AwakenerGridCard.test.tsx src/features/database/internal/WheelGridCard.test.tsx` passed, 4 tests.
+  - `npm run lint` passed.
+  - `npm run build:quiet` passed.
+  - `git diff --check` passed.
+  - Goal checker passed.
+  - Browser checks for `/database`, `/database/wheels`, and `/database/posses` passed; no overflow, title nodes matched card counts, and eager images stayed at 24 per grid.
+- Review verdict: pass-with-followups.
+- State transition: W4 done. R4 done. C17 implemented.

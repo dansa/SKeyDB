@@ -1,9 +1,8 @@
 import {DEFAULT_REALM_ACCENT, getRealmAccent} from '@/domain/realms'
 
-import {databaseCardTitleClassName} from './database-card-typography'
+import {shouldPrioritizeDatabaseGridImage} from './database-grid-card-priority'
 import {DatabaseGridCardFrame} from './DatabaseGridCardFrame'
-
-const PRIORITIZED_GRID_IMAGE_COUNT = 24
+import {DatabaseGridCardTitle} from './DatabaseGridCardTitle'
 
 interface SimpleArtifactGridCardProps {
   id: string
@@ -35,14 +34,7 @@ export function SimpleArtifactGridCard({
     <DatabaseGridCardFrame
       ariaLabel={`View details for ${name}`}
       content={{
-        title: (
-          <p
-            className={`${databaseCardTitleClassName} database-grid-card__title-text`}
-            title={name}
-          >
-            {name}
-          </p>
-        ),
+        title: <DatabaseGridCardTitle title={name}>{name}</DatabaseGridCardTitle>,
       }}
       layout='square-art'
       media={{
@@ -50,7 +42,7 @@ export function SimpleArtifactGridCard({
         posterAspectClassName: 'aspect-square',
         posterClassName: posterImageClassName,
         posterSrc: imageSrc,
-        prioritize: index < PRIORITIZED_GRID_IMAGE_COUNT,
+        prioritize: shouldPrioritizeDatabaseGridImage(index),
       }}
       onSelect={() => {
         onSelect(id)

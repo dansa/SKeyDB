@@ -223,10 +223,10 @@
       "id": "C17",
       "title": "Database card title and prioritized image primitive",
       "source_task": "database-scout",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": "src/features/database/internal/AwakenerGridCard.tsx; WheelGridCard.tsx; SimpleArtifactGridCard.tsx; possible internal primitive",
-      "evidence": "Three database card types repeat title markup and prioritized image count.",
-      "next": "Queue as a low-risk database internal simplification."
+      "evidence": "Implemented in W4. Added `DatabaseGridCardTitle` and `shouldPrioritizeDatabaseGridImage`; migrated awakener, wheel, and simple artifact grid cards while preserving card frame behavior and first-24 eager image priority.",
+      "next": "Implemented as database-internal root fix; no global card primitive extracted."
     },
     {
       "id": "C18",
@@ -920,6 +920,170 @@
           "C10",
           "C12-C13",
           "C15-C23",
+          "M1",
+          "M2"
+        ]
+      }
+    },
+    {
+      "id": "J4",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose database card title and priority helper slice",
+      "skills": [
+        "@impeccable extract",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "src/features/database/internal/AwakenerGridCard.tsx",
+        "src/features/database/internal/WheelGridCard.tsx",
+        "src/features/database/internal/SimpleArtifactGridCard.tsx",
+        "src/features/database/internal/database-card-typography.ts",
+        "src/features/database/internal/database-card-*",
+        "src/features/database/internal/*GridCard.test.tsx",
+        "src/features/database/internal/DatabaseGrid.test.tsx",
+        "docs/refactor-goals/cross-surface-ui-normalization/**"
+      ],
+      "protected_files": [
+        "src/features/database/detail/**",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "Database-internal helper for repeated card title markup and prioritized image count across card types.",
+      "receipt": {
+        "evidence": [
+          "Awakener, wheel, and simple artifact grid cards repeat the same title `<p>` markup and `PRIORITIZED_GRID_IMAGE_COUNT = 24` logic.",
+          "The behavior is database-internal and should not become a global media-card primitive.",
+          "Existing grid/card tests pin image priority behavior and accessible open actions."
+        ],
+        "selected_candidates": [
+          "C17"
+        ],
+        "why_root_fix": "A small internal helper removes repeated title and image-priority decisions at the producer boundary while preserving card frame ownership.",
+        "what_not_to_change": "No card frame layout, modal/detail behavior, route behavior, or image asset selection semantics.",
+        "verification": [
+          "npx vitest run src/features/database/internal/DatabaseGrid.test.tsx src/features/database/internal/AwakenerGridCard.test.tsx src/features/database/internal/WheelGridCard.test.tsx",
+          "npm run lint",
+          "git diff --check",
+          "browser checks for /database, /database/wheels, /database/posses"
+        ]
+      }
+    },
+    {
+      "id": "W4",
+      "role": "worker",
+      "status": "done",
+      "title": "Implement database card title and priority helper",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/database/internal/AwakenerGridCard.tsx",
+        "src/features/database/internal/WheelGridCard.tsx",
+        "src/features/database/internal/SimpleArtifactGridCard.tsx",
+        "src/features/database/internal/database-card-typography.ts",
+        "src/features/database/internal/database-card-*",
+        "src/features/database/internal/DatabaseGrid.test.tsx",
+        "src/features/database/internal/AwakenerGridCard.test.tsx",
+        "src/features/database/internal/WheelGridCard.test.tsx"
+      ],
+      "protected_files": [
+        "src/features/database/detail/**",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "Database-internal card title helper and shared prioritized-image predicate used by awakener, wheel, and simple artifact cards.",
+      "receipt": {
+        "slice": "Database-internal card title and image priority helper for C17.",
+        "evidence": [
+          "Added `DatabaseGridCardTitle` to preserve the repeated title class and `title` attribute pattern.",
+          "Added `shouldPrioritizeDatabaseGridImage` with the shared first-24 image priority rule.",
+          "Migrated `AwakenerGridCard`, `WheelGridCard`, and `SimpleArtifactGridCard` to use both helpers."
+        ],
+        "files_changed": [
+          "src/features/database/internal/AwakenerGridCard.tsx",
+          "src/features/database/internal/WheelGridCard.tsx",
+          "src/features/database/internal/SimpleArtifactGridCard.tsx",
+          "src/features/database/internal/DatabaseGridCardTitle.tsx",
+          "src/features/database/internal/database-grid-card-priority.ts"
+        ],
+        "what_got_simpler": "Repeated title JSX and repeated `index < 24` priority constants are now single database-internal helpers.",
+        "behavior_preserved": "Card titles, title attributes, accessible open actions, card layouts, and first-24 eager image behavior are preserved.",
+        "current_complexity": "Three card producers duplicated the same display title and priority rule.",
+        "expected_complexity_after": "One title component and one priority predicate used by all database browse card producers.",
+        "data_access_render_invariants": "No data filtering, sorting, route, asset lookup, or detail modal behavior changed.",
+        "root_fix_patch_decision": "Root fix inside database internals; not a global card abstraction.",
+        "dependency_review": "Not needed; no package files changed.",
+        "characterization": "Existing database card/grid tests pin stats, accessible action names, and first-24 eager image behavior; browser checks confirmed route card counts/title nodes/eager counts.",
+        "harness_update_considered": "No harness update needed.",
+        "validation_run": [
+          "npx vitest run src/features/database/internal/DatabaseGrid.test.tsx src/features/database/internal/AwakenerGridCard.test.tsx src/features/database/internal/WheelGridCard.test.tsx -> 4 tests passed",
+          "npm run lint -> passed",
+          "npm run build:quiet -> passed",
+          "git diff --check -> passed",
+          "goal checker -> passed",
+          "browser checks for /database, /database/wheels, /database/posses -> no overflow; title nodes matched card counts; eager images remained 24 per grid"
+        ],
+        "risks": "Low; helper is local and preserves exact rendered title class.",
+        "followups_not_done": [
+          "C21 accessible-name cleanup remains queued because it changes card name plumbing rather than display title duplication."
+        ],
+        "scope_expansion_requested": false
+      }
+    },
+    {
+      "id": "R4",
+      "role": "review",
+      "status": "done",
+      "title": "Review database card title and priority helper",
+      "skills": [
+        "$refactor-review"
+      ],
+      "allowed_files": [
+        "W4 diff and goal packet"
+      ],
+      "protected_files": [],
+      "expected_output": "Verdict, validation evidence, and candidate register update.",
+      "receipt": {
+        "evidence": [
+          "W4 stayed inside database browse card producers and new database-internal helpers.",
+          "It removed repeated title JSX and priority constants without touching `DatabaseGridCardFrame` layout or detail modal behavior.",
+          "Focused tests, lint, build, diff check, packet checker, and browser route checks passed."
+        ],
+        "verdict": "pass-with-followups",
+        "simplification_check": {
+          "before": "Awakener, wheel, and simple artifact cards repeated title markup and first-24 priority logic.",
+          "after": "One internal title component and one priority predicate are shared across those producers.",
+          "net": "Reduced duplication without globalizing database card behavior."
+        },
+        "governance_check": {
+          "intake": "completed from user prompt",
+          "focus_area_coverage": "covers C17 React/component simplification; C21 a11y cleanup remains queued",
+          "candidate_register": "C17 implemented",
+          "root_fix_patch": "database-internal root fix",
+          "dependency_review": "not needed",
+          "characterization": "existing tests and browser checks sufficient",
+          "maintenance": "M1/M2 remain queued"
+        },
+        "validation": [
+          "focused tests passed",
+          "npm run lint passed",
+          "npm run build:quiet passed",
+          "git diff --check passed",
+          "goal checker passed",
+          "browser checks passed"
+        ],
+        "followups": [
+          "C3-C8",
+          "C10",
+          "C12-C13",
+          "C15-C16",
+          "C18-C23",
           "M1",
           "M2"
         ]
