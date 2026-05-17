@@ -1,11 +1,13 @@
 import {useEffect, useMemo, useRef} from 'react'
 
+import {FaArrowRight, FaClipboard} from 'react-icons/fa6'
 import {useSearchParams} from 'react-router-dom'
 
 import {getBrowserLocalStorage, type StorageLike} from '@/domain/storage'
 import {
   isAllowedMigrationSourceOrigin,
   isAllowedMigrationTargetOrigin,
+  PRIMARY_MIGRATION_TARGET_URL,
   type MigrationBridgeMessage,
 } from '@/domain/storage-migration/migrationBridgeProtocol'
 import {
@@ -25,6 +27,20 @@ interface MigrationExportPageProps {
 }
 
 type ExportStatus = 'sent' | 'manual' | 'error'
+type ExportErrorCode =
+  | 'missing_details'
+  | 'source_not_allowed'
+  | 'target_not_allowed'
+  | 'storage_unavailable'
+  | 'snapshot_empty'
+
+interface ExportError {
+  code: ExportErrorCode
+  message: string
+}
+
+const PRIMARY_ACTION_CLASS =
+  'inline-flex items-center gap-2 rounded border border-cyan-300/50 bg-cyan-400/15 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-400/25'
 
 export function MigrationExportPage({
   storage = getBrowserLocalStorage(),
@@ -48,6 +64,8 @@ export function MigrationExportPage({
   const serializedSnapshot = snapshot ? JSON.stringify(snapshot) : ''
   const error = resolveExportError({nonce, snapshot, sourceAllowed, targetAllowed, targetOrigin})
   const status = resolveExportStatus(error, resolvedMessageTarget)
+  const showStartOnNewDomainLink =
+    error?.code === 'missing_details' || error?.code === 'target_not_allowed'
 
   useEffect(() => {
     const requestKey = `${nonce}:${targetOrigin}`
@@ -90,22 +108,35 @@ export function MigrationExportPage({
   return (
     <section className='mx-auto max-w-2xl space-y-4 px-2 py-8 text-slate-100'>
       <div className='space-y-2'>
-        <h2 className='text-xl font-semibold'>SKeyDB domain transfer</h2>
+        <h2 className='text-xl font-semibold'>
+          {showStartOnNewDomainLink ? 'Start from skeydb.com' : 'SKeyDB domain transfer'}
+        </h2>
         <p className='text-sm text-slate-300'>
           {status === 'sent'
-            ? 'Transfer sent. Return to the new SKeyDB tab to review it.'
-            : 'Preparing saved data for transfer.'}
+            ? 'Transfer sent. Return to the skeydb.com tab to review it.'
+            : resolveExportIntro(status, showStartOnNewDomainLink)}
         </p>
       </div>
 
       {error ? (
         <p className='rounded border border-rose-400/50 bg-rose-950/40 px-3 py-2 text-sm text-rose-100'>
-          {error}
+          {error.message}
         </p>
+      ) : null}
+
+      {showStartOnNewDomainLink ? (
+        <a className={PRIMARY_ACTION_CLASS} href={PRIMARY_MIGRATION_TARGET_URL}>
+          <FaArrowRight aria-hidden='true' />
+          Open skeydb.com
+        </a>
       ) : null}
 
       {status === 'manual' && serializedSnapshot ? (
         <div className='space-y-2'>
+          <p className='text-sm text-slate-300'>
+            Copy this transfer code, return to skeydb.com, and paste it under "Paste a transfer
+            code."
+          </p>
           <label className='block text-sm font-medium text-slate-200' htmlFor='migration-snapshot'>
             Transfer code
           </label>
@@ -115,6 +146,10 @@ export function MigrationExportPage({
             readOnly
             value={serializedSnapshot}
           />
+          <p className='inline-flex items-center gap-2 text-xs text-slate-400'>
+            <FaClipboard aria-hidden='true' />
+            This code only contains SKeyDB data saved in this browser.
+          </p>
         </div>
       ) : null}
     </section>
@@ -147,31 +182,58 @@ function resolveExportError({
   sourceAllowed: boolean
   targetAllowed: boolean
   targetOrigin: string
-}): string | null {
+}): ExportError | null {
   if (!nonce || !targetOrigin) {
-    return 'This transfer link is missing required details.'
+    return {
+      code: 'missing_details',
+      message:
+        'Start from skeydb.com to move saved data. GitHub Pages prepares the transfer after the new site asks for it.',
+    }
   }
   if (!sourceAllowed) {
-    return 'This transfer source is not allowed.'
+    return {
+      code: 'source_not_allowed',
+      message: 'This transfer page only works from the old GitHub Pages site.',
+    }
   }
   if (!targetAllowed) {
-    return 'This transfer target is not allowed.'
+    return {
+      code: 'target_not_allowed',
+      message:
+        'Start from skeydb.com to move saved data. This old-site tab does not know where to send the transfer.',
+    }
   }
   if (!snapshot) {
-    return 'Saved data is unavailable in this browser.'
+    return {
+      code: 'storage_unavailable',
+      message: 'Saved data is unavailable in this browser.',
+    }
   }
   if (snapshot.entries.length === 0) {
-    return 'No saved SKeyDB data was found on GitHub Pages.'
+    return {
+      code: 'snapshot_empty',
+      message: 'No saved SKeyDB data was found on GitHub Pages.',
+    }
   }
   return null
 }
 
 function resolveExportStatus(
-  error: string | null,
+  error: ExportError | null,
   messageTarget: MigrationMessageTarget,
 ): ExportStatus {
   if (error) {
     return 'error'
   }
   return messageTarget ? 'sent' : 'manual'
+}
+
+function resolveExportIntro(status: ExportStatus, showStartOnNewDomainLink: boolean): string {
+  if (showStartOnNewDomainLink) {
+    return 'This page is the old-site handoff step. The transfer starts from the new SKeyDB home.'
+  }
+  if (status === 'manual') {
+    return 'Your browser blocked the automatic handoff, so use the code below.'
+  }
+  return 'Preparing saved data for transfer.'
 }

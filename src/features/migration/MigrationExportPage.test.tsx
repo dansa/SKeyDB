@@ -84,7 +84,27 @@ describe('MigrationExportPage', () => {
       postMessage,
     })
 
-    expect(await screen.findByText(/transfer target is not allowed/i)).toBeInTheDocument()
+    expect(
+      await screen.findByRole('heading', {name: /start from skeydb\.com/i}),
+    ).toBeInTheDocument()
+    expect(screen.getByRole('link', {name: /open skeydb.com/i})).toHaveAttribute(
+      'href',
+      'https://skeydb.com/#/migrate',
+    )
+    expect(postMessage).not.toHaveBeenCalled()
+  })
+
+  it('points direct export-route visits back to the new domain', async () => {
+    const postMessage = vi.fn()
+    renderExportPage({route: '/migrate/export', postMessage})
+
+    expect(
+      await screen.findByRole('heading', {name: /start from skeydb\.com/i}),
+    ).toBeInTheDocument()
+    expect(screen.getByRole('link', {name: /open skeydb.com/i})).toHaveAttribute(
+      'href',
+      'https://skeydb.com/#/migrate',
+    )
     expect(postMessage).not.toHaveBeenCalled()
   })
 
@@ -103,7 +123,9 @@ describe('MigrationExportPage', () => {
       </MemoryRouter>,
     )
 
-    expect(await screen.findByText(/transfer source is not allowed/i)).toBeInTheDocument()
+    expect(
+      await screen.findByText(/only works from the old github pages site/i),
+    ).toBeInTheDocument()
     expect(postMessage).not.toHaveBeenCalled()
   })
 
@@ -156,6 +178,7 @@ describe('MigrationExportPage', () => {
       </MemoryRouter>,
     )
 
+    expect(screen.getByText(/copy this transfer code/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/transfer code/i)).toHaveDisplayValue(
       /skeydb.builder.allowDupes.v1/,
     )

@@ -1,4 +1,6 @@
-import {useCallback, useEffect, useMemo, useState} from 'react'
+import {useCallback, useEffect, useMemo, useState, type Dispatch, type SetStateAction} from 'react'
+
+import {FaArrowRight, FaCircleCheck, FaClipboard, FaHouse} from 'react-icons/fa6'
 
 import {getBrowserLocalStorage, type StorageLike} from '@/domain/storage'
 import {
@@ -6,7 +8,9 @@ import {
   createMigrationNonce,
   DEFAULT_LEGACY_MIGRATION_SOURCE_ORIGINS,
   isAllowedMigrationSourceOrigin,
+  isAllowedMigrationTargetOrigin,
   parseMigrationBridgeMessage,
+  PRIMARY_MIGRATION_TARGET_URL,
   resolveLegacyMigrationExportUrlForCurrentOrigin,
 } from '@/domain/storage-migration/migrationBridgeProtocol'
 import {
@@ -14,6 +18,7 @@ import {
   planDomainStorageMigration,
   type DomainStorageMigrationDecision,
   type DomainStorageMigrationPlan,
+  type DomainStorageMigrationPlanItem,
 } from '@/domain/storage-migration/migrationImportPolicy'
 
 interface MigrationReceivePageProps {
@@ -26,6 +31,19 @@ interface MigrationReceivePageProps {
 }
 
 type ReceiveStatus = 'idle' | 'waiting' | 'ready' | 'complete' | 'error'
+
+const PRIMARY_ACTION_CLASS =
+  'inline-flex items-center gap-2 rounded border border-cyan-300/50 bg-cyan-400/15 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-400/25'
+const SECONDARY_ACTION_CLASS =
+  'inline-flex items-center gap-2 rounded border border-slate-500 bg-slate-800/70 px-3 py-1.5 text-sm text-slate-100 hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50'
+const SUCCESS_ACTION_CLASS =
+  'inline-flex items-center gap-2 rounded border border-emerald-300/50 bg-emerald-400/15 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-400/25'
+
+const TRANSFER_STEPS = [
+  'SKeyDB opens your old GitHub Pages save in a second tab.',
+  'GitHub Pages sends your saved data back here.',
+  'Review what will be moved, then finish the transfer.',
+]
 
 export function MigrationReceivePage({
   storage = getBrowserLocalStorage(),
@@ -46,6 +64,9 @@ export function MigrationReceivePage({
     () => plan?.items.filter((item) => item.status === 'conflict') ?? [],
     [plan],
   )
+  const targetOriginAllowed = isAllowedMigrationTargetOrigin(locationLike.origin, {
+    allowLocalOrigins,
+  })
 
   const reviewSnapshot = useCallback(
     (snapshot: unknown) => {
@@ -179,47 +200,87 @@ export function MigrationReceivePage({
     setNonce(null)
   }
 
+  if (!targetOriginAllowed) {
+    return (
+      <section className='mx-auto max-w-3xl space-y-5 px-2 py-8 text-slate-100'>
+        <div className='space-y-2'>
+          <h2 className='text-xl font-semibold'>Start from skeydb.com</h2>
+          <p className='text-sm text-slate-300'>
+            You are on the old GitHub Pages site. Open the new SKeyDB home first, then start the
+            transfer there so your saved data knows where to go.
+          </p>
+        </div>
+
+        <a className={PRIMARY_ACTION_CLASS} href={PRIMARY_MIGRATION_TARGET_URL}>
+          <FaHouse aria-hidden='true' />
+          Open skeydb.com
+        </a>
+      </section>
+    )
+  }
+
   return (
     <section className='mx-auto max-w-3xl space-y-5 px-2 py-8 text-slate-100'>
       <div className='space-y-2'>
-        <h2 className='text-xl font-semibold'>SKeyDB domain transfer</h2>
+        <h2 className='text-xl font-semibold'>Move your SKeyDB saves</h2>
         <p className='text-sm text-slate-300'>
-          Bring over saved Builder and Collection data from GitHub Pages.
+          Copy your Builder teams, Collection, and settings from GitHub Pages to skeydb.com. Nothing
+          is deleted from GitHub Pages.
         </p>
       </div>
 
-      <button
-        className='rounded border border-cyan-300/50 bg-cyan-400/15 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-400/25'
-        onClick={startTransfer}
-        type='button'
-      >
+      <ol className='grid gap-2 text-sm text-slate-200 sm:grid-cols-3'>
+        {TRANSFER_STEPS.map((step, index) => (
+          <li className='rounded border border-slate-700 bg-slate-950/35 p-3' key={step}>
+            <span className='mb-2 inline-flex size-6 items-center justify-center rounded-full border border-cyan-300/40 text-xs font-semibold text-cyan-100'>
+              {index + 1}
+            </span>
+            <p>{step}</p>
+          </li>
+        ))}
+      </ol>
+
+      <button className={PRIMARY_ACTION_CLASS} onClick={startTransfer} type='button'>
+        <FaArrowRight aria-hidden='true' />
         Start transfer
       </button>
 
-      <div className='space-y-2'>
-        <label className='block text-sm font-medium text-slate-200' htmlFor='manual-payload'>
-          Transfer code
-        </label>
-        <textarea
-          className='min-h-28 w-full rounded border border-slate-600 bg-slate-950 p-3 font-mono text-xs text-slate-100'
-          id='manual-payload'
-          onChange={(event) => {
-            setManualPayload(event.target.value)
-          }}
-          value={manualPayload}
-        />
-        <button
-          className='rounded border border-slate-500 bg-slate-800/70 px-3 py-1.5 text-sm text-slate-100 hover:bg-slate-700'
-          disabled={!manualPayload.trim()}
-          onClick={reviewManualPayload}
-          type='button'
-        >
-          Review transfer code
-        </button>
-      </div>
+      <details className='rounded border border-slate-700 bg-slate-950/25 px-3 py-2 text-sm text-slate-200'>
+        <summary className='cursor-pointer font-semibold text-slate-100'>
+          Paste a transfer code
+        </summary>
+        <div className='mt-3 space-y-2'>
+          <p className='text-slate-300'>
+            Use this only if the GitHub Pages tab shows a code instead of returning here
+            automatically.
+          </p>
+          <label className='block text-sm font-medium text-slate-200' htmlFor='manual-payload'>
+            Paste transfer code
+          </label>
+          <textarea
+            className='min-h-28 w-full rounded border border-slate-600 bg-slate-950 p-3 font-mono text-xs text-slate-100'
+            id='manual-payload'
+            onChange={(event) => {
+              setManualPayload(event.target.value)
+            }}
+            value={manualPayload}
+          />
+          <button
+            className={SECONDARY_ACTION_CLASS}
+            disabled={!manualPayload.trim()}
+            onClick={reviewManualPayload}
+            type='button'
+          >
+            <FaClipboard aria-hidden='true' />
+            Review transfer code
+          </button>
+        </div>
+      </details>
 
       {status === 'waiting' ? (
-        <p className='text-sm text-slate-300'>Waiting for the GitHub Pages tab...</p>
+        <p className='rounded border border-cyan-300/40 bg-cyan-950/25 px-3 py-2 text-sm text-cyan-100'>
+          Waiting for the GitHub Pages tab. Keep both tabs open for a moment.
+        </p>
       ) : null}
 
       {error ? (
@@ -243,44 +304,64 @@ export function MigrationReceivePage({
 
       {plan && status === 'ready' ? (
         <div className='space-y-4'>
-          <dl className='grid grid-cols-3 gap-2 text-sm'>
-            <SummaryItem label='New' value={plan.summary.copy} />
-            <SummaryItem label='Same' value={plan.summary.unchanged} />
-            <SummaryItem label='Review' value={plan.summary.conflict} />
+          <div className='space-y-1'>
+            <h3 className='text-base font-semibold text-slate-100'>Review your transfer</h3>
+            <p className='text-sm text-slate-300'>
+              These saves will be copied into this browser on skeydb.com.
+            </p>
+          </div>
+
+          <dl className='grid gap-2 text-sm sm:grid-cols-3'>
+            <SummaryItem label='New to this site' value={plan.summary.copy} />
+            <SummaryItem label='Already matched' value={plan.summary.unchanged} />
+            <SummaryItem label='Needs your choice' value={plan.summary.conflict} />
           </dl>
 
           {conflictItems.length ? (
-            <fieldset className='space-y-2 rounded border border-slate-600 p-3'>
-              <legend className='px-1 text-sm font-medium text-slate-200'>Existing data</legend>
-              {conflictItems.map((item) => (
-                <label className='flex items-center gap-2 text-sm text-slate-200' key={item.key}>
-                  <input
-                    checked={copyConflictKeys.has(item.key)}
-                    onChange={(event) => {
-                      setCopyConflictKeys((current) => {
-                        const next = new Set(current)
-                        if (event.target.checked) {
-                          next.add(item.key)
-                        } else {
-                          next.delete(item.key)
-                        }
-                        return next
-                      })
-                    }}
-                    type='checkbox'
+            <fieldset className='space-y-3 rounded border border-slate-600 p-3'>
+              <legend className='px-1 text-sm font-medium text-slate-200'>
+                Choose what to do with existing data
+              </legend>
+              <p className='text-sm text-slate-300'>
+                Some data exists on both sites. Keeping skeydb.com leaves your current data alone.
+                Replacing uses the GitHub Pages version and saves a backup first.
+              </p>
+              <div className='flex flex-wrap gap-2'>
+                <button
+                  className={SECONDARY_ACTION_CLASS}
+                  onClick={() => {
+                    setCopyConflictKeys(new Set())
+                  }}
+                  type='button'
+                >
+                  Keep existing data
+                </button>
+                <button
+                  className={SECONDARY_ACTION_CLASS}
+                  onClick={() => {
+                    setCopyConflictKeys(new Set(conflictItems.map((item) => item.key)))
+                  }}
+                  type='button'
+                >
+                  Replace all conflicts
+                </button>
+              </div>
+              <div className='space-y-3'>
+                {conflictItems.map((item) => (
+                  <ConflictChoice
+                    copySource={copyConflictKeys.has(item.key)}
+                    item={item}
+                    key={item.key}
+                    setCopyConflictKeys={setCopyConflictKeys}
                   />
-                  <span>Replace {item.key}</span>
-                </label>
-              ))}
+                ))}
+              </div>
             </fieldset>
           ) : null}
 
-          <button
-            className='rounded border border-emerald-300/50 bg-emerald-400/15 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-400/25'
-            onClick={applyMigration}
-            type='button'
-          >
-            Apply transfer
+          <button className={SUCCESS_ACTION_CLASS} onClick={applyMigration} type='button'>
+            <FaCircleCheck aria-hidden='true' />
+            Finish transfer
           </button>
         </div>
       ) : null}
@@ -301,6 +382,109 @@ function SummaryItem({label, value}: {label: string; value: number}) {
       <dd className='text-lg font-semibold text-slate-100'>{value}</dd>
     </div>
   )
+}
+
+function ConflictChoice({
+  copySource,
+  item,
+  setCopyConflictKeys,
+}: {
+  copySource: boolean
+  item: DomainStorageMigrationPlanItem
+  setCopyConflictKeys: Dispatch<SetStateAction<Set<string>>>
+}) {
+  const safeId = createSafeDomId(item.key)
+  const keepId = `migration-conflict-keep-${safeId}`
+  const replaceId = `migration-conflict-replace-${safeId}`
+
+  const setCopySource = (shouldCopySource: boolean) => {
+    setCopyConflictKeys((current) => {
+      const next = new Set(current)
+      if (shouldCopySource) {
+        next.add(item.key)
+      } else {
+        next.delete(item.key)
+      }
+      return next
+    })
+  }
+
+  return (
+    <div className='space-y-3 rounded border border-slate-700 bg-slate-950/35 p-3'>
+      <div className='space-y-1'>
+        <p className='font-medium text-slate-100'>{formatMigrationItemLabel(item)}</p>
+        <p className='text-xs text-slate-400'>{formatMigrationItemDescription(item)}</p>
+      </div>
+      <div className='grid gap-2 text-sm sm:grid-cols-2'>
+        <label
+          className='flex items-center gap-2 rounded border border-slate-700 bg-slate-900/60 px-3 py-2 text-slate-200'
+          htmlFor={keepId}
+        >
+          <input
+            checked={!copySource}
+            id={keepId}
+            name={`migration-conflict-${safeId}`}
+            onChange={() => {
+              setCopySource(false)
+            }}
+            type='radio'
+          />
+          <span>Keep skeydb.com data</span>
+        </label>
+        <label
+          className='flex items-center gap-2 rounded border border-slate-700 bg-slate-900/60 px-3 py-2 text-slate-200'
+          htmlFor={replaceId}
+        >
+          <input
+            checked={copySource}
+            id={replaceId}
+            name={`migration-conflict-${safeId}`}
+            onChange={() => {
+              setCopySource(true)
+            }}
+            type='radio'
+          />
+          <span>Replace with GitHub Pages data</span>
+        </label>
+      </div>
+    </div>
+  )
+}
+
+function createSafeDomId(value: string): string {
+  return value.replace(/[^a-z0-9_-]/gi, '-')
+}
+
+function formatMigrationItemLabel(item: DomainStorageMigrationPlanItem): string {
+  if (item.key === 'skeydb.builder.teamPreviewMode.v1') {
+    return 'Builder team preview mode'
+  }
+  if (item.key === 'skeydb.builder.allowDupes.v1') {
+    return 'Builder duplicate setting'
+  }
+  if (item.category === 'builder') {
+    return 'Builder teams'
+  }
+  if (item.category === 'collection') {
+    return 'Collection data'
+  }
+  if (item.category === 'export-config') {
+    return 'Export settings'
+  }
+  return 'SKeyDB setting'
+}
+
+function formatMigrationItemDescription(item: DomainStorageMigrationPlanItem): string {
+  if (item.category === 'builder') {
+    return 'Saved team builder work from the old site.'
+  }
+  if (item.category === 'collection') {
+    return 'Owned awakener and wheel collection data from the old site.'
+  }
+  if (item.category === 'export-config') {
+    return 'Saved image export layout and filter choices.'
+  }
+  return 'A saved preference from the old site.'
 }
 
 function getConfiguredLegacyExportUrl(): string | undefined {

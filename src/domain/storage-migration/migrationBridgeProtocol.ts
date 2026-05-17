@@ -6,6 +6,7 @@ import {
 export const DEFAULT_LEGACY_MIGRATION_SOURCE_ORIGINS = ['https://dansa.github.io']
 export const DEFAULT_MIGRATION_TARGET_ORIGINS = ['https://skeydb.com', 'https://www.skeydb.com']
 export const DEFAULT_LEGACY_MIGRATION_EXPORT_URL = 'https://dansa.github.io/SKeyDB/#/migrate/export'
+export const PRIMARY_MIGRATION_TARGET_URL = 'https://skeydb.com/#/migrate'
 
 export type MigrationBridgeMessage =
   | {

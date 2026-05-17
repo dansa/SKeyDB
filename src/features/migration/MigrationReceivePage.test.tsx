@@ -33,6 +33,13 @@ const TARGET_LOCATION = {
   port: '',
 } satisfies Pick<Location, 'origin' | 'hostname' | 'protocol' | 'port'>
 
+const OLD_LOCATION = {
+  origin: 'https://dansa.github.io',
+  hostname: 'dansa.github.io',
+  protocol: 'https:',
+  port: '',
+} satisfies Pick<Location, 'origin' | 'hostname' | 'protocol' | 'port'>
+
 function makeSnapshot(): DomainStorageMigrationSnapshot {
   return {
     kind: DOMAIN_STORAGE_MIGRATION_SNAPSHOT_KIND,
@@ -55,16 +62,18 @@ function makeSnapshotFrom(sourceOrigin: string): DomainStorageMigrationSnapshot 
 function renderReceivePage({
   storage = new MemoryStorage(),
   openWindow = vi.fn(() => ({})),
+  locationLike = TARGET_LOCATION,
 }: {
   storage?: StorageLike | null
   openWindow?: (url: string, target: string) => unknown
+  locationLike?: Pick<Location, 'origin' | 'hostname' | 'protocol' | 'port'>
 } = {}) {
   render(
     <MigrationReceivePage
       allowLocalOrigins={false}
       configuredLegacyExportUrl='https://dansa.github.io/SKeyDB/#/migrate/export'
       createNonce={() => 'abc'}
-      locationLike={TARGET_LOCATION}
+      locationLike={locationLike}
       openWindow={openWindow}
       storage={storage}
     />,
@@ -73,6 +82,29 @@ function renderReceivePage({
 }
 
 describe('MigrationReceivePage', () => {
+  it('sends users to the new domain when opened from GitHub Pages', () => {
+    const {openWindow} = renderReceivePage({locationLike: OLD_LOCATION})
+
+    expect(screen.getByText(/start from skeydb\.com/i)).toBeInTheDocument()
+    expect(screen.getByRole('link', {name: /open skeydb.com/i})).toHaveAttribute(
+      'href',
+      'https://skeydb.com/#/migrate',
+    )
+    expect(screen.queryByRole('button', {name: /start transfer/i})).not.toBeInTheDocument()
+    expect(openWindow).not.toHaveBeenCalled()
+  })
+
+  it('explains the transfer before asking users to start', () => {
+    renderReceivePage()
+
+    expect(
+      screen.getByText(/copy your builder teams, collection, and settings/i),
+    ).toBeInTheDocument()
+    expect(screen.getByText(/nothing is deleted from github pages/i)).toBeInTheDocument()
+    expect(screen.getByText(/skeydb opens your old github pages save/i)).toBeInTheDocument()
+    expect(screen.getByText(/review what will be moved/i)).toBeInTheDocument()
+  })
+
   it('opens the legacy export route with nonce and target origin', () => {
     const {openWindow} = renderReceivePage()
 
@@ -108,7 +140,7 @@ describe('MigrationReceivePage', () => {
         data: {type: 'skeydb:migration-snapshot:v1', nonce: 'abc', snapshot: makeSnapshot()},
       }),
     )
-    expect(screen.queryByText('New')).not.toBeInTheDocument()
+    expect(screen.queryByText(/new to this site/i)).not.toBeInTheDocument()
 
     window.dispatchEvent(
       new MessageEvent('message', {
@@ -117,7 +149,7 @@ describe('MigrationReceivePage', () => {
       }),
     )
 
-    expect(await screen.findByText('New')).toBeInTheDocument()
+    expect(await screen.findByText(/new to this site/i)).toBeInTheDocument()
     expect(storage.getItem('skeydb.builder.allowDupes.v1')).toBeNull()
   })
 
@@ -133,9 +165,14 @@ describe('MigrationReceivePage', () => {
       }),
     )
 
-    const fieldset = await screen.findByRole('group', {name: /existing data/i})
-    fireEvent.click(within(fieldset).getByRole('checkbox', {name: /teamPreviewMode/i}))
-    fireEvent.click(screen.getByRole('button', {name: /apply transfer/i}))
+    const fieldset = await screen.findByRole('group', {name: /choose what to do/i})
+    expect(within(fieldset).getByText(/builder team preview mode/i)).toBeInTheDocument()
+    expect(
+      within(fieldset).queryByText(/skeydb\.builder\.teamPreviewMode/i),
+    ).not.toBeInTheDocument()
+
+    fireEvent.click(within(fieldset).getByRole('button', {name: /replace all conflicts/i}))
+    fireEvent.click(screen.getByRole('button', {name: /finish transfer/i}))
 
     await waitFor(() => {
       expect(screen.getByText(/transfer complete/i)).toBeInTheDocument()
@@ -160,8 +197,8 @@ describe('MigrationReceivePage', () => {
       }),
     )
 
-    await screen.findByRole('group', {name: /existing data/i})
-    fireEvent.click(screen.getByRole('button', {name: /apply transfer/i}))
+    await screen.findByRole('group', {name: /choose what to do/i})
+    fireEvent.click(screen.getByRole('button', {name: /finish transfer/i}))
 
     expect(await screen.findByText(/transfer complete/i)).toBeInTheDocument()
     expect(storage.getItem('skeydb.builder.teamPreviewMode.v1')).toBe('expanded')
@@ -170,24 +207,26 @@ describe('MigrationReceivePage', () => {
   it('can review a pasted fallback transfer code', async () => {
     renderReceivePage()
 
-    fireEvent.change(screen.getByLabelText(/transfer code/i), {
+    fireEvent.click(screen.getByText(/paste a transfer code/i))
+    fireEvent.change(screen.getByLabelText(/paste transfer code/i), {
       target: {value: JSON.stringify(makeSnapshot())},
     })
     fireEvent.click(screen.getByRole('button', {name: /review transfer code/i}))
 
-    expect(await screen.findByText('New')).toBeInTheDocument()
-    expect(screen.getByRole('button', {name: /apply transfer/i})).toBeInTheDocument()
+    expect(await screen.findByText(/new to this site/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: /finish transfer/i})).toBeInTheDocument()
   })
 
   it('rejects pasted transfer codes from unsupported source origins', () => {
     renderReceivePage()
 
-    fireEvent.change(screen.getByLabelText(/transfer code/i), {
+    fireEvent.click(screen.getByText(/paste a transfer code/i))
+    fireEvent.change(screen.getByLabelText(/paste transfer code/i), {
       target: {value: JSON.stringify(makeSnapshotFrom('https://evil.example'))},
     })
     fireEvent.click(screen.getByRole('button', {name: /review transfer code/i}))
 
     expect(screen.getByText(/unsupported source/i)).toBeInTheDocument()
-    expect(screen.queryByRole('button', {name: /apply transfer/i})).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', {name: /finish transfer/i})).not.toBeInTheDocument()
   })
 })
