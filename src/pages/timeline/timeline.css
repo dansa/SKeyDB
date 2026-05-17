@@ -5,9 +5,9 @@
   opacity: 0;
   transform: translateY(-0.25rem);
   transition:
-    grid-template-rows 230ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 160ms ease,
-    transform 230ms cubic-bezier(0.22, 1, 0.36, 1);
+    grid-template-rows var(--ui-motion-duration-reveal) var(--ui-motion-ease),
+    opacity var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
+    transform var(--ui-motion-duration-reveal) var(--ui-motion-ease);
 }
 
 .timeline-archive-motion[data-expanded='true'] {
@@ -104,11 +104,11 @@
 }
 
 .timeline-v2-price-toggle-label {
-  color: oklch(61% 0.035 254 / 0.86);
-  font-size: 0.58rem;
+  color: var(--ui-text-faint);
+  font-size: var(--ui-text-label);
   font-weight: 800;
   line-height: 1;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--ui-label-tracking);
   text-transform: uppercase;
 }
 
@@ -116,8 +116,8 @@
   display: inline-grid;
   min-width: 0;
   grid-template-columns: repeat(2, minmax(3.85rem, 1fr));
-  border: 1px solid oklch(45% 0.034 255 / 0.42);
-  background: linear-gradient(180deg, oklch(13% 0.028 248 / 0.72), oklch(8% 0.026 248 / 0.76));
+  border: 1px solid var(--ui-control-border);
+  background: linear-gradient(180deg, var(--ui-control-surface), var(--ui-control-surface-strong));
   box-shadow: inset 0 1px 0 oklch(93% 0.03 84 / 0.04);
 }
 
@@ -127,24 +127,24 @@
   border: 0;
   background: transparent;
   padding: 0.5rem 0.65rem;
-  color: oklch(70% 0.035 254 / 0.86);
-  font-size: 0.64rem;
+  color: var(--ui-control-text);
+  font-size: var(--ui-text-label);
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   transition:
-    background-color 150ms ease,
-    color 150ms ease,
-    box-shadow 150ms ease;
+    background-color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
+    color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
+    box-shadow var(--ui-motion-duration-fast) var(--ui-motion-ease-soft);
 }
 
 .timeline-v2-price-toggle-button + .timeline-v2-price-toggle-button {
-  border-left: 1px solid oklch(45% 0.034 255 / 0.32);
+  border-left: 1px solid var(--ui-control-border-subtle);
 }
 
 .timeline-v2-price-toggle-button--active {
-  background: linear-gradient(180deg, oklch(30% 0.075 84 / 0.42), oklch(18% 0.045 84 / 0.36));
+  background: linear-gradient(180deg, var(--ui-active-surface), var(--ui-active-surface-strong));
   color: oklch(94% 0.035 84 / 0.96);
   box-shadow:
     inset 0 0 0 1px oklch(82% 0.1 84 / 0.18),
@@ -153,11 +153,11 @@
 
 .timeline-v2-price-toggle-button--inactive:hover,
 .timeline-v2-price-toggle-button--inactive:focus-visible {
-  color: oklch(86% 0.03 254 / 0.94);
+  color: var(--ui-control-text-hover);
 }
 
 .timeline-v2-price-toggle-button:focus-visible {
-  outline: 2px solid oklch(84% 0.1 84 / 0.3);
+  outline: 2px solid var(--ui-focus-ring-soft);
   outline-offset: 2px;
 }
 
@@ -179,8 +179,8 @@
   font-weight: 700;
   letter-spacing: 0.01em;
   transition:
-    background-color 150ms ease,
-    color 150ms ease;
+    background-color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
+    color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft);
 }
 
 .timeline-v2-filter-button::before {
@@ -192,9 +192,9 @@
   opacity: 0.42;
   transform: rotate(45deg);
   transition:
-    border-color 150ms ease,
-    opacity 150ms ease,
-    box-shadow 150ms ease;
+    border-color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
+    opacity var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
+    box-shadow var(--ui-motion-duration-fast) var(--ui-motion-ease-soft);
 }
 
 .timeline-v2-filter-label::before {
@@ -205,7 +205,7 @@
   background: radial-gradient(ellipse at center, oklch(72% 0.1 84 / 0.3), transparent 68%);
   filter: blur(0.7rem);
   opacity: 0;
-  transition: opacity 150ms ease;
+  transition: opacity var(--ui-motion-duration-fast) var(--ui-motion-ease-soft);
 }
 
 .timeline-v2-filter-label {
@@ -250,7 +250,7 @@
 }
 
 .timeline-v2-filter-button:focus-visible {
-  outline: 2px solid oklch(84% 0.1 84 / 0.28);
+  outline: 2px solid var(--ui-focus-ring-soft);
   outline-offset: 2px;
 }
 

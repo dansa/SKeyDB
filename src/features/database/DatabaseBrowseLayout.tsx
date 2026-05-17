@@ -39,17 +39,18 @@ export function DatabaseBrowseLayout({
       <h2 className='sr-only'>{title}</h2>
       <DatabaseEntityTabs activeEntity={activeEntity} search={search} />
 
-      <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>
-        <p className='text-[11px] text-slate-400'>
+      <div className='flex flex-wrap items-center gap-x-3 gap-y-2'>
+        <p className='min-h-8 text-[11px] leading-8 text-slate-400'>
           {isFiltered ? (
             <>
-              <span className='font-medium text-slate-100 tabular-nums'>{filteredCount}</span> of{' '}
+              <span className='font-medium text-slate-100 tabular-nums'>{filteredCount}</span>
+              {' of '}
               <span className='tabular-nums'>{totalCount}</span>
             </>
           ) : (
             <>
-              <span className='font-medium text-slate-100 tabular-nums'>{totalCount}</span>{' '}
-              {unitNoun}
+              <span className='font-medium text-slate-100 tabular-nums'>{totalCount}</span>
+              {` ${unitNoun}`}
             </>
           )}
         </p>

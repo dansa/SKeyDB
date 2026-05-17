@@ -1,6 +1,7 @@
 import {DEFAULT_REALM_ACCENT, getRealmAccent} from '@/domain/realms'
-import {databaseCardTitleClassName} from '@/ui/cards/database-card-typography'
-import {DatabaseGridCardFrame} from '@/ui/cards/DatabaseGridCardFrame'
+
+import {databaseCardTitleClassName} from './database-card-typography'
+import {DatabaseGridCardFrame} from './DatabaseGridCardFrame'
 
 const PRIORITIZED_GRID_IMAGE_COUNT = 24
 
@@ -43,7 +44,7 @@ export function SimpleArtifactGridCard({
           </p>
         ),
       }}
-      layout='portrait'
+      layout='square-art'
       media={{
         alt: name,
         posterAspectClassName: 'aspect-square',

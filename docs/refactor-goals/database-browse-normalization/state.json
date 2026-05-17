@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "slug": "database-browse-normalization",
+  "status": "complete",
+  "created": "2026-05-17",
+  "updated": "2026-05-17",
+  "intake": {
+    "status": "completed",
+    "risk_posture": "Moderate frontend normalization; preserve database browse behavior while allowing visual cleanup aligned with Timeline/D-zone.",
+    "harness_policy": "Product docs and goal packet updates allowed; no dependency, AGENTS.md, lint, or plugin changes without a routed maintenance task.",
+    "allowed_areas": [
+      "src/features/database/**",
+      "src/ui/** when directly consumed by database browse",
+      "src/index.css",
+      "database/shared CSS imports",
+      "focused database tests/docs"
+    ],
+    "protected_areas": [
+      "database detail modal",
+      "generated/domain data",
+      "Builder and Collection flows",
+      "dependency files"
+    ],
+    "validation_commands": [
+      "npx prettier --check src/features/database/**/*.tsx src/ui/filters/FilterRow.tsx src/index.css",
+      "npx vitest run src/features/database/DatabaseRoutes.test.tsx",
+      "npm run lint",
+      "git diff --check",
+      "browser visual checks for /#/database and /#/database/wheels"
+    ],
+    "stop_condition": "Stop when one verified tranche lands, a product/design decision is needed, verification fails twice, or expansion crosses protected scope."
+  },
+  "focus_areas": [
+    {
+      "name": "Tailwind/CSS normalization",
+      "status": "implemented",
+      "evidence": "User called out index CSS monolith and page-specific Timeline/D-zone CSS.",
+      "next": "W1 moved database browse/card CSS into src/features/database/database.css."
+    },
+    {
+      "name": "React component simplification",
+      "status": "implemented",
+      "evidence": "User named $refactor-react for database landing/browse pages.",
+      "next": "W3 moved database-only card/grid primitives into the database feature and replaced class-name sniffing with an explicit grid layout prop."
+    },
+    {
+      "name": "UI/a11y polish",
+      "status": "implemented",
+      "evidence": "User named $refactor-ui-a11y for controls, cards, layout, and browse behavior.",
+      "next": "W2 implemented filter group/current-state semantics and W4 associated card buttons with visible titles."
+    },
+    {
+      "name": "Impeccable design alignment",
+      "status": "implemented",
+      "evidence": "PRODUCT/DESIGN set Timeline/D-zone as current canon and restrict glass/Droid Serif.",
+      "next": "Implemented by preserving desktop text-on-art glass only for poster cards, keeping mobile dossier solid, localizing database CSS like Timeline/D-zone, and avoiding new Droid Serif spread."
+    },
+    {
+      "name": "Detail modal",
+      "status": "out_of_scope_by_user",
+      "evidence": "User explicitly excluded the DB details modal.",
+      "reason": "The user said the actual DB details modal is out of scope for this pass.",
+      "next": "Do not touch in this pass."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C1",
+      "title": "Move database poster-card CSS out of src/index.css into database-owned or shared artwork-overlay CSS",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/index.css",
+        "database route/page imports",
+        "database card frame CSS",
+        "focused database tests and visual checks"
+      ],
+      "evidence": "Recent glass overlay landed in global CSS; Timeline and D-zone already use page-specific CSS files.",
+      "next": "Implemented by W1 as database-owned CSS extraction."
+    },
+    {
+      "id": "C2",
+      "title": "Normalize database browse controls/card layout class strings",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "DatabaseBrowseLayout",
+        "filter rows",
+        "sort/search controls",
+        "active filter chips"
+      ],
+      "evidence": "Prompt asks for less CSS bloat and frontend normalization.",
+      "next": "Implemented for the card/grid layer by W3; remaining control class normalization is not selected in this tranche."
+    },
+    {
+      "id": "C3",
+      "title": "Audit card/button accessibility and focus after poster overlay changes",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "DatabaseGridCardFrame",
+        "browse cards",
+        "filter/search/sort controls"
+      ],
+      "evidence": "UI/a11y focus area named; glass overlays can affect readable contrast and focus.",
+      "next": "Implemented by W2 and W4."
+    },
+    {
+      "id": "C4",
+      "title": "Move database-only card primitives out of shared ui/cards and remove magic class-name layout detection",
+      "source_task": "J2",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/ui/cards/CatalogGrid.tsx",
+        "src/ui/cards/DatabaseGridCardFrame.tsx",
+        "src/ui/cards/DatabaseStatTriad.tsx",
+        "src/ui/cards/database-card-typography.ts",
+        "src/ui/cards/hybrid-database-card-mode.ts",
+        "src/features/database/internal/*Grid*.tsx",
+        "focused card/grid tests"
+      ],
+      "evidence": "All consumers of the moved primitives were database browse files. The previous CatalogGrid API parsed class names for hybrid mode.",
+      "next": "Implemented by W3."
+    }
+  ],
+  "maintenance": [
+    {
+      "id": "M1",
+      "title": "Database CSS ownership rule",
+      "trigger": "repeated global CSS growth",
+      "skill": "$refactor-learning-maintainer or $refactor-lint-law",
+      "status": "superseded",
+      "reason": "The implemented root fix localizes database browse CSS and no post-fix repeated drift was found; a lint or learning rule is not warranted for this tranche.",
+      "next": "Reopen only if page-specific CSS drifts into src/index.css again."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "S1",
+      "role": "scout",
+      "status": "done",
+      "title": "Map database browse frontend normalization tranche",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-tailwind",
+        "$refactor-react",
+        "$refactor-ui-a11y",
+        "$refactor-rootfix",
+        "$impeccable"
+      ],
+      "allowed_files": [
+        "src/features/database/**",
+        "src/ui/** when directly consumed by database browse",
+        "src/index.css",
+        "timeline/d-zone CSS for read-only comparison",
+        "PRODUCT.md",
+        "DESIGN.md"
+      ],
+      "protected_files": [
+        "database detail modal internals",
+        "generated/domain data",
+        "dependency files"
+      ],
+      "expected_output": "Ranked candidates with evidence, concept blast radius, validation ideas, and maintenance candidates.",
+      "receipt": {
+        "summary": "Two read-only scouts mapped database browse/card CSS ownership and browse React/UI-a11y issues.",
+        "evidence": [
+          "CSS scout found database-card-roster, database-card-grid, database-grid-card__surface/body/art, hybrid dossier/poster, and reduced-motion rules in src/index.css while Timeline/D-zone import page-owned CSS.",
+          "React/UI-a11y scout found queued follow-ups for card overlay button semantics, filter row group labels, database entity current state, sort/group grouping, and chip overflow."
+        ]
+      }
+    },
+    {
+      "id": "J1",
+      "role": "judge",
+      "status": "done",
+      "title": "Select first CSS ownership root-fix slice",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-tailwind",
+        "$impeccable"
+      ],
+      "allowed_files": [
+        "src/index.css",
+        "src/features/database/DatabasePage.tsx",
+        "src/features/database/database.css"
+      ],
+      "protected_files": [
+        "database detail modal internals",
+        "database rich-text/detail/popover global CSS",
+        "dependency files"
+      ],
+      "expected_output": "Approve one database-owned CSS extraction slice that preserves browse visuals.",
+      "receipt": {
+        "summary": "Selected root-fix slice C1: move database browse/card CSS out of src/index.css into database-owned CSS. This removes feature-specific rules from the global monolith instead of patching them in place.",
+        "evidence": [
+          "Timeline imports src/pages/timeline/timeline.css from TimelinePage.",
+          "D-zone imports src/pages/d-zone/d-zone.css from DZone pages.",
+          "Database card browse selectors are database-specific and can be moved without touching detail modal CSS."
+        ]
+      }
+    },
+    {
+      "id": "W1",
+      "role": "worker",
+      "status": "done",
+      "title": "Move database browse/card CSS into database-owned stylesheet",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-tailwind"
+      ],
+      "allowed_files": [
+        "src/index.css",
+        "src/features/database/DatabasePage.tsx",
+        "src/features/database/database.css"
+      ],
+      "protected_files": [
+        "database detail modal internals",
+        "database rich-text/detail/popover global CSS",
+        "dependency files"
+      ],
+      "expected_output": "Database browse/card CSS extracted from src/index.css, imported by the database page, with visual behavior preserved.",
+      "receipt": {
+        "summary": "Moved database browse/grid-card CSS from src/index.css into src/features/database/database.css and imported it from DatabasePage.",
+        "evidence": [
+          "Files changed: src/features/database/DatabasePage.tsx, src/features/database/database.css, src/index.css.",
+          "Kept database rich text/detail/popover global CSS in src/index.css.",
+          "Subagent ran npx prettier --check --ignore-unknown src/features/database/DatabasePage.tsx src/features/database/database.css src/index.css and git diff --check successfully."
+        ],
+        "validation": [
+          "Focused full validation still pending after W2."
+        ]
+      }
+    },
+    {
+      "id": "J2",
+      "role": "judge",
+      "status": "done",
+      "title": "Select small browse UI/a11y semantics slice",
+      "skills": [
+        "$refactor-ui-a11y",
+        "$refactor-react"
+      ],
+      "allowed_files": [
+        "src/ui/filters/FilterRow.tsx",
+        "src/ui/filters/FilterChipButton.tsx",
+        "src/features/database/DatabaseEntityTabs.tsx",
+        "src/features/database/internal/EntityViewControls.tsx",
+        "focused database tests if needed"
+      ],
+      "protected_files": [
+        "database detail modal internals",
+        "card markup semantics beyond labels/focus naming",
+        "dependency files"
+      ],
+      "expected_output": "Add semantic grouping/current-state labels without visual or behavior changes.",
+      "receipt": {
+        "summary": "Selected a low-risk UI/a11y slice from C3 that does not touch the detail modal or card visual structure.",
+        "evidence": [
+          "Scout found filter row labels are visual only.",
+          "Scout recommended confirming or adding current-page state to database entity links.",
+          "Scout noted compact Group by realm can have a clearer accessible name."
+        ]
+      }
+    },
+    {
+      "id": "W2",
+      "role": "worker",
+      "status": "done",
+      "title": "Add browse filter group and current-state semantics",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-ui-a11y",
+        "$refactor-react"
+      ],
+      "allowed_files": [
+        "src/ui/filters/FilterRow.tsx",
+        "src/ui/filters/FilterChipButton.tsx",
+        "src/features/database/DatabaseEntityTabs.tsx",
+        "src/features/database/internal/EntityViewControls.tsx",
+        "focused database tests if needed"
+      ],
+      "protected_files": [
+        "database detail modal internals",
+        "card visual structure",
+        "dependency files"
+      ],
+      "expected_output": "Filter rows expose group labels, active database entity links expose current page state, and Group by realm has a clear toggle name.",
+      "receipt": {
+        "summary": "Added browse semantics without changing layout: filter rows now expose grouped labels, database entity links expose explicit current-page state, and Group by realm has a clearer accessible toggle name.",
+        "evidence": [
+          "Files changed: src/ui/filters/FilterRow.tsx, src/ui/filters/FilterChipButton.tsx, src/features/database/DatabaseEntityTabs.tsx, src/features/database/internal/EntityViewControls.tsx.",
+          "Browser checks confirmed current tab state is Wheels on /database/wheels and Awakeners on /database, with grouped filter labels present."
+        ],
+        "validation": [
+          "Focused validation passed after W3."
+        ]
+      }
+    },
+    {
+      "id": "W3",
+      "role": "worker",
+      "status": "done",
+      "title": "Localize database card primitives and simplify grid layout API",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-tailwind"
+      ],
+      "allowed_files": [
+        "src/ui/cards/CatalogGrid.tsx",
+        "src/ui/cards/DatabaseGridCardFrame.tsx",
+        "src/ui/cards/DatabaseStatTriad.tsx",
+        "src/ui/cards/database-card-typography.ts",
+        "src/ui/cards/hybrid-database-card-mode.ts",
+        "src/features/database/internal/DatabaseCatalogGrid.tsx",
+        "src/features/database/internal/DatabaseGridCardFrame.tsx",
+        "src/features/database/internal/DatabaseStatTriad.tsx",
+        "src/features/database/internal/database-card-typography.ts",
+        "src/features/database/internal/hybrid-database-card-mode.ts",
+        "src/features/database/internal/AwakenerGridCard.tsx",
+        "src/features/database/internal/WheelGridCard.tsx",
+        "src/features/database/internal/SimpleArtifactGridCard.tsx",
+        "src/features/database/internal/DatabaseGrid.tsx",
+        "src/features/database/internal/WheelGrid.tsx",
+        "src/features/database/internal/SimpleArtifactGrid.tsx"
+      ],
+      "protected_files": [
+        "database detail modal internals",
+        "domain/generated data",
+        "dependency files"
+      ],
+      "expected_output": "Database-only card/grid primitives live in the database feature, and grid callers select card mode through an explicit prop instead of a class-name constant.",
+      "receipt": {
+        "summary": "Moved database browse card primitives from src/ui/cards into src/features/database/internal and replaced HYBRID_DATABASE_GRID_CLASS_NAME/className parsing with DatabaseCatalogGrid layout='hybrid'.",
+        "evidence": [
+          "src/ui/cards now contains only CompactArtTile files after the database-specific move.",
+          "DatabaseGrid and WheelGrid pass layout='hybrid'; simple artifact grids use the portrait default.",
+          "Focused card/grid tests and browser checks passed."
+        ],
+        "validation": [
+          "npx prettier --check --ignore-unknown ... -> passed",
+          "npx vitest run src/features/database/DatabaseRoutes.test.tsx src/features/database/internal/AwakenerGridCard.test.tsx src/features/database/internal/WheelGridCard.test.tsx src/features/database/internal/DatabaseGrid.test.tsx -> 36 passed",
+          "npm run lint -> passed",
+          "git diff --check -> passed",
+          "Browser checks: desktop /database/wheels poster mode with 5 / 8 art and blur(2px), /database current tab/group labels, mobile /database/wheels dossier mode with no glass and no horizontal overflow"
+        ]
+      }
+    },
+    {
+      "id": "W4",
+      "role": "worker",
+      "status": "done",
+      "title": "Associate database card buttons with visible card titles",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-ui-a11y",
+        "$refactor-react"
+      ],
+      "allowed_files": [
+        "src/features/database/internal/DatabaseGridCardFrame.tsx",
+        "src/features/database/internal/AwakenerGridCard.tsx",
+        "src/features/database/internal/WheelGridCard.tsx",
+        "src/features/database/internal/SimpleArtifactGridCard.tsx",
+        "focused card/grid tests if needed"
+      ],
+      "protected_files": [
+        "database detail modal internals",
+        "visual card layout and CSS",
+        "dependency files"
+      ],
+      "expected_output": "The clickable card control uses the visible title as part of its accessible name without changing visual layout or card behavior.",
+      "receipt": {
+        "summary": "Associated the database card overlay button with the visible title by using aria-labelledby while keeping the existing aria-label attribute for compatibility.",
+        "evidence": [
+          "DatabaseGridCardFrame now creates a stable visible title id and a hidden action phrase for the button name.",
+          "Awakener, wheel, posse, and covenant cards keep their existing aria-label attributes for current tests and ordering checks."
+        ],
+        "validation": [
+          "Focused database route/card tests passed after the compatibility repair.",
+          "Browser check confirmed aria-label and aria-labelledby text both resolve to the visible card action."
+        ]
+      }
+    },
+    {
+      "id": "W5",
+      "role": "worker",
+      "status": "done",
+      "title": "Replace collection sort controls with database-owned browse controls",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-tailwind",
+        "$refactor-react",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/database/internal/EntityViewControls.tsx",
+        "src/features/database/database.css",
+        "focused database tests if needed"
+      ],
+      "protected_files": [
+        "Collection sort controls",
+        "database detail modal internals",
+        "dependency files"
+      ],
+      "expected_output": "Database browse sort/group controls stop routing through CollectionSortControls and own their compact chrome locally.",
+      "receipt": {
+        "summary": "Replaced database browse usage of CollectionSortControls with database-owned compact sort/group controls and database-owned select option styling.",
+        "evidence": [
+          "EntityViewControls no longer imports CollectionSortControls or Button.",
+          "Database sort selects use database-sort-select classes defined in src/features/database/database.css.",
+          "Awakener and wheel browse still expose the same sort select labels and direction button labels."
+        ],
+        "validation": [
+          "Focused database route/card tests passed.",
+          "Browser checks confirmed Database view controls role=group, database-sort-select class usage, and no horizontal overflow."
+        ]
+      }
+    }
+  ],
+  "final_audit": {
+    "full_outcome_complete": true,
+    "summary": "Refactor Discipline audit and first implementation tranche are complete for database landing/browse pages. The tranche normalized database CSS ownership, removed fake shared card primitives, replaced class-name-sniffed grid layout with an explicit API, added browse UI/a11y semantics, associated card controls with visible titles, and replaced collection-owned sort chrome with database-owned controls. Detail modal files remained out of scope.",
+    "validation": [
+      "npx prettier --check --ignore-unknown src/features/database/DatabasePage.tsx src/features/database/database.css src/features/database/DatabaseEntityTabs.tsx src/features/database/internal/EntityViewControls.tsx src/features/database/internal/DatabaseCatalogGrid.tsx src/features/database/internal/DatabaseGridCardFrame.tsx src/features/database/internal/DatabaseStatTriad.tsx src/features/database/internal/database-card-typography.ts src/features/database/internal/hybrid-database-card-mode.ts src/features/database/internal/AwakenerGridCard.tsx src/features/database/internal/WheelGridCard.tsx src/features/database/internal/SimpleArtifactGridCard.tsx src/features/database/internal/DatabaseGrid.tsx src/features/database/internal/WheelGrid.tsx src/features/database/internal/SimpleArtifactGrid.tsx src/ui/filters/FilterRow.tsx src/ui/filters/FilterChipButton.tsx src/index.css docs/refactor-goals/database-browse-normalization/goal.md docs/refactor-goals/database-browse-normalization/state.json docs/refactor-goals/database-browse-normalization/worklog.md -> passed",
+      "npx vitest run src/features/database/DatabaseRoutes.test.tsx src/features/database/internal/AwakenerGridCard.test.tsx src/features/database/internal/WheelGridCard.test.tsx src/features/database/internal/DatabaseGrid.test.tsx -> 4 files, 36 tests passed",
+      "npm run lint -> passed",
+      "git diff --check -> passed",
+      "Browser checks passed for desktop /database, desktop /database/wheels, and mobile /database/wheels after W5"
+    ],
+    "open_items": []
+  }
+}

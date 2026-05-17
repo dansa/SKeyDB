@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-17T13:31:38.6412678+02:00",
+  "title": "Design System: SKeyDB",
+  "extensions": {
+    "colorMeta": {
+      "app-night": {
+        "role": "neutral",
+        "displayName": "App Night",
+        "canonical": "oklch(13.5% 0.025 257)",
+        "tonalRamp": [
+          "oklch(9% 0.025 257)",
+          "oklch(13.5% 0.025 257)",
+          "oklch(19% 0.025 257)",
+          "oklch(29% 0.025 257)",
+          "oklch(42% 0.025 257)",
+          "oklch(58% 0.025 257)",
+          "oklch(76% 0.018 257)",
+          "oklch(92% 0.01 257)"
+        ]
+      },
+      "panel-night": {
+        "role": "neutral",
+        "displayName": "Panel Night",
+        "canonical": "oklch(10.5% 0.025 252 / 0.76)",
+        "tonalRamp": [
+          "oklch(7% 0.025 252)",
+          "oklch(10.5% 0.025 252)",
+          "oklch(16% 0.025 252)",
+          "oklch(26% 0.025 252)",
+          "oklch(39% 0.024 252)",
+          "oklch(56% 0.02 252)",
+          "oklch(75% 0.014 252)",
+          "oklch(93% 0.008 252)"
+        ]
+      },
+      "amber-gold": {
+        "role": "primary",
+        "displayName": "Amber Gold",
+        "canonical": "oklch(78% 0.1 84)",
+        "tonalRamp": [
+          "oklch(18% 0.06 84)",
+          "oklch(28% 0.08 84)",
+          "oklch(40% 0.09 84)",
+          "oklch(55% 0.1 84)",
+          "oklch(68% 0.105 84)",
+          "oklch(78% 0.1 84)",
+          "oklch(87% 0.07 84)",
+          "oklch(96% 0.035 84)"
+        ]
+      },
+      "info-blue": {
+        "role": "secondary",
+        "displayName": "Timeline Blue",
+        "canonical": "oklch(77% 0.07 236 / 0.88)",
+        "tonalRamp": [
+          "oklch(18% 0.055 236)",
+          "oklch(28% 0.065 236)",
+          "oklch(42% 0.07 236)",
+          "oklch(56% 0.07 236)",
+          "oklch(68% 0.07 236)",
+          "oklch(77% 0.07 236)",
+          "oklch(87% 0.045 236)",
+          "oklch(96% 0.024 236)"
+        ]
+      },
+      "danger-red": {
+        "role": "tertiary",
+        "displayName": "D-Tide Red",
+        "canonical": "oklch(76% 0.078 28 / 0.88)",
+        "tonalRamp": [
+          "oklch(18% 0.055 28)",
+          "oklch(29% 0.07 28)",
+          "oklch(42% 0.078 28)",
+          "oklch(56% 0.082 28)",
+          "oklch(68% 0.08 28)",
+          "oklch(76% 0.078 28)",
+          "oklch(87% 0.048 28)",
+          "oklch(96% 0.025 28)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Large page and season titles only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Inspector titles and feature section identities."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles, entity names, event names, and banner summaries."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable descriptions and dense product copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Controls, taxonomy, chips, and compact metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "panel-inset",
+        "value": "inset 0 1px 0 oklch(88% 0.04 84 / 0.05)",
+        "purpose": "Subtle top hairline on dark panels."
+      },
+      {
+        "name": "card-lift",
+        "value": "0 12px 26px rgba(2,6,23,0.28)",
+        "purpose": "Large artwork cards and hoverable media surfaces."
+      },
+      {
+        "name": "hover-lift",
+        "value": "0 18px 34px rgba(2,6,23,0.34)",
+        "purpose": "Hover response for image-heavy cards only."
+      },
+      {
+        "name": "icon-drop",
+        "value": "drop-shadow(0 0.35rem 0.8rem oklch(4% 0.02 250 / 0.7))",
+        "purpose": "Emblems and meaningful art icons on dark backgrounds."
+      },
+      {
+        "name": "soft-artwork-plaque",
+        "value": "backdrop-blur(2px), bg-slate-950/28, 0 8px 22px rgba(2,6,14,0.34)",
+        "purpose": "Static title labels over banner artwork."
+      },
+      {
+        "name": "artwork-details-drawer",
+        "value": "backdrop-blur(10px), dark vertical gradient, -14px 0 26px rgba(2,6,14,0.36)",
+        "purpose": "Readable body-copy drawers over banner artwork."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Disclosure, masthead, and larger state transitions."
+      },
+      {
+        "name": "ease-soft",
+        "value": "cubic-bezier(0.25, 1, 0.5, 1)",
+        "purpose": "Control borders, item reveal, and compact hover response."
+      },
+      {
+        "name": "state-fast",
+        "value": "150ms",
+        "purpose": "Buttons, links, chips, and taxonomy hover states."
+      },
+      {
+        "name": "disclosure",
+        "value": "180-230ms",
+        "purpose": "Unknown-height expansion, drawers, and wave cards."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "40rem"
+      },
+      {
+        "name": "md",
+        "value": "48rem"
+      },
+      {
+        "name": "lg",
+        "value": "64rem"
+      },
+      {
+        "name": "wide-tool",
+        "value": "74rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Season Masthead Summary",
+      "kind": "custom",
+      "refersTo": "masthead-summary",
+      "description": "Full-bleed page context with current season, countdown, and emblem.",
+      "html": "<section class='ds-season-masthead'><div class='ds-season-copy'><p class='ds-kicker'>Current Season</p><h2>Aequor</h2><p>Ends in 12d 4h</p></div><div class='ds-emblem' aria-hidden='true'></div></section>",
+      "css": ".ds-season-masthead{display:grid;grid-template-columns:minmax(0,1fr)5.6rem;align-items:center;gap:.6rem;padding:.75rem 1rem;background:radial-gradient(circle at 76% 36%,oklch(60% .085 210/.08),transparent 18rem),linear-gradient(180deg,oklch(10% .026 248/.32),transparent 72%);color:oklch(95% .035 84);font-family:'Noto Sans','Trebuchet MS',sans-serif}.ds-season-copy{min-width:0}.ds-kicker{margin:0 0 .35rem;color:oklch(77% .065 84/.72);font-size:.64rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.ds-season-masthead h2{margin:0;font-family:'Droid Serif',Georgia,serif;font-size:1.25rem;line-height:1.05}.ds-season-masthead p{margin:0;color:oklch(74% .032 255/.82);font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.ds-emblem{width:5.6rem;height:5.6rem;background:radial-gradient(circle,oklch(70% .08 205/.18),transparent 66%);border:1px solid oklch(74% .08 84/.18);transform:rotate(45deg)}"
+    },
+    {
+      "name": "Timeline Filter Button",
+      "kind": "button",
+      "refersTo": "segmented-toggle",
+      "description": "Serif selector with diamond mark for the Timeline content switcher.",
+      "html": "<button class='ds-timeline-filter' aria-pressed='true'><span>Events</span></button>",
+      "css": ".ds-timeline-filter{display:inline-flex;min-height:4.8rem;min-width:8rem;flex-direction:column;align-items:center;justify-content:flex-end;gap:.5rem;border:0;background:transparent;color:oklch(95% .035 84);padding:.75rem .5rem;font-family:'Droid Serif',Georgia,serif;font-size:.98rem;font-weight:700;text-shadow:0 0 .7rem oklch(78% .09 84/.32);transition:color 150ms ease}.ds-timeline-filter:before{content:'';width:.52rem;height:.52rem;border:4px solid oklch(82% .12 88/.88);box-shadow:inset 0 0 0 1px oklch(12% .025 248/.72),0 0 .85rem oklch(78% .1 84/.24);transform:rotate(45deg)}.ds-timeline-filter:focus-visible{outline:2px solid oklch(84% .1 84/.28);outline-offset:2px}"
+    },
+    {
+      "name": "Price Segmented Toggle",
+      "kind": "button",
+      "refersTo": "segmented-toggle",
+      "description": "Compact two-state display preference control.",
+      "html": "<div class='ds-price-toggle' role='group' aria-label='Display prices'><button class='is-active'>Prime</button><button>USD</button></div>",
+      "css": ".ds-price-toggle{display:inline-grid;grid-template-columns:repeat(2,minmax(3.85rem,1fr));border:1px solid oklch(45% .034 255/.42);background:linear-gradient(180deg,oklch(13% .028 248/.72),oklch(8% .026 248/.76));box-shadow:inset 0 1px 0 oklch(93% .03 84/.04)}.ds-price-toggle button{min-height:2rem;border:0;background:transparent;color:oklch(70% .035 254/.86);padding:.5rem .65rem;font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.ds-price-toggle button+button{border-left:1px solid oklch(45% .034 255/.32)}.ds-price-toggle .is-active{background:linear-gradient(180deg,oklch(30% .075 84/.42),oklch(18% .045 84/.36));color:oklch(94% .035 84/.96);box-shadow:inset 0 0 0 1px oklch(82% .1 84/.18),0 0 .75rem oklch(78% .1 84/.08)}.ds-price-toggle button:focus-visible{outline:2px solid oklch(84% .1 84/.3);outline-offset:2px}"
+    },
+    {
+      "name": "D-zone Alert Chip",
+      "kind": "chip",
+      "refersTo": "chip-filter",
+      "description": "Compact alert selector used inside D-zone inspector panels.",
+      "html": "<button class='ds-alert-chip' aria-pressed='true'>A1</button>",
+      "css": ".ds-alert-chip{display:grid;min-width:2.15rem;min-height:1.75rem;place-items:center;border:1px solid oklch(72% .07 84/.24);background:oklch(7% .022 252/.58);color:oklch(83% .05 84/.92);cursor:pointer;font-family:'Droid Serif',Georgia,serif;font-size:.72rem;font-weight:800;line-height:1;padding:.28rem .48rem;transition:border-color 150ms cubic-bezier(.25,1,.5,1),background-color 150ms cubic-bezier(.25,1,.5,1),color 150ms cubic-bezier(.25,1,.5,1)}.ds-alert-chip:hover,.ds-alert-chip:focus-visible{border-color:oklch(82% .1 84/.62);color:oklch(96% .05 84)}.ds-alert-chip[aria-pressed='true']{border-color:oklch(84% .11 84/.68);background:oklch(20% .05 246/.78);color:oklch(97% .06 84);box-shadow:inset 0 0 0 1px oklch(88% .08 84/.14)}.ds-alert-chip:focus-visible{outline:2px solid oklch(84% .1 84/.38);outline-offset:2px}"
+    },
+    {
+      "name": "D-zone Wave Card",
+      "kind": "card",
+      "refersTo": "compact-card",
+      "description": "Dense inspector row for one D-zone wave.",
+      "html": "<article class='ds-wave-card'><div class='ds-wave-index'>1</div><div class='ds-wave-body'><h3>Initial Relics</h3><p>Relics and monsters share one compact inspection row.</p></div></article>",
+      "css": ".ds-wave-card{display:grid;grid-template-columns:2rem minmax(0,1fr);align-items:stretch;border:1px solid oklch(58% .04 232/.34);border-radius:3px;background:linear-gradient(90deg,oklch(14% .03 246/.28),transparent 46%),oklch(8% .023 252/.46);color:oklch(87% .028 250);transition:border-color 180ms cubic-bezier(.25,1,.5,1),box-shadow 180ms cubic-bezier(.25,1,.5,1)}.ds-wave-card:hover{border-color:oklch(82% .1 84/.58);box-shadow:inset 0 1px 0 oklch(88% .04 84/.06),0 .5rem 1.4rem oklch(2% .018 252/.18)}.ds-wave-index{display:grid;place-items:start center;padding-top:.75rem;color:oklch(93% .06 84);font-family:'Droid Serif',Georgia,serif;font-size:1.18rem;font-weight:800}.ds-wave-body{min-width:0;padding:.5rem .85rem .9rem}.ds-wave-body h3{margin:0;color:oklch(90% .036 84);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.ds-wave-body p{margin:.45rem 0 0;color:oklch(76% .024 250/.86);font-size:.86rem;line-height:1.35}"
+    },
+    {
+      "name": "D-zone Relic Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Icon plus label button for relic popover entry points.",
+      "html": "<button class='ds-relic-button'><span class='ds-relic-icon'>?</span><span>Relic Name</span></button>",
+      "css": ".ds-relic-button{display:grid;min-height:3.1rem;grid-template-columns:2.38rem minmax(0,1fr);align-items:center;gap:.5rem;border:1px solid oklch(58% .04 232/.34);background:linear-gradient(90deg,oklch(6.5% .02 252/.84),oklch(13% .035 246/.56));color:oklch(88% .028 250);cursor:pointer;padding:.38rem .48rem;text-align:left;transition:border-color 150ms cubic-bezier(.25,1,.5,1),background-color 150ms cubic-bezier(.25,1,.5,1)}.ds-relic-button:hover,.ds-relic-button:focus-visible{border-color:oklch(82% .1 84/.58);background-color:oklch(16% .034 246/.72)}.ds-relic-button:focus-visible{outline:2px solid oklch(84% .1 84/.62);outline-offset:-2px}.ds-relic-icon{display:grid;width:2.25rem;height:2.25rem;place-items:center;background:oklch(4.5% .018 252/.86);color:oklch(70% .03 250/.72);font-family:'Droid Serif',Georgia,serif}.ds-relic-button span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:oklch(93% .034 84);font-size:.75rem;font-weight:500}"
+    },
+    {
+      "name": "Timeline Event Row",
+      "kind": "card",
+      "refersTo": "compact-card",
+      "description": "Compact row card with optional art slice and taxonomy line.",
+      "html": "<article class='ds-event-row'><div class='ds-event-art'></div><div class='ds-event-copy'><h3>Event Title</h3><p>Gameplay Event · Featured Unit · Prime</p></div></article>",
+      "css": ".ds-event-row{display:grid;grid-template-columns:6rem minmax(0,1fr);overflow:hidden;border:1px solid rgba(51,65,85,.4);background:linear-gradient(180deg,rgba(15,23,42,.78),rgba(10,16,28,.88));transition:border-color 150ms ease;color:oklch(91% .025 255)}.ds-event-row:hover{border-color:rgba(253,230,138,.3)}.ds-event-art{min-height:8rem;background:linear-gradient(135deg,oklch(20% .04 236),oklch(5% .018 252));border-right:1px solid rgba(51,65,85,.3)}.ds-event-copy{min-width:0;padding:.75rem 1rem}.ds-event-copy h3{margin:0;color:oklch(95% .035 84/.9);font-family:'Droid Serif',Georgia,serif;font-size:.98rem;line-height:1.16}.ds-event-copy p{margin:.4rem 0 0;color:oklch(77% .078 83/.88);font-size:.64rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"
+    },
+    {
+      "name": "Banner Static Title Plaque",
+      "kind": "custom",
+      "refersTo": "compact-card",
+      "description": "Soft text-on-art plaque for collapsed banner summaries.",
+      "html": "<div class='ds-banner-plaque'><h3>Fata Texunt / Sempiternal Web</h3><p>New Awakener</p><span>Ends in 13h 25m</span></div>",
+      "css": ".ds-banner-plaque{display:inline-grid;min-width:8.75rem;max-width:min(28rem,calc(100vw - 3rem));border:1px solid rgba(255,244,202,.12);background:rgba(2,6,23,.28);padding:.5rem .75rem;box-shadow:0 8px 22px rgba(2,6,14,.34),inset 0 1px 0 rgba(255,244,202,.04);backdrop-filter:blur(2px);color:oklch(95% .035 84)}.ds-banner-plaque h3{margin:0 0 -.14em;padding-bottom:.14em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'Droid Serif',Georgia,serif;font-size:1rem;line-height:1.12;color:oklch(95% .035 84);text-shadow:0 1px 3px rgba(0,0,0,.9)}.ds-banner-plaque p,.ds-banner-plaque span{margin:.375rem 0 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.56rem;font-weight:800;letter-spacing:.14em;line-height:1;text-transform:uppercase;text-shadow:0 1px 2px rgba(0,0,0,.92)}.ds-banner-plaque p{color:oklch(78% .1 84)}.ds-banner-plaque span{color:oklch(74% .032 255/.9)}"
+    },
+    {
+      "name": "Banner Details Drawer",
+      "kind": "custom",
+      "refersTo": "compact-card",
+      "description": "Stronger text-on-art drawer for readable banner details.",
+      "html": "<aside class='ds-banner-drawer'><h3>Fata Texunt / Sempiternal Web</h3><p class='ds-tags'>New Awakener</p><p>Featured rate-up banners for Arachne and her SSR Wheel.</p></aside>",
+      "css": ".ds-banner-drawer{display:flex;min-height:13rem;max-width:18rem;flex-direction:column;justify-content:center;border-left:1px solid rgba(255,244,202,.16);background:linear-gradient(180deg,rgba(9,16,29,.42) 0%,rgba(9,16,29,.88) 44%,rgba(4,8,16,.98) 100%);box-shadow:-14px 0 26px rgba(2,6,14,.36);backdrop-filter:blur(10px);padding:1.25rem 1.25rem 1.25rem 2.75rem;color:rgb(241 245 249)}.ds-banner-drawer h3{margin:0;color:oklch(95% .035 84);font-family:'Droid Serif',Georgia,serif;font-size:1.08rem;line-height:1.16}.ds-banner-drawer .ds-tags{margin:.5rem 0 0;color:oklch(78% .1 84);font-size:.58rem;font-weight:800;letter-spacing:.16em;line-height:1;text-transform:uppercase}.ds-banner-drawer p:last-child{margin:.75rem 0 0;color:rgb(148 163 184);font-family:'Noto Sans','Trebuchet MS',sans-serif;font-size:.75rem;line-height:1.5}"
+    },
+    {
+      "name": "Database Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip-filter",
+      "description": "Existing database browse chip vocabulary to preserve until redesign.",
+      "html": "<button class='ds-db-chip' aria-pressed='false'>Realm</button>",
+      "css": ".ds-db-chip{display:inline-flex;min-height:40px;align-items:center;gap:.375rem;white-space:nowrap;border:1px solid rgba(51,65,85,.7);border-radius:2px;background:linear-gradient(180deg,rgba(15,23,42,.72),rgba(10,15,28,.58));color:rgb(203 213 225);padding:.375rem .625rem;font-size:11px;font-weight:500;line-height:1;transition:background-color 200ms,border-color 200ms,color 200ms,box-shadow 200ms}.ds-db-chip:hover{border-color:rgba(100,116,139,.7);background:rgba(15,23,42,.7)}.ds-db-chip[aria-pressed='true']{border-color:rgba(252,211,77,.45);background:rgba(2,6,23,.62);color:rgb(255 251 235)}.ds-db-chip:focus-visible{border-color:rgba(253,230,138,.7);outline:none;box-shadow:0 0 0 2px rgba(253,230,138,.3)}@media(min-width:640px){.ds-db-chip{min-height:32px}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Maintained Relic Ledger",
+    "overview": "SKeyDB should feel like a maintained game archive that has learned the habits of a serious tool. The page is dark, compact, and information-dense, but it keeps enough amber serif hierarchy, realm aura, and artwork to remind users that this is Morimens knowledge, not a generic admin dashboard.\n\nThe current visual canon is the Timeline and D-zone facelift. They use shallow mastheads, sharp panels, low-radius controls, restrained glow, compact labels, contextual art as supporting evidence, and careful text-on-art overlays where blur earns its keep. Builder and Collection redesigns should move toward this language while respecting their heavier interaction needs.\n\nThis system rejects generic SaaS cards, bare wiki pages, flashy game portals, purple-blue AI gradients, default glass panels, and mismatched component vocabularies. If a page starts to look like every control came from a different project, it has drifted.",
+    "keyCharacteristics": [
+      "Dark blue-slate surfaces with amber-gold state and identity.",
+      "Serif names and season titles paired with dense sans controls and metadata.",
+      "Sharp 2-3 px product geometry, with rounded pills reserved for legacy surfaces until redesigned.",
+      "Art and realm color appear as contextual tints, not decoration.",
+      "Translucent blur is allowed for text on artwork, with soft blur for title plaques and stronger blur for body-copy drawers.",
+      "Motion is short, stateful, and disabled for reduced-motion users."
+    ],
+    "rules": [
+      {
+        "name": "The Amber Means State Rule",
+        "body": "Amber must mark active selection, current identity, focus, or important headings. It is not filler decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Realm Aura Rule",
+        "body": "Realm colors tint headers, art, badges, and card borders locally. They do not replace the product palette globally.",
+        "section": "colors"
+      },
+      {
+        "name": "The Earned Serif Rule",
+        "body": "Use Droid Serif for names, seasons, event titles, and page identity only when the game texture helps. Do not use it for stats, controls, descriptions, taxonomy, prices, or dense data.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sans Data Rule",
+        "body": "Stats, prices, counts, and compact metadata stay sans, medium-to-heavy, and tabular when alignment matters.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Until Asked Rule",
+        "body": "Surfaces are flat unless hover, focus, expansion, or stacked artwork needs depth.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Text-on-Art Blur Rule",
+        "body": "Blur is allowed when text sits on artwork and needs legibility. Use the least blur that solves the reading problem: soft plaque for titles, stronger drawer for body copy.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No Decorative Glass Rule",
+        "body": "Blur may support text-on-art overlays and masthead/header readability. It is not a default panel material.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use Timeline and D-zone as the current visual canon for new product-surface redesigns.",
+      "Do keep page sections flowing on the app background unless the section is a real interactive tool.",
+      "Do use amber for active state, focus, current identity, and key headings.",
+      "Do keep product corners sharp at 2-3 px.",
+      "Do use Droid Serif only where it visually earns the game-texture role, then switch to sans for controls, metadata, descriptions, and data.",
+      "Do use soft or strong blur overlays when text sits on artwork and would otherwise lose contrast.",
+      "Do respect reduced motion and keep transitions in the 150-230 ms range.",
+      "Do preserve /database chip and card conventions until that surface is intentionally redesigned."
+    ],
+    "donts": [
+      "Don't use generic SaaS dashboards with rounded cards, oversized hero stats, and abstract gradients.",
+      "Don't use bare wiki pages where everything has the same text weight and no interaction hierarchy.",
+      "Don't use flashy game portal layouts that make data harder to compare.",
+      "Don't use nested card stacks or wrap every page section in a decorative card.",
+      "Don't use purple-blue AI gradients, default glass panels, or decorative glow without state or content meaning.",
+      "Don't mix database chips, builder ownership pills, and Timeline selectors as if they were one interchangeable component.",
+      "Don't use Timeline banner blur treatments as ordinary panel styling away from artwork.",
+      "Don't spam Droid Serif across every label, control, or description.",
+      "Don't use a colored border-left or border-right thicker than 1 px as a card accent.",
+      "Don't use gradient text."
+    ]
+  }
+}

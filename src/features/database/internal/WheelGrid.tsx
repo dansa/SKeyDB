@@ -1,6 +1,6 @@
 import type {Wheel} from '@/domain/wheels'
-import {CatalogGrid, HYBRID_DATABASE_GRID_CLASS_NAME} from '@/ui/cards/CatalogGrid'
 
+import {DatabaseCatalogGrid} from './DatabaseCatalogGrid'
 import {WheelGridCard} from './WheelGridCard'
 
 interface WheelGridProps {
@@ -10,10 +10,10 @@ interface WheelGridProps {
 
 export function WheelGrid({wheels, onSelectWheel}: WheelGridProps) {
   return (
-    <CatalogGrid
-      className={HYBRID_DATABASE_GRID_CLASS_NAME}
+    <DatabaseCatalogGrid
       emptyMessage='No wheels match the current filters.'
       items={wheels}
+      layout='hybrid'
       renderItem={(wheel, index) => (
         <WheelGridCard index={index} key={wheel.id} onSelect={onSelectWheel} wheel={wheel} />
       )}

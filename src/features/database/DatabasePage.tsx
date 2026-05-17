@@ -2,6 +2,8 @@ import {useEffect} from 'react'
 
 import {useLocation, useNavigate, useParams, type NavigateFunction} from 'react-router-dom'
 
+import './database.css'
+
 import {resolvePublicRoute} from '@/data-access/public-data/routeResolver'
 import type {Awakener} from '@/domain/awakeners'
 import type {Covenant} from '@/domain/covenants'

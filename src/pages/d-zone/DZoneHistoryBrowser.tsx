@@ -237,7 +237,7 @@ export function DZoneHistoryBrowser({
         </div>
 
         <div
-          className='d-zone-history-year-list database-scrollbar'
+          className='d-zone-history-year-list ui-scrollbar'
           role='region'
           aria-label='D-zone season archive'
         >

@@ -1,16 +1,17 @@
-import type {CSSProperties, ReactNode} from 'react'
+import {useId, type CSSProperties, type ReactNode} from 'react'
 
 import {useHybridDatabaseCardMode} from './hybrid-database-card-mode'
 
 interface DatabaseGridCardFrameProps {
-  ariaLabel: string
+  actionLabel?: string
+  ariaLabel?: string
   content: {
     detail?: ReactNode
     dossierTitleAddon?: ReactNode
     meta?: ReactNode
     title: ReactNode
   }
-  layout?: 'hybrid' | 'portrait'
+  layout?: 'hybrid' | 'portrait' | 'square-art'
   media: {
     alt: string
     dossierClassName?: string
@@ -98,6 +99,7 @@ function PosterBadge({label, src}: {label: string | undefined; src: string | und
 }
 
 export function DatabaseGridCardFrame({
+  actionLabel = 'View details for',
   ariaLabel,
   content,
   layout = 'hybrid',
@@ -105,6 +107,7 @@ export function DatabaseGridCardFrame({
   onSelect,
   realmAccent,
 }: DatabaseGridCardFrameProps) {
+  const titleId = useId()
   const accentStyle = {'--realm-accent': realmAccent} as CSSProperties
   const resolvedDossierSrc = media.dossierSrc ?? media.posterSrc
   const hybridMode = useHybridDatabaseCardMode()
@@ -125,10 +128,15 @@ export function DatabaseGridCardFrame({
       <div className='database-grid-card__surface relative isolate grid min-w-0 overflow-hidden border border-[color-mix(in_srgb,var(--realm-accent)_48%,rgb(51_65_85)_52%)] bg-[rgb(7_15_27)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.025),0_8px_18px_rgba(2,6,23,0.22)] transition-[border-color,background-color,box-shadow] duration-200 ease-[cubic-bezier(0.25,1,0.5,1)] group-focus-within/card:border-[color-mix(in_srgb,var(--realm-accent)_66%,rgb(51_65_85)_34%)] group-focus-within/card:bg-[rgb(10_18_32)] group-focus-within/card:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_12px_24px_rgba(2,6,23,0.28)] group-hover/card:border-[color-mix(in_srgb,var(--realm-accent)_66%,rgb(51_65_85)_34%)] group-hover/card:bg-[rgb(10_18_32)] group-hover/card:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_12px_24px_rgba(2,6,23,0.28)] motion-reduce:transition-none'>
         <button
           aria-label={ariaLabel}
+          aria-labelledby={`${titleId}-action ${titleId}`}
           className='absolute inset-0 z-30 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-200/70 focus-visible:outline-none focus-visible:ring-inset'
           onClick={onSelect}
           type='button'
-        />
+        >
+          <span className='sr-only' id={`${titleId}-action`}>
+            {actionLabel}
+          </span>
+        </button>
 
         <div
           className={`database-grid-card__art relative min-w-0 overflow-hidden border-b border-[color-mix(in_srgb,var(--realm-accent)_32%,rgb(30_41_59)_68%)] bg-[color-mix(in_oklab,var(--realm-accent)_8%,rgb(8_15_27))] ${media.posterAspectClassName ?? 'aspect-[4/5]'}`}
@@ -151,7 +159,7 @@ export function DatabaseGridCardFrame({
         </div>
 
         <div className='database-grid-card__body grid min-w-0 content-center gap-1.5 bg-[linear-gradient(180deg,rgba(9,19,33,0.98),rgba(5,12,23,0.96))] px-2.5 py-2'>
-          <div className='database-grid-card__title flex min-w-0 items-center gap-1.5'>
+          <div className='database-grid-card__title flex min-w-0 items-center gap-1.5' id={titleId}>
             {content.title}
             {isDossierMode && content.dossierTitleAddon ? (
               <span className='database-grid-card__dossier-title-addon hidden shrink-0'>

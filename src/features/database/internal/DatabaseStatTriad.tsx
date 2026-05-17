@@ -14,9 +14,8 @@ const STAT_DISPLAY: {key: keyof StatTriadValues; colorName: AwakenerTextColorNam
 ]
 
 /**
- * Three-cell stat row used across database cards. Fixed geometry so the row
- * never wraps and stat positions are predictable; tabular numerals so columns
- * align row-to-row.
+ * Three-cell stat row used across database browse cards. Fixed geometry keeps
+ * stat positions predictable while tabular numerals align values row-to-row.
  */
 export function DatabaseStatTriad({stats}: {stats: StatTriadValues}) {
   return (

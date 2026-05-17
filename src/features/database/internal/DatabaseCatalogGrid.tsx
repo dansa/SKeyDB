@@ -9,12 +9,9 @@ interface CatalogGridProps<TItem> {
   items: TItem[]
   emptyMessage: string
   renderItem: (item: TItem, index: number) => ReactNode
-  className?: string
+  layout?: 'hybrid' | 'portrait' | 'square-art'
 }
 
-export const HYBRID_DATABASE_GRID_CLASS_NAME = 'database-card-grid database-card-grid--hybrid'
-
-const DEFAULT_GRID_CLASS_NAME = 'database-card-grid'
 const HYBRID_DOSSIER_CONTAINER_WIDTH = 620
 
 function resolveHybridDatabaseCardMode(inlineSize: number): HybridDatabaseCardMode {
@@ -89,14 +86,20 @@ function useMeasuredHybridCardMode(isHybridGrid: boolean, hasItems: boolean) {
   return {mode, ref}
 }
 
-export function CatalogGrid<TItem>({
-  className = DEFAULT_GRID_CLASS_NAME,
+export function DatabaseCatalogGrid<TItem>({
   emptyMessage,
   items,
+  layout = 'portrait',
   renderItem,
 }: CatalogGridProps<TItem>) {
-  const isHybridGrid = className.split(/\s+/).includes('database-card-grid--hybrid')
+  const isHybridGrid = layout === 'hybrid'
   const {mode, ref} = useMeasuredHybridCardMode(isHybridGrid, items.length > 0)
+  const gridClassName =
+    layout === 'hybrid'
+      ? 'database-card-grid database-card-grid--hybrid'
+      : layout === 'square-art'
+        ? 'database-card-grid database-card-grid--square-art'
+        : 'database-card-grid'
 
   if (items.length === 0) {
     return (
@@ -109,7 +112,7 @@ export function CatalogGrid<TItem>({
   return (
     <HybridDatabaseCardModeContext.Provider value={mode}>
       <div className='database-card-roster' data-hybrid-mode={mode ?? 'pending'} ref={ref}>
-        <div className={className}>{items.map((item, index) => renderItem(item, index))}</div>
+        <div className={gridClassName}>{items.map((item, index) => renderItem(item, index))}</div>
       </div>
     </HybridDatabaseCardModeContext.Provider>
   )

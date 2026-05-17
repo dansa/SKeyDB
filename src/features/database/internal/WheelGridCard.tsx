@@ -2,8 +2,9 @@ import {getMainstatIcon} from '@/domain/mainstats'
 import {getRealmAccent} from '@/domain/realms'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 import {getWheelMainstatLabel, type Wheel} from '@/domain/wheels'
-import {databaseCardTitleClassName} from '@/ui/cards/database-card-typography'
-import {DatabaseGridCardFrame} from '@/ui/cards/DatabaseGridCardFrame'
+
+import {databaseCardTitleClassName} from './database-card-typography'
+import {DatabaseGridCardFrame} from './DatabaseGridCardFrame'
 
 const PRIORITIZED_GRID_IMAGE_COUNT = 24
 

@@ -92,11 +92,7 @@ export function SearchCombobox<TResult>({
       </div>
       {isExpanded ? (
         <div className='absolute top-[calc(100%+0.35rem)] right-0 left-0 z-[905] border border-amber-200/35 bg-slate-950/[.985] shadow-[0_16px_36px_rgba(2,6,23,0.62)]'>
-          <div
-            className='database-scrollbar max-h-72 overflow-y-auto py-1'
-            id={resultsId}
-            role='listbox'
-          >
+          <div className='ui-scrollbar max-h-72 overflow-y-auto py-1' id={resultsId} role='listbox'>
             {results.map((result, index) => {
               const active = index === clampedActiveIndex
               const optionId = `${searchId}-option-${String(getResultId(result))}`

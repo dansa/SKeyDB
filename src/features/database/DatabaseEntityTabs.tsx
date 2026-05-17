@@ -17,7 +17,9 @@ export function DatabaseEntityTabs({activeEntity, search}: DatabaseEntityTabsPro
       className='flex flex-wrap items-end gap-1 border-b border-slate-700/45'
     >
       <NavLink
+        aria-current={activeEntity === 'awakeners' ? 'page' : undefined}
         className={buildTabClassName(activeEntity === 'awakeners')}
+        end
         to={{
           pathname: buildDatabaseEntityBrowsePath('awakeners'),
           search: getTabSearch('awakeners'),
@@ -26,18 +28,21 @@ export function DatabaseEntityTabs({activeEntity, search}: DatabaseEntityTabsPro
         Awakeners
       </NavLink>
       <NavLink
+        aria-current={activeEntity === 'wheels' ? 'page' : undefined}
         className={buildTabClassName(activeEntity === 'wheels')}
         to={{pathname: buildDatabaseEntityBrowsePath('wheels'), search: getTabSearch('wheels')}}
       >
         Wheels
       </NavLink>
       <NavLink
+        aria-current={activeEntity === 'posses' ? 'page' : undefined}
         className={buildTabClassName(activeEntity === 'posses')}
         to={{pathname: buildDatabaseEntityBrowsePath('posses'), search: getTabSearch('posses')}}
       >
         Posses
       </NavLink>
       <NavLink
+        aria-current={activeEntity === 'covenants' ? 'page' : undefined}
         className={buildTabClassName(activeEntity === 'covenants')}
         to={{
           pathname: buildDatabaseEntityBrowsePath('covenants'),

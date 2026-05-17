@@ -1,7 +1,7 @@
 import type {Awakener} from '@/domain/awakeners'
-import {CatalogGrid, HYBRID_DATABASE_GRID_CLASS_NAME} from '@/ui/cards/CatalogGrid'
 
 import {AwakenerGridCard} from './AwakenerGridCard'
+import {DatabaseCatalogGrid} from './DatabaseCatalogGrid'
 
 interface DatabaseGridProps {
   awakeners: Awakener[]
@@ -10,10 +10,10 @@ interface DatabaseGridProps {
 
 export function DatabaseGrid({awakeners, onSelectAwakener}: DatabaseGridProps) {
   return (
-    <CatalogGrid
-      className={HYBRID_DATABASE_GRID_CLASS_NAME}
+    <DatabaseCatalogGrid
       emptyMessage='No awakeners match the current filters.'
       items={awakeners}
+      layout='hybrid'
       renderItem={(awakener, index) => (
         <AwakenerGridCard
           awakener={awakener}

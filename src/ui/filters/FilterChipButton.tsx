@@ -2,6 +2,7 @@ import type {CSSProperties, ReactNode} from 'react'
 
 interface FilterChipButtonProps {
   active: boolean
+  ariaLabel?: string
   children: ReactNode
   className?: string
   onClick: () => void
@@ -18,6 +19,7 @@ function chipClass(active: boolean): string {
 
 export function FilterChipButton({
   active,
+  ariaLabel,
   children,
   className = '',
   onClick,
@@ -25,6 +27,7 @@ export function FilterChipButton({
 }: FilterChipButtonProps) {
   return (
     <button
+      aria-label={ariaLabel}
       aria-pressed={active}
       className={`${chipClass(active)} ${className} focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none`}
       onClick={onClick}

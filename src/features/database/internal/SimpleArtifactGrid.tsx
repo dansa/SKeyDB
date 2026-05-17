@@ -2,8 +2,8 @@ import {getCovenantAssetById} from '@/domain/covenant-assets'
 import type {Covenant} from '@/domain/covenants'
 import {getPosseBadgeAssetById} from '@/domain/posse-assets'
 import type {Posse} from '@/domain/posses'
-import {CatalogGrid} from '@/ui/cards/CatalogGrid'
 
+import {DatabaseCatalogGrid} from './DatabaseCatalogGrid'
 import {SimpleArtifactGridCard} from './SimpleArtifactGridCard'
 
 interface PosseGridProps {
@@ -13,9 +13,10 @@ interface PosseGridProps {
 
 export function PosseGrid({onSelectPosse, posses}: PosseGridProps) {
   return (
-    <CatalogGrid
+    <DatabaseCatalogGrid
       emptyMessage='No posses match the current filters.'
       items={posses}
+      layout='square-art'
       renderItem={(posse, index) => (
         <SimpleArtifactGridCard
           id={posse.id}
@@ -39,9 +40,10 @@ interface CovenantGridProps {
 
 export function CovenantGrid({covenants, onSelectCovenant}: CovenantGridProps) {
   return (
-    <CatalogGrid
+    <DatabaseCatalogGrid
       emptyMessage='No covenants match the current search.'
       items={covenants}
+      layout='square-art'
       renderItem={(covenant, index) => (
         <SimpleArtifactGridCard
           id={covenant.id}

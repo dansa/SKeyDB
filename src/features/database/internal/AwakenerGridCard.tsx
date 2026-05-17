@@ -3,9 +3,10 @@ import {resolveAwakenerLiteStatsForLevel, type Awakener} from '@/domain/awakener
 import {formatAwakenerAvailabilityLabel} from '@/domain/database-browse-state'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getRealmAccent, getRealmBadge, getRealmIcon, getRealmLabel} from '@/domain/realms'
-import {databaseCardTitleClassName} from '@/ui/cards/database-card-typography'
-import {DatabaseGridCardFrame} from '@/ui/cards/DatabaseGridCardFrame'
-import {DatabaseStatTriad} from '@/ui/cards/DatabaseStatTriad'
+
+import {databaseCardTitleClassName} from './database-card-typography'
+import {DatabaseGridCardFrame} from './DatabaseGridCardFrame'
+import {DatabaseStatTriad} from './DatabaseStatTriad'
 
 const PRIORITIZED_GRID_IMAGE_COUNT = 24
 const DATABASE_GRID_AWAKENER_STAT_LEVEL = 60

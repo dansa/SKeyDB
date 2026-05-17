@@ -1,0 +1,561 @@
+{
+  "version": 1,
+  "slug": "cross-surface-ui-normalization",
+  "status": "active",
+  "created": "2026-05-17",
+  "updated": "2026-05-17",
+  "intake": {
+    "status": "completed",
+    "risk_posture": "medium; preserve behavior and route semantics, allow limited visual drift toward Timeline/D-zone/Database canon",
+    "harness_policy": "do not edit AGENTS.md or plugin skills in this tranche; queue learning/lint-law follow-ups if evidence appears",
+    "allowed_areas": [
+      "src/features/database/**",
+      "src/pages/timeline/**",
+      "src/pages/d-zone/**",
+      "src/ui/**",
+      "shared CSS/style files",
+      "focused tests/docs for the approved slice"
+    ],
+    "protected_areas": [
+      "database detail modal internals unless touched by a selected shared primitive",
+      "builder and collection redesign work",
+      "package/dependency files",
+      "unrelated data/domain behavior"
+    ],
+    "validation_commands": [
+      "npm run lint",
+      "focused npx vitest run commands for touched areas",
+      "git diff --check",
+      "browser checks for /database, /database/wheels, /database/posses or /database/covenants, /timeline, /d-zone"
+    ],
+    "stop_condition": "stop when tranche is validated, same-concept scope expansion appears, validation fails twice, or product/design decision is needed"
+  },
+  "focus_areas": [
+    {
+      "id": "F1",
+      "name": "Impeccable extract/design-system normalization",
+      "status": "queued",
+      "evidence": "User requested @impeccable extract; PRODUCT/DESIGN define Timeline and D-zone as canon and Database browse conventions as settled.",
+      "next": "Scout/Judge first shared token or primitive slice."
+    },
+    {
+      "id": "F2",
+      "name": "Tailwind/CSS normalization",
+      "status": "queued",
+      "evidence": "Target surfaces use overlapping slate/amber/radius/motion values through CSS vars, Tailwind arbitrary values, RGB, and OKLCH.",
+      "next": "Candidate C1/C2."
+    },
+    {
+      "id": "F3",
+      "name": "React/component composition",
+      "status": "queued",
+      "evidence": "Timeline controls, D-zone alert switcher, and database controls repeat related product-control concepts with page-local markup.",
+      "next": "Candidate C3/C4."
+    },
+    {
+      "id": "F4",
+      "name": "UI/a11y",
+      "status": "queued",
+      "evidence": "Focus, reduced motion, custom controls, card overlays, and responsive overflow must be preserved during migration.",
+      "next": "Include in Judge invariants and browser checks."
+    },
+    {
+      "id": "F5",
+      "name": "Architecture/module boundaries",
+      "status": "queued",
+      "evidence": "Shared UI vocabulary is desirable, but database card layout and Timeline/D-zone semantics should stay local.",
+      "next": "Judge must apply extraction/deletion tests."
+    },
+    {
+      "id": "F6",
+      "name": "Complexity hotspots",
+      "status": "queued",
+      "evidence": "Complexity scan flags D-zone history, Timeline banner artwork, and database browse render-derived work inside or adjacent to scope.",
+      "next": "Queue C6/C7/C8 unless selected."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C1",
+      "title": "Shared product-surface CSS tokens",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": "src/index.css or shared style entry; src/features/database/database.css; src/pages/timeline/timeline.css; src/pages/d-zone/d-zone.css",
+      "evidence": "Implemented in W1. Added `--ui-*` product-surface tokens in src/index.css; mapped D-zone local vars to them; migrated Timeline and Database motion/focus/control styling to token references.",
+      "next": "Implemented for the first tranche; future slices can migrate more component-level uses."
+    },
+    {
+      "id": "C2",
+      "title": "Shared compact chip/segmented control styling",
+      "source_task": "S1",
+      "status": "queued",
+      "concept_blast_radius": "src/ui/filters/FilterChipButton.tsx; possible new shared primitive; Timeline price filter; D-zone alert switcher; database controls",
+      "evidence": "User named compact chip/segmented control; prior audit found similar controls in all three surfaces.",
+      "next": "Needs Judge to avoid mixing different interaction semantics."
+    },
+    {
+      "id": "C3",
+      "title": "Shared section divider/header",
+      "source_task": "S1",
+      "status": "queued",
+      "concept_blast_radius": "Timeline section headers; database browse row/header areas; possible src/ui primitive",
+      "evidence": "Timeline has duplicate section heading shapes.",
+      "next": "Queue unless first slice is smaller and safer."
+    },
+    {
+      "id": "C4",
+      "title": "Shared metadata token/line",
+      "source_task": "S1",
+      "status": "queued",
+      "concept_blast_radius": "Timeline event/banner metadata; database card meta/stat areas; possible src/ui primitive",
+      "evidence": "Repeated uppercase micro-label and compact metadata rows.",
+      "next": "Needs Scout on intent differences before extraction."
+    },
+    {
+      "id": "C5",
+      "title": "Compact media action tile",
+      "source_task": "S1",
+      "status": "queued",
+      "concept_blast_radius": "D-zone relic/monster buttons; database square-art/icon cards; src/ui/cards or feature adapters",
+      "evidence": "Similar image well plus action target, but database hybrid cards are feature-owned.",
+      "next": "Only implement if it does not globalize database card behavior."
+    },
+    {
+      "id": "C6",
+      "title": "D-zone history/browser complexity cleanup",
+      "source_task": "complexity-scan",
+      "status": "queued",
+      "concept_blast_radius": "src/pages/d-zone/DZoneHistoryBrowser.tsx and tests",
+      "evidence": "Complexity scan flags long function, deep nesting, and repeated search in loop.",
+      "next": "Later characterization unless Scout shows easy root fix."
+    },
+    {
+      "id": "C7",
+      "title": "Timeline banner artwork complexity cleanup",
+      "source_task": "complexity-scan",
+      "status": "queued",
+      "concept_blast_radius": "src/pages/timeline/BannerArtwork.tsx and tests",
+      "evidence": "Complexity scan flags large file, branch-heavy, effects, inline style, arbitrary classes, outline-none.",
+      "next": "Later characterization."
+    },
+    {
+      "id": "C8",
+      "title": "Database browse render-derived work",
+      "source_task": "performance-scan",
+      "status": "queued",
+      "concept_blast_radius": "src/features/database/browse/EntityBrowseViews.tsx and tests",
+      "evidence": "Performance scan flags render-derived collection work.",
+      "next": "Queue unless directly relevant to selected UI primitive."
+    },
+    {
+      "id": "C9",
+      "title": "Neutral shared scrollbar utility",
+      "source_task": "timeline-scout",
+      "status": "implemented",
+      "concept_blast_radius": "src/index.css; src/pages/timeline/BannerInfoDrawer.tsx; src/pages/d-zone/DZoneHistoryBrowser.tsx; src/ui/search/SearchCombobox.tsx",
+      "evidence": "Implemented in W1. `.database-scrollbar` was a global utility with a database-specific name and was used by Timeline and D-zone; W1 added `.ui-scrollbar`, preserved the legacy alias, and migrated non-database/shared consumers.",
+      "next": "Database detail internals keep the compatibility alias because they are protected in this goal."
+    },
+    {
+      "id": "C10",
+      "title": "Timeline active/upcoming/archive section renderer",
+      "source_task": "timeline-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/pages/timeline/EventList.tsx; src/pages/timeline/TimelineBannersSection.tsx; tests",
+      "evidence": "Event and banner sections both partition active/upcoming/ended and render archive sections.",
+      "next": "Queue for a later Timeline-local simplification slice."
+    },
+    {
+      "id": "C11",
+      "title": "Timeline banner tag/pricing composition helper",
+      "source_task": "timeline-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/pages/timeline/BannerCard.tsx; src/pages/timeline/BannerInfoDrawer.tsx; possible local helper",
+      "evidence": "Banner hero and drawer duplicate tag/pricing composition.",
+      "next": "Queue as a low-risk Timeline-local helper slice."
+    },
+    {
+      "id": "C12",
+      "title": "Shared compact disclosure row",
+      "source_task": "timeline-scout,dzone-scout",
+      "status": "queued",
+      "concept_blast_radius": "Timeline archive section; D-zone archive note/year toggles; possible src/ui primitive",
+      "evidence": "Timeline and D-zone both use chevron disclosure rows with `aria-expanded`.",
+      "next": "Needs Judge to confirm same interaction intent before extraction."
+    },
+    {
+      "id": "C13",
+      "title": "D-zone countdown helper",
+      "source_task": "dzone-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/pages/DZonePage.tsx; src/pages/d-zone/d-zone-history-view-model.ts; tests",
+      "evidence": "Current and history pages duplicate countdown logic.",
+      "next": "Queue as a small D-zone behavior-preserving helper slice."
+    },
+    {
+      "id": "C14",
+      "title": "D-zone alert switcher component extraction",
+      "source_task": "dzone-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/pages/d-zone/DZoneSeasonInspector.tsx; d-zone.css; tests",
+      "evidence": "Alert switcher is a coherent local segmented control and may later normalize toward shared chip controls.",
+      "next": "Queue after shared control token/primitive direction is clearer."
+    },
+    {
+      "id": "C15",
+      "title": "D-zone history browser subcomponent split",
+      "source_task": "dzone-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/pages/d-zone/DZoneHistoryBrowser.tsx; tests",
+      "evidence": "History browser mixes modal behavior, focus, search, archive note, year groups, and season buttons.",
+      "next": "Queue archive note/year group split after characterization."
+    },
+    {
+      "id": "C16",
+      "title": "D-zone relic and monster button extraction",
+      "source_task": "dzone-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/pages/d-zone/DZoneWaveCard.tsx; src/pages/d-zone/DZoneWaveCard.test.tsx",
+      "evidence": "Relic and monster buttons are coherent media-action tile concepts with existing collapsed-accessibility tests.",
+      "next": "Queue locally before considering global media tile extraction C5."
+    },
+    {
+      "id": "C17",
+      "title": "Database card title and prioritized image primitive",
+      "source_task": "database-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/features/database/internal/AwakenerGridCard.tsx; WheelGridCard.tsx; SimpleArtifactGridCard.tsx; possible internal primitive",
+      "evidence": "Three database card types repeat title markup and prioritized image count.",
+      "next": "Queue as a low-risk database internal simplification."
+    },
+    {
+      "id": "C18",
+      "title": "Database browse sort label config",
+      "source_task": "database-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/features/database/browse/EntityBrowseViews.tsx; domain/config helper; tests",
+      "evidence": "Awakener and wheel sort label/direction helpers live inside the browse orchestration file.",
+      "next": "Queue as a behavior-preserving config extraction."
+    },
+    {
+      "id": "C19",
+      "title": "Database mobile filter group extraction",
+      "source_task": "database-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/features/database/internal/DatabaseFilters.tsx; WheelDatabaseFilters.tsx; DatabaseChipPrimitives.tsx; tests",
+      "evidence": "Awakener and wheel filters duplicate mobile open state, ids, toggle, panel, and desktop rows.",
+      "next": "Queue with UI/a11y checks for disclosure semantics."
+    },
+    {
+      "id": "C20",
+      "title": "Split database hybrid card measurement hook",
+      "source_task": "database-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/features/database/internal/DatabaseCatalogGrid.tsx; hook test if added",
+      "evidence": "`useMeasuredHybridCardMode` owns measurement, resize fallback, context value, and grid rendering in one file.",
+      "next": "Queue as internal readability slice."
+    },
+    {
+      "id": "C21",
+      "title": "Database card accessible-name cleanup",
+      "source_task": "database-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/features/database/internal/DatabaseGridCardFrame.tsx; card tests",
+      "evidence": "Overlay button passes both `aria-label` and `aria-labelledby`; `aria-labelledby` wins.",
+      "next": "Queue as a small a11y slice once tests can preserve accessible names."
+    },
+    {
+      "id": "C22",
+      "title": "Timeline page orchestration seam",
+      "source_task": "timeline-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/pages/TimelinePage.tsx; timeline routing/data helpers; tests",
+      "evidence": "TimelinePage combines URL state, data selection, D-zone parsing, detail modal wiring, masthead config, filters, and section layout.",
+      "next": "Queue only after smaller Timeline helper slices reduce risk."
+    },
+    {
+      "id": "C23",
+      "title": "D-zone popover provider duplication",
+      "source_task": "dzone-scout",
+      "status": "queued",
+      "concept_blast_radius": "src/pages/DZonePage.tsx; src/pages/DZoneHistoryPage.tsx; D-zone local provider helper",
+      "evidence": "Current and history D-zone pages duplicate database popover provider/root wiring.",
+      "next": "Queue as D-zone-local architecture cleanup."
+    }
+  ],
+  "maintenance": [
+    {
+      "id": "M1",
+      "title": "Token usage guardrail",
+      "trigger": "repeated hard-coded product-surface values",
+      "skill": "$refactor-lint-law",
+      "status": "queued",
+      "next": "Consider after first token slice proves naming."
+    },
+    {
+      "id": "M2",
+      "title": "Design-system documentation update",
+      "trigger": "shared tokens or primitives extracted",
+      "skill": "@impeccable document",
+      "status": "queued",
+      "next": "Update DESIGN.md or local docs if implementation creates stable names."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "S1",
+      "role": "scout",
+      "status": "done",
+      "title": "Map cross-surface UI normalization candidates",
+      "skills": [
+        "@impeccable extract",
+        "$refactor-scout",
+        "$refactor-tailwind",
+        "$refactor-react",
+        "$refactor-ui-a11y",
+        "$refactor-architecture",
+        "$refactor-complexity"
+      ],
+      "allowed_files": [
+        "src/features/database/**",
+        "src/pages/timeline/**",
+        "src/pages/d-zone/**",
+        "src/ui/**",
+        "src/index.css"
+      ],
+      "protected_files": [
+        "package.json",
+        "package-lock.json",
+        "src/features/builder/**",
+        "src/features/collection/**",
+        "database detail modal internals unless shared primitive touches them"
+      ],
+      "expected_output": "Evidence-ranked candidates with concept blast radius, validation ideas, root-fix/patch notes, and maintenance candidates.",
+      "receipt": {
+        "evidence": [
+          "Database scout mapped browse/card/filter candidates and a11y risks.",
+          "Timeline scout mapped section headers, segmented controls, meta rows, motion/focus tokens, and the misnamed global scrollbar utility.",
+          "D-zone scout mapped local CSS tokens, alert switcher, media buttons, disclosure rows, and history-browser complexity.",
+          "Complexity and performance scans added C6, C7, and C8."
+        ],
+        "candidates_recorded": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8",
+          "C9",
+          "C10",
+          "C11",
+          "C12",
+          "C13",
+          "C14",
+          "C15",
+          "C16",
+          "C17",
+          "C18",
+          "C19",
+          "C20",
+          "C21",
+          "C22",
+          "C23"
+        ]
+      }
+    },
+    {
+      "id": "J1",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose first shared-token normalization slice",
+      "skills": [
+        "@impeccable extract",
+        "$refactor-tailwind",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "src/index.css",
+        "src/pages/timeline/timeline.css",
+        "src/pages/timeline/BannerInfoDrawer.tsx",
+        "src/pages/d-zone/d-zone.css",
+        "src/pages/d-zone/DZoneHistoryBrowser.tsx",
+        "src/features/database/database.css",
+        "src/ui/search/SearchCombobox.tsx",
+        "docs/refactor-goals/cross-surface-ui-normalization/**"
+      ],
+      "protected_files": [
+        "package.json",
+        "package-lock.json",
+        "database detail modal internals",
+        "src/features/builder/**",
+        "src/features/collection/**"
+      ],
+      "expected_output": "One root-fix Worker slice for C1 plus C9, with local feature semantics preserved.",
+      "receipt": {
+        "evidence": [
+          "C1 was present in all three scout reports as repeated surface/focus/motion/control tokens.",
+          "C9 was explicitly reported by Timeline scout as `.database-scrollbar` used by Timeline and D-zone.",
+          "The selected slice avoids package files and database detail modal internals."
+        ],
+        "selected_candidates": [
+          "C1",
+          "C9"
+        ],
+        "why_root_fix": "D-zone already had good local tokens, Timeline and Database repeated the same values, and `.database-scrollbar` was a shared utility with the wrong feature name. Shared `--ui-*` tokens plus a neutral `ui-scrollbar` class remove cross-page reinvention without inventing a large component API.",
+        "what_not_to_change": "No database detail modal internals, no Timeline banner drawer behavior, no D-zone wave layout, no dependency files.",
+        "verification": [
+          "focused tests",
+          "npm run lint",
+          "npm run build:quiet",
+          "git diff --check",
+          "browser route checks"
+        ]
+      }
+    },
+    {
+      "id": "W1",
+      "role": "worker",
+      "status": "done",
+      "title": "Implement shared UI tokens and neutral scrollbar utility",
+      "skills": [
+        "@impeccable extract",
+        "$refactor-worker-slice",
+        "$refactor-tailwind",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/index.css",
+        "src/pages/timeline/timeline.css",
+        "src/pages/timeline/BannerInfoDrawer.tsx",
+        "src/pages/d-zone/d-zone.css",
+        "src/pages/d-zone/DZoneHistoryBrowser.tsx",
+        "src/features/database/database.css",
+        "src/ui/search/SearchCombobox.tsx"
+      ],
+      "protected_files": [
+        "database detail modal internals",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "Shared `--ui-*` tokens, D-zone token mapping, Timeline/Database token use, neutral scrollbar migration with compatibility alias.",
+      "receipt": {
+        "evidence": [
+          "Added global `--ui-*` product-surface tokens in `src/index.css`.",
+          "Mapped `src/pages/d-zone/d-zone.css` local variables to shared tokens.",
+          "Migrated Timeline, Database, D-zone, and shared search scrollbar/motion/control styling to shared token or utility names."
+        ],
+        "files_changed": [
+          "src/index.css",
+          "src/pages/timeline/timeline.css",
+          "src/pages/timeline/BannerInfoDrawer.tsx",
+          "src/pages/d-zone/d-zone.css",
+          "src/pages/d-zone/DZoneHistoryBrowser.tsx",
+          "src/features/database/database.css",
+          "src/ui/search/SearchCombobox.tsx"
+        ],
+        "what_got_simpler": "One global SKeyDB product token vocabulary now supplies repeated panel, border, focus, label, radius, motion, and scrollbar values; D-zone keeps local semantic names as aliases; Timeline and Database use shared motion/control tokens instead of duplicating values.",
+        "behavior_preserved": "No route, data, modal, card, drawer, or control semantics changed; only styling vocabulary and neutral utility class names changed.",
+        "current_complexity": "Three surfaces had separate copies of the same product-surface constants and a global utility named for database.",
+        "expected_complexity_after": "Shared constants live in `:root`; feature CSS keeps local layout and semantics.",
+        "root_fix_patch_decision": "Root fix for the selected token/utility concept.",
+        "dependency_review": "Not needed; no package files changed.",
+        "harness_update_considered": "M1 and M2 remain queued after token names prove stable.",
+        "validation_run": [
+          "npx prettier --write --ignore-unknown ...",
+          "npx vitest run src/pages/TimelinePage.test.tsx src/pages/timeline/TimelineArchiveSection.test.tsx src/pages/timeline/usePoolCycling.test.tsx src/pages/d-zone/DZoneWaveCard.test.tsx src/pages/DZonePage.test.tsx src/pages/DZoneHistoryPage.test.tsx src/features/database/DatabaseRoutes.test.tsx src/features/database/internal/DatabaseGrid.test.tsx",
+          "npm run lint",
+          "npm run build:quiet",
+          "git diff --check",
+          "browser route checks for database, wheels, covenants, timeline, d-zone, and d-zone/history"
+        ],
+        "validation": [
+          "focused tests passed",
+          "npm run lint passed",
+          "npm run build:quiet passed",
+          "git diff --check passed",
+          "browser route checks passed"
+        ],
+        "risks": "Small visual drift from shared label/control tokens; browser checks found no horizontal overflow.",
+        "followups_not_done": [
+          "C2-C8",
+          "C10-C23"
+        ],
+        "scope_expansion_requested": false
+      }
+    },
+    {
+      "id": "R1",
+      "role": "review",
+      "status": "done",
+      "title": "Review W1 token/utility normalization slice",
+      "skills": [
+        "$refactor-review"
+      ],
+      "allowed_files": [
+        "W1 diff and goal packet"
+      ],
+      "protected_files": [],
+      "expected_output": "Verdict, validation evidence, candidate register coverage, and next continuation prompt.",
+      "receipt": {
+        "evidence": [
+          "W1 preserved behavior and only changed styling token references plus utility class names.",
+          "Candidate register includes C1-C23; C1 and C9 are implemented, remaining in-scope candidates are queued rather than treated as complete.",
+          "No dependency files, AGENTS.md, Builder, Collection, or database detail modal internals were edited for this slice."
+        ],
+        "verdict": "pass-with-followups",
+        "simplification_check": {
+          "before": "D-zone, Timeline, and Database repeated product-surface values independently; `.database-scrollbar` was a global utility with a feature-specific name.",
+          "after": "Shared `--ui-*` tokens supply the first product-surface vocabulary; feature CSS keeps layout and semantic ownership; `.ui-scrollbar` is the neutral shared utility with compatibility alias.",
+          "net": "Reduced token duplication and naming drift without creating a large shared component abstraction."
+        },
+        "governance_check": {
+          "intake": "completed from user prompt",
+          "focus_area_coverage": "tranche covers extract/Tailwind token normalization; React/component, architecture, a11y, and complexity follow-ups remain queued",
+          "candidate_register": "C1-C23 reconciled",
+          "root_fix_patch": "root fix for selected token/utility concept",
+          "dependency_review": "not needed",
+          "characterization": "existing tests plus browser checks sufficient for styling-token migration",
+          "maintenance": "M1 and M2 queued"
+        },
+        "validation": [
+          "focused tests passed",
+          "npm run lint passed after final code changes",
+          "npm run build:quiet passed after final code changes",
+          "git diff --check passed",
+          "goal checker passed",
+          "browser checks passed"
+        ],
+        "followups": [
+          "C2-C8",
+          "C10-C23",
+          "M1",
+          "M2"
+        ]
+      }
+    }
+  ],
+  "final_audit": {
+    "full_outcome_complete": false,
+    "summary": "First tranche implemented shared UI tokens and neutral scrollbar utility. Broad cross-surface normalization remains active because component, complexity, and a11y candidates are queued.",
+    "validation": [
+      "focused tests passed",
+      "npm run lint passed",
+      "npm run build:quiet passed",
+      "git diff --check passed",
+      "browser checks passed for touched routes"
+    ],
+    "open_items": [
+      "C2 compact chip/segmented control styling",
+      "C3 shared section divider/header",
+      "C4 metadata token/line",
+      "C5 compact media action tile",
+      "C6-C8 complexity/render-derived work",
+      "C10-C23 scout follow-ups",
+      "M1/M2 maintenance follow-ups"
+    ]
+  }
+}
