@@ -133,10 +133,10 @@
       "id": "C7",
       "title": "Timeline banner artwork complexity cleanup",
       "source_task": "complexity-scan",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": "src/pages/timeline/BannerArtwork.tsx and tests",
-      "evidence": "Complexity scan flags large file, branch-heavy, effects, inline style, arbitrary classes, outline-none.",
-      "next": "Later characterization."
+      "evidence": "Implemented in W15. Extracted Timeline combo-pool artwork preload lifecycle from `BannerArtwork.tsx` into `usePoolMontagePreload.ts`; the component keeps visual slice rendering and detail targets while the hook owns IntersectionObserver gating, batched image preload, decode/cache, and ready-state reporting.",
+      "next": "Implemented as Timeline-local complexity cleanup; click/link behavior and montage rendering stayed in BannerArtwork."
     },
     {
       "id": "C8",
@@ -2639,6 +2639,154 @@
           "M2"
         ]
       }
+    },
+    {
+      "id": "J15",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose Timeline banner artwork preload hook slice",
+      "skills": [
+        "$refactor-react",
+        "$refactor-complexity",
+        "$refactor-ui-a11y",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "src/pages/timeline/BannerArtwork.tsx",
+        "src/pages/timeline/usePoolMontagePreload.ts",
+        "src/pages/timeline/BannerCard.test.tsx",
+        "src/pages/timeline/timelineArtworkModel.test.ts",
+        "src/pages/timeline/usePoolCycling.test.tsx",
+        "docs/refactor-goals/cross-surface-ui-normalization/**"
+      ],
+      "protected_files": [
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "Timeline-local hook extraction for combo pool preload lifecycle with banner artwork behavior preserved.",
+      "receipt": {
+        "evidence": [
+          "BannerArtwork mixed visual rendering, detail target behavior, cycling, and the browser preload lifecycle in one file.",
+          "The preload lifecycle is cohesive and can move behind a local hook without touching slice click/link rendering."
+        ],
+        "selected_candidates": [
+          "C7"
+        ],
+        "why_root_fix": "Extract the browser/preload effect cluster rather than moving CSS or changing visual branch behavior.",
+        "what_not_to_change": "No custom-art priority, featured/pool branch order, detail link/button behavior, modified-click behavior, cycling timing, or artwork model logic.",
+        "verification": [
+          "npx vitest run src/pages/timeline/BannerCard.test.tsx src/pages/timeline/timelineArtworkModel.test.ts src/pages/timeline/usePoolCycling.test.tsx",
+          "npm run lint",
+          "npm run build:quiet",
+          "git diff --check",
+          "browser check for /timeline"
+        ]
+      }
+    },
+    {
+      "id": "W15",
+      "role": "worker",
+      "status": "done",
+      "title": "Extract Timeline pool montage preload hook",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-complexity"
+      ],
+      "allowed_files": [
+        "src/pages/timeline/BannerArtwork.tsx",
+        "src/pages/timeline/usePoolMontagePreload.ts",
+        "src/pages/timeline/BannerCard.test.tsx",
+        "src/pages/timeline/timelineArtworkModel.test.ts",
+        "src/pages/timeline/usePoolCycling.test.tsx"
+      ],
+      "protected_files": [
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "Dedicated preload hook used by PoolMontageArtwork.",
+      "receipt": {
+        "slice": "Timeline banner artwork preload hook extraction for C7.",
+        "evidence": [
+          "Added `usePoolMontagePreload.ts` for image decode/cache, batched preloading, IntersectionObserver gating, and assetsReady reporting.",
+          "`PoolMontageArtwork` now consumes `{assetsReady, rootRef}` from the hook.",
+          "`BannerArtwork.tsx` retains visual slice components and detail target behavior."
+        ],
+        "files_changed": [
+          "src/pages/timeline/BannerArtwork.tsx",
+          "src/pages/timeline/usePoolMontagePreload.ts"
+        ],
+        "what_got_simpler": "BannerArtwork no longer carries the browser preload lifecycle alongside rendering and click-target code.",
+        "behavior_preserved": "Custom art still wins; pool montage and featured fallbacks render in the same order; link/button targets and pool cycling behavior are unchanged.",
+        "current_complexity": "One file owned preload/cache effects, visual rendering, click targets, and cycling integration.",
+        "expected_complexity_after": "Preload/cache effects live in one hook; BannerArtwork focuses on artwork rendering and interaction targets.",
+        "data_access_render_invariants": "No timeline artwork model, route links, detail refs, cycling interval, or price/banner metadata behavior changed.",
+        "root_fix_patch_decision": "Root fix for BannerArtwork preload responsibility.",
+        "dependency_review": "Not needed; no package files changed.",
+        "characterization": "BannerCard tests cover custom art, pool links, overlay clicks, cycling reconciliation, opt-outs, and fallback rendering; artwork model and cycling tests cover supporting logic.",
+        "harness_update_considered": "No harness update needed.",
+        "validation_run": [
+          "npx vitest run src/pages/timeline/BannerCard.test.tsx src/pages/timeline/timelineArtworkModel.test.ts src/pages/timeline/usePoolCycling.test.tsx -> 29 tests passed",
+          "npm run lint -> passed",
+          "npm run build:quiet -> passed",
+          "git diff --check -> passed",
+          "goal checker -> passed",
+          "browser check for /timeline?view=banners -> active and upcoming banner cards rendered with details handles and archive controls"
+        ],
+        "risks": "Medium; browser preload lifecycle moved, but visual/interaction behavior stayed in place and tests cover key branches.",
+        "followups_not_done": [],
+        "scope_expansion_requested": false
+      }
+    },
+    {
+      "id": "R15",
+      "role": "review",
+      "status": "done",
+      "title": "Review Timeline banner artwork preload hook extraction",
+      "skills": [
+        "$refactor-review"
+      ],
+      "allowed_files": [
+        "W15 diff and goal packet"
+      ],
+      "protected_files": [],
+      "expected_output": "Verdict, validation evidence, and C7 register update.",
+      "receipt": {
+        "evidence": [
+          "W15 extracted only the preload lifecycle and did not change artwork model or target rendering.",
+          "Focused tests for BannerCard, artwork model, and pool cycling passed."
+        ],
+        "verdict": "pass-with-followups",
+        "simplification_check": {
+          "before": "BannerArtwork carried browser preload lifecycle and rendering/interaction logic.",
+          "after": "usePoolMontagePreload owns preload lifecycle; BannerArtwork renders artwork.",
+          "net": "Reduced file responsibility without changing behavior."
+        },
+        "governance_check": {
+          "intake": "completed from user prompt",
+          "focus_area_coverage": "covers C7 Timeline complexity cleanup",
+          "candidate_register": "C7 implemented",
+          "root_fix_patch": "Timeline-local hook root fix",
+          "dependency_review": "not needed",
+          "characterization": "focused banner/artwork/cycling tests",
+          "maintenance": "M1/M2 remain queued"
+        },
+        "validation": [
+          "focused banner/artwork/cycling tests passed",
+          "npm run lint passed",
+          "npm run build:quiet passed",
+          "git diff --check passed",
+          "goal checker passed",
+          "browser check for /timeline?view=banners passed"
+        ],
+        "followups": [
+          "C3-C5 terminal reconciliation",
+          "C8",
+          "C12",
+          "M1",
+          "M2"
+        ]
+      }
     }
   ],
   "final_audit": {
@@ -2655,7 +2803,6 @@
       "C3 shared section divider/header terminal reconciliation",
       "C4 metadata token/line terminal reconciliation",
       "C5 compact media action tile terminal reconciliation",
-      "C7 Timeline banner artwork complexity cleanup",
       "C8 database browse render-derived work terminal decision",
       "C12 shared compact disclosure row terminal decision",
       "M1/M2 maintenance follow-ups"

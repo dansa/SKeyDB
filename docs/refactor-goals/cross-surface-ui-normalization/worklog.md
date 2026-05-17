@@ -346,3 +346,26 @@
   - Browser check for `/timeline` passed with controls, D-zone masthead summary, event/banner sections, and archive toggles rendered.
 - Review verdict: pass-with-followups.
 - State transition: W14 done. R14 done. C22 implemented.
+
+### 2026-05-17 - W14 checkpoint committed and W15 opened
+
+- Commit: `1855479 refactor: split timeline page seams`.
+- Commit validation: The repo pre-commit hook ran `npm run lint`, `npm run test:bounded`, `npm run test:scripts`, and `npm run build:quiet`; all passed.
+- Decision: J15 selected C7 because `BannerArtwork` still mixed visual rendering, click targets, cycling integration, and browser preload/cache effects.
+- State transition: J15 done. W15 active for a Timeline-local pool montage preload hook extraction.
+
+### 2026-05-17 - W15 implemented and reviewed
+
+- Slice: Timeline banner artwork preload hook extraction for C7.
+- Files changed: `src/pages/timeline/BannerArtwork.tsx`, `src/pages/timeline/usePoolMontagePreload.ts`.
+- What changed: Moved image decode/cache, batched preload, IntersectionObserver gating, and ready-state reporting into `usePoolMontagePreload`.
+- Behavior preserved: Custom art still wins; featured/pool branch order, link/button targets, plain-click overlay behavior, and pool cycling behavior are unchanged.
+- Validation:
+  - `npx vitest run src/pages/timeline/BannerCard.test.tsx src/pages/timeline/timelineArtworkModel.test.ts src/pages/timeline/usePoolCycling.test.tsx` passed, 29 tests.
+  - `npm run lint` passed.
+  - `npm run build:quiet` passed.
+  - `git diff --check` passed.
+  - Goal checker passed.
+  - Browser check for `/timeline?view=banners` passed with active/upcoming banner cards, details handles, and archive controls rendered.
+- Review verdict: pass-with-followups.
+- State transition: W15 done. R15 done. C7 implemented.
