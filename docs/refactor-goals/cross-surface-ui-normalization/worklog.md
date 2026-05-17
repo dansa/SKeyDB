@@ -140,3 +140,26 @@
   - Browser checks for `/d-zone` and `/d-zone/history` passed with no overflow and expected wave/button states.
 - Review verdict: pass-with-followups.
 - State transition: W5 done. R5 done. C16 implemented. C5 global media tile remains queued for terminal revisit.
+
+### 2026-05-17 - W5 checkpoint committed and W6 opened
+
+- Commit: `8bd48fe refactor: extract d-zone media buttons`.
+- Commit validation: The repo pre-commit hook ran `npm run lint`, `npm run test:bounded`, `npm run test:scripts`, and `npm run build:quiet`; all passed.
+- Decision: J6 selected C23 because current and history D-zone pages duplicate database popover provider/root wiring around the same local hook.
+- State transition: J6 done. W6 active for a D-zone-local popover surface wrapper. No database popover internals or modal/detail internals are approved for this slice.
+
+### 2026-05-17 - W6 implemented and reviewed
+
+- Slice: D-zone local popover surface wrapper for C23.
+- Files changed: `src/pages/d-zone/DZonePopoverSurface.tsx`, `src/pages/DZonePage.tsx`, `src/pages/DZoneHistoryPage.tsx`.
+- What changed: `DZonePopoverSurface` now owns `useDZoneDatabasePopovers`, `DatabasePopoverContext.Provider`, and `DatabasePopoverRoot`; current/history pages render their page content through it and keep page-specific handlers.
+- Behavior preserved: Popover outside-click preference, monster/relic popover handlers, route/query behavior, history drawer behavior, and wave rendering.
+- Validation:
+  - `npx vitest run src/pages/DZonePage.test.tsx src/pages/DZoneHistoryPage.test.tsx` passed, 16 tests.
+  - `npm run lint` passed.
+  - `npm run build:quiet` passed.
+  - `git diff --check` passed.
+  - Goal checker passed.
+  - Browser checks for `/d-zone` and `/d-zone/history` passed with no overflow.
+- Review verdict: pass-with-followups.
+- State transition: W6 done. R6 done. C23 implemented.

@@ -6,8 +6,6 @@ import {Link, useSearchParams} from 'react-router-dom'
 import {getDzoneSeasonById, getDzoneSeasonSummaries, getLatestDzoneSeason} from '@/domain/dzone'
 import {getDzoneMonsterPreviewAsset} from '@/domain/dzone-assets'
 import {getDzoneSeasonSummaryDisplayName} from '@/domain/dzone-season-realm'
-import {DatabasePopoverContext} from '@/features/database/internal/database-popover-context'
-import {DatabasePopoverRoot} from '@/features/database/internal/DatabasePopoverRoot'
 
 import {formatDzoneSeasonDateRange} from './d-zone/d-zone-date-format'
 import {
@@ -24,8 +22,8 @@ import {
 } from './d-zone/d-zone-history-view-model'
 import {getDzoneRealmBadgeAsset} from './d-zone/d-zone-realm-assets'
 import {DZoneHistoryBrowser} from './d-zone/DZoneHistoryBrowser'
+import {DZonePopoverSurface} from './d-zone/DZonePopoverSurface'
 import {DZoneSeasonInspector} from './d-zone/DZoneSeasonInspector'
-import {useDZoneDatabasePopovers} from './d-zone/useDZoneDatabasePopovers'
 import {useTimelineNow} from './timeline/useTimelineNow'
 
 import './d-zone/d-zone.css'
@@ -45,7 +43,6 @@ export function DZoneHistoryPage() {
   const [expandedYearState, setExpandedYearState] = useState<DZoneHistoryExpandedYearsState>(() =>
     createDZoneHistoryExpandedYearsState(selectedSummary.id, selectedYear),
   )
-  const dzonePopovers = useDZoneDatabasePopovers()
 
   const selectedSeason = getDzoneSeasonById(selectedSummary.id) ?? getLatestDzoneSeason()
   const selectedRealmName = selectedSummary.realm
@@ -72,93 +69,90 @@ export function DZoneHistoryPage() {
   }
 
   return (
-    <DatabasePopoverContext.Provider value={dzonePopovers.contextValue}>
-      <section
-        className={`d-zone-page d-zone-history-page -mt-4 md:-mt-5 ${
-          browserOpen ? 'd-zone-history-page--browser-open' : ''
-        }`}
-      >
-        <div className='d-zone-history-page-heading' aria-labelledby='d-zone-history-page-title'>
-          <div className='d-zone-history-page-heading-copy'>
-            <h1 className='d-zone-history-title ui-title' id='d-zone-history-page-title'>
-              D-Zone Archive
-            </h1>
-            <p>Browse past seasons, their stage lineups and relics.</p>
-          </div>
-          <Link className='d-zone-history-cta d-zone-history-back-link' to='/d-zone'>
-            <FaChevronLeft aria-hidden />
-            Back to D-Zone
-          </Link>
-        </div>
-
-        <button
-          aria-controls='d-zone-history-browser'
-          aria-expanded={browserOpen}
-          aria-label='Open season browser drawer'
-          className='d-zone-history-browser-trigger'
-          onClick={(event) => {
-            setBrowserOpener(event.currentTarget)
-            setBrowserOpen(true)
-          }}
-          type='button'
+    <DZonePopoverSurface>
+      {(dzonePopovers) => (
+        <section
+          className={`d-zone-page d-zone-history-page -mt-4 md:-mt-5 ${
+            browserOpen ? 'd-zone-history-page--browser-open' : ''
+          }`}
         >
-          <span className='d-zone-history-browser-trigger-copy'>
-            <span className='d-zone-history-browser-trigger-title'>Season Browser</span>
-          </span>
-          <span className='d-zone-history-browser-trigger-action'>
-            Open Drawer
-            <FaChevronRight aria-hidden />
-          </span>
-        </button>
+          <div className='d-zone-history-page-heading' aria-labelledby='d-zone-history-page-title'>
+            <div className='d-zone-history-page-heading-copy'>
+              <h1 className='d-zone-history-title ui-title' id='d-zone-history-page-title'>
+                D-Zone Archive
+              </h1>
+              <p>Browse past seasons, their stage lineups and relics.</p>
+            </div>
+            <Link className='d-zone-history-cta d-zone-history-back-link' to='/d-zone'>
+              <FaChevronLeft aria-hidden />
+              Back to D-Zone
+            </Link>
+          </div>
 
-        <div className='d-zone-history-shell'>
-          <DZoneHistoryBrowser
-            browserOpen={browserOpen}
-            expandedYears={expandedYears}
-            forceExpandedYears={normalizedSearchTerm.length > 0}
-            groups={yearGroups}
-            openerElement={browserOpener}
-            search={searchTerm}
-            selectedSeasonId={selectedSummary.id}
-            onBackdropClose={() => {
-              setBrowserOpen(false)
+          <button
+            aria-controls='d-zone-history-browser'
+            aria-expanded={browserOpen}
+            aria-label='Open season browser drawer'
+            className='d-zone-history-browser-trigger'
+            onClick={(event) => {
+              setBrowserOpener(event.currentTarget)
+              setBrowserOpen(true)
             }}
-            onClose={() => {
-              setBrowserOpen(false)
-            }}
-            onSearchChange={setSearchTerm}
-            onSelectSeason={(seasonId) => {
-              setSearchParams(getDZoneHistoryNextSearchParams(searchParams, seasonId), {
-                replace: true,
-              })
-              setBrowserOpen(false)
-            }}
-            onToggleYear={toggleYear}
-          />
+            type='button'
+          >
+            <span className='d-zone-history-browser-trigger-copy'>
+              <span className='d-zone-history-browser-trigger-title'>Season Browser</span>
+            </span>
+            <span className='d-zone-history-browser-trigger-action'>
+              Open Drawer
+              <FaChevronRight aria-hidden />
+            </span>
+          </button>
 
-          <DZoneSeasonInspector
-            countdownDisplay={countdownDisplay}
-            dateRange={selectedDateRange}
-            getMonsterAsset={(monster) => getDzoneMonsterPreviewAsset(monster.assetName)}
-            onMonsterOpen={dzonePopovers.openMonsterPopover}
-            onRelicOpen={(relic, event) => {
-              void dzonePopovers.openRelicPopover(relic, event)
-            }}
-            realm={selectedSummary.realm}
-            season={selectedSeason}
-            showHeader
-            realmBadgeSrc={selectedRealmBadgeSrc}
-            realmName={selectedRealmName}
-            title={`Season ${selectedSeason.period.toString()}`}
-            waveHeadingLevel={3}
-          />
-        </div>
-      </section>
+          <div className='d-zone-history-shell'>
+            <DZoneHistoryBrowser
+              browserOpen={browserOpen}
+              expandedYears={expandedYears}
+              forceExpandedYears={normalizedSearchTerm.length > 0}
+              groups={yearGroups}
+              openerElement={browserOpener}
+              search={searchTerm}
+              selectedSeasonId={selectedSummary.id}
+              onBackdropClose={() => {
+                setBrowserOpen(false)
+              }}
+              onClose={() => {
+                setBrowserOpen(false)
+              }}
+              onSearchChange={setSearchTerm}
+              onSelectSeason={(seasonId) => {
+                setSearchParams(getDZoneHistoryNextSearchParams(searchParams, seasonId), {
+                  replace: true,
+                })
+                setBrowserOpen(false)
+              }}
+              onToggleYear={toggleYear}
+            />
 
-      <DatabasePopoverRoot
-        {...dzonePopovers.popoverRootProps}
-        closeOnOutsideClick={dzonePopovers.closeOnOutsideClick}
-      />
-    </DatabasePopoverContext.Provider>
+            <DZoneSeasonInspector
+              countdownDisplay={countdownDisplay}
+              dateRange={selectedDateRange}
+              getMonsterAsset={(monster) => getDzoneMonsterPreviewAsset(monster.assetName)}
+              onMonsterOpen={dzonePopovers.openMonsterPopover}
+              onRelicOpen={(relic, event) => {
+                void dzonePopovers.openRelicPopover(relic, event)
+              }}
+              realm={selectedSummary.realm}
+              season={selectedSeason}
+              showHeader
+              realmBadgeSrc={selectedRealmBadgeSrc}
+              realmName={selectedRealmName}
+              title={`Season ${selectedSeason.period.toString()}`}
+              waveHeadingLevel={3}
+            />
+          </div>
+        </section>
+      )}
+    </DZonePopoverSurface>
   )
 }

@@ -277,10 +277,10 @@
       "id": "C23",
       "title": "D-zone popover provider duplication",
       "source_task": "dzone-scout",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": "src/pages/DZonePage.tsx; src/pages/DZoneHistoryPage.tsx; D-zone local provider helper",
-      "evidence": "Current and history D-zone pages duplicate database popover provider/root wiring.",
-      "next": "Queue as D-zone-local architecture cleanup."
+      "evidence": "Implemented in W6. Added `DZonePopoverSurface` to own `useDZoneDatabasePopovers`, `DatabasePopoverContext.Provider`, and `DatabasePopoverRoot` wiring; current/history pages keep their markup and popover handlers.",
+      "next": "Implemented as D-zone-local architecture cleanup."
     }
   ],
   "maintenance": [
@@ -1236,6 +1236,163 @@
           "C12-C13",
           "C15",
           "C18-C23",
+          "M1",
+          "M2"
+        ]
+      }
+    },
+    {
+      "id": "J6",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose D-zone popover surface wrapper slice",
+      "skills": [
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "src/pages/DZonePage.tsx",
+        "src/pages/DZoneHistoryPage.tsx",
+        "src/pages/d-zone/DZonePopoverSurface.tsx",
+        "src/pages/DZonePage.test.tsx",
+        "src/pages/DZoneHistoryPage.test.tsx",
+        "docs/refactor-goals/cross-surface-ui-normalization/**"
+      ],
+      "protected_files": [
+        "src/features/database/detail/**",
+        "src/features/database/internal/DatabasePopoverRoot.tsx",
+        "src/features/database/internal/useDatabasePopoverController.ts",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "D-zone-local wrapper for database popover provider/root wiring used by current and history pages.",
+      "receipt": {
+        "evidence": [
+          "DZonePage and DZoneHistoryPage both call `useDZoneDatabasePopovers`, provide `DatabasePopoverContext`, render page content, then render `DatabasePopoverRoot` with the same outside-click prop.",
+          "This is D-zone-local architecture cleanup around an existing database integration, not a shared database modal change."
+        ],
+        "selected_candidates": [
+          "C23"
+        ],
+        "why_root_fix": "A small D-zone-local render-prop surface removes repeated provider/root wiring at the page boundary while preserving page markup and popover handlers.",
+        "what_not_to_change": "No database popover internals, no D-zone wave behavior, no route/query behavior, no modal detail internals.",
+        "verification": [
+          "npx vitest run src/pages/DZonePage.test.tsx src/pages/DZoneHistoryPage.test.tsx",
+          "npm run lint",
+          "git diff --check",
+          "browser checks for /d-zone and /d-zone/history"
+        ]
+      }
+    },
+    {
+      "id": "W6",
+      "role": "worker",
+      "status": "done",
+      "title": "Implement D-zone popover surface wrapper",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture"
+      ],
+      "allowed_files": [
+        "src/pages/DZonePage.tsx",
+        "src/pages/DZoneHistoryPage.tsx",
+        "src/pages/d-zone/DZonePopoverSurface.tsx",
+        "src/pages/DZonePage.test.tsx",
+        "src/pages/DZoneHistoryPage.test.tsx"
+      ],
+      "protected_files": [
+        "src/features/database/detail/**",
+        "src/features/database/internal/DatabasePopoverRoot.tsx",
+        "src/features/database/internal/useDatabasePopoverController.ts",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "D-zone current/history pages use one local wrapper for popover provider/root wiring while handlers and markup remain local.",
+      "receipt": {
+        "slice": "D-zone-local popover surface wrapper for C23.",
+        "evidence": [
+          "Added `DZonePopoverSurface` to own `useDZoneDatabasePopovers`, `DatabasePopoverContext.Provider`, and `DatabasePopoverRoot` wiring.",
+          "`DZonePage` and `DZoneHistoryPage` now render their page content through the local wrapper render prop.",
+          "Page-owned route markup, selection/query behavior, and inspector handlers remain in the pages."
+        ],
+        "files_changed": [
+          "src/pages/DZonePage.tsx",
+          "src/pages/DZoneHistoryPage.tsx",
+          "src/pages/d-zone/DZonePopoverSurface.tsx"
+        ],
+        "what_got_simpler": "Current/history D-zone pages no longer duplicate the database popover provider/root shell.",
+        "behavior_preserved": "Monster/relic popovers still use the same hook and outside-click preference; page routes, query params, history drawer behavior, and wave rendering are unchanged.",
+        "current_complexity": "Two page components repeated the same provider/root wiring.",
+        "expected_complexity_after": "One D-zone-local wrapper owns the integration shell.",
+        "data_access_render_invariants": "No database popover internals, detail modal internals, route/query semantics, or D-zone wave data changed.",
+        "root_fix_patch_decision": "Root fix at the D-zone page boundary; not a shared database primitive.",
+        "dependency_review": "Not needed; no package files changed.",
+        "characterization": "DZonePage and DZoneHistoryPage tests cover popover behavior, route/query behavior, and drawer interactions; browser checks covered both routes.",
+        "harness_update_considered": "No harness update needed.",
+        "validation_run": [
+          "npx vitest run src/pages/DZonePage.test.tsx src/pages/DZoneHistoryPage.test.tsx -> 16 tests passed",
+          "npm run lint -> passed",
+          "npm run build:quiet -> passed",
+          "git diff --check -> passed",
+          "goal checker -> passed",
+          "browser checks for /d-zone and /d-zone/history -> no overflow; pages and waves rendered"
+        ],
+        "risks": "Low; wrapper uses existing hook and render prop to avoid moving page logic.",
+        "followups_not_done": [],
+        "scope_expansion_requested": false
+      }
+    },
+    {
+      "id": "R6",
+      "role": "review",
+      "status": "done",
+      "title": "Review D-zone popover surface wrapper",
+      "skills": [
+        "$refactor-review"
+      ],
+      "allowed_files": [
+        "W6 diff and goal packet"
+      ],
+      "protected_files": [],
+      "expected_output": "Verdict, validation evidence, and C23 register update.",
+      "receipt": {
+        "evidence": [
+          "W6 introduced a D-zone-local wrapper only.",
+          "It removed provider/root duplication without changing database popover internals or page route behavior.",
+          "Focused tests, lint, build, diff check, packet checker, and browser checks passed."
+        ],
+        "verdict": "pass-with-followups",
+        "simplification_check": {
+          "before": "DZonePage and DZoneHistoryPage each repeated popover hook/provider/root wiring.",
+          "after": "`DZonePopoverSurface` owns that integration shell.",
+          "net": "Reduced duplicated page-boundary architecture while keeping page-specific markup local."
+        },
+        "governance_check": {
+          "intake": "completed from user prompt",
+          "focus_area_coverage": "covers C23 architecture cleanup",
+          "candidate_register": "C23 implemented",
+          "root_fix_patch": "D-zone-local root fix",
+          "dependency_review": "not needed",
+          "characterization": "existing tests and browser checks sufficient",
+          "maintenance": "M1/M2 remain queued"
+        },
+        "validation": [
+          "focused tests passed",
+          "npm run lint passed",
+          "npm run build:quiet passed",
+          "git diff --check passed",
+          "goal checker passed",
+          "browser checks passed"
+        ],
+        "followups": [
+          "C3-C8",
+          "C10",
+          "C12-C13",
+          "C15",
+          "C18-C22",
           "M1",
           "M2"
         ]
