@@ -259,10 +259,10 @@
       "id": "C21",
       "title": "Database card accessible-name cleanup",
       "source_task": "database-scout",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": "src/features/database/internal/DatabaseGridCardFrame.tsx; card tests",
-      "evidence": "Overlay button passes both `aria-label` and `aria-labelledby`; `aria-labelledby` wins.",
-      "next": "Queue as a small a11y slice once tests can preserve accessible names."
+      "evidence": "Implemented in W12. Removed redundant `ariaLabel` plumbing from `DatabaseGridCardFrame` and grid-card producers; card buttons now expose the same `View details for {name}` accessible name through one `aria-labelledby` path. Route tests assert sorted accessible names and absence of raw `aria-label`.",
+      "next": "Implemented as a database-internal a11y cleanup; no global card primitive or detail modal work."
     },
     {
       "id": "C22",
@@ -2160,6 +2160,167 @@
           "M2"
         ]
       }
+    },
+    {
+      "id": "J12",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose database card accessible-name cleanup slice",
+      "skills": [
+        "$refactor-ui-a11y",
+        "$refactor-react",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "src/features/database/internal/DatabaseGridCardFrame.tsx",
+        "src/features/database/internal/AwakenerGridCard.tsx",
+        "src/features/database/internal/WheelGridCard.tsx",
+        "src/features/database/internal/SimpleArtifactGridCard.tsx",
+        "src/features/database/DatabaseRoutes.test.tsx",
+        "src/features/database/internal/DatabaseGrid.test.tsx",
+        "src/features/database/internal/WheelGridCard.test.tsx",
+        "docs/refactor-goals/cross-surface-ui-normalization/**"
+      ],
+      "protected_files": [
+        "src/features/database/detail/**",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "One accessible-name source for database grid card buttons with behavior and names preserved.",
+      "receipt": {
+        "evidence": [
+          "DatabaseGridCardFrame rendered both `aria-label` and `aria-labelledby`; `aria-labelledby` wins and made producer `ariaLabel` props redundant.",
+          "Awakener, wheel, posse, and covenant grid cards already provide visible titles used by the labelledby chain."
+        ],
+        "selected_candidates": [
+          "C21"
+        ],
+        "why_root_fix": "Remove the redundant prop path instead of keeping duplicate accessible-name APIs around every card producer.",
+        "what_not_to_change": "No card layout, title rendering, image alt text, click behavior, image priority, or detail modal internals.",
+        "verification": [
+          "npx vitest run src/features/database/internal/DatabaseGrid.test.tsx src/features/database/internal/WheelGridCard.test.tsx src/features/database/DatabaseRoutes.test.tsx",
+          "npm run lint",
+          "npm run build:quiet",
+          "git diff --check",
+          "browser checks for /database, /database/wheels, /database/posses or /database/covenants"
+        ]
+      }
+    },
+    {
+      "id": "W12",
+      "role": "worker",
+      "status": "done",
+      "title": "Clean up database card accessible names",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-ui-a11y",
+        "$refactor-react"
+      ],
+      "allowed_files": [
+        "src/features/database/internal/DatabaseGridCardFrame.tsx",
+        "src/features/database/internal/AwakenerGridCard.tsx",
+        "src/features/database/internal/WheelGridCard.tsx",
+        "src/features/database/internal/SimpleArtifactGridCard.tsx",
+        "src/features/database/DatabaseRoutes.test.tsx",
+        "src/features/database/internal/DatabaseGrid.test.tsx",
+        "src/features/database/internal/WheelGridCard.test.tsx"
+      ],
+      "protected_files": [
+        "src/features/database/detail/**",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "Remove duplicate ariaLabel prop path while preserving accessible names.",
+      "receipt": {
+        "slice": "Database card accessible-name cleanup for C21.",
+        "evidence": [
+          "Removed `ariaLabel` from `DatabaseGridCardFrameProps` and the button.",
+          "Removed `ariaLabel` arguments from awakener, wheel, and simple artifact grid card producers.",
+          "Updated the sort-order route test to assert `toHaveAccessibleName` and absence of raw `aria-label`."
+        ],
+        "files_changed": [
+          "src/features/database/internal/DatabaseGridCardFrame.tsx",
+          "src/features/database/internal/AwakenerGridCard.tsx",
+          "src/features/database/internal/WheelGridCard.tsx",
+          "src/features/database/internal/SimpleArtifactGridCard.tsx",
+          "src/features/database/DatabaseRoutes.test.tsx"
+        ],
+        "what_got_simpler": "Database grid buttons now have a single accessible-name construction path owned by the frame.",
+        "behavior_preserved": "Button accessible names remain `View details for {name}`; visible titles, image alt text, click targets, and priority behavior are unchanged.",
+        "current_complexity": "The frame accepted producer aria labels while also labelling the button from hidden action text plus visible title.",
+        "expected_complexity_after": "The frame derives the accessible name from one labelledby chain.",
+        "data_access_render_invariants": "No data, route, sorting, filtering, or modal behavior changed.",
+        "root_fix_patch_decision": "Root fix for redundant accessible-name API.",
+        "dependency_review": "Not needed; no package files changed.",
+        "characterization": "DatabaseGrid, WheelGridCard, and DatabaseRoutes tests query card buttons by accessible name; route test now asserts no aria-label attribute remains.",
+        "harness_update_considered": "No harness update needed.",
+        "validation_run": [
+          "npx vitest run src/features/database/internal/DatabaseGrid.test.tsx src/features/database/internal/WheelGridCard.test.tsx src/features/database/DatabaseRoutes.test.tsx -> 34 tests passed",
+          "npm run lint -> passed",
+          "npm run build:quiet -> passed",
+          "git diff --check -> passed",
+          "goal checker -> passed",
+          "browser checks for /database, /database/wheels, and /database/posses -> card grids rendered with no obvious overflow"
+        ],
+        "risks": "Low; a11y API simplification with focused name assertions.",
+        "followups_not_done": [
+          "C19",
+          "C8"
+        ],
+        "scope_expansion_requested": false
+      }
+    },
+    {
+      "id": "R12",
+      "role": "review",
+      "status": "done",
+      "title": "Review database card accessible-name cleanup",
+      "skills": [
+        "$refactor-review"
+      ],
+      "allowed_files": [
+        "W12 diff and goal packet"
+      ],
+      "protected_files": [],
+      "expected_output": "Verdict, validation evidence, and C21 register update.",
+      "receipt": {
+        "evidence": [
+          "W12 removes an unused prop path instead of changing visible or interactive card behavior.",
+          "Tests now assert accessible names through role/name and explicitly ensure `aria-label` is absent."
+        ],
+        "verdict": "pass-with-followups",
+        "simplification_check": {
+          "before": "Database card buttons had two competing accessible-name attributes and redundant producer props.",
+          "after": "The frame owns one labelledby-based accessible-name path.",
+          "net": "Cleaner a11y API and better test coverage."
+        },
+        "governance_check": {
+          "intake": "completed from user prompt",
+          "focus_area_coverage": "covers C21 UI/a11y cleanup",
+          "candidate_register": "C21 implemented",
+          "root_fix_patch": "database-internal root fix",
+          "dependency_review": "not needed",
+          "characterization": "focused database tests",
+          "maintenance": "M1/M2 remain queued"
+        },
+        "validation": [
+          "focused database tests passed",
+          "npm run lint passed",
+          "npm run build:quiet passed",
+          "git diff --check passed",
+          "goal checker passed",
+          "browser checks for /database, /database/wheels, and /database/posses passed"
+        ],
+        "followups": [
+          "C3-C5 terminal reconciliation",
+          "C7-C8",
+          "C12",
+          "C19",
+          "C22",
+          "M1",
+          "M2"
+        ]
+      }
     }
   ],
   "final_audit": {
@@ -2180,7 +2341,6 @@
       "C8 database browse render-derived work terminal decision",
       "C12 shared compact disclosure row terminal decision",
       "C19 database mobile filter group extraction",
-      "C21 database card accessible-name cleanup",
       "C22 Timeline page orchestration seam",
       "M1/M2 maintenance follow-ups"
     ]

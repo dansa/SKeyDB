@@ -688,13 +688,14 @@ describe('DatabasePage', () => {
 
     fireEvent.click(screen.getByLabelText('Toggle database sort direction'))
 
-    const cards = screen.getAllByLabelText(/View details for/)
-    const names = cards.map((card) => card.getAttribute('aria-label'))
+    const cards = screen.getAllByRole('button', {name: /View details for/})
 
-    expect(names).toEqual([
-      'View details for Alpha',
-      'View details for Gamma',
-      'View details for Beta',
-    ])
+    expect(cards).toHaveLength(3)
+    expect(cards[0]).toHaveAccessibleName('View details for Alpha')
+    expect(cards[1]).toHaveAccessibleName('View details for Gamma')
+    expect(cards[2]).toHaveAccessibleName('View details for Beta')
+    cards.forEach((card) => {
+      expect(card).not.toHaveAttribute('aria-label')
+    })
   })
 })

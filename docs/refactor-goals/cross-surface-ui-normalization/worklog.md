@@ -278,3 +278,26 @@
   - Browser checks for `/timeline` passed at desktop and mobile widths with active/upcoming/ended event/banner sections rendered.
 - Review verdict: pass-with-followups.
 - State transition: W11 done. R11 done. C10 implemented.
+
+### 2026-05-17 - W11 checkpoint committed and W12 opened
+
+- Commit: `c14232c refactor: share timeline status sections`.
+- Commit validation: The repo pre-commit hook ran `npm run lint`, `npm run test:bounded`, `npm run test:scripts`, and `npm run build:quiet`; all passed.
+- Decision: J12 selected C21 because database grid card buttons had both `aria-label` and `aria-labelledby`, while `aria-labelledby` already provided the intended accessible name.
+- State transition: J12 done. W12 active for a database-internal accessible-name cleanup.
+
+### 2026-05-17 - W12 implemented and reviewed
+
+- Slice: Database card accessible-name cleanup for C21.
+- Files changed: `src/features/database/internal/DatabaseGridCardFrame.tsx`, `AwakenerGridCard.tsx`, `WheelGridCard.tsx`, `SimpleArtifactGridCard.tsx`, and `src/features/database/DatabaseRoutes.test.tsx`.
+- What changed: Removed producer `ariaLabel` plumbing and the redundant button `aria-label`; card buttons now use the existing hidden action text plus visible title through one `aria-labelledby` chain.
+- Behavior preserved: Card buttons keep accessible names like `View details for Alpha`; visible titles, image alt text, click behavior, and priority behavior are unchanged.
+- Validation:
+  - `npx vitest run src/features/database/internal/DatabaseGrid.test.tsx src/features/database/internal/WheelGridCard.test.tsx src/features/database/DatabaseRoutes.test.tsx` passed, 34 tests.
+  - `npm run lint` passed.
+  - `npm run build:quiet` passed.
+  - `git diff --check` passed.
+  - Goal checker passed.
+  - Browser checks for `/database`, `/database/wheels`, and `/database/posses` passed with card grids rendered and no obvious overflow.
+- Review verdict: pass-with-followups.
+- State transition: W12 done. R12 done. C21 implemented.

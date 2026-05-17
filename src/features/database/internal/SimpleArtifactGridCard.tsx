@@ -32,7 +32,6 @@ export function SimpleArtifactGridCard({
 
   return (
     <DatabaseGridCardFrame
-      ariaLabel={`View details for ${name}`}
       content={{
         title: <DatabaseGridCardTitle title={name}>{name}</DatabaseGridCardTitle>,
       }}

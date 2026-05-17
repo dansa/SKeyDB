@@ -34,7 +34,6 @@ export function WheelGridCard({wheel, index, onSelect}: WheelGridCardProps) {
 
   return (
     <DatabaseGridCardFrame
-      ariaLabel={`View details for ${wheel.name}`}
       content={{
         detail: wheel.ownerAwakenerName ? (
           <>

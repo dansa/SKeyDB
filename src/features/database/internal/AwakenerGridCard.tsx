@@ -49,7 +49,6 @@ export function AwakenerGridCard({awakener, index, onSelect}: AwakenerGridCardPr
 
   return (
     <DatabaseGridCardFrame
-      ariaLabel={`View details for ${displayName}`}
       content={{
         detail:
           detailItems.length > 0 ? (

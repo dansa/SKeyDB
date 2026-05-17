@@ -4,7 +4,6 @@ import {useHybridDatabaseCardMode} from './hybrid-database-card-mode'
 
 interface DatabaseGridCardFrameProps {
   actionLabel?: string
-  ariaLabel?: string
   content: {
     detail?: ReactNode
     dossierTitleAddon?: ReactNode
@@ -100,7 +99,6 @@ function PosterBadge({label, src}: {label: string | undefined; src: string | und
 
 export function DatabaseGridCardFrame({
   actionLabel = 'View details for',
-  ariaLabel,
   content,
   layout = 'hybrid',
   media,
@@ -127,7 +125,6 @@ export function DatabaseGridCardFrame({
     >
       <div className='database-grid-card__surface relative isolate grid min-w-0 overflow-hidden border border-[color-mix(in_srgb,var(--realm-accent)_48%,rgb(51_65_85)_52%)] bg-[rgb(7_15_27)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.025),0_8px_18px_rgba(2,6,23,0.22)] transition-[border-color,background-color,box-shadow] duration-200 ease-[cubic-bezier(0.25,1,0.5,1)] group-focus-within/card:border-[color-mix(in_srgb,var(--realm-accent)_66%,rgb(51_65_85)_34%)] group-focus-within/card:bg-[rgb(10_18_32)] group-focus-within/card:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_12px_24px_rgba(2,6,23,0.28)] group-hover/card:border-[color-mix(in_srgb,var(--realm-accent)_66%,rgb(51_65_85)_34%)] group-hover/card:bg-[rgb(10_18_32)] group-hover/card:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_12px_24px_rgba(2,6,23,0.28)] motion-reduce:transition-none'>
         <button
-          aria-label={ariaLabel}
           aria-labelledby={`${titleId}-action ${titleId}`}
           className='absolute inset-0 z-30 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-200/70 focus-visible:outline-none focus-visible:ring-inset'
           onClick={onSelect}
