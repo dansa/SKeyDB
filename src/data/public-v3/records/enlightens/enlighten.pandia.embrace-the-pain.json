@@ -12,8 +12,15 @@
   "descriptionTemplate": "\"Basic Strike\" gains a Temporary {Counter} equal to 50% of DMG. \"Basic Defense\" gains {Counter} equivalent to [Arg1]% of ATK.",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "50"
+      "kind": "scaling",
+      "values": ["10", "12", "14", "16", "18", "20"],
+      "stat": "ATK",
+      "suffix": "%",
+      "substatBonus": {
+        "substat": "CritRate",
+        "multiplier": "0.2",
+        "mode": "scale_base"
+      }
     }
   },
   "ownerAwakenerName": "Pandia"

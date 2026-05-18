@@ -620,8 +620,10 @@ describe('awakener-skills', () => {
     expect(
       getAwakenerSkillById('skill.sorel.roses-infinite-desire', skills)?.descriptionArgs.Arg1,
     ).toEqual({
-      kind: 'fixed',
-      value: '2.5',
+      kind: 'scaling',
+      values: ['2.5', '3', '3.5', '4', '4.5', '5'],
+      suffix: '%',
+      stat: 'CON',
     })
     expect(getAwakenerSkillById('skill.tawil.the-silver-key-gate', skills)?.cardKeywords).toEqual([
       {id: 'mechanic.retain'},

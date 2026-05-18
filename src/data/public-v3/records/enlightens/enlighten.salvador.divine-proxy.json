@@ -13,7 +13,9 @@
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
-      "values": ["3", "3.6", "4.2", "4.8", "5.4", "6"]
+      "values": ["3", "3.6", "4.2", "4.8", "5.4", "6"],
+      "stat": "CON",
+      "suffix": "%"
     }
   },
   "ownerAwakenerName": "Salvador"
