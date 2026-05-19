@@ -1,0 +1,272 @@
+{
+  "version": 1,
+  "slug": "vite-chunk-boundaries",
+  "status": "active",
+  "created": "2026-05-19",
+  "updated": "2026-05-19",
+  "intake": {
+    "status": "skipped",
+    "risk_posture": "conservative, behavior-preserving slices only",
+    "harness_policy": "add or identify characterization before changing data-loading boundaries",
+    "allowed_areas": [
+      "Vite chunk boundaries",
+      "route lazy boundaries",
+      "data repository loading seams",
+      "goal packet docs"
+    ],
+    "protected_areas": [
+      "2.5.1 patch data values",
+      "migration flow behavior",
+      "Cloudflare deployment settings",
+      "unrelated UI restyling"
+    ],
+    "validation_commands": [
+      "npm run format:check",
+      "npm run lint",
+      "npm run test:bounded",
+      "npm run test:scripts",
+      "npm run build:quiet",
+      "VITE_BASE_PATH=/SKeyDB/ npm run build:quiet"
+    ],
+    "stop_condition": "stop when selected slice needs wider product decisions, validation fails twice, scope expands beyond one concept, or current tranche is implemented and reviewed"
+  },
+  "focus_areas": [
+    {
+      "name": "Vite chunk boundaries",
+      "status": "done",
+      "evidence": "dist/assets/useTimelineNow-*.js fell from about 879.6 kB minified / 109.7 kB gzip to about 130.1 kB / 24.9 kB gzip.",
+      "next": "C1 implemented; no current Vite >500 kB warning after measurement."
+    },
+    {
+      "name": "Data-loading architecture seams",
+      "status": "partially_done",
+      "evidence": "src/domain/dzone.ts now loads full D-Zone season archives on demand; catalogRepository.ts and searchRepository.ts statically import all public-v3 scopes.",
+      "next": "Leave public-v3 catalog/search for a separate branch because remaining chunk is below warning threshold and broader risk."
+    },
+    {
+      "name": "React route/lazy boundaries",
+      "status": "done",
+      "evidence": "Database routes share one lazy DatabasePage and browse registry imports all entity browse views.",
+      "next": "Queue after data-loading seams unless measurements show higher user impact."
+    },
+    {
+      "name": "TypeScript trust boundaries",
+      "status": "queued",
+      "evidence": "Candidate seams parse JSON at module load; moving loaders must preserve parsed types and validation ownership.",
+      "next": "Use refactor-typescript in Judge/Worker."
+    },
+    {
+      "name": "Dependency/manual chunk strategy",
+      "status": "mapped",
+      "evidence": "No manual chunk strategy exists in vite.config.ts; scouts recommend fixing boundaries before manual chunks.",
+      "next": "Do not touch unless boundary fixes fail or dependency review says otherwise."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C1",
+      "title": "Split D-Zone current summary from full archive data",
+      "source_task": "S1",
+      "status": "queued",
+      "concept_blast_radius": [
+        "src/domain/dzone.ts",
+        "src/pages/DZonePage.tsx",
+        "src/pages/DZoneHistoryPage.tsx",
+        "D-Zone domain/page tests",
+        "Vite build output measurement"
+      ],
+      "evidence": "useTimelineNow chunk contained all src/data/dzone/seasons/*.json because dzone.ts used an eager glob and both current and archive routes imported it.",
+      "next": "Implemented with lazy archive loaders and page-level async loading."
+    },
+    {
+      "id": "C2",
+      "title": "Split public-v3 catalog repository by scope",
+      "source_task": "S1",
+      "status": "queued",
+      "concept_blast_radius": [
+        "src/data-access/public-data/catalogRepository.ts",
+        "src/domain catalog consumers",
+        "repository tests"
+      ],
+      "evidence": "catalogRepository.ts statically imports all 11 catalog JSON files; any scope use can pull all catalogs.",
+      "next": "Separate future slice only; current chunk is about 486.0 kB minified / 58.4 kB gzip and below warning threshold."
+    },
+    {
+      "id": "C3",
+      "title": "Split public search indexes or lazy Fuse/search data",
+      "source_task": "S1",
+      "status": "queued",
+      "concept_blast_radius": [
+        "src/data-access/public-data/searchRepository.ts",
+        "src/domain/public-search.ts",
+        "database search UI/tests"
+      ],
+      "evidence": "Search repository statically imports every search JSON and public-search.ts imports Fuse.",
+      "next": "Queue after catalog boundary measurement."
+    },
+    {
+      "id": "C4",
+      "title": "Split database browse registry by entity",
+      "source_task": "S2",
+      "status": "queued",
+      "concept_blast_radius": [
+        "src/features/database/routes.tsx",
+        "src/features/database/DatabasePage.tsx",
+        "database browse registry/views",
+        "database route tests"
+      ],
+      "evidence": "One lazy DatabasePage imports all entity browse/data infrastructure.",
+      "next": "Queue after data-loading seams."
+    },
+    {
+      "id": "C5",
+      "title": "Lazy-load shared detail modal host on first open outside database",
+      "source_task": "S2",
+      "status": "queued",
+      "concept_blast_radius": [
+        "TimelinePage",
+        "BuilderPage",
+        "CollectionPage",
+        "DbDetailModalHost",
+        "db detail store/tests"
+      ],
+      "evidence": "Non-database routes import database detail orchestration even if details are never opened.",
+      "next": "Queue if route chunks remain chunky after data seams."
+    },
+    {
+      "id": "C6",
+      "title": "Measure broad recordRepository URL map",
+      "source_task": "S1",
+      "status": "queued",
+      "concept_blast_radius": [
+        "src/data-access/public-data/recordRepository.ts",
+        "Vite build output"
+      ],
+      "evidence": "URL/no-inline glob avoids raw record payload, but generated map may still cost chunk bytes.",
+      "next": "Measurement task only; no implementation until evidence."
+    },
+    {
+      "id": "C7",
+      "title": "React icons duplication",
+      "source_task": "S1",
+      "status": "mapped",
+      "concept_blast_radius": [
+        "react-icons/fa6 imports across routes"
+      ],
+      "evidence": "Multiple static icon imports across routes; likely minor after tree-shaking.",
+      "next": "Do not touch without analyzer evidence."
+    }
+  ],
+  "maintenance": [
+    {
+      "id": "M1",
+      "title": "Build chunk measurement script",
+      "trigger": "manual measurement may repeat",
+      "skill": "$refactor-lint-law / $refactor-dependencies",
+      "status": "queued",
+      "next": "Consider only after one implementation slice proves recurring measurement value."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "S1",
+      "role": "scout",
+      "status": "done",
+      "title": "Audit bundle chunk sources",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-architecture",
+        "$refactor-react",
+        "$refactor-typescript"
+      ],
+      "allowed_files": [],
+      "protected_files": [
+        "src/data/public-v3/** data values",
+        "Cloudflare settings"
+      ],
+      "expected_output": "Ranked candidates with evidence, concept blast radius, validation ideas, and maintenance candidates.",
+      "receipt": {
+        "evidence": [
+          "Local Vite build output measured useTimelineNow at about 879.6 kB minified / 109.7 kB gzip.",
+          "Scout 019e3d8c-725b-7a42-bfaa-8c5dac330069 reported public-v3 catalog/search and data/dependency findings.",
+          "Scout 019e3d8c-898c-7490-a109-48615f81cabc reported route/lazy boundary findings."
+        ],
+        "validation": [
+          "npm run build -- --logLevel info"
+        ]
+      }
+    },
+    {
+      "id": "J1",
+      "role": "judge",
+      "status": "done",
+      "title": "Judge D-Zone archive chunk split",
+      "skills": [
+        "$refactor-architecture",
+        "$refactor-typescript",
+        "$refactor-react",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/domain/dzone.ts",
+        "src/pages/DZonePage.tsx",
+        "src/pages/DZoneHistoryPage.tsx",
+        "src/pages/d-zone/**",
+        "src/domain/dzone*.test.ts",
+        "src/pages/DZone*.test.tsx",
+        "docs/refactor-goals/vite-chunk-boundaries/**"
+      ],
+      "protected_files": [
+        "src/data/dzone/**/*.json",
+        "src/data/public-v3/**",
+        "Cloudflare settings"
+      ],
+      "expected_output": "One bounded Worker slice proposal for C1 with invariants, allowed files, characterization needs, validation, rollback, and before/after measurement plan.",
+      "receipt": {
+        "files_changed": [
+          "src/domain/dzone.ts",
+          "src/pages/DZonePage.tsx",
+          "src/pages/DZoneHistoryPage.tsx",
+          "src/pages/d-zone/useDZoneSeason.ts",
+          "src/pages/timeline/timelineDZoneSummary.ts",
+          "src/domain/dzone.test.ts",
+          "src/pages/DZonePage.test.tsx",
+          "src/pages/DZoneHistoryPage.test.tsx",
+          "src/pages/d-zone/d-zone-countdown.test.ts",
+          "src/pages/d-zone/d-zone-view-model.test.ts"
+        ],
+        "behavior_preserved": [
+          "Current D-Zone page renders the active season.",
+          "History page supports deep-linked season selection and browser interactions.",
+          "Zod validation remains at the JSON import boundary for loaded season archives."
+        ],
+        "measurement": [
+          "Before: useTimelineNow about 879.6 kB minified / 109.7 kB gzip.",
+          "After: useTimelineNow about 130.1 kB minified / 24.9 kB gzip.",
+          "D-Zone season archives now emit as small on-demand chunks, generally about 7-17 kB minified each.",
+          "No Vite >500 kB chunk warning remained in the measured build."
+        ],
+        "validation": [
+          "npm run test -- src/domain/dzone.test.ts src/pages/DZonePage.test.tsx src/pages/DZoneHistoryPage.test.tsx src/pages/d-zone/d-zone-view-model.test.ts src/pages/d-zone/d-zone-countdown.test.ts src/pages/timeline/TimelinePage.test.tsx",
+          "npm run build -- --logLevel info"
+        ],
+        "follow_up": "Do not fold the broader public-v3 catalog/search split into this tranche; it is below the warning threshold and has wider risk."
+      }
+    }
+  ],
+  "final_audit": {
+    "full_outcome_complete": false,
+    "summary": "D-Zone archive chunk boundary implemented; broader public-v3 candidates intentionally left queued for separate future work.",
+    "validation": [
+      "npm run build -- --logLevel info"
+    ],
+    "open_items": [
+      "C1 D-Zone archive chunk split",
+      "C2 public-v3 catalog repository scope split",
+      "C3 public search index split",
+      "C4 database browse registry split",
+      "C5 lazy detail modal host",
+      "C6 recordRepository URL map measurement"
+    ]
+  }
+}

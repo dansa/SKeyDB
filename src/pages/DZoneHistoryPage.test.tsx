@@ -32,6 +32,10 @@ vi.mock('./d-zone/useDZoneDatabasePopovers', () => ({
   }),
 }))
 
+vi.mock('./timeline/useTimelineNow', () => ({
+  useTimelineNow: () => new Date('2026-05-12T00:00:00Z'),
+}))
+
 function LocationProbe() {
   const location = useLocation()
   return <output data-testid='location'>{`${location.pathname}${location.search}`}</output>
@@ -59,6 +63,10 @@ function renderHistoryPage(initialEntries = ['/d-zone/history'], initialIndex?: 
       <BackProbe />
     </MemoryRouter>,
   )
+}
+
+async function findSeasonHeading(seasonNumber: number) {
+  return screen.findByRole('heading', {level: 2, name: `Season ${seasonNumber.toString()}`})
 }
 
 function getDrawerCloseButton() {
@@ -114,10 +122,7 @@ describe('DZoneHistoryPage', () => {
     vi.useRealTimers()
   })
 
-  it('renders the archive selector with the current season selected', () => {
-    vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-05-12T00:00:00Z'))
-
+  it('renders the archive selector with the current season selected', async () => {
     renderHistoryPage()
 
     expect(screen.getByRole('heading', {level: 1, name: 'D-Zone Archive'})).toBeInTheDocument()
@@ -135,7 +140,7 @@ describe('DZoneHistoryPage', () => {
     expect(
       within(currentSeasonButton).getByRole('img', {name: 'Aequor Ring realm'}),
     ).toBeInTheDocument()
-    expect(screen.getByRole('heading', {level: 2, name: 'Season 60'})).toBeInTheDocument()
+    expect(await findSeasonHeading(60)).toBeInTheDocument()
     expect(screen.getByRole('region', {name: 'Season 60 inspector'})).toHaveClass(
       'd-zone-season-inspector--realm-aequor',
     )
@@ -180,11 +185,11 @@ describe('DZoneHistoryPage', () => {
     expect(waveTwoRelicButtons[1]).not.toHaveClass('d-zone-relic-button--compact')
   })
 
-  it('uses the season search param as a deep link and updates it on selection', () => {
+  it('uses the season search param as a deep link and updates it on selection', async () => {
     renderHistoryPage(['/d-zone/history?season=dzone-0001'])
 
     expect(screen.getByTestId('location')).toHaveTextContent('/d-zone/history?season=dzone-0001')
-    expect(screen.getByRole('heading', {level: 2, name: 'Season 1'})).toBeInTheDocument()
+    expect(await findSeasonHeading(1)).toBeInTheDocument()
 
     fireEvent.change(screen.getByRole('searchbox', {name: /Search D-zone seasons/i}), {
       target: {value: 'season 2'},
@@ -192,24 +197,22 @@ describe('DZoneHistoryPage', () => {
     const archivePanel = screen.getByRole('region', {name: /D-zone season archive/i})
     fireEvent.click(within(archivePanel).getByRole('button', {name: /^Select Season 2/i}))
 
-    expect(screen.getByRole('heading', {level: 2, name: 'Season 2'})).toBeInTheDocument()
+    expect(await findSeasonHeading(2)).toBeInTheDocument()
     expect(screen.getByTestId('location')).toHaveTextContent('/d-zone/history?season=dzone-0002')
   })
 
-  it('falls back for invalid season params without rewriting the URL', () => {
-    vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-05-12T00:00:00Z'))
-
+  it('falls back for invalid season params without rewriting the URL', async () => {
     renderHistoryPage(['/d-zone/history?season=dzone-not-real&foo=bar'])
 
-    expect(screen.getByRole('heading', {level: 2, name: 'Season 60'})).toBeInTheDocument()
+    expect(await findSeasonHeading(60)).toBeInTheDocument()
     expect(screen.getByTestId('location')).toHaveTextContent(
       '/d-zone/history?season=dzone-not-real&foo=bar',
     )
   })
 
-  it('preserves unrelated query params, replaces history, and keeps search text on selection', () => {
+  it('preserves unrelated query params, replaces history, and keeps search text on selection', async () => {
     renderHistoryPage(['/origin', '/d-zone/history?foo=bar&season=dzone-0001'], 1)
+    await findSeasonHeading(1)
 
     const searchBox = screen.getByRole('searchbox', {name: /Search D-zone seasons/i})
     fireEvent.change(searchBox, {target: {value: 'season 2'}})
@@ -226,8 +229,9 @@ describe('DZoneHistoryPage', () => {
     expect(screen.getByTestId('location')).toHaveTextContent('/origin')
   })
 
-  it('auto-expands the selected season year after search-driven selection', () => {
+  it('auto-expands the selected season year after search-driven selection', async () => {
     renderHistoryPage(['/d-zone/history?season=dzone-0001'])
+    await findSeasonHeading(1)
 
     expect(document.getElementById('d-zone-history-year-2026-button')).toHaveAttribute(
       'aria-expanded',
@@ -257,8 +261,7 @@ describe('DZoneHistoryPage', () => {
     ).toBeVisible()
   })
 
-  it('keeps wave card height in sync after an interrupted toggle animation', () => {
-    vi.useFakeTimers()
+  it('keeps wave card height in sync after an interrupted toggle animation', async () => {
     const restoreLayoutMock = installWaveCardLayoutMock()
     const restoreMatchMediaMock = installStaticMatchMediaMock({
       matches: false,
@@ -268,6 +271,8 @@ describe('DZoneHistoryPage', () => {
     try {
       renderHistoryPage()
 
+      await findSeasonHeading(60)
+      vi.useFakeTimers()
       const waveTwo = screen.getByRole('article', {name: 'Wave 2'})
       const waveTwoToggle = within(waveTwo).getByRole('button', {name: 'Expand Wave 2'})
 
@@ -299,6 +304,7 @@ describe('DZoneHistoryPage', () => {
   it('opens and closes the season browser drawer from the trigger, close button, backdrop, and Escape', async () => {
     const user = userEvent.setup()
     renderHistoryPage()
+    await findSeasonHeading(60)
 
     const trigger = screen.getByRole('button', {name: 'Open season browser drawer'})
     expect(trigger).toHaveAttribute('aria-expanded', 'false')
@@ -331,6 +337,7 @@ describe('DZoneHistoryPage', () => {
   it('traps Tab inside the open drawer and restores focus to the opener', async () => {
     const user = userEvent.setup()
     renderHistoryPage()
+    await findSeasonHeading(60)
 
     const trigger = screen.getByRole('button', {name: 'Open season browser drawer'})
     await user.click(trigger)

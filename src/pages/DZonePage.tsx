@@ -1,9 +1,8 @@
 import {Link} from 'react-router-dom'
 
 import {
-  getCurrentDzoneSeason,
+  getCurrentDzoneSeasonSummary,
   getDzoneSeasonSummaryById,
-  getLatestDzoneSeason,
   getLatestDzoneSeasonSummary,
 } from '@/domain/dzone'
 import {getDzoneMonsterPreviewAsset} from '@/domain/dzone-assets'
@@ -15,6 +14,7 @@ import {formatDzoneSeasonDateRange} from './d-zone/d-zone-date-format'
 import {getDzoneRealmBadgeAsset} from './d-zone/d-zone-realm-assets'
 import {DZonePopoverSurface} from './d-zone/DZonePopoverSurface'
 import {DZoneSeasonInspector} from './d-zone/DZoneSeasonInspector'
+import {useDZoneSeason} from './d-zone/useDZoneSeason'
 import {useTimelineNow} from './timeline/useTimelineNow'
 
 import './d-zone/d-zone.css'
@@ -24,8 +24,19 @@ const D_ZONE_DESCRIPTION =
 
 export function DZonePage() {
   const now = useTimelineNow()
-  const season = getCurrentDzoneSeason(now) ?? getLatestDzoneSeason()
-  const seasonSummary = getDzoneSeasonSummaryById(season.id) ?? getLatestDzoneSeasonSummary()
+  const targetSeasonSummary = getCurrentDzoneSeasonSummary(now) ?? getLatestDzoneSeasonSummary()
+  const seasonLoadState = useDZoneSeason(targetSeasonSummary.id)
+
+  if (seasonLoadState.status === 'loading') {
+    return <DZonePageStatus message='Loading D-Zone season...' />
+  }
+
+  if (seasonLoadState.status === 'error') {
+    return <DZonePageStatus message={seasonLoadState.message} />
+  }
+
+  const season = seasonLoadState.season
+  const seasonSummary = getDzoneSeasonSummaryById(season.id) ?? targetSeasonSummary
   const dateRange = formatDzoneSeasonDateRange(season)
   const countdownDisplay = getDZoneCountdownDisplay(season, now)
   const mastheadName = getDzoneSeasonRealmName(season)
@@ -71,5 +82,13 @@ export function DZonePage() {
         </section>
       )}
     </DZonePopoverSurface>
+  )
+}
+
+function DZonePageStatus({message}: {message: string}) {
+  return (
+    <section className='d-zone-page mx-auto max-w-3xl px-4 py-8 text-sm text-slate-300'>
+      {message}
+    </section>
   )
 }
