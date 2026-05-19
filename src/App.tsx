@@ -2,6 +2,9 @@ import {lazy, Suspense, useEffect, useState} from 'react'
 
 import {Navigate, NavLink, Route, Routes, useLocation} from 'react-router-dom'
 
+import {AppUpdateNotice} from './features/app-update/AppUpdateNotice'
+import {StaleChunkErrorBoundary} from './features/app-update/StaleChunkErrorBoundary'
+import {useAppUpdateNotice} from './features/app-update/useAppUpdateNotice'
 import {DatabaseRouteElements} from './features/database/routes'
 import {DomainMigrationNotice} from './features/migration/DomainMigrationNotice'
 import {HomePage} from './pages/HomePage'
@@ -67,6 +70,7 @@ const COMPACT_MOBILE_VISIBLE_ITEM_COUNT = 3
 
 function App() {
   const {key: locationKey, pathname} = useLocation()
+  const appUpdateNotice = useAppUpdateNotice()
   const [mobileNavOpenLocationKey, setMobileNavOpenLocationKey] = useState<string | null>(null)
   const compactMobileNavVisible = useMediaQuery('(min-width: 30rem)')
   const wideMobileNavVisible = useMediaQuery('(min-width: 40rem)')
@@ -217,27 +221,36 @@ function App() {
       </header>
 
       <DomainMigrationNotice routePathname={pathname} />
+      {appUpdateNotice.reason && (
+        <AppUpdateNotice
+          onDismiss={appUpdateNotice.dismiss}
+          onRefresh={appUpdateNotice.refresh}
+          reason={appUpdateNotice.reason}
+        />
+      )}
 
       <main
         className='mx-auto w-full max-w-[1240px] px-4 py-4 sm:px-5 md:py-5 lg:px-8'
         id='main-content'
       >
-        <Suspense
-          fallback={<div className='px-2 py-6 text-sm text-slate-300'>Loading page...</div>}
-        >
-          <Routes>
-            <Route element={<HomePage />} path='/' />
-            {DatabaseRouteElements}
-            <Route element={<TimelinePage />} path='/timeline' />
-            <Route element={<DZonePage />} path='/d-zone' />
-            <Route element={<DZoneHistoryPage />} path='/d-zone/history' />
-            <Route element={<BuilderPage />} path='/builder' />
-            <Route element={<CollectionPage />} path='/collection' />
-            <Route element={<MigrationReceivePage />} path='/migrate' />
-            <Route element={<MigrationExportPage />} path='/migrate/export' />
-            <Route element={<Navigate replace to='/' />} path='*' />
-          </Routes>
-        </Suspense>
+        <StaleChunkErrorBoundary>
+          <Suspense
+            fallback={<div className='px-2 py-6 text-sm text-slate-300'>Loading page...</div>}
+          >
+            <Routes>
+              <Route element={<HomePage />} path='/' />
+              {DatabaseRouteElements}
+              <Route element={<TimelinePage />} path='/timeline' />
+              <Route element={<DZonePage />} path='/d-zone' />
+              <Route element={<DZoneHistoryPage />} path='/d-zone/history' />
+              <Route element={<BuilderPage />} path='/builder' />
+              <Route element={<CollectionPage />} path='/collection' />
+              <Route element={<MigrationReceivePage />} path='/migrate' />
+              <Route element={<MigrationExportPage />} path='/migrate/export' />
+              <Route element={<Navigate replace to='/' />} path='*' />
+            </Routes>
+          </Suspense>
+        </StaleChunkErrorBoundary>
       </main>
     </div>
   )

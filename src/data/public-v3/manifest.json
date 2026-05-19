@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-da20a77e359df1f9",
-  "generatedAt": "2026-05-18T07:10:12Z",
-  "buildId": "2026-05-18T07:10:12Z",
+  "gameDataVersion": "compiled-sha256-94b31a8287e15342",
+  "generatedAt": "2026-05-18T23:15:01Z",
+  "buildId": "2026-05-18T23:15:01Z",
   "build": {
-    "gameDataVersion": "compiled-sha256-da20a77e359df1f9",
+    "gameDataVersion": "compiled-sha256-94b31a8287e15342",
     "recordCount": 1606,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -1386,8 +1386,8 @@
       "sha256": "531052f838f345878bb3c8e457f3ffa0f826692f8dda6c95321978eb37acadc1"
     },
     "records/enlightens/enlighten.celeste.ancestral-beacon.json": {
-      "bytes": 689,
-      "sha256": "2c45a93f7139a357a0e9650dd679c19443618ec1af55e1cbf40df229588ded6d"
+      "bytes": 731,
+      "sha256": "5fecf922fda7606bf00286d04109250399e4acf691558f9fe0dbcd64bc5274c0"
     },
     "records/enlightens/enlighten.celeste.beyond-joy-and-sorrow.json": {
       "bytes": 568,
@@ -1550,8 +1550,8 @@
       "sha256": "1c0a4ffe34065e6cad02b1e1f3120d67532a0ef533bae209f9f9e0a2b9c73c41"
     },
     "records/enlightens/enlighten.faint.blossom-from-cocoon.json": {
-      "bytes": 616,
-      "sha256": "3f83237c6bf9e8884810f498d87c53250cbb0c7122d9ac4f3bd072730856f43c"
+      "bytes": 658,
+      "sha256": "741f6e2ecb4303bfdd2e22e69a0f24c94b5104f73493f9baa4019cc0f068a92f"
     },
     "records/enlightens/enlighten.faint.cradle-of-love.json": {
       "bytes": 564,
@@ -1702,8 +1702,8 @@
       "sha256": "1f090ab1b7689f54d3266022de48beae6851a28bc7ba6675d087dace8fd7d53e"
     },
     "records/enlightens/enlighten.jenkins.red-ribbon.json": {
-      "bytes": 618,
-      "sha256": "cc082b8326ad37a44a058c3562f58fe32835236c40a313166f0b05d55bd1d547"
+      "bytes": 660,
+      "sha256": "bb6b29e00ec63b1e9de57d66cc06c94c7be08aefb47f2a6b5f0a210cad5d1afd"
     },
     "records/enlightens/enlighten.karen.bounteous-feast.json": {
       "bytes": 471,
@@ -1894,8 +1894,8 @@
       "sha256": "70ff018258b8dab4c0e04f30ae214b98047f0de46dadfdf4ecc421ac7f86da18"
     },
     "records/enlightens/enlighten.murphy.inextricable-bloodline.json": {
-      "bytes": 837,
-      "sha256": "5ae0116535aeab0c2c225fdcf57cf21b1fcb285595271845192de942910dafbe"
+      "bytes": 917,
+      "sha256": "d26ef162978926c31329e221537f4ebbbc422cae2f847055e40ad5430f8ff579"
     },
     "records/enlightens/enlighten.murphy.oath-of-liberation.json": {
       "bytes": 547,
@@ -1914,8 +1914,8 @@
       "sha256": "fe900a9796e3a0b9f0f43f79c5466311b8f3e51bd1e11826306afce4e5f456ba"
     },
     "records/enlightens/enlighten.nautila.blank-recollection.json": {
-      "bytes": 561,
-      "sha256": "f8f92dca10a8fd320218c71d4ba490f3cb52db483c7e64850e3a1b403874e882"
+      "bytes": 603,
+      "sha256": "4212c9d4fe9114a36a79006866d2509adb3a57162edaea915e65563958268b6e"
     },
     "records/enlightens/enlighten.nautila.forgotten-dreams.json": {
       "bytes": 525,
@@ -1930,12 +1930,12 @@
       "sha256": "64259e7963cdfcb0943182912e391c2247426f3e7b0f3570065d37193c1316fb"
     },
     "records/enlightens/enlighten.nymphaea.frostbloom-tide.json": {
-      "bytes": 686,
-      "sha256": "8a4e9b2372e6b95b5825f45c2e2888ce63f23c385619092604d5223951b6dbc5"
+      "bytes": 733,
+      "sha256": "a08dd877599e83f041b22ed152de000bfab3e771de8a9d79ab4ee089542202a1"
     },
     "records/enlightens/enlighten.nymphaea.oceans-vessel.json": {
-      "bytes": 584,
-      "sha256": "f3c55ab7886fe8913e1dafee239f58c0636b721136361f3a27a7f1926c313168"
+      "bytes": 666,
+      "sha256": "d1244addf4bf227b0e989258acf095b00287d6627fbaa5b3a46f3ea56a13dd21"
     },
     "records/enlightens/enlighten.nymphaea.sentiment-oc-anique.json": {
       "bytes": 526,
@@ -1962,28 +1962,28 @@
       "sha256": "56e5109b19ff944d917090c232ac8478769f1747dcfb6cd4331c9b196a2e61c1"
     },
     "records/enlightens/enlighten.ogier.sacrifice-for-justice.json": {
-      "bytes": 610,
-      "sha256": "94347213c2c1c7c77fc3b12e2d7c8afc6ab0add7df3a3db827062f7cf055d35a"
+      "bytes": 689,
+      "sha256": "20e285629d1b19a6e8c5d85f6312fe8e79ec4148ae0b26277f6964e348b3aea6"
     },
     "records/enlightens/enlighten.pandia.blazing-desire.json": {
       "bytes": 418,
       "sha256": "c47fcf9bceed888ee0445f992538f54f248b29caf394eaa34a01a56cf4ebee8e"
     },
     "records/enlightens/enlighten.pandia.embrace-the-pain.json": {
-      "bytes": 587,
-      "sha256": "9b3bbec0d005a6bbc5f56dfbdee417b3bd42619a1bdc83e0b107082886330851"
+      "bytes": 786,
+      "sha256": "6aa876e69f3c2b8984df94b95da14c62e135b708a21ea0d601cf53258110d772"
     },
     "records/enlightens/enlighten.pandia.manifesto-of-loving-discipline.json": {
       "bytes": 572,
       "sha256": "fd47c7d63c261ef7ce98730b0aaa86571f4c5469090e11f41e5a7ffc7c9e3ecf"
     },
     "records/enlightens/enlighten.pandia.sweet-surrender.json": {
-      "bytes": 558,
-      "sha256": "2361fe2dd6eb052f3520473243de943a10883ca4af415208e508a2866404d718"
+      "bytes": 641,
+      "sha256": "250396aadbd251d58dd4296acbb0d3cc0fc399c961a045cc5aba5d15cd26e0b2"
     },
     "records/enlightens/enlighten.pandia.youre-being-naughty.json": {
-      "bytes": 618,
-      "sha256": "49c57bfda1e618c9b19cd1cadbe045be00396e4f13632ba75d82b4e21e8d06b1"
+      "bytes": 761,
+      "sha256": "4a2b5d92b2ab2ecc1bb0f99fc42dfd6f8ff4633ca3cc538d510ac4092370ca33"
     },
     "records/enlightens/enlighten.pickman.art-is-madness.json": {
       "bytes": 456,
@@ -2046,8 +2046,8 @@
       "sha256": "7b410e826c37bed1b8db82a960b990b80ab80090cfc5b9dc20d334abf6bd3b70"
     },
     "records/enlightens/enlighten.ramona.innocent-departure.json": {
-      "bytes": 735,
-      "sha256": "f35719fe4c8c8dbca1763979c036cac7d1a37495bd71b871ee152799142dedcf"
+      "bytes": 756,
+      "sha256": "cb4b9e13b1c3b67b6b866e6c30e3e6c00c68832cbf3697b401769d9cfa1f816c"
     },
     "records/enlightens/enlighten.ramona.labyrinth-of-thought.json": {
       "bytes": 525,
@@ -2090,12 +2090,12 @@
       "sha256": "d5a35c89bec14198a0f3d160b55fef2c1fc513f90b9956f582eb06e4d683a5c0"
     },
     "records/enlightens/enlighten.salvador.book-of-genesis.json": {
-      "bytes": 812,
-      "sha256": "9021bc20c3dad4b11dac1abf43ac026969e77bf071ee950b3edf390b5720e187"
+      "bytes": 854,
+      "sha256": "ddb256f9a8f5144e0dd6c741ed6e141a1c17817b2ef14e720daabb0ae9513594"
     },
     "records/enlightens/enlighten.salvador.divine-proxy.json": {
-      "bytes": 729,
-      "sha256": "d88a282ba7da9172c3f5012c9b94b4c0ce39902026a7c319cd6e9e42cf1fe94b"
+      "bytes": 771,
+      "sha256": "e19dedce5c18c91edef77f729c54d94c6c36e04f1352b9d688ae29fefc6f761b"
     },
     "records/enlightens/enlighten.salvador.rite-of-creation.json": {
       "bytes": 614,
@@ -2110,12 +2110,12 @@
       "sha256": "fde9f7fd149bcc1b666c4a99559b4ccc024a595fb6dce675b99cefb1eea4c806"
     },
     "records/enlightens/enlighten.sanga.kneel-before-beauty.json": {
-      "bytes": 657,
-      "sha256": "8f095a23b1f618b724d08b278b44eaa6e1fc24310a9c90ed469cfc78a5b81616"
+      "bytes": 699,
+      "sha256": "2c14f57fa1df92973d18a02f768021fbb384df72f0d48263d420b5492b9b0e31"
     },
     "records/enlightens/enlighten.sanga.melodic-sculpting.json": {
-      "bytes": 626,
-      "sha256": "e59dea127e306f1832fcf5b6a9b57f62c850b33601d4c3a6f4ff977207dbf025"
+      "bytes": 662,
+      "sha256": "e7caacdf08e627ae9d841a49cd8b0051f7530874d0aa554e43276ba6ee412452"
     },
     "records/enlightens/enlighten.sanga.oblivion-takes-all.json": {
       "bytes": 546,
@@ -2138,8 +2138,8 @@
       "sha256": "85995903c42ea443a36f667c0b7b70df0ef9caf9ff4ce767ffcc7ecbdf1ddaef"
     },
     "records/enlightens/enlighten.sorel.roses-infinite-desire.json": {
-      "bytes": 623,
-      "sha256": "b705e0cd6c388a76b30530fa01321e0b45aa28429739b4571e9662795c82b7a7"
+      "bytes": 699,
+      "sha256": "5698b6577c69169cad775bc45e05133931859196fcfd995617bd2269581562bd"
     },
     "records/enlightens/enlighten.sorel.vintage-nectar.json": {
       "bytes": 485,
@@ -2222,8 +2222,8 @@
       "sha256": "7c2b80a34414319260701e1d3d6e4b93040ca5123f5fa35ca2eccb5d08fcd915"
     },
     "records/enlightens/enlighten.tulu.touch-of-revival.json": {
-      "bytes": 860,
-      "sha256": "cb2fa6d6236ae09bb9aac9d7d981f1e213cec93facf9f25244faa568991c6c39"
+      "bytes": 948,
+      "sha256": "67ccfd88ae1b97b1eaa5a493a0160ba47dda058033e2baa829d08e055c75ec3e"
     },
     "records/enlightens/enlighten.uvhash.gift-of-surging-blood.json": {
       "bytes": 534,
@@ -2290,8 +2290,8 @@
       "sha256": "477824fd024467a25d30178c69377162574e445238fbf9cf958b5a347d0f8a51"
     },
     "records/enlightens/enlighten.winkle.forsaken-homeland.json": {
-      "bytes": 679,
-      "sha256": "7afe35238e3d3ca9e91d04702d6282a236341f42011aa3dc6ba0227191e426e7"
+      "bytes": 721,
+      "sha256": "41c04656174c5ed092e899541ae0a468a5d2fbe2735a7f681e37fdbbc3087bcb"
     },
     "records/enlightens/enlighten.winkle.rebirth-through-death.json": {
       "bytes": 563,
@@ -4170,8 +4170,8 @@
       "sha256": "a1b229f16b10274328805b408238ecf2c0821446e79e0f8b6cd037fa2975401e"
     },
     "records/skills/skill.faint.blossom-from-cocoon.json": {
-      "bytes": 626,
-      "sha256": "13f9e4bf985bb02a979a43273f7e738423ed8e0716032db0e6e9d02b40910b4b"
+      "bytes": 668,
+      "sha256": "8c88c0b781e950ced0ef1bded7da2e6fb88d0dd2529e52c6d7d56910fdaa79f8"
     },
     "records/skills/skill.faint.boundless-starlight.json": {
       "bytes": 3154,
@@ -4774,8 +4774,8 @@
       "sha256": "3cfb9f8369e990f1d8191eb468f78fd0daab976cac8d0d6d8d5f38db6d37767c"
     },
     "records/skills/skill.pandia.sweet-surrender.json": {
-      "bytes": 568,
-      "sha256": "c6dcff3fee232c4c8b198eddd9554d9a6efaa72369d89650fec532304fb2134b"
+      "bytes": 651,
+      "sha256": "6c7ed2cd5c2869f4bbafe55a6c080ef5606da628c096eb8f27c14e6eefda2aeb"
     },
     "records/skills/skill.pandia.wax-hot-desire.json": {
       "bytes": 2161,
@@ -5002,8 +5002,8 @@
       "sha256": "97d31dd155a17a6a34c2b0d9d4d9c458294c54ef290b92c2eba32f95505457bd"
     },
     "records/skills/skill.sorel.roses-infinite-desire.json": {
-      "bytes": 633,
-      "sha256": "a1673ee5fd2de0cfb14ab4263f7751cdb7c496c223948abbf83d62d744557460"
+      "bytes": 709,
+      "sha256": "9290d9995bef474fab704f40a9777c2a9087c1d755067e0ef4adc587c7493f89"
     },
     "records/skills/skill.sorel.strike.json": {
       "bytes": 1628,

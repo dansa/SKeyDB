@@ -255,6 +255,112 @@ body,
   backdrop-filter: blur(14px);
 }
 
+.app-update-notice {
+  display: flex;
+  width: calc(100% - 2rem);
+  max-width: 1240px;
+  margin: 0.75rem auto 0;
+  flex-direction: column;
+  gap: 0.75rem;
+  border: 1px solid oklch(76% 0.07 84 / 0.34);
+  background:
+    linear-gradient(180deg, oklch(16% 0.032 250 / 0.92), oklch(9% 0.026 250 / 0.88)),
+    var(--ui-panel-strong);
+  box-shadow: 0 1rem 2rem oklch(4% 0.02 252 / 0.3);
+  padding: 0.75rem 0.85rem;
+  color: var(--ui-text-main);
+}
+
+.app-update-notice--urgent {
+  border-color: oklch(78% 0.1 36 / 0.42);
+}
+
+.app-update-notice__copy {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.app-update-notice__copy strong {
+  color: var(--ui-accent-gold-soft);
+}
+
+.app-update-notice__copy span {
+  color: var(--ui-text-muted);
+}
+
+.app-update-notice__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.app-update-notice__button,
+.app-update-notice__dismiss {
+  min-height: 1.9rem;
+  border-radius: var(--ui-radius-xs);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.app-update-notice__button {
+  border: 1px solid oklch(82% 0.09 84 / 0.6);
+  background: oklch(20% 0.052 84 / 0.5);
+  color: var(--ui-accent-gold-soft);
+}
+
+.app-update-notice__dismiss {
+  border: 1px solid var(--ui-control-border);
+  background: var(--ui-control-surface);
+  color: var(--ui-control-text);
+}
+
+.app-update-notice__button:hover,
+.app-update-notice__button:focus-visible {
+  border-color: oklch(88% 0.1 84 / 0.78);
+  color: oklch(98% 0.04 84);
+}
+
+.app-update-notice__dismiss:hover,
+.app-update-notice__dismiss:focus-visible {
+  border-color: var(--ui-control-border-hover);
+  color: var(--ui-control-text-hover);
+}
+
+.app-update-notice__button:focus-visible,
+.app-update-notice__dismiss:focus-visible {
+  outline: 2px solid var(--ui-focus-ring);
+  outline-offset: 2px;
+}
+
+.app-update-fallback {
+  display: grid;
+  min-height: 18rem;
+  align-items: start;
+}
+
+.app-update-fallback .app-update-notice {
+  width: 100%;
+  margin-inline: 0;
+}
+
+@media (min-width: 40rem) {
+  .app-update-notice {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1rem;
+  }
+
+  .app-update-notice__actions {
+    flex: 0 0 auto;
+  }
+}
+
 .site-header::before {
   content: '';
   position: absolute;

@@ -12,8 +12,10 @@
   "descriptionTemplate": "Makes the next 3 Command Cards of Sorel take effect 2 times. Each time this Exalt deals DMG, at turn end, it heals HP equal to CON [Arg1]%.",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "2.5"
+      "kind": "scaling",
+      "values": ["2.5", "3", "3.5", "4", "4.5", "5"],
+      "stat": "CON",
+      "suffix": "%"
     }
   },
   "cardKeywords": [],

@@ -13,7 +13,9 @@
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
-      "values": ["5", "6", "7", "8", "9", "10"]
+      "values": ["5", "6", "7", "8", "9", "10"],
+      "stat": "DEF",
+      "suffix": "%"
     }
   },
   "ownerAwakenerName": "Winkle"

@@ -12,8 +12,10 @@
   "descriptionTemplate": "{Knell of Death} {Poison} dealt +100% and grants Shield equal to [Arg1]% of DEF (effect scales with {Knell of Death} skill level).",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "100"
+      "kind": "scaling",
+      "values": ["22.5", "27", "31.5", "36", "40.5", "45"],
+      "stat": "DEF",
+      "suffix": "%"
     }
   },
   "ownerAwakenerName": "Nymphaea"

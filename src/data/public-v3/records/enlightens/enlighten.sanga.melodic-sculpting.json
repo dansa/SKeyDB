@@ -13,7 +13,9 @@
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
-      "values": ["8", "9.6", "11.2", "12.8", "14.4", "16"]
+      "values": ["10", "12", "14", "16", "18", "20"],
+      "stat": "DEF",
+      "suffix": "%"
     }
   },
   "ownerAwakenerName": "Sanga"

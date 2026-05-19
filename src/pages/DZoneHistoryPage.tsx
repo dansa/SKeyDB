@@ -3,7 +3,7 @@ import {useState} from 'react'
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
 import {Link, useSearchParams} from 'react-router-dom'
 
-import {getDzoneSeasonById, getDzoneSeasonSummaries, getLatestDzoneSeason} from '@/domain/dzone'
+import {getDzoneSeasonSummaries} from '@/domain/dzone'
 import {getDzoneMonsterPreviewAsset} from '@/domain/dzone-assets'
 import {getDzoneSeasonSummaryDisplayName} from '@/domain/dzone-season-realm'
 
@@ -24,6 +24,7 @@ import {getDzoneRealmBadgeAsset} from './d-zone/d-zone-realm-assets'
 import {DZoneHistoryBrowser} from './d-zone/DZoneHistoryBrowser'
 import {DZonePopoverSurface} from './d-zone/DZonePopoverSurface'
 import {DZoneSeasonInspector} from './d-zone/DZoneSeasonInspector'
+import {useDZoneSeason} from './d-zone/useDZoneSeason'
 import {useTimelineNow} from './timeline/useTimelineNow'
 
 import './d-zone/d-zone.css'
@@ -43,16 +44,22 @@ export function DZoneHistoryPage() {
   const [expandedYearState, setExpandedYearState] = useState<DZoneHistoryExpandedYearsState>(() =>
     createDZoneHistoryExpandedYearsState(selectedSummary.id, selectedYear),
   )
+  const selectedSeasonLoadState = useDZoneSeason(selectedSummary.id)
 
-  const selectedSeason = getDzoneSeasonById(selectedSummary.id) ?? getLatestDzoneSeason()
   const selectedRealmName = selectedSummary.realm
     ? getDzoneSeasonSummaryDisplayName(selectedSummary)
     : null
   const selectedRealmBadgeSrc = selectedSummary.realm
     ? getDzoneRealmBadgeAsset(selectedSummary.realm)
     : undefined
-  const selectedDateRange = formatDzoneSeasonDateRange(selectedSeason)
-  const countdownDisplay = getDZoneCountdownDisplay(selectedSeason, now)
+  const selectedDateRange =
+    selectedSeasonLoadState.status === 'loaded'
+      ? formatDzoneSeasonDateRange(selectedSeasonLoadState.season)
+      : ''
+  const countdownDisplay =
+    selectedSeasonLoadState.status === 'loaded'
+      ? getDZoneCountdownDisplay(selectedSeasonLoadState.season, now)
+      : ''
   const normalizedSearchTerm = getDZoneHistoryNormalizedSearchTerm(searchTerm)
   const visibleSeasons = getDZoneHistoryVisibleSeasons(summaries, searchTerm)
   const yearGroups = buildDZoneHistoryYearGroups(visibleSeasons)
@@ -134,22 +141,30 @@ export function DZoneHistoryPage() {
               onToggleYear={toggleYear}
             />
 
-            <DZoneSeasonInspector
-              countdownDisplay={countdownDisplay}
-              dateRange={selectedDateRange}
-              getMonsterAsset={(monster) => getDzoneMonsterPreviewAsset(monster.assetName)}
-              onMonsterOpen={dzonePopovers.openMonsterPopover}
-              onRelicOpen={(relic, event) => {
-                void dzonePopovers.openRelicPopover(relic, event)
-              }}
-              realm={selectedSummary.realm}
-              season={selectedSeason}
-              showHeader
-              realmBadgeSrc={selectedRealmBadgeSrc}
-              realmName={selectedRealmName}
-              title={`Season ${selectedSeason.period.toString()}`}
-              waveHeadingLevel={3}
-            />
+            {selectedSeasonLoadState.status === 'loaded' ? (
+              <DZoneSeasonInspector
+                countdownDisplay={countdownDisplay}
+                dateRange={selectedDateRange}
+                getMonsterAsset={(monster) => getDzoneMonsterPreviewAsset(monster.assetName)}
+                onMonsterOpen={dzonePopovers.openMonsterPopover}
+                onRelicOpen={(relic, event) => {
+                  void dzonePopovers.openRelicPopover(relic, event)
+                }}
+                realm={selectedSummary.realm}
+                season={selectedSeasonLoadState.season}
+                showHeader
+                realmBadgeSrc={selectedRealmBadgeSrc}
+                realmName={selectedRealmName}
+                title={`Season ${selectedSeasonLoadState.season.period.toString()}`}
+                waveHeadingLevel={3}
+              />
+            ) : (
+              <div className='d-zone-history-loading' role='status'>
+                {selectedSeasonLoadState.status === 'error'
+                  ? selectedSeasonLoadState.message
+                  : 'Loading season archive...'}
+              </div>
+            )}
           </div>
         </section>
       )}

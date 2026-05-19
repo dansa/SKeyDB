@@ -13,7 +13,9 @@
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
-      "values": ["40", "48", "56", "64", "72", "80"]
+      "values": ["40", "48", "56", "64", "72", "80"],
+      "stat": "DEF",
+      "suffix": "%"
     }
   },
   "cardKeywords": [],

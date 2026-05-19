@@ -4,6 +4,10 @@ import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 
 import {DZonePage} from './DZonePage'
 
+vi.mock('./timeline/useTimelineNow', () => ({
+  useTimelineNow: () => new Date('2026-05-12T00:00:00Z'),
+}))
+
 function renderDZonePage() {
   return render(
     <MemoryRouter>
@@ -21,13 +25,12 @@ describe('DZonePage', () => {
     vi.useRealTimers()
   })
 
-  it('renders the current D-zone season with all five waves', () => {
-    vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-05-12T00:00:00Z'))
-
+  it('renders the current D-zone season with all five waves', async () => {
     renderDZonePage()
 
-    expect(screen.getByRole('heading', {level: 1, name: 'D-Effect Zone'})).toBeInTheDocument()
+    expect(
+      await screen.findByRole('heading', {level: 1, name: 'D-Effect Zone'}),
+    ).toBeInTheDocument()
     expect(screen.getByText(/Current Season: 60 · May 11, 2026 - May 25, 2026/)).toBeInTheDocument()
     const seasonPanel = screen.getByRole('complementary', {name: 'Current D-zone season'})
     expect(seasonPanel).toHaveTextContent('Current Season')
@@ -43,19 +46,20 @@ describe('DZonePage', () => {
     expect(screen.getByRole('button', {name: 'Select Alert V'})).toBeInTheDocument()
   })
 
-  it('switches all waves to the selected alert level', () => {
+  it('switches all waves to the selected alert level', async () => {
     renderDZonePage()
 
-    fireEvent.click(screen.getByRole('button', {name: 'Select Alert IV'}))
+    fireEvent.click(await screen.findByRole('button', {name: 'Select Alert IV'}))
 
     const waveOne = screen.getByRole('article', {name: 'Wave 1'})
     expect(within(waveOne).getByText('Lv 73')).toBeInTheDocument()
     expect(within(waveOne).queryByText('Lv 38')).not.toBeInTheDocument()
   })
 
-  it('shows the season relic first in each wave without duplicate relic labels', () => {
+  it('shows the season relic first in each wave without duplicate relic labels', async () => {
     renderDZonePage()
 
+    await screen.findByRole('heading', {level: 1, name: 'D-Effect Zone'})
     const waveOneRelicButtons = screen.getAllByRole('button', {
       name: /View Wave 1 relic details/i,
     })
@@ -68,6 +72,7 @@ describe('DZonePage', () => {
   it('opens monster details with database rich characteristic text', async () => {
     renderDZonePage()
 
+    await screen.findByRole('heading', {level: 1, name: 'D-Effect Zone'})
     fireEvent.click(
       screen.getByRole('button', {name: /View Wave 1 monster details for "Blesser"/i}),
     )
@@ -106,6 +111,7 @@ describe('DZonePage', () => {
 
     renderDZonePage()
 
+    await screen.findByRole('heading', {level: 1, name: 'D-Effect Zone'})
     fireEvent.click(
       screen.getByRole('button', {name: /View Wave 1 monster details for "Blesser"/i}),
     )
@@ -126,6 +132,7 @@ describe('DZonePage', () => {
   it('opens initial relic details through the database popover layer', async () => {
     renderDZonePage()
 
+    await screen.findByRole('heading', {level: 1, name: 'D-Effect Zone'})
     fireEvent.click(
       screen.getByRole('button', {name: /View Wave 1 relic details for "Aequor Ring"/i}),
     )

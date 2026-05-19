@@ -1,5 +1,5 @@
-import {getCurrentDzoneSeason, getLatestDzoneSeason} from '@/domain/dzone'
-import {getDzoneSeasonRealmName} from '@/domain/dzone-season-realm'
+import {getCurrentDzoneSeasonSummary, getLatestDzoneSeasonSummary} from '@/domain/dzone'
+import {getDzoneSeasonSummaryDisplayName} from '@/domain/dzone-season-realm'
 import {getTimelineCountdownDisplay, getTimelineStatus, type EventEntry} from '@/domain/timeline'
 
 export function selectTimelineDZoneEvent(events: EventEntry[], now: Date): EventEntry | undefined {
@@ -17,7 +17,9 @@ export function getTimelineDZoneRealmName(event: EventEntry | undefined, now: Da
   const eventRealmName = match?.[1]?.trim()
   if (eventRealmName) return eventRealmName
 
-  return getDzoneSeasonRealmName(getCurrentDzoneSeason(now) ?? getLatestDzoneSeason())
+  return getDzoneSeasonSummaryDisplayName(
+    getCurrentDzoneSeasonSummary(now) ?? getLatestDzoneSeasonSummary(),
+  )
 }
 
 export function getTimelineDZoneSummary(events: EventEntry[], now: Date) {

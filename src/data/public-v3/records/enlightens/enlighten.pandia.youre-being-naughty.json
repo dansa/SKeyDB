@@ -14,7 +14,13 @@
     "Arg1": {
       "kind": "scaling",
       "values": ["15", "18", "21", "24", "27", "30"],
-      "suffix": "%"
+      "stat": "ATK",
+      "suffix": "%",
+      "substatBonus": {
+        "substat": "CritRate",
+        "multiplier": "0.2",
+        "mode": "scale_base"
+      }
     }
   },
   "ownerAwakenerName": "Pandia"
