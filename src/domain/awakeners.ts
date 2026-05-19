@@ -2,11 +2,14 @@ import {z} from 'zod'
 
 import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
 
+import {SUBSTAT_SCALING_KEYS, type SubstatScalingKey} from './awakener-source-schema'
+
 const liteStatsSchema = z.object({
   CON: z.number(),
   ATK: z.number(),
   DEF: z.number(),
 })
+const liteSubstatScalingSchema = z.partialRecord(z.enum(SUBSTAT_SCALING_KEYS), z.number())
 const PRIMARY_STAT_KEYS = ['CON', 'ATK', 'DEF'] as const
 const BASIC_MAX_LEVEL = 60
 const PRIMARY_STAT_FORMULA_EPSILON = 1e-9
@@ -28,6 +31,7 @@ const publicV3AwakenerCatalogRecordSchema = z
     primaryScalingBase: z.number().optional(),
     baseStatsLv1: liteStatsSchema,
     statScaling: liteStatsSchema.optional(),
+    substatScaling: liteSubstatScalingSchema.optional(),
     lineupToken: z.string().trim().min(1),
   })
   .loose()
@@ -39,6 +43,7 @@ export interface AwakenerLiteStats {
 }
 
 export type AwakenerStatScaling = AwakenerLiteStats
+export type AwakenerLiteSubstatScaling = Partial<Record<SubstatScalingKey, number>>
 
 export interface Awakener {
   id: string
@@ -55,6 +60,7 @@ export interface Awakener {
   stats?: AwakenerLiteStats
   primaryScalingBase?: number
   statScaling?: AwakenerStatScaling
+  substatScaling?: AwakenerLiteSubstatScaling
   tags: string[]
   unreleased?: boolean
   lineupToken: string
@@ -139,6 +145,7 @@ const parsedAwakeners = getPublicCatalogRecords('awakeners')
       stats: awakener.baseStatsLv1,
       primaryScalingBase: awakener.primaryScalingBase,
       statScaling: awakener.statScaling,
+      substatScaling: awakener.substatScaling,
       tags,
       lineupToken: awakener.lineupToken,
     }

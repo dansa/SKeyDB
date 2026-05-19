@@ -109,6 +109,8 @@ export function AwakenersBrowse({controller}: EntityBrowseProps): ReactNode {
     setRarityFilter: browseState.setRarityFilter,
     setTypeFilter: browseState.setTypeFilter,
     setAvailabilityFilter: browseState.setAvailabilityFilter,
+    setGameplayFactionFilters: browseState.setGameplayFactionFilters,
+    setScalingSubstatFilters: browseState.setScalingSubstatFilters,
   })
 
   useActiveGlobalSearchCapture(controller, browseState)
@@ -125,10 +127,14 @@ export function AwakenersBrowse({controller}: EntityBrowseProps): ReactNode {
           onRarityFilterChange={browseState.setRarityFilter}
           onRealmFilterChange={browseState.setRealmFilter}
           onTypeFilterChange={browseState.setTypeFilter}
+          onGameplayFactionFilterToggle={browseState.toggleGameplayFactionFilter}
+          onScalingSubstatFilterToggle={browseState.toggleScalingSubstatFilter}
           query={browseState.query}
           availabilityFilter={browseState.availabilityFilter}
+          gameplayFactionFilters={browseState.gameplayFactionFilters}
           rarityFilter={browseState.rarityFilter}
           realmFilter={browseState.realmFilter}
+          scalingSubstatFilters={browseState.scalingSubstatFilters}
           searchInputRef={controller.searchInputRef}
           typeFilter={browseState.typeFilter}
         />

@@ -1,5 +1,7 @@
+import {SUBSTAT_SCALING_KEYS, type SubstatScalingKey} from '@/domain/awakener-source-schema'
 import {
   normalizeBrowseQuery,
+  parseEnumListSearchParam,
   parseEnumSearchParam,
   patchSearchParams,
   setSearchParam,
@@ -8,6 +10,7 @@ import type {CollectionSortDirection} from '@/domain/collection-sorting'
 import type {DatabaseSortKey} from '@/domain/database-sorting'
 
 export type {DatabaseSortKey} from '@/domain/database-sorting'
+export type {SubstatScalingKey} from '@/domain/awakener-source-schema'
 
 export const DATABASE_REALM_FILTER_IDS = ['ALL', 'AEQUOR', 'CARO', 'CHAOS', 'ULTRA'] as const
 export type RealmFilterId = (typeof DATABASE_REALM_FILTER_IDS)[number]
@@ -24,6 +27,8 @@ export const DATABASE_AVAILABILITY_FILTER_IDS = [
   'LIMITED_ASTRAL_REIGN',
 ] as const
 export type AvailabilityFilterId = (typeof DATABASE_AVAILABILITY_FILTER_IDS)[number]
+export const DATABASE_GAMEPLAY_FACTION_FILTER_IDS = ['Lemurian'] as const
+export type GameplayFactionFilterId = (typeof DATABASE_GAMEPLAY_FACTION_FILTER_IDS)[number]
 
 export function getAvailabilityFilterLabel(id: AvailabilityFilterId): string {
   switch (id) {
@@ -91,6 +96,8 @@ export interface DatabaseBrowseState {
   rarityFilter: RarityFilterId
   typeFilter: TypeFilterId
   availabilityFilter: AvailabilityFilterId
+  gameplayFactionFilters: GameplayFactionFilterId[]
+  scalingSubstatFilters: SubstatScalingKey[]
   sortKey: DatabaseSortKey
   sortDirection: CollectionSortDirection
   groupByRealm: boolean
@@ -102,6 +109,8 @@ export const DATABASE_BROWSE_DEFAULTS: DatabaseBrowseState = {
   rarityFilter: 'ALL',
   typeFilter: 'ALL',
   availabilityFilter: 'ALL',
+  gameplayFactionFilters: [],
+  scalingSubstatFilters: [],
   sortKey: 'ALPHABETICAL',
   sortDirection: 'ASC',
   groupByRealm: false,
@@ -137,6 +146,14 @@ export function parseDatabaseBrowseState(searchParams: URLSearchParams): Databas
       searchParams.get('availability'),
       DATABASE_AVAILABILITY_FILTER_IDS,
       DATABASE_BROWSE_DEFAULTS.availabilityFilter,
+    ),
+    gameplayFactionFilters: parseEnumListSearchParam(
+      searchParams.get('faction'),
+      DATABASE_GAMEPLAY_FACTION_FILTER_IDS,
+    ),
+    scalingSubstatFilters: parseEnumListSearchParam(
+      searchParams.get('scaling'),
+      SUBSTAT_SCALING_KEYS,
     ),
     sortKey: parseEnumSearchParam(
       searchParams.get('sort'),
@@ -185,6 +202,20 @@ export function patchDatabaseBrowseState(
         nextState.availabilityFilter === DATABASE_BROWSE_DEFAULTS.availabilityFilter
           ? undefined
           : nextState.availabilityFilter,
+      )
+      setSearchParam(
+        nextParams,
+        'faction',
+        nextState.gameplayFactionFilters.length > 0
+          ? nextState.gameplayFactionFilters.join(',')
+          : undefined,
+      )
+      setSearchParam(
+        nextParams,
+        'scaling',
+        nextState.scalingSubstatFilters.length > 0
+          ? nextState.scalingSubstatFilters.join(',')
+          : undefined,
       )
       setSearchParam(
         nextParams,

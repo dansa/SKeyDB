@@ -38,6 +38,36 @@ describe('searchAwakeners', () => {
     expect(results.every((a) => a.tags.includes('Draw'))).toBe(true)
   })
 
+  it('matches awakeners by promoted scaling substats from lite catalog data', () => {
+    const awakeners: Awakener[] = [
+      {
+        id: 'awakener-0001',
+        numericId: 1,
+        name: 'caecus',
+        aliases: ['caecus'],
+        realm: 'AEQUOR',
+        faction: 'Hybrid',
+        tags: [],
+        substatScaling: {RealmMastery: 2, SigilYield: 1.2},
+        lineupToken: 'a',
+      },
+      {
+        id: 'awakener-0002',
+        numericId: 2,
+        name: 'agrippa',
+        aliases: ['agrippa'],
+        realm: 'CARO',
+        faction: 'Outlanders',
+        tags: [],
+        substatScaling: {RealmMastery: 0},
+        lineupToken: 'b',
+      },
+    ]
+
+    expect(searchAwakeners(awakeners, 'realm mastery').map((x) => x.name)).toEqual(['caecus'])
+    expect(searchAwakeners(awakeners, 'sigil').map((x) => x.name)).toEqual(['caecus'])
+  })
+
   it('does not cross-match distinct public tags', () => {
     const awakeners = getAwakeners()
     const results = searchAwakeners(awakeners, 'Divine Realm')

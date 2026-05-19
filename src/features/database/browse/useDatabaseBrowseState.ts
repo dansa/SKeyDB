@@ -8,8 +8,10 @@ import {
   patchDatabaseBrowseState,
   type AvailabilityFilterId,
   type DatabaseBrowseState,
+  type GameplayFactionFilterId,
   type RarityFilterId,
   type RealmFilterId,
+  type SubstatScalingKey,
   type TypeFilterId,
 } from '@/domain/database-browse-state'
 import type {DatabaseSortKey} from '@/domain/database-sorting'
@@ -53,9 +55,11 @@ export function useDatabaseBrowseState() {
   const {
     availabilityFilter,
     groupByRealm,
+    gameplayFactionFilters,
     query,
     rarityFilter,
     realmFilter,
+    scalingSubstatFilters,
     sortDirection,
     sortKey,
     typeFilter,
@@ -91,6 +95,38 @@ export function useDatabaseBrowseState() {
     [commitBrowseState],
   )
 
+  const setGameplayFactionFilters = useCallback(
+    (next: GameplayFactionFilterId[]) => {
+      commitBrowseState({gameplayFactionFilters: next}, 'push')
+    },
+    [commitBrowseState],
+  )
+
+  const toggleGameplayFactionFilter = useCallback(
+    (filter: GameplayFactionFilterId) => {
+      const next = gameplayFactionFilters.includes(filter) ? [] : [filter]
+      setGameplayFactionFilters(next)
+    },
+    [gameplayFactionFilters, setGameplayFactionFilters],
+  )
+
+  const setScalingSubstatFilters = useCallback(
+    (next: SubstatScalingKey[]) => {
+      commitBrowseState({scalingSubstatFilters: next}, 'push')
+    },
+    [commitBrowseState],
+  )
+
+  const toggleScalingSubstatFilter = useCallback(
+    (filter: SubstatScalingKey) => {
+      const next = scalingSubstatFilters.includes(filter)
+        ? scalingSubstatFilters.filter((value) => value !== filter)
+        : [...scalingSubstatFilters, filter]
+      setScalingSubstatFilters(next)
+    },
+    [scalingSubstatFilters, setScalingSubstatFilters],
+  )
+
   const setSortKey = useCallback(
     (next: DatabaseSortKey) => {
       commitBrowseState({sortKey: next}, 'push')
@@ -122,6 +158,8 @@ export function useDatabaseBrowseState() {
         rarityFilter: 'ALL',
         typeFilter: 'ALL',
         availabilityFilter: 'ALL',
+        gameplayFactionFilters: [],
+        scalingSubstatFilters: [],
       },
       'push',
     )
@@ -130,9 +168,11 @@ export function useDatabaseBrowseState() {
   return {
     groupByRealm,
     availabilityFilter,
+    gameplayFactionFilters,
     query,
     rarityFilter,
     realmFilter,
+    scalingSubstatFilters,
     sortDirection,
     sortKey,
     typeFilter,
@@ -144,6 +184,10 @@ export function useDatabaseBrowseState() {
     setRarityFilter,
     setTypeFilter,
     setAvailabilityFilter,
+    setGameplayFactionFilters,
+    setScalingSubstatFilters,
+    toggleGameplayFactionFilter,
+    toggleScalingSubstatFilter,
     setSortKey,
     toggleSortDirection,
     setGroupByRealm,

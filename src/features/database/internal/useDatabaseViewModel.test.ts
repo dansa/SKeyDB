@@ -36,6 +36,8 @@ function makeBrowseState(overrides: Partial<DatabaseBrowseState> = {}): Database
     rarityFilter: 'ALL',
     typeFilter: 'ALL',
     availabilityFilter: 'ALL',
+    gameplayFactionFilters: [],
+    scalingSubstatFilters: [],
     sortKey: 'ALPHABETICAL',
     sortDirection: 'ASC',
     groupByRealm: false,
@@ -104,6 +106,41 @@ describe('filterAwakenersForDatabase', () => {
       ),
     ).toEqual(['Astral'])
   })
+
+  it('filters gameplay faction tags and scaling substats', () => {
+    const awakeners = [
+      makeAwakener({
+        id: 'awakener-0001',
+        name: 'Full Match',
+        tags: ['Lemurian'],
+        substatScaling: {KeyflareRegen: 1, DamageAmplification: 0.5},
+      }),
+      makeAwakener({
+        id: 'awakener-0002',
+        name: 'Wrong Faction',
+        tags: [],
+        substatScaling: {KeyflareRegen: 1, DamageAmplification: 0.5},
+      }),
+      makeAwakener({
+        id: 'awakener-0003',
+        name: 'Missing Scaling',
+        tags: ['Lemurian'],
+        substatScaling: {KeyflareRegen: 1, DamageAmplification: 0},
+      }),
+    ]
+
+    expect(
+      filterAwakenersForDatabase(
+        awakeners,
+        'ALL',
+        'ALL',
+        'ALL',
+        'ALL',
+        ['Lemurian'],
+        ['KeyflareRegen', 'DamageAmplification'],
+      ).map((awakener) => awakener.name),
+    ).toEqual(['Full Match'])
+  })
 })
 
 describe('useDatabaseViewModel', () => {
@@ -130,6 +167,31 @@ describe('useDatabaseViewModel', () => {
         awakeners,
         makeBrowseState({query: 'vul', sortKey: 'ATK', sortDirection: 'DESC'}),
       ),
+    )
+
+    expect(result.current.awakeners.map((awakener) => awakener.name)).toEqual(['Vulcan', 'Alpha'])
+  })
+
+  it('keeps active search relevance ahead of realm grouping', () => {
+    const awakeners = [
+      makeAwakener({
+        id: 'awakener-0001',
+        name: 'Alpha',
+        aliases: ['Alpha'],
+        realm: 'CHAOS',
+        tags: ['vuln'],
+      }),
+      makeAwakener({
+        id: 'awakener-0002',
+        name: 'Vulcan',
+        aliases: ['Vulcan'],
+        realm: 'CARO',
+        tags: [],
+      }),
+    ]
+
+    const {result} = renderHook(() =>
+      useDatabaseViewModel(awakeners, makeBrowseState({query: 'vul', groupByRealm: true})),
     )
 
     expect(result.current.awakeners.map((awakener) => awakener.name)).toEqual(['Vulcan', 'Alpha'])
@@ -164,5 +226,30 @@ describe('useDatabaseViewModel', () => {
       'Higher ATK',
       'Lower ATK',
     ])
+  })
+
+  it('uses realm grouping inside equal relevance buckets', () => {
+    const awakeners = [
+      makeAwakener({
+        id: 'awakener-0001',
+        name: 'Able',
+        aliases: ['Able'],
+        realm: 'CARO',
+        tags: ['Draw'],
+      }),
+      makeAwakener({
+        id: 'awakener-0002',
+        name: 'Zed',
+        aliases: ['Zed'],
+        realm: 'CHAOS',
+        tags: ['Draw'],
+      }),
+    ]
+
+    const {result} = renderHook(() =>
+      useDatabaseViewModel(awakeners, makeBrowseState({query: 'draw', groupByRealm: true})),
+    )
+
+    expect(result.current.awakeners.map((awakener) => awakener.name)).toEqual(['Zed', 'Able'])
   })
 })

@@ -15,6 +15,7 @@ import {
 type SearchFieldName = 'name' | 'alias' | 'owner' | 'tag' | 'facet' | 'token'
 
 type SearchFields = Partial<Record<SearchFieldName, string[]>>
+type SearchFieldPriorityMap = Record<SearchFieldMatchKind, number>
 
 export interface PublicSearchableEntity {
   id: string
@@ -39,8 +40,40 @@ interface IndexedPublicSearchRecord<TEntity extends PublicSearchableEntity> {
 
 interface PublicSearchDirectMatch<TEntity extends PublicSearchableEntity> {
   entity: TEntity
+  fieldName: SearchFieldName
   priority: number
 }
+
+interface PublicSearchPriority {
+  fieldName: SearchFieldName
+  priority: number
+}
+
+const FACET_TOKEN_STOPWORD_QUERIES = new Set(['a', 'an', 'of', 'the'])
+const SEARCH_PRIORITY_DISABLED = 99
+const PRIMARY_DIRECT_PRIORITY_MAX = 5
+const SHORT_TAG_QUERY_MIN_LENGTH = 2
+
+const DIRECT_SEARCH_FIELD_ORDER: SearchFieldName[] = [
+  'name',
+  'alias',
+  'owner',
+  'tag',
+  'facet',
+  'token',
+]
+
+const FIELD_MATCH_PRIORITIES: Record<SearchFieldName, SearchFieldPriorityMap> = {
+  name: {exact: 0, prefix: 1, wordPrefix: 2, contains: 6},
+  alias: {exact: 3, prefix: 4, wordPrefix: 5, contains: 7},
+  owner: {exact: 8, prefix: 9, wordPrefix: 10, contains: SEARCH_PRIORITY_DISABLED},
+  tag: {exact: 13, prefix: 14, wordPrefix: 15, contains: SEARCH_PRIORITY_DISABLED},
+  facet: {exact: 18, prefix: 19, wordPrefix: 20, contains: SEARCH_PRIORITY_DISABLED},
+  token: {exact: 23, prefix: 24, wordPrefix: 25, contains: SEARCH_PRIORITY_DISABLED},
+}
+
+const SINGLE_CHARACTER_FIELDS = new Set<SearchFieldName>(['name', 'alias'])
+const STOPWORD_BLOCKED_FIELDS = new Set<SearchFieldName>(['facet', 'token'])
 
 export function searchPublicEntities<TEntity extends PublicSearchableEntity>(
   scope: SearchablePublicDataScope,
@@ -79,7 +112,11 @@ export function searchPublicEntityResults<TEntity extends PublicSearchableEntity
     return directMatches
   }
 
-  const fuzzyMatches = getPublicSearchFuse(scope, entities, options)
+  if (FACET_TOKEN_STOPWORD_QUERIES.has(normalizedQuery)) {
+    return directMatches
+  }
+
+  const fuzzyMatches = getPublicSearchFuse(indexedEntities)
     .search(normalizedQuery)
     .filter((result) =>
       isRelevantPublicFuzzyMatch(result.matches ?? [], normalizedQuery, result.score ?? 1),
@@ -105,12 +142,23 @@ function collectPublicDirectMatches<TEntity extends PublicSearchableEntity>(
     .map((record) => ({
       entity: record.entity,
       displayName: record.displayName,
-      priority: getPublicSearchPriority(record, normalizedQuery),
+      priorityMatch: getPublicSearchPriority(record, normalizedQuery),
     }))
     .filter(
-      (match): match is {displayName: string; entity: TEntity; priority: number} =>
-        match.priority !== null,
+      (
+        match,
+      ): match is {
+        displayName: string
+        entity: TEntity
+        priorityMatch: PublicSearchPriority
+      } => match.priorityMatch !== null,
     )
+    .map((match) => ({
+      displayName: match.displayName,
+      entity: match.entity,
+      fieldName: match.priorityMatch.fieldName,
+      priority: match.priorityMatch.priority,
+    }))
     .sort((left, right) => {
       if (left.priority !== right.priority) {
         return left.priority - right.priority
@@ -126,13 +174,34 @@ function getPublicSearchDirectResults<TEntity extends PublicSearchableEntity>(
   matches: PublicSearchDirectMatch<TEntity>[],
   queryLength: number,
 ): PublicSearchResult<TEntity>[] {
-  if (queryLength < 3 && matches.some((match) => match.priority <= 5)) {
+  const hasPrimaryMatch = matches.some(isPrimaryDirectMatch)
+  if (queryLength < 3 && hasPrimaryMatch) {
     return matches
-      .filter((match) => match.priority <= 5)
+      .filter((match) => shouldKeepShortDirectMatch(match, queryLength, hasPrimaryMatch))
       .map((match) => ({entity: match.entity, relevance: match.priority}))
   }
 
   return matches.map((match) => ({entity: match.entity, relevance: match.priority}))
+}
+
+function isPrimaryDirectMatch<TEntity extends PublicSearchableEntity>(
+  match: PublicSearchDirectMatch<TEntity>,
+): boolean {
+  return match.priority <= PRIMARY_DIRECT_PRIORITY_MAX
+}
+
+function shouldKeepShortDirectMatch<TEntity extends PublicSearchableEntity>(
+  match: PublicSearchDirectMatch<TEntity>,
+  queryLength: number,
+  hasPrimaryMatch: boolean,
+): boolean {
+  if (queryLength >= 3 || !hasPrimaryMatch) {
+    return true
+  }
+  if (isPrimaryDirectMatch(match)) {
+    return true
+  }
+  return queryLength >= SHORT_TAG_QUERY_MIN_LENGTH && match.fieldName === 'tag'
 }
 
 function getFuzzySearchRelevance(score: number): number {
@@ -160,11 +229,9 @@ function getIndexedPublicSearchRecords<TEntity extends PublicSearchableEntity>(
 }
 
 function getPublicSearchFuse<TEntity extends PublicSearchableEntity>(
-  scope: SearchablePublicDataScope,
-  entities: TEntity[],
-  options: PublicSearchOptions<TEntity>,
+  records: IndexedPublicSearchRecord<TEntity>[],
 ): Fuse<IndexedPublicSearchRecord<TEntity>> {
-  return new Fuse(getIndexedPublicSearchRecords(scope, entities, options), {
+  return new Fuse(records, {
     threshold: 0.58,
     ignoreLocation: true,
     includeMatches: true,
@@ -225,63 +292,48 @@ function normalizeSearchFields(fields: SearchFields): SearchFields {
 function getPublicSearchPriority<TEntity extends PublicSearchableEntity>(
   record: IndexedPublicSearchRecord<TEntity>,
   normalizedQuery: string,
-): number | null {
-  const priorities = (['name', 'alias', 'owner', 'tag', 'facet', 'token'] as const)
-    .map((fieldName) =>
-      toPriority(
-        getBestSearchFieldMatch(record.fields[fieldName], normalizedQuery),
-        getFieldPriorityMap(fieldName, normalizedQuery.length),
-        {ignorePriorityAtOrAbove: 99},
-      ),
+): PublicSearchPriority | null {
+  const priorities = DIRECT_SEARCH_FIELD_ORDER.map((fieldName) => {
+    const priority = toPriority(
+      getBestSearchFieldMatch(record.fields[fieldName], normalizedQuery),
+      getFieldPriorityMap(fieldName, normalizedQuery),
+      {ignorePriorityAtOrAbove: 99},
     )
-    .filter((priority): priority is number => priority !== null)
+    return priority === null ? null : {fieldName, priority}
+  }).filter((priority): priority is PublicSearchPriority => priority !== null)
 
-  return priorities.length > 0 ? Math.min(...priorities) : null
+  if (priorities.length === 0) {
+    return null
+  }
+
+  return priorities.reduce((bestPriority, priority) =>
+    priority.priority < bestPriority.priority ? priority : bestPriority,
+  )
 }
 
 function getFieldPriorityMap(
   fieldName: SearchFieldName,
-  queryLength: number,
-): Record<SearchFieldMatchKind, number> {
-  const shortContainsPriority = queryLength < 3 ? 99 : undefined
-  if (fieldName === 'name') {
-    return {
-      exact: 0,
-      prefix: 1,
-      wordPrefix: 2,
-      contains: shortContainsPriority ?? 6,
-    }
+  normalizedQuery: string,
+): SearchFieldPriorityMap {
+  const queryLength = normalizedQuery.length
+  if (queryLength === 1 && !SINGLE_CHARACTER_FIELDS.has(fieldName)) {
+    return getDisabledFieldPriorityMap()
   }
-  if (fieldName === 'alias') {
-    return {
-      exact: 3,
-      prefix: 4,
-      wordPrefix: 5,
-      contains: shortContainsPriority ?? 7,
-    }
+  if (FACET_TOKEN_STOPWORD_QUERIES.has(normalizedQuery) && STOPWORD_BLOCKED_FIELDS.has(fieldName)) {
+    return getDisabledFieldPriorityMap()
   }
-  if (queryLength === 1) {
-    return {exact: 99, prefix: 99, wordPrefix: 99, contains: 99}
+
+  const priorities = FIELD_MATCH_PRIORITIES[fieldName]
+  return queryLength < 3 ? {...priorities, contains: SEARCH_PRIORITY_DISABLED} : priorities
+}
+
+function getDisabledFieldPriorityMap(): SearchFieldPriorityMap {
+  return {
+    exact: SEARCH_PRIORITY_DISABLED,
+    prefix: SEARCH_PRIORITY_DISABLED,
+    wordPrefix: SEARCH_PRIORITY_DISABLED,
+    contains: SEARCH_PRIORITY_DISABLED,
   }
-  if (fieldName === 'owner') {
-    return {exact: 8, prefix: 9, wordPrefix: 10, contains: 99}
-  }
-  if (queryLength < 3) {
-    if (fieldName === 'tag') {
-      return {exact: 13, prefix: 14, wordPrefix: 15, contains: 99}
-    }
-    if (fieldName === 'facet') {
-      return {exact: 18, prefix: 19, wordPrefix: 20, contains: 99}
-    }
-    return {exact: 23, prefix: 24, wordPrefix: 25, contains: 99}
-  }
-  if (fieldName === 'tag') {
-    return {exact: 13, prefix: 14, wordPrefix: 15, contains: 99}
-  }
-  if (fieldName === 'facet') {
-    return {exact: 18, prefix: 19, wordPrefix: 20, contains: 99}
-  }
-  return {exact: 23, prefix: 24, wordPrefix: 25, contains: 99}
 }
 
 function documentMatchesEntity(
