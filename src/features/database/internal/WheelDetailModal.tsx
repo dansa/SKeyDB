@@ -6,6 +6,9 @@ import type {DatabaseAwakenerTab} from '@/domain/database-paths'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
+import type {DatabaseDetailResultNavigation} from '@/features/database/detail/database-detail-result-navigation'
+import {DatabaseDetailResultNavigator} from '@/features/database/detail/DatabaseDetailResultNavigator'
+import {DbDetailModalFrame} from '@/features/database/detail/DbDetailModalFrame'
 import {ArtViewerOverlay} from '@/ui/modal/ArtViewerOverlay'
 
 import {DatabasePopoverContext} from './database-popover-context'
@@ -22,6 +25,7 @@ interface WheelDetailModalProps {
   wheel: Wheel
   wheels?: Wheel[]
   fullData: WheelFullRecord
+  navigation?: DatabaseDetailResultNavigation | null
   onClose: () => void
   onSelectAwakener?: (awakener: {id: string; name: string}, tab?: DatabaseAwakenerTab) => void
   onSelectWheel?: (wheel: Pick<Wheel, 'id' | 'name'>) => void
@@ -29,6 +33,7 @@ interface WheelDetailModalProps {
 
 export function WheelDetailModal({
   fullData,
+  navigation = null,
   onClose,
   onSelectAwakener,
   onSelectWheel,
@@ -39,6 +44,7 @@ export function WheelDetailModal({
     <WheelDetailModalInner
       fullData={fullData}
       key={wheel.id}
+      navigation={navigation}
       onClose={onClose}
       onSelectAwakener={onSelectAwakener}
       onSelectWheel={onSelectWheel}
@@ -50,6 +56,7 @@ export function WheelDetailModal({
 
 function WheelDetailModalInner({
   fullData,
+  navigation = null,
   onClose,
   onSelectAwakener,
   onSelectWheel,
@@ -91,139 +98,133 @@ function WheelDetailModalInner({
   const fullArtAlt = useMemo(() => `${wheel.name} full art`, [wheel.name])
 
   return (
-    <div
-      className='fixed inset-0 z-[900] flex items-center justify-center bg-slate-950/78 p-4 md:p-6'
-      onClick={handleOverlayClick}
-    >
-      <div
-        className='relative z-[901] flex w-full max-w-6xl flex-col gap-2.5 md:gap-3'
-        data-detail-modal-shell=''
-        onKeyDown={handlePanelKeyDown}
-      >
-        <div className='shrink-0'>
-          <WheelDetailSearchBar
-            activeIndex={search.activeSearchIndex}
-            containerRef={search.searchContainerRef}
-            inputRef={search.searchInputRef}
-            isOpen={search.isSearchOpen}
-            onInputFocus={() => {
-              if (search.searchQuery.trim().length > 0) {
-                search.openSearch()
-              }
-            }}
-            onInputKeyDown={search.handleSearchInputKeyDown}
-            onQueryChange={search.handleSearchQueryChange}
-            onSelectWheel={search.handleSelectResult}
-            query={search.searchQuery}
-            results={search.searchResults}
-          />
-        </div>
-
-        <div
-          aria-label={`${wheel.name} details`}
-          aria-modal='true'
-          className='relative flex max-h-[calc(100dvh-7rem)] min-h-[350px] w-full overflow-hidden border border-amber-200/55 bg-slate-950/[.985] pb-5 shadow-[0_24px_70px_rgba(2,6,23,0.8)] md:max-h-[calc(100dvh-8rem)]'
-          ref={panelRef}
-          role='dialog'
-          style={getDescriptionFontScaleStyle(preferences.shared.fontScale)}
-        >
-          <div className='absolute top-3 right-3 z-10 flex items-center gap-1.5' ref={settingsRef}>
-            <button
-              aria-expanded={isSettingsOpen}
-              aria-label='Open detail settings'
-              className='inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100'
-              data-detail-settings-trigger=''
-              onClick={() => {
-                setIsSettingsOpen((previous) => !previous)
+    <DbDetailModalFrame
+      ariaLabel={`${wheel.name} details`}
+      beforeBody={
+        <>
+          <div className='shrink-0'>
+            <WheelDetailSearchBar
+              activeIndex={search.activeSearchIndex}
+              containerRef={search.searchContainerRef}
+              inputRef={search.searchInputRef}
+              isOpen={search.isSearchOpen}
+              onInputFocus={() => {
+                if (search.searchQuery.trim().length > 0) {
+                  search.openSearch()
+                }
               }}
-              type='button'
-            >
-              <FaGear className='h-3.5 w-3.5' />
-            </button>
-            <button
-              aria-label='Close wheel detail'
-              className='inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100'
-              onClick={onClose}
-              type='button'
-            >
-              <FaXmark className='h-4 w-4' />
-            </button>
-            {isSettingsOpen ? (
-              <WheelDetailSettingsPanel
-                onUpdateSharedPreferences={updateSharedPreferences}
-                onUpdateWheelPreferences={updateWheelPreferences}
-                preferences={preferences.wheel}
-                sharedPreferences={preferences.shared}
-              />
-            ) : null}
+              onInputKeyDown={search.handleSearchInputKeyDown}
+              onQueryChange={search.handleSearchQueryChange}
+              onSelectWheel={search.handleSelectResult}
+              query={search.searchQuery}
+              results={search.searchResults}
+            />
           </div>
-          <DatabasePopoverContext.Provider value={popoverContextValue}>
-            <div className='flex max-h-[calc(100dvh-8rem)] min-h-0'>
-              <aside className='database-scrollbar hidden w-[18.75rem] shrink-0 overflow-y-auto bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] px-6 py-6 md:flex md:items-start md:justify-center'>
-                <WheelDetailArtwork
-                  onOpenFullArt={
-                    wheelAsset
-                      ? () => {
-                          setIsArtViewerOpen(true)
-                        }
-                      : undefined
-                  }
-                  wheel={wheel}
-                />
-              </aside>
+          <DatabaseDetailResultNavigator navigation={navigation} />
+        </>
+      }
+      onOverlayClick={handleOverlayClick}
+      onPanelKeyDown={handlePanelKeyDown}
+      panelRef={panelRef}
+      shellStyle={getDescriptionFontScaleStyle(preferences.shared.fontScale)}
+    >
+      <div className='relative flex min-h-0 flex-auto overflow-hidden border border-amber-200/55 bg-slate-950/[.985] pb-5 shadow-[0_24px_70px_rgba(2,6,23,0.8)]'>
+        <div className='absolute top-3 right-3 z-10 flex items-center gap-1.5' ref={settingsRef}>
+          <button
+            aria-expanded={isSettingsOpen}
+            aria-label='Open detail settings'
+            className='inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100 focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
+            data-detail-settings-trigger=''
+            onClick={() => {
+              setIsSettingsOpen((previous) => !previous)
+            }}
+            type='button'
+          >
+            <FaGear className='h-3.5 w-3.5' />
+          </button>
+          <button
+            aria-label='Close wheel detail'
+            className='inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100 focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
+            onClick={onClose}
+            type='button'
+          >
+            <FaXmark className='h-4 w-4' />
+          </button>
+          {isSettingsOpen ? (
+            <WheelDetailSettingsPanel
+              onUpdateSharedPreferences={updateSharedPreferences}
+              onUpdateWheelPreferences={updateWheelPreferences}
+              preferences={preferences.wheel}
+              sharedPreferences={preferences.shared}
+            />
+          ) : null}
+        </div>
+        <DatabasePopoverContext.Provider value={popoverContextValue}>
+          <div className='flex min-h-0 flex-1'>
+            <aside className='database-scrollbar hidden w-[18.75rem] shrink-0 overflow-y-auto bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] px-6 py-6 md:flex md:items-start md:justify-center'>
+              <WheelDetailArtwork
+                onOpenFullArt={
+                  wheelAsset
+                    ? () => {
+                        setIsArtViewerOpen(true)
+                      }
+                    : undefined
+                }
+                wheel={wheel}
+              />
+            </aside>
 
-              <div className='flex min-h-0 min-w-0 flex-1 flex-col'>
-                <div className='flex min-h-0 flex-1 flex-col px-4 py-4 pr-5 sm:px-5 sm:py-5 md:px-6 md:py-5'>
-                  <WheelDetailContent
-                    descriptionRank={descriptionRank}
-                    enhanceLevel={enhanceLevel}
-                    expandLoreByDefault={preferences.wheel.expandLoreByDefault}
-                    fullData={fullData}
-                    formulaContext={formulaContext}
-                    mainstatValue={resolvedMainstatValue}
-                    mobileArtwork={
-                      <WheelDetailArtwork
-                        onOpenFullArt={
-                          wheelAsset
-                            ? () => {
-                                setIsArtViewerOpen(true)
-                              }
-                            : undefined
-                        }
-                        variant='compact'
-                        wheel={wheel}
-                      />
-                    }
-                    onEnhanceLevelChange={setEnhanceLevel}
-                    onSelectAwakener={onSelectAwakener}
-                    referenceLayer={referenceLayer}
-                    showTagIcons={preferences.shared.showTagIcons}
-                    wheel={wheel}
-                    wheelDescriptionRecord={wheelDescriptionRecord}
-                  />
-                  <Suspense fallback={null}>
-                    <DatabasePopoverRoot
-                      {...popoverRootProps}
-                      fontScale={preferences.shared.fontScale}
-                      showTagIcons={preferences.shared.showTagIcons}
+            <div className='flex min-h-0 min-w-0 flex-1 flex-col'>
+              <div className='flex min-h-0 flex-1 flex-col px-4 py-4 pr-5 sm:px-5 sm:py-5 md:px-6 md:py-5'>
+                <WheelDetailContent
+                  descriptionRank={descriptionRank}
+                  enhanceLevel={enhanceLevel}
+                  expandLoreByDefault={preferences.wheel.expandLoreByDefault}
+                  fullData={fullData}
+                  formulaContext={formulaContext}
+                  mainstatValue={resolvedMainstatValue}
+                  mobileArtwork={
+                    <WheelDetailArtwork
+                      onOpenFullArt={
+                        wheelAsset
+                          ? () => {
+                              setIsArtViewerOpen(true)
+                            }
+                          : undefined
+                      }
+                      variant='compact'
+                      wheel={wheel}
                     />
-                  </Suspense>
-                </div>
+                  }
+                  onEnhanceLevelChange={setEnhanceLevel}
+                  onSelectAwakener={onSelectAwakener}
+                  referenceLayer={referenceLayer}
+                  showTagIcons={preferences.shared.showTagIcons}
+                  wheel={wheel}
+                  wheelDescriptionRecord={wheelDescriptionRecord}
+                />
+                <Suspense fallback={null}>
+                  <DatabasePopoverRoot
+                    {...popoverRootProps}
+                    fontScale={preferences.shared.fontScale}
+                    showTagIcons={preferences.shared.showTagIcons}
+                  />
+                </Suspense>
               </div>
             </div>
-          </DatabasePopoverContext.Provider>
-        </div>
-        {isArtViewerOpen && wheelAsset ? (
-          <ArtViewerOverlay
-            alt={fullArtAlt}
-            onMount={suppressDetailEntitySearchCapture}
-            onClose={() => {
-              setIsArtViewerOpen(false)
-            }}
-            src={wheelAsset}
-          />
-        ) : null}
+          </div>
+        </DatabasePopoverContext.Provider>
       </div>
-    </div>
+      {isArtViewerOpen && wheelAsset ? (
+        <ArtViewerOverlay
+          alt={fullArtAlt}
+          onMount={suppressDetailEntitySearchCapture}
+          onClose={() => {
+            setIsArtViewerOpen(false)
+          }}
+          src={wheelAsset}
+        />
+      ) : null}
+    </DbDetailModalFrame>
   )
 }

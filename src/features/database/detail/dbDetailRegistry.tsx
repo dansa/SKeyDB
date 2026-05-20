@@ -18,6 +18,8 @@ import type {PosseFullRecord} from '@/domain/posses-full'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
 
+import type {DatabaseDetailResultNavigation} from './database-detail-result-navigation'
+
 const AwakenerDetailModal = lazy(() =>
   import('@/features/database/internal/AwakenerDetailModal').then((module) => ({
     default: module.AwakenerDetailModal,
@@ -40,6 +42,7 @@ export interface DatabaseDetailRenderCallbacks {
   onClose: () => void
   onSelectAwakener: (awakener: Pick<Awakener, 'id' | 'name'>, tab?: DatabaseAwakenerTab) => void
   onSelectWheel: (wheel: Pick<Wheel, 'id' | 'name'>) => void
+  onSelectPosse: (posse: Pick<Posse, 'id' | 'name'>) => void
   onSelectCovenant: (covenant: Pick<Covenant, 'id' | 'name'>) => void
   onTabChange: (tab: DatabaseAwakenerTab) => void
 }
@@ -65,6 +68,7 @@ interface DatabaseDetailRenderOptions<Kind extends DatabaseDetailKind> {
   awakeners: Awakener[]
   callbacks: DatabaseDetailRenderCallbacks
   item: DatabaseDetailRouteItemByKind[Kind]
+  navigation: DatabaseDetailResultNavigation | null
   record: DatabaseDetailRecordByKind[Kind]
   wheels: Wheel[]
 }
@@ -109,7 +113,7 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
     loadRecord: loadAwakenerDetailRecord,
     loadingLabel: 'Loading awakener details...',
     missingBrowsePath: buildDatabaseEntityBrowsePath('awakeners'),
-    render: ({awakeners, callbacks, item, record}) => {
+    render: ({awakeners, callbacks, item, navigation, record}) => {
       return (
         <AwakenerDetailModal
           activeTab={item.activeTab}
@@ -117,6 +121,7 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
           awakeners={awakeners}
           fullData={record}
           key={item.item.id}
+          navigation={navigation}
           onClose={callbacks.onClose}
           onSelectAwakener={callbacks.onSelectAwakener}
           onSelectCovenant={callbacks.onSelectCovenant}
@@ -130,11 +135,12 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
     loadRecord: loadWheelDetailRecord,
     loadingLabel: 'Loading wheel details...',
     missingBrowsePath: buildDatabaseWheelBrowsePath(),
-    render: ({callbacks, item, record, wheels}) => {
+    render: ({callbacks, item, navigation, record, wheels}) => {
       return (
         <WheelDetailModal
           fullData={record}
           key={item.item.id}
+          navigation={navigation}
           onClose={callbacks.onClose}
           onSelectAwakener={callbacks.onSelectAwakener}
           onSelectWheel={callbacks.onSelectWheel}
@@ -148,12 +154,13 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
     loadRecord: loadPosseDetailRecord,
     loadingLabel: 'Loading posse details...',
     missingBrowsePath: buildDatabasePosseBrowsePath(),
-    render: ({callbacks, item, record}) => {
+    render: ({callbacks, item, navigation, record}) => {
       return (
         <SimpleArtifactDetailModal
           fullData={record}
           item={item.item}
           kind='posse'
+          navigation={navigation}
           onClose={callbacks.onClose}
           onSelectAwakener={callbacks.onSelectAwakener}
         />
@@ -164,12 +171,13 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
     loadRecord: loadCovenantDetailRecord,
     loadingLabel: 'Loading covenant details...',
     missingBrowsePath: buildDatabaseCovenantBrowsePath(),
-    render: ({callbacks, item, record}) => {
+    render: ({callbacks, item, navigation, record}) => {
       return (
         <SimpleArtifactDetailModal
           fullData={record}
           item={item.item}
           kind='covenant'
+          navigation={navigation}
           onClose={callbacks.onClose}
         />
       )

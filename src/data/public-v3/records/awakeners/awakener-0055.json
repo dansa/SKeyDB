@@ -20,7 +20,7 @@
   "releaseDate": "2026-03-09",
   "faction": "The Fools",
   "aliases": ["vortice"],
-  "searchTags": ["Tentacle DMG", "Pursuit", "Fixed DMG", "Aftershock", "Dispel", "Divine Realm", "Tentacles"],
+  "searchTags": ["Tentacle DMG", "Pursuit", "Fixed DMG", "Aftershock", "Dispel", "Divine Realm"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 35,

@@ -20,7 +20,20 @@
   "releaseDate": "2024-06-17",
   "faction": "Out of the Aeons",
   "aliases": ["miryam"],
-  "searchTags": ["Weakness", "Vulnerable", "Poison", "STR Up", "STR Down", "Tentacle DMG", "Pierce DMG", "Arithmetica", "Draw", "Heal", "Tentacles"],
+  "searchTags": [
+    "Weakness",
+    "Vulnerable",
+    "Poison",
+    "STR Up",
+    "STR Down",
+    "Tentacle DMG",
+    "Pierce DMG",
+    "Arithmetica",
+    "Draw",
+    "Heal",
+    "Lemurian",
+    "Tentacle Generation"
+  ],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 23,

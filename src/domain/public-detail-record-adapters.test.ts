@@ -185,7 +185,7 @@ describe('public-detail-record-adapters', () => {
       mainstatSeriesKey: 'SR:KEYFLARE_REGEN',
       rarity: 'SR',
       realm: 'NEUTRAL',
-      searchTags: [],
+      searchTags: ['Tentacle DMG', 'Shield', 'Crit Rate', 'Crit DMG'],
     })
   })
 

@@ -21,5 +21,6 @@
       "values": ["9", "11", "13", "15"]
     }
   },
-  "lore": "Neither dwell on the past nor yearn for the future."
+  "lore": "Neither dwell on the past nor yearn for the future.",
+  "searchTags": ["Sigil Gain"]
 }

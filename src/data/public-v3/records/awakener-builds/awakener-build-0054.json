@@ -14,22 +14,26 @@
     {
       "id": "standard",
       "label": "Core",
-      "recommendedCovenantIds": ["covenant-0017", "covenant-0002"],
+      "recommendedCovenantIds": ["covenant-0006", "covenant-0007", "covenant-0005", "covenant-0001"],
       "recommendedWheels": [
         {
           "wheelIds": ["wheel-0013"],
           "tier": "BIS_SSR"
         },
         {
-          "wheelIds": ["wheel-0026"],
+          "wheelIds": ["wheel-0022"],
           "tier": "ALT_SSR"
         },
         {
-          "wheelIds": ["wheel-0078"],
+          "wheelIds": ["wheel-0118"],
           "tier": "BIS_SR"
+        },
+        {
+          "wheelIds": ["wheel-0034", "wheel-0052", "wheel-0078"],
+          "tier": "GOOD"
         }
       ],
-      "substatPriorityGroups": [["DMG_AMP", "KEYFLARE_REGEN"]],
+      "substatPriorityGroups": [["DEATH_RESISTANCE"], ["KEYFLARE_REGEN", "DMG_AMP"], ["REALM_MASTERY"]],
       "recommendedWheelMainstats": ["DMG_AMP", "KEYFLARE_REGEN"]
     }
   ],

@@ -4,6 +4,13 @@ import {searchCovenants} from '@/domain/covenants-search'
 import {DATABASE_SORT_OPTIONS} from '@/domain/database-browse-state'
 import {searchPosses} from '@/domain/posses-search'
 import {WHEELS_DATABASE_SORT_OPTIONS} from '@/domain/wheels-database-browse-state'
+import type {DatabaseDetailResultSet} from '@/features/database/detail/database-detail-result-navigation'
+import {
+  createAwakenerDetailResultSet,
+  createCovenantDetailResultSet,
+  createPosseDetailResultSet,
+  createWheelDetailResultSet,
+} from '@/features/database/detail/database-detail-result-set'
 import {
   buildAwakenerActiveFilterChips,
   buildCovenantActiveFilterChips,
@@ -43,6 +50,7 @@ import {useWheelsDatabaseBrowseState} from './useWheelsDatabaseBrowseState'
 
 interface EntityBrowseProps {
   controller: EntityBrowseController
+  renderDetailModalHost: (resultSet: DatabaseDetailResultSet) => ReactNode
 }
 
 function useActiveGlobalSearchCapture(
@@ -100,7 +108,7 @@ function renderSimpleArtifactBrowseLayout({
   )
 }
 
-export function AwakenersBrowse({controller}: EntityBrowseProps): ReactNode {
+export function AwakenersBrowse({controller, renderDetailModalHost}: EntityBrowseProps): ReactNode {
   const browseState = useDatabaseBrowseState()
   const viewModel = useDatabaseViewModel(databaseAwakeners, browseState)
   const activeFilterChips = buildAwakenerActiveFilterChips(browseState, {
@@ -109,61 +117,74 @@ export function AwakenersBrowse({controller}: EntityBrowseProps): ReactNode {
     setRarityFilter: browseState.setRarityFilter,
     setTypeFilter: browseState.setTypeFilter,
     setAvailabilityFilter: browseState.setAvailabilityFilter,
+    setGameplayFactionFilters: browseState.setGameplayFactionFilters,
+    setScalingSubstatFilters: browseState.setScalingSubstatFilters,
   })
+  const detailResultSet = useMemo(
+    () => createAwakenerDetailResultSet(viewModel.awakeners),
+    [viewModel.awakeners],
+  )
 
   useActiveGlobalSearchCapture(controller, browseState)
 
   return (
-    <DatabaseBrowseLayout
-      activeEntity='awakeners'
-      activeFilterChips={activeFilterChips}
-      filteredCount={viewModel.awakeners.length}
-      filters={
-        <DatabaseFilters
-          onQueryChange={browseState.setQuery}
-          onAvailabilityFilterChange={browseState.setAvailabilityFilter}
-          onRarityFilterChange={browseState.setRarityFilter}
-          onRealmFilterChange={browseState.setRealmFilter}
-          onTypeFilterChange={browseState.setTypeFilter}
-          query={browseState.query}
-          availabilityFilter={browseState.availabilityFilter}
-          rarityFilter={browseState.rarityFilter}
-          realmFilter={browseState.realmFilter}
-          searchInputRef={controller.searchInputRef}
-          typeFilter={browseState.typeFilter}
-        />
-      }
-      onResetFilters={browseState.resetFilters}
-      results={
-        <DatabaseGrid
-          awakeners={viewModel.awakeners}
-          onSelectAwakener={controller.openAwakenerDetail}
-        />
-      }
-      search={controller.activeSearch}
-      title='Awakeners'
-      totalCount={viewModel.totalCount}
-      unitNoun='awakeners'
-      viewControls={
-        <EntityViewControls
-          getSortDirectionLabel={getDatabaseSortDirectionLabel}
-          getSortLabel={getDatabaseSortLabel}
-          groupByRealm={browseState.groupByRealm}
-          onGroupByRealmChange={browseState.setGroupByRealm}
-          onSortDirectionToggle={browseState.toggleSortDirection}
-          onSortKeyChange={browseState.setSortKey}
-          sortDirection={browseState.sortDirection}
-          sortDirectionAriaLabel='Toggle database sort direction'
-          sortKey={browseState.sortKey}
-          sortOptions={DATABASE_SORT_OPTIONS}
-          sortSelectAriaLabel='Database sort key'
-        />
-      }
-    />
+    <>
+      <DatabaseBrowseLayout
+        activeEntity='awakeners'
+        activeFilterChips={activeFilterChips}
+        filteredCount={viewModel.awakeners.length}
+        filters={
+          <DatabaseFilters
+            onQueryChange={browseState.setQuery}
+            onAvailabilityFilterChange={browseState.setAvailabilityFilter}
+            onRarityFilterChange={browseState.setRarityFilter}
+            onRealmFilterChange={browseState.setRealmFilter}
+            onTypeFilterChange={browseState.setTypeFilter}
+            onGameplayFactionFilterToggle={browseState.toggleGameplayFactionFilter}
+            onScalingSubstatFilterToggle={browseState.toggleScalingSubstatFilter}
+            query={browseState.query}
+            availabilityFilter={browseState.availabilityFilter}
+            gameplayFactionFilters={browseState.gameplayFactionFilters}
+            rarityFilter={browseState.rarityFilter}
+            realmFilter={browseState.realmFilter}
+            scalingSubstatFilters={browseState.scalingSubstatFilters}
+            searchInputRef={controller.searchInputRef}
+            typeFilter={browseState.typeFilter}
+          />
+        }
+        onResetFilters={browseState.resetFilters}
+        results={
+          <DatabaseGrid
+            awakeners={viewModel.awakeners}
+            onSelectAwakener={controller.openAwakenerDetail}
+          />
+        }
+        search={controller.activeSearch}
+        title='Awakeners'
+        totalCount={viewModel.totalCount}
+        unitNoun='awakeners'
+        viewControls={
+          <EntityViewControls
+            getSortDirectionLabel={getDatabaseSortDirectionLabel}
+            getSortLabel={getDatabaseSortLabel}
+            groupByRealm={browseState.groupByRealm}
+            onGroupByRealmChange={browseState.setGroupByRealm}
+            onSortDirectionToggle={browseState.toggleSortDirection}
+            onSortKeyChange={browseState.setSortKey}
+            sortDirection={browseState.sortDirection}
+            sortDirectionAriaLabel='Toggle database sort direction'
+            sortKey={browseState.sortKey}
+            sortOptions={DATABASE_SORT_OPTIONS}
+            sortSelectAriaLabel='Database sort key'
+          />
+        }
+      />
+      {renderDetailModalHost(detailResultSet)}
+    </>
   )
 }
 
-export function WheelsBrowse({controller}: EntityBrowseProps): ReactNode {
+export function WheelsBrowse({controller, renderDetailModalHost}: EntityBrowseProps): ReactNode {
   const browseState = useWheelsDatabaseBrowseState()
   const viewModel = useWheelsDatabaseViewModel(databaseWheels, browseState)
   const activeFilterChips = buildWheelActiveFilterChips(browseState, {
@@ -172,51 +193,58 @@ export function WheelsBrowse({controller}: EntityBrowseProps): ReactNode {
     setRarityFilter: browseState.setRarityFilter,
     setMainstatFilter: browseState.setMainstatFilter,
   })
+  const detailResultSet = useMemo(
+    () => createWheelDetailResultSet(viewModel.wheels),
+    [viewModel.wheels],
+  )
 
   useActiveGlobalSearchCapture(controller, browseState)
 
   return (
-    <DatabaseBrowseLayout
-      activeEntity='wheels'
-      activeFilterChips={activeFilterChips}
-      filteredCount={viewModel.wheels.length}
-      filters={
-        <WheelDatabaseFilters
-          mainstatFilter={browseState.mainstatFilter}
-          onMainstatFilterChange={browseState.setMainstatFilter}
-          onQueryChange={browseState.setQuery}
-          onRarityFilterChange={browseState.setRarityFilter}
-          onRealmFilterChange={browseState.setRealmFilter}
-          query={browseState.query}
-          rarityFilter={browseState.rarityFilter}
-          realmFilter={browseState.realmFilter}
-          searchInputRef={controller.searchInputRef}
-        />
-      }
-      onResetFilters={browseState.resetFilters}
-      results={<WheelGrid onSelectWheel={controller.openWheelDetail} wheels={viewModel.wheels} />}
-      search={controller.activeSearch}
-      title='Wheels'
-      totalCount={viewModel.totalCount}
-      unitNoun='wheels'
-      viewControls={
-        <EntityViewControls
-          getSortDirectionLabel={getWheelSortDirectionLabel}
-          getSortLabel={getWheelSortLabel}
-          onSortDirectionToggle={browseState.toggleSortDirection}
-          onSortKeyChange={browseState.setSortKey}
-          sortDirection={browseState.sortDirection}
-          sortDirectionAriaLabel='Toggle wheel sort direction'
-          sortKey={browseState.sortKey}
-          sortOptions={WHEELS_DATABASE_SORT_OPTIONS}
-          sortSelectAriaLabel='Wheel database sort key'
-        />
-      }
-    />
+    <>
+      <DatabaseBrowseLayout
+        activeEntity='wheels'
+        activeFilterChips={activeFilterChips}
+        filteredCount={viewModel.wheels.length}
+        filters={
+          <WheelDatabaseFilters
+            mainstatFilter={browseState.mainstatFilter}
+            onMainstatFilterChange={browseState.setMainstatFilter}
+            onQueryChange={browseState.setQuery}
+            onRarityFilterChange={browseState.setRarityFilter}
+            onRealmFilterChange={browseState.setRealmFilter}
+            query={browseState.query}
+            rarityFilter={browseState.rarityFilter}
+            realmFilter={browseState.realmFilter}
+            searchInputRef={controller.searchInputRef}
+          />
+        }
+        onResetFilters={browseState.resetFilters}
+        results={<WheelGrid onSelectWheel={controller.openWheelDetail} wheels={viewModel.wheels} />}
+        search={controller.activeSearch}
+        title='Wheels'
+        totalCount={viewModel.totalCount}
+        unitNoun='wheels'
+        viewControls={
+          <EntityViewControls
+            getSortDirectionLabel={getWheelSortDirectionLabel}
+            getSortLabel={getWheelSortLabel}
+            onSortDirectionToggle={browseState.toggleSortDirection}
+            onSortKeyChange={browseState.setSortKey}
+            sortDirection={browseState.sortDirection}
+            sortDirectionAriaLabel='Toggle wheel sort direction'
+            sortKey={browseState.sortKey}
+            sortOptions={WHEELS_DATABASE_SORT_OPTIONS}
+            sortSelectAriaLabel='Wheel database sort key'
+          />
+        }
+      />
+      {renderDetailModalHost(detailResultSet)}
+    </>
   )
 }
 
-export function PossesBrowse({controller}: EntityBrowseProps): ReactNode {
+export function PossesBrowse({controller, renderDetailModalHost}: EntityBrowseProps): ReactNode {
   const browseState = usePosseDatabaseBrowseState()
   const records = useMemo(() => {
     const searched = searchPosses(databasePosses, browseState.query)
@@ -228,32 +256,38 @@ export function PossesBrowse({controller}: EntityBrowseProps): ReactNode {
     clearQuery: browseState.clearQuery,
     setRealmFilter: browseState.setRealmFilter,
   })
+  const detailResultSet = useMemo(() => createPosseDetailResultSet(records), [records])
 
   useActiveGlobalSearchCapture(controller, browseState)
 
-  return renderSimpleArtifactBrowseLayout({
-    activeEntity: 'posses',
-    activeFilterChips,
-    filteredCount: records.length,
-    filters: (
-      <PosseDatabaseFilters
-        onQueryChange={browseState.setQuery}
-        onRealmFilterChange={browseState.setRealmFilter}
-        query={browseState.query}
-        realmFilter={browseState.realmFilter}
-        searchInputRef={controller.searchInputRef}
-      />
-    ),
-    onResetFilters: browseState.resetFilters,
-    results: <PosseGrid onSelectPosse={controller.openPosseDetail} posses={records} />,
-    search: controller.activeSearch,
-    title: 'Posses',
-    totalCount: databasePosses.length,
-    unitNoun: 'posses',
-  })
+  return (
+    <>
+      {renderSimpleArtifactBrowseLayout({
+        activeEntity: 'posses',
+        activeFilterChips,
+        filteredCount: records.length,
+        filters: (
+          <PosseDatabaseFilters
+            onQueryChange={browseState.setQuery}
+            onRealmFilterChange={browseState.setRealmFilter}
+            query={browseState.query}
+            realmFilter={browseState.realmFilter}
+            searchInputRef={controller.searchInputRef}
+          />
+        ),
+        onResetFilters: browseState.resetFilters,
+        results: <PosseGrid onSelectPosse={controller.openPosseDetail} posses={records} />,
+        search: controller.activeSearch,
+        title: 'Posses',
+        totalCount: databasePosses.length,
+        unitNoun: 'posses',
+      })}
+      {renderDetailModalHost(detailResultSet)}
+    </>
+  )
 }
 
-export function CovenantsBrowse({controller}: EntityBrowseProps): ReactNode {
+export function CovenantsBrowse({controller, renderDetailModalHost}: EntityBrowseProps): ReactNode {
   const browseState = useCovenantDatabaseBrowseState()
   const records = useMemo(
     () => searchCovenants(databaseCovenants, browseState.query),
@@ -262,25 +296,33 @@ export function CovenantsBrowse({controller}: EntityBrowseProps): ReactNode {
   const activeFilterChips = buildCovenantActiveFilterChips(browseState, {
     clearQuery: browseState.clearQuery,
   })
+  const detailResultSet = useMemo(() => createCovenantDetailResultSet(records), [records])
 
   useActiveGlobalSearchCapture(controller, browseState)
 
-  return renderSimpleArtifactBrowseLayout({
-    activeEntity: 'covenants',
-    activeFilterChips,
-    filteredCount: records.length,
-    filters: (
-      <CovenantDatabaseFilters
-        onQueryChange={browseState.setQuery}
-        query={browseState.query}
-        searchInputRef={controller.searchInputRef}
-      />
-    ),
-    onResetFilters: browseState.resetFilters,
-    results: <CovenantGrid covenants={records} onSelectCovenant={controller.openCovenantDetail} />,
-    search: controller.activeSearch,
-    title: 'Covenants',
-    totalCount: databaseCovenants.length,
-    unitNoun: 'covenants',
-  })
+  return (
+    <>
+      {renderSimpleArtifactBrowseLayout({
+        activeEntity: 'covenants',
+        activeFilterChips,
+        filteredCount: records.length,
+        filters: (
+          <CovenantDatabaseFilters
+            onQueryChange={browseState.setQuery}
+            query={browseState.query}
+            searchInputRef={controller.searchInputRef}
+          />
+        ),
+        onResetFilters: browseState.resetFilters,
+        results: (
+          <CovenantGrid covenants={records} onSelectCovenant={controller.openCovenantDetail} />
+        ),
+        search: controller.activeSearch,
+        title: 'Covenants',
+        totalCount: databaseCovenants.length,
+        unitNoun: 'covenants',
+      })}
+      {renderDetailModalHost(detailResultSet)}
+    </>
+  )
 }

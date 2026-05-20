@@ -14,7 +14,6 @@ import {useDatabasePopoverController} from './useDatabasePopoverController'
 
 interface UseAwakenerDetailModalStateOptions {
   activeTab: DatabaseAwakenerTab
-  awakener: Awakener
   awakeners: Awakener[]
   fullData: AwakenerFullRecord
   onClose: () => void
@@ -26,7 +25,6 @@ interface UseAwakenerDetailModalStateOptions {
 
 export function useAwakenerDetailModalState({
   activeTab,
-  awakener,
   awakeners,
   fullData,
   onClose,
@@ -76,8 +74,6 @@ export function useAwakenerDetailModalState({
   } = popoverController
 
   const chrome = useAwakenerDetailChrome({
-    awakenerId: awakener.id,
-    awakenerTags: awakener.tags,
     clickOutsideClosesPopovers: sessionPreferences.shared.clickOutsideClosesPopovers,
     closeAllPopovers,
     closeSearch: search.closeSearch,
@@ -107,7 +103,6 @@ export function useAwakenerDetailModalState({
   return {
     activeSearchIndex: search.activeSearchIndex,
     activeTab,
-    canExpandTags: chrome.canExpandTags,
     fontScale: sessionPreferences.shared.fontScale,
     handleOverlayClick: chrome.handleOverlayClick,
     handlePanelKeyDown: chrome.handlePanelKeyDown,
@@ -132,14 +127,11 @@ export function useAwakenerDetailModalState({
     searchResults: search.searchResults,
     setActiveTab,
     setIsSettingsOpen: chrome.setIsSettingsOpen,
-    setShowAllTags: chrome.setShowAllTags,
     session: {
       actions: sessionActions,
       preferences: sessionPreferences,
       runtime: sessionRuntime,
     },
     settingsRef: chrome.settingsRef,
-    showAllTags: chrome.showAllTags,
-    tagsRef: chrome.tagsRef,
   }
 }

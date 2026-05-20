@@ -20,7 +20,7 @@
   "releaseDate": "2023-11-29",
   "faction": "The Fools",
   "aliases": ["aurita"],
-  "searchTags": ["STR Up", "Tentacle DMG", "Pierce DMG", "Aftershock", "Discard", "Draw"],
+  "searchTags": ["STR Up", "Tentacle DMG", "Pierce DMG", "Aftershock", "Discard", "Draw", "Tentacle Generation"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 26,

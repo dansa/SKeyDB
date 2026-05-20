@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.pollux.alight",
+  "name": "Alight",
+  "route": {
+    "slug": "alight",
+    "canonicalPath": "/database/awakeners/pollux/overlays/alight"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0041",
+  "aliases": [],
+  "descriptionTemplate": "In this turn, the next [Layer] Command Cards' Final DMG and Shield Generation +[StateArg1]%.",
+  "descriptionArgs": {
+    "Layer": {
+      "kind": "fixed",
+      "value": "X"
+    },
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["9", "11", "13", "15"],
+      "suffix": "%"
+    }
+  },
+  "ownerAwakenerName": "Pollux"
+}

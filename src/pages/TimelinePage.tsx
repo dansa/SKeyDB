@@ -119,6 +119,9 @@ export function TimelinePage() {
           },
           onSelectAwakener: () => undefined,
           onSelectCovenant: () => undefined,
+          onSelectPosse: (posse) => {
+            dbDetailStore.getState().pushReferenceDetail({kind: 'posse', id: posse.id})
+          },
           onSelectWheel: () => undefined,
           onTabChange: () => undefined,
         }}

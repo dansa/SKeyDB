@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.pollux.ablaze",
+  "name": "Ablaze",
+  "route": {
+    "slug": "ablaze",
+    "canonicalPath": "/database/awakeners/pollux/overlays/ablaze"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0041",
+  "aliases": ["Aflame"],
+  "descriptionTemplate": "In this turn, the next [Layer] Command Cards' Final DMG and Shield Generation +[StateArg1]%.",
+  "descriptionArgs": {
+    "Layer": {
+      "kind": "fixed",
+      "value": "X"
+    },
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["18", "22", "26", "30"],
+      "suffix": "%"
+    }
+  },
+  "ownerAwakenerName": "Pollux"
+}

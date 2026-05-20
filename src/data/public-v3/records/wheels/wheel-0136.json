@@ -21,5 +21,6 @@
       "values": ["15", "20", "25", "30"]
     }
   },
-  "lore": "Shh... let it end here, with me.\nAnd do not seek its origins."
+  "lore": "Shh... let it end here, with me.\nAnd do not seek its origins.",
+  "searchTags": ["Sigil Gain"]
 }

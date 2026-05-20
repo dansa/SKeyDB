@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+import {useCallback, useEffect, useMemo} from 'react'
 
 import {useLocation, useNavigate, useParams, type NavigateFunction} from 'react-router-dom'
 
@@ -30,6 +30,7 @@ import {renderEntityBrowse} from './browse/entityBrowseRegistry'
 import {useEntityBrowseController} from './browse/useEntityBrowseController'
 import {databaseAwakeners, databaseCovenants, databasePosses, databaseWheels} from './data'
 import {DatabaseLayout} from './DatabaseLayout'
+import type {DatabaseDetailResultSet} from './detail/database-detail-result-navigation'
 import {DbDetailModalHost} from './detail/DbDetailModalHost'
 
 function getActiveDatabaseEntity(pathname: string): DatabaseEntityId {
@@ -182,67 +183,107 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
   })
 
   const closeDetail = browseController.closeDetail
-  const routeDetailItem = selectedAwakener
-    ? ({kind: 'awakener', item: selectedAwakener, activeTab: selectedTab} as const)
-    : selectedWheel
-      ? ({kind: 'wheel', item: selectedWheel} as const)
-      : selectedPosse
-        ? ({kind: 'posse', item: selectedPosse} as const)
-        : selectedCovenant
-          ? ({kind: 'covenant', item: selectedCovenant} as const)
-          : null
+  const routeDetailItem = useMemo(
+    () =>
+      selectedAwakener
+        ? ({kind: 'awakener', item: selectedAwakener, activeTab: selectedTab} as const)
+        : selectedWheel
+          ? ({kind: 'wheel', item: selectedWheel} as const)
+          : selectedPosse
+            ? ({kind: 'posse', item: selectedPosse} as const)
+            : selectedCovenant
+              ? ({kind: 'covenant', item: selectedCovenant} as const)
+              : null,
+    [selectedAwakener, selectedCovenant, selectedPosse, selectedTab, selectedWheel],
+  )
 
-  function handleDetailTabChange(nextTab: DatabaseAwakenerTab) {
-    if (!selectedAwakener) {
-      return
-    }
-    void navigate({
-      pathname: buildDatabaseAwakenerPath(selectedAwakener, nextTab),
-      search: activeSearch,
-    })
-  }
+  const handleDetailTabChange = useCallback(
+    (nextTab: DatabaseAwakenerTab) => {
+      if (!selectedAwakener) {
+        return
+      }
+      void navigate({
+        pathname: buildDatabaseAwakenerPath(selectedAwakener, nextTab),
+        search: activeSearch,
+      })
+    },
+    [activeSearch, navigate, selectedAwakener],
+  )
 
-  function handleModalAwakenerSelect(
-    nextAwakener: Pick<Awakener, 'id' | 'name'>,
-    nextTab: DatabaseAwakenerTab = 'overview',
-  ) {
-    void navigate({
-      pathname: buildDatabaseAwakenerPath(nextAwakener, nextTab),
-      search: sanitizeDatabaseEntitySearch('awakeners', activeSearch),
-    })
-  }
+  const handleModalAwakenerSelect = useCallback(
+    (nextAwakener: Pick<Awakener, 'id' | 'name'>, nextTab: DatabaseAwakenerTab = 'overview') => {
+      void navigate({
+        pathname: buildDatabaseAwakenerPath(nextAwakener, nextTab),
+        search: sanitizeDatabaseEntitySearch('awakeners', activeSearch),
+      })
+    },
+    [activeSearch, navigate],
+  )
 
-  function handleModalWheelSelect(nextWheel: Pick<Wheel, 'id' | 'name'>) {
-    void navigate({
-      pathname: buildDatabaseWheelPath(nextWheel),
-      search: sanitizeDatabaseEntitySearch('wheels', activeSearch),
-    })
-  }
+  const handleModalWheelSelect = useCallback(
+    (nextWheel: Pick<Wheel, 'id' | 'name'>) => {
+      void navigate({
+        pathname: buildDatabaseWheelPath(nextWheel),
+        search: sanitizeDatabaseEntitySearch('wheels', activeSearch),
+      })
+    },
+    [activeSearch, navigate],
+  )
 
-  function handleModalCovenantSelect(nextCovenant: Pick<Covenant, 'id' | 'name'>) {
-    void navigate({
-      pathname: buildDatabaseCovenantPath(nextCovenant),
-      search: sanitizeDatabaseEntitySearch('covenants', activeSearch),
-    })
-  }
+  const handleModalCovenantSelect = useCallback(
+    (nextCovenant: Pick<Covenant, 'id' | 'name'>) => {
+      void navigate({
+        pathname: buildDatabaseCovenantPath(nextCovenant),
+        search: sanitizeDatabaseEntitySearch('covenants', activeSearch),
+      })
+    },
+    [activeSearch, navigate],
+  )
 
-  return (
-    <DatabaseLayout>
-      {renderEntityBrowse(browseController)}
+  const handleModalPosseSelect = useCallback(
+    (nextPosse: {id: string; name: string}) => {
+      void navigate({
+        pathname: buildDatabasePossePath(nextPosse),
+        search: sanitizeDatabaseEntitySearch('posses', activeSearch),
+      })
+    },
+    [activeSearch, navigate],
+  )
 
+  const detailCallbacks = useMemo(
+    () => ({
+      onClose: closeDetail,
+      onSelectAwakener: handleModalAwakenerSelect,
+      onSelectCovenant: handleModalCovenantSelect,
+      onSelectPosse: handleModalPosseSelect,
+      onSelectWheel: handleModalWheelSelect,
+      onTabChange: handleDetailTabChange,
+    }),
+    [
+      closeDetail,
+      handleDetailTabChange,
+      handleModalAwakenerSelect,
+      handleModalCovenantSelect,
+      handleModalPosseSelect,
+      handleModalWheelSelect,
+    ],
+  )
+
+  const renderDetailModalHost = useCallback(
+    (resultSet: DatabaseDetailResultSet) => (
       <DbDetailModalHost
         awakeners={databaseAwakeners}
-        callbacks={{
-          onClose: closeDetail,
-          onSelectAwakener: handleModalAwakenerSelect,
-          onSelectCovenant: handleModalCovenantSelect,
-          onSelectWheel: handleModalWheelSelect,
-          onTabChange: handleDetailTabChange,
-        }}
+        callbacks={detailCallbacks}
+        resultSet={resultSet}
         routeItem={routeDetailItem}
         tabSlug={tabSlug}
         wheels={databaseWheels}
       />
-    </DatabaseLayout>
+    ),
+    [detailCallbacks, routeDetailItem, tabSlug],
+  )
+
+  return (
+    <DatabaseLayout>{renderEntityBrowse(browseController, renderDetailModalHost)}</DatabaseLayout>
   )
 }

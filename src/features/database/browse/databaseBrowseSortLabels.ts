@@ -26,12 +26,12 @@ export function getDatabaseSortDirectionLabel(
   direction: CollectionSortDirection,
 ): string {
   if (sortKey === 'ALPHABETICAL') {
-    return direction === 'ASC' ? 'A -> Z' : 'Z -> A'
+    return direction === 'ASC' ? 'A → Z' : 'Z → A'
   }
   if (sortKey === 'RELEASE_DATE') {
-    return direction === 'ASC' ? 'Old -> New' : 'New -> Old'
+    return direction === 'ASC' ? 'Old → New' : 'New → Old'
   }
-  return direction === 'ASC' ? 'Low -> High' : 'High -> Low'
+  return direction === 'ASC' ? 'Low → High' : 'High → Low'
 }
 
 export function getWheelSortLabel(sortKey: WheelsDatabaseSortKey): string {
@@ -43,7 +43,7 @@ export function getWheelSortDirectionLabel(
   direction: CollectionSortDirection,
 ): string {
   if (sortKey === 'RARITY') {
-    return direction === 'ASC' ? 'Low -> High' : 'High -> Low'
+    return direction === 'ASC' ? 'Low → High' : 'High → Low'
   }
-  return direction === 'ASC' ? 'A -> Z' : 'Z -> A'
+  return direction === 'ASC' ? 'A → Z' : 'Z → A'
 }

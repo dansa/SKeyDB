@@ -95,7 +95,7 @@ const TEST_SELECTION: AwakenerDatabaseSelection = {
 }
 
 describe('AwakenerDetailSidebar', () => {
-  it('keeps main stats visible, collapses secondary stats, and exposes scaling info on demand', () => {
+  it('keeps main and scaling stats visible, collapses other secondary stats, and exposes scaling info on demand', () => {
     const openRootInfo = vi.fn()
     render(
       <DatabasePopoverContext.Provider
@@ -128,14 +128,15 @@ describe('AwakenerDetailSidebar', () => {
     expect(screen.getByText('140')).toHaveClass('text-slate-200')
     expect(screen.getByText('135')).toHaveClass('text-slate-200')
     expect(screen.getByText('126')).toHaveClass('text-slate-200')
-    expect(screen.queryByText('Crit Rate')).not.toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', {name: /show all stats/i}))
-
-    expect(screen.getByText('14.6%')).toHaveClass('text-slate-200')
+    expect(screen.getByText('Crit Rate')).toBeInTheDocument()
     expect(screen.getByTitle('Level scaling: +1.6% per 10 levels to Lv. 60')).toHaveTextContent(
       '14.6%',
     )
+    expect(screen.queryByText('Crit DMG')).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', {name: /show all stats/i}))
+
+    expect(screen.getByText('Crit DMG')).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: /scaling info/i}))
 

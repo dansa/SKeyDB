@@ -129,7 +129,7 @@ describe('AwakenerDetailOverview profile and stories', () => {
     expect(labels.indexOf('Gnostic Index')).toBeLessThan(labels.indexOf('Faction'))
   })
 
-  it('keeps CON ATK DEF visible and reveals secondary stats on demand', () => {
+  it('keeps main and scaling stats visible and reveals other secondary stats on demand', () => {
     render(
       <AwakenerDetailOverview
         awakener={TEST_AWAKENER}
@@ -147,11 +147,12 @@ describe('AwakenerDetailOverview profile and stories', () => {
     expect(screen.getByText('112')).toBeInTheDocument()
     expect(screen.getByText('DEF')).toBeInTheDocument()
     expect(screen.getByText('136')).toBeInTheDocument()
-    expect(screen.queryByText('Crit Rate')).not.toBeInTheDocument()
+    expect(screen.getByText('Crit Rate')).toBeInTheDocument()
+    expect(screen.queryByText('Crit DMG')).not.toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: /show all stats/i}))
 
-    expect(screen.getByText('Crit Rate')).toBeInTheDocument()
+    expect(screen.getByText('Crit DMG')).toBeInTheDocument()
     expect(screen.getByText('14.6%')).toBeInTheDocument()
   })
 

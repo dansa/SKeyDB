@@ -103,6 +103,11 @@ export function AwakenerDetailStatsPanel({
   const [localIsExpanded, setLocalIsExpanded] = useState(defaultExpanded)
   const isExpanded = controlledIsExpanded ?? localIsExpanded
   const hasSubstatScaling = hasAwakenerSubstatScaling(substatScaling)
+  const defaultStatKeys = [
+    ...MAIN_STAT_ORDER,
+    ...SECONDARY_STAT_ORDER.filter((key) => Boolean(substatScaling?.[key])),
+  ]
+  const expandedStatKeys = SECONDARY_STAT_ORDER.filter((key) => !defaultStatKeys.includes(key))
 
   function setExpanded(nextIsExpanded: boolean) {
     if (controlledIsExpanded === undefined) {
@@ -160,7 +165,7 @@ export function AwakenerDetailStatsPanel({
             className={compact ? 'grid grid-cols-3 gap-x-3 gap-y-0.5' : 'space-y-px'}
             data-awakener-main-stats=''
           >
-            {MAIN_STAT_ORDER.map(renderStatRow)}
+            {defaultStatKeys.map(renderStatRow)}
           </div>
 
           {isExpanded ? (
@@ -172,7 +177,7 @@ export function AwakenerDetailStatsPanel({
               }
               data-awakener-secondary-stats=''
             >
-              {SECONDARY_STAT_ORDER.map(renderStatRow)}
+              {expandedStatKeys.map(renderStatRow)}
             </div>
           ) : null}
         </>

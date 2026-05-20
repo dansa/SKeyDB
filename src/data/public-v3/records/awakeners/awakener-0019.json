@@ -20,7 +20,7 @@
   "releaseDate": "2024-10-07",
   "faction": "The Fools",
   "aliases": ["helot: catena", "g-helot"],
-  "searchTags": ["Bleed", "STR Up", "Draw", "Hand Limit", "Heal", "Self-Harm", "Strike"],
+  "searchTags": ["Bleed", "STR Up", "Draw", "Hand Limit", "Heal", "Self-Damage", "Strike"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 37,

@@ -1,8 +1,13 @@
 import {
+  getAwakenerScalingSubstatLabel,
+  type SubstatScalingKey,
+} from '@/domain/awakener-scaling-substats'
+import {
   getAvailabilityFilterLabel,
   getTypeFilterLabel,
   type AvailabilityFilterId,
   type DatabaseBrowseState,
+  type GameplayFactionFilterId,
   type RarityFilterId,
   type RealmFilterId,
   type TypeFilterId,
@@ -28,6 +33,8 @@ interface AwakenerActiveFilterActions {
   setRarityFilter: (next: RarityFilterId) => void
   setTypeFilter: (next: TypeFilterId) => void
   setAvailabilityFilter: (next: AvailabilityFilterId) => void
+  setGameplayFactionFilters: (next: GameplayFactionFilterId[]) => void
+  setScalingSubstatFilters: (next: SubstatScalingKey[]) => void
 }
 
 interface PosseActiveFilterActions {
@@ -49,7 +56,13 @@ interface WheelActiveFilterActions {
 export function buildAwakenerActiveFilterChips(
   state: Pick<
     DatabaseBrowseState,
-    'query' | 'realmFilter' | 'rarityFilter' | 'typeFilter' | 'availabilityFilter'
+    | 'query'
+    | 'realmFilter'
+    | 'rarityFilter'
+    | 'typeFilter'
+    | 'availabilityFilter'
+    | 'gameplayFactionFilters'
+    | 'scalingSubstatFilters'
   >,
   actions: AwakenerActiveFilterActions,
 ): ActiveFilterChip[] {
@@ -100,6 +113,28 @@ export function buildAwakenerActiveFilterChips(
       label: getAvailabilityFilterLabel(state.availabilityFilter),
       onClear: () => {
         actions.setAvailabilityFilter('ALL')
+      },
+    })
+  }
+
+  for (const faction of state.gameplayFactionFilters) {
+    chips.push({
+      key: `faction-${faction}`,
+      label: faction,
+      onClear: () => {
+        actions.setGameplayFactionFilters([])
+      },
+    })
+  }
+
+  for (const substat of state.scalingSubstatFilters) {
+    chips.push({
+      key: `scaling-${substat}`,
+      label: getAwakenerScalingSubstatLabel(substat),
+      onClear: () => {
+        actions.setScalingSubstatFilters(
+          state.scalingSubstatFilters.filter((value) => value !== substat),
+        )
       },
     })
   }

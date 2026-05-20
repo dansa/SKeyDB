@@ -25,6 +25,7 @@ import {
   getDatabaseDetailSectionHeadingStyle,
   getDatabaseDetailValueStyle,
 } from './database-detail-typography'
+import {DatabaseDetailTagStrip} from './DatabaseDetailTagStrip'
 import {RichDescription} from './RichDescription'
 import {DATABASE_ACCENT_TEXT_CLASS, getDatabaseAccentTextStyle} from './text-styles'
 import {WheelEnhanceControl} from './WheelEnhanceControl'
@@ -72,7 +73,7 @@ export function WheelDetailContent({
 
   return (
     <div className='flex h-full min-h-0 max-w-3xl flex-col'>
-      <div className='shrink-0 border-b border-slate-800/75 pr-12 pb-5 md:pr-14'>
+      <div className='shrink-0 border-b border-slate-800/75 pr-20 pb-5'>
         <div className='flex items-center gap-4 md:block'>
           {mobileArtwork ? <div className='shrink-0 md:hidden'>{mobileArtwork}</div> : null}
           <div className='min-w-0'>
@@ -94,6 +95,11 @@ export function WheelDetailContent({
                 ownerAwakenerName={ownerName}
               />
             </p>
+            <DatabaseDetailTagStrip
+              className='mt-1.5 max-w-xl'
+              itemKey={wheel.id}
+              tags={fullData.searchTags}
+            />
           </div>
         </div>
       </div>

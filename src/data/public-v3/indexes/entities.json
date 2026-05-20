@@ -7820,6 +7820,18 @@
       "ownerAwakenerName": "Murphy: Fauxborn",
       "overlayType": "mechanic"
     },
+    "overlay.pickman.collaboration": {
+      "kind": "overlay",
+      "id": "overlay.pickman.collaboration",
+      "name": "Collaboration",
+      "route": {
+        "slug": "collaboration",
+        "canonicalPath": "/database/awakeners/pickman/overlays/collaboration"
+      },
+      "ownerAwakenerId": "awakener-0040",
+      "ownerAwakenerName": "Pickman",
+      "overlayType": "mechanic"
+    },
     "overlay.pickman.creativity": {
       "kind": "overlay",
       "id": "overlay.pickman.creativity",
@@ -7872,6 +7884,30 @@
       },
       "ownerAwakenerId": "awakener-0040",
       "ownerAwakenerName": "Pickman",
+      "overlayType": "mechanic"
+    },
+    "overlay.pollux.ablaze": {
+      "kind": "overlay",
+      "id": "overlay.pollux.ablaze",
+      "name": "Ablaze",
+      "route": {
+        "slug": "ablaze",
+        "canonicalPath": "/database/awakeners/pollux/overlays/ablaze"
+      },
+      "ownerAwakenerId": "awakener-0041",
+      "ownerAwakenerName": "Pollux",
+      "overlayType": "mechanic"
+    },
+    "overlay.pollux.alight": {
+      "kind": "overlay",
+      "id": "overlay.pollux.alight",
+      "name": "Alight",
+      "route": {
+        "slug": "alight",
+        "canonicalPath": "/database/awakeners/pollux/overlays/alight"
+      },
+      "ownerAwakenerId": "awakener-0041",
+      "ownerAwakenerName": "Pollux",
       "overlayType": "mechanic"
     },
     "overlay.pollux.sin-mark": {
@@ -21264,10 +21300,13 @@
       "overlay.miryam.ritual",
       "overlay.murphy-fauxborn.birth-ritual",
       "overlay.murphy-fauxborn.life-seal",
+      "overlay.pickman.collaboration",
       "overlay.pickman.creativity",
       "overlay.pickman.fantasia",
       "overlay.pickman.painted-orisons",
       "overlay.pickman.painted-relics",
+      "overlay.pollux.ablaze",
+      "overlay.pollux.alight",
       "overlay.pollux.sin-mark",
       "overlay.ramona-timeworn.loop",
       "overlay.ramona-timeworn.negentropy",

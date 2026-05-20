@@ -20,7 +20,7 @@
   "releaseDate": "2023-11-29",
   "faction": "Hybrid",
   "aliases": ["leigh"],
-  "searchTags": ["STR Up", "Pierce DMG", "Dispel", "Heal", "Self-Harm"],
+  "searchTags": ["STR Up", "Pierce DMG", "Dispel", "Heal", "Self-Damage"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 19,

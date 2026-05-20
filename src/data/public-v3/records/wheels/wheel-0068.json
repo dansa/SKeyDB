@@ -21,5 +21,6 @@
       "values": ["400", "600", "800", "1000"]
     }
   },
-  "lore": "See that which cannot be seen; hear that which cannot be heard."
+  "lore": "See that which cannot be seen; hear that which cannot be heard.",
+  "searchTags": ["Arithmetica", "Keyflare"]
 }

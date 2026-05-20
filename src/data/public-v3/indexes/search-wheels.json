@@ -7,17 +7,36 @@
       "id": "wheel-0001",
       "name": "Merciful Nurturing",
       "aliases": [],
-      "tokens": ["caro", "keyflare", "keyflare regen", "merciful", "merciful nurturing", "nurturing", "regen", "ssr", "thais"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "caro",
+        "embryo",
+        "embryo fusion",
+        "fusion",
+        "generation",
+        "hand",
+        "hand limit",
+        "keyflare",
+        "limit",
+        "merciful",
+        "merciful nurturing",
+        "nurturing",
+        "ssr",
+        "thais"
+      ],
       "fields": {
         "name": ["Merciful Nurturing", "merciful-nurturing"],
         "owner": ["Thais"],
-        "facet": ["CARO", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["hand-limit", "keyflare", "aliemus", "embryo-fusion", "Hand Limit", "aliemus generation", "Embryo Fusion"],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "KEYFLARE_REGEN",
-        "owner": "awakener-0048"
+        "owner": "awakener-0048",
+        "tags": ["aliemus", "embryo-fusion", "hand-limit", "keyflare"]
       }
     },
     {
@@ -25,17 +44,66 @@
       "id": "wheel-0002",
       "name": "Tablet of Scriptures",
       "aliases": [],
-      "tokens": ["caro", "of", "salvador", "scriptures", "sigil", "sigil yield", "ssr", "tablet", "tablet of scriptures", "yield"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "caro",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "dmg",
+        "generation",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "keyflare",
+        "of",
+        "rate",
+        "recovery",
+        "salvador",
+        "scriptures",
+        "shield",
+        "shield generation",
+        "ssr",
+        "tablet",
+        "tablet of scriptures"
+      ],
       "fields": {
         "name": ["Tablet of Scriptures", "tablet-of-scriptures"],
         "owner": ["Salvador"],
-        "facet": ["CARO", "SSR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": [
+          "shield",
+          "heal",
+          "keyflare",
+          "aliemus",
+          "crit-rate",
+          "crit-dmg",
+          "shield generation",
+          "healing",
+          "hp recovery",
+          "aliemus generation",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "SIGIL_YIELD",
-        "owner": "awakener-0044"
+        "owner": "awakener-0044",
+        "tags": ["aliemus", "crit-dmg", "crit-rate", "heal", "keyflare", "shield"]
       }
     },
     {
@@ -43,17 +111,37 @@
       "id": "wheel-0003",
       "name": "Winter's Requiem",
       "aliases": [],
-      "tokens": ["aigis", "caro", "keyflare", "keyflare regen", "regen", "requiem", "ssr", "winters", "winters requiem"],
+      "tokens": [
+        "aigis",
+        "caro",
+        "down",
+        "embryo",
+        "embryo fusion",
+        "fusion",
+        "requiem",
+        "ssr",
+        "str",
+        "str down",
+        "strength",
+        "strength down",
+        "vuln",
+        "vulnerability",
+        "vulnerable",
+        "winters",
+        "winters requiem"
+      ],
       "fields": {
         "name": ["Winter's Requiem", "winters-requiem"],
         "owner": ["Aigis"],
-        "facet": ["CARO", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["vulnerable", "str-down", "embryo-fusion", "vulnerability", "vuln", "STR Down", "strength down", "Embryo Fusion"],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "KEYFLARE_REGEN",
-        "owner": "awakener-0003"
+        "owner": "awakener-0003",
+        "tags": ["embryo-fusion", "str-down", "vulnerable"]
       }
     },
     {
@@ -61,17 +149,37 @@
       "id": "wheel-0004",
       "name": "By Rose Alone",
       "aliases": [],
-      "tokens": ["alone", "by", "by rose alone", "caro", "crit", "crit rate", "rate", "rose", "sorel", "ssr"],
+      "tokens": [
+        "alone",
+        "by",
+        "by rose alone",
+        "caro",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "embryo",
+        "embryo fusion",
+        "fusion",
+        "rose",
+        "sorel",
+        "ssr"
+      ],
       "fields": {
         "name": ["By Rose Alone", "by-rose-alone"],
         "owner": ["Sorel"],
-        "facet": ["CARO", "SSR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["crit-dmg", "embryo-fusion", "Crit DMG", "crit. dmg", "crit damage", "critical damage", "Embryo Fusion"],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "CRIT_RATE",
-        "owner": "awakener-0046"
+        "owner": "awakener-0046",
+        "tags": ["crit-dmg", "embryo-fusion"]
       }
     },
     {
@@ -79,17 +187,19 @@
       "id": "wheel-0005",
       "name": "Chains Unbound",
       "aliases": [],
-      "tokens": ["amp", "caro", "chains", "chains unbound", "dmg", "dmg amp", "helot", "ssr", "unbound"],
+      "tokens": ["caro", "chains", "chains unbound", "crit", "crit rate", "critical", "critical rate", "helot", "rate", "ssr", "strike", "unbound"],
       "fields": {
         "name": ["Chains Unbound", "chains-unbound"],
         "owner": ["Helot"],
-        "facet": ["CARO", "SSR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["strike", "crit-rate", "Crit Rate", "crit. rate", "critical rate"],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "DMG_AMP",
-        "owner": "awakener-0023"
+        "owner": "awakener-0023",
+        "tags": ["crit-rate", "strike"]
       }
     },
     {
@@ -97,17 +207,42 @@
       "id": "wheel-0006",
       "name": "Drowning in Crimson",
       "aliases": [],
-      "tokens": ["amp", "caro", "catena", "crimson", "dmg", "dmg amp", "drowning", "drowning in crimson", "g", "g helot", "helot", "helot catena", "in", "ssr"],
+      "tokens": [
+        "caro",
+        "catena",
+        "crimson",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "draw",
+        "drowning",
+        "drowning in crimson",
+        "g",
+        "g helot",
+        "hand",
+        "hand limit",
+        "helot",
+        "helot catena",
+        "in",
+        "limit",
+        "ssr"
+      ],
       "fields": {
         "name": ["Drowning in Crimson", "drowning-in-crimson"],
         "owner": ["Helot: Catena", "helot-catena", "g-helot"],
-        "facet": ["CARO", "SSR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["draw", "hand-limit", "crit-dmg", "Hand Limit", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "DMG_AMP",
-        "owner": "awakener-0019"
+        "owner": "awakener-0019",
+        "tags": ["crit-dmg", "draw", "hand-limit"]
       }
     },
     {
@@ -115,17 +250,36 @@
       "id": "wheel-0007",
       "name": "Pale Descendant",
       "aliases": [],
-      "tokens": ["agrippa", "caro", "descendant", "pale", "pale descendant", "sigil", "sigil yield", "ssr", "yield"],
+      "tokens": [
+        "agrippa",
+        "caro",
+        "defence",
+        "defend",
+        "defense",
+        "descendant",
+        "embryo",
+        "embryo fusion",
+        "fusion",
+        "generation",
+        "pale",
+        "pale descendant",
+        "poison",
+        "shield",
+        "shield generation",
+        "ssr"
+      ],
       "fields": {
         "name": ["Pale Descendant", "pale-descendant"],
         "owner": ["Agrippa"],
-        "facet": ["CARO", "SSR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": ["poison", "shield", "defense", "embryo-fusion", "shield generation", "defence", "defend", "Embryo Fusion"],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "SIGIL_YIELD",
-        "owner": "awakener-0002"
+        "owner": "awakener-0002",
+        "tags": ["defense", "embryo-fusion", "poison", "shield"]
       }
     },
     {
@@ -133,17 +287,54 @@
       "id": "wheel-0008",
       "name": "Bloody Feast",
       "aliases": [],
-      "tokens": ["bloody", "bloody feast", "caro", "crit", "crit dmg", "dmg", "feast", "ssr", "uvhash"],
+      "tokens": [
+        "bloody",
+        "bloody feast",
+        "caro",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "dmg",
+        "feast",
+        "rate",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "up",
+        "uvhash"
+      ],
       "fields": {
         "name": ["Bloody Feast", "bloody-feast"],
         "owner": ["Uvhash"],
-        "facet": ["CARO", "SSR", "CRIT_DMG", "Crit Dmg"]
+        "tag": [
+          "str-up",
+          "crit-rate",
+          "crit-dmg",
+          "STR Up",
+          "strength up",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "CRIT_DMG",
-        "owner": "awakener-0051"
+        "owner": "awakener-0051",
+        "tags": ["crit-dmg", "crit-rate", "str-up"]
       }
     },
     {
@@ -151,17 +342,40 @@
       "id": "wheel-0009",
       "name": "The Glutton's Tale",
       "aliases": [],
-      "tokens": ["caro", "gluttons", "leigh", "mastery", "realm", "realm mastery", "ssr", "tale", "the", "the gluttons tale"],
+      "tokens": [
+        "caro",
+        "generation",
+        "gluttons",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "leigh",
+        "recovery",
+        "shield",
+        "shield generation",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "tale",
+        "the",
+        "the gluttons tale",
+        "up"
+      ],
       "fields": {
         "name": ["The Glutton's Tale", "the-gluttons-tale"],
         "owner": ["Leigh"],
-        "facet": ["CARO", "SSR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["str-up", "shield", "heal", "STR Up", "strength up", "shield generation", "healing", "hp recovery"],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "REALM_MASTERY",
-        "owner": "awakener-0028"
+        "owner": "awakener-0028",
+        "tags": ["heal", "shield", "str-up"]
       }
     },
     {
@@ -169,17 +383,53 @@
       "id": "wheel-0010",
       "name": "Lullaby Devoured",
       "aliases": [],
-      "tokens": ["caro", "death", "death resistance", "devoured", "faint", "lullaby", "lullaby devoured", "resistance", "ssr"],
+      "tokens": [
+        "caro",
+        "counter",
+        "death",
+        "death resistance",
+        "devoured",
+        "embryo",
+        "embryo fusion",
+        "faint",
+        "fusion",
+        "generation",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "lullaby",
+        "lullaby devoured",
+        "recovery",
+        "resistance",
+        "shield",
+        "shield generation",
+        "ssr"
+      ],
       "fields": {
         "name": ["Lullaby Devoured", "lullaby-devoured"],
         "owner": ["Faint"],
-        "facet": ["CARO", "SSR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": [
+          "counter",
+          "death-resistance",
+          "shield",
+          "heal",
+          "embryo-fusion",
+          "Death Resistance",
+          "resistance",
+          "shield generation",
+          "healing",
+          "hp recovery",
+          "Embryo Fusion"
+        ],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "DEATH_RESISTANCE",
-        "owner": "awakener-0016"
+        "owner": "awakener-0016",
+        "tags": ["counter", "death-resistance", "embryo-fusion", "heal", "shield"]
       }
     },
     {
@@ -187,17 +437,35 @@
       "id": "wheel-0011",
       "name": "Kiss of Repose",
       "aliases": [],
-      "tokens": ["caro", "crit", "crit dmg", "dmg", "doresain", "kiss", "kiss of repose", "of", "repose", "ssr"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "caro",
+        "crit",
+        "crit rate",
+        "critical",
+        "critical rate",
+        "doresain",
+        "generation",
+        "kiss",
+        "kiss of repose",
+        "of",
+        "rate",
+        "repose",
+        "ssr"
+      ],
       "fields": {
         "name": ["Kiss of Repose", "kiss-of-repose"],
         "owner": ["Doresain"],
-        "facet": ["CARO", "SSR", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["aliemus", "crit-rate", "aliemus generation", "Crit Rate", "crit. rate", "critical rate"],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "CRIT_DMG",
-        "owner": "awakener-0014"
+        "owner": "awakener-0014",
+        "tags": ["aliemus", "crit-rate"]
       }
     },
     {
@@ -205,17 +473,36 @@
       "id": "wheel-0012",
       "name": "Paradoxical Realism",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "caro", "paradoxical", "paradoxical realism", "pickman", "realism", "regen", "ssr"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "caro",
+        "generation",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "paradoxical",
+        "paradoxical realism",
+        "pickman",
+        "realism",
+        "recovery",
+        "shield",
+        "shield generation",
+        "ssr"
+      ],
       "fields": {
         "name": ["Paradoxical Realism", "paradoxical-realism"],
         "owner": ["Pickman"],
-        "facet": ["CARO", "SSR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["shield", "heal", "aliemus", "shield generation", "healing", "hp recovery", "aliemus generation"],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "ALIEMUS_REGEN",
-        "owner": "awakener-0040"
+        "owner": "awakener-0040",
+        "tags": ["aliemus", "heal", "shield"]
       }
     },
     {
@@ -223,17 +510,33 @@
       "id": "wheel-0013",
       "name": "Vain Regrets",
       "aliases": [],
-      "tokens": ["amp", "caro", "dmg", "dmg amp", "regrets", "ssr", "vain", "vain regrets", "xu"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "caro",
+        "embryo",
+        "embryo fusion",
+        "fusion",
+        "generation",
+        "poison",
+        "regrets",
+        "ssr",
+        "vain",
+        "vain regrets",
+        "xu"
+      ],
       "fields": {
         "name": ["Vain Regrets", "vain-regrets"],
         "owner": ["Xu"],
-        "facet": ["CARO", "SSR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["poison", "aliemus", "embryo-fusion", "aliemus generation", "Embryo Fusion"],
+        "facet": ["CARO", "SSR"]
       },
       "facets": {
         "realm": "CARO",
         "rarity": "SSR",
         "mainstatKey": "DMG_AMP",
-        "owner": "awakener-0054"
+        "owner": "awakener-0054",
+        "tags": ["aliemus", "embryo-fusion", "poison"]
       }
     },
     {
@@ -241,11 +544,11 @@
       "id": "wheel-0014",
       "name": "Rewinding Time",
       "aliases": [],
-      "tokens": ["chaos", "keyflare", "keyflare regen", "ramona", "regen", "rewinding", "rewinding time", "ssr", "time"],
+      "tokens": ["chaos", "ramona", "rewinding", "rewinding time", "ssr", "time"],
       "fields": {
         "name": ["Rewinding Time", "rewinding-time"],
         "owner": ["Ramona"],
-        "facet": ["CHAOS", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -259,17 +562,34 @@
       "id": "wheel-0015",
       "name": "Deathless Ascent",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "ascent", "chaos", "deathless", "deathless ascent", "doll", "regen", "ssr"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "ascent",
+        "chaos",
+        "deathless",
+        "deathless ascent",
+        "doll",
+        "generation",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "recovery",
+        "ssr"
+      ],
       "fields": {
         "name": ["Deathless Ascent", "deathless-ascent"],
         "owner": ["Doll"],
-        "facet": ["CHAOS", "SSR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["heal", "aliemus", "healing", "hp recovery", "aliemus generation"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "ALIEMUS_REGEN",
-        "owner": "awakener-0013"
+        "owner": "awakener-0013",
+        "tags": ["aliemus", "heal"]
       }
     },
     {
@@ -279,30 +599,38 @@
       "aliases": [],
       "tokens": [
         "aliemus",
-        "aliemus regen",
+        "aliemus generation",
         "chaos",
         "doll",
         "doll inferno",
         "g",
         "g doll",
+        "generation",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
         "inferno",
         "manikin",
         "manikin of oblivion",
         "oblivion",
         "of",
-        "regen",
+        "poison",
+        "recovery",
         "ssr"
       ],
       "fields": {
         "name": ["Manikin of Oblivion", "manikin-of-oblivion"],
         "owner": ["Doll: Inferno", "doll-inferno", "g-doll"],
-        "facet": ["CHAOS", "SSR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["poison", "heal", "aliemus", "healing", "hp recovery", "aliemus generation"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "ALIEMUS_REGEN",
-        "owner": "awakener-0018"
+        "owner": "awakener-0018",
+        "tags": ["aliemus", "heal", "poison"]
       }
     },
     {
@@ -310,17 +638,36 @@
       "id": "wheel-0017",
       "name": "Heart of a Knight",
       "aliases": [],
-      "tokens": ["a", "chaos", "heart", "heart of a knight", "knight", "of", "ogier", "sigil", "sigil yield", "ssr", "yield"],
+      "tokens": [
+        "a",
+        "chaos",
+        "generation",
+        "heart",
+        "heart of a knight",
+        "knight",
+        "of",
+        "ogier",
+        "shield",
+        "shield generation",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "up"
+      ],
       "fields": {
         "name": ["Heart of a Knight", "heart-of-a-knight"],
         "owner": ["Ogier"],
-        "facet": ["CHAOS", "SSR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": ["str-up", "shield", "STR Up", "strength up", "shield generation"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "SIGIL_YIELD",
-        "owner": "awakener-0038"
+        "owner": "awakener-0038",
+        "tags": ["shield", "str-up"]
       }
     },
     {
@@ -328,17 +675,37 @@
       "id": "wheel-0018",
       "name": "Celestial Beast",
       "aliases": [],
-      "tokens": ["beast", "celestial", "celestial beast", "chaos", "crit", "crit dmg", "dmg", "lotan", "ssr"],
+      "tokens": [
+        "beast",
+        "celestial",
+        "celestial beast",
+        "chaos",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "dmg",
+        "lotan",
+        "rate",
+        "ssr",
+        "strike"
+      ],
       "fields": {
         "name": ["Celestial Beast", "celestial-beast"],
         "owner": ["Lotan"],
-        "facet": ["CHAOS", "SSR", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["strike", "crit-rate", "crit-dmg", "Crit Rate", "crit. rate", "critical rate", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "CRIT_DMG",
-        "owner": "awakener-0031"
+        "owner": "awakener-0031",
+        "tags": ["crit-dmg", "crit-rate", "strike"]
       }
     },
     {
@@ -346,17 +713,52 @@
       "id": "wheel-0019",
       "name": "Hour of Fortune",
       "aliases": [],
-      "tokens": ["chaos", "fortune", "hour", "hour of fortune", "of", "ryker", "sigil", "sigil yield", "ssr", "yield"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "chaos",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "dmg",
+        "fortune",
+        "generation",
+        "hour",
+        "hour of fortune",
+        "of",
+        "rate",
+        "ryker",
+        "ssr"
+      ],
       "fields": {
         "name": ["Hour of Fortune", "hour-of-fortune"],
         "owner": ["Ryker"],
-        "facet": ["CHAOS", "SSR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": [
+          "aliemus",
+          "crit-rate",
+          "crit-dmg",
+          "aliemus generation",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "SIGIL_YIELD",
-        "owner": "awakener-0043"
+        "owner": "awakener-0043",
+        "tags": ["aliemus", "crit-dmg", "crit-rate"]
       }
     },
     {
@@ -364,17 +766,54 @@
       "id": "wheel-0020",
       "name": "Aberrant Devour",
       "aliases": [],
-      "tokens": ["24", "aberrant", "aberrant devour", "aliemus", "aliemus regen", "chaos", "devour", "four", "regen", "ssr", "twenty", "twenty four"],
+      "tokens": [
+        "24",
+        "aberrant",
+        "aberrant devour",
+        "aliemus",
+        "aliemus generation",
+        "chaos",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "devour",
+        "dmg",
+        "four",
+        "generation",
+        "rate",
+        "ssr",
+        "twenty",
+        "twenty four"
+      ],
       "fields": {
         "name": ["Aberrant Devour", "aberrant-devour"],
         "owner": ["24", "\"24\"", "twenty-four"],
-        "facet": ["CHAOS", "SSR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": [
+          "aliemus",
+          "crit-rate",
+          "crit-dmg",
+          "aliemus generation",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "ALIEMUS_REGEN",
-        "owner": "awakener-0001"
+        "owner": "awakener-0001",
+        "tags": ["aliemus", "crit-dmg", "crit-rate"]
       }
     },
     {
@@ -382,17 +821,19 @@
       "id": "wheel-0021",
       "name": "Memory Spiral",
       "aliases": [],
-      "tokens": ["chaos", "mastery", "memory", "memory spiral", "nautila", "realm", "realm mastery", "spiral", "ssr"],
+      "tokens": ["chaos", "generation", "memory", "memory spiral", "nautila", "shield", "shield generation", "spiral", "ssr"],
       "fields": {
         "name": ["Memory Spiral", "memory-spiral"],
         "owner": ["Nautila"],
-        "facet": ["CHAOS", "SSR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["shield", "shield generation"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "REALM_MASTERY",
-        "owner": "awakener-0036"
+        "owner": "awakener-0036",
+        "tags": ["shield"]
       }
     },
     {
@@ -400,17 +841,19 @@
       "id": "wheel-0022",
       "name": "Gift of Decay",
       "aliases": [],
-      "tokens": ["amp", "chaos", "decay", "dmg", "dmg amp", "gift", "gift of decay", "nymphaea", "of", "ssr"],
+      "tokens": ["aliemus", "aliemus generation", "chaos", "decay", "generation", "gift", "gift of decay", "nymphaea", "of", "poison", "ssr"],
       "fields": {
         "name": ["Gift of Decay", "gift-of-decay"],
         "owner": ["Nymphaea"],
-        "facet": ["CHAOS", "SSR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["poison", "aliemus", "aliemus generation"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "DMG_AMP",
-        "owner": "awakener-0037"
+        "owner": "awakener-0037",
+        "tags": ["aliemus", "poison"]
       }
     },
     {
@@ -418,17 +861,19 @@
       "id": "wheel-0023",
       "name": "Drifting in Desire",
       "aliases": [],
-      "tokens": ["chaos", "crit", "crit rate", "desire", "drifting", "drifting in desire", "in", "pandia", "rate", "ssr"],
+      "tokens": ["chaos", "counter", "desire", "drifting", "drifting in desire", "in", "pandia", "ssr", "str", "str up", "strength", "strength up", "up"],
       "fields": {
         "name": ["Drifting in Desire", "drifting-in-desire"],
         "owner": ["Pandia"],
-        "facet": ["CHAOS", "SSR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["counter", "str-up", "STR Up", "strength up"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "CRIT_RATE",
-        "owner": "awakener-0039"
+        "owner": "awakener-0039",
+        "tags": ["counter", "str-up"]
       }
     },
     {
@@ -436,17 +881,56 @@
       "id": "wheel-0024",
       "name": "Grace Through Pain",
       "aliases": [],
-      "tokens": ["chaos", "death", "death resistance", "grace", "grace through pain", "lily", "pain", "resistance", "ssr", "through"],
+      "tokens": [
+        "chaos",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "dmg",
+        "generation",
+        "grace",
+        "grace through pain",
+        "lily",
+        "pain",
+        "poison",
+        "rate",
+        "shield",
+        "shield generation",
+        "ssr",
+        "strike",
+        "through"
+      ],
       "fields": {
         "name": ["Grace Through Pain", "grace-through-pain"],
         "owner": ["Lily"],
-        "facet": ["CHAOS", "SSR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": [
+          "poison",
+          "shield",
+          "strike",
+          "crit-rate",
+          "crit-dmg",
+          "shield generation",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "DEATH_RESISTANCE",
-        "owner": "awakener-0029"
+        "owner": "awakener-0029",
+        "tags": ["crit-dmg", "crit-rate", "poison", "shield", "strike"]
       }
     },
     {
@@ -454,17 +938,59 @@
       "id": "wheel-0025",
       "name": "Will Unyielding",
       "aliases": [],
-      "tokens": ["alva", "chaos", "death", "death resistance", "resistance", "ssr", "unyielding", "will", "will unyielding"],
+      "tokens": [
+        "alva",
+        "chaos",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "defence",
+        "defend",
+        "defense",
+        "dmg",
+        "generation",
+        "rate",
+        "shield",
+        "shield generation",
+        "ssr",
+        "strike",
+        "unyielding",
+        "will",
+        "will unyielding"
+      ],
       "fields": {
         "name": ["Will Unyielding", "will-unyielding"],
         "owner": ["Alva"],
-        "facet": ["CHAOS", "SSR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": [
+          "shield",
+          "strike",
+          "defense",
+          "crit-rate",
+          "crit-dmg",
+          "shield generation",
+          "defence",
+          "defend",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "DEATH_RESISTANCE",
-        "owner": "awakener-0004"
+        "owner": "awakener-0004",
+        "tags": ["crit-dmg", "crit-rate", "defense", "shield", "strike"]
       }
     },
     {
@@ -472,17 +998,19 @@
       "id": "wheel-0026",
       "name": "Silent Banquet",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "banquet", "chaos", "karen", "regen", "silent", "silent banquet", "ssr"],
+      "tokens": ["banquet", "chaos", "heal", "healing", "hp", "hp recovery", "karen", "poison", "recovery", "silent", "silent banquet", "ssr"],
       "fields": {
         "name": ["Silent Banquet", "silent-banquet"],
         "owner": ["Karen"],
-        "facet": ["CHAOS", "SSR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["poison", "heal", "healing", "hp recovery"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "ALIEMUS_REGEN",
-        "owner": "awakener-0026"
+        "owner": "awakener-0026",
+        "tags": ["heal", "poison"]
       }
     },
     {
@@ -490,17 +1018,35 @@
       "id": "wheel-0027",
       "name": "Wheel Unseen",
       "aliases": [],
-      "tokens": ["chaos", "keyflare", "keyflare regen", "regen", "ssr", "tawil", "unseen", "wheel", "wheel unseen"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "chaos",
+        "generation",
+        "hand",
+        "hand limit",
+        "keyflare",
+        "limit",
+        "shield",
+        "shield generation",
+        "ssr",
+        "tawil",
+        "unseen",
+        "wheel",
+        "wheel unseen"
+      ],
       "fields": {
         "name": ["Wheel Unseen", "wheel-unseen"],
         "owner": ["Tawil"],
-        "facet": ["CHAOS", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["shield", "hand-limit", "keyflare", "aliemus", "shield generation", "Hand Limit", "aliemus generation"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "KEYFLARE_REGEN",
-        "owner": "awakener-0047"
+        "owner": "awakener-0047",
+        "tags": ["aliemus", "hand-limit", "keyflare", "shield"]
       }
     },
     {
@@ -508,17 +1054,35 @@
       "id": "wheel-0028",
       "name": "Amber-Tinted Death",
       "aliases": [],
-      "tokens": ["amber", "amber tinted death", "chaos", "crit", "crit dmg", "death", "dmg", "kathigu", "kathigu ra", "kathigura", "ra", "ssr", "tinted"],
+      "tokens": [
+        "amber",
+        "amber tinted death",
+        "chaos",
+        "death",
+        "kathigu",
+        "kathigu ra",
+        "kathigura",
+        "ra",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "tinted",
+        "up"
+      ],
       "fields": {
         "name": ["Amber-Tinted Death", "amber-tinted-death"],
         "owner": ["Kathigu-Ra", "kathigura"],
-        "facet": ["CHAOS", "SSR", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["str-up", "STR Up", "strength up"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "CRIT_DMG",
-        "owner": "awakener-0027"
+        "owner": "awakener-0027",
+        "tags": ["str-up"]
       }
     },
     {
@@ -526,17 +1090,19 @@
       "id": "wheel-0029",
       "name": "Doomsday Rampage",
       "aliases": [],
-      "tokens": ["chaos", "death", "death resistance", "doomsday", "doomsday rampage", "mouchette", "rampage", "resistance", "ssr"],
+      "tokens": ["chaos", "doomsday", "doomsday rampage", "mouchette", "pursuit", "rampage", "ssr", "strike"],
       "fields": {
         "name": ["Doomsday Rampage", "doomsday-rampage"],
         "owner": ["Mouchette"],
-        "facet": ["CHAOS", "SSR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": ["pursuit", "strike"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "DEATH_RESISTANCE",
-        "owner": "awakener-0033"
+        "owner": "awakener-0033",
+        "tags": ["pursuit", "strike"]
       }
     },
     {
@@ -544,17 +1110,19 @@
       "id": "wheel-0030",
       "name": "Fouetté",
       "aliases": [],
-      "tokens": ["crit", "crit rate", "fouette", "liz", "rate", "ssr", "ultra"],
+      "tokens": ["discard", "fouette", "liz", "poison", "ssr", "ultra"],
       "fields": {
         "name": ["Fouetté", "fouette"],
         "owner": ["Liz"],
-        "facet": ["ULTRA", "SSR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["poison", "discard"],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "CRIT_RATE",
-        "owner": "awakener-0030"
+        "owner": "awakener-0030",
+        "tags": ["discard", "poison"]
       }
     },
     {
@@ -562,17 +1130,38 @@
       "id": "wheel-0031",
       "name": "Treasured Rarity",
       "aliases": [],
-      "tokens": ["crit", "crit dmg", "daffodil", "dmg", "rarity", "ssr", "treasured", "treasured rarity", "ultra"],
+      "tokens": [
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "daffodil",
+        "damage",
+        "dmg",
+        "gain",
+        "generation",
+        "rarity",
+        "sigil",
+        "sigil gain",
+        "sigil generation",
+        "ssr",
+        "treasured",
+        "treasured rarity",
+        "ultra"
+      ],
       "fields": {
         "name": ["Treasured Rarity", "treasured-rarity"],
         "owner": ["Daffodil"],
-        "facet": ["ULTRA", "SSR", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["crit-dmg", "sigil-gain", "Crit DMG", "crit. dmg", "crit damage", "critical damage", "Sigil Gain", "sigil generation"],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "CRIT_DMG",
-        "owner": "awakener-0012"
+        "owner": "awakener-0012",
+        "tags": ["crit-dmg", "sigil-gain"]
       }
     },
     {
@@ -580,17 +1169,19 @@
       "id": "wheel-0032",
       "name": "Song of the Bound",
       "aliases": [],
-      "tokens": ["bound", "of", "sigil", "sigil yield", "song", "song of the bound", "ssr", "the", "tinct", "ultra", "yield"],
+      "tokens": ["bound", "draw", "of", "song", "song of the bound", "ssr", "strike", "the", "tinct", "ultra"],
       "fields": {
         "name": ["Song of the Bound", "song-of-the-bound"],
         "owner": ["Tinct"],
-        "facet": ["ULTRA", "SSR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": ["draw", "strike"],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "SIGIL_YIELD",
-        "owner": "awakener-0049"
+        "owner": "awakener-0049",
+        "tags": ["draw", "strike"]
       }
     },
     {
@@ -598,17 +1189,35 @@
       "id": "wheel-0033",
       "name": "Queen's Edict",
       "aliases": [],
-      "tokens": ["amp", "dmg", "dmg amp", "edict", "queens", "queens edict", "ssr", "ultra", "wanda"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "counter",
+        "down",
+        "edict",
+        "generation",
+        "queens",
+        "queens edict",
+        "ssr",
+        "str",
+        "str down",
+        "strength",
+        "strength down",
+        "ultra",
+        "wanda"
+      ],
       "fields": {
         "name": ["Queen's Edict", "queens-edict"],
         "owner": ["Wanda"],
-        "facet": ["ULTRA", "SSR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["counter", "str-down", "aliemus", "STR Down", "strength down", "aliemus generation"],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "DMG_AMP",
-        "owner": "awakener-0052"
+        "owner": "awakener-0052",
+        "tags": ["aliemus", "counter", "str-down"]
       }
     },
     {
@@ -616,17 +1225,19 @@
       "id": "wheel-0034",
       "name": "Incalculable Factor",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "factor", "incalculable", "incalculable factor", "regen", "ssr", "ultra", "winkle"],
+      "tokens": ["aliemus", "aliemus generation", "factor", "generation", "incalculable", "incalculable factor", "keyflare", "ssr", "ultra", "winkle"],
       "fields": {
         "name": ["Incalculable Factor", "incalculable-factor"],
         "owner": ["Winkle"],
-        "facet": ["ULTRA", "SSR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["keyflare", "aliemus", "aliemus generation"],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "ALIEMUS_REGEN",
-        "owner": "awakener-0053"
+        "owner": "awakener-0053",
+        "tags": ["aliemus", "keyflare"]
       }
     },
     {
@@ -634,17 +1245,66 @@
       "id": "wheel-0035",
       "name": "The Last Verse",
       "aliases": [],
-      "tokens": ["death", "death resistance", "horla", "last", "resistance", "ssr", "the", "the last verse", "ultra", "verse"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "dmg",
+        "generation",
+        "heal",
+        "healing",
+        "horla",
+        "hp",
+        "hp recovery",
+        "keyflare",
+        "last",
+        "rate",
+        "recovery",
+        "shield",
+        "shield generation",
+        "ssr",
+        "the",
+        "the last verse",
+        "ultra",
+        "verse"
+      ],
       "fields": {
         "name": ["The Last Verse", "the-last-verse"],
         "owner": ["Horla"],
-        "facet": ["ULTRA", "SSR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": [
+          "shield",
+          "heal",
+          "keyflare",
+          "aliemus",
+          "crit-rate",
+          "crit-dmg",
+          "shield generation",
+          "healing",
+          "hp recovery",
+          "aliemus generation",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "DEATH_RESISTANCE",
-        "owner": "awakener-0024"
+        "owner": "awakener-0024",
+        "tags": ["aliemus", "crit-dmg", "crit-rate", "heal", "keyflare", "shield"]
       }
     },
     {
@@ -652,17 +1312,19 @@
       "id": "wheel-0036",
       "name": "Path Forsaken",
       "aliases": [],
-      "tokens": ["crit", "crit rate", "forsaken", "jenkin", "jenkins", "path", "path forsaken", "rate", "ssr", "ultra"],
+      "tokens": ["arithmetica", "draw", "forsaken", "jenkin", "jenkins", "path", "path forsaken", "ssr", "ultra"],
       "fields": {
         "name": ["Path Forsaken", "path-forsaken"],
         "owner": ["Jenkin", "jenkins"],
-        "facet": ["ULTRA", "SSR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["arithmetica", "draw"],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "CRIT_RATE",
-        "owner": "awakener-0025"
+        "owner": "awakener-0025",
+        "tags": ["arithmetica", "draw"]
       }
     },
     {
@@ -670,17 +1332,38 @@
       "id": "wheel-0037",
       "name": "Core Meltdown",
       "aliases": [],
-      "tokens": ["core", "core meltdown", "erica", "keyflare", "keyflare regen", "meltdown", "regen", "ssr", "ultra"],
+      "tokens": [
+        "core",
+        "core meltdown",
+        "defence",
+        "defend",
+        "defense",
+        "erica",
+        "generation",
+        "meltdown",
+        "shield",
+        "shield generation",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "strike",
+        "ultra",
+        "up"
+      ],
       "fields": {
         "name": ["Core Meltdown", "core-meltdown"],
         "owner": ["Erica"],
-        "facet": ["ULTRA", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["str-up", "shield", "strike", "defense", "STR Up", "strength up", "shield generation", "defence", "defend"],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "KEYFLARE_REGEN",
-        "owner": "awakener-0015"
+        "owner": "awakener-0015",
+        "tags": ["defense", "shield", "str-up", "strike"]
       }
     },
     {
@@ -688,17 +1371,36 @@
       "id": "wheel-0038",
       "name": "Happy Magic Show",
       "aliases": [],
-      "tokens": ["casiah", "happy", "happy magic show", "magic", "mastery", "realm", "realm mastery", "show", "ssr", "ultra"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "casiah",
+        "generation",
+        "happy",
+        "happy magic show",
+        "keyflare",
+        "magic",
+        "show",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "ultra",
+        "up"
+      ],
       "fields": {
         "name": ["Happy Magic Show", "happy-magic-show"],
         "owner": ["Casiah"],
-        "facet": ["ULTRA", "SSR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["str-up", "keyflare", "aliemus", "STR Up", "strength up", "aliemus generation"],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "REALM_MASTERY",
-        "owner": "awakener-0007"
+        "owner": "awakener-0007",
+        "tags": ["aliemus", "keyflare", "str-up"]
       }
     },
     {
@@ -706,17 +1408,53 @@
       "id": "wheel-0039",
       "name": "Unbearable Freedom",
       "aliases": [],
-      "tokens": ["amp", "castor", "dmg", "dmg amp", "freedom", "ssr", "ultra", "unbearable", "unbearable freedom"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "castor",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "freedom",
+        "generation",
+        "hand",
+        "hand limit",
+        "limit",
+        "shield",
+        "shield generation",
+        "ssr",
+        "ultra",
+        "unbearable",
+        "unbearable freedom"
+      ],
       "fields": {
         "name": ["Unbearable Freedom", "unbearable-freedom"],
         "owner": ["Castor"],
-        "facet": ["ULTRA", "SSR", "DMG_AMP", "Dmg Amp"]
+        "tag": [
+          "shield",
+          "hand-limit",
+          "aliemus",
+          "crit-dmg",
+          "shield generation",
+          "Hand Limit",
+          "aliemus generation",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "DMG_AMP",
-        "owner": "awakener-0008"
+        "owner": "awakener-0008",
+        "tags": ["aliemus", "crit-dmg", "hand-limit", "shield"]
       }
     },
     {
@@ -724,17 +1462,34 @@
       "id": "wheel-0040",
       "name": "Eternal Requiem",
       "aliases": [],
-      "tokens": ["chaos", "eternal", "eternal requiem", "hameln", "keyflare", "keyflare regen", "regen", "requiem", "ssr"],
+      "tokens": [
+        "chaos",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "eternal",
+        "eternal requiem",
+        "hameln",
+        "keyflare",
+        "requiem",
+        "ssr"
+      ],
       "fields": {
         "name": ["Eternal Requiem", "eternal-requiem"],
         "owner": ["Hameln"],
-        "facet": ["CHAOS", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["keyflare", "crit-dmg", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["CHAOS", "SSR"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "SSR",
         "mainstatKey": "KEYFLARE_REGEN",
-        "owner": "awakener-0022"
+        "owner": "awakener-0022",
+        "tags": ["crit-dmg", "keyflare"]
       }
     },
     {
@@ -742,17 +1497,19 @@
       "id": "wheel-0041",
       "name": "Veiled Anguish",
       "aliases": [],
-      "tokens": ["anguish", "clementine", "keyflare", "keyflare regen", "regen", "ssr", "ultra", "veiled", "veiled anguish"],
+      "tokens": ["aliemus", "aliemus generation", "anguish", "clementine", "generation", "keyflare", "ssr", "ultra", "veiled", "veiled anguish"],
       "fields": {
         "name": ["Veiled Anguish", "veiled-anguish"],
         "owner": ["Clementine"],
-        "facet": ["ULTRA", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["keyflare", "aliemus", "aliemus generation"],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "KEYFLARE_REGEN",
-        "owner": "awakener-0010"
+        "owner": "awakener-0010",
+        "tags": ["aliemus", "keyflare"]
       }
     },
     {
@@ -760,17 +1517,37 @@
       "id": "wheel-0042",
       "name": "Twisted Knight Ballad",
       "aliases": [],
-      "tokens": ["ballad", "crit", "crit rate", "knight", "pollux", "rate", "ssr", "twisted", "twisted knight ballad", "ultra"],
+      "tokens": [
+        "ballad",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "generation",
+        "knight",
+        "pollux",
+        "shield",
+        "shield generation",
+        "ssr",
+        "twisted",
+        "twisted knight ballad",
+        "ultra"
+      ],
       "fields": {
         "name": ["Twisted Knight Ballad", "twisted-knight-ballad"],
         "owner": ["Pollux"],
-        "facet": ["ULTRA", "SSR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["shield", "crit-dmg", "shield generation", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "CRIT_RATE",
-        "owner": "awakener-0041"
+        "owner": "awakener-0041",
+        "tags": ["crit-dmg", "shield"]
       }
     },
     {
@@ -778,15 +1555,17 @@
       "id": "wheel-0043",
       "name": "Special Training",
       "aliases": [],
-      "tokens": ["crit", "crit rate", "neutral", "rate", "special", "special training", "ssr", "training"],
+      "tokens": ["crit", "crit rate", "critical", "critical rate", "neutral", "rate", "special", "special training", "ssr", "training"],
       "fields": {
         "name": ["Special Training", "special-training"],
-        "facet": ["NEUTRAL", "SSR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["crit-rate", "Crit Rate", "crit. rate", "critical rate"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "CRIT_RATE"
+        "mainstatKey": "CRIT_RATE",
+        "tags": ["crit-rate"]
       }
     },
     {
@@ -794,15 +1573,17 @@
       "id": "wheel-0044",
       "name": "School Day",
       "aliases": [],
-      "tokens": ["day", "neutral", "school", "school day", "sigil", "sigil yield", "ssr", "yield"],
+      "tokens": ["aliemus", "aliemus generation", "day", "generation", "neutral", "school", "school day", "ssr"],
       "fields": {
         "name": ["School Day", "school-day"],
-        "facet": ["NEUTRAL", "SSR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": ["aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "SIGIL_YIELD"
+        "mainstatKey": "SIGIL_YIELD",
+        "tags": ["aliemus"]
       }
     },
     {
@@ -810,10 +1591,10 @@
       "id": "wheel-0045",
       "name": "Dear Papa Noel",
       "aliases": [],
-      "tokens": ["dear", "dear papa noel", "death", "death resistance", "neutral", "noel", "papa", "resistance", "ssr"],
+      "tokens": ["dear", "dear papa noel", "neutral", "noel", "papa", "ssr"],
       "fields": {
         "name": ["Dear Papa Noel", "dear-papa-noel"],
-        "facet": ["NEUTRAL", "SSR", "DEATH_RESISTANCE", "Death Resistance"]
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
@@ -826,15 +1607,17 @@
       "id": "wheel-0046",
       "name": "Countdown Moment",
       "aliases": [],
-      "tokens": ["countdown", "countdown moment", "keyflare", "keyflare regen", "moment", "neutral", "regen", "ssr"],
+      "tokens": ["arithmetica", "countdown", "countdown moment", "draw", "moment", "neutral", "ssr"],
       "fields": {
         "name": ["Countdown Moment", "countdown-moment"],
-        "facet": ["NEUTRAL", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["arithmetica", "draw"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "KEYFLARE_REGEN"
+        "mainstatKey": "KEYFLARE_REGEN",
+        "tags": ["arithmetica", "draw"]
       }
     },
     {
@@ -842,15 +1625,17 @@
       "id": "wheel-0047",
       "name": "Stakes of Wisdom",
       "aliases": [],
-      "tokens": ["crit", "crit dmg", "dmg", "neutral", "of", "ssr", "stakes", "stakes of wisdom", "wisdom"],
+      "tokens": ["aliemus", "aliemus generation", "generation", "neutral", "of", "ssr", "stakes", "stakes of wisdom", "wisdom"],
       "fields": {
         "name": ["Stakes of Wisdom", "stakes-of-wisdom"],
-        "facet": ["NEUTRAL", "SSR", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "CRIT_DMG"
+        "mainstatKey": "CRIT_DMG",
+        "tags": ["aliemus"]
       }
     },
     {
@@ -858,10 +1643,10 @@
       "id": "wheel-0048",
       "name": "Unsent Flowers",
       "aliases": [],
-      "tokens": ["flowers", "keyflare", "keyflare regen", "n", "neutral", "regen", "unsent", "unsent flowers"],
+      "tokens": ["flowers", "n", "neutral", "unsent", "unsent flowers"],
       "fields": {
         "name": ["Unsent Flowers", "unsent-flowers"],
-        "facet": ["NEUTRAL", "N", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "facet": ["NEUTRAL", "N"]
       },
       "facets": {
         "realm": "NEUTRAL",
@@ -874,10 +1659,10 @@
       "id": "wheel-0049",
       "name": "Roses in Mud",
       "aliases": [],
-      "tokens": ["in", "keyflare", "keyflare regen", "mud", "n", "neutral", "regen", "roses", "roses in mud"],
+      "tokens": ["in", "mud", "n", "neutral", "roses", "roses in mud"],
       "fields": {
         "name": ["Roses in Mud", "roses-in-mud"],
-        "facet": ["NEUTRAL", "N", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "facet": ["NEUTRAL", "N"]
       },
       "facets": {
         "realm": "NEUTRAL",
@@ -890,17 +1675,36 @@
       "id": "wheel-0050",
       "name": "Hymn of the Sovereign",
       "aliases": [],
-      "tokens": ["aequor", "aliemus", "aliemus regen", "hymn", "hymn of the sovereign", "of", "regen", "sovereign", "ssr", "the", "tulu"],
+      "tokens": [
+        "aequor",
+        "aliemus",
+        "aliemus generation",
+        "damage",
+        "dmg",
+        "generation",
+        "hymn",
+        "hymn of the sovereign",
+        "of",
+        "sovereign",
+        "ssr",
+        "tentacle",
+        "tentacle damage",
+        "tentacle dmg",
+        "the",
+        "tulu"
+      ],
       "fields": {
         "name": ["Hymn of the Sovereign", "hymn-of-the-sovereign"],
         "owner": ["Tulu"],
-        "facet": ["AEQUOR", "SSR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["tentacle-dmg", "aliemus", "Tentacle DMG", "tentacle damage", "aliemus generation"],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "ALIEMUS_REGEN",
-        "owner": "awakener-0050"
+        "owner": "awakener-0050",
+        "tags": ["aliemus", "tentacle-dmg"]
       }
     },
     {
@@ -908,17 +1712,37 @@
       "id": "wheel-0051",
       "name": "Shrouded Birth",
       "aliases": [],
-      "tokens": ["aequor", "birth", "keyflare", "keyflare regen", "murphy", "regen", "shrouded", "shrouded birth", "ssr"],
+      "tokens": [
+        "aequor",
+        "aliemus",
+        "aliemus generation",
+        "birth",
+        "crit",
+        "crit rate",
+        "critical",
+        "critical rate",
+        "generation",
+        "keyflare",
+        "murphy",
+        "rate",
+        "shield",
+        "shield generation",
+        "shrouded",
+        "shrouded birth",
+        "ssr"
+      ],
       "fields": {
         "name": ["Shrouded Birth", "shrouded-birth"],
         "owner": ["Murphy"],
-        "facet": ["AEQUOR", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["shield", "keyflare", "aliemus", "crit-rate", "shield generation", "aliemus generation", "Crit Rate", "crit. rate", "critical rate"],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "KEYFLARE_REGEN",
-        "owner": "awakener-0034"
+        "owner": "awakener-0034",
+        "tags": ["aliemus", "crit-rate", "keyflare", "shield"]
       }
     },
     {
@@ -926,17 +1750,19 @@
       "id": "wheel-0052",
       "name": "Amidst the Downpour",
       "aliases": [],
-      "tokens": ["aequor", "amidst", "amidst the downpour", "amp", "dmg", "dmg amp", "downpour", "faros", "ssr", "the"],
+      "tokens": ["aequor", "amidst", "amidst the downpour", "arithmetica", "downpour", "faros", "poison", "ssr", "strike", "the"],
       "fields": {
         "name": ["Amidst the Downpour", "amidst-the-downpour"],
         "owner": ["Faros"],
-        "facet": ["AEQUOR", "SSR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["poison", "arithmetica", "strike"],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "DMG_AMP",
-        "owner": "awakener-0017"
+        "owner": "awakener-0017",
+        "tags": ["arithmetica", "poison", "strike"]
       }
     },
     {
@@ -944,17 +1770,65 @@
       "id": "wheel-0053",
       "name": "Fin of Sorrow",
       "aliases": [],
-      "tokens": ["aequor", "caecus", "fin", "fin of sorrow", "of", "sigil", "sigil yield", "sorrow", "ssr", "yield"],
+      "tokens": [
+        "aequor",
+        "caecus",
+        "counter",
+        "damage",
+        "defence",
+        "defend",
+        "defense",
+        "dmg",
+        "fin",
+        "fin of sorrow",
+        "generation",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "of",
+        "recovery",
+        "shield",
+        "shield generation",
+        "sorrow",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "tentacle",
+        "tentacle damage",
+        "tentacle dmg",
+        "up"
+      ],
       "fields": {
         "name": ["Fin of Sorrow", "fin-of-sorrow"],
         "owner": ["Caecus"],
-        "facet": ["AEQUOR", "SSR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": [
+          "counter",
+          "str-up",
+          "tentacle-dmg",
+          "shield",
+          "heal",
+          "defense",
+          "STR Up",
+          "strength up",
+          "Tentacle DMG",
+          "tentacle damage",
+          "shield generation",
+          "healing",
+          "hp recovery",
+          "defence",
+          "defend"
+        ],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "SIGIL_YIELD",
-        "owner": "awakener-0006"
+        "owner": "awakener-0006",
+        "tags": ["counter", "defense", "heal", "shield", "str-up", "tentacle-dmg"]
       }
     },
     {
@@ -962,17 +1836,41 @@
       "id": "wheel-0054",
       "name": "Dream of the Sea",
       "aliases": [],
-      "tokens": ["aequor", "aurita", "crit", "crit rate", "dream", "dream of the sea", "of", "rate", "sea", "ssr", "the"],
+      "tokens": [
+        "aequor",
+        "aliemus",
+        "aliemus generation",
+        "aurita",
+        "damage",
+        "dmg",
+        "dream",
+        "dream of the sea",
+        "generation",
+        "of",
+        "sea",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "tentacle",
+        "tentacle damage",
+        "tentacle dmg",
+        "the",
+        "up"
+      ],
       "fields": {
         "name": ["Dream of the Sea", "dream-of-the-sea"],
         "owner": ["Aurita"],
-        "facet": ["AEQUOR", "SSR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["str-up", "tentacle-dmg", "aliemus", "STR Up", "strength up", "Tentacle DMG", "tentacle damage", "aliemus generation"],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "CRIT_RATE",
-        "owner": "awakener-0005"
+        "owner": "awakener-0005",
+        "tags": ["aliemus", "str-up", "tentacle-dmg"]
       }
     },
     {
@@ -980,17 +1878,36 @@
       "id": "wheel-0055",
       "name": "Blade of the Titan",
       "aliases": [],
-      "tokens": ["aequor", "blade", "blade of the titan", "crit", "crit rate", "goliath", "of", "rate", "ssr", "the", "titan"],
+      "tokens": [
+        "aequor",
+        "arithmetica",
+        "blade",
+        "blade of the titan",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "goliath",
+        "of",
+        "ssr",
+        "the",
+        "titan"
+      ],
       "fields": {
         "name": ["Blade of the Titan", "blade-of-the-titan"],
         "owner": ["Goliath"],
-        "facet": ["AEQUOR", "SSR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["arithmetica", "crit-dmg", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "CRIT_RATE",
-        "owner": "awakener-0021"
+        "owner": "awakener-0021",
+        "tags": ["arithmetica", "crit-dmg"]
       }
     },
     {
@@ -998,17 +1915,39 @@
       "id": "wheel-0056",
       "name": "Power of the Pious",
       "aliases": [],
-      "tokens": ["aequor", "crit", "crit dmg", "dmg", "miryam", "of", "pious", "power", "power of the pious", "ssr", "the"],
+      "tokens": [
+        "aequor",
+        "aliemus",
+        "aliemus generation",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "generation",
+        "miryam",
+        "of",
+        "pious",
+        "poison",
+        "power",
+        "power of the pious",
+        "ssr",
+        "the"
+      ],
       "fields": {
         "name": ["Power of the Pious", "power-of-the-pious"],
         "owner": ["Miryam"],
-        "facet": ["AEQUOR", "SSR", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["poison", "aliemus", "crit-dmg", "aliemus generation", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "CRIT_DMG",
-        "owner": "awakener-0032"
+        "owner": "awakener-0032",
+        "tags": ["aliemus", "crit-dmg", "poison"]
       }
     },
     {
@@ -1016,17 +1955,19 @@
       "id": "wheel-0057",
       "name": "Death of Ms. Coral",
       "aliases": [],
-      "tokens": ["aequor", "coral", "death", "death of ms coral", "death resistance", "ms", "of", "resistance", "sanga", "ssr"],
+      "tokens": ["aequor", "coral", "death", "death of ms coral", "generation", "ms", "of", "sanga", "shield", "shield generation", "ssr"],
       "fields": {
         "name": ["Death of Ms. Coral", "death-of-ms-coral"],
         "owner": ["Sanga"],
-        "facet": ["AEQUOR", "SSR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": ["shield", "shield generation"],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "DEATH_RESISTANCE",
-        "owner": "awakener-0045"
+        "owner": "awakener-0045",
+        "tags": ["shield"]
       }
     },
     {
@@ -1034,17 +1975,19 @@
       "id": "wheel-0058",
       "name": "Sail of Providence",
       "aliases": [],
-      "tokens": ["aequor", "celeste", "mastery", "of", "providence", "realm", "realm mastery", "sail", "sail of providence", "ssr"],
+      "tokens": ["aequor", "celeste", "heal", "healing", "hp", "hp recovery", "of", "providence", "recovery", "sail", "sail of providence", "ssr"],
       "fields": {
         "name": ["Sail of Providence", "sail-of-providence"],
         "owner": ["Celeste"],
-        "facet": ["AEQUOR", "SSR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["heal", "healing", "hp recovery"],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "REALM_MASTERY",
-        "owner": "awakener-0009"
+        "owner": "awakener-0009",
+        "tags": ["heal"]
       }
     },
     {
@@ -1052,17 +1995,50 @@
       "id": "wheel-0059",
       "name": "Flamebound Navigator",
       "aliases": [],
-      "tokens": ["aequor", "corposant", "death", "death resistance", "flamebound", "flamebound navigator", "navigator", "resistance", "ssr"],
+      "tokens": [
+        "aequor",
+        "corposant",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "death",
+        "death resistance",
+        "dmg",
+        "flamebound",
+        "flamebound navigator",
+        "generation",
+        "navigator",
+        "resistance",
+        "shield",
+        "shield generation",
+        "ssr"
+      ],
       "fields": {
         "name": ["Flamebound Navigator", "flamebound-navigator"],
         "owner": ["Corposant"],
-        "facet": ["AEQUOR", "SSR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": [
+          "death-resistance",
+          "shield",
+          "crit-dmg",
+          "Death Resistance",
+          "resistance",
+          "shield generation",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "DEATH_RESISTANCE",
-        "owner": "awakener-0011"
+        "owner": "awakener-0011",
+        "tags": ["crit-dmg", "death-resistance", "shield"]
       }
     },
     {
@@ -1070,17 +2046,36 @@
       "id": "wheel-0060",
       "name": "The Faraway Eden",
       "aliases": [],
-      "tokens": ["aequor", "eden", "faraway", "mastery", "realm", "realm mastery", "ssr", "the", "the faraway eden", "vortice"],
+      "tokens": [
+        "aequor",
+        "aliemus",
+        "aliemus generation",
+        "eden",
+        "faraway",
+        "generation",
+        "mastery",
+        "realm",
+        "ssr",
+        "temp",
+        "temp realm mastery",
+        "temporary",
+        "temporary realm mastery",
+        "the",
+        "the faraway eden",
+        "vortice"
+      ],
       "fields": {
         "name": ["The Faraway Eden", "the-faraway-eden"],
         "owner": ["Vortice"],
-        "facet": ["AEQUOR", "SSR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["aliemus", "temporary-realm-mastery", "aliemus generation", "Temporary Realm Mastery", "temp realm mastery"],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "REALM_MASTERY",
-        "owner": "awakener-0055"
+        "owner": "awakener-0055",
+        "tags": ["aliemus", "temporary-realm-mastery"]
       }
     },
     {
@@ -1088,10 +2083,10 @@
       "id": "wheel-0061",
       "name": "Gluttony",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "gluttony", "neutral", "r", "regen"],
+      "tokens": ["gluttony", "neutral", "r"],
       "fields": {
         "name": ["Gluttony"],
-        "facet": ["NEUTRAL", "R", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
@@ -1104,15 +2099,17 @@
       "id": "wheel-0062",
       "name": "Frenzy",
       "aliases": [],
-      "tokens": ["frenzy", "keyflare", "keyflare regen", "neutral", "r", "regen"],
+      "tokens": ["frenzy", "gain", "generation", "neutral", "r", "sigil", "sigil gain", "sigil generation"],
       "fields": {
         "name": ["Frenzy"],
-        "facet": ["NEUTRAL", "R", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["sigil-gain", "Sigil Gain", "sigil generation"],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "KEYFLARE_REGEN"
+        "mainstatKey": "KEYFLARE_REGEN",
+        "tags": ["sigil-gain"]
       }
     },
     {
@@ -1120,15 +2117,17 @@
       "id": "wheel-0063",
       "name": "Favor",
       "aliases": [],
-      "tokens": ["crit", "crit rate", "favor", "neutral", "r", "rate"],
+      "tokens": ["aliemus", "aliemus generation", "draw", "favor", "generation", "neutral", "r"],
       "fields": {
         "name": ["Favor"],
-        "facet": ["NEUTRAL", "R", "CRIT_RATE", "Crit Rate"]
+        "tag": ["draw", "aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "CRIT_RATE"
+        "mainstatKey": "CRIT_RATE",
+        "tags": ["aliemus", "draw"]
       }
     },
     {
@@ -1136,10 +2135,10 @@
       "id": "wheel-0064",
       "name": "Emerge",
       "aliases": [],
-      "tokens": ["emerge", "neutral", "r", "sigil", "sigil yield", "yield"],
+      "tokens": ["emerge", "neutral", "r"],
       "fields": {
         "name": ["Emerge"],
-        "facet": ["NEUTRAL", "R", "SIGIL_YIELD", "Sigil Yield"]
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
@@ -1152,10 +2151,10 @@
       "id": "wheel-0065",
       "name": "Delirium",
       "aliases": [],
-      "tokens": ["amp", "delirium", "dmg", "dmg amp", "neutral", "r"],
+      "tokens": ["delirium", "neutral", "r"],
       "fields": {
         "name": ["Delirium"],
-        "facet": ["NEUTRAL", "R", "DMG_AMP", "Dmg Amp"]
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
@@ -1168,15 +2167,17 @@
       "id": "wheel-0066",
       "name": "Whisper",
       "aliases": [],
-      "tokens": ["death", "death resistance", "neutral", "r", "resistance", "whisper"],
+      "tokens": ["aliemus", "aliemus generation", "generation", "neutral", "r", "whisper"],
       "fields": {
         "name": ["Whisper"],
-        "facet": ["NEUTRAL", "R", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": ["aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "DEATH_RESISTANCE"
+        "mainstatKey": "DEATH_RESISTANCE",
+        "tags": ["aliemus"]
       }
     },
     {
@@ -1184,15 +2185,49 @@
       "id": "wheel-0067",
       "name": "Hope",
       "aliases": [],
-      "tokens": ["crit", "crit rate", "hope", "neutral", "r", "rate"],
+      "tokens": [
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "dmg",
+        "heal",
+        "healing",
+        "hope",
+        "hp",
+        "hp recovery",
+        "neutral",
+        "r",
+        "rate",
+        "recovery"
+      ],
       "fields": {
         "name": ["Hope"],
-        "facet": ["NEUTRAL", "R", "CRIT_RATE", "Crit Rate"]
+        "tag": [
+          "heal",
+          "crit-rate",
+          "crit-dmg",
+          "healing",
+          "hp recovery",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "CRIT_RATE"
+        "mainstatKey": "CRIT_RATE",
+        "tags": ["crit-dmg", "crit-rate", "heal"]
       }
     },
     {
@@ -1200,15 +2235,17 @@
       "id": "wheel-0068",
       "name": "Epiphany",
       "aliases": [],
-      "tokens": ["epiphany", "mastery", "neutral", "r", "realm", "realm mastery"],
+      "tokens": ["arithmetica", "epiphany", "keyflare", "neutral", "r"],
       "fields": {
         "name": ["Epiphany"],
-        "facet": ["NEUTRAL", "R", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["arithmetica", "keyflare"],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "REALM_MASTERY"
+        "mainstatKey": "REALM_MASTERY",
+        "tags": ["arithmetica", "keyflare"]
       }
     },
     {
@@ -1219,12 +2256,14 @@
       "tokens": ["death", "death resistance", "neutral", "punishment", "r", "resistance"],
       "fields": {
         "name": ["Punishment"],
-        "facet": ["NEUTRAL", "R", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": ["death-resistance", "Death Resistance", "resistance"],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "DEATH_RESISTANCE"
+        "mainstatKey": "DEATH_RESISTANCE",
+        "tags": ["death-resistance"]
       }
     },
     {
@@ -1232,10 +2271,10 @@
       "id": "wheel-0070",
       "name": "Blessing",
       "aliases": [],
-      "tokens": ["amp", "blessing", "dmg", "dmg amp", "neutral", "r"],
+      "tokens": ["blessing", "neutral", "r"],
       "fields": {
         "name": ["Blessing"],
-        "facet": ["NEUTRAL", "R", "DMG_AMP", "Dmg Amp"]
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
@@ -1248,15 +2287,17 @@
       "id": "wheel-0071",
       "name": "Vitality",
       "aliases": [],
-      "tokens": ["keyflare", "keyflare regen", "neutral", "r", "regen", "vitality"],
+      "tokens": ["gain", "generation", "neutral", "r", "sigil", "sigil gain", "sigil generation", "vitality"],
       "fields": {
         "name": ["Vitality"],
-        "facet": ["NEUTRAL", "R", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["sigil-gain", "Sigil Gain", "sigil generation"],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "KEYFLARE_REGEN"
+        "mainstatKey": "KEYFLARE_REGEN",
+        "tags": ["sigil-gain"]
       }
     },
     {
@@ -1264,15 +2305,17 @@
       "id": "wheel-0072",
       "name": "Exile",
       "aliases": [],
-      "tokens": ["exile", "mastery", "neutral", "r", "realm", "realm mastery"],
+      "tokens": ["exile", "gain", "generation", "neutral", "r", "sigil", "sigil gain", "sigil generation"],
       "fields": {
         "name": ["Exile"],
-        "facet": ["NEUTRAL", "R", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["sigil-gain", "Sigil Gain", "sigil generation"],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "REALM_MASTERY"
+        "mainstatKey": "REALM_MASTERY",
+        "tags": ["sigil-gain"]
       }
     },
     {
@@ -1280,15 +2323,17 @@
       "id": "wheel-0073",
       "name": "Suction",
       "aliases": [],
-      "tokens": ["crit", "crit dmg", "dmg", "neutral", "r", "suction"],
+      "tokens": ["heal", "healing", "hp", "hp recovery", "neutral", "r", "recovery", "suction"],
       "fields": {
         "name": ["Suction"],
-        "facet": ["NEUTRAL", "R", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["heal", "healing", "hp recovery"],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "CRIT_DMG"
+        "mainstatKey": "CRIT_DMG",
+        "tags": ["heal"]
       }
     },
     {
@@ -1296,15 +2341,17 @@
       "id": "wheel-0074",
       "name": "Aged",
       "aliases": [],
-      "tokens": ["aged", "crit", "crit dmg", "dmg", "neutral", "r"],
+      "tokens": ["aged", "keyflare", "neutral", "r"],
       "fields": {
         "name": ["Aged"],
-        "facet": ["NEUTRAL", "R", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["keyflare"],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "CRIT_DMG"
+        "mainstatKey": "CRIT_DMG",
+        "tags": ["keyflare"]
       }
     },
     {
@@ -1312,15 +2359,31 @@
       "id": "wheel-0076",
       "name": "Insight",
       "aliases": [],
-      "tokens": ["insight", "neutral", "r", "sigil", "sigil yield", "yield"],
+      "tokens": [
+        "gain",
+        "generation",
+        "insight",
+        "neutral",
+        "r",
+        "sigil",
+        "sigil gain",
+        "sigil generation",
+        "vuln",
+        "vulnerability",
+        "vulnerable",
+        "weak",
+        "weakness"
+      ],
       "fields": {
         "name": ["Insight"],
-        "facet": ["NEUTRAL", "R", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": ["weakness", "vulnerable", "sigil-gain", "weak", "vulnerability", "vuln", "Sigil Gain", "sigil generation"],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "SIGIL_YIELD"
+        "mainstatKey": "SIGIL_YIELD",
+        "tags": ["sigil-gain", "vulnerable", "weakness"]
       }
     },
     {
@@ -1328,15 +2391,17 @@
       "id": "wheel-0077",
       "name": "Duty's Gravitas",
       "aliases": [],
-      "tokens": ["dutys", "dutys gravitas", "gravitas", "mastery", "neutral", "realm", "realm mastery", "sr"],
+      "tokens": ["aliemus", "aliemus generation", "dutys", "dutys gravitas", "generation", "gravitas", "neutral", "sr"],
       "fields": {
         "name": ["Duty's Gravitas", "dutys-gravitas"],
-        "facet": ["NEUTRAL", "SR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "REALM_MASTERY"
+        "mainstatKey": "REALM_MASTERY",
+        "tags": ["aliemus"]
       }
     },
     {
@@ -1344,15 +2409,17 @@
       "id": "wheel-0078",
       "name": "Elevated Focus",
       "aliases": [],
-      "tokens": ["elevated", "elevated focus", "focus", "keyflare", "keyflare regen", "neutral", "regen", "sr"],
+      "tokens": ["aliemus", "aliemus generation", "elevated", "elevated focus", "focus", "generation", "neutral", "sr"],
       "fields": {
         "name": ["Elevated Focus", "elevated-focus"],
-        "facet": ["NEUTRAL", "SR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "KEYFLARE_REGEN"
+        "mainstatKey": "KEYFLARE_REGEN",
+        "tags": ["aliemus"]
       }
     },
     {
@@ -1360,15 +2427,17 @@
       "id": "wheel-0079",
       "name": "Cursed Binding",
       "aliases": [],
-      "tokens": ["amp", "binding", "cursed", "cursed binding", "dmg", "dmg amp", "neutral", "sr"],
+      "tokens": ["binding", "cursed", "cursed binding", "neutral", "poison", "sr", "strike"],
       "fields": {
         "name": ["Cursed Binding", "cursed-binding"],
-        "facet": ["NEUTRAL", "SR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["poison", "strike"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DMG_AMP"
+        "mainstatKey": "DMG_AMP",
+        "tags": ["poison", "strike"]
       }
     },
     {
@@ -1376,15 +2445,17 @@
       "id": "wheel-0080",
       "name": "Sever and Scar",
       "aliases": [],
-      "tokens": ["amp", "and", "dmg", "dmg amp", "neutral", "scar", "sever", "sever and scar", "sr"],
+      "tokens": ["and", "down", "neutral", "scar", "sever", "sever and scar", "sr", "str", "str down", "strength", "strength down", "strike"],
       "fields": {
         "name": ["Sever and Scar", "sever-and-scar"],
-        "facet": ["NEUTRAL", "SR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["str-down", "strike", "STR Down", "strength down"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DMG_AMP"
+        "mainstatKey": "DMG_AMP",
+        "tags": ["str-down", "strike"]
       }
     },
     {
@@ -1392,15 +2463,32 @@
       "id": "wheel-0081",
       "name": "Cloaked in the Night",
       "aliases": [],
-      "tokens": ["cloaked", "cloaked in the night", "death", "death resistance", "in", "neutral", "night", "resistance", "sr", "the"],
+      "tokens": [
+        "cloaked",
+        "cloaked in the night",
+        "counter",
+        "death",
+        "death resistance",
+        "defence",
+        "defend",
+        "defense",
+        "in",
+        "neutral",
+        "night",
+        "resistance",
+        "sr",
+        "the"
+      ],
       "fields": {
         "name": ["Cloaked in the Night", "cloaked-in-the-night"],
-        "facet": ["NEUTRAL", "SR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": ["counter", "death-resistance", "defense", "Death Resistance", "resistance", "defence", "defend"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DEATH_RESISTANCE"
+        "mainstatKey": "DEATH_RESISTANCE",
+        "tags": ["counter", "death-resistance", "defense"]
       }
     },
     {
@@ -1408,15 +2496,17 @@
       "id": "wheel-0082",
       "name": "Adventurer's Pack",
       "aliases": [],
-      "tokens": ["adventurers", "adventurers pack", "neutral", "pack", "sigil", "sigil yield", "sr", "yield"],
+      "tokens": ["adventurers", "adventurers pack", "defence", "defend", "defense", "neutral", "pack", "sr", "str", "str up", "strength", "strength up", "up"],
       "fields": {
         "name": ["Adventurer's Pack", "adventurers-pack"],
-        "facet": ["NEUTRAL", "SR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": ["str-up", "defense", "STR Up", "strength up", "defence", "defend"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "SIGIL_YIELD"
+        "mainstatKey": "SIGIL_YIELD",
+        "tags": ["defense", "str-up"]
       }
     },
     {
@@ -1424,15 +2514,34 @@
       "id": "wheel-0083",
       "name": "Analysis of Death",
       "aliases": [],
-      "tokens": ["analysis", "analysis of death", "crit", "crit rate", "death", "neutral", "of", "rate", "sr"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "analysis",
+        "analysis of death",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "death",
+        "dmg",
+        "generation",
+        "neutral",
+        "of",
+        "sr"
+      ],
       "fields": {
         "name": ["Analysis of Death", "analysis-of-death"],
-        "facet": ["NEUTRAL", "SR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["aliemus", "crit-dmg", "aliemus generation", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "CRIT_RATE"
+        "mainstatKey": "CRIT_RATE",
+        "tags": ["aliemus", "crit-dmg"]
       }
     },
     {
@@ -1440,15 +2549,17 @@
       "id": "wheel-0084",
       "name": "To My Dearest Friend",
       "aliases": [],
-      "tokens": ["crit", "crit dmg", "dearest", "dmg", "friend", "my", "neutral", "sr", "to", "to my dearest friend"],
+      "tokens": ["crit", "crit rate", "critical", "critical rate", "dearest", "friend", "my", "neutral", "rate", "sr", "to", "to my dearest friend"],
       "fields": {
         "name": ["To My Dearest Friend", "to-my-dearest-friend"],
-        "facet": ["NEUTRAL", "SR", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["crit-rate", "Crit Rate", "crit. rate", "critical rate"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "CRIT_DMG"
+        "mainstatKey": "CRIT_DMG",
+        "tags": ["crit-rate"]
       }
     },
     {
@@ -1456,15 +2567,17 @@
       "id": "wheel-0085",
       "name": "Memory Syndrome",
       "aliases": [],
-      "tokens": ["death", "death resistance", "memory", "memory syndrome", "neutral", "resistance", "sr", "syndrome"],
+      "tokens": ["aliemus", "aliemus generation", "generation", "memory", "memory syndrome", "neutral", "sr", "syndrome"],
       "fields": {
         "name": ["Memory Syndrome", "memory-syndrome"],
-        "facet": ["NEUTRAL", "SR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": ["aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DEATH_RESISTANCE"
+        "mainstatKey": "DEATH_RESISTANCE",
+        "tags": ["aliemus"]
       }
     },
     {
@@ -1472,15 +2585,17 @@
       "id": "wheel-0086",
       "name": "Mind Barrier",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "barrier", "mind", "mind barrier", "neutral", "regen", "sr"],
+      "tokens": ["barrier", "generation", "mind", "mind barrier", "neutral", "shield", "shield generation", "sr"],
       "fields": {
         "name": ["Mind Barrier", "mind-barrier"],
-        "facet": ["NEUTRAL", "SR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["shield", "shield generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "ALIEMUS_REGEN"
+        "mainstatKey": "ALIEMUS_REGEN",
+        "tags": ["shield"]
       }
     },
     {
@@ -1488,15 +2603,17 @@
       "id": "wheel-0087",
       "name": "Critical Point",
       "aliases": [],
-      "tokens": ["crit", "crit dmg", "critical", "critical point", "dmg", "neutral", "point", "sr"],
+      "tokens": ["crit", "crit rate", "critical", "critical point", "critical rate", "neutral", "point", "rate", "sr"],
       "fields": {
         "name": ["Critical Point", "critical-point"],
-        "facet": ["NEUTRAL", "SR", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["crit-rate", "Crit Rate", "crit. rate", "critical rate"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "CRIT_DMG"
+        "mainstatKey": "CRIT_DMG",
+        "tags": ["crit-rate"]
       }
     },
     {
@@ -1504,15 +2621,31 @@
       "id": "wheel-0088",
       "name": "Nobleman's Staff",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "neutral", "noblemans", "noblemans staff", "regen", "sr", "staff"],
+      "tokens": [
+        "generation",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "neutral",
+        "noblemans",
+        "noblemans staff",
+        "recovery",
+        "shield",
+        "shield generation",
+        "sr",
+        "staff"
+      ],
       "fields": {
         "name": ["Nobleman's Staff", "noblemans-staff"],
-        "facet": ["NEUTRAL", "SR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["shield", "heal", "shield generation", "healing", "hp recovery"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "ALIEMUS_REGEN"
+        "mainstatKey": "ALIEMUS_REGEN",
+        "tags": ["heal", "shield"]
       }
     },
     {
@@ -1520,15 +2653,32 @@
       "id": "wheel-0089",
       "name": "Data is Flesh",
       "aliases": [],
-      "tokens": ["data", "data is flesh", "flesh", "is", "mastery", "neutral", "realm", "realm mastery", "sr"],
+      "tokens": [
+        "data",
+        "data is flesh",
+        "flesh",
+        "generation",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "is",
+        "neutral",
+        "recovery",
+        "shield",
+        "shield generation",
+        "sr"
+      ],
       "fields": {
         "name": ["Data is Flesh", "data-is-flesh"],
-        "facet": ["NEUTRAL", "SR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["shield", "heal", "shield generation", "healing", "hp recovery"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "REALM_MASTERY"
+        "mainstatKey": "REALM_MASTERY",
+        "tags": ["heal", "shield"]
       }
     },
     {
@@ -1536,15 +2686,17 @@
       "id": "wheel-0090",
       "name": "Moment of Reunion",
       "aliases": [],
-      "tokens": ["keyflare", "keyflare regen", "moment", "moment of reunion", "neutral", "of", "regen", "reunion", "sr"],
+      "tokens": ["keyflare", "moment", "moment of reunion", "neutral", "of", "reunion", "sr"],
       "fields": {
         "name": ["Moment of Reunion", "moment-of-reunion"],
-        "facet": ["NEUTRAL", "SR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["keyflare"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "KEYFLARE_REGEN"
+        "mainstatKey": "KEYFLARE_REGEN",
+        "tags": ["keyflare"]
       }
     },
     {
@@ -1552,15 +2704,31 @@
       "id": "wheel-0091",
       "name": "The Land of Nonexistence",
       "aliases": [],
-      "tokens": ["land", "neutral", "nonexistence", "of", "sigil", "sigil yield", "sr", "the", "the land of nonexistence", "yield"],
+      "tokens": [
+        "defence",
+        "defend",
+        "defense",
+        "generation",
+        "land",
+        "neutral",
+        "nonexistence",
+        "of",
+        "shield",
+        "shield generation",
+        "sr",
+        "the",
+        "the land of nonexistence"
+      ],
       "fields": {
         "name": ["The Land of Nonexistence", "the-land-of-nonexistence"],
-        "facet": ["NEUTRAL", "SR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": ["shield", "defense", "shield generation", "defence", "defend"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "SIGIL_YIELD"
+        "mainstatKey": "SIGIL_YIELD",
+        "tags": ["defense", "shield"]
       }
     },
     {
@@ -1568,15 +2736,17 @@
       "id": "wheel-0092",
       "name": "Hand of Oblivion",
       "aliases": [],
-      "tokens": ["crit", "crit rate", "hand", "hand of oblivion", "neutral", "oblivion", "of", "rate", "sr"],
+      "tokens": ["hand", "hand of oblivion", "neutral", "oblivion", "of", "sr", "strike"],
       "fields": {
         "name": ["Hand of Oblivion", "hand-of-oblivion"],
-        "facet": ["NEUTRAL", "SR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["strike"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "CRIT_RATE"
+        "mainstatKey": "CRIT_RATE",
+        "tags": ["strike"]
       }
     },
     {
@@ -1584,15 +2754,56 @@
       "id": "wheel-0093",
       "name": "35mm Magic",
       "aliases": [],
-      "tokens": ["35mm", "35mm magic", "death", "death resistance", "magic", "neutral", "resistance", "sr"],
+      "tokens": [
+        "35mm",
+        "35mm magic",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "death",
+        "death resistance",
+        "dmg",
+        "generation",
+        "magic",
+        "neutral",
+        "poison",
+        "rate",
+        "resistance",
+        "shield",
+        "shield generation",
+        "sr"
+      ],
       "fields": {
         "name": ["35mm Magic", "35mm-magic"],
-        "facet": ["NEUTRAL", "SR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": [
+          "poison",
+          "death-resistance",
+          "shield",
+          "crit-rate",
+          "crit-dmg",
+          "Death Resistance",
+          "resistance",
+          "shield generation",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DEATH_RESISTANCE"
+        "mainstatKey": "DEATH_RESISTANCE",
+        "tags": ["crit-dmg", "crit-rate", "death-resistance", "poison", "shield"]
       }
     },
     {
@@ -1600,15 +2811,31 @@
       "id": "wheel-0094",
       "name": "The Gaze of Isarawu",
       "aliases": [],
-      "tokens": ["amp", "dmg", "dmg amp", "gaze", "isarawu", "neutral", "of", "sr", "the", "the gaze of isarawu"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "counter",
+        "gaze",
+        "generation",
+        "isarawu",
+        "neutral",
+        "of",
+        "shield",
+        "shield generation",
+        "sr",
+        "the",
+        "the gaze of isarawu"
+      ],
       "fields": {
         "name": ["The Gaze of Isarawu", "the-gaze-of-isarawu"],
-        "facet": ["NEUTRAL", "SR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["counter", "shield", "aliemus", "shield generation", "aliemus generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DMG_AMP"
+        "mainstatKey": "DMG_AMP",
+        "tags": ["aliemus", "counter", "shield"]
       }
     },
     {
@@ -1616,15 +2843,30 @@
       "id": "wheel-0095",
       "name": "Man in the Mirror",
       "aliases": [],
-      "tokens": ["in", "man", "man in the mirror", "mirror", "neutral", "sigil", "sigil yield", "sr", "the", "yield"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "generation",
+        "in",
+        "man",
+        "man in the mirror",
+        "mirror",
+        "neutral",
+        "shield",
+        "shield generation",
+        "sr",
+        "the"
+      ],
       "fields": {
         "name": ["Man in the Mirror", "man-in-the-mirror"],
-        "facet": ["NEUTRAL", "SR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": ["shield", "aliemus", "shield generation", "aliemus generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "SIGIL_YIELD"
+        "mainstatKey": "SIGIL_YIELD",
+        "tags": ["aliemus", "shield"]
       }
     },
     {
@@ -1632,15 +2874,32 @@
       "id": "wheel-0096",
       "name": "Silver Cod's Determination",
       "aliases": [],
-      "tokens": ["cods", "crit", "crit rate", "determination", "neutral", "rate", "silver", "silver cods determination", "sr"],
+      "tokens": [
+        "cods",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "determination",
+        "dmg",
+        "keyflare",
+        "neutral",
+        "silver",
+        "silver cods determination",
+        "sr"
+      ],
       "fields": {
         "name": ["Silver Cod's Determination", "silver-cods-determination"],
-        "facet": ["NEUTRAL", "SR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["keyflare", "crit-dmg", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "CRIT_RATE"
+        "mainstatKey": "CRIT_RATE",
+        "tags": ["crit-dmg", "keyflare"]
       }
     },
     {
@@ -1648,15 +2907,33 @@
       "id": "wheel-0097",
       "name": "Til the Snow Melts",
       "aliases": [],
-      "tokens": ["amp", "dmg", "dmg amp", "melts", "neutral", "snow", "sr", "the", "til", "til the snow melts"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "crit",
+        "crit rate",
+        "critical",
+        "critical rate",
+        "generation",
+        "melts",
+        "neutral",
+        "rate",
+        "snow",
+        "sr",
+        "the",
+        "til",
+        "til the snow melts"
+      ],
       "fields": {
         "name": ["Til the Snow Melts", "til-the-snow-melts"],
-        "facet": ["NEUTRAL", "SR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["aliemus", "crit-rate", "aliemus generation", "Crit Rate", "crit. rate", "critical rate"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DMG_AMP"
+        "mainstatKey": "DMG_AMP",
+        "tags": ["aliemus", "crit-rate"]
       }
     },
     {
@@ -1664,15 +2941,34 @@
       "id": "wheel-0098",
       "name": "Deep Sea's Call",
       "aliases": [],
-      "tokens": ["call", "crit", "crit dmg", "deep", "deep seas call", "dmg", "neutral", "seas", "sr"],
+      "tokens": [
+        "call",
+        "damage",
+        "deep",
+        "deep seas call",
+        "dmg",
+        "neutral",
+        "seas",
+        "sr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "tentacle",
+        "tentacle damage",
+        "tentacle dmg",
+        "up"
+      ],
       "fields": {
         "name": ["Deep Sea's Call", "deep-seas-call"],
-        "facet": ["NEUTRAL", "SR", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["str-up", "tentacle-dmg", "STR Up", "strength up", "Tentacle DMG", "tentacle damage"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "CRIT_DMG"
+        "mainstatKey": "CRIT_DMG",
+        "tags": ["str-up", "tentacle-dmg"]
       }
     },
     {
@@ -1680,15 +2976,32 @@
       "id": "wheel-0099",
       "name": "Kiss of Farewell",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "farewell", "kiss", "kiss of farewell", "neutral", "of", "regen", "sr"],
+      "tokens": [
+        "embryo",
+        "embryo fusion",
+        "farewell",
+        "fusion",
+        "kiss",
+        "kiss of farewell",
+        "neutral",
+        "of",
+        "sr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "up"
+      ],
       "fields": {
         "name": ["Kiss of Farewell", "kiss-of-farewell"],
-        "facet": ["NEUTRAL", "SR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["str-up", "embryo-fusion", "STR Up", "strength up", "Embryo Fusion"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "ALIEMUS_REGEN"
+        "mainstatKey": "ALIEMUS_REGEN",
+        "tags": ["embryo-fusion", "str-up"]
       }
     },
     {
@@ -1696,15 +3009,17 @@
       "id": "wheel-0100",
       "name": "Poetic Bygone Days",
       "aliases": [],
-      "tokens": ["bygone", "days", "death", "death resistance", "neutral", "poetic", "poetic bygone days", "resistance", "sr"],
+      "tokens": ["arithmetica", "bygone", "days", "death", "death resistance", "draw", "neutral", "poetic", "poetic bygone days", "resistance", "sr"],
       "fields": {
         "name": ["Poetic Bygone Days", "poetic-bygone-days"],
-        "facet": ["NEUTRAL", "SR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": ["arithmetica", "death-resistance", "draw", "Death Resistance", "resistance"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DEATH_RESISTANCE"
+        "mainstatKey": "DEATH_RESISTANCE",
+        "tags": ["arithmetica", "death-resistance", "draw"]
       }
     },
     {
@@ -1712,10 +3027,10 @@
       "id": "wheel-0101",
       "name": "Million Loving Gaze",
       "aliases": [],
-      "tokens": ["crit", "crit rate", "gaze", "loving", "million", "million loving gaze", "neutral", "rate", "sr"],
+      "tokens": ["gaze", "loving", "million", "million loving gaze", "neutral", "sr"],
       "fields": {
         "name": ["Million Loving Gaze", "million-loving-gaze"],
-        "facet": ["NEUTRAL", "SR", "CRIT_RATE", "Crit Rate"]
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
@@ -1728,15 +3043,56 @@
       "id": "wheel-0102",
       "name": "Slumber Beneath the Glacier",
       "aliases": [],
-      "tokens": ["beneath", "glacier", "keyflare", "keyflare regen", "neutral", "regen", "slumber", "slumber beneath the glacier", "sr", "the"],
+      "tokens": [
+        "beneath",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "dmg",
+        "generation",
+        "glacier",
+        "neutral",
+        "rate",
+        "shield",
+        "shield generation",
+        "slumber",
+        "slumber beneath the glacier",
+        "sr",
+        "tentacle",
+        "tentacle damage",
+        "tentacle dmg",
+        "the"
+      ],
       "fields": {
         "name": ["Slumber Beneath the Glacier", "slumber-beneath-the-glacier"],
-        "facet": ["NEUTRAL", "SR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": [
+          "tentacle-dmg",
+          "shield",
+          "crit-rate",
+          "crit-dmg",
+          "Tentacle DMG",
+          "tentacle damage",
+          "shield generation",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "KEYFLARE_REGEN"
+        "mainstatKey": "KEYFLARE_REGEN",
+        "tags": ["crit-dmg", "crit-rate", "shield", "tentacle-dmg"]
       }
     },
     {
@@ -1744,15 +3100,33 @@
       "id": "wheel-0103",
       "name": "Fate Roulette",
       "aliases": [],
-      "tokens": ["fate", "fate roulette", "neutral", "roulette", "sigil", "sigil yield", "sr", "yield"],
+      "tokens": [
+        "crit",
+        "crit rate",
+        "critical",
+        "critical rate",
+        "fate",
+        "fate roulette",
+        "gain",
+        "generation",
+        "neutral",
+        "rate",
+        "roulette",
+        "sigil",
+        "sigil gain",
+        "sigil generation",
+        "sr"
+      ],
       "fields": {
         "name": ["Fate Roulette", "fate-roulette"],
-        "facet": ["NEUTRAL", "SR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": ["crit-rate", "sigil-gain", "Crit Rate", "crit. rate", "critical rate", "Sigil Gain", "sigil generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "SIGIL_YIELD"
+        "mainstatKey": "SIGIL_YIELD",
+        "tags": ["crit-rate", "sigil-gain"]
       }
     },
     {
@@ -1760,15 +3134,17 @@
       "id": "wheel-0104",
       "name": "Gateway of Truth",
       "aliases": [],
-      "tokens": ["gateway", "gateway of truth", "keyflare", "keyflare regen", "neutral", "of", "regen", "sr", "truth"],
+      "tokens": ["gateway", "gateway of truth", "keyflare", "neutral", "of", "sr", "truth"],
       "fields": {
         "name": ["Gateway of Truth", "gateway-of-truth"],
-        "facet": ["NEUTRAL", "SR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["keyflare"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "KEYFLARE_REGEN"
+        "mainstatKey": "KEYFLARE_REGEN",
+        "tags": ["keyflare"]
       }
     },
     {
@@ -1776,15 +3152,61 @@
       "id": "wheel-0105",
       "name": "Never-Ending Performance",
       "aliases": [],
-      "tokens": ["crit", "crit rate", "ending", "neutral", "never", "never ending performance", "performance", "rate", "sr"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "dmg",
+        "ending",
+        "generation",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "neutral",
+        "never",
+        "never ending performance",
+        "performance",
+        "rate",
+        "recovery",
+        "shield",
+        "shield generation",
+        "sr"
+      ],
       "fields": {
         "name": ["Never-Ending Performance", "never-ending-performance"],
-        "facet": ["NEUTRAL", "SR", "CRIT_RATE", "Crit Rate"]
+        "tag": [
+          "shield",
+          "heal",
+          "aliemus",
+          "crit-rate",
+          "crit-dmg",
+          "shield generation",
+          "healing",
+          "hp recovery",
+          "aliemus generation",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "CRIT_RATE"
+        "mainstatKey": "CRIT_RATE",
+        "tags": ["aliemus", "crit-dmg", "crit-rate", "heal", "shield"]
       }
     },
     {
@@ -1792,15 +3214,17 @@
       "id": "wheel-0106",
       "name": "Shepherd's Staff",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "neutral", "regen", "shepherds", "shepherds staff", "sr", "staff"],
+      "tokens": ["aliemus", "aliemus generation", "generation", "neutral", "shepherds", "shepherds staff", "sr", "staff"],
       "fields": {
         "name": ["Shepherd's Staff", "shepherds-staff"],
-        "facet": ["NEUTRAL", "SR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "ALIEMUS_REGEN"
+        "mainstatKey": "ALIEMUS_REGEN",
+        "tags": ["aliemus"]
       }
     },
     {
@@ -1808,15 +3232,17 @@
       "id": "wheel-0107",
       "name": "Blue Stone Throne",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "blue", "blue stone throne", "neutral", "regen", "sr", "stone", "throne"],
+      "tokens": ["arithmetica", "blue", "blue stone throne", "crit", "crit rate", "critical", "critical rate", "neutral", "rate", "sr", "stone", "throne"],
       "fields": {
         "name": ["Blue Stone Throne", "blue-stone-throne"],
-        "facet": ["NEUTRAL", "SR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["arithmetica", "crit-rate", "Crit Rate", "crit. rate", "critical rate"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "ALIEMUS_REGEN"
+        "mainstatKey": "ALIEMUS_REGEN",
+        "tags": ["arithmetica", "crit-rate"]
       }
     },
     {
@@ -1824,10 +3250,10 @@
       "id": "wheel-0109",
       "name": "Macabre Delicacies",
       "aliases": [],
-      "tokens": ["crit", "crit dmg", "delicacies", "dmg", "macabre", "macabre delicacies", "neutral", "sr"],
+      "tokens": ["delicacies", "macabre", "macabre delicacies", "neutral", "sr"],
       "fields": {
         "name": ["Macabre Delicacies", "macabre-delicacies"],
-        "facet": ["NEUTRAL", "SR", "CRIT_DMG", "Crit Dmg"]
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
@@ -1840,15 +3266,17 @@
       "id": "wheel-0110",
       "name": "Witch's Wide-brimmed Hat",
       "aliases": [],
-      "tokens": ["amp", "brimmed", "dmg", "dmg amp", "hat", "neutral", "sr", "wide", "witchs", "witchs wide brimmed hat"],
+      "tokens": ["aliemus", "aliemus generation", "brimmed", "generation", "hat", "neutral", "sr", "wide", "witchs", "witchs wide brimmed hat"],
       "fields": {
         "name": ["Witch's Wide-brimmed Hat", "witchs-wide-brimmed-hat"],
-        "facet": ["NEUTRAL", "SR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DMG_AMP"
+        "mainstatKey": "DMG_AMP",
+        "tags": ["aliemus"]
       }
     },
     {
@@ -1856,15 +3284,17 @@
       "id": "wheel-0111",
       "name": "Blue-Ringed Toxin",
       "aliases": [],
-      "tokens": ["blue", "blue ringed toxin", "keyflare", "keyflare regen", "neutral", "regen", "ringed", "sr", "toxin"],
+      "tokens": ["blue", "blue ringed toxin", "generation", "keyflare", "neutral", "ringed", "shield", "shield generation", "sr", "toxin"],
       "fields": {
         "name": ["Blue-Ringed Toxin", "blue-ringed-toxin"],
-        "facet": ["NEUTRAL", "SR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["shield", "keyflare", "shield generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "KEYFLARE_REGEN"
+        "mainstatKey": "KEYFLARE_REGEN",
+        "tags": ["keyflare", "shield"]
       }
     },
     {
@@ -1872,15 +3302,17 @@
       "id": "wheel-0112",
       "name": "Lone Feather",
       "aliases": [],
-      "tokens": ["amp", "dmg", "dmg amp", "feather", "lone", "lone feather", "neutral", "sr"],
+      "tokens": ["feather", "generation", "lone", "lone feather", "neutral", "shield", "shield generation", "sr"],
       "fields": {
         "name": ["Lone Feather", "lone-feather"],
-        "facet": ["NEUTRAL", "SR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["shield", "shield generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DMG_AMP"
+        "mainstatKey": "DMG_AMP",
+        "tags": ["shield"]
       }
     },
     {
@@ -1888,15 +3320,17 @@
       "id": "wheel-0113",
       "name": "The Divus' Visage",
       "aliases": [],
-      "tokens": ["crit", "crit rate", "divus", "neutral", "rate", "sr", "the", "the divus visage", "visage"],
+      "tokens": ["divus", "generation", "neutral", "shield", "shield generation", "sr", "the", "the divus visage", "visage"],
       "fields": {
         "name": ["The Divus' Visage", "the-divus-visage"],
-        "facet": ["NEUTRAL", "SR", "CRIT_RATE", "Crit Rate"]
+        "tag": ["shield", "shield generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "CRIT_RATE"
+        "mainstatKey": "CRIT_RATE",
+        "tags": ["shield"]
       }
     },
     {
@@ -1904,15 +3338,30 @@
       "id": "wheel-0114",
       "name": "Navigator at Sea",
       "aliases": [],
-      "tokens": ["at", "death", "death resistance", "navigator", "navigator at sea", "neutral", "resistance", "sea", "sr"],
+      "tokens": [
+        "at",
+        "death",
+        "death resistance",
+        "generation",
+        "navigator",
+        "navigator at sea",
+        "neutral",
+        "resistance",
+        "sea",
+        "shield",
+        "shield generation",
+        "sr"
+      ],
       "fields": {
         "name": ["Navigator at Sea", "navigator-at-sea"],
-        "facet": ["NEUTRAL", "SR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": ["death-resistance", "shield", "Death Resistance", "resistance", "shield generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DEATH_RESISTANCE"
+        "mainstatKey": "DEATH_RESISTANCE",
+        "tags": ["death-resistance", "shield"]
       }
     },
     {
@@ -1920,15 +3369,31 @@
       "id": "wheel-0115",
       "name": "Thirsting Brush",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "brush", "neutral", "regen", "sr", "thirsting", "thirsting brush"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "brush",
+        "crit",
+        "crit rate",
+        "critical",
+        "critical rate",
+        "generation",
+        "neutral",
+        "rate",
+        "sr",
+        "thirsting",
+        "thirsting brush"
+      ],
       "fields": {
         "name": ["Thirsting Brush", "thirsting-brush"],
-        "facet": ["NEUTRAL", "SR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["aliemus", "crit-rate", "aliemus generation", "Crit Rate", "crit. rate", "critical rate"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "ALIEMUS_REGEN"
+        "mainstatKey": "ALIEMUS_REGEN",
+        "tags": ["aliemus", "crit-rate"]
       }
     },
     {
@@ -1936,15 +3401,17 @@
       "id": "wheel-0116",
       "name": "Impending Sun",
       "aliases": [],
-      "tokens": ["crit", "crit dmg", "dmg", "impending", "impending sun", "neutral", "sr", "sun"],
+      "tokens": ["crit", "crit rate", "critical", "critical rate", "impending", "impending sun", "neutral", "rate", "sr", "sun"],
       "fields": {
         "name": ["Impending Sun", "impending-sun"],
-        "facet": ["NEUTRAL", "SR", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["crit-rate", "Crit Rate", "crit. rate", "critical rate"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "CRIT_DMG"
+        "mainstatKey": "CRIT_DMG",
+        "tags": ["crit-rate"]
       }
     },
     {
@@ -1952,15 +3419,17 @@
       "id": "wheel-0117",
       "name": "Light of Intellect",
       "aliases": [],
-      "tokens": ["death", "death resistance", "intellect", "light", "light of intellect", "neutral", "of", "resistance", "sr"],
+      "tokens": ["draw", "intellect", "light", "light of intellect", "neutral", "of", "sr", "strike"],
       "fields": {
         "name": ["Light of Intellect", "light-of-intellect"],
-        "facet": ["NEUTRAL", "SR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": ["draw", "strike"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DEATH_RESISTANCE"
+        "mainstatKey": "DEATH_RESISTANCE",
+        "tags": ["draw", "strike"]
       }
     },
     {
@@ -1968,15 +3437,17 @@
       "id": "wheel-0118",
       "name": "Magnolia's Lure",
       "aliases": [],
-      "tokens": ["amp", "dmg", "dmg amp", "lure", "magnolias", "magnolias lure", "neutral", "sr"],
+      "tokens": ["aliemus", "aliemus generation", "generation", "lure", "magnolias", "magnolias lure", "neutral", "poison", "sr"],
       "fields": {
         "name": ["Magnolia's Lure", "magnolias-lure"],
-        "facet": ["NEUTRAL", "SR", "DMG_AMP", "Dmg Amp"]
+        "tag": ["poison", "aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "DMG_AMP"
+        "mainstatKey": "DMG_AMP",
+        "tags": ["aliemus", "poison"]
       }
     },
     {
@@ -1984,15 +3455,29 @@
       "id": "wheel-0119",
       "name": "Imprisoned Madness",
       "aliases": [],
-      "tokens": ["imprisoned", "imprisoned madness", "madness", "mastery", "neutral", "realm", "realm mastery", "sr"],
+      "tokens": [
+        "imprisoned",
+        "imprisoned madness",
+        "madness",
+        "mastery",
+        "neutral",
+        "realm",
+        "sr",
+        "temp",
+        "temp realm mastery",
+        "temporary",
+        "temporary realm mastery"
+      ],
       "fields": {
         "name": ["Imprisoned Madness", "imprisoned-madness"],
-        "facet": ["NEUTRAL", "SR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["temporary-realm-mastery", "Temporary Realm Mastery", "temp realm mastery"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "REALM_MASTERY"
+        "mainstatKey": "REALM_MASTERY",
+        "tags": ["temporary-realm-mastery"]
       }
     },
     {
@@ -2000,15 +3485,17 @@
       "id": "wheel-0120",
       "name": "Spring in Yakutsk",
       "aliases": [],
-      "tokens": ["in", "keyflare", "keyflare regen", "neutral", "regen", "spring", "spring in yakutsk", "ssr", "yakutsk"],
+      "tokens": ["aliemus", "aliemus generation", "generation", "in", "keyflare", "neutral", "spring", "spring in yakutsk", "ssr", "yakutsk"],
       "fields": {
         "name": ["Spring in Yakutsk", "spring-in-yakutsk"],
-        "facet": ["NEUTRAL", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["keyflare", "aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "KEYFLARE_REGEN"
+        "mainstatKey": "KEYFLARE_REGEN",
+        "tags": ["aliemus", "keyflare"]
       }
     },
     {
@@ -2016,15 +3503,45 @@
       "id": "wheel-0121",
       "name": "Sunfall",
       "aliases": [],
-      "tokens": ["amp", "dmg", "dmg amp", "neutral", "ssr", "sunfall"],
+      "tokens": [
+        "counter",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "crit rate",
+        "critical",
+        "critical damage",
+        "critical rate",
+        "damage",
+        "dmg",
+        "neutral",
+        "poison",
+        "rate",
+        "ssr",
+        "sunfall"
+      ],
       "fields": {
         "name": ["Sunfall"],
-        "facet": ["NEUTRAL", "SSR", "DMG_AMP", "Dmg Amp"]
+        "tag": [
+          "poison",
+          "counter",
+          "crit-rate",
+          "crit-dmg",
+          "Crit Rate",
+          "crit. rate",
+          "critical rate",
+          "Crit DMG",
+          "crit. dmg",
+          "crit damage",
+          "critical damage"
+        ],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "DMG_AMP"
+        "mainstatKey": "DMG_AMP",
+        "tags": ["counter", "crit-dmg", "crit-rate", "poison"]
       }
     },
     {
@@ -2032,15 +3549,37 @@
       "id": "wheel-0122",
       "name": "Birth of a Soul",
       "aliases": [],
-      "tokens": ["a", "birth", "birth of a soul", "mastery", "neutral", "of", "realm", "realm mastery", "soul", "ssr"],
+      "tokens": [
+        "a",
+        "birth",
+        "birth of a soul",
+        "defence",
+        "defend",
+        "defense",
+        "generation",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "neutral",
+        "of",
+        "recovery",
+        "shield",
+        "shield generation",
+        "soul",
+        "ssr",
+        "strike"
+      ],
       "fields": {
         "name": ["Birth of a Soul", "birth-of-a-soul"],
-        "facet": ["NEUTRAL", "SSR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["shield", "heal", "strike", "defense", "shield generation", "healing", "hp recovery", "defence", "defend"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "REALM_MASTERY"
+        "mainstatKey": "REALM_MASTERY",
+        "tags": ["defense", "heal", "shield", "strike"]
       }
     },
     {
@@ -2048,15 +3587,17 @@
       "id": "wheel-0123",
       "name": "Dusk and Dawn",
       "aliases": [],
-      "tokens": ["and", "dawn", "death", "death resistance", "dusk", "dusk and dawn", "neutral", "resistance", "ssr"],
+      "tokens": ["and", "arithmetica", "dawn", "death", "death resistance", "draw", "dusk", "dusk and dawn", "keyflare", "neutral", "resistance", "ssr"],
       "fields": {
         "name": ["Dusk and Dawn", "dusk-and-dawn"],
-        "facet": ["NEUTRAL", "SSR", "DEATH_RESISTANCE", "Death Resistance"]
+        "tag": ["arithmetica", "death-resistance", "draw", "keyflare", "Death Resistance", "resistance"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "DEATH_RESISTANCE"
+        "mainstatKey": "DEATH_RESISTANCE",
+        "tags": ["arithmetica", "death-resistance", "draw", "keyflare"]
       }
     },
     {
@@ -2064,15 +3605,34 @@
       "id": "wheel-0124",
       "name": "Heart of Silver",
       "aliases": [],
-      "tokens": ["heart", "heart of silver", "keyflare", "keyflare regen", "neutral", "of", "regen", "silver", "ssr"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "generation",
+        "heart",
+        "heart of silver",
+        "neutral",
+        "of",
+        "shield",
+        "shield generation",
+        "silver",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "up"
+      ],
       "fields": {
         "name": ["Heart of Silver", "heart-of-silver"],
-        "facet": ["NEUTRAL", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["str-up", "shield", "aliemus", "STR Up", "strength up", "shield generation", "aliemus generation"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "KEYFLARE_REGEN"
+        "mainstatKey": "KEYFLARE_REGEN",
+        "tags": ["aliemus", "shield", "str-up"]
       }
     },
     {
@@ -2080,15 +3640,31 @@
       "id": "wheel-0125",
       "name": "Annihilated Rebirth",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "annihilated", "annihilated rebirth", "neutral", "rebirth", "regen", "ssr"],
+      "tokens": [
+        "annihilated",
+        "annihilated rebirth",
+        "generation",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "neutral",
+        "rebirth",
+        "recovery",
+        "shield",
+        "shield generation",
+        "ssr"
+      ],
       "fields": {
         "name": ["Annihilated Rebirth", "annihilated-rebirth"],
-        "facet": ["NEUTRAL", "SSR", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["shield", "heal", "shield generation", "healing", "hp recovery"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "ALIEMUS_REGEN"
+        "mainstatKey": "ALIEMUS_REGEN",
+        "tags": ["heal", "shield"]
       }
     },
     {
@@ -2096,15 +3672,17 @@
       "id": "wheel-0126",
       "name": "We Will Meet Again",
       "aliases": [],
-      "tokens": ["again", "mastery", "meet", "neutral", "realm", "realm mastery", "ssr", "we", "we will meet again", "will"],
+      "tokens": ["again", "draw", "meet", "neutral", "ssr", "we", "we will meet again", "will"],
       "fields": {
         "name": ["We Will Meet Again", "we-will-meet-again"],
-        "facet": ["NEUTRAL", "SSR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["draw"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "REALM_MASTERY"
+        "mainstatKey": "REALM_MASTERY",
+        "tags": ["draw"]
       }
     },
     {
@@ -2112,17 +3690,32 @@
       "id": "wheel-0128",
       "name": "Eternal Weave",
       "aliases": [],
-      "tokens": ["arachne", "eternal", "eternal weave", "mastery", "realm", "realm mastery", "ssr", "ultra", "weave"],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "arachne",
+        "eternal",
+        "eternal weave",
+        "generation",
+        "pursuit",
+        "shield",
+        "shield generation",
+        "ssr",
+        "ultra",
+        "weave"
+      ],
       "fields": {
         "name": ["Eternal Weave", "eternal-weave"],
         "owner": ["Arachne"],
-        "facet": ["ULTRA", "SSR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["pursuit", "shield", "aliemus", "shield generation", "aliemus generation"],
+        "facet": ["ULTRA", "SSR"]
       },
       "facets": {
         "realm": "ULTRA",
         "rarity": "SSR",
         "mainstatKey": "REALM_MASTERY",
-        "owner": "awakener-0056"
+        "owner": "awakener-0056",
+        "tags": ["aliemus", "pursuit", "shield"]
       }
     },
     {
@@ -2130,15 +3723,30 @@
       "id": "wheel-0130",
       "name": "Private Afternoon",
       "aliases": [],
-      "tokens": ["afternoon", "crit", "crit dmg", "dmg", "neutral", "private", "private afternoon", "ssr"],
+      "tokens": [
+        "afternoon",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "neutral",
+        "private",
+        "private afternoon",
+        "ssr"
+      ],
       "fields": {
         "name": ["Private Afternoon", "private-afternoon"],
-        "facet": ["NEUTRAL", "SSR", "CRIT_DMG", "Crit Dmg"]
+        "tag": ["crit-dmg", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "CRIT_DMG"
+        "mainstatKey": "CRIT_DMG",
+        "tags": ["crit-dmg"]
       }
     },
     {
@@ -2148,14 +3756,20 @@
       "aliases": [],
       "tokens": [
         "aequor",
+        "aliemus",
+        "aliemus generation",
         "fauxborn",
         "g",
         "g murphy",
+        "generation",
+        "hand",
+        "hand limit",
         "keyflare",
-        "keyflare regen",
+        "limit",
         "murphy",
         "murphy fauxborn",
-        "regen",
+        "shield",
+        "shield generation",
         "somnia",
         "ssr",
         "uteri",
@@ -2164,13 +3778,15 @@
       "fields": {
         "name": ["Uteri Somnia", "uteri-somnia"],
         "owner": ["Murphy: Fauxborn", "murphy-fauxborn", "g-murphy"],
-        "facet": ["AEQUOR", "SSR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["shield", "hand-limit", "keyflare", "aliemus", "shield generation", "Hand Limit", "aliemus generation"],
+        "facet": ["AEQUOR", "SSR"]
       },
       "facets": {
         "realm": "AEQUOR",
         "rarity": "SSR",
         "mainstatKey": "KEYFLARE_REGEN",
-        "owner": "awakener-0035"
+        "owner": "awakener-0035",
+        "tags": ["aliemus", "hand-limit", "keyflare", "shield"]
       }
     },
     {
@@ -2178,15 +3794,17 @@
       "id": "wheel-0132",
       "name": "Rota Fortunae",
       "aliases": [],
-      "tokens": ["fortunae", "mastery", "neutral", "realm", "realm mastery", "rota", "rota fortunae", "sr"],
+      "tokens": ["fortunae", "generation", "neutral", "pursuit", "rota", "rota fortunae", "shield", "shield generation", "sr"],
       "fields": {
         "name": ["Rota Fortunae", "rota-fortunae"],
-        "facet": ["NEUTRAL", "SR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["pursuit", "shield", "shield generation"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "REALM_MASTERY"
+        "mainstatKey": "REALM_MASTERY",
+        "tags": ["pursuit", "shield"]
       }
     },
     {
@@ -2194,15 +3812,17 @@
       "id": "wheel-0136",
       "name": "Greed",
       "aliases": [],
-      "tokens": ["aliemus", "aliemus regen", "greed", "neutral", "r", "regen"],
+      "tokens": ["gain", "generation", "greed", "neutral", "r", "sigil", "sigil gain", "sigil generation"],
       "fields": {
         "name": ["Greed"],
-        "facet": ["NEUTRAL", "R", "ALIEMUS_REGEN", "Aliemus Regen"]
+        "tag": ["sigil-gain", "Sigil Gain", "sigil generation"],
+        "facet": ["NEUTRAL", "R"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "R",
-        "mainstatKey": "ALIEMUS_REGEN"
+        "mainstatKey": "ALIEMUS_REGEN",
+        "tags": ["sigil-gain"]
       }
     },
     {
@@ -2210,15 +3830,17 @@
       "id": "wheel-0137",
       "name": "Hypnotic Pendulum",
       "aliases": [],
-      "tokens": ["hypnotic", "hypnotic pendulum", "keyflare", "keyflare regen", "neutral", "pendulum", "regen", "sr"],
+      "tokens": ["hypnotic", "hypnotic pendulum", "keyflare", "neutral", "pendulum", "sr", "vuln", "vulnerability", "vulnerable", "weak", "weakness"],
       "fields": {
         "name": ["Hypnotic Pendulum", "hypnotic-pendulum"],
-        "facet": ["NEUTRAL", "SR", "KEYFLARE_REGEN", "Keyflare Regen"]
+        "tag": ["weakness", "vulnerable", "keyflare", "weak", "vulnerability", "vuln"],
+        "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SR",
-        "mainstatKey": "KEYFLARE_REGEN"
+        "mainstatKey": "KEYFLARE_REGEN",
+        "tags": ["keyflare", "vulnerable", "weakness"]
       }
     },
     {
@@ -2226,15 +3848,17 @@
       "id": "wheel-0165",
       "name": "Sakura Reveries",
       "aliases": [],
-      "tokens": ["mastery", "neutral", "realm", "realm mastery", "reveries", "sakura", "sakura reveries", "ssr"],
+      "tokens": ["keyflare", "neutral", "reveries", "sakura", "sakura reveries", "ssr"],
       "fields": {
         "name": ["Sakura Reveries", "sakura-reveries"],
-        "facet": ["NEUTRAL", "SSR", "REALM_MASTERY", "Realm Mastery"]
+        "tag": ["keyflare"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "REALM_MASTERY"
+        "mainstatKey": "REALM_MASTERY",
+        "tags": ["keyflare"]
       }
     },
     {
@@ -2242,15 +3866,33 @@
       "id": "wheel-0166",
       "name": "To the Stars",
       "aliases": [],
-      "tokens": ["neutral", "sigil", "sigil yield", "ssr", "stars", "the", "to", "to the stars", "yield"],
+      "tokens": [
+        "arithmetica",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "neutral",
+        "recovery",
+        "sigil",
+        "sigil yield",
+        "ssr",
+        "stars",
+        "the",
+        "to",
+        "to the stars",
+        "yield"
+      ],
       "fields": {
         "name": ["To the Stars", "to-the-stars"],
-        "facet": ["NEUTRAL", "SSR", "SIGIL_YIELD", "Sigil Yield"]
+        "tag": ["arithmetica", "heal", "sigil-yield", "healing", "hp recovery", "Sigil Yield"],
+        "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "SIGIL_YIELD"
+        "mainstatKey": "SIGIL_YIELD",
+        "tags": ["arithmetica", "heal", "sigil-yield"]
       }
     }
   ]

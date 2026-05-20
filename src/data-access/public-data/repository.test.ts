@@ -196,7 +196,11 @@ describe('public-data repository', () => {
 
     for (const scope of searchableScopes) {
       const descriptor = getPublicScopeDescriptor(scope)
-      for (const document of getPublicSearchDocuments(scope)) {
+      const searchDocuments = getPublicSearchDocuments(scope)
+      expect(new Set(searchDocuments.map((document) => document.id)).size).toBe(
+        searchDocuments.length,
+      )
+      for (const document of searchDocuments) {
         expect(document.kind).toBe(descriptor.kind)
         expect(document.id.startsWith(descriptor.idPrefix)).toBe(true)
       }

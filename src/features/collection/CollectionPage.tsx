@@ -220,6 +220,9 @@ export function CollectionPage() {
                 .pushReferenceDetail({kind: 'covenant', id: matchingCovenant.id})
             }
           },
+          onSelectPosse: (posse) => {
+            dbDetailStore.getState().pushReferenceDetail({kind: 'posse', id: posse.id})
+          },
           onSelectWheel: (wheel) => {
             const matchingWheel =
               'id' in wheel && typeof wheel.id === 'string'

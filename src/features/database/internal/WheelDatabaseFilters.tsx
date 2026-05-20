@@ -58,7 +58,7 @@ export function WheelDatabaseFilters({
       <SearchInput
         label='Search wheels'
         onQueryChange={onQueryChange}
-        placeholder='Name, owner, realm, main stat, or effect'
+        placeholder='Name, owner, realm, rarity, or effect'
         query={query}
         searchInputRef={searchInputRef}
       />

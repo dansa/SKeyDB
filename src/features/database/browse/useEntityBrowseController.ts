@@ -1,4 +1,4 @@
-import {useEffect, useRef} from 'react'
+import {useCallback, useEffect, useMemo, useRef} from 'react'
 
 import type {NavigateFunction} from 'react-router-dom'
 
@@ -92,35 +92,28 @@ export function useEntityBrowseController({
     locationSearch,
     navigate,
   })
-
-  const openAwakenerDetail = createOpenDetailHandler(
-    databaseAwakeners,
-    buildDatabaseAwakenerPath,
-    navigate,
-    activeSearch,
+  const openAwakenerDetail = useMemo(
+    () =>
+      createOpenDetailHandler(databaseAwakeners, buildDatabaseAwakenerPath, navigate, activeSearch),
+    [activeSearch, navigate],
   )
-  const openWheelDetail = createOpenDetailHandler(
-    databaseWheels,
-    buildDatabaseWheelPath,
-    navigate,
-    activeSearch,
+  const openWheelDetail = useMemo(
+    () => createOpenDetailHandler(databaseWheels, buildDatabaseWheelPath, navigate, activeSearch),
+    [activeSearch, navigate],
   )
-  const openPosseDetail = createOpenDetailHandler(
-    databasePosses,
-    buildDatabasePossePath,
-    navigate,
-    activeSearch,
+  const openPosseDetail = useMemo(
+    () => createOpenDetailHandler(databasePosses, buildDatabasePossePath, navigate, activeSearch),
+    [activeSearch, navigate],
   )
-  const openCovenantDetail = createOpenDetailHandler(
-    databaseCovenants,
-    buildDatabaseCovenantPath,
-    navigate,
-    activeSearch,
+  const openCovenantDetail = useMemo(
+    () =>
+      createOpenDetailHandler(databaseCovenants, buildDatabaseCovenantPath, navigate, activeSearch),
+    [activeSearch, navigate],
   )
 
-  function closeDetail() {
+  const closeDetail = useCallback(() => {
     void navigate({pathname: browsePath, search: activeSearch})
-  }
+  }, [activeSearch, browsePath, navigate])
 
   return {
     activeEntity,

@@ -1,12 +1,14 @@
 import type {ReactNode} from 'react'
 
 import type {DatabaseEntityId} from '@/domain/database-entity-paths'
+import type {DatabaseDetailResultSet} from '@/features/database/detail/database-detail-result-navigation'
 
 import {AwakenersBrowse, CovenantsBrowse, PossesBrowse, WheelsBrowse} from './EntityBrowseViews'
 import type {EntityBrowseController} from './useEntityBrowseController'
 
 interface EntityBrowseProps {
   controller: EntityBrowseController
+  renderDetailModalHost: (resultSet: DatabaseDetailResultSet) => ReactNode
 }
 
 interface EntityBrowseRegistryEntry {
@@ -43,7 +45,10 @@ export const entityBrowseRegistry: Record<DatabaseEntityId, EntityBrowseRegistry
   },
 }
 
-export function renderEntityBrowse(controller: EntityBrowseController): ReactNode {
+export function renderEntityBrowse(
+  controller: EntityBrowseController,
+  renderDetailModalHost: (resultSet: DatabaseDetailResultSet) => ReactNode,
+): ReactNode {
   const BrowseComponent = entityBrowseRegistry[controller.activeEntity].Component
-  return <BrowseComponent controller={controller} />
+  return <BrowseComponent controller={controller} renderDetailModalHost={renderDetailModalHost} />
 }

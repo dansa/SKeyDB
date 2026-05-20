@@ -20,7 +20,7 @@
   "releaseDate": "2023-11-29",
   "faction": "Out of the Aeons",
   "aliases": ["tulu"],
-  "searchTags": ["STR Up", "STR Down", "Tentacle DMG", "Pierce DMG", "Aftershock", "Dispel", "Divine Realm", "Tentacles"],
+  "searchTags": ["STR Up", "STR Down", "Tentacle DMG", "Pierce DMG", "Aftershock", "Dispel", "Lemurian", "Tentacle Generation"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 36,

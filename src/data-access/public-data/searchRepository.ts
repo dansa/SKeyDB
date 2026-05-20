@@ -37,6 +37,7 @@ function getPublicSearchIndex(scope: SearchablePublicDataScope): PublicSearchInd
         `Public V3 search index scope "${searchIndex.scope}" does not match requested scope "${scope}".`,
       )
     }
+    assertUniqueSearchDocumentIds(scope, searchIndex.records)
     for (const record of searchIndex.records) {
       assertPublicEntityForScope(scope, record.kind, record.id)
     }
@@ -66,4 +67,17 @@ function getPublicSearchDocumentMap(
   const map = new Map(getPublicSearchDocuments(scope).map((record) => [record.id, record]))
   searchDocumentByIdCache.set(scope, map)
   return map
+}
+
+function assertUniqueSearchDocumentIds(
+  scope: SearchablePublicDataScope,
+  records: PublicSearchDocument[],
+) {
+  const seenIds = new Set<string>()
+  for (const record of records) {
+    if (seenIds.has(record.id)) {
+      throw new Error(`Public V3 search index "${scope}" contains duplicate id "${record.id}".`)
+    }
+    seenIds.add(record.id)
+  }
 }

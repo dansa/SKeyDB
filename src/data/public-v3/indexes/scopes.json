@@ -79,7 +79,7 @@
       "idPrefix": "overlay",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 125
+      "recordCount": 128
     },
     {
       "scope": "awakener-builds",
@@ -169,7 +169,7 @@
       "idPrefix": "overlay",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 125
+      "recordCount": 128
     },
     "awakener-builds": {
       "scope": "awakener-builds",

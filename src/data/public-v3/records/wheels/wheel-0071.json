@@ -21,5 +21,6 @@
       "values": ["11", "14", "17", "20"]
     }
   },
-  "lore": "On the brink of death, the will to live ignites."
+  "lore": "On the brink of death, the will to live ignites.",
+  "searchTags": ["Sigil Gain"]
 }

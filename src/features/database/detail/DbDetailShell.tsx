@@ -17,6 +17,10 @@ import {DetailSettingsPanel} from '@/ui/modal/DetailSettingsPanel'
 import {useDetailModalChrome} from '@/ui/modal/useDetailModalChrome'
 import {useDetailModalLifecycle} from '@/ui/modal/useDetailModalLifecycle'
 
+import type {DatabaseDetailResultNavigation} from './database-detail-result-navigation'
+import {DatabaseDetailResultNavigator} from './DatabaseDetailResultNavigator'
+import {DbDetailModalFrame} from './DbDetailModalFrame'
+
 type DatabasePopoverController = ReturnType<typeof useDatabasePopoverController>
 
 interface DbDetailShellProps {
@@ -25,6 +29,7 @@ interface DbDetailShellProps {
   fullArtAlt: string
   itemName: string
   kindLabel: string
+  navigation?: DatabaseDetailResultNavigation | null
   onClose: () => void
   popoverController: DatabasePopoverController
   preferences: DatabaseDetailPreferences
@@ -43,6 +48,7 @@ export function DbDetailShell({
   fullArtAlt,
   itemName,
   kindLabel,
+  navigation = null,
   onClose,
   popoverController,
   preferences,
@@ -88,25 +94,21 @@ export function DbDetailShell({
   })
 
   return (
-    <div
-      className='fixed inset-0 z-[900] flex items-center justify-center bg-slate-950/78 p-4 md:p-6'
-      onClick={handleOverlayClick}
+    <DbDetailModalFrame
+      ariaLabel={`${itemName} details`}
+      beforeBody={<DatabaseDetailResultNavigator navigation={navigation} />}
+      maxWidth='standard'
+      onOverlayClick={handleOverlayClick}
+      onPanelKeyDown={handlePanelKeyDown}
+      panelRef={panelRef}
+      shellStyle={getDescriptionFontScaleStyle(preferences.shared.fontScale)}
     >
-      <div
-        aria-label={`${itemName} details`}
-        aria-modal='true'
-        className='relative z-[901] flex max-h-[calc(100dvh-3rem)] min-h-[340px] w-full max-w-5xl overflow-hidden border border-amber-200/55 bg-slate-950/[.985] shadow-[0_24px_70px_rgba(2,6,23,0.8)]'
-        data-detail-modal-shell=''
-        onKeyDown={handlePanelKeyDown}
-        ref={panelRef}
-        role='dialog'
-        style={getDescriptionFontScaleStyle(preferences.shared.fontScale)}
-      >
+      <div className='relative flex min-h-0 flex-auto overflow-hidden border border-amber-200/55 bg-slate-950/[.985] shadow-[0_24px_70px_rgba(2,6,23,0.8)]'>
         <div className='absolute top-3 right-3 z-10 flex items-center gap-1.5' ref={settingsRef}>
           <button
             aria-expanded={isSettingsOpen}
             aria-label='Open detail settings'
-            className='inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100'
+            className='inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100 focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
             data-detail-settings-trigger=''
             onClick={() => {
               setIsSettingsOpen((previous) => !previous)
@@ -117,7 +119,7 @@ export function DbDetailShell({
           </button>
           <button
             aria-label={`Close ${kindLabel} detail`}
-            className='inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100'
+            className='inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100 focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
             onClick={onClose}
             type='button'
           >
@@ -195,6 +197,6 @@ export function DbDetailShell({
           />
         ) : null}
       </div>
-    </div>
+    </DbDetailModalFrame>
   )
 }

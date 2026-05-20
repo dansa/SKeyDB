@@ -62,7 +62,7 @@ export function SimpleArtifactDetailBody({
   const trimmedAcquisitionSource = acquisitionSource?.trim()
   return (
     <>
-      <div className='shrink-0 border-b border-slate-800/75 pb-5'>
+      <div className='shrink-0 border-b border-slate-800/75 pr-20 pb-5'>
         <div className='flex items-center gap-4'>
           {headerIconAsset ? (
             <button

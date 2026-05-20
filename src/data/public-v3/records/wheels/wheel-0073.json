@@ -22,5 +22,6 @@
       "suffix": "%"
     }
   },
-  "lore": "Take a deep breath, Dominic."
+  "lore": "Take a deep breath, Dominic.",
+  "searchTags": ["Heal"]
 }

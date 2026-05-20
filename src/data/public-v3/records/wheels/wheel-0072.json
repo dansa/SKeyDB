@@ -21,5 +21,6 @@
       "values": ["13", "17", "21", "25"]
     }
   },
-  "lore": "My soul is a tomb."
+  "lore": "My soul is a tomb.",
+  "searchTags": ["Sigil Gain"]
 }

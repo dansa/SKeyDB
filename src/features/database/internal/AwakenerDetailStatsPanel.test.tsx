@@ -26,7 +26,8 @@ const TEST_STATS: FullStats = {
 }
 
 const TEST_SUBSTAT_SCALING: SubstatScaling = {
-  CritRate: '1.6%',
+  RealmMastery: '1',
+  SigilYield: '0.5%',
 }
 
 const TEST_SCALING_RECORD = {
@@ -52,10 +53,15 @@ function renderStatsPanel() {
 }
 
 describe('AwakenerDetailStatsPanel', () => {
-  it('uses three compact columns for main stats and two for secondary stats', () => {
+  it('shows scaling substats in the collapsed default stat set', () => {
     const {container} = renderStatsPanel()
 
     expect(container.querySelector('[data-awakener-main-stats]')).toHaveClass('grid-cols-3')
+    expect(screen.getByText('CON')).toBeInTheDocument()
+    expect(screen.getByText('ATK')).toBeInTheDocument()
+    expect(screen.getByText('DEF')).toBeInTheDocument()
+    expect(screen.getByText('Realm Mastery')).toBeInTheDocument()
+    expect(screen.getByText('Sigil Yield')).toBeInTheDocument()
     expect(screen.queryByText('Crit Rate')).not.toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: /show all stats/i}))

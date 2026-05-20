@@ -1027,7 +1027,13 @@
         "enlighten.pickman.invocation-of-the-muse",
         "enlighten.pickman.world-in-the-painting"
       ],
-      "ownedOverlays": ["overlay.pickman.creativity", "overlay.pickman.fantasia", "overlay.pickman.painted-orisons", "overlay.pickman.painted-relics"],
+      "ownedOverlays": [
+        "overlay.pickman.collaboration",
+        "overlay.pickman.creativity",
+        "overlay.pickman.fantasia",
+        "overlay.pickman.painted-orisons",
+        "overlay.pickman.painted-relics"
+      ],
       "ownedPosses": ["posse-0042"],
       "ownedRelics": ["relic-0040"],
       "ownedSkills": [
@@ -1052,7 +1058,7 @@
         "enlighten.pollux.lux-diouskouron",
         "enlighten.pollux.the-nightbreaker"
       ],
-      "ownedOverlays": ["overlay.pollux.sin-mark"],
+      "ownedOverlays": ["overlay.pollux.ablaze", "overlay.pollux.alight", "overlay.pollux.sin-mark"],
       "ownedPosses": ["posse-0039"],
       "ownedRelics": ["relic-0041"],
       "ownedSkills": [
@@ -2053,10 +2059,13 @@
     "overlay.miryam.ritual": {},
     "overlay.murphy-fauxborn.birth-ritual": {},
     "overlay.murphy-fauxborn.life-seal": {},
+    "overlay.pickman.collaboration": {},
     "overlay.pickman.creativity": {},
     "overlay.pickman.fantasia": {},
     "overlay.pickman.painted-orisons": {},
     "overlay.pickman.painted-relics": {},
+    "overlay.pollux.ablaze": {},
+    "overlay.pollux.alight": {},
     "overlay.pollux.sin-mark": {},
     "overlay.ramona-timeworn.loop": {},
     "overlay.ramona-timeworn.negentropy": {},
@@ -4611,6 +4620,9 @@
     "overlay.murphy-fauxborn.life-seal": {
       "ownerAwakenerId": "awakener-0035"
     },
+    "overlay.pickman.collaboration": {
+      "ownerAwakenerId": "awakener-0040"
+    },
     "overlay.pickman.creativity": {
       "ownerAwakenerId": "awakener-0040"
     },
@@ -4622,6 +4634,12 @@
     },
     "overlay.pickman.painted-relics": {
       "ownerAwakenerId": "awakener-0040"
+    },
+    "overlay.pollux.ablaze": {
+      "ownerAwakenerId": "awakener-0041"
+    },
+    "overlay.pollux.alight": {
+      "ownerAwakenerId": "awakener-0041"
     },
     "overlay.pollux.sin-mark": {
       "ownerAwakenerId": "awakener-0041"

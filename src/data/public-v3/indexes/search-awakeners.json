@@ -41,7 +41,6 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
-        "tentacles",
         "twenty",
         "twenty four",
         "up",
@@ -67,7 +66,6 @@
           "arithmetica",
           "hand-limit",
           "keyflare",
-          "tentacles",
           "weak",
           "vulnerability",
           "vuln",
@@ -100,7 +98,6 @@
           "poison",
           "str-up",
           "tentacle-dmg",
-          "tentacles",
           "vulnerable",
           "weakness"
         ]
@@ -121,6 +118,7 @@
         "outlanders",
         "permanent",
         "poison",
+        "spider",
         "ssr",
         "str",
         "str up",
@@ -132,7 +130,7 @@
       "fields": {
         "name": ["Agrippa"],
         "alias": ["agrippa"],
-        "tag": ["poison", "alert", "str-up", "draw", "alert buff", "STR Up", "strength up"],
+        "tag": ["poison", "alert", "str-up", "draw", "spider", "alert buff", "STR Up", "strength up"],
         "facet": ["CARO", "SSR", "WARDEN", "PERMANENT", "Outlanders"]
       },
       "facets": {
@@ -141,7 +139,7 @@
         "type": "WARDEN",
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
-        "tags": ["alert", "draw", "poison", "str-up"]
+        "tags": ["alert", "draw", "poison", "spider", "str-up"]
       }
     },
     {
@@ -227,7 +225,8 @@
           "cleanse",
           "clear",
           "remove",
-          "Death Resistance"
+          "Death Resistance",
+          "resistance"
         ],
         "facet": ["CHAOS", "SSR", "WARDEN", "PERMANENT", "Outlanders"]
       },
@@ -255,6 +254,9 @@
         "dmg",
         "draw",
         "fools",
+        "gen",
+        "generation",
+        "limit",
         "pierce",
         "pierce damage",
         "pierce dmg",
@@ -266,6 +268,10 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
+        "tentacle gen",
+        "tentacle generation",
+        "tentacle limit",
+        "tentacles",
         "the",
         "the fools",
         "up",
@@ -281,12 +287,16 @@
           "aftershock",
           "discard",
           "draw",
+          "tentacles",
           "STR Up",
           "strength up",
           "Tentacle DMG",
           "tentacle damage",
           "Pierce DMG",
-          "pierce damage"
+          "pierce damage",
+          "Tentacle Generation",
+          "tentacle gen",
+          "tentacle limit"
         ],
         "facet": ["AEQUOR", "SSR", "ASSAULT", "WELFARE", "The Fools"]
       },
@@ -296,7 +306,7 @@
         "type": "ASSAULT",
         "availabilityType": "WELFARE",
         "faction": "The Fools",
-        "tags": ["aftershock", "discard", "draw", "pierce-dmg", "str-up", "tentacle-dmg"]
+        "tags": ["aftershock", "discard", "draw", "pierce-dmg", "str-up", "tentacle-dmg", "tentacles"]
       }
     },
     {
@@ -313,9 +323,16 @@
         "damage",
         "dispel",
         "dmg",
+        "gen",
+        "generation",
         "heal",
+        "healing",
+        "hp",
+        "hp recovery",
         "hybrid",
+        "limit",
         "permanent",
+        "recovery",
         "remove",
         "ssr",
         "str",
@@ -325,6 +342,9 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
+        "tentacle gen",
+        "tentacle generation",
+        "tentacle limit",
         "tentacles",
         "up",
         "warden"
@@ -345,7 +365,12 @@
           "tentacle damage",
           "cleanse",
           "clear",
-          "remove"
+          "remove",
+          "healing",
+          "hp recovery",
+          "Tentacle Generation",
+          "tentacle gen",
+          "tentacle limit"
         ],
         "facet": ["AEQUOR", "SSR", "WARDEN", "PERMANENT", "Hybrid"]
       },
@@ -448,14 +473,24 @@
         "damage",
         "dispel",
         "dmg",
+        "gen",
+        "generation",
         "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "limit",
         "outlanders",
         "permanent",
+        "recovery",
         "remove",
         "ssr",
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
+        "tentacle gen",
+        "tentacle generation",
+        "tentacle limit",
         "tentacles",
         "weak",
         "weakness"
@@ -475,7 +510,12 @@
           "tentacle damage",
           "cleanse",
           "clear",
-          "remove"
+          "remove",
+          "healing",
+          "hp recovery",
+          "Tentacle Generation",
+          "tentacle gen",
+          "tentacle limit"
         ],
         "facet": ["AEQUOR", "SSR", "CHORUS", "PERMANENT", "Outlanders"]
       },
@@ -549,6 +589,9 @@
         "dmg",
         "draw",
         "fools",
+        "gen",
+        "generation",
+        "limit",
         "limited",
         "limited astral reign",
         "reign",
@@ -561,6 +604,9 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
+        "tentacle gen",
+        "tentacle generation",
+        "tentacle limit",
         "tentacles",
         "the",
         "the fools",
@@ -586,7 +632,11 @@
           "strength up",
           "Tentacle DMG",
           "tentacle damage",
-          "Death Resistance"
+          "Death Resistance",
+          "resistance",
+          "Tentacle Generation",
+          "tentacle gen",
+          "tentacle limit"
         ],
         "facet": ["AEQUOR", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools"]
       },
@@ -685,6 +735,10 @@
         "dispel",
         "doll",
         "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "recovery",
         "remove",
         "sr",
         "stars",
@@ -696,7 +750,7 @@
       "fields": {
         "name": ["Doll"],
         "alias": ["doll"],
-        "tag": ["weakness", "dispel", "discard", "heal", "weak", "cleanse", "clear", "remove"],
+        "tag": ["weakness", "dispel", "discard", "heal", "weak", "cleanse", "clear", "remove", "healing", "hp recovery"],
         "facet": ["CHAOS", "SR", "CHORUS", "WELFARE", "Among the Stars"]
       },
       "facets": {
@@ -735,6 +789,7 @@
         "pierce dmg",
         "reign",
         "self",
+        "self damage",
         "self harm",
         "ssr",
         "str",
@@ -763,7 +818,8 @@
           "Pierce DMG",
           "pierce damage",
           "Fixed DMG",
-          "fixed damage"
+          "fixed damage",
+          "Self-Damage"
         ],
         "facet": ["CARO", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Out of the Aeons"]
       },
@@ -861,7 +917,11 @@
         "fixed damage",
         "fixed dmg",
         "heal",
+        "healing",
+        "hp",
+        "hp recovery",
         "permanent",
+        "recovery",
         "remove",
         "resistance",
         "ssr",
@@ -909,7 +969,10 @@
           "cleanse",
           "clear",
           "remove",
-          "Death Resistance"
+          "Death Resistance",
+          "resistance",
+          "healing",
+          "hp recovery"
         ],
         "facet": ["CARO", "SSR", "WARDEN", "PERMANENT", "Among the Stars"]
       },
@@ -939,8 +1002,12 @@
         "draw",
         "faros",
         "fools",
+        "gen",
+        "generation",
         "hand",
         "hand limit",
+        "lemuria",
+        "lemurian",
         "limit",
         "permanent",
         "poison",
@@ -949,6 +1016,9 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
+        "tentacle gen",
+        "tentacle generation",
+        "tentacle limit",
         "tentacles",
         "the",
         "the fools"
@@ -963,13 +1033,18 @@
           "arithmetica",
           "draw",
           "hand-limit",
+          "lemurian",
           "tentacles",
           "Tentacle DMG",
           "tentacle damage",
           "cleanse",
           "clear",
           "remove",
-          "Hand Limit"
+          "Hand Limit",
+          "lemuria",
+          "Tentacle Generation",
+          "tentacle gen",
+          "tentacle limit"
         ],
         "facet": ["AEQUOR", "SSR", "CHORUS", "PERMANENT", "The Fools"]
       },
@@ -979,7 +1054,7 @@
         "type": "CHORUS",
         "availabilityType": "PERMANENT",
         "faction": "The Fools",
-        "tags": ["arithmetica", "dispel", "draw", "hand-limit", "poison", "tentacle-dmg", "tentacles"]
+        "tags": ["arithmetica", "dispel", "draw", "hand-limit", "lemurian", "poison", "tentacle-dmg", "tentacles"]
       }
     },
     {
@@ -1007,15 +1082,19 @@
         "genesis",
         "harm",
         "heal",
+        "healing",
         "hp",
+        "hp recovery",
         "inferno",
         "limited",
         "limited astral reign",
         "max",
         "max hp dmg",
         "poison",
+        "recovery",
         "reign",
         "self",
+        "self damage",
         "self harm",
         "stars",
         "the",
@@ -1043,7 +1122,10 @@
           "vuln",
           "Fixed DMG",
           "fixed damage",
-          "Max HP DMG"
+          "healing",
+          "hp recovery",
+          "Max HP DMG",
+          "Self-Damage"
         ],
         "facet": ["CHAOS", "Genesis", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Among the Stars"]
       },
@@ -1066,6 +1148,7 @@
         "bleed",
         "caro",
         "catena",
+        "damage",
         "draw",
         "faded",
         "fools",
@@ -1076,13 +1159,18 @@
         "hand limit",
         "harm",
         "heal",
+        "healing",
         "helot",
         "helot catena",
+        "hp",
+        "hp recovery",
         "legacy",
         "limit",
         "limited",
         "limited faded legacy",
+        "recovery",
         "self",
+        "self damage",
         "self harm",
         "str",
         "str up",
@@ -1096,7 +1184,21 @@
       "fields": {
         "name": ["Helot: Catena", "helot-catena"],
         "alias": ["helot: catena", "g-helot"],
-        "tag": ["bleed", "str-up", "draw", "hand-limit", "heal", "self-harm", "strike", "STR Up", "strength up", "Hand Limit"],
+        "tag": [
+          "bleed",
+          "str-up",
+          "draw",
+          "hand-limit",
+          "heal",
+          "self-harm",
+          "strike",
+          "STR Up",
+          "strength up",
+          "Hand Limit",
+          "healing",
+          "hp recovery",
+          "Self-Damage"
+        ],
         "facet": ["CARO", "Genesis", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "The Fools"]
       },
       "facets": {
@@ -1167,7 +1269,12 @@
         "dispel",
         "dmg",
         "fools",
+        "gen",
+        "generation",
         "goliath",
+        "lemuria",
+        "lemurian",
+        "limit",
         "permanent",
         "remove",
         "ssr",
@@ -1178,6 +1285,10 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
+        "tentacle gen",
+        "tentacle generation",
+        "tentacle limit",
+        "tentacles",
         "the",
         "the fools",
         "up"
@@ -1185,7 +1296,24 @@
       "fields": {
         "name": ["Goliath"],
         "alias": ["goliath"],
-        "tag": ["str-up", "tentacle-dmg", "dispel", "STR Up", "strength up", "Tentacle DMG", "tentacle damage", "cleanse", "clear", "remove"],
+        "tag": [
+          "str-up",
+          "tentacle-dmg",
+          "dispel",
+          "lemurian",
+          "tentacles",
+          "STR Up",
+          "strength up",
+          "Tentacle DMG",
+          "tentacle damage",
+          "cleanse",
+          "clear",
+          "remove",
+          "lemuria",
+          "Tentacle Generation",
+          "tentacle gen",
+          "tentacle limit"
+        ],
         "facet": ["AEQUOR", "SSR", "ASSAULT", "PERMANENT", "The Fools"]
       },
       "facets": {
@@ -1194,7 +1322,7 @@
         "type": "ASSAULT",
         "availabilityType": "PERMANENT",
         "faction": "The Fools",
-        "tags": ["dispel", "str-up", "tentacle-dmg"]
+        "tags": ["dispel", "lemurian", "str-up", "tentacle-dmg", "tentacles"]
       }
     },
     {
@@ -1288,6 +1416,7 @@
         "caro",
         "cleanse",
         "clear",
+        "damage",
         "discard",
         "dispel",
         "draw",
@@ -1300,6 +1429,7 @@
         "permanent",
         "remove",
         "self",
+        "self damage",
         "self harm",
         "ssr",
         "strike",
@@ -1309,7 +1439,7 @@
       "fields": {
         "name": ["Helot"],
         "alias": ["helot"],
-        "tag": ["dispel", "discard", "draw", "hand-limit", "self-harm", "strike", "cleanse", "clear", "remove", "Hand Limit"],
+        "tag": ["dispel", "discard", "draw", "hand-limit", "self-harm", "strike", "cleanse", "clear", "remove", "Hand Limit", "Self-Damage"],
         "facet": ["CARO", "SSR", "ASSAULT", "PERMANENT", "The Fools"]
       },
       "facets": {
@@ -1334,11 +1464,15 @@
         "down",
         "faded",
         "heal",
+        "healing",
         "horla",
+        "hp",
+        "hp recovery",
         "legacy",
         "limited",
         "limited faded legacy",
         "outlanders",
+        "recovery",
         "resistance",
         "ssr",
         "str",
@@ -1373,7 +1507,10 @@
           "strength up",
           "STR Down",
           "strength down",
-          "Death Resistance"
+          "Death Resistance",
+          "resistance",
+          "healing",
+          "hp recovery"
         ],
         "facet": ["ULTRA", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Outlanders"]
       },
@@ -1421,11 +1558,15 @@
         "dispel",
         "draw",
         "heal",
+        "healing",
+        "hp",
+        "hp recovery",
         "karen",
         "keyflare",
         "outlanders",
         "permanent",
         "poison",
+        "recovery",
         "remove",
         "ssr",
         "weak",
@@ -1434,7 +1575,7 @@
       "fields": {
         "name": ["Karen"],
         "alias": ["karen"],
-        "tag": ["weakness", "poison", "dispel", "arithmetica", "draw", "heal", "keyflare", "weak", "cleanse", "clear", "remove"],
+        "tag": ["weakness", "poison", "dispel", "arithmetica", "draw", "heal", "keyflare", "weak", "cleanse", "clear", "remove", "healing", "hp recovery"],
         "facet": ["CHAOS", "SSR", "CHORUS", "PERMANENT", "Outlanders"]
       },
       "facets": {
@@ -1514,14 +1655,19 @@
         "dmg",
         "harm",
         "heal",
+        "healing",
+        "hp",
+        "hp recovery",
         "hybrid",
         "leigh",
         "permanent",
         "pierce",
         "pierce damage",
         "pierce dmg",
+        "recovery",
         "remove",
         "self",
+        "self damage",
         "self harm",
         "ssr",
         "str",
@@ -1533,7 +1679,23 @@
       "fields": {
         "name": ["Leigh"],
         "alias": ["leigh"],
-        "tag": ["str-up", "pierce-dmg", "dispel", "heal", "self-harm", "STR Up", "strength up", "Pierce DMG", "pierce damage", "cleanse", "clear", "remove"],
+        "tag": [
+          "str-up",
+          "pierce-dmg",
+          "dispel",
+          "heal",
+          "self-harm",
+          "STR Up",
+          "strength up",
+          "Pierce DMG",
+          "pierce damage",
+          "cleanse",
+          "clear",
+          "remove",
+          "healing",
+          "hp recovery",
+          "Self-Damage"
+        ],
         "facet": ["CARO", "SSR", "CHORUS", "PERMANENT", "Hybrid"]
       },
       "facets": {
@@ -1556,12 +1718,16 @@
         "death resistance",
         "faded",
         "heal",
+        "healing",
+        "hp",
+        "hp recovery",
         "hybrid",
         "legacy",
         "lily",
         "limited",
         "limited faded legacy",
         "poison",
+        "recovery",
         "resistance",
         "ssr",
         "strike",
@@ -1570,7 +1736,7 @@
       "fields": {
         "name": ["Lily"],
         "alias": ["lily"],
-        "tag": ["poison", "death-resistance", "heal", "strike", "Death Resistance"],
+        "tag": ["poison", "death-resistance", "heal", "strike", "Death Resistance", "resistance", "healing", "hp recovery"],
         "facet": ["CHAOS", "SSR", "WARDEN", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Hybrid"]
       },
       "facets": {
@@ -1704,8 +1870,16 @@
         "down",
         "draw",
         "faded",
+        "gen",
+        "generation",
         "heal",
+        "healing",
+        "hp",
+        "hp recovery",
         "legacy",
+        "lemuria",
+        "lemurian",
+        "limit",
         "limited",
         "limited faded legacy",
         "miryam",
@@ -1716,6 +1890,7 @@
         "pierce damage",
         "pierce dmg",
         "poison",
+        "recovery",
         "ssr",
         "str",
         "str down",
@@ -1726,6 +1901,9 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
+        "tentacle gen",
+        "tentacle generation",
+        "tentacle limit",
         "tentacles",
         "the",
         "up",
@@ -1749,6 +1927,7 @@
           "arithmetica",
           "draw",
           "heal",
+          "lemurian",
           "tentacles",
           "weak",
           "vulnerability",
@@ -1760,7 +1939,13 @@
           "Tentacle DMG",
           "tentacle damage",
           "Pierce DMG",
-          "pierce damage"
+          "pierce damage",
+          "healing",
+          "hp recovery",
+          "lemuria",
+          "Tentacle Generation",
+          "tentacle gen",
+          "tentacle limit"
         ],
         "facet": ["AEQUOR", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Out of the Aeons"]
       },
@@ -1770,7 +1955,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Out of the Aeons",
-        "tags": ["arithmetica", "draw", "heal", "pierce-dmg", "poison", "str-down", "str-up", "tentacle-dmg", "tentacles", "vulnerable", "weakness"]
+        "tags": ["arithmetica", "draw", "heal", "lemurian", "pierce-dmg", "poison", "str-down", "str-up", "tentacle-dmg", "tentacles", "vulnerable", "weakness"]
       }
     },
     {
@@ -1801,7 +1986,7 @@
       "fields": {
         "name": ["Mouchette"],
         "alias": ["mouchette"],
-        "tag": ["stun", "pursuit", "death-resistance", "strike", "petrify", "petrified", "fainted", "Death Resistance"],
+        "tag": ["stun", "pursuit", "death-resistance", "strike", "petrify", "petrified", "fainted", "Death Resistance", "resistance"],
         "facet": ["CHAOS", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Outlanders"]
       },
       "facets": {
@@ -1828,9 +2013,12 @@
         "dispel",
         "dmg",
         "faded",
+        "gen",
+        "generation",
         "hybrid",
         "keyflare",
         "legacy",
+        "limit",
         "limited",
         "limited faded legacy",
         "murphy",
@@ -1840,6 +2028,9 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
+        "tentacle gen",
+        "tentacle generation",
+        "tentacle limit",
         "tentacles",
         "vuln",
         "vulnerability",
@@ -1868,7 +2059,10 @@
           "tentacle damage",
           "cleanse",
           "clear",
-          "remove"
+          "remove",
+          "Tentacle Generation",
+          "tentacle gen",
+          "tentacle limit"
         ],
         "facet": ["AEQUOR", "SSR", "WARDEN", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Hybrid"]
       },
@@ -1901,8 +2095,13 @@
         "fauxborn",
         "g",
         "g murphy",
+        "gen",
+        "generation",
         "genesis",
         "keyflare",
+        "lemuria",
+        "lemurian",
+        "limit",
         "limited",
         "limited astral reign",
         "murphy",
@@ -1916,6 +2115,9 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
+        "tentacle gen",
+        "tentacle generation",
+        "tentacle limit",
         "tentacles",
         "the"
       ],
@@ -1929,11 +2131,16 @@
           "divine-realm",
           "draw",
           "keyflare",
+          "lemurian",
           "tentacles",
           "sacrifice",
           "Tentacle DMG",
           "tentacle damage",
-          "Divine Realm"
+          "Divine Realm",
+          "lemuria",
+          "Tentacle Generation",
+          "tentacle gen",
+          "tentacle limit"
         ],
         "facet": ["AEQUOR", "Genesis", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Out of the Aeons"]
       },
@@ -1943,7 +2150,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "Out of the Aeons",
-        "tags": ["aftershock", "arithmetica", "divine-realm", "draw", "keyflare", "sacrifice", "tentacle-dmg", "tentacles"]
+        "tags": ["aftershock", "arithmetica", "divine-realm", "draw", "keyflare", "lemurian", "sacrifice", "tentacle-dmg", "tentacles"]
       }
     },
     {
@@ -2328,17 +2535,23 @@
         "aeons",
         "barrier",
         "caro",
+        "damage",
         "faded",
         "harm",
         "heal",
+        "healing",
+        "hp",
+        "hp recovery",
         "legacy",
         "limited",
         "limited faded legacy",
         "of",
         "out",
         "out of the aeons",
+        "recovery",
         "salvador",
         "self",
+        "self damage",
         "self harm",
         "ssr",
         "str",
@@ -2357,7 +2570,22 @@
       "fields": {
         "name": ["Salvador"],
         "alias": ["salvador"],
-        "tag": ["weakness", "vulnerable", "barrier", "str-up", "heal", "self-harm", "weak", "vulnerability", "vuln", "STR Up", "strength up"],
+        "tag": [
+          "weakness",
+          "vulnerable",
+          "barrier",
+          "str-up",
+          "heal",
+          "self-harm",
+          "weak",
+          "vulnerability",
+          "vuln",
+          "STR Up",
+          "strength up",
+          "healing",
+          "hp recovery",
+          "Self-Damage"
+        ],
         "facet": ["CARO", "SSR", "WARDEN", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Out of the Aeons"]
       },
       "facets": {
@@ -2384,6 +2612,9 @@
         "death resistance",
         "dispel",
         "dmg",
+        "gen",
+        "generation",
+        "limit",
         "outlanders",
         "permanent",
         "remove",
@@ -2393,6 +2624,9 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
+        "tentacle gen",
+        "tentacle generation",
+        "tentacle limit",
         "tentacles",
         "warden"
       ],
@@ -2410,7 +2644,11 @@
           "cleanse",
           "clear",
           "remove",
-          "Death Resistance"
+          "Death Resistance",
+          "resistance",
+          "Tentacle Generation",
+          "tentacle gen",
+          "tentacle limit"
         ],
         "facet": ["AEQUOR", "SSR", "WARDEN", "PERMANENT", "Outlanders"]
       },
@@ -2431,17 +2669,23 @@
       "tokens": [
         "assault",
         "caro",
+        "damage",
         "death",
         "death resistance",
         "faded",
         "harm",
         "heal",
+        "healing",
+        "hp",
+        "hp recovery",
         "legacy",
         "limited",
         "limited faded legacy",
         "outlanders",
+        "recovery",
         "resistance",
         "self",
+        "self damage",
         "self harm",
         "sorel",
         "ssr",
@@ -2454,7 +2698,19 @@
       "fields": {
         "name": ["Sorel"],
         "alias": ["sorel"],
-        "tag": ["str-up", "death-resistance", "heal", "self-harm", "STR Up", "strength up", "Death Resistance"],
+        "tag": [
+          "str-up",
+          "death-resistance",
+          "heal",
+          "self-harm",
+          "STR Up",
+          "strength up",
+          "Death Resistance",
+          "resistance",
+          "healing",
+          "hp recovery",
+          "Self-Damage"
+        ],
         "facet": ["CARO", "SSR", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Outlanders"]
       },
       "facets": {
@@ -2676,12 +2932,15 @@
         "clear",
         "damage",
         "dispel",
-        "divine",
-        "divine realm",
         "dmg",
         "down",
         "faded",
+        "gen",
+        "generation",
         "legacy",
+        "lemuria",
+        "lemurian",
+        "limit",
         "limited",
         "limited faded legacy",
         "of",
@@ -2690,7 +2949,6 @@
         "pierce",
         "pierce damage",
         "pierce dmg",
-        "realm",
         "remove",
         "ssr",
         "str",
@@ -2702,6 +2960,9 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
+        "tentacle gen",
+        "tentacle generation",
+        "tentacle limit",
         "tentacles",
         "the",
         "tulu",
@@ -2717,7 +2978,7 @@
           "pierce-dmg",
           "aftershock",
           "dispel",
-          "divine-realm",
+          "lemurian",
           "tentacles",
           "STR Up",
           "strength up",
@@ -2730,7 +2991,10 @@
           "cleanse",
           "clear",
           "remove",
-          "Divine Realm"
+          "lemuria",
+          "Tentacle Generation",
+          "tentacle gen",
+          "tentacle limit"
         ],
         "facet": ["AEQUOR", "SSR", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Out of the Aeons"]
       },
@@ -2740,7 +3004,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Out of the Aeons",
-        "tags": ["aftershock", "dispel", "divine-realm", "pierce-dmg", "str-down", "str-up", "tentacle-dmg", "tentacles"]
+        "tags": ["aftershock", "dispel", "lemurian", "pierce-dmg", "str-down", "str-up", "tentacle-dmg", "tentacles"]
       }
     },
     {
@@ -2748,11 +3012,28 @@
       "id": "awakener-0051",
       "name": "Uvhash",
       "aliases": ["uvhash"],
-      "tokens": ["assault", "caro", "harm", "outlanders", "permanent", "self", "self harm", "ssr", "str", "str up", "strength", "strength up", "up", "uvhash"],
+      "tokens": [
+        "assault",
+        "caro",
+        "damage",
+        "harm",
+        "outlanders",
+        "permanent",
+        "self",
+        "self damage",
+        "self harm",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "up",
+        "uvhash"
+      ],
       "fields": {
         "name": ["Uvhash"],
         "alias": ["uvhash"],
-        "tag": ["str-up", "self-harm", "STR Up", "strength up"],
+        "tag": ["str-up", "self-harm", "STR Up", "strength up", "Self-Damage"],
         "facet": ["CARO", "SSR", "ASSAULT", "PERMANENT", "Outlanders"]
       },
       "facets": {
@@ -2922,7 +3203,6 @@
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
-        "tentacles",
         "the",
         "the fools",
         "vortice"
@@ -2937,7 +3217,6 @@
           "aftershock",
           "dispel",
           "divine-realm",
-          "tentacles",
           "Tentacle DMG",
           "tentacle damage",
           "Fixed DMG",
@@ -2955,7 +3234,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Fools",
-        "tags": ["aftershock", "dispel", "divine-realm", "fixed-dmg", "pursuit", "tentacle-dmg", "tentacles"]
+        "tags": ["aftershock", "dispel", "divine-realm", "fixed-dmg", "pursuit", "tentacle-dmg"]
       }
     },
     {
@@ -2967,10 +3246,12 @@
         "arachne",
         "astral",
         "chorus",
+        "counter",
         "damage",
         "divine",
         "divine realm",
         "dmg",
+        "down",
         "final",
         "final verdict",
         "fixed",
@@ -2978,11 +3259,18 @@
         "fixed dmg",
         "limited",
         "limited astral reign",
+        "poison",
         "pursuit",
         "realm",
         "reign",
         "spider",
         "ssr",
+        "str",
+        "str down",
+        "str up",
+        "strength",
+        "strength down",
+        "strength up",
         "tentacle",
         "tentacle damage",
         "tentacle dmg",
@@ -2990,13 +3278,18 @@
         "the unknowable",
         "ultra",
         "unknowable",
+        "up",
         "verdict"
       ],
       "fields": {
         "name": ["Arachne"],
         "alias": ["arachne"],
         "tag": [
+          "poison",
+          "counter",
           "final-verdict",
+          "str-up",
+          "str-down",
           "tentacle-dmg",
           "pursuit",
           "fixed-dmg",
@@ -3004,6 +3297,10 @@
           "spider",
           "Final Verdict",
           "verdict",
+          "STR Up",
+          "strength up",
+          "STR Down",
+          "strength down",
           "Tentacle DMG",
           "tentacle damage",
           "Fixed DMG",
@@ -3018,7 +3315,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Unknowable",
-        "tags": ["divine-realm", "final-verdict", "fixed-dmg", "pursuit", "spider", "tentacle-dmg"]
+        "tags": ["counter", "divine-realm", "final-verdict", "fixed-dmg", "poison", "pursuit", "spider", "str-down", "str-up", "tentacle-dmg"]
       }
     }
   ]

@@ -20,7 +20,7 @@
   "releaseDate": "2023-11-29",
   "faction": "Outlanders",
   "aliases": ["agrippa"],
-  "searchTags": ["Poison", "Alert", "STR Up", "Draw"],
+  "searchTags": ["Poison", "Alert", "STR Up", "Draw", "Spider"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 35,

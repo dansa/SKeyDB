@@ -20,7 +20,7 @@
   "releaseDate": "2026-04-20",
   "faction": "The Unknowable",
   "aliases": ["arachne"],
-  "searchTags": ["Final Verdict", "Tentacle DMG", "Pursuit", "Fixed DMG", "Divine Realm", "Spider"],
+  "searchTags": ["Poison", "Counter", "Final Verdict", "STR Up", "STR Down", "Tentacle DMG", "Pursuit", "Fixed DMG", "Divine Realm", "Spider"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 34,

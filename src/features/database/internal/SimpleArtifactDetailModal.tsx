@@ -15,6 +15,7 @@ import {getPosseAssetById, getPosseFullArtAssetById} from '@/domain/posse-assets
 import type {Posse} from '@/domain/posses'
 import type {PosseFullRecord} from '@/domain/posses-full'
 import {buildPublicFormulaContext} from '@/domain/public-formula-context'
+import type {DatabaseDetailResultNavigation} from '@/features/database/detail/database-detail-result-navigation'
 import {DbDetailShell} from '@/features/database/detail/DbDetailShell'
 import {
   PosseMeta,
@@ -29,6 +30,7 @@ interface PosseDetailModalProps {
   kind: 'posse'
   item: Posse
   fullData: PosseFullRecord
+  navigation?: DatabaseDetailResultNavigation | null
   onClose: () => void
   onSelectAwakener?: (awakener: {id: string; name: string}, tab?: DatabaseAwakenerTab) => void
 }
@@ -37,6 +39,7 @@ interface CovenantDetailModalProps {
   kind: 'covenant'
   item: Covenant
   fullData: CovenantFullRecord
+  navigation?: DatabaseDetailResultNavigation | null
   onClose: () => void
   onSelectAwakener?: never
 }
@@ -50,6 +53,7 @@ function SimpleArtifactDetailModalInner({
   fullData,
   item,
   kind,
+  navigation = null,
   onClose,
   onSelectAwakener,
 }: SimpleArtifactDetailModalProps) {
@@ -107,6 +111,7 @@ function SimpleArtifactDetailModalInner({
       fullArtAlt={fullArtAlt}
       itemName={item.name}
       kindLabel={kind}
+      navigation={navigation}
       onClose={onClose}
       popoverController={popoverController}
       preferences={preferences}

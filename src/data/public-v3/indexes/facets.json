@@ -608,9 +608,15 @@
       },
       {
         "value": "self-harm",
-        "label": "Self-Harm",
+        "label": "Self-Damage",
         "section": "archetype",
         "order": 990
+      },
+      {
+        "value": "lemurian",
+        "label": "Lemurian",
+        "section": "archetype",
+        "order": 995
       },
       {
         "value": "spider",
@@ -626,7 +632,7 @@
       },
       {
         "value": "tentacles",
-        "label": "Tentacles",
+        "label": "Tentacle Generation",
         "section": "archetype",
         "order": 1020
       },
@@ -2738,6 +2744,158 @@
         "value": "awakener-0056",
         "label": "Arachne",
         "order": 55
+      }
+    ],
+    "tags": [
+      {
+        "value": "weakness",
+        "label": "Weakness",
+        "section": "affix",
+        "order": 100
+      },
+      {
+        "value": "vulnerable",
+        "label": "Vulnerable",
+        "section": "affix",
+        "order": 110
+      },
+      {
+        "value": "poison",
+        "label": "Poison",
+        "section": "affix",
+        "order": 120
+      },
+      {
+        "value": "counter",
+        "label": "Counter",
+        "section": "affix",
+        "order": 190
+      },
+      {
+        "value": "str-up",
+        "label": "STR Up",
+        "section": "affix",
+        "order": 210
+      },
+      {
+        "value": "str-down",
+        "label": "STR Down",
+        "section": "affix",
+        "order": 220
+      },
+      {
+        "value": "tentacle-dmg",
+        "label": "Tentacle DMG",
+        "section": "archetype",
+        "order": 225
+      },
+      {
+        "value": "pursuit",
+        "label": "Pursuit",
+        "section": "mechanic",
+        "order": 240
+      },
+      {
+        "value": "arithmetica",
+        "label": "Arithmetica",
+        "section": "archetype",
+        "order": 900
+      },
+      {
+        "value": "death-resistance",
+        "label": "Death Resistance",
+        "section": "archetype",
+        "order": 910
+      },
+      {
+        "value": "discard",
+        "label": "Discard",
+        "section": "archetype",
+        "order": 920
+      },
+      {
+        "value": "draw",
+        "label": "Draw",
+        "section": "archetype",
+        "order": 940
+      },
+      {
+        "value": "shield",
+        "label": "Shield",
+        "section": "archetype",
+        "order": 945
+      },
+      {
+        "value": "hand-limit",
+        "label": "Hand Limit",
+        "section": "archetype",
+        "order": 950
+      },
+      {
+        "value": "heal",
+        "label": "Heal",
+        "section": "archetype",
+        "order": 960
+      },
+      {
+        "value": "keyflare",
+        "label": "Keyflare",
+        "section": "archetype",
+        "order": 970
+      },
+      {
+        "value": "aliemus",
+        "label": "Aliemus",
+        "section": "archetype",
+        "order": 975
+      },
+      {
+        "value": "strike",
+        "label": "Strike",
+        "section": "archetype",
+        "order": 1010
+      },
+      {
+        "value": "defense",
+        "label": "Defense",
+        "section": "archetype",
+        "order": 1015
+      },
+      {
+        "value": "crit-rate",
+        "label": "Crit Rate",
+        "section": "archetype",
+        "order": 1040
+      },
+      {
+        "value": "crit-dmg",
+        "label": "Crit DMG",
+        "section": "archetype",
+        "order": 1050
+      },
+      {
+        "value": "temporary-realm-mastery",
+        "label": "Temporary Realm Mastery",
+        "section": "archetype",
+        "order": 1060
+      },
+      {
+        "value": "embryo-fusion",
+        "label": "Embryo Fusion",
+        "section": "archetype",
+        "order": 1070
+      },
+      {
+        "value": "sigil-gain",
+        "label": "Sigil Gain",
+        "section": "archetype",
+        "order": 1080
+      },
+      {
+        "value": "sigil-yield",
+        "label": "Sigil Yield",
+        "section": "archetype",
+        "order": 1090
       }
     ]
   }

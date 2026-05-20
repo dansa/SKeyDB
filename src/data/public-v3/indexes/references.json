@@ -61,6 +61,12 @@
         "id": "wheel-0020"
       }
     ],
+    "ablaze": [
+      {
+        "kind": "overlay",
+        "id": "overlay.pollux.ablaze"
+      }
+    ],
     "absent cogwheel": [
       {
         "kind": "enlighten",
@@ -145,6 +151,12 @@
         "id": "relic-9004"
       }
     ],
+    "aflame": [
+      {
+        "kind": "overlay",
+        "id": "overlay.pollux.ablaze"
+      }
+    ],
     "aftershock": [
       {
         "kind": "overlay",
@@ -191,6 +203,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.daffodil.thousand-mirage-effect-aliemus"
+      }
+    ],
+    "alight": [
+      {
+        "kind": "overlay",
+        "id": "overlay.pollux.alight"
       }
     ],
     "all for justice": [
@@ -1211,6 +1229,12 @@
       {
         "kind": "covenant",
         "id": "covenant-0021"
+      }
+    ],
+    "collaboration": [
+      {
+        "kind": "overlay",
+        "id": "overlay.pickman.collaboration"
       }
     ],
     "collective unconscious": [

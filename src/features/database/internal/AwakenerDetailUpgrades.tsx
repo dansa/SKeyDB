@@ -3,6 +3,7 @@ import {useCallback, useEffect, useMemo, useState, type CSSProperties} from 'rea
 import enlightensStars from '@/assets/icons/Battle_Card_Buff_045.webp'
 import type {Awakener} from '@/domain/awakeners'
 import type {ResolvedAwakenerDatabaseShellView} from '@/domain/awakeners-database-view'
+import {isSoulforgeTalent} from '@/domain/awakeners-full-contract'
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import {getRelicPortraitAssetByAssetId} from '@/domain/relic-assets'
 import {getPortraitRelicByAwakenerId, loadRelicDescriptionById} from '@/domain/relics'
@@ -31,6 +32,27 @@ function getEnlightenStarStyle(starStyle: ReturnType<typeof getStarSize>): CSSPr
     height: starStyle.height,
     top: starStyle.top,
   }
+}
+
+function formatTalentLevelLabel(
+  entry: ResolvedAwakenerDatabaseShellView['talents'][number],
+  selection: ResolvedAwakenerDatabaseShellView['selection'],
+) {
+  const hasScaledDescription =
+    entry.record.hasLevelScaledDescription ?? (entry.record.maxLevel ?? 1) > 1
+  if (!hasScaledDescription) {
+    return undefined
+  }
+
+  if (isSoulforgeTalent(entry.record) && selection.soulforgeLevel <= 0) {
+    return 'Off'
+  }
+
+  if (entry.descriptionRank === undefined || entry.descriptionMaxRank === undefined) {
+    return undefined
+  }
+
+  return `Lv. ${entry.descriptionRank.toString()}/${entry.descriptionMaxRank.toString()}`
 }
 
 export function AwakenerDetailUpgrades({
@@ -188,7 +210,7 @@ export function AwakenerDetailUpgrades({
     .filter((entry) => TALENT_ORDER.includes(entry.key as (typeof TALENT_ORDER)[number]))
     .map((entry) => ({
       key: entry.key,
-      label: entry.key,
+      label: formatTalentLevelLabel(entry, shellView.selection),
       name: entry.record.displayName,
       description: entry.resolved.description,
       record: entry.record,

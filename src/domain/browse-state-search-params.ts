@@ -6,6 +6,18 @@ export function parseEnumSearchParam<TValue extends string>(
   return rawValue && allowedValues.includes(rawValue as TValue) ? (rawValue as TValue) : fallback
 }
 
+export function parseEnumListSearchParam<TValue extends string>(
+  rawValue: string | null,
+  allowedValues: readonly TValue[],
+): TValue[] {
+  if (!rawValue) {
+    return []
+  }
+
+  const requestedValues = new Set(rawValue.split(',').filter(Boolean))
+  return allowedValues.filter((value) => requestedValues.has(value))
+}
+
 export function normalizeBrowseQuery(rawValue: string | null | undefined): string {
   return rawValue?.trim() ?? ''
 }

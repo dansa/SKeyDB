@@ -10,6 +10,7 @@ import {afterEach, beforeAll, describe, expect, it, vi} from 'vitest'
 
 import {createMockPublicCatalog, createMockPublicDetailLoaders} from '@/test/publicCatalogFixtures'
 
+import {clearDatabaseDetailRecordCacheForTests} from './internal/useDatabaseDetailRouteRecord'
 import {DatabaseRouteElements} from './routes'
 
 const mockPublicCatalog = createMockPublicCatalog()
@@ -49,6 +50,7 @@ vi.mock('@/domain/awakener-assets', () => ({
 }))
 
 vi.mock('@/domain/posse-assets', () => ({
+  getPosseAssetById: () => null,
   getPosseBadgeAssetById: () => null,
 }))
 
@@ -183,6 +185,7 @@ beforeAll(async () => {
 
 afterEach(() => {
   vi.restoreAllMocks()
+  clearDatabaseDetailRecordCacheForTests()
   mockPublicDetailLoaders.reset()
 })
 
@@ -428,7 +431,7 @@ describe('DatabasePage', () => {
     await waitFor(() =>
       expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/beta'),
     )
-    expect(screen.getByRole('dialog', {name: /beta details/})).toBeInTheDocument()
+    expect(await screen.findByRole('dialog', {name: /beta details/})).toBeInTheDocument()
 
     await act(async () => {
       fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))

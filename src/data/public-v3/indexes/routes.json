@@ -9044,6 +9044,12 @@
         "canonicalSlug": "perception",
         "canonicalPath": "/database/overlays/perception"
       },
+      "pickman/collaboration": {
+        "kind": "overlay",
+        "id": "overlay.pickman.collaboration",
+        "canonicalSlug": "collaboration",
+        "canonicalPath": "/database/awakeners/pickman/overlays/collaboration"
+      },
       "pickman/creativity": {
         "kind": "overlay",
         "id": "overlay.pickman.creativity",
@@ -9079,6 +9085,18 @@
         "id": "overlay.global.poison",
         "canonicalSlug": "poison",
         "canonicalPath": "/database/overlays/poison"
+      },
+      "pollux/ablaze": {
+        "kind": "overlay",
+        "id": "overlay.pollux.ablaze",
+        "canonicalSlug": "ablaze",
+        "canonicalPath": "/database/awakeners/pollux/overlays/ablaze"
+      },
+      "pollux/alight": {
+        "kind": "overlay",
+        "id": "overlay.pollux.alight",
+        "canonicalSlug": "alight",
+        "canonicalPath": "/database/awakeners/pollux/overlays/alight"
       },
       "pollux/sin-mark": {
         "kind": "overlay",

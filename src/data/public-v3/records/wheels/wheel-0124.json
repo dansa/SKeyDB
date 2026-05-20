@@ -31,5 +31,6 @@
       "values": ["15", "20", "25", "30"]
     }
   },
-  "lore": "It was a silver-white, clear, and spotless heart.\n\nMade of pure silver, it beat steadily inside its mechanical frame.\n\nIt had once been stained by blood, smeared by mud.\n\nBut as death's shadow fell, it returned at last to its original form."
+  "lore": "It was a silver-white, clear, and spotless heart.\n\nMade of pure silver, it beat steadily inside its mechanical frame.\n\nIt had once been stained by blood, smeared by mud.\n\nBut as death's shadow fell, it returned at last to its original form.",
+  "searchTags": ["STR Up", "Shield", "Aliemus"]
 }

@@ -5,11 +5,12 @@ import {
   type SortableWheelCollectionEntry,
 } from '@/domain/collection-sorting'
 import {getMainstatByKey} from '@/domain/mainstats'
+import {compareSearchRelevance, getSearchRelevanceByEntityId} from '@/domain/search-relevance'
 import {matchesWheelMainstat} from '@/domain/wheel-mainstat-filters'
 import {compareWheelsForUi} from '@/domain/wheel-sort'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelsDatabaseBrowseState} from '@/domain/wheels-database-browse-state'
-import {searchWheels} from '@/domain/wheels-search'
+import {searchWheelResults} from '@/domain/wheels-search'
 
 function applyFilters(
   wheels: Wheel[],
@@ -56,9 +57,18 @@ export function useWheelsDatabaseViewModel(
   )
 
   const filteredWheels = useMemo(() => {
-    const searched = searchWheels(allWheels, query)
-    const filtered = applyFilters(searched, {mainstatFilter, rarityFilter, realmFilter})
+    const searchResults = searchWheelResults(allWheels, query)
+    const relevanceByWheelId = getSearchRelevanceByEntityId(searchResults, query)
+    const filtered = applyFilters(
+      searchResults.map((result) => result.entity),
+      {mainstatFilter, rarityFilter, realmFilter},
+    )
     return [...filtered].sort((left, right) => {
+      const relevanceResult = compareSearchRelevance(left, right, relevanceByWheelId)
+      if (relevanceResult !== 0) {
+        return relevanceResult
+      }
+
       const leftEntry = toSortableWheelEntry(left, wheelIndexById)
       const rightEntry = toSortableWheelEntry(right, wheelIndexById)
 

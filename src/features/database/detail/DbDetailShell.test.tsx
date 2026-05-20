@@ -43,11 +43,22 @@ function TestShell({onClose}: {onClose: () => void}) {
   )
 }
 
+function getDetailOverlay(): HTMLElement {
+  const shell = document.querySelector('[data-detail-modal-shell]')
+  if (!(shell instanceof HTMLElement) || !(shell.parentElement instanceof HTMLElement)) {
+    throw new Error('Expected detail modal overlay to be rendered')
+  }
+  return shell.parentElement
+}
+
 describe('DbDetailShell', () => {
   it('dismisses settings before closing on Escape and closes from outside clicks', () => {
     const onClose = vi.fn()
 
-    const {container} = render(<TestShell onClose={onClose} />)
+    render(<TestShell onClose={onClose} />)
+
+    expect(getDetailOverlay()).toHaveClass('inset-0')
+    expect(getDetailOverlay()).toHaveClass('z-[960]')
 
     fireEvent.click(screen.getByRole('button', {name: 'Open detail settings'}))
     expect(screen.getByRole('spinbutton', {name: 'Account level'})).toBeInTheDocument()
@@ -60,12 +71,7 @@ describe('DbDetailShell', () => {
     expect(onClose).toHaveBeenCalledTimes(1)
 
     onClose.mockClear()
-    const shellElement = container.firstElementChild
-    expect(shellElement).not.toBeNull()
-    if (shellElement === null) {
-      throw new Error('Expected shell root element')
-    }
-    fireEvent.click(shellElement)
+    fireEvent.click(getDetailOverlay())
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 

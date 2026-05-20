@@ -207,6 +207,20 @@ describe('WheelDetailModal', () => {
     expect(onSelectWheel).toHaveBeenCalledWith(expect.objectContaining({name: 'Shared Dream'}))
   })
 
+  it('shows wheel search tags in the detail header', () => {
+    render(
+      <WheelDetailModal
+        fullData={makeWheelFullRecord({searchTags: ['Shield', 'Damage Amp']})}
+        onClose={vi.fn()}
+        wheel={makeWheel()}
+        wheels={[makeWheel()]}
+      />,
+    )
+
+    expect(screen.getByText('Shield')).toBeInTheDocument()
+    expect(screen.getByText('Damage Amp')).toBeInTheDocument()
+  })
+
   it('clamps the enhance slider within supported wheel bounds', () => {
     const fullData = makeWheelFullRecord()
 

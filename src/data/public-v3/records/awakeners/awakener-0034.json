@@ -20,7 +20,7 @@
   "releaseDate": "2024-02-21",
   "faction": "Hybrid",
   "aliases": ["murphy"],
-  "searchTags": ["Weakness", "Vulnerable", "Tentacle DMG", "Aftershock", "Dispel", "Arithmetica", "Keyflare", "Tentacles", "Sacrifice"],
+  "searchTags": ["Weakness", "Vulnerable", "Tentacle DMG", "Aftershock", "Dispel", "Arithmetica", "Keyflare", "Tentacle Generation", "Sacrifice"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 31,

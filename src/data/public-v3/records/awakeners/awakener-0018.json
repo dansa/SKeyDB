@@ -20,7 +20,7 @@
   "releaseDate": "2025-02-10",
   "faction": "Among the Stars",
   "aliases": ["doll: inferno", "g-doll"],
-  "searchTags": ["Weakness", "Vulnerable", "Poison", "Fixed DMG", "Arithmetica", "Draw", "Heal", "Max HP DMG", "Self-Harm"],
+  "searchTags": ["Weakness", "Vulnerable", "Poison", "Fixed DMG", "Arithmetica", "Draw", "Heal", "Max HP DMG", "Self-Damage"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 24,

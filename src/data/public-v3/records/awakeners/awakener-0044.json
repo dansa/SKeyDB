@@ -20,7 +20,7 @@
   "releaseDate": "2024-04-04",
   "faction": "Out of the Aeons",
   "aliases": ["salvador"],
-  "searchTags": ["Weakness", "Vulnerable", "Barrier", "STR Up", "Heal", "Self-Harm"],
+  "searchTags": ["Weakness", "Vulnerable", "Barrier", "STR Up", "Heal", "Self-Damage"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 45,

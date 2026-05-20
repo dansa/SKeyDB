@@ -7,6 +7,7 @@ import type {PosseFullRecord} from '@/domain/posses-full'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
 import {makeTestAwakenerFullRecord} from '@/features/database/internal/database-test-fixtures'
+import {clearDatabaseDetailRecordCacheForTests} from '@/features/database/internal/useDatabaseDetailRouteRecord'
 import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import {DbDetailModalHost} from './DbDetailModalHost'
@@ -170,6 +171,7 @@ const mockCovenantRecord: CovenantFullRecord = {
 afterEach(() => {
   cleanup()
   closeAllDetailsInAct()
+  clearDatabaseDetailRecordCacheForTests()
   vi.mocked(dbDetailRegistry.awakener.loadRecord).mockResolvedValue(mockAwakenerRecord)
   vi.mocked(dbDetailRegistry.wheel.loadRecord).mockResolvedValue(mockWheelRecord)
   vi.mocked(dbDetailRegistry.posse.loadRecord).mockResolvedValue(mockPosseRecord)
@@ -202,6 +204,7 @@ describe('DbDetailModalHost overlay entries', () => {
       onClose: vi.fn(),
       onSelectAwakener: vi.fn(),
       onSelectCovenant: vi.fn(),
+      onSelectPosse: vi.fn(),
       onSelectWheel: vi.fn(),
       onTabChange: vi.fn(),
     }
@@ -240,6 +243,7 @@ describe('DbDetailModalHost overlay entries', () => {
             onClose: vi.fn(),
             onSelectAwakener: vi.fn(),
             onSelectCovenant: vi.fn(),
+            onSelectPosse: vi.fn(),
             onSelectWheel: vi.fn(),
             onTabChange: vi.fn(),
           }}
@@ -270,6 +274,7 @@ describe('DbDetailModalHost overlay entries', () => {
             onClose: vi.fn(),
             onSelectAwakener: vi.fn(),
             onSelectCovenant: vi.fn(),
+            onSelectPosse: vi.fn(),
             onSelectWheel: vi.fn(),
             onTabChange: vi.fn(),
           }}
@@ -302,6 +307,7 @@ describe('DbDetailModalHost overlay entries', () => {
             onClose: vi.fn(),
             onSelectAwakener: vi.fn(),
             onSelectCovenant: vi.fn(),
+            onSelectPosse: vi.fn(),
             onSelectWheel: vi.fn(),
             onTabChange,
           }}
@@ -332,6 +338,7 @@ describe('DbDetailModalHost overlay entries', () => {
             onClose: vi.fn(),
             onSelectAwakener: vi.fn(),
             onSelectCovenant: vi.fn(),
+            onSelectPosse: vi.fn(),
             onSelectWheel: vi.fn(),
             onTabChange: vi.fn(),
           }}
@@ -359,6 +366,7 @@ describe('DbDetailModalHost overlay entries', () => {
             onClose: vi.fn(),
             onSelectAwakener: vi.fn(),
             onSelectCovenant: vi.fn(),
+            onSelectPosse: vi.fn(),
             onSelectWheel: vi.fn(),
             onTabChange: vi.fn(),
           }}
@@ -374,5 +382,52 @@ describe('DbDetailModalHost overlay entries', () => {
       expect(dbDetailStore.getState().stack).toEqual([])
     })
     expect(screen.getByTestId('location-pathname')).toHaveTextContent('/builder')
+  })
+})
+
+describe('DbDetailModalHost route entries', () => {
+  it('keeps database modal chrome visible while a route record is still loading', async () => {
+    let resolveRecord!: (record: WheelFullRecord) => void
+    const pendingRecord = new Promise<WheelFullRecord>((resolve) => {
+      resolveRecord = resolve
+    })
+    vi.mocked(dbDetailRegistry.wheel.loadRecord).mockReturnValue(pendingRecord)
+    const callbacks = {
+      onClose: vi.fn(),
+      onSelectAwakener: vi.fn(),
+      onSelectCovenant: vi.fn(),
+      onSelectPosse: vi.fn(),
+      onSelectWheel: vi.fn(),
+      onTabChange: vi.fn(),
+    }
+
+    render(
+      <MemoryRouter initialEntries={['/database/wheels/merciful-nurturing']}>
+        <DbDetailModalHost
+          awakeners={awakeners}
+          callbacks={callbacks}
+          resultSet={{
+            kind: 'wheel',
+            items: [
+              {id: 'wheel-0050', name: 'Merciful Nurturing'},
+              {id: 'wheel-0099', name: 'Shared Dream'},
+            ],
+          }}
+          routeItem={{kind: 'wheel', item: wheels[0]}}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('status')).toHaveTextContent('Loading wheel details...')
+    expect(screen.getByLabelText('Next result: Shared Dream')).toBeInTheDocument()
+    expect(document.querySelector('[data-detail-modal-shell]')).toBeInTheDocument()
+
+    resolveRecord(mockWheelRecord)
+
+    await waitFor(() => {
+      expect(dbDetailRegistry.wheel.render).toHaveBeenCalled()
+    })
+    expect(screen.getByRole('dialog', {name: /merciful nurturing details/i})).toBeInTheDocument()
   })
 })

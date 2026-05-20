@@ -22,5 +22,6 @@
       "suffix": "%"
     }
   },
-  "lore": "Blessings for the birds and the bees."
+  "lore": "Blessings for the birds and the bees.",
+  "searchTags": ["Heal", "Crit Rate", "Crit DMG"]
 }

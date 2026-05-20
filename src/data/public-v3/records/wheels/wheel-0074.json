@@ -21,5 +21,6 @@
       "values": ["400", "600", "800", "1000"]
     }
   },
-  "lore": "We are as hollow as the scarecrows."
+  "lore": "We are as hollow as the scarecrows.",
+  "searchTags": ["Keyflare"]
 }

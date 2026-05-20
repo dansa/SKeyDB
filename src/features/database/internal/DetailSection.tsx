@@ -12,7 +12,7 @@ import {DATABASE_ITEM_NAME_CLASS, DATABASE_SECTION_TITLE_CLASS} from './text-sty
 
 export interface DetailSectionItem {
   key: string
-  label: ReactNode
+  label?: ReactNode
   name: string
   description: string
   keywordFooterText?: string
@@ -58,8 +58,12 @@ export function DetailSection({
                 <div className='flex items-start justify-between gap-3'>
                   <p className='min-w-0 text-slate-300' style={getDatabaseDetailBodyStyle()}>
                     <span className={DATABASE_ITEM_NAME_CLASS}>{item.name}</span>
-                    <span className='mx-1.5 text-slate-600'>·</span>
-                    <span className='text-slate-500'>{item.label}</span>
+                    {item.label ? (
+                      <>
+                        <span className='mx-1.5 text-slate-600'>·</span>
+                        <span className='text-slate-500'>{item.label}</span>
+                      </>
+                    ) : null}
                   </p>
                   {item.meta ? <div className='shrink-0'>{item.meta}</div> : null}
                 </div>

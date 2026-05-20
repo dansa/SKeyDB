@@ -65,9 +65,9 @@ export function SearchCombobox<TResult>({
   }, [clampedActiveIndex, hasResults])
 
   return (
-    <div className='relative w-full' data-detail-modal-external='' ref={containerRef}>
-      <div className='flex items-center gap-2 border border-amber-200/45 bg-slate-950/[.97] px-3 py-2 shadow-[0_14px_34px_rgba(2,6,23,0.55)]'>
-        <FaMagnifyingGlass className='h-3.5 w-3.5 shrink-0 text-slate-500' />
+    <div className='group/search relative w-full' data-detail-modal-external='' ref={containerRef}>
+      <div className='flex items-center gap-2 border border-amber-200/18 bg-slate-950/[.96] px-3 py-2 shadow-[0_12px_26px_rgba(2,6,23,0.45)] transition-colors focus-within:border-amber-200/70 focus-within:ring-2 focus-within:ring-amber-200/30 hover:border-amber-200/45 motion-reduce:transition-none'>
+        <FaMagnifyingGlass className='h-3.5 w-3.5 shrink-0 text-slate-500 transition-colors group-focus-within/search:text-amber-200/75 group-hover/search:text-slate-400 motion-reduce:transition-none' />
         <input
           aria-activedescendant={activeOptionId}
           aria-autocomplete='list'
@@ -77,6 +77,7 @@ export function SearchCombobox<TResult>({
           aria-label={inputAriaLabel}
           autoComplete='off'
           className='w-full bg-transparent text-sm text-slate-100 outline-hidden placeholder:text-slate-500'
+          data-detail-search-input=''
           onChange={(event) => {
             onQueryChange(event.target.value)
           }}

@@ -443,6 +443,14 @@ function getDetailShell(): HTMLElement {
   return shell
 }
 
+function getDetailOverlay(): HTMLElement {
+  const overlay = getDetailShell().parentElement
+  if (!overlay) {
+    throw new Error('Expected detail modal overlay to be rendered')
+  }
+  return overlay
+}
+
 describe('AwakenerDetailModal', () => {
   beforeEach(() => {
     mockHasOpenPopovers = false
@@ -470,16 +478,19 @@ describe('AwakenerDetailModal', () => {
     })
   })
 
-  it('exposes semantic tabs and tabpanel linkage', () => {
+  it('exposes the search, result area, and tabs as one semantic dialog', () => {
     const awakener = makeAwakener(1, 'thais')
 
     renderAwakenerDetailModal(awakener)
 
     const dialog = screen.getByRole('dialog', {name: /thais details/i})
     const searchInput = screen.getByRole('combobox', {name: /jump to awakener/i})
+    const overlay = getDetailOverlay()
 
     expect(searchInput).toBeInTheDocument()
-    expect(dialog).not.toContainElement(searchInput)
+    expect(dialog).toContainElement(searchInput)
+    expect(overlay).toHaveClass('inset-0')
+    expect(overlay).toHaveClass('z-[960]')
     expect(
       within(dialog).getByRole('tablist', {name: 'Awakener detail sections'}),
     ).toBeInTheDocument()
@@ -881,7 +892,7 @@ describe('AwakenerDetailModal', () => {
     const onClose = vi.fn()
     const awakener = makeAwakener(1, 'thais')
 
-    const {container} = renderAwakenerDetailModal(awakener, {onClose})
+    renderAwakenerDetailModal(awakener, {onClose})
 
     const searchInput = screen.getByRole('combobox', {name: /jump to awakener/i})
     fireEvent.focus(searchInput)
@@ -889,7 +900,7 @@ describe('AwakenerDetailModal', () => {
 
     expect(screen.getByRole('option', {name: /thais/i})).toBeInTheDocument()
 
-    fireEvent.click(container.firstChild as HTMLElement)
+    fireEvent.click(getDetailOverlay())
 
     expect(screen.queryByRole('option', {name: /thais/i})).not.toBeInTheDocument()
     expect(searchInput).toHaveValue('th')
@@ -901,9 +912,9 @@ describe('AwakenerDetailModal', () => {
     const onClose = vi.fn()
     const awakener = makeAwakener(1, 'thais')
 
-    const {container} = renderAwakenerDetailModal(awakener, {onClose})
+    renderAwakenerDetailModal(awakener, {onClose})
 
-    fireEvent.click(container.firstChild as HTMLElement)
+    fireEvent.click(getDetailOverlay())
 
     expect(mockCloseAllPopovers).toHaveBeenCalledTimes(1)
     expect(onClose).not.toHaveBeenCalled()

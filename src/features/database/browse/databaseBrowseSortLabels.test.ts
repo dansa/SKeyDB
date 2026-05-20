@@ -18,12 +18,12 @@ describe('database browse sort labels', () => {
   })
 
   it('returns exact awakener database direction labels', () => {
-    expect(getDatabaseSortDirectionLabel('ALPHABETICAL', 'ASC')).toBe('A -> Z')
-    expect(getDatabaseSortDirectionLabel('ALPHABETICAL', 'DESC')).toBe('Z -> A')
-    expect(getDatabaseSortDirectionLabel('RELEASE_DATE', 'ASC')).toBe('Old -> New')
-    expect(getDatabaseSortDirectionLabel('RELEASE_DATE', 'DESC')).toBe('New -> Old')
-    expect(getDatabaseSortDirectionLabel('ATK', 'ASC')).toBe('Low -> High')
-    expect(getDatabaseSortDirectionLabel('ATK', 'DESC')).toBe('High -> Low')
+    expect(getDatabaseSortDirectionLabel('ALPHABETICAL', 'ASC')).toBe('A → Z')
+    expect(getDatabaseSortDirectionLabel('ALPHABETICAL', 'DESC')).toBe('Z → A')
+    expect(getDatabaseSortDirectionLabel('RELEASE_DATE', 'ASC')).toBe('Old → New')
+    expect(getDatabaseSortDirectionLabel('RELEASE_DATE', 'DESC')).toBe('New → Old')
+    expect(getDatabaseSortDirectionLabel('ATK', 'ASC')).toBe('Low → High')
+    expect(getDatabaseSortDirectionLabel('ATK', 'DESC')).toBe('High → Low')
   })
 
   it('returns exact wheel sort labels', () => {
@@ -33,11 +33,11 @@ describe('database browse sort labels', () => {
   })
 
   it('returns exact wheel direction labels', () => {
-    expect(getWheelSortDirectionLabel('RARITY', 'ASC')).toBe('Low -> High')
-    expect(getWheelSortDirectionLabel('RARITY', 'DESC')).toBe('High -> Low')
-    expect(getWheelSortDirectionLabel('ALPHABETICAL', 'ASC')).toBe('A -> Z')
-    expect(getWheelSortDirectionLabel('ALPHABETICAL', 'DESC')).toBe('Z -> A')
-    expect(getWheelSortDirectionLabel('MAINSTAT', 'ASC')).toBe('A -> Z')
-    expect(getWheelSortDirectionLabel('MAINSTAT', 'DESC')).toBe('Z -> A')
+    expect(getWheelSortDirectionLabel('RARITY', 'ASC')).toBe('Low → High')
+    expect(getWheelSortDirectionLabel('RARITY', 'DESC')).toBe('High → Low')
+    expect(getWheelSortDirectionLabel('ALPHABETICAL', 'ASC')).toBe('A → Z')
+    expect(getWheelSortDirectionLabel('ALPHABETICAL', 'DESC')).toBe('Z → A')
+    expect(getWheelSortDirectionLabel('MAINSTAT', 'ASC')).toBe('A → Z')
+    expect(getWheelSortDirectionLabel('MAINSTAT', 'DESC')).toBe('Z → A')
   })
 })

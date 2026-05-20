@@ -68,8 +68,7 @@
         "Fixed DMG",
         "Arithmetica",
         "Hand Limit",
-        "Keyflare",
-        "Tentacles"
+        "Keyflare"
       ]
     },
     {
@@ -124,7 +123,7 @@
       },
       "lineupToken": "S",
       "aliases": ["agrippa"],
-      "searchTags": ["Poison", "Alert", "STR Up", "Draw"]
+      "searchTags": ["Poison", "Alert", "STR Up", "Draw", "Spider"]
     },
     {
       "kind": "awakener",
@@ -286,7 +285,7 @@
       },
       "lineupToken": "o",
       "aliases": ["aurita"],
-      "searchTags": ["STR Up", "Tentacle DMG", "Pierce DMG", "Aftershock", "Discard", "Draw"]
+      "searchTags": ["STR Up", "Tentacle DMG", "Pierce DMG", "Aftershock", "Discard", "Draw", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -340,7 +339,7 @@
       },
       "lineupToken": "M",
       "aliases": ["caecus"],
-      "searchTags": ["Counter", "STR Up", "Tentacle DMG", "Dispel", "Heal", "Tentacles"]
+      "searchTags": ["Counter", "STR Up", "Tentacle DMG", "Dispel", "Heal", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -502,7 +501,7 @@
       },
       "lineupToken": "h",
       "aliases": ["celeste"],
-      "searchTags": ["Weakness", "Tentacle DMG", "Dispel", "Arithmetica", "Heal", "Tentacles"]
+      "searchTags": ["Weakness", "Tentacle DMG", "Dispel", "Arithmetica", "Heal", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -610,7 +609,7 @@
       },
       "lineupToken": "6",
       "aliases": ["corposant"],
-      "searchTags": ["Weakness", "STR Up", "Tentacle DMG", "Aftershock", "Death Resistance", "Discard", "Draw", "Tentacles"]
+      "searchTags": ["Weakness", "STR Up", "Tentacle DMG", "Aftershock", "Death Resistance", "Discard", "Draw", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -772,7 +771,7 @@
       },
       "lineupToken": "xi",
       "aliases": ["doresain"],
-      "searchTags": ["Vulnerable", "STR Up", "Pierce DMG", "Fixed DMG", "Self-Harm"]
+      "searchTags": ["Vulnerable", "STR Up", "Pierce DMG", "Fixed DMG", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -934,7 +933,7 @@
       },
       "lineupToken": "q",
       "aliases": ["faros"],
-      "searchTags": ["Poison", "Tentacle DMG", "Dispel", "Arithmetica", "Draw", "Hand Limit", "Tentacles"]
+      "searchTags": ["Poison", "Tentacle DMG", "Dispel", "Arithmetica", "Draw", "Hand Limit", "Lemurian", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -988,7 +987,7 @@
       },
       "lineupToken": "U",
       "aliases": ["doll: inferno", "g-doll"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "Fixed DMG", "Arithmetica", "Draw", "Heal", "Max HP DMG", "Self-Harm"]
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Fixed DMG", "Arithmetica", "Draw", "Heal", "Max HP DMG", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -1042,7 +1041,7 @@
       },
       "lineupToken": "i",
       "aliases": ["helot: catena", "g-helot"],
-      "searchTags": ["Bleed", "STR Up", "Draw", "Hand Limit", "Heal", "Self-Harm", "Strike"]
+      "searchTags": ["Bleed", "STR Up", "Draw", "Hand Limit", "Heal", "Self-Damage", "Strike"]
     },
     {
       "kind": "awakener",
@@ -1150,7 +1149,7 @@
       },
       "lineupToken": "f",
       "aliases": ["goliath"],
-      "searchTags": ["STR Up", "Tentacle DMG", "Dispel"]
+      "searchTags": ["STR Up", "Tentacle DMG", "Dispel", "Lemurian", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -1258,7 +1257,7 @@
       },
       "lineupToken": "F",
       "aliases": ["helot"],
-      "searchTags": ["Dispel", "Discard", "Draw", "Hand Limit", "Self-Harm", "Strike"]
+      "searchTags": ["Dispel", "Discard", "Draw", "Hand Limit", "Self-Damage", "Strike"]
     },
     {
       "kind": "awakener",
@@ -1528,7 +1527,7 @@
       },
       "lineupToken": "P",
       "aliases": ["leigh"],
-      "searchTags": ["STR Up", "Pierce DMG", "Dispel", "Heal", "Self-Harm"]
+      "searchTags": ["STR Up", "Pierce DMG", "Dispel", "Heal", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -1744,7 +1743,20 @@
       },
       "lineupToken": "A",
       "aliases": ["miryam"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "STR Up", "STR Down", "Tentacle DMG", "Pierce DMG", "Arithmetica", "Draw", "Heal", "Tentacles"]
+      "searchTags": [
+        "Weakness",
+        "Vulnerable",
+        "Poison",
+        "STR Up",
+        "STR Down",
+        "Tentacle DMG",
+        "Pierce DMG",
+        "Arithmetica",
+        "Draw",
+        "Heal",
+        "Lemurian",
+        "Tentacle Generation"
+      ]
     },
     {
       "kind": "awakener",
@@ -1852,7 +1864,7 @@
       },
       "lineupToken": "r",
       "aliases": ["murphy"],
-      "searchTags": ["Weakness", "Vulnerable", "Tentacle DMG", "Aftershock", "Dispel", "Arithmetica", "Keyflare", "Tentacles", "Sacrifice"]
+      "searchTags": ["Weakness", "Vulnerable", "Tentacle DMG", "Aftershock", "Dispel", "Arithmetica", "Keyflare", "Tentacle Generation", "Sacrifice"]
     },
     {
       "kind": "awakener",
@@ -1906,7 +1918,7 @@
       },
       "lineupToken": "H",
       "aliases": ["murphy: fauxborn", "g-murphy"],
-      "searchTags": ["Tentacle DMG", "Aftershock", "Arithmetica", "Divine Realm", "Draw", "Keyflare", "Tentacles", "Sacrifice"]
+      "searchTags": ["Tentacle DMG", "Aftershock", "Arithmetica", "Divine Realm", "Draw", "Keyflare", "Lemurian", "Tentacle Generation", "Sacrifice"]
     },
     {
       "kind": "awakener",
@@ -2392,7 +2404,7 @@
       },
       "lineupToken": "R",
       "aliases": ["salvador"],
-      "searchTags": ["Weakness", "Vulnerable", "Barrier", "STR Up", "Heal", "Self-Harm"]
+      "searchTags": ["Weakness", "Vulnerable", "Barrier", "STR Up", "Heal", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -2446,7 +2458,7 @@
       },
       "lineupToken": "K",
       "aliases": ["sanga"],
-      "searchTags": ["Tentacle DMG", "Aftershock", "Dispel", "Death Resistance", "Tentacles"]
+      "searchTags": ["Tentacle DMG", "Aftershock", "Dispel", "Death Resistance", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -2500,7 +2512,7 @@
       },
       "lineupToken": "C",
       "aliases": ["sorel"],
-      "searchTags": ["STR Up", "Death Resistance", "Heal", "Self-Harm"]
+      "searchTags": ["STR Up", "Death Resistance", "Heal", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -2716,7 +2728,7 @@
       },
       "lineupToken": "e",
       "aliases": ["tulu"],
-      "searchTags": ["STR Up", "STR Down", "Tentacle DMG", "Pierce DMG", "Aftershock", "Dispel", "Divine Realm", "Tentacles"]
+      "searchTags": ["STR Up", "STR Down", "Tentacle DMG", "Pierce DMG", "Aftershock", "Dispel", "Lemurian", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -2770,7 +2782,7 @@
       },
       "lineupToken": "Q",
       "aliases": ["uvhash"],
-      "searchTags": ["STR Up", "Self-Harm"]
+      "searchTags": ["STR Up", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -2986,7 +2998,7 @@
       },
       "lineupToken": "xo",
       "aliases": ["vortice"],
-      "searchTags": ["Tentacle DMG", "Pursuit", "Fixed DMG", "Aftershock", "Dispel", "Divine Realm", "Tentacles"]
+      "searchTags": ["Tentacle DMG", "Pursuit", "Fixed DMG", "Aftershock", "Dispel", "Divine Realm"]
     },
     {
       "kind": "awakener",
@@ -3040,7 +3052,7 @@
       },
       "lineupToken": "4",
       "aliases": ["arachne"],
-      "searchTags": ["Final Verdict", "Tentacle DMG", "Pursuit", "Fixed DMG", "Divine Realm", "Spider"]
+      "searchTags": ["Poison", "Counter", "Final Verdict", "STR Up", "STR Down", "Tentacle DMG", "Pursuit", "Fixed DMG", "Divine Realm", "Spider"]
     }
   ]
 }

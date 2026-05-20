@@ -21,5 +21,6 @@
       "values": ["35", "40", "45", "50"]
     }
   },
-  "lore": "A conversation with \"Him.\""
+  "lore": "A conversation with \"Him.\"",
+  "searchTags": ["Aliemus"]
 }

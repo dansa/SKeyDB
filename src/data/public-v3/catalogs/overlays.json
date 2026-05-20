@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "overlays",
   "kind": "overlay",
-  "recordCount": 125,
+  "recordCount": 128,
   "records": [
     {
       "kind": "overlay",
@@ -1527,6 +1527,19 @@
     },
     {
       "kind": "overlay",
+      "id": "overlay.pickman.collaboration",
+      "name": "Collaboration",
+      "route": {
+        "slug": "collaboration",
+        "canonicalPath": "/database/awakeners/pickman/overlays/collaboration"
+      },
+      "ownerAwakenerId": "awakener-0040",
+      "ownerAwakenerName": "Pickman",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
       "id": "overlay.pickman.creativity",
       "name": "Creativity",
       "route": {
@@ -1586,6 +1599,32 @@
       "overlayType": "mechanic",
       "textColor": "misc",
       "aliases": ["Golden Relics", "Silver Relics", "Painted Silver Relics"]
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.pollux.ablaze",
+      "name": "Ablaze",
+      "route": {
+        "slug": "ablaze",
+        "canonicalPath": "/database/awakeners/pollux/overlays/ablaze"
+      },
+      "ownerAwakenerId": "awakener-0041",
+      "ownerAwakenerName": "Pollux",
+      "overlayType": "mechanic",
+      "aliases": ["Aflame"]
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.pollux.alight",
+      "name": "Alight",
+      "route": {
+        "slug": "alight",
+        "canonicalPath": "/database/awakeners/pollux/overlays/alight"
+      },
+      "ownerAwakenerId": "awakener-0041",
+      "ownerAwakenerName": "Pollux",
+      "overlayType": "mechanic",
+      "aliases": []
     },
     {
       "kind": "overlay",

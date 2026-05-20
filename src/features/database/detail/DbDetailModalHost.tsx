@@ -1,5 +1,6 @@
 import {Suspense, useCallback, useEffect, useMemo, useState, useSyncExternalStore} from 'react'
 
+import {FaMagnifyingGlass, FaXmark} from 'react-icons/fa6'
 import {useLocation, useNavigate} from 'react-router-dom'
 
 import type {Awakener} from '@/domain/awakeners'
@@ -13,11 +14,20 @@ import type {EntityRef} from '@/domain/entities/types'
 import {getPosses} from '@/domain/posses'
 import type {Wheel} from '@/domain/wheels'
 import {
+  preloadDatabaseDetailRecord,
   useDatabaseDetailRecord,
   useDatabaseDetailRouteRecord,
 } from '@/features/database/internal/useDatabaseDetailRouteRecord'
 import {dbDetailStore} from '@/stores/dbDetailStore'
 
+import {
+  createDatabaseDetailResultNavigation,
+  type DatabaseDetailResultNavigation,
+  type DatabaseDetailResultSelectRef,
+  type DatabaseDetailResultSet,
+} from './database-detail-result-navigation'
+import {DatabaseDetailResultNavigator} from './DatabaseDetailResultNavigator'
+import {DbDetailModalFrame} from './DbDetailModalFrame'
 import {
   dbDetailRegistry,
   type DatabaseDetailKind,
@@ -41,6 +51,7 @@ interface DetailRefLookup {
 interface DbDetailModalHostProps {
   awakeners: Awakener[]
   callbacks: DatabaseDetailRenderCallbacks
+  resultSet?: DatabaseDetailResultSet | null
   routeItem: DatabaseDetailRouteItem | null
   tabSlug?: string
   wheels: Wheel[]
@@ -187,9 +198,131 @@ function resolveAwakenerTabCanonicalPath(
   return buildDatabaseAwakenerPath(awakener, resolvedTab ?? 'overview')
 }
 
+function selectDatabaseDetailResult(
+  ref: DatabaseDetailResultSelectRef,
+  callbacks: DatabaseDetailRenderCallbacks,
+  activeAwakenerTab: DatabaseAwakenerTab,
+) {
+  if (ref.kind === 'awakener') {
+    callbacks.onSelectAwakener(ref, activeAwakenerTab)
+  } else if (ref.kind === 'wheel') {
+    callbacks.onSelectWheel(ref)
+  } else if (ref.kind === 'posse') {
+    callbacks.onSelectPosse(ref)
+  } else {
+    callbacks.onSelectCovenant(ref)
+  }
+}
+
+function preloadDatabaseDetailResult(ref: DatabaseDetailResultSelectRef) {
+  let preload: Promise<void>
+  if (ref.kind === 'awakener') {
+    preload = preloadDatabaseDetailRecord({
+      id: ref.id,
+      loadRecord: dbDetailRegistry.awakener.loadRecord,
+    })
+  } else if (ref.kind === 'wheel') {
+    preload = preloadDatabaseDetailRecord({
+      id: ref.id,
+      loadRecord: dbDetailRegistry.wheel.loadRecord,
+    })
+  } else if (ref.kind === 'posse') {
+    preload = preloadDatabaseDetailRecord({
+      id: ref.id,
+      loadRecord: dbDetailRegistry.posse.loadRecord,
+    })
+  } else {
+    preload = preloadDatabaseDetailRecord({
+      id: ref.id,
+      loadRecord: dbDetailRegistry.covenant.loadRecord,
+    })
+  }
+
+  void preload.catch(() => undefined)
+}
+
+function getLoadingShellMaxWidth(kind: DatabaseDetailKind): 'standard' | 'wide' {
+  return kind === 'posse' || kind === 'covenant' ? 'standard' : 'wide'
+}
+
+function getLoadingPlaceholderLabel(kind: DatabaseDetailKind): string | null {
+  if (kind === 'awakener') {
+    return 'Jump to awakener...'
+  }
+  if (kind === 'wheel') {
+    return 'Jump to wheel...'
+  }
+  return null
+}
+
+interface DbDetailRouteLoadingModalProps {
+  loadingLabel: string
+  navigation: DatabaseDetailResultNavigation | null
+  onClose: () => void
+  routeItem: DatabaseDetailRouteItem
+}
+
+function DbDetailRouteLoadingModal({
+  loadingLabel,
+  navigation,
+  onClose,
+  routeItem,
+}: DbDetailRouteLoadingModalProps) {
+  const itemName = routeItem.item.name
+  const searchPlaceholderLabel = getLoadingPlaceholderLabel(routeItem.kind)
+
+  return (
+    <DbDetailModalFrame
+      ariaLabel={`${itemName} details`}
+      beforeBody={
+        <>
+          {searchPlaceholderLabel ? (
+            <div
+              aria-hidden
+              className='flex shrink-0 items-center gap-2 border border-amber-200/18 bg-slate-950/[.96] px-3 py-2 text-sm text-slate-500 shadow-[0_12px_26px_rgba(2,6,23,0.45)]'
+              data-detail-modal-external=''
+            >
+              <FaMagnifyingGlass className='h-3.5 w-3.5 shrink-0' />
+              <span>{searchPlaceholderLabel}</span>
+            </div>
+          ) : null}
+          <DatabaseDetailResultNavigator navigation={navigation} />
+        </>
+      }
+      maxWidth={getLoadingShellMaxWidth(routeItem.kind)}
+      onOverlayClick={(event) => {
+        if (event.target === event.currentTarget) {
+          onClose()
+        }
+      }}
+    >
+      <div
+        aria-busy='true'
+        className='relative flex min-h-[16rem] min-w-0 items-center justify-center overflow-hidden border border-amber-200/55 bg-slate-950/[.985] px-6 py-12 text-center shadow-[0_24px_70px_rgba(2,6,23,0.8)]'
+      >
+        <button
+          aria-label={`Close ${routeItem.kind} detail`}
+          className='absolute top-3 right-3 inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100 focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
+          onClick={onClose}
+          type='button'
+        >
+          <FaXmark className='h-4 w-4' />
+        </button>
+        <div>
+          <div className='ui-title text-lg text-amber-100'>{itemName}</div>
+          <div className='mt-3 text-sm text-slate-400' role='status'>
+            {loadingLabel}
+          </div>
+        </div>
+      </div>
+    </DbDetailModalFrame>
+  )
+}
+
 export function DbDetailModalHost({
   awakeners,
   callbacks,
+  resultSet = null,
   routeItem,
   tabSlug,
   wheels,
@@ -200,6 +333,31 @@ export function DbDetailModalHost({
     : stackTop?.kind && isDatabaseDetailKind(stackTop.kind)
       ? {kind: stackTop.kind, id: stackTop.id}
       : null
+  const activeAwakenerTab = routeItem?.kind === 'awakener' ? routeItem.activeTab : 'overview'
+  const routeNavigation = useMemo(
+    () =>
+      createDatabaseDetailResultNavigation({
+        currentRef: routeItem ? {kind: routeItem.kind, id: routeItem.item.id} : null,
+        onSelect: (ref) => {
+          selectDatabaseDetailResult(ref, callbacks, activeAwakenerTab)
+        },
+        resultSet,
+      }),
+    [activeAwakenerTab, callbacks, resultSet, routeItem],
+  )
+
+  useEffect(() => {
+    if (!routeItem || !routeNavigation) {
+      return
+    }
+
+    if (routeNavigation.previous) {
+      preloadDatabaseDetailResult(routeNavigation.previous.ref)
+    }
+    if (routeNavigation.next) {
+      preloadDatabaseDetailResult(routeNavigation.next.ref)
+    }
+  }, [routeItem, routeNavigation])
 
   useEffect(() => {
     dbDetailStore
@@ -232,11 +390,21 @@ export function DbDetailModalHost({
   }
 
   return (
-    <Suspense fallback={<div className='px-2 py-3 text-sm text-slate-300'>Loading details...</div>}>
+    <Suspense
+      fallback={
+        <DbDetailRouteLoadingModal
+          loadingLabel={dbDetailRegistry[routeItem.kind].loadingLabel}
+          navigation={routeNavigation}
+          onClose={callbacks.onClose}
+          routeItem={routeItem}
+        />
+      }
+    >
       <DbDetailRouteModal
         activeRef={activeRef}
         awakeners={awakeners}
         callbacks={callbacks}
+        navigation={routeNavigation}
         routeItem={routeItem}
         tabSlug={tabSlug}
         wheels={wheels}
@@ -418,6 +586,7 @@ function DbDetailOverlayModalContent<Kind extends DatabaseDetailKind>({
     awakeners,
     callbacks,
     item: routeItem,
+    navigation: null,
     record,
     wheels,
   })
@@ -427,6 +596,7 @@ interface DbDetailRouteModalProps {
   activeRef: EntityRef
   awakeners: Awakener[]
   callbacks: DatabaseDetailRenderCallbacks
+  navigation: DatabaseDetailResultNavigation | null
   routeItem: DatabaseDetailRouteItem
   tabSlug?: string
   wheels: Wheel[]
@@ -436,6 +606,7 @@ function DbDetailRouteModal({
   activeRef,
   awakeners,
   callbacks,
+  navigation,
   routeItem,
   tabSlug,
   wheels,
@@ -446,6 +617,7 @@ function DbDetailRouteModal({
         activeRef={activeRef}
         awakeners={awakeners}
         callbacks={callbacks}
+        navigation={navigation}
         routeItem={routeItem}
         tabSlug={tabSlug}
         wheels={wheels}
@@ -459,6 +631,7 @@ function DbDetailRouteModal({
         awakeners={awakeners}
         callbacks={callbacks}
         kind='wheel'
+        navigation={navigation}
         routeItem={routeItem}
         wheels={wheels}
       />
@@ -471,6 +644,7 @@ function DbDetailRouteModal({
         awakeners={awakeners}
         callbacks={callbacks}
         kind='posse'
+        navigation={navigation}
         routeItem={routeItem}
         wheels={wheels}
       />
@@ -482,6 +656,7 @@ function DbDetailRouteModal({
       awakeners={awakeners}
       callbacks={callbacks}
       kind='covenant'
+      navigation={navigation}
       routeItem={routeItem}
       wheels={wheels}
     />
@@ -492,6 +667,7 @@ interface DbDetailKindRouteModalProps<Kind extends DatabaseDetailKind> {
   activeRef: EntityRef
   awakeners: Awakener[]
   callbacks: DatabaseDetailRenderCallbacks
+  navigation: DatabaseDetailResultNavigation | null
   routeItem: DatabaseDetailRouteItemByKind[Kind]
   tabSlug?: string
   wheels: Wheel[]
@@ -507,6 +683,7 @@ function DbDetailAwakenerRouteModal({
   activeRef,
   awakeners,
   callbacks,
+  navigation,
   routeItem,
   tabSlug,
   wheels,
@@ -536,7 +713,14 @@ function DbDetailAwakenerRouteModal({
   }, [canonicalTabPath, location.pathname, location.search, navigate, record])
 
   if (isLoading) {
-    return <div className='px-2 py-3 text-sm text-slate-300'>{registryEntry.loadingLabel}</div>
+    return (
+      <DbDetailRouteLoadingModal
+        loadingLabel={registryEntry.loadingLabel}
+        navigation={navigation}
+        onClose={callbacks.onClose}
+        routeItem={routeItem}
+      />
+    )
   }
 
   if (!record) {
@@ -547,6 +731,7 @@ function DbDetailAwakenerRouteModal({
     awakeners,
     callbacks,
     item: routeItem,
+    navigation,
     record,
     wheels,
   })
@@ -557,6 +742,7 @@ function DbDetailNonAwakenerRouteModal<Kind extends Exclude<DatabaseDetailKind, 
   awakeners,
   callbacks,
   kind,
+  navigation,
   routeItem,
   wheels,
 }: DbDetailNonAwakenerRouteModalProps<Kind>) {
@@ -568,12 +754,19 @@ function DbDetailNonAwakenerRouteModal<Kind extends Exclude<DatabaseDetailKind, 
   })
 
   if (isLoading) {
-    return <div className='px-2 py-3 text-sm text-slate-300'>{registryEntry.loadingLabel}</div>
+    return (
+      <DbDetailRouteLoadingModal
+        loadingLabel={registryEntry.loadingLabel}
+        navigation={navigation}
+        onClose={callbacks.onClose}
+        routeItem={routeItem}
+      />
+    )
   }
 
   if (!record) {
     return null
   }
 
-  return registryEntry.render({awakeners, callbacks, item: routeItem, record, wheels})
+  return registryEntry.render({awakeners, callbacks, item: routeItem, navigation, record, wheels})
 }

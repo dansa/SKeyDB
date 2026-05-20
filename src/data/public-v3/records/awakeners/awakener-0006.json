@@ -20,7 +20,7 @@
   "releaseDate": "2023-11-29",
   "faction": "Hybrid",
   "aliases": ["caecus"],
-  "searchTags": ["Counter", "STR Up", "Tentacle DMG", "Dispel", "Heal", "Tentacles"],
+  "searchTags": ["Counter", "STR Up", "Tentacle DMG", "Dispel", "Heal", "Tentacle Generation"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 41,

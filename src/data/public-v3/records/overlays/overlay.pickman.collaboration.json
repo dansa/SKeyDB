@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.pickman.collaboration",
+  "name": "Collaboration",
+  "route": {
+    "slug": "collaboration",
+    "canonicalPath": "/database/awakeners/pickman/overlays/collaboration"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0040",
+  "aliases": [],
+  "descriptionTemplate": "The next Exalt by other Awakeners this turn increases Crit Rate by [StateArg1]%, and the Awakener consuming {Collaboration} gains Aliemus equal to [StateArg1]% of the wielder's Aliemus Regen.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["13", "17", "21", "25"],
+      "suffix": "%"
+    }
+  },
+  "ownerAwakenerName": "Pickman"
+}

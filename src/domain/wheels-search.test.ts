@@ -54,18 +54,23 @@ describe('searchWheels', () => {
     expect(searchWheels(wheels, 'Embryo Fusion').map((wheel) => wheel.id)).toEqual(['B01'])
   })
 
-  it('matches generated owner, realm, and mainstat search fields', () => {
+  it('matches generated owner and realm search fields', () => {
     const realWheels = getWheels()
 
     expect(searchWheels(realWheels, 'Thais').map((wheel) => wheel.name)).toContain(
       'Merciful Nurturing',
     )
     expect(searchWheels(realWheels, 'Caro').some((wheel) => wheel.realm === 'CARO')).toBe(true)
+  })
+
+  it('does not treat wheel mainstats as searchable effect text', () => {
+    const realWheels = getWheels()
+
     expect(
-      searchWheels(realWheels, 'Keyflare Regen').some(
+      searchWheels(realWheels, 'Keyflare Regen').filter(
         (wheel) => wheel.mainstatKey === 'KEYFLARE_REGEN',
       ),
-    ).toBe(true)
+    ).toEqual([])
   })
 
   it('keeps single-character queries scoped to primary wheel names', () => {

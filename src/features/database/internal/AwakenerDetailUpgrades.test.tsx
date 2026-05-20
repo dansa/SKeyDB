@@ -62,14 +62,28 @@ const TEST_SHELL_VIEW = makeDatabaseShellView({
     makeDatabaseDescribedEntry({
       key: 'T3',
       label: 'Talent · T3',
-      record: makeTalentRecord({id: 'talent.third', displayName: 'Third Talent'}),
+      record: makeTalentRecord({
+        id: 'talent.third',
+        displayName: 'Third Talent',
+        family: 'soulforge_aptitude',
+        maxLevel: 10,
+      }),
       resolved: {description: 'Third description'} as never,
+      descriptionRank: 1,
+      descriptionMaxRank: 10,
     }),
     makeDatabaseDescribedEntry({
       key: 'T4',
       label: 'Talent · T4',
-      record: makeTalentRecord({id: 'talent.fourth', displayName: 'Fourth Talent'}),
+      record: makeTalentRecord({
+        id: 'talent.fourth',
+        displayName: 'Fourth Talent',
+        hasLevelScaledDescription: true,
+        maxLevel: 5,
+      }),
       resolved: {description: 'Fourth description'} as never,
+      descriptionRank: 5,
+      descriptionMaxRank: 5,
     }),
   ],
   enlightens: [
@@ -140,7 +154,12 @@ describe('AwakenerDetailUpgrades', () => {
     expect(screen.getByText('Second Talent')).toBeInTheDocument()
     expect(screen.getByText('Third Talent')).toBeInTheDocument()
     expect(screen.getByText('Fourth Talent')).toBeInTheDocument()
-    expect(screen.getByText('T4')).toBeInTheDocument()
+    expect(screen.getByText('First Talent').closest('p')).toHaveTextContent(/^First Talent$/)
+    expect(screen.queryByText('T1')).not.toBeInTheDocument()
+    expect(screen.getByText('Off')).toBeInTheDocument()
+    expect(screen.queryByText('Lv. 1/10')).not.toBeInTheDocument()
+    expect(screen.getByText('Lv. 5/5')).toBeInTheDocument()
+    expect(screen.queryByText('T4')).not.toBeInTheDocument()
     expect(screen.getByRole('button', {name: 'Over-Exaltation'})).toBeInTheDocument()
     expect(screen.getByText('Face Death in Fiery Resolve').closest('p')).toHaveTextContent(
       /Face Death in Fiery Resolve.*Over-Exaltation/,

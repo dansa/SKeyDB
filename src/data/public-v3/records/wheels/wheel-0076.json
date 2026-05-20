@@ -21,5 +21,6 @@
       "values": ["15", "20", "25", "30"]
     }
   },
-  "lore": "Seeing is believing."
+  "lore": "Seeing is believing.",
+  "searchTags": ["Weakness", "Vulnerable", "Sigil Gain"]
 }

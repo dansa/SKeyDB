@@ -23,12 +23,19 @@ describe('awakeners-lite', () => {
     const fauxbornMurphy = records.find((entry) => entry.name === 'murphy: fauxborn')
     const twentyFour = records.find((entry) => entry.name === '24')
 
-    expect(vortice?.tags).toEqual(expect.arrayContaining(['Dispel', 'Divine Realm', 'Tentacles']))
+    expect(vortice?.tags).toEqual(expect.arrayContaining(['Dispel', 'Divine Realm']))
+    expect(vortice?.tags).not.toContain('Tentacles')
     expect(fauxbornMurphy?.tags).toEqual(
-      expect.arrayContaining(['Arithmetica', 'Divine Realm', 'Draw', 'Keyflare', 'Tentacles']),
+      expect.arrayContaining([
+        'Arithmetica',
+        'Divine Realm',
+        'Draw',
+        'Keyflare',
+        'Tentacle Generation',
+      ]),
     )
     expect(twentyFour?.tags).toEqual(
-      expect.arrayContaining(['Arithmetica', 'Hand Limit', 'Keyflare', 'Tentacles']),
+      expect.arrayContaining(['Arithmetica', 'Hand Limit', 'Keyflare', 'Tentacle DMG']),
     )
   })
 
