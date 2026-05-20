@@ -430,6 +430,7 @@
       "tokens": [
         "astral",
         "castor",
+        "corrosion",
         "draw",
         "fools",
         "limited",
@@ -446,7 +447,7 @@
       "fields": {
         "name": ["Castor"],
         "alias": ["castor"],
-        "tag": ["weakness", "draw", "weak"],
+        "tag": ["weakness", "corrosion", "draw", "weak"],
         "facet": ["ULTRA", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools"]
       },
       "facets": {
@@ -455,7 +456,7 @@
         "type": "WARDEN",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Fools",
-        "tags": ["draw", "weakness"]
+        "tags": ["corrosion", "draw", "weakness"]
       }
     },
     {
@@ -2084,6 +2085,8 @@
         "aeons",
         "aequor",
         "aftershock",
+        "alt",
+        "alt realm",
         "arithmetica",
         "astral",
         "chorus",
@@ -2137,6 +2140,7 @@
           "Tentacle DMG",
           "tentacle damage",
           "Divine Realm",
+          "alt realm",
           "lemuria",
           "Tentacle Generation",
           "tentacle gen",
@@ -3180,6 +3184,8 @@
       "tokens": [
         "aequor",
         "aftershock",
+        "alt",
+        "alt realm",
         "assault",
         "astral",
         "cleanse",
@@ -3224,7 +3230,8 @@
           "cleanse",
           "clear",
           "remove",
-          "Divine Realm"
+          "Divine Realm",
+          "alt realm"
         ],
         "facet": ["AEQUOR", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools"]
       },
@@ -3243,6 +3250,8 @@
       "name": "Arachne",
       "aliases": ["arachne"],
       "tokens": [
+        "alt",
+        "alt realm",
         "arachne",
         "astral",
         "chorus",
@@ -3257,12 +3266,16 @@
         "fixed",
         "fixed damage",
         "fixed dmg",
+        "harm",
         "limited",
         "limited astral reign",
         "poison",
         "pursuit",
         "realm",
         "reign",
+        "self",
+        "self damage",
+        "self harm",
         "spider",
         "ssr",
         "str",
@@ -3294,6 +3307,7 @@
           "pursuit",
           "fixed-dmg",
           "divine-realm",
+          "self-harm",
           "spider",
           "Final Verdict",
           "verdict",
@@ -3305,7 +3319,9 @@
           "tentacle damage",
           "Fixed DMG",
           "fixed damage",
-          "Divine Realm"
+          "Divine Realm",
+          "alt realm",
+          "Self-Damage"
         ],
         "facet": ["ULTRA", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Unknowable"]
       },
@@ -3315,7 +3331,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Unknowable",
-        "tags": ["counter", "divine-realm", "final-verdict", "fixed-dmg", "poison", "pursuit", "spider", "str-down", "str-up", "tentacle-dmg"]
+        "tags": ["counter", "divine-realm", "final-verdict", "fixed-dmg", "poison", "pursuit", "self-harm", "spider", "str-down", "str-up", "tentacle-dmg"]
       }
     },
     {
@@ -3323,10 +3339,33 @@
       "id": "awakener-0057",
       "name": "Saya",
       "aliases": ["saya"],
-      "tokens": ["astral", "caro", "chorus", "limited", "limited astral reign", "reign", "saya", "ssr", "tbd"],
+      "tokens": [
+        "alt",
+        "alt realm",
+        "astral",
+        "caro",
+        "chorus",
+        "corrosion",
+        "damage",
+        "discard",
+        "divine",
+        "divine realm",
+        "harm",
+        "limited",
+        "limited astral reign",
+        "realm",
+        "reign",
+        "saya",
+        "self",
+        "self damage",
+        "self harm",
+        "ssr",
+        "tbd"
+      ],
       "fields": {
         "name": ["Saya"],
         "alias": ["saya"],
+        "tag": ["discard", "corrosion", "divine-realm", "self-harm", "Divine Realm", "alt realm", "Self-Damage"],
         "facet": ["CARO", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
       },
       "facets": {
@@ -3334,7 +3373,8 @@
         "rarity": "SSR",
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
-        "faction": "TBD"
+        "faction": "TBD",
+        "tags": ["corrosion", "discard", "divine-realm", "self-harm"]
       }
     }
   ]

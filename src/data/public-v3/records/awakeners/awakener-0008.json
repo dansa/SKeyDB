@@ -20,7 +20,7 @@
   "releaseDate": "2025-06-02",
   "faction": "The Fools",
   "aliases": ["castor"],
-  "searchTags": ["Weakness", "Draw"],
+  "searchTags": ["Weakness", "Corrosion", "Draw"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 35,

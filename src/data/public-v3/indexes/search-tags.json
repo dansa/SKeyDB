@@ -175,15 +175,23 @@
       "section": "archetype",
       "aliases": [],
       "order": 920,
-      "count": 13
+      "count": 14
+    },
+    {
+      "id": "corrosion",
+      "label": "Corrosion",
+      "section": "affix",
+      "aliases": [],
+      "order": 925,
+      "count": 2
     },
     {
       "id": "divine-realm",
       "label": "Divine Realm",
       "section": "archetype",
-      "aliases": [],
+      "aliases": ["alt realm"],
       "order": 930,
-      "count": 3
+      "count": 4
     },
     {
       "id": "draw",
@@ -247,7 +255,7 @@
       "section": "archetype",
       "aliases": [],
       "order": 990,
-      "count": 8
+      "count": 10
     },
     {
       "id": "lemurian",

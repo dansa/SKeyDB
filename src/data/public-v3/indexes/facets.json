@@ -576,6 +576,12 @@
         "order": 920
       },
       {
+        "value": "corrosion",
+        "label": "Corrosion",
+        "section": "affix",
+        "order": 925
+      },
+      {
         "value": "divine-realm",
         "label": "Divine Realm",
         "section": "archetype",

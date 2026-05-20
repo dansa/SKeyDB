@@ -447,7 +447,7 @@
       },
       "lineupToken": "7",
       "aliases": ["castor"],
-      "searchTags": ["Weakness", "Draw"]
+      "searchTags": ["Weakness", "Corrosion", "Draw"]
     },
     {
       "kind": "awakener",
@@ -3052,7 +3052,19 @@
       },
       "lineupToken": "4",
       "aliases": ["arachne"],
-      "searchTags": ["Poison", "Counter", "Final Verdict", "STR Up", "STR Down", "Tentacle DMG", "Pursuit", "Fixed DMG", "Divine Realm", "Spider"]
+      "searchTags": [
+        "Poison",
+        "Counter",
+        "Final Verdict",
+        "STR Up",
+        "STR Down",
+        "Tentacle DMG",
+        "Pursuit",
+        "Fixed DMG",
+        "Divine Realm",
+        "Self-Damage",
+        "Spider"
+      ]
     },
     {
       "kind": "awakener",
@@ -3106,7 +3118,7 @@
       },
       "lineupToken": "xl",
       "aliases": ["saya"],
-      "searchTags": []
+      "searchTags": ["Discard", "Corrosion", "Divine Realm", "Self-Damage"]
     }
   ]
 }

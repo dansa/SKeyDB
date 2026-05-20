@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "slug": "saya-qa-pass",
+  "status": "active",
+  "created": "2026-05-21",
+  "updated": "2026-05-21",
+  "intake": {
+    "status": "completed",
+    "risk_posture": "Moderate product QA with bounded root-fix slices and focused characterization.",
+    "harness_policy": "Goal docs, focused tests, and current generated public-v3 tag fixes are allowed; no dependency, remote, lint-rule, or AGENTS changes without explicit approval.",
+    "allowed_areas": [
+      "src/domain/**",
+      "src/features/database/**",
+      "src/pages/timeline/**",
+      "src/data/public-v3/**",
+      "focused tests",
+      "docs/refactor-goals/saya-qa-pass/**"
+    ],
+    "protected_areas": [
+      "remote publishing",
+      "dependency files",
+      "unrelated Builder/Collection behavior except shared stat/sort consumers",
+      "tooling repo output",
+      "spritesheet/atlas work"
+    ],
+    "validation_commands": [
+      "focused npx vitest run commands per slice",
+      "npm run lint",
+      "npm run test:bounded",
+      "npm run test:scripts",
+      "npm run build",
+      "npm run verify for broad checkpoints"
+    ],
+    "stop_condition": "Stop when all seven QA issues are terminal, a product/design decision is required, verification fails twice for the same slice, or scope expands beyond the QA list."
+  },
+  "focus_areas": [
+    {
+      "name": "Issue 1: 24 Rouse overlay scaling",
+      "status": "queued",
+      "evidence": "Scout found the Rouse skill and Realm/Persona overlay both have scaling ladders, but overlay popover references drop descriptionRank.",
+      "next": "C1 worker slice."
+    },
+    {
+      "name": "Issue 2: main/sub substat filtering",
+      "status": "queued",
+      "evidence": "Scout found main/sub can be inferred from stat-specific high/low substatScaling magnitudes.",
+      "next": "C2 worker slice."
+    },
+    {
+      "name": "Issue 3: posse/covenant card max size",
+      "status": "queued",
+      "evidence": "Scout found square-art grid auto-fit/minmax(...,1fr) stretches filtered cards.",
+      "next": "C3 worker slice."
+    },
+    {
+      "name": "Issue 4: Gnostic stats in browse/sort",
+      "status": "queued",
+      "evidence": "Scout found detail applies defaultMaxed Gnostic from full records while browse/sort uses lite catalog stats.",
+      "next": "C4 worker slice."
+    },
+    {
+      "name": "Issue 5: Awakener detail tabs",
+      "status": "queued",
+      "evidence": "Scout found Overview is the default/pathless tab, Builds is visible, and lore/story content lives in Overview.",
+      "next": "C5 worker slice."
+    },
+    {
+      "name": "Issue 6: upcoming banner end dates",
+      "status": "queued",
+      "evidence": "Scout found end dates are only in native title text and hover target is broad wrapper/drawer space.",
+      "next": "C6 worker slice."
+    },
+    {
+      "name": "Issue 7: persisted database sorting",
+      "status": "queued",
+      "evidence": "Scout found browse sort state only writes URL params while safe storage helpers already exist.",
+      "next": "C7 worker slice."
+    },
+    {
+      "name": "Current public-v3 tag fixes",
+      "status": "implemented",
+      "evidence": "Dirty tree contains coherent tag fixes for Castor, Arachne, Saya and regenerated public-v3 indexes/catalogs.",
+      "next": "W0 validated the tag/index changes and goal packet."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C0",
+      "title": "Checkpoint current public-v3 tag fixes",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/data/public-v3/records/awakeners/awakener-0008.json",
+        "src/data/public-v3/records/awakeners/awakener-0056.json",
+        "src/data/public-v3/records/awakeners/awakener-0057.json",
+        "src/data/public-v3/catalogs/awakeners.json",
+        "src/data/public-v3/indexes/facets.json",
+        "src/data/public-v3/indexes/search-awakeners.json",
+        "src/data/public-v3/indexes/search-tags.json",
+        "src/data/public-v3/manifest.json"
+      ],
+      "evidence": "Dirty tree adds Corrosion/Self-Damage/Discard/Divine Realm tags and regenerated indexes.",
+      "next": "Implemented by W0; no further action unless generated data drifts again."
+    },
+    {
+      "id": "C1",
+      "title": "Preserve originating skill rank when opening scaled overlay references",
+      "source_task": "S1",
+      "status": "queued",
+      "concept_blast_radius": [
+        "RichDescription",
+        "RichSegmentRenderer",
+        "RichSegmentTokens",
+        "database-popover-context",
+        "useDatabasePopoverTrailActions",
+        "database-popover-controller-model",
+        "focused popover/rich segment tests"
+      ],
+      "evidence": "Realm/Persona overlay defaults to rank 1 because descriptionRank is undefined after popover hydration.",
+      "next": "Characterize and implement contextual rank propagation."
+    },
+    {
+      "id": "C2",
+      "title": "Add main/sub scaling filter role",
+      "source_task": "S2",
+      "status": "queued",
+      "concept_blast_radius": [
+        "awakener-scaling-substats",
+        "database-browse-state",
+        "DatabaseFilters",
+        "useDatabaseViewModel",
+        "focused browse state/view model tests"
+      ],
+      "evidence": "High/low stat-specific substatScaling values infer MAIN/SUB without duplicating filter chips.",
+      "next": "Implement Any/Main/Sub selector with URL state."
+    },
+    {
+      "id": "C3",
+      "title": "Cap square-art posse/covenant grid tracks",
+      "source_task": "S3",
+      "status": "queued",
+      "concept_blast_radius": [
+        "src/features/database/database.css",
+        "SimpleArtifactGrid",
+        "DatabaseCatalogGrid",
+        "browser checks for posses/covenants"
+      ],
+      "evidence": "Square-art layout uses auto-fit with 1fr max track.",
+      "next": "Implement capped track width around 145px."
+    },
+    {
+      "id": "C4",
+      "title": "Include default-maxed Gnostic bonuses in lite browse/sort stats",
+      "source_task": "S2",
+      "status": "queued",
+      "concept_blast_radius": [
+        "public-v3 catalog generation or generated catalog records",
+        "awakeners.ts",
+        "database-sorting",
+        "AwakenerGridCard",
+        "focused stat/sort tests"
+      ],
+      "evidence": "Detail path applies defaultMaxed Gnostic; browse path only sees catalog base stats.",
+      "next": "Prefer generated lite catalog bonus field over loading full records at runtime."
+    },
+    {
+      "id": "C5",
+      "title": "Hide Overview/Builds, add Lore last, default Upgrades",
+      "source_task": "S4",
+      "status": "queued",
+      "concept_blast_radius": [
+        "database-paths",
+        "DatabasePage",
+        "DbDetailModalHost",
+        "dbDetailRegistry",
+        "AwakenerDetailModal",
+        "AwakenerDetailOverview/Lore component",
+        "route/modal tests"
+      ],
+      "evidence": "Overview is current default and owns lore; Builds tab is visible but empty.",
+      "next": "Implement tab visibility/default/lore route behavior."
+    },
+    {
+      "id": "C6",
+      "title": "Show upcoming banner end date and tighten hover target",
+      "source_task": "S5",
+      "status": "queued",
+      "concept_blast_radius": [
+        "timeline.ts",
+        "BannerCard",
+        "BannerInfoDrawer",
+        "timeline and banner card tests"
+      ],
+      "evidence": "Upcoming long-range banners show start only and use broad native title targets.",
+      "next": "Implement explicit end-date display and date-specific title target."
+    },
+    {
+      "id": "C7",
+      "title": "Persist awakener and wheel sort preferences",
+      "source_task": "S3",
+      "status": "queued",
+      "concept_blast_radius": [
+        "database-browse-preferences",
+        "useDatabaseBrowseState",
+        "useWheelsDatabaseBrowseState",
+        "browse state tests",
+        "route tests"
+      ],
+      "evidence": "Sort controls update URL only; existing safe storage abstractions can support deterministic preferences.",
+      "next": "Implement persisted sort defaults with URL params taking precedence."
+    }
+  ],
+  "maintenance": [
+    {
+      "id": "M1",
+      "title": "Atlas/spritesheet for tiny assets",
+      "trigger": "future Cloudflare Pages file pressure",
+      "skill": "$refactor-rootfix",
+      "status": "out_of_scope_by_user",
+      "reason": "User agreed atlas/spritesheet is an issue for another day.",
+      "next": "No action in this goal."
+    },
+    {
+      "id": "M2",
+      "title": "Generated tag-fix workflow drift",
+      "trigger": "dirty generated data arrived during QA pass",
+      "skill": "$refactor-learning-maintainer",
+      "status": "queued",
+      "next": "Consider only if validation finds repeated record/index mismatch."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "S1",
+      "role": "scout",
+      "status": "done",
+      "title": "Map all seven QA issues and dirty public-v3 tag fixes",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-react",
+        "$refactor-tailwind",
+        "$refactor-typescript",
+        "$refactor-complexity",
+        "$refactor-ui-a11y",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "read-only repo inspection"
+      ],
+      "protected_files": [
+        "all files from scout edits"
+      ],
+      "expected_output": "Evidence-backed candidates for every QA issue with blast radius and validation.",
+      "receipt": {
+        "summary": "Six read-only scout agents mapped the seven QA issues and current dirty generated tag fixes.",
+        "evidence": [
+          "Issue 1: data ladders exist; popover overlay rank context is dropped.",
+          "Issues 2 and 4: main/sub role is inferable; browse stats miss defaultMaxed Gnostic because lite catalog lacks bonuses.",
+          "Issues 3 and 7: square-art grid stretches via 1fr; sort state is URL-only despite safe storage helpers.",
+          "Issue 5: overview/builds routing and tab rendering need a visible/enabled tab model, Lore last, Upgrades default.",
+          "Issue 6: upcoming end date is hidden in title and title is on broad targets.",
+          "Cross-cutting: dirty public-v3 tag fixes are coherent and should be checkpointed."
+        ]
+      }
+    },
+    {
+      "id": "W0",
+      "role": "worker",
+      "status": "done",
+      "title": "Validate and checkpoint current public-v3 tag fixes",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-typescript"
+      ],
+      "allowed_files": [
+        "src/data/public-v3/records/awakeners/awakener-0008.json",
+        "src/data/public-v3/records/awakeners/awakener-0056.json",
+        "src/data/public-v3/records/awakeners/awakener-0057.json",
+        "src/data/public-v3/catalogs/awakeners.json",
+        "src/data/public-v3/indexes/facets.json",
+        "src/data/public-v3/indexes/search-awakeners.json",
+        "src/data/public-v3/indexes/search-tags.json",
+        "src/data/public-v3/manifest.json",
+        "docs/refactor-goals/saya-qa-pass/**"
+      ],
+      "protected_files": [
+        "product code outside docs for W0",
+        "dependency files",
+        "remote state"
+      ],
+      "expected_output": "Current generated tag fixes are validated and either committed as a checkpoint or recorded as safe to carry into the first code slice.",
+      "receipt": {
+        "summary": "Validated the current public-v3 tag fixes and created the QA goal packet.",
+        "evidence": [
+          "Castor gained Corrosion, Arachne gained Self-Damage, and Saya gained Discard/Corrosion/Divine Realm/Self-Damage search tags.",
+          "Regenerated awakener catalog, facets, search-awakeners, search-tags, and manifest are part of the same dirty-tree concept.",
+          "Goal packet created at docs/refactor-goals/saya-qa-pass."
+        ],
+        "validation": [
+          "npx vitest run src/domain/public-search.test.ts src/domain/awakeners.test.ts src/features/database/internal/useDatabaseViewModel.test.ts --pool=forks --maxWorkers=4 -> 3 files, 30 tests passed",
+          "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs\\refactor-goals\\saya-qa-pass -> OK"
+        ]
+      }
+    },
+    {
+      "id": "W1",
+      "role": "worker",
+      "status": "active",
+      "title": "Parallel implementation tranche for the seven QA fixes",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-tailwind",
+        "$refactor-typescript",
+        "$refactor-ui-a11y",
+        "$refactor-rootfix",
+        "$refactor-complexity"
+      ],
+      "allowed_files": [
+        "C1 overlay rank propagation files and focused tests",
+        "C2/C7 database browse state/filter/sort preference files and focused tests",
+        "C3 database square-art CSS/files and visual checks",
+        "C4 generated catalog/stat resolver/sort/card files and focused tests",
+        "C5 awakener tab route/modal/lore files and focused tests",
+        "C6 timeline countdown/card/drawer files and focused tests",
+        "docs/refactor-goals/saya-qa-pass/**"
+      ],
+      "protected_files": [
+        "dependency files",
+        "remote state",
+        "spritesheet/atlas work",
+        "unrelated Builder/Collection behavior except shared stat/sort consumers"
+      ],
+      "expected_output": "Independent worker patches for the seven QA candidates, each with changed files and validation notes for controller review.",
+      "receipt": null
+    }
+  ],
+  "final_audit": {
+    "full_outcome_complete": false,
+    "summary": "Scout/prep and W0 tag-fix checkpoint complete; seven product QA candidates remain queued.",
+    "validation": [
+      "W0 focused data/search validation passed",
+      "Goal packet checker passed"
+    ],
+    "open_items": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7"
+    ]
+  }
+}

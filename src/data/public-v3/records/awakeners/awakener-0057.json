@@ -20,7 +20,7 @@
   "releaseDate": "2026-05-30",
   "faction": "TBD",
   "aliases": ["saya"],
-  "searchTags": [],
+  "searchTags": ["Discard", "Corrosion", "Divine Realm", "Self-Damage"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 25,
