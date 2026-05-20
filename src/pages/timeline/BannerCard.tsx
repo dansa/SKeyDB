@@ -92,6 +92,7 @@ export function BannerCard({
       <BannerInfoDrawer
         banner={banner}
         canCollapse={drawerCanCollapse}
+        countdownText={countdownDisplay?.text}
         countdownTitle={countdownDisplay?.title}
         isEnded={isEnded}
         onToggle={() => {
@@ -126,7 +127,6 @@ function BannerCardHero({
         hidden ? 'translate-y-1 opacity-0' : 'translate-y-0 opacity-100'
       }`}
       data-banner-hero='summary'
-      title={countdownTitle}
     >
       <div className={BANNER_HERO_SURFACE_CLASS}>
         <h3 className={`${BANNER_HERO_TITLE_CLASS} ${isEnded ? 'text-slate-400' : ''}`}>

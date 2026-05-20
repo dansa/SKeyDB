@@ -1,12 +1,18 @@
-import {useCallback} from 'react'
+import {useCallback, useMemo, useState} from 'react'
 
 import {useSearchParams} from 'react-router-dom'
 
+import {
+  hasAwakenerSortSearchParams,
+  readDatabaseBrowsePreferences,
+  writeAwakenerDatabaseBrowseSortPreferences,
+} from '@/domain/database-browse-preferences'
 import {
   DATABASE_BROWSE_DEFAULTS,
   parseDatabaseBrowseState,
   patchDatabaseBrowseState,
   type AvailabilityFilterId,
+  type AwakenerScalingSubstatRoleFilter,
   type DatabaseBrowseState,
   type GameplayFactionFilterId,
   type RarityFilterId,
@@ -15,6 +21,7 @@ import {
   type TypeFilterId,
 } from '@/domain/database-browse-state'
 import type {DatabaseSortKey} from '@/domain/database-sorting'
+import {getBrowserLocalStorage} from '@/domain/storage'
 
 import {useBrowseQueryActions} from './useBrowseQueryActions'
 
@@ -48,8 +55,20 @@ export function useUrlBackedBrowseState<TState>({
 }
 
 export function useDatabaseBrowseState() {
+  const storage = useMemo(() => getBrowserLocalStorage(), [])
+  const [, setStoredSortRevision] = useState(0)
   const {browseState, commitBrowseState} = useUrlBackedBrowseState<DatabaseBrowseState>({
-    parseState: parseDatabaseBrowseState,
+    parseState: (searchParams) => {
+      const parsed = parseDatabaseBrowseState(searchParams)
+      if (hasAwakenerSortSearchParams(searchParams)) {
+        return parsed
+      }
+      const preferences = readDatabaseBrowsePreferences(storage)
+      return {
+        ...parsed,
+        ...preferences.awakeners,
+      }
+    },
     patchState: patchDatabaseBrowseState,
   })
   const {
@@ -59,6 +78,7 @@ export function useDatabaseBrowseState() {
     query,
     rarityFilter,
     realmFilter,
+    scalingSubstatRoleFilter,
     scalingSubstatFilters,
     sortDirection,
     sortKey,
@@ -117,6 +137,13 @@ export function useDatabaseBrowseState() {
     [commitBrowseState],
   )
 
+  const setScalingSubstatRoleFilter = useCallback(
+    (next: AwakenerScalingSubstatRoleFilter) => {
+      commitBrowseState({scalingSubstatRoleFilter: next}, 'push')
+    },
+    [commitBrowseState],
+  )
+
   const toggleScalingSubstatFilter = useCallback(
     (filter: SubstatScalingKey) => {
       const next = scalingSubstatFilters.includes(filter)
@@ -129,25 +156,42 @@ export function useDatabaseBrowseState() {
 
   const setSortKey = useCallback(
     (next: DatabaseSortKey) => {
+      writeAwakenerDatabaseBrowseSortPreferences(
+        {sortKey: next, sortDirection, groupByRealm},
+        storage,
+      )
+      setStoredSortRevision((current) => current + 1)
       commitBrowseState({sortKey: next}, 'push')
     },
-    [commitBrowseState],
+    [commitBrowseState, groupByRealm, sortDirection, storage],
   )
 
   const toggleSortDirection = useCallback(() => {
+    const nextSortDirection =
+      sortDirection === 'ASC' ? 'DESC' : DATABASE_BROWSE_DEFAULTS.sortDirection
+    writeAwakenerDatabaseBrowseSortPreferences(
+      {sortKey, sortDirection: nextSortDirection, groupByRealm},
+      storage,
+    )
+    setStoredSortRevision((current) => current + 1)
     commitBrowseState(
       {
-        sortDirection: sortDirection === 'ASC' ? 'DESC' : DATABASE_BROWSE_DEFAULTS.sortDirection,
+        sortDirection: nextSortDirection,
       },
       'push',
     )
-  }, [commitBrowseState, sortDirection])
+  }, [commitBrowseState, groupByRealm, sortDirection, sortKey, storage])
 
   const setGroupByRealm = useCallback(
     (next: boolean) => {
+      writeAwakenerDatabaseBrowseSortPreferences(
+        {sortKey, sortDirection, groupByRealm: next},
+        storage,
+      )
+      setStoredSortRevision((current) => current + 1)
       commitBrowseState({groupByRealm: next}, 'push')
     },
-    [commitBrowseState],
+    [commitBrowseState, sortDirection, sortKey, storage],
   )
 
   const resetFilters = useCallback(() => {
@@ -160,6 +204,7 @@ export function useDatabaseBrowseState() {
         availabilityFilter: 'ALL',
         gameplayFactionFilters: [],
         scalingSubstatFilters: [],
+        scalingSubstatRoleFilter: 'ANY',
       },
       'push',
     )
@@ -172,6 +217,7 @@ export function useDatabaseBrowseState() {
     query,
     rarityFilter,
     realmFilter,
+    scalingSubstatRoleFilter,
     scalingSubstatFilters,
     sortDirection,
     sortKey,
@@ -186,6 +232,7 @@ export function useDatabaseBrowseState() {
     setAvailabilityFilter,
     setGameplayFactionFilters,
     setScalingSubstatFilters,
+    setScalingSubstatRoleFilter,
     toggleGameplayFactionFilter,
     toggleScalingSubstatFilter,
     setSortKey,

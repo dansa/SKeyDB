@@ -11,11 +11,22 @@ import {
 import type {Posse} from './posses'
 import type {Wheel} from './wheels'
 
-export const DATABASE_AWAKENER_TABS = ['overview', 'upgrades', 'skills', 'builds', 'teams'] as const
+export const DATABASE_AWAKENER_TABS = [
+  'overview',
+  'upgrades',
+  'skills',
+  'builds',
+  'teams',
+  'lore',
+] as const
+export const DEFAULT_DATABASE_AWAKENER_TAB = 'upgrades' satisfies DatabaseAwakenerTab
+export const DATABASE_AWAKENER_VISIBLE_TABS = ['upgrades', 'skills', 'teams', 'lore'] as const
 
 export type DatabaseAwakenerTab = (typeof DATABASE_AWAKENER_TABS)[number]
+export type DatabaseAwakenerVisibleTab = (typeof DATABASE_AWAKENER_VISIBLE_TABS)[number]
 
 const DATABASE_AWAKENER_TAB_SET = new Set<string>(DATABASE_AWAKENER_TABS)
+const DATABASE_AWAKENER_VISIBLE_TAB_SET = new Set<string>(DATABASE_AWAKENER_VISIBLE_TABS)
 
 export function toDatabaseAwakenerSlug(name: string): string {
   return toDatabaseEntitySlug(name)
@@ -44,6 +55,14 @@ export function resolveDatabaseAwakenerTab(tab: string | undefined): DatabaseAwa
   return isDatabaseAwakenerTab(normalizedTab) ? normalizedTab : null
 }
 
+export function resolveDatabaseAwakenerVisibleTab(
+  tab: DatabaseAwakenerTab | null | undefined,
+): DatabaseAwakenerVisibleTab {
+  return tab && DATABASE_AWAKENER_VISIBLE_TAB_SET.has(tab)
+    ? (tab as DatabaseAwakenerVisibleTab)
+    : DEFAULT_DATABASE_AWAKENER_TAB
+}
+
 function isDatabaseAwakenerTab(tab: string): tab is DatabaseAwakenerTab {
   return DATABASE_AWAKENER_TAB_SET.has(tab)
 }
@@ -67,15 +86,16 @@ function getMatchingPublicEntityPath(id: string | undefined, name: string): stri
 
 export function buildDatabaseAwakenerPath(
   awakener: Pick<Awakener, 'name'> & Partial<Pick<Awakener, 'id'>>,
-  tab: DatabaseAwakenerTab = 'overview',
+  tab: DatabaseAwakenerTab = DEFAULT_DATABASE_AWAKENER_TAB,
 ): string {
   const basePath =
     getMatchingPublicEntityPath(awakener.id, awakener.name) ??
     buildDatabaseEntityDetailPath('awakeners', toDatabaseAwakenerSlug(awakener.name))
-  if (tab === 'overview') {
+  const visibleTab = resolveDatabaseAwakenerVisibleTab(tab)
+  if (visibleTab === DEFAULT_DATABASE_AWAKENER_TAB) {
     return basePath
   }
-  return `${basePath}/${tab}`
+  return `${basePath}/${visibleTab}`
 }
 
 export function buildDatabaseWheelBrowsePath(): string {

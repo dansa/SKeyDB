@@ -25,6 +25,7 @@ const publicAwakenerCatalogLiteRecordSchema = z.object({
   aliases: z.array(z.string()).optional(),
   searchTags: z.array(z.string()).optional(),
   baseStatsLv1: liteStatsSchema,
+  defaultPrimaryStatBonuses: liteStatsSchema.optional(),
 })
 
 const publicAwakenerCatalogLiteRecordsSchema = z.array(publicAwakenerCatalogLiteRecordSchema)
@@ -72,6 +73,10 @@ function adaptPublicAwakenerCatalogLite(
   record: PublicAwakenerCatalogLiteRecord,
 ): AwakenerLiteRecord {
   const name = resolveCanonicalAwakenerName(record)
+  const stats = applyDefaultPrimaryStatBonuses(
+    record.baseStatsLv1,
+    record.defaultPrimaryStatBonuses,
+  )
 
   return {
     id: record.numericId,
@@ -82,8 +87,23 @@ function adaptPublicAwakenerCatalogLite(
     rarity: record.rarity,
     type: record.type,
     aliases: Array.from(new Set([name, record.name, ...(record.aliases ?? [])])),
-    stats: record.baseStatsLv1,
+    stats,
     tags: record.searchTags ?? [],
+  }
+}
+
+function applyDefaultPrimaryStatBonuses(
+  stats: z.infer<typeof liteStatsSchema>,
+  bonuses: z.infer<typeof liteStatsSchema> | undefined,
+): z.infer<typeof liteStatsSchema> {
+  if (!bonuses) {
+    return stats
+  }
+
+  return {
+    CON: stats.CON + bonuses.CON,
+    ATK: stats.ATK + bonuses.ATK,
+    DEF: stats.DEF + bonuses.DEF,
   }
 }
 

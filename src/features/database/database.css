@@ -154,11 +154,15 @@
 
 .database-card-grid--square-art {
   --database-square-art-card-min: clamp(5.5rem, 24%, 6.5rem);
+  --database-square-art-card-max: 9.0625rem;
   --database-square-art-gap: clamp(0.5rem, 1.4vw, 0.75rem);
 
   grid-template-columns: repeat(
     auto-fit,
-    minmax(min(100%, var(--database-square-art-card-min)), 1fr)
+    minmax(
+      min(100%, var(--database-square-art-card-min)),
+      min(100%, var(--database-square-art-card-max))
+    )
   );
   gap: var(--database-square-art-gap);
 }

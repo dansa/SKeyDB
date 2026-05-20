@@ -17,11 +17,13 @@ import {
   buildDatabasePossePath,
   buildDatabaseWheelBrowsePath,
   buildDatabaseWheelPath,
+  DEFAULT_DATABASE_AWAKENER_TAB,
   findAwakenerByDatabaseSlug,
   findCovenantByDatabaseSlug,
   findPosseByDatabaseSlug,
   findWheelByDatabaseSlug,
   resolveDatabaseAwakenerTab,
+  resolveDatabaseAwakenerVisibleTab,
   type DatabaseAwakenerTab,
 } from '@/domain/database-paths'
 import type {Wheel} from '@/domain/wheels'
@@ -58,7 +60,8 @@ function buildCanonicalAwakenerRoutePath(
       ? routeResolution.canonicalPath
       : buildDatabaseAwakenerPath(awakener)
 
-  return tab === 'overview' ? basePath : `${basePath}/${tab}`
+  const visibleTab = resolveDatabaseAwakenerVisibleTab(tab)
+  return visibleTab === DEFAULT_DATABASE_AWAKENER_TAB ? basePath : `${basePath}/${visibleTab}`
 }
 
 interface DetailRouteCorrectionParams {
@@ -121,7 +124,7 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
   const selectedWheel = findWheelByDatabaseSlug(databaseWheels, wheelSlug)
   const selectedPosse = findPosseByDatabaseSlug(databasePosses, posseSlug)
   const selectedCovenant = findCovenantByDatabaseSlug(databaseCovenants, covenantSlug)
-  const selectedTab = resolveDatabaseAwakenerTab(tabSlug) ?? 'overview'
+  const selectedTab = resolveDatabaseAwakenerVisibleTab(resolveDatabaseAwakenerTab(tabSlug))
   const activeEntity = routeEntity ?? getActiveDatabaseEntity(location.pathname)
   const browseController = useEntityBrowseController({
     activeEntity,
@@ -211,7 +214,10 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
   )
 
   const handleModalAwakenerSelect = useCallback(
-    (nextAwakener: Pick<Awakener, 'id' | 'name'>, nextTab: DatabaseAwakenerTab = 'overview') => {
+    (
+      nextAwakener: Pick<Awakener, 'id' | 'name'>,
+      nextTab: DatabaseAwakenerTab = DEFAULT_DATABASE_AWAKENER_TAB,
+    ) => {
       void navigate({
         pathname: buildDatabaseAwakenerPath(nextAwakener, nextTab),
         search: sanitizeDatabaseEntitySearch('awakeners', activeSearch),

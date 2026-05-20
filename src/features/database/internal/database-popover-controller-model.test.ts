@@ -124,6 +124,33 @@ describe('database popover controller model', () => {
     })
   })
 
+  it('applies overlay rank context only when the opener supplies it', () => {
+    const layer = referenceLayer([overlayReference()])
+
+    expect(
+      buildOverlayEntry({
+        overlay: TEST_OVERLAY,
+        referenceLayer: layer,
+        selectedEnlightenSlot: null,
+      }),
+    ).toMatchObject({
+      descriptionRank: undefined,
+      descriptionMaxRank: undefined,
+    })
+
+    expect(
+      buildOverlayEntry({
+        overlay: TEST_OVERLAY,
+        rankContext: {descriptionRank: 6, descriptionMaxRank: 6},
+        referenceLayer: layer,
+        selectedEnlightenSlot: null,
+      }),
+    ).toMatchObject({
+      descriptionRank: 6,
+      descriptionMaxRank: 6,
+    })
+  })
+
   it('refreshes hydrated live entries only when both current and live descriptions exist', () => {
     const oldReference = skillReference({description: 'Old text.'})
     const liveReference = skillReference({description: 'Live text.'})

@@ -1,4 +1,4 @@
-import type {Awakener} from './awakeners'
+import {resolveAwakenerLiteStatsForLevel, type Awakener} from './awakeners'
 import type {AwakenerSortKey, CollectionSortDirection} from './collection-sorting'
 
 export type DatabaseSortKey = Extract<
@@ -24,6 +24,7 @@ const RARITY_PRIORITY_BY_ID: Record<string, number> = {
   SSR: 1,
   SR: 2,
 }
+const DATABASE_SORT_AWAKENER_STAT_LEVEL = 60
 
 function compareNumber(left: number, right: number, direction: CollectionSortDirection): number {
   if (left === right) {
@@ -61,7 +62,9 @@ function compareStat(
   statKey: 'ATK' | 'DEF' | 'CON',
   direction: CollectionSortDirection,
 ): number {
-  return compareNumber(left.stats?.[statKey] ?? 0, right.stats?.[statKey] ?? 0, direction)
+  const leftStats = resolveAwakenerLiteStatsForLevel(left, DATABASE_SORT_AWAKENER_STAT_LEVEL)
+  const rightStats = resolveAwakenerLiteStatsForLevel(right, DATABASE_SORT_AWAKENER_STAT_LEVEL)
+  return compareNumber(leftStats?.[statKey] ?? 0, rightStats?.[statKey] ?? 0, direction)
 }
 
 function compareReleaseDate(

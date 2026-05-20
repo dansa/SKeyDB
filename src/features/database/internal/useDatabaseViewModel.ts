@@ -1,10 +1,12 @@
 import {useMemo} from 'react'
 
+import {matchesAwakenerScalingSubstatRoleFilter} from '@/domain/awakener-scaling-substats'
 import {type Awakener} from '@/domain/awakeners'
 import {searchAwakenerResults} from '@/domain/awakeners-search'
 import type {CollectionSortDirection} from '@/domain/collection-sorting'
 import {
   type AvailabilityFilterId,
+  type AwakenerScalingSubstatRoleFilter,
   type DatabaseBrowseState,
   type GameplayFactionFilterId,
   type RarityFilterId,
@@ -36,6 +38,7 @@ export function filterAwakenersForDatabase(
   availabilityFilter: AvailabilityFilterId,
   gameplayFactionFilters: readonly GameplayFactionFilterId[] = [],
   scalingSubstatFilters: readonly SubstatScalingKey[] = [],
+  scalingSubstatRoleFilter: AwakenerScalingSubstatRoleFilter = 'ANY',
 ): Awakener[] {
   let result = awakeners
   if (realmFilter !== 'ALL') {
@@ -55,7 +58,9 @@ export function filterAwakenersForDatabase(
   }
   if (scalingSubstatFilters.length > 0) {
     result = result.filter((a) =>
-      scalingSubstatFilters.every((filter) => (a.substatScaling?.[filter] ?? 0) > 0),
+      scalingSubstatFilters.every((filter) =>
+        matchesAwakenerScalingSubstatRoleFilter(a.substatScaling, filter, scalingSubstatRoleFilter),
+      ),
     )
   }
   return result
@@ -87,6 +92,7 @@ export function useDatabaseViewModel(allAwakeners: Awakener[], browseState: Data
     query,
     rarityFilter,
     realmFilter,
+    scalingSubstatRoleFilter,
     scalingSubstatFilters,
     sortDirection,
     sortKey,
@@ -104,6 +110,7 @@ export function useDatabaseViewModel(allAwakeners: Awakener[], browseState: Data
       availabilityFilter,
       gameplayFactionFilters,
       scalingSubstatFilters,
+      scalingSubstatRoleFilter,
     )
     return applySorting(filtered, sortKey, sortDirection, groupByRealm, relevanceByAwakenerId)
   }, [
@@ -114,6 +121,7 @@ export function useDatabaseViewModel(allAwakeners: Awakener[], browseState: Data
     realmFilter,
     rarityFilter,
     scalingSubstatFilters,
+    scalingSubstatRoleFilter,
     typeFilter,
     sortKey,
     sortDirection,

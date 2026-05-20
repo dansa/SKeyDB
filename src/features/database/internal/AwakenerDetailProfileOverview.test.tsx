@@ -3,7 +3,7 @@ import {describe, expect, it, vi} from 'vitest'
 
 import type {SubstatScaling} from '@/domain/awakener-source-schema'
 
-import {AwakenerDetailOverview} from './AwakenerDetailOverview'
+import {AwakenerDetailLore, AwakenerDetailOverview} from './AwakenerDetailOverview'
 import {
   makeTestAwakener,
   makeTestAwakenerFullRecord,
@@ -157,16 +157,7 @@ describe('AwakenerDetailOverview profile and stories', () => {
   })
 
   it('browses stories by unlock condition without rendering lock affordances', () => {
-    render(
-      <AwakenerDetailOverview
-        awakener={TEST_AWAKENER}
-        fontScale='medium'
-        fullData={TEST_FULL_DATA}
-        scalingRecord={TEST_SCALING_RECORD}
-        stats={TEST_STATS}
-        substatScaling={TEST_SUBSTAT_SCALING}
-      />,
-    )
+    render(<AwakenerDetailLore awakener={TEST_AWAKENER} fullData={TEST_FULL_DATA} />)
 
     expect(screen.getByRole('tab', {name: /Intro/})).toHaveAttribute('aria-selected', 'true')
     expect(screen.queryByText('Awakener Level 1')).not.toBeInTheDocument()
@@ -180,14 +171,7 @@ describe('AwakenerDetailOverview profile and stories', () => {
 
   it('renders story emphasis markup through the wheel lore parser', () => {
     const {container} = render(
-      <AwakenerDetailOverview
-        awakener={TEST_AWAKENER}
-        fontScale='medium'
-        fullData={TEST_FULL_DATA}
-        scalingRecord={TEST_SCALING_RECORD}
-        stats={TEST_STATS}
-        substatScaling={TEST_SUBSTAT_SCALING}
-      />,
+      <AwakenerDetailLore awakener={TEST_AWAKENER} fullData={TEST_FULL_DATA} />,
     )
 
     fireEvent.click(screen.getByRole('tab', {name: /II/}))

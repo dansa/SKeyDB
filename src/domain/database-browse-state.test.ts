@@ -10,7 +10,7 @@ describe('database-browse-state', () => {
   it('parses known browse params and falls back safely for invalid values', () => {
     const state = parseDatabaseBrowseState(
       new URLSearchParams(
-        'q=beta&realm=AEQUOR&rarity=SR&type=WARDEN&availability=LIMITED&faction=Lemurian&scaling=KeyflareRegen,DamageAmplification&sort=RELEASE_DATE&dir=DESC&group=1',
+        'q=beta&realm=AEQUOR&rarity=SR&type=WARDEN&availability=LIMITED&faction=Lemurian&scaling=KeyflareRegen,DamageAmplification&scalingRole=MAIN&sort=RELEASE_DATE&dir=DESC&group=1',
       ),
     )
 
@@ -22,6 +22,7 @@ describe('database-browse-state', () => {
       availabilityFilter: 'LIMITED',
       gameplayFactionFilters: ['Lemurian'],
       scalingSubstatFilters: ['KeyflareRegen', 'DamageAmplification'],
+      scalingSubstatRoleFilter: 'MAIN',
       sortKey: 'RELEASE_DATE',
       sortDirection: 'DESC',
       groupByRealm: true,
@@ -43,12 +44,13 @@ describe('database-browse-state', () => {
       availabilityFilter: 'LIMITED_ASTRAL_REIGN',
       gameplayFactionFilters: ['Lemurian'],
       scalingSubstatFilters: ['KeyflareRegen', 'DamageAmplification'],
+      scalingSubstatRoleFilter: 'SUB',
       sortKey: 'ATK',
       sortDirection: 'DESC',
     })
 
     expect(nextParams.toString()).toBe(
-      'foo=bar&q=alpha&realm=CHAOS&availability=LIMITED_ASTRAL_REIGN&faction=Lemurian&scaling=KeyflareRegen%2CDamageAmplification&sort=ATK&dir=DESC',
+      'foo=bar&q=alpha&realm=CHAOS&availability=LIMITED_ASTRAL_REIGN&faction=Lemurian&scaling=KeyflareRegen%2CDamageAmplification&scalingRole=SUB&sort=ATK&dir=DESC',
     )
   })
 

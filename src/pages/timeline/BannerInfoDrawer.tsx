@@ -27,12 +27,16 @@ const DRAWER_TITLE_BASE_CLASS =
 const DRAWER_TAGS_CLASS =
   'mt-2 flex min-w-0 shrink-0 flex-wrap items-center gap-x-1.5 gap-y-1 text-[0.58rem] leading-none font-bold tracking-[0.16em] uppercase'
 
+const DRAWER_DATE_CLASS =
+  'mt-2 min-w-0 shrink-0 overflow-hidden text-[0.56rem] leading-none font-bold tracking-[0.14em] text-ellipsis whitespace-nowrap uppercase text-amber-100/82'
+
 const DRAWER_DESCRIPTION_CLASS =
   'ui-scrollbar mt-3 min-h-0 max-h-[6.75rem] overflow-y-auto pr-1 text-xs leading-[1.5] text-slate-400 focus-visible:ring-2 focus-visible:ring-amber-200/35 focus-visible:outline-none'
 
 interface BannerInfoDrawerProps {
   banner: BannerEntry
   canCollapse: boolean
+  countdownText: string | undefined
   countdownTitle: string | undefined
   isEnded: boolean
   open: boolean
@@ -43,6 +47,7 @@ interface BannerInfoDrawerProps {
 export function BannerInfoDrawer({
   banner,
   canCollapse,
+  countdownText,
   countdownTitle,
   isEnded,
   open,
@@ -83,6 +88,7 @@ export function BannerInfoDrawer({
         <BannerDrawerBody
           banner={banner}
           contentInset={contentInset}
+          countdownText={countdownText}
           countdownTitle={countdownTitle}
           isEnded={isEnded}
           priceMode={priceMode}
@@ -95,12 +101,14 @@ export function BannerInfoDrawer({
 function BannerDrawerBody({
   banner,
   contentInset,
+  countdownText,
   countdownTitle,
   isEnded,
   priceMode,
 }: {
   banner: BannerEntry
   contentInset: string
+  countdownText: string | undefined
   countdownTitle: string | undefined
   isEnded: boolean
   priceMode: TimelinePriceDisplayMode
@@ -108,7 +116,7 @@ function BannerDrawerBody({
   return (
     <div
       className={`${DRAWER_BODY_BASE_CLASS} ${contentInset} ${isEnded ? 'text-slate-500' : 'text-slate-100'}`}
-      title={countdownTitle}
+      data-banner-drawer-body
     >
       <div className={DRAWER_BODY_STACK_CLASS}>
         <h3
@@ -127,6 +135,11 @@ function BannerDrawerBody({
           renderWhenEmpty
           separatorClass='text-slate-600/75'
         />
+        {countdownText ? (
+          <div className={DRAWER_DATE_CLASS} title={countdownTitle}>
+            {countdownText}
+          </div>
+        ) : null}
         {banner.description ? (
           <div
             aria-label={`Description for ${banner.title}`}

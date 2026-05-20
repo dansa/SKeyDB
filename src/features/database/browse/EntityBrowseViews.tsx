@@ -119,6 +119,7 @@ export function AwakenersBrowse({controller, renderDetailModalHost}: EntityBrows
     setAvailabilityFilter: browseState.setAvailabilityFilter,
     setGameplayFactionFilters: browseState.setGameplayFactionFilters,
     setScalingSubstatFilters: browseState.setScalingSubstatFilters,
+    setScalingSubstatRoleFilter: browseState.setScalingSubstatRoleFilter,
   })
   const detailResultSet = useMemo(
     () => createAwakenerDetailResultSet(viewModel.awakeners),
@@ -142,12 +143,14 @@ export function AwakenersBrowse({controller, renderDetailModalHost}: EntityBrows
             onTypeFilterChange={browseState.setTypeFilter}
             onGameplayFactionFilterToggle={browseState.toggleGameplayFactionFilter}
             onScalingSubstatFilterToggle={browseState.toggleScalingSubstatFilter}
+            onScalingSubstatRoleFilterChange={browseState.setScalingSubstatRoleFilter}
             query={browseState.query}
             availabilityFilter={browseState.availabilityFilter}
             gameplayFactionFilters={browseState.gameplayFactionFilters}
             rarityFilter={browseState.rarityFilter}
             realmFilter={browseState.realmFilter}
             scalingSubstatFilters={browseState.scalingSubstatFilters}
+            scalingSubstatRoleFilter={browseState.scalingSubstatRoleFilter}
             searchInputRef={controller.searchInputRef}
             typeFilter={browseState.typeFilter}
           />

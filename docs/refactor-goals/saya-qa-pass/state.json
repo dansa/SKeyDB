@@ -1,7 +1,7 @@
 {
   "version": 1,
   "slug": "saya-qa-pass",
-  "status": "active",
+  "status": "complete",
   "created": "2026-05-21",
   "updated": "2026-05-21",
   "intake": {
@@ -36,45 +36,45 @@
   "focus_areas": [
     {
       "name": "Issue 1: 24 Rouse overlay scaling",
-      "status": "queued",
+      "status": "implemented",
       "evidence": "Scout found the Rouse skill and Realm/Persona overlay both have scaling ladders, but overlay popover references drop descriptionRank.",
-      "next": "C1 worker slice."
+      "next": "Implemented by W1: rank context now follows scaled overlay opens from rich descriptions."
     },
     {
       "name": "Issue 2: main/sub substat filtering",
-      "status": "queued",
+      "status": "implemented",
       "evidence": "Scout found main/sub can be inferred from stat-specific high/low substatScaling magnitudes.",
-      "next": "C2 worker slice."
+      "next": "Implemented by W1: Any/Main/Sub scaling role filter is URL-backed and low-bloat."
     },
     {
       "name": "Issue 3: posse/covenant card max size",
-      "status": "queued",
+      "status": "implemented",
       "evidence": "Scout found square-art grid auto-fit/minmax(...,1fr) stretches filtered cards.",
-      "next": "C3 worker slice."
+      "next": "Implemented by W1: square-art tracks cap at about 145px."
     },
     {
       "name": "Issue 4: Gnostic stats in browse/sort",
-      "status": "queued",
+      "status": "implemented",
       "evidence": "Scout found detail applies defaultMaxed Gnostic from full records while browse/sort uses lite catalog stats.",
-      "next": "C4 worker slice."
+      "next": "Implemented by W1: lite catalog carries defaultPrimaryStatBonuses and browse/sort/card stats use them."
     },
     {
       "name": "Issue 5: Awakener detail tabs",
-      "status": "queued",
+      "status": "implemented",
       "evidence": "Scout found Overview is the default/pathless tab, Builds is visible, and lore/story content lives in Overview.",
-      "next": "C5 worker slice."
+      "next": "Implemented by W1: Upgrades is default, Lore is last, Overview/Builds are route-compatible but hidden."
     },
     {
       "name": "Issue 6: upcoming banner end dates",
-      "status": "queued",
+      "status": "implemented",
       "evidence": "Scout found end dates are only in native title text and hover target is broad wrapper/drawer space.",
-      "next": "C6 worker slice."
+      "next": "Implemented by W1: upcoming long-range banners show end dates and titles sit on date text only."
     },
     {
       "name": "Issue 7: persisted database sorting",
-      "status": "queued",
+      "status": "implemented",
       "evidence": "Scout found browse sort state only writes URL params while safe storage helpers already exist.",
-      "next": "C7 worker slice."
+      "next": "Implemented by W1: awakener and wheel sort preferences persist in safe local storage with URL override."
     },
     {
       "name": "Current public-v3 tag fixes",
@@ -106,7 +106,7 @@
       "id": "C1",
       "title": "Preserve originating skill rank when opening scaled overlay references",
       "source_task": "S1",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "RichDescription",
         "RichSegmentRenderer",
@@ -117,13 +117,13 @@
         "focused popover/rich segment tests"
       ],
       "evidence": "Realm/Persona overlay defaults to rank 1 because descriptionRank is undefined after popover hydration.",
-      "next": "Characterize and implement contextual rank propagation."
+      "next": "Contextual rank propagation through rich-description overlay popovers. Verified in W1."
     },
     {
       "id": "C2",
       "title": "Add main/sub scaling filter role",
       "source_task": "S2",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "awakener-scaling-substats",
         "database-browse-state",
@@ -132,13 +132,13 @@
         "focused browse state/view model tests"
       ],
       "evidence": "High/low stat-specific substatScaling values infer MAIN/SUB without duplicating filter chips.",
-      "next": "Implement Any/Main/Sub selector with URL state."
+      "next": "Scaling role inference plus Any/Main/Sub filter state and UI. Verified in W1."
     },
     {
       "id": "C3",
       "title": "Cap square-art posse/covenant grid tracks",
       "source_task": "S3",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "src/features/database/database.css",
         "SimpleArtifactGrid",
@@ -146,13 +146,13 @@
         "browser checks for posses/covenants"
       ],
       "evidence": "Square-art layout uses auto-fit with 1fr max track.",
-      "next": "Implement capped track width around 145px."
+      "next": "Square-art posse/covenant grid max track cap. Verified in W1."
     },
     {
       "id": "C4",
       "title": "Include default-maxed Gnostic bonuses in lite browse/sort stats",
       "source_task": "S2",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "public-v3 catalog generation or generated catalog records",
         "awakeners.ts",
@@ -161,13 +161,13 @@
         "focused stat/sort tests"
       ],
       "evidence": "Detail path applies defaultMaxed Gnostic; browse path only sees catalog base stats.",
-      "next": "Prefer generated lite catalog bonus field over loading full records at runtime."
+      "next": "Default-maxed Gnostic catalog bonuses applied in lite/browse/sort stats. Verified in W1."
     },
     {
       "id": "C5",
       "title": "Hide Overview/Builds, add Lore last, default Upgrades",
       "source_task": "S4",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "database-paths",
         "DatabasePage",
@@ -178,13 +178,13 @@
         "route/modal tests"
       ],
       "evidence": "Overview is current default and owns lore; Builds tab is visible but empty.",
-      "next": "Implement tab visibility/default/lore route behavior."
+      "next": "Awakener detail visible tab model, Lore tab, and Upgrades default. Verified in W1."
     },
     {
       "id": "C6",
       "title": "Show upcoming banner end date and tighten hover target",
       "source_task": "S5",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "timeline.ts",
         "BannerCard",
@@ -192,13 +192,13 @@
         "timeline and banner card tests"
       ],
       "evidence": "Upcoming long-range banners show start only and use broad native title targets.",
-      "next": "Implement explicit end-date display and date-specific title target."
+      "next": "Visible upcoming banner date ranges and narrowed native title targets. Verified in W1."
     },
     {
       "id": "C7",
       "title": "Persist awakener and wheel sort preferences",
       "source_task": "S3",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "database-browse-preferences",
         "useDatabaseBrowseState",
@@ -207,7 +207,7 @@
         "route tests"
       ],
       "evidence": "Sort controls update URL only; existing safe storage abstractions can support deterministic preferences.",
-      "next": "Implement persisted sort defaults with URL params taking precedence."
+      "next": "Local sort preference persistence for awakeners and wheels. Verified in W1."
     }
   ],
   "maintenance": [
@@ -225,8 +225,9 @@
       "title": "Generated tag-fix workflow drift",
       "trigger": "dirty generated data arrived during QA pass",
       "skill": "$refactor-learning-maintainer",
-      "status": "queued",
-      "next": "Consider only if validation finds repeated record/index mismatch."
+      "status": "blocked",
+      "next": "No action in this goal.",
+      "reason": "No repeated generated-data mismatch was found during W1 validation; future tooling workflow changes need a fresh concrete mismatch or separate user scope."
     }
   ],
   "tasks": [
@@ -305,7 +306,7 @@
     {
       "id": "W1",
       "role": "worker",
-      "status": "active",
+      "status": "done",
       "title": "Parallel implementation tranche for the seven QA fixes",
       "skills": [
         "$refactor-worker-slice",
@@ -332,24 +333,47 @@
         "unrelated Builder/Collection behavior except shared stat/sort consumers"
       ],
       "expected_output": "Independent worker patches for the seven QA candidates, each with changed files and validation notes for controller review.",
-      "receipt": null
+      "receipt": {
+        "summary": "Implemented and integrated all seven QA fixes after parallel worker slices, with controller cleanup for lint, generated catalog diff size, and final verification.",
+        "evidence": [
+          "C1: RichDescription passes descriptionRank/descriptionMaxRank into root overlay opens; popover model preserves it through fallback, hydration, and live refresh while generic opens remain rankless.",
+          "C2: substat scaling filters now support Any/Main/Sub using stat-specific high/low scaling inference, with active chips and URL state.",
+          "C3: square-art database card grid uses a capped max track of 9.0625rem so filtered posse/covenant cards remain about 145px.",
+          "C4: public-v3 awakener catalog includes defaultPrimaryStatBonuses for 29 default-maxed Gnostic awakeners; lite stat resolvers, sorting, and grid cards consume those bonuses without loading full talent records.",
+          "C5: Awakener details default to Upgrades, hide Overview/Builds from visible tabs, keep disabled routes canonical to Upgrades, and move story content into Lore as the last tab.",
+          "C6: Upcoming long-range banners display date ranges such as Starts Jun 15 - Jul 13, with native titles only on visible date text and drawer date text added.",
+          "C7: Awakener and wheel sort preferences persist via database-browse-preferences local storage, with explicit URL sort params taking precedence."
+        ],
+        "validation": [
+          "npm run lint -> passed",
+          "npm exec tsc -- --noEmit --pretty false -> passed",
+          "npm exec vitest run focused 18-file matrix -> 18 files, 172 tests passed",
+          "npm run format:changed -> 45 files unchanged after formatting",
+          "npm run test:bounded -> 205 files, 1344 tests passed",
+          "npm run test:scripts -> 4 script tests passed",
+          "npm run build -> passed, with existing Vite chunk-size/plugin-timing warnings only",
+          "Browser spot check on 127.0.0.1:5179: posse filtered card stayed 145px on desktop and 390px mobile; Saya detail tablist showed Upgrades/Skills/Teams/Lore with Upgrades selected; main scaling filter showed active DMG Amp and Scaling: Main chips; timeline upcoming banners showed Starts Jun 15 - Jul 13."
+        ],
+        "risks": [
+          "Future public-v3 regeneration should preserve or emit defaultPrimaryStatBonuses for default-maxed Gnostic awakeners.",
+          "Main/Sub inference intentionally follows current stat-specific high/low scaling values; future new tiers should update the helper constants and tests."
+        ]
+      }
     }
   ],
   "final_audit": {
-    "full_outcome_complete": false,
-    "summary": "Scout/prep and W0 tag-fix checkpoint complete; seven product QA candidates remain queued.",
+    "full_outcome_complete": true,
+    "summary": "All seven user-named Saya QA issues are implemented and verified locally; current public-v3 tag fixes remain included from W0.",
     "validation": [
-      "W0 focused data/search validation passed",
-      "Goal packet checker passed"
+      "npm run lint -> passed",
+      "npm exec tsc -- --noEmit --pretty false -> passed",
+      "npm exec vitest run focused 18-file matrix -> 18 files, 172 tests passed",
+      "npm run format:changed -> 45 files unchanged after formatting",
+      "npm run test:bounded -> 205 files, 1344 tests passed",
+      "npm run test:scripts -> 4 script tests passed",
+      "npm run build -> passed, with existing Vite chunk-size/plugin-timing warnings only",
+      "Browser spot check on 127.0.0.1:5179: posse filtered card stayed 145px on desktop and 390px mobile; Saya detail tablist showed Upgrades/Skills/Teams/Lore with Upgrades selected; main scaling filter showed active DMG Amp and Scaling: Main chips; timeline upcoming banners showed Starts Jun 15 - Jul 13."
     ],
-    "open_items": [
-      "C1",
-      "C2",
-      "C3",
-      "C4",
-      "C5",
-      "C6",
-      "C7"
-    ]
+    "open_items": []
   }
 }

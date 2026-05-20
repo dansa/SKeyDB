@@ -118,4 +118,30 @@ describe('compareAwakenersForDatabaseSort', () => {
     expect(ascending.map((awakener) => awakener.name)).toEqual(['Alpha', 'Beta', 'Gamma'])
     expect(descending.map((awakener) => awakener.name)).toEqual(['Gamma', 'Alpha', 'Beta'])
   })
+
+  it('sorts stat columns by effective browse stats including default primary bonuses', () => {
+    const awakeners = [
+      makeAwakener({
+        id: 'awakener-0001',
+        name: 'Base Higher',
+        stats: {CON: 100, ATK: 120, DEF: 100},
+      }),
+      makeAwakener({
+        id: 'awakener-0002',
+        name: 'Gnostic Higher',
+        stats: {CON: 100, ATK: 100, DEF: 100},
+        defaultPrimaryStatBonuses: {CON: 0, ATK: 25, DEF: 0},
+      }),
+    ]
+
+    const sorted = [...awakeners].sort((left, right) =>
+      compareAwakenersForDatabaseSort(left, right, {
+        key: 'ATK',
+        direction: 'DESC',
+        groupByRealm: false,
+      }),
+    )
+
+    expect(sorted.map((awakener) => awakener.name)).toEqual(['Gnostic Higher', 'Base Higher'])
+  })
 })

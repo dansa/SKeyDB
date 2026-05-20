@@ -65,7 +65,10 @@ export function RichDescription({
     stats,
     variant: 'inline',
     onMechanicClick: (overlay, event) => {
-      popoverController?.openRootOverlay(overlay, event)
+      popoverController?.openRootOverlay(overlay, event, {
+        descriptionRank,
+        descriptionMaxRank,
+      })
     },
     onSkillClick: (name, event) => {
       popoverController?.openRootReferenceByName(name, event)

@@ -280,6 +280,21 @@ function ControllerHarness({
         </button>
         <button
           onClick={(event) => {
+            const overlay = referenceLayer?.overlayByName.get('counter')
+            if (!overlay) {
+              throw new Error('Expected Counter overlay')
+            }
+            popoverController.contextValue.openRootOverlay(overlay, event, {
+              descriptionRank: 6,
+              descriptionMaxRank: 6,
+            })
+          }}
+          type='button'
+        >
+          Open Counter Rank 6
+        </button>
+        <button
+          onClick={(event) => {
             const openRootInfo = popoverController.contextValue.openRootInfo
             if (!openRootInfo) {
               throw new Error('Expected openRootInfo to be available')
@@ -511,6 +526,33 @@ describe('useDatabasePopoverController', () => {
     })
     expect(await screen.findByText(/When attacked/)).toBeInTheDocument()
     expect(screen.queryByText('Details coming soon')).not.toBeInTheDocument()
+  })
+
+  it('applies root overlay rank context without changing generic overlay opens', async () => {
+    const referenceLayer = buildReferenceLayer('Base text.')
+    const counterReference = referenceLayer.referenceInfoByName.get('counter')
+    if (counterReference?.kind !== 'overlay') {
+      throw new Error('Expected Counter overlay reference')
+    }
+    counterReference.description = 'Gain 1 stack.'
+    counterReference.record.descriptionTemplate = 'Gain [Arg1] stack.'
+    counterReference.record.descriptionArgs = {
+      Arg1: {
+        kind: 'scaling',
+        values: ['1', '2', '3', '4', '5', '6'],
+      },
+    }
+
+    render(<ControllerHarness referenceLayer={referenceLayer} />)
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Counter'}))
+    expect(await screen.findByTitle(/Lv6: 6/)).toHaveTextContent('1')
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Guard'}))
+    expect(await screen.findByText('Guard text.')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Counter Rank 6'}))
+    expect(await screen.findByTitle(/Lv6: 6/)).toHaveTextContent('6')
   })
 
   it('threads formula context from controller options into popover content', async () => {

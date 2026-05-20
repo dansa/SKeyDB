@@ -23,8 +23,11 @@ describe('BannerCard', () => {
       </MemoryRouter>,
     )
 
-    expect(screen.getByText('Ended 2d ago')).toBeInTheDocument()
-    expect(screen.getByText('Ended 2d ago')).toHaveAttribute('title', 'Mar 1, 2026 - Mar 8, 2026')
+    expect(screen.getAllByText('Ended 2d ago')).toHaveLength(2)
+    expect(screen.getAllByText('Ended 2d ago')[0]).toHaveAttribute(
+      'title',
+      'Mar 1, 2026 - Mar 8, 2026',
+    )
     expect(screen.queryByTitle('Pinned')).not.toBeInTheDocument()
   })
 
@@ -44,11 +47,13 @@ describe('BannerCard', () => {
       </MemoryRouter>,
     )
 
-    expect(screen.getByText('Starts Mar 30')).toBeInTheDocument()
-    expect(screen.getByText('Starts Mar 30')).toHaveAttribute(
+    expect(screen.getAllByText('Starts Mar 30 - Apr 10')).toHaveLength(2)
+    expect(screen.getAllByText('Starts Mar 30 - Apr 10')[0]).toHaveAttribute(
       'title',
       'Mar 30, 2026 - Apr 10, 2026',
     )
+    expect(container.querySelector('[data-banner-hero="summary"]')).not.toHaveAttribute('title')
+    expect(container.querySelector('[data-banner-drawer-body]')).not.toHaveAttribute('title')
     expect(container.querySelector('article')?.className).not.toContain('opacity-')
     expect(container.innerHTML).not.toContain('opacity-[0.86]')
     expect(container.innerHTML).not.toContain('saturate-[0.78]')

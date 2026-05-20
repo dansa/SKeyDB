@@ -1,3 +1,7 @@
+import {
+  AWAKENER_SCALING_SUBSTAT_ROLE_FILTER_IDS,
+  type AwakenerScalingSubstatRoleFilter,
+} from '@/domain/awakener-scaling-substats'
 import {SUBSTAT_SCALING_KEYS, type SubstatScalingKey} from '@/domain/awakener-source-schema'
 import {
   normalizeBrowseQuery,
@@ -11,6 +15,7 @@ import type {DatabaseSortKey} from '@/domain/database-sorting'
 
 export type {DatabaseSortKey} from '@/domain/database-sorting'
 export type {SubstatScalingKey} from '@/domain/awakener-source-schema'
+export type {AwakenerScalingSubstatRoleFilter} from '@/domain/awakener-scaling-substats'
 
 export const DATABASE_REALM_FILTER_IDS = ['ALL', 'AEQUOR', 'CARO', 'CHAOS', 'ULTRA'] as const
 export type RealmFilterId = (typeof DATABASE_REALM_FILTER_IDS)[number]
@@ -98,6 +103,7 @@ export interface DatabaseBrowseState {
   availabilityFilter: AvailabilityFilterId
   gameplayFactionFilters: GameplayFactionFilterId[]
   scalingSubstatFilters: SubstatScalingKey[]
+  scalingSubstatRoleFilter: AwakenerScalingSubstatRoleFilter
   sortKey: DatabaseSortKey
   sortDirection: CollectionSortDirection
   groupByRealm: boolean
@@ -111,6 +117,7 @@ export const DATABASE_BROWSE_DEFAULTS: DatabaseBrowseState = {
   availabilityFilter: 'ALL',
   gameplayFactionFilters: [],
   scalingSubstatFilters: [],
+  scalingSubstatRoleFilter: 'ANY',
   sortKey: 'ALPHABETICAL',
   sortDirection: 'ASC',
   groupByRealm: false,
@@ -154,6 +161,11 @@ export function parseDatabaseBrowseState(searchParams: URLSearchParams): Databas
     scalingSubstatFilters: parseEnumListSearchParam(
       searchParams.get('scaling'),
       SUBSTAT_SCALING_KEYS,
+    ),
+    scalingSubstatRoleFilter: parseEnumSearchParam(
+      searchParams.get('scalingRole'),
+      AWAKENER_SCALING_SUBSTAT_ROLE_FILTER_IDS,
+      DATABASE_BROWSE_DEFAULTS.scalingSubstatRoleFilter,
     ),
     sortKey: parseEnumSearchParam(
       searchParams.get('sort'),
@@ -216,6 +228,13 @@ export function patchDatabaseBrowseState(
         nextState.scalingSubstatFilters.length > 0
           ? nextState.scalingSubstatFilters.join(',')
           : undefined,
+      )
+      setSearchParam(
+        nextParams,
+        'scalingRole',
+        nextState.scalingSubstatRoleFilter === DATABASE_BROWSE_DEFAULTS.scalingSubstatRoleFilter
+          ? undefined
+          : nextState.scalingSubstatRoleFilter,
       )
       setSearchParam(
         nextParams,

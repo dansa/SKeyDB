@@ -61,7 +61,6 @@ function shouldShowStoryUnlock(section: AwakenerProfileStorySection, index: numb
 
 export function AwakenerDetailOverview({
   areStatsExpanded,
-  awakener,
   fullData,
   onStatsExpandedChange,
   scalingRecord,
@@ -69,12 +68,8 @@ export function AwakenerDetailOverview({
   substatScaling,
 }: AwakenerDetailOverviewProps) {
   const profile = fullData.profile
-  const stories = useMemo(() => profile?.storySections ?? [], [profile?.storySections])
-  const [storySelection, setStorySelection] = useState({awakenerId: awakener.id, index: 0})
-  const activeStoryIndex = storySelection.awakenerId === awakener.id ? storySelection.index : 0
-  const activeStory = stories.at(activeStoryIndex) ?? null
 
-  if (!profile && stories.length === 0) {
+  if (!profile) {
     return (
       <div className='space-y-3'>
         <AwakenerDetailStatsPanel
@@ -85,25 +80,46 @@ export function AwakenerDetailOverview({
           stats={stats}
           substatScaling={substatScaling}
         />
-        <p className='text-xs text-slate-400'>No profile or story data available yet.</p>
+        <p className='text-xs text-slate-400'>No profile data available yet.</p>
+      </div>
+    )
+  }
+
+  return (
+    <div className='mt-5 space-y-3'>
+      <AwakenerDetailProfileFacts compact profile={profile} />
+      <AwakenerDetailStatsPanel
+        compact
+        isExpanded={areStatsExpanded}
+        onExpandedChange={onStatsExpandedChange}
+        scalingRecord={scalingRecord}
+        stats={stats}
+        substatScaling={substatScaling}
+      />
+    </div>
+  )
+}
+
+export function AwakenerDetailLore({
+  awakener,
+  fullData,
+}: Pick<AwakenerDetailOverviewProps, 'awakener' | 'fullData'>) {
+  const profile = fullData.profile
+  const stories = useMemo(() => profile?.storySections ?? [], [profile?.storySections])
+  const [storySelection, setStorySelection] = useState({awakenerId: awakener.id, index: 0})
+  const activeStoryIndex = storySelection.awakenerId === awakener.id ? storySelection.index : 0
+  const activeStory = stories.at(activeStoryIndex) ?? null
+
+  if (!profile && stories.length === 0) {
+    return (
+      <div className='space-y-3'>
+        <p className='text-xs text-slate-400'>No story data available yet.</p>
       </div>
     )
   }
 
   return (
     <div className='flex h-full min-h-0 flex-col gap-4 md:flex-row md:gap-5'>
-      <div className='mt-5 space-y-3 md:hidden'>
-        <AwakenerDetailProfileFacts compact profile={profile} />
-        <AwakenerDetailStatsPanel
-          compact
-          isExpanded={areStatsExpanded}
-          onExpandedChange={onStatsExpandedChange}
-          scalingRecord={scalingRecord}
-          stats={stats}
-          substatScaling={substatScaling}
-        />
-      </div>
-
       {activeStory ? (
         <>
           <section className='flex min-h-0 min-w-0 flex-1 flex-col'>

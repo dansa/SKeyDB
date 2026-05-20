@@ -1,6 +1,6 @@
 import {act, fireEvent, render, screen} from '@testing-library/react'
 import {MemoryRouter, Route, Routes, useLocation, useNavigate} from 'react-router-dom'
-import {describe, expect, it} from 'vitest'
+import {beforeEach, describe, expect, it} from 'vitest'
 
 import {useDatabaseBrowseState} from './useDatabaseBrowseState'
 import {useWheelsDatabaseBrowseState} from './useWheelsDatabaseBrowseState'
@@ -169,6 +169,10 @@ function renderWheelsBrowseStateHarness(initialEntries: string[] = ['/database/w
 }
 
 describe('useDatabaseBrowseState', () => {
+  beforeEach(() => {
+    window.localStorage.removeItem('database-browse-preferences')
+  })
+
   it('keeps query typing as replace-style history updates', async () => {
     renderBrowseStateHarness(['/database', '/database'])
 
@@ -210,9 +214,43 @@ describe('useDatabaseBrowseState', () => {
     })
     expect(screen.getByTestId('location-search')).toHaveTextContent('')
   })
+
+  it('persists awakener sort preferences without persisting filters or search', () => {
+    renderBrowseStateHarness()
+
+    fireEvent.click(screen.getByRole('button', {name: 'Append a'}))
+    fireEvent.click(screen.getByRole('button', {name: 'Set realm AEQUOR'}))
+    fireEvent.click(screen.getByRole('button', {name: 'Set sort ATK'}))
+    fireEvent.click(screen.getByRole('button', {name: 'Toggle sort direction'}))
+
+    expect(
+      JSON.parse(window.localStorage.getItem('database-browse-preferences') ?? 'null'),
+    ).toEqual({
+      awakeners: {sortKey: 'ATK', sortDirection: 'DESC', groupByRealm: false},
+      wheels: {sortKey: 'RARITY', sortDirection: 'DESC'},
+    })
+  })
+
+  it('lets awakener URL sort params override stored sort preferences', () => {
+    window.localStorage.setItem(
+      'database-browse-preferences',
+      JSON.stringify({
+        awakeners: {sortKey: 'ATK', sortDirection: 'DESC', groupByRealm: true},
+        wheels: {sortKey: 'RARITY', sortDirection: 'DESC'},
+      }),
+    )
+
+    renderBrowseStateHarness(['/database?sort=DEF&dir=ASC'])
+
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?sort=DEF&dir=ASC')
+  })
 })
 
 describe('useWheelsDatabaseBrowseState', () => {
+  beforeEach(() => {
+    window.localStorage.removeItem('database-browse-preferences')
+  })
+
   it('parses wheel browse params from the wheel route', () => {
     renderWheelsBrowseStateHarness([
       '/database/wheels?q=merciful&realm=CARO&rarity=SSR&mainstat=KEYFLARE_REGEN&sort=RARITY&dir=DESC',
@@ -270,5 +308,34 @@ describe('useWheelsDatabaseBrowseState', () => {
       fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
     })
     expect(screen.getByTestId('location-search')).toHaveTextContent('?realm=CARO&rarity=SSR')
+  })
+
+  it('persists wheel sort preferences without persisting filters or search', () => {
+    renderWheelsBrowseStateHarness()
+
+    fireEvent.click(screen.getByRole('button', {name: 'Append m'}))
+    fireEvent.click(screen.getByRole('button', {name: 'Set realm CARO'}))
+    fireEvent.click(screen.getByRole('button', {name: 'Set sort ALPHABETICAL'}))
+
+    expect(
+      JSON.parse(window.localStorage.getItem('database-browse-preferences') ?? 'null'),
+    ).toEqual({
+      awakeners: {sortKey: 'ALPHABETICAL', sortDirection: 'ASC', groupByRealm: false},
+      wheels: {sortKey: 'ALPHABETICAL', sortDirection: 'ASC'},
+    })
+  })
+
+  it('lets wheel URL sort params override stored sort preferences', () => {
+    window.localStorage.setItem(
+      'database-browse-preferences',
+      JSON.stringify({
+        awakeners: {sortKey: 'ALPHABETICAL', sortDirection: 'ASC', groupByRealm: false},
+        wheels: {sortKey: 'ALPHABETICAL', sortDirection: 'ASC'},
+      }),
+    )
+
+    renderWheelsBrowseStateHarness(['/database/wheels?sort=RARITY&dir=DESC'])
+
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?sort=RARITY&dir=DESC')
   })
 })

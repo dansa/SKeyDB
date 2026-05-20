@@ -1,5 +1,6 @@
 import {
   getAwakenerScalingSubstatLabel,
+  type AwakenerScalingSubstatRoleFilter,
   type SubstatScalingKey,
 } from '@/domain/awakener-scaling-substats'
 import {
@@ -35,6 +36,7 @@ interface AwakenerActiveFilterActions {
   setAvailabilityFilter: (next: AvailabilityFilterId) => void
   setGameplayFactionFilters: (next: GameplayFactionFilterId[]) => void
   setScalingSubstatFilters: (next: SubstatScalingKey[]) => void
+  setScalingSubstatRoleFilter: (next: AwakenerScalingSubstatRoleFilter) => void
 }
 
 interface PosseActiveFilterActions {
@@ -63,6 +65,7 @@ export function buildAwakenerActiveFilterChips(
     | 'availabilityFilter'
     | 'gameplayFactionFilters'
     | 'scalingSubstatFilters'
+    | 'scalingSubstatRoleFilter'
   >,
   actions: AwakenerActiveFilterActions,
 ): ActiveFilterChip[] {
@@ -135,6 +138,16 @@ export function buildAwakenerActiveFilterChips(
         actions.setScalingSubstatFilters(
           state.scalingSubstatFilters.filter((value) => value !== substat),
         )
+      },
+    })
+  }
+
+  if (state.scalingSubstatRoleFilter !== 'ANY') {
+    chips.push({
+      key: 'scaling-role',
+      label: `Scaling: ${state.scalingSubstatRoleFilter === 'MAIN' ? 'Main' : 'Sub'}`,
+      onClear: () => {
+        actions.setScalingSubstatRoleFilter('ANY')
       },
     })
   }

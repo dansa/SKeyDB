@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import {getAwakeners} from './awakeners'
+import {getAwakenerById, getAwakeners, resolveAwakenerLiteStatsForLevel} from './awakeners'
 
 describe('getAwakeners', () => {
   it('returns clean awakeners with canonical names and aliases', () => {
@@ -99,6 +99,21 @@ describe('getAwakeners', () => {
           typeof a.stats.DEF === 'number',
       ),
     ).toBe(true)
+  })
+
+  it('includes default-maxed Gnostic primary stat bonuses in lite resolved stats', () => {
+    const saya = getAwakenerById('awakener-0057')
+
+    expect(saya?.defaultPrimaryStatBonuses).toEqual({
+      CON: 12,
+      ATK: 12,
+      DEF: 11,
+    })
+    expect(saya ? resolveAwakenerLiteStatsForLevel(saya, 60) : undefined).toEqual({
+      CON: 104,
+      ATK: 104,
+      DEF: 99,
+    })
   })
 
   it('provides tags as an array for every awakener', () => {

@@ -39,6 +39,17 @@ describe('awakeners-lite', () => {
     )
   })
 
+  it('includes default-maxed Gnostic primary bonuses in lite stats', () => {
+    const records = getAwakenersLite()
+    const saya = records.find((entry) => entry.name === 'saya')
+
+    expect(saya?.stats).toEqual({
+      CON: 37,
+      ATK: 37,
+      DEF: 35,
+    })
+  })
+
   it('filters out low-signal overlay references like Retain and Exhaust', () => {
     const tags = new Set(getAwakenersLite().flatMap((entry) => entry.tags))
 

@@ -5,9 +5,11 @@ import {
   buildDatabaseAwakenerPath,
   buildDatabaseWheelPath,
   DATABASE_AWAKENER_TABS,
+  DATABASE_AWAKENER_VISIBLE_TABS,
   findAwakenerByDatabaseSlug,
   findWheelByDatabaseSlug,
   resolveDatabaseAwakenerTab,
+  resolveDatabaseAwakenerVisibleTab,
   toDatabaseAwakenerSlug,
   toDatabaseWheelSlug,
 } from './database-paths'
@@ -51,11 +53,8 @@ describe('database paths', () => {
       buildDatabaseAwakenerPath(makeAwakener({id: 'awakener-0019', name: 'helot: catena'})),
     ).toBe('/database/awakeners/helot-catena')
     expect(
-      buildDatabaseAwakenerPath(
-        makeAwakener({id: 'awakener-0019', name: 'helot: catena'}),
-        'builds',
-      ),
-    ).toBe('/database/awakeners/helot-catena/builds')
+      buildDatabaseAwakenerPath(makeAwakener({id: 'awakener-0019', name: 'helot: catena'}), 'lore'),
+    ).toBe('/database/awakeners/helot-catena/lore')
   })
 
   it('normalizes awakener names into shareable slugs', () => {
@@ -106,11 +105,35 @@ describe('database paths', () => {
   it('resolves allowed database tab slugs', () => {
     expect(resolveDatabaseAwakenerTab('builds')).toBe('builds')
     expect(resolveDatabaseAwakenerTab('Builds')).toBe('builds')
+    expect(resolveDatabaseAwakenerTab('lore')).toBe('lore')
     expect(resolveDatabaseAwakenerTab('upgrades')).toBe('upgrades')
     expect(resolveDatabaseAwakenerTab('skills')).toBe('skills')
     expect(resolveDatabaseAwakenerTab('cards')).toBe('skills')
     expect(resolveDatabaseAwakenerTab(undefined)).toBeNull()
     expect(resolveDatabaseAwakenerTab('missing')).toBeNull()
-    expect(DATABASE_AWAKENER_TABS).toEqual(['overview', 'upgrades', 'skills', 'builds', 'teams'])
+    expect(DATABASE_AWAKENER_TABS).toEqual([
+      'overview',
+      'upgrades',
+      'skills',
+      'builds',
+      'teams',
+      'lore',
+    ])
+    expect(DATABASE_AWAKENER_VISIBLE_TABS).toEqual(['upgrades', 'skills', 'teams', 'lore'])
+  })
+
+  it('uses upgrades as the visible fallback for hidden or disabled awakener tabs', () => {
+    expect(buildDatabaseAwakenerPath(makeAwakener({name: 'thais'}))).toBe(
+      '/database/awakeners/thais',
+    )
+    expect(buildDatabaseAwakenerPath(makeAwakener({name: 'thais'}), 'overview')).toBe(
+      '/database/awakeners/thais',
+    )
+    expect(buildDatabaseAwakenerPath(makeAwakener({name: 'thais'}), 'builds')).toBe(
+      '/database/awakeners/thais',
+    )
+    expect(resolveDatabaseAwakenerVisibleTab('overview')).toBe('upgrades')
+    expect(resolveDatabaseAwakenerVisibleTab('builds')).toBe('upgrades')
+    expect(resolveDatabaseAwakenerVisibleTab(null)).toBe('upgrades')
   })
 })

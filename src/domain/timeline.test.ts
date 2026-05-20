@@ -86,7 +86,7 @@ describe('timeline date and status helpers', () => {
         '2026-04-10T01:00:00.000Z',
         new Date('2026-03-10T01:00:00.000Z'),
       ),
-    ).toEqual({text: 'Starts Mar 30', title: 'Mar 30, 2026 - Apr 10, 2026'})
+    ).toEqual({text: 'Starts Mar 30 - Apr 10', title: 'Mar 30, 2026 - Apr 10, 2026'})
   })
 
   it('keeps the year in long-range visible dates outside the current year', () => {
@@ -96,7 +96,10 @@ describe('timeline date and status helpers', () => {
         '2027-01-30T01:00:00.000Z',
         new Date('2026-12-20T01:00:00.000Z'),
       ),
-    ).toEqual({text: 'Starts Jan 15, 2027', title: 'Jan 15, 2027 - Jan 30, 2027'})
+    ).toEqual({
+      text: 'Starts Jan 15 - Jan 30, 2027',
+      title: 'Jan 15, 2027 - Jan 30, 2027',
+    })
   })
 })
 

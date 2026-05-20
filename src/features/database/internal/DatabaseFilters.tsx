@@ -2,6 +2,7 @@ import {useState, type RefObject} from 'react'
 
 import {
   getAwakenerScalingSubstatFilterOptions,
+  type AwakenerScalingSubstatRoleFilter,
   type SubstatScalingKey,
 } from '@/domain/awakener-scaling-substats'
 import {
@@ -34,6 +35,7 @@ interface DatabaseFiltersProps {
   availabilityFilter: AvailabilityFilterId
   gameplayFactionFilters: readonly GameplayFactionFilterId[]
   scalingSubstatFilters: readonly SubstatScalingKey[]
+  scalingSubstatRoleFilter: AwakenerScalingSubstatRoleFilter
   searchInputRef: RefObject<HTMLInputElement | null>
   onQueryChange: (query: string) => void
   onRealmFilterChange: (filter: RealmFilterId) => void
@@ -42,6 +44,7 @@ interface DatabaseFiltersProps {
   onAvailabilityFilterChange: (filter: AvailabilityFilterId) => void
   onGameplayFactionFilterToggle: (filter: GameplayFactionFilterId) => void
   onScalingSubstatFilterToggle: (filter: SubstatScalingKey) => void
+  onScalingSubstatRoleFilterChange: (filter: AwakenerScalingSubstatRoleFilter) => void
 }
 
 const REALM_FILTERS = DATABASE_REALM_FILTER_IDS.slice(1)
@@ -70,6 +73,11 @@ const gameplayFactionOptions = DATABASE_GAMEPLAY_FACTION_FILTER_IDS.map((id) => 
 }))
 
 const scalingSubstatOptions = getAwakenerScalingSubstatFilterOptions()
+const scalingRoleOptions: {id: AwakenerScalingSubstatRoleFilter; label: string}[] = [
+  {id: 'ANY', label: 'Any'},
+  {id: 'MAIN', label: 'Main'},
+  {id: 'SUB', label: 'Sub'},
+]
 
 export function DatabaseFilters({
   query,
@@ -79,6 +87,7 @@ export function DatabaseFilters({
   availabilityFilter,
   gameplayFactionFilters,
   scalingSubstatFilters,
+  scalingSubstatRoleFilter,
   searchInputRef,
   onQueryChange,
   onRealmFilterChange,
@@ -87,6 +96,7 @@ export function DatabaseFilters({
   onAvailabilityFilterChange,
   onGameplayFactionFilterToggle,
   onScalingSubstatFilterToggle,
+  onScalingSubstatRoleFilterChange,
 }: DatabaseFiltersProps) {
   const [openMobileFilter, setOpenMobileFilter] = useState<'rarity' | 'type' | 'source' | null>(
     null,
@@ -151,7 +161,9 @@ export function DatabaseFilters({
             gameplayFactionFilters={gameplayFactionFilters}
             onGameplayFactionFilterToggle={onGameplayFactionFilterToggle}
             onScalingSubstatFilterToggle={onScalingSubstatFilterToggle}
+            onScalingSubstatRoleFilterChange={onScalingSubstatRoleFilterChange}
             scalingSubstatFilters={scalingSubstatFilters}
+            scalingSubstatRoleFilter={scalingSubstatRoleFilter}
           />
         </div>
       ) : (
@@ -187,7 +199,9 @@ export function DatabaseFilters({
             gameplayFactionFilters={gameplayFactionFilters}
             onGameplayFactionFilterToggle={onGameplayFactionFilterToggle}
             onScalingSubstatFilterToggle={onScalingSubstatFilterToggle}
+            onScalingSubstatRoleFilterChange={onScalingSubstatRoleFilterChange}
             scalingSubstatFilters={scalingSubstatFilters}
+            scalingSubstatRoleFilter={scalingSubstatRoleFilter}
           />
         </div>
       )}
@@ -198,17 +212,24 @@ export function DatabaseFilters({
 interface AwakenerAdvancedFiltersProps {
   gameplayFactionFilters: readonly GameplayFactionFilterId[]
   scalingSubstatFilters: readonly SubstatScalingKey[]
+  scalingSubstatRoleFilter: AwakenerScalingSubstatRoleFilter
   onGameplayFactionFilterToggle: (filter: GameplayFactionFilterId) => void
   onScalingSubstatFilterToggle: (filter: SubstatScalingKey) => void
+  onScalingSubstatRoleFilterChange: (filter: AwakenerScalingSubstatRoleFilter) => void
 }
 
 function AwakenerAdvancedFilters({
   gameplayFactionFilters,
   onGameplayFactionFilterToggle,
   onScalingSubstatFilterToggle,
+  onScalingSubstatRoleFilterChange,
   scalingSubstatFilters,
+  scalingSubstatRoleFilter,
 }: AwakenerAdvancedFiltersProps) {
-  const activeCount = gameplayFactionFilters.length + scalingSubstatFilters.length
+  const activeCount =
+    gameplayFactionFilters.length +
+    scalingSubstatFilters.length +
+    (scalingSubstatRoleFilter === 'ANY' ? 0 : 1)
   const [open, setOpen] = useState(activeCount > 0)
 
   return (
@@ -258,6 +279,20 @@ function AwakenerAdvancedFilters({
             controlsClassName='grid min-w-0 flex-1 grid-cols-2 gap-1.5 sm:flex sm:flex-wrap sm:items-center'
             label='Scaling'
           >
+            <span className='col-span-2 grid grid-cols-3 gap-1.5 sm:col-span-1 sm:flex sm:w-auto'>
+              {scalingRoleOptions.map((option) => (
+                <FilterChipButton
+                  active={scalingSubstatRoleFilter === option.id}
+                  className='w-full justify-center sm:w-auto'
+                  key={option.id}
+                  onClick={() => {
+                    onScalingSubstatRoleFilterChange(option.id)
+                  }}
+                >
+                  {option.label}
+                </FilterChipButton>
+              ))}
+            </span>
             {scalingSubstatOptions.map((option) => (
               <FilterChipButton
                 active={scalingSubstatFilters.includes(option.id)}

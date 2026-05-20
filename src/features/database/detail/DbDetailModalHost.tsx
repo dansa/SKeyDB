@@ -7,7 +7,9 @@ import type {Awakener} from '@/domain/awakeners'
 import {getCovenants, type Covenant} from '@/domain/covenants'
 import {
   buildDatabaseAwakenerPath,
+  DEFAULT_DATABASE_AWAKENER_TAB,
   resolveDatabaseAwakenerTab,
+  resolveDatabaseAwakenerVisibleTab,
   type DatabaseAwakenerTab,
 } from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
@@ -122,7 +124,7 @@ function buildDetailRefLookup(awakeners: Awakener[], wheels: Wheel[]): DetailRef
 function resolveOverlayRouteItem(
   ref: EntityRef,
   lookup: DetailRefLookup,
-  activeAwakenerTab: DatabaseAwakenerTab = 'overview',
+  activeAwakenerTab: DatabaseAwakenerTab = DEFAULT_DATABASE_AWAKENER_TAB,
 ): DatabaseDetailRouteItem | null {
   if (ref.kind === 'awakener') {
     const item = lookup.awakenersById.get(ref.id)
@@ -194,8 +196,8 @@ function resolveAwakenerTabCanonicalPath(
     return null
   }
 
-  const resolvedTab = resolveDatabaseAwakenerTab(tabSlug)
-  return buildDatabaseAwakenerPath(awakener, resolvedTab ?? 'overview')
+  const resolvedTab = resolveDatabaseAwakenerVisibleTab(resolveDatabaseAwakenerTab(tabSlug))
+  return buildDatabaseAwakenerPath(awakener, resolvedTab)
 }
 
 function selectDatabaseDetailResult(
@@ -333,7 +335,8 @@ export function DbDetailModalHost({
     : stackTop?.kind && isDatabaseDetailKind(stackTop.kind)
       ? {kind: stackTop.kind, id: stackTop.id}
       : null
-  const activeAwakenerTab = routeItem?.kind === 'awakener' ? routeItem.activeTab : 'overview'
+  const activeAwakenerTab =
+    routeItem?.kind === 'awakener' ? routeItem.activeTab : DEFAULT_DATABASE_AWAKENER_TAB
   const routeNavigation = useMemo(
     () =>
       createDatabaseDetailResultNavigation({
@@ -430,9 +433,11 @@ function DbDetailOverlayModal({
   const [overlayAwakenerTabState, setOverlayAwakenerTabState] = useState<{
     activeTab: DatabaseAwakenerTab
     refKey: string
-  }>(() => ({activeTab: 'overview', refKey: activeRefKey}))
+  }>(() => ({activeTab: DEFAULT_DATABASE_AWAKENER_TAB, refKey: activeRefKey}))
   const overlayAwakenerTab =
-    overlayAwakenerTabState.refKey === activeRefKey ? overlayAwakenerTabState.activeTab : 'overview'
+    overlayAwakenerTabState.refKey === activeRefKey
+      ? overlayAwakenerTabState.activeTab
+      : DEFAULT_DATABASE_AWAKENER_TAB
   const detailRefLookup = useMemo(
     () => buildDetailRefLookup(awakeners, wheels),
     [awakeners, wheels],

@@ -16,7 +16,7 @@ import {dbDetailRegistry} from './dbDetailRegistry'
 interface MockDetailRenderOptions {
   callbacks: {
     onClose: () => void
-    onTabChange: (tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams') => void
+    onTabChange: (tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore') => void
     onSelectWheel: (wheel: {id?: string; name: string}) => void
   }
   item: {
@@ -223,7 +223,7 @@ describe('DbDetailModalHost overlay entries', () => {
     openDetailInAct({kind: 'awakener', id: 'awakener-0021'}, 'builder-overlay')
 
     expect(await screen.findByRole('dialog', {name: /goliath details/i})).toBeInTheDocument()
-    expect(screen.getByText('Active tab: overview')).toBeInTheDocument()
+    expect(screen.getByText('Active tab: upgrades')).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: /close overlay/i}))
 
@@ -319,7 +319,7 @@ describe('DbDetailModalHost overlay entries', () => {
 
     openDetailInAct({kind: 'awakener', id: 'awakener-0021'}, 'builder-overlay')
 
-    expect(await screen.findByText('Active tab: overview')).toBeInTheDocument()
+    expect(await screen.findByText('Active tab: upgrades')).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', {name: /show skills tab/i}))
 
     expect(await screen.findByText('Active tab: skills')).toBeInTheDocument()

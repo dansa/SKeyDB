@@ -38,6 +38,7 @@ function makeBrowseState(overrides: Partial<DatabaseBrowseState> = {}): Database
     availabilityFilter: 'ALL',
     gameplayFactionFilters: [],
     scalingSubstatFilters: [],
+    scalingSubstatRoleFilter: 'ANY',
     sortKey: 'ALPHABETICAL',
     sortDirection: 'ASC',
     groupByRealm: false,
@@ -140,6 +141,63 @@ describe('filterAwakenersForDatabase', () => {
         ['KeyflareRegen', 'DamageAmplification'],
       ).map((awakener) => awakener.name),
     ).toEqual(['Full Match'])
+  })
+
+  it('distinguishes main and sub scaling substat filters', () => {
+    const awakeners = [
+      makeAwakener({
+        id: 'awakener-0001',
+        name: 'Main Scaling',
+        substatScaling: {DamageAmplification: 1.6},
+      }),
+      makeAwakener({
+        id: 'awakener-0002',
+        name: 'Sub Scaling',
+        substatScaling: {DamageAmplification: 0.8},
+      }),
+      makeAwakener({
+        id: 'awakener-0003',
+        name: 'No Scaling',
+        substatScaling: {DamageAmplification: 0},
+      }),
+    ]
+
+    expect(
+      filterAwakenersForDatabase(
+        awakeners,
+        'ALL',
+        'ALL',
+        'ALL',
+        'ALL',
+        [],
+        ['DamageAmplification'],
+        'ANY',
+      ).map((awakener) => awakener.name),
+    ).toEqual(['Main Scaling', 'Sub Scaling'])
+    expect(
+      filterAwakenersForDatabase(
+        awakeners,
+        'ALL',
+        'ALL',
+        'ALL',
+        'ALL',
+        [],
+        ['DamageAmplification'],
+        'MAIN',
+      ).map((awakener) => awakener.name),
+    ).toEqual(['Main Scaling'])
+    expect(
+      filterAwakenersForDatabase(
+        awakeners,
+        'ALL',
+        'ALL',
+        'ALL',
+        'ALL',
+        [],
+        ['DamageAmplification'],
+        'SUB',
+      ).map((awakener) => awakener.name),
+    ).toEqual(['Sub Scaling'])
   })
 })
 

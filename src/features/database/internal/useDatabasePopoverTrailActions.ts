@@ -15,6 +15,7 @@ import type {PublicFormulaContext} from '@/domain/public-formula-context'
 import type {
   DatabasePopoverAnchorEvent,
   DatabasePopoverContextValue,
+  DatabasePopoverDescriptionRankContext,
 } from './database-popover-context'
 import {
   buildOverlayEntry,
@@ -24,6 +25,7 @@ import {
   resolveNavigationHandler,
   resolveOverlayReference,
   resolveReferenceByName,
+  withDescriptionRankContext,
   withInheritedReferenceLayerOverride,
 } from './database-popover-controller-model'
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
@@ -245,14 +247,19 @@ function useDatabasePopoverRootActions({
   )
 
   const openHydratedRootReferenceAtAnchor = useCallback(
-    (reference: DatabaseReferenceInfo, anchorElement: HTMLElement, anchorRect: DOMRect) => {
+    (
+      reference: DatabaseReferenceInfo,
+      anchorElement: HTMLElement,
+      anchorRect: DOMRect,
+      rankContext?: DatabasePopoverDescriptionRankContext,
+    ) => {
       const hydrationRequest = invalidateRootHydration()
       void hydrateReference(reference).then((hydratedReference) => {
         if (hydrationRequest !== rootHydrationRequestRef.current) {
           return
         }
         openRootTrailEntryAtAnchor(
-          buildSelectedTrailEntry(hydratedReference),
+          withDescriptionRankContext(buildSelectedTrailEntry(hydratedReference), rankContext),
           anchorElement,
           anchorRect,
         )
@@ -299,9 +306,13 @@ function useDatabasePopoverRootActions({
   )
 
   const openRootOverlay = useCallback(
-    (overlay: AwakenerOverlayRecord, event: DatabasePopoverAnchorEvent) => {
+    (
+      overlay: AwakenerOverlayRecord,
+      event: DatabasePopoverAnchorEvent,
+      rankContext?: DatabasePopoverDescriptionRankContext,
+    ) => {
       event.stopPropagation()
-      const entry = buildOverlayEntry({overlay, referenceLayer, selectedEnlightenSlot})
+      const entry = buildOverlayEntry({overlay, rankContext, referenceLayer, selectedEnlightenSlot})
       const reference = resolveOverlayReference(referenceLayer, overlay)
       if (!reference || !needsLazyReferenceHydration(reference)) {
         openRootTrailEntry(entry, event)
@@ -313,6 +324,7 @@ function useDatabasePopoverRootActions({
         reference,
         anchorElement,
         anchorElement.getBoundingClientRect(),
+        rankContext,
       )
     },
     [openHydratedRootReferenceAtAnchor, openRootTrailEntry, referenceLayer, selectedEnlightenSlot],

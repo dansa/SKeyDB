@@ -187,6 +187,32 @@ function formatTimelineDisplayDate(dateStr: string, now?: Date): string {
   return formatTimelineDate(dateStr)
 }
 
+function formatTimelineDisplayDateRange(startDate: string, endDate: string, now?: Date): string {
+  const start = new Date(startDate)
+  const end = new Date(endDate)
+  const reference = now ?? new Date()
+  const startYear = start.getUTCFullYear()
+  const endYear = end.getUTCFullYear()
+
+  if (startYear === endYear) {
+    const startText = new Intl.DateTimeFormat('en-US', {
+      day: 'numeric',
+      month: 'short',
+    }).format(start)
+    const endText =
+      endYear === reference.getUTCFullYear()
+        ? new Intl.DateTimeFormat('en-US', {
+            day: 'numeric',
+            month: 'short',
+          }).format(end)
+        : formatTimelineDate(endDate)
+
+    return `${startText} - ${endText}`
+  }
+
+  return `${formatTimelineDate(startDate)} - ${formatTimelineDate(endDate)}`
+}
+
 function formatTimelineDateRange(startDate: string, endDate: string): string {
   return `${formatTimelineDate(startDate)} - ${formatTimelineDate(endDate)}`
 }
@@ -268,7 +294,7 @@ export function getTimelineCountdownDisplay(
 
   if (Math.abs(countdown.totalMs) > TIMELINE_DATE_DISPLAY_THRESHOLD_MS) {
     if (status === 'upcoming') {
-      return {text: `Starts ${formatTimelineDisplayDate(startDate, now)}`, title}
+      return {text: `Starts ${formatTimelineDisplayDateRange(startDate, endDate, now)}`, title}
     }
     if (status === 'active') {
       return {text: `Ends ${formatTimelineDisplayDate(endDate, now)}`, title}

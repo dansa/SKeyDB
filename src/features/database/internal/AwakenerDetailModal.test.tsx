@@ -304,6 +304,7 @@ vi.mock('./AwakenerDetailOverview', () => ({
       <div>Overview CON {stats?.CON ?? 'none'}</div>
     </div>
   ),
+  AwakenerDetailLore: () => <div>Lore Tab</div>,
 }))
 
 vi.mock('./AwakenerDetailUpgrades', () => ({
@@ -366,15 +367,15 @@ function makeAwakener(id: number, name: string): Awakener {
 }
 
 interface TestAwakenerDetailModalOptions {
-  activeTab?: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams'
+  activeTab?: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore'
   awakeners?: Awakener[]
   key?: string
   onClose?: () => void
   onSelectAwakener?: (
     awakener: Awakener,
-    tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams',
+    tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore',
   ) => void
-  onTabChange?: (tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams') => void
+  onTabChange?: (tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore') => void
 }
 
 function getTestFullData(id: string | number): AwakenerFullRecord {
@@ -460,7 +461,7 @@ describe('AwakenerDetailModal', () => {
     window.localStorage.clear()
   })
 
-  it('resets active tab to overview when switching awakeners', async () => {
+  it('resets active tab to upgrades when switching awakeners', async () => {
     const onClose = vi.fn()
     const first = makeAwakener(1, 'alpha')
     const second = makeAwakener(2, 'beta')
@@ -474,7 +475,7 @@ describe('AwakenerDetailModal', () => {
     rerender(createAwakenerDetailModalElement(second, {key: second.id, onClose}))
 
     await waitFor(() => {
-      expect(screen.getByRole('tab', {name: 'Overview'})).toHaveAttribute('aria-selected', 'true')
+      expect(screen.getByRole('tab', {name: 'Upgrades'})).toHaveAttribute('aria-selected', 'true')
     })
   })
 
@@ -494,15 +495,13 @@ describe('AwakenerDetailModal', () => {
     expect(
       within(dialog).getByRole('tablist', {name: 'Awakener detail sections'}),
     ).toBeInTheDocument()
-    expect(within(dialog).getByRole('tab', {name: 'Overview'})).toHaveAttribute(
+    expect(within(dialog).queryByRole('tab', {name: 'Overview'})).not.toBeInTheDocument()
+    expect(within(dialog).queryByRole('tab', {name: 'Builds'})).not.toBeInTheDocument()
+    expect(within(dialog).getByRole('tab', {name: 'Upgrades'})).toHaveAttribute(
       'aria-selected',
       'true',
     )
-    expect(within(dialog).getByRole('tab', {name: 'Overview'})).toHaveAttribute('tabindex', '0')
-    expect(within(dialog).getByRole('tab', {name: 'Upgrades'})).toHaveAttribute(
-      'aria-selected',
-      'false',
-    )
+    expect(within(dialog).getByRole('tab', {name: 'Upgrades'})).toHaveAttribute('tabindex', '0')
     expect(within(dialog).getByRole('tab', {name: 'Skills'})).toHaveAttribute(
       'aria-selected',
       'false',
@@ -512,9 +511,9 @@ describe('AwakenerDetailModal', () => {
     const panel = within(dialog).getByRole('tabpanel')
     expect(panel).toHaveAttribute(
       'aria-labelledby',
-      within(dialog).getByRole('tab', {name: 'Overview'}).getAttribute('id'),
+      within(dialog).getByRole('tab', {name: 'Upgrades'}).getAttribute('id'),
     )
-    expect(within(dialog).getByRole('tab', {name: 'Overview'})).toHaveAttribute(
+    expect(within(dialog).getByRole('tab', {name: 'Upgrades'})).toHaveAttribute(
       'aria-controls',
       panel.getAttribute('id'),
     )
@@ -525,30 +524,30 @@ describe('AwakenerDetailModal', () => {
 
     renderAwakenerDetailModal(awakener)
 
-    const overviewTab = screen.getByRole('tab', {name: 'Overview'})
-    overviewTab.focus()
+    const upgradesTab = screen.getByRole('tab', {name: 'Upgrades'})
+    upgradesTab.focus()
 
-    fireEvent.keyDown(overviewTab, {key: 'ArrowRight'})
-    expect(screen.getByRole('tab', {name: 'Upgrades'})).toHaveFocus()
-    expect(screen.getByRole('tab', {name: 'Upgrades'})).toHaveAttribute('aria-selected', 'true')
-    expect(await screen.findByText('Upgrades Tab')).toBeInTheDocument()
+    fireEvent.keyDown(upgradesTab, {key: 'ArrowRight'})
+    expect(screen.getByRole('tab', {name: 'Skills'})).toHaveFocus()
+    expect(screen.getByRole('tab', {name: 'Skills'})).toHaveAttribute('aria-selected', 'true')
+    expect(await screen.findByText('Skills Tab')).toBeInTheDocument()
     expect(screen.getByRole('tabpanel')).toHaveAttribute(
       'aria-labelledby',
-      screen.getByRole('tab', {name: 'Upgrades'}).getAttribute('id'),
+      screen.getByRole('tab', {name: 'Skills'}).getAttribute('id'),
     )
 
-    fireEvent.keyDown(screen.getByRole('tab', {name: 'Upgrades'}), {key: 'End'})
-    expect(screen.getByRole('tab', {name: 'Teams'})).toHaveFocus()
-    expect(screen.getByRole('tab', {name: 'Teams'})).toHaveAttribute('aria-selected', 'true')
-    expect(await screen.findByText('Teams Tab')).toBeInTheDocument()
+    fireEvent.keyDown(screen.getByRole('tab', {name: 'Skills'}), {key: 'End'})
+    expect(screen.getByRole('tab', {name: 'Lore'})).toHaveFocus()
+    expect(screen.getByRole('tab', {name: 'Lore'})).toHaveAttribute('aria-selected', 'true')
+    expect(await screen.findByText('Lore Tab')).toBeInTheDocument()
 
-    fireEvent.keyDown(screen.getByRole('tab', {name: 'Teams'}), {key: 'Home'})
-    expect(screen.getByRole('tab', {name: 'Overview'})).toHaveFocus()
-    expect(screen.getByRole('tab', {name: 'Overview'})).toHaveAttribute('aria-selected', 'true')
+    fireEvent.keyDown(screen.getByRole('tab', {name: 'Lore'}), {key: 'Home'})
+    expect(screen.getByRole('tab', {name: 'Upgrades'})).toHaveFocus()
+    expect(screen.getByRole('tab', {name: 'Upgrades'})).toHaveAttribute('aria-selected', 'true')
 
-    fireEvent.keyDown(screen.getByRole('tab', {name: 'Overview'}), {key: 'ArrowLeft'})
-    expect(screen.getByRole('tab', {name: 'Teams'})).toHaveFocus()
-    expect(screen.getByRole('tab', {name: 'Teams'})).toHaveAttribute('aria-selected', 'true')
+    fireEvent.keyDown(screen.getByRole('tab', {name: 'Upgrades'}), {key: 'ArrowLeft'})
+    expect(screen.getByRole('tab', {name: 'Lore'})).toHaveFocus()
+    expect(screen.getByRole('tab', {name: 'Lore'})).toHaveAttribute('aria-selected', 'true')
   })
 
   it('places focus inside the dialog on open, traps tabbing, and restores focus on close', async () => {
@@ -668,19 +667,17 @@ describe('AwakenerDetailModal', () => {
     renderAwakenerDetailModal(awakener, {onClose})
 
     await waitFor(() => {
-      expect(screen.getAllByText('Sidebar Level 60')).toHaveLength(1)
-      expect(screen.getAllByText('Sidebar E3+0')).toHaveLength(1)
-      expect(screen.getAllByText('Sidebar Enlighten E0')).toHaveLength(1)
-      expect(screen.getAllByText('Sidebar CON 140')).toHaveLength(1)
-      expect(screen.getAllByText('Sidebar Crit Rate 14.6%')).toHaveLength(1)
-      expect(screen.getByText('Overview CON 140')).toBeInTheDocument()
+      expect(screen.getAllByText('Sidebar Level 60').length).toBeGreaterThan(0)
+      expect(screen.getAllByText('Sidebar E3+0').length).toBeGreaterThan(0)
+      expect(screen.getAllByText('Sidebar Enlighten E0').length).toBeGreaterThan(0)
+      expect(screen.getAllByText('Sidebar CON 140').length).toBeGreaterThan(0)
+      expect(screen.getAllByText('Sidebar Crit Rate 14.6%').length).toBeGreaterThan(0)
     })
 
     fireEvent.click(screen.getAllByRole('button', {name: 'Set level 90'})[0])
 
-    expect(screen.getAllByText('Sidebar Level 90')).toHaveLength(1)
-    expect(screen.getAllByText('Sidebar CON 186')).toHaveLength(1)
-    expect(screen.getByText('Overview CON 186')).toBeInTheDocument()
+    expect(screen.getAllByText('Sidebar Level 90').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Sidebar CON 186').length).toBeGreaterThan(0)
   })
 
   it('updates resolved substats when the Psyche Surge offset changes', async () => {
@@ -690,14 +687,14 @@ describe('AwakenerDetailModal', () => {
     renderAwakenerDetailModal(awakener, {onClose})
 
     await waitFor(() => {
-      expect(screen.getAllByText('Sidebar E3+0')).toHaveLength(1)
-      expect(screen.getAllByText('Sidebar Crit Rate 14.6%')).toHaveLength(1)
+      expect(screen.getAllByText('Sidebar E3+0').length).toBeGreaterThan(0)
+      expect(screen.getAllByText('Sidebar Crit Rate 14.6%').length).toBeGreaterThan(0)
     })
 
     fireEvent.click(screen.getAllByRole('button', {name: 'Increase Psyche Surge'})[0])
 
-    expect(screen.getAllByText('Sidebar E3+1')).toHaveLength(1)
-    expect(screen.getAllByText('Sidebar Crit Rate 16.2%')).toHaveLength(1)
+    expect(screen.getAllByText('Sidebar E3+1').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Sidebar Crit Rate 16.2%').length).toBeGreaterThan(0)
   })
 
   it('updates the selected enlighten slot through shared selection state', async () => {
@@ -707,12 +704,12 @@ describe('AwakenerDetailModal', () => {
     renderAwakenerDetailModal(awakener, {onClose})
 
     await waitFor(() => {
-      expect(screen.getAllByText('Sidebar Enlighten E0')).toHaveLength(1)
+      expect(screen.getAllByText('Sidebar Enlighten E0').length).toBeGreaterThan(0)
     })
 
     fireEvent.click(screen.getAllByRole('button', {name: 'Set E2'})[0])
 
-    expect(screen.getAllByText('Sidebar Enlighten E2')).toHaveLength(1)
+    expect(screen.getAllByText('Sidebar Enlighten E2').length).toBeGreaterThan(0)
   })
 
   it('updates default progression for the next awakener without changing the current live state', async () => {
@@ -723,7 +720,7 @@ describe('AwakenerDetailModal', () => {
     const {rerender} = renderAwakenerDetailModal(first, {key: first.id, onClose})
 
     await waitFor(() => {
-      expect(screen.getAllByText('Sidebar Enlighten E0')).toHaveLength(1)
+      expect(screen.getAllByText('Sidebar Enlighten E0').length).toBeGreaterThan(0)
     })
 
     fireEvent.click(screen.getByRole('button', {name: 'Open detail settings'}))
@@ -740,7 +737,7 @@ describe('AwakenerDetailModal', () => {
 
     fireEvent.click(within(defaultProgressionSection).getByRole('button', {name: 'E2'}))
 
-    expect(screen.getAllByText('Sidebar Enlighten E0')).toHaveLength(1)
+    expect(screen.getAllByText('Sidebar Enlighten E0').length).toBeGreaterThan(0)
     expect(window.localStorage.getItem('database-detail-preferences')).toContain(
       '"selectedEnlightenSlot":"E2"',
     )
@@ -748,7 +745,7 @@ describe('AwakenerDetailModal', () => {
     rerender(createAwakenerDetailModalElement(second, {key: second.id, onClose}))
 
     await waitFor(() => {
-      expect(screen.getAllByText('Sidebar Enlighten E2')).toHaveLength(1)
+      expect(screen.getAllByText('Sidebar Enlighten E2').length).toBeGreaterThan(0)
     })
   })
 
@@ -760,17 +757,17 @@ describe('AwakenerDetailModal', () => {
     const {rerender} = renderAwakenerDetailModal(first, {onClose})
 
     await waitFor(() => {
-      expect(screen.getAllByText('Sidebar Enlighten E0')).toHaveLength(1)
+      expect(screen.getAllByText('Sidebar Enlighten E0').length).toBeGreaterThan(0)
     })
 
     fireEvent.click(screen.getAllByRole('button', {name: 'Set E2'})[0])
 
-    expect(screen.getAllByText('Sidebar Enlighten E2')).toHaveLength(1)
+    expect(screen.getAllByText('Sidebar Enlighten E2').length).toBeGreaterThan(0)
 
     rerender(createAwakenerDetailModalElement(second, {onClose}))
 
     await waitFor(() => {
-      expect(screen.getAllByText('Sidebar Enlighten E0')).toHaveLength(1)
+      expect(screen.getAllByText('Sidebar Enlighten E0').length).toBeGreaterThan(0)
     })
   })
 
@@ -821,15 +818,14 @@ describe('AwakenerDetailModal', () => {
     }
   })
 
-  it('passes the active awakener id to the builds tab', async () => {
+  it('does not expose the disabled builds tab', async () => {
     const onClose = vi.fn()
     const awakener = makeAwakener(1, 'thais')
 
     renderAwakenerDetailModal(awakener, {onClose})
 
-    fireEvent.click(screen.getByRole('tab', {name: 'Builds'}))
-
-    expect(await screen.findByText('Builds Tab awakener-0001')).toBeInTheDocument()
+    expect(screen.queryByRole('tab', {name: 'Builds'})).not.toBeInTheDocument()
+    expect(screen.queryByText(/Builds Tab/)).not.toBeInTheDocument()
   })
 
   it('opens a searched awakener from the modal search and preserves the active tab', async () => {

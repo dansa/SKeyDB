@@ -27,6 +27,22 @@ const FALLBACK_SCALING_SUBSTAT_LABELS = {
 
 export const AWAKENER_SCALING_SUBSTAT_FILTER_IDS = SUBSTAT_SCALING_KEYS
 
+export const AWAKENER_SCALING_SUBSTAT_ROLE_FILTER_IDS = ['ANY', 'MAIN', 'SUB'] as const
+export type AwakenerScalingSubstatRoleFilter =
+  (typeof AWAKENER_SCALING_SUBSTAT_ROLE_FILTER_IDS)[number]
+export type AwakenerScalingSubstatValues = Partial<Record<SubstatScalingKey, number | string>>
+
+const MAIN_SUBSTAT_SCALING_VALUES = {
+  CritRate: 1.6,
+  CritDamage: 2.4,
+  AliemusRegen: 0.8,
+  KeyflareRegen: 2.4,
+  RealmMastery: 4,
+  SigilYield: 1.2,
+  DamageAmplification: 1.6,
+  DeathResistance: 5.6,
+} satisfies Record<SubstatScalingKey, number>
+
 export interface AwakenerScalingSubstatFilterOption {
   id: SubstatScalingKey
   label: string
@@ -48,6 +64,26 @@ export function getAwakenerScalingSubstatSearchLabels(key: SubstatScalingKey): s
     return [FALLBACK_SCALING_SUBSTAT_LABELS[key]]
   }
   return [mainstat.label, ...mainstat.aliases]
+}
+
+export function inferAwakenerScalingSubstatRole(
+  substatScaling: AwakenerScalingSubstatValues | null | undefined,
+  key: SubstatScalingKey,
+): Exclude<AwakenerScalingSubstatRoleFilter, 'ANY'> | null {
+  const value = Number(substatScaling?.[key] ?? 0)
+  if (value <= 0) {
+    return null
+  }
+  return value >= MAIN_SUBSTAT_SCALING_VALUES[key] ? 'MAIN' : 'SUB'
+}
+
+export function matchesAwakenerScalingSubstatRoleFilter(
+  substatScaling: AwakenerScalingSubstatValues | null | undefined,
+  key: SubstatScalingKey,
+  roleFilter: AwakenerScalingSubstatRoleFilter,
+): boolean {
+  const role = inferAwakenerScalingSubstatRole(substatScaling, key)
+  return roleFilter === 'ANY' ? role !== null : role === roleFilter
 }
 
 export function getAwakenerScalingSubstatFilterOptions(): AwakenerScalingSubstatFilterOption[] {
