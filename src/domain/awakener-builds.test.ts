@@ -158,7 +158,7 @@ describe('awakener builds', () => {
     )
     expect(
       getAwakenerBuildEntryById('awakener-0054', entries)?.builds[0].recommendedCovenantIds,
-    ).toEqual(['covenant-0017', 'covenant-0002'])
+    ).toEqual(['covenant-0006', 'covenant-0007', 'covenant-0005', 'covenant-0001'])
     expect(
       getAwakenerBuildEntryById('awakener-0033', entries)?.builds[0].recommendedCovenantIds,
     ).toEqual(['covenant-0014', 'covenant-0017', 'covenant-0004'])

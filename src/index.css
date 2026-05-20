@@ -42,7 +42,7 @@
 
 :root {
   --site-header-height: 4rem;
-  --database-detail-backdrop: oklch(0% 0 0 / 0.25);
+  --database-detail-backdrop: oklch(0% 0 0 / 0.6);
   --database-detail-backdrop-solid: oklch(0% 0 0 / 0.75);
   --ui-app-night: oklch(13.5% 0.025 257);
   --ui-shell-night: oklch(10.5% 0.024 254);
@@ -258,8 +258,8 @@ body,
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .app-shell > [data-detail-modal-overlay] {
     background: var(--database-detail-backdrop);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px) saturate(0.5);
+    backdrop-filter: blur(6px) saturate(0.5);
   }
 }
 

@@ -32,7 +32,7 @@
           "tier": "GOOD"
         }
       ],
-      "substatPriorityGroups": [["CRIT_RATE"], ["CRIT_DMG"], ["KEYFLARE_REGEN"], ["DMG_AMP"]],
+      "substatPriorityGroups": [["CRIT_RATE"], ["CRIT_DMG"], ["DMG_AMP"], ["KEYFLARE_REGEN"]],
       "recommendedWheelMainstats": ["CRIT_RATE", "CRIT_DMG"]
     },
     {
