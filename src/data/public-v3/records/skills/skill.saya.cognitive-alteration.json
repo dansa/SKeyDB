@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0057",
   "slot": "Rouse",
-  "descriptionTemplate": "Saya gains Aliemus equal to [Arg1]% of her Base Aliemus. {Rouse}: Upon using {Crimson Furnace}, grant {Perception Warp} to Command Cards of other Awakeners in hand, Draw Pile, and Discard Pile that do not have {Destroy}. The first 3 times per turn a Command Card with {Perception Warp} is played, Saya and the Awakener who owns that card each gain [Energy:Arg2] Aliemus. {Retain}.",
+  "descriptionTemplate": "Saya gains Aliemus equal to [Arg1]% of her Base Aliemus. {Rouse}: Upon using {Crimson Furnace}, grant {Perception Warp} to Command Cards of other Awakeners in hand, Draw Pile, and Discard Pile that do not have {Destroy}. The first 3 times per turn a Command Card with {Perception Warp} is played, Saya and the Awakener who owns that card each gain [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -24,10 +24,6 @@
   "cardKeywords": [
     {
       "id": "mechanic.retain"
-    },
-    {
-      "id": "mechanic.prepare",
-      "value": 1
     }
   ],
   "cost": "3",
@@ -41,7 +37,7 @@
       "ownerAwakenerId": "awakener-0057",
       "ownerAwakenerName": "Saya",
       "patch": {
-        "descriptionTemplate": "Saya gains Aliemus equal to [Arg1]% of her Base Aliemus. {Rouse}: Upon using {Crimson Furnace}, gain [Energy:Arg3] Aliemus and 1 stack of {Gynoecium}, grant {Perception Warp} to Command Cards of other Awakeners in hand, Draw Pile, and Discard Pile that do not have {Destroy}. The first 3 times per turn a Command Card with {Perception Warp} is played, Saya and the Awakener who owns that card each gain [Energy:Arg2] Aliemus. {Retain}.",
+        "descriptionTemplate": "Saya gains Aliemus equal to [Arg1]% of her Base Aliemus. {Rouse}: Upon using {Crimson Furnace}, gain [Energy:Arg3] Aliemus and 1 stack of {Gynoecium}, grant {Perception Warp} to Command Cards of other Awakeners in hand, Draw Pile, and Discard Pile that do not have {Destroy}. The first 3 times per turn a Command Card with {Perception Warp} is played, Saya and the Awakener who owns that card each gain [Energy:Arg2] Aliemus.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

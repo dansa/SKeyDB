@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0057",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAll Awakeners gain [Arg3] stacks of {Propagation Frenzy} at turn start, and the Awakener selected by {Song of Saya} gains another [Arg3] stacks and makes the next Posse take effect twice.\nSaya inflicts +[Arg4]% {Corrosion} stacks on {Caro} enemies.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Song of Saya} grants the selected Awakener [Arg3] stacks of {Propagation Frenzy} and makes the next Posse take effect twice.\nSaya inflicts +[Arg4]% {Corrosion} stacks on {Caro} enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",
@@ -24,7 +24,7 @@
     },
     "Arg3": {
       "kind": "scaling",
-      "values": ["10", "11", "12", "13", "14", "15", "16", "17", "18", "20"]
+      "values": ["10", "13", "16", "19", "22", "25", "28", "31", "34", "40"]
     },
     "Arg4": {
       "kind": "scaling",

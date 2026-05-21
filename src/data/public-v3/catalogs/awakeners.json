@@ -24,6 +24,11 @@
       "releaseDate": "2024-04-27",
       "faction": "Hybrid",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 17,
+        "ATK": 21,
+        "DEF": 10
+      },
       "baseStatsLv1": {
         "CON": 35,
         "ATK": 45,
@@ -69,12 +74,7 @@
         "Arithmetica",
         "Hand Limit",
         "Keyflare"
-      ],
-      "defaultPrimaryStatBonuses": {
-        "CON": 17,
-        "ATK": 21,
-        "DEF": 10
-      }
+      ]
     },
     {
       "kind": "awakener",
@@ -420,6 +420,11 @@
       "releaseDate": "2025-06-02",
       "faction": "The Fools",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 17,
+        "ATK": 15,
+        "DEF": 18
+      },
       "baseStatsLv1": {
         "CON": 35,
         "ATK": 32,
@@ -452,12 +457,7 @@
       },
       "lineupToken": "7",
       "aliases": ["castor"],
-      "searchTags": ["Weakness", "Corrosion", "Draw"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 17,
-        "ATK": 15,
-        "DEF": 18
-      }
+      "searchTags": ["Weakness", "Corrosion", "Draw"]
     },
     {
       "kind": "awakener",
@@ -533,6 +533,11 @@
       "releaseDate": "2025-04-07",
       "faction": "The Unknowable",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 14,
+        "ATK": 17,
+        "DEF": 14
+      },
       "baseStatsLv1": {
         "CON": 30,
         "ATK": 35,
@@ -565,12 +570,7 @@
       },
       "lineupToken": "9",
       "aliases": ["clementine"],
-      "searchTags": ["Bleed", "STR Up", "Dispel", "Keyflare"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 14,
-        "ATK": 17,
-        "DEF": 14
-      }
+      "searchTags": ["Bleed", "STR Up", "Dispel", "Keyflare"]
     },
     {
       "kind": "awakener",
@@ -592,6 +592,11 @@
       "releaseDate": "2025-05-05",
       "faction": "The Fools",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 16,
+        "ATK": 14,
+        "DEF": 17
+      },
       "baseStatsLv1": {
         "CON": 34,
         "ATK": 30,
@@ -624,12 +629,7 @@
       },
       "lineupToken": "6",
       "aliases": ["corposant"],
-      "searchTags": ["Weakness", "STR Up", "Tentacle DMG", "Aftershock", "Death Resistance", "Discard", "Draw", "Tentacle Generation"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 14,
-        "DEF": 17
-      }
+      "searchTags": ["Weakness", "STR Up", "Tentacle DMG", "Aftershock", "Death Resistance", "Discard", "Draw", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -651,6 +651,11 @@
       "releaseDate": "2023-12-20",
       "faction": "The Unknowable",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 16,
+        "ATK": 20,
+        "DEF": 15
+      },
       "baseStatsLv1": {
         "CON": 33,
         "ATK": 41,
@@ -683,12 +688,7 @@
       },
       "lineupToken": "I",
       "aliases": ["daffodil"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "Counter", "STR Up", "Pierce DMG", "Arithmetica", "Draw", "Keyflare"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 20,
-        "DEF": 15
-      }
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Counter", "STR Up", "Pierce DMG", "Arithmetica", "Draw", "Keyflare"]
     },
     {
       "kind": "awakener",
@@ -764,6 +764,11 @@
       "releaseDate": "2025-07-21",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 17,
+        "ATK": 18,
+        "DEF": 15
+      },
       "baseStatsLv1": {
         "CON": 35,
         "ATK": 37,
@@ -796,12 +801,7 @@
       },
       "lineupToken": "xi",
       "aliases": ["doresain"],
-      "searchTags": ["Vulnerable", "STR Up", "Pierce DMG", "Fixed DMG", "Self-Damage"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 17,
-        "ATK": 18,
-        "DEF": 15
-      }
+      "searchTags": ["Vulnerable", "STR Up", "Pierce DMG", "Fixed DMG", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -985,6 +985,11 @@
       "releaseDate": "2025-02-10",
       "faction": "Among the Stars",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 11,
+        "ATK": 9,
+        "DEF": 12
+      },
       "baseStatsLv1": {
         "CON": 24,
         "ATK": 19,
@@ -1017,12 +1022,7 @@
       },
       "lineupToken": "U",
       "aliases": ["doll: inferno", "g-doll"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "Fixed DMG", "Arithmetica", "Draw", "Heal", "Max HP DMG", "Self-Damage"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 11,
-        "ATK": 9,
-        "DEF": 12
-      }
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Fixed DMG", "Arithmetica", "Draw", "Heal", "Max HP DMG", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -1044,6 +1044,11 @@
       "releaseDate": "2024-10-07",
       "faction": "The Fools",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 18,
+        "ATK": 17,
+        "DEF": 13
+      },
       "baseStatsLv1": {
         "CON": 37,
         "ATK": 36,
@@ -1076,12 +1081,7 @@
       },
       "lineupToken": "i",
       "aliases": ["helot: catena", "g-helot"],
-      "searchTags": ["Bleed", "STR Up", "Draw", "Hand Limit", "Heal", "Self-Damage", "Strike"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 18,
-        "ATK": 17,
-        "DEF": 13
-      }
+      "searchTags": ["Bleed", "STR Up", "Draw", "Hand Limit", "Heal", "Self-Damage", "Strike"]
     },
     {
       "kind": "awakener",
@@ -1211,6 +1211,11 @@
       "releaseDate": "2024-09-09",
       "faction": "The Unknowable",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 15,
+        "ATK": 16,
+        "DEF": 15
+      },
       "baseStatsLv1": {
         "CON": 32,
         "ATK": 33,
@@ -1243,12 +1248,7 @@
       },
       "lineupToken": "Y",
       "aliases": ["hameln"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Arithmetica"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 15,
-        "ATK": 16,
-        "DEF": 15
-      }
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Arithmetica"]
     },
     {
       "kind": "awakener",
@@ -1324,6 +1324,11 @@
       "releaseDate": "2024-07-15",
       "faction": "Outlanders",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 12,
+        "ATK": 12,
+        "DEF": 11
+      },
       "baseStatsLv1": {
         "CON": 25,
         "ATK": 26,
@@ -1356,12 +1361,7 @@
       },
       "lineupToken": "B",
       "aliases": ["horla"],
-      "searchTags": ["Weakness", "Vulnerable", "Counter", "STR Up", "STR Down", "Death Resistance", "Heal"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 12,
-        "ATK": 12,
-        "DEF": 11
-      }
+      "searchTags": ["Weakness", "Vulnerable", "Counter", "STR Up", "STR Down", "Death Resistance", "Heal"]
     },
     {
       "kind": "awakener",
@@ -1491,6 +1491,11 @@
       "releaseDate": "2025-08-18",
       "faction": "Among the Stars",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 16,
+        "ATK": 19,
+        "DEF": 14
+      },
       "baseStatsLv1": {
         "CON": 33,
         "ATK": 39,
@@ -1523,12 +1528,7 @@
       },
       "lineupToken": "1",
       "aliases": ["kathigu-ra", "kathigura"],
-      "searchTags": ["STR Up", "Pierce DMG", "Dispel", "Discard", "Draw"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 19,
-        "DEF": 14
-      }
+      "searchTags": ["STR Up", "Pierce DMG", "Dispel", "Discard", "Draw"]
     },
     {
       "kind": "awakener",
@@ -1604,6 +1604,11 @@
       "releaseDate": "2024-01-31",
       "faction": "Hybrid",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 18,
+        "ATK": 13,
+        "DEF": 18
+      },
       "baseStatsLv1": {
         "CON": 38,
         "ATK": 28,
@@ -1636,12 +1641,7 @@
       },
       "lineupToken": "w",
       "aliases": ["lily"],
-      "searchTags": ["Poison", "Death Resistance", "Heal", "Strike"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 18,
-        "ATK": 13,
-        "DEF": 18
-      }
+      "searchTags": ["Poison", "Death Resistance", "Heal", "Strike"]
     },
     {
       "kind": "awakener",
@@ -1771,6 +1771,11 @@
       "releaseDate": "2024-06-17",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 11,
+        "ATK": 17,
+        "DEF": 9
+      },
       "baseStatsLv1": {
         "CON": 23,
         "ATK": 35,
@@ -1816,12 +1821,7 @@
         "Heal",
         "Lemurian",
         "Tentacle Generation"
-      ],
-      "defaultPrimaryStatBonuses": {
-        "CON": 11,
-        "ATK": 17,
-        "DEF": 9
-      }
+      ]
     },
     {
       "kind": "awakener",
@@ -1843,6 +1843,11 @@
       "releaseDate": "2025-12-29",
       "faction": "Outlanders",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 14,
+        "ATK": 17,
+        "DEF": 14
+      },
       "baseStatsLv1": {
         "CON": 30,
         "ATK": 35,
@@ -1875,12 +1880,7 @@
       },
       "lineupToken": "xg",
       "aliases": ["mouchette"],
-      "searchTags": ["Stun", "Pursuit", "Death Resistance", "Strike"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 14,
-        "ATK": 17,
-        "DEF": 14
-      }
+      "searchTags": ["Stun", "Pursuit", "Death Resistance", "Strike"]
     },
     {
       "kind": "awakener",
@@ -1902,6 +1902,11 @@
       "releaseDate": "2024-02-21",
       "faction": "Hybrid",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 15,
+        "ATK": 16,
+        "DEF": 18
+      },
       "baseStatsLv1": {
         "CON": 31,
         "ATK": 33,
@@ -1934,12 +1939,7 @@
       },
       "lineupToken": "r",
       "aliases": ["murphy"],
-      "searchTags": ["Weakness", "Vulnerable", "Tentacle DMG", "Aftershock", "Dispel", "Arithmetica", "Keyflare", "Tentacle Generation", "Sacrifice"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 15,
-        "ATK": 16,
-        "DEF": 18
-      }
+      "searchTags": ["Weakness", "Vulnerable", "Tentacle DMG", "Aftershock", "Dispel", "Arithmetica", "Keyflare", "Tentacle Generation", "Sacrifice"]
     },
     {
       "kind": "awakener",
@@ -1961,6 +1961,11 @@
       "releaseDate": "2025-11-24",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 11,
+        "ATK": 14,
+        "DEF": 13
+      },
       "baseStatsLv1": {
         "CON": 24,
         "ATK": 29,
@@ -1993,12 +1998,7 @@
       },
       "lineupToken": "H",
       "aliases": ["murphy: fauxborn", "g-murphy"],
-      "searchTags": ["Tentacle DMG", "Aftershock", "Arithmetica", "Divine Realm", "Draw", "Keyflare", "Lemurian", "Tentacle Generation", "Sacrifice"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 11,
-        "ATK": 14,
-        "DEF": 13
-      }
+      "searchTags": ["Tentacle DMG", "Aftershock", "Arithmetica", "Divine Realm", "Draw", "Keyflare", "Lemurian", "Tentacle Generation", "Sacrifice"]
     },
     {
       "kind": "awakener",
@@ -2236,6 +2236,11 @@
       "releaseDate": "2025-09-08",
       "faction": "The Fools",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 16,
+        "ATK": 15,
+        "DEF": 16
+      },
       "baseStatsLv1": {
         "CON": 34,
         "ATK": 31,
@@ -2268,12 +2273,7 @@
       },
       "lineupToken": "0",
       "aliases": ["pickman"],
-      "searchTags": ["STR Up", "Steal STR", "Discover", "Arithmetica", "Draw"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 15,
-        "DEF": 16
-      }
+      "searchTags": ["STR Up", "Steal STR", "Discover", "Arithmetica", "Draw"]
     },
     {
       "kind": "awakener",
@@ -2295,6 +2295,11 @@
       "releaseDate": "2025-10-20",
       "faction": "Hybrid",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 16,
+        "ATK": 18,
+        "DEF": 15
+      },
       "baseStatsLv1": {
         "CON": 33,
         "ATK": 37,
@@ -2327,12 +2332,7 @@
       },
       "lineupToken": "3",
       "aliases": ["pollux"],
-      "searchTags": ["Bleed", "Discard", "Draw"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 18,
-        "DEF": 15
-      }
+      "searchTags": ["Bleed", "Discard", "Draw"]
     },
     {
       "kind": "awakener",
@@ -2408,6 +2408,11 @@
       "releaseDate": "2024-08-12",
       "faction": "The Fools",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 20,
+        "ATK": 17,
+        "DEF": 16
+      },
       "baseStatsLv1": {
         "CON": 42,
         "ATK": 35,
@@ -2440,12 +2445,7 @@
       },
       "lineupToken": "W",
       "aliases": ["ryker"],
-      "searchTags": ["Weakness", "Vulnerable", "STR Up", "Arithmetica", "Draw", "Keyflare"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 20,
-        "ATK": 17,
-        "DEF": 16
-      }
+      "searchTags": ["Weakness", "Vulnerable", "STR Up", "Arithmetica", "Draw", "Keyflare"]
     },
     {
       "kind": "awakener",
@@ -2467,6 +2467,11 @@
       "releaseDate": "2024-04-04",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 21,
+        "ATK": 14,
+        "DEF": 21
+      },
       "baseStatsLv1": {
         "CON": 45,
         "ATK": 29,
@@ -2499,12 +2504,7 @@
       },
       "lineupToken": "R",
       "aliases": ["salvador"],
-      "searchTags": ["Weakness", "Vulnerable", "Barrier", "STR Up", "Heal", "Self-Damage"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 21,
-        "ATK": 14,
-        "DEF": 21
-      }
+      "searchTags": ["Weakness", "Vulnerable", "Barrier", "STR Up", "Heal", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -2580,6 +2580,11 @@
       "releaseDate": "2024-01-10",
       "faction": "Outlanders",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 15,
+        "ATK": 21,
+        "DEF": 11
+      },
       "baseStatsLv1": {
         "CON": 31,
         "ATK": 44,
@@ -2612,12 +2617,7 @@
       },
       "lineupToken": "C",
       "aliases": ["sorel"],
-      "searchTags": ["STR Up", "Death Resistance", "Heal", "Self-Damage"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 15,
-        "ATK": 21,
-        "DEF": 11
-      }
+      "searchTags": ["STR Up", "Death Resistance", "Heal", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -2639,6 +2639,11 @@
       "releaseDate": "2024-11-18",
       "faction": "Gateway",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 15,
+        "ATK": 15,
+        "DEF": 15
+      },
       "baseStatsLv1": {
         "CON": 32,
         "ATK": 32,
@@ -2671,12 +2676,7 @@
       },
       "lineupToken": "X",
       "aliases": ["tawil"],
-      "searchTags": ["Barrier", "STR Up", "Pierce DMG", "Fixed DMG", "Arithmetica", "Discard", "Draw", "Keyflare", "Max HP DMG"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 15,
-        "ATK": 15,
-        "DEF": 15
-      }
+      "searchTags": ["Barrier", "STR Up", "Pierce DMG", "Fixed DMG", "Arithmetica", "Discard", "Draw", "Keyflare", "Max HP DMG"]
     },
     {
       "kind": "awakener",
@@ -2698,6 +2698,11 @@
       "releaseDate": "2024-05-18",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 16,
+        "ATK": 15,
+        "DEF": 14
+      },
       "baseStatsLv1": {
         "CON": 33,
         "ATK": 32,
@@ -2730,12 +2735,7 @@
       },
       "lineupToken": "O",
       "aliases": ["thais"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "Counter", "STR Up", "Arithmetica", "Keyflare"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 15,
-        "DEF": 14
-      }
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "Counter", "STR Up", "Arithmetica", "Keyflare"]
     },
     {
       "kind": "awakener",
@@ -2811,6 +2811,11 @@
       "releaseDate": "2023-11-29",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 17,
+        "ATK": 19,
+        "DEF": 15
+      },
       "baseStatsLv1": {
         "CON": 36,
         "ATK": 40,
@@ -2843,12 +2848,7 @@
       },
       "lineupToken": "e",
       "aliases": ["tulu"],
-      "searchTags": ["STR Up", "STR Down", "Tentacle DMG", "Pierce DMG", "Aftershock", "Dispel", "Lemurian", "Tentacle Generation"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 17,
-        "ATK": 19,
-        "DEF": 15
-      }
+      "searchTags": ["STR Up", "STR Down", "Tentacle DMG", "Pierce DMG", "Aftershock", "Dispel", "Lemurian", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -2924,6 +2924,11 @@
       "releaseDate": "2024-03-14",
       "faction": "Among the Stars",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 18,
+        "ATK": 11,
+        "DEF": 21
+      },
       "baseStatsLv1": {
         "CON": 37,
         "ATK": 24,
@@ -2956,12 +2961,7 @@
       },
       "lineupToken": "E",
       "aliases": ["wanda"],
-      "searchTags": ["Counter", "STR Down"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 18,
-        "ATK": 11,
-        "DEF": 21
-      }
+      "searchTags": ["Counter", "STR Down"]
     },
     {
       "kind": "awakener",
@@ -3037,6 +3037,11 @@
       "releaseDate": "2026-01-26",
       "faction": "The Unknowable",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 23,
+        "ATK": 14,
+        "DEF": 13
+      },
       "baseStatsLv1": {
         "CON": 48,
         "ATK": 29,
@@ -3069,12 +3074,7 @@
       },
       "lineupToken": "xk",
       "aliases": ["xu"],
-      "searchTags": ["Poison", "STR Down", "Fixed DMG", "Arithmetica", "Max HP DMG"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 23,
-        "ATK": 14,
-        "DEF": 13
-      }
+      "searchTags": ["Poison", "STR Down", "Fixed DMG", "Arithmetica", "Max HP DMG"]
     },
     {
       "kind": "awakener",
@@ -3096,6 +3096,11 @@
       "releaseDate": "2026-03-09",
       "faction": "The Fools",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 17,
+        "ATK": 20,
+        "DEF": 14
+      },
       "baseStatsLv1": {
         "CON": 35,
         "ATK": 42,
@@ -3128,12 +3133,7 @@
       },
       "lineupToken": "xo",
       "aliases": ["vortice"],
-      "searchTags": ["Tentacle DMG", "Pursuit", "Fixed DMG", "Aftershock", "Dispel", "Divine Realm"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 17,
-        "ATK": 20,
-        "DEF": 14
-      }
+      "searchTags": ["Tentacle DMG", "Pursuit", "Fixed DMG", "Aftershock", "Dispel", "Divine Realm"]
     },
     {
       "kind": "awakener",
@@ -3155,6 +3155,11 @@
       "releaseDate": "2026-04-20",
       "faction": "The Unknowable",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 16,
+        "ATK": 12,
+        "DEF": 16
+      },
       "baseStatsLv1": {
         "CON": 34,
         "ATK": 25,
@@ -3199,12 +3204,7 @@
         "Divine Realm",
         "Self-Damage",
         "Spider"
-      ],
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 12,
-        "DEF": 16
-      }
+      ]
     },
     {
       "kind": "awakener",
@@ -3226,6 +3226,11 @@
       "releaseDate": "2026-05-30",
       "faction": "TBD",
       "primaryScalingBase": 20,
+      "defaultPrimaryStatBonuses": {
+        "CON": 12,
+        "ATK": 12,
+        "DEF": 11
+      },
       "baseStatsLv1": {
         "CON": 25,
         "ATK": 25,
@@ -3258,12 +3263,7 @@
       },
       "lineupToken": "xl",
       "aliases": ["saya"],
-      "searchTags": ["Discard", "Corrosion", "Divine Realm", "Self-Damage"],
-      "defaultPrimaryStatBonuses": {
-        "CON": 12,
-        "ATK": 12,
-        "DEF": 11
-      }
+      "searchTags": ["Discard", "Corrosion", "Divine Realm", "Self-Damage"]
     }
   ]
 }

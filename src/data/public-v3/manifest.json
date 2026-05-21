@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-92136d946f8ea05d",
-  "generatedAt": "2026-05-20T22:27:06Z",
-  "buildId": "2026-05-20T22:27:06Z",
+  "gameDataVersion": "compiled-sha256-1711527999bcedbc",
+  "generatedAt": "2026-05-21T17:19:32Z",
+  "buildId": "2026-05-21T17:19:32Z",
   "build": {
-    "gameDataVersion": "compiled-sha256-92136d946f8ea05d",
+    "gameDataVersion": "compiled-sha256-1711527999bcedbc",
     "recordCount": 1635,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -103,7 +103,7 @@
     },
     "catalogs/awakeners.json": {
       "bytes": 81782,
-      "sha256": "1638016bdaea9446980166fde30d30889a5aaa003708a3c557d6822b5dcafe89"
+      "sha256": "fa52ce1012798779ae33e01a82f79d6b37578ceb3a2058d114bcf5958dbf5d25"
     },
     "catalogs/covenants.json": {
       "bytes": 7413,
@@ -5046,8 +5046,8 @@
       "sha256": "28809149e7f0f7cabea5bbb5eaf561af3bc6ac98615475be95e689d47315e47a"
     },
     "records/skills/skill.saya.cognitive-alteration.json": {
-      "bytes": 2396,
-      "sha256": "779fe7a9f35da3aec4bf1e8e76ebc6907754371e9e8a715613e636f80d90a2bf"
+      "bytes": 2314,
+      "sha256": "4e94bad078f9a93e342a59e5409bbc4c06c61541c49fd9b913eba846d169a8a1"
     },
     "records/skills/skill.saya.defense.json": {
       "bytes": 1659,
@@ -6066,8 +6066,8 @@
       "sha256": "00cfaf9aa48351b3d3d330d91afb0d81a001a417ff2b92c6e2976df1ebb2cefe"
     },
     "records/talents/talent.saya.soulforge-aptitude.json": {
-      "bytes": 1263,
-      "sha256": "695e2c862db64df961097b777835c903e257e695252cc549e74dba5d7b0b77ad"
+      "bytes": 1201,
+      "sha256": "dfa57abe28f92ce7321061f4a47da48891a87de7d7e5ac818b4d540bf9b188e5"
     },
     "records/talents/talent.sorel.gnostic-potential.json": {
       "bytes": 996,
