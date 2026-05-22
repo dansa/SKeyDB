@@ -54,6 +54,14 @@ function getRequiredTextArea(element: HTMLElement): HTMLTextAreaElement {
   return element
 }
 
+function getFocusableElements(root: HTMLElement): HTMLElement[] {
+  return Array.from(
+    root.querySelectorAll<HTMLElement>(
+      'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [href], [tabindex]:not([tabindex="-1"])',
+    ),
+  )
+}
+
 afterEach(() => {
   resizeBuilderV2Viewport(1200, false)
 })
@@ -288,6 +296,58 @@ describe('BuilderV2Page', () => {
 
     expect(screen.queryByRole('dialog', {name: /adaptive picker/i})).not.toBeInTheDocument()
     expect(pickerTrigger).toHaveFocus()
+  })
+
+  it('restores adaptive picker focus to slot triggers without reusing stale opener refs', () => {
+    resizeBuilderV2Viewport(900)
+    render(<BuilderV2Page />)
+
+    const pickerTrigger = screen.getByRole('button', {name: /open adaptive picker/i})
+    fireEvent.click(pickerTrigger)
+    fireEvent.keyDown(document, {key: 'Escape'})
+    expect(pickerTrigger).toHaveFocus()
+
+    const slotTrigger = screen.getByRole('button', {name: /^select slot 1$/i})
+    slotTrigger.focus()
+    fireEvent.click(slotTrigger)
+    expect(
+      within(screen.getByRole('dialog', {name: /adaptive picker/i})).getByRole('searchbox', {
+        name: /search awakeners/i,
+      }),
+    ).toHaveFocus()
+
+    fireEvent.keyDown(document, {key: 'Escape'})
+
+    expect(screen.queryByRole('dialog', {name: /adaptive picker/i})).not.toBeInTheDocument()
+    expect(slotTrigger).toHaveFocus()
+  })
+
+  it('keeps Tab navigation contained in the adaptive picker drawer', () => {
+    resizeBuilderV2Viewport(900)
+    render(<BuilderV2Page />)
+
+    const pickerTrigger = screen.getByRole('button', {name: /open adaptive picker/i})
+    fireEvent.click(pickerTrigger)
+
+    const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
+    const focusableElements = getFocusableElements(drawer)
+    if (focusableElements.length === 0) {
+      throw new Error('Expected adaptive picker drawer to contain focusable controls')
+    }
+    const firstFocusable = focusableElements[0]
+    const lastFocusable = focusableElements[focusableElements.length - 1]
+
+    lastFocusable.focus()
+    fireEvent.keyDown(lastFocusable, {key: 'Tab'})
+    expect(firstFocusable).toHaveFocus()
+
+    firstFocusable.focus()
+    fireEvent.keyDown(firstFocusable, {key: 'Tab', shiftKey: true})
+    expect(lastFocusable).toHaveFocus()
+
+    pickerTrigger.focus()
+    fireEvent.keyDown(pickerTrigger, {key: 'Tab'})
+    expect(firstFocusable).toHaveFocus()
   })
 
   it('opens the adaptive picker drawer on a wheel target with the wheels tab active', () => {

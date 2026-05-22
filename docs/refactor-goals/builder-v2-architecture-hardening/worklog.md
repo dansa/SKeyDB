@@ -144,3 +144,38 @@
   - `npx eslint src/features/builder-v2/BuilderV2AwakenerPicker.tsx src/features/builder-v2/BuilderV2Page.test.tsx` passed.
 - J6 active: choose the next architecture-hardening tranche after W5 is committed.
 - Next prompt: `$refactor-goal-prep Continue docs/refactor-goals/builder-v2-architecture-hardening/goal.md.`
+
+### 2026-05-23 - J6 selected adaptive focus hardening
+
+- User requested the same multi-tranche loop continue.
+- Native Codex goal created for another larger Builder V2 architecture-hardening run.
+- Scouts:
+  - C7 scout `019e51c9-87e5-7143-848d-0e525ed5e2bc` confirmed adaptive callback churn remains useful but is a broader React/model API tranche.
+  - C10 scout `019e51c9-b550-7580-85d4-d900cb5a4214` confirmed adaptive picker focus restore/containment is contained to `BuilderV2AdaptiveLayout.tsx` and `BuilderV2Page.test.tsx`.
+  - C4/C5 scout `019e51c9-e312-7b22-a85a-ab0792143025` recommended additive C5 later but warned it touches shared `/builder` and V1 quick-lineup semantics; C4 should remain type-only if selected later.
+- J6 selected `C10` Adaptive drawer focus containment/restore as W6.
+- Root-fix reasoning: C10 is small, testable, and improves semantic quality without touching drawer shape/layout. C7 remains a likely next tranche if W6 lands cleanly; C5 is queued but too shared/V1-wide for this first tranche.
+- W6 active: `Harden adaptive picker focus restore and containment`.
+- W6 allowed files: `src/features/builder-v2/BuilderV2AdaptiveLayout.tsx`, `src/features/builder-v2/BuilderV2Page.test.tsx`, and this goal packet.
+- W6 protected scope: no mobile layout, no CSS, no model changes, no drawer shape/layout redesign, no teams-list, no DnD, no dependency changes, no `docs/design/**`.
+- W6 validation target: focused Builder V2 page tests, app typecheck, targeted eslint, and packet checker.
+- Next prompt: `$refactor-goal-prep Continue docs/refactor-goals/builder-v2-architecture-hardening/goal.md.`
+
+### 2026-05-23 - W6 adaptive focus hardening landed
+
+- W6 implementation:
+  - Updated adaptive picker open paths to remember the current focus restore target for footer, slot, wheel, covenant, and posse entry points.
+  - Preserved successful assignment close behavior by keeping `closePicker(false)` on picker assignment paths.
+  - Moved Tab containment into the active document keydown listener so focus recovery works even when focus has drifted outside the dialog.
+  - Added page tests for stale opener prevention, slot-trigger Escape restore, Tab/Shift+Tab wrapping, and outside-focus Tab recovery.
+- Review:
+  - Reviewer `019e51ce-f48a-75a0-8099-2634b53dc866` found the first outside-focus recovery implementation was not actually enforced because Tab handling lived on dialog `onKeyDown` only.
+  - Fixed by handling Tab in the document keydown listener while the adaptive picker is open and by dispatching the regression test from the focused outside element.
+  - Reviewer also noted untracked `docs/design/` images as a possible package risk; they remain pre-existing untracked references and were not changed or staged.
+- Validation:
+  - `npx vitest run src/features/builder-v2/BuilderV2Page.test.tsx --run` passed with 35 tests.
+  - `npx tsc -p tsconfig.app.json --noEmit` passed.
+  - `npx eslint src/features/builder-v2/BuilderV2AdaptiveLayout.tsx src/features/builder-v2/BuilderV2Page.test.tsx` passed.
+- R5 complete: W6 review recorded.
+- J7 active: choose the next post-focus-hardening tranche. Current recommendation is C7 adaptive callback/action churn if it can stay Builder V2-only; C5 remains queued for a later shared `/builder` tranche with extra characterization.
+- Next prompt: `$refactor-goal-prep Continue docs/refactor-goals/builder-v2-architecture-hardening/goal.md.`

@@ -1,17 +1,11 @@
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type KeyboardEvent as ReactKeyboardEvent,
-} from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
 
 import {BuilderV2ActiveFooter, BuilderV2ActiveHeader} from './BuilderV2ActiveTeamChrome'
 import {BuilderV2PickerContent} from './BuilderV2AwakenerPicker'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
+import type {BuilderV2Model} from './BuilderV2ModelTypes'
 import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
-import type {BuilderV2Model} from './BuilderV2ModelTypes'
 
 interface BuilderV2AdaptiveLayoutProps {
   model: BuilderV2Model
@@ -19,7 +13,7 @@ interface BuilderV2AdaptiveLayoutProps {
 
 export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
   const [isPickerOpen, setIsPickerOpen] = useState(false)
-  const pickerTriggerRef = useRef<HTMLButtonElement | null>(null)
+  const pickerTriggerRef = useRef<HTMLElement | null>(null)
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const dialogRef = useRef<HTMLDivElement | null>(null)
 
@@ -43,7 +37,12 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
       return
     }
 
-    const handleEscape = (event: KeyboardEvent) => {
+    const handlePickerKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Tab') {
+        trapDialogFocus(event, dialogRef.current)
+        return
+      }
+
       if (event.key !== 'Escape') {
         return
       }
@@ -52,9 +51,9 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
       closePicker()
     }
 
-    document.addEventListener('keydown', handleEscape)
+    document.addEventListener('keydown', handlePickerKeyDown)
     return () => {
-      document.removeEventListener('keydown', handleEscape)
+      document.removeEventListener('keydown', handlePickerKeyDown)
     }
   }, [closePicker, isPickerOpen])
 
@@ -70,36 +69,50 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
     }
   }, [isPickerOpen])
 
-  const openPicker = useCallback(() => {
-    if (!model.activeSelection && !model.activeTeamTarget) {
-      model.selectAwakenerSlot(model.selectedSlotId ?? 'slot-1')
-    }
-    setIsPickerOpen(true)
-  }, [model])
+  const openPicker = useCallback(
+    (restoreTarget?: HTMLElement | null, options: {ensureTarget?: boolean} = {}) => {
+      pickerTriggerRef.current = restoreTarget ?? getCurrentFocusRestoreTarget()
 
-  const selectAwakenerSlotAndOpenPicker = useCallback(
-    (slotId: string) => {
-      model.selectAwakenerSlot(slotId)
+      if (options.ensureTarget !== false && !model.activeSelection && !model.activeTeamTarget) {
+        model.selectAwakenerSlot(model.selectedSlotId ?? 'slot-1')
+      }
       setIsPickerOpen(true)
     },
     [model],
+  )
+
+  const selectAwakenerSlotAndOpenPicker = useCallback(
+    (slotId: string) => {
+      const restoreTarget = getCurrentFocusRestoreTarget()
+      model.selectAwakenerSlot(slotId)
+      openPicker(restoreTarget, {ensureTarget: false})
+    },
+    [model, openPicker],
   )
 
   const selectWheelSlotAndOpenPicker = useCallback(
     (slotId: string, wheelIndex: 0 | 1) => {
+      const restoreTarget = getCurrentFocusRestoreTarget()
       model.selectWheelSlot(slotId, wheelIndex)
-      setIsPickerOpen(true)
+      openPicker(restoreTarget, {ensureTarget: false})
     },
-    [model],
+    [model, openPicker],
   )
 
   const selectCovenantSlotAndOpenPicker = useCallback(
     (slotId: string) => {
+      const restoreTarget = getCurrentFocusRestoreTarget()
       model.selectCovenantSlot(slotId)
-      setIsPickerOpen(true)
+      openPicker(restoreTarget, {ensureTarget: false})
     },
-    [model],
+    [model, openPicker],
   )
+
+  const selectPosseAndOpenPicker = useCallback(() => {
+    const restoreTarget = getCurrentFocusRestoreTarget()
+    model.selectPosse()
+    openPicker(restoreTarget, {ensureTarget: false})
+  }, [model, openPicker])
 
   const assignAwakener = useCallback(
     (awakenerId: string) => {
@@ -212,19 +225,19 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
               activeTeamName={model.activeTeamName}
               activeTeamTarget={model.activeTeamTarget}
               onClearPosse={model.clearPosse}
-              onSelectPosse={model.selectPosse}
+              onSelectPosse={selectPosseAndOpenPicker}
             />
 
-              <BuilderV2TeamSlots
-                onClearCovenant={model.clearCovenant}
-                onClearWheel={model.clearWheel}
-                onRemoveAwakener={model.removeAwakener}
-                onSelectCovenantSlot={selectCovenantSlotAndOpenPicker}
-                onSelectSlot={selectAwakenerSlotAndOpenPicker}
-                onSelectWheelSlot={selectWheelSlotAndOpenPicker}
-                quickLineupActive={Boolean(model.quickLineupSession)}
-                slots={model.slots}
-              />
+            <BuilderV2TeamSlots
+              onClearCovenant={model.clearCovenant}
+              onClearWheel={model.clearWheel}
+              onRemoveAwakener={model.removeAwakener}
+              onSelectCovenantSlot={selectCovenantSlotAndOpenPicker}
+              onSelectSlot={selectAwakenerSlotAndOpenPicker}
+              onSelectWheelSlot={selectWheelSlotAndOpenPicker}
+              quickLineupActive={Boolean(model.quickLineupSession)}
+              slots={model.slots}
+            />
 
             <BuilderV2ActiveFooter
               editingLabel={model.editingLabel}
@@ -233,8 +246,7 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
                   aria-label='Open adaptive picker'
                   className='builder-v2-adaptive-picker-trigger'
                   onClick={(event) => {
-                    pickerTriggerRef.current = event.currentTarget
-                    openPicker()
+                    openPicker(event.currentTarget)
                   }}
                   type='button'
                 >
@@ -287,9 +299,6 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
             aria-labelledby='builder-v2-adaptive-picker-title'
             aria-modal='true'
             className='builder-v2-adaptive-picker'
-            onKeyDown={(event) => {
-              trapDialogFocus(event, dialogRef.current)
-            }}
             ref={dialogRef}
             role='dialog'
           >
@@ -366,6 +375,10 @@ function canCloseAfterPosseAssignment(_model: BuilderV2Model, _posseId: string) 
   return true
 }
 
+function getCurrentFocusRestoreTarget(): HTMLElement | null {
+  return document.activeElement instanceof HTMLElement ? document.activeElement : null
+}
+
 function getSelectedLoadoutSlot(model: BuilderV2Model) {
   const selection = model.activeSelection
   if (!selection) {
@@ -375,7 +388,7 @@ function getSelectedLoadoutSlot(model: BuilderV2Model) {
   return model.slots.find((slot) => slot.slotId === selection.slotId) ?? null
 }
 
-function trapDialogFocus(event: ReactKeyboardEvent, dialog: HTMLDivElement | null) {
+function trapDialogFocus(event: KeyboardEvent, dialog: HTMLDivElement | null) {
   if (event.key !== 'Tab' || !dialog) {
     return
   }
@@ -392,14 +405,22 @@ function trapDialogFocus(event: ReactKeyboardEvent, dialog: HTMLDivElement | nul
 
   const firstElement = focusableElements[0]
   const lastElement = focusableElements[focusableElements.length - 1]
+  const activeElement = document.activeElement
 
-  if (event.shiftKey && document.activeElement === firstElement) {
+  if (!(activeElement instanceof HTMLElement) || !dialog.contains(activeElement)) {
+    event.preventDefault()
+    const fallbackTarget = event.shiftKey ? lastElement : firstElement
+    fallbackTarget.focus()
+    return
+  }
+
+  if (event.shiftKey && activeElement === firstElement) {
     event.preventDefault()
     lastElement.focus()
     return
   }
 
-  if (!event.shiftKey && document.activeElement === lastElement) {
+  if (!event.shiftKey && activeElement === lastElement) {
     event.preventDefault()
     firstElement.focus()
   }

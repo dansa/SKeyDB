@@ -944,7 +944,7 @@
     {
       "id": "J6",
       "role": "judge",
-      "status": "active",
+      "status": "done",
       "title": "Choose next architecture-hardening tranche",
       "skills": [
         "$refactor-rootfix",
@@ -967,6 +967,135 @@
         "docs/design/**"
       ],
       "expected_output": "Select the next bounded tranche only after W5 is committed. Remaining likely candidates include C7 adaptive callback churn, C10 adaptive drawer focus containment/restore, C11/C12 CSS contracts, C4/C5 shared type/team-state boundaries, or C16 state strategy review.",
+      "receipt": {
+        "evidence": [
+          "Selected C10 Adaptive drawer focus containment/restore as W6.",
+          "C10 scout confirmed the slice can stay inside BuilderV2AdaptiveLayout.tsx and BuilderV2Page.test.tsx, with no drawer shape, mobile, teams-list, DnD, dependency, or docs/design scope.",
+          "C7 remains useful but is a broader React/model API tranche; C5 is valuable but shared /builder behavior and V1 quick-lineup semantics make it too broad for the first tranche of this run."
+        ],
+        "validation": [
+          "Approved W6 allowed files, invariants, validation, and rollback."
+        ]
+      }
+    },
+    {
+      "id": "W6",
+      "role": "worker",
+      "status": "done",
+      "title": "Harden adaptive picker focus restore and containment",
+      "skills": [
+        "$refactor-ui-a11y",
+        "$refactor-react",
+        "$refactor-typescript",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "docs/refactor-goals/builder-v2-architecture-hardening/**"
+      ],
+      "protected_files": [
+        "src/features/builder-v2/BuilderV2MobileLayout.tsx",
+        "src/features/builder-v2/builder-v2.css",
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "picker drawer shape/layout",
+        "mobile redesign",
+        "teams-list shape decisions",
+        "DnD implementation",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "Preserve adaptive picker visuals and assignment-close behavior while making focus restore target-aware for slot/wheel/covenant/open-button entry points and making the dialog focus trap recover if focus starts outside the dialog.",
+      "invariants": [
+        "Do not change drawer markup classes, layout, backdrop behavior, visual styling, or mobile layout.",
+        "Search input still receives focus on open and picker tab changes.",
+        "Escape, close button, and backdrop click still close the adaptive picker.",
+        "Escape/close focus restore should target the control that opened the drawer when possible.",
+        "Successful assignment paths that intentionally call closePicker(false) must not start restoring focus.",
+        "Focus trap should keep Tab and Shift+Tab inside the dialog, including when focus has drifted outside while open."
+      ],
+      "validation": [
+        "npx vitest run src/features/builder-v2/BuilderV2Page.test.tsx --run",
+        "npx tsc -p tsconfig.app.json --noEmit",
+        "targeted npx eslint over touched Builder V2 files",
+        "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-architecture-hardening"
+      ],
+      "rollback": [
+        "Revert BuilderV2AdaptiveLayout.tsx focus helper/callback changes, remove W6 page test assertions, and revert W6 packet updates."
+      ],
+      "receipt": {
+        "evidence": [
+          "Updated BuilderV2AdaptiveLayout.tsx so adaptive picker open paths record the current focus restore target for footer, slot, wheel, covenant, and posse entry points.",
+          "Kept assignment-close behavior unchanged by preserving closePicker(false) on successful picker assignments.",
+          "Moved Tab focus containment into the active drawer document keydown handler so the trap also recovers if focus has drifted outside the dialog.",
+          "Added BuilderV2Page tests for stale opener prevention, Escape restore to a slot trigger, Tab and Shift+Tab wrapping inside the drawer, and outside-focus Tab recovery.",
+          "Reviewer subagent 019e51ce-f48a-75a0-8099-2634b53dc866 found the first outside-focus test dispatched on the dialog instead of the real focused element; W6 fixed the implementation and test to use the document keydown path."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/BuilderV2Page.test.tsx --run passed with 35 tests.",
+          "npx tsc -p tsconfig.app.json --noEmit passed.",
+          "npx eslint src/features/builder-v2/BuilderV2AdaptiveLayout.tsx src/features/builder-v2/BuilderV2Page.test.tsx passed."
+        ]
+      }
+    },
+    {
+      "id": "R5",
+      "role": "review",
+      "status": "done",
+      "title": "Review W6 adaptive focus hardening",
+      "skills": [
+        "$refactor-review",
+        "$refactor-ui-a11y",
+        "$refactor-react",
+        "$refactor-typescript"
+      ],
+      "allowed_files": [
+        "read-only current W6 diff",
+        "docs/refactor-goals/builder-v2-architecture-hardening/**"
+      ],
+      "protected_files": [
+        "product source edits during review",
+        "remote state"
+      ],
+      "expected_output": "Audit W6 for adaptive focus restore/containment regressions, assignment-close drift, stale closures, and protected-scope drift.",
+      "receipt": {
+        "evidence": [
+          "Reviewer subagent 019e51ce-f48a-75a0-8099-2634b53dc866 found one real issue: outside-focus Tab recovery was only attached to dialog onKeyDown and the test masked that by dispatching on the dialog.",
+          "Controller fixed Tab containment by handling Tab in the active document keydown listener and updated the test to dispatch from the focused outside trigger.",
+          "Reviewer also noted untracked docs/design mockups as a possible package risk; controller kept them untracked and outside W6 staging."
+        ],
+        "validation": [
+          "Controller reran W6 page tests, app typecheck, and targeted eslint successfully after reviewer fixes."
+        ]
+      }
+    },
+    {
+      "id": "J7",
+      "role": "judge",
+      "status": "active",
+      "title": "Choose next post-focus-hardening tranche",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-react",
+        "$refactor-typescript",
+        "$refactor-complexity"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-architecture-hardening/**",
+        "read-only W6 diff",
+        "read-only C7 scout result",
+        "read-only C4/C5 scout result"
+      ],
+      "protected_files": [
+        "mobile redesign",
+        "teams-list shape decisions",
+        "DnD implementation",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "Select the next contained tranche after W6. Current recommendation is C7 adaptive callback/action churn if it can stay Builder V2-only; C5 remains queued for a later shared /builder tranche with extra characterization.",
       "receipt": null
     }
   ],
