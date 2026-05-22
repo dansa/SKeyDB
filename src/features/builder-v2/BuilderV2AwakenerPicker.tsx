@@ -1,3 +1,5 @@
+import type {Ref} from 'react'
+
 import type {
   BuilderV2AwakenerOption,
   BuilderV2CovenantOption,
@@ -60,6 +62,47 @@ export function BuilderV2AwakenerPicker({
         </div>
       </div>
 
+      <BuilderV2PickerContent
+        awakeners={awakeners}
+        covenants={covenants}
+        onAssignAwakener={onAssignAwakener}
+        onAssignCovenant={onAssignCovenant}
+        onAssignPosse={onAssignPosse}
+        onAssignWheel={onAssignWheel}
+        onPickerTabChange={onPickerTabChange}
+        onSearchChange={onSearchChange}
+        pickerTab={pickerTab}
+        posses={posses}
+        searchQuery={searchQuery}
+        wheels={wheels}
+      />
+    </aside>
+  )
+}
+
+interface BuilderV2PickerContentProps extends BuilderV2AwakenerPickerProps {
+  searchInputRef?: Ref<HTMLInputElement>
+}
+
+export function BuilderV2PickerContent({
+  awakeners,
+  covenants,
+  pickerTab,
+  posses,
+  searchInputRef,
+  searchQuery,
+  wheels,
+  onAssignAwakener,
+  onAssignCovenant,
+  onAssignPosse,
+  onAssignWheel,
+  onPickerTabChange,
+  onSearchChange,
+}: BuilderV2PickerContentProps) {
+  const activeCopy = pickerCopy[pickerTab]
+
+  return (
+    <>
       <div className='builder-v2-picker-tabs' role='tablist' aria-label='Picker categories'>
         {pickerTabs.map((tab) => {
           const isActive = tab.id === pickerTab
@@ -90,6 +133,7 @@ export function BuilderV2AwakenerPicker({
             onSearchChange(event.target.value)
           }}
           placeholder={activeCopy.searchLabel}
+          ref={searchInputRef}
           type='search'
           value={searchQuery}
         />
@@ -118,9 +162,7 @@ export function BuilderV2AwakenerPicker({
                   src={awakener.portraitSrc}
                 />
                 <span className='builder-v2-picker-copy'>
-                  <span className='builder-v2-picker-name ui-title'>
-                    {awakener.displayName}
-                  </span>
+                  <span className='builder-v2-picker-name ui-title'>{awakener.displayName}</span>
                   <span className='builder-v2-picker-meta'>
                     {awakener.realm}
                     {awakener.inUse ? ' - In use' : ''}
@@ -141,7 +183,11 @@ export function BuilderV2AwakenerPicker({
                 }}
                 type='button'
               >
-                <PickerAsset alt={`${wheel.name} icon`} fallback={wheel.name} src={wheel.assetSrc} />
+                <PickerAsset
+                  alt={`${wheel.name} icon`}
+                  fallback={wheel.name}
+                  src={wheel.assetSrc}
+                />
                 <span className='builder-v2-picker-copy'>
                   <span className='builder-v2-picker-name ui-title'>{wheel.name}</span>
                   <span className='builder-v2-picker-meta'>
@@ -190,7 +236,11 @@ export function BuilderV2AwakenerPicker({
                 }}
                 type='button'
               >
-                <PickerAsset alt={`${posse.name} icon`} fallback={posse.name} src={posse.assetSrc} />
+                <PickerAsset
+                  alt={`${posse.name} icon`}
+                  fallback={posse.name}
+                  src={posse.assetSrc}
+                />
                 <span className='builder-v2-picker-copy'>
                   <span className='builder-v2-picker-name ui-title'>{posse.name}</span>
                   <span className='builder-v2-picker-meta'>
@@ -202,7 +252,7 @@ export function BuilderV2AwakenerPicker({
             ))
           : null}
       </div>
-    </aside>
+    </>
   )
 }
 

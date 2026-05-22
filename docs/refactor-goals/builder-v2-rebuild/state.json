@@ -51,14 +51,14 @@
     },
     {
       "name": "Old UX branch flow salvage",
-      "status": "mapped",
-      "evidence": "Scouts identified mobile overview/focused/picker/quick-lineup and tablet/desktop flow as reference only; C5 scout confirmed the mobile flow is useful but higher-risk for drawer focus management.",
-      "next": "C6 quick-lineup is active first to prove the V2 guided focus contract before C5 wraps it in mobile drawer/focused layouts."
+      "status": "implemented",
+      "evidence": "W4/R4 implemented the concept-image mobile overview -> focused builder -> full-screen picker drawer flow on /builder-v2 while keeping the old builder/mobile-ux branch as reference only.",
+      "next": "Keep old branch evidence available only for future tablet/team polish; do not migrate old branch code into Builder V2."
     },
     {
       "name": "Test and characterization harness",
       "status": "implemented",
-      "evidence": "W1 added V2 model/page outcome tests, W2 added gear/posse assignment tests, and W3 added quick-lineup start/advance/cancel/jump/final-posse tests while keeping current builder tests green.",
+      "evidence": "W1-W4 added focused V2 model/page characterization, including mobile drawer dialog focus, Escape/focus return, reopened target assignment, and mobile quick-lineup focused-slot synchronization.",
       "next": "Add focused characterization tests with each later workflow slice."
     },
     {
@@ -70,8 +70,8 @@
     {
       "name": "Concept image alignment",
       "status": "implemented",
-      "evidence": "W1 follows Desktop.png anatomy; C5 scout mapped Mobile.png as overview/focused/full-screen picker drawer states; W3 implemented the functional quick-lineup contract that Mobile-QuickLineup.png will later wrap in a mobile-specific surface.",
-      "next": "C5 remains queued for the concept-image mobile app flow and picker drawer."
+      "evidence": "W1 follows Desktop.png anatomy; W3 implemented the quick-lineup functional contract; W4 implemented Mobile.png-style overview/focused/full-screen picker drawer states around that contract.",
+      "next": "Use concept images again for tablet adaptation, teams overview, and final designer handoff notes."
     },
     {
       "name": "Teams section polish",
@@ -84,6 +84,12 @@
       "status": "queued",
       "evidence": "Current helpers exist but raise larger interaction blast radius.",
       "next": "Defer until base draft loop works."
+    },
+    {
+      "name": "Designer handoff readiness",
+      "status": "queued",
+      "evidence": "User affirmed the entire goal packet should lead into handoff to the designer/design model after the V2 core is healthy.",
+      "next": "Add a final handoff bundle once core V2 interaction slices are implemented and reviewed."
     }
   ],
   "candidates": [
@@ -157,14 +163,14 @@
       "id": "C5",
       "title": "Mobile overview/focused/picker drawer flow",
       "source_task": "UX branch scout",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "V2 mobile layout files",
         "drawer and focus management",
         "focused slot UI tests"
       ],
-      "evidence": "C5 scout mapped Mobile.png as overview, focused builder, and full-screen picker drawer states; old builder/mobile-ux confirms overview/focused/picker flow but lacks adequate drawer modal semantics.",
-      "next": "Recommended next after C6: implement the concept-image mobile overview/focused/full-screen picker drawer flow with proper drawer focus management."
+      "evidence": "W4/R4 added a mobile-only Builder V2 layout with overview, focused slot builder, shared picker drawer content, dialog semantics, Escape/search focus/focus return, mobile quick-lineup step focus synchronization, focused tests, and browser smoke.",
+      "next": "Tablet adaptation, teams overview shape, transfer/import/export parity, and designer handoff remain queued in C7/C8/C9 or later scoped candidates."
     },
     {
       "id": "C6",
@@ -206,6 +212,21 @@
       ],
       "evidence": "Current page tests pin these workflows; helpers exist but UI blast radius is larger.",
       "next": "Still queued; import/export and transfer parity have larger shared-contract/UI blast radius and should follow core guided flow work."
+    },
+    {
+      "id": "C9",
+      "title": "Designer handoff bundle",
+      "source_task": "User clarification",
+      "status": "queued",
+      "concept_blast_radius": [
+        "Goal packet",
+        "screenshots/browser smoke evidence",
+        "current /builder-v2 notes",
+        "concept-image traceability",
+        "unresolved product decisions"
+      ],
+      "evidence": "User clarified the goal packet should lead into handoff to the designer/design model.",
+      "next": "Prepare near the end of the local rebuild, after core V2 flow is functional enough that design work is not forced to solve product architecture."
     }
   ],
   "maintenance": [
@@ -935,22 +956,289 @@
         ],
         "verdict": "R3 passes; W3 stays inside approved scope and C6 can be marked implemented."
       }
+    },
+    {
+      "id": "S5",
+      "role": "scout",
+      "status": "done",
+      "title": "Map C5 mobile layout and drawer test scope",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-ui-a11y",
+        "$refactor-react"
+      ],
+      "allowed_files": [
+        "read-only src/features/builder-v2/**",
+        "read-only docs/design/Desktop.png",
+        "read-only docs/design/Mobile.png",
+        "read-only docs/design/Mobile-QuickLineup.png",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "all project files from edits",
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "builder persistence key/version",
+        "builder migrations",
+        "dependency files",
+        "remote state"
+      ],
+      "expected_output": "Read-only evidence for the C5 mobile overview/focused/full-screen picker drawer implementation seam and focused failing tests.",
+      "receipt": {
+        "summary": "Two read-only scouts mapped C5 as a mobile shell/orchestration slice around the existing W3 quick-lineup and picker contracts.",
+        "agents": [
+          "019e4d72-a332-7591-9c83-8e772c2c0ca5",
+          "019e4d72-d0c3-77c3-8a1b-e3ac1d65ce3c"
+        ],
+        "evidence": [
+          "Current Builder V2 data flow already exposes pickerTab, activeSelection, activeTeamTarget, quickLineupSession, assignment actions, and quick-lineup controls through useBuilderV2Model.",
+          "Current mobile behavior is CSS stacking only; it does not provide concept-image overview/focused/picker app states, dialog semantics, Escape handling, or focus return.",
+          "The C5 implementation seam should keep model logic in useBuilderV2Model, keep desktop behavior stable, extract reusable picker content from the current armory aside, and add mobile-only orchestration under src/features/builder-v2/**.",
+          "The smallest useful tests should assert mobile picker dialog naming, correct picker tab/search focus for slot and wheel targets, Escape close, and focus return to the invoking control.",
+          "Out of scope remains shared store/helper changes, current /builder edits, import/export, DnD, transfer dialogs, recommendations, and deep teams redesign."
+        ]
+      }
+    },
+    {
+      "id": "J4",
+      "role": "judge",
+      "status": "done",
+      "title": "Approve C5 mobile overview and picker drawer Worker slice",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-architecture",
+        "$refactor-characterization-tests",
+        "$refactor-react",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/useBuilderV2Model.ts only for derived UI labels/state already backed by existing model data",
+        "src/features/builder-v2/useBuilderV2Model.test.ts only if useBuilderV2Model.ts changes",
+        "src/features/builder-v2/builder-v2.css",
+        "new src/features/builder-v2/*.tsx files for extracted picker/mobile drawer components",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state"
+      ],
+      "expected_output": "One bounded Worker scope for C5 mobile overview/focused/full-screen picker drawer orchestration, dialog focus management, focused tests, and desktop non-regression.",
+      "receipt": {
+        "summary": "Approved C5 as the next Worker slice after S5.",
+        "decision": "Implement mobile-only overview/focused/full-screen picker drawer orchestration around the existing Builder V2 model and picker contracts.",
+        "candidate_ids": [
+          "C5"
+        ],
+        "in_scope": [
+          "Mobile overview to focused builder to full-screen picker drawer flow for /builder-v2.",
+          "Reuse useBuilderV2Model picker, active selection, posse target, quick-lineup, and assignment actions.",
+          "Extract reusable picker content so desktop armory and mobile drawer share rows, search, and tabs.",
+          "Mobile slot, wheel, covenant, and posse target controls open a named full-screen picker dialog with the correct tab selected.",
+          "Dialog semantics: role dialog, accessible name, aria-modal, close button, Escape close, initial search focus, and focus return.",
+          "Local Builder V2 CSS/media-query work for app-like mobile states.",
+          "Focused mobile drawer tests and desktop non-regression."
+        ],
+        "deferred": [
+          "Teams overview redesign beyond minimal mobile navigation.",
+          "Import/export.",
+          "Transfer dialogs and cross-team move confirmations.",
+          "Drag-and-drop.",
+          "Recommendations and smart sorting.",
+          "Shared store/helper changes.",
+          "/builder behavior or visual changes.",
+          "/builder-v2 nav promotion.",
+          "Dependency additions."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx",
+          "npm test -- --run src/features/builder",
+          "npm run test:integration",
+          "npm run lint",
+          "npm run build",
+          "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-rebuild"
+        ],
+        "acceptance": [
+          "Required tests fail before implementation and pass after.",
+          "Mobile overview/focused/full-screen picker drawer works through existing Builder V2 model actions.",
+          "Drawer has dialog semantics, Escape close, search focus, and focus return.",
+          "Desktop Builder V2 W1-W3 behavior remains green.",
+          "No protected files changed.",
+          "C5 becomes implemented while C7, C8, and C9 remain queued."
+        ]
+      }
+    },
+    {
+      "id": "W4",
+      "role": "worker",
+      "status": "done",
+      "title": "Build C5 mobile overview and picker drawer flow",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/useBuilderV2Model.test.ts",
+        "src/features/builder-v2/builder-v2.css",
+        "src/features/builder-v2/*.tsx",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state"
+      ],
+      "expected_output": "Mobile overview/focused/full-screen picker drawer flow with shared picker content, dialog focus management, TDD coverage, and preserved desktop Builder V2 behavior.",
+      "receipt": {
+        "slice": "C5 mobile overview/focused/full-screen picker drawer flow",
+        "files_changed": [
+          "src/features/builder-v2/BuilderV2MobileLayout.tsx",
+          "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+          "src/features/builder-v2/BuilderV2Page.tsx",
+          "src/features/builder-v2/BuilderV2Page.test.tsx",
+          "src/features/builder-v2/builder-v2.css",
+          "docs/refactor-goals/builder-v2-rebuild/goal.md",
+          "docs/refactor-goals/builder-v2-rebuild/state.json",
+          "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+        ],
+        "behavior_added": [
+          "Mobile /builder-v2 now branches into an app-like overview, focused slot builder, and full-screen picker drawer at <= 768px.",
+          "Desktop Builder V2 keeps the existing rail/workbench/armory shell and reuses extracted picker content.",
+          "Mobile slot, wheel, covenant, and posse targets open a named dialog with the correct picker tab and search focus.",
+          "Escape closes the mobile picker and returns focus to the invoking control; reopened same-target pickers preserve their assignment target.",
+          "Mobile quick-lineup derives the visible focused slot from quickLineupSession.currentStep so assignment advance and Back/Next stay aligned with the guided target."
+        ],
+        "behavior_preserved": [
+          "/builder files, shared builderDraftStore, persistence/migrations, generated data, dependencies, route glue, and global CSS were not edited.",
+          "Builder V2 still uses the existing useBuilderV2Model assignment and quick-lineup store semantics rather than introducing a mobile-specific model.",
+          "Untracked docs/design and smoke screenshot artifacts were left unstaged/excluded from W4 packaging."
+        ],
+        "root_fix_patch_decision": "Bounded root-fix inside the isolated Builder V2 UI orchestration boundary: mobile focus state now derives from the model-owned quick-lineup step instead of duplicating guided selection semantics.",
+        "dependency_review": "No dependency changes made or needed.",
+        "characterization": [
+          "Observed red run before implementation: BuilderV2Page mobile tests failed because overview/dialog/focus behavior did not exist.",
+          "Observed red run during browser-found edge case: reopened same mobile target after Escape assigned to the wrong slot until the target selection guard was added.",
+          "Observed red run from reviewer finding: quick-lineup Step 5 showed Slot 2 in model text while the focused panel still showed Slot 1/Goliath until derived quick-lineup focus landed.",
+          "Added page tests for mobile overview, focused slot, drawer search focus, wheel tab selection, Escape focus return, reopened same-target assignment, and quick-lineup focused-slot sync through assignment plus Back/Next."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 32 tests passed)",
+          "npm test -- --run src/features/builder (33 files, 263 tests passed)",
+          "npm run test:integration (7 files, 57 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed; existing Vite chunk-size and plugin timing warnings only)",
+          "Browser smoke: /builder-v2 desktop 1440x1000 assigned Goliath and Merciful Nurturing with no dialog; mobile 390x844 covered overview, drawer search focus, Escape focus return, reopened Slot 2 assignment, quick-lineup Step 2, and Slot 1 -> Slot 2 quick-lineup focus sync with Back/Next."
+        ],
+        "review": "R4 initially found a high quick-lineup focus drift and medium untracked-artifact packaging note; the focus drift was fixed and the final reviewer verdict was complete with no findings.",
+        "risks": [
+          "Successful picker assignment closes without explicit focus restoration because the visible target panel can change after assignment.",
+          "Final quick-lineup completion/cancel may fall back to the last manual focus slot; reviewer did not consider this blocking for C5.",
+          "Teams overview redesign, tablet-specific layout, transfer dialogs, DnD, recommendations, and import/export parity remain queued."
+        ],
+        "scope_expansion_requested": "None"
+      }
+    },
+    {
+      "id": "R4",
+      "role": "review",
+      "status": "done",
+      "title": "Review W4 C5 mobile overview and picker drawer flow",
+      "skills": [
+        "$refactor-review",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state"
+      ],
+      "expected_output": "Review W4 diff, receipts, validation, mobile drawer semantics, quick-lineup focus sync, protected scope, and packaging boundaries before C5 can be marked implemented.",
+      "receipt": {
+        "summary": "Review passed after one required fix.",
+        "reviewer": "019e4d89-6b1f-73d0-a9d2-13f4b381639f",
+        "initial_findings": [
+          "High: mobile quick-lineup focus could drift from the active quick-lineup target after advancing from Slot 1 covenant to Slot 2 awakener.",
+          "Medium: untracked docs/design and smoke screenshots must stay excluded from W4 packaging unless explicitly selected."
+        ],
+        "fixes_reviewed": [
+          "BuilderV2MobileLayout now derives focusedSlotId from quickLineupSession.currentStep while quick-lineup is active and uses manual focus only for normal mobile browsing.",
+          "BuilderV2Page.test.tsx covers Slot 1 completion, automatic Slot 2 focus, and Back/Next mobile focus synchronization.",
+          "Untracked docs/design and screenshot artifacts are explicitly excluded from staging/commit for W4."
+        ],
+        "final_findings": [],
+        "final_verdict": "complete",
+        "validation_reviewed": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 32 tests passed)",
+          "npm test -- --run src/features/builder (33 files, 263 tests passed)",
+          "npm run test:integration (7 files, 57 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed; existing Vite chunk-size and plugin timing warnings only)",
+          "Browser targeted smoke for mobile quick-lineup Slot 1 -> Slot 2 focus sync with Back/Next"
+        ],
+        "residual_risk": [
+          "Successful picker assignment closes without explicit focus restoration because the visible panel may change after assignment.",
+          "Final quick-lineup completion/cancel may fall back to the last manual focus slot; not blocking for C5.",
+          "Teams overview, tablet polish, import/export, DnD, transfer parity, and designer handoff remain queued."
+        ]
+      }
     }
   ],
   "final_audit": {
     "full_outcome_complete": false,
-    "summary": "W1 landed the isolated Builder V2 route/model/shell, W2 added gear and posse assignment, and W3/R3 implemented and reviewed Quick Lineup V2 mode. Broad Builder V2 rebuild remains active with C5/C7/C8 queued.",
+    "summary": "W1 landed the isolated Builder V2 route/model/shell, W2 added gear and posse assignment, W3/R3 implemented and reviewed Quick Lineup V2 mode, and W4/R4 implemented and reviewed the C5 mobile overview/focused/full-screen picker drawer flow. Broad Builder V2 rebuild remains active with C7/C8/C9 queued.",
     "validation": [
       "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx",
       "npm test -- --run src/features/builder",
+      "npm run test:integration",
       "npm run lint",
       "npm run build",
-      "Browser smoke for #/builder-v2 desktop/mobile quick-lineup flow"
+      "Browser smoke for #/builder-v2 desktop/mobile drawer and quick-lineup focus flows"
     ],
     "open_items": [
-      "C5 mobile overview/focused/full-screen picker drawer flow",
       "C7 teams overview redesign after product/design decision",
-      "C8 import/export and transfer parity"
+      "C8 import/export and transfer parity",
+      "C9 designer handoff bundle"
     ]
   }
 }

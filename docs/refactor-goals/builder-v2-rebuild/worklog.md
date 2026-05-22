@@ -196,3 +196,77 @@
   - Transfer dialogs, DnD, recommendations, and import/export parity remain queued.
   - Quick-lineup inherits the existing shared-store behavior where starting a session clears the active team and keeps a transient restore snapshot until finish/cancel.
 - Active task: none. C6 is implemented and reviewed; broader Builder V2 goal remains active with C5, C7, and C8 queued.
+
+### 2026-05-22 - Designer handoff destination affirmed
+
+- Source: User asked whether the entire goal packet leads into handoff to the designer.
+- Decision: Yes. The goal is not merely to land a functional `/builder-v2`; it is to create a healthy local Builder V2 foundation that a designer or design-focused model can safely reshape without having to rediscover builder rules, rebuild workflow state, or inherit old Builder UI debt.
+- Packet update:
+  - `goal.md` now names designer handoff as the broad destination.
+  - `state.json` now tracks designer handoff readiness as a queued focus area.
+  - Candidate C9, "Designer handoff bundle", is queued as the final packet/screenshot/concept-traceability handoff slice after core V2 interaction work is healthy.
+- Active task: none. The recommended next implementation candidate remains C5 mobile overview/focused/full-screen picker drawer flow.
+
+### 2026-05-22 - C5 mobile drawer scout recorded
+
+- Source: User continued the Builder V2 refactor goal.
+- Scouts:
+  - `019e4d72-a332-7591-9c83-8e772c2c0ca5`
+  - `019e4d72-d0c3-77c3-8a1b-e3ac1d65ce3c`
+- Scout evidence:
+  - C5 should be a mobile orchestration/layout slice around the existing W3 quick-lineup and picker contracts, not a new quick-lineup state implementation.
+  - `useBuilderV2Model` already exposes the needed state and actions: `pickerTab`, `activeSelection`, `activeTeamTarget`, `quickLineupSession`, assignment handlers, and quick-lineup controls.
+  - Current mobile behavior is CSS stacking only; it lacks concept-image app states, full-screen picker dialog semantics, Escape handling, and focus return.
+  - The smallest useful failing tests should cover a slot target opening a named picker dialog, a wheel target opening the Wheels tab, search focus inside the dialog, Escape close, and focus returning to the invoking control.
+- Active task: none. Next step is Judge approval for the bounded C5 Worker scope.
+
+### 2026-05-22 - C5 mobile drawer slice scoped
+
+- Judge: `019e4d75-3aaf-7e91-b87e-594ab81dc839`.
+- Decision: Approve C5 as a bounded Worker slice.
+- In scope:
+  - Mobile overview -> focused builder -> full-screen picker drawer flow for `/builder-v2`.
+  - Reuse existing `useBuilderV2Model` state/actions and W3 quick-lineup semantics.
+  - Extract reusable picker content so desktop armory and mobile drawer share search, tabs, and result rows.
+  - Mobile slot/loadout/posse target controls open a named dialog with correct tab, search focus, Escape close, and focus return.
+  - Focused mobile drawer tests and desktop non-regression.
+- Deferred: teams redesign, import/export, transfer dialogs, DnD, recommendations, shared store/helper changes, `/builder` edits, nav promotion, dependencies, and global CSS outside Builder V2.
+- Active task: W4, build C5 mobile overview and picker drawer flow.
+
+### 2026-05-22 - W4 implemented and R4 review passed
+
+- W4 result: implemented the C5 mobile overview, focused builder, and full-screen picker drawer flow inside the isolated Builder V2 boundary.
+- Product files changed:
+  - `src/features/builder-v2/BuilderV2MobileLayout.tsx`
+  - `src/features/builder-v2/BuilderV2AwakenerPicker.tsx`
+  - `src/features/builder-v2/BuilderV2Page.tsx`
+  - `src/features/builder-v2/BuilderV2Page.test.tsx`
+  - `src/features/builder-v2/builder-v2.css`
+- Behavior:
+  - `/builder-v2` now branches to a mobile-only app-like layout at `<= 768px`.
+  - Mobile starts at a team overview, opens a focused slot builder, and uses a full-screen picker drawer for awakeners, wheels, covenants, and posses.
+  - The desktop armory and mobile drawer share the same extracted picker content.
+  - The mobile drawer has `role="dialog"`, `aria-modal`, an accessible title, search focus on open, Escape close, and focus return to the invoking control.
+  - Reopening the same mobile picker target after Escape keeps the intended target instead of toggling model selection off.
+  - Mobile quick-lineup derives the visible focused slot from `quickLineupSession.currentStep`, so assignment advance and Back/Next keep the panel aligned with the guided step.
+  - Existing `/builder`, `builderDraftStore`, persistence/migrations, generated data, dependencies, route glue, and global CSS outside Builder V2 stayed untouched.
+- Characterization:
+  - Initial red mobile tests failed because overview/focused/dialog behavior did not exist.
+  - Browser smoke found a reopened-same-target Slot 2 assignment edge case; a red test reproduced it before the fix.
+  - R4 found a quick-lineup focus drift from Slot 1 covenant to Slot 2 awakener; a red test reproduced it before the derived focus fix.
+  - Added page coverage for mobile overview, focused slot, drawer tab/search focus, Escape focus return, same-target reopen, and quick-lineup Slot 1 -> Slot 2 focus sync through assignment plus Back/Next.
+- Validation:
+  - `npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx` passed, 2 files / 32 tests.
+  - `npm test -- --run src/features/builder` passed, 33 files / 263 tests.
+  - `npm run test:integration` passed, 7 files / 57 tests.
+  - `npm run lint` passed.
+  - `npm run build` passed; existing Vite chunk-size and plugin timing warnings only.
+  - Browser smoke at `http://127.0.0.1:5173/#/builder-v2` covered desktop assignment with no dialog, mobile overview/drawer search focus/Escape focus return/reopened Slot 2 assignment, quick-lineup Step 2, and Slot 1 -> Slot 2 mobile focus sync with Back/Next.
+- Review:
+  - Reviewer: `019e4d89-6b1f-73d0-a9d2-13f4b381639f`.
+  - Initial findings: one high quick-lineup focus drift and one packaging note about excluding unrelated untracked docs/design and screenshot artifacts.
+  - Fix: mobile focus is now derived from quick-lineup current step while quick-lineup is active; normal mobile browsing still uses manual focus.
+  - Final reviewer verdict: complete, no findings.
+- Packaging:
+  - Untracked concept/sendoff files under `docs/design/` and smoke screenshots remain intentionally excluded from W4 staging/commit.
+- Active task: none. C5 is implemented and reviewed; broader Builder V2 goal remains active with C7, C8, and C9 queued.

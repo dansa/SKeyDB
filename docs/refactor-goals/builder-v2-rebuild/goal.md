@@ -26,6 +26,8 @@ Additional user constraints recorded 2026-05-22:
 
 Create a new Builder V2 surface from the ground up, using current builder data contracts and logic helpers while rejecting the old builder UI as the foundation. The new page should become the working shell for future design passes: barebones, responsive-aware, functionally honest, and easy for a design-focused model to restyle without rebuilding product logic.
 
+The broad destination is a designer handoff: a healthy local Builder V2 page, backed by tests and explicit workflow constraints, that lets a design-focused model or UI designer concentrate on making the experience feel excellent instead of rediscovering builder rules, current code debt, or missing interaction states.
+
 ## Success Criteria
 
 - `/builder` remains untouched and covered by existing integration tests.
@@ -36,6 +38,7 @@ Create a new Builder V2 surface from the ground up, using current builder data c
 - Visual treatment is intentionally barebones but aligned with the newer D-Zone/Timeline/database language: sharp panels, compact controls, amber state, restrained blue.
 - The first tranche visibly acknowledges the concept images through its structural arrangement, even if polish, final artwork treatment, and mobile app flow are deferred.
 - The old `builder/mobile-ux` branch is used for flow evidence only, not as a merge or direct store/persistence source.
+- The final local outcome is handoff-ready: core builder interactions exist in V2, unresolved product choices are named, concept-image alignment is traceable, and the remaining design freedom is clear rather than hidden inside old Builder debt.
 
 ## Packet Files
 
@@ -95,6 +98,7 @@ Recommendation: refactor goal with characterization-first V2 harness slices.
 | Visual baseline | implemented | W1 added local Builder V2 CSS with sharp panels, compact controls, restrained blue, amber selection, and D-Zone-style UI tokens. | Run deeper visual review/polish in later design tranches. |
 | Teams section polish | queued | User explicitly said core builder first and teams shape is undecided. | Keep minimal team switching; defer list/cards decision. |
 | DnD/import/export/quick-lineup polish | queued | Current helpers exist but raise larger interaction blast radius. | Defer until base draft loop works. |
+| Designer handoff readiness | queued | User affirmed the entire goal packet should lead into handoff to the designer/design model after the V2 core is healthy. | Add a final handoff bundle once core V2 interaction slices are implemented and reviewed. |
 
 Terminal statuses:
 - `implemented`
@@ -120,6 +124,7 @@ Non-terminal statuses:
 | C6: Quick Lineup V2 mode | UX/tests scouts | implemented | V2 quick-lineup UI, current `quick-lineup.ts`, store quick-lineup state, tests | W3 enabled Builder V2 Quick Lineup mode using existing `builderDraftStore` quick-lineup actions, compact V2 controls, assignment-driven step advance, manual target jump, cancel restore, final posse completion, and focused model/page tests. | C5 mobile overview/focused/full-screen picker drawer flow is the next structurally ready candidate; C7/C8 remain queued. |
 | C7: Teams overview redesign | User prompt | queued | V2 teams surface, team-management helpers, screenshot/share needs | User is undecided between list/cards; core builder first. | Still queued; require product/design decision on list vs cards before deeper team overview work. |
 | C8: Import/export and transfer parity | Contract/test scouts | queued | V2 dialogs, import/export hooks, transfer confirm hooks, tests | Current page tests pin these workflows; helpers exist but UI blast radius is larger. | Still queued; import/export and transfer parity have larger shared-contract/UI blast radius and should follow core guided flow work. |
+| C9: Designer handoff bundle | User clarification | queued | Goal packet, screenshots/browser smoke evidence, current `/builder-v2` notes, concept-image traceability, unresolved product decisions | User clarified the goal packet should lead into handoff to the designer/design model. | Prepare near the end of the local rebuild, after core V2 flow is functional enough that design work is not forced to solve product architecture. |
 
 ## Scope Expansion Protocol
 

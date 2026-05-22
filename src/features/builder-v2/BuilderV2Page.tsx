@@ -1,11 +1,21 @@
 import './builder-v2.css'
 
+import {useEffect, useState} from 'react'
+
 import {BuilderV2AwakenerPicker} from './BuilderV2AwakenerPicker'
+import {BuilderV2MobileLayout} from './BuilderV2MobileLayout'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 import {useBuilderV2Model} from './useBuilderV2Model'
 
+const BUILDER_V2_MOBILE_BREAKPOINT_PX = 768
+
 export function BuilderV2Page() {
   const model = useBuilderV2Model()
+  const isMobile = useBuilderV2IsMobile()
+
+  if (isMobile) {
+    return <BuilderV2MobileLayout model={model} />
+  }
 
   return (
     <section className='builder-v2-page' aria-labelledby='builder-v2-title'>
@@ -63,7 +73,9 @@ export function BuilderV2Page() {
                   aria-label='Select team posse'
                   aria-pressed={model.activeTeamTarget?.kind === 'posse'}
                   className={`builder-v2-posse-target ${
-                    model.activeTeamTarget?.kind === 'posse' ? 'builder-v2-posse-target--active' : ''
+                    model.activeTeamTarget?.kind === 'posse'
+                      ? 'builder-v2-posse-target--active'
+                      : ''
                   }`}
                   onClick={model.selectPosse}
                   type='button'
@@ -95,7 +107,10 @@ export function BuilderV2Page() {
               slots={model.slots}
             />
 
-            <p className='builder-v2-editing-line' role={model.violationMessage ? 'alert' : undefined}>
+            <p
+              className='builder-v2-editing-line'
+              role={model.violationMessage ? 'alert' : undefined}
+            >
               {model.violationMessage ?? model.editingLabel}
             </p>
           </section>
@@ -118,7 +133,9 @@ export function BuilderV2Page() {
                   }}
                   type='button'
                 >
-                  <span className='builder-v2-team-index'>{String(index + 1).padStart(2, '0')}</span>
+                  <span className='builder-v2-team-index'>
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
                   <span className='builder-v2-overview-name'>{team.name}</span>
                   <span className='builder-v2-overview-minis'>
                     {team.slotNames.map((slotName, slotIndex) => (
@@ -148,6 +165,27 @@ export function BuilderV2Page() {
       </div>
     </section>
   )
+}
+
+function useBuilderV2IsMobile() {
+  const [isMobile, setIsMobile] = useState(() => getBuilderV2IsMobile())
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(getBuilderV2IsMobile())
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  return isMobile
+}
+
+function getBuilderV2IsMobile() {
+  return window.innerWidth <= BUILDER_V2_MOBILE_BREAKPOINT_PX
 }
 
 type BuilderV2PageModel = ReturnType<typeof useBuilderV2Model>
