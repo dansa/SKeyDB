@@ -10,14 +10,14 @@ import {
 
 import {useStore} from 'zustand'
 
+import {getAwakenerCardAsset, getAwakenerPortraitAsset} from '@/domain/awakener-assets'
 import {
   AWAKENER_BUILD_WHEEL_TIERS,
   compareCovenantsForBuildRecommendation,
+  getCovenantRecommendationIndex,
   type AwakenerBuild,
   type AwakenerBuildWheelTier,
-  getCovenantRecommendationIndex,
 } from '@/domain/awakener-builds'
-import {getAwakenerCardAsset, getAwakenerPortraitAsset} from '@/domain/awakener-assets'
 import {getAwakenerIdentityKeyById} from '@/domain/awakener-identity'
 import type {Awakener} from '@/domain/awakeners'
 import {searchAwakenerResults} from '@/domain/awakeners-search'
@@ -50,8 +50,45 @@ import {
 } from '@/stores/builderDraftStore'
 import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 
+import {createBuilderOwnershipProjection} from '../builder/builder-ownership-projection'
+import {loadBuilderDraft, saveBuilderDraft} from '../builder/builder-persistence'
+import {allAwakeners, awakenerById} from '../builder/constants'
+import {getPublicQuickLineupSession} from '../builder/quick-lineup'
+import {
+  addTeam as addTeamToCollection,
+  applyTeamTemplate,
+  deleteTeam,
+  isTeamEmpty,
+  MAX_TEAMS,
+  reorderTeams,
+  resetTeam,
+  type TeamTemplateId,
+} from '../builder/team-collection'
+import {
+  clearCovenantAssignment,
+  clearSlotAssignment,
+  clearWheelAssignment,
+  getTeamRealmSet,
+} from '../builder/team-state'
+import {applyPendingTransfer, applySupportTransfer} from '../builder/transfer-resolution'
+import type {
+  ActiveSelection,
+  QuickLineupSession,
+  QuickLineupStep,
+  Team,
+  TeamSlot,
+} from '../builder/types'
+import {useAwakenerBuildRecommendations} from '../builder/useAwakenerBuildRecommendations'
+import {useBuilderImportExport} from '../builder/useBuilderImportExport'
+import {useTransferConfirm, type PendingTransfer} from '../builder/useTransferConfirm'
+import {
+  resolveAssignAwakenerCommand,
+  resolveAssignCovenantCommand,
+  resolveAssignPosseCommand,
+  resolveAssignWheelCommand,
+  type BuilderV2ResolvedLoadoutCommand,
+} from './builder-v2-loadout-commands'
 import {buildBuilderV2UsageIndex} from './builder-v2-usage-index'
-import type {BuilderV2AwakenerUsage} from './builder-v2-usage-index'
 import type {
   BuilderV2ActivePosseView,
   BuilderV2AwakenerFilter,
@@ -74,44 +111,6 @@ import type {
   BuilderV2WheelRarityFilter,
   BuilderV2WheelSlotView,
 } from './BuilderV2ModelTypes'
-import {createBuilderOwnershipProjection} from '../builder/builder-ownership-projection'
-import {loadBuilderDraft, saveBuilderDraft} from '../builder/builder-persistence'
-import {allAwakeners, awakenerById} from '../builder/constants'
-import {getPublicQuickLineupSession} from '../builder/quick-lineup'
-import {
-  addTeam as addTeamToCollection,
-  applyTeamTemplate,
-  deleteTeam,
-  isTeamEmpty,
-  MAX_TEAMS,
-  reorderTeams,
-  resetTeam,
-  type TeamTemplateId,
-} from '../builder/team-collection'
-import {
-  assignAwakenerToFirstEmptySlot,
-  assignAwakenerToSlot,
-  assignCovenantToSlot,
-  assignWheelToSlot,
-  clearCovenantAssignment,
-  clearSlotAssignment,
-  clearWheelAssignment,
-  getTeamRealmSet,
-  swapCovenantAssignments,
-  swapWheelAssignments,
-  type TeamStateViolationCode,
-} from '../builder/team-state'
-import {applyPendingTransfer, applySupportTransfer} from '../builder/transfer-resolution'
-import type {
-  ActiveSelection,
-  QuickLineupSession,
-  QuickLineupStep,
-  Team,
-  TeamSlot,
-} from '../builder/types'
-import {useBuilderImportExport} from '../builder/useBuilderImportExport'
-import {useAwakenerBuildRecommendations} from '../builder/useAwakenerBuildRecommendations'
-import {useTransferConfirm, type PendingTransfer} from '../builder/useTransferConfirm'
 
 const BUILDER_V2_AUTOSAVE_DEBOUNCE_MS = 300
 const BUILDER_ALLOW_DUPES_KEY = 'skeydb.builder.allowDupes.v1'
@@ -425,8 +424,22 @@ export function useBuilderV2Model({
           isEmpty: !slot.awakenerId,
           wheels: slot.wheels,
           wheelSlots: [
-            createWheelSlotView(slot, slotLabel, 0, wheelById, activeSelection, ownedWheelLevelById),
-            createWheelSlotView(slot, slotLabel, 1, wheelById, activeSelection, ownedWheelLevelById),
+            createWheelSlotView(
+              slot,
+              slotLabel,
+              0,
+              wheelById,
+              activeSelection,
+              ownedWheelLevelById,
+            ),
+            createWheelSlotView(
+              slot,
+              slotLabel,
+              1,
+              wheelById,
+              activeSelection,
+              ownedWheelLevelById,
+            ),
           ],
           covenantId: slot.covenantId,
           covenantName: covenant?.name ?? null,
@@ -500,15 +513,11 @@ export function useBuilderV2Model({
       if (!leftSortable || !rightSortable) {
         return 0
       }
-      return compareAwakenersForCollectionSort(
-        leftSortable,
-        rightSortable,
-        {
-          key: awakenerSortKey,
-          direction: awakenerSortDirection,
-          groupByRealm: awakenerSortGroupByRealm,
-        },
-      )
+      return compareAwakenersForCollectionSort(leftSortable, rightSortable, {
+        key: awakenerSortKey,
+        direction: awakenerSortDirection,
+        groupByRealm: awakenerSortGroupByRealm,
+      })
     })
     const visible = sinkUnownedToBottom
       ? sinkUnownedToEnd(sorted, (awakener) => isAwakenerOwnedByName(awakener.name))
@@ -660,7 +669,8 @@ export function useBuilderV2Model({
         assetSrc: getCovenantAssetById(covenant.id),
         inUse: activeTeamSlots.some((slot) => slot.covenantId === covenant.id),
         recommended: recommendationIndex >= 0,
-        recommendationLabel: recommendationIndex >= 0 ? `#${String(recommendationIndex + 1)}` : null,
+        recommendationLabel:
+          recommendationIndex >= 0 ? `#${String(recommendationIndex + 1)}` : null,
       }
     })
   }, [
@@ -1149,270 +1159,181 @@ export function useBuilderV2Model({
     setActiveTeamTarget((current) => (current?.kind === 'posse' ? null : {kind: 'posse'}))
   }, [jumpToQuickLineupStep, quickLineupState, setActiveSelection])
 
-  const assignAwakener = useCallback(
-    (awakenerId: string) => {
-      const targetSlotId = activeSelection?.kind === 'awakener' ? activeSelection.slotId : undefined
-      const firstEmptySlotId = activeTeamSlots.find((slot) => !slot.awakenerId)?.slotId
-      const result = targetSlotId
-        ? assignAwakenerToSlot(activeTeamSlots, awakenerId, targetSlotId, awakenerById, {
-            allowDuplicateIdentity: allowDuplicateAwakenerIdentities,
-          })
-        : assignAwakenerToFirstEmptySlot(activeTeamSlots, awakenerId, awakenerById, {
-            allowDuplicateIdentity: allowDuplicateAwakenerIdentities,
-          })
-
-      if (result.violation) {
-        setViolationMessage(getViolationMessage(result.violation))
+  const applyResolvedLoadoutCommand = useCallback(
+    (command: BuilderV2ResolvedLoadoutCommand) => {
+      if (command.kind === 'violation') {
+        setViolationMessage(command.message)
+        if (command.pickerTab) {
+          setPickerTab(command.pickerTab)
+        }
         return
       }
 
-      if (result.nextSlots === activeTeamSlots) {
-        setViolationMessage('No available slot can accept that awakener.')
-        return
-      }
-
-      const owningTeamId = getCrossTeamAwakenerOwner({
-        activeTeamId: effectiveActiveTeamId,
-        allowDuplicateAwakenerIdentities,
-        awakenerId,
-        slots: activeTeamSlots,
-        targetSlotId,
-        usedAwakenerByIdentityKey: usageIndex.awakenerByIdentityKey,
-      })
-      if (owningTeamId) {
+      if (command.kind === 'awakener-transfer') {
         requestAwakenerTransfer({
-          awakenerName: awakenerById.get(awakenerId)?.name ?? 'Awakener',
-          awakenerId,
-          canUseSupport: !activeTeamSlots.some((slot) => slot.isSupport),
-          fromTeamId: owningTeamId,
-          toTeamId: effectiveActiveTeamId,
-          targetSlotId: targetSlotId ?? firstEmptySlotId,
+          awakenerName: command.awakenerName,
+          awakenerId: command.awakenerId,
+          canUseSupport: command.canUseSupport,
+          fromTeamId: command.fromTeamId,
+          toTeamId: command.toTeamId,
+          targetSlotId: command.targetSlotId,
         })
         setViolationMessage(null)
-        setPickerTab('awakeners')
+        setPickerTab(command.pickerTab)
         return
       }
 
-      clearTransfer()
-      setActiveTeamSlotsInStore(result.nextSlots)
+      if (command.kind === 'wheel-transfer') {
+        requestWheelTransfer({
+          wheelId: command.wheelId,
+          fromTeamId: command.fromTeamId,
+          fromSlotId: command.fromSlotId,
+          fromWheelIndex: command.fromWheelIndex,
+          toTeamId: command.toTeamId,
+          targetSlotId: command.targetSlotId,
+          targetWheelIndex: command.targetWheelIndex,
+        })
+        setViolationMessage(null)
+        setPickerTab(command.pickerTab)
+        return
+      }
+
+      if (command.kind === 'posse-transfer') {
+        requestPosseTransfer({
+          posseId: command.posseId,
+          posseName: command.posseName,
+          fromTeamId: command.fromTeamId,
+          toTeamId: command.toTeamId,
+        })
+        setViolationMessage(null)
+        setPickerTab(command.pickerTab)
+        return
+      }
+
+      if (command.kind === 'posse-assign') {
+        clearTransfer()
+        const isQuickLineupPosseStep = quickLineupSession?.currentStep.kind === 'posse'
+        updateActiveTeam((team) => ({...team, posseId: command.posseId}))
+        setViolationMessage(null)
+        setActiveSelection(command.activeSelection)
+        setActiveTeamTarget(command.activeTeamTarget)
+        setPickerTab(command.pickerTab)
+        if (isQuickLineupPosseStep) {
+          advanceQuickLineupStep()
+        }
+        return
+      }
+
+      if (command.clearTransfer) {
+        clearTransfer()
+      }
+      if (command.changed) {
+        setActiveTeamSlotsInStore(command.nextSlots)
+      }
       setViolationMessage(null)
-      setActiveTeamTarget(null)
-      if (quickLineupState) {
-        advanceQuickLineupStep(result.nextSlots)
+      setActiveTeamTarget(command.activeTeamTarget)
+      if (quickLineupState && command.changed) {
+        advanceQuickLineupStep(command.nextSlots)
         return
       }
-
-      const nextSelectedSlotId = targetSlotId ?? firstEmptySlotId
-      if (nextSelectedSlotId) {
-        setActiveSelection({kind: 'awakener', slotId: nextSelectedSlotId})
+      setActiveSelection(command.activeSelection)
+      if (command.pickerTab) {
+        setPickerTab(command.pickerTab)
       }
+    },
+    [
+      advanceQuickLineupStep,
+      clearTransfer,
+      quickLineupSession,
+      quickLineupState,
+      requestAwakenerTransfer,
+      requestPosseTransfer,
+      requestWheelTransfer,
+      setActiveSelection,
+      setActiveTeamSlotsInStore,
+      updateActiveTeam,
+    ],
+  )
+
+  const assignAwakener = useCallback(
+    (awakenerId: string) => {
+      applyResolvedLoadoutCommand(
+        resolveAssignAwakenerCommand({
+          activeSelection,
+          activeTeamId: effectiveActiveTeamId,
+          activeTeamSlots,
+          allowDuplicateAwakenerIdentities,
+          awakenerById,
+          awakenerId,
+          usedAwakenerByIdentityKey: usageIndex.awakenerByIdentityKey,
+        }),
+      )
     },
     [
       activeSelection,
       activeTeamSlots,
       allowDuplicateAwakenerIdentities,
-      advanceQuickLineupStep,
-      clearTransfer,
+      applyResolvedLoadoutCommand,
       effectiveActiveTeamId,
-      quickLineupState,
-      requestAwakenerTransfer,
-      setActiveSelection,
-      setActiveTeamSlotsInStore,
       usageIndex,
     ],
   )
 
   const assignWheel = useCallback(
     (wheelId: string) => {
-      const target = getWheelAssignmentTarget(activeSelection, activeTeamSlots)
-      if (!target) {
-        setViolationMessage('Select a wheel slot or an awakened slot before assigning a wheel.')
-        setPickerTab('wheels')
-        return
-      }
-
-      const targetSlot = activeTeamSlots.find((slot) => slot.slotId === target.slotId)
-      if (!targetSlot?.awakenerId) {
-        setViolationMessage('Wheels require an awakener in that slot.')
-        setPickerTab('wheels')
-        return
-      }
-
-      const wheelOwner = allowDuplicateAwakenerIdentities
-        ? undefined
-        : usedWheelByTeamOrder.get(wheelId)
-      if (
-        wheelOwner?.teamId === effectiveActiveTeamId &&
-        (wheelOwner.slotId !== target.slotId || wheelOwner.wheelIndex !== target.wheelIndex)
-      ) {
-        const result = swapWheelAssignments(
+      applyResolvedLoadoutCommand(
+        resolveAssignWheelCommand({
+          activeSelection,
+          activeTeamId: effectiveActiveTeamId,
           activeTeamSlots,
-          wheelOwner.slotId,
-          wheelOwner.wheelIndex,
-          target.slotId,
-          target.wheelIndex,
-        )
-        setActiveTeamSlotsInStore(result.nextSlots)
-        setViolationMessage(null)
-        setActiveTeamTarget(null)
-        if (quickLineupState) {
-          advanceQuickLineupStep(result.nextSlots)
-          return
-        }
-        if (activeSelection?.kind === 'wheel') {
-          setActiveSelection({kind: 'wheel', slotId: target.slotId, wheelIndex: target.wheelIndex})
-        }
-        return
-      }
-
-      if (wheelOwner && wheelOwner.teamId !== effectiveActiveTeamId && !targetSlot.isSupport) {
-        requestWheelTransfer({
+          allowDuplicateAwakenerIdentities,
+          usedWheelByTeamOrder,
           wheelId,
-          fromTeamId: wheelOwner.teamId,
-          fromSlotId: wheelOwner.slotId,
-          fromWheelIndex: wheelOwner.wheelIndex,
-          toTeamId: effectiveActiveTeamId,
-          targetSlotId: target.slotId,
-          targetWheelIndex: target.wheelIndex,
-        })
-        setViolationMessage(null)
-        setPickerTab('wheels')
-        return
-      }
-
-      const result = assignWheelToSlot(activeTeamSlots, target.slotId, target.wheelIndex, wheelId)
-      if (result.nextSlots === activeTeamSlots) {
-        setViolationMessage(null)
-        setActiveTeamTarget(null)
-        if (activeSelection?.kind === 'wheel') {
-          setActiveSelection({kind: 'wheel', slotId: target.slotId, wheelIndex: target.wheelIndex})
-        }
-        setPickerTab('wheels')
-        return
-      }
-
-      clearTransfer()
-      setActiveTeamSlotsInStore(result.nextSlots)
-      setViolationMessage(null)
-      setActiveTeamTarget(null)
-      if (quickLineupState) {
-        advanceQuickLineupStep(result.nextSlots)
-        return
-      }
-      if (activeSelection?.kind === 'wheel') {
-        setActiveSelection({kind: 'wheel', slotId: target.slotId, wheelIndex: target.wheelIndex})
-      }
+        }),
+      )
     },
     [
       activeSelection,
       activeTeamSlots,
       allowDuplicateAwakenerIdentities,
-      advanceQuickLineupStep,
-      clearTransfer,
+      applyResolvedLoadoutCommand,
       effectiveActiveTeamId,
-      quickLineupState,
-      requestWheelTransfer,
-      setActiveSelection,
-      setActiveTeamSlotsInStore,
       usedWheelByTeamOrder,
     ],
   )
 
   const assignCovenant = useCallback(
     (covenantId: string) => {
-      const targetSlotId = getSlotTargetFromSelection(activeSelection)
-      if (!targetSlotId) {
-        setViolationMessage('Select a covenant slot or awakened slot before assigning a covenant.')
-        setPickerTab('covenants')
-        return
-      }
-
-      const targetSlot = activeTeamSlots.find((slot) => slot.slotId === targetSlotId)
-      if (!targetSlot?.awakenerId) {
-        setViolationMessage('Covenants require an awakener in that slot.')
-        setPickerTab('covenants')
-        return
-      }
-
-      const sourceSlot = activeTeamSlots.find(
-        (slot) => slot.slotId !== targetSlotId && slot.covenantId === covenantId,
+      applyResolvedLoadoutCommand(
+        resolveAssignCovenantCommand({
+          activeSelection,
+          activeTeamSlots,
+          covenantId,
+        }),
       )
-      const result = sourceSlot
-        ? swapCovenantAssignments(activeTeamSlots, sourceSlot.slotId, targetSlotId)
-        : assignCovenantToSlot(activeTeamSlots, targetSlotId, covenantId)
-
-      if (result.nextSlots === activeTeamSlots) {
-        setViolationMessage(null)
-        setActiveTeamTarget(null)
-        if (activeSelection?.kind === 'covenant') {
-          setActiveSelection({kind: 'covenant', slotId: targetSlotId})
-        }
-        setPickerTab('covenants')
-        return
-      }
-
-      setActiveTeamSlotsInStore(result.nextSlots)
-      setViolationMessage(null)
-      setActiveTeamTarget(null)
-      if (quickLineupState) {
-        advanceQuickLineupStep(result.nextSlots)
-        return
-      }
-      if (activeSelection?.kind === 'covenant') {
-        setActiveSelection({kind: 'covenant', slotId: targetSlotId})
-      }
     },
-    [
-      activeSelection,
-      activeTeamSlots,
-      advanceQuickLineupStep,
-      quickLineupState,
-      setActiveSelection,
-      setActiveTeamSlotsInStore,
-    ],
+    [activeSelection, activeTeamSlots, applyResolvedLoadoutCommand],
   )
 
   const assignPosse = useCallback(
     (posseId: string) => {
-      const owningTeamOrder = allowDuplicateAwakenerIdentities
-        ? undefined
-        : usedPosseByTeamOrder.get(posseId)
-      const owningTeam = owningTeamOrder === undefined ? undefined : teams.at(owningTeamOrder)
-
-      if (owningTeam && owningTeam.id !== effectiveActiveTeamId) {
-        requestPosseTransfer({
+      applyResolvedLoadoutCommand(
+        resolveAssignPosseCommand({
+          activeTeamId: effectiveActiveTeamId,
+          allowDuplicateAwakenerIdentities,
+          posseById,
           posseId,
-          posseName: posseById.get(posseId)?.name ?? 'Posse',
-          fromTeamId: owningTeam.id,
-          toTeamId: effectiveActiveTeamId,
-        })
-        setViolationMessage(null)
-        setPickerTab('posses')
-        return
-      }
-
-      clearTransfer()
-      const isQuickLineupPosseStep = quickLineupSession?.currentStep.kind === 'posse'
-      updateActiveTeam((team) => ({...team, posseId}))
-      setViolationMessage(null)
-      setActiveSelection(null)
-      setActiveTeamTarget({kind: 'posse'})
-      setPickerTab('posses')
-      if (isQuickLineupPosseStep) {
-        advanceQuickLineupStep()
-      }
+          teams,
+          usedPosseByTeamOrder,
+        }),
+      )
     },
     [
       allowDuplicateAwakenerIdentities,
-      advanceQuickLineupStep,
-      clearTransfer,
+      applyResolvedLoadoutCommand,
       effectiveActiveTeamId,
       posseById,
-      quickLineupSession,
-      requestPosseTransfer,
-      setActiveSelection,
       teams,
-      updateActiveTeam,
       usedPosseByTeamOrder,
     ],
   )
@@ -2008,43 +1929,6 @@ function createActivePosseView(posse: Posse): BuilderV2ActivePosseView {
   }
 }
 
-function getFirstEmptyWheelIndex(slot: TeamSlot | undefined): 0 | 1 | null {
-  if (!slot?.awakenerId) {
-    return null
-  }
-
-  const firstEmptyIndex = slot.wheels.findIndex((wheelId) => !wheelId)
-  return firstEmptyIndex === 0 || firstEmptyIndex === 1 ? firstEmptyIndex : null
-}
-
-function getWheelAssignmentTarget(
-  activeSelection: ActiveSelection,
-  slots: TeamSlot[],
-): {slotId: string; wheelIndex: 0 | 1} | null {
-  if (activeSelection?.kind === 'wheel') {
-    return {
-      slotId: activeSelection.slotId,
-      wheelIndex: activeSelection.wheelIndex === 0 ? 0 : 1,
-    }
-  }
-
-  if (activeSelection?.kind !== 'awakener') {
-    return null
-  }
-
-  const slot = slots.find((entry) => entry.slotId === activeSelection.slotId)
-  const wheelIndex = getFirstEmptyWheelIndex(slot)
-  return wheelIndex === null ? null : {slotId: activeSelection.slotId, wheelIndex}
-}
-
-function getSlotTargetFromSelection(activeSelection: ActiveSelection): string | null {
-  if (activeSelection?.kind === 'awakener' || activeSelection?.kind === 'covenant') {
-    return activeSelection.slotId
-  }
-
-  return null
-}
-
 function getQuickLineupStepLabel(
   quickLineupSession: QuickLineupSession | null,
   slots: BuilderV2SlotView[],
@@ -2115,48 +1999,4 @@ function getEditingLabel({
   }
 
   return `Editing ${slotLabel} - Awakener`
-}
-
-interface CrossTeamAwakenerOwnerOptions {
-  activeTeamId: string
-  allowDuplicateAwakenerIdentities: boolean
-  awakenerId: string
-  slots: TeamSlot[]
-  targetSlotId: string | undefined
-  usedAwakenerByIdentityKey: Map<string, BuilderV2AwakenerUsage>
-}
-
-function getCrossTeamAwakenerOwner({
-  activeTeamId,
-  allowDuplicateAwakenerIdentities,
-  awakenerId,
-  slots,
-  targetSlotId,
-  usedAwakenerByIdentityKey,
-}: CrossTeamAwakenerOwnerOptions): string | null {
-  if (allowDuplicateAwakenerIdentities) {
-    return null
-  }
-
-  const targetSlot = targetSlotId ? slots.find((slot) => slot.slotId === targetSlotId) : undefined
-  if (targetSlot?.isSupport) {
-    return null
-  }
-
-  const owningTeamId = usedAwakenerByIdentityKey.get(
-    getAwakenerIdentityKeyById(awakenerId),
-  )?.teamId
-  if (!owningTeamId || owningTeamId === activeTeamId) {
-    return null
-  }
-
-  return owningTeamId
-}
-
-function getViolationMessage(violation: TeamStateViolationCode): string {
-  if (violation === 'TOO_MANY_REALMS_IN_TEAM') {
-    return 'A team can only contain up to 2 realms.'
-  }
-
-  return 'That assignment would break current builder rules.'
 }
