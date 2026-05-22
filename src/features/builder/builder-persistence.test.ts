@@ -107,6 +107,24 @@ describe('builder-persistence', () => {
     })
   })
 
+  it('returns invalid-current for a non-object current builder envelope', () => {
+    const storage = createStorage([[BUILDER_PERSISTENCE_KEY, '[]']])
+
+    expect(loadBuilderDraft(storage.api)).toEqual({
+      status: 'invalid-current',
+      reason: expect.any(String),
+    })
+  })
+
+  it('returns invalid-current for a current builder envelope without payload', () => {
+    const storage = createStorage([[BUILDER_PERSISTENCE_KEY, '{"version":2}']])
+
+    expect(loadBuilderDraft(storage.api)).toEqual({
+      status: 'invalid-current',
+      reason: expect.any(String),
+    })
+  })
+
   it('returns invalid-current for malformed current builder storage', () => {
     const storage = createStorage([[BUILDER_PERSISTENCE_KEY, '{bad-json']])
 
@@ -222,6 +240,15 @@ describe('builder-persistence', () => {
     ).toBe(false)
     expect(storage.backing.has(LEGACY_BUILDER_PERSISTENCE_KEY)).toBe(true)
     expect(storage.backing.get(BUILDER_PERSISTENCE_KEY)).toContain('"version":2')
+  })
+
+  it('returns invalid-legacy for a non-object legacy builder envelope', () => {
+    const storage = createStorage([[LEGACY_BUILDER_PERSISTENCE_KEY, 'null']])
+
+    expect(loadBuilderDraft(storage.api)).toEqual({
+      status: 'invalid-legacy',
+      reason: expect.any(String),
+    })
   })
 
   it('returns canonical runtime ids on the first legacy V1 draft load', () => {

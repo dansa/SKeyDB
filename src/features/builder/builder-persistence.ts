@@ -36,7 +36,7 @@ export function loadBuilderDraft(storage: StorageLike | null): LoadBuilderDraftR
   const raw = safeStorageRead(storage, BUILDER_PERSISTENCE_KEY)
   if (raw !== null) {
     try {
-      const parsed = JSON.parse(raw) as PersistedBuilderEnvelope<PersistedBuilderPayload>
+      const parsed = parsePersistedBuilderEnvelope(JSON.parse(raw))
       if (parsed.version !== BUILDER_PERSISTENCE_VERSION) {
         return {status: 'invalid-current', reason: 'Unsupported builder draft version.'}
       }
@@ -59,7 +59,7 @@ export function loadBuilderDraft(storage: StorageLike | null): LoadBuilderDraftR
   }
 
   try {
-    const parsed = JSON.parse(legacyRaw) as PersistedBuilderEnvelope
+    const parsed = parsePersistedBuilderEnvelope(JSON.parse(legacyRaw))
     if (parsed.version !== LEGACY_BUILDER_PERSISTENCE_VERSION) {
       return {status: 'invalid-legacy', reason: 'Unsupported legacy builder draft version.'}
     }
@@ -106,4 +106,20 @@ export function clearBuilderDraft(storage: StorageLike | null): boolean {
   const currentRemoved = safeStorageRemove(storage, BUILDER_PERSISTENCE_KEY)
   const legacyRemoved = safeStorageRemove(storage, LEGACY_BUILDER_PERSISTENCE_KEY)
   return currentRemoved && legacyRemoved
+}
+
+function parsePersistedBuilderEnvelope(value: unknown): PersistedBuilderEnvelope<unknown> {
+  if (!isRecord(value) || typeof value.version !== 'number' || !('payload' in value)) {
+    throw new Error('Malformed builder draft envelope.')
+  }
+
+  return {
+    version: value.version,
+    updatedAt: typeof value.updatedAt === 'string' ? value.updatedAt : '',
+    payload: value.payload,
+  }
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
 }

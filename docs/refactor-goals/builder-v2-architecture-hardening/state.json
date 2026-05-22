@@ -155,7 +155,7 @@
       "id": "C6",
       "title": "Pure picker option query modules",
       "source_task": "S1",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "src/features/builder-v2/useBuilderV2Model.ts",
         "new picker query module(s)",
@@ -163,13 +163,13 @@
         "focused model tests"
       ],
       "evidence": "Four picker option pipelines are large useMemo blocks coupled to hook state and hard to test directly.",
-      "next": "Recommended next by C6 scout after W3; extract pure picker option query modules without picker redesign."
+      "next": "Implemented by W4 with builder-v2-picker-options.ts; hook retains inactive-tab gates and pure tests cover status/recommendation contracts."
     },
     {
       "id": "C7",
       "title": "Stable action groups and adaptive callback churn",
       "source_task": "S1",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "src/features/builder-v2/useBuilderV2Model.ts",
         "src/features/builder-v2/BuilderV2Page.tsx",
@@ -177,7 +177,7 @@
         "focused page tests"
       ],
       "evidence": "Desktop wraps assignment callbacks with useStableEvent; adaptive callbacks close over the entire model.",
-      "next": "Candidate may be superseded by C2 if command groups become stable."
+      "next": "Implemented by W7 with a shared Builder V2 useStableEvent hook and stable adaptive picker open/assignment callbacks."
     },
     {
       "id": "C8",
@@ -197,26 +197,26 @@
       "id": "C9",
       "title": "Shared picker a11y hardening",
       "source_task": "S1",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
         "src/features/builder-v2/BuilderV2Page.test.tsx",
         "maybe CSS"
       ],
       "evidence": "Shared picker content reuses fixed DOM IDs across desktop and adaptive instances; tile aria-labels omit blocked/unowned/recommended/active statuses.",
-      "next": "Small high-leverage UI/a11y Worker candidate."
+      "next": "Implemented by W5 with instance-safe picker IDs, same-instance tab focus, and richer tile accessible names."
     },
     {
       "id": "C10",
       "title": "Adaptive drawer focus containment/restore",
       "source_task": "S1",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
         "focused page tests"
       ],
       "evidence": "Assignment close path suppresses focus restore; focus trap lacks outside-activeElement fallback.",
-      "next": "Queue as UI/a11y hardening; do not change drawer shape."
+      "next": "Implemented by W6 with opener-aware focus restore and document-level Tab containment for the adaptive picker drawer."
     },
     {
       "id": "C11",
@@ -273,13 +273,13 @@
       "id": "C15",
       "title": "Persistence envelope parser",
       "source_task": "S1",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "src/features/builder/builder-persistence.ts",
         "migrations tests"
       ],
       "evidence": "JSON.parse(raw) as PersistedBuilderEnvelope casts before envelope validation.",
-      "next": "In scope only if Judge selects shared persistence hardening; otherwise lower priority because current goal is Builder V2 internals."
+      "next": "Implemented by W10: added a runtime envelope parser for current and legacy builder draft storage so JSON.parse output is narrowed before payload validation."
     },
     {
       "id": "C16",
@@ -1460,7 +1460,7 @@
     {
       "id": "J10",
       "role": "judge",
-      "status": "active",
+      "status": "done",
       "title": "Choose next post-CSS-contract hardening tranche",
       "skills": [
         "$refactor-rootfix",
@@ -1482,12 +1482,131 @@
         "docs/design/**"
       ],
       "expected_output": "Select the next contained tranche after W9 if continuing. Remaining likely candidates include C5 additive team-state result, C12 rail/button CSS dedupe, C15 persistence parser, C16 state strategy review, and C8/C13 only with real DnD work.",
+      "receipt": {
+        "evidence": [
+          "Selected C15 Persistence envelope parser as W10 because it is a contained shared trust-boundary cleanup with focused persistence tests.",
+          "Kept C5 queued because explicit team-state metadata changes shared runtime semantics and deserves its own tranche.",
+          "Kept C12 queued for a separate CSS dedupe pass; C8/C13 remain queued until real DnD work provides an overlay/ghost contract."
+        ],
+        "validation": [
+          "Approved W10 allowed files, invariants, validation, and rollback."
+        ]
+      }
+    },
+    {
+      "id": "W10",
+      "role": "worker",
+      "status": "done",
+      "title": "Parse persisted builder envelopes before payload validation",
+      "skills": [
+        "$refactor-typescript",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "src/features/builder/builder-persistence.ts",
+        "src/features/builder/builder-persistence.test.ts",
+        "docs/refactor-goals/builder-v2-architecture-hardening/**"
+      ],
+      "protected_files": [
+        "builder persistence key/version/migration behavior changes outside parser validation",
+        "mobile redesign",
+        "teams-list shape decisions",
+        "DnD implementation",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "Narrow JSON.parse output through a runtime envelope parser before existing current/legacy payload validators run, preserving load statuses and migration behavior.",
+      "invariants": [
+        "Do not change persistence keys, versions, save envelope shape, migration behavior, or current/legacy precedence.",
+        "Malformed current storage must remain invalid-current and must not fall back to legacy.",
+        "Malformed legacy storage must remain invalid-legacy.",
+        "Do not change UI, mobile, teams-list, DnD, dependencies, or docs/design."
+      ],
+      "validation": [
+        "npx vitest run src/features/builder/builder-persistence.test.ts --run",
+        "npx tsc -p tsconfig.app.json --noEmit",
+        "npx eslint src/features/builder/builder-persistence.ts src/features/builder/builder-persistence.test.ts",
+        "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-architecture-hardening"
+      ],
+      "rollback": [
+        "Revert builder-persistence parser/test changes and W10 packet updates."
+      ],
+      "receipt": {
+        "evidence": [
+          "Added parsePersistedBuilderEnvelope to narrow parsed current and legacy storage envelopes from unknown before payload validation.",
+          "Removed direct JSON.parse(... ) as PersistedBuilderEnvelope casts from loadBuilderDraft current and legacy branches.",
+          "Added tests for non-object current envelopes, current envelopes without payload, and non-object legacy envelopes.",
+          "Preserved persistence keys, versions, save envelope shape, migration behavior, current-over-legacy precedence, and existing invalid-current/invalid-legacy statuses."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder/builder-persistence.test.ts --run passed with 18 tests.",
+          "npx tsc -p tsconfig.app.json --noEmit passed.",
+          "npx eslint src/features/builder/builder-persistence.ts src/features/builder/builder-persistence.test.ts passed."
+        ]
+      }
+    },
+    {
+      "id": "R9",
+      "role": "review",
+      "status": "done",
+      "title": "Review W10 persistence envelope parser",
+      "skills": [
+        "$refactor-review",
+        "$refactor-typescript",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "read-only current W10 diff",
+        "docs/refactor-goals/builder-v2-architecture-hardening/**"
+      ],
+      "protected_files": [
+        "product source edits during review",
+        "remote state"
+      ],
+      "expected_output": "Audit W10 for parser trust-boundary soundness, status drift, migration behavior drift, and validation gaps.",
+      "receipt": {
+        "evidence": [
+          "Controller reviewed W10 diff after focused validation and found the parser only narrows envelope object/version/payload shape before existing payload validators run.",
+          "No persistence keys, versions, save envelope shape, migration behavior, current-over-legacy precedence, UI, mobile, teams-list, DnD, dependency, or docs/design scope changed."
+        ],
+        "validation": [
+          "Focused persistence tests, app typecheck, targeted eslint, and packet checker passed before staging."
+        ]
+      }
+    },
+    {
+      "id": "J11",
+      "role": "judge",
+      "status": "active",
+      "title": "Choose next post-persistence-parser hardening tranche",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-react",
+        "$refactor-typescript",
+        "$refactor-tailwind",
+        "$refactor-complexity"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-architecture-hardening/**",
+        "read-only W10 diff",
+        "read-only remaining queued candidate evidence"
+      ],
+      "protected_files": [
+        "mobile redesign",
+        "teams-list shape decisions",
+        "DnD implementation",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "Select the next contained tranche after W10 if continuing. Remaining candidates include C5 additive team-state result, C12 rail/button CSS dedupe, C16 state strategy review, and C8/C13 only with real DnD work.",
       "receipt": null
     }
   ],
   "final_audit": {
     "full_outcome_complete": false,
-    "summary": "W1/W2 landed command-boundary hardening, W3 landed the C3 editing-target boundary, W4 landed C6 picker query extraction, W5 landed picker a11y, W6/W7 landed adaptive focus/callback hardening, W8 landed the C4 WheelSlotIndex boundary, and W9 landed C11/C14 CSS focus/motion/picker-grid contracts. Broad hardening outcome is not complete; J10 is active to choose the next contained slice.",
+    "summary": "W1/W2 landed command-boundary hardening, W3 landed C3, W4 landed C6, W5 landed C9, W6/W7 landed C10/C7, W8 landed C4, W9 landed C11/C14, and W10 landed C15 persistence envelope parsing. Broad hardening outcome is not complete; J11 is active to choose the next contained slice.",
     "validation": [
       "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder-v2/builder-v2-usage-index.test.ts --run passed with 68 tests.",
       "npx vitest run src/features/builder-v2/builder-v2-editing-mode.test.ts src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder-v2/builder-v2-usage-index.test.ts --run passed with 76 tests after W3.",
@@ -1497,8 +1616,8 @@
       "W4 focused picker/model/page tests passed with 80 tests; app typecheck, targeted eslint, and packet checker passed."
     ],
     "open_items": [
-      "J10 choose next contained post-CSS-contract slice.",
-      "C5, C8, C12, C13, C15, and C16 remain queued until implemented, superseded, blocked, or out of scope.",
+      "J11 choose next contained post-persistence-parser slice.",
+      "C5, C8, C12, C13, and C16 remain queued until implemented, superseded, blocked, or out of scope.",
       "M1-M2 maintenance candidates remain open."
     ]
   }

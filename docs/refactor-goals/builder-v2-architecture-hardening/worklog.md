@@ -274,3 +274,23 @@
 - R8 complete: W9 review recorded.
 - J10 active: choose the next post-CSS-contract hardening tranche only if continuing.
 - Next prompt: `$refactor-goal-prep Continue docs/refactor-goals/builder-v2-architecture-hardening/goal.md.`
+
+### 2026-05-23 - W10 persistence envelope parser landed
+
+- J10 selected `C15` Persistence envelope parser as W10.
+- Root-fix reasoning: C15 is a contained TypeScript trust-boundary cleanup with focused persistence tests. It removes unsafe envelope casts without changing persistence keys, versions, migration behavior, current-over-legacy precedence, or UI surfaces.
+- Packet repair:
+  - Reconciled stale `state.json` candidate statuses for already-landed C6, C7, C9, and C10 to `implemented`.
+- W10 implementation:
+  - Added `parsePersistedBuilderEnvelope` to narrow JSON parse output from `unknown` before current/legacy payload validators run.
+  - Removed direct `JSON.parse(...) as PersistedBuilderEnvelope` casts from current and legacy load branches.
+  - Added tests for non-object current envelopes, current envelopes without payload, and non-object legacy envelopes.
+- Review:
+  - Controller reviewed the W10 diff after validation and found no persistence key/version/save-shape/migration/current-precedence drift.
+- Validation:
+  - `npx vitest run src/features/builder/builder-persistence.test.ts --run` passed with 18 tests.
+  - `npx tsc -p tsconfig.app.json --noEmit` passed.
+  - `npx eslint src/features/builder/builder-persistence.ts src/features/builder/builder-persistence.test.ts` passed.
+- R9 complete: W10 review recorded.
+- J11 active: choose the next post-persistence-parser hardening tranche if continuing.
+- Next prompt: `$refactor-goal-prep Continue docs/refactor-goals/builder-v2-architecture-hardening/goal.md.`
