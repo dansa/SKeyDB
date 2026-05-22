@@ -1,7 +1,7 @@
 {
   "version": 1,
   "slug": "builder-v2-rebuild",
-  "status": "active",
+  "status": "complete",
   "created": "2026-05-22",
   "updated": "2026-05-22",
   "intake": {
@@ -46,8 +46,8 @@
     {
       "name": "Current builder contract reuse",
       "status": "implemented",
-      "evidence": "W1 added useBuilderV2Model as a facade over builderDraftStore, persistence, ownership hydration, search helpers, and team-state assignment/removal helpers; W2 extended it to gear/posse assignment; W3 wired quick-lineup mode through existing builderDraftStore quick-lineup actions.",
-      "next": "Extend the facade for import/export, transfer parity, DnD, recommendations, and mobile drawer orchestration in queued tranches."
+      "evidence": "W1 added useBuilderV2Model as a facade over builderDraftStore, persistence, ownership hydration, search helpers, and team-state assignment/removal helpers; W2 extended it to gear/posse assignment; W3 wired quick-lineup; W4 wired mobile drawer orchestration; W6 wired import/export; W7 wired transfer confirmation; W8 wired team management.",
+      "next": "Terminal for this goal. DnD and recommendations are future UX-mechanics slices after the designer pass."
     },
     {
       "name": "Old UX branch flow salvage",
@@ -58,38 +58,38 @@
     {
       "name": "Test and characterization harness",
       "status": "implemented",
-      "evidence": "W1-W5 added focused V2 model/page characterization, including mobile drawer dialog focus, Escape/focus return, reopened target assignment, mobile quick-lineup focused-slot synchronization, adaptive viewport routing, compact adaptive team switching, adaptive drawer tab/search focus, modal background hiding, invalid assignment alerts, and full-wheel-slot no-target coverage.",
-      "next": "Add focused characterization tests with each later workflow slice."
+      "evidence": "W1-W8 added focused V2 model/page characterization for assignments, gear/posse, quick-lineup, mobile drawer focus, adaptive routing, import/export, transfer confirmations, and team management while keeping relevant V1 contract tests green.",
+      "next": "Terminal for this goal. Add focused characterization with any future UX-mechanics slice."
     },
     {
       "name": "Visual baseline",
       "status": "implemented",
-      "evidence": "W1 added local builder-v2 CSS using sharp panels, compact controls, restrained blue, amber selection state, and D-Zone-style UI tokens.",
-      "next": "Run deeper visual review/polish in later design tranches."
+      "evidence": "W1 added local builder-v2 CSS using sharp panels, compact controls, restrained blue, amber selection state, and D-Zone-style UI tokens. C9 reframes this as product baseline, not final visual destination.",
+      "next": "Terminal for this goal. The designer pass owns final visual polish toward the selected mockups."
     },
     {
       "name": "Concept image alignment",
       "status": "implemented",
-      "evidence": "W1 follows Desktop.png anatomy; W3 implemented the quick-lineup functional contract; W4 implemented Mobile.png-style overview/focused/full-screen picker drawer states; W5 added the pseudo-desktop adaptive shell the user described, with compact teams and a picker drawer instead of the desktop armory.",
-      "next": "Use concept images again for team overview readiness, import/export/transfer parity polish, and final designer handoff notes."
+      "evidence": "W1 follows Desktop.png anatomy; W3 implemented the quick-lineup functional contract; W4 implemented Mobile.png-style overview/focused/full-screen picker drawer states; W5 added the pseudo-desktop adaptive shell; C9 names the selected concept images as the designer target.",
+      "next": "Terminal for this goal. Final visual interpretation belongs to the designer pass."
     },
     {
       "name": "Teams section polish",
       "status": "implemented",
-      "evidence": "W8/R8 implemented a visually provisional but functional Builder V2 team management overview across desktop, adaptive, and mobile: add, switch, rename, reset/delete confirmations, D-Tide templates, and simple accessible reorder now use existing V1 team helper contracts.",
-      "next": "Final visual polish, cards-vs-list choice, screenshot/share presentation, and designer-facing explanation remain queued under C9 rather than blocking functional parity."
+      "evidence": "W8/R8 implemented a visually provisional but functional Builder V2 team management overview across desktop, adaptive, and mobile: add, switch, rename, reset/delete confirmations, D-Tide templates, and simple accessible reorder now use existing V1 team helper contracts. C9 records final list/cards/share shape as future design/product work.",
+      "next": "Terminal for this goal. Final cards/list/share presentation is a designer/future-day decision, not a C9 blocker."
     },
     {
       "name": "DnD/import/export/quick-lineup polish",
-      "status": "queued",
-      "evidence": "W3/R3 implemented quick-lineup, W4/R4 implemented mobile drawer flow, W6/R6 implemented import/export parity, and W7/R7 implemented transfer dialog parity across desktop/adaptive/mobile/quick-lineup flows.",
-      "next": "DnD and recommendations remain later polish slices; keep import/export action placement and transfer dialog presentation provisional for future design polish."
+      "status": "implemented",
+      "evidence": "W3/R3 implemented quick-lineup, W6/R6 implemented import/export parity, and W7/R7 implemented transfer dialog parity. User clarified DnD and recommendations should wait until the visual/layout direction is good.",
+      "next": "Terminal for this goal. DnD and recommendations are future UX-mechanics slices after the designer pass, not blockers for C9."
     },
     {
       "name": "Designer handoff readiness",
-      "status": "queued",
-      "evidence": "User affirmed the entire goal packet should lead into handoff to the designer/design model after the V2 core is healthy.",
-      "next": "Add the final handoff bundle after team overview readiness/product decisions and any selected DnD/recommendation polish are resolved or explicitly left for the designer."
+      "status": "implemented",
+      "evidence": "C9 added docs/refactor-goals/builder-v2-rebuild/designer-handoff.md, current baseline screenshots in artifacts/, concept-image target framing, and a pasteable designer prompt that treats /builder-v2 as product baseline rather than visual destination.",
+      "next": "Terminal for this goal."
     }
   ],
   "candidates": [
@@ -105,7 +105,7 @@
         "read-only current builder helpers"
       ],
       "evidence": "W1 added src/features/builder-v2 and a lazy /builder-v2 route without nav promotion.",
-      "next": "Review W1 diff and receipts."
+      "next": "Terminal for this goal."
     },
     {
       "id": "C2",
@@ -118,7 +118,7 @@
         "focused tests"
       ],
       "evidence": "W1 implemented useBuilderV2Model with current builderDraftStore hydration/autosave and team-state assignment/removal helpers.",
-      "next": "Extend the facade in later gear/posse/import tranches."
+      "next": "Terminal for this goal. DnD/recommendations remain future mechanics."
     },
     {
       "id": "C3",
@@ -131,7 +131,7 @@
         "current domain search/sort helpers"
       ],
       "evidence": "W1 added BuilderV2AwakenerPicker with current search/sort helpers and disabled future category tabs.",
-      "next": "C4 broadens picker behavior to wheels, covenants, and posses."
+      "next": "Terminal for this goal."
     },
     {
       "id": "C3a",
@@ -144,7 +144,7 @@
         "mobile and quick-lineup boundary notes"
       ],
       "evidence": "W1 implemented the desktop rail/stage/armory/overview shell and mobile single-column collapse, with quick-lineup/drawer polish explicitly kept for later.",
-      "next": "Use the concept images again when C5/C6 are active."
+      "next": "Terminal for this goal."
     },
     {
       "id": "C4",
@@ -157,7 +157,7 @@
         "transfer dialogs"
       ],
       "evidence": "W2 added Builder V2 Armory category tabs, actionable W1/W2/Covenant and team Posse targets, click-to-assign/clear flows, same-active-team gear movement, duplicate guards, and focused tests.",
-      "next": "Full transfer dialogs, DnD, recommendations, and mobile drawer remain queued in C5/C6/C8 or future polish slices."
+      "next": "Terminal for this goal. Transfer dialogs are implemented; DnD/recommendations are future UX-mechanics slices."
     },
     {
       "id": "C5",
@@ -170,7 +170,7 @@
         "focused slot UI tests"
       ],
       "evidence": "W4/R4 added a mobile-only Builder V2 layout with overview, focused slot builder, shared picker drawer content, dialog semantics, Escape/search focus/focus return, mobile quick-lineup step focus synchronization, focused tests, and browser smoke.",
-      "next": "Tablet adaptation, teams overview shape, transfer/import/export parity, and designer handoff remain queued in C7/C8/C9 or later scoped candidates."
+      "next": "Terminal for this goal."
     },
     {
       "id": "C6",
@@ -184,7 +184,7 @@
         "tests"
       ],
       "evidence": "W3 enabled Builder V2 Quick Lineup mode using existing builderDraftStore quick-lineup actions, compact V2 controls, assignment-driven step advance, manual target jump, cancel restore, final posse completion, and focused model/page tests.",
-      "next": "C5 mobile overview/focused/full-screen picker drawer flow is the next structurally ready candidate; C7/C8 remain queued."
+      "next": "Terminal for this goal."
     },
     {
       "id": "C6a",
@@ -199,7 +199,7 @@
         "focused viewport tests and browser smoke"
       ],
       "evidence": "W5/R5 implemented and reviewed a distinct adaptive Builder V2 shell for 769px..66rem: BuilderV2Page now routes mobile/adaptive/desktop by viewport, adaptive widths render a compact teams rail plus active workbench, and the picker opens in a modal drawer with backdrop, body scroll lock, search focus, Escape focus return, hidden background semantics, and in-drawer validation alerts.",
-      "next": "Complete for this tranche. Continue with C7a team overview readiness, C8a import/export parity, C8b transfer dialog parity, or C9 handoff when selected by a future Judge."
+      "next": "Terminal for this goal."
     },
     {
       "id": "C7a",
@@ -213,7 +213,7 @@
         "screenshot-friendly read-only overview tests"
       ],
       "evidence": "W8/R8 added a shared BuilderV2TeamManagement surface used by desktop, adaptive, and mobile layouts, with screenshot-friendly team summaries including slots, posse, support, wheel, and covenant tags.",
-      "next": "Complete for functional readiness; final share/card/list polish belongs to C9 designer handoff."
+      "next": "Terminal for this goal. Final share/card/list polish is future design/product work after the designer pass."
     },
     {
       "id": "C8a",
@@ -227,7 +227,7 @@
         "focused V2 import/export tests"
       ],
       "evidence": "W6/R6 reused the existing import/export codecs, planner, validation, and shared dialogs from V2: desktop/adaptive/mobile now expose provisional import/export actions, t1 import into empty active team, mt1 replace, duplicate override, conflict strategy, active/all standard export, and active in-game export are covered by focused V2 tests.",
-      "next": "Complete for this tranche. Keep transfer dialog parity split into C8b."
+      "next": "Terminal for this goal."
     },
     {
       "id": "C8b",
@@ -240,7 +240,7 @@
         "quick-lineup and selection interaction tests"
       ],
       "evidence": "W7/R7 reused existing transfer request, dialog, and resolution semantics in Builder V2: cross-team awakeners, wheels, and posses now open confirmation dialogs; cancel is non-mutating; confirm moves clear the source owner/socket; Use as Support keeps source ownership, marks the target support, sets level 90; adaptive/mobile drawer handoff and quick-lineup wait-for-confirm behavior are covered.",
-      "next": "Complete for this tranche. DnD transfer parity, team overview readiness, and final designer handoff remain outside W7."
+      "next": "Terminal for this goal. DnD transfer polish is future UX-mechanics work."
     },
     {
       "id": "C7",
@@ -253,7 +253,7 @@
         "screenshot/share needs"
       ],
       "evidence": "W8/R8 implemented the functional C7 MVP using existing team-collection and builderDraftStore contracts: add/max, switch, inline rename commit/cancel/blank no-op, empty delete/reset direct behavior, non-empty delete/reset confirmations, D-Tide 5/10 template confirmation, and up/down reorder preserving active identity.",
-      "next": "Functional parity is complete for this tranche. Final cards-vs-list/share polish remains a design-handoff concern under C9."
+      "next": "Terminal for this goal. Final list/cards/share presentation belongs to designer/future polish."
     },
     {
       "id": "C8",
@@ -267,22 +267,23 @@
         "tests"
       ],
       "evidence": "W6/R6 implemented Builder V2 import/export parity and W7/R7 implemented Builder V2 transfer dialog parity, closing the actionable C8 split without editing protected V1 builder code.",
-      "next": "Complete as the import/export plus transfer parity umbrella. DnD/recommendations remain separate polish concerns rather than C8 blockers."
+      "next": "Terminal for this goal. DnD/recommendations remain future UX-mechanics slices rather than C8 blockers."
     },
     {
       "id": "C9",
       "title": "Designer handoff bundle",
       "source_task": "User clarification",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "Goal packet",
-        "screenshots/browser smoke evidence",
+        "Browser-plugin screenshots/browser smoke evidence",
         "current /builder-v2 notes",
         "concept-image traceability",
-        "unresolved product decisions"
+        "unresolved visual/layout decisions",
+        "deferred UX mechanic notes"
       ],
-      "evidence": "C9 remains queued. W8/R8 left Builder V2 teams functional but visually provisional, giving the designer handoff concrete behavior and explicit freedom to reshape list/cards/share presentation.",
-      "next": "Prepare the designer handoff bundle next, with concept-image traceability, screenshots/browser notes, and unresolved visual/product decisions."
+      "evidence": "C9 added designer-handoff.md, Browser-plugin desktop captures, local mobile/adaptive viewport captures, concept-image traceability, explicit visual/layout scope, deferred UX-mechanic notes, and a pasteable designer prompt naming the mockups as the end goal.",
+      "next": "Terminal for this goal. Use the handoff as the next prompt source for the designer/design model."
     }
   ],
   "maintenance": [
@@ -291,16 +292,23 @@
       "title": "Builder V2 contract docs",
       "trigger": "successful first tranche",
       "skill": "$refactor-learning-maintainer",
-      "status": "not_started",
-      "next": "Consider after first Worker proves a stable boundary."
+      "status": "superseded",
+      "next": "Superseded by the Builder V2 goal packet plus designer-handoff.md for this local rebuild. Add dedicated contract docs only if Builder V2 is promoted later.",
+      "superseded_by": "docs/refactor-goals/builder-v2-rebuild/designer-handoff.md and the completed goal packet",
+      "evidence": [
+        "C9 handoff captures the local Builder V2 product baseline, locked behavior, design target, and prompt; dedicated contract docs should wait for public promotion."
+      ]
     },
     {
       "id": "M2",
       "title": "Builder visual vocabulary drift guard",
       "trigger": "repeated old-builder CSS/class reuse",
       "skill": "$refactor-lint-law or $refactor-learning-maintainer",
-      "status": "not_started",
-      "next": "Only if repeated drift appears during Worker/Review."
+      "status": "out_of_scope_by_user",
+      "next": "No lint-law or AGENTS drift guard was required in this goal; visual vocabulary guidance is captured in designer-handoff.md and existing DESIGN.md/PRODUCT.md.",
+      "evidence": [
+        "No repeated visual-vocabulary drift guard or AGENTS/lint update was required during W1-W9; user scoped C9 to designer handoff rather than harness changes."
+      ]
     }
   ],
   "tasks": [
@@ -2324,22 +2332,118 @@
           "Final design polish remains queued under C9."
         ]
       }
+    },
+    {
+      "id": "W9",
+      "role": "worker",
+      "status": "done",
+      "title": "Prepare C9 designer handoff bundle",
+      "skills": [
+        "$refactor-goal-prep",
+        "Browser:browser",
+        "$refactor-review"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-rebuild/designer-handoff.md",
+        "docs/refactor-goals/builder-v2-rebuild/artifacts/**",
+        "docs/refactor-goals/builder-v2-rebuild/goal.md",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/features/builder-v2/** product code",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "domain/generated data",
+        "dependency files",
+        "remote state"
+      ],
+      "invariants": [
+        "Do not change product behavior while preparing C9.",
+        "Treat /builder-v2 as product baseline, not final visual destination.",
+        "Name docs/design/Desktop.png, Mobile.png, and Mobile-QuickLineup.png as the visual/layout target.",
+        "Keep team list/cards/share shape available for future design, not a blocker.",
+        "Keep DnD, recommendations, and navigation promotion as future UX/product slices."
+      ],
+      "receipt": {
+        "summary": "Prepared the C9 designer handoff bundle and reconciled the packet toward final closure.",
+        "evidence": [
+          "Created docs/refactor-goals/builder-v2-rebuild/designer-handoff.md with purpose, source hierarchy, screenshots, locked behavior, visual/layout intent, team overview scope, deferred UX mechanics, pasteable designer prompt, and acceptance checklist.",
+          "Captured Browser-plugin desktop screenshots at artifacts/builder-v2-current-browser-desktop-filled.png and artifacts/builder-v2-current-browser-desktop.png.",
+          "Captured local viewport baseline screenshots at artifacts/builder-v2-current-adaptive.png and artifacts/builder-v2-current-mobile.png.",
+          "Updated goal.md focus/candidate tables so C5/C7/C8/C9 and handoff readiness reflect implemented terminal status.",
+          "Recorded that DnD/recommendations and final team list/cards/share mode are future-day UX/product slices after visual direction, not C9 blockers."
+        ],
+        "browser_evidence": [
+          "Browser plugin opened http://127.0.0.1:5173/#/builder-v2, confirmed Builder V2 DOM presence, and captured the desktop baseline.",
+          "Browser plugin refused file:// capture for a responsive wrapper due URL policy; controller removed that wrapper and used direct local app viewport captures instead."
+        ],
+        "prompt_location": "docs/refactor-goals/builder-v2-rebuild/designer-handoff.md#designer-prompt",
+        "deferred": [
+          "DnD and recommendation mechanics.",
+          "Final team list-vs-cards-vs-switcher decision.",
+          "Final screenshot/share presentation.",
+          "Navigation promotion from hidden /builder-v2 to public Builder.",
+          "Persistence or migration changes."
+        ]
+      }
+    },
+    {
+      "id": "R9",
+      "role": "review",
+      "status": "done",
+      "title": "Review C9 handoff closure and final audit",
+      "skills": [
+        "$refactor-review",
+        "$refactor-goal-prep"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/features/builder-v2/** product code",
+        "src/App.tsx",
+        "dependency files",
+        "remote state"
+      ],
+      "expected_output": "Audit the C9 handoff packet, final audit closure, terminal candidate/focus/maintenance statuses, and validation receipts.",
+      "receipt": {
+        "summary": "R9 reviewed the C9 designer handoff closure and passed after controller fixes.",
+        "reviewer": "019e4e2a-d93f-7391-a6ef-6c20d00098b9",
+        "initial_verdict": "needs-fix",
+        "initial_findings": [
+          "final_audit.full_outcome_complete was true while active validation text still said packet checker/diff validation would be recorded later.",
+          "goal.md/state.json still had stale queued/next wording for already-terminal slices and C9 handoff closure."
+        ],
+        "controller_fixes": [
+          "Replaced stale queued/next language in active goal.md focus/candidate/maintenance tables.",
+          "Replaced stale queued/next language in state.json focus/candidate entries.",
+          "Changed final_audit.validation to record the actual passing packet checker and git diff --check receipt.",
+          "Reran check-refactor-goal and git diff --check successfully."
+        ],
+        "final_verdict": "pass",
+        "validation": [
+          "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-rebuild (OK)",
+          "git diff --check (passed)",
+          "Reviewer final confirmation: pass"
+        ]
+      }
     }
   ],
   "final_audit": {
-    "full_outcome_complete": false,
-    "summary": "W1-W8 implemented and reviewed the isolated Builder V2 route, core assignments, quick-lineup, mobile/adaptive shells, import/export parity, transfer parity, and functional team management overview. The current C7a/C7 tranche is complete after R8 fixes; the broad Builder V2 rebuild remains active only because C9 designer handoff and final design polish are queued.",
+    "full_outcome_complete": true,
+    "summary": "W1-W9 implemented and reviewed the isolated Builder V2 route, core assignments, gear/posse assignment, quick-lineup, mobile/adaptive shells, import/export parity, transfer parity, functional team management, and the C9 designer handoff bundle. Builder V2 is now a healthy local product baseline for a designer/design model to reshape toward the selected mockups.",
     "validation": [
-      "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder/team-collection.test.ts src/features/builder/BuilderPage.team-management.test.tsx (4 files, 80 tests passed)",
-      "npm run test:integration (7 files, 57 tests passed)",
-      "npm run lint (passed)",
-      "npm run build (passed; existing Vite chunk-size/plugin timing warnings only)",
-      "git diff --check (passed)",
-      "Browser smoke for #/builder-v2 desktop and mobile team management interactions passed; screenshot capture timed out on the asset-heavy page"
+      "W8 code checkpoint validation already passed: focused Builder V2/V1 team tests, npm run test:integration, npm run lint, npm run build, git diff --check, and browser interaction smoke.",
+      "C9 Browser evidence: http://127.0.0.1:5173/#/builder-v2 opened in the Browser plugin, Builder V2 DOM was present, and current desktop baseline screenshots were captured.",
+      "C9 viewport evidence: 390x844 mobile and 900x1000 adaptive baseline screenshots were captured from the local app.",
+      "C9 packet validation passed: check-refactor-goal OK and git diff --check passed after R9 findings were fixed."
     ],
     "open_items": [
-      "C9 designer handoff bundle after W8 review",
-      "Final team overview visual/card/list/share polish as a design-handoff decision, not a functional C7 blocker"
+      "Future design/model pass should use designer-handoff.md and the selected mockups as the target.",
+      "DnD, recommendations, final share/screenshot mode, nav promotion, and final team list/cards/switcher choice are future product/UX slices after visual direction, not open blockers for this goal."
     ]
   }
 }

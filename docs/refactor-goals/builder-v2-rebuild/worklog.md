@@ -540,3 +540,56 @@
   - Untracked concept/sendoff files under `docs/design/` and prior smoke screenshots remain intentionally excluded.
   - `BuilderV2TeamManagement.tsx` is a required W8 product file and should be staged with the W8 commit.
 - Active task: none. C7a/C7 are functionally implemented and reviewed after controller fixes; C9 designer handoff remains queued.
+
+### 2026-05-22 - C9 handoff scope clarified
+
+- Source: User clarified that if Playwright screenshot tooling is brittle, the Browser plugin may perform better, and that the designer should anchor visuals/layout only.
+- Decision:
+  - C9 should prefer Browser-plugin screenshots and smoke notes for current `/builder-v2` visual evidence.
+  - The designer handoff should focus on visual direction, layout, responsive composition, concept-image traceability, and unresolved card/list/share presentation decisions.
+  - Deeper UX mechanics such as DnD can be named as deferred follow-up, but should not be bundled into the designer's primary responsibility until the visual/layout direction is good.
+- Active task: none. C9 remains queued as a handoff bundle, not a final UX-mechanics implementation slice.
+
+### 2026-05-22 - W9 C9 designer handoff prepared
+
+- Active task: W9, C9 designer handoff bundle.
+- User direction:
+  - Finish C9 and wrap up the broad Builder V2 rebuild goal.
+  - The handoff should be structured and include a clear designer prompt.
+  - The prompt should say the current `/builder-v2` state is the product baseline, while the end goal should be the selected mockups.
+  - Teams list/cards/share shape can be deferred as a future-day problem.
+- Artifact:
+  - Added `docs/refactor-goals/builder-v2-rebuild/designer-handoff.md`.
+  - The handoff includes purpose, source hierarchy, target mockups, current baseline screenshots, locked product behavior, visual goal, desktop/mobile/adaptive layout intent, team overview scope, deferred UX mechanics, pasteable designer prompt, and acceptance checklist.
+- Screenshot evidence:
+  - Browser plugin opened `http://127.0.0.1:5173/#/builder-v2`, confirmed Builder V2 DOM presence, and captured:
+    - `docs/refactor-goals/builder-v2-rebuild/artifacts/builder-v2-current-browser-desktop-filled.png`
+    - `docs/refactor-goals/builder-v2-rebuild/artifacts/builder-v2-current-browser-desktop.png`
+  - Browser plugin refused `file://` capture for a temporary responsive wrapper because of URL policy. Controller removed that wrapper and did not route around the Browser policy.
+  - Local app viewport captures were produced for alternate breakpoints:
+    - `docs/refactor-goals/builder-v2-rebuild/artifacts/builder-v2-current-adaptive.png`
+    - `docs/refactor-goals/builder-v2-rebuild/artifacts/builder-v2-current-mobile.png`
+- Packet updates:
+  - `goal.md` now marks C5, C7, C8, and C9 terminal in the charter tables.
+  - `state.json` now marks C9 and designer handoff readiness implemented.
+  - DnD and recommendations are recorded as future UX-mechanics slices after visual direction, not blockers for this goal.
+  - Final team list-vs-cards-vs-switcher and share/screenshot presentation are recorded as future design/product decisions, not blockers for C9.
+- Active task: W9 done locally; R9 review and final packet validation are next.
+
+### 2026-05-22 - R9 review fixed and broad goal closed
+
+- Reviewer: `019e4e2a-d93f-7391-a6ef-6c20d00098b9`.
+- Initial verdict: needs-fix.
+- Findings:
+  - `final_audit.full_outcome_complete` was true while active validation text still said packet checker and diff validation would be recorded later.
+  - `goal.md` and `state.json` still had stale queued/next wording for already-terminal slices and C9 handoff closure.
+- Controller fixes:
+  - Replaced stale queued/next wording in active `goal.md` focus/candidate/maintenance tables.
+  - Replaced stale queued/next wording in `state.json` focus/candidate entries.
+  - Updated `final_audit.validation` to record actual passing packet checker and diff-check evidence.
+  - Marked the packet `status` complete in `state.json`.
+- Validation:
+  - `node C:\Users\dansa\.codex\plugins\cache\refactor-discipline-local\refactor-discipline\0.4.3\skills\refactor-goal-prep\scripts\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-rebuild` passed.
+  - `git diff --check` passed.
+  - Reviewer final confirmation: pass.
+- Active task: none. The broad Builder V2 rebuild goal is complete locally. The next work is designer/design-model visual layout work using `designer-handoff.md`, with DnD, recommendations, team presentation finalization, share mode, nav promotion, and persistence/migration work left as future product slices.
