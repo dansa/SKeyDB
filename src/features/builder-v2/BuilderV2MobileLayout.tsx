@@ -10,6 +10,7 @@ import {
 
 import {BuilderV2PickerContent} from './BuilderV2AwakenerPicker'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
+import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
 import type {BuilderV2Model, BuilderV2PickerTab, BuilderV2SlotView} from './useBuilderV2Model'
 
 interface BuilderV2MobileLayoutProps {
@@ -177,6 +178,9 @@ export function BuilderV2MobileLayout({model}: BuilderV2MobileLayoutProps) {
       ) : (
         <MobileTeamOverview
           model={model}
+          onTeamActivated={() => {
+            setManualFocusedSlotId(null)
+          }}
           onOpenFocusedSlot={openFocusedSlot}
           onOpenPicker={openPicker}
         />
@@ -234,10 +238,12 @@ export function BuilderV2MobileLayout({model}: BuilderV2MobileLayoutProps) {
 
 function MobileTeamOverview({
   model,
+  onTeamActivated,
   onOpenFocusedSlot,
   onOpenPicker,
 }: {
   model: BuilderV2Model
+  onTeamActivated: () => void
   onOpenFocusedSlot: (slotId: string) => void
   onOpenPicker: (config: {
     event: ReactMouseEvent<HTMLElement>
@@ -310,6 +316,8 @@ function MobileTeamOverview({
           Pick Posse
         </button>
       </div>
+
+      <BuilderV2TeamManagement model={model} onTeamActivated={onTeamActivated} variant='mobile' />
     </section>
   )
 }

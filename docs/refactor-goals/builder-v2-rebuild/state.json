@@ -75,9 +75,9 @@
     },
     {
       "name": "Teams section polish",
-      "status": "queued",
-      "evidence": "S6 reaffirmed full teams redesign is blocked on list-vs-cards, but C7a team overview readiness can improve screenshot/share-readiness without final team CRUD or layout commitments.",
-      "next": "Keep full C7 queued; consider C7a as a bounded readiness slice if prioritized by judge/user."
+      "status": "implemented",
+      "evidence": "W8/R8 implemented a visually provisional but functional Builder V2 team management overview across desktop, adaptive, and mobile: add, switch, rename, reset/delete confirmations, D-Tide templates, and simple accessible reorder now use existing V1 team helper contracts.",
+      "next": "Final visual polish, cards-vs-list choice, screenshot/share presentation, and designer-facing explanation remain queued under C9 rather than blocking functional parity."
     },
     {
       "name": "DnD/import/export/quick-lineup polish",
@@ -205,15 +205,15 @@
       "id": "C7a",
       "title": "Team overview readiness component",
       "source_task": "S6",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "V2 team overview display surface",
         "shared desktop/mobile team summary component",
         "active-team switching only",
         "screenshot-friendly read-only overview tests"
       ],
-      "evidence": "S6 found full C7 is not ready without a list-vs-cards product decision, but a neutral read-only overview readiness component could reuse existing BuilderV2TeamSummary data and avoid CRUD/reorder/export commitments.",
-      "next": "Queue behind tablet/adaptive and/or import/export unless the user chooses to prioritize team overview readiness now."
+      "evidence": "W8/R8 added a shared BuilderV2TeamManagement surface used by desktop, adaptive, and mobile layouts, with screenshot-friendly team summaries including slots, posse, support, wheel, and covenant tags.",
+      "next": "Complete for functional readiness; final share/card/list polish belongs to C9 designer handoff."
     },
     {
       "id": "C8a",
@@ -246,14 +246,14 @@
       "id": "C7",
       "title": "Teams overview redesign",
       "source_task": "User prompt",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "V2 teams surface",
         "team-management helpers",
         "screenshot/share needs"
       ],
-      "evidence": "S6 reaffirmed full C7 teams overview redesign remains product/design blocked by the unresolved list-vs-cards and compact-vs-expanded decisions; only C7a readiness is viable without that decision.",
-      "next": "Keep full C7 queued until product/design chooses list vs cards, compact/expanded behavior, and team CRUD/share expectations."
+      "evidence": "W8/R8 implemented the functional C7 MVP using existing team-collection and builderDraftStore contracts: add/max, switch, inline rename commit/cancel/blank no-op, empty delete/reset direct behavior, non-empty delete/reset confirmations, D-Tide 5/10 template confirmation, and up/down reorder preserving active identity.",
+      "next": "Functional parity is complete for this tranche. Final cards-vs-list/share polish remains a design-handoff concern under C9."
     },
     {
       "id": "C8",
@@ -281,8 +281,8 @@
         "concept-image traceability",
         "unresolved product decisions"
       ],
-      "evidence": "S6 found C9 final designer handoff is more useful after W4; W6/R6 and W7/R7 now close import/export and transfer parity, leaving team overview/readiness decisions as the main handoff blockers.",
-      "next": "Keep queued until C7a/C7 are implemented, blocked by user decision, or explicitly handed to the designer with open questions."
+      "evidence": "C9 remains queued. W8/R8 left Builder V2 teams functional but visually provisional, giving the designer handoff concrete behavior and explicit freedom to reshape list/cards/share presentation.",
+      "next": "Prepare the designer handoff bundle next, with concept-image traceability, screenshots/browser notes, and unresolved visual/product decisions."
     }
   ],
   "maintenance": [
@@ -2043,24 +2043,303 @@
           "Reviewer did not rerun validation locally; controller validation receipts cover the passed commands."
         ]
       }
+    },
+    {
+      "id": "S8",
+      "role": "scout",
+      "status": "done",
+      "title": "Map C7a/C7 Builder V2 teams overview and team management scope",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-architecture",
+        "$refactor-react",
+        "$refactor-ui-a11y",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "src/features/builder/** read-only",
+        "src/stores/builderDraftStore.ts read-only",
+        "docs/refactor-goals/builder-v2-rebuild/state.json"
+      ],
+      "protected_files": [
+        "product edits",
+        "remote state"
+      ],
+      "expected_output": "Evidence map for C7a overview readiness, C7 team management parity, reusable V1 contracts, tests, risks, and bounded allowed files.",
+      "receipt": {
+        "summary": "Three read-only scouts mapped Builder V2 teams surfaces, V1 team-management contracts, and C7a/C7 validation needs.",
+        "scouts": [
+          "019e4de1-46f3-75d1-9864-093d3e52b917",
+          "019e4de1-6f17-7d53-8029-1f15b5cbf79e",
+          "019e4de1-9b4e-7e72-af40-4a17338492ba"
+        ],
+        "evidence": [
+          "C7a safe core is a shared read-only all-teams summary/switcher across desktop/adaptive/mobile using BuilderV2TeamSummary.",
+          "Current desktop has separate rail and overview strip; adaptive has compact team switching only; mobile lacks all-team switching.",
+          "V1 team contracts are available as pure helpers: MAX_TEAMS, addTeam, renameTeam, deleteTeam, reorderTeams, isTeamEmpty, resetTeam, and applyTeamTemplate.",
+          "V1 team-management tests characterize add/max teams, empty delete direct, non-empty delete/reset confirmation, inline rename, and team helper behavior.",
+          "No V1 duplicate-team action exists; adding duplicate teams would be new behavior and is out of scope.",
+          "Tests should cover desktop/adaptive/mobile team overview visibility, active switching, add/max, rename commit/cancel/blur, delete/reset confirmation, template confirmation, and simple reorder."
+        ],
+        "risk": [
+          "Functional C7 expands beyond original C7a read-only scope, but the user explicitly loosened the previous design blocker for a provisional functional teams surface.",
+          "Avoid dragging V1 page-shaped UI into V2; reuse helper contracts and store APIs through the V2 model facade."
+        ]
+      }
+    },
+    {
+      "id": "J8",
+      "role": "judge",
+      "status": "done",
+      "title": "Approve C7a/C7 functional teams overview slice",
+      "skills": [
+        "$refactor-goal-prep",
+        "$refactor-rootfix",
+        "$refactor-architecture",
+        "$refactor-react",
+        "$refactor-ui-a11y",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "product implementation files",
+        "dependency files",
+        "remote state",
+        "untracked docs/design/** and smoke screenshots"
+      ],
+      "expected_output": "Select exactly one bounded Worker slice for C7a/C7 with allowed files, invariants, characterization, validation, and out-of-scope items.",
+      "receipt": {
+        "summary": "Approved W8 as a combined C7a plus functional C7 MVP teams slice.",
+        "judge": "019e4de3-1818-7321-8a68-6ae9fc375f30",
+        "decision": "Implement a provisional, plain team-management overview for /builder-v2. Include V1-ish team CRUD, templates, and accessible up/down reorder through existing contracts; do not attempt polished cards/list design.",
+        "evidence": [
+          "C7a scouts found read-only overview readiness safe.",
+          "Full C7 was blocked by list-vs-cards/product decisions, but the latest user explicitly accepts a functional ugly-ish design.",
+          "V1 reusable contracts exist: addTeam, renameTeam, deleteTeam, resetTeam, applyTeamTemplate, reorderTeams.",
+          "C8a/C8b are implemented and reviewed; remaining blocker before handoff is teams."
+        ],
+        "deferred": [
+          "Final visual polish, cards-vs-list product decision, screenshot/share layout.",
+          "Drag-and-drop reorder.",
+          "New persistence, migrations, generated data, dependencies, nav promotion.",
+          "Import/export redesign, transfer semantics changes, recommendations.",
+          "Designer handoff bundle except recording follow-up notes."
+        ],
+        "acceptance_summary": "W8 should make /builder-v2 able to add, rename, delete, reset, template-apply, reorder, and switch teams across desktop/adaptive/mobile; existing V1 team-management behavior must stay green."
+      }
+    },
+    {
+      "id": "W8",
+      "role": "worker",
+      "status": "done",
+      "title": "Build Builder V2 functional team management overview",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-typescript",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/useBuilderV2Model.test.ts",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+        "src/features/builder-v2/BuilderV2MobileLayout.tsx",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/BuilderV2TeamOverview.tsx",
+        "src/features/builder-v2/BuilderV2TeamManagement.tsx",
+        "src/features/builder-v2/builder-v2.css",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/** except read-only imports from existing helpers/components",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "nav/shared app chrome",
+        "remote state",
+        "untracked docs/design/** and smoke screenshots"
+      ],
+      "invariants": [
+        "/builder behavior remains untouched.",
+        "/builder-v2 remains unpromoted from navigation.",
+        "Use existing team helper contracts; do not invent parallel team semantics.",
+        "Active team switching remains stable across desktop/adaptive/mobile.",
+        "Add respects MAX_TEAMS.",
+        "Rename trims names and ignores blank names.",
+        "Empty delete/reset may be direct; non-empty delete/reset requires confirmation before mutation.",
+        "Template application requires confirmation and preserves existing helper semantics.",
+        "Reorder uses simple accessible controls such as up/down buttons; no DnD.",
+        "The UI is explicitly provisional: dense functional list/management surface, not final cards/list/share design."
+      ],
+      "characterization_first": [
+        "Red V2 test for add team, active switch, and max-team disabled state.",
+        "Red V2 test for rename confirm, Escape cancel, blur behavior, and blank-name no-op.",
+        "Red V2 test for empty delete direct and non-empty delete confirm/cancel.",
+        "Red V2 test for reset non-empty confirm/cancel.",
+        "Red V2 test for D-Tide 5 and D-Tide 10 template apply confirmation and resulting names/counts.",
+        "Red V2 test for reorder up/down preserving active team identity.",
+        "Red page tests that desktop, adaptive, and mobile expose the team management surface without breaking picker/import/export/transfer dialogs."
+      ],
+      "validation_commands": [
+        "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx",
+        "npx vitest run src/features/builder/team-collection.test.ts src/features/builder/BuilderPage.team-management.test.tsx",
+        "npm run test:integration",
+        "npm run lint",
+        "npm run build",
+        "git diff --check",
+        "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-rebuild"
+      ],
+      "rollback": "Delete/revert W8-local V2 teams overview/management edits and return to W7 behavior where V2 can switch active teams but cannot manage them.",
+      "scope_expansion_rules": [
+        "If Worker needs edits to src/features/builder/** helper implementations, builderDraftStore, migrations, persistence, import/export codecs, or dependency files, stop with needs_scope_expansion.",
+        "Do not include final visual polish, list/cards product decision, screenshot/share layout, DnD reorder, recommendations, nav promotion, or C9 designer handoff bundle in W8.",
+        "Do not stage untracked docs/design files or smoke screenshots."
+      ],
+      "expected_output": "Functional Builder V2 team management overview across desktop/adaptive/mobile, with add, switch, rename, reset/delete confirmations, D-Tide templates, simple accessible reorder, focused tests, and validation.",
+      "receipt": {
+        "slice": "C7a/C7 Builder V2 functional team management overview",
+        "files_changed": [
+          "src/features/builder-v2/useBuilderV2Model.ts",
+          "src/features/builder-v2/useBuilderV2Model.test.ts",
+          "src/features/builder-v2/BuilderV2Page.tsx",
+          "src/features/builder-v2/BuilderV2Page.test.tsx",
+          "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+          "src/features/builder-v2/BuilderV2MobileLayout.tsx",
+          "src/features/builder-v2/BuilderV2TeamManagement.tsx",
+          "src/features/builder-v2/builder-v2.css",
+          "docs/refactor-goals/builder-v2-rebuild/state.json",
+          "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+        ],
+        "behavior_added": [
+          "Builder V2 now exposes a shared team management overview across desktop, adaptive, and mobile layouts.",
+          "Teams can be added up to MAX_TEAMS and the newly added team becomes active.",
+          "Teams can be switched from the management surface on every layout.",
+          "Inline rename supports commit, Escape cancel, blur commit, and blank-name no-op through builderDraftStore rename contracts.",
+          "Empty teams reset/delete directly; non-empty reset/delete open confirmation dialogs before mutation.",
+          "D-Tide 5 and D-Tide 10 templates open confirmation dialogs and then apply existing applyTeamTemplate semantics.",
+          "Teams can be reordered with accessible Move Up / Move Down controls while preserving active team identity.",
+          "Team summaries show slot occupants plus support, wheel, covenant, and posse signals for screenshot/readiness context."
+        ],
+        "behavior_preserved": [
+          "/builder implementation files were not edited; V1 team helper and page-management tests remain green.",
+          "Builder V2 route/nav state remains unchanged and unpromoted from navigation.",
+          "builderDraftStore, persistence key/version, migrations, generated domain data, dependency files, import/export codecs, and protected helper implementations were not edited.",
+          "Existing Builder V2 import/export, transfer, quick-lineup, mobile drawer, adaptive picker, and assignment flows remained green after W8."
+        ],
+        "simplification": "Centralized team-management UI in one BuilderV2TeamManagement component and kept team mutations behind the V2 model facade, reusing team-collection/builderDraftStore contracts instead of importing V1 page UI or inventing parallel semantics.",
+        "root_fix_patch_decision": "Bounded root-fix inside Builder V2: add the missing team-management workflow to the V2 architecture rather than patching current BuilderPage or merging old branch UI.",
+        "dependency_review": "No dependency changes made or needed.",
+        "characterization": [
+          "Initial W8 red tests failed because model team operation APIs and the Builder V2 team management region did not exist.",
+          "Added model tests for add/max/activation, rename commit/cancel/blank/blur-ish behavior, empty delete direct, non-empty delete confirm/cancel, non-empty reset confirm/cancel, empty reset direct, D-Tide templates, and reorder preserving active team.",
+          "Added page tests for desktop summaries/switching, rename UI, destructive/template dialogs, and adaptive/mobile management exposure without opening picker flows.",
+          "Retained V1 team-collection and BuilderPage.team-management tests as helper/contract parity coverage."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder/team-collection.test.ts src/features/builder/BuilderPage.team-management.test.tsx (4 files, 80 tests passed after final empty-reset characterization)",
+          "npm run test:integration (7 files, 57 tests passed)",
+          "npm run lint (passed after final nested-control fix)",
+          "npm run build (passed after final nested-control fix; existing Vite chunk-size/plugin timing warnings only)",
+          "git diff --check (passed)",
+          "Browser smoke on http://127.0.0.1:5173/#/builder-v2: desktop team management region present, Add Team added one row, rename actions present; mobile management present, Add Team stayed on Mobile team overview and did not open a picker. Screenshot capture timed out on the asset-heavy page, so the final smoke used DOM/interaction checks only."
+        ],
+        "review": "R8 reviewer 019e4df6-5a56-7e21-8f30-f000011c13c5 initially returned needs-fix for an untracked BuilderV2TeamManagement.tsx file and missing packet receipts. Controller addressed the untracked-file packaging issue, added explicit empty reset characterization, reran focused tests/lint/build/diff-check/browser smoke, and updated packet receipts. No product-code behavior findings remained from the review.",
+        "risks": [
+          "The team management surface is intentionally functional and visually provisional; final cards-vs-list/share polish is queued for C9 designer handoff.",
+          "Browser screenshot capture timed out during W8 smoke because of the asset-heavy page; DOM/interaction smoke passed instead.",
+          "Drag-and-drop reorder and recommendation polish remain out of scope."
+        ],
+        "follow_ups_not_done": [
+          "C9 designer handoff bundle with concept-image traceability and current /builder-v2 notes.",
+          "Final visual/card/list/share decision for teams.",
+          "Optional DnD/recommendation polish in a later scoped slice if selected."
+        ],
+        "learning_lint_candidates": "No new repeated harness/lint/AGENTS.md maintenance candidate beyond the added tests; component nesting issue was fixed directly and lint passed.",
+        "scope_expansion_requested": "None"
+      }
+    },
+    {
+      "id": "R8",
+      "role": "review",
+      "status": "done",
+      "title": "Review W8 C7a/C7 Builder V2 functional team management overview",
+      "skills": [
+        "$refactor-review",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/** except read-only imports/references to existing helper contracts",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "nav/shared app chrome",
+        "remote state",
+        "untracked docs/design/** and prior smoke screenshots"
+      ],
+      "expected_output": "Review W8 diff, tests, packet receipts, invariants, and browser smoke for Builder V2 functional team management parity.",
+      "receipt": {
+        "summary": "Review initially returned needs-fix for packaging/packet issues; controller fixed both and reran validation.",
+        "reviewer": "019e4df6-5a56-7e21-8f30-f000011c13c5",
+        "initial_verdict": "needs-fix",
+        "findings": [
+          "BuilderV2TeamManagement.tsx was untracked while imported by tracked files; controller kept it in the W8 change set for staging/commit.",
+          "W8 still had receipt:null and stale final audit/worklog entries; controller updated W8/R8 receipts, candidates, focus area coverage, final audit, and worklog."
+        ],
+        "fixes_after_review": [
+          "Added explicit empty reset direct-behavior V2 model characterization.",
+          "Removed invalid nested interactive rename input by rendering edit mode as a non-button row header.",
+          "Reran focused V2/V1 tests, lint, build, git diff --check, and browser interaction smoke after fixes."
+        ],
+        "final_verdict": "complete-after-controller-fixes",
+        "validation_reviewed": [
+          "Controller validation receipts: focused V2/V1 team tests passed with 80 tests after final fix.",
+          "Integration, lint, build, git diff --check, and desktop/mobile browser interaction smoke passed after final fix."
+        ],
+        "residual_risk": [
+          "Reviewer did not rerun validation locally; controller validation receipts cover the passed commands.",
+          "Screenshot capture timed out in browser smoke; interaction/DOM checks passed.",
+          "Final design polish remains queued under C9."
+        ]
+      }
     }
   ],
   "final_audit": {
     "full_outcome_complete": false,
-    "summary": "W1 landed the isolated Builder V2 route/model/shell, W2 added gear and posse assignment, W3/R3 implemented and reviewed Quick Lineup V2 mode, W4/R4 implemented and reviewed the C5 mobile overview/focused/full-screen picker drawer flow, S6 mapped next viable chunks, W5/R5 implemented and reviewed the C6a tablet/adaptive workbench shell, W6/R6 implemented and reviewed C8a import/export parity, and W7/R7 implemented and reviewed C8b transfer dialog parity. Broad Builder V2 rebuild remains active with C7a/C7/C9 queued.",
+    "summary": "W1-W8 implemented and reviewed the isolated Builder V2 route, core assignments, quick-lineup, mobile/adaptive shells, import/export parity, transfer parity, and functional team management overview. The current C7a/C7 tranche is complete after R8 fixes; the broad Builder V2 rebuild remains active only because C9 designer handoff and final design polish are queued.",
     "validation": [
-      "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (49 tests passed)",
-      "npx vitest run src/features/builder/useTransferConfirm.test.ts src/features/builder/usePendingTransferDialog.test.ts src/features/builder/transfer-resolution.test.ts (18 tests passed)",
-      "npm run test:integration (57 tests passed)",
+      "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder/team-collection.test.ts src/features/builder/BuilderPage.team-management.test.tsx (4 files, 80 tests passed)",
+      "npm run test:integration (7 files, 57 tests passed)",
       "npm run lint (passed)",
       "npm run build (passed; existing Vite chunk-size/plugin timing warnings only)",
       "git diff --check (passed)",
-      "Browser smoke for #/builder-v2 desktop transfer cancel/confirm, adaptive drawer handoff, mobile focused-picker handoff, and quick-lineup wait-before-confirm/advance"
+      "Browser smoke for #/builder-v2 desktop and mobile team management interactions passed; screenshot capture timed out on the asset-heavy page"
     ],
     "open_items": [
-      "C7a team overview readiness component",
-      "C7 full teams overview redesign after product/design decision",
-      "C9 designer handoff bundle"
+      "C9 designer handoff bundle after W8 review",
+      "Final team overview visual/card/list/share polish as a design-handoff decision, not a functional C7 blocker"
     ]
   }
 }

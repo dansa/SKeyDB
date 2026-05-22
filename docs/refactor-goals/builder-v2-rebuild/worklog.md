@@ -464,3 +464,79 @@
 - Packaging:
   - Untracked concept/sendoff files under `docs/design/` and prior smoke screenshots remain intentionally excluded.
 - Active task: none. C8b is implemented and reviewed; broader Builder V2 goal remains active with C7a, C7, and C9 queued.
+
+### 2026-05-22 - C7a/C7 functional teams slice scoped
+
+- Source: User continued the Builder V2 refactor goal and clarified that the teams overview now needs functional parity with V1; the exact visual shape can be provisional and may later become a cards/list switcher.
+- Scouts:
+  - `019e4de1-46f3-75d1-9864-093d3e52b917`
+  - `019e4de1-6f17-7d53-8029-1f15b5cbf79e`
+  - `019e4de1-9b4e-7e72-af40-4a17338492ba`
+- Scout evidence:
+  - C7a's safe core is a shared all-teams summary/switcher across desktop/adaptive/mobile.
+  - Current desktop has separate team rail and overview strip; adaptive only has compact switching; mobile lacks all-team switching.
+  - V1 team-management contracts are available as pure helpers: `MAX_TEAMS`, `addTeam`, `renameTeam`, `deleteTeam`, `reorderTeams`, `isTeamEmpty`, `resetTeam`, and `applyTeamTemplate`.
+  - Existing V1 tests characterize add/max teams, empty delete direct, non-empty delete/reset confirmation, inline rename, and helper behavior.
+  - No V1 duplicate-team action exists, so team duplication is out of scope.
+- Judge: `019e4de3-1818-7321-8a68-6ae9fc375f30`.
+- Decision: Approve W8 as a combined C7a plus functional C7 MVP teams slice.
+- In scope:
+  - Functional Builder V2 team overview/management across desktop, adaptive, and mobile.
+  - Add team with `MAX_TEAMS` behavior.
+  - Active team switching.
+  - Inline rename with trim, blank no-op, Enter/blur commit, and Escape cancel.
+  - Empty delete/reset direct; non-empty delete/reset confirmation before mutation.
+  - D-Tide 5/10 template application behind confirmation.
+  - Simple accessible up/down reorder using existing helper semantics; no DnD.
+- Deferred:
+  - Final visual polish, card-vs-list product decision, screenshot/share layout, DnD reorder, recommendations, nav promotion, persistence/migration changes, dependencies, `/builder` edits, and the C9 designer handoff bundle.
+- Active task: W8, build Builder V2 functional team management overview.
+
+### 2026-05-22 - W8 implemented and R8 fixed
+
+- W8 result: implemented a functional but visually provisional Builder V2 team management overview across desktop, adaptive, and mobile.
+- Product files changed:
+  - `src/features/builder-v2/useBuilderV2Model.ts`
+  - `src/features/builder-v2/useBuilderV2Model.test.ts`
+  - `src/features/builder-v2/BuilderV2Page.tsx`
+  - `src/features/builder-v2/BuilderV2Page.test.tsx`
+  - `src/features/builder-v2/BuilderV2AdaptiveLayout.tsx`
+  - `src/features/builder-v2/BuilderV2MobileLayout.tsx`
+  - `src/features/builder-v2/BuilderV2TeamManagement.tsx`
+  - `src/features/builder-v2/builder-v2.css`
+- Behavior:
+  - Added shared `BuilderV2TeamManagement` surface for desktop, adaptive, and mobile.
+  - The V2 model now exposes team add, switch, rename, reset, delete, D-Tide template, cancel/confirm, and up/down reorder actions through existing `team-collection` and `builderDraftStore` contracts.
+  - Add respects `MAX_TEAMS` and activates the new team.
+  - Rename supports Enter/blur commit, Escape cancel, trim, and blank-name no-op.
+  - Empty reset/delete act directly; non-empty reset/delete require confirmation.
+  - D-Tide 5/10 templates require confirmation before applying existing helper semantics.
+  - Up/down reorder preserves active team identity.
+  - Team summaries show posse, slot occupants, support, wheel, and covenant signals for screenshot/readiness context.
+- Characterization:
+  - Initial red V2 tests failed because the model team operation API and accessible team management region did not exist.
+  - Added focused V2 model coverage for add/max, rename, empty/non-empty delete, empty/non-empty reset, D-Tide templates, and reorder.
+  - Added focused V2 page coverage for desktop summary/switching, rename UI, destructive/template dialogs, and adaptive/mobile management exposure.
+  - Existing V1 `team-collection` and `BuilderPage.team-management` tests stayed green as contract coverage.
+- Review:
+  - Reviewer: `019e4df6-5a56-7e21-8f30-f000011c13c5`.
+  - Initial verdict: needs-fix.
+  - Findings:
+    - `BuilderV2TeamManagement.tsx` was untracked while imported by tracked files.
+    - W8 packet receipt/final audit/worklog were not yet updated.
+  - Controller fixes:
+    - Kept `BuilderV2TeamManagement.tsx` in the W8 change set for staging/commit.
+    - Added explicit empty reset direct-behavior characterization.
+    - Removed invalid nested interactive rename input by rendering edit mode as a non-button row header.
+    - Updated W8/R8 packet receipts and final audit.
+- Validation:
+  - `npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder/team-collection.test.ts src/features/builder/BuilderPage.team-management.test.tsx` passed, 4 files / 80 tests.
+  - `npm run test:integration` passed, 7 files / 57 tests.
+  - `npm run lint` passed after the final nested-control fix.
+  - `npm run build` passed after the final nested-control fix; existing Vite chunk-size and plugin timing warnings only.
+  - `git diff --check` passed.
+  - Browser smoke passed for `#/builder-v2`: desktop management was present, Add Team added one row, rename actions were present; mobile management was present, Add Team stayed in the mobile overview and did not open the picker. Screenshot capture timed out on the asset-heavy page, so the final smoke used DOM/interaction checks only.
+- Packaging:
+  - Untracked concept/sendoff files under `docs/design/` and prior smoke screenshots remain intentionally excluded.
+  - `BuilderV2TeamManagement.tsx` is a required W8 product file and should be staged with the W8 commit.
+- Active task: none. C7a/C7 are functionally implemented and reviewed after controller fixes; C9 designer handoff remains queued.

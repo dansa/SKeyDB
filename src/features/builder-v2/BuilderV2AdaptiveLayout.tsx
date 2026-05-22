@@ -8,6 +8,7 @@ import {
 
 import {BuilderV2PickerContent} from './BuilderV2AwakenerPicker'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
+import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 import type {BuilderV2Model} from './useBuilderV2Model'
 
@@ -240,6 +241,8 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
               {model.violationMessage ?? model.editingLabel}
             </p>
           </section>
+
+          <BuilderV2TeamManagement model={model} variant='adaptive' />
         </main>
       </section>
 

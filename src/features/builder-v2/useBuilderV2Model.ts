@@ -30,6 +30,16 @@ import type {BuilderImportExportDialogsProps} from '../builder/BuilderImportExpo
 import {allAwakeners, awakenerById} from '../builder/constants'
 import {getPublicQuickLineupSession} from '../builder/quick-lineup'
 import {
+  addTeam as addTeamToCollection,
+  applyTeamTemplate,
+  deleteTeam,
+  isTeamEmpty,
+  MAX_TEAMS,
+  reorderTeams,
+  resetTeam,
+  type TeamTemplateId,
+} from '../builder/team-collection'
+import {
   assignAwakenerToFirstEmptySlot,
   assignAwakenerToSlot,
   assignCovenantToSlot,
@@ -58,6 +68,10 @@ const BUILDER_ALLOW_DUPES_KEY = 'skeydb.builder.allowDupes.v1'
 
 export type BuilderV2PickerTab = 'awakeners' | 'wheels' | 'covenants' | 'posses'
 type BuilderV2TeamTarget = {kind: 'posse'} | null
+type BuilderV2PendingTeamAction =
+  | {kind: 'delete'; teamId: string; teamName: string}
+  | {kind: 'reset'; teamId: string; teamName: string}
+  | {kind: 'template'; templateId: TeamTemplateId; templateLabel: string}
 
 export interface BuilderV2TeamSummary {
   id: string
@@ -65,6 +79,19 @@ export interface BuilderV2TeamSummary {
   isActive: boolean
   deployedCount: number
   slotNames: string[]
+  slots: BuilderV2TeamSummarySlot[]
+  posseName: string | null
+  isEmpty: boolean
+}
+
+export interface BuilderV2TeamSummarySlot {
+  slotId: string
+  label: string
+  name: string
+  isEmpty: boolean
+  isSupport: boolean
+  wheelCount: number
+  hasCovenant: boolean
 }
 
 export interface BuilderV2SlotView {
@@ -151,6 +178,14 @@ export interface BuilderV2TransferDialog {
   onConfirm: () => void
 }
 
+export interface BuilderV2TeamActionDialog {
+  title: string
+  message: string
+  confirmLabel: string
+  confirmVariant?: 'primary' | 'danger'
+  onConfirm: () => void
+}
+
 export interface BuilderV2Model {
   activeTeamId: string
   activeTeamName: string
@@ -163,6 +198,10 @@ export interface BuilderV2Model {
   quickLineupSession: QuickLineupSession | null
   quickLineupStepLabel: string | null
   teams: BuilderV2TeamSummary[]
+  maxTeams: number
+  canAddTeam: boolean
+  editingTeamId: string | null
+  editingTeamName: string
   slots: BuilderV2SlotView[]
   awakeners: BuilderV2AwakenerOption[]
   wheels: BuilderV2WheelOption[]
@@ -172,6 +211,17 @@ export interface BuilderV2Model {
   setSearchQuery: (nextQuery: string) => void
   setPickerTab: (nextTab: BuilderV2PickerTab) => void
   setActiveTeam: (teamId: string) => void
+  addTeam: () => void
+  beginTeamRename: (teamId: string) => void
+  setEditingTeamName: (nextName: string) => void
+  commitTeamRename: (teamId: string) => void
+  cancelTeamRename: () => void
+  requestDeleteTeam: (teamId: string) => void
+  requestResetTeam: (teamId: string) => void
+  requestApplyTeamTemplate: (templateId: TeamTemplateId) => void
+  cancelTeamAction: () => void
+  moveTeamUp: (teamId: string) => void
+  moveTeamDown: (teamId: string) => void
   startQuickLineup: () => void
   skipQuickLineupStep: () => void
   goBackQuickLineupStep: () => void
@@ -196,6 +246,7 @@ export interface BuilderV2Model {
   importExportDialogProps: BuilderImportExportDialogsProps
   transferDialog: BuilderV2TransferDialog | null
   cancelTransfer: () => void
+  teamActionDialog: BuilderV2TeamActionDialog | null
   violationMessage: string | null
 }
 
@@ -235,8 +286,15 @@ export function useBuilderV2Model({
   const setActiveTeamId = useStore(builderDraftStore, (state) => state.setActiveTeamId)
   const activeSelection = useStore(builderDraftStore, (state) => state.activeSelection)
   const setActiveSelection = useStore(builderDraftStore, (state) => state.setActiveSelection)
+  const setTeamsInStore = useStore(builderDraftStore, (state) => state.setTeams)
   const updateActiveTeam = useStore(builderDraftStore, (state) => state.updateActiveTeam)
   const setActiveTeamSlotsInStore = useStore(builderDraftStore, (state) => state.setActiveTeamSlots)
+  const editingTeamId = useStore(builderDraftStore, (state) => state.editingTeamId)
+  const editingTeamName = useStore(builderDraftStore, (state) => state.editingTeamName)
+  const storeBeginTeamRename = useStore(builderDraftStore, (state) => state.beginTeamRename)
+  const setEditingTeamName = useStore(builderDraftStore, (state) => state.setEditingTeamName)
+  const storeCancelTeamRename = useStore(builderDraftStore, (state) => state.cancelTeamRename)
+  const storeCommitTeamRename = useStore(builderDraftStore, (state) => state.commitTeamRename)
   const quickLineupState = useStore(builderDraftStore, (state) => state.quickLineupState)
   const {
     pendingTransfer,
@@ -259,6 +317,9 @@ export function useBuilderV2Model({
   const storeJumpToQuickLineupStep = useStore(
     builderDraftStore,
     (state) => state.jumpToQuickLineupStep,
+  )
+  const [pendingTeamAction, setPendingTeamAction] = useState<BuilderV2PendingTeamAction | null>(
+    null,
   )
 
   useEffect(() => {
@@ -360,8 +421,24 @@ export function useBuilderV2Model({
             ? formatAwakenerNameForUi(awakenerById.get(slot.awakenerId)?.name ?? 'Unknown')
             : 'Empty',
         ),
+        slots: team.slots.map((slot, index) => {
+          const awakenerName = slot.awakenerId
+            ? formatAwakenerNameForUi(awakenerById.get(slot.awakenerId)?.name ?? 'Unknown')
+            : 'Empty'
+          return {
+            slotId: slot.slotId,
+            label: `Slot ${String(index + 1)}`,
+            name: awakenerName,
+            isEmpty: !slot.awakenerId,
+            isSupport: Boolean(slot.isSupport),
+            wheelCount: slot.wheels.filter(Boolean).length,
+            hasCovenant: Boolean(slot.covenantId),
+          }
+        }),
+        posseName: team.posseId ? (posseById.get(team.posseId)?.name ?? 'Unknown Posse') : null,
+        isEmpty: isTeamEmpty(team),
       })),
-    [effectiveActiveTeamId, teams],
+    [effectiveActiveTeamId, posseById, teams],
   )
 
   const slots = useMemo<BuilderV2SlotView[]>(
@@ -526,18 +603,177 @@ export function useBuilderV2Model({
       if (quickLineupState) {
         syncQuickLineupFocus(storeCancelQuickLineup())
       }
+      setPendingTeamAction(null)
+      storeCancelTeamRename()
+      clearTransfer()
       setViolationMessage(null)
       setActiveTeamTarget(null)
       setActiveTeamId(teamId)
       setActiveSelection(null)
     },
     [
+      clearTransfer,
       quickLineupState,
       setActiveSelection,
       setActiveTeamId,
+      storeCancelTeamRename,
       storeCancelQuickLineup,
       syncQuickLineupFocus,
     ],
+  )
+
+  const clearTeamTransientState = useCallback(() => {
+    if (builderDraftStore.getState().quickLineupState) {
+      syncQuickLineupFocus(storeCancelQuickLineup())
+    }
+    clearTransfer()
+    setPendingTeamAction(null)
+    storeCancelTeamRename()
+    setViolationMessage(null)
+    setActiveTeamTarget(null)
+    setActiveSelection(null)
+  }, [
+    clearTransfer,
+    setActiveSelection,
+    storeCancelQuickLineup,
+    storeCancelTeamRename,
+    syncQuickLineupFocus,
+  ])
+
+  const applyDeleteTeam = useCallback(
+    (teamId: string) => {
+      clearTeamTransientState()
+      const state = builderDraftStore.getState()
+      const result = deleteTeam(state.teams, teamId, state.activeTeamId)
+      setTeamsInStore(result.nextTeams)
+      setActiveTeamId(result.nextActiveTeamId)
+    },
+    [clearTeamTransientState, setActiveTeamId, setTeamsInStore],
+  )
+
+  const applyResetTeam = useCallback(
+    (teamId: string) => {
+      clearTeamTransientState()
+      setTeamsInStore((currentTeams) => resetTeam(currentTeams, teamId))
+    },
+    [clearTeamTransientState, setTeamsInStore],
+  )
+
+  const addTeam = useCallback(() => {
+    clearTeamTransientState()
+    const result = addTeamToCollection(builderDraftStore.getState().teams)
+    setTeamsInStore(result.nextTeams)
+    if (result.addedTeamId) {
+      setActiveTeamId(result.addedTeamId)
+    }
+  }, [clearTeamTransientState, setActiveTeamId, setTeamsInStore])
+
+  const beginTeamRename = useCallback(
+    (teamId: string) => {
+      const team = builderDraftStore.getState().teams.find((entry) => entry.id === teamId)
+      if (!team) {
+        return
+      }
+      clearTransfer()
+      setPendingTeamAction(null)
+      setViolationMessage(null)
+      storeBeginTeamRename(team.id, team.name, 'list')
+    },
+    [clearTransfer, storeBeginTeamRename],
+  )
+
+  const commitTeamRename = useCallback(
+    (teamId: string) => {
+      storeCommitTeamRename(teamId)
+      setViolationMessage(null)
+    },
+    [storeCommitTeamRename],
+  )
+
+  const cancelTeamRename = useCallback(() => {
+    storeCancelTeamRename()
+    setViolationMessage(null)
+  }, [storeCancelTeamRename])
+
+  const requestDeleteTeam = useCallback(
+    (teamId: string) => {
+      const team = builderDraftStore.getState().teams.find((entry) => entry.id === teamId)
+      if (!team) {
+        return
+      }
+      clearTransfer()
+      storeCancelTeamRename()
+      setViolationMessage(null)
+      if (isTeamEmpty(team)) {
+        applyDeleteTeam(team.id)
+        return
+      }
+      setPendingTeamAction({kind: 'delete', teamId: team.id, teamName: team.name})
+    },
+    [applyDeleteTeam, clearTransfer, storeCancelTeamRename],
+  )
+
+  const requestResetTeam = useCallback(
+    (teamId: string) => {
+      const team = builderDraftStore.getState().teams.find((entry) => entry.id === teamId)
+      if (!team) {
+        return
+      }
+      clearTransfer()
+      storeCancelTeamRename()
+      setViolationMessage(null)
+      if (isTeamEmpty(team)) {
+        applyResetTeam(team.id)
+        return
+      }
+      setPendingTeamAction({kind: 'reset', teamId: team.id, teamName: team.name})
+    },
+    [applyResetTeam, clearTransfer, storeCancelTeamRename],
+  )
+
+  const requestApplyTeamTemplate = useCallback(
+    (templateId: TeamTemplateId) => {
+      clearTransfer()
+      storeCancelTeamRename()
+      setViolationMessage(null)
+      const templateLabel = getTeamTemplateLabel(templateId)
+      setPendingTeamAction({kind: 'template', templateId, templateLabel})
+    },
+    [clearTransfer, storeCancelTeamRename],
+  )
+
+  const moveTeam = useCallback(
+    (teamId: string, direction: -1 | 1) => {
+      clearTransfer()
+      storeCancelTeamRename()
+      setPendingTeamAction(null)
+      setViolationMessage(null)
+
+      const state = builderDraftStore.getState()
+      const sourceIndex = state.teams.findIndex((team) => team.id === teamId)
+      const targetTeam = state.teams.at(sourceIndex + direction)
+      if (sourceIndex === -1 || !targetTeam) {
+        return
+      }
+
+      setTeamsInStore(reorderTeams(state.teams, teamId, targetTeam.id))
+      setActiveTeamId(state.activeTeamId)
+    },
+    [clearTransfer, setActiveTeamId, setTeamsInStore, storeCancelTeamRename],
+  )
+
+  const moveTeamUp = useCallback(
+    (teamId: string) => {
+      moveTeam(teamId, -1)
+    },
+    [moveTeam],
+  )
+
+  const moveTeamDown = useCallback(
+    (teamId: string) => {
+      moveTeam(teamId, 1)
+    },
+    [moveTeam],
   )
 
   const selectAwakenerSlot = useCallback(
@@ -1092,6 +1328,80 @@ export function useBuilderV2Model({
     setViolationMessage(null)
   }, [clearTransfer])
 
+  const cancelTeamAction = useCallback(() => {
+    setPendingTeamAction(null)
+    setViolationMessage(null)
+  }, [])
+
+  const confirmTeamAction = useCallback(() => {
+    if (!pendingTeamAction) {
+      return
+    }
+
+    if (pendingTeamAction.kind === 'delete') {
+      applyDeleteTeam(pendingTeamAction.teamId)
+      setPendingTeamAction(null)
+      return
+    }
+
+    if (pendingTeamAction.kind === 'reset') {
+      applyResetTeam(pendingTeamAction.teamId)
+      setPendingTeamAction(null)
+      return
+    }
+
+    clearTeamTransientState()
+    const result = applyTeamTemplate(
+      builderDraftStore.getState().teams,
+      pendingTeamAction.templateId,
+    )
+    setTeamsInStore(result.nextTeams)
+    showToast(
+      `Applied ${pendingTeamAction.templateLabel}: renamed ${String(result.renamedCount)}, created ${String(result.createdCount)}, removed ${String(result.removedCount)}.`,
+    )
+    setPendingTeamAction(null)
+  }, [
+    applyDeleteTeam,
+    applyResetTeam,
+    clearTeamTransientState,
+    pendingTeamAction,
+    setTeamsInStore,
+    showToast,
+  ])
+
+  const teamActionDialog = useMemo<BuilderV2TeamActionDialog | null>(() => {
+    if (!pendingTeamAction) {
+      return null
+    }
+
+    if (pendingTeamAction.kind === 'delete') {
+      return {
+        title: `Delete ${pendingTeamAction.teamName}`,
+        message: `Remove ${pendingTeamAction.teamName}? This cannot be undone.`,
+        confirmLabel: 'Delete Team',
+        confirmVariant: 'danger',
+        onConfirm: confirmTeamAction,
+      }
+    }
+
+    if (pendingTeamAction.kind === 'reset') {
+      return {
+        title: `Reset ${pendingTeamAction.teamName}`,
+        message: `Reset ${pendingTeamAction.teamName}? This clears assigned awakeners, wheels, covenant, and posse.`,
+        confirmLabel: 'Reset Team',
+        confirmVariant: 'danger',
+        onConfirm: confirmTeamAction,
+      }
+    }
+
+    return {
+      title: `Apply ${pendingTeamAction.templateLabel}`,
+      message: `Apply ${pendingTeamAction.templateLabel} to your teams? Existing teams may be renamed, created, or removed when empty.`,
+      confirmLabel: 'Apply',
+      onConfirm: confirmTeamAction,
+    }
+  }, [confirmTeamAction, pendingTeamAction])
+
   const editingLabel = useMemo(
     () =>
       getEditingLabel({
@@ -1115,6 +1425,10 @@ export function useBuilderV2Model({
     quickLineupSession,
     quickLineupStepLabel,
     teams: v2Teams,
+    maxTeams: MAX_TEAMS,
+    canAddTeam: teams.length < MAX_TEAMS,
+    editingTeamId,
+    editingTeamName,
     slots,
     awakeners,
     wheels,
@@ -1124,6 +1438,17 @@ export function useBuilderV2Model({
     setSearchQuery,
     setPickerTab: switchPickerTab,
     setActiveTeam,
+    addTeam,
+    beginTeamRename,
+    setEditingTeamName,
+    commitTeamRename,
+    cancelTeamRename,
+    requestDeleteTeam,
+    requestResetTeam,
+    requestApplyTeamTemplate,
+    cancelTeamAction,
+    moveTeamUp,
+    moveTeamDown,
     startQuickLineup,
     skipQuickLineupStep,
     goBackQuickLineupStep,
@@ -1148,6 +1473,7 @@ export function useBuilderV2Model({
     importExportDialogProps,
     transferDialog,
     cancelTransfer,
+    teamActionDialog,
     violationMessage,
   }
 }
@@ -1311,6 +1637,10 @@ function getTransferDisplayName(
     return wheelById.get(pendingTransfer.wheelId)?.name ?? pendingTransfer.itemName
   }
   return pendingTransfer.itemName
+}
+
+function getTeamTemplateLabel(templateId: TeamTemplateId): string {
+  return templateId === 'DTIDE_10' ? 'D-Tide 10' : 'D-Tide 5'
 }
 
 function getEditingLabel({

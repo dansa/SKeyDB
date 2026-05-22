@@ -26,6 +26,220 @@ describe('useBuilderV2Model', () => {
     expect(result.current.slots.every((slot) => slot.isEmpty)).toBe(true)
   })
 
+  it('adds teams up to the max and activates the newly added team', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.addTeam()
+    })
+
+    expect(result.current.teams).toHaveLength(2)
+    expect(result.current.activeTeamName).toBe('Team 2')
+    expect(result.current.canAddTeam).toBe(true)
+
+    act(() => {
+      for (let index = 0; index < 8; index += 1) {
+        result.current.addTeam()
+      }
+    })
+
+    expect(result.current.teams).toHaveLength(result.current.maxTeams)
+    expect(result.current.teams.at(-1)?.name).toBe('Team 10')
+    expect(result.current.activeTeamName).toBe('Team 10')
+    expect(result.current.canAddTeam).toBe(false)
+  })
+
+  it('renames teams with commit, cancel, blur, and blank-name no-op behavior', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.addTeam()
+    })
+    const teamTwoId = result.current.activeTeamId
+
+    act(() => {
+      result.current.beginTeamRename(teamTwoId)
+      result.current.setEditingTeamName('Arena Team')
+      result.current.commitTeamRename(teamTwoId)
+    })
+
+    expect(result.current.activeTeamName).toBe('Arena Team')
+    expect(result.current.editingTeamId).toBeNull()
+
+    act(() => {
+      result.current.beginTeamRename(teamTwoId)
+      result.current.setEditingTeamName('Temp Team')
+      result.current.cancelTeamRename()
+    })
+
+    expect(result.current.activeTeamName).toBe('Arena Team')
+
+    act(() => {
+      result.current.beginTeamRename(teamTwoId)
+      result.current.setEditingTeamName('   ')
+      result.current.commitTeamRename(teamTwoId)
+    })
+
+    expect(result.current.activeTeamName).toBe('Arena Team')
+
+    act(() => {
+      result.current.beginTeamRename(teamTwoId)
+      result.current.setEditingTeamName('Blur Team')
+      result.current.commitTeamRename(teamTwoId)
+    })
+
+    expect(result.current.activeTeamName).toBe('Blur Team')
+  })
+
+  it('deletes empty teams directly and requires confirmation before deleting non-empty teams', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.addTeam()
+    })
+    const emptyTeamId = result.current.activeTeamId
+
+    act(() => {
+      result.current.requestDeleteTeam(emptyTeamId)
+    })
+
+    expect(result.current.teams).toHaveLength(1)
+    expect(result.current.teamActionDialog).toBeNull()
+
+    act(() => {
+      result.current.addTeam()
+      result.current.assignAwakener('awakener-0021')
+    })
+    const filledTeamId = result.current.activeTeamId
+
+    act(() => {
+      result.current.setActiveTeam('team-1')
+      result.current.requestDeleteTeam(filledTeamId)
+    })
+
+    expect(result.current.teamActionDialog?.title).toBe('Delete Team 2')
+    expect(result.current.teams).toHaveLength(2)
+
+    act(() => {
+      result.current.cancelTeamAction()
+    })
+
+    expect(result.current.teamActionDialog).toBeNull()
+    expect(result.current.teams).toHaveLength(2)
+
+    act(() => {
+      result.current.requestDeleteTeam(filledTeamId)
+    })
+    act(() => {
+      result.current.teamActionDialog?.onConfirm()
+    })
+
+    expect(result.current.teams).toHaveLength(1)
+    expect(result.current.teams[0]?.name).toBe('Team 1')
+  })
+
+  it('requires confirmation before resetting a non-empty team', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.assignAwakener('awakener-0021')
+    })
+    act(() => {
+      result.current.requestResetTeam(result.current.activeTeamId)
+    })
+
+    expect(result.current.teamActionDialog?.title).toBe('Reset Team 1')
+    expect(result.current.slots[0]?.awakener?.id).toBe('awakener-0021')
+
+    act(() => {
+      result.current.cancelTeamAction()
+    })
+
+    expect(result.current.slots[0]?.awakener?.id).toBe('awakener-0021')
+
+    act(() => {
+      result.current.requestResetTeam(result.current.activeTeamId)
+    })
+    act(() => {
+      result.current.teamActionDialog?.onConfirm()
+    })
+
+    expect(result.current.teamActionDialog).toBeNull()
+    expect(result.current.slots.every((slot) => slot.awakener === null)).toBe(true)
+  })
+
+  it('resets empty teams directly without opening a confirmation dialog', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.requestResetTeam(result.current.activeTeamId)
+    })
+
+    expect(result.current.teamActionDialog).toBeNull()
+    expect(result.current.teams).toHaveLength(1)
+    expect(result.current.activeTeamName).toBe('Team 1')
+    expect(result.current.slots.every((slot) => slot.awakener === null)).toBe(true)
+  })
+
+  it('confirms D-Tide templates before applying team layout changes', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.requestApplyTeamTemplate('DTIDE_5')
+    })
+
+    expect(result.current.teamActionDialog?.title).toBe('Apply D-Tide 5')
+    expect(result.current.teams).toHaveLength(1)
+
+    act(() => {
+      result.current.teamActionDialog?.onConfirm()
+    })
+
+    expect(result.current.teams).toHaveLength(5)
+    expect(result.current.teams.map((team) => team.name)).toEqual([
+      'Wave 1',
+      'Wave 2',
+      'Wave 3',
+      'Wave 4',
+      'Wave 5',
+    ])
+
+    act(() => {
+      result.current.requestApplyTeamTemplate('DTIDE_10')
+    })
+    act(() => {
+      result.current.teamActionDialog?.onConfirm()
+    })
+
+    expect(result.current.teams).toHaveLength(10)
+    expect(result.current.teams.at(1)?.name).toBe('Wave 1 Extra')
+    expect(result.current.teams.at(-1)?.name).toBe('Wave 5 Extra')
+  })
+
+  it('reorders teams with accessible up/down semantics while preserving the active team', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.addTeam()
+      result.current.addTeam()
+    })
+    const activeTeamId = result.current.activeTeamId
+
+    act(() => {
+      result.current.moveTeamUp(activeTeamId)
+    })
+
+    expect(result.current.teams.map((team) => team.name)).toEqual(['Team 1', 'Team 3', 'Team 2'])
+    expect(result.current.activeTeamId).toBe(activeTeamId)
+
+    act(() => {
+      result.current.moveTeamDown(activeTeamId)
+    })
+
+    expect(result.current.teams.map((team) => team.name)).toEqual(['Team 1', 'Team 2', 'Team 3'])
+    expect(result.current.activeTeamId).toBe(activeTeamId)
+  })
+
   it('assigns an awakener to the first empty slot', () => {
     const {result} = renderHook(() => useBuilderV2Model())
 

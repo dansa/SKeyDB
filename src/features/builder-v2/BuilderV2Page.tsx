@@ -2,6 +2,7 @@ import './builder-v2.css'
 
 import {useEffect, useState} from 'react'
 
+import {ConfirmDialog} from '@/components/ui/ConfirmDialog'
 import {Toast} from '@/components/ui/Toast'
 import {useTimedToast} from '@/components/ui/useTimedToast'
 
@@ -11,6 +12,7 @@ import {BuilderV2AdaptiveLayout} from './BuilderV2AdaptiveLayout'
 import {BuilderV2AwakenerPicker} from './BuilderV2AwakenerPicker'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
 import {BuilderV2MobileLayout} from './BuilderV2MobileLayout'
+import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 import {useBuilderV2Model} from './useBuilderV2Model'
 
@@ -135,40 +137,7 @@ export function BuilderV2Page() {
               </p>
             </section>
 
-            <section
-              className='builder-v2-panel builder-v2-team-overview'
-              aria-label='Team overview'
-            >
-              <div className='builder-v2-section-header'>
-                <div>
-                  <p className='builder-v2-label'>Your Teams</p>
-                  <h2 className='ui-title'>Overview</h2>
-                </div>
-              </div>
-              <div className='builder-v2-overview-strip'>
-                {model.teams.map((team, index) => (
-                  <button
-                    aria-pressed={team.isActive}
-                    className={`builder-v2-overview-card ${team.isActive ? 'builder-v2-overview-card--active' : ''}`}
-                    key={team.id}
-                    onClick={() => {
-                      model.setActiveTeam(team.id)
-                    }}
-                    type='button'
-                  >
-                    <span className='builder-v2-team-index'>
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span className='builder-v2-overview-name'>{team.name}</span>
-                    <span className='builder-v2-overview-minis'>
-                      {team.slotNames.map((slotName, slotIndex) => (
-                        <span key={`${team.id}-${String(slotIndex)}`}>{slotName.slice(0, 2)}</span>
-                      ))}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </section>
+            <BuilderV2TeamManagement model={model} variant='desktop' />
           </main>
 
           <BuilderV2AwakenerPicker
@@ -194,6 +163,17 @@ export function BuilderV2Page() {
     <>
       {content}
       <BuilderTransferConfirmDialog dialog={model.transferDialog} onCancel={model.cancelTransfer} />
+      {model.teamActionDialog ? (
+        <ConfirmDialog
+          cancelLabel='Cancel'
+          confirmLabel={model.teamActionDialog.confirmLabel}
+          confirmVariant={model.teamActionDialog.confirmVariant}
+          message={model.teamActionDialog.message}
+          onCancel={model.cancelTeamAction}
+          onConfirm={model.teamActionDialog.onConfirm}
+          title={model.teamActionDialog.title}
+        />
+      ) : null}
       <BuilderImportExportDialogs {...model.importExportDialogProps} />
       <Toast entries={toastEntries} />
     </>

@@ -71,6 +71,119 @@ describe('BuilderV2Page', () => {
     expect(screen.getByRole('searchbox', {name: /search awakeners/i})).toBeInTheDocument()
   })
 
+  it('renders a functional desktop team management overview and switches teams from it', () => {
+    const teamOneSlots = createEmptyTeamSlots()
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamTwoSlots[0] = {
+      ...teamTwoSlots[0],
+      awakenerId: 'awakener-0021',
+      realm: 'CHAOS',
+      level: 90,
+      isSupport: true,
+      wheels: ['wheel-0050', null],
+      covenantId: 'c01',
+    }
+    resizeBuilderV2Viewport(1200)
+    render(<BuilderV2Page />)
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: teamOneSlots},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots, posseId: 'posse-0033'},
+        ],
+      })
+    })
+
+    const management = screen.getByRole('region', {name: /builder v2 team management/i})
+    expect(within(management).getByRole('button', {name: /add team/i})).toBeInTheDocument()
+    expect(within(management).getByRole('button', {name: /apply d-tide 5/i})).toBeInTheDocument()
+    expect(within(management).getByText(/taverns opening/i)).toBeInTheDocument()
+    expect(within(management).getByText(/support/i)).toBeInTheDocument()
+    expect(within(management).getByText(/goliath/i)).toBeInTheDocument()
+    expect(within(management).getByText(/1 wheel/i)).toBeInTheDocument()
+    expect(within(management).getByText(/covenant/i)).toBeInTheDocument()
+
+    fireEvent.click(within(management).getByRole('button', {name: /select team 2/i}))
+
+    expect(screen.getByRole('heading', {level: 2, name: /^team 2$/i})).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: /remove goliath/i})).toBeInTheDocument()
+  })
+
+  it('renames teams from the V2 management surface with Enter, Escape, blur, and blank no-op', () => {
+    resizeBuilderV2Viewport(1200)
+    render(<BuilderV2Page />)
+
+    const management = screen.getByRole('region', {name: /builder v2 team management/i})
+    fireEvent.click(within(management).getByRole('button', {name: /rename team 1/i}))
+    const renameInput = within(management).getByRole('textbox', {name: /team name/i})
+    fireEvent.change(renameInput, {target: {value: 'Arena Team'}})
+    fireEvent.keyDown(renameInput, {key: 'Enter', code: 'Enter'})
+
+    expect(within(management).getByRole('button', {name: /select arena team/i})).toBeInTheDocument()
+
+    fireEvent.click(within(management).getByRole('button', {name: /rename arena team/i}))
+    const cancelInput = within(management).getByRole('textbox', {name: /team name/i})
+    fireEvent.change(cancelInput, {target: {value: 'Temp Team'}})
+    fireEvent.keyDown(cancelInput, {key: 'Escape', code: 'Escape'})
+
+    expect(within(management).queryByText(/temp team/i)).not.toBeInTheDocument()
+    expect(within(management).getByRole('button', {name: /select arena team/i})).toBeInTheDocument()
+
+    fireEvent.click(within(management).getByRole('button', {name: /rename arena team/i}))
+    const blankInput = within(management).getByRole('textbox', {name: /team name/i})
+    fireEvent.change(blankInput, {target: {value: '   '}})
+    fireEvent.blur(blankInput)
+
+    expect(within(management).getByRole('button', {name: /select arena team/i})).toBeInTheDocument()
+  })
+
+  it('confirms destructive team actions and applies templates from the V2 management surface', () => {
+    resizeBuilderV2Viewport(1200)
+    render(<BuilderV2Page />)
+
+    const management = screen.getByRole('region', {name: /builder v2 team management/i})
+    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.click(within(management).getByRole('button', {name: /reset team 1/i}))
+
+    let teamDialog = screen.getByRole('dialog', {name: /reset team 1/i})
+    expect(teamDialog).toBeInTheDocument()
+    fireEvent.click(within(teamDialog).getByRole('button', {name: /^cancel$/i}))
+    expect(screen.getByRole('button', {name: /remove goliath/i})).toBeInTheDocument()
+
+    fireEvent.click(within(management).getByRole('button', {name: /reset team 1/i}))
+    teamDialog = screen.getByRole('dialog', {name: /reset team 1/i})
+    fireEvent.click(within(teamDialog).getByRole('button', {name: /reset team/i}))
+    expect(screen.queryByRole('button', {name: /remove goliath/i})).not.toBeInTheDocument()
+
+    fireEvent.click(within(management).getByRole('button', {name: /apply d-tide 5/i}))
+    teamDialog = screen.getByRole('dialog', {name: /apply d-tide 5/i})
+    expect(teamDialog).toBeInTheDocument()
+    fireEvent.click(within(teamDialog).getByRole('button', {name: /^apply$/i}))
+    expect(within(management).getByRole('button', {name: /select wave 5/i})).toBeInTheDocument()
+  })
+
+  it('exposes provisional team management on adaptive and mobile layouts', () => {
+    resizeBuilderV2Viewport(900)
+    const {unmount} = render(<BuilderV2Page />)
+
+    const adaptiveManagement = screen.getByRole('region', {
+      name: /builder v2 team management/i,
+    })
+    fireEvent.click(within(adaptiveManagement).getByRole('button', {name: /add team/i}))
+    expect(screen.getByRole('heading', {level: 2, name: /^team 2$/i})).toBeInTheDocument()
+    expect(screen.queryByRole('dialog', {name: /adaptive picker/i})).not.toBeInTheDocument()
+
+    unmount()
+    resizeBuilderV2Viewport(390)
+    render(<BuilderV2Page />)
+
+    const mobileManagement = screen.getByRole('region', {name: /builder v2 team management/i})
+    fireEvent.click(within(mobileManagement).getByRole('button', {name: /add team/i}))
+    expect(screen.getByRole('heading', {level: 1, name: /^team 2$/i})).toBeInTheDocument()
+    expect(screen.getByRole('region', {name: /mobile team overview/i})).toBeInTheDocument()
+  })
+
   it('renders an adaptive workbench instead of the mobile app or desktop armory at tablet widths', () => {
     resizeBuilderV2Viewport(900)
     render(<BuilderV2Page />)
@@ -580,7 +693,8 @@ describe('BuilderV2Page', () => {
     fireEvent.click(screen.getByRole('button', {name: /^select slot 3$/i}))
     fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
 
-    const slot3 = screen.getByText('Slot 3').closest('article')
+    const activeSlots = screen.getByLabelText(/builder v2 active team slots/i)
+    const slot3 = within(activeSlots).getByText('Slot 3').closest('article')
     if (!slot3) {
       throw new Error('Expected slot 3 article to render')
     }
@@ -605,7 +719,8 @@ describe('BuilderV2Page', () => {
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1 wheel 1$/i}))
     fireEvent.click(screen.getByRole('button', {name: /merciful nurturing/i}))
 
-    const slot1 = screen.getByText('Slot 1').closest('article')
+    const activeSlots = screen.getByLabelText(/builder v2 active team slots/i)
+    const slot1 = within(activeSlots).getByText('Slot 1').closest('article')
     if (!slot1) {
       throw new Error('Expected slot 1 article to render')
     }
