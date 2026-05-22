@@ -231,7 +231,6 @@ describe('BuilderV2Page', () => {
     render(<BuilderV2Page />)
 
     const pickerTrigger = screen.getByRole('button', {name: /open adaptive picker/i})
-    fireEvent.click(screen.getByRole('button', {name: /^select slot 2$/i}))
     fireEvent.click(pickerTrigger)
 
     const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
@@ -258,10 +257,8 @@ describe('BuilderV2Page', () => {
     render(<BuilderV2Page />)
 
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1$/i}))
-    fireEvent.click(screen.getByRole('button', {name: /open adaptive picker/i}))
     fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1 wheel 2$/i}))
-    fireEvent.click(screen.getByRole('button', {name: /open adaptive picker/i}))
 
     const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
     expect(within(drawer).getByRole('tab', {name: /^wheels$/i})).toHaveAttribute(
@@ -276,7 +273,6 @@ describe('BuilderV2Page', () => {
     render(<BuilderV2Page />)
 
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1 wheel 1$/i}))
-    fireEvent.click(screen.getByRole('button', {name: /open adaptive picker/i}))
     fireEvent.click(screen.getByRole('button', {name: /merciful nurturing/i}))
 
     const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
@@ -305,7 +301,6 @@ describe('BuilderV2Page', () => {
     })
 
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1$/i}))
-    fireEvent.click(screen.getByRole('button', {name: /open adaptive picker/i}))
 
     const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
     fireEvent.click(within(drawer).getByRole('tab', {name: /^wheels$/i}))
@@ -559,7 +554,6 @@ describe('BuilderV2Page', () => {
     render(<BuilderV2Page />)
 
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1$/i}))
-    fireEvent.click(screen.getByRole('button', {name: /open adaptive picker/i}))
 
     const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
     fireEvent.click(within(drawer).getByRole('button', {name: /goliath.*in use/i}))
@@ -724,10 +718,14 @@ describe('BuilderV2Page', () => {
     if (!slot1) {
       throw new Error('Expected slot 1 article to render')
     }
-    expect(within(slot1).getByText(/merciful nurturing/i)).toBeInTheDocument()
+    expect(
+      within(slot1).getByRole('button', {name: /clear slot 1 wheel 1/i}),
+    ).toBeInTheDocument()
 
     fireEvent.click(within(slot1).getByRole('button', {name: /clear slot 1 wheel 1/i}))
-    expect(within(slot1).queryByText(/merciful nurturing/i)).not.toBeInTheDocument()
+    expect(
+      within(slot1).queryByRole('button', {name: /clear slot 1 wheel 1/i}),
+    ).not.toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1 covenant$/i}))
     fireEvent.click(screen.getByRole('button', {name: /deus ex machina/i}))

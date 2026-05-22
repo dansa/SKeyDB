@@ -11,7 +11,7 @@ import {
 import {BuilderV2PickerContent} from './BuilderV2AwakenerPicker'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
 import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
-import type {BuilderV2Model, BuilderV2PickerTab, BuilderV2SlotView} from './useBuilderV2Model'
+import type {BuilderV2Model, BuilderV2PickerTab, BuilderV2SlotView} from './BuilderV2ModelTypes'
 
 interface BuilderV2MobileLayoutProps {
   model: BuilderV2Model
@@ -76,6 +76,18 @@ export function BuilderV2MobileLayout({model}: BuilderV2MobileLayoutProps) {
       document.removeEventListener('keydown', handleEscape)
     }
   }, [closePicker, mobilePicker])
+
+  useEffect(() => {
+    if (!mobilePicker) {
+      return
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [mobilePicker])
 
   const openFocusedSlot = useCallback((slotId: string) => {
     setManualFocusedSlotId(slotId)
@@ -154,14 +166,13 @@ export function BuilderV2MobileLayout({model}: BuilderV2MobileLayoutProps) {
   return (
     <section className='builder-v2-page builder-v2-page--mobile' aria-labelledby='builder-v2-title'>
       <header className='builder-v2-mobile-topbar'>
-        <div>
-          <p className='builder-v2-label'>Builder V2</p>
+        <div className='builder-v2-mobile-topbar-identity'>
+          <p className='builder-v2-label'>Builder V2 / Beta</p>
           <h1 className='ui-title' id='builder-v2-title'>
             {model.activeTeamName}
           </h1>
         </div>
         <div className='builder-v2-mobile-topbar-actions'>
-          <span className='builder-v2-status-pill'>Mobile</span>
           <BuilderV2ImportExportActions model={model} />
         </div>
       </header>
@@ -188,48 +199,50 @@ export function BuilderV2MobileLayout({model}: BuilderV2MobileLayoutProps) {
 
       {mobilePicker ? (
         <div
-          aria-labelledby='builder-v2-mobile-picker-title'
-          aria-modal='true'
-          className='builder-v2-mobile-picker'
-          onKeyDown={(event) => {
-            trapDialogFocus(event, dialogRef.current)
+          className='builder-v2-mobile-picker-backdrop'
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) {
+              closePicker()
+            }
           }}
-          ref={dialogRef}
-          role='dialog'
         >
-          <header className='builder-v2-mobile-picker-header'>
-            <div>
-              <p className='builder-v2-label'>Pick</p>
-              <h2 className='ui-title' id='builder-v2-mobile-picker-title'>
-                {mobilePicker.title}
-              </h2>
-            </div>
-            <button
-              aria-label='Close mobile picker'
-              className='builder-v2-mobile-icon-button'
-              onClick={() => {
-                closePicker()
-              }}
-              type='button'
-            >
-              x
-            </button>
-          </header>
-          <BuilderV2PickerContent
-            awakeners={model.awakeners}
-            covenants={model.covenants}
-            onAssignAwakener={assignAwakener}
-            onAssignCovenant={assignCovenant}
-            onAssignPosse={assignPosse}
-            onAssignWheel={assignWheel}
-            onPickerTabChange={model.setPickerTab}
-            onSearchChange={model.setSearchQuery}
-            pickerTab={model.pickerTab}
-            posses={model.posses}
-            searchInputRef={searchInputRef}
-            searchQuery={model.searchQuery}
-            wheels={model.wheels}
-          />
+          <div
+            aria-labelledby='builder-v2-mobile-picker-title'
+            aria-modal='true'
+            className='builder-v2-mobile-picker'
+            onKeyDown={(event) => {
+              trapDialogFocus(event, dialogRef.current)
+            }}
+            ref={dialogRef}
+            role='dialog'
+          >
+            <header className='builder-v2-mobile-picker-header'>
+              <div>
+                <p className='builder-v2-label'>Pick</p>
+                <h2 className='ui-title' id='builder-v2-mobile-picker-title'>
+                  {mobilePicker.title}
+                </h2>
+              </div>
+              <button
+                aria-label='Close mobile picker'
+                className='builder-v2-mobile-icon-button'
+                onClick={() => {
+                  closePicker()
+                }}
+                type='button'
+              >
+                x
+              </button>
+            </header>
+            <BuilderV2PickerContent
+              onAssignAwakener={assignAwakener}
+              onAssignCovenant={assignCovenant}
+              onAssignPosse={assignPosse}
+              onAssignWheel={assignWheel}
+              picker={model.picker}
+              searchInputRef={searchInputRef}
+            />
+          </div>
         </div>
       ) : null}
     </section>
@@ -254,23 +267,101 @@ function MobileTeamOverview({
     selectTarget: () => void
   }) => void
 }) {
+  const activeTeamSummary = model.teams.find((team) => team.isActive)
+
   return (
     <section className='builder-v2-mobile-view' aria-label='Mobile team overview'>
+      <nav
+        aria-label='Mobile team switcher'
+        className='builder-v2-mobile-team-strip'
+        role='tablist'
+      >
+        {model.teams.map((team, index) => {
+          const teamIndex = String(index + 1).padStart(2, '0')
+          return (
+            <button
+              aria-label={`Switch to ${team.name}`}
+              aria-pressed={team.isActive}
+              className={`builder-v2-mobile-team-chip ${
+                team.isActive ? 'builder-v2-mobile-team-chip--active' : ''
+              }`}
+              key={team.id}
+              onClick={() => {
+                model.setActiveTeam(team.id)
+                onTeamActivated()
+              }}
+              role='tab'
+              type='button'
+            >
+              <span className='builder-v2-mobile-team-chip-index'>{teamIndex}</span>
+              <span className='builder-v2-mobile-team-chip-name'>{team.name}</span>
+            </button>
+          )
+        })}
+        <button
+          aria-label='Create team'
+          className='builder-v2-mobile-team-chip builder-v2-mobile-team-chip--add'
+          disabled={!model.canAddTeam}
+          onClick={() => {
+            model.addTeam()
+            onTeamActivated()
+          }}
+          type='button'
+        >
+          <span aria-hidden>+</span>
+        </button>
+      </nav>
+
       <div className='builder-v2-mobile-card builder-v2-mobile-team-card'>
-        <div>
-          <p className='builder-v2-label'>Team overview</p>
+        <div className='builder-v2-mobile-team-card-copy'>
+          <p className='builder-v2-label'>Active Team</p>
           <h2 className='ui-title'>{model.activeTeamName}</h2>
           <p className='builder-v2-mobile-subline'>
-            {String(model.teams.find((team) => team.isActive)?.deployedCount ?? 0)} / 4 deployed
+            {String(activeTeamSummary?.deployedCount ?? 0)} / 4 deployed
+            {model.activePosse ? ` / ${model.activePosse.name}` : ' / No posse'}
           </p>
         </div>
-        <MobileQuickLineupControls
-          model={model}
-          onStartQuickLineup={() => {
-            onOpenFocusedSlot('slot-1')
+        <button
+          aria-label='Pick posse'
+          className={`builder-v2-mobile-posse-target ${
+            model.activeTeamTarget?.kind === 'posse'
+              ? 'builder-v2-mobile-posse-target--active'
+              : ''
+          }`}
+          onClick={(event) => {
+            onOpenPicker({
+              event,
+              isTargetSelected: model.activeTeamTarget?.kind === 'posse',
+              slotId: null,
+              tab: 'posses',
+              title: `Pick Posse for ${model.activeTeamName}`,
+              selectTarget: model.selectPosse,
+            })
           }}
-        />
+          type='button'
+        >
+          <span aria-hidden className='builder-v2-mobile-posse-icon'>
+            {model.activePosse?.assetSrc ? (
+              <img alt='' draggable={false} src={model.activePosse.assetSrc} />
+            ) : (
+              <span className='builder-v2-empty-mark'>+</span>
+            )}
+          </span>
+          <span className='builder-v2-mobile-posse-copy'>
+            <span className='builder-v2-label'>Posse</span>
+            <span className='builder-v2-mobile-posse-name'>
+              {model.activePosse?.name ?? 'Pick Posse'}
+            </span>
+          </span>
+        </button>
       </div>
+
+      <MobileQuickLineupControls
+        model={model}
+        onStartQuickLineup={() => {
+          onOpenFocusedSlot('slot-1')
+        }}
+      />
 
       <div className='builder-v2-mobile-slot-strip' aria-label='Mobile team slots'>
         {model.slots.map((slot) => (
@@ -294,30 +385,26 @@ function MobileTeamOverview({
         ))}
       </div>
 
-      <div className='builder-v2-mobile-card builder-v2-mobile-posse-card'>
-        <div>
-          <p className='builder-v2-label'>Posse</p>
-          <h3 className='ui-title'>{model.activePosse?.name ?? 'Not selected'}</h3>
-        </div>
-        <button
-          className='builder-v2-mobile-action'
-          onClick={(event) => {
-            onOpenPicker({
-              event,
-              isTargetSelected: model.activeTeamTarget?.kind === 'posse',
-              slotId: null,
-              tab: 'posses',
-              title: `Pick Posse for ${model.activeTeamName}`,
-              selectTarget: model.selectPosse,
-            })
-          }}
-          type='button'
-        >
-          Pick Posse
-        </button>
-      </div>
-
-      <BuilderV2TeamManagement model={model} onTeamActivated={onTeamActivated} variant='mobile' />
+      <BuilderV2TeamManagement
+        canAddTeam={model.canAddTeam}
+        editingTeamId={model.editingTeamId}
+        editingTeamName={model.editingTeamName}
+        maxTeams={model.maxTeams}
+        onAddTeam={model.addTeam}
+        onBeginTeamRename={model.beginTeamRename}
+        onCancelTeamRename={model.cancelTeamRename}
+        onCommitTeamRename={model.commitTeamRename}
+        onMoveTeamDown={model.moveTeamDown}
+        onMoveTeamUp={model.moveTeamUp}
+        onRequestApplyTeamTemplate={model.requestApplyTeamTemplate}
+        onRequestDeleteTeam={model.requestDeleteTeam}
+        onRequestResetTeam={model.requestResetTeam}
+        onSetActiveTeam={model.setActiveTeam}
+        onSetEditingTeamName={model.setEditingTeamName}
+        onTeamActivated={onTeamActivated}
+        teams={model.teams}
+        variant='mobile'
+      />
     </section>
   )
 }

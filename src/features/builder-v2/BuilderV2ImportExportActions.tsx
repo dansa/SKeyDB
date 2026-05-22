@@ -1,4 +1,4 @@
-import type {BuilderV2Model} from './useBuilderV2Model'
+import type {BuilderV2Model} from './BuilderV2ModelTypes'
 
 interface BuilderV2ImportExportActionsProps {
   model: Pick<

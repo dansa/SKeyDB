@@ -1,19 +1,51 @@
+import {memo} from 'react'
+
 import type {
-  BuilderV2Model,
   BuilderV2TeamSummary,
   BuilderV2TeamSummarySlot,
-} from './useBuilderV2Model'
+} from './BuilderV2ModelTypes'
+import type {TeamTemplateId} from '../builder/team-collection'
 
 interface BuilderV2TeamManagementProps {
-  model: BuilderV2Model
+  canAddTeam: boolean
+  editingTeamId: string | null
+  editingTeamName: string
+  maxTeams: number
+  teams: BuilderV2TeamSummary[]
   variant?: 'desktop' | 'adaptive' | 'mobile'
   onTeamActivated?: () => void
+  onAddTeam: () => void
+  onBeginTeamRename: (teamId: string) => void
+  onCancelTeamRename: () => void
+  onCommitTeamRename: (teamId: string) => void
+  onMoveTeamDown: (teamId: string) => void
+  onMoveTeamUp: (teamId: string) => void
+  onRequestApplyTeamTemplate: (templateId: TeamTemplateId) => void
+  onRequestDeleteTeam: (teamId: string) => void
+  onRequestResetTeam: (teamId: string) => void
+  onSetActiveTeam: (teamId: string) => void
+  onSetEditingTeamName: (nextName: string) => void
 }
 
-export function BuilderV2TeamManagement({
-  model,
+export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
+  canAddTeam,
+  editingTeamId,
+  editingTeamName,
+  maxTeams,
+  teams,
   variant = 'desktop',
   onTeamActivated,
+  onAddTeam,
+  onBeginTeamRename,
+  onCancelTeamRename,
+  onCommitTeamRename,
+  onMoveTeamDown,
+  onMoveTeamUp,
+  onRequestApplyTeamTemplate,
+  onRequestDeleteTeam,
+  onRequestResetTeam,
+  onSetActiveTeam,
+  onSetEditingTeamName,
 }: BuilderV2TeamManagementProps) {
   return (
     <section
@@ -21,28 +53,30 @@ export function BuilderV2TeamManagement({
       className={`builder-v2-panel builder-v2-team-management builder-v2-team-management--${variant}`}
     >
       <div className='builder-v2-team-management-header'>
-        <div>
-          <p className='builder-v2-label'>Your Teams</p>
+        <div className='builder-v2-team-management-identity'>
+          <p className='builder-v2-label'>
+            {variant === 'mobile' ? 'Other Teams' : 'Your Teams'}
+          </p>
           <h2 className='ui-title'>
-            Teams {model.teams.length} / {model.maxTeams}
+            {teams.length} / {maxTeams}
           </h2>
         </div>
         <div className='builder-v2-team-management-actions' aria-label='Team template actions'>
           <button
-            className='builder-v2-team-management-button'
-            disabled={!model.canAddTeam}
+            className='builder-v2-team-management-button builder-v2-team-management-button--primary'
+            disabled={!canAddTeam}
             onClick={() => {
-              model.addTeam()
+              onAddTeam()
               onTeamActivated?.()
             }}
             type='button'
           >
-            Add Team
+            + Add Team
           </button>
           <button
             className='builder-v2-team-management-button'
             onClick={() => {
-              model.requestApplyTeamTemplate('DTIDE_5')
+              onRequestApplyTeamTemplate('DTIDE_5')
             }}
             type='button'
           >
@@ -51,7 +85,7 @@ export function BuilderV2TeamManagement({
           <button
             className='builder-v2-team-management-button'
             onClick={() => {
-              model.requestApplyTeamTemplate('DTIDE_10')
+              onRequestApplyTeamTemplate('DTIDE_10')
             }}
             type='button'
           >
@@ -61,35 +95,68 @@ export function BuilderV2TeamManagement({
       </div>
 
       <div className='builder-v2-team-management-list'>
-        {model.teams.map((team, index) => (
+        {teams.map((team, index) => (
           <TeamManagementRow
+            editingTeamId={editingTeamId}
+            editingTeamName={editingTeamName}
             index={index}
-            isLast={index === model.teams.length - 1}
+            isLast={index === teams.length - 1}
             key={team.id}
-            model={model}
             onTeamActivated={onTeamActivated}
+            onBeginTeamRename={onBeginTeamRename}
+            onCancelTeamRename={onCancelTeamRename}
+            onCommitTeamRename={onCommitTeamRename}
+            onMoveTeamDown={onMoveTeamDown}
+            onMoveTeamUp={onMoveTeamUp}
+            onRequestDeleteTeam={onRequestDeleteTeam}
+            onRequestResetTeam={onRequestResetTeam}
+            onSetActiveTeam={onSetActiveTeam}
+            onSetEditingTeamName={onSetEditingTeamName}
+            teamsCount={teams.length}
             team={team}
           />
         ))}
       </div>
     </section>
   )
-}
+})
 
-function TeamManagementRow({
+const TeamManagementRow = memo(function TeamManagementRow({
+  editingTeamId,
+  editingTeamName,
   index,
   isLast,
-  model,
   onTeamActivated,
+  onBeginTeamRename,
+  onCancelTeamRename,
+  onCommitTeamRename,
+  onMoveTeamDown,
+  onMoveTeamUp,
+  onRequestDeleteTeam,
+  onRequestResetTeam,
+  onSetActiveTeam,
+  onSetEditingTeamName,
+  teamsCount,
   team,
 }: {
+  editingTeamId: string | null
+  editingTeamName: string
   index: number
   isLast: boolean
-  model: BuilderV2Model
   onTeamActivated?: () => void
+  onBeginTeamRename: (teamId: string) => void
+  onCancelTeamRename: () => void
+  onCommitTeamRename: (teamId: string) => void
+  onMoveTeamDown: (teamId: string) => void
+  onMoveTeamUp: (teamId: string) => void
+  onRequestDeleteTeam: (teamId: string) => void
+  onRequestResetTeam: (teamId: string) => void
+  onSetActiveTeam: (teamId: string) => void
+  onSetEditingTeamName: (nextName: string) => void
+  teamsCount: number
   team: BuilderV2TeamSummary
 }) {
-  const isEditing = model.editingTeamId === team.id
+  const isEditing = editingTeamId === team.id
   const teamIndex = String(index + 1).padStart(2, '0')
 
   return (
@@ -107,22 +174,22 @@ function TeamManagementRow({
               aria-label='Team name'
               className='builder-v2-team-name-input'
               onBlur={() => {
-                model.commitTeamRename(team.id)
+                onCommitTeamRename(team.id)
               }}
               onChange={(event) => {
-                model.setEditingTeamName(event.target.value)
+                onSetEditingTeamName(event.target.value)
               }}
               onKeyDown={(event) => {
                 if (event.key === 'Enter') {
                   event.preventDefault()
-                  model.commitTeamRename(team.id)
+                  onCommitTeamRename(team.id)
                 }
                 if (event.key === 'Escape') {
                   event.preventDefault()
-                  model.cancelTeamRename()
+                  onCancelTeamRename()
                 }
               }}
-              value={model.editingTeamName}
+              value={editingTeamName}
             />
           </span>
         </div>
@@ -132,7 +199,7 @@ function TeamManagementRow({
           aria-pressed={team.isActive}
           className='builder-v2-team-management-select'
           onClick={() => {
-            model.setActiveTeam(team.id)
+            onSetActiveTeam(team.id)
             onTeamActivated?.()
           }}
           type='button'
@@ -159,7 +226,7 @@ function TeamManagementRow({
           aria-label={`Rename ${team.name}`}
           className='builder-v2-team-management-button'
           onClick={() => {
-            model.beginTeamRename(team.id)
+            onBeginTeamRename(team.id)
           }}
           type='button'
         >
@@ -170,7 +237,7 @@ function TeamManagementRow({
           className='builder-v2-team-management-button'
           disabled={index === 0}
           onClick={() => {
-            model.moveTeamUp(team.id)
+            onMoveTeamUp(team.id)
           }}
           type='button'
         >
@@ -181,7 +248,7 @@ function TeamManagementRow({
           className='builder-v2-team-management-button'
           disabled={isLast}
           onClick={() => {
-            model.moveTeamDown(team.id)
+            onMoveTeamDown(team.id)
           }}
           type='button'
         >
@@ -191,7 +258,7 @@ function TeamManagementRow({
           aria-label={`Reset ${team.name}`}
           className='builder-v2-team-management-button'
           onClick={() => {
-            model.requestResetTeam(team.id)
+            onRequestResetTeam(team.id)
           }}
           type='button'
         >
@@ -200,9 +267,9 @@ function TeamManagementRow({
         <button
           aria-label={`Delete ${team.name}`}
           className='builder-v2-team-management-button builder-v2-team-management-button--danger'
-          disabled={model.teams.length <= 1}
+          disabled={teamsCount <= 1}
           onClick={() => {
-            model.requestDeleteTeam(team.id)
+            onRequestDeleteTeam(team.id)
           }}
           type='button'
         >
@@ -211,7 +278,7 @@ function TeamManagementRow({
       </div>
     </article>
   )
-}
+})
 
 function TeamSlotSummary({slot}: {slot: BuilderV2TeamSummarySlot}) {
   const compactLabel = slot.label.replace('Slot ', 'S')
@@ -222,13 +289,22 @@ function TeamSlotSummary({slot}: {slot: BuilderV2TeamSummarySlot}) {
 
   return (
     <div aria-label={slot.label} className='builder-v2-team-management-slot'>
-      <span className='builder-v2-label'>{compactLabel}</span>
-      <span className='builder-v2-team-management-slot-name'>{slot.name}</span>
-      <span className='builder-v2-team-management-tags'>
-        {slot.isSupport ? <span>Support</span> : null}
-        {wheelLabel ? <span>{wheelLabel}</span> : null}
-        {slot.hasCovenant ? <span>Covenant</span> : null}
-        {slot.isEmpty ? <span>Empty</span> : null}
+      <span aria-hidden className='builder-v2-team-management-slot-art'>
+        {slot.portraitSrc ? (
+          <img alt='' draggable={false} src={slot.portraitSrc} />
+        ) : (
+          <span className='builder-v2-empty-mark'>+</span>
+        )}
+      </span>
+      <span className='builder-v2-team-management-slot-copy'>
+        <span className='builder-v2-label'>{compactLabel}</span>
+        <span className='builder-v2-team-management-slot-name'>{slot.name}</span>
+        <span className='builder-v2-team-management-tags'>
+          {slot.isSupport ? <span>Support</span> : null}
+          {wheelLabel ? <span>{wheelLabel}</span> : null}
+          {slot.hasCovenant ? <span>Covenant</span> : null}
+          {slot.isEmpty ? <span>Empty</span> : null}
+        </span>
       </span>
     </div>
   )

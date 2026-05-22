@@ -1,6 +1,6 @@
 import './builder-v2.css'
 
-import {useEffect, useState} from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
 
 import {ConfirmDialog} from '@/components/ui/ConfirmDialog'
 import {Toast} from '@/components/ui/Toast'
@@ -8,6 +8,7 @@ import {useTimedToast} from '@/components/ui/useTimedToast'
 
 import {BuilderImportExportDialogs} from '../builder/BuilderImportExportDialogs'
 import {BuilderTransferConfirmDialog} from '../builder/BuilderTransferConfirmDialog'
+import {BuilderV2ActiveFooter, BuilderV2ActiveHeader} from './BuilderV2ActiveTeamChrome'
 import {BuilderV2AdaptiveLayout} from './BuilderV2AdaptiveLayout'
 import {BuilderV2AwakenerPicker} from './BuilderV2AwakenerPicker'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
@@ -16,7 +17,7 @@ import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 import {useBuilderV2Model} from './useBuilderV2Model'
 
-const BUILDER_V2_MOBILE_BREAKPOINT_PX = 768
+const BUILDER_V2_MOBILE_BREAKPOINT_PX = 640
 const BUILDER_V2_ADAPTIVE_BREAKPOINT_PX = 1056
 type BuilderV2ViewportMode = 'mobile' | 'adaptive' | 'desktop'
 
@@ -24,6 +25,10 @@ export function BuilderV2Page() {
   const {toastEntries, showToast} = useTimedToast({defaultDurationMs: 3200})
   const model = useBuilderV2Model({showToast})
   const viewportMode = useBuilderV2ViewportMode()
+  const assignAwakener = useStableEvent(model.assignAwakener)
+  const assignWheel = useStableEvent(model.assignWheel)
+  const assignCovenant = useStableEvent(model.assignCovenant)
+  const assignPosse = useStableEvent(model.assignPosse)
 
   let content
 
@@ -33,26 +38,23 @@ export function BuilderV2Page() {
     content = <BuilderV2AdaptiveLayout model={model} />
   } else {
     content = (
-      <section className='builder-v2-page' aria-labelledby='builder-v2-title'>
-        <header className='builder-v2-page-header'>
-          <div>
-            <p className='builder-v2-label'>Local rebuild shell</p>
-            <h1 className='ui-title' id='builder-v2-title'>
+      <section className='builder-v2-page builder-v2-page--desktop' aria-labelledby='builder-v2-title'>
+        <header className='builder-v2-mast'>
+          <div className='builder-v2-mast-identity'>
+            <span aria-hidden className='builder-v2-mast-glyph' />
+            <h1 className='builder-v2-mast-title' id='builder-v2-title'>
               Builder V2
             </h1>
+            <span className='builder-v2-status-pill'>Beta</span>
           </div>
-          <span className='builder-v2-status-pill'>Experimental</span>
+          <div className='builder-v2-mast-end'>
+            <p className='builder-v2-mast-tagline'>Local team builder - dark archive workflow.</p>
+            <BuilderV2ImportExportActions model={model} />
+          </div>
         </header>
 
         <div className='builder-v2-shell'>
           <aside className='builder-v2-panel builder-v2-rail' aria-label='My teams'>
-            <div className='builder-v2-section-header'>
-              <div>
-                <p className='builder-v2-label'>My Teams</p>
-                <h2 className='ui-title'>{model.teams.length} Teams</h2>
-              </div>
-            </div>
-
             <div className='builder-v2-team-list'>
               {model.teams.map((team, index) => {
                 const teamIndex = String(index + 1).padStart(2, '0')
@@ -72,51 +74,31 @@ export function BuilderV2Page() {
                     type='button'
                   >
                     <span className='builder-v2-team-index'>{teamIndex}</span>
-                    <span className='builder-v2-team-copy'>
-                      <span className='builder-v2-team-name'>{team.name}</span>
-                      <span className='builder-v2-team-meta'>{teamMeta}</span>
-                    </span>
                   </button>
                 )
               })}
+              {model.canAddTeam ? (
+                <button
+                  aria-label='Create team'
+                  className='builder-v2-team-row builder-v2-team-row--add'
+                  onClick={model.addTeam}
+                  type='button'
+                >
+                  <span className='builder-v2-team-index'>+</span>
+                </button>
+              ) : null}
             </div>
           </aside>
 
           <main className='builder-v2-workbench' aria-label='Active builder workspace'>
             <section className='builder-v2-panel builder-v2-active-team'>
-              <div className='builder-v2-active-header'>
-                <div>
-                  <p className='builder-v2-label'>Active Team</p>
-                  <h2 className='ui-title'>{model.activeTeamName}</h2>
-                </div>
-                <div className='builder-v2-posse-summary'>
-                  <button
-                    aria-label='Select team posse'
-                    aria-pressed={model.activeTeamTarget?.kind === 'posse'}
-                    className={`builder-v2-posse-target ${
-                      model.activeTeamTarget?.kind === 'posse'
-                        ? 'builder-v2-posse-target--active'
-                        : ''
-                    }`}
-                    onClick={model.selectPosse}
-                    type='button'
-                  >
-                    <span className='builder-v2-label'>Posse</span>
-                    <span>{model.activePosse?.name ?? 'Not selected'}</span>
-                  </button>
-                  {model.activePosse ? (
-                    <button
-                      className='builder-v2-posse-clear'
-                      onClick={model.clearPosse}
-                      type='button'
-                    >
-                      Clear Posse
-                    </button>
-                  ) : null}
-                </div>
-                <QuickLineupControls model={model} />
-                <BuilderV2ImportExportActions model={model} />
-              </div>
+              <BuilderV2ActiveHeader
+                activePosse={model.activePosse}
+                activeTeamName={model.activeTeamName}
+                activeTeamTarget={model.activeTeamTarget}
+                onClearPosse={model.clearPosse}
+                onSelectPosse={model.selectPosse}
+              />
 
               <BuilderV2TeamSlots
                 onClearCovenant={model.clearCovenant}
@@ -129,30 +111,46 @@ export function BuilderV2Page() {
                 slots={model.slots}
               />
 
-              <p
-                className='builder-v2-editing-line'
-                role={model.violationMessage ? 'alert' : undefined}
-              >
-                {model.violationMessage ?? model.editingLabel}
-              </p>
+              <BuilderV2ActiveFooter
+                editingLabel={model.editingLabel}
+                onCancelQuickLineup={model.cancelQuickLineup}
+                onFinishQuickLineup={model.finishQuickLineup}
+                onGoBackQuickLineupStep={model.goBackQuickLineupStep}
+                onSkipQuickLineupStep={model.skipQuickLineupStep}
+                onStartQuickLineup={model.startQuickLineup}
+                quickLineupSession={model.quickLineupSession}
+                quickLineupStepLabel={model.quickLineupStepLabel}
+                violationMessage={model.violationMessage}
+              />
             </section>
 
-            <BuilderV2TeamManagement model={model} variant='desktop' />
+            <BuilderV2TeamManagement
+              canAddTeam={model.canAddTeam}
+              editingTeamId={model.editingTeamId}
+              editingTeamName={model.editingTeamName}
+              maxTeams={model.maxTeams}
+              onAddTeam={model.addTeam}
+              onBeginTeamRename={model.beginTeamRename}
+              onCancelTeamRename={model.cancelTeamRename}
+              onCommitTeamRename={model.commitTeamRename}
+              onMoveTeamDown={model.moveTeamDown}
+              onMoveTeamUp={model.moveTeamUp}
+              onRequestApplyTeamTemplate={model.requestApplyTeamTemplate}
+              onRequestDeleteTeam={model.requestDeleteTeam}
+              onRequestResetTeam={model.requestResetTeam}
+              onSetActiveTeam={model.setActiveTeam}
+              onSetEditingTeamName={model.setEditingTeamName}
+              teams={model.teams}
+              variant='desktop'
+            />
           </main>
 
           <BuilderV2AwakenerPicker
-            awakeners={model.awakeners}
-            covenants={model.covenants}
-            onAssignCovenant={model.assignCovenant}
-            onAssignAwakener={model.assignAwakener}
-            onAssignPosse={model.assignPosse}
-            onAssignWheel={model.assignWheel}
-            onPickerTabChange={model.setPickerTab}
-            onSearchChange={model.setSearchQuery}
-            pickerTab={model.pickerTab}
-            posses={model.posses}
-            searchQuery={model.searchQuery}
-            wheels={model.wheels}
+            onAssignCovenant={assignCovenant}
+            onAssignAwakener={assignAwakener}
+            onAssignPosse={assignPosse}
+            onAssignWheel={assignWheel}
+            picker={model.picker}
           />
         </div>
       </section>
@@ -178,6 +176,18 @@ export function BuilderV2Page() {
       <Toast entries={toastEntries} />
     </>
   )
+}
+
+function useStableEvent<TArgs extends unknown[], TResult>(
+  handler: (...args: TArgs) => TResult,
+): (...args: TArgs) => TResult {
+  const handlerRef = useRef(handler)
+
+  useEffect(() => {
+    handlerRef.current = handler
+  }, [handler])
+
+  return useCallback((...args: TArgs) => handlerRef.current(...args), [])
 }
 
 function useBuilderV2ViewportMode() {
@@ -207,60 +217,4 @@ function getBuilderV2ViewportMode(): BuilderV2ViewportMode {
   }
 
   return 'desktop'
-}
-
-type BuilderV2PageModel = ReturnType<typeof useBuilderV2Model>
-
-function QuickLineupControls({model}: {model: BuilderV2PageModel}) {
-  const session = model.quickLineupSession
-
-  if (!session) {
-    return (
-      <button className='builder-v2-lineup-button' onClick={model.startQuickLineup} type='button'>
-        Quick Team Lineup
-      </button>
-    )
-  }
-
-  return (
-    <div className='builder-v2-lineup-controls' aria-label='Quick lineup controls'>
-      <p className='builder-v2-lineup-step'>
-        Step {String(session.currentStepIndex + 1)} / {String(session.totalSteps)}:{' '}
-        {model.quickLineupStepLabel ?? 'Current step'}
-      </p>
-      <div className='builder-v2-lineup-actions'>
-        <button
-          className='builder-v2-lineup-action'
-          disabled={!session.canGoBack}
-          onClick={model.goBackQuickLineupStep}
-          type='button'
-        >
-          Back
-        </button>
-        <button
-          className='builder-v2-lineup-action'
-          onClick={model.skipQuickLineupStep}
-          type='button'
-        >
-          Next
-        </button>
-        <button
-          aria-label='Cancel quick team lineup'
-          className='builder-v2-lineup-action builder-v2-lineup-action--danger'
-          onClick={model.cancelQuickLineup}
-          type='button'
-        >
-          Cancel
-        </button>
-        <button
-          aria-label='Finish quick team lineup'
-          className='builder-v2-lineup-action builder-v2-lineup-action--success'
-          onClick={model.finishQuickLineup}
-          type='button'
-        >
-          Finish
-        </button>
-      </div>
-    </div>
-  )
 }

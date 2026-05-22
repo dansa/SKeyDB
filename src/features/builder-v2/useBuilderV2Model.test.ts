@@ -251,6 +251,45 @@ describe('useBuilderV2Model', () => {
     expect(result.current.selectedSlotId).toBe('slot-1')
   })
 
+  it('sorts wheels through the shared picker model', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.picker.setTab('wheels')
+      result.current.picker.setWheelSortKey('ENLIGHTEN')
+      result.current.picker.setWheelSortKey('ALPHABETICAL')
+      result.current.picker.toggleWheelSortDirection()
+    })
+
+    expect(result.current.picker.preferences.wheelSortKey).toBe('ALPHABETICAL')
+    expect(result.current.picker.wheels.map((wheel) => wheel.name).slice(0, 3)).toEqual([
+      'Merciful Nurturing',
+      'Mute Witness',
+      'Signal Through Silence',
+    ])
+  })
+
+  it('keeps wheel recommendation promotion stable through cached picker metadata', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.assignAwakener('awakener-0021')
+      result.current.selectWheelSlot('slot-1', 0)
+      result.current.picker.setTab('wheels')
+      result.current.picker.setPromoteMatchingWheelMainstats(true)
+    })
+
+    expect(result.current.picker.wheels.map((wheel) => wheel.id).slice(0, 4)).toEqual([
+      'wheel-0051',
+      'wheel-0050',
+      'wheel-0052',
+      'wheel-0053',
+    ])
+    expect(result.current.picker.wheels[0]?.recommendationLabel).toBe('BiS')
+    expect(result.current.picker.wheels[1]?.recommendationLabel).toBe('Good')
+    expect(result.current.picker.wheels[2]?.recommendedMainstatKey).toBe('KEYFLARE_REGEN')
+  })
+
   it('assigns an awakener to the selected slot', () => {
     const {result} = renderHook(() => useBuilderV2Model())
 

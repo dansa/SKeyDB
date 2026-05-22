@@ -6,11 +6,12 @@ import {
   type KeyboardEvent as ReactKeyboardEvent,
 } from 'react'
 
+import {BuilderV2ActiveFooter, BuilderV2ActiveHeader} from './BuilderV2ActiveTeamChrome'
 import {BuilderV2PickerContent} from './BuilderV2AwakenerPicker'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
 import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
-import type {BuilderV2Model} from './useBuilderV2Model'
+import type {BuilderV2Model} from './BuilderV2ModelTypes'
 
 interface BuilderV2AdaptiveLayoutProps {
   model: BuilderV2Model
@@ -76,6 +77,30 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
     setIsPickerOpen(true)
   }, [model])
 
+  const selectAwakenerSlotAndOpenPicker = useCallback(
+    (slotId: string) => {
+      model.selectAwakenerSlot(slotId)
+      setIsPickerOpen(true)
+    },
+    [model],
+  )
+
+  const selectWheelSlotAndOpenPicker = useCallback(
+    (slotId: string, wheelIndex: 0 | 1) => {
+      model.selectWheelSlot(slotId, wheelIndex)
+      setIsPickerOpen(true)
+    },
+    [model],
+  )
+
+  const selectCovenantSlotAndOpenPicker = useCallback(
+    (slotId: string) => {
+      model.selectCovenantSlot(slotId)
+      setIsPickerOpen(true)
+    },
+    [model],
+  )
+
   const assignAwakener = useCallback(
     (awakenerId: string) => {
       const shouldClosePicker = canCloseAfterAwakenerAssignment(model, awakenerId)
@@ -125,14 +150,18 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
       className='builder-v2-page builder-v2-page--adaptive'
       aria-labelledby='builder-v2-title'
     >
-      <header className='builder-v2-page-header' aria-hidden={isPickerOpen ? true : undefined}>
-        <div>
-          <p className='builder-v2-label'>Local rebuild shell</p>
-          <h1 className='ui-title' id='builder-v2-title'>
+      <header className='builder-v2-mast' aria-hidden={isPickerOpen ? true : undefined}>
+        <div className='builder-v2-mast-identity'>
+          <span aria-hidden className='builder-v2-mast-glyph' />
+          <h1 className='builder-v2-mast-title' id='builder-v2-title'>
             Builder V2
           </h1>
+          <span className='builder-v2-status-pill'>Beta</span>
         </div>
-        <span className='builder-v2-status-pill'>Adaptive</span>
+        <div className='builder-v2-mast-end'>
+          <p className='builder-v2-mast-tagline'>Tablet workbench - picker drawer mode.</p>
+          <BuilderV2ImportExportActions model={model} />
+        </div>
       </header>
 
       <section
@@ -140,14 +169,7 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
         className='builder-v2-adaptive-workbench'
         aria-label='Adaptive workbench'
       >
-        <aside className='builder-v2-panel builder-v2-adaptive-rail'>
-          <div className='builder-v2-section-header'>
-            <div>
-              <p className='builder-v2-label'>Teams</p>
-              <h2 className='ui-title'>{model.teams.length} Teams</h2>
-            </div>
-          </div>
-
+        <aside className='builder-v2-panel builder-v2-adaptive-rail' aria-label='Compact teams'>
           <div className='builder-v2-adaptive-teams' role='group' aria-label='Adaptive teams'>
             {model.teams.map((team, index) => {
               const teamIndex = String(index + 1).padStart(2, '0')
@@ -167,82 +189,88 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
                   type='button'
                 >
                   <span className='builder-v2-team-index'>{teamIndex}</span>
-                  <span className='builder-v2-team-copy'>
-                    <span className='builder-v2-team-name'>{team.name}</span>
-                    <span className='builder-v2-team-meta'>{teamMeta}</span>
-                  </span>
                 </button>
               )
             })}
+            {model.canAddTeam ? (
+              <button
+                aria-label='Create team'
+                className='builder-v2-adaptive-team-button builder-v2-adaptive-team-button--add'
+                onClick={model.addTeam}
+                type='button'
+              >
+                <span className='builder-v2-team-index'>+</span>
+              </button>
+            ) : null}
           </div>
         </aside>
 
         <main className='builder-v2-adaptive-main' aria-label='Adaptive active team'>
           <section className='builder-v2-panel builder-v2-active-team'>
-            <div className='builder-v2-active-header'>
-              <div>
-                <p className='builder-v2-label'>Active Team</p>
-                <h2 className='ui-title'>{model.activeTeamName}</h2>
-              </div>
-              <div className='builder-v2-posse-summary'>
-                <button
-                  aria-label='Select team posse'
-                  aria-pressed={model.activeTeamTarget?.kind === 'posse'}
-                  className={`builder-v2-posse-target ${
-                    model.activeTeamTarget?.kind === 'posse'
-                      ? 'builder-v2-posse-target--active'
-                      : ''
-                  }`}
-                  onClick={model.selectPosse}
-                  type='button'
-                >
-                  <span className='builder-v2-label'>Posse</span>
-                  <span>{model.activePosse?.name ?? 'Not selected'}</span>
-                </button>
-                {model.activePosse ? (
-                  <button
-                    className='builder-v2-posse-clear'
-                    onClick={model.clearPosse}
-                    type='button'
-                  >
-                    Clear Posse
-                  </button>
-                ) : null}
-              </div>
-              <AdaptiveQuickLineupControls model={model} />
-              <BuilderV2ImportExportActions model={model} />
-              <button
-                className='builder-v2-adaptive-picker-trigger'
-                onClick={(event) => {
-                  pickerTriggerRef.current = event.currentTarget
-                  openPicker()
-                }}
-                type='button'
-              >
-                Open adaptive picker
-              </button>
-            </div>
-
-            <BuilderV2TeamSlots
-              onClearCovenant={model.clearCovenant}
-              onClearWheel={model.clearWheel}
-              onRemoveAwakener={model.removeAwakener}
-              onSelectCovenantSlot={model.selectCovenantSlot}
-              onSelectSlot={model.selectAwakenerSlot}
-              onSelectWheelSlot={model.selectWheelSlot}
-              quickLineupActive={Boolean(model.quickLineupSession)}
-              slots={model.slots}
+            <BuilderV2ActiveHeader
+              activePosse={model.activePosse}
+              activeTeamName={model.activeTeamName}
+              activeTeamTarget={model.activeTeamTarget}
+              onClearPosse={model.clearPosse}
+              onSelectPosse={model.selectPosse}
             />
 
-            <p
-              className='builder-v2-editing-line'
-              role={model.violationMessage ? 'alert' : undefined}
-            >
-              {model.violationMessage ?? model.editingLabel}
-            </p>
+              <BuilderV2TeamSlots
+                onClearCovenant={model.clearCovenant}
+                onClearWheel={model.clearWheel}
+                onRemoveAwakener={model.removeAwakener}
+                onSelectCovenantSlot={selectCovenantSlotAndOpenPicker}
+                onSelectSlot={selectAwakenerSlotAndOpenPicker}
+                onSelectWheelSlot={selectWheelSlotAndOpenPicker}
+                quickLineupActive={Boolean(model.quickLineupSession)}
+                slots={model.slots}
+              />
+
+            <BuilderV2ActiveFooter
+              editingLabel={model.editingLabel}
+              leadingAction={
+                <button
+                  aria-label='Open adaptive picker'
+                  className='builder-v2-adaptive-picker-trigger'
+                  onClick={(event) => {
+                    pickerTriggerRef.current = event.currentTarget
+                    openPicker()
+                  }}
+                  type='button'
+                >
+                  Open Picker
+                </button>
+              }
+              onCancelQuickLineup={model.cancelQuickLineup}
+              onFinishQuickLineup={model.finishQuickLineup}
+              onGoBackQuickLineupStep={model.goBackQuickLineupStep}
+              onSkipQuickLineupStep={model.skipQuickLineupStep}
+              onStartQuickLineup={model.startQuickLineup}
+              quickLineupSession={model.quickLineupSession}
+              quickLineupStepLabel={model.quickLineupStepLabel}
+              violationMessage={model.violationMessage}
+            />
           </section>
 
-          <BuilderV2TeamManagement model={model} variant='adaptive' />
+          <BuilderV2TeamManagement
+            canAddTeam={model.canAddTeam}
+            editingTeamId={model.editingTeamId}
+            editingTeamName={model.editingTeamName}
+            maxTeams={model.maxTeams}
+            onAddTeam={model.addTeam}
+            onBeginTeamRename={model.beginTeamRename}
+            onCancelTeamRename={model.cancelTeamRename}
+            onCommitTeamRename={model.commitTeamRename}
+            onMoveTeamDown={model.moveTeamDown}
+            onMoveTeamUp={model.moveTeamUp}
+            onRequestApplyTeamTemplate={model.requestApplyTeamTemplate}
+            onRequestDeleteTeam={model.requestDeleteTeam}
+            onRequestResetTeam={model.requestResetTeam}
+            onSetActiveTeam={model.setActiveTeam}
+            onSetEditingTeamName={model.setEditingTeamName}
+            teams={model.teams}
+            variant='adaptive'
+          />
         </main>
       </section>
 
@@ -289,19 +317,12 @@ export function BuilderV2AdaptiveLayout({model}: BuilderV2AdaptiveLayoutProps) {
               </p>
             ) : null}
             <BuilderV2PickerContent
-              awakeners={model.awakeners}
-              covenants={model.covenants}
               onAssignAwakener={assignAwakener}
               onAssignCovenant={assignCovenant}
               onAssignPosse={assignPosse}
               onAssignWheel={assignWheel}
-              onPickerTabChange={model.setPickerTab}
-              onSearchChange={model.setSearchQuery}
-              pickerTab={model.pickerTab}
-              posses={model.posses}
+              picker={model.picker}
               searchInputRef={searchInputRef}
-              searchQuery={model.searchQuery}
-              wheels={model.wheels}
             />
           </div>
         </div>
@@ -352,51 +373,6 @@ function getSelectedLoadoutSlot(model: BuilderV2Model) {
   }
 
   return model.slots.find((slot) => slot.slotId === selection.slotId) ?? null
-}
-
-function AdaptiveQuickLineupControls({model}: {model: BuilderV2Model}) {
-  const session = model.quickLineupSession
-
-  if (!session) {
-    return (
-      <button className='builder-v2-lineup-button' onClick={model.startQuickLineup} type='button'>
-        Quick Team Lineup
-      </button>
-    )
-  }
-
-  return (
-    <div className='builder-v2-lineup-controls' aria-label='Adaptive quick lineup controls'>
-      <p className='builder-v2-lineup-step'>
-        Step {String(session.currentStepIndex + 1)} / {String(session.totalSteps)}:{' '}
-        {model.quickLineupStepLabel ?? 'Current step'}
-      </p>
-      <div className='builder-v2-lineup-actions'>
-        <button
-          className='builder-v2-lineup-action'
-          disabled={!session.canGoBack}
-          onClick={model.goBackQuickLineupStep}
-          type='button'
-        >
-          Back
-        </button>
-        <button
-          className='builder-v2-lineup-action'
-          onClick={model.skipQuickLineupStep}
-          type='button'
-        >
-          Next
-        </button>
-        <button
-          className='builder-v2-lineup-action builder-v2-lineup-action--danger'
-          onClick={model.cancelQuickLineup}
-          type='button'
-        >
-          Cancel
-        </button>
-      </div>
-    </div>
-  )
 }
 
 function trapDialogFocus(event: ReactKeyboardEvent, dialog: HTMLDivElement | null) {
