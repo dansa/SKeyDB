@@ -294,3 +294,21 @@
 - R9 complete: W10 review recorded.
 - J11 active: choose the next post-persistence-parser hardening tranche if continuing.
 - Next prompt: `$refactor-goal-prep Continue docs/refactor-goals/builder-v2-architecture-hardening/goal.md.`
+
+### 2026-05-23 - W11 CSS rail/button dedupe landed
+
+- J11 selected `C12` Rail/button CSS dedupe as W11.
+- Root-fix reasoning: after W9 established the picker CSS contract, the remaining CSS duplication could be handled as selector consolidation without JSX class-name churn.
+- W11 implementation:
+  - Grouped `.builder-v2-lineup-button` and `.builder-v2-adaptive-picker-trigger` base/hover styles.
+  - Grouped desktop `.builder-v2-team-row` and adaptive `.builder-v2-adaptive-team-button` base, pseudo-element, active, hover, and add-row styles.
+  - Preserved adaptive-only active rail inset shadow as its own rule.
+  - Did not change component markup, mobile structure, teams-list shape, DnD behavior, dependencies, or `docs/design/**`.
+- Review:
+  - Controller reviewed the W11 diff and confirmed it is CSS-only selector consolidation with adaptive-only active accent preserved.
+- Validation:
+  - `npx tsc -p tsconfig.app.json --noEmit` passed.
+  - `npm run build:quiet` passed.
+- R10 complete: W11 review recorded.
+- J12 active: choose the next post-CSS-dedupe hardening tranche if continuing.
+- Next prompt: `$refactor-goal-prep Continue docs/refactor-goals/builder-v2-architecture-hardening/goal.md.`

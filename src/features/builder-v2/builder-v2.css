@@ -264,7 +264,8 @@
   color: oklch(82% 0.07 28 / 0.92);
 }
 
-.builder-v2-lineup-button {
+.builder-v2-lineup-button,
+.builder-v2-adaptive-picker-trigger {
   border: 1px solid oklch(74% 0.11 84 / 0.64);
   background: oklch(20% 0.045 84 / 0.12);
   padding: 0.62rem 0.8rem;
@@ -281,7 +282,8 @@
     color 150ms var(--ui-motion-ease);
 }
 
-.builder-v2-lineup-button:hover {
+.builder-v2-lineup-button:hover,
+.builder-v2-adaptive-picker-trigger:hover {
   border-color: oklch(84% 0.11 84 / 0.82);
   background: oklch(26% 0.055 84 / 0.22);
   box-shadow: inset 0 0 0 1px oklch(78% 0.1 84 / 0.12);
@@ -385,10 +387,11 @@
   display: grid;
 }
 
-.builder-v2-team-row {
+:is(.builder-v2-team-row, .builder-v2-adaptive-team-button) {
   position: relative;
   display: grid;
   min-height: 3.25rem;
+  min-width: 0;
   place-items: center;
   gap: 0.2rem;
   border: 0;
@@ -404,10 +407,11 @@
     color 150ms var(--ui-motion-ease);
 }
 
-.builder-v2-team-row::before {
+:is(.builder-v2-team-row, .builder-v2-adaptive-team-button)::before {
   position: absolute;
   inset: 0;
   border: 1px solid transparent;
+  border-radius: inherit;
   content: '';
   pointer-events: none;
   transition:
@@ -415,13 +419,13 @@
     box-shadow 150ms var(--ui-motion-ease);
 }
 
-.builder-v2-team-row--active {
+:is(.builder-v2-team-row--active, .builder-v2-adaptive-team-button--active) {
   background:
     linear-gradient(90deg, oklch(34% 0.075 84 / 0.28), transparent 54%), oklch(16% 0.04 252 / 0.66);
   color: var(--ui-text-main);
 }
 
-.builder-v2-team-row--active::before {
+:is(.builder-v2-team-row--active, .builder-v2-adaptive-team-button--active)::before {
   border-color: oklch(78% 0.1 84 / 0.42);
 }
 
@@ -432,41 +436,41 @@
   color: var(--ui-text-main);
 }
 
-.builder-v2-team-row:hover {
+:is(.builder-v2-team-row, .builder-v2-adaptive-team-button):hover {
   background:
     linear-gradient(90deg, oklch(34% 0.075 84 / 0.12), transparent 56%), oklch(12% 0.03 252 / 0.74);
   color: var(--ui-text-main);
 }
 
-.builder-v2-team-row:hover::before {
+:is(.builder-v2-team-row, .builder-v2-adaptive-team-button):hover::before {
   border-color: oklch(72% 0.08 232 / 0.26);
 }
 
-.builder-v2-team-row--active:hover {
+:is(.builder-v2-team-row--active, .builder-v2-adaptive-team-button--active):hover {
   background:
     linear-gradient(90deg, oklch(36% 0.08 84 / 0.34), transparent 56%), oklch(18% 0.045 252 / 0.72);
 }
 
-.builder-v2-team-row--active:hover::before {
+:is(.builder-v2-team-row--active, .builder-v2-adaptive-team-button--active):hover::before {
   border-color: oklch(82% 0.105 84 / 0.54);
 }
 
-.builder-v2-team-row--add {
+:is(.builder-v2-team-row--add, .builder-v2-adaptive-team-button--add) {
   min-height: 2.8rem;
   color: var(--ui-text-faint);
 }
 
-.builder-v2-team-row--add .builder-v2-team-index {
+:is(.builder-v2-team-row--add, .builder-v2-adaptive-team-button--add) .builder-v2-team-index {
   color: var(--ui-text-muted);
   font-size: 1.25rem;
   font-weight: 500;
 }
 
-.builder-v2-team-row--add:hover .builder-v2-team-index {
+:is(.builder-v2-team-row--add, .builder-v2-adaptive-team-button--add):hover .builder-v2-team-index {
   color: var(--ui-accent-gold-soft);
 }
 
-.builder-v2-team-row:hover .builder-v2-team-index {
+:is(.builder-v2-team-row, .builder-v2-adaptive-team-button):hover .builder-v2-team-index {
   color: var(--ui-accent-gold-soft);
 }
 
@@ -1940,83 +1944,10 @@
   padding: 0;
 }
 
-.builder-v2-adaptive-team-button {
-  position: relative;
-  display: grid;
-  min-height: 3.25rem;
-  min-width: 0;
-  place-items: center;
-  gap: 0.2rem;
-  border: 0;
-  border-bottom: 1px solid var(--ui-border-subtle);
-  background: transparent;
-  padding: 0.56rem 0.35rem;
-  color: var(--ui-text-muted);
-  text-align: center;
-  cursor: pointer;
-  transition:
-    background-color 150ms var(--ui-motion-ease),
-    border-color 150ms var(--ui-motion-ease),
-    color 150ms var(--ui-motion-ease);
-}
-
-.builder-v2-adaptive-team-button::before {
-  position: absolute;
-  inset: 0;
-  border: 1px solid transparent;
-  border-radius: inherit;
-  content: '';
-  pointer-events: none;
-  transition:
-    border-color 150ms var(--ui-motion-ease),
-    box-shadow 150ms var(--ui-motion-ease);
-}
-
-.builder-v2-adaptive-team-button--active {
-  background:
-    linear-gradient(90deg, oklch(34% 0.075 84 / 0.28), transparent 54%), oklch(16% 0.04 252 / 0.66);
-  color: var(--ui-text-main);
-}
-
 .builder-v2-adaptive-team-button--active::before {
-  border-color: oklch(78% 0.1 84 / 0.42);
   box-shadow:
     inset 0 0 0 1px oklch(78% 0.1 84 / 0.1),
     inset 2px 0 0 oklch(78% 0.1 84 / 0.74);
-}
-
-.builder-v2-adaptive-team-button:hover {
-  background:
-    linear-gradient(90deg, oklch(34% 0.075 84 / 0.12), transparent 56%), oklch(12% 0.03 252 / 0.74);
-  color: var(--ui-text-main);
-}
-
-.builder-v2-adaptive-team-button:hover::before {
-  border-color: oklch(72% 0.08 232 / 0.26);
-}
-
-.builder-v2-adaptive-team-button--active:hover {
-  background:
-    linear-gradient(90deg, oklch(36% 0.08 84 / 0.34), transparent 56%), oklch(18% 0.045 252 / 0.72);
-}
-
-.builder-v2-adaptive-team-button--active:hover::before {
-  border-color: oklch(82% 0.105 84 / 0.54);
-}
-
-.builder-v2-adaptive-team-button--add {
-  min-height: 2.8rem;
-  color: var(--ui-text-faint);
-}
-
-.builder-v2-adaptive-team-button--add .builder-v2-team-index {
-  color: var(--ui-text-muted);
-  font-size: 1.25rem;
-  font-weight: 500;
-}
-
-.builder-v2-adaptive-team-button--add:hover .builder-v2-team-index {
-  color: var(--ui-accent-gold-soft);
 }
 
 .builder-v2-adaptive-main {
@@ -2027,29 +1958,6 @@
 
 .builder-v2-adaptive-main .builder-v2-slot-card {
   min-height: 23rem;
-}
-
-.builder-v2-adaptive-picker-trigger {
-  border: 1px solid oklch(74% 0.11 84 / 0.64);
-  background: oklch(20% 0.045 84 / 0.12);
-  padding: 0.62rem 0.8rem;
-  color: var(--ui-accent-gold-soft);
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition:
-    border-color 150ms var(--ui-motion-ease),
-    background-color 150ms var(--ui-motion-ease),
-    box-shadow 150ms var(--ui-motion-ease),
-    color 150ms var(--ui-motion-ease);
-}
-
-.builder-v2-adaptive-picker-trigger:hover {
-  border-color: oklch(84% 0.11 84 / 0.82);
-  background: oklch(26% 0.055 84 / 0.22);
-  box-shadow: inset 0 0 0 1px oklch(78% 0.1 84 / 0.12);
 }
 
 .builder-v2-adaptive-picker-backdrop {

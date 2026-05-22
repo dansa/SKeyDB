@@ -235,14 +235,14 @@
       "id": "C12",
       "title": "Rail/button CSS dedupe",
       "source_task": "S1",
-      "status": "queued",
+      "status": "implemented",
       "concept_blast_radius": [
         "src/features/builder-v2/builder-v2.css",
         "src/features/builder-v2/BuilderV2Page.tsx",
         "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx"
       ],
       "evidence": "Desktop/adaptive rail buttons and button recipes duplicate nearly identical styles.",
-      "next": "Queue after command boundary or as CSS-only cleanup."
+      "next": "Implemented by W11: deduped desktop/adaptive rail button and primary picker/lineup button CSS through shared selectors without JSX or layout-shape changes."
     },
     {
       "id": "C13",
@@ -1578,7 +1578,7 @@
     {
       "id": "J11",
       "role": "judge",
-      "status": "active",
+      "status": "done",
       "title": "Choose next post-persistence-parser hardening tranche",
       "skills": [
         "$refactor-rootfix",
@@ -1601,12 +1601,127 @@
         "docs/design/**"
       ],
       "expected_output": "Select the next contained tranche after W10 if continuing. Remaining candidates include C5 additive team-state result, C12 rail/button CSS dedupe, C16 state strategy review, and C8/C13 only with real DnD work.",
+      "receipt": {
+        "evidence": [
+          "Selected C12 Rail/button CSS dedupe as W11 after C15 landed.",
+          "Chose a CSS-only selector consolidation to avoid component class-name churn and preserve desktop/adaptive rail shape.",
+          "Kept C5 queued for shared-runtime metadata and C8/C13 queued until real DnD work."
+        ],
+        "validation": [
+          "Approved W11 allowed files, invariants, validation, and rollback."
+        ]
+      }
+    },
+    {
+      "id": "W11",
+      "role": "worker",
+      "status": "done",
+      "title": "Dedupe Builder V2 rail and primary button CSS",
+      "skills": [
+        "$refactor-tailwind",
+        "$refactor-ui-a11y",
+        "$refactor-rootfix"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/builder-v2.css",
+        "docs/refactor-goals/builder-v2-architecture-hardening/**"
+      ],
+      "protected_files": [
+        "Builder V2 component markup",
+        "mobile redesign",
+        "teams-list shape decisions",
+        "DnD implementation",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "Deduplicate desktop/adaptive team rail and primary picker/lineup button CSS without changing markup, layout shape, or visual behavior intentionally.",
+      "invariants": [
+        "Do not change JSX/component markup in W11.",
+        "Do not alter teams-list product shape, mobile layout structure, DnD behavior, dependencies, or docs/design.",
+        "Preserve adaptive-only active rail inset shadow and existing hover/focus affordances."
+      ],
+      "validation": [
+        "npx tsc -p tsconfig.app.json --noEmit",
+        "npm run build:quiet",
+        "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-architecture-hardening"
+      ],
+      "rollback": [
+        "Revert builder-v2.css selector consolidation and W11 packet updates."
+      ],
+      "receipt": {
+        "evidence": [
+          "Grouped .builder-v2-lineup-button and .builder-v2-adaptive-picker-trigger base/hover styles into one selector set.",
+          "Grouped desktop .builder-v2-team-row and adaptive .builder-v2-adaptive-team-button base, pseudo-element, active, hover, and add-row styles into shared selector sets.",
+          "Preserved the adaptive active rail inset shadow as an adaptive-only rule.",
+          "Removed duplicated adaptive rail and picker trigger declarations without changing component markup, mobile structure, teams-list shape, DnD behavior, dependencies, or docs/design."
+        ],
+        "validation": [
+          "npx tsc -p tsconfig.app.json --noEmit passed.",
+          "npm run build:quiet passed."
+        ]
+      }
+    },
+    {
+      "id": "R10",
+      "role": "review",
+      "status": "done",
+      "title": "Review W11 CSS rail/button dedupe",
+      "skills": [
+        "$refactor-review",
+        "$refactor-tailwind",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "read-only current W11 diff",
+        "docs/refactor-goals/builder-v2-architecture-hardening/**"
+      ],
+      "protected_files": [
+        "product source edits during review",
+        "remote state"
+      ],
+      "expected_output": "Audit W11 for selector drift, rail visual regressions, focus/hover regressions, and protected-scope drift.",
+      "receipt": {
+        "evidence": [
+          "Controller reviewed W11 diff and confirmed it is CSS-only selector consolidation.",
+          "Adaptive-only active rail inset shadow remains separate and no Builder V2 component markup changed."
+        ],
+        "validation": [
+          "App typecheck, quiet build, and packet checker passed before staging."
+        ]
+      }
+    },
+    {
+      "id": "J12",
+      "role": "judge",
+      "status": "active",
+      "title": "Choose next post-CSS-dedupe hardening tranche",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-react",
+        "$refactor-typescript",
+        "$refactor-complexity"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-architecture-hardening/**",
+        "read-only W11 diff",
+        "read-only remaining queued candidate evidence"
+      ],
+      "protected_files": [
+        "mobile redesign",
+        "teams-list shape decisions",
+        "DnD implementation",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "Select the next contained tranche after W11 if continuing. Remaining candidates are C5 additive team-state result, C16 state strategy review, and C8/C13 only with real DnD work.",
       "receipt": null
     }
   ],
   "final_audit": {
     "full_outcome_complete": false,
-    "summary": "W1/W2 landed command-boundary hardening, W3 landed C3, W4 landed C6, W5 landed C9, W6/W7 landed C10/C7, W8 landed C4, W9 landed C11/C14, and W10 landed C15 persistence envelope parsing. Broad hardening outcome is not complete; J11 is active to choose the next contained slice.",
+    "summary": "W1/W2 landed command-boundary hardening, W3 landed C3, W4 landed C6, W5 landed C9, W6/W7 landed C10/C7, W8 landed C4, W9 landed C11/C14, W10 landed C15, and W11 landed C12 CSS dedupe. Broad hardening outcome is not complete; J12 is active to choose the next contained slice.",
     "validation": [
       "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder-v2/builder-v2-usage-index.test.ts --run passed with 68 tests.",
       "npx vitest run src/features/builder-v2/builder-v2-editing-mode.test.ts src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder-v2/builder-v2-usage-index.test.ts --run passed with 76 tests after W3.",
@@ -1616,8 +1731,8 @@
       "W4 focused picker/model/page tests passed with 80 tests; app typecheck, targeted eslint, and packet checker passed."
     ],
     "open_items": [
-      "J11 choose next contained post-persistence-parser slice.",
-      "C5, C8, C12, C13, and C16 remain queued until implemented, superseded, blocked, or out of scope.",
+      "J12 choose next contained post-CSS-dedupe slice.",
+      "C5 and C16 remain queued; C8/C13 remain queued until real DnD work provides a concrete overlay/ghost contract.",
       "M1-M2 maintenance candidates remain open."
     ]
   }
