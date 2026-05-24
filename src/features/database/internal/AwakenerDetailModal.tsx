@@ -431,6 +431,7 @@ export function AwakenerDetailModal({
                       fullData={fullData}
                       onStatsExpandedChange={setAreStatsExpanded}
                       scalingRecord={fullData}
+                      selection={resolvedSelection}
                       stats={resolvedStats}
                       substatScaling={fullData.substatScaling}
                     />

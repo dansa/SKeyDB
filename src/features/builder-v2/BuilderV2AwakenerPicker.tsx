@@ -1,7 +1,7 @@
 import {memo, useEffect, useId, useRef, type CSSProperties, type ReactNode, type Ref} from 'react'
 
 import {useDraggable, useDroppable} from '@dnd-kit/core'
-import {FaCaretDown, FaCaretUp} from 'react-icons/fa6'
+import {FaCaretDown, FaCaretUp, FaGear} from 'react-icons/fa6'
 
 import type {
   AwakenerSortKey,
@@ -125,11 +125,15 @@ export const BuilderV2AwakenerPicker = memo(function BuilderV2AwakenerPicker({
 })
 
 interface BuilderV2PickerContentProps extends BuilderV2AwakenerPickerProps {
+  isCollapsed?: boolean
+  onRequestExpand?: () => void
   searchInputRef?: Ref<HTMLInputElement>
 }
 
 export function BuilderV2PickerContent({
+  isCollapsed = false,
   isDragActive = false,
+  onRequestExpand,
   picker,
   predictedDropTarget = null,
   searchInputRef,
@@ -150,7 +154,7 @@ export function BuilderV2PickerContent({
     : isPickerRemoveTarget
 
   return (
-    <>
+    <div className='builder-v2-picker-content'>
       <div className='builder-v2-picker-tabs' role='tablist' aria-label='Picker categories'>
         {pickerTabs.map((tab, tabIndex) => {
           const isActive = tab.id === picker.tab
@@ -168,10 +172,16 @@ export function BuilderV2PickerContent({
                 }
                 event.preventDefault()
                 picker.setTab(nextTab)
+                if (isCollapsed) {
+                  onRequestExpand?.()
+                }
                 document.getElementById(getPickerTabId(nextTab))?.focus()
               }}
               onClick={() => {
                 picker.setTab(tab.id)
+                if (isCollapsed) {
+                  onRequestExpand?.()
+                }
               }}
               role='tab'
               tabIndex={isActive ? 0 : -1}
@@ -183,94 +193,112 @@ export function BuilderV2PickerContent({
         })}
       </div>
 
-      <div className='builder-v2-picker-toolbar'>
-        <label className='builder-v2-search-label'>
-          <span className='sr-only'>{activeCopy.searchLabel}</span>
-          <span aria-hidden className='builder-v2-search-icon'>
-            ⌕
-          </span>
-          <input
-            className='builder-v2-search'
-            onChange={(event) => {
-              picker.setSearchQuery(event.target.value)
-            }}
-            placeholder={activeCopy.searchLabel}
-            ref={searchInputRef}
-            type='search'
-            value={picker.searchQuery}
-          />
-        </label>
-        <BuilderV2PickerOptionsMenu picker={picker} />
-      </div>
+      {isCollapsed ? (
+        <div className='builder-v2-picker-toolbar builder-v2-picker-toolbar--collapsed'>
+          <button
+            className='builder-v2-adaptive-picker-expand'
+            onClick={onRequestExpand}
+            type='button'
+          >
+            Show Picker
+          </button>
+        </div>
+      ) : null}
 
-      <BuilderV2PickerFilters picker={picker} />
-
-      <div
-        aria-labelledby={getPickerTabId(picker.tab)}
-        className={`builder-v2-picker-results ${
-          isRemoveTarget ? 'builder-v2-picker-results--remove-target' : ''
-        }`}
-        id={pickerPanelId}
-        ref={setPickerDropRef}
-        role='tabpanel'
-      >
-        {picker.tab === 'awakeners'
-          ? picker.awakeners.map((awakener) => (
-              <BuilderV2AwakenerPickerTile
-                awakener={awakener}
-                key={awakener.id}
-                onAssign={onAssignAwakener}
+      {!isCollapsed ? (
+        <>
+          <div className='builder-v2-picker-toolbar'>
+            <label className='builder-v2-search-label'>
+              <span className='sr-only'>{activeCopy.searchLabel}</span>
+              <span aria-hidden className='builder-v2-search-icon'>
+                ⌕
+              </span>
+              <input
+                className='builder-v2-search'
+                onChange={(event) => {
+                  picker.setSearchQuery(event.target.value)
+                }}
+                placeholder={activeCopy.searchLabel}
+                ref={searchInputRef}
+                type='search'
+                value={picker.searchQuery}
               />
-            ))
-          : null}
+            </label>
+            <BuilderV2PickerOptionsMenu picker={picker} />
+          </div>
 
-        {picker.tab === 'wheels'
-          ? picker.wheels.map((wheel) => (
-              <BuilderV2WheelPickerTile key={wheel.id} onAssign={onAssignWheel} wheel={wheel} />
-            ))
-          : null}
+          <BuilderV2PickerFilters picker={picker} />
 
-        {picker.tab === 'covenants'
-          ? picker.covenants.map((covenant) => (
-              <BuilderV2CovenantPickerTile
-                covenant={covenant}
-                key={covenant.id}
-                onAssign={onAssignCovenant}
-              />
-            ))
-          : null}
+          <div
+            aria-labelledby={getPickerTabId(picker.tab)}
+            className={`builder-v2-picker-results ${
+              isRemoveTarget ? 'builder-v2-picker-results--remove-target' : ''
+            }`}
+            id={pickerPanelId}
+            ref={setPickerDropRef}
+            role='tabpanel'
+          >
+            {picker.tab === 'awakeners'
+              ? picker.awakeners.map((awakener) => (
+                  <BuilderV2AwakenerPickerTile
+                    awakener={awakener}
+                    key={awakener.id}
+                    onAssign={onAssignAwakener}
+                  />
+                ))
+              : null}
 
-        {picker.tab === 'posses'
-          ? picker.posses.map((posse) => (
-              <BuilderV2PossePickerTile key={posse.id} onAssign={onAssignPosse} posse={posse} />
-            ))
-          : null}
-      </div>
-    </>
+            {picker.tab === 'wheels'
+              ? picker.wheels.map((wheel) => (
+                  <BuilderV2WheelPickerTile key={wheel.id} onAssign={onAssignWheel} wheel={wheel} />
+                ))
+              : null}
+
+            {picker.tab === 'covenants'
+              ? picker.covenants.map((covenant) => (
+                  <BuilderV2CovenantPickerTile
+                    covenant={covenant}
+                    key={covenant.id}
+                    onAssign={onAssignCovenant}
+                  />
+                ))
+              : null}
+
+            {picker.tab === 'posses'
+              ? picker.posses.map((posse) => (
+                  <BuilderV2PossePickerTile key={posse.id} onAssign={onAssignPosse} posse={posse} />
+                ))
+              : null}
+          </div>
+        </>
+      ) : null}
+    </div>
   )
 }
 
 function BuilderV2PickerFilters({picker}: {picker: BuilderV2PickerModel}) {
   if (picker.tab === 'awakeners') {
     return (
-      <PickerChipRow label='Awakener realm filters'>
-        {awakenerFilterTabs.map((filter) => (
-          <PickerChip
-            isActive={picker.preferences.awakenerFilter === filter.id}
-            key={filter.id}
-            label={filter.label}
-            onClick={() => {
-              picker.setAwakenerFilter(filter.id)
-            }}
-          />
-        ))}
-      </PickerChipRow>
+      <div className='builder-v2-picker-filter-stack'>
+        <PickerChipRow label='Awakener realm filters'>
+          {awakenerFilterTabs.map((filter) => (
+            <PickerChip
+              isActive={picker.preferences.awakenerFilter === filter.id}
+              key={filter.id}
+              label={filter.label}
+              onClick={() => {
+                picker.setAwakenerFilter(filter.id)
+              }}
+            />
+          ))}
+        </PickerChipRow>
+      </div>
     )
   }
 
   if (picker.tab === 'wheels') {
     return (
-      <>
+      <div className='builder-v2-picker-filter-stack'>
         <PickerChipRow label='Wheel rarity filters'>
           {wheelRarityFilterTabs.map((filter) => (
             <PickerChip
@@ -297,24 +325,26 @@ function BuilderV2PickerFilters({picker}: {picker: BuilderV2PickerModel}) {
             />
           ))}
         </PickerChipRow>
-      </>
+      </div>
     )
   }
 
   if (picker.tab === 'posses') {
     return (
-      <PickerChipRow label='Posse filters'>
-        {posseFilterTabs.map((filter) => (
-          <PickerChip
-            isActive={picker.preferences.posseFilter === filter.id}
-            key={filter.id}
-            label={filter.label}
-            onClick={() => {
-              picker.setPosseFilter(filter.id)
-            }}
-          />
-        ))}
-      </PickerChipRow>
+      <div className='builder-v2-picker-filter-stack'>
+        <PickerChipRow label='Posse filters'>
+          {posseFilterTabs.map((filter) => (
+            <PickerChip
+              isActive={picker.preferences.posseFilter === filter.id}
+              key={filter.id}
+              label={filter.label}
+              onClick={() => {
+                picker.setPosseFilter(filter.id)
+              }}
+            />
+          ))}
+        </PickerChipRow>
+      </div>
     )
   }
 
@@ -341,7 +371,10 @@ function BuilderV2PickerOptionsMenu({picker}: {picker: BuilderV2PickerModel}) {
 
   return (
     <details className='builder-v2-picker-menu' ref={menuRef}>
-      <summary className='builder-v2-picker-menu-button'>Options</summary>
+      <summary className='builder-v2-picker-menu-button'>
+        <FaGear aria-hidden className='builder-v2-picker-menu-icon' />
+        <span className='sr-only'>Options</span>
+      </summary>
       <div className='builder-v2-picker-menu-popover'>
         {picker.tab === 'awakeners' ? (
           <>

@@ -44,8 +44,8 @@ describe('awakeners-lite', () => {
     const saya = records.find((entry) => entry.name === 'saya')
 
     expect(saya?.stats).toEqual({
-      CON: 37,
-      ATK: 37,
+      CON: 36,
+      ATK: 36,
       DEF: 35,
     })
   })

@@ -56,18 +56,14 @@ describe('AwakenerGridCard', () => {
 
   it('renders default-maxed Gnostic bonuses in resolved card stats', () => {
     const awakener = makeAwakener({
-      defaultPrimaryStatBonuses: {
-        CON: 12,
-        ATK: 12,
-        DEF: 11,
-      },
+      defaultPrimaryStatBonusLevel: 10,
     })
 
     render(<AwakenerGridCard awakener={awakener} index={0} onSelect={vi.fn()} />)
 
-    expect(screen.getByText('161')).toBeInTheDocument()
-    expect(screen.getByText('201')).toBeInTheDocument()
-    expect(screen.getByText('97')).toBeInTheDocument()
+    expect(screen.getByText('165')).toBeInTheDocument()
+    expect(screen.getByText('210')).toBeInTheDocument()
+    expect(screen.getByText('95')).toBeInTheDocument()
   })
 
   it('does not render dossier-only realm icons in portrait mode', () => {

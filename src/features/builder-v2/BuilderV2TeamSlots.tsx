@@ -29,9 +29,13 @@ interface BuilderV2TeamSlotsProps {
   onClearCovenant: (slotId: string) => void
   onClearWheel: (slotId: string, wheelIndex: WheelSlotIndex) => void
   onRemoveAwakener: (slotId: string) => void
-  onSelectCovenantSlot: (slotId: string) => void
-  onSelectSlot: (slotId: string) => void
-  onSelectWheelSlot: (slotId: string, wheelIndex: WheelSlotIndex) => void
+  onSelectCovenantSlot: (slotId: string, restoreTarget?: HTMLElement | null) => void
+  onSelectSlot: (slotId: string, restoreTarget?: HTMLElement | null) => void
+  onSelectWheelSlot: (
+    slotId: string,
+    wheelIndex: WheelSlotIndex,
+    restoreTarget?: HTMLElement | null,
+  ) => void
 }
 
 export function BuilderV2TeamSlots({
@@ -75,9 +79,13 @@ interface BuilderV2SlotCardProps {
   onClearCovenant: (slotId: string) => void
   onClearWheel: (slotId: string, wheelIndex: WheelSlotIndex) => void
   onRemoveAwakener: (slotId: string) => void
-  onSelectCovenantSlot: (slotId: string) => void
-  onSelectSlot: (slotId: string) => void
-  onSelectWheelSlot: (slotId: string, wheelIndex: WheelSlotIndex) => void
+  onSelectCovenantSlot: (slotId: string, restoreTarget?: HTMLElement | null) => void
+  onSelectSlot: (slotId: string, restoreTarget?: HTMLElement | null) => void
+  onSelectWheelSlot: (
+    slotId: string,
+    wheelIndex: WheelSlotIndex,
+    restoreTarget?: HTMLElement | null,
+  ) => void
 }
 
 const BuilderV2SlotCard = memo(function BuilderV2SlotCard({
@@ -144,8 +152,8 @@ const BuilderV2SlotCard = memo(function BuilderV2SlotCard({
           aria-label={`Select ${slot.slotLabel}`}
           aria-pressed={slot.isSelected}
           className='builder-v2-awakener-art-target'
-          onClick={() => {
-            onSelectSlot(slot.slotId)
+          onClick={(event) => {
+            onSelectSlot(slot.slotId, event.currentTarget)
           }}
           ref={awakenerDragPayload ? setAwakenerDragRef : undefined}
           type='button'
@@ -191,7 +199,7 @@ const BuilderV2SlotCard = memo(function BuilderV2SlotCard({
                 }}
                 type='button'
               >
-                Delete
+                <span aria-hidden>×</span>
               </button>
             ) : null}
           </span>
@@ -221,8 +229,8 @@ const BuilderV2SlotCard = memo(function BuilderV2SlotCard({
               className={`builder-v2-covenant-inline ${
                 slot.isCovenantSelected ? 'builder-v2-covenant-inline--active' : ''
               } ${isCovenantDropTarget ? 'builder-v2-covenant-inline--drop-target' : ''}`}
-              onClick={() => {
-                onSelectCovenantSlot(slot.slotId)
+              onClick={(event) => {
+                onSelectCovenantSlot(slot.slotId, event.currentTarget)
               }}
               ref={setCovenantNodeRef}
               title={slot.covenantName ?? 'Covenant'}
@@ -264,8 +272,8 @@ const BuilderV2SlotCard = memo(function BuilderV2SlotCard({
             onClear={() => {
               onClearWheel(slot.slotId, wheelSlot.wheelIndex)
             }}
-            onSelect={() => {
-              onSelectWheelSlot(slot.slotId, wheelSlot.wheelIndex)
+            onSelect={(restoreTarget) => {
+              onSelectWheelSlot(slot.slotId, wheelSlot.wheelIndex, restoreTarget)
             }}
             quickLineupActive={quickLineupActive}
             isDragActive={isDragActive}
@@ -485,7 +493,7 @@ function SlotWheelChip({
   wheelSlot,
 }: {
   onClear: () => void
-  onSelect: () => void
+  onSelect: (restoreTarget?: HTMLElement | null) => void
   quickLineupActive: boolean
   isDragActive: boolean
   predictedDropTarget: BuilderV2DropTargetDescriptor | null
@@ -523,7 +531,9 @@ function SlotWheelChip({
         aria-label={`Select ${wheelSlot.label}`}
         aria-pressed={wheelSlot.isSelected}
         className='builder-v2-wheel-target'
-        onClick={onSelect}
+        onClick={(event) => {
+          onSelect(event.currentTarget)
+        }}
         ref={setWheelNodeRef}
         type='button'
       >

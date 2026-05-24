@@ -54,14 +54,6 @@ function getRequiredTextArea(element: HTMLElement): HTMLTextAreaElement {
   return element
 }
 
-function getFocusableElements(root: HTMLElement): HTMLElement[] {
-  return Array.from(
-    root.querySelectorAll<HTMLElement>(
-      'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [href], [tabindex]:not([tabindex="-1"])',
-    ),
-  )
-}
-
 afterEach(() => {
   resizeBuilderV2Viewport(1200, false)
 })
@@ -218,7 +210,11 @@ describe('BuilderV2Page', () => {
     })
     fireEvent.click(within(adaptiveManagement).getByRole('button', {name: /add team/i}))
     expect(screen.getByRole('heading', {level: 2, name: /^team 2$/i})).toBeInTheDocument()
-    expect(screen.queryByRole('dialog', {name: /adaptive picker/i})).not.toBeInTheDocument()
+    expect(screen.getByRole('region', {name: /adaptive picker/i})).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: /expand adaptive picker/i})).toHaveAttribute(
+      'aria-expanded',
+      'false',
+    )
 
     unmount()
     resizeBuilderV2Viewport(390)
@@ -239,8 +235,8 @@ describe('BuilderV2Page', () => {
     expect(
       screen.queryByRole('complementary', {name: /builder v2 armory/i}),
     ).not.toBeInTheDocument()
-    expect(screen.getByRole('button', {name: /open adaptive picker/i})).toBeInTheDocument()
-    expect(screen.getByRole('group', {name: /adaptive teams/i})).toBeInTheDocument()
+    expect(screen.queryByRole('button', {name: /open adaptive picker/i})).not.toBeInTheDocument()
+    expect(screen.getByRole('complementary', {name: /my teams/i})).toBeInTheDocument()
   })
 
   it('switches teams through the adaptive compact team rail', () => {
@@ -265,92 +261,87 @@ describe('BuilderV2Page', () => {
       })
     })
 
-    const adaptiveTeams = screen.getByRole('group', {name: /adaptive teams/i})
+    const adaptiveTeams = screen.getByRole('complementary', {name: /my teams/i})
     fireEvent.click(within(adaptiveTeams).getByRole('button', {name: /02 team 2 1 \/ 4 deployed/i}))
 
     expect(screen.getByRole('heading', {level: 2, name: /team 2/i})).toBeInTheDocument()
     expect(screen.getByText(/editing slot 1 - awakener/i)).toBeInTheDocument()
   })
 
-  it('opens an adaptive picker drawer with search focus and Escape focus return', () => {
+  it('opens an adaptive picker dock from slot selection with search focus and Escape focus return', () => {
     resizeBuilderV2Viewport(900)
     render(<BuilderV2Page />)
 
-    const pickerTrigger = screen.getByRole('button', {name: /open adaptive picker/i})
-    fireEvent.click(pickerTrigger)
+    const slotTrigger = screen.getByRole('button', {name: /^select slot 1$/i})
+    fireEvent.click(slotTrigger)
 
-    const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
-    expect(drawer).toBeInTheDocument()
-    expect(drawer.parentElement).toHaveClass('builder-v2-adaptive-picker-backdrop')
-    expect(document.querySelector('.builder-v2-adaptive-workbench')).toHaveAttribute(
+    const dock = screen.getByRole('region', {name: /adaptive picker/i})
+    expect(dock).toBeInTheDocument()
+    expect(dock).toHaveClass('builder-v2-adaptive-picker')
+    expect(document.querySelector('.builder-v2-adaptive-workbench')).not.toHaveAttribute(
       'aria-hidden',
-      'true',
     )
-    expect(within(drawer).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
+    expect(within(dock).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
       'aria-selected',
       'true',
     )
-    expect(within(drawer).getByRole('searchbox', {name: /search awakeners/i})).toHaveFocus()
+    expect(within(dock).getByRole('searchbox', {name: /search awakeners/i})).toHaveFocus()
 
     fireEvent.keyDown(document, {key: 'Escape'})
 
-    expect(screen.queryByRole('dialog', {name: /adaptive picker/i})).not.toBeInTheDocument()
-    expect(pickerTrigger).toHaveFocus()
+    expect(screen.getByRole('region', {name: /adaptive picker/i})).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: /expand adaptive picker/i})).toHaveAttribute(
+      'aria-expanded',
+      'false',
+    )
+    expect(
+      within(screen.getByRole('region', {name: /adaptive picker/i})).queryByRole('searchbox', {
+        name: /search awakeners/i,
+      }),
+    ).not.toBeInTheDocument()
+    expect(slotTrigger).toHaveFocus()
   })
 
   it('restores adaptive picker focus to slot triggers without reusing stale opener refs', () => {
     resizeBuilderV2Viewport(900)
     render(<BuilderV2Page />)
 
-    const pickerTrigger = screen.getByRole('button', {name: /open adaptive picker/i})
-    fireEvent.click(pickerTrigger)
+    const firstSlotTrigger = screen.getByRole('button', {name: /^select slot 1$/i})
+    fireEvent.click(firstSlotTrigger)
     fireEvent.keyDown(document, {key: 'Escape'})
-    expect(pickerTrigger).toHaveFocus()
+    expect(firstSlotTrigger).toHaveFocus()
+    expect(screen.getByRole('button', {name: /expand adaptive picker/i})).toBeInTheDocument()
 
-    const slotTrigger = screen.getByRole('button', {name: /^select slot 1$/i})
-    slotTrigger.focus()
-    fireEvent.click(slotTrigger)
+    const secondSlotTrigger = screen.getByRole('button', {name: /^select slot 2$/i})
+    secondSlotTrigger.focus()
+    fireEvent.click(secondSlotTrigger)
     expect(
-      within(screen.getByRole('dialog', {name: /adaptive picker/i})).getByRole('searchbox', {
+      within(screen.getByRole('region', {name: /adaptive picker/i})).getByRole('searchbox', {
         name: /search awakeners/i,
       }),
     ).toHaveFocus()
 
     fireEvent.keyDown(document, {key: 'Escape'})
 
-    expect(screen.queryByRole('dialog', {name: /adaptive picker/i})).not.toBeInTheDocument()
-    expect(slotTrigger).toHaveFocus()
+    expect(screen.getByRole('region', {name: /adaptive picker/i})).toBeInTheDocument()
+    expect(secondSlotTrigger).toHaveFocus()
   })
 
-  it('keeps Tab navigation contained in the adaptive picker drawer', () => {
+  it('renders the adaptive picker dock inline without modal scroll locking', () => {
     resizeBuilderV2Viewport(900)
     render(<BuilderV2Page />)
 
-    const pickerTrigger = screen.getByRole('button', {name: /open adaptive picker/i})
-    fireEvent.click(pickerTrigger)
+    fireEvent.click(screen.getByRole('button', {name: /^select slot 1$/i}))
 
-    const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
-    const focusableElements = getFocusableElements(drawer)
-    if (focusableElements.length === 0) {
-      throw new Error('Expected adaptive picker drawer to contain focusable controls')
-    }
-    const firstFocusable = focusableElements[0]
-    const lastFocusable = focusableElements[focusableElements.length - 1]
-
-    lastFocusable.focus()
-    fireEvent.keyDown(lastFocusable, {key: 'Tab'})
-    expect(firstFocusable).toHaveFocus()
-
-    firstFocusable.focus()
-    fireEvent.keyDown(firstFocusable, {key: 'Tab', shiftKey: true})
-    expect(lastFocusable).toHaveFocus()
-
-    pickerTrigger.focus()
-    fireEvent.keyDown(pickerTrigger, {key: 'Tab'})
-    expect(firstFocusable).toHaveFocus()
+    const dock = screen.getByRole('region', {name: /adaptive picker/i})
+    expect(dock.parentElement).toHaveClass('builder-v2-adaptive-main')
+    expect(document.body.style.overflow).toBe('')
+    expect(document.querySelector('.builder-v2-adaptive-workbench')).not.toHaveAttribute(
+      'aria-hidden',
+    )
   })
 
-  it('opens the adaptive picker drawer on a wheel target with the wheels tab active', () => {
+  it('opens the adaptive picker dock on a wheel target with the wheels tab active', () => {
     resizeBuilderV2Viewport(900)
     render(<BuilderV2Page />)
 
@@ -358,12 +349,12 @@ describe('BuilderV2Page', () => {
     fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1 wheel 2$/i}))
 
-    const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
-    expect(within(drawer).getByRole('tab', {name: /^wheels$/i})).toHaveAttribute(
+    const dock = screen.getByRole('region', {name: /adaptive picker/i})
+    expect(within(dock).getByRole('tab', {name: /^wheels$/i})).toHaveAttribute(
       'aria-selected',
       'true',
     )
-    expect(within(drawer).getByRole('searchbox', {name: /search wheels/i})).toHaveFocus()
+    expect(within(dock).getByRole('searchbox', {name: /search wheels/i})).toHaveFocus()
   })
 
   it('keeps the adaptive picker open and surfaces violations when an assignment target is invalid', () => {
@@ -373,9 +364,9 @@ describe('BuilderV2Page', () => {
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1 wheel 1$/i}))
     fireEvent.click(screen.getByRole('button', {name: /merciful nurturing/i}))
 
-    const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
-    expect(drawer).toBeInTheDocument()
-    expect(within(drawer).getByRole('alert')).toHaveTextContent(/wheels require an awakener/i)
+    const dock = screen.getByRole('region', {name: /adaptive picker/i})
+    expect(dock).toBeInTheDocument()
+    expect(within(dock).getByRole('alert')).toHaveTextContent(/wheels require an awakener/i)
   })
 
   it('keeps the adaptive picker open when an awakened slot has no empty wheel target', () => {
@@ -400,12 +391,12 @@ describe('BuilderV2Page', () => {
 
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1$/i}))
 
-    const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
-    fireEvent.click(within(drawer).getByRole('tab', {name: /^wheels$/i}))
-    fireEvent.click(within(drawer).getByRole('button', {name: /signal through silence/i}))
+    const dock = screen.getByRole('region', {name: /adaptive picker/i})
+    fireEvent.click(within(dock).getByRole('tab', {name: /^wheels$/i}))
+    fireEvent.click(within(dock).getByRole('button', {name: /signal through silence/i}))
 
-    expect(screen.getByRole('dialog', {name: /adaptive picker/i})).toBeInTheDocument()
-    expect(within(drawer).getByRole('alert')).toHaveTextContent(
+    expect(screen.getByRole('region', {name: /adaptive picker/i})).toBeInTheDocument()
+    expect(within(dock).getByRole('alert')).toHaveTextContent(
       /select a wheel slot or an awakened slot/i,
     )
   })
@@ -632,7 +623,7 @@ describe('BuilderV2Page', () => {
     expect(screen.queryByRole('button', {name: /remove goliath/i})).not.toBeInTheDocument()
   })
 
-  it('hands adaptive drawer assignment to one transfer confirmation dialog', () => {
+  it('hands adaptive dock assignment to one transfer confirmation dialog', () => {
     const teamTwoSlots = createEmptyTeamSlots()
     teamTwoSlots[0] = {
       ...teamTwoSlots[0],
@@ -653,10 +644,10 @@ describe('BuilderV2Page', () => {
 
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1$/i}))
 
-    const drawer = screen.getByRole('dialog', {name: /adaptive picker/i})
-    fireEvent.click(within(drawer).getByRole('button', {name: /goliath.*in use/i}))
+    const dock = screen.getByRole('region', {name: /adaptive picker/i})
+    fireEvent.click(within(dock).getByRole('button', {name: /goliath.*in use/i}))
 
-    expect(screen.queryByRole('dialog', {name: /adaptive picker/i})).not.toBeInTheDocument()
+    expect(screen.getByRole('region', {name: /adaptive picker/i})).toBeInTheDocument()
     expect(screen.getByRole('dialog', {name: /move goliath/i})).toBeInTheDocument()
     expect(document.querySelector('.builder-v2-adaptive-workbench')).not.toHaveAttribute(
       'aria-hidden',

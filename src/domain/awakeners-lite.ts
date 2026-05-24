@@ -7,6 +7,8 @@ const liteStatsSchema = z.object({
   ATK: z.number(),
   DEF: z.number(),
 })
+const primaryStatKeys = ['CON', 'ATK', 'DEF'] as const
+const primaryStatFormulaEpsilon = 1e-9
 
 const publicAwakenerCatalogLiteRecordSchema = z.object({
   id: z.string(),
@@ -24,8 +26,10 @@ const publicAwakenerCatalogLiteRecordSchema = z.object({
     .optional(),
   aliases: z.array(z.string()).optional(),
   searchTags: z.array(z.string()).optional(),
+  primaryScalingBase: z.number().optional(),
+  statScaling: liteStatsSchema.optional(),
   baseStatsLv1: liteStatsSchema,
-  defaultPrimaryStatBonuses: liteStatsSchema.optional(),
+  defaultPrimaryStatBonusLevel: z.number().optional(),
 })
 
 const publicAwakenerCatalogLiteRecordsSchema = z.array(publicAwakenerCatalogLiteRecordSchema)
@@ -75,7 +79,9 @@ function adaptPublicAwakenerCatalogLite(
   const name = resolveCanonicalAwakenerName(record)
   const stats = applyDefaultPrimaryStatBonuses(
     record.baseStatsLv1,
-    record.defaultPrimaryStatBonuses,
+    record.defaultPrimaryStatBonusLevel,
+    record.primaryScalingBase,
+    record.statScaling,
   )
 
   return {
@@ -94,17 +100,21 @@ function adaptPublicAwakenerCatalogLite(
 
 function applyDefaultPrimaryStatBonuses(
   stats: z.infer<typeof liteStatsSchema>,
-  bonuses: z.infer<typeof liteStatsSchema> | undefined,
+  bonusLevel: number | undefined,
+  primaryScalingBase: number | undefined,
+  statScaling: z.infer<typeof liteStatsSchema> | undefined,
 ): z.infer<typeof liteStatsSchema> {
-  if (!bonuses) {
+  if (!bonusLevel || primaryScalingBase === undefined || !statScaling) {
     return stats
   }
 
-  return {
-    CON: stats.CON + bonuses.CON,
-    ATK: stats.ATK + bonuses.ATK,
-    DEF: stats.DEF + bonuses.DEF,
+  const resolvedStats = {...stats}
+  for (const key of primaryStatKeys) {
+    resolvedStats[key] = Math.ceil(
+      (primaryScalingBase + 1 + bonusLevel) * statScaling[key] - primaryStatFormulaEpsilon,
+    )
   }
+  return resolvedStats
 }
 
 export function getAwakenersLite(): AwakenerLiteRecord[] {

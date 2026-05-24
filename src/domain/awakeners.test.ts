@@ -104,16 +104,13 @@ describe('getAwakeners', () => {
   it('includes default-maxed Gnostic primary stat bonuses in lite resolved stats', () => {
     const saya = getAwakenerById('awakener-0057')
 
-    expect(saya?.defaultPrimaryStatBonuses).toEqual({
-      CON: 12,
-      ATK: 12,
-      DEF: 11,
-    })
+    expect(saya?.defaultPrimaryStatBonusLevel).toBe(10)
     expect(saya ? resolveAwakenerLiteStatsForLevel(saya, 60) : undefined).toEqual({
       CON: 104,
       ATK: 104,
       DEF: 99,
     })
+    expect(saya ? resolveAwakenerLiteStatsForLevel(saya, 70)?.ATK : undefined).toBe(115)
   })
 
   it('provides tags as an array for every awakener', () => {

@@ -1,5 +1,7 @@
 import {useEffect, useRef, useState} from 'react'
 
+import {FaChevronDown, FaChevronUp} from 'react-icons/fa6'
+
 import type {WheelSlotIndex} from '../builder/types'
 import type {BuilderV2DropTargetDescriptor} from './builder-v2-dnd'
 import {BuilderV2ActiveFooter, BuilderV2ActiveHeader} from './BuilderV2ActiveTeamChrome'
@@ -7,6 +9,7 @@ import {BuilderV2PickerContent} from './BuilderV2AwakenerPicker'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
 import type {BuilderV2Model} from './BuilderV2ModelTypes'
 import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
+import {BuilderV2TeamRail} from './BuilderV2TeamRail'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 import {useStableEvent} from './useStableEvent'
 
@@ -21,37 +24,31 @@ export function BuilderV2AdaptiveLayout({
   isDragActive,
   model,
 }: BuilderV2AdaptiveLayoutProps) {
-  const [isPickerOpen, setIsPickerOpen] = useState(false)
+  const [isPickerExpanded, setIsPickerExpanded] = useState(false)
   const pickerTriggerRef = useRef<HTMLElement | null>(null)
   const searchInputRef = useRef<HTMLInputElement | null>(null)
-  const dialogRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    if (!isPickerOpen) {
+    if (!isPickerExpanded) {
       return
     }
 
     searchInputRef.current?.focus()
-  }, [isPickerOpen, model.pickerTab])
+  }, [isPickerExpanded, model.pickerTab])
 
   const closePicker = useStableEvent((restoreFocus = true) => {
-    setIsPickerOpen(false)
+    setIsPickerExpanded(false)
     if (restoreFocus) {
       pickerTriggerRef.current?.focus()
     }
   })
 
   useEffect(() => {
-    if (!isPickerOpen) {
+    if (!isPickerExpanded) {
       return
     }
 
     const handlePickerKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Tab') {
-        trapDialogFocus(event, dialogRef.current)
-        return
-      }
-
       if (event.key !== 'Escape') {
         return
       }
@@ -64,19 +61,7 @@ export function BuilderV2AdaptiveLayout({
     return () => {
       document.removeEventListener('keydown', handlePickerKeyDown)
     }
-  }, [closePicker, isPickerOpen])
-
-  useEffect(() => {
-    if (!isPickerOpen) {
-      return
-    }
-
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = previousOverflow
-    }
-  }, [isPickerOpen])
+  }, [closePicker, isPickerExpanded])
 
   const openPicker = useStableEvent(
     (restoreTarget?: HTMLElement | null, options?: {ensureTarget?: boolean}) => {
@@ -85,29 +70,33 @@ export function BuilderV2AdaptiveLayout({
       if (options?.ensureTarget !== false && !model.activeSelection && !model.activeTeamTarget) {
         model.selectAwakenerSlot(model.selectedSlotId ?? 'slot-1')
       }
-      setIsPickerOpen(true)
+      setIsPickerExpanded(true)
     },
   )
 
-  const selectAwakenerSlotAndOpenPicker = useStableEvent((slotId: string) => {
-    const restoreTarget = getCurrentFocusRestoreTarget()
-    model.selectAwakenerSlot(slotId)
-    openPicker(restoreTarget, {ensureTarget: false})
-  })
+  const selectAwakenerSlotAndOpenPicker = useStableEvent(
+    (slotId: string, restoreTarget?: HTMLElement | null) => {
+      const focusRestoreTarget = restoreTarget ?? getCurrentFocusRestoreTarget()
+      model.selectAwakenerSlot(slotId)
+      openPicker(focusRestoreTarget, {ensureTarget: false})
+    },
+  )
 
   const selectWheelSlotAndOpenPicker = useStableEvent(
-    (slotId: string, wheelIndex: WheelSlotIndex) => {
-      const restoreTarget = getCurrentFocusRestoreTarget()
+    (slotId: string, wheelIndex: WheelSlotIndex, restoreTarget?: HTMLElement | null) => {
+      const focusRestoreTarget = restoreTarget ?? getCurrentFocusRestoreTarget()
       model.selectWheelSlot(slotId, wheelIndex)
-      openPicker(restoreTarget, {ensureTarget: false})
+      openPicker(focusRestoreTarget, {ensureTarget: false})
     },
   )
 
-  const selectCovenantSlotAndOpenPicker = useStableEvent((slotId: string) => {
-    const restoreTarget = getCurrentFocusRestoreTarget()
-    model.selectCovenantSlot(slotId)
-    openPicker(restoreTarget, {ensureTarget: false})
-  })
+  const selectCovenantSlotAndOpenPicker = useStableEvent(
+    (slotId: string, restoreTarget?: HTMLElement | null) => {
+      const focusRestoreTarget = restoreTarget ?? getCurrentFocusRestoreTarget()
+      model.selectCovenantSlot(slotId)
+      openPicker(focusRestoreTarget, {ensureTarget: false})
+    },
+  )
 
   const selectPosseAndOpenPicker = useStableEvent(() => {
     const restoreTarget = getCurrentFocusRestoreTarget()
@@ -116,35 +105,19 @@ export function BuilderV2AdaptiveLayout({
   })
 
   const assignAwakener = useStableEvent((awakenerId: string) => {
-    const shouldClosePicker = canCloseAfterAwakenerAssignment(model, awakenerId)
     model.assignAwakener(awakenerId)
-    if (shouldClosePicker) {
-      closePicker(false)
-    }
   })
 
   const assignWheel = useStableEvent((wheelId: string) => {
-    const shouldClosePicker = canCloseAfterWheelAssignment(model, wheelId)
     model.assignWheel(wheelId)
-    if (shouldClosePicker) {
-      closePicker(false)
-    }
   })
 
   const assignCovenant = useStableEvent((covenantId: string) => {
-    const shouldClosePicker = canCloseAfterCovenantAssignment(model, covenantId)
     model.assignCovenant(covenantId)
-    if (shouldClosePicker) {
-      closePicker(false)
-    }
   })
 
   const assignPosse = useStableEvent((posseId: string) => {
-    const shouldClosePicker = canCloseAfterPosseAssignment(model, posseId)
     model.assignPosse(posseId)
-    if (shouldClosePicker) {
-      closePicker(false)
-    }
   })
 
   return (
@@ -152,7 +125,7 @@ export function BuilderV2AdaptiveLayout({
       className='builder-v2-page builder-v2-page--adaptive'
       aria-labelledby='builder-v2-title'
     >
-      <header className='builder-v2-mast' aria-hidden={isPickerOpen ? true : undefined}>
+      <header className='builder-v2-mast'>
         <div className='builder-v2-mast-identity'>
           <span aria-hidden className='builder-v2-mast-glyph' />
           <h1 className='builder-v2-mast-title' id='builder-v2-title'>
@@ -161,100 +134,114 @@ export function BuilderV2AdaptiveLayout({
           <span className='builder-v2-status-pill'>Beta</span>
         </div>
         <div className='builder-v2-mast-end'>
-          <p className='builder-v2-mast-tagline'>Tablet workbench - picker drawer mode.</p>
+          <p className='builder-v2-mast-tagline'>Tablet workbench - picker dock mode.</p>
           <BuilderV2ImportExportActions model={model} />
         </div>
       </header>
 
-      <section
-        aria-hidden={isPickerOpen ? true : undefined}
-        className='builder-v2-adaptive-workbench'
-        aria-label='Adaptive workbench'
-      >
-        <aside className='builder-v2-panel builder-v2-adaptive-rail' aria-label='Compact teams'>
-          <div className='builder-v2-adaptive-teams' role='group' aria-label='Adaptive teams'>
-            {model.teams.map((team, index) => {
-              const teamIndex = String(index + 1).padStart(2, '0')
-              const teamMeta = `${String(team.deployedCount)} / 4 deployed`
-              return (
-                <button
-                  aria-label={`${teamIndex} ${team.name} ${teamMeta}`}
-                  aria-pressed={team.isActive}
-                  className={`builder-v2-adaptive-team-button ${
-                    team.isActive ? 'builder-v2-adaptive-team-button--active' : ''
-                  }`}
-                  key={team.id}
-                  onClick={() => {
-                    model.setActiveTeam(team.id)
-                    model.selectAwakenerSlot('slot-1')
-                  }}
-                  type='button'
-                >
-                  <span className='builder-v2-team-index'>{teamIndex}</span>
-                </button>
-              )
-            })}
-            {model.canAddTeam ? (
+      <section className='builder-v2-adaptive-workbench' aria-label='Adaptive workbench'>
+        <main className='builder-v2-adaptive-main' aria-label='Adaptive active team'>
+          <div className='builder-v2-active-workspace'>
+            <BuilderV2TeamRail
+              canAddTeam={model.canAddTeam}
+              maxTeams={model.maxTeams}
+              onAddTeam={model.addTeam}
+              onSetActiveTeam={model.setActiveTeam}
+              onTeamActivated={() => {
+                model.selectAwakenerSlot('slot-1')
+              }}
+              teams={model.teams}
+            />
+
+            <section className='builder-v2-panel builder-v2-active-team'>
+              <BuilderV2ActiveHeader
+                activePosse={model.activePosse}
+                activeTeamName={model.activeTeamName}
+                activeTeamTarget={model.activeTeamTarget}
+                isDragActive={isDragActive}
+                onClearPosse={model.clearPosse}
+                onSelectPosse={selectPosseAndOpenPicker}
+                predictedDropTarget={activeDropTarget}
+              />
+
+              <BuilderV2TeamSlots
+                isDragActive={isDragActive}
+                onClearCovenant={model.clearCovenant}
+                onClearWheel={model.clearWheel}
+                onRemoveAwakener={model.removeAwakener}
+                onSelectCovenantSlot={selectCovenantSlotAndOpenPicker}
+                onSelectSlot={selectAwakenerSlotAndOpenPicker}
+                onSelectWheelSlot={selectWheelSlotAndOpenPicker}
+                predictedDropTarget={activeDropTarget}
+                quickLineupActive={Boolean(model.quickLineupSession)}
+                slots={model.slots}
+              />
+
+              <BuilderV2ActiveFooter
+                editingLabel={model.editingLabel}
+                onCancelQuickLineup={model.cancelQuickLineup}
+                onFinishQuickLineup={model.finishQuickLineup}
+                onGoBackQuickLineupStep={model.goBackQuickLineupStep}
+                onSkipQuickLineupStep={model.skipQuickLineupStep}
+                onStartQuickLineup={model.startQuickLineup}
+                quickLineupSession={model.quickLineupSession}
+                quickLineupStepLabel={model.quickLineupStepLabel}
+                violationMessage={model.violationMessage}
+              />
+            </section>
+          </div>
+
+          <section
+            aria-labelledby='builder-v2-adaptive-picker-title'
+            className={`builder-v2-panel builder-v2-adaptive-picker ${
+              isPickerExpanded ? 'builder-v2-adaptive-picker--expanded' : ''
+            }`}
+          >
+            <h2 className='sr-only' id='builder-v2-adaptive-picker-title'>
+              Adaptive Picker
+            </h2>
+            {model.violationMessage && isPickerExpanded ? (
+              <p className='builder-v2-adaptive-picker-message' role='alert'>
+                {model.violationMessage}
+              </p>
+            ) : null}
+            <div className='builder-v2-adaptive-picker-body'>
+              <BuilderV2PickerContent
+                isCollapsed={!isPickerExpanded}
+                isDragActive={isDragActive}
+                onAssignAwakener={assignAwakener}
+                onAssignCovenant={assignCovenant}
+                onAssignPosse={assignPosse}
+                onAssignWheel={assignWheel}
+                onRequestExpand={() => {
+                  setIsPickerExpanded(true)
+                }}
+                picker={model.picker}
+                predictedDropTarget={activeDropTarget}
+                searchInputRef={searchInputRef}
+              />
               <button
-                aria-label='Create team'
-                className='builder-v2-adaptive-team-button builder-v2-adaptive-team-button--add'
-                onClick={model.addTeam}
+                aria-expanded={isPickerExpanded}
+                aria-label={
+                  isPickerExpanded ? 'Collapse adaptive picker' : 'Expand adaptive picker'
+                }
+                className='builder-v2-adaptive-picker-close'
+                onClick={() => {
+                  if (isPickerExpanded) {
+                    closePicker()
+                    return
+                  }
+                  setIsPickerExpanded(true)
+                }}
                 type='button'
               >
-                <span className='builder-v2-team-index'>+</span>
+                {isPickerExpanded ? (
+                  <FaChevronDown aria-hidden className='builder-v2-adaptive-picker-close-icon' />
+                ) : (
+                  <FaChevronUp aria-hidden className='builder-v2-adaptive-picker-close-icon' />
+                )}
               </button>
-            ) : null}
-          </div>
-        </aside>
-
-        <main className='builder-v2-adaptive-main' aria-label='Adaptive active team'>
-          <section className='builder-v2-panel builder-v2-active-team'>
-            <BuilderV2ActiveHeader
-              activePosse={model.activePosse}
-              activeTeamName={model.activeTeamName}
-              activeTeamTarget={model.activeTeamTarget}
-              isDragActive={isDragActive}
-              onClearPosse={model.clearPosse}
-              onSelectPosse={selectPosseAndOpenPicker}
-              predictedDropTarget={activeDropTarget}
-            />
-
-            <BuilderV2TeamSlots
-              isDragActive={isDragActive}
-              onClearCovenant={model.clearCovenant}
-              onClearWheel={model.clearWheel}
-              onRemoveAwakener={model.removeAwakener}
-              onSelectCovenantSlot={selectCovenantSlotAndOpenPicker}
-              onSelectSlot={selectAwakenerSlotAndOpenPicker}
-              onSelectWheelSlot={selectWheelSlotAndOpenPicker}
-              predictedDropTarget={activeDropTarget}
-              quickLineupActive={Boolean(model.quickLineupSession)}
-              slots={model.slots}
-            />
-
-            <BuilderV2ActiveFooter
-              editingLabel={model.editingLabel}
-              leadingAction={
-                <button
-                  aria-label='Open adaptive picker'
-                  className='builder-v2-adaptive-picker-trigger'
-                  onClick={(event) => {
-                    openPicker(event.currentTarget)
-                  }}
-                  type='button'
-                >
-                  Open Picker
-                </button>
-              }
-              onCancelQuickLineup={model.cancelQuickLineup}
-              onFinishQuickLineup={model.finishQuickLineup}
-              onGoBackQuickLineupStep={model.goBackQuickLineupStep}
-              onSkipQuickLineupStep={model.skipQuickLineupStep}
-              onStartQuickLineup={model.startQuickLineup}
-              quickLineupSession={model.quickLineupSession}
-              quickLineupStepLabel={model.quickLineupStepLabel}
-              violationMessage={model.violationMessage}
-            />
+            </div>
           </section>
 
           <BuilderV2TeamManagement
@@ -278,145 +265,10 @@ export function BuilderV2AdaptiveLayout({
           />
         </main>
       </section>
-
-      {isPickerOpen ? (
-        <div
-          className='builder-v2-adaptive-picker-backdrop'
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) {
-              closePicker()
-            }
-          }}
-        >
-          <div
-            aria-labelledby='builder-v2-adaptive-picker-title'
-            aria-modal='true'
-            className='builder-v2-adaptive-picker'
-            ref={dialogRef}
-            role='dialog'
-          >
-            <header className='builder-v2-mobile-picker-header'>
-              <div>
-                <p className='builder-v2-label'>Pick</p>
-                <h2 className='ui-title' id='builder-v2-adaptive-picker-title'>
-                  Adaptive Picker
-                </h2>
-              </div>
-              <button
-                aria-label='Close adaptive picker'
-                className='builder-v2-mobile-icon-button'
-                onClick={() => {
-                  closePicker()
-                }}
-                type='button'
-              >
-                x
-              </button>
-            </header>
-            {model.violationMessage ? (
-              <p className='builder-v2-adaptive-picker-message' role='alert'>
-                {model.violationMessage}
-              </p>
-            ) : null}
-            <BuilderV2PickerContent
-              isDragActive={isDragActive}
-              onAssignAwakener={assignAwakener}
-              onAssignCovenant={assignCovenant}
-              onAssignPosse={assignPosse}
-              onAssignWheel={assignWheel}
-              picker={model.picker}
-              predictedDropTarget={activeDropTarget}
-              searchInputRef={searchInputRef}
-            />
-          </div>
-        </div>
-      ) : null}
     </section>
   )
 }
 
-function canCloseAfterAwakenerAssignment(model: BuilderV2Model, awakenerId: string) {
-  const awakener = model.awakeners.find((option) => option.id === awakenerId)
-  if (!awakener?.inUse) {
-    return true
-  }
-
-  return model.activeSelection?.kind === 'awakener' || model.slots.some((slot) => !slot.awakener)
-}
-
-function canCloseAfterWheelAssignment(model: BuilderV2Model, _wheelId: string) {
-  const selectedSlot = getSelectedLoadoutSlot(model)
-  if (!selectedSlot?.awakener) {
-    return false
-  }
-
-  if (model.activeSelection?.kind === 'wheel') {
-    return true
-  }
-
-  return (
-    model.activeSelection?.kind === 'awakener' &&
-    selectedSlot.wheelSlots.some((wheelSlot) => !wheelSlot.wheelId)
-  )
-}
-
-function canCloseAfterCovenantAssignment(model: BuilderV2Model, covenantId: string) {
-  const covenant = model.covenants.find((option) => option.id === covenantId)
-  const selectedSlot = getSelectedLoadoutSlot(model)
-  return Boolean(selectedSlot?.awakener) && !covenant?.inUse
-}
-
-function canCloseAfterPosseAssignment(_model: BuilderV2Model, _posseId: string) {
-  return true
-}
-
 function getCurrentFocusRestoreTarget(): HTMLElement | null {
   return document.activeElement instanceof HTMLElement ? document.activeElement : null
-}
-
-function getSelectedLoadoutSlot(model: BuilderV2Model) {
-  const selection = model.activeSelection
-  if (!selection) {
-    return null
-  }
-
-  return model.slots.find((slot) => slot.slotId === selection.slotId) ?? null
-}
-
-function trapDialogFocus(event: KeyboardEvent, dialog: HTMLDivElement | null) {
-  if (event.key !== 'Tab' || !dialog) {
-    return
-  }
-
-  const focusableElements = Array.from(
-    dialog.querySelectorAll<HTMLElement>(
-      'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [href], [tabindex]:not([tabindex="-1"])',
-    ),
-  )
-
-  if (focusableElements.length === 0) {
-    return
-  }
-
-  const firstElement = focusableElements[0]
-  const lastElement = focusableElements[focusableElements.length - 1]
-  const activeElement = document.activeElement
-
-  if (!(activeElement instanceof HTMLElement) || !dialog.contains(activeElement)) {
-    event.preventDefault()
-    const fallbackTarget = event.shiftKey ? lastElement : firstElement
-    fallbackTarget.focus()
-    return
-  }
-
-  if (event.shiftKey && activeElement === firstElement) {
-    event.preventDefault()
-    lastElement.focus()
-    return
-  }
-
-  if (!event.shiftKey && activeElement === lastElement) {
-    event.preventDefault()
-    firstElement.focus()
-  }
 }
