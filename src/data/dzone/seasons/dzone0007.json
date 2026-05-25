@@ -495,7 +495,8 @@
                   "monsterId": "dzone-monster-0083",
                   "level": 41,
                   "hp": 295,
-                  "hpBars": 1
+                  "hpBars": 1,
+                  "badges": ["Elite"]
                 },
                 {
                   "monsterId": "dzone-monster-0265",
@@ -573,7 +574,8 @@
                   "monsterId": "dzone-monster-0083",
                   "level": 54,
                   "hp": 621,
-                  "hpBars": 1
+                  "hpBars": 1,
+                  "badges": ["Elite"]
                 },
                 {
                   "monsterId": "dzone-monster-0265",
@@ -651,7 +653,8 @@
                   "monsterId": "dzone-monster-0083",
                   "level": 64,
                   "hp": 1308,
-                  "hpBars": 1
+                  "hpBars": 1,
+                  "badges": ["Elite"]
                 },
                 {
                   "monsterId": "dzone-monster-0265",

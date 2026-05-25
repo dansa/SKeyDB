@@ -33,6 +33,11 @@ const catalogSchemaBase = {
 
 const dzoneAlertMonsterSchema = z.object({
   monsterId: monsterIdSchema,
+  name: nonEmptyStringSchema.optional(),
+  characteristicIds: z.array(characteristicIdSchema).optional(),
+  descriptionTemplate: nonEmptyStringSchema.optional(),
+  assetName: nonEmptyStringSchema.optional(),
+  badges: z.array(nonEmptyStringSchema).optional(),
   level: z.number().int().nonnegative(),
   hp: z.number().int().nonnegative(),
   hpBars: z.number().int().positive().optional(),
@@ -292,10 +297,18 @@ function assertDzoneSeasonReferencesResolve(season: DzoneSeason) {
       }
 
       for (const monster of alert.monsters) {
-        if (!monsterById.has(monster.monsterId)) {
+        const catalogMonster = monsterById.get(monster.monsterId)
+        if (!catalogMonster) {
           throw new Error(
             `D-zone wave "${wave.id}" alert "${alert.id}" references unknown monster id "${monster.monsterId}".`,
           )
+        }
+        for (const characteristicId of monster.characteristicIds ?? []) {
+          if (!characteristicById.has(characteristicId)) {
+            throw new Error(
+              `D-zone wave "${wave.id}" alert "${alert.id}" monster "${catalogMonster.id}" references unknown characteristic id "${characteristicId}".`,
+            )
+          }
         }
       }
     }
@@ -400,19 +413,57 @@ export async function loadCurrentDzoneSeason(
   return currentSummary ? loadDzoneSeasonById(currentSummary.id) : undefined
 }
 
-function resolveDzoneMonster(monsterId: string, alertStats?: DzoneMonsterAlertStats) {
+function resolveDzoneMonster(
+  monsterId: string,
+  alertStats?: DzoneMonsterAlertStats,
+  displaySnapshot?: Partial<
+    Pick<
+      DzoneMonster,
+      'name' | 'characteristicIds' | 'descriptionTemplate' | 'assetName' | 'badges'
+    >
+  >,
+) {
   const monster = monsterById.get(monsterId)
   if (!monster) {
     throw new Error(`D-zone wave references unknown monster id "${monsterId}".`)
   }
-  return {
+  const scopedDisplay: Partial<
+    Pick<
+      DzoneMonster,
+      'name' | 'characteristicIds' | 'descriptionTemplate' | 'assetName' | 'badges'
+    >
+  > = {}
+  if (displaySnapshot) {
+    if (typeof displaySnapshot.name === 'string') {
+      scopedDisplay.name = displaySnapshot.name
+    }
+    if (typeof displaySnapshot.descriptionTemplate === 'string') {
+      scopedDisplay.descriptionTemplate = displaySnapshot.descriptionTemplate
+    }
+    if (typeof displaySnapshot.assetName === 'string') {
+      scopedDisplay.assetName = displaySnapshot.assetName
+    }
+    if (Array.isArray(displaySnapshot.badges)) {
+      scopedDisplay.badges = displaySnapshot.badges
+    }
+    if (Array.isArray(displaySnapshot.characteristicIds)) {
+      scopedDisplay.characteristicIds = displaySnapshot.characteristicIds
+    }
+  }
+  const resolvedMonster = {
     ...monster,
+    ...scopedDisplay,
+    id: monster.id,
+    characteristicIds: scopedDisplay.characteristicIds ?? monster.characteristicIds,
+  }
+  return {
+    ...resolvedMonster,
     alertStats,
-    characteristics: monster.characteristicIds.map((characteristicId) => {
+    characteristics: resolvedMonster.characteristicIds.map((characteristicId) => {
       const characteristic = characteristicById.get(characteristicId)
       if (!characteristic) {
         throw new Error(
-          `D-zone monster "${monster.id}" references unknown characteristic id "${characteristicId}".`,
+          `D-zone monster "${resolvedMonster.id}" references unknown characteristic id "${characteristicId}".`,
         )
       }
       return characteristic
@@ -430,17 +481,27 @@ export function resolveDzoneWaveViewModel(wave: DzoneWave): DzoneResolvedWave {
       id: alert.id,
       name: alert.name,
       monsters: alert.monsters.map((alertMonster) =>
-        resolveDzoneMonster(alertMonster.monsterId, {
-          alertId: alert.id,
-          alertName: alert.name,
-          level: alertMonster.level,
-          hp: alertMonster.hp,
-          hpBars: alertMonster.hpBars,
-          hpBarValues: alertMonster.hpBarValues,
-          hpBarPhases: alertMonster.hpBarPhases,
-          effectiveHp: alertMonster.effectiveHp,
-          hpBarSource: alertMonster.hpBarSource,
-        }),
+        resolveDzoneMonster(
+          alertMonster.monsterId,
+          {
+            alertId: alert.id,
+            alertName: alert.name,
+            level: alertMonster.level,
+            hp: alertMonster.hp,
+            hpBars: alertMonster.hpBars,
+            hpBarValues: alertMonster.hpBarValues,
+            hpBarPhases: alertMonster.hpBarPhases,
+            effectiveHp: alertMonster.effectiveHp,
+            hpBarSource: alertMonster.hpBarSource,
+          },
+          {
+            name: alertMonster.name,
+            characteristicIds: alertMonster.characteristicIds,
+            descriptionTemplate: alertMonster.descriptionTemplate,
+            assetName: alertMonster.assetName,
+            badges: alertMonster.badges,
+          },
+        ),
       ),
     })),
   }

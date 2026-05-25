@@ -14,6 +14,7 @@ import {
   loadDzoneSeasons,
   loadLatestDzoneSeason,
   loadLatestDzoneWaveViewModels,
+  resolveDzoneWaveViewModel,
 } from './dzone'
 import {getDzoneSeasonRealmName} from './dzone-season-realm'
 import {loadRelicRecordById} from './relics'
@@ -78,6 +79,33 @@ describe('D-zone domain boundary', () => {
         hpBars: 2,
       },
     })
+  })
+
+  it('uses season-scoped monster display snapshots when source ids are reused', async () => {
+    const season = await loadDzoneSeasonById('dzone-0060')
+    const waveModels = season?.waves.map(resolveDzoneWaveViewModel)
+    const countess = waveModels?.[1]?.alerts[0]?.monsters.find(
+      (monster) => monster.id === 'dzone-monster-0313',
+    )
+    const globalMonster = getDzoneMonsterById('dzone-monster-0313')
+
+    expect(globalMonster).toMatchObject({
+      id: 'dzone-monster-0313',
+      name: 'The poet',
+      characteristicIds: ['enemy-characteristic-0011', 'enemy-characteristic-0007'],
+    })
+    expect(countess).toMatchObject({
+      id: 'dzone-monster-0313',
+      name: 'Countess',
+      badges: ['Elite'],
+      characteristicIds: ['enemy-characteristic-0011', 'enemy-characteristic-0007'],
+      descriptionTemplate:
+        '"Dearest Countess, my once desire. Now, you have become my loyal guard. Offer her a poem on my behalf."',
+    })
+    expect(countess?.characteristics.map((characteristic) => characteristic.id)).toEqual([
+      'enemy-characteristic-0011',
+      'enemy-characteristic-0007',
+    ])
   })
 
   it('loads dzone-0060 as the current season during its active window', () => {
