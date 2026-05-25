@@ -151,8 +151,10 @@ describe('compareAwakenersForDatabaseSort', () => {
       makeAwakener({
         id: 'awakener-0002',
         name: 'Gnostic Higher',
-        stats: {CON: 100, ATK: 100, DEF: 100},
-        defaultPrimaryStatBonuses: {CON: 0, ATK: 25, DEF: 0},
+        stats: {CON: 20, ATK: 20, DEF: 20},
+        primaryScalingBase: 20,
+        statScaling: {CON: 1, ATK: 1, DEF: 1},
+        defaultPrimaryStatBonusLevel: 45,
       }),
     ]
 

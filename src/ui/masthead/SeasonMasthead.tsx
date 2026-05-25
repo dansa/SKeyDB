@@ -14,6 +14,7 @@ export interface SeasonMastheadSummary {
   kicker: string
   name: ReactNode
   countdown?: SeasonMastheadCountdown | null
+  note?: string
   emblemSrc?: string
   artSrc?: string
   linkAriaLabel?: string
@@ -53,6 +54,9 @@ export function SeasonMasthead({
             <span className='season-masthead__summary-countdown' title={summary.countdown.title}>
               {summary.countdown.text}
             </span>
+          ) : null}
+          {summary.note ? (
+            <span className='season-masthead__summary-note'>{summary.note}</span>
           ) : null}
         </div>
       </div>

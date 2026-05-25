@@ -1,5 +1,6 @@
 import {useMemo, useState} from 'react'
 
+import type {AwakenerDatabaseSelection} from '@/domain/awakener-database-state'
 import type {FullStats, SubstatScaling} from '@/domain/awakener-source-schema'
 import type {Awakener} from '@/domain/awakeners'
 import type {AwakenerFullRecord, AwakenerProfileStorySection} from '@/domain/awakeners-full'
@@ -23,6 +24,7 @@ interface AwakenerDetailOverviewProps {
   fullData: AwakenerFullRecord
   fontScale: FontScale
   onStatsExpandedChange?: (isExpanded: boolean) => void
+  selection?: AwakenerDatabaseSelection
   stats: FullStats | null
   substatScaling: SubstatScaling | null
   scalingRecord: ScalingInfoRecord
@@ -63,6 +65,7 @@ export function AwakenerDetailOverview({
   areStatsExpanded,
   fullData,
   onStatsExpandedChange,
+  selection,
   scalingRecord,
   stats,
   substatScaling,
@@ -74,6 +77,7 @@ export function AwakenerDetailOverview({
       <div className='space-y-3'>
         <AwakenerDetailStatsPanel
           compact
+          gnosticPotentialLevel={selection?.gnosticPotentialLevel}
           isExpanded={areStatsExpanded}
           onExpandedChange={onStatsExpandedChange}
           scalingRecord={scalingRecord}
@@ -90,6 +94,7 @@ export function AwakenerDetailOverview({
       <AwakenerDetailProfileFacts compact profile={profile} />
       <AwakenerDetailStatsPanel
         compact
+        gnosticPotentialLevel={selection?.gnosticPotentialLevel}
         isExpanded={areStatsExpanded}
         onExpandedChange={onStatsExpandedChange}
         scalingRecord={scalingRecord}

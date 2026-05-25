@@ -4,8 +4,12 @@ import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 
 import {DZonePage} from './DZonePage'
 
+const timelineNowMock = vi.hoisted(() => ({
+  now: new Date('2026-05-12T00:00:00Z'),
+}))
+
 vi.mock('./timeline/useTimelineNow', () => ({
-  useTimelineNow: () => new Date('2026-05-12T00:00:00Z'),
+  useTimelineNow: () => timelineNowMock.now,
 }))
 
 function renderDZonePage() {
@@ -19,6 +23,7 @@ function renderDZonePage() {
 describe('DZonePage', () => {
   beforeEach(() => {
     window.localStorage.clear()
+    timelineNowMock.now = new Date('2026-05-12T00:00:00Z')
   })
 
   afterEach(() => {
@@ -44,6 +49,21 @@ describe('DZonePage', () => {
     expect(screen.getAllByRole('heading', {level: 3, name: /Initial Relic/i})).toHaveLength(5)
     expect(screen.getAllByRole('heading', {level: 3, name: /Monsters/i})).toHaveLength(5)
     expect(screen.getByRole('button', {name: 'Select Alert V'})).toBeInTheDocument()
+  })
+
+  it('falls back to the latest known season when no current season is recorded', async () => {
+    timelineNowMock.now = new Date('2100-01-01T00:00:00Z')
+
+    renderDZonePage()
+
+    expect(
+      await screen.findByRole('heading', {level: 1, name: 'D-Effect Zone'}),
+    ).toBeInTheDocument()
+    expect(screen.getByText(/Current Season:/)).toBeInTheDocument()
+    expect(screen.getByRole('complementary', {name: 'Current D-zone season'})).toHaveTextContent(
+      'Current Season',
+    )
+    expect(screen.queryByText(/could not be found/i)).not.toBeInTheDocument()
   })
 
   it('switches all waves to the selected alert level', async () => {

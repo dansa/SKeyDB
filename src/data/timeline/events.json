@@ -10,16 +10,6 @@
     "featured": "Vortice"
   },
   {
-    "id": "event-dtide",
-    "title": "Regional D-Effect Zone",
-    "category": "d-tide",
-    "description": "Bi-weekly D-Tide raids. \n Complete to earn Silver, Black Offerings, Gnosis materials and more. \n Current Realm relic: Aequor Ring.",
-    "startDate": "2026/05/11 09:00",
-    "endDate": "2026/05/25 09:00",
-    "pinned": true,
-    "customArt": "/events/dtide-aequor.webp"
-  },
-  {
     "id": "event-curriculum-03",
     "title": "Curriculum Honor",
     "category": "curriculum",

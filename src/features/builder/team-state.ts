@@ -8,6 +8,7 @@ export type TeamStateViolationCode = 'TOO_MANY_REALMS_IN_TEAM' | 'INVALID_BUILD_
 
 export interface TeamStateUpdateResult {
   nextSlots: TeamSlot[]
+  changed: boolean
   violation?: TeamStateViolationCode
 }
 
@@ -34,12 +35,12 @@ export function assignAwakenerToSlot(
 ): TeamStateUpdateResult {
   const awakener = awakenerById.get(awakenerId)
   if (!awakener) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const hasTargetSlot = currentSlots.some((slot) => slot.slotId === slotId)
   if (!hasTargetSlot) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const sourceIdentityKey = getAwakenerIdentityKeyById(awakenerId)
@@ -51,7 +52,7 @@ export function assignAwakenerToSlot(
       )?.slotId
   const targetSlot = currentSlots.find((slot) => slot.slotId === slotId)
   if (sourceSlotId === slotId && targetSlot?.awakenerId === awakenerId) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const nextSlots = currentSlots.map((slot) => {
@@ -62,8 +63,6 @@ export function assignAwakenerToSlot(
         realm: awakener.realm,
         level: slot.level ?? 60,
         isSupport: slot.isSupport,
-        wheels: [null, null] as [null, null],
-        covenantId: undefined,
       }
     }
 
@@ -87,11 +86,12 @@ export function assignAwakenerToSlot(
   ) {
     return {
       nextSlots: currentSlots,
+      changed: false,
       violation: 'TOO_MANY_REALMS_IN_TEAM',
     }
   }
 
-  return {nextSlots}
+  return changedTeamState(nextSlots)
 }
 
 export function assignAwakenerToFirstEmptySlot(
@@ -105,12 +105,12 @@ export function assignAwakenerToFirstEmptySlot(
     (slot) => slot.awakenerId && getAwakenerIdentityKeyById(slot.awakenerId) === identityKey,
   )
   if (alreadyAssigned && !options?.allowDuplicateIdentity) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const firstEmptySlotId = currentSlots.find((slot) => !slot.awakenerId)?.slotId
   if (!firstEmptySlotId) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   return assignAwakenerToSlot(currentSlots, awakenerId, firstEmptySlotId, awakenerById, options)
@@ -122,13 +122,13 @@ export function swapSlotAssignments(
   targetSlotId: string,
 ): TeamStateUpdateResult {
   if (sourceSlotId === targetSlotId) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const sourceSlot = currentSlots.find((slot) => slot.slotId === sourceSlotId)
   const targetSlot = currentSlots.find((slot) => slot.slotId === targetSlotId)
   if (!sourceSlot || !targetSlot) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const nextSlots = currentSlots.map((slot) => {
@@ -159,7 +159,7 @@ export function swapSlotAssignments(
     return slot
   })
 
-  return {nextSlots}
+  return changedTeamState(nextSlots)
 }
 
 export function swapWheelAssignments(
@@ -175,18 +175,22 @@ export function swapWheelAssignments(
     targetWheelIndex < 0 ||
     targetWheelIndex > 1
   ) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const sourceSlot = currentSlots.find((slot) => slot.slotId === sourceSlotId)
   const targetSlot = currentSlots.find((slot) => slot.slotId === targetSlotId)
   if (!sourceSlot || !targetSlot?.awakenerId) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const sourceWheelId = sourceSlot.wheels[sourceWheelIndex] ?? null
   if (!sourceWheelId) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
+  }
+
+  if (sourceSlotId === targetSlotId && sourceWheelIndex === targetWheelIndex) {
+    return unchangedTeamState(currentSlots)
   }
 
   if (sourceSlotId === targetSlotId) {
@@ -200,7 +204,7 @@ export function swapWheelAssignments(
       nextWheels[targetWheelIndex] = sourceWheelId
       return {...slot, wheels: nextWheels}
     })
-    return {nextSlots}
+    return changedTeamState(nextSlots)
   }
 
   const targetWheelId = targetSlot.wheels[targetWheelIndex] ?? null
@@ -218,7 +222,7 @@ export function swapWheelAssignments(
     return slot
   })
 
-  return {nextSlots}
+  return changedTeamState(nextSlots)
 }
 
 export function clearSlotAssignment(
@@ -227,8 +231,10 @@ export function clearSlotAssignment(
 ): TeamStateUpdateResult {
   const hasTargetSlot = currentSlots.some((slot) => slot.slotId === slotId)
   if (!hasTargetSlot) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
+
+  let changed = false
 
   const nextSlots = currentSlots.map((slot) => {
     if (slot.slotId !== slotId) {
@@ -246,6 +252,7 @@ export function clearSlotAssignment(
       return slot
     }
 
+    changed = true
     return {
       ...slot,
       awakenerId: undefined,
@@ -257,7 +264,7 @@ export function clearSlotAssignment(
     }
   })
 
-  return {nextSlots}
+  return {nextSlots, changed}
 }
 
 export function assignWheelToSlot(
@@ -267,23 +274,23 @@ export function assignWheelToSlot(
   wheelId: string | null,
 ): TeamStateUpdateResult {
   if (wheelIndex < 0 || wheelIndex > 1) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const hasTargetSlot = currentSlots.some((slot) => slot.slotId === slotId)
   if (!hasTargetSlot) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const targetSlot = currentSlots.find((slot) => slot.slotId === slotId)
   if (!targetSlot) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
   if (wheelId && !targetSlot.awakenerId) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
   if (targetSlot.wheels[wheelIndex] === wheelId) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const nextSlots = currentSlots.map((slot) => {
@@ -300,7 +307,7 @@ export function assignWheelToSlot(
     }
   })
 
-  return {nextSlots}
+  return changedTeamState(nextSlots)
 }
 
 export function clearWheelAssignment(
@@ -318,15 +325,15 @@ export function assignCovenantToSlot(
 ): TeamStateUpdateResult {
   const hasTargetSlot = currentSlots.some((slot) => slot.slotId === slotId)
   if (!hasTargetSlot) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const targetSlot = currentSlots.find((slot) => slot.slotId === slotId)
   if (!targetSlot || (covenantId && !targetSlot.awakenerId)) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
   if (targetSlot.covenantId === covenantId) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const nextSlots = currentSlots.map((slot) =>
@@ -338,7 +345,7 @@ export function assignCovenantToSlot(
       : slot,
   )
 
-  return {nextSlots}
+  return changedTeamState(nextSlots)
 }
 
 export function clearCovenantAssignment(
@@ -354,18 +361,18 @@ export function swapCovenantAssignments(
   targetSlotId: string,
 ): TeamStateUpdateResult {
   if (sourceSlotId === targetSlotId) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const sourceSlot = currentSlots.find((slot) => slot.slotId === sourceSlotId)
   const targetSlot = currentSlots.find((slot) => slot.slotId === targetSlotId)
   if (!sourceSlot || !targetSlot?.awakenerId) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const sourceCovenantId = sourceSlot.covenantId
   if (!sourceCovenantId) {
-    return {nextSlots: currentSlots}
+    return unchangedTeamState(currentSlots)
   }
 
   const targetCovenantId = targetSlot.covenantId
@@ -385,5 +392,13 @@ export function swapCovenantAssignments(
     return slot
   })
 
-  return {nextSlots}
+  return changedTeamState(nextSlots)
+}
+
+function unchangedTeamState(nextSlots: TeamSlot[]): TeamStateUpdateResult {
+  return {nextSlots, changed: false}
+}
+
+function changedTeamState(nextSlots: TeamSlot[]): TeamStateUpdateResult {
+  return {nextSlots, changed: true}
 }

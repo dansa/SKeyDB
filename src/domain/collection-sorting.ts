@@ -20,7 +20,7 @@ export interface SortableCollectionEntry {
   releaseDate?: string
 }
 
-export type WheelCollectionSortKey = 'ALPHABETICAL' | 'RARITY' | 'REALM' | 'MAINSTAT'
+export type WheelCollectionSortKey = 'ALPHABETICAL' | 'RARITY' | 'REALM' | 'MAINSTAT' | 'ENLIGHTEN'
 
 export interface SortableWheelCollectionEntry extends SortableCollectionEntry {
   mainstatLabel?: string
@@ -282,6 +282,17 @@ export function compareWheelsForCollectionSort(
       compareRarity,
       compareRealm,
       (l, r) => compareNumber(l.enlighten, r.enlighten, 'DESC'),
+      compareIndex,
+      (l, r) => compareText(l.label, r.label, 'ASC'),
+    ])
+  }
+
+  if (config.key === 'ENLIGHTEN') {
+    return compareByPriority(left, right, [
+      compareOwnedFirst,
+      (l, r) => compareNumber(l.enlighten, r.enlighten, config.direction),
+      compareRarity,
+      compareRealm,
       compareIndex,
       (l, r) => compareText(l.label, r.label, 'ASC'),
     ])

@@ -1,0 +1,2449 @@
+{
+  "version": 1,
+  "slug": "builder-v2-rebuild",
+  "status": "complete",
+  "created": "2026-05-22",
+  "updated": "2026-05-22",
+  "intake": {
+    "status": "completed",
+    "risk_posture": "Preserve existing /builder behavior strictly; allow new visible UX only on isolated /builder-v2 with explicit product/design stop points.",
+    "harness_policy": "Product docs and goal packet updates allowed; no AGENTS.md, lint, dependency, or plugin changes without a routed maintenance task and explicit approval.",
+    "allowed_areas": [
+      "src/features/builder-v2/**",
+      "focused Builder V2 tests",
+      "src/App.tsx route wiring",
+      "read-only references to src/features/builder/**",
+      "read-only references to src/stores/builderDraftStore.ts",
+      "docs/design/**",
+      "builder/mobile-ux branch"
+    ],
+    "protected_areas": [
+      "current /builder route behavior",
+      "src/features/builder/BuilderPage.tsx as the V1 shell",
+      "builder persistence key/version",
+      "builder migrations unless explicitly approved",
+      "domain/generated data",
+      "dependency files",
+      "remote state",
+      "unrelated pages"
+    ],
+    "validation_commands": [
+      "npx vitest run src/features/builder-v2/BuilderV2Page.test.tsx",
+      "npm run test:integration",
+      "npx vitest run src/features/builder/useBuilderViewModel.test.ts src/features/builder/builder-persistence.test.ts src/features/builder/builder-ownership-projection.test.ts",
+      "npm run lint",
+      "npm run build"
+    ],
+    "stop_condition": "Stop when the active tranche lands and is verified, a product/design decision is needed, verification fails twice on the same blocker, same-concept expansion crosses protected scope, or the work starts drifting into rushed public-shipping increments rather than healthy local groundwork."
+  },
+  "focus_areas": [
+    {
+      "name": "New route and feature boundary",
+      "status": "implemented",
+      "evidence": "W1 added a lazy BuilderV2Page route in src/App.tsx and kept Builder V2 absent from NAV_ITEMS.",
+      "next": "Keep /builder-v2 unpromoted until a later product/design decision."
+    },
+    {
+      "name": "Current builder contract reuse",
+      "status": "implemented",
+      "evidence": "W1 added useBuilderV2Model as a facade over builderDraftStore, persistence, ownership hydration, search helpers, and team-state assignment/removal helpers; W2 extended it to gear/posse assignment; W3 wired quick-lineup; W4 wired mobile drawer orchestration; W6 wired import/export; W7 wired transfer confirmation; W8 wired team management.",
+      "next": "Terminal for this goal. DnD and recommendations are future UX-mechanics slices after the designer pass."
+    },
+    {
+      "name": "Old UX branch flow salvage",
+      "status": "implemented",
+      "evidence": "W4/R4 implemented the concept-image mobile overview -> focused builder -> full-screen picker drawer flow on /builder-v2 while keeping the old builder/mobile-ux branch as reference only.",
+      "next": "Keep old branch evidence available only for future tablet/team polish; do not migrate old branch code into Builder V2."
+    },
+    {
+      "name": "Test and characterization harness",
+      "status": "implemented",
+      "evidence": "W1-W8 added focused V2 model/page characterization for assignments, gear/posse, quick-lineup, mobile drawer focus, adaptive routing, import/export, transfer confirmations, and team management while keeping relevant V1 contract tests green.",
+      "next": "Terminal for this goal. Add focused characterization with any future UX-mechanics slice."
+    },
+    {
+      "name": "Visual baseline",
+      "status": "implemented",
+      "evidence": "W1 added local builder-v2 CSS using sharp panels, compact controls, restrained blue, amber selection state, and D-Zone-style UI tokens. C9 reframes this as product baseline, not final visual destination.",
+      "next": "Terminal for this goal. The designer pass owns final visual polish toward the selected mockups."
+    },
+    {
+      "name": "Concept image alignment",
+      "status": "implemented",
+      "evidence": "W1 follows Desktop.png anatomy; W3 implemented the quick-lineup functional contract; W4 implemented Mobile.png-style overview/focused/full-screen picker drawer states; W5 added the pseudo-desktop adaptive shell; C9 names the selected concept images as the designer target.",
+      "next": "Terminal for this goal. Final visual interpretation belongs to the designer pass."
+    },
+    {
+      "name": "Teams section polish",
+      "status": "implemented",
+      "evidence": "W8/R8 implemented a visually provisional but functional Builder V2 team management overview across desktop, adaptive, and mobile: add, switch, rename, reset/delete confirmations, D-Tide templates, and simple accessible reorder now use existing V1 team helper contracts. C9 records final list/cards/share shape as future design/product work.",
+      "next": "Terminal for this goal. Final cards/list/share presentation is a designer/future-day decision, not a C9 blocker."
+    },
+    {
+      "name": "DnD/import/export/quick-lineup polish",
+      "status": "implemented",
+      "evidence": "W3/R3 implemented quick-lineup, W6/R6 implemented import/export parity, and W7/R7 implemented transfer dialog parity. User clarified DnD and recommendations should wait until the visual/layout direction is good.",
+      "next": "Terminal for this goal. DnD and recommendations are future UX-mechanics slices after the designer pass, not blockers for C9."
+    },
+    {
+      "name": "Designer handoff readiness",
+      "status": "implemented",
+      "evidence": "C9 added docs/refactor-goals/builder-v2-rebuild/designer-handoff.md, current baseline screenshots in artifacts/, concept-image target framing, and a pasteable designer prompt that treats /builder-v2 as product baseline rather than visual destination.",
+      "next": "Terminal for this goal."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C1",
+      "title": "Builder V2 route and bare draft loop shell",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/App.tsx",
+        "src/features/builder-v2/**",
+        "focused V2 tests",
+        "read-only current builder helpers"
+      ],
+      "evidence": "W1 added src/features/builder-v2 and a lazy /builder-v2 route without nav promotion.",
+      "next": "Terminal for this goal."
+    },
+    {
+      "id": "C2",
+      "title": "Thin Builder V2 model facade over current store/helpers",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "current helper imports",
+        "focused tests"
+      ],
+      "evidence": "W1 implemented useBuilderV2Model with current builderDraftStore hydration/autosave and team-state assignment/removal helpers.",
+      "next": "Terminal for this goal. DnD/recommendations remain future mechanics."
+    },
+    {
+      "id": "C3",
+      "title": "Minimal V2 picker surface",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/features/builder-v2/*Picker*",
+        "search/filter preferences",
+        "current domain search/sort helpers"
+      ],
+      "evidence": "W1 added BuilderV2AwakenerPicker with current search/sort helpers and disabled future category tabs.",
+      "next": "Terminal for this goal."
+    },
+    {
+      "id": "C3a",
+      "title": "Concept-image-informed V2 shell anatomy",
+      "source_task": "User follow-up",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "V2 shell/layout CSS",
+        "desktop team rail/stage/armory zones",
+        "mobile and quick-lineup boundary notes"
+      ],
+      "evidence": "W1 implemented the desktop rail/stage/armory/overview shell and mobile single-column collapse, with quick-lineup/drawer polish explicitly kept for later.",
+      "next": "Terminal for this goal."
+    },
+    {
+      "id": "C4",
+      "title": "Gear and posse assignment",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "V2 slot loadout UI",
+        "wheel/covenant/posse action helpers",
+        "transfer dialogs"
+      ],
+      "evidence": "W2 added Builder V2 Armory category tabs, actionable W1/W2/Covenant and team Posse targets, click-to-assign/clear flows, same-active-team gear movement, duplicate guards, and focused tests.",
+      "next": "Terminal for this goal. Transfer dialogs are implemented; DnD/recommendations are future UX-mechanics slices."
+    },
+    {
+      "id": "C5",
+      "title": "Mobile overview/focused/picker drawer flow",
+      "source_task": "UX branch scout",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "V2 mobile layout files",
+        "drawer and focus management",
+        "focused slot UI tests"
+      ],
+      "evidence": "W4/R4 added a mobile-only Builder V2 layout with overview, focused slot builder, shared picker drawer content, dialog semantics, Escape/search focus/focus return, mobile quick-lineup step focus synchronization, focused tests, and browser smoke.",
+      "next": "Terminal for this goal."
+    },
+    {
+      "id": "C6",
+      "title": "Quick Lineup V2 mode",
+      "source_task": "UX/tests scouts",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "V2 quick-lineup UI",
+        "current quick-lineup.ts",
+        "store quick-lineup state",
+        "tests"
+      ],
+      "evidence": "W3 enabled Builder V2 Quick Lineup mode using existing builderDraftStore quick-lineup actions, compact V2 controls, assignment-driven step advance, manual target jump, cancel restore, final posse completion, and focused model/page tests.",
+      "next": "Terminal for this goal."
+    },
+    {
+      "id": "C6a",
+      "title": "Tablet/adaptive workbench shell",
+      "source_task": "S6",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "V2 tablet breakpoint contract",
+        "desktop-like adaptive workbench",
+        "picker drawer/overlay",
+        "compact teams rail/sidebar",
+        "focused viewport tests and browser smoke"
+      ],
+      "evidence": "W5/R5 implemented and reviewed a distinct adaptive Builder V2 shell for 769px..66rem: BuilderV2Page now routes mobile/adaptive/desktop by viewport, adaptive widths render a compact teams rail plus active workbench, and the picker opens in a modal drawer with backdrop, body scroll lock, search focus, Escape focus return, hidden background semantics, and in-drawer validation alerts.",
+      "next": "Terminal for this goal."
+    },
+    {
+      "id": "C7a",
+      "title": "Team overview readiness component",
+      "source_task": "S6",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "V2 team overview display surface",
+        "shared desktop/mobile team summary component",
+        "active-team switching only",
+        "screenshot-friendly read-only overview tests"
+      ],
+      "evidence": "W8/R8 added a shared BuilderV2TeamManagement surface used by desktop, adaptive, and mobile layouts, with screenshot-friendly team summaries including slots, posse, support, wheel, and covenant tags.",
+      "next": "Terminal for this goal. Final share/card/list polish is future design/product work after the designer pass."
+    },
+    {
+      "id": "C8a",
+      "title": "Builder V2 import/export parity",
+      "source_task": "S6",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "V2 import/export actions",
+        "V2 import/export dialogs or wrappers",
+        "existing import/export codecs and planner reuse",
+        "focused V2 import/export tests"
+      ],
+      "evidence": "W6/R6 reused the existing import/export codecs, planner, validation, and shared dialogs from V2: desktop/adaptive/mobile now expose provisional import/export actions, t1 import into empty active team, mt1 replace, duplicate override, conflict strategy, active/all standard export, and active in-game export are covered by focused V2 tests.",
+      "next": "Terminal for this goal."
+    },
+    {
+      "id": "C8b",
+      "title": "Builder V2 transfer dialog parity",
+      "source_task": "S6",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "cross-team awakener/wheel/posse transfer confirmations",
+        "whole-team transfer resolution semantics",
+        "quick-lineup and selection interaction tests"
+      ],
+      "evidence": "W7/R7 reused existing transfer request, dialog, and resolution semantics in Builder V2: cross-team awakeners, wheels, and posses now open confirmation dialogs; cancel is non-mutating; confirm moves clear the source owner/socket; Use as Support keeps source ownership, marks the target support, sets level 90; adaptive/mobile drawer handoff and quick-lineup wait-for-confirm behavior are covered.",
+      "next": "Terminal for this goal. DnD transfer polish is future UX-mechanics work."
+    },
+    {
+      "id": "C7",
+      "title": "Teams overview redesign",
+      "source_task": "User prompt",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "V2 teams surface",
+        "team-management helpers",
+        "screenshot/share needs"
+      ],
+      "evidence": "W8/R8 implemented the functional C7 MVP using existing team-collection and builderDraftStore contracts: add/max, switch, inline rename commit/cancel/blank no-op, empty delete/reset direct behavior, non-empty delete/reset confirmations, D-Tide 5/10 template confirmation, and up/down reorder preserving active identity.",
+      "next": "Terminal for this goal. Final list/cards/share presentation belongs to designer/future polish."
+    },
+    {
+      "id": "C8",
+      "title": "Import/export and transfer parity",
+      "source_task": "Contract/test scouts",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "V2 dialogs",
+        "import/export hooks",
+        "transfer confirm hooks",
+        "tests"
+      ],
+      "evidence": "W6/R6 implemented Builder V2 import/export parity and W7/R7 implemented Builder V2 transfer dialog parity, closing the actionable C8 split without editing protected V1 builder code.",
+      "next": "Terminal for this goal. DnD/recommendations remain future UX-mechanics slices rather than C8 blockers."
+    },
+    {
+      "id": "C9",
+      "title": "Designer handoff bundle",
+      "source_task": "User clarification",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "Goal packet",
+        "Browser-plugin screenshots/browser smoke evidence",
+        "current /builder-v2 notes",
+        "concept-image traceability",
+        "unresolved visual/layout decisions",
+        "deferred UX mechanic notes"
+      ],
+      "evidence": "C9 added designer-handoff.md, Browser-plugin desktop captures, local mobile/adaptive viewport captures, concept-image traceability, explicit visual/layout scope, deferred UX-mechanic notes, and a pasteable designer prompt naming the mockups as the end goal.",
+      "next": "Terminal for this goal. Use the handoff as the next prompt source for the designer/design model."
+    }
+  ],
+  "maintenance": [
+    {
+      "id": "M1",
+      "title": "Builder V2 contract docs",
+      "trigger": "successful first tranche",
+      "skill": "$refactor-learning-maintainer",
+      "status": "superseded",
+      "next": "Superseded by the Builder V2 goal packet plus designer-handoff.md for this local rebuild. Add dedicated contract docs only if Builder V2 is promoted later.",
+      "superseded_by": "docs/refactor-goals/builder-v2-rebuild/designer-handoff.md and the completed goal packet",
+      "evidence": [
+        "C9 handoff captures the local Builder V2 product baseline, locked behavior, design target, and prompt; dedicated contract docs should wait for public promotion."
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Builder visual vocabulary drift guard",
+      "trigger": "repeated old-builder CSS/class reuse",
+      "skill": "$refactor-lint-law or $refactor-learning-maintainer",
+      "status": "out_of_scope_by_user",
+      "next": "No lint-law or AGENTS drift guard was required in this goal; visual vocabulary guidance is captured in designer-handoff.md and existing DESIGN.md/PRODUCT.md.",
+      "evidence": [
+        "No repeated visual-vocabulary drift guard or AGENTS/lint update was required during W1-W9; user scoped C9 to designer handoff rather than harness changes."
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "S1",
+      "role": "scout",
+      "status": "done",
+      "title": "Map Builder V2 rebuild scope",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-intake",
+        "$refactor-rootfix",
+        "$refactor-architecture",
+        "$refactor-react",
+        "$refactor-tailwind",
+        "$refactor-ui-a11y",
+        "$refactor-typescript"
+      ],
+      "allowed_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "src/index.css",
+        "DESIGN.md",
+        "PRODUCT.md",
+        "docs/design/**",
+        "builder/mobile-ux branch"
+      ],
+      "protected_files": [
+        "product code edits",
+        "remote state"
+      ],
+      "expected_output": "Evidence map for contracts, UX flow, tests, visual anchors, route integration, and interaction risks.",
+      "receipt": {
+        "summary": "Six read-only scouts mapped Builder V2 contracts, old branch UX flow, test coverage, visual anchors, route integration, and core interaction risks.",
+        "evidence": [
+          "Current contracts: reuse builderDraftStore, public-id migrations/persistence, team-state helpers, ownership projection, action factories, import/export helpers, DnD ids, and detail modal store.",
+          "Old branch: keep mobile overview/focused/picker/quick-lineup and tablet/desktop flow as reference only; drop old v2 store/persistence/action integration.",
+          "Tests: pure helper/store tests carry; current page tests are DOM-coupled and should be translated into V2 outcome tests.",
+          "Design: anchor to DESIGN/PRODUCT tokens, D-Zone/Timeline/database patterns, and docs/design screenshots; avoid old builder blue vocabulary.",
+          "Routing: add lazy /builder-v2 route in src/App.tsx, avoid nav entry in first slice.",
+          "Interaction risks: avoid direct slot mutation; keep helper paths for realm caps, duplicate identity, support transfer, quick-lineup focus, and overlay details."
+        ]
+      }
+    },
+    {
+      "id": "J1",
+      "role": "judge",
+      "status": "done",
+      "title": "Approve first Builder V2 Worker slice",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-architecture",
+        "$refactor-characterization-tests",
+        "$refactor-react",
+        "$refactor-tailwind"
+      ],
+      "allowed_files": [
+        "src/App.tsx",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/*.tsx",
+        "src/features/builder-v2/*.css"
+      ],
+      "protected_files": [
+        "src/features/builder/BuilderPage.tsx",
+        "src/features/builder/BuilderPage*.test.tsx",
+        "src/features/builder/builder-persistence.ts",
+        "src/features/builder/builderMigrations.ts",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json"
+      ],
+      "expected_output": "One bounded Worker concept scope for C1/C2/C3 with invariants, validation, rollback, and stop conditions.",
+      "receipt": {
+        "summary": "Approved first Worker as C1 plus smallest viable C2/C3: an isolated /builder-v2 route and bare awakener draft loop shell.",
+        "concept": "Builder V2 route and bare awakener draft loop shell",
+        "allowed_files": [
+          "src/App.tsx",
+          "src/features/builder-v2/BuilderV2Page.tsx",
+          "src/features/builder-v2/BuilderV2Page.test.tsx",
+          "src/features/builder-v2/useBuilderV2Model.ts",
+          "src/features/builder-v2/useBuilderV2Model.test.ts",
+          "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+          "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+          "src/features/builder-v2/builder-v2-test-mocks.ts if local mocks are needed",
+          "src/features/builder-v2/*.css only if Tailwind classes become unreadable"
+        ],
+        "invariants": [
+          "/builder remains protected and behaviorally untouched.",
+          "/builder-v2 is lazy-routed but absent from navigation.",
+          "V2 uses public ids and existing builderDraftStore; no new persistence/store/migration contract.",
+          "Slot assignment/removal goes through current helper/model paths.",
+          "Concept images guide layout density and responsive shape without being imported into runtime UI."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx",
+          "npm run test:integration",
+          "npx vitest run src/features/builder/useBuilderViewModel.test.ts src/features/builder/builder-persistence.test.ts src/features/builder/builder-ownership-projection.test.ts",
+          "npm run lint",
+          "npm run build"
+        ]
+      }
+    },
+    {
+      "id": "S2",
+      "role": "scout",
+      "status": "done",
+      "title": "Map concept image cues for first Builder V2 shell",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-tailwind",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "docs/design/Desktop.png",
+        "docs/design/Mobile.png",
+        "docs/design/Mobile-QuickLineup.png",
+        "docs/design/oracle-sendoff.md",
+        "DESIGN.md",
+        "PRODUCT.md"
+      ],
+      "protected_files": [
+        "product code edits"
+      ],
+      "expected_output": "First-slice visual/layout cues and deferrals from concept images.",
+      "receipt": {
+        "summary": "Visual scout mapped non-negotiable first-slice cues from the concept images.",
+        "evidence": [
+          "Desktop shell should read as left team rail, center active builder, right picker/armory, with team overview below.",
+          "Active team area should expose shallow team/posse header, quick lineup placeholder, four slot cards, and selected/editing state.",
+          "Mobile concepts should guide future app-like flow, not force full mobile drawer and quick-lineup implementation into the first slice.",
+          "Amber should remain state/current selection rather than decorative glow."
+        ]
+      }
+    },
+    {
+      "id": "W1",
+      "role": "worker",
+      "status": "done",
+      "title": "Build isolated Builder V2 awakener draft loop shell",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-tailwind",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/App.tsx",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/useBuilderV2Model.test.ts",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "src/features/builder-v2/builder-v2-test-mocks.ts",
+        "src/features/builder-v2/*.css"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "remote state"
+      ],
+      "expected_output": "Lazy /builder-v2 route, Builder V2 feature folder, thin model facade, concept-informed shell anatomy, four-slot active team UI, minimal awakener picker, assign/remove behavior, and focused tests.",
+      "receipt": {
+        "slice": "Builder V2 route and bare awakener draft loop shell",
+        "files_changed": [
+          "src/App.tsx",
+          "src/features/builder-v2/BuilderV2Page.tsx",
+          "src/features/builder-v2/BuilderV2Page.test.tsx",
+          "src/features/builder-v2/useBuilderV2Model.ts",
+          "src/features/builder-v2/useBuilderV2Model.test.ts",
+          "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+          "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+          "src/features/builder-v2/builder-v2-test-mocks.ts",
+          "src/features/builder-v2/builder-v2.css"
+        ],
+        "what_got_simpler": "Builder V2 now has an isolated route, feature folder, and typed model facade so the shell can render and mutate draft slot state without importing the current BuilderPage UI.",
+        "behavior_preserved": "/builder remained untouched; V2 assignment/removal goes through current team-state helpers, current draft store, current persistence loader/saver, current search helpers, and current identity duplicate handling.",
+        "current_complexity": "Current production builder remains unchanged and debt-heavy; V2 first slice is one route component, one model hook, two presentational surfaces, local CSS, and focused tests.",
+        "expected_complexity_after": "Later slices can add gear, posse, mobile drawer, teams, and import/export by extending the facade/components instead of editing the current monolith.",
+        "root_fix_patch_decision": "Root-fix slice: create a new Builder V2 boundary instead of patching the current BuilderPage.",
+        "dependency_review": "No dependency changes made or needed.",
+        "harness_update": "No AGENTS.md, lint, or plugin harness changes made; goal packet updated only.",
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 10 tests passed)",
+          "npx vitest run src/features/builder/useBuilderViewModel.test.ts src/features/builder/builder-persistence.test.ts src/features/builder/builder-ownership-projection.test.ts (3 files, 50 tests passed)",
+          "npm run test:integration (7 files, 57 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed)",
+          "Playwright smoke: http://127.0.0.1:5173/#/builder-v2 desktop 1440x1000 and mobile 390x844 rendered; console output was only React DevTools info"
+        ],
+        "risks": [
+          "V2 currently shares the existing builder persistence key by design, so visiting /builder-v2 can hydrate/save the same local draft as /builder.",
+          "Mobile is a responsive stack only; drawer, app-like focused flows, and quick-lineup are still queued.",
+          "Teams overview remains intentionally minimal pending list-vs-cards product direction."
+        ],
+        "follow_ups_not_done": [
+          "C4 gear and posse assignment",
+          "C5 mobile overview/focused/picker drawer flow",
+          "C6 quick-lineup mode",
+          "C7 teams overview redesign",
+          "C8 import/export and transfer parity"
+        ],
+        "learning_lint_candidates": [
+          "Consider a Builder V2 contract note after review if the facade boundary holds through the next tranche."
+        ],
+        "scope_expansion_requested": "None"
+      }
+    },
+    {
+      "id": "R1",
+      "role": "review",
+      "status": "done",
+      "title": "Review W1 Builder V2 route and draft loop shell",
+      "skills": [
+        "$refactor-review",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/App.tsx",
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "remote state"
+      ],
+      "expected_output": "Review the W1 diff, receipts, validation, and residual risk; decide whether the tranche needs fixes or can queue the next Builder V2 slice.",
+      "receipt": {
+        "summary": "Review found one blocking data-integrity issue, fixed in W1 before tranche close.",
+        "findings": [
+          "V2 initially assigned awakeners through active-team helpers only, so an awakener already used by another non-support team could be duplicated across teams and autosaved into shared builder persistence."
+        ],
+        "fix": [
+          "useBuilderV2Model now builds a non-support usedAwakenerByIdentityKey map like V1, respects the current allow-duplicates preference key, and blocks cross-team assignments when V2 has no transfer dialog available.",
+          "useBuilderV2Model.test.ts added a regression test proving an awakener already assigned to Team 2 cannot be assigned into Team 1 from V2."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 10 tests passed)",
+          "npx vitest run src/features/builder/useBuilderViewModel.test.ts src/features/builder/builder-persistence.test.ts src/features/builder/builder-ownership-projection.test.ts (3 files, 50 tests passed)",
+          "npm run test:integration (7 files, 57 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed)"
+        ],
+        "residual_risk": [
+          "Full transfer dialog parity remains queued for a later V2 slice.",
+          "Untracked screenshot/mockup artifacts remain intentionally outside the product commit unless selected later."
+        ]
+      }
+    },
+    {
+      "id": "S3",
+      "role": "scout",
+      "status": "done",
+      "title": "Map Builder V2 gear and posse contracts",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-react",
+        "$refactor-ui-a11y",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder/**",
+        "src/features/builder-v2/**",
+        "src/stores/builderDraftStore.ts",
+        "src/domain/**",
+        "docs/design/**"
+      ],
+      "protected_files": [
+        "product code edits",
+        "remote state"
+      ],
+      "expected_output": "Evidence map for C4 wheel, covenant, and posse contracts, tests, and least-polished usable V2 UI shape.",
+      "receipt": {
+        "summary": "Three read-only scouts mapped C4 contracts, pinned tests, and concept-image-aligned UI shape.",
+        "evidence": [
+          "TeamSlot already carries wheels and covenantId, while Team carries posseId.",
+          "Existing pure helpers cover wheel and covenant assign, clear, and swap behavior in team-state.ts.",
+          "Posse is team-level state handled through active team updates; V1 transfer behavior remains a larger deferred parity concern.",
+          "V1 tests pin same-team wheel movement, cross-team transfer requests, covenant assignment/swap, and posse transfer behavior.",
+          "C4 UI should make W1/W2/Covenant strip targets real buttons, make the header Posse target actionable, and activate Armory tabs for Awakeners, Wheels, Covenants, and Posses.",
+          "Mobile drawer, DnD, and full transfer dialogs should remain deferred for this slice."
+        ]
+      }
+    },
+    {
+      "id": "J2",
+      "role": "judge",
+      "status": "done",
+      "title": "Approve Builder V2 gear and posse Worker slice",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-architecture",
+        "$refactor-characterization-tests",
+        "$refactor-react",
+        "$refactor-ui-a11y",
+        "$refactor-tailwind"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/App.tsx",
+        "package.json",
+        "package-lock.json",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "global CSS outside builder-v2 scope",
+        "remote state"
+      ],
+      "expected_output": "One bounded Worker concept scope for C4 with in-scope behavior, deferrals, validation, rollback, and stop conditions.",
+      "receipt": {
+        "summary": "Approved C4 as a bounded Builder V2 patch slice.",
+        "concept": "Gear and posse assignment in Builder V2",
+        "candidate_ids": [
+          "C4"
+        ],
+        "in_scope": [
+          "Add Armory tabs for Awakeners, Wheels, Covenants, and Posses.",
+          "Reuse the existing Armory row-list pattern for all categories.",
+          "Make W1, W2, Covenant, and team Posse targets actionable controls.",
+          "Support visible assign and clear flows for wheels, covenants, and posse.",
+          "Use existing pure wheel/covenant helpers where practical.",
+          "Add focused V2 model/page tests for gear and posse assignment and clearing."
+        ],
+        "deferred": [
+          "Full V1 transfer dialogs.",
+          "Drag-and-drop.",
+          "Mobile drawer.",
+          "Old BuilderPage edits.",
+          "Persistence, migration, dependency, or global design-system changes."
+        ],
+        "validation": [
+          "npm test -- --run src/features/builder-v2",
+          "npm test -- --run src/features/builder",
+          "npm run lint",
+          "npm run build"
+        ]
+      }
+    },
+    {
+      "id": "W2",
+      "role": "worker",
+      "status": "done",
+      "title": "Build Builder V2 gear and posse assignment flow",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-tailwind",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "remote state"
+      ],
+      "expected_output": "Extend the Builder V2 model, armory picker, slot loadout controls, header posse target, local CSS, and focused tests for click-to-assign/clear wheel, covenant, and posse behavior without full transfer dialogs or DnD.",
+      "receipt": {
+        "slice": "Builder V2 gear and posse assignment flow",
+        "files_changed": [
+          "src/features/builder-v2/useBuilderV2Model.ts",
+          "src/features/builder-v2/useBuilderV2Model.test.ts",
+          "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+          "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+          "src/features/builder-v2/BuilderV2Page.tsx",
+          "src/features/builder-v2/BuilderV2Page.test.tsx",
+          "src/features/builder-v2/builder-v2.css",
+          "docs/refactor-goals/builder-v2-rebuild/state.json",
+          "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+        ],
+        "what_got_simpler": "The V2 model facade now owns one coherent click-to-assign path for awakeners, wheels, covenants, and posses instead of leaving gear as inert labels or relying on the old BuilderPage shell.",
+        "behavior_preserved": "/builder and shared builder contracts remained untouched; wheel and covenant updates use existing team-state helpers, active-team wheel reuse swaps/moves, cross-team duplicate wheel/posse assignment is blocked until transfer parity exists, and V2 still shares current draft persistence by design.",
+        "current_complexity": "Builder V2 now has one model hook, one armory surface with four tabs, one slot card surface with actionable loadout targets, and focused tests for the assignment loop.",
+        "expected_complexity_after": "Later slices can add transfer dialogs, DnD, recommendations, quick-lineup, and mobile drawer behavior without first inventing core gear/posse state flow.",
+        "root_fix_patch_decision": "Bounded patch on the new Builder V2 boundary; no old BuilderPage edits.",
+        "dependency_review": "No dependency changes made or needed.",
+        "harness_update": "No AGENTS.md, lint, or plugin harness changes made; goal packet updated only.",
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 20 tests passed)",
+          "npm test -- --run src/features/builder (33 files, 251 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed; existing Vite chunk-size and plugin timing warnings only)",
+          "Browser smoke: http://127.0.0.1:5173/#/builder-v2 desktop 1440x1000 and mobile 390x844 rendered; assigned an awakener and a wheel through the Armory"
+        ],
+        "risks": [
+          "Full transfer dialog parity is intentionally not implemented; V2 blocks cross-team duplicate wheel/posse assignment for now.",
+          "Mobile remains stacked responsive UI rather than the future app-like drawer flow.",
+          "Armory uses plain row lists for gear and posses; recommendation sorting and detailed filter controls remain future work."
+        ],
+        "follow_ups_not_done": [
+          "C5 mobile overview/focused/picker drawer flow",
+          "C6 quick-lineup mode",
+          "C7 teams overview redesign",
+          "C8 import/export and transfer parity",
+          "Recommended gear and posse promotion in V2"
+        ],
+        "learning_lint_candidates": [
+          "Consider a Builder V2 contract note once transfer/import parity establishes the facade boundary."
+        ],
+        "scope_expansion_requested": "None"
+      }
+    },
+    {
+      "id": "R2",
+      "role": "review",
+      "status": "done",
+      "title": "Review W2 Builder V2 gear and posse assignment flow",
+      "skills": [
+        "$refactor-review",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "remote state"
+      ],
+      "expected_output": "Review W2 diff, receipts, validation, residual risk, and scope boundaries.",
+      "receipt": {
+        "summary": "Review found two low-severity no-op repeat-click issues, both fixed before tranche close.",
+        "findings": [
+          "Repeatedly clicking an already assigned wheel on its selected socket showed a false failure message.",
+          "Repeatedly clicking an already assigned covenant on its selected slot showed a false failure message."
+        ],
+        "fix": [
+          "useBuilderV2Model now treats no-op same-wheel and same-covenant assignment as quiet state preservation.",
+          "useBuilderV2Model.test.ts added a regression test for repeated wheel and covenant assignments."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 20 tests passed)",
+          "npm test -- --run src/features/builder (33 files, 251 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed; existing Vite chunk-size and plugin timing warnings only)"
+        ],
+        "residual_risk": [
+          "Full transfer dialog parity remains queued.",
+          "Browser smoke screenshots and docs/design mockups remain intentionally untracked."
+        ]
+      }
+    },
+    {
+      "id": "S4",
+      "role": "scout",
+      "status": "done",
+      "title": "Map Builder V2 mobile, quick-lineup, and parity next slice",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-ui-a11y",
+        "$refactor-react",
+        "$refactor-architecture"
+      ],
+      "allowed_files": [
+        "read-only src/features/builder-v2/**",
+        "read-only src/features/builder/**",
+        "read-only src/stores/builderDraftStore.ts",
+        "read-only docs/design/**",
+        "read-only builder/mobile-ux branch",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "all project files from edits",
+        "remote state"
+      ],
+      "expected_output": "Read-only evidence mapping for C5 mobile flow, C6 quick-lineup contracts, and C5-C8 dependency ordering.",
+      "receipt": {
+        "summary": "Three read-only scouts mapped mobile drawer/focused flow, quick-lineup contracts, and queued candidate ordering after W2.",
+        "agents": [
+          "019e4d0b-db70-7720-a672-bda9a4d4403f",
+          "019e4d0b-ef58-7df3-849b-ff6293ec44fe",
+          "019e4d0c-035d-7ca1-8823-9b9dac780dcd"
+        ],
+        "evidence": [
+          "Mobile.png defines C5 as three mobile states: Team Overview, Active Character Builder, and Picker as a full-screen drawer, not the current stacked armory.",
+          "builder/mobile-ux modeled overview/focused/picker/quick-lineup flow, but should remain flow evidence only because its store/persistence and drawer semantics are outdated.",
+          "quick-lineup.ts and builderDraftStore already expose reusable quick-lineup session, focus, advance, back, cancel, finish, and jump behavior.",
+          "V2 has assignment actions for awakeners, wheels, covenants, and posses after W2, so C6 is unlocked without touching shared store/helper behavior.",
+          "C7 remains product/design blocked by list-vs-cards uncertainty; C8 remains broader parity work around import/export and transfer dialogs."
+        ],
+        "recommendation": "C6 is structurally safer before C5 because it proves guided focus/picker synchronization before mobile drawer focus management."
+      }
+    },
+    {
+      "id": "J3",
+      "role": "judge",
+      "status": "done",
+      "title": "Approve Builder V2 Quick Lineup Worker slice",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-architecture",
+        "$refactor-characterization-tests",
+        "$refactor-react",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state"
+      ],
+      "expected_output": "One bounded Worker scope for C6 with in-scope behavior, deferrals, invariants, validation, rollback, stop conditions, and acceptance criteria.",
+      "receipt": {
+        "summary": "Approved C6 as the next bounded Builder V2 Worker slice, ahead of C5 mobile drawer work.",
+        "decision": "Activate C6: Quick Lineup V2 mode. Do not activate C5 yet.",
+        "candidate_ids": [
+          "C6"
+        ],
+        "in_scope": [
+          "Enable the existing disabled Quick Team Lineup button on /builder-v2.",
+          "Expose quickLineupSession and start/advance/back/skip/finish/cancel actions through useBuilderV2Model by consuming existing builderDraftStore actions.",
+          "Synchronize quick-lineup focus into V2 pickerTab, activeSelection, and activeTeamTarget, including the posse step.",
+          "Add compact visible quick-lineup controls/status in the active team surface.",
+          "After successful V2 assignments, advance to the next quick-lineup step using existing store/helper semantics.",
+          "Support cancel restoring the original active team state and finish ending quick-lineup without changing /builder.",
+          "Keep controls keyboard-accessible with real buttons and stable labels."
+        ],
+        "deferred": [
+          "C5 mobile overview/focused/full-screen picker drawer and focus trap.",
+          "Transfer dialogs and cross-team move confirmations.",
+          "Drag-and-drop.",
+          "Recommendations/smart sorting.",
+          "Teams overview redesign.",
+          "Import/export parity.",
+          "Any shared store/helper behavior changes unless scope expansion is approved."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx",
+          "npm test -- --run src/features/builder",
+          "npm run lint",
+          "npm run build",
+          "Browser smoke /builder-v2 at desktop and mobile widths: start quick lineup, assign awakener, advance/back, cancel restores state."
+        ]
+      }
+    },
+    {
+      "id": "W3",
+      "role": "worker",
+      "status": "done",
+      "title": "Build Builder V2 Quick Lineup mode",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state"
+      ],
+      "expected_output": "Enable Builder V2 Quick Lineup mode through the V2 model/page/components/tests, using existing builderDraftStore quick-lineup actions and preserving all shared builder behavior.",
+      "receipt": {
+        "slice": "Builder V2 Quick Lineup mode",
+        "files_changed": [
+          "src/features/builder-v2/useBuilderV2Model.ts",
+          "src/features/builder-v2/useBuilderV2Model.test.ts",
+          "src/features/builder-v2/BuilderV2Page.tsx",
+          "src/features/builder-v2/BuilderV2Page.test.tsx",
+          "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+          "src/features/builder-v2/builder-v2.css",
+          "docs/refactor-goals/builder-v2-rebuild/goal.md",
+          "docs/refactor-goals/builder-v2-rebuild/state.json",
+          "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+        ],
+        "what_got_simpler": "Builder V2 now exposes a single guided quick-lineup path through the existing V2 model facade instead of keeping the Quick Team Lineup entry point as inert UI.",
+        "behavior_preserved": "/builder files and shared builderDraftStore/quick-lineup helpers were not edited; V2 consumes existing quick-lineup store actions and keeps W1/W2 duplicate and assignment guards intact.",
+        "current_complexity": "Builder V2 has a model-owned quickLineupSession view, compact page controls, and existing slot/picker surfaces that synchronize through activeSelection/pickerTab.",
+        "expected_complexity_after": "C5 mobile drawer/focused layout can consume a proven guided focus contract instead of inventing separate mobile selection semantics.",
+        "data_access_render_invariants": [
+          "Quick-lineup uses public-id Team/TeamSlot contracts from the current builder store.",
+          "Starting quick-lineup clears the active team via existing builderDraftStore behavior and cancel restores the original team.",
+          "Successful V2 assignment actions advance quick-lineup without bypassing existing team-state helper validation.",
+          "During quick-lineup, destructive clear/remove controls are hidden from V2 slot cards to avoid conflicting with guided focus."
+        ],
+        "root_fix_patch_decision": "Bounded root-fix slice inside the Builder V2 facade/UI boundary; no old BuilderPage edits and no shared store/helper changes.",
+        "dependency_review": "No dependency changes made or needed.",
+        "characterization": "Added V2 model/page tests for start, assignment advance, back/next, cancel restore, manual target jump, and final posse completion; existing V1 builder suite stayed green.",
+        "harness_update": "No AGENTS.md, lint, dependency, or plugin harness changes made; goal packet updated only.",
+        "validation": [
+          "Red run observed before implementation: npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx failed on missing quick-lineup API/disabled UI.",
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 26 tests passed)",
+          "npm test -- --run src/features/builder (33 files, 257 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed; existing Vite chunk-size and plugin timing warnings only)",
+          "Browser smoke: http://127.0.0.1:5173/#/builder-v2 desktop 1440x1000 and mobile 390x844 rendered; quick-lineup start, assignment advance, next/back, and cancel were exercised."
+        ],
+        "risks": [
+          "C5 mobile drawer/focused app flow remains queued, so mobile still uses the stacked shell while quick-lineup controls are functional.",
+          "Full transfer dialogs remain queued; V2 still blocks cross-team duplicate transfer cases rather than opening V1 transfer confirmations.",
+          "Quick-lineup controls are compact and functional rather than final visual polish."
+        ],
+        "follow_ups_not_done": [
+          "C5 mobile overview/focused/full-screen picker drawer flow",
+          "C7 teams overview redesign",
+          "C8 import/export and transfer parity",
+          "Recommended sorting/filter polish for quick-lineup picks"
+        ],
+        "learning_lint_candidates": [
+          "No durable harness/lint candidate yet; this slice stayed inside the approved V2 boundary."
+        ],
+        "scope_expansion_requested": "None"
+      }
+    },
+    {
+      "id": "R3",
+      "role": "review",
+      "status": "done",
+      "title": "Review W3 Builder V2 Quick Lineup mode",
+      "skills": [
+        "$refactor-review",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state"
+      ],
+      "expected_output": "Review W3 diff, receipts, validation, focus synchronization, quick-lineup invariants, and scope boundaries before C6 can be marked implemented.",
+      "receipt": {
+        "summary": "Review passed with no findings.",
+        "findings": [],
+        "validation_reviewed": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 26 tests passed)",
+          "npm test -- --run src/features/builder (33 files, 257 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed; existing Vite chunk-size and plugin timing warnings only)",
+          "Browser smoke desktop/mobile /builder-v2 quick-lineup flow"
+        ],
+        "residual_risk": [
+          "C5 mobile drawer/focus-trap flow remains queued.",
+          "Transfer dialogs, DnD, recommendations, and import/export parity remain queued.",
+          "Quick-lineup inherits existing transient store behavior where starting a session clears the active team and stores a restore snapshot until finish/cancel."
+        ],
+        "verdict": "R3 passes; W3 stays inside approved scope and C6 can be marked implemented."
+      }
+    },
+    {
+      "id": "S5",
+      "role": "scout",
+      "status": "done",
+      "title": "Map C5 mobile layout and drawer test scope",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-ui-a11y",
+        "$refactor-react"
+      ],
+      "allowed_files": [
+        "read-only src/features/builder-v2/**",
+        "read-only docs/design/Desktop.png",
+        "read-only docs/design/Mobile.png",
+        "read-only docs/design/Mobile-QuickLineup.png",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "all project files from edits",
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "builder persistence key/version",
+        "builder migrations",
+        "dependency files",
+        "remote state"
+      ],
+      "expected_output": "Read-only evidence for the C5 mobile overview/focused/full-screen picker drawer implementation seam and focused failing tests.",
+      "receipt": {
+        "summary": "Two read-only scouts mapped C5 as a mobile shell/orchestration slice around the existing W3 quick-lineup and picker contracts.",
+        "agents": [
+          "019e4d72-a332-7591-9c83-8e772c2c0ca5",
+          "019e4d72-d0c3-77c3-8a1b-e3ac1d65ce3c"
+        ],
+        "evidence": [
+          "Current Builder V2 data flow already exposes pickerTab, activeSelection, activeTeamTarget, quickLineupSession, assignment actions, and quick-lineup controls through useBuilderV2Model.",
+          "Current mobile behavior is CSS stacking only; it does not provide concept-image overview/focused/picker app states, dialog semantics, Escape handling, or focus return.",
+          "The C5 implementation seam should keep model logic in useBuilderV2Model, keep desktop behavior stable, extract reusable picker content from the current armory aside, and add mobile-only orchestration under src/features/builder-v2/**.",
+          "The smallest useful tests should assert mobile picker dialog naming, correct picker tab/search focus for slot and wheel targets, Escape close, and focus return to the invoking control.",
+          "Out of scope remains shared store/helper changes, current /builder edits, import/export, DnD, transfer dialogs, recommendations, and deep teams redesign."
+        ]
+      }
+    },
+    {
+      "id": "J4",
+      "role": "judge",
+      "status": "done",
+      "title": "Approve C5 mobile overview and picker drawer Worker slice",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-architecture",
+        "$refactor-characterization-tests",
+        "$refactor-react",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/useBuilderV2Model.ts only for derived UI labels/state already backed by existing model data",
+        "src/features/builder-v2/useBuilderV2Model.test.ts only if useBuilderV2Model.ts changes",
+        "src/features/builder-v2/builder-v2.css",
+        "new src/features/builder-v2/*.tsx files for extracted picker/mobile drawer components",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state"
+      ],
+      "expected_output": "One bounded Worker scope for C5 mobile overview/focused/full-screen picker drawer orchestration, dialog focus management, focused tests, and desktop non-regression.",
+      "receipt": {
+        "summary": "Approved C5 as the next Worker slice after S5.",
+        "decision": "Implement mobile-only overview/focused/full-screen picker drawer orchestration around the existing Builder V2 model and picker contracts.",
+        "candidate_ids": [
+          "C5"
+        ],
+        "in_scope": [
+          "Mobile overview to focused builder to full-screen picker drawer flow for /builder-v2.",
+          "Reuse useBuilderV2Model picker, active selection, posse target, quick-lineup, and assignment actions.",
+          "Extract reusable picker content so desktop armory and mobile drawer share rows, search, and tabs.",
+          "Mobile slot, wheel, covenant, and posse target controls open a named full-screen picker dialog with the correct tab selected.",
+          "Dialog semantics: role dialog, accessible name, aria-modal, close button, Escape close, initial search focus, and focus return.",
+          "Local Builder V2 CSS/media-query work for app-like mobile states.",
+          "Focused mobile drawer tests and desktop non-regression."
+        ],
+        "deferred": [
+          "Teams overview redesign beyond minimal mobile navigation.",
+          "Import/export.",
+          "Transfer dialogs and cross-team move confirmations.",
+          "Drag-and-drop.",
+          "Recommendations and smart sorting.",
+          "Shared store/helper changes.",
+          "/builder behavior or visual changes.",
+          "/builder-v2 nav promotion.",
+          "Dependency additions."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx",
+          "npm test -- --run src/features/builder",
+          "npm run test:integration",
+          "npm run lint",
+          "npm run build",
+          "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-rebuild"
+        ],
+        "acceptance": [
+          "Required tests fail before implementation and pass after.",
+          "Mobile overview/focused/full-screen picker drawer works through existing Builder V2 model actions.",
+          "Drawer has dialog semantics, Escape close, search focus, and focus return.",
+          "Desktop Builder V2 W1-W3 behavior remains green.",
+          "No protected files changed.",
+          "C5 becomes implemented while C7, C8, and C9 remain queued."
+        ]
+      }
+    },
+    {
+      "id": "W4",
+      "role": "worker",
+      "status": "done",
+      "title": "Build C5 mobile overview and picker drawer flow",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/useBuilderV2Model.test.ts",
+        "src/features/builder-v2/builder-v2.css",
+        "src/features/builder-v2/*.tsx",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state"
+      ],
+      "expected_output": "Mobile overview/focused/full-screen picker drawer flow with shared picker content, dialog focus management, TDD coverage, and preserved desktop Builder V2 behavior.",
+      "receipt": {
+        "slice": "C5 mobile overview/focused/full-screen picker drawer flow",
+        "files_changed": [
+          "src/features/builder-v2/BuilderV2MobileLayout.tsx",
+          "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+          "src/features/builder-v2/BuilderV2Page.tsx",
+          "src/features/builder-v2/BuilderV2Page.test.tsx",
+          "src/features/builder-v2/builder-v2.css",
+          "docs/refactor-goals/builder-v2-rebuild/goal.md",
+          "docs/refactor-goals/builder-v2-rebuild/state.json",
+          "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+        ],
+        "behavior_added": [
+          "Mobile /builder-v2 now branches into an app-like overview, focused slot builder, and full-screen picker drawer at <= 768px.",
+          "Desktop Builder V2 keeps the existing rail/workbench/armory shell and reuses extracted picker content.",
+          "Mobile slot, wheel, covenant, and posse targets open a named dialog with the correct picker tab and search focus.",
+          "Escape closes the mobile picker and returns focus to the invoking control; reopened same-target pickers preserve their assignment target.",
+          "Mobile quick-lineup derives the visible focused slot from quickLineupSession.currentStep so assignment advance and Back/Next stay aligned with the guided target."
+        ],
+        "behavior_preserved": [
+          "/builder files, shared builderDraftStore, persistence/migrations, generated data, dependencies, route glue, and global CSS were not edited.",
+          "Builder V2 still uses the existing useBuilderV2Model assignment and quick-lineup store semantics rather than introducing a mobile-specific model.",
+          "Untracked docs/design and smoke screenshot artifacts were left unstaged/excluded from W4 packaging."
+        ],
+        "root_fix_patch_decision": "Bounded root-fix inside the isolated Builder V2 UI orchestration boundary: mobile focus state now derives from the model-owned quick-lineup step instead of duplicating guided selection semantics.",
+        "dependency_review": "No dependency changes made or needed.",
+        "characterization": [
+          "Observed red run before implementation: BuilderV2Page mobile tests failed because overview/dialog/focus behavior did not exist.",
+          "Observed red run during browser-found edge case: reopened same mobile target after Escape assigned to the wrong slot until the target selection guard was added.",
+          "Observed red run from reviewer finding: quick-lineup Step 5 showed Slot 2 in model text while the focused panel still showed Slot 1/Goliath until derived quick-lineup focus landed.",
+          "Added page tests for mobile overview, focused slot, drawer search focus, wheel tab selection, Escape focus return, reopened same-target assignment, and quick-lineup focused-slot sync through assignment plus Back/Next."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 32 tests passed)",
+          "npm test -- --run src/features/builder (33 files, 263 tests passed)",
+          "npm run test:integration (7 files, 57 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed; existing Vite chunk-size and plugin timing warnings only)",
+          "Browser smoke: /builder-v2 desktop 1440x1000 assigned Goliath and Merciful Nurturing with no dialog; mobile 390x844 covered overview, drawer search focus, Escape focus return, reopened Slot 2 assignment, quick-lineup Step 2, and Slot 1 -> Slot 2 quick-lineup focus sync with Back/Next."
+        ],
+        "review": "R4 initially found a high quick-lineup focus drift and medium untracked-artifact packaging note; the focus drift was fixed and the final reviewer verdict was complete with no findings.",
+        "risks": [
+          "Successful picker assignment closes without explicit focus restoration because the visible target panel can change after assignment.",
+          "Final quick-lineup completion/cancel may fall back to the last manual focus slot; reviewer did not consider this blocking for C5.",
+          "Teams overview redesign, tablet-specific layout, transfer dialogs, DnD, recommendations, and import/export parity remain queued."
+        ],
+        "scope_expansion_requested": "None"
+      }
+    },
+    {
+      "id": "R4",
+      "role": "review",
+      "status": "done",
+      "title": "Review W4 C5 mobile overview and picker drawer flow",
+      "skills": [
+        "$refactor-review",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state"
+      ],
+      "expected_output": "Review W4 diff, receipts, validation, mobile drawer semantics, quick-lineup focus sync, protected scope, and packaging boundaries before C5 can be marked implemented.",
+      "receipt": {
+        "summary": "Review passed after one required fix.",
+        "reviewer": "019e4d89-6b1f-73d0-a9d2-13f4b381639f",
+        "initial_findings": [
+          "High: mobile quick-lineup focus could drift from the active quick-lineup target after advancing from Slot 1 covenant to Slot 2 awakener.",
+          "Medium: untracked docs/design and smoke screenshots must stay excluded from W4 packaging unless explicitly selected."
+        ],
+        "fixes_reviewed": [
+          "BuilderV2MobileLayout now derives focusedSlotId from quickLineupSession.currentStep while quick-lineup is active and uses manual focus only for normal mobile browsing.",
+          "BuilderV2Page.test.tsx covers Slot 1 completion, automatic Slot 2 focus, and Back/Next mobile focus synchronization.",
+          "Untracked docs/design and screenshot artifacts are explicitly excluded from staging/commit for W4."
+        ],
+        "final_findings": [],
+        "final_verdict": "complete",
+        "validation_reviewed": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 32 tests passed)",
+          "npm test -- --run src/features/builder (33 files, 263 tests passed)",
+          "npm run test:integration (7 files, 57 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed; existing Vite chunk-size and plugin timing warnings only)",
+          "Browser targeted smoke for mobile quick-lineup Slot 1 -> Slot 2 focus sync with Back/Next"
+        ],
+        "residual_risk": [
+          "Successful picker assignment closes without explicit focus restoration because the visible panel may change after assignment.",
+          "Final quick-lineup completion/cancel may fall back to the last manual focus slot; not blocking for C5.",
+          "Teams overview, tablet polish, import/export, DnD, transfer parity, and designer handoff remain queued."
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "role": "scout",
+      "status": "done",
+      "title": "Scout next Builder V2 major chunk after C5",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-architecture",
+        "$refactor-react",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "read-only src/features/builder-v2/**",
+        "read-only src/features/builder/**",
+        "read-only src/stores/builderDraftStore.ts",
+        "read-only docs/design/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "all project files from edits",
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "dependency files",
+        "remote state"
+      ],
+      "expected_output": "Read-only evidence for the next viable Builder V2 Worker candidate after C5, including tablet/adaptive shell, C7 teams overview, C8 import/export/transfer parity, and C9 handoff readiness.",
+      "receipt": {
+        "summary": "Three read-only scouts mapped viable next chunks after C5 and recommended splitting the remaining work into tablet/adaptive shell, team overview readiness, import/export parity, transfer parity, and final handoff slices.",
+        "agents": [
+          "019e4d96-1e2e-7381-b0fc-692b748379ef",
+          "019e4d96-5597-7731-a4a4-f2e4daf49857",
+          "019e4d96-89a6-7631-8ff0-1af62064d388"
+        ],
+        "evidence": [
+          "Tablet/adaptive shell is a viable standalone slice because JS switches to mobile only at <= 768px while CSS collapses the desktop shell at <= 66rem, leaving 769-1056px as an undesigned stacked desktop fallback.",
+          "C8 is viable if split: import/export parity can reuse existing builder import/export helpers/codecs and V2 model seams, while cross-team transfer confirmation should remain a later C8b slice.",
+          "Full C7 teams overview redesign remains product/design blocked by the list-vs-cards decision, but a smaller read-only team overview readiness component could be viable without team CRUD or final layout commitment.",
+          "C9 final designer handoff remains premature until C7/C8 or their selected sub-slices are resolved; a handoff-readiness note can be kept in the packet but not treated as final handoff.",
+          "All next candidates should stay inside src/features/builder-v2/** plus focused tests and packet files; current /builder, shared store, persistence, migrations, dependencies, generated data, nav, and remote state remain protected."
+        ]
+      }
+    },
+    {
+      "id": "J5",
+      "role": "judge",
+      "status": "done",
+      "title": "Approve C6a tablet/adaptive workbench Worker slice",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-architecture",
+        "$refactor-characterization-tests",
+        "$refactor-react",
+        "$refactor-ui-a11y",
+        "$refactor-tailwind"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/builder-v2.css",
+        "new src/features/builder-v2/*.tsx files for adaptive shell/drawer components",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "nav/shared app chrome",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state",
+        "unrelated untracked docs/design/** and smoke screenshots"
+      ],
+      "expected_output": "One bounded Worker scope for C6a tablet/adaptive workbench shell with invariants, red tests, validation, browser smoke, rollback, and acceptance criteria.",
+      "receipt": {
+        "summary": "Approved C6a as the next Worker slice after S6.",
+        "decision": "Implement C6a only: Tablet/adaptive workbench shell.",
+        "candidate_ids": [
+          "C6a"
+        ],
+        "why_now": "C6a fixes a verified structural gap between completed desktop and mobile work: React uses mobile only at <=768px while CSS collapses desktop at <=66rem. It is local and testable without forcing C7 team design or C8 parity decisions.",
+        "in_scope": [
+          "Explicit adaptive/tablet viewport behavior for 769px..66rem.",
+          "Active builder remains the primary surface at adaptive widths.",
+          "Compact teams rail/sidebar for active-team switching only.",
+          "Picker drawer/overlay for adaptive widths, reusing BuilderV2PickerContent.",
+          "Preserve desktop >66rem and mobile <=768px behavior.",
+          "Local Builder V2 CSS and focused V2 tests."
+        ],
+        "deferred": [
+          "Full C7 teams overview redesign and list-vs-cards choice.",
+          "Import/export parity.",
+          "Transfer confirmation semantics.",
+          "DnD and recommendations.",
+          "Nav promotion, shared store changes, /builder edits, dependencies, persistence, and migrations."
+        ],
+        "invariants": [
+          "/builder behavior remains untouched.",
+          "/builder-v2 remains unpromoted from nav.",
+          "Mobile <=768px still uses the W4 mobile overview/focused/full-screen picker drawer flow.",
+          "Desktop >66rem keeps the existing rail/workbench/armory shell.",
+          "Adaptive widths must not fall back to the current stacked desktop shell.",
+          "Assign/clear actions continue through useBuilderV2Model; no direct slot mutation.",
+          "No new persistence, migrations, dependencies, or shared store contracts."
+        ],
+        "tdd_characterization": [
+          "At 900px, BuilderV2Page renders adaptive workbench rather than mobile overview.",
+          "At 900px, active team slots are primary and available before picker content in the interaction path.",
+          "At 900px, compact team switching changes the active team without team CRUD.",
+          "At 900px, opening adaptive picker drawer/overlay from awakener or wheel target selects the correct tab and focuses search.",
+          "Escape closes adaptive picker and restores focus to the invoking control.",
+          "Regression tests prove 390px mobile drawer behavior and 1200px/1440px desktop armory behavior still pass."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx",
+          "npm test -- --run src/features/builder",
+          "npm run test:integration",
+          "npm run lint",
+          "npm run build",
+          "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-rebuild"
+        ],
+        "browser_smoke": [
+          "Desktop 1440x1000: active builder plus armory visible; no adaptive/mobile drawer regression.",
+          "Tablet/adaptive 900x1100 and 1024x768: active builder primary, compact teams usable, picker opens as drawer/overlay, assignment works.",
+          "Mobile 390x844: W4 overview/focused/picker drawer and quick-lineup focus still work."
+        ],
+        "rollback_stop_conditions": [
+          "Stop if adaptive shell needs files outside allowed scope.",
+          "Stop if product/design decisions are needed for team overview shape.",
+          "Stop if implementation requires store, persistence, route/nav, dependency, or /builder changes.",
+          "Stop after two verification failures on the same blocker.",
+          "Rollback by removing adaptive component/CSS/test additions inside src/features/builder-v2/**."
+        ],
+        "acceptance": [
+          "New red tests fail before implementation and pass after.",
+          "Tablet gap is closed with a distinct adaptive shell.",
+          "Mobile and desktop regressions remain green.",
+          "No protected files changed.",
+          "C6a can be marked implemented; C7a, C8a, C8b, and C9 remain queued."
+        ]
+      }
+    },
+    {
+      "id": "W5",
+      "role": "worker",
+      "status": "done",
+      "title": "Build C6a tablet/adaptive workbench shell",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-tailwind",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/builder-v2.css",
+        "src/features/builder-v2/*.tsx",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "nav/shared app chrome",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state",
+        "unrelated untracked docs/design/** and smoke screenshots"
+      ],
+      "expected_output": "Tablet/adaptive Builder V2 workbench shell for 769px..66rem with compact team switching, picker drawer/overlay, TDD coverage, preserved mobile/desktop behavior, browser smoke, review, and packet receipt.",
+      "receipt": {
+        "slice": "C6a tablet/adaptive workbench shell",
+        "files_changed": [
+          "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+          "src/features/builder-v2/BuilderV2Page.tsx",
+          "src/features/builder-v2/BuilderV2Page.test.tsx",
+          "src/features/builder-v2/builder-v2.css",
+          "docs/refactor-goals/builder-v2-rebuild/state.json",
+          "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+        ],
+        "behavior_added": [
+          "BuilderV2Page now chooses desktop, adaptive, or mobile shells with explicit breakpoints: mobile <=768px, adaptive 769px..1056px, desktop >1056px.",
+          "Adaptive widths render a distinct workbench rather than the prior stacked desktop fallback, keeping active team slots primary and moving team switching into a compact rail.",
+          "Adaptive picker opens as a modal drawer using shared BuilderV2PickerContent, with search focus on open/tab change, Escape close, and focus return to the invoking control.",
+          "Adaptive drawer blocks background interaction with a full-screen backdrop, body scroll lock, and aria-hidden header/workbench while open.",
+          "Invalid adaptive assignments stay in the drawer and surface the model violation as an alert, including no-awakener wheel targets and awakened slots with no empty wheel target."
+        ],
+        "behavior_preserved": [
+          "Desktop >1056px keeps the existing rail/workbench/armory shell and visible armory behavior.",
+          "Mobile <=768px keeps the W4 overview/focused/full-screen picker drawer flow.",
+          "/builder files, shared builderDraftStore, route/nav, persistence, migrations, generated data, dependencies, and global CSS outside builder-v2 were not edited.",
+          "Unrelated untracked docs/design and prior smoke screenshot artifacts remain excluded from the product slice."
+        ],
+        "root_fix_patch_decision": "Bounded root-fix inside Builder V2 UI orchestration: the breakpoint gap now has an explicit adaptive shell instead of relying on desktop CSS collapse.",
+        "dependency_review": "No dependency changes made or needed.",
+        "characterization": [
+          "Observed red run before implementation: four adaptive tests failed because there was no adaptive workbench, compact adaptive teams group, or adaptive picker trigger/drawer.",
+          "Added page coverage for 900px adaptive shell routing, compact team switching, adaptive picker focus/Escape focus return, wheel-tab drawer opening, invalid no-awakener wheel assignment, and full-wheel-slot no-target behavior.",
+          "Existing desktop and mobile page tests continue to cover 1200px desktop armory and 390px mobile overview/focused drawer behavior."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/BuilderV2Page.test.tsx (1 file, 20 tests passed)",
+          "npx eslint src/features/builder-v2/BuilderV2Page.tsx src/features/builder-v2/BuilderV2AdaptiveLayout.tsx src/features/builder-v2/BuilderV2Page.test.tsx (passed)",
+          "npx vitest run src/features/builder-v2 (2 files, 38 tests passed)",
+          "npm run build (passed; existing Vite chunk-size/plugin timing warnings only)",
+          "git diff --check (passed)",
+          "Browser smoke: 1440x1000 desktop armory visible and no adaptive shell; 900x1000 adaptive shell with drawer search focus, backdrop coverage, and body scroll lock; 1024x768 invalid wheel assignment kept dialog open with alert; 390x844 mobile overview/focused drawer search focus still worked."
+        ],
+        "review": "R5 reviewer found the initial untracked adaptive component packaging issue and adaptive modal/invalid-assignment edge cases. Fixes added backdrop/body-lock/background hiding, in-drawer alerts, conservative assignment close behavior, full-wheel-slot coverage, and staged the new adaptive component. Final reviewer verdict: no blocking findings.",
+        "risks": [
+          "Adaptive drawer uses conservative close heuristics because model assignment handlers do not return explicit success/failure; some valid edge assignments may keep the drawer open longer than ideal.",
+          "Full team overview shape, import/export parity, transfer confirmation semantics, DnD, recommendations, and final designer handoff remain queued."
+        ],
+        "scope_expansion_requested": "None"
+      }
+    },
+    {
+      "id": "R5",
+      "role": "review",
+      "status": "done",
+      "title": "Review W5 C6a tablet/adaptive workbench shell",
+      "skills": [
+        "$refactor-review",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "global CSS outside src/features/builder-v2/**",
+        "remote state"
+      ],
+      "expected_output": "Review W5 diff, adaptive modal semantics, focus management, test coverage, protected scope, and packaging before C6a can be marked implemented.",
+      "receipt": {
+        "summary": "Review passed after addressing modal semantics, invalid assignment, and packaging findings.",
+        "reviewer": "019e4da3-2094-70b2-b7f4-00f7b21e301f",
+        "findings": [
+          "Medium: BuilderV2AdaptiveLayout.tsx was initially untracked while BuilderV2Page imported it.",
+          "Medium: adaptive picker used aria-modal without a backdrop or inert/background handling, leaving exposed builder controls operable behind the drawer.",
+          "Low: failed adaptive assignments could close the drawer and leave focus on an unmounted picker row.",
+          "Low follow-up: full-wheel awakened-slot targets could still close before the model reported no available wheel target."
+        ],
+        "fixes_reviewed": [
+          "The new adaptive component was staged for packaging.",
+          "Adaptive picker now renders inside a full-screen backdrop, hides header/workbench from assistive tech while open, locks body scroll, and preserves Escape focus return.",
+          "Invalid adaptive assignments stay inside the drawer and surface model violation messages as alerts.",
+          "Full-wheel-slot no-target assignment is covered by a focused regression test and no longer closes the drawer prematurely."
+        ],
+        "final_findings": [],
+        "final_verdict": "complete",
+        "validation_reviewed": [
+          "BuilderV2Page.test.tsx 20 passed",
+          "src/features/builder-v2 38 passed",
+          "changed-file eslint passed",
+          "npm run build passed",
+          "git diff --check passed",
+          "Browser smoke passed for desktop, adaptive, invalid adaptive assignment, and mobile focused drawer flows"
+        ],
+        "residual_risk": [
+          "Adaptive picker close behavior is based on conservative UI heuristics because the model assignment API does not return an explicit success/failure result."
+        ]
+      }
+    },
+    {
+      "id": "J6",
+      "role": "judge",
+      "status": "done",
+      "title": "Approve C8a Builder V2 import/export Worker slice",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-architecture",
+        "$refactor-characterization-tests",
+        "$refactor-react",
+        "$refactor-ui-a11y",
+        "$refactor-typescript"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+        "src/features/builder-v2/BuilderV2MobileLayout.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/useBuilderV2Model.test.ts",
+        "new src/features/builder-v2/*.tsx files for local import/export action/dialog wrappers",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain import/export codecs",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "nav/shared app chrome",
+        "remote state",
+        "unrelated untracked docs/design/** and smoke screenshots"
+      ],
+      "expected_output": "One bounded Worker scope for C8a import/export parity with invariants, red tests, validation, rollback, and acceptance criteria.",
+      "receipt": {
+        "summary": "Approved C8a as the next Worker slice after W5/R5.",
+        "decision": "Implement C8a only: Builder V2 import/export parity.",
+        "candidate_ids": [
+          "C8a"
+        ],
+        "why_now": "C8a advances core builder usefulness more than team overview polish, reuses already-factored V1 codecs/planner/dialog primitives, and avoids the broader whole-team transfer semantics of C8b.",
+        "rejected_or_deferred": [
+          "C7a deferred because it is team-section screenshot/readiness polish while core parity still has gaps.",
+          "C7 deferred because full teams overview remains blocked on list-vs-cards and compact-vs-expanded product/design choices.",
+          "C8b deferred because transfer dialog parity changes cross-team ownership and whole-team mutation semantics.",
+          "C8 parent remains an umbrella only; activate C8a/C8b child slices instead.",
+          "C9 deferred because final designer handoff is premature before core parity gaps are resolved."
+        ],
+        "in_scope": [
+          "Standard t1 single-team import into an empty active team.",
+          "mt1 multi-team import with replace confirmation.",
+          "Active-team standard export, all-teams standard export, and active-team in-game export.",
+          "Duplicate override flow when an import requires enabling Allow Dupes.",
+          "Single-team import conflict strategy flow when incoming awakeners, wheels, or posse are already used.",
+          "Desktop, adaptive, and mobile V2 layouts expose a usable import/export path."
+        ],
+        "deferred": [
+          "Transfer-confirmation parity and whole-team transfer resolution.",
+          "DnD, recommendations, full teams overview redesign, nav promotion, dependencies, persistence/migration changes, and /builder edits."
+        ],
+        "invariants": [
+          "/builder behavior remains untouched.",
+          "/builder-v2 remains unpromoted from nav.",
+          "Use existing import/export codecs, planner, validation, and dialog primitives; do not invent a second import format.",
+          "Do not combine import/export with transfer-confirmation parity.",
+          "Imported teams flow through builderDraftStore public-id draft state and preserve autosave behavior.",
+          "Duplicate override may use the existing skeydb.builder.allowDupes.v1 preference; do not change its key/version.",
+          "Desktop, adaptive, and mobile V2 layouts must keep existing picker/drawer focus behavior intact."
+        ],
+        "ambiguity_recorded": [
+          "Import/export action placement is provisional for this Worker; compact header/action placement is acceptable and does not settle final team overview design.",
+          "Worker may either reuse V1 BuilderImportExportDialogs directly or wrap shared dialogs locally, but protected V1 files must not be edited."
+        ],
+        "tdd_characterization": [
+          "Add failing V2 tests for importing a t1 code into an empty active team.",
+          "Add failing V2 tests for mt1 replace confirmation.",
+          "Add failing V2 tests for active-team export and all-teams export.",
+          "Add at least one failing duplicate/strategy import test if the slice wires those dialogs.",
+          "Existing V1 import/export tests remain the reference behavior and must not be edited."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx",
+          "npx vitest run src/features/builder/BuilderPage.import-export.test.tsx src/features/builder/import-planner.test.ts",
+          "npm run test:integration",
+          "npm run lint",
+          "npm run build",
+          "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-rebuild"
+        ],
+        "acceptance": [
+          "New red tests fail before implementation and pass after.",
+          "V2 can import/export through existing codecs and planner flows.",
+          "Desktop, adaptive, and mobile paths expose the parity actions without breaking existing picker/drawer behavior.",
+          "No protected files changed.",
+          "C8a can be marked implemented; C7a, C7, C8b, and C9 remain queued."
+        ]
+      }
+    },
+    {
+      "id": "W6",
+      "role": "worker",
+      "status": "done",
+      "title": "Build C8a Builder V2 import/export parity",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-typescript",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+        "src/features/builder-v2/BuilderV2MobileLayout.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/useBuilderV2Model.test.ts",
+        "src/features/builder-v2/*.tsx",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain import/export codecs",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "nav/shared app chrome",
+        "remote state",
+        "unrelated untracked docs/design/** and smoke screenshots"
+      ],
+      "expected_output": "Builder V2 import/export parity for standard import/export, multi-team replace, in-game active-team export, duplicate override and conflict strategy flows, all through existing codecs/planner/dialog contracts, with focused tests and validation.",
+      "receipt": {
+        "slice": "C8a Builder V2 import/export parity",
+        "files_changed": [
+          "src/features/builder-v2/BuilderV2ImportExportActions.tsx",
+          "src/features/builder-v2/useBuilderV2Model.ts",
+          "src/features/builder-v2/BuilderV2Page.tsx",
+          "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+          "src/features/builder-v2/BuilderV2MobileLayout.tsx",
+          "src/features/builder-v2/BuilderV2Page.test.tsx",
+          "src/features/builder-v2/builder-v2.css",
+          "docs/refactor-goals/builder-v2-rebuild/state.json",
+          "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+        ],
+        "behavior_added": [
+          "Builder V2 model now adapts builderDraftStore to existing useBuilderImportExport/useBuilderImportFlow without new import formats.",
+          "Desktop, adaptive, and mobile shells expose provisional import/export action groups.",
+          "V2 can import t1 into an empty active team, handle mt1 replace, duplicate override, and conflict strategy dialogs.",
+          "V2 can export active standard team, all standard teams, and active in-game team codes.",
+          "Toast feedback now renders in Builder V2 through page-level useTimedToast."
+        ],
+        "behavior_preserved": [
+          "/builder files, App route/nav, builderDraftStore, persistence keys/versions, migrations, domain codecs, generated data, dependencies, and global CSS outside builder-v2 were not edited.",
+          "Existing desktop/adaptive/mobile picker and quick-lineup flows remain available.",
+          "C8b transfer dialogs remain out of scope; V2 cross-team direct assignment still blocks with messages."
+        ],
+        "root_fix_patch_decision": "Bounded root-fix inside Builder V2 facade: reuse current import/export contracts through V2 model/store adapters instead of cloning codecs or migrating V1 page shell.",
+        "dependency_review": "No dependency changes made or needed.",
+        "characterization": [
+          "Initial red run failed the new V2 import/export page tests because import/export actions and dialogs were absent.",
+          "Added focused V2 coverage for t1 import into empty active team, adaptive/mobile action exposure, mt1 replace, duplicate override, active/all/in-game exports, and conflict strategy skip.",
+          "Existing V1 import/export and import planner tests remained green as reference behavior."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 44 tests passed)",
+          "npx vitest run src/features/builder/BuilderPage.import-export.test.tsx src/features/builder/import-planner.test.ts (2 files, 18 tests passed)",
+          "npm run test:integration (7 files, 57 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed; existing Vite chunk-size/plugin timing warnings only)",
+          "git diff --check (passed)",
+          "Browser smoke: desktop Export All dialog, adaptive Import dialog with Import code focus, mobile Export All dialog with Export code focus; mobile topbar stretch fixed and rechecked."
+        ],
+        "review": "R6 reviewer found no blocking issues. Low missing duplicate override V2 test coverage was fixed; final focused tests passed with 44 tests.",
+        "risks": [
+          "Import/export action placement is provisional and should be revisited during design polish/team overview decisions.",
+          "Import/export actions remain available during Quick Team Lineup; exports encode current provisional store state.",
+          "C8b transfer confirmation parity, DnD, recommendations, teams overview readiness, and designer handoff remain queued."
+        ],
+        "scope_expansion_requested": "None"
+      }
+    },
+    {
+      "id": "R6",
+      "role": "review",
+      "status": "done",
+      "title": "Review W6 C8a Builder V2 import/export parity",
+      "skills": [
+        "$refactor-review",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain import/export codecs",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "nav/shared app chrome",
+        "remote state",
+        "unrelated untracked docs/design/** and smoke screenshots"
+      ],
+      "expected_output": "Review W6 diff, tests, packet receipts, invariants, and browser smoke for Builder V2 import/export parity.",
+      "receipt": {
+        "summary": "Review passed after adding V2 duplicate override coverage.",
+        "reviewer": "019e4dc1-d637-7373-b010-0602ccfa660a",
+        "findings": [
+          "Low: V2 had no direct duplicate override test coverage after wiring shared import/export dialogs and allow-dupes persistence."
+        ],
+        "fixes_reviewed": [
+          "Added BuilderV2Page duplicate-illegal import test covering Import Uses Duplicates, Enable and Import, skeydb.builder.allowDupes.v1 persistence, and replace continuation."
+        ],
+        "final_findings": [],
+        "final_verdict": "complete",
+        "validation_reviewed": [
+          "src/features/builder-v2 focused tests passed with 44 tests.",
+          "Changed-file eslint passed.",
+          "V1 import/export and import-planner tests passed.",
+          "Integration suite passed.",
+          "npm run lint passed.",
+          "npm run build passed.",
+          "Browser smoke passed for desktop/adaptive/mobile import/export dialogs."
+        ],
+        "residual_risk": [
+          "Import/export actions remain available during Quick Team Lineup and export current provisional store state."
+        ]
+      }
+    },
+    {
+      "id": "J7",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose next slice after C8a import/export parity",
+      "skills": [
+        "$refactor-goal-prep",
+        "$refactor-rootfix",
+        "$refactor-architecture",
+        "$refactor-react",
+        "$refactor-ui-a11y",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "product implementation files",
+        "dependency files",
+        "remote state",
+        "untracked docs/design/** and smoke screenshots"
+      ],
+      "expected_output": "Select exactly one next bounded Worker slice with allowed files, invariants, characterization, validation, rollback, and acceptance criteria.",
+      "receipt": {
+        "summary": "Selected C8b Builder V2 transfer dialog parity as the next Worker slice.",
+        "judge": "019e4dcb-875b-7fc1-a8fb-23d62ca72633",
+        "selected_candidate": "C8b",
+        "why_now": "After W6/R6, import/export parity is implemented and the largest remaining core behavior gap is V2 cross-team conflict handling. V2 currently blocks in-use awakeners, wheels, and posses with messages while V1 has transfer helpers, pending-confirm dialog state, move resolution, and support-transfer semantics.",
+        "evidence": [
+          "HEAD is f2902ac3 Add Builder V2 import export parity.",
+          "final_audit.full_outcome_complete remains false with C7a, C7, C8b, and C9 open.",
+          "C8a is terminally implemented and reviewed.",
+          "Existing V1 transfer contracts are factored in useTransferConfirm, usePendingTransferDialog, BuilderTransferConfirmDialog, and transfer-resolution.",
+          "Existing transfer-resolution tests cover awakener move, wheel move, posse move, support transfer, invalid target no-op, and cross-team slot swap guards."
+        ],
+        "deferred": [
+          "C7a team overview readiness is screenshot/readiness polish and does not close cross-team behavior parity.",
+          "C7 full teams overview remains blocked until product/design chooses list vs cards, compact vs expanded behavior, and team CRUD/share expectations.",
+          "C9 designer handoff is premature while C8b is still queued and core cross-team behavior is not handoff-ready."
+        ],
+        "acceptance_summary": "W7 should add red tests first, then make V2 open transfer confirmations for cross-team awakener, wheel, and posse conflicts; confirm/cancel/support must preserve V1 semantics, quick-lineup/import/export behavior, and desktop/adaptive/mobile accessibility without competing active modals."
+      }
+    },
+    {
+      "id": "W7",
+      "role": "worker",
+      "status": "done",
+      "title": "Build C8b Builder V2 transfer dialog parity",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-typescript",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/useBuilderV2Model.test.ts",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+        "src/features/builder-v2/BuilderV2MobileLayout.tsx",
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/*.tsx",
+        "src/features/builder-v2/builder-v2.css",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/** except read-only imports/references to existing transfer helpers/components",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain import/export codecs",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "nav/shared app chrome",
+        "remote state",
+        "untracked docs/design/** and smoke screenshots"
+      ],
+      "invariants": [
+        "/builder behavior remains untouched.",
+        "/builder-v2 remains unpromoted from navigation.",
+        "Use existing transfer request/dialog/resolution semantics where practical; do not invent a second transfer model.",
+        "Cross-team conflicts must not mutate teams before explicit confirmation.",
+        "Cancel leaves source and target teams unchanged and preserves the current V2 target/focus state.",
+        "Confirm move clears the source owner and assigns the target through current public-id Team state.",
+        "Use-as-support, when offered for awakeners, keeps the source owner, marks the target as support, sets level 90, and respects realm/support constraints.",
+        "Wheel transfer clears only the source wheel socket and fills the target wheel socket.",
+        "Posse transfer clears the source team posse and assigns the active team posse.",
+        "Desktop, adaptive, and mobile flows must avoid stacked competing modals; picker drawer/background must not remain interactable behind transfer confirmation.",
+        "Quick Lineup advances only after a confirmed successful transfer/support action; cancel stays on the same step."
+      ],
+      "characterization_first": [
+        "Model/page red test: assigning an awakener already used by Team 2 from Team 1 opens a Move dialog and does not mutate either team before confirmation.",
+        "Page red test: confirming the awakener transfer moves it to the active target slot and clears the source slot.",
+        "Page or model red test: Use as Support is available when no support is present, keeps source ownership, assigns target as support, and sets level 90.",
+        "Page/model red test: assigning a wheel already used by another team opens a Move dialog; confirm clears source wheel and assigns target wheel.",
+        "Page/model red test: assigning a posse already used by another team opens a Move dialog; confirm clears source posse and assigns active team posse.",
+        "Adaptive/mobile red test: transfer triggered from picker drawer produces one accessible confirmation modal, no interactable hidden picker/background, and predictable focus after cancel/confirm.",
+        "Quick Lineup red test: cross-team transfer during a guided step waits for confirmation before advancing; cancel does not advance."
+      ],
+      "validation_commands": [
+        "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx",
+        "npx vitest run src/features/builder/useTransferConfirm.test.ts src/features/builder/usePendingTransferDialog.test.ts src/features/builder/transfer-resolution.test.ts",
+        "npm run test:integration",
+        "npm run lint",
+        "npm run build",
+        "git diff --check",
+        "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-rebuild"
+      ],
+      "rollback": "Delete/revert C8b-local V2 edits and return to W6 behavior where cross-team conflicts are blocked with messages.",
+      "scope_expansion_rules": [
+        "If Worker needs edits to src/features/builder/** transfer helpers, builderDraftStore, migrations, persistence, import/export codecs, or dependency files, stop with needs_scope_expansion.",
+        "Do not include DnD transfer parity, team CRUD/reorder, C7/C7a overview redesign, recommendations, nav promotion, or visual handoff polish in this slice.",
+        "Do not stage untracked docs/design files or smoke screenshots."
+      ],
+      "expected_output": "Builder V2 transfer dialog parity for cross-team awakener, wheel, and posse conflicts, preserving V1 move/support semantics and V2 desktop/adaptive/mobile/quick-lineup accessibility with focused tests and validation.",
+      "receipt": {
+        "slice": "C8b Builder V2 transfer dialog parity",
+        "files_changed": [
+          "src/features/builder-v2/useBuilderV2Model.ts",
+          "src/features/builder-v2/useBuilderV2Model.test.ts",
+          "src/features/builder-v2/BuilderV2Page.tsx",
+          "src/features/builder-v2/BuilderV2Page.test.tsx",
+          "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+          "docs/refactor-goals/builder-v2-rebuild/state.json",
+          "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+        ],
+        "behavior_added": [
+          "Builder V2 now uses the existing transfer confirmation request model and shared transfer resolution helpers for cross-team awakener, wheel, and posse conflicts.",
+          "Cross-team awakener assignment opens a Move dialog before mutation; confirm moves the awakener and clears the source slot, while cancel leaves teams unchanged.",
+          "Use as Support is offered when the target can use support; it keeps source ownership, assigns the active target as support, and sets level 90.",
+          "Cross-team wheel assignment opens a Move dialog; confirm clears only the source wheel socket and fills the target wheel socket.",
+          "Cross-team posse assignment opens a Move dialog; confirm clears source team posse and assigns active team posse.",
+          "Desktop, adaptive, and mobile flows render one accessible transfer dialog and avoid keeping the picker/drawer interactable behind it.",
+          "Quick Lineup waits on transfer confirmation and advances only after a successful confirm/support action."
+        ],
+        "behavior_preserved": [
+          "/builder files, builderDraftStore, persistence keys/versions, migrations, import/export codecs, generated data, dependencies, App route/nav, and global CSS outside builder-v2 were not edited.",
+          "Canceling a transfer preserves the source/target teams and the current V2 target/focus state.",
+          "Existing import/export dialogs and quick-lineup paths remain available after W7."
+        ],
+        "root_fix_patch_decision": "Bounded root-fix inside the Builder V2 facade: reuse current transfer request and resolution contracts rather than cloning V1 page state or keeping V2 as message-only conflict handling.",
+        "dependency_review": "No dependency changes made or needed.",
+        "characterization": [
+          "Initial red run failed the new V2 transfer tests because transferDialog/cancelTransfer did not exist and cross-team conflicts still blocked with messages.",
+          "Added focused model tests for awakener cancel/confirm, Use as Support, wheel confirm, posse confirm, and quick-lineup wait-before-advance behavior.",
+          "Added page tests for desktop transfer dialog cancel/confirm and adaptive drawer-to-transfer handoff without hidden background interaction.",
+          "Existing V1 transfer-confirm and transfer-resolution tests remained green as reference behavior."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx (2 files, 49 tests passed)",
+          "npx vitest run src/features/builder/useTransferConfirm.test.ts src/features/builder/usePendingTransferDialog.test.ts src/features/builder/transfer-resolution.test.ts (3 files, 18 tests passed)",
+          "npm run test:integration (7 files, 57 tests passed)",
+          "npm run lint (passed)",
+          "npm run build (passed; existing Vite chunk-size/plugin timing warnings only)",
+          "git diff --check (passed)",
+          "Browser smoke: desktop transfer cancel/confirm, adaptive drawer handoff, mobile focused-picker handoff, and quick-lineup wait-before-confirm/advance all passed."
+        ],
+        "review": "R7 reviewer 019e4dd8-162d-7583-8762-91859ace71a9 found no findings and passed the W7 diff against invariants; reviewer did not rerun validation locally.",
+        "risks": [
+          "Transfer dialog visual presentation is parity-focused and should be polished during the later design handoff pass.",
+          "DnD transfer parity and recommendations remain outside W7.",
+          "Full team overview/list-vs-cards decisions remain unresolved and queued."
+        ],
+        "scope_expansion_requested": "None"
+      }
+    },
+    {
+      "id": "R7",
+      "role": "review",
+      "status": "done",
+      "title": "Review W7 C8b Builder V2 transfer dialog parity",
+      "skills": [
+        "$refactor-review",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/** except read-only imports/references to existing transfer helpers/components",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain import/export codecs",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "nav/shared app chrome",
+        "remote state",
+        "untracked docs/design/** and smoke screenshots"
+      ],
+      "expected_output": "Review W7 diff, tests, packet receipts, invariants, and browser smoke for Builder V2 transfer dialog parity.",
+      "receipt": {
+        "summary": "Review passed with no findings.",
+        "reviewer": "019e4dd8-162d-7583-8762-91859ace71a9",
+        "findings": [],
+        "final_findings": [],
+        "final_verdict": "complete",
+        "validation_reviewed": [
+          "W7 reported focused V2 tests passed with 49 tests.",
+          "W7 reported V1 transfer helper tests passed with 18 tests.",
+          "W7 reported integration suite, lint, build, git diff --check, and desktop/adaptive/mobile/quick-lineup browser transfer smoke passed."
+        ],
+        "reviewer_notes": [
+          "Changes stay inside allowed V2 and packet files.",
+          "Protected /builder behavior, builderDraftStore, persistence/migrations, generated data, dependency files, and untracked design/smoke artifacts are untouched.",
+          "Transfer implementation reuses existing useTransferConfirm, BuilderTransferConfirmDialog, and transfer-resolution semantics.",
+          "No pre-confirm mutation, cancel clears only pending transfer state, confirm/support route through public Team state, and quick-lineup advances only after successful confirm/support."
+        ],
+        "residual_risk": [
+          "Reviewer did not rerun validation locally; controller validation receipts cover the passed commands."
+        ]
+      }
+    },
+    {
+      "id": "S8",
+      "role": "scout",
+      "status": "done",
+      "title": "Map C7a/C7 Builder V2 teams overview and team management scope",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-architecture",
+        "$refactor-react",
+        "$refactor-ui-a11y",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "src/features/builder/** read-only",
+        "src/stores/builderDraftStore.ts read-only",
+        "docs/refactor-goals/builder-v2-rebuild/state.json"
+      ],
+      "protected_files": [
+        "product edits",
+        "remote state"
+      ],
+      "expected_output": "Evidence map for C7a overview readiness, C7 team management parity, reusable V1 contracts, tests, risks, and bounded allowed files.",
+      "receipt": {
+        "summary": "Three read-only scouts mapped Builder V2 teams surfaces, V1 team-management contracts, and C7a/C7 validation needs.",
+        "scouts": [
+          "019e4de1-46f3-75d1-9864-093d3e52b917",
+          "019e4de1-6f17-7d53-8029-1f15b5cbf79e",
+          "019e4de1-9b4e-7e72-af40-4a17338492ba"
+        ],
+        "evidence": [
+          "C7a safe core is a shared read-only all-teams summary/switcher across desktop/adaptive/mobile using BuilderV2TeamSummary.",
+          "Current desktop has separate rail and overview strip; adaptive has compact team switching only; mobile lacks all-team switching.",
+          "V1 team contracts are available as pure helpers: MAX_TEAMS, addTeam, renameTeam, deleteTeam, reorderTeams, isTeamEmpty, resetTeam, and applyTeamTemplate.",
+          "V1 team-management tests characterize add/max teams, empty delete direct, non-empty delete/reset confirmation, inline rename, and team helper behavior.",
+          "No V1 duplicate-team action exists; adding duplicate teams would be new behavior and is out of scope.",
+          "Tests should cover desktop/adaptive/mobile team overview visibility, active switching, add/max, rename commit/cancel/blur, delete/reset confirmation, template confirmation, and simple reorder."
+        ],
+        "risk": [
+          "Functional C7 expands beyond original C7a read-only scope, but the user explicitly loosened the previous design blocker for a provisional functional teams surface.",
+          "Avoid dragging V1 page-shaped UI into V2; reuse helper contracts and store APIs through the V2 model facade."
+        ]
+      }
+    },
+    {
+      "id": "J8",
+      "role": "judge",
+      "status": "done",
+      "title": "Approve C7a/C7 functional teams overview slice",
+      "skills": [
+        "$refactor-goal-prep",
+        "$refactor-rootfix",
+        "$refactor-architecture",
+        "$refactor-react",
+        "$refactor-ui-a11y",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "product implementation files",
+        "dependency files",
+        "remote state",
+        "untracked docs/design/** and smoke screenshots"
+      ],
+      "expected_output": "Select exactly one bounded Worker slice for C7a/C7 with allowed files, invariants, characterization, validation, and out-of-scope items.",
+      "receipt": {
+        "summary": "Approved W8 as a combined C7a plus functional C7 MVP teams slice.",
+        "judge": "019e4de3-1818-7321-8a68-6ae9fc375f30",
+        "decision": "Implement a provisional, plain team-management overview for /builder-v2. Include V1-ish team CRUD, templates, and accessible up/down reorder through existing contracts; do not attempt polished cards/list design.",
+        "evidence": [
+          "C7a scouts found read-only overview readiness safe.",
+          "Full C7 was blocked by list-vs-cards/product decisions, but the latest user explicitly accepts a functional ugly-ish design.",
+          "V1 reusable contracts exist: addTeam, renameTeam, deleteTeam, resetTeam, applyTeamTemplate, reorderTeams.",
+          "C8a/C8b are implemented and reviewed; remaining blocker before handoff is teams."
+        ],
+        "deferred": [
+          "Final visual polish, cards-vs-list product decision, screenshot/share layout.",
+          "Drag-and-drop reorder.",
+          "New persistence, migrations, generated data, dependencies, nav promotion.",
+          "Import/export redesign, transfer semantics changes, recommendations.",
+          "Designer handoff bundle except recording follow-up notes."
+        ],
+        "acceptance_summary": "W8 should make /builder-v2 able to add, rename, delete, reset, template-apply, reorder, and switch teams across desktop/adaptive/mobile; existing V1 team-management behavior must stay green."
+      }
+    },
+    {
+      "id": "W8",
+      "role": "worker",
+      "status": "done",
+      "title": "Build Builder V2 functional team management overview",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y",
+        "$refactor-typescript",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/useBuilderV2Model.test.ts",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+        "src/features/builder-v2/BuilderV2MobileLayout.tsx",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/BuilderV2TeamOverview.tsx",
+        "src/features/builder-v2/BuilderV2TeamManagement.tsx",
+        "src/features/builder-v2/builder-v2.css",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/** except read-only imports from existing helpers/components",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "nav/shared app chrome",
+        "remote state",
+        "untracked docs/design/** and smoke screenshots"
+      ],
+      "invariants": [
+        "/builder behavior remains untouched.",
+        "/builder-v2 remains unpromoted from navigation.",
+        "Use existing team helper contracts; do not invent parallel team semantics.",
+        "Active team switching remains stable across desktop/adaptive/mobile.",
+        "Add respects MAX_TEAMS.",
+        "Rename trims names and ignores blank names.",
+        "Empty delete/reset may be direct; non-empty delete/reset requires confirmation before mutation.",
+        "Template application requires confirmation and preserves existing helper semantics.",
+        "Reorder uses simple accessible controls such as up/down buttons; no DnD.",
+        "The UI is explicitly provisional: dense functional list/management surface, not final cards/list/share design."
+      ],
+      "characterization_first": [
+        "Red V2 test for add team, active switch, and max-team disabled state.",
+        "Red V2 test for rename confirm, Escape cancel, blur behavior, and blank-name no-op.",
+        "Red V2 test for empty delete direct and non-empty delete confirm/cancel.",
+        "Red V2 test for reset non-empty confirm/cancel.",
+        "Red V2 test for D-Tide 5 and D-Tide 10 template apply confirmation and resulting names/counts.",
+        "Red V2 test for reorder up/down preserving active team identity.",
+        "Red page tests that desktop, adaptive, and mobile expose the team management surface without breaking picker/import/export/transfer dialogs."
+      ],
+      "validation_commands": [
+        "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx",
+        "npx vitest run src/features/builder/team-collection.test.ts src/features/builder/BuilderPage.team-management.test.tsx",
+        "npm run test:integration",
+        "npm run lint",
+        "npm run build",
+        "git diff --check",
+        "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-rebuild"
+      ],
+      "rollback": "Delete/revert W8-local V2 teams overview/management edits and return to W7 behavior where V2 can switch active teams but cannot manage them.",
+      "scope_expansion_rules": [
+        "If Worker needs edits to src/features/builder/** helper implementations, builderDraftStore, migrations, persistence, import/export codecs, or dependency files, stop with needs_scope_expansion.",
+        "Do not include final visual polish, list/cards product decision, screenshot/share layout, DnD reorder, recommendations, nav promotion, or C9 designer handoff bundle in W8.",
+        "Do not stage untracked docs/design files or smoke screenshots."
+      ],
+      "expected_output": "Functional Builder V2 team management overview across desktop/adaptive/mobile, with add, switch, rename, reset/delete confirmations, D-Tide templates, simple accessible reorder, focused tests, and validation.",
+      "receipt": {
+        "slice": "C7a/C7 Builder V2 functional team management overview",
+        "files_changed": [
+          "src/features/builder-v2/useBuilderV2Model.ts",
+          "src/features/builder-v2/useBuilderV2Model.test.ts",
+          "src/features/builder-v2/BuilderV2Page.tsx",
+          "src/features/builder-v2/BuilderV2Page.test.tsx",
+          "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+          "src/features/builder-v2/BuilderV2MobileLayout.tsx",
+          "src/features/builder-v2/BuilderV2TeamManagement.tsx",
+          "src/features/builder-v2/builder-v2.css",
+          "docs/refactor-goals/builder-v2-rebuild/state.json",
+          "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+        ],
+        "behavior_added": [
+          "Builder V2 now exposes a shared team management overview across desktop, adaptive, and mobile layouts.",
+          "Teams can be added up to MAX_TEAMS and the newly added team becomes active.",
+          "Teams can be switched from the management surface on every layout.",
+          "Inline rename supports commit, Escape cancel, blur commit, and blank-name no-op through builderDraftStore rename contracts.",
+          "Empty teams reset/delete directly; non-empty reset/delete open confirmation dialogs before mutation.",
+          "D-Tide 5 and D-Tide 10 templates open confirmation dialogs and then apply existing applyTeamTemplate semantics.",
+          "Teams can be reordered with accessible Move Up / Move Down controls while preserving active team identity.",
+          "Team summaries show slot occupants plus support, wheel, covenant, and posse signals for screenshot/readiness context."
+        ],
+        "behavior_preserved": [
+          "/builder implementation files were not edited; V1 team helper and page-management tests remain green.",
+          "Builder V2 route/nav state remains unchanged and unpromoted from navigation.",
+          "builderDraftStore, persistence key/version, migrations, generated domain data, dependency files, import/export codecs, and protected helper implementations were not edited.",
+          "Existing Builder V2 import/export, transfer, quick-lineup, mobile drawer, adaptive picker, and assignment flows remained green after W8."
+        ],
+        "simplification": "Centralized team-management UI in one BuilderV2TeamManagement component and kept team mutations behind the V2 model facade, reusing team-collection/builderDraftStore contracts instead of importing V1 page UI or inventing parallel semantics.",
+        "root_fix_patch_decision": "Bounded root-fix inside Builder V2: add the missing team-management workflow to the V2 architecture rather than patching current BuilderPage or merging old branch UI.",
+        "dependency_review": "No dependency changes made or needed.",
+        "characterization": [
+          "Initial W8 red tests failed because model team operation APIs and the Builder V2 team management region did not exist.",
+          "Added model tests for add/max/activation, rename commit/cancel/blank/blur-ish behavior, empty delete direct, non-empty delete confirm/cancel, non-empty reset confirm/cancel, empty reset direct, D-Tide templates, and reorder preserving active team.",
+          "Added page tests for desktop summaries/switching, rename UI, destructive/template dialogs, and adaptive/mobile management exposure without opening picker flows.",
+          "Retained V1 team-collection and BuilderPage.team-management tests as helper/contract parity coverage."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder/team-collection.test.ts src/features/builder/BuilderPage.team-management.test.tsx (4 files, 80 tests passed after final empty-reset characterization)",
+          "npm run test:integration (7 files, 57 tests passed)",
+          "npm run lint (passed after final nested-control fix)",
+          "npm run build (passed after final nested-control fix; existing Vite chunk-size/plugin timing warnings only)",
+          "git diff --check (passed)",
+          "Browser smoke on http://127.0.0.1:5173/#/builder-v2: desktop team management region present, Add Team added one row, rename actions present; mobile management present, Add Team stayed on Mobile team overview and did not open a picker. Screenshot capture timed out on the asset-heavy page, so the final smoke used DOM/interaction checks only."
+        ],
+        "review": "R8 reviewer 019e4df6-5a56-7e21-8f30-f000011c13c5 initially returned needs-fix for an untracked BuilderV2TeamManagement.tsx file and missing packet receipts. Controller addressed the untracked-file packaging issue, added explicit empty reset characterization, reran focused tests/lint/build/diff-check/browser smoke, and updated packet receipts. No product-code behavior findings remained from the review.",
+        "risks": [
+          "The team management surface is intentionally functional and visually provisional; final cards-vs-list/share polish is queued for C9 designer handoff.",
+          "Browser screenshot capture timed out during W8 smoke because of the asset-heavy page; DOM/interaction smoke passed instead.",
+          "Drag-and-drop reorder and recommendation polish remain out of scope."
+        ],
+        "follow_ups_not_done": [
+          "C9 designer handoff bundle with concept-image traceability and current /builder-v2 notes.",
+          "Final visual/card/list/share decision for teams.",
+          "Optional DnD/recommendation polish in a later scoped slice if selected."
+        ],
+        "learning_lint_candidates": "No new repeated harness/lint/AGENTS.md maintenance candidate beyond the added tests; component nesting issue was fixed directly and lint passed.",
+        "scope_expansion_requested": "None"
+      }
+    },
+    {
+      "id": "R8",
+      "role": "review",
+      "status": "done",
+      "title": "Review W8 C7a/C7 Builder V2 functional team management overview",
+      "skills": [
+        "$refactor-review",
+        "$refactor-react",
+        "$refactor-architecture",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/**",
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/** except read-only imports/references to existing helper contracts",
+        "src/stores/builderDraftStore.ts",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "builder migrations",
+        "domain/generated data",
+        "package.json",
+        "package-lock.json",
+        "nav/shared app chrome",
+        "remote state",
+        "untracked docs/design/** and prior smoke screenshots"
+      ],
+      "expected_output": "Review W8 diff, tests, packet receipts, invariants, and browser smoke for Builder V2 functional team management parity.",
+      "receipt": {
+        "summary": "Review initially returned needs-fix for packaging/packet issues; controller fixed both and reran validation.",
+        "reviewer": "019e4df6-5a56-7e21-8f30-f000011c13c5",
+        "initial_verdict": "needs-fix",
+        "findings": [
+          "BuilderV2TeamManagement.tsx was untracked while imported by tracked files; controller kept it in the W8 change set for staging/commit.",
+          "W8 still had receipt:null and stale final audit/worklog entries; controller updated W8/R8 receipts, candidates, focus area coverage, final audit, and worklog."
+        ],
+        "fixes_after_review": [
+          "Added explicit empty reset direct-behavior V2 model characterization.",
+          "Removed invalid nested interactive rename input by rendering edit mode as a non-button row header.",
+          "Reran focused V2/V1 tests, lint, build, git diff --check, and browser interaction smoke after fixes."
+        ],
+        "final_verdict": "complete-after-controller-fixes",
+        "validation_reviewed": [
+          "Controller validation receipts: focused V2/V1 team tests passed with 80 tests after final fix.",
+          "Integration, lint, build, git diff --check, and desktop/mobile browser interaction smoke passed after final fix."
+        ],
+        "residual_risk": [
+          "Reviewer did not rerun validation locally; controller validation receipts cover the passed commands.",
+          "Screenshot capture timed out in browser smoke; interaction/DOM checks passed.",
+          "Final design polish remains queued under C9."
+        ]
+      }
+    },
+    {
+      "id": "W9",
+      "role": "worker",
+      "status": "done",
+      "title": "Prepare C9 designer handoff bundle",
+      "skills": [
+        "$refactor-goal-prep",
+        "Browser:browser",
+        "$refactor-review"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-rebuild/designer-handoff.md",
+        "docs/refactor-goals/builder-v2-rebuild/artifacts/**",
+        "docs/refactor-goals/builder-v2-rebuild/goal.md",
+        "docs/refactor-goals/builder-v2-rebuild/state.json",
+        "docs/refactor-goals/builder-v2-rebuild/worklog.md"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/features/builder-v2/** product code",
+        "src/App.tsx",
+        "builder persistence key/version",
+        "domain/generated data",
+        "dependency files",
+        "remote state"
+      ],
+      "invariants": [
+        "Do not change product behavior while preparing C9.",
+        "Treat /builder-v2 as product baseline, not final visual destination.",
+        "Name docs/design/Desktop.png, Mobile.png, and Mobile-QuickLineup.png as the visual/layout target.",
+        "Keep team list/cards/share shape available for future design, not a blocker.",
+        "Keep DnD, recommendations, and navigation promotion as future UX/product slices."
+      ],
+      "receipt": {
+        "summary": "Prepared the C9 designer handoff bundle and reconciled the packet toward final closure.",
+        "evidence": [
+          "Created docs/refactor-goals/builder-v2-rebuild/designer-handoff.md with purpose, source hierarchy, screenshots, locked behavior, visual/layout intent, team overview scope, deferred UX mechanics, pasteable designer prompt, and acceptance checklist.",
+          "Captured Browser-plugin desktop screenshots at artifacts/builder-v2-current-browser-desktop-filled.png and artifacts/builder-v2-current-browser-desktop.png.",
+          "Captured local viewport baseline screenshots at artifacts/builder-v2-current-adaptive.png and artifacts/builder-v2-current-mobile.png.",
+          "Updated goal.md focus/candidate tables so C5/C7/C8/C9 and handoff readiness reflect implemented terminal status.",
+          "Recorded that DnD/recommendations and final team list/cards/share mode are future-day UX/product slices after visual direction, not C9 blockers."
+        ],
+        "browser_evidence": [
+          "Browser plugin opened http://127.0.0.1:5173/#/builder-v2, confirmed Builder V2 DOM presence, and captured the desktop baseline.",
+          "Browser plugin refused file:// capture for a responsive wrapper due URL policy; controller removed that wrapper and used direct local app viewport captures instead."
+        ],
+        "prompt_location": "docs/refactor-goals/builder-v2-rebuild/designer-handoff.md#designer-prompt",
+        "deferred": [
+          "DnD and recommendation mechanics.",
+          "Final team list-vs-cards-vs-switcher decision.",
+          "Final screenshot/share presentation.",
+          "Navigation promotion from hidden /builder-v2 to public Builder.",
+          "Persistence or migration changes."
+        ]
+      }
+    },
+    {
+      "id": "R9",
+      "role": "review",
+      "status": "done",
+      "title": "Review C9 handoff closure and final audit",
+      "skills": [
+        "$refactor-review",
+        "$refactor-goal-prep"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-rebuild/**"
+      ],
+      "protected_files": [
+        "src/features/builder/**",
+        "src/features/builder-v2/** product code",
+        "src/App.tsx",
+        "dependency files",
+        "remote state"
+      ],
+      "expected_output": "Audit the C9 handoff packet, final audit closure, terminal candidate/focus/maintenance statuses, and validation receipts.",
+      "receipt": {
+        "summary": "R9 reviewed the C9 designer handoff closure and passed after controller fixes.",
+        "reviewer": "019e4e2a-d93f-7391-a6ef-6c20d00098b9",
+        "initial_verdict": "needs-fix",
+        "initial_findings": [
+          "final_audit.full_outcome_complete was true while active validation text still said packet checker/diff validation would be recorded later.",
+          "goal.md/state.json still had stale queued/next wording for already-terminal slices and C9 handoff closure."
+        ],
+        "controller_fixes": [
+          "Replaced stale queued/next language in active goal.md focus/candidate/maintenance tables.",
+          "Replaced stale queued/next language in state.json focus/candidate entries.",
+          "Changed final_audit.validation to record the actual passing packet checker and git diff --check receipt.",
+          "Reran check-refactor-goal and git diff --check successfully."
+        ],
+        "final_verdict": "pass",
+        "validation": [
+          "node C:\\Users\\dansa\\.codex\\plugins\\cache\\refactor-discipline-local\\refactor-discipline\\0.4.3\\skills\\refactor-goal-prep\\scripts\\check-refactor-goal.mjs --goal docs/refactor-goals/builder-v2-rebuild (OK)",
+          "git diff --check (passed)",
+          "Reviewer final confirmation: pass"
+        ]
+      }
+    }
+  ],
+  "final_audit": {
+    "full_outcome_complete": true,
+    "summary": "W1-W9 implemented and reviewed the isolated Builder V2 route, core assignments, gear/posse assignment, quick-lineup, mobile/adaptive shells, import/export parity, transfer parity, functional team management, and the C9 designer handoff bundle. Builder V2 is now a healthy local product baseline for a designer/design model to reshape toward the selected mockups.",
+    "validation": [
+      "W8 code checkpoint validation already passed: focused Builder V2/V1 team tests, npm run test:integration, npm run lint, npm run build, git diff --check, and browser interaction smoke.",
+      "C9 Browser evidence: http://127.0.0.1:5173/#/builder-v2 opened in the Browser plugin, Builder V2 DOM was present, and current desktop baseline screenshots were captured.",
+      "C9 viewport evidence: 390x844 mobile and 900x1000 adaptive baseline screenshots were captured from the local app.",
+      "C9 packet validation passed: check-refactor-goal OK and git diff --check passed after R9 findings were fixed."
+    ],
+    "open_items": [
+      "Future design/model pass should use designer-handoff.md and the selected mockups as the target.",
+      "DnD, recommendations, final share/screenshot mode, nav promotion, and final team list/cards/switcher choice are future product/UX slices after visual direction, not open blockers for this goal."
+    ]
+  }
+}

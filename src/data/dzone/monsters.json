@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "scope": "monsters",
-  "recordCount": 314,
+  "recordCount": 319,
   "records": [
     {
       "id": "dzone-monster-0264",
@@ -603,6 +603,14 @@
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0004", "enemy-characteristic-0013"],
       "descriptionTemplate": "Coral, parasites... Do different hyperplasias come from the same source of Cataclysm? We don't know.",
       "assetName": "Portrait_Small_Monster_C0603_AT"
+    },
+    {
+      "id": "dzone-monster-0319",
+      "name": "\"Remnant Omen\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0014", "enemy-characteristic-0007"],
+      "descriptionTemplate": "In the dreams of the Abyssal Prison, the abandoned fates saw their own threads. They wail, crawling along those fragile strands, squirming toward their origin: \"Dear Mother of Fate... do you hear our call?\"",
+      "assetName": "Portrait_Small_Monster_S2C0503",
+      "badges": ["Boss"]
     },
     {
       "id": "dzone-monster-0067",
@@ -1687,6 +1695,27 @@
       "badges": ["Boss"]
     },
     {
+      "id": "dzone-monster-0315",
+      "name": "Leng Spider",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0014", "enemy-characteristic-0006"],
+      "descriptionTemplate": "The arachnid forms of Arachne’s Maids, once human. They carry the strands of destiny, weaving a boundless web for their mistress.",
+      "assetName": "Portrait_Small_Monster_S2C0501_BT"
+    },
+    {
+      "id": "dzone-monster-0318",
+      "name": "Leng Spider Cluster",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0014", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A swarm of Leng Spiders, the very fibers of the Web of Fate. When these myriad bodies coalesce, they become fate itself.",
+      "assetName": "Portrait_Small_Monster_S2C0501_BT"
+    },
+    {
+      "id": "dzone-monster-0316",
+      "name": "Leng Spider Maid",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0006", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Leng Spiders granted humanoid shells, meticulously attired as they move between the stages of the Theater of Fate. The Manipulator of Fate never forces puppets to become her maids; they always choose this path of their own will.",
+      "assetName": "Portrait_Small_Monster_S2C0502_AT"
+    },
+    {
       "id": "dzone-monster-0072",
       "name": "Lightbearer Followers",
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"],
@@ -1730,6 +1759,14 @@
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0017", "enemy-characteristic-0013"],
       "descriptionTemplate": "They carry out the will of the gods; no one cares about survival or destruction, no one cares about error or correctness.",
       "assetName": "Portrait_Small_Monster_S2C0304",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0317",
+      "name": "Measurer",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0006", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A Maid authorized to \"measure\" fate. She gauges the weight of every strand, reporting any tangles to the Manipulator of Fate. As for what happens after—she remains indifferent.",
+      "assetName": "Portrait_Small_Monster_S2C0502_AT",
       "badges": ["Elite"]
     },
     {

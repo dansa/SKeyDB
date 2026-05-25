@@ -61,15 +61,18 @@ interface AwakenerDetailStatsPanelProps {
   action?: ReactNode
   compact?: boolean
   defaultExpanded?: boolean
+  gnosticPotentialLevel?: number
   isExpanded?: boolean
   onExpandedChange?: (isExpanded: boolean) => void
 }
 
 function ScalingInfoButton({
   className = '',
+  gnosticPotentialLevel,
   scalingRecord,
 }: {
   className?: string
+  gnosticPotentialLevel?: number
   scalingRecord: ScalingInfoRecord
 }) {
   const popoverContext = useDatabasePopoverControllerContext()
@@ -78,7 +81,10 @@ function ScalingInfoButton({
     <button
       className={`inline-flex items-center gap-1 text-[10px] leading-none text-slate-400 transition-colors hover:text-amber-100 ${className}`}
       onClick={(event) => {
-        popoverContext?.openRootInfo?.(buildScalingInfoEntry(scalingRecord), event)
+        popoverContext?.openRootInfo?.(
+          buildScalingInfoEntry(scalingRecord, {gnosticPotentialLevel}),
+          event,
+        )
       }}
       type='button'
     >
@@ -94,6 +100,7 @@ export function AwakenerDetailStatsPanel({
   action,
   compact,
   defaultExpanded = false,
+  gnosticPotentialLevel,
   isExpanded: controlledIsExpanded,
   onExpandedChange,
   scalingRecord,
@@ -204,7 +211,11 @@ export function AwakenerDetailStatsPanel({
           </button>
 
           {isExpanded && hasSubstatScaling ? (
-            <ScalingInfoButton className='justify-self-end' scalingRecord={scalingRecord} />
+            <ScalingInfoButton
+              className='justify-self-end'
+              gnosticPotentialLevel={gnosticPotentialLevel}
+              scalingRecord={scalingRecord}
+            />
           ) : null}
         </div>
       ) : (
@@ -224,7 +235,11 @@ export function AwakenerDetailStatsPanel({
           </button>
 
           {isExpanded && hasSubstatScaling ? (
-            <ScalingInfoButton className='mt-2' scalingRecord={scalingRecord} />
+            <ScalingInfoButton
+              className='mt-2'
+              gnosticPotentialLevel={gnosticPotentialLevel}
+              scalingRecord={scalingRecord}
+            />
           ) : null}
         </>
       )}

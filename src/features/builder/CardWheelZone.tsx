@@ -3,6 +3,7 @@ import {DupeLevelDisplay} from '@/components/ui/DupeLevelDisplay'
 import {CardCovenantTile} from './CardCovenantTile'
 import {CardWheelTile} from './CardWheelTile'
 import type {DragData, PredictedDropHover, TeamSlot} from './types'
+import {toWheelSlotIndex} from './wheel-slot-index'
 
 interface CardWheelZoneProps {
   slot: TeamSlot
@@ -76,23 +77,27 @@ export function CardWheelZone({
       </div>
 
       <div className='builder-card-wheel-grid mt-1.5 grid grid-cols-2 gap-1.5'>
-        {slot.wheels.map((wheelId, index) => (
-          <CardWheelTile
-            activeDragKind={activeDragKind}
-            interactive={interactive}
-            isActive={activeWheelIndex === index}
-            key={`${wheelKeyPrefix}-wheel-${String(index)}`}
-            allowActiveRemoval={allowActiveRemoval}
-            onClick={onWheelSlotClick}
-            ownedLevel={wheelOwnedLevels[index] ?? null}
-            showOwnership={showOwnership}
-            onRemove={allowActiveRemoval ? onRemoveActiveWheel : undefined}
-            predictedDropHover={predictedDropHover}
-            slotId={slot.slotId}
-            wheelId={wheelId}
-            wheelIndex={index}
-          />
-        ))}
+        {slot.wheels.map((wheelId, index) => {
+          const wheelIndex = toWheelSlotIndex(index)
+
+          return (
+            <CardWheelTile
+              activeDragKind={activeDragKind}
+              interactive={interactive}
+              isActive={activeWheelIndex === wheelIndex}
+              key={`${wheelKeyPrefix}-wheel-${String(wheelIndex)}`}
+              allowActiveRemoval={allowActiveRemoval}
+              onClick={onWheelSlotClick}
+              ownedLevel={wheelOwnedLevels[wheelIndex] ?? null}
+              showOwnership={showOwnership}
+              onRemove={allowActiveRemoval ? onRemoveActiveWheel : undefined}
+              predictedDropHover={predictedDropHover}
+              slotId={slot.slotId}
+              wheelId={wheelId}
+              wheelIndex={wheelIndex}
+            />
+          )
+        })}
       </div>
     </div>
   )

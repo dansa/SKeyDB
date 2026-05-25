@@ -57,7 +57,7 @@ describe('d-zone history view model', () => {
         seasonParam: null,
         summaries,
       }).selectedSummary.period,
-    ).toBe(60)
+    ).toBe(61)
   })
 
   it('repairs expanded years for changed selections without mutating search-forced expansion', () => {

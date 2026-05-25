@@ -131,6 +131,7 @@ export function AwakenerDetailModal({
   const fontScale = sharedPreferences.fontScale
   const {referenceLayer, resolvedControls, resolvedSelection, resolvedStats, shellView} =
     sessionRuntime
+  const usesProfileSidebar = activeTab === 'overview' || activeTab === 'lore'
 
   const displayName = formatAwakenerNameForUi(awakener.name)
   const realmAccent = getRealmAccent(awakener.realm)
@@ -272,7 +273,7 @@ export function AwakenerDetailModal({
                 substatScaling={fullData.substatScaling}
                 profile={fullData.profile}
                 areStatsExpanded={areStatsExpanded}
-                variant={activeTab === 'overview' ? 'profile' : 'progression'}
+                variant={usesProfileSidebar ? 'profile' : 'progression'}
               />
             </aside>
 
@@ -399,7 +400,7 @@ export function AwakenerDetailModal({
                     : 'overflow-y-auto p-5 pr-8 lg:pr-16'
                 }`}
               >
-                {activeTab === 'overview' ? null : (
+                {usesProfileSidebar ? null : (
                   <div className='mb-4 md:hidden'>
                     <AwakenerDetailSidebar
                       awakener={awakener}
@@ -431,6 +432,7 @@ export function AwakenerDetailModal({
                       fullData={fullData}
                       onStatsExpandedChange={setAreStatsExpanded}
                       scalingRecord={fullData}
+                      selection={resolvedSelection}
                       stats={resolvedStats}
                       substatScaling={fullData.substatScaling}
                     />

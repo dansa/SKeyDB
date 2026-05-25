@@ -1,12 +1,13 @@
 import {parseCovenantDropZoneId, parseWheelDropZoneId, PICKER_DROP_ZONE_ID} from './dnd-ids'
-import type {DragData, PredictedDropHover, TeamSlot} from './types'
+import type {DragData, PredictedDropHover, TeamSlot, WheelSlotIndex} from './types'
+import {getWheelSlotIndex} from './wheel-slot-index'
 
-function findFirstEmptyWheelIndex(slot: TeamSlot | undefined): number | null {
+function findFirstEmptyWheelIndex(slot: TeamSlot | undefined): WheelSlotIndex | null {
   if (!slot?.awakenerId) {
     return null
   }
   const firstEmptyIndex = slot.wheels.findIndex((wheel) => !wheel)
-  return firstEmptyIndex === -1 ? null : firstEmptyIndex
+  return getWheelSlotIndex(firstEmptyIndex)
 }
 
 function resolveSlotLevelTarget(
@@ -28,7 +29,8 @@ function resolveWheelDropHover(
   slotById: Map<string, TeamSlot>,
 ): PredictedDropHover {
   if (overWheelZone) {
-    return {kind: 'wheel', slotId: overWheelZone.slotId, wheelIndex: overWheelZone.wheelIndex}
+    const wheelIndex = getWheelSlotIndex(overWheelZone.wheelIndex)
+    return wheelIndex === null ? null : {kind: 'wheel', slotId: overWheelZone.slotId, wheelIndex}
   }
 
   const targetSlotId = resolveSlotLevelTarget(overId, null, overCovenantZone)

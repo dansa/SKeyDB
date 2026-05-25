@@ -349,14 +349,13 @@ function resolveGnosticPotentialPrimaryStatBonuses(
     return {}
   }
 
+  const resolvedValue = Object.hasOwn(gnosticTalent.descriptionArgs, 'Arg1')
+    ? resolveDescriptionArg(gnosticTalent.descriptionArgs.Arg1, {
+        rank: gnosticPotentialLevel,
+      }).totalValue
+    : undefined
+
   return Object.fromEntries(
-    Object.entries(GNOSTIC_PRIMARY_STAT_ARG_KEYS).map(([statKey, argKey]) => {
-      const resolvedValue = Object.hasOwn(gnosticTalent.descriptionArgs, argKey)
-        ? resolveDescriptionArg(gnosticTalent.descriptionArgs[argKey], {
-            rank: gnosticPotentialLevel,
-          }).totalValue
-        : undefined
-      return [statKey, resolvedValue ?? 0]
-    }),
+    Object.keys(GNOSTIC_PRIMARY_STAT_ARG_KEYS).map((statKey) => [statKey, resolvedValue ?? 0]),
   )
 }

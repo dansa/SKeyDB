@@ -1,15 +1,16 @@
 import {nextSelectionAfterWheelSwap, shouldSetActiveWheelOnPickerAssign} from './selection-state'
 import {assignWheelToSlot, swapWheelAssignments} from './team-state'
-import type {ActiveSelection, TeamSlot, WheelUsageLocation} from './types'
+import type {ActiveSelection, TeamSlot, WheelSlotIndex, WheelUsageLocation} from './types'
+import {getWheelSlotIndex} from './wheel-slot-index'
 
 interface WheelTransferRequest {
   wheelId: string
   fromTeamId: string
   fromSlotId: string
-  fromWheelIndex: number
+  fromWheelIndex: WheelSlotIndex
   toTeamId: string
   targetSlotId: string
-  targetWheelIndex: number
+  targetWheelIndex: WheelSlotIndex
 }
 
 interface BuilderWheelActionsOptions {
@@ -41,19 +42,19 @@ export function createBuilderWheelActions({
   allowDupes,
   onPickerAssignSuccess,
 }: BuilderWheelActionsOptions) {
-  function getFirstEmptyWheelIndex(slotId: string): number | null {
+  function getFirstEmptyWheelIndex(slotId: string): WheelSlotIndex | null {
     const slot = teamSlots.find((entry) => entry.slotId === slotId)
     if (!slot?.awakenerId) {
       return null
     }
     const firstEmptyIndex = slot.wheels.findIndex((wheel) => !wheel)
-    return firstEmptyIndex === -1 ? null : firstEmptyIndex
+    return getWheelSlotIndex(firstEmptyIndex)
   }
 
   function assignPickerWheelToTarget(
     wheelId: string,
     targetSlotId: string,
-    targetWheelIndex?: number,
+    targetWheelIndex?: WheelSlotIndex,
     options?: {setActiveOnAssign?: boolean},
   ) {
     const setActiveOnAssign = options?.setActiveOnAssign ?? true
@@ -105,9 +106,20 @@ export function createBuilderWheelActions({
   }
 
   function handleDropPickerWheel(wheelId: string, targetSlotId: string, targetWheelIndex?: number) {
+    let resolvedTargetWheelIndex: WheelSlotIndex | undefined
+    if (targetWheelIndex !== undefined) {
+      const parsedTargetWheelIndex = getWheelSlotIndex(targetWheelIndex)
+      if (parsedTargetWheelIndex === null) {
+        return
+      }
+      resolvedTargetWheelIndex = parsedTargetWheelIndex
+    }
+
     clearPendingDelete()
     clearTransfer()
-    assignPickerWheelToTarget(wheelId, targetSlotId, targetWheelIndex, {setActiveOnAssign: true})
+    assignPickerWheelToTarget(wheelId, targetSlotId, resolvedTargetWheelIndex, {
+      setActiveOnAssign: true,
+    })
   }
 
   function handleDropTeamWheel(
@@ -116,29 +128,39 @@ export function createBuilderWheelActions({
     targetSlotId: string,
     targetWheelIndex: number,
   ) {
+    const resolvedSourceWheelIndex = getWheelSlotIndex(sourceWheelIndex)
+    const resolvedTargetWheelIndex = getWheelSlotIndex(targetWheelIndex)
+    if (resolvedSourceWheelIndex === null || resolvedTargetWheelIndex === null) {
+      return
+    }
+
     if (sourceSlotId === targetSlotId && sourceWheelIndex === targetWheelIndex) {
       return
     }
     const result = swapWheelAssignments(
       teamSlots,
       sourceSlotId,
-      sourceWheelIndex,
+      resolvedSourceWheelIndex,
       targetSlotId,
-      targetWheelIndex,
+      resolvedTargetWheelIndex,
     )
     setActiveTeamSlots(result.nextSlots)
 
     if (sourceSlotId !== targetSlotId) {
-      setActiveSelection({kind: 'wheel', slotId: targetSlotId, wheelIndex: targetWheelIndex})
+      setActiveSelection({
+        kind: 'wheel',
+        slotId: targetSlotId,
+        wheelIndex: resolvedTargetWheelIndex,
+      })
       return
     }
 
     const nextSelection = nextSelectionAfterWheelSwap(
       resolvedActiveSelection,
       sourceSlotId,
-      sourceWheelIndex,
+      resolvedSourceWheelIndex,
       targetSlotId,
-      targetWheelIndex,
+      resolvedTargetWheelIndex,
     )
     if (nextSelection !== resolvedActiveSelection) {
       setActiveSelection(nextSelection)
@@ -150,6 +172,11 @@ export function createBuilderWheelActions({
     sourceWheelIndex: number,
     targetSlotId: string,
   ) {
+    const resolvedSourceWheelIndex = getWheelSlotIndex(sourceWheelIndex)
+    if (resolvedSourceWheelIndex === null) {
+      return
+    }
+
     const targetWheelIndex = getFirstEmptyWheelIndex(targetSlotId)
     if (targetWheelIndex === null) {
       return
@@ -157,7 +184,7 @@ export function createBuilderWheelActions({
     const result = swapWheelAssignments(
       teamSlots,
       sourceSlotId,
-      sourceWheelIndex,
+      resolvedSourceWheelIndex,
       targetSlotId,
       targetWheelIndex,
     )

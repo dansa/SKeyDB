@@ -1,4 +1,4 @@
-import type {ActiveSelection} from './types'
+import type {ActiveSelection, WheelSlotIndex} from './types'
 
 export function toggleAwakenerSelection(
   previous: ActiveSelection,
@@ -13,7 +13,7 @@ export function toggleAwakenerSelection(
 export function toggleWheelSelection(
   previous: ActiveSelection,
   slotId: string,
-  wheelIndex: number,
+  wheelIndex: WheelSlotIndex,
 ): ActiveSelection {
   if (
     previous?.kind === 'wheel' &&
@@ -42,9 +42,9 @@ export function shouldSetActiveWheelOnPickerAssign(activeSelection: ActiveSelect
 export function nextSelectionAfterWheelSwap(
   currentSelection: ActiveSelection,
   sourceSlotId: string,
-  sourceWheelIndex: number,
+  sourceWheelIndex: WheelSlotIndex,
   targetSlotId: string,
-  targetWheelIndex: number,
+  targetWheelIndex: WheelSlotIndex,
 ): ActiveSelection {
   if (currentSelection?.kind !== 'wheel') {
     return currentSelection
@@ -65,7 +65,7 @@ export function nextSelectionAfterWheelSwap(
 export function nextSelectionAfterWheelRemoved(
   currentSelection: ActiveSelection,
   sourceSlotId: string,
-  sourceWheelIndex: number,
+  sourceWheelIndex: WheelSlotIndex,
 ): ActiveSelection {
   if (
     currentSelection?.kind === 'wheel' &&

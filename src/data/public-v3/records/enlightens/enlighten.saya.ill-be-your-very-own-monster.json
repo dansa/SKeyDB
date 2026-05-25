@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0057",
   "slot": "E1",
-  "descriptionTemplate": "Saya's Exalt Base Shield increases by 10%, and the Base {Corrosion} dealt by {Viscera Blossoms} increases by 20%. For every 1% Sigil Yield provided by Saya and her equipped Wheel of Destiny & Covenant, Saya's Exalt Base Shield increases by 0.6%, and the Base {Corrosion} dealt by {Viscera Blossoms} increases by 1%.",
+  "descriptionTemplate": "Saya's Exalt Base Shield increases by 5%, and the Base {Corrosion} dealt by {Viscera Blossoms} increases by 10%. For every 1% Sigil Yield provided by Saya and her equipped Wheel of Destiny & Covenant, Saya's Exalt Base Shield increases by 0.25%, and the Base {Corrosion} dealt by {Viscera Blossoms} increases by 0.5%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Saya"
 }

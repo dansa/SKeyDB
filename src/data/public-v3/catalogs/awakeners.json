@@ -24,11 +24,7 @@
       "releaseDate": "2024-04-27",
       "faction": "Hybrid",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 17,
-        "ATK": 21,
-        "DEF": 10
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 35,
         "ATK": 45,
@@ -420,11 +416,7 @@
       "releaseDate": "2025-06-02",
       "faction": "The Fools",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 17,
-        "ATK": 15,
-        "DEF": 18
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 35,
         "ATK": 32,
@@ -533,11 +525,7 @@
       "releaseDate": "2025-04-07",
       "faction": "The Unknowable",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 14,
-        "ATK": 17,
-        "DEF": 14
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 30,
         "ATK": 35,
@@ -592,11 +580,7 @@
       "releaseDate": "2025-05-05",
       "faction": "The Fools",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 14,
-        "DEF": 17
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 34,
         "ATK": 30,
@@ -651,11 +635,7 @@
       "releaseDate": "2023-12-20",
       "faction": "The Unknowable",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 20,
-        "DEF": 15
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 33,
         "ATK": 41,
@@ -764,11 +744,7 @@
       "releaseDate": "2025-07-21",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 17,
-        "ATK": 18,
-        "DEF": 15
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 35,
         "ATK": 37,
@@ -985,11 +961,7 @@
       "releaseDate": "2025-02-10",
       "faction": "Among the Stars",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 11,
-        "ATK": 9,
-        "DEF": 12
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 24,
         "ATK": 19,
@@ -1044,11 +1016,7 @@
       "releaseDate": "2024-10-07",
       "faction": "The Fools",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 18,
-        "ATK": 17,
-        "DEF": 13
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 37,
         "ATK": 36,
@@ -1211,11 +1179,7 @@
       "releaseDate": "2024-09-09",
       "faction": "The Unknowable",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 15,
-        "ATK": 16,
-        "DEF": 15
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 32,
         "ATK": 33,
@@ -1324,11 +1288,7 @@
       "releaseDate": "2024-07-15",
       "faction": "Outlanders",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 12,
-        "ATK": 12,
-        "DEF": 11
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 25,
         "ATK": 26,
@@ -1491,11 +1451,7 @@
       "releaseDate": "2025-08-18",
       "faction": "Among the Stars",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 19,
-        "DEF": 14
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 33,
         "ATK": 39,
@@ -1604,11 +1560,7 @@
       "releaseDate": "2024-01-31",
       "faction": "Hybrid",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 18,
-        "ATK": 13,
-        "DEF": 18
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 38,
         "ATK": 28,
@@ -1771,11 +1723,7 @@
       "releaseDate": "2024-06-17",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 11,
-        "ATK": 17,
-        "DEF": 9
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 23,
         "ATK": 35,
@@ -1843,11 +1791,7 @@
       "releaseDate": "2025-12-29",
       "faction": "Outlanders",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 14,
-        "ATK": 17,
-        "DEF": 14
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 30,
         "ATK": 35,
@@ -1902,11 +1846,7 @@
       "releaseDate": "2024-02-21",
       "faction": "Hybrid",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 15,
-        "ATK": 16,
-        "DEF": 18
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 31,
         "ATK": 33,
@@ -1961,11 +1901,7 @@
       "releaseDate": "2025-11-24",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 11,
-        "ATK": 14,
-        "DEF": 13
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 24,
         "ATK": 29,
@@ -2236,11 +2172,7 @@
       "releaseDate": "2025-09-08",
       "faction": "The Fools",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 15,
-        "DEF": 16
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 34,
         "ATK": 31,
@@ -2295,11 +2227,7 @@
       "releaseDate": "2025-10-20",
       "faction": "Hybrid",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 18,
-        "DEF": 15
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 33,
         "ATK": 37,
@@ -2408,11 +2336,7 @@
       "releaseDate": "2024-08-12",
       "faction": "The Fools",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 20,
-        "ATK": 17,
-        "DEF": 16
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 42,
         "ATK": 35,
@@ -2467,11 +2391,7 @@
       "releaseDate": "2024-04-04",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 21,
-        "ATK": 14,
-        "DEF": 21
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 45,
         "ATK": 29,
@@ -2580,11 +2500,7 @@
       "releaseDate": "2024-01-10",
       "faction": "Outlanders",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 15,
-        "ATK": 21,
-        "DEF": 11
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 31,
         "ATK": 44,
@@ -2639,11 +2555,7 @@
       "releaseDate": "2024-11-18",
       "faction": "Gateway",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 15,
-        "ATK": 15,
-        "DEF": 15
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 32,
         "ATK": 32,
@@ -2698,11 +2610,7 @@
       "releaseDate": "2024-05-18",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 15,
-        "DEF": 14
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 33,
         "ATK": 32,
@@ -2811,11 +2719,7 @@
       "releaseDate": "2023-11-29",
       "faction": "Out of the Aeons",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 17,
-        "ATK": 19,
-        "DEF": 15
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 36,
         "ATK": 40,
@@ -2924,11 +2828,7 @@
       "releaseDate": "2024-03-14",
       "faction": "Among the Stars",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 18,
-        "ATK": 11,
-        "DEF": 21
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 37,
         "ATK": 24,
@@ -3037,11 +2937,7 @@
       "releaseDate": "2026-01-26",
       "faction": "The Unknowable",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 23,
-        "ATK": 14,
-        "DEF": 13
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 48,
         "ATK": 29,
@@ -3096,11 +2992,7 @@
       "releaseDate": "2026-03-09",
       "faction": "The Fools",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 17,
-        "ATK": 20,
-        "DEF": 14
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 35,
         "ATK": 42,
@@ -3155,11 +3047,7 @@
       "releaseDate": "2026-04-20",
       "faction": "The Unknowable",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 16,
-        "ATK": 12,
-        "DEF": 16
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 34,
         "ATK": 25,
@@ -3226,11 +3114,7 @@
       "releaseDate": "2026-05-30",
       "faction": "TBD",
       "primaryScalingBase": 20,
-      "defaultPrimaryStatBonuses": {
-        "CON": 12,
-        "ATK": 12,
-        "DEF": 11
-      },
+      "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
         "CON": 25,
         "ATK": 25,

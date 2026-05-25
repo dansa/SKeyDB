@@ -4,12 +4,12 @@ import {DupeLevelDisplay} from '@/components/ui/DupeLevelDisplay'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 
 import {makeWheelDropZoneId} from './dnd-ids'
-import type {DragData, PredictedDropHover} from './types'
+import type {DragData, PredictedDropHover, WheelSlotIndex} from './types'
 
 export interface CardWheelTileProps {
   slotId: string
   wheelId: string | null
-  wheelIndex: number
+  wheelIndex: WheelSlotIndex
   interactive: boolean
   allowActiveRemoval?: boolean
   activeDragKind?: DragData['kind'] | null
@@ -18,7 +18,7 @@ export interface CardWheelTileProps {
   ownedLevel?: number | null
   showOwnership?: boolean
   onRemove?: () => void
-  onClick?: (wheelIndex: number) => void
+  onClick?: (wheelIndex: WheelSlotIndex) => void
 }
 
 function renderWheelTileVisual(wheelId: string | null) {
@@ -52,7 +52,7 @@ function renderWheelTileVisual(wheelId: string | null) {
 function getTeamWheelDragData(
   draggableEnabled: boolean,
   slotId: string,
-  wheelIndex: number,
+  wheelIndex: WheelSlotIndex,
   wheelId: string | null,
 ): DragData | undefined {
   if (!draggableEnabled || !wheelId) {

@@ -115,7 +115,7 @@ describe('awakener-database-state', () => {
     expect(soulforgeState.stats.DEF).toBe('96')
   })
 
-  it('layers adjustable Gnostic Potential additive stats on top of normal level scaling', () => {
+  it('layers adjustable Gnostic Potential stat levels into normal level scaling', () => {
     const fakeRecord = buildGnosticFixture({defaultMaxed: false})
 
     const offState = resolveAwakenerDatabaseState(fakeRecord, {
@@ -142,9 +142,9 @@ describe('awakener-database-state', () => {
       DEF: '80',
     })
     expect(levelThreeState.stats).toMatchObject({
-      CON: '89',
-      ATK: '93',
-      DEF: '87',
+      CON: '86',
+      ATK: '86',
+      DEF: '86',
     })
     expect(levelThreeState.controls).toMatchObject({
       hasGnosticPotentialTalent: true,
@@ -164,9 +164,9 @@ describe('awakener-database-state', () => {
 
     expect(resolved.selection.gnosticPotentialLevel).toBe(5)
     expect(resolved.stats).toMatchObject({
-      CON: '95',
-      ATK: '101',
-      DEF: '91',
+      CON: '90',
+      ATK: '90',
+      DEF: '90',
     })
     expect(resolved.controls).toMatchObject({
       hasGnosticPotentialTalent: true,

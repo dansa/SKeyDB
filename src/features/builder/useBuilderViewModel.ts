@@ -45,6 +45,7 @@ import type {ActiveSelection, QuickLineupSession, Team, TeamSlot, WheelUsageLoca
 import {useAwakenerBuildRecommendations} from './useAwakenerBuildRecommendations'
 import {useBuilderPreferences} from './useBuilderPreferences'
 import {matchesWheelMainstat} from './wheel-mainstats'
+import {getWheelSlotIndex, toWheelSlotIndex} from './wheel-slot-index'
 
 interface UseBuilderViewModelOptions {
   searchInputRef: RefObject<HTMLInputElement | null>
@@ -87,7 +88,12 @@ function buildUsedWheelByTeamOrder(teams: Team[]): Map<string, WheelUsageLocatio
           continue
         }
 
-        wheelMap.set(wheelId, {teamOrder, teamId: team.id, slotId: slot.slotId, wheelIndex})
+        wheelMap.set(wheelId, {
+          teamOrder,
+          teamId: team.id,
+          slotId: slot.slotId,
+          wheelIndex: toWheelSlotIndex(wheelIndex),
+        })
       }
     }
   }
@@ -477,12 +483,17 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
   }
 
   function handleWheelSlotClick(slotId: string, wheelIndex: number) {
+    const resolvedWheelIndex = getWheelSlotIndex(wheelIndex)
+    if (resolvedWheelIndex === null) {
+      return
+    }
+
     if (quickLineupState) {
-      jumpToQuickLineupStep({kind: 'wheel', slotId, wheelIndex})
+      jumpToQuickLineupStep({kind: 'wheel', slotId, wheelIndex: resolvedWheelIndex})
       return
     }
     setPickerTab('wheels')
-    setActiveSelection((prev) => toggleWheelSelection(prev, slotId, wheelIndex))
+    setActiveSelection((prev) => toggleWheelSelection(prev, slotId, resolvedWheelIndex))
   }
 
   function handleCovenantSlotClick(slotId: string) {
@@ -551,15 +562,20 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
   }
 
   function clearTeamWheel(slotId: string, wheelIndex: number) {
-    const result = clearWheelAssignment(teamSlots, slotId, wheelIndex)
+    const resolvedWheelIndex = getWheelSlotIndex(wheelIndex)
+    if (resolvedWheelIndex === null) {
+      return
+    }
+
+    const result = clearWheelAssignment(teamSlots, slotId, resolvedWheelIndex)
     applyActiveTeamSlotMutation(
       result.nextSlots,
       {
         kind: 'wheel',
         slotId,
-        wheelIndex,
+        wheelIndex: resolvedWheelIndex,
       },
-      nextSelectionAfterWheelRemoved(resolvedActiveSelection, slotId, wheelIndex),
+      nextSelectionAfterWheelRemoved(resolvedActiveSelection, slotId, resolvedWheelIndex),
     )
   }
 

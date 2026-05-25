@@ -22,6 +22,7 @@ describe('builder team state', () => {
     const slots = teamSlotsForTests()
     const result = assignAwakenerToSlot(slots, 'awakener-0021', 'slot-2', awakenersByIdForTests)
 
+    expect(result.changed).toBe(true)
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerId).toBeUndefined()
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerId).toBe(
       'awakener-0021',
@@ -31,6 +32,7 @@ describe('builder team state', () => {
     ).toBe(false)
 
     const cleared = clearSlotAssignment(result.nextSlots, 'slot-2')
+    expect(cleared.changed).toBe(true)
     expect(cleared.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerId).toBeUndefined()
   })
 
@@ -56,6 +58,7 @@ describe('builder team state', () => {
     const slots = teamSlotsForTests()
     const result = assignAwakenerToSlot(slots, 'awakener-0021', 'not-a-slot', awakenersByIdForTests)
 
+    expect(result.changed).toBe(false)
     expect(result.nextSlots).toEqual(slots)
   })
 
@@ -63,6 +66,7 @@ describe('builder team state', () => {
     const slots = teamSlotsForTests()
     const result = assignAwakenerToSlot(slots, 'awakener-0021', 'slot-2', awakenersByIdForTests)
 
+    expect(result.changed).toBe(true)
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerId).toBeUndefined()
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.awakenerId).toBe(
       'awakener-0021',
@@ -73,6 +77,7 @@ describe('builder team state', () => {
     const slots = teamSlotsForTests()
     const result = assignAwakenerToSlot(slots, 'awakener-0021', 'slot-1', awakenersByIdForTests)
 
+    expect(result.changed).toBe(false)
     expect(result.nextSlots).toBe(slots)
   })
 
@@ -80,6 +85,7 @@ describe('builder team state', () => {
     const slots = teamSlotsForTests()
     const result = swapSlotAssignments(slots, 'slot-1', 'slot-2')
 
+    expect(result.changed).toBe(true)
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerId).toBe(
       'awakener-0032',
     )
@@ -99,6 +105,7 @@ describe('builder team state', () => {
     const result = assignAwakenerToSlot(slots, 'awakener-0008', 'slot-3', awakenersByIdForTests)
 
     expect(result.nextSlots).toBe(slots)
+    expect(result.changed).toBe(false)
     expect(result.violation).toBe('TOO_MANY_REALMS_IN_TEAM')
   })
 
@@ -107,6 +114,7 @@ describe('builder team state', () => {
     const result = assignAwakenerToSlot(slots, 'awakener-0008', 'slot-1', awakenersByIdForTests)
 
     expect(result.violation).toBeUndefined()
+    expect(result.changed).toBe(true)
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerId).toBe(
       'awakener-0008',
     )
@@ -150,6 +158,23 @@ describe('builder team state', () => {
     )
   })
 
+  it('preserves wheels and covenant when replacing an awakener in place', () => {
+    const slots = teamSlotsForTests()
+    const gearedSlots = assignWheelToSlot(slots, 'slot-2', 0, 'wheel-0050').nextSlots
+    const covenantedSlots = assignCovenantToSlot(gearedSlots, 'slot-2', 'c01').nextSlots
+    const result = assignAwakenerToSlot(
+      covenantedSlots,
+      'awakener-0042',
+      'slot-2',
+      awakenersByIdForTests,
+    )
+
+    const targetSlot = result.nextSlots.find((slot) => slot.slotId === 'slot-2')
+    expect(targetSlot?.awakenerId).toBe('awakener-0042')
+    expect(targetSlot?.wheels).toEqual(['wheel-0050', null])
+    expect(targetSlot?.covenantId).toBe('c01')
+  })
+
   it('does not move an already slotted awakener when adding to first empty slot', () => {
     const slots = [
       {
@@ -177,6 +202,7 @@ describe('builder team state', () => {
     ]
 
     const result = assignAwakenerToFirstEmptySlot(slots, 'awakener-0021', awakenersByIdForTests)
+    expect(result.changed).toBe(false)
     expect(result.nextSlots).toBe(slots)
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-3')?.awakenerId).toBe(
       'awakener-0021',
@@ -188,6 +214,7 @@ describe('builder team state', () => {
     const slots = teamSlotsForTests()
     const result = clearSlotAssignment(slots, 'slot-1')
 
+    expect(result.changed).toBe(true)
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.awakenerId).toBeUndefined()
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.realm).toBeUndefined()
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.level).toBeUndefined()
@@ -199,6 +226,8 @@ describe('builder team state', () => {
     const withWheel = assignWheelToSlot(slots, 'slot-2', 1, 'demo-wheel')
     const clearedWheel = clearWheelAssignment(withWheel.nextSlots, 'slot-2', 1)
 
+    expect(withWheel.changed).toBe(true)
+    expect(clearedWheel.changed).toBe(true)
     expect(withWheel.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([
       null,
       'demo-wheel',
@@ -213,6 +242,7 @@ describe('builder team state', () => {
     const slots = teamSlotsForTests()
     const result = assignWheelToSlot(slots, 'slot-3', 0, 'demo-wheel')
 
+    expect(result.changed).toBe(false)
     expect(result.nextSlots).toBe(slots)
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-3')?.wheels).toEqual([null, null])
   })
@@ -222,6 +252,7 @@ describe('builder team state', () => {
     const withWheel = assignWheelToSlot(slots, 'slot-1', 0, 'wheel-a')
     const unchanged = assignWheelToSlot(withWheel.nextSlots, 'slot-1', 0, 'wheel-a')
 
+    expect(unchanged.changed).toBe(false)
     expect(unchanged.nextSlots).toBe(withWheel.nextSlots)
   })
 
@@ -231,6 +262,7 @@ describe('builder team state', () => {
     const withTwoWheels = assignWheelToSlot(withFirstWheel.nextSlots, 'slot-1', 1, 'wheel-b')
 
     const result = swapWheelAssignments(withTwoWheels.nextSlots, 'slot-1', 0, 'slot-1', 1)
+    expect(result.changed).toBe(true)
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual([
       'wheel-b',
       'wheel-a',
@@ -242,6 +274,8 @@ describe('builder team state', () => {
     const withCovenant = assignCovenantToSlot(slots, 'slot-1', '001')
     const cleared = clearCovenantAssignment(withCovenant.nextSlots, 'slot-1')
 
+    expect(withCovenant.changed).toBe(true)
+    expect(cleared.changed).toBe(true)
     expect(withCovenant.nextSlots.find((slot) => slot.slotId === 'slot-1')?.covenantId).toBe('001')
     expect(cleared.nextSlots.find((slot) => slot.slotId === 'slot-1')?.covenantId).toBeUndefined()
   })
@@ -251,6 +285,24 @@ describe('builder team state', () => {
     const withCovenant = assignCovenantToSlot(slots, 'slot-1', '001')
     const unchanged = assignCovenantToSlot(withCovenant.nextSlots, 'slot-1', '001')
 
+    expect(unchanged.changed).toBe(false)
     expect(unchanged.nextSlots).toBe(withCovenant.nextSlots)
+  })
+
+  it('reports unchanged when clearing an already empty slot even if the array is remapped', () => {
+    const slots = teamSlotsForTests()
+    const result = clearSlotAssignment(slots, 'slot-3')
+
+    expect(result.changed).toBe(false)
+    expect(result.nextSlots).not.toBe(slots)
+    expect(result.nextSlots).toEqual(slots)
+  })
+
+  it('reports unchanged for same-wheel swaps', () => {
+    const slots = teamSlotsForTests()
+    const result = swapWheelAssignments(slots, 'slot-1', 0, 'slot-1', 0)
+
+    expect(result.changed).toBe(false)
+    expect(result.nextSlots).toBe(slots)
   })
 })

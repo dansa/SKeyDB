@@ -75,6 +75,7 @@ export function AwakenerDetailSidebar({
         ) : null
       }
       compact={compact}
+      gnosticPotentialLevel={selection.gnosticPotentialLevel}
       isExpanded={areStatsExpanded}
       onExpandedChange={onStatsExpandedChange}
       scalingRecord={scalingRecord}

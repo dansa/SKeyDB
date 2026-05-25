@@ -216,6 +216,7 @@ vi.mock('../../domain/awakener-builds', async () => {
 
 vi.mock('../../domain/wheel-assets', () => ({
   getWheelAssetById: (wheelId: string) => `/mock/wheels/${wheelId}.webp`,
+  getWheelMiniAssetById: (wheelId: string) => `/mock/wheels/mini/${wheelId}.webp`,
 }))
 
 vi.mock('../../domain/covenant-assets', () => ({

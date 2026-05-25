@@ -17,11 +17,13 @@ export interface Team {
   posseId?: string
 }
 
+export type WheelSlotIndex = 0 | 1
+
 export interface WheelUsageLocation {
   teamOrder: number
   teamId: string
   slotId: string
-  wheelIndex: number
+  wheelIndex: WheelSlotIndex
 }
 
 export interface CovenantUsageLocation {
@@ -47,7 +49,7 @@ export type WheelMainstatFilter =
 export type TeamPreviewMode = 'compact' | 'expanded'
 export type QuickLineupStep =
   | {kind: 'awakener'; slotId: string}
-  | {kind: 'wheel'; slotId: string; wheelIndex: number}
+  | {kind: 'wheel'; slotId: string; wheelIndex: WheelSlotIndex}
   | {kind: 'covenant'; slotId: string}
   | {kind: 'posse'}
 
@@ -61,12 +63,12 @@ export interface QuickLineupSession {
 
 export type ActiveSelection =
   | {kind: 'awakener'; slotId: string}
-  | {kind: 'wheel'; slotId: string; wheelIndex: number}
+  | {kind: 'wheel'; slotId: string; wheelIndex: WheelSlotIndex}
   | {kind: 'covenant'; slotId: string}
   | null
 
 export type PredictedDropHover =
-  | {kind: 'wheel'; slotId: string; wheelIndex: number}
+  | {kind: 'wheel'; slotId: string; wheelIndex: WheelSlotIndex}
   | {kind: 'covenant'; slotId: string}
   | null
 
@@ -77,6 +79,6 @@ export type DragData =
   | {kind: 'picker-posse'; posseId: string; posseName: string}
   | {kind: 'team-slot'; slotId: string; awakenerId: string; awakenerName: string}
   | {kind: 'team-preview-slot'; teamId: string; slotId: string}
-  | {kind: 'team-wheel'; slotId: string; wheelIndex: number; wheelId: string}
+  | {kind: 'team-wheel'; slotId: string; wheelIndex: WheelSlotIndex; wheelId: string}
   | {kind: 'team-covenant'; slotId: string; covenantId: string}
   | {kind: 'team-row'; teamId: string}

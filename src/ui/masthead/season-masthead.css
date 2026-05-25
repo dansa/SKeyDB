@@ -146,6 +146,10 @@
   color: oklch(74% 0.032 255 / 0.82);
 }
 
+.season-masthead__summary-note {
+  color: oklch(79% 0.07 84 / 0.72);
+}
+
 .season-masthead__summary-emblem {
   position: relative;
   display: grid;

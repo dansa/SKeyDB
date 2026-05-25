@@ -45,6 +45,33 @@ vi.mock('@/domain/timeline-data', () => ({
   ],
 }))
 
+vi.mock('@/domain/dzone', () => ({
+  getCurrentDzoneSeasonSummary: () => ({
+    id: 'dzone-0101',
+    period: 101,
+    name: 'Current Test Zone',
+    start: '2026-03-09T00:00:00.000Z',
+    end: '2026-03-12T00:00:00.000Z',
+    stageEffect: 'Astral Reign',
+    realm: 'CARO',
+    seasonPath: 'seasons/dzone0101.json',
+  }),
+  getLatestDzoneSeasonSummary: () => ({
+    id: 'dzone-0101',
+    period: 101,
+    name: 'Current Test Zone',
+    start: '2026-03-09T00:00:00.000Z',
+    end: '2026-03-12T00:00:00.000Z',
+    stageEffect: 'Astral Reign',
+    realm: 'CARO',
+    seasonPath: 'seasons/dzone0101.json',
+  }),
+}))
+
+vi.mock('@/domain/dzone-season-realm', () => ({
+  getDzoneSeasonSummaryDisplayName: () => 'Caro Ring',
+}))
+
 vi.mock('@/stores/dbDetailStore', () => ({
   dbDetailStore: {
     getState: () => detailStoreMocks,
@@ -319,7 +346,7 @@ describe('TimelinePage', () => {
     expect(screen.getByRole('button', {name: /ended banners/i})).toBeInTheDocument()
   })
 
-  it('uses the D-Zone event data in the masthead', () => {
+  it('uses the D-Zone season data in the masthead', () => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
 
@@ -330,5 +357,6 @@ describe('TimelinePage', () => {
     expect(seasonLink).toHaveTextContent('Current Season')
     expect(seasonLink).toHaveTextContent('Caro Ring')
     expect(screen.getByText('Ends in 2d 0h')).toBeInTheDocument()
+    expect(screen.queryByText('Current D-Zone data pending')).not.toBeInTheDocument()
   })
 })

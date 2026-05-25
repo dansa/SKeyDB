@@ -2,7 +2,6 @@ import {useState} from 'react'
 
 import {useSearchParams} from 'react-router-dom'
 
-import realmBadgeAequor from '@/assets/ui/realm-badge-aequor.webp'
 import {getAwakeners} from '@/domain/awakeners'
 import type {EntityRef} from '@/domain/entities/types'
 import {sortEventsByRelevance} from '@/domain/timeline'
@@ -71,9 +70,10 @@ export function TimelinePage() {
           ariaLabel: 'D-Zone season',
           artSrc: dZoneSummary.artSrc,
           countdown: dZoneSummary.countdown,
-          emblemSrc: realmBadgeAequor,
+          emblemSrc: dZoneSummary.emblemSrc,
           kicker: 'Current Season',
           name: dZoneSummary.name,
+          note: dZoneSummary.note,
           to: '/d-zone',
         }}
       >

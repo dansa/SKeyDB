@@ -20,12 +20,12 @@ import {loadRelicRecordById} from './relics'
 
 describe('D-zone domain boundary', () => {
   it('loads all D-zone summary records and full season archives', async () => {
-    expect(getDzoneSeasonSummaries()).toHaveLength(60)
-    expect(await loadDzoneSeasons()).toHaveLength(60)
+    expect(getDzoneSeasonSummaries()).toHaveLength(61)
+    expect(await loadDzoneSeasons()).toHaveLength(61)
     expect(getLatestDzoneSeasonSummary()).toMatchObject({
-      id: 'dzone-0060',
-      period: 60,
-      realm: 'AEQUOR',
+      id: 'dzone-0061',
+      period: 61,
+      realm: 'CARO',
       stageEffect: 'Astral Reign',
     })
     expect(await loadDzoneSeasonById('dzone-0001')).toMatchObject({
@@ -35,11 +35,11 @@ describe('D-zone domain boundary', () => {
     })
   })
 
-  it('loads the latest season as dzone-0060 with 5 resolved waves', async () => {
+  it('loads the latest season as dzone-0061 with 5 resolved waves', async () => {
     const latestSeason = await loadLatestDzoneSeason()
 
     expect((await loadDzoneSeasons()).length).toBeGreaterThan(0)
-    expect(latestSeason.id).toBe('dzone-0060')
+    expect(latestSeason.id).toBe('dzone-0061')
     expect(latestSeason.waves).toHaveLength(5)
     expect(await loadLatestDzoneWaveViewModels()).toHaveLength(5)
   })
@@ -55,27 +55,27 @@ describe('D-zone domain boundary', () => {
       'Alert V',
     ])
     expect(waveOne.alerts[0]?.monsters[0]).toMatchObject({
-      monsterId: 'dzone-monster-0034',
+      monsterId: 'dzone-monster-0270',
       level: 38,
-      hp: 24474,
-      hpBars: 3,
+      hp: 10736,
+      hpBars: 2,
     })
   })
 
   it('resolves selected alert stats onto alert wave monsters', async () => {
     const [waveOne] = await loadLatestDzoneWaveViewModels()
-    const alertFourBlesser = waveOne.alerts
+    const alertFourBoss = waveOne.alerts
       .find((alert) => alert.id === 'alert-4')
-      ?.monsters.find((monster) => monster.id === 'dzone-monster-0034')
+      ?.monsters.find((monster) => monster.id === 'dzone-monster-0270')
 
-    expect(alertFourBlesser).toMatchObject({
-      id: 'dzone-monster-0034',
+    expect(alertFourBoss).toMatchObject({
+      id: 'dzone-monster-0270',
       alertStats: {
         alertId: 'alert-4',
         alertName: 'Alert IV',
         level: 73,
-        hp: 401964,
-        hpBars: 3,
+        hp: 175384,
+        hpBars: 2,
       },
     })
   })
@@ -148,8 +148,8 @@ describe('D-zone domain boundary', () => {
 
   it('preserves initial relic ids without resolving relic records', async () => {
     expect((await loadLatestDzoneWaveViewModels())[0]?.initialRelicIds).toEqual([
-      'relic-9001',
-      'relic-9004',
+      'relic-9102',
+      'relic-9041',
     ])
   })
 
@@ -160,7 +160,7 @@ describe('D-zone domain boundary', () => {
     expect(
       latestSeason.waves.every((wave) => wave.initialRelicIds.includes(sharedInitialRelicIds[0])),
     ).toBe(true)
-    expect(getDzoneSeasonSharedInitialRelicIds(latestSeason)).toEqual(['relic-9004'])
+    expect(getDzoneSeasonSharedInitialRelicIds(latestSeason)).toEqual(['relic-9041'])
   })
 
   it('resolves modern season realms and falls back for legacy seasons', async () => {
@@ -171,7 +171,7 @@ describe('D-zone domain boundary', () => {
       throw new Error('Expected dzone-0001 to be loaded')
     }
 
-    expect(getDzoneSeasonRealmName(latestSeason)).toBe('Aequor Ring')
+    expect(getDzoneSeasonRealmName(latestSeason)).toBe('Caro Ring')
     expect(getDzoneSeasonRealmName(legacySeason)).toBe('Dissoluted Abyss')
   })
 

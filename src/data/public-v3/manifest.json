@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-1711527999bcedbc",
-  "generatedAt": "2026-05-21T17:19:32Z",
-  "buildId": "2026-05-21T17:19:32Z",
+  "gameDataVersion": "compiled-sha256-6388d0d460b6e80c",
+  "generatedAt": "2026-05-25T00:09:02Z",
+  "buildId": "2026-05-25T00:09:02Z",
   "build": {
-    "gameDataVersion": "compiled-sha256-1711527999bcedbc",
+    "gameDataVersion": "compiled-sha256-6388d0d460b6e80c",
     "recordCount": 1635,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -102,8 +102,8 @@
       "sha256": "051415f92022be9fab49efffc436c7dc280a8875cec68f7d9c96b42e24a84d53"
     },
     "catalogs/awakeners.json": {
-      "bytes": 81782,
-      "sha256": "fa52ce1012798779ae33e01a82f79d6b37578ceb3a2058d114bcf5958dbf5d25"
+      "bytes": 80044,
+      "sha256": "574de17c8660e9f78e02f3415d22fa3e69736c971e991711d01070ff8ee379eb"
     },
     "catalogs/covenants.json": {
       "bytes": 7413,
@@ -2138,8 +2138,8 @@
       "sha256": "3caefeeec62fd3c7a5eaedb9ccb6a0259709f5bacf8d6f80a1e0a1cd3ad4fb7b"
     },
     "records/enlightens/enlighten.saya.ill-be-your-very-own-monster.json": {
-      "bytes": 750,
-      "sha256": "d6753eb6fa166e9d7b7d21545071dacf7dff7b7f5a89254138ee25fc4e00ff4a"
+      "bytes": 752,
+      "sha256": "6afd6c560cadafc2d5af738b2ef0cd54670885fd9d2c46d26deb6181b1287751"
     },
     "records/enlightens/enlighten.saya.must-be-what-they-call-love.json": {
       "bytes": 639,

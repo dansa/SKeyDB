@@ -38,7 +38,7 @@ function createActions(options?: {
   const teamSlots = options?.teamSlots ?? buildSlots()
   const usedWheelByTeamOrder =
     options?.usedWheelByTeamOrder ??
-    new Map([
+    new Map<string, WheelUsageLocation>([
       [
         'B01',
         {
@@ -92,7 +92,7 @@ describe('createBuilderWheelActions', () => {
   })
 
   it('requests transfer when wheel belongs to another team', () => {
-    const usedWheelByTeamOrder = new Map([
+    const usedWheelByTeamOrder = new Map<string, WheelUsageLocation>([
       [
         'B01',
         {
@@ -137,7 +137,7 @@ describe('createBuilderWheelActions', () => {
   })
 
   it('assigns duplicate wheel directly when dupes are enabled', () => {
-    const usedWheelByTeamOrder = new Map([
+    const usedWheelByTeamOrder = new Map<string, WheelUsageLocation>([
       [
         'B01',
         {
@@ -164,7 +164,7 @@ describe('createBuilderWheelActions', () => {
   })
 
   it('assigns duplicate wheel directly when target slot is support', () => {
-    const usedWheelByTeamOrder = new Map([
+    const usedWheelByTeamOrder = new Map<string, WheelUsageLocation>([
       [
         'B01',
         {

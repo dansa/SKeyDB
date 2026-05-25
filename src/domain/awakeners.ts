@@ -30,7 +30,7 @@ const publicV3AwakenerCatalogRecordSchema = z
     searchTags: z.array(z.string().trim().min(1)).optional(),
     primaryScalingBase: z.number().optional(),
     baseStatsLv1: liteStatsSchema,
-    defaultPrimaryStatBonuses: liteStatsSchema.optional(),
+    defaultPrimaryStatBonusLevel: z.number().optional(),
     statScaling: liteStatsSchema.optional(),
     substatScaling: liteSubstatScalingSchema.optional(),
     lineupToken: z.string().trim().min(1),
@@ -59,7 +59,7 @@ export interface Awakener {
   releaseDate?: string
   aliases: string[]
   stats?: AwakenerLiteStats
-  defaultPrimaryStatBonuses?: AwakenerLiteStats
+  defaultPrimaryStatBonusLevel?: number
   primaryScalingBase?: number
   statScaling?: AwakenerStatScaling
   substatScaling?: AwakenerLiteSubstatScaling
@@ -102,7 +102,7 @@ function normalizeAwakenerLiteStatLevel(level: number): number {
 export function resolveAwakenerLiteStatsForLevel(
   awakener: Pick<
     Awakener,
-    'defaultPrimaryStatBonuses' | 'primaryScalingBase' | 'statScaling' | 'stats'
+    'defaultPrimaryStatBonusLevel' | 'primaryScalingBase' | 'statScaling' | 'stats'
   >,
   level: number,
 ): AwakenerLiteStats | undefined {
@@ -112,7 +112,7 @@ export function resolveAwakenerLiteStatsForLevel(
   const resolvedStats = {...awakener.stats}
 
   if (awakener.primaryScalingBase === undefined || !awakener.statScaling) {
-    return applyDefaultPrimaryStatBonuses(resolvedStats, awakener.defaultPrimaryStatBonuses)
+    return resolvedStats
   }
 
   const normalizedLevel = normalizeAwakenerLiteStatLevel(level)
@@ -121,25 +121,11 @@ export function resolveAwakenerLiteStatsForLevel(
     if (!Number.isFinite(growthPerLevel)) {
       continue
     }
+    const defaultBonusLevels = awakener.defaultPrimaryStatBonusLevel ?? 0
     resolvedStats[key] = Math.ceil(
-      (awakener.primaryScalingBase + normalizedLevel) * growthPerLevel -
+      (awakener.primaryScalingBase + normalizedLevel + defaultBonusLevels) * growthPerLevel -
         PRIMARY_STAT_FORMULA_EPSILON,
     )
-  }
-  return applyDefaultPrimaryStatBonuses(resolvedStats, awakener.defaultPrimaryStatBonuses)
-}
-
-function applyDefaultPrimaryStatBonuses(
-  stats: AwakenerLiteStats,
-  bonuses: AwakenerLiteStats | undefined,
-): AwakenerLiteStats {
-  if (!bonuses) {
-    return stats
-  }
-
-  const resolvedStats = {...stats}
-  for (const key of PRIMARY_STAT_KEYS) {
-    resolvedStats[key] += bonuses[key]
   }
   return resolvedStats
 }
@@ -164,7 +150,7 @@ const parsedAwakeners = getPublicCatalogRecords('awakeners')
       releaseDate: awakener.releaseDate,
       aliases,
       stats: awakener.baseStatsLv1,
-      defaultPrimaryStatBonuses: awakener.defaultPrimaryStatBonuses,
+      defaultPrimaryStatBonusLevel: awakener.defaultPrimaryStatBonusLevel,
       primaryScalingBase: awakener.primaryScalingBase,
       statScaling: awakener.statScaling,
       substatScaling: awakener.substatScaling,

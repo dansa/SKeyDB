@@ -1,0 +1,699 @@
+{
+  "version": 1,
+  "slug": "builder-v2-dnd",
+  "status": "active",
+  "created": "2026-05-23",
+  "updated": "2026-05-23",
+  "intake": {
+    "status": "completed",
+    "risk_posture": "Preserve current /builder-v2 click assignment behavior and all /builder behavior; use V1 DnD as behavior reference, not code-shape authority; prefer typed contracts and characterization before wiring dnd-kit.",
+    "harness_policy": "Goal packet and focused tests allowed; Browser/manual checks required for visual DnD slices; no AGENTS.md, lint, dependency, remote, docs/design, or plugin-skill changes without routed maintenance and explicit approval.",
+    "allowed_areas": [
+      "src/features/builder-v2/**",
+      "focused Builder V2 DnD tests",
+      "read-only V1 builder DnD references under src/features/builder/**",
+      "narrowly related shared builder helpers/types only when selected by Judge",
+      "docs/refactor-goals/builder-v2-dnd/**",
+      "docs/refactor-goals/builder-v2-architecture-hardening/** only for handoff receipts"
+    ],
+    "protected_areas": [
+      "current /builder visible behavior",
+      "mobile redesign",
+      "teams-list shape decisions",
+      "unrelated pages",
+      "generated/domain data",
+      "dependencies",
+      "remote state",
+      "docs/design/**",
+      "temporary screenshots",
+      "speculative DnD abstractions without a selected payload/preview/drop contract"
+    ],
+    "validation_commands": [
+      "npx vitest run src/features/builder/useBuilderDnd.test.ts src/features/builder/createBuilderDndCoordinator.test.ts src/features/builder/DragGhosts.test.tsx --run",
+      "npx vitest run src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder-v2/useBuilderV2Model.test.ts --run",
+      "npx tsc -p tsconfig.app.json --noEmit",
+      "targeted npx eslint over touched files",
+      "npm run build:quiet",
+      "Browser/manual checks for desktop/adaptive DnD visual slices"
+    ],
+    "stop_condition": "Stop when the active tranche lands and is verified, a product/design decision is needed, verification fails twice on the same blocker, same-concept expansion crosses protected scope, or work drifts into mobile redesign, teams-list shape, dependency churn, remote state, or V1 rewrites."
+  },
+  "focus_areas": [
+    {
+      "name": "V1 DnD behavior parity",
+      "status": "mapped",
+      "evidence": "S1 scouts mapped V1 DndContext/useBuilderDnd/createBuilderDndCoordinator, DragData, dnd-ids, predicted hover, transfer actions, quick-lineup behavior, and DnD tests.",
+      "next": "Queue characterization/parity tests before behavior-heavy V2 routing."
+    },
+    {
+      "name": "V2 drag payload and drop target contract",
+      "status": "mapped",
+      "evidence": "Builder V2 has no dnd-kit integration yet. Slot and picker DTOs contain enough IDs/assets/status for DnD but are render-focused.",
+      "next": "First recommended Worker slice is D1 V2-owned payload, preview descriptor, and drop target descriptor module/tests."
+    },
+    {
+      "name": "Drag preview and ghost architecture",
+      "status": "mapped",
+      "evidence": "V1 has separate picker ghosts, team card ghosts, team wheel ghosts, and team preview ghosts; user explicitly wants to avoid this sprawl.",
+      "next": "Queue one preview descriptor/overlay contract before visual ghost implementation."
+    },
+    {
+      "name": "DnD event routing and model commands",
+      "status": "mapped",
+      "evidence": "V2 assignment commands handle picker assignment but not active-team slot/wheel/covenant drag moves/removal as first-class model APIs.",
+      "next": "Queue command characterization/expansion before team-origin drags."
+    },
+    {
+      "name": "CSS overlay clipping boundary",
+      "status": "mapped",
+      "evidence": "Architecture C13 and scouts found V2 panels, slot cards, art masks, picker results, and adaptive drawer can clip drag ghosts unless an overlay portals above them.",
+      "next": "Queue after a concrete overlay DOM exists; do not guess CSS without a ghost surface."
+    },
+    {
+      "name": "Desktop/adaptive pointer behavior",
+      "status": "mapped",
+      "evidence": "V2 desktop uses side picker; adaptive uses drawer picker. Scouts recommend pointer/manual checks on both surfaces.",
+      "next": "Validate every DnD worker slice on desktop/adaptive once browser wiring exists."
+    },
+    {
+      "name": "A11y and keyboard DnD",
+      "status": "mapped",
+      "evidence": "V1 uses PointerSensor only; V2 click assignment remains the current non-pointer fallback.",
+      "next": "Queue explicit a11y decision: KeyboardSensor now, or documented non-pointer alternatives plus future candidate."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "D1",
+      "title": "V2 drag payload preview and drop target descriptor contract",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/features/builder-v2/BuilderV2ModelTypes.ts",
+        "new V2 DnD contract/helper module",
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/builder-v2-picker-options.ts",
+        "focused descriptor tests"
+      ],
+      "evidence": "Current BuilderV2SlotView and picker options are render DTOs. V1 DragData is a useful behavior reference but should not be copied with V1 ghost coupling.",
+      "next": "Implemented by W1 in `src/features/builder-v2/builder-v2-dnd.ts` with focused tests. No dnd-kit wiring yet."
+    },
+    {
+      "id": "D2",
+      "title": "V2 DnD id helpers and drop target parsing",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "new V2 dnd-id helper",
+        "descriptor tests",
+        "direct consumers when wired"
+      ],
+      "evidence": "V1 uses plain slot IDs plus prefixed wheel/covenant/picker/team-preview IDs. V2 needs stable IDs without leaking V1 preview/team-row concerns.",
+      "next": "Implemented by W1 in `src/features/builder-v2/builder-v2-dnd.ts` with focused id round-trip and rejection tests."
+    },
+    {
+      "id": "D3",
+      "title": "V1 parity characterization for DnD routing",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "new V2 pure routing tests once helpers exist",
+        "read-only V1 DnD tests",
+        "possibly V2 command tests"
+      ],
+      "evidence": "V1 behavior includes picker-to-card fallback, socket-specific wheels/covenants, remove-to-picker, transfer dialogs, and quick-lineup advancement.",
+      "next": "W2 implemented the first pure routing characterization in `builder-v2-dnd.test.ts`. Command-level characterization for transfer dialogs remains covered by existing V2 page tests and can be expanded when D6 reaches team-origin moves."
+    },
+    {
+      "id": "D4",
+      "title": "Picker draggable source wiring",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "D1 contracts",
+        "focused page tests"
+      ],
+      "evidence": "Picker tiles render all draggable source candidates and already preserve click assignment.",
+      "next": "Implemented by W3 for picker-origin draggables while preserving click assignment."
+    },
+    {
+      "id": "D5",
+      "title": "Active slot wheel covenant target and source wiring",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "slot descriptors",
+        "D1/D2 contracts",
+        "page tests"
+      ],
+      "evidence": "Team slots render card, wheel, and covenant interaction surfaces but have no stable drag/drop descriptors.",
+      "next": "Implemented by W3 for active slot/wheel/covenant/posse droppable targets; W4/W6 completed team-origin drag sources, move/remove execution, and hover/remove feedback."
+    },
+    {
+      "id": "D6",
+      "title": "Builder V2 DnD event coordinator and model command expansion",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "new V2 DnD hook/coordinator",
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/builder-v2-loadout-commands.ts",
+        "model/page tests"
+      ],
+      "evidence": "V2 has picker assignment commands, but team-origin slot/wheel/covenant moves and remove-to-picker need explicit command paths.",
+      "next": "W4 implemented team-origin awakeners/wheels/covenants as drag sources plus remove/move command dispatch through model boundaries."
+    },
+    {
+      "id": "D7",
+      "title": "Single Builder V2 drag overlay and ghost descriptor renderer",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "new overlay/ghost component",
+        "D1 preview descriptor",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/builder-v2.css",
+        "visual/browser checks"
+      ],
+      "evidence": "V1 ghost system is visually useful but data-model messy. User wants one clean preview path.",
+      "next": "W5 implemented one descriptor-driven Builder V2 drag overlay consuming `BuilderV2DragPreviewDescriptor`; no V1 ghost components were copied."
+    },
+    {
+      "id": "D8",
+      "title": "Overlay clipping z-index CSS boundary",
+      "source_task": "Architecture C13 and S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/features/builder-v2/builder-v2.css",
+        "overlay component/root if selected",
+        "Browser checks"
+      ],
+      "evidence": "V2 slot cards, art masks, picker results, and adaptive drawer use clipping and fixed layers.",
+      "next": "W5 added overlay CSS above the adaptive picker backdrop and fixed empty team-source draggable attributes; full manual drag visual confirmation remains useful because Playwright drag automation did not exercise dnd-kit."
+    },
+    {
+      "id": "D9",
+      "title": "Remove-intent and predicted hover feedback",
+      "source_task": "S1",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "V2 DnD hook/coordinator",
+        "slot descriptors",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/builder-v2.css",
+        "tests/browser checks"
+      ],
+      "evidence": "V1 remove-intent and predicted wheel/covenant hover prevent ambiguous drops.",
+      "next": "W6 implemented picker remove-target styling, direct slot/wheel/covenant drop-target styling, pointer-first collision, and V1-style card-level wheel/covenant fallback drops."
+    },
+    {
+      "id": "D10",
+      "title": "Keyboard and a11y DnD decision and fallback",
+      "source_task": "S1 a11y scout",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "DnD hook sensors",
+        "picker/slot components",
+        "page tests/manual SR notes"
+      ],
+      "evidence": "V1 uses PointerSensor only; V2 must avoid pretending pointer DnD is fully keyboard-accessible.",
+      "next": "J2 selected click-first fallback policy now: pointer DnD is progressive enhancement; existing buttons remain the required non-pointer path. KeyboardSensor is deferred until a separate keyboard drag design exists."
+    },
+    {
+      "id": "D11",
+      "title": "Team row/team list DnD",
+      "source_task": "S1",
+      "status": "out_of_scope_by_user",
+      "reason": "User has not settled teams-list/card shape and the current DnD request is for core builder loadout interactions, not teams-list reordering or presentation.",
+      "concept_blast_radius": [
+        "Teams rail/list/card surfaces"
+      ],
+      "evidence": "User has not settled teams-list/card shape; current request focuses core builder DnD.",
+      "next": "Out of scope until teams section shape is selected."
+    },
+    {
+      "id": "D12",
+      "title": "Mobile DnD",
+      "source_task": "User scope",
+      "status": "out_of_scope_by_user",
+      "reason": "User previously asked to leave mobile for later; current DnD validation targets desktop and adaptive/tablet surfaces only.",
+      "concept_blast_radius": [
+        "Mobile layout and picker shell"
+      ],
+      "evidence": "User previously asked to leave mobile for later; current DnD validation targets desktop/adaptive.",
+      "next": "Out of scope until explicitly selected."
+    },
+    {
+      "id": "D13",
+      "title": "Whole-slot awakener and loadout swap",
+      "source_task": "User reported V2 could swap contents indirectly but not drag A3 onto A1 as one slot payload.",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/features/builder-v2/builder-v2-dnd.ts",
+        "src/features/builder-v2/builder-v2-loadout-commands.ts",
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/useBuilderV2Dnd.ts",
+        "focused tests"
+      ],
+      "evidence": "V1 supports team-slot to team-slot drops through `swapSlotAssignments`; V2 only removed team awakeners or ignored non-picker team-awakener drops.",
+      "next": "Implemented with `move-awakener` action and explicit model command over `swapSlotAssignments`."
+    },
+    {
+      "id": "D14",
+      "title": "Picker remove drop zone",
+      "source_task": "User could not drag anything to the picker to remove it.",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "src/features/builder-v2/builder-v2.css",
+        "Browser validation"
+      ],
+      "evidence": "V2 had `makeBuilderV2PickerDndId()` and remove actions, but no picker surface registered `useDroppable` with that id.",
+      "next": "Implemented by registering picker results as the picker drop target and adding remove-target styling."
+    },
+    {
+      "id": "D15",
+      "title": "Pointer-first target correctness",
+      "source_task": "User reported dropping while cursor was over one card could affect another card.",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/features/builder-v2/useBuilderV2Dnd.ts",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "Browser validation"
+      ],
+      "evidence": "Default collision behavior can select by rectangle/center rather than the visible cursor position in dense card grids.",
+      "next": "Implemented `pointerWithin` with `closestCenter` fallback and wired it into desktop/adaptive DndContext."
+    },
+    {
+      "id": "D16",
+      "title": "V1-aligned compact ghost polish",
+      "source_task": "User screenshots showed V1 ghosts were visually tighter and clearer than V2 ghosts.",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/features/builder-v2/BuilderV2DragOverlay.tsx",
+        "src/features/builder-v2/builder-v2.css"
+      ],
+      "evidence": "V2 overlay was larger and slabby compared with V1's compact art/text drag ghosts.",
+      "next": "W7 refined this further: item drags are art-only with picker chrome, while whole-slot drags use a compact full-art slot-card ghost through a descriptor `variant`."
+    },
+    {
+      "id": "D17",
+      "title": "Predicted effective drop hover",
+      "source_task": "User requested V1-style predicted hovers for card-level wheel/covenant drops.",
+      "status": "implemented",
+      "concept_blast_radius": [
+        "src/features/builder-v2/builder-v2-dnd.ts",
+        "src/features/builder-v2/useBuilderV2Dnd.ts",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "src/features/builder-v2/BuilderV2ActiveTeamChrome.tsx",
+        "src/features/builder-v2/builder-v2.css",
+        "src/features/builder-v2/builder-v2-dnd.test.ts"
+      ],
+      "evidence": "Literal hover could light a card, wheel, or covenant surface that was not the effective target. Broad wheel drops also needed the product rule that filled cards should not guess a replacement socket.",
+      "next": "W8 implemented `resolveBuilderV2EffectiveDropTarget` shared by hover and final drop routing: broad wheel drops fill first empty wheel sockets only, full-card wheel drops no-op unless over W1/W2, and covenant drops highlight the owning covenant slot."
+    }
+  ],
+  "maintenance": [
+    {
+      "id": "M1",
+      "title": "DnD accessibility policy",
+      "trigger": "V1 PointerSensor-only behavior and V2 future DnD",
+      "skill": "$refactor-ui-a11y or $refactor-learning-maintainer",
+      "status": "queued",
+      "next": "After first DnD wiring, decide whether to encode a local accessibility note or test pattern."
+    },
+    {
+      "id": "M2",
+      "title": "Drag preview descriptor pattern",
+      "trigger": "User explicitly wants to avoid ghost/object sprawl",
+      "skill": "$refactor-learning-maintainer",
+      "status": "queued",
+      "next": "Consider after D7 if the descriptor pattern should be recorded for future builder surfaces."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "S1",
+      "role": "scout",
+      "status": "done",
+      "title": "Map Builder V2 DnD candidates",
+      "skills": [
+        "$refactor-scout",
+        "$refactor-rootfix",
+        "$refactor-react",
+        "$refactor-typescript",
+        "$refactor-tailwind",
+        "$refactor-ui-a11y",
+        "$refactor-complexity"
+      ],
+      "allowed_files": [
+        "read-only src/features/builder/**",
+        "read-only src/features/builder-v2/**",
+        "read-only docs/refactor-goals/builder-v2-architecture-hardening/**",
+        "package.json read-only",
+        "docs/refactor-goals/builder-v2-dnd/**"
+      ],
+      "protected_files": [
+        "product source edits",
+        "mobile redesign",
+        "teams-list shape decisions",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "V1 DnD parity map, V2 insertion points, payload/preview/drop target recommendations, validation ideas, and candidate slices.",
+      "receipt": {
+        "evidence": [
+          "Three read-only scout agents completed: V1 DnD behavior/ghost audit, V2 insertion point/C8-C13 audit, and dnd-kit/test/a11y audit.",
+          "Scouts found Builder V2 currently has no DndContext/useDraggable/useDroppable/useSortable implementation.",
+          "Scouts agreed the first clean move is a V2-owned drag payload, preview descriptor, and drop target descriptor contract before dnd-kit event wiring.",
+          "Architecture-hardening C8/C13 were imported as D1/D8-style candidates and marked transferred in the old packet."
+        ],
+        "validation": [
+          "No product code changed during S1."
+        ]
+      }
+    },
+    {
+      "id": "J1",
+      "role": "judge",
+      "status": "done",
+      "title": "Choose first Builder V2 DnD Worker slice",
+      "skills": [
+        "$refactor-rootfix",
+        "$refactor-typescript",
+        "$refactor-react",
+        "$refactor-characterization-tests"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-dnd/**",
+        "read-only S1 scout evidence",
+        "read-only current Builder V2 model/picker/team slot files",
+        "read-only V1 DnD reference files"
+      ],
+      "protected_files": [
+        "mobile redesign",
+        "teams-list shape decisions",
+        "DnD implementation beyond selected slice",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "Select D1 alone or D1+D2 if they are one pure contract slice; define allowed files, invariants, validation, rollback, and characterization needs.",
+      "receipt": {
+        "evidence": [
+          "D1 and D2 are one pure TypeScript contract slice: drag payload descriptors and encoded dnd ids must agree before any dnd-kit wiring can safely consume them.",
+          "The slice excludes DndContext, sensors, draggable/droppable component wiring, overlay DOM, CSS, routing behavior, mobile work, and teams-list work.",
+          "Allowed files are limited to a new Builder V2 DnD contract/id helper module, focused tests, optional type exports, and packet receipts."
+        ],
+        "validation": [
+          "Judge-only packet transition; no product code changed yet."
+        ]
+      }
+    },
+    {
+      "id": "W1",
+      "role": "worker",
+      "status": "done",
+      "title": "Implement Builder V2 DnD contract and id helpers",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-rootfix",
+        "$refactor-typescript",
+        "$refactor-react"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/builder-v2-dnd.ts",
+        "src/features/builder-v2/builder-v2-dnd.test.ts",
+        "src/features/builder-v2/BuilderV2ModelTypes.ts",
+        "docs/refactor-goals/builder-v2-dnd/**"
+      ],
+      "protected_files": [
+        "src/features/builder/** behavior changes",
+        "Builder V2 dnd-kit component wiring",
+        "Builder V2 overlay or CSS",
+        "mobile redesign",
+        "teams-list shape decisions",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "A V2-owned drag payload, drag preview descriptor, drop target descriptor, and stable encoded id parser/builder with tests. Preserve current runtime behavior because no DnD wiring is introduced.",
+      "receipt": {
+        "evidence": [
+          "Added `src/features/builder-v2/builder-v2-dnd.ts` with normalized picker/team drag payloads, preview descriptors, drop target descriptors, V2-prefixed ids, safe parsing, and a runtime payload guard.",
+          "Added `src/features/builder-v2/builder-v2-dnd.test.ts` covering picker/team payloads, source coordinates, empty team surfaces, payload guard behavior, id round trips, colon-safe wheel ids, and malformed id rejection.",
+          "Parent review tightened the worker output so team-origin wheel/covenant/awakener payloads carry source coordinates and picker/remove ids are not typed by dragged kind."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/builder-v2-dnd.test.ts --run -> passed, 7 tests",
+          "npx tsc -p tsconfig.app.json --noEmit -> passed"
+        ]
+      }
+    },
+    {
+      "id": "W2",
+      "role": "worker",
+      "status": "done",
+      "title": "Characterize Builder V2 DnD routing decisions",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-characterization-tests",
+        "$refactor-rootfix",
+        "$refactor-typescript"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/builder-v2-dnd.ts",
+        "src/features/builder-v2/builder-v2-dnd.test.ts",
+        "docs/refactor-goals/builder-v2-dnd/**"
+      ],
+      "protected_files": [
+        "Builder V2 dnd-kit component wiring",
+        "Builder V2 overlay or CSS",
+        "mobile redesign",
+        "teams-list shape decisions",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "Pure routing helpers/tests that map drag payload plus parsed drop target into a small DnD action descriptor, covering V1 parity decisions without invoking React/dnd-kit yet.",
+      "receipt": {
+        "evidence": [
+          "Added `BuilderV2DndAction` and `resolveBuilderV2DndAction` to map a typed drag payload plus parsed drop target into future coordinator actions.",
+          "Characterized picker awakener/wheel/covenant/posse assignments, slot-level wheel fallback without choosing an index, team wheel/covenant remove-to-picker, team wheel/covenant move/swap intent, same-source no-ops, unsupported combos, and null target behavior.",
+          "Captured the explicit current decision that team-awakener-to-picker returns null until a remove-awakener DnD action contract is selected."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/builder-v2-dnd.test.ts --run -> passed, 18 tests",
+          "npx tsc -p tsconfig.app.json --noEmit -> passed",
+          "npx eslint src/features/builder-v2/builder-v2-dnd.ts src/features/builder-v2/builder-v2-dnd.test.ts -> passed"
+        ]
+      }
+    },
+    {
+      "id": "W3",
+      "role": "worker",
+      "status": "done",
+      "title": "Wire first functional Builder V2 picker-to-active-team DnD path",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-typescript",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/builder-v2-dnd.ts",
+        "src/features/builder-v2/builder-v2-dnd.test.ts",
+        "src/features/builder-v2/builder-v2-loadout-commands.ts",
+        "src/features/builder-v2/useBuilderV2Dnd.ts",
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/BuilderV2ModelTypes.ts",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/BuilderV2AwakenerPicker.tsx",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/BuilderV2AdaptiveLayout.tsx",
+        "src/features/builder-v2/BuilderV2Page.test.tsx",
+        "docs/refactor-goals/builder-v2-dnd/**"
+      ],
+      "protected_files": [
+        "overlay/ghost visuals",
+        "mobile redesign",
+        "teams-list shape decisions",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "Add the first DndContext/useDraggable/useDroppable integration for picker-source drops onto active team slot/wheel/covenant/posse targets, route actions through existing model assignment handlers, and preserve click assignment behavior.",
+      "receipt": {
+        "evidence": [
+          "Added an explicit target model bridge in `BuilderV2ModelTypes.ts`, `useBuilderV2Model.ts`, and `builder-v2-loadout-commands.ts`: `assignAwakenerToSlot`, `assignWheelToSlot`, and `assignCovenantToSlot` route through existing command resolution without relying on React selection timing.",
+          "Added `useBuilderV2Dnd.ts` with PointerSensor distance 4, drag-end payload validation, parsed target resolution, and picker-origin action dispatch through the explicit model bridge.",
+          "Wrapped desktop/adaptive Builder V2 surfaces in `DndContext`; mobile remains untouched by scope.",
+          "Added picker tile draggables for awakeners/wheels/covenants/posses and active team droppables for slot cards, wheel sockets, covenant slots, and posse header target.",
+          "Parent review moved posse droppable ownership into `BuilderV2ActiveHeader` to avoid duplicated wrappers in page/adaptive layouts."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/builder-v2-dnd.test.ts src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx --run -> passed, 93 tests",
+          "npx tsc -p tsconfig.app.json --noEmit -> passed",
+          "npx eslint touched Builder V2 DnD/model/component files -> passed",
+          "Browser smoke on local Vite `#/builder-v2` at 1365x900 and 900x900 -> desktop/adaptive Builder V2 regions rendered"
+        ]
+      }
+    },
+    {
+      "id": "J2",
+      "role": "judge",
+      "status": "done",
+      "title": "Select long-running team-origin and overlay DnD tranche",
+      "skills": [
+        "$refactor-goal-prep",
+        "$refactor-rootfix",
+        "$refactor-react",
+        "$refactor-typescript",
+        "$refactor-tailwind",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "docs/refactor-goals/builder-v2-dnd/**",
+        "read-only scout reports",
+        "read-only current Builder V2 DnD/model/component files"
+      ],
+      "protected_files": [
+        "mobile redesign",
+        "teams-list shape decisions",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "Select a multi-tranche path for D6 team-origin execution followed by D7/D8 overlay visuals, and record D10 accessibility policy.",
+      "receipt": {
+        "evidence": [
+          "D6 was selected first because team-origin drag sources and commands should exist before rendering their ghost previews.",
+          "D7 and D8 were selected together because clipping/z-index validation depends on a concrete overlay DOM.",
+          "D10 policy selected click-first fallback now and deferred KeyboardSensor until a separate keyboard drag design exists."
+        ],
+        "validation": [
+          "Judge-only packet transition."
+        ]
+      }
+    },
+    {
+      "id": "W4",
+      "role": "worker",
+      "status": "done",
+      "title": "Implement team-origin Builder V2 DnD execution",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-rootfix",
+        "$refactor-react",
+        "$refactor-typescript"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/BuilderV2ModelTypes.ts",
+        "src/features/builder-v2/BuilderV2TeamSlots.tsx",
+        "src/features/builder-v2/builder-v2-dnd.ts",
+        "src/features/builder-v2/builder-v2-dnd.test.ts",
+        "src/features/builder-v2/builder-v2-loadout-commands.ts",
+        "src/features/builder-v2/useBuilderV2Dnd.ts",
+        "src/features/builder-v2/useBuilderV2Model.ts",
+        "src/features/builder-v2/useBuilderV2Model.test.ts",
+        "docs/refactor-goals/builder-v2-dnd/**"
+      ],
+      "protected_files": [
+        "overlay/ghost visuals",
+        "mobile redesign",
+        "teams-list shape decisions",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "Occupied team awakeners/wheels/covenants become drag sources, and team-origin remove/move actions execute through model command boundaries.",
+      "receipt": {
+        "evidence": [
+          "Added team-origin drag ids and enabled team awakener remove-to-picker in the pure DnD resolver.",
+          "Added explicit model methods `moveWheel` and `moveCovenant`, plus loadout command resolvers for wheel/covenant remove and move actions.",
+          "Updated DnD dispatch so remove/move actions route to model methods instead of no-oping.",
+          "Added occupied active-team awakener, wheel, and covenant `useDraggable` sources while preserving the existing button click/select behavior."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/builder-v2-dnd.test.ts src/features/builder-v2/useBuilderV2Model.test.ts --run -> passed, 59 tests",
+          "npx vitest run src/features/builder-v2/BuilderV2Page.test.tsx --run -> passed, 35 tests",
+          "npx tsc -p tsconfig.app.json --noEmit -> passed",
+          "targeted npx eslint over touched D6 files -> passed",
+          "packet checker -> passed"
+        ]
+      }
+    },
+    {
+      "id": "W5",
+      "role": "worker",
+      "status": "done",
+      "title": "Implement single Builder V2 drag overlay and clipping boundary",
+      "skills": [
+        "$refactor-worker-slice",
+        "$refactor-react",
+        "$refactor-tailwind",
+        "$refactor-ui-a11y"
+      ],
+      "allowed_files": [
+        "src/features/builder-v2/BuilderV2DragOverlay.tsx",
+        "src/features/builder-v2/useBuilderV2Dnd.ts",
+        "src/features/builder-v2/BuilderV2Page.tsx",
+        "src/features/builder-v2/builder-v2.css",
+        "focused Builder V2 tests if needed",
+        "docs/refactor-goals/builder-v2-dnd/**"
+      ],
+      "protected_files": [
+        "behavior changes beyond overlay state tracking",
+        "mobile redesign",
+        "teams-list shape decisions",
+        "V1 ghost imports/copies",
+        "dependencies",
+        "remote state",
+        "docs/design/**"
+      ],
+      "expected_output": "A single descriptor-driven drag overlay consuming `BuilderV2DragPreviewDescriptor`, with CSS that avoids panel/drawer clipping on desktop/adaptive surfaces.",
+      "receipt": {
+        "evidence": [
+          "Added `BuilderV2DragOverlay.tsx` as a single descriptor-driven `DragOverlay` renderer using only `BuilderV2DragPreviewDescriptor` fields.",
+          "Expanded `useBuilderV2Dnd.ts` with active preview tracking on drag start and clearing on drag cancel/end.",
+          "Rendered the overlay inside desktop/adaptive `DndContext` in `BuilderV2Page.tsx`.",
+          "Added compact overlay CSS in `builder-v2.css` with `data-kind`, square non-wheel previews, wheel `75 / 113` previews, and z-index above adaptive picker layers.",
+          "Parent review fixed empty team-source draggable props so empty slot/wheel/covenant buttons do not receive disabled draggable role/aria attributes."
+        ],
+        "validation": [
+          "npx vitest run src/features/builder-v2/builder-v2-dnd.test.ts src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/BuilderV2Page.test.tsx --run -> passed, 94 tests",
+          "npx tsc -p tsconfig.app.json --noEmit -> passed",
+          "targeted npx eslint over touched DnD/model/component files -> passed",
+          "git diff --check -> passed with existing CRLF warning on BuilderV2ActiveTeamChrome.tsx",
+          "Browser/Playwright loaded `#/builder-v2` desktop and verified empty slot buttons no longer receive disabled draggable attributes; Playwright drag automation did not successfully exercise dnd-kit pointer assignment."
+        ]
+      }
+    }
+  ],
+  "final_audit": {
+    "full_outcome_complete": false,
+    "summary": "S1 mapped the new Builder V2 DnD goal and imported architecture C8/C13. J1 selected D1+D2 as the first pure contract slice. W1 implemented it. W2 implemented pure routing characterization. W3 implemented first functional picker-to-active-team DnD wiring. J2 selected a long-running D6 then D7/D8 tranche. W4 implemented team-origin DnD execution and W5 implemented the single descriptor-driven overlay. W6 fixed reported slot-swap, remove-to-picker, target correctness, and compact ghost issues. W7 refined ghosts so item drags are art-only and whole-slot drags use a compact full-art slot-card preview. W8 added predicted effective hover shared with final drop routing.",
+    "validation": [
+      "No product code changed during S1.",
+      "J1 was a packet-only judge transition.",
+      "W1 focused test and typecheck passed.",
+      "W2 focused test, typecheck, and targeted eslint passed.",
+      "W3 focused tests, typecheck, and targeted eslint passed.",
+      "W4 focused tests, page tests, typecheck, targeted eslint, and packet checker passed.",
+      "W5 focused tests, typecheck, targeted eslint, diff check, and partial Browser/Playwright smoke passed.",
+      "W6 focused tests, typecheck, targeted eslint, and Browser plugin DnD smoke passed.",
+      "W7 focused tests, typecheck, targeted eslint, and Browser plugin CSS-rule smoke passed.",
+      "W8 focused DnD/page tests, typecheck, targeted eslint, diff check, and packet checker passed."
+    ],
+    "open_items": [
+      "M1 and M2 maintenance notes remain queued and are not required for the product DnD tranche.",
+      "D11-D12 are out of scope by user."
+    ]
+  }
+}

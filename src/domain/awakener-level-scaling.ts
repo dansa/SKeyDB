@@ -58,7 +58,7 @@ export function resolveAwakenerStatsForLevel(
   level: number,
   psycheSurgeOffset = 0,
   soulforgePrimaryStatBonusPercent = 0,
-  gnosticPrimaryStatBonuses: Partial<Record<PrimaryStatKey, number>> = {},
+  gnosticPrimaryStatBonusLevels: Partial<Record<PrimaryStatKey, number>> = {},
 ): FullStats {
   const clampedLevel = clampAwakenerDatabaseLevel(level)
   const clampedPsycheSurgeOffset = clampAwakenerDatabasePsycheSurgeOffset(psycheSurgeOffset)
@@ -70,12 +70,9 @@ export function resolveAwakenerStatsForLevel(
       awakener.primaryScalingBase,
       awakener.statScaling[key],
       clampedLevel,
+      gnosticPrimaryStatBonusLevels[key] ?? 0,
     )
-    const gnosticPrimaryStat = applyPrimaryStatAdditiveBonus(
-      scaledPrimaryStat,
-      gnosticPrimaryStatBonuses[key] ?? 0,
-    )
-    nextStats[key] = applyPrimaryStatBonus(gnosticPrimaryStat, soulforgePrimaryStatBonusPercent)
+    nextStats[key] = applyPrimaryStatBonus(scaledPrimaryStat, soulforgePrimaryStatBonusPercent)
   }
 
   for (const [key, growth] of Object.entries(awakener.substatScaling)) {
@@ -92,19 +89,6 @@ export function resolveAwakenerStatsForLevel(
   }
 
   return nextStats
-}
-
-function applyPrimaryStatAdditiveBonus(baseValue: string, bonusValue: number): string {
-  if (!bonusValue) {
-    return baseValue
-  }
-
-  const parsedBase = parseStatValue(baseValue)
-  if (!parsedBase) {
-    return baseValue
-  }
-
-  return formatStatValue(parsedBase.value + bonusValue, parsedBase.suffix)
 }
 
 function applyPrimaryStatBonus(baseValue: string, bonusPercent: number): string {
@@ -137,6 +121,7 @@ function resolvePrimaryStatValue(
   scalingBase: PrimaryScalingBase | undefined,
   growthPerLevel: number,
   level: number,
+  bonusLevels: number,
 ): string {
   if (
     scalingBase === undefined ||
@@ -145,7 +130,9 @@ function resolvePrimaryStatValue(
   ) {
     return baseValue
   }
-  const nextValue = Math.ceil((scalingBase + level) * growthPerLevel - PRIMARY_STAT_FORMULA_EPSILON)
+  const nextValue = Math.ceil(
+    (scalingBase + level + bonusLevels) * growthPerLevel - PRIMARY_STAT_FORMULA_EPSILON,
+  )
   return String(nextValue)
 }
 

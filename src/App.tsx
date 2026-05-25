@@ -12,6 +12,11 @@ import {HomePage} from './pages/HomePage'
 const BuilderPage = lazy(() =>
   import('./features/builder/BuilderPage').then((module) => ({default: module.BuilderPage})),
 )
+const BuilderV2Page = lazy(() =>
+  import('./features/builder-v2/BuilderV2Page').then((module) => ({
+    default: module.BuilderV2Page,
+  })),
+)
 const CollectionPage = lazy(() =>
   import('./features/collection/CollectionPage').then((module) => ({
     default: module.CollectionPage,
@@ -244,6 +249,7 @@ function App() {
               <Route element={<DZonePage />} path='/d-zone' />
               <Route element={<DZoneHistoryPage />} path='/d-zone/history' />
               <Route element={<BuilderPage />} path='/builder' />
+              <Route element={<BuilderV2Page />} path='/builder-v2' />
               <Route element={<CollectionPage />} path='/collection' />
               <Route element={<MigrationReceivePage />} path='/migrate' />
               <Route element={<MigrationExportPage />} path='/migrate/export' />

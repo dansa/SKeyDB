@@ -245,6 +245,7 @@ vi.mock('./AwakenerDetailSidebar', () => ({
     onPatchSelection,
     selection,
     stats,
+    variant = 'progression',
   }: {
     onOpenFullArt?: () => void
     onPatchSelection: (nextPartial: {
@@ -258,6 +259,7 @@ vi.mock('./AwakenerDetailSidebar', () => ({
       selectedEnlightenSlot: 'E1' | 'E2' | 'E3' | 'AbsoluteAxiom' | null
     }
     stats: {CON: string; CritRate: string} | null
+    variant?: 'progression' | 'profile'
   }) => (
     <div>
       {onOpenFullArt ? (
@@ -294,6 +296,7 @@ vi.mock('./AwakenerDetailSidebar', () => ({
       <div>Sidebar Enlighten {selection.selectedEnlightenSlot ?? 'E0'}</div>
       <div>Sidebar CON {stats?.CON ?? 'none'}</div>
       <div>Sidebar Crit Rate {stats?.CritRate ?? 'none'}</div>
+      <div>Sidebar variant {variant}</div>
     </div>
   ),
 }))
@@ -549,6 +552,13 @@ describe('AwakenerDetailModal', () => {
     fireEvent.keyDown(screen.getByRole('tab', {name: 'Upgrades'}), {key: 'ArrowLeft'})
     expect(screen.getByRole('tab', {name: 'Lore'})).toHaveFocus()
     expect(screen.getByRole('tab', {name: 'Lore'})).toHaveAttribute('aria-selected', 'true')
+  })
+
+  it('uses the profile sidebar on the lore tab', async () => {
+    renderAwakenerDetailModal(makeAwakener(1, 'thais'), {activeTab: 'lore'})
+
+    expect(await screen.findByText('Lore Tab')).toBeInTheDocument()
+    expect(screen.getByText('Sidebar variant profile')).toBeInTheDocument()
   })
 
   it('places focus inside the dialog on open, traps tabbing, and restores focus on close', async () => {
