@@ -355,6 +355,7 @@ function areWheelSlotViewsEqual(
     previous.label === next.label &&
     previous.wheelId === next.wheelId &&
     previous.wheelName === next.wheelName &&
+    previous.miniAssetSrc === next.miniAssetSrc &&
     previous.assetSrc === next.assetSrc &&
     previous.enlightenLevel === next.enlightenLevel &&
     previous.isSelected === next.isSelected

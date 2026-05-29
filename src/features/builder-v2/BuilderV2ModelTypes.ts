@@ -132,6 +132,7 @@ export interface BuilderV2WheelSlotView {
   label: string
   wheelId: string | null
   wheelName: string | null
+  miniAssetSrc: string | undefined
   assetSrc: string | undefined
   enlightenLevel: number | null
   isSelected: boolean
@@ -174,6 +175,13 @@ export interface BuilderV2PosseOption {
   recommended: boolean
   blocked: boolean
   statusLabel: string | null
+}
+
+export interface BuilderV2PickerClearTarget {
+  id: string
+  label: string
+  description: string
+  ariaLabel: string
 }
 
 export interface BuilderV2PickerModel {
@@ -261,6 +269,7 @@ export interface BuilderV2Model {
   editingTeamName: string
   slots: BuilderV2SlotView[]
   picker: BuilderV2PickerModel
+  pickerClearTarget: BuilderV2PickerClearTarget | null
   awakeners: BuilderV2AwakenerOption[]
   wheels: BuilderV2WheelOption[]
   covenants: BuilderV2CovenantOption[]
@@ -297,6 +306,7 @@ export interface BuilderV2Model {
   assignCovenant: (covenantId: string) => void
   assignCovenantToSlot: (covenantId: string, slotId: string) => void
   assignPosse: (posseId: string) => void
+  clearPickerTarget: () => void
   removeAwakener: (slotId: string) => void
   moveAwakener: (fromSlotId: string, toSlotId: string) => void
   clearWheel: (slotId: string, wheelIndex: WheelSlotIndex) => void

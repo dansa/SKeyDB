@@ -766,9 +766,23 @@ describe('useBuilderViewModel', () => {
     })
     expect(result.current.pickerTab).toBe('awakeners')
     expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-1'})
+
+    act(() => {
+      result.current.handleCardClick('slot-3')
+    })
+    act(() => {
+      result.current.goBackQuickLineupStep()
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-2',
+    })
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-2'})
   })
 
-  it('jumps quick lineup focus when the user selects a different slot manually', () => {
+  it('falls back to an empty awakener target when quick lineup gear is selected manually', () => {
     const {result} = renderHook(() =>
       useBuilderViewModel({
         searchInputRef: createRef<HTMLInputElement>(),
@@ -784,11 +798,11 @@ describe('useBuilderViewModel', () => {
     })
 
     expect(result.current.quickLineupSession?.currentStep).toEqual({
-      kind: 'covenant',
+      kind: 'awakener',
       slotId: 'slot-1',
     })
-    expect(result.current.pickerTab).toBe('covenants')
-    expect(result.current.activeSelection).toEqual({kind: 'covenant', slotId: 'slot-1'})
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-1'})
   })
 
   it('keeps the current quick lineup wheel step active when removing that wheel', () => {

@@ -630,8 +630,8 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
   }
 
   const quickLineupSession: QuickLineupSession | null = useMemo(
-    () => (quickLineupState ? getPublicQuickLineupSession(quickLineupState) : null),
-    [quickLineupState],
+    () => (quickLineupState ? getPublicQuickLineupSession(quickLineupState, teamSlots) : null),
+    [quickLineupState, teamSlots],
   )
 
   return {

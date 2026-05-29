@@ -333,9 +333,9 @@ describe('useBuilderV2Model', () => {
       result.current.selectWheelSlot('slot-1', 0)
     })
 
-    expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-1', wheelIndex: 0})
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-1'})
     expect(result.current.activeTeamTarget).toBeNull()
-    expect(result.current.pickerTab).toBe('wheels')
+    expect(result.current.pickerTab).toBe('awakeners')
 
     act(() => {
       result.current.setPickerTab('awakeners')
@@ -346,7 +346,7 @@ describe('useBuilderV2Model', () => {
 
     expect(result.current.activeSelection).toBeNull()
     expect(result.current.activeTeamTarget).toBeNull()
-    expect(result.current.pickerTab).toBe('wheels')
+    expect(result.current.pickerTab).toBe('awakeners')
   })
 
   it('preserves same-batch toggle semantics for slot and posse targets', () => {
@@ -1067,6 +1067,123 @@ describe('useBuilderV2Model', () => {
     expect(builderDraftStore.getState().teams[0]?.posseId).toBeUndefined()
   })
 
+  it('clears the current picker target independently of the visible picker tab', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.assignAwakenerToSlot('awakener-0021', 'slot-1')
+    })
+    act(() => {
+      result.current.assignWheelToSlot('wheel-0050', 'slot-1', 0)
+    })
+    act(() => {
+      result.current.assignCovenantToSlot('c01', 'slot-1')
+    })
+    act(() => {
+      result.current.selectAwakenerSlot('slot-1')
+      result.current.setPickerTab('posses')
+    })
+
+    expect(result.current.pickerClearTarget?.label).toBe('Clear Slot')
+
+    act(() => {
+      result.current.clearPickerTarget()
+    })
+
+    expect(result.current.slots[0]?.awakener).toBeNull()
+    expect(result.current.slots[0]?.wheels).toEqual([null, null])
+    expect(result.current.slots[0]?.covenantId).toBeUndefined()
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-1'})
+  })
+
+  it('clears selected wheel, covenant, and posse picker targets', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.assignAwakenerToSlot('awakener-0021', 'slot-1')
+    })
+    act(() => {
+      result.current.assignWheelToSlot('wheel-0050', 'slot-1', 0)
+    })
+    act(() => {
+      result.current.assignCovenantToSlot('c01', 'slot-1')
+    })
+    act(() => {
+      result.current.selectWheelSlot('slot-1', 0)
+    })
+
+    expect(result.current.pickerClearTarget?.ariaLabel).toBe('Clear Slot 1 Wheel 1')
+
+    act(() => {
+      result.current.clearPickerTarget()
+    })
+
+    expect(result.current.slots[0]?.wheels).toEqual([null, null])
+    expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-1', wheelIndex: 0})
+
+    act(() => {
+      result.current.selectCovenantSlot('slot-1')
+    })
+    act(() => {
+      result.current.clearPickerTarget()
+    })
+
+    expect(result.current.slots[0]?.covenantId).toBeUndefined()
+    expect(result.current.activeSelection).toEqual({kind: 'covenant', slotId: 'slot-1'})
+
+    act(() => {
+      result.current.selectPosse()
+    })
+    act(() => {
+      result.current.assignPosse('posse-0033')
+    })
+    act(() => {
+      result.current.clearPickerTarget()
+    })
+
+    expect(result.current.activePosse).toBeNull()
+    expect(result.current.activeTeamTarget).toEqual({kind: 'posse'})
+  })
+
+  it('uses the picker clear target as a quick lineup skip for slot targets', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+
+    expect(result.current.pickerClearTarget?.description).toBe('Leave Slot 1 empty')
+
+    act(() => {
+      result.current.clearPickerTarget()
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-2',
+    })
+
+    act(() => {
+      result.current.assignAwakener('awakener-0021')
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'wheel',
+      slotId: 'slot-2',
+      wheelIndex: 0,
+    })
+
+    act(() => {
+      result.current.clearPickerTarget()
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'wheel',
+      slotId: 'slot-2',
+      wheelIndex: 1,
+    })
+  })
+
   it('confirms a posse transfer and clears the source team posse', () => {
     const {result} = renderHook(() => useBuilderV2Model())
 
@@ -1202,6 +1319,36 @@ describe('useBuilderV2Model', () => {
     expect(result.current.pickerTab).toBe('awakeners')
   })
 
+  it('falls back to the awakener step when quick lineup targets empty gear slots', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+
+    act(() => {
+      result.current.selectWheelSlot('slot-2', 0)
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-2',
+    })
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-2'})
+
+    act(() => {
+      result.current.selectCovenantSlot('slot-3')
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-3',
+    })
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-3'})
+  })
+
   it('restores the original active team when quick lineup is canceled', () => {
     const {result} = renderHook(() => useBuilderV2Model())
 
@@ -1234,7 +1381,7 @@ describe('useBuilderV2Model', () => {
     expect(result.current.activePosse?.id).toBe('posse-0033')
   })
 
-  it('jumps quick-lineup focus when selecting a different target manually', () => {
+  it('falls back to an empty awakener step when selecting empty quick lineup gear manually', () => {
     const {result} = renderHook(() => useBuilderV2Model())
 
     act(() => {
@@ -1254,15 +1401,41 @@ describe('useBuilderV2Model', () => {
     })
 
     expect(result.current.quickLineupSession?.currentStep).toEqual({
-      kind: 'wheel',
+      kind: 'awakener',
       slotId: 'slot-1',
-      wheelIndex: 1,
     })
-    expect(result.current.pickerTab).toBe('wheels')
-    expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-1', wheelIndex: 1})
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-1'})
   })
 
-  it('completes quick lineup after assigning the final posse step', () => {
+  it('moves quick lineup back to the previous available target instead of history', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+    act(() => {
+      result.current.selectAwakenerSlot('slot-3')
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-3',
+    })
+
+    act(() => {
+      result.current.goBackQuickLineupStep()
+    })
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-2',
+    })
+    expect(result.current.pickerTab).toBe('awakeners')
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-2'})
+  })
+
+  it('keeps quick lineup open after assigning the final posse step', () => {
     const {result} = renderHook(() => useBuilderV2Model())
 
     act(() => {
@@ -1289,8 +1462,8 @@ describe('useBuilderV2Model', () => {
       result.current.assignPosse('posse-0033')
     })
 
-    expect(result.current.quickLineupSession).toBeNull()
+    expect(result.current.quickLineupSession?.currentStep).toEqual({kind: 'posse'})
     expect(result.current.activePosse?.id).toBe('posse-0033')
-    expect(result.current.activeTeamTarget).toBeNull()
+    expect(result.current.activeTeamTarget).toEqual({kind: 'posse'})
   })
 })

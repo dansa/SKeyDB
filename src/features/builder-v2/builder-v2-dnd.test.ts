@@ -692,6 +692,7 @@ function createWheelSlot(
     label: `Wheel ${String(wheelIndex + 1)}`,
     wheelId,
     wheelName,
+    miniAssetSrc: wheelId ? `/mini-${wheelId}.png` : undefined,
     assetSrc: wheelId ? `/${wheelId}.png` : undefined,
     enlightenLevel: null,
     isSelected: false,

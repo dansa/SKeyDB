@@ -251,7 +251,7 @@ body,
 
 .app-shell > [data-detail-modal-overlay] {
   position: fixed;
-  z-index: 960;
+  z-index: 1200;
   background: var(--database-detail-backdrop-solid);
 }
 

@@ -175,7 +175,15 @@ describe('builderDraftStore', () => {
 
     expect(
       store.getState().jumpToQuickLineupStep({kind: 'wheel', slotId: 'slot-1', wheelIndex: 1}),
-    ).toEqual(focusFor({kind: 'wheel', slotId: 'slot-1', wheelIndex: 1}, 'wheels'))
+    ).toEqual(focusFor({kind: 'awakener', slotId: 'slot-1'}, 'awakeners'))
+
+    expect(store.getState().jumpToQuickLineupStep({kind: 'awakener', slotId: 'slot-3'})).toEqual(
+      focusFor({kind: 'awakener', slotId: 'slot-3'}, 'awakeners'),
+    )
+
+    expect(store.getState().goBackQuickLineupStep()).toEqual(
+      focusFor({kind: 'awakener', slotId: 'slot-2'}, 'awakeners'),
+    )
 
     expect(store.getState().cancelQuickLineup()).toEqual(focusFor(null, null))
     expect(store.getState().quickLineupState).toBeNull()

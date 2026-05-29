@@ -1,7 +1,16 @@
-import {memo, useEffect, useId, useRef, type CSSProperties, type ReactNode, type Ref} from 'react'
+import {
+  memo,
+  useEffect,
+  useId,
+  useRef,
+  type ButtonHTMLAttributes,
+  type CSSProperties,
+  type ReactNode,
+  type Ref,
+} from 'react'
 
 import {useDraggable, useDroppable} from '@dnd-kit/core'
-import {FaCaretDown, FaCaretUp, FaGear} from 'react-icons/fa6'
+import {FaCaretDown, FaCaretUp, FaCircleInfo, FaEraser, FaGear} from 'react-icons/fa6'
 
 import type {
   AwakenerSortKey,
@@ -18,6 +27,7 @@ import {
   createBuilderV2PickerPosseDragPayload,
   createBuilderV2PickerWheelDragPayload,
   makeBuilderV2PickerDndId,
+  type BuilderV2DragPayload,
   type BuilderV2DropTargetDescriptor,
 } from './builder-v2-dnd'
 import {useBuilderV2DndEnabled} from './BuilderV2DndCapability'
@@ -25,6 +35,7 @@ import type {
   BuilderV2AwakenerFilter,
   BuilderV2AwakenerOption,
   BuilderV2CovenantOption,
+  BuilderV2PickerClearTarget,
   BuilderV2PickerModel,
   BuilderV2PickerTab,
   BuilderV2PosseFilter,
@@ -32,14 +43,21 @@ import type {
   BuilderV2WheelOption,
   BuilderV2WheelRarityFilter,
 } from './BuilderV2ModelTypes'
+import {useStableEvent} from './useStableEvent'
 
 interface BuilderV2AwakenerPickerProps {
   picker: BuilderV2PickerModel
   isDragActive?: boolean
+  pickerClearTarget?: BuilderV2PickerClearTarget | null
   onAssignAwakener: (awakenerId: string) => void
   onAssignCovenant: (covenantId: string) => void
   onAssignPosse: (posseId: string) => void
   onAssignWheel: (wheelId: string) => void
+  onClearPickerTarget?: () => void
+  onOpenAwakenerDetail: (awakenerId: string) => void
+  onOpenCovenantDetail: (covenantId: string) => void
+  onOpenPosseDetail: (posseId: string) => void
+  onOpenWheelDetail: (wheelId: string) => void
   predictedDropTarget?: BuilderV2DropTargetDescriptor | null
 }
 
@@ -55,6 +73,10 @@ const pickerCopy: Record<BuilderV2PickerTab, {title: string; searchLabel: string
   wheels: {title: 'Wheels', searchLabel: 'Search wheels'},
   covenants: {title: 'Covenants', searchLabel: 'Search covenants'},
   posses: {title: 'Posses', searchLabel: 'Search posses'},
+}
+
+function noop() {
+  return undefined
 }
 
 function getKeyboardPickerTab(key: string, currentIndex: number): BuilderV2PickerTab | null {
@@ -104,10 +126,16 @@ const wheelRarityFilterTabs: {id: BuilderV2WheelRarityFilter; label: string}[] =
 export const BuilderV2AwakenerPicker = memo(function BuilderV2AwakenerPicker({
   isDragActive = false,
   picker,
+  pickerClearTarget = null,
   onAssignAwakener,
   onAssignCovenant,
   onAssignPosse,
   onAssignWheel,
+  onClearPickerTarget,
+  onOpenAwakenerDetail,
+  onOpenCovenantDetail,
+  onOpenPosseDetail,
+  onOpenWheelDetail,
   predictedDropTarget = null,
 }: BuilderV2AwakenerPickerProps) {
   return (
@@ -117,7 +145,13 @@ export const BuilderV2AwakenerPicker = memo(function BuilderV2AwakenerPicker({
         onAssignCovenant={onAssignCovenant}
         onAssignPosse={onAssignPosse}
         onAssignWheel={onAssignWheel}
+        onClearPickerTarget={onClearPickerTarget}
+        onOpenAwakenerDetail={onOpenAwakenerDetail}
+        onOpenCovenantDetail={onOpenCovenantDetail}
+        onOpenPosseDetail={onOpenPosseDetail}
+        onOpenWheelDetail={onOpenWheelDetail}
         picker={picker}
+        pickerClearTarget={pickerClearTarget}
         isDragActive={isDragActive}
         predictedDropTarget={predictedDropTarget}
       />
@@ -126,81 +160,226 @@ export const BuilderV2AwakenerPicker = memo(function BuilderV2AwakenerPicker({
 })
 
 interface BuilderV2PickerContentProps extends BuilderV2AwakenerPickerProps {
+  controlsPlacement?: 'top' | 'bottom'
   isCollapsed?: boolean
   onRequestExpand?: (restoreTarget?: HTMLElement | null) => void
   searchInputRef?: Ref<HTMLInputElement>
 }
 
-export function BuilderV2PickerContent({
+type PickerDropRef = ((element: HTMLDivElement | null) => void) | undefined
+
+export const BuilderV2PickerContent = memo(function BuilderV2PickerContent(
+  props: BuilderV2PickerContentProps,
+) {
+  const isDndEnabled = useBuilderV2DndEnabled()
+
+  if (isDndEnabled) {
+    return <BuilderV2PickerContentWithDnd {...props} />
+  }
+
+  return (
+    <BuilderV2PickerContentFrame
+      {...props}
+      isDndEnabled={false}
+      isRemoveTarget={false}
+      pickerDropRef={undefined}
+    />
+  )
+})
+
+function BuilderV2PickerContentWithDnd(props: BuilderV2PickerContentProps) {
+  const {isOver: isPickerRemoveTarget, setNodeRef: setPickerDropRef} = useDroppable({
+    id: makeBuilderV2PickerDndId(),
+  })
+  const isRemoveTarget = props.isDragActive
+    ? props.predictedDropTarget?.kind === 'picker'
+    : isPickerRemoveTarget
+
+  return (
+    <BuilderV2PickerContentFrame
+      {...props}
+      isDndEnabled
+      isRemoveTarget={isRemoveTarget}
+      pickerDropRef={setPickerDropRef}
+    />
+  )
+}
+
+function BuilderV2PickerContentFrame({
+  controlsPlacement = 'top',
   isCollapsed = false,
-  isDragActive = false,
   onRequestExpand,
   picker,
-  predictedDropTarget = null,
+  isDndEnabled,
+  isRemoveTarget,
+  pickerDropRef,
   searchInputRef,
   onAssignAwakener,
   onAssignCovenant,
   onAssignPosse,
   onAssignWheel,
-}: BuilderV2PickerContentProps) {
+  onClearPickerTarget,
+  onOpenAwakenerDetail,
+  onOpenCovenantDetail,
+  onOpenPosseDetail,
+  onOpenWheelDetail,
+  pickerClearTarget = null,
+}: BuilderV2PickerContentProps & {
+  isDndEnabled: boolean
+  isRemoveTarget: boolean
+  pickerDropRef: PickerDropRef
+}) {
   const activeCopy = pickerCopy[picker.tab]
   const pickerInstanceId = `builder-v2-picker-${useId().replaceAll(':', '')}`
   const pickerPanelId = `${pickerInstanceId}-panel`
   const getPickerTabId = (tab: BuilderV2PickerTab) => `${pickerInstanceId}-tab-${tab}`
-  const isDndEnabled = useBuilderV2DndEnabled()
-  const {isOver: isPickerRemoveTarget, setNodeRef: setPickerDropRef} = useDroppable({
-    id: makeBuilderV2PickerDndId(),
-    disabled: !isDndEnabled,
-  })
-  const isRemoveTarget =
-    isDndEnabled && (isDragActive ? predictedDropTarget?.kind === 'picker' : isPickerRemoveTarget)
+  const assignAwakener = useStableEvent(onAssignAwakener)
+  const assignWheel = useStableEvent(onAssignWheel)
+  const assignCovenant = useStableEvent(onAssignCovenant)
+  const assignPosse = useStableEvent(onAssignPosse)
+  const clearPickerTarget = useStableEvent(onClearPickerTarget ?? noop)
+  const openAwakenerDetail = useStableEvent(onOpenAwakenerDetail)
+  const openWheelDetail = useStableEvent(onOpenWheelDetail)
+  const openCovenantDetail = useStableEvent(onOpenCovenantDetail)
+  const openPosseDetail = useStableEvent(onOpenPosseDetail)
+  const placesControlsAfterResults = controlsPlacement === 'bottom' && !isCollapsed
 
-  const pickerDropRef = isDndEnabled ? setPickerDropRef : undefined
+  const tabs = (
+    <div className='builder-v2-picker-tabs' role='tablist' aria-label='Picker categories'>
+      {pickerTabs.map((tab, tabIndex) => {
+        const isActive = tab.id === picker.tab
+        return (
+          <button
+            aria-controls={pickerPanelId}
+            aria-selected={isActive}
+            className={`builder-v2-tab ${isActive ? 'builder-v2-tab--active' : ''}`}
+            id={getPickerTabId(tab.id)}
+            key={tab.id}
+            onKeyDown={(event) => {
+              const nextTab = getKeyboardPickerTab(event.key, tabIndex)
+              if (!nextTab) {
+                return
+              }
+              event.preventDefault()
+              picker.setTab(nextTab)
+              if (isCollapsed) {
+                onRequestExpand?.(event.currentTarget)
+              }
+              document.getElementById(getPickerTabId(nextTab))?.focus()
+            }}
+            onClick={(event) => {
+              picker.setTab(tab.id)
+              if (isCollapsed) {
+                onRequestExpand?.(event.currentTarget)
+              }
+            }}
+            role='tab'
+            tabIndex={isActive ? 0 : -1}
+            type='button'
+          >
+            {tab.label}
+          </button>
+        )
+      })}
+    </div>
+  )
+
+  const toolbar = (
+    <div className='builder-v2-picker-toolbar'>
+      <label className='builder-v2-search-label'>
+        <span className='sr-only'>{activeCopy.searchLabel}</span>
+        <span aria-hidden className='builder-v2-search-icon'>
+          ⌕
+        </span>
+        <input
+          className='builder-v2-search'
+          onChange={(event) => {
+            picker.setSearchQuery(event.target.value)
+          }}
+          placeholder={activeCopy.searchLabel}
+          ref={searchInputRef}
+          type='search'
+          value={picker.searchQuery}
+        />
+      </label>
+      <BuilderV2PickerOptionsMenu picker={picker} />
+    </div>
+  )
+
+  const filters = <BuilderV2PickerFilters picker={picker} />
+
+  const results = (
+    <div
+      aria-labelledby={getPickerTabId(picker.tab)}
+      className={`builder-v2-picker-results ui-scrollbar ${
+        isRemoveTarget ? 'builder-v2-picker-results--remove-target' : ''
+      }`}
+      id={pickerPanelId}
+      ref={pickerDropRef}
+      role='tabpanel'
+    >
+      {pickerClearTarget && onClearPickerTarget ? (
+        <BuilderV2PickerClearTile onClear={clearPickerTarget} target={pickerClearTarget} />
+      ) : null}
+
+      {picker.tab === 'awakeners'
+        ? picker.awakeners.map((awakener) => (
+            <BuilderV2AwakenerPickerTile
+              awakener={awakener}
+              isDndEnabled={isDndEnabled}
+              key={awakener.id}
+              onAssign={assignAwakener}
+              onOpenDetail={openAwakenerDetail}
+            />
+          ))
+        : null}
+
+      {picker.tab === 'wheels'
+        ? picker.wheels.map((wheel) => (
+            <BuilderV2WheelPickerTile
+              isDndEnabled={isDndEnabled}
+              key={wheel.id}
+              onAssign={assignWheel}
+              onOpenDetail={openWheelDetail}
+              wheel={wheel}
+            />
+          ))
+        : null}
+
+      {picker.tab === 'covenants'
+        ? picker.covenants.map((covenant) => (
+            <BuilderV2CovenantPickerTile
+              covenant={covenant}
+              isDndEnabled={isDndEnabled}
+              key={covenant.id}
+              onAssign={assignCovenant}
+              onOpenDetail={openCovenantDetail}
+            />
+          ))
+        : null}
+
+      {picker.tab === 'posses'
+        ? picker.posses.map((posse) => (
+            <BuilderV2PossePickerTile
+              isDndEnabled={isDndEnabled}
+              key={posse.id}
+              onAssign={assignPosse}
+              onOpenDetail={openPosseDetail}
+              posse={posse}
+            />
+          ))
+        : null}
+    </div>
+  )
 
   return (
     <div
       className={`builder-v2-picker-content ${
         isRemoveTarget ? 'builder-v2-picker-content--remove-target' : ''
-      }`}
+      } ${placesControlsAfterResults ? 'builder-v2-picker-content--controls-bottom' : ''}`}
       ref={isCollapsed ? pickerDropRef : undefined}
     >
-      <div className='builder-v2-picker-tabs' role='tablist' aria-label='Picker categories'>
-        {pickerTabs.map((tab, tabIndex) => {
-          const isActive = tab.id === picker.tab
-          return (
-            <button
-              aria-controls={pickerPanelId}
-              aria-selected={isActive}
-              className={`builder-v2-tab ${isActive ? 'builder-v2-tab--active' : ''}`}
-              id={getPickerTabId(tab.id)}
-              key={tab.id}
-              onKeyDown={(event) => {
-                const nextTab = getKeyboardPickerTab(event.key, tabIndex)
-                if (!nextTab) {
-                  return
-                }
-                event.preventDefault()
-                picker.setTab(nextTab)
-                if (isCollapsed) {
-                  onRequestExpand?.(event.currentTarget)
-                }
-                document.getElementById(getPickerTabId(nextTab))?.focus()
-              }}
-              onClick={(event) => {
-                picker.setTab(tab.id)
-                if (isCollapsed) {
-                  onRequestExpand?.(event.currentTarget)
-                }
-              }}
-              role='tab'
-              tabIndex={isActive ? 0 : -1}
-              type='button'
-            >
-              {tab.label}
-            </button>
-          )
-        })}
-      </div>
+      {placesControlsAfterResults ? null : tabs}
 
       {isCollapsed ? (
         <div className='builder-v2-picker-toolbar builder-v2-picker-toolbar--collapsed'>
@@ -217,71 +396,20 @@ export function BuilderV2PickerContent({
       ) : null}
 
       {!isCollapsed ? (
-        <>
-          <div className='builder-v2-picker-toolbar'>
-            <label className='builder-v2-search-label'>
-              <span className='sr-only'>{activeCopy.searchLabel}</span>
-              <span aria-hidden className='builder-v2-search-icon'>
-                ⌕
-              </span>
-              <input
-                className='builder-v2-search'
-                onChange={(event) => {
-                  picker.setSearchQuery(event.target.value)
-                }}
-                placeholder={activeCopy.searchLabel}
-                ref={searchInputRef}
-                type='search'
-                value={picker.searchQuery}
-              />
-            </label>
-            <BuilderV2PickerOptionsMenu picker={picker} />
-          </div>
-
-          <BuilderV2PickerFilters picker={picker} />
-
-          <div
-            aria-labelledby={getPickerTabId(picker.tab)}
-            className={`builder-v2-picker-results ui-scrollbar ${
-              isRemoveTarget ? 'builder-v2-picker-results--remove-target' : ''
-            }`}
-            id={pickerPanelId}
-            ref={pickerDropRef}
-            role='tabpanel'
-          >
-            {picker.tab === 'awakeners'
-              ? picker.awakeners.map((awakener) => (
-                  <BuilderV2AwakenerPickerTile
-                    awakener={awakener}
-                    key={awakener.id}
-                    onAssign={onAssignAwakener}
-                  />
-                ))
-              : null}
-
-            {picker.tab === 'wheels'
-              ? picker.wheels.map((wheel) => (
-                  <BuilderV2WheelPickerTile key={wheel.id} onAssign={onAssignWheel} wheel={wheel} />
-                ))
-              : null}
-
-            {picker.tab === 'covenants'
-              ? picker.covenants.map((covenant) => (
-                  <BuilderV2CovenantPickerTile
-                    covenant={covenant}
-                    key={covenant.id}
-                    onAssign={onAssignCovenant}
-                  />
-                ))
-              : null}
-
-            {picker.tab === 'posses'
-              ? picker.posses.map((posse) => (
-                  <BuilderV2PossePickerTile key={posse.id} onAssign={onAssignPosse} posse={posse} />
-                ))
-              : null}
-          </div>
-        </>
+        placesControlsAfterResults ? (
+          <>
+            {toolbar}
+            {filters}
+            {results}
+            <div className='builder-v2-picker-bottom-controls'>{tabs}</div>
+          </>
+        ) : (
+          <>
+            {toolbar}
+            {filters}
+            {results}
+          </>
+        )
       ) : null}
     </div>
   )
@@ -488,20 +616,43 @@ function BuilderV2PickerOptionsMenu({picker}: {picker: BuilderV2PickerModel}) {
   )
 }
 
-function BuilderV2AwakenerPickerTile({
+const BuilderV2PickerClearTile = memo(function BuilderV2PickerClearTile({
+  onClear,
+  target,
+}: {
+  onClear: () => void
+  target: BuilderV2PickerClearTarget
+}) {
+  return (
+    <button
+      aria-label={target.ariaLabel}
+      className='builder-v2-picker-tile builder-v2-picker-clear-tile'
+      onClick={onClear}
+      title={target.ariaLabel}
+      type='button'
+    >
+      <span className='builder-v2-picker-clear-tile-icon' aria-hidden>
+        <FaEraser />
+      </span>
+      <span className='builder-v2-picker-clear-tile-copy'>
+        <span className='builder-v2-picker-clear-tile-title'>{target.label}</span>
+        <span className='builder-v2-picker-clear-tile-description'>{target.description}</span>
+      </span>
+    </button>
+  )
+})
+
+const BuilderV2AwakenerPickerTile = memo(function BuilderV2AwakenerPickerTile({
   awakener,
+  isDndEnabled,
   onAssign,
+  onOpenDetail,
 }: {
   awakener: BuilderV2AwakenerOption
+  isDndEnabled: boolean
   onAssign: (awakenerId: string) => void
+  onOpenDetail: (awakenerId: string) => void
 }) {
-  const isDndEnabled = useBuilderV2DndEnabled()
-  const {listeners, setNodeRef} = useDraggable({
-    id: `builder-v2-picker-awakener-${awakener.id}`,
-    data: createBuilderV2PickerAwakenerDragPayload(awakener),
-    disabled: !isDndEnabled,
-  })
-  const draggableProps = isDndEnabled && listeners ? listeners : {}
   const stateChips = [
     !awakener.owned ? 'Unowned' : null,
     awakener.blockReason === 'Realm limit' ? 'Realm' : null,
@@ -509,205 +660,378 @@ function BuilderV2AwakenerPickerTile({
   ].filter(isPresent)
 
   return (
-    <button
-      aria-label={getAwakenerPickerTileLabel(awakener)}
-      className='builder-v2-picker-tile builder-v2-picker-tile--awakener'
-      data-blocked={awakener.blocked}
-      data-in-use={awakener.inUse}
-      data-owned={awakener.owned}
-      onClick={() => {
-        onAssign(awakener.id)
+    <PickerTileFrame
+      detailLabel={`View ${awakener.displayName} details`}
+      onOpenDetail={() => {
+        onOpenDetail(awakener.id)
       }}
-      ref={isDndEnabled ? setNodeRef : undefined}
-      type='button'
-      {...draggableProps}
     >
-      <PickerTileArt
-        alt={`${awakener.displayName} portrait`}
-        chips={stateChips.map((chip) => (
-          <PickerStateChip key={chip} tone={getStateChipTone(chip)}>
-            {chip}
-          </PickerStateChip>
-        ))}
-        footer={renderEnlightenChip(awakener.enlightenLevel)}
-        fallback={awakener.displayName}
-        realm={awakener.realm}
-        src={awakener.portraitSrc}
-      />
-      <PickerTileCaption title={awakener.displayName} />
-    </button>
+      <PickerTileButton
+        aria-label={getAwakenerPickerTileLabel(awakener)}
+        className='builder-v2-picker-tile builder-v2-picker-tile--awakener'
+        data-blocked={awakener.blocked}
+        dndId={`builder-v2-picker-awakener-${awakener.id}`}
+        getDndData={
+          isDndEnabled ? () => createBuilderV2PickerAwakenerDragPayload(awakener) : undefined
+        }
+        isDndEnabled={isDndEnabled}
+        data-in-use={awakener.inUse}
+        data-owned={awakener.owned}
+        onClick={() => {
+          onAssign(awakener.id)
+        }}
+      >
+        <PickerTileArt
+          alt={`${awakener.displayName} portrait`}
+          chips={stateChips.map((chip) => (
+            <PickerStateChip key={chip} tone={getStateChipTone(chip)}>
+              {chip}
+            </PickerStateChip>
+          ))}
+          footer={renderEnlightenChip(awakener.enlightenLevel)}
+          fallback={awakener.displayName}
+          realm={awakener.realm}
+          src={awakener.portraitSrc}
+        />
+        <PickerTileCaption title={awakener.displayName} />
+      </PickerTileButton>
+    </PickerTileFrame>
+  )
+}, areAwakenerPickerTilePropsEqual)
+
+function areAwakenerPickerTilePropsEqual(
+  previous: {
+    awakener: BuilderV2AwakenerOption
+    isDndEnabled: boolean
+    onAssign: (awakenerId: string) => void
+    onOpenDetail: (awakenerId: string) => void
+  },
+  next: {
+    awakener: BuilderV2AwakenerOption
+    isDndEnabled: boolean
+    onAssign: (awakenerId: string) => void
+    onOpenDetail: (awakenerId: string) => void
+  },
+): boolean {
+  return (
+    previous.isDndEnabled === next.isDndEnabled &&
+    previous.onAssign === next.onAssign &&
+    previous.onOpenDetail === next.onOpenDetail &&
+    areAwakenerOptionsEqual(previous.awakener, next.awakener)
   )
 }
 
 const BuilderV2WheelPickerTile = memo(function BuilderV2WheelPickerTile({
+  isDndEnabled,
   onAssign,
+  onOpenDetail,
   wheel,
 }: {
+  isDndEnabled: boolean
   onAssign: (wheelId: string) => void
+  onOpenDetail: (wheelId: string) => void
   wheel: BuilderV2WheelOption
 }) {
   const isDimmed = wheel.inUse || !wheel.owned
-  const isDndEnabled = useBuilderV2DndEnabled()
-  const {listeners, setNodeRef} = useDraggable({
-    id: `builder-v2-picker-wheel-${wheel.id}`,
-    data: createBuilderV2PickerWheelDragPayload(wheel),
-    disabled: !isDndEnabled,
-  })
-  const draggableProps = isDndEnabled && listeners ? listeners : {}
 
   return (
-    <button
-      aria-label={getWheelPickerTileLabel(wheel)}
-      className='builder-v2-picker-tile builder-v2-picker-tile--wheel'
-      data-in-use={wheel.inUse}
-      data-owned={wheel.owned}
-      data-recommended={wheel.recommended}
-      onClick={() => {
-        onAssign(wheel.id)
+    <PickerTileFrame
+      detailLabel={`View ${wheel.name} details`}
+      onOpenDetail={() => {
+        onOpenDetail(wheel.id)
       }}
-      ref={isDndEnabled ? setNodeRef : undefined}
-      type='button'
-      {...draggableProps}
     >
-      <PickerTileArt
-        alt={`${wheel.name} wheel`}
-        chips={
-          <>
-            {!wheel.owned ? <PickerStateChip tone='danger'>Unowned</PickerStateChip> : null}
-            {wheel.inUseLabel ? (
-              <PickerStateChip tone='status'>{wheel.inUseLabel}</PickerStateChip>
-            ) : null}
-            {wheel.recommendationLabel ? (
-              <PickerStateChip tone='recommendation'>{wheel.recommendationLabel}</PickerStateChip>
-            ) : (
-              <RecommendedMainstatChip mainstatKey={wheel.recommendedMainstatKey} />
-            )}
-          </>
-        }
-        fallback={wheel.name}
-        footer={renderEnlightenChip(wheel.enlightenLevel)}
-        isDimmed={isDimmed}
-        src={wheel.assetSrc}
-      />
-      <PickerTileCaption title={wheel.name} />
-    </button>
+      <PickerTileButton
+        aria-label={getWheelPickerTileLabel(wheel)}
+        className='builder-v2-picker-tile builder-v2-picker-tile--wheel'
+        dndId={`builder-v2-picker-wheel-${wheel.id}`}
+        getDndData={isDndEnabled ? () => createBuilderV2PickerWheelDragPayload(wheel) : undefined}
+        isDndEnabled={isDndEnabled}
+        data-in-use={wheel.inUse}
+        data-owned={wheel.owned}
+        data-recommended={wheel.recommended}
+        onClick={() => {
+          onAssign(wheel.id)
+        }}
+      >
+        <PickerTileArt
+          alt={`${wheel.name} wheel`}
+          chips={
+            <>
+              {!wheel.owned ? <PickerStateChip tone='danger'>Unowned</PickerStateChip> : null}
+              {wheel.inUseLabel ? (
+                <PickerStateChip tone='status'>{wheel.inUseLabel}</PickerStateChip>
+              ) : null}
+              {wheel.recommendationLabel ? (
+                <PickerStateChip tone='recommendation'>{wheel.recommendationLabel}</PickerStateChip>
+              ) : (
+                <RecommendedMainstatChip mainstatKey={wheel.recommendedMainstatKey} />
+              )}
+            </>
+          }
+          fallback={wheel.name}
+          footer={renderEnlightenChip(wheel.enlightenLevel)}
+          isDimmed={isDimmed}
+          src={wheel.assetSrc}
+        />
+        <PickerTileCaption title={wheel.name} />
+      </PickerTileButton>
+    </PickerTileFrame>
   )
 }, areWheelPickerTilePropsEqual)
 
 function areWheelPickerTilePropsEqual(
   previous: {
+    isDndEnabled: boolean
     onAssign: (wheelId: string) => void
+    onOpenDetail: (wheelId: string) => void
     wheel: BuilderV2WheelOption
   },
   next: {
+    isDndEnabled: boolean
     onAssign: (wheelId: string) => void
+    onOpenDetail: (wheelId: string) => void
     wheel: BuilderV2WheelOption
   },
 ): boolean {
-  return previous.onAssign === next.onAssign && areWheelOptionsEqual(previous.wheel, next.wheel)
+  return (
+    previous.isDndEnabled === next.isDndEnabled &&
+    previous.onAssign === next.onAssign &&
+    previous.onOpenDetail === next.onOpenDetail &&
+    areWheelOptionsEqual(previous.wheel, next.wheel)
+  )
 }
 
-function BuilderV2CovenantPickerTile({
+const BuilderV2CovenantPickerTile = memo(function BuilderV2CovenantPickerTile({
   covenant,
+  isDndEnabled,
   onAssign,
+  onOpenDetail,
 }: {
   covenant: BuilderV2CovenantOption
+  isDndEnabled: boolean
   onAssign: (covenantId: string) => void
+  onOpenDetail: (covenantId: string) => void
 }) {
-  const isDndEnabled = useBuilderV2DndEnabled()
-  const {listeners, setNodeRef} = useDraggable({
-    id: `builder-v2-picker-covenant-${covenant.id}`,
-    data: createBuilderV2PickerCovenantDragPayload(covenant),
-    disabled: !isDndEnabled,
-  })
-  const draggableProps = isDndEnabled && listeners ? listeners : {}
+  return (
+    <PickerTileFrame
+      detailLabel={`View ${covenant.name} details`}
+      onOpenDetail={() => {
+        onOpenDetail(covenant.id)
+      }}
+    >
+      <PickerTileButton
+        aria-label={getCovenantPickerTileLabel(covenant)}
+        className='builder-v2-picker-tile builder-v2-picker-tile--covenant'
+        dndId={`builder-v2-picker-covenant-${covenant.id}`}
+        getDndData={
+          isDndEnabled ? () => createBuilderV2PickerCovenantDragPayload(covenant) : undefined
+        }
+        isDndEnabled={isDndEnabled}
+        data-in-use={covenant.inUse}
+        data-recommended={covenant.recommended}
+        onClick={() => {
+          onAssign(covenant.id)
+        }}
+      >
+        <PickerTileArt
+          alt={`${covenant.name} covenant`}
+          chips={
+            <>
+              {covenant.recommendationLabel ? (
+                <PickerStateChip tone='recommendation'>
+                  {covenant.recommendationLabel}
+                </PickerStateChip>
+              ) : null}
+              {covenant.inUse ? <PickerStateChip tone='status'>Used</PickerStateChip> : null}
+            </>
+          }
+          fallback={covenant.name}
+          src={covenant.assetSrc}
+        />
+        <PickerTileCaption title={covenant.name} />
+      </PickerTileButton>
+    </PickerTileFrame>
+  )
+}, areCovenantPickerTilePropsEqual)
+
+function areCovenantPickerTilePropsEqual(
+  previous: {
+    covenant: BuilderV2CovenantOption
+    isDndEnabled: boolean
+    onAssign: (covenantId: string) => void
+    onOpenDetail: (covenantId: string) => void
+  },
+  next: {
+    covenant: BuilderV2CovenantOption
+    isDndEnabled: boolean
+    onAssign: (covenantId: string) => void
+    onOpenDetail: (covenantId: string) => void
+  },
+): boolean {
+  return (
+    previous.isDndEnabled === next.isDndEnabled &&
+    previous.onAssign === next.onAssign &&
+    previous.onOpenDetail === next.onOpenDetail &&
+    areCovenantOptionsEqual(previous.covenant, next.covenant)
+  )
+}
+
+const BuilderV2PossePickerTile = memo(function BuilderV2PossePickerTile({
+  isDndEnabled,
+  onAssign,
+  onOpenDetail,
+  posse,
+}: {
+  isDndEnabled: boolean
+  onAssign: (posseId: string) => void
+  onOpenDetail: (posseId: string) => void
+  posse: BuilderV2PosseOption
+}) {
+  return (
+    <PickerTileFrame
+      detailLabel={`View ${posse.name} details`}
+      onOpenDetail={() => {
+        onOpenDetail(posse.id)
+      }}
+    >
+      <PickerTileButton
+        aria-label={getPossePickerTileLabel(posse)}
+        className='builder-v2-picker-tile builder-v2-picker-tile--posse'
+        data-active={posse.isActive}
+        data-blocked={posse.blocked}
+        dndId={`builder-v2-picker-posse-${posse.id}`}
+        getDndData={isDndEnabled ? () => createBuilderV2PickerPosseDragPayload(posse) : undefined}
+        isDndEnabled={isDndEnabled}
+        data-owned={posse.owned}
+        data-recommended={posse.recommended}
+        onClick={() => {
+          onAssign(posse.id)
+        }}
+      >
+        <PickerTileArt
+          alt={`${posse.name} posse`}
+          chips={
+            <>
+              {posse.isActive ? (
+                <PickerStateChip tone='recommendation'>Active</PickerStateChip>
+              ) : null}
+              {posse.recommended && !posse.isActive ? (
+                <PickerStateChip tone='recommendation'>Rec</PickerStateChip>
+              ) : null}
+              {!posse.owned ? <PickerStateChip tone='danger'>Unowned</PickerStateChip> : null}
+              {posse.statusLabel && posse.statusLabel !== 'Unowned' && !posse.isActive ? (
+                <PickerStateChip tone={posse.blocked ? 'status' : 'quiet'}>
+                  {posse.statusLabel}
+                </PickerStateChip>
+              ) : null}
+            </>
+          }
+          fallback={posse.name}
+          realm={posse.realm}
+          src={posse.assetSrc}
+        />
+        <PickerTileCaption title={posse.name} />
+      </PickerTileButton>
+    </PickerTileFrame>
+  )
+}, arePossePickerTilePropsEqual)
+
+function arePossePickerTilePropsEqual(
+  previous: {
+    isDndEnabled: boolean
+    onAssign: (posseId: string) => void
+    onOpenDetail: (posseId: string) => void
+    posse: BuilderV2PosseOption
+  },
+  next: {
+    isDndEnabled: boolean
+    onAssign: (posseId: string) => void
+    onOpenDetail: (posseId: string) => void
+    posse: BuilderV2PosseOption
+  },
+): boolean {
+  return (
+    previous.isDndEnabled === next.isDndEnabled &&
+    previous.onAssign === next.onAssign &&
+    previous.onOpenDetail === next.onOpenDetail &&
+    arePosseOptionsEqual(previous.posse, next.posse)
+  )
+}
+
+interface PickerTileButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  dndId: string
+  getDndData?: () => BuilderV2DragPayload
+  isDndEnabled: boolean
+}
+
+function PickerTileFrame({
+  children,
+  detailLabel,
+  onOpenDetail,
+}: {
+  children: ReactNode
+  detailLabel: string
+  onOpenDetail: () => void
+}) {
+  return (
+    <div className='builder-v2-picker-tile-frame'>
+      {children}
+      <button
+        aria-label={detailLabel}
+        className='builder-v2-picker-detail-button'
+        onClick={(event) => {
+          event.preventDefault()
+          event.stopPropagation()
+          onOpenDetail()
+        }}
+        title={detailLabel}
+        type='button'
+      >
+        <FaCircleInfo aria-hidden />
+      </button>
+    </div>
+  )
+}
+
+function PickerTileButton({
+  children,
+  dndId,
+  getDndData,
+  isDndEnabled,
+  ...buttonProps
+}: PickerTileButtonProps) {
+  if (isDndEnabled && getDndData) {
+    return (
+      <DraggablePickerTileButton dndId={dndId} getDndData={getDndData} {...buttonProps}>
+        {children}
+      </DraggablePickerTileButton>
+    )
+  }
 
   return (
-    <button
-      aria-label={getCovenantPickerTileLabel(covenant)}
-      className='builder-v2-picker-tile builder-v2-picker-tile--covenant'
-      data-in-use={covenant.inUse}
-      data-recommended={covenant.recommended}
-      onClick={() => {
-        onAssign(covenant.id)
-      }}
-      ref={isDndEnabled ? setNodeRef : undefined}
-      type='button'
-      {...draggableProps}
-    >
-      <PickerTileArt
-        alt={`${covenant.name} covenant`}
-        chips={
-          <>
-            {covenant.recommendationLabel ? (
-              <PickerStateChip tone='recommendation'>
-                {covenant.recommendationLabel}
-              </PickerStateChip>
-            ) : null}
-            {covenant.inUse ? <PickerStateChip tone='status'>Used</PickerStateChip> : null}
-          </>
-        }
-        fallback={covenant.name}
-        src={covenant.assetSrc}
-      />
-      <PickerTileCaption title={covenant.name} />
+    <button type='button' {...buttonProps}>
+      {children}
     </button>
   )
 }
 
-function BuilderV2PossePickerTile({
-  onAssign,
-  posse,
-}: {
-  onAssign: (posseId: string) => void
-  posse: BuilderV2PosseOption
+function DraggablePickerTileButton({
+  children,
+  dndId,
+  getDndData,
+  ...buttonProps
+}: Omit<PickerTileButtonProps, 'getDndData' | 'isDndEnabled'> & {
+  getDndData: () => BuilderV2DragPayload
 }) {
-  const isDndEnabled = useBuilderV2DndEnabled()
   const {listeners, setNodeRef} = useDraggable({
-    id: `builder-v2-picker-posse-${posse.id}`,
-    data: createBuilderV2PickerPosseDragPayload(posse),
-    disabled: !isDndEnabled,
+    id: dndId,
+    data: getDndData(),
   })
-  const draggableProps = isDndEnabled && listeners ? listeners : {}
 
   return (
-    <button
-      aria-label={getPossePickerTileLabel(posse)}
-      className='builder-v2-picker-tile builder-v2-picker-tile--posse'
-      data-active={posse.isActive}
-      data-blocked={posse.blocked}
-      data-owned={posse.owned}
-      data-recommended={posse.recommended}
-      onClick={() => {
-        onAssign(posse.id)
-      }}
-      ref={isDndEnabled ? setNodeRef : undefined}
-      type='button'
-      {...draggableProps}
-    >
-      <PickerTileArt
-        alt={`${posse.name} posse`}
-        chips={
-          <>
-            {posse.isActive ? (
-              <PickerStateChip tone='recommendation'>Active</PickerStateChip>
-            ) : null}
-            {posse.recommended && !posse.isActive ? (
-              <PickerStateChip tone='recommendation'>Rec</PickerStateChip>
-            ) : null}
-            {!posse.owned ? <PickerStateChip tone='danger'>Unowned</PickerStateChip> : null}
-            {posse.statusLabel && posse.statusLabel !== 'Unowned' && !posse.isActive ? (
-              <PickerStateChip tone={posse.blocked ? 'status' : 'quiet'}>
-                {posse.statusLabel}
-              </PickerStateChip>
-            ) : null}
-          </>
-        }
-        fallback={posse.name}
-        realm={posse.realm}
-        src={posse.assetSrc}
-      />
-      <PickerTileCaption title={posse.name} />
+    <button ref={setNodeRef} type='button' {...buttonProps} {...listeners}>
+      {children}
     </button>
   )
 }
@@ -880,6 +1204,55 @@ function areWheelOptionsEqual(previous: BuilderV2WheelOption, next: BuilderV2Whe
     previous.recommended === next.recommended &&
     previous.recommendationLabel === next.recommendationLabel &&
     previous.recommendedMainstatKey === next.recommendedMainstatKey
+  )
+}
+
+function areAwakenerOptionsEqual(
+  previous: BuilderV2AwakenerOption,
+  next: BuilderV2AwakenerOption,
+): boolean {
+  return (
+    previous.id === next.id &&
+    previous.name === next.name &&
+    previous.displayName === next.displayName &&
+    previous.realm === next.realm &&
+    previous.portraitSrc === next.portraitSrc &&
+    previous.inUse === next.inUse &&
+    previous.inUseLabel === next.inUseLabel &&
+    previous.owned === next.owned &&
+    previous.level === next.level &&
+    previous.enlightenLevel === next.enlightenLevel &&
+    previous.blocked === next.blocked &&
+    previous.blockReason === next.blockReason
+  )
+}
+
+function areCovenantOptionsEqual(
+  previous: BuilderV2CovenantOption,
+  next: BuilderV2CovenantOption,
+): boolean {
+  return (
+    previous.id === next.id &&
+    previous.name === next.name &&
+    previous.assetSrc === next.assetSrc &&
+    previous.inUse === next.inUse &&
+    previous.recommended === next.recommended &&
+    previous.recommendationLabel === next.recommendationLabel
+  )
+}
+
+function arePosseOptionsEqual(previous: BuilderV2PosseOption, next: BuilderV2PosseOption): boolean {
+  return (
+    previous.id === next.id &&
+    previous.name === next.name &&
+    previous.realm === next.realm &&
+    previous.assetSrc === next.assetSrc &&
+    previous.inUse === next.inUse &&
+    previous.isActive === next.isActive &&
+    previous.owned === next.owned &&
+    previous.recommended === next.recommended &&
+    previous.blocked === next.blocked &&
+    previous.statusLabel === next.statusLabel
   )
 }
 

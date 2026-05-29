@@ -48,7 +48,11 @@ import {
   resetTeam,
   type TeamTemplateId,
 } from '../builder/team-collection'
-import {clearSlotAssignment} from '../builder/team-state'
+import {
+  clearCovenantAssignment,
+  clearSlotAssignment,
+  clearWheelAssignment,
+} from '../builder/team-state'
 import {applyPendingTransfer, applySupportTransfer} from '../builder/transfer-resolution'
 import type {
   ActiveSelection,
@@ -99,6 +103,7 @@ import type {
   BuilderV2CovenantOption,
   BuilderV2Model,
   BuilderV2PendingTeamAction,
+  BuilderV2PickerClearTarget,
   BuilderV2PickerModel,
   BuilderV2PickerPreferences,
   BuilderV2PickerTab,
@@ -531,18 +536,35 @@ export function useBuilderV2Model({
   )
 
   const quickLineupSession: QuickLineupSession | null = useMemo(
-    () => (quickLineupState ? getPublicQuickLineupSession(quickLineupState) : null),
-    [quickLineupState],
+    () =>
+      quickLineupState ? getPublicQuickLineupSession(quickLineupState, activeTeamSlots) : null,
+    [activeTeamSlots, quickLineupState],
   )
   const quickLineupStepLabel = useMemo(
     () => getQuickLineupStepLabel(quickLineupSession, slots),
     [quickLineupSession, slots],
+  )
+  const pickerClearTarget = useMemo<BuilderV2PickerClearTarget | null>(
+    () =>
+      createBuilderV2PickerClearTarget({
+        activePosse,
+        activeSelection,
+        activeTeamTarget,
+        slots,
+      }),
+    [activePosse, activeSelection, activeTeamTarget, slots],
   )
 
   const activeTeamSlotById = useMemo(
     () => new Map(activeTeamSlots.map((slot) => [slot.slotId, slot])),
     [activeTeamSlots],
   )
+  const hasAwakenerInCurrentActiveSlot = useCallback((slotId: string) => {
+    const state = builderDraftStore.getState()
+    const team =
+      state.teams.find((candidate) => candidate.id === state.activeTeamId) ?? state.teams[0]
+    return Boolean(team.slots.find((slot) => slot.slotId === slotId)?.awakenerId)
+  }, [])
   const deferredPickerSelection = useDeferredValue(activeSelection)
   const {activeBuild, teamRecommendedPosseIds} = useAwakenerBuildRecommendations({
     activeSelection: deferredPickerSelection,
@@ -816,8 +838,11 @@ export function useBuilderV2Model({
         return
       }
 
-      if (focus.pickerTab) {
-        setPickerTab(focus.pickerTab)
+      const nextPickerTab = focus.pickerTab
+      if (nextPickerTab) {
+        startTransition(() => {
+          setPickerTab(nextPickerTab)
+        })
       }
       applyEditingTarget(
         focus.pickerTab === 'posses' && !focus.selection ? {kind: 'posse'} : focus.selection,
@@ -1062,6 +1087,11 @@ export function useBuilderV2Model({
   const selectWheelSlot = useCallback(
     (slotId: string, wheelIndex: WheelSlotIndex) => {
       setViolationMessage(null)
+      if (!hasAwakenerInCurrentActiveSlot(slotId)) {
+        selectAwakenerSlot(slotId)
+        return
+      }
+
       if (quickLineupState) {
         jumpToQuickLineupStep({kind: 'wheel', slotId, wheelIndex})
         return
@@ -1078,12 +1108,23 @@ export function useBuilderV2Model({
           ).activeSelection,
       )
     },
-    [jumpToQuickLineupStep, quickLineupState, setActiveSelection],
+    [
+      hasAwakenerInCurrentActiveSlot,
+      jumpToQuickLineupStep,
+      quickLineupState,
+      selectAwakenerSlot,
+      setActiveSelection,
+    ],
   )
 
   const selectCovenantSlot = useCallback(
     (slotId: string) => {
       setViolationMessage(null)
+      if (!hasAwakenerInCurrentActiveSlot(slotId)) {
+        selectAwakenerSlot(slotId)
+        return
+      }
+
       if (quickLineupState) {
         jumpToQuickLineupStep({kind: 'covenant', slotId})
         return
@@ -1100,7 +1141,13 @@ export function useBuilderV2Model({
           ).activeSelection,
       )
     },
-    [jumpToQuickLineupStep, quickLineupState, setActiveSelection],
+    [
+      hasAwakenerInCurrentActiveSlot,
+      jumpToQuickLineupStep,
+      quickLineupState,
+      selectAwakenerSlot,
+      setActiveSelection,
+    ],
   )
 
   const selectPosse = useCallback(() => {
@@ -1174,13 +1221,9 @@ export function useBuilderV2Model({
 
       if (command.kind === 'posse-assign') {
         clearTransfer()
-        const isQuickLineupPosseStep = quickLineupSession?.currentStep.kind === 'posse'
         updateActiveTeam((team) => ({...team, posseId: command.posseId}))
         setViolationMessage(null)
         applyEditingTarget({kind: 'posse'}, {syncPickerTab: true})
-        if (isQuickLineupPosseStep) {
-          advanceQuickLineupStep()
-        }
         return
       }
 
@@ -1204,7 +1247,6 @@ export function useBuilderV2Model({
       advanceQuickLineupStep,
       applyEditingTarget,
       clearTransfer,
-      quickLineupSession,
       quickLineupState,
       requestAwakenerTransfer,
       requestPosseTransfer,
@@ -1474,6 +1516,81 @@ export function useBuilderV2Model({
     updateActiveTeam,
   ])
 
+  const clearPickerTarget = useCallback(() => {
+    setViolationMessage(null)
+    clearTransfer()
+
+    if (activeTeamTarget?.kind === 'posse') {
+      if (activeTeam.posseId) {
+        updateActiveTeam((team) => ({...team, posseId: undefined}))
+      }
+      applyEditingTarget({kind: 'posse'}, {syncPickerTab: true})
+      return
+    }
+
+    if (!activeSelection) {
+      return
+    }
+
+    if (activeSelection.kind === 'awakener') {
+      const result = clearSlotAssignment(activeTeamSlots, activeSelection.slotId)
+      if (result.changed) {
+        setActiveTeamSlotsInStore(result.nextSlots)
+      }
+      if (quickLineupState) {
+        advanceQuickLineupStep(result.nextSlots)
+        return
+      }
+      applyEditingTarget({kind: 'awakener', slotId: activeSelection.slotId}, {syncPickerTab: true})
+      return
+    }
+
+    if (activeSelection.kind === 'wheel') {
+      const result = clearWheelAssignment(
+        activeTeamSlots,
+        activeSelection.slotId,
+        activeSelection.wheelIndex,
+      )
+      if (result.changed) {
+        setActiveTeamSlotsInStore(result.nextSlots)
+      }
+      if (quickLineupState) {
+        advanceQuickLineupStep(result.nextSlots)
+        return
+      }
+      applyEditingTarget(
+        {
+          kind: 'wheel',
+          slotId: activeSelection.slotId,
+          wheelIndex: activeSelection.wheelIndex,
+        },
+        {syncPickerTab: true},
+      )
+      return
+    }
+
+    const result = clearCovenantAssignment(activeTeamSlots, activeSelection.slotId)
+    if (result.changed) {
+      setActiveTeamSlotsInStore(result.nextSlots)
+    }
+    if (quickLineupState) {
+      advanceQuickLineupStep(result.nextSlots)
+      return
+    }
+    applyEditingTarget({kind: 'covenant', slotId: activeSelection.slotId}, {syncPickerTab: true})
+  }, [
+    activeSelection,
+    activeTeam.posseId,
+    activeTeamSlots,
+    activeTeamTarget,
+    advanceQuickLineupStep,
+    applyEditingTarget,
+    clearTransfer,
+    quickLineupState,
+    setActiveTeamSlotsInStore,
+    updateActiveTeam,
+  ])
+
   const setTeamsForImportExport = useCallback((nextTeams: SetStateAction<Team[]>) => {
     builderDraftStore
       .getState()
@@ -1727,6 +1844,7 @@ export function useBuilderV2Model({
     editingTeamName,
     slots,
     picker,
+    pickerClearTarget,
     awakeners,
     wheels,
     covenants,
@@ -1763,6 +1881,7 @@ export function useBuilderV2Model({
     assignCovenant,
     assignCovenantToSlot,
     assignPosse,
+    clearPickerTarget,
     removeAwakener,
     moveAwakener,
     clearWheel,
@@ -1835,6 +1954,7 @@ function createWheelSlotView(
     label: `${slotLabel} Wheel ${String(wheelIndex + 1)}`,
     wheelId,
     wheelName: wheel?.name ?? null,
+    miniAssetSrc: wheelId ? getWheelMiniAssetById(wheelId) : undefined,
     assetSrc: wheelId ? getWheelAssetById(wheelId) : undefined,
     enlightenLevel: wheelId ? (ownedWheelLevelById.get(wheelId) ?? null) : null,
     isSelected:
@@ -1850,6 +1970,71 @@ function createActivePosseView(posse: Posse): BuilderV2ActivePosseView {
     name: posse.name,
     realm: posse.realm,
     assetSrc: getPosseAssetById(posse.id),
+  }
+}
+
+function createBuilderV2PickerClearTarget({
+  activePosse,
+  activeSelection,
+  activeTeamTarget,
+  slots,
+}: {
+  activePosse: BuilderV2ActivePosseView | null
+  activeSelection: ActiveSelection
+  activeTeamTarget: BuilderV2TeamTarget
+  slots: BuilderV2SlotView[]
+}): BuilderV2PickerClearTarget | null {
+  if (activeTeamTarget?.kind === 'posse') {
+    return {
+      id: 'posse',
+      label: 'Clear Team Posse',
+      description: activePosse ? `Remove ${activePosse.name}` : 'Leave team posse empty',
+      ariaLabel: activePosse ? `Clear team posse ${activePosse.name}` : 'Clear team posse',
+    }
+  }
+
+  if (!activeSelection) {
+    return null
+  }
+
+  const slot = slots.find((entry) => entry.slotId === activeSelection.slotId)
+  if (!slot) {
+    return null
+  }
+
+  if (activeSelection.kind === 'awakener') {
+    return {
+      id: `${slot.slotId}:awakener`,
+      label: 'Clear Slot',
+      description: slot.awakener
+        ? `Remove ${slot.awakener.displayName} and loadout`
+        : `Leave ${slot.slotLabel} empty`,
+      ariaLabel: `Clear ${slot.slotLabel}`,
+    }
+  }
+
+  if (activeSelection.kind === 'wheel') {
+    const wheelSlot = slot.wheelSlots.find(
+      (entry) => entry.wheelIndex === activeSelection.wheelIndex,
+    )
+    const wheelNumber = String(activeSelection.wheelIndex + 1)
+    return {
+      id: `${slot.slotId}:wheel:${wheelNumber}`,
+      label: `Clear W${wheelNumber}`,
+      description: wheelSlot?.wheelName
+        ? `Remove ${wheelSlot.wheelName}`
+        : `Leave ${slot.slotLabel} Wheel ${wheelNumber} empty`,
+      ariaLabel: `Clear ${slot.slotLabel} Wheel ${wheelNumber}`,
+    }
+  }
+
+  return {
+    id: `${slot.slotId}:covenant`,
+    label: 'Clear Cov',
+    description: slot.covenantName
+      ? `Remove ${slot.covenantName}`
+      : `Leave ${slot.slotLabel} covenant empty`,
+    ariaLabel: `Clear ${slot.slotLabel} Covenant`,
   }
 }
 

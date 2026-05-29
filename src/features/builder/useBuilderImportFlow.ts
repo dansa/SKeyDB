@@ -290,28 +290,26 @@ export function useBuilderImportFlow({
       return
     }
 
+    const overrideImport = pendingDuplicateOverrideImport
+    setPendingDuplicateOverrideImport(null)
     setAllowDupes(true)
-    if (pendingDuplicateOverrideImport.kind === 'decoded') {
-      const result = prepareImport(
-        pendingDuplicateOverrideImport.decoded,
-        pendingDuplicateOverrideImport.plannerBaseTeams,
-        {
-          allowDupes: true,
-        },
-      )
+    if (overrideImport.kind === 'decoded') {
+      const result = prepareImport(overrideImport.decoded, overrideImport.plannerBaseTeams, {
+        allowDupes: true,
+      })
       handlePreparedImport(result, {
-        decoded: pendingDuplicateOverrideImport.decoded,
-        plannerBaseTeams: pendingDuplicateOverrideImport.plannerBaseTeams,
-        replaceIntoTeam: pendingDuplicateOverrideImport.replaceIntoTeam,
-        importWarningMessage: pendingDuplicateOverrideImport.importWarningMessage,
+        decoded: overrideImport.decoded,
+        plannerBaseTeams: overrideImport.plannerBaseTeams,
+        replaceIntoTeam: overrideImport.replaceIntoTeam,
+        importWarningMessage: overrideImport.importWarningMessage,
       })
       return
     }
 
     const result = applySingleImportStrategy(
-      pendingDuplicateOverrideImport.plannerBaseTeams,
-      pendingDuplicateOverrideImport.importedTeam,
-      pendingDuplicateOverrideImport.strategy,
+      overrideImport.plannerBaseTeams,
+      overrideImport.importedTeam,
+      overrideImport.strategy,
       {allowDupes: true},
     )
 
@@ -321,25 +319,25 @@ export function useBuilderImportFlow({
       return
     }
 
-    if (pendingDuplicateOverrideImport.replaceIntoTeam) {
+    if (overrideImport.replaceIntoTeam) {
       const nextTeams = mergeImportedIntoExistingTeam(
         result.teams,
-        pendingDuplicateOverrideImport.plannerBaseTeams,
-        pendingDuplicateOverrideImport.replaceIntoTeam,
+        overrideImport.plannerBaseTeams,
+        overrideImport.replaceIntoTeam,
       )
-      applyImportedTeams(nextTeams, pendingDuplicateOverrideImport.replaceIntoTeam.id)
+      applyImportedTeams(nextTeams, overrideImport.replaceIntoTeam.id)
       clearTransfer()
       clearPendingDelete()
       clearImportFlow()
       showToast(
-        pendingDuplicateOverrideImport.importWarningMessage
-          ? `Team imported. ${pendingDuplicateOverrideImport.importWarningMessage}`
+        overrideImport.importWarningMessage
+          ? `Team imported. ${overrideImport.importWarningMessage}`
           : 'Team imported.',
       )
       return
     }
 
-    finalizePreparedImport(result.teams, pendingDuplicateOverrideImport.importWarningMessage)
+    finalizePreparedImport(result.teams, overrideImport.importWarningMessage)
   }
 
   function confirmReplaceImport() {

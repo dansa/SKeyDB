@@ -5,13 +5,14 @@ import {createEmptyTeamSlots} from '@/features/builder/constants'
 import {
   createQuickLineupSession,
   findNextQuickLineupStepIndex,
+  findPreviousQuickLineupStepIndex,
   findQuickLineupStepIndex,
   getQuickLineupStepAtIndex,
   getQuickLineupStepPickerTab,
   getQuickLineupStepSelection,
-  goBackQuickLineupHistory,
   goToQuickLineupStep,
   reconcileQuickLineupSessionAfterSlotsChange,
+  resolveQuickLineupStepForSlots,
   type InternalQuickLineupSession,
 } from '@/features/builder/quick-lineup'
 import {renameTeam} from '@/features/builder/team-collection'
@@ -245,7 +246,15 @@ export function createBuilderDraftStore(
       if (!state.quickLineupState) {
         return null
       }
-      const nextSession = goBackQuickLineupHistory(state.quickLineupState)
+      const activeTeam = getEffectiveActiveTeam(state.teams, state.activeTeamId)
+      const previousStepIndex = findPreviousQuickLineupStepIndex(
+        state.quickLineupState,
+        activeTeam?.slots ?? [],
+      )
+      if (previousStepIndex === null) {
+        return null
+      }
+      const nextSession = goToQuickLineupStep(state.quickLineupState, previousStepIndex)
       if (!nextSession) {
         return null
       }
@@ -277,7 +286,9 @@ export function createBuilderDraftStore(
       if (!state.quickLineupState) {
         return null
       }
-      const nextStepIndex = findQuickLineupStepIndex(state.quickLineupState, step)
+      const activeTeam = getEffectiveActiveTeam(state.teams, state.activeTeamId)
+      const resolvedStep = resolveQuickLineupStepForSlots(step, activeTeam?.slots ?? [])
+      const nextStepIndex = findQuickLineupStepIndex(state.quickLineupState, resolvedStep)
       if (nextStepIndex === -1) {
         return null
       }

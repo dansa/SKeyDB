@@ -17,12 +17,20 @@ interface BuilderV2AdaptiveLayoutProps {
   activeDropTarget: BuilderV2DropTargetDescriptor | null
   isDragActive: boolean
   model: BuilderV2Model
+  onOpenAwakenerDetail: (awakenerId: string) => void
+  onOpenCovenantDetail: (covenantId: string) => void
+  onOpenPosseDetail: (posseId: string) => void
+  onOpenWheelDetail: (wheelId: string) => void
 }
 
 export function BuilderV2AdaptiveLayout({
   activeDropTarget,
   isDragActive,
   model,
+  onOpenAwakenerDetail,
+  onOpenCovenantDetail,
+  onOpenPosseDetail,
+  onOpenWheelDetail,
 }: BuilderV2AdaptiveLayoutProps) {
   const [isPickerExpanded, setIsPickerExpanded] = useState(false)
   const editingMessageId = 'builder-v2-adaptive-editing-message'
@@ -214,10 +222,16 @@ export function BuilderV2AdaptiveLayout({
                   onAssignCovenant={assignCovenant}
                   onAssignPosse={assignPosse}
                   onAssignWheel={assignWheel}
+                  onClearPickerTarget={model.clearPickerTarget}
+                  onOpenAwakenerDetail={onOpenAwakenerDetail}
+                  onOpenCovenantDetail={onOpenCovenantDetail}
+                  onOpenPosseDetail={onOpenPosseDetail}
+                  onOpenWheelDetail={onOpenWheelDetail}
                   onRequestExpand={(restoreTarget) => {
                     expandPickerFromControl(restoreTarget)
                   }}
                   picker={model.picker}
+                  pickerClearTarget={model.pickerClearTarget}
                   predictedDropTarget={activeDropTarget}
                   searchInputRef={searchInputRef}
                 />

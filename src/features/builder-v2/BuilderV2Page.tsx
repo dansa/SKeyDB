@@ -2,14 +2,18 @@ import {DndContext} from '@dnd-kit/core'
 
 import './builder-v2.css'
 
-import {useEffect, useState, type ReactNode} from 'react'
+import {useEffect, useMemo, useState, useSyncExternalStore, type ReactNode} from 'react'
 
 import {ConfirmDialog} from '@/components/ui/ConfirmDialog'
 import {Toast} from '@/components/ui/Toast'
 import {useTimedToast} from '@/components/ui/useTimedToast'
+import {getWheels} from '@/domain/wheels'
+import {DbDetailModalHost} from '@/features/database/detail/DbDetailModalHost'
+import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import {BuilderImportExportDialogs} from '../builder/BuilderImportExportDialogs'
 import {BuilderTransferConfirmDialog} from '../builder/BuilderTransferConfirmDialog'
+import {allAwakeners} from '../builder/constants'
 import {BuilderV2ActiveFooter, BuilderV2ActiveHeader} from './BuilderV2ActiveTeamChrome'
 import {BuilderV2AdaptiveLayout} from './BuilderV2AdaptiveLayout'
 import {BuilderV2AwakenerPicker} from './BuilderV2AwakenerPicker'
@@ -38,6 +42,39 @@ export function BuilderV2Page() {
   const assignWheel = useStableEvent(model.assignWheel)
   const assignCovenant = useStableEvent(model.assignCovenant)
   const assignPosse = useStableEvent(model.assignPosse)
+  const openAwakenerDetail = useStableEvent((awakenerId: string) => {
+    dbDetailStore.getState().openDetail({kind: 'awakener', id: awakenerId}, 'builder-overlay')
+  })
+  const openWheelDetail = useStableEvent((wheelId: string) => {
+    dbDetailStore.getState().openDetail({kind: 'wheel', id: wheelId}, 'builder-overlay')
+  })
+  const openCovenantDetail = useStableEvent((covenantId: string) => {
+    dbDetailStore.getState().openDetail({kind: 'covenant', id: covenantId}, 'builder-overlay')
+  })
+  const openPosseDetail = useStableEvent((posseId: string) => {
+    dbDetailStore.getState().openDetail({kind: 'posse', id: posseId}, 'builder-overlay')
+  })
+  const detailWheels = useMemo(() => getWheels(), [])
+  const detailModalCallbacks = useMemo(
+    () => ({
+      onClose: () => {
+        dbDetailStore.getState().popDetail()
+      },
+      onSelectAwakener: () => undefined,
+      onSelectCovenant: () => undefined,
+      onSelectPosse: (posse: {id: string}) => {
+        dbDetailStore.getState().pushReferenceDetail({kind: 'posse', id: posse.id})
+      },
+      onSelectWheel: () => undefined,
+      onTabChange: () => undefined,
+    }),
+    [],
+  )
+  const isBuilderDetailOverlayOpen = useSyncExternalStore(
+    subscribeToDbDetailStore,
+    hasBuilderDetailOverlayOpen,
+    hasBuilderDetailOverlayOpen,
+  )
   const dnd = useBuilderV2Dnd({model})
   const activeDropTarget = isDndEnabled ? dnd.activeDropTarget : null
   const isDragActive = isDndEnabled && dnd.isDragging
@@ -45,7 +82,16 @@ export function BuilderV2Page() {
   let content
 
   if (viewportMode === 'mobile') {
-    content = <BuilderV2MobileLayout model={model} />
+    content = (
+      <BuilderV2MobileLayout
+        isDetailOverlayOpen={isBuilderDetailOverlayOpen}
+        model={model}
+        onOpenAwakenerDetail={openAwakenerDetail}
+        onOpenCovenantDetail={openCovenantDetail}
+        onOpenPosseDetail={openPosseDetail}
+        onOpenWheelDetail={openWheelDetail}
+      />
+    )
   } else if (viewportMode === 'adaptive') {
     content = (
       <BuilderV2DndBoundary dnd={dnd} enabled={isDndEnabled}>
@@ -53,6 +99,10 @@ export function BuilderV2Page() {
           activeDropTarget={activeDropTarget}
           isDragActive={isDragActive}
           model={model}
+          onOpenAwakenerDetail={openAwakenerDetail}
+          onOpenCovenantDetail={openCovenantDetail}
+          onOpenPosseDetail={openPosseDetail}
+          onOpenWheelDetail={openWheelDetail}
         />
       </BuilderV2DndBoundary>
     )
@@ -154,7 +204,13 @@ export function BuilderV2Page() {
               onAssignAwakener={assignAwakener}
               onAssignPosse={assignPosse}
               onAssignWheel={assignWheel}
+              onClearPickerTarget={model.clearPickerTarget}
+              onOpenAwakenerDetail={openAwakenerDetail}
+              onOpenCovenantDetail={openCovenantDetail}
+              onOpenPosseDetail={openPosseDetail}
+              onOpenWheelDetail={openWheelDetail}
               picker={model.picker}
+              pickerClearTarget={model.pickerClearTarget}
               predictedDropTarget={activeDropTarget}
             />
           </div>
@@ -179,12 +235,26 @@ export function BuilderV2Page() {
         />
       ) : null}
       <BuilderImportExportDialogs {...model.importExportDialogProps} />
+      <DbDetailModalHost
+        awakeners={allAwakeners}
+        callbacks={detailModalCallbacks}
+        routeItem={null}
+        wheels={detailWheels}
+      />
       <Toast entries={toastEntries} />
     </BuilderV2DndEnabledContext.Provider>
   )
 }
 
 type BuilderV2DndController = ReturnType<typeof useBuilderV2Dnd>
+
+function hasBuilderDetailOverlayOpen(): boolean {
+  return dbDetailStore.getState().stack.some((entry) => entry.source === 'builder-overlay')
+}
+
+function subscribeToDbDetailStore(onStoreChange: () => void): () => void {
+  return dbDetailStore.subscribe(onStoreChange)
+}
 
 function BuilderV2DndBoundary({
   children,

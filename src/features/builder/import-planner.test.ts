@@ -1,7 +1,12 @@
 import {describe, expect, it} from 'vitest'
 
+import {decodeImportCode} from '@/domain/import-export'
+
 import {applySingleImportStrategy, prepareImport} from './import-planner'
 import type {Team} from './types'
+
+const legacyMultiTeamImportWithSupportAndDuplicates =
+  'mt1.BQodMDwAGQ0dPDsaDCo8OhMIAAAAAAAABjwAAAA3PAAAAAAAAAAAAAAAAAAhFDwbDg0lPAAAABM8OQYOLzw5KREACzwODwAAAAAAACE8FxsAFjwUFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJDwRTA8h2gAAABs8AAAAEjwQQxUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
 
 function makeTeam(name: string, overrides?: Partial<Team>): Team {
   return {
@@ -264,5 +269,23 @@ describe('import planner', () => {
 
     const result = applySingleImportStrategy(current, imported, 'skip')
     expect(result.status).toBe('requires_duplicate_override')
+  })
+
+  it('plans legacy mt1 payloads with support state after duplicate override', () => {
+    const decoded = decodeImportCode(legacyMultiTeamImportWithSupportAndDuplicates)
+    expect(decoded.kind).toBe('multi')
+    if (decoded.kind !== 'multi') return
+
+    const strictResult = prepareImport(decoded, [makeTeam('Team 1')])
+    expect(strictResult.status).toBe('requires_duplicate_override')
+
+    const overrideResult = prepareImport(decoded, [makeTeam('Team 1')], {allowDupes: true})
+    expect(overrideResult.status).toBe('requires_replace')
+    if (overrideResult.status !== 'requires_replace') return
+
+    expect(overrideResult.activeTeamIndex).toBe(5)
+    expect(overrideResult.teams).toHaveLength(10)
+    expect(overrideResult.teams[5]?.slots[1]?.isSupport).toBe(true)
+    expect(overrideResult.teams[5]?.slots[1]?.level).toBe(90)
   })
 })

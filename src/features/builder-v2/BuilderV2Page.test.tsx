@@ -1,12 +1,14 @@
-import {act, fireEvent, render, screen, within} from '@testing-library/react'
+import {act, cleanup, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
 import {MemoryRouter} from 'react-router-dom'
-import {afterEach, describe, expect, it} from 'vitest'
+import {afterEach, beforeEach, describe, expect, it} from 'vitest'
 
 import './builder-v2-test-mocks'
 
 import App from '@/App'
 import {decodeImportCode, encodeMultiTeamCode, encodeSingleTeamCode} from '@/domain/import-export'
+import {clearDatabaseDetailRecordCacheForTests} from '@/features/database/internal/useDatabaseDetailRouteRecord'
 import {builderDraftStore} from '@/stores/builderDraftStore'
+import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import {saveBuilderDraft} from '../builder/builder-persistence'
 import {createEmptyTeamSlots} from '../builder/constants'
@@ -56,6 +58,11 @@ function getRequiredTextArea(element: HTMLElement): HTMLTextAreaElement {
 
 const originalMatchMedia = window.matchMedia
 
+beforeEach(() => {
+  clearDatabaseDetailRecordCacheForTests()
+  dbDetailStore.getState().closeAllDetails()
+})
+
 function mockBuilderV2TouchDevice(isTouchType: boolean) {
   Object.defineProperty(window, 'matchMedia', {
     configurable: true,
@@ -79,6 +86,10 @@ function mockBuilderV2TouchDevice(isTouchType: boolean) {
 }
 
 afterEach(() => {
+  act(() => {
+    dbDetailStore.getState().closeAllDetails()
+  })
+  cleanup()
   resizeBuilderV2Viewport(1200, false)
   Object.defineProperty(window, 'matchMedia', {
     configurable: true,
@@ -136,6 +147,69 @@ describe('BuilderV2Page', () => {
     fireEvent.click(screen.getByRole('tab', {name: /^awakeners$/i}))
 
     expect(screen.getByRole('button', {name: /goliath, level \d+/i})).toBeInTheDocument()
+  })
+
+  it('opens database details from V2 picker tile actions without assigning the item', () => {
+    resizeBuilderV2Viewport(1200)
+    render(<BuilderV2Page />)
+
+    fireEvent.click(screen.getByTitle('View Goliath details'))
+    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
+      kind: 'awakener',
+      id: 'awakener-0021',
+      source: 'builder-overlay',
+    })
+    expect(screen.queryByRole('button', {name: /remove goliath/i})).not.toBeInTheDocument()
+    act(() => {
+      dbDetailStore.getState().closeAllDetails()
+    })
+
+    fireEvent.click(screen.getByRole('tab', {name: /^wheels$/i}))
+    fireEvent.click(screen.getByTitle('View Merciful Nurturing details'))
+    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
+      kind: 'wheel',
+      id: 'wheel-0050',
+      source: 'builder-overlay',
+    })
+    act(() => {
+      dbDetailStore.getState().closeAllDetails()
+    })
+
+    fireEvent.click(screen.getByRole('tab', {name: /^covenants$/i}))
+    fireEvent.click(screen.getByTitle('View Deus Ex Machina details'))
+    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
+      kind: 'covenant',
+      id: 'c01',
+      source: 'builder-overlay',
+    })
+    act(() => {
+      dbDetailStore.getState().closeAllDetails()
+    })
+
+    fireEvent.click(screen.getByRole('tab', {name: /^posses$/i}))
+    fireEvent.click(screen.getByTitle('View Taverns Opening details'))
+    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
+      kind: 'posse',
+      id: 'posse-0033',
+      source: 'builder-overlay',
+    })
+  })
+
+  it('shows the picker clear card on every tab for the active target', () => {
+    resizeBuilderV2Viewport(1200)
+    render(<BuilderV2Page />)
+
+    fireEvent.click(screen.getByRole('button', {name: /^select slot 1$/i}))
+    fireEvent.click(screen.getByRole('button', {name: /goliath, level \d+/i}))
+    fireEvent.click(screen.getByRole('tab', {name: /^posses$/i}))
+
+    const clearSlot = screen.getByRole('button', {name: /^clear slot 1$/i})
+    expect(clearSlot).toHaveTextContent(/clear slot/i)
+
+    fireEvent.click(clearSlot)
+
+    expect(screen.queryByRole('button', {name: /remove goliath/i})).not.toBeInTheDocument()
+    expect(screen.getAllByText(/empty slot/i)).toHaveLength(4)
   })
 
   it('renders a functional desktop team management overview and switches teams from it', () => {
@@ -221,7 +295,7 @@ describe('BuilderV2Page', () => {
     render(<BuilderV2Page />)
 
     const management = screen.getByRole('region', {name: /builder v2 team management/i})
-    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.click(screen.getByRole('button', {name: /goliath, level \d+/i}))
     fireEvent.click(within(management).getByRole('button', {name: /reset team 1/i}))
 
     let teamDialog = screen.getByRole('dialog', {name: /reset team 1/i})
@@ -262,8 +336,8 @@ describe('BuilderV2Page', () => {
 
     const mobileManagement = screen.getByRole('region', {name: /builder v2 team management/i})
     fireEvent.click(within(mobileManagement).getByRole('button', {name: /add team/i}))
-    expect(screen.getByRole('heading', {level: 1, name: /^team 2$/i})).toBeInTheDocument()
-    expect(screen.getByRole('region', {name: /mobile team overview/i})).toBeInTheDocument()
+    expect(screen.getByRole('heading', {level: 2, name: /^team 2$/i})).toBeInTheDocument()
+    expect(screen.getByRole('region', {name: /mobile team builder/i})).toBeInTheDocument()
   })
 
   it('renders an adaptive workbench instead of the mobile app or desktop armory at tablet widths', () => {
@@ -271,7 +345,7 @@ describe('BuilderV2Page', () => {
     render(<BuilderV2Page />)
 
     expect(screen.getByRole('region', {name: /adaptive workbench/i})).toBeInTheDocument()
-    expect(screen.queryByRole('region', {name: /mobile team overview/i})).not.toBeInTheDocument()
+    expect(screen.queryByRole('region', {name: /mobile team builder/i})).not.toBeInTheDocument()
     expect(
       screen.queryByRole('complementary', {name: /builder v2 armory/i}),
     ).not.toBeInTheDocument()
@@ -430,7 +504,7 @@ describe('BuilderV2Page', () => {
     render(<BuilderV2Page />)
 
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1$/i}))
-    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.click(screen.getByRole('button', {name: /goliath, level \d+/i}))
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1 wheel 2$/i}))
 
     const dock = screen.getByRole('region', {name: /adaptive picker/i})
@@ -441,18 +515,19 @@ describe('BuilderV2Page', () => {
     expect(within(dock).getByRole('searchbox', {name: /search wheels/i})).toHaveFocus()
   })
 
-  it('keeps the adaptive picker open and surfaces violations when an assignment target is invalid', () => {
+  it('opens the adaptive picker on awakeners when an empty gear target is tapped', () => {
     resizeBuilderV2Viewport(900)
     render(<BuilderV2Page />)
 
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1 wheel 1$/i}))
-    fireEvent.click(screen.getByRole('button', {name: /merciful nurturing/i}))
 
     const dock = screen.getByRole('region', {name: /adaptive picker/i})
     expect(dock).toBeInTheDocument()
-    const alert = screen.getByRole('alert')
-    expect(alert).toHaveTextContent(/wheels require an awakener/i)
-    expect(dock).toHaveAttribute('aria-describedby', alert.id)
+    expect(within(dock).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
+    expect(within(dock).getByRole('searchbox', {name: /search awakeners/i})).toHaveFocus()
   })
 
   it('keeps the adaptive picker open when an awakened slot has no empty wheel target', () => {
@@ -479,7 +554,7 @@ describe('BuilderV2Page', () => {
 
     const dock = screen.getByRole('region', {name: /adaptive picker/i})
     fireEvent.click(within(dock).getByRole('tab', {name: /^wheels$/i}))
-    fireEvent.click(within(dock).getByRole('button', {name: /signal through silence/i}))
+    fireEvent.click(within(dock).getByRole('button', {name: /signal through silence, ssr/i}))
 
     expect(screen.getByRole('region', {name: /adaptive picker/i})).toBeInTheDocument()
     const alert = screen.getByRole('alert')
@@ -564,6 +639,7 @@ describe('BuilderV2Page', () => {
     expect(screen.getByRole('dialog', {name: /import uses duplicates/i})).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', {name: /enable and import/i}))
 
+    expect(screen.queryByRole('dialog', {name: /import uses duplicates/i})).not.toBeInTheDocument()
     expect(window.localStorage.getItem('skeydb.builder.allowDupes.v1')).toBe('1')
     expect(screen.getByRole('dialog', {name: /replace current teams/i})).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', {name: /^replace$/i}))
@@ -741,55 +817,81 @@ describe('BuilderV2Page', () => {
     )
   })
 
-  it('renders the mobile overview and enters the focused slot builder', () => {
+  it('renders the mobile builder with team navigation and active slot targets', () => {
     resizeBuilderV2Viewport(390)
     render(<BuilderV2Page />)
 
-    expect(screen.getByRole('region', {name: /mobile team overview/i})).toBeInTheDocument()
+    const mobileBuilder = screen.getByRole('region', {name: /mobile team builder/i})
+    expect(within(mobileBuilder).getByRole('combobox', {name: /active team/i})).toBeInTheDocument()
+    expect(within(mobileBuilder).getByRole('button', {name: /previous team/i})).toBeInTheDocument()
+    expect(within(mobileBuilder).getByRole('button', {name: /next team/i})).toBeInTheDocument()
+    expect(screen.queryByRole('region', {name: /mobile focused builder/i})).not.toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', {name: /open slot 2 builder/i}))
-
-    expect(screen.getByRole('region', {name: /mobile focused builder/i})).toBeInTheDocument()
-    expect(screen.getByRole('heading', {level: 2, name: /slot 2/i})).toBeInTheDocument()
-    expect(screen.getByRole('button', {name: /pick awakener for slot 2/i})).toBeInTheDocument()
+    const activeSlots = within(mobileBuilder).getByLabelText(/builder v2 active team slots/i)
+    expect(within(activeSlots).getAllByRole('button', {name: /^select slot \d$/i})).toHaveLength(4)
+    expect(
+      within(activeSlots).getByRole('button', {name: /^select slot 2 wheel 1$/i}),
+    ).toBeInTheDocument()
   })
 
-  it('opens the mobile picker drawer from a focused slot and focuses search', () => {
+  it('opens the mobile picker drawer from an active team slot without summoning search focus', () => {
     resizeBuilderV2Viewport(390)
     render(<BuilderV2Page />)
 
-    fireEvent.click(screen.getByRole('button', {name: /open slot 2 builder/i}))
-    fireEvent.click(screen.getByRole('button', {name: /pick awakener for slot 2/i}))
+    const slotTrigger = screen.getByRole('button', {name: /^select slot 2$/i})
+    fireEvent.click(slotTrigger)
 
-    const drawer = screen.getByRole('dialog', {name: /pick awakener for slot 2/i})
+    const drawer = screen.getByRole('dialog', {name: /team 1 · slot 2 · awakener/i})
     expect(drawer).toBeInTheDocument()
     expect(within(drawer).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
       'aria-selected',
       'true',
     )
-    expect(within(drawer).getByRole('searchbox', {name: /search awakeners/i})).toHaveFocus()
+    expect(within(drawer).getByRole('searchbox', {name: /search awakeners/i})).toBeInTheDocument()
+    expect(drawer).toHaveFocus()
     expect(screen.getByText(/editing slot 2 - awakener/i)).toBeInTheDocument()
+  })
+
+  it('keeps the mobile picker drawer mounted behind database details', async () => {
+    resizeBuilderV2Viewport(390)
+    render(<BuilderV2Page />)
+
+    fireEvent.click(screen.getByRole('button', {name: /^select slot 2$/i}))
+
+    const drawer = screen.getByRole('dialog', {name: /team 1 · slot 2 · awakener/i})
+    fireEvent.click(within(drawer).getByTitle('View Goliath details'))
+
+    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
+      kind: 'awakener',
+      id: 'awakener-0021',
+      source: 'builder-overlay',
+    })
+
+    expect(document.querySelector('.builder-v2-mobile-picker')).toBeInTheDocument()
+    await waitFor(() => {
+      expect(document.querySelector('.builder-v2-mobile-picker')).toHaveAttribute('inert')
+    })
   })
 
   it('opens the mobile picker drawer on a wheel target with the wheels tab active', () => {
     resizeBuilderV2Viewport(390)
     render(<BuilderV2Page />)
 
-    fireEvent.click(screen.getByRole('button', {name: /open slot 1 builder/i}))
-    fireEvent.click(screen.getByRole('button', {name: /pick awakener for slot 1/i}))
-    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.click(screen.getByRole('button', {name: /^select slot 1$/i}))
+    let drawer = screen.getByRole('dialog', {name: /team 1 · slot 1 · awakener/i})
+    fireEvent.click(within(drawer).getByRole('button', {name: /goliath, level \d+/i}))
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-    expect(screen.getByRole('heading', {level: 2, name: /goliath/i})).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: /remove goliath/i})).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', {name: /pick wheel 2 for goliath/i}))
+    fireEvent.click(screen.getByRole('button', {name: /^select slot 1 wheel 2$/i}))
 
-    const drawer = screen.getByRole('dialog', {name: /pick wheel 2 for goliath/i})
+    drawer = screen.getByRole('dialog', {name: /team 1 · slot 1 · wheel 2/i})
     expect(within(drawer).getByRole('tab', {name: /^wheels$/i})).toHaveAttribute(
       'aria-selected',
       'true',
     )
-    expect(within(drawer).getByRole('searchbox', {name: /search wheels/i})).toHaveFocus()
+    expect(within(drawer).getByRole('searchbox', {name: /search wheels/i})).toBeInTheDocument()
     expect(screen.getByText(/editing slot 1 - wheel 2/i)).toBeInTheDocument()
   })
 
@@ -797,16 +899,15 @@ describe('BuilderV2Page', () => {
     resizeBuilderV2Viewport(390)
     render(<BuilderV2Page />)
 
-    fireEvent.click(screen.getByRole('button', {name: /open slot 3 builder/i}))
-    const pickerTrigger = screen.getByRole('button', {name: /pick awakener for slot 3/i})
+    const pickerTrigger = screen.getByRole('button', {name: /^select slot 3$/i})
     fireEvent.click(pickerTrigger)
 
-    expect(screen.getByRole('dialog', {name: /pick awakener for slot 3/i})).toBeInTheDocument()
+    expect(screen.getByRole('dialog', {name: /team 1 · slot 3 · awakener/i})).toBeInTheDocument()
 
     fireEvent.keyDown(document, {key: 'Escape'})
 
     expect(
-      screen.queryByRole('dialog', {name: /pick awakener for slot 3/i}),
+      screen.queryByRole('dialog', {name: /team 1 · slot 3 · awakener/i}),
     ).not.toBeInTheDocument()
     expect(pickerTrigger).toHaveFocus()
   })
@@ -815,52 +916,257 @@ describe('BuilderV2Page', () => {
     resizeBuilderV2Viewport(390)
     render(<BuilderV2Page />)
 
-    fireEvent.click(screen.getByRole('button', {name: /open slot 2 builder/i}))
-    fireEvent.click(screen.getByRole('button', {name: /pick awakener for slot 2/i}))
+    const slotTrigger = screen.getByRole('button', {name: /^select slot 2$/i})
+    fireEvent.click(slotTrigger)
     fireEvent.keyDown(document, {key: 'Escape'})
-    fireEvent.click(screen.getByRole('button', {name: /pick awakener for slot 2/i}))
-    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.click(slotTrigger)
+    const drawer = screen.getByRole('dialog', {name: /team 1 · slot 2 · awakener/i})
+    fireEvent.click(within(drawer).getByRole('button', {name: /goliath, level \d+/i}))
 
-    expect(screen.getByRole('heading', {level: 2, name: /goliath/i})).toBeInTheDocument()
-    expect(screen.getByRole('button', {name: /pick wheel 1 for goliath/i})).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: /remove goliath/i})).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: /^select slot 2 wheel 1$/i})).toBeInTheDocument()
   })
 
-  it('syncs the mobile focused slot when quick lineup advances to the next slot', () => {
+  it('runs mobile quick lineup as a full-team surface with inline picker and bottom slot controls', () => {
     resizeBuilderV2Viewport(390)
     render(<BuilderV2Page />)
 
     fireEvent.click(screen.getByRole('button', {name: /quick team lineup/i}))
-    fireEvent.click(screen.getByRole('button', {name: /pick awakener for slot 1/i}))
-    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
-    fireEvent.click(screen.getByRole('button', {name: /pick wheel 1 for goliath/i}))
-    fireEvent.click(screen.getByRole('button', {name: /merciful nurturing/i}))
-    fireEvent.click(screen.getByRole('button', {name: /pick wheel 2 for goliath/i}))
-    fireEvent.click(screen.getByRole('button', {name: /tablet of scriptures/i}))
-    fireEvent.click(screen.getByRole('button', {name: /pick covenant for goliath/i}))
-    fireEvent.click(screen.getByRole('button', {name: /deus ex machina/i}))
 
-    expect(screen.getByText(/step 5 \/ 17: slot 2 - awakener/i)).toBeInTheDocument()
-    expect(screen.getByRole('heading', {level: 2, name: /slot 2/i})).toBeInTheDocument()
-    expect(screen.getByRole('button', {name: /pick awakener for slot 2/i})).toBeInTheDocument()
+    const lineup = screen.getByRole('region', {name: /mobile quick team lineup/i})
+    expect(within(lineup).getByText(/step 1 \/ 17/i)).toBeInTheDocument()
+    expect(within(lineup).getByText(/slot 1 · awakener/i)).toBeInTheDocument()
+    expect(within(lineup).getByRole('button', {name: /previous slot/i})).toBeDisabled()
+    expect(within(lineup).getByRole('button', {name: /next slot/i})).toBeInTheDocument()
+    expect(within(lineup).getByRole('button', {name: /select team posse/i})).toBeInTheDocument()
+    expect(
+      within(lineup).getByRole('button', {name: /finish quick team lineup/i}),
+    ).toBeInTheDocument()
+    expect(
+      within(lineup).getByRole('group', {name: /quick lineup team overview/i}),
+    ).toBeInTheDocument()
+    expect(screen.queryByRole('region', {name: /mobile focused builder/i})).not.toBeInTheDocument()
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(
+      within(lineup).queryByRole('navigation', {name: /quick lineup steps/i}),
+    ).not.toBeInTheDocument()
 
-    const lineupControls = screen.getByLabelText(/mobile quick lineup controls/i)
+    const overview = within(lineup).getByRole('group', {
+      name: /quick lineup team overview/i,
+    })
+    expect(within(overview).getAllByRole('button', {name: /^select slot \d$/i})).toHaveLength(4)
+    expect(
+      within(lineup).queryByRole('heading', {name: /slot 1 · awakener/i}),
+    ).not.toBeInTheDocument()
+    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
+    expect(within(lineup).getByRole('button', {name: /^select slot 1 awakener$/i})).toHaveAttribute(
+      'aria-current',
+      'step',
+    )
 
-    fireEvent.click(within(lineupControls).getByRole('button', {name: /^back$/i}))
+    fireEvent.click(within(lineup).getByRole('button', {name: /goliath, level \d+/i}))
 
-    expect(screen.getByText(/step 4 \/ 17: slot 1 - covenant/i)).toBeInTheDocument()
-    expect(screen.getByRole('heading', {level: 2, name: /goliath/i})).toBeInTheDocument()
+    expect(within(lineup).getByText(/step 2 \/ 17/i)).toBeInTheDocument()
+    expect(within(lineup).getByText(/slot 1 · wheel 1/i)).toBeInTheDocument()
+    expect(within(lineup).getByRole('tab', {name: /^wheels$/i})).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
+    const slotControls = within(lineup).getByRole('region', {
+      name: /quick lineup slot controls/i,
+    })
+    expect(
+      within(slotControls).queryByRole('button', {name: /finish quick team lineup/i}),
+    ).not.toBeInTheDocument()
+    expect(
+      within(slotControls).getByRole('button', {name: /^select slot 1 wheel 1$/i}),
+    ).toHaveAttribute('aria-current', 'step')
 
-    fireEvent.click(within(lineupControls).getByRole('button', {name: /^next$/i}))
+    fireEvent.click(within(lineup).getByRole('button', {name: /next slot/i}))
 
-    expect(screen.getByText(/step 5 \/ 17: slot 2 - awakener/i)).toBeInTheDocument()
-    expect(screen.getByRole('heading', {level: 2, name: /slot 2/i})).toBeInTheDocument()
+    expect(within(lineup).getByText(/step 5 \/ 17/i)).toBeInTheDocument()
+    expect(within(lineup).getByText(/slot 2 · awakener/i)).toBeInTheDocument()
+    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
+    expect(within(lineup).getByRole('button', {name: /^select slot 2 awakener$/i})).toHaveAttribute(
+      'aria-current',
+      'step',
+    )
+  })
+
+  it('moves mobile quick lineup between awakener slots with bottom slot controls', () => {
+    resizeBuilderV2Viewport(390)
+    render(<BuilderV2Page />)
+
+    fireEvent.click(screen.getByRole('button', {name: /quick team lineup/i}))
+
+    const lineup = screen.getByRole('region', {name: /mobile quick team lineup/i})
+    const nextSlot = within(lineup).getByRole('button', {name: /next slot/i})
+
+    fireEvent.click(nextSlot)
+
+    expect(within(lineup).getByText(/step 5 \/ 17/i)).toBeInTheDocument()
+    expect(within(lineup).getByText(/slot 2 · awakener/i)).toBeInTheDocument()
+    expect(within(lineup).getByRole('button', {name: /^select slot 2 awakener$/i})).toHaveAttribute(
+      'aria-current',
+      'step',
+    )
+
+    fireEvent.click(within(lineup).getByRole('button', {name: /previous slot/i}))
+
+    expect(within(lineup).getByText(/step 1 \/ 17/i)).toBeInTheDocument()
+    expect(within(lineup).getByText(/slot 1 · awakener/i)).toBeInTheDocument()
+    expect(within(lineup).getByRole('button', {name: /^select slot 1 awakener$/i})).toHaveAttribute(
+      'aria-current',
+      'step',
+    )
+
+    fireEvent.click(within(lineup).getByRole('button', {name: /next slot/i}))
+    fireEvent.click(within(lineup).getByRole('button', {name: /next slot/i}))
+    fireEvent.click(within(lineup).getByRole('button', {name: /previous slot/i}))
+
+    expect(within(lineup).getByText(/step 5 \/ 17/i)).toBeInTheDocument()
+    expect(within(lineup).getByText(/slot 2 · awakener/i)).toBeInTheDocument()
+
+    fireEvent.click(within(lineup).getByRole('button', {name: /next slot/i}))
+
+    expect(within(lineup).getByText(/step 9 \/ 17/i)).toBeInTheDocument()
+    expect(within(lineup).getByText(/slot 3 · awakener/i)).toBeInTheDocument()
+  })
+
+  it('renders mobile quick lineup with a compact four-slot overview row', () => {
+    resizeBuilderV2Viewport(390)
+    render(<BuilderV2Page />)
+
+    fireEvent.click(screen.getByRole('button', {name: /quick team lineup/i}))
+
+    const lineup = screen.getByRole('region', {name: /mobile quick team lineup/i})
+    const overview = within(lineup).getByRole('group', {
+      name: /quick lineup team overview/i,
+    })
+    const overviewSlots = within(overview).getAllByRole('group', {
+      name: /slot \d quick overview/i,
+    })
+
+    expect(overview).toHaveClass('builder-v2-mobile-lineup-overview')
+    expect(overviewSlots).toHaveLength(4)
+    expect(
+      within(overviewSlots[0]).getByRole('button', {name: /^select slot 1$/i}),
+    ).toBeInTheDocument()
+    expect(within(overviewSlots[0]).queryByText(/^slot 1$/i)).not.toBeInTheDocument()
+    expect(
+      within(overviewSlots[0]).getByRole('button', {
+        name: /^select slot 1 awakener before wheel 1$/i,
+      }),
+    ).toBeInTheDocument()
+    expect(
+      within(overviewSlots[0]).getByRole('button', {
+        name: /^select slot 1 awakener before wheel 2$/i,
+      }),
+    ).toBeInTheDocument()
+    expect(
+      within(overviewSlots[0]).getByRole('button', {
+        name: /^select slot 1 awakener before covenant$/i,
+      }),
+    ).toBeInTheDocument()
+  })
+
+  it('routes empty mobile quick lineup gear targets back to their awakener slot', () => {
+    resizeBuilderV2Viewport(390)
+    render(<BuilderV2Page />)
+
+    fireEvent.click(screen.getByRole('button', {name: /quick team lineup/i}))
+
+    const lineup = screen.getByRole('region', {name: /mobile quick team lineup/i})
+    const overview = within(lineup).getByRole('group', {
+      name: /quick lineup team overview/i,
+    })
+    const overviewSlots = within(overview).getAllByRole('group', {
+      name: /slot \d quick overview/i,
+    })
+
+    fireEvent.click(
+      within(overviewSlots[1]).getByRole('button', {
+        name: /^select slot 2 awakener before wheel 1$/i,
+      }),
+    )
+
+    expect(within(lineup).getByText(/step 5 \/ 17/i)).toBeInTheDocument()
+    expect(within(lineup).getByText(/slot 2 · awakener/i)).toBeInTheDocument()
+    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
+
+    fireEvent.click(
+      within(overviewSlots[2]).getByRole('button', {
+        name: /^select slot 3 awakener before covenant$/i,
+      }),
+    )
+
+    expect(within(lineup).getByText(/step 9 \/ 17/i)).toBeInTheDocument()
+    expect(within(lineup).getByText(/slot 3 · awakener/i)).toBeInTheDocument()
+    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
+  })
+
+  it('opens the awakener picker when an empty mobile gear slot is tapped', () => {
+    resizeBuilderV2Viewport(390)
+    render(<BuilderV2Page />)
+
+    fireEvent.click(screen.getByRole('button', {name: /^select slot 2 wheel 1$/i}))
+
+    expect(screen.getByRole('dialog', {name: /team 1 · slot 2 · awakener/i})).toBeInTheDocument()
+    expect(screen.getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute('aria-selected', 'true')
+  })
+
+  it('places mobile quick lineup picker filters near search and tabs below the results', () => {
+    resizeBuilderV2Viewport(390)
+    render(<BuilderV2Page />)
+
+    fireEvent.click(screen.getByRole('button', {name: /quick team lineup/i}))
+
+    const lineup = screen.getByRole('region', {name: /mobile quick team lineup/i})
+    const picker = within(lineup).getByRole('region', {name: /slot 1 · awakener/i})
+    const toolbar = picker.querySelector('.builder-v2-picker-toolbar')
+    const filters = picker.querySelector('.builder-v2-picker-filter-stack')
+    const results = picker.querySelector('.builder-v2-picker-results')
+    const bottomControls = picker.querySelector('.builder-v2-picker-bottom-controls')
+    const tabs = within(picker).getByRole('tablist', {name: /picker categories/i})
+
+    expect(toolbar).not.toBeNull()
+    expect(filters).not.toBeNull()
+    expect(results).not.toBeNull()
+    expect(bottomControls).not.toBeNull()
+    if (!toolbar || !filters || !results || !bottomControls) {
+      throw new Error('Expected quick lineup picker controls and results')
+    }
+    expect(
+      Boolean(toolbar.compareDocumentPosition(filters) & Node.DOCUMENT_POSITION_FOLLOWING),
+    ).toBe(true)
+    expect(
+      Boolean(filters.compareDocumentPosition(results) & Node.DOCUMENT_POSITION_FOLLOWING),
+    ).toBe(true)
+    expect(
+      Boolean(results.compareDocumentPosition(bottomControls) & Node.DOCUMENT_POSITION_FOLLOWING),
+    ).toBe(true)
+    expect(Boolean(results.compareDocumentPosition(tabs) & Node.DOCUMENT_POSITION_FOLLOWING)).toBe(
+      true,
+    )
   })
 
   it('selects a slot and assigns an awakener there', () => {
     render(<BuilderV2Page />)
 
     fireEvent.click(screen.getByRole('button', {name: /^select slot 3$/i}))
-    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.click(screen.getByRole('button', {name: /goliath, level \d+/i}))
 
     const activeSlots = screen.getByLabelText(/builder v2 active team slots/i)
     const slot3 = within(activeSlots).getByText('Slot 3').closest('article')
@@ -874,7 +1180,7 @@ describe('BuilderV2Page', () => {
   it('removes an assigned awakener from a slot', () => {
     render(<BuilderV2Page />)
 
-    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.click(screen.getByRole('button', {name: /goliath, level \d+/i}))
     fireEvent.click(screen.getByRole('button', {name: /remove goliath/i}))
 
     expect(screen.queryByRole('button', {name: /remove goliath/i})).not.toBeInTheDocument()
@@ -884,9 +1190,9 @@ describe('BuilderV2Page', () => {
   it('assigns and clears wheel and covenant loadout targets', () => {
     render(<BuilderV2Page />)
 
-    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.click(screen.getByRole('button', {name: /goliath, level \d+/i}))
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1 wheel 1$/i}))
-    fireEvent.click(screen.getByRole('button', {name: /merciful nurturing/i}))
+    fireEvent.click(screen.getByRole('button', {name: /merciful nurturing, ssr/i}))
 
     const activeSlots = screen.getByLabelText(/builder v2 active team slots/i)
     const slot1 = within(activeSlots).getByText('Slot 1').closest('article')
@@ -901,7 +1207,7 @@ describe('BuilderV2Page', () => {
     ).not.toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: /^select slot 1 covenant$/i}))
-    fireEvent.click(screen.getByRole('button', {name: /deus ex machina/i}))
+    fireEvent.click(screen.getByRole('button', {name: /deus ex machina, recommended/i}))
     expect(within(slot1).getByText(/deus ex machina/i)).toBeInTheDocument()
 
     fireEvent.click(within(slot1).getByRole('button', {name: /clear slot 1 covenant/i}))
@@ -912,7 +1218,7 @@ describe('BuilderV2Page', () => {
     render(<BuilderV2Page />)
 
     fireEvent.click(screen.getByRole('button', {name: /select team posse/i}))
-    fireEvent.click(screen.getByRole('button', {name: /taverns opening/i}))
+    fireEvent.click(screen.getByRole('button', {name: /taverns opening, chaos/i}))
 
     expect(screen.getByRole('button', {name: /clear posse/i})).toBeInTheDocument()
     expect(screen.getByText(/editing team 1 - posse/i)).toBeInTheDocument()
@@ -930,7 +1236,7 @@ describe('BuilderV2Page', () => {
     expect(screen.getByText(/step 1 \/ 17: slot 1 - awakener/i)).toBeInTheDocument()
     expect(screen.getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute('aria-selected', 'true')
 
-    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.click(screen.getByRole('button', {name: /goliath, level \d+/i}))
 
     expect(screen.getByText(/step 2 \/ 17: slot 1 - wheel 1/i)).toBeInTheDocument()
     expect(screen.getByRole('tab', {name: /^wheels$/i})).toHaveAttribute('aria-selected', 'true')
@@ -947,7 +1253,7 @@ describe('BuilderV2Page', () => {
   it('cancels quick lineup and restores the original V2 team', () => {
     render(<BuilderV2Page />)
 
-    fireEvent.click(screen.getByRole('button', {name: /goliath/i}))
+    fireEvent.click(screen.getByRole('button', {name: /goliath, level \d+/i}))
     expect(screen.getByRole('button', {name: /remove goliath/i})).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: /quick team lineup/i}))

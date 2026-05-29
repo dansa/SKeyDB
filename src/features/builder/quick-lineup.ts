@@ -5,7 +5,6 @@ interface InternalQuickLineupSession {
   originalTeam: Team
   currentStepIndex: number
   steps: QuickLineupStep[]
-  history: number[]
 }
 
 export function cloneTeam(team: Team): Team {
@@ -40,7 +39,6 @@ export function createQuickLineupSession(team: Team): InternalQuickLineupSession
     originalTeam: cloneTeam(team),
     currentStepIndex: 0,
     steps: buildQuickLineupSteps(team.slots),
-    history: [0],
   }
 }
 
@@ -71,7 +69,29 @@ export function getQuickLineupStepAtIndex(
   return session.steps[stepIndex] ?? null
 }
 
-export function getPublicQuickLineupSession(session: InternalQuickLineupSession) {
+function slotHasAwakener(slots: TeamSlot[], slotId: string): boolean {
+  return Boolean(slots.find((slot) => slot.slotId === slotId)?.awakenerId)
+}
+
+function isQuickLineupStepAvailable(step: QuickLineupStep, slots: TeamSlot[]): boolean {
+  return step.kind === 'awakener' || step.kind === 'posse' || slotHasAwakener(slots, step.slotId)
+}
+
+export function resolveQuickLineupStepForSlots(
+  step: QuickLineupStep,
+  slots: TeamSlot[],
+): QuickLineupStep {
+  if (step.kind === 'awakener' || step.kind === 'posse' || slotHasAwakener(slots, step.slotId)) {
+    return step
+  }
+
+  return {kind: 'awakener', slotId: step.slotId}
+}
+
+export function getPublicQuickLineupSession(
+  session: InternalQuickLineupSession,
+  currentSlots: TeamSlot[] = [],
+) {
   const currentStep = getQuickLineupStepAtIndex(session, session.currentStepIndex)
   if (!currentStep) {
     return null
@@ -81,7 +101,10 @@ export function getPublicQuickLineupSession(session: InternalQuickLineupSession)
     currentStepIndex: session.currentStepIndex,
     currentStep,
     totalSteps: session.steps.length,
-    canGoBack: session.history.length > 1,
+    canGoBack:
+      currentSlots.length > 0
+        ? findPreviousQuickLineupStepIndex(session, currentSlots) !== null
+        : session.currentStepIndex > 0,
   }
 }
 
@@ -100,27 +123,6 @@ export function goToQuickLineupStep(
   return {
     ...session,
     currentStepIndex: nextStepIndex,
-    history: [...session.history, nextStepIndex],
-  }
-}
-
-export function goBackQuickLineupHistory(
-  session: InternalQuickLineupSession,
-): InternalQuickLineupSession | null {
-  if (session.history.length <= 1) {
-    return null
-  }
-
-  const nextHistory = session.history.slice(0, -1)
-  const previousStepIndex = nextHistory.at(-1)
-  if (previousStepIndex === undefined) {
-    return null
-  }
-
-  return {
-    ...session,
-    currentStepIndex: previousStepIndex,
-    history: nextHistory,
   }
 }
 
@@ -149,22 +151,23 @@ export function findNextQuickLineupStepIndex(
   session: InternalQuickLineupSession,
   currentSlots: TeamSlot[],
 ): number | null {
-  const currentStep = getQuickLineupStepAtIndex(session, session.currentStepIndex)
-  if (!currentStep) {
-    return null
-  }
-
-  if (currentStep.kind !== 'awakener') {
-    return session.currentStepIndex + 1 < session.steps.length ? session.currentStepIndex + 1 : null
-  }
-
-  const currentSlot = currentSlots.find((slot) => slot.slotId === currentStep.slotId)
-  if (currentSlot?.awakenerId) {
-    return session.currentStepIndex + 1 < session.steps.length ? session.currentStepIndex + 1 : null
-  }
-
   for (let index = session.currentStepIndex + 1; index < session.steps.length; index += 1) {
-    if (session.steps[index]?.kind === 'awakener' || session.steps[index]?.kind === 'posse') {
+    const step = session.steps[index]
+    if (isQuickLineupStepAvailable(step, currentSlots)) {
+      return index
+    }
+  }
+
+  return null
+}
+
+export function findPreviousQuickLineupStepIndex(
+  session: InternalQuickLineupSession,
+  currentSlots: TeamSlot[],
+): number | null {
+  for (let index = session.currentStepIndex - 1; index >= 0; index -= 1) {
+    const step = session.steps[index]
+    if (isQuickLineupStepAvailable(step, currentSlots)) {
       return index
     }
   }
@@ -182,11 +185,7 @@ export function reconcileQuickLineupSessionAfterSlotsChange(
     return session
   }
 
-  const targetSlot = nextSlots.find((slot) => slot.slotId === targetStep.slotId)
-  const reconciledStep =
-    targetStep.kind === 'awakener' || targetSlot?.awakenerId
-      ? targetStep
-      : ({kind: 'awakener', slotId: targetStep.slotId} satisfies QuickLineupStep)
+  const reconciledStep = resolveQuickLineupStepForSlots(targetStep, nextSlots)
 
   const nextStepIndex = findQuickLineupStepIndex(session, reconciledStep)
   if (nextStepIndex === -1) {
