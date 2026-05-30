@@ -287,6 +287,43 @@ describe('useCollectionViewModel', () => {
     expect(result.current.awakenerSortHasPendingChanges).toBe(false)
   })
 
+  it('freezes awakener visible order after level changes until apply', () => {
+    const {result} = renderHook(() => useCollectionViewModel())
+    const initialNames = result.current.filteredAwakeners.map((awakener) => awakener.name)
+    const targetName = initialNames[1]
+
+    act(() => {
+      result.current.setAwakenerLevel(targetName, 90)
+    })
+
+    expect(result.current.awakenerSortHasPendingChanges).toBe(true)
+    expect(result.current.filteredAwakeners.map((awakener) => awakener.name)).toEqual(initialNames)
+
+    act(() => {
+      result.current.applyAwakenerSortChanges()
+    })
+
+    expect(result.current.awakenerSortHasPendingChanges).toBe(false)
+    expect(result.current.filteredAwakeners[0]?.name).toBe(targetName)
+  })
+
+  it('auto-refreshes awakener visible order when search changes after pending level changes', () => {
+    const {result} = renderHook(() => useCollectionViewModel())
+    const targetName = result.current.filteredAwakeners[1].name
+
+    act(() => {
+      result.current.setAwakenerLevel(targetName, 90)
+    })
+    expect(result.current.awakenerSortHasPendingChanges).toBe(true)
+
+    act(() => {
+      result.current.setQuery(targetName)
+    })
+
+    expect(result.current.awakenerSortHasPendingChanges).toBe(false)
+    expect(result.current.filteredAwakeners[0]?.name).toBe(targetName)
+  })
+
   it('marks wheel sort pending after level changes and clears after apply', () => {
     const {result} = renderHook(() => useCollectionViewModel())
 
@@ -301,6 +338,46 @@ describe('useCollectionViewModel', () => {
       result.current.applyWheelSortChanges()
     })
     expect(result.current.wheelSortHasPendingChanges).toBe(false)
+  })
+
+  it('freezes wheel visible order after level changes until apply', () => {
+    const {result} = renderHook(() => useCollectionViewModel())
+    const initialIds = result.current.filteredWheels.map((wheel) => wheel.id)
+    const targetId = initialIds[1]
+
+    act(() => {
+      result.current.increaseLevel('wheels', targetId)
+    })
+
+    expect(result.current.wheelSortHasPendingChanges).toBe(true)
+    expect(result.current.filteredWheels.map((wheel) => wheel.id)).toEqual(initialIds)
+
+    act(() => {
+      result.current.applyWheelSortChanges()
+    })
+
+    expect(result.current.wheelSortHasPendingChanges).toBe(false)
+    expect(result.current.filteredWheels[0]?.id).toBe(targetId)
+  })
+
+  it('auto-refreshes wheel visible order when search changes after pending level changes', () => {
+    const {result} = renderHook(() => useCollectionViewModel())
+    act(() => {
+      result.current.setTab('wheels')
+    })
+    const targetWheel = result.current.filteredWheels[1]
+
+    act(() => {
+      result.current.increaseLevel('wheels', targetWheel.id)
+    })
+    expect(result.current.wheelSortHasPendingChanges).toBe(true)
+
+    act(() => {
+      result.current.setQuery(targetWheel.name)
+    })
+
+    expect(result.current.wheelSortHasPendingChanges).toBe(false)
+    expect(result.current.filteredWheels[0]?.id).toBe(targetWheel.id)
   })
 
   it('does not mark wheel sort pending when toggling posse ownership', () => {

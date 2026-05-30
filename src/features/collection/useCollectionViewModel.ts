@@ -95,14 +95,6 @@ function createLinkedAwakenerIdLookup(linkedAwakenerGroups: string[][] | undefin
   return linkedIdsById
 }
 
-function useLatestRef<T>(value: T) {
-  const ref = useRef(value)
-  useEffect(() => {
-    ref.current = value
-  }, [value])
-  return ref
-}
-
 function freezeItemsByAppliedOrder<T>(
   items: T[],
   liveOrder: string[],
@@ -130,30 +122,51 @@ function areStringArraysEqual(left: string[], right: string[]) {
   return left.length === right.length && left.every((value, index) => value === right[index])
 }
 
-function useFrozenSortOrder<T>(items: T[], getItemId: (item: T) => string) {
+function useFrozenSortOrder<T>(items: T[], getItemId: (item: T) => string, refreshKey: string) {
   const liveOrder = useMemo(() => items.map(getItemId), [items, getItemId])
-  const [appliedOrder, setAppliedOrder] = useState<string[]>(() => liveOrder)
-  const [hasPendingChanges, setHasPendingChanges] = useState(false)
-  const liveOrderRef = useLatestRef(liveOrder)
+  const [freezeState, setFreezeState] = useState(() => ({
+    appliedOrder: liveOrder,
+    hasPendingChanges: false,
+    refreshKey,
+  }))
+  const effectiveAppliedOrder =
+    freezeState.refreshKey === refreshKey ? freezeState.appliedOrder : liveOrder
 
   const frozenItems = useMemo(
-    () => freezeItemsByAppliedOrder(items, liveOrder, appliedOrder, getItemId),
-    [items, liveOrder, appliedOrder, getItemId],
+    () => freezeItemsByAppliedOrder(items, liveOrder, effectiveAppliedOrder, getItemId),
+    [items, liveOrder, effectiveAppliedOrder, getItemId],
   )
 
   const applyChanges = useCallback(() => {
-    setAppliedOrder((currentOrder) =>
-      areStringArraysEqual(currentOrder, liveOrderRef.current)
-        ? currentOrder
-        : liveOrderRef.current,
-    )
-    setHasPendingChanges(false)
-  }, [liveOrderRef])
+    setFreezeState((currentState) => {
+      if (
+        currentState.refreshKey === refreshKey &&
+        !currentState.hasPendingChanges &&
+        areStringArraysEqual(currentState.appliedOrder, liveOrder)
+      ) {
+        return currentState
+      }
+
+      return {
+        appliedOrder: liveOrder,
+        hasPendingChanges: false,
+        refreshKey,
+      }
+    })
+  }, [liveOrder, refreshKey])
+
+  const markPendingChanges = useCallback(() => {
+    setFreezeState((currentState) => ({
+      appliedOrder: currentState.refreshKey === refreshKey ? currentState.appliedOrder : liveOrder,
+      hasPendingChanges: true,
+      refreshKey,
+    }))
+  }, [liveOrder, refreshKey])
 
   return {
     frozenItems,
-    hasPendingChanges,
-    setHasPendingChanges,
+    hasPendingChanges: freezeState.refreshKey === refreshKey && freezeState.hasPendingChanges,
+    markPendingChanges,
     applyChanges,
   }
 }
@@ -336,9 +349,20 @@ export function useCollectionViewModel() {
   const {
     frozenItems: frozenFilteredAwakeners,
     hasPendingChanges: awakenerSortHasPendingChanges,
-    setHasPendingChanges: setAwakenerSortHasPendingChanges,
+    markPendingChanges: markAwakenerSortPending,
     applyChanges: applyAwakenerSortFreeze,
-  } = useFrozenSortOrder(filteredAwakeners, (awakener) => awakener.name)
+  } = useFrozenSortOrder(
+    filteredAwakeners,
+    (awakener) => awakener.name,
+    JSON.stringify({
+      awakenerFilter,
+      query: queryByTab.awakeners,
+      displayUnowned,
+      awakenerSortKey,
+      awakenerSortDirection,
+      awakenerSortGroupByRealm,
+    }),
+  )
 
   const searchedPosses = useMemo(
     () => searchPosses(posses, queryByTab.posses),
@@ -418,30 +442,39 @@ export function useCollectionViewModel() {
   const {
     frozenItems: frozenFilteredWheels,
     hasPendingChanges: wheelSortHasPendingChanges,
-    setHasPendingChanges: setWheelSortHasPendingChanges,
+    markPendingChanges: markWheelSortPending,
     applyChanges: applyWheelSortFreeze,
-  } = useFrozenSortOrder(filteredWheels, (wheel) => wheel.id)
+  } = useFrozenSortOrder(
+    filteredWheels,
+    (wheel) => wheel.id,
+    JSON.stringify({
+      query: queryByTab.wheels,
+      displayUnowned,
+      wheelRarityFilter,
+      wheelMainstatFilter,
+    }),
+  )
 
-  useEffect(() => {
-    applyAwakenerSortFreeze()
-  }, [
-    awakenerFilter,
-    queryByTab.awakeners,
-    displayUnowned,
-    awakenerSortKey,
-    awakenerSortDirection,
-    awakenerSortGroupByRealm,
-    applyAwakenerSortFreeze,
-  ])
-  useEffect(() => {
-    applyWheelSortFreeze()
-  }, [
-    queryByTab.wheels,
-    displayUnowned,
-    wheelRarityFilter,
-    wheelMainstatFilter,
-    applyWheelSortFreeze,
-  ])
+  const setAwakenerSortHasPendingChanges = useCallback(
+    (next: boolean) => {
+      if (next) {
+        markAwakenerSortPending()
+      } else {
+        applyAwakenerSortFreeze()
+      }
+    },
+    [applyAwakenerSortFreeze, markAwakenerSortPending],
+  )
+  const setWheelSortHasPendingChanges = useCallback(
+    (next: boolean) => {
+      if (next) {
+        markWheelSortPending()
+      } else {
+        applyWheelSortFreeze()
+      }
+    },
+    [applyWheelSortFreeze, markWheelSortPending],
+  )
 
   function setQuery(value: string) {
     setQueryByTab((prev) => ({...prev, [tab]: value}))
