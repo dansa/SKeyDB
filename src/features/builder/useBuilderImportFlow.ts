@@ -178,11 +178,13 @@ export function useBuilderImportFlow({
       name: targetTeam.name,
     }
 
-    const updatedBaseTeamsById = new Map(
-      plannerResultTeams
-        .filter((team) => plannerBaseTeams.some((baseTeam) => baseTeam.id === team.id))
-        .map((team) => [team.id, team]),
-    )
+    const plannerBaseTeamIds = new Set(plannerBaseTeams.map((team) => team.id))
+    const updatedBaseTeamsById = new Map<string, Team>()
+    for (const team of plannerResultTeams) {
+      if (plannerBaseTeamIds.has(team.id)) {
+        updatedBaseTeamsById.set(team.id, team)
+      }
+    }
 
     return teams.map((team) => {
       if (team.id === targetTeam.id) {

@@ -1,3 +1,5 @@
+import {useMemo} from 'react'
+
 import {useDraggable} from '@dnd-kit/core'
 import {FaCircleInfo} from 'react-icons/fa6'
 
@@ -48,6 +50,12 @@ function getPosseTopLabel(
   return null
 }
 
+const notSetPossePreview = (
+  <span className='builder-disabled-icon'>
+    <span className='builder-disabled-icon__glyph' />
+  </span>
+)
+
 interface PossePickerTileProps {
   posse: Posse
   posseAsset?: string
@@ -82,6 +90,63 @@ function PossePickerTile({
   })
   const dragAttributes = {...attributes} as Record<string, unknown>
   delete dragAttributes['aria-disabled']
+  const actions = useMemo(
+    () => (
+      <button
+        aria-label='Open details overlay'
+        className='builder-picker-detail-action inline-flex items-center justify-center text-slate-400 hover:text-amber-100 focus-visible:text-amber-100 focus-visible:outline-none'
+        onClick={(event) => {
+          event.preventDefault()
+          event.stopPropagation()
+          onOpenDetail()
+        }}
+        title={`Open ${posse.name} details overlay`}
+        type='button'
+      >
+        <FaCircleInfo aria-hidden className='size-3' />
+      </button>
+    ),
+    [onOpenDetail, posse.name],
+  )
+  const chips = useMemo(() => {
+    if (!recommendationLabel) {
+      return undefined
+    }
+
+    return <span className={PICKER_RECOMMENDATION_CLASS}>{recommendationLabel}</span>
+  }, [recommendationLabel])
+  const preview = useMemo(() => {
+    if (posseAsset) {
+      return (
+        <img
+          alt={`${posse.name} posse`}
+          className={imageClassName}
+          decoding='async'
+          draggable={false}
+          fetchPriority='low'
+          loading='lazy'
+          src={posseAsset}
+        />
+      )
+    }
+
+    return (
+      <span className='relative block h-full w-full'>
+        <span className='sigil-placeholder' />
+      </span>
+    )
+  }, [imageClassName, posse.name, posseAsset])
+  const statusBar = useMemo(() => {
+    if (!topLabel) {
+      return undefined
+    }
+
+    return (
+      <span className={topLabel.className} title={topLabel.text}>
+        {topLabel.text}
+      </span>
+    )
+  }, [topLabel])
 
   return (
     <div className='group relative min-w-0'>
@@ -106,55 +171,15 @@ function PossePickerTile({
         />
         <CompactArtTile
           actionPlacement='caption'
-          actions={
-            <button
-              aria-label='Open details overlay'
-              className='builder-picker-detail-action inline-flex items-center justify-center text-slate-400 hover:text-amber-100 focus-visible:text-amber-100 focus-visible:outline-none'
-              onClick={(event) => {
-                event.preventDefault()
-                event.stopPropagation()
-                onOpenDetail()
-              }}
-              title={`Open ${posse.name} details overlay`}
-              type='button'
-            >
-              <FaCircleInfo aria-hidden className='size-3' />
-            </button>
-          }
-          chips={
-            recommendationLabel ? (
-              <span className={PICKER_RECOMMENDATION_CLASS}>{recommendationLabel}</span>
-            ) : undefined
-          }
+          actions={actions}
+          chips={chips}
           chipPlacement='overlay-stack'
           name={posse.name}
           nameClassName={`truncate ${isActive ? 'text-amber-100' : ''}`}
           nameTitle={posse.name}
-          preview={
-            posseAsset ? (
-              <img
-                alt={`${posse.name} posse`}
-                className={imageClassName}
-                decoding='async'
-                draggable={false}
-                fetchPriority='low'
-                loading='lazy'
-                src={posseAsset}
-              />
-            ) : (
-              <span className='relative block h-full w-full'>
-                <span className='sigil-placeholder' />
-              </span>
-            )
-          }
+          preview={preview}
           previewClassName='aspect-square border border-slate-400/35 bg-slate-900/70'
-          statusBar={
-            topLabel ? (
-              <span className={topLabel.className} title={topLabel.text}>
-                {topLabel.text}
-              </span>
-            ) : undefined
-          }
+          statusBar={statusBar}
         />
       </div>
     </div>
@@ -202,11 +227,7 @@ export function PossePickerGrid({
         <CompactArtTile
           name='Not Set'
           nameClassName='truncate'
-          preview={
-            <span className='builder-disabled-icon'>
-              <span className='builder-disabled-icon__glyph' />
-            </span>
-          }
+          preview={notSetPossePreview}
           previewClassName='aspect-square border border-slate-400/35 bg-slate-900/70'
         />
       </button>

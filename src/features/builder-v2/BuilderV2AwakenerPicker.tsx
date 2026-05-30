@@ -688,7 +688,7 @@ const BuilderV2AwakenerPickerTile = memo(function BuilderV2AwakenerPickerTile({
               {chip}
             </PickerStateChip>
           ))}
-          footer={renderEnlightenChip(awakener.enlightenLevel)}
+          footer={<EnlightenFooterChip enlightenLevel={awakener.enlightenLevel} />}
           fallback={awakener.displayName}
           realm={awakener.realm}
           src={awakener.portraitSrc}
@@ -770,7 +770,7 @@ const BuilderV2WheelPickerTile = memo(function BuilderV2WheelPickerTile({
             </>
           }
           fallback={wheel.name}
-          footer={renderEnlightenChip(wheel.enlightenLevel)}
+          footer={<EnlightenFooterChip enlightenLevel={wheel.enlightenLevel} />}
           isDimmed={isDimmed}
           src={wheel.assetSrc}
         />
@@ -1110,7 +1110,7 @@ function PickerStateChip({
   )
 }
 
-function renderEnlightenChip(enlightenLevel: number | null): ReactNode {
+function EnlightenFooterChip({enlightenLevel}: {enlightenLevel: number | null}) {
   const label = formatEnlightenLabel(enlightenLevel)
   if (!label) {
     return null

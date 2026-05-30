@@ -501,9 +501,9 @@ function adaptPublicAwakenerCards(
     OverExalt: ownedRecords.getSkillBySlot('OverExalt')
       ? adaptPublicCardRecord(ownedRecords.requireSkillBySlot('OverExalt'), ownerPublicId)
       : undefined,
-    promotedExtras: ownedRecords.records.derivedSkills
-      .filter((entry) => isLegacyPromotedDerivedExtra(entry.id))
-      .map(adaptPublicDerivedRecord),
+    promotedExtras: ownedRecords.records.derivedSkills.flatMap((entry) =>
+      isLegacyPromotedDerivedExtra(entry.id) ? [adaptPublicDerivedRecord(entry)] : [],
+    ),
   }
 }
 

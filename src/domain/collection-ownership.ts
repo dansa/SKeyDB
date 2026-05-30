@@ -306,9 +306,12 @@ export function createDefaultCollectionOwnershipCatalog(): CollectionOwnershipCa
     }
   }
 
-  const linkedAwakenerGroups = Array.from(linkedAwakenerIdsByIdentity.values())
-    .filter((group) => group.length > 1)
-    .map((group) => [...group].sort((left, right) => left.localeCompare(right)))
+  const linkedAwakenerGroups: string[][] = []
+  for (const group of linkedAwakenerIdsByIdentity.values()) {
+    if (group.length > 1) {
+      linkedAwakenerGroups.push([...group].sort((left, right) => left.localeCompare(right)))
+    }
+  }
 
   return {
     awakenerIds,

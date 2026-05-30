@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react'
+import {useEffect, useEffectEvent, useRef, useState} from 'react'
 
 import {CollectionLevelStepButton} from './CollectionLevelStepButton'
 
@@ -20,6 +20,10 @@ function parseNumericLevel(rawValue: string): number | null {
   return Number.parseInt(rawValue, 10)
 }
 
+function noopCommitOutsideClick(_event: MouseEvent | PointerEvent) {
+  return undefined
+}
+
 export function AwakenerLevelControl({
   name,
   level,
@@ -35,6 +39,8 @@ export function AwakenerLevelControl({
   const draftLevelRef = useRef('')
   const isDraftDirtyRef = useRef(false)
   const levelRef = useRef(level)
+  const onLevelChangeEvent = useEffectEvent(onLevelChange)
+  const onCommitOutsideClickEvent = useEffectEvent(onCommitOutsideClick ?? noopCommitOutsideClick)
 
   useEffect(() => {
     if (isEditing) {
@@ -81,10 +87,10 @@ export function AwakenerLevelControl({
       const rawDraft = isDraftDirtyRef.current ? draftLevelRef.current : String(levelRef.current)
       const parsed = parseNumericLevel(rawDraft)
       if (parsed !== null) {
-        onLevelChange(parsed)
+        onLevelChangeEvent(parsed)
       }
       setIsEditing(false)
-      onCommitOutsideClick?.(event)
+      onCommitOutsideClickEvent(event)
     }
 
     document.addEventListener('pointerdown', handleOutsidePointerLikeDown, true)
@@ -93,7 +99,7 @@ export function AwakenerLevelControl({
       document.removeEventListener('pointerdown', handleOutsidePointerLikeDown, true)
       document.removeEventListener('mousedown', handleOutsidePointerLikeDown, true)
     }
-  }, [isEditing, onLevelChange, onCommitOutsideClick])
+  }, [isEditing])
 
   function commitDraft() {
     const rawDraft = isDraftDirty ? draftLevel : String(level)

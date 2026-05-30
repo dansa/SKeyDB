@@ -90,15 +90,18 @@ export function getAwakenerKits(): AwakenerKitRecord[] {
     return awakenerKitsCache
   }
 
-  awakenerKitsCache = awakenerKitsDatasetSchema.parse(
-    getPublicCatalogRecords('awakeners')
-      .map((record) => ({
+  const kitRecords: AwakenerKitRecord[] = []
+  for (const record of getPublicCatalogRecords('awakeners')) {
+    kitRecords.push(
+      adaptPublicAwakenerToKit({
         id: record.id,
         numericId:
           typeof record.numericId === 'number' ? record.numericId : numericAwakenerId(record.id),
-      }))
-      .map(adaptPublicAwakenerToKit),
-  )
+      }),
+    )
+  }
+
+  awakenerKitsCache = awakenerKitsDatasetSchema.parse(kitRecords)
   return awakenerKitsCache
 }
 

@@ -20,6 +20,47 @@ interface SearchComboboxProps<TResult> {
   renderResult: (result: TResult, active: boolean) => ReactNode
 }
 
+function SearchComboboxOption<TResult>({
+  active,
+  index,
+  onSelectResult,
+  optionId,
+  result,
+  resultContent,
+  setOptionRef,
+}: {
+  active: boolean
+  index: number
+  onSelectResult: (result: TResult) => void
+  optionId: string
+  result: TResult
+  resultContent: (result: TResult, active: boolean) => ReactNode
+  setOptionRef: (index: number, element: HTMLButtonElement | null) => void
+}) {
+  const content = resultContent(result, active)
+
+  return (
+    <button
+      aria-selected={active}
+      className={`flex w-full items-center gap-2.5 px-3 py-2 text-left transition-colors ${
+        active ? 'bg-amber-200/10' : 'hover:bg-slate-900/85'
+      }`}
+      id={optionId}
+      ref={(element) => {
+        setOptionRef(index, element)
+      }}
+      onClick={() => {
+        onSelectResult(result)
+      }}
+      role='option'
+      tabIndex={-1}
+      type='button'
+    >
+      {content}
+    </button>
+  )
+}
+
 export function SearchCombobox<TResult>({
   containerRef,
   inputRef,
@@ -99,25 +140,18 @@ export function SearchCombobox<TResult>({
               const optionId = `${searchId}-option-${String(getResultId(result))}`
 
               return (
-                <button
-                  aria-selected={active}
-                  className={`flex w-full items-center gap-2.5 px-3 py-2 text-left transition-colors ${
-                    active ? 'bg-amber-200/10' : 'hover:bg-slate-900/85'
-                  }`}
-                  id={optionId}
+                <SearchComboboxOption
+                  active={active}
+                  index={index}
                   key={String(getResultId(result))}
-                  ref={(element) => {
-                    optionRefs.current[index] = element
+                  onSelectResult={onSelectResult}
+                  optionId={optionId}
+                  result={result}
+                  resultContent={renderResult}
+                  setOptionRef={(optionIndex, element) => {
+                    optionRefs.current[optionIndex] = element
                   }}
-                  onClick={() => {
-                    onSelectResult(result)
-                  }}
-                  role='option'
-                  tabIndex={-1}
-                  type='button'
-                >
-                  {renderResult(result, active)}
-                </button>
+                />
               )
             })}
             {showEmptyState ? (

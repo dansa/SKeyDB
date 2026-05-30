@@ -98,11 +98,16 @@ function collectImportedAwakenerKeys(team: Team): Set<string> {
 }
 
 function collectImportedWheels(team: Team): Set<string> {
-  return new Set(
-    team.slots
-      .flatMap((slot) => slot.wheels)
-      .filter((wheelId): wheelId is string => Boolean(wheelId)),
-  )
+  const wheelIds = new Set<string>()
+  for (const slot of team.slots) {
+    for (const wheelId of slot.wheels) {
+      if (wheelId) {
+        wheelIds.add(wheelId)
+      }
+    }
+  }
+
+  return wheelIds
 }
 
 function normalizeImportedTeamName(currentTeams: Team[], preferredName: string): string {

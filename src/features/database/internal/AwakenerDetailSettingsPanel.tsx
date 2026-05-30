@@ -79,13 +79,15 @@ export function AwakenerDetailSettingsPanel({
               value={preferences.defaultTab ?? ''}
             >
               <option value=''>Upgrades (standard)</option>
-              {DATABASE_AWAKENER_VISIBLE_TABS.filter(
-                (tab) => tab !== DEFAULT_DATABASE_AWAKENER_TAB,
-              ).map((tab) => (
-                <option key={tab} value={tab}>
-                  {DEFAULT_TAB_LABELS[tab]}
-                </option>
-              ))}
+              {DATABASE_AWAKENER_VISIBLE_TABS.flatMap((tab) =>
+                tab === DEFAULT_DATABASE_AWAKENER_TAB
+                  ? []
+                  : [
+                      <option key={tab} value={tab}>
+                        {DEFAULT_TAB_LABELS[tab]}
+                      </option>,
+                    ],
+              )}
             </select>
           </label>
 

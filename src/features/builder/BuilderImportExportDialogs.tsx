@@ -1,3 +1,5 @@
+import {useMemo} from 'react'
+
 import {ConfirmDialog} from '@/components/ui/ConfirmDialog'
 import {ExportCodeDialog} from '@/components/ui/ExportCodeDialog'
 import {ImportCodeDialog} from '@/components/ui/ImportCodeDialog'
@@ -64,6 +66,8 @@ function IngameImportWarning() {
   )
 }
 
+const ingameImportWarning = <IngameImportWarning />
+
 function IngameExportWarning() {
   return (
     <p className='text-xs text-rose-300'>
@@ -96,13 +100,30 @@ export function BuilderImportExportDialogs({
   exportDialog,
   onCloseExportDialog,
 }: BuilderImportExportDialogsProps) {
+  const exportDialogKind = exportDialog?.kind
+  const exportDuplicateWarning = exportDialog?.duplicateWarning
+  const exportWarning = useMemo(() => {
+    if (exportDialogKind !== 'ingame' && !exportDuplicateWarning) {
+      return undefined
+    }
+
+    return (
+      <div className='space-y-2'>
+        {exportDialogKind === 'ingame' ? <IngameExportWarning /> : null}
+        {exportDuplicateWarning ? (
+          <p className='text-xs text-rose-300'>{exportDuplicateWarning}</p>
+        ) : null}
+      </div>
+    )
+  }, [exportDialogKind, exportDuplicateWarning])
+
   return (
     <>
       {isImportDialogOpen ? (
         <ImportCodeDialog
           onCancel={onCancelImport}
           onSubmit={onSubmitImport}
-          warning={<IngameImportWarning />}
+          warning={ingameImportWarning}
         />
       ) : null}
 
@@ -147,16 +168,7 @@ export function BuilderImportExportDialogs({
           }
           onClose={onCloseExportDialog}
           title={exportDialog.title}
-          warning={
-            exportDialog.kind === 'ingame' || exportDialog.duplicateWarning ? (
-              <div className='space-y-2'>
-                {exportDialog.kind === 'ingame' ? <IngameExportWarning /> : null}
-                {exportDialog.duplicateWarning ? (
-                  <p className='text-xs text-rose-300'>{exportDialog.duplicateWarning}</p>
-                ) : null}
-              </div>
-            ) : undefined
-          }
+          warning={exportWarning}
         />
       ) : null}
     </>

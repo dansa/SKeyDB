@@ -348,7 +348,7 @@ export function AwakenerDetailModal({
                   </div>
                 </div>
                 <div className='mt-3 max-w-2xl'>
-                  <nav
+                  <div
                     aria-label='Awakener detail sections'
                     className='database-scrollbar flex min-w-0 flex-nowrap gap-0.5 overflow-x-auto'
                     role='tablist'
@@ -380,7 +380,7 @@ export function AwakenerDetailModal({
                         {DATABASE_AWAKENER_TAB_LABELS[tab]}
                       </button>
                     ))}
-                  </nav>
+                  </div>
                 </div>
                 <div className='mt-0 h-px w-3/4 bg-slate-700/50' />
               </div>

@@ -90,16 +90,23 @@ function parseInlineRichText(
   return nodes
 }
 
-function renderTimelineRichText(text: string, priceMode: TimelinePriceDisplayMode): ReactNode[] {
-  return text.split('\n').flatMap((line, index) => {
-    const nodes = parseInlineRichText(
-      formatTimelinePrice(line, priceMode) ?? line,
-      `line-${String(index)}`,
-      priceMode,
-    )
-    if (index === 0) return nodes
-    return [<br key={`line-${String(index)}-break`} />, ...nodes]
+function TimelineRichTextContent({
+  priceMode,
+  text,
+}: {
+  priceMode: TimelinePriceDisplayMode
+  text: string
+}) {
+  const nodes = text.split('\n').flatMap((line, index) => {
+    const lineKey = `line-${String(index)}`
+    const formattedLine = formatTimelinePrice(line, priceMode) ?? line
+
+    const inlineNodes = parseInlineRichText(formattedLine, lineKey, priceMode)
+    if (index === 0) return inlineNodes
+    return [<br key={`${lineKey}-break`} />, ...inlineNodes]
   })
+
+  return <>{nodes}</>
 }
 
 export function TimelineRichText({
@@ -109,5 +116,5 @@ export function TimelineRichText({
   priceMode?: TimelinePriceDisplayMode
   text: string
 }) {
-  return <>{renderTimelineRichText(text, priceMode)}</>
+  return <TimelineRichTextContent priceMode={priceMode} text={text} />
 }

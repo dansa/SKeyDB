@@ -64,13 +64,18 @@ function buildPrimaryStatLine(
 function buildSubstatLines(awakener: ScalingInfoRecord): string[] {
   const levelSixtyStats = resolveAwakenerStatsForLevel(awakener, 60)
 
-  return Object.entries(awakener.substatScaling)
-    .filter(([, growth]) => Boolean(growth))
-    .map(([key, growth]) => {
-      const label = SUBSTAT_LABELS[key] ?? key
-      const statKey = key as keyof typeof awakener.stats
-      return `${label}: +${growth}/10 Lv · Lv.60 ${levelSixtyStats[statKey]}`
-    })
+  const lines: string[] = []
+  for (const [key, growth] of Object.entries(awakener.substatScaling)) {
+    if (!growth) {
+      continue
+    }
+
+    const label = SUBSTAT_LABELS[key] ?? key
+    const statKey = key as keyof typeof awakener.stats
+    lines.push(`${label}: +${growth}/10 Lv · Lv.60 ${levelSixtyStats[statKey]}`)
+  }
+
+  return lines
 }
 
 export function buildScalingInfoEntry(

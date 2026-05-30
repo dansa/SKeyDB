@@ -381,8 +381,10 @@ function normalizeParseOptions(
     plainTextMechanicNamesSet: normalize(options?.plainTextMechanicNames),
     overlayMechanicNamesSet: normalize(options?.overlayMechanicNames),
     bareOverlayMechanicNames: [...new Set(options?.overlayMechanicNames ?? [])]
-      .map((value) => value.trim())
-      .filter((value) => value.length > 0 && /\s/.test(value))
+      .flatMap((value) => {
+        const trimmedValue = value.trim()
+        return trimmedValue.length > 0 && /\s/.test(trimmedValue) ? [trimmedValue] : []
+      })
       .sort((a, b) => b.length - a.length),
     enableFollowupLineBreaks: options?.enableFollowupLineBreaks ?? false,
   }

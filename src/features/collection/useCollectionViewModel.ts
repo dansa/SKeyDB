@@ -115,7 +115,15 @@ function freezeItemsByAppliedOrder<T>(
   const keptIdSet = new Set(kept)
   const appended = liveOrder.filter((id) => !keptIdSet.has(id))
   const mergedOrder = [...kept, ...appended]
-  return mergedOrder.map((id) => itemById.get(id)).flatMap((item) => (item ? [item] : []))
+  const frozenItems: T[] = []
+  for (const id of mergedOrder) {
+    const item = itemById.get(id)
+    if (item) {
+      frozenItems.push(item)
+    }
+  }
+
+  return frozenItems
 }
 
 function areStringArraysEqual(left: string[], right: string[]) {

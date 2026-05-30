@@ -133,34 +133,33 @@ export function resolveAwakenerLiteStatsForLevel(
   return resolvedStats
 }
 
-const parsedAwakeners = getPublicCatalogRecords('awakeners')
-  .map((record) => publicV3AwakenerCatalogRecordSchema.parse(record))
-  .map((awakener): Awakener => {
-    const name = resolveCanonicalAwakenerName(awakener)
-    const aliases = Array.from(new Set([name, awakener.name, ...(awakener.aliases ?? [])]))
-    const tags = Array.from(new Set(awakener.searchTags ?? []))
+const parsedAwakeners = getPublicCatalogRecords('awakeners').map((record): Awakener => {
+  const awakener = publicV3AwakenerCatalogRecordSchema.parse(record)
+  const name = resolveCanonicalAwakenerName(awakener)
+  const aliases = Array.from(new Set([name, awakener.name, ...(awakener.aliases ?? [])]))
+  const tags = Array.from(new Set(awakener.searchTags ?? []))
 
-    return {
-      id: awakener.id,
-      numericId: awakener.numericId,
-      name,
-      ingameId: awakener.ingameId?.toUpperCase(),
-      faction: awakener.faction,
-      realm: awakener.realm,
-      rarity: awakener.rarity,
-      type: awakener.type,
-      availabilityType: awakener.availabilityType,
-      releaseDate: awakener.releaseDate,
-      aliases,
-      stats: awakener.baseStatsLv1,
-      defaultPrimaryStatBonusLevel: awakener.defaultPrimaryStatBonusLevel,
-      primaryScalingBase: awakener.primaryScalingBase,
-      statScaling: awakener.statScaling,
-      substatScaling: awakener.substatScaling,
-      tags,
-      lineupToken: awakener.lineupToken,
-    }
-  })
+  return {
+    id: awakener.id,
+    numericId: awakener.numericId,
+    name,
+    ingameId: awakener.ingameId?.toUpperCase(),
+    faction: awakener.faction,
+    realm: awakener.realm,
+    rarity: awakener.rarity,
+    type: awakener.type,
+    availabilityType: awakener.availabilityType,
+    releaseDate: awakener.releaseDate,
+    aliases,
+    stats: awakener.baseStatsLv1,
+    defaultPrimaryStatBonusLevel: awakener.defaultPrimaryStatBonusLevel,
+    primaryScalingBase: awakener.primaryScalingBase,
+    statScaling: awakener.statScaling,
+    substatScaling: awakener.substatScaling,
+    tags,
+    lineupToken: awakener.lineupToken,
+  }
+})
 assertUniqueIngameIds(parsedAwakeners)
 const awakenerById = new Map(parsedAwakeners.map((awakener) => [awakener.id, awakener]))
 

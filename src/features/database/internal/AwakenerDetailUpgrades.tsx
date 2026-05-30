@@ -25,6 +25,7 @@ interface AwakenerDetailUpgradesProps {
 
 const ENLIGHTEN_ORDER = ['E1', 'E2', 'E3'] as const
 const TALENT_ORDER = ['T1', 'T2', 'T3', 'T4'] as const
+const TALENT_KEYS = new Set<string>(TALENT_ORDER)
 
 function getEnlightenStarStyle(starStyle: ReturnType<typeof getStarSize>): CSSProperties {
   return {
@@ -206,9 +207,13 @@ export function AwakenerDetailUpgrades({
   if (!shellView) {
     return <p className='py-4 text-xs text-slate-400'>Loading…</p>
   }
-  const talentItems: DetailSectionItem[] = shellView.talents
-    .filter((entry) => TALENT_ORDER.includes(entry.key as (typeof TALENT_ORDER)[number]))
-    .map((entry) => ({
+  const talentItems: DetailSectionItem[] = []
+  for (const entry of shellView.talents) {
+    if (!TALENT_KEYS.has(entry.key)) {
+      continue
+    }
+
+    talentItems.push({
       key: entry.key,
       label: formatTalentLevelLabel(entry, shellView.selection),
       name: entry.record.displayName,
@@ -216,7 +221,8 @@ export function AwakenerDetailUpgrades({
       record: entry.record,
       descriptionRank: entry.descriptionRank,
       descriptionMaxRank: entry.descriptionMaxRank,
-    }))
+    })
+  }
 
   const portraitRelicAsset = portraitRelic
     ? getRelicPortraitAssetByAssetId(portraitRelic.assetId)

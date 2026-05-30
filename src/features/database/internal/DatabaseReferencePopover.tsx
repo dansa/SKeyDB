@@ -97,17 +97,26 @@ function descriptionSectionClassName(tone: 'default' | 'lore' | undefined): stri
 }
 
 function TextWithBreaksFallback({text}: {text: string}) {
-  const parts = text.split('\n')
+  const [firstPart, ...remainingParts] = getTextPartsWithKeys(text)
 
   return (
     <span>
-      {parts.flatMap((part, index) =>
-        index === 0
-          ? [<span key={String(index)}>{part}</span>]
-          : [<br key={`br${String(index)}`} />, <span key={String(index)}>{part}</span>],
-      )}
+      <span key={firstPart.key}>{firstPart.text}</span>
+      {remainingParts.flatMap((part) => [
+        <br key={`br:${part.key}`} />,
+        <span key={part.key}>{part.text}</span>,
+      ])}
     </span>
   )
+}
+
+function getTextPartsWithKeys(text: string): {key: string; text: string}[] {
+  const occurrencesByText = new Map<string, number>()
+  return text.split('\n').map((part) => {
+    const occurrence = occurrencesByText.get(part) ?? 0
+    occurrencesByText.set(part, occurrence + 1)
+    return {key: `${part}:${String(occurrence)}`, text: part}
+  })
 }
 
 function buildReferenceDescriptionFallbackText({

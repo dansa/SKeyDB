@@ -140,9 +140,12 @@ export function usePoolCycling(
     if (!enabled || reducedMotion) return
 
     const pendingTransitions = getPendingTransitionMap(pendingBySlotRef)
-    const cyclableSlots = poolSlots
-      .map((s, i) => (s.pool.length > 1 ? i : -1))
-      .filter((i) => i >= 0)
+    const cyclableSlots: number[] = []
+    for (const [index, slot] of poolSlots.entries()) {
+      if (slot.pool.length > 1) {
+        cyclableSlots.push(index)
+      }
+    }
     if (cyclableSlots.length === 0) return
 
     let deck: number[] = []
@@ -175,15 +178,18 @@ export function usePoolCycling(
         const fp = fingerprints[slotIdx]
         const group = sharedGroups.get(fp) ?? [slotIdx]
 
-        const usedIndices = new Set(
-          group
-            .filter((i) => i !== slotIdx)
-            .map((i) =>
-              currentFrames[i].transitioning
-                ? currentFrames[i].incomingIdx
-                : currentFrames[i].activeIdx,
-            ),
-        )
+        const usedIndices = new Set<number>()
+        for (const index of group) {
+          if (index === slotIdx) {
+            continue
+          }
+
+          usedIndices.add(
+            currentFrames[index].transitioning
+              ? currentFrames[index].incomingIdx
+              : currentFrames[index].activeIdx,
+          )
+        }
 
         let nextIdx = (currentFrames[slotIdx].activeIdx + 1) % poolSize
         let safety = 0

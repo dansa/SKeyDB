@@ -1,6 +1,7 @@
 import {
   useCallback,
   useEffect,
+  useEffectEvent,
   useRef,
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
@@ -77,6 +78,7 @@ export function BuilderV2MobileLayout({
       pickerTriggerRef.current?.focus()
     }
   }, [])
+  const closePickerEvent = useEffectEvent(closePicker)
 
   useEffect(() => {
     if (!mobilePicker) {
@@ -89,14 +91,14 @@ export function BuilderV2MobileLayout({
       }
 
       event.preventDefault()
-      closePicker()
+      closePickerEvent()
     }
 
     document.addEventListener('keydown', handleEscape)
     return () => {
       document.removeEventListener('keydown', handleEscape)
     }
-  }, [closePicker, mobilePicker])
+  }, [mobilePicker])
 
   useEffect(() => {
     if (!mobilePicker) {

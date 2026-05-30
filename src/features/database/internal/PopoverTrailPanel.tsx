@@ -1,6 +1,7 @@
 import {
   useCallback,
   useEffect,
+  useEffectEvent,
   useLayoutEffect,
   useRef,
   useState,
@@ -45,6 +46,7 @@ export function PopoverTrailPanel({
     ? anchorElement.getBoundingClientRect()
     : anchorRect
   const direction = isMobile ? 'down' : decideTrailDirection(currentAnchorRect, window.innerHeight)
+  const onCloseAllEvent = useEffectEvent(onCloseAll)
   useSuppressDetailEntitySearchCapture()
 
   const positionPanel = useCallback(() => {
@@ -122,14 +124,14 @@ export function PopoverTrailPanel({
         return
       }
 
-      onCloseAll()
+      onCloseAllEvent()
     }
 
     window.addEventListener('pointerdown', handlePointerDown)
     return () => {
       window.removeEventListener('pointerdown', handlePointerDown)
     }
-  }, [anchorElement, closeOnOutsideClick, onCloseAll])
+  }, [anchorElement, closeOnOutsideClick])
 
   useEffect(() => {
     previouslyFocusedElementRef.current =
