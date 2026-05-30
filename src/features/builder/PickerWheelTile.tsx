@@ -74,13 +74,19 @@ function getWheelDragData(draggableEnabled: boolean, wheelId?: string): DragData
   return {kind: 'picker-wheel', wheelId}
 }
 
-function renderWheelPreview(
-  wheelAsset: string | undefined,
-  wheelDisplayName: string,
-  isOwned: boolean,
-  isNotSet: boolean,
-  isDimmed: boolean,
-) {
+function WheelPreview({
+  wheelAsset,
+  wheelDisplayName,
+  isOwned,
+  isNotSet,
+  isDimmed,
+}: {
+  wheelAsset: string | undefined
+  wheelDisplayName: string
+  isOwned: boolean
+  isNotSet: boolean
+  isDimmed: boolean
+}) {
   if (wheelAsset) {
     return (
       <img
@@ -163,7 +169,7 @@ export function PickerWheelTile({
                 title={`Open ${wheelDisplayName} details overlay`}
                 type='button'
               >
-                <FaCircleInfo aria-hidden className='h-3 w-3' />
+                <FaCircleInfo aria-hidden className='size-3' />
               </button>
             ) : undefined
           }
@@ -183,7 +189,15 @@ export function PickerWheelTile({
           name={wheelDisplayName}
           nameClassName='truncate'
           nameTitle={wheelDisplayName}
-          preview={renderWheelPreview(wheelAsset, wheelDisplayName, isOwned, isNotSet, isDimmed)}
+          preview={
+            <WheelPreview
+              wheelAsset={wheelAsset}
+              wheelDisplayName={wheelDisplayName}
+              isOwned={isOwned}
+              isNotSet={isNotSet}
+              isDimmed={isDimmed}
+            />
+          }
           previewClassName='aspect-[75/113] border border-slate-400/35 bg-slate-900/70'
           statusBar={
             topLabel ? (
@@ -211,7 +225,7 @@ function RecommendedMainstatChip({mainstatKey}: {mainstatKey: WheelMainstatKey})
       className={`${PICKER_RECOMMENDATION_CLASS} builder-picker-recommendation-chip-icon`}
       title={`Recommended mainstat ${label}`}
     >
-      <img alt={`Recommended mainstat ${label}`} className='h-3 w-3 object-contain' src={icon} />
+      <img alt={`Recommended mainstat ${label}`} className='size-3 object-contain' src={icon} />
     </span>
   )
 }

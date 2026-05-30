@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useRef, useState} from 'react'
+import {useCallback, useEffect, useRef, useState, type RefObject} from 'react'
 
 interface UseTimedToastOptions {
   defaultDurationMs?: number
@@ -9,21 +9,28 @@ interface TimedToastEntry {
   message: string
 }
 
+function getTimeoutMap(ref: RefObject<Map<number, number> | null>): Map<number, number> {
+  ref.current ??= new Map<number, number>()
+  return ref.current
+}
+
 export function useTimedToast({defaultDurationMs = 3200}: UseTimedToastOptions = {}) {
   const [toastEntries, setToastEntries] = useState<TimedToastEntry[]>([])
   const nextToastIdRef = useRef(0)
-  const timeoutRefs = useRef(new Map<number, number>())
+  const timeoutRefs = useRef<Map<number, number> | null>(null)
 
   const clearToast = useCallback(() => {
-    for (const timeoutId of timeoutRefs.current.values()) {
+    const timeoutMap = getTimeoutMap(timeoutRefs)
+    for (const timeoutId of timeoutMap.values()) {
       window.clearTimeout(timeoutId)
     }
-    timeoutRefs.current.clear()
+    timeoutMap.clear()
     setToastEntries([])
   }, [])
 
   const dismissToast = useCallback((toastId: number) => {
-    timeoutRefs.current.delete(toastId)
+    const timeoutMap = getTimeoutMap(timeoutRefs)
+    timeoutMap.delete(toastId)
     setToastEntries((previous) => previous.filter((entry) => entry.id !== toastId))
   }, [])
 
@@ -36,17 +43,22 @@ export function useTimedToast({defaultDurationMs = 3200}: UseTimedToastOptions =
       const timeoutId = window.setTimeout(() => {
         dismissToast(toastId)
       }, durationMs)
-      timeoutRefs.current.set(toastId, timeoutId)
+      const timeoutMap = getTimeoutMap(timeoutRefs)
+      timeoutMap.set(toastId, timeoutId)
     },
     [defaultDurationMs, dismissToast],
   )
 
   useEffect(
     () => () => {
-      for (const timeoutId of timeoutRefs.current.values()) {
+      const timeoutMap = timeoutRefs.current
+      if (!timeoutMap) {
+        return
+      }
+      for (const timeoutId of timeoutMap.values()) {
         window.clearTimeout(timeoutId)
       }
-      timeoutRefs.current.clear()
+      timeoutMap.clear()
     },
     [],
   )

@@ -312,10 +312,10 @@ function getLoadingShellMaxWidth(kind: DatabaseDetailKind): 'standard' | 'wide' 
 
 function getLoadingPlaceholderLabel(kind: DatabaseDetailKind): string | null {
   if (kind === 'awakener') {
-    return 'Jump to awakener...'
+    return 'Jump to awakener…'
   }
   if (kind === 'wheel') {
-    return 'Jump to wheel...'
+    return 'Jump to wheel…'
   }
   return null
 }
@@ -347,7 +347,7 @@ function DbDetailRouteLoadingModal({
               className='flex shrink-0 items-center gap-2 border border-amber-200/18 bg-slate-950/[.96] px-3 py-2 text-sm text-slate-500 shadow-[0_12px_26px_rgba(2,6,23,0.45)]'
               data-detail-modal-external=''
             >
-              <FaMagnifyingGlass className='h-3.5 w-3.5 shrink-0' />
+              <FaMagnifyingGlass className='size-3.5 shrink-0' />
               <span>{searchPlaceholderLabel}</span>
             </div>
           ) : null}
@@ -367,11 +367,11 @@ function DbDetailRouteLoadingModal({
       >
         <button
           aria-label={`Close ${routeItem.kind} detail`}
-          className='absolute top-3 right-3 inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100 focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
+          className='absolute top-3 right-3 inline-flex size-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100 focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
           onClick={onClose}
           type='button'
         >
-          <FaXmark className='h-4 w-4' />
+          <FaXmark className='size-4' />
         </button>
         <div>
           <div className='ui-title text-lg text-amber-100'>{itemName}</div>
@@ -428,7 +428,7 @@ export function DbDetailModalHost({
     if (!routeItem && activeRef) {
       return (
         <Suspense
-          fallback={<div className='px-2 py-3 text-sm text-slate-300'>Loading details...</div>}
+          fallback={<div className='px-2 py-3 text-sm text-slate-300'>Loading details…</div>}
         >
           <DbDetailOverlayModal
             activeRef={activeRef}

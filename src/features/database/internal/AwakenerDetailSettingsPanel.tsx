@@ -92,7 +92,7 @@ export function AwakenerDetailSettingsPanel({
           <label className='flex items-start gap-2 text-left'>
             <input
               checked={preferences.showVisibleScaling}
-              className='mt-0.5 h-3.5 w-3.5 accent-amber-200'
+              className='mt-0.5 size-3.5 accent-amber-200'
               onChange={(event) => {
                 onUpdateAwakenerPreferences({showVisibleScaling: event.target.checked})
               }}
@@ -128,7 +128,7 @@ export function AwakenerDetailSettingsPanel({
             </span>
           </button>
           {showDefaultProgression ? (
-            <div className='border-t border-slate-700/45 px-3 py-3'>
+            <div className='border-t border-slate-700/45 p-3'>
               <AwakenerDetailStateControls
                 compact
                 controls={controls}

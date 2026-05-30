@@ -24,8 +24,9 @@ export function useBuilderDndWrappers({coordinated, slotById}: UseBuilderDndWrap
 
   useEffect(() => {
     return () => {
-      if (suppressTimeoutRef.current) {
-        window.clearTimeout(suppressTimeoutRef.current)
+      const suppressTimeout = suppressTimeoutRef.current
+      if (suppressTimeout) {
+        window.clearTimeout(suppressTimeout)
       }
     }
   }, [])

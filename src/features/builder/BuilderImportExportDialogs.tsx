@@ -50,7 +50,7 @@ const ingameSupportContactNote = (
   </>
 )
 
-function renderIngameImportWarning() {
+function IngameImportWarning() {
   return (
     <p className='text-xs text-rose-300'>
       In-game `@@...@@` import is work in progress. Covenant/posse support is still limited, and
@@ -64,7 +64,7 @@ function renderIngameImportWarning() {
   )
 }
 
-function renderIngameExportWarning() {
+function IngameExportWarning() {
   return (
     <p className='text-xs text-rose-300'>
       In-game export is work in progress. Covenant/posse support is still limited, and wheel token
@@ -102,7 +102,7 @@ export function BuilderImportExportDialogs({
         <ImportCodeDialog
           onCancel={onCancelImport}
           onSubmit={onSubmitImport}
-          warning={renderIngameImportWarning()}
+          warning={<IngameImportWarning />}
         />
       ) : null}
 
@@ -150,7 +150,7 @@ export function BuilderImportExportDialogs({
           warning={
             exportDialog.kind === 'ingame' || exportDialog.duplicateWarning ? (
               <div className='space-y-2'>
-                {exportDialog.kind === 'ingame' ? renderIngameExportWarning() : null}
+                {exportDialog.kind === 'ingame' ? <IngameExportWarning /> : null}
                 {exportDialog.duplicateWarning ? (
                   <p className='text-xs text-rose-300'>{exportDialog.duplicateWarning}</p>
                 ) : null}

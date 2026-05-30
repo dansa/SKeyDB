@@ -87,39 +87,40 @@ function buildDzoneMonsterHpAttributeRows(stats: DzoneMonsterAlertStats) {
 function buildDzoneMonsterRouseText(stats: DzoneMonsterAlertStats): string | undefined {
   const phases = stats.hpBarPhases?.filter((phase) => phase.bar > 1) ?? []
   let previousMultiplier = 1
-  const segments = phases
-    .map((phase) => {
-      const details = []
-      const maxHpMultiplier =
-        phase.maxHpMultiplier !== undefined && phase.maxHpMultiplier !== 1
-          ? phase.maxHpMultiplier
-          : undefined
-      const repeatsPreviousMultiplier =
-        maxHpMultiplier !== undefined && maxHpMultiplier === previousMultiplier
-      if (
-        maxHpMultiplier !== undefined &&
-        !repeatsPreviousMultiplier &&
-        (phase.kind === 'maxHpMultiplier' || phase.kind === 'maxHpMultiplierPartialRevive')
-      ) {
-        details.push(`max HP ×${formatCompactNumber(maxHpMultiplier)}`)
-      }
-      if (
-        phase.healPercent !== undefined &&
-        phase.healPercent !== 1 &&
-        (phase.kind === 'partialRevive' || phase.kind === 'maxHpMultiplierPartialRevive')
-      ) {
-        details.push(
-          `${phase.healPercent < 1 ? 'revives at' : 'heals to'} ${formatPercent(
-            phase.healPercent,
-          )}`,
-        )
-      }
-      if (maxHpMultiplier !== undefined) {
-        previousMultiplier = maxHpMultiplier
-      }
-      return details.length > 0 ? `Bar ${phase.bar.toString()} ${details.join(', ')}` : ''
-    })
-    .filter(Boolean)
+  const segments: string[] = []
+
+  for (const phase of phases) {
+    const details = []
+    const maxHpMultiplier =
+      phase.maxHpMultiplier !== undefined && phase.maxHpMultiplier !== 1
+        ? phase.maxHpMultiplier
+        : undefined
+    const repeatsPreviousMultiplier =
+      maxHpMultiplier !== undefined && maxHpMultiplier === previousMultiplier
+    if (
+      maxHpMultiplier !== undefined &&
+      !repeatsPreviousMultiplier &&
+      (phase.kind === 'maxHpMultiplier' || phase.kind === 'maxHpMultiplierPartialRevive')
+    ) {
+      details.push(`max HP ×${formatCompactNumber(maxHpMultiplier)}`)
+    }
+    if (
+      phase.healPercent !== undefined &&
+      phase.healPercent !== 1 &&
+      (phase.kind === 'partialRevive' || phase.kind === 'maxHpMultiplierPartialRevive')
+    ) {
+      details.push(
+        `${phase.healPercent < 1 ? 'revives at' : 'heals to'} ${formatPercent(phase.healPercent)}`,
+      )
+    }
+    if (maxHpMultiplier !== undefined) {
+      previousMultiplier = maxHpMultiplier
+    }
+    if (details.length > 0) {
+      segments.push(`Bar ${phase.bar.toString()} ${details.join(', ')}`)
+    }
+  }
+
   return segments.length > 0 ? segments.join('; ') : undefined
 }
 

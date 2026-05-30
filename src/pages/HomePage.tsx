@@ -32,7 +32,7 @@ export function HomePage() {
   return (
     <section className='space-y-4'>
       <header className='flex flex-wrap items-center gap-3 border border-amber-200/35 bg-slate-900/40 p-4 shadow-[0_0_0_1px_rgba(251,191,36,0.08)]'>
-        <img alt='Morimens emoji' className='h-12 w-12 self-start object-cover' src={emojiAel} />
+        <img alt='Morimens emoji' className='size-12 self-start object-cover' src={emojiAel} />
         <div className='min-w-0'>
           <div className='space-y-1 text-sm text-slate-300'>
             <h3 className='ui-title text-lg text-amber-100'>
@@ -164,7 +164,7 @@ export function HomePage() {
             <img
               alt=''
               aria-hidden
-              className='mr-2 ml-1 inline! h-12 w-12 -scale-x-100 object-contain'
+              className='mr-2 ml-1 inline! size-12 -scale-x-100 object-contain'
               src={emojiRose}
             />
             Special omega-thanks to the contributors who have helped make this project possible.

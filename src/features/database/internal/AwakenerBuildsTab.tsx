@@ -145,13 +145,13 @@ function SubstatIconChip({mainstatKey}: {mainstatKey: MainstatKey}) {
 
   return (
     <span
-      className='inline-flex h-6 w-6 items-center justify-center border border-slate-600/45 bg-slate-950/55'
+      className='inline-flex size-6 items-center justify-center border border-slate-600/45 bg-slate-950/55'
       title={label}
     >
       {icon ? (
         <img
           alt={label}
-          className='h-4 w-4 object-contain opacity-90'
+          className='size-4 object-contain opacity-90'
           draggable={false}
           src={icon}
         />

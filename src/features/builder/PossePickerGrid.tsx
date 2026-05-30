@@ -118,7 +118,7 @@ function PossePickerTile({
               title={`Open ${posse.name} details overlay`}
               type='button'
             >
-              <FaCircleInfo aria-hidden className='h-3 w-3' />
+              <FaCircleInfo aria-hidden className='size-3' />
             </button>
           }
           chips={

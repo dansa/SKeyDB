@@ -234,17 +234,22 @@ vi.mock('../../domain/posse-assets', () => ({
 }))
 
 beforeEach(async () => {
-  const {createEmptyCollectionOwnershipState} = await import('@/domain/collection-ownership')
-  const {collectionOwnershipStore} = await import('@/stores/collectionOwnershipStore')
+  const [{createEmptyCollectionOwnershipState}, {collectionOwnershipStore}] = await Promise.all([
+    import('@/domain/collection-ownership'),
+    import('@/stores/collectionOwnershipStore'),
+  ])
 
   window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
   collectionOwnershipStore.getState().replaceOwnership(createEmptyCollectionOwnershipState())
 })
 
 afterEach(async () => {
-  const {createEmptyCollectionOwnershipState} = await import('@/domain/collection-ownership')
-  const {collectionOwnershipStore} = await import('@/stores/collectionOwnershipStore')
-  const {dbDetailStore} = await import('@/stores/dbDetailStore')
+  const [{createEmptyCollectionOwnershipState}, {collectionOwnershipStore}, {dbDetailStore}] =
+    await Promise.all([
+      import('@/domain/collection-ownership'),
+      import('@/stores/collectionOwnershipStore'),
+      import('@/stores/dbDetailStore'),
+    ])
 
   cleanup()
   act(() => {

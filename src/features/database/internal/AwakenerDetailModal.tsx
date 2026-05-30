@@ -2,7 +2,6 @@ import {
   lazy,
   Suspense,
   useId,
-  useMemo,
   useRef,
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
@@ -62,9 +61,7 @@ const DATABASE_AWAKENER_TAB_LABELS: Record<DatabaseAwakenerVisibleTab, string> =
   lore: 'Lore',
 }
 
-const TAB_CONTENT_LOADING_FALLBACK = (
-  <div className='py-3 text-sm text-slate-300'>Loading tab...</div>
-)
+const TAB_CONTENT_LOADING_FALLBACK = <div className='py-3 text-sm text-slate-300'>Loading tab…</div>
 
 const AwakenerDetailCards = lazy(() =>
   import('./AwakenerDetailCards').then((module) => ({default: module.AwakenerDetailCards})),
@@ -140,7 +137,7 @@ export function AwakenerDetailModal({
   const cardAsset = getAwakenerCardAsset(awakener.name)
   const portrait = getAwakenerPortraitAsset(awakener.name)
   const tabPanelId = `${tabsetId}-panel`
-  const fullArtAlt = useMemo(() => `${displayName} full art`, [displayName])
+  const fullArtAlt = `${displayName} full art`
   const headerMetaItems = [
     {key: 'realm', label: realmLabel, color: realmAccent},
     {
@@ -224,22 +221,22 @@ export function AwakenerDetailModal({
           <button
             aria-expanded={isSettingsOpen}
             aria-label='Open detail settings'
-            className='inline-flex h-8 w-8 items-center justify-center text-slate-400 transition-colors hover:text-amber-100 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
+            className='inline-flex size-8 items-center justify-center text-slate-400 transition-colors hover:text-amber-100 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
             data-detail-settings-trigger=''
             onClick={() => {
               setIsSettingsOpen((previous) => !previous)
             }}
             type='button'
           >
-            <FaGear className='h-3.5 w-3.5' />
+            <FaGear className='size-3.5' />
           </button>
           <button
             aria-label='Close detail'
-            className='inline-flex h-8 w-8 items-center justify-center text-slate-400 transition-colors hover:text-amber-100 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
+            className='inline-flex size-8 items-center justify-center text-slate-400 transition-colors hover:text-amber-100 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
             onClick={onClose}
             type='button'
           >
-            <FaXmark className='h-4 w-4' />
+            <FaXmark className='size-4' />
           </button>
           {isSettingsOpen ? (
             <AwakenerDetailSettingsPanel
@@ -324,18 +321,13 @@ export function AwakenerDetailModal({
                     </div>
                   )}
                   {!isMobileHeader ? (
-                    <img alt='' className='h-11 w-11 shrink-0' draggable={false} src={realmIcon} />
+                    <img alt='' className='size-11 shrink-0' draggable={false} src={realmIcon} />
                   ) : null}
                   <div>
                     <div className='flex items-center gap-2'>
                       <h3 className='ui-title text-xl text-amber-100'>{displayName}</h3>
                       {isMobileHeader ? (
-                        <img
-                          alt=''
-                          className='h-5 w-5 shrink-0'
-                          draggable={false}
-                          src={realmIcon}
-                        />
+                        <img alt='' className='size-5 shrink-0' draggable={false} src={realmIcon} />
                       ) : null}
                     </div>
                     <p className='mt-0.5 text-xs text-slate-400'>

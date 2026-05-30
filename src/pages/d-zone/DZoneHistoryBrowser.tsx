@@ -74,6 +74,7 @@ function useDrawerModalBehavior({
     }
 
     const originalOverflow = document.body.style.overflow
+    const openerElementToRestore = openerElementRef.current
     document.body.style.overflow = 'hidden'
 
     const focusTimer = window.setTimeout(() => {
@@ -104,7 +105,7 @@ function useDrawerModalBehavior({
       window.clearTimeout(focusTimer)
       document.body.style.overflow = originalOverflow
       document.removeEventListener('keydown', handleDocumentKeyDown)
-      openerElementRef.current?.focus()
+      openerElementToRestore?.focus()
     }
   }, [browserOpen, drawerRef])
 }

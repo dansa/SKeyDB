@@ -114,10 +114,10 @@ export function WheelDetailContent({
         <section className='space-y-4 border-b border-slate-800/75 py-4'>
           <div className='flex flex-wrap items-center gap-3'>
             {mainstatIcon ? (
-              <span className='inline-flex h-9 w-9 items-center justify-center border border-amber-200/14 bg-slate-950/72'>
+              <span className='inline-flex size-9 items-center justify-center border border-amber-200/14 bg-slate-950/72'>
                 <img
                   alt=''
-                  className='h-5 w-5 object-contain opacity-90'
+                  className='size-5 object-contain opacity-90'
                   draggable={false}
                   src={mainstatIcon}
                 />

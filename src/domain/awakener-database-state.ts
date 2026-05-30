@@ -82,6 +82,9 @@ function getAvailableEnlightenSlots(
 
 const DATABASE_MIN_SKILL_LEVEL = 1
 const DATABASE_MAX_SKILL_LEVEL = 6
+const ENLIGHTEN_SLOT_ORDER = new Map(
+  ENLIGHTEN_SLOT_KEYS.map((slot, index) => [slot, index] as const),
+)
 
 function clampDatabaseSkillLevel(level: number): number {
   const normalized = Number.isFinite(level) ? Math.round(level) : DATABASE_MIN_SKILL_LEVEL
@@ -121,9 +124,11 @@ function normalizeSelectedEnlightenSlotForRecord(
   }
 
   const availableSlots = getAvailableEnlightenSlots(record)
+  const selectedSlotOrder = ENLIGHTEN_SLOT_ORDER.get(slot) ?? -1
   for (let index = availableSlots.length - 1; index >= 0; index -= 1) {
     const candidate = availableSlots[index]
-    if (ENLIGHTEN_SLOT_KEYS.indexOf(candidate) <= ENLIGHTEN_SLOT_KEYS.indexOf(slot)) {
+    const candidateOrder = ENLIGHTEN_SLOT_ORDER.get(candidate) ?? -1
+    if (candidateOrder <= selectedSlotOrder) {
       return candidate
     }
   }

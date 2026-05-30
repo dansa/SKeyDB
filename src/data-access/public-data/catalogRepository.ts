@@ -35,6 +35,7 @@ const catalogJsonByScope = {
 } satisfies Record<PublicDataScope, unknown>
 
 const catalogCache = new Map<PublicDataScope, PublicCatalog>()
+let catalogRecordByIdCache: Map<string, PublicCatalogRecord> | null = null
 
 export function getPublicCatalog(scope: PublicDataScope): PublicCatalog {
   return getOrCreateMapValue(catalogCache, scope, () => {
@@ -49,11 +50,18 @@ export function getPublicCatalogRecords(scope: PublicDataScope): PublicCatalogRe
 }
 
 export function getPublicCatalogRecordById(entityId: string): PublicCatalogRecord | undefined {
+  catalogRecordByIdCache ??= buildCatalogRecordByIdCache()
+  return catalogRecordByIdCache.get(entityId)
+}
+
+function buildCatalogRecordByIdCache(): Map<string, PublicCatalogRecord> {
+  const recordsById = new Map<string, PublicCatalogRecord>()
   for (const scope of PUBLIC_DATA_SCOPES) {
-    const record = getPublicCatalogRecords(scope).find((entry) => entry.id === entityId)
-    if (record) {
-      return record
+    for (const record of getPublicCatalogRecords(scope)) {
+      if (!recordsById.has(record.id)) {
+        recordsById.set(record.id, record)
+      }
     }
   }
-  return undefined
+  return recordsById
 }

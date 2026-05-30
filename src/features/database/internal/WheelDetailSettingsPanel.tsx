@@ -40,10 +40,10 @@ export function WheelDetailSettingsPanel({
       }}
       showTagIcons={sharedPreferences.showTagIcons}
     >
-      <label className='flex items-start gap-3 border border-slate-700/45 bg-slate-900/40 px-3 py-3'>
+      <label className='flex items-start gap-3 border border-slate-700/45 bg-slate-900/40 p-3'>
         <input
           checked={preferences.expandLoreByDefault}
-          className='mt-0.5 h-3.5 w-3.5 rounded border border-slate-500/60 bg-slate-950/80 accent-amber-200'
+          className='mt-0.5 size-3.5 rounded border border-slate-500/60 bg-slate-950/80 accent-amber-200'
           onChange={(event) => {
             onUpdateWheelPreferences({expandLoreByDefault: event.target.checked})
           }}
@@ -56,7 +56,7 @@ export function WheelDetailSettingsPanel({
           </span>
         </span>
       </label>
-      <div className='border border-slate-700/45 bg-slate-900/40 px-3 py-3'>
+      <div className='border border-slate-700/45 bg-slate-900/40 p-3'>
         <div className='flex items-center justify-between gap-3'>
           <span>
             <span className='block text-[11px] text-slate-200'>Default enlighten</span>

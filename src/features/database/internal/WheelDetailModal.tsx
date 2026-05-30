@@ -1,4 +1,4 @@
-import {Suspense, useMemo, useState} from 'react'
+import {Suspense, useState} from 'react'
 
 import {FaGear, FaXmark} from 'react-icons/fa6'
 
@@ -95,7 +95,7 @@ function WheelDetailModalInner({
     setIsSettingsOpen,
   } = chrome
   const wheelAsset = getWheelAssetById(wheel.id)
-  const fullArtAlt = useMemo(() => `${wheel.name} full art`, [wheel.name])
+  const fullArtAlt = `${wheel.name} full art`
 
   return (
     <DbDetailModalFrame
@@ -133,22 +133,22 @@ function WheelDetailModalInner({
           <button
             aria-expanded={isSettingsOpen}
             aria-label='Open detail settings'
-            className='inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100 focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
+            className='inline-flex size-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100 focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
             data-detail-settings-trigger=''
             onClick={() => {
               setIsSettingsOpen((previous) => !previous)
             }}
             type='button'
           >
-            <FaGear className='h-3.5 w-3.5' />
+            <FaGear className='size-3.5' />
           </button>
           <button
             aria-label='Close wheel detail'
-            className='inline-flex h-8 w-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100 focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
+            className='inline-flex size-8 items-center justify-center border border-amber-200/12 bg-slate-950/78 text-slate-400 transition-colors hover:border-amber-200/28 hover:text-amber-100 focus-visible:border-amber-200/70 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
             onClick={onClose}
             type='button'
           >
-            <FaXmark className='h-4 w-4' />
+            <FaXmark className='size-4' />
           </button>
           {isSettingsOpen ? (
             <WheelDetailSettingsPanel
@@ -161,7 +161,7 @@ function WheelDetailModalInner({
         </div>
         <DatabasePopoverContext.Provider value={popoverContextValue}>
           <div className='flex min-h-0 flex-1'>
-            <aside className='database-scrollbar hidden w-[18.75rem] shrink-0 overflow-y-auto bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] px-6 py-6 md:flex md:items-start md:justify-center'>
+            <aside className='database-scrollbar hidden w-[18.75rem] shrink-0 overflow-y-auto bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] p-6 md:flex md:items-start md:justify-center'>
               <WheelDetailArtwork
                 onOpenFullArt={
                   wheelAsset

@@ -213,7 +213,7 @@ export function CatalogMobileFilterPanel<TValue extends string>({
           {option.iconSrc ? (
             <img
               alt=''
-              className='h-3.5 w-3.5 object-contain'
+              className='size-3.5 object-contain'
               draggable={false}
               src={option.iconSrc}
             />

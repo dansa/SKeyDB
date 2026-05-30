@@ -27,7 +27,7 @@ function getTeamPreviewDragData(slot: TeamSlot, teamId: string): DragData | unde
   return {kind: 'team-preview-slot', teamId, slotId: slot.slotId}
 }
 
-function renderCompactSlotPreview(slot: TeamSlot, isAwakenerOwned: boolean) {
+function CompactSlotPreview({slot, isAwakenerOwned}: {slot: TeamSlot; isAwakenerOwned: boolean}) {
   const awakenerName = getSlotAwakenerName(slot)
   if (!awakenerName) {
     return (
@@ -61,10 +61,13 @@ function renderCompactSlotPreview(slot: TeamSlot, isAwakenerOwned: boolean) {
   )
 }
 
-function renderExpandedPreviewWheels(
-  slot: TeamSlot,
-  ownedWheelLevelById: Map<string, number | null>,
-) {
+function ExpandedPreviewWheels({
+  slot,
+  ownedWheelLevelById,
+}: {
+  slot: TeamSlot
+  ownedWheelLevelById: Map<string, number | null>
+}) {
   return slot.wheels.map((wheelId, index) => {
     const wheelAsset = wheelId ? getWheelAssetById(wheelId) : undefined
     const isWheelOwned = !wheelId || (ownedWheelLevelById.get(wheelId) ?? null) !== null
@@ -88,13 +91,19 @@ function renderExpandedPreviewWheels(
   })
 }
 
-function renderExpandedSlotPreview(
-  slot: TeamSlot,
-  isAwakenerOwned: boolean,
-  awakenerCardAsset: string | undefined,
-  covenantAsset: string | undefined,
-  ownedWheelLevelById: Map<string, number | null>,
-) {
+function ExpandedSlotPreview({
+  slot,
+  isAwakenerOwned,
+  awakenerCardAsset,
+  covenantAsset,
+  ownedWheelLevelById,
+}: {
+  slot: TeamSlot
+  isAwakenerOwned: boolean
+  awakenerCardAsset: string | undefined
+  covenantAsset: string | undefined
+  ownedWheelLevelById: Map<string, number | null>
+}) {
   return (
     <>
       {slot.awakenerId ? (
@@ -136,7 +145,7 @@ function renderExpandedSlotPreview(
         )}
       </span>
       <div className='builder-team-slot-preview-wheel-strip builder-team-slot-preview-wheel-strip-embedded'>
-        {renderExpandedPreviewWheels(slot, ownedWheelLevelById)}
+        <ExpandedPreviewWheels slot={slot} ownedWheelLevelById={ownedWheelLevelById} />
       </div>
     </>
   )
@@ -192,7 +201,7 @@ export function BuilderTeamSlotPreview({
         {...listeners}
       >
         <div className='builder-team-slot-preview-compact-surface relative h-full w-full overflow-hidden border border-slate-400/35 bg-slate-900/70'>
-          {renderCompactSlotPreview(slot, isAwakenerOwned)}
+          <CompactSlotPreview slot={slot} isAwakenerOwned={isAwakenerOwned} />
         </div>
       </div>
     )
@@ -209,13 +218,13 @@ export function BuilderTeamSlotPreview({
       {...listeners}
     >
       <div className='builder-team-slot-preview-card'>
-        {renderExpandedSlotPreview(
-          slot,
-          isAwakenerOwned,
-          awakenerCardAsset,
-          covenantAsset,
-          ownedWheelLevelById,
-        )}
+        <ExpandedSlotPreview
+          slot={slot}
+          isAwakenerOwned={isAwakenerOwned}
+          awakenerCardAsset={awakenerCardAsset}
+          covenantAsset={covenantAsset}
+          ownedWheelLevelById={ownedWheelLevelById}
+        />
       </div>
     </div>
   )

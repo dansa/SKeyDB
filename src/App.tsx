@@ -240,7 +240,7 @@ function App() {
       >
         <StaleChunkErrorBoundary>
           <Suspense
-            fallback={<div className='px-2 py-6 text-sm text-slate-300'>Loading page...</div>}
+            fallback={<div className='px-2 py-6 text-sm text-slate-300'>Loading page…</div>}
           >
             <Routes>
               <Route element={<HomePage />} path='/' />

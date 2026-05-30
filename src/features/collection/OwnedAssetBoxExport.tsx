@@ -260,7 +260,7 @@ function ExportPreview<R extends string>({
               {!visuals.disableNames && visuals.nameOnTop ? (
                 <p
                   data-testid='export-preview-card-label'
-                  className='absolute top-1 right-1 left-1 z-11 truncate bg-slate-950/75 px-1 py-1 text-center leading-none text-slate-100'
+                  className='absolute top-1 right-1 left-1 z-11 truncate bg-slate-950/75 p-1 text-center leading-none text-slate-100'
                   style={{
                     fontSize: `${String(nameSizePx)}px`,
                     textShadow: '0 1px 2px rgba(2, 6, 12, 0.9)',
@@ -305,7 +305,7 @@ function ExportPreview<R extends string>({
                     {hasBottomName ? (
                       <p
                         data-testid='export-preview-card-label'
-                        className='w-full truncate bg-slate-950/75 px-1 py-1 text-center leading-none text-slate-100'
+                        className='w-full truncate bg-slate-950/75 p-1 text-center leading-none text-slate-100'
                         style={{
                           fontSize: `${String(nameSizePx)}px`,
                           textShadow: '0 1px 2px rgba(2, 6, 12, 0.9)',

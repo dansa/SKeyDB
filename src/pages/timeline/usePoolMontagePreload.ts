@@ -103,10 +103,7 @@ function preloadTimelineImagesInBatches(urls: string[], onComplete?: () => void)
   }
 }
 
-export function usePoolMontagePreload(
-  visualSlots: ResolvedVisualSlot[],
-  onReadyChange: (ready: boolean) => void,
-) {
+export function usePoolMontagePreload(visualSlots: ResolvedVisualSlot[]) {
   const rootRef = useRef<HTMLDivElement>(null)
   const [shouldPreload, setShouldPreload] = useState(
     () => typeof IntersectionObserver === 'undefined' || import.meta.env.MODE === 'test',
@@ -117,10 +114,6 @@ export function usePoolMontagePreload(
     import.meta.env.MODE === 'test' ? preloadSignature : '',
   )
   const assetsReady = import.meta.env.MODE === 'test' || readySignature === preloadSignature
-
-  useEffect(() => {
-    onReadyChange(assetsReady)
-  }, [assetsReady, onReadyChange])
 
   useEffect(() => {
     if (shouldPreload) return

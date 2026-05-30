@@ -129,7 +129,7 @@ export function PickerAwakenerTile({
               title={`Open ${displayName} details overlay`}
               type='button'
             >
-              <FaCircleInfo aria-hidden className='h-3 w-3' />
+              <FaCircleInfo aria-hidden className='size-3' />
             </button>
           }
           chipPlacement='overlay-stack'

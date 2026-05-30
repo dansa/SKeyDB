@@ -1,4 +1,4 @@
-import {createContext, useContext} from 'react'
+import {createContext, use} from 'react'
 
 import type {AwakenerOverlayRecord} from '@/domain/awakener-source-schema'
 
@@ -35,5 +35,5 @@ export interface DatabasePopoverContextValue {
 export const DatabasePopoverContext = createContext<DatabasePopoverContextValue | null>(null)
 
 export function useDatabasePopoverControllerContext(): DatabasePopoverContextValue | null {
-  return useContext(DatabasePopoverContext)
+  return use(DatabasePopoverContext)
 }

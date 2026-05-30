@@ -173,23 +173,25 @@ export interface TimelineCountdownDisplay {
 }
 
 const TIMELINE_DATE_DISPLAY_THRESHOLD_MS = 14 * 24 * 60 * 60 * 1000
+const TIMELINE_DATE_FORMATTER = new Intl.DateTimeFormat('en-US', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+})
+const TIMELINE_DISPLAY_DATE_FORMATTER = new Intl.DateTimeFormat('en-US', {
+  day: 'numeric',
+  month: 'short',
+})
 
 function formatTimelineDate(dateStr: string): string {
-  return new Intl.DateTimeFormat('en-US', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  }).format(new Date(dateStr))
+  return TIMELINE_DATE_FORMATTER.format(new Date(dateStr))
 }
 
 function formatTimelineDisplayDate(dateStr: string, now?: Date): string {
   const date = new Date(dateStr)
   const reference = now ?? new Date()
   if (date.getUTCFullYear() === reference.getUTCFullYear()) {
-    return new Intl.DateTimeFormat('en-US', {
-      day: 'numeric',
-      month: 'short',
-    }).format(date)
+    return TIMELINE_DISPLAY_DATE_FORMATTER.format(date)
   }
   return formatTimelineDate(dateStr)
 }

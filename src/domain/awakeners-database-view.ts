@@ -587,6 +587,7 @@ function buildEnlightenInfluenceByTargetId(
   record: AwakenerFullRecord,
 ): Map<string, AwakenerEnlightenRecord['slot'][]> {
   const influenceByTargetId = new Map<string, AwakenerEnlightenRecord['slot'][]>()
+  const influenceSlotSetByTargetId = new Map<string, Set<AwakenerEnlightenRecord['slot']>>()
 
   const slotByEnlightenId = new Map<string, AwakenerEnlightenRecord['slot']>()
 
@@ -612,9 +613,12 @@ function buildEnlightenInfluenceByTargetId(
       }
       const slot = slotCandidate
       const existing = influenceByTargetId.get(target.id) ?? []
-      if (!existing.includes(slot)) {
+      const existingSlots = influenceSlotSetByTargetId.get(target.id) ?? new Set()
+      if (!existingSlots.has(slot)) {
         existing.push(slot)
+        existingSlots.add(slot)
         influenceByTargetId.set(target.id, existing)
+        influenceSlotSetByTargetId.set(target.id, existingSlots)
       }
     }
   }
@@ -624,6 +628,7 @@ function buildEnlightenInfluenceByTargetId(
 
 function buildTalentInfluenceByTargetId(record: AwakenerFullRecord): Map<string, string[]> {
   const influenceByTargetId = new Map<string, string[]>()
+  const influenceTalentSetByTargetId = new Map<string, Set<string>>()
   const talentIds = new Set(
     [
       record.talents.T1,
@@ -644,9 +649,12 @@ function buildTalentInfluenceByTargetId(record: AwakenerFullRecord): Map<string,
         continue
       }
       const existing = influenceByTargetId.get(target.id) ?? []
-      if (!existing.includes(upgrade.upgraderId)) {
+      const existingTalentIds = influenceTalentSetByTargetId.get(target.id) ?? new Set()
+      if (!existingTalentIds.has(upgrade.upgraderId)) {
         existing.push(upgrade.upgraderId)
+        existingTalentIds.add(upgrade.upgraderId)
         influenceByTargetId.set(target.id, existing)
+        influenceTalentSetByTargetId.set(target.id, existingTalentIds)
       }
     }
   }

@@ -1,11 +1,11 @@
-import {createContext, useContext, useEffect, useState} from 'react'
+import {createContext, use, useEffect, useState} from 'react'
 
 const BUILDER_V2_TOUCH_DND_DISABLE_QUERY = '(any-pointer: coarse), (pointer: coarse), (hover: none)'
 
 export const BuilderV2DndEnabledContext = createContext(true)
 
 export function useBuilderV2DndEnabled() {
-  return useContext(BuilderV2DndEnabledContext)
+  return use(BuilderV2DndEnabledContext)
 }
 
 export function useBuilderV2DndEnabledForDevice() {

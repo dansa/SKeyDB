@@ -67,7 +67,7 @@ function CovenantPlaceholderSvg() {
   )
 }
 
-function renderCovenantTileVisual(covenantId: string | undefined) {
+function CovenantTileVisual({covenantId}: {covenantId: string | undefined}) {
   const contentClassName = 'covenant-tile-content absolute inset-0 rounded-full'
 
   if (!covenantId) {
@@ -132,7 +132,7 @@ export function CardCovenantTile({
   const tileClassName = `covenant-tile group/covenant relative z-20 aspect-square ${
     isActive ? 'covenant-tile-active' : ''
   } ${showOver ? 'covenant-tile-over' : ''} ${isDragging ? 'opacity-65' : ''}`
-  const tileVisual = <>{renderCovenantTileVisual(covenantId)}</>
+  const tileVisual = <CovenantTileVisual covenantId={covenantId} />
 
   if (!interactive) {
     return <div className={tileClassName}>{tileVisual}</div>

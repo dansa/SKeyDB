@@ -23,7 +23,7 @@ function StepButton({ariaLabel, disabled, onStep, children}: StepButtonProps) {
   return (
     <button
       aria-label={ariaLabel}
-      className='flex h-5 w-5 items-center justify-center border border-slate-500/45 bg-slate-950/70 text-[9px] text-slate-300 transition-colors hover:border-slate-300/55 hover:text-slate-100 disabled:cursor-default disabled:border-slate-700/45 disabled:text-slate-600'
+      className='flex size-5 items-center justify-center border border-slate-500/45 bg-slate-950/70 text-[9px] text-slate-300 transition-colors hover:border-slate-300/55 hover:text-slate-100 disabled:cursor-default disabled:border-slate-700/45 disabled:text-slate-600'
       disabled={disabled}
       onBlur={hold.onBlur}
       onClick={hold.onClick}
@@ -51,13 +51,13 @@ export function AwakenerPsycheSurgeStepper({
       title='Psyche Surge substat bonus'
     >
       <StepButton ariaLabel='Decrease Psyche Surge' disabled={offset <= 0} onStep={onDecrease}>
-        <FaMinus className='h-2.5 w-2.5' />
+        <FaMinus className='size-2.5' />
       </StepButton>
       <span className='min-w-[3.75rem] rounded border border-slate-500/55 bg-slate-950/80 px-1.5 py-0.5 text-center font-mono text-[10px] text-slate-200'>
         E3+{offset}
       </span>
       <StepButton ariaLabel='Increase Psyche Surge' disabled={offset >= 12} onStep={onIncrease}>
-        <FaPlus className='h-2.5 w-2.5' />
+        <FaPlus className='size-2.5' />
       </StepButton>
     </div>
   )

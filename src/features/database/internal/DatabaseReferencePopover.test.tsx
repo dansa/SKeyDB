@@ -145,7 +145,7 @@ describe('DatabaseReferencePopover', () => {
     expect(screen.getByText('E1')).toBeInTheDocument()
     expect(screen.getByText('E3')).toBeInTheDocument()
     expect(screen.getByText('T1')).toBeInTheDocument()
-    expect(screen.getByRole('button', {name: 'Close database popover'})).toHaveClass('h-8', 'w-8')
+    expect(screen.getByRole('button', {name: 'Close database popover'})).toHaveClass('size-8')
   })
 
   it('renders lore markup and optional thumbnails in the popover header', () => {

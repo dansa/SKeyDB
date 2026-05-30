@@ -440,7 +440,7 @@ function ScalingSubstatFilterRow({
               {option.iconAsset ? (
                 <img
                   alt=''
-                  className='h-3.5 w-3.5 shrink-0 object-contain'
+                  className='size-3.5 shrink-0 object-contain'
                   draggable={false}
                   src={option.iconAsset}
                 />

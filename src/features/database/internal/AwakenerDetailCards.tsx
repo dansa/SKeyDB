@@ -83,7 +83,7 @@ export function AwakenerDetailCards({
   )
 
   if (!shellView) {
-    return <p className='py-4 text-xs text-slate-400'>Loading card data...</p>
+    return <p className='py-4 text-xs text-slate-400'>Loading card data…</p>
   }
 
   const view = shellView

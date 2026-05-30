@@ -229,7 +229,9 @@ export function useCollectionViewModel() {
   const [awakenerSortGroupByRealm, setAwakenerSortGroupByRealm] = useState(
     persistedAwakenerSortConfig.groupByRealm,
   )
-  const rememberedLevelsRef = useRef(createInitialRememberedLevels())
+  const rememberedLevelsRef = useRef<ReturnType<typeof createInitialRememberedLevels> | null>(null)
+  rememberedLevelsRef.current ??= createInitialRememberedLevels()
+  const rememberedLevels = rememberedLevelsRef.current
 
   const awakeners = useMemo(
     () =>
@@ -463,10 +465,10 @@ export function useCollectionViewModel() {
     updateOwnership((prev) => {
       const currentLevel = getOwnedLevel(prev, kind, id)
       if (currentLevel === null) {
-        const rememberedLevel = rememberedLevelsRef.current[kind][id]
+        const rememberedLevel = rememberedLevels[kind][id]
         return setOwnedLevel(prev, kind, id, rememberedLevel ?? 0, ownershipCatalog)
       }
-      rememberedLevelsRef.current[kind][id] = currentLevel
+      rememberedLevels[kind][id] = currentLevel
       return clearOwnedEntry(prev, kind, id, ownershipCatalog)
     })
     if (kind === 'awakeners') {
@@ -515,7 +517,7 @@ export function useCollectionViewModel() {
           prev,
           filteredAwakeners,
           awakenerIdByName,
-          rememberedLevelsRef.current.awakeners,
+          rememberedLevels.awakeners,
           ownershipCatalog,
         )
       }
@@ -524,7 +526,7 @@ export function useCollectionViewModel() {
         return markFilteredWheelOwnership(
           prev,
           filteredWheels,
-          rememberedLevelsRef.current.wheels,
+          rememberedLevels.wheels,
           ownershipCatalog,
         )
       }
@@ -532,7 +534,7 @@ export function useCollectionViewModel() {
       return markFilteredPosseOwnership(
         prev,
         filteredPosses,
-        rememberedLevelsRef.current.posses,
+        rememberedLevels.posses,
         ownershipCatalog,
       )
     })
@@ -546,7 +548,7 @@ export function useCollectionViewModel() {
           prev,
           filteredAwakeners,
           awakenerIdByName,
-          rememberedLevelsRef.current.awakeners,
+          rememberedLevels.awakeners,
           ownershipCatalog,
         )
       }
@@ -555,7 +557,7 @@ export function useCollectionViewModel() {
         return clearFilteredWheelOwnership(
           prev,
           filteredWheels,
-          rememberedLevelsRef.current.wheels,
+          rememberedLevels.wheels,
           ownershipCatalog,
         )
       }
@@ -563,7 +565,7 @@ export function useCollectionViewModel() {
       return clearFilteredPosseOwnership(
         prev,
         filteredPosses,
-        rememberedLevelsRef.current.posses,
+        rememberedLevels.posses,
         ownershipCatalog,
       )
     })

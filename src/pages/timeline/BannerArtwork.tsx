@@ -337,19 +337,18 @@ function PoolMontagePlaceholderSlot({
 }
 
 function PoolMontageArtwork({
-  cycleFrames,
   loading,
   onOpenDetail,
-  onReadyChange,
+  poolSlots,
   visualSlots,
 }: {
-  cycleFrames: PoolCycleFrame[]
   loading: 'eager' | 'lazy'
   onOpenDetail?: (ref: EntityRef) => void
-  onReadyChange: (ready: boolean) => void
+  poolSlots: BannerPoolSlot[]
   visualSlots: ResolvedVisualSlot[]
 }) {
-  const {assetsReady, rootRef} = usePoolMontagePreload(visualSlots, onReadyChange)
+  const {assetsReady, rootRef} = usePoolMontagePreload(visualSlots)
+  const cycleFrames = usePoolCycling(poolSlots, {enabled: assetsReady})
 
   return (
     <div
@@ -436,8 +435,6 @@ export function BannerArtwork({
     () => (effectivePoolSlots.length > 0 ? resolvePoolSlots(effectivePoolSlots) : null),
     [effectivePoolSlots],
   )
-  const [poolAssetsReady, setPoolAssetsReady] = useState(() => import.meta.env.MODE === 'test')
-  const cycleFrames = usePoolCycling(effectivePoolSlots, {enabled: poolAssetsReady})
 
   if (customArt) {
     return <FullCardArtwork label={title} loading={loading} url={customArt} />
@@ -446,10 +443,9 @@ export function BannerArtwork({
   if (visualSlots && visualSlots.length > 0) {
     return (
       <PoolMontageArtwork
-        cycleFrames={cycleFrames}
         loading={loading}
         onOpenDetail={onOpenDetail}
-        onReadyChange={setPoolAssetsReady}
+        poolSlots={effectivePoolSlots}
         visualSlots={visualSlots}
       />
     )

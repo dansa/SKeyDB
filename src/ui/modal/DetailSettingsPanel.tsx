@@ -38,7 +38,7 @@ export function DetailSettingsPanel({
           <label className='flex items-start gap-2 text-left'>
             <input
               checked={showTagIcons}
-              className='mt-0.5 h-3.5 w-3.5 accent-amber-200'
+              className='mt-0.5 size-3.5 accent-amber-200'
               onChange={(event) => {
                 onShowTagIconsChange(event.target.checked)
               }}
@@ -56,7 +56,7 @@ export function DetailSettingsPanel({
           <label className='flex items-start gap-2 text-left'>
             <input
               checked={clickOutsideClosesPopovers}
-              className='mt-0.5 h-3.5 w-3.5 accent-amber-200'
+              className='mt-0.5 size-3.5 accent-amber-200'
               onChange={(event) => {
                 onClickOutsideClosesPopoversChange(event.target.checked)
               }}

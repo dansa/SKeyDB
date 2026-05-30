@@ -122,7 +122,9 @@ export function resolveTimelineBannerDerivedPool(
   }))
 
   if (input.linkedPairs) {
-    const wheelOwnerIds = new Set(wheels.map((wheel) => wheel.ownerAwakenerId).filter(Boolean))
+    const wheelOwnerIds = new Set(
+      wheels.flatMap((wheel) => (wheel.ownerAwakenerId ? [wheel.ownerAwakenerId] : [])),
+    )
     const missingWheelAwakeners = awakeners.filter((awakener) => !wheelOwnerIds.has(awakener.id))
     if (missingWheelAwakeners.length > 0) {
       throw new Error(

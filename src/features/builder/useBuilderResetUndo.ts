@@ -28,8 +28,9 @@ export function useBuilderResetUndo({
 
   useEffect(() => {
     return () => {
-      if (undoTimeoutRef.current) {
-        window.clearTimeout(undoTimeoutRef.current)
+      const undoTimeout = undoTimeoutRef.current
+      if (undoTimeout) {
+        window.clearTimeout(undoTimeout)
       }
     }
   }, [])

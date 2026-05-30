@@ -21,7 +21,7 @@ export interface CardWheelTileProps {
   onClick?: (wheelIndex: WheelSlotIndex) => void
 }
 
-function renderWheelTileVisual(wheelId: string | null) {
+function WheelTileVisual({wheelId}: {wheelId: string | null}) {
   if (!wheelId) {
     return (
       <span className='wheel-tile-content absolute inset-[2px] border border-slate-700/70 bg-slate-900/60'>
@@ -74,12 +74,17 @@ function getWheelTileClassName(
   } ${showOver ? 'wheel-tile-over' : ''} ${isDragging ? 'opacity-65' : ''} ${!isOwned && wheelId ? 'wheel-tile-unowned' : ''}`
 }
 
-function renderWheelOwnership(
-  showOwnership: boolean,
-  wheelId: string | null,
-  isOwned: boolean,
-  ownedLevel: number | null,
-) {
+function WheelOwnership({
+  showOwnership,
+  wheelId,
+  isOwned,
+  ownedLevel,
+}: {
+  showOwnership: boolean
+  wheelId: string | null
+  isOwned: boolean
+  ownedLevel: number | null
+}) {
   if (!showOwnership || !wheelId) {
     return null
   }
@@ -135,7 +140,7 @@ export function CardWheelTile({
   const tileVisual = (
     <>
       <span className='wheel-tile-frame absolute inset-0 border border-slate-200/45' />
-      {renderWheelTileVisual(wheelId)}
+      <WheelTileVisual wheelId={wheelId} />
     </>
   )
 
@@ -157,7 +162,7 @@ export function CardWheelTile({
       {allowActiveRemoval && isActive && wheelId ? (
         <button
           aria-label='Remove active wheel'
-          className='builder-card-remove-button absolute -top-0.5 -right-0.5 z-40 h-7 w-7'
+          className='builder-card-remove-button absolute -top-0.5 -right-0.5 z-40 size-7'
           data-card-remove='true'
           onClick={(event) => {
             event.preventDefault()
@@ -170,7 +175,12 @@ export function CardWheelTile({
           <span className='sigil-remove-x builder-card-remove-x' />
         </button>
       ) : null}
-      {renderWheelOwnership(showOwnership, wheelId, isOwned, ownedLevel)}
+      <WheelOwnership
+        showOwnership={showOwnership}
+        wheelId={wheelId}
+        isOwned={isOwned}
+        ownedLevel={ownedLevel}
+      />
       {tileVisual}
     </div>
   )

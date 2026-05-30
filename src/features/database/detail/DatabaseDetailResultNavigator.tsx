@@ -105,7 +105,7 @@ function useClearInheritedDetailSearchFocus(currentId: string | null) {
 }
 
 function getResultImageFrameClass(preview: DatabaseDetailResultNavigationPreview): string {
-  const baseClass = 'block h-6 w-6 shrink-0 overflow-hidden min-[28rem]:h-7 min-[28rem]:w-7'
+  const baseClass = 'block size-6 shrink-0 overflow-hidden min-[28rem]:h-7 min-[28rem]:w-7'
 
   if (preview.imageTreatment === 'icon' || preview.imageTreatment === 'covenant-icon') {
     return `${baseClass} bg-transparent`
@@ -136,7 +136,7 @@ function ResultButton({direction, onSelect, target}: ResultButtonProps) {
       <span
         className={`flex min-w-0 flex-1 items-center gap-2 ${isPrevious ? '' : 'flex-row-reverse'}`}
       >
-        <Icon aria-hidden className='h-3 w-3 shrink-0 text-amber-200/75' />
+        <Icon aria-hidden className='size-3 shrink-0 text-amber-200/75' />
         {target.preview.imageSrc ? (
           <span className={getResultImageFrameClass(target.preview)}>
             <img

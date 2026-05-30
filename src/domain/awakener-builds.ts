@@ -235,9 +235,33 @@ export type AwakenerBuild = z.infer<typeof awakenerBuildSchema>
 export type AwakenerBuildEntry = z.infer<typeof awakenerBuildEntrySchema>
 
 let awakenerBuildEntriesCache: AwakenerBuildEntry[] | null = null
+const wheelRecommendationTierByBuildCache = new WeakMap<
+  AwakenerBuild,
+  ReadonlyMap<string, AwakenerBuildWheelTier>
+>()
 
 function getWheelTierOrder(tier: AwakenerBuildWheelTier): number {
   return AWAKENER_BUILD_WHEEL_TIERS.indexOf(tier)
+}
+
+function getWheelRecommendationTierById(
+  build: AwakenerBuild,
+): ReadonlyMap<string, AwakenerBuildWheelTier> {
+  const cached = wheelRecommendationTierByBuildCache.get(build)
+  if (cached) {
+    return cached
+  }
+
+  const tierById = new Map<string, AwakenerBuildWheelTier>()
+  for (const group of build.recommendedWheels) {
+    for (const wheelId of group.wheelIds) {
+      if (!tierById.has(wheelId)) {
+        tierById.set(wheelId, group.tier)
+      }
+    }
+  }
+  wheelRecommendationTierByBuildCache.set(build, tierById)
+  return tierById
 }
 
 export function getAwakenerBuildEntries(): AwakenerBuildEntry[] {
@@ -289,12 +313,7 @@ export function getWheelRecommendationTier(
   if (!build) {
     return null
   }
-  for (const group of build.recommendedWheels) {
-    if (group.wheelIds.includes(wheelId)) {
-      return group.tier
-    }
-  }
-  return null
+  return getWheelRecommendationTierById(build).get(wheelId) ?? null
 }
 
 export function isWheelMainstatRecommended(

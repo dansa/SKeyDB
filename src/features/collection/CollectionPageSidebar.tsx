@@ -117,6 +117,7 @@ export function CollectionPageSidebar({model, searchInputRef}: CollectionPageSid
         ) : null}
 
         <input
+          aria-label={`Search ${activeCollectionLabel}`}
           className='mt-2 w-full border border-slate-800/95 bg-slate-950/90 px-3 py-2 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-amber-300/65 focus:bg-slate-950'
           onChange={(event) => {
             model.setQuery(event.target.value)
@@ -179,7 +180,7 @@ export function CollectionPageSidebar({model, searchInputRef}: CollectionPageSid
                   {entry.iconAsset ? (
                     <img
                       alt={entry.label}
-                      className='h-[17px] w-[17px] object-contain opacity-95'
+                      className='size-[17px] object-contain opacity-95'
                       draggable={false}
                       src={entry.iconAsset}
                     />

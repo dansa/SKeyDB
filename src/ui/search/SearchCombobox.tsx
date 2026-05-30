@@ -67,7 +67,7 @@ export function SearchCombobox<TResult>({
   return (
     <div className='group/search relative w-full' data-detail-modal-external='' ref={containerRef}>
       <div className='flex items-center gap-2 border border-amber-200/18 bg-slate-950/[.96] px-3 py-2 shadow-[0_12px_26px_rgba(2,6,23,0.45)] transition-colors focus-within:border-amber-200/70 focus-within:ring-2 focus-within:ring-amber-200/30 hover:border-amber-200/45 motion-reduce:transition-none'>
-        <FaMagnifyingGlass className='h-3.5 w-3.5 shrink-0 text-slate-500 transition-colors group-focus-within/search:text-amber-200/75 group-hover/search:text-slate-400 motion-reduce:transition-none' />
+        <FaMagnifyingGlass className='size-3.5 shrink-0 text-slate-500 transition-colors group-focus-within/search:text-amber-200/75 group-hover/search:text-slate-400 motion-reduce:transition-none' />
         <input
           aria-activedescendant={activeOptionId}
           aria-autocomplete='list'
@@ -121,7 +121,7 @@ export function SearchCombobox<TResult>({
               )
             })}
             {showEmptyState ? (
-              <div className='px-3 py-3 text-xs text-slate-500'>{emptyMessage}</div>
+              <div className='p-3 text-xs text-slate-500'>{emptyMessage}</div>
             ) : null}
           </div>
         </div>

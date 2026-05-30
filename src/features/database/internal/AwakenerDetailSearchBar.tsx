@@ -44,7 +44,7 @@ export function AwakenerDetailSearchBar({
       onInputKeyDown={onInputKeyDown}
       onQueryChange={onQueryChange}
       onSelectResult={onSelectAwakener}
-      placeholder='Jump to awakener...'
+      placeholder='Jump to awakener…'
       query={query}
       renderResult={(awakener) => <AwakenerSearchResultRow awakener={awakener} />}
       results={results}
@@ -57,7 +57,7 @@ function AwakenerSearchResultRow({awakener}: {awakener: Awakener}) {
 
   return (
     <>
-      <div className='h-9 w-9 shrink-0 overflow-hidden border border-slate-600/35 bg-slate-900/80'>
+      <div className='size-9 shrink-0 overflow-hidden border border-slate-600/35 bg-slate-900/80'>
         {portrait ? (
           <img
             alt=''

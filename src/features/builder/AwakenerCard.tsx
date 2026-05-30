@@ -48,14 +48,21 @@ function getAwakenerCardClassName(
   } ${isDragging ? 'opacity-60' : ''} ${isActive ? 'builder-card-active' : ''}`
 }
 
-function renderAwakenerCardImage(
-  slot: TeamSlot,
-  cardAsset: string | undefined,
-  cardImageLoaded: boolean,
-  awakenerOwnedLevel: number | null,
-  onCardImageError: () => void,
-  onCardImageLoad: () => void,
-) {
+function AwakenerCardImage({
+  slot,
+  cardAsset,
+  cardImageLoaded,
+  awakenerOwnedLevel,
+  onCardImageError,
+  onCardImageLoad,
+}: {
+  slot: TeamSlot
+  cardAsset: string | undefined
+  cardImageLoaded: boolean
+  awakenerOwnedLevel: number | null
+  onCardImageError: () => void
+  onCardImageLoad: () => void
+}) {
   const awakenerName = getSlotAwakenerName(slot)
   if (!cardAsset || !awakenerName) {
     return null
@@ -74,7 +81,13 @@ function renderAwakenerCardImage(
   )
 }
 
-function renderAwakenerCardOverlay(cardAsset: string | undefined, cardImageLoaded: boolean) {
+function AwakenerCardOverlay({
+  cardAsset,
+  cardImageLoaded,
+}: {
+  cardAsset: string | undefined
+  cardImageLoaded: boolean
+}) {
   if (cardImageLoaded) {
     return <div className='builder-card-bottom-shade pointer-events-none absolute inset-0 z-10' />
   }
@@ -92,11 +105,15 @@ function renderAwakenerCardOverlay(cardAsset: string | undefined, cardImageLoade
   )
 }
 
-function renderAwakenerCardHeader(
-  displayName: string,
-  isSupport: boolean | undefined,
-  awakenerOwnedLevel: number | null,
-) {
+function AwakenerCardHeader({
+  displayName,
+  isSupport,
+  awakenerOwnedLevel,
+}: {
+  displayName: string
+  isSupport: boolean | undefined
+  awakenerOwnedLevel: number | null
+}) {
   return (
     <div className='builder-card-name-wrap pointer-events-none absolute inset-x-0 top-0 z-20 px-2 pt-1 pb-[18%]'>
       <p className='builder-card-name ui-title text-slate-100'>{displayName}</p>
@@ -106,7 +123,7 @@ function renderAwakenerCardHeader(
   )
 }
 
-function renderEmptyAwakenerCardState() {
+function EmptyAwakenerCardState() {
   return (
     <div className='pointer-events-none absolute inset-0 z-10 bg-slate-700/15'>
       <span className='sigil-placeholder sigil-placeholder-card' />
@@ -114,10 +131,13 @@ function renderEmptyAwakenerCardState() {
   )
 }
 
-function renderRemoveAwakenerButton(
-  hasRemovableAwakenerSelection: boolean,
-  onRemoveActiveSelection?: () => void,
-) {
+function RemoveAwakenerButton({
+  hasRemovableAwakenerSelection,
+  onRemoveActiveSelection,
+}: {
+  hasRemovableAwakenerSelection: boolean
+  onRemoveActiveSelection?: () => void
+}) {
   if (!hasRemovableAwakenerSelection) {
     return null
   }
@@ -125,7 +145,7 @@ function renderRemoveAwakenerButton(
   return (
     <button
       aria-label='Remove active awakener'
-      className='builder-card-remove-button absolute top-1 right-1 z-40 h-9 w-9'
+      className='builder-card-remove-button absolute top-1 right-1 z-40 size-9'
       data-card-remove='true'
       onClick={onRemoveActiveSelection}
       type='button'
@@ -136,7 +156,7 @@ function renderRemoveAwakenerButton(
   )
 }
 
-function renderAwakenerCardWheelZone({
+function AwakenerCardWheelZone({
   cardImageLoaded,
   activeDragKind,
   activeKind,
@@ -238,7 +258,10 @@ export function AwakenerCard({
       }}
       ref={setDroppableRef}
     >
-      {renderRemoveAwakenerButton(hasRemovableAwakenerSelection, onRemoveActiveSelection)}
+      <RemoveAwakenerButton
+        hasRemovableAwakenerSelection={hasRemovableAwakenerSelection}
+        onRemoveActiveSelection={onRemoveActiveSelection}
+      />
       <button
         aria-label={hitboxLabel}
         className='builder-card-hitbox absolute inset-0 z-10'
@@ -250,35 +273,39 @@ export function AwakenerCard({
 
       {hasAwakener ? (
         <>
-          {renderAwakenerCardImage(
-            slot,
-            cardAsset,
-            cardImageLoaded,
-            awakenerOwnedLevel,
-            handleCardImageError,
-            handleCardImageLoad,
-          )}
-          {renderAwakenerCardOverlay(cardAsset, cardImageLoaded)}
-          {renderAwakenerCardHeader(displayName, slot.isSupport, awakenerOwnedLevel)}
+          <AwakenerCardImage
+            slot={slot}
+            cardAsset={cardAsset}
+            cardImageLoaded={cardImageLoaded}
+            awakenerOwnedLevel={awakenerOwnedLevel}
+            onCardImageError={handleCardImageError}
+            onCardImageLoad={handleCardImageLoad}
+          />
+          <AwakenerCardOverlay cardAsset={cardAsset} cardImageLoaded={cardImageLoaded} />
+          <AwakenerCardHeader
+            displayName={displayName}
+            isSupport={slot.isSupport}
+            awakenerOwnedLevel={awakenerOwnedLevel}
+          />
 
-          {renderAwakenerCardWheelZone({
-            cardImageLoaded,
-            activeDragKind,
-            activeKind,
-            activeWheelIndex,
-            slot,
-            onCovenantSlotClick,
-            onRemoveActiveSelection,
-            onWheelSlotClick,
-            awakenerLevel,
-            awakenerOwnedLevel,
-            allowActiveRemoval,
-            wheelOwnedLevels,
-            predictedDropHover,
-          })}
+          <AwakenerCardWheelZone
+            cardImageLoaded={cardImageLoaded}
+            activeDragKind={activeDragKind}
+            activeKind={activeKind}
+            activeWheelIndex={activeWheelIndex}
+            slot={slot}
+            onCovenantSlotClick={onCovenantSlotClick}
+            onRemoveActiveSelection={onRemoveActiveSelection}
+            onWheelSlotClick={onWheelSlotClick}
+            awakenerLevel={awakenerLevel}
+            awakenerOwnedLevel={awakenerOwnedLevel}
+            allowActiveRemoval={allowActiveRemoval}
+            wheelOwnedLevels={wheelOwnedLevels}
+            predictedDropHover={predictedDropHover}
+          />
         </>
       ) : (
-        renderEmptyAwakenerCardState()
+        <EmptyAwakenerCardState />
       )}
     </article>
   )

@@ -213,7 +213,13 @@ function getTeamWheelGhostImageClassName(
   }`
 }
 
-function renderTeamWheelGhostRemoveOverlay(removeIntent: boolean, isCovenant: boolean) {
+function TeamWheelGhostRemoveOverlay({
+  removeIntent,
+  isCovenant,
+}: {
+  removeIntent: boolean
+  isCovenant: boolean
+}) {
   if (!removeIntent) {
     return null
   }
@@ -232,13 +238,19 @@ function renderTeamWheelGhostRemoveOverlay(removeIntent: boolean, isCovenant: bo
   )
 }
 
-function renderTeamWheelGhostVisual(
-  wheelId: string,
-  wheelAsset: string | undefined,
-  isCovenant: boolean,
-  isOwned: boolean,
-  removeIntent: boolean,
-) {
+function TeamWheelGhostVisual({
+  wheelId,
+  wheelAsset,
+  isCovenant,
+  isOwned,
+  removeIntent,
+}: {
+  wheelId: string
+  wheelAsset: string | undefined
+  isCovenant: boolean
+  isOwned: boolean
+  removeIntent: boolean
+}) {
   if (wheelAsset) {
     return (
       <img
@@ -273,8 +285,14 @@ export function TeamWheelGhost({
   return (
     <div className={getTeamWheelGhostWrapperClassName(removeIntent, isCovenant)}>
       <div className={getTeamWheelGhostFrameClassName(isCovenant)}>
-        {renderTeamWheelGhostVisual(wheelId, wheelAsset, isCovenant, isOwned, removeIntent)}
-        {renderTeamWheelGhostRemoveOverlay(removeIntent, isCovenant)}
+        <TeamWheelGhostVisual
+          wheelId={wheelId}
+          wheelAsset={wheelAsset}
+          isCovenant={isCovenant}
+          isOwned={isOwned}
+          removeIntent={removeIntent}
+        />
+        <TeamWheelGhostRemoveOverlay removeIntent={removeIntent} isCovenant={isCovenant} />
         {!isCovenant && !isOwned ? <span className='builder-unowned-chip'>Unowned</span> : null}
       </div>
     </div>

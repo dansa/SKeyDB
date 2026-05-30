@@ -58,6 +58,12 @@ const SCALING_ROLE_ORDER = {
   SUB: 1,
 } satisfies Record<AwakenerScalingSubstatRole, number>
 
+const RELEASE_DATE_FORMATTER = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC',
+})
+
 export function resolveAwakenerCardMetaIntent({
   availabilityFilter,
   rarityFilter,
@@ -84,11 +90,7 @@ function formatReleaseDate(value: string | undefined): string | null {
   if (Number.isNaN(parsedDate.getTime())) {
     return value
   }
-  return new Intl.DateTimeFormat('en-US', {
-    month: 'short',
-    year: 'numeric',
-    timeZone: 'UTC',
-  }).format(parsedDate)
+  return RELEASE_DATE_FORMATTER.format(parsedDate)
 }
 
 function getAvailabilitySourceLabel(value: string | undefined): string | null {

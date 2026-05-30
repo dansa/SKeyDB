@@ -32,11 +32,15 @@ function getCovenantDragData(draggableEnabled: boolean, covenantId?: string): Dr
   return {kind: 'picker-covenant', covenantId}
 }
 
-function renderCovenantPreview(
-  covenantAsset: string | undefined,
-  isNotSet: boolean,
-  altText: string,
-) {
+function CovenantPreview({
+  covenantAsset,
+  isNotSet,
+  altText,
+}: {
+  covenantAsset: string | undefined
+  isNotSet: boolean
+  altText: string
+}) {
   if (covenantAsset) {
     return (
       <img
@@ -118,7 +122,7 @@ export function PickerCovenantTile({
                 title={`Open ${covenantDisplayName} details overlay`}
                 type='button'
               >
-                <FaCircleInfo aria-hidden className='h-3 w-3' />
+                <FaCircleInfo aria-hidden className='size-3' />
               </button>
             ) : undefined
           }
@@ -131,7 +135,9 @@ export function PickerCovenantTile({
           name={covenantDisplayName}
           nameClassName='truncate'
           nameTitle={covenantDisplayName}
-          preview={renderCovenantPreview(covenantAsset, isNotSet, altText)}
+          preview={
+            <CovenantPreview covenantAsset={covenantAsset} isNotSet={isNotSet} altText={altText} />
+          }
           previewClassName='aspect-square border border-slate-400/35 bg-slate-900/70'
         />
       </div>

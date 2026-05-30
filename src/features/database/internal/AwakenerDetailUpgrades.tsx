@@ -204,7 +204,7 @@ export function AwakenerDetailUpgrades({
   }, [fontScale, popoverController, shellView])
 
   if (!shellView) {
-    return <p className='py-4 text-xs text-slate-400'>Loading...</p>
+    return <p className='py-4 text-xs text-slate-400'>Loading…</p>
   }
   const talentItems: DetailSectionItem[] = shellView.talents
     .filter((entry) => TALENT_ORDER.includes(entry.key as (typeof TALENT_ORDER)[number]))
@@ -231,7 +231,7 @@ export function AwakenerDetailUpgrades({
         {portraitRelic ? (
           <div className='px-4 py-3'>
             <div className='flex items-start gap-3'>
-              <div className='h-16 w-16 shrink-0 overflow-hidden'>
+              <div className='size-16 shrink-0 overflow-hidden'>
                 {portraitRelicAsset ? (
                   <img
                     alt={`${portraitRelic.name} icon`}

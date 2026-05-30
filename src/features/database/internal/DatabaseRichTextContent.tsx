@@ -8,6 +8,7 @@ import {
 } from '@/domain/database-rich-text'
 import type {DescribedRecord} from '@/domain/description-records'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
+import type {RichSegment} from '@/domain/rich-text'
 
 import {
   RichSegmentRenderer,
@@ -16,6 +17,36 @@ import {
 } from './RichSegmentRenderer'
 
 const EMPTY_CARD_NAMES = new Set<string>()
+
+function getRichSegmentKeyParts(segment: RichSegment): string {
+  switch (segment.type) {
+    case 'text':
+      return `${segment.type}:${segment.value}`
+    case 'skill':
+    case 'stat':
+    case 'mechanic':
+    case 'reference':
+    case 'realm':
+      return `${segment.type}:${segment.name}`
+    case 'scaling':
+      return `${segment.type}:${segment.values.join('/')}:${segment.suffix}:${segment.stat ?? ''}`
+    case 'descriptionArg':
+      return `${segment.type}:${segment.channel ?? ''}:${segment.argKey}`
+    case 'argPlural':
+      return `${segment.type}:${segment.channel ?? ''}:${segment.argKey}:${segment.singular}:${segment.plural}`
+  }
+}
+
+function getRichSegmentKeys(segments: RichSegment[]): string[] {
+  const occurrences = new Map<string, number>()
+
+  return segments.map((segment) => {
+    const keyParts = getRichSegmentKeyParts(segment)
+    const occurrence = occurrences.get(keyParts) ?? 0
+    occurrences.set(keyParts, occurrence + 1)
+    return `${keyParts}:${occurrence.toString()}`
+  })
+}
 
 export interface DatabaseRichTextContentProps {
   text?: string
@@ -69,6 +100,7 @@ export function DatabaseRichTextContent({
       }),
     [keywordFooterText, parseContext, record, text],
   )
+  const segmentKeys = useMemo(() => getRichSegmentKeys(segments), [segments])
 
   return (
     <>
@@ -78,7 +110,7 @@ export function DatabaseRichTextContent({
           formulaContext={formulaContext}
           descriptionMaxRank={descriptionMaxRank}
           descriptionRank={descriptionRank}
-          key={index}
+          key={segmentKeys[index]}
           onMechanicClick={onMechanicClick}
           onSkillClick={onSkillClick}
           overlayByName={referenceLayer?.overlayByName}

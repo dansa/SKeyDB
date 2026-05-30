@@ -61,6 +61,7 @@ export function CollectionPageToolbar({
     <>
       <input
         accept='application/json,.json'
+        aria-label='Load collection from JSON file'
         className='hidden'
         onChange={(event) => {
           void onLoadFromFile(event)

@@ -88,7 +88,7 @@ function ScalingInfoButton({
       }}
       type='button'
     >
-      <FaCircleInfo className='h-2.5 w-2.5 text-amber-200/75' />
+      <FaCircleInfo className='size-2.5 text-amber-200/75' />
       <span className='border-b border-dotted border-slate-500/45 tracking-[0.18em] uppercase'>
         Scaling info
       </span>
@@ -142,7 +142,7 @@ export function AwakenerDetailStatsPanel({
           {icon ? (
             <img
               alt=''
-              className='h-3.5 w-3.5 shrink-0 object-contain opacity-60'
+              className='size-3.5 shrink-0 object-contain opacity-60'
               draggable={false}
               src={icon}
             />
@@ -189,7 +189,7 @@ export function AwakenerDetailStatsPanel({
           ) : null}
         </>
       ) : (
-        <p className='text-[11px] text-slate-500'>Loading...</p>
+        <p className='text-[11px] text-slate-500'>Loading…</p>
       )}
 
       {compact ? (
@@ -203,9 +203,7 @@ export function AwakenerDetailStatsPanel({
             type='button'
           >
             <FaChevronDown
-              className={`h-2.5 w-2.5 shrink-0 transition-transform ${
-                isExpanded ? 'rotate-180' : ''
-              }`}
+              className={`size-2.5 shrink-0 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
             />
             <span className='truncate'>{isExpanded ? 'Hide secondary' : 'Show all stats'}</span>
           </button>
@@ -229,7 +227,7 @@ export function AwakenerDetailStatsPanel({
             type='button'
           >
             <FaChevronDown
-              className={`h-2.5 w-2.5 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+              className={`size-2.5 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
             />
             {isExpanded ? 'Hide secondary stats' : 'Show all stats'}
           </button>

@@ -1,4 +1,4 @@
-import {Children, useId, useState, type ReactNode} from 'react'
+import {Children, isValidElement, useId, useState, type ReactNode} from 'react'
 
 import {
   getDatabaseDetailBodyTextStyle,
@@ -25,6 +25,32 @@ interface DatabaseTabRowProps {
 
 interface DatabaseTabSubsectionProps {
   children: ReactNode
+}
+
+function getSubsectionItemKey(child: ReactNode): string {
+  if (!isValidElement(child)) {
+    if (typeof child === 'string') {
+      return `primitive:${child}`
+    }
+    if (typeof child === 'number') {
+      return `primitive:${child.toString()}`
+    }
+    return `primitive:${typeof child}`
+  }
+
+  if (child.key !== null) {
+    return `react-key:${child.key}`
+  }
+
+  const props = child.props as {label?: unknown; className?: unknown}
+  if (typeof props.label === 'string') {
+    return `label:${props.label}`
+  }
+  if (typeof props.className === 'string') {
+    return `class:${props.className}`
+  }
+
+  return `type:${typeof child.type === 'string' ? child.type : child.type.name}`
 }
 
 export function DatabaseTab({children}: DatabaseTabProps) {
@@ -86,7 +112,7 @@ export function DatabaseTabSubsection({children}: DatabaseTabSubsectionProps) {
   return (
     <div>
       {items.map((child, index) => (
-        <div key={index}>
+        <div key={getSubsectionItemKey(child)}>
           {index > 0 ? (
             <div className='mx-4 h-px bg-gradient-to-r from-slate-600/50 via-slate-600/20 to-transparent' />
           ) : null}

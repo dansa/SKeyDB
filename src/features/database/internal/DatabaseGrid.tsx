@@ -20,13 +20,15 @@ interface DatabaseGridProps {
   sortKey: DatabaseSortKey
 }
 
+const EMPTY_SCALING_SUBSTAT_FILTERS: readonly AwakenerScalingSubstatFilter[] = []
+
 export function DatabaseGrid({
   availabilityFilter,
   awakeners,
   onPreloadAwakener,
   onSelectAwakener,
   rarityFilter,
-  scalingSubstatFilters = [],
+  scalingSubstatFilters = EMPTY_SCALING_SUBSTAT_FILTERS,
   sortKey,
 }: DatabaseGridProps) {
   const cardMetaContext: AwakenerCardMetaContext = {

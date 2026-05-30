@@ -86,6 +86,7 @@ export function BuilderSelectionFilters({
   return (
     <>
       <input
+        aria-label='Search selection'
         className='mt-3 w-full border border-slate-800/95 bg-slate-950/90 px-3 py-2 text-sm text-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] outline-none placeholder:text-slate-500 focus:border-amber-300/65 focus:bg-slate-950'
         onChange={(event) => {
           onSearchChange(event.target.value)
@@ -167,7 +168,7 @@ export function BuilderSelectionFilters({
                 {filterTab.iconAsset ? (
                   <img
                     alt={filterTab.label}
-                    className='h-[17px] w-[17px] object-contain opacity-95'
+                    className='size-[17px] object-contain opacity-95'
                     draggable={false}
                     src={filterTab.iconAsset}
                   />

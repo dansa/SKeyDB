@@ -45,7 +45,7 @@ export function WheelDetailSearchBar({
       onInputKeyDown={onInputKeyDown}
       onQueryChange={onQueryChange}
       onSelectResult={onSelectWheel}
-      placeholder='Jump to wheel...'
+      placeholder='Jump to wheel…'
       query={query}
       renderResult={(wheel) => <WheelSearchResultRow wheel={wheel} />}
       results={results}
@@ -63,7 +63,7 @@ function WheelSearchResultRow({wheel}: {wheel: Wheel}) {
 
   return (
     <>
-      <div className='h-9 w-9 shrink-0 overflow-hidden border border-slate-600/35 bg-slate-900/80'>
+      <div className='size-9 shrink-0 overflow-hidden border border-slate-600/35 bg-slate-900/80'>
         {asset ? (
           <img alt='' className='h-full w-full object-cover' draggable={false} src={asset} />
         ) : (
@@ -86,7 +86,7 @@ function WheelSearchResultRow({wheel}: {wheel: Wheel}) {
             {mainstatIcon ? (
               <img
                 alt=''
-                className='h-3.5 w-3.5 shrink-0 object-contain opacity-80'
+                className='size-3.5 shrink-0 object-contain opacity-80'
                 draggable={false}
                 src={mainstatIcon}
               />

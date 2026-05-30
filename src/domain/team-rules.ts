@@ -54,7 +54,12 @@ export const DEFAULT_TEAM_RULES_CONFIG: TeamRulesConfig = {
 }
 
 export function getDistinctRealmsForTeam(members: Pick<TeamMember, 'realm'>[]): Set<string> {
-  return new Set(members.map((member) => member.realm.trim().toUpperCase()).filter(Boolean))
+  return new Set(
+    members.flatMap((member) => {
+      const realm = member.realm.trim().toUpperCase()
+      return realm ? [realm] : []
+    }),
+  )
 }
 
 export function exceedsRealmLimitForTeam(

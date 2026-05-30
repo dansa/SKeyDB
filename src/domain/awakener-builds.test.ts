@@ -5,6 +5,7 @@ import {
   compareWheelsForBuildRecommendation,
   getAwakenerBuildEntryById,
   getPrimaryAwakenerBuild,
+  getWheelRecommendationTier,
   loadAwakenerBuildEntries,
   type AwakenerBuild,
 } from './awakener-builds'
@@ -93,6 +94,15 @@ describe('awakener builds', () => {
       'wheel-0087',
       'wheel-0004',
     ])
+  })
+
+  it('resolves wheel recommendation tiers by wheel id', () => {
+    const build = buildFixtureBuild()
+
+    expect(getWheelRecommendationTier(build, 'wheel-0028')).toBe('BIS_SSR')
+    expect(getWheelRecommendationTier(build, 'wheel-0080')).toBe('GOOD')
+    expect(getWheelRecommendationTier(build, 'wheel-0004')).toBeNull()
+    expect(getWheelRecommendationTier(null, 'wheel-0028')).toBeNull()
   })
 
   it('adds ordered mainstat promotion buckets without replacing fallback wheel ordering', () => {

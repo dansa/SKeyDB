@@ -71,7 +71,7 @@ export function SimpleArtifactDetailBody({
           {headerIconAsset ? (
             <button
               aria-label={`View full art for ${itemName}`}
-              className='h-16 w-16 shrink-0 overflow-visible'
+              className='size-16 shrink-0 overflow-visible'
               onClick={onOpenArtViewer}
               type='button'
             >
