@@ -1,6 +1,6 @@
 import type {ComponentProps} from 'react'
 
-import {fireEvent, render, screen} from '@testing-library/react'
+import {fireEvent, render, screen, within} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import type {BuilderV2TeamSummary} from './BuilderV2ModelTypes'
@@ -71,6 +71,17 @@ function expectElement(element: Element | null): asserts element is Element {
 }
 
 describe('BuilderV2TeamManagement', () => {
+  it('uses native groups and lists for team controls and slots', () => {
+    renderTeamManagement({})
+
+    expect(screen.getByRole('group', {name: 'Team preview mode'})).toBeInTheDocument()
+    expect(screen.getByRole('group', {name: 'Team template actions'})).toBeInTheDocument()
+    expect(screen.getByRole('group', {name: 'Wave 2 actions'})).toBeInTheDocument()
+
+    const waveOneSlots = screen.getByRole('list', {name: 'Wave 1 slots'})
+    expect(within(waveOneSlots).getAllByRole('listitem')).toHaveLength(4)
+  })
+
   it('activates a team from the explicit select button', () => {
     const onSetActiveTeam = vi.fn()
 

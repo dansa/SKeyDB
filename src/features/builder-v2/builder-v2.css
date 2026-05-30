@@ -356,7 +356,11 @@
 .builder-v2-io-actions {
   display: flex;
   flex-wrap: wrap;
+  min-inline-size: 0;
   gap: 0.35rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .builder-v2-io-button {
@@ -2203,8 +2207,12 @@
 .builder-v2-team-management-mode {
   display: flex;
   flex-wrap: wrap;
+  min-inline-size: 0;
   align-items: center;
   gap: 0.35rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .builder-v2-team-management-toolbar {
@@ -2566,6 +2574,9 @@
   gap: 0.48rem;
   align-items: center;
   justify-content: start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .builder-v2-team-management-slot {
@@ -2766,9 +2777,13 @@
 .builder-v2-team-management-controls {
   display: grid;
   min-width: 0;
+  min-inline-size: 0;
   align-content: center;
   gap: 0.36rem;
+  border: 0;
   border-left: 1px solid var(--ui-border-subtle);
+  margin: 0;
+  padding: 0;
   padding-left: 0.7rem;
 }
 
@@ -3708,6 +3723,8 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.3rem;
+  list-style: none;
+  margin: 0;
   padding: 0.46rem 0.5rem 0.52rem;
 }
 

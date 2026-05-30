@@ -81,11 +81,8 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
         </div>
 
         <div className='builder-v2-team-management-toolbar'>
-          <div
-            className='builder-v2-team-management-mode'
-            aria-label='Team preview mode'
-            role='group'
-          >
+          <fieldset className='builder-v2-team-management-mode'>
+            <legend className='sr-only'>Team preview mode</legend>
             {teamPreviewModeOptions.map((option) => (
               <button
                 aria-pressed={teamPreviewMode === option.value}
@@ -103,13 +100,10 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
                 {option.label}
               </button>
             ))}
-          </div>
+          </fieldset>
 
-          <div
-            className='builder-v2-team-management-actions'
-            aria-label='Team template actions'
-            role='group'
-          >
+          <fieldset className='builder-v2-team-management-actions'>
+            <legend className='sr-only'>Team template actions</legend>
             <button
               className='builder-v2-team-management-button builder-v2-team-management-button--primary'
               disabled={!canAddTeam}
@@ -141,7 +135,7 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
             >
               D-Tide 10
             </button>
-          </div>
+          </fieldset>
         </div>
       </div>
 
@@ -322,7 +316,8 @@ const TeamManagementRow = memo(function TeamManagementRow({
         </div>
 
         <div className='builder-v2-team-management-row-body'>
-          <div
+          <ul
+            aria-label={`${team.name} slots`}
             className='builder-v2-team-management-slots'
             data-overflow-x={hasSlotsOverflow ? 'true' : undefined}
             ref={slotsRef}
@@ -330,13 +325,10 @@ const TeamManagementRow = memo(function TeamManagementRow({
             {team.slots.map((slot) => (
               <TeamSlotSummary key={slot.slotId} previewMode={previewMode} slot={slot} />
             ))}
-          </div>
+          </ul>
 
-          <div
-            className='builder-v2-team-management-controls'
-            aria-label={`${team.name} actions`}
-            role='group'
-          >
+          <fieldset className='builder-v2-team-management-controls'>
+            <legend className='sr-only'>{team.name} actions</legend>
             {isMobile ? (
               <span className='builder-v2-team-management-control-cluster builder-v2-team-management-control-cluster--move'>
                 <button
@@ -402,7 +394,7 @@ const TeamManagementRow = memo(function TeamManagementRow({
                 <span>Delete</span>
               </button>
             </span>
-          </div>
+          </fieldset>
         </div>
       </div>
     </article>
@@ -410,15 +402,15 @@ const TeamManagementRow = memo(function TeamManagementRow({
 })
 
 function useHorizontalOverflow() {
-  const ref = useRef<HTMLDivElement | null>(null)
+  const ref = useRef<HTMLElement | null>(null)
   const [hasOverflow, setHasOverflow] = useState(false)
 
-  const updateOverflow = useCallback((element: HTMLDivElement | null = ref.current) => {
+  const updateOverflow = useCallback((element: HTMLElement | null = ref.current) => {
     setHasOverflow(element ? element.scrollWidth > element.clientWidth + 1 : false)
   }, [])
 
   const setRef = useCallback(
-    (element: HTMLDivElement | null) => {
+    (element: HTMLElement | null) => {
       ref.current = element
       updateOverflow(element)
     },
@@ -497,12 +489,11 @@ function TeamSlotSummary({
       : undefined
 
   return (
-    <div
+    <li
       aria-label={getTeamSlotSummaryLabel(slot)}
       className={`builder-v2-team-management-slot ${
         slot.isEmpty ? 'builder-v2-team-management-slot--empty' : ''
       } ${hasEnlightenOverflow ? 'builder-v2-team-management-slot--enlighten-overflow' : ''}`}
-      role='group'
       style={style}
     >
       <span aria-hidden className='builder-v2-team-management-slot-art'>
@@ -570,7 +561,7 @@ function TeamSlotSummary({
           </span>
         </span>
       ) : null}
-    </div>
+    </li>
   )
 }
 

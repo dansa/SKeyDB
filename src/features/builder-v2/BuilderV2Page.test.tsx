@@ -251,7 +251,7 @@ describe('BuilderV2Page', () => {
     expect(within(management).getByText(/taverns opening/i)).toBeInTheDocument()
     expect(within(management).getByText(/support/i)).toBeInTheDocument()
     expect(
-      within(management).getByRole('group', {
+      within(management).getByRole('listitem', {
         name: /goliath, chaos, level 90, support, covenant equipped: .+, 1 wheel equipped: .+/i,
       }),
     ).toBeInTheDocument()
@@ -943,7 +943,7 @@ describe('BuilderV2Page', () => {
       within(lineup).getByRole('button', {name: /finish quick team lineup/i}),
     ).toBeInTheDocument()
     expect(
-      within(lineup).getByRole('group', {name: /quick lineup team overview/i}),
+      within(lineup).getByRole('list', {name: /quick lineup team overview/i}),
     ).toBeInTheDocument()
     expect(screen.queryByRole('region', {name: /mobile focused builder/i})).not.toBeInTheDocument()
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
@@ -951,7 +951,7 @@ describe('BuilderV2Page', () => {
       within(lineup).queryByRole('navigation', {name: /quick lineup steps/i}),
     ).not.toBeInTheDocument()
 
-    const overview = within(lineup).getByRole('group', {
+    const overview = within(lineup).getByRole('list', {
       name: /quick lineup team overview/i,
     })
     expect(within(overview).getAllByRole('button', {name: /^select slot \d$/i})).toHaveLength(4)
@@ -1046,10 +1046,10 @@ describe('BuilderV2Page', () => {
     fireEvent.click(screen.getByRole('button', {name: /quick team lineup/i}))
 
     const lineup = screen.getByRole('region', {name: /mobile quick team lineup/i})
-    const overview = within(lineup).getByRole('group', {
+    const overview = within(lineup).getByRole('list', {
       name: /quick lineup team overview/i,
     })
-    const overviewSlots = within(overview).getAllByRole('group', {
+    const overviewSlots = within(overview).getAllByRole('listitem', {
       name: /slot \d quick overview/i,
     })
 
@@ -1083,10 +1083,10 @@ describe('BuilderV2Page', () => {
     fireEvent.click(screen.getByRole('button', {name: /quick team lineup/i}))
 
     const lineup = screen.getByRole('region', {name: /mobile quick team lineup/i})
-    const overview = within(lineup).getByRole('group', {
+    const overview = within(lineup).getByRole('list', {
       name: /quick lineup team overview/i,
     })
-    const overviewSlots = within(overview).getAllByRole('group', {
+    const overviewSlots = within(overview).getAllByRole('listitem', {
       name: /slot \d quick overview/i,
     })
 

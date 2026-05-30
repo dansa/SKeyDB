@@ -458,11 +458,7 @@ function BuilderV2MobileQuickLineupOverview({
   slots: BuilderV2SlotView[]
 }) {
   return (
-    <div
-      aria-label='Quick lineup team overview'
-      className='builder-v2-mobile-lineup-overview'
-      role='group'
-    >
+    <ul aria-label='Quick lineup team overview' className='builder-v2-mobile-lineup-overview'>
       {slots.map((slot) => {
         const isCardActive =
           slot.isSelected ||
@@ -470,13 +466,12 @@ function BuilderV2MobileQuickLineupOverview({
           slot.wheelSlots.some((wheel) => wheel.isSelected)
 
         return (
-          <article
+          <li
             aria-label={`${slot.slotLabel} quick overview`}
             className={`builder-v2-mobile-lineup-overview-card ${
               isCardActive ? 'builder-v2-mobile-lineup-overview-card--active' : ''
             }`}
             key={slot.slotId}
-            role='group'
           >
             <button
               aria-label={`Select ${slot.slotLabel}`}
@@ -596,10 +591,10 @@ function BuilderV2MobileQuickLineupOverview({
                 )}
               </button>
             </div>
-          </article>
+          </li>
         )
       })}
-    </div>
+    </ul>
   )
 }
 
