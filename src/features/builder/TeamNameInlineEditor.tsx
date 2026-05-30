@@ -1,4 +1,4 @@
-import type {MouseEvent} from 'react'
+import {useEffect, useRef, type MouseEvent} from 'react'
 
 interface TeamNameInlineEditorProps {
   teamName: string
@@ -28,6 +28,13 @@ export function TeamNameInlineEditor({
   onCancel,
 }: TeamNameInlineEditorProps) {
   const isHeader = variant === 'header'
+  const inputRef = useRef<HTMLInputElement | null>(null)
+
+  useEffect(() => {
+    if (isEditing) {
+      inputRef.current?.focus()
+    }
+  }, [isEditing])
 
   if (!isEditing) {
     return (
@@ -58,7 +65,6 @@ export function TeamNameInlineEditor({
   return (
     <input
       aria-label='Team name'
-      autoFocus
       className={joinClasses(
         'w-full border bg-slate-950/90 text-slate-100 outline-none',
         isHeader
@@ -83,6 +89,7 @@ export function TeamNameInlineEditor({
           onCancel()
         }
       }}
+      ref={inputRef}
       type='text'
       value={draftName}
     />

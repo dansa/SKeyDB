@@ -26,14 +26,15 @@ export function useBuilderResetUndo({
   const [undoResetSnapshot, setUndoResetSnapshot] = useState<BuilderDraftPayload | null>(null)
   const undoTimeoutRef = useRef<number | null>(null)
 
-  useEffect(() => {
-    return () => {
-      const undoTimeout = undoTimeoutRef.current
-      if (undoTimeout) {
-        window.clearTimeout(undoTimeout)
-      }
+  function clearUndoTimeout() {
+    const undoTimeout = undoTimeoutRef.current
+    if (undoTimeout) {
+      window.clearTimeout(undoTimeout)
+      undoTimeoutRef.current = null
     }
-  }, [])
+  }
+
+  useEffect(() => clearUndoTimeout, [])
 
   function requestReset() {
     setPendingResetBuilder(true)
@@ -55,9 +56,7 @@ export function useBuilderResetUndo({
     setUndoResetSnapshot(snapshot)
     showToast('Builder reset. Undo is available for 15 seconds.')
 
-    if (undoTimeoutRef.current) {
-      window.clearTimeout(undoTimeoutRef.current)
-    }
+    clearUndoTimeout()
     undoTimeoutRef.current = window.setTimeout(() => {
       setUndoResetSnapshot(null)
       undoTimeoutRef.current = null
@@ -74,10 +73,7 @@ export function useBuilderResetUndo({
     setUndoResetSnapshot(null)
     showToast('Builder reset has been undone.')
 
-    if (undoTimeoutRef.current) {
-      window.clearTimeout(undoTimeoutRef.current)
-      undoTimeoutRef.current = null
-    }
+    clearUndoTimeout()
   }
 
   const resetDialog = pendingResetBuilder

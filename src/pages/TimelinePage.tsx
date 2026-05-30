@@ -29,6 +29,10 @@ import './timeline/timeline.css'
 import {useTimelineNow} from './timeline/useTimelineNow'
 import {useTimelineSectionScroll} from './timeline/useTimelineSectionScroll'
 
+function openTimelineDetail(ref: EntityRef) {
+  dbDetailStore.getState().openDetail(ref, 'timeline-overlay')
+}
+
 export function TimelinePage() {
   const now = useTimelineNow()
   const [searchParams, setSearchParams] = useSearchParams()
@@ -46,10 +50,6 @@ export function TimelinePage() {
   const showBanners = contentFilter !== 'events'
 
   useTimelineSectionScroll(timelineSection)
-
-  function openTimelineDetail(ref: EntityRef) {
-    dbDetailStore.getState().openDetail(ref, 'timeline-overlay')
-  }
 
   function setContentFilter(nextFilter: TimelineContentFilter) {
     const nextParams = new URLSearchParams(searchParams)

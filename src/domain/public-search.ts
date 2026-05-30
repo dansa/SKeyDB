@@ -40,6 +40,7 @@ interface IndexedPublicSearchRecord<TEntity extends PublicSearchableEntity> {
 
 interface PublicSearchDirectMatch<TEntity extends PublicSearchableEntity> {
   entity: TEntity
+  displayName: string
   fieldName: SearchFieldName
   priority: number
 }
@@ -116,16 +117,21 @@ export function searchPublicEntityResults<TEntity extends PublicSearchableEntity
     return directMatches
   }
 
-  const fuzzyMatches = getPublicSearchFuse(indexedEntities)
-    .search(normalizedQuery)
-    .filter((result) =>
-      isRelevantPublicFuzzyMatch(result.matches ?? [], normalizedQuery, result.score ?? 1),
-    )
-    .filter((result) => (result.score ?? 1) <= 0.52)
-    .map((result) => ({
+  const fuzzyMatches: PublicSearchResult<TEntity>[] = []
+  for (const result of getPublicSearchFuse(indexedEntities).search(normalizedQuery)) {
+    const score = result.score ?? 1
+    if (!isRelevantPublicFuzzyMatch(result.matches ?? [], normalizedQuery, score)) {
+      continue
+    }
+    if (score > 0.52) {
+      continue
+    }
+
+    fuzzyMatches.push({
       entity: result.item.entity,
-      relevance: getFuzzySearchRelevance(result.score ?? 1),
-    }))
+      relevance: getFuzzySearchRelevance(score),
+    })
+  }
 
   if (directMatches.length === 0) {
     return fuzzyMatches
@@ -138,36 +144,31 @@ function collectPublicDirectMatches<TEntity extends PublicSearchableEntity>(
   records: IndexedPublicSearchRecord<TEntity>[],
   normalizedQuery: string,
 ): PublicSearchDirectMatch<TEntity>[] {
-  return records
-    .map((record) => ({
-      entity: record.entity,
-      displayName: record.displayName,
-      priorityMatch: getPublicSearchPriority(record, normalizedQuery),
-    }))
-    .filter(
-      (
-        match,
-      ): match is {
-        displayName: string
-        entity: TEntity
-        priorityMatch: PublicSearchPriority
-      } => match.priorityMatch !== null,
-    )
-    .map((match) => ({
-      displayName: match.displayName,
-      entity: match.entity,
-      fieldName: match.priorityMatch.fieldName,
-      priority: match.priorityMatch.priority,
-    }))
-    .sort((left, right) => {
-      if (left.priority !== right.priority) {
-        return left.priority - right.priority
-      }
+  const matches: PublicSearchDirectMatch<TEntity>[] = []
 
-      return left.displayName.localeCompare(right.displayName, undefined, {
-        sensitivity: 'base',
-      })
+  for (const record of records) {
+    const priorityMatch = getPublicSearchPriority(record, normalizedQuery)
+    if (priorityMatch === null) {
+      continue
+    }
+
+    matches.push({
+      displayName: record.displayName,
+      entity: record.entity,
+      fieldName: priorityMatch.fieldName,
+      priority: priorityMatch.priority,
     })
+  }
+
+  return matches.sort((left, right) => {
+    if (left.priority !== right.priority) {
+      return left.priority - right.priority
+    }
+
+    return left.displayName.localeCompare(right.displayName, undefined, {
+      sensitivity: 'base',
+    })
+  })
 }
 
 function getPublicSearchDirectResults<TEntity extends PublicSearchableEntity>(
@@ -176,9 +177,13 @@ function getPublicSearchDirectResults<TEntity extends PublicSearchableEntity>(
 ): PublicSearchResult<TEntity>[] {
   const hasPrimaryMatch = matches.some(isPrimaryDirectMatch)
   if (queryLength < 3 && hasPrimaryMatch) {
-    return matches
-      .filter((match) => shouldKeepShortDirectMatch(match, queryLength, hasPrimaryMatch))
-      .map((match) => ({entity: match.entity, relevance: match.priority}))
+    const results: PublicSearchResult<TEntity>[] = []
+    for (const match of matches) {
+      if (shouldKeepShortDirectMatch(match, queryLength, hasPrimaryMatch)) {
+        results.push({entity: match.entity, relevance: match.priority})
+      }
+    }
+    return results
   }
 
   return matches.map((match) => ({entity: match.entity, relevance: match.priority}))
@@ -293,22 +298,25 @@ function getPublicSearchPriority<TEntity extends PublicSearchableEntity>(
   record: IndexedPublicSearchRecord<TEntity>,
   normalizedQuery: string,
 ): PublicSearchPriority | null {
-  const priorities = DIRECT_SEARCH_FIELD_ORDER.map((fieldName) => {
+  let bestPriority: PublicSearchPriority | null = null
+
+  for (const fieldName of DIRECT_SEARCH_FIELD_ORDER) {
     const priority = toPriority(
       getBestSearchFieldMatch(record.fields[fieldName], normalizedQuery),
       getFieldPriorityMap(fieldName, normalizedQuery),
       {ignorePriorityAtOrAbove: 99},
     )
-    return priority === null ? null : {fieldName, priority}
-  }).filter((priority): priority is PublicSearchPriority => priority !== null)
 
-  if (priorities.length === 0) {
-    return null
+    if (priority === null) {
+      continue
+    }
+
+    if (bestPriority === null || priority < bestPriority.priority) {
+      bestPriority = {fieldName, priority}
+    }
   }
 
-  return priorities.reduce((bestPriority, priority) =>
-    priority.priority < bestPriority.priority ? priority : bestPriority,
-  )
+  return bestPriority
 }
 
 function getFieldPriorityMap(
@@ -351,14 +359,17 @@ function isRelevantPublicFuzzyMatch(
   normalizedQuery: string,
   score: number,
 ): boolean {
-  const typoTolerantFields = matches
-    .filter((match) => isTypoTolerantSearchField(match.key))
-    .map((match) => match.value)
-    .filter((value): value is string => typeof value === 'string')
+  for (const match of matches) {
+    if (!isTypoTolerantSearchField(match.key) || typeof match.value !== 'string') {
+      continue
+    }
 
-  return typoTolerantFields.some((field) =>
-    isSingleTokenFuzzyFieldCandidate(field, normalizedQuery, score),
-  )
+    if (isSingleTokenFuzzyFieldCandidate(match.value, normalizedQuery, score)) {
+      return true
+    }
+  }
+
+  return false
 }
 
 function isTypoTolerantSearchField(key: string | undefined): boolean {

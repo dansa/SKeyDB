@@ -14,9 +14,9 @@ export function getAwakenerTalents(): AwakenerTalentRecord[] {
   }
 
   awakenerTalentsCache = awakenerTalentsDatasetSchema.parse(
-    getPublicCatalogRecords('talents')
-      .map(parsePublicV3TalentCatalogRecord)
-      .map(adaptPublicV3TalentRecord),
+    getPublicCatalogRecords('talents').map((record) =>
+      adaptPublicV3TalentRecord(parsePublicV3TalentCatalogRecord(record)),
+    ),
   )
   return awakenerTalentsCache
 }

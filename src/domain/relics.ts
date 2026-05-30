@@ -66,19 +66,18 @@ export type PortraitRelic = Relic & {
   ownerAwakenerId: string
 }
 
-const parsedRelics: Relic[] = getPublicCatalogRecords('relics')
-  .map((record) => publicRelicRecordSchema.parse(record))
-  .map(
-    (relic): Relic => ({
-      id: relic.id,
-      kind: relic.relicType === 'DIMENSIONAL_IMAGE' ? 'PORTRAIT' : 'GENERIC',
-      ownerAwakenerId: relic.ownerAwakenerId,
-      ownerAwakenerName: relic.ownerAwakenerName,
-      assetId: getRelicPublicAssetId(relic.id),
-      name: relic.name,
-      description: renderRelicDescription(relic.descriptionTemplate, relic.descriptionArgs),
-    }),
-  )
+const parsedRelics: Relic[] = getPublicCatalogRecords('relics').map((record): Relic => {
+  const relic = publicRelicRecordSchema.parse(record)
+  return {
+    id: relic.id,
+    kind: relic.relicType === 'DIMENSIONAL_IMAGE' ? 'PORTRAIT' : 'GENERIC',
+    ownerAwakenerId: relic.ownerAwakenerId,
+    ownerAwakenerName: relic.ownerAwakenerName,
+    assetId: getRelicPublicAssetId(relic.id),
+    name: relic.name,
+    description: renderRelicDescription(relic.descriptionTemplate, relic.descriptionArgs),
+  }
+})
 
 function assertPortraitRelicsHaveOwnerAwakenerIds(relics: Relic[]) {
   for (const relic of relics) {

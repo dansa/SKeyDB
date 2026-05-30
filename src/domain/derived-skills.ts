@@ -14,9 +14,9 @@ export function getDerivedSkills(): DerivedSkillRecord[] {
   }
 
   derivedSkillsCache = derivedSkillsDatasetSchema.parse(
-    getPublicCatalogRecords('derived-skills')
-      .map(parsePublicV3DerivedSkillCatalogRecord)
-      .map(adaptPublicV3DerivedSkillRecord),
+    getPublicCatalogRecords('derived-skills').map((record) =>
+      adaptPublicV3DerivedSkillRecord(parsePublicV3DerivedSkillCatalogRecord(record)),
+    ),
   )
   return derivedSkillsCache
 }

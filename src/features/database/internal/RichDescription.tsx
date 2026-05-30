@@ -9,7 +9,6 @@ import type {PublicFormulaContext} from '@/domain/public-formula-context'
 
 import {useDatabasePopoverControllerContext} from './database-popover-context'
 import type {DatabaseRichTextContentProps} from './DatabaseRichTextContent'
-import {renderTextWithBreaks} from './font-scale'
 
 const DatabaseRichTextContent = lazy(() =>
   import('./DatabaseRichTextContent').then((module) => ({default: module.DatabaseRichTextContent})),
@@ -27,6 +26,20 @@ interface RichDescriptionProps {
   stats?: FullStats | null
   showVisibleScaling?: boolean
   showTagIcons?: boolean
+}
+
+function TextWithBreaksFallback({text}: {text: string}) {
+  const parts = text.split('\n')
+
+  return (
+    <span>
+      {parts.flatMap((part, index) =>
+        index === 0
+          ? [<span key={String(index)}>{part}</span>]
+          : [<br key={`br${String(index)}`} />, <span key={String(index)}>{part}</span>],
+      )}
+    </span>
+  )
 }
 
 export function RichDescription({
@@ -77,7 +90,7 @@ export function RichDescription({
   }
 
   return (
-    <Suspense fallback={fallbackText ? <span>{renderTextWithBreaks(fallbackText)}</span> : null}>
+    <Suspense fallback={fallbackText ? <TextWithBreaksFallback text={fallbackText} /> : null}>
       <DatabaseRichTextContent {...contentProps} />
     </Suspense>
   )

@@ -29,6 +29,17 @@ interface UseBuilderImportExportOptions {
   showToast: (message: string) => void
 }
 
+function getDuplicateExportWarning(exportTeams: Team[]): string | undefined {
+  const validation = validateBuilderTeamsStrict(exportTeams)
+  const hasDuplicateViolation = hasDuplicateRuleViolation(validation.violations)
+  if (!hasDuplicateViolation) {
+    return undefined
+  }
+  return exportTeams.length > 1
+    ? 'These teams reuse units, wheels, or posses across teams and are not in-game legal together.'
+    : 'This team reuses units or wheels and is not in-game legal.'
+}
+
 export function useBuilderImportExport({
   teams,
   setTeams,
@@ -58,17 +69,6 @@ export function useBuilderImportExport({
     clearPendingDelete,
     showToast,
   })
-
-  function getDuplicateExportWarning(exportTeams: Team[]): string | undefined {
-    const validation = validateBuilderTeamsStrict(exportTeams)
-    const hasDuplicateViolation = hasDuplicateRuleViolation(validation.violations)
-    if (!hasDuplicateViolation) {
-      return undefined
-    }
-    return exportTeams.length > 1
-      ? 'These teams reuse units, wheels, or posses across teams and are not in-game legal together.'
-      : 'This team reuses units or wheels and is not in-game legal.'
-  }
 
   function openExportAllDialog() {
     setExportDialog({

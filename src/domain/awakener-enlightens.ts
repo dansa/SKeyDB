@@ -17,9 +17,9 @@ export function getAwakenerEnlightens(): AwakenerEnlightenRecord[] {
   }
 
   awakenerEnlightensCache = awakenerEnlightensDatasetSchema.parse(
-    getPublicCatalogRecords('enlightens')
-      .map(parsePublicV3EnlightenCatalogRecord)
-      .map(adaptPublicV3EnlightenRecord),
+    getPublicCatalogRecords('enlightens').map((record) =>
+      adaptPublicV3EnlightenRecord(parsePublicV3EnlightenCatalogRecord(record)),
+    ),
   )
   return awakenerEnlightensCache
 }

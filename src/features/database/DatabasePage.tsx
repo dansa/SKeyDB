@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo} from 'react'
+import {useCallback, useEffect, useMemo, type ComponentType} from 'react'
 
 import {useLocation, useNavigate, useParams, type NavigateFunction} from 'react-router-dom'
 
@@ -30,12 +30,29 @@ import {
 import {getBrowserLocalStorage} from '@/domain/storage'
 import type {Wheel} from '@/domain/wheels'
 
-import {renderEntityBrowse} from './browse/entityBrowseRegistry'
+import {
+  AwakenersBrowse,
+  CovenantsBrowse,
+  PossesBrowse,
+  WheelsBrowse,
+} from './browse/EntityBrowseViews'
 import {useEntityBrowseController} from './browse/useEntityBrowseController'
 import {databaseAwakeners, databaseCovenants, databasePosses, databaseWheels} from './data'
 import {DatabaseLayout} from './DatabaseLayout'
 import type {DatabaseDetailResultSet} from './detail/database-detail-result-navigation'
 import {DbDetailModalHost} from './detail/DbDetailModalHost'
+
+type EntityBrowseComponent = ComponentType<{
+  controller: ReturnType<typeof useEntityBrowseController>
+  DetailModalHost: ComponentType<{resultSet: DatabaseDetailResultSet}>
+}>
+
+const entityBrowseComponents: Record<DatabaseEntityId, EntityBrowseComponent> = {
+  awakeners: AwakenersBrowse,
+  covenants: CovenantsBrowse,
+  posses: PossesBrowse,
+  wheels: WheelsBrowse,
+}
 
 function getActiveDatabaseEntity(pathname: string): DatabaseEntityId {
   if (pathname.startsWith(buildDatabaseCovenantBrowsePath())) {
@@ -280,8 +297,9 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
     ],
   )
 
-  const renderDetailModalHost = useCallback(
-    (resultSet: DatabaseDetailResultSet) => (
+  const BrowseComponent = entityBrowseComponents[browseController.activeEntity]
+  const DetailModalHost = useCallback(
+    ({resultSet}: {resultSet: DatabaseDetailResultSet}) => (
       <DbDetailModalHost
         awakeners={databaseAwakeners}
         callbacks={detailCallbacks}
@@ -295,6 +313,8 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
   )
 
   return (
-    <DatabaseLayout>{renderEntityBrowse(browseController, renderDetailModalHost)}</DatabaseLayout>
+    <DatabaseLayout>
+      <BrowseComponent controller={browseController} DetailModalHost={DetailModalHost} />
+    </DatabaseLayout>
   )
 }

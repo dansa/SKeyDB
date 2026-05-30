@@ -37,20 +37,19 @@ function getPosseIndex(publicId: string): number {
   return Number(suffix)
 }
 
-const parsedPosses = getPublicCatalogRecords('posses')
-  .map((record) => publicV3PosseCatalogRecordSchema.parse(record))
-  .map(
-    (posse): Posse => ({
-      id: posse.id,
-      index: getPosseIndex(posse.id),
-      name: posse.name,
-      realm: posse.realm,
-      ownerAwakenerId: posse.ownerAwakenerId,
-      ownerAwakenerName: posse.ownerAwakenerName,
-      isFadedLegacy: posse.realm === 'FADED_LEGACY',
-      lineupToken: posse.lineupToken,
-    }),
-  )
+const parsedPosses = getPublicCatalogRecords('posses').map((record): Posse => {
+  const posse = publicV3PosseCatalogRecordSchema.parse(record)
+  return {
+    id: posse.id,
+    index: getPosseIndex(posse.id),
+    name: posse.name,
+    realm: posse.realm,
+    ownerAwakenerId: posse.ownerAwakenerId,
+    ownerAwakenerName: posse.ownerAwakenerName,
+    isFadedLegacy: posse.realm === 'FADED_LEGACY',
+    lineupToken: posse.lineupToken,
+  }
+})
 
 export function getPosses(): Posse[] {
   return parsedPosses

@@ -49,9 +49,9 @@ function getWheelPublicAssetId(wheelId: string): string {
   return assetIndexId ? (resolvePublicAsset(assetIndexId)?.assetId ?? 'TBD') : 'TBD'
 }
 
-const parsedWheels: Wheel[] = getPublicCatalogRecords('wheels')
-  .map((record) => publicV3WheelCatalogRecordSchema.parse(record))
-  .map((wheel) => ({
+const parsedWheels: Wheel[] = getPublicCatalogRecords('wheels').map((record) => {
+  const wheel = publicV3WheelCatalogRecordSchema.parse(record)
+  return {
     id: wheel.id,
     assetId: getWheelPublicAssetId(wheel.id),
     name: wheel.name,
@@ -64,7 +64,8 @@ const parsedWheels: Wheel[] = getPublicCatalogRecords('wheels')
     tags: [],
     mainstatKey: wheel.mainstatKey,
     lineupToken: wheel.lineupToken,
-  }))
+  }
+})
 const wheelById = new Map(parsedWheels.map((wheel) => [wheel.id, wheel]))
 
 export function getWheels(): Wheel[] {

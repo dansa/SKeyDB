@@ -1,7 +1,17 @@
 import {act, renderHook} from '@testing-library/react'
-import {describe, expect, it, vi} from 'vitest'
+import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import {useDetailModalChrome} from './useDetailModalChrome'
+
+const originalInnerWidth = window.innerWidth
+
+afterEach(() => {
+  Object.defineProperty(window, 'innerWidth', {
+    configurable: true,
+    writable: true,
+    value: originalInnerWidth,
+  })
+})
 
 function renderChrome({
   clickOutsideClosesPopovers = true,
@@ -116,5 +126,33 @@ describe('useDetailModalChrome', () => {
     } finally {
       externalSurface.remove()
     }
+  })
+
+  it('tracks mobile header viewport changes and cleans up the resize listener', () => {
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      writable: true,
+      value: 900,
+    })
+    const addEventListener = vi.spyOn(window, 'addEventListener')
+    const removeEventListener = vi.spyOn(window, 'removeEventListener')
+    const {hook} = renderChrome()
+
+    expect(hook.result.current.isMobileHeader).toBe(false)
+
+    act(() => {
+      window.innerWidth = 640
+      window.dispatchEvent(new Event('resize'))
+    })
+    expect(hook.result.current.isMobileHeader).toBe(true)
+
+    hook.unmount()
+
+    const resizeListener = addEventListener.mock.calls.find(([type]) => type === 'resize')?.[1]
+    expect(resizeListener).toBeDefined()
+    expect(removeEventListener).toHaveBeenCalledWith('resize', resizeListener)
+
+    addEventListener.mockRestore()
+    removeEventListener.mockRestore()
   })
 })

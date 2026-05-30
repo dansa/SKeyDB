@@ -38,4 +38,36 @@ describe('SearchCombobox', () => {
       expect.stringContaining('first'),
     )
   })
+
+  it('keeps the text input exposed as the combobox with list autocomplete semantics', () => {
+    const inputRef = createRef<HTMLInputElement>()
+
+    render(
+      <SearchCombobox
+        activeIndex={0}
+        emptyMessage='No results'
+        getResultId={(result: TestSearchResult) => result.id}
+        inputAriaLabel='Search awakeners'
+        inputRef={inputRef}
+        isOpen
+        onQueryChange={vi.fn()}
+        onSelectResult={vi.fn()}
+        placeholder='Search'
+        query='f'
+        renderResult={(result: TestSearchResult) => result.label}
+        results={[{id: 'first', label: 'First'}]}
+      />,
+    )
+
+    const combobox = screen.getByRole('combobox', {name: 'Search awakeners'})
+
+    expect(combobox).toBe(inputRef.current)
+    expect(combobox).toHaveAttribute('aria-autocomplete', 'list')
+    expect(combobox).toHaveAttribute('aria-haspopup', 'listbox')
+    expect(combobox).toHaveAttribute('aria-expanded', 'true')
+    expect(screen.getByRole('listbox')).toHaveAttribute(
+      'id',
+      combobox.getAttribute('aria-controls'),
+    )
+  })
 })

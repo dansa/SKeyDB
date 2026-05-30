@@ -22,6 +22,9 @@ const SLICE_DETAIL_TARGET_CLASS =
   'absolute inset-0 z-30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-amber-100/95 focus-visible:shadow-[inset_0_0_0_1px_rgba(15,23,42,0.85)]'
 const POOL_MONTAGE_LAYER_CLASS =
   'absolute inset-0 overflow-hidden transition-opacity ease-in-out motion-reduce:transition-none'
+const POOL_MONTAGE_TRANSITION_STYLE = {
+  transitionDuration: `${String(TRANSITION_DURATION_MS)}ms`,
+}
 const EMPTY_FEATURED: BannerFeaturedUnit[] = []
 const EMPTY_POOL_SLOTS: BannerPoolSlot[] = []
 
@@ -278,9 +281,6 @@ function PoolMontageSlot({
   const assetA = assets[layers.a]
   const assetB = assets[layers.b]
   const frontAsset = layers.front === 'a' ? assetA : assetB
-  const transitionStyle = {
-    transitionDuration: `${String(TRANSITION_DURATION_MS)}ms`,
-  }
 
   return (
     <div
@@ -292,7 +292,7 @@ function PoolMontageSlot({
         className={POOL_MONTAGE_LAYER_CLASS}
         style={{
           opacity: layers.front === 'a' ? 1 : 0,
-          ...transitionStyle,
+          ...POOL_MONTAGE_TRANSITION_STYLE,
         }}
       >
         <ArtworkVisual asset={assetA} loading={loading} showFallbackLabel={layers.front === 'a'} />
@@ -302,7 +302,7 @@ function PoolMontageSlot({
         className={POOL_MONTAGE_LAYER_CLASS}
         style={{
           opacity: layers.front === 'b' ? 1 : 0,
-          ...transitionStyle,
+          ...POOL_MONTAGE_TRANSITION_STYLE,
         }}
       >
         <ArtworkVisual asset={assetB} loading={loading} showFallbackLabel={layers.front === 'b'} />

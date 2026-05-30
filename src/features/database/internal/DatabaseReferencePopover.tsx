@@ -22,7 +22,7 @@ import type {DatabasePopoverDescriptionRankContext} from './database-popover-con
 import type {DatabaseReferenceEntry, KeyedDatabaseReferenceEntry} from './database-reference-entry'
 import {DatabaseLoreMarkupText} from './DatabaseLoreMarkupText'
 import type {DatabaseRichTextContentProps} from './DatabaseRichTextContent'
-import {renderTextWithBreaks, scaledFontStyle} from './font-scale'
+import {scaledFontStyle} from './font-scale'
 import {DATABASE_ENTRY_TITLE_CLASS} from './text-styles'
 
 const DatabaseRichTextContent = lazy(() =>
@@ -94,6 +94,20 @@ function descriptionSectionClassName(tone: 'default' | 'lore' | undefined): stri
   ]
     .filter(Boolean)
     .join(' ')
+}
+
+function TextWithBreaksFallback({text}: {text: string}) {
+  const parts = text.split('\n')
+
+  return (
+    <span>
+      {parts.flatMap((part, index) =>
+        index === 0
+          ? [<span key={String(index)}>{part}</span>]
+          : [<br key={`br${String(index)}`} />, <span key={String(index)}>{part}</span>],
+      )}
+    </span>
+  )
 }
 
 function buildReferenceDescriptionFallbackText({
@@ -319,7 +333,7 @@ export function DatabaseReferencePopover({
                     <Suspense
                       fallback={
                         sectionFallbackText ? (
-                          <span>{renderTextWithBreaks(sectionFallbackText)}</span>
+                          <TextWithBreaksFallback text={sectionFallbackText} />
                         ) : null
                       }
                     >
@@ -337,7 +351,7 @@ export function DatabaseReferencePopover({
         ) : (
           <p className='leading-relaxed text-slate-400' style={scaledFontStyle(11)}>
             <Suspense
-              fallback={fallbackText ? <span>{renderTextWithBreaks(fallbackText)}</span> : null}
+              fallback={fallbackText ? <TextWithBreaksFallback text={fallbackText} /> : null}
             >
               <DatabaseRichTextContent {...contentProps} />
             </Suspense>

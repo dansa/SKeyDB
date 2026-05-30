@@ -3,6 +3,7 @@ import {
   useEffect,
   useRef,
   useState,
+  useSyncExternalStore,
   type KeyboardEvent as ReactKeyboardEvent,
   type MouseEvent as ReactMouseEvent,
   type RefObject,
@@ -32,8 +33,10 @@ export function useDetailModalChrome({
   searchInputRef,
 }: UseDetailModalChromeOptions) {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
-  const [isMobileHeader, setIsMobileHeader] = useState(() =>
-    typeof window !== 'undefined' ? window.innerWidth < 768 : false,
+  const isMobileHeader = useSyncExternalStore(
+    subscribeToModalHeaderViewport,
+    getModalHeaderViewportSnapshot,
+    getServerModalHeaderViewportSnapshot,
   )
   const panelRef = useRef<HTMLDivElement>(null)
   const settingsRef = useRef<HTMLDivElement>(null)
@@ -57,18 +60,6 @@ export function useDetailModalChrome({
       previouslyFocusedElementRef.current?.focus()
     }
   }, [searchInputRef])
-
-  useEffect(() => {
-    function updateHeaderLayout() {
-      setIsMobileHeader(window.innerWidth < 768)
-    }
-
-    updateHeaderLayout()
-    window.addEventListener('resize', updateHeaderLayout)
-    return () => {
-      window.removeEventListener('resize', updateHeaderLayout)
-    }
-  }, [])
 
   useEffect(() => {
     if (!isSettingsOpen) {
@@ -175,4 +166,27 @@ export function useDetailModalChrome({
     setIsSettingsOpen,
     settingsRef,
   }
+}
+
+function subscribeToModalHeaderViewport(onStoreChange: () => void): () => void {
+  if (typeof window === 'undefined') {
+    return () => undefined
+  }
+
+  window.addEventListener('resize', onStoreChange)
+  return () => {
+    window.removeEventListener('resize', onStoreChange)
+  }
+}
+
+function getModalHeaderViewportSnapshot(): boolean {
+  if (typeof window === 'undefined') {
+    return getServerModalHeaderViewportSnapshot()
+  }
+
+  return window.innerWidth < 768
+}
+
+function getServerModalHeaderViewportSnapshot(): boolean {
+  return false
 }

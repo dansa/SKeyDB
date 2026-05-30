@@ -28,9 +28,9 @@ export function getAwakenerOverlays(): AwakenerOverlayRecord[] {
   }
 
   awakenerOverlaysCache = awakenerOverlaysDatasetSchema.parse(
-    getPublicCatalogRecords('overlays')
-      .map(parsePublicV3OverlayCatalogRecord)
-      .map(adaptPublicV3OverlayRecord),
+    getPublicCatalogRecords('overlays').map((record) =>
+      adaptPublicV3OverlayRecord(parsePublicV3OverlayCatalogRecord(record)),
+    ),
   )
   overlayByNameCache = buildOverlayLookup(awakenerOverlaysCache)
   return awakenerOverlaysCache

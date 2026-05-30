@@ -32,6 +32,37 @@ function getCollectionLoadErrorMessage(
   return 'Load failed: file does not match collection snapshot format.'
 }
 
+function swallowOutsideLevelClickIfCardInteraction(event: MouseEvent | PointerEvent) {
+  const target = event.target
+  if (!(target instanceof Element)) {
+    return
+  }
+
+  const interactionFrame = target.closest('.collection-card-frame')
+  if (!interactionFrame) {
+    return
+  }
+
+  // Clicking outside level editor but within an awakener card interaction area
+  // should commit level edits without also toggling ownership.
+  event.preventDefault()
+  event.stopPropagation()
+
+  const swallowNextClick = (clickEvent: MouseEvent) => {
+    const clickTarget = clickEvent.target
+    if (!(clickTarget instanceof Node)) {
+      return
+    }
+    if (!interactionFrame.contains(clickTarget)) {
+      return
+    }
+    clickEvent.preventDefault()
+    clickEvent.stopPropagation()
+  }
+
+  document.addEventListener('click', swallowNextClick, {capture: true, once: true})
+}
+
 export function CollectionPage() {
   const model = useCollectionViewModel()
   const searchInputRef = useRef<HTMLInputElement | null>(null)
@@ -59,37 +90,6 @@ export function CollectionPage() {
     onRemoveCharacter: model.removeSearchCharacter,
     onClearSearch: model.clearActiveQuery,
   })
-
-  function swallowOutsideLevelClickIfCardInteraction(event: MouseEvent | PointerEvent) {
-    const target = event.target
-    if (!(target instanceof Element)) {
-      return
-    }
-
-    const interactionFrame = target.closest('.collection-card-frame')
-    if (!interactionFrame) {
-      return
-    }
-
-    // Clicking outside level editor but within an awakener card interaction area
-    // should commit level edits without also toggling ownership.
-    event.preventDefault()
-    event.stopPropagation()
-
-    const swallowNextClick = (clickEvent: MouseEvent) => {
-      const clickTarget = clickEvent.target
-      if (!(clickTarget instanceof Node)) {
-        return
-      }
-      if (!interactionFrame.contains(clickTarget)) {
-        return
-      }
-      clickEvent.preventDefault()
-      clickEvent.stopPropagation()
-    }
-
-    document.addEventListener('click', swallowNextClick, {capture: true, once: true})
-  }
 
   function handleCollectionCardWheel(
     event: WheelEvent<HTMLElement>,

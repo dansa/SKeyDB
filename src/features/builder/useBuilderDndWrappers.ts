@@ -22,19 +22,18 @@ export function useBuilderDndWrappers({coordinated, slotById}: UseBuilderDndWrap
   const suppressTeamEditRef = useRef(false)
   const suppressTimeoutRef = useRef<number | null>(null)
 
-  useEffect(() => {
-    return () => {
-      const suppressTimeout = suppressTimeoutRef.current
-      if (suppressTimeout) {
-        window.clearTimeout(suppressTimeout)
-      }
+  function clearSuppressTimeout() {
+    const suppressTimeout = suppressTimeoutRef.current
+    if (suppressTimeout) {
+      window.clearTimeout(suppressTimeout)
+      suppressTimeoutRef.current = null
     }
-  }, [])
+  }
+
+  useEffect(() => clearSuppressTimeout, [])
 
   function clearSuppressionSoon() {
-    if (suppressTimeoutRef.current) {
-      window.clearTimeout(suppressTimeoutRef.current)
-    }
+    clearSuppressTimeout()
     suppressTimeoutRef.current = window.setTimeout(() => {
       suppressTeamEditRef.current = false
       suppressTimeoutRef.current = null

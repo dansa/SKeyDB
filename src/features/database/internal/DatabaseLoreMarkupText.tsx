@@ -138,7 +138,7 @@ function appendLoreTextNode(
   })
 }
 
-function renderDatabaseLoreInlineText(
+function buildDatabaseLoreInlineNodes(
   text: string,
   keyPrefix: string,
   wrapText = true,
@@ -164,7 +164,7 @@ function renderDatabaseLoreInlineText(
       )
     } else if (wrappedTagName.length > 0) {
       const tagName = wrappedTagName.toLowerCase()
-      const content = renderDatabaseLoreInlineText(
+      const content = buildDatabaseLoreInlineNodes(
         wrappedTagContent,
         buildLoreKey(keyPrefix, 'tag', partIndex, wrappedTagName),
         false,
@@ -204,13 +204,9 @@ function renderDatabaseLoreInlineText(
   return nodes
 }
 
-function renderDatabaseLoreTextWithBreaks(text: string, keyPrefix: string): ReactNode[] {
-  return renderDatabaseLoreInlineText(text, keyPrefix)
-}
-
 export function DatabaseLoreMarkupText({
   text,
   keyPrefix = 'database-lore-markup',
 }: DatabaseLoreMarkupTextProps) {
-  return <>{renderDatabaseLoreTextWithBreaks(text, keyPrefix)}</>
+  return <>{buildDatabaseLoreInlineNodes(text, keyPrefix)}</>
 }

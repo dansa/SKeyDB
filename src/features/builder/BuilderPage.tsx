@@ -48,6 +48,26 @@ import {usePreviewSlotDrag} from './usePreviewSlotDrag'
 import {useSelectionDismiss} from './useSelectionDismiss'
 import {useTransferConfirm} from './useTransferConfirm'
 
+function openAwakenerDetailOverlay(awakener: Awakener) {
+  dbDetailStore.getState().openDetail({kind: 'awakener', id: awakener.id}, 'builder-overlay')
+}
+
+function openWheelDetailOverlay(wheelId: string) {
+  dbDetailStore.getState().openDetail({kind: 'wheel', id: wheelId}, 'builder-overlay')
+}
+
+function openPickerWheelDetailOverlay(wheel: Wheel) {
+  openWheelDetailOverlay(wheel.id)
+}
+
+function openCovenantDetailOverlay(covenant: Covenant) {
+  dbDetailStore.getState().openDetail({kind: 'covenant', id: covenant.id}, 'builder-overlay')
+}
+
+function openPosseDetailOverlay(posse: Posse) {
+  dbDetailStore.getState().openDetail({kind: 'posse', id: posse.id}, 'builder-overlay')
+}
+
 export function BuilderPage() {
   const {toastEntries, showToast} = useTimedToast({defaultDurationMs: 3200})
   const searchInputRef = useRef<HTMLInputElement | null>(null)
@@ -542,26 +562,6 @@ export function BuilderPage() {
     clearAllTransientState()
     setActiveTeamId(teamId)
     setActiveSelection(null)
-  }
-
-  function openAwakenerDetailOverlay(awakener: Awakener) {
-    dbDetailStore.getState().openDetail({kind: 'awakener', id: awakener.id}, 'builder-overlay')
-  }
-
-  function openWheelDetailOverlay(wheelId: string) {
-    dbDetailStore.getState().openDetail({kind: 'wheel', id: wheelId}, 'builder-overlay')
-  }
-
-  function openPickerWheelDetailOverlay(wheel: Wheel) {
-    openWheelDetailOverlay(wheel.id)
-  }
-
-  function openCovenantDetailOverlay(covenant: Covenant) {
-    dbDetailStore.getState().openDetail({kind: 'covenant', id: covenant.id}, 'builder-overlay')
-  }
-
-  function openPosseDetailOverlay(posse: Posse) {
-    dbDetailStore.getState().openDetail({kind: 'posse', id: posse.id}, 'builder-overlay')
   }
 
   return (

@@ -36,6 +36,18 @@ interface UseBuilderDndOptions {
   onDropTeamCovenantToPicker: (sourceSlotId: string) => void
 }
 
+function isTeamSlotId(id: string): boolean {
+  return id.startsWith('slot-')
+}
+
+function getSlotDropTarget(
+  overId: string,
+  overWheelZone: ReturnType<typeof parseWheelDropZoneId>,
+  overCovenantZone: ReturnType<typeof parseCovenantDropZoneId>,
+): string | null {
+  return overWheelZone?.slotId ?? overCovenantZone?.slotId ?? (isTeamSlotId(overId) ? overId : null)
+}
+
 export function useBuilderDnd({
   onDropPickerAwakener,
   onDropPickerWheel,
@@ -57,20 +69,6 @@ export function useBuilderDnd({
       activationConstraint: {distance: 4},
     }),
   )
-
-  function isTeamSlotId(id: string): boolean {
-    return id.startsWith('slot-')
-  }
-
-  function getSlotDropTarget(
-    overId: string,
-    overWheelZone: ReturnType<typeof parseWheelDropZoneId>,
-    overCovenantZone: ReturnType<typeof parseCovenantDropZoneId>,
-  ): string | null {
-    return (
-      overWheelZone?.slotId ?? overCovenantZone?.slotId ?? (isTeamSlotId(overId) ? overId : null)
-    )
-  }
 
   function handlePickerAwakenerDrop(
     data: Extract<DragData, {kind: 'picker-awakener'}>,

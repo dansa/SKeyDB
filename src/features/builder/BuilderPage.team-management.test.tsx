@@ -170,6 +170,7 @@ describe('BuilderPage team management', () => {
 
     fireEvent.click(within(team2Row as HTMLElement).getByRole('button', {name: /rename team 2/i}))
     const renameInput = screen.getByRole('textbox', {name: /team name/i})
+    expect(renameInput).toHaveFocus()
     fireEvent.change(renameInput, {target: {value: 'Arena Team'}})
     fireEvent.keyDown(renameInput, {key: 'Enter', code: 'Enter'})
 
@@ -183,6 +184,7 @@ describe('BuilderPage team management', () => {
       within(recreatedTeam2Row as HTMLElement).getByRole('button', {name: /rename team 2/i}),
     )
     const cancelInput = screen.getByRole('textbox', {name: /team name/i})
+    expect(cancelInput).toHaveFocus()
     fireEvent.change(cancelInput, {target: {value: 'Temp Name'}})
     fireEvent.keyDown(cancelInput, {key: 'Escape', code: 'Escape'})
 
@@ -195,6 +197,7 @@ describe('BuilderPage team management', () => {
 
     fireEvent.click(within(team3Row as HTMLElement).getByRole('button', {name: /rename team 3/i}))
     const blurInput = screen.getByRole('textbox', {name: /team name/i})
+    expect(blurInput).toHaveFocus()
     fireEvent.change(blurInput, {target: {value: 'Click Away Team'}})
     fireEvent.pointerDown(document.body)
     fireEvent.blur(blurInput)

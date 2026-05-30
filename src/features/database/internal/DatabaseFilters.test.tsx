@@ -85,6 +85,8 @@ describe('DatabaseFilters', () => {
 
     const menu = screen.getByRole('menu')
     expect(trigger).toHaveAttribute('aria-controls', menu.id)
+    expect(menu).toHaveAttribute('tabindex', '-1')
+    expect(menu).toHaveFocus()
 
     fireEvent.keyDown(menu, {key: 'ArrowDown'})
     expect(screen.getByRole('menuitemradio', {name: 'Any role'})).toHaveFocus()

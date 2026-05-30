@@ -461,7 +461,17 @@ function ScalingSubstatFilterRow({
                     setOpenFilterKey(null)
                   })
                 }}
+                ref={(element) => {
+                  if (
+                    element &&
+                    document.activeElement !== element &&
+                    !element.contains(document.activeElement)
+                  ) {
+                    element.focus()
+                  }
+                }}
                 role='menu'
+                tabIndex={-1}
               >
                 {SCALING_ROLE_OPTIONS.map((role) => (
                   <button

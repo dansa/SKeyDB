@@ -296,12 +296,13 @@ function buildDatabaseInfluenceBadgeLookups(
   }
 
   for (const enlighten of enlightens) {
-    enlightenBadgeBySlot.set(enlighten.record.slot, {
+    const slot = enlighten.record.slot
+    enlightenBadgeBySlot.set(slot, {
       kind: 'enlighten',
       id: enlighten.record.id,
-      label: getInfluenceBadgeLabel(enlighten.record.slot),
+      label: getInfluenceBadgeLabel(slot),
       referenceName: enlighten.record.displayName,
-      slot: enlighten.record.slot,
+      slot,
     })
   }
 

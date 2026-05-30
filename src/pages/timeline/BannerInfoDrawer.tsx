@@ -141,11 +141,7 @@ function BannerDrawerBody({
           </div>
         ) : null}
         {banner.description ? (
-          <div
-            aria-label={`Description for ${banner.title}`}
-            className={DRAWER_DESCRIPTION_CLASS}
-            tabIndex={0}
-          >
+          <div aria-label={`Description for ${banner.title}`} className={DRAWER_DESCRIPTION_CLASS}>
             <TimelineRichText priceMode={priceMode} text={banner.description} />
           </div>
         ) : null}

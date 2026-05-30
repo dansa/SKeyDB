@@ -15,6 +15,18 @@ interface AwakenerEnlightenInfluenceBadgesProps {
   onToggleEnlightenSlot?: (slot: AwakenerEnlightenRecord['slot']) => void
 }
 
+function getBadgeClass(badge: DatabaseInfluenceBadge, active: boolean): string {
+  if (badge.kind !== 'enlighten') {
+    return 'border border-amber-200/60 bg-amber-200/10 px-1.5 py-0.5 text-[9px] tracking-wide uppercase text-amber-100'
+  }
+
+  return `border px-1.5 py-0.5 text-[9px] tracking-wide uppercase ${
+    active
+      ? 'border-amber-200/60 bg-amber-200/10 text-amber-100 hover:border-amber-50/80 hover:bg-amber-200/20 hover:text-amber-50'
+      : 'border-slate-600/35 bg-slate-950/50 text-slate-500 hover:border-amber-100/60 hover:text-amber-50'
+  }`
+}
+
 export function AwakenerEnlightenInfluenceBadges({
   influenceBadges,
   selectedEnlightenSlot,
@@ -55,18 +67,6 @@ export function AwakenerEnlightenInfluenceBadges({
     return active
       ? `Left-click: open ${label} details\nRight-click: switch ${label} off`
       : `Left-click: open ${label} details\nRight-click: activate ${label}`
-  }
-
-  function getBadgeClass(badge: DatabaseInfluenceBadge, active: boolean): string {
-    if (badge.kind !== 'enlighten') {
-      return 'border border-amber-200/60 bg-amber-200/10 px-1.5 py-0.5 text-[9px] tracking-wide uppercase text-amber-100'
-    }
-
-    return `border px-1.5 py-0.5 text-[9px] tracking-wide uppercase ${
-      active
-        ? 'border-amber-200/60 bg-amber-200/10 text-amber-100 hover:border-amber-50/80 hover:bg-amber-200/20 hover:text-amber-50'
-        : 'border-slate-600/35 bg-slate-950/50 text-slate-500 hover:border-amber-100/60 hover:text-amber-50'
-    }`
   }
 
   function getOpenBadgeReference(
