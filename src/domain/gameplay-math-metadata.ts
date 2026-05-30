@@ -5,14 +5,13 @@ import {getPublicGameplayMathMetadata} from '@/data-access/public-data/gameplayM
 const nonEmptyStringSchema = z.string().trim().min(1)
 
 const accountLevelCurveSchema = z
-  .object({
+  .strictObject({
     minLevel: z.number().int().positive(),
     maxLevel: z.number().int().positive(),
     stageGrow: z.array(z.number()),
     accountDamagePower: z.array(z.number()),
     hpMultiplier: z.array(z.number()),
   })
-  .strict()
   .superRefine((curve, context) => {
     if (curve.maxLevel < curve.minLevel) {
       context.addIssue({
@@ -36,25 +35,23 @@ const accountLevelCurveSchema = z
   })
 
 const wheelMainstatScalingSeriesSchema = z
-  .object({
+  .strictObject({
     seriesKey: nonEmptyStringSchema,
     rarity: nonEmptyStringSchema,
     mainstatKey: nonEmptyStringSchema,
     baseValue: nonEmptyStringSchema,
     perLevel: nonEmptyStringSchema,
   })
-  .strict()
   .refine((series) => series.seriesKey === `${series.rarity}:${series.mainstatKey}`, {
     message: 'seriesKey must match rarity and mainstatKey',
     path: ['seriesKey'],
   })
 
 const wheelMainstatScalingSchema = z
-  .object({
+  .strictObject({
     growthStartLevel: z.number().int().nonnegative(),
     series: z.array(wheelMainstatScalingSeriesSchema).min(1),
   })
-  .strict()
   .superRefine((source, context) => {
     const seenSeriesKeys = new Set<string>()
     source.series.forEach((series, index) => {
@@ -69,14 +66,12 @@ const wheelMainstatScalingSchema = z
     })
   })
 
-const gameplayMathMetadataSchema = z
-  .object({
-    schemaVersion: z.union([z.literal(1), z.literal(3)]),
-    accountLevelCurve: accountLevelCurveSchema,
-    wheelMainstatScaling: wheelMainstatScalingSchema,
-    formulas: z.record(z.string(), z.unknown()),
-  })
-  .strict()
+const gameplayMathMetadataSchema = z.strictObject({
+  schemaVersion: z.union([z.literal(1), z.literal(3)]),
+  accountLevelCurve: accountLevelCurveSchema,
+  wheelMainstatScaling: wheelMainstatScalingSchema,
+  formulas: z.record(z.string(), z.unknown()),
+})
 
 export const gameplayMathMetadata = gameplayMathMetadataSchema.parse(
   getPublicGameplayMathMetadata(),

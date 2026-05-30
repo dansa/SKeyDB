@@ -13,6 +13,12 @@ import {
   loadPublicRecord,
 } from './repository'
 import {getPublicRoutesIndex, resolvePublicRoute} from './routeResolver'
+import {
+  publicCatalogRecordSchema,
+  publicManifestSchema,
+  publicRouteInfoSchema,
+  publicRoutesIndexSchema,
+} from './schemas'
 import {getPublicScopeDescriptor, type SearchablePublicDataScope} from './scopeRegistry'
 import {getPublicSearchDocuments} from './searchRepository'
 
@@ -222,5 +228,54 @@ describe('public-data repository', () => {
             : manifest.scopes[scope].kind,
       )
     }
+  })
+
+  it('preserves strict and loose public-data schema trust boundaries', () => {
+    expect(() =>
+      publicRouteInfoSchema.parse({
+        slug: 'deus-ex-machina',
+        canonicalPath: '/database/covenants/deus-ex-machina',
+        unknownKey: true,
+      }),
+    ).toThrow()
+
+    expect(
+      publicCatalogRecordSchema.parse({
+        kind: 'covenant',
+        id: 'covenant-0001',
+        name: 'Deus Ex Machina',
+        route: {
+          slug: 'deus-ex-machina',
+          canonicalPath: '/database/covenants/deus-ex-machina',
+        },
+        generatedExtra: true,
+      }),
+    ).toMatchObject({generatedExtra: true})
+  })
+
+  it('keeps enum-key records exhaustive only where every public scope is required', () => {
+    const manifest = getPublicManifest()
+    const {'awakener-builds': _missingScope, ...scopesWithoutAwakenerBuilds} = manifest.scopes
+
+    expect(() =>
+      publicManifestSchema.parse({
+        ...manifest,
+        scopes: scopesWithoutAwakenerBuilds,
+      }),
+    ).toThrow()
+
+    expect(
+      publicRoutesIndexSchema.parse({
+        schemaVersion: 3,
+        routes: {
+          covenants: getPublicRoutesIndex().routes.covenants,
+        },
+        redirects: {},
+      }),
+    ).toMatchObject({
+      routes: {
+        covenants: expect.any(Object),
+      },
+    })
   })
 })

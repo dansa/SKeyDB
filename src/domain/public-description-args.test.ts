@@ -28,6 +28,19 @@ describe('public-description-args', () => {
     })
   })
 
+  it('rejects unknown keys inside strict public description args', () => {
+    expect(() =>
+      publicDescriptionArgsSchema.parse({
+        DescArg1: {
+          kind: 'linear',
+          base: '5',
+          gainPerLevel: '3',
+          unknownKey: true,
+        },
+      }),
+    ).toThrow()
+  })
+
   it('renders fixed args through the public arg contract', () => {
     const arg: PublicDescriptionArg = {
       kind: 'fixed',

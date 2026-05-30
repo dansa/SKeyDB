@@ -2,8 +2,8 @@ import {
   useCallback,
   useEffect,
   useMemo,
+  useReducer,
   useRef,
-  useState,
   type KeyboardEvent as ReactKeyboardEvent,
 } from 'react'
 
@@ -14,6 +14,58 @@ interface UseDetailEntitySearchOptions<TEntity> {
   items: TEntity[]
   searchItems: (items: TEntity[], query: string) => TEntity[]
   onSelectResult: (item: TEntity) => void
+}
+
+interface SearchState {
+  isOpen: boolean
+  query: string
+  activeIndex: number
+}
+
+type SearchAction =
+  | {type: 'open'}
+  | {type: 'close'}
+  | {type: 'clear'}
+  | {type: 'queryChanged'; query: string}
+  | {type: 'appendCharacter'; key: string}
+  | {type: 'deleteCharacter'}
+  | {type: 'moveActiveIndex'; activeIndex: number}
+
+const initialSearchState: SearchState = {
+  activeIndex: 0,
+  isOpen: false,
+  query: '',
+}
+
+function searchStateReducer(state: SearchState, action: SearchAction): SearchState {
+  switch (action.type) {
+    case 'open':
+      return state.isOpen ? state : {...state, isOpen: true}
+    case 'close':
+      return state.isOpen ? {...state, isOpen: false} : state
+    case 'clear':
+      return initialSearchState
+    case 'queryChanged':
+      return {
+        activeIndex: 0,
+        isOpen: true,
+        query: action.query,
+      }
+    case 'appendCharacter':
+      return {
+        activeIndex: state.activeIndex,
+        isOpen: true,
+        query: state.query + action.key,
+      }
+    case 'deleteCharacter':
+      return {
+        activeIndex: state.activeIndex,
+        isOpen: true,
+        query: state.query.slice(0, -1),
+      }
+    case 'moveActiveIndex':
+      return {...state, activeIndex: action.activeIndex}
+  }
 }
 
 export function useSuppressDetailEntitySearchCapture() {
@@ -38,9 +90,8 @@ export function useDetailEntitySearch<TEntity>({
   searchItems,
   onSelectResult,
 }: UseDetailEntitySearchOptions<TEntity>) {
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [searchActiveIndex, setSearchActiveIndex] = useState(0)
+  const [searchState, dispatchSearchState] = useReducer(searchStateReducer, initialSearchState)
+  const {activeIndex: searchActiveIndex, isOpen: isSearchOpen, query: searchQuery} = searchState
   const searchContainerRef = useRef<HTMLDivElement>(null)
   const searchInputRef = useRef<HTMLInputElement>(null)
   const searchQueryRef = useRef(searchQuery)
@@ -59,20 +110,18 @@ export function useDetailEntitySearch<TEntity>({
   }, [])
 
   const openSearch = useCallback(() => {
-    setIsSearchOpen(true)
+    dispatchSearchState({type: 'open'})
   }, [])
 
   const closeSearch = useCallback((blurInput = false) => {
-    setIsSearchOpen(false)
+    dispatchSearchState({type: 'close'})
     if (blurInput) {
       searchInputRef.current?.blur()
     }
   }, [])
 
   const clearSearch = useCallback(() => {
-    setIsSearchOpen(false)
-    setSearchQuery('')
-    setSearchActiveIndex(0)
+    dispatchSearchState({type: 'clear'})
   }, [])
 
   const handleSelectResult = useCallback(
@@ -85,9 +134,7 @@ export function useDetailEntitySearch<TEntity>({
   )
 
   const handleSearchQueryChange = useCallback((value: string) => {
-    setIsSearchOpen(true)
-    setSearchQuery(value)
-    setSearchActiveIndex(0)
+    dispatchSearchState({type: 'queryChanged', query: value})
   }, [])
 
   useEffect(() => {
@@ -107,8 +154,7 @@ export function useDetailEntitySearch<TEntity>({
       event.preventDefault()
 
       if (action.kind === 'delete') {
-        setSearchQuery((previous) => previous.slice(0, -1))
-        setIsSearchOpen(true)
+        dispatchSearchState({type: 'deleteCharacter'})
         focusSearchInput()
         return
       }
@@ -117,8 +163,7 @@ export function useDetailEntitySearch<TEntity>({
         return
       }
 
-      setSearchQuery((previous) => previous + action.key)
-      setIsSearchOpen(true)
+      dispatchSearchState({key: action.key, type: 'appendCharacter'})
       focusSearchInput()
     }
 
@@ -135,7 +180,10 @@ export function useDetailEntitySearch<TEntity>({
           return
         }
         event.preventDefault()
-        setSearchActiveIndex((previous) => (previous + 1) % searchResults.length)
+        dispatchSearchState({
+          activeIndex: (activeSearchIndex + 1) % searchResults.length,
+          type: 'moveActiveIndex',
+        })
         return
       }
       if (event.key === 'ArrowUp') {
@@ -143,9 +191,10 @@ export function useDetailEntitySearch<TEntity>({
           return
         }
         event.preventDefault()
-        setSearchActiveIndex((previous) =>
-          previous === 0 ? searchResults.length - 1 : previous - 1,
-        )
+        dispatchSearchState({
+          activeIndex: activeSearchIndex === 0 ? searchResults.length - 1 : activeSearchIndex - 1,
+          type: 'moveActiveIndex',
+        })
         return
       }
       if (event.key === 'Enter') {

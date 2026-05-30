@@ -33,14 +33,13 @@ export interface WheelMainstatScalingSource {
 }
 
 const wheelMainstatScalingSeriesSchema = z
-  .object({
+  .strictObject({
     seriesKey: z.string().trim().min(1),
     rarity: z.enum(WHEEL_MAINSTAT_SERIES_RARITY_KEYS),
     mainstatKey: z.enum(WHEEL_MAINSTAT_KEYS),
     baseValue: z.string().trim().min(1),
     perLevel: z.string().trim().min(1),
   })
-  .strict()
   .refine(
     (series) => series.seriesKey === buildWheelMainstatSeriesKey(series.rarity, series.mainstatKey),
     {
@@ -50,11 +49,10 @@ const wheelMainstatScalingSeriesSchema = z
   )
 
 const wheelMainstatScalingSourceSchema = z
-  .object({
+  .strictObject({
     growthStartLevel: z.number().int().nonnegative(),
     series: z.array(wheelMainstatScalingSeriesSchema).min(1),
   })
-  .strict()
   .superRefine((source, context) => {
     const seenSeriesKeys = new Set<string>()
     for (const [index, series] of source.series.entries()) {
