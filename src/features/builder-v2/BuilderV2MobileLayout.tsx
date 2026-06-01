@@ -1184,10 +1184,6 @@ function MobileTeamBuilder({
         />
       </section>
 
-      <div className='builder-v2-mobile-utility-row'>
-        <BuilderV2ImportExportActions model={model} />
-      </div>
-
       <BuilderV2TeamManagement
         canAddTeam={model.canAddTeam}
         editingTeamId={model.editingTeamId}
@@ -1211,6 +1207,7 @@ function MobileTeamBuilder({
         onTeamPreviewModeChange={model.setTeamPreviewMode}
         teamPreviewMode={model.teamPreviewMode}
         teams={model.teams}
+        utilityActions={<BuilderV2ImportExportActions model={model} />}
         variant='mobile'
       />
     </section>

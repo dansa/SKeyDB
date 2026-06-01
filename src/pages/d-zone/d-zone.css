@@ -8,6 +8,10 @@
   --d-zone-chip-bg: var(--ui-chip-bg);
   --d-zone-chip-text: var(--ui-chip-text);
   --d-zone-focus-ring: var(--ui-focus-ring);
+  --d-zone-focus-ring-strong: var(--ui-focus-ring-strong);
+  --d-zone-selected-border-soft: var(--ui-state-amber-border-soft);
+  --d-zone-selected-border: var(--ui-state-amber-border);
+  --d-zone-selected-inset: var(--ui-state-amber-inset-soft);
   --d-zone-gap-xs: var(--ui-gap-xs);
   --d-zone-gap-sm: var(--ui-gap-sm);
   --d-zone-panel-pad: var(--ui-panel-pad);
@@ -17,6 +21,16 @@
   --d-zone-text-body: var(--ui-text-body);
   --d-zone-panel: var(--ui-panel);
   --d-zone-panel-strong: var(--ui-panel-strong);
+  --d-zone-panel-bg: var(--ui-surface-panel-bg);
+  --d-zone-panel-bg-aura: var(--ui-surface-panel-bg-aura);
+  --d-zone-panel-bg-aura-start: var(--ui-surface-panel-bg-aura-start);
+  --d-zone-toolbar-bg: var(--ui-surface-toolbar-bg);
+  --d-zone-row-bg: var(--ui-surface-row-bg);
+  --d-zone-row-bg-hover: var(--ui-surface-row-bg-hover);
+  --d-zone-control-bg: var(--ui-surface-control-bg);
+  --d-zone-control-bg-hover: var(--ui-surface-control-bg-hover);
+  --d-zone-item-bg: var(--ui-surface-item-bg);
+  --d-zone-item-bg-hover: var(--ui-surface-item-bg-hover);
   --d-zone-gold: var(--ui-accent-gold);
   --d-zone-low-radius: var(--ui-radius-sm);
   --d-zone-compact-icon-size: 2.35rem;
@@ -150,10 +164,8 @@
   border: 1px solid var(--d-zone-border-muted);
   border-radius: var(--d-zone-low-radius);
   margin-top: 0.35rem;
-  background:
-    radial-gradient(circle at 82% 0%, oklch(40% 0.08 205 / 0.16), transparent 19rem),
-    linear-gradient(90deg, oklch(14% 0.03 246 / 0.32), transparent 58%), var(--d-zone-panel);
-  box-shadow: inset 0 1px 0 oklch(88% 0.04 84 / 0.05);
+  background: var(--d-zone-panel-bg-aura);
+  box-shadow: var(--ui-surface-hairline);
 }
 
 .d-zone-season-inspector--with-header {
@@ -247,9 +259,7 @@
 
 .d-zone-alert-switcher--toolbar {
   border-bottom: 1px solid var(--d-zone-border-subtle);
-  background:
-    linear-gradient(90deg, oklch(13% 0.03 246 / 0.42), transparent 58%),
-    oklch(8.5% 0.024 252 / 0.34);
+  background: var(--d-zone-toolbar-bg);
   padding: var(--d-zone-panel-pad);
 }
 
@@ -345,8 +355,7 @@
   align-items: stretch;
   border: 1px solid var(--d-zone-border-muted);
   border-radius: var(--d-zone-low-radius);
-  background:
-    linear-gradient(90deg, oklch(14% 0.03 246 / 0.28), transparent 46%), oklch(8% 0.023 252 / 0.46);
+  background: var(--d-zone-row-bg);
   transition:
     border-color 180ms var(--d-zone-motion-ease-soft),
     box-shadow 180ms var(--d-zone-motion-ease-soft),
@@ -354,9 +363,9 @@
 }
 
 .d-zone-wave-card[data-wave-motion='opening'] {
-  border-color: oklch(72% 0.07 84 / 0.44);
+  border-color: var(--d-zone-selected-border-soft);
   box-shadow:
-    inset 0 1px 0 oklch(88% 0.04 84 / 0.06),
+    var(--ui-surface-hairline),
     0 0.5rem 1.4rem oklch(2% 0.018 252 / 0.18);
 }
 
@@ -550,7 +559,7 @@
 
 .d-zone-relic-button:focus-visible,
 .d-zone-monster-tile:focus-visible {
-  outline: 2px solid oklch(84% 0.1 84 / 0.62);
+  outline: 2px solid var(--d-zone-focus-ring-strong);
   outline-offset: -2px;
 }
 
@@ -1023,7 +1032,7 @@
   margin-bottom: 1rem;
   background:
     radial-gradient(circle at 8% 0%, oklch(38% 0.08 205 / 0.1), transparent 14rem),
-    oklch(9% 0.024 252 / 0.76);
+    var(--d-zone-item-bg);
   color: oklch(87% 0.028 250);
   cursor: pointer;
   min-height: 2.75rem;
@@ -1037,7 +1046,7 @@
 .d-zone-history-browser-trigger:hover,
 .d-zone-history-browser-trigger:focus-visible {
   border-color: var(--d-zone-control-border-hover);
-  background-color: oklch(13% 0.032 246 / 0.78);
+  background-color: var(--d-zone-item-bg-hover);
 }
 
 .d-zone-history-browser-trigger:focus-visible {
@@ -1137,9 +1146,7 @@
   grid-template-rows: auto auto auto minmax(0, 1fr);
   border: 1px solid var(--d-zone-border-muted);
   border-radius: var(--d-zone-low-radius);
-  background:
-    radial-gradient(circle at 8% 0%, oklch(38% 0.08 205 / 0.12), transparent 18rem),
-    var(--d-zone-panel);
+  background: var(--d-zone-panel-bg-aura-start);
   box-shadow: 0.8rem 0 2rem oklch(2% 0.018 252 / 0.28);
   max-height: 100dvh;
   overflow: hidden;
@@ -1231,7 +1238,7 @@
   min-height: 2.45rem;
   border: 1px solid var(--d-zone-border-muted);
   border-radius: var(--d-zone-low-radius);
-  background: oklch(6.5% 0.02 252 / 0.56);
+  background: var(--d-zone-control-bg);
   color: oklch(88% 0.026 250);
   font-size: 0.78rem;
   font-weight: 600;
@@ -1254,7 +1261,7 @@
 }
 
 .d-zone-history-search input:focus-visible {
-  border-color: oklch(82% 0.1 84 / 0.62);
+  border-color: var(--d-zone-focus-ring-strong);
   outline: 2px solid var(--d-zone-focus-ring);
   outline-offset: 2px;
 }
@@ -1275,7 +1282,7 @@
   gap: 0.55rem;
   border: 1px solid var(--d-zone-border-muted);
   border-radius: var(--d-zone-low-radius);
-  background: oklch(7.5% 0.021 252 / 0.5);
+  background: var(--d-zone-control-bg);
   color: oklch(78% 0.028 250 / 0.9);
   cursor: pointer;
   font-size: 0.66rem;
@@ -1294,7 +1301,7 @@
 .d-zone-history-archive-note-trigger:hover,
 .d-zone-history-archive-note-trigger:focus-visible {
   border-color: var(--d-zone-control-border-hover);
-  background-color: oklch(12% 0.03 246 / 0.7);
+  background-color: var(--d-zone-control-bg-hover);
   color: oklch(88% 0.04 84 / 0.94);
 }
 
@@ -1317,7 +1324,7 @@
 .d-zone-history-archive-note-panel {
   border: 1px solid var(--d-zone-border-subtle);
   border-radius: var(--d-zone-low-radius);
-  background: oklch(6.5% 0.02 252 / 0.42);
+  background: var(--d-zone-control-bg);
   color: oklch(76% 0.024 250 / 0.9);
   font-size: var(--d-zone-text-control);
   line-height: 1.38;
@@ -1378,7 +1385,7 @@
 .d-zone-history-year-count {
   min-width: 2rem;
   border-radius: var(--d-zone-low-radius);
-  background: oklch(13% 0.032 246 / 0.78);
+  background: var(--d-zone-item-bg-hover);
   color: oklch(74% 0.032 250 / 0.88);
   font-family: Inter, system-ui, sans-serif;
   font-size: var(--d-zone-text-control);
@@ -1401,7 +1408,7 @@
   gap: 0.5rem;
   border: 1px solid var(--d-zone-border-muted);
   border-radius: var(--d-zone-low-radius);
-  background: oklch(10% 0.026 246 / 0.72);
+  background: var(--d-zone-item-bg);
   color: oklch(77% 0.026 250 / 0.9);
   cursor: pointer;
   min-height: 2.5rem;
@@ -1416,7 +1423,7 @@
 .d-zone-history-season-button:hover,
 .d-zone-history-season-button:focus-visible {
   border-color: var(--d-zone-control-border-hover);
-  background: oklch(14% 0.034 246 / 0.76);
+  background: var(--d-zone-item-bg-hover);
 }
 
 .d-zone-history-season-button:focus-visible {
@@ -1425,11 +1432,11 @@
 }
 
 .d-zone-history-season-button--selected {
-  border-color: oklch(78% 0.1 84 / 0.54);
+  border-color: var(--d-zone-selected-border);
   background:
     linear-gradient(90deg, oklch(22% 0.055 78 / 0.46), transparent 58%), oklch(11% 0.028 246 / 0.76);
   color: oklch(97% 0.036 84);
-  box-shadow: inset 0 0 0 1px oklch(88% 0.08 84 / 0.08);
+  box-shadow: inset 0 0 0 1px var(--d-zone-selected-inset);
 }
 
 .d-zone-history-season-name {

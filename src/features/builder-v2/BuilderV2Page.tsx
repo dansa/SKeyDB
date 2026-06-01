@@ -14,6 +14,10 @@ import {dbDetailStore} from '@/stores/dbDetailStore'
 import {BuilderImportExportDialogs} from '../builder/BuilderImportExportDialogs'
 import {BuilderTransferConfirmDialog} from '../builder/BuilderTransferConfirmDialog'
 import {allAwakeners} from '../builder/constants'
+import {
+  getBuilderV2ActiveWorkspaceClassName,
+  getBuilderV2TeamRailDensity,
+} from './builder-v2-team-rail-density'
 import {BuilderV2ActiveFooter, BuilderV2ActiveHeader} from './BuilderV2ActiveTeamChrome'
 import {BuilderV2AdaptiveLayout} from './BuilderV2AdaptiveLayout'
 import {BuilderV2AwakenerPicker} from './BuilderV2AwakenerPicker'
@@ -22,7 +26,7 @@ import {BuilderV2DragOverlay} from './BuilderV2DragOverlay'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
 import {BuilderV2MobileLayout} from './BuilderV2MobileLayout'
 import type {BuilderV2TeamSummary, BuilderV2TeamSummarySlot} from './BuilderV2ModelTypes'
-import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
+import {BuilderV2TeamManagement, type BuilderV2TeamSlotEditTarget} from './BuilderV2TeamManagement'
 import {BuilderV2TeamRail} from './BuilderV2TeamRail'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 import {useBuilderV2Dnd} from './useBuilderV2Dnd'
@@ -78,19 +82,27 @@ export function BuilderV2Page() {
   )
   const dnd = useBuilderV2Dnd({model})
   const activeDropTarget = isDndEnabled ? dnd.activeDropTarget : null
-  const isDragActive = isDndEnabled && dnd.isDragging
+  const isDragActive = isDndEnabled && dnd.isLoadoutDragging
   const selectTeamListSlot = useStableEvent(
-    (team: BuilderV2TeamSummary, slot: BuilderV2TeamSummarySlot) => {
-      const isCurrentTarget =
-        model.activeTeamId === team.id &&
-        model.activeSelection?.kind === 'awakener' &&
-        model.activeSelection.slotId === slot.slotId
+    (
+      team: BuilderV2TeamSummary,
+      slot: BuilderV2TeamSummarySlot,
+      _restoreTarget: HTMLElement | null,
+      target: BuilderV2TeamSlotEditTarget = {kind: 'awakener'},
+    ) => {
+      const isCurrentTarget = isTeamSlotEditTargetSelected({
+        activeSelection: model.activeSelection,
+        activeTeamId: model.activeTeamId,
+        slotId: slot.slotId,
+        target,
+        teamId: team.id,
+      })
 
       if (model.activeTeamId !== team.id) {
         model.setActiveTeam(team.id)
       }
       if (!isCurrentTarget) {
-        model.selectAwakenerSlot(slot.slotId)
+        selectBuilderV2TeamSlotTarget(model, slot.slotId, target)
       }
     },
   )
@@ -105,6 +117,13 @@ export function BuilderV2Page() {
       model.selectPosse()
     }
   })
+  const activeWorkspaceClassName = getBuilderV2ActiveWorkspaceClassName(
+    getBuilderV2TeamRailDensity({
+      canAddTeam: model.canAddTeam,
+      maxTeams: model.maxTeams,
+      teamCount: model.teams.length,
+    }),
+  )
 
   let content
 
@@ -147,14 +166,11 @@ export function BuilderV2Page() {
                 Builder V2
               </h1>
             </div>
-            <div className='builder-v2-mast-end'>
-              <BuilderV2ImportExportActions model={model} />
-            </div>
           </header>
 
           <div className='builder-v2-shell'>
             <main className='builder-v2-workbench' aria-label='Active builder workspace'>
-              <div className='builder-v2-active-workspace'>
+              <div className={activeWorkspaceClassName}>
                 <BuilderV2TeamRail
                   canAddTeam={model.canAddTeam}
                   maxTeams={model.maxTeams}
@@ -223,6 +239,7 @@ export function BuilderV2Page() {
                 onTeamPreviewModeChange={model.setTeamPreviewMode}
                 teamPreviewMode={model.teamPreviewMode}
                 teams={model.teams}
+                utilityActions={<BuilderV2ImportExportActions model={model} />}
                 variant='desktop'
               />
             </main>
@@ -311,9 +328,55 @@ function BuilderV2DndBoundary({
       <BuilderV2DragOverlay
         isRemoveIntent={dnd.activeDropTarget?.kind === 'picker'}
         preview={dnd.activePreview}
+        teamPreview={dnd.activeTeamPreview}
       />
     </DndContext>
   )
+}
+
+function isTeamSlotEditTargetSelected({
+  activeSelection,
+  activeTeamId,
+  slotId,
+  target,
+  teamId,
+}: {
+  activeSelection: ReturnType<typeof useBuilderV2Model>['activeSelection']
+  activeTeamId: string
+  slotId: string
+  target: BuilderV2TeamSlotEditTarget
+  teamId: string
+}) {
+  if (activeTeamId !== teamId || activeSelection?.slotId !== slotId) {
+    return false
+  }
+
+  switch (target.kind) {
+    case 'awakener':
+      return activeSelection.kind === 'awakener'
+    case 'covenant':
+      return activeSelection.kind === 'covenant'
+    case 'wheel':
+      return activeSelection.kind === 'wheel' && activeSelection.wheelIndex === target.wheelIndex
+  }
+}
+
+function selectBuilderV2TeamSlotTarget(
+  model: ReturnType<typeof useBuilderV2Model>,
+  slotId: string,
+  target: BuilderV2TeamSlotEditTarget,
+) {
+  switch (target.kind) {
+    case 'awakener':
+      model.selectAwakenerSlot(slotId)
+      return
+    case 'covenant':
+      model.selectCovenantSlot(slotId)
+      return
+    case 'wheel':
+      model.selectWheelSlot(slotId, target.wheelIndex)
+      return
+  }
 }
 
 function useBuilderV2ViewportMode() {

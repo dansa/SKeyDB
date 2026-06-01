@@ -204,7 +204,7 @@ describe('BuilderV2Page', () => {
     fireEvent.click(screen.getByRole('tab', {name: /^posses$/i}))
 
     const clearSlot = screen.getByRole('button', {name: /^clear slot 1$/i})
-    expect(clearSlot).toHaveTextContent(/clear slot/i)
+    expect(clearSlot).toHaveTextContent(/^clear$/i)
 
     fireEvent.click(clearSlot)
 
@@ -370,6 +370,7 @@ describe('BuilderV2Page', () => {
     const management = screen.getByRole('region', {name: /builder v2 team management/i})
     fireEvent.click(within(management).getByRole('button', {name: /rename team 1/i}))
     const renameInput = within(management).getByRole('textbox', {name: /team name/i})
+    expect(renameInput).toHaveFocus()
     fireEvent.change(renameInput, {target: {value: 'Arena Team'}})
     fireEvent.keyDown(renameInput, {key: 'Enter', code: 'Enter'})
 
@@ -483,6 +484,39 @@ describe('BuilderV2Page', () => {
     )
   })
 
+  it('shows team drag handles only when desktop-style DnD is available', () => {
+    mockBuilderV2TouchDevice(false)
+    resizeBuilderV2Viewport(1200)
+    const {unmount} = render(<BuilderV2Page />)
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: createEmptyTeamSlots()},
+          {id: 'team-2', name: 'Team 2', slots: createEmptyTeamSlots()},
+        ],
+      })
+    })
+
+    expect(screen.getByRole('button', {name: /drag team 1 to reorder/i})).toBeInTheDocument()
+
+    unmount()
+    mockBuilderV2TouchDevice(true)
+    resizeBuilderV2Viewport(900)
+    render(<BuilderV2Page />)
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: createEmptyTeamSlots()},
+          {id: 'team-2', name: 'Team 2', slots: createEmptyTeamSlots()},
+        ],
+      })
+    })
+
+    expect(screen.queryByRole('button', {name: /drag team 1 to reorder/i})).not.toBeInTheDocument()
+  })
+
   it('switches teams through the adaptive compact team rail', () => {
     resizeBuilderV2Viewport(900)
     render(<BuilderV2Page />)
@@ -512,7 +546,7 @@ describe('BuilderV2Page', () => {
     expect(screen.getByText(/editing slot 1 - awakener/i)).toBeInTheDocument()
   })
 
-  it('opens an adaptive picker dock from slot selection with search focus and Escape focus return', () => {
+  it('opens an adaptive picker dock from slot selection without search autofocus', () => {
     resizeBuilderV2Viewport(900)
     render(<BuilderV2Page />)
 
@@ -529,7 +563,7 @@ describe('BuilderV2Page', () => {
       'aria-selected',
       'true',
     )
-    expect(within(dock).getByRole('searchbox', {name: /search awakeners/i})).toHaveFocus()
+    expect(within(dock).getByRole('searchbox', {name: /search awakeners/i})).not.toHaveFocus()
 
     fireEvent.keyDown(document, {key: 'Escape'})
 
@@ -559,11 +593,12 @@ describe('BuilderV2Page', () => {
     const secondSlotTrigger = screen.getByRole('button', {name: /^select slot 2$/i})
     secondSlotTrigger.focus()
     fireEvent.click(secondSlotTrigger)
+    expect(secondSlotTrigger).toHaveFocus()
     expect(
       within(screen.getByRole('region', {name: /adaptive picker/i})).getByRole('searchbox', {
         name: /search awakeners/i,
       }),
-    ).toHaveFocus()
+    ).not.toHaveFocus()
 
     fireEvent.keyDown(document, {key: 'Escape'})
 
@@ -613,7 +648,7 @@ describe('BuilderV2Page', () => {
       'aria-selected',
       'true',
     )
-    expect(within(dock).getByRole('searchbox', {name: /search wheels/i})).toHaveFocus()
+    expect(within(dock).getByRole('searchbox', {name: /search wheels/i})).not.toHaveFocus()
   })
 
   it('opens the adaptive picker on awakeners when an empty gear target is tapped', () => {
@@ -628,7 +663,7 @@ describe('BuilderV2Page', () => {
       'aria-selected',
       'true',
     )
-    expect(within(dock).getByRole('searchbox', {name: /search awakeners/i})).toHaveFocus()
+    expect(within(dock).getByRole('searchbox', {name: /search awakeners/i})).not.toHaveFocus()
   })
 
   it('keeps the adaptive picker open when an awakened slot has no empty wheel target', () => {

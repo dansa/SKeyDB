@@ -312,9 +312,7 @@ export function createBuilderV2PosseOptions(
           ? `Team ${String(usedTeamOrder + 1)}`
           : !input.isPosseOwnedById(posse.id)
             ? 'Unowned'
-            : input.recommendedPosseIds.has(posse.id)
-              ? 'Rec'
-              : null,
+            : null,
     }
   })
 }

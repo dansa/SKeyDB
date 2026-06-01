@@ -149,7 +149,9 @@ const BuilderV2SlotCard = memo(function BuilderV2SlotCard({
           aria-pressed={slot.isCovenantSelected}
           className={`builder-v2-covenant-inline ${
             slot.isCovenantSelected ? 'builder-v2-covenant-inline--active' : ''
-          } ${isCovenantDropTarget ? 'builder-v2-covenant-inline--drop-target' : ''}`}
+          } ${isCovenantDropTarget ? 'builder-v2-covenant-inline--drop-target' : ''} ${
+            slot.covenantAssetSrc ? '' : 'builder-v2-covenant-inline--empty'
+          }`}
           onClick={(event) => {
             onSelectCovenantSlot(slot.slotId, event.currentTarget)
           }}
@@ -179,7 +181,7 @@ const BuilderV2SlotCard = memo(function BuilderV2SlotCard({
             }}
             type='button'
           >
-            ×
+            <span aria-hidden>×</span>
           </button>
         ) : null}
       </div>
@@ -190,7 +192,7 @@ const BuilderV2SlotCard = memo(function BuilderV2SlotCard({
     <article
       className={`builder-v2-slot-card ${slot.isSelected ? 'builder-v2-slot-card--active' : ''} ${
         isSlotDropTarget ? 'builder-v2-slot-card--drop-target' : ''
-      }`}
+      } ${slot.isEmpty ? 'builder-v2-slot-card--empty' : ''}`}
       data-slot-id={slot.slotId}
       ref={isDndEnabled ? setSlotDropRef : undefined}
     >
@@ -534,7 +536,7 @@ function SlotWheelChip({
           onClick={onClear}
           type='button'
         >
-          Clear
+          <span aria-hidden>×</span>
         </button>
       ) : null}
     </div>

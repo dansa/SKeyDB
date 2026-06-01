@@ -2,7 +2,7 @@ import {createContext, use, useSyncExternalStore} from 'react'
 
 const BUILDER_V2_TOUCH_DND_DISABLE_QUERY = '(any-pointer: coarse), (pointer: coarse), (hover: none)'
 
-export const BuilderV2DndEnabledContext = createContext(true)
+export const BuilderV2DndEnabledContext = createContext(false)
 
 export function useBuilderV2DndEnabled() {
   return use(BuilderV2DndEnabledContext)

@@ -1,5 +1,9 @@
 import type {CSSProperties} from 'react'
 
+import {
+  getBuilderV2TeamRailClassName,
+  getBuilderV2TeamRailDensity,
+} from './builder-v2-team-rail-density'
 import type {BuilderV2TeamSummary} from './BuilderV2ModelTypes'
 
 interface BuilderV2TeamRailProps {
@@ -19,18 +23,18 @@ export function BuilderV2TeamRail({
   onTeamActivated,
   teams,
 }: BuilderV2TeamRailProps) {
-  const renderedRowCount = teams.length + (canAddTeam ? 1 : 0)
-  const isFullHeightRail = renderedRowCount >= maxTeams
-  const shouldDockNearFullRail = renderedRowCount >= Math.max(maxTeams - 2, 1)
+  const railDensity = getBuilderV2TeamRailDensity({
+    canAddTeam,
+    maxTeams,
+    teamCount: teams.length,
+  })
   const railStyle = {
-    '--builder-v2-team-rail-middle-row-count': Math.max(renderedRowCount - 2, 0),
+    '--builder-v2-team-rail-middle-row-count': railDensity.middleRowCount,
   } as CSSProperties
 
   return (
     <aside
-      className={`builder-v2-team-rail ${isFullHeightRail ? 'builder-v2-team-rail--full' : ''} ${
-        shouldDockNearFullRail ? 'builder-v2-team-rail--near-full' : ''
-      }`}
+      className={getBuilderV2TeamRailClassName(railDensity)}
       aria-label='My teams'
       style={railStyle}
     >

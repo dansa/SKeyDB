@@ -142,4 +142,70 @@ describe('BuilderV2TeamManagement', () => {
     expect(onRequestEditTeamPosse.mock.calls[0][1]).toBeInstanceOf(HTMLButtonElement)
     expect(onSetActiveTeam).not.toHaveBeenCalled()
   })
+
+  it('splits expanded desktop slot gear into direct edit targets', () => {
+    const onRequestEditTeamSlot = vi.fn()
+    const team = createTeam({
+      id: 'team-2',
+      name: 'Wave 2',
+      slots: [
+        {
+          slotId: 'team-2-slot-1',
+          label: 'Slot 1',
+          slotNumber: 1,
+          name: 'Helot',
+          awakener: {
+            id: 'awakener-1',
+            name: 'Helot',
+            displayName: 'Helot',
+            realm: 'CARO',
+            level: 60,
+            enlightenLevel: 3,
+            cardSrc: undefined,
+            portraitSrc: undefined,
+            isSupport: false,
+            isOwned: true,
+          },
+          portraitSrc: undefined,
+          cardSrc: undefined,
+          isEmpty: false,
+          isSupport: false,
+          wheelCount: 1,
+          wheels: [
+            {
+              id: 'wheel-1',
+              name: 'Wheel 1',
+              assetSrc: undefined,
+              miniAssetSrc: undefined,
+              enlightenLevel: null,
+              isOwned: true,
+            },
+            null,
+          ],
+          hasCovenant: true,
+          covenant: {id: 'covenant-1', name: 'Covenant 1', assetSrc: undefined},
+        },
+        ...createTeam({id: 'team-2'}).slots.slice(1),
+      ],
+    })
+
+    renderTeamManagement({
+      onRequestEditTeamSlot,
+      teamPreviewMode: 'expanded',
+      teams: [team],
+      variant: 'desktop',
+    })
+
+    const slot = within(screen.getByRole('list', {name: 'Wave 2 slots'})).getAllByRole(
+      'listitem',
+    )[0]
+
+    fireEvent.click(within(slot).getByRole('button', {name: /edit wave 2 slot 1 awakener/i}))
+    fireEvent.click(within(slot).getByRole('button', {name: /edit wheel 2/i}))
+    fireEvent.click(within(slot).getByRole('button', {name: /edit wave 2 slot 1 covenant/i}))
+
+    expect(onRequestEditTeamSlot.mock.calls[0][3]).toEqual({kind: 'awakener'})
+    expect(onRequestEditTeamSlot.mock.calls[1][3]).toEqual({kind: 'wheel', wheelIndex: 1})
+    expect(onRequestEditTeamSlot.mock.calls[2][3]).toEqual({kind: 'covenant'})
+  })
 })

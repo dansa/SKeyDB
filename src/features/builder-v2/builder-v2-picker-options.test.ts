@@ -192,7 +192,7 @@ describe('builder-v2 picker option queries', () => {
     expect(options[1]).toMatchObject({inUse: false, recommendationLabel: '#2'})
   })
 
-  it('keeps posse status priority as active, blocked team, unowned, then recommended', () => {
+  it('keeps posse recommendations separate from status labels', () => {
     const activeTeam: Team = {
       id: 'team-1',
       name: 'Team 1',
@@ -223,11 +223,11 @@ describe('builder-v2 picker option queries', () => {
       isPosseOwnedById: (posseId) => posseId !== 'posse-9004',
     })
 
-    expect(options.map((option) => [option.id, option.statusLabel])).toEqual([
-      ['posse-9001', 'Active'],
-      ['posse-9002', 'Team 2'],
-      ['posse-9003', 'Rec'],
-      ['posse-9004', 'Unowned'],
+    expect(options.map((option) => [option.id, option.recommended, option.statusLabel])).toEqual([
+      ['posse-9001', false, 'Active'],
+      ['posse-9002', false, 'Team 2'],
+      ['posse-9003', true, null],
+      ['posse-9004', false, 'Unowned'],
     ])
   })
 })

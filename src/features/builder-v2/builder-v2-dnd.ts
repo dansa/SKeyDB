@@ -1,10 +1,11 @@
-import type {WheelSlotIndex} from '../builder/types'
+import type {TeamPreviewMode, WheelSlotIndex} from '../builder/types'
 import type {
   BuilderV2ActivePosseView,
   BuilderV2AwakenerOption,
   BuilderV2CovenantOption,
   BuilderV2PosseOption,
   BuilderV2SlotView,
+  BuilderV2TeamSummary,
   BuilderV2WheelOption,
 } from './BuilderV2ModelTypes'
 
@@ -13,6 +14,29 @@ const ID_SEPARATOR = ':'
 
 export type BuilderV2DragKind = 'awakener' | 'wheel' | 'covenant' | 'posse'
 export type BuilderV2DragSource = 'picker' | 'team'
+type BuilderV2PickerAwakenerDragInput = Pick<
+  BuilderV2AwakenerOption,
+  'blockReason' | 'displayName' | 'id' | 'inUseLabel' | 'owned' | 'portraitSrc' | 'realm'
+>
+type BuilderV2PickerWheelDragInput = Pick<
+  BuilderV2WheelOption,
+  | 'assetSrc'
+  | 'id'
+  | 'inUseLabel'
+  | 'mainstat'
+  | 'name'
+  | 'owned'
+  | 'rarity'
+  | 'recommendationLabel'
+>
+type BuilderV2PickerCovenantDragInput = Pick<
+  BuilderV2CovenantOption,
+  'assetSrc' | 'id' | 'inUse' | 'name' | 'recommendationLabel'
+>
+type BuilderV2PickerPosseDragInput = Pick<
+  BuilderV2PosseOption,
+  'assetSrc' | 'blocked' | 'id' | 'name' | 'owned' | 'realm' | 'recommended' | 'statusLabel'
+>
 
 export type BuilderV2DragPayload =
   | BuilderV2PickerDragPayload
@@ -20,6 +44,12 @@ export type BuilderV2DragPayload =
   | BuilderV2TeamWheelDragPayload
   | BuilderV2TeamCovenantDragPayload
   | BuilderV2TeamPosseDragPayload
+
+export interface BuilderV2TeamSortDragPayload {
+  kind: 'team'
+  source: 'team-management'
+  teamId: string
+}
 
 export type BuilderV2PickerDragPayload =
   | {
@@ -88,6 +118,12 @@ export interface BuilderV2DragPreviewDescriptor {
   imageSrc: string | undefined
   imageAlt: string
   badges: readonly BuilderV2DragPreviewBadge[]
+}
+
+export interface BuilderV2TeamDragPreviewDescriptor {
+  team: BuilderV2TeamSummary
+  index: number
+  previewMode: TeamPreviewMode
 }
 
 export interface BuilderV2DragPreviewBadge {
@@ -171,7 +207,7 @@ export function resolveBuilderV2EffectiveDropTarget(
 }
 
 export function createBuilderV2PickerAwakenerDragPayload(
-  option: BuilderV2AwakenerOption,
+  option: BuilderV2PickerAwakenerDragInput,
 ): BuilderV2DragPayload {
   return createDragPayload({
     kind: 'awakener',
@@ -190,7 +226,7 @@ export function createBuilderV2PickerAwakenerDragPayload(
 }
 
 export function createBuilderV2PickerWheelDragPayload(
-  option: BuilderV2WheelOption,
+  option: BuilderV2PickerWheelDragInput,
 ): BuilderV2DragPayload {
   return createDragPayload({
     kind: 'wheel',
@@ -210,7 +246,7 @@ export function createBuilderV2PickerWheelDragPayload(
 }
 
 export function createBuilderV2PickerCovenantDragPayload(
-  option: BuilderV2CovenantOption,
+  option: BuilderV2PickerCovenantDragInput,
 ): BuilderV2DragPayload {
   return createDragPayload({
     kind: 'covenant',
@@ -228,7 +264,7 @@ export function createBuilderV2PickerCovenantDragPayload(
 }
 
 export function createBuilderV2PickerPosseDragPayload(
-  option: BuilderV2PosseOption,
+  option: BuilderV2PickerPosseDragInput,
 ): BuilderV2DragPayload {
   return createDragPayload({
     kind: 'posse',
@@ -336,6 +372,14 @@ export function createBuilderV2TeamPosseDragPayload(
   })
 }
 
+export function createBuilderV2TeamSortDragPayload(teamId: string): BuilderV2TeamSortDragPayload {
+  return {
+    kind: 'team',
+    source: 'team-management',
+    teamId,
+  }
+}
+
 export function makeBuilderV2SlotDndId(slotId: string): BuilderV2DndId {
   return `${BUILDER_V2_DND_PREFIX}:slot:${slotId}`
 }
@@ -439,6 +483,18 @@ export function isBuilderV2DragPayload(value: unknown): value is BuilderV2DragPa
   }
 
   return value.kind !== 'wheel' || value.wheelIndex === 0 || value.wheelIndex === 1
+}
+
+export function isBuilderV2TeamSortDragPayload(
+  value: unknown,
+): value is BuilderV2TeamSortDragPayload {
+  return (
+    isRecord(value) &&
+    value.kind === 'team' &&
+    value.source === 'team-management' &&
+    typeof value.teamId === 'string' &&
+    value.teamId.length > 0
+  )
 }
 
 function parseWheelDropTarget(targetValue: string): BuilderV2DropTargetDescriptor | null {

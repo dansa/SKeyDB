@@ -281,6 +281,41 @@ describe('useBuilderV2Model', () => {
     expect(result.current.activeTeamId).toBe(activeTeamId)
   })
 
+  it('reorders teams to an explicit index for drag sorting while preserving the active team', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.addTeam()
+      result.current.addTeam()
+      result.current.addTeam()
+    })
+    const activeTeamId = result.current.activeTeamId
+
+    act(() => {
+      result.current.moveTeamToIndex(activeTeamId, 1)
+    })
+
+    expect(result.current.teams.map((team) => team.name)).toEqual([
+      'Team 1',
+      'Team 4',
+      'Team 2',
+      'Team 3',
+    ])
+    expect(result.current.activeTeamId).toBe(activeTeamId)
+
+    act(() => {
+      result.current.moveTeamToIndex(activeTeamId, 99)
+    })
+
+    expect(result.current.teams.map((team) => team.name)).toEqual([
+      'Team 1',
+      'Team 2',
+      'Team 3',
+      'Team 4',
+    ])
+    expect(result.current.activeTeamId).toBe(activeTeamId)
+  })
+
   it('assigns an awakener to the first empty slot', () => {
     const {result} = renderHook(() => useBuilderV2Model())
 

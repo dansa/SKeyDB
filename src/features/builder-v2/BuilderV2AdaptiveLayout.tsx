@@ -4,6 +4,10 @@ import {FaChevronDown, FaChevronUp} from 'react-icons/fa6'
 
 import type {WheelSlotIndex} from '../builder/types'
 import type {BuilderV2DropTargetDescriptor} from './builder-v2-dnd'
+import {
+  getBuilderV2ActiveWorkspaceClassName,
+  getBuilderV2TeamRailDensity,
+} from './builder-v2-team-rail-density'
 import {BuilderV2ActiveFooter, BuilderV2ActiveHeader} from './BuilderV2ActiveTeamChrome'
 import {BuilderV2PickerContent} from './BuilderV2AwakenerPicker'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
@@ -12,7 +16,7 @@ import type {
   BuilderV2TeamSummary,
   BuilderV2TeamSummarySlot,
 } from './BuilderV2ModelTypes'
-import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
+import {BuilderV2TeamManagement, type BuilderV2TeamSlotEditTarget} from './BuilderV2TeamManagement'
 import {BuilderV2TeamRail} from './BuilderV2TeamRail'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 import {useStableEvent} from './useStableEvent'
@@ -45,15 +49,6 @@ export function BuilderV2AdaptiveLayout({
   const editingMessageId = 'builder-v2-adaptive-editing-message'
   const pickerToggleRef = useRef<HTMLButtonElement | null>(null)
   const pickerTriggerRef = useRef<HTMLElement | null>(null)
-  const searchInputRef = useRef<HTMLInputElement | null>(null)
-
-  useEffect(() => {
-    if (!isPickerExpanded) {
-      return
-    }
-
-    searchInputRef.current?.focus()
-  }, [isPickerExpanded, model.pickerTab])
 
   const closePicker = useStableEvent((restoreFocus = true) => {
     setIsPickerExpanded(false)
@@ -132,6 +127,13 @@ export function BuilderV2AdaptiveLayout({
 
   const {selectTeamListPosseAndOpenPicker, selectTeamListSlotAndOpenPicker} =
     useAdaptiveTeamManagementShortcuts(model, openPicker)
+  const activeWorkspaceClassName = getBuilderV2ActiveWorkspaceClassName(
+    getBuilderV2TeamRailDensity({
+      canAddTeam: model.canAddTeam,
+      maxTeams: model.maxTeams,
+      teamCount: model.teams.length,
+    }),
+  )
 
   const assignAwakener = useStableEvent((awakenerId: string) => {
     model.assignAwakener(awakenerId)
@@ -165,7 +167,7 @@ export function BuilderV2AdaptiveLayout({
               isPickerExpanded ? 'builder-v2-adaptive-primary-stack--picker-expanded' : ''
             }`}
           >
-            <div className='builder-v2-active-workspace'>
+            <div className={activeWorkspaceClassName}>
               <BuilderV2TeamRail
                 canAddTeam={model.canAddTeam}
                 maxTeams={model.maxTeams}
@@ -245,7 +247,7 @@ export function BuilderV2AdaptiveLayout({
                   picker={model.picker}
                   pickerClearTarget={model.pickerClearTarget}
                   predictedDropTarget={activeDropTarget}
-                  searchInputRef={searchInputRef}
+                  searchPlaceholder='Search'
                 />
                 <button
                   aria-expanded={isPickerExpanded}
@@ -273,10 +275,6 @@ export function BuilderV2AdaptiveLayout({
             </section>
           </div>
 
-          <div className='builder-v2-adaptive-utility-row'>
-            <BuilderV2ImportExportActions model={model} />
-          </div>
-
           <BuilderV2TeamManagement
             canAddTeam={model.canAddTeam}
             editingTeamId={model.editingTeamId}
@@ -299,6 +297,7 @@ export function BuilderV2AdaptiveLayout({
             onTeamPreviewModeChange={model.setTeamPreviewMode}
             teamPreviewMode={model.teamPreviewMode}
             teams={model.teams}
+            utilityActions={<BuilderV2ImportExportActions model={model} />}
             variant='adaptive'
           />
         </main>
@@ -317,17 +316,21 @@ function useAdaptiveTeamManagementShortcuts(model: BuilderV2Model, openPicker: A
       team: BuilderV2TeamSummary,
       slot: BuilderV2TeamSummarySlot,
       restoreTarget: HTMLElement | null,
+      target: BuilderV2TeamSlotEditTarget = {kind: 'awakener'},
     ) => {
-      const isCurrentTarget =
-        model.activeTeamId === team.id &&
-        model.activeSelection?.kind === 'awakener' &&
-        model.activeSelection.slotId === slot.slotId
+      const isCurrentTarget = isTeamSlotEditTargetSelected({
+        activeSelection: model.activeSelection,
+        activeTeamId: model.activeTeamId,
+        slotId: slot.slotId,
+        target,
+        teamId: team.id,
+      })
 
       if (model.activeTeamId !== team.id) {
         model.setActiveTeam(team.id)
       }
       if (!isCurrentTarget) {
-        model.selectAwakenerSlot(slot.slotId)
+        selectBuilderV2TeamSlotTarget(model, slot.slotId, target)
       }
       openPicker(restoreTarget, {ensureTarget: false})
     },
@@ -349,4 +352,49 @@ function useAdaptiveTeamManagementShortcuts(model: BuilderV2Model, openPicker: A
   )
 
   return {selectTeamListPosseAndOpenPicker, selectTeamListSlotAndOpenPicker}
+}
+
+function isTeamSlotEditTargetSelected({
+  activeSelection,
+  activeTeamId,
+  slotId,
+  target,
+  teamId,
+}: {
+  activeSelection: BuilderV2Model['activeSelection']
+  activeTeamId: string
+  slotId: string
+  target: BuilderV2TeamSlotEditTarget
+  teamId: string
+}) {
+  if (activeTeamId !== teamId || activeSelection?.slotId !== slotId) {
+    return false
+  }
+
+  switch (target.kind) {
+    case 'awakener':
+      return activeSelection.kind === 'awakener'
+    case 'covenant':
+      return activeSelection.kind === 'covenant'
+    case 'wheel':
+      return activeSelection.kind === 'wheel' && activeSelection.wheelIndex === target.wheelIndex
+  }
+}
+
+function selectBuilderV2TeamSlotTarget(
+  model: BuilderV2Model,
+  slotId: string,
+  target: BuilderV2TeamSlotEditTarget,
+) {
+  switch (target.kind) {
+    case 'awakener':
+      model.selectAwakenerSlot(slotId)
+      return
+    case 'covenant':
+      model.selectCovenantSlot(slotId)
+      return
+    case 'wheel':
+      model.selectWheelSlot(slotId, target.wheelIndex)
+      return
+  }
 }

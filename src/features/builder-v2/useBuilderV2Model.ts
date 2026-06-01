@@ -1050,6 +1050,27 @@ export function useBuilderV2Model({
     [clearTransfer, setActiveTeamId, setTeamsInStore, storeCancelTeamRename],
   )
 
+  const moveTeamToIndex = useCallback(
+    (teamId: string, nextIndex: number) => {
+      clearTransfer()
+      storeCancelTeamRename()
+      setPendingTeamAction(null)
+      setViolationMessage(null)
+
+      const state = builderDraftStore.getState()
+      const sourceIndex = state.teams.findIndex((team) => team.id === teamId)
+      const boundedNextIndex = Math.max(0, Math.min(nextIndex, state.teams.length - 1))
+      const targetTeam = state.teams[boundedNextIndex]
+      if (sourceIndex === -1 || sourceIndex === boundedNextIndex) {
+        return
+      }
+
+      setTeamsInStore(reorderTeams(state.teams, teamId, targetTeam.id))
+      setActiveTeamId(state.activeTeamId)
+    },
+    [clearTransfer, setActiveTeamId, setTeamsInStore, storeCancelTeamRename],
+  )
+
   const moveTeamUp = useCallback(
     (teamId: string) => {
       moveTeam(teamId, -1)
@@ -1867,6 +1888,7 @@ export function useBuilderV2Model({
     cancelTeamAction,
     moveTeamUp,
     moveTeamDown,
+    moveTeamToIndex,
     startQuickLineup,
     skipQuickLineupStep,
     goBackQuickLineupStep,

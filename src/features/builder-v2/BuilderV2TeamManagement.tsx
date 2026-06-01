@@ -1,16 +1,32 @@
-import {memo, useCallback, useEffect, useRef, useState, type CSSProperties} from 'react'
+import {
+  memo,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from 'react'
 
+import {rectSortingStrategy, SortableContext, useSortable} from '@dnd-kit/sortable'
+import {CSS as DndCss} from '@dnd-kit/utilities'
 import {FaChevronDown, FaChevronUp} from 'react-icons/fa6'
 import {FiEdit2, FiRotateCcw, FiTrash2, FiUpload} from 'react-icons/fi'
 
 import {getRealmAccent, getRealmLabel} from '@/domain/realms'
 
 import type {TeamTemplateId} from '../builder/team-collection'
-import type {TeamPreviewMode} from '../builder/types'
+import type {TeamPreviewMode, WheelSlotIndex} from '../builder/types'
+import {
+  createBuilderV2TeamSortDragPayload,
+  type BuilderV2TeamDragPreviewDescriptor,
+} from './builder-v2-dnd'
+import {useBuilderV2DndEnabled} from './BuilderV2DndCapability'
 import {formatBuilderV2EnlightenLabel} from './BuilderV2EnlightenLabel'
-import {BuilderV2EnlightenMeter} from './BuilderV2EnlightenMeter'
 import type {
   BuilderV2TeamSummary,
+  BuilderV2TeamSummaryCovenant,
   BuilderV2TeamSummarySlot,
   BuilderV2TeamSummaryWheel,
 } from './BuilderV2ModelTypes'
@@ -22,6 +38,7 @@ interface BuilderV2TeamManagementProps {
   maxTeams: number
   teamPreviewMode: TeamPreviewMode
   teams: BuilderV2TeamSummary[]
+  utilityActions?: ReactNode
   variant?: 'desktop' | 'adaptive' | 'mobile'
   onTeamActivated?: () => void
   onAddTeam: () => void
@@ -39,6 +56,7 @@ interface BuilderV2TeamManagementProps {
     team: BuilderV2TeamSummary,
     slot: BuilderV2TeamSummarySlot,
     restoreTarget: HTMLElement | null,
+    target?: BuilderV2TeamSlotEditTarget,
   ) => void
   onSetActiveTeam: (teamId: string) => void
   onSetEditingTeamName: (nextName: string) => void
@@ -50,6 +68,17 @@ const teamPreviewModeOptions = [
   {value: 'expanded', label: 'Expanded'},
 ] as const
 
+export type BuilderV2TeamSlotEditTarget =
+  | {kind: 'awakener'}
+  | {kind: 'wheel'; wheelIndex: WheelSlotIndex}
+  | {kind: 'covenant'}
+
+const teamSortTransition = {
+  duration: 180,
+  easing: 'cubic-bezier(0.2, 0, 0, 1)',
+} as const
+const TEAM_MANAGEMENT_WIDE_BREAKPOINT_REM = 42.25
+
 export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
   canAddTeam,
   editingTeamId,
@@ -57,6 +86,7 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
   maxTeams,
   teamPreviewMode,
   teams,
+  utilityActions,
   variant = 'desktop',
   onTeamActivated,
   onAddTeam,
@@ -75,28 +105,58 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
   onSetEditingTeamName,
   onTeamPreviewModeChange,
 }: BuilderV2TeamManagementProps) {
+  const [setSectionNode, isWideLayout] = useTeamManagementWideLayout()
+  const isDndEnabled = useBuilderV2DndEnabled()
+  const isTeamSortingEnabled = variant !== 'mobile' && isDndEnabled && teams.length > 1
+  const sortableTeamIds = useMemo(() => teams.map((team) => team.id), [teams])
+  const teamRows = teams.map((team, index) => {
+    const rowProps: TeamManagementRowProps = {
+      editingTeamId,
+      editingTeamName,
+      index,
+      isLast: index === teams.length - 1,
+      onTeamActivated,
+      onBeginTeamRename,
+      onCancelTeamRename,
+      onCommitTeamRename,
+      onMoveTeamDown,
+      onMoveTeamUp,
+      onRequestDeleteTeam,
+      onRequestEditTeamPosse,
+      onRequestEditTeamSlot,
+      onRequestExportTeam,
+      onRequestResetTeam,
+      onSetActiveTeam,
+      onSetEditingTeamName,
+      previewMode: teamPreviewMode,
+      teamsCount: teams.length,
+      team,
+      variant,
+    }
+
+    return isTeamSortingEnabled ? (
+      <SortableTeamManagementRow key={team.id} {...rowProps} />
+    ) : (
+      <TeamManagementRow key={team.id} {...rowProps} />
+    )
+  })
+
   return (
     <section
       aria-label='Builder V2 team management'
-      className={`builder-v2-panel builder-v2-team-management builder-v2-team-management--${variant} builder-v2-team-management--preview-${teamPreviewMode}`}
+      className={`builder-v2-panel builder-v2-team-management builder-v2-team-management--${variant} builder-v2-team-management--preview-${teamPreviewMode} ${
+        isTeamSortingEnabled ? 'builder-v2-team-management--sortable' : ''
+      } ${isWideLayout ? 'builder-v2-team-management--wide' : ''}`}
+      ref={setSectionNode}
     >
       <div className='builder-v2-team-management-header'>
         <div className='builder-v2-team-management-identity'>
-          {variant === 'mobile' ? (
-            <div className='builder-v2-team-management-title-row'>
-              <h2 className='ui-title'>Teams</h2>
-              <span className='builder-v2-team-management-count'>
-                {teams.length} / {maxTeams}
-              </span>
-            </div>
-          ) : (
-            <>
-              <p className='builder-v2-label'>Your Teams</p>
-              <h2 className='ui-title'>
-                {teams.length} / {maxTeams}
-              </h2>
-            </>
-          )}
+          <div className='builder-v2-team-management-title-row'>
+            <h2 className='ui-title'>Teams</h2>{' '}
+            <span className='builder-v2-team-management-count'>
+              {teams.length} / {maxTeams}
+            </span>
+          </div>
         </div>
 
         <div className='builder-v2-team-management-toolbar'>
@@ -158,61 +218,72 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
         </div>
       </div>
 
+      {utilityActions ? (
+        <div className='builder-v2-team-management-utility'>
+          <span className='builder-v2-team-management-utility-label'>Import / Export</span>
+          {utilityActions}
+        </div>
+      ) : null}
+
       <div className='builder-v2-team-management-list'>
-        {teams.map((team, index) => (
-          <TeamManagementRow
-            editingTeamId={editingTeamId}
-            editingTeamName={editingTeamName}
-            index={index}
-            isLast={index === teams.length - 1}
-            key={team.id}
-            onTeamActivated={onTeamActivated}
-            onBeginTeamRename={onBeginTeamRename}
-            onCancelTeamRename={onCancelTeamRename}
-            onCommitTeamRename={onCommitTeamRename}
-            onMoveTeamDown={onMoveTeamDown}
-            onMoveTeamUp={onMoveTeamUp}
-            onRequestDeleteTeam={onRequestDeleteTeam}
-            onRequestEditTeamPosse={onRequestEditTeamPosse}
-            onRequestEditTeamSlot={onRequestEditTeamSlot}
-            onRequestExportTeam={onRequestExportTeam}
-            onRequestResetTeam={onRequestResetTeam}
-            onSetActiveTeam={onSetActiveTeam}
-            onSetEditingTeamName={onSetEditingTeamName}
-            previewMode={teamPreviewMode}
-            teamsCount={teams.length}
-            team={team}
-            variant={variant}
-          />
-        ))}
+        {isTeamSortingEnabled ? (
+          <SortableContext items={sortableTeamIds} strategy={rectSortingStrategy}>
+            {teamRows}
+          </SortableContext>
+        ) : (
+          teamRows
+        )}
       </div>
     </section>
   )
 })
 
-const TeamManagementRow = memo(function TeamManagementRow({
-  editingTeamId,
-  editingTeamName,
-  index,
-  isLast,
-  onTeamActivated,
-  onBeginTeamRename,
-  onCancelTeamRename,
-  onCommitTeamRename,
-  onMoveTeamDown,
-  onMoveTeamUp,
-  onRequestDeleteTeam,
-  onRequestEditTeamPosse,
-  onRequestEditTeamSlot,
-  onRequestExportTeam,
-  onRequestResetTeam,
-  onSetActiveTeam,
-  onSetEditingTeamName,
-  previewMode,
-  teamsCount,
-  team,
-  variant,
-}: {
+function useTeamManagementWideLayout() {
+  const observerRef = useRef<ResizeObserver | null>(null)
+  const [isWideLayout, setIsWideLayout] = useState(false)
+  const setSectionNode = useCallback((element: HTMLElement | null) => {
+    observerRef.current?.disconnect()
+    observerRef.current = null
+
+    if (!element || typeof ResizeObserver === 'undefined') {
+      return
+    }
+
+    const wideBreakpointPixels = getTeamManagementWideBreakpointPixels()
+    const observer = new ResizeObserver((entries) => {
+      const observedWidth = entries.length === 0 ? 0 : entries[0].contentRect.width
+      const nextIsWide = observedWidth >= wideBreakpointPixels
+      setIsWideLayout((current) => (current === nextIsWide ? current : nextIsWide))
+    })
+
+    observer.observe(element)
+    observerRef.current = observer
+  }, [])
+
+  useEffect(
+    () => () => {
+      observerRef.current?.disconnect()
+    },
+    [],
+  )
+
+  return [setSectionNode, isWideLayout] as const
+}
+
+function getTeamManagementWideBreakpointPixels(): number {
+  const rootFontSize = Number.parseFloat(window.getComputedStyle(document.documentElement).fontSize)
+  return TEAM_MANAGEMENT_WIDE_BREAKPOINT_REM * (Number.isFinite(rootFontSize) ? rootFontSize : 16)
+}
+
+interface TeamManagementRowSortableProps {
+  dragListeners?: ReturnType<typeof useSortable>['listeners']
+  isDragging?: boolean
+  setDragHandleNode?: ReturnType<typeof useSortable>['setActivatorNodeRef']
+  setRowNode?: ReturnType<typeof useSortable>['setNodeRef']
+  sortableStyle?: CSSProperties
+}
+
+interface TeamManagementRowProps {
   editingTeamId: string | null
   editingTeamName: string
   index: number
@@ -238,49 +309,86 @@ const TeamManagementRow = memo(function TeamManagementRow({
   teamsCount: number
   team: BuilderV2TeamSummary
   variant: 'desktop' | 'adaptive' | 'mobile'
-}) {
+}
+
+function SortableTeamManagementRow(props: TeamManagementRowProps) {
+  const data = useMemo(() => createBuilderV2TeamSortDragPayload(props.team.id), [props.team.id])
+  const {isDragging, listeners, setActivatorNodeRef, setNodeRef, transform, transition} =
+    useSortable({
+      id: props.team.id,
+      data,
+      transition: teamSortTransition,
+    })
+  const style = useMemo<CSSProperties>(
+    () => ({
+      transform: DndCss.Transform.toString(transform),
+      transition,
+    }),
+    [transform, transition],
+  )
+  return (
+    <TeamManagementRow
+      {...props}
+      dragListeners={listeners}
+      isDragging={isDragging}
+      setDragHandleNode={setActivatorNodeRef}
+      setRowNode={setNodeRef}
+      sortableStyle={style}
+    />
+  )
+}
+
+const TeamManagementRow = memo(function TeamManagementRow({
+  dragListeners,
+  editingTeamId,
+  editingTeamName,
+  index,
+  isDragging = false,
+  isLast,
+  onTeamActivated,
+  onBeginTeamRename,
+  onCancelTeamRename,
+  onCommitTeamRename,
+  onMoveTeamDown,
+  onMoveTeamUp,
+  onRequestDeleteTeam,
+  onRequestEditTeamPosse,
+  onRequestEditTeamSlot,
+  onRequestExportTeam,
+  onRequestResetTeam,
+  onSetActiveTeam,
+  onSetEditingTeamName,
+  previewMode,
+  setDragHandleNode,
+  setRowNode,
+  sortableStyle,
+  teamsCount,
+  team,
+  variant,
+}: TeamManagementRowProps & TeamManagementRowSortableProps) {
   const isEditing = editingTeamId === team.id
-  const isMobile = variant === 'mobile'
   const teamIndex = String(index + 1).padStart(2, '0')
+  const nameInputRef = useRef<HTMLInputElement | null>(null)
   const [slotsRef, hasSlotsOverflow] = useHorizontalOverflow()
+
+  useEffect(() => {
+    if (!isEditing) {
+      return
+    }
+
+    nameInputRef.current?.focus()
+    nameInputRef.current?.select()
+  }, [isEditing])
 
   return (
     <article
       className={`builder-v2-team-management-row ${
         team.isActive ? 'builder-v2-team-management-row--active' : ''
-      }`}
+      } ${isDragging ? 'builder-v2-team-management-row--dragging' : ''}`}
       data-team-name={team.name}
+      ref={setRowNode}
+      style={sortableStyle}
     >
-      <div className='builder-v2-team-management-reorder' aria-label={`${team.name} order`}>
-        <span aria-hidden className='builder-v2-team-management-grip'>
-          <span />
-          <span />
-          <span />
-        </span>
-        <button
-          aria-label={`Move ${team.name} up`}
-          className='builder-v2-team-management-order-button'
-          disabled={index === 0}
-          onClick={() => {
-            onMoveTeamUp(team.id)
-          }}
-          type='button'
-        >
-          <FaChevronUp aria-hidden />
-        </button>
-        <button
-          aria-label={`Move ${team.name} down`}
-          className='builder-v2-team-management-order-button'
-          disabled={isLast}
-          onClick={() => {
-            onMoveTeamDown(team.id)
-          }}
-          type='button'
-        >
-          <FaChevronDown aria-hidden />
-        </button>
-      </div>
-
       <div className='builder-v2-team-management-main'>
         <div className='builder-v2-team-management-row-header'>
           {isEditing ? (
@@ -290,6 +398,7 @@ const TeamManagementRow = memo(function TeamManagementRow({
                 <input
                   aria-label='Team name'
                   className='builder-v2-team-name-input'
+                  ref={nameInputRef}
                   onBlur={() => {
                     onCommitTeamRename(team.id)
                   }}
@@ -353,6 +462,7 @@ const TeamManagementRow = memo(function TeamManagementRow({
           >
             {team.slots.map((slot) => (
               <TeamSlotSummary
+                enableLoadoutSelect={variant !== 'mobile'}
                 key={slot.slotId}
                 onSelect={onRequestEditTeamSlot}
                 previewMode={previewMode}
@@ -364,32 +474,27 @@ const TeamManagementRow = memo(function TeamManagementRow({
 
           <fieldset className='builder-v2-team-management-controls'>
             <legend className='sr-only'>{team.name} actions</legend>
-            {isMobile ? (
-              <span className='builder-v2-team-management-control-cluster builder-v2-team-management-control-cluster--move'>
+            <span className='builder-v2-team-management-control-cluster builder-v2-team-management-control-cluster--move'>
+              {setDragHandleNode ? (
                 <button
-                  aria-label={`Move ${team.name} up`}
-                  className='builder-v2-team-management-order-button'
-                  disabled={index === 0}
-                  onClick={() => {
-                    onMoveTeamUp(team.id)
-                  }}
+                  aria-label={`Drag ${team.name} to reorder`}
+                  className='builder-v2-team-management-drag-handle'
+                  ref={setDragHandleNode}
+                  title={`Drag ${team.name} to reorder`}
                   type='button'
+                  {...(dragListeners ?? {})}
                 >
-                  <FaChevronUp aria-hidden />
+                  <span aria-hidden className='builder-v2-team-management-drag-grip' />
                 </button>
-                <button
-                  aria-label={`Move ${team.name} down`}
-                  className='builder-v2-team-management-order-button'
-                  disabled={isLast}
-                  onClick={() => {
-                    onMoveTeamDown(team.id)
-                  }}
-                  type='button'
-                >
-                  <FaChevronDown aria-hidden />
-                </button>
-              </span>
-            ) : null}
+              ) : null}
+              <TeamMoveButtons
+                index={index}
+                isLast={isLast}
+                onMoveTeamDown={onMoveTeamDown}
+                onMoveTeamUp={onMoveTeamUp}
+                team={team}
+              />
+            </span>
             <span className='builder-v2-team-management-control-cluster builder-v2-team-management-control-cluster--actions'>
               <button
                 aria-label={`Export ${team.name}`}
@@ -436,20 +541,107 @@ const TeamManagementRow = memo(function TeamManagementRow({
   )
 })
 
+function TeamMoveButtons({
+  index,
+  isLast,
+  onMoveTeamDown,
+  onMoveTeamUp,
+  team,
+}: {
+  index: number
+  isLast: boolean
+  onMoveTeamDown: (teamId: string) => void
+  onMoveTeamUp: (teamId: string) => void
+  team: BuilderV2TeamSummary
+}) {
+  return (
+    <>
+      <button
+        aria-label={`Move ${team.name} up`}
+        className='builder-v2-team-management-order-button'
+        disabled={index === 0}
+        onClick={() => {
+          onMoveTeamUp(team.id)
+        }}
+        type='button'
+      >
+        <FaChevronUp aria-hidden />
+      </button>
+      <button
+        aria-label={`Move ${team.name} down`}
+        className='builder-v2-team-management-order-button'
+        disabled={isLast}
+        onClick={() => {
+          onMoveTeamDown(team.id)
+        }}
+        type='button'
+      >
+        <FaChevronDown aria-hidden />
+      </button>
+    </>
+  )
+}
+
 function useHorizontalOverflow() {
   const ref = useRef<HTMLElement | null>(null)
+  const scheduledOverflowUpdateRef = useRef<{id: number; type: 'animation' | 'timeout'} | null>(
+    null,
+  )
   const [hasOverflow, setHasOverflow] = useState(false)
 
   const updateOverflow = useCallback((element: HTMLElement | null = ref.current) => {
-    setHasOverflow(element ? element.scrollWidth > element.clientWidth + 1 : false)
+    const nextHasOverflow = element ? element.scrollWidth > element.clientWidth + 1 : false
+    setHasOverflow((current) => (current === nextHasOverflow ? current : nextHasOverflow))
   }, [])
+
+  const cancelScheduledOverflowUpdate = useCallback(() => {
+    const scheduledUpdate = scheduledOverflowUpdateRef.current
+    if (!scheduledUpdate) {
+      return
+    }
+
+    if (scheduledUpdate.type === 'animation') {
+      window.cancelAnimationFrame(scheduledUpdate.id)
+    } else {
+      window.clearTimeout(scheduledUpdate.id)
+    }
+    scheduledOverflowUpdateRef.current = null
+  }, [])
+
+  const scheduleOverflowUpdate = useCallback(
+    (element: HTMLElement | null = ref.current) => {
+      if (scheduledOverflowUpdateRef.current) {
+        return
+      }
+
+      const runUpdate = () => {
+        scheduledOverflowUpdateRef.current = null
+        updateOverflow(element)
+      }
+
+      if (typeof window.requestAnimationFrame === 'function') {
+        scheduledOverflowUpdateRef.current = {
+          id: window.requestAnimationFrame(runUpdate),
+          type: 'animation',
+        }
+        return
+      }
+
+      scheduledOverflowUpdateRef.current = {
+        id: window.setTimeout(runUpdate, 16),
+        type: 'timeout',
+      }
+    },
+    [updateOverflow],
+  )
 
   const setRef = useCallback(
     (element: HTMLElement | null) => {
       ref.current = element
+      cancelScheduledOverflowUpdate()
       updateOverflow(element)
     },
-    [updateOverflow],
+    [cancelScheduledOverflowUpdate, updateOverflow],
   )
 
   useEffect(() => {
@@ -459,7 +651,7 @@ function useHorizontalOverflow() {
     }
 
     const updateCurrentOverflow = () => {
-      updateOverflow(element)
+      scheduleOverflowUpdate(element)
     }
 
     window.addEventListener('resize', updateCurrentOverflow)
@@ -467,6 +659,7 @@ function useHorizontalOverflow() {
     if (typeof ResizeObserver === 'undefined') {
       return () => {
         window.removeEventListener('resize', updateCurrentOverflow)
+        cancelScheduledOverflowUpdate()
       }
     }
 
@@ -479,8 +672,9 @@ function useHorizontalOverflow() {
     return () => {
       window.removeEventListener('resize', updateCurrentOverflow)
       resizeObserver.disconnect()
+      cancelScheduledOverflowUpdate()
     }
-  }, [updateOverflow])
+  }, [cancelScheduledOverflowUpdate, scheduleOverflowUpdate])
 
   return [setRef, hasOverflow] as const
 }
@@ -530,7 +724,8 @@ function TeamPosseSummary({
   )
 }
 
-function TeamSlotSummary({
+export function TeamSlotSummary({
+  enableLoadoutSelect,
   onSelect,
   previewMode,
   slot,
@@ -540,7 +735,9 @@ function TeamSlotSummary({
     team: BuilderV2TeamSummary,
     slot: BuilderV2TeamSummarySlot,
     restoreTarget: HTMLElement | null,
+    target?: BuilderV2TeamSlotEditTarget,
   ) => void
+  enableLoadoutSelect?: boolean
   previewMode: TeamPreviewMode
   slot: BuilderV2TeamSummarySlot
   team: BuilderV2TeamSummary
@@ -563,10 +760,46 @@ function TeamSlotSummary({
       } ${hasEnlightenOverflow ? 'builder-v2-team-management-slot--enlighten-overflow' : ''}`}
       style={style}
     >
-      {onSelect ? (
+      {onSelect && previewMode === 'expanded' && enableLoadoutSelect ? (
+        <>
+          <button
+            aria-label={`Edit ${team.name} ${slot.label} awakener`}
+            className='builder-v2-team-management-slot-button builder-v2-team-management-slot-art-button'
+            onClick={(event) => {
+              onSelect(team, slot, event.currentTarget, {kind: 'awakener'})
+            }}
+            type='button'
+          >
+            <TeamSlotArtSummary
+              compactEnlightenLabel={compactEnlightenLabel}
+              previewMode={previewMode}
+              showCovenant={false}
+              slot={slot}
+            />
+          </button>
+          {slot.awakener ? (
+            <button
+              aria-label={`Edit ${team.name} ${slot.label} covenant`}
+              className='builder-v2-team-management-slot-covenant builder-v2-team-management-slot-covenant-button'
+              onClick={(event) => {
+                onSelect(team, slot, event.currentTarget, {kind: 'covenant'})
+              }}
+              type='button'
+            >
+              <TeamSlotCovenantClasp covenant={slot.covenant} />
+            </button>
+          ) : null}
+          <TeamSlotBuildSummary
+            onSelectWheel={(wheelIndex, restoreTarget) => {
+              onSelect(team, slot, restoreTarget, {kind: 'wheel', wheelIndex})
+            }}
+            slot={slot}
+          />
+        </>
+      ) : onSelect ? (
         <button
           aria-label={`Edit ${team.name} ${slot.label}`}
-          className='builder-v2-team-management-slot-button'
+          className='builder-v2-team-management-slot-frame builder-v2-team-management-slot-button'
           onClick={(event) => {
             onSelect(team, slot, event.currentTarget)
           }}
@@ -579,13 +812,62 @@ function TeamSlotSummary({
           />
         </button>
       ) : (
-        <TeamSlotSummaryContent
-          compactEnlightenLabel={compactEnlightenLabel}
-          previewMode={previewMode}
-          slot={slot}
-        />
+        <span className='builder-v2-team-management-slot-frame'>
+          <TeamSlotSummaryContent
+            compactEnlightenLabel={compactEnlightenLabel}
+            previewMode={previewMode}
+            slot={slot}
+          />
+        </span>
       )}
     </li>
+  )
+}
+
+export function TeamManagementDragPreview({
+  preview,
+}: {
+  preview: BuilderV2TeamDragPreviewDescriptor
+}) {
+  const {team} = preview
+  const teamIndex = String(preview.index + 1).padStart(2, '0')
+  const filledCount = team.slots.filter((slot) => !slot.isEmpty).length
+
+  return (
+    <div
+      aria-label={`Reordering ${team.name}`}
+      className={`builder-v2-drag-preview builder-v2-drag-preview--team builder-v2-drag-preview--team-${preview.previewMode} builder-v2-team-management builder-v2-team-management--preview-${preview.previewMode} ${
+        team.isActive ? 'builder-v2-drag-preview--team-active' : ''
+      }`}
+    >
+      <div className='builder-v2-team-drag-preview-header'>
+        <span aria-hidden className='builder-v2-team-drag-preview-grip' />
+        <span className='builder-v2-team-drag-preview-index'>{teamIndex}</span>
+        <span className='builder-v2-team-drag-preview-name'>{team.name}</span>
+        <span className='builder-v2-team-drag-preview-count'>{filledCount} / 4</span>
+        <span
+          className={`builder-v2-team-drag-preview-posse ${
+            team.posseAssetSrc ? 'builder-v2-team-drag-preview-posse--filled' : ''
+          }`}
+          aria-hidden
+        >
+          {team.posseAssetSrc ? <img alt='' draggable={false} src={team.posseAssetSrc} /> : null}
+        </span>
+      </div>
+      <ul
+        className='builder-v2-team-management-slots builder-v2-team-drag-preview-slots'
+        aria-hidden
+      >
+        {team.slots.map((slot) => (
+          <TeamSlotSummary
+            key={slot.slotId}
+            previewMode={preview.previewMode}
+            slot={slot}
+            team={team}
+          />
+        ))}
+      </ul>
+    </div>
   )
 }
 
@@ -600,90 +882,140 @@ function TeamSlotSummaryContent({
 }) {
   return (
     <>
-      <span aria-hidden className='builder-v2-team-management-slot-art'>
-        {slot.awakener ? (
-          <>
-            <img
-              alt=''
-              draggable={false}
-              src={
-                previewMode === 'expanded'
-                  ? (slot.awakener.cardSrc ?? slot.awakener.portraitSrc)
-                  : slot.awakener.portraitSrc
-              }
-            />
-            <span className='builder-v2-team-management-slot-shade' />
-            {previewMode === 'expanded' ? (
-              <span className='builder-v2-team-management-slot-art-meta'>
-                <span className='builder-v2-team-management-slot-art-level'>
-                  Lv. {String(slot.awakener.level)}
-                </span>
-                <BuilderV2EnlightenMeter level={slot.awakener.enlightenLevel} variant='compact' />
-              </span>
-            ) : null}
-            {previewMode === 'expanded' && slot.covenant?.assetSrc ? (
-              <span className='builder-v2-team-management-slot-covenant'>
-                <img alt='' draggable={false} src={slot.covenant.assetSrc} />
-              </span>
-            ) : null}
-            <span className='builder-v2-team-management-slot-state'>
-              {slot.awakener.isSupport ? (
-                <span className='builder-v2-team-management-state-chip'>Support</span>
-              ) : null}
-              {!slot.awakener.isOwned ? (
-                <span className='builder-v2-team-management-state-chip builder-v2-team-management-state-chip--danger'>
-                  Unowned
-                </span>
-              ) : null}
-            </span>
-            {previewMode === 'compact' && compactEnlightenLabel ? (
-              <span className='builder-v2-team-management-slot-compact-enlighten'>
-                <span className='builder-v2-team-management-state-chip'>
-                  {compactEnlightenLabel}
-                </span>
-              </span>
-            ) : null}
-          </>
-        ) : (
-          <span className='builder-v2-team-management-empty-slot'>
-            <span className='builder-v2-empty-mark'>+</span>
-            <span>Empty</span>
-          </span>
-        )}
-      </span>
+      <TeamSlotArtSummary
+        compactEnlightenLabel={compactEnlightenLabel}
+        previewMode={previewMode}
+        showCovenant
+        slot={slot}
+      />
 
-      {previewMode === 'expanded' ? (
-        <span className='builder-v2-team-management-slot-build' aria-hidden>
-          <span className='builder-v2-team-management-loadout-row'>
-            {slot.wheels.map((wheel, index) => (
-              <WheelMiniSummary
-                key={`${slot.slotId}-wheel-${String(index)}`}
-                wheel={wheel}
-                wheelNumber={index + 1}
-              />
-            ))}
-          </span>
-        </span>
-      ) : null}
+      {previewMode === 'expanded' ? <TeamSlotBuildSummary slot={slot} /> : null}
     </>
   )
 }
 
+function TeamSlotArtSummary({
+  compactEnlightenLabel,
+  previewMode,
+  showCovenant,
+  slot,
+}: {
+  compactEnlightenLabel: string | null
+  previewMode: TeamPreviewMode
+  showCovenant: boolean
+  slot: BuilderV2TeamSummarySlot
+}) {
+  return (
+    <span aria-hidden className='builder-v2-team-management-slot-art'>
+      {slot.awakener ? (
+        <>
+          <img
+            alt=''
+            draggable={false}
+            src={
+              previewMode === 'expanded'
+                ? (slot.awakener.cardSrc ?? slot.awakener.portraitSrc)
+                : slot.awakener.portraitSrc
+            }
+          />
+          <span className='builder-v2-team-management-slot-shade' />
+          {previewMode === 'expanded' ? (
+            <span className='builder-v2-team-management-slot-art-meta'>
+              <span className='builder-v2-team-management-slot-art-level'>
+                Lv. {String(slot.awakener.level)}
+              </span>
+              {compactEnlightenLabel ? (
+                <span className='builder-v2-team-management-slot-art-enlighten'>
+                  {compactEnlightenLabel}
+                </span>
+              ) : null}
+            </span>
+          ) : null}
+          {showCovenant && previewMode === 'expanded' ? (
+            <span className='builder-v2-team-management-slot-covenant'>
+              <TeamSlotCovenantClasp covenant={slot.covenant} />
+            </span>
+          ) : null}
+          <span className='builder-v2-team-management-slot-state'>
+            {slot.awakener.isSupport ? (
+              <span className='builder-v2-team-management-state-chip'>Support</span>
+            ) : null}
+            {!slot.awakener.isOwned ? (
+              <span className='builder-v2-team-management-state-chip builder-v2-team-management-state-chip--danger'>
+                Unowned
+              </span>
+            ) : null}
+          </span>
+          {previewMode === 'compact' && compactEnlightenLabel ? (
+            <span className='builder-v2-team-management-slot-compact-enlighten'>
+              <span className='builder-v2-team-management-state-chip'>{compactEnlightenLabel}</span>
+            </span>
+          ) : null}
+        </>
+      ) : (
+        <span className='builder-v2-team-management-empty-slot'>
+          <span className='builder-v2-empty-mark'>+</span>
+          <span>Empty</span>
+        </span>
+      )}
+    </span>
+  )
+}
+
+function TeamSlotCovenantClasp({covenant}: {covenant: BuilderV2TeamSummaryCovenant | null}) {
+  return covenant?.assetSrc ? (
+    <img alt='' draggable={false} src={covenant.assetSrc} />
+  ) : (
+    <span aria-hidden className='builder-v2-team-management-slot-covenant-fallback'>
+      +
+    </span>
+  )
+}
+
+function TeamSlotBuildSummary({
+  onSelectWheel,
+  slot,
+}: {
+  onSelectWheel?: (wheelIndex: WheelSlotIndex, restoreTarget: HTMLElement | null) => void
+  slot: BuilderV2TeamSummarySlot
+}) {
+  return (
+    <span className='builder-v2-team-management-slot-build' aria-hidden={!onSelectWheel}>
+      <span className='builder-v2-team-management-loadout-row'>
+        {slot.wheels.map((wheel, index) => (
+          <WheelMiniSummary
+            key={`${slot.slotId}-wheel-${String(index)}`}
+            onSelect={
+              onSelectWheel
+                ? (restoreTarget) => {
+                    onSelectWheel(index as WheelSlotIndex, restoreTarget)
+                  }
+                : undefined
+            }
+            wheel={wheel}
+            wheelNumber={index + 1}
+          />
+        ))}
+      </span>
+    </span>
+  )
+}
+
 function WheelMiniSummary({
+  onSelect,
   wheel,
   wheelNumber,
 }: {
+  onSelect?: (restoreTarget: HTMLElement | null) => void
   wheel: BuilderV2TeamSummaryWheel | null
   wheelNumber: number
 }) {
   const enlightenLabel = formatBuilderV2EnlightenLabel(wheel?.enlightenLevel ?? null)
-
-  return (
-    <span
-      className={`builder-v2-team-management-loadout-cell builder-v2-team-management-loadout-cell--wheel ${
-        wheel && !wheel.isOwned ? 'builder-v2-team-management-loadout-cell--unowned' : ''
-      }`}
-    >
+  const className = `builder-v2-team-management-loadout-cell builder-v2-team-management-loadout-cell--wheel ${
+    wheel && !wheel.isOwned ? 'builder-v2-team-management-loadout-cell--unowned' : ''
+  }`
+  const content = (
+    <>
       {(wheel?.miniAssetSrc ?? wheel?.assetSrc) ? (
         <img alt='' draggable={false} src={wheel.miniAssetSrc ?? wheel.assetSrc} />
       ) : (
@@ -692,7 +1024,24 @@ function WheelMiniSummary({
       {enlightenLabel ? (
         <span className='builder-v2-team-management-wheel-enlighten'>{enlightenLabel}</span>
       ) : null}
-    </span>
+    </>
+  )
+
+  if (!onSelect) {
+    return <span className={className}>{content}</span>
+  }
+
+  return (
+    <button
+      aria-label={`Edit wheel ${String(wheelNumber)}`}
+      className={`${className} builder-v2-team-management-loadout-button`}
+      onClick={(event) => {
+        onSelect(event.currentTarget)
+      }}
+      type='button'
+    >
+      {content}
+    </button>
   )
 }
 

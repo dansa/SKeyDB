@@ -15,12 +15,14 @@ import {
 
 import {
   isBuilderV2DragPayload,
+  isBuilderV2TeamSortDragPayload,
   parseBuilderV2DndId,
   resolveBuilderV2DndAction,
   resolveBuilderV2EffectiveDropTarget,
   type BuilderV2DndAction,
   type BuilderV2DragPreviewDescriptor,
   type BuilderV2DropTargetDescriptor,
+  type BuilderV2TeamDragPreviewDescriptor,
 } from './builder-v2-dnd'
 import type {BuilderV2Model} from './BuilderV2ModelTypes'
 
@@ -29,12 +31,18 @@ interface UseBuilderV2DndOptions {
 }
 
 const builderV2CollisionDetection: CollisionDetection = (args) => {
+  if (isBuilderV2TeamSortDragPayload(args.active.data.current)) {
+    return closestCenter(args)
+  }
+
   const pointerCollisions = pointerWithin(args)
   return pointerCollisions.length > 0 ? pointerCollisions : closestCenter(args)
 }
 
 export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
   const [activePreview, setActivePreview] = useState<BuilderV2DragPreviewDescriptor | null>(null)
+  const [activeTeamPreview, setActiveTeamPreview] =
+    useState<BuilderV2TeamDragPreviewDescriptor | null>(null)
   const [activeDropTarget, setActiveDropTarget] = useState<BuilderV2DropTargetDescriptor | null>(
     null,
   )
@@ -46,29 +54,44 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
 
   function handleDragStart(event: DragStartEvent) {
     const payload = event.active.data.current
-    setActivePreview(isBuilderV2DragPayload(payload) ? payload.preview : null)
+    const teamPreview = createBuilderV2TeamSortPreview(payload, model)
+    setActiveTeamPreview(teamPreview)
+    setActivePreview(!teamPreview && isBuilderV2DragPayload(payload) ? payload.preview : null)
     setActiveDropTarget(null)
   }
 
   function handleDragOver(event: DragOverEvent) {
     const payload = event.active.data.current
+    if (isBuilderV2TeamSortDragPayload(payload)) {
+      setActiveDropTarget((current) => (current === null ? current : null))
+      return
+    }
+
     const target = parseBuilderV2DndId(event.over?.id)
-    setActiveDropTarget(
-      isBuilderV2DragPayload(payload)
-        ? resolveBuilderV2EffectiveDropTarget(payload, target, model.slots)
-        : null,
+    const nextDropTarget = isBuilderV2DragPayload(payload)
+      ? resolveBuilderV2EffectiveDropTarget(payload, target, model.slots)
+      : null
+    setActiveDropTarget((current) =>
+      areBuilderV2DropTargetsEqual(current, nextDropTarget) ? current : nextDropTarget,
     )
   }
 
   function handleDragCancel(_event: DragCancelEvent) {
     setActivePreview(null)
+    setActiveTeamPreview(null)
     setActiveDropTarget(null)
   }
 
   function handleDragEnd(event: DragEndEvent) {
     setActivePreview(null)
+    setActiveTeamPreview(null)
     setActiveDropTarget(null)
     const payload = event.active.data.current
+    if (isBuilderV2TeamSortDragPayload(payload)) {
+      dispatchBuilderV2TeamSort(model, payload.teamId, event.over?.id)
+      return
+    }
+
     if (!isBuilderV2DragPayload(payload)) {
       return
     }
@@ -85,14 +108,46 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
   return {
     activeDropTarget,
     activePreview,
+    activeTeamPreview,
     collisionDetection: builderV2CollisionDetection,
-    isDragging: Boolean(activePreview),
+    isDragging: Boolean(activePreview) || Boolean(activeTeamPreview),
+    isLoadoutDragging: Boolean(activePreview),
     sensors,
     handleDragCancel,
     handleDragEnd,
     handleDragOver,
     handleDragStart,
   }
+}
+
+function createBuilderV2TeamSortPreview(
+  payload: unknown,
+  model: BuilderV2Model,
+): BuilderV2TeamDragPreviewDescriptor | null {
+  if (!isBuilderV2TeamSortDragPayload(payload)) {
+    return null
+  }
+
+  const index = model.teams.findIndex((team) => team.id === payload.teamId)
+  if (index === -1) {
+    return null
+  }
+
+  const team = model.teams[index]
+  return {team, index, previewMode: model.teamPreviewMode}
+}
+
+function dispatchBuilderV2TeamSort(model: BuilderV2Model, activeTeamId: string, overId: unknown) {
+  if (typeof overId !== 'string' || activeTeamId === overId) {
+    return
+  }
+
+  const targetIndex = model.teams.findIndex((team) => team.id === overId)
+  if (targetIndex === -1) {
+    return
+  }
+
+  model.moveTeamToIndex(activeTeamId, targetIndex)
 }
 
 function dispatchBuilderV2DndAction(model: BuilderV2Model, action: BuilderV2DndAction) {
@@ -135,5 +190,32 @@ function dispatchBuilderV2DndAction(model: BuilderV2Model, action: BuilderV2DndA
     case 'move-covenant':
       model.moveCovenant(action.fromSlotId, action.toSlotId)
       return
+  }
+}
+
+function areBuilderV2DropTargetsEqual(
+  current: BuilderV2DropTargetDescriptor | null,
+  next: BuilderV2DropTargetDescriptor | null,
+): boolean {
+  if (current === next) {
+    return true
+  }
+  if (!current || current.kind !== next?.kind) {
+    return false
+  }
+
+  switch (current.kind) {
+    case 'slot':
+    case 'covenant':
+      return next.kind === current.kind && current.slotId === next.slotId
+    case 'wheel':
+      return (
+        next.kind === 'wheel' &&
+        current.slotId === next.slotId &&
+        current.wheelIndex === next.wheelIndex
+      )
+    case 'picker':
+    case 'posse':
+      return true
   }
 }

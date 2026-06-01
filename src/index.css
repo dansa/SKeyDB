@@ -49,6 +49,34 @@
   --ui-panel: oklch(10.5% 0.025 252 / 0.76);
   --ui-panel-strong: oklch(8.5% 0.024 252 / 0.9);
   --ui-art-well: oklch(4.5% 0.018 252 / 0.86);
+  --ui-surface-panel-bg:
+    linear-gradient(90deg, oklch(14% 0.03 246 / 0.32), transparent 58%), var(--ui-panel);
+  --ui-surface-panel-bg-aura:
+    radial-gradient(circle at 82% 0%, oklch(40% 0.08 205 / 0.16), transparent 19rem),
+    var(--ui-surface-panel-bg);
+  --ui-surface-panel-bg-aura-start:
+    radial-gradient(circle at 8% 0%, oklch(38% 0.08 205 / 0.12), transparent 18rem), var(--ui-panel);
+  --ui-surface-toolbar-bg:
+    linear-gradient(90deg, oklch(13% 0.03 246 / 0.42), transparent 58%),
+    oklch(8.5% 0.024 252 / 0.34);
+  --ui-surface-row-bg-image: linear-gradient(90deg, oklch(14% 0.03 246 / 0.28), transparent 46%);
+  --ui-surface-row-bg-color: oklch(8% 0.023 252 / 0.46);
+  --ui-surface-row-bg: var(--ui-surface-row-bg-image), var(--ui-surface-row-bg-color);
+  --ui-surface-row-bg-hover-image: linear-gradient(
+    90deg,
+    oklch(16% 0.034 246 / 0.34),
+    transparent 46%
+  );
+  --ui-surface-row-bg-hover-color: oklch(10% 0.026 252 / 0.54);
+  --ui-surface-row-bg-hover:
+    var(--ui-surface-row-bg-hover-image), var(--ui-surface-row-bg-hover-color);
+  --ui-surface-control-bg: oklch(6.5% 0.02 252 / 0.56);
+  --ui-surface-control-bg-hover: oklch(12% 0.03 246 / 0.7);
+  --ui-surface-item-bg: oklch(10% 0.026 246 / 0.72);
+  --ui-surface-item-bg-hover: oklch(14% 0.034 246 / 0.76);
+  --ui-surface-hairline: inset 0 1px 0 oklch(88% 0.04 84 / 0.05);
+  --ui-surface-hairline-soft: inset 0 1px 0 oklch(88% 0.04 84 / 0.035);
+  --ui-surface-hairline-faint: inset 0 1px 0 oklch(88% 0.04 84 / 0.028);
   --ui-control-surface: oklch(13% 0.028 248 / 0.72);
   --ui-control-surface-strong: oklch(8% 0.026 248 / 0.76);
   --ui-active-surface: oklch(30% 0.075 84 / 0.42);
@@ -72,6 +100,23 @@
   --ui-chip-text: oklch(83% 0.05 84 / 0.92);
   --ui-focus-ring: oklch(84% 0.1 84 / 0.38);
   --ui-focus-ring-soft: oklch(84% 0.1 84 / 0.3);
+  --ui-focus-ring-support: oklch(78% 0.1 84 / 0.16);
+  --ui-focus-ring-strong: oklch(84% 0.1 84 / 0.62);
+  --ui-focus-ring-emphasis: oklch(78% 0.1 84 / 0.66);
+  --ui-state-amber-border-soft: oklch(72% 0.07 84 / 0.44);
+  --ui-state-amber-border: oklch(78% 0.1 84 / 0.54);
+  --ui-state-amber-border-strong: oklch(78% 0.1 84 / 0.64);
+  --ui-state-amber-border-emphasis: oklch(78% 0.1 84 / 0.78);
+  --ui-state-amber-border-hot: oklch(82% 0.1 84 / 0.8);
+  --ui-state-amber-surface-soft: oklch(20% 0.05 84 / 0.12);
+  --ui-state-amber-surface: oklch(18% 0.045 84 / 0.16);
+  --ui-state-amber-surface-strong: oklch(20% 0.05 84 / 0.18);
+  --ui-state-amber-inset-soft: oklch(88% 0.08 84 / 0.08);
+  --ui-state-amber-inset: oklch(78% 0.1 84 / 0.12);
+  --ui-state-amber-inset-strong: oklch(78% 0.1 84 / 0.18);
+  --ui-state-amber-inset-hot: oklch(82% 0.1 84 / 0.26);
+  --ui-state-amber-ring: oklch(78% 0.1 84 / 0.08);
+  --ui-state-amber-ring-strong: oklch(78% 0.1 84 / 0.12);
   --ui-disclosure-icon: oklch(78% 0.07 84 / 0.76);
   --ui-radius-xs: 2px;
   --ui-radius-sm: 3px;

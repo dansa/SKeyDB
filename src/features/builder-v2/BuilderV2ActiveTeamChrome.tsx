@@ -54,7 +54,6 @@ export const BuilderV2ActiveHeader = memo(function BuilderV2ActiveHeader({
   return (
     <div className='builder-v2-active-header'>
       <div className='builder-v2-active-identity'>
-        <p className='builder-v2-label'>Active Team</p>
         <h2 className='ui-title'>{activeTeamName}</h2>
       </div>
 

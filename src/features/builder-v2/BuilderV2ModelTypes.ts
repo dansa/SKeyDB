@@ -290,6 +290,7 @@ export interface BuilderV2Model {
   cancelTeamAction: () => void
   moveTeamUp: (teamId: string) => void
   moveTeamDown: (teamId: string) => void
+  moveTeamToIndex: (teamId: string, nextIndex: number) => void
   startQuickLineup: () => void
   skipQuickLineupStep: () => void
   goBackQuickLineupStep: () => void
