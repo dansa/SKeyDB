@@ -47,6 +47,9 @@ jobs:
           VITE_ENABLE_DOMAIN_MIGRATION_NOTICE: ${{ vars.VITE_ENABLE_DOMAIN_MIGRATION_NOTICE }}
         run: npm run build
 
+      - name: Add SPA fallback
+        run: cp dist/index.html dist/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
