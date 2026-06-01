@@ -1,5 +1,6 @@
 import {
   memo,
+  useCallback,
   useEffect,
   useId,
   useMemo,
@@ -8,6 +9,7 @@ import {
   type CSSProperties,
   type ReactNode,
   type Ref,
+  type RefObject,
 } from 'react'
 
 import {useDraggable, useDroppable} from '@dnd-kit/core'
@@ -21,6 +23,7 @@ import type {
 import {getMainstatByKey, getMainstatIcon} from '@/domain/mainstats'
 import {getRealmAccent} from '@/domain/realms'
 import {wheelMainstatFilterOptions} from '@/domain/wheel-mainstat-filters'
+import {getSearchCaptureAction} from '@/ui/search/search-capture'
 
 import {
   createBuilderV2PickerAwakenerDragPayload,
@@ -246,6 +249,20 @@ function BuilderV2PickerContentFrame({
   const openCovenantDetail = useStableEvent(onOpenCovenantDetail)
   const openPosseDetail = useStableEvent(onOpenPosseDetail)
   const placesControlsAfterResults = controlsPlacement === 'bottom' && !isCollapsed
+  const internalSearchInputRef = useRef<HTMLInputElement | null>(null)
+  const setSearchInputRef = useCallback(
+    (element: HTMLInputElement | null) => {
+      internalSearchInputRef.current = element
+      assignRef(searchInputRef, element)
+    },
+    [searchInputRef],
+  )
+
+  useGlobalBuilderV2PickerSearchCapture({
+    disabled: isCollapsed,
+    picker,
+    searchInputRef: internalSearchInputRef,
+  })
 
   const tabs = (
     <div className='builder-v2-picker-tabs' role='tablist' aria-label='Picker categories'>
@@ -300,7 +317,7 @@ function BuilderV2PickerContentFrame({
             picker.setSearchQuery(event.target.value)
           }}
           placeholder={searchPlaceholder ?? activeCopy.searchLabel}
-          ref={searchInputRef}
+          ref={setSearchInputRef}
           type='search'
           value={picker.searchQuery}
         />
@@ -416,6 +433,73 @@ function BuilderV2PickerContentFrame({
       ) : null}
     </div>
   )
+}
+
+function assignRef<TElement>(ref: Ref<TElement> | undefined, element: TElement | null) {
+  if (!ref) {
+    return
+  }
+
+  if (typeof ref === 'function') {
+    ref(element)
+    return
+  }
+
+  ref.current = element
+}
+
+function useGlobalBuilderV2PickerSearchCapture({
+  disabled,
+  picker,
+  searchInputRef,
+}: {
+  disabled: boolean
+  picker: BuilderV2PickerModel
+  searchInputRef: RefObject<HTMLInputElement | null>
+}) {
+  useEffect(() => {
+    if (disabled) {
+      return
+    }
+
+    function handleGlobalKeyDown(event: KeyboardEvent) {
+      if (isModalSearchCaptureBlocked(event.target)) {
+        return
+      }
+
+      const currentSearchValue = searchInputRef.current?.value ?? picker.searchQuery
+      const action = getSearchCaptureAction({currentSearchValue, event})
+      if (!action) {
+        return
+      }
+
+      event.preventDefault()
+
+      if (action.kind === 'delete') {
+        picker.setSearchQuery(currentSearchValue.slice(0, -1))
+        searchInputRef.current?.focus()
+        return
+      }
+
+      if (action.kind === 'character') {
+        picker.setSearchQuery(`${currentSearchValue}${action.key}`)
+        searchInputRef.current?.focus()
+      }
+    }
+
+    window.addEventListener('keydown', handleGlobalKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleGlobalKeyDown)
+    }
+  }, [disabled, picker, searchInputRef])
+}
+
+function isModalSearchCaptureBlocked(target: EventTarget | null): boolean {
+  if (target instanceof Element && target.closest('dialog, [role="dialog"], [aria-modal="true"]')) {
+    return true
+  }
+
+  return document.querySelector('dialog[open], [role="dialog"][aria-modal="true"]') !== null
 }
 
 function BuilderV2PickerFilters({picker}: {picker: BuilderV2PickerModel}) {

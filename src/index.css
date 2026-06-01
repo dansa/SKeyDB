@@ -636,6 +636,184 @@ dialog[data-modal-frame-dialog]::backdrop {
   transform: scaleX(1);
 }
 
+.site-builder-nav-cluster {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.site-builder-v2-mark {
+  position: relative;
+  display: inline-flex;
+  min-height: 3.8rem;
+  align-items: center;
+  justify-content: center;
+  margin-left: -0.42rem;
+  padding-inline: 0.18rem 0.54rem;
+  color: oklch(78% 0.07 84 / 0.82);
+  font-size: 0.64rem;
+  font-weight: 850;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.site-builder-v2-mark::after {
+  content: '';
+  position: absolute;
+  right: 0.42rem;
+  bottom: 0.86rem;
+  left: 0.05rem;
+  height: 2px;
+  background: oklch(82% 0.12 86 / 0.78);
+  opacity: 0;
+  transform: scaleX(0.45);
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+.site-builder-v2-mark--active,
+.site-builder-v2-mark:hover,
+.site-builder-v2-mark:focus-visible {
+  color: oklch(96% 0.036 84);
+}
+
+.site-builder-v2-mark--active::after,
+.site-builder-v2-mark:hover::after,
+.site-builder-v2-mark:focus-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.site-builder-v2-mark:focus-visible {
+  outline: 2px solid oklch(84% 0.1 84 / 0.72);
+  outline-offset: -0.7rem;
+  box-shadow: 0 0 0 0.2rem oklch(82% 0.12 86 / 0.14);
+}
+
+.site-feedback-button {
+  position: relative;
+  display: inline-flex;
+  min-height: 3.8rem;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  padding-inline: 0.74rem;
+  color: oklch(77% 0.026 254 / 0.82);
+  font-size: 0.82rem;
+  font-weight: 750;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.site-feedback-button::after {
+  content: '';
+  position: absolute;
+  right: 0.52rem;
+  bottom: 0.86rem;
+  left: 0.52rem;
+  height: 2px;
+  background: oklch(82% 0.12 86 / 0.8);
+  opacity: 0;
+  transform: scaleX(0.38);
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+.site-feedback-button:hover,
+.site-feedback-button[aria-expanded='true'] {
+  color: oklch(92% 0.035 84);
+}
+
+.site-feedback-button:hover::after,
+.site-feedback-button[aria-expanded='true']::after,
+.site-feedback-button:focus-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.site-feedback-button:focus-visible {
+  outline: 2px solid oklch(84% 0.1 84 / 0.72);
+  outline-offset: -0.7rem;
+  box-shadow: 0 0 0 0.2rem oklch(82% 0.12 86 / 0.14);
+}
+
+.site-feedback-mobile-trigger {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.site-feedback-menu {
+  position: fixed;
+  top: calc(var(--site-header-height) + 0.4rem);
+  right: max(1rem, calc((100vw - 1240px) / 2 + 1rem));
+  z-index: 55;
+  width: min(18rem, calc(100vw - 2rem));
+  border: 1px solid oklch(58% 0.04 232 / 0.38);
+  border-radius: var(--ui-radius-sm);
+  background:
+    linear-gradient(90deg, oklch(14% 0.03 246 / 0.38), transparent 58%), oklch(7% 0.024 252 / 0.98);
+  padding: 0.55rem;
+  box-shadow:
+    0 1.1rem 2.5rem oklch(0% 0 0 / 0.34),
+    var(--ui-surface-hairline);
+}
+
+.site-feedback-menu-title {
+  margin: 0;
+  padding: 0.2rem 0.28rem 0;
+  color: var(--ui-accent-gold-soft);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.site-feedback-menu-copy {
+  margin: 0;
+  padding: 0.25rem 0.28rem 0.45rem;
+  color: var(--ui-text-muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.site-feedback-menu-item {
+  display: flex;
+  min-height: 2.25rem;
+  align-items: center;
+  gap: 0.48rem;
+  border: 1px solid transparent;
+  border-radius: var(--ui-radius-xs);
+  padding-inline: 0.5rem;
+  color: oklch(84% 0.03 254 / 0.94);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-feedback-menu-item:hover,
+.site-feedback-menu-item:focus-visible {
+  border-color: oklch(72% 0.07 84 / 0.28);
+  background: oklch(82% 0.12 86 / 0.08);
+  color: oklch(96% 0.036 84);
+  outline: none;
+}
+
+.site-feedback-menu-item-icon {
+  width: 0.88rem;
+  height: 0.88rem;
+  color: oklch(78% 0.07 84 / 0.82);
+}
+
 .site-mobile-menu-button:focus-visible {
   background: oklch(82% 0.12 86 / 0.08);
   color: oklch(95% 0.035 84);
@@ -864,6 +1042,10 @@ dialog[data-modal-frame-dialog]::backdrop {
   .site-brand-subtitle,
   .site-nav-link,
   .site-nav-link::after,
+  .site-builder-v2-mark,
+  .site-builder-v2-mark::after,
+  .site-feedback-button,
+  .site-feedback-button::after,
   .site-menu-mark,
   .site-menu-mark > span,
   .site-mobile-menu-button,

@@ -111,6 +111,44 @@ describe('BuilderV2Page', () => {
     expect(screen.getByRole('searchbox', {name: /search awakeners/i})).toBeInTheDocument()
   })
 
+  it('captures global typing into the active V2 picker search', () => {
+    resizeBuilderV2Viewport(1200)
+    render(<BuilderV2Page />)
+
+    const searchInput = screen.getByRole('searchbox', {name: /search awakeners/i})
+    expect(searchInput).not.toHaveFocus()
+
+    fireEvent.keyDown(window, {key: 'r'})
+    fireEvent.keyDown(window, {key: 'a'})
+    fireEvent.keyDown(window, {key: 'm'})
+
+    expect(searchInput).toHaveValue('ram')
+    expect(searchInput).toHaveFocus()
+
+    searchInput.blur()
+    fireEvent.keyDown(window, {key: 'Backspace'})
+
+    expect(searchInput).toHaveValue('ra')
+    expect(searchInput).toHaveFocus()
+  })
+
+  it('does not capture global picker typing while a dialog is open', () => {
+    resizeBuilderV2Viewport(1200)
+    render(<BuilderV2Page />)
+
+    const searchInput = screen.getByRole('searchbox', {name: /search awakeners/i})
+    const dialog = document.createElement('dialog')
+    dialog.setAttribute('open', '')
+    document.body.append(dialog)
+
+    fireEvent.keyDown(window, {key: 'r'})
+
+    expect(searchInput).toHaveValue('')
+    expect(searchInput).not.toHaveFocus()
+
+    dialog.remove()
+  })
+
   it('keeps picker tab ids instance-safe and exposes tile status in accessible names', () => {
     resizeBuilderV2Viewport(1200)
     render(<BuilderV2Page />)
@@ -1459,7 +1497,7 @@ describe('BuilderV2Page', () => {
     expect(screen.queryByText(/step 1 \/ 17/i)).not.toBeInTheDocument()
   })
 
-  it('is reachable through /builder-v2 without adding a nav link', async () => {
+  it('is reachable through /builder-v2 from the compact nav chip', async () => {
     render(
       <MemoryRouter initialEntries={['/builder-v2']}>
         <App />
@@ -1468,7 +1506,13 @@ describe('BuilderV2Page', () => {
 
     expect(await screen.findByRole('heading', {level: 1, name: /builder v2/i})).toBeInTheDocument()
     const desktopNav = screen.getByRole('navigation', {name: /primary navigation desktop/i})
-    expect(within(desktopNav).queryByRole('link', {name: /builder v2/i})).not.toBeInTheDocument()
-    expect(within(desktopNav).getByRole('link', {name: /^builder$/i})).toBeInTheDocument()
+    expect(within(desktopNav).getByRole('link', {name: /^builder$/i})).toHaveAttribute(
+      'href',
+      '/builder',
+    )
+    expect(within(desktopNav).getByRole('link', {name: /builder v2 beta/i})).toHaveAttribute(
+      'href',
+      '/builder-v2',
+    )
   })
 })

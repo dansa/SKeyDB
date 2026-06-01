@@ -8,6 +8,10 @@ vi.mock('./features/builder/BuilderPage', () => ({
   BuilderPage: () => <h2>Builder page</h2>,
 }))
 
+vi.mock('./features/builder-v2/BuilderV2Page', () => ({
+  BuilderV2Page: () => <h2>Builder V2 page</h2>,
+}))
+
 vi.mock('./features/collection/CollectionPage', () => ({
   CollectionPage: () => <h2>Collection page</h2>,
 }))
@@ -38,6 +42,7 @@ interface MatchMediaEntry {
 const originalMatchMedia = window.matchMedia
 
 afterEach(() => {
+  window.localStorage.clear()
   window.matchMedia = originalMatchMedia
   vi.restoreAllMocks()
 })
@@ -106,7 +111,7 @@ describe('App shell', () => {
     const desktopNav = screen.getByRole('navigation', {name: /primary navigation desktop/i})
     expect(within(desktopNav).getByRole('link', {name: /database/i})).toBeInTheDocument()
     expect(within(desktopNav).getByRole('link', {name: /d-zone/i})).toBeInTheDocument()
-    expect(within(desktopNav).getByRole('link', {name: /builder/i})).toBeInTheDocument()
+    expect(within(desktopNav).getByRole('link', {name: /^builder$/i})).toBeInTheDocument()
     expect(within(desktopNav).getByRole('link', {name: /collection/i})).toBeInTheDocument()
   })
 
@@ -220,7 +225,31 @@ describe('App shell', () => {
       within(getMobileOverflowNav())
         .getAllByRole('link')
         .map((link) => link.textContent),
-    ).toEqual(['Builder', 'Collection'])
+    ).toEqual(['Builder', 'Builder V2', 'Collection'])
+  })
+
+  it('exposes Builder V2 from the mobile overflow menu', () => {
+    mockMatchMedia({'(min-width: 30rem)': true, '(min-width: 40rem)': false})
+
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    )
+
+    const mobileQuickNav = screen.getByRole('navigation', {
+      name: /primary navigation mobile quick links/i,
+    })
+    expect(
+      within(mobileQuickNav).queryByRole('link', {name: /builder v2/i}),
+    ).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', {name: /more/i}))
+
+    expect(within(getMobileOverflowNav()).getByRole('link', {name: /builder v2/i})).toHaveAttribute(
+      'href',
+      '/builder-v2',
+    )
   })
 
   it('closes the mobile overflow menu when the wide mobile breakpoint is promoted', () => {
@@ -271,6 +300,180 @@ describe('App shell', () => {
 
     expect(screen.getByRole('button', {name: /more/i})).not.toHaveClass(
       'site-mobile-menu-button--active-overflow',
+    )
+  })
+
+  it('opens a feedback menu with direct contact links from desktop chrome', () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: /feedback/i}))
+
+    const menu = screen.getByRole('menu', {name: /feedback/i})
+    expect(
+      within(menu).getByText(/found bad data, a bug, or have a suggestion/i),
+    ).toBeInTheDocument()
+    expect(within(menu).getByRole('menuitem', {name: /email/i})).toHaveAttribute(
+      'href',
+      'mailto:skeydb@dansa.dev?subject=SKeyDB%20feedback',
+    )
+    expect(within(menu).getByRole('menuitem', {name: /discord: fjantsa/i})).toHaveAttribute(
+      'href',
+      'https://discord.com/users/1280181546527096993',
+    )
+    expect(within(menu).getByRole('menuitem', {name: /^x: @skeydb$/i})).toHaveAttribute(
+      'href',
+      'https://x.com/skeydb',
+    )
+  })
+
+  it('closes the feedback menu with Escape and after route changes', async () => {
+    render(
+      <MemoryRouter>
+        <App />
+        <ProgrammaticRouteButton to='/collection' />
+      </MemoryRouter>,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: /feedback/i}))
+    expect(screen.getByRole('menu', {name: /feedback/i})).toBeInTheDocument()
+
+    fireEvent.keyDown(window, {key: 'Escape'})
+    expect(screen.queryByRole('menu', {name: /feedback/i})).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', {name: /feedback/i}))
+    fireEvent.click(screen.getByRole('button', {name: /programmatic route/i}))
+
+    await waitFor(() => {
+      expect(screen.queryByRole('menu', {name: /feedback/i})).not.toBeInTheDocument()
+    })
+  })
+
+  it('exposes feedback from the mobile overflow menu without adding it to quick nav', () => {
+    mockMatchMedia({'(min-width: 30rem)': true, '(min-width: 40rem)': false})
+
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    )
+
+    const mobileQuickNav = screen.getByRole('navigation', {
+      name: /primary navigation mobile quick links/i,
+    })
+    expect(
+      within(mobileQuickNav).queryByRole('button', {name: /feedback/i}),
+    ).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', {name: /more/i}))
+    fireEvent.click(within(getMobileOverflowNav()).getByRole('button', {name: /feedback/i}))
+
+    expect(screen.getByRole('menu', {name: /feedback/i})).toBeInTheDocument()
+  })
+
+  it('offers Builder V2 from the classic builder without affecting the builder page render', async () => {
+    render(
+      <MemoryRouter initialEntries={['/builder']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    expect(
+      await screen.findByRole('heading', {level: 2, name: /builder page/i}),
+    ).toBeInTheDocument()
+    const banner = screen.getByRole('region', {name: /builder v2 beta/i})
+    expect(within(banner).getByRole('link', {name: /try builder v2/i})).toHaveAttribute(
+      'href',
+      '/builder-v2',
+    )
+  })
+
+  it('dismisses the classic builder V2 prompt independently for the current build', () => {
+    render(
+      <MemoryRouter initialEntries={['/builder']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: /dismiss builder v2 beta prompt/i}))
+
+    expect(screen.queryByRole('region', {name: /builder v2 beta/i})).not.toBeInTheDocument()
+    expect(window.localStorage.getItem('skeydb.builderV2Beta.classicDismissedFor.v1')).toBe('dev')
+    expect(window.localStorage.getItem('skeydb.builderV2Beta.v2DismissedFor.v1')).toBeNull()
+  })
+
+  it('lets users opt into Builder V2 as the default from the V2 beta banner', async () => {
+    render(
+      <MemoryRouter initialEntries={['/builder-v2']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    expect(
+      await screen.findByRole('heading', {level: 2, name: /builder v2 page/i}),
+    ).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: /make builder v2 default/i}))
+
+    expect(window.localStorage.getItem('skeydb.builderV2Beta.default.v1')).toBe('1')
+    expect(screen.queryByRole('region', {name: /builder v2 beta/i})).not.toBeInTheDocument()
+  })
+
+  it('redirects the builder route to Builder V2 after opt-in while preserving a classic escape hatch', async () => {
+    window.localStorage.setItem('skeydb.builderV2Beta.default.v1', '1')
+
+    const {unmount} = render(
+      <MemoryRouter initialEntries={['/builder']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    expect(
+      await screen.findByRole('heading', {level: 2, name: /builder v2 page/i}),
+    ).toBeInTheDocument()
+
+    unmount()
+    render(
+      <MemoryRouter initialEntries={['/builder?classic=1']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    expect(
+      await screen.findByRole('heading', {level: 2, name: /builder page/i}),
+    ).toBeInTheDocument()
+  })
+
+  it('does not show the classic Builder V2 prompt on the classic escape route', async () => {
+    render(
+      <MemoryRouter initialEntries={['/builder?classic=1']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    expect(
+      await screen.findByRole('heading', {level: 2, name: /builder page/i}),
+    ).toBeInTheDocument()
+    expect(screen.queryByRole('region', {name: /builder v2 beta/i})).not.toBeInTheDocument()
+  })
+
+  it('adds a compact Builder V2 nav mark without changing the primary Builder destination', () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    )
+
+    const desktopNav = screen.getByRole('navigation', {name: /primary navigation desktop/i})
+    expect(within(desktopNav).getByRole('link', {name: /^builder$/i})).toHaveAttribute(
+      'href',
+      '/builder',
+    )
+    expect(within(desktopNav).getByRole('link', {name: /builder v2 beta/i})).toHaveAttribute(
+      'href',
+      '/builder-v2',
     )
   })
 })
