@@ -7,10 +7,12 @@ import {useNativeModalDialog} from './useNativeModalDialog'
 
 function TestDialog({
   initialFocus = false,
+  label = 'Native modal',
   lockBodyScroll = false,
   onCancel,
 }: {
   initialFocus?: boolean
+  label?: string
   lockBodyScroll?: boolean
   onCancel?: (event: Event) => void
 }) {
@@ -25,11 +27,20 @@ function TestDialog({
   })
 
   return (
-    <dialog aria-label='Native modal' ref={dialogRef}>
+    <dialog aria-label={label} ref={dialogRef}>
       <button ref={buttonRef} type='button'>
         Initial action
       </button>
     </dialog>
+  )
+}
+
+function LockedDialogStack({showFirst, showSecond}: {showFirst: boolean; showSecond: boolean}) {
+  return (
+    <>
+      {showFirst ? <TestDialog label='First modal' lockBodyScroll={true} /> : null}
+      {showSecond ? <TestDialog label='Second modal' lockBodyScroll={true} /> : null}
+    </>
   )
 }
 
@@ -44,6 +55,12 @@ describe('useNativeModalDialog', () => {
     restoreDialogMethod('showModal', showModalDescriptor)
     restoreDialogMethod('close', closeDescriptor)
     document.body.style.overflow = ''
+    document.body.style.position = ''
+    document.body.style.top = ''
+    document.body.style.left = ''
+    document.body.style.right = ''
+    document.body.style.width = ''
+    document.documentElement.style.overflow = ''
     document.body.replaceChildren()
   })
 
@@ -163,6 +180,29 @@ describe('useNativeModalDialog', () => {
     unmount()
 
     expect(closeSpy).toHaveBeenCalledTimes(1)
+  })
+
+  it('keeps page scroll locked until every locked dialog has unmounted', () => {
+    document.body.style.overflow = 'auto'
+    document.documentElement.style.overflow = 'scroll'
+
+    const {rerender, unmount} = render(<LockedDialogStack showFirst={true} showSecond={true} />)
+
+    expect(document.body.style.overflow).toBe('hidden')
+    expect(document.body.style.position).toBe('fixed')
+    expect(document.documentElement.style.overflow).toBe('hidden')
+
+    rerender(<LockedDialogStack showFirst={false} showSecond={true} />)
+
+    expect(document.body.style.overflow).toBe('hidden')
+    expect(document.body.style.position).toBe('fixed')
+    expect(document.documentElement.style.overflow).toBe('hidden')
+
+    unmount()
+
+    expect(document.body.style.overflow).toBe('auto')
+    expect(document.body.style.position).toBe('')
+    expect(document.documentElement.style.overflow).toBe('scroll')
   })
 })
 

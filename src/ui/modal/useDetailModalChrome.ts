@@ -1,6 +1,7 @@
 import {useCallback, useEffect, useRef, useState, useSyncExternalStore, type RefObject} from 'react'
 
 import {getFocusableElements} from './focus-scope'
+import {acquirePageScrollLock, releasePageScrollLock} from './pageScrollLock'
 
 interface UseDetailModalChromeOptions {
   isSearchOpen: boolean
@@ -45,10 +46,10 @@ export function useDetailModalChrome({
   const previouslyFocusedElementRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+    const lockToken = acquirePageScrollLock()
+
     return () => {
-      document.body.style.overflow = previousOverflow
+      releasePageScrollLock(lockToken)
     }
   }, [])
 

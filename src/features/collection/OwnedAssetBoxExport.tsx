@@ -613,10 +613,10 @@ function OwnedAssetBoxExportModal<R extends string>({
 }: OwnedAssetBoxExportModalProps<R>) {
   return (
     <ModalFrame
-      panelClassName='flex h-[88vh] w-full max-w-[92vw] flex-col border border-amber-200/55 bg-slate-950/96 p-4 shadow-[0_18px_50px_rgba(2,6,23,0.72)]'
+      panelClassName='flex h-[calc(100dvh-1rem)] max-h-[calc(100dvh-1rem)] w-full max-w-[calc(100vw-1rem)] flex-col overflow-hidden border border-amber-200/55 bg-slate-950/96 p-3 shadow-[0_18px_50px_rgba(2,6,23,0.72)] sm:h-[88vh] sm:max-h-[calc(100dvh-2rem)] sm:max-w-[92vw] sm:p-4'
       title={modalTitle}
     >
-      <div className='mt-3 grid min-h-0 flex-1 gap-3 lg:grid-cols-[340px_1fr]'>
+      <div className='mt-3 grid min-h-0 flex-1 grid-rows-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-3 lg:grid-cols-[340px_1fr] lg:grid-rows-none'>
         <div className='collection-scrollbar space-y-2 overflow-auto border border-slate-500/45 bg-slate-900/50 p-3 text-xs text-slate-300'>
           {rarityOptions && includedRarities ? (
             <div className='space-y-2 border border-slate-700/60 bg-slate-950/50 p-2'>
@@ -800,7 +800,7 @@ function OwnedAssetBoxExportModal<R extends string>({
         </div>
       </div>
 
-      <div className='mt-3 flex justify-end gap-2'>
+      <div className='mt-3 flex flex-wrap justify-end gap-2'>
         {exportUnavailableReason ? (
           <p className='mr-auto self-center text-[11px] text-slate-400'>
             {exportUnavailableReason}

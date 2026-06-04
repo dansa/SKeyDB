@@ -11,6 +11,13 @@ afterEach(() => {
     writable: true,
     value: originalInnerWidth,
   })
+  document.body.style.overflow = ''
+  document.body.style.position = ''
+  document.body.style.top = ''
+  document.body.style.left = ''
+  document.body.style.right = ''
+  document.body.style.width = ''
+  document.documentElement.style.overflow = ''
 })
 
 function renderChrome({
@@ -61,6 +68,25 @@ function clickTarget(
 }
 
 describe('useDetailModalChrome', () => {
+  it('locks page and root scroll until the detail chrome unmounts', () => {
+    document.body.style.overflow = 'auto'
+    document.documentElement.style.overflow = 'scroll'
+
+    const {hook} = renderChrome()
+
+    expect(document.body.style.overflow).toBe('hidden')
+    expect(document.body.style.position).toBe('fixed')
+    expect(document.body.style.width).toBe('100%')
+    expect(document.documentElement.style.overflow).toBe('hidden')
+
+    hook.unmount()
+
+    expect(document.body.style.overflow).toBe('auto')
+    expect(document.body.style.position).toBe('')
+    expect(document.body.style.width).toBe('')
+    expect(document.documentElement.style.overflow).toBe('scroll')
+  })
+
   it('keeps popovers open when marked controls bubble to the overlay', () => {
     const {closeAllPopovers, hook, onClose, panelButton} = renderChrome()
     panelButton.dataset.detailModalPopoverPreserve = ''

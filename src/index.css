@@ -238,7 +238,9 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem 0.75rem;
-  pointer-events: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  pointer-events: auto;
   background: oklch(4.5% 0.018 252 / 0.76);
 }
 
@@ -249,6 +251,8 @@ body {
   width: 100%;
   max-height: calc(100dvh - 2rem);
   flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   pointer-events: auto;
   border: 1px solid var(--ui-border-muted);
   border-radius: var(--ui-radius-xs);

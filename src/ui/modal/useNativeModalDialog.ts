@@ -1,5 +1,7 @@
 import {useEffect, useEffectEvent, useLayoutEffect, type RefObject} from 'react'
 
+import {acquirePageScrollLock, releasePageScrollLock} from './pageScrollLock'
+
 interface UseNativeModalDialogOptions {
   dialogRef: RefObject<HTMLDialogElement | null>
   initialFocusRef?: RefObject<HTMLElement | null>
@@ -92,11 +94,10 @@ export function useNativeModalDialog({
       return undefined
     }
 
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+    const lockToken = acquirePageScrollLock()
 
     return () => {
-      document.body.style.overflow = previousOverflow
+      releasePageScrollLock(lockToken)
     }
   }, [lockBodyScroll])
 

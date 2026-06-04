@@ -9,6 +9,7 @@ interface ModalFrameProps {
   children: ReactNode
   footer?: ReactNode
   ariaLabel?: string
+  lockBodyScroll?: boolean
   onClose?: () => void
   overlayClassName?: string
   panelClassName?: string
@@ -19,6 +20,7 @@ export function ModalFrame({
   children,
   footer,
   ariaLabel,
+  lockBodyScroll = true,
   onClose,
   overlayClassName = 'ui-modal-overlay',
   panelClassName = 'ui-modal-panel max-w-xl',
@@ -38,7 +40,11 @@ export function ModalFrame({
   )
   const handleDialogClick = useCallback(
     (event: MouseEvent) => {
-      if (event.target === event.currentTarget) {
+      const target = event.target
+      if (
+        target === event.currentTarget ||
+        (target instanceof HTMLElement && target.dataset.modalFrameOverlay !== undefined)
+      ) {
         onClose?.()
       }
     },
@@ -46,6 +52,7 @@ export function ModalFrame({
   )
   useNativeModalDialog({
     dialogRef,
+    lockBodyScroll,
     onCancel: handleCancel,
     onClick: handleDialogClick,
   })
@@ -57,7 +64,7 @@ export function ModalFrame({
       data-modal-frame-dialog=''
       ref={dialogRef}
     >
-      <div className={overlayClassName}>
+      <div className={overlayClassName} data-modal-frame-overlay=''>
         <div className={panelClassName}>
           <div className='mb-3 flex items-start justify-between gap-3 border-b border-[var(--ui-border-subtle)] pb-3'>
             <h4 className='ui-title text-lg text-[var(--ui-accent-gold-soft)] sm:text-xl'>

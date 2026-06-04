@@ -52,7 +52,7 @@ export function DbDetailModalFrame({
   return createPortal(
     <dialog
       aria-label={ariaLabel}
-      className='fixed inset-0 z-[960] m-0 h-dvh max-h-none w-screen max-w-none items-center justify-center border-0 p-3 open:flex sm:p-4 md:p-5 lg:p-6'
+      className='fixed inset-0 z-[960] m-0 h-dvh max-h-none w-screen max-w-none items-center justify-center overflow-hidden overscroll-contain border-0 p-3 open:flex sm:p-4 md:p-5 lg:p-6'
       data-detail-modal-overlay=''
       ref={dialogRef}
     >

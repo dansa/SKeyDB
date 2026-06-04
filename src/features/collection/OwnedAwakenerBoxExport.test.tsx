@@ -211,4 +211,34 @@ describe('OwnedAwakenerBoxExport', () => {
     expect(screen.getByRole('button', {name: /toggle sort direction/i})).toHaveTextContent('Low')
     expect(screen.getByLabelText(/Group By Realm/i)).toHaveTextContent('On')
   })
+
+  it('keeps the PNG export modal content bounded to the mobile viewport', () => {
+    render(
+      <OwnedAwakenerBoxExport
+        entries={[
+          {
+            name: 'ramona',
+            displayName: 'Ramona',
+            realm: 'CHAOS',
+            index: 2,
+            level: 4,
+            awakenerLevel: 72,
+            cardAsset: null,
+          },
+        ]}
+        onStatusMessage={vi.fn()}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: /export box as png/i}))
+
+    const dialog = screen.getByRole('dialog', {name: 'Export Owned Box'})
+    const panel = dialog.querySelector('div[class*="max-h-[calc(100dvh-1rem)]"]')
+    const contentGrid = dialog.querySelector(
+      'div[class*="grid-rows-[minmax(0,0.9fr)_minmax(0,1.1fr)]"]',
+    )
+
+    expect(panel).toBeInstanceOf(HTMLElement)
+    expect(contentGrid).toBeInstanceOf(HTMLElement)
+  })
 })
