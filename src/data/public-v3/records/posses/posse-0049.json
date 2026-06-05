@@ -17,7 +17,16 @@
   "acquisitionSource": "Clear Psyche Deepdive: No More the Shore",
   "realm": "AEQUOR",
   "lineupToken": "5",
-  "descriptionTemplate": "Choose an Awakener to gain 15 Aliemus, while other Awakeners gain 5 Aliemus. Vortice: Immediately unleash {Vortex! Shell!} as a {Pursuit}.",
-  "descriptionArgs": {},
+  "descriptionTemplate": "Choose an Awakener to gain [Arg1] Aliemus, while other Awakeners gain [Arg2] Aliemus. Vortice: Immediately unleash {Vortex! Shell!} as a {Pursuit}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
   "lore": "She plunged into the icy sea without hesitation, fully aware that the vortex would claim her life.\nBecause in her pure, innocent mind, this was the only way to save her friends."
 }

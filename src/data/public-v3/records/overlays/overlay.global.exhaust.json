@@ -9,7 +9,7 @@
   },
   "overlayType": "mechanic",
   "aliases": ["Exhausted"],
-  "textColor": "damage",
+  "textColor": "misc",
   "descriptionTemplate": "After playing, This card is removed from deck instead of discarded.",
   "descriptionArgs": {}
 }

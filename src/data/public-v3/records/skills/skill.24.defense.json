@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0001",
   "slot": "Defense",
-  "descriptionTemplate": "Gain [Block:Arg1] Shield. \"24\" Gain [Energy:Arg2] Aliemus.\nDepressed Persona: Gain an additional 5 Aliemus. Manic Persona: Gain 1 additional instance of Shield",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. \"24\" Gain [Energy:Arg2] Aliemus.\nDepressed Persona: Gain an additional [DescArg1] Aliemus. Manic Persona: Gain [DescArg2] additional instance of Shield",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -17,9 +17,17 @@
       "stat": "DEF",
       "suffix": "%"
     },
+    "DescArg1": {
+      "kind": "fixed",
+      "value": "5"
+    },
     "Arg2": {
       "kind": "scaling",
       "values": ["5", "6", "7", "8", "9", "10"]
+    },
+    "DescArg2": {
+      "kind": "fixed",
+      "value": "1"
     }
   },
   "cardKeywords": [],

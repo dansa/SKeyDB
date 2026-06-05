@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0001",
   "slot": "Skill1",
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. \"24\" obtains [Energy:Arg2] Aliemus.\nDepressed Persona: Also grants other Awakeners the same amount of Aliemus. Manic Persona: The amount of Aliemus gained is tripled",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. \"24\" obtains [Energy:Arg2] Aliemus.\nDepressed Persona: Also grant other Awakeners [DescArg1]× Aliemus. Manic Persona: Gain another [DescArg2]× Aliemus",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -17,9 +17,17 @@
       "stat": "ATK",
       "suffix": "%"
     },
+    "DescArg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
     "Arg2": {
       "kind": "fixed",
       "value": "8"
+    },
+    "DescArg2": {
+      "kind": "fixed",
+      "value": "2"
     }
   },
   "cardKeywords": [],
@@ -34,7 +42,7 @@
       "ownerAwakenerId": "awakener-0001",
       "ownerAwakenerName": "\"24\"",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. \"24\" obtains [Energy:Arg2] Aliemus.\nDepressed Persona: Grants other Awakeners an equal amount of Aliemus, inflict {Weakness} on all enemies for 1 turn. Manic Persona: Obtains 3x the amount of Aliemus, inflict {Vulnerable} on all enemies for 1 turn",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. \"24\" obtains [Energy:Arg2] Aliemus.\nDepressed Persona: Also grant other Awakeners [DescArg1]× Aliemus, inflict {Weakness} on all enemies for [DescArg3] {plural:[DescArg3]|turn|turns}. Manic Persona: Gain another [DescArg2]× Aliemus, inflict {Vulnerable} on all enemies for [DescArg3] turn",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",
@@ -42,9 +50,21 @@
             "stat": "ATK",
             "suffix": "%"
           },
+          "DescArg1": {
+            "kind": "fixed",
+            "value": "1"
+          },
           "Arg2": {
             "kind": "fixed",
             "value": "10"
+          },
+          "DescArg2": {
+            "kind": "fixed",
+            "value": "2"
+          },
+          "DescArg3": {
+            "kind": "fixed",
+            "value": "1"
           }
         }
       }

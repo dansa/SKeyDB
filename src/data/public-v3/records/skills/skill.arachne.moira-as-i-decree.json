@@ -27,11 +27,11 @@
   "cost": "150",
   "upgrades": [
     {
-      "id": "upgrade.enlighten.arachne.destiny-as-i-arrange.skill.arachne.moira-as-i-decree",
+      "id": "upgrade.enlighten.arachne.future-as-i-foresee.skill.arachne.moira-as-i-decree",
       "operation": "override_args",
-      "upgraderId": "enlighten.arachne.destiny-as-i-arrange",
+      "upgraderId": "enlighten.arachne.future-as-i-foresee",
       "upgraderType": "enlighten",
-      "upgraderSlot": "E3",
+      "upgraderSlot": "E1",
       "ownerAwakenerId": "awakener-0056",
       "ownerAwakenerName": "Arachne",
       "patch": {
@@ -57,11 +57,11 @@
       }
     },
     {
-      "id": "upgrade.enlighten.arachne.future-as-i-foresee.skill.arachne.moira-as-i-decree",
+      "id": "upgrade.enlighten.arachne.destiny-as-i-arrange.skill.arachne.moira-as-i-decree",
       "operation": "override_args",
-      "upgraderId": "enlighten.arachne.future-as-i-foresee",
+      "upgraderId": "enlighten.arachne.destiny-as-i-arrange",
       "upgraderType": "enlighten",
-      "upgraderSlot": "E1",
+      "upgraderSlot": "E3",
       "ownerAwakenerId": "awakener-0056",
       "ownerAwakenerName": "Arachne",
       "patch": {

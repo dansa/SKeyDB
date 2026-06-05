@@ -49,11 +49,11 @@
   "cost": "100",
   "upgrades": [
     {
-      "id": "upgrade.enlighten.thais.everlasting-cycle.skill.thais.ritual-of-abundance",
+      "id": "upgrade.enlighten.thais.seed-of-chaos.skill.thais.ritual-of-abundance",
       "operation": "override_args",
-      "upgraderId": "enlighten.thais.everlasting-cycle",
+      "upgraderId": "enlighten.thais.seed-of-chaos",
       "upgraderType": "enlighten",
-      "upgraderSlot": "E3",
+      "upgraderSlot": "E2",
       "ownerAwakenerId": "awakener-0048",
       "ownerAwakenerName": "Thais",
       "patch": {
@@ -95,11 +95,11 @@
       }
     },
     {
-      "id": "upgrade.enlighten.thais.seed-of-chaos.skill.thais.ritual-of-abundance",
+      "id": "upgrade.enlighten.thais.everlasting-cycle.skill.thais.ritual-of-abundance",
       "operation": "override_args",
-      "upgraderId": "enlighten.thais.seed-of-chaos",
+      "upgraderId": "enlighten.thais.everlasting-cycle",
       "upgraderType": "enlighten",
-      "upgraderSlot": "E2",
+      "upgraderSlot": "E3",
       "ownerAwakenerId": "awakener-0048",
       "ownerAwakenerName": "Thais",
       "patch": {

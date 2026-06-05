@@ -40,15 +40,15 @@
   "cost": "4",
   "upgrades": [
     {
-      "id": "upgrade.enlighten.lily.never-forget.skill.lily.strike-to-protect",
+      "id": "upgrade.enlighten.lily.viscous-devour.skill.lily.strike-to-protect",
       "operation": "mixed",
-      "upgraderId": "enlighten.lily.never-forget",
+      "upgraderId": "enlighten.lily.viscous-devour",
       "upgraderType": "enlighten",
-      "upgraderSlot": "E3",
+      "upgraderSlot": "E2",
       "ownerAwakenerId": "awakener-0029",
       "ownerAwakenerName": "Lily",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a Critical Hit occurs, the trigger rate increases to [Arg4]%. Considered a \"Strike\". For each stack of {Endure}, increase DMG by 2, and remove half of the {Endure} after use. This card's Crit. Rate +20%.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a Critical Hit occurs, the trigger rate increases to [Arg4]%. Treated as a Strike. For each stack of {Endure}, increase DMG by 2, and remove {Endure} after use. This card's Crit. Rate +20%.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",
@@ -79,15 +79,15 @@
       }
     },
     {
-      "id": "upgrade.enlighten.lily.viscous-devour.skill.lily.strike-to-protect",
+      "id": "upgrade.enlighten.lily.never-forget.skill.lily.strike-to-protect",
       "operation": "mixed",
-      "upgraderId": "enlighten.lily.viscous-devour",
+      "upgraderId": "enlighten.lily.never-forget",
       "upgraderType": "enlighten",
-      "upgraderSlot": "E2",
+      "upgraderSlot": "E3",
       "ownerAwakenerId": "awakener-0029",
       "ownerAwakenerName": "Lily",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a Critical Hit occurs, the trigger rate increases to [Arg4]%. Treated as a Strike. For each stack of {Endure}, increase DMG by 2, and remove {Endure} after use. This card's Crit. Rate +20%.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a Critical Hit occurs, the trigger rate increases to [Arg4]%. Considered a \"Strike\". For each stack of {Endure}, increase DMG by 2, and remove half of the {Endure} after use. This card's Crit. Rate +20%.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

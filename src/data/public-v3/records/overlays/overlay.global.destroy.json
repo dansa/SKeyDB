@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": [],
   "textColor": "misc",
-  "descriptionTemplate": "Once played, it will be permanently removed and will no longer appear in the deck for this stage.",
+  "descriptionTemplate": "Remains in deck after battle, but permanently removed once played or consumed.",
   "descriptionArgs": {}
 }

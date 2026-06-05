@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url'
 
 const DEFAULT_QUALITY = 90
 const DEFAULT_EFFORT = 6
+const DEFAULT_LOSSY_MIN_BYTES = 64 * 1024
 const DEFAULT_MIN_SAVINGS_RATIO = 0
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url))
@@ -40,6 +41,7 @@ export function parseArgs(argv) {
     assetsDir: defaultAssetsDir,
     quality: DEFAULT_QUALITY,
     effort: DEFAULT_EFFORT,
+    lossyMinBytes: DEFAULT_LOSSY_MIN_BYTES,
     minSavingsRatio: DEFAULT_MIN_SAVINGS_RATIO,
   }
 
@@ -60,6 +62,9 @@ export function parseArgs(argv) {
     } else if (arg === '--effort') {
       options.effort = parseNumberOption(argv[index + 1], '--effort')
       index += 1
+    } else if (arg === '--lossy-min-kib') {
+      options.lossyMinBytes = parseNumberOption(argv[index + 1], '--lossy-min-kib') * 1024
+      index += 1
     } else if (arg === '--min-savings') {
       options.minSavingsRatio = parseNumberOption(argv[index + 1], '--min-savings') / 100
       index += 1
@@ -73,6 +78,9 @@ export function parseArgs(argv) {
   }
   if (options.effort < 0 || options.effort > 6) {
     throw new Error('--effort must be between 0 and 6.')
+  }
+  if (options.lossyMinBytes < 0) {
+    throw new Error('--lossy-min-kib must be 0 or greater.')
   }
   if (options.minSavingsRatio < 0 || options.minSavingsRatio >= 1) {
     throw new Error('--min-savings must be between 0 and 99.')
@@ -133,6 +141,7 @@ function groupByDirectory(files) {
 export async function createWebpConversionPlan({
   assetsDir,
   encodeWebp,
+  lossyMinBytes = DEFAULT_LOSSY_MIN_BYTES,
   minSavingsRatio = DEFAULT_MIN_SAVINGS_RATIO,
 }) {
   const pngFiles = await collectPngFiles(assetsDir)
@@ -145,12 +154,15 @@ export async function createWebpConversionPlan({
 
     for (const pngPath of files.sort()) {
       const input = await fs.readFile(pngPath)
-      const output = await encodeWebp(input, pngPath)
+      const mode = input.byteLength >= lossyMinBytes ? 'lossy' : 'lossless'
+      const output = await encodeWebp(input, pngPath, {
+        lossless: mode === 'lossless',
+      })
       const webpPath = pngPath.replace(/\.png$/i, '.webp')
       const savedBytes = input.byteLength - output.byteLength
       const requiredSavings = Math.ceil(input.byteLength * minSavingsRatio)
 
-      if (savedBytes <= requiredSavings) {
+      if (mode === 'lossy' && savedBytes <= requiredSavings) {
         blockers.push({
           pngPath,
           webpPath,
@@ -166,6 +178,7 @@ export async function createWebpConversionPlan({
         originalBytes: input.byteLength,
         webpBytes: output.byteLength,
         savedBytes,
+        mode,
         output,
       })
     }
@@ -207,10 +220,12 @@ function summarizePlan(plan) {
     const webpBytes = folder.conversions.reduce((total, item) => total + item.webpBytes, 0)
     const savedBytes = originalBytes - webpBytes
     const marker = folder.status === 'convert' ? 'CONVERT' : 'SKIP'
+    const losslessCount = folder.conversions.filter((item) => item.mode === 'lossless').length
+    const lossyCount = folder.conversions.length - losslessCount
     lines.push(
       `${marker} ${folder.relativeDir}: ${folder.conversions.length} file(s), ${formatBytes(
         originalBytes,
-      )} -> ${formatBytes(webpBytes)} (${formatBytes(savedBytes)} saved)`,
+      )} -> ${formatBytes(webpBytes)} (${formatBytes(savedBytes)} saved, ${lossyCount} lossy, ${losslessCount} lossless)`,
     )
     for (const blocker of folder.blockers) {
       lines.push(
@@ -294,18 +309,19 @@ export async function rewriteConvertedPngReferences({rootDir = repoRoot, assetsD
 async function main() {
   const options = parseArgs(process.argv.slice(2))
   const sharp = (await import('sharp')).default
-  const encodeWebp = (input) =>
+  const encodeWebp = (input, _pngPath, webpOptions) =>
     sharp(input)
       .webp({
         quality: options.quality,
         effort: options.effort,
-        lossless: false,
+        lossless: webpOptions.lossless,
       })
       .toBuffer()
 
   const plan = await createWebpConversionPlan({
     assetsDir: options.assetsDir,
     encodeWebp,
+    lossyMinBytes: options.lossyMinBytes,
     minSavingsRatio: options.minSavingsRatio,
   })
 
@@ -322,7 +338,7 @@ async function main() {
     assetsDir: options.assetsDir,
     converted,
   })
-  console.log(`Converted ${converted.length} PNG asset(s) to lossy WebP.`)
+  console.log(`Converted ${converted.length} PNG asset(s) to WebP.`)
   console.log(`Updated ${rewritten.length} text file(s) with .webp references.`)
 }
 

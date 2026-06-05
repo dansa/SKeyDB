@@ -24,7 +24,52 @@ test('parseArgs defaults to Photoshop-like lossy webp settings', () => {
   assert.equal(options.dryRun, true)
   assert.equal(options.quality, 90)
   assert.equal(options.effort, 6)
+  assert.equal(options.lossyMinBytes, 64 * 1024)
   assert.equal(options.minSavingsRatio, 0)
+})
+
+test('parseArgs accepts a lossy conversion size gate in KiB', () => {
+  const options = parseArgs(['--lossy-min-kib', '32'])
+
+  assert.equal(options.lossyMinBytes, 32 * 1024)
+})
+
+test('createWebpConversionPlan uses lossless webp for pngs below the lossy size gate', async () => {
+  const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'momentb-webp-mode-'))
+  const assetsDir = path.join(tmpDir, 'assets')
+  const smallPng = await writeFixture(assetsDir, 'icons/small.png', 100)
+  const largePng = await writeFixture(assetsDir, 'cards/large.png', 200)
+  const modesByFile = new Map()
+
+  await createWebpConversionPlan({
+    assetsDir,
+    lossyMinBytes: 150,
+    encodeWebp: async (_input, pngPath, webpOptions) => {
+      modesByFile.set(pngPath, webpOptions.lossless ? 'lossless' : 'lossy')
+      return Buffer.alloc(80, 2)
+    },
+  })
+
+  assert.equal(modesByFile.get(smallPng), 'lossless')
+  assert.equal(modesByFile.get(largePng), 'lossy')
+})
+
+test('createWebpConversionPlan allows small lossless conversions even when webp is larger', async () => {
+  const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'momentb-webp-lossless-'))
+  const assetsDir = path.join(tmpDir, 'assets')
+  await writeFixture(assetsDir, 'icons/tiny.png', 100)
+
+  const plan = await createWebpConversionPlan({
+    assetsDir,
+    lossyMinBytes: 150,
+    encodeWebp: async () => Buffer.alloc(120, 2),
+  })
+
+  assert.equal(plan.convertCount, 1)
+  assert.equal(plan.skipCount, 0)
+  assert.equal(plan.folders[0].status, 'convert')
+  assert.deepEqual(plan.folders[0].blockers, [])
+  assert.equal(plan.folders[0].conversions[0].mode, 'lossless')
 })
 
 test('createWebpConversionPlan skips an entire folder when any png is not smaller', async () => {
@@ -35,6 +80,7 @@ test('createWebpConversionPlan skips an entire folder when any png is not smalle
 
   const plan = await createWebpConversionPlan({
     assetsDir,
+    lossyMinBytes: 0,
     encodeWebp: async (_input, pngPath) => {
       return Buffer.alloc(pngPath.endsWith('smaller.png') ? 80 : 120, 2)
     },
@@ -58,6 +104,7 @@ test('applyWebpConversionPlan replaces pngs only for convertible folders', async
 
   const plan = await createWebpConversionPlan({
     assetsDir,
+    lossyMinBytes: 0,
     encodeWebp: async (_input, pngPath) => {
       return Buffer.alloc(pngPath === convertPng ? 80 : 120, 2)
     },
@@ -87,7 +134,7 @@ test('rewriteConvertedPngReferences updates exact imports and folder globs', asy
   await fs.writeFile(
     sourcePath,
     [
-      "import icon from '@/assets/icons/Battle_Card_Buff_001.png'",
+      "import icon from '@" + "/assets/icons/Battle_Card_Buff_001.png'",
       "const icons = import.meta.glob<string>('../assets/icons/*.webp')",
       '',
     ].join('\n'),

@@ -35,7 +35,7 @@
       "ownerAwakenerId": "awakener-0019",
       "ownerAwakenerName": "Helot: Catena",
       "patch": {
-        "descriptionTemplate": "[{Devour}: Draw 1 Helot: Catena Command Card, reducing the Arithmetica Cost of Helot: Catena Command Cards in hand by 1.] This turn, when Helot: Catena deals Active DMG, add [Arg2]% {Bleed}. Remove the Target's Shield, deal [Damage:Arg1] DMG and prevent them from gaining a Shield next turn."
+        "descriptionTemplate": "[{Devour}: Draw 1 Helot: Catena Command Card, reducing the Arithmetica Cost of Helot: Catena Command Cards in hand by 1.] This turn, when Helot: Catena deals Active DMG, add [Arg2]% {Bleed}. Remove the Target's Shield, deal [Damage:Arg1] DMG and prevent the target from gaining Shield for 1 turn."
       }
     }
   ],

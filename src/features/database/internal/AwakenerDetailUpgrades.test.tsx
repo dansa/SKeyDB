@@ -172,4 +172,35 @@ describe('AwakenerDetailUpgrades', () => {
     fireEvent.click(screen.getByRole('button', {name: 'Over-Exaltation'}))
     expect(openRootReferenceByName).toHaveBeenCalledWith('Over Exalt', expect.anything())
   })
+
+  it('renders every talent entry provided by the shell view', () => {
+    render(
+      <AwakenerDetailUpgrades
+        awakener={TEST_AWAKENER}
+        fontScale={'medium'}
+        referenceLayer={null}
+        shellView={makeDatabaseShellView({
+          ...TEST_SHELL_VIEW,
+          talents: [
+            ...TEST_SHELL_VIEW.talents,
+            makeDatabaseDescribedEntry({
+              key: 'talent:talent.doresain.festering-grace',
+              label: 'Talent',
+              record: makeTalentRecord({
+                id: 'talent.doresain.festering-grace',
+                displayName: 'Festering Grace',
+              }),
+              resolved: {description: 'After Doresain gains a Corpse, add a Revel.'} as never,
+              descriptionRank: 1,
+              descriptionMaxRank: 1,
+            }),
+          ],
+        })}
+      />,
+    )
+
+    expect(screen.getByText('Fourth Talent')).toBeInTheDocument()
+    expect(screen.getByText('Festering Grace')).toBeInTheDocument()
+    expect(screen.getByText('Festering Grace').closest('p')).toHaveTextContent(/^Festering Grace$/)
+  })
 })

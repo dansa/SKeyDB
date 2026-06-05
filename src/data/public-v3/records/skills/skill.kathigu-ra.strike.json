@@ -26,11 +26,11 @@
   "cost": "1",
   "upgrades": [
     {
-      "id": "upgrade.enlighten.kathigu-ra.endless-purgatory.skill.kathigu-ra.strike",
+      "id": "upgrade.enlighten.kathigu-ra.everburning-flame.skill.kathigu-ra.strike",
       "operation": "override_args",
-      "upgraderId": "enlighten.kathigu-ra.endless-purgatory",
+      "upgraderId": "enlighten.kathigu-ra.everburning-flame",
       "upgraderType": "enlighten",
-      "upgraderSlot": "E3",
+      "upgraderSlot": "E1",
       "ownerAwakenerId": "awakener-0027",
       "ownerAwakenerName": "Kathigu-Ra",
       "patch": {
@@ -49,11 +49,11 @@
       }
     },
     {
-      "id": "upgrade.enlighten.kathigu-ra.everburning-flame.skill.kathigu-ra.strike",
+      "id": "upgrade.enlighten.kathigu-ra.endless-purgatory.skill.kathigu-ra.strike",
       "operation": "override_args",
-      "upgraderId": "enlighten.kathigu-ra.everburning-flame",
+      "upgraderId": "enlighten.kathigu-ra.endless-purgatory",
       "upgraderType": "enlighten",
-      "upgraderSlot": "E1",
+      "upgraderSlot": "E3",
       "ownerAwakenerId": "awakener-0027",
       "ownerAwakenerName": "Kathigu-Ra",
       "patch": {

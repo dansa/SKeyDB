@@ -24,8 +24,6 @@ interface AwakenerDetailUpgradesProps {
 }
 
 const ENLIGHTEN_ORDER = ['E1', 'E2', 'E3'] as const
-const TALENT_ORDER = ['T1', 'T2', 'T3', 'T4'] as const
-const TALENT_KEYS = new Set<string>(TALENT_ORDER)
 
 function getEnlightenStarStyle(starStyle: ReturnType<typeof getStarSize>): CSSProperties {
   return {
@@ -209,10 +207,6 @@ export function AwakenerDetailUpgrades({
   }
   const talentItems: DetailSectionItem[] = []
   for (const entry of shellView.talents) {
-    if (!TALENT_KEYS.has(entry.key)) {
-      continue
-    }
-
     talentItems.push({
       key: entry.key,
       label: formatTalentLevelLabel(entry, shellView.selection),

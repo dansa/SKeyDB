@@ -76,11 +76,11 @@
       }
     },
     {
-      "id": "upgrade.enlighten.clementine.subconscious-corrosion.skill.clementine.lifeform-reconstruction",
+      "id": "upgrade.enlighten.clementine.you-will-recover.skill.clementine.lifeform-reconstruction",
       "operation": "mixed",
-      "upgraderId": "enlighten.clementine.subconscious-corrosion",
+      "upgraderId": "enlighten.clementine.you-will-recover",
       "upgraderType": "enlighten",
-      "upgraderSlot": "OverExalt",
+      "upgraderSlot": "E3",
       "ownerAwakenerId": "awakener-0010",
       "ownerAwakenerName": "Clementine",
       "patch": {
@@ -101,11 +101,11 @@
       }
     },
     {
-      "id": "upgrade.enlighten.clementine.you-will-recover.skill.clementine.lifeform-reconstruction",
+      "id": "upgrade.enlighten.clementine.subconscious-corrosion.skill.clementine.lifeform-reconstruction",
       "operation": "mixed",
-      "upgraderId": "enlighten.clementine.you-will-recover",
+      "upgraderId": "enlighten.clementine.subconscious-corrosion",
       "upgraderType": "enlighten",
-      "upgraderSlot": "E3",
+      "upgraderSlot": "OverExalt",
       "ownerAwakenerId": "awakener-0010",
       "ownerAwakenerName": "Clementine",
       "patch": {

@@ -9,7 +9,7 @@
   },
   "overlayType": "mechanic",
   "aliases": [],
-  "textColor": "damage",
+  "textColor": "misc",
   "descriptionTemplate": "If kept in hand during discard phase, {Exhaust}. Won't reappear.",
   "descriptionArgs": {}
 }

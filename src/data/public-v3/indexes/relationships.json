@@ -2,17 +2,9 @@
   "schemaVersion": 3,
   "forward": {
     "awakener-0001": {
-      "awakenerBuilds": ["awakener-build-0001"],
-      "ownedEnlightens": [
-        "enlighten.24.aberrant-vivisection",
-        "enlighten.24.animus-projection",
-        "enlighten.24.hysteria",
-        "enlighten.24.pavlovian-conditioning-study",
-        "enlighten.24.restraint-bonds"
-      ],
-      "ownedOverlays": ["overlay.24.realm-and-persona"],
-      "ownedPosses": ["posse-0022"],
+      "ownedWheels": ["wheel-0020", "wheel-0096"],
       "ownedRelics": ["relic-0001"],
+      "ownedPosses": ["posse-0022"],
       "ownedSkills": [
         "skill.24.aberrant-vivisection",
         "skill.24.defense",
@@ -22,20 +14,21 @@
         "skill.24.symbiotic-aberration",
         "skill.24.twisted-carrion-revel"
       ],
-      "ownedTalents": ["talent.24.gnostic-potential", "talent.24.madness-omen", "talent.24.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0020", "wheel-0096"]
+      "ownedTalents": ["talent.24.madness-omen", "talent.24.soulforge-aptitude", "talent.24.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.24.aberrant-vivisection",
+        "enlighten.24.animus-projection",
+        "enlighten.24.hysteria",
+        "enlighten.24.pavlovian-conditioning-study",
+        "enlighten.24.restraint-bonds"
+      ],
+      "ownedOverlays": ["overlay.24.realm-and-persona"],
+      "awakenerBuilds": ["awakener-build-0001"]
     },
     "awakener-0002": {
-      "awakenerBuilds": ["awakener-build-0002"],
-      "ownedEnlightens": [
-        "enlighten.agrippa.ashes-and-skulls",
-        "enlighten.agrippa.covenant-of-no-return",
-        "enlighten.agrippa.lady-of-labyrinths",
-        "enlighten.agrippa.spider-queens-kiss",
-        "enlighten.agrippa.the-usurper"
-      ],
-      "ownedPosses": ["posse-0015"],
+      "ownedWheels": ["wheel-0007"],
       "ownedRelics": ["relic-0002"],
+      "ownedPosses": ["posse-0015"],
       "ownedSkills": [
         "skill.agrippa.colorless-spiral",
         "skill.agrippa.defense",
@@ -46,23 +39,22 @@
         "skill.agrippa.strike"
       ],
       "ownedTalents": [
-        "talent.agrippa.gnostic-potential",
-        "talent.agrippa.madness-omen",
         "talent.agrippa.seal-of-the-pact",
-        "talent.agrippa.soulforge-aptitude"
+        "talent.agrippa.madness-omen",
+        "talent.agrippa.soulforge-aptitude",
+        "talent.agrippa.gnostic-potential"
       ],
-      "ownedWheels": ["wheel-0007"]
+      "ownedEnlightens": [
+        "enlighten.agrippa.ashes-and-skulls",
+        "enlighten.agrippa.covenant-of-no-return",
+        "enlighten.agrippa.lady-of-labyrinths",
+        "enlighten.agrippa.spider-queens-kiss",
+        "enlighten.agrippa.the-usurper"
+      ],
+      "awakenerBuilds": ["awakener-build-0002"]
     },
     "awakener-0003": {
-      "awakenerBuilds": ["awakener-build-0003"],
-      "ownedEnlightens": [
-        "enlighten.aigis.crystallized-tear",
-        "enlighten.aigis.gaze-out-of-the-aeons",
-        "enlighten.aigis.nightborne-wings",
-        "enlighten.aigis.sugary-aroma",
-        "enlighten.aigis.the-witness"
-      ],
-      "ownedOverlays": ["overlay.aigis.petrify"],
+      "ownedWheels": ["wheel-0003"],
       "ownedRelics": ["relic-0003"],
       "ownedSkills": [
         "skill.aigis.a-small-wish",
@@ -73,18 +65,19 @@
         "skill.aigis.stagnant-curse",
         "skill.aigis.strike"
       ],
-      "ownedTalents": ["talent.aigis.gnostic-potential", "talent.aigis.madness-omen", "talent.aigis.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0003"]
+      "ownedTalents": ["talent.aigis.madness-omen", "talent.aigis.soulforge-aptitude", "talent.aigis.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.aigis.crystallized-tear",
+        "enlighten.aigis.gaze-out-of-the-aeons",
+        "enlighten.aigis.nightborne-wings",
+        "enlighten.aigis.sugary-aroma",
+        "enlighten.aigis.the-witness"
+      ],
+      "ownedOverlays": ["overlay.aigis.petrify"],
+      "awakenerBuilds": ["awakener-build-0003"]
     },
     "awakener-0004": {
-      "awakenerBuilds": ["awakener-build-0004"],
-      "ownedEnlightens": [
-        "enlighten.alva.all-for-justice",
-        "enlighten.alva.crusade-to-utopia",
-        "enlighten.alva.justice-and-truth",
-        "enlighten.alva.relentless-fighter",
-        "enlighten.alva.unyielding-bastion"
-      ],
+      "ownedWheels": ["wheel-0025"],
       "ownedRelics": ["relic-0004"],
       "ownedSkills": [
         "skill.alva.combat-stance",
@@ -95,20 +88,20 @@
         "skill.alva.precision-slash",
         "skill.alva.strike"
       ],
-      "ownedTalents": ["talent.alva.dynamic-vision", "talent.alva.gnostic-potential", "talent.alva.madness-omen", "talent.alva.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0025"]
+      "ownedTalents": ["talent.alva.dynamic-vision", "talent.alva.madness-omen", "talent.alva.soulforge-aptitude", "talent.alva.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.alva.all-for-justice",
+        "enlighten.alva.crusade-to-utopia",
+        "enlighten.alva.justice-and-truth",
+        "enlighten.alva.relentless-fighter",
+        "enlighten.alva.unyielding-bastion"
+      ],
+      "awakenerBuilds": ["awakener-build-0004"]
     },
     "awakener-0005": {
-      "awakenerBuilds": ["awakener-build-0005"],
-      "ownedEnlightens": [
-        "enlighten.aurita.bubbling-journey",
-        "enlighten.aurita.jellyfish-congregation",
-        "enlighten.aurita.lets-all-have-fun-together",
-        "enlighten.aurita.slick-slide-adventure",
-        "enlighten.aurita.sparkling-friendship"
-      ],
-      "ownedPosses": ["posse-0010"],
+      "ownedWheels": ["wheel-0054"],
       "ownedRelics": ["relic-0005"],
+      "ownedPosses": ["posse-0010"],
       "ownedSkills": [
         "skill.aurita.clamorous-ocean",
         "skill.aurita.defense",
@@ -118,18 +111,18 @@
         "skill.aurita.self-proliferation",
         "skill.aurita.strike"
       ],
-      "ownedTalents": ["talent.aurita.gnostic-potential", "talent.aurita.happy-little-fairy", "talent.aurita.madness-omen", "talent.aurita.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0054"]
+      "ownedTalents": ["talent.aurita.happy-little-fairy", "talent.aurita.madness-omen", "talent.aurita.soulforge-aptitude", "talent.aurita.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.aurita.bubbling-journey",
+        "enlighten.aurita.jellyfish-congregation",
+        "enlighten.aurita.lets-all-have-fun-together",
+        "enlighten.aurita.slick-slide-adventure",
+        "enlighten.aurita.sparkling-friendship"
+      ],
+      "awakenerBuilds": ["awakener-build-0005"]
     },
     "awakener-0006": {
-      "awakenerBuilds": ["awakener-build-0006"],
-      "ownedEnlightens": [
-        "enlighten.caecus.bloodline-awaken",
-        "enlighten.caecus.fury-of-the-inchoate",
-        "enlighten.caecus.outcasts-anguish",
-        "enlighten.caecus.spike-amalgamation",
-        "enlighten.caecus.unbending-resolve"
-      ],
+      "ownedWheels": ["wheel-0053"],
       "ownedRelics": ["relic-0006"],
       "ownedSkills": [
         "skill.caecus.bloodline-of-heresy",
@@ -140,18 +133,18 @@
         "skill.caecus.strike",
         "skill.caecus.unbending-resolve"
       ],
-      "ownedTalents": ["talent.caecus.gnostic-potential", "talent.caecus.madness-omen", "talent.caecus.rebellious-spikes", "talent.caecus.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0053"]
+      "ownedTalents": ["talent.caecus.rebellious-spikes", "talent.caecus.madness-omen", "talent.caecus.soulforge-aptitude", "talent.caecus.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.caecus.bloodline-awaken",
+        "enlighten.caecus.fury-of-the-inchoate",
+        "enlighten.caecus.outcasts-anguish",
+        "enlighten.caecus.spike-amalgamation",
+        "enlighten.caecus.unbending-resolve"
+      ],
+      "awakenerBuilds": ["awakener-build-0006"]
     },
     "awakener-0007": {
-      "awakenerBuilds": ["awakener-build-0007"],
-      "ownedEnlightens": [
-        "enlighten.casiah.a-thousand-and-one-miracles",
-        "enlighten.casiah.legendary-copycat",
-        "enlighten.casiah.minds-whisper",
-        "enlighten.casiah.unfettered-mirth",
-        "enlighten.casiah.veil-of-illusion"
-      ],
+      "ownedWheels": ["wheel-0038"],
       "ownedRelics": ["relic-0007"],
       "ownedSkills": [
         "skill.casiah.defense",
@@ -162,21 +155,20 @@
         "skill.casiah.telekinesis",
         "skill.casiah.unfettered-mirth"
       ],
-      "ownedTalents": ["talent.casiah.gnostic-potential", "talent.casiah.madness-omen", "talent.casiah.master-of-magic", "talent.casiah.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0038"]
+      "ownedTalents": ["talent.casiah.master-of-magic", "talent.casiah.madness-omen", "talent.casiah.soulforge-aptitude", "talent.casiah.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.casiah.a-thousand-and-one-miracles",
+        "enlighten.casiah.legendary-copycat",
+        "enlighten.casiah.minds-whisper",
+        "enlighten.casiah.unfettered-mirth",
+        "enlighten.casiah.veil-of-illusion"
+      ],
+      "awakenerBuilds": ["awakener-build-0007"]
     },
     "awakener-0008": {
-      "awakenerBuilds": ["awakener-build-0008"],
-      "ownedDerivedSkills": ["derived.castor.onyx-plume"],
-      "ownedEnlightens": [
-        "enlighten.castor.caged-underground",
-        "enlighten.castor.nox-diouskouron",
-        "enlighten.castor.over-the-sea-of-thorns",
-        "enlighten.castor.sky-eclipsing-wings",
-        "enlighten.castor.unyielding-will"
-      ],
-      "ownedPosses": ["posse-0036"],
+      "ownedWheels": ["wheel-0039", "wheel-0112"],
       "ownedRelics": ["relic-0008"],
+      "ownedPosses": ["posse-0036"],
       "ownedSkills": [
         "skill.castor.defense",
         "skill.castor.dirge-of-the-unbroken",
@@ -186,19 +178,19 @@
         "skill.castor.stygian-wings",
         "skill.castor.umbral-flight"
       ],
-      "ownedTalents": ["talent.castor.cleansing-feathers", "talent.castor.gnostic-potential", "talent.castor.madness-omen", "talent.castor.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0039", "wheel-0112"]
+      "ownedDerivedSkills": ["derived.castor.onyx-plume"],
+      "ownedTalents": ["talent.castor.cleansing-feathers", "talent.castor.madness-omen", "talent.castor.soulforge-aptitude", "talent.castor.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.castor.caged-underground",
+        "enlighten.castor.nox-diouskouron",
+        "enlighten.castor.over-the-sea-of-thorns",
+        "enlighten.castor.sky-eclipsing-wings",
+        "enlighten.castor.unyielding-will"
+      ],
+      "awakenerBuilds": ["awakener-build-0008"]
     },
     "awakener-0009": {
-      "awakenerBuilds": ["awakener-build-0009"],
-      "ownedEnlightens": [
-        "enlighten.celeste.ancestral-beacon",
-        "enlighten.celeste.beyond-joy-and-sorrow",
-        "enlighten.celeste.divine-vigil",
-        "enlighten.celeste.imaginary-cathuria",
-        "enlighten.celeste.solitary-mast"
-      ],
-      "ownedOverlays": ["overlay.celeste.revival"],
+      "ownedWheels": ["wheel-0058"],
       "ownedRelics": ["relic-0009"],
       "ownedSkills": [
         "skill.celeste.defense",
@@ -209,20 +201,19 @@
         "skill.celeste.tintless-dream",
         "skill.celeste.undying-bird-of-paradise"
       ],
-      "ownedTalents": ["talent.celeste.gnostic-potential", "talent.celeste.madness-omen", "talent.celeste.soulforge-aptitude", "talent.celeste.voyage-horn"],
-      "ownedWheels": ["wheel-0058"]
+      "ownedTalents": ["talent.celeste.voyage-horn", "talent.celeste.madness-omen", "talent.celeste.soulforge-aptitude", "talent.celeste.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.celeste.ancestral-beacon",
+        "enlighten.celeste.beyond-joy-and-sorrow",
+        "enlighten.celeste.divine-vigil",
+        "enlighten.celeste.imaginary-cathuria",
+        "enlighten.celeste.solitary-mast"
+      ],
+      "ownedOverlays": ["overlay.celeste.revival"],
+      "awakenerBuilds": ["awakener-build-0009"]
     },
     "awakener-0010": {
-      "awakenerBuilds": ["awakener-build-0010"],
-      "ownedDerivedSkills": ["derived.clementine.phobic-fixation", "derived.clementine.psychic-trauma"],
-      "ownedEnlightens": [
-        "enlighten.clementine.collective-unconscious",
-        "enlighten.clementine.knocking-on-minds-portal",
-        "enlighten.clementine.soul-healing-journey",
-        "enlighten.clementine.subconscious-corrosion",
-        "enlighten.clementine.you-will-recover"
-      ],
-      "ownedOverlays": ["overlay.clementine.phobic-fixation", "overlay.clementine.psychic-trauma", "overlay.clementine.symbiosis"],
+      "ownedWheels": ["wheel-0041", "wheel-0137"],
       "ownedRelics": ["relic-0010"],
       "ownedSkills": [
         "skill.clementine.call-of-shaggai",
@@ -233,26 +224,27 @@
         "skill.clementine.strike",
         "skill.clementine.subconscious-corrosion"
       ],
+      "ownedDerivedSkills": ["derived.clementine.phobic-fixation", "derived.clementine.psychic-trauma"],
       "ownedTalents": [
-        "talent.clementine.gnostic-potential",
         "talent.clementine.hive-resonance",
         "talent.clementine.madness-omen",
-        "talent.clementine.soulforge-aptitude"
+        "talent.clementine.soulforge-aptitude",
+        "talent.clementine.gnostic-potential"
       ],
-      "ownedWheels": ["wheel-0041", "wheel-0137"]
+      "ownedEnlightens": [
+        "enlighten.clementine.collective-unconscious",
+        "enlighten.clementine.knocking-on-minds-portal",
+        "enlighten.clementine.soul-healing-journey",
+        "enlighten.clementine.subconscious-corrosion",
+        "enlighten.clementine.you-will-recover"
+      ],
+      "ownedOverlays": ["overlay.clementine.phobic-fixation", "overlay.clementine.psychic-trauma", "overlay.clementine.symbiosis"],
+      "awakenerBuilds": ["awakener-build-0010"]
     },
     "awakener-0011": {
-      "awakenerBuilds": ["awakener-build-0011"],
-      "ownedDerivedSkills": ["derived.corposant.pilot"],
-      "ownedEnlightens": [
-        "enlighten.corposant.face-death-in-fiery-resolve",
-        "enlighten.corposant.lodestars-whisper",
-        "enlighten.corposant.sextants-calculation",
-        "enlighten.corposant.unquenched-unfelled-undimmed",
-        "enlighten.corposant.willing-sacrifice"
-      ],
-      "ownedPosses": ["posse-0035"],
+      "ownedWheels": ["wheel-0059", "wheel-0114"],
       "ownedRelics": ["relic-0011"],
+      "ownedPosses": ["posse-0035"],
       "ownedSkills": [
         "skill.corposant.defense",
         "skill.corposant.face-death-in-fiery-resolve",
@@ -262,16 +254,35 @@
         "skill.corposant.sunken-in-the-profound",
         "skill.corposant.to-sail-the-sundered-tides"
       ],
+      "ownedDerivedSkills": ["derived.corposant.pilot"],
       "ownedTalents": [
         "talent.corposant.cinders",
-        "talent.corposant.gnostic-potential",
         "talent.corposant.madness-omen",
-        "talent.corposant.soulforge-aptitude"
+        "talent.corposant.soulforge-aptitude",
+        "talent.corposant.gnostic-potential"
       ],
-      "ownedWheels": ["wheel-0059", "wheel-0114"]
+      "ownedEnlightens": [
+        "enlighten.corposant.face-death-in-fiery-resolve",
+        "enlighten.corposant.lodestars-whisper",
+        "enlighten.corposant.sextants-calculation",
+        "enlighten.corposant.unquenched-unfelled-undimmed",
+        "enlighten.corposant.willing-sacrifice"
+      ],
+      "awakenerBuilds": ["awakener-build-0011"]
     },
     "awakener-0012": {
-      "awakenerBuilds": ["awakener-build-0012"],
+      "ownedWheels": ["wheel-0031", "wheel-0110"],
+      "ownedRelics": ["relic-0012"],
+      "ownedPosses": ["posse-0017"],
+      "ownedSkills": [
+        "skill.daffodil.defense",
+        "skill.daffodil.dimensional-projection",
+        "skill.daffodil.heterogeneous-tides",
+        "skill.daffodil.phantasmal-haze",
+        "skill.daffodil.sea-of-primordial-essence",
+        "skill.daffodil.skull-reaver",
+        "skill.daffodil.strike"
+      ],
       "ownedDerivedSkills": [
         "derived.daffodil.thousand-mirage",
         "derived.daffodil.thousand-mirage-base-cards",
@@ -308,6 +319,7 @@
         "derived.daffodil.thousand-mirage-extra-effects",
         "derived.daffodil.thousand-mirage-poison"
       ],
+      "ownedTalents": ["talent.daffodil.madness-omen", "talent.daffodil.soulforge-aptitude", "talent.daffodil.gnostic-potential"],
       "ownedEnlightens": [
         "enlighten.daffodil.dead-souls",
         "enlighten.daffodil.essence-sediment",
@@ -315,29 +327,10 @@
         "enlighten.daffodil.mist-of-avarice",
         "enlighten.daffodil.phantasmal-haze"
       ],
-      "ownedPosses": ["posse-0017"],
-      "ownedRelics": ["relic-0012"],
-      "ownedSkills": [
-        "skill.daffodil.defense",
-        "skill.daffodil.dimensional-projection",
-        "skill.daffodil.heterogeneous-tides",
-        "skill.daffodil.phantasmal-haze",
-        "skill.daffodil.sea-of-primordial-essence",
-        "skill.daffodil.skull-reaver",
-        "skill.daffodil.strike"
-      ],
-      "ownedTalents": ["talent.daffodil.gnostic-potential", "talent.daffodil.madness-omen", "talent.daffodil.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0031", "wheel-0110"]
+      "awakenerBuilds": ["awakener-build-0012"]
     },
     "awakener-0013": {
-      "awakenerBuilds": ["awakener-build-0013"],
-      "ownedEnlightens": [
-        "enlighten.doll.beyond-death",
-        "enlighten.doll.ego-restructured",
-        "enlighten.doll.flesh-transcended",
-        "enlighten.doll.psyche-dissection",
-        "enlighten.doll.pure-rationality"
-      ],
+      "ownedWheels": ["wheel-0015"],
       "ownedRelics": ["relic-0013"],
       "ownedSkills": [
         "skill.doll.defense",
@@ -348,20 +341,18 @@
         "skill.doll.rationality-truth-and-reality",
         "skill.doll.strike"
       ],
-      "ownedTalents": ["talent.doll.gnosis-deconstruction", "talent.doll.gnostic-potential", "talent.doll.madness-omen", "talent.doll.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0015"]
+      "ownedTalents": ["talent.doll.gnosis-deconstruction", "talent.doll.madness-omen", "talent.doll.soulforge-aptitude", "talent.doll.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.doll.beyond-death",
+        "enlighten.doll.ego-restructured",
+        "enlighten.doll.flesh-transcended",
+        "enlighten.doll.psyche-dissection",
+        "enlighten.doll.pure-rationality"
+      ],
+      "awakenerBuilds": ["awakener-build-0013"]
     },
     "awakener-0014": {
-      "awakenerBuilds": ["awakener-build-0014"],
-      "ownedDerivedSkills": ["derived.doresain.evernights-revel"],
-      "ownedEnlightens": [
-        "enlighten.doresain.evernights-revel",
-        "enlighten.doresain.feasts-overture",
-        "enlighten.doresain.hollow-whispers",
-        "enlighten.doresain.pandemonium-glut",
-        "enlighten.doresain.styx-uncrossed"
-      ],
-      "ownedOverlays": ["overlay.doresain.corpse"],
+      "ownedWheels": ["wheel-0011", "wheel-0109"],
       "ownedRelics": ["relic-0014"],
       "ownedSkills": [
         "skill.doresain.crimson-invite",
@@ -372,27 +363,28 @@
         "skill.doresain.pandemonium-glut",
         "skill.doresain.strike"
       ],
+      "ownedDerivedSkills": ["derived.doresain.evernights-revel"],
       "ownedTalents": [
         "talent.doresain.casket-harvest",
         "talent.doresain.festering-grace",
-        "talent.doresain.gnostic-potential",
         "talent.doresain.madness-omen",
-        "talent.doresain.soulforge-aptitude"
+        "talent.doresain.soulforge-aptitude",
+        "talent.doresain.gnostic-potential"
       ],
-      "ownedWheels": ["wheel-0011", "wheel-0109"]
+      "ownedEnlightens": [
+        "enlighten.doresain.evernights-revel",
+        "enlighten.doresain.feasts-overture",
+        "enlighten.doresain.hollow-whispers",
+        "enlighten.doresain.pandemonium-glut",
+        "enlighten.doresain.styx-uncrossed"
+      ],
+      "ownedOverlays": ["overlay.doresain.corpse"],
+      "awakenerBuilds": ["awakener-build-0014"]
     },
     "awakener-0015": {
-      "awakenerBuilds": ["awakener-build-0015"],
-      "ownedDerivedSkills": ["derived.erica.retract-mecha"],
-      "ownedEnlightens": [
-        "enlighten.erica.auto-rectification",
-        "enlighten.erica.final-decree",
-        "enlighten.erica.force-circuit",
-        "enlighten.erica.multiple-calculations",
-        "enlighten.erica.system-reboot"
-      ],
-      "ownedPosses": ["posse-0012"],
+      "ownedWheels": ["wheel-0037"],
       "ownedRelics": ["relic-0015"],
+      "ownedPosses": ["posse-0012"],
       "ownedSkills": [
         "skill.erica.defense",
         "skill.erica.electromagnetic-blast",
@@ -402,18 +394,19 @@
         "skill.erica.strike",
         "skill.erica.unleash-mecha"
       ],
-      "ownedTalents": ["talent.erica.external-power-source", "talent.erica.gnostic-potential", "talent.erica.madness-omen", "talent.erica.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0037"]
+      "ownedDerivedSkills": ["derived.erica.retract-mecha"],
+      "ownedTalents": ["talent.erica.external-power-source", "talent.erica.madness-omen", "talent.erica.soulforge-aptitude", "talent.erica.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.erica.auto-rectification",
+        "enlighten.erica.final-decree",
+        "enlighten.erica.force-circuit",
+        "enlighten.erica.multiple-calculations",
+        "enlighten.erica.system-reboot"
+      ],
+      "awakenerBuilds": ["awakener-build-0015"]
     },
     "awakener-0016": {
-      "awakenerBuilds": ["awakener-build-0016"],
-      "ownedEnlightens": [
-        "enlighten.faint.binary-stars",
-        "enlighten.faint.blossom-from-cocoon",
-        "enlighten.faint.cradle-of-love",
-        "enlighten.faint.ever-barren-rainbow",
-        "enlighten.faint.withering-hymn"
-      ],
+      "ownedWheels": ["wheel-0010"],
       "ownedRelics": ["relic-0016"],
       "ownedSkills": [
         "skill.faint.blossom-from-cocoon",
@@ -424,18 +417,18 @@
         "skill.faint.sprouting-bud",
         "skill.faint.strike"
       ],
-      "ownedTalents": ["talent.faint.gnostic-potential", "talent.faint.madness-omen", "talent.faint.secondary-swaddle", "talent.faint.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0010"]
+      "ownedTalents": ["talent.faint.secondary-swaddle", "talent.faint.madness-omen", "talent.faint.soulforge-aptitude", "talent.faint.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.faint.binary-stars",
+        "enlighten.faint.blossom-from-cocoon",
+        "enlighten.faint.cradle-of-love",
+        "enlighten.faint.ever-barren-rainbow",
+        "enlighten.faint.withering-hymn"
+      ],
+      "awakenerBuilds": ["awakener-build-0016"]
     },
     "awakener-0017": {
-      "awakenerBuilds": ["awakener-build-0017"],
-      "ownedEnlightens": [
-        "enlighten.faros.congealed-ambergris",
-        "enlighten.faros.flickering-candle",
-        "enlighten.faros.jagged-shore",
-        "enlighten.faros.light-of-the-lost",
-        "enlighten.faros.to-the-radiant-shore"
-      ],
+      "ownedWheels": ["wheel-0052"],
       "ownedRelics": ["relic-0017"],
       "ownedSkills": [
         "skill.faros.abyssal-obsession",
@@ -446,26 +439,18 @@
         "skill.faros.ocean-of-elation",
         "skill.faros.strike"
       ],
-      "ownedTalents": ["talent.faros.gnostic-potential", "talent.faros.homesick", "talent.faros.madness-omen", "talent.faros.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0052"]
+      "ownedTalents": ["talent.faros.homesick", "talent.faros.madness-omen", "talent.faros.soulforge-aptitude", "talent.faros.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.faros.congealed-ambergris",
+        "enlighten.faros.flickering-candle",
+        "enlighten.faros.jagged-shore",
+        "enlighten.faros.light-of-the-lost",
+        "enlighten.faros.to-the-radiant-shore"
+      ],
+      "awakenerBuilds": ["awakener-build-0017"]
     },
     "awakener-0018": {
-      "awakenerBuilds": ["awakener-build-0018"],
-      "ownedDerivedSkills": [
-        "derived.doll-inferno.curse",
-        "derived.doll-inferno.elation",
-        "derived.doll-inferno.fates-descent-finale",
-        "derived.doll-inferno.illusions-end",
-        "derived.doll-inferno.self-destruct-finale"
-      ],
-      "ownedEnlightens": [
-        "enlighten.doll-inferno.borealis-visitor",
-        "enlighten.doll-inferno.envoy-of-extinction",
-        "enlighten.doll-inferno.every-world-drowned",
-        "enlighten.doll-inferno.madness-infection",
-        "enlighten.doll-inferno.resonant-mycelium"
-      ],
-      "ownedOverlays": ["overlay.doll-inferno.finale", "overlay.doll-inferno.finale-form"],
+      "ownedWheels": ["wheel-0016", "wheel-0106"],
       "ownedRelics": ["relic-0018"],
       "ownedSkills": [
         "skill.doll-inferno.defense",
@@ -476,26 +461,33 @@
         "skill.doll-inferno.strike",
         "skill.doll-inferno.terminal-of-truth-and-abyss"
       ],
-      "ownedTalents": [
-        "talent.doll-inferno.gnostic-potential",
-        "talent.doll-inferno.madness-omen",
-        "talent.doll-inferno.path-of-annihilation",
-        "talent.doll-inferno.soulforge-aptitude"
+      "ownedDerivedSkills": [
+        "derived.doll-inferno.curse",
+        "derived.doll-inferno.elation",
+        "derived.doll-inferno.fates-descent-finale",
+        "derived.doll-inferno.illusions-end",
+        "derived.doll-inferno.self-destruct-finale"
       ],
-      "ownedWheels": ["wheel-0016", "wheel-0106"]
+      "ownedTalents": [
+        "talent.doll-inferno.path-of-annihilation",
+        "talent.doll-inferno.madness-omen",
+        "talent.doll-inferno.soulforge-aptitude",
+        "talent.doll-inferno.gnostic-potential"
+      ],
+      "ownedEnlightens": [
+        "enlighten.doll-inferno.borealis-visitor",
+        "enlighten.doll-inferno.envoy-of-extinction",
+        "enlighten.doll-inferno.every-world-drowned",
+        "enlighten.doll-inferno.madness-infection",
+        "enlighten.doll-inferno.resonant-mycelium"
+      ],
+      "ownedOverlays": ["overlay.doll-inferno.finale", "overlay.doll-inferno.finale-form"],
+      "awakenerBuilds": ["awakener-build-0018"]
     },
     "awakener-0019": {
-      "awakenerBuilds": ["awakener-build-0019"],
-      "ownedDerivedSkills": ["derived.helot-catena.bloodthirsty-flail", "derived.helot-catena.irregular-form-chains"],
-      "ownedEnlightens": [
-        "enlighten.helot-catena.death-knell-decree",
-        "enlighten.helot-catena.endless-slaughter",
-        "enlighten.helot-catena.fettered-malice",
-        "enlighten.helot-catena.remnants-requiem",
-        "enlighten.helot-catena.vengeance-unchained"
-      ],
-      "ownedPosses": ["posse-0024"],
+      "ownedWheels": ["wheel-0006", "wheel-0097"],
       "ownedRelics": ["relic-0019"],
+      "ownedPosses": ["posse-0024"],
       "ownedSkills": [
         "skill.helot-catena.crimson-shackles",
         "skill.helot-catena.defense",
@@ -505,22 +497,20 @@
         "skill.helot-catena.sanguine-fetters",
         "skill.helot-catena.strike"
       ],
-      "ownedTalents": ["talent.helot-catena.gnostic-potential", "talent.helot-catena.madness-omen", "talent.helot-catena.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0006", "wheel-0097"]
+      "ownedDerivedSkills": ["derived.helot-catena.bloodthirsty-flail", "derived.helot-catena.irregular-form-chains"],
+      "ownedTalents": ["talent.helot-catena.madness-omen", "talent.helot-catena.soulforge-aptitude", "talent.helot-catena.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.helot-catena.death-knell-decree",
+        "enlighten.helot-catena.endless-slaughter",
+        "enlighten.helot-catena.fettered-malice",
+        "enlighten.helot-catena.remnants-requiem",
+        "enlighten.helot-catena.vengeance-unchained"
+      ],
+      "awakenerBuilds": ["awakener-build-0019"]
     },
     "awakener-0020": {
-      "awakenerBuilds": ["awakener-build-0020"],
-      "ownedDerivedSkills": ["derived.ramona-timeworn.ode-to-tomorrow", "derived.ramona-timeworn.rebirth-tribunal"],
-      "ownedEnlightens": [
-        "enlighten.ramona-timeworn.infinite-singularity",
-        "enlighten.ramona-timeworn.klein-bottle-voyager",
-        "enlighten.ramona-timeworn.mobius-captive",
-        "enlighten.ramona-timeworn.penrose-pilgrim",
-        "enlighten.ramona-timeworn.reach-into-yesterday"
-      ],
-      "ownedOverlays": ["overlay.ramona-timeworn.loop", "overlay.ramona-timeworn.negentropy"],
-      "ownedPosses": ["posse-0016"],
       "ownedRelics": ["relic-0020"],
+      "ownedPosses": ["posse-0016"],
       "ownedSkills": [
         "skill.ramona-timeworn.defense",
         "skill.ramona-timeworn.entropy-undone",
@@ -530,25 +520,27 @@
         "skill.ramona-timeworn.sight-unbound",
         "skill.ramona-timeworn.strike"
       ],
+      "ownedDerivedSkills": ["derived.ramona-timeworn.ode-to-tomorrow", "derived.ramona-timeworn.rebirth-tribunal"],
       "ownedTalents": [
-        "talent.ramona-timeworn.gnostic-potential",
-        "talent.ramona-timeworn.madness-omen",
         "talent.ramona-timeworn.silverheart-resonance",
-        "talent.ramona-timeworn.soulforge-aptitude"
-      ]
+        "talent.ramona-timeworn.madness-omen",
+        "talent.ramona-timeworn.soulforge-aptitude",
+        "talent.ramona-timeworn.gnostic-potential"
+      ],
+      "ownedEnlightens": [
+        "enlighten.ramona-timeworn.infinite-singularity",
+        "enlighten.ramona-timeworn.klein-bottle-voyager",
+        "enlighten.ramona-timeworn.mobius-captive",
+        "enlighten.ramona-timeworn.penrose-pilgrim",
+        "enlighten.ramona-timeworn.reach-into-yesterday"
+      ],
+      "ownedOverlays": ["overlay.ramona-timeworn.loop", "overlay.ramona-timeworn.negentropy"],
+      "awakenerBuilds": ["awakener-build-0020"]
     },
     "awakener-0021": {
-      "awakenerBuilds": ["awakener-build-0021"],
-      "ownedDerivedSkills": ["derived.goliath.blades-dominion", "derived.goliath.dormancy", "derived.goliath.usurp"],
-      "ownedEnlightens": [
-        "enlighten.goliath.ascent-of-the-tyrant",
-        "enlighten.goliath.boundless-ambition",
-        "enlighten.goliath.death-is-rebirth",
-        "enlighten.goliath.giants-grip",
-        "enlighten.goliath.rule-by-the-strongest"
-      ],
-      "ownedPosses": ["posse-0021"],
+      "ownedWheels": ["wheel-0055"],
       "ownedRelics": ["relic-0021"],
+      "ownedPosses": ["posse-0021"],
       "ownedSkills": [
         "skill.goliath.abyssal-depths-power",
         "skill.goliath.decapitation-damage",
@@ -558,20 +550,19 @@
         "skill.goliath.preemptive-revenge",
         "skill.goliath.strike"
       ],
-      "ownedTalents": ["talent.goliath.gnostic-potential", "talent.goliath.madness-omen", "talent.goliath.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0055"]
+      "ownedDerivedSkills": ["derived.goliath.blades-dominion", "derived.goliath.dormancy", "derived.goliath.usurp"],
+      "ownedTalents": ["talent.goliath.madness-omen", "talent.goliath.soulforge-aptitude", "talent.goliath.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.goliath.ascent-of-the-tyrant",
+        "enlighten.goliath.boundless-ambition",
+        "enlighten.goliath.death-is-rebirth",
+        "enlighten.goliath.giants-grip",
+        "enlighten.goliath.rule-by-the-strongest"
+      ],
+      "awakenerBuilds": ["awakener-build-0021"]
     },
     "awakener-0022": {
-      "awakenerBuilds": ["awakener-build-0022"],
-      "ownedDerivedSkills": ["derived.hameln.ascending-scale", "derived.hameln.descending-scale", "derived.hameln.symphony-of-harmony"],
-      "ownedEnlightens": [
-        "enlighten.hameln.all-realms-resound",
-        "enlighten.hameln.mind-concerto",
-        "enlighten.hameln.moonlit-rhapsody",
-        "enlighten.hameln.oneiric-waltz",
-        "enlighten.hameln.the-final-sonata"
-      ],
-      "ownedOverlays": ["overlay.hameln.crescendo", "overlay.hameln.marvelous-debuff", "overlay.hameln.melody", "overlay.hameln.rondino"],
+      "ownedWheels": ["wheel-0040", "wheel-0105"],
       "ownedRelics": ["relic-0022"],
       "ownedSkills": [
         "skill.hameln.defense",
@@ -582,19 +573,20 @@
         "skill.hameln.strike",
         "skill.hameln.the-final-sonata"
       ],
-      "ownedTalents": ["talent.hameln.gnostic-potential", "talent.hameln.madness-omen", "talent.hameln.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0040", "wheel-0105"]
+      "ownedDerivedSkills": ["derived.hameln.ascending-scale", "derived.hameln.descending-scale", "derived.hameln.symphony-of-harmony"],
+      "ownedTalents": ["talent.hameln.madness-omen", "talent.hameln.soulforge-aptitude", "talent.hameln.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.hameln.all-realms-resound",
+        "enlighten.hameln.mind-concerto",
+        "enlighten.hameln.moonlit-rhapsody",
+        "enlighten.hameln.oneiric-waltz",
+        "enlighten.hameln.the-final-sonata"
+      ],
+      "ownedOverlays": ["overlay.hameln.crescendo", "overlay.hameln.marvelous-debuff", "overlay.hameln.melody", "overlay.hameln.rondino"],
+      "awakenerBuilds": ["awakener-build-0022"]
     },
     "awakener-0023": {
-      "awakenerBuilds": ["awakener-build-0023"],
-      "ownedDerivedSkills": ["derived.helot.irregular-form"],
-      "ownedEnlightens": [
-        "enlighten.helot.blood-for-blood",
-        "enlighten.helot.regents-heir",
-        "enlighten.helot.sacred-half",
-        "enlighten.helot.the-chainbreaker",
-        "enlighten.helot.the-final-arbiter"
-      ],
+      "ownedWheels": ["wheel-0005"],
       "ownedRelics": ["relic-0023"],
       "ownedSkills": [
         "skill.helot.blood-for-blood",
@@ -605,11 +597,31 @@
         "skill.helot.surviving-impasse",
         "skill.helot.vengeance-upon-thee"
       ],
-      "ownedTalents": ["talent.helot.gnostic-potential", "talent.helot.madness-omen", "talent.helot.pain-sigil", "talent.helot.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0005"]
+      "ownedDerivedSkills": ["derived.helot.irregular-form"],
+      "ownedTalents": ["talent.helot.pain-sigil", "talent.helot.madness-omen", "talent.helot.soulforge-aptitude", "talent.helot.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.helot.blood-for-blood",
+        "enlighten.helot.regents-heir",
+        "enlighten.helot.sacred-half",
+        "enlighten.helot.the-chainbreaker",
+        "enlighten.helot.the-final-arbiter"
+      ],
+      "awakenerBuilds": ["awakener-build-0023"]
     },
     "awakener-0024": {
-      "awakenerBuilds": ["awakener-build-0024"],
+      "ownedWheels": ["wheel-0035", "wheel-0100"],
+      "ownedRelics": ["relic-0024"],
+      "ownedPosses": ["posse-0026"],
+      "ownedSkills": [
+        "skill.horla.carol-psalm",
+        "skill.horla.dirge-psalm",
+        "skill.horla.elegy-psalm",
+        "skill.horla.ink-stained-sonnet",
+        "skill.horla.prelude-verse",
+        "skill.horla.resplendent-chapters",
+        "skill.horla.snarl-psalm"
+      ],
+      "ownedTalents": ["talent.horla.writing-with-feeling", "talent.horla.madness-omen", "talent.horla.soulforge-aptitude", "talent.horla.gnostic-potential"],
       "ownedEnlightens": [
         "enlighten.horla.blossoms-and-verses-reunited",
         "enlighten.horla.chamber-of-shadows",
@@ -626,30 +638,10 @@
         "overlay.horla.metaphor",
         "overlay.horla.poetry-page"
       ],
-      "ownedPosses": ["posse-0026"],
-      "ownedRelics": ["relic-0024"],
-      "ownedSkills": [
-        "skill.horla.carol-psalm",
-        "skill.horla.dirge-psalm",
-        "skill.horla.elegy-psalm",
-        "skill.horla.ink-stained-sonnet",
-        "skill.horla.prelude-verse",
-        "skill.horla.resplendent-chapters",
-        "skill.horla.snarl-psalm"
-      ],
-      "ownedTalents": ["talent.horla.gnostic-potential", "talent.horla.madness-omen", "talent.horla.soulforge-aptitude", "talent.horla.writing-with-feeling"],
-      "ownedWheels": ["wheel-0035", "wheel-0100"]
+      "awakenerBuilds": ["awakener-build-0024"]
     },
     "awakener-0025": {
-      "awakenerBuilds": ["awakener-build-0025"],
-      "ownedDerivedSkills": ["derived.jenkins.swarm-impact", "derived.jenkins.ultimate-assemble"],
-      "ownedEnlightens": [
-        "enlighten.jenkins.from-the-shrouded-mist",
-        "enlighten.jenkins.golden-butterflys-memories",
-        "enlighten.jenkins.gotcha",
-        "enlighten.jenkins.obsidian-dissolution",
-        "enlighten.jenkins.red-ribbon"
-      ],
+      "ownedWheels": ["wheel-0036"],
       "ownedRelics": ["relic-0025"],
       "ownedSkills": [
         "skill.jenkins.defense",
@@ -660,19 +652,19 @@
         "skill.jenkins.spatial-fold",
         "skill.jenkins.strike"
       ],
-      "ownedTalents": ["talent.jenkins.a-common-enemy", "talent.jenkins.gnostic-potential", "talent.jenkins.madness-omen", "talent.jenkins.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0036"]
+      "ownedDerivedSkills": ["derived.jenkins.swarm-impact", "derived.jenkins.ultimate-assemble"],
+      "ownedTalents": ["talent.jenkins.a-common-enemy", "talent.jenkins.madness-omen", "talent.jenkins.soulforge-aptitude", "talent.jenkins.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.jenkins.from-the-shrouded-mist",
+        "enlighten.jenkins.golden-butterflys-memories",
+        "enlighten.jenkins.gotcha",
+        "enlighten.jenkins.obsidian-dissolution",
+        "enlighten.jenkins.red-ribbon"
+      ],
+      "awakenerBuilds": ["awakener-build-0025"]
     },
     "awakener-0026": {
-      "awakenerBuilds": ["awakener-build-0026"],
-      "ownedDerivedSkills": ["derived.karen.marvelous-cuisine"],
-      "ownedEnlightens": [
-        "enlighten.karen.bounteous-feast",
-        "enlighten.karen.creamy-frosting",
-        "enlighten.karen.fermented-recipes",
-        "enlighten.karen.maids-decree",
-        "enlighten.karen.mistmoon-banquet"
-      ],
+      "ownedWheels": ["wheel-0026"],
       "ownedRelics": ["relic-0026"],
       "ownedSkills": [
         "skill.karen.bounteous-feast",
@@ -683,22 +675,21 @@
         "skill.karen.strike",
         "skill.karen.toad-stew"
       ],
-      "ownedTalents": ["talent.karen.gnostic-potential", "talent.karen.madness-omen", "talent.karen.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0026"]
+      "ownedDerivedSkills": ["derived.karen.marvelous-cuisine"],
+      "ownedTalents": ["talent.karen.madness-omen", "talent.karen.soulforge-aptitude", "talent.karen.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.karen.bounteous-feast",
+        "enlighten.karen.creamy-frosting",
+        "enlighten.karen.fermented-recipes",
+        "enlighten.karen.maids-decree",
+        "enlighten.karen.mistmoon-banquet"
+      ],
+      "awakenerBuilds": ["awakener-build-0026"]
     },
     "awakener-0027": {
-      "awakenerBuilds": ["awakener-build-0027"],
-      "ownedDerivedSkills": ["derived.kathigu-ra.hyperflare"],
-      "ownedEnlightens": [
-        "enlighten.kathigu-ra.all-melting-truth",
-        "enlighten.kathigu-ra.ashen-finale",
-        "enlighten.kathigu-ra.astral-meltdown",
-        "enlighten.kathigu-ra.endless-purgatory",
-        "enlighten.kathigu-ra.everburning-flame"
-      ],
-      "ownedOverlays": ["overlay.kathigu-ra.combust", "overlay.kathigu-ra.fiamma"],
-      "ownedPosses": ["posse-0038"],
+      "ownedWheels": ["wheel-0028", "wheel-0116"],
       "ownedRelics": ["relic-0027"],
+      "ownedPosses": ["posse-0038"],
       "ownedSkills": [
         "skill.kathigu-ra.all-melting-truth",
         "skill.kathigu-ra.defense",
@@ -708,23 +699,25 @@
         "skill.kathigu-ra.strike",
         "skill.kathigu-ra.world-ending-inferno"
       ],
+      "ownedDerivedSkills": ["derived.kathigu-ra.hyperflare"],
       "ownedTalents": [
-        "talent.kathigu-ra.gnostic-potential",
+        "talent.kathigu-ra.the-living-flame",
         "talent.kathigu-ra.madness-omen",
         "talent.kathigu-ra.soulforge-aptitude",
-        "talent.kathigu-ra.the-living-flame"
+        "talent.kathigu-ra.gnostic-potential"
       ],
-      "ownedWheels": ["wheel-0028", "wheel-0116"]
+      "ownedEnlightens": [
+        "enlighten.kathigu-ra.all-melting-truth",
+        "enlighten.kathigu-ra.ashen-finale",
+        "enlighten.kathigu-ra.astral-meltdown",
+        "enlighten.kathigu-ra.endless-purgatory",
+        "enlighten.kathigu-ra.everburning-flame"
+      ],
+      "ownedOverlays": ["overlay.kathigu-ra.combust", "overlay.kathigu-ra.fiamma"],
+      "awakenerBuilds": ["awakener-build-0027"]
     },
     "awakener-0028": {
-      "awakenerBuilds": ["awakener-build-0028"],
-      "ownedEnlightens": [
-        "enlighten.leigh.basement-journal",
-        "enlighten.leigh.insatiable-craving",
-        "enlighten.leigh.newborn-sanguivore",
-        "enlighten.leigh.pallid-bloodied-kiss",
-        "enlighten.leigh.step-into-the-sunlight"
-      ],
+      "ownedWheels": ["wheel-0009"],
       "ownedRelics": ["relic-0028"],
       "ownedSkills": [
         "skill.leigh.defense",
@@ -735,21 +728,20 @@
         "skill.leigh.sanguivore",
         "skill.leigh.strike"
       ],
-      "ownedTalents": ["talent.leigh.gnostic-potential", "talent.leigh.madness-omen", "talent.leigh.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0009"]
+      "ownedTalents": ["talent.leigh.madness-omen", "talent.leigh.soulforge-aptitude", "talent.leigh.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.leigh.basement-journal",
+        "enlighten.leigh.insatiable-craving",
+        "enlighten.leigh.newborn-sanguivore",
+        "enlighten.leigh.pallid-bloodied-kiss",
+        "enlighten.leigh.step-into-the-sunlight"
+      ],
+      "awakenerBuilds": ["awakener-build-0028"]
     },
     "awakener-0029": {
-      "awakenerBuilds": ["awakener-build-0029"],
-      "ownedEnlightens": [
-        "enlighten.lily.at-your-behest",
-        "enlighten.lily.blackened-nourishment",
-        "enlighten.lily.lilium-immaculatum",
-        "enlighten.lily.never-forget",
-        "enlighten.lily.viscous-devour"
-      ],
-      "ownedOverlays": ["overlay.lily.endure"],
-      "ownedPosses": ["posse-0018"],
+      "ownedWheels": ["wheel-0024", "wheel-0093"],
       "ownedRelics": ["relic-0029"],
+      "ownedPosses": ["posse-0018"],
       "ownedSkills": [
         "skill.lily.at-your-behest",
         "skill.lily.defense",
@@ -759,21 +751,21 @@
         "skill.lily.strike-to-protect",
         "skill.lily.undying-flower-upon-slime"
       ],
-      "ownedTalents": ["talent.lily.gnostic-potential", "talent.lily.madness-omen", "talent.lily.soulforge-aptitude", "talent.lily.surging-darkness"],
-      "ownedWheels": ["wheel-0024", "wheel-0093"]
+      "ownedTalents": ["talent.lily.surging-darkness", "talent.lily.madness-omen", "talent.lily.soulforge-aptitude", "talent.lily.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.lily.at-your-behest",
+        "enlighten.lily.blackened-nourishment",
+        "enlighten.lily.lilium-immaculatum",
+        "enlighten.lily.never-forget",
+        "enlighten.lily.viscous-devour"
+      ],
+      "ownedOverlays": ["overlay.lily.endure"],
+      "awakenerBuilds": ["awakener-build-0029"]
     },
     "awakener-0030": {
-      "awakenerBuilds": ["awakener-build-0030"],
-      "ownedDerivedSkills": ["derived.liz.corrupted-flames", "derived.liz.deadly-flames"],
-      "ownedEnlightens": [
-        "enlighten.liz.burning-tribute",
-        "enlighten.liz.eternal-flames",
-        "enlighten.liz.last-dawnlight",
-        "enlighten.liz.omens-descent",
-        "enlighten.liz.verdant-spark"
-      ],
-      "ownedPosses": ["posse-0032"],
+      "ownedWheels": ["wheel-0030"],
       "ownedRelics": ["relic-0030"],
+      "ownedPosses": ["posse-0032"],
       "ownedSkills": [
         "skill.liz.dance-to-destruction",
         "skill.liz.defense",
@@ -783,18 +775,19 @@
         "skill.liz.omens-descent",
         "skill.liz.strike"
       ],
-      "ownedTalents": ["talent.liz.gnostic-potential", "talent.liz.madness-omen", "talent.liz.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0030"]
+      "ownedDerivedSkills": ["derived.liz.corrupted-flames", "derived.liz.deadly-flames"],
+      "ownedTalents": ["talent.liz.madness-omen", "talent.liz.soulforge-aptitude", "talent.liz.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.liz.burning-tribute",
+        "enlighten.liz.eternal-flames",
+        "enlighten.liz.last-dawnlight",
+        "enlighten.liz.omens-descent",
+        "enlighten.liz.verdant-spark"
+      ],
+      "awakenerBuilds": ["awakener-build-0030"]
     },
     "awakener-0031": {
-      "awakenerBuilds": ["awakener-build-0031"],
-      "ownedEnlightens": [
-        "enlighten.lotan.primal-leviathan",
-        "enlighten.lotan.surging-warlust",
-        "enlighten.lotan.swords-unleashed",
-        "enlighten.lotan.timeless-solitude",
-        "enlighten.lotan.until-the-planets-end"
-      ],
+      "ownedWheels": ["wheel-0018"],
       "ownedRelics": ["relic-0031"],
       "ownedSkills": [
         "skill.lotan.battle-thirst",
@@ -805,11 +798,29 @@
         "skill.lotan.tides-of-hubris",
         "skill.lotan.until-the-planets-end"
       ],
-      "ownedTalents": ["talent.lotan.gnostic-potential", "talent.lotan.madness-omen", "talent.lotan.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0018"]
+      "ownedTalents": ["talent.lotan.madness-omen", "talent.lotan.soulforge-aptitude", "talent.lotan.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.lotan.primal-leviathan",
+        "enlighten.lotan.surging-warlust",
+        "enlighten.lotan.swords-unleashed",
+        "enlighten.lotan.timeless-solitude",
+        "enlighten.lotan.until-the-planets-end"
+      ],
+      "awakenerBuilds": ["awakener-build-0031"]
     },
     "awakener-0032": {
-      "awakenerBuilds": ["awakener-build-0032"],
+      "ownedWheels": ["wheel-0056", "wheel-0098"],
+      "ownedRelics": ["relic-0032"],
+      "ownedPosses": ["posse-0025"],
+      "ownedSkills": [
+        "skill.miryam.defense",
+        "skill.miryam.exalted-pyre",
+        "skill.miryam.pray-to-the-abyss",
+        "skill.miryam.strike",
+        "skill.miryam.testament-of-faith",
+        "skill.miryam.the-chosen-one",
+        "skill.miryam.unacquainted-pain"
+      ],
       "ownedDerivedSkills": [
         "derived.miryam.call-of-the-divine-realm",
         "derived.miryam.divine-realms-descent",
@@ -822,6 +833,7 @@
         "derived.miryam.sacrament",
         "derived.miryam.the-end-of-belief"
       ],
+      "ownedTalents": ["talent.miryam.undying-piety", "talent.miryam.madness-omen", "talent.miryam.soulforge-aptitude", "talent.miryam.gnostic-potential"],
       "ownedEnlightens": [
         "enlighten.miryam.homeland-resurgence",
         "enlighten.miryam.solitary-pilgrimage",
@@ -830,32 +842,12 @@
         "enlighten.miryam.vanitys-collapse"
       ],
       "ownedOverlays": ["overlay.miryam.ritual"],
-      "ownedPosses": ["posse-0025"],
-      "ownedRelics": ["relic-0032"],
-      "ownedSkills": [
-        "skill.miryam.defense",
-        "skill.miryam.exalted-pyre",
-        "skill.miryam.pray-to-the-abyss",
-        "skill.miryam.strike",
-        "skill.miryam.testament-of-faith",
-        "skill.miryam.the-chosen-one",
-        "skill.miryam.unacquainted-pain"
-      ],
-      "ownedTalents": ["talent.miryam.gnostic-potential", "talent.miryam.madness-omen", "talent.miryam.soulforge-aptitude", "talent.miryam.undying-piety"],
-      "ownedWheels": ["wheel-0056", "wheel-0098"]
+      "awakenerBuilds": ["awakener-build-0032"]
     },
     "awakener-0033": {
-      "awakenerBuilds": ["awakener-build-0033"],
-      "ownedDerivedSkills": ["derived.mouchette.dramatic-encounter"],
-      "ownedEnlightens": [
-        "enlighten.mouchette.cleave-out-a-future",
-        "enlighten.mouchette.ego-beyond-the-fog",
-        "enlighten.mouchette.irretrievable-past",
-        "enlighten.mouchette.mist-realm-traveler",
-        "enlighten.mouchette.tornado-of-annihilation"
-      ],
-      "ownedPosses": ["posse-0046"],
+      "ownedWheels": ["wheel-0029", "wheel-0117"],
       "ownedRelics": ["relic-0033"],
+      "ownedPosses": ["posse-0046"],
       "ownedSkills": [
         "skill.mouchette.defense",
         "skill.mouchette.mist-realm-vestige",
@@ -865,23 +857,24 @@
         "skill.mouchette.strike",
         "skill.mouchette.tornado-of-annihilation"
       ],
+      "ownedDerivedSkills": ["derived.mouchette.dramatic-encounter"],
       "ownedTalents": [
         "talent.mouchette.dramatic-encounter",
-        "talent.mouchette.gnostic-potential",
         "talent.mouchette.madness-omen",
-        "talent.mouchette.soulforge-aptitude"
+        "talent.mouchette.soulforge-aptitude",
+        "talent.mouchette.gnostic-potential"
       ],
-      "ownedWheels": ["wheel-0029", "wheel-0117"]
+      "ownedEnlightens": [
+        "enlighten.mouchette.cleave-out-a-future",
+        "enlighten.mouchette.ego-beyond-the-fog",
+        "enlighten.mouchette.irretrievable-past",
+        "enlighten.mouchette.mist-realm-traveler",
+        "enlighten.mouchette.tornado-of-annihilation"
+      ],
+      "awakenerBuilds": ["awakener-build-0033"]
     },
     "awakener-0034": {
-      "awakenerBuilds": ["awakener-build-0034"],
-      "ownedEnlightens": [
-        "enlighten.murphy.defiant-providence",
-        "enlighten.murphy.emancipating-touch",
-        "enlighten.murphy.inextricable-bloodline",
-        "enlighten.murphy.oath-of-liberation",
-        "enlighten.murphy.silent-defiance"
-      ],
+      "ownedWheels": ["wheel-0051", "wheel-0102"],
       "ownedRelics": ["relic-0034"],
       "ownedSkills": [
         "skill.murphy.defense",
@@ -892,19 +885,18 @@
         "skill.murphy.strike",
         "skill.murphy.vortex-reversed"
       ],
-      "ownedTalents": ["talent.murphy.gnostic-potential", "talent.murphy.madness-omen", "talent.murphy.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0051", "wheel-0102"]
+      "ownedTalents": ["talent.murphy.madness-omen", "talent.murphy.soulforge-aptitude", "talent.murphy.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.murphy.defiant-providence",
+        "enlighten.murphy.emancipating-touch",
+        "enlighten.murphy.inextricable-bloodline",
+        "enlighten.murphy.oath-of-liberation",
+        "enlighten.murphy.silent-defiance"
+      ],
+      "awakenerBuilds": ["awakener-build-0034"]
     },
     "awakener-0035": {
-      "awakenerBuilds": ["awakener-build-0035"],
-      "ownedEnlightens": [
-        "enlighten.murphy-fauxborn.aetherial-loop",
-        "enlighten.murphy-fauxborn.celestial-resonance",
-        "enlighten.murphy-fauxborn.inverted-pregnancy",
-        "enlighten.murphy-fauxborn.kneelers-supplication",
-        "enlighten.murphy-fauxborn.profane-apocalypse"
-      ],
-      "ownedOverlays": ["overlay.murphy-fauxborn.birth-ritual", "overlay.murphy-fauxborn.life-seal"],
+      "ownedWheels": ["wheel-0111", "wheel-0131"],
       "ownedRelics": ["relic-0035"],
       "ownedSkills": [
         "skill.murphy-fauxborn.abyss-hymns",
@@ -917,21 +909,22 @@
       ],
       "ownedTalents": [
         "talent.murphy-fauxborn.divine-realms-order",
-        "talent.murphy-fauxborn.gnostic-potential",
         "talent.murphy-fauxborn.madness-omen",
-        "talent.murphy-fauxborn.soulforge-aptitude"
+        "talent.murphy-fauxborn.soulforge-aptitude",
+        "talent.murphy-fauxborn.gnostic-potential"
       ],
-      "ownedWheels": ["wheel-0111", "wheel-0131"]
+      "ownedEnlightens": [
+        "enlighten.murphy-fauxborn.aetherial-loop",
+        "enlighten.murphy-fauxborn.celestial-resonance",
+        "enlighten.murphy-fauxborn.inverted-pregnancy",
+        "enlighten.murphy-fauxborn.kneelers-supplication",
+        "enlighten.murphy-fauxborn.profane-apocalypse"
+      ],
+      "ownedOverlays": ["overlay.murphy-fauxborn.birth-ritual", "overlay.murphy-fauxborn.life-seal"],
+      "awakenerBuilds": ["awakener-build-0035"]
     },
     "awakener-0036": {
-      "awakenerBuilds": ["awakener-build-0036"],
-      "ownedEnlightens": [
-        "enlighten.nautila.absent-cogwheel",
-        "enlighten.nautila.ace-mechanist",
-        "enlighten.nautila.blank-recollection",
-        "enlighten.nautila.forgotten-dreams",
-        "enlighten.nautila.vroom-vroom"
-      ],
+      "ownedWheels": ["wheel-0021"],
       "ownedRelics": ["relic-0036"],
       "ownedSkills": [
         "skill.nautila.defense",
@@ -944,21 +937,21 @@
       ],
       "ownedTalents": [
         "talent.nautila.daily-maintenance",
-        "talent.nautila.gnostic-potential",
         "talent.nautila.madness-omen",
-        "talent.nautila.soulforge-aptitude"
+        "talent.nautila.soulforge-aptitude",
+        "talent.nautila.gnostic-potential"
       ],
-      "ownedWheels": ["wheel-0021"]
+      "ownedEnlightens": [
+        "enlighten.nautila.absent-cogwheel",
+        "enlighten.nautila.ace-mechanist",
+        "enlighten.nautila.blank-recollection",
+        "enlighten.nautila.forgotten-dreams",
+        "enlighten.nautila.vroom-vroom"
+      ],
+      "awakenerBuilds": ["awakener-build-0036"]
     },
     "awakener-0037": {
-      "awakenerBuilds": ["awakener-build-0037"],
-      "ownedEnlightens": [
-        "enlighten.nymphaea.abyssal-funeral-rites",
-        "enlighten.nymphaea.frostbloom-tide",
-        "enlighten.nymphaea.oceans-vessel",
-        "enlighten.nymphaea.sentiment-oc-anique",
-        "enlighten.nymphaea.silent-permeation"
-      ],
+      "ownedWheels": ["wheel-0022"],
       "ownedRelics": ["relic-0037"],
       "ownedSkills": [
         "skill.nymphaea.abyssal-funeral-rites",
@@ -969,20 +962,20 @@
         "skill.nymphaea.passage-of-the-ego",
         "skill.nymphaea.strike"
       ],
-      "ownedTalents": ["talent.nymphaea.gnostic-potential", "talent.nymphaea.immerse", "talent.nymphaea.madness-omen", "talent.nymphaea.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0022"]
+      "ownedTalents": ["talent.nymphaea.immerse", "talent.nymphaea.madness-omen", "talent.nymphaea.soulforge-aptitude", "talent.nymphaea.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.nymphaea.abyssal-funeral-rites",
+        "enlighten.nymphaea.frostbloom-tide",
+        "enlighten.nymphaea.oceans-vessel",
+        "enlighten.nymphaea.sentiment-oc-anique",
+        "enlighten.nymphaea.silent-permeation"
+      ],
+      "awakenerBuilds": ["awakener-build-0037"]
     },
     "awakener-0038": {
-      "awakenerBuilds": ["awakener-build-0038"],
-      "ownedEnlightens": [
-        "enlighten.ogier.deathless-loyalty",
-        "enlighten.ogier.honesty-unto-thyself",
-        "enlighten.ogier.mercy-for-the-meek",
-        "enlighten.ogier.resolute-devotion",
-        "enlighten.ogier.sacrifice-for-justice"
-      ],
-      "ownedPosses": ["posse-0009"],
+      "ownedWheels": ["wheel-0017"],
       "ownedRelics": ["relic-0038"],
+      "ownedPosses": ["posse-0009"],
       "ownedSkills": [
         "skill.ogier.defense",
         "skill.ogier.knights-zeal",
@@ -992,18 +985,18 @@
         "skill.ogier.strike",
         "skill.ogier.unstable-barrier"
       ],
-      "ownedTalents": ["talent.ogier.formless-refinement", "talent.ogier.gnostic-potential", "talent.ogier.madness-omen", "talent.ogier.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0017"]
+      "ownedTalents": ["talent.ogier.formless-refinement", "talent.ogier.madness-omen", "talent.ogier.soulforge-aptitude", "talent.ogier.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.ogier.deathless-loyalty",
+        "enlighten.ogier.honesty-unto-thyself",
+        "enlighten.ogier.mercy-for-the-meek",
+        "enlighten.ogier.resolute-devotion",
+        "enlighten.ogier.sacrifice-for-justice"
+      ],
+      "awakenerBuilds": ["awakener-build-0038"]
     },
     "awakener-0039": {
-      "awakenerBuilds": ["awakener-build-0039"],
-      "ownedEnlightens": [
-        "enlighten.pandia.blazing-desire",
-        "enlighten.pandia.embrace-the-pain",
-        "enlighten.pandia.manifesto-of-loving-discipline",
-        "enlighten.pandia.sweet-surrender",
-        "enlighten.pandia.youre-being-naughty"
-      ],
+      "ownedWheels": ["wheel-0023"],
       "ownedRelics": ["relic-0039"],
       "ownedSkills": [
         "skill.pandia.defense",
@@ -1014,12 +1007,31 @@
         "skill.pandia.wax-hot-desire",
         "skill.pandia.whip-of-madness"
       ],
-      "ownedTalents": ["talent.pandia.gnostic-potential", "talent.pandia.madness-omen", "talent.pandia.punishment-time", "talent.pandia.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0023"]
+      "ownedTalents": ["talent.pandia.punishment-time", "talent.pandia.madness-omen", "talent.pandia.soulforge-aptitude", "talent.pandia.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.pandia.blazing-desire",
+        "enlighten.pandia.embrace-the-pain",
+        "enlighten.pandia.manifesto-of-loving-discipline",
+        "enlighten.pandia.sweet-surrender",
+        "enlighten.pandia.youre-being-naughty"
+      ],
+      "awakenerBuilds": ["awakener-build-0039"]
     },
     "awakener-0040": {
-      "awakenerBuilds": ["awakener-build-0040"],
+      "ownedWheels": ["wheel-0012", "wheel-0115"],
+      "ownedRelics": ["relic-0040"],
+      "ownedPosses": ["posse-0042"],
+      "ownedSkills": [
+        "skill.pickman.art-is-madness",
+        "skill.pickman.chromaphage",
+        "skill.pickman.defense",
+        "skill.pickman.lifelike-rendition",
+        "skill.pickman.morgue-studio",
+        "skill.pickman.strike",
+        "skill.pickman.truth-in-delusion"
+      ],
       "ownedDerivedSkills": ["derived.pickman.inspiration"],
+      "ownedTalents": ["talent.pickman.painters-eye", "talent.pickman.madness-omen", "talent.pickman.soulforge-aptitude", "talent.pickman.gnostic-potential"],
       "ownedEnlightens": [
         "enlighten.pickman.art-is-madness",
         "enlighten.pickman.centered-composition",
@@ -1034,33 +1046,12 @@
         "overlay.pickman.painted-orisons",
         "overlay.pickman.painted-relics"
       ],
-      "ownedPosses": ["posse-0042"],
-      "ownedRelics": ["relic-0040"],
-      "ownedSkills": [
-        "skill.pickman.art-is-madness",
-        "skill.pickman.chromaphage",
-        "skill.pickman.defense",
-        "skill.pickman.lifelike-rendition",
-        "skill.pickman.morgue-studio",
-        "skill.pickman.strike",
-        "skill.pickman.truth-in-delusion"
-      ],
-      "ownedTalents": ["talent.pickman.gnostic-potential", "talent.pickman.madness-omen", "talent.pickman.painters-eye", "talent.pickman.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0012", "wheel-0115"]
+      "awakenerBuilds": ["awakener-build-0040"]
     },
     "awakener-0041": {
-      "awakenerBuilds": ["awakener-build-0041"],
-      "ownedDerivedSkills": ["derived.pollux.sacred-heart"],
-      "ownedEnlightens": [
-        "enlighten.pollux.divine-revelation",
-        "enlighten.pollux.flames-of-salvation",
-        "enlighten.pollux.lightbearers-herald",
-        "enlighten.pollux.lux-diouskouron",
-        "enlighten.pollux.the-nightbreaker"
-      ],
-      "ownedOverlays": ["overlay.pollux.ablaze", "overlay.pollux.alight", "overlay.pollux.sin-mark"],
-      "ownedPosses": ["posse-0039"],
+      "ownedWheels": ["wheel-0042", "wheel-0113"],
       "ownedRelics": ["relic-0041"],
+      "ownedPosses": ["posse-0039"],
       "ownedSkills": [
         "skill.pollux.cleansing-judgement",
         "skill.pollux.defense",
@@ -1070,20 +1061,22 @@
         "skill.pollux.strike",
         "skill.pollux.the-nightbreaker"
       ],
-      "ownedTalents": ["talent.pollux.atonement-by-pain", "talent.pollux.gnostic-potential", "talent.pollux.madness-omen", "talent.pollux.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0042", "wheel-0113"]
+      "ownedDerivedSkills": ["derived.pollux.sacred-heart"],
+      "ownedTalents": ["talent.pollux.atonement-by-pain", "talent.pollux.madness-omen", "talent.pollux.soulforge-aptitude", "talent.pollux.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.pollux.divine-revelation",
+        "enlighten.pollux.flames-of-salvation",
+        "enlighten.pollux.lightbearers-herald",
+        "enlighten.pollux.lux-diouskouron",
+        "enlighten.pollux.the-nightbreaker"
+      ],
+      "ownedOverlays": ["overlay.pollux.ablaze", "overlay.pollux.alight", "overlay.pollux.sin-mark"],
+      "awakenerBuilds": ["awakener-build-0041"]
     },
     "awakener-0042": {
-      "awakenerBuilds": ["awakener-build-0042"],
-      "ownedEnlightens": [
-        "enlighten.ramona.innocent-departure",
-        "enlighten.ramona.labyrinth-of-thought",
-        "enlighten.ramona.omen-of-unknowns",
-        "enlighten.ramona.precious-ties",
-        "enlighten.ramona.sublime-tempering"
-      ],
-      "ownedPosses": ["posse-0045"],
+      "ownedWheels": ["wheel-0014"],
       "ownedRelics": ["relic-0042"],
+      "ownedPosses": ["posse-0045"],
       "ownedSkills": [
         "skill.ramona.assault-thesis",
         "skill.ramona.defense",
@@ -1094,26 +1087,24 @@
         "skill.ramona.strike"
       ],
       "ownedTalents": [
-        "talent.ramona.gnostic-potential",
-        "talent.ramona.madness-omen",
         "talent.ramona.silverheart-resonance",
-        "talent.ramona.soulforge-aptitude"
+        "talent.ramona.madness-omen",
+        "talent.ramona.soulforge-aptitude",
+        "talent.ramona.gnostic-potential"
       ],
-      "ownedWheels": ["wheel-0014"]
+      "ownedEnlightens": [
+        "enlighten.ramona.innocent-departure",
+        "enlighten.ramona.labyrinth-of-thought",
+        "enlighten.ramona.omen-of-unknowns",
+        "enlighten.ramona.precious-ties",
+        "enlighten.ramona.sublime-tempering"
+      ],
+      "awakenerBuilds": ["awakener-build-0042"]
     },
     "awakener-0043": {
-      "awakenerBuilds": ["awakener-build-0043"],
-      "ownedDerivedSkills": ["derived.ryker.octahedron-dice", "derived.ryker.shining-octahedron-dice"],
-      "ownedEnlightens": [
-        "enlighten.ryker.certain-gain",
-        "enlighten.ryker.fortune-favors-the-damned",
-        "enlighten.ryker.fortunes-boon",
-        "enlighten.ryker.honest-return",
-        "enlighten.ryker.jackpot"
-      ],
-      "ownedOverlays": ["overlay.ryker.chaotic-legacy"],
-      "ownedPosses": ["posse-0027"],
+      "ownedWheels": ["wheel-0019", "wheel-0103"],
       "ownedRelics": ["relic-0043"],
+      "ownedPosses": ["posse-0027"],
       "ownedSkills": [
         "skill.ryker.all-in",
         "skill.ryker.defense",
@@ -1123,26 +1114,22 @@
         "skill.ryker.strike",
         "skill.ryker.unexpected-gain"
       ],
-      "ownedTalents": ["talent.ryker.gnostic-potential", "talent.ryker.madness-omen", "talent.ryker.soulforge-aptitude", "talent.ryker.winner-takes-all"],
-      "ownedWheels": ["wheel-0019", "wheel-0103"]
+      "ownedDerivedSkills": ["derived.ryker.octahedron-dice", "derived.ryker.shining-octahedron-dice"],
+      "ownedTalents": ["talent.ryker.winner-takes-all", "talent.ryker.madness-omen", "talent.ryker.soulforge-aptitude", "talent.ryker.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.ryker.certain-gain",
+        "enlighten.ryker.fortune-favors-the-damned",
+        "enlighten.ryker.fortunes-boon",
+        "enlighten.ryker.honest-return",
+        "enlighten.ryker.jackpot"
+      ],
+      "ownedOverlays": ["overlay.ryker.chaotic-legacy"],
+      "awakenerBuilds": ["awakener-build-0043"]
     },
     "awakener-0044": {
-      "awakenerBuilds": ["awakener-build-0044"],
-      "ownedDerivedSkills": [
-        "derived.salvador.dedication",
-        "derived.salvador.liberation",
-        "derived.salvador.redemption",
-        "derived.salvador.sanctuary-of-mercy"
-      ],
-      "ownedEnlightens": [
-        "enlighten.salvador.bitter-eucharist",
-        "enlighten.salvador.book-of-genesis",
-        "enlighten.salvador.divine-proxy",
-        "enlighten.salvador.rite-of-creation",
-        "enlighten.salvador.salvations-hand"
-      ],
-      "ownedPosses": ["posse-0020"],
+      "ownedWheels": ["wheel-0002", "wheel-0095"],
       "ownedRelics": ["relic-0044"],
+      "ownedPosses": ["posse-0020"],
       "ownedSkills": [
         "skill.salvador.benediction",
         "skill.salvador.blessed-are-the-bones",
@@ -1152,26 +1139,32 @@
         "skill.salvador.rite-of-creation",
         "skill.salvador.strike"
       ],
-      "ownedTalents": [
-        "talent.salvador.gnostic-potential",
-        "talent.salvador.madness-omen",
-        "talent.salvador.origin-of-all-life",
-        "talent.salvador.shepard-of-the-souls",
-        "talent.salvador.soulforge-aptitude"
+      "ownedDerivedSkills": [
+        "derived.salvador.dedication",
+        "derived.salvador.liberation",
+        "derived.salvador.redemption",
+        "derived.salvador.sanctuary-of-mercy"
       ],
-      "ownedWheels": ["wheel-0002", "wheel-0095"]
+      "ownedTalents": [
+        "talent.salvador.shepard-of-the-souls",
+        "talent.salvador.origin-of-all-life",
+        "talent.salvador.madness-omen",
+        "talent.salvador.soulforge-aptitude",
+        "talent.salvador.gnostic-potential"
+      ],
+      "ownedEnlightens": [
+        "enlighten.salvador.bitter-eucharist",
+        "enlighten.salvador.book-of-genesis",
+        "enlighten.salvador.divine-proxy",
+        "enlighten.salvador.rite-of-creation",
+        "enlighten.salvador.salvations-hand"
+      ],
+      "awakenerBuilds": ["awakener-build-0044"]
     },
     "awakener-0045": {
-      "awakenerBuilds": ["awakener-build-0045"],
-      "ownedEnlightens": [
-        "enlighten.sanga.artistic-dionysia",
-        "enlighten.sanga.kneel-before-beauty",
-        "enlighten.sanga.melodic-sculpting",
-        "enlighten.sanga.oblivion-takes-all",
-        "enlighten.sanga.the-sea-of-corals"
-      ],
-      "ownedPosses": ["posse-0014"],
+      "ownedWheels": ["wheel-0057"],
       "ownedRelics": ["relic-0045"],
+      "ownedPosses": ["posse-0014"],
       "ownedSkills": [
         "skill.sanga.beautys-mercy",
         "skill.sanga.defense",
@@ -1181,20 +1174,20 @@
         "skill.sanga.the-lost-art",
         "skill.sanga.the-sea-of-corals"
       ],
-      "ownedTalents": ["talent.sanga.enlightenment-of-death", "talent.sanga.gnostic-potential", "talent.sanga.madness-omen", "talent.sanga.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0057"]
+      "ownedTalents": ["talent.sanga.enlightenment-of-death", "talent.sanga.madness-omen", "talent.sanga.soulforge-aptitude", "talent.sanga.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.sanga.artistic-dionysia",
+        "enlighten.sanga.kneel-before-beauty",
+        "enlighten.sanga.melodic-sculpting",
+        "enlighten.sanga.oblivion-takes-all",
+        "enlighten.sanga.the-sea-of-corals"
+      ],
+      "awakenerBuilds": ["awakener-build-0045"]
     },
     "awakener-0046": {
-      "awakenerBuilds": ["awakener-build-0046"],
-      "ownedEnlightens": [
-        "enlighten.sorel.carlate-profond",
-        "enlighten.sorel.flowing-rill",
-        "enlighten.sorel.lustrous-pearl",
-        "enlighten.sorel.roses-infinite-desire",
-        "enlighten.sorel.vintage-nectar"
-      ],
-      "ownedPosses": ["posse-0019"],
+      "ownedWheels": ["wheel-0004", "wheel-0101"],
       "ownedRelics": ["relic-0046"],
+      "ownedPosses": ["posse-0019"],
       "ownedSkills": [
         "skill.sorel.carousel-of-ambition",
         "skill.sorel.defense",
@@ -1204,11 +1197,28 @@
         "skill.sorel.roses-infinite-desire",
         "skill.sorel.strike"
       ],
-      "ownedTalents": ["talent.sorel.gnostic-potential", "talent.sorel.guardian-of-vanity", "talent.sorel.madness-omen", "talent.sorel.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0004", "wheel-0101"]
+      "ownedTalents": ["talent.sorel.guardian-of-vanity", "talent.sorel.madness-omen", "talent.sorel.soulforge-aptitude", "talent.sorel.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.sorel.carlate-profond",
+        "enlighten.sorel.flowing-rill",
+        "enlighten.sorel.lustrous-pearl",
+        "enlighten.sorel.roses-infinite-desire",
+        "enlighten.sorel.vintage-nectar"
+      ],
+      "awakenerBuilds": ["awakener-build-0046"]
     },
     "awakener-0047": {
-      "awakenerBuilds": ["awakener-build-0047"],
+      "ownedWheels": ["wheel-0027", "wheel-0104"],
+      "ownedRelics": ["relic-0047"],
+      "ownedSkills": [
+        "skill.tawil.defense",
+        "skill.tawil.infinite-radiant-brilliance",
+        "skill.tawil.omnifex-convergence",
+        "skill.tawil.omniscient-verity",
+        "skill.tawil.pinions-of-time",
+        "skill.tawil.strike",
+        "skill.tawil.the-silver-key-gate"
+      ],
       "ownedDerivedSkills": [
         "derived.tawil.echoes-of-the-past",
         "derived.tawil.emissarys-verdict",
@@ -1223,6 +1233,7 @@
         "derived.tawil.twin-wings",
         "derived.tawil.utopian-veil"
       ],
+      "ownedTalents": ["talent.tawil.madness-omen", "talent.tawil.soulforge-aptitude", "talent.tawil.gnostic-potential"],
       "ownedEnlightens": [
         "enlighten.tawil.boundless-sagacity",
         "enlighten.tawil.infinite-radiant-brilliance",
@@ -1230,29 +1241,10 @@
         "enlighten.tawil.omniscient-and-omnipotent",
         "enlighten.tawil.the-first-logos"
       ],
-      "ownedRelics": ["relic-0047"],
-      "ownedSkills": [
-        "skill.tawil.defense",
-        "skill.tawil.infinite-radiant-brilliance",
-        "skill.tawil.omnifex-convergence",
-        "skill.tawil.omniscient-verity",
-        "skill.tawil.pinions-of-time",
-        "skill.tawil.strike",
-        "skill.tawil.the-silver-key-gate"
-      ],
-      "ownedTalents": ["talent.tawil.gnostic-potential", "talent.tawil.madness-omen", "talent.tawil.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0027", "wheel-0104"]
+      "awakenerBuilds": ["awakener-build-0047"]
     },
     "awakener-0048": {
-      "awakenerBuilds": ["awakener-build-0048"],
-      "ownedDerivedSkills": ["derived.thais.blood-of-coition", "derived.thais.blood-of-decay", "derived.thais.blood-of-fear", "derived.thais.scion-of-purity"],
-      "ownedEnlightens": [
-        "enlighten.thais.everlasting-cycle",
-        "enlighten.thais.forests-embrace",
-        "enlighten.thais.sacred-relics-perpetuity",
-        "enlighten.thais.seed-of-chaos",
-        "enlighten.thais.the-birthing-deep"
-      ],
+      "ownedWheels": ["wheel-0001", "wheel-0099"],
       "ownedRelics": ["relic-0048"],
       "ownedSkills": [
         "skill.thais.ad-matrem-vocatus",
@@ -1263,18 +1255,19 @@
         "skill.thais.sacred-relics-perpetuity",
         "skill.thais.strike"
       ],
-      "ownedTalents": ["talent.thais.gnostic-potential", "talent.thais.madness-omen", "talent.thais.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0001", "wheel-0099"]
+      "ownedDerivedSkills": ["derived.thais.blood-of-coition", "derived.thais.blood-of-decay", "derived.thais.blood-of-fear", "derived.thais.scion-of-purity"],
+      "ownedTalents": ["talent.thais.madness-omen", "talent.thais.soulforge-aptitude", "talent.thais.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.thais.everlasting-cycle",
+        "enlighten.thais.forests-embrace",
+        "enlighten.thais.sacred-relics-perpetuity",
+        "enlighten.thais.seed-of-chaos",
+        "enlighten.thais.the-birthing-deep"
+      ],
+      "awakenerBuilds": ["awakener-build-0048"]
     },
     "awakener-0049": {
-      "awakenerBuilds": ["awakener-build-0049"],
-      "ownedEnlightens": [
-        "enlighten.tinct.cosmic-symphony",
-        "enlighten.tinct.falling-skyward",
-        "enlighten.tinct.midnight-elegy",
-        "enlighten.tinct.stellar-reverberation",
-        "enlighten.tinct.when-crimson-meets-thorns"
-      ],
+      "ownedWheels": ["wheel-0032"],
       "ownedRelics": ["relic-0049"],
       "ownedSkills": [
         "skill.tinct.cosmic-symphony",
@@ -1285,20 +1278,20 @@
         "skill.tinct.strike",
         "skill.tinct.voices-from-beyond"
       ],
-      "ownedTalents": ["talent.tinct.gnostic-potential", "talent.tinct.madness-omen", "talent.tinct.planetary-traveler", "talent.tinct.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0032"]
+      "ownedTalents": ["talent.tinct.planetary-traveler", "talent.tinct.madness-omen", "talent.tinct.soulforge-aptitude", "talent.tinct.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.tinct.cosmic-symphony",
+        "enlighten.tinct.falling-skyward",
+        "enlighten.tinct.midnight-elegy",
+        "enlighten.tinct.stellar-reverberation",
+        "enlighten.tinct.when-crimson-meets-thorns"
+      ],
+      "awakenerBuilds": ["awakener-build-0049"]
     },
     "awakener-0050": {
-      "awakenerBuilds": ["awakener-build-0050"],
-      "ownedEnlightens": [
-        "enlighten.tulu.lone-king",
-        "enlighten.tulu.nocturnal-murmurs",
-        "enlighten.tulu.the-promised-day",
-        "enlighten.tulu.the-stars-are-right",
-        "enlighten.tulu.touch-of-revival"
-      ],
-      "ownedPosses": ["posse-0031"],
+      "ownedWheels": ["wheel-0050", "wheel-0107"],
       "ownedRelics": ["relic-0050"],
+      "ownedPosses": ["posse-0031"],
       "ownedSkills": [
         "skill.tulu.abyss-order",
         "skill.tulu.defense",
@@ -1308,20 +1301,20 @@
         "skill.tulu.when-lemuria-returns",
         "skill.tulu.when-the-stars-are-right"
       ],
-      "ownedTalents": ["talent.tulu.divine-kings-power", "talent.tulu.gnostic-potential", "talent.tulu.madness-omen", "talent.tulu.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0050", "wheel-0107"]
+      "ownedTalents": ["talent.tulu.divine-kings-power", "talent.tulu.madness-omen", "talent.tulu.soulforge-aptitude", "talent.tulu.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.tulu.lone-king",
+        "enlighten.tulu.nocturnal-murmurs",
+        "enlighten.tulu.the-promised-day",
+        "enlighten.tulu.the-stars-are-right",
+        "enlighten.tulu.touch-of-revival"
+      ],
+      "awakenerBuilds": ["awakener-build-0050"]
     },
     "awakener-0051": {
-      "awakenerBuilds": ["awakener-build-0051"],
-      "ownedEnlightens": [
-        "enlighten.uvhash.gift-of-surging-blood",
-        "enlighten.uvhash.paean-of-twisted-fury",
-        "enlighten.uvhash.roman-elegy",
-        "enlighten.uvhash.sorcerers-end",
-        "enlighten.uvhash.the-gladiator"
-      ],
-      "ownedPosses": ["posse-0011"],
+      "ownedWheels": ["wheel-0008"],
       "ownedRelics": ["relic-0051"],
+      "ownedPosses": ["posse-0011"],
       "ownedSkills": [
         "skill.uvhash.boil-blood",
         "skill.uvhash.defense",
@@ -1331,22 +1324,20 @@
         "skill.uvhash.strike",
         "skill.uvhash.vermilion-rite"
       ],
-      "ownedTalents": ["talent.uvhash.gnostic-potential", "talent.uvhash.madness-omen", "talent.uvhash.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0008"]
+      "ownedTalents": ["talent.uvhash.madness-omen", "talent.uvhash.soulforge-aptitude", "talent.uvhash.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.uvhash.gift-of-surging-blood",
+        "enlighten.uvhash.paean-of-twisted-fury",
+        "enlighten.uvhash.roman-elegy",
+        "enlighten.uvhash.sorcerers-end",
+        "enlighten.uvhash.the-gladiator"
+      ],
+      "awakenerBuilds": ["awakener-build-0051"]
     },
     "awakener-0052": {
-      "awakenerBuilds": ["awakener-build-0052"],
-      "ownedDerivedSkills": ["derived.wanda.echoes-of-whispers", "derived.wanda.hypnotic-veins", "derived.wanda.slumber-counter"],
-      "ownedEnlightens": [
-        "enlighten.wanda.black-stone-decree",
-        "enlighten.wanda.lakeborne-dweller",
-        "enlighten.wanda.lost-dreams-guide",
-        "enlighten.wanda.the-revelation",
-        "enlighten.wanda.venus-and-fur"
-      ],
-      "ownedOverlays": ["overlay.wanda.dreamlure", "overlay.wanda.murmurs"],
-      "ownedPosses": ["posse-0013"],
+      "ownedWheels": ["wheel-0033", "wheel-0094"],
       "ownedRelics": ["relic-0052"],
+      "ownedPosses": ["posse-0013"],
       "ownedSkills": [
         "skill.wanda.defense",
         "skill.wanda.keeper-of-the-lost",
@@ -1356,18 +1347,20 @@
         "skill.wanda.spine-needle-chains",
         "skill.wanda.strike"
       ],
-      "ownedTalents": ["talent.wanda.gnostic-potential", "talent.wanda.madness-omen", "talent.wanda.revelation", "talent.wanda.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0033", "wheel-0094"]
+      "ownedDerivedSkills": ["derived.wanda.echoes-of-whispers", "derived.wanda.hypnotic-veins", "derived.wanda.slumber-counter"],
+      "ownedTalents": ["talent.wanda.revelation", "talent.wanda.madness-omen", "talent.wanda.soulforge-aptitude", "talent.wanda.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.wanda.black-stone-decree",
+        "enlighten.wanda.lakeborne-dweller",
+        "enlighten.wanda.lost-dreams-guide",
+        "enlighten.wanda.the-revelation",
+        "enlighten.wanda.venus-and-fur"
+      ],
+      "ownedOverlays": ["overlay.wanda.dreamlure", "overlay.wanda.murmurs"],
+      "awakenerBuilds": ["awakener-build-0052"]
     },
     "awakener-0053": {
-      "awakenerBuilds": ["awakener-build-0053"],
-      "ownedEnlightens": [
-        "enlighten.winkle.dread-of-the-darkness",
-        "enlighten.winkle.forsaken-homeland",
-        "enlighten.winkle.rebirth-through-death",
-        "enlighten.winkle.space-time-fold",
-        "enlighten.winkle.thus-spoke-the-outcast"
-      ],
+      "ownedWheels": ["wheel-0034"],
       "ownedRelics": ["relic-0053"],
       "ownedSkills": [
         "skill.winkle.defense",
@@ -1378,22 +1371,20 @@
         "skill.winkle.space-time-fold",
         "skill.winkle.strike"
       ],
-      "ownedTalents": ["talent.winkle.gnostic-potential", "talent.winkle.madness-omen", "talent.winkle.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0034"]
+      "ownedTalents": ["talent.winkle.madness-omen", "talent.winkle.soulforge-aptitude", "talent.winkle.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.winkle.dread-of-the-darkness",
+        "enlighten.winkle.forsaken-homeland",
+        "enlighten.winkle.rebirth-through-death",
+        "enlighten.winkle.space-time-fold",
+        "enlighten.winkle.thus-spoke-the-outcast"
+      ],
+      "awakenerBuilds": ["awakener-build-0053"]
     },
     "awakener-0054": {
-      "awakenerBuilds": ["awakener-build-0054"],
-      "ownedDerivedSkills": ["derived.xu.betroth", "derived.xu.enthrall"],
-      "ownedEnlightens": [
-        "enlighten.xu.enmity-of-the-heart",
-        "enlighten.xu.fan-and-scythe",
-        "enlighten.xu.gu-wang-yan",
-        "enlighten.xu.karmic-grave",
-        "enlighten.xu.nirvanas-kiss"
-      ],
-      "ownedOverlays": ["overlay.xu.betroth", "overlay.xu.enthrall", "overlay.xu.spellbound"],
-      "ownedPosses": ["posse-0047"],
+      "ownedWheels": ["wheel-0013", "wheel-0118"],
       "ownedRelics": ["relic-0054"],
+      "ownedPosses": ["posse-0047"],
       "ownedSkills": [
         "skill.xu.bonesick-longing",
         "skill.xu.defense",
@@ -1403,22 +1394,22 @@
         "skill.xu.mist-bound-vow",
         "skill.xu.strike"
       ],
-      "ownedTalents": ["talent.xu.gnostic-potential", "talent.xu.madness-omen", "talent.xu.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0013", "wheel-0118"]
+      "ownedDerivedSkills": ["derived.xu.betroth", "derived.xu.enthrall"],
+      "ownedTalents": ["talent.xu.madness-omen", "talent.xu.soulforge-aptitude", "talent.xu.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.xu.enmity-of-the-heart",
+        "enlighten.xu.fan-and-scythe",
+        "enlighten.xu.gu-wang-yan",
+        "enlighten.xu.karmic-grave",
+        "enlighten.xu.nirvanas-kiss"
+      ],
+      "ownedOverlays": ["overlay.xu.betroth", "overlay.xu.enthrall", "overlay.xu.spellbound"],
+      "awakenerBuilds": ["awakener-build-0054"]
     },
     "awakener-0055": {
-      "awakenerBuilds": ["awakener-build-0055"],
-      "ownedDerivedSkills": ["derived.vortice.vortex-shell"],
-      "ownedEnlightens": [
-        "enlighten.vortice.bang-pop-boom",
-        "enlighten.vortice.endless-tide",
-        "enlighten.vortice.moskstraumen-boom",
-        "enlighten.vortice.roaring-abyss",
-        "enlighten.vortice.shackled-impulse"
-      ],
-      "ownedOverlays": ["overlay.vortice.vortex-reload"],
-      "ownedPosses": ["posse-0049"],
+      "ownedWheels": ["wheel-0060", "wheel-0119"],
       "ownedRelics": ["relic-0055"],
+      "ownedPosses": ["posse-0049"],
       "ownedSkills": [
         "skill.vortice.abyssal-vortex-cannon",
         "skill.vortice.charge",
@@ -1428,17 +1419,42 @@
         "skill.vortice.reload",
         "skill.vortice.strike"
       ],
+      "ownedDerivedSkills": ["derived.vortice.vortex-shell"],
       "ownedTalents": [
-        "talent.vortice.gnostic-potential",
         "talent.vortice.lightless-bottom",
         "talent.vortice.madness-omen",
-        "talent.vortice.soulforge-aptitude"
+        "talent.vortice.soulforge-aptitude",
+        "talent.vortice.gnostic-potential"
       ],
-      "ownedWheels": ["wheel-0060", "wheel-0119"]
+      "ownedEnlightens": [
+        "enlighten.vortice.bang-pop-boom",
+        "enlighten.vortice.endless-tide",
+        "enlighten.vortice.moskstraumen-boom",
+        "enlighten.vortice.roaring-abyss",
+        "enlighten.vortice.shackled-impulse"
+      ],
+      "ownedOverlays": ["overlay.vortice.vortex-reload"],
+      "awakenerBuilds": ["awakener-build-0055"]
     },
     "awakener-0056": {
-      "awakenerBuilds": ["awakener-build-0056"],
+      "ownedWheels": ["wheel-0128", "wheel-0132"],
+      "ownedRelics": ["relic-0056"],
+      "ownedSkills": [
+        "skill.arachne.defense",
+        "skill.arachne.elegy-over-fate",
+        "skill.arachne.eternal-loom",
+        "skill.arachne.fate-binding-web",
+        "skill.arachne.moira-as-i-decree",
+        "skill.arachne.puppet-stage-unveiled",
+        "skill.arachne.strike"
+      ],
       "ownedDerivedSkills": ["derived.arachne.guiding-strings", "derived.arachne.infinite-threads"],
+      "ownedTalents": [
+        "talent.arachne.destined-threads",
+        "talent.arachne.madness-omen",
+        "talent.arachne.soulforge-aptitude",
+        "talent.arachne.gnostic-potential"
+      ],
       "ownedEnlightens": [
         "enlighten.arachne.destiny-as-i-arrange",
         "enlighten.arachne.elegy-over-fate",
@@ -1456,35 +1472,12 @@
         "overlay.arachne.singularity-warp",
         "overlay.arachne.weaver"
       ],
-      "ownedRelics": ["relic-0056"],
-      "ownedSkills": [
-        "skill.arachne.defense",
-        "skill.arachne.elegy-over-fate",
-        "skill.arachne.eternal-loom",
-        "skill.arachne.fate-binding-web",
-        "skill.arachne.moira-as-i-decree",
-        "skill.arachne.puppet-stage-unveiled",
-        "skill.arachne.strike"
-      ],
-      "ownedTalents": [
-        "talent.arachne.destined-threads",
-        "talent.arachne.gnostic-potential",
-        "talent.arachne.madness-omen",
-        "talent.arachne.soulforge-aptitude"
-      ],
-      "ownedWheels": ["wheel-0128", "wheel-0132"]
+      "awakenerBuilds": ["awakener-build-0056"]
     },
     "awakener-0057": {
-      "ownedEnlightens": [
-        "enlighten.saya.here-my-one-last-gift",
-        "enlighten.saya.ill-be-your-very-own-monster",
-        "enlighten.saya.must-be-what-they-call-love",
-        "enlighten.saya.paradise-just-for-you",
-        "enlighten.saya.will-you-stay-with-me-always"
-      ],
-      "ownedOverlays": ["overlay.saya.gynoecium"],
-      "ownedPosses": ["posse-0051"],
+      "ownedWheels": ["wheel-0167", "wheel-0168"],
       "ownedRelics": ["relic-0057"],
+      "ownedPosses": ["posse-0051"],
       "ownedSkills": [
         "skill.saya.biomimicry",
         "skill.saya.cognitive-alteration",
@@ -1494,8 +1487,15 @@
         "skill.saya.strike",
         "skill.saya.viscera-blossoms"
       ],
-      "ownedTalents": ["talent.saya.eden-of-propagation", "talent.saya.gnostic-potential", "talent.saya.madness-omen", "talent.saya.soulforge-aptitude"],
-      "ownedWheels": ["wheel-0167", "wheel-0168"]
+      "ownedTalents": ["talent.saya.eden-of-propagation", "talent.saya.madness-omen", "talent.saya.soulforge-aptitude", "talent.saya.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.saya.here-my-one-last-gift",
+        "enlighten.saya.ill-be-your-very-own-monster",
+        "enlighten.saya.must-be-what-they-call-love",
+        "enlighten.saya.paradise-just-for-you",
+        "enlighten.saya.will-you-stay-with-me-always"
+      ],
+      "ownedOverlays": ["overlay.saya.gynoecium"]
     },
     "awakener-build-0001": {},
     "awakener-build-0002": {},

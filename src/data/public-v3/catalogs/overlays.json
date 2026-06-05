@@ -676,7 +676,7 @@
         "canonicalPath": "/database/overlays/exhaust"
       },
       "overlayType": "mechanic",
-      "textColor": "damage",
+      "textColor": "misc",
       "aliases": ["Exhausted"]
     },
     {
@@ -727,7 +727,7 @@
         "canonicalPath": "/database/overlays/fleeting"
       },
       "overlayType": "mechanic",
-      "textColor": "damage",
+      "textColor": "misc",
       "aliases": []
     },
     {
@@ -904,7 +904,7 @@
         "canonicalPath": "/database/overlays/prepare"
       },
       "overlayType": "mechanic",
-      "textColor": "damage",
+      "textColor": "misc",
       "aliases": ["Prepare 1", "Prepare 2", "Prepare 3", "Prepare 4", "Prepare 5"]
     },
     {
@@ -964,7 +964,7 @@
         "canonicalPath": "/database/overlays/quasar"
       },
       "overlayType": "mechanic",
-      "textColor": "affliction",
+      "textColor": "misc",
       "aliases": []
     },
     {
@@ -999,7 +999,7 @@
         "canonicalPath": "/database/overlays/retain"
       },
       "overlayType": "mechanic",
-      "textColor": "damage",
+      "textColor": "misc",
       "aliases": ["Retained"]
     },
     {

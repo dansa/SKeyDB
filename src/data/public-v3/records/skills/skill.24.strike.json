@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0001",
   "slot": "Strike",
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG. \"24\" obtains [Energy:Arg2] Aliemus.\nDepressed Persona: Gain an additional 5 Aliemus. Manic Persona: Deal 1 additional instance of DMG",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. \"24\" obtains [Energy:Arg2] Aliemus.\nDepressed Persona: Gain an additional [DescArg1] Aliemus. Manic Persona: Deal [DescArg2] additional instance of DMG",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -17,9 +17,17 @@
       "stat": "ATK",
       "suffix": "%"
     },
+    "DescArg1": {
+      "kind": "fixed",
+      "value": "5"
+    },
     "Arg2": {
       "kind": "scaling",
       "values": ["5", "6", "7", "8", "9", "10"]
+    },
+    "DescArg2": {
+      "kind": "fixed",
+      "value": "1"
     }
   },
   "cardKeywords": [],

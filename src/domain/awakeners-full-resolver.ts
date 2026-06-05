@@ -312,24 +312,7 @@ function getActiveTalentEntries(
 ): AwakenerTalentRecord[] {
   const active: AwakenerTalentRecord[] = []
 
-  for (const talent of [
-    record.talents.T1,
-    record.talents.T2,
-    record.talents.T3,
-    record.talents.T4,
-  ]) {
-    if (talent) {
-      if (isSoulforgeTalent(talent) && soulforgeLevel <= 0) {
-        continue
-      }
-      if (isGnosticPotentialTalent(talent) && !talent.defaultMaxed && gnosticPotentialLevel <= 0) {
-        continue
-      }
-      active.push(talent)
-    }
-  }
-
-  for (const talent of record.talents.extraTalents) {
+  for (const talent of getOrderedTalentRecords(record.talents)) {
     if (isSoulforgeTalent(talent) && soulforgeLevel <= 0) {
       continue
     }
@@ -340,6 +323,26 @@ function getActiveTalentEntries(
   }
 
   return active
+}
+
+function getOrderedTalentRecords(talents: AwakenerFullRecord['talents']): AwakenerTalentRecord[] {
+  return uniqueTalentRecords(
+    talents.orderedTalents ??
+      [talents.T1, talents.T2, talents.T3, talents.T4]
+        .filter((talent): talent is AwakenerTalentRecord => Boolean(talent))
+        .concat(talents.extraTalents),
+  )
+}
+
+function uniqueTalentRecords(talents: AwakenerTalentRecord[]): AwakenerTalentRecord[] {
+  const seenTalentIds = new Set<string>()
+  return talents.filter((talent) => {
+    if (seenTalentIds.has(talent.id)) {
+      return false
+    }
+    seenTalentIds.add(talent.id)
+    return true
+  })
 }
 
 function cloneTalentRecord(record: AwakenerTalentRecord): AwakenerTalentRecord {
@@ -364,6 +367,7 @@ function resolveTalents(
     T2: cloneOptionalTalentRecord(record.talents.T2),
     T3: cloneOptionalTalentRecord(record.talents.T3),
     T4: cloneOptionalTalentRecord(record.talents.T4),
+    orderedTalents: record.talents.orderedTalents?.map((entry) => cloneTalentRecord(entry)),
     extraTalents: record.talents.extraTalents.map((entry) => cloneTalentRecord(entry)),
   }
 }

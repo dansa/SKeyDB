@@ -10,11 +10,16 @@
   "ownerAwakenerId": "awakener-0056",
   "derivedFromId": "skill.arachne.eternal-loom",
   "rootSkillId": "skill.arachne.eternal-loom",
-  "descriptionTemplate": "Lose [Arg1]% Max HP, gain 1 stack of {Weaver}.\nThis battle, HP lost from {Guiding Strings} and {Final Verdict} dealt by Arachne +10%.\n{Fleeting}: Arachne randomly gains 15~30 Aliemus.",
+  "descriptionTemplate": "Lose [Arg1]% Max HP, gain 1 stack of {Weaver}.\nThis battle, HP lost from {Guiding Strings} and {Final Verdict} dealt by Arachne +[Arg2]%.\n{Fleeting}: Arachne randomly gains 15~30 Aliemus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
       "value": "2",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "10",
       "suffix": "%"
     }
   },

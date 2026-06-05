@@ -349,7 +349,7 @@ describe('awakeners-database-view', () => {
       {
         kind: 'talent',
         id: 'talent.test.base',
-        label: 'T1',
+        label: 'Talent',
         referenceName: 'Base Talent',
       },
     ])
@@ -396,7 +396,7 @@ describe('awakeners-database-view', () => {
       {
         kind: 'talent',
         id: 'talent.test.base',
-        label: 'T1',
+        label: 'Talent',
         referenceName: 'Base Talent',
       },
     ])
@@ -416,7 +416,7 @@ describe('awakeners-database-view', () => {
         {
           kind: 'talent',
           id: 'talent.test.base',
-          label: 'T1',
+          label: 'Talent',
           referenceName: 'Base Talent',
         },
       ],
@@ -446,6 +446,53 @@ describe('awakeners-database-view', () => {
       (entry) => entry.record.id === 'talent.test.soulforge-aptitude',
     )
     expect(soulforge?.resolved.description).toBe('Soulforge 20.')
+  })
+
+  it('preserves explicit talent ordering instead of regrouping standard slots before extras', () => {
+    const record = buildRecord()
+    const festering = buildTalent('talent.test.festering-grace', 'Festering Grace')
+    const madness = buildTalent('talent.test.madness-omen', 'Madness Omen')
+    madness.family = 'madness_omen'
+    const soulforge = record.talents.extraTalents[0]
+    soulforge.family = 'soulforge_aptitude'
+    const gnostic = buildTalent('talent.test.gnostic-potential', 'Gnostic Potential')
+    gnostic.family = 'gnostic_potential'
+
+    record.talents.T2 = madness
+    record.talents.T3 = soulforge
+    record.talents.T4 = gnostic
+    record.talents.extraTalents = [festering]
+    record.talents.orderedTalents = [
+      record.talents.T1,
+      festering,
+      madness,
+      soulforge,
+      gnostic,
+    ].filter((talent): talent is AwakenerTalentRecord => Boolean(talent))
+
+    const view = resolveAwakenerDatabaseView(
+      record,
+      {
+        stats: TEST_STATS,
+      },
+      buildOverlayRecords(),
+      buildGlobalDerivedSkills(),
+    )
+
+    expect(view.talents.map((entry) => entry.record.id)).toEqual([
+      'talent.test.base',
+      'talent.test.festering-grace',
+      'talent.test.madness-omen',
+      'talent.test.soulforge-aptitude',
+      'talent.test.gnostic-potential',
+    ])
+    expect(view.talents.map((entry) => entry.key)).toEqual([
+      'talent:talent.test.base',
+      'talent:talent.test.festering-grace',
+      'talent:talent.test.madness-omen',
+      'talent:talent.test.soulforge-aptitude',
+      'talent:talent.test.gnostic-potential',
+    ])
   })
 
   it('uses the selected Gnostic Potential level instead of maxing generic scaled talents', () => {

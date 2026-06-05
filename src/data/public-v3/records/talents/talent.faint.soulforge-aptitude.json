@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0016",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe Awakeners' CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nFaint's {STR} Reduction effect +[Arg4]%. After playing Faint's Command Cards, temporarily {Steal} {STR} equal to [Arg3]% of Faint's ATK from all \"Humanoid\" enemies, triggers up to 3 times per turn.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nFaint's {STR} Reduction effect +[Arg4]%. After playing Faint's Command Cards, temporarily {Steal} {STR} equal to [Arg3]% of Faint's ATK from all \"Humanoid\" enemies, triggers up to 3 times per turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

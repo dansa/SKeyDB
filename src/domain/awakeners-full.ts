@@ -57,6 +57,7 @@ export interface AwakenerFullRecord extends AwakenerRosterRecord {
     T2?: AwakenerTalentRecord
     T3?: AwakenerTalentRecord
     T4?: AwakenerTalentRecord
+    orderedTalents?: AwakenerTalentRecord[]
     extraTalents: AwakenerTalentRecord[]
   }
   enlightens: {

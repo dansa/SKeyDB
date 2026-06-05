@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0024",
   "slot": "Rouse",
-  "descriptionTemplate": "Horla gains [Energy:Arg1] Aliemus. {Rouse}: Immediately gain 1 stack of {Metaphor} other than the current {Emotion}; also gain 1 stack At turn start. Each {Metaphor} stacks up to 3 times. Each stack of {Metaphor} is consumed when a Psalm {Leap} s, granting a corresponding bonus.",
+  "descriptionTemplate": "Horla gains [Energy:Arg1] Aliemus. {Rouse}: Immediately gain 1 stack of {Metaphor} for each {Emotion} other than the current one; also gain 1 stack at turn start. Each {Metaphor} stacks up to 3 times. Each stack of {Metaphor} is consumed when a Psalm {Leap} s, granting a corresponding bonus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -32,7 +32,7 @@
       "ownerAwakenerId": "awakener-0024",
       "ownerAwakenerName": "Horla",
       "patch": {
-        "descriptionTemplate": "Horla gains [Energy:Arg1] Aliemus. {Rouse}: Immediately gain 1 stack of {Metaphor} for each {Emotion} other than the current {Emotion}. At each turn start, also gain 1 stack for each other 3 emotions, up to 3 stacks per type. When a Psalm trigger {Leap}, consumes all stacks of its corresponding {Metaphor} and receives bonus. After releasing {Annihilation}, Horla's next Command Card played this turn triggers {Leap}. Whenever Horla consumes 3 or more stacks of {Metaphor}, the current {Emotion}'s effect +[Arg2]% temporarily. This effect cannot stack.",
+        "descriptionTemplate": "Horla gains [Energy:Arg1] Aliemus. {Rouse}: Immediately gain 1 stack of {Metaphor} for each {Emotion} other than the current one. At each turn start, also gain 1 stack, up to 3 stacks per type. When a Psalm triggers {Leap}, consume all stacks of its corresponding {Metaphor} and receive a bonus. After releasing {Annihilation}, Horla's next Command Card this turn triggers {Leap}. Whenever Horla consumes 3 or more stacks of {Metaphor}, the current {Emotion}'s aura effect +[Arg2]% temporarily. This effect cannot stack.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

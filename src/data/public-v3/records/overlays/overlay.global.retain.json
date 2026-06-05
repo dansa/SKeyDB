@@ -9,7 +9,7 @@
   },
   "overlayType": "mechanic",
   "aliases": ["Retained"],
-  "textColor": "damage",
+  "textColor": "misc",
   "descriptionTemplate": "Card will not enter the Discard Pile, but instead remains in your hand.",
   "descriptionArgs": {}
 }

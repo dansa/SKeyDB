@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0049",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe Awakeners' CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nPlaying {Distant Melody} temporarily reduces the DMG dealt by all \"Humanoid\" enemies by [Arg4]%, this effect cannot stack. {Requiem} generates [Arg3] Aliemus, and generates +1 time for each negative state dispelled.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nPlaying {Distant Melody} temporarily reduces the DMG dealt by all \"Humanoid\" enemies by [Arg4]%, this effect cannot stack. {Requiem} generates [Arg3] Aliemus, and generates +1 time for each negative state dispelled.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

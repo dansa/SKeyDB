@@ -17,7 +17,15 @@
   "acquisitionSource": "Clear Multiverse Link: Forgotten Seed of Love",
   "realm": "CARO",
   "lineupToken": "4",
-  "descriptionTemplate": "Gain 48 Shield. Draw 2 \"Skill\" cards and grant them {Perception Warp}. Saya: gains 1 stack of {Gynoecium}.",
-  "descriptionArgs": {},
+  "descriptionTemplate": "Gain [Arg1] Shield. Draw 2 \"Skill\" cards and grant them {Perception Warp}. Saya: gains 1 stack of {Gynoecium}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
   "lore": "Bloom, bloom, dyeing the entire world in colors of joy.\nThat is an ancient healing, an eternal bliss—Saya's final gift to the new world about to be unveiled."
 }

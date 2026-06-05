@@ -259,7 +259,7 @@ describe('awakener-database-state', () => {
     expect(paleBlessing?.influenceBadges).toEqual([
       expect.objectContaining({
         kind: 'talent',
-        label: 'T1',
+        label: 'Talent',
         referenceName: 'Seal of the Pact',
       }),
     ])

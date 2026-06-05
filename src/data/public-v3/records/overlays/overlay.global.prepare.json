@@ -9,7 +9,7 @@
   },
   "overlayType": "mechanic",
   "aliases": ["Prepare 1", "Prepare 2", "Prepare 3", "Prepare 4", "Prepare 5"],
-  "textColor": "damage",
+  "textColor": "misc",
   "descriptionTemplate": "At turn end, Arithmetica Cost -[Layer], This effect triggers even if discarded.",
   "descriptionArgs": {
     "Layer": {

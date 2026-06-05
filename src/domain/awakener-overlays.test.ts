@@ -19,7 +19,7 @@ describe('awakener-overlays', () => {
           id: 'overlay.global.exhaust',
           displayName: 'Exhaust',
           overlayType: 'mechanic',
-          textColor: 'damage',
+          textColor: 'misc',
         }),
         expect.objectContaining({
           id: 'overlay.global.death-resistance',

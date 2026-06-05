@@ -517,6 +517,7 @@ function adaptPublicAwakenerTalents(
   const firstPassiveTalent = passiveTalents.at(0)
   const secondPassiveTalent = passiveTalents.at(1)
   const talents: AwakenerFullRecord['talents'] = {
+    orderedTalents: ownedRecords.records.talents.map((talent) => adaptPublicTalentRecord(talent)),
     extraTalents: passiveTalents
       .slice(gnosticPotential ? 1 : 2)
       .map((talent) => adaptPublicTalentRecord(talent)),

@@ -283,14 +283,10 @@ function buildDatabaseInfluenceBadgeLookups(
   const enlightenBadgeBySlot = new Map<AwakenerEnlightenRecord['slot'], DatabaseInfluenceBadge>()
 
   for (const talent of talents) {
-    if (!/^T[1-4]$/.test(talent.key)) {
-      continue
-    }
-
     talentBadgeById.set(talent.record.id, {
       kind: 'talent',
       id: talent.record.id,
-      label: talent.key,
+      label: 'Talent',
       referenceName: talent.record.displayName,
     })
   }
@@ -489,8 +485,6 @@ function buildExaltEntries(
   return exalts
 }
 
-const TALENT_SLOT_KEYS = ['T1', 'T2', 'T3', 'T4'] as const
-
 function buildTalentEntries(
   talents: AwakenerFullRecord['talents'],
   stats: FullStats | null,
@@ -500,31 +494,12 @@ function buildTalentEntries(
 ): DatabaseDescribedEntry<AwakenerTalentRecord>[] {
   const entries: DatabaseDescribedEntry<AwakenerTalentRecord>[] = []
 
-  for (const key of TALENT_SLOT_KEYS) {
-    const record = talents[key]
-    if (!record) {
-      continue
-    }
-
+  for (const talent of getOrderedTalentRecords(talents)) {
     entries.push(
       resolveTalentEntry(
-        key,
-        `Talent · ${key}`,
-        record,
-        stats,
-        formulaContext,
-        soulforgeLevel,
-        gnosticPotentialLevel,
-      ),
-    )
-  }
-
-  for (const [index, entry] of talents.extraTalents.entries()) {
-    entries.push(
-      resolveTalentEntry(
-        `extra:${entry.id}`,
-        `Talent · Extra ${String(index + 1)}`,
-        entry,
+        `talent:${talent.id}`,
+        'Talent',
+        talent,
         stats,
         formulaContext,
         soulforgeLevel,
@@ -534,6 +509,26 @@ function buildTalentEntries(
   }
 
   return entries
+}
+
+function getOrderedTalentRecords(talents: AwakenerFullRecord['talents']): AwakenerTalentRecord[] {
+  return uniqueTalentRecords(
+    talents.orderedTalents ??
+      [talents.T1, talents.T2, talents.T3, talents.T4]
+        .filter((talent): talent is AwakenerTalentRecord => Boolean(talent))
+        .concat(talents.extraTalents),
+  )
+}
+
+function uniqueTalentRecords(talents: AwakenerTalentRecord[]): AwakenerTalentRecord[] {
+  const seenTalentIds = new Set<string>()
+  return talents.filter((talent) => {
+    if (seenTalentIds.has(talent.id)) {
+      return false
+    }
+    seenTalentIds.add(talent.id)
+    return true
+  })
 }
 
 function buildEnlightenEntries(

@@ -102,13 +102,13 @@ describe('awakener-skills', () => {
       'Shuffle 1 "Insight" into the Discard Pile at turn end, Hand Limit +2.',
     )
     expect(strike24?.descriptionTemplate).toContain(
-      'Depressed Persona: Gain an additional 5 Aliemus.',
+      'Depressed Persona: Gain an additional [DescArg1] Aliemus.',
     )
     expect(strike24?.descriptionTemplate).toContain(
-      'Manic Persona: Deal 1 additional instance of DMG',
+      'Manic Persona: Deal [DescArg2] additional instance of DMG',
     )
     expect(frenzy24?.descriptionTemplate).toContain('obtain Temporary {Retain}')
-    expect(frenzy24?.descriptionTemplate).toContain('Manic Persona: DMG instances +2')
+    expect(frenzy24?.descriptionTemplate).toContain('Manic Persona: DMG instances +[DescArg2]')
     expect(twistedCarrionRevel?.descriptionTemplate).toContain(
       '"24" switches between Depressed and Manic Personas. Trigger additional effects based on the current {Realm and Persona}.',
     )

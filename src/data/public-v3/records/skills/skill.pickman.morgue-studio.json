@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0040",
   "slot": "Rouse",
-  "descriptionTemplate": "Pickman gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 stack of {Aliemus Fantasy}. For each stack of {Creativity} Pickman gains, {Embryo Fusion}+ [Arg2].",
+  "descriptionTemplate": "Pickman gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 stack of {Fantasia}. For each stack of {Creativity} Pickman gains, {Embryo Fusion}+ [Arg2].",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
