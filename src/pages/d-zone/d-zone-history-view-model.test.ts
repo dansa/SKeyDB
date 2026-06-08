@@ -36,6 +36,7 @@ describe('d-zone history view model', () => {
 
   it('resolves URL selection with current and latest fallbacks', () => {
     const summaries = getDzoneSeasonSummaries()
+    const latestPeriod = summaries.at(-1)?.period
 
     expect(
       resolveDZoneHistorySelection({
@@ -57,7 +58,7 @@ describe('d-zone history view model', () => {
         seasonParam: null,
         summaries,
       }).selectedSummary.period,
-    ).toBe(61)
+    ).toBe(latestPeriod)
   })
 
   it('repairs expanded years for changed selections without mutating search-forced expansion', () => {

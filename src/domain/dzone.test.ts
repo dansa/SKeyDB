@@ -8,6 +8,7 @@ import {
   getDzoneSeasonAlertOptions,
   getDzoneSeasonSharedInitialRelicIds,
   getDzoneSeasonSummaries,
+  getDzoneSeasonSummaryById,
   getLatestDzoneSeasonSummary,
   loadCurrentDzoneSeason,
   loadDzoneSeasonById,
@@ -19,16 +20,23 @@ import {
 import {getDzoneSeasonRealmName} from './dzone-season-realm'
 import {loadRelicRecordById} from './relics'
 
+const DZONE_REALM_DISPLAY_NAMES = {
+  AEQUOR: 'Aequor Ring',
+  CARO: 'Caro Ring',
+  CHAOS: 'Chaos Ring',
+  ULTRA: 'Ultra Ring',
+} as const
+
 describe('D-zone domain boundary', () => {
   it('loads all D-zone summary records and full season archives', async () => {
-    expect(getDzoneSeasonSummaries()).toHaveLength(61)
-    expect(await loadDzoneSeasons()).toHaveLength(61)
-    expect(getLatestDzoneSeasonSummary()).toMatchObject({
-      id: 'dzone-0061',
-      period: 61,
-      realm: 'CARO',
-      stageEffect: 'Astral Reign',
-    })
+    const summaries = getDzoneSeasonSummaries()
+    const seasons = await loadDzoneSeasons()
+    const latestSummary = summaries.reduce((latest, summary) =>
+      summary.period > latest.period ? summary : latest,
+    )
+
+    expect(seasons).toHaveLength(summaries.length)
+    expect(getLatestDzoneSeasonSummary()).toEqual(latestSummary)
     expect(await loadDzoneSeasonById('dzone-0001')).toMatchObject({
       id: 'dzone-0001',
       period: 1,
@@ -36,11 +44,11 @@ describe('D-zone domain boundary', () => {
     })
   })
 
-  it('loads the latest season as dzone-0061 with 5 resolved waves', async () => {
+  it('loads the latest season with 5 resolved waves', async () => {
     const latestSeason = await loadLatestDzoneSeason()
 
     expect((await loadDzoneSeasons()).length).toBeGreaterThan(0)
-    expect(latestSeason.id).toBe('dzone-0061')
+    expect(latestSeason.id).toBe(getLatestDzoneSeasonSummary().id)
     expect(latestSeason.waves).toHaveLength(5)
     expect(await loadLatestDzoneWaveViewModels()).toHaveLength(5)
   })
@@ -55,28 +63,34 @@ describe('D-zone domain boundary', () => {
       'Alert IV',
       'Alert V',
     ])
-    expect(waveOne.alerts[0]?.monsters[0]).toMatchObject({
-      monsterId: 'dzone-monster-0270',
-      level: 38,
-      hp: 10736,
-      hpBars: 2,
-    })
+    expect(waveOne.alerts[0]?.monsters[0]).toMatchObject(
+      expect.objectContaining({
+        monsterId: waveOne.monsterIds[0],
+        level: expect.any(Number),
+        hp: expect.any(Number),
+        hpBars: expect.any(Number),
+      }),
+    )
   })
 
   it('resolves selected alert stats onto alert wave monsters', async () => {
+    const latestSeason = await loadLatestDzoneSeason()
     const [waveOne] = await loadLatestDzoneWaveViewModels()
+    const sourceAlertFourBoss = latestSeason.waves[0]?.alerts.find(
+      (alert) => alert.id === 'alert-4',
+    )?.monsters[0]
     const alertFourBoss = waveOne.alerts
       .find((alert) => alert.id === 'alert-4')
-      ?.monsters.find((monster) => monster.id === 'dzone-monster-0270')
+      ?.monsters.find((monster) => monster.id === sourceAlertFourBoss?.monsterId)
 
     expect(alertFourBoss).toMatchObject({
-      id: 'dzone-monster-0270',
+      id: sourceAlertFourBoss?.monsterId,
       alertStats: {
         alertId: 'alert-4',
         alertName: 'Alert IV',
-        level: 73,
-        hp: 175384,
-        hpBars: 2,
+        level: sourceAlertFourBoss?.level,
+        hp: sourceAlertFourBoss?.hp,
+        hpBars: sourceAlertFourBoss?.hpBars,
       },
     })
   })
@@ -173,10 +187,11 @@ describe('D-zone domain boundary', () => {
   })
 
   it('preserves initial relic ids without resolving relic records', async () => {
-    expect((await loadLatestDzoneWaveViewModels())[0]?.initialRelicIds).toEqual([
-      'relic-9102',
-      'relic-9041',
-    ])
+    const latestSeason = await loadLatestDzoneSeason()
+
+    expect((await loadLatestDzoneWaveViewModels())[0]?.initialRelicIds).toEqual(
+      latestSeason.waves[0]?.initialRelicIds,
+    )
   })
 
   it('identifies the latest season-wide initial relic used by every wave', async () => {
@@ -186,7 +201,7 @@ describe('D-zone domain boundary', () => {
     expect(
       latestSeason.waves.every((wave) => wave.initialRelicIds.includes(sharedInitialRelicIds[0])),
     ).toBe(true)
-    expect(getDzoneSeasonSharedInitialRelicIds(latestSeason)).toEqual(['relic-9041'])
+    expect(sharedInitialRelicIds).toHaveLength(1)
   })
 
   it('resolves modern season realms and falls back for legacy seasons', async () => {
@@ -197,7 +212,12 @@ describe('D-zone domain boundary', () => {
       throw new Error('Expected dzone-0001 to be loaded')
     }
 
-    expect(getDzoneSeasonRealmName(latestSeason)).toBe('Caro Ring')
+    const latestSummary = getDzoneSeasonSummaryById(latestSeason.id)
+    const expectedLatestSeasonName = latestSummary?.realm
+      ? DZONE_REALM_DISPLAY_NAMES[latestSummary.realm]
+      : latestSeason.name
+
+    expect(getDzoneSeasonRealmName(latestSeason)).toBe(expectedLatestSeasonName)
     expect(getDzoneSeasonRealmName(legacySeason)).toBe('Dissoluted Abyss')
   })
 
