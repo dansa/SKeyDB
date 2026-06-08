@@ -7529,7 +7529,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_023.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_023.webp", "src/assets/icons/IconS_Buff_023.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_023.webp", "src/assets/icons/IconS_Buff_023.png"]
       }
     },
     "asset-overlay.arachne.final-verdict-icon": {
@@ -7541,7 +7541,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_055.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_055.webp", "src/assets/icons/IconS_Buff_055.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_055.webp", "src/assets/icons/IconS_Buff_055.png"]
       }
     },
     "asset-overlay.arachne.singularity-beacon-icon": {
@@ -7553,7 +7553,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
       }
     },
     "asset-overlay.arachne.singularity-prism-icon": {
@@ -7565,7 +7565,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
       }
     },
     "asset-overlay.arachne.singularity-shuttle-icon": {
@@ -7577,7 +7577,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
       }
     },
     "asset-overlay.arachne.singularity-warp-icon": {
@@ -7589,7 +7589,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
       }
     },
     "asset-overlay.arachne.weaver-icon": {
@@ -7601,7 +7601,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_084.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_084.webp", "src/assets/icons/IconS_Buff_084.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_084.webp", "src/assets/icons/IconS_Buff_084.png"]
       }
     },
     "asset-overlay.clementine.phobic-fixation-icon": {
@@ -7613,7 +7613,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_053.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_053.webp", "src/assets/icons/IconS_Buff_053.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_053.webp", "src/assets/icons/IconS_Buff_053.png"]
       }
     },
     "asset-overlay.clementine.psychic-trauma-icon": {
@@ -7625,7 +7625,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_053.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_053.webp", "src/assets/icons/IconS_Buff_053.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_053.webp", "src/assets/icons/IconS_Buff_053.png"]
       }
     },
     "asset-overlay.clementine.symbiosis-icon": {
@@ -7637,7 +7637,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_053.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_053.webp", "src/assets/icons/IconS_Buff_053.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_053.webp", "src/assets/icons/IconS_Buff_053.png"]
       }
     },
     "asset-overlay.doll-inferno.finale-icon": {
@@ -7649,7 +7649,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_052.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_052.webp", "src/assets/icons/IconS_Buff_052.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_052.webp", "src/assets/icons/IconS_Buff_052.png"]
       }
     },
     "asset-overlay.doresain.corpse-icon": {
@@ -7661,7 +7661,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_076.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_076.webp", "src/assets/icons/IconS_Buff_076.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_076.webp", "src/assets/icons/IconS_Buff_076.png"]
       }
     },
     "asset-overlay.global.alert-icon": {
@@ -7673,7 +7673,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_009.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_009.webp", "src/assets/icons/IconS_Buff_009.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_009.webp", "src/assets/icons/IconS_Buff_009.png"]
       }
     },
     "asset-overlay.global.ancient-embers-icon": {
@@ -7685,7 +7685,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_025.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_025.webp", "src/assets/icons/IconS_Buff_025.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_025.webp", "src/assets/icons/IconS_Buff_025.png"]
       }
     },
     "asset-overlay.global.arithmetica-harmony-icon": {
@@ -7697,7 +7697,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_069.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_069.webp", "src/assets/icons/IconS_Buff_069.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_069.webp", "src/assets/icons/IconS_Buff_069.png"]
       }
     },
     "asset-overlay.global.barrier-icon": {
@@ -7709,7 +7709,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_013.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_013.webp", "src/assets/icons/IconS_Buff_013.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_013.webp", "src/assets/icons/IconS_Buff_013.png"]
       }
     },
     "asset-overlay.global.bleed-icon": {
@@ -7721,7 +7721,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_022.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_022.webp", "src/assets/icons/IconS_Buff_022.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_022.webp", "src/assets/icons/IconS_Buff_022.png"]
       }
     },
     "asset-overlay.global.blighten-icon": {
@@ -7733,7 +7733,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_031.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_031.webp", "src/assets/icons/IconS_Buff_031.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_031.webp", "src/assets/icons/IconS_Buff_031.png"]
       }
     },
     "asset-overlay.global.burn-icon": {
@@ -7745,7 +7745,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_057.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_057.webp", "src/assets/icons/IconS_Buff_057.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_057.webp", "src/assets/icons/IconS_Buff_057.png"]
       }
     },
     "asset-overlay.global.corrosion-icon": {
@@ -7757,7 +7757,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_070.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_070.webp", "src/assets/icons/IconS_Buff_070.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_070.webp", "src/assets/icons/IconS_Buff_070.png"]
       }
     },
     "asset-overlay.global.counter-icon": {
@@ -7769,7 +7769,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_019.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_019.webp", "src/assets/icons/IconS_Buff_019.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_019.webp", "src/assets/icons/IconS_Buff_019.png"]
       }
     },
     "asset-overlay.global.death-resistance-icon": {
@@ -7781,7 +7781,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_012.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_012.webp", "src/assets/icons/IconS_Buff_012.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_012.webp", "src/assets/icons/IconS_Buff_012.png"]
       }
     },
     "asset-overlay.global.delayed-sacrifice-icon": {
@@ -7793,7 +7793,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_042.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_042.webp", "src/assets/icons/IconS_Buff_042.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_042.webp", "src/assets/icons/IconS_Buff_042.png"]
       }
     },
     "asset-overlay.global.dimension-shuttle-icon": {
@@ -7805,7 +7805,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
       }
     },
     "asset-overlay.global.fainted-icon": {
@@ -7817,7 +7817,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_023.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_023.webp", "src/assets/icons/IconS_Buff_023.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_023.webp", "src/assets/icons/IconS_Buff_023.png"]
       }
     },
     "asset-overlay.global.fortress-icon": {
@@ -7829,7 +7829,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_046.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_046.webp", "src/assets/icons/IconS_Buff_046.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_046.webp", "src/assets/icons/IconS_Buff_046.png"]
       }
     },
     "asset-overlay.global.fragile-icon": {
@@ -7841,7 +7841,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_015.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_015.webp", "src/assets/icons/IconS_Buff_015.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_015.webp", "src/assets/icons/IconS_Buff_015.png"]
       }
     },
     "asset-overlay.global.madness-icon": {
@@ -7853,7 +7853,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_030.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_030.webp", "src/assets/icons/IconS_Buff_030.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_030.webp", "src/assets/icons/IconS_Buff_030.png"]
       }
     },
     "asset-overlay.global.poison-icon": {
@@ -7865,7 +7865,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_006.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_006.webp", "src/assets/icons/IconS_Buff_006.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_006.webp", "src/assets/icons/IconS_Buff_006.png"]
       }
     },
     "asset-overlay.global.propagation-frenzy-icon": {
@@ -7877,7 +7877,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_088.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_088.webp", "src/assets/icons/IconS_Buff_088.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_088.webp", "src/assets/icons/IconS_Buff_088.png"]
       }
     },
     "asset-overlay.global.sacrifice-icon": {
@@ -7889,7 +7889,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_041.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_041.webp", "src/assets/icons/IconS_Buff_041.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_041.webp", "src/assets/icons/IconS_Buff_041.png"]
       }
     },
     "asset-overlay.global.sealed-icon": {
@@ -7901,7 +7901,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_027.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_027.webp", "src/assets/icons/IconS_Buff_027.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_027.webp", "src/assets/icons/IconS_Buff_027.png"]
       }
     },
     "asset-overlay.global.stagnation-icon": {
@@ -7913,7 +7913,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_024.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_024.webp", "src/assets/icons/IconS_Buff_024.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_024.webp", "src/assets/icons/IconS_Buff_024.png"]
       }
     },
     "asset-overlay.global.steal-icon": {
@@ -7925,7 +7925,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_014.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_014.webp", "src/assets/icons/IconS_Buff_014.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_014.webp", "src/assets/icons/IconS_Buff_014.png"]
       }
     },
     "asset-overlay.global.str-icon": {
@@ -7937,7 +7937,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_021.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_021.webp", "src/assets/icons/IconS_Buff_021.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_021.webp", "src/assets/icons/IconS_Buff_021.png"]
       }
     },
     "asset-overlay.global.strength-icon": {
@@ -7949,7 +7949,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_037.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_037.webp", "src/assets/icons/IconS_Buff_037.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_037.webp", "src/assets/icons/IconS_Buff_037.png"]
       }
     },
     "asset-overlay.global.stun-icon": {
@@ -7961,7 +7961,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/Battle_Card_Buff_023.webp",
-        "candidates": ["src/assets/icons/Battle_Card_Buff_023.webp", "src/assets/icons/Battle_Card_Buff_023.webp"]
+        "candidates": ["src/assets/icons/Battle_Card_Buff_023.webp", "src/assets/icons/Battle_Card_Buff_023.png"]
       }
     },
     "asset-overlay.global.temporary-counter-icon": {
@@ -7973,7 +7973,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_019.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_019.webp", "src/assets/icons/IconS_Buff_019.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_019.webp", "src/assets/icons/IconS_Buff_019.png"]
       }
     },
     "asset-overlay.global.temporary-str-icon": {
@@ -7985,7 +7985,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_021.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_021.webp", "src/assets/icons/IconS_Buff_021.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_021.webp", "src/assets/icons/IconS_Buff_021.png"]
       }
     },
     "asset-overlay.global.void-icon": {
@@ -7997,7 +7997,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_029.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_029.webp", "src/assets/icons/IconS_Buff_029.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_029.webp", "src/assets/icons/IconS_Buff_029.png"]
       }
     },
     "asset-overlay.global.vulnerable-icon": {
@@ -8009,7 +8009,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_003.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_003.webp", "src/assets/icons/IconS_Buff_003.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_003.webp", "src/assets/icons/IconS_Buff_003.png"]
       }
     },
     "asset-overlay.global.weakness-icon": {
@@ -8021,7 +8021,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_005.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_005.webp", "src/assets/icons/IconS_Buff_005.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_005.webp", "src/assets/icons/IconS_Buff_005.png"]
       }
     },
     "asset-overlay.kathigu-ra.combust-icon": {
@@ -8033,7 +8033,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_057.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_057.webp", "src/assets/icons/IconS_Buff_057.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_057.webp", "src/assets/icons/IconS_Buff_057.png"]
       }
     },
     "asset-overlay.kathigu-ra.fiamma-icon": {
@@ -8045,7 +8045,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_057.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_057.webp", "src/assets/icons/IconS_Buff_057.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_057.webp", "src/assets/icons/IconS_Buff_057.png"]
       }
     },
     "asset-overlay.lily.endure-icon": {
@@ -8057,7 +8057,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_040.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_040.webp", "src/assets/icons/IconS_Buff_040.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_040.webp", "src/assets/icons/IconS_Buff_040.png"]
       }
     },
     "asset-overlay.murphy-fauxborn.birth-ritual-icon": {
@@ -8069,7 +8069,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_079.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_079.webp", "src/assets/icons/IconS_Buff_079.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_079.webp", "src/assets/icons/IconS_Buff_079.png"]
       }
     },
     "asset-overlay.pickman.creativity-icon": {
@@ -8081,7 +8081,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_077.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_077.webp", "src/assets/icons/IconS_Buff_077.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_077.webp", "src/assets/icons/IconS_Buff_077.png"]
       }
     },
     "asset-overlay.pollux.sin-mark-icon": {
@@ -8093,7 +8093,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_078.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_078.webp", "src/assets/icons/IconS_Buff_078.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_078.webp", "src/assets/icons/IconS_Buff_078.png"]
       }
     },
     "asset-overlay.ramona-timeworn.loop-icon": {
@@ -8105,7 +8105,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_038.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_038.webp", "src/assets/icons/IconS_Buff_038.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_038.webp", "src/assets/icons/IconS_Buff_038.png"]
       }
     },
     "asset-overlay.ramona-timeworn.negentropy-icon": {
@@ -8117,7 +8117,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_039.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_039.webp", "src/assets/icons/IconS_Buff_039.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_039.webp", "src/assets/icons/IconS_Buff_039.png"]
       }
     },
     "asset-overlay.saya.gynoecium-icon": {
@@ -8129,7 +8129,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_087.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_087.webp", "src/assets/icons/IconS_Buff_087.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_087.webp", "src/assets/icons/IconS_Buff_087.png"]
       }
     },
     "asset-overlay.vortice.vortex-reload-icon": {
@@ -8141,7 +8141,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_081.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_081.webp", "src/assets/icons/IconS_Buff_081.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_081.webp", "src/assets/icons/IconS_Buff_081.png"]
       }
     },
     "asset-overlay.wanda.dreamlure-icon": {
@@ -8153,7 +8153,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_043.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_043.webp", "src/assets/icons/IconS_Buff_043.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_043.webp", "src/assets/icons/IconS_Buff_043.png"]
       }
     },
     "asset-overlay.wanda.murmurs-icon": {
@@ -8165,7 +8165,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_047.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_047.webp", "src/assets/icons/IconS_Buff_047.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_047.webp", "src/assets/icons/IconS_Buff_047.png"]
       }
     },
     "asset-overlay.xu.betroth-icon": {
@@ -8177,7 +8177,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_080.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_080.webp", "src/assets/icons/IconS_Buff_080.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_080.webp", "src/assets/icons/IconS_Buff_080.png"]
       }
     },
     "asset-overlay.xu.enthrall-icon": {
@@ -8189,7 +8189,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_080.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_080.webp", "src/assets/icons/IconS_Buff_080.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_080.webp", "src/assets/icons/IconS_Buff_080.png"]
       }
     },
     "asset-overlay.xu.spellbound-icon": {
@@ -8201,7 +8201,7 @@
       "availability": {
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_080.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_080.webp", "src/assets/icons/IconS_Buff_080.webp"]
+        "candidates": ["src/assets/icons/IconS_Buff_080.webp", "src/assets/icons/IconS_Buff_080.png"]
       }
     }
   },
