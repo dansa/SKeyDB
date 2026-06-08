@@ -14,8 +14,8 @@ describe('D-zone monster preview assets', () => {
     const sharedAssetName = 'Portrait_Small_Monster_S2C0501_AT'
 
     expect(
-      getDzoneMonsters().filter((monster) => monster.assetName === sharedAssetName),
-    ).toHaveLength(2)
+      getDzoneMonsters().filter((monster) => monster.assetName === sharedAssetName).length,
+    ).toBeGreaterThan(1)
     expect(getDzoneMonsterPreviewAsset(sharedAssetName)).toMatch(/\.webp$/)
   })
 

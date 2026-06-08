@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "scope": "monsters",
-  "recordCount": 319,
+  "recordCount": 322,
   "records": [
     {
       "id": "dzone-monster-0264",
@@ -262,6 +262,14 @@
       "descriptionTemplate": "Killing, chanting, sacrifice... For the Eternal Kingdom, they will offer everything.",
       "assetName": "Portrait_Small_Monster_C0502",
       "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0323",
+      "name": "\"Fatebound\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0014", "enemy-characteristic-0006", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Once a weaver of curtains and the closest confidante at Arachne’s side. She may have once understood the Goddess of Fate’s designs, but after eons in the Abyssal Prison, all that remains within this hollow shell is madness and hatred.",
+      "assetName": "Portrait_Small_Monster_S2C0502_BT",
+      "badges": ["Boss"]
     },
     {
       "id": "dzone-monster-0081",
@@ -927,6 +935,13 @@
       "assetName": "Portrait_Small_Monster_S2C0501_AT"
     },
     {
+      "id": "dzone-monster-0322",
+      "name": "Abyssal Spider Cluster",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0014", "enemy-characteristic-0006"],
+      "descriptionTemplate": "They mimic the gait of Leng Spiders, yet have no threads to cling to. Masterless servants, attending to a future that has already been erased.",
+      "assetName": "Portrait_Small_Monster_S2C0501_AT"
+    },
+    {
       "id": "dzone-monster-0003",
       "name": "Abyssal Squire",
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0006", "enemy-characteristic-0015"],
@@ -1071,6 +1086,14 @@
       "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007", "enemy-characteristic-0003"],
       "descriptionTemplate": "Simple wax sculpture drafts. Twisted into impossible shapes, they offer no complaint.",
       "assetName": "Portrait_Small_Monster_S0101_BT"
+    },
+    {
+      "id": "dzone-monster-0324",
+      "name": "BiｦzA7ﾋrRe FlEｸﾅSh",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0012", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Aｬn uNﾃrecﾗog爨niZﾑabｨle mAﾅss of fLeｷsH rEﾉeKﾎ靇iNg oF f8Oｬul oDﾑoRｦ, yet iNﾒeXｩpLiﾇc驫Ab7ly dﾘrAﾝWn tｱo Yﾏou.",
+      "assetName": "Portrait_Small_Monster_DCB15_01",
+      "badges": ["Boss"]
     },
     {
       "id": "dzone-monster-0038",
