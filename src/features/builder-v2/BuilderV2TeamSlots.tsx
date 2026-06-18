@@ -422,6 +422,25 @@ function isSameDropTarget(
     case 'picker':
     case 'posse':
       return true
+    case 'team-management-slot':
+      return (
+        next.kind === 'team-management-slot' &&
+        previous.teamId === next.teamId &&
+        previous.slotId === next.slotId
+      )
+    case 'team-management-wheel':
+      return (
+        next.kind === 'team-management-wheel' &&
+        previous.teamId === next.teamId &&
+        previous.slotId === next.slotId &&
+        previous.wheelIndex === next.wheelIndex
+      )
+    case 'team-management-covenant':
+      return (
+        next.kind === 'team-management-covenant' &&
+        previous.teamId === next.teamId &&
+        previous.slotId === next.slotId
+      )
   }
 }
 

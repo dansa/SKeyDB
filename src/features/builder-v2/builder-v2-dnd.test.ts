@@ -8,6 +8,9 @@ import {
   createBuilderV2PickerWheelDragPayload,
   createBuilderV2TeamAwakenerDragPayload,
   createBuilderV2TeamCovenantDragPayload,
+  createBuilderV2TeamManagementCovenantDragPayload,
+  createBuilderV2TeamManagementSlotDragPayload,
+  createBuilderV2TeamManagementWheelDragPayload,
   createBuilderV2TeamPosseDragPayload,
   createBuilderV2TeamWheelDragPayload,
   isBuilderV2DragPayload,
@@ -15,6 +18,9 @@ import {
   makeBuilderV2PickerDndId,
   makeBuilderV2PosseDndId,
   makeBuilderV2SlotDndId,
+  makeBuilderV2TeamManagementCovenantDndId,
+  makeBuilderV2TeamManagementSlotDndId,
+  makeBuilderV2TeamManagementWheelDndId,
   makeBuilderV2WheelDndId,
   parseBuilderV2DndId,
   resolveBuilderV2DndAction,
@@ -27,6 +33,7 @@ import type {
   BuilderV2CovenantOption,
   BuilderV2PosseOption,
   BuilderV2SlotView,
+  BuilderV2TeamSummary,
   BuilderV2WheelOption,
 } from './BuilderV2ModelTypes'
 
@@ -88,6 +95,27 @@ describe('builder-v2 DnD payload creators', () => {
 
   it('creates normalized team payloads with source coordinates from occupied surfaces', () => {
     const slot = createSlotView()
+    const team = createTeamSummary({
+      slots: [
+        {
+          ...createTeamSummary().slots[0],
+          wheelCount: 1,
+          wheels: [
+            {
+              id: 'wheel-1',
+              name: 'First Wheel',
+              assetSrc: '/wheel-1.png',
+              miniAssetSrc: '/mini-wheel-1.png',
+              enlightenLevel: null,
+              isOwned: true,
+            },
+            null,
+          ],
+          hasCovenant: true,
+          covenant: {id: 'covenant-1', name: 'First Covenant', assetSrc: '/covenant.png'},
+        },
+      ],
+    })
     const activePosse: BuilderV2ActivePosseView = {
       id: 'posse-1',
       name: 'Night Pact',
@@ -130,6 +158,31 @@ describe('builder-v2 DnD payload creators', () => {
       id: 'posse-1',
       preview: {title: 'Night Pact', subtitle: 'CHAOS'},
     })
+    expect(createBuilderV2TeamManagementSlotDragPayload(team, team.slots[0])).toMatchObject({
+      kind: 'awakener',
+      source: 'team-management',
+      id: 'awakener-1',
+      teamId: 'team-1',
+      slotId: 'slot-1',
+      preview: {title: 'Aster', subtitle: 'Team 1 / Slot 1', variant: 'item'},
+    })
+    expect(createBuilderV2TeamManagementWheelDragPayload(team, team.slots[0], 0)).toMatchObject({
+      kind: 'wheel',
+      source: 'team-management',
+      id: 'wheel-1',
+      teamId: 'team-1',
+      slotId: 'slot-1',
+      wheelIndex: 0,
+      preview: {title: 'First Wheel', subtitle: 'Team 1 / Slot 1 / Wheel 1'},
+    })
+    expect(createBuilderV2TeamManagementCovenantDragPayload(team, team.slots[0])).toMatchObject({
+      kind: 'covenant',
+      source: 'team-management',
+      id: 'covenant-1',
+      teamId: 'team-1',
+      slotId: 'slot-1',
+      preview: {title: 'First Covenant', subtitle: 'Team 1 / Slot 1'},
+    })
   })
 
   it('returns null for empty team surfaces', () => {
@@ -145,6 +198,19 @@ describe('builder-v2 DnD payload creators', () => {
     expect(createBuilderV2TeamWheelDragPayload(emptySlot, 0)).toBeNull()
     expect(createBuilderV2TeamCovenantDragPayload(emptySlot)).toBeNull()
     expect(createBuilderV2TeamPosseDragPayload(null)).toBeNull()
+    expect(
+      createBuilderV2TeamManagementWheelDragPayload(
+        createTeamSummary(),
+        createTeamSummary().slots[0],
+        0,
+      ),
+    ).toBeNull()
+    expect(
+      createBuilderV2TeamManagementCovenantDragPayload(
+        createTeamSummary(),
+        createTeamSummary().slots[0],
+      ),
+    ).toBeNull()
   })
 
   it('narrows valid drag payloads and rejects malformed values', () => {
@@ -191,6 +257,26 @@ describe('builder-v2 DnD id helpers', () => {
     })
     expect(parseBuilderV2DndId(makeBuilderV2PosseDndId())).toEqual({kind: 'posse'})
     expect(parseBuilderV2DndId(makeBuilderV2PickerDndId())).toEqual({kind: 'picker'})
+    expect(parseBuilderV2DndId(makeBuilderV2TeamManagementSlotDndId('team-1', 'slot-1'))).toEqual({
+      kind: 'team-management-slot',
+      teamId: 'team-1',
+      slotId: 'slot-1',
+    })
+    expect(
+      parseBuilderV2DndId(makeBuilderV2TeamManagementWheelDndId('team-1', 'slot-1', 1)),
+    ).toEqual({
+      kind: 'team-management-wheel',
+      teamId: 'team-1',
+      slotId: 'slot-1',
+      wheelIndex: 1,
+    })
+    expect(
+      parseBuilderV2DndId(makeBuilderV2TeamManagementCovenantDndId('team-1', 'slot-1')),
+    ).toEqual({
+      kind: 'team-management-covenant',
+      teamId: 'team-1',
+      slotId: 'slot-1',
+    })
   })
 
   it('parses wheel ids with colons in slot ids from the last separator', () => {
@@ -208,6 +294,7 @@ describe('builder-v2 DnD id helpers', () => {
     expect(parseBuilderV2DndId('builder-v2:wheel:slot-1:2')).toBeNull()
     expect(parseBuilderV2DndId('builder-v2:wheel:slot-1:-1')).toBeNull()
     expect(parseBuilderV2DndId('builder-v2:wheel::0')).toBeNull()
+    expect(parseBuilderV2DndId('builder-v2:team-management-wheel:team-1:slot-1:2')).toBeNull()
     expect(parseBuilderV2DndId('builder-v2:picker:wheel')).toBeNull()
     expect(parseBuilderV2DndId(null)).toBeNull()
     expect(parseBuilderV2DndId(1)).toBeNull()
@@ -490,6 +577,239 @@ describe('builder-v2 DnD action resolver', () => {
     })
   })
 
+  it('swaps team-management slots with source and target team coordinates', () => {
+    const team = createTeamSummary()
+    const payload = createRequiredTeamManagementSlotDragPayload(team, team.slots[0])
+
+    expect(
+      resolveBuilderV2DndAction(payload, {
+        kind: 'team-management-slot',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+      }),
+    ).toEqual({
+      kind: 'swap-team-slots',
+      sourceTeamId: 'team-1',
+      sourceSlotId: 'slot-1',
+      targetTeamId: 'team-2',
+      targetSlotId: 'slot-4',
+    })
+  })
+
+  it('uses child team-management gear targets as owning slots for whole-card swaps', () => {
+    const team = createTeamSummary()
+    const payload = createRequiredTeamManagementSlotDragPayload(team, team.slots[0])
+
+    expect(
+      resolveBuilderV2DndAction(payload, {
+        kind: 'team-management-wheel',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+        wheelIndex: 1,
+      }),
+    ).toEqual({
+      kind: 'swap-team-slots',
+      sourceTeamId: 'team-1',
+      sourceSlotId: 'slot-1',
+      targetTeamId: 'team-2',
+      targetSlotId: 'slot-4',
+    })
+    expect(
+      resolveBuilderV2DndAction(payload, {
+        kind: 'team-management-covenant',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+      }),
+    ).toEqual({
+      kind: 'swap-team-slots',
+      sourceTeamId: 'team-1',
+      sourceSlotId: 'slot-1',
+      targetTeamId: 'team-2',
+      targetSlotId: 'slot-4',
+    })
+  })
+
+  it('assigns picker loadout items to team-management slots', () => {
+    expect(
+      resolveBuilderV2DndAction(createBuilderV2PickerAwakenerDragPayload(createAwakenerOption()), {
+        kind: 'team-management-slot',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+      }),
+    ).toEqual({
+      kind: 'assign-awakener-to-team-slot',
+      awakenerId: 'awakener-1',
+      teamId: 'team-2',
+      slotId: 'slot-4',
+    })
+    expect(
+      resolveBuilderV2DndAction(createBuilderV2PickerWheelDragPayload(createWheelOption()), {
+        kind: 'team-management-wheel',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+        wheelIndex: 1,
+      }),
+    ).toEqual({
+      kind: 'assign-wheel-to-team-slot',
+      wheelId: 'wheel-1',
+      teamId: 'team-2',
+      slotId: 'slot-4',
+      wheelIndex: 1,
+    })
+    expect(
+      resolveBuilderV2DndAction(createBuilderV2PickerWheelDragPayload(createWheelOption()), {
+        kind: 'team-management-slot',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+      }),
+    ).toEqual({
+      kind: 'assign-wheel-to-team-slot',
+      wheelId: 'wheel-1',
+      teamId: 'team-2',
+      slotId: 'slot-4',
+    })
+    expect(
+      resolveBuilderV2DndAction(createBuilderV2PickerCovenantDragPayload(createCovenantOption()), {
+        kind: 'team-management-covenant',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+      }),
+    ).toEqual({
+      kind: 'assign-covenant-to-team-slot',
+      covenantId: 'covenant-1',
+      teamId: 'team-2',
+      slotId: 'slot-4',
+    })
+    expect(
+      resolveBuilderV2DndAction(createBuilderV2PickerCovenantDragPayload(createCovenantOption()), {
+        kind: 'team-management-slot',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+      }),
+    ).toEqual({
+      kind: 'assign-covenant-to-team-slot',
+      covenantId: 'covenant-1',
+      teamId: 'team-2',
+      slotId: 'slot-4',
+    })
+  })
+
+  it('moves team-management wheels to explicit wheel targets, broad slots, and the picker', () => {
+    const team = createTeamSummary({
+      slots: [
+        {
+          ...createTeamSummary().slots[0],
+          wheelCount: 1,
+          wheels: [
+            {
+              id: 'wheel-1',
+              name: 'First Wheel',
+              assetSrc: '/wheel-1.png',
+              miniAssetSrc: '/mini-wheel-1.png',
+              enlightenLevel: null,
+              isOwned: true,
+            },
+            null,
+          ],
+        },
+      ],
+    })
+    const payload = createRequiredTeamManagementWheelDragPayload(team, team.slots[0], 0)
+
+    expect(
+      resolveBuilderV2DndAction(payload, {
+        kind: 'team-management-wheel',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+        wheelIndex: 1,
+      }),
+    ).toEqual({
+      kind: 'move-team-wheel',
+      sourceTeamId: 'team-1',
+      sourceSlotId: 'slot-1',
+      sourceWheelIndex: 0,
+      targetTeamId: 'team-2',
+      targetSlotId: 'slot-4',
+      targetWheelIndex: 1,
+    })
+    expect(
+      resolveBuilderV2DndAction(payload, {
+        kind: 'team-management-slot',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+      }),
+    ).toEqual({
+      kind: 'move-team-wheel-to-team-slot',
+      sourceTeamId: 'team-1',
+      sourceSlotId: 'slot-1',
+      sourceWheelIndex: 0,
+      targetTeamId: 'team-2',
+      targetSlotId: 'slot-4',
+    })
+    expect(resolveBuilderV2DndAction(payload, {kind: 'picker'})).toEqual({
+      kind: 'remove-team-wheel',
+      teamId: 'team-1',
+      slotId: 'slot-1',
+      wheelIndex: 0,
+    })
+  })
+
+  it('moves team-management covenants to team slots and the picker', () => {
+    const team = createTeamSummary({
+      slots: [
+        {
+          ...createTeamSummary().slots[0],
+          hasCovenant: true,
+          covenant: {id: 'covenant-1', name: 'First Covenant', assetSrc: '/covenant.png'},
+        },
+      ],
+    })
+    const payload = createRequiredTeamManagementCovenantDragPayload(team, team.slots[0])
+
+    expect(
+      resolveBuilderV2DndAction(payload, {
+        kind: 'team-management-covenant',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+      }),
+    ).toEqual({
+      kind: 'move-team-covenant',
+      sourceTeamId: 'team-1',
+      sourceSlotId: 'slot-1',
+      targetTeamId: 'team-2',
+      targetSlotId: 'slot-4',
+    })
+    expect(
+      resolveBuilderV2DndAction(payload, {
+        kind: 'team-management-slot',
+        teamId: 'team-2',
+        slotId: 'slot-4',
+      }),
+    ).toEqual({
+      kind: 'move-team-covenant',
+      sourceTeamId: 'team-1',
+      sourceSlotId: 'slot-1',
+      targetTeamId: 'team-2',
+      targetSlotId: 'slot-4',
+    })
+    expect(resolveBuilderV2DndAction(payload, {kind: 'picker'})).toEqual({
+      kind: 'remove-team-covenant',
+      teamId: 'team-1',
+      slotId: 'slot-1',
+    })
+  })
+
+  it('removes team-management slots when dropped on the picker target', () => {
+    const team = createTeamSummary()
+    const payload = createRequiredTeamManagementSlotDragPayload(team, team.slots[0])
+
+    expect(resolveBuilderV2DndAction(payload, {kind: 'picker'})).toEqual({
+      kind: 'remove-team-slot',
+      teamId: 'team-1',
+      slotId: 'slot-1',
+    })
+  })
+
   it('moves team covenants to another covenant target while preserving source and target slots', () => {
     expect(
       resolveBuilderV2DndAction(createRequiredTeamCovenantDragPayload(createSlotView()), {
@@ -601,6 +921,40 @@ function createRequiredTeamCovenantDragPayload(slot: BuilderV2SlotView): Builder
   return payload
 }
 
+function createRequiredTeamManagementSlotDragPayload(
+  team: BuilderV2TeamSummary,
+  slot: BuilderV2TeamSummary['slots'][number],
+): BuilderV2DragPayload {
+  const payload = createBuilderV2TeamManagementSlotDragPayload(team, slot)
+  if (!payload) {
+    throw new Error('Expected occupied team management slot fixture')
+  }
+  return payload
+}
+
+function createRequiredTeamManagementWheelDragPayload(
+  team: BuilderV2TeamSummary,
+  slot: BuilderV2TeamSummary['slots'][number],
+  wheelIndex: WheelSlotIndex,
+): BuilderV2DragPayload {
+  const payload = createBuilderV2TeamManagementWheelDragPayload(team, slot, wheelIndex)
+  if (!payload) {
+    throw new Error('Expected occupied team management wheel fixture')
+  }
+  return payload
+}
+
+function createRequiredTeamManagementCovenantDragPayload(
+  team: BuilderV2TeamSummary,
+  slot: BuilderV2TeamSummary['slots'][number],
+): BuilderV2DragPayload {
+  const payload = createBuilderV2TeamManagementCovenantDragPayload(team, slot)
+  if (!payload) {
+    throw new Error('Expected assigned team management covenant fixture')
+  }
+  return payload
+}
+
 function createWheelOption(overrides: Partial<BuilderV2WheelOption> = {}): BuilderV2WheelOption {
   return {
     id: 'wheel-1',
@@ -678,6 +1032,50 @@ function createSlotView(overrides: Partial<BuilderV2SlotView> = {}): BuilderV2Sl
     covenantName: 'First Covenant',
     covenantAssetSrc: '/covenant.png',
     isCovenantSelected: false,
+    ...overrides,
+  }
+}
+
+function createTeamSummary(overrides: Partial<BuilderV2TeamSummary> = {}): BuilderV2TeamSummary {
+  return {
+    id: 'team-1',
+    name: 'Team 1',
+    isActive: true,
+    deployedCount: 1,
+    slotNames: ['Aster', 'Empty', 'Empty', 'Empty'],
+    slots: [
+      {
+        slotId: 'slot-1',
+        label: 'Slot 1',
+        slotNumber: 1,
+        name: 'Aster',
+        awakener: {
+          id: 'awakener-1',
+          name: 'Aster',
+          displayName: 'Aster',
+          realm: 'CHAOS',
+          level: 60,
+          enlightenLevel: null,
+          cardSrc: '/aster-card.png',
+          portraitSrc: '/aster.png',
+          isOwned: true,
+          isSupport: false,
+        },
+        portraitSrc: '/aster.png',
+        cardSrc: '/aster-card.png',
+        isEmpty: false,
+        isSupport: false,
+        wheelCount: 0,
+        wheels: [null, null],
+        hasCovenant: false,
+        covenant: null,
+      },
+    ],
+    posseName: null,
+    posseRealm: null,
+    posseAssetSrc: undefined,
+    isPosseOwned: true,
+    isEmpty: false,
     ...overrides,
   }
 }

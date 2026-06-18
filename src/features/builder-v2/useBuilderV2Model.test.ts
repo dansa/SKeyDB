@@ -316,6 +316,383 @@ describe('useBuilderV2Model', () => {
     expect(result.current.activeTeamId).toBe(activeTeamId)
   })
 
+  it('swaps cross-team awakener slots after validating the resulting teams', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamOneSlots = createEmptyTeamSlots()
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamOneSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0005',
+      realm: 'AEQUOR',
+    })
+    teamOneSlots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0006',
+      realm: 'AEQUOR',
+    })
+    teamOneSlots[2] = createAssignedSlot('slot-3', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+    })
+    teamOneSlots[3] = createAssignedSlot('slot-4', {
+      awakenerId: 'awakener-0042',
+      realm: 'CHAOS',
+      wheels: ['wheel-0050', null],
+      covenantId: 'c01',
+    })
+    teamTwoSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0007',
+      realm: 'ULTRA',
+    })
+    teamTwoSlots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0008',
+      realm: 'ULTRA',
+    })
+    teamTwoSlots[2] = createAssignedSlot('slot-3', {
+      awakenerId: 'awakener-0010',
+      realm: 'ULTRA',
+    })
+    teamTwoSlots[3] = createAssignedSlot('slot-4', {
+      awakenerId: 'awakener-0002',
+      realm: 'CARO',
+      wheels: [null, 'wheel-0051'],
+      covenantId: 'c02',
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: teamOneSlots},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.swapTeamSlots('team-1', 'slot-4', 'team-2', 'slot-4')
+    })
+
+    const teams = builderDraftStore.getState().teams
+    expect(teams[0]?.slots[3]).toMatchObject({
+      awakenerId: 'awakener-0002',
+      realm: 'CARO',
+      wheels: [null, 'wheel-0051'],
+      covenantId: 'c02',
+    })
+    expect(teams[1]?.slots[3]).toMatchObject({
+      awakenerId: 'awakener-0042',
+      realm: 'CHAOS',
+      wheels: ['wheel-0050', null],
+      covenantId: 'c01',
+    })
+    expect(result.current.violationMessage).toBeNull()
+    expect(result.current.activeTeamId).toBe('team-1')
+    expect(result.current.activeSelection).toEqual({kind: 'awakener', slotId: 'slot-4'})
+  })
+
+  it('blocks cross-team slot swaps that would violate duplicate rules', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamOneSlots = createEmptyTeamSlots()
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamOneSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+      wheels: ['wheel-0050', null],
+    })
+    teamOneSlots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0042',
+      realm: 'CHAOS',
+      wheels: [null, null],
+    })
+    teamTwoSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0007',
+      realm: 'ULTRA',
+      wheels: ['wheel-0050', null],
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: teamOneSlots},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.swapTeamSlots('team-1', 'slot-2', 'team-2', 'slot-1')
+    })
+
+    const teams = builderDraftStore.getState().teams
+    expect(teams[0]?.slots[1]?.awakenerId).toBe('awakener-0042')
+    expect(teams[1]?.slots[0]?.awakenerId).toBe('awakener-0007')
+    expect(result.current.violationMessage).toBe('That swap would break current builder rules.')
+  })
+
+  it('allows cross-team slot swaps that break duplicate rules when dupes are enabled', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamOneSlots = createEmptyTeamSlots()
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamOneSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+      wheels: ['wheel-0050', null],
+    })
+    teamOneSlots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0042',
+      realm: 'CHAOS',
+      wheels: [null, null],
+    })
+    teamTwoSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0007',
+      realm: 'ULTRA',
+      wheels: ['wheel-0050', null],
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: teamOneSlots},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.picker.setAllowDupes(true)
+    })
+    act(() => {
+      result.current.swapTeamSlots('team-1', 'slot-2', 'team-2', 'slot-1')
+    })
+
+    const teams = builderDraftStore.getState().teams
+    expect(teams[0]?.slots[1]?.awakenerId).toBe('awakener-0007')
+    expect(teams[0]?.slots[1]?.wheels).toEqual(['wheel-0050', null])
+    expect(teams[1]?.slots[0]?.awakenerId).toBe('awakener-0042')
+    expect(result.current.violationMessage).toBeNull()
+  })
+
+  it('assigns picker awakeners to a team-list slot without activating that team', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: createEmptyTeamSlots()},
+          {id: 'team-2', name: 'Team 2', slots: createEmptyTeamSlots()},
+        ],
+      })
+    })
+    act(() => {
+      result.current.assignAwakenerToTeamSlot('awakener-0021', 'team-2', 'slot-3')
+    })
+
+    const teams = builderDraftStore.getState().teams
+    expect(result.current.activeTeamId).toBe('team-1')
+    expect(result.current.slots.every((slot) => slot.awakener === null)).toBe(true)
+    expect(teams[1]?.slots[2]).toMatchObject({
+      awakenerId: 'awakener-0021',
+    })
+    expect(result.current.violationMessage).toBeNull()
+  })
+
+  it('assigns picker wheels and covenants to team-list slots using slot-level targeting', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamTwoSlots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+      wheels: [null, 'wheel-0051'],
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: createEmptyTeamSlots()},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.assignWheelToTeamSlot('wheel-0050', 'team-2', 'slot-2')
+      result.current.assignCovenantToTeamSlot('c01', 'team-2', 'slot-2')
+    })
+
+    expect(builderDraftStore.getState().teams[1]?.slots[1]).toMatchObject({
+      wheels: ['wheel-0050', 'wheel-0051'],
+      covenantId: 'c01',
+    })
+    expect(result.current.violationMessage).toBeNull()
+  })
+
+  it('clears a team-list slot when it is dropped on the picker', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamTwoSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+      wheels: ['wheel-0050', null],
+      covenantId: 'c01',
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: createEmptyTeamSlots()},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.clearTeamSlot('team-2', 'slot-1')
+    })
+
+    expect(builderDraftStore.getState().teams[1]?.slots[0]).toMatchObject({
+      awakenerId: undefined,
+      realm: undefined,
+      level: undefined,
+      wheels: [null, null],
+      covenantId: undefined,
+    })
+  })
+
+  it('swaps team-list wheels across teams without activating either team', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamOneSlots = createEmptyTeamSlots()
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamOneSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+      wheels: ['wheel-0050', null],
+    })
+    teamTwoSlots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0007',
+      realm: 'ULTRA',
+      wheels: [null, 'wheel-0051'],
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: teamOneSlots},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.moveTeamWheel('team-1', 'slot-1', 0, 'team-2', 'slot-2', 1)
+    })
+
+    const teams = builderDraftStore.getState().teams
+    expect(teams[0]?.slots[0]?.wheels).toEqual(['wheel-0051', null])
+    expect(teams[1]?.slots[1]?.wheels).toEqual([null, 'wheel-0050'])
+    expect(result.current.activeTeamId).toBe('team-1')
+    expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-1', wheelIndex: 0})
+    expect(result.current.violationMessage).toBeNull()
+  })
+
+  it('moves team-list wheels to the first empty wheel socket on broad slot drops', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamOneSlots = createEmptyTeamSlots()
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamOneSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+      wheels: ['wheel-0050', null],
+    })
+    teamTwoSlots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0007',
+      realm: 'ULTRA',
+      wheels: [null, 'wheel-0051'],
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: teamOneSlots},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.moveTeamWheelToTeamSlot('team-1', 'slot-1', 0, 'team-2', 'slot-2')
+    })
+
+    const teams = builderDraftStore.getState().teams
+    expect(teams[0]?.slots[0]?.wheels).toEqual([null, null])
+    expect(teams[1]?.slots[1]?.wheels).toEqual(['wheel-0050', 'wheel-0051'])
+    expect(result.current.violationMessage).toBeNull()
+  })
+
+  it('clears a team-list wheel when it is dropped on the picker', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamTwoSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+      wheels: ['wheel-0050', 'wheel-0051'],
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: createEmptyTeamSlots()},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.clearTeamWheel('team-2', 'slot-1', 0)
+    })
+
+    expect(builderDraftStore.getState().teams[1]?.slots[0]?.wheels).toEqual([null, 'wheel-0051'])
+  })
+
+  it('moves and clears team-list covenants without changing the active team', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamOneSlots = createEmptyTeamSlots()
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamOneSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+      covenantId: 'c01',
+    })
+    teamTwoSlots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0007',
+      realm: 'ULTRA',
+      covenantId: 'c02',
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: teamOneSlots},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.moveTeamCovenant('team-1', 'slot-1', 'team-2', 'slot-2')
+    })
+
+    expect(builderDraftStore.getState().teams[0]?.slots[0]?.covenantId).toBe('c02')
+    expect(builderDraftStore.getState().teams[1]?.slots[1]?.covenantId).toBe('c01')
+    expect(result.current.activeTeamId).toBe('team-1')
+    expect(result.current.activeSelection).toEqual({kind: 'covenant', slotId: 'slot-1'})
+
+    act(() => {
+      result.current.clearTeamCovenant('team-2', 'slot-2')
+    })
+
+    expect(builderDraftStore.getState().teams[1]?.slots[1]?.covenantId).toBeUndefined()
+    expect(result.current.violationMessage).toBeNull()
+  })
+
   it('assigns an awakener to the first empty slot', () => {
     const {result} = renderHook(() => useBuilderV2Model())
 

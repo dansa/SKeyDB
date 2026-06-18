@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from 'react'
 
+import {useDraggable, useDroppable} from '@dnd-kit/core'
 import {rectSortingStrategy, SortableContext, useSortable} from '@dnd-kit/sortable'
 import {CSS as DndCss} from '@dnd-kit/utilities'
 import {FaChevronDown, FaChevronUp} from 'react-icons/fa6'
@@ -19,7 +20,13 @@ import {getRealmAccent, getRealmLabel} from '@/domain/realms'
 import type {TeamTemplateId} from '../builder/team-collection'
 import type {TeamPreviewMode, WheelSlotIndex} from '../builder/types'
 import {
+  createBuilderV2TeamManagementCovenantDragPayload,
+  createBuilderV2TeamManagementSlotDragPayload,
+  createBuilderV2TeamManagementWheelDragPayload,
   createBuilderV2TeamSortDragPayload,
+  makeBuilderV2TeamManagementCovenantDndId,
+  makeBuilderV2TeamManagementSlotDndId,
+  makeBuilderV2TeamManagementWheelDndId,
   type BuilderV2TeamDragPreviewDescriptor,
 } from './builder-v2-dnd'
 import {useBuilderV2DndEnabled} from './BuilderV2DndCapability'
@@ -367,6 +374,8 @@ const TeamManagementRow = memo(function TeamManagementRow({
   variant,
 }: TeamManagementRowProps & TeamManagementRowSortableProps) {
   const isEditing = editingTeamId === team.id
+  const isDndEnabled = useBuilderV2DndEnabled()
+  const enableSlotDragAndDrop = variant !== 'mobile' && isDndEnabled
   const teamIndex = String(index + 1).padStart(2, '0')
   const nameInputRef = useRef<HTMLInputElement | null>(null)
   const [slotsRef, hasSlotsOverflow] = useHorizontalOverflow()
@@ -463,6 +472,7 @@ const TeamManagementRow = memo(function TeamManagementRow({
             {team.slots.map((slot) => (
               <TeamSlotSummary
                 enableLoadoutSelect={variant !== 'mobile'}
+                enableSlotDragAndDrop={enableSlotDragAndDrop}
                 key={slot.slotId}
                 onSelect={onRequestEditTeamSlot}
                 previewMode={previewMode}
@@ -725,6 +735,7 @@ function TeamPosseSummary({
 }
 
 export function TeamSlotSummary({
+  enableSlotDragAndDrop = false,
   enableLoadoutSelect,
   onSelect,
   previewMode,
@@ -737,6 +748,7 @@ export function TeamSlotSummary({
     restoreTarget: HTMLElement | null,
     target?: BuilderV2TeamSlotEditTarget,
   ) => void
+  enableSlotDragAndDrop?: boolean
   enableLoadoutSelect?: boolean
   previewMode: TeamPreviewMode
   slot: BuilderV2TeamSummarySlot
@@ -751,23 +763,48 @@ export function TeamSlotSummary({
     realmAccent && !slot.isEmpty
       ? ({'--team-summary-realm': realmAccent} as CSSProperties)
       : undefined
+  const dropId = makeBuilderV2TeamManagementSlotDndId(team.id, slot.slotId)
+  const dragPayload = createBuilderV2TeamManagementSlotDragPayload(team, slot)
+  const {isOver, setNodeRef: setDroppableRef} = useDroppable({
+    id: dropId,
+    disabled: !enableSlotDragAndDrop,
+  })
+  const {
+    listeners,
+    setNodeRef: setDraggableRef,
+    isDragging,
+  } = useDraggable({
+    id: `${dropId}:drag`,
+    data: dragPayload ?? undefined,
+    disabled: !enableSlotDragAndDrop || !dragPayload,
+  })
+  const canDragSlot = enableSlotDragAndDrop && Boolean(dragPayload)
+
+  function setSlotNodeRef(node: HTMLLIElement | null) {
+    setDroppableRef(node)
+  }
 
   return (
     <li
       aria-label={getTeamSlotSummaryLabel(slot)}
       className={`builder-v2-team-management-slot ${
         slot.isEmpty ? 'builder-v2-team-management-slot--empty' : ''
-      } ${hasEnlightenOverflow ? 'builder-v2-team-management-slot--enlighten-overflow' : ''}`}
+      } ${hasEnlightenOverflow ? 'builder-v2-team-management-slot--enlighten-overflow' : ''} ${
+        isOver ? 'builder-v2-team-management-slot--drop-target' : ''
+      } ${isDragging ? 'builder-v2-team-management-slot--dragging' : ''}`}
+      ref={enableSlotDragAndDrop ? setSlotNodeRef : undefined}
       style={style}
     >
       {onSelect && previewMode === 'expanded' && enableLoadoutSelect ? (
         <>
           <button
+            {...(canDragSlot && listeners ? listeners : {})}
             aria-label={`Edit ${team.name} ${slot.label} awakener`}
             className='builder-v2-team-management-slot-button builder-v2-team-management-slot-art-button'
             onClick={(event) => {
               onSelect(team, slot, event.currentTarget, {kind: 'awakener'})
             }}
+            ref={canDragSlot ? setDraggableRef : undefined}
             type='button'
           >
             <TeamSlotArtSummary
@@ -778,37 +815,40 @@ export function TeamSlotSummary({
             />
           </button>
           {slot.awakener ? (
-            <button
-              aria-label={`Edit ${team.name} ${slot.label} covenant`}
-              className='builder-v2-team-management-slot-covenant builder-v2-team-management-slot-covenant-button'
-              onClick={(event) => {
-                onSelect(team, slot, event.currentTarget, {kind: 'covenant'})
+            <TeamSlotCovenantButton
+              enableDragAndDrop={enableSlotDragAndDrop}
+              onSelect={(restoreTarget) => {
+                onSelect(team, slot, restoreTarget, {kind: 'covenant'})
               }}
-              type='button'
-            >
-              <TeamSlotCovenantClasp covenant={slot.covenant} />
-            </button>
+              slot={slot}
+              team={team}
+            />
           ) : null}
           <TeamSlotBuildSummary
+            enableDragAndDrop={enableSlotDragAndDrop}
             onSelectWheel={(wheelIndex, restoreTarget) => {
               onSelect(team, slot, restoreTarget, {kind: 'wheel', wheelIndex})
             }}
             slot={slot}
+            team={team}
           />
         </>
       ) : onSelect ? (
         <button
+          {...(canDragSlot && listeners ? listeners : {})}
           aria-label={`Edit ${team.name} ${slot.label}`}
           className='builder-v2-team-management-slot-frame builder-v2-team-management-slot-button'
           onClick={(event) => {
             onSelect(team, slot, event.currentTarget)
           }}
+          ref={canDragSlot ? setDraggableRef : undefined}
           type='button'
         >
           <TeamSlotSummaryContent
             compactEnlightenLabel={compactEnlightenLabel}
             previewMode={previewMode}
             slot={slot}
+            team={team}
           />
         </button>
       ) : (
@@ -817,6 +857,7 @@ export function TeamSlotSummary({
             compactEnlightenLabel={compactEnlightenLabel}
             previewMode={previewMode}
             slot={slot}
+            team={team}
           />
         </span>
       )}
@@ -875,10 +916,12 @@ function TeamSlotSummaryContent({
   compactEnlightenLabel,
   previewMode,
   slot,
+  team,
 }: {
   compactEnlightenLabel: string | null
   previewMode: TeamPreviewMode
   slot: BuilderV2TeamSummarySlot
+  team: BuilderV2TeamSummary
 }) {
   return (
     <>
@@ -889,7 +932,7 @@ function TeamSlotSummaryContent({
         slot={slot}
       />
 
-      {previewMode === 'expanded' ? <TeamSlotBuildSummary slot={slot} /> : null}
+      {previewMode === 'expanded' ? <TeamSlotBuildSummary slot={slot} team={team} /> : null}
     </>
   )
 }
@@ -972,18 +1015,71 @@ function TeamSlotCovenantClasp({covenant}: {covenant: BuilderV2TeamSummaryCovena
   )
 }
 
+function TeamSlotCovenantButton({
+  enableDragAndDrop,
+  onSelect,
+  slot,
+  team,
+}: {
+  enableDragAndDrop: boolean
+  onSelect: (restoreTarget: HTMLElement | null) => void
+  slot: BuilderV2TeamSummarySlot
+  team: BuilderV2TeamSummary
+}) {
+  const covenantDropId = makeBuilderV2TeamManagementCovenantDndId(team.id, slot.slotId)
+  const covenantDragPayload = createBuilderV2TeamManagementCovenantDragPayload(team, slot)
+  const {isOver, setNodeRef: setCovenantDropRef} = useDroppable({
+    id: covenantDropId,
+    disabled: !enableDragAndDrop || !slot.awakener,
+  })
+  const {
+    listeners,
+    setNodeRef: setCovenantDragRef,
+    isDragging,
+  } = useDraggable({
+    id: `${covenantDropId}:drag`,
+    data: covenantDragPayload ?? undefined,
+    disabled: !enableDragAndDrop || !covenantDragPayload,
+  })
+  const canDragCovenant = enableDragAndDrop && Boolean(covenantDragPayload)
+  const setCovenantDragDropRef = useMergedRefs(setCovenantDropRef, setCovenantDragRef)
+  const setCovenantNodeRef = canDragCovenant ? setCovenantDragDropRef : setCovenantDropRef
+
+  return (
+    <button
+      {...(canDragCovenant && listeners ? listeners : {})}
+      aria-label={`Edit ${team.name} ${slot.label} covenant`}
+      className={`builder-v2-team-management-slot-covenant builder-v2-team-management-slot-covenant-button ${
+        isOver ? 'builder-v2-team-management-slot-covenant--drop-target' : ''
+      } ${isDragging ? 'builder-v2-team-management-slot-covenant--dragging' : ''}`}
+      onClick={(event) => {
+        onSelect(event.currentTarget)
+      }}
+      ref={enableDragAndDrop ? setCovenantNodeRef : undefined}
+      type='button'
+    >
+      <TeamSlotCovenantClasp covenant={slot.covenant} />
+    </button>
+  )
+}
+
 function TeamSlotBuildSummary({
+  enableDragAndDrop = false,
   onSelectWheel,
   slot,
+  team,
 }: {
+  enableDragAndDrop?: boolean
   onSelectWheel?: (wheelIndex: WheelSlotIndex, restoreTarget: HTMLElement | null) => void
   slot: BuilderV2TeamSummarySlot
+  team: BuilderV2TeamSummary
 }) {
   return (
     <span className='builder-v2-team-management-slot-build' aria-hidden={!onSelectWheel}>
       <span className='builder-v2-team-management-loadout-row'>
         {slot.wheels.map((wheel, index) => (
           <WheelMiniSummary
+            enableDragAndDrop={enableDragAndDrop}
             key={`${slot.slotId}-wheel-${String(index)}`}
             onSelect={
               onSelectWheel
@@ -992,7 +1088,10 @@ function TeamSlotBuildSummary({
                   }
                 : undefined
             }
+            slot={slot}
+            team={team}
             wheel={wheel}
+            wheelIndex={index as WheelSlotIndex}
             wheelNumber={index + 1}
           />
         ))}
@@ -1002,17 +1101,45 @@ function TeamSlotBuildSummary({
 }
 
 function WheelMiniSummary({
+  enableDragAndDrop,
   onSelect,
+  slot,
+  team,
   wheel,
+  wheelIndex,
   wheelNumber,
 }: {
+  enableDragAndDrop: boolean
   onSelect?: (restoreTarget: HTMLElement | null) => void
+  slot: BuilderV2TeamSummarySlot
+  team: BuilderV2TeamSummary
   wheel: BuilderV2TeamSummaryWheel | null
+  wheelIndex: WheelSlotIndex
   wheelNumber: number
 }) {
   const enlightenLabel = formatBuilderV2EnlightenLabel(wheel?.enlightenLevel ?? null)
+  const wheelDropId = makeBuilderV2TeamManagementWheelDndId(team.id, slot.slotId, wheelIndex)
+  const wheelDragPayload = createBuilderV2TeamManagementWheelDragPayload(team, slot, wheelIndex)
+  const {isOver, setNodeRef: setWheelDropRef} = useDroppable({
+    id: wheelDropId,
+    disabled: !enableDragAndDrop || !slot.awakener,
+  })
+  const {
+    listeners,
+    setNodeRef: setWheelDragRef,
+    isDragging,
+  } = useDraggable({
+    id: `${wheelDropId}:drag`,
+    data: wheelDragPayload ?? undefined,
+    disabled: !enableDragAndDrop || !wheelDragPayload,
+  })
+  const canDragWheel = enableDragAndDrop && Boolean(wheelDragPayload)
+  const setWheelDragDropRef = useMergedRefs(setWheelDropRef, setWheelDragRef)
+  const setWheelNodeRef = canDragWheel ? setWheelDragDropRef : setWheelDropRef
   const className = `builder-v2-team-management-loadout-cell builder-v2-team-management-loadout-cell--wheel ${
     wheel && !wheel.isOwned ? 'builder-v2-team-management-loadout-cell--unowned' : ''
+  } ${isOver ? 'builder-v2-team-management-loadout-cell--drop-target' : ''} ${
+    isDragging ? 'builder-v2-team-management-loadout-cell--dragging' : ''
   }`
   const content = (
     <>
@@ -1028,20 +1155,43 @@ function WheelMiniSummary({
   )
 
   if (!onSelect) {
-    return <span className={className}>{content}</span>
+    return (
+      <span
+        {...(canDragWheel && listeners ? listeners : {})}
+        className={className}
+        ref={enableDragAndDrop ? setWheelNodeRef : undefined}
+      >
+        {content}
+      </span>
+    )
   }
 
   return (
     <button
+      {...(canDragWheel && listeners ? listeners : {})}
       aria-label={`Edit wheel ${String(wheelNumber)}`}
       className={`${className} builder-v2-team-management-loadout-button`}
       onClick={(event) => {
         onSelect(event.currentTarget)
       }}
+      ref={enableDragAndDrop ? setWheelNodeRef : undefined}
       type='button'
     >
       {content}
     </button>
+  )
+}
+
+function useMergedRefs<T extends HTMLElement>(
+  firstRef: (element: T | null) => void,
+  secondRef: (element: T | null) => void,
+) {
+  return useCallback(
+    (element: T | null) => {
+      firstRef(element)
+      secondRef(element)
+    },
+    [firstRef, secondRef],
   )
 }
 

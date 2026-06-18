@@ -155,11 +155,20 @@ function dispatchBuilderV2DndAction(model: BuilderV2Model, action: BuilderV2DndA
     case 'assign-awakener':
       model.assignAwakenerToSlot(action.awakenerId, action.slotId)
       return
+    case 'assign-awakener-to-team-slot':
+      model.assignAwakenerToTeamSlot(action.awakenerId, action.teamId, action.slotId)
+      return
     case 'assign-wheel':
       model.assignWheelToSlot(action.wheelId, action.slotId, action.wheelIndex)
       return
+    case 'assign-wheel-to-team-slot':
+      model.assignWheelToTeamSlot(action.wheelId, action.teamId, action.slotId, action.wheelIndex)
+      return
     case 'assign-covenant':
       model.assignCovenantToSlot(action.covenantId, action.slotId)
+      return
+    case 'assign-covenant-to-team-slot':
+      model.assignCovenantToTeamSlot(action.covenantId, action.teamId, action.slotId)
       return
     case 'assign-posse':
       model.assignPosse(action.posseId)
@@ -167,8 +176,52 @@ function dispatchBuilderV2DndAction(model: BuilderV2Model, action: BuilderV2DndA
     case 'remove-awakener':
       model.removeAwakener(action.slotId)
       return
+    case 'remove-team-slot':
+      model.clearTeamSlot(action.teamId, action.slotId)
+      return
     case 'move-awakener':
       model.moveAwakener(action.fromSlotId, action.toSlotId)
+      return
+    case 'swap-team-slots':
+      model.swapTeamSlots(
+        action.sourceTeamId,
+        action.sourceSlotId,
+        action.targetTeamId,
+        action.targetSlotId,
+      )
+      return
+    case 'remove-team-wheel':
+      model.clearTeamWheel(action.teamId, action.slotId, action.wheelIndex)
+      return
+    case 'move-team-wheel':
+      model.moveTeamWheel(
+        action.sourceTeamId,
+        action.sourceSlotId,
+        action.sourceWheelIndex,
+        action.targetTeamId,
+        action.targetSlotId,
+        action.targetWheelIndex,
+      )
+      return
+    case 'move-team-wheel-to-team-slot':
+      model.moveTeamWheelToTeamSlot(
+        action.sourceTeamId,
+        action.sourceSlotId,
+        action.sourceWheelIndex,
+        action.targetTeamId,
+        action.targetSlotId,
+      )
+      return
+    case 'remove-team-covenant':
+      model.clearTeamCovenant(action.teamId, action.slotId)
+      return
+    case 'move-team-covenant':
+      model.moveTeamCovenant(
+        action.sourceTeamId,
+        action.sourceSlotId,
+        action.targetTeamId,
+        action.targetSlotId,
+      )
       return
     case 'remove-wheel':
       model.clearWheel(action.slotId, action.wheelIndex)
@@ -217,5 +270,24 @@ function areBuilderV2DropTargetsEqual(
     case 'picker':
     case 'posse':
       return true
+    case 'team-management-slot':
+      return (
+        next.kind === 'team-management-slot' &&
+        current.teamId === next.teamId &&
+        current.slotId === next.slotId
+      )
+    case 'team-management-wheel':
+      return (
+        next.kind === 'team-management-wheel' &&
+        current.teamId === next.teamId &&
+        current.slotId === next.slotId &&
+        current.wheelIndex === next.wheelIndex
+      )
+    case 'team-management-covenant':
+      return (
+        next.kind === 'team-management-covenant' &&
+        current.teamId === next.teamId &&
+        current.slotId === next.slotId
+      )
   }
 }

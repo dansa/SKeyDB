@@ -291,6 +291,44 @@ export interface BuilderV2Model {
   moveTeamUp: (teamId: string) => void
   moveTeamDown: (teamId: string) => void
   moveTeamToIndex: (teamId: string, nextIndex: number) => void
+  swapTeamSlots: (
+    sourceTeamId: string,
+    sourceSlotId: string,
+    targetTeamId: string,
+    targetSlotId: string,
+  ) => void
+  assignAwakenerToTeamSlot: (awakenerId: string, teamId: string, slotId: string) => void
+  assignWheelToTeamSlot: (
+    wheelId: string,
+    teamId: string,
+    slotId: string,
+    wheelIndex?: WheelSlotIndex,
+  ) => void
+  assignCovenantToTeamSlot: (covenantId: string, teamId: string, slotId: string) => void
+  clearTeamSlot: (teamId: string, slotId: string) => void
+  clearTeamWheel: (teamId: string, slotId: string, wheelIndex: WheelSlotIndex) => void
+  moveTeamWheel: (
+    sourceTeamId: string,
+    sourceSlotId: string,
+    sourceWheelIndex: WheelSlotIndex,
+    targetTeamId: string,
+    targetSlotId: string,
+    targetWheelIndex: WheelSlotIndex,
+  ) => void
+  moveTeamWheelToTeamSlot: (
+    sourceTeamId: string,
+    sourceSlotId: string,
+    sourceWheelIndex: WheelSlotIndex,
+    targetTeamId: string,
+    targetSlotId: string,
+  ) => void
+  clearTeamCovenant: (teamId: string, slotId: string) => void
+  moveTeamCovenant: (
+    sourceTeamId: string,
+    sourceSlotId: string,
+    targetTeamId: string,
+    targetSlotId: string,
+  ) => void
   startQuickLineup: () => void
   skipQuickLineupStep: () => void
   goBackQuickLineupStep: () => void

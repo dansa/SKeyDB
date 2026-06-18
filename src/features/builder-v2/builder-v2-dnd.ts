@@ -13,7 +13,7 @@ const BUILDER_V2_DND_PREFIX = 'builder-v2'
 const ID_SEPARATOR = ':'
 
 export type BuilderV2DragKind = 'awakener' | 'wheel' | 'covenant' | 'posse'
-export type BuilderV2DragSource = 'picker' | 'team'
+export type BuilderV2DragSource = 'picker' | 'team' | 'team-management'
 type BuilderV2PickerAwakenerDragInput = Pick<
   BuilderV2AwakenerOption,
   'blockReason' | 'displayName' | 'id' | 'inUseLabel' | 'owned' | 'portraitSrc' | 'realm'
@@ -41,6 +41,9 @@ type BuilderV2PickerPosseDragInput = Pick<
 export type BuilderV2DragPayload =
   | BuilderV2PickerDragPayload
   | BuilderV2TeamAwakenerDragPayload
+  | BuilderV2TeamManagementSlotDragPayload
+  | BuilderV2TeamManagementWheelDragPayload
+  | BuilderV2TeamManagementCovenantDragPayload
   | BuilderV2TeamWheelDragPayload
   | BuilderV2TeamCovenantDragPayload
   | BuilderV2TeamPosseDragPayload
@@ -81,6 +84,34 @@ export interface BuilderV2TeamAwakenerDragPayload {
   kind: 'awakener'
   source: 'team'
   id: string
+  slotId: string
+  preview: BuilderV2DragPreviewDescriptor
+}
+
+export interface BuilderV2TeamManagementSlotDragPayload {
+  kind: 'awakener'
+  source: 'team-management'
+  id: string
+  teamId: string
+  slotId: string
+  preview: BuilderV2DragPreviewDescriptor
+}
+
+export interface BuilderV2TeamManagementWheelDragPayload {
+  kind: 'wheel'
+  source: 'team-management'
+  id: string
+  teamId: string
+  slotId: string
+  wheelIndex: WheelSlotIndex
+  preview: BuilderV2DragPreviewDescriptor
+}
+
+export interface BuilderV2TeamManagementCovenantDragPayload {
+  kind: 'covenant'
+  source: 'team-management'
+  id: string
+  teamId: string
   slotId: string
   preview: BuilderV2DragPreviewDescriptor
 }
@@ -137,14 +168,60 @@ export type BuilderV2DropTargetDescriptor =
   | {kind: 'covenant'; slotId: string}
   | {kind: 'posse'}
   | {kind: 'picker'}
+  | {kind: 'team-management-slot'; teamId: string; slotId: string}
+  | {kind: 'team-management-wheel'; teamId: string; slotId: string; wheelIndex: WheelSlotIndex}
+  | {kind: 'team-management-covenant'; teamId: string; slotId: string}
 
 export type BuilderV2DndAction =
   | {kind: 'assign-awakener'; awakenerId: string; slotId: string}
+  | {kind: 'assign-awakener-to-team-slot'; awakenerId: string; teamId: string; slotId: string}
   | {kind: 'assign-wheel'; wheelId: string; slotId: string; wheelIndex?: WheelSlotIndex}
+  | {
+      kind: 'assign-wheel-to-team-slot'
+      wheelId: string
+      teamId: string
+      slotId: string
+      wheelIndex?: WheelSlotIndex
+    }
   | {kind: 'assign-covenant'; covenantId: string; slotId: string}
+  | {kind: 'assign-covenant-to-team-slot'; covenantId: string; teamId: string; slotId: string}
   | {kind: 'assign-posse'; posseId: string}
   | {kind: 'remove-awakener'; slotId: string}
+  | {kind: 'remove-team-slot'; teamId: string; slotId: string}
   | {kind: 'move-awakener'; fromSlotId: string; toSlotId: string}
+  | {
+      kind: 'swap-team-slots'
+      sourceTeamId: string
+      sourceSlotId: string
+      targetTeamId: string
+      targetSlotId: string
+    }
+  | {kind: 'remove-team-wheel'; teamId: string; slotId: string; wheelIndex: WheelSlotIndex}
+  | {
+      kind: 'move-team-wheel'
+      sourceTeamId: string
+      sourceSlotId: string
+      sourceWheelIndex: WheelSlotIndex
+      targetTeamId: string
+      targetSlotId: string
+      targetWheelIndex: WheelSlotIndex
+    }
+  | {
+      kind: 'move-team-wheel-to-team-slot'
+      sourceTeamId: string
+      sourceSlotId: string
+      sourceWheelIndex: WheelSlotIndex
+      targetTeamId: string
+      targetSlotId: string
+    }
+  | {kind: 'remove-team-covenant'; teamId: string; slotId: string}
+  | {
+      kind: 'move-team-covenant'
+      sourceTeamId: string
+      sourceSlotId: string
+      targetTeamId: string
+      targetSlotId: string
+    }
   | {kind: 'remove-wheel'; slotId: string; wheelIndex: WheelSlotIndex}
   | {kind: 'remove-covenant'; slotId: string}
   | {
@@ -180,6 +257,10 @@ export function resolveBuilderV2DndAction(
 
   if (payload.source === 'picker') {
     return resolvePickerDndAction(payload, effectiveTarget)
+  }
+
+  if (payload.source === 'team-management') {
+    return resolveTeamManagementDndAction(payload, effectiveTarget)
   }
 
   return resolveTeamDndAction(payload, effectiveTarget)
@@ -307,6 +388,86 @@ export function createBuilderV2TeamAwakenerDragPayload(
   })
 }
 
+export function createBuilderV2TeamManagementSlotDragPayload(
+  team: BuilderV2TeamSummary,
+  slot: BuilderV2TeamSummary['slots'][number],
+): BuilderV2DragPayload | null {
+  if (!slot.awakener) {
+    return null
+  }
+
+  return createDragPayload({
+    kind: 'awakener',
+    source: 'team-management',
+    id: slot.awakener.id,
+    teamId: team.id,
+    slotId: slot.slotId,
+    title: slot.awakener.displayName,
+    subtitle: `${team.name} / ${slot.label}`,
+    imageSrc: slot.awakener.cardSrc ?? slot.awakener.portraitSrc,
+    imageAlt: slot.awakener.displayName,
+    badges: [
+      {label: team.name, tone: 'quiet'},
+      {label: slot.label, tone: 'quiet'},
+      ...createSupportBadges(slot.awakener.isSupport ? 'Support' : null),
+    ],
+  })
+}
+
+export function createBuilderV2TeamManagementWheelDragPayload(
+  team: BuilderV2TeamSummary,
+  slot: BuilderV2TeamSummary['slots'][number],
+  wheelIndex: WheelSlotIndex,
+): BuilderV2DragPayload | null {
+  const wheel = slot.wheels[wheelIndex]
+  if (!wheel) {
+    return null
+  }
+
+  return createDragPayload({
+    kind: 'wheel',
+    source: 'team-management',
+    id: wheel.id,
+    teamId: team.id,
+    slotId: slot.slotId,
+    wheelIndex,
+    title: wheel.name,
+    subtitle: `${team.name} / ${slot.label} / Wheel ${String(wheelIndex + 1)}`,
+    imageSrc: wheel.assetSrc ?? wheel.miniAssetSrc,
+    imageAlt: wheel.name,
+    badges: [
+      {label: team.name, tone: 'quiet'},
+      {label: slot.label, tone: 'quiet'},
+      {label: `Wheel ${String(wheelIndex + 1)}`, tone: 'quiet'},
+    ],
+  })
+}
+
+export function createBuilderV2TeamManagementCovenantDragPayload(
+  team: BuilderV2TeamSummary,
+  slot: BuilderV2TeamSummary['slots'][number],
+): BuilderV2DragPayload | null {
+  if (!slot.covenant) {
+    return null
+  }
+
+  return createDragPayload({
+    kind: 'covenant',
+    source: 'team-management',
+    id: slot.covenant.id,
+    teamId: team.id,
+    slotId: slot.slotId,
+    title: slot.covenant.name,
+    subtitle: `${team.name} / ${slot.label}`,
+    imageSrc: slot.covenant.assetSrc,
+    imageAlt: slot.covenant.name,
+    badges: [
+      {label: team.name, tone: 'quiet'},
+      {label: slot.label, tone: 'quiet'},
+    ],
+  })
+}
+
 export function createBuilderV2TeamWheelDragPayload(
   slot: BuilderV2SlotView,
   wheelIndex: WheelSlotIndex,
@@ -403,6 +564,28 @@ export function makeBuilderV2PickerDndId(): BuilderV2DndId {
   return `${BUILDER_V2_DND_PREFIX}:picker`
 }
 
+export function makeBuilderV2TeamManagementSlotDndId(
+  teamId: string,
+  slotId: string,
+): BuilderV2DndId {
+  return `${BUILDER_V2_DND_PREFIX}:team-management-slot:${teamId}:${slotId}`
+}
+
+export function makeBuilderV2TeamManagementWheelDndId(
+  teamId: string,
+  slotId: string,
+  wheelIndex: WheelSlotIndex,
+): BuilderV2DndId {
+  return `${BUILDER_V2_DND_PREFIX}:team-management-wheel:${teamId}:${slotId}:${String(wheelIndex)}`
+}
+
+export function makeBuilderV2TeamManagementCovenantDndId(
+  teamId: string,
+  slotId: string,
+): BuilderV2DndId {
+  return `${BUILDER_V2_DND_PREFIX}:team-management-covenant:${teamId}:${slotId}`
+}
+
 export function makeBuilderV2TeamAwakenerDragId(slotId: string): BuilderV2DndId {
   return `${BUILDER_V2_DND_PREFIX}:team-awakener:${slotId}`
 }
@@ -449,6 +632,12 @@ export function parseBuilderV2DndId(id: unknown): BuilderV2DropTargetDescriptor 
       return {kind: 'covenant', slotId: targetValue}
     case 'wheel':
       return parseWheelDropTarget(targetValue)
+    case 'team-management-slot':
+      return parseTeamManagementSlotDropTarget(targetValue)
+    case 'team-management-wheel':
+      return parseTeamManagementWheelDropTarget(targetValue)
+    case 'team-management-covenant':
+      return parseTeamManagementCovenantDropTarget(targetValue)
     default:
       return null
   }
@@ -460,7 +649,7 @@ export function isBuilderV2DragPayload(value: unknown): value is BuilderV2DragPa
   }
 
   if (
-    (value.source !== 'picker' && value.source !== 'team') ||
+    (value.source !== 'picker' && value.source !== 'team' && value.source !== 'team-management') ||
     typeof value.id !== 'string' ||
     value.id.length === 0 ||
     !isDragPreviewDescriptor(value.preview) ||
@@ -472,6 +661,23 @@ export function isBuilderV2DragPayload(value: unknown): value is BuilderV2DragPa
 
   if (value.source === 'picker') {
     return true
+  }
+
+  if (value.source === 'team-management') {
+    if (
+      typeof value.teamId !== 'string' ||
+      value.teamId.length === 0 ||
+      typeof value.slotId !== 'string' ||
+      value.slotId.length === 0
+    ) {
+      return false
+    }
+
+    return (
+      value.kind === 'awakener' ||
+      value.kind === 'covenant' ||
+      (value.kind === 'wheel' && (value.wheelIndex === 0 || value.wheelIndex === 1))
+    )
   }
 
   if (value.kind === 'posse') {
@@ -508,10 +714,72 @@ function parseWheelDropTarget(targetValue: string): BuilderV2DropTargetDescripto
   return wheelIndex === null ? null : {kind: 'wheel', slotId, wheelIndex}
 }
 
+function parseTeamManagementSlotDropTarget(
+  targetValue: string,
+): BuilderV2DropTargetDescriptor | null {
+  const separatorIndex = targetValue.indexOf(ID_SEPARATOR)
+  if (separatorIndex <= 0 || separatorIndex === targetValue.length - 1) {
+    return null
+  }
+
+  return {
+    kind: 'team-management-slot',
+    teamId: targetValue.slice(0, separatorIndex),
+    slotId: targetValue.slice(separatorIndex + ID_SEPARATOR.length),
+  }
+}
+
+function parseTeamManagementWheelDropTarget(
+  targetValue: string,
+): BuilderV2DropTargetDescriptor | null {
+  const teamSeparatorIndex = targetValue.indexOf(ID_SEPARATOR)
+  const wheelSeparatorIndex = targetValue.lastIndexOf(ID_SEPARATOR)
+  if (
+    teamSeparatorIndex <= 0 ||
+    wheelSeparatorIndex <= teamSeparatorIndex + ID_SEPARATOR.length ||
+    wheelSeparatorIndex === targetValue.length - 1
+  ) {
+    return null
+  }
+
+  const wheelIndex = parseWheelSlotIndex(
+    targetValue.slice(wheelSeparatorIndex + ID_SEPARATOR.length),
+  )
+  if (wheelIndex === null) {
+    return null
+  }
+
+  return {
+    kind: 'team-management-wheel',
+    teamId: targetValue.slice(0, teamSeparatorIndex),
+    slotId: targetValue.slice(teamSeparatorIndex + ID_SEPARATOR.length, wheelSeparatorIndex),
+    wheelIndex,
+  }
+}
+
+function parseTeamManagementCovenantDropTarget(
+  targetValue: string,
+): BuilderV2DropTargetDescriptor | null {
+  const teamSlotTarget = parseTeamManagementSlotDropTarget(targetValue)
+  if (teamSlotTarget?.kind !== 'team-management-slot') {
+    return null
+  }
+
+  return {
+    kind: 'team-management-covenant',
+    teamId: teamSlotTarget.teamId,
+    slotId: teamSlotTarget.slotId,
+  }
+}
+
 function resolvePickerDndAction(
   payload: BuilderV2PickerDragPayload,
   target: BuilderV2DropTargetDescriptor,
 ): BuilderV2DndAction | null {
+  if (getTeamManagementSlotTarget(target)) {
+    return resolvePickerTeamManagementDndAction(payload, target)
+  }
+
   switch (payload.kind) {
     case 'awakener':
       return resolveSlotOwnedTarget(target, (slotId) => ({
@@ -529,6 +797,43 @@ function resolvePickerDndAction(
       }))
     case 'posse':
       return target.kind === 'posse' ? {kind: 'assign-posse', posseId: payload.id} : null
+  }
+}
+
+function resolvePickerTeamManagementDndAction(
+  payload: BuilderV2PickerDragPayload,
+  target: BuilderV2DropTargetDescriptor,
+): BuilderV2DndAction | null {
+  const slotTarget = getTeamManagementSlotTarget(target)
+  if (!slotTarget) {
+    return null
+  }
+
+  switch (payload.kind) {
+    case 'awakener':
+      return {
+        kind: 'assign-awakener-to-team-slot',
+        awakenerId: payload.id,
+        teamId: slotTarget.teamId,
+        slotId: slotTarget.slotId,
+      }
+    case 'wheel':
+      return {
+        kind: 'assign-wheel-to-team-slot',
+        wheelId: payload.id,
+        teamId: slotTarget.teamId,
+        slotId: slotTarget.slotId,
+        wheelIndex: target.kind === 'team-management-wheel' ? target.wheelIndex : undefined,
+      }
+    case 'covenant':
+      return {
+        kind: 'assign-covenant-to-team-slot',
+        covenantId: payload.id,
+        teamId: slotTarget.teamId,
+        slotId: slotTarget.slotId,
+      }
+    case 'posse':
+      return null
   }
 }
 
@@ -569,6 +874,123 @@ function resolveTeamDndAction(
       return resolveTeamCovenantDndAction(payload, target)
     case 'posse':
       return null
+  }
+}
+
+function resolveTeamManagementDndAction(
+  payload:
+    | BuilderV2TeamManagementSlotDragPayload
+    | BuilderV2TeamManagementWheelDragPayload
+    | BuilderV2TeamManagementCovenantDragPayload,
+  target: BuilderV2DropTargetDescriptor,
+): BuilderV2DndAction | null {
+  switch (payload.kind) {
+    case 'awakener':
+      return resolveTeamManagementAwakenerDndAction(payload, target)
+    case 'wheel':
+      return resolveTeamManagementWheelDndAction(payload, target)
+    case 'covenant':
+      return resolveTeamManagementCovenantDndAction(payload, target)
+  }
+}
+
+function resolveTeamManagementAwakenerDndAction(
+  payload: BuilderV2TeamManagementSlotDragPayload,
+  target: BuilderV2DropTargetDescriptor,
+): BuilderV2DndAction | null {
+  if (target.kind === 'picker') {
+    return {kind: 'remove-team-slot', teamId: payload.teamId, slotId: payload.slotId}
+  }
+
+  const slotTarget = getTeamManagementSlotTarget(target)
+  if (!slotTarget) {
+    return null
+  }
+
+  if (slotTarget.teamId === payload.teamId && slotTarget.slotId === payload.slotId) {
+    return null
+  }
+
+  return {
+    kind: 'swap-team-slots',
+    sourceTeamId: payload.teamId,
+    sourceSlotId: payload.slotId,
+    targetTeamId: slotTarget.teamId,
+    targetSlotId: slotTarget.slotId,
+  }
+}
+
+function resolveTeamManagementWheelDndAction(
+  payload: BuilderV2TeamManagementWheelDragPayload,
+  target: BuilderV2DropTargetDescriptor,
+): BuilderV2DndAction | null {
+  if (target.kind === 'picker') {
+    return {
+      kind: 'remove-team-wheel',
+      teamId: payload.teamId,
+      slotId: payload.slotId,
+      wheelIndex: payload.wheelIndex,
+    }
+  }
+
+  if (target.kind === 'team-management-wheel') {
+    if (
+      target.teamId === payload.teamId &&
+      target.slotId === payload.slotId &&
+      target.wheelIndex === payload.wheelIndex
+    ) {
+      return null
+    }
+
+    return {
+      kind: 'move-team-wheel',
+      sourceTeamId: payload.teamId,
+      sourceSlotId: payload.slotId,
+      sourceWheelIndex: payload.wheelIndex,
+      targetTeamId: target.teamId,
+      targetSlotId: target.slotId,
+      targetWheelIndex: target.wheelIndex,
+    }
+  }
+
+  const slotTarget = getTeamManagementSlotTarget(target)
+  if (!slotTarget) {
+    return null
+  }
+
+  return {
+    kind: 'move-team-wheel-to-team-slot',
+    sourceTeamId: payload.teamId,
+    sourceSlotId: payload.slotId,
+    sourceWheelIndex: payload.wheelIndex,
+    targetTeamId: slotTarget.teamId,
+    targetSlotId: slotTarget.slotId,
+  }
+}
+
+function resolveTeamManagementCovenantDndAction(
+  payload: BuilderV2TeamManagementCovenantDragPayload,
+  target: BuilderV2DropTargetDescriptor,
+): BuilderV2DndAction | null {
+  if (target.kind === 'picker') {
+    return {kind: 'remove-team-covenant', teamId: payload.teamId, slotId: payload.slotId}
+  }
+
+  const slotTarget = getTeamManagementSlotTarget(target)
+  if (!slotTarget) {
+    return null
+  }
+
+  if (slotTarget.teamId === payload.teamId && slotTarget.slotId === payload.slotId) {
+    return null
+  }
+
+  return {
+    kind: 'move-team-covenant',
+    sourceTeamId: payload.teamId,
+    sourceSlotId: payload.slotId,
+    targetTeamId: slotTarget.teamId,
+    targetSlotId: slotTarget.slotId,
   }
 }
 
@@ -646,8 +1068,25 @@ function resolveAwakenerEffectiveTarget(
   payload: Extract<BuilderV2DragPayload, {kind: 'awakener'}>,
   target: BuilderV2DropTargetDescriptor,
 ): BuilderV2DropTargetDescriptor | null {
+  if (payload.source === 'team-management') {
+    if (target.kind === 'picker') {
+      return target
+    }
+    const slotTarget = getTeamManagementSlotTarget(target)
+    if (!slotTarget) {
+      return null
+    }
+    return slotTarget.teamId === payload.teamId && slotTarget.slotId === payload.slotId
+      ? null
+      : target
+  }
+
   if (target.kind === 'picker') {
     return payload.source === 'team' ? target : null
+  }
+
+  if (payload.source === 'picker' && getTeamManagementSlotTarget(target)) {
+    return target
   }
 
   const slotId = getSlotIdFromSlotOwnedTarget(target)
@@ -668,7 +1107,27 @@ function resolveWheelEffectiveTarget(
   slots: readonly BuilderV2SlotView[] | undefined,
 ): BuilderV2DropTargetDescriptor | null {
   if (target.kind === 'picker') {
-    return payload.source === 'team' ? target : null
+    return payload.source === 'team' || payload.source === 'team-management' ? target : null
+  }
+
+  if (payload.source === 'picker' && getTeamManagementSlotTarget(target)) {
+    return target
+  }
+
+  if (payload.source === 'team-management') {
+    if (target.kind === 'team-management-wheel') {
+      return payload.slotId === target.slotId &&
+        payload.teamId === target.teamId &&
+        payload.wheelIndex === target.wheelIndex
+        ? null
+        : target
+    }
+
+    return getTeamManagementSlotTarget(target) ? target : null
+  }
+
+  if (payload.source === 'picker' && target.kind === 'team-management-slot') {
+    return target
   }
 
   if (target.kind === 'wheel') {
@@ -704,7 +1163,26 @@ function resolveCovenantEffectiveTarget(
   slots: readonly BuilderV2SlotView[] | undefined,
 ): BuilderV2DropTargetDescriptor | null {
   if (target.kind === 'picker') {
-    return payload.source === 'team' ? target : null
+    return payload.source === 'team' || payload.source === 'team-management' ? target : null
+  }
+
+  if (payload.source === 'picker' && getTeamManagementSlotTarget(target)) {
+    return target
+  }
+
+  if (payload.source === 'team-management') {
+    const slotTarget = getTeamManagementSlotTarget(target)
+    if (!slotTarget) {
+      return null
+    }
+
+    return slotTarget.teamId === payload.teamId && slotTarget.slotId === payload.slotId
+      ? null
+      : target
+  }
+
+  if (payload.source === 'picker' && target.kind === 'team-management-slot') {
+    return target
   }
 
   const slotId = getSlotIdFromSlotOwnedTarget(target)
@@ -735,6 +1213,19 @@ function getSlotIdFromSlotOwnedTarget(target: BuilderV2DropTargetDescriptor): st
   return target.kind === 'slot' || target.kind === 'wheel' || target.kind === 'covenant'
     ? target.slotId
     : null
+}
+
+function getTeamManagementSlotTarget(
+  target: BuilderV2DropTargetDescriptor,
+): {teamId: string; slotId: string} | null {
+  switch (target.kind) {
+    case 'team-management-slot':
+    case 'team-management-wheel':
+    case 'team-management-covenant':
+      return {teamId: target.teamId, slotId: target.slotId}
+    default:
+      return null
+  }
 }
 
 function getFirstEmptyWheelSlotIndex(slot: BuilderV2SlotView | undefined): WheelSlotIndex | null {
@@ -777,6 +1268,9 @@ interface BaseDragPayloadInput {
 type DragPayloadInput =
   | PickerDragPayloadInput
   | TeamAwakenerDragPayloadInput
+  | TeamManagementSlotDragPayloadInput
+  | TeamManagementWheelDragPayloadInput
+  | TeamManagementCovenantDragPayloadInput
   | TeamWheelDragPayloadInput
   | TeamCovenantDragPayloadInput
   | TeamPosseDragPayloadInput
@@ -788,6 +1282,28 @@ type PickerDragPayloadInput = BaseDragPayloadInput & {
 type TeamAwakenerDragPayloadInput = BaseDragPayloadInput & {
   kind: 'awakener'
   source: 'team'
+  slotId: string
+}
+
+type TeamManagementSlotDragPayloadInput = BaseDragPayloadInput & {
+  kind: 'awakener'
+  source: 'team-management'
+  teamId: string
+  slotId: string
+}
+
+type TeamManagementWheelDragPayloadInput = BaseDragPayloadInput & {
+  kind: 'wheel'
+  source: 'team-management'
+  teamId: string
+  slotId: string
+  wheelIndex: WheelSlotIndex
+}
+
+type TeamManagementCovenantDragPayloadInput = BaseDragPayloadInput & {
+  kind: 'covenant'
+  source: 'team-management'
+  teamId: string
   slotId: string
 }
 
@@ -824,8 +1340,49 @@ function createDragPayload(input: DragPayloadInput): BuilderV2DragPayload {
   switch (input.source) {
     case 'picker':
       return {kind: input.kind, source: 'picker', id: input.id, preview}
+    case 'team-management':
+      return createTeamManagementDragPayload(input, preview)
     case 'team':
       return createTeamDragPayload(input, preview)
+  }
+}
+
+function createTeamManagementDragPayload(
+  input:
+    | TeamManagementSlotDragPayloadInput
+    | TeamManagementWheelDragPayloadInput
+    | TeamManagementCovenantDragPayloadInput,
+  preview: BuilderV2DragPreviewDescriptor,
+): BuilderV2DragPayload {
+  switch (input.kind) {
+    case 'awakener':
+      return {
+        kind: 'awakener',
+        source: 'team-management',
+        id: input.id,
+        teamId: input.teamId,
+        slotId: input.slotId,
+        preview,
+      }
+    case 'wheel':
+      return {
+        kind: 'wheel',
+        source: 'team-management',
+        id: input.id,
+        teamId: input.teamId,
+        slotId: input.slotId,
+        wheelIndex: input.wheelIndex,
+        preview,
+      }
+    case 'covenant':
+      return {
+        kind: 'covenant',
+        source: 'team-management',
+        id: input.id,
+        teamId: input.teamId,
+        slotId: input.slotId,
+        preview,
+      }
   }
 }
 
