@@ -1,12 +1,4 @@
-import {
-  startTransition,
-  useCallback,
-  useDeferredValue,
-  useEffect,
-  useMemo,
-  useState,
-  type SetStateAction,
-} from 'react'
+import {startTransition, useCallback, useDeferredValue, useEffect, useMemo, useState} from 'react'
 
 import {useStore} from 'zustand'
 
@@ -60,7 +52,6 @@ import type {
   WheelSlotIndex,
 } from '../builder/types'
 import {useAwakenerBuildRecommendations} from '../builder/useAwakenerBuildRecommendations'
-import {useBuilderImportExport} from '../builder/useBuilderImportExport'
 import {useTransferConfirm, type PendingTransfer} from '../builder/useTransferConfirm'
 import {getWheelSlotIndex} from '../builder/wheel-slot-index'
 import {
@@ -113,6 +104,7 @@ import type {
   BuilderV2WheelRarityFilter,
   BuilderV2WheelSlotView,
 } from './BuilderV2ModelTypes'
+import {useBuilderV2ImportExportAdapter} from './useBuilderV2ImportExportAdapter'
 import {useBuilderV2Preferences} from './useBuilderV2Preferences'
 import {useBuilderV2TeamManagementCommands} from './useBuilderV2TeamManagementCommands'
 import {useStableEvent} from './useStableEvent'
@@ -1842,51 +1834,29 @@ export function useBuilderV2Model({
     updateActiveTeam,
   ])
 
-  const setTeamsForImportExport = useCallback((nextTeams: SetStateAction<Team[]>) => {
-    builderDraftStore
-      .getState()
-      .setTeams((currentTeams) =>
-        typeof nextTeams === 'function' ? nextTeams(currentTeams) : nextTeams,
-      )
-  }, [])
-
-  const clearImportExportTransientState = useCallback(() => {
-    storeFinishQuickLineup()
-    applyEditingTarget(null)
-    setViolationMessage(null)
-    clearTransfer()
-  }, [applyEditingTarget, clearTransfer, storeFinishQuickLineup])
-
   const {
     openImportDialog,
     openExportAllDialog,
     openTeamExportDialog,
-    openTeamIngameExportDialog,
+    openActiveTeamExportDialog,
+    openActiveTeamIngameExportDialog,
     importExportDialogProps,
-  } = useBuilderImportExport({
+  } = useBuilderV2ImportExportAdapter({
     teams,
-    setTeams: setTeamsForImportExport,
     effectiveActiveTeamId,
     activeTeam,
-    teamSlots: activeTeamSlots,
-    allowDupes: allowDuplicateAwakenerIdentities,
-    setAllowDupes: setAllowDuplicateAwakenerIdentities,
+    activeTeamSlots,
+    allowDuplicateAwakenerIdentities,
+    setAllowDuplicateAwakenerIdentities,
     setActiveTeamId,
-    setActiveSelection: () => {
-      clearImportExportTransientState()
+    finishQuickLineup: storeFinishQuickLineup,
+    applyEditingTarget,
+    clearViolationMessage: () => {
+      setViolationMessage(null)
     },
-    clearTransfer: clearImportExportTransientState,
-    clearPendingDelete: clearImportExportTransientState,
+    clearTransfer,
     showToast: stableShowToast,
   })
-
-  const openActiveTeamExportDialog = useCallback(() => {
-    openTeamExportDialog(effectiveActiveTeamId)
-  }, [effectiveActiveTeamId, openTeamExportDialog])
-
-  const openActiveTeamIngameExportDialog = useCallback(() => {
-    openTeamIngameExportDialog(effectiveActiveTeamId)
-  }, [effectiveActiveTeamId, openTeamIngameExportDialog])
 
   const applyTransferTeams = useCallback(
     (nextTeams: Team[], transfer: PendingTransfer) => {
