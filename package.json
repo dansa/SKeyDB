@@ -28,6 +28,7 @@
     "test:quick": "vitest run --run src/features/collection/CollectionPage.test.tsx src/features/collection/OwnedWheelBoxExport.test.tsx src/components/ui/DupeLevelDisplay.test.tsx",
     "test:watch": "vitest",
     "verify": "npm run format:check && npm run lint && npm run test:bounded && npm run test:scripts && npm run build",
+    "verify:builder-v2:browser": "node scripts/verify-builder-v2-browser.mjs",
     "verify:pre-commit": "node scripts/pre-commit-verify.mjs",
     "verify:pre-commit:full": "node scripts/pre-commit-verify.mjs --full",
     "prepare": "node scripts/install-git-hooks.mjs",
@@ -52,6 +53,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+    "@playwright/test": "^1.61.0",
     "@tailwindcss/vite": "^4.3.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
