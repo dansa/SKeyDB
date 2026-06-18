@@ -24,10 +24,10 @@ import {
   type BuilderV2DropTargetDescriptor,
   type BuilderV2TeamDragPreviewDescriptor,
 } from './builder-v2-dnd'
-import type {BuilderV2Model} from './BuilderV2ModelTypes'
+import type {BuilderV2DndCommandPort} from './BuilderV2DndCommandPort'
 
 interface UseBuilderV2DndOptions {
-  model: BuilderV2Model
+  model: BuilderV2DndCommandPort
 }
 
 const builderV2CollisionDetection: CollisionDetection = (args) => {
@@ -122,7 +122,7 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
 
 function createBuilderV2TeamSortPreview(
   payload: unknown,
-  model: BuilderV2Model,
+  model: BuilderV2DndCommandPort,
 ): BuilderV2TeamDragPreviewDescriptor | null {
   if (!isBuilderV2TeamSortDragPayload(payload)) {
     return null
@@ -137,7 +137,11 @@ function createBuilderV2TeamSortPreview(
   return {team, index, previewMode: model.teamPreviewMode}
 }
 
-function dispatchBuilderV2TeamSort(model: BuilderV2Model, activeTeamId: string, overId: unknown) {
+function dispatchBuilderV2TeamSort(
+  model: BuilderV2DndCommandPort,
+  activeTeamId: string,
+  overId: unknown,
+) {
   if (typeof overId !== 'string' || activeTeamId === overId) {
     return
   }
@@ -150,7 +154,7 @@ function dispatchBuilderV2TeamSort(model: BuilderV2Model, activeTeamId: string, 
   model.moveTeamToIndex(activeTeamId, targetIndex)
 }
 
-function dispatchBuilderV2DndAction(model: BuilderV2Model, action: BuilderV2DndAction) {
+function dispatchBuilderV2DndAction(model: BuilderV2DndCommandPort, action: BuilderV2DndAction) {
   switch (action.kind) {
     case 'assign-awakener':
       model.assignAwakenerToSlot(action.awakenerId, action.slotId)
