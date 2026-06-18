@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "REALM_MASTERY",
   "lineupToken": "I",
-  "descriptionTemplate": "Team Unique: Increase the Base DMG of the wielder's Command Card by [StateArg1]%, and increase Shield and HP Recovery by [StateArg2]%.",
+  "descriptionTemplate": "Team Unique: The wielder's Command Card Base DMG +[StateArg1]%, Shield Generation and HP Recovery +[StateArg2]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

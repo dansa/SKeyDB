@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0054",
   "slot": "Skill2",
-  "descriptionTemplate": "Inflict [{Poison}:Arg1] {Poison} on all enemies, temporarily reducing their {STR⯆} by [Exhaustion:Arg2]. {Resonance 3}: Inflict 1 stack of {Spellbound} on all enemies.",
+  "descriptionTemplate": "Inflict [{Poison}:Arg1] {Poison} on all enemies, temporarily reducing their {STR▼} by [Exhaustion:Arg2]. {Resonance 3}: Inflict 1 stack of {Spellbound} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0054",
       "ownerAwakenerName": "Xu",
       "patch": {
-        "descriptionTemplate": "Inflict [{Poison}:Arg1] {Poison} on all enemies, temporarily reducing their {STR⯆} by [Exhaustion:Arg2]. {Resonance 3}: Inflict 1 stack of {Spellbound} on all enemies."
+        "descriptionTemplate": "Inflict [{Poison}:Arg1] {Poison} on all enemies, temporarily reducing their {STR▼} by [Exhaustion:Arg2]. {Resonance 3}: Inflict 1 stack of {Spellbound} on all enemies."
       }
     }
   ],

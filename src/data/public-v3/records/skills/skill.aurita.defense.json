@@ -34,7 +34,7 @@
       "ownerAwakenerId": "awakener-0005",
       "ownerAwakenerName": "Aurita",
       "patch": {
-        "descriptionTemplate": "Gain [Block:Arg1] Shield, draw 1 Card. Aurita obtains [Energy:Arg2] Aliemus."
+        "descriptionTemplate": "Gain [Block:Arg1] Shield, draw 1 card. Aurita obtains [Energy:Arg2] Aliemus."
       }
     }
   ],

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0052",
   "slot": "Skill2",
-  "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}; this damage enjoys [Arg4]% {Counter} bonus. Each attack temporarily reduces the target's {STR⯆} by [Exhaustion:Arg3]. {Leap}: Spend 5 {Dreamlure}. If successful, refund the Arithmetica consumed and deal damage 2 more times; otherwise, gain 2 {Dreamlure}.",
+  "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}; this damage enjoys [Arg4]% {Counter} bonus. Each attack temporarily reduces the target's {STR▼} by [Exhaustion:Arg3]. {Leap}: Spend 5 {Dreamlure}. If successful, refund the Arithmetica consumed and deal damage 2 more times; otherwise, gain 2 {Dreamlure}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -45,7 +45,7 @@
       "ownerAwakenerId": "awakener-0052",
       "ownerAwakenerName": "Wanda",
       "patch": {
-        "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}; this damage enjoys [Arg4]% {Counter} bonus. Each attack temporarily reduces the target's {STR⯆} by [Exhaustion:Arg3]. This card gains +25% Crit. Rate. {Leap}: Spend 5 {Dreamlure}. If successful, refund the Arithmetica consumed and deal damage 2 more times; otherwise, gain 2 {Dreamlure}."
+        "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}; this damage enjoys [Arg4]% {Counter} bonus. Each attack temporarily reduces the target's {STR▼} by [Exhaustion:Arg3]. This card gains +25% Crit. Rate. {Leap}: Spend 5 {Dreamlure}. If successful, refund the Arithmetica consumed and deal damage 2 more times; otherwise, gain 2 {Dreamlure}."
       }
     },
     {
@@ -57,7 +57,7 @@
       "ownerAwakenerId": "awakener-0052",
       "ownerAwakenerName": "Wanda",
       "patch": {
-        "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}; this damage enjoys [Arg4]% {Counter} bonus. Each attack temporarily reduces the target's {STR⯆} by [Exhaustion:Arg3]. This card gains +25% Crit. Rate. {Leap}: Spend 5 {Dreamlure}. If successful, refund the Arithmetica consumed and deal damage 2 more times; otherwise, gain 2 {Dreamlure}.",
+        "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}; this damage enjoys [Arg4]% {Counter} bonus. Each attack temporarily reduces the target's {STR▼} by [Exhaustion:Arg3]. This card gains +25% Crit. Rate. {Leap}: Spend 5 {Dreamlure}. If successful, refund the Arithmetica consumed and deal damage 2 more times; otherwise, gain 2 {Dreamlure}.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

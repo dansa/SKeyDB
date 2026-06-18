@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0048",
   "slot": "E3",
-  "descriptionTemplate": "In the {Caro} Realm, the {Embryo Fusion} obtained automatically each turn +50%. \"Basic Strike\" and \"Basic Defense\" gain Strength equivalent to 1% of ATK.",
+  "descriptionTemplate": "In the {Caro} Realm, the {Embryo Fusion} obtained automatically each turn +50%. \"Basic Strike\" and \"Basic Defense\" gain {STR} equivalent to 1% of ATK.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Thais"
 }

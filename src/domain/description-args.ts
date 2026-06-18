@@ -438,7 +438,7 @@ function buildRealmMasteryFormulaHover(
 
 function shouldCeilDisplayedTotalValue(
   arg: PublicDescriptionArg,
-  _baseValue: number | null,
+  baseValue: number | null,
 ): boolean {
   const substatBonus = getSubstatBonus(arg)
   if (!substatBonus && arg.kind === 'computed' && arg.formulaKey === 'scaled') {
@@ -452,7 +452,12 @@ function shouldCeilDisplayedTotalValue(
   const mode =
     substatBonus.mode ??
     (arg.kind !== 'fixed' && inferSuffix(arg).includes('%') ? 'scale_base' : 'additive')
-  return mode === 'additive' || mode === 'additive_factor'
+  if (mode === 'additive' || mode === 'additive_factor') {
+    return true
+  }
+
+  const suffix = inferSuffix(arg)
+  return arg.kind === 'fixed' && baseValue !== null && !inferStat(arg, suffix)
 }
 
 function resolveAbsoluteValue(

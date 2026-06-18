@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0026",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nFor every {Marvelous Cuisine} in hand, Karen's HP Recovery effect +[Arg4]%, up to 3 stacks. Every time {Marvelous Cuisine} is played, Karen inflicts +[Arg3]% {Poison} during this battle, up to 20 stacks.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nFor every {Marvelous Cuisine} in hand, Karen's HP Recovery effect +[Arg4]%, up to 3 stacks. Every time {Marvelous Cuisine} is played, Karen inflicts +[Arg3]% {Poison} during this battle, up to 20 stacks.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

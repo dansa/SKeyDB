@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0057",
   "slot": "E2",
-  "descriptionTemplate": "Saya's \"Basic Strike\" and \"Base DEF\" additionally grant {Embryo Fusion} +15. The lower the current HP, the higher the effect, up to 100% more.",
+  "descriptionTemplate": "Saya's \"Basic Strike\" and \"Base Defense\" additionally grant {Embryo Fusion} +15. The lower the current HP, the higher the effect, up to 100% more.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Saya"
 }

@@ -16,13 +16,14 @@
   "iconId": "IconS_Buff_047",
   "descriptionTemplate": "Reduce DMG dealt by [StateArg1]%, double the number of attacks, and last for [Layer] {plural:[Layer]|turn|turns}.",
   "descriptionArgs": {
-    "StateArg1": {
-      "kind": "fixed",
-      "value": "60"
-    },
     "Layer": {
       "kind": "fixed",
       "value": "1"
+    },
+    "StateArg1": {
+      "kind": "fixed",
+      "value": "60",
+      "suffix": "%"
     }
   },
   "upgrades": [
@@ -36,13 +37,13 @@
       "ownerAwakenerName": "Wanda",
       "patch": {
         "descriptionArgs": {
-          "StateArg1": {
-            "kind": "fixed",
-            "value": "65"
-          },
           "Layer": {
             "kind": "fixed",
             "value": "1"
+          },
+          "StateArg1": {
+            "kind": "fixed",
+            "value": "65"
           }
         }
       }

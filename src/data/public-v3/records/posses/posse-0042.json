@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Ghastly Canvas",
   "realm": "CARO",
   "lineupToken": "U",
-  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg1], and shuffle 1 {Insight} into the Draw Pile. If Pickman is in your team, he gains 1 stack of {Creativity}.",
+  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg1], and shuffle 1 {Insight} into the Draw Pile. If Pickman is in team, he gains 1 stack of {Creativity}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

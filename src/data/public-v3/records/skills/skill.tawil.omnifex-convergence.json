@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0047",
   "slot": "Exalt",
-  "descriptionTemplate": "This turn, self Command Cards' Final DMG +15%. Gain [Arg1] Keyflare. Present 5 Skill cards from the current Realm, choose to {Discover} up to 3 of them, and make them Tawil's cards with {Exhaust} and {Retain}. The next Tawil's Command Card played activates 2 times.",
+  "descriptionTemplate": "This turn, self Command Cards' Final DMG +15%. Gain [Arg1] Keyflare. Present 5 Skill Cards from the current Realm, choose to {Discover} up to 3 of them, and make them Tawil's cards with {Exhaust} and {Retain}. The next Tawil's Command Card played activates 2 times.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -28,7 +28,7 @@
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "patch": {
-        "descriptionTemplate": "This turn, self Command Cards' Final DMG +15%. Gain [Arg1] Keyflare. Present 5 Skill cards from the current Realm, choose to {Discover} up to 3 of them, and make them Tawil's cards with {Exhaust}, {Prepare 1}, and {Retain}. The next Tawil's Command Card played activates 2 times."
+        "descriptionTemplate": "This turn, self Command Cards' Final DMG +15%. Gain [Arg1] Keyflare. Present 5 Skill Cards from the current Realm, choose to {Discover} up to 3 of them, and make them Tawil's cards with {Exhaust}, {Prepare 1}, and {Retain}. The next Tawil's Command Card played activates 2 times."
       }
     }
   ],

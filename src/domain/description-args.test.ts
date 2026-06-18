@@ -278,6 +278,35 @@ describe('description-args', () => {
     ).toBe('Keyflare Regen × 0.2')
   })
 
+  it('ceil-displays fixed scale-base passive effects while keeping formula hover precise', () => {
+    const arg: PublicDescriptionArg = {
+      kind: 'fixed',
+      value: '20',
+      suffix: '%',
+      substatBonus: {
+        substat: 'DeathResistance',
+        multiplier: '0.1',
+        mode: 'scale_base',
+      },
+    }
+
+    const resolvedArg = resolveDescriptionArg(arg, {
+      stats: {
+        DeathResistance: '33.6%',
+      },
+    })
+
+    expect(resolvedArg.totalValue).toBeCloseTo(20.672, 6)
+    expect(resolvedArg.formattedTotalValue).toBe('21%')
+    expect(
+      buildDescriptionArgHover(arg, {
+        stats: {
+          DeathResistance: '33.6%',
+        },
+      }),
+    ).toBe('20% × 103.4% from Death Resistance')
+  })
+
   it('ceil-displays Sanga talent-enhanced Aliemus scaling', async () => {
     const skill = await loadResolvedSkill(45, 'skill.sanga.strike')
 

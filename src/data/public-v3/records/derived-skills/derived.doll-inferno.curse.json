@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0018",
   "derivedFromId": "skill.doll-inferno.self-destruct",
   "rootSkillId": "skill.doll-inferno.self-destruct",
-  "descriptionTemplate": "All enemies Temp. {STR⯆} -[Exhaustion:Arg2].",
+  "descriptionTemplate": "All enemies Temp. {STR▼} -[Exhaustion:Arg2].",
   "descriptionArgs": {
     "Arg2": {
       "kind": "scaling",
@@ -30,7 +30,7 @@
       "ownerAwakenerId": "awakener-0018",
       "ownerAwakenerName": "Doll: Inferno",
       "patch": {
-        "descriptionTemplate": "Inflict {Weakness} on all enemies for [Arg1] {plural:[Arg1]|turn|turns}, and temporarily reduce their {STR⯆} by [Exhaustion:Arg2].",
+        "descriptionTemplate": "Inflict {Weakness} on all enemies for [Arg1] {plural:[Arg1]|turn|turns}, and temporarily reduce their {STR▼} by [Exhaustion:Arg2].",
         "descriptionArgs": {
           "Arg1": {
             "kind": "fixed",

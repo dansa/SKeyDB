@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Dreamscape: Culinary Dominion",
   "realm": "CARO",
   "lineupToken": "Q",
-  "descriptionTemplate": "{Discover} 1 of 3 basic Skill Commands from the Awakeners in your team; it has {Exhaust}, and its Arithmetica Cost -1. If the Realm includes {Caro}, you may choose \"Gobble Up!\"",
+  "descriptionTemplate": "{Discover} 1 of 3 basic Skill Commands from the Awakeners in team; it has {Exhaust}, and its Arithmetica Cost -1. If the Realm includes {Caro}, you may choose \"Gobble Up!\"",
   "descriptionArgs": {},
   "lore": "This is the Promised Land sworn by Mythag to her warriors—where jars overflow with honey and cabinets groan with meat.\nNo force may bar the brave; what is theirs by right, they shall claim."
 }

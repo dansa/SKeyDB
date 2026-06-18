@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": [],
   "textColor": "misc",
-  "descriptionTemplate": "Each stack increases the card’s Final DMG, {STR} Generation, {Tentacle DMG} Generation, Fixed {Poison}, and Fixed {Counter} by 2%, and its Final Shield, Healing, and {STR⯆} by 1%. Clears when played or at end of turn.",
+  "descriptionTemplate": "Each stack increases the card’s Final DMG, {STR} Generation, {Tentacle DMG} Generation, Fixed {Poison}, and Fixed {Counter} by 2%, and its Final Shield, Healing, and {STR▼} by 1%. Clears when played or at end of turn.",
   "descriptionArgs": {}
 }

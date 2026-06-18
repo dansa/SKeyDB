@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0053",
   "slot": "Rouse",
-  "descriptionTemplate": "Winkle gains [Energy:Arg1] Aliemus. {Rouse}: Winkle's Shield and {Counter} increase by 10%. After playing a card, gain [Energy:Arg2] Aliemus and [Counterattack:Arg3] {plural:[Counterattack:Arg3]|stack|stacks} of {Counter}.",
+  "descriptionTemplate": "Winkle gains [Energy:Arg1] Aliemus. {Rouse}: Winkle's Shield and {Counter} +10%. After playing a card, gain [Energy:Arg2] Aliemus and [Counterattack:Arg3] {plural:[Counterattack:Arg3]|stack|stacks} of {Counter}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

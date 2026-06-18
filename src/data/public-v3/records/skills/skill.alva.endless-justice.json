@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0004",
   "slot": "Exalt",
-  "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all State Cards and Symptom Cards from your hand, and draw a number of cards equal to the quantity discarded.{Vulnerable} All enemies for 1 turn.",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all State cards and Symptom cards from your hand, and draw a number of cards equal to the quantity discarded.{Vulnerable} All enemies for 1 turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -30,7 +30,7 @@
       "ownerAwakenerId": "awakener-0004",
       "ownerAwakenerName": "Alva",
       "patch": {
-        "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all State Cards and Symptom Cards from your hand, and draw a number of Cards equal to the quantity discarded +1. {Vulnerable} All enemies for 1 turn."
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all State cards and Symptom cards from your hand, and draw a number of cards equal to the quantity discarded +1. {Vulnerable} All enemies for 1 turn."
       }
     },
     {
@@ -42,7 +42,7 @@
       "ownerAwakenerId": "awakener-0004",
       "ownerAwakenerName": "Alva",
       "patch": {
-        "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all State Cards and Symptom Cards from your Hand, and draw a number of Cards equal to the number discarded +1. {Vulnerable} all enemies for 1 turn. Alva gains 50% Temporary Crit. Rate and Crit. DMG."
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all State cards and Symptom cards from your hand, and draw a number of cards equal to the number discarded +1. {Vulnerable} all enemies for 1 turn. Alva gains 50% Temporary Crit. Rate and Crit. DMG."
       }
     }
   ],

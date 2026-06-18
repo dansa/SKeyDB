@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0020",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Entropy Undone} is enhanced: The limit on activations per turn is removed. After Ramona: Timeworn plays a Card that triggers {Loop}, gain 50 Keyflare.",
+  "descriptionTemplate": "{Rouse} {Entropy Undone} is enhanced: The limit on activations per turn is removed. After Ramona: Timeworn plays a card that triggers {Loop}, gain 50 Keyflare.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Ramona: Timeworn"
 }

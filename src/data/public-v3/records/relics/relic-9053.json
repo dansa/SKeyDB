@@ -11,7 +11,7 @@
     "icon": "asset-relic-9053-icon"
   },
   "relicType": "D-Zone Initial Relic",
-  "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of battle. Deal Active DMG and inflict [Arg2] {Poison} on all enemies, triggering up to 5 times per round.",
+  "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of battle. Deal Active DMG and inflict [Arg2] {Poison} on all enemies, triggering up to 5 times per turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

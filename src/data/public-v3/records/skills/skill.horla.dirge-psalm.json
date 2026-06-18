@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0024",
   "slot": "Skill2",
-  "descriptionTemplate": "Gain [Power:Arg1] {STR}. Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg2]. {Leap}: Switch {Emotion} state to {Fear}. For each stack of {Fear} {Metaphor} consumed, gain an additional [Power:Arg3] {STR}.",
+  "descriptionTemplate": "Gain [Power:Arg1] {STR}. Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg2]. {Leap}: Switch {Emotion} state to {Fear}. For each stack of {Fear} {Metaphor} consumed, gain an additional [Power:Arg3] {STR}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

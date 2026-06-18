@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0041",
   "derivedFromId": "skill.pollux.sinless-verdict",
   "rootSkillId": "skill.pollux.sinless-verdict",
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG and gain 3 stacks of {Sin Mark}. After playing, shuffle This card to the top of the Draw Pile. On the {ordinal:3rd} play, {Exhaust} and allow the next command card to benefit from the {Atonement by Pain} effect.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG and gain 3 stacks of {Sin Mark}. After playing, shuffle This card to the top of the Draw Pile. On the {ordinal:3rd} play, {Exhaust} and allow the next Command Card to benefit from the {Atonement by Pain} effect.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0022",
   "slot": "Exalt",
-  "descriptionTemplate": "Randomly deal [Damage:Arg1] {Pierce DMG} 3 times, {Stealing} [Arg2] {STR⯆} each time. Choose 1 non-Derived Command Card in hand that does not have {Exhaust}, {Rondino}, or {Crescendo}, and add {Rondino} to it. If there are no cards in your hand which qualify, deal DMG 3 more times.",
+  "descriptionTemplate": "Randomly deal [Damage:Arg1] {Pierce DMG} 3 times, {Stealing} [Arg2] {STR▼} each time. Choose 1 non-Derived Command Card in hand that does not have {Exhaust}, {Rondino}, or {Crescendo}, and add {Rondino} to it. If there are no cards in your hand which qualify, deal DMG 3 more times.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln",
       "patch": {
-        "descriptionTemplate": "Randomly deal [Damage:Arg1] {Pierce DMG} 3 times, {Stealing} [Arg2] {STR⯆} each time. Choose 1 non-Derived Command Card in hand that does not have {Exhaust}, {Rondino}, or {Crescendo}, and add {Rondino} to it. If there are no cards in your hand which qualify, deal DMG 3 more times."
+        "descriptionTemplate": "Randomly deal [Damage:Arg1] {Pierce DMG} 3 times, {Stealing} [Arg2] {STR▼} each time. Choose 1 non-Derived Command Card in hand that does not have {Exhaust}, {Rondino}, or {Crescendo}, and add {Rondino} to it. If there are no cards in your hand which qualify, deal DMG 3 more times."
       }
     },
     {

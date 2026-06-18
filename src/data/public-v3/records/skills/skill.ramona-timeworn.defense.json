@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0020",
   "slot": "Defense",
-  "descriptionTemplate": "Gain [Block:Arg1] Shield. Ramona: Timeworn obtains [Energy:Arg2] Aliemus. {Loop}: Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg3], draw 1 card, and Ramona: Timeworn further obtains [Energy:Arg5] Aliemus.",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Ramona: Timeworn obtains [Energy:Arg2] Aliemus. {Loop}: Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg3], draw 1 card, and Ramona: Timeworn further obtains [Energy:Arg5] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

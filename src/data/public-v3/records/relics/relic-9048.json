@@ -11,7 +11,7 @@
     "icon": "asset-relic-9048-icon"
   },
   "relicType": "D-Zone Initial Relic",
-  "descriptionTemplate": "All Awakeners' base effects for HP healing and Shield are +[Arg1]%.",
+  "descriptionTemplate": "All Awakeners' base effects for HP Recovery and Shield are +[Arg1]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

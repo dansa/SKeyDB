@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo, type ComponentType} from 'react'
+import {useCallback, useEffect, useMemo, type ComponentType, type ReactNode} from 'react'
 
 import {useLocation, useNavigate, useParams, type NavigateFunction} from 'react-router-dom'
 
@@ -44,7 +44,7 @@ import {DbDetailModalHost} from './detail/DbDetailModalHost'
 
 type EntityBrowseComponent = ComponentType<{
   controller: ReturnType<typeof useEntityBrowseController>
-  DetailModalHost: ComponentType<{resultSet: DatabaseDetailResultSet}>
+  renderDetailModalHost: (resultSet: DatabaseDetailResultSet) => ReactNode
 }>
 
 const entityBrowseComponents: Record<DatabaseEntityId, EntityBrowseComponent> = {
@@ -300,8 +300,8 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
   )
 
   const BrowseComponent = entityBrowseComponents[browseController.activeEntity]
-  const DetailModalHost = useCallback(
-    ({resultSet}: {resultSet: DatabaseDetailResultSet}) => (
+  const renderDetailModalHost = useCallback(
+    (resultSet: DatabaseDetailResultSet) => (
       <DbDetailModalHost
         awakeners={databaseAwakeners}
         callbacks={detailCallbacks}
@@ -316,7 +316,10 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
 
   return (
     <DatabaseLayout>
-      <BrowseComponent controller={browseController} DetailModalHost={DetailModalHost} />
+      <BrowseComponent
+        controller={browseController}
+        renderDetailModalHost={renderDetailModalHost}
+      />
     </DatabaseLayout>
   )
 }

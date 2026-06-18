@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0012",
   "slot": "E3",
-  "descriptionTemplate": "Each time an \"Insight\" card is played, Daffodil gains 2 Aliemus and Strength equal to 1% of ATK, with a maximum of 5 triggers per turn.",
+  "descriptionTemplate": "Each time an \"Insight\" card is played, Daffodil gains 2 Aliemus and {STR} equal to 1% of ATK, with a maximum of 5 triggers per turn.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Daffodil"
 }

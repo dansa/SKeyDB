@@ -11,7 +11,7 @@
     "icon": "asset-relic-9038-icon"
   },
   "relicType": "D-Zone Initial Relic",
-  "descriptionTemplate": "Gain [Arg1] Strength at the start of the battle. At turn start, for each [Arg2] Permanent {STR}, gain [Arg3] Temporary {STR}, up to [Arg4] Temporary {STR}, and lose Shield equals to half of the Temporary {STR} gained by that Relic at turn end.",
+  "descriptionTemplate": "Gain [Arg1] {STR} at the start of the battle. At turn start, for each [Arg2] Permanent {STR}, gain [Arg3] Temporary {STR}, up to [Arg4] Temporary {STR}, and lose Shield equals to half of the Temporary {STR} gained by that Relic at turn end.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

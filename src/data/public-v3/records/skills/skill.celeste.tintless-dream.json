@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0009",
   "slot": "Skill1",
-  "descriptionTemplate": "Heal [Heal:Arg1] HP. Gain [Arg2] Arithmetica and dispel Hand {Stagnation} state. Trigger 1 Tentacle Attack on the enemy, dealing [Arg3]% {Tentacle DMG}.",
+  "descriptionTemplate": "Heal [Heal:Arg1] HP. Gain [Arg2] Arithmetica and dispel hand {Stagnation} state. Trigger 1 Tentacle Attack on the enemy, dealing [Arg3]% {Tentacle DMG}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -47,7 +47,7 @@
       "ownerAwakenerId": "awakener-0009",
       "ownerAwakenerName": "Celeste",
       "patch": {
-        "descriptionTemplate": "Heal [Heal:Arg1] HP. Gain [Arg2] Arithmetica and dispel Hand {Stagnation} state. For every {Retain} 1 turn, heal an additional [Arg3] HP on the next play. Trigger 1 Tentacle to attack the enemy, dealing [Arg4]% {Tentacle DMG}.",
+        "descriptionTemplate": "Heal [Heal:Arg1] HP. Gain [Arg2] Arithmetica and dispel hand {Stagnation} state. For every {Retain} 1 turn, heal an additional [Arg3] HP on the next play. Trigger 1 Tentacle to attack the enemy, dealing [Arg4]% {Tentacle DMG}.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

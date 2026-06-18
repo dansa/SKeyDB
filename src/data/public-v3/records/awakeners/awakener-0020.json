@@ -64,7 +64,7 @@
         "kind": "introduction",
         "title": "Basic Information",
         "unlockCondition": "Awakener Level 1",
-        "content": "She calculated the speed of her sword, the angle to avoid attacks.\nShe calculated the feasibility of escape plans and the probability of the world moving toward the future.\nUntil the very end, she never stopped calculating.\nJust as she never stopped walking this desolate path."
+        "content": "She calculated the speed of her sword, the angle to avoid attacks.\n\nShe calculated the feasibility of escape plans and the probability of the world moving toward the future.\n\nUntil the very end, she never stopped calculating.\n\nJust as she never stopped walking this desolate path."
       },
       {
         "kind": "story",
@@ -76,19 +76,19 @@
         "kind": "story",
         "title": "Story: II",
         "unlockCondition": "Affinity Level 5",
-        "content": "\"Ramona\" shows great restraint in appearing. As she mentioned, she only manifests in this world when called by the Keeper.\nShe always comes and goes swiftly, seemingly not wanting to engage further with our world beyond battle.\nIs it fear of the nightmares that plague her? Or fear of longing for the things she has lost... We cannot know."
+        "content": "\"Ramona\" shows great restraint in appearing. As she mentioned, she only manifests in this world when called by the Keeper.\n\nShe always comes and goes swiftly, seemingly not wanting to engage further with our world beyond battle.\n\nIs it fear of the nightmares that plague her? Or fear of longing for the things she has lost... We cannot know."
       },
       {
         "kind": "story",
         "title": "Story: III",
         "unlockCondition": "Affinity Level 7",
-        "content": "She had an enviable birth: an orphan raised as the sole heir—how fortunate.\nShe had remarkable wisdom: speaking at one, debating at two, beginning her enlightenment at three.\nShe had admirable talent: a photographic memory and mastery of the sword. At an incredibly young age, she passed Mythag University's rigorous preparatory courses with full marks.\nShe had companions she could rely on, with whom she could venture into darkness and the unknown.\n<Italic:She had...>"
+        "content": "She had an enviable birth: an orphan raised as the sole heir—how fortunate.\n\nShe had remarkable wisdom: speaking at one, debating at two, beginning her enlightenment at three.\n\nShe had admirable talent: a photographic memory and mastery of the sword. At an incredibly young age, she passed Mythag University's rigorous preparatory courses with full marks.\n\nShe had companions she could rely on, with whom she could venture into darkness and the unknown.\n\n<Italic:She had...>"
       },
       {
         "kind": "story",
         "title": "Story: IV",
         "unlockCondition": "Affinity Level 9",
-        "content": "When occupying Ramona's body, \"Ramona\" has never walked through the campus.\nLotan's boldness, Ogier's shy loyalty, William's calm composure, Doll's strict seriousness... No one remembers these moments more than she does.\nBut she always kept in mind: these beautiful things no longer belong to her.\nNow, she needs to focus entirely on protecting another destined person... This is also to protect another precarious world and another innocent version of herself."
+        "content": "When occupying Ramona's body, \"Ramona\" has never walked through the campus.\n\nLotan's boldness, Ogier's shy loyalty, William's calm composure, Doll's strict seriousness... No one remembers these moments more than she does.\n\nBut she always kept in mind: these beautiful things no longer belong to her.\n\nNow, she needs to focus entirely on protecting another destined person... This is also to protect another precarious world and another innocent version of herself."
       }
     ]
   }

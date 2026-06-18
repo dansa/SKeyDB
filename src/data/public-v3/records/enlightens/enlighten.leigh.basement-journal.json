@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0028",
   "slot": "E3",
-  "descriptionTemplate": "When {Flatterer's Embrace} triggers {Devour}, the obtained Strength is doubled.",
+  "descriptionTemplate": "When {Flatterer's Embrace} triggers {Devour}, the obtained {STR} is doubled.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Leigh"
 }

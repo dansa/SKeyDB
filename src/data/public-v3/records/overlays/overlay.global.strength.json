@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "kind": "overlay",
   "id": "overlay.global.strength",
-  "name": "STR⯆",
+  "name": "STR▼",
   "route": {
     "slug": "str-down",
     "canonicalPath": "/database/overlays/str-down"
@@ -11,7 +11,7 @@
     "icon": "asset-overlay.global.strength-icon"
   },
   "overlayType": "mechanic",
-  "aliases": [],
+  "aliases": ["STR⯆"],
   "iconId": "IconS_Buff_037",
   "textColor": "affliction",
   "descriptionTemplate": "Reduce Active and {Tentacle DMG}.",

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0002",
   "slot": "E1",
-  "descriptionTemplate": "{Reluctant Alms} reduces the Arithmetica Cost of the highest-cost Card in hand by 1 for this turn.",
+  "descriptionTemplate": "{Reluctant Alms} reduces the Arithmetica Cost of the highest-cost card in hand by 1 for this turn.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Agrippa"
 }

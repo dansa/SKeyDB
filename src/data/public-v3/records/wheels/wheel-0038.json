@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0007",
   "ownerAwakenerName": "Casiah",
   "lineupToken": "S",
-  "descriptionTemplate": "Team Unique: After the wielder releases an Exalt, they gain [StateArg1] Aliemus and [StateArg2] Keyflare, repeating once for every 4 cards in hand. If the current Realm is {Ultra}, after the wielder's Cards enter {Ultra Space}, they gain Temporary {STR} equal to [StateArg3]% of the wielder's Attack, triggering up to 2 times per turn.",
+  "descriptionTemplate": "Team Unique: After the wielder releases an Exalt, they gain [StateArg1] Aliemus and [StateArg2] Keyflare, repeating once for every 4 cards in hand. If the current Realm is {Ultra}, after the wielder's cards enter {Ultra Space}, they gain Temporary {STR} equal to [StateArg3]% of the wielder's Attack, triggering up to 2 times per turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

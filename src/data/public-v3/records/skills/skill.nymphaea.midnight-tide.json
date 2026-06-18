@@ -30,7 +30,7 @@
       "ownerAwakenerId": "awakener-0037",
       "ownerAwakenerName": "Nymphaea",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG to the enemy with the highest HP and apply an equal amount of {Poison}, which enjoys a 2x {STR} bonus. The first 3 Symptom Cards played each turn increase the DMG dealt by {Midnight Tide} in this battle by [Arg2].",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to the enemy with the highest HP and apply an equal amount of {Poison}, which enjoys a 2x {STR} bonus. The first 3 Symptom cards played each turn increase the DMG dealt by {Midnight Tide} in this battle by [Arg2].",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

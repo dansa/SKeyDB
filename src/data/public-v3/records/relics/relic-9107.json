@@ -11,7 +11,7 @@
     "icon": "asset-relic-9107-icon"
   },
   "relicType": "D-Zone Initial Relic",
-  "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Fixed DMG} equal to [Arg1]% of your team's Max HP and trigger [Arg2]% {Poison}.",
+  "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Fixed DMG} equal to [Arg1]% of team's Max HP and trigger [Arg2]% {Poison}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

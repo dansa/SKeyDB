@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0038",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nOgier's Shield Generation +[Arg3]%, {STR} Generation +[Arg4]%, and each time his Exalt is played, his Shield Generation in this battle increases by an additional 1% of his DEF.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nOgier's Shield Generation +[Arg3]%, {STR} Generation +[Arg4]%, and each time his Exalt is played, his Shield Generation in this battle increases by an additional 1% of his DEF.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",
