@@ -1,6 +1,8 @@
+import {useMemo, useState} from 'react'
+
 import {act, cleanup, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
 import {MemoryRouter} from 'react-router-dom'
-import {afterEach, beforeEach, describe, expect, it} from 'vitest'
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 
 import './builder-v2-test-mocks'
 
@@ -13,6 +15,13 @@ import {dbDetailStore} from '@/stores/dbDetailStore'
 import {saveBuilderDraft} from '../builder/builder-persistence'
 import {createEmptyTeamSlots} from '../builder/constants'
 import type {Team} from '../builder/types'
+import {BuilderV2AwakenerPicker} from './BuilderV2AwakenerPicker'
+import type {
+  BuilderV2AwakenerOption,
+  BuilderV2PickerModel,
+  BuilderV2PickerTab,
+  BuilderV2WheelOption,
+} from './BuilderV2ModelTypes'
 import {BuilderV2Page} from './BuilderV2Page'
 
 function resizeBuilderV2Viewport(width: number, dispatchResize = true) {
@@ -54,6 +63,140 @@ function getRequiredTextArea(element: HTMLElement): HTMLTextAreaElement {
     throw new Error('Expected textarea')
   }
   return element
+}
+
+function setPickerResultPanelLayout(panel: HTMLElement) {
+  Object.defineProperty(panel, 'clientHeight', {
+    configurable: true,
+    value: 336,
+  })
+  Object.defineProperty(panel, 'clientWidth', {
+    configurable: true,
+    value: 320,
+  })
+  Object.defineProperty(panel, 'scrollTop', {
+    configurable: true,
+    writable: true,
+    value: 0,
+  })
+}
+
+function createWindowedTestAwakeners(): BuilderV2AwakenerOption[] {
+  return Array.from({length: 64}, (_, index) => ({
+    id: `test-awakener-${String(index + 1).padStart(2, '0')}`,
+    name: index === 58 ? 'deep awakener' : `test awakener ${String(index + 1)}`,
+    displayName: index === 58 ? 'Deep Awakener' : `Test Awakener ${String(index + 1)}`,
+    realm: 'CHAOS',
+    portraitSrc: undefined,
+    inUse: false,
+    inUseLabel: null,
+    owned: true,
+    level: 60 + index,
+    enlightenLevel: null,
+    blocked: false,
+    blockReason: null,
+  }))
+}
+
+function createWindowedTestWheels(): BuilderV2WheelOption[] {
+  return Array.from({length: 64}, (_, index) => ({
+    id: `test-wheel-${String(index + 1).padStart(2, '0')}`,
+    name: index === 58 ? 'Deep Wheel' : `Test Wheel ${String(index + 1)}`,
+    rarity: index % 3 === 0 ? 'SSR' : index % 3 === 1 ? 'SR' : 'R',
+    realm: 'AEQUOR',
+    mainstat: 'Crit Rate',
+    mainstatKey: 'CRIT_RATE',
+    assetSrc: undefined,
+    inUse: false,
+    inUseLabel: null,
+    owned: true,
+    enlightenLevel: null,
+    recommended: false,
+    recommendationLabel: null,
+    recommendedMainstatKey: null,
+  }))
+}
+
+function WindowedPickerHarness({
+  awakeners = createWindowedTestAwakeners(),
+  onAssignAwakener = vi.fn(),
+  onAssignWheel = vi.fn(),
+  tab,
+  wheels = createWindowedTestWheels(),
+}: {
+  awakeners?: BuilderV2AwakenerOption[]
+  onAssignAwakener?: (awakenerId: string) => void
+  onAssignWheel?: (wheelId: string) => void
+  tab: BuilderV2PickerTab
+  wheels?: BuilderV2WheelOption[]
+}) {
+  const [activeTab, setActiveTab] = useState(tab)
+  const [searchQuery, setSearchQuery] = useState('')
+  const visibleAwakeners = useMemo(
+    () =>
+      awakeners.filter((awakener) =>
+        awakener.displayName.toLowerCase().includes(searchQuery.toLowerCase()),
+      ),
+    [awakeners, searchQuery],
+  )
+  const visibleWheels = useMemo(
+    () => wheels.filter((wheel) => wheel.name.toLowerCase().includes(searchQuery.toLowerCase())),
+    [searchQuery, wheels],
+  )
+  const picker: BuilderV2PickerModel = {
+    tab: activeTab,
+    searchQuery,
+    awakeners: activeTab === 'awakeners' ? visibleAwakeners : [],
+    wheels: activeTab === 'wheels' ? visibleWheels : [],
+    covenants: [],
+    posses: [],
+    preferences: {
+      awakenerFilter: 'ALL',
+      posseFilter: 'ALL',
+      wheelRarityFilter: 'ALL',
+      wheelMainstatFilter: 'ALL',
+      awakenerSortKey: 'LEVEL',
+      awakenerSortDirection: 'DESC',
+      awakenerSortGroupByRealm: false,
+      wheelSortKey: 'RARITY',
+      wheelSortDirection: 'DESC',
+      displayUnowned: true,
+      sinkUnownedToBottom: false,
+      allowDupes: false,
+      promoteRecommendedGear: false,
+      promoteMatchingWheelMainstats: false,
+    },
+    setTab: setActiveTab,
+    setSearchQuery,
+    setAwakenerFilter: vi.fn(),
+    setPosseFilter: vi.fn(),
+    setWheelRarityFilter: vi.fn(),
+    setWheelMainstatFilter: vi.fn(),
+    setAwakenerSortKey: vi.fn(),
+    toggleAwakenerSortDirection: vi.fn(),
+    setAwakenerSortGroupByRealm: vi.fn(),
+    setWheelSortKey: vi.fn(),
+    toggleWheelSortDirection: vi.fn(),
+    setDisplayUnowned: vi.fn(),
+    setSinkUnownedToBottom: vi.fn(),
+    setAllowDupes: vi.fn(),
+    setPromoteRecommendedGear: vi.fn(),
+    setPromoteMatchingWheelMainstats: vi.fn(),
+  }
+
+  return (
+    <BuilderV2AwakenerPicker
+      picker={picker}
+      onAssignAwakener={onAssignAwakener}
+      onAssignCovenant={vi.fn()}
+      onAssignPosse={vi.fn()}
+      onAssignWheel={onAssignWheel}
+      onOpenAwakenerDetail={vi.fn()}
+      onOpenCovenantDetail={vi.fn()}
+      onOpenPosseDetail={vi.fn()}
+      onOpenWheelDetail={vi.fn()}
+    />
+  )
 }
 
 const originalMatchMedia = window.matchMedia
@@ -130,6 +273,67 @@ describe('BuilderV2Page', () => {
 
     expect(searchInput).toHaveValue('ra')
     expect(searchInput).toHaveFocus()
+  })
+
+  it('windows picker results while allowing a lower wheel result to appear after search narrows', async () => {
+    render(<WindowedPickerHarness tab='wheels' />)
+
+    const panel = screen.getByRole('tabpanel', {name: /^wheels$/i})
+    setPickerResultPanelLayout(panel)
+
+    expect(screen.queryByRole('button', {name: /^deep wheel,/i})).not.toBeInTheDocument()
+
+    const searchInput = screen.getByRole('searchbox', {name: /search wheels/i})
+    fireEvent.change(searchInput, {target: {value: 'deep'}})
+
+    expect(await screen.findByRole('button', {name: /^deep wheel,/i})).toBeInTheDocument()
+    expect(panel.scrollTop).toBe(0)
+  })
+
+  it('windows picker results while allowing a lower awakener result to appear after scrolling', async () => {
+    render(<WindowedPickerHarness tab='awakeners' />)
+
+    const panel = screen.getByRole('tabpanel', {name: /^awakeners$/i})
+    setPickerResultPanelLayout(panel)
+
+    expect(
+      screen.queryByRole('button', {name: /deep awakener, level \d+/i}),
+    ).not.toBeInTheDocument()
+
+    await act(async () => {
+      await Promise.resolve()
+    })
+    panel.scrollTop = 1680
+    fireEvent.scroll(panel)
+
+    expect(
+      await screen.findByRole('button', {name: /deep awakener, level \d+/i}),
+    ).toBeInTheDocument()
+  })
+
+  it('assigns a visible windowed awakener result', () => {
+    const assignAwakener = vi.fn()
+    render(<WindowedPickerHarness onAssignAwakener={assignAwakener} tab='awakeners' />)
+
+    const panel = screen.getByRole('tabpanel', {name: /^awakeners$/i})
+    setPickerResultPanelLayout(panel)
+
+    fireEvent.click(screen.getByRole('button', {name: /test awakener 1, level \d+/i}))
+
+    expect(assignAwakener).toHaveBeenCalledWith('test-awakener-01')
+  })
+
+  it('renders picker no-result states inside the windowed result panel', () => {
+    render(<WindowedPickerHarness tab='awakeners' />)
+
+    fireEvent.change(screen.getByRole('searchbox', {name: /search awakeners/i}), {
+      target: {value: 'not-a-real-awakener'},
+    })
+
+    expect(screen.getByText(/^no results$/i)).toBeInTheDocument()
+    expect(
+      screen.queryByRole('button', {name: /test awakener 1, level \d+/i}),
+    ).not.toBeInTheDocument()
   })
 
   it('does not capture global picker typing while a dialog is open', () => {

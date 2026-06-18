@@ -1824,6 +1824,23 @@
   box-shadow: inset 0 0 0 1px var(--builder-v2-remove-drop-inset);
 }
 
+.builder-v2-picker-window-spacer {
+  flex: 0 0 100%;
+  width: 100%;
+  min-height: 0;
+  pointer-events: none;
+}
+
+.builder-v2-picker-empty {
+  flex: 1 0 100%;
+  margin: 0;
+  padding: 1rem 0.5rem;
+  color: var(--ui-text-muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-align: center;
+}
+
 .builder-v2-picker-content--remove-target {
   position: relative;
 }
