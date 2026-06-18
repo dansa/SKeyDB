@@ -27,6 +27,7 @@ Last updated: 2026-05-05
 
 ### Builder mobile and sharing follow-through
 
+- Harden the public Builder V2 beta while keeping classic Builder accessible.
 - Finish the mobile-first builder layout pass.
 - Add share-via-link flows with safe overwrite UX.
 - Decide how far to take multiple on-site saved planners beyond the current autosave/snapshot baseline.
@@ -47,6 +48,7 @@ Last updated: 2026-05-05
 - Public-safe repo contract cleanup for contributors, including fresh-clone-safe `npm run verify`.
 - Generated dimensional relic dataset with cleaned-up canonical descriptions.
 - Multi-team builder and cross-team management.
+- Builder V2 public beta access, with classic Builder still available and an opt-in default route.
 - Compact `t1.` / `mt1.` import-export backed by frozen codec tables.
 - Baseline in-game `@@...@@` import-export support, still WIP for unsupported covenant/posse token coverage.
 - Builder and collection current local persistence using the shipped `skeydb.builder.v2` and `skeydb.collection.v2` storage keys.

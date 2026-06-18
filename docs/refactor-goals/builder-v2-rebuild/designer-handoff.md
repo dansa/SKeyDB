@@ -46,7 +46,7 @@ The baseline screenshots are intentionally not polish references. They show work
 
 The designer should not need to rediscover or redesign these contracts:
 
-- `/builder-v2` remains isolated and unpromoted. `/builder` remains protected.
+- `/builder-v2` is available as a public beta route. `/builder` remains accessible as the classic Builder.
 - A draft supports up to 10 teams.
 - Each team has 4 awakener slots and an optional posse.
 - Each awakener slot has an awakener, level, support state, 2 wheel slots, and 1 covenant slot.
@@ -118,7 +118,7 @@ These should be named as future follow-up, not bundled into the first designer p
 - Drag-and-drop reorder or cross-surface drag polish.
 - Recommendation systems.
 - Final team screenshot/share mode.
-- Navigation promotion from hidden `/builder-v2` to public Builder.
+- Hardening the public beta path toward broader promotion while keeping classic Builder accessible.
 - Persistence or migration changes.
 
 ## Designer Prompt
@@ -152,7 +152,7 @@ Preserve these product contracts:
 - transfer confirmation semantics
 - clear active selection/focus state
 
-Do not solve deeper UX mechanics in this pass. DnD, recommendations, final share mode, and public nav promotion can be future work. The teams overview only needs to remain functionally represented; final list vs cards vs switcher can be deferred.
+Do not solve deeper UX mechanics in this pass. DnD, recommendations, final share mode, and hardening the beta path toward broader promotion can be future work. The teams overview only needs to remain functionally represented; final list vs cards vs switcher can be deferred.
 
 Deliver a polished visual/layout proposal that makes building a team feel obvious, fast, and satisfying. Prefer the selected mockups over the current product baseline whenever they conflict visually, but do not remove required Builder functionality.
 ```
