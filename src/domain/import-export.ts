@@ -19,6 +19,17 @@ const multiPrefix = 'mt1.'
 const slotsPerTeam = 4
 const bytesPerSlot = 5
 const bytesPerTeam = 1 + slotsPerTeam * bytesPerSlot
+const maxStandardTeamCount = 255
+const maxSingleTeamStandardCodeLength =
+  singlePrefix.length + getBase64UrlEncodedLength(bytesPerTeam)
+const maxMultiTeamStandardCodeLength =
+  multiPrefix.length + getBase64UrlEncodedLength(2 + maxStandardTeamCount * bytesPerTeam)
+const maxWrappedIngameCodeLength = 512
+export const maxImportCodeCandidateLength = Math.max(
+  maxSingleTeamStandardCodeLength,
+  maxMultiTeamStandardCodeLength,
+  maxWrappedIngameCodeLength,
+)
 const ingameCodePattern = /@@[A-Za-z0-9]+@@/
 const standardCodePattern = /\b(?:mt1|t1)\.[A-Za-z0-9_-]+\b/
 // `mt1.` reuses the high bit of the per-slot level byte for support state.
@@ -39,6 +50,12 @@ const awakenerByLegacyName = new Map(
 const currentWheelIds = new Set(wheels.map((wheel) => wheel.id))
 const currentCovenantIds = new Set(covenants.map((covenant) => covenant.id))
 const currentPosseIds = new Set(posses.map((posse) => posse.id))
+
+function getBase64UrlEncodedLength(byteLength: number): number {
+  const remainder = byteLength % 3
+  const paddingLength = remainder === 0 ? 0 : 3 - remainder
+  return Math.ceil(byteLength / 3) * 4 - paddingLength
+}
 
 interface StandardCodeEntry {
   codecIndex: number
@@ -161,6 +178,30 @@ function extractImportCodeCandidate(rawValue: string): string {
   }
 
   return trimmed
+}
+
+function getImportCodeLengthLimit(candidate: string): number {
+  if (candidate.startsWith(singlePrefix)) {
+    return maxSingleTeamStandardCodeLength
+  }
+  if (candidate.startsWith(multiPrefix)) {
+    return maxMultiTeamStandardCodeLength
+  }
+  if (candidate.startsWith('@@') && candidate.endsWith('@@')) {
+    return maxWrappedIngameCodeLength
+  }
+  return maxImportCodeCandidateLength
+}
+
+function assertImportCodeLengthWithinLimit(candidate: string) {
+  if (candidate.length > getImportCodeLengthLimit(candidate)) {
+    throw new Error('Import code is too long.')
+  }
+}
+
+export function isImportCodeCandidateTooLong(value: string): boolean {
+  const candidate = extractImportCodeCandidate(value)
+  return candidate.length > getImportCodeLengthLimit(candidate)
 }
 
 function trimTrailingPadding(value: string): string {
@@ -404,7 +445,7 @@ export function encodeSingleTeamCode(team: Team): string {
 }
 
 export function encodeMultiTeamCode(teams: Team[], activeTeamId: string): string {
-  if (teams.length > 255) {
+  if (teams.length > maxStandardTeamCount) {
     throw new Error('Too many teams to export.')
   }
   const activeTeamIndex = Math.max(
@@ -483,6 +524,7 @@ export function decodeImportCode(code: string): DecodedImport {
   if (!trimmed) {
     throw new Error('Import code is empty.')
   }
+  assertImportCodeLengthWithinLimit(trimmed)
 
   if (trimmed.startsWith(singlePrefix)) {
     return decodeSingleTeamImport(trimmed.slice(singlePrefix.length))

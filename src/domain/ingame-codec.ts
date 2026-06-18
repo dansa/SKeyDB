@@ -10,6 +10,7 @@ const TEAM_SLOT_COUNT = 4
 const EMPTY_COVENANT_TOKEN = 'a'
 const POSSE_TOKEN_LENGTH = 1
 const WHEEL_TOKENS_PER_SLOT = 2
+const WARNING_TOKEN_PREVIEW_LIMIT = 32
 
 export interface IngameImportWarning {
   section: 'awakener' | 'wheel' | 'covenant' | 'posse'
@@ -33,6 +34,12 @@ interface WheelCandidate {
 }
 
 type IngameTokenDictionaries = ReturnType<typeof buildIngameTokenDictionaries>
+
+function truncateWarningToken(token: string): string {
+  return token.length > WARNING_TOKEN_PREVIEW_LIMIT
+    ? token.slice(0, WARNING_TOKEN_PREVIEW_LIMIT)
+    : token
+}
 
 function normalizeWrappedPayload(code: string): string {
   const trimmed = code.trim()
@@ -119,7 +126,7 @@ function pushAmbiguousWarning(
     section,
     slotIndex: options.slotIndex,
     field: options.field,
-    token,
+    token: truncateWarningToken(token),
     reason: 'ambiguous_parse',
     candidateIds,
   })
@@ -133,7 +140,7 @@ function pushUnknownAwakenerWarning(
   warnings.push({
     section: 'awakener',
     slotIndex,
-    token,
+    token: truncateWarningToken(token),
     reason: 'unknown_token',
   })
 }
@@ -232,7 +239,7 @@ function resolveDecodedWheelId(
       section: 'wheel',
       slotIndex,
       field,
-      token: candidate.token,
+      token: truncateWarningToken(candidate.token),
       reason: 'unknown_token',
     })
   }
@@ -327,7 +334,7 @@ function decodeCovenantTokens(
       warnings.push({
         section: 'covenant',
         slotIndex,
-        token: parsed.token,
+        token: truncateWarningToken(parsed.token),
         reason: 'unknown_token',
       })
     }
@@ -339,7 +346,7 @@ function decodeCovenantTokens(
     warnings.push({
       section: 'covenant',
       slotIndex: TEAM_SLOT_COUNT - 1,
-      token: covenantBlock.slice(cursor),
+      token: truncateWarningToken(covenantBlock.slice(cursor)),
       reason: 'unknown_token',
     })
   }
@@ -368,7 +375,7 @@ function resolveDecodedCovenantId(
     warnings.push({
       section: 'covenant',
       slotIndex,
-      token,
+      token: truncateWarningToken(token),
       reason: 'unknown_token',
     })
     return undefined
@@ -393,7 +400,7 @@ function decodePosseId(
   if (posseToken !== 'a' && !posseId) {
     warnings.push({
       section: 'posse',
-      token: posseToken,
+      token: truncateWarningToken(posseToken),
       reason: 'unknown_token',
     })
   }

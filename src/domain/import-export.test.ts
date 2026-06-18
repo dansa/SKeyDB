@@ -280,12 +280,52 @@ describe('import-export codec', () => {
     expect(() => decodeImportCode('x1.hello')).toThrow(/unsupported import code prefix/i)
   })
 
+  it('rejects oversized t1 input before base64 decode', () => {
+    const atobSpy = vi.spyOn(globalThis, 'atob').mockImplementation(() => {
+      throw new Error('atob should not be called')
+    })
+
+    expect(() => decodeImportCode(`t1.${'A'.repeat(1024)}`)).toThrow(/import code is too long/i)
+    expect(atobSpy).not.toHaveBeenCalled()
+
+    atobSpy.mockRestore()
+  })
+
+  it('rejects oversized mt1 input before base64 decode', () => {
+    const atobSpy = vi.spyOn(globalThis, 'atob').mockImplementation(() => {
+      throw new Error('atob should not be called')
+    })
+
+    expect(() => decodeImportCode(`mt1.${'A'.repeat(8000)}`)).toThrow(/import code is too long/i)
+    expect(atobSpy).not.toHaveBeenCalled()
+
+    atobSpy.mockRestore()
+  })
+
+  it('rejects oversized wrapped in-game input', () => {
+    expect(() => decodeImportCode(`@@${'A'.repeat(600)}@@`)).toThrow(/import code is too long/i)
+  })
+
   it('auto-detects and imports in-game @@ wrapper codes', () => {
     const parsed = decodeImportCode('@@NDklaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaad@@')
     expect(parsed.kind).toBe('single')
     if (parsed.kind !== 'single') return
     expect(parsed.team.slots.every((slot) => Boolean(slot.awakenerId))).toBe(true)
     expect(parsed.team.slots.every((slot) => !('awakenerName' in slot))).toBe(true)
+  })
+
+  it('bounds retained in-game warning token previews', () => {
+    const payload = 'NDklaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaad'
+    const codeWithTrailingCovenantContent = `@@${payload.slice(0, -1)}${'Z'.repeat(80)}${payload.slice(-1)}@@`
+
+    const parsed = decodeImportCode(codeWithTrailingCovenantContent)
+
+    expect(parsed.kind).toBe('single')
+    if (parsed.kind !== 'single') return
+    const covenantWarning = parsed.warnings?.find(
+      (warning) => warning.section === 'covenant' && warning.reason === 'unknown_token',
+    )
+    expect(covenantWarning?.token.length).toBeLessThanOrEqual(32)
   })
 
   it('extracts and imports @@ code from full copied in-game block text', () => {
