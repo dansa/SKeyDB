@@ -525,6 +525,57 @@ describe('useBuilderV2Model', () => {
     expect(result.current.violationMessage).toBeNull()
   })
 
+  it('confirms inactive team-list wheel transfers without retargeting active selection', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamOneSlots = createEmptyTeamSlots()
+    const teamTwoSlots = createEmptyTeamSlots()
+    const teamThreeSlots = createEmptyTeamSlots()
+    teamOneSlots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+    })
+    teamTwoSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0007',
+      realm: 'ULTRA',
+    })
+    teamThreeSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0042',
+      realm: 'CHAOS',
+      wheels: ['wheel-0050', null],
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: teamOneSlots},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+          {id: 'team-3', name: 'Team 3', slots: teamThreeSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.selectWheelSlot('slot-2', 1)
+    })
+    act(() => {
+      result.current.assignWheelToTeamSlot('wheel-0050', 'team-2', 'slot-1', 0)
+    })
+
+    expect(result.current.transferDialog?.title).toBe('Move Merciful Nurturing')
+    expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-2', wheelIndex: 1})
+
+    act(() => {
+      result.current.transferDialog?.onConfirm()
+    })
+
+    const teams = builderDraftStore.getState().teams
+    expect(teams[1]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(teams[2]?.slots[0]?.wheels).toEqual([null, null])
+    expect(result.current.activeTeamId).toBe('team-1')
+    expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-2', wheelIndex: 1})
+    expect(result.current.violationMessage).toBeNull()
+  })
+
   it('clears a team-list slot when it is dropped on the picker', () => {
     const {result} = renderHook(() => useBuilderV2Model())
     const teamTwoSlots = createEmptyTeamSlots()
@@ -590,6 +641,57 @@ describe('useBuilderV2Model', () => {
     expect(teams[1]?.slots[1]?.wheels).toEqual([null, 'wheel-0050'])
     expect(result.current.activeTeamId).toBe('team-1')
     expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-1', wheelIndex: 0})
+    expect(result.current.violationMessage).toBeNull()
+  })
+
+  it('opens a transfer when moving a support wheel copy into a regular team-list slot', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamOneSlots = createEmptyTeamSlots()
+    const teamTwoSlots = createEmptyTeamSlots()
+    const teamThreeSlots = createEmptyTeamSlots()
+    teamOneSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+      wheels: ['wheel-0050', null],
+    })
+    teamTwoSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      realm: 'AEQUOR',
+      isSupport: true,
+      wheels: ['wheel-0050', null],
+    })
+    teamThreeSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0007',
+      realm: 'ULTRA',
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: teamOneSlots},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+          {id: 'team-3', name: 'Team 3', slots: teamThreeSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.moveTeamWheel('team-2', 'slot-1', 0, 'team-3', 'slot-1', 0)
+    })
+
+    expect(result.current.transferDialog?.title).toBe('Move Merciful Nurturing')
+    expect(builderDraftStore.getState().teams[0]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(builderDraftStore.getState().teams[1]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(builderDraftStore.getState().teams[2]?.slots[0]?.wheels).toEqual([null, null])
+
+    act(() => {
+      result.current.transferDialog?.onConfirm()
+    })
+
+    const teams = builderDraftStore.getState().teams
+    expect(teams[0]?.slots[0]?.wheels).toEqual([null, null])
+    expect(teams[1]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(teams[2]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
     expect(result.current.violationMessage).toBeNull()
   })
 

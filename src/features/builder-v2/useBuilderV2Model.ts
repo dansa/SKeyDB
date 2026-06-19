@@ -37,6 +37,7 @@ import {
   swapWheelAssignments,
   type TeamStateUpdateResult,
 } from '../builder/team-state'
+import {validateBuilderTeams} from '../builder/team-validation'
 import {
   applyPendingTransfer,
   applySupportTransfer,
@@ -1125,6 +1126,41 @@ export function useBuilderV2Model({
       if (!sourceTeam || !targetTeam) {
         return
       }
+      const sourceSlot = sourceTeam.slots.find((slot) => slot.slotId === sourceSlotId)
+      const targetSlot = targetTeam.slots.find((slot) => slot.slotId === targetSlotId)
+      const sourceWheelId = sourceSlot?.wheels[sourceWheelIndex] ?? null
+      if (!sourceSlot || !targetSlot?.awakenerId || !sourceWheelId) {
+        return
+      }
+
+      const existingWheelOwner = allowDuplicateAwakenerIdentities
+        ? undefined
+        : usedWheelByTeamOrder.get(sourceWheelId)
+      const existingOwnerIsDragSource =
+        existingWheelOwner?.teamId === sourceTeamId &&
+        existingWheelOwner.slotId === sourceSlotId &&
+        existingWheelOwner.wheelIndex === sourceWheelIndex
+      const existingOwnerIsDropTarget =
+        existingWheelOwner?.teamId === targetTeamId &&
+        existingWheelOwner.slotId === targetSlotId &&
+        existingWheelOwner.wheelIndex === targetWheelIndex
+      if (
+        existingWheelOwner &&
+        !existingOwnerIsDragSource &&
+        !existingOwnerIsDropTarget &&
+        !targetSlot.isSupport
+      ) {
+        requestWheelTransfer({
+          wheelId: sourceWheelId,
+          fromTeamId: existingWheelOwner.teamId,
+          fromSlotId: existingWheelOwner.slotId,
+          fromWheelIndex: existingWheelOwner.wheelIndex,
+          toTeamId: targetTeamId,
+          targetSlotId,
+          targetWheelIndex,
+        })
+        return
+      }
 
       const result =
         sourceTeamId === targetTeamId
@@ -1161,6 +1197,15 @@ export function useBuilderV2Model({
               result.nextTargetSlots,
             )
 
+      if (
+        sourceTeamId !== targetTeamId &&
+        !allowDuplicateAwakenerIdentities &&
+        !validateBuilderTeams(nextTeams, {allowDupes: false}).isValid
+      ) {
+        setViolationMessage(getBuilderV2TeamSwapViolationMessage('INVALID_BUILD_RULES'))
+        return
+      }
+
       setTeamsInStore(nextTeams)
       setActiveTeamId(state.activeTeamId)
       setViolationMessage(null)
@@ -1179,6 +1224,9 @@ export function useBuilderV2Model({
       setPendingTeamAction,
       setTeamsInStore,
       storeCancelTeamRename,
+      allowDuplicateAwakenerIdentities,
+      requestWheelTransfer,
+      usedWheelByTeamOrder,
     ],
   )
 
@@ -1868,16 +1916,17 @@ export function useBuilderV2Model({
       builderDraftStore.getState().setTeams(nextTeams)
       const nextActiveTeam =
         nextTeams.find((team) => team.id === effectiveActiveTeamId) ?? activeTeam
+      const transferTargetsActiveTeam = transfer.toTeamId === effectiveActiveTeamId
 
       setViolationMessage(null)
-      if (transfer.kind === 'awakener') {
+      if (transfer.kind === 'awakener' && transferTargetsActiveTeam) {
         const targetSlotId =
           transfer.targetSlotId ??
           nextActiveTeam.slots.find((slot) => slot.awakenerId === transfer.awakenerId)?.slotId
         if (targetSlotId) {
           applyEditingTarget({kind: 'awakener', slotId: targetSlotId})
         }
-      } else if (transfer.kind === 'wheel') {
+      } else if (transfer.kind === 'wheel' && transferTargetsActiveTeam) {
         const targetWheelIndex = getWheelSlotIndex(transfer.targetWheelIndex)
         if (targetWheelIndex === null) {
           return
@@ -1888,11 +1937,11 @@ export function useBuilderV2Model({
           slotId: transfer.targetSlotId,
           wheelIndex: targetWheelIndex,
         })
-      } else {
+      } else if (transfer.kind === 'posse' && transferTargetsActiveTeam) {
         applyEditingTarget({kind: 'posse'}, {syncPickerTab: true})
       }
 
-      if (quickLineupState) {
+      if (quickLineupState && transferTargetsActiveTeam) {
         syncQuickLineupFocus(storeAdvanceQuickLineupStep(nextActiveTeam.slots))
       }
     },
