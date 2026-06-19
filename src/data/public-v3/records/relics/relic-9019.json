@@ -11,7 +11,7 @@
     "icon": "asset-relic-9019-icon"
   },
   "relicType": "D-Zone Initial Relic",
-  "descriptionTemplate": "When attacked by an enemy, deal 1 instance of {Fixed DMG} equal to [Arg3]% of your team's Max HP. This DMG enjoys a [Arg2]% {Counter} bonus. Each enemy can trigger this effect up to 1 time per turn.",
+  "descriptionTemplate": "When attacked by an enemy, deal 1 instance of {Fixed DMG} equal to [Arg3]% of team's Max HP. This DMG enjoys a [Arg2]% {Counter} bonus. Each enemy can trigger this effect up to 1 time per turn.",
   "descriptionArgs": {
     "Arg2": {
       "kind": "fixed",

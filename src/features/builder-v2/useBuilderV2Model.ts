@@ -1,28 +1,15 @@
-import {
-  startTransition,
-  useCallback,
-  useDeferredValue,
-  useEffect,
-  useMemo,
-  useState,
-  type SetStateAction,
-} from 'react'
+import {startTransition, useCallback, useDeferredValue, useEffect, useMemo, useState} from 'react'
 
 import {useStore} from 'zustand'
 
 import {getAwakenerCardAsset, getAwakenerPortraitAsset} from '@/domain/awakener-assets'
-import {
-  resolveAwakenerSortKey,
-  type AwakenerSortKey,
-  type CollectionSortDirection,
-  type WheelCollectionSortKey,
-} from '@/domain/collection-sorting'
+import {getAwakenerIdentityKeyById} from '@/domain/awakener-identity'
 import {getCovenantAssetById} from '@/domain/covenant-assets'
 import {getCovenants} from '@/domain/covenants'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getPosseAssetById} from '@/domain/posse-assets'
 import {getPosses, type Posse} from '@/domain/posses'
-import {getBrowserLocalStorage, safeStorageRead, safeStorageWrite} from '@/domain/storage'
+import {getBrowserLocalStorage} from '@/domain/storage'
 import {getWheelAssetById, getWheelMiniAssetById} from '@/domain/wheel-assets'
 import type {WheelMainstatFilter} from '@/domain/wheel-mainstat-filters'
 import {compareWheelsForUi} from '@/domain/wheel-sort'
@@ -38,33 +25,34 @@ import {createBuilderOwnershipProjection} from '../builder/builder-ownership-pro
 import {loadBuilderDraft, saveBuilderDraft} from '../builder/builder-persistence'
 import {allAwakeners, awakenerById} from '../builder/constants'
 import {getPublicQuickLineupSession} from '../builder/quick-lineup'
+import {isTeamEmpty, MAX_TEAMS} from '../builder/team-collection'
 import {
-  addTeam as addTeamToCollection,
-  applyTeamTemplate,
-  deleteTeam,
-  isTeamEmpty,
-  MAX_TEAMS,
-  reorderTeams,
-  resetTeam,
-  type TeamTemplateId,
-} from '../builder/team-collection'
-import {
+  assignAwakenerToSlot as assignAwakenerToTeamSlots,
+  assignCovenantToSlot as assignCovenantToTeamSlots,
+  assignWheelToSlot as assignWheelToTeamSlots,
   clearCovenantAssignment,
   clearSlotAssignment,
   clearWheelAssignment,
+  swapCovenantAssignments,
+  swapWheelAssignments,
+  type TeamStateUpdateResult,
 } from '../builder/team-state'
-import {applyPendingTransfer, applySupportTransfer} from '../builder/transfer-resolution'
+import {validateBuilderTeams} from '../builder/team-validation'
+import {
+  applyPendingTransfer,
+  applySupportTransfer,
+  clearTeamSlotTransfer,
+  swapTeamSlotTransfer,
+} from '../builder/transfer-resolution'
 import type {
   ActiveSelection,
   QuickLineupSession,
   QuickLineupStep,
   Team,
-  TeamPreviewMode,
   TeamSlot,
   WheelSlotIndex,
 } from '../builder/types'
 import {useAwakenerBuildRecommendations} from '../builder/useAwakenerBuildRecommendations'
-import {useBuilderImportExport} from '../builder/useBuilderImportExport'
 import {useTransferConfirm, type PendingTransfer} from '../builder/useTransferConfirm'
 import {getWheelSlotIndex} from '../builder/wheel-slot-index'
 import {
@@ -102,7 +90,6 @@ import type {
   BuilderV2AwakenerOption,
   BuilderV2CovenantOption,
   BuilderV2Model,
-  BuilderV2PendingTeamAction,
   BuilderV2PickerClearTarget,
   BuilderV2PickerModel,
   BuilderV2PickerPreferences,
@@ -111,7 +98,6 @@ import type {
   BuilderV2PosseOption,
   BuilderV2SlotAwakener,
   BuilderV2SlotView,
-  BuilderV2TeamActionDialog,
   BuilderV2TeamSummary,
   BuilderV2TeamTarget,
   BuilderV2TransferDialog,
@@ -119,21 +105,12 @@ import type {
   BuilderV2WheelRarityFilter,
   BuilderV2WheelSlotView,
 } from './BuilderV2ModelTypes'
+import {useBuilderV2ImportExportAdapter} from './useBuilderV2ImportExportAdapter'
+import {useBuilderV2Preferences} from './useBuilderV2Preferences'
+import {useBuilderV2TeamManagementCommands} from './useBuilderV2TeamManagementCommands'
 import {useStableEvent} from './useStableEvent'
 
 const BUILDER_V2_AUTOSAVE_DEBOUNCE_MS = 300
-const BUILDER_ALLOW_DUPES_KEY = 'skeydb.builder.allowDupes.v1'
-const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
-const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
-const BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY = 'skeydb.builder.awakenerSortGroupByFaction.v1'
-const BUILDER_DISPLAY_UNOWNED_KEY = 'skeydb.builder.displayUnowned.v1'
-const BUILDER_PROMOTE_RECOMMENDED_GEAR_KEY = 'skeydb.builder.promoteRecommendedGear.v1'
-const BUILDER_PROMOTE_MATCHING_WHEEL_MAINSTATS_KEY =
-  'skeydb.builder.promoteMatchingWheelMainstats.v1'
-const BUILDER_SINK_UNOWNED_TO_BOTTOM_KEY = 'skeydb.builder.sinkUnownedToBottom.v1'
-const BUILDER_V2_WHEEL_SORT_KEY_KEY = 'skeydb.builderV2.wheelSortKey.v1'
-const BUILDER_V2_WHEEL_SORT_DIRECTION_KEY = 'skeydb.builderV2.wheelSortDirection.v1'
-const BUILDER_V2_TEAM_PREVIEW_MODE_KEY = 'skeydb.builderV2.teamPreviewMode.v1'
 
 interface UseBuilderV2ModelOptions {
   showToast?: (message: string) => void
@@ -144,48 +121,34 @@ export function useBuilderV2Model({
 }: UseBuilderV2ModelOptions = {}): BuilderV2Model {
   const stableShowToast = useStableEvent(showToast)
   const storage = useMemo(() => getBrowserLocalStorage(), [])
-  const [allowDuplicateAwakenerIdentities, setAllowDuplicateAwakenerIdentities] = useState(
-    () => safeStorageRead(storage, BUILDER_ALLOW_DUPES_KEY) === '1',
-  )
-  const [displayUnowned, setDisplayUnowned] = useState(() => {
-    const stored = safeStorageRead(storage, BUILDER_DISPLAY_UNOWNED_KEY)
-    return stored === '0' ? false : true
-  })
-  const [sinkUnownedToBottom, setSinkUnownedToBottom] = useState(
-    () => safeStorageRead(storage, BUILDER_SINK_UNOWNED_TO_BOTTOM_KEY) === '1',
-  )
-  const [promoteRecommendedGear, setPromoteRecommendedGear] = useState(() => {
-    const stored = safeStorageRead(storage, BUILDER_PROMOTE_RECOMMENDED_GEAR_KEY)
-    return stored === '0' ? false : true
-  })
-  const [promoteMatchingWheelMainstats, setPromoteMatchingWheelMainstats] = useState(
-    () => safeStorageRead(storage, BUILDER_PROMOTE_MATCHING_WHEEL_MAINSTATS_KEY) === '1',
-  )
+  const {
+    allowDuplicateAwakenerIdentities,
+    setAllowDuplicateAwakenerIdentities,
+    displayUnowned,
+    setDisplayUnowned,
+    sinkUnownedToBottom,
+    setSinkUnownedToBottom,
+    promoteRecommendedGear,
+    setPromoteRecommendedGear,
+    promoteMatchingWheelMainstats,
+    setPromoteMatchingWheelMainstats,
+    awakenerSortKey,
+    setAwakenerSortKey,
+    awakenerSortDirection,
+    toggleAwakenerSortDirection,
+    awakenerSortGroupByRealm,
+    setAwakenerSortGroupByRealm,
+    wheelSortKey,
+    setWheelSortKey,
+    wheelSortDirection,
+    toggleWheelSortDirection,
+    teamPreviewMode,
+    setTeamPreviewMode,
+  } = useBuilderV2Preferences()
   const [awakenerFilter, setAwakenerFilter] = useState<BuilderV2AwakenerFilter>('ALL')
   const [posseFilter, setPosseFilter] = useState<BuilderV2PosseFilter>('ALL')
   const [wheelRarityFilter, setWheelRarityFilter] = useState<BuilderV2WheelRarityFilter>('ALL')
   const [wheelMainstatFilter, setWheelMainstatFilter] = useState<WheelMainstatFilter>('ALL')
-  const [awakenerSortKey, setAwakenerSortKey] = useState<AwakenerSortKey>(() =>
-    resolveAwakenerSortKey(safeStorageRead(storage, BUILDER_AWAKENER_SORT_KEY_KEY)),
-  )
-  const [awakenerSortDirection, setAwakenerSortDirection] = useState<CollectionSortDirection>(() =>
-    safeStorageRead(storage, BUILDER_AWAKENER_SORT_DIRECTION_KEY) === 'ASC' ? 'ASC' : 'DESC',
-  )
-  const [awakenerSortGroupByRealm, setAwakenerSortGroupByRealm] = useState(() => {
-    const stored = safeStorageRead(storage, BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY)
-    return stored === '0' ? false : true
-  })
-  const [wheelSortKey, setWheelSortKey] = useState<WheelCollectionSortKey>(() =>
-    resolveWheelSortKey(safeStorageRead(storage, BUILDER_V2_WHEEL_SORT_KEY_KEY)),
-  )
-  const [wheelSortDirection, setWheelSortDirection] = useState<CollectionSortDirection>(() =>
-    safeStorageRead(storage, BUILDER_V2_WHEEL_SORT_DIRECTION_KEY) === 'ASC' ? 'ASC' : 'DESC',
-  )
-  const [teamPreviewMode, setTeamPreviewModeState] = useState<TeamPreviewMode>(() =>
-    safeStorageRead(storage, BUILDER_V2_TEAM_PREVIEW_MODE_KEY) === 'expanded'
-      ? 'expanded'
-      : 'compact',
-  )
   const [canAutosaveBuilderDraft] = useState(() => {
     const persisted = loadBuilderDraft(storage)
     const initialBuilderState =
@@ -244,66 +207,6 @@ export function useBuilderV2Model({
     builderDraftStore,
     (state) => state.jumpToQuickLineupStep,
   )
-  const [pendingTeamAction, setPendingTeamAction] = useState<BuilderV2PendingTeamAction | null>(
-    null,
-  )
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_ALLOW_DUPES_KEY, allowDuplicateAwakenerIdentities ? '1' : '0')
-  }, [allowDuplicateAwakenerIdentities, storage])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_DISPLAY_UNOWNED_KEY, displayUnowned ? '1' : '0')
-  }, [displayUnowned, storage])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_SINK_UNOWNED_TO_BOTTOM_KEY, sinkUnownedToBottom ? '1' : '0')
-  }, [sinkUnownedToBottom, storage])
-
-  useEffect(() => {
-    safeStorageWrite(
-      storage,
-      BUILDER_PROMOTE_RECOMMENDED_GEAR_KEY,
-      promoteRecommendedGear ? '1' : '0',
-    )
-  }, [promoteRecommendedGear, storage])
-
-  useEffect(() => {
-    safeStorageWrite(
-      storage,
-      BUILDER_PROMOTE_MATCHING_WHEEL_MAINSTATS_KEY,
-      promoteMatchingWheelMainstats ? '1' : '0',
-    )
-  }, [promoteMatchingWheelMainstats, storage])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_AWAKENER_SORT_KEY_KEY, awakenerSortKey)
-  }, [awakenerSortKey, storage])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_AWAKENER_SORT_DIRECTION_KEY, awakenerSortDirection)
-  }, [awakenerSortDirection, storage])
-
-  useEffect(() => {
-    safeStorageWrite(
-      storage,
-      BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY,
-      awakenerSortGroupByRealm ? '1' : '0',
-    )
-  }, [awakenerSortGroupByRealm, storage])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_V2_WHEEL_SORT_KEY_KEY, wheelSortKey)
-  }, [storage, wheelSortKey])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_V2_WHEEL_SORT_DIRECTION_KEY, wheelSortDirection)
-  }, [storage, wheelSortDirection])
-
-  useEffect(() => {
-    safeStorageWrite(storage, BUILDER_V2_TEAM_PREVIEW_MODE_KEY, teamPreviewMode)
-  }, [storage, teamPreviewMode])
-
   const effectiveActiveTeamId = useMemo(
     () => (teams.some((team) => team.id === activeTeamId) ? activeTeamId : (teams[0]?.id ?? '')),
     [activeTeamId, teams],
@@ -750,14 +653,6 @@ export function useBuilderV2Model({
     [setActiveSelection],
   )
 
-  const toggleAwakenerSortDirection = useCallback(() => {
-    setAwakenerSortDirection((current) => (current === 'DESC' ? 'ASC' : 'DESC'))
-  }, [])
-
-  const toggleWheelSortDirection = useCallback(() => {
-    setWheelSortDirection((current) => (current === 'DESC' ? 'ASC' : 'DESC'))
-  }, [])
-
   const pickerPreferences = useMemo<BuilderV2PickerPreferences>(
     () => ({
       awakenerFilter,
@@ -826,7 +721,15 @@ export function useBuilderV2Model({
       pickerTab,
       posses,
       searchQuery,
+      setAllowDuplicateAwakenerIdentities,
+      setAwakenerSortGroupByRealm,
+      setAwakenerSortKey,
+      setDisplayUnowned,
+      setPromoteMatchingWheelMainstats,
+      setPromoteRecommendedGear,
       setSearchQuery,
+      setSinkUnownedToBottom,
+      setWheelSortKey,
       switchPickerTab,
       toggleAwakenerSortDirection,
       toggleWheelSortDirection,
@@ -888,201 +791,588 @@ export function useBuilderV2Model({
     [storeJumpToQuickLineupStep, syncQuickLineupFocus],
   )
 
-  const setActiveTeam = useCallback(
-    (teamId: string) => {
-      if (quickLineupState) {
-        syncQuickLineupFocus(storeCancelQuickLineup())
-      }
-      setPendingTeamAction(null)
-      storeCancelTeamRename()
+  const {
+    setActiveTeam,
+    addTeam,
+    beginTeamRename,
+    commitTeamRename,
+    cancelTeamRename,
+    requestDeleteTeam,
+    requestResetTeam,
+    requestApplyTeamTemplate,
+    moveTeamUp,
+    moveTeamDown,
+    moveTeamToIndex,
+    cancelTeamAction,
+    teamActionDialog,
+    setPendingTeamAction,
+  } = useBuilderV2TeamManagementCommands({
+    clearTransfer,
+    applyEditingTarget,
+    setActiveTeamId,
+    setTeamsInStore,
+    storeBeginTeamRename,
+    storeCancelTeamRename,
+    storeCommitTeamRename,
+    storeCancelQuickLineup,
+    syncQuickLineupFocus,
+    setViolationMessage,
+    showToast: stableShowToast,
+  })
+
+  const swapTeamSlots = useCallback(
+    (sourceTeamId: string, sourceSlotId: string, targetTeamId: string, targetSlotId: string) => {
       clearTransfer()
+      storeCancelTeamRename()
+      setPendingTeamAction(null)
+
+      const state = builderDraftStore.getState()
+      const sourceTeam = state.teams.find((team) => team.id === sourceTeamId)
+      const targetTeam = state.teams.find((team) => team.id === targetTeamId)
+      if (!sourceTeam || !targetTeam) {
+        return
+      }
+
+      const result = swapTeamSlotTransfer(
+        state.teams,
+        sourceTeamId,
+        sourceSlotId,
+        targetTeamId,
+        targetSlotId,
+        {allowDupes: allowDuplicateAwakenerIdentities},
+      )
+      if (result.nextTeams === state.teams) {
+        if (result.violation) {
+          setViolationMessage(getBuilderV2TeamSwapViolationMessage(result.violation))
+        }
+        return
+      }
+
+      setTeamsInStore(result.nextTeams)
+      setActiveTeamId(state.activeTeamId)
       setViolationMessage(null)
-      applyEditingTarget(null)
-      setActiveTeamId(teamId)
+
+      if (state.activeTeamId === targetTeamId) {
+        applyEditingTarget({kind: 'awakener', slotId: targetSlotId})
+        return
+      }
+
+      if (state.activeTeamId === sourceTeamId) {
+        applyEditingTarget({kind: 'awakener', slotId: sourceSlotId})
+      }
     },
     [
+      allowDuplicateAwakenerIdentities,
+      applyEditingTarget,
+      clearTransfer,
+      setActiveTeamId,
+      setPendingTeamAction,
+      setTeamsInStore,
+      storeCancelTeamRename,
+    ],
+  )
+
+  const assignAwakenerToTeamSlot = useCallback(
+    (awakenerId: string, teamId: string, slotId: string) => {
+      clearTransfer()
+      storeCancelTeamRename()
+      setPendingTeamAction(null)
+
+      const state = builderDraftStore.getState()
+      const targetTeam = state.teams.find((team) => team.id === teamId)
+      if (!targetTeam || !awakenerById.has(awakenerId)) {
+        return
+      }
+
+      const result = assignAwakenerToTeamSlots(targetTeam.slots, awakenerId, slotId, awakenerById, {
+        allowDuplicateIdentity: allowDuplicateAwakenerIdentities,
+      })
+      if (result.violation) {
+        setViolationMessage(getBuilderV2TeamSwapViolationMessage(result.violation))
+        return
+      }
+      if (result.nextSlots === targetTeam.slots) {
+        return
+      }
+
+      const targetSlot = targetTeam.slots.find((slot) => slot.slotId === slotId)
+      const owningTeamId = allowDuplicateAwakenerIdentities
+        ? undefined
+        : usageIndex.awakenerByIdentityKey.get(getAwakenerIdentityKeyById(awakenerId))?.teamId
+      if (owningTeamId && owningTeamId !== teamId && !targetSlot?.isSupport) {
+        requestAwakenerTransfer({
+          awakenerName: awakenerById.get(awakenerId)?.name ?? 'Awakener',
+          awakenerId,
+          canUseSupport: !state.teams.some((team) => team.slots.some((slot) => slot.isSupport)),
+          fromTeamId: owningTeamId,
+          toTeamId: teamId,
+          targetSlotId: slotId,
+        })
+        return
+      }
+
+      setTeamsInStore(replaceTeamSlots(state.teams, teamId, result.nextSlots))
+      setActiveTeamId(state.activeTeamId)
+      setViolationMessage(null)
+      if (state.activeTeamId === teamId) {
+        if (quickLineupState) {
+          advanceQuickLineupStep(result.nextSlots)
+          return
+        }
+        applyEditingTarget({kind: 'awakener', slotId})
+      }
+    },
+    [
+      advanceQuickLineupStep,
+      allowDuplicateAwakenerIdentities,
+      applyEditingTarget,
+      clearTransfer,
+      quickLineupState,
+      requestAwakenerTransfer,
+      setActiveTeamId,
+      setPendingTeamAction,
+      setTeamsInStore,
+      storeCancelTeamRename,
+      usageIndex.awakenerByIdentityKey,
+    ],
+  )
+
+  const assignWheelToTeamSlot = useCallback(
+    (wheelId: string, teamId: string, slotId: string, targetWheelIndex?: WheelSlotIndex) => {
+      clearTransfer()
+      storeCancelTeamRename()
+      setPendingTeamAction(null)
+
+      const state = builderDraftStore.getState()
+      const targetTeam = state.teams.find((team) => team.id === teamId)
+      const targetSlot = targetTeam?.slots.find((slot) => slot.slotId === slotId)
+      const wheelIndex = targetWheelIndex ?? getFirstEmptyTeamWheelIndex(targetSlot)
+      if (!targetTeam || !targetSlot || wheelIndex === null) {
+        return
+      }
+      if (!targetSlot.awakenerId) {
+        return
+      }
+
+      const wheelOwner = allowDuplicateAwakenerIdentities
+        ? undefined
+        : usedWheelByTeamOrder.get(wheelId)
+      if (
+        wheelOwner?.teamId === teamId &&
+        (wheelOwner.slotId !== slotId || wheelOwner.wheelIndex !== wheelIndex)
+      ) {
+        const result = swapWheelAssignments(
+          targetTeam.slots,
+          wheelOwner.slotId,
+          wheelOwner.wheelIndex,
+          slotId,
+          wheelIndex,
+        )
+        setTeamsInStore(replaceTeamSlots(state.teams, teamId, result.nextSlots))
+        setActiveTeamId(state.activeTeamId)
+        setViolationMessage(null)
+        if (state.activeTeamId === teamId) {
+          if (quickLineupState) {
+            advanceQuickLineupStep(result.nextSlots)
+            return
+          }
+          applyEditingTarget({kind: 'wheel', slotId, wheelIndex})
+        }
+        return
+      }
+
+      if (wheelOwner && wheelOwner.teamId !== teamId && !targetSlot.isSupport) {
+        requestWheelTransfer({
+          wheelId,
+          fromTeamId: wheelOwner.teamId,
+          fromSlotId: wheelOwner.slotId,
+          fromWheelIndex: wheelOwner.wheelIndex,
+          toTeamId: teamId,
+          targetSlotId: slotId,
+          targetWheelIndex: wheelIndex,
+        })
+        return
+      }
+
+      const result = assignWheelToTeamSlots(targetTeam.slots, slotId, wheelIndex, wheelId)
+      if (result.nextSlots === targetTeam.slots) {
+        return
+      }
+
+      setTeamsInStore(replaceTeamSlots(state.teams, teamId, result.nextSlots))
+      setActiveTeamId(state.activeTeamId)
+      setViolationMessage(null)
+      if (state.activeTeamId === teamId) {
+        if (quickLineupState) {
+          advanceQuickLineupStep(result.nextSlots)
+          return
+        }
+        applyEditingTarget({kind: 'wheel', slotId, wheelIndex})
+      }
+    },
+    [
+      advanceQuickLineupStep,
+      allowDuplicateAwakenerIdentities,
+      applyEditingTarget,
+      clearTransfer,
+      quickLineupState,
+      requestWheelTransfer,
+      setActiveTeamId,
+      setPendingTeamAction,
+      setTeamsInStore,
+      storeCancelTeamRename,
+      usedWheelByTeamOrder,
+    ],
+  )
+
+  const assignCovenantToTeamSlot = useCallback(
+    (covenantId: string, teamId: string, slotId: string) => {
+      clearTransfer()
+      storeCancelTeamRename()
+      setPendingTeamAction(null)
+
+      const state = builderDraftStore.getState()
+      const targetTeam = state.teams.find((team) => team.id === teamId)
+      const targetSlot = targetTeam?.slots.find((slot) => slot.slotId === slotId)
+      if (!targetTeam || !targetSlot?.awakenerId) {
+        return
+      }
+
+      const result = assignCovenantToTeamSlots(targetTeam.slots, slotId, covenantId)
+      if (result.nextSlots === targetTeam.slots) {
+        return
+      }
+
+      setTeamsInStore(replaceTeamSlots(state.teams, teamId, result.nextSlots))
+      setActiveTeamId(state.activeTeamId)
+      setViolationMessage(null)
+      if (state.activeTeamId === teamId) {
+        if (quickLineupState) {
+          advanceQuickLineupStep(result.nextSlots)
+          return
+        }
+        applyEditingTarget({kind: 'covenant', slotId})
+      }
+    },
+    [
+      advanceQuickLineupStep,
       applyEditingTarget,
       clearTransfer,
       quickLineupState,
       setActiveTeamId,
+      setPendingTeamAction,
+      setTeamsInStore,
       storeCancelTeamRename,
-      storeCancelQuickLineup,
-      syncQuickLineupFocus,
     ],
   )
 
-  const clearTeamTransientState = useCallback(() => {
-    if (builderDraftStore.getState().quickLineupState) {
-      syncQuickLineupFocus(storeCancelQuickLineup())
-    }
-    clearTransfer()
-    setPendingTeamAction(null)
-    storeCancelTeamRename()
-    setViolationMessage(null)
-    applyEditingTarget(null)
-  }, [
-    applyEditingTarget,
-    clearTransfer,
-    storeCancelQuickLineup,
-    storeCancelTeamRename,
-    syncQuickLineupFocus,
-  ])
-
-  const applyDeleteTeam = useCallback(
-    (teamId: string) => {
-      clearTeamTransientState()
-      const state = builderDraftStore.getState()
-      const result = deleteTeam(state.teams, teamId, state.activeTeamId)
-      setTeamsInStore(result.nextTeams)
-      setActiveTeamId(result.nextActiveTeamId)
-    },
-    [clearTeamTransientState, setActiveTeamId, setTeamsInStore],
-  )
-
-  const applyResetTeam = useCallback(
-    (teamId: string) => {
-      clearTeamTransientState()
-      setTeamsInStore((currentTeams) => resetTeam(currentTeams, teamId))
-    },
-    [clearTeamTransientState, setTeamsInStore],
-  )
-
-  const addTeam = useCallback(() => {
-    clearTeamTransientState()
-    const result = addTeamToCollection(builderDraftStore.getState().teams)
-    setTeamsInStore(result.nextTeams)
-    if (result.addedTeamId) {
-      setActiveTeamId(result.addedTeamId)
-    }
-  }, [clearTeamTransientState, setActiveTeamId, setTeamsInStore])
-
-  const beginTeamRename = useCallback(
-    (teamId: string) => {
-      const team = builderDraftStore.getState().teams.find((entry) => entry.id === teamId)
-      if (!team) {
-        return
-      }
-      clearTransfer()
-      setPendingTeamAction(null)
-      setViolationMessage(null)
-      storeBeginTeamRename(team.id, team.name, 'list')
-    },
-    [clearTransfer, storeBeginTeamRename],
-  )
-
-  const commitTeamRename = useCallback(
-    (teamId: string) => {
-      storeCommitTeamRename(teamId)
-      setViolationMessage(null)
-    },
-    [storeCommitTeamRename],
-  )
-
-  const cancelTeamRename = useCallback(() => {
-    storeCancelTeamRename()
-    setViolationMessage(null)
-  }, [storeCancelTeamRename])
-
-  const requestDeleteTeam = useCallback(
-    (teamId: string) => {
-      const team = builderDraftStore.getState().teams.find((entry) => entry.id === teamId)
-      if (!team) {
-        return
-      }
-      clearTransfer()
-      storeCancelTeamRename()
-      setViolationMessage(null)
-      if (isTeamEmpty(team)) {
-        applyDeleteTeam(team.id)
-        return
-      }
-      setPendingTeamAction({kind: 'delete', teamId: team.id, teamName: team.name})
-    },
-    [applyDeleteTeam, clearTransfer, storeCancelTeamRename],
-  )
-
-  const requestResetTeam = useCallback(
-    (teamId: string) => {
-      const team = builderDraftStore.getState().teams.find((entry) => entry.id === teamId)
-      if (!team) {
-        return
-      }
-      clearTransfer()
-      storeCancelTeamRename()
-      setViolationMessage(null)
-      if (isTeamEmpty(team)) {
-        applyResetTeam(team.id)
-        return
-      }
-      setPendingTeamAction({kind: 'reset', teamId: team.id, teamName: team.name})
-    },
-    [applyResetTeam, clearTransfer, storeCancelTeamRename],
-  )
-
-  const requestApplyTeamTemplate = useCallback(
-    (templateId: TeamTemplateId) => {
-      clearTransfer()
-      storeCancelTeamRename()
-      setViolationMessage(null)
-      const templateLabel = getTeamTemplateLabel(templateId)
-      setPendingTeamAction({kind: 'template', templateId, templateLabel})
-    },
-    [clearTransfer, storeCancelTeamRename],
-  )
-
-  const moveTeam = useCallback(
-    (teamId: string, direction: -1 | 1) => {
+  const clearTeamSlot = useCallback(
+    (teamId: string, slotId: string) => {
       clearTransfer()
       storeCancelTeamRename()
       setPendingTeamAction(null)
-      setViolationMessage(null)
 
       const state = builderDraftStore.getState()
-      const sourceIndex = state.teams.findIndex((team) => team.id === teamId)
-      const targetTeam = state.teams.at(sourceIndex + direction)
-      if (sourceIndex === -1 || !targetTeam) {
+      const nextTeams = clearTeamSlotTransfer(state.teams, teamId, slotId)
+      if (nextTeams === state.teams) {
         return
       }
 
-      setTeamsInStore(reorderTeams(state.teams, teamId, targetTeam.id))
+      setTeamsInStore(nextTeams)
       setActiveTeamId(state.activeTeamId)
+      setViolationMessage(null)
+      if (state.activeTeamId === teamId) {
+        applyEditingTarget({kind: 'awakener', slotId})
+      }
     },
-    [clearTransfer, setActiveTeamId, setTeamsInStore, storeCancelTeamRename],
+    [
+      applyEditingTarget,
+      clearTransfer,
+      setActiveTeamId,
+      setPendingTeamAction,
+      setTeamsInStore,
+      storeCancelTeamRename,
+    ],
   )
 
-  const moveTeamToIndex = useCallback(
-    (teamId: string, nextIndex: number) => {
+  const clearTeamWheel = useCallback(
+    (teamId: string, slotId: string, wheelIndex: WheelSlotIndex) => {
       clearTransfer()
       storeCancelTeamRename()
       setPendingTeamAction(null)
-      setViolationMessage(null)
 
       const state = builderDraftStore.getState()
-      const sourceIndex = state.teams.findIndex((team) => team.id === teamId)
-      const boundedNextIndex = Math.max(0, Math.min(nextIndex, state.teams.length - 1))
-      const targetTeam = state.teams[boundedNextIndex]
-      if (sourceIndex === -1 || sourceIndex === boundedNextIndex) {
+      const targetTeam = state.teams.find((team) => team.id === teamId)
+      if (!targetTeam) {
         return
       }
 
-      setTeamsInStore(reorderTeams(state.teams, teamId, targetTeam.id))
+      const result = clearWheelAssignment(targetTeam.slots, slotId, wheelIndex)
+      if (result.nextSlots === targetTeam.slots) {
+        return
+      }
+
+      setTeamsInStore(replaceTeamSlots(state.teams, teamId, result.nextSlots))
       setActiveTeamId(state.activeTeamId)
+      setViolationMessage(null)
+      if (state.activeTeamId === teamId) {
+        applyEditingTarget({kind: 'wheel', slotId, wheelIndex})
+      }
     },
-    [clearTransfer, setActiveTeamId, setTeamsInStore, storeCancelTeamRename],
+    [
+      applyEditingTarget,
+      clearTransfer,
+      setActiveTeamId,
+      setPendingTeamAction,
+      setTeamsInStore,
+      storeCancelTeamRename,
+    ],
   )
 
-  const moveTeamUp = useCallback(
-    (teamId: string) => {
-      moveTeam(teamId, -1)
+  const moveTeamWheel = useCallback(
+    (
+      sourceTeamId: string,
+      sourceSlotId: string,
+      sourceWheelIndex: WheelSlotIndex,
+      targetTeamId: string,
+      targetSlotId: string,
+      targetWheelIndex: WheelSlotIndex,
+    ) => {
+      clearTransfer()
+      storeCancelTeamRename()
+      setPendingTeamAction(null)
+
+      const state = builderDraftStore.getState()
+      const sourceTeam = state.teams.find((team) => team.id === sourceTeamId)
+      const targetTeam = state.teams.find((team) => team.id === targetTeamId)
+      if (!sourceTeam || !targetTeam) {
+        return
+      }
+      const sourceSlot = sourceTeam.slots.find((slot) => slot.slotId === sourceSlotId)
+      const targetSlot = targetTeam.slots.find((slot) => slot.slotId === targetSlotId)
+      const sourceWheelId = sourceSlot?.wheels[sourceWheelIndex] ?? null
+      if (!sourceSlot || !targetSlot?.awakenerId || !sourceWheelId) {
+        return
+      }
+
+      const existingWheelOwner = allowDuplicateAwakenerIdentities
+        ? undefined
+        : usedWheelByTeamOrder.get(sourceWheelId)
+      const existingOwnerIsDragSource =
+        existingWheelOwner?.teamId === sourceTeamId &&
+        existingWheelOwner.slotId === sourceSlotId &&
+        existingWheelOwner.wheelIndex === sourceWheelIndex
+      const existingOwnerIsDropTarget =
+        existingWheelOwner?.teamId === targetTeamId &&
+        existingWheelOwner.slotId === targetSlotId &&
+        existingWheelOwner.wheelIndex === targetWheelIndex
+      if (
+        existingWheelOwner &&
+        !existingOwnerIsDragSource &&
+        !existingOwnerIsDropTarget &&
+        !targetSlot.isSupport
+      ) {
+        requestWheelTransfer({
+          wheelId: sourceWheelId,
+          fromTeamId: existingWheelOwner.teamId,
+          fromSlotId: existingWheelOwner.slotId,
+          fromWheelIndex: existingWheelOwner.wheelIndex,
+          toTeamId: targetTeamId,
+          targetSlotId,
+          targetWheelIndex,
+        })
+        return
+      }
+
+      const result =
+        sourceTeamId === targetTeamId
+          ? normalizeSingleTeamSlotUpdate(
+              swapWheelAssignments(
+                sourceTeam.slots,
+                sourceSlotId,
+                sourceWheelIndex,
+                targetSlotId,
+                targetWheelIndex,
+              ),
+            )
+          : swapCrossTeamWheelAssignments(
+              sourceTeam.slots,
+              sourceSlotId,
+              sourceWheelIndex,
+              targetTeam.slots,
+              targetSlotId,
+              targetWheelIndex,
+            )
+
+      if (!result.changed) {
+        return
+      }
+
+      const nextTeams =
+        sourceTeamId === targetTeamId
+          ? replaceTeamSlots(state.teams, sourceTeamId, result.nextSourceSlots)
+          : replaceTwoTeamSlots(
+              state.teams,
+              sourceTeamId,
+              result.nextSourceSlots,
+              targetTeamId,
+              result.nextTargetSlots,
+            )
+
+      if (
+        sourceTeamId !== targetTeamId &&
+        !allowDuplicateAwakenerIdentities &&
+        !validateBuilderTeams(nextTeams, {allowDupes: false}).isValid
+      ) {
+        setViolationMessage(getBuilderV2TeamSwapViolationMessage('INVALID_BUILD_RULES'))
+        return
+      }
+
+      setTeamsInStore(nextTeams)
+      setActiveTeamId(state.activeTeamId)
+      setViolationMessage(null)
+      if (state.activeTeamId === targetTeamId) {
+        applyEditingTarget({kind: 'wheel', slotId: targetSlotId, wheelIndex: targetWheelIndex})
+        return
+      }
+      if (state.activeTeamId === sourceTeamId) {
+        applyEditingTarget({kind: 'wheel', slotId: sourceSlotId, wheelIndex: sourceWheelIndex})
+      }
     },
-    [moveTeam],
+    [
+      applyEditingTarget,
+      clearTransfer,
+      setActiveTeamId,
+      setPendingTeamAction,
+      setTeamsInStore,
+      storeCancelTeamRename,
+      allowDuplicateAwakenerIdentities,
+      requestWheelTransfer,
+      usedWheelByTeamOrder,
+    ],
   )
 
-  const moveTeamDown = useCallback(
-    (teamId: string) => {
-      moveTeam(teamId, 1)
+  const moveTeamWheelToTeamSlot = useCallback(
+    (
+      sourceTeamId: string,
+      sourceSlotId: string,
+      sourceWheelIndex: WheelSlotIndex,
+      targetTeamId: string,
+      targetSlotId: string,
+    ) => {
+      const state = builderDraftStore.getState()
+      const targetTeam = state.teams.find((team) => team.id === targetTeamId)
+      const targetSlot = targetTeam?.slots.find((slot) => slot.slotId === targetSlotId)
+      const targetWheelIndex = getFirstEmptyTeamWheelIndex(targetSlot)
+      if (targetWheelIndex === null) {
+        return
+      }
+
+      moveTeamWheel(
+        sourceTeamId,
+        sourceSlotId,
+        sourceWheelIndex,
+        targetTeamId,
+        targetSlotId,
+        targetWheelIndex,
+      )
     },
-    [moveTeam],
+    [moveTeamWheel],
+  )
+
+  const clearTeamCovenant = useCallback(
+    (teamId: string, slotId: string) => {
+      clearTransfer()
+      storeCancelTeamRename()
+      setPendingTeamAction(null)
+
+      const state = builderDraftStore.getState()
+      const targetTeam = state.teams.find((team) => team.id === teamId)
+      if (!targetTeam) {
+        return
+      }
+
+      const result = clearCovenantAssignment(targetTeam.slots, slotId)
+      if (result.nextSlots === targetTeam.slots) {
+        return
+      }
+
+      setTeamsInStore(replaceTeamSlots(state.teams, teamId, result.nextSlots))
+      setActiveTeamId(state.activeTeamId)
+      setViolationMessage(null)
+      if (state.activeTeamId === teamId) {
+        applyEditingTarget({kind: 'covenant', slotId})
+      }
+    },
+    [
+      applyEditingTarget,
+      clearTransfer,
+      setActiveTeamId,
+      setPendingTeamAction,
+      setTeamsInStore,
+      storeCancelTeamRename,
+    ],
+  )
+
+  const moveTeamCovenant = useCallback(
+    (sourceTeamId: string, sourceSlotId: string, targetTeamId: string, targetSlotId: string) => {
+      clearTransfer()
+      storeCancelTeamRename()
+      setPendingTeamAction(null)
+
+      const state = builderDraftStore.getState()
+      const sourceTeam = state.teams.find((team) => team.id === sourceTeamId)
+      const targetTeam = state.teams.find((team) => team.id === targetTeamId)
+      if (!sourceTeam || !targetTeam) {
+        return
+      }
+
+      const result =
+        sourceTeamId === targetTeamId
+          ? normalizeSingleTeamSlotUpdate(
+              swapCovenantAssignments(sourceTeam.slots, sourceSlotId, targetSlotId),
+            )
+          : swapCrossTeamCovenantAssignments(
+              sourceTeam.slots,
+              sourceSlotId,
+              targetTeam.slots,
+              targetSlotId,
+            )
+
+      if (!result.changed) {
+        return
+      }
+
+      const nextTeams =
+        sourceTeamId === targetTeamId
+          ? replaceTeamSlots(state.teams, sourceTeamId, result.nextSourceSlots)
+          : replaceTwoTeamSlots(
+              state.teams,
+              sourceTeamId,
+              result.nextSourceSlots,
+              targetTeamId,
+              result.nextTargetSlots,
+            )
+
+      setTeamsInStore(nextTeams)
+      setActiveTeamId(state.activeTeamId)
+      setViolationMessage(null)
+      if (state.activeTeamId === targetTeamId) {
+        applyEditingTarget({kind: 'covenant', slotId: targetSlotId})
+        return
+      }
+      if (state.activeTeamId === sourceTeamId) {
+        applyEditingTarget({kind: 'covenant', slotId: sourceSlotId})
+      }
+    },
+    [
+      applyEditingTarget,
+      clearTransfer,
+      setActiveTeamId,
+      setPendingTeamAction,
+      setTeamsInStore,
+      storeCancelTeamRename,
+    ],
   )
 
   const selectAwakenerSlot = useCallback(
@@ -1614,51 +1904,29 @@ export function useBuilderV2Model({
     updateActiveTeam,
   ])
 
-  const setTeamsForImportExport = useCallback((nextTeams: SetStateAction<Team[]>) => {
-    builderDraftStore
-      .getState()
-      .setTeams((currentTeams) =>
-        typeof nextTeams === 'function' ? nextTeams(currentTeams) : nextTeams,
-      )
-  }, [])
-
-  const clearImportExportTransientState = useCallback(() => {
-    storeFinishQuickLineup()
-    applyEditingTarget(null)
-    setViolationMessage(null)
-    clearTransfer()
-  }, [applyEditingTarget, clearTransfer, storeFinishQuickLineup])
-
   const {
     openImportDialog,
     openExportAllDialog,
     openTeamExportDialog,
-    openTeamIngameExportDialog,
+    openActiveTeamExportDialog,
+    openActiveTeamIngameExportDialog,
     importExportDialogProps,
-  } = useBuilderImportExport({
+  } = useBuilderV2ImportExportAdapter({
     teams,
-    setTeams: setTeamsForImportExport,
     effectiveActiveTeamId,
     activeTeam,
-    teamSlots: activeTeamSlots,
-    allowDupes: allowDuplicateAwakenerIdentities,
-    setAllowDupes: setAllowDuplicateAwakenerIdentities,
+    activeTeamSlots,
+    allowDuplicateAwakenerIdentities,
+    setAllowDuplicateAwakenerIdentities,
     setActiveTeamId,
-    setActiveSelection: () => {
-      clearImportExportTransientState()
+    finishQuickLineup: storeFinishQuickLineup,
+    applyEditingTarget,
+    clearViolationMessage: () => {
+      setViolationMessage(null)
     },
-    clearTransfer: clearImportExportTransientState,
-    clearPendingDelete: clearImportExportTransientState,
+    clearTransfer,
     showToast: stableShowToast,
   })
-
-  const openActiveTeamExportDialog = useCallback(() => {
-    openTeamExportDialog(effectiveActiveTeamId)
-  }, [effectiveActiveTeamId, openTeamExportDialog])
-
-  const openActiveTeamIngameExportDialog = useCallback(() => {
-    openTeamIngameExportDialog(effectiveActiveTeamId)
-  }, [effectiveActiveTeamId, openTeamIngameExportDialog])
 
   const applyTransferTeams = useCallback(
     (nextTeams: Team[], transfer: PendingTransfer) => {
@@ -1670,16 +1938,17 @@ export function useBuilderV2Model({
       builderDraftStore.getState().setTeams(nextTeams)
       const nextActiveTeam =
         nextTeams.find((team) => team.id === effectiveActiveTeamId) ?? activeTeam
+      const transferTargetsActiveTeam = transfer.toTeamId === effectiveActiveTeamId
 
       setViolationMessage(null)
-      if (transfer.kind === 'awakener') {
+      if (transfer.kind === 'awakener' && transferTargetsActiveTeam) {
         const targetSlotId =
           transfer.targetSlotId ??
           nextActiveTeam.slots.find((slot) => slot.awakenerId === transfer.awakenerId)?.slotId
         if (targetSlotId) {
           applyEditingTarget({kind: 'awakener', slotId: targetSlotId})
         }
-      } else if (transfer.kind === 'wheel') {
+      } else if (transfer.kind === 'wheel' && transferTargetsActiveTeam) {
         const targetWheelIndex = getWheelSlotIndex(transfer.targetWheelIndex)
         if (targetWheelIndex === null) {
           return
@@ -1690,11 +1959,11 @@ export function useBuilderV2Model({
           slotId: transfer.targetSlotId,
           wheelIndex: targetWheelIndex,
         })
-      } else {
+      } else if (transfer.kind === 'posse' && transferTargetsActiveTeam) {
         applyEditingTarget({kind: 'posse'}, {syncPickerTab: true})
       }
 
-      if (quickLineupState) {
+      if (quickLineupState && transferTargetsActiveTeam) {
         syncQuickLineupFocus(storeAdvanceQuickLineupStep(nextActiveTeam.slots))
       }
     },
@@ -1763,80 +2032,6 @@ export function useBuilderV2Model({
     setViolationMessage(null)
   }, [clearTransfer])
 
-  const cancelTeamAction = useCallback(() => {
-    setPendingTeamAction(null)
-    setViolationMessage(null)
-  }, [])
-
-  const confirmTeamAction = useCallback(() => {
-    if (!pendingTeamAction) {
-      return
-    }
-
-    if (pendingTeamAction.kind === 'delete') {
-      applyDeleteTeam(pendingTeamAction.teamId)
-      setPendingTeamAction(null)
-      return
-    }
-
-    if (pendingTeamAction.kind === 'reset') {
-      applyResetTeam(pendingTeamAction.teamId)
-      setPendingTeamAction(null)
-      return
-    }
-
-    clearTeamTransientState()
-    const result = applyTeamTemplate(
-      builderDraftStore.getState().teams,
-      pendingTeamAction.templateId,
-    )
-    setTeamsInStore(result.nextTeams)
-    stableShowToast(
-      `Applied ${pendingTeamAction.templateLabel}: renamed ${String(result.renamedCount)}, created ${String(result.createdCount)}, removed ${String(result.removedCount)}.`,
-    )
-    setPendingTeamAction(null)
-  }, [
-    applyDeleteTeam,
-    applyResetTeam,
-    clearTeamTransientState,
-    pendingTeamAction,
-    setTeamsInStore,
-    stableShowToast,
-  ])
-
-  const teamActionDialog = useMemo<BuilderV2TeamActionDialog | null>(() => {
-    if (!pendingTeamAction) {
-      return null
-    }
-
-    if (pendingTeamAction.kind === 'delete') {
-      return {
-        title: `Delete ${pendingTeamAction.teamName}`,
-        message: `Remove ${pendingTeamAction.teamName}? This cannot be undone.`,
-        confirmLabel: 'Delete Team',
-        confirmVariant: 'danger',
-        onConfirm: confirmTeamAction,
-      }
-    }
-
-    if (pendingTeamAction.kind === 'reset') {
-      return {
-        title: `Reset ${pendingTeamAction.teamName}`,
-        message: `Reset ${pendingTeamAction.teamName}? This clears assigned awakeners, wheels, covenant, and posse.`,
-        confirmLabel: 'Reset Team',
-        confirmVariant: 'danger',
-        onConfirm: confirmTeamAction,
-      }
-    }
-
-    return {
-      title: `Apply ${pendingTeamAction.templateLabel}`,
-      message: `Apply ${pendingTeamAction.templateLabel} to your teams? Existing teams may be renamed, created, or removed when empty.`,
-      confirmLabel: 'Apply',
-      onConfirm: confirmTeamAction,
-    }
-  }, [confirmTeamAction, pendingTeamAction])
-
   const editingLabel = useMemo(
     () =>
       getEditingLabel({
@@ -1876,7 +2071,7 @@ export function useBuilderV2Model({
     setSearchQuery,
     setPickerTab: switchPickerTab,
     setActiveTeam,
-    setTeamPreviewMode: setTeamPreviewModeState,
+    setTeamPreviewMode,
     addTeam,
     beginTeamRename,
     setEditingTeamName,
@@ -1889,6 +2084,16 @@ export function useBuilderV2Model({
     moveTeamUp,
     moveTeamDown,
     moveTeamToIndex,
+    swapTeamSlots,
+    assignAwakenerToTeamSlot,
+    assignWheelToTeamSlot,
+    assignCovenantToTeamSlot,
+    clearTeamSlot,
+    clearTeamWheel,
+    moveTeamWheel,
+    moveTeamWheelToTeamSlot,
+    clearTeamCovenant,
+    moveTeamCovenant,
     startQuickLineup,
     skipQuickLineupStep,
     goBackQuickLineupStep,
@@ -1927,14 +2132,126 @@ export function useBuilderV2Model({
   }
 }
 
-function resolveWheelSortKey(value: unknown): WheelCollectionSortKey {
-  return value === 'ALPHABETICAL' ||
-    value === 'RARITY' ||
-    value === 'REALM' ||
-    value === 'MAINSTAT' ||
-    value === 'ENLIGHTEN'
-    ? value
-    : 'RARITY'
+function getBuilderV2TeamSwapViolationMessage(code: string | undefined): string {
+  if (code === 'TOO_MANY_REALMS_IN_TEAM') {
+    return 'A team can only contain up to 2 realms.'
+  }
+
+  return 'That swap would break current builder rules.'
+}
+
+function replaceTeamSlots(teams: Team[], teamId: string, nextSlots: TeamSlot[]): Team[] {
+  return teams.map((team) => (team.id === teamId ? {...team, slots: nextSlots} : team))
+}
+
+interface TwoTeamSlotUpdateResult {
+  changed: boolean
+  nextSourceSlots: TeamSlot[]
+  nextTargetSlots: TeamSlot[]
+}
+
+function normalizeSingleTeamSlotUpdate(result: TeamStateUpdateResult): TwoTeamSlotUpdateResult {
+  return {
+    changed: result.changed,
+    nextSourceSlots: result.nextSlots,
+    nextTargetSlots: result.nextSlots,
+  }
+}
+
+function replaceTwoTeamSlots(
+  teams: Team[],
+  sourceTeamId: string,
+  nextSourceSlots: TeamSlot[],
+  targetTeamId: string,
+  nextTargetSlots: TeamSlot[],
+): Team[] {
+  return teams.map((team) => {
+    if (team.id === sourceTeamId) {
+      return {...team, slots: nextSourceSlots}
+    }
+    if (team.id === targetTeamId) {
+      return {...team, slots: nextTargetSlots}
+    }
+    return team
+  })
+}
+
+function swapCrossTeamWheelAssignments(
+  sourceSlots: TeamSlot[],
+  sourceSlotId: string,
+  sourceWheelIndex: WheelSlotIndex,
+  targetSlots: TeamSlot[],
+  targetSlotId: string,
+  targetWheelIndex: WheelSlotIndex,
+): TwoTeamSlotUpdateResult {
+  const sourceSlot = sourceSlots.find((slot) => slot.slotId === sourceSlotId)
+  const targetSlot = targetSlots.find((slot) => slot.slotId === targetSlotId)
+  const sourceWheelId = sourceSlot?.wheels[sourceWheelIndex] ?? null
+  if (!sourceSlot || !targetSlot?.awakenerId || !sourceWheelId) {
+    return {
+      changed: false,
+      nextSourceSlots: sourceSlots,
+      nextTargetSlots: targetSlots,
+    }
+  }
+
+  const targetWheelId = targetSlot.wheels[targetWheelIndex] ?? null
+  return {
+    changed: true,
+    nextSourceSlots: sourceSlots.map((slot) => {
+      if (slot.slotId !== sourceSlotId) {
+        return slot
+      }
+      const nextWheels = [...slot.wheels] as [string | null, string | null]
+      nextWheels[sourceWheelIndex] = targetWheelId
+      return {...slot, wheels: nextWheels}
+    }),
+    nextTargetSlots: targetSlots.map((slot) => {
+      if (slot.slotId !== targetSlotId) {
+        return slot
+      }
+      const nextWheels = [...slot.wheels] as [string | null, string | null]
+      nextWheels[targetWheelIndex] = sourceWheelId
+      return {...slot, wheels: nextWheels}
+    }),
+  }
+}
+
+function swapCrossTeamCovenantAssignments(
+  sourceSlots: TeamSlot[],
+  sourceSlotId: string,
+  targetSlots: TeamSlot[],
+  targetSlotId: string,
+): TwoTeamSlotUpdateResult {
+  const sourceSlot = sourceSlots.find((slot) => slot.slotId === sourceSlotId)
+  const targetSlot = targetSlots.find((slot) => slot.slotId === targetSlotId)
+  const sourceCovenantId = sourceSlot?.covenantId
+  if (!sourceSlot || !targetSlot?.awakenerId || !sourceCovenantId) {
+    return {
+      changed: false,
+      nextSourceSlots: sourceSlots,
+      nextTargetSlots: targetSlots,
+    }
+  }
+
+  return {
+    changed: true,
+    nextSourceSlots: sourceSlots.map((slot) =>
+      slot.slotId === sourceSlotId ? {...slot, covenantId: targetSlot.covenantId} : slot,
+    ),
+    nextTargetSlots: targetSlots.map((slot) =>
+      slot.slotId === targetSlotId ? {...slot, covenantId: sourceCovenantId} : slot,
+    ),
+  }
+}
+
+function getFirstEmptyTeamWheelIndex(slot: TeamSlot | undefined): WheelSlotIndex | null {
+  if (!slot?.awakenerId) {
+    return null
+  }
+
+  const firstEmptyIndex = slot.wheels.findIndex((wheelId) => !wheelId)
+  return firstEmptyIndex === 0 || firstEmptyIndex === 1 ? firstEmptyIndex : null
 }
 
 function createSlotAwakenerView(
@@ -2097,10 +2414,6 @@ function getTransferDisplayName(
     return wheelById.get(pendingTransfer.wheelId)?.name ?? pendingTransfer.itemName
   }
   return pendingTransfer.itemName
-}
-
-function getTeamTemplateLabel(templateId: TeamTemplateId): string {
-  return templateId === 'DTIDE_10' ? 'D-Tide 10' : 'D-Tide 5'
 }
 
 function getEditingLabel({

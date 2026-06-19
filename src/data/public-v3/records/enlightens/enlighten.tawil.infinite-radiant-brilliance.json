@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0047",
   "slot": "OverExalt",
-  "descriptionTemplate": "Tawil's DMG, Shield Generation, and HP Recovery temporarily increase by 35%. {Discover} 3 skill cards from 10 instead of 5 current realm cards and immediately obtain 3 Arithmetica.",
+  "descriptionTemplate": "Tawil's DMG, Shield Generation, and HP Recovery temporarily increase by 35%. {Discover} 3 Skill Cards from 10 instead of 5 current realm cards and immediately obtain 3 Arithmetica.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Tawil"
 }

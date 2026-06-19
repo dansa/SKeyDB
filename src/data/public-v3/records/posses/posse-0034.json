@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Astral Reign - Ch. 2 - Metamorphosis",
   "realm": "ULTRA",
   "lineupToken": "M",
-  "descriptionTemplate": "Recover [Heal:Arg1] HP and gain [Arg2] {STR}. If Clementine is in your team, add 1 extra instance of the following effects to her next Command Card you play: DMG, Shield, HP Recovery, Aliemus, and Keyflare.",
+  "descriptionTemplate": "Recover [Heal:Arg1] HP and gain [Arg2] {STR}. If Clementine is in team, add 1 extra instance of the following effects to her next Command Card you play: DMG, Shield, HP Recovery, Aliemus, and Keyflare.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

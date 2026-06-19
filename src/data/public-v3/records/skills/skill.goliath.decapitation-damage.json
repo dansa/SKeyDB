@@ -34,7 +34,7 @@
       "ownerAwakenerId": "awakener-0021",
       "ownerAwakenerName": "Goliath",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG. If the Target's HP is below 25% or the Target is Killed, return Arithmetica Cost. {STR} has [Arg2] {plural:[Arg2]|time|times} effectiveness on {Decapitation Damage}. For each Tentacle, Strength has an additional 1 time effectiveness.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. If the Target's HP is below 25% or the Target is Killed, return Arithmetica Cost. {STR} has [Arg2] {plural:[Arg2]|time|times} effectiveness on {Decapitation Damage}. For each Tentacle, {STR} has an additional 1 time effectiveness.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

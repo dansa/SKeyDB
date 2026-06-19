@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0048",
   "slot": "E1",
-  "descriptionTemplate": "Obtaining {Ancient Caress} increases Strength by 50%, and the effects of {Sacred Blood's Instinct} are doubled.",
+  "descriptionTemplate": "Obtaining {Ancient Caress} increases {STR} by 50%, and the effects of {Sacred Blood's Instinct} are doubled.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Thais"
 }

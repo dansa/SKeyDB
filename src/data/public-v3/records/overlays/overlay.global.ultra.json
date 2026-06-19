@@ -9,6 +9,6 @@
   },
   "overlayType": "realm",
   "aliases": [],
-  "descriptionTemplate": "An {Ultra} team's temporary copy of the first command card played each turn enters {Ultra Space} and triggers powerful {Leap} effects. When {Ultra Space} reaches its limit, gain 1 extra {Ultra Round}, during which all {Leap} effects are triggered. The key to mastering the {Ultra} Team: carefully plan the first card played each turn.",
+  "descriptionTemplate": "An {Ultra} team's temporary copy of the first Command Card played each turn enters {Ultra Space} and triggers powerful {Leap} effects. When {Ultra Space} reaches its limit, gain 1 extra {Ultra Round}, during which all {Leap} effects are triggered. The key to mastering the {Ultra} Team: carefully plan the first card played each turn.",
   "descriptionArgs": {}
 }

@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0044",
   "derivedFromId": "skill.salvador.end-of-suffering",
   "rootSkillId": "skill.salvador.end-of-suffering",
-  "descriptionTemplate": "Pain for pain. Consume all Remaining Healing of the {Crimson Furnace}, for every 1 point consumed, DMG Boost by 3; if it's a Boss Battle, DMG Boost by 9 per point consumed instead. For every 1% Max HP of {Crimson Furnace} consumed, Final DMG increases by [Arg5]%.",
+  "descriptionTemplate": "Pain for pain. Consume all Remaining Healing of the {Crimson Furnace}, for every 1 point consumed, DMG bonus by 3; if it's a Boss Battle, DMG bonus by 9 per point consumed instead. For every 1% Max HP of {Crimson Furnace} consumed, Final DMG increases by [Arg5]%.",
   "descriptionArgs": {
     "Arg5": {
       "kind": "fixed",

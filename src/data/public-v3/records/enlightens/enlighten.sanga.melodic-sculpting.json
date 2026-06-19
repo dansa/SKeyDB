@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0045",
   "slot": "E1",
-  "descriptionTemplate": "{Opus of Isolation} immediately grants a shield equal to [Arg1]% of DEF. (effect stacks with {Opus of Isolation} skill level.)",
+  "descriptionTemplate": "{Opus of Isolation} immediately grants Shield equal to [Arg1]% of DEF. (effect stacks with {Opus of Isolation} skill level.)",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

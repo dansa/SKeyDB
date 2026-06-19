@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0010",
   "slot": "Skill2",
-  "descriptionTemplate": "Restore [Heal:Arg1] HP, temporarily remove {Madness} from all enemies and temporarily reduce their {STR⯆} by [Exhaustion:Arg3]. {Quasar}: Gain [Power:Arg4] {STR}.",
+  "descriptionTemplate": "Restore [Heal:Arg1] HP, temporarily remove {Madness} from all enemies and temporarily reduce their {STR▼} by [Exhaustion:Arg3]. {Quasar}: Gain [Power:Arg4] {STR}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0043",
   "slot": "E1",
-  "descriptionTemplate": "{Unexpected Gain} will also reduce the Arithmetica Cost of the chosen Card by an additional 1 if a critical hit occurs. {Showdown} grants Ryker an additional 3 Aliemus for every critical hit.",
+  "descriptionTemplate": "{Unexpected Gain} will also reduce the Arithmetica Cost of the chosen card by an additional 1 if a critical hit occurs. {Showdown} grants Ryker an additional 3 Aliemus for every critical hit.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Ryker"
 }

@@ -14,6 +14,6 @@
   "aliases": ["Propagation Frenzy", "Breeding Frenzy"],
   "iconId": "IconS_Buff_088",
   "textColor": "damage",
-  "descriptionTemplate": "For each stack, this Awakener's next Exalt this turn deals 1% more DMG, Shield, HP Recovery, {STR}, {STR⯆}, {Tentacle DMG}, Fixed {Poison}, and Fixed {Counter}.",
+  "descriptionTemplate": "For each stack, this Awakener's next Exalt this turn deals 1% more DMG, Shield, HP Recovery, {STR}, {STR▼}, {Tentacle DMG}, Fixed {Poison}, and Fixed {Counter}.",
   "descriptionArgs": {}
 }

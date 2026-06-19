@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useMemo, useState} from 'react'
 
 import {
   closestCenter,
@@ -24,19 +24,10 @@ import {
   type BuilderV2DropTargetDescriptor,
   type BuilderV2TeamDragPreviewDescriptor,
 } from './builder-v2-dnd'
-import type {BuilderV2Model} from './BuilderV2ModelTypes'
+import type {BuilderV2DndCommandPort} from './BuilderV2DndCommandPort'
 
 interface UseBuilderV2DndOptions {
-  model: BuilderV2Model
-}
-
-const builderV2CollisionDetection: CollisionDetection = (args) => {
-  if (isBuilderV2TeamSortDragPayload(args.active.data.current)) {
-    return closestCenter(args)
-  }
-
-  const pointerCollisions = pointerWithin(args)
-  return pointerCollisions.length > 0 ? pointerCollisions : closestCenter(args)
+  model: BuilderV2DndCommandPort
 }
 
 export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
@@ -45,6 +36,11 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
     useState<BuilderV2TeamDragPreviewDescriptor | null>(null)
   const [activeDropTarget, setActiveDropTarget] = useState<BuilderV2DropTargetDescriptor | null>(
     null,
+  )
+  const teamSortIds = useMemo(() => new Set(model.teams.map((team) => team.id)), [model.teams])
+  const collisionDetection = useMemo(
+    () => createBuilderV2CollisionDetection(teamSortIds),
+    [teamSortIds],
   )
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -69,7 +65,7 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
 
     const target = parseBuilderV2DndId(event.over?.id)
     const nextDropTarget = isBuilderV2DragPayload(payload)
-      ? resolveBuilderV2EffectiveDropTarget(payload, target, model.slots)
+      ? resolveBuilderV2EffectiveDropTarget(payload, target, model.slots, model.teams)
       : null
     setActiveDropTarget((current) =>
       areBuilderV2DropTargetsEqual(current, nextDropTarget) ? current : nextDropTarget,
@@ -97,7 +93,10 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
     }
 
     const target = parseBuilderV2DndId(event.over?.id)
-    const action = resolveBuilderV2DndAction(payload, target, {slots: model.slots})
+    const action = resolveBuilderV2DndAction(payload, target, {
+      slots: model.slots,
+      teams: model.teams,
+    })
     if (!action) {
       return
     }
@@ -109,7 +108,7 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
     activeDropTarget,
     activePreview,
     activeTeamPreview,
-    collisionDetection: builderV2CollisionDetection,
+    collisionDetection,
     isDragging: Boolean(activePreview) || Boolean(activeTeamPreview),
     isLoadoutDragging: Boolean(activePreview),
     sensors,
@@ -120,9 +119,35 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
   }
 }
 
+export function filterBuilderV2TeamSortDroppables<TDroppable extends {id: unknown}>(
+  droppableContainers: TDroppable[],
+  teamSortIds: ReadonlySet<string>,
+): TDroppable[] {
+  return droppableContainers.filter(
+    (droppable) => typeof droppable.id === 'string' && teamSortIds.has(droppable.id),
+  )
+}
+
+function createBuilderV2CollisionDetection(teamSortIds: ReadonlySet<string>): CollisionDetection {
+  return (args) => {
+    if (isBuilderV2TeamSortDragPayload(args.active.data.current)) {
+      return closestCenter({
+        ...args,
+        droppableContainers: filterBuilderV2TeamSortDroppables(
+          args.droppableContainers,
+          teamSortIds,
+        ),
+      })
+    }
+
+    const pointerCollisions = pointerWithin(args)
+    return pointerCollisions.length > 0 ? pointerCollisions : closestCenter(args)
+  }
+}
+
 function createBuilderV2TeamSortPreview(
   payload: unknown,
-  model: BuilderV2Model,
+  model: BuilderV2DndCommandPort,
 ): BuilderV2TeamDragPreviewDescriptor | null {
   if (!isBuilderV2TeamSortDragPayload(payload)) {
     return null
@@ -137,7 +162,11 @@ function createBuilderV2TeamSortPreview(
   return {team, index, previewMode: model.teamPreviewMode}
 }
 
-function dispatchBuilderV2TeamSort(model: BuilderV2Model, activeTeamId: string, overId: unknown) {
+function dispatchBuilderV2TeamSort(
+  model: BuilderV2DndCommandPort,
+  activeTeamId: string,
+  overId: unknown,
+) {
   if (typeof overId !== 'string' || activeTeamId === overId) {
     return
   }
@@ -150,16 +179,25 @@ function dispatchBuilderV2TeamSort(model: BuilderV2Model, activeTeamId: string, 
   model.moveTeamToIndex(activeTeamId, targetIndex)
 }
 
-function dispatchBuilderV2DndAction(model: BuilderV2Model, action: BuilderV2DndAction) {
+function dispatchBuilderV2DndAction(model: BuilderV2DndCommandPort, action: BuilderV2DndAction) {
   switch (action.kind) {
     case 'assign-awakener':
       model.assignAwakenerToSlot(action.awakenerId, action.slotId)
       return
+    case 'assign-awakener-to-team-slot':
+      model.assignAwakenerToTeamSlot(action.awakenerId, action.teamId, action.slotId)
+      return
     case 'assign-wheel':
       model.assignWheelToSlot(action.wheelId, action.slotId, action.wheelIndex)
       return
+    case 'assign-wheel-to-team-slot':
+      model.assignWheelToTeamSlot(action.wheelId, action.teamId, action.slotId, action.wheelIndex)
+      return
     case 'assign-covenant':
       model.assignCovenantToSlot(action.covenantId, action.slotId)
+      return
+    case 'assign-covenant-to-team-slot':
+      model.assignCovenantToTeamSlot(action.covenantId, action.teamId, action.slotId)
       return
     case 'assign-posse':
       model.assignPosse(action.posseId)
@@ -167,8 +205,52 @@ function dispatchBuilderV2DndAction(model: BuilderV2Model, action: BuilderV2DndA
     case 'remove-awakener':
       model.removeAwakener(action.slotId)
       return
+    case 'remove-team-slot':
+      model.clearTeamSlot(action.teamId, action.slotId)
+      return
     case 'move-awakener':
       model.moveAwakener(action.fromSlotId, action.toSlotId)
+      return
+    case 'swap-team-slots':
+      model.swapTeamSlots(
+        action.sourceTeamId,
+        action.sourceSlotId,
+        action.targetTeamId,
+        action.targetSlotId,
+      )
+      return
+    case 'remove-team-wheel':
+      model.clearTeamWheel(action.teamId, action.slotId, action.wheelIndex)
+      return
+    case 'move-team-wheel':
+      model.moveTeamWheel(
+        action.sourceTeamId,
+        action.sourceSlotId,
+        action.sourceWheelIndex,
+        action.targetTeamId,
+        action.targetSlotId,
+        action.targetWheelIndex,
+      )
+      return
+    case 'move-team-wheel-to-team-slot':
+      model.moveTeamWheelToTeamSlot(
+        action.sourceTeamId,
+        action.sourceSlotId,
+        action.sourceWheelIndex,
+        action.targetTeamId,
+        action.targetSlotId,
+      )
+      return
+    case 'remove-team-covenant':
+      model.clearTeamCovenant(action.teamId, action.slotId)
+      return
+    case 'move-team-covenant':
+      model.moveTeamCovenant(
+        action.sourceTeamId,
+        action.sourceSlotId,
+        action.targetTeamId,
+        action.targetSlotId,
+      )
       return
     case 'remove-wheel':
       model.clearWheel(action.slotId, action.wheelIndex)
@@ -217,5 +299,24 @@ function areBuilderV2DropTargetsEqual(
     case 'picker':
     case 'posse':
       return true
+    case 'team-management-slot':
+      return (
+        next.kind === 'team-management-slot' &&
+        current.teamId === next.teamId &&
+        current.slotId === next.slotId
+      )
+    case 'team-management-wheel':
+      return (
+        next.kind === 'team-management-wheel' &&
+        current.teamId === next.teamId &&
+        current.slotId === next.slotId &&
+        current.wheelIndex === next.wheelIndex
+      )
+    case 'team-management-covenant':
+      return (
+        next.kind === 'team-management-covenant' &&
+        current.teamId === next.teamId &&
+        current.slotId === next.slotId
+      )
   }
 }

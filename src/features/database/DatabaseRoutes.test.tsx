@@ -2,7 +2,7 @@
 
 import '@testing-library/jest-dom/vitest'
 
-import {Suspense} from 'react'
+import {Suspense, useState} from 'react'
 
 import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {MemoryRouter, Routes, useLocation, useNavigate} from 'react-router-dom'
@@ -76,25 +76,37 @@ vi.mock('@/domain/mainstats', () => ({
   MAINSTAT_ICON_BY_ID: {},
 }))
 
-vi.mock('@/features/database/internal/AwakenerDetailModal', () => ({
-  AwakenerDetailModal: ({
-    activeTab = 'overview',
-    awakener,
-    onClose,
-    onSelectAwakener,
-    onTabChange,
-  }: {
-    activeTab?: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore'
-    awakener: {id: string; name: string}
-    onClose: () => void
-    onSelectAwakener: (
-      awakener: {id: string; name: string},
-      tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore',
-    ) => void
-    onTabChange: (tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore') => void
-  }) => (
+function MockAwakenerDetailModal({
+  activeTab = 'overview',
+  awakener,
+  onClose,
+  onSelectAwakener,
+  onTabChange,
+}: {
+  activeTab?: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore'
+  awakener: {id: string; name: string}
+  onClose: () => void
+  onSelectAwakener: (
+    awakener: {id: string; name: string},
+    tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore',
+  ) => void
+  onTabChange: (tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore') => void
+}) {
+  const [mockSliderLevel, setMockSliderLevel] = useState(60)
+
+  return (
     <dialog aria-label={`${awakener.name} details`} open>
       <div>{`Active tab ${activeTab}`}</div>
+      <div>{`Mock slider level ${String(mockSliderLevel)}`}</div>
+      <button
+        aria-label='Set mock slider level'
+        onClick={() => {
+          setMockSliderLevel(90)
+        }}
+        type='button'
+      >
+        Set Level
+      </button>
       <button
         aria-label='Switch to lore tab'
         onClick={() => {
@@ -117,7 +129,11 @@ vi.mock('@/features/database/internal/AwakenerDetailModal', () => ({
         Close
       </button>
     </dialog>
-  ),
+  )
+}
+
+vi.mock('@/features/database/internal/AwakenerDetailModal', () => ({
+  AwakenerDetailModal: MockAwakenerDetailModal,
 }))
 
 vi.mock('@/features/database/internal/WheelDetailModal', () => ({
@@ -408,6 +424,31 @@ describe('DatabasePage', () => {
     })
 
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha/lore')
+  })
+
+  it('preserves modal-local progression state when switching detail tabs', async () => {
+    await renderDatabasePage('/database/awk/alpha/skills')
+
+    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    expect(screen.getByText('Mock slider level 60')).toBeInTheDocument()
+
+    await act(async () => {
+      fireEvent.click(screen.getByLabelText('Set mock slider level'))
+    })
+
+    expect(screen.getByText('Mock slider level 90')).toBeInTheDocument()
+
+    await act(async () => {
+      fireEvent.click(screen.getByLabelText('Switch to lore tab'))
+    })
+
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent(
+        '/database/awakeners/alpha/lore',
+      )
+      expect(screen.getByText('Active tab lore')).toBeInTheDocument()
+    })
+    expect(screen.getByText('Mock slider level 90')).toBeInTheDocument()
   })
 
   it('pushes detail tab changes into browser history', async () => {

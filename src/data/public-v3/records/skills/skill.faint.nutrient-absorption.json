@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0016",
   "slot": "Skill1",
-  "descriptionTemplate": "Gain [Power:Arg1] {STR}. Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg2].",
+  "descriptionTemplate": "Gain [Power:Arg1] {STR}. Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg2].",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

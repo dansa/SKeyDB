@@ -11,7 +11,7 @@
     "icon": "asset-relic-9047-icon"
   },
   "relicType": "D-Zone Initial Relic",
-  "descriptionTemplate": "At the end of the round, if Keyflare is full, consumes [Arg1] Keyflare to put a {Silver Key Dawn} into your hand.",
+  "descriptionTemplate": "At the end of the turn, if Keyflare is full, consumes [Arg1] Keyflare to put a {Silver Key Dawn} into your hand.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0005",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nFor every {Gland Division} consumed by {Clamorous Ocean}, Aurita's DMG output for the rest of the battle +[Arg3]% ATK. When at least 20 {Gland Division} cards are consumed in a Boss Battle, {Gland Division} deals +1 instance of DMG when played or consumed. The first [Arg4] {Gland Division} played each turn does not add {Arithmetica Harmony} stacks.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nFor every {Gland Division} consumed by {Clamorous Ocean}, Aurita's DMG output for the rest of the battle +[Arg3]% ATK. When at least 20 {Gland Division} cards are consumed in a Boss Battle, {Gland Division} deals +1 instance of DMG when played or consumed. The first [Arg4] {Gland Division} played each turn does not add {Arithmetica Harmony} stacks.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

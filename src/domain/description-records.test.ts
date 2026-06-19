@@ -126,7 +126,7 @@ describe('description-records', () => {
     const derived = adaptPublicV3DerivedSkillRecord(derivedRecord)
     const enlighten = adaptPublicV3EnlightenRecord(enlightenRecord)
 
-    expect(resolveDescribedRecord(overlay).description).toContain('Temp. {STR⯆} -13.')
+    expect(resolveDescribedRecord(overlay).description).toContain('Temp. {STR▼} -13.')
     expect(resolveDescribedRecord(derived).description).toContain(
       'One Awakener gains 30 Aliemus and +10% Crit Rate this turn.',
     )

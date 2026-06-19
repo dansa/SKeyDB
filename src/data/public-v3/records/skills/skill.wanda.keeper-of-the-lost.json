@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0052",
   "slot": "Skill1",
-  "descriptionTemplate": "Gain [Counterattack:Arg1] stacks of {Counter}. Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg2]; if there is only one enemy, the {STR} Reduction effect +50%. {Leap}: Consumes 5 stacks of {Dreamlure}; if successful, gain an additional [Arg3] {plural:[Arg3]|stack|stacks} of {Counter}, otherwise gain 2 stacks of {Dreamlure}.",
+  "descriptionTemplate": "Gain [Counterattack:Arg1] stacks of {Counter}. Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg2]; if there is only one enemy, the {STR} Reduction effect +50%. {Leap}: Consumes 5 stacks of {Dreamlure}; if successful, gain an additional [Arg3] {plural:[Arg3]|stack|stacks} of {Counter}, otherwise gain 2 stacks of {Dreamlure}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

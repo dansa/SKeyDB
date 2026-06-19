@@ -1824,6 +1824,23 @@
   box-shadow: inset 0 0 0 1px var(--builder-v2-remove-drop-inset);
 }
 
+.builder-v2-picker-window-spacer {
+  flex: 0 0 100%;
+  width: 100%;
+  min-height: 0;
+  pointer-events: none;
+}
+
+.builder-v2-picker-empty {
+  flex: 1 0 100%;
+  margin: 0;
+  padding: 1rem 0.5rem;
+  color: var(--ui-text-muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-align: center;
+}
+
 .builder-v2-picker-content--remove-target {
   position: relative;
 }
@@ -3290,6 +3307,22 @@
   --team-summary-realm: oklch(46% 0.03 232);
 }
 
+.builder-v2-team-management-slot--drop-target {
+  --team-summary-slot-border-color: var(--builder-v2-drop-border);
+  --team-summary-slot-hover-border-color: var(--builder-v2-drop-border);
+}
+
+.builder-v2-team-management-slot--drop-target .builder-v2-team-management-slot-art {
+  box-shadow:
+    0 0 0 1px var(--builder-v2-drop-border-strong),
+    0 0 0.9rem oklch(76% 0.13 80 / 0.22),
+    var(--ui-surface-hairline-soft);
+}
+
+.builder-v2-team-management-slot--dragging {
+  opacity: 0.46;
+}
+
 .builder-v2-team-management--preview-expanded .builder-v2-team-management-slots {
   grid-template-columns: repeat(4, minmax(5.45rem, 6.25rem));
 }
@@ -3575,6 +3608,19 @@
 .builder-v2-team-management-loadout-button:focus-visible {
   border-color: var(--builder-v2-focus-ring-color);
   box-shadow: var(--builder-v2-focus-inset), var(--builder-v2-focus-halo);
+}
+
+.builder-v2-team-management-loadout-cell--drop-target,
+.builder-v2-team-management-slot-covenant--drop-target {
+  border-color: var(--builder-v2-drop-border-strong);
+  box-shadow:
+    inset 0 0 0 1px var(--builder-v2-drop-inset),
+    0 0 0.72rem oklch(76% 0.13 80 / 0.2);
+}
+
+.builder-v2-team-management-loadout-cell--dragging,
+.builder-v2-team-management-slot-covenant--dragging {
+  opacity: 0.52;
 }
 
 .builder-v2-team-management-slot-covenant-button:focus-visible {

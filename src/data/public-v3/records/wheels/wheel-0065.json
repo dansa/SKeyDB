@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "DMG_AMP",
   "lineupToken": "xo",
-  "descriptionTemplate": "Team Unique: Reduce the cost of {Rouse} Cards in D-Mark Store by [StateArg1] Black Sigils. the wielder's {Rouse} card gains {Innate}. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionTemplate": "Team Unique: Reduce the cost of {Rouse} cards in D-Mark Store by [StateArg1] Black Sigils. the wielder's {Rouse} card gains {Innate}. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

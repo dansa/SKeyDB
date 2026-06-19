@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0012",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nWhen {Ashen Ruins} refreshes, the discount chance +[Arg3]%, and the discount rate +[Arg4]%.\n{Skull Reaver} Base DMG +[Arg5]%, which is calculated independently of the Base DMG increase from scoring kills.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nWhen {Ashen Ruins} refreshes, the discount chance +[Arg3]%, and the discount rate +[Arg4]%.\n{Skull Reaver} Base DMG +[Arg5]%, which is calculated independently of the Base DMG increase from scoring kills.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

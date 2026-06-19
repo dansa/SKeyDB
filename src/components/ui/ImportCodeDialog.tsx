@@ -1,5 +1,6 @@
 import {useEffect, useRef, useState, type ReactNode} from 'react'
 
+import {isImportCodeCandidateTooLong, maxImportCodeCandidateLength} from '@/domain/import-export'
 import {ModalFrame} from '@/ui/modal/ModalFrame'
 
 import {Button} from './Button'
@@ -19,6 +20,9 @@ export function ImportCodeDialog({
 }: ImportCodeDialogProps) {
   const [value, setValue] = useState(initialValue)
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
+  const trimmedValue = value.trim()
+  const isTooLong = isImportCodeCandidateTooLong(value)
+  const canSubmit = trimmedValue.length > 0 && !isTooLong
 
   useEffect(() => {
     inputRef.current?.focus()
@@ -42,13 +46,14 @@ export function ImportCodeDialog({
           }
 
           const trimmed = value.trim()
-          if (!trimmed) {
+          if (!trimmed || isTooLong) {
             return
           }
 
           event.preventDefault()
           onSubmit(trimmed)
         }}
+        maxLength={maxImportCodeCandidateLength}
         placeholder='Paste import code here'
         ref={inputRef}
         value={value}
@@ -58,9 +63,9 @@ export function ImportCodeDialog({
           Cancel
         </Button>
         <Button
-          disabled={value.trim().length === 0}
+          disabled={!canSubmit}
           onClick={() => {
-            onSubmit(value.trim())
+            onSubmit(trimmedValue)
           }}
           variant='primary'
         >

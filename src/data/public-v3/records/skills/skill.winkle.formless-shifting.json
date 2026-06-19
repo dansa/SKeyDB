@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0053",
       "ownerAwakenerName": "Winkle",
       "patch": {
-        "descriptionTemplate": "Dispel self {Fragile} state and gain [Block:Arg1] Shield. Obtain [Counterattack:Arg3] stacks of {Counter}. Choose 1 other Awakeners to Gain [Energy:Arg2] Aliemus and make that Awakener release 2 Exalt Bursts this turn before entering cooldown.",
+        "descriptionTemplate": "Dispel self {Fragile} state and gain [Block:Arg1] Shield. Obtain [Counterattack:Arg3] stacks of {Counter}. Choose 1 other Awakeners to Gain [Energy:Arg2] Aliemus and make that Awakener release 2 Exalts this turn before entering cooldown.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

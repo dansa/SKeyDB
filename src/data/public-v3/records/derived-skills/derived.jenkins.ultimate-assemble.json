@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0025",
   "derivedFromId": "skill.jenkins.gotcha",
   "rootSkillId": "skill.jenkins.gotcha",
-  "descriptionTemplate": "Shuffle 1 card that Deal [Damage:Arg1] DMG X+10 times, {Swarm Impact} into the top of the Draw pile.",
+  "descriptionTemplate": "Shuffle 1 card that Deal [Damage:Arg1] DMG X+10 times, {Swarm Impact} into the top of the Draw Pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

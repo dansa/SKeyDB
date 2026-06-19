@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Passion to Dust",
   "realm": "ULTRA",
   "lineupToken": "B",
-  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg2], and the Temp. Crit. Rate & Crit. DMG of their Command Cards by [Arg1]%. If Liz is in your team, create 1 {Corrupted Flames} with {Exhaust}.",
+  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg2], and the Temp. Crit. Rate & Crit. DMG of their Command Cards by [Arg1]%. If Liz is in team, create 1 {Corrupted Flames} with {Exhaust}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

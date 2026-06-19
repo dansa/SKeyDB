@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0028",
   "slot": "Rouse",
-  "descriptionTemplate": "Leigh gains [Energy:Arg1] Aliemus. {Rouse}: After Leigh plays a Card, {Embryo Fusion} +[Blood:Arg2].",
+  "descriptionTemplate": "Leigh gains [Energy:Arg1] Aliemus. {Rouse}: After Leigh plays a card, {Embryo Fusion} +[Blood:Arg2].",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

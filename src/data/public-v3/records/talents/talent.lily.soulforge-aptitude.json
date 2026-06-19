@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0029",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe Final DMG of Lily's \"Strike\" +[Arg3]%, and the increase is doubled during Boss Battle. After being attacked by an {Ultra} enemy, gain Delayed HP Recovery equal to [Arg4]% of the HP lost from the attack. {Strike to Protect}'s DMG increase based on {Endure} stacks effect enjoys [Arg5]% DMG Amplification bonus.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe Final DMG of Lily's \"Strike\" +[Arg3]%, and the increase is doubled during Boss Battle. After being attacked by an {Ultra} enemy, gain Delayed HP Recovery equal to [Arg4]% of the HP lost from the attack. {Strike to Protect}'s DMG increase based on {Endure} stacks effect enjoys [Arg5]% DMG Amplification bonus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

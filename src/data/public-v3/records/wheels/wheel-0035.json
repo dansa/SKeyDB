@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0024",
   "ownerAwakenerName": "Horla",
   "lineupToken": "k",
-  "descriptionTemplate": "Team Unique: The wielder's Command Card Crit. Rate and Crit. DMG, Shield Generation, HP Recovery, Aliemus, and Strength +[StateArg1]%. If the current realm is {Ultra}, gain [StateArg2] Keyflare after releasing {Annihilation}. After entering the {Ultra Round}, the next Posse is released twice this turn.",
+  "descriptionTemplate": "Team Unique: The wielder's Command Card Crit. Rate and Crit. DMG, Shield Generation, HP Recovery, Aliemus, and {STR} +[StateArg1]%. If the current realm is {Ultra}, gain [StateArg2] Keyflare after releasing {Annihilation}. After entering the {Ultra Round}, the next Posse is released twice this turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

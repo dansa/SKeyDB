@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0031",
   "slot": "E2",
-  "descriptionTemplate": "{Tides of Hubris} is considered as \"Strike,\" and the Strength obtained is doubled.",
+  "descriptionTemplate": "{Tides of Hubris} is considered as \"Strike,\" and the {STR} obtained is doubled.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Lotan"
 }

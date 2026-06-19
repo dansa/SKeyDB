@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "ALIEMUS_REGEN",
   "lineupToken": "H",
-  "descriptionTemplate": "Team Unique: Increases the base Exalt DMG of the wielder by [StateArg1]%, and increases shield and HP Recovery by [StateArg2]%.",
+  "descriptionTemplate": "Team Unique: The wielder's Exalt Base DMG +[StateArg1]%, Shield Generation and HP Recovery +[StateArg2]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

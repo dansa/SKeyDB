@@ -22,6 +22,7 @@ import {BuilderV2ActiveFooter, BuilderV2ActiveHeader} from './BuilderV2ActiveTea
 import {BuilderV2AdaptiveLayout} from './BuilderV2AdaptiveLayout'
 import {BuilderV2AwakenerPicker} from './BuilderV2AwakenerPicker'
 import {BuilderV2DndEnabledContext, useBuilderV2DndEnabledForDevice} from './BuilderV2DndCapability'
+import type {BuilderV2DndCommandPort} from './BuilderV2DndCommandPort'
 import {BuilderV2DragOverlay} from './BuilderV2DragOverlay'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
 import {BuilderV2MobileLayout} from './BuilderV2MobileLayout'
@@ -80,7 +81,34 @@ export function BuilderV2Page() {
     hasBuilderDetailOverlayOpen,
     hasBuilderDetailOverlayOpen,
   )
-  const dnd = useBuilderV2Dnd({model})
+  const dndCommandPort: BuilderV2DndCommandPort = {
+    slots: model.slots,
+    teams: model.teams,
+    teamPreviewMode: model.teamPreviewMode,
+    moveTeamToIndex: model.moveTeamToIndex,
+    swapTeamSlots: model.swapTeamSlots,
+    assignAwakenerToTeamSlot: model.assignAwakenerToTeamSlot,
+    assignWheelToTeamSlot: model.assignWheelToTeamSlot,
+    assignCovenantToTeamSlot: model.assignCovenantToTeamSlot,
+    clearTeamSlot: model.clearTeamSlot,
+    clearTeamWheel: model.clearTeamWheel,
+    moveTeamWheel: model.moveTeamWheel,
+    moveTeamWheelToTeamSlot: model.moveTeamWheelToTeamSlot,
+    clearTeamCovenant: model.clearTeamCovenant,
+    moveTeamCovenant: model.moveTeamCovenant,
+    assignAwakenerToSlot: model.assignAwakenerToSlot,
+    assignWheelToSlot: model.assignWheelToSlot,
+    assignCovenantToSlot: model.assignCovenantToSlot,
+    assignPosse: model.assignPosse,
+    removeAwakener: model.removeAwakener,
+    moveAwakener: model.moveAwakener,
+    clearWheel: model.clearWheel,
+    moveWheel: model.moveWheel,
+    moveWheelToSlot: model.moveWheelToSlot,
+    clearCovenant: model.clearCovenant,
+    moveCovenant: model.moveCovenant,
+  }
+  const dnd = useBuilderV2Dnd({model: dndCommandPort})
   const activeDropTarget = isDndEnabled ? dnd.activeDropTarget : null
   const isDragActive = isDndEnabled && dnd.isLoadoutDragging
   const selectTeamListSlot = useStableEvent(
@@ -221,6 +249,7 @@ export function BuilderV2Page() {
                 canAddTeam={model.canAddTeam}
                 editingTeamId={model.editingTeamId}
                 editingTeamName={model.editingTeamName}
+                isDragActive={isDragActive}
                 maxTeams={model.maxTeams}
                 onAddTeam={model.addTeam}
                 onBeginTeamRename={model.beginTeamRename}
@@ -239,6 +268,7 @@ export function BuilderV2Page() {
                 onTeamPreviewModeChange={model.setTeamPreviewMode}
                 teamPreviewMode={model.teamPreviewMode}
                 teams={model.teams}
+                predictedDropTarget={activeDropTarget}
                 utilityActions={<BuilderV2ImportExportActions model={model} />}
                 variant='desktop'
               />

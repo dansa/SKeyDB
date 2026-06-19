@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0033",
   "slot": "OverExalt",
-  "descriptionTemplate": "{Over-Exalt}: Hits count +1; for each {Death Resistance} triggered this battle, +1 additional hit.\nSet the Arithmetica Cost of the next {Shining☆Crush} to 0. First release each battle additionally inflicts {Fainted} on all enemies.",
+  "descriptionTemplate": "Hits count +1; for each {Death Resistance} triggered this battle, +1 additional hit.\nSet the Arithmetica Cost of the next {Shining☆Crush} to 0. First release each battle additionally inflicts {Fainted} on all enemies.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Mouchette"
 }

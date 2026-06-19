@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0052",
   "slot": "E2",
-  "descriptionTemplate": "Upgrade all effects when consuming {Dreamlure}: {Necropolis of Dreams} consumes 5 stacks to additionally obtain 15 Aliemus, and when consuming 10 stacks, it additionally causes 5% DMG reduction; {Spine Needle Chains} doubles the Strength reduction effect; {Keeper of the Lost} increases the additional {Counter} amount by 50%.",
+  "descriptionTemplate": "Upgrade all effects when consuming {Dreamlure}: {Necropolis of Dreams} consumes 5 stacks to additionally obtain 15 Aliemus, and when consuming 10 stacks, it additionally causes 5% DMG reduction; {Spine Needle Chains} doubles the {STR} reduction effect; {Keeper of the Lost} increases the additional {Counter} amount by 50%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Wanda"
 }

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0042",
   "slot": "Skill2",
-  "descriptionTemplate": "Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg1]. Draw 1 card.",
+  "descriptionTemplate": "Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg1]. Draw 1 card.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -30,7 +30,7 @@
       "ownerAwakenerId": "awakener-0042",
       "ownerAwakenerName": "Ramona",
       "patch": {
-        "descriptionTemplate": "Temporarily reduce all enemies' {STR⯆} by [Exhaustion:Arg1]. Draw 1 card. For each point of Arithmetica the drawn card costs, obtain [Arg2] Keyflare.",
+        "descriptionTemplate": "Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg1]. Draw 1 card. For each point of Arithmetica the drawn card costs, obtain [Arg2] Keyflare.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

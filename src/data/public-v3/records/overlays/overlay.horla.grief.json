@@ -15,9 +15,11 @@
     "StateArg1": {
       "kind": "fixed",
       "value": "20",
+      "suffix": "%",
       "substatBonus": {
         "substat": "DeathResistance",
-        "multiplier": "0.02"
+        "multiplier": "0.1",
+        "mode": "scale_base"
       }
     }
   },

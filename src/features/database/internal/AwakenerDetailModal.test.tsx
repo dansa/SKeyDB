@@ -723,6 +723,32 @@ describe('AwakenerDetailModal', () => {
     expect(screen.getAllByText('Sidebar Enlighten E2').length).toBeGreaterThan(0)
   })
 
+  it('preserves live progression controls while cycling awakener detail tabs', async () => {
+    const onClose = vi.fn()
+    const awakener = makeAwakener(1, 'thais')
+
+    renderAwakenerDetailModal(awakener, {activeTab: 'skills', onClose})
+
+    await waitFor(() => {
+      expect(screen.getAllByText('Sidebar Level 60').length).toBeGreaterThan(0)
+      expect(screen.getAllByText('Sidebar Enlighten E0').length).toBeGreaterThan(0)
+    })
+
+    fireEvent.click(screen.getAllByRole('button', {name: 'Set level 90'})[0])
+    fireEvent.click(screen.getAllByRole('button', {name: 'Set E2'})[0])
+
+    expect(screen.getAllByText('Sidebar Level 90').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Sidebar Enlighten E2').length).toBeGreaterThan(0)
+
+    fireEvent.click(screen.getByRole('tab', {name: 'Lore'}))
+    expect(screen.getAllByText('Sidebar Level 90').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Sidebar Enlighten E2').length).toBeGreaterThan(0)
+
+    fireEvent.click(screen.getByRole('tab', {name: 'Skills'}))
+    expect(screen.getAllByText('Sidebar Level 90').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Sidebar Enlighten E2').length).toBeGreaterThan(0)
+  })
+
   it('updates default progression for the next awakener without changing the current live state', async () => {
     const onClose = vi.fn()
     const first = makeAwakener(1, 'thais')

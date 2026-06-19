@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0037",
   "slot": "E2",
-  "descriptionTemplate": "{Midnight Tide} DMG +50%. The first 3 Symptom Cards played each turn increase {Midnight Tide} DMG by 20% of ATK for the rest of the battle.",
+  "descriptionTemplate": "{Midnight Tide} DMG +50%. The first 3 Symptom cards played each turn increase {Midnight Tide} DMG by 20% of ATK for the rest of the battle.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Nymphaea"
 }

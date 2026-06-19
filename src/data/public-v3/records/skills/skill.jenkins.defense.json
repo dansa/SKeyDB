@@ -34,7 +34,7 @@
       "ownerAwakenerId": "awakener-0025",
       "ownerAwakenerName": "Jenkin",
       "patch": {
-        "descriptionTemplate": "Gain [Block:Arg1] Shield. Jenkin obtains [Energy:Arg2] Aliemus. Draw 2 Cards, and discard them if they are not Jenkin's."
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Jenkin obtains [Energy:Arg2] Aliemus. Draw 2 cards, and discard them if they are not Jenkin's."
       }
     }
   ],

@@ -20,6 +20,7 @@ This file is for ideas worth remembering but not currently scheduled.
 
 ## Builder and persistence
 
+- Continue hardening the public Builder V2 beta without removing classic Builder access.
 - Finish the mobile-first builder layout pass.
 - Add share-via-link flows with safe overwrite UX.
 - Support multiple on-site saved planners beyond the current autosave plus manual snapshot model.

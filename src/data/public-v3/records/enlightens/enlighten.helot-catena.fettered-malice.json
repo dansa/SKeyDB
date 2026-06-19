@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0019",
   "slot": "OverExalt",
-  "descriptionTemplate": "\"Helot: Catena\" Crit. DMG +35%. Temporary hand limit +2. Add 1 {Hatred Unleashed} and {Crimson Shackles} to hand, reducing their Arithmetica Cost by 1.",
+  "descriptionTemplate": "\"Helot: Catena\" Crit. DMG +35%. Temporary Hand Limit +2. Add 1 {Hatred Unleashed} and {Crimson Shackles} to hand, reducing their Arithmetica Cost by 1.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Helot: Catena"
 }
