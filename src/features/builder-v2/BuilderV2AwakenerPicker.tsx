@@ -50,6 +50,12 @@ import type {
   BuilderV2WheelOption,
   BuilderV2WheelRarityFilter,
 } from './BuilderV2ModelTypes'
+import {
+  getBuilderV2PickerWindowRange,
+  builderV2PickerWindowFallbackColumnCount as pickerWindowFallbackColumnCount,
+  builderV2PickerWindowFallbackViewportHeight as pickerWindowFallbackViewportHeight,
+  builderV2PickerWindowThreshold as pickerWindowThreshold,
+} from './BuilderV2PickerWindowing'
 import {useStableEvent} from './useStableEvent'
 
 interface BuilderV2AwakenerPickerProps {
@@ -129,12 +135,6 @@ const wheelRarityFilterTabs: {id: BuilderV2WheelRarityFilter; label: string}[] =
   {id: 'SR', label: 'SR'},
   {id: 'R', label: 'R'},
 ]
-
-const pickerWindowThreshold = 40
-const pickerWindowRowHeight = 112
-const pickerWindowRowBuffer = 3
-const pickerWindowFallbackColumnCount = 4
-const pickerWindowFallbackViewportHeight = 640
 
 export const BuilderV2AwakenerPicker = memo(function BuilderV2AwakenerPicker({
   isDragActive = false,
@@ -359,67 +359,78 @@ function BuilderV2PickerContentFrame({
       pickerDropRef={pickerDropRef}
       resultsRef={resultsRef}
     >
-      {(resultsScrollTop) => (
-        <>
-          {pickerClearTarget && onClearPickerTarget ? (
+      {(resultsScrollTop) => {
+        const clearTile =
+          pickerClearTarget && onClearPickerTarget ? (
             <BuilderV2PickerClearTile onClear={clearPickerTarget} target={pickerClearTarget} />
-          ) : null}
+          ) : null
 
-          {picker.tab === 'awakeners' ? (
-            <WindowedPickerResults
-              ItemComponent={WindowedAwakenerResultTile}
-              getItemId={(awakener) => awakener.id}
-              itemProps={{
-                isDndEnabled,
-                onAssign: assignAwakener,
-                onOpenDetail: openAwakenerDetail,
-              }}
-              items={picker.awakeners}
-              resultsRef={resultsRef}
-              scrollTop={resultsScrollTop}
-            />
-          ) : null}
+        return (
+          <>
+            {picker.tab === 'awakeners' ? (
+              <WindowedPickerResults
+                ItemComponent={WindowedAwakenerResultTile}
+                getItemId={(awakener) => awakener.id}
+                itemProps={{
+                  isDndEnabled,
+                  onAssign: assignAwakener,
+                  onOpenDetail: openAwakenerDetail,
+                }}
+                items={picker.awakeners}
+                leadingTile={clearTile}
+                resultsRef={resultsRef}
+                scrollTop={resultsScrollTop}
+              />
+            ) : null}
 
-          {picker.tab === 'wheels' ? (
-            <WindowedPickerResults
-              ItemComponent={WindowedWheelResultTile}
-              getItemId={(wheel) => wheel.id}
-              itemProps={{
-                isDndEnabled,
-                onAssign: assignWheel,
-                onOpenDetail: openWheelDetail,
-              }}
-              items={picker.wheels}
-              resultsRef={resultsRef}
-              scrollTop={resultsScrollTop}
-            />
-          ) : null}
+            {picker.tab === 'wheels' ? (
+              <WindowedPickerResults
+                ItemComponent={WindowedWheelResultTile}
+                getItemId={(wheel) => wheel.id}
+                itemProps={{
+                  isDndEnabled,
+                  onAssign: assignWheel,
+                  onOpenDetail: openWheelDetail,
+                }}
+                items={picker.wheels}
+                leadingTile={clearTile}
+                resultsRef={resultsRef}
+                scrollTop={resultsScrollTop}
+              />
+            ) : null}
 
-          {picker.tab === 'covenants'
-            ? picker.covenants.map((covenant) => (
-                <BuilderV2CovenantPickerTile
-                  covenant={covenant}
-                  isDndEnabled={isDndEnabled}
-                  key={covenant.id}
-                  onAssign={assignCovenant}
-                  onOpenDetail={openCovenantDetail}
-                />
-              ))
-            : null}
+            {picker.tab === 'covenants' ? (
+              <>
+                {clearTile}
+                {picker.covenants.map((covenant) => (
+                  <BuilderV2CovenantPickerTile
+                    covenant={covenant}
+                    isDndEnabled={isDndEnabled}
+                    key={covenant.id}
+                    onAssign={assignCovenant}
+                    onOpenDetail={openCovenantDetail}
+                  />
+                ))}
+              </>
+            ) : null}
 
-          {picker.tab === 'posses'
-            ? picker.posses.map((posse) => (
-                <BuilderV2PossePickerTile
-                  isDndEnabled={isDndEnabled}
-                  key={posse.id}
-                  onAssign={assignPosse}
-                  onOpenDetail={openPosseDetail}
-                  posse={posse}
-                />
-              ))
-            : null}
-        </>
-      )}
+            {picker.tab === 'posses' ? (
+              <>
+                {clearTile}
+                {picker.posses.map((posse) => (
+                  <BuilderV2PossePickerTile
+                    isDndEnabled={isDndEnabled}
+                    key={posse.id}
+                    onAssign={assignPosse}
+                    onOpenDetail={openPosseDetail}
+                    posse={posse}
+                  />
+                ))}
+              </>
+            ) : null}
+          </>
+        )
+      }}
     </BuilderV2PickerResultsPanel>
   )
 
@@ -555,6 +566,7 @@ function WindowedPickerResults<TItem, TItemProps extends object>({
   getItemId,
   itemProps,
   items,
+  leadingTile = null,
   resultsRef,
   scrollTop,
 }: {
@@ -562,6 +574,7 @@ function WindowedPickerResults<TItem, TItemProps extends object>({
   getItemId: (item: TItem) => string
   itemProps: TItemProps
   items: TItem[]
+  leadingTile?: ReactNode
   resultsRef: RefObject<HTMLDivElement | null>
   scrollTop: number
 }) {
@@ -608,46 +621,57 @@ function WindowedPickerResults<TItem, TItemProps extends object>({
   }, [resultsRef])
 
   if (items.length === 0) {
-    return <p className='builder-v2-picker-empty'>No results</p>
+    return (
+      <>
+        {leadingTile}
+        <p className='builder-v2-picker-empty'>No results</p>
+      </>
+    )
   }
 
   if (items.length <= pickerWindowThreshold) {
-    return items.map((item) => (
-      <Fragment key={getItemId(item)}>
-        <ItemComponent {...itemProps} item={item} />
-      </Fragment>
-    ))
+    return (
+      <>
+        {leadingTile}
+        {items.map((item) => (
+          <Fragment key={getItemId(item)}>
+            <ItemComponent {...itemProps} item={item} />
+          </Fragment>
+        ))}
+      </>
+    )
   }
 
-  const totalRows = Math.ceil(items.length / windowMetrics.columnCount)
-  const firstVisibleRow = Math.floor(scrollTop / pickerWindowRowHeight)
-  const visibleRowCount = Math.ceil(windowMetrics.viewportHeight / pickerWindowRowHeight)
-  const startRow = Math.max(0, firstVisibleRow - pickerWindowRowBuffer)
-  const endRow = Math.min(totalRows, firstVisibleRow + visibleRowCount + pickerWindowRowBuffer)
-  const startIndex = startRow * windowMetrics.columnCount
-  const endIndex = Math.min(items.length, endRow * windowMetrics.columnCount)
-  const beforeHeight = startRow * pickerWindowRowHeight
-  const afterHeight = Math.max(0, (totalRows - endRow) * pickerWindowRowHeight)
+  const leadingItemCount = leadingTile ? 1 : 0
+  const windowRange = getBuilderV2PickerWindowRange({
+    columnCount: windowMetrics.columnCount,
+    itemCount: items.length,
+    leadingItemCount,
+    scrollTop,
+    viewportHeight: windowMetrics.viewportHeight,
+  })
+  const includeLeadingTile = leadingTile && windowRange.includeLeadingItem
 
   return (
     <>
-      {beforeHeight > 0 ? (
+      {windowRange.beforeHeight > 0 ? (
         <div
           aria-hidden
           className='builder-v2-picker-window-spacer'
-          style={{height: beforeHeight}}
+          style={{height: windowRange.beforeHeight}}
         />
       ) : null}
-      {items.slice(startIndex, endIndex).map((item) => (
+      {includeLeadingTile ? leadingTile : null}
+      {items.slice(windowRange.startIndex, windowRange.endIndex).map((item) => (
         <Fragment key={getItemId(item)}>
           <ItemComponent {...itemProps} item={item} />
         </Fragment>
       ))}
-      {afterHeight > 0 ? (
+      {windowRange.afterHeight > 0 ? (
         <div
           aria-hidden
           className='builder-v2-picker-window-spacer'
-          style={{height: afterHeight}}
+          style={{height: windowRange.afterHeight}}
         />
       ) : null}
     </>

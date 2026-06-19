@@ -715,6 +715,89 @@ describe('builder-v2 DnD action resolver', () => {
     })
   })
 
+  it('rejects unusable picker gear drops on team-management slots with team state', () => {
+    const targetTeam = createTeamSummary({
+      slots: [
+        createTeamSummarySlot({
+          slotId: 'slot-full',
+          wheelCount: 2,
+          wheels: [
+            createTeamSummaryWheel('wheel-full-1', 'Full Wheel 1'),
+            createTeamSummaryWheel('wheel-full-2', 'Full Wheel 2'),
+          ],
+        }),
+        createTeamSummarySlot({
+          slotId: 'slot-empty',
+          awakener: null,
+          covenant: null,
+          hasCovenant: false,
+          isEmpty: true,
+          name: 'Empty',
+          portraitSrc: undefined,
+          cardSrc: undefined,
+          wheelCount: 0,
+          wheels: [null, null],
+        }),
+      ],
+    })
+    const wheelPayload = createBuilderV2PickerWheelDragPayload(createWheelOption())
+    const covenantPayload = createBuilderV2PickerCovenantDragPayload(createCovenantOption())
+
+    expect(
+      resolveBuilderV2EffectiveDropTarget(
+        wheelPayload,
+        {kind: 'team-management-slot', teamId: targetTeam.id, slotId: 'slot-full'},
+        undefined,
+        [targetTeam],
+      ),
+    ).toBeNull()
+    expect(
+      resolveBuilderV2DndAction(
+        wheelPayload,
+        {kind: 'team-management-slot', teamId: targetTeam.id, slotId: 'slot-full'},
+        {teams: [targetTeam]},
+      ),
+    ).toBeNull()
+    expect(
+      resolveBuilderV2EffectiveDropTarget(
+        wheelPayload,
+        {
+          kind: 'team-management-wheel',
+          teamId: targetTeam.id,
+          slotId: 'slot-empty',
+          wheelIndex: 0,
+        },
+        undefined,
+        [targetTeam],
+      ),
+    ).toBeNull()
+    expect(
+      resolveBuilderV2DndAction(
+        covenantPayload,
+        {kind: 'team-management-covenant', teamId: targetTeam.id, slotId: 'slot-empty'},
+        {teams: [targetTeam]},
+      ),
+    ).toBeNull()
+    expect(
+      resolveBuilderV2DndAction(
+        wheelPayload,
+        {
+          kind: 'team-management-wheel',
+          teamId: targetTeam.id,
+          slotId: 'slot-full',
+          wheelIndex: 1,
+        },
+        {teams: [targetTeam]},
+      ),
+    ).toEqual({
+      kind: 'assign-wheel-to-team-slot',
+      wheelId: 'wheel-1',
+      teamId: targetTeam.id,
+      slotId: 'slot-full',
+      wheelIndex: 1,
+    })
+  })
+
   it('moves team-management wheels to explicit wheel targets, broad slots, and the picker', () => {
     const team = createTeamSummary({
       slots: [
@@ -1098,6 +1181,29 @@ function createTeamSummary(overrides: Partial<BuilderV2TeamSummary> = {}): Build
     isPosseOwned: true,
     isEmpty: false,
     ...overrides,
+  }
+}
+
+function createTeamSummarySlot(
+  overrides: Partial<BuilderV2TeamSummary['slots'][number]> = {},
+): BuilderV2TeamSummary['slots'][number] {
+  return {
+    ...createTeamSummary().slots[0],
+    ...overrides,
+  }
+}
+
+function createTeamSummaryWheel(
+  id: string,
+  name: string,
+): NonNullable<BuilderV2TeamSummary['slots'][number]['wheels'][number]> {
+  return {
+    id,
+    name,
+    miniAssetSrc: `/mini-${id}.png`,
+    assetSrc: `/${id}.png`,
+    enlightenLevel: null,
+    isOwned: true,
   }
 }
 

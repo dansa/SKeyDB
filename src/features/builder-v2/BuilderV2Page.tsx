@@ -249,6 +249,7 @@ export function BuilderV2Page() {
                 canAddTeam={model.canAddTeam}
                 editingTeamId={model.editingTeamId}
                 editingTeamName={model.editingTeamName}
+                isDragActive={isDragActive}
                 maxTeams={model.maxTeams}
                 onAddTeam={model.addTeam}
                 onBeginTeamRename={model.beginTeamRename}
@@ -267,6 +268,7 @@ export function BuilderV2Page() {
                 onTeamPreviewModeChange={model.setTeamPreviewMode}
                 teamPreviewMode={model.teamPreviewMode}
                 teams={model.teams}
+                predictedDropTarget={activeDropTarget}
                 utilityActions={<BuilderV2ImportExportActions model={model} />}
                 variant='desktop'
               />

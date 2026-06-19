@@ -65,7 +65,7 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
 
     const target = parseBuilderV2DndId(event.over?.id)
     const nextDropTarget = isBuilderV2DragPayload(payload)
-      ? resolveBuilderV2EffectiveDropTarget(payload, target, model.slots)
+      ? resolveBuilderV2EffectiveDropTarget(payload, target, model.slots, model.teams)
       : null
     setActiveDropTarget((current) =>
       areBuilderV2DropTargetsEqual(current, nextDropTarget) ? current : nextDropTarget,
@@ -93,7 +93,10 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
     }
 
     const target = parseBuilderV2DndId(event.over?.id)
-    const action = resolveBuilderV2DndAction(payload, target, {slots: model.slots})
+    const action = resolveBuilderV2DndAction(payload, target, {
+      slots: model.slots,
+      teams: model.teams,
+    })
     if (!action) {
       return
     }

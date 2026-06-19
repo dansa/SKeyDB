@@ -18,33 +18,27 @@ let baseUrl = ''
 let builderUrl = ''
 
 async function main() {
-  const reusedPort = await findReusableAppPort()
-  if (reusedPort) {
-    setBaseUrl(reusedPort)
-    console.log(`Reusing Vite dev server at ${baseUrl}.`)
-  } else {
-    const port = await findAvailablePort()
-    setBaseUrl(port)
-    const viteBin = fileURLToPath(new URL('../node_modules/vite/bin/vite.js', import.meta.url))
-    serverProcess = spawn(process.execPath, [viteBin, '--host', HOST, '--port', String(port)], {
-      env: {...process.env, BROWSER: 'none'},
-      stdio: ['ignore', 'pipe', 'pipe'],
-    })
+  const port = await findAvailablePort()
+  setBaseUrl(port)
+  const viteBin = fileURLToPath(new URL('../node_modules/vite/bin/vite.js', import.meta.url))
+  serverProcess = spawn(process.execPath, [viteBin, '--host', HOST, '--port', String(port)], {
+    env: {...process.env, BROWSER: 'none'},
+    stdio: ['ignore', 'pipe', 'pipe'],
+  })
 
-    serverProcess.stdout.on('data', (chunk) => {
-      process.stdout.write(`[vite] ${chunk}`)
-    })
-    serverProcess.stderr.on('data', (chunk) => {
-      process.stderr.write(`[vite] ${chunk}`)
-    })
-    serverProcess.on('exit', (code) => {
-      if (code !== 0 && code !== null) {
-        process.stderr.write(`Vite dev server exited with code ${String(code)}.\n`)
-      }
-    })
+  serverProcess.stdout.on('data', (chunk) => {
+    process.stdout.write(`[vite] ${chunk}`)
+  })
+  serverProcess.stderr.on('data', (chunk) => {
+    process.stderr.write(`[vite] ${chunk}`)
+  })
+  serverProcess.on('exit', (code) => {
+    if (code !== 0 && code !== null) {
+      process.stderr.write(`Vite dev server exited with code ${String(code)}.\n`)
+    }
+  })
 
-    await waitForServer()
-  }
+  await waitForServer()
 
   const browser = await chromium.launch()
   try {
@@ -230,31 +224,54 @@ function borderSideChanged(beforeFocusStyle, focusStyle, side) {
 }
 
 async function runPointerDndSmoke(page, viewportName) {
-  const source = page.locator('.builder-v2-picker-tile')
-  const target = page.locator('.builder-v2-active-team button:not([disabled])').first()
+  await preparePointerDndSmoke(page, viewportName)
+
+  const source = page.locator('.builder-v2-picker-tile--awakener:not([data-blocked="true"])')
+  const target = page
+    .locator(
+      '.builder-v2-active-team .builder-v2-slot-card--empty .builder-v2-awakener-art-target:not([disabled])',
+    )
+    .first()
   const sourceElement = await firstVisibleElement(source)
   const targetElement = await firstVisibleElement(target)
 
   if (!sourceElement || !targetElement) {
-    console.log(
-      `[${viewportName}] pointer DnD skipped: no visible picker item and active-team target pair was available.`,
+    throw new Error(
+      `[${viewportName}] expected a visible picker awakener and empty active-team slot target for DnD smoke.`,
     )
-    return
   }
 
   const before = await page.locator('.builder-v2-active-team').innerText()
   await dragBetweenElements(page, sourceElement, targetElement)
-  const overlayCount = await page.locator('.builder-v2-drag-overlay').count()
   const after = await page.locator('.builder-v2-active-team').innerText()
 
-  if (overlayCount === 0 && before === after) {
-    console.log(
-      `[${viewportName}] pointer DnD skipped: drag gesture completed without a detectable state or overlay change.`,
-    )
-    return
+  if (before === after) {
+    throw new Error(`[${viewportName}] picker-to-slot DnD did not change the active team.`)
   }
 
   console.log(`[${viewportName}] pointer DnD smoke completed.`)
+}
+
+async function preparePointerDndSmoke(page, viewportName) {
+  if (viewportName !== 'adaptive') {
+    return
+  }
+
+  const visibleTile = await firstVisibleElement(
+    page.locator('.builder-v2-picker-tile--awakener:not([data-blocked="true"])'),
+  )
+  if (visibleTile) {
+    return
+  }
+
+  const expandPicker = page.getByRole('button', {name: 'Expand adaptive picker'})
+  if ((await expandPicker.count()) > 0 && (await expandPicker.first().isVisible())) {
+    await expandPicker.first().click()
+    await assertVisible(
+      page.locator('.builder-v2-picker-tile--awakener:not([data-blocked="true"])').first(),
+      'adaptive picker DnD source',
+    )
+  }
 }
 
 async function firstVisibleElement(locator) {
@@ -322,16 +339,6 @@ async function assertAttached(locator, label) {
 function setBaseUrl(port) {
   baseUrl = `http://${HOST}:${String(port)}`
   builderUrl = `${baseUrl}/builder-v2`
-}
-
-async function findReusableAppPort() {
-  for (const port of PORTS) {
-    const candidateBaseUrl = `http://${HOST}:${String(port)}`
-    if (await isThisAppServer(candidateBaseUrl)) {
-      return port
-    }
-  }
-  return null
 }
 
 async function findAvailablePort() {

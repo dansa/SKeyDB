@@ -27,6 +27,7 @@ import {
   makeBuilderV2TeamManagementCovenantDndId,
   makeBuilderV2TeamManagementSlotDndId,
   makeBuilderV2TeamManagementWheelDndId,
+  type BuilderV2DropTargetDescriptor,
   type BuilderV2TeamDragPreviewDescriptor,
 } from './builder-v2-dnd'
 import {useBuilderV2DndEnabled} from './BuilderV2DndCapability'
@@ -42,7 +43,9 @@ interface BuilderV2TeamManagementProps {
   canAddTeam: boolean
   editingTeamId: string | null
   editingTeamName: string
+  isDragActive?: boolean
   maxTeams: number
+  predictedDropTarget?: BuilderV2DropTargetDescriptor | null
   teamPreviewMode: TeamPreviewMode
   teams: BuilderV2TeamSummary[]
   utilityActions?: ReactNode
@@ -90,7 +93,9 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
   canAddTeam,
   editingTeamId,
   editingTeamName,
+  isDragActive = false,
   maxTeams,
+  predictedDropTarget = null,
   teamPreviewMode,
   teams,
   utilityActions,
@@ -121,6 +126,7 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
       editingTeamId,
       editingTeamName,
       index,
+      isDragActive,
       isLast: index === teams.length - 1,
       onTeamActivated,
       onBeginTeamRename,
@@ -136,6 +142,7 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
       onSetActiveTeam,
       onSetEditingTeamName,
       previewMode: teamPreviewMode,
+      predictedDropTarget,
       teamsCount: teams.length,
       team,
       variant,
@@ -294,6 +301,7 @@ interface TeamManagementRowProps {
   editingTeamId: string | null
   editingTeamName: string
   index: number
+  isDragActive: boolean
   isLast: boolean
   onTeamActivated?: () => void
   onBeginTeamRename: (teamId: string) => void
@@ -313,6 +321,7 @@ interface TeamManagementRowProps {
   onSetActiveTeam: (teamId: string) => void
   onSetEditingTeamName: (nextName: string) => void
   previewMode: TeamPreviewMode
+  predictedDropTarget: BuilderV2DropTargetDescriptor | null
   teamsCount: number
   team: BuilderV2TeamSummary
   variant: 'desktop' | 'adaptive' | 'mobile'
@@ -350,6 +359,7 @@ const TeamManagementRow = memo(function TeamManagementRow({
   editingTeamId,
   editingTeamName,
   index,
+  isDragActive,
   isDragging = false,
   isLast,
   onTeamActivated,
@@ -366,6 +376,7 @@ const TeamManagementRow = memo(function TeamManagementRow({
   onSetActiveTeam,
   onSetEditingTeamName,
   previewMode,
+  predictedDropTarget,
   setDragHandleNode,
   setRowNode,
   sortableStyle,
@@ -473,8 +484,10 @@ const TeamManagementRow = memo(function TeamManagementRow({
               <TeamSlotSummary
                 enableLoadoutSelect={variant !== 'mobile'}
                 enableSlotDragAndDrop={enableSlotDragAndDrop}
+                isDragActive={isDragActive}
                 key={slot.slotId}
                 onSelect={onRequestEditTeamSlot}
+                predictedDropTarget={predictedDropTarget}
                 previewMode={previewMode}
                 slot={slot}
                 team={team}
@@ -737,7 +750,9 @@ function TeamPosseSummary({
 export function TeamSlotSummary({
   enableSlotDragAndDrop = false,
   enableLoadoutSelect,
+  isDragActive = false,
   onSelect,
+  predictedDropTarget = null,
   previewMode,
   slot,
   team,
@@ -750,6 +765,8 @@ export function TeamSlotSummary({
   ) => void
   enableSlotDragAndDrop?: boolean
   enableLoadoutSelect?: boolean
+  isDragActive?: boolean
+  predictedDropTarget?: BuilderV2DropTargetDescriptor | null
   previewMode: TeamPreviewMode
   slot: BuilderV2TeamSummarySlot
   team: BuilderV2TeamSummary
@@ -779,6 +796,11 @@ export function TeamSlotSummary({
     disabled: !enableSlotDragAndDrop || !dragPayload,
   })
   const canDragSlot = enableSlotDragAndDrop && Boolean(dragPayload)
+  const isDropTarget =
+    enableSlotDragAndDrop &&
+    (isDragActive
+      ? isPredictedTeamManagementSlotDropTarget(predictedDropTarget, team.id, slot.slotId)
+      : isOver)
 
   function setSlotNodeRef(node: HTMLLIElement | null) {
     setDroppableRef(node)
@@ -790,7 +812,7 @@ export function TeamSlotSummary({
       className={`builder-v2-team-management-slot ${
         slot.isEmpty ? 'builder-v2-team-management-slot--empty' : ''
       } ${hasEnlightenOverflow ? 'builder-v2-team-management-slot--enlighten-overflow' : ''} ${
-        isOver ? 'builder-v2-team-management-slot--drop-target' : ''
+        isDropTarget ? 'builder-v2-team-management-slot--drop-target' : ''
       } ${isDragging ? 'builder-v2-team-management-slot--dragging' : ''}`}
       ref={enableSlotDragAndDrop ? setSlotNodeRef : undefined}
       style={style}
@@ -1220,4 +1242,23 @@ function getTeamSlotSummaryLabel(slot: BuilderV2TeamSummarySlot): string {
   ]
 
   return parts.filter(Boolean).join(', ')
+}
+
+function isPredictedTeamManagementSlotDropTarget(
+  target: BuilderV2DropTargetDescriptor | null,
+  teamId: string,
+  slotId: string,
+): boolean {
+  if (!target) {
+    return false
+  }
+
+  switch (target.kind) {
+    case 'team-management-slot':
+    case 'team-management-wheel':
+    case 'team-management-covenant':
+      return target.teamId === teamId && target.slotId === slotId
+    default:
+      return false
+  }
 }

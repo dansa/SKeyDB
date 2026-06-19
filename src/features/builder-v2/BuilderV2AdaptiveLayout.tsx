@@ -279,6 +279,7 @@ export function BuilderV2AdaptiveLayout({
             canAddTeam={model.canAddTeam}
             editingTeamId={model.editingTeamId}
             editingTeamName={model.editingTeamName}
+            isDragActive={isDragActive}
             maxTeams={model.maxTeams}
             onAddTeam={model.addTeam}
             onBeginTeamRename={model.beginTeamRename}
@@ -295,6 +296,7 @@ export function BuilderV2AdaptiveLayout({
             onSetActiveTeam={model.setActiveTeam}
             onSetEditingTeamName={model.setEditingTeamName}
             onTeamPreviewModeChange={model.setTeamPreviewMode}
+            predictedDropTarget={activeDropTarget}
             teamPreviewMode={model.teamPreviewMode}
             teams={model.teams}
             utilityActions={<BuilderV2ImportExportActions model={model} />}

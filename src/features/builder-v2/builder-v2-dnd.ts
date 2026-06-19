@@ -243,6 +243,7 @@ export type BuilderV2DndId = `${typeof BUILDER_V2_DND_PREFIX}:${string}`
 
 interface BuilderV2DndResolutionOptions {
   slots?: readonly BuilderV2SlotView[]
+  teams?: readonly BuilderV2TeamSummary[]
 }
 
 export function resolveBuilderV2DndAction(
@@ -250,7 +251,12 @@ export function resolveBuilderV2DndAction(
   target: BuilderV2DropTargetDescriptor | null,
   options: BuilderV2DndResolutionOptions = {},
 ): BuilderV2DndAction | null {
-  const effectiveTarget = resolveBuilderV2EffectiveDropTarget(payload, target, options.slots)
+  const effectiveTarget = resolveBuilderV2EffectiveDropTarget(
+    payload,
+    target,
+    options.slots,
+    options.teams,
+  )
   if (!effectiveTarget) {
     return null
   }
@@ -270,6 +276,7 @@ export function resolveBuilderV2EffectiveDropTarget(
   payload: BuilderV2DragPayload,
   target: BuilderV2DropTargetDescriptor | null,
   slots?: readonly BuilderV2SlotView[],
+  teams?: readonly BuilderV2TeamSummary[],
 ): BuilderV2DropTargetDescriptor | null {
   if (!target) {
     return null
@@ -279,9 +286,9 @@ export function resolveBuilderV2EffectiveDropTarget(
     case 'awakener':
       return resolveAwakenerEffectiveTarget(payload, target)
     case 'wheel':
-      return resolveWheelEffectiveTarget(payload, target, slots)
+      return resolveWheelEffectiveTarget(payload, target, slots, teams)
     case 'covenant':
-      return resolveCovenantEffectiveTarget(payload, target, slots)
+      return resolveCovenantEffectiveTarget(payload, target, slots, teams)
     case 'posse':
       return target.kind === 'posse' ? target : null
   }
@@ -1105,17 +1112,21 @@ function resolveWheelEffectiveTarget(
   payload: Extract<BuilderV2DragPayload, {kind: 'wheel'}>,
   target: BuilderV2DropTargetDescriptor,
   slots: readonly BuilderV2SlotView[] | undefined,
+  teams: readonly BuilderV2TeamSummary[] | undefined,
 ): BuilderV2DropTargetDescriptor | null {
   if (target.kind === 'picker') {
     return payload.source === 'team' || payload.source === 'team-management' ? target : null
   }
 
   if (payload.source === 'picker' && getTeamManagementSlotTarget(target)) {
-    return target
+    return resolveTeamManagementWheelEffectiveTarget(target, teams)
   }
 
   if (payload.source === 'team-management') {
     if (target.kind === 'team-management-wheel') {
+      if (!isUsableTeamManagementWheelTarget(target, teams)) {
+        return null
+      }
       return payload.slotId === target.slotId &&
         payload.teamId === target.teamId &&
         payload.wheelIndex === target.wheelIndex
@@ -1123,11 +1134,11 @@ function resolveWheelEffectiveTarget(
         : target
     }
 
-    return getTeamManagementSlotTarget(target) ? target : null
+    return resolveTeamManagementWheelEffectiveTarget(target, teams)
   }
 
   if (payload.source === 'picker' && target.kind === 'team-management-slot') {
-    return target
+    return resolveTeamManagementWheelEffectiveTarget(target, teams)
   }
 
   if (target.kind === 'wheel') {
@@ -1161,18 +1172,23 @@ function resolveCovenantEffectiveTarget(
   payload: Extract<BuilderV2DragPayload, {kind: 'covenant'}>,
   target: BuilderV2DropTargetDescriptor,
   slots: readonly BuilderV2SlotView[] | undefined,
+  teams: readonly BuilderV2TeamSummary[] | undefined,
 ): BuilderV2DropTargetDescriptor | null {
   if (target.kind === 'picker') {
     return payload.source === 'team' || payload.source === 'team-management' ? target : null
   }
 
   if (payload.source === 'picker' && getTeamManagementSlotTarget(target)) {
-    return target
+    return isAwakenedTeamManagementTarget(target, teams) ? target : null
   }
 
   if (payload.source === 'team-management') {
     const slotTarget = getTeamManagementSlotTarget(target)
     if (!slotTarget) {
+      return null
+    }
+
+    if (!isAwakenedTeamManagementTarget(target, teams)) {
       return null
     }
 
@@ -1182,7 +1198,7 @@ function resolveCovenantEffectiveTarget(
   }
 
   if (payload.source === 'picker' && target.kind === 'team-management-slot') {
-    return target
+    return isAwakenedTeamManagementTarget(target, teams) ? target : null
   }
 
   const slotId = getSlotIdFromSlotOwnedTarget(target)
@@ -1226,6 +1242,69 @@ function getTeamManagementSlotTarget(
     default:
       return null
   }
+}
+
+function resolveTeamManagementWheelEffectiveTarget(
+  target: BuilderV2DropTargetDescriptor,
+  teams: readonly BuilderV2TeamSummary[] | undefined,
+): BuilderV2DropTargetDescriptor | null {
+  if (!getTeamManagementSlotTarget(target)) {
+    return null
+  }
+
+  if (!teams) {
+    return target
+  }
+
+  const slot = findTeamManagementSlot(teams, target)
+  if (!slot?.awakener) {
+    return null
+  }
+
+  if (target.kind === 'team-management-wheel') {
+    return target
+  }
+
+  return getFirstEmptyTeamWheelSlotIndex(slot) === null ? null : target
+}
+
+function isUsableTeamManagementWheelTarget(
+  target: BuilderV2DropTargetDescriptor,
+  teams: readonly BuilderV2TeamSummary[] | undefined,
+): boolean {
+  return Boolean(resolveTeamManagementWheelEffectiveTarget(target, teams))
+}
+
+function isAwakenedTeamManagementTarget(
+  target: BuilderV2DropTargetDescriptor,
+  teams: readonly BuilderV2TeamSummary[] | undefined,
+): boolean {
+  if (!getTeamManagementSlotTarget(target)) {
+    return false
+  }
+
+  return teams ? Boolean(findTeamManagementSlot(teams, target)?.awakener) : true
+}
+
+function findTeamManagementSlot(
+  teams: readonly BuilderV2TeamSummary[],
+  target: BuilderV2DropTargetDescriptor,
+): BuilderV2TeamSummary['slots'][number] | undefined {
+  const slotTarget = getTeamManagementSlotTarget(target)
+  if (!slotTarget) {
+    return undefined
+  }
+
+  return teams
+    .find((team) => team.id === slotTarget.teamId)
+    ?.slots.find((slot) => slot.slotId === slotTarget.slotId)
+}
+
+function getFirstEmptyTeamWheelSlotIndex(
+  slot: BuilderV2TeamSummary['slots'][number],
+): WheelSlotIndex | null {
+  const firstEmptyIndex = slot.wheels.findIndex((wheel) => !wheel)
+  return firstEmptyIndex === 0 || firstEmptyIndex === 1 ? firstEmptyIndex : null
 }
 
 function getFirstEmptyWheelSlotIndex(slot: BuilderV2SlotView | undefined): WheelSlotIndex | null {
