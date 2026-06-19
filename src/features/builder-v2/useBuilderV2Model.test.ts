@@ -525,6 +525,63 @@ describe('useBuilderV2Model', () => {
     expect(result.current.violationMessage).toBeNull()
   })
 
+  it('advances quick lineup when picker items are dropped on active team-list slots', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+
+    act(() => {
+      result.current.startQuickLineup()
+    })
+    const activeTeamId = result.current.activeTeamId
+
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-1',
+    })
+
+    act(() => {
+      result.current.assignAwakenerToTeamSlot('awakener-0021', activeTeamId, 'slot-1')
+    })
+
+    expect(result.current.slots[0]?.awakener?.id).toBe('awakener-0021')
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'wheel',
+      slotId: 'slot-1',
+      wheelIndex: 0,
+    })
+
+    act(() => {
+      result.current.assignWheelToTeamSlot('wheel-0050', activeTeamId, 'slot-1', 0)
+    })
+
+    expect(result.current.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'wheel',
+      slotId: 'slot-1',
+      wheelIndex: 1,
+    })
+
+    act(() => {
+      result.current.assignWheelToTeamSlot('wheel-0051', activeTeamId, 'slot-1', 1)
+    })
+
+    expect(result.current.slots[0]?.wheels).toEqual(['wheel-0050', 'wheel-0051'])
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'covenant',
+      slotId: 'slot-1',
+    })
+
+    act(() => {
+      result.current.assignCovenantToTeamSlot('c01', activeTeamId, 'slot-1')
+    })
+
+    expect(result.current.slots[0]?.covenantId).toBe('c01')
+    expect(result.current.quickLineupSession?.currentStep).toEqual({
+      kind: 'awakener',
+      slotId: 'slot-2',
+    })
+    expect(result.current.violationMessage).toBeNull()
+  })
+
   it('confirms inactive team-list wheel transfers without retargeting active selection', () => {
     const {result} = renderHook(() => useBuilderV2Model())
     const teamOneSlots = createEmptyTeamSlots()

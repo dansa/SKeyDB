@@ -36,6 +36,7 @@ import type {
   BuilderV2TeamSummary,
   BuilderV2WheelOption,
 } from './BuilderV2ModelTypes'
+import {filterBuilderV2TeamSortDroppables} from './useBuilderV2Dnd'
 
 describe('builder-v2 DnD payload creators', () => {
   it('creates normalized picker payloads from option DTOs', () => {
@@ -298,6 +299,26 @@ describe('builder-v2 DnD id helpers', () => {
     expect(parseBuilderV2DndId('builder-v2:picker:wheel')).toBeNull()
     expect(parseBuilderV2DndId(null)).toBeNull()
     expect(parseBuilderV2DndId(1)).toBeNull()
+  })
+})
+
+describe('builder-v2 DnD collision helpers', () => {
+  it('filters team-sort droppables to sortable team row ids', () => {
+    const droppables = [
+      {id: 'team-1'},
+      {id: makeBuilderV2TeamManagementSlotDndId('team-2', 'slot-1')},
+      {id: makeBuilderV2TeamManagementWheelDndId('team-2', 'slot-1', 0)},
+      {id: makeBuilderV2TeamManagementCovenantDndId('team-2', 'slot-1')},
+      {id: 'team-2'},
+      {id: makeBuilderV2SlotDndId('slot-1')},
+      {id: 2},
+    ]
+
+    expect(
+      filterBuilderV2TeamSortDroppables(droppables, new Set(['team-1', 'team-2'])).map(
+        (droppable) => droppable.id,
+      ),
+    ).toEqual(['team-1', 'team-2'])
   })
 })
 

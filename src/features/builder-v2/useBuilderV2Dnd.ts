@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useMemo, useState} from 'react'
 
 import {
   closestCenter,
@@ -30,21 +30,17 @@ interface UseBuilderV2DndOptions {
   model: BuilderV2DndCommandPort
 }
 
-const builderV2CollisionDetection: CollisionDetection = (args) => {
-  if (isBuilderV2TeamSortDragPayload(args.active.data.current)) {
-    return closestCenter(args)
-  }
-
-  const pointerCollisions = pointerWithin(args)
-  return pointerCollisions.length > 0 ? pointerCollisions : closestCenter(args)
-}
-
 export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
   const [activePreview, setActivePreview] = useState<BuilderV2DragPreviewDescriptor | null>(null)
   const [activeTeamPreview, setActiveTeamPreview] =
     useState<BuilderV2TeamDragPreviewDescriptor | null>(null)
   const [activeDropTarget, setActiveDropTarget] = useState<BuilderV2DropTargetDescriptor | null>(
     null,
+  )
+  const teamSortIds = useMemo(() => new Set(model.teams.map((team) => team.id)), [model.teams])
+  const collisionDetection = useMemo(
+    () => createBuilderV2CollisionDetection(teamSortIds),
+    [teamSortIds],
   )
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -109,7 +105,7 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
     activeDropTarget,
     activePreview,
     activeTeamPreview,
-    collisionDetection: builderV2CollisionDetection,
+    collisionDetection,
     isDragging: Boolean(activePreview) || Boolean(activeTeamPreview),
     isLoadoutDragging: Boolean(activePreview),
     sensors,
@@ -117,6 +113,32 @@ export function useBuilderV2Dnd({model}: UseBuilderV2DndOptions) {
     handleDragEnd,
     handleDragOver,
     handleDragStart,
+  }
+}
+
+export function filterBuilderV2TeamSortDroppables<TDroppable extends {id: unknown}>(
+  droppableContainers: TDroppable[],
+  teamSortIds: ReadonlySet<string>,
+): TDroppable[] {
+  return droppableContainers.filter(
+    (droppable) => typeof droppable.id === 'string' && teamSortIds.has(droppable.id),
+  )
+}
+
+function createBuilderV2CollisionDetection(teamSortIds: ReadonlySet<string>): CollisionDetection {
+  return (args) => {
+    if (isBuilderV2TeamSortDragPayload(args.active.data.current)) {
+      return closestCenter({
+        ...args,
+        droppableContainers: filterBuilderV2TeamSortDroppables(
+          args.droppableContainers,
+          teamSortIds,
+        ),
+      })
+    }
+
+    const pointerCollisions = pointerWithin(args)
+    return pointerCollisions.length > 0 ? pointerCollisions : closestCenter(args)
   }
 }
 

@@ -915,13 +915,19 @@ export function useBuilderV2Model({
       setActiveTeamId(state.activeTeamId)
       setViolationMessage(null)
       if (state.activeTeamId === teamId) {
+        if (quickLineupState) {
+          advanceQuickLineupStep(result.nextSlots)
+          return
+        }
         applyEditingTarget({kind: 'awakener', slotId})
       }
     },
     [
+      advanceQuickLineupStep,
       allowDuplicateAwakenerIdentities,
       applyEditingTarget,
       clearTransfer,
+      quickLineupState,
       requestAwakenerTransfer,
       setActiveTeamId,
       setPendingTeamAction,
@@ -966,6 +972,10 @@ export function useBuilderV2Model({
         setActiveTeamId(state.activeTeamId)
         setViolationMessage(null)
         if (state.activeTeamId === teamId) {
+          if (quickLineupState) {
+            advanceQuickLineupStep(result.nextSlots)
+            return
+          }
           applyEditingTarget({kind: 'wheel', slotId, wheelIndex})
         }
         return
@@ -993,13 +1003,19 @@ export function useBuilderV2Model({
       setActiveTeamId(state.activeTeamId)
       setViolationMessage(null)
       if (state.activeTeamId === teamId) {
+        if (quickLineupState) {
+          advanceQuickLineupStep(result.nextSlots)
+          return
+        }
         applyEditingTarget({kind: 'wheel', slotId, wheelIndex})
       }
     },
     [
+      advanceQuickLineupStep,
       allowDuplicateAwakenerIdentities,
       applyEditingTarget,
       clearTransfer,
+      quickLineupState,
       requestWheelTransfer,
       setActiveTeamId,
       setPendingTeamAction,
@@ -1031,12 +1047,18 @@ export function useBuilderV2Model({
       setActiveTeamId(state.activeTeamId)
       setViolationMessage(null)
       if (state.activeTeamId === teamId) {
+        if (quickLineupState) {
+          advanceQuickLineupStep(result.nextSlots)
+          return
+        }
         applyEditingTarget({kind: 'covenant', slotId})
       }
     },
     [
+      advanceQuickLineupStep,
       applyEditingTarget,
       clearTransfer,
+      quickLineupState,
       setActiveTeamId,
       setPendingTeamAction,
       setTeamsInStore,
