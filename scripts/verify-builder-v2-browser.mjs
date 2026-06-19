@@ -364,8 +364,8 @@ async function isThisAppServer(candidateBaseUrl) {
 
 async function isServerReachable(candidateBaseUrl = baseUrl) {
   try {
-    const response = await fetch(candidateBaseUrl)
-    return response.ok
+    await fetch(candidateBaseUrl)
+    return true
   } catch {
     return false
   }
