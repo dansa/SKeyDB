@@ -156,19 +156,19 @@
 .builder-v2-team-management-button:not(:disabled):hover,
 .builder-v2-team-management-mode-button:not(:disabled):hover,
 .builder-v2-team-management-order-button:not(:disabled):hover {
-  border-color: oklch(72% 0.08 232 / 0.5);
-  background: oklch(13% 0.03 252 / 0.72);
-  color: var(--ui-text-main);
+  border-color: var(--builder-v2-control-hover-border);
+  background: var(--builder-v2-control-hover-bg);
+  color: var(--builder-v2-control-hover-text);
 }
 
 .builder-v2-team-management-button--danger {
-  border-color: oklch(60% 0.12 24 / 0.44);
+  border-color: var(--builder-v2-danger-border);
   color: oklch(82% 0.08 32 / 0.92);
 }
 
 .builder-v2-team-management-button--danger:not(:disabled):hover {
-  border-color: oklch(70% 0.13 24 / 0.68);
-  background: oklch(20% 0.06 24 / 0.2);
+  border-color: var(--builder-v2-danger-hover-border);
+  background: var(--builder-v2-danger-hover-bg);
 }
 
 .builder-v2-team-management-button--primary {
@@ -810,7 +810,7 @@
 }
 
 .builder-v2-team-management--preview-compact .builder-v2-team-management-slot-art > img {
-  object-position: center 18%;
+  object-position: var(--builder-v2-awakener-art-focus);
 }
 
 .builder-v2-team-management-slot-shade {
@@ -1137,10 +1137,11 @@
   height: 0.86rem;
 }
 
-.builder-v2-team-management-controls .builder-v2-team-management-order-button:not(:disabled):hover {
-  border-color: oklch(72% 0.08 232 / 0.45);
-  background: oklch(12% 0.03 252 / 0.56);
-  color: var(--ui-text-main);
+.builder-v2-team-management-controls .builder-v2-team-management-order-button:not(:disabled):hover,
+.builder-v2-team-management-controls .builder-v2-team-management-button:not(:disabled):hover {
+  border-color: var(--builder-v2-control-hover-quiet-border);
+  background: var(--builder-v2-control-hover-quiet-bg);
+  color: var(--builder-v2-control-hover-text);
 }
 
 .builder-v2-team-management-controls .builder-v2-team-management-button span {
@@ -1150,12 +1151,6 @@
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
-}
-
-.builder-v2-team-management-controls .builder-v2-team-management-button:not(:disabled):hover {
-  border-color: oklch(72% 0.08 232 / 0.45);
-  background: oklch(12% 0.03 252 / 0.56);
-  color: var(--ui-text-main);
 }
 
 .builder-v2-team-management-controls .builder-v2-team-management-button--danger {

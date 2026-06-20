@@ -196,6 +196,24 @@
 }
 
 .builder-v2-adaptive-picker .builder-v2-picker-content {
+  --builder-v2-picker-tab-height: var(--builder-v2-adaptive-picker-tab-height);
+  --builder-v2-picker-tab-font-size: 0.66rem;
+  --builder-v2-picker-toolbar-gap: 0.42rem;
+  --builder-v2-picker-toolbar-padding: 0.32rem 0.38rem;
+  --builder-v2-picker-search-min-height: 2rem;
+  --builder-v2-picker-search-padding-block: 0.42rem;
+  --builder-v2-picker-search-icon-left: 0.62rem;
+  --builder-v2-picker-toolbar-search-padding-left: 1.8rem;
+  --builder-v2-picker-chip-gap: 0.28rem;
+  --builder-v2-picker-chip-padding: 0.3rem 0.36rem;
+  --builder-v2-picker-chip-icon-width: 100%;
+  --builder-v2-picker-chip-icon-padding: 0.24rem;
+  --builder-v2-picker-filter-stack-gap: 0.45rem;
+  --builder-v2-picker-filter-stack-padding: 0.5rem;
+  --builder-v2-picker-menu-size: 2rem;
+  --builder-v2-picker-menu-padding: 0.24rem;
+  --builder-v2-picker-results-gap: clamp(0.38rem, 0.7vw, 0.5rem);
+  --builder-v2-picker-results-padding: clamp(0.48rem, 0.85vw, 0.62rem);
   position: relative;
   grid-area: picker;
   grid-template-areas:
@@ -269,17 +287,14 @@
 
 .builder-v2-adaptive-picker .builder-v2-picker-tabs {
   grid-area: tabs;
-  min-height: var(--builder-v2-adaptive-picker-tab-height);
   border-bottom: 1px solid var(--builder-v2-section-divider);
   background: var(--builder-v2-chrome-bg);
 }
 
 .builder-v2-adaptive-picker .builder-v2-tab {
-  min-height: var(--builder-v2-adaptive-picker-tab-height);
   border-right: 0;
   border-bottom: 0;
   box-shadow: inset -1px 0 0 var(--builder-v2-section-divider-quiet);
-  font-size: 0.66rem;
 }
 
 .builder-v2-adaptive-picker .builder-v2-tab:last-child {
@@ -300,9 +315,7 @@
   min-height: var(--builder-v2-adaptive-picker-tab-height);
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 0.42rem;
   background: var(--builder-v2-chrome-bg);
-  padding: 0.32rem 0.38rem;
   box-shadow:
     inset -1px 0 0 var(--builder-v2-section-divider-quiet),
     inset 0 -1px 0 var(--builder-v2-section-divider);
@@ -317,7 +330,6 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-content: start;
-  gap: 0.28rem;
   border-right: 0;
   border-bottom: 0;
   background: transparent;
@@ -328,49 +340,25 @@
   grid-area: filters;
   display: grid;
   align-content: start;
-  gap: 0.45rem;
+  gap: var(--builder-v2-picker-filter-stack-gap);
   overflow: visible;
   border-bottom: 0;
   background: var(--builder-v2-chrome-bg);
-  padding: 0.5rem;
+  padding: var(--builder-v2-picker-filter-stack-padding);
   box-shadow: inset -1px 0 0 var(--builder-v2-section-divider);
 }
 
 .builder-v2-adaptive-picker .builder-v2-picker-chip {
   width: 100%;
   min-width: 0;
-  min-height: 1.78rem;
-  padding: 0.3rem 0.36rem;
-}
-
-.builder-v2-adaptive-picker .builder-v2-picker-chip--icon {
-  width: 100%;
-  padding: 0.24rem;
-}
-
-.builder-v2-adaptive-picker .builder-v2-picker-menu-button {
-  min-width: 2rem;
-  min-height: 2rem;
-  padding: 0.24rem;
 }
 
 .builder-v2-adaptive-picker .builder-v2-search {
-  min-height: 2rem;
-  padding-top: 0.42rem;
-  padding-bottom: 0.42rem;
   font-size: 0.78rem;
 }
 
 .builder-v2-adaptive-picker .builder-v2-search::placeholder {
   font-size: 0.72rem;
-}
-
-.builder-v2-adaptive-picker .builder-v2-search-icon {
-  left: 0.62rem;
-}
-
-.builder-v2-adaptive-picker .builder-v2-picker-toolbar .builder-v2-search {
-  padding-left: 1.8rem;
 }
 
 .builder-v2-adaptive-picker .builder-v2-picker-menu {
@@ -388,8 +376,6 @@
 .builder-v2-adaptive-picker .builder-v2-picker-results {
   grid-area: results;
   border-left: 0;
-  gap: clamp(0.38rem, 0.7vw, 0.5rem);
-  padding: clamp(0.48rem, 0.85vw, 0.62rem);
 }
 
 .builder-v2-adaptive-picker .builder-v2-picker-results--remove-target {

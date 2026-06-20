@@ -138,14 +138,6 @@
   color: oklch(82% 0.07 28 / 0.94);
 }
 
-.builder-v2-mobile-lineup-header-action--active,
-.builder-v2-mobile-lineup-header-action:hover {
-  border-color: var(--builder-v2-highlight-border);
-  background: var(--builder-v2-highlight-bg);
-  box-shadow: inset 0 0 0 1px var(--builder-v2-highlight-inset);
-  color: var(--ui-accent-gold-soft);
-}
-
 .builder-v2-mobile-lineup-posse-target {
   display: grid;
   min-width: 0;
@@ -295,7 +287,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 18%;
+  object-position: var(--builder-v2-awakener-art-focus);
 }
 
 .builder-v2-mobile-lineup-empty-mark {
@@ -438,14 +430,6 @@
 
 .builder-v2-mobile-lineup-gear-button--inert {
   cursor: default;
-}
-
-.builder-v2-mobile-lineup-gear-button:not(.builder-v2-mobile-lineup-gear-button--inert):hover,
-.builder-v2-mobile-lineup-gear-button--active {
-  border-color: var(--builder-v2-highlight-border);
-  background: var(--builder-v2-highlight-bg);
-  box-shadow: inset 0 0 0 1px var(--builder-v2-highlight-inset);
-  color: var(--ui-accent-gold-soft);
 }
 
 .builder-v2-mobile-lineup-gear-button img {
@@ -667,6 +651,10 @@
   white-space: nowrap;
 }
 
+.builder-v2-mobile-lineup-header-action--active,
+.builder-v2-mobile-lineup-header-action:hover,
+.builder-v2-mobile-lineup-gear-button:not(.builder-v2-mobile-lineup-gear-button--inert):hover,
+.builder-v2-mobile-lineup-gear-button--active,
 .builder-v2-mobile-lineup-empty-choice--active,
 .builder-v2-mobile-lineup-target-button--active,
 .builder-v2-mobile-lineup-slot-nav:not(:disabled):hover,
@@ -680,20 +668,6 @@
 }
 
 .builder-v2-mobile-lineup-picker {
-  --builder-v2-mobile-picker-tab-height: 2.45rem;
-  --builder-v2-mobile-picker-tab-padding: 0.24rem;
-  --builder-v2-mobile-picker-tab-font-size: 0.64rem;
-  --builder-v2-mobile-picker-toolbar-gap: 0.38rem;
-  --builder-v2-mobile-picker-toolbar-padding: 0.48rem 0.58rem;
-  --builder-v2-mobile-picker-search-padding-block: 0.46rem;
-  --builder-v2-mobile-picker-menu-padding: 0.3rem;
-  --builder-v2-mobile-picker-filter-padding: 0 0.58rem 0.5rem;
-  --builder-v2-mobile-picker-chip-gap: 0.32rem;
-  --builder-v2-mobile-picker-chip-min-height: 2.5rem;
-  --builder-v2-mobile-picker-chip-padding: 0.34rem 0.52rem;
-  --builder-v2-mobile-picker-icon-chip-width: 2.5rem;
-  --builder-v2-mobile-picker-icon-chip-padding: 0.26rem;
-  --builder-v2-mobile-picker-results-padding: 0.58rem;
   border-bottom: 1px solid var(--builder-v2-panel-border);
 }
 
@@ -734,51 +708,90 @@
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-content,
 .builder-v2-mobile-picker .builder-v2-picker-content {
+  --builder-v2-picker-search-min-height: 2.5rem;
+  --builder-v2-picker-menu-size: 2.5rem;
+  --builder-v2-picker-chip-font-size: 0.58rem;
+  --builder-v2-picker-filter-stack-gap: 0.28rem;
+  --builder-v2-picker-results-gap: 0.45rem;
   display: flex;
   min-height: 0;
   flex: 1 1 auto;
   flex-direction: column;
 }
 
+.builder-v2-mobile-lineup-picker .builder-v2-picker-content {
+  --builder-v2-picker-tab-height: 2.45rem;
+  --builder-v2-picker-tab-padding: 0.24rem;
+  --builder-v2-picker-tab-font-size: 0.64rem;
+  --builder-v2-picker-toolbar-gap: 0.38rem;
+  --builder-v2-picker-toolbar-padding: 0.48rem 0.58rem;
+  --builder-v2-picker-search-padding-block: 0.46rem;
+  --builder-v2-picker-menu-padding: 0.3rem;
+  --builder-v2-picker-filter-padding: 0 0.58rem 0.5rem;
+  --builder-v2-picker-chip-gap: 0.32rem;
+  --builder-v2-picker-chip-min-height: 2.5rem;
+  --builder-v2-picker-chip-padding: 0.34rem 0.52rem;
+  --builder-v2-picker-chip-icon-width: 2.5rem;
+  --builder-v2-picker-chip-icon-padding: 0.26rem;
+  --builder-v2-picker-results-padding: 0.58rem;
+}
+
+.builder-v2-mobile-picker .builder-v2-picker-content {
+  --builder-v2-picker-tab-height: 2.6rem;
+  --builder-v2-picker-tab-padding: 0.28rem;
+  --builder-v2-picker-tab-font-size: 0.66rem;
+  --builder-v2-picker-toolbar-gap: 0.42rem;
+  --builder-v2-picker-toolbar-padding: 0.52rem 0.62rem;
+  --builder-v2-picker-search-padding-block: 0.48rem;
+  --builder-v2-picker-menu-padding: 0.32rem;
+  --builder-v2-picker-filter-padding: 0 0.62rem 0.52rem;
+  --builder-v2-picker-chip-gap: 0.28rem;
+  --builder-v2-picker-chip-min-height: 1.7rem;
+  --builder-v2-picker-chip-padding: 0.3rem 0.42rem;
+  --builder-v2-picker-chip-icon-width: 1.9rem;
+  --builder-v2-picker-chip-icon-padding: 0.2rem;
+  --builder-v2-picker-results-padding: 0.58rem 0.62rem;
+}
+
 .builder-v2-mobile-lineup-picker .builder-v2-picker-tabs,
 .builder-v2-mobile-picker .builder-v2-picker-tabs {
-  min-height: var(--builder-v2-mobile-picker-tab-height);
+  min-height: var(--builder-v2-picker-tab-height);
 }
 
 .builder-v2-mobile-lineup-picker .builder-v2-tab,
 .builder-v2-mobile-picker .builder-v2-tab {
-  min-height: var(--builder-v2-mobile-picker-tab-height);
-  padding: var(--builder-v2-mobile-picker-tab-padding);
-  font-size: var(--builder-v2-mobile-picker-tab-font-size);
+  min-height: var(--builder-v2-picker-tab-height);
+  padding: var(--builder-v2-picker-tab-padding);
+  font-size: var(--builder-v2-picker-tab-font-size);
 }
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-toolbar,
 .builder-v2-mobile-picker .builder-v2-picker-toolbar {
-  gap: var(--builder-v2-mobile-picker-toolbar-gap);
-  padding: var(--builder-v2-mobile-picker-toolbar-padding);
+  gap: var(--builder-v2-picker-toolbar-gap);
+  padding: var(--builder-v2-picker-toolbar-padding);
 }
 
 .builder-v2-mobile-lineup-picker .builder-v2-search,
 .builder-v2-mobile-picker .builder-v2-search {
-  min-height: 2.5rem;
-  padding-top: var(--builder-v2-mobile-picker-search-padding-block);
-  padding-bottom: var(--builder-v2-mobile-picker-search-padding-block);
+  min-height: var(--builder-v2-picker-search-min-height);
+  padding-top: var(--builder-v2-picker-search-padding-block);
+  padding-bottom: var(--builder-v2-picker-search-padding-block);
 }
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-menu-button,
 .builder-v2-mobile-picker .builder-v2-picker-menu-button {
-  min-width: 2.5rem;
-  min-height: 2.5rem;
-  padding: var(--builder-v2-mobile-picker-menu-padding);
+  min-width: var(--builder-v2-picker-menu-size);
+  min-height: var(--builder-v2-picker-menu-size);
+  padding: var(--builder-v2-picker-menu-padding);
 }
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-filter-stack,
 .builder-v2-mobile-picker .builder-v2-picker-filter-stack {
   display: grid;
-  gap: 0.28rem;
+  gap: var(--builder-v2-picker-filter-stack-gap);
   border-bottom: 1px solid var(--builder-v2-section-divider);
   background: var(--builder-v2-chrome-bg);
-  padding: var(--builder-v2-mobile-picker-filter-padding);
+  padding: var(--builder-v2-picker-filter-padding);
 }
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-bottom-controls,
@@ -796,7 +809,7 @@
   .builder-v2-picker-content--controls-bottom
   .builder-v2-picker-filter-stack {
   border-bottom: 1px solid var(--builder-v2-section-divider);
-  padding: var(--builder-v2-mobile-picker-filter-padding);
+  padding: var(--builder-v2-picker-filter-padding);
 }
 
 .builder-v2-mobile-lineup-picker
@@ -809,7 +822,7 @@
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-chips,
 .builder-v2-mobile-picker .builder-v2-picker-chips {
-  gap: var(--builder-v2-mobile-picker-chip-gap);
+  gap: var(--builder-v2-picker-chip-gap);
   border-bottom: 0;
   background: transparent;
   padding: 0;
@@ -829,9 +842,9 @@
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-chip,
 .builder-v2-mobile-picker .builder-v2-picker-chip {
-  min-height: var(--builder-v2-mobile-picker-chip-min-height);
-  padding: var(--builder-v2-mobile-picker-chip-padding);
-  font-size: 0.58rem;
+  min-height: var(--builder-v2-picker-chip-min-height);
+  padding: var(--builder-v2-picker-chip-padding);
+  font-size: var(--builder-v2-picker-chip-font-size);
 }
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-chip {
@@ -842,8 +855,16 @@
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-chip--icon,
 .builder-v2-mobile-picker .builder-v2-picker-chip--icon {
-  width: var(--builder-v2-mobile-picker-icon-chip-width);
-  padding: var(--builder-v2-mobile-picker-icon-chip-padding);
+  width: var(--builder-v2-picker-chip-icon-width);
+  padding: var(--builder-v2-picker-chip-icon-padding);
+}
+
+.builder-v2-mobile-lineup-picker .builder-v2-picker-detail-button,
+.builder-v2-mobile-picker .builder-v2-picker-detail-button {
+  right: 0.2rem;
+  bottom: 0.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-results,
@@ -853,9 +874,9 @@
   --builder-v2-picker-results-max-height: none;
   flex: 1 1 auto;
   min-height: 0;
-  gap: 0.45rem;
+  gap: var(--builder-v2-picker-results-gap);
   overscroll-behavior: contain;
-  padding: var(--builder-v2-mobile-picker-results-padding);
+  padding: var(--builder-v2-picker-results-padding);
 }
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-results {
@@ -1653,20 +1674,6 @@
 }
 
 .builder-v2-mobile-picker {
-  --builder-v2-mobile-picker-tab-height: 2.6rem;
-  --builder-v2-mobile-picker-tab-padding: 0.28rem;
-  --builder-v2-mobile-picker-tab-font-size: 0.66rem;
-  --builder-v2-mobile-picker-toolbar-gap: 0.42rem;
-  --builder-v2-mobile-picker-toolbar-padding: 0.52rem 0.62rem;
-  --builder-v2-mobile-picker-search-padding-block: 0.48rem;
-  --builder-v2-mobile-picker-menu-padding: 0.32rem;
-  --builder-v2-mobile-picker-filter-padding: 0 0.62rem 0.52rem;
-  --builder-v2-mobile-picker-chip-gap: 0.28rem;
-  --builder-v2-mobile-picker-chip-min-height: 1.7rem;
-  --builder-v2-mobile-picker-chip-padding: 0.3rem 0.42rem;
-  --builder-v2-mobile-picker-icon-chip-width: 1.9rem;
-  --builder-v2-mobile-picker-icon-chip-padding: 0.2rem;
-  --builder-v2-mobile-picker-results-padding: 0.58rem 0.62rem;
   position: relative;
   width: 100%;
   height: min(68dvh, 34rem);

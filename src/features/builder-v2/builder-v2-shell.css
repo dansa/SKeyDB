@@ -48,8 +48,17 @@
   --builder-v2-row-bg-hover: var(--ui-surface-row-bg-hover);
   --builder-v2-control-bg: var(--ui-surface-control-bg);
   --builder-v2-control-bg-hover: var(--ui-surface-control-bg-hover);
+  --builder-v2-control-hover-border: oklch(72% 0.08 232 / 0.5);
+  --builder-v2-control-hover-bg: oklch(13% 0.03 252 / 0.72);
+  --builder-v2-control-hover-text: var(--ui-text-main);
+  --builder-v2-control-hover-quiet-border: oklch(72% 0.08 232 / 0.45);
+  --builder-v2-control-hover-quiet-bg: oklch(12% 0.03 252 / 0.56);
   --builder-v2-item-bg: var(--ui-surface-item-bg);
   --builder-v2-item-bg-hover: var(--ui-surface-item-bg-hover);
+  --builder-v2-danger-border: oklch(60% 0.12 24 / 0.44);
+  --builder-v2-danger-hover-border: oklch(70% 0.13 24 / 0.68);
+  --builder-v2-danger-hover-bg: oklch(20% 0.06 24 / 0.2);
+  --builder-v2-awakener-art-focus: 50% 18%;
   --builder-v2-drop-border: var(--ui-state-amber-border-emphasis);
   --builder-v2-drop-border-strong: var(--ui-state-amber-border-hot);
   --builder-v2-drop-bg: var(--ui-state-amber-surface-strong);

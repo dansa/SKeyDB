@@ -233,19 +233,19 @@
 }
 
 .builder-v2-lineup-action:not(:disabled):hover {
-  border-color: oklch(72% 0.08 232 / 0.5);
-  background: oklch(13% 0.03 252 / 0.72);
-  color: var(--ui-text-main);
+  border-color: var(--builder-v2-control-hover-border);
+  background: var(--builder-v2-control-hover-bg);
+  color: var(--builder-v2-control-hover-text);
 }
 
 .builder-v2-lineup-action--danger {
-  border-color: oklch(60% 0.12 24 / 0.44);
+  border-color: var(--builder-v2-danger-border);
   color: oklch(82% 0.08 32 / 0.92);
 }
 
 .builder-v2-lineup-action--danger:not(:disabled):hover {
-  border-color: oklch(70% 0.13 24 / 0.68);
-  background: oklch(20% 0.06 24 / 0.2);
+  border-color: var(--builder-v2-danger-hover-border);
+  background: var(--builder-v2-danger-hover-bg);
 }
 
 .builder-v2-lineup-action--success {
@@ -696,7 +696,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 18%;
+  object-position: var(--builder-v2-awakener-art-focus);
   backface-visibility: hidden;
   transition: filter var(--ui-motion-duration-base) var(--ui-motion-ease-soft);
 }
