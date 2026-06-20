@@ -1,0 +1,1599 @@
+.builder-v2-team-overview {
+  padding-bottom: 0.8rem;
+}
+
+.builder-v2-team-management {
+  display: grid;
+}
+
+.builder-v2-team-management-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, auto);
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--builder-v2-chrome-bg);
+  border-bottom: 0;
+  padding: 0.7rem 0.75rem;
+}
+
+.builder-v2-team-management-toolbar,
+.builder-v2-team-management-actions,
+.builder-v2-team-management-mode {
+  display: flex;
+  flex-wrap: wrap;
+  min-inline-size: 0;
+  align-items: center;
+  gap: 0.35rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.builder-v2-team-management-toolbar {
+  justify-content: flex-end;
+}
+
+.builder-v2-team-management-utility {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--builder-v2-section-divider);
+  background: var(--builder-v2-chrome-bg);
+  padding: 0.52rem 0.75rem;
+}
+
+.builder-v2-team-management-utility-label {
+  color: var(--ui-text-faint);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.builder-v2-team-management-utility .builder-v2-io-actions {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.builder-v2-team-management-utility .builder-v2-io-button {
+  min-height: 1.9rem;
+  padding: 0.36rem 0.5rem;
+  font-size: 0.6rem;
+}
+
+.builder-v2-team-management-identity {
+  min-width: 0;
+}
+
+.builder-v2-team-management-title-row {
+  display: inline-flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 0.42rem;
+}
+
+.builder-v2-team-management-title-row .ui-title {
+  font-size: 1rem;
+  line-height: 1.05;
+}
+
+.builder-v2-team-management-count {
+  color: var(--ui-text-faint);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.builder-v2-team-management-mode {
+  border: 1px solid var(--builder-v2-control-border);
+  border-radius: var(--ui-radius-xs);
+  gap: 0;
+  overflow: hidden;
+  background: var(--ui-panel-strong);
+}
+
+.builder-v2-team-management-mode-button,
+.builder-v2-team-management-button,
+.builder-v2-team-management-order-button {
+  border: 1px solid var(--builder-v2-control-border);
+  background: var(--ui-panel-strong);
+  color: var(--ui-text-muted);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    border-color 150ms var(--ui-motion-ease),
+    background-color 150ms var(--ui-motion-ease),
+    color 150ms var(--ui-motion-ease),
+    opacity 150ms var(--ui-motion-ease);
+}
+
+.builder-v2-team-management-mode-button {
+  min-height: 1.9rem;
+  border: 0;
+  border-radius: 0;
+  padding: 0.42rem 0.58rem;
+  box-shadow: inset -1px 0 0 var(--builder-v2-section-divider-quiet);
+}
+
+.builder-v2-team-management-mode-button:last-child {
+  box-shadow: none;
+}
+
+.builder-v2-team-management-mode-button--active {
+  background: oklch(20% 0.055 84 / 0.2);
+  color: var(--ui-accent-gold-soft);
+  box-shadow:
+    inset -1px 0 0 var(--builder-v2-section-divider-quiet),
+    inset 0 -2px 0 var(--ui-accent-gold);
+}
+
+.builder-v2-team-management-mode-button--active:last-child {
+  box-shadow: inset 0 -2px 0 var(--ui-accent-gold);
+}
+
+.builder-v2-team-management-button {
+  display: inline-flex;
+  min-height: 1.9rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.32rem;
+  padding: 0.42rem 0.55rem;
+}
+
+.builder-v2-team-management-button svg {
+  width: 0.78rem;
+  height: 0.78rem;
+}
+
+.builder-v2-team-management-button:not(:disabled):hover,
+.builder-v2-team-management-mode-button:not(:disabled):hover,
+.builder-v2-team-management-order-button:not(:disabled):hover {
+  border-color: oklch(72% 0.08 232 / 0.5);
+  background: oklch(13% 0.03 252 / 0.72);
+  color: var(--ui-text-main);
+}
+
+.builder-v2-team-management-button--danger {
+  border-color: oklch(60% 0.12 24 / 0.44);
+  color: oklch(82% 0.08 32 / 0.92);
+}
+
+.builder-v2-team-management-button--danger:not(:disabled):hover {
+  border-color: oklch(70% 0.13 24 / 0.68);
+  background: oklch(20% 0.06 24 / 0.2);
+}
+
+.builder-v2-team-management-button--primary {
+  border-color: oklch(74% 0.11 84 / 0.56);
+  color: var(--ui-accent-gold-soft);
+}
+
+.builder-v2-team-management-button--primary:not(:disabled):hover {
+  border-color: oklch(82% 0.11 84 / 0.74);
+  background: oklch(22% 0.055 84 / 0.2);
+  color: var(--ui-accent-gold-soft);
+}
+
+.builder-v2-team-management-button:disabled,
+.builder-v2-team-management-order-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.34;
+}
+
+.builder-v2-team-management-list {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0.75rem;
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-list {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+  padding: 0.62rem 0.75rem 0.75rem;
+}
+
+.builder-v2-team-management-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--builder-v2-row-ledger-border);
+  border-radius: var(--ui-radius-xs);
+  background: var(--builder-v2-row-ledger-bg);
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-row {
+  grid-template-columns: minmax(0, 1fr);
+  border-color: var(--builder-v2-row-ledger-border);
+  border-bottom-color: var(--builder-v2-row-ledger-border);
+  border-radius: var(--ui-radius-xs);
+  background: var(--builder-v2-row-ledger-bg);
+  box-shadow: none;
+}
+
+.builder-v2-team-management--sortable .builder-v2-team-management-row {
+  will-change: transform;
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-row:hover {
+  border-color: oklch(58% 0.04 232 / 0.2);
+  background: var(--builder-v2-row-ledger-bg-hover);
+}
+
+.builder-v2-team-management--preview-compact {
+  --builder-v2-team-card-min-width: var(--builder-v2-compact-team-card-min-width);
+}
+
+.builder-v2-team-management--preview-expanded {
+  --builder-v2-team-card-min-width: var(--builder-v2-expanded-team-card-min-width);
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile):is(
+    .builder-v2-team-management--preview-compact,
+    .builder-v2-team-management--preview-expanded
+  )
+  .builder-v2-team-management-posse {
+  grid-template-columns: 2.35rem;
+  width: auto;
+  gap: 0;
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile):is(
+    .builder-v2-team-management--preview-compact,
+    .builder-v2-team-management--preview-expanded
+  )
+  .builder-v2-team-management-posse-icon {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile):is(
+    .builder-v2-team-management--preview-compact,
+    .builder-v2-team-management--preview-expanded
+  )
+  .builder-v2-team-management-posse-copy {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.builder-v2-team-management--wide:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-list {
+  grid-template-columns: repeat(2, minmax(var(--builder-v2-team-card-min-width), 1fr));
+  gap: 0.58rem;
+}
+
+.builder-v2-team-management-row--active {
+  border-color: var(--ui-state-amber-border-emphasis);
+  box-shadow:
+    inset 0 0 0 1px var(--ui-state-amber-inset),
+    0 0 0 1px var(--ui-state-amber-ring);
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-row--active {
+  position: relative;
+  z-index: 1;
+  border-color: var(--ui-state-amber-border-emphasis);
+  border-bottom: 1px solid var(--ui-state-amber-border-emphasis);
+  background: var(--builder-v2-row-ledger-bg);
+  box-shadow:
+    inset 0 0 0 1px var(--ui-state-amber-inset),
+    0 0 0 1px var(--ui-state-amber-ring);
+}
+
+.builder-v2-team-management-drag-handle {
+  display: grid;
+  width: 1.76rem;
+  height: 1.76rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--ui-radius-xs);
+  background: transparent;
+  color: var(--ui-text-faint);
+  cursor: grab;
+  opacity: 0.72;
+  padding: 0;
+  touch-action: none;
+  transition:
+    border-color 150ms var(--ui-motion-ease),
+    background-color 150ms var(--ui-motion-ease),
+    color 150ms var(--ui-motion-ease),
+    opacity 150ms var(--ui-motion-ease);
+}
+
+.builder-v2-team-management-drag-handle:active {
+  cursor: grabbing;
+}
+
+.builder-v2-team-management-drag-handle:hover,
+.builder-v2-team-management-drag-handle:focus-visible {
+  border-color: oklch(72% 0.08 232 / 0.45);
+  background: oklch(12% 0.03 252 / 0.56);
+  color: var(--ui-text-main);
+  opacity: 1;
+}
+
+.builder-v2-team-management-drag-handle:focus-visible {
+  outline: 2px solid var(--builder-v2-focus-ring-color);
+  outline-offset: 2px;
+}
+
+.builder-v2-team-management-drag-grip {
+  width: 0.72rem;
+  height: 1.04rem;
+  background-image: radial-gradient(currentColor 1.2px, transparent 1.35px);
+  background-position:
+    0 0,
+    0.36rem 0;
+  background-size: 0.36rem 0.34rem;
+  opacity: 0.86;
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-row:hover
+  .builder-v2-team-management-drag-handle,
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-row--active
+  .builder-v2-team-management-drag-handle {
+  color: var(--ui-text-muted);
+  opacity: 0.84;
+}
+
+.builder-v2-team-management-row--dragging {
+  opacity: 0.42;
+  outline: 1px dashed oklch(78% 0.1 84 / 0.48);
+  outline-offset: -3px;
+}
+
+@media (pointer: coarse) {
+  .builder-v2-team-management-drag-handle {
+    display: none;
+  }
+}
+
+.builder-v2-team-management-order-button {
+  display: grid;
+  width: 1.75rem;
+  height: 1.75rem;
+  place-items: center;
+  border-radius: var(--ui-radius-xs);
+  padding: 0;
+}
+
+.builder-v2-team-management-order-button svg {
+  width: 0.72rem;
+  height: 0.72rem;
+}
+
+.builder-v2-team-management-main {
+  display: grid;
+  min-width: 0;
+  grid-template-areas:
+    'row-header'
+    'row-controls'
+    'row-slots';
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
+}
+
+.builder-v2-team-management-row-header {
+  display: grid;
+  grid-area: row-header;
+  grid-template-columns: minmax(0, 1fr) minmax(0, auto);
+  min-width: 0;
+  align-items: center;
+  gap: 0.52rem;
+  border-bottom: 0;
+  padding: 0.58rem 0.72rem 0.34rem;
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-row-header {
+  border-bottom: 0;
+  padding: 0.58rem 0.72rem 0.34rem;
+}
+
+.builder-v2-team-management-row-body {
+  display: contents;
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-row-body {
+  display: contents;
+}
+
+.builder-v2-team-management-select {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  min-width: 0;
+  align-items: center;
+  gap: 0.65rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 150ms var(--ui-motion-ease),
+    background-color 150ms var(--ui-motion-ease),
+    color 150ms var(--ui-motion-ease);
+}
+
+.builder-v2-team-management-titlebar {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.36rem;
+}
+
+.builder-v2-team-management-titlebar .builder-v2-team-management-select {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.18rem;
+  border: 1px solid transparent;
+  border-radius: var(--ui-radius-xs);
+  margin-block: -0.22rem;
+  padding: 0.22rem 0.4rem 0.22rem 0;
+}
+
+.builder-v2-team-management-titlebar .builder-v2-team-management-select:hover,
+.builder-v2-team-management-titlebar .builder-v2-team-management-select:focus-visible {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ui-accent-gold-soft);
+}
+
+.builder-v2-team-management-titlebar .builder-v2-team-management-select:active {
+  background: transparent;
+  color: var(--ui-accent-gold);
+}
+
+.builder-v2-team-management-row--active
+  .builder-v2-team-management-titlebar
+  .builder-v2-team-management-select {
+  border-color: transparent;
+  background: transparent;
+}
+
+.builder-v2-team-management-rename-button {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--ui-radius-xs);
+  background: transparent;
+  color: var(--ui-text-faint);
+  cursor: pointer;
+  transition:
+    border-color 150ms var(--ui-motion-ease),
+    background-color 150ms var(--ui-motion-ease),
+    color 150ms var(--ui-motion-ease);
+}
+
+.builder-v2-team-management-rename-button:hover {
+  border-color: var(--builder-v2-control-border);
+  background: oklch(10% 0.025 252 / 0.58);
+  color: var(--ui-text-main);
+}
+
+.builder-v2-team-management-rename-button svg {
+  width: 0.78rem;
+  height: 0.78rem;
+}
+
+.builder-v2-team-management-copy {
+  display: grid;
+  min-width: 0;
+}
+
+.builder-v2-team-management-name {
+  overflow: hidden;
+  color: var(--ui-accent-gold-soft);
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.builder-v2-team-management-posse {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.35rem;
+  min-width: 0;
+  align-items: center;
+  justify-self: end;
+  gap: 0.5rem;
+  color: var(--ui-text-muted);
+}
+
+.builder-v2-team-management-posse-button {
+  border: 1px solid transparent;
+  border-radius: var(--ui-radius-xs);
+  background: transparent;
+  padding: 0.14rem;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  transition:
+    border-color 150ms var(--ui-motion-ease),
+    background-color 150ms var(--ui-motion-ease),
+    color 150ms var(--ui-motion-ease);
+}
+
+.builder-v2-team-management-posse-button:hover {
+  border-color: oklch(72% 0.08 232 / 0.38);
+  background: oklch(11% 0.03 252 / 0.48);
+  color: var(--ui-text-main);
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-posse-button:hover {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ui-accent-gold-soft);
+}
+
+.builder-v2-team-management-posse-button:hover .builder-v2-team-management-posse-icon {
+  border-color: oklch(78% 0.1 84 / 0.44);
+}
+
+.builder-v2-team-management-posse-button:focus-visible {
+  outline: 2px solid var(--builder-v2-focus-ring-color);
+  outline-offset: 2px;
+}
+
+.builder-v2-team-management-posse-icon {
+  grid-column: 2;
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-xs);
+  background: var(--ui-art-well);
+}
+
+.builder-v2-team-management-posse-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0.35rem 0.7rem oklch(0% 0 0 / 0.5));
+}
+
+.builder-v2-team-management-posse:not(.builder-v2-team-management-posse--equipped)
+  .builder-v2-team-management-posse-icon::before {
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 1px solid oklch(58% 0.035 84 / 0.35);
+  content: '';
+  transform: rotate(45deg);
+}
+
+.builder-v2-team-management-posse--unowned {
+  opacity: 0.62;
+}
+
+.builder-v2-team-management-posse-copy {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  min-width: 0;
+  justify-items: end;
+  gap: 0.2rem;
+  text-align: right;
+}
+
+.builder-v2-team-management-posse-name {
+  overflow: hidden;
+  color: var(--ui-text-main);
+  font-family: 'Droid Serif', Georgia, serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.builder-v2-team-name-input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--ui-border-muted);
+  background: var(--ui-panel-strong);
+  padding: 0.42rem 0.5rem;
+  color: var(--ui-text-main);
+  font-size: 0.82rem;
+  font-weight: 800;
+  transition:
+    border-color 150ms var(--ui-motion-ease),
+    background-color 150ms var(--ui-motion-ease),
+    box-shadow 150ms var(--ui-motion-ease);
+}
+
+.builder-v2-team-name-input:focus {
+  border-color: var(--ui-state-amber-border);
+  background: oklch(6.8% 0.024 252 / 0.94);
+  outline: none;
+  box-shadow:
+    inset 0 0 0 1px var(--ui-focus-ring-support),
+    0 0 0 0.16rem var(--ui-state-amber-ring-strong);
+}
+
+.builder-v2-team-management-slots {
+  display: grid;
+  grid-area: row-slots;
+  min-width: 0;
+  gap: 0.54rem;
+  align-items: center;
+  justify-content: start;
+  list-style: none;
+  margin: 0.26rem 0.72rem 0.7rem;
+  padding: 0;
+}
+
+.builder-v2-team-management-slot {
+  --team-summary-realm: oklch(56% 0.04 232);
+  --team-summary-slot-border-color: var(--builder-v2-object-border-quiet);
+  --team-summary-slot-hover-border-color: oklch(78% 0.1 84 / 0.46);
+  position: relative;
+  display: grid;
+  min-width: 0;
+  gap: 0.28rem;
+  overflow: visible;
+  border: 0;
+  border-radius: var(--ui-radius-xs);
+  background: transparent;
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-slot {
+  background: transparent;
+  box-shadow: none;
+}
+
+.builder-v2-team-management-slot-frame {
+  display: grid;
+  grid-row: 1 / -1;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  grid-template-rows: inherit;
+  gap: inherit;
+}
+
+.builder-v2-team-management-slot-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.builder-v2-team-management-slot-art-button {
+  display: grid;
+  grid-row: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+.builder-v2-team-management--preview-compact .builder-v2-team-management-slot-frame {
+  height: 100%;
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.builder-v2-team-management-slot:hover,
+.builder-v2-team-management-slot:focus-within {
+  --team-summary-slot-border-color: var(--team-summary-slot-hover-border-color);
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-slot:hover,
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-slot:focus-within {
+  background: transparent;
+}
+
+.builder-v2-team-management-slot-button:focus-visible {
+  outline: none;
+}
+
+.builder-v2-team-management-slot-art-button:focus-visible .builder-v2-team-management-slot-art,
+.builder-v2-team-management-slot-frame:focus-visible .builder-v2-team-management-slot-art {
+  border-color: var(--builder-v2-focus-ring-color);
+  box-shadow:
+    var(--builder-v2-focus-inset), var(--builder-v2-focus-halo), var(--ui-surface-hairline-soft);
+}
+
+.builder-v2-team-management-slot--empty {
+  --team-summary-realm: oklch(46% 0.03 232);
+}
+
+.builder-v2-team-management-slot--drop-target {
+  --team-summary-slot-border-color: var(--builder-v2-drop-border);
+  --team-summary-slot-hover-border-color: var(--builder-v2-drop-border);
+}
+
+.builder-v2-team-management-slot--drop-target .builder-v2-team-management-slot-art {
+  box-shadow:
+    0 0 0 1px var(--builder-v2-drop-border-strong),
+    0 0 0.9rem oklch(76% 0.13 80 / 0.22),
+    var(--ui-surface-hairline-soft);
+}
+
+.builder-v2-team-management-slot--dragging {
+  opacity: 0.46;
+}
+
+.builder-v2-team-management--preview-expanded .builder-v2-team-management-slots {
+  grid-template-columns: repeat(4, minmax(5.45rem, 6.25rem));
+}
+
+.builder-v2-team-management--preview-expanded .builder-v2-team-management-slot {
+  --team-summary-art-row-size: 5.5rem;
+  grid-template-rows: var(--team-summary-art-row-size) auto;
+  min-height: 0;
+}
+
+.builder-v2-team-management--preview-compact .builder-v2-team-management-slots {
+  grid-template-columns: repeat(4, minmax(2.75rem, 3.35rem));
+  justify-content: start;
+  gap: 0.42rem;
+}
+
+.builder-v2-team-management--preview-compact .builder-v2-team-management-slot {
+  aspect-ratio: 1;
+}
+
+.builder-v2-team-management-slot-art {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--team-summary-slot-border-color);
+  border-radius: var(--ui-radius-xs);
+  background:
+    radial-gradient(
+      circle at 50% 28%,
+      color-mix(in oklch, var(--team-summary-realm) 7%, transparent),
+      transparent 58%
+    ),
+    var(--ui-art-well);
+  box-shadow: var(--ui-surface-hairline-soft);
+  transition:
+    border-color 150ms var(--ui-motion-ease),
+    box-shadow 150ms var(--ui-motion-ease);
+}
+
+.builder-v2-team-management--preview-expanded .builder-v2-team-management-slot-art {
+  min-height: 0;
+}
+
+.builder-v2-team-management-slot-art > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border: 0;
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-slot-art
+  > img {
+  border: 0;
+}
+
+.builder-v2-team-management--preview-compact .builder-v2-team-management-slot-art > img {
+  object-position: center 18%;
+}
+
+.builder-v2-team-management-slot-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, oklch(3% 0.012 252 / 0.18), transparent 32%),
+    linear-gradient(0deg, oklch(2.5% 0.012 252 / 0.86), transparent 46%);
+  pointer-events: none;
+}
+
+.builder-v2-team-management-slot-art-meta {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  min-width: 0;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.42rem;
+  padding: 1.2rem 0.42rem 0.34rem;
+  background: linear-gradient(0deg, oklch(2.5% 0.014 252 / 0.92), transparent);
+  pointer-events: none;
+}
+
+.builder-v2-team-management-slot-art-level,
+.builder-v2-team-management-slot-art-enlighten {
+  min-width: 0;
+  color: var(--ui-text-main);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  text-shadow: 0 1px 2px oklch(0% 0 0 / 0.75);
+  white-space: nowrap;
+}
+
+.builder-v2-team-management-slot-art-enlighten {
+  color: var(--ui-accent-gold-soft);
+  text-align: right;
+}
+
+.builder-v2-team-management-slot-covenant {
+  position: absolute;
+  top: 0.32rem;
+  left: 0.32rem;
+  z-index: 4;
+  display: grid;
+  width: 1.62rem;
+  height: 1.62rem;
+  place-items: center;
+  overflow: visible;
+  border: 1px solid oklch(66% 0.045 232 / 0.36);
+  border-radius: var(--ui-radius-xs);
+  background:
+    radial-gradient(circle at 50% 42%, oklch(78% 0.1 84 / 0.08), transparent 64%),
+    oklch(4.2% 0.017 252 / 0.58);
+  box-shadow:
+    0 0.32rem 0.8rem oklch(0% 0 0 / 0.38),
+    inset 0 0 0 1px oklch(88% 0.04 84 / 0.04);
+  backdrop-filter: blur(2px) saturate(1.08);
+  pointer-events: none;
+}
+
+.builder-v2-team-management-slot-covenant-button {
+  padding: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    border-color 150ms var(--ui-motion-ease),
+    background-color 150ms var(--ui-motion-ease),
+    box-shadow 150ms var(--ui-motion-ease),
+    color 150ms var(--ui-motion-ease);
+}
+
+.builder-v2-team-management-slot-covenant-button:hover,
+.builder-v2-team-management-slot-covenant-button:focus-visible {
+  border-color: oklch(72% 0.05 232 / 0.48);
+  background:
+    radial-gradient(circle at 50% 42%, oklch(78% 0.1 84 / 0.14), transparent 64%),
+    oklch(6% 0.02 252 / 0.7);
+  box-shadow:
+    0 0.42rem 0.95rem oklch(0% 0 0 / 0.48),
+    inset 0 0 0 1px oklch(88% 0.04 84 / 0.06);
+}
+
+.builder-v2-team-management:not(
+    .builder-v2-team-management--mobile
+  ).builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slot-covenant-button {
+  top: 0.32rem;
+  bottom: auto;
+}
+
+.builder-v2-team-management-slot-covenant img {
+  width: 150%;
+  height: 150%;
+  object-fit: cover;
+  filter: drop-shadow(0 0.16rem 0.34rem oklch(0% 0 0 / 0.72));
+}
+
+.builder-v2-team-management-slot-covenant-fallback {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  color: var(--ui-accent-gold-soft);
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.builder-v2-team-management-state-chip {
+  display: inline-flex;
+  min-height: 1rem;
+  align-items: center;
+  border: 1px solid oklch(72% 0.08 216 / 0.4);
+  background: oklch(5% 0.018 252 / 0.72);
+  padding: 0.12rem 0.2rem;
+  color: oklch(86% 0.05 220);
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.builder-v2-team-management-state-chip--danger {
+  border-color: oklch(70% 0.12 28 / 0.5);
+  color: oklch(86% 0.066 28);
+}
+
+.builder-v2-team-management-slot-state {
+  position: absolute;
+  z-index: 3;
+  top: 0.3rem;
+  right: 0.3rem;
+  left: 0.3rem;
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.16rem;
+}
+
+.builder-v2-team-management-slot-compact-enlighten {
+  position: absolute;
+  bottom: 0.16rem;
+  left: 0.16rem;
+  z-index: 3;
+  display: flex;
+  max-width: calc(100% - 0.32rem);
+  pointer-events: none;
+}
+
+.builder-v2-team-management-empty-slot {
+  display: grid;
+  gap: 0.5rem;
+  place-items: center;
+  color: var(--ui-text-faint);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.builder-v2-team-management-slot-build {
+  display: grid;
+  border-top: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-slot-build {
+  border-top-color: transparent;
+  background: transparent;
+  padding: 0;
+}
+
+.builder-v2-team-management-loadout-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.3rem;
+}
+
+.builder-v2-team-management-loadout-cell {
+  position: relative;
+  display: grid;
+  aspect-ratio: 1;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--builder-v2-object-border-quiet);
+  border-radius: var(--ui-radius-xs);
+  background: var(--builder-v2-object-bg-quiet);
+  color: var(--ui-text-faint);
+  font-size: 0.62rem;
+  font-weight: 900;
+}
+
+.builder-v2-team-management-loadout-button {
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.builder-v2-team-management-loadout-button:hover,
+.builder-v2-team-management-loadout-button:focus-visible,
+.builder-v2-team-management-slot-covenant-button:hover,
+.builder-v2-team-management-slot-covenant-button:focus-visible {
+  border-color: color-mix(in oklch, var(--team-summary-realm) 62%, var(--ui-accent-gold) 18%);
+  color: var(--ui-accent-gold-soft);
+}
+
+.builder-v2-team-management-loadout-button:focus-visible,
+.builder-v2-team-management-slot-covenant-button:focus-visible {
+  outline: none;
+}
+
+.builder-v2-team-management-loadout-button:focus-visible {
+  border-color: var(--builder-v2-focus-ring-color);
+  box-shadow: var(--builder-v2-focus-inset), var(--builder-v2-focus-halo);
+}
+
+.builder-v2-team-management-loadout-cell--drop-target,
+.builder-v2-team-management-slot-covenant--drop-target {
+  border-color: var(--builder-v2-drop-border-strong);
+  box-shadow:
+    inset 0 0 0 1px var(--builder-v2-drop-inset),
+    0 0 0.72rem oklch(76% 0.13 80 / 0.2);
+}
+
+.builder-v2-team-management-loadout-cell--dragging,
+.builder-v2-team-management-slot-covenant--dragging {
+  opacity: 0.52;
+}
+
+.builder-v2-team-management-slot-covenant-button:focus-visible {
+  border-color: var(--builder-v2-focus-ring-color);
+  box-shadow:
+    0 0.42rem 0.95rem oklch(0% 0 0 / 0.48),
+    var(--builder-v2-focus-inset),
+    var(--builder-v2-focus-halo);
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-loadout-cell {
+  border-color: var(--builder-v2-object-border-quiet);
+  background: var(--builder-v2-object-bg-quiet);
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-loadout-button:hover,
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-loadout-button:focus-visible {
+  border-color: color-mix(in oklch, var(--team-summary-realm) 62%, var(--ui-accent-gold) 18%);
+}
+
+.builder-v2-team-management-controls {
+  display: flex;
+  grid-area: row-controls;
+  min-width: 0;
+  min-inline-size: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.42rem;
+  border: 0;
+  margin: 0;
+  padding: 0 0.72rem 0.36rem;
+}
+
+.builder-v2-team-management:not(.builder-v2-team-management--mobile)
+  .builder-v2-team-management-controls {
+  border-left: 0;
+}
+
+.builder-v2-team-management--desktop .builder-v2-team-management-controls {
+  align-self: auto;
+}
+
+.builder-v2-team-management--desktop .builder-v2-team-management-control-cluster--actions {
+  flex-direction: row;
+  gap: 0.18rem;
+}
+
+.builder-v2-team-management-control-cluster {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.22rem;
+}
+
+.builder-v2-team-management-control-cluster--move,
+.builder-v2-team-management-control-cluster--actions {
+  flex: 0 0 auto;
+}
+
+.builder-v2-team-management-control-cluster--actions {
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.builder-v2-team-management-controls .builder-v2-team-management-button {
+  width: 1.78rem;
+  min-width: 1.78rem;
+  min-height: 1.78rem;
+  justify-content: center;
+  border-color: transparent;
+  background: transparent;
+  padding: 0;
+  color: var(--ui-text-muted);
+}
+
+.builder-v2-team-management-controls .builder-v2-team-management-order-button {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ui-text-muted);
+}
+
+.builder-v2-team-management-controls .builder-v2-team-management-button svg {
+  width: 0.86rem;
+  height: 0.86rem;
+}
+
+.builder-v2-team-management-controls .builder-v2-team-management-order-button:not(:disabled):hover {
+  border-color: oklch(72% 0.08 232 / 0.45);
+  background: oklch(12% 0.03 252 / 0.56);
+  color: var(--ui-text-main);
+}
+
+.builder-v2-team-management-controls .builder-v2-team-management-button span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.builder-v2-team-management-controls .builder-v2-team-management-button:not(:disabled):hover {
+  border-color: oklch(72% 0.08 232 / 0.45);
+  background: oklch(12% 0.03 252 / 0.56);
+  color: var(--ui-text-main);
+}
+
+.builder-v2-team-management-controls .builder-v2-team-management-button--danger {
+  border-color: transparent;
+  color: oklch(72% 0.08 28 / 0.8);
+}
+
+.builder-v2-team-management-controls
+  .builder-v2-team-management-button--danger:not(:disabled):hover {
+  border-color: oklch(70% 0.13 24 / 0.58);
+  background: oklch(20% 0.06 24 / 0.22);
+  color: oklch(84% 0.08 32 / 0.95);
+}
+
+.builder-v2-team-management-loadout-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.builder-v2-team-management-loadout-cell--covenant img {
+  object-fit: contain;
+  padding: 0.1rem;
+}
+
+.builder-v2-team-management-loadout-cell--wheel img {
+  object-fit: cover;
+  transform: scale(1.05);
+}
+
+.builder-v2-team-management-loadout-cell--unowned img {
+  filter: grayscale(0.65) brightness(0.58);
+}
+
+.builder-v2-team-management-wheel-enlighten {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: oklch(3% 0.014 252 / 0.82);
+  padding: 0.08rem 0.1rem;
+  color: var(--ui-text-main);
+  font-size: 0.6rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+}
+
+.builder-v2-team-management--preview-compact .builder-v2-team-management-slot-state {
+  top: 0.16rem;
+  right: 0.16rem;
+  bottom: auto;
+  left: 0.16rem;
+  justify-content: flex-end;
+}
+
+.builder-v2-team-management--preview-compact .builder-v2-team-management-state-chip {
+  min-height: 0.82rem;
+  padding: 0.08rem 0.12rem;
+  font-size: 0.46rem;
+}
+
+.builder-v2-team-management--adaptive,
+.builder-v2-team-management--mobile {
+  align-self: stretch;
+}
+
+.builder-v2-team-management--adaptive .builder-v2-team-management-main,
+.builder-v2-team-management--mobile .builder-v2-team-management-main {
+  grid-template-areas:
+    'row-header'
+    'row-controls'
+    'row-slots';
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
+}
+
+.builder-v2-team-management--adaptive .builder-v2-team-management-row-header,
+.builder-v2-team-management--mobile .builder-v2-team-management-row-header {
+  grid-area: row-header;
+  grid-template-columns: minmax(0, 1fr) minmax(0, auto);
+}
+
+.builder-v2-team-management--adaptive .builder-v2-team-management-row-body,
+.builder-v2-team-management--mobile .builder-v2-team-management-row-body {
+  display: contents;
+}
+
+.builder-v2-team-management--adaptive .builder-v2-team-management-slots,
+.builder-v2-team-management--mobile .builder-v2-team-management-slots {
+  grid-area: row-slots;
+  margin: 0.28rem 0.72rem 0.72rem;
+}
+
+.builder-v2-team-management--adaptive .builder-v2-team-management-controls,
+.builder-v2-team-management--mobile .builder-v2-team-management-controls {
+  grid-area: row-controls;
+  flex-wrap: nowrap;
+  gap: 0.42rem;
+  border-bottom: 0;
+  border-left: 0;
+  padding: 0 0.72rem 0.36rem;
+}
+
+.builder-v2-team-management--adaptive
+  .builder-v2-team-management-controls
+  .builder-v2-team-management-button,
+.builder-v2-team-management--mobile
+  .builder-v2-team-management-controls
+  .builder-v2-team-management-button {
+  width: auto;
+  white-space: nowrap;
+}
+
+.builder-v2-team-management--adaptive .builder-v2-team-management-button--export,
+.builder-v2-team-management--mobile .builder-v2-team-management-button--export {
+  grid-column: auto;
+}
+
+.builder-v2-team-management--adaptive .builder-v2-team-management-posse,
+.builder-v2-team-management--mobile .builder-v2-team-management-posse {
+  justify-self: end;
+}
+
+.builder-v2-team-management--adaptive.builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slots,
+.builder-v2-team-management--mobile.builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slots {
+  grid-template-columns: repeat(4, minmax(5rem, 7rem));
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: oklch(58% 0.055 84 / 0.55) oklch(4.8% 0.018 252 / 0.72);
+}
+
+.builder-v2-team-management--adaptive.builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slots::-webkit-scrollbar,
+.builder-v2-team-management--mobile.builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slots::-webkit-scrollbar {
+  height: 0.38rem;
+}
+
+.builder-v2-team-management--adaptive.builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slots::-webkit-scrollbar-track,
+.builder-v2-team-management--mobile.builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slots::-webkit-scrollbar-track {
+  background: oklch(4.8% 0.018 252 / 0.72);
+}
+
+.builder-v2-team-management--adaptive.builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slots::-webkit-scrollbar-thumb,
+.builder-v2-team-management--mobile.builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slots::-webkit-scrollbar-thumb {
+  background: oklch(58% 0.055 84 / 0.55);
+}
+
+.builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slots[data-overflow-x='true'] {
+  mask-image: linear-gradient(90deg, oklch(0% 0 0) calc(100% - 1.35rem), transparent);
+}
+
+.builder-v2-team-management--wide:not(
+    .builder-v2-team-management--mobile
+  ).builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slots {
+  grid-area: row-slots;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-content: stretch;
+  gap: 0.44rem;
+  overflow-x: visible;
+  margin: 0.28rem 0.5rem 0.58rem;
+  mask-image: none;
+}
+
+.builder-v2-team-management--wide:not(
+    .builder-v2-team-management--mobile
+  ).builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slot {
+  --team-summary-art-row-size: 5.1rem;
+}
+
+.builder-v2-team-management--wide:not(
+    .builder-v2-team-management--mobile
+  ).builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-slot-build {
+  padding: 0;
+}
+
+.builder-v2-team-management--wide:not(
+    .builder-v2-team-management--mobile
+  ).builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-loadout-row {
+  gap: 0.24rem;
+}
+
+.builder-v2-team-management--wide:not(
+    .builder-v2-team-management--mobile
+  ).builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-posse {
+  grid-template-columns: 2.18rem;
+  width: auto;
+  gap: 0;
+}
+
+.builder-v2-team-management--wide:not(
+    .builder-v2-team-management--mobile
+  ).builder-v2-team-management--preview-expanded
+  .builder-v2-team-management-posse-icon {
+  grid-column: 1;
+  grid-row: 1;
+  width: 2.18rem;
+  height: 2.18rem;
+}
+
+.builder-v2-team-management--adaptive.builder-v2-team-management--preview-compact
+  .builder-v2-team-management-slots,
+.builder-v2-team-management--mobile.builder-v2-team-management--preview-compact
+  .builder-v2-team-management-slots {
+  overflow-x: visible;
+}
+
+.builder-v2-team-management--mobile {
+  width: 100%;
+  margin-inline: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-header {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 0.56rem;
+  padding: 0.62rem 0.58rem 0.68rem;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-toolbar {
+  display: contents;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-identity {
+  min-width: 0;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-title-row {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-title-row .ui-title {
+  font-size: 1rem;
+  line-height: 1.05;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-count {
+  font-size: 0.62rem;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-mode {
+  justify-self: end;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-mode-button {
+  min-height: 2rem;
+  padding: 0.45rem 0.56rem;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-actions {
+  grid-column: 1 / -1;
+  justify-content: flex-end;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-button {
+  min-height: 2rem;
+  padding: 0.45rem 0.56rem;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-utility {
+  grid-template-columns: minmax(0, 1fr);
+  padding: 0.5rem 0.58rem;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-utility .builder-v2-io-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.34rem;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-utility .builder-v2-io-button {
+  width: 100%;
+  min-width: 0;
+  min-height: 2rem;
+  padding: 0.38rem 0.42rem;
+  font-size: 0.58rem;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-list {
+  gap: 0;
+  padding: 0;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-row {
+  grid-template-columns: minmax(0, 1fr);
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-row--active {
+  position: relative;
+  border-color: var(--ui-state-amber-border-emphasis) transparent;
+  background: var(--builder-v2-row-ledger-bg);
+  box-shadow:
+    inset 0 0 0 1px var(--ui-state-amber-inset),
+    0 0 0 1px var(--ui-state-amber-ring);
+}
+
+.builder-v2-team-management--mobile
+  .builder-v2-team-management-row
+  + .builder-v2-team-management-row {
+  border-top: 0;
+}
+
+.builder-v2-team-management--mobile
+  .builder-v2-team-management-row
+  + .builder-v2-team-management-row--active {
+  border-top: 1px solid var(--ui-state-amber-border-emphasis);
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-main {
+  grid-template-areas:
+    'row-header'
+    'row-controls'
+    'row-slots';
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-row-header {
+  grid-template-columns: minmax(0, 1fr) auto;
+  border-bottom: 0;
+  padding: 0.58rem 0.58rem 0.34rem;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-controls {
+  justify-content: space-between;
+  border-top: 0;
+  padding: 0 0.58rem 0.36rem;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-control-cluster {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+}
+
+.builder-v2-team-management--mobile .builder-v2-team-management-slots {
+  margin: 0.36rem 0.58rem 0.78rem;
+}
+
+@media (max-width: 52rem) {
+  .builder-v2-team-management--adaptive .builder-v2-team-management-button,
+  .builder-v2-team-management--adaptive .builder-v2-team-management-mode-button {
+    min-height: 1.85rem;
+    padding: 0.34rem 0.46rem;
+    font-size: 0.6rem;
+  }
+
+  .builder-v2-team-management--adaptive .builder-v2-team-management-header {
+    grid-template-columns: minmax(6rem, 1fr) minmax(0, auto);
+    align-items: end;
+  }
+
+  .builder-v2-team-management--adaptive .builder-v2-team-management-toolbar {
+    justify-content: flex-end;
+  }
+
+  .builder-v2-team-management--adaptive .builder-v2-team-management-posse,
+  .builder-v2-team-management--mobile .builder-v2-team-management-posse {
+    justify-self: end;
+  }
+}
+
+.builder-v2-team-management--adaptive .builder-v2-team-management-button--export,
+.builder-v2-team-management--adaptive .builder-v2-team-management-button--reset,
+.builder-v2-team-management--adaptive .builder-v2-team-management-button--delete,
+.builder-v2-team-management--mobile .builder-v2-team-management-button--export,
+.builder-v2-team-management--mobile .builder-v2-team-management-button--reset,
+.builder-v2-team-management--mobile .builder-v2-team-management-button--delete {
+  width: 1.75rem;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  min-height: 1.75rem;
+  justify-content: center;
+  padding: 0;
+}
+
+.builder-v2-overview-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.55rem;
+  padding: 0.75rem;
+}
+
+.builder-v2-overview-card {
+  display: grid;
+  gap: 0.4rem;
+  border: 1px solid var(--ui-border-subtle);
+  background: oklch(8.5% 0.024 252 / 0.72);
+  padding: 0.62rem;
+  color: var(--ui-text-muted);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 150ms var(--ui-motion-ease),
+    background-color 150ms var(--ui-motion-ease),
+    color 150ms var(--ui-motion-ease);
+}
+
+.builder-v2-overview-card:hover {
+  border-color: oklch(74% 0.11 84 / 0.44);
+  background: oklch(12% 0.03 252 / 0.62);
+  color: var(--ui-text-main);
+}
+
+.builder-v2-overview-minis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+.builder-v2-overview-minis span {
+  display: grid;
+  min-height: 2.2rem;
+  place-items: center;
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-xs);
+  background: var(--ui-panel-strong);
+  color: var(--ui-text-faint);
+  font-size: 0.68rem;
+  font-weight: 800;
+}

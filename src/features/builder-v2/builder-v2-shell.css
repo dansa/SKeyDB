@@ -1,0 +1,252 @@
+.builder-v2-page {
+  --builder-v2-focus-ring-color: var(--ui-focus-ring-emphasis);
+  --builder-v2-focus-ring-soft: var(--ui-focus-ring-support);
+  --builder-v2-focus-inset: inset 0 0 0 1px var(--ui-focus-ring-support);
+  --builder-v2-focus-halo: 0 0 0 0.16rem var(--builder-v2-focus-ring-soft);
+  --builder-v2-desktop-picker-sticky-top: calc(var(--site-header-height) + 0.85rem);
+  --builder-v2-desktop-picker-max-height: calc(
+    100dvh - var(--builder-v2-desktop-picker-sticky-top) - 0.85rem
+  );
+  --builder-v2-picker-column-min-width: 4.05rem;
+  --builder-v2-picker-column-max-width: 4.65rem;
+  --builder-v2-picker-results-max-height: min(45rem, calc(100dvh - 16rem));
+  --builder-v2-route-block-padding: 2rem;
+  --builder-v2-team-rail-width: 3.45rem;
+  --builder-v2-team-rail-row-height: 3.25rem;
+  --builder-v2-team-rail-capacity: 10;
+  --builder-v2-compact-team-card-min-width: 20rem;
+  --builder-v2-expanded-team-card-min-width: 20rem;
+  --builder-v2-team-card-min-width: var(--builder-v2-compact-team-card-min-width);
+  --builder-v2-adaptive-picker-rail-width: clamp(12.25rem, 23vw, 13rem);
+  --builder-v2-adaptive-picker-tab-height: 2.6rem;
+  --builder-v2-adaptive-primary-gap: 0.75rem;
+  --builder-v2-adaptive-active-min-height: 23rem;
+  --builder-v2-adaptive-active-target-height: clamp(
+    var(--builder-v2-adaptive-active-min-height),
+    58vw,
+    31rem
+  );
+  --builder-v2-adaptive-picker-min-height: 18rem;
+  --builder-v2-adaptive-picker-max-height: 27rem;
+  --builder-v2-adaptive-picker-target-height: clamp(
+    var(--builder-v2-adaptive-picker-min-height),
+    34dvh,
+    var(--builder-v2-adaptive-picker-max-height)
+  );
+  --builder-v2-adaptive-workbench-max-height: 50rem;
+  --builder-v2-adaptive-slot-card-min-width: clamp(7.75rem, 18.5vw, 10rem);
+  --builder-v2-adaptive-slot-card-max-width: clamp(8.75rem, 20vw, 11.75rem);
+  --builder-v2-adaptive-slot-gear-height: clamp(4.8rem, 31%, 7.05rem);
+  --builder-v2-highlight-border: var(--ui-state-amber-border-strong);
+  --builder-v2-highlight-border-strong: var(--ui-state-amber-border-emphasis);
+  --builder-v2-highlight-bg: var(--ui-state-amber-surface);
+  --builder-v2-highlight-bg-strong: var(--ui-state-amber-surface-strong);
+  --builder-v2-highlight-inset: var(--ui-state-amber-inset);
+  --builder-v2-panel-bg: var(--ui-surface-panel-bg);
+  --builder-v2-toolbar-bg: var(--ui-surface-toolbar-bg);
+  --builder-v2-row-bg: var(--ui-surface-row-bg);
+  --builder-v2-row-bg-hover: var(--ui-surface-row-bg-hover);
+  --builder-v2-control-bg: var(--ui-surface-control-bg);
+  --builder-v2-control-bg-hover: var(--ui-surface-control-bg-hover);
+  --builder-v2-item-bg: var(--ui-surface-item-bg);
+  --builder-v2-item-bg-hover: var(--ui-surface-item-bg-hover);
+  --builder-v2-drop-border: var(--ui-state-amber-border-emphasis);
+  --builder-v2-drop-border-strong: var(--ui-state-amber-border-hot);
+  --builder-v2-drop-bg: var(--ui-state-amber-surface-strong);
+  --builder-v2-drop-inset: var(--ui-state-amber-inset-strong);
+  --builder-v2-drop-inset-strong: var(--ui-state-amber-inset-hot);
+  --builder-v2-drop-ring: var(--ui-state-amber-ring-strong);
+  --builder-v2-drop-ring-soft: var(--ui-state-amber-ring-strong);
+  --builder-v2-remove-drop-bg: oklch(17% 0.052 28 / 0.16);
+  --builder-v2-remove-drop-inset: oklch(68% 0.12 28 / 0.34);
+  --builder-v2-panel-border: oklch(58% 0.04 232 / 0.3);
+  --builder-v2-section-divider: oklch(58% 0.04 232 / 0.16);
+  --builder-v2-section-divider-quiet: oklch(58% 0.04 232 / 0.1);
+  --builder-v2-chrome-bg:
+    linear-gradient(90deg, oklch(11% 0.026 246 / 0.22), transparent 62%),
+    oklch(7.5% 0.022 252 / 0.16);
+  --builder-v2-sheet-bg:
+    linear-gradient(90deg, oklch(14% 0.03 246 / 0.26), transparent 58%), oklch(8% 0.024 252 / 0.96);
+  --builder-v2-popover-bg:
+    linear-gradient(90deg, oklch(12% 0.028 246 / 0.3), transparent 58%),
+    oklch(6.5% 0.022 252 / 0.985);
+  --builder-v2-control-border: oklch(58% 0.04 232 / 0.2);
+  --builder-v2-object-border: oklch(58% 0.04 232 / 0.2);
+  --builder-v2-object-border-quiet: oklch(58% 0.04 232 / 0.15);
+  --builder-v2-object-bg: oklch(6.5% 0.02 252 / 0.48);
+  --builder-v2-object-bg-quiet: oklch(6.5% 0.02 252 / 0.34);
+  --builder-v2-row-ledger-bg: oklch(8% 0.023 252 / 0.2);
+  --builder-v2-row-ledger-bg-hover: oklch(10% 0.026 252 / 0.36);
+  --builder-v2-row-ledger-border: oklch(58% 0.04 232 / 0.1);
+  --builder-v2-slot-frame-border: var(--builder-v2-object-border);
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 48rem) {
+  .builder-v2-page {
+    --builder-v2-route-block-padding: 2.5rem;
+  }
+}
+
+.builder-v2-mast,
+.builder-v2-panel {
+  border: 1px solid var(--builder-v2-panel-border);
+  border-radius: var(--ui-radius-sm);
+  background: var(--builder-v2-panel-bg);
+  box-shadow: var(--ui-surface-hairline);
+}
+
+.builder-v2-mast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+}
+
+.builder-v2-mast-identity {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.builder-v2-mast-glyph {
+  width: 0.35rem;
+  height: 1.8rem;
+  flex: 0 0 auto;
+  border: 1px solid oklch(78% 0.1 84 / 0.62);
+  background: linear-gradient(180deg, oklch(78% 0.1 84 / 0.9), oklch(36% 0.07 84 / 0.28));
+}
+
+.builder-v2-mast-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.builder-v2-mast-end {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.62rem;
+}
+
+.builder-v2-mast-end .builder-v2-io-actions {
+  justify-content: flex-end;
+}
+
+.builder-v2-mast-end .builder-v2-io-button {
+  min-height: 1.85rem;
+  padding: 0.36rem 0.48rem;
+  font-size: 0.6rem;
+}
+
+.builder-v2-label {
+  color: var(--ui-text-faint);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.builder-v2-active-identity,
+.builder-v2-label,
+.builder-v2-posse-copy,
+.builder-v2-posse-icon,
+.builder-v2-posse-icon *,
+.builder-v2-team-index,
+.builder-v2-awakener-top-meta,
+.builder-v2-awakener-realm,
+.builder-v2-awakener-realm *,
+.builder-v2-awakener-meta-copy,
+.builder-v2-covenant-inline,
+.builder-v2-wheel-copy,
+.builder-v2-search-icon,
+.builder-v2-picker-chip,
+.builder-v2-picker-tile,
+.builder-v2-picker-tile *,
+.builder-v2-team-management,
+.builder-v2-team-management * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.builder-v2-team-management input,
+.builder-v2-team-management textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.builder-v2-team-management img,
+.builder-v2-team-management svg {
+  -webkit-user-drag: none;
+}
+
+.builder-v2-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 21rem);
+  gap: 0.85rem;
+  align-items: start;
+}
+
+@media (min-width: 66.01rem) and (max-width: 70rem) {
+  .builder-v2-shell {
+    grid-template-columns: minmax(0, 1fr) minmax(17rem, 17.75rem);
+  }
+}
+
+.builder-v2-panel {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.builder-v2-armory {
+  position: sticky;
+  top: 0.85rem;
+  overflow: visible;
+}
+
+.builder-v2-page--desktop .builder-v2-armory {
+  display: flex;
+  max-height: var(--builder-v2-desktop-picker-max-height);
+  min-height: 0;
+  top: var(--builder-v2-desktop-picker-sticky-top);
+}
+
+.builder-v2-page--desktop .builder-v2-picker-content {
+  display: flex;
+  width: 100%;
+  max-height: inherit;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.builder-v2-page--desktop .builder-v2-picker-results {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.builder-v2-section-header,
+.builder-v2-active-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  border-bottom: 1px solid var(--builder-v2-section-divider);
+  padding: 0.8rem;
+}
+
+.builder-v2-active-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 15.5rem);
+  box-sizing: border-box;
+  height: var(--builder-v2-team-rail-row-height);
+  min-height: 0;
+  align-items: center;
+  padding: 0.3rem 1rem;
+}
