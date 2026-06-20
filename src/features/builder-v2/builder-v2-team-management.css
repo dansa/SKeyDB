@@ -3,6 +3,25 @@
 }
 
 .builder-v2-team-management {
+  --builder-v2-density-team-card-gap: 0.65rem;
+  --builder-v2-density-team-card-gap-compact: 0.5rem;
+  --builder-v2-density-team-card-padding: 0.75rem;
+  --builder-v2-density-team-card-padding-compact: 0.62rem 0.75rem 0.75rem;
+  --builder-v2-density-team-row-header-padding: 0.58rem 0.72rem 0.34rem;
+  --builder-v2-density-team-row-controls-gap: 0.42rem;
+  --builder-v2-density-team-row-controls-padding: 0 0.72rem 0.36rem;
+  --builder-v2-density-team-row-slots-gap: 0.54rem;
+  --builder-v2-density-team-row-slots-margin: 0.26rem 0.72rem 0.7rem;
+  --builder-v2-density-team-control-size: 1.78rem;
+  --builder-v2-density-team-order-button-size: 1.75rem;
+  --builder-v2-density-team-button-min-height: 1.9rem;
+  --builder-v2-density-team-expanded-slot-columns: repeat(4, minmax(5.45rem, 6.25rem));
+  --builder-v2-density-team-expanded-slot-art-size: 5.5rem;
+  --builder-v2-density-team-compact-slot-columns: repeat(4, minmax(2.75rem, 3.35rem));
+  --builder-v2-density-team-compact-slot-gap: 0.42rem;
+  --builder-v2-density-team-expanded-scroll-columns: repeat(4, minmax(5rem, 7rem));
+  --builder-v2-density-team-wide-expanded-slot-gap: 0.44rem;
+  --builder-v2-density-team-wide-expanded-slot-margin: 0.28rem 0.5rem 0.58rem;
   display: grid;
 }
 
@@ -116,7 +135,7 @@
 }
 
 .builder-v2-team-management-mode-button {
-  min-height: 1.9rem;
+  min-height: var(--builder-v2-density-team-button-min-height);
   border: 0;
   border-radius: 0;
   padding: 0.42rem 0.58rem;
@@ -141,7 +160,7 @@
 
 .builder-v2-team-management-button {
   display: inline-flex;
-  min-height: 1.9rem;
+  min-height: var(--builder-v2-density-team-button-min-height);
   align-items: center;
   justify-content: center;
   gap: 0.32rem;
@@ -190,15 +209,15 @@
 
 .builder-v2-team-management-list {
   display: grid;
-  gap: 0.65rem;
-  padding: 0.75rem;
+  gap: var(--builder-v2-density-team-card-gap);
+  padding: var(--builder-v2-density-team-card-padding);
 }
 
 .builder-v2-team-management:not(.builder-v2-team-management--mobile)
   .builder-v2-team-management-list {
   grid-template-columns: minmax(0, 1fr);
-  gap: 0.5rem;
-  padding: 0.62rem 0.75rem 0.75rem;
+  gap: var(--builder-v2-density-team-card-gap-compact);
+  padding: var(--builder-v2-density-team-card-padding-compact);
 }
 
 .builder-v2-team-management-row {
@@ -233,10 +252,21 @@
 
 .builder-v2-team-management--preview-compact {
   --builder-v2-team-card-min-width: var(--builder-v2-compact-team-card-min-width);
+  --builder-v2-density-team-compact-state-inset: 0.16rem;
+  --builder-v2-density-team-compact-state-chip-min-height: 0.82rem;
+  --builder-v2-density-team-compact-state-chip-padding: 0.08rem 0.12rem;
+  --builder-v2-density-team-compact-state-chip-font-size: 0.46rem;
 }
 
 .builder-v2-team-management--preview-expanded {
   --builder-v2-team-card-min-width: var(--builder-v2-expanded-team-card-min-width);
+}
+
+.builder-v2-team-management--adaptive,
+.builder-v2-team-management--mobile {
+  --builder-v2-density-team-row-slots-margin: 0.28rem 0.72rem 0.72rem;
+  --builder-v2-density-team-row-controls-gap: 0.42rem;
+  --builder-v2-density-team-row-controls-padding: 0 0.72rem 0.36rem;
 }
 
 .builder-v2-team-management:not(.builder-v2-team-management--mobile):is(
@@ -277,7 +307,7 @@
 .builder-v2-team-management--wide:not(.builder-v2-team-management--mobile)
   .builder-v2-team-management-list {
   grid-template-columns: repeat(2, minmax(var(--builder-v2-team-card-min-width), 1fr));
-  gap: 0.58rem;
+  gap: var(--builder-v2-density-team-card-gap-wide, 0.58rem);
 }
 
 .builder-v2-team-management-row--active {
@@ -372,8 +402,8 @@
 
 .builder-v2-team-management-order-button {
   display: grid;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: var(--builder-v2-density-team-order-button-size);
+  height: var(--builder-v2-density-team-order-button-size);
   place-items: center;
   border-radius: var(--ui-radius-xs);
   padding: 0;
@@ -403,13 +433,13 @@
   align-items: center;
   gap: 0.52rem;
   border-bottom: 0;
-  padding: 0.58rem 0.72rem 0.34rem;
+  padding: var(--builder-v2-density-team-row-header-padding);
 }
 
 .builder-v2-team-management:not(.builder-v2-team-management--mobile)
   .builder-v2-team-management-row-header {
   border-bottom: 0;
-  padding: 0.58rem 0.72rem 0.34rem;
+  padding: var(--builder-v2-density-team-row-header-padding);
 }
 
 .builder-v2-team-management-row-body {
@@ -645,11 +675,11 @@
   display: grid;
   grid-area: row-slots;
   min-width: 0;
-  gap: 0.54rem;
+  gap: var(--builder-v2-density-team-row-slots-gap);
   align-items: center;
   justify-content: start;
   list-style: none;
-  margin: 0.26rem 0.72rem 0.7rem;
+  margin: var(--builder-v2-density-team-row-slots-margin);
   padding: 0;
 }
 
@@ -749,19 +779,19 @@
 }
 
 .builder-v2-team-management--preview-expanded .builder-v2-team-management-slots {
-  grid-template-columns: repeat(4, minmax(5.45rem, 6.25rem));
+  grid-template-columns: var(--builder-v2-density-team-expanded-slot-columns);
 }
 
 .builder-v2-team-management--preview-expanded .builder-v2-team-management-slot {
-  --team-summary-art-row-size: 5.5rem;
+  --team-summary-art-row-size: var(--builder-v2-density-team-expanded-slot-art-size);
   grid-template-rows: var(--team-summary-art-row-size) auto;
   min-height: 0;
 }
 
 .builder-v2-team-management--preview-compact .builder-v2-team-management-slots {
-  grid-template-columns: repeat(4, minmax(2.75rem, 3.35rem));
+  grid-template-columns: var(--builder-v2-density-team-compact-slot-columns);
   justify-content: start;
-  gap: 0.42rem;
+  gap: var(--builder-v2-density-team-compact-slot-gap);
 }
 
 .builder-v2-team-management--preview-compact .builder-v2-team-management-slot {
@@ -1077,10 +1107,10 @@
   min-inline-size: 0;
   align-items: center;
   justify-content: space-between;
-  gap: 0.42rem;
+  gap: var(--builder-v2-density-team-row-controls-gap);
   border: 0;
   margin: 0;
-  padding: 0 0.72rem 0.36rem;
+  padding: var(--builder-v2-density-team-row-controls-padding);
 }
 
 .builder-v2-team-management:not(.builder-v2-team-management--mobile)
@@ -1115,9 +1145,9 @@
 }
 
 .builder-v2-team-management-controls .builder-v2-team-management-button {
-  width: 1.78rem;
-  min-width: 1.78rem;
-  min-height: 1.78rem;
+  width: var(--builder-v2-density-team-control-size);
+  min-width: var(--builder-v2-density-team-control-size);
+  min-height: var(--builder-v2-density-team-control-size);
   justify-content: center;
   border-color: transparent;
   background: transparent;
@@ -1199,17 +1229,17 @@
 }
 
 .builder-v2-team-management--preview-compact .builder-v2-team-management-slot-state {
-  top: 0.16rem;
-  right: 0.16rem;
+  top: var(--builder-v2-density-team-compact-state-inset);
+  right: var(--builder-v2-density-team-compact-state-inset);
   bottom: auto;
-  left: 0.16rem;
+  left: var(--builder-v2-density-team-compact-state-inset);
   justify-content: flex-end;
 }
 
 .builder-v2-team-management--preview-compact .builder-v2-team-management-state-chip {
-  min-height: 0.82rem;
-  padding: 0.08rem 0.12rem;
-  font-size: 0.46rem;
+  min-height: var(--builder-v2-density-team-compact-state-chip-min-height);
+  padding: var(--builder-v2-density-team-compact-state-chip-padding);
+  font-size: var(--builder-v2-density-team-compact-state-chip-font-size);
 }
 
 .builder-v2-team-management--adaptive,
@@ -1241,17 +1271,17 @@
 .builder-v2-team-management--adaptive .builder-v2-team-management-slots,
 .builder-v2-team-management--mobile .builder-v2-team-management-slots {
   grid-area: row-slots;
-  margin: 0.28rem 0.72rem 0.72rem;
+  margin: var(--builder-v2-density-team-row-slots-margin);
 }
 
 .builder-v2-team-management--adaptive .builder-v2-team-management-controls,
 .builder-v2-team-management--mobile .builder-v2-team-management-controls {
   grid-area: row-controls;
   flex-wrap: nowrap;
-  gap: 0.42rem;
+  gap: var(--builder-v2-density-team-row-controls-gap);
   border-bottom: 0;
   border-left: 0;
-  padding: 0 0.72rem 0.36rem;
+  padding: var(--builder-v2-density-team-row-controls-padding);
 }
 
 .builder-v2-team-management--adaptive
@@ -1278,7 +1308,7 @@
   .builder-v2-team-management-slots,
 .builder-v2-team-management--mobile.builder-v2-team-management--preview-expanded
   .builder-v2-team-management-slots {
-  grid-template-columns: repeat(4, minmax(5rem, 7rem));
+  grid-template-columns: var(--builder-v2-density-team-expanded-scroll-columns);
   overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: oklch(58% 0.055 84 / 0.55) oklch(4.8% 0.018 252 / 0.72);
@@ -1317,9 +1347,9 @@
   grid-area: row-slots;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   justify-content: stretch;
-  gap: 0.44rem;
+  gap: var(--builder-v2-density-team-wide-expanded-slot-gap);
   overflow-x: visible;
-  margin: 0.28rem 0.5rem 0.58rem;
+  margin: var(--builder-v2-density-team-wide-expanded-slot-margin);
   mask-image: none;
 }
 

@@ -1,5 +1,12 @@
 .builder-v2-page--mobile {
+  --builder-v2-density-control-min-height: 2.5rem;
+  --builder-v2-density-control-min-height-compact: 2.5rem;
+  --builder-v2-density-mobile-lineup-target-size: 2.75rem;
+  --builder-v2-density-mobile-lineup-target-inset: 0.06rem;
+  --builder-v2-density-mobile-lineup-target-gap: 0.22rem;
   --builder-v2-mobile-board-gap: clamp(0.32rem, 1.8vw, 0.48rem);
+  --builder-v2-density-slot-grid-gap: var(--builder-v2-mobile-board-gap);
+  --builder-v2-density-slot-grid-padding: var(--builder-v2-mobile-board-gap);
   --builder-v2-mobile-control-bg:
     linear-gradient(180deg, oklch(11.5% 0.028 252 / 0.92), oklch(7% 0.022 252 / 0.95)),
     var(--ui-panel-strong);
@@ -574,9 +581,9 @@
 }
 
 .builder-v2-mobile-lineup-target-row {
-  --builder-v2-lineup-target-size: 2.75rem;
-  --builder-v2-lineup-target-inset: 0.06rem;
-  --builder-v2-lineup-target-gap: 0.22rem;
+  --builder-v2-lineup-target-size: var(--builder-v2-density-mobile-lineup-target-size);
+  --builder-v2-lineup-target-inset: var(--builder-v2-density-mobile-lineup-target-inset);
+  --builder-v2-lineup-target-gap: var(--builder-v2-density-mobile-lineup-target-gap);
   --builder-v2-lineup-socket-size: calc(
     var(--builder-v2-lineup-target-size) - var(--builder-v2-lineup-target-inset) * 2 - 2px
   );
@@ -707,11 +714,14 @@
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-content,
 .builder-v2-mobile-picker .builder-v2-picker-content {
-  --builder-v2-picker-search-min-height: 2.5rem;
-  --builder-v2-picker-menu-size: 2.5rem;
-  --builder-v2-picker-chip-font-size: 0.58rem;
-  --builder-v2-picker-filter-stack-gap: 0.28rem;
-  --builder-v2-picker-results-gap: 0.45rem;
+  --builder-v2-density-picker-chip-font-size: 0.58rem;
+  --builder-v2-density-picker-filter-stack-gap: 0.28rem;
+  --builder-v2-density-picker-results-gap: 0.45rem;
+  --builder-v2-picker-search-min-height: var(--builder-v2-density-control-min-height);
+  --builder-v2-picker-menu-size: var(--builder-v2-density-control-min-height);
+  --builder-v2-picker-chip-font-size: var(--builder-v2-density-picker-chip-font-size);
+  --builder-v2-picker-filter-stack-gap: var(--builder-v2-density-picker-filter-stack-gap);
+  --builder-v2-picker-results-gap: var(--builder-v2-density-picker-results-gap);
   display: flex;
   min-height: 0;
   flex: 1 1 auto;
@@ -719,37 +729,37 @@
 }
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-content {
-  --builder-v2-picker-tab-height: 2.45rem;
-  --builder-v2-picker-tab-padding: 0.24rem;
-  --builder-v2-picker-tab-font-size: 0.64rem;
-  --builder-v2-picker-toolbar-gap: 0.38rem;
-  --builder-v2-picker-toolbar-padding: 0.48rem 0.58rem;
-  --builder-v2-picker-search-padding-block: 0.46rem;
-  --builder-v2-picker-menu-padding: 0.3rem;
-  --builder-v2-picker-filter-padding: 0 0.58rem 0.5rem;
-  --builder-v2-picker-chip-gap: 0.32rem;
-  --builder-v2-picker-chip-min-height: 2.5rem;
-  --builder-v2-picker-chip-padding: 0.34rem 0.52rem;
-  --builder-v2-picker-chip-icon-width: 2.5rem;
-  --builder-v2-picker-chip-icon-padding: 0.26rem;
-  --builder-v2-picker-results-padding: 0.58rem;
+  --builder-v2-density-picker-tab-height: 2.45rem;
+  --builder-v2-density-picker-tab-padding: 0.24rem;
+  --builder-v2-density-picker-tab-font-size: 0.64rem;
+  --builder-v2-density-picker-toolbar-gap: 0.38rem;
+  --builder-v2-density-picker-toolbar-padding: 0.48rem 0.58rem;
+  --builder-v2-density-picker-search-padding-block: 0.46rem;
+  --builder-v2-density-picker-menu-padding: 0.3rem;
+  --builder-v2-density-picker-filter-padding: 0 0.58rem 0.5rem;
+  --builder-v2-density-picker-chip-gap: 0.32rem;
+  --builder-v2-density-picker-chip-min-height: var(--builder-v2-density-control-min-height);
+  --builder-v2-density-picker-chip-padding: 0.34rem 0.52rem;
+  --builder-v2-density-picker-chip-icon-width: var(--builder-v2-density-control-min-height);
+  --builder-v2-density-picker-chip-icon-padding: 0.26rem;
+  --builder-v2-density-picker-results-padding: 0.58rem;
 }
 
 .builder-v2-mobile-picker .builder-v2-picker-content {
-  --builder-v2-picker-tab-height: 2.6rem;
-  --builder-v2-picker-tab-padding: 0.28rem;
-  --builder-v2-picker-tab-font-size: 0.66rem;
-  --builder-v2-picker-toolbar-gap: 0.42rem;
-  --builder-v2-picker-toolbar-padding: 0.52rem 0.62rem;
-  --builder-v2-picker-search-padding-block: 0.48rem;
-  --builder-v2-picker-menu-padding: 0.32rem;
-  --builder-v2-picker-filter-padding: 0 0.62rem 0.52rem;
-  --builder-v2-picker-chip-gap: 0.28rem;
-  --builder-v2-picker-chip-min-height: 1.7rem;
-  --builder-v2-picker-chip-padding: 0.3rem 0.42rem;
-  --builder-v2-picker-chip-icon-width: 1.9rem;
-  --builder-v2-picker-chip-icon-padding: 0.2rem;
-  --builder-v2-picker-results-padding: 0.58rem 0.62rem;
+  --builder-v2-density-picker-tab-height: 2.6rem;
+  --builder-v2-density-picker-tab-padding: 0.28rem;
+  --builder-v2-density-picker-tab-font-size: 0.66rem;
+  --builder-v2-density-picker-toolbar-gap: 0.42rem;
+  --builder-v2-density-picker-toolbar-padding: 0.52rem 0.62rem;
+  --builder-v2-density-picker-search-padding-block: 0.48rem;
+  --builder-v2-density-picker-menu-padding: 0.32rem;
+  --builder-v2-density-picker-filter-padding: 0 0.62rem 0.52rem;
+  --builder-v2-density-picker-chip-gap: 0.28rem;
+  --builder-v2-density-picker-chip-min-height: 1.7rem;
+  --builder-v2-density-picker-chip-padding: 0.3rem 0.42rem;
+  --builder-v2-density-picker-chip-icon-width: 1.9rem;
+  --builder-v2-density-picker-chip-icon-padding: 0.2rem;
+  --builder-v2-density-picker-results-padding: 0.58rem 0.62rem;
 }
 
 .builder-v2-mobile-lineup-picker .builder-v2-picker-tabs,
@@ -971,9 +981,9 @@
   }
 
   .builder-v2-mobile-lineup-target-row {
-    --builder-v2-lineup-target-size: 2.65rem;
-    --builder-v2-lineup-target-inset: 0.05rem;
-    --builder-v2-lineup-target-gap: 0.18rem;
+    --builder-v2-density-mobile-lineup-target-size: 2.65rem;
+    --builder-v2-density-mobile-lineup-target-inset: 0.05rem;
+    --builder-v2-density-mobile-lineup-target-gap: 0.18rem;
   }
 
   .builder-v2-mobile-lineup-target-button {
@@ -1016,33 +1026,33 @@
   }
 
   .builder-v2-mobile-lineup-picker .builder-v2-picker-toolbar {
-    padding: 0.34rem 0.5rem;
+    --builder-v2-density-picker-toolbar-padding: 0.34rem 0.5rem;
   }
 
   .builder-v2-mobile-lineup-picker .builder-v2-search,
   .builder-v2-mobile-lineup-picker .builder-v2-picker-menu-button {
-    min-height: 2.5rem;
+    min-height: var(--builder-v2-density-control-min-height);
   }
 
   .builder-v2-mobile-lineup-picker
     .builder-v2-picker-content--controls-bottom
     .builder-v2-picker-filter-stack {
-    padding: 0 0.5rem 0.34rem;
+    --builder-v2-density-picker-filter-padding: 0 0.5rem 0.34rem;
   }
 
   .builder-v2-mobile-lineup-picker .builder-v2-picker-chip {
-    min-height: 2.5rem;
-    padding: 0.3rem 0.46rem;
-    font-size: 0.54rem;
+    --builder-v2-density-picker-chip-min-height: var(--builder-v2-density-control-min-height);
+    --builder-v2-density-picker-chip-padding: 0.3rem 0.46rem;
+    --builder-v2-density-picker-chip-font-size: 0.54rem;
   }
 
   .builder-v2-mobile-lineup-picker .builder-v2-picker-chip--icon {
-    width: 2.5rem;
-    padding: 0.24rem;
+    --builder-v2-density-picker-chip-icon-width: var(--builder-v2-density-control-min-height);
+    --builder-v2-density-picker-chip-icon-padding: 0.24rem;
   }
 
   .builder-v2-mobile-lineup-picker .builder-v2-picker-results {
-    padding: 0.46rem;
+    --builder-v2-density-picker-results-padding: 0.46rem;
   }
 
   .builder-v2-mobile-lineup-slot-panel {
@@ -1219,8 +1229,8 @@
 
 .builder-v2-page--mobile .builder-v2-slot-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--builder-v2-mobile-board-gap);
-  padding: var(--builder-v2-mobile-board-gap);
+  gap: var(--builder-v2-density-slot-grid-gap);
+  padding: var(--builder-v2-density-slot-grid-padding);
 }
 
 .builder-v2-page--mobile .builder-v2-slot-card {

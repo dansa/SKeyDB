@@ -14,6 +14,25 @@
 }
 
 .builder-v2-page--adaptive {
+  --builder-v2-density-picker-tab-height: var(--builder-v2-adaptive-picker-tab-height);
+  --builder-v2-density-picker-tab-font-size: 0.66rem;
+  --builder-v2-density-picker-toolbar-gap: 0.42rem;
+  --builder-v2-density-picker-toolbar-padding: 0.32rem 0.38rem;
+  --builder-v2-density-control-min-height: 2rem;
+  --builder-v2-density-picker-search-padding-block: 0.42rem;
+  --builder-v2-density-picker-search-icon-left: 0.62rem;
+  --builder-v2-density-picker-toolbar-search-padding-left: 1.8rem;
+  --builder-v2-density-picker-chip-gap: 0.28rem;
+  --builder-v2-density-picker-chip-padding: 0.3rem 0.36rem;
+  --builder-v2-density-picker-chip-icon-width: 100%;
+  --builder-v2-density-picker-chip-icon-padding: 0.24rem;
+  --builder-v2-density-picker-filter-stack-gap: 0.45rem;
+  --builder-v2-density-picker-filter-stack-padding: 0.5rem;
+  --builder-v2-density-picker-menu-padding: 0.24rem;
+  --builder-v2-density-picker-results-gap: clamp(0.38rem, 0.7vw, 0.5rem);
+  --builder-v2-density-picker-results-padding: clamp(0.48rem, 0.85vw, 0.62rem);
+  --builder-v2-density-slot-grid-gap: clamp(0.35rem, 0.8vw, 0.55rem);
+  --builder-v2-density-slot-grid-padding: clamp(0.5rem, 1vw, 0.85rem);
   min-height: min(
     calc(100dvh - var(--site-header-height) - var(--builder-v2-route-block-padding)),
     var(--builder-v2-adaptive-workbench-max-height)
@@ -121,8 +140,8 @@
   );
   align-content: stretch;
   justify-content: center;
-  gap: clamp(0.35rem, 0.8vw, 0.55rem);
-  padding: clamp(0.5rem, 1vw, 0.85rem);
+  gap: var(--builder-v2-density-slot-grid-gap);
+  padding: var(--builder-v2-density-slot-grid-padding);
 }
 
 .builder-v2-adaptive-primary-stack .builder-v2-slot-card {
@@ -196,24 +215,8 @@
 }
 
 .builder-v2-adaptive-picker .builder-v2-picker-content {
-  --builder-v2-picker-tab-height: var(--builder-v2-adaptive-picker-tab-height);
-  --builder-v2-picker-tab-font-size: 0.66rem;
-  --builder-v2-picker-toolbar-gap: 0.42rem;
-  --builder-v2-picker-toolbar-padding: 0.32rem 0.38rem;
-  --builder-v2-picker-search-min-height: 2rem;
-  --builder-v2-picker-search-padding-block: 0.42rem;
-  --builder-v2-picker-search-icon-left: 0.62rem;
-  --builder-v2-picker-toolbar-search-padding-left: 1.8rem;
-  --builder-v2-picker-chip-gap: 0.28rem;
-  --builder-v2-picker-chip-padding: 0.3rem 0.36rem;
-  --builder-v2-picker-chip-icon-width: 100%;
-  --builder-v2-picker-chip-icon-padding: 0.24rem;
-  --builder-v2-picker-filter-stack-gap: 0.45rem;
-  --builder-v2-picker-filter-stack-padding: 0.5rem;
-  --builder-v2-picker-menu-size: 2rem;
-  --builder-v2-picker-menu-padding: 0.24rem;
-  --builder-v2-picker-results-gap: clamp(0.38rem, 0.7vw, 0.5rem);
-  --builder-v2-picker-results-padding: clamp(0.48rem, 0.85vw, 0.62rem);
+  --builder-v2-picker-filter-stack-gap: var(--builder-v2-density-picker-filter-stack-gap);
+  --builder-v2-picker-filter-stack-padding: var(--builder-v2-density-picker-filter-stack-padding);
   position: relative;
   grid-area: picker;
   grid-template-areas:
