@@ -249,13 +249,13 @@
 }
 
 .builder-v2-lineup-action--success {
-  border-color: oklch(72% 0.1 142 / 0.44);
-  color: oklch(82% 0.1 142 / 0.92);
+  border-color: var(--builder-v2-success-border);
+  color: var(--builder-v2-success-text);
 }
 
 .builder-v2-lineup-action--success:not(:disabled):hover {
-  border-color: oklch(78% 0.1 142 / 0.68);
-  background: oklch(20% 0.06 142 / 0.18);
+  border-color: var(--builder-v2-success-hover-border);
+  background: var(--builder-v2-success-bg);
 }
 
 .builder-v2-team-list {
@@ -308,17 +308,17 @@
 }
 
 .builder-v2-team-row--active {
-  background: var(--builder-v2-highlight-bg);
+  background: var(--builder-v2-selected-bg);
   color: var(--ui-text-main);
 }
 
 .builder-v2-team-row--active::before {
-  border-color: var(--builder-v2-highlight-border);
-  box-shadow: inset 0 0 0 1px var(--builder-v2-highlight-inset);
+  border-color: var(--builder-v2-selected-border);
+  box-shadow: inset 0 0 0 1px var(--builder-v2-selected-inset);
 }
 
 .builder-v2-overview-card--active {
-  outline: 1px solid var(--ui-state-amber-border-emphasis);
+  outline: 1px solid var(--builder-v2-selected-border-strong);
   outline-offset: -1px;
   background: var(--ui-state-amber-surface-soft);
   color: var(--ui-text-main);
@@ -339,11 +339,11 @@
 }
 
 .builder-v2-team-row--active:hover {
-  background: var(--builder-v2-highlight-bg-strong);
+  background: var(--builder-v2-selected-bg-strong);
 }
 
 .builder-v2-team-row--active:hover::before {
-  border-color: var(--builder-v2-highlight-border-strong);
+  border-color: var(--builder-v2-selected-border-strong);
 }
 
 .builder-v2-team-row--add {
@@ -1093,9 +1093,9 @@
 }
 
 .builder-v2-wheel-chip--active {
-  border-color: var(--ui-state-amber-border-hot);
-  background: var(--ui-state-amber-surface);
-  box-shadow: inset 0 0 0 1px var(--ui-state-amber-inset-strong);
+  border-color: var(--builder-v2-selected-border-hot);
+  background: var(--builder-v2-selected-bg);
+  box-shadow: inset 0 0 0 1px var(--builder-v2-selected-inset-strong);
 }
 
 .builder-v2-wheel-target {

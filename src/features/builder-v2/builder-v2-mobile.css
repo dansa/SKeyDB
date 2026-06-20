@@ -130,8 +130,8 @@
 }
 
 .builder-v2-mobile-lineup-header-action--finish {
-  border-color: oklch(70% 0.09 142 / 0.42);
-  color: oklch(83% 0.08 142 / 0.96);
+  border-color: var(--builder-v2-success-border-soft);
+  color: var(--builder-v2-success-text-strong);
 }
 
 .builder-v2-mobile-lineup-header-action--danger {
@@ -660,9 +660,9 @@
 .builder-v2-mobile-lineup-done-button:hover,
 .builder-v2-mobile-lineup-empty-choice:hover,
 .builder-v2-mobile-lineup-target-button:hover {
-  border-color: var(--builder-v2-highlight-border);
-  background: var(--builder-v2-highlight-bg);
-  box-shadow: inset 0 0 0 1px var(--builder-v2-highlight-inset);
+  border-color: var(--builder-v2-selected-border);
+  background: var(--builder-v2-selected-bg);
+  box-shadow: inset 0 0 0 1px var(--builder-v2-selected-inset);
   color: var(--ui-accent-gold-soft);
 }
 
@@ -1439,9 +1439,9 @@
 }
 
 .builder-v2-mobile-team-chip--active {
-  border-color: var(--ui-state-amber-border-emphasis);
+  border-color: var(--builder-v2-selected-border-strong);
   color: var(--ui-text-main);
-  box-shadow: inset 0 0 0 1px var(--ui-state-amber-inset);
+  box-shadow: inset 0 0 0 1px var(--builder-v2-selected-inset);
 }
 
 .builder-v2-mobile-team-chip--add {
@@ -1550,7 +1550,7 @@
 .builder-v2-mobile-slot-preview--active,
 .builder-v2-mobile-loadout-button--active {
   border-color: var(--builder-v2-highlight-border-hot);
-  box-shadow: inset 0 0 0 1px var(--builder-v2-highlight-inset-soft);
+  box-shadow: inset 0 0 0 1px var(--builder-v2-selected-inset-soft);
   color: var(--ui-text-main);
 }
 

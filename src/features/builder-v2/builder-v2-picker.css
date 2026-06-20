@@ -65,9 +65,9 @@
 }
 
 .builder-v2-tab--active {
-  background: oklch(18% 0.045 84 / 0.12);
+  background: var(--builder-v2-selected-bg-soft);
   color: var(--ui-accent-gold-soft);
-  box-shadow: var(--builder-v2-active-underline);
+  box-shadow: var(--builder-v2-selected-underline);
 }
 
 .builder-v2-search-label {
@@ -145,8 +145,8 @@
 }
 
 .builder-v2-picker-chip--active {
-  border-color: var(--ui-state-amber-border-strong);
-  background: linear-gradient(180deg, oklch(22% 0.055 84 / 0.36), oklch(9% 0.028 252 / 0.88));
+  border-color: var(--builder-v2-selected-border);
+  background: var(--builder-v2-selected-chip-bg);
   color: var(--ui-accent-gold-soft);
 }
 

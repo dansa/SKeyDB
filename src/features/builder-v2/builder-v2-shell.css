@@ -47,6 +47,23 @@
   --builder-v2-highlight-bg-strong: var(--ui-state-amber-surface-strong);
   --builder-v2-highlight-inset: var(--ui-state-amber-inset);
   --builder-v2-highlight-inset-soft: var(--ui-focus-ring-support);
+  --builder-v2-selected-border: var(--builder-v2-highlight-border);
+  --builder-v2-selected-border-strong: var(--builder-v2-highlight-border-strong);
+  --builder-v2-selected-border-hot: var(--ui-state-amber-border-hot);
+  --builder-v2-selected-bg: var(--builder-v2-highlight-bg);
+  --builder-v2-selected-bg-soft: oklch(18% 0.045 84 / 0.12);
+  --builder-v2-selected-bg-strong: var(--builder-v2-highlight-bg-strong);
+  --builder-v2-selected-bg-emphasis: oklch(20% 0.055 84 / 0.2);
+  --builder-v2-selected-chip-bg: linear-gradient(
+    180deg,
+    oklch(22% 0.055 84 / 0.36),
+    oklch(9% 0.028 252 / 0.88)
+  );
+  --builder-v2-selected-inset: var(--builder-v2-highlight-inset);
+  --builder-v2-selected-inset-strong: var(--ui-state-amber-inset-strong);
+  --builder-v2-selected-inset-soft: var(--builder-v2-highlight-inset-soft);
+  --builder-v2-selected-ring: var(--ui-state-amber-ring);
+  --builder-v2-selected-underline: var(--builder-v2-active-underline);
   --builder-v2-panel-bg: var(--ui-surface-panel-bg);
   --builder-v2-toolbar-bg: var(--ui-surface-toolbar-bg);
   --builder-v2-compact-card-bg: oklch(8.5% 0.024 252 / 0.72);
@@ -65,6 +82,12 @@
   --builder-v2-danger-hover-border: oklch(70% 0.13 24 / 0.68);
   --builder-v2-danger-hover-bg: oklch(20% 0.06 24 / 0.2);
   --builder-v2-danger-text: oklch(82% 0.08 32 / 0.92);
+  --builder-v2-success-border: oklch(72% 0.1 142 / 0.44);
+  --builder-v2-success-border-soft: oklch(70% 0.09 142 / 0.42);
+  --builder-v2-success-hover-border: oklch(78% 0.1 142 / 0.68);
+  --builder-v2-success-bg: oklch(20% 0.06 142 / 0.18);
+  --builder-v2-success-text: oklch(82% 0.1 142 / 0.92);
+  --builder-v2-success-text-strong: oklch(83% 0.08 142 / 0.96);
   --builder-v2-state-chip-min-height: 1rem;
   --builder-v2-state-chip-radius: var(--ui-radius-xs);
   --builder-v2-state-chip-bg: oklch(5% 0.018 252 / 0.72);
