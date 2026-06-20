@@ -109,11 +109,11 @@ export function usePoolMontagePreload(visualSlots: ResolvedVisualSlot[]) {
     () => typeof IntersectionObserver === 'undefined' || import.meta.env.MODE === 'test',
   )
   const preloadUrls = useMemo(() => getPoolPreloadUrls(visualSlots), [visualSlots])
-  const preloadSignature = preloadUrls.join('\n')
-  const [readySignature, setReadySignature] = useState(() =>
-    import.meta.env.MODE === 'test' ? preloadSignature : '',
+  const preloadKey = preloadUrls.join('\n')
+  const [readyKey, setReadyKey] = useState(() =>
+    import.meta.env.MODE === 'test' ? preloadKey : '',
   )
-  const assetsReady = import.meta.env.MODE === 'test' || readySignature === preloadSignature
+  const assetsReady = import.meta.env.MODE === 'test' || readyKey === preloadKey
 
   useEffect(() => {
     if (shouldPreload) return
@@ -143,9 +143,9 @@ export function usePoolMontagePreload(visualSlots: ResolvedVisualSlot[]) {
     }
 
     return preloadTimelineImagesInBatches(preloadUrls, () => {
-      setReadySignature(preloadSignature)
+      setReadyKey(preloadKey)
     })
-  }, [preloadSignature, preloadUrls, shouldPreload])
+  }, [preloadKey, preloadUrls, shouldPreload])
 
   return {assetsReady, rootRef}
 }

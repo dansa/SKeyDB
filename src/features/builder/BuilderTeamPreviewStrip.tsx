@@ -11,6 +11,7 @@ export function BuilderTeamPreviewStrip({
   ownedWheelLevelById = EMPTY_OWNERSHIP_MAP,
   className = '',
   enableDragAndDrop = false,
+  onSlotSelect,
 }: {
   teamId: string
   slots: TeamSlot[]
@@ -19,6 +20,7 @@ export function BuilderTeamPreviewStrip({
   ownedWheelLevelById?: Map<string, number | null>
   className?: string
   enableDragAndDrop?: boolean
+  onSlotSelect?: () => void
 }) {
   return (
     <div
@@ -34,6 +36,7 @@ export function BuilderTeamPreviewStrip({
           slot={slot}
           teamId={teamId}
           enableDragAndDrop={enableDragAndDrop}
+          onSelect={onSlotSelect}
         />
       ))}
     </div>

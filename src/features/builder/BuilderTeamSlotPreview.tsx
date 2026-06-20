@@ -17,6 +17,7 @@ export interface BuilderTeamSlotPreviewProps {
   ownedAwakenerLevelByName: Map<string, number | null>
   ownedWheelLevelById: Map<string, number | null>
   enableDragAndDrop: boolean
+  onSelect?: () => void
 }
 
 function getTeamPreviewDragData(slot: TeamSlot, teamId: string): DragData | undefined {
@@ -159,6 +160,7 @@ export function BuilderTeamSlotPreview({
   ownedAwakenerLevelByName,
   ownedWheelLevelById,
   enableDragAndDrop,
+  onSelect,
 }: BuilderTeamSlotPreviewProps) {
   const isAwakenerOwned =
     !getSlotAwakenerName(slot) ||
@@ -184,18 +186,38 @@ export function BuilderTeamSlotPreview({
   })
   const previewAriaLabel = `Team preview slot ${String(slotIndex + 1)}`
 
-  function setPreviewRef(node: HTMLDivElement | null) {
+  function setPreviewRef(node: HTMLElement | null) {
     setDroppableRef(node)
     setDraggableRef(node)
   }
 
   if (mode === 'compact') {
+    const compactClassName = `builder-picker-tile h-12 w-12 border border-slate-500/50 bg-slate-900/40 p-0.5 text-left ${
+      isDragging ? 'opacity-45' : ''
+    } ${isOver ? 'builder-team-slot-preview-drop-over' : ''}`
+
+    if (onSelect) {
+      return (
+        <button
+          aria-label={`Select ${previewAriaLabel.toLowerCase()}`}
+          className={compactClassName}
+          onClick={onSelect}
+          ref={setPreviewRef}
+          type='button'
+          {...attributes}
+          {...listeners}
+        >
+          <div className='builder-team-slot-preview-compact-surface relative h-full w-full overflow-hidden border border-slate-400/35 bg-slate-900/70'>
+            <CompactSlotPreview slot={slot} isAwakenerOwned={isAwakenerOwned} />
+          </div>
+        </button>
+      )
+    }
+
     return (
       <div
         aria-label={previewAriaLabel}
-        className={`builder-picker-tile h-12 w-12 border border-slate-500/50 bg-slate-900/40 p-0.5 ${
-          isDragging ? 'opacity-45' : ''
-        } ${isOver ? 'builder-team-slot-preview-drop-over' : ''}`}
+        className={compactClassName}
         ref={setPreviewRef}
         {...attributes}
         {...listeners}
@@ -207,12 +229,38 @@ export function BuilderTeamSlotPreview({
     )
   }
 
+  const expandedClassName = `builder-team-slot-preview builder-team-slot-preview-expanded ${
+    isDragging ? 'opacity-45' : ''
+  } ${isOver ? 'builder-team-slot-preview-drop-over' : ''}`
+
+  if (onSelect) {
+    return (
+      <button
+        aria-label={`Select ${previewAriaLabel.toLowerCase()}`}
+        className={expandedClassName}
+        onClick={onSelect}
+        ref={setPreviewRef}
+        type='button'
+        {...attributes}
+        {...listeners}
+      >
+        <div className='builder-team-slot-preview-card'>
+          <ExpandedSlotPreview
+            slot={slot}
+            isAwakenerOwned={isAwakenerOwned}
+            awakenerCardAsset={awakenerCardAsset}
+            covenantAsset={covenantAsset}
+            ownedWheelLevelById={ownedWheelLevelById}
+          />
+        </div>
+      </button>
+    )
+  }
+
   return (
     <div
       aria-label={previewAriaLabel}
-      className={`builder-team-slot-preview builder-team-slot-preview-expanded ${isDragging ? 'opacity-45' : ''} ${
-        isOver ? 'builder-team-slot-preview-drop-over' : ''
-      }`}
+      className={expandedClassName}
       ref={setPreviewRef}
       {...attributes}
       {...listeners}

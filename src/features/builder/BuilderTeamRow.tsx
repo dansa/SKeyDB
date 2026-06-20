@@ -29,6 +29,11 @@ interface BuilderTeamRowProps {
 }
 
 const EMPTY_OWNERSHIP_MAP = new Map<string, number | null>()
+const INTERACTIVE_ROW_TARGET_SELECTOR = 'button, input, textarea, select, a, [role="button"]'
+
+function isInteractiveRowTarget(target: EventTarget | null) {
+  return target instanceof HTMLElement && !!target.closest(INTERACTIVE_ROW_TARGET_SELECTOR)
+}
 
 export function BuilderTeamRow({
   team,
@@ -88,12 +93,15 @@ export function BuilderTeamRow({
         <span aria-hidden='true' className='builder-team-row-drag-handle-glyph' />
       </button>
       <div
-        className={`grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-2 border pr-2 ${
+        className={`grid min-w-0 flex-1 cursor-pointer grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-2 border pr-2 ${
           isActive
             ? 'border-l-0 border-amber-200/80 bg-slate-800/70'
             : 'border-l-0 border-slate-500/45 bg-slate-900/50'
         }`}
-        onClick={() => {
+        onClick={(event) => {
+          if (isInteractiveRowTarget(event.target)) {
+            return
+          }
           onEditTeam(team.id)
         }}
       >
@@ -122,6 +130,9 @@ export function BuilderTeamRow({
             ownedWheelLevelById={ownedWheelLevelById}
             slots={team.slots}
             teamId={team.id}
+            onSlotSelect={() => {
+              onEditTeam(team.id)
+            }}
           />
         </div>
         <span className='builder-team-posse-icon-wrap builder-team-posse-icon-wrap-compact my-1.5'>

@@ -17,7 +17,7 @@ interface UsePoolCyclingOptions {
 
 interface PoolCycleState {
   frames: PoolCycleFrame[]
-  signature: string
+  cycleKey: string
 }
 
 type PoolCycleAction =
@@ -27,12 +27,12 @@ type PoolCycleAction =
       poolSize: number
       group: number[]
       initialFrames: PoolCycleFrame[]
-      signature: string
+      cycleKey: string
     }
   | {
       type: 'completeTransition'
       slotIdx: number
-      signature: string
+      cycleKey: string
     }
 
 type PendingTransitionMap = Map<number, ReturnType<typeof setTimeout>>
@@ -127,8 +127,7 @@ function getPendingTransitionMap(ref: RefObject<PendingTransitionMap | null>) {
 function poolCycleReducer(state: PoolCycleState, action: PoolCycleAction): PoolCycleState {
   switch (action.type) {
     case 'startTransition': {
-      const currentFrames =
-        state.signature === action.signature ? state.frames : action.initialFrames
+      const currentFrames = state.cycleKey === action.cycleKey ? state.frames : action.initialFrames
 
       if (currentFrames[action.slotIdx].transitioning) return state
 
@@ -158,11 +157,11 @@ function poolCycleReducer(state: PoolCycleState, action: PoolCycleAction): PoolC
         incomingIdx: nextIdx,
         transitioning: true,
       }
-      return {frames, signature: action.signature}
+      return {frames, cycleKey: action.cycleKey}
     }
 
     case 'completeTransition': {
-      if (state.signature !== action.signature) return state
+      if (state.cycleKey !== action.cycleKey) return state
 
       return {
         frames: state.frames.map((frame, frameIdx) =>
@@ -170,7 +169,7 @@ function poolCycleReducer(state: PoolCycleState, action: PoolCycleAction): PoolC
             ? {activeIdx: frame.incomingIdx, incomingIdx: -1, transitioning: false}
             : frame,
         ),
-        signature: state.signature,
+        cycleKey: state.cycleKey,
       }
     }
   }
@@ -180,7 +179,7 @@ export function usePoolCycling(
   poolSlots: BannerPoolSlot[],
   {enabled = true}: UsePoolCyclingOptions = {},
 ): PoolCycleFrame[] {
-  const poolSignature = useMemo(() => buildPoolSignature(poolSlots), [poolSlots])
+  const poolCycleKey = useMemo(() => buildPoolSignature(poolSlots), [poolSlots])
   const fingerprints = useMemo(() => poolSlots.map((s) => getPoolFingerprint(s.pool)), [poolSlots])
   const sharedGroups = useMemo(() => buildSharedGroups(fingerprints), [fingerprints])
   const initialFrames = useMemo(
@@ -195,13 +194,13 @@ export function usePoolCycling(
 
   const [cycleState, dispatch] = useReducer(poolCycleReducer, {
     frames: initialFrames,
-    signature: poolSignature,
+    cycleKey: poolCycleKey,
   })
 
   const pendingBySlotRef = useRef<PendingTransitionMap | null>(null)
 
   const frames =
-    reducedMotion || cycleState.signature !== poolSignature ? initialFrames : cycleState.frames
+    reducedMotion || cycleState.cycleKey !== poolCycleKey ? initialFrames : cycleState.frames
 
   useEffect(() => {
     if (!enabled || reducedMotion) return
@@ -242,12 +241,12 @@ export function usePoolCycling(
         poolSize: poolSlots[slotIdx].pool.length,
         group: sharedGroups.get(fingerprints[slotIdx]) ?? [slotIdx],
         initialFrames,
-        signature: poolSignature,
+        cycleKey: poolCycleKey,
       })
 
       clearPendingTransition(pendingTransitions, slotIdx)
       const pending = setTimeout(() => {
-        dispatch({type: 'completeTransition', slotIdx, signature: poolSignature})
+        dispatch({type: 'completeTransition', slotIdx, cycleKey: poolCycleKey})
         pendingTransitions.delete(slotIdx)
       }, TRANSITION_DURATION_MS)
       pendingTransitions.set(slotIdx, pending)
@@ -257,7 +256,7 @@ export function usePoolCycling(
       clearInterval(interval)
       clearAllPendingTransitions(pendingTransitions)
     }
-  }, [enabled, fingerprints, initialFrames, poolSignature, poolSlots, reducedMotion, sharedGroups])
+  }, [enabled, fingerprints, initialFrames, poolCycleKey, poolSlots, reducedMotion, sharedGroups])
 
   return frames
 }
