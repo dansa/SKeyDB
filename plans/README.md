@@ -15,11 +15,11 @@ fully before starting, honor its STOP conditions, and update your row when done.
 | 005 | Normalize mobile quick-lineup density safely | P1 | M | 003 recommended | DONE |
 | 006 | Narrow the Builder V2 DnD command port | P2 | M | none | DONE |
 | 007 | Window Builder V2 picker result grids | P2 | M | 003 recommended | DONE |
-| 008 | Split the Builder V2 model hook by ownership | P2 | L | 006 | TODO |
+| 008 | Split the Builder V2 model hook by ownership | P2 | L | 006 | DONE |
 | 008a | Extract Builder V2 persisted preferences | P2 | S-M | 006 | DONE |
 | 008b | Extract Builder V2 team-management commands | P2 | M | 006, 008a | DONE |
 | 008c | Extract Builder V2 import/export adapter | P2 | S-M | 008a, 008b | DONE |
-| 009 | Prepare Builder V2 visual code for the design pass | P2 | M-L | 003 recommended | TODO |
+| 009 | Prepare Builder V2 visual code for the design pass | P2 | M-L | 003 recommended | DONE |
 | 010 | Investigate lazy Builder asset URL maps | P3 | M | none | REJECTED: sync API keeps eager URL maps; async boundary out of scope |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
@@ -31,6 +31,7 @@ REJECTED (with one-line rationale).
   browser-visible layout, DnD, or responsive styling.
 - 006 should land before 008 because it removes one narrow consumer from the
   oversized `BuilderV2Model` before the broader model-hook split.
+- 008 is complete through its narrower 008a, 008b, and 008c ownership tranches.
 - 005 may proceed before 003 only if the executor records manual desktop,
   adaptive, and 390px mobile screenshots or DOM measurements in its final
   receipt. The layout is tight, so this cannot be a blind CSS bump.

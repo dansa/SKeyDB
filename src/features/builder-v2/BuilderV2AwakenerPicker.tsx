@@ -7,24 +7,17 @@ import {
   useMemo,
   useRef,
   useState,
-  type ButtonHTMLAttributes,
   type ComponentType,
-  type CSSProperties,
   type ReactNode,
   type Ref,
   type RefObject,
 } from 'react'
 
-import {useDraggable, useDroppable} from '@dnd-kit/core'
-import {FaCaretDown, FaCaretUp, FaCircleInfo, FaEraser, FaGear} from 'react-icons/fa6'
+import {useDroppable} from '@dnd-kit/core'
+import {FaEraser, FaGear} from 'react-icons/fa6'
 
-import type {
-  AwakenerSortKey,
-  CollectionSortDirection,
-  WheelCollectionSortKey,
-} from '@/domain/collection-sorting'
+import type {AwakenerSortKey, WheelCollectionSortKey} from '@/domain/collection-sorting'
 import {getMainstatByKey, getMainstatIcon} from '@/domain/mainstats'
-import {getRealmAccent} from '@/domain/realms'
 import {wheelMainstatFilterOptions} from '@/domain/wheel-mainstat-filters'
 import {getSearchCaptureAction} from '@/ui/search/search-capture'
 
@@ -34,7 +27,6 @@ import {
   createBuilderV2PickerPosseDragPayload,
   createBuilderV2PickerWheelDragPayload,
   makeBuilderV2PickerDndId,
-  type BuilderV2DragPayload,
   type BuilderV2DropTargetDescriptor,
 } from './builder-v2-dnd'
 import {useBuilderV2DndEnabled} from './BuilderV2DndCapability'
@@ -50,6 +42,17 @@ import type {
   BuilderV2WheelOption,
   BuilderV2WheelRarityFilter,
 } from './BuilderV2ModelTypes'
+import {
+  BuilderV2PickerChip as PickerChip,
+  BuilderV2PickerChipRow as PickerChipRow,
+  BuilderV2PickerSortRow as PickerSortRow,
+  BuilderV2PickerStateChip as PickerStateChip,
+  BuilderV2PickerTileArt as PickerTileArt,
+  BuilderV2PickerTileButton as PickerTileButton,
+  BuilderV2PickerTileCaption as PickerTileCaption,
+  BuilderV2PickerTileFrame as PickerTileFrame,
+  BuilderV2PickerToggle as PickerToggle,
+} from './BuilderV2PickerPrimitives'
 import {
   getBuilderV2PickerWindowRange,
   builderV2PickerWindowFallbackColumnCount as pickerWindowFallbackColumnCount,
@@ -1142,6 +1145,22 @@ const BuilderV2WheelPickerTile = memo(function BuilderV2WheelPickerTile({
     ],
   )
   const isDimmed = wheel.inUse || !wheel.owned
+  const wheelChips = useMemo(
+    () => (
+      <>
+        {!wheel.owned ? <PickerStateChip tone='danger'>Unowned</PickerStateChip> : null}
+        {wheel.inUseLabel ? (
+          <PickerStateChip tone='status'>{wheel.inUseLabel}</PickerStateChip>
+        ) : null}
+        {wheel.recommendationLabel ? (
+          <PickerStateChip tone='recommendation'>{wheel.recommendationLabel}</PickerStateChip>
+        ) : (
+          <RecommendedMainstatChip mainstatKey={wheel.recommendedMainstatKey} />
+        )}
+      </>
+    ),
+    [wheel.inUseLabel, wheel.owned, wheel.recommendationLabel, wheel.recommendedMainstatKey],
+  )
 
   return (
     <PickerTileFrame
@@ -1166,19 +1185,7 @@ const BuilderV2WheelPickerTile = memo(function BuilderV2WheelPickerTile({
       >
         <PickerTileArt
           alt={`${wheel.name} wheel`}
-          chips={
-            <>
-              {!wheel.owned ? <PickerStateChip tone='danger'>Unowned</PickerStateChip> : null}
-              {wheel.inUseLabel ? (
-                <PickerStateChip tone='status'>{wheel.inUseLabel}</PickerStateChip>
-              ) : null}
-              {wheel.recommendationLabel ? (
-                <PickerStateChip tone='recommendation'>{wheel.recommendationLabel}</PickerStateChip>
-              ) : (
-                <RecommendedMainstatChip mainstatKey={wheel.recommendedMainstatKey} />
-              )}
-            </>
-          }
+          chips={wheelChips}
           fallback={wheel.name}
           footer={<EnlightenFooterChip enlightenLevel={wheel.enlightenLevel} />}
           isDimmed={isDimmed}
@@ -1243,6 +1250,17 @@ const BuilderV2CovenantPickerTile = memo(function BuilderV2CovenantPickerTile({
       isDndEnabled,
     ],
   )
+  const covenantChips = useMemo(
+    () => (
+      <>
+        {covenant.recommendationLabel ? (
+          <PickerStateChip tone='recommendation'>{covenant.recommendationLabel}</PickerStateChip>
+        ) : null}
+        {covenant.inUse ? <PickerStateChip tone='status'>Used</PickerStateChip> : null}
+      </>
+    ),
+    [covenant.inUse, covenant.recommendationLabel],
+  )
 
   return (
     <PickerTileFrame
@@ -1265,16 +1283,7 @@ const BuilderV2CovenantPickerTile = memo(function BuilderV2CovenantPickerTile({
       >
         <PickerTileArt
           alt={`${covenant.name} covenant`}
-          chips={
-            <>
-              {covenant.recommendationLabel ? (
-                <PickerStateChip tone='recommendation'>
-                  {covenant.recommendationLabel}
-                </PickerStateChip>
-              ) : null}
-              {covenant.inUse ? <PickerStateChip tone='status'>Used</PickerStateChip> : null}
-            </>
-          }
+          chips={covenantChips}
           fallback={covenant.name}
           src={covenant.assetSrc}
         />
@@ -1343,6 +1352,23 @@ const BuilderV2PossePickerTile = memo(function BuilderV2PossePickerTile({
       posse.statusLabel,
     ],
   )
+  const posseChips = useMemo(
+    () => (
+      <>
+        {posse.isActive ? <PickerStateChip tone='recommendation'>Active</PickerStateChip> : null}
+        {posse.recommended && !posse.isActive ? (
+          <PickerStateChip tone='recommendation'>Rec</PickerStateChip>
+        ) : null}
+        {!posse.owned ? <PickerStateChip tone='danger'>Unowned</PickerStateChip> : null}
+        {posse.statusLabel && posse.statusLabel !== 'Unowned' && !posse.isActive ? (
+          <PickerStateChip tone={posse.blocked ? 'status' : 'quiet'}>
+            {posse.statusLabel}
+          </PickerStateChip>
+        ) : null}
+      </>
+    ),
+    [posse.blocked, posse.isActive, posse.owned, posse.recommended, posse.statusLabel],
+  )
 
   return (
     <PickerTileFrame
@@ -1367,22 +1393,7 @@ const BuilderV2PossePickerTile = memo(function BuilderV2PossePickerTile({
       >
         <PickerTileArt
           alt={`${posse.name} posse`}
-          chips={
-            <>
-              {posse.isActive ? (
-                <PickerStateChip tone='recommendation'>Active</PickerStateChip>
-              ) : null}
-              {posse.recommended && !posse.isActive ? (
-                <PickerStateChip tone='recommendation'>Rec</PickerStateChip>
-              ) : null}
-              {!posse.owned ? <PickerStateChip tone='danger'>Unowned</PickerStateChip> : null}
-              {posse.statusLabel && posse.statusLabel !== 'Unowned' && !posse.isActive ? (
-                <PickerStateChip tone={posse.blocked ? 'status' : 'quiet'}>
-                  {posse.statusLabel}
-                </PickerStateChip>
-              ) : null}
-            </>
-          }
+          chips={posseChips}
           fallback={posse.name}
           realm={posse.realm}
           src={posse.assetSrc}
@@ -1412,161 +1423,6 @@ function arePossePickerTilePropsEqual(
     previous.onAssign === next.onAssign &&
     previous.onOpenDetail === next.onOpenDetail &&
     arePosseOptionsEqual(previous.posse, next.posse)
-  )
-}
-
-interface PickerTileButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  dndId: string
-  dndData?: BuilderV2DragPayload
-  isDndEnabled: boolean
-}
-
-function PickerTileFrame({
-  children,
-  detailLabel,
-  onOpenDetail,
-  tileKind,
-}: {
-  children: ReactNode
-  detailLabel: string
-  onOpenDetail: () => void
-  tileKind?: 'wheel'
-}) {
-  return (
-    <div
-      className={`builder-v2-picker-tile-frame ${
-        tileKind === 'wheel' ? 'builder-v2-picker-tile-frame--wheel' : ''
-      }`}
-    >
-      {children}
-      <button
-        aria-label={detailLabel}
-        className='builder-v2-picker-detail-button'
-        onClick={(event) => {
-          event.preventDefault()
-          event.stopPropagation()
-          onOpenDetail()
-        }}
-        title={detailLabel}
-        type='button'
-      >
-        <FaCircleInfo aria-hidden />
-      </button>
-    </div>
-  )
-}
-
-function PickerTileButton({
-  children,
-  dndId,
-  dndData,
-  isDndEnabled,
-  ...buttonProps
-}: PickerTileButtonProps) {
-  if (isDndEnabled && dndData) {
-    return (
-      <DraggablePickerTileButton dndData={dndData} dndId={dndId} {...buttonProps}>
-        {children}
-      </DraggablePickerTileButton>
-    )
-  }
-
-  return (
-    <button type='button' {...buttonProps}>
-      {children}
-    </button>
-  )
-}
-
-function DraggablePickerTileButton({
-  children,
-  dndData,
-  dndId,
-  ...buttonProps
-}: Omit<PickerTileButtonProps, 'isDndEnabled'> & {dndData: BuilderV2DragPayload}) {
-  const {listeners, setNodeRef} = useDraggable({
-    id: dndId,
-    data: dndData,
-  })
-
-  return (
-    <button ref={setNodeRef} type='button' {...buttonProps} {...listeners}>
-      {children}
-    </button>
-  )
-}
-
-function PickerTileArt({
-  alt,
-  chips,
-  fallback,
-  footer,
-  isDimmed = false,
-  realm,
-  src,
-}: {
-  alt: string
-  chips?: ReactNode
-  fallback: string
-  footer?: ReactNode
-  isDimmed?: boolean
-  realm?: string
-  src: string | undefined
-}) {
-  const realmAccent = realm ? getRealmAccent(realm) : undefined
-  return (
-    <span
-      className='builder-v2-picker-tile-art'
-      style={realmAccent ? ({'--picker-realm-accent': realmAccent} as CSSProperties) : undefined}
-    >
-      {src ? (
-        <img
-          alt={alt}
-          className={
-            isDimmed
-              ? 'builder-v2-picker-tile-image builder-v2-picker-tile-image--dimmed'
-              : 'builder-v2-picker-tile-image'
-          }
-          decoding='async'
-          draggable={false}
-          fetchPriority='low'
-          loading='lazy'
-          src={src}
-        />
-      ) : (
-        <span className='builder-v2-picker-tile-fallback'>{fallback.slice(0, 1)}</span>
-      )}
-      {chips || footer ? (
-        <span className='builder-v2-picker-tile-overlay' aria-hidden={false}>
-          <span className='builder-v2-picker-tile-chips'>{chips}</span>
-          <span className='builder-v2-picker-tile-footer'>{footer}</span>
-        </span>
-      ) : null}
-    </span>
-  )
-}
-
-function PickerTileCaption({title}: {title: string}) {
-  return (
-    <span className='builder-v2-picker-tile-caption'>
-      <span className='builder-v2-picker-tile-name' title={title}>
-        {title}
-      </span>
-    </span>
-  )
-}
-
-function PickerStateChip({
-  children,
-  tone,
-}: {
-  children: ReactNode
-  tone: 'danger' | 'quiet' | 'recommendation' | 'status'
-}) {
-  return (
-    <span className='builder-v2-picker-state-chip' data-tone={tone}>
-      {children}
-    </span>
   )
 }
 
@@ -1753,100 +1609,4 @@ function formatEnlightenLabel(enlightenLevel: number | null): string | null {
 
 function getStateChipTone(chip: string): 'danger' | 'quiet' | 'recommendation' | 'status' {
   return chip === 'Unowned' ? 'danger' : 'status'
-}
-
-function PickerChipRow({children, label}: {children: ReactNode; label: string}) {
-  return (
-    <div className='builder-v2-picker-chips' aria-label={label}>
-      {children}
-    </div>
-  )
-}
-
-function PickerChip({
-  ariaLabel,
-  iconSrc,
-  isActive,
-  label,
-  onClick,
-}: {
-  ariaLabel?: string
-  iconSrc?: string
-  isActive: boolean
-  label: string
-  onClick: () => void
-}) {
-  return (
-    <button
-      aria-label={ariaLabel}
-      aria-pressed={isActive}
-      className={`builder-v2-picker-chip ${iconSrc ? 'builder-v2-picker-chip--icon' : ''} ${
-        isActive ? 'builder-v2-picker-chip--active' : ''
-      }`}
-      onClick={onClick}
-      type='button'
-    >
-      {iconSrc ? <img alt='' draggable={false} src={iconSrc} /> : null}
-      <span className={iconSrc ? 'sr-only' : undefined}>{label}</span>
-    </button>
-  )
-}
-
-function PickerSortRow({
-  direction,
-  label,
-  onDirectionToggle,
-  select,
-}: {
-  direction: CollectionSortDirection
-  label: string
-  onDirectionToggle: () => void
-  select: ReactNode
-}) {
-  const directionLabel = direction === 'DESC' ? 'High to low' : 'Low to high'
-
-  return (
-    <div className='builder-v2-picker-field builder-v2-picker-sort-row'>
-      <span>{label}</span>
-      <div className='builder-v2-picker-sort-control'>
-        {select}
-        <button
-          aria-label={`Toggle sort direction, currently ${directionLabel}`}
-          className='builder-v2-picker-sort-direction'
-          onClick={onDirectionToggle}
-          title={directionLabel}
-          type='button'
-        >
-          {direction === 'DESC' ? (
-            <FaCaretDown aria-hidden className='builder-v2-picker-sort-direction-icon' />
-          ) : (
-            <FaCaretUp aria-hidden className='builder-v2-picker-sort-direction-icon' />
-          )}
-        </button>
-      </div>
-    </div>
-  )
-}
-
-function PickerToggle({
-  checked,
-  label,
-  onChange,
-}: {
-  checked: boolean
-  label: string
-  onChange: (checked: boolean) => void
-}) {
-  return (
-    <label className='builder-v2-picker-toggle'>
-      <span>{label}</span>
-      <input
-        checked={checked}
-        onChange={(event) => {
-          onChange(event.target.checked)
-        }}
-        type='checkbox'
-      />
-    </label>
-  )
 }
