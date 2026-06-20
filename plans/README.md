@@ -23,7 +23,7 @@ done.
 | 008c | Extract Builder V2 import/export adapter | P2 | S-M | 008a, 008b | DONE |
 | 009 | Prepare Builder V2 visual code for the design pass | P2 | M-L | 003 recommended | DONE |
 | 010 | Investigate lazy Builder asset URL maps | P3 | M | none | REJECTED: sync API keeps eager URL maps; async boundary out of scope |
-| 011 | Extract Builder V2 equipment target primitive | P1 | M | none | TODO |
+| 011 | Extract Builder V2 equipment target primitive | P1 | M | none | DONE |
 | 012 | Extract Builder V2 mobile picker target resolution | P1 | S-M | none | TODO |
 | 013 | Extract Builder V2 mobile lineup target buttons | P1 | M | 012 | TODO |
 | 014 | Consolidate Builder V2 selected and emphasis primitives | P1 | M | none | TODO |
