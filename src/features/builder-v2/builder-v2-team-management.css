@@ -132,11 +132,11 @@
   color: var(--ui-accent-gold-soft);
   box-shadow:
     inset -1px 0 0 var(--builder-v2-section-divider-quiet),
-    inset 0 -2px 0 var(--ui-accent-gold);
+    var(--builder-v2-active-underline);
 }
 
 .builder-v2-team-management-mode-button--active:last-child {
-  box-shadow: inset 0 -2px 0 var(--ui-accent-gold);
+  box-shadow: var(--builder-v2-active-underline);
 }
 
 .builder-v2-team-management-button {
@@ -163,7 +163,7 @@
 
 .builder-v2-team-management-button--danger {
   border-color: var(--builder-v2-danger-border);
-  color: oklch(82% 0.08 32 / 0.92);
+  color: var(--builder-v2-danger-text);
 }
 
 .builder-v2-team-management-button--danger:not(:disabled):hover {
@@ -360,7 +360,7 @@
 
 .builder-v2-team-management-row--dragging {
   opacity: 0.42;
-  outline: 1px dashed oklch(78% 0.1 84 / 0.48);
+  outline: 1px dashed var(--builder-v2-highlight-border-focus);
   outline-offset: -3px;
 }
 
@@ -589,7 +589,7 @@
   .builder-v2-team-management-posse-icon::before {
   width: 0.9rem;
   height: 0.9rem;
-  border: 1px solid oklch(58% 0.035 84 / 0.35);
+  border: var(--builder-v2-posse-icon-inner-border);
   content: '';
   transform: rotate(45deg);
 }
@@ -638,9 +638,7 @@
   border-color: var(--ui-state-amber-border);
   background: oklch(6.8% 0.024 252 / 0.94);
   outline: none;
-  box-shadow:
-    inset 0 0 0 1px var(--ui-focus-ring-support),
-    0 0 0 0.16rem var(--ui-state-amber-ring-strong);
+  box-shadow: var(--builder-v2-focus-inset), var(--builder-v2-focus-halo);
 }
 
 .builder-v2-team-management-slots {
@@ -927,22 +925,23 @@
 
 .builder-v2-team-management-state-chip {
   display: inline-flex;
-  min-height: 1rem;
+  min-height: var(--builder-v2-state-chip-min-height);
   align-items: center;
-  border: 1px solid oklch(72% 0.08 216 / 0.4);
-  background: oklch(5% 0.018 252 / 0.72);
+  border: 1px solid var(--builder-v2-support-chip-border);
+  border-radius: var(--builder-v2-state-chip-radius);
+  background: var(--builder-v2-state-chip-bg);
   padding: 0.12rem 0.2rem;
-  color: oklch(86% 0.05 220);
+  color: var(--builder-v2-support-chip-text);
   font-size: 0.52rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  line-height: 1;
+  font-weight: var(--builder-v2-state-chip-font-weight);
+  letter-spacing: var(--builder-v2-state-chip-letter-spacing);
+  line-height: var(--builder-v2-state-chip-line-height);
   text-transform: uppercase;
 }
 
 .builder-v2-team-management-state-chip--danger {
-  border-color: oklch(70% 0.12 28 / 0.5);
-  color: oklch(86% 0.066 28);
+  border-color: var(--builder-v2-state-chip-danger-border);
+  color: var(--builder-v2-state-chip-danger-text);
 }
 
 .builder-v2-team-management-slot-state {
@@ -1558,7 +1557,7 @@
   display: grid;
   gap: 0.4rem;
   border: 1px solid var(--ui-border-subtle);
-  background: oklch(8.5% 0.024 252 / 0.72);
+  background: var(--builder-v2-compact-card-bg);
   padding: 0.62rem;
   color: var(--ui-text-muted);
   text-align: left;
@@ -1570,7 +1569,7 @@
 }
 
 .builder-v2-overview-card:hover {
-  border-color: oklch(74% 0.11 84 / 0.44);
+  border-color: var(--builder-v2-highlight-border-soft);
   background: oklch(12% 0.03 252 / 0.62);
   color: var(--ui-text-main);
 }

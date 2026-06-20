@@ -1435,7 +1435,7 @@
   min-width: 4.4rem;
   border: 1px solid var(--ui-border-subtle);
   border-radius: var(--ui-radius-xs);
-  background: oklch(8.5% 0.024 252 / 0.72);
+  background: var(--builder-v2-compact-card-bg);
   padding: 0.46rem 0.55rem;
   color: var(--ui-text-muted);
   text-align: left;
@@ -1502,7 +1502,7 @@
 }
 
 .builder-v2-mobile-posse-target--active {
-  border-color: oklch(78% 0.1 84 / 0.72);
+  border-color: var(--builder-v2-highlight-border-hot);
   color: var(--ui-text-main);
 }
 
@@ -1552,8 +1552,8 @@
 
 .builder-v2-mobile-slot-preview--active,
 .builder-v2-mobile-loadout-button--active {
-  border-color: oklch(78% 0.1 84 / 0.72);
-  box-shadow: inset 0 0 0 1px oklch(78% 0.1 84 / 0.16);
+  border-color: var(--builder-v2-highlight-border-hot);
+  box-shadow: inset 0 0 0 1px var(--builder-v2-highlight-inset-soft);
   color: var(--ui-text-main);
 }
 

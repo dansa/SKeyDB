@@ -188,8 +188,8 @@
 }
 
 .builder-v2-io-button:hover {
-  border-color: oklch(74% 0.11 84 / 0.44);
-  background: oklch(13% 0.03 252 / 0.72);
+  border-color: var(--builder-v2-highlight-border-soft);
+  background: var(--builder-v2-control-hover-bg);
   color: var(--ui-accent-gold-soft);
 }
 
@@ -240,7 +240,7 @@
 
 .builder-v2-lineup-action--danger {
   border-color: var(--builder-v2-danger-border);
-  color: oklch(82% 0.08 32 / 0.92);
+  color: var(--builder-v2-danger-text);
 }
 
 .builder-v2-lineup-action--danger:not(:disabled):hover {
@@ -619,7 +619,11 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: radial-gradient(circle at 50% 18%, oklch(78% 0.1 84 / 0.16), transparent 46%);
+  background: radial-gradient(
+    circle at 50% 18%,
+    var(--builder-v2-highlight-inset-soft),
+    transparent 46%
+  );
   content: '';
   opacity: 0;
   pointer-events: none;
@@ -783,9 +787,9 @@
 .builder-v2-slot-tag--support {
   max-width: 3.7rem;
   overflow: hidden;
-  border-color: oklch(72% 0.08 216 / 0.5);
-  background: oklch(20% 0.055 226 / 0.42);
-  color: oklch(86% 0.05 220);
+  border-color: var(--builder-v2-support-chip-border);
+  background: var(--builder-v2-support-chip-bg);
+  color: var(--builder-v2-support-chip-text);
   text-overflow: ellipsis;
   white-space: nowrap;
 }

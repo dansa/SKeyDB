@@ -3,6 +3,7 @@
   --builder-v2-focus-ring-soft: var(--ui-focus-ring-support);
   --builder-v2-focus-inset: inset 0 0 0 1px var(--ui-focus-ring-support);
   --builder-v2-focus-halo: 0 0 0 0.16rem var(--builder-v2-focus-ring-soft);
+  --builder-v2-active-underline: inset 0 -2px 0 var(--ui-accent-gold);
   --builder-v2-desktop-picker-sticky-top: calc(var(--site-header-height) + 0.85rem);
   --builder-v2-desktop-picker-max-height: calc(
     100dvh - var(--builder-v2-desktop-picker-sticky-top) - 0.85rem
@@ -38,12 +39,17 @@
   --builder-v2-adaptive-slot-card-max-width: clamp(8.75rem, 20vw, 11.75rem);
   --builder-v2-adaptive-slot-gear-height: clamp(4.8rem, 31%, 7.05rem);
   --builder-v2-highlight-border: var(--ui-state-amber-border-strong);
+  --builder-v2-highlight-border-soft: oklch(74% 0.11 84 / 0.44);
+  --builder-v2-highlight-border-focus: oklch(78% 0.1 84 / 0.48);
+  --builder-v2-highlight-border-hot: oklch(78% 0.1 84 / 0.72);
   --builder-v2-highlight-border-strong: var(--ui-state-amber-border-emphasis);
   --builder-v2-highlight-bg: var(--ui-state-amber-surface);
   --builder-v2-highlight-bg-strong: var(--ui-state-amber-surface-strong);
   --builder-v2-highlight-inset: var(--ui-state-amber-inset);
+  --builder-v2-highlight-inset-soft: var(--ui-focus-ring-support);
   --builder-v2-panel-bg: var(--ui-surface-panel-bg);
   --builder-v2-toolbar-bg: var(--ui-surface-toolbar-bg);
+  --builder-v2-compact-card-bg: oklch(8.5% 0.024 252 / 0.72);
   --builder-v2-row-bg: var(--ui-surface-row-bg);
   --builder-v2-row-bg-hover: var(--ui-surface-row-bg-hover);
   --builder-v2-control-bg: var(--ui-surface-control-bg);
@@ -58,7 +64,21 @@
   --builder-v2-danger-border: oklch(60% 0.12 24 / 0.44);
   --builder-v2-danger-hover-border: oklch(70% 0.13 24 / 0.68);
   --builder-v2-danger-hover-bg: oklch(20% 0.06 24 / 0.2);
+  --builder-v2-danger-text: oklch(82% 0.08 32 / 0.92);
+  --builder-v2-state-chip-min-height: 1rem;
+  --builder-v2-state-chip-radius: var(--ui-radius-xs);
+  --builder-v2-state-chip-bg: oklch(5% 0.018 252 / 0.72);
+  --builder-v2-state-chip-font-size: 0.58rem;
+  --builder-v2-state-chip-font-weight: 600;
+  --builder-v2-state-chip-letter-spacing: 0.04em;
+  --builder-v2-state-chip-line-height: 1;
+  --builder-v2-support-chip-border: oklch(72% 0.08 216 / 0.5);
+  --builder-v2-support-chip-bg: oklch(20% 0.055 226 / 0.42);
+  --builder-v2-support-chip-text: oklch(86% 0.05 220);
+  --builder-v2-state-chip-danger-border: oklch(70% 0.12 28 / 0.5);
+  --builder-v2-state-chip-danger-text: oklch(86% 0.066 28);
   --builder-v2-awakener-art-focus: 50% 18%;
+  --builder-v2-posse-icon-inner-border: 1px solid oklch(58% 0.035 84 / 0.35);
   --builder-v2-drop-border: var(--ui-state-amber-border-emphasis);
   --builder-v2-drop-border-strong: var(--ui-state-amber-border-hot);
   --builder-v2-drop-bg: var(--ui-state-amber-surface-strong);
@@ -125,7 +145,7 @@
   width: 0.35rem;
   height: 1.8rem;
   flex: 0 0 auto;
-  border: 1px solid oklch(78% 0.1 84 / 0.62);
+  border: 1px solid var(--builder-v2-highlight-border);
   background: linear-gradient(180deg, oklch(78% 0.1 84 / 0.9), oklch(36% 0.07 84 / 0.28));
 }
 

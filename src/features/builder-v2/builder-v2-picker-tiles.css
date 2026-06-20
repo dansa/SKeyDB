@@ -107,16 +107,16 @@
 
 .builder-v2-picker-state-chip {
   display: inline-flex;
-  min-height: 1rem;
+  min-height: var(--builder-v2-state-chip-min-height);
   align-items: center;
   border: 1px solid var(--ui-border-muted);
-  border-radius: 0.125rem;
-  background: oklch(4.5% 0.02 252 / 0.72);
+  border-radius: var(--builder-v2-state-chip-radius);
+  background: var(--builder-v2-state-chip-bg);
   padding: 0 0.15rem;
   color: var(--ui-text-muted);
-  font-size: 0.58rem;
-  font-weight: 600;
-  line-height: 1;
+  font-size: var(--builder-v2-state-chip-font-size);
+  font-weight: var(--builder-v2-state-chip-font-weight);
+  line-height: var(--builder-v2-state-chip-line-height);
   text-transform: uppercase;
 }
 

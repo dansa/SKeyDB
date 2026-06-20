@@ -304,11 +304,11 @@
 .builder-v2-adaptive-picker .builder-v2-tab--active {
   box-shadow:
     inset -1px 0 0 var(--builder-v2-section-divider-quiet),
-    inset 0 -2px 0 var(--ui-accent-gold);
+    var(--builder-v2-active-underline);
 }
 
 .builder-v2-adaptive-picker .builder-v2-tab--active:last-child {
-  box-shadow: inset 0 -2px 0 var(--ui-accent-gold);
+  box-shadow: var(--builder-v2-active-underline);
 }
 
 .builder-v2-adaptive-picker .builder-v2-picker-toolbar {
