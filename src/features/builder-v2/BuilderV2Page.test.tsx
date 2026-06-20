@@ -1582,6 +1582,42 @@ describe('BuilderV2Page', () => {
     expect(screen.getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute('aria-selected', 'true')
   })
 
+  it('opens the wheel picker when a filled mobile slot wheel target is tapped', () => {
+    resizeBuilderV2Viewport(390)
+    render(<BuilderV2Page />)
+
+    fireEvent.click(screen.getByRole('button', {name: /^select slot 1$/i}))
+    const awakenerPicker = screen.getByRole('dialog', {name: /team 1 · slot 1 · awakener/i})
+    fireEvent.click(within(awakenerPicker).getByRole('button', {name: /goliath, level \d+/i}))
+
+    const activeSlots = screen.getByLabelText(/builder v2 active team slots/i)
+    const slot1 = within(activeSlots).getByText('Slot 1').closest('article')
+    if (!slot1) {
+      throw new Error('Expected slot 1 article to render')
+    }
+    fireEvent.click(within(slot1).getByRole('button', {name: /^select slot 1 wheel 1$/i}))
+
+    expect(screen.getByRole('dialog', {name: /team 1 · slot 1 · wheel 1/i})).toBeInTheDocument()
+    expect(screen.getByRole('tab', {name: /^wheels$/i})).toHaveAttribute('aria-selected', 'true')
+  })
+
+  it('restores focus to the mobile picker trigger after Escape closes the dialog', () => {
+    resizeBuilderV2Viewport(390)
+    render(<BuilderV2Page />)
+
+    const trigger = screen.getByRole('button', {name: /^select slot 2 wheel 1$/i})
+    fireEvent.click(trigger)
+
+    expect(screen.getByRole('dialog', {name: /team 1 · slot 2 · awakener/i})).toBeInTheDocument()
+
+    fireEvent.keyDown(document, {key: 'Escape'})
+
+    expect(
+      screen.queryByRole('dialog', {name: /team 1 · slot 2 · awakener/i}),
+    ).not.toBeInTheDocument()
+    expect(trigger).toHaveFocus()
+  })
+
   it('places mobile quick lineup picker filters near search without category tabs', () => {
     resizeBuilderV2Viewport(390)
     render(<BuilderV2Page />)

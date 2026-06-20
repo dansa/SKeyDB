@@ -45,6 +45,91 @@ interface MobileOpenPickerConfig {
   title: string
 }
 
+type MobilePickerTargetRequest =
+  | {kind: 'slot'; slotId: string; team?: BuilderV2TeamSummary; slotLabel?: string}
+  | {kind: 'wheel'; slotId: string; wheelIndex: WheelSlotIndex}
+  | {kind: 'covenant'; slotId: string}
+  | {kind: 'posse'; team?: BuilderV2TeamSummary}
+
+type MobilePickerTargetConfig = Omit<MobileOpenPickerConfig, 'restoreTarget'>
+
+function resolveMobilePickerTarget(
+  model: BuilderV2Model,
+  request: MobilePickerTargetRequest,
+): MobilePickerTargetConfig {
+  if (request.kind === 'posse') {
+    const team = request.team
+    const teamName = team?.name ?? model.activeTeamName
+    const teamId = team?.id ?? model.activeTeamId
+    return {
+      isTargetSelected: model.activeTeamId === teamId && model.activeTeamTarget?.kind === 'posse',
+      selectTarget: () => {
+        if (model.activeTeamId !== teamId) {
+          model.setActiveTeam(teamId)
+        }
+        model.selectPosse()
+      },
+      slotId: null,
+      tab: 'posses',
+      title: `${teamName} · Posse`,
+    }
+  }
+
+  const slot = model.slots.find((candidate) => candidate.slotId === request.slotId)
+  const team = request.kind === 'slot' ? request.team : undefined
+  const teamName = team?.name ?? model.activeTeamName
+  const teamId = team?.id ?? model.activeTeamId
+  const slotLabel =
+    request.kind === 'slot' ? (request.slotLabel ?? slot?.slotLabel) : slot?.slotLabel
+  const titleFor = (target: string) =>
+    getMobileSlotPickerTitle(teamName, slotLabel ?? 'Slot', target)
+  const shouldSelectAwakenerFirst = request.kind !== 'slot' && Boolean(slot?.isEmpty)
+
+  if (request.kind === 'slot' || shouldSelectAwakenerFirst) {
+    return {
+      isTargetSelected:
+        model.activeTeamId === teamId &&
+        model.activeSelection?.kind === 'awakener' &&
+        model.activeSelection.slotId === request.slotId,
+      selectTarget: () => {
+        if (model.activeTeamId !== teamId) {
+          model.setActiveTeam(teamId)
+        }
+        model.selectAwakenerSlot(request.slotId)
+      },
+      slotId: request.slotId,
+      tab: 'awakeners',
+      title: titleFor('Awakener'),
+    }
+  }
+
+  if (request.kind === 'wheel') {
+    return {
+      isTargetSelected:
+        model.activeSelection?.kind === 'wheel' &&
+        model.activeSelection.slotId === request.slotId &&
+        model.activeSelection.wheelIndex === request.wheelIndex,
+      selectTarget: () => {
+        model.selectWheelSlot(request.slotId, request.wheelIndex)
+      },
+      slotId: request.slotId,
+      tab: 'wheels',
+      title: titleFor(`Wheel ${String(request.wheelIndex + 1)}`),
+    }
+  }
+
+  return {
+    isTargetSelected:
+      model.activeSelection?.kind === 'covenant' && model.activeSelection.slotId === request.slotId,
+    selectTarget: () => {
+      model.selectCovenantSlot(request.slotId)
+    },
+    slotId: request.slotId,
+    tab: 'covenants',
+    title: titleFor('Covenant'),
+  }
+}
+
 export function BuilderV2MobileLayout({
   isDetailOverlayOpen,
   model,
@@ -268,77 +353,32 @@ function MobilePickerDialog({
     ? (model.slots.find((slot) => slot.slotId === mobilePicker.slotId) ?? null)
     : null
   const updateSlotPickerTarget = useCallback(
-    (slot: BuilderV2SlotView, tab: BuilderV2PickerTab, targetLabel: string) => {
-      model.setPickerTab(tab)
-      onUpdateMobilePickerTarget(
-        slot.slotId,
-        tab,
-        getMobileSlotPickerTitle(model.activeTeamName, slot.slotLabel, targetLabel),
-      )
+    (target: MobilePickerTargetConfig) => {
+      if (!target.isTargetSelected) {
+        target.selectTarget()
+      }
+      model.setPickerTab(target.tab)
+      if (target.slotId) {
+        onUpdateMobilePickerTarget(target.slotId, target.tab, target.title)
+      }
     },
     [model, onUpdateMobilePickerTarget],
   )
   const selectSlotAwakenerTarget = useCallback(
     (slotId: string) => {
-      const slot = model.slots.find((candidate) => candidate.slotId === slotId)
-      if (!slot) {
-        return
-      }
-
-      const isAwakenerTargetSelected =
-        model.activeSelection?.kind === 'awakener' && model.activeSelection.slotId === slotId
-      if (!isAwakenerTargetSelected) {
-        model.selectAwakenerSlot(slotId)
-      }
-      updateSlotPickerTarget(slot, 'awakeners', 'Awakener')
+      updateSlotPickerTarget(resolveMobilePickerTarget(model, {kind: 'slot', slotId}))
     },
     [model, updateSlotPickerTarget],
   )
   const selectSlotWheelTarget = useCallback(
     (slotId: string, wheelIndex: WheelSlotIndex) => {
-      const slot = model.slots.find((candidate) => candidate.slotId === slotId)
-      if (!slot) {
-        return
-      }
-
-      if (slot.isEmpty) {
-        const isAwakenerTargetSelected =
-          model.activeSelection?.kind === 'awakener' && model.activeSelection.slotId === slotId
-        if (!isAwakenerTargetSelected) {
-          model.selectAwakenerSlot(slotId)
-        }
-        updateSlotPickerTarget(slot, 'awakeners', 'Awakener')
-        return
-      }
-
-      if (!slot.wheelSlots[wheelIndex].isSelected) {
-        model.selectWheelSlot(slotId, wheelIndex)
-      }
-      updateSlotPickerTarget(slot, 'wheels', `Wheel ${String(wheelIndex + 1)}`)
+      updateSlotPickerTarget(resolveMobilePickerTarget(model, {kind: 'wheel', slotId, wheelIndex}))
     },
     [model, updateSlotPickerTarget],
   )
   const selectSlotCovenantTarget = useCallback(
     (slotId: string) => {
-      const slot = model.slots.find((candidate) => candidate.slotId === slotId)
-      if (!slot) {
-        return
-      }
-
-      if (slot.isEmpty) {
-        const isAwakenerTargetSelected =
-          model.activeSelection?.kind === 'awakener' && model.activeSelection.slotId === slotId
-        if (!isAwakenerTargetSelected) {
-          model.selectAwakenerSlot(slotId)
-        }
-        updateSlotPickerTarget(slot, 'awakeners', 'Awakener')
-        return
-      }
-
-      if (!slot.isCovenantSelected) {
-        model.selectCovenantSlot(slotId)
-      }
-      updateSlotPickerTarget(slot, 'covenants', 'Covenant')
+      updateSlotPickerTarget(resolveMobilePickerTarget(model, {kind: 'covenant', slotId}))
     },
     [model, updateSlotPickerTarget],
   )
@@ -956,34 +996,19 @@ function MobileTeamBuilder({
     activateTeamAt(nextIndex)
   }
 
-  const getSlotTitle = (slotId: string, target: string) => {
-    const slot = model.slots.find((candidate) => candidate.slotId === slotId)
-    return `${model.activeTeamName} · ${slot?.slotLabel ?? 'Slot'} · ${target}`
-  }
-
-  const getSlotView = (slotId: string) =>
-    model.slots.find((candidate) => candidate.slotId === slotId)
-
   const openTeamListSlotPicker = (
     team: BuilderV2TeamSummary,
     slot: BuilderV2TeamSummarySlot,
     restoreTarget: HTMLElement | null,
   ) => {
     onOpenPicker({
-      isTargetSelected:
-        model.activeTeamId === team.id &&
-        model.activeSelection?.kind === 'awakener' &&
-        model.activeSelection.slotId === slot.slotId,
+      ...resolveMobilePickerTarget(model, {
+        kind: 'slot',
+        slotId: slot.slotId,
+        slotLabel: slot.label,
+        team,
+      }),
       restoreTarget,
-      selectTarget: () => {
-        if (model.activeTeamId !== team.id) {
-          model.setActiveTeam(team.id)
-        }
-        model.selectAwakenerSlot(slot.slotId)
-      },
-      slotId: slot.slotId,
-      tab: 'awakeners',
-      title: getMobileSlotPickerTitle(team.name, slot.label, 'Awakener'),
     })
   }
 
@@ -992,17 +1017,8 @@ function MobileTeamBuilder({
     restoreTarget: HTMLElement | null,
   ) => {
     onOpenPicker({
-      isTargetSelected: model.activeTeamId === team.id && model.activeTeamTarget?.kind === 'posse',
+      ...resolveMobilePickerTarget(model, {kind: 'posse', team}),
       restoreTarget,
-      selectTarget: () => {
-        if (model.activeTeamId !== team.id) {
-          model.setActiveTeam(team.id)
-        }
-        model.selectPosse()
-      },
-      slotId: null,
-      tab: 'posses',
-      title: `${team.name} · Posse`,
     })
   }
 
@@ -1083,12 +1099,8 @@ function MobileTeamBuilder({
           onClearPosse={model.clearPosse}
           onSelectPosse={() => {
             onOpenPicker({
-              isTargetSelected: model.activeTeamTarget?.kind === 'posse',
+              ...resolveMobilePickerTarget(model, {kind: 'posse'}),
               restoreTarget: getCurrentFocusRestoreTarget(),
-              selectTarget: model.selectPosse,
-              slotId: null,
-              tab: 'posses',
-              title: `${model.activeTeamName} · Posse`,
             })
           }}
         />
@@ -1099,73 +1111,21 @@ function MobileTeamBuilder({
           onClearWheel={model.clearWheel}
           onRemoveAwakener={model.removeAwakener}
           onSelectCovenantSlot={(slotId, restoreTarget) => {
-            const slot = getSlotView(slotId)
-            const shouldSelectAwakenerFirst = Boolean(slot?.isEmpty)
-            const targetTab: BuilderV2PickerTab = shouldSelectAwakenerFirst
-              ? 'awakeners'
-              : 'covenants'
-
             onOpenPicker({
-              isTargetSelected: shouldSelectAwakenerFirst
-                ? model.activeSelection?.kind === 'awakener' &&
-                  model.activeSelection.slotId === slotId
-                : model.activeSelection?.kind === 'covenant' &&
-                  model.activeSelection.slotId === slotId,
+              ...resolveMobilePickerTarget(model, {kind: 'covenant', slotId}),
               restoreTarget,
-              selectTarget: () => {
-                if (shouldSelectAwakenerFirst) {
-                  model.selectAwakenerSlot(slotId)
-                  return
-                }
-
-                model.selectCovenantSlot(slotId)
-              },
-              slotId,
-              tab: targetTab,
-              title: getSlotTitle(slotId, shouldSelectAwakenerFirst ? 'Awakener' : 'Covenant'),
             })
           }}
           onSelectSlot={(slotId, restoreTarget) => {
             onOpenPicker({
-              isTargetSelected:
-                model.activeSelection?.kind === 'awakener' &&
-                model.activeSelection.slotId === slotId,
+              ...resolveMobilePickerTarget(model, {kind: 'slot', slotId}),
               restoreTarget,
-              selectTarget: () => {
-                model.selectAwakenerSlot(slotId)
-              },
-              slotId,
-              tab: 'awakeners',
-              title: getSlotTitle(slotId, 'Awakener'),
             })
           }}
           onSelectWheelSlot={(slotId, wheelIndex, restoreTarget) => {
-            const slot = getSlotView(slotId)
-            const shouldSelectAwakenerFirst = Boolean(slot?.isEmpty)
-            const targetTab: BuilderV2PickerTab = shouldSelectAwakenerFirst ? 'awakeners' : 'wheels'
-
             onOpenPicker({
-              isTargetSelected: shouldSelectAwakenerFirst
-                ? model.activeSelection?.kind === 'awakener' &&
-                  model.activeSelection.slotId === slotId
-                : model.activeSelection?.kind === 'wheel' &&
-                  model.activeSelection.slotId === slotId &&
-                  model.activeSelection.wheelIndex === wheelIndex,
+              ...resolveMobilePickerTarget(model, {kind: 'wheel', slotId, wheelIndex}),
               restoreTarget,
-              selectTarget: () => {
-                if (shouldSelectAwakenerFirst) {
-                  model.selectAwakenerSlot(slotId)
-                  return
-                }
-
-                model.selectWheelSlot(slotId, wheelIndex)
-              },
-              slotId,
-              tab: targetTab,
-              title: getSlotTitle(
-                slotId,
-                shouldSelectAwakenerFirst ? 'Awakener' : `Wheel ${String(wheelIndex + 1)}`,
-              ),
             })
           }}
           quickLineupActive={Boolean(model.quickLineupSession)}
