@@ -89,7 +89,7 @@ function AwakenerCardOverlay({
   }
 
   return (
-    <div className='absolute inset-0 z-30 bg-slate-700/15'>
+    <div className='pointer-events-none absolute inset-0 z-30 bg-slate-700/15'>
       <span className='absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(125,165,215,0.16),rgba(6,12,24,0)_62%)]' />
       <span className='sigil-placeholder sigil-placeholder-card sigil-placeholder-no-plus' />
       <span className='sigil-loading-ring' />
