@@ -121,23 +121,23 @@
 }
 
 .builder-v2-picker-state-chip[data-tone='recommendation'] {
-  border-color: oklch(78% 0.1 84 / 0.56);
-  color: var(--ui-accent-gold-soft);
+  border-color: var(--builder-v2-state-chip-recommendation-border);
+  color: var(--builder-v2-state-chip-recommendation-text);
 }
 
 .builder-v2-picker-state-chip[data-tone='status'] {
-  border-color: oklch(70% 0.08 35 / 0.46);
-  color: oklch(82% 0.08 46 / 0.92);
+  border-color: var(--builder-v2-state-chip-status-border);
+  color: var(--builder-v2-state-chip-status-text);
 }
 
 .builder-v2-picker-state-chip[data-tone='danger'] {
-  border-color: oklch(62% 0.12 22 / 0.46);
-  color: oklch(82% 0.08 28 / 0.92);
+  border-color: var(--builder-v2-state-chip-danger-border);
+  color: var(--builder-v2-state-chip-danger-text);
 }
 
 .builder-v2-picker-state-chip[data-tone='quiet'] {
-  border-color: oklch(58% 0.04 232 / 0.26);
-  color: var(--ui-text-muted);
+  border-color: var(--builder-v2-state-chip-quiet-border);
+  color: var(--builder-v2-state-chip-quiet-text);
 }
 
 .builder-v2-picker-state-chip--icon {

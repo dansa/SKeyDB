@@ -2,8 +2,6 @@ import {memo, useCallback} from 'react'
 
 import {useDraggable, useDroppable} from '@dnd-kit/core'
 
-import {getRealmBadge, getRealmLabel} from '@/domain/realms'
-
 import type {WheelSlotIndex} from '../builder/types'
 import {
   createBuilderV2TeamAwakenerDragPayload,
@@ -20,8 +18,7 @@ import {
 import {useBuilderV2DndEnabled} from './BuilderV2DndCapability'
 import {BuilderV2EnlightenMeter} from './BuilderV2EnlightenMeter'
 import type {BuilderV2SlotView, BuilderV2WheelSlotView} from './BuilderV2ModelTypes'
-
-type BuilderV2AwakenerRealm = NonNullable<BuilderV2SlotView['awakener']>['realm']
+import {BuilderV2RealmBadge} from './BuilderV2RealmBadge'
 
 interface BuilderV2TeamSlotsProps {
   slots: BuilderV2SlotView[]
@@ -457,19 +454,13 @@ function useMergedRefs<T extends HTMLElement>(
   )
 }
 
-function AwakenerRealmBadge({realm}: {realm: BuilderV2AwakenerRealm}) {
-  const realmBadge = getRealmBadge(realm)
-  const realmLabel = getRealmLabel(realm)
-
-  if (!realmBadge) {
-    return <span className='builder-v2-awakener-realm-text'>{realmLabel}</span>
-  }
-
+function AwakenerRealmBadge({realm}: {realm: NonNullable<BuilderV2SlotView['awakener']>['realm']}) {
   return (
-    <span className='builder-v2-awakener-realm'>
-      <img alt='' draggable={false} src={realmBadge} />
-      <span className='sr-only'>{realmLabel}</span>
-    </span>
+    <BuilderV2RealmBadge
+      badgeClassName='builder-v2-awakener-realm'
+      fallbackClassName='builder-v2-awakener-realm-text'
+      realm={realm}
+    />
   )
 }
 

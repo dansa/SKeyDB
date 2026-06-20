@@ -1,5 +1,8 @@
 .builder-v2-page--mobile {
   --builder-v2-mobile-board-gap: clamp(0.32rem, 1.8vw, 0.48rem);
+  --builder-v2-mobile-control-bg:
+    linear-gradient(180deg, oklch(11.5% 0.028 252 / 0.92), oklch(7% 0.022 252 / 0.95)),
+    var(--ui-panel-strong);
   --builder-v2-mobile-slot-card-height: clamp(12.8rem, 56vw, 14.8rem);
   --builder-v2-mobile-wheel-column-width: clamp(3.15rem, 29%, 4rem);
   --builder-v2-picker-column-width: clamp(4.05rem, 21vw, 4.55rem);
@@ -104,9 +107,7 @@
   gap: 0.36rem;
   border: 1px solid var(--ui-border-subtle);
   border-radius: var(--ui-radius-xs);
-  background:
-    linear-gradient(180deg, oklch(11.5% 0.028 252 / 0.92), oklch(7% 0.022 252 / 0.95)),
-    var(--ui-panel-strong);
+  background: var(--builder-v2-mobile-control-bg);
   padding: 0 0.64rem;
   color: var(--ui-text-muted);
   font-size: 0.56rem;
@@ -469,9 +470,7 @@
 .builder-v2-mobile-lineup-target-button {
   border: 1px solid var(--ui-border-subtle);
   border-radius: var(--ui-radius-xs);
-  background:
-    linear-gradient(180deg, oklch(11.5% 0.028 252 / 0.92), oklch(7% 0.022 252 / 0.95)),
-    var(--ui-panel-strong);
+  background: var(--builder-v2-mobile-control-bg);
   color: var(--ui-text-main);
   cursor: pointer;
   transition:
@@ -1074,9 +1073,7 @@
   min-height: 2.5rem;
   border: 1px solid var(--ui-border-subtle);
   border-radius: var(--ui-radius-xs);
-  background:
-    linear-gradient(180deg, oklch(11.5% 0.028 252 / 0.92), oklch(7% 0.022 252 / 0.94)),
-    var(--ui-panel-strong);
+  background: var(--builder-v2-mobile-control-bg);
   color: var(--ui-text-muted);
 }
 

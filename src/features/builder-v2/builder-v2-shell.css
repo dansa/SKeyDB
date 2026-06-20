@@ -75,6 +75,12 @@
   --builder-v2-support-chip-border: oklch(72% 0.08 216 / 0.5);
   --builder-v2-support-chip-bg: oklch(20% 0.055 226 / 0.42);
   --builder-v2-support-chip-text: oklch(86% 0.05 220);
+  --builder-v2-state-chip-recommendation-border: oklch(78% 0.1 84 / 0.56);
+  --builder-v2-state-chip-recommendation-text: var(--ui-accent-gold-soft);
+  --builder-v2-state-chip-status-border: oklch(70% 0.08 35 / 0.46);
+  --builder-v2-state-chip-status-text: oklch(82% 0.08 46 / 0.92);
+  --builder-v2-state-chip-quiet-border: oklch(58% 0.04 232 / 0.26);
+  --builder-v2-state-chip-quiet-text: var(--ui-text-muted);
   --builder-v2-state-chip-danger-border: oklch(70% 0.12 28 / 0.5);
   --builder-v2-state-chip-danger-text: oklch(86% 0.066 28);
   --builder-v2-awakener-art-focus: 50% 18%;

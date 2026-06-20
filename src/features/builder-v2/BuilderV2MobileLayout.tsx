@@ -2,7 +2,6 @@ import {useCallback, useRef, useState} from 'react'
 
 import {FaCaretDown, FaCheck, FaChevronLeft, FaChevronRight, FaXmark} from 'react-icons/fa6'
 
-import {getRealmBadge, getRealmLabel} from '@/domain/realms'
 import {useNativeModalDialog} from '@/ui/modal/useNativeModalDialog'
 
 import type {QuickLineupStep, WheelSlotIndex} from '../builder/types'
@@ -17,6 +16,7 @@ import type {
   BuilderV2TeamSummary,
   BuilderV2TeamSummarySlot,
 } from './BuilderV2ModelTypes'
+import {BuilderV2RealmBadge} from './BuilderV2RealmBadge'
 import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 import {useStableEvent} from './useStableEvent'
@@ -1261,18 +1261,13 @@ function MobileLineupRealmBadge({
 }: {
   realm: NonNullable<BuilderV2SlotView['awakener']>['realm']
 }) {
-  const realmBadge = getRealmBadge(realm)
-  const realmLabel = getRealmLabel(realm)
-
-  if (!realmBadge) {
-    return <span className='builder-v2-mobile-lineup-realm-text'>{realmLabel.slice(0, 1)}</span>
-  }
-
   return (
-    <span className='builder-v2-mobile-lineup-realm-badge'>
-      <img alt='' draggable={false} src={realmBadge} />
-      <span className='sr-only'>{realmLabel}</span>
-    </span>
+    <BuilderV2RealmBadge
+      badgeClassName='builder-v2-mobile-lineup-realm-badge'
+      fallbackClassName='builder-v2-mobile-lineup-realm-text'
+      fallbackLabel={(realmLabel) => realmLabel.slice(0, 1)}
+      realm={realm}
+    />
   )
 }
 
