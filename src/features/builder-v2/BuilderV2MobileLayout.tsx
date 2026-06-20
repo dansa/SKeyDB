@@ -1,4 +1,4 @@
-import {useCallback, useRef, useState} from 'react'
+import {useCallback, useRef, useState, type ReactNode} from 'react'
 
 import {FaCaretDown, FaCheck, FaChevronLeft, FaChevronRight, FaXmark} from 'react-icons/fa6'
 
@@ -696,13 +696,13 @@ function BuilderV2MobileQuickLineupOverview({
               {slot.wheelSlots.map((wheelSlot) => {
                 if (slot.isEmpty) {
                   return (
-                    <span
-                      aria-hidden='true'
-                      className='builder-v2-mobile-lineup-gear-button builder-v2-mobile-lineup-gear-button--inert'
+                    <BuilderV2MobileOverviewGearCell
+                      ariaLabel={wheelSlot.label}
+                      isInert
                       key={`${slot.slotId}-lineup-wheel-${String(wheelSlot.wheelIndex)}`}
                     >
                       <span aria-hidden>+</span>
-                    </span>
+                    </BuilderV2MobileOverviewGearCell>
                   )
                 }
 
@@ -710,18 +710,14 @@ function BuilderV2MobileQuickLineupOverview({
                 const wheelTitle = wheelSlot.wheelName ?? wheelSlot.label
 
                 return (
-                  <button
-                    aria-label={wheelActionLabel}
-                    aria-pressed={wheelSlot.isSelected}
-                    className={`builder-v2-mobile-lineup-gear-button ${
-                      wheelSlot.isSelected ? 'builder-v2-mobile-lineup-gear-button--active' : ''
-                    }`}
+                  <BuilderV2MobileOverviewGearCell
+                    ariaLabel={wheelActionLabel}
+                    isActive={wheelSlot.isSelected}
                     key={`${slot.slotId}-lineup-wheel-${String(wheelSlot.wheelIndex)}`}
                     onClick={() => {
                       onSelectWheelSlot(slot.slotId, wheelSlot.wheelIndex)
                     }}
                     title={wheelTitle}
-                    type='button'
                   >
                     {(wheelSlot.miniAssetSrc ?? wheelSlot.assetSrc) ? (
                       <img
@@ -733,42 +729,108 @@ function BuilderV2MobileQuickLineupOverview({
                     ) : (
                       <span aria-hidden>+</span>
                     )}
-                  </button>
+                  </BuilderV2MobileOverviewGearCell>
                 )
               })}
 
               {slot.isEmpty ? (
-                <span
-                  aria-hidden='true'
-                  className='builder-v2-mobile-lineup-gear-button builder-v2-mobile-lineup-gear-button--inert'
-                >
+                <BuilderV2MobileOverviewGearCell ariaLabel={`${slot.slotLabel} Covenant`} isInert>
                   <span aria-hidden>+</span>
-                </span>
+                </BuilderV2MobileOverviewGearCell>
               ) : (
-                <button
-                  aria-label={`Select ${slot.slotLabel} Covenant`}
-                  aria-pressed={slot.isCovenantSelected}
-                  className={`builder-v2-mobile-lineup-gear-button ${
-                    slot.isCovenantSelected ? 'builder-v2-mobile-lineup-gear-button--active' : ''
-                  }`}
+                <BuilderV2MobileOverviewGearCell
+                  ariaLabel={`Select ${slot.slotLabel} Covenant`}
+                  isActive={slot.isCovenantSelected}
                   onClick={() => {
                     onSelectCovenantSlot(slot.slotId)
                   }}
                   title={slot.covenantName ?? `${slot.slotLabel} Covenant`}
-                  type='button'
                 >
                   {slot.covenantAssetSrc ? (
                     <img alt='' decoding='async' draggable={false} src={slot.covenantAssetSrc} />
                   ) : (
                     <span aria-hidden>+</span>
                   )}
-                </button>
+                </BuilderV2MobileOverviewGearCell>
               )}
             </div>
           </li>
         )
       })}
     </ul>
+  )
+}
+
+function BuilderV2MobileOverviewGearCell({
+  ariaLabel,
+  children,
+  isActive,
+  isInert,
+  onClick,
+  title,
+}: {
+  ariaLabel: string
+  children: ReactNode
+  isActive?: boolean
+  isInert?: boolean
+  onClick?: () => void
+  title?: string
+}) {
+  if (isInert) {
+    return (
+      <span
+        aria-hidden='true'
+        className='builder-v2-mobile-lineup-gear-button builder-v2-mobile-lineup-gear-button--inert'
+      >
+        {children}
+      </span>
+    )
+  }
+
+  return (
+    <button
+      aria-label={ariaLabel}
+      aria-pressed={isActive}
+      className={`builder-v2-mobile-lineup-gear-button ${
+        isActive ? 'builder-v2-mobile-lineup-gear-button--active' : ''
+      }`}
+      onClick={onClick}
+      title={title}
+      type='button'
+    >
+      {children}
+    </button>
+  )
+}
+
+function BuilderV2MobileLineupTargetButton({
+  ariaLabel,
+  children,
+  className,
+  isActive,
+  isCurrentStep,
+  onClick,
+}: {
+  ariaLabel: string
+  children: ReactNode
+  className?: string
+  isActive?: boolean
+  isCurrentStep: boolean
+  onClick: () => void
+}) {
+  return (
+    <button
+      aria-current={isCurrentStep ? 'step' : undefined}
+      aria-label={ariaLabel}
+      aria-pressed={isActive}
+      className={`builder-v2-mobile-lineup-target-button ${
+        className ? `${className} ` : ''
+      }${isActive ? 'builder-v2-mobile-lineup-target-button--active' : ''}`}
+      onClick={onClick}
+      type='button'
+    >
+      {children}
+    </button>
   )
 }
 
@@ -875,17 +937,14 @@ function BuilderV2MobileSlotTargetPanel({
         </button>
       ) : (
         <div className='builder-v2-mobile-lineup-target-row'>
-          <button
-            aria-current={isAwakenerActive ? 'step' : undefined}
-            aria-label={`Select ${activeSlot.slotLabel} Awakener`}
-            aria-pressed={isAwakenerActive}
-            className={`builder-v2-mobile-lineup-target-button builder-v2-mobile-lineup-target-button--avatar ${
-              isAwakenerActive ? 'builder-v2-mobile-lineup-target-button--active' : ''
-            }`}
+          <BuilderV2MobileLineupTargetButton
+            ariaLabel={`Select ${activeSlot.slotLabel} Awakener`}
+            className='builder-v2-mobile-lineup-target-button--avatar'
+            isActive={isAwakenerActive}
+            isCurrentStep={isAwakenerActive}
             onClick={() => {
               onSelectSlot(activeSlot.slotId)
             }}
-            type='button'
           >
             <span className='builder-v2-mobile-lineup-target-avatar' aria-hidden>
               {avatarSrc ? (
@@ -894,7 +953,7 @@ function BuilderV2MobileSlotTargetPanel({
                 <span>{String(activeSlot.slotNumber)}</span>
               )}
             </span>
-          </button>
+          </BuilderV2MobileLineupTargetButton>
 
           {activeSlot.wheelSlots.map((wheelSlot) => {
             const isWheelActive =
@@ -904,18 +963,14 @@ function BuilderV2MobileSlotTargetPanel({
             const wheelNumber = String(wheelSlot.wheelIndex + 1)
 
             return (
-              <button
-                aria-current={isWheelActive ? 'step' : undefined}
-                aria-label={`Select ${activeSlot.slotLabel} Wheel ${wheelNumber}`}
-                aria-pressed={isWheelActive}
-                className={`builder-v2-mobile-lineup-target-button ${
-                  isWheelActive ? 'builder-v2-mobile-lineup-target-button--active' : ''
-                }`}
+              <BuilderV2MobileLineupTargetButton
+                ariaLabel={`Select ${activeSlot.slotLabel} Wheel ${wheelNumber}`}
+                isActive={isWheelActive}
+                isCurrentStep={isWheelActive}
                 key={`${activeSlot.slotId}-lineup-control-wheel-${String(wheelSlot.wheelIndex)}`}
                 onClick={() => {
                   onSelectWheelSlot(activeSlot.slotId, wheelSlot.wheelIndex)
                 }}
-                type='button'
               >
                 <span className='builder-v2-mobile-lineup-target-icon' aria-hidden>
                   {(wheelSlot.miniAssetSrc ?? wheelSlot.assetSrc) ? (
@@ -930,21 +985,17 @@ function BuilderV2MobileSlotTargetPanel({
                   )}
                 </span>
                 <span className='builder-v2-mobile-lineup-target-label'>Wheel {wheelNumber}</span>
-              </button>
+              </BuilderV2MobileLineupTargetButton>
             )
           })}
 
-          <button
-            aria-current={isCovenantActive ? 'step' : undefined}
-            aria-label={`Select ${activeSlot.slotLabel} Covenant`}
-            aria-pressed={isCovenantActive}
-            className={`builder-v2-mobile-lineup-target-button ${
-              isCovenantActive ? 'builder-v2-mobile-lineup-target-button--active' : ''
-            }`}
+          <BuilderV2MobileLineupTargetButton
+            ariaLabel={`Select ${activeSlot.slotLabel} Covenant`}
+            isActive={isCovenantActive}
+            isCurrentStep={isCovenantActive}
             onClick={() => {
               onSelectCovenantSlot(activeSlot.slotId)
             }}
-            type='button'
           >
             <span className='builder-v2-mobile-lineup-target-icon' aria-hidden>
               {activeSlot.covenantAssetSrc ? (
@@ -954,7 +1005,7 @@ function BuilderV2MobileSlotTargetPanel({
               )}
             </span>
             <span className='builder-v2-mobile-lineup-target-label'>Covenant</span>
-          </button>
+          </BuilderV2MobileLineupTargetButton>
         </div>
       )}
     </section>
