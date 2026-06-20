@@ -93,9 +93,6 @@ export function BuilderTeamRow({
             ? 'border-l-0 border-amber-200/80 bg-slate-800/70'
             : 'border-l-0 border-slate-500/45 bg-slate-900/50'
         }`}
-        onClick={() => {
-          onEditTeam(team.id)
-        }}
       >
         <div className='min-w-0 py-1.5 pl-2'>
           <div className='flex h-6 w-[210px] max-w-full items-center'>
@@ -122,6 +119,9 @@ export function BuilderTeamRow({
             ownedWheelLevelById={ownedWheelLevelById}
             slots={team.slots}
             teamId={team.id}
+            onSlotSelect={() => {
+              onEditTeam(team.id)
+            }}
           />
         </div>
         <span className='builder-team-posse-icon-wrap builder-team-posse-icon-wrap-compact my-1.5'>

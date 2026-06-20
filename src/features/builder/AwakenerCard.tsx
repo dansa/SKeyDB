@@ -24,14 +24,6 @@ interface AwakenerCardProps {
   onRemoveActiveSelection?: () => void
 }
 
-function shouldIgnoreCardClick(target: HTMLElement): boolean {
-  return (
-    target.closest('[data-card-remove]') !== null ||
-    target.closest('.wheel-tile') !== null ||
-    target.closest('.covenant-tile') !== null
-  )
-}
-
 function getAwakenerCardHitboxLabel(hasAwakener: boolean, awakenerName?: string): string {
   return hasAwakener ? `Change ${awakenerName ?? 'awakener'}` : 'Deploy awakeners'
 }
@@ -246,18 +238,7 @@ export function AwakenerCard({
   const hitboxLabel = getAwakenerCardHitboxLabel(hasAwakener, awakenerName)
 
   return (
-    <article
-      className={cardClassName}
-      data-selection-owner='true'
-      onClick={(event) => {
-        const target = event.target as HTMLElement
-        if (shouldIgnoreCardClick(target)) {
-          return
-        }
-        onCardClick?.(slot.slotId)
-      }}
-      ref={setDroppableRef}
-    >
+    <article className={cardClassName} data-selection-owner='true' ref={setDroppableRef}>
       <RemoveAwakenerButton
         hasRemovableAwakenerSelection={hasRemovableAwakenerSelection}
         onRemoveActiveSelection={onRemoveActiveSelection}
@@ -265,6 +246,9 @@ export function AwakenerCard({
       <button
         aria-label={hitboxLabel}
         className='builder-card-hitbox absolute inset-0 z-10'
+        onClick={() => {
+          onCardClick?.(slot.slotId)
+        }}
         ref={hasAwakener ? setDraggableRef : undefined}
         type='button'
         {...(hasAwakener ? dragAttributes : {})}
