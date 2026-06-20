@@ -1,6 +1,6 @@
 import {useCallback, useRef, useState} from 'react'
 
-import {FaCaretDown, FaChevronLeft, FaChevronRight, FaXmark} from 'react-icons/fa6'
+import {FaCaretDown, FaCheck, FaChevronLeft, FaChevronRight, FaXmark} from 'react-icons/fa6'
 
 import {getRealmBadge, getRealmLabel} from '@/domain/realms'
 import {useNativeModalDialog} from '@/ui/modal/useNativeModalDialog'
@@ -484,7 +484,8 @@ function MobileQuickLineupBuilder({
               onClick={model.finishQuickLineup}
               type='button'
             >
-              Finish
+              <FaCheck aria-hidden className='builder-v2-mobile-lineup-header-action-icon' />
+              <span>Finish</span>
             </button>
             <button
               aria-label='Cancel quick team lineup'
@@ -492,7 +493,8 @@ function MobileQuickLineupBuilder({
               onClick={model.cancelQuickLineup}
               type='button'
             >
-              Cancel
+              <FaXmark aria-hidden className='builder-v2-mobile-lineup-header-action-icon' />
+              <span>Cancel</span>
             </button>
           </div>
         </div>
@@ -541,6 +543,7 @@ function MobileQuickLineupBuilder({
 
       <section className='builder-v2-mobile-lineup-picker' aria-label={pickerTitle}>
         <BuilderV2PickerContent
+          categoryTabs='hidden'
           controlsPlacement='bottom'
           onAssignAwakener={onAssignAwakener}
           onAssignCovenant={onAssignCovenant}
@@ -651,13 +654,20 @@ function BuilderV2MobileQuickLineupOverview({
 
             <div className='builder-v2-mobile-lineup-card-gear'>
               {slot.wheelSlots.map((wheelSlot) => {
-                const wheelNumber = String(wheelSlot.wheelIndex + 1)
-                const wheelActionLabel = slot.isEmpty
-                  ? `Select ${slot.slotLabel} awakener before Wheel ${wheelNumber}`
-                  : `Select ${wheelSlot.label}`
-                const wheelTitle = slot.isEmpty
-                  ? `${slot.slotLabel}: select an awakener before Wheel ${wheelNumber}`
-                  : (wheelSlot.wheelName ?? wheelSlot.label)
+                if (slot.isEmpty) {
+                  return (
+                    <span
+                      aria-hidden='true'
+                      className='builder-v2-mobile-lineup-gear-button builder-v2-mobile-lineup-gear-button--inert'
+                      key={`${slot.slotId}-lineup-wheel-${String(wheelSlot.wheelIndex)}`}
+                    >
+                      <span aria-hidden>+</span>
+                    </span>
+                  )
+                }
+
+                const wheelActionLabel = `Select ${wheelSlot.label}`
+                const wheelTitle = wheelSlot.wheelName ?? wheelSlot.label
 
                 return (
                   <button
@@ -668,11 +678,6 @@ function BuilderV2MobileQuickLineupOverview({
                     }`}
                     key={`${slot.slotId}-lineup-wheel-${String(wheelSlot.wheelIndex)}`}
                     onClick={() => {
-                      if (slot.isEmpty) {
-                        onSelectSlot(slot.slotId)
-                        return
-                      }
-
                       onSelectWheelSlot(slot.slotId, wheelSlot.wheelIndex)
                     }}
                     title={wheelTitle}
@@ -692,37 +697,33 @@ function BuilderV2MobileQuickLineupOverview({
                 )
               })}
 
-              <button
-                aria-label={
-                  slot.isEmpty
-                    ? `Select ${slot.slotLabel} awakener before Covenant`
-                    : `Select ${slot.slotLabel} Covenant`
-                }
-                aria-pressed={slot.isCovenantSelected}
-                className={`builder-v2-mobile-lineup-gear-button ${
-                  slot.isCovenantSelected ? 'builder-v2-mobile-lineup-gear-button--active' : ''
-                }`}
-                onClick={() => {
-                  if (slot.isEmpty) {
-                    onSelectSlot(slot.slotId)
-                    return
-                  }
-
-                  onSelectCovenantSlot(slot.slotId)
-                }}
-                title={
-                  slot.isEmpty
-                    ? `${slot.slotLabel}: select an awakener before Covenant`
-                    : (slot.covenantName ?? `${slot.slotLabel} Covenant`)
-                }
-                type='button'
-              >
-                {slot.covenantAssetSrc ? (
-                  <img alt='' decoding='async' draggable={false} src={slot.covenantAssetSrc} />
-                ) : (
+              {slot.isEmpty ? (
+                <span
+                  aria-hidden='true'
+                  className='builder-v2-mobile-lineup-gear-button builder-v2-mobile-lineup-gear-button--inert'
+                >
                   <span aria-hidden>+</span>
-                )}
-              </button>
+                </span>
+              ) : (
+                <button
+                  aria-label={`Select ${slot.slotLabel} Covenant`}
+                  aria-pressed={slot.isCovenantSelected}
+                  className={`builder-v2-mobile-lineup-gear-button ${
+                    slot.isCovenantSelected ? 'builder-v2-mobile-lineup-gear-button--active' : ''
+                  }`}
+                  onClick={() => {
+                    onSelectCovenantSlot(slot.slotId)
+                  }}
+                  title={slot.covenantName ?? `${slot.slotLabel} Covenant`}
+                  type='button'
+                >
+                  {slot.covenantAssetSrc ? (
+                    <img alt='' decoding='async' draggable={false} src={slot.covenantAssetSrc} />
+                  ) : (
+                    <span aria-hidden>+</span>
+                  )}
+                </button>
+              )}
             </div>
           </li>
         )

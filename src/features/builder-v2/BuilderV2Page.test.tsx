@@ -1409,10 +1409,10 @@ describe('BuilderV2Page', () => {
     expect(
       within(lineup).queryByRole('heading', {name: /slot 1 · awakener/i}),
     ).not.toBeInTheDocument()
-    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
+    expect(
+      within(lineup).queryByRole('tablist', {name: /picker categories/i}),
+    ).not.toBeInTheDocument()
+    expect(within(lineup).getByRole('searchbox', {name: /search awakeners/i})).toBeInTheDocument()
     expect(within(lineup).getByRole('button', {name: /^select slot 1 awakener$/i})).toHaveAttribute(
       'aria-current',
       'step',
@@ -1422,10 +1422,7 @@ describe('BuilderV2Page', () => {
 
     expect(within(lineup).getByText(/step 2 \/ 17/i)).toBeInTheDocument()
     expect(within(lineup).getByText(/slot 1 · wheel 1/i)).toBeInTheDocument()
-    expect(within(lineup).getByRole('tab', {name: /^wheels$/i})).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
+    expect(within(lineup).getByRole('searchbox', {name: /search wheels/i})).toBeInTheDocument()
     const slotControls = within(lineup).getByRole('region', {
       name: /quick lineup slot controls/i,
     })
@@ -1440,10 +1437,7 @@ describe('BuilderV2Page', () => {
 
     expect(within(lineup).getByText(/step 5 \/ 17/i)).toBeInTheDocument()
     expect(within(lineup).getByText(/slot 2 · awakener/i)).toBeInTheDocument()
-    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
+    expect(within(lineup).getByRole('searchbox', {name: /search awakeners/i})).toBeInTheDocument()
     expect(within(lineup).getByRole('button', {name: /^select slot 2 awakener$/i})).toHaveAttribute(
       'aria-current',
       'step',
@@ -1511,23 +1505,26 @@ describe('BuilderV2Page', () => {
     ).toBeInTheDocument()
     expect(within(overviewSlots[0]).queryByText(/^slot 1$/i)).not.toBeInTheDocument()
     expect(
-      within(overviewSlots[0]).getByRole('button', {
+      within(overviewSlots[0]).queryByRole('button', {
         name: /^select slot 1 awakener before wheel 1$/i,
       }),
-    ).toBeInTheDocument()
+    ).not.toBeInTheDocument()
     expect(
-      within(overviewSlots[0]).getByRole('button', {
+      within(overviewSlots[0]).queryByRole('button', {
         name: /^select slot 1 awakener before wheel 2$/i,
       }),
-    ).toBeInTheDocument()
+    ).not.toBeInTheDocument()
     expect(
-      within(overviewSlots[0]).getByRole('button', {
+      within(overviewSlots[0]).queryByRole('button', {
         name: /^select slot 1 awakener before covenant$/i,
       }),
-    ).toBeInTheDocument()
+    ).not.toBeInTheDocument()
+    expect(
+      overviewSlots[0].querySelectorAll('.builder-v2-mobile-lineup-gear-button--inert'),
+    ).toHaveLength(3)
   })
 
-  it('routes empty mobile quick lineup gear targets back to their awakener slot', () => {
+  it('keeps empty mobile quick lineup gear cells decorative while the slot card selects awakener', () => {
     resizeBuilderV2Viewport(390)
     render(<BuilderV2Page />)
 
@@ -1540,32 +1537,39 @@ describe('BuilderV2Page', () => {
     const overviewSlots = within(overview).getAllByRole('listitem', {
       name: /slot \d quick overview/i,
     })
+    expect(
+      within(overviewSlots[1]).queryByRole('button', {
+        name: /^select slot 2 awakener before wheel 1$/i,
+      }),
+    ).not.toBeInTheDocument()
+    expect(
+      within(overviewSlots[1]).queryByRole('button', {
+        name: /^select slot 2 awakener before covenant$/i,
+      }),
+    ).not.toBeInTheDocument()
+    expect(
+      overviewSlots[1].querySelectorAll('.builder-v2-mobile-lineup-gear-button--inert'),
+    ).toHaveLength(3)
 
     fireEvent.click(
       within(overviewSlots[1]).getByRole('button', {
-        name: /^select slot 2 awakener before wheel 1$/i,
+        name: /^select slot 2$/i,
       }),
     )
 
     expect(within(lineup).getByText(/step 5 \/ 17/i)).toBeInTheDocument()
     expect(within(lineup).getByText(/slot 2 · awakener/i)).toBeInTheDocument()
-    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
+    expect(within(lineup).getByRole('searchbox', {name: /search awakeners/i})).toBeInTheDocument()
 
     fireEvent.click(
       within(overviewSlots[2]).getByRole('button', {
-        name: /^select slot 3 awakener before covenant$/i,
+        name: /^select slot 3$/i,
       }),
     )
 
     expect(within(lineup).getByText(/step 9 \/ 17/i)).toBeInTheDocument()
     expect(within(lineup).getByText(/slot 3 · awakener/i)).toBeInTheDocument()
-    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
+    expect(within(lineup).getByRole('searchbox', {name: /search awakeners/i})).toBeInTheDocument()
   })
 
   it('opens the awakener picker when an empty mobile gear slot is tapped', () => {
@@ -1578,7 +1582,7 @@ describe('BuilderV2Page', () => {
     expect(screen.getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute('aria-selected', 'true')
   })
 
-  it('places mobile quick lineup picker filters near search and tabs below the results', () => {
+  it('places mobile quick lineup picker filters near search without category tabs', () => {
     resizeBuilderV2Viewport(390)
     render(<BuilderV2Page />)
 
@@ -1588,15 +1592,17 @@ describe('BuilderV2Page', () => {
     const picker = within(lineup).getByRole('region', {name: /slot 1 · awakener/i})
     const toolbar = picker.querySelector('.builder-v2-picker-toolbar')
     const filters = picker.querySelector('.builder-v2-picker-filter-stack')
-    const results = picker.querySelector('.builder-v2-picker-results')
+    const results = within(picker).getByRole('region', {name: /awakeners results/i})
     const bottomControls = picker.querySelector('.builder-v2-picker-bottom-controls')
-    const tabs = within(picker).getByRole('tablist', {name: /picker categories/i})
 
     expect(toolbar).not.toBeNull()
     expect(filters).not.toBeNull()
     expect(results).not.toBeNull()
-    expect(bottomControls).not.toBeNull()
-    if (!toolbar || !filters || !results || !bottomControls) {
+    expect(bottomControls).toBeNull()
+    expect(
+      within(picker).queryByRole('tablist', {name: /picker categories/i}),
+    ).not.toBeInTheDocument()
+    if (!toolbar || !filters) {
       throw new Error('Expected quick lineup picker controls and results')
     }
     expect(
@@ -1605,12 +1611,6 @@ describe('BuilderV2Page', () => {
     expect(
       Boolean(filters.compareDocumentPosition(results) & Node.DOCUMENT_POSITION_FOLLOWING),
     ).toBe(true)
-    expect(
-      Boolean(results.compareDocumentPosition(bottomControls) & Node.DOCUMENT_POSITION_FOLLOWING),
-    ).toBe(true)
-    expect(Boolean(results.compareDocumentPosition(tabs) & Node.DOCUMENT_POSITION_FOLLOWING)).toBe(
-      true,
-    )
   })
 
   it('selects a slot and assigns an awakener there', () => {

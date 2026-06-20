@@ -173,6 +173,7 @@ export const BuilderV2AwakenerPicker = memo(function BuilderV2AwakenerPicker({
 })
 
 interface BuilderV2PickerContentProps extends BuilderV2AwakenerPickerProps {
+  categoryTabs?: 'hidden' | 'visible'
   controlsPlacement?: 'top' | 'bottom'
   isCollapsed?: boolean
   onRequestExpand?: (restoreTarget?: HTMLElement | null) => void
@@ -220,6 +221,7 @@ function BuilderV2PickerContentWithDnd(props: BuilderV2PickerContentProps) {
 }
 
 function BuilderV2PickerContentFrame({
+  categoryTabs = 'visible',
   controlsPlacement = 'top',
   isCollapsed = false,
   onRequestExpand,
@@ -258,6 +260,8 @@ function BuilderV2PickerContentFrame({
   const openCovenantDetail = useStableEvent(onOpenCovenantDetail)
   const openPosseDetail = useStableEvent(onOpenPosseDetail)
   const placesControlsAfterResults = controlsPlacement === 'bottom' && !isCollapsed
+  const showsCategoryTabs = categoryTabs === 'visible'
+  const resultsRole = showsCategoryTabs ? 'tabpanel' : 'region'
   const internalSearchInputRef = useRef<HTMLInputElement | null>(null)
   const resultsRef = useRef<HTMLDivElement | null>(null)
   const activeResultKey = useMemo(() => {
@@ -354,10 +358,12 @@ function BuilderV2PickerContentFrame({
     <BuilderV2PickerResultsPanel
       isRemoveTarget={isRemoveTarget}
       key={activeResultKey}
-      labelledBy={getPickerTabId(picker.tab)}
+      label={showsCategoryTabs ? undefined : `${activeCopy.title} results`}
+      labelledBy={showsCategoryTabs ? getPickerTabId(picker.tab) : undefined}
       panelId={pickerPanelId}
       pickerDropRef={pickerDropRef}
       resultsRef={resultsRef}
+      role={resultsRole}
     >
       {(resultsScrollTop) => {
         const clearTile =
@@ -438,7 +444,9 @@ function BuilderV2PickerContentFrame({
     <div
       className={`builder-v2-picker-content ${
         isRemoveTarget ? 'builder-v2-picker-content--remove-target' : ''
-      } ${placesControlsAfterResults ? 'builder-v2-picker-content--controls-bottom' : ''}`}
+      } ${placesControlsAfterResults ? 'builder-v2-picker-content--controls-bottom' : ''} ${
+        showsCategoryTabs ? '' : 'builder-v2-picker-content--category-tabs-hidden'
+      }`}
       ref={isCollapsed ? pickerDropRef : undefined}
     >
       {placesControlsAfterResults ? null : tabs}
@@ -463,7 +471,9 @@ function BuilderV2PickerContentFrame({
             {toolbar}
             {filters}
             {results}
-            <div className='builder-v2-picker-bottom-controls'>{tabs}</div>
+            {showsCategoryTabs ? (
+              <div className='builder-v2-picker-bottom-controls'>{tabs}</div>
+            ) : null}
           </>
         ) : (
           <>
@@ -480,17 +490,21 @@ function BuilderV2PickerContentFrame({
 function BuilderV2PickerResultsPanel({
   children,
   isRemoveTarget,
+  label,
   labelledBy,
   panelId,
   pickerDropRef,
   resultsRef,
+  role,
 }: {
   children: (scrollTop: number) => ReactNode
   isRemoveTarget: boolean
-  labelledBy: string
+  label?: string
+  labelledBy?: string
   panelId: string
   pickerDropRef: PickerDropRef
   resultsRef: RefObject<HTMLDivElement | null>
+  role: 'tabpanel' | 'region'
 }) {
   const [scrollTop, setScrollTop] = useState(0)
   const setPanelRef = useCallback(
@@ -503,6 +517,7 @@ function BuilderV2PickerResultsPanel({
 
   return (
     <div
+      aria-label={label}
       aria-labelledby={labelledBy}
       className={`builder-v2-picker-results ui-scrollbar ${
         isRemoveTarget ? 'builder-v2-picker-results--remove-target' : ''
@@ -512,7 +527,7 @@ function BuilderV2PickerResultsPanel({
         setScrollTop(event.currentTarget.scrollTop)
       }}
       ref={setPanelRef}
-      role='tabpanel'
+      role={role}
     >
       {children(scrollTop)}
     </div>
