@@ -736,6 +736,37 @@ describe('useBuilderV2Model', () => {
     expect(result.current.activeSelection).toBeNull()
   })
 
+  it('does not move same-team team-list wheels into slots that already carry the wheel', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamSlots = createEmptyTeamSlots()
+    teamSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      isSupport: true,
+      wheels: ['wheel-0050', null],
+    })
+    teamSlots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0007',
+      realm: 'CARO',
+      wheels: ['wheel-0050', null],
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [{id: 'team-1', name: 'Team 1', slots: teamSlots}],
+      })
+    })
+    act(() => {
+      result.current.moveTeamWheel('team-1', 'slot-2', 0, 'team-1', 'slot-1', 1)
+    })
+
+    const teams = builderDraftStore.getState().teams
+    expect(teams[0]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(teams[0]?.slots[1]?.wheels).toEqual(['wheel-0050', null])
+    expect(result.current.violationMessage).toBe('That swap would break current builder rules.')
+    expect(result.current.activeSelection).toBeNull()
+  })
+
   it('opens a transfer when moving a support wheel copy into a regular team-list slot', () => {
     const {result} = renderHook(() => useBuilderV2Model())
     const teamOneSlots = createEmptyTeamSlots()

@@ -2167,6 +2167,7 @@ function normalizeSingleTeamSlotUpdate(result: TeamStateUpdateResult): TwoTeamSl
     changed: result.changed,
     nextSourceSlots: result.nextSlots,
     nextTargetSlots: result.nextSlots,
+    violation: result.violation,
   }
 }
 
