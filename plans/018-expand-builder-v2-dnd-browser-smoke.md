@@ -8,7 +8,7 @@
 > the index.
 >
 > **Drift check (run first)**:
-> `git diff --stat 990ae1bc..HEAD -- scripts/verify-builder-v2-browser.mjs src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder-v2/BuilderV2TeamManagement.tsx src/features/builder-v2/BuilderV2TeamSlots.tsx`
+> `git diff --stat 81320e7d..HEAD -- scripts/verify-builder-v2-browser.mjs src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder-v2/BuilderV2TeamManagement.tsx src/features/builder-v2/BuilderV2TeamSlots.tsx`
 > If any in-scope file changed since this plan was written, compare the audit
 > evidence below against the live code before proceeding; on a mismatch, treat it
 > as a STOP condition.
@@ -20,7 +20,7 @@
 - **Risk**: LOW-MED
 - **Depends on**: plans/016-normalize-builder-v2-dnd-collision-arbitration.md, plans/017-align-builder-v2-team-management-dnd-feedback.md
 - **Category**: tests
-- **Planned at**: commit `990ae1bc`, 2026-06-21
+- **Planned at**: commit `81320e7d`, 2026-06-21
 
 ## Summary
 
@@ -34,6 +34,11 @@ desktop/adaptive widths.
 This plan turns the smoke into a small DnD semantics proof without making it a
 full interaction suite.
 
+Refresh note: plans 016 and 017 have landed. Collision arbitration is now
+semantic, and team-management rendered feedback tests cover parent slot,
+covenant, and wheel classes. The remaining gap is browser-level proof that those
+visible DnD states appear during real pointer drags.
+
 ## Audit Evidence
 
 - `scripts/verify-builder-v2-browser.mjs` runs desktop, adaptive, and mobile
@@ -42,6 +47,9 @@ full interaction suite.
   checks `.builder-v2-active-team` text.
 - There are no browser assertions for `BuilderV2DragOverlay`, active drop-zone
   styling, team-management slots, or nested wheel/covenant targets.
+- `src/features/builder-v2/BuilderV2Page.test.tsx` now covers rendered
+  team-management drop-target classes from plan 017, but those are component
+  assertions rather than live browser pointer-drag assertions.
 - `src/features/builder-v2/BuilderV2Page.test.tsx` verifies that touch/mobile
   devices do not advertise pointer-only drag affordances, so browser smoke should
   continue to treat mobile as click/tap driven.
