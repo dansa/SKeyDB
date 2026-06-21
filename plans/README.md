@@ -29,7 +29,7 @@ done.
 | 013 | Extract Builder V2 mobile lineup target buttons | P1 | M | 012 | DONE |
 | 014 | Consolidate Builder V2 selected and emphasis primitives | P1 | M | none | DONE |
 | 015 | Extract Builder V2 density tokens | P2 | M | 014 recommended | DONE |
-| 016 | Normalize Builder V2 DnD collision arbitration | P1 | M | none | TODO |
+| 016 | Normalize Builder V2 DnD collision arbitration | P1 | M | none | DONE |
 | 017 | Align Builder V2 team-management DnD feedback | P1 | S-M | 016 | TODO |
 | 018 | Expand Builder V2 DnD browser smoke coverage | P1 | M | 016, 017 | TODO |
 | 019 | Require classic Builder posse drops to hit a declared target | P3 | S | none | REJECTED: V1 retiring; only fix if breaking |
