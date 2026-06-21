@@ -970,6 +970,11 @@ export function useBuilderV2Model({
           slotId,
           wheelIndex,
         )
+        if (result.violation) {
+          setViolationMessage(getBuilderV2TeamSwapViolationMessage(result.violation))
+          return
+        }
+
         setTeamsInStore(replaceTeamSlots(state.teams, teamId, result.nextSlots))
         setActiveTeamId(state.activeTeamId)
         setViolationMessage(null)
@@ -2217,6 +2222,18 @@ function swapCrossTeamWheelAssignments(
   }
 
   const targetWheelId = targetSlot.wheels[targetWheelIndex] ?? null
+  if (
+    targetWheelId &&
+    loadoutHasWheelInOtherSocket(sourceSlot.wheels, targetWheelId, sourceWheelIndex)
+  ) {
+    return {
+      changed: false,
+      nextSourceSlots: sourceSlots,
+      nextTargetSlots: targetSlots,
+      violation: 'INVALID_BUILD_RULES',
+    }
+  }
+
   return {
     changed: true,
     nextSourceSlots: sourceSlots.map((slot) => {
