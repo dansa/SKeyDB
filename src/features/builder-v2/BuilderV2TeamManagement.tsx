@@ -839,18 +839,22 @@ export function TeamSlotSummary({
           {slot.awakener ? (
             <TeamSlotCovenantButton
               enableDragAndDrop={enableSlotDragAndDrop}
+              isDragActive={isDragActive}
               onSelect={(restoreTarget) => {
                 onSelect(team, slot, restoreTarget, {kind: 'covenant'})
               }}
+              predictedDropTarget={predictedDropTarget}
               slot={slot}
               team={team}
             />
           ) : null}
           <TeamSlotBuildSummary
             enableDragAndDrop={enableSlotDragAndDrop}
+            isDragActive={isDragActive}
             onSelectWheel={(wheelIndex, restoreTarget) => {
               onSelect(team, slot, restoreTarget, {kind: 'wheel', wheelIndex})
             }}
+            predictedDropTarget={predictedDropTarget}
             slot={slot}
             team={team}
           />
@@ -1039,12 +1043,16 @@ function TeamSlotCovenantClasp({covenant}: {covenant: BuilderV2TeamSummaryCovena
 
 function TeamSlotCovenantButton({
   enableDragAndDrop,
+  isDragActive = false,
   onSelect,
+  predictedDropTarget = null,
   slot,
   team,
 }: {
   enableDragAndDrop: boolean
+  isDragActive?: boolean
   onSelect: (restoreTarget: HTMLElement | null) => void
+  predictedDropTarget?: BuilderV2DropTargetDescriptor | null
   slot: BuilderV2TeamSummarySlot
   team: BuilderV2TeamSummary
 }) {
@@ -1066,13 +1074,18 @@ function TeamSlotCovenantButton({
   const canDragCovenant = enableDragAndDrop && Boolean(covenantDragPayload)
   const setCovenantDragDropRef = useMergedRefs(setCovenantDropRef, setCovenantDragRef)
   const setCovenantNodeRef = canDragCovenant ? setCovenantDragDropRef : setCovenantDropRef
+  const isDropTarget =
+    enableDragAndDrop &&
+    (isDragActive
+      ? isPredictedTeamManagementCovenantDropTarget(predictedDropTarget, team.id, slot.slotId)
+      : isOver)
 
   return (
     <button
       {...(canDragCovenant && listeners ? listeners : {})}
       aria-label={`Edit ${team.name} ${slot.label} covenant`}
       className={`builder-v2-team-management-slot-covenant builder-v2-team-management-slot-covenant-button ${
-        isOver ? 'builder-v2-team-management-slot-covenant--drop-target' : ''
+        isDropTarget ? 'builder-v2-team-management-slot-covenant--drop-target' : ''
       } ${isDragging ? 'builder-v2-team-management-slot-covenant--dragging' : ''}`}
       onClick={(event) => {
         onSelect(event.currentTarget)
@@ -1087,12 +1100,16 @@ function TeamSlotCovenantButton({
 
 function TeamSlotBuildSummary({
   enableDragAndDrop = false,
+  isDragActive = false,
   onSelectWheel,
+  predictedDropTarget = null,
   slot,
   team,
 }: {
   enableDragAndDrop?: boolean
+  isDragActive?: boolean
   onSelectWheel?: (wheelIndex: WheelSlotIndex, restoreTarget: HTMLElement | null) => void
+  predictedDropTarget?: BuilderV2DropTargetDescriptor | null
   slot: BuilderV2TeamSummarySlot
   team: BuilderV2TeamSummary
 }) {
@@ -1102,6 +1119,7 @@ function TeamSlotBuildSummary({
         {slot.wheels.map((wheel, index) => (
           <WheelMiniSummary
             enableDragAndDrop={enableDragAndDrop}
+            isDragActive={isDragActive}
             key={`${slot.slotId}-wheel-${String(index)}`}
             onSelect={
               onSelectWheel
@@ -1110,6 +1128,7 @@ function TeamSlotBuildSummary({
                   }
                 : undefined
             }
+            predictedDropTarget={predictedDropTarget}
             slot={slot}
             team={team}
             wheel={wheel}
@@ -1124,7 +1143,9 @@ function TeamSlotBuildSummary({
 
 function WheelMiniSummary({
   enableDragAndDrop,
+  isDragActive = false,
   onSelect,
+  predictedDropTarget = null,
   slot,
   team,
   wheel,
@@ -1132,7 +1153,9 @@ function WheelMiniSummary({
   wheelNumber,
 }: {
   enableDragAndDrop: boolean
+  isDragActive?: boolean
   onSelect?: (restoreTarget: HTMLElement | null) => void
+  predictedDropTarget?: BuilderV2DropTargetDescriptor | null
   slot: BuilderV2TeamSummarySlot
   team: BuilderV2TeamSummary
   wheel: BuilderV2TeamSummaryWheel | null
@@ -1158,9 +1181,19 @@ function WheelMiniSummary({
   const canDragWheel = enableDragAndDrop && Boolean(wheelDragPayload)
   const setWheelDragDropRef = useMergedRefs(setWheelDropRef, setWheelDragRef)
   const setWheelNodeRef = canDragWheel ? setWheelDragDropRef : setWheelDropRef
+  const isDropTarget =
+    enableDragAndDrop &&
+    (isDragActive
+      ? isPredictedTeamManagementWheelDropTarget(
+          predictedDropTarget,
+          team.id,
+          slot.slotId,
+          wheelIndex,
+        )
+      : isOver)
   const className = `builder-v2-team-management-loadout-cell builder-v2-team-management-loadout-cell--wheel ${
     wheel && !wheel.isOwned ? 'builder-v2-team-management-loadout-cell--unowned' : ''
-  } ${isOver ? 'builder-v2-team-management-loadout-cell--drop-target' : ''} ${
+  } ${isDropTarget ? 'builder-v2-team-management-loadout-cell--drop-target' : ''} ${
     isDragging ? 'builder-v2-team-management-loadout-cell--dragging' : ''
   }`
   const content = (
@@ -1255,10 +1288,34 @@ function isPredictedTeamManagementSlotDropTarget(
 
   switch (target.kind) {
     case 'team-management-slot':
-    case 'team-management-wheel':
-    case 'team-management-covenant':
       return target.teamId === teamId && target.slotId === slotId
     default:
       return false
   }
+}
+
+function isPredictedTeamManagementCovenantDropTarget(
+  target: BuilderV2DropTargetDescriptor | null,
+  teamId: string,
+  slotId: string,
+): boolean {
+  return (
+    target?.kind === 'team-management-covenant' &&
+    target.teamId === teamId &&
+    target.slotId === slotId
+  )
+}
+
+function isPredictedTeamManagementWheelDropTarget(
+  target: BuilderV2DropTargetDescriptor | null,
+  teamId: string,
+  slotId: string,
+  wheelIndex: WheelSlotIndex,
+): boolean {
+  return (
+    target?.kind === 'team-management-wheel' &&
+    target.teamId === teamId &&
+    target.slotId === slotId &&
+    target.wheelIndex === wheelIndex
+  )
 }

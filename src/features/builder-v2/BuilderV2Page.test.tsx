@@ -1,5 +1,6 @@
 import {useMemo, useState} from 'react'
 
+import {DndContext} from '@dnd-kit/core'
 import {act, cleanup, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
 import {MemoryRouter} from 'react-router-dom'
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
@@ -15,14 +16,18 @@ import {dbDetailStore} from '@/stores/dbDetailStore'
 import {saveBuilderDraft} from '../builder/builder-persistence'
 import {createEmptyTeamSlots} from '../builder/constants'
 import type {Team} from '../builder/types'
+import type {BuilderV2DropTargetDescriptor} from './builder-v2-dnd'
 import {BuilderV2AwakenerPicker} from './BuilderV2AwakenerPicker'
 import type {
   BuilderV2AwakenerOption,
   BuilderV2PickerModel,
   BuilderV2PickerTab,
+  BuilderV2TeamSummary,
+  BuilderV2TeamSummarySlot,
   BuilderV2WheelOption,
 } from './BuilderV2ModelTypes'
 import {BuilderV2Page} from './BuilderV2Page'
+import {TeamSlotSummary} from './BuilderV2TeamManagement'
 
 function resizeBuilderV2Viewport(width: number, dispatchResize = true) {
   Object.defineProperty(window, 'innerWidth', {
@@ -115,6 +120,94 @@ function createWindowedTestWheels(): BuilderV2WheelOption[] {
     recommendationLabel: null,
     recommendedMainstatKey: null,
   }))
+}
+
+function makeFeedbackTestWheel(index: number) {
+  return {
+    id: `feedback-wheel-${String(index)}`,
+    name: `Feedback Wheel ${String(index)}`,
+    miniAssetSrc: undefined,
+    assetSrc: undefined,
+    enlightenLevel: null,
+    isOwned: true,
+  }
+}
+
+function makeFeedbackTestSlot(): BuilderV2TeamSummarySlot {
+  return {
+    slotId: 'slot-1',
+    label: 'Slot 1',
+    slotNumber: 1,
+    name: 'Slot 1',
+    awakener: {
+      id: 'awakener-feedback',
+      name: 'feedback awakener',
+      displayName: 'Feedback Awakener',
+      realm: 'CHAOS',
+      level: 60,
+      enlightenLevel: null,
+      cardSrc: undefined,
+      portraitSrc: undefined,
+      isOwned: true,
+      isSupport: false,
+    },
+    portraitSrc: undefined,
+    cardSrc: undefined,
+    isEmpty: false,
+    isSupport: false,
+    wheelCount: 2,
+    wheels: [makeFeedbackTestWheel(1), makeFeedbackTestWheel(2)],
+    hasCovenant: true,
+    covenant: {
+      id: 'feedback-covenant',
+      name: 'Feedback Covenant',
+      assetSrc: undefined,
+    },
+  }
+}
+
+function makeFeedbackTestTeam(slot: BuilderV2TeamSummarySlot): BuilderV2TeamSummary {
+  return {
+    id: 'team-feedback',
+    name: 'Feedback Team',
+    isActive: true,
+    deployedCount: 1,
+    slotNames: [slot.name],
+    slots: [slot],
+    posseName: null,
+    posseRealm: null,
+    posseAssetSrc: undefined,
+    isPosseOwned: true,
+    isEmpty: false,
+  }
+}
+
+function renderTeamManagementFeedbackTarget(predictedDropTarget: BuilderV2DropTargetDescriptor) {
+  const slot = makeFeedbackTestSlot()
+  const team = makeFeedbackTestTeam(slot)
+
+  render(
+    <DndContext>
+      <ul>
+        <TeamSlotSummary
+          enableLoadoutSelect
+          enableSlotDragAndDrop
+          isDragActive
+          onSelect={vi.fn()}
+          predictedDropTarget={predictedDropTarget}
+          previewMode='expanded'
+          slot={slot}
+          team={team}
+        />
+      </ul>
+    </DndContext>,
+  )
+
+  const slotSummary = screen.getByLabelText(/slot 1, feedback awakener/i)
+  const covenantButton = screen.getByRole('button', {name: /edit feedback team slot 1 covenant/i})
+  const wheelButtons = screen.getAllByRole('button', {name: /edit wheel/i})
+
+  return {covenantButton, slotSummary, wheelButtons}
 }
 
 function WindowedPickerHarness({
@@ -757,6 +850,48 @@ describe('BuilderV2Page', () => {
     })
 
     expect(screen.queryByRole('button', {name: /drag team 1 to reorder/i})).not.toBeInTheDocument()
+  })
+
+  it('highlights only the effective team-management covenant target during drag feedback', () => {
+    const {covenantButton, slotSummary, wheelButtons} = renderTeamManagementFeedbackTarget({
+      kind: 'team-management-covenant',
+      teamId: 'team-feedback',
+      slotId: 'slot-1',
+    })
+
+    expect(covenantButton).toHaveClass('builder-v2-team-management-slot-covenant--drop-target')
+    expect(slotSummary).not.toHaveClass('builder-v2-team-management-slot--drop-target')
+    for (const wheelButton of wheelButtons) {
+      expect(wheelButton).not.toHaveClass('builder-v2-team-management-loadout-cell--drop-target')
+    }
+  })
+
+  it('highlights only the matching team-management wheel target during drag feedback', () => {
+    const {covenantButton, slotSummary, wheelButtons} = renderTeamManagementFeedbackTarget({
+      kind: 'team-management-wheel',
+      teamId: 'team-feedback',
+      slotId: 'slot-1',
+      wheelIndex: 1,
+    })
+
+    expect(wheelButtons[0]).not.toHaveClass('builder-v2-team-management-loadout-cell--drop-target')
+    expect(wheelButtons[1]).toHaveClass('builder-v2-team-management-loadout-cell--drop-target')
+    expect(covenantButton).not.toHaveClass('builder-v2-team-management-slot-covenant--drop-target')
+    expect(slotSummary).not.toHaveClass('builder-v2-team-management-slot--drop-target')
+  })
+
+  it('highlights only the broad team-management slot target during drag feedback', () => {
+    const {covenantButton, slotSummary, wheelButtons} = renderTeamManagementFeedbackTarget({
+      kind: 'team-management-slot',
+      teamId: 'team-feedback',
+      slotId: 'slot-1',
+    })
+
+    expect(slotSummary).toHaveClass('builder-v2-team-management-slot--drop-target')
+    expect(covenantButton).not.toHaveClass('builder-v2-team-management-slot-covenant--drop-target')
+    for (const wheelButton of wheelButtons) {
+      expect(wheelButton).not.toHaveClass('builder-v2-team-management-loadout-cell--drop-target')
+    }
   })
 
   it('switches teams through the adaptive compact team rail', () => {
