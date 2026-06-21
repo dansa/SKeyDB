@@ -225,7 +225,14 @@ function borderSideChanged(beforeFocusStyle, focusStyle, side) {
 
 async function runPointerDndSmoke(page, viewportName) {
   await preparePointerDndSmoke(page, viewportName)
+  await runActiveTeamAwakenerDndSmoke(page, viewportName)
+  await runActiveTeamWheelDndSmoke(page, viewportName)
+  await runTeamManagementDndSmoke(page, viewportName)
 
+  console.log(`[${viewportName}] pointer DnD smoke completed.`)
+}
+
+async function runActiveTeamAwakenerDndSmoke(page, viewportName) {
   const source = page.locator('.builder-v2-picker-tile--awakener:not([data-blocked="true"])')
   const target = page
     .locator(
@@ -242,14 +249,103 @@ async function runPointerDndSmoke(page, viewportName) {
   }
 
   const before = await page.locator('.builder-v2-active-team').innerText()
-  await dragBetweenElements(page, sourceElement, targetElement)
+  await dragBetweenElements(page, sourceElement, targetElement, {
+    activeSelector: '.builder-v2-active-team .builder-v2-slot-card--drop-target',
+    label: `${viewportName} picker awakener to active-team slot`,
+    viewportName,
+  })
   const after = await page.locator('.builder-v2-active-team').innerText()
 
   if (before === after) {
     throw new Error(`[${viewportName}] picker-to-slot DnD did not change the active team.`)
   }
+}
 
-  console.log(`[${viewportName}] pointer DnD smoke completed.`)
+async function runActiveTeamWheelDndSmoke(page, viewportName) {
+  await selectPickerTab(page, 'Wheels')
+
+  const source = page.locator('.builder-v2-picker-tile--wheel[data-owned="true"]').first()
+  const target = page
+    .locator(
+      '.builder-v2-active-team .builder-v2-slot-card:not(.builder-v2-slot-card--empty) .builder-v2-wheel-target:not([disabled])',
+    )
+    .first()
+  const sourceElement = await firstVisibleElement(source)
+  const targetElement = await firstVisibleElement(target)
+
+  if (!sourceElement || !targetElement) {
+    throw new Error(
+      `[${viewportName}] expected a visible picker wheel and active-team wheel target for DnD smoke.`,
+    )
+  }
+
+  const before = await page.locator('.builder-v2-active-team').innerText()
+  await dragBetweenElements(page, sourceElement, targetElement, {
+    activeSelector: '.builder-v2-active-team .builder-v2-wheel-chip--drop-target',
+    label: `${viewportName} picker wheel to active-team nested wheel`,
+    viewportName,
+  })
+  const after = await page.locator('.builder-v2-active-team').innerText()
+
+  if (before === after) {
+    throw new Error(`[${viewportName}] picker-to-active-wheel DnD did not change the active team.`)
+  }
+}
+
+async function runTeamManagementDndSmoke(page, viewportName) {
+  await ensureSecondTeam(page)
+  await selectPickerTab(page, 'Awakeners')
+
+  const source = page.locator('.builder-v2-picker-tile--awakener:not([data-blocked="true"])')
+  const target = page
+    .locator(
+      '.builder-v2-team-management-row:not(.builder-v2-team-management-row--active) .builder-v2-team-management-slot--empty',
+    )
+    .first()
+  const sourceElement = await firstVisibleElement(source)
+  const targetElement = await firstVisibleElement(target)
+
+  if (!sourceElement || !targetElement) {
+    throw new Error(
+      `[${viewportName}] expected a picker awakener and inactive team-management empty slot for DnD smoke.`,
+    )
+  }
+
+  const targetRow = targetElement.locator(
+    'xpath=ancestor::*[contains(@class, "builder-v2-team-management-row")][1]',
+  )
+  const before = await targetRow.innerText()
+  await dragBetweenElements(page, sourceElement, targetElement, {
+    activeSelector:
+      '.builder-v2-team-management-row:not(.builder-v2-team-management-row--active) .builder-v2-team-management-slot--drop-target',
+    label: `${viewportName} picker awakener to team-management slot`,
+    viewportName,
+  })
+  const after = await targetRow.innerText()
+
+  if (before === after) {
+    throw new Error(
+      `[${viewportName}] picker-to-team-management-slot DnD did not change target team row.`,
+    )
+  }
+}
+
+async function selectPickerTab(page, tabName) {
+  const tab = page.getByRole('tab', {name: tabName})
+  await assertVisible(tab, `${tabName} picker tab`)
+  await tab.click()
+}
+
+async function ensureSecondTeam(page) {
+  const rows = page.locator('.builder-v2-team-management-row')
+  if ((await rows.count()) > 1) {
+    return
+  }
+
+  const addTeam = page.getByRole('button', {name: '+ Add Team'})
+  await assertVisible(addTeam, 'add team button')
+  await addTeam.click()
+  await rows.nth(1).waitFor({state: 'visible', timeout: 10_000})
 }
 
 async function preparePointerDndSmoke(page, viewportName) {
@@ -285,17 +381,90 @@ async function firstVisibleElement(locator) {
   return null
 }
 
-async function dragBetweenElements(page, source, target) {
+async function dragBetweenElements(page, source, target, options = {}) {
+  const {activeSelector, label = 'DnD interaction', viewportName = 'viewport'} = options
   const sourceBox = await source.boundingBox()
   const targetBox = await target.boundingBox()
-  if (!sourceBox || !targetBox) return
+  if (!sourceBox || !targetBox) {
+    throw new Error(
+      `[${viewportName}] ${label} missing bounding boxes: ${JSON.stringify({
+        source: sourceBox,
+        target: targetBox,
+      })}`,
+    )
+  }
 
-  await page.mouse.move(sourceBox.x + sourceBox.width / 2, sourceBox.y + sourceBox.height / 2)
-  await page.mouse.down()
-  await page.mouse.move(targetBox.x + targetBox.width / 2, targetBox.y + targetBox.height / 2, {
-    steps: 8,
-  })
-  await page.mouse.up()
+  const sourceCenter = getCenter(sourceBox)
+  const targetCenter = getCenter(targetBox)
+
+  try {
+    await page.mouse.move(sourceCenter.x, sourceCenter.y)
+    await page.mouse.down()
+    await page.mouse.move(
+      (sourceCenter.x + targetCenter.x) / 2,
+      (sourceCenter.y + targetCenter.y) / 2,
+      {steps: 4},
+    )
+    await assertDragOverlayVisible(page, label)
+    await page.mouse.move(targetCenter.x, targetCenter.y, {steps: 8})
+    if (activeSelector) {
+      await assertSelectorAppearsWhileHeld(page, activeSelector, label)
+    }
+    await page.mouse.up()
+    await assertDragOverlayCleared(page, label)
+  } catch (error) {
+    await page.mouse.up().catch(() => {})
+    const screenshotPath = `builder-v2-dnd-${viewportName}-${Date.now().toString()}.png`
+    await page.screenshot({path: screenshotPath, fullPage: true}).catch(() => null)
+    throw new Error(
+      `[${viewportName}] ${label} failed. Screenshot: ${screenshotPath}. Boxes: ${JSON.stringify({
+        source: sourceBox,
+        target: targetBox,
+      })}. ${error instanceof Error ? error.message : ''}`,
+      {cause: error},
+    )
+  }
+}
+
+function getCenter(box) {
+  return {
+    x: box.x + box.width / 2,
+    y: box.y + box.height / 2,
+  }
+}
+
+async function assertSelectorAppearsWhileHeld(page, selector, label) {
+  const locator = page.locator(selector).first()
+  try {
+    await locator.waitFor({state: 'visible', timeout: 2_000})
+  } catch (error) {
+    throw new Error(`Expected held-pointer drop target for ${label}: ${selector}.`, {
+      cause: error,
+    })
+  }
+}
+
+async function assertDragOverlayVisible(page, label) {
+  try {
+    await page
+      .locator('.builder-v2-drag-preview')
+      .first()
+      .waitFor({state: 'visible', timeout: 2_000})
+  } catch (error) {
+    throw new Error(`Expected drag overlay during ${label}.`, {cause: error})
+  }
+}
+
+async function assertDragOverlayCleared(page, label) {
+  try {
+    await page.locator('.builder-v2-drag-preview').waitFor({state: 'detached', timeout: 2_000})
+  } catch (error) {
+    const visibleCount = await page.locator('.builder-v2-drag-preview:visible').count()
+    if (visibleCount === 0) {
+      return
+    }
+    throw new Error(`Expected drag overlay to clear after ${label}.`, {cause: error})
+  }
 }
 
 async function assertNoHorizontalOverflow(page, viewportName) {
