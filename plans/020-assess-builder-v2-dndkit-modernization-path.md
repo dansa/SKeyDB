@@ -148,3 +148,49 @@ Because this is an assessment plan, verification is evidence quality:
   now, later, or not at all.
 - Any future migration plan is based on current package maturity and Builder V2
   semantics, not on the word "legacy" alone.
+
+## Assessment Result
+
+Assessed on 2026-06-21 from local HEAD `704ce10e7c92f76c000f06f6d9d427b6148d28e6`.
+
+Decision: **Option C - defer migration until Builder V2 reaches feature parity and V1 is retired.** Keep Builder V2 on `@dnd-kit/core` / `@dnd-kit/sortable` for now and continue improving the local semantic boundary established by plans 016-018. Do not schedule a production migration immediately. If modernization is still desirable later, run it as a contained spike on a throwaway branch before any dependency change lands.
+
+Evidence checked:
+
+- Drift check: `git diff --stat c8b21750..HEAD -- package.json package-lock.json src/features/builder-v2/useBuilderV2Dnd.ts src/features/builder-v2/builder-v2-dnd.ts src/features/builder-v2/BuilderV2Page.tsx src/features/builder-v2/BuilderV2TeamManagement.tsx src/features/builder-v2/BuilderV2TeamSlots.tsx` produced no file changes from the planned baseline.
+- `npm view @dnd-kit/core version dist-tags --json` on 2026-06-21 returned `version: 6.3.1`, `latest: 6.3.1`, and `next: 6.3.1-next-202411517925`.
+- `npm view @dnd-kit/sortable version dist-tags --json` on 2026-06-21 returned `version: 10.0.0`, `latest: 10.0.0`, and `next: 10.0.0-next-202410244445`.
+- `npm view @dnd-kit/react version dist-tags --json` on 2026-06-21 returned `version: 0.5.0`, `latest: 0.5.0`, and `beta: 0.5.0-beta-20260611130431`.
+- `npm view @dnd-kit/react time version dist-tags --json` on 2026-06-21 showed `0.5.0` published on 2026-06-11, immediately after several `0.5.0-beta` builds on 2026-05-12, 2026-05-18, and 2026-06-11.
+- Official docs checked: DnDKit overview (`https://dndkit.com/`), React quickstart (`https://dndkit.com/react/quickstart/`), React migration guide (`https://dndkit.com/react/guides/migration/`), React collision guide (`https://dndkit.com/react/guides/collision-detection/`), React sensors guide (`https://dndkit.com/react/guides/sensors/`), legacy installation (`https://dndkit.com/legacy/introduction/installation/`), legacy `DndContext` (`https://dndkit.com/legacy/api-documentation/context-provider/dnd-context/`), and the official repository (`https://github.com/clauderic/dnd-kit`).
+
+Compatibility map:
+
+| Builder V2 concept | Current API | New-stack mapping | Assessment |
+| --- | --- | --- | --- |
+| Root provider and events | `DndContext` in `BuilderV2Page.tsx` with `onDragStart`, `onDragOver`, `onDragEnd`, `onDragCancel` | `DragDropProvider` from `@dnd-kit/react`; docs move cancel handling into `onDragEnd` via `event.canceled` and expose `event.operation.source` / `event.operation.target` | Rewrite, not a rename. Event payload handling in `useBuilderV2Dnd.ts` would need adaptation. |
+| Draggables | `useDraggable` from `@dnd-kit/core` in picker/team/team-management components | `useDraggable` from `@dnd-kit/react`, returning a `ref` object rather than `setNodeRef` / listeners shape shown in legacy examples | Mostly mechanical at leaf nodes, but drag handles and click-first buttons need regression checks. |
+| Droppables | `useDroppable` from `@dnd-kit/core`; `isOver` is supplemented by predicted semantic target state | `useDroppable` from `@dnd-kit/react`; docs expose `isDropTarget` and allow per-droppable collision configuration | Rewrite in styling glue only. Product target prediction should remain local. |
+| Overlay | `DragOverlay` via `BuilderV2DragOverlay` | `DragOverlay` from `@dnd-kit/react`; migration guide shows render-prop source access and one overlay per provider | Rewrite adapter. Existing preview descriptors can survive. |
+| Pointer activation | `PointerSensor` plus `useSensor` / `useSensors` with `{distance: 4}` | `PointerSensor` from `@dnd-kit/dom`; defaults are registered by provider, custom behavior uses provider or per-draggable `sensors` | Rewrite. The current click-first mobile fallback must remain the gate before enabling any drag stack. |
+| Collision detection | Provider-level custom `collisionDetection` using `pointerWithin`, `closestCenter`, filtered droppables, and semantic ordering | React docs map this to `collisionDetector` on `useDroppable` / `useSortable`; built-ins come from `@dnd-kit/collision` | Meaningful rewrite. Filtering/arbitration from plans 016-018 must be preserved explicitly. |
+| Team sorting | `SortableContext`, `useSortable`, `rectSortingStrategy`, CSS transform utilities | `useSortable` from `@dnd-kit/react/sortable`; migration guide says `SortableContext` and sorting strategies are no longer needed, with `type` / `accept` controlling grouping | Some simplification possible, but only for team-row sorting, not loadout semantic drops. |
+| Nested/cross-container semantics | Local IDs, payloads, `resolveBuilderV2EffectiveDropTarget`, and `resolveBuilderV2DndAction` in `builder-v2-dnd.ts` | New API has richer source/target operations and multiple-list guides, but no documented replacement for Builder V2's product rules | Survives unchanged conceptually; still app-owned domain logic. |
+| Keyboard/accessibility | Legacy stack can support keyboard sensors, while Builder V2 also exposes explicit move up/down buttons and click selection | New provider registers pointer and keyboard sensors by default per the React sensors guide | Potential improvement, but not enough by itself because existing Builder V2 ordering buttons already provide non-drag controls. |
+
+Migration value:
+
+- Nested and cross-container targets would not be materially simplified. The hard behavior is not collision math alone; it is Builder V2's semantic conversion from physical targets to valid `awakener`, `wheel`, `covenant`, `posse`, team-management, and removal actions in `builder-v2-dnd.ts`.
+- Accessibility may improve at the library default level because the new provider registers pointer and keyboard sensors automatically, but Builder V2 already keeps explicit click/order controls and disables DnD in mobile mode. A migration cannot weaken those controls.
+- Package maturity is acceptable for a spike, not for an immediate production migration. `@dnd-kit/react` has an official migration guide and a stable `latest` tag, but it is still `0.5.0` and the latest stable was published on 2026-06-11 after same-day beta builds. That is current enough to evaluate, but not enough to justify moving a stabilized Builder V2 surface solely because the existing docs are under "legacy".
+- Code reduction would be uneven. Droppable/draggable leaf code and `SortableContext` removal may shrink some UI glue, but `useBuilderV2Dnd.ts`, `builder-v2-dnd.ts`, overlay previews, semantic target prediction, and browser smoke coverage would still be required.
+
+Future migration spike, if approved later:
+
+1. Work in a throwaway branch/worktree and change only Builder V2 DnD files plus package manifests.
+2. Start with `BuilderV2Page.tsx`, `useBuilderV2Dnd.ts`, `BuilderV2DragOverlay.tsx`, `BuilderV2TeamManagement.tsx`, `BuilderV2TeamSlots.tsx`, picker drag sources, and `builder-v2-dnd.ts`.
+3. Preserve `resolveBuilderV2EffectiveDropTarget`, `resolveBuilderV2DndAction`, predicted drop-target styling, click-first mobile behavior, and explicit team order buttons.
+4. Verification gates: existing unit tests for `builder-v2-dnd.ts` / `useBuilderV2Dnd.ts`, Builder V2 page tests, the browser smoke gate from plan 018, and a manual or automated keyboard reorder/drop check if new keyboard semantics are claimed.
+5. Rollback path: revert the branch/package manifest changes and remain on `@dnd-kit/core@6.3.1`, `@dnd-kit/sortable@10.0.0`, and `@dnd-kit/utilities@3.2.2`; no persisted data format depends on the DnD package choice.
+
+Recommendation: **no-go for production migration now; revisit after Builder V2 feature parity and V1 retirement, or earlier only as a bounded spike whose success criterion is deleting meaningful DnD adapter code without weakening semantic rules or mobile fallback.**

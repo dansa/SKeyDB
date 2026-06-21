@@ -33,7 +33,7 @@ done.
 | 017 | Align Builder V2 team-management DnD feedback | P1 | S-M | 016 | DONE |
 | 018 | Expand Builder V2 DnD browser smoke coverage | P1 | M | 016, 017 | DONE |
 | 019 | Require classic Builder posse drops to hit a declared target | P3 | S | none | REJECTED: V1 retiring; only fix if breaking |
-| 020 | Assess Builder V2 DnDKit modernization path | P2 | S-M | 016, 018 recommended | TODO |
+| 020 | Assess Builder V2 DnDKit modernization path | P2 | S-M | 016, 018 recommended | DONE |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
 REJECTED (with one-line rationale).
