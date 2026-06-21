@@ -8,7 +8,7 @@
 > the index.
 >
 > **Drift check (run first)**:
-> `git diff --stat 990ae1bc..HEAD -- package.json package-lock.json src/features/builder-v2/useBuilderV2Dnd.ts src/features/builder-v2/builder-v2-dnd.ts src/features/builder-v2/BuilderV2Page.tsx src/features/builder-v2/BuilderV2TeamManagement.tsx src/features/builder-v2/BuilderV2TeamSlots.tsx`
+> `git diff --stat c8b21750..HEAD -- package.json package-lock.json src/features/builder-v2/useBuilderV2Dnd.ts src/features/builder-v2/builder-v2-dnd.ts src/features/builder-v2/BuilderV2Page.tsx src/features/builder-v2/BuilderV2TeamManagement.tsx src/features/builder-v2/BuilderV2TeamSlots.tsx`
 > If any in-scope file changed since this plan was written, compare the audit
 > evidence below against the live code before proceeding; on a mismatch, treat it
 > as a STOP condition.
@@ -20,7 +20,7 @@
 - **Risk**: LOW
 - **Depends on**: plans/016-normalize-builder-v2-dnd-collision-arbitration.md and plans/018-expand-builder-v2-dnd-browser-smoke.md recommended
 - **Category**: migration
-- **Planned at**: commit `990ae1bc`, 2026-06-21
+- **Planned at**: commit `c8b21750`, 2026-06-21
 
 ## Summary
 
@@ -34,6 +34,11 @@ This plan is a migration assessment, not an implementation migration. Its job is
 to decide whether Builder V2 should stay on the stable legacy React API after
 plans 016-018, or schedule a deliberate migration to the newer DnDKit stack.
 
+Refresh note: plans 016, 017, and 018 have landed. Builder V2 now has semantic
+collision arbitration, effective target-aligned team-management feedback, and a
+browser smoke gate that asserts overlays plus visible drop-zone styling. Assess
+modernization from that stabilized baseline, not from the pre-016 bug state.
+
 ## Audit Evidence
 
 - `package-lock.json` currently resolves `@dnd-kit/core@6.3.1`,
@@ -46,9 +51,10 @@ plans 016-018, or schedule a deliberate migration to the newer DnDKit stack.
   integration over the vanilla library, while the docs for `useDraggable`,
   `useDroppable`, `DndContext`, `DragOverlay`, and `SortableContext` live under
   the legacy section.
-- Builder V2's immediate failures are semantic and UX maintainability issues:
-  mixed droppable arbitration, nested target feedback, and missing browser
-  coverage. Those are worth fixing before any package migration.
+- Builder V2's immediate semantic and browser-coverage failures from plans
+  016-018 have been fixed locally. The assessment should now decide whether a
+  DnDKit package migration would simplify future work enough to justify a
+  separate migration spike.
 
 ## DnDKit References
 
