@@ -119,6 +119,25 @@ describe('validateTeamPlan', () => {
     expect(result.violations).toHaveLength(0)
   })
 
+  it('rejects duplicate wheels inside a support awakener loadout', () => {
+    const plan = buildValidPlan()
+    plan[1].members.push({
+      awakenerId: 'agrippa',
+      realm: 'CHAOS',
+      wheelIds: ['w2', 'w2'],
+      isSupport: true,
+    })
+
+    const result = validateTeamPlan(plan)
+
+    expect(result.isValid).toBe(false)
+    expect(
+      result.violations.some(
+        (v) => v.code === 'DUPLICATE_WHEEL' && v.value === 'w2' && v.teamId === 'team-2',
+      ),
+    ).toBe(true)
+  })
+
   it('rejects multiple support awakeners in the same build', () => {
     const plan = buildValidPlan()
     plan[0].members[0] = {

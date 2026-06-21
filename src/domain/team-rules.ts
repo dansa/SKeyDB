@@ -160,8 +160,10 @@ function validateMemberWheels(
     return
   }
 
+  const memberSeenWheels = new Set<string>()
+
   for (const wheelId of member.wheelIds) {
-    if (teamSeen.wheels.has(wheelId)) {
+    if (memberSeenWheels.has(wheelId) || teamSeen.wheels.has(wheelId)) {
       violations.push({
         code: 'DUPLICATE_WHEEL',
         message: `Wheel ${wheelId} is used more than once in team ${teamId}.`,
@@ -170,6 +172,8 @@ function validateMemberWheels(
       })
       continue
     }
+
+    memberSeenWheels.add(wheelId)
 
     if (!member.isSupport && sharedSeen.wheels.has(wheelId)) {
       violations.push({
