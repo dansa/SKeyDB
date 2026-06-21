@@ -732,7 +732,8 @@ describe('useBuilderV2Model', () => {
     const teams = builderDraftStore.getState().teams
     expect(teams[0]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
     expect(teams[1]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
-    expect(result.current.violationMessage).toBeNull()
+    expect(result.current.violationMessage).toBe('That swap would break current builder rules.')
+    expect(result.current.activeSelection).toBeNull()
   })
 
   it('opens a transfer when moving a support wheel copy into a regular team-list slot', () => {
@@ -1374,12 +1375,18 @@ describe('useBuilderV2Model', () => {
     act(() => {
       builderDraftStore.getState().setActiveTeamSlots(slots)
     })
+    expect(result.current.activeSelection).toBeNull()
+
     act(() => {
       result.current.moveWheel('slot-2', 0, 'slot-1', 1)
     })
 
     expect(result.current.slots[0]?.wheels).toEqual(['wheel-0050', null])
     expect(result.current.slots[1]?.wheels).toEqual(['wheel-0050', null])
+    expect(result.current.activeSelection).toBeNull()
+    expect(result.current.violationMessage).toBe(
+      'That assignment would break current builder rules.',
+    )
   })
 
   it('moves active-team wheels to the first empty wheel socket on a slot-level drop', () => {
@@ -1403,6 +1410,34 @@ describe('useBuilderV2Model', () => {
     expect(result.current.slots[1]?.wheels).toEqual(['wheel-0050', 'wheel-0051'])
     expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-2', wheelIndex: 0})
     expect(result.current.pickerTab).toBe('wheels')
+  })
+
+  it('does not activate a slot-level wheel drop that would duplicate a wheel in the loadout', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const slots = createEmptyTeamSlots()
+    slots[0] = createAssignedSlot('slot-1', {
+      isSupport: true,
+      wheels: ['wheel-0050', null],
+    })
+    slots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0007',
+      realm: 'CARO',
+      wheels: ['wheel-0050', null],
+    })
+
+    act(() => {
+      builderDraftStore.getState().setActiveTeamSlots(slots)
+    })
+    act(() => {
+      result.current.moveWheelToSlot('slot-2', 0, 'slot-1')
+    })
+
+    expect(result.current.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(result.current.slots[1]?.wheels).toEqual(['wheel-0050', null])
+    expect(result.current.activeSelection).toBeNull()
+    expect(result.current.violationMessage).toBe(
+      'That assignment would break current builder rules.',
+    )
   })
 
   it('moves an active-team awakener with its loadout through the explicit DnD command path', () => {
@@ -1511,6 +1546,9 @@ describe('useBuilderV2Model', () => {
     expect(result.current.transferDialog).toBeNull()
     expect(result.current.slots[0]?.wheels).toEqual(['wheel-0050', null])
     expect(builderDraftStore.getState().teams[1]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(result.current.violationMessage).toBe(
+      'That assignment would break current builder rules.',
+    )
   })
 
   it('confirms a wheel transfer and clears the source wheel socket', () => {

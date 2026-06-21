@@ -324,6 +324,14 @@ export function resolveAssignWheelCommand({
   }
 
   const result = assignWheelToSlot(activeTeamSlots, target.slotId, target.wheelIndex, wheelId)
+  if (result.violation) {
+    return {
+      kind: 'violation',
+      message: getViolationMessage(result.violation),
+      pickerTab: 'wheels',
+    }
+  }
+
   return {
     kind: 'slots',
     nextSlots: result.nextSlots,
@@ -479,6 +487,14 @@ export function resolveMoveWheelCommand({
     toSlotId,
     toWheelIndex,
   )
+  if (result.violation) {
+    return {
+      kind: 'violation',
+      message: getViolationMessage(result.violation),
+      pickerTab: 'wheels',
+    }
+  }
+
   return {
     kind: 'slots',
     nextSlots: result.nextSlots,

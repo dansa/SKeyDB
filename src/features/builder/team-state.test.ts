@@ -244,6 +244,7 @@ describe('builder team state', () => {
     const duplicate = assignWheelToSlot(withWheel.nextSlots, 'slot-2', 1, 'demo-wheel')
 
     expect(duplicate.changed).toBe(false)
+    expect(duplicate.violation).toBe('INVALID_BUILD_RULES')
     expect(duplicate.nextSlots).toBe(withWheel.nextSlots)
     expect(duplicate.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([
       'demo-wheel',
@@ -297,6 +298,7 @@ describe('builder team state', () => {
     const result = swapWheelAssignments(preparedSlots, 'slot-1', 0, 'slot-2', 1)
 
     expect(result.changed).toBe(false)
+    expect(result.violation).toBe('INVALID_BUILD_RULES')
     expect(result.nextSlots).toBe(preparedSlots)
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual([
       'wheel-a',

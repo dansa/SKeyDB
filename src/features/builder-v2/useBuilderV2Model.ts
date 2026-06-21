@@ -37,6 +37,7 @@ import {
   swapCovenantAssignments,
   swapWheelAssignments,
   type TeamStateUpdateResult,
+  type TeamStateViolationCode,
 } from '../builder/team-state'
 import {validateBuilderTeams} from '../builder/team-validation'
 import {
@@ -996,6 +997,10 @@ export function useBuilderV2Model({
       }
 
       const result = assignWheelToTeamSlots(targetTeam.slots, slotId, wheelIndex, wheelId)
+      if (result.violation) {
+        setViolationMessage(getBuilderV2TeamSwapViolationMessage(result.violation))
+        return
+      }
       if (result.nextSlots === targetTeam.slots) {
         return
       }
@@ -1204,6 +1209,11 @@ export function useBuilderV2Model({
               targetSlotId,
               targetWheelIndex,
             )
+
+      if (result.violation) {
+        setViolationMessage(getBuilderV2TeamSwapViolationMessage(result.violation))
+        return
+      }
 
       if (!result.changed) {
         return
@@ -2149,6 +2159,7 @@ interface TwoTeamSlotUpdateResult {
   changed: boolean
   nextSourceSlots: TeamSlot[]
   nextTargetSlots: TeamSlot[]
+  violation?: TeamStateViolationCode
 }
 
 function normalizeSingleTeamSlotUpdate(result: TeamStateUpdateResult): TwoTeamSlotUpdateResult {
@@ -2200,6 +2211,7 @@ function swapCrossTeamWheelAssignments(
       changed: false,
       nextSourceSlots: sourceSlots,
       nextTargetSlots: targetSlots,
+      violation: 'INVALID_BUILD_RULES',
     }
   }
 

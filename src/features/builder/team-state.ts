@@ -201,7 +201,7 @@ export function swapWheelAssignments(
     sourceSlotId !== targetSlotId &&
     loadoutHasWheelInOtherSocket(targetSlot.wheels, sourceWheelId, targetWheelIndex)
   ) {
-    return unchangedTeamState(currentSlots)
+    return unchangedTeamState(currentSlots, 'INVALID_BUILD_RULES')
   }
 
   if (sourceSlotId === targetSlotId) {
@@ -304,7 +304,7 @@ export function assignWheelToSlot(
     return unchangedTeamState(currentSlots)
   }
   if (loadoutHasWheelInOtherSocket(targetSlot.wheels, wheelId, wheelIndex)) {
-    return unchangedTeamState(currentSlots)
+    return unchangedTeamState(currentSlots, 'INVALID_BUILD_RULES')
   }
 
   const nextSlots = currentSlots.map((slot) => {
@@ -409,8 +409,11 @@ export function swapCovenantAssignments(
   return changedTeamState(nextSlots)
 }
 
-function unchangedTeamState(nextSlots: TeamSlot[]): TeamStateUpdateResult {
-  return {nextSlots, changed: false}
+function unchangedTeamState(
+  nextSlots: TeamSlot[],
+  violation?: TeamStateViolationCode,
+): TeamStateUpdateResult {
+  return {nextSlots, changed: false, violation}
 }
 
 function changedTeamState(nextSlots: TeamSlot[]): TeamStateUpdateResult {

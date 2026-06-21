@@ -51,6 +51,15 @@ export function createBuilderWheelActions({
     return getWheelSlotIndex(firstEmptyIndex)
   }
 
+  function showWheelRuleViolation(result: {violation?: unknown}): boolean {
+    if (!result.violation) {
+      return false
+    }
+
+    showToast('That assignment would break current builder rules.')
+    return true
+  }
+
   function assignPickerWheelToTarget(
     wheelId: string,
     targetSlotId: string,
@@ -76,6 +85,10 @@ export function createBuilderWheelActions({
         targetSlotId,
         resolvedWheelIndex,
       )
+      if (showWheelRuleViolation(result)) {
+        return
+      }
+
       setActiveTeamSlots(result.nextSlots)
       if (setActiveOnAssign) {
         setActiveSelection({kind: 'wheel', slotId: targetSlotId, wheelIndex: resolvedWheelIndex})
@@ -98,6 +111,10 @@ export function createBuilderWheelActions({
     }
 
     const result = assignWheelToSlot(teamSlots, targetSlotId, resolvedWheelIndex, wheelId)
+    if (showWheelRuleViolation(result)) {
+      return
+    }
+
     setActiveTeamSlots(result.nextSlots)
     if (setActiveOnAssign) {
       setActiveSelection({kind: 'wheel', slotId: targetSlotId, wheelIndex: resolvedWheelIndex})
@@ -144,6 +161,10 @@ export function createBuilderWheelActions({
       targetSlotId,
       resolvedTargetWheelIndex,
     )
+    if (showWheelRuleViolation(result)) {
+      return
+    }
+
     setActiveTeamSlots(result.nextSlots)
 
     if (sourceSlotId !== targetSlotId) {
@@ -188,6 +209,10 @@ export function createBuilderWheelActions({
       targetSlotId,
       targetWheelIndex,
     )
+    if (showWheelRuleViolation(result)) {
+      return
+    }
+
     setActiveTeamSlots(result.nextSlots)
     setActiveSelection({kind: 'wheel', slotId: targetSlotId, wheelIndex: targetWheelIndex})
   }
