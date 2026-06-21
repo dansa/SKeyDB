@@ -310,6 +310,33 @@ describe('builder team state', () => {
     ])
   })
 
+  it('does not swap a target wheel back into a slot that already carries that wheel', () => {
+    const slots = teamSlotsForTests()
+    const preparedSlots = slots.map((slot) => {
+      if (slot.slotId === 'slot-1') {
+        return {...slot, wheels: ['wheel-a', 'wheel-b'] as [string, string]}
+      }
+      if (slot.slotId === 'slot-2') {
+        return {...slot, wheels: ['wheel-a', 'wheel-c'] as [string, string]}
+      }
+      return slot
+    })
+
+    const result = swapWheelAssignments(preparedSlots, 'slot-1', 1, 'slot-2', 0)
+
+    expect(result.changed).toBe(false)
+    expect(result.violation).toBe('INVALID_BUILD_RULES')
+    expect(result.nextSlots).toBe(preparedSlots)
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual([
+      'wheel-a',
+      'wheel-b',
+    ])
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([
+      'wheel-a',
+      'wheel-c',
+    ])
+  })
+
   it('assigns and clears covenant values on an awakener slot', () => {
     const slots = teamSlotsForTests()
     const withCovenant = assignCovenantToSlot(slots, 'slot-1', '001')

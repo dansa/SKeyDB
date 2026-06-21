@@ -1360,6 +1360,37 @@ describe('useBuilderV2Model', () => {
     expect(result.current.violationMessage).toBeNull()
   })
 
+  it('reports active-team picker owner swaps that would duplicate a wheel in the loadout', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const slots = createEmptyTeamSlots()
+    slots[0] = createAssignedSlot('slot-1', {
+      isSupport: true,
+      wheels: ['wheel-0050', null],
+    })
+    slots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0007',
+      realm: 'CARO',
+      wheels: ['wheel-0050', null],
+    })
+
+    act(() => {
+      builderDraftStore.getState().setActiveTeamSlots(slots)
+    })
+    act(() => {
+      result.current.selectWheelSlot('slot-1', 1)
+    })
+    act(() => {
+      result.current.assignWheel('wheel-0050')
+    })
+
+    expect(result.current.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(result.current.slots[1]?.wheels).toEqual(['wheel-0050', null])
+    expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-1', wheelIndex: 1})
+    expect(result.current.violationMessage).toBe(
+      'That assignment would break current builder rules.',
+    )
+  })
+
   it('moves active-team wheels between sockets through the explicit DnD command path', () => {
     const {result} = renderHook(() => useBuilderV2Model())
     const slots = createEmptyTeamSlots()

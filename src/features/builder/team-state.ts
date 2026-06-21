@@ -204,6 +204,15 @@ export function swapWheelAssignments(
     return unchangedTeamState(currentSlots, 'INVALID_BUILD_RULES')
   }
 
+  const targetWheelId = targetSlot.wheels[targetWheelIndex] ?? null
+  if (
+    sourceSlotId !== targetSlotId &&
+    targetWheelId &&
+    loadoutHasWheelInOtherSocket(sourceSlot.wheels, targetWheelId, sourceWheelIndex)
+  ) {
+    return unchangedTeamState(currentSlots, 'INVALID_BUILD_RULES')
+  }
+
   if (sourceSlotId === targetSlotId) {
     const nextSlots = currentSlots.map((slot) => {
       if (slot.slotId !== sourceSlotId) {
@@ -218,7 +227,6 @@ export function swapWheelAssignments(
     return changedTeamState(nextSlots)
   }
 
-  const targetWheelId = targetSlot.wheels[targetWheelIndex] ?? null
   const nextSlots = currentSlots.map((slot) => {
     if (slot.slotId === sourceSlotId) {
       const nextWheels = [...slot.wheels] as [string | null, string | null]
