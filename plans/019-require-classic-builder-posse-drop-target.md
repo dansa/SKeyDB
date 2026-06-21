@@ -1,5 +1,22 @@
 # Plan 019: Require Classic Builder Posse Drops To Hit A Declared Target
 
+> **Executor instructions**: Do not execute this plan unless the user explicitly
+> reactivates it or a breaking Builder V1/classic Builder DnD issue is confirmed.
+> If reactivated, follow the same step-by-step verification and STOP-condition
+> discipline as the active plans.
+>
+> **Drift check (if reactivated)**:
+> `git diff --stat 990ae1bc..HEAD -- src/features/builder/useBuilderDnd.ts src/features/builder/useBuilderDnd.test.ts src/features/builder/dnd-ids.ts src/features/builder/BuilderTeamSlotPreview.tsx`
+
+## Status
+
+- **Priority**: P3
+- **Effort**: S
+- **Risk**: LOW
+- **Depends on**: none
+- **Category**: tech-debt
+- **Planned at**: commit `990ae1bc`, 2026-06-21
+
 ## Disposition
 
 Rejected/deferred after product clarification on 2026-06-21: Builder V1/classic

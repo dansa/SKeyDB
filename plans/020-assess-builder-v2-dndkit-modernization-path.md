@@ -1,5 +1,27 @@
 # Plan 020: Assess Builder V2 DnDKit Modernization Path
 
+> **Executor instructions**: Follow this plan step by step. Run every
+> verification command and confirm the expected result before moving to the next
+> step. If anything in the "STOP Conditions" section occurs, stop and report; do
+> not improvise. When done, update the status row for this plan in
+> `plans/README.md` unless a reviewer dispatched you and told you they maintain
+> the index.
+>
+> **Drift check (run first)**:
+> `git diff --stat 990ae1bc..HEAD -- package.json package-lock.json src/features/builder-v2/useBuilderV2Dnd.ts src/features/builder-v2/builder-v2-dnd.ts src/features/builder-v2/BuilderV2Page.tsx src/features/builder-v2/BuilderV2TeamManagement.tsx src/features/builder-v2/BuilderV2TeamSlots.tsx`
+> If any in-scope file changed since this plan was written, compare the audit
+> evidence below against the live code before proceeding; on a mismatch, treat it
+> as a STOP condition.
+
+## Status
+
+- **Priority**: P2
+- **Effort**: S-M
+- **Risk**: LOW
+- **Depends on**: plans/016-normalize-builder-v2-dnd-collision-arbitration.md and plans/018-expand-builder-v2-dnd-browser-smoke.md recommended
+- **Category**: migration
+- **Planned at**: commit `990ae1bc`, 2026-06-21
+
 ## Summary
 
 The focused DnD audit used DnDKit's legacy documentation because MomenTB is on
