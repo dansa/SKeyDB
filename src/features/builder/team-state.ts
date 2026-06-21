@@ -292,6 +292,15 @@ export function assignWheelToSlot(
   if (targetSlot.wheels[wheelIndex] === wheelId) {
     return unchangedTeamState(currentSlots)
   }
+  if (
+    wheelId &&
+    targetSlot.wheels.some(
+      (assignedWheelId, assignedWheelIndex) =>
+        assignedWheelIndex !== wheelIndex && assignedWheelId === wheelId,
+    )
+  ) {
+    return unchangedTeamState(currentSlots)
+  }
 
   const nextSlots = currentSlots.map((slot) => {
     if (slot.slotId !== slotId) {

@@ -1414,6 +1414,47 @@ describe('useBuilderV2Model', () => {
     expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-1', wheelIndex: 0})
   })
 
+  it('does not duplicate borrowed wheels inside a support slot', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamOneSlots = createEmptyTeamSlots()
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamOneSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      isSupport: true,
+    })
+    teamTwoSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0007',
+      realm: 'CARO',
+      wheels: ['wheel-0050', null],
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: teamOneSlots},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.selectWheelSlot('slot-1', 0)
+    })
+    act(() => {
+      result.current.assignWheel('wheel-0050')
+    })
+    act(() => {
+      result.current.selectWheelSlot('slot-1', 1)
+    })
+    act(() => {
+      result.current.assignWheel('wheel-0050')
+    })
+
+    expect(result.current.transferDialog).toBeNull()
+    expect(result.current.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(builderDraftStore.getState().teams[1]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
+  })
+
   it('confirms a wheel transfer and clears the source wheel socket', () => {
     const {result} = renderHook(() => useBuilderV2Model())
     const teamOneSlots = createEmptyTeamSlots()

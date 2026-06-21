@@ -238,6 +238,19 @@ describe('builder team state', () => {
     ])
   })
 
+  it('does not assign the same wheel to both wheel sockets in one slot', () => {
+    const slots = teamSlotsForTests()
+    const withWheel = assignWheelToSlot(slots, 'slot-2', 0, 'demo-wheel')
+    const duplicate = assignWheelToSlot(withWheel.nextSlots, 'slot-2', 1, 'demo-wheel')
+
+    expect(duplicate.changed).toBe(false)
+    expect(duplicate.nextSlots).toBe(withWheel.nextSlots)
+    expect(duplicate.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([
+      'demo-wheel',
+      null,
+    ])
+  })
+
   it('blocks assigning wheels to slots without an awakener', () => {
     const slots = teamSlotsForTests()
     const result = assignWheelToSlot(slots, 'slot-3', 0, 'demo-wheel')
