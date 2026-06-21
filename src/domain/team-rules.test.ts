@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import {validateTeamPlan, type TeamPlan} from './team-rules'
+import {loadoutHasWheelInOtherSocket, validateTeamPlan, type TeamPlan} from './team-rules'
 
 function buildValidPlan(): TeamPlan[] {
   return [
@@ -26,6 +26,12 @@ function buildValidPlan(): TeamPlan[] {
 }
 
 describe('validateTeamPlan', () => {
+  it('detects whether a loadout socket already has the same wheel elsewhere', () => {
+    expect(loadoutHasWheelInOtherSocket(['w1', null], 'w1', 1)).toBe(true)
+    expect(loadoutHasWheelInOtherSocket(['w1', null], 'w2', 1)).toBe(false)
+    expect(loadoutHasWheelInOtherSocket(['w1', 'w2'], 'w1', 0)).toBe(false)
+  })
+
   it('accepts a plan with <= 10 teams, unique awakeners/wheels, and <= 2 realms per team', () => {
     const result = validateTeamPlan(buildValidPlan())
     expect(result.isValid).toBe(true)

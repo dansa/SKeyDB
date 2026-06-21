@@ -1,6 +1,10 @@
 import {getAwakenerIdentityKeyById} from '@/domain/awakener-identity'
 import type {Awakener} from '@/domain/awakeners'
-import {DEFAULT_TEAM_RULES_CONFIG, exceedsRealmLimitForTeam} from '@/domain/team-rules'
+import {
+  DEFAULT_TEAM_RULES_CONFIG,
+  exceedsRealmLimitForTeam,
+  loadoutHasWheelInOtherSocket,
+} from '@/domain/team-rules'
 
 import type {TeamSlot} from './types'
 
@@ -193,6 +197,13 @@ export function swapWheelAssignments(
     return unchangedTeamState(currentSlots)
   }
 
+  if (
+    sourceSlotId !== targetSlotId &&
+    loadoutHasWheelInOtherSocket(targetSlot.wheels, sourceWheelId, targetWheelIndex)
+  ) {
+    return unchangedTeamState(currentSlots)
+  }
+
   if (sourceSlotId === targetSlotId) {
     const nextSlots = currentSlots.map((slot) => {
       if (slot.slotId !== sourceSlotId) {
@@ -292,13 +303,7 @@ export function assignWheelToSlot(
   if (targetSlot.wheels[wheelIndex] === wheelId) {
     return unchangedTeamState(currentSlots)
   }
-  if (
-    wheelId &&
-    targetSlot.wheels.some(
-      (assignedWheelId, assignedWheelIndex) =>
-        assignedWheelIndex !== wheelIndex && assignedWheelId === wheelId,
-    )
-  ) {
+  if (loadoutHasWheelInOtherSocket(targetSlot.wheels, wheelId, wheelIndex)) {
     return unchangedTeamState(currentSlots)
   }
 

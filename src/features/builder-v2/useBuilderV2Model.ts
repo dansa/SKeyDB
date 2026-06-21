@@ -10,6 +10,7 @@ import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getPosseAssetById} from '@/domain/posse-assets'
 import {getPosses, type Posse} from '@/domain/posses'
 import {getBrowserLocalStorage} from '@/domain/storage'
+import {loadoutHasWheelInOtherSocket} from '@/domain/team-rules'
 import {getWheelAssetById, getWheelMiniAssetById} from '@/domain/wheel-assets'
 import type {WheelMainstatFilter} from '@/domain/wheel-mainstat-filters'
 import {compareWheelsForUi} from '@/domain/wheel-sort'
@@ -2188,6 +2189,13 @@ function swapCrossTeamWheelAssignments(
   const targetSlot = targetSlots.find((slot) => slot.slotId === targetSlotId)
   const sourceWheelId = sourceSlot?.wheels[sourceWheelIndex] ?? null
   if (!sourceSlot || !targetSlot?.awakenerId || !sourceWheelId) {
+    return {
+      changed: false,
+      nextSourceSlots: sourceSlots,
+      nextTargetSlots: targetSlots,
+    }
+  }
+  if (loadoutHasWheelInOtherSocket(targetSlot.wheels, sourceWheelId, targetWheelIndex)) {
     return {
       changed: false,
       nextSourceSlots: sourceSlots,

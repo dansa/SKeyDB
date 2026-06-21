@@ -701,6 +701,40 @@ describe('useBuilderV2Model', () => {
     expect(result.current.violationMessage).toBeNull()
   })
 
+  it('does not move team-list wheels into slots that already carry the wheel', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const teamOneSlots = createEmptyTeamSlots()
+    const teamTwoSlots = createEmptyTeamSlots()
+    teamOneSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0021',
+      isSupport: true,
+      wheels: ['wheel-0050', null],
+    })
+    teamTwoSlots[0] = createAssignedSlot('slot-1', {
+      awakenerId: 'awakener-0007',
+      realm: 'CARO',
+      wheels: ['wheel-0050', null],
+    })
+
+    act(() => {
+      builderDraftStore.getState().hydrateBuilderDraft({
+        activeTeamId: 'team-1',
+        teams: [
+          {id: 'team-1', name: 'Team 1', slots: teamOneSlots},
+          {id: 'team-2', name: 'Team 2', slots: teamTwoSlots},
+        ],
+      })
+    })
+    act(() => {
+      result.current.moveTeamWheel('team-2', 'slot-1', 0, 'team-1', 'slot-1', 1)
+    })
+
+    const teams = builderDraftStore.getState().teams
+    expect(teams[0]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(teams[1]?.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(result.current.violationMessage).toBeNull()
+  })
+
   it('opens a transfer when moving a support wheel copy into a regular team-list slot', () => {
     const {result} = renderHook(() => useBuilderV2Model())
     const teamOneSlots = createEmptyTeamSlots()
@@ -1322,6 +1356,30 @@ describe('useBuilderV2Model', () => {
 
     expect(result.current.slots[1]?.wheels).toEqual(['wheel-0051', 'wheel-0050'])
     expect(result.current.activeSelection).toEqual({kind: 'wheel', slotId: 'slot-2', wheelIndex: 1})
+  })
+
+  it('does not move active-team wheels into slots that already carry the wheel', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    const slots = createEmptyTeamSlots()
+    slots[0] = createAssignedSlot('slot-1', {
+      isSupport: true,
+      wheels: ['wheel-0050', null],
+    })
+    slots[1] = createAssignedSlot('slot-2', {
+      awakenerId: 'awakener-0007',
+      realm: 'CARO',
+      wheels: ['wheel-0050', null],
+    })
+
+    act(() => {
+      builderDraftStore.getState().setActiveTeamSlots(slots)
+    })
+    act(() => {
+      result.current.moveWheel('slot-2', 0, 'slot-1', 1)
+    })
+
+    expect(result.current.slots[0]?.wheels).toEqual(['wheel-0050', null])
+    expect(result.current.slots[1]?.wheels).toEqual(['wheel-0050', null])
   })
 
   it('moves active-team wheels to the first empty wheel socket on a slot-level drop', () => {
