@@ -110,6 +110,29 @@ describe('validateTeamPlan', () => {
     expect(result.violations).toHaveLength(0)
   })
 
+  it('still rejects duplicate wheels inside one loadout when duplicate wheel usage is allowed', () => {
+    const plan = buildValidPlan()
+    plan[1].members.push({
+      awakenerId: 'casiah',
+      realm: 'CHAOS',
+      wheelIds: ['w17', 'w17'],
+      isSupport: true,
+    })
+
+    const result = validateTeamPlan(plan, {
+      enforceUniqueAwakeners: false,
+      enforceUniqueWheels: false,
+      enforceUniquePosses: false,
+    })
+
+    expect(result.isValid).toBe(false)
+    expect(
+      result.violations.some(
+        (v) => v.code === 'DUPLICATE_WHEEL' && v.value === 'w17' && v.teamId === 'team-2',
+      ),
+    ).toBe(true)
+  })
+
   it('allows one support awakener to ignore cross-team duplicate checks for itself and its wheels', () => {
     const plan = buildValidPlan()
     plan[1].members.push({

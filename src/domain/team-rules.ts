@@ -170,10 +170,6 @@ function validateMemberWheels(
   teamSeen: TeamSeenState,
   violations: RuleViolation[],
 ) {
-  if (!settings.enforceUniqueWheels) {
-    return
-  }
-
   const reportedMemberDuplicateWheels = new Set<string>()
 
   for (const [wheelIndex, wheelId] of member.wheelIds.entries()) {
@@ -183,10 +179,7 @@ function validateMemberWheels(
       wheelIndex,
     )
 
-    if (
-      (duplicatesMemberLoadout && !reportedMemberDuplicateWheels.has(wheelId)) ||
-      teamSeen.wheels.has(wheelId)
-    ) {
+    if (duplicatesMemberLoadout && !reportedMemberDuplicateWheels.has(wheelId)) {
       violations.push({
         code: 'DUPLICATE_WHEEL',
         message: `Wheel ${wheelId} is used more than once in team ${teamId}.`,
@@ -198,6 +191,20 @@ function validateMemberWheels(
     }
 
     if (duplicatesMemberLoadout) {
+      continue
+    }
+
+    if (!settings.enforceUniqueWheels) {
+      continue
+    }
+
+    if (teamSeen.wheels.has(wheelId)) {
+      violations.push({
+        code: 'DUPLICATE_WHEEL',
+        message: `Wheel ${wheelId} is used more than once in team ${teamId}.`,
+        teamId,
+        value: wheelId,
+      })
       continue
     }
 
