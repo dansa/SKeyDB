@@ -1,5 +1,6 @@
 import {useMemo, useState} from 'react'
 
+import {DndContext} from '@dnd-kit/core'
 import {act, cleanup, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
 import {MemoryRouter} from 'react-router-dom'
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
@@ -15,14 +16,18 @@ import {dbDetailStore} from '@/stores/dbDetailStore'
 import {saveBuilderDraft} from '../builder/builder-persistence'
 import {createEmptyTeamSlots} from '../builder/constants'
 import type {Team} from '../builder/types'
+import type {BuilderV2DropTargetDescriptor} from './builder-v2-dnd'
 import {BuilderV2AwakenerPicker} from './BuilderV2AwakenerPicker'
 import type {
   BuilderV2AwakenerOption,
   BuilderV2PickerModel,
   BuilderV2PickerTab,
+  BuilderV2TeamSummary,
+  BuilderV2TeamSummarySlot,
   BuilderV2WheelOption,
 } from './BuilderV2ModelTypes'
 import {BuilderV2Page} from './BuilderV2Page'
+import {TeamSlotSummary} from './BuilderV2TeamManagement'
 
 function resizeBuilderV2Viewport(width: number, dispatchResize = true) {
   Object.defineProperty(window, 'innerWidth', {
@@ -115,6 +120,94 @@ function createWindowedTestWheels(): BuilderV2WheelOption[] {
     recommendationLabel: null,
     recommendedMainstatKey: null,
   }))
+}
+
+function makeFeedbackTestWheel(index: number) {
+  return {
+    id: `feedback-wheel-${String(index)}`,
+    name: `Feedback Wheel ${String(index)}`,
+    miniAssetSrc: undefined,
+    assetSrc: undefined,
+    enlightenLevel: null,
+    isOwned: true,
+  }
+}
+
+function makeFeedbackTestSlot(): BuilderV2TeamSummarySlot {
+  return {
+    slotId: 'slot-1',
+    label: 'Slot 1',
+    slotNumber: 1,
+    name: 'Slot 1',
+    awakener: {
+      id: 'awakener-feedback',
+      name: 'feedback awakener',
+      displayName: 'Feedback Awakener',
+      realm: 'CHAOS',
+      level: 60,
+      enlightenLevel: null,
+      cardSrc: undefined,
+      portraitSrc: undefined,
+      isOwned: true,
+      isSupport: false,
+    },
+    portraitSrc: undefined,
+    cardSrc: undefined,
+    isEmpty: false,
+    isSupport: false,
+    wheelCount: 2,
+    wheels: [makeFeedbackTestWheel(1), makeFeedbackTestWheel(2)],
+    hasCovenant: true,
+    covenant: {
+      id: 'feedback-covenant',
+      name: 'Feedback Covenant',
+      assetSrc: undefined,
+    },
+  }
+}
+
+function makeFeedbackTestTeam(slot: BuilderV2TeamSummarySlot): BuilderV2TeamSummary {
+  return {
+    id: 'team-feedback',
+    name: 'Feedback Team',
+    isActive: true,
+    deployedCount: 1,
+    slotNames: [slot.name],
+    slots: [slot],
+    posseName: null,
+    posseRealm: null,
+    posseAssetSrc: undefined,
+    isPosseOwned: true,
+    isEmpty: false,
+  }
+}
+
+function renderTeamManagementFeedbackTarget(predictedDropTarget: BuilderV2DropTargetDescriptor) {
+  const slot = makeFeedbackTestSlot()
+  const team = makeFeedbackTestTeam(slot)
+
+  render(
+    <DndContext>
+      <ul>
+        <TeamSlotSummary
+          enableLoadoutSelect
+          enableSlotDragAndDrop
+          isDragActive
+          onSelect={vi.fn()}
+          predictedDropTarget={predictedDropTarget}
+          previewMode='expanded'
+          slot={slot}
+          team={team}
+        />
+      </ul>
+    </DndContext>,
+  )
+
+  const slotSummary = screen.getByLabelText(/slot 1, feedback awakener/i)
+  const covenantButton = screen.getByRole('button', {name: /edit feedback team slot 1 covenant/i})
+  const wheelButtons = screen.getAllByRole('button', {name: /edit wheel/i})
+
+  return {covenantButton, slotSummary, wheelButtons}
 }
 
 function WindowedPickerHarness({
@@ -757,6 +850,48 @@ describe('BuilderV2Page', () => {
     })
 
     expect(screen.queryByRole('button', {name: /drag team 1 to reorder/i})).not.toBeInTheDocument()
+  })
+
+  it('highlights only the effective team-management covenant target during drag feedback', () => {
+    const {covenantButton, slotSummary, wheelButtons} = renderTeamManagementFeedbackTarget({
+      kind: 'team-management-covenant',
+      teamId: 'team-feedback',
+      slotId: 'slot-1',
+    })
+
+    expect(covenantButton).toHaveClass('builder-v2-team-management-slot-covenant--drop-target')
+    expect(slotSummary).not.toHaveClass('builder-v2-team-management-slot--drop-target')
+    for (const wheelButton of wheelButtons) {
+      expect(wheelButton).not.toHaveClass('builder-v2-team-management-loadout-cell--drop-target')
+    }
+  })
+
+  it('highlights only the matching team-management wheel target during drag feedback', () => {
+    const {covenantButton, slotSummary, wheelButtons} = renderTeamManagementFeedbackTarget({
+      kind: 'team-management-wheel',
+      teamId: 'team-feedback',
+      slotId: 'slot-1',
+      wheelIndex: 1,
+    })
+
+    expect(wheelButtons[0]).not.toHaveClass('builder-v2-team-management-loadout-cell--drop-target')
+    expect(wheelButtons[1]).toHaveClass('builder-v2-team-management-loadout-cell--drop-target')
+    expect(covenantButton).not.toHaveClass('builder-v2-team-management-slot-covenant--drop-target')
+    expect(slotSummary).not.toHaveClass('builder-v2-team-management-slot--drop-target')
+  })
+
+  it('highlights only the broad team-management slot target during drag feedback', () => {
+    const {covenantButton, slotSummary, wheelButtons} = renderTeamManagementFeedbackTarget({
+      kind: 'team-management-slot',
+      teamId: 'team-feedback',
+      slotId: 'slot-1',
+    })
+
+    expect(slotSummary).toHaveClass('builder-v2-team-management-slot--drop-target')
+    expect(covenantButton).not.toHaveClass('builder-v2-team-management-slot-covenant--drop-target')
+    for (const wheelButton of wheelButtons) {
+      expect(wheelButton).not.toHaveClass('builder-v2-team-management-loadout-cell--drop-target')
+    }
   })
 
   it('switches teams through the adaptive compact team rail', () => {
@@ -1409,10 +1544,10 @@ describe('BuilderV2Page', () => {
     expect(
       within(lineup).queryByRole('heading', {name: /slot 1 · awakener/i}),
     ).not.toBeInTheDocument()
-    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
+    expect(
+      within(lineup).queryByRole('tablist', {name: /picker categories/i}),
+    ).not.toBeInTheDocument()
+    expect(within(lineup).getByRole('searchbox', {name: /search awakeners/i})).toBeInTheDocument()
     expect(within(lineup).getByRole('button', {name: /^select slot 1 awakener$/i})).toHaveAttribute(
       'aria-current',
       'step',
@@ -1422,10 +1557,7 @@ describe('BuilderV2Page', () => {
 
     expect(within(lineup).getByText(/step 2 \/ 17/i)).toBeInTheDocument()
     expect(within(lineup).getByText(/slot 1 · wheel 1/i)).toBeInTheDocument()
-    expect(within(lineup).getByRole('tab', {name: /^wheels$/i})).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
+    expect(within(lineup).getByRole('searchbox', {name: /search wheels/i})).toBeInTheDocument()
     const slotControls = within(lineup).getByRole('region', {
       name: /quick lineup slot controls/i,
     })
@@ -1440,10 +1572,7 @@ describe('BuilderV2Page', () => {
 
     expect(within(lineup).getByText(/step 5 \/ 17/i)).toBeInTheDocument()
     expect(within(lineup).getByText(/slot 2 · awakener/i)).toBeInTheDocument()
-    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
+    expect(within(lineup).getByRole('searchbox', {name: /search awakeners/i})).toBeInTheDocument()
     expect(within(lineup).getByRole('button', {name: /^select slot 2 awakener$/i})).toHaveAttribute(
       'aria-current',
       'step',
@@ -1511,23 +1640,26 @@ describe('BuilderV2Page', () => {
     ).toBeInTheDocument()
     expect(within(overviewSlots[0]).queryByText(/^slot 1$/i)).not.toBeInTheDocument()
     expect(
-      within(overviewSlots[0]).getByRole('button', {
+      within(overviewSlots[0]).queryByRole('button', {
         name: /^select slot 1 awakener before wheel 1$/i,
       }),
-    ).toBeInTheDocument()
+    ).not.toBeInTheDocument()
     expect(
-      within(overviewSlots[0]).getByRole('button', {
+      within(overviewSlots[0]).queryByRole('button', {
         name: /^select slot 1 awakener before wheel 2$/i,
       }),
-    ).toBeInTheDocument()
+    ).not.toBeInTheDocument()
     expect(
-      within(overviewSlots[0]).getByRole('button', {
+      within(overviewSlots[0]).queryByRole('button', {
         name: /^select slot 1 awakener before covenant$/i,
       }),
-    ).toBeInTheDocument()
+    ).not.toBeInTheDocument()
+    expect(
+      overviewSlots[0].querySelectorAll('.builder-v2-mobile-lineup-gear-button--inert'),
+    ).toHaveLength(3)
   })
 
-  it('routes empty mobile quick lineup gear targets back to their awakener slot', () => {
+  it('keeps empty mobile quick lineup gear cells decorative while the slot card selects awakener', () => {
     resizeBuilderV2Viewport(390)
     render(<BuilderV2Page />)
 
@@ -1540,32 +1672,39 @@ describe('BuilderV2Page', () => {
     const overviewSlots = within(overview).getAllByRole('listitem', {
       name: /slot \d quick overview/i,
     })
+    expect(
+      within(overviewSlots[1]).queryByRole('button', {
+        name: /^select slot 2 awakener before wheel 1$/i,
+      }),
+    ).not.toBeInTheDocument()
+    expect(
+      within(overviewSlots[1]).queryByRole('button', {
+        name: /^select slot 2 awakener before covenant$/i,
+      }),
+    ).not.toBeInTheDocument()
+    expect(
+      overviewSlots[1].querySelectorAll('.builder-v2-mobile-lineup-gear-button--inert'),
+    ).toHaveLength(3)
 
     fireEvent.click(
       within(overviewSlots[1]).getByRole('button', {
-        name: /^select slot 2 awakener before wheel 1$/i,
+        name: /^select slot 2$/i,
       }),
     )
 
     expect(within(lineup).getByText(/step 5 \/ 17/i)).toBeInTheDocument()
     expect(within(lineup).getByText(/slot 2 · awakener/i)).toBeInTheDocument()
-    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
+    expect(within(lineup).getByRole('searchbox', {name: /search awakeners/i})).toBeInTheDocument()
 
     fireEvent.click(
       within(overviewSlots[2]).getByRole('button', {
-        name: /^select slot 3 awakener before covenant$/i,
+        name: /^select slot 3$/i,
       }),
     )
 
     expect(within(lineup).getByText(/step 9 \/ 17/i)).toBeInTheDocument()
     expect(within(lineup).getByText(/slot 3 · awakener/i)).toBeInTheDocument()
-    expect(within(lineup).getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute(
-      'aria-selected',
-      'true',
-    )
+    expect(within(lineup).getByRole('searchbox', {name: /search awakeners/i})).toBeInTheDocument()
   })
 
   it('opens the awakener picker when an empty mobile gear slot is tapped', () => {
@@ -1578,7 +1717,43 @@ describe('BuilderV2Page', () => {
     expect(screen.getByRole('tab', {name: /^awakeners$/i})).toHaveAttribute('aria-selected', 'true')
   })
 
-  it('places mobile quick lineup picker filters near search and tabs below the results', () => {
+  it('opens the wheel picker when a filled mobile slot wheel target is tapped', () => {
+    resizeBuilderV2Viewport(390)
+    render(<BuilderV2Page />)
+
+    fireEvent.click(screen.getByRole('button', {name: /^select slot 1$/i}))
+    const awakenerPicker = screen.getByRole('dialog', {name: /team 1 · slot 1 · awakener/i})
+    fireEvent.click(within(awakenerPicker).getByRole('button', {name: /goliath, level \d+/i}))
+
+    const activeSlots = screen.getByLabelText(/builder v2 active team slots/i)
+    const slot1 = within(activeSlots).getByText('Slot 1').closest('article')
+    if (!slot1) {
+      throw new Error('Expected slot 1 article to render')
+    }
+    fireEvent.click(within(slot1).getByRole('button', {name: /^select slot 1 wheel 1$/i}))
+
+    expect(screen.getByRole('dialog', {name: /team 1 · slot 1 · wheel 1/i})).toBeInTheDocument()
+    expect(screen.getByRole('tab', {name: /^wheels$/i})).toHaveAttribute('aria-selected', 'true')
+  })
+
+  it('restores focus to the mobile picker trigger after Escape closes the dialog', () => {
+    resizeBuilderV2Viewport(390)
+    render(<BuilderV2Page />)
+
+    const trigger = screen.getByRole('button', {name: /^select slot 2 wheel 1$/i})
+    fireEvent.click(trigger)
+
+    expect(screen.getByRole('dialog', {name: /team 1 · slot 2 · awakener/i})).toBeInTheDocument()
+
+    fireEvent.keyDown(document, {key: 'Escape'})
+
+    expect(
+      screen.queryByRole('dialog', {name: /team 1 · slot 2 · awakener/i}),
+    ).not.toBeInTheDocument()
+    expect(trigger).toHaveFocus()
+  })
+
+  it('places mobile quick lineup picker filters near search without category tabs', () => {
     resizeBuilderV2Viewport(390)
     render(<BuilderV2Page />)
 
@@ -1588,15 +1763,17 @@ describe('BuilderV2Page', () => {
     const picker = within(lineup).getByRole('region', {name: /slot 1 · awakener/i})
     const toolbar = picker.querySelector('.builder-v2-picker-toolbar')
     const filters = picker.querySelector('.builder-v2-picker-filter-stack')
-    const results = picker.querySelector('.builder-v2-picker-results')
+    const results = within(picker).getByRole('region', {name: /awakeners results/i})
     const bottomControls = picker.querySelector('.builder-v2-picker-bottom-controls')
-    const tabs = within(picker).getByRole('tablist', {name: /picker categories/i})
 
     expect(toolbar).not.toBeNull()
     expect(filters).not.toBeNull()
     expect(results).not.toBeNull()
-    expect(bottomControls).not.toBeNull()
-    if (!toolbar || !filters || !results || !bottomControls) {
+    expect(bottomControls).toBeNull()
+    expect(
+      within(picker).queryByRole('tablist', {name: /picker categories/i}),
+    ).not.toBeInTheDocument()
+    if (!toolbar || !filters) {
       throw new Error('Expected quick lineup picker controls and results')
     }
     expect(
@@ -1605,12 +1782,6 @@ describe('BuilderV2Page', () => {
     expect(
       Boolean(filters.compareDocumentPosition(results) & Node.DOCUMENT_POSITION_FOLLOWING),
     ).toBe(true)
-    expect(
-      Boolean(results.compareDocumentPosition(bottomControls) & Node.DOCUMENT_POSITION_FOLLOWING),
-    ).toBe(true)
-    expect(Boolean(results.compareDocumentPosition(tabs) & Node.DOCUMENT_POSITION_FOLLOWING)).toBe(
-      true,
-    )
   })
 
   it('selects a slot and assigns an awakener there', () => {

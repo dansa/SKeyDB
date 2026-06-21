@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import {validateBuilderTeamsStrict} from './team-validation'
+import {validateBuilderTeams, validateBuilderTeamsStrict} from './team-validation'
 import type {Team} from './types'
 
 function makeTeam(name: string, awakenerId: string): Team {
@@ -26,6 +26,24 @@ describe('team validation', () => {
     expect(result.isValid).toBe(false)
     expect(result.violations).toEqual(
       expect.arrayContaining([expect.objectContaining({code: 'DUPLICATE_AWAKENER'})]),
+    )
+  })
+
+  it('rejects duplicate wheels inside one loadout when duplicate usage is allowed', () => {
+    const team = makeTeam('Support', 'awakener-0021')
+    team.slots[0] = {
+      ...team.slots[0],
+      isSupport: true,
+      wheels: ['wheel-0050', 'wheel-0050'],
+    }
+
+    const result = validateBuilderTeams([team], {allowDupes: true})
+
+    expect(result.isValid).toBe(false)
+    expect(result.violations).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({code: 'DUPLICATE_WHEEL', value: 'wheel-0050'}),
+      ]),
     )
   })
 })

@@ -238,6 +238,20 @@ describe('builder team state', () => {
     ])
   })
 
+  it('does not assign the same wheel to both wheel sockets in one slot', () => {
+    const slots = teamSlotsForTests()
+    const withWheel = assignWheelToSlot(slots, 'slot-2', 0, 'demo-wheel')
+    const duplicate = assignWheelToSlot(withWheel.nextSlots, 'slot-2', 1, 'demo-wheel')
+
+    expect(duplicate.changed).toBe(false)
+    expect(duplicate.violation).toBe('INVALID_BUILD_RULES')
+    expect(duplicate.nextSlots).toBe(withWheel.nextSlots)
+    expect(duplicate.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([
+      'demo-wheel',
+      null,
+    ])
+  })
+
   it('blocks assigning wheels to slots without an awakener', () => {
     const slots = teamSlotsForTests()
     const result = assignWheelToSlot(slots, 'slot-3', 0, 'demo-wheel')
@@ -266,6 +280,60 @@ describe('builder team state', () => {
     expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual([
       'wheel-b',
       'wheel-a',
+    ])
+  })
+
+  it('does not swap a wheel into a slot that already carries the same wheel', () => {
+    const slots = teamSlotsForTests()
+    const preparedSlots = slots.map((slot) => {
+      if (slot.slotId === 'slot-1') {
+        return {...slot, wheels: ['wheel-a', null] as [string, null]}
+      }
+      if (slot.slotId === 'slot-2') {
+        return {...slot, wheels: ['wheel-a', null] as [string, null]}
+      }
+      return slot
+    })
+
+    const result = swapWheelAssignments(preparedSlots, 'slot-1', 0, 'slot-2', 1)
+
+    expect(result.changed).toBe(false)
+    expect(result.violation).toBe('INVALID_BUILD_RULES')
+    expect(result.nextSlots).toBe(preparedSlots)
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual([
+      'wheel-a',
+      null,
+    ])
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([
+      'wheel-a',
+      null,
+    ])
+  })
+
+  it('does not swap a target wheel back into a slot that already carries that wheel', () => {
+    const slots = teamSlotsForTests()
+    const preparedSlots = slots.map((slot) => {
+      if (slot.slotId === 'slot-1') {
+        return {...slot, wheels: ['wheel-a', 'wheel-b'] as [string, string]}
+      }
+      if (slot.slotId === 'slot-2') {
+        return {...slot, wheels: ['wheel-a', 'wheel-c'] as [string, string]}
+      }
+      return slot
+    })
+
+    const result = swapWheelAssignments(preparedSlots, 'slot-1', 1, 'slot-2', 0)
+
+    expect(result.changed).toBe(false)
+    expect(result.violation).toBe('INVALID_BUILD_RULES')
+    expect(result.nextSlots).toBe(preparedSlots)
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-1')?.wheels).toEqual([
+      'wheel-a',
+      'wheel-b',
+    ])
+    expect(result.nextSlots.find((slot) => slot.slotId === 'slot-2')?.wheels).toEqual([
+      'wheel-a',
+      'wheel-c',
     ])
   })
 

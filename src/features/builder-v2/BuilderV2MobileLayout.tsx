@@ -1,8 +1,7 @@
-import {useCallback, useRef, useState} from 'react'
+import {useCallback, useRef, useState, type ReactNode} from 'react'
 
-import {FaCaretDown, FaChevronLeft, FaChevronRight, FaXmark} from 'react-icons/fa6'
+import {FaCaretDown, FaCheck, FaChevronLeft, FaChevronRight, FaXmark} from 'react-icons/fa6'
 
-import {getRealmBadge, getRealmLabel} from '@/domain/realms'
 import {useNativeModalDialog} from '@/ui/modal/useNativeModalDialog'
 
 import type {QuickLineupStep, WheelSlotIndex} from '../builder/types'
@@ -17,6 +16,7 @@ import type {
   BuilderV2TeamSummary,
   BuilderV2TeamSummarySlot,
 } from './BuilderV2ModelTypes'
+import {BuilderV2RealmBadge} from './BuilderV2RealmBadge'
 import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 import {useStableEvent} from './useStableEvent'
@@ -43,6 +43,91 @@ interface MobileOpenPickerConfig {
   slotId: string | null
   tab: BuilderV2PickerTab
   title: string
+}
+
+type MobilePickerTargetRequest =
+  | {kind: 'slot'; slotId: string; team?: BuilderV2TeamSummary; slotLabel?: string}
+  | {kind: 'wheel'; slotId: string; wheelIndex: WheelSlotIndex}
+  | {kind: 'covenant'; slotId: string}
+  | {kind: 'posse'; team?: BuilderV2TeamSummary}
+
+type MobilePickerTargetConfig = Omit<MobileOpenPickerConfig, 'restoreTarget'>
+
+function resolveMobilePickerTarget(
+  model: BuilderV2Model,
+  request: MobilePickerTargetRequest,
+): MobilePickerTargetConfig {
+  if (request.kind === 'posse') {
+    const team = request.team
+    const teamName = team?.name ?? model.activeTeamName
+    const teamId = team?.id ?? model.activeTeamId
+    return {
+      isTargetSelected: model.activeTeamId === teamId && model.activeTeamTarget?.kind === 'posse',
+      selectTarget: () => {
+        if (model.activeTeamId !== teamId) {
+          model.setActiveTeam(teamId)
+        }
+        model.selectPosse()
+      },
+      slotId: null,
+      tab: 'posses',
+      title: `${teamName} · Posse`,
+    }
+  }
+
+  const slot = model.slots.find((candidate) => candidate.slotId === request.slotId)
+  const team = request.kind === 'slot' ? request.team : undefined
+  const teamName = team?.name ?? model.activeTeamName
+  const teamId = team?.id ?? model.activeTeamId
+  const slotLabel =
+    request.kind === 'slot' ? (request.slotLabel ?? slot?.slotLabel) : slot?.slotLabel
+  const titleFor = (target: string) =>
+    getMobileSlotPickerTitle(teamName, slotLabel ?? 'Slot', target)
+  const shouldSelectAwakenerFirst = request.kind !== 'slot' && Boolean(slot?.isEmpty)
+
+  if (request.kind === 'slot' || shouldSelectAwakenerFirst) {
+    return {
+      isTargetSelected:
+        model.activeTeamId === teamId &&
+        model.activeSelection?.kind === 'awakener' &&
+        model.activeSelection.slotId === request.slotId,
+      selectTarget: () => {
+        if (model.activeTeamId !== teamId) {
+          model.setActiveTeam(teamId)
+        }
+        model.selectAwakenerSlot(request.slotId)
+      },
+      slotId: request.slotId,
+      tab: 'awakeners',
+      title: titleFor('Awakener'),
+    }
+  }
+
+  if (request.kind === 'wheel') {
+    return {
+      isTargetSelected:
+        model.activeSelection?.kind === 'wheel' &&
+        model.activeSelection.slotId === request.slotId &&
+        model.activeSelection.wheelIndex === request.wheelIndex,
+      selectTarget: () => {
+        model.selectWheelSlot(request.slotId, request.wheelIndex)
+      },
+      slotId: request.slotId,
+      tab: 'wheels',
+      title: titleFor(`Wheel ${String(request.wheelIndex + 1)}`),
+    }
+  }
+
+  return {
+    isTargetSelected:
+      model.activeSelection?.kind === 'covenant' && model.activeSelection.slotId === request.slotId,
+    selectTarget: () => {
+      model.selectCovenantSlot(request.slotId)
+    },
+    slotId: request.slotId,
+    tab: 'covenants',
+    title: titleFor('Covenant'),
+  }
 }
 
 export function BuilderV2MobileLayout({
@@ -268,77 +353,32 @@ function MobilePickerDialog({
     ? (model.slots.find((slot) => slot.slotId === mobilePicker.slotId) ?? null)
     : null
   const updateSlotPickerTarget = useCallback(
-    (slot: BuilderV2SlotView, tab: BuilderV2PickerTab, targetLabel: string) => {
-      model.setPickerTab(tab)
-      onUpdateMobilePickerTarget(
-        slot.slotId,
-        tab,
-        getMobileSlotPickerTitle(model.activeTeamName, slot.slotLabel, targetLabel),
-      )
+    (target: MobilePickerTargetConfig) => {
+      if (!target.isTargetSelected) {
+        target.selectTarget()
+      }
+      model.setPickerTab(target.tab)
+      if (target.slotId) {
+        onUpdateMobilePickerTarget(target.slotId, target.tab, target.title)
+      }
     },
     [model, onUpdateMobilePickerTarget],
   )
   const selectSlotAwakenerTarget = useCallback(
     (slotId: string) => {
-      const slot = model.slots.find((candidate) => candidate.slotId === slotId)
-      if (!slot) {
-        return
-      }
-
-      const isAwakenerTargetSelected =
-        model.activeSelection?.kind === 'awakener' && model.activeSelection.slotId === slotId
-      if (!isAwakenerTargetSelected) {
-        model.selectAwakenerSlot(slotId)
-      }
-      updateSlotPickerTarget(slot, 'awakeners', 'Awakener')
+      updateSlotPickerTarget(resolveMobilePickerTarget(model, {kind: 'slot', slotId}))
     },
     [model, updateSlotPickerTarget],
   )
   const selectSlotWheelTarget = useCallback(
     (slotId: string, wheelIndex: WheelSlotIndex) => {
-      const slot = model.slots.find((candidate) => candidate.slotId === slotId)
-      if (!slot) {
-        return
-      }
-
-      if (slot.isEmpty) {
-        const isAwakenerTargetSelected =
-          model.activeSelection?.kind === 'awakener' && model.activeSelection.slotId === slotId
-        if (!isAwakenerTargetSelected) {
-          model.selectAwakenerSlot(slotId)
-        }
-        updateSlotPickerTarget(slot, 'awakeners', 'Awakener')
-        return
-      }
-
-      if (!slot.wheelSlots[wheelIndex].isSelected) {
-        model.selectWheelSlot(slotId, wheelIndex)
-      }
-      updateSlotPickerTarget(slot, 'wheels', `Wheel ${String(wheelIndex + 1)}`)
+      updateSlotPickerTarget(resolveMobilePickerTarget(model, {kind: 'wheel', slotId, wheelIndex}))
     },
     [model, updateSlotPickerTarget],
   )
   const selectSlotCovenantTarget = useCallback(
     (slotId: string) => {
-      const slot = model.slots.find((candidate) => candidate.slotId === slotId)
-      if (!slot) {
-        return
-      }
-
-      if (slot.isEmpty) {
-        const isAwakenerTargetSelected =
-          model.activeSelection?.kind === 'awakener' && model.activeSelection.slotId === slotId
-        if (!isAwakenerTargetSelected) {
-          model.selectAwakenerSlot(slotId)
-        }
-        updateSlotPickerTarget(slot, 'awakeners', 'Awakener')
-        return
-      }
-
-      if (!slot.isCovenantSelected) {
-        model.selectCovenantSlot(slotId)
-      }
-      updateSlotPickerTarget(slot, 'covenants', 'Covenant')
+      updateSlotPickerTarget(resolveMobilePickerTarget(model, {kind: 'covenant', slotId}))
     },
     [model, updateSlotPickerTarget],
   )
@@ -484,7 +524,8 @@ function MobileQuickLineupBuilder({
               onClick={model.finishQuickLineup}
               type='button'
             >
-              Finish
+              <FaCheck aria-hidden className='builder-v2-mobile-lineup-header-action-icon' />
+              <span>Finish</span>
             </button>
             <button
               aria-label='Cancel quick team lineup'
@@ -492,7 +533,8 @@ function MobileQuickLineupBuilder({
               onClick={model.cancelQuickLineup}
               type='button'
             >
-              Cancel
+              <FaXmark aria-hidden className='builder-v2-mobile-lineup-header-action-icon' />
+              <span>Cancel</span>
             </button>
           </div>
         </div>
@@ -541,6 +583,7 @@ function MobileQuickLineupBuilder({
 
       <section className='builder-v2-mobile-lineup-picker' aria-label={pickerTitle}>
         <BuilderV2PickerContent
+          categoryTabs='hidden'
           controlsPlacement='bottom'
           onAssignAwakener={onAssignAwakener}
           onAssignCovenant={onAssignCovenant}
@@ -651,32 +694,30 @@ function BuilderV2MobileQuickLineupOverview({
 
             <div className='builder-v2-mobile-lineup-card-gear'>
               {slot.wheelSlots.map((wheelSlot) => {
-                const wheelNumber = String(wheelSlot.wheelIndex + 1)
-                const wheelActionLabel = slot.isEmpty
-                  ? `Select ${slot.slotLabel} awakener before Wheel ${wheelNumber}`
-                  : `Select ${wheelSlot.label}`
-                const wheelTitle = slot.isEmpty
-                  ? `${slot.slotLabel}: select an awakener before Wheel ${wheelNumber}`
-                  : (wheelSlot.wheelName ?? wheelSlot.label)
+                if (slot.isEmpty) {
+                  return (
+                    <BuilderV2MobileOverviewGearCell
+                      ariaLabel={wheelSlot.label}
+                      isInert
+                      key={`${slot.slotId}-lineup-wheel-${String(wheelSlot.wheelIndex)}`}
+                    >
+                      <span aria-hidden>+</span>
+                    </BuilderV2MobileOverviewGearCell>
+                  )
+                }
+
+                const wheelActionLabel = `Select ${wheelSlot.label}`
+                const wheelTitle = wheelSlot.wheelName ?? wheelSlot.label
 
                 return (
-                  <button
-                    aria-label={wheelActionLabel}
-                    aria-pressed={wheelSlot.isSelected}
-                    className={`builder-v2-mobile-lineup-gear-button ${
-                      wheelSlot.isSelected ? 'builder-v2-mobile-lineup-gear-button--active' : ''
-                    }`}
+                  <BuilderV2MobileOverviewGearCell
+                    ariaLabel={wheelActionLabel}
+                    isActive={wheelSlot.isSelected}
                     key={`${slot.slotId}-lineup-wheel-${String(wheelSlot.wheelIndex)}`}
                     onClick={() => {
-                      if (slot.isEmpty) {
-                        onSelectSlot(slot.slotId)
-                        return
-                      }
-
                       onSelectWheelSlot(slot.slotId, wheelSlot.wheelIndex)
                     }}
                     title={wheelTitle}
-                    type='button'
                   >
                     {(wheelSlot.miniAssetSrc ?? wheelSlot.assetSrc) ? (
                       <img
@@ -688,46 +729,108 @@ function BuilderV2MobileQuickLineupOverview({
                     ) : (
                       <span aria-hidden>+</span>
                     )}
-                  </button>
+                  </BuilderV2MobileOverviewGearCell>
                 )
               })}
 
-              <button
-                aria-label={
-                  slot.isEmpty
-                    ? `Select ${slot.slotLabel} awakener before Covenant`
-                    : `Select ${slot.slotLabel} Covenant`
-                }
-                aria-pressed={slot.isCovenantSelected}
-                className={`builder-v2-mobile-lineup-gear-button ${
-                  slot.isCovenantSelected ? 'builder-v2-mobile-lineup-gear-button--active' : ''
-                }`}
-                onClick={() => {
-                  if (slot.isEmpty) {
-                    onSelectSlot(slot.slotId)
-                    return
-                  }
-
-                  onSelectCovenantSlot(slot.slotId)
-                }}
-                title={
-                  slot.isEmpty
-                    ? `${slot.slotLabel}: select an awakener before Covenant`
-                    : (slot.covenantName ?? `${slot.slotLabel} Covenant`)
-                }
-                type='button'
-              >
-                {slot.covenantAssetSrc ? (
-                  <img alt='' decoding='async' draggable={false} src={slot.covenantAssetSrc} />
-                ) : (
+              {slot.isEmpty ? (
+                <BuilderV2MobileOverviewGearCell ariaLabel={`${slot.slotLabel} Covenant`} isInert>
                   <span aria-hidden>+</span>
-                )}
-              </button>
+                </BuilderV2MobileOverviewGearCell>
+              ) : (
+                <BuilderV2MobileOverviewGearCell
+                  ariaLabel={`Select ${slot.slotLabel} Covenant`}
+                  isActive={slot.isCovenantSelected}
+                  onClick={() => {
+                    onSelectCovenantSlot(slot.slotId)
+                  }}
+                  title={slot.covenantName ?? `${slot.slotLabel} Covenant`}
+                >
+                  {slot.covenantAssetSrc ? (
+                    <img alt='' decoding='async' draggable={false} src={slot.covenantAssetSrc} />
+                  ) : (
+                    <span aria-hidden>+</span>
+                  )}
+                </BuilderV2MobileOverviewGearCell>
+              )}
             </div>
           </li>
         )
       })}
     </ul>
+  )
+}
+
+function BuilderV2MobileOverviewGearCell({
+  ariaLabel,
+  children,
+  isActive,
+  isInert,
+  onClick,
+  title,
+}: {
+  ariaLabel: string
+  children: ReactNode
+  isActive?: boolean
+  isInert?: boolean
+  onClick?: () => void
+  title?: string
+}) {
+  if (isInert) {
+    return (
+      <span
+        aria-hidden='true'
+        className='builder-v2-mobile-lineup-gear-button builder-v2-mobile-lineup-gear-button--inert'
+      >
+        {children}
+      </span>
+    )
+  }
+
+  return (
+    <button
+      aria-label={ariaLabel}
+      aria-pressed={isActive}
+      className={`builder-v2-mobile-lineup-gear-button ${
+        isActive ? 'builder-v2-mobile-lineup-gear-button--active' : ''
+      }`}
+      onClick={onClick}
+      title={title}
+      type='button'
+    >
+      {children}
+    </button>
+  )
+}
+
+function BuilderV2MobileLineupTargetButton({
+  ariaLabel,
+  children,
+  className,
+  isActive,
+  isCurrentStep,
+  onClick,
+}: {
+  ariaLabel: string
+  children: ReactNode
+  className?: string
+  isActive?: boolean
+  isCurrentStep: boolean
+  onClick: () => void
+}) {
+  return (
+    <button
+      aria-current={isCurrentStep ? 'step' : undefined}
+      aria-label={ariaLabel}
+      aria-pressed={isActive}
+      className={`builder-v2-mobile-lineup-target-button ${
+        className ? `${className} ` : ''
+      }${isActive ? 'builder-v2-mobile-lineup-target-button--active' : ''}`}
+      onClick={onClick}
+      type='button'
+    >
+      {children}
+    </button>
   )
 }
 
@@ -834,17 +937,14 @@ function BuilderV2MobileSlotTargetPanel({
         </button>
       ) : (
         <div className='builder-v2-mobile-lineup-target-row'>
-          <button
-            aria-current={isAwakenerActive ? 'step' : undefined}
-            aria-label={`Select ${activeSlot.slotLabel} Awakener`}
-            aria-pressed={isAwakenerActive}
-            className={`builder-v2-mobile-lineup-target-button builder-v2-mobile-lineup-target-button--avatar ${
-              isAwakenerActive ? 'builder-v2-mobile-lineup-target-button--active' : ''
-            }`}
+          <BuilderV2MobileLineupTargetButton
+            ariaLabel={`Select ${activeSlot.slotLabel} Awakener`}
+            className='builder-v2-mobile-lineup-target-button--avatar'
+            isActive={isAwakenerActive}
+            isCurrentStep={isAwakenerActive}
             onClick={() => {
               onSelectSlot(activeSlot.slotId)
             }}
-            type='button'
           >
             <span className='builder-v2-mobile-lineup-target-avatar' aria-hidden>
               {avatarSrc ? (
@@ -853,7 +953,7 @@ function BuilderV2MobileSlotTargetPanel({
                 <span>{String(activeSlot.slotNumber)}</span>
               )}
             </span>
-          </button>
+          </BuilderV2MobileLineupTargetButton>
 
           {activeSlot.wheelSlots.map((wheelSlot) => {
             const isWheelActive =
@@ -863,18 +963,14 @@ function BuilderV2MobileSlotTargetPanel({
             const wheelNumber = String(wheelSlot.wheelIndex + 1)
 
             return (
-              <button
-                aria-current={isWheelActive ? 'step' : undefined}
-                aria-label={`Select ${activeSlot.slotLabel} Wheel ${wheelNumber}`}
-                aria-pressed={isWheelActive}
-                className={`builder-v2-mobile-lineup-target-button ${
-                  isWheelActive ? 'builder-v2-mobile-lineup-target-button--active' : ''
-                }`}
+              <BuilderV2MobileLineupTargetButton
+                ariaLabel={`Select ${activeSlot.slotLabel} Wheel ${wheelNumber}`}
+                isActive={isWheelActive}
+                isCurrentStep={isWheelActive}
                 key={`${activeSlot.slotId}-lineup-control-wheel-${String(wheelSlot.wheelIndex)}`}
                 onClick={() => {
                   onSelectWheelSlot(activeSlot.slotId, wheelSlot.wheelIndex)
                 }}
-                type='button'
               >
                 <span className='builder-v2-mobile-lineup-target-icon' aria-hidden>
                   {(wheelSlot.miniAssetSrc ?? wheelSlot.assetSrc) ? (
@@ -889,21 +985,17 @@ function BuilderV2MobileSlotTargetPanel({
                   )}
                 </span>
                 <span className='builder-v2-mobile-lineup-target-label'>Wheel {wheelNumber}</span>
-              </button>
+              </BuilderV2MobileLineupTargetButton>
             )
           })}
 
-          <button
-            aria-current={isCovenantActive ? 'step' : undefined}
-            aria-label={`Select ${activeSlot.slotLabel} Covenant`}
-            aria-pressed={isCovenantActive}
-            className={`builder-v2-mobile-lineup-target-button ${
-              isCovenantActive ? 'builder-v2-mobile-lineup-target-button--active' : ''
-            }`}
+          <BuilderV2MobileLineupTargetButton
+            ariaLabel={`Select ${activeSlot.slotLabel} Covenant`}
+            isActive={isCovenantActive}
+            isCurrentStep={isCovenantActive}
             onClick={() => {
               onSelectCovenantSlot(activeSlot.slotId)
             }}
-            type='button'
           >
             <span className='builder-v2-mobile-lineup-target-icon' aria-hidden>
               {activeSlot.covenantAssetSrc ? (
@@ -913,7 +1005,7 @@ function BuilderV2MobileSlotTargetPanel({
               )}
             </span>
             <span className='builder-v2-mobile-lineup-target-label'>Covenant</span>
-          </button>
+          </BuilderV2MobileLineupTargetButton>
         </div>
       )}
     </section>
@@ -955,34 +1047,19 @@ function MobileTeamBuilder({
     activateTeamAt(nextIndex)
   }
 
-  const getSlotTitle = (slotId: string, target: string) => {
-    const slot = model.slots.find((candidate) => candidate.slotId === slotId)
-    return `${model.activeTeamName} · ${slot?.slotLabel ?? 'Slot'} · ${target}`
-  }
-
-  const getSlotView = (slotId: string) =>
-    model.slots.find((candidate) => candidate.slotId === slotId)
-
   const openTeamListSlotPicker = (
     team: BuilderV2TeamSummary,
     slot: BuilderV2TeamSummarySlot,
     restoreTarget: HTMLElement | null,
   ) => {
     onOpenPicker({
-      isTargetSelected:
-        model.activeTeamId === team.id &&
-        model.activeSelection?.kind === 'awakener' &&
-        model.activeSelection.slotId === slot.slotId,
+      ...resolveMobilePickerTarget(model, {
+        kind: 'slot',
+        slotId: slot.slotId,
+        slotLabel: slot.label,
+        team,
+      }),
       restoreTarget,
-      selectTarget: () => {
-        if (model.activeTeamId !== team.id) {
-          model.setActiveTeam(team.id)
-        }
-        model.selectAwakenerSlot(slot.slotId)
-      },
-      slotId: slot.slotId,
-      tab: 'awakeners',
-      title: getMobileSlotPickerTitle(team.name, slot.label, 'Awakener'),
     })
   }
 
@@ -991,17 +1068,8 @@ function MobileTeamBuilder({
     restoreTarget: HTMLElement | null,
   ) => {
     onOpenPicker({
-      isTargetSelected: model.activeTeamId === team.id && model.activeTeamTarget?.kind === 'posse',
+      ...resolveMobilePickerTarget(model, {kind: 'posse', team}),
       restoreTarget,
-      selectTarget: () => {
-        if (model.activeTeamId !== team.id) {
-          model.setActiveTeam(team.id)
-        }
-        model.selectPosse()
-      },
-      slotId: null,
-      tab: 'posses',
-      title: `${team.name} · Posse`,
     })
   }
 
@@ -1082,12 +1150,8 @@ function MobileTeamBuilder({
           onClearPosse={model.clearPosse}
           onSelectPosse={() => {
             onOpenPicker({
-              isTargetSelected: model.activeTeamTarget?.kind === 'posse',
+              ...resolveMobilePickerTarget(model, {kind: 'posse'}),
               restoreTarget: getCurrentFocusRestoreTarget(),
-              selectTarget: model.selectPosse,
-              slotId: null,
-              tab: 'posses',
-              title: `${model.activeTeamName} · Posse`,
             })
           }}
         />
@@ -1098,73 +1162,21 @@ function MobileTeamBuilder({
           onClearWheel={model.clearWheel}
           onRemoveAwakener={model.removeAwakener}
           onSelectCovenantSlot={(slotId, restoreTarget) => {
-            const slot = getSlotView(slotId)
-            const shouldSelectAwakenerFirst = Boolean(slot?.isEmpty)
-            const targetTab: BuilderV2PickerTab = shouldSelectAwakenerFirst
-              ? 'awakeners'
-              : 'covenants'
-
             onOpenPicker({
-              isTargetSelected: shouldSelectAwakenerFirst
-                ? model.activeSelection?.kind === 'awakener' &&
-                  model.activeSelection.slotId === slotId
-                : model.activeSelection?.kind === 'covenant' &&
-                  model.activeSelection.slotId === slotId,
+              ...resolveMobilePickerTarget(model, {kind: 'covenant', slotId}),
               restoreTarget,
-              selectTarget: () => {
-                if (shouldSelectAwakenerFirst) {
-                  model.selectAwakenerSlot(slotId)
-                  return
-                }
-
-                model.selectCovenantSlot(slotId)
-              },
-              slotId,
-              tab: targetTab,
-              title: getSlotTitle(slotId, shouldSelectAwakenerFirst ? 'Awakener' : 'Covenant'),
             })
           }}
           onSelectSlot={(slotId, restoreTarget) => {
             onOpenPicker({
-              isTargetSelected:
-                model.activeSelection?.kind === 'awakener' &&
-                model.activeSelection.slotId === slotId,
+              ...resolveMobilePickerTarget(model, {kind: 'slot', slotId}),
               restoreTarget,
-              selectTarget: () => {
-                model.selectAwakenerSlot(slotId)
-              },
-              slotId,
-              tab: 'awakeners',
-              title: getSlotTitle(slotId, 'Awakener'),
             })
           }}
           onSelectWheelSlot={(slotId, wheelIndex, restoreTarget) => {
-            const slot = getSlotView(slotId)
-            const shouldSelectAwakenerFirst = Boolean(slot?.isEmpty)
-            const targetTab: BuilderV2PickerTab = shouldSelectAwakenerFirst ? 'awakeners' : 'wheels'
-
             onOpenPicker({
-              isTargetSelected: shouldSelectAwakenerFirst
-                ? model.activeSelection?.kind === 'awakener' &&
-                  model.activeSelection.slotId === slotId
-                : model.activeSelection?.kind === 'wheel' &&
-                  model.activeSelection.slotId === slotId &&
-                  model.activeSelection.wheelIndex === wheelIndex,
+              ...resolveMobilePickerTarget(model, {kind: 'wheel', slotId, wheelIndex}),
               restoreTarget,
-              selectTarget: () => {
-                if (shouldSelectAwakenerFirst) {
-                  model.selectAwakenerSlot(slotId)
-                  return
-                }
-
-                model.selectWheelSlot(slotId, wheelIndex)
-              },
-              slotId,
-              tab: targetTab,
-              title: getSlotTitle(
-                slotId,
-                shouldSelectAwakenerFirst ? 'Awakener' : `Wheel ${String(wheelIndex + 1)}`,
-              ),
             })
           }}
           quickLineupActive={Boolean(model.quickLineupSession)}
@@ -1260,18 +1272,13 @@ function MobileLineupRealmBadge({
 }: {
   realm: NonNullable<BuilderV2SlotView['awakener']>['realm']
 }) {
-  const realmBadge = getRealmBadge(realm)
-  const realmLabel = getRealmLabel(realm)
-
-  if (!realmBadge) {
-    return <span className='builder-v2-mobile-lineup-realm-text'>{realmLabel.slice(0, 1)}</span>
-  }
-
   return (
-    <span className='builder-v2-mobile-lineup-realm-badge'>
-      <img alt='' draggable={false} src={realmBadge} />
-      <span className='sr-only'>{realmLabel}</span>
-    </span>
+    <BuilderV2RealmBadge
+      badgeClassName='builder-v2-mobile-lineup-realm-badge'
+      fallbackClassName='builder-v2-mobile-lineup-realm-text'
+      fallbackLabel={(realmLabel) => realmLabel.slice(0, 1)}
+      realm={realm}
+    />
   )
 }
 

@@ -36,7 +36,11 @@ import type {
   BuilderV2TeamSummary,
   BuilderV2WheelOption,
 } from './BuilderV2ModelTypes'
-import {filterBuilderV2TeamSortDroppables} from './useBuilderV2Dnd'
+import {
+  filterBuilderV2LoadoutDroppables,
+  filterBuilderV2TeamSortDroppables,
+  orderBuilderV2LoadoutCollisions,
+} from './useBuilderV2Dnd'
 
 describe('builder-v2 DnD payload creators', () => {
   it('creates normalized picker payloads from option DTOs', () => {
@@ -319,6 +323,125 @@ describe('builder-v2 DnD collision helpers', () => {
         (droppable) => droppable.id,
       ),
     ).toEqual(['team-1', 'team-2'])
+  })
+
+  it('filters loadout droppables to semantic Builder V2 target ids', () => {
+    const droppables = [
+      {id: 'team-1'},
+      {id: makeBuilderV2TeamManagementSlotDndId('team-2', 'slot-1')},
+      {id: makeBuilderV2TeamManagementWheelDndId('team-2', 'slot-1', 0)},
+      {id: makeBuilderV2TeamManagementCovenantDndId('team-2', 'slot-1')},
+      {id: makeBuilderV2PickerDndId()},
+      {id: makeBuilderV2SlotDndId('slot-1')},
+      {id: 2},
+    ]
+
+    expect(filterBuilderV2LoadoutDroppables(droppables).map((droppable) => droppable.id)).toEqual([
+      makeBuilderV2TeamManagementSlotDndId('team-2', 'slot-1'),
+      makeBuilderV2TeamManagementWheelDndId('team-2', 'slot-1', 0),
+      makeBuilderV2TeamManagementCovenantDndId('team-2', 'slot-1'),
+      makeBuilderV2PickerDndId(),
+      makeBuilderV2SlotDndId('slot-1'),
+    ])
+  })
+
+  it('keeps sortable row ids from stealing team-management wheel collisions', () => {
+    const payload = createRequiredTeamManagementWheelDragPayload(
+      createTeamSummary({
+        slots: [
+          createTeamSummarySlot({
+            wheelCount: 1,
+            wheels: [createTeamSummaryWheel('wheel-1', 'First Wheel'), null],
+          }),
+        ],
+      }),
+      createTeamSummarySlot({
+        wheelCount: 1,
+        wheels: [createTeamSummaryWheel('wheel-1', 'First Wheel'), null],
+      }),
+      0,
+    )
+    const filteredDroppables = filterBuilderV2LoadoutDroppables([
+      {id: 'team-2'},
+      {id: makeBuilderV2TeamManagementSlotDndId('team-2', 'slot-4')},
+      {id: makeBuilderV2TeamManagementWheelDndId('team-2', 'slot-4', 1)},
+    ])
+    const orderedCollisions = orderBuilderV2LoadoutCollisions(
+      [
+        {id: makeBuilderV2TeamManagementSlotDndId('team-2', 'slot-4')},
+        {id: makeBuilderV2TeamManagementWheelDndId('team-2', 'slot-4', 1)},
+      ],
+      payload,
+    )
+
+    expect(filteredDroppables.map((droppable) => droppable.id)).toEqual([
+      makeBuilderV2TeamManagementSlotDndId('team-2', 'slot-4'),
+      makeBuilderV2TeamManagementWheelDndId('team-2', 'slot-4', 1),
+    ])
+    expect(orderedCollisions.map((collision) => collision.id)).toEqual([
+      makeBuilderV2TeamManagementWheelDndId('team-2', 'slot-4', 1),
+      makeBuilderV2TeamManagementSlotDndId('team-2', 'slot-4'),
+    ])
+  })
+
+  it('prefers the nested target that matches the loadout payload kind', () => {
+    const slot = createSlotView()
+    const wheelPayload = createRequiredTeamWheelDragPayload(slot, 0)
+    const covenantPayload = createRequiredTeamCovenantDragPayload(slot)
+    const awakenerPayload = createRequiredTeamAwakenerDragPayload(slot)
+    const collisions = [
+      {id: makeBuilderV2CovenantDndId('slot-2')},
+      {id: makeBuilderV2WheelDndId('slot-2', 1)},
+      {id: makeBuilderV2SlotDndId('slot-2')},
+    ]
+
+    expect(orderBuilderV2LoadoutCollisions(collisions, wheelPayload).map(({id}) => id)).toEqual([
+      makeBuilderV2WheelDndId('slot-2', 1),
+      makeBuilderV2SlotDndId('slot-2'),
+      makeBuilderV2CovenantDndId('slot-2'),
+    ])
+    expect(orderBuilderV2LoadoutCollisions(collisions, covenantPayload).map(({id}) => id)).toEqual([
+      makeBuilderV2CovenantDndId('slot-2'),
+      makeBuilderV2SlotDndId('slot-2'),
+      makeBuilderV2WheelDndId('slot-2', 1),
+    ])
+    expect(orderBuilderV2LoadoutCollisions(collisions, awakenerPayload).map(({id}) => id)).toEqual([
+      makeBuilderV2SlotDndId('slot-2'),
+      makeBuilderV2CovenantDndId('slot-2'),
+      makeBuilderV2WheelDndId('slot-2', 1),
+    ])
+  })
+
+  it('keeps the picker remove target reachable for removable payloads', () => {
+    const payload = createRequiredTeamManagementCovenantDragPayload(
+      createTeamSummary({
+        slots: [
+          createTeamSummarySlot({
+            hasCovenant: true,
+            covenant: {id: 'covenant-1', name: 'First Covenant', assetSrc: '/covenant.png'},
+          }),
+        ],
+      }),
+      createTeamSummarySlot({
+        hasCovenant: true,
+        covenant: {id: 'covenant-1', name: 'First Covenant', assetSrc: '/covenant.png'},
+      }),
+    )
+    const collisions = [
+      {id: makeBuilderV2PickerDndId()},
+      {id: makeBuilderV2TeamManagementCovenantDndId('team-2', 'slot-4')},
+    ]
+
+    expect(filterBuilderV2LoadoutDroppables(collisions).map((collision) => collision.id)).toEqual([
+      makeBuilderV2PickerDndId(),
+      makeBuilderV2TeamManagementCovenantDndId('team-2', 'slot-4'),
+    ])
+    expect(
+      orderBuilderV2LoadoutCollisions(collisions, payload).map((collision) => collision.id),
+    ).toEqual([
+      makeBuilderV2TeamManagementCovenantDndId('team-2', 'slot-4'),
+      makeBuilderV2PickerDndId(),
+    ])
   })
 })
 

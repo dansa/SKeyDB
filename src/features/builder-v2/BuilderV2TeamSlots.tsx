@@ -1,8 +1,6 @@
-import {memo, useCallback} from 'react'
+import {memo, useCallback, type ReactNode} from 'react'
 
-import {useDraggable, useDroppable} from '@dnd-kit/core'
-
-import {getRealmBadge, getRealmLabel} from '@/domain/realms'
+import {useDraggable, useDroppable, type DraggableSyntheticListeners} from '@dnd-kit/core'
 
 import type {WheelSlotIndex} from '../builder/types'
 import {
@@ -20,8 +18,7 @@ import {
 import {useBuilderV2DndEnabled} from './BuilderV2DndCapability'
 import {BuilderV2EnlightenMeter} from './BuilderV2EnlightenMeter'
 import type {BuilderV2SlotView, BuilderV2WheelSlotView} from './BuilderV2ModelTypes'
-
-type BuilderV2AwakenerRealm = NonNullable<BuilderV2SlotView['awakener']>['realm']
+import {BuilderV2RealmBadge} from './BuilderV2RealmBadge'
 
 interface BuilderV2TeamSlotsProps {
   slots: BuilderV2SlotView[]
@@ -142,49 +139,46 @@ const BuilderV2SlotCard = memo(function BuilderV2SlotCard({
       : isCovenantOver)
   const renderCovenantSlot = (variant: 'meta' | 'rail') => {
     return (
-      <div className={`builder-v2-covenant-slot builder-v2-covenant-slot--${variant}`}>
-        <button
-          {...(canDragCovenant && covenantDragListeners ? covenantDragListeners : {})}
-          aria-label={`Select ${slot.slotLabel} Covenant`}
-          aria-pressed={slot.isCovenantSelected}
-          className={`builder-v2-covenant-inline ${
-            slot.isCovenantSelected ? 'builder-v2-covenant-inline--active' : ''
-          } ${isCovenantDropTarget ? 'builder-v2-covenant-inline--drop-target' : ''} ${
-            slot.covenantAssetSrc ? '' : 'builder-v2-covenant-inline--empty'
-          }`}
-          onClick={(event) => {
-            onSelectCovenantSlot(slot.slotId, event.currentTarget)
-          }}
-          ref={isDndEnabled ? setCovenantNodeRef : undefined}
-          title={slot.covenantName ?? 'Covenant'}
-          type='button'
-        >
-          {slot.covenantAssetSrc ? (
-            <img
-              alt=''
-              decoding='async'
-              draggable={false}
-              fetchPriority='low'
-              src={slot.covenantAssetSrc}
-            />
-          ) : (
-            <span aria-hidden>+</span>
-          )}
-          <span className='sr-only'>{slot.covenantName ?? 'Covenant'}</span>
-        </button>
-        {variant === 'meta' && slot.covenantId && !quickLineupActive ? (
-          <button
-            aria-label={`Clear ${slot.slotLabel} Covenant`}
-            className='builder-v2-covenant-inline-clear'
-            onClick={() => {
-              onClearCovenant(slot.slotId)
-            }}
-            type='button'
-          >
-            <span aria-hidden>×</span>
-          </button>
-        ) : null}
-      </div>
+      <BuilderV2EquipmentTarget
+        ariaLabel={`Select ${slot.slotLabel} Covenant`}
+        ariaPressed={slot.isCovenantSelected}
+        className={`builder-v2-covenant-inline ${
+          slot.isCovenantSelected ? 'builder-v2-covenant-inline--active' : ''
+        } ${isCovenantDropTarget ? 'builder-v2-covenant-inline--drop-target' : ''} ${
+          slot.covenantAssetSrc ? '' : 'builder-v2-covenant-inline--empty'
+        }`}
+        clearButton={
+          variant === 'meta' && slot.covenantId && !quickLineupActive
+            ? {
+                ariaLabel: `Clear ${slot.slotLabel} Covenant`,
+                className: 'builder-v2-covenant-inline-clear',
+                onClick: () => {
+                  onClearCovenant(slot.slotId)
+                },
+              }
+            : null
+        }
+        listeners={canDragCovenant ? covenantDragListeners : undefined}
+        onSelect={(restoreTarget) => {
+          onSelectCovenantSlot(slot.slotId, restoreTarget)
+        }}
+        refCallback={isDndEnabled ? setCovenantNodeRef : undefined}
+        title={slot.covenantName ?? 'Covenant'}
+        wrapperClassName={`builder-v2-covenant-slot builder-v2-covenant-slot--${variant}`}
+      >
+        {slot.covenantAssetSrc ? (
+          <img
+            alt=''
+            decoding='async'
+            draggable={false}
+            fetchPriority='low'
+            src={slot.covenantAssetSrc}
+          />
+        ) : (
+          <span aria-hidden>+</span>
+        )}
+        <span className='sr-only'>{slot.covenantName ?? 'Covenant'}</span>
+      </BuilderV2EquipmentTarget>
     )
   }
 
@@ -457,19 +451,70 @@ function useMergedRefs<T extends HTMLElement>(
   )
 }
 
-function AwakenerRealmBadge({realm}: {realm: BuilderV2AwakenerRealm}) {
-  const realmBadge = getRealmBadge(realm)
-  const realmLabel = getRealmLabel(realm)
-
-  if (!realmBadge) {
-    return <span className='builder-v2-awakener-realm-text'>{realmLabel}</span>
-  }
-
+function AwakenerRealmBadge({realm}: {realm: NonNullable<BuilderV2SlotView['awakener']>['realm']}) {
   return (
-    <span className='builder-v2-awakener-realm'>
-      <img alt='' draggable={false} src={realmBadge} />
-      <span className='sr-only'>{realmLabel}</span>
-    </span>
+    <BuilderV2RealmBadge
+      badgeClassName='builder-v2-awakener-realm'
+      fallbackClassName='builder-v2-awakener-realm-text'
+      realm={realm}
+    />
+  )
+}
+
+function BuilderV2EquipmentTarget({
+  ariaLabel,
+  ariaPressed,
+  children,
+  clearButton,
+  className,
+  listeners,
+  onSelect,
+  refCallback,
+  title,
+  wrapperClassName,
+}: {
+  ariaLabel: string
+  ariaPressed: boolean
+  children: ReactNode
+  clearButton?: {
+    ariaLabel: string
+    className: string
+    onClick: () => void
+  } | null
+  className: string
+  listeners?: DraggableSyntheticListeners
+  onSelect: (restoreTarget: HTMLButtonElement) => void
+  refCallback?: (element: HTMLButtonElement | null) => void
+  title?: string
+  wrapperClassName: string
+}) {
+  return (
+    <div className={wrapperClassName}>
+      <button
+        {...(listeners ?? {})}
+        aria-label={ariaLabel}
+        aria-pressed={ariaPressed}
+        className={className}
+        onClick={(event) => {
+          onSelect(event.currentTarget)
+        }}
+        ref={refCallback}
+        title={title}
+        type='button'
+      >
+        {children}
+      </button>
+      {clearButton ? (
+        <button
+          aria-label={clearButton.ariaLabel}
+          className={clearButton.className}
+          onClick={clearButton.onClick}
+          type='button'
+        >
+          <span aria-hidden>×</span>
+        </button>
+      ) : null}
+    </div>
   )
 }
 
@@ -511,53 +556,46 @@ function SlotWheelChip({
       : isWheelOver)
 
   return (
-    <div
-      className={`builder-v2-wheel-chip ${
+    <BuilderV2EquipmentTarget
+      ariaLabel={`Select ${wheelSlot.label}`}
+      ariaPressed={wheelSlot.isSelected}
+      className='builder-v2-wheel-target'
+      clearButton={
+        wheelSlot.wheelId && !quickLineupActive
+          ? {
+              ariaLabel: `Clear ${wheelSlot.label}`,
+              className: 'builder-v2-equipment-clear builder-v2-equipment-clear--wheel',
+              onClick: onClear,
+            }
+          : null
+      }
+      listeners={canDragWheel ? wheelDragListeners : undefined}
+      onSelect={onSelect}
+      refCallback={isDndEnabled ? setWheelNodeRef : undefined}
+      wrapperClassName={`builder-v2-wheel-chip ${
         wheelSlot.isSelected ? 'builder-v2-wheel-chip--active' : ''
       } ${isWheelDropTarget ? 'builder-v2-wheel-chip--drop-target' : ''}`}
     >
-      <button
-        {...(canDragWheel && wheelDragListeners ? wheelDragListeners : {})}
-        aria-label={`Select ${wheelSlot.label}`}
-        aria-pressed={wheelSlot.isSelected}
-        className='builder-v2-wheel-target'
-        onClick={(event) => {
-          onSelect(event.currentTarget)
-        }}
-        ref={isDndEnabled ? setWheelNodeRef : undefined}
-        type='button'
-      >
-        <span className='builder-v2-wheel-art' aria-hidden>
-          {wheelSlot.assetSrc ? (
-            <img
-              alt=''
-              decoding='async'
-              draggable={false}
-              fetchPriority='low'
-              src={wheelSlot.assetSrc}
-            />
-          ) : (
-            <span className='builder-v2-empty-mark builder-v2-empty-mark--wheel'>+</span>
-          )}
-        </span>
-        <span className='builder-v2-wheel-copy'>
-          {wheelSlot.wheelId ? (
-            <BuilderV2EnlightenMeter level={wheelSlot.enlightenLevel} variant='compact' />
-          ) : (
-            <span className='builder-v2-wheel-empty-label'>Empty</span>
-          )}
-        </span>
-      </button>
-      {wheelSlot.wheelId && !quickLineupActive ? (
-        <button
-          aria-label={`Clear ${wheelSlot.label}`}
-          className='builder-v2-equipment-clear builder-v2-equipment-clear--wheel'
-          onClick={onClear}
-          type='button'
-        >
-          <span aria-hidden>×</span>
-        </button>
-      ) : null}
-    </div>
+      <span className='builder-v2-wheel-art' aria-hidden>
+        {wheelSlot.assetSrc ? (
+          <img
+            alt=''
+            decoding='async'
+            draggable={false}
+            fetchPriority='low'
+            src={wheelSlot.assetSrc}
+          />
+        ) : (
+          <span className='builder-v2-empty-mark builder-v2-empty-mark--wheel'>+</span>
+        )}
+      </span>
+      <span className='builder-v2-wheel-copy'>
+        {wheelSlot.wheelId ? (
+          <BuilderV2EnlightenMeter level={wheelSlot.enlightenLevel} variant='compact' />
+        ) : (
+          <span className='builder-v2-wheel-empty-label'>Empty</span>
+        )}
+      </span>
+    </BuilderV2EquipmentTarget>
   )
 }

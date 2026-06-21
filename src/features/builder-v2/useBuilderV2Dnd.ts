@@ -20,6 +20,7 @@ import {
   resolveBuilderV2DndAction,
   resolveBuilderV2EffectiveDropTarget,
   type BuilderV2DndAction,
+  type BuilderV2DragPayload,
   type BuilderV2DragPreviewDescriptor,
   type BuilderV2DropTargetDescriptor,
   type BuilderV2TeamDragPreviewDescriptor,
@@ -128,7 +129,27 @@ export function filterBuilderV2TeamSortDroppables<TDroppable extends {id: unknow
   )
 }
 
-function createBuilderV2CollisionDetection(teamSortIds: ReadonlySet<string>): CollisionDetection {
+export function filterBuilderV2LoadoutDroppables<TDroppable extends {id: unknown}>(
+  droppableContainers: TDroppable[],
+): TDroppable[] {
+  return droppableContainers.filter((droppable) => parseBuilderV2DndId(droppable.id) !== null)
+}
+
+export function orderBuilderV2LoadoutCollisions<TCollision extends {id: unknown}>(
+  collisions: TCollision[],
+  payload: BuilderV2DragPayload,
+): TCollision[] {
+  return [...collisions].sort((left, right) => {
+    const priorityDelta =
+      getBuilderV2CollisionPriority(left.id, payload) -
+      getBuilderV2CollisionPriority(right.id, payload)
+    return priorityDelta
+  })
+}
+
+export function createBuilderV2CollisionDetection(
+  teamSortIds: ReadonlySet<string>,
+): CollisionDetection {
   return (args) => {
     if (isBuilderV2TeamSortDragPayload(args.active.data.current)) {
       return closestCenter({
@@ -140,8 +161,62 @@ function createBuilderV2CollisionDetection(teamSortIds: ReadonlySet<string>): Co
       })
     }
 
-    const pointerCollisions = pointerWithin(args)
-    return pointerCollisions.length > 0 ? pointerCollisions : closestCenter(args)
+    const payload = args.active.data.current
+    if (!isBuilderV2DragPayload(payload)) {
+      const pointerCollisions = pointerWithin(args)
+      return pointerCollisions.length > 0 ? pointerCollisions : closestCenter(args)
+    }
+
+    const loadoutArgs = {
+      ...args,
+      droppableContainers: filterBuilderV2LoadoutDroppables(args.droppableContainers),
+    }
+    const pointerCollisions = pointerWithin(loadoutArgs)
+    const collisions = pointerCollisions.length > 0 ? pointerCollisions : closestCenter(loadoutArgs)
+    return orderBuilderV2LoadoutCollisions(collisions, payload)
+  }
+}
+
+function getBuilderV2CollisionPriority(id: unknown, payload: BuilderV2DragPayload): number {
+  const target = parseBuilderV2DndId(id)
+  if (!target) {
+    return 4
+  }
+
+  if (target.kind === 'picker') {
+    return payload.source === 'team' || payload.source === 'team-management' ? 2 : 4
+  }
+
+  switch (payload.kind) {
+    case 'wheel':
+      return target.kind === 'wheel' || target.kind === 'team-management-wheel'
+        ? 0
+        : getBuilderV2SlotFallbackPriority(target)
+    case 'covenant':
+      return target.kind === 'covenant' || target.kind === 'team-management-covenant'
+        ? 0
+        : getBuilderV2SlotFallbackPriority(target)
+    case 'awakener':
+      return target.kind === 'slot' || target.kind === 'team-management-slot'
+        ? 0
+        : getBuilderV2SlotFallbackPriority(target)
+    case 'posse':
+      return target.kind === 'posse' ? 0 : 4
+  }
+}
+
+function getBuilderV2SlotFallbackPriority(target: BuilderV2DropTargetDescriptor): number {
+  switch (target.kind) {
+    case 'slot':
+    case 'team-management-slot':
+      return 1
+    case 'wheel':
+    case 'covenant':
+    case 'team-management-wheel':
+    case 'team-management-covenant':
+      return 2
+    default:
+      return 4
   }
 }
 

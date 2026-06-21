@@ -10,6 +10,7 @@ import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getPosseAssetById} from '@/domain/posse-assets'
 import {getPosses, type Posse} from '@/domain/posses'
 import {getBrowserLocalStorage} from '@/domain/storage'
+import {loadoutHasWheelInOtherSocket} from '@/domain/team-rules'
 import {getWheelAssetById, getWheelMiniAssetById} from '@/domain/wheel-assets'
 import type {WheelMainstatFilter} from '@/domain/wheel-mainstat-filters'
 import {compareWheelsForUi} from '@/domain/wheel-sort'
@@ -36,6 +37,7 @@ import {
   swapCovenantAssignments,
   swapWheelAssignments,
   type TeamStateUpdateResult,
+  type TeamStateViolationCode,
 } from '../builder/team-state'
 import {validateBuilderTeams} from '../builder/team-validation'
 import {
@@ -968,6 +970,11 @@ export function useBuilderV2Model({
           slotId,
           wheelIndex,
         )
+        if (result.violation) {
+          setViolationMessage(getBuilderV2TeamSwapViolationMessage(result.violation))
+          return
+        }
+
         setTeamsInStore(replaceTeamSlots(state.teams, teamId, result.nextSlots))
         setActiveTeamId(state.activeTeamId)
         setViolationMessage(null)
@@ -995,6 +1002,10 @@ export function useBuilderV2Model({
       }
 
       const result = assignWheelToTeamSlots(targetTeam.slots, slotId, wheelIndex, wheelId)
+      if (result.violation) {
+        setViolationMessage(getBuilderV2TeamSwapViolationMessage(result.violation))
+        return
+      }
       if (result.nextSlots === targetTeam.slots) {
         return
       }
@@ -1203,6 +1214,11 @@ export function useBuilderV2Model({
               targetSlotId,
               targetWheelIndex,
             )
+
+      if (result.violation) {
+        setViolationMessage(getBuilderV2TeamSwapViolationMessage(result.violation))
+        return
+      }
 
       if (!result.changed) {
         return
@@ -2148,6 +2164,7 @@ interface TwoTeamSlotUpdateResult {
   changed: boolean
   nextSourceSlots: TeamSlot[]
   nextTargetSlots: TeamSlot[]
+  violation?: TeamStateViolationCode
 }
 
 function normalizeSingleTeamSlotUpdate(result: TeamStateUpdateResult): TwoTeamSlotUpdateResult {
@@ -2155,6 +2172,7 @@ function normalizeSingleTeamSlotUpdate(result: TeamStateUpdateResult): TwoTeamSl
     changed: result.changed,
     nextSourceSlots: result.nextSlots,
     nextTargetSlots: result.nextSlots,
+    violation: result.violation,
   }
 }
 
@@ -2194,8 +2212,28 @@ function swapCrossTeamWheelAssignments(
       nextTargetSlots: targetSlots,
     }
   }
+  if (loadoutHasWheelInOtherSocket(targetSlot.wheels, sourceWheelId, targetWheelIndex)) {
+    return {
+      changed: false,
+      nextSourceSlots: sourceSlots,
+      nextTargetSlots: targetSlots,
+      violation: 'INVALID_BUILD_RULES',
+    }
+  }
 
   const targetWheelId = targetSlot.wheels[targetWheelIndex] ?? null
+  if (
+    targetWheelId &&
+    loadoutHasWheelInOtherSocket(sourceSlot.wheels, targetWheelId, sourceWheelIndex)
+  ) {
+    return {
+      changed: false,
+      nextSourceSlots: sourceSlots,
+      nextTargetSlots: targetSlots,
+      violation: 'INVALID_BUILD_RULES',
+    }
+  }
+
   return {
     changed: true,
     nextSourceSlots: sourceSlots.map((slot) => {

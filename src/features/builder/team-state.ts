@@ -1,6 +1,10 @@
 import {getAwakenerIdentityKeyById} from '@/domain/awakener-identity'
 import type {Awakener} from '@/domain/awakeners'
-import {DEFAULT_TEAM_RULES_CONFIG, exceedsRealmLimitForTeam} from '@/domain/team-rules'
+import {
+  DEFAULT_TEAM_RULES_CONFIG,
+  exceedsRealmLimitForTeam,
+  loadoutHasWheelInOtherSocket,
+} from '@/domain/team-rules'
 
 import type {TeamSlot} from './types'
 
@@ -193,6 +197,22 @@ export function swapWheelAssignments(
     return unchangedTeamState(currentSlots)
   }
 
+  if (
+    sourceSlotId !== targetSlotId &&
+    loadoutHasWheelInOtherSocket(targetSlot.wheels, sourceWheelId, targetWheelIndex)
+  ) {
+    return unchangedTeamState(currentSlots, 'INVALID_BUILD_RULES')
+  }
+
+  const targetWheelId = targetSlot.wheels[targetWheelIndex] ?? null
+  if (
+    sourceSlotId !== targetSlotId &&
+    targetWheelId &&
+    loadoutHasWheelInOtherSocket(sourceSlot.wheels, targetWheelId, sourceWheelIndex)
+  ) {
+    return unchangedTeamState(currentSlots, 'INVALID_BUILD_RULES')
+  }
+
   if (sourceSlotId === targetSlotId) {
     const nextSlots = currentSlots.map((slot) => {
       if (slot.slotId !== sourceSlotId) {
@@ -207,7 +227,6 @@ export function swapWheelAssignments(
     return changedTeamState(nextSlots)
   }
 
-  const targetWheelId = targetSlot.wheels[targetWheelIndex] ?? null
   const nextSlots = currentSlots.map((slot) => {
     if (slot.slotId === sourceSlotId) {
       const nextWheels = [...slot.wheels] as [string | null, string | null]
@@ -291,6 +310,9 @@ export function assignWheelToSlot(
   }
   if (targetSlot.wheels[wheelIndex] === wheelId) {
     return unchangedTeamState(currentSlots)
+  }
+  if (loadoutHasWheelInOtherSocket(targetSlot.wheels, wheelId, wheelIndex)) {
+    return unchangedTeamState(currentSlots, 'INVALID_BUILD_RULES')
   }
 
   const nextSlots = currentSlots.map((slot) => {
@@ -395,8 +417,11 @@ export function swapCovenantAssignments(
   return changedTeamState(nextSlots)
 }
 
-function unchangedTeamState(nextSlots: TeamSlot[]): TeamStateUpdateResult {
-  return {nextSlots, changed: false}
+function unchangedTeamState(
+  nextSlots: TeamSlot[],
+  violation?: TeamStateViolationCode,
+): TeamStateUpdateResult {
+  return {nextSlots, changed: false, violation}
 }
 
 function changedTeamState(nextSlots: TeamSlot[]): TeamStateUpdateResult {

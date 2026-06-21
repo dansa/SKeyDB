@@ -34,6 +34,20 @@ export interface TeamRulesConfig {
   enforceUniquePosses: boolean
 }
 
+export function loadoutHasWheelInOtherSocket(
+  wheelIds: readonly (string | null | undefined)[],
+  wheelId: string | null | undefined,
+  wheelIndex: number,
+): boolean {
+  return Boolean(
+    wheelId &&
+    wheelIds.some(
+      (assignedWheelId, assignedWheelIndex) =>
+        assignedWheelIndex !== wheelIndex && assignedWheelId === wheelId,
+    ),
+  )
+}
+
 interface SharedSeenState {
   awakeners: Set<string>
   wheels: Set<string>
@@ -156,11 +170,34 @@ function validateMemberWheels(
   teamSeen: TeamSeenState,
   violations: RuleViolation[],
 ) {
-  if (!settings.enforceUniqueWheels) {
-    return
-  }
+  const reportedMemberDuplicateWheels = new Set<string>()
 
-  for (const wheelId of member.wheelIds) {
+  for (const [wheelIndex, wheelId] of member.wheelIds.entries()) {
+    const duplicatesMemberLoadout = loadoutHasWheelInOtherSocket(
+      member.wheelIds,
+      wheelId,
+      wheelIndex,
+    )
+
+    if (duplicatesMemberLoadout && !reportedMemberDuplicateWheels.has(wheelId)) {
+      violations.push({
+        code: 'DUPLICATE_WHEEL',
+        message: `Wheel ${wheelId} is used more than once in team ${teamId}.`,
+        teamId,
+        value: wheelId,
+      })
+      reportedMemberDuplicateWheels.add(wheelId)
+      continue
+    }
+
+    if (duplicatesMemberLoadout) {
+      continue
+    }
+
+    if (!settings.enforceUniqueWheels) {
+      continue
+    }
+
     if (teamSeen.wheels.has(wheelId)) {
       violations.push({
         code: 'DUPLICATE_WHEEL',

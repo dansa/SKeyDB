@@ -293,16 +293,25 @@ export function resolveAssignWheelCommand({
     wheelOwner?.teamId === activeTeamId &&
     (wheelOwner.slotId !== target.slotId || wheelOwner.wheelIndex !== target.wheelIndex)
   ) {
+    const result = swapWheelAssignments(
+      activeTeamSlots,
+      wheelOwner.slotId,
+      wheelOwner.wheelIndex,
+      target.slotId,
+      target.wheelIndex,
+    )
+    if (result.violation) {
+      return {
+        kind: 'violation',
+        message: getViolationMessage(result.violation),
+        pickerTab: 'wheels',
+      }
+    }
+
     return {
       kind: 'slots',
-      nextSlots: swapWheelAssignments(
-        activeTeamSlots,
-        wheelOwner.slotId,
-        wheelOwner.wheelIndex,
-        target.slotId,
-        target.wheelIndex,
-      ).nextSlots,
-      changed: true,
+      nextSlots: result.nextSlots,
+      changed: result.changed,
       clearTransfer: false,
       activeSelection: targetSelection,
       activeTeamTarget: null,
@@ -324,6 +333,14 @@ export function resolveAssignWheelCommand({
   }
 
   const result = assignWheelToSlot(activeTeamSlots, target.slotId, target.wheelIndex, wheelId)
+  if (result.violation) {
+    return {
+      kind: 'violation',
+      message: getViolationMessage(result.violation),
+      pickerTab: 'wheels',
+    }
+  }
+
   return {
     kind: 'slots',
     nextSlots: result.nextSlots,
@@ -479,6 +496,14 @@ export function resolveMoveWheelCommand({
     toSlotId,
     toWheelIndex,
   )
+  if (result.violation) {
+    return {
+      kind: 'violation',
+      message: getViolationMessage(result.violation),
+      pickerTab: 'wheels',
+    }
+  }
+
   return {
     kind: 'slots',
     nextSlots: result.nextSlots,

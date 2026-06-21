@@ -238,4 +238,32 @@ describe('createBuilderWheelActions', () => {
       wheelIndex: 1,
     })
   })
+
+  it('blocks dragging a wheel into a slot that already carries that wheel', () => {
+    const {actions, setActiveSelection, setActiveTeamSlots, showToast} = createActions({
+      teamSlots: [
+        {
+          slotId: 'slot-1',
+          awakenerId: 'awakener-0021',
+          realm: 'AEQUOR',
+          level: 60,
+          wheels: ['B01', null],
+        },
+        {
+          slotId: 'slot-2',
+          awakenerId: 'awakener-0032',
+          realm: 'CHAOS',
+          level: 90,
+          isSupport: true,
+          wheels: ['B01', null],
+        },
+      ],
+    })
+
+    actions.handleDropTeamWheel('slot-1', 0, 'slot-2', 1)
+
+    expect(setActiveTeamSlots).not.toHaveBeenCalled()
+    expect(setActiveSelection).not.toHaveBeenCalled()
+    expect(showToast).toHaveBeenCalledWith('That assignment would break current builder rules.')
+  })
 })
