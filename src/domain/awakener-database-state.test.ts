@@ -10,6 +10,8 @@ import {
 } from './awakener-database-state'
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
 import {type AwakenerFullRecord} from './awakeners-full'
+import {parseDatabaseRichDescription} from './database-rich-text'
+import {hydrateGlobalDatabaseReferenceInfo} from './global-database-reference-layer'
 import {loadPublicAwakenerDetailById} from './public-detail-record-adapters'
 
 describe('awakener-database-state', () => {
@@ -263,6 +265,71 @@ describe('awakener-database-state', () => {
         referenceName: 'Seal of the Pact',
       }),
     ])
+  })
+
+  it('links Saya Propagule Embryo talent mentions to the global derived card', async () => {
+    const saya = await loadPublicAwakenerDetailById('awakener-0057')
+    expect(saya).toBeDefined()
+    if (!saya) {
+      throw new Error('Missing public V3 Saya record')
+    }
+
+    const resolved = resolveAwakenerDatabaseState(saya)
+    const propaguleInfo = resolved.referenceLayer.referenceInfoByName.get('propagule embryo')
+    const edenOfPropagation = resolved.shellView.talents.find(
+      (entry) => entry.record.id === 'talent.saya.eden-of-propagation',
+    )
+
+    expect(resolved.referenceLayer.cardNames.has('Propagule Embryo')).toBe(true)
+    expect(propaguleInfo).toEqual(
+      expect.objectContaining({
+        kind: 'derived-skill',
+        id: 'derived.global.propagule-embryo',
+      }),
+    )
+    expect(edenOfPropagation).toBeDefined()
+    if (!edenOfPropagation) {
+      throw new Error('Missing Saya Eden of Propagation talent')
+    }
+
+    const segments = parseDatabaseRichDescription({
+      record: edenOfPropagation.record,
+      referenceLayer: resolved.referenceLayer,
+    })
+
+    expect(
+      segments.filter((segment) => segment.type === 'skill' && segment.name === 'Propagule Embryo'),
+    ).toHaveLength(3)
+  })
+
+  it('applies Saya Realm Mastery to global Propagule Embryo references', async () => {
+    const saya = await loadPublicAwakenerDetailById('awakener-0057')
+    expect(saya).toBeDefined()
+    if (!saya) {
+      throw new Error('Missing public V3 Saya record')
+    }
+
+    const resolved = resolveAwakenerDatabaseState(saya)
+    const propaguleInfo = resolved.referenceLayer.referenceInfoByName.get('propagule embryo')
+    const realmMasteryFinal = Number.parseFloat(resolved.stats.RealmMastery)
+    const expectedStacks = Math.ceil(40 + realmMasteryFinal * 0.02)
+
+    expect(propaguleInfo).toBeDefined()
+    if (!propaguleInfo) {
+      throw new Error('Missing Propagule Embryo reference')
+    }
+
+    const hydratedPropaguleInfo = await hydrateGlobalDatabaseReferenceInfo(
+      propaguleInfo,
+      resolved.shellView.formulaContext,
+      resolved.stats,
+    )
+
+    expect(realmMasteryFinal).toBeGreaterThan(0)
+    expect(resolved.shellView.formulaContext?.realmMasteryFinal).toBe(realmMasteryFinal)
+    expect(hydratedPropaguleInfo.description).toContain(
+      `gain ${expectedStacks.toString()} stacks of {Propagation Fiesta}`,
+    )
   })
 
   it('builds concrete default selection values for upcoming database controls', () => {

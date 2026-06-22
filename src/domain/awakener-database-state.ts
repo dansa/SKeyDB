@@ -25,7 +25,7 @@ import {
 } from './awakeners-full-contract'
 import type {ResolvedDatabaseReferenceLayer} from './database-reference-layer'
 import {resolveDescriptionArg} from './description-args'
-import {buildPublicFormulaContext} from './public-formula-context'
+import {buildPublicFormulaContext, type PublicFormulaContext} from './public-formula-context'
 
 export {selectedEnlightenSlotSchema} from './awakeners-full-contract'
 
@@ -103,6 +103,29 @@ function normalizeNonNegativeLevel(level: number | null): number {
   }
 
   return Math.max(0, Math.floor(level))
+}
+
+function parseStatNumber(rawValue: string | undefined): number | null {
+  if (!rawValue) {
+    return null
+  }
+
+  const match = /^-?\d+(?:\.\d+)?/.exec(rawValue.trim())
+  if (!match) {
+    return null
+  }
+
+  return Number(match[0])
+}
+
+function buildAwakenerFormulaContext(
+  formulaContext: PublicFormulaContext | undefined,
+  stats: FullStats,
+): PublicFormulaContext {
+  return buildPublicFormulaContext({
+    ...formulaContext,
+    realmMasteryFinal: parseStatNumber(stats.RealmMastery) ?? formulaContext?.realmMasteryFinal,
+  })
 }
 
 function buildEnlightenOptions(record: AwakenerFullRecord): AwakenerDatabaseControlOption[] {
@@ -288,6 +311,7 @@ export function resolveAwakenerDatabaseState(
     soulforgePrimaryStatBonusPercent,
     gnosticPrimaryStatBonuses,
   )
+  const formulaContext = buildAwakenerFormulaContext(extraViewOptions.formulaContext, stats)
 
   const shellView = resolveAwakenerDatabaseShellView(
     record,
@@ -295,7 +319,7 @@ export function resolveAwakenerDatabaseState(
       ...extraViewOptions,
       skillLevel: normalizedSelection.skillLevel,
       stats,
-      formulaContext: extraViewOptions.formulaContext ?? buildPublicFormulaContext(),
+      formulaContext,
       selectedEnlightenSlot: normalizedSelection.selectedEnlightenSlot,
       soulforgeLevel: normalizedSelection.soulforgeLevel,
       gnosticPotentialLevel: normalizedSelection.gnosticPotentialLevel,

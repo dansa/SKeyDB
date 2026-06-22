@@ -36,7 +36,7 @@ describe('D-zone database popover entries', () => {
     ])
   })
 
-  it('adds selected level, HP, and HP bar metadata as quiet monster label text', () => {
+  it('normalizes repeated HP bars into total HP while preserving per-bar detail', () => {
     const monster = {
       id: 'dzone-monster-9999',
       name: '"Test Beast"',
@@ -55,16 +55,17 @@ describe('D-zone database popover entries', () => {
 
     const entry = buildDzoneMonsterPopoverEntry({monster})
 
-    expect(entry.label).toBe('Level 73 · HP 402K · 3 bars')
+    expect(entry.label).toBe('Level 73 · HP 1.2M total · 3 bars')
     expect(entry.labelSegments).toEqual([
       {text: 'Level '},
       {text: '73', tone: 'value'},
       {text: ' · HP '},
-      {text: '402K', tone: 'value'},
+      {text: '1.2M', tone: 'value'},
+      {text: ' total'},
       {text: ' · '},
       {text: '3 bars'},
     ])
-    expect(entry.attributeRows).toBeUndefined()
+    expect(entry.attributeRows).toEqual([{label: 'HP bars', value: '402K × 3'}])
   })
 
   it('formats large selected HP compactly', () => {

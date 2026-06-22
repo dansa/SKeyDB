@@ -47,7 +47,8 @@ function buildDzoneMonsterAlertMetaText(stats: DzoneMonsterAlertStats): string {
 }
 
 function buildDzoneMonsterAlertMetaSegments(stats: DzoneMonsterAlertStats) {
-  const displayHp = stats.effectiveHp ?? stats.hp
+  const hpBarCount = getDzoneMonsterHpBarCount(stats)
+  const displayHp = getDzoneMonsterHpTotal(stats)
   const segments = [
     {text: 'Level '},
     {text: stats.level.toString(), tone: 'value' as const},
@@ -55,26 +56,41 @@ function buildDzoneMonsterAlertMetaSegments(stats: DzoneMonsterAlertStats) {
     {text: formatDzoneMonsterHp(displayHp), tone: 'value' as const},
   ]
 
-  if (stats.effectiveHp && stats.effectiveHp !== stats.hp) {
+  if (displayHp !== stats.hp) {
     segments.push({text: ' total'})
   }
 
-  if (stats.hpBars && stats.hpBars > 1) {
-    segments.push({text: ' · '}, {text: `${stats.hpBars.toString()} bars`})
+  if (hpBarCount) {
+    segments.push({text: ' · '}, {text: `${hpBarCount.toString()} bars`})
   }
 
   return segments
 }
 
+function getDzoneMonsterHpBarCount(stats: DzoneMonsterAlertStats): number | undefined {
+  if (stats.hpBars && stats.hpBars > 1) return stats.hpBars
+  if (stats.hpBarValues && stats.hpBarValues.length > 1) return stats.hpBarValues.length
+  return undefined
+}
+
+function getDzoneMonsterHpTotal(stats: DzoneMonsterAlertStats): number {
+  if (stats.effectiveHp) return stats.effectiveHp
+  if (stats.hpBarValues && stats.hpBarValues.length > 1) {
+    return stats.hpBarValues.reduce((total, hp) => total + hp, 0)
+  }
+  const hpBarCount = getDzoneMonsterHpBarCount(stats)
+  return hpBarCount ? stats.hp * hpBarCount : stats.hp
+}
+
 function buildDzoneMonsterHpAttributeRows(stats: DzoneMonsterAlertStats) {
-  const hpBarValues = stats.hpBarValues
-  if (!hpBarValues || hpBarValues.length <= 1) {
+  const hpBarText = buildDzoneMonsterHpBarText(stats)
+  if (!hpBarText) {
     return undefined
   }
   const rows = [
     {
       label: 'HP bars',
-      value: hpBarValues.map(formatDzoneMonsterHp).join(' › '),
+      value: hpBarText,
     },
   ]
   const rouseText = buildDzoneMonsterRouseText(stats)
@@ -82,6 +98,15 @@ function buildDzoneMonsterHpAttributeRows(stats: DzoneMonsterAlertStats) {
     rows.push({label: 'Rouse', value: rouseText})
   }
   return rows
+}
+
+function buildDzoneMonsterHpBarText(stats: DzoneMonsterAlertStats): string | undefined {
+  if (stats.hpBarValues && stats.hpBarValues.length > 1) {
+    return stats.hpBarValues.map(formatDzoneMonsterHp).join(' › ')
+  }
+
+  const hpBarCount = getDzoneMonsterHpBarCount(stats)
+  return hpBarCount ? `${formatDzoneMonsterHp(stats.hp)} × ${hpBarCount.toString()}` : undefined
 }
 
 function buildDzoneMonsterRouseText(stats: DzoneMonsterAlertStats): string | undefined {
