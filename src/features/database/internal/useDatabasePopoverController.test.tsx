@@ -485,7 +485,7 @@ describe('useDatabasePopoverController', () => {
     render(<ControllerHarness referenceLayer={referenceLayer} />)
 
     fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
-    fireEvent.click(await screen.findByRole('button', {name: 'Counter'}))
+    fireEvent.click(await screen.findByRole('button', {name: 'Counter'}, COLD_POPOVER_FIND_OPTIONS))
     fireEvent.click(screen.getByRole('button', {name: 'Open Guard'}))
     expect(await screen.findByText('Guard text.')).toBeInTheDocument()
 
@@ -522,7 +522,9 @@ describe('useDatabasePopoverController', () => {
         null,
       )
     })
-    expect(await screen.findByText(/When attacked/)).toBeInTheDocument()
+    expect(
+      await screen.findByText(/When attacked/, undefined, COLD_POPOVER_FIND_OPTIONS),
+    ).toBeInTheDocument()
     expect(screen.queryByText('Details coming soon')).not.toBeInTheDocument()
   })
 
@@ -536,7 +538,7 @@ describe('useDatabasePopoverController', () => {
     render(<ControllerHarness referenceLayer={referenceLayer} />)
 
     fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
-    fireEvent.click(await screen.findByRole('button', {name: 'Counter'}))
+    fireEvent.click(await screen.findByRole('button', {name: 'Counter'}, COLD_POPOVER_FIND_OPTIONS))
 
     await waitFor(() => {
       expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledWith(
@@ -548,7 +550,9 @@ describe('useDatabasePopoverController', () => {
         null,
       )
     })
-    expect(await screen.findByText(/When attacked/)).toBeInTheDocument()
+    expect(
+      await screen.findByText(/When attacked/, undefined, COLD_POPOVER_FIND_OPTIONS),
+    ).toBeInTheDocument()
     expect(screen.queryByText('Details coming soon')).not.toBeInTheDocument()
   })
 

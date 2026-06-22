@@ -158,7 +158,7 @@ function buildReferenceLookups(
 
   for (const record of globalDerivedSkills) {
     accumulator.add(
-      buildDatabaseDerivedSkillReferenceInfo(record, undefined, {
+      buildDatabaseDerivedSkillReferenceInfo(record, shellView.formulaContext, {
         label: getDerivedSkillLabel(record),
         rank: shellView.skillLevel,
         stats: shellView.stats,

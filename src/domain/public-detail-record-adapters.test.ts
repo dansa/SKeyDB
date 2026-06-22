@@ -1,5 +1,6 @@
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
+import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
 import type {EntityKind, PublicDataScope, PublicRecord} from '@/data-access/public-data/contract'
 import {loadPublicRecord} from '@/data-access/public-data/repository'
 
@@ -16,6 +17,18 @@ import {
 } from './public-detail-record-adapters'
 
 type PublicDetailAdapters = typeof import('./public-detail-record-adapters')
+type PublicDetailLoader = (id: string) => Promise<unknown>
+
+const POPOVER_DETAIL_LOADERS = {
+  covenants: loadPublicCovenantDetailById,
+  'derived-skills': loadPublicDerivedSkillDetailById,
+  enlightens: loadPublicEnlightenDetailById,
+  overlays: loadPublicOverlayDetailById,
+  posses: loadPublicPosseDetailById,
+  skills: loadPublicSkillDetailById,
+  talents: loadPublicTalentDetailById,
+  wheels: loadPublicWheelDetailById,
+} satisfies Partial<Record<PublicDataScope, PublicDetailLoader>>
 
 async function importAdaptersWithPublicRecordMock(
   loadPublicRecordMock: (scope: PublicDataScope, id: string) => Promise<PublicRecord | undefined>,
@@ -370,6 +383,24 @@ describe('public-detail-record-adapters', () => {
     expect(derived?.childDerivedSkillIds).toEqual([])
     expect(derived?.variants).toEqual([])
 
+    const propaguleEmbryo = await loadPublicDerivedSkillDetailById(
+      'derived.global.propagule-embryo',
+    )
+    expect(propaguleEmbryo).toMatchObject({
+      id: 'derived.global.propagule-embryo',
+      displayName: 'Propagule Embryo',
+      descriptionArgs: expect.objectContaining({
+        Arg3: {
+          kind: 'computed',
+          formulaKey: 'realmMasteryLinear',
+          baseValue: 40,
+          perPoint: 0.02,
+          rounding: 'ceil',
+          inputs: ['realmMasteryFinal'],
+        },
+      }),
+    })
+
     const overlay = await loadPublicOverlayDetailById('overlay.xu.spellbound')
     expect(overlay).toMatchObject({
       id: 'overlay.xu.spellbound',
@@ -391,6 +422,27 @@ describe('public-detail-record-adapters', () => {
       },
     })
   })
+
+  it('loads every catalog-backed popover detail record without schema errors', async () => {
+    const failures: string[] = []
+
+    for (const [scope, loadDetail] of Object.entries(POPOVER_DETAIL_LOADERS) as [
+      keyof typeof POPOVER_DETAIL_LOADERS,
+      PublicDetailLoader,
+    ][]) {
+      for (const record of getPublicCatalogRecords(scope)) {
+        try {
+          await loadDetail(record.id)
+        } catch (error) {
+          failures.push(
+            `${scope}:${record.id}: ${error instanceof Error ? error.message : String(error)}`,
+          )
+        }
+      }
+    }
+
+    expect(failures).toEqual([])
+  }, 30_000)
 
   it('preserves loose public-only child fields while adapting defaults', async () => {
     const loadPublicRecordMock = vi.fn(() =>

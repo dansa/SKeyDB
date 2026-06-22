@@ -59,7 +59,12 @@ export const descriptionArgSubstatBonusesSchema = z.record(
 )
 
 const descriptionArgChannelSchema = nonEmptyStringSchema
-const publicFormulaKeySchema = z.enum(['accountLevel', 'ownedPosseCount', 'wheelRefinementLevel'])
+const publicFormulaKeySchema = z.enum([
+  'accountLevel',
+  'ownedPosseCount',
+  'wheelRefinementLevel',
+  'realmMasteryFinal',
+])
 const publicScaledBaseFormulaSchema = z.enum([
   'accountStageGrowth',
   'somaticResearchHpMultiplier',
@@ -128,6 +133,18 @@ export const descriptionArgSchema = z.discriminatedUnion('kind', [
       baseValue: z.number(),
       perLevel: z.number(),
       inputs: z.tuple([z.literal('wheelRefinementLevel')]),
+      channel: descriptionArgChannelSchema.optional(),
+      suffix: nonEmptyStringSchema.optional(),
+      stat: z.enum(SCALING_ARG_STAT_KEYS).optional(),
+      substatBonus: descriptionArgSubstatBonusSchema.optional(),
+    }),
+    z.object({
+      kind: z.literal('computed'),
+      formulaKey: z.literal('realmMasteryLinear'),
+      baseValue: z.number(),
+      perPoint: z.number(),
+      rounding: z.literal('ceil').optional(),
+      inputs: z.tuple([z.literal('realmMasteryFinal')]),
       channel: descriptionArgChannelSchema.optional(),
       suffix: nonEmptyStringSchema.optional(),
       stat: z.enum(SCALING_ARG_STAT_KEYS).optional(),
