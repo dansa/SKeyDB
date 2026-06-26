@@ -201,5 +201,47 @@
     "startDate": "2026/06/15 09:00",
     "endDate": "2026/07/13 09:00",
     "featured": ["Eternal Requiem", "Shrouded Birth", "Veiled Anguish"]
+  },
+  {
+    "id": "banner-pontos",
+    "title": "Lord of the Deep / The Abyssal Oubliette",
+    "type": "awaken",
+    "description": "Featured rate-up banners for Pontos and his SSR Wheel 'The Living Cage'.",
+    "startDate": "2026/06/29 09:00",
+    "endDate": "2026/07/27 09:00",
+    "featured": [
+      {
+        "name": "Pontos",
+        "kind": "awakener",
+        "customArt": "/banners/pontos-char.webp",
+        "detailLink": false
+      },
+      {
+        "name": "The Living Cage",
+        "kind": "wheel",
+        "customArt": "/banners/pontos-wheel.webp",
+        "detailLink": false
+      }
+    ],
+    "pinned": true
+  },
+  {
+    "id": "banner-triune-verdant-jul",
+    "title": "Triune Verdant",
+    "type": "rerun",
+    "description": "Three rerun banners, featuring the awakeners Helot: Catena, Corposant and Pollux.",
+    "startDate": "2026/07/13 09:00",
+    "endDate": "2026/08/10 09:00",
+    "featured": ["Helot: Catena", "Corposant", "Pollux"]
+  },
+  {
+    "id": "banner-sylvan-omen-jul",
+    "title": "Sylvan Omen",
+    "type": "rerun",
+    "tags": ["rerun", "wheel"],
+    "description": "Three rerun banners, featuring the Wheels Drowning in Crimson, Flamebound Navigator and Twisted Knight Ballad.",
+    "startDate": "2026/07/13 09:00",
+    "endDate": "2026/08/10 09:00",
+    "featured": ["Drowning in Crimson", "Flamebound Navigator", "Twisted Knight Ballad"]
   }
 ]
