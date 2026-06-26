@@ -160,6 +160,7 @@
     "description": "2.5th Anniversary commemorative login event.\n Log in daily to claim up to 16 copies of the limited SSR Wheel \"To the Stars\".",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
+    "featured": "To the Stars",
     "customArt": "/events/to-the-star.webp"
   },
   {
@@ -189,6 +190,7 @@
     "description": "Limited-time WoD wheel acquisition event featuring \"Sakura Reveries\". \n Complete various tasks to obtain 4 copies & 25 Pure Cores. \n Premium track: Grants +12 copies & 25 Luminous Cores.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/15 09:00",
+    "featured": "Sakura Reveries",
     "customArt": "/events/sakura-reveries.webp",
     "pricing": "980 Silver Prime"
   },
@@ -294,6 +296,7 @@
     "description": "Gameplay event featuring the limited collab awakener Saya. \n Obtain SR-Wheel \"Muddied Fairy Tale\", limited avatar \"By the Silver Key: Saya\", Scrips, Dreamsparks and more.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/08/24 09:00",
+    "featured": "Saya",
     "customArt": "/events/saya-event.webp",
     "pinned": true
   },
@@ -306,5 +309,67 @@
     "endDate": "2026/08/24 09:00",
     "customArt": "/events/forgotten-seed.webp",
     "pricing": "Free"
+  },
+  {
+    "id": "event-wheel-dreaming-of-wonderland",
+    "title": "WoD Archives: Wonderland Diary",
+    "category": "wheel-event",
+    "description": "Limited-time WoD wheel acquisition event featuring \"Dreaming of Wonderland\".\n Complete various tasks to obtain 4 copies & 30 Pure Cores.\n Premium track: Grants +12 copies & 60 Luminous Cores.",
+    "startDate": "2026/06/29 09:00",
+    "endDate": "2026/07/27 09:00",
+    "featured": [{"name": "Dreaming of Wonderland", "kind": "wheel", "detailLink": false}],
+    "customArt": "/events/wonderland-diary.webp",
+    "pricing": "1680 Silver Prime"
+  },
+  {
+    "id": "event-login-season-35",
+    "title": "Gifts from Mythag",
+    "category": "login",
+    "description": "Login rewards: 10 Luminous Cores for 7 cumulative logins. Additional rewards available through up to 14 cumulative logins.",
+    "startDate": "2026/06/29 09:00",
+    "endDate": "2026/07/27 09:00",
+    "customArt": "/events/gifts-from-mythag.webp"
+  },
+  {
+    "id": "event-curriculum-season-35",
+    "title": "Curriculum Honor",
+    "category": "curriculum",
+    "description": "Complete daily and weekly tasks to earn various rewards. \n T1: 680 Silver Prime - SSR wheel, 2500 Silver, 12 Luminous Cores and more. \n T2: 1280 Silver Prime - T1 + Exclusive Avatars, increased daily rewards and more.",
+    "startDate": "2026/06/29 09:00",
+    "endDate": "2026/07/27 09:00",
+    "customArt": "/events/curriculum.webp",
+    "pricing": "680-1280 Silver Prime"
+  },
+  {
+    "id": "event-story-pontos",
+    "title": "Ebwynnos Evermore",
+    "category": "gameplay-event",
+    "description": "Gameplay event featuring the new awakener Pontos.\n Obtain limited avatar \"By the Silver Key: Pontos\", Scrips, Dreamsparks and more.",
+    "startDate": "2026/06/29 09:00",
+    "endDate": "2026/07/27 09:00",
+    "featured": [{"name": "Pontos", "kind": "awakener", "detailLink": false}],
+    "customArt": "/events/pontos-event.webp",
+    "pinned": true
+  },
+  {
+    "id": "event-story-rerun-summer-under-black-sun",
+    "title": "Summer under Black Sun",
+    "category": "gameplay-event",
+    "description": "Summer event rerun.\n Log in for 7 days during the event to claim 10 Luminous Cores and the limited avatar \"Volleyball Champion\".",
+    "startDate": "2026/07/06 09:00",
+    "endDate": "2026/07/20 09:00",
+    "customArt": "/events/summer-under-the-black-sun.webp",
+    "rerun": true
+  },
+  {
+    "id": "event-story-rerun-helot-catena",
+    "title": "Til the Snow Melts",
+    "category": "gameplay-event",
+    "description": "Gameplay event rerun featuring Helot: Catena.\n Obtain SR-Wheel \"Compass to False North\", limited avatar \"By the Silver Key: Helot: Catena\", Rose Scrips and more.",
+    "startDate": "2026/07/13 09:00",
+    "endDate": "2026/08/10 09:00",
+    "featured": [{"name": "Helot: Catena", "kind": "awakener"}],
+    "customArt": "/events/ghelot-event.webp",
+    "rerun": true
   }
 ]
