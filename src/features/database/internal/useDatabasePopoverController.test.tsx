@@ -205,6 +205,7 @@ const TEST_WHEEL_PREVIEW_ENTRY: KeyedDatabaseReferenceEntry = {
   navigationLabel: 'Open in Wheels DB',
   navigationTarget: {
     kind: 'wheel-page',
+    wheelId: 'B01',
     wheelName: 'Merciful Nurturing',
   },
 }
@@ -671,7 +672,7 @@ describe('useDatabasePopoverController', () => {
     fireEvent.click(await screen.findByRole('button', {name: /Open in Wheels DB/i}))
 
     expect(onNavigateToWheelPage).toHaveBeenCalledWith({
-      id: 'wheel.preview.B01',
+      id: 'B01',
       name: 'Merciful Nurturing',
     })
   })

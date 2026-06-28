@@ -192,6 +192,21 @@ describe('database popover controller model', () => {
       id: 'B01',
       name: 'Merciful Nurturing',
     })
+
+    resolveNavigationHandler({
+      activeEntryId: 'wheel:wheel-0001:preview',
+      handlers: {onNavigateToWheelPage},
+      navigationTarget: {
+        kind: 'wheel-page',
+        wheelId: 'wheel-0001',
+        wheelName: 'Amber-Tinted Death',
+      },
+    })?.(clearTrail)
+
+    expect(onNavigateToWheelPage).toHaveBeenLastCalledWith({
+      id: 'wheel-0001',
+      name: 'Amber-Tinted Death',
+    })
   })
 
   it('preserves explicit entry overrides before inheriting source overrides', () => {

@@ -59,7 +59,7 @@ export function buildTrailEntry(
       reference.kind === 'skill'
         ? {kind: 'skills'}
         : reference.kind === 'wheel'
-          ? {kind: 'wheel-page', wheelName: reference.name}
+          ? {kind: 'wheel-page', wheelId: reference.id, wheelName: reference.name}
           : undefined,
     referenceLayerOverride,
     selectedEnlightenSlot,
@@ -206,7 +206,7 @@ export function resolveNavigationHandler({
         ? (clearTrail) => {
             clearTrail()
             handlers.onNavigateToWheelPage?.({
-              id: activeEntryId,
+              id: navigationTarget.wheelId ?? activeEntryId,
               name: navigationTarget.wheelName,
             })
           }
