@@ -1,6 +1,7 @@
 import {z} from 'zod'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicAwakenerBuildCatalogRecords} from '@/data-access/public-data/catalogScopes/awakenerBuildsCatalog'
+import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalogScopes/awakenersCatalog'
 import {getPublicBuilderCatalog} from '@/data-access/public-data/collectionRepository'
 
 import type {Covenant} from './covenants'
@@ -57,7 +58,7 @@ function getBuilderOptionIdSet(optionKey: string): Set<string> {
 
 const awakenerBuildEntriesSchema = z.array(awakenerBuildEntrySchema).superRefine((entries, ctx) => {
   const awakenerById = new Map(
-    getPublicCatalogRecords('awakeners').map((awakener) => [awakener.id, awakener]),
+    getPublicAwakenerCatalogRecords().map((awakener) => [awakener.id, awakener]),
   )
   const awakenerIdSet = getBuilderOptionIdSet('awakeners')
   const awakenerBuildIdSet = getBuilderOptionIdSet('awakenerBuilds')
@@ -269,7 +270,7 @@ export function getAwakenerBuildEntries(): AwakenerBuildEntry[] {
     return awakenerBuildEntriesCache
   }
   awakenerBuildEntriesCache = awakenerBuildEntriesSchema.parse(
-    getPublicCatalogRecords('awakener-builds'),
+    getPublicAwakenerBuildCatalogRecords(),
   )
   return awakenerBuildEntriesCache
 }

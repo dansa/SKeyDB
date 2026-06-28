@@ -1,5 +1,8 @@
-import {getPublicCatalogRecordById} from '@/data-access/public-data/catalogRepository'
-import {resolvePublicRoute} from '@/data-access/public-data/routeResolver'
+import type {PublicDataScope} from '@/data-access/public-data/contract'
+import {
+  findPublicRouteByEntityId,
+  resolvePublicRoute,
+} from '@/data-access/public-data/routeResolver'
 
 import type {Awakener} from './awakeners'
 import type {Covenant} from './covenants'
@@ -67,18 +70,22 @@ function isDatabaseAwakenerTab(tab: string): tab is DatabaseAwakenerTab {
   return DATABASE_AWAKENER_TAB_SET.has(tab)
 }
 
-function getMatchingPublicEntityPath(id: string | undefined, name: string): string | undefined {
+function getMatchingPublicEntityPath(
+  scope: PublicDataScope,
+  id: string | undefined,
+  name: string,
+): string | undefined {
   if (!id) {
     return undefined
   }
-  const entity = getPublicCatalogRecordById(id)
-  if (!entity?.route) {
+  const route = findPublicRouteByEntityId(scope, id)
+  if (!route) {
     return undefined
   }
 
   const expectedSlug = toDatabaseEntitySlug(name)
-  if (entity.route.slug === expectedSlug || toDatabaseEntitySlug(entity.name) === expectedSlug) {
-    return entity.route.canonicalPath
+  if (route.canonicalSlug === expectedSlug) {
+    return route.canonicalPath
   }
 
   return undefined
@@ -89,7 +96,7 @@ export function buildDatabaseAwakenerPath(
   tab: DatabaseAwakenerTab = DEFAULT_DATABASE_AWAKENER_TAB,
 ): string {
   const basePath =
-    getMatchingPublicEntityPath(awakener.id, awakener.name) ??
+    getMatchingPublicEntityPath('awakeners', awakener.id, awakener.name) ??
     buildDatabaseEntityDetailPath('awakeners', toDatabaseAwakenerSlug(awakener.name))
   const visibleTab = resolveDatabaseAwakenerVisibleTab(tab)
   if (visibleTab === DEFAULT_DATABASE_AWAKENER_TAB) {
@@ -114,7 +121,7 @@ export function buildDatabaseWheelPath(
   wheel: Pick<Wheel, 'name'> & Partial<Pick<Wheel, 'id'>>,
 ): string {
   return (
-    getMatchingPublicEntityPath(wheel.id, wheel.name) ??
+    getMatchingPublicEntityPath('wheels', wheel.id, wheel.name) ??
     buildDatabaseEntityDetailPath('wheels', toDatabaseWheelSlug(wheel.name))
   )
 }
@@ -123,7 +130,7 @@ export function buildDatabasePossePath(
   posse: Pick<Posse, 'name'> & Partial<Pick<Posse, 'id'>>,
 ): string {
   return (
-    getMatchingPublicEntityPath(posse.id, posse.name) ??
+    getMatchingPublicEntityPath('posses', posse.id, posse.name) ??
     buildDatabaseEntityDetailPath('posses', toDatabasePosseSlug(posse.name))
   )
 }
@@ -132,7 +139,7 @@ export function buildDatabaseCovenantPath(
   covenant: Pick<Covenant, 'name'> & Partial<Pick<Covenant, 'id'>>,
 ): string {
   return (
-    getMatchingPublicEntityPath(covenant.id, covenant.name) ??
+    getMatchingPublicEntityPath('covenants', covenant.id, covenant.name) ??
     buildDatabaseEntityDetailPath('covenants', toDatabaseCovenantSlug(covenant.name))
   )
 }

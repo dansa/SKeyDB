@@ -10,10 +10,25 @@ import type {
 import {publicRoutesIndexSchema} from './schemas'
 
 let routesIndexCache: PublicRoutesIndex | undefined
+const routeByEntityIdCache = new Map<PublicDataScope, Map<string, PublicRouteIndexEntry>>()
 
 export function getPublicRoutesIndex(): PublicRoutesIndex {
   routesIndexCache ??= publicRoutesIndexSchema.parse(routesIndexJson)
   return routesIndexCache
+}
+
+export function findPublicRouteByEntityId(
+  scope: PublicDataScope,
+  entityId: string,
+): PublicRouteIndexEntry | undefined {
+  let routeByEntityId = routeByEntityIdCache.get(scope)
+  if (!routeByEntityId) {
+    routeByEntityId = new Map(
+      Object.values(getPublicRoutesIndex().routes[scope] ?? {}).map((entry) => [entry.id, entry]),
+    )
+    routeByEntityIdCache.set(scope, routeByEntityId)
+  }
+  return routeByEntityId.get(entityId)
 }
 
 function normalizeRouteSlug(slug: string): string {

@@ -1,6 +1,6 @@
 import {z} from 'zod'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalogScopes/awakenersCatalog'
 
 import {SUBSTAT_SCALING_KEYS, type SubstatScalingKey} from './awakener-source-schema'
 
@@ -133,7 +133,7 @@ export function resolveAwakenerLiteStatsForLevel(
   return resolvedStats
 }
 
-const parsedAwakeners = getPublicCatalogRecords('awakeners').map((record): Awakener => {
+const parsedAwakeners = getPublicAwakenerCatalogRecords().map((record): Awakener => {
   const awakener = publicV3AwakenerCatalogRecordSchema.parse(record)
   const name = resolveCanonicalAwakenerName(awakener)
   const aliases = Array.from(new Set([name, awakener.name, ...(awakener.aliases ?? [])]))

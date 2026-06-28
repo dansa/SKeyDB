@@ -4,7 +4,7 @@ import {
   resolvePublicAsset,
   resolvePublicEntityAsset,
 } from '@/data-access/public-data/assetRepository'
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicCovenantCatalogRecords} from '@/data-access/public-data/catalogScopes/covenantsCatalog'
 
 const nonEmptyStringSchema = z.string().trim().min(1)
 
@@ -28,7 +28,7 @@ function getCovenantPublicAssetId(covenantId: string): string {
   return assetIndexId ? (resolvePublicAsset(assetIndexId)?.assetId ?? 'TBD') : 'TBD'
 }
 
-const parsedCovenants = getPublicCatalogRecords('covenants').map((record): Covenant => {
+const parsedCovenants = getPublicCovenantCatalogRecords().map((record): Covenant => {
   const covenant = publicV3CovenantCatalogRecordSchema.parse(record)
   return {
     id: covenant.id,

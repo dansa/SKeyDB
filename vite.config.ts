@@ -56,6 +56,7 @@ export default defineConfig({
   base: getBasePath(),
 
   build: {
+    assetsInlineLimit: 0,
     target: ['chrome110', 'edge110', 'firefox115', 'safari16'],
   },
 

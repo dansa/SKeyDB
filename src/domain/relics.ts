@@ -4,7 +4,7 @@ import {
   resolvePublicAsset,
   resolvePublicEntityAsset,
 } from '@/data-access/public-data/assetRepository'
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicRelicCatalogRecords} from '@/data-access/public-data/catalogScopes/relicsCatalog'
 import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
 
 import {getAwakeners} from './awakeners'
@@ -66,7 +66,7 @@ export type PortraitRelic = Relic & {
   ownerAwakenerId: string
 }
 
-const parsedRelics: Relic[] = getPublicCatalogRecords('relics').map((record): Relic => {
+const parsedRelics: Relic[] = getPublicRelicCatalogRecords().map((record): Relic => {
   const relic = publicRelicRecordSchema.parse(record)
   return {
     id: relic.id,

@@ -4,7 +4,7 @@ import {
   resolvePublicAsset,
   resolvePublicEntityAsset,
 } from '@/data-access/public-data/assetRepository'
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicWheelCatalogRecords} from '@/data-access/public-data/catalogScopes/wheelsCatalog'
 
 import {getMainstatByKey, WHEEL_MAINSTAT_KEYS, type WheelMainstatKey} from './mainstats'
 
@@ -49,7 +49,7 @@ function getWheelPublicAssetId(wheelId: string): string {
   return assetIndexId ? (resolvePublicAsset(assetIndexId)?.assetId ?? 'TBD') : 'TBD'
 }
 
-const parsedWheels: Wheel[] = getPublicCatalogRecords('wheels').map((record) => {
+const parsedWheels: Wheel[] = getPublicWheelCatalogRecords().map((record) => {
   const wheel = publicV3WheelCatalogRecordSchema.parse(record)
   return {
     id: wheel.id,

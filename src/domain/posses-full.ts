@@ -4,7 +4,7 @@ import {
   resolvePublicAsset,
   resolvePublicEntityAsset,
 } from '@/data-access/public-data/assetRepository'
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicPosseCatalogRecords} from '@/data-access/public-data/catalogScopes/possesCatalog'
 
 import {
   publicDescriptionArgsSchema,
@@ -64,7 +64,7 @@ export function getPossesFull(): PosseFullRecord[] {
   }
 
   possesFullCache = publicPosseRecordsSchema
-    .parse(getPublicCatalogRecords('posses'))
+    .parse(getPublicPosseCatalogRecords())
     .map(adaptPublicPosse)
   return possesFullCache
 }

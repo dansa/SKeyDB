@@ -1,4 +1,4 @@
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalogScopes/awakenersCatalog'
 import {getPublicCollectionCatalog} from '@/data-access/public-data/collectionRepository'
 
 import {getAwakenerIdentityKey} from './awakener-identity'
@@ -293,7 +293,7 @@ export function createDefaultCollectionOwnershipCatalog(): CollectionOwnershipCa
   const awakenerIds = catalog.collectables.awakeners
   const allowedAwakenerIds = new Set(awakenerIds)
   const linkedAwakenerIdsByIdentity = new Map<string, string[]>()
-  for (const awakener of getPublicCatalogRecords('awakeners')) {
+  for (const awakener of getPublicAwakenerCatalogRecords()) {
     if (!allowedAwakenerIds.has(awakener.id)) {
       continue
     }

@@ -1,6 +1,6 @@
 import {z} from 'zod'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalogScopes/awakenersCatalog'
 
 const liteStatsSchema = z.object({
   CON: z.number(),
@@ -58,7 +58,7 @@ type PublicAwakenerCatalogLiteRecord = z.infer<typeof publicAwakenerCatalogLiteR
 
 function getPublicAwakenerCatalogLiteRecords(): PublicAwakenerCatalogLiteRecord[] {
   // The public awakener catalog is currently the intentional lite/summary source.
-  return publicAwakenerCatalogLiteRecordsSchema.parse(getPublicCatalogRecords('awakeners'))
+  return publicAwakenerCatalogLiteRecordsSchema.parse(getPublicAwakenerCatalogRecords())
 }
 
 function normalizeCanonicalAwakenerName(name: string): string {

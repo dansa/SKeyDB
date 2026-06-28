@@ -4,7 +4,7 @@ import {
   resolvePublicAsset,
   resolvePublicEntityAsset,
 } from '@/data-access/public-data/assetRepository'
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalogScopes/awakenersCatalog'
 import type {PublicDataScope, PublicRecord} from '@/data-access/public-data/contract'
 import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
 
@@ -260,7 +260,7 @@ function resolvePublicAwakenerId(awakenerId: string | number): string | undefine
     return undefined
   }
 
-  return getPublicCatalogRecords('awakeners').find((record) => record.numericId === numericId)?.id
+  return getPublicAwakenerCatalogRecords().find((record) => record.numericId === numericId)?.id
 }
 
 function formatPublicStatValue(key: string, value: number): string {

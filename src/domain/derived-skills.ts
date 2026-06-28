@@ -1,4 +1,4 @@
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicDerivedSkillCatalogRecords} from '@/data-access/public-data/catalogScopes/derivedSkillsCatalog'
 
 import {derivedSkillsDatasetSchema, type DerivedSkillRecord} from './awakener-source-schema'
 import {
@@ -14,7 +14,7 @@ export function getDerivedSkills(): DerivedSkillRecord[] {
   }
 
   derivedSkillsCache = derivedSkillsDatasetSchema.parse(
-    getPublicCatalogRecords('derived-skills').map((record) =>
+    getPublicDerivedSkillCatalogRecords().map((record) =>
       adaptPublicV3DerivedSkillRecord(parsePublicV3DerivedSkillCatalogRecord(record)),
     ),
   )
