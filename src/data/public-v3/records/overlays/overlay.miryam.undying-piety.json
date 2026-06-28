@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.miryam.undying-piety",
+  "name": "Undying Piety",
+  "route": {
+    "slug": "undying-piety",
+    "canonicalPath": "/database/awakeners/miryam/overlays/undying-piety"
+  },
+  "assets": {
+    "icon": "asset-overlay.miryam.undying-piety-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0032",
+  "aliases": [],
+  "iconId": "IconS_Buff_045",
+  "descriptionTemplate": "At the start of the battle, place 1 {Obsession} into hand.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Miryam"
+}

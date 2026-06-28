@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0022",
   "slot": "Rouse",
-  "descriptionTemplate": "Hameln gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, place 1 {Symphony of Harmony} into hand.",
+  "descriptionTemplate": "Hameln gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, place 1 {Symphony of Harmony} into hand",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

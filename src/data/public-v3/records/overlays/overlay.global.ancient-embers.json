@@ -14,6 +14,6 @@
   "aliases": ["Old Embers"],
   "iconId": "IconS_Buff_025",
   "textColor": "affliction",
-  "descriptionTemplate": "After suffering active damage or Tentacle damage, remove an equivalent amount of {Old Embers} and lose 300% of the removal amount in life; when suffering other damage, remove half. The number of {Old Embers} resets each turn.",
+  "descriptionTemplate": "When taking Active DMG or {Tentacle DMG}, remove an equivalent amount of {Ancient Embers} and lose 300% that much HP. Other types of DMG only removes 50% as much {Ancient Embers}. {Ancient Embers} stacks reset each turn.",
   "descriptionArgs": {}
 }

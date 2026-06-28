@@ -7,7 +7,7 @@
     "slug": "ichigo-ichie",
     "canonicalPath": "/database/derived-skills/ichigo-ichie"
   },
-  "descriptionTemplate": "Choose 1 from 3 random unlocked Posses to unleash and activate twice immediately. After played, permanently transforms into {Vernal Message}.",
+  "descriptionTemplate": "Unleash 1 of 3 random Posses twice. After played, permanently transforms into {Vernal Message}.",
   "descriptionArgs": {},
   "cardKeywords": [
     {

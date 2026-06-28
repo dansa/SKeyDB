@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Faded Legacy - Ch. 7 - Desire's Flow",
   "realm": "CARO",
   "lineupToken": "G",
-  "descriptionTemplate": "Choose a Non-Derived Command Card in hand and create a Base Copy of it. The copy has {Exhaust}. Increase its owner's Aliemus by [Arg1].",
+  "descriptionTemplate": "Choose a non-Derived Command Card in hand and create a Basic Copy of it. The copy has {Exhaust}. Grant its Awakener [Arg1] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

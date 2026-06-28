@@ -12,7 +12,7 @@
   },
   "numericId": 57,
   "ingameId": "B15",
-  "lineupToken": "xl",
+  "lineupToken": "xk",
   "realm": "CARO",
   "rarity": "SSR",
   "type": "CHORUS",
@@ -64,31 +64,31 @@
         "kind": "introduction",
         "title": "Basic Information",
         "unlockCondition": "Awakener Level 1",
-        "content": "When all things are eroded by twisted flesh, when the everyday life is overturned, a dandelion drifts down upon this wasteland amid the keening noise. \nReach out your hand. Take hold of her. Love will break through the surface, and anchor you to the one you love once more."
+        "content": "When all things are eroded by twisted flesh, when the everyday life is overturned, a dandelion drifts down upon this wasteland amid the keening noise. \n\nReach out your hand. Take hold of her. Love will break through the surface, and anchor you to the one you love once more."
       },
       {
         "kind": "story",
         "title": "Story: I",
         "unlockCondition": "Awakener Level 3",
-        "content": "Like what is yet to come but has not yet come to pass. Like what is held in the heart and will never be forgotten.\nNo matter what form they take, no matter what shape the world assumes, the two beings—utterly different, yet utterly alike—will always arrive at the same answer.\n<Italic:\"There is someone we want to see again.\"\n\"We will stop at nothing to find them... and the world where we can stay by their side.\"\n\"If the path there has no end, then we will spend our whole lives walking it. A lifetime measured in searching.\"\n>\nPerhaps this is why, amid the screeching, ugly blobs of flesh, a brilliant Silver Core fell into the Keeper's palm."
+        "content": "Like what is yet to come but has not yet come to pass. Like what is held in the heart and will never be forgotten.\n\nNo matter what form they take, no matter what shape the world assumes, the two beings—utterly different, yet utterly alike—will always arrive at the same answer.\n\n<Italic:\"There is someone we want to see again.\"\n\n\"We will stop at nothing to find them... and the world where we can stay by their side.\"\n\n\"If the path there has no end, then we will spend our whole lives walking it. A lifetime measured in searching.\"\n\n>\nPerhaps this is why, amid the screeching, ugly blobs of flesh, a brilliant Silver Core fell into the Keeper's palm."
       },
       {
         "kind": "story",
         "title": "Story: II",
         "unlockCondition": "Affinity Level 5",
-        "content": "Saya quickly became a well-liked student. Exceptional capacity for learning and a hunger for knowledge that never seemed to be sated—in Mythag, an Awakener with these qualities was rarer, even, than her unusual state of being.\n\nTo everyone's surprise, Saya took a peculiar interest in Ramona. Perhaps it's the bond between Ramona and the Keeper, or perhaps it's the special relationship between Ramona and Dexter—father and daughter, in their own strange way.\nGiven that Saya's understanding of morality diverges entirely from that of humans, the Academic Affairs Office once offered Ramona special security measures, but she refused.\nWhat the two of them usually talks about, no one knows. But very occasionally, on some warm afternoon, the gentle wind moving across the lawn would join their long, private conversations."
+        "content": "Saya quickly became a well-liked student. Exceptional capacity for learning and a hunger for knowledge that never seemed to be sated—in Mythag, an Awakener with these qualities was rarer, even, than her unusual state of being.\n\nTo everyone's surprise, Saya took a peculiar interest in Ramona. Perhaps it's the bond between Ramona and the Keeper, or perhaps it's the special relationship between Ramona and Dexter—father and daughter, in their own strange way.\n\nGiven that Saya's understanding of morality diverges entirely from that of humans, the Academic Affairs Office once offered Ramona special security measures, but she refused.\n\nWhat the two of them usually talks about, no one knows. But very occasionally, on some warm afternoon, the gentle wind moving across the lawn would join their long, private conversations."
       },
       {
         "kind": "story",
         "title": "Story: III",
         "unlockCondition": "Affinity Level 7",
-        "content": "What exactly is Saya? The key to that answer lies somewhere far beyond reach.\n\n<Italic:\"The creature known as Saya manifested in this universe by no coincidence. It is the result of an instinct hardwired into her biology. What that instinct points toward is the ultimate purpose of all life: reproduction. She and her kind are capable of crossing the walls between dimensions, scattering their seeds across the void...\"\n\"...It is theorized that Saya, as an individual, may be an exception even among her own kind. Humanity is a species that has used its intellect to override its instincts. Could that same flaw have been inherited by Saya? In the course of absorbing human ways, the contradictions between emotion and instinct may have dismantled Saya's reproductive drive...\"\n\"—One day, the blessing of what is called love will find her. The white-hot agape will burn within her, and she will be free to wander the world as her true self, restored to her former radiance.\">\n\nShould we judge her by morality? Or by the authenticity of her love?\nPerhaps none of it has an answer. Carrying with her the unanswerable questions of another world, Saya arrived in this universe by accident, where none of <Italic:that> has happened yet. Led by the answers living in her memories, she moves forward, toward the far shore of what she has forgotten.\n\nShe waits for the day the dandelion blooms."
+        "content": "What exactly is Saya? The key to that answer lies somewhere far beyond reach.\n\n<Italic:\"The creature known as Saya manifested in this universe by no coincidence. It is the result of an instinct hardwired into her biology. What that instinct points toward is the ultimate purpose of all life: reproduction. She and her kind are capable of crossing the walls between dimensions, scattering their seeds across the void...\"\n\n\"...It is theorized that Saya, as an individual, may be an exception even among her own kind. Humanity is a species that has used its intellect to override its instincts. Could that same flaw have been inherited by Saya? In the course of absorbing human ways, the contradictions between emotion and instinct may have dismantled Saya's reproductive drive...\"\n\n\"—One day, the blessing of what is called love will find her. The white-hot agape will burn within her, and she will be free to wander the world as her true self, restored to her former radiance.\">\n\nShould we judge her by morality? Or by the authenticity of her love?\n\nPerhaps none of it has an answer. Carrying with her the unanswerable questions of another world, Saya arrived in this universe by accident, where none of <Italic:that> has happened yet. Led by the answers living in her memories, she moves forward, toward the far shore of what she has forgotten.\n\nShe waits for the day the dandelion blooms."
       },
       {
         "kind": "story",
         "title": "Story: IV",
         "unlockCondition": "Affinity Level 9",
-        "content": "She is of a species furthest from humanity—and yet, in learning how to become human, she has grown to resemble them even in the places where she contradicts her own nature.\nWithout love, the world she was meant to create would mean nothing.\nWith love, the only world worth creating is one where she could stay with her beloved.\nNothing more terrifying. Nothing more cruel. Nothing more innocent. Nothing more radiant."
+        "content": "She is of a species furthest from humanity—and yet, in learning how to become human, she has grown to resemble them even in the places where she contradicts her own nature.\n\nWithout love, the world she was meant to create would mean nothing.\n\nWith love, the only world worth creating is one where she could stay with her beloved.\n\nNothing more terrifying. Nothing more cruel. Nothing more innocent. Nothing more radiant."
       }
     ]
   }

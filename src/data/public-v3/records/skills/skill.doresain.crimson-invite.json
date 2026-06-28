@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0014",
   "slot": "Rouse",
-  "descriptionTemplate": "Doresain gains [Energy:Arg1] Aliemus. {Rouse}: Gains [Power:Arg2] {STR}, and DMG dealt by Doresain gains an additional [Arg3]% {STR} bonus. The first time Doresain scores a Kill each turn, deal {Fixed DMG} equal to 50% of the overflow DMG to other enemies.",
+  "descriptionTemplate": "Doresain gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}, and DMG dealt by Doresain gains an additional [Arg3]% {STR} bonus. The first time Doresain scores a Kill each turn, deal {Fixed DMG} equal to 50% of the overflow DMG to other enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

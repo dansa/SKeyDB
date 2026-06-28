@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0008",
   "slot": "Skill1",
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, increase other allies' Temporary Crit. DMG by [Arg5]% of Castor's Crit. DMG. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile and gain [Block:Arg4] Shield.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, increase other allies' Temporary Crit. DMG by [Arg3]%. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile and gain [Block:Arg4] Shield.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -21,15 +21,15 @@
       "kind": "fixed",
       "value": "3"
     },
+    "Arg3": {
+      "kind": "scaling",
+      "values": ["25", "27", "29", "31", "33", "35"],
+      "suffix": "%"
+    },
     "Arg4": {
       "kind": "scaling",
       "values": ["15", "18", "21", "24", "27", "30"],
       "stat": "DEF",
-      "suffix": "%"
-    },
-    "Arg5": {
-      "kind": "scaling",
-      "values": ["10", "11", "12", "13", "14", "15"],
       "suffix": "%"
     }
   },
@@ -45,7 +45,7 @@
       "ownerAwakenerId": "awakener-0008",
       "ownerAwakenerName": "Castor",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, increase other allies' Temporary Crit. DMG by [Arg5]% of Castor's Crit. DMG. For every {Onyx Plume} played this turn, Arithmetica Cost -1. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile and gain [Block:Arg4] Shield."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, increase other allies' Temporary Crit. DMG by [Arg3]%. For every {Onyx Plume} played this turn, Arithmetica Cost -1. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile and gain [Block:Arg4] Shield."
       }
     }
   ],

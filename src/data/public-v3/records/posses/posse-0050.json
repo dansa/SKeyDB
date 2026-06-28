@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Astral Reign - Ch. 5 - Fated Theater",
   "realm": "ULTRA",
   "lineupToken": "1",
-  "descriptionTemplate": "Gain [Arg1] Shield and [Arg2]% Temporary DMG Amplification. If \"Arachne\" is in the party, draw 1 {Eternal Loom} and reduce its Arithmetica Cost by 1.",
+  "descriptionTemplate": "Gain [Arg1] Shield and +[Arg2]% Temporary DMG Amplification. If Arachne is in the party, draw 1 {Eternal Loom} and reduce its Arithmetica Cost by 1.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

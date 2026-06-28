@@ -1,6 +1,24 @@
 {
   "schemaVersion": 3,
   "tokens": {
+    "0 countdown": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-0"
+      }
+    ],
+    "1 countdown": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-1"
+      }
+    ],
+    "2 countdown": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-2"
+      }
+    ],
     "24": [
       {
         "kind": "awakener",
@@ -13,10 +31,28 @@
         "id": "awakener-build-0001"
       }
     ],
+    "3 countdown": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-3"
+      }
+    ],
     "35mm magic": [
       {
         "kind": "wheel",
         "id": "wheel-0093"
+      }
+    ],
+    "4 countdown": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-4"
+      }
+    ],
+    "5 countdown": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-5"
       }
     ],
     "a common enemy": [
@@ -97,6 +133,12 @@
         "id": "skill.goliath.abyssal-depths-power"
       }
     ],
+    "abyssal engulfment": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.pontos.abyssal-engulfment"
+      }
+    ],
     "abyssal obsession": [
       {
         "kind": "skill",
@@ -119,6 +161,12 @@
       {
         "kind": "skill",
         "id": "skill.thais.ad-matrem-vocatus"
+      }
+    ],
+    "adv insight": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.adv-insight"
       }
     ],
     "advanced orisons": [
@@ -469,6 +517,12 @@
         "id": "skill.lotan.battle-thirst"
       }
     ],
+    "battue": [
+      {
+        "kind": "overlay",
+        "id": "overlay.pontos.pack-hunt"
+      }
+    ],
     "beachside memento": [
       {
         "kind": "posse",
@@ -491,6 +545,42 @@
       {
         "kind": "skill",
         "id": "skill.salvador.benediction"
+      }
+    ],
+    "benthos aequor": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.divine-realm-aequor"
+      }
+    ],
+    "benthos aequor mastery": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.divine-realm-aequor-mastery"
+      }
+    ],
+    "benthos raging waves": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.divine-realm-raging-waves"
+      }
+    ],
+    "benthos surging tides": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.divine-realm-surging-tides"
+      }
+    ],
+    "benthos tentacle stance": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.divine-realm-tentacle-stance"
+      }
+    ],
+    "benthos tranquil sea": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.divine-realm-tranquil-sea"
       }
     ],
     "beyond death": [
@@ -907,12 +997,6 @@
         "id": "enlighten.pickman.centered-composition"
       }
     ],
-    "certain gain": [
-      {
-        "kind": "enlighten",
-        "id": "enlighten.ryker.certain-gain"
-      }
-    ],
     "chains unbound": [
       {
         "kind": "wheel",
@@ -1279,6 +1363,12 @@
         "id": "overlay.kathigu-ra.combust"
       }
     ],
+    "compass to false north": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0169"
+      }
+    ],
     "computation": [
       {
         "kind": "derivedSkill",
@@ -1337,6 +1427,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.liz.corrupted-flames"
+      }
+    ],
+    "countdown": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown"
       }
     ],
     "countdown moment": [
@@ -1939,6 +2035,12 @@
         "id": "relic-0041"
       }
     ],
+    "dimensional image pontos": [
+      {
+        "kind": "relic",
+        "id": "relic-0058"
+      }
+    ],
     "dimensional image ramona": [
       {
         "kind": "relic",
@@ -2039,6 +2141,12 @@
       {
         "kind": "skill",
         "id": "skill.daffodil.dimensional-projection"
+      }
+    ],
+    "dimmed candle": [
+      {
+        "kind": "overlay",
+        "id": "overlay.faros.dimmed-candle"
       }
     ],
     "directed catalysis": [
@@ -2147,12 +2255,6 @@
       {
         "kind": "derivedSkill",
         "id": "derived.miryam.divine-realms-illusion"
-      }
-    ],
-    "divine realms order": [
-      {
-        "kind": "talent",
-        "id": "talent.murphy-fauxborn.divine-realms-order"
       }
     ],
     "divine revelation": [
@@ -2393,6 +2495,12 @@
       {
         "kind": "overlay",
         "id": "overlay.global.embryo-fusion"
+      }
+    ],
+    "embryo fusion double": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.embryo-fusion-double"
       }
     ],
     "emerald reflection": [
@@ -3091,6 +3199,30 @@
         "id": "wheel-0104"
       }
     ],
+    "gaunt": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.pontos.gaunts"
+      }
+    ],
+    "gaunt ravage": [
+      {
+        "kind": "skill",
+        "id": "skill.pontos.gaunt-ravage"
+      }
+    ],
+    "gaunts": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.pontos.gaunts"
+      }
+    ],
+    "gauntwards call": [
+      {
+        "kind": "skill",
+        "id": "skill.pontos.gauntwards-call"
+      }
+    ],
     "general dps": [
       {
         "kind": "awakenerBuild",
@@ -3137,6 +3269,12 @@
       {
         "kind": "talent",
         "id": "talent.doll.gnosis-deconstruction"
+      }
+    ],
+    "gobble up": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.gobble-up"
       }
     ],
     "golden butterflys memories": [
@@ -3365,6 +3503,12 @@
       {
         "kind": "talent",
         "id": "talent.clementine.hive-resonance"
+      }
+    ],
+    "hollow shell": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.pontos.hollow-shell"
       }
     ],
     "hollow whispers": [
@@ -3647,6 +3791,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.leigh.insatiable-craving"
+      }
+    ],
+    "insight": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.insight"
       }
     ],
     "inspiration": [
@@ -3979,12 +4129,6 @@
         "id": "enlighten.pollux.lightbearers-herald"
       }
     ],
-    "lightless bottom": [
-      {
-        "kind": "talent",
-        "id": "talent.vortice.lightless-bottom"
-      }
-    ],
     "lightning retribution": [
       {
         "kind": "skill",
@@ -4079,6 +4223,12 @@
       {
         "kind": "wheel",
         "id": "wheel-0010"
+      }
+    ],
+    "lure of light": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.pontos.lure-of-light"
       }
     ],
     "lustrous pearl": [
@@ -4223,6 +4373,12 @@
       {
         "kind": "wheel",
         "id": "wheel-0085"
+      }
+    ],
+    "mental interference": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.mental-interference"
       }
     ],
     "merciful nurturing": [
@@ -4795,12 +4951,6 @@
         "id": "relic-9015"
       }
     ],
-    "outcasts anguish": [
-      {
-        "kind": "enlighten",
-        "id": "enlighten.caecus.outcasts-anguish"
-      }
-    ],
     "outer surgery": [
       {
         "kind": "skill",
@@ -4817,6 +4967,12 @@
       {
         "kind": "overlay",
         "id": "overlay.global.over-exalt"
+      }
+    ],
+    "pack hunt": [
+      {
+        "kind": "overlay",
+        "id": "overlay.pontos.pack-hunt"
       }
     ],
     "paean of twisted fury": [
@@ -5107,6 +5263,12 @@
         "id": "awakener-build-0041"
       }
     ],
+    "pontos": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0058"
+      }
+    ],
     "poof": [
       {
         "kind": "skill",
@@ -5231,12 +5393,6 @@
       {
         "kind": "skill",
         "id": "skill.murphy-fauxborn.princess-of-delusions"
-      }
-    ],
-    "private afternoon": [
-      {
-        "kind": "wheel",
-        "id": "wheel-0130"
       }
     ],
     "profane apocalypse": [
@@ -5377,6 +5533,12 @@
         "id": "overlay.global.raging-waves"
       }
     ],
+    "raid gaunt": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.pontos.raid-gaunt"
+      }
+    ],
     "ramona": [
       {
         "kind": "awakener",
@@ -5483,6 +5645,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.alva.relentless-fighter"
+      }
+    ],
+    "relentless hunt": [
+      {
+        "kind": "skill",
+        "id": "skill.pontos.relentless-hunt"
       }
     ],
     "relic of the past": [
@@ -5615,6 +5783,12 @@
       {
         "kind": "talent",
         "id": "talent.wanda.revelation"
+      }
+    ],
+    "revelry in absence": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.pontos.revelry-in-absence"
       }
     ],
     "revival": [
@@ -6175,6 +6349,12 @@
         "id": "skill.castor.skybound-oath"
       }
     ],
+    "slay gaunt": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.pontos.slay-gaunt"
+      }
+    ],
     "slick slide adventure": [
       {
         "kind": "enlighten",
@@ -6377,12 +6557,6 @@
       {
         "kind": "overlay",
         "id": "overlay.global.stagnation"
-      }
-    ],
-    "stakes of wisdom": [
-      {
-        "kind": "wheel",
-        "id": "wheel-0047"
       }
     ],
     "standard support": [
@@ -6733,6 +6907,12 @@
         "id": "wheel-0009"
       }
     ],
+    "the hollow one": [
+      {
+        "kind": "posse",
+        "id": "posse-0052"
+      }
+    ],
     "the land of nonexistence": [
       {
         "kind": "wheel",
@@ -6743,6 +6923,12 @@
       {
         "kind": "wheel",
         "id": "wheel-0035"
+      }
+    ],
+    "the living cage": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0171"
       }
     ],
     "the living flame": [
@@ -6779,12 +6965,6 @@
       {
         "kind": "skill",
         "id": "skill.tawil.the-silver-key-gate"
-      }
-    ],
-    "the stars are right": [
-      {
-        "kind": "enlighten",
-        "id": "enlighten.tulu.the-stars-are-right"
       }
     ],
     "the ultimate descent": [
@@ -7105,12 +7285,6 @@
         "id": "skill.lily.undying-flower-upon-slime"
       }
     ],
-    "undying piety": [
-      {
-        "kind": "talent",
-        "id": "talent.miryam.undying-piety"
-      }
-    ],
     "undying sun": [
       {
         "kind": "posse",
@@ -7351,12 +7525,6 @@
         "id": "wheel-0013"
       }
     ],
-    "vanitys collapse": [
-      {
-        "kind": "enlighten",
-        "id": "enlighten.miryam.vanitys-collapse"
-      }
-    ],
     "veil of illusion": [
       {
         "kind": "enlighten",
@@ -7409,6 +7577,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.global.vernal-message"
+      }
+    ],
+    "vex gaunt": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.pontos.vex-gaunt"
       }
     ],
     "victory of roses": [
@@ -7657,12 +7831,6 @@
         "id": "awakener-build-0053"
       }
     ],
-    "winner takes all": [
-      {
-        "kind": "talent",
-        "id": "talent.ryker.winner-takes-all"
-      }
-    ],
     "winters requiem": [
       {
         "kind": "wheel",
@@ -7691,6 +7859,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.pickman.world-in-the-painting"
+      }
+    ],
+    "wrath of the abyss": [
+      {
+        "kind": "skill",
+        "id": "skill.pontos.wrath-of-the-abyss"
       }
     ],
     "writing with feeling": [
@@ -7771,6 +7945,16 @@
         "id": "skill.kathigu-ra.all-melting-truth"
       }
     ],
+    "another ebwynnos": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.pontos.another-ebwynnos"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.pontos.another-ebwynnos"
+      }
+    ],
     "art is madness": [
       {
         "kind": "enlighten",
@@ -7839,6 +8023,16 @@
       {
         "kind": "skill",
         "id": "skill.karen.bounteous-feast"
+      }
+    ],
+    "certain gain": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.ryker.certain-gain"
+      },
+      {
+        "kind": "overlay",
+        "id": "overlay.ryker.certain-gain"
       }
     ],
     "chrono pendulum treasure": [
@@ -8076,6 +8270,10 @@
       },
       {
         "kind": "skill",
+        "id": "skill.pontos.defense"
+      },
+      {
+        "kind": "skill",
         "id": "skill.ramona-timeworn.defense"
       },
       {
@@ -8189,6 +8387,16 @@
       {
         "kind": "talent",
         "id": "talent.mouchette.dramatic-encounter"
+      }
+    ],
+    "dreaming of wonderland": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.dreaming-of-wonderland"
+      },
+      {
+        "kind": "wheel",
+        "id": "wheel-0170"
       }
     ],
     "elegy over fate": [
@@ -8448,6 +8656,10 @@
       },
       {
         "kind": "talent",
+        "id": "talent.pontos.gnostic-potential"
+      },
+      {
+        "kind": "talent",
         "id": "talent.ramona-timeworn.gnostic-potential"
       },
       {
@@ -8541,20 +8753,6 @@
         "id": "skill.horla.ink-stained-sonnet"
       }
     ],
-    "insight": [
-      {
-        "kind": "derivedSkill",
-        "id": "derived.daffodil.thousand-mirage-effect-insight"
-      },
-      {
-        "kind": "derivedSkill",
-        "id": "derived.global.insight"
-      },
-      {
-        "kind": "wheel",
-        "id": "wheel-0076"
-      }
-    ],
     "jackpot": [
       {
         "kind": "enlighten",
@@ -8623,6 +8821,20 @@
       {
         "kind": "skill",
         "id": "skill.faros.light-of-the-lost"
+      }
+    ],
+    "lightless bottom": [
+      {
+        "kind": "talent",
+        "id": "talent.murphy-fauxborn.lightless-bottom"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.pontos.lightless-bottom"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.vortice.lightless-bottom"
       }
     ],
     "lost dreams guide": [
@@ -8812,6 +9024,10 @@
       },
       {
         "kind": "talent",
+        "id": "talent.pontos.madness-omen"
+      },
+      {
+        "kind": "talent",
         "id": "talent.ramona-timeworn.madness-omen"
       },
       {
@@ -8915,6 +9131,16 @@
         "id": "skill.liz.omens-descent"
       }
     ],
+    "outcasts anguish": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.caecus.outcasts-anguish"
+      },
+      {
+        "kind": "overlay",
+        "id": "overlay.caecus.outcasts-anguish"
+      }
+    ],
     "over the sea of thorns": [
       {
         "kind": "enlighten",
@@ -8963,6 +9189,16 @@
       {
         "kind": "skill",
         "id": "skill.daffodil.phantasmal-haze"
+      }
+    ],
+    "private afternoon": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.private-afternoon"
+      },
+      {
+        "kind": "wheel",
+        "id": "wheel-0130"
       }
     ],
     "psyche dissection": [
@@ -9202,6 +9438,10 @@
       },
       {
         "kind": "talent",
+        "id": "talent.pontos.soulforge-aptitude"
+      },
+      {
+        "kind": "talent",
         "id": "talent.ramona-timeworn.soulforge-aptitude"
       },
       {
@@ -9273,6 +9513,16 @@
       {
         "kind": "skill",
         "id": "skill.winkle.space-time-fold"
+      }
+    ],
+    "stakes of wisdom": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.stakes-of-wisdom"
+      },
+      {
+        "kind": "wheel",
+        "id": "wheel-0047"
       }
     ],
     "standard": [
@@ -9622,6 +9872,10 @@
       },
       {
         "kind": "skill",
+        "id": "skill.pontos.strike"
+      },
+      {
+        "kind": "skill",
         "id": "skill.ramona-timeworn.strike"
       },
       {
@@ -9763,6 +10017,16 @@
         "id": "skill.sanga.the-sea-of-corals"
       }
     ],
+    "the stars are right": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.tulu.the-stars-are-right"
+      },
+      {
+        "kind": "overlay",
+        "id": "overlay.tulu.the-stars-are-right"
+      }
+    ],
     "thousand mirage": [
       {
         "kind": "derivedSkill",
@@ -9811,6 +10075,16 @@
         "id": "skill.caecus.unbending-resolve"
       }
     ],
+    "undying piety": [
+      {
+        "kind": "overlay",
+        "id": "overlay.miryam.undying-piety"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.miryam.undying-piety"
+      }
+    ],
     "unfettered mirth": [
       {
         "kind": "enlighten",
@@ -9829,6 +10103,16 @@
       {
         "kind": "skill",
         "id": "skill.lotan.until-the-planets-end"
+      }
+    ],
+    "vanitys collapse": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.miryam.vanitys-collapse"
+      },
+      {
+        "kind": "overlay",
+        "id": "overlay.miryam.vanitys-collapse"
       }
     ],
     "vroom vroom": [
@@ -9859,6 +10143,16 @@
       {
         "kind": "overlay",
         "id": "overlay.global.weakness"
+      }
+    ],
+    "winner takes all": [
+      {
+        "kind": "overlay",
+        "id": "overlay.ryker.winner-takes-all"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.ryker.winner-takes-all"
       }
     ]
   }

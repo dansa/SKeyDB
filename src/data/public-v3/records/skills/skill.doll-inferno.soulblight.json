@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0018",
   "slot": "Rouse",
-  "descriptionTemplate": "Doll: Inferno gains [Energy:Arg1] Aliemus. {Rouse}: At the end of the turn, recover [Heal:Arg2] HP and gain Aliemus equal to its own Aliemus Regen. {Finale Form}: No longer recover HP; instea, trigger [Arg3]% {Poison} on all enemies.",
+  "descriptionTemplate": "Doll: Inferno gains [Energy:Arg1] Aliemus. {Rouse}: At turn end, recover [Heal:Arg2] HP and gain Aliemus equal to its own Aliemus Regen. {Finale Form}: No longer recover HP; instead, trigger [Arg3]% {Poison} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

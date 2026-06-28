@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Multiverse Link: My Turn!",
   "realm": "OTHER",
   "lineupToken": "L",
-  "descriptionTemplate": "Generate 1 {Leah's Coin} and shuffle it into the Discard Pile.",
+  "descriptionTemplate": "Create 1 {Leah's Coin} and put it into the Discard Pile.",
   "descriptionArgs": {},
   "lore": "When one world comes to an end, the prologue of another world begins. Stories will be passed down by people alongside fine wine, but time will write answers for all things."
 }

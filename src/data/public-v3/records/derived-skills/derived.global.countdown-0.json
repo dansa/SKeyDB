@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.countdown-0",
+  "name": "0: Countdown",
+  "route": {
+    "slug": "0-countdown",
+    "canonicalPath": "/database/derived-skills/0-countdown"
+  },
+  "derivedFromId": "derived.global.countdown",
+  "descriptionTemplate": "Draw 3 cards, gain 3 Arithmetica, and have a [Arg1]% chance to put {5: Countdown} into the Discard Pile.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "X",
+      "displayFormula": "runtime value"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

@@ -56,6 +56,7 @@ export const AWAKENER_ID_V1_TO_CURRENT = {
   '53': 'awakener-0053',
   '54': 'awakener-0054',
   '57': 'awakener-0057',
+  '58': 'awakener-0058',
 } as const
 
 export const AWAKENER_NAME_V1_TO_CURRENT = {
@@ -119,6 +120,7 @@ export const AWAKENER_NAME_V1_TO_CURRENT = {
   winkle: 'awakener-0053',
   xu: 'awakener-0054',
   saya: 'awakener-0057',
+  pontos: 'awakener-0058',
 } as const
 
 export const WHEEL_ID_V1_TO_CURRENT = {
@@ -256,6 +258,9 @@ export const WHEEL_ID_V1_TO_CURRENT = {
   za: 'wheel-0166',
   y1: 'wheel-0167',
   yZ: 'wheel-0168',
+  'wheel-0169': 'wheel-0169',
+  'wheel-0170': 'wheel-0170',
+  'wheel-0171': 'wheel-0171',
 } as const
 
 export const COVENANT_ID_V1_TO_CURRENT = {
@@ -334,6 +339,7 @@ export const POSSE_ID_V1_TO_CURRENT = {
   'voracious-resolve': 'posse-0040',
   'warded-injection': 'posse-0003',
   'wayward-ship': 'posse-0044',
+  'posse-0052': 'posse-0052',
 } as const
 
 export function migrateAwakenerIdV1ToCurrent(id: number | string): string | undefined {

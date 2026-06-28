@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0170",
+  "name": "Dreaming of Wonderland",
+  "route": {
+    "slug": "dreaming-of-wonderland",
+    "canonicalPath": "/database/wheels/dreaming-of-wonderland"
+  },
+  "assets": {
+    "icon": "asset-wheel-0170-icon"
+  },
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "DMG_AMP",
+  "ownerAwakenerId": "awakener-0029",
+  "ownerAwakenerName": "Lily",
+  "lineupToken": "y0",
+  "descriptionTemplate": "Team Unique: After exploration starts, add 1 {Dreaming of Wonderland} to the deck. {Dreaming of Wonderland}: Consume 2 Arithmetica, grant the wielder [StateArg1] Aliemus and 3 stacks of {Mental Interference}. {Retain}. {Exhaust}.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["20", "30", "40", "50"]
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": ["1", "2", "3", "4"]
+    }
+  },
+  "lore": "Legend has it that if a child chases a wild rabbit through the forest, there is a chance they might fall down a tree hollow into another world.\n\nPadding softly in her bare feet, Lily stepped onto the cobblestone path.\n\"Lily likes it here... There are no glass shards on the ground, and the air doesn't smell like disinfectant.\"\n\nLily took a deep breath of the fresh air. The wind sweeping through the woods carried the exotic scent of flowers.\n\nAbove, the interlaced canopy wove a dome like stained glass, while the dappled sunlight spilled across the ground, sparkling like dancing gems. So resplendent and mesmerizing was the scenery that Lily stood spellbound, hardly knowing where to look first.\n\"Oh, there you are, Mr. Rabbit!\"\n\nA pair of familiar long gray ears popped out from the undergrowth, and Lily hurriedly chased after them.\n\nWith every step she took, the moss beneath her feet blossomed into tiny silver flowers, but Lily had no time to linger. She had something much more important to say to Mr. Rabbit.\n\nShe waded across a brook that rippled with the amber hue of honey, and passed through a thicket of singing reeds.\n\nPanting for breath, Lily finally caught Mr. Rabbit by his pom-pom tail.\n\n\"Mr. Rabbit, would you like to be friends with Lisa?\"\n\n\"Lisa is my friend, but everyone else is very afraid of her now... If it's Mr. Rabbit, I'm sure you could be friends with her!\"\n\nThe very moment Mr. Rabbit turned around, a myriad of fireflies swirled up into the air.\n\n\"Of course, @2 is a friend to all. But now, it's time for you to rest.\"\n\nAnd so, cradling Mr. Rabbit, who was now her friend, Lily made her way to the foot of a towering tree deep within the forest.\n\nWrapped in the warm, drifting glow of the fireflies, Lily leaned against the ancient roots and fell quietly asleep.\n\n\"Subject: Lily. Clinical presentation: respiration steady, REM normal. The 359th consciousness interference experiment: successful.\"\n\nIt was a realm of fantasy, as gorgeous and ethereal as a dream.",
+  "searchTags": ["Aliemus"]
+}

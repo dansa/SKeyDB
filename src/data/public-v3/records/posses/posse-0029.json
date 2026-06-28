@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Faded Legacy - Ch. 9 - A Long Dream's End",
   "realm": "CHAOS",
   "lineupToken": "H",
-  "descriptionTemplate": "{Discover} 3 random Posses; unleash 1 and gain [Arg1] Keyflare.",
+  "descriptionTemplate": "{Discover} 1 out of 3 random Posses and gain [Arg1] Keyflare.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -15,7 +15,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_038",
   "textColor": "light",
-  "descriptionTemplate": "Ramona: Timeworn: Unique additional effect of Ramona's Command Card, triggered when there are 3 stacks of {Negentropy}. The {Loop} will carry over to the next Battle.",
+  "descriptionTemplate": "Ramona: Timeworn's Command Cards will trigger their {Loop} effects when played by consuming 3 stacks of {Negentropy}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Ramona: Timeworn"
 }

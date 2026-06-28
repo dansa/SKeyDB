@@ -34,7 +34,7 @@
       "ownerAwakenerId": "awakener-0012",
       "ownerAwakenerName": "Daffodil",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG, which enjoys a 2x {STR} bonus. Daffodil obtains [Energy:Arg2] Aliemus. {Leap}: Obtain 1 Arithmetica."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG, which enjoys a 2× {STR} bonus. Daffodil obtains [Energy:Arg2] Aliemus. {Leap}: Obtain 1 Arithmetica."
       }
     }
   ],

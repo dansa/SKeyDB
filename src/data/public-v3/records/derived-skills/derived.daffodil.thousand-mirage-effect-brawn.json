@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0012",
   "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
   "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
-  "descriptionTemplate": "Enjoys an additional 2x {STR} bonus. Obtain [Power:Arg1] {STR}.",
+  "descriptionTemplate": "Enjoys an additional 2× {STR} bonus. Obtain [Power:Arg1] {STR}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

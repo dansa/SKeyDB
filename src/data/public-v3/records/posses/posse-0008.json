@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Faded Legacy - Ch. 6 - Twisted Stars",
   "realm": "FADED_LEGACY",
   "lineupToken": "f",
-  "descriptionTemplate": "Increase all Awakeners' Aliemus by 15. Suffer a Delayed {Sacrifice} equal to 5% of your Max HP.",
+  "descriptionTemplate": "Grant all Awakeners 15 Aliemus. Suffer a Delayed {Sacrifice} equal to 5% of your Max HP.",
   "descriptionArgs": {},
   "lore": "I couldn't help her much; she single-handedly stopped the false god's descent.\nHer soul will not fade; she will forever shine as a star of freedom."
 }

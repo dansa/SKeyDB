@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 3,
+  "kind": "awakener",
+  "id": "awakener-0058",
+  "name": "Pontos",
+  "route": {
+    "slug": "pontos",
+    "canonicalPath": "/database/awakeners/pontos"
+  },
+  "assets": {
+    "icon": "asset-awakener-0058-icon"
+  },
+  "numericId": 58,
+  "ingameId": "O13",
+  "lineupToken": "xr",
+  "realm": "AEQUOR",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "availabilityType": "LIMITED_ASTRAL_REIGN",
+  "releaseDate": "2026-06-29",
+  "faction": "TBD",
+  "aliases": ["pontos"],
+  "searchTags": [],
+  "primaryScalingBase": 20,
+  "baseStatsLv1": {
+    "CON": 42,
+    "ATK": 31,
+    "DEF": 41
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 52.4,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0.8,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 2,
+    "ATK": 1.45,
+    "DEF": 1.95
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 2.4,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0.8,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Pontos",
+    "birthday": "27-Aug",
+    "gender": "Male",
+    "height": "6'1''",
+    "weight": "Unmeasurable",
+    "gnosticIndex": "45.52",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "unlockCondition": "Awakener Level 1",
+        "content": "The heroic epic destined to soar across the night sky was broken mid-flight. He chose to plunge into the abyss, offering himself up to an existence far greater and more inscrutable.\nNever again would he face the pangs of parting, the sting of mediocrity, or the inescapable ravages of time.\nHis kin, his friends, and even his foes—he has kept them all forever within Ebwynnos, a realm now fused with his very being."
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "unlockCondition": "Awakener Level 3",
+        "content": "In August of A.F. 2@17, a series of anomalous spiritual events manifested within a three-mile radius of Nara@1Bay.\n@1 recorded emergency calls reported sightings of several individuals, previously registered as deceased, lingering near the ruins of @3. These individuals were later verified to have all perished in the explosion that struck @2 Port Town in 1@19. The cause of that explosion remains unconfirmed to this day, and all individuals involved exhibited varying degrees of amnesia.\n<Italic:\"I saw her, I swear... she was as young as the day we parted. But that's impossible.\">\n<Italic:\"It's been @2 years since she bade me farewell, yet she remained as beautiful as ever. She just stood there on the cliffside with the others, smiling at me from afar.\">\n<Italic:\"...When we are cherished, we will always be granted a second chance. EBWYN@2OS... Ebwy@1noss...\">\nThe recording concluded with an unidentified static resembling the churning of seawater. Twenty hours later, the witness died at home of organ failure at the age of 76.\nThe day after this material reached Mythag University, Irene Caldwell—a retired researcher from the Awakening Studies Department and distant relative of the witness, Chambers Caldwell—received an O-@1 Silver Core that Chambers had delivered to her.\nAccording to Irene, Chambers looked no different from his younger self.\nHe left only one sentence before vanishing:\n\"Please take Him to Mythag. He shall wait there for the last wanderer of Ebwynnos to return.\"\n—Excerpt from <Italic:Mythag University Silver Core Storage Records>"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "unlockCondition": "Affinity Level 5",
+        "content": "Most faculty and students at Mythag are more than happy to seek Pontos’s aid during field missions, and he never hesitates to lend a helping hand.\nGenerous, genial, and dependable—even though he is clearly at serious odds with certain members of Mythag, this Awakener leaves a staggeringly positive first impression.\nHowever, while Pontos has agreed with Mythag to stop expanding the \"population\" of Ebwynnos, a flood of migration applications have poured into the Administration Office following several field operations that ended in \"unconventional ways.\"\nWhile Sylvia conducts group counseling for the applicants, the administration has hastily added two new field regulations:\n1. Except in extreme emergencies, seeking aid from Pontos is strictly prohibited.\n2. Except in extreme circumstances, entry into Ebwynnos is strictly prohibited."
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "unlockCondition": "Affinity Level 7",
+        "content": "Pontos spent a long time tracing the cause of Leisha’s death. She had endured far too many grueling battles and claimed far too many glorious victories—perhaps by poison, perhaps by some obscure sorcery; surely there had to be a reason, a reason for her to fall before such a feeble sea monster.\nIt was only much, much later, when a single strand of silver appeared in the hair of a human companion who had never joined Ebwynnos, that the truth finally dawned on him.\nThe waning stamina, the slowing responses, the unspoken but palpable longing for a peaceful, settled life... it was all so familiar.\nAnd all at once, Pontos understood the name of the enemy that had eluded him all this time: \"Aging.\"\nIt's the reason for Leisha's seclusion, her defeat, and the ruin of everything he might have lived for—it was something so commonplace, yet utterly inexorable.\nBut it mattered no longer. His own destruction had come early, and the power he gained in exchange was more than satisfactory.\nNo matter what unfathomable entity he must serve, whatever the price he must pay, the ravages of time shall never befall Ebwynnos again."
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "unlockCondition": "Affinity Level 9",
+        "content": "<Italic:\"Is it that you won't allow aging—or that you won't allow anything beyond your control?\">\nHe did not answer, nor did he need to.\nThe abyss had chosen him long before the disaster struck, for his unspoken obsessions aligned perfectly with the abyss itself.\nObedience, companionship, and stasis... he was as inescapable as the abyss: suffocating all things, yet preserving them for eternity."
+      }
+    ]
+  }
+}

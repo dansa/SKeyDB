@@ -15,7 +15,7 @@
   "mainstatKey": "SIGIL_YIELD",
   "ownerAwakenerId": "awakener-0057",
   "ownerAwakenerName": "Saya",
-  "lineupToken": "yZ",
+  "lineupToken": "yX",
   "descriptionTemplate": "After using {Crimson Furnace}, the wielder gains Aliemus equal to [StateArg1]% of Base Aliemus. 3 turns cooldown.",
   "descriptionArgs": {
     "StateArg1": {

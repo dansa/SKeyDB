@@ -970,6 +970,23 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-05-30"
     },
+    "awakener-0058": {
+      "kind": "awakener",
+      "id": "awakener-0058",
+      "name": "Pontos",
+      "route": {
+        "slug": "pontos",
+        "canonicalPath": "/database/awakeners/pontos"
+      },
+      "assets": {
+        "icon": "asset-awakener-0058-icon"
+      },
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-06-29"
+    },
     "awakener-build-0001": {
       "kind": "awakenerBuild",
       "id": "awakener-build-0001",
@@ -2414,6 +2431,15 @@
       "ownerAwakenerId": "awakener-0015",
       "ownerAwakenerName": "Erica"
     },
+    "derived.global.adv-insight": {
+      "kind": "derivedSkill",
+      "id": "derived.global.adv-insight",
+      "name": "Adv. Insight",
+      "route": {
+        "slug": "adv-insight",
+        "canonicalPath": "/database/derived-skills/adv-insight"
+      }
+    },
     "derived.global.arouse": {
       "kind": "derivedSkill",
       "id": "derived.global.arouse",
@@ -2421,6 +2447,79 @@
       "route": {
         "slug": "arouse",
         "canonicalPath": "/database/derived-skills/arouse"
+      }
+    },
+    "derived.global.countdown": {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown",
+      "name": "Countdown",
+      "route": {
+        "slug": "countdown",
+        "canonicalPath": "/database/derived-skills/countdown"
+      },
+      "nodeKind": "group"
+    },
+    "derived.global.countdown-0": {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-0",
+      "name": "0: Countdown",
+      "route": {
+        "slug": "0-countdown",
+        "canonicalPath": "/database/derived-skills/0-countdown"
+      }
+    },
+    "derived.global.countdown-1": {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-1",
+      "name": "1: Countdown",
+      "route": {
+        "slug": "1-countdown",
+        "canonicalPath": "/database/derived-skills/1-countdown"
+      }
+    },
+    "derived.global.countdown-2": {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-2",
+      "name": "2: Countdown",
+      "route": {
+        "slug": "2-countdown",
+        "canonicalPath": "/database/derived-skills/2-countdown"
+      }
+    },
+    "derived.global.countdown-3": {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-3",
+      "name": "3: Countdown",
+      "route": {
+        "slug": "3-countdown",
+        "canonicalPath": "/database/derived-skills/3-countdown"
+      }
+    },
+    "derived.global.countdown-4": {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-4",
+      "name": "4: Countdown",
+      "route": {
+        "slug": "4-countdown",
+        "canonicalPath": "/database/derived-skills/4-countdown"
+      }
+    },
+    "derived.global.countdown-5": {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-5",
+      "name": "5: Countdown",
+      "route": {
+        "slug": "5-countdown",
+        "canonicalPath": "/database/derived-skills/5-countdown"
+      }
+    },
+    "derived.global.dreaming-of-wonderland": {
+      "kind": "derivedSkill",
+      "id": "derived.global.dreaming-of-wonderland",
+      "name": "Dreaming of Wonderland",
+      "route": {
+        "slug": "dreaming-of-wonderland",
+        "canonicalPath": "/database/derived-skills/dreaming-of-wonderland"
       }
     },
     "derived.global.embryo": {
@@ -2439,6 +2538,15 @@
       "route": {
         "slug": "fleeting-beauty",
         "canonicalPath": "/database/derived-skills/fleeting-beauty"
+      }
+    },
+    "derived.global.gobble-up": {
+      "kind": "derivedSkill",
+      "id": "derived.global.gobble-up",
+      "name": "Gobble Up!",
+      "route": {
+        "slug": "gobble-up",
+        "canonicalPath": "/database/derived-skills/gobble-up"
       }
     },
     "derived.global.hanafubuki": {
@@ -2486,6 +2594,15 @@
         "canonicalPath": "/database/derived-skills/light-cone-boundary"
       }
     },
+    "derived.global.private-afternoon": {
+      "kind": "derivedSkill",
+      "id": "derived.global.private-afternoon",
+      "name": "Private Afternoon",
+      "route": {
+        "slug": "private-afternoon",
+        "canonicalPath": "/database/derived-skills/private-afternoon"
+      }
+    },
     "derived.global.propagule-embryo": {
       "kind": "derivedSkill",
       "id": "derived.global.propagule-embryo",
@@ -2520,6 +2637,15 @@
       "route": {
         "slug": "slumber",
         "canonicalPath": "/database/derived-skills/slumber"
+      }
+    },
+    "derived.global.stakes-of-wisdom": {
+      "kind": "derivedSkill",
+      "id": "derived.global.stakes-of-wisdom",
+      "name": "Stakes of Wisdom",
+      "route": {
+        "slug": "stakes-of-wisdom",
+        "canonicalPath": "/database/derived-skills/stakes-of-wisdom"
       }
     },
     "derived.global.vernal-message": {
@@ -2840,6 +2966,51 @@
       },
       "ownerAwakenerId": "awakener-0041",
       "ownerAwakenerName": "Pollux"
+    },
+    "derived.pontos.gaunts": {
+      "kind": "derivedSkill",
+      "id": "derived.pontos.gaunts",
+      "name": "Gaunts",
+      "route": {
+        "slug": "gaunts",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/gaunts"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "nodeKind": "group"
+    },
+    "derived.pontos.raid-gaunt": {
+      "kind": "derivedSkill",
+      "id": "derived.pontos.raid-gaunt",
+      "name": "Raid-Gaunt",
+      "route": {
+        "slug": "raid-gaunt",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/raid-gaunt"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos"
+    },
+    "derived.pontos.slay-gaunt": {
+      "kind": "derivedSkill",
+      "id": "derived.pontos.slay-gaunt",
+      "name": "Slay-Gaunt",
+      "route": {
+        "slug": "slay-gaunt",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/slay-gaunt"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos"
+    },
+    "derived.pontos.vex-gaunt": {
+      "kind": "derivedSkill",
+      "id": "derived.pontos.vex-gaunt",
+      "name": "Vex-Gaunt",
+      "route": {
+        "slug": "vex-gaunt",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/vex-gaunt"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos"
     },
     "derived.ramona-timeworn.ode-to-tomorrow": {
       "kind": "derivedSkill",
@@ -5632,6 +5803,66 @@
       "ownerAwakenerName": "Pollux",
       "slot": "OverExalt"
     },
+    "enlighten.pontos.abyssal-engulfment": {
+      "kind": "enlighten",
+      "id": "enlighten.pontos.abyssal-engulfment",
+      "name": "Abyssal Engulfment",
+      "route": {
+        "slug": "abyssal-engulfment",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/abyssal-engulfment"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "AbsoluteAxiom"
+    },
+    "enlighten.pontos.another-ebwynnos": {
+      "kind": "enlighten",
+      "id": "enlighten.pontos.another-ebwynnos",
+      "name": "Another Ebwynnos",
+      "route": {
+        "slug": "another-ebwynnos",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/another-ebwynnos"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "OverExalt"
+    },
+    "enlighten.pontos.hollow-shell": {
+      "kind": "enlighten",
+      "id": "enlighten.pontos.hollow-shell",
+      "name": "Hollow Shell",
+      "route": {
+        "slug": "hollow-shell",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/hollow-shell"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "E2"
+    },
+    "enlighten.pontos.lure-of-light": {
+      "kind": "enlighten",
+      "id": "enlighten.pontos.lure-of-light",
+      "name": "Lure of Light",
+      "route": {
+        "slug": "lure-of-light",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/lure-of-light"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "E1"
+    },
+    "enlighten.pontos.revelry-in-absence": {
+      "kind": "enlighten",
+      "id": "enlighten.pontos.revelry-in-absence",
+      "name": "Revelry in Absence",
+      "route": {
+        "slug": "revelry-in-absence",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/revelry-in-absence"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "E3"
+    },
     "enlighten.ramona-timeworn.infinite-singularity": {
       "kind": "enlighten",
       "id": "enlighten.ramona-timeworn.infinite-singularity",
@@ -6733,6 +6964,21 @@
       "ownerAwakenerName": "Arachne",
       "overlayType": "mechanic"
     },
+    "overlay.caecus.outcasts-anguish": {
+      "kind": "overlay",
+      "id": "overlay.caecus.outcasts-anguish",
+      "name": "Outcast's Anguish",
+      "route": {
+        "slug": "outcasts-anguish",
+        "canonicalPath": "/database/awakeners/caecus/overlays/outcasts-anguish"
+      },
+      "assets": {
+        "icon": "asset-overlay.caecus.outcasts-anguish-icon"
+      },
+      "ownerAwakenerId": "awakener-0006",
+      "ownerAwakenerName": "Caecus",
+      "overlayType": "mechanic"
+    },
     "overlay.celeste.revival": {
       "kind": "overlay",
       "id": "overlay.celeste.revival",
@@ -6817,6 +7063,21 @@
       "ownerAwakenerName": "Doll: Inferno",
       "overlayType": "mechanic"
     },
+    "overlay.doll-inferno.illusions-end": {
+      "kind": "overlay",
+      "id": "overlay.doll-inferno.illusions-end",
+      "name": "Illusion's End",
+      "route": {
+        "slug": "illusions-end",
+        "canonicalPath": "/database/awakeners/doll-inferno/overlays/illusions-end"
+      },
+      "assets": {
+        "icon": "asset-overlay.doll-inferno.illusions-end-icon"
+      },
+      "ownerAwakenerId": "awakener-0018",
+      "ownerAwakenerName": "Doll: Inferno",
+      "overlayType": "mechanic"
+    },
     "overlay.doresain.corpse": {
       "kind": "overlay",
       "id": "overlay.doresain.corpse",
@@ -6830,6 +7091,21 @@
       },
       "ownerAwakenerId": "awakener-0014",
       "ownerAwakenerName": "Doresain",
+      "overlayType": "mechanic"
+    },
+    "overlay.faros.dimmed-candle": {
+      "kind": "overlay",
+      "id": "overlay.faros.dimmed-candle",
+      "name": "Dimmed candle",
+      "route": {
+        "slug": "dimmed-candle",
+        "canonicalPath": "/database/awakeners/faros/overlays/dimmed-candle"
+      },
+      "assets": {
+        "icon": "asset-overlay.faros.dimmed-candle-icon"
+      },
+      "ownerAwakenerId": "awakener-0017",
+      "ownerAwakenerName": "Faros",
       "overlayType": "mechanic"
     },
     "overlay.global.aequor": {
@@ -7101,7 +7377,7 @@
     "overlay.global.divine-realm-aequor": {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-aequor",
-      "name": "Divine Realm: Aequor",
+      "name": "Benthos: Aequor",
       "route": {
         "slug": "divine-realm-aequor",
         "canonicalPath": "/database/overlays/divine-realm-aequor"
@@ -7111,7 +7387,7 @@
     "overlay.global.divine-realm-aequor-mastery": {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-aequor-mastery",
-      "name": "Divine Realm: Aequor Mastery",
+      "name": "Benthos: Aequor Mastery",
       "route": {
         "slug": "divine-realm-aequor-mastery",
         "canonicalPath": "/database/overlays/divine-realm-aequor-mastery"
@@ -7121,7 +7397,7 @@
     "overlay.global.divine-realm-raging-waves": {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-raging-waves",
-      "name": "Divine Realm: Raging Waves",
+      "name": "Benthos: Raging Waves",
       "route": {
         "slug": "divine-realm-raging-waves",
         "canonicalPath": "/database/overlays/divine-realm-raging-waves"
@@ -7131,7 +7407,7 @@
     "overlay.global.divine-realm-surging-tides": {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-surging-tides",
-      "name": "Divine Realm: Surging Tides",
+      "name": "Benthos: Surging Tides",
       "route": {
         "slug": "divine-realm-surging-tides",
         "canonicalPath": "/database/overlays/divine-realm-surging-tides"
@@ -7141,7 +7417,7 @@
     "overlay.global.divine-realm-tentacle-stance": {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-tentacle-stance",
-      "name": "Divine Realm: Tentacle Stance",
+      "name": "Benthos: Tentacle Stance",
       "route": {
         "slug": "divine-realm-tentacle-stance",
         "canonicalPath": "/database/overlays/divine-realm-tentacle-stance"
@@ -7151,7 +7427,7 @@
     "overlay.global.divine-realm-tranquil-sea": {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-tranquil-sea",
-      "name": "Divine Realm: Tranquil Sea",
+      "name": "Benthos: Tranquil Sea",
       "route": {
         "slug": "divine-realm-tranquil-sea",
         "canonicalPath": "/database/overlays/divine-realm-tranquil-sea"
@@ -7175,6 +7451,16 @@
       "route": {
         "slug": "embryo-fusion",
         "canonicalPath": "/database/overlays/embryo-fusion"
+      },
+      "overlayType": "mechanic"
+    },
+    "overlay.global.embryo-fusion-double": {
+      "kind": "overlay",
+      "id": "overlay.global.embryo-fusion-double",
+      "name": "Embryo Fusion Double",
+      "route": {
+        "slug": "embryo-fusion-double",
+        "canonicalPath": "/database/overlays/embryo-fusion-double"
       },
       "overlayType": "mechanic"
     },
@@ -7317,6 +7603,16 @@
       },
       "assets": {
         "icon": "asset-overlay.global.madness-icon"
+      },
+      "overlayType": "mechanic"
+    },
+    "overlay.global.mental-interference": {
+      "kind": "overlay",
+      "id": "overlay.global.mental-interference",
+      "name": "Mental Interference",
+      "route": {
+        "slug": "mental-interference",
+        "canonicalPath": "/database/overlays/mental-interference"
       },
       "overlayType": "mechanic"
     },
@@ -7922,6 +8218,36 @@
       "ownerAwakenerName": "Miryam",
       "overlayType": "mechanic"
     },
+    "overlay.miryam.undying-piety": {
+      "kind": "overlay",
+      "id": "overlay.miryam.undying-piety",
+      "name": "Undying Piety",
+      "route": {
+        "slug": "undying-piety",
+        "canonicalPath": "/database/awakeners/miryam/overlays/undying-piety"
+      },
+      "assets": {
+        "icon": "asset-overlay.miryam.undying-piety-icon"
+      },
+      "ownerAwakenerId": "awakener-0032",
+      "ownerAwakenerName": "Miryam",
+      "overlayType": "mechanic"
+    },
+    "overlay.miryam.vanitys-collapse": {
+      "kind": "overlay",
+      "id": "overlay.miryam.vanitys-collapse",
+      "name": "Vanity's Collapse",
+      "route": {
+        "slug": "vanitys-collapse",
+        "canonicalPath": "/database/awakeners/miryam/overlays/vanitys-collapse"
+      },
+      "assets": {
+        "icon": "asset-overlay.miryam.vanitys-collapse-icon"
+      },
+      "ownerAwakenerId": "awakener-0032",
+      "ownerAwakenerName": "Miryam",
+      "overlayType": "mechanic"
+    },
     "overlay.murphy-fauxborn.birth-ritual": {
       "kind": "overlay",
       "id": "overlay.murphy-fauxborn.birth-ritual",
@@ -8051,6 +8377,21 @@
       "ownerAwakenerName": "Pollux",
       "overlayType": "mechanic"
     },
+    "overlay.pontos.pack-hunt": {
+      "kind": "overlay",
+      "id": "overlay.pontos.pack-hunt",
+      "name": "Pack Hunt",
+      "route": {
+        "slug": "pack-hunt",
+        "canonicalPath": "/database/awakeners/pontos/overlays/pack-hunt"
+      },
+      "assets": {
+        "icon": "asset-overlay.pontos.pack-hunt-icon"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "overlayType": "mechanic"
+    },
     "overlay.ramona-timeworn.loop": {
       "kind": "overlay",
       "id": "overlay.ramona-timeworn.loop",
@@ -8081,6 +8422,21 @@
       "ownerAwakenerName": "Ramona: Timeworn",
       "overlayType": "mechanic"
     },
+    "overlay.ryker.certain-gain": {
+      "kind": "overlay",
+      "id": "overlay.ryker.certain-gain",
+      "name": "Certain Gain",
+      "route": {
+        "slug": "certain-gain",
+        "canonicalPath": "/database/awakeners/ryker/overlays/certain-gain"
+      },
+      "assets": {
+        "icon": "asset-overlay.ryker.certain-gain-icon"
+      },
+      "ownerAwakenerId": "awakener-0043",
+      "ownerAwakenerName": "Ryker",
+      "overlayType": "mechanic"
+    },
     "overlay.ryker.chaotic-legacy": {
       "kind": "overlay",
       "id": "overlay.ryker.chaotic-legacy",
@@ -8088,6 +8444,18 @@
       "route": {
         "slug": "chaotic-legacy",
         "canonicalPath": "/database/awakeners/ryker/overlays/chaotic-legacy"
+      },
+      "ownerAwakenerId": "awakener-0043",
+      "ownerAwakenerName": "Ryker",
+      "overlayType": "mechanic"
+    },
+    "overlay.ryker.winner-takes-all": {
+      "kind": "overlay",
+      "id": "overlay.ryker.winner-takes-all",
+      "name": "Winner Takes All",
+      "route": {
+        "slug": "winner-takes-all",
+        "canonicalPath": "/database/awakeners/ryker/overlays/winner-takes-all"
       },
       "ownerAwakenerId": "awakener-0043",
       "ownerAwakenerName": "Ryker",
@@ -8106,6 +8474,21 @@
       },
       "ownerAwakenerId": "awakener-0057",
       "ownerAwakenerName": "Saya",
+      "overlayType": "mechanic"
+    },
+    "overlay.tulu.the-stars-are-right": {
+      "kind": "overlay",
+      "id": "overlay.tulu.the-stars-are-right",
+      "name": "The Stars Are Right",
+      "route": {
+        "slug": "the-stars-are-right",
+        "canonicalPath": "/database/awakeners/tulu/overlays/the-stars-are-right"
+      },
+      "assets": {
+        "icon": "asset-overlay.tulu.the-stars-are-right-icon"
+      },
+      "ownerAwakenerId": "awakener-0050",
+      "ownerAwakenerName": "Tulu",
       "overlayType": "mechanic"
     },
     "overlay.vortice.vortex-reload": {
@@ -9023,6 +9406,23 @@
       "ownerAwakenerId": "awakener-0057",
       "ownerAwakenerName": "Saya"
     },
+    "posse-0052": {
+      "kind": "posse",
+      "id": "posse-0052",
+      "name": "The Hollow One",
+      "route": {
+        "slug": "the-hollow-one",
+        "canonicalPath": "/database/posses/the-hollow-one"
+      },
+      "assets": {
+        "icon": "asset-posse-0052-icon",
+        "crystal": "asset-posse-0052-crystal",
+        "badge": "asset-posse-0052-badge"
+      },
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos"
+    },
     "relic-0001": {
       "kind": "relic",
       "id": "relic-0001",
@@ -9934,6 +10334,22 @@
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0057",
       "ownerAwakenerName": "Saya"
+    },
+    "relic-0058": {
+      "kind": "relic",
+      "id": "relic-0058",
+      "name": "Dimensional Image: Pontos",
+      "route": {
+        "slug": "dimensional-image-pontos",
+        "canonicalPath": "/database/relics/dimensional-image-pontos"
+      },
+      "assets": {
+        "icon": "asset-relic-0058-icon"
+      },
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos"
     },
     "relic-9001": {
       "kind": "relic",
@@ -14754,6 +15170,90 @@
       "ownerAwakenerName": "Pollux",
       "slot": "OverExalt"
     },
+    "skill.pontos.another-ebwynnos": {
+      "kind": "skill",
+      "id": "skill.pontos.another-ebwynnos",
+      "name": "Another Ebwynnos",
+      "route": {
+        "slug": "another-ebwynnos",
+        "canonicalPath": "/database/awakeners/pontos/skills/another-ebwynnos"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "OverExalt"
+    },
+    "skill.pontos.defense": {
+      "kind": "skill",
+      "id": "skill.pontos.defense",
+      "name": "Defense",
+      "route": {
+        "slug": "defense",
+        "canonicalPath": "/database/awakeners/pontos/skills/defense"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Defense"
+    },
+    "skill.pontos.gaunt-ravage": {
+      "kind": "skill",
+      "id": "skill.pontos.gaunt-ravage",
+      "name": "Gaunt Ravage",
+      "route": {
+        "slug": "gaunt-ravage",
+        "canonicalPath": "/database/awakeners/pontos/skills/gaunt-ravage"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Skill1"
+    },
+    "skill.pontos.gauntwards-call": {
+      "kind": "skill",
+      "id": "skill.pontos.gauntwards-call",
+      "name": "Gauntwards' Call",
+      "route": {
+        "slug": "gauntwards-call",
+        "canonicalPath": "/database/awakeners/pontos/skills/gauntwards-call"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Skill2"
+    },
+    "skill.pontos.relentless-hunt": {
+      "kind": "skill",
+      "id": "skill.pontos.relentless-hunt",
+      "name": "Relentless Hunt",
+      "route": {
+        "slug": "relentless-hunt",
+        "canonicalPath": "/database/awakeners/pontos/skills/relentless-hunt"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Exalt"
+    },
+    "skill.pontos.strike": {
+      "kind": "skill",
+      "id": "skill.pontos.strike",
+      "name": "Strike",
+      "route": {
+        "slug": "strike",
+        "canonicalPath": "/database/awakeners/pontos/skills/strike"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Strike"
+    },
+    "skill.pontos.wrath-of-the-abyss": {
+      "kind": "skill",
+      "id": "skill.pontos.wrath-of-the-abyss",
+      "name": "Wrath of the Abyss",
+      "route": {
+        "slug": "wrath-of-the-abyss",
+        "canonicalPath": "/database/awakeners/pontos/skills/wrath-of-the-abyss"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Rouse"
+    },
     "skill.ramona-timeworn.defense": {
       "kind": "skill",
       "id": "skill.ramona-timeworn.defense",
@@ -17688,18 +18188,6 @@
       "family": "soulforge_aptitude",
       "maxLevel": 10
     },
-    "talent.murphy-fauxborn.divine-realms-order": {
-      "kind": "talent",
-      "id": "talent.murphy-fauxborn.divine-realms-order",
-      "name": "Divine Realm's Order",
-      "route": {
-        "slug": "divine-realms-order",
-        "canonicalPath": "/database/awakeners/murphy-fauxborn/talents/divine-realms-order"
-      },
-      "ownerAwakenerId": "awakener-0035",
-      "ownerAwakenerName": "Murphy: Fauxborn",
-      "family": "passive"
-    },
     "talent.murphy-fauxborn.gnostic-potential": {
       "kind": "talent",
       "id": "talent.murphy-fauxborn.gnostic-potential",
@@ -17713,6 +18201,18 @@
       "family": "gnostic_potential",
       "maxLevel": 5,
       "defaultMaxed": true
+    },
+    "talent.murphy-fauxborn.lightless-bottom": {
+      "kind": "talent",
+      "id": "talent.murphy-fauxborn.lightless-bottom",
+      "name": "Lightless Bottom",
+      "route": {
+        "slug": "lightless-bottom",
+        "canonicalPath": "/database/awakeners/murphy-fauxborn/talents/lightless-bottom"
+      },
+      "ownerAwakenerId": "awakener-0035",
+      "ownerAwakenerName": "Murphy: Fauxborn",
+      "family": "passive"
     },
     "talent.murphy-fauxborn.madness-omen": {
       "kind": "talent",
@@ -18085,6 +18585,58 @@
       },
       "ownerAwakenerId": "awakener-0041",
       "ownerAwakenerName": "Pollux",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    "talent.pontos.gnostic-potential": {
+      "kind": "talent",
+      "id": "talent.pontos.gnostic-potential",
+      "name": "Gnostic Potential",
+      "route": {
+        "slug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/pontos/talents/gnostic-potential"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "family": "gnostic_potential",
+      "maxLevel": 5,
+      "defaultMaxed": true
+    },
+    "talent.pontos.lightless-bottom": {
+      "kind": "talent",
+      "id": "talent.pontos.lightless-bottom",
+      "name": "Lightless Bottom",
+      "route": {
+        "slug": "lightless-bottom",
+        "canonicalPath": "/database/awakeners/pontos/talents/lightless-bottom"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "family": "passive"
+    },
+    "talent.pontos.madness-omen": {
+      "kind": "talent",
+      "id": "talent.pontos.madness-omen",
+      "name": "Madness Omen",
+      "route": {
+        "slug": "madness-omen",
+        "canonicalPath": "/database/awakeners/pontos/talents/madness-omen"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    "talent.pontos.soulforge-aptitude": {
+      "kind": "talent",
+      "id": "talent.pontos.soulforge-aptitude",
+      "name": "Soulforge Aptitude",
+      "route": {
+        "slug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/pontos/talents/soulforge-aptitude"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
       "family": "soulforge_aptitude",
       "maxLevel": 10
     },
@@ -21045,6 +21597,57 @@
       "mainstatKey": "SIGIL_YIELD",
       "ownerAwakenerId": "awakener-0057",
       "ownerAwakenerName": "Saya"
+    },
+    "wheel-0169": {
+      "kind": "wheel",
+      "id": "wheel-0169",
+      "name": "Compass to False North",
+      "route": {
+        "slug": "compass-to-false-north",
+        "canonicalPath": "/database/wheels/compass-to-false-north"
+      },
+      "assets": {
+        "icon": "asset-wheel-0169-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos"
+    },
+    "wheel-0170": {
+      "kind": "wheel",
+      "id": "wheel-0170",
+      "name": "Dreaming of Wonderland",
+      "route": {
+        "slug": "dreaming-of-wonderland",
+        "canonicalPath": "/database/wheels/dreaming-of-wonderland"
+      },
+      "assets": {
+        "icon": "asset-wheel-0170-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0029",
+      "ownerAwakenerName": "Lily"
+    },
+    "wheel-0171": {
+      "kind": "wheel",
+      "id": "wheel-0171",
+      "name": "The Living Cage",
+      "route": {
+        "slug": "the-living-cage",
+        "canonicalPath": "/database/wheels/the-living-cage"
+      },
+      "assets": {
+        "icon": "asset-wheel-0171-icon"
+      },
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos"
     }
   },
   "scopes": {
@@ -21163,7 +21766,8 @@
       "awakener-0054",
       "awakener-0055",
       "awakener-0056",
-      "awakener-0057"
+      "awakener-0057",
+      "awakener-0058"
     ],
     "covenants": [
       "covenant-0001",
@@ -21236,18 +21840,30 @@
       "derived.doll-inferno.self-destruct-finale",
       "derived.doresain.evernights-revel",
       "derived.erica.retract-mecha",
+      "derived.global.adv-insight",
       "derived.global.arouse",
+      "derived.global.countdown",
+      "derived.global.countdown-0",
+      "derived.global.countdown-1",
+      "derived.global.countdown-2",
+      "derived.global.countdown-3",
+      "derived.global.countdown-4",
+      "derived.global.countdown-5",
+      "derived.global.dreaming-of-wonderland",
       "derived.global.embryo",
       "derived.global.fleeting-beauty",
+      "derived.global.gobble-up",
       "derived.global.hanafubuki",
       "derived.global.ichigo-ichie",
       "derived.global.insight",
       "derived.global.leahs-coin",
       "derived.global.light-cone-boundary",
+      "derived.global.private-afternoon",
       "derived.global.propagule-embryo",
       "derived.global.sakura-blossoms",
       "derived.global.silver-key-gleam",
       "derived.global.slumber",
+      "derived.global.stakes-of-wisdom",
       "derived.global.vernal-message",
       "derived.goliath.blades-dominion",
       "derived.goliath.dormancy",
@@ -21277,6 +21893,10 @@
       "derived.mouchette.dramatic-encounter",
       "derived.pickman.inspiration",
       "derived.pollux.sacred-heart",
+      "derived.pontos.gaunts",
+      "derived.pontos.raid-gaunt",
+      "derived.pontos.slay-gaunt",
+      "derived.pontos.vex-gaunt",
       "derived.ramona-timeworn.ode-to-tomorrow",
       "derived.ramona-timeworn.rebirth-tribunal",
       "derived.ryker.octahedron-dice",
@@ -21514,6 +22134,11 @@
       "enlighten.pollux.lightbearers-herald",
       "enlighten.pollux.lux-diouskouron",
       "enlighten.pollux.the-nightbreaker",
+      "enlighten.pontos.abyssal-engulfment",
+      "enlighten.pontos.another-ebwynnos",
+      "enlighten.pontos.hollow-shell",
+      "enlighten.pontos.lure-of-light",
+      "enlighten.pontos.revelry-in-absence",
       "enlighten.ramona-timeworn.infinite-singularity",
       "enlighten.ramona-timeworn.klein-bottle-voyager",
       "enlighten.ramona-timeworn.mobius-captive",
@@ -21606,13 +22231,16 @@
       "overlay.arachne.singularity-ultra",
       "overlay.arachne.singularity-warp",
       "overlay.arachne.weaver",
+      "overlay.caecus.outcasts-anguish",
       "overlay.celeste.revival",
       "overlay.clementine.phobic-fixation",
       "overlay.clementine.psychic-trauma",
       "overlay.clementine.symbiosis",
       "overlay.doll-inferno.finale",
       "overlay.doll-inferno.finale-form",
+      "overlay.doll-inferno.illusions-end",
       "overlay.doresain.corpse",
+      "overlay.faros.dimmed-candle",
       "overlay.global.aequor",
       "overlay.global.aftershock",
       "overlay.global.alert",
@@ -21644,6 +22272,7 @@
       "overlay.global.divine-realm-tranquil-sea",
       "overlay.global.echo",
       "overlay.global.embryo-fusion",
+      "overlay.global.embryo-fusion-double",
       "overlay.global.exhaust",
       "overlay.global.fainted",
       "overlay.global.final-rule",
@@ -21657,6 +22286,7 @@
       "overlay.global.leap",
       "overlay.global.lemurian",
       "overlay.global.madness",
+      "overlay.global.mental-interference",
       "overlay.global.over-exalt",
       "overlay.global.perception",
       "overlay.global.perception-warp",
@@ -21709,6 +22339,8 @@
       "overlay.kathigu-ra.fiamma",
       "overlay.lily.endure",
       "overlay.miryam.ritual",
+      "overlay.miryam.undying-piety",
+      "overlay.miryam.vanitys-collapse",
       "overlay.murphy-fauxborn.birth-ritual",
       "overlay.murphy-fauxborn.life-seal",
       "overlay.pickman.collaboration",
@@ -21719,10 +22351,14 @@
       "overlay.pollux.ablaze",
       "overlay.pollux.alight",
       "overlay.pollux.sin-mark",
+      "overlay.pontos.pack-hunt",
       "overlay.ramona-timeworn.loop",
       "overlay.ramona-timeworn.negentropy",
+      "overlay.ryker.certain-gain",
       "overlay.ryker.chaotic-legacy",
+      "overlay.ryker.winner-takes-all",
       "overlay.saya.gynoecium",
+      "overlay.tulu.the-stars-are-right",
       "overlay.vortice.vortex-reload",
       "overlay.wanda.dreamlure",
       "overlay.wanda.murmurs",
@@ -21781,7 +22417,8 @@
       "posse-0048",
       "posse-0049",
       "posse-0050",
-      "posse-0051"
+      "posse-0051",
+      "posse-0052"
     ],
     "relics": [
       "relic-0001",
@@ -21841,6 +22478,7 @@
       "relic-0055",
       "relic-0056",
       "relic-0057",
+      "relic-0058",
       "relic-9001",
       "relic-9002",
       "relic-9003",
@@ -22241,6 +22879,13 @@
       "skill.pollux.soulsearing-light",
       "skill.pollux.strike",
       "skill.pollux.the-nightbreaker",
+      "skill.pontos.another-ebwynnos",
+      "skill.pontos.defense",
+      "skill.pontos.gaunt-ravage",
+      "skill.pontos.gauntwards-call",
+      "skill.pontos.relentless-hunt",
+      "skill.pontos.strike",
+      "skill.pontos.wrath-of-the-abyss",
       "skill.ramona-timeworn.defense",
       "skill.ramona-timeworn.entropy-undone",
       "skill.ramona-timeworn.paradox-converged",
@@ -22478,8 +23123,8 @@
       "talent.mouchette.gnostic-potential",
       "talent.mouchette.madness-omen",
       "talent.mouchette.soulforge-aptitude",
-      "talent.murphy-fauxborn.divine-realms-order",
       "talent.murphy-fauxborn.gnostic-potential",
+      "talent.murphy-fauxborn.lightless-bottom",
       "talent.murphy-fauxborn.madness-omen",
       "talent.murphy-fauxborn.soulforge-aptitude",
       "talent.murphy.gnostic-potential",
@@ -22509,6 +23154,10 @@
       "talent.pollux.gnostic-potential",
       "talent.pollux.madness-omen",
       "talent.pollux.soulforge-aptitude",
+      "talent.pontos.gnostic-potential",
+      "talent.pontos.lightless-bottom",
+      "talent.pontos.madness-omen",
+      "talent.pontos.soulforge-aptitude",
       "talent.ramona-timeworn.gnostic-potential",
       "talent.ramona-timeworn.madness-omen",
       "talent.ramona-timeworn.silverheart-resonance",
@@ -22704,7 +23353,10 @@
       "wheel-0165",
       "wheel-0166",
       "wheel-0167",
-      "wheel-0168"
+      "wheel-0168",
+      "wheel-0169",
+      "wheel-0170",
+      "wheel-0171"
     ]
   }
 }

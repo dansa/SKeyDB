@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0007",
   "slot": "E3",
-  "descriptionTemplate": "{Telekinesis} gains {Aftershock}: Shuffle 1 \"Insight\" into the Draw Pile.",
+  "descriptionTemplate": "{Telekinesis} gains {Aftershock}: Shuffle 1 {Insight} into the Draw Pile.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Casiah"
 }

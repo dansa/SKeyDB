@@ -232,6 +232,15 @@ export function withInheritedReferenceLayerOverride(
 ): TrailEntry {
   return {
     ...entry,
+    referenceId: inferReferenceIdFromEntryKey(entry.key),
     referenceLayerOverride: entry.referenceLayerOverride ?? sourceEntry?.referenceLayerOverride,
   }
+}
+
+function inferReferenceIdFromEntryKey(key: string): string | undefined {
+  const separatorIndex = key.indexOf(':')
+  if (separatorIndex <= 0 || separatorIndex >= key.length - 1) {
+    return undefined
+  }
+  return key.slice(separatorIndex + 1)
 }

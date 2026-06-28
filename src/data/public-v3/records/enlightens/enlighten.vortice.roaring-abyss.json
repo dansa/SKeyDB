@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0055",
   "slot": "E2",
-  "descriptionTemplate": "Vortice's \"Strike\" and \"Defense\" increase the next Vortice Exalt's Crit. Rate by +10%, and reduce the next {Reload!} Arithmetica Cost by 1.",
+  "descriptionTemplate": "Vortice's \"Strike\" and \"Defense\" increase the next Vortice Exalt's Crit. Rate by +10%, and reduce the next {Reload!} Base Arithmetica Cost by 1.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Vortice"
 }

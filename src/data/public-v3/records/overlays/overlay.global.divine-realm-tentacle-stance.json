@@ -2,13 +2,13 @@
   "schemaVersion": 3,
   "kind": "overlay",
   "id": "overlay.global.divine-realm-tentacle-stance",
-  "name": "Divine Realm: Tentacle Stance",
+  "name": "Benthos: Tentacle Stance",
   "route": {
     "slug": "divine-realm-tentacle-stance",
     "canonicalPath": "/database/overlays/divine-realm-tentacle-stance"
   },
   "overlayType": "mechanic",
-  "aliases": [],
-  "descriptionTemplate": "{Divine Realm: Tentacle Stance} has three selectable forms, with different effects from the standard {Aequor} Realm: {Divine Realm: Surging Tides}, {Divine Realm: Tranquil Sea}, and {Divine Realm: Raging Waves}.",
+  "aliases": ["Divine Realm: Tentacle Stance"],
+  "descriptionTemplate": "{Benthos: Tentacle Stance} has three selectable forms, with different effects from the standard {Aequor} Realm: {Benthos: Surging Tides}, {Benthos: Tranquil Sea}, and {Benthos: Raging Waves}.",
   "descriptionArgs": {}
 }

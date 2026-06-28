@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0055",
   "slot": "E3",
-  "descriptionTemplate": "{Abyssal! Vortex! Cannon!} now deals 3x DMG to the enemy with the highest HP instead of 2x. For every 20 Aliemus spent, other Awakeners gain 1 Aliemus.",
+  "descriptionTemplate": "{Abyssal! Vortex! Cannon!} now deals 3× DMG to the enemy with the highest HP instead of 2×. For every 20 Aliemus spent, other Awakeners gain 1 Aliemus.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Vortice"
 }

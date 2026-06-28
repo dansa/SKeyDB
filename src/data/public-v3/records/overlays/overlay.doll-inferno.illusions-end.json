@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.doll-inferno.illusions-end",
+  "name": "Illusion's End",
+  "route": {
+    "slug": "illusions-end",
+    "canonicalPath": "/database/awakeners/doll-inferno/overlays/illusions-end"
+  },
+  "assets": {
+    "icon": "asset-overlay.doll-inferno.illusions-end-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0018",
+  "aliases": [],
+  "iconId": "IconS_Buff_044",
+  "descriptionTemplate": "Deal [StateArg1]% of all enemies' max HP as {Fixed DMG}. This DMG cannot be lower than 500% of the caster's max HP. After use, \"Doll: Inferno\"'s specific skill changes to {Finale}.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    }
+  },
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.doll-inferno.envoy-of-extinction.overlay.doll-inferno.illusions-end",
+      "operation": "override_args",
+      "upgraderId": "enlighten.doll-inferno.envoy-of-extinction",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0018",
+      "ownerAwakenerName": "Doll: Inferno",
+      "patch": {
+        "descriptionArgs": {
+          "StateArg1": {
+            "kind": "fixed",
+            "value": "30",
+            "suffix": "%"
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Doll: Inferno"
+}

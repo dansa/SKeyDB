@@ -34,7 +34,7 @@
       "ownerAwakenerId": "awakener-0055",
       "ownerAwakenerName": "Vortice",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Vortice obtains [Energy:Arg2] Aliemus. Vortice's next Exalt Crit. Rate +[Arg3]%, and reduce the next {Reload!} Arithmetica Cost by 1.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Vortice obtains [Energy:Arg2] Aliemus. Vortice's next Exalt Crit. Rate +[Arg3]%, and reduce the next {Reload!} Base Arithmetica Cost by 1.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

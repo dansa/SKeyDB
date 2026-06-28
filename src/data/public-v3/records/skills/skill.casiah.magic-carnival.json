@@ -43,7 +43,7 @@
       "ownerAwakenerId": "awakener-0007",
       "ownerAwakenerName": "Casiah",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Draw [Arg2] {plural:[Arg2]|card|cards}. For each Symptom card, State card, or Casiah's Command Card drawn, deal [Damage:Arg1] DMG to a random enemy. Increase Casiah's Base DMG by [Arg3]%.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Draw [Arg2] {plural:[Arg2]|card|cards}. For each Symptom Card, State Card, or Casiah's Command Card drawn, deal [Damage:Arg1] DMG to a random enemy. Increase Casiah's Base DMG by [Arg3]%.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

@@ -151,13 +151,13 @@ describe('awakener-talents', () => {
   it('stores multiline descriptions as real newlines instead of escaped literals', async () => {
     const murphyFauxbornTalent = await loadPublicRecord(
       'talents',
-      'talent.murphy-fauxborn.divine-realms-order',
+      'talent.murphy-fauxborn.lightless-bottom',
     )
 
     expect(murphyFauxbornTalent?.descriptionTemplate).toContain('\n')
     expect(murphyFauxbornTalent?.descriptionTemplate).not.toContain('\\n')
     expect(murphyFauxbornTalent?.descriptionTemplate).toContain(
-      'Realm Mastery is counted as {Divine Realm: Aequor Mastery}:',
+      'Realm Mastery is counted as {Benthos: Aequor Mastery}.',
     )
   })
 

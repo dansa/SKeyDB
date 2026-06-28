@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": [],
   "textColor": "misc",
-  "descriptionTemplate": "DMG reduces both Shield and HP. Cannot be Immuned.",
+  "descriptionTemplate": "DMG that reduces both Shield and HP. Cannot be Immuned, and ignores {Barrier}.",
   "descriptionArgs": {}
 }

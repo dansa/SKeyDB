@@ -14,6 +14,6 @@
   "aliases": ["STR⯆"],
   "iconId": "IconS_Buff_037",
   "textColor": "affliction",
-  "descriptionTemplate": "Reduce Active and {Tentacle DMG}.",
+  "descriptionTemplate": "Active DMG is reduced by 1 for each stack of {STR▼}.\n({Tentacle DMG} is reduced by half this amount.)",
   "descriptionArgs": {}
 }

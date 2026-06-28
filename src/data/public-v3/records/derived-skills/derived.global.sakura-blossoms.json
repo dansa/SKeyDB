@@ -7,7 +7,7 @@
     "slug": "sakura-blossoms",
     "canonicalPath": "/database/derived-skills/sakura-blossoms"
   },
-  "descriptionTemplate": "Gain [Arg1] Keyflare. After played, permanently transform into {Hanafubuki}.",
+  "descriptionTemplate": "Gain [Arg1] Keyflare and put {Hanafubuki} into the Discard Pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

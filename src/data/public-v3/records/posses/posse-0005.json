@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Faded Legacy - Ch. 1 - East District's Enigma",
   "realm": "FADED_LEGACY",
   "lineupToken": "i",
-  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg1].",
+  "descriptionTemplate": "Grant a chosen Awakener [Arg1] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

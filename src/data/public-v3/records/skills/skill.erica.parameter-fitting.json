@@ -44,7 +44,7 @@
       "ownerAwakenerId": "awakener-0015",
       "ownerAwakenerName": "Erica",
       "patch": {
-        "descriptionTemplate": "Erica gains [Energy:Arg1] Aliemus. {Rouse}: When Erica deals DMG, she gains [Power:Arg2] Temporary {STR}; when Erica applies a Shield, she gains [Arg3] Temporary {Alert}. After Erica unleashes Exalt, her Exalt additionaly enjoys a 1x {STR} and {Alert} bonuses."
+        "descriptionTemplate": "Erica gains [Energy:Arg1] Aliemus. {Rouse}: When Erica deals DMG, she gains [Power:Arg2] Temporary {STR}; when Erica applies a Shield, she gains [Arg3] Temporary {Alert}. After Erica unleashes Exalt, her Exalt additionaly enjoys a 1× {STR} and {Alert} bonuses."
       }
     }
   ],

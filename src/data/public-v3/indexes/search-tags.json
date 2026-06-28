@@ -239,7 +239,7 @@
       "section": "archetype",
       "aliases": ["aliemus generation"],
       "order": 975,
-      "count": 43
+      "count": 45
     },
     {
       "id": "max-hp-dmg",
@@ -319,7 +319,7 @@
       "section": "archetype",
       "aliases": ["crit. dmg", "crit damage", "critical damage"],
       "order": 1050,
-      "count": 25
+      "count": 27
     },
     {
       "id": "temporary-realm-mastery",

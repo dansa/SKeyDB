@@ -47,6 +47,7 @@ function buildDerivedSkillRecords(): DerivedSkillRecord[] {
     {
       id: 'derived.global.embryo',
       displayName: 'Embryo',
+      aliases: [],
       descriptionTemplate: '{Caro} Awakeners consume this on Exalt.',
       descriptionArgs: {},
       cardKeywords: [],

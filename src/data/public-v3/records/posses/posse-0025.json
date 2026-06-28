@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Dreamscape: Desecrate",
   "realm": "AEQUOR",
   "lineupToken": "C",
-  "descriptionTemplate": "Draw 2 cards. Recover 2 Arithmetica. All Awakeners lose 5 Aliemus. If your Tentacle Stance is {Tranquil Sea}, inflict [Arg1] {Poison} on all enemies. Inflict 3× that much {Poison} instead in Boss Battle.",
+  "descriptionTemplate": "Draw 2 cards. Gain 2 Arithmetica. All Awakeners lose 5 Aliemus. If your Tentacle Stance is {Tranquil Sea}, inflict [Arg1] {Poison} on all enemies. Inflict 3× that much {Poison} instead in Boss Battles.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

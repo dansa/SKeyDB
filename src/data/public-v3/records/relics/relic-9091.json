@@ -12,6 +12,6 @@
   },
   "relicType": "D-Zone Initial Relic",
   "rarity": "SR",
-  "descriptionTemplate": "At the start of the battle, shuffle 3 random Symptom cards into your deck. At turn start, draw 1 card. Playing each Symptom card grants 2 Arithmetica. Discarding each Symptom card grants all Awakeners 5 Aliemus, up to 5 times per turn.",
+  "descriptionTemplate": "At battle start, shuffle 3 random Symptom Cards into your deck. At turn start, draw 1 card. Playing each Symptom Card grants 2 Arithmetica. Discarding each Symptom Card grants all Awakeners 5 Aliemus, up to 5 times per turn.",
   "descriptionArgs": {}
 }

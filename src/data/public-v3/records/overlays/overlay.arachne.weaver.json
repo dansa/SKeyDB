@@ -15,7 +15,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_084",
   "textColor": "affliction",
-  "descriptionTemplate": "The Fate {Weaver} draws her threads. Max [DescArg1] stacks, persist across battles, and can be consumed by Exalt to unleash {Pursuit}: {Infinite Threads}.",
+  "descriptionTemplate": "The Fate-{Weaver} draws her threads. Max [DescArg1] stacks. Persists between battles. If Arachne's Exalt triggers {Singularity Warp}, she can consume these to perform her {Pursuit}: {Infinite Threads}.",
   "descriptionArgs": {
     "DescArg1": {
       "kind": "fixed",

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.adv-insight",
+  "name": "Adv. Insight",
+  "route": {
+    "slug": "adv-insight",
+    "canonicalPath": "/database/derived-skills/adv-insight"
+  },
+  "descriptionTemplate": "Draw 2 cards and gain 2 Arithmetica.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

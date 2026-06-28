@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Special Ops: The Magic of Storytelling",
   "realm": "CHAOS",
   "lineupToken": "w",
-  "descriptionTemplate": "Draw a card; if the drawn card is a Command or {Rouse} card, reduce its Arithmetica Cost to 0 and increase its owner's Aliemus by [Arg1]. Otherwise, discard that card and repeat this process.",
+  "descriptionTemplate": "Draw 1 card; if the drawn card is a Command or {Rouse} card, reduce its Arithmetica Cost to 0 and grant its Awakener [Arg1] Aliemus. Otherwise, discard that card and repeat this process.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

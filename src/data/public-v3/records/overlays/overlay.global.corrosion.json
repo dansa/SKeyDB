@@ -14,7 +14,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_070",
   "textColor": "affliction",
-  "descriptionTemplate": "When taking Active DMG or {Tentacle DMG}, remove an equivalent amount of {Corrosion} stacks and suffer HP loss equal to [DescArg1]% of the removed stacks. Other types of DMG removes {Corrosion} stacks at 50% effectiveness.",
+  "descriptionTemplate": "When taking Active DMG or {Tentacle DMG}, remove an equivalent amount of {Corrosion} and lose [DescArg1]% that much HP. Other types of DMG only removes 50% as much {Corrosion}. {Corrosion} stacks clear at end of turn.",
   "descriptionArgs": {
     "DescArg1": {
       "kind": "fixed",

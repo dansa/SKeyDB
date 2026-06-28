@@ -20,6 +20,14 @@ import {buildWheelReferenceInfoEntries} from './wheels-database-reference-layer'
 
 type DatabaseReferenceKind = DatabaseReferenceInfo['kind']
 
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((entry) => typeof entry === 'string')
+}
+
+function getDerivedAliases(record: {aliases?: unknown}): readonly string[] {
+  return isStringArray(record.aliases) ? record.aliases : []
+}
+
 export function collectAwakenerDatabaseCardNames(
   record: Pick<AwakenerFullRecord, 'cards' | 'talents' | 'enlightens' | 'derivedSkills'>,
   derivedSkills: DerivedSkillRecord[] = getDerivedSkills(),
@@ -65,11 +73,17 @@ export function collectAwakenerDatabaseCardNames(
 
   for (const entry of record.derivedSkills) {
     names.add(entry.displayName)
+    for (const alias of getDerivedAliases(entry)) {
+      names.add(alias)
+    }
   }
 
   for (const entry of derivedSkills) {
     if (entry.ownerAwakenerId === undefined) {
       names.add(entry.displayName)
+      for (const alias of getDerivedAliases(entry)) {
+        names.add(alias)
+      }
     }
   }
 
@@ -149,12 +163,18 @@ function buildReferenceLookups(
       influenceBadges: [],
     }),
   )
-  addDescribedReferenceInfos(accumulator, shellView.derivedSkills, (entry) =>
-    buildReferenceInfoFromEntry('derived-skill', entry),
-  )
-  addDescribedReferenceInfos(accumulator, shellView.promotedExtras, (entry) =>
-    buildReferenceInfoFromEntry('derived-skill', entry),
-  )
+  for (const entry of shellView.derivedSkills) {
+    accumulator.add(
+      buildReferenceInfoFromEntry('derived-skill', entry),
+      getDerivedAliases(entry.record),
+    )
+  }
+  for (const entry of shellView.promotedExtras) {
+    accumulator.add(
+      buildReferenceInfoFromEntry('derived-skill', entry),
+      getDerivedAliases(entry.record),
+    )
+  }
 
   for (const record of globalDerivedSkills) {
     accumulator.add(
@@ -163,6 +183,7 @@ function buildReferenceLookups(
         rank: shellView.skillLevel,
         stats: shellView.stats,
       }),
+      getDerivedAliases(record),
     )
   }
 

@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": ["Over Exalt"],
   "textColor": "misc",
-  "descriptionTemplate": "Once Over-Exaltation is unlocked, the Aliemus gauge can be filled twice. Reaching a second full charge upgrades the skill to Over-Exaltation, adding powerful bonus effects. Unleashing a regular Exalt instead will consume 50% of any surplus Aliemus.",
+  "descriptionTemplate": "Once Over-Exaltation is unlocked, the Aliemus gauge can be filled to twice Base Aliemus. Reaching a second full charge upgrades the Exalt to Over-Exaltation, adding powerful bonus effects. Releasing a regular Exalt instead will consume 50% of any surplus Aliemus.",
   "descriptionArgs": {}
 }

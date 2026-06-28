@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "skills",
   "kind": "skill",
-  "recordCount": 399,
+  "recordCount": 406,
   "records": [
     {
       "kind": "skill",
@@ -3447,6 +3447,90 @@
       "ownerAwakenerId": "awakener-0041",
       "ownerAwakenerName": "Pollux",
       "slot": "OverExalt"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.pontos.another-ebwynnos",
+      "name": "Another Ebwynnos",
+      "route": {
+        "slug": "another-ebwynnos",
+        "canonicalPath": "/database/awakeners/pontos/skills/another-ebwynnos"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "OverExalt"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.pontos.defense",
+      "name": "Defense",
+      "route": {
+        "slug": "defense",
+        "canonicalPath": "/database/awakeners/pontos/skills/defense"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Defense"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.pontos.gaunt-ravage",
+      "name": "Gaunt Ravage",
+      "route": {
+        "slug": "gaunt-ravage",
+        "canonicalPath": "/database/awakeners/pontos/skills/gaunt-ravage"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Skill1"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.pontos.gauntwards-call",
+      "name": "Gauntwards' Call",
+      "route": {
+        "slug": "gauntwards-call",
+        "canonicalPath": "/database/awakeners/pontos/skills/gauntwards-call"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Skill2"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.pontos.relentless-hunt",
+      "name": "Relentless Hunt",
+      "route": {
+        "slug": "relentless-hunt",
+        "canonicalPath": "/database/awakeners/pontos/skills/relentless-hunt"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Exalt"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.pontos.strike",
+      "name": "Strike",
+      "route": {
+        "slug": "strike",
+        "canonicalPath": "/database/awakeners/pontos/skills/strike"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Strike"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.pontos.wrath-of-the-abyss",
+      "name": "Wrath of the Abyss",
+      "route": {
+        "slug": "wrath-of-the-abyss",
+        "canonicalPath": "/database/awakeners/pontos/skills/wrath-of-the-abyss"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "Rouse"
     },
     {
       "kind": "skill",

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.pontos.abyssal-engulfment",
+  "name": "Abyssal Engulfment",
+  "route": {
+    "slug": "abyssal-engulfment",
+    "canonicalPath": "/database/awakeners/pontos/enlightens/abyssal-engulfment"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "slot": "AbsoluteAxiom",
+  "descriptionTemplate": "{Rouse} {Wrath of the Abyss} is enhanced: Gain +15 Aliemus at the {ordinal:1st} play of \"Strike\" and \"Defense\" each turn. The number of {Gaunts} required to gain {Pack Hunt} is reduced from 3 to 2.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Pontos"
+}

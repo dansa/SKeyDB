@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0023",
   "slot": "Skill1",
-  "descriptionTemplate": "Treated as a \"Strike\". Deal [Damage:Arg1] DMG. For each other \"Strike\" in your hand, increase Base DMG by [Arg3]%, and gain an additional 1x {STR} bonus. Discard all \"Strikes\".",
+  "descriptionTemplate": "Treated as a \"Strike\". Deal [Damage:Arg1] DMG. For each other \"Strike\" in hand, increase Base DMG by [Arg3]%, and gain an additional 1× {STR} bonus. Discard all \"Strikes\".",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0169",
+  "name": "Compass to False North",
+  "route": {
+    "slug": "compass-to-false-north",
+    "canonicalPath": "/database/wheels/compass-to-false-north"
+  },
+  "assets": {
+    "icon": "asset-wheel-0169-icon"
+  },
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_DMG",
+  "ownerAwakenerId": "awakener-0058",
+  "ownerAwakenerName": "Pontos",
+  "lineupToken": "y8",
+  "descriptionTemplate": "Team Unique: The wielder's {STR▼} effect +[StateArg1]%. After switching to the {Raging Waves} stance, Temporary Crit. DMG increases by an amount equal to [StateArg1]% of the wielder's Base Crit. DMG, with a 3-turn cooldown.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["9", "11", "13", "15"],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": ["9", "11", "13", "15"]
+    }
+  },
+  "lore": "The old witch drifted between merchant ships, her figure always cloaked in the shadows of her tattered robe. The compass, she said, would guide people exactly where they were meant to go. The sailors laughed and jeered at her herb-scented nonsense, tossed down five Leonian Florins, and walked away with the exquisite brass trinket.\nLater, they docked at a small harbor town—one that would eventually lose its name.\nPontos loved this story. The compass's owner was charmed by Pontos.\nAfter all, no one could dislike Pontos—he was humorous, cheerful, as carefree as a passing breeze.\nGifted to his beloved nephew, it was meant to be a wonderful keepsake, a key to awaken his yearning for the distant town. Yet, it concealed the boy from him. Pontos would not allow it, nor would he ever permit his nephew's life to take any other course.\nYears passed, and as Pontos wandered through countless moonlit nights, searching for the figure who should have returned to Ebwynnos, this was exactly what he thought.\nOh right, that futile, protective spell had worn off at last. Pontos could finally bring him back.\nPontos knew the old tale well—that the compass guides people exactly where they are meant to go. What he failed to realize, however, was that just as every ship charts its own course, different travelers will inevitably choose different paths.",
+  "searchTags": ["Crit DMG"]
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.ryker.certain-gain",
+  "name": "Certain Gain",
+  "route": {
+    "slug": "certain-gain",
+    "canonicalPath": "/database/awakeners/ryker/overlays/certain-gain"
+  },
+  "assets": {
+    "icon": "asset-overlay.ryker.certain-gain-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0043",
+  "aliases": [],
+  "iconId": "IconS_Buff_045",
+  "descriptionTemplate": "For every 1 point of Black Sigil consumed during exploration, the Base DMG of \"All-In\" +0.5%.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Ryker"
+}

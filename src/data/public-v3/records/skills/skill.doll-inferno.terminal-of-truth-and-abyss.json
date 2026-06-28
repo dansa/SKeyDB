@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0018",
   "slot": "Exalt",
-  "descriptionTemplate": "other Awakeners Gain [Energy:Arg1] Aliemus, inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on all enemies, and temporarily increase the team's DMG Amplification by [Arg3]%. {Finale Form}: Draw 3 additional cards, obtain 3 Arithmetica, trigger 50% of {Poison} on all enemies, and increase \"Doll: Inferno\"'s Base Aliemus by 50, up to 3 times.",
+  "descriptionTemplate": "other Awakeners Gain [Energy:Arg1] Aliemus, inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on all enemies, and temporarily increase the team's DMG Amplification by [Arg3]%. {Finale Form}: Draw 3 additional cards, obtain 3 Arithmetica, trigger 50% of {Poison} on all enemies, and increase \"Doll: Inferno\"'s Base Aliemus by 50, up to 3 times.\n{overlay:Illusion's End}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

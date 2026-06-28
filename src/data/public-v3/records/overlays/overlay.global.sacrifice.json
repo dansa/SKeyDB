@@ -14,6 +14,6 @@
   "aliases": [],
   "iconId": "IconS_Buff_041",
   "textColor": "shield",
-  "descriptionTemplate": "At turn end, take DMG equal to the number of stacks, then remove 50% of the {Sacrifice} stacks. {Sacrifice} carries over to the next battle.",
+  "descriptionTemplate": "At turn end, take 1 DMG for each stack of {Sacrifice}, then remove 50% of {Sacrifice} stacks. {Sacrifice} persists between battles.",
   "descriptionArgs": {}
 }

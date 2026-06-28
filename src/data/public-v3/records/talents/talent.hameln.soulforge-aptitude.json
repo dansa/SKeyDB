@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0022",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAfter playing \"Insight,\" gain Temporary {STR} equal to [Arg3]% of ATK, and trigger {Crescendo} once. This effect can trigger up to 5 times per turn.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAfter playing {Insight}, gain Temporary {STR} equal to [Arg3]% of ATK, and trigger {Crescendo} once. This effect can trigger up to 5 times per turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

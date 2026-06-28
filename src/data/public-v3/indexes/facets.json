@@ -817,6 +817,11 @@
         "value": "awakener-0056",
         "label": "Arachne",
         "order": 55
+      },
+      {
+        "value": "awakener-0058",
+        "label": "Pontos",
+        "order": 57
       }
     ]
   },
@@ -1133,6 +1138,11 @@
         "value": "awakener-0057",
         "label": "Saya",
         "order": 56
+      },
+      {
+        "value": "awakener-0058",
+        "label": "Pontos",
+        "order": 57
       }
     ]
   },
@@ -1171,6 +1181,11 @@
         "order": 2
       },
       {
+        "value": "awakener-0006",
+        "label": "Caecus",
+        "order": 5
+      },
+      {
         "value": "awakener-0009",
         "label": "Celeste",
         "order": 8
@@ -1184,6 +1199,11 @@
         "value": "awakener-0014",
         "label": "Doresain",
         "order": 13
+      },
+      {
+        "value": "awakener-0017",
+        "label": "Faros",
+        "order": 16
       },
       {
         "value": "awakener-0018",
@@ -1241,6 +1261,11 @@
         "order": 42
       },
       {
+        "value": "awakener-0050",
+        "label": "Tulu",
+        "order": 49
+      },
+      {
         "value": "awakener-0052",
         "label": "Wanda",
         "order": 51
@@ -1264,6 +1289,11 @@
         "value": "awakener-0057",
         "label": "Saya",
         "order": 56
+      },
+      {
+        "value": "awakener-0058",
+        "label": "Pontos",
+        "order": 57
       }
     ]
   },
@@ -1450,6 +1480,11 @@
         "value": "awakener-0057",
         "label": "Saya",
         "order": 56
+      },
+      {
+        "value": "awakener-0058",
+        "label": "Pontos",
+        "order": 57
       }
     ]
   },
@@ -1773,6 +1808,11 @@
         "value": "awakener-0057",
         "label": "Saya",
         "order": 56
+      },
+      {
+        "value": "awakener-0058",
+        "label": "Pontos",
+        "order": 57
       }
     ]
   },
@@ -2099,6 +2139,11 @@
         "value": "awakener-0057",
         "label": "Saya",
         "order": 56
+      },
+      {
+        "value": "awakener-0058",
+        "label": "Pontos",
+        "order": 57
       }
     ]
   },
@@ -2410,6 +2455,11 @@
         "value": "awakener-0057",
         "label": "Saya",
         "order": 56
+      },
+      {
+        "value": "awakener-0058",
+        "label": "Pontos",
+        "order": 57
       }
     ]
   },
@@ -2785,6 +2835,11 @@
         "value": "awakener-0057",
         "label": "Saya",
         "order": 56
+      },
+      {
+        "value": "awakener-0058",
+        "label": "Pontos",
+        "order": 57
       }
     ],
     "tags": [

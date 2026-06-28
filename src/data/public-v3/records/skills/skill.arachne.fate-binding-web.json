@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0056",
   "slot": "Skill2",
-  "descriptionTemplate": "Gain [Block:Arg1] Shield. Other Awakeners gain [Energy:Arg2] Aliemus. The next {Eternal Loom} generates an additional {Guiding Strings} and places it into the Draw Pile and Discard Pile.",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Grant all other Awakeners [Energy:Arg2] Aliemus. The next {Eternal Loom} creates 2 additional {Guiding Strings}; 1 in the Draw Pile, and 1 in the Discard Pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

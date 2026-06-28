@@ -14,6 +14,6 @@
   "aliases": [],
   "iconId": "IconS_Buff_013",
   "textColor": "shield",
-  "descriptionTemplate": "When attacked, cancel out the DMG and remove 1 stack.",
+  "descriptionTemplate": "When being dealt DMG, consume 1 stack of {Barrier} and prevent 1 instance of that DMG.",
   "descriptionArgs": {}
 }

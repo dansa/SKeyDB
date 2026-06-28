@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Sculpted Like a Song",
   "realm": "AEQUOR",
   "lineupToken": "n",
-  "descriptionTemplate": "Recover [Arg1] Arithmetica and gain [Block:Arg2] Delayed Shield. If your Tentacle Stance is {Surging Tides}, instead summon [Arg3] Tentacles.",
+  "descriptionTemplate": "Gain [Arg1] Arithmetica and [Block:Arg2] Delayed Shield. If your Tentacle Stance is {Surging Tides}, instead spawn [Arg3] {plural:[Arg3]|Tentacle|Tentacles}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

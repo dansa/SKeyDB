@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.embryo-fusion-double",
+  "name": "Embryo Fusion Double",
+  "route": {
+    "slug": "embryo-fusion-double",
+    "canonicalPath": "/database/overlays/embryo-fusion-double"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "This effect increases {Embryo Fusion} by at most +100 and is not affected by {Embryo Fusion} enhancement bonuses.",
+  "descriptionArgs": {}
+}

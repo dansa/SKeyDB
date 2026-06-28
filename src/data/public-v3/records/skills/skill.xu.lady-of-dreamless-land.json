@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0054",
   "slot": "Rouse",
-  "descriptionTemplate": "Xu gains [Energy:Arg1] Aliemus. {Rouse}: The first time each type of Xu's Command Cards triggers {Resonance} effect per turn, its Arithmetica Cost becomes 0.",
+  "descriptionTemplate": "Xu gains [Energy:Arg1] Aliemus. {Rouse}: The first time each type of Xu's Command Cards triggers the {Resonance} effect per turn, its Base Arithmetica Cost becomes 0.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -32,7 +32,7 @@
       "ownerAwakenerId": "awakener-0054",
       "ownerAwakenerName": "Xu",
       "patch": {
-        "descriptionTemplate": "Xu gains [Energy:Arg1] Aliemus. {Rouse}: The first time each type of Xu's Command Cards triggers {Resonance} effect per turn, its Arithmetica Cost becomes 0. The max stack of {Spellbound} is increased to 15, and the first Command Card Xu plays each turn takes effect 1 additional time."
+        "descriptionTemplate": "Xu gains [Energy:Arg1] Aliemus. {Rouse}: The first time each type of Xu's Command Cards triggers the {Resonance} effect per turn, its Base Arithmetica Cost becomes 0. The max stack of {Spellbound} is increased to 15, and the first Command Card Xu plays each turn takes effect 1 additional time."
       }
     }
   ],

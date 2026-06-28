@@ -9,6 +9,6 @@
   },
   "overlayType": "mechanic",
   "aliases": [],
-  "descriptionTemplate": "Remove the card on the far left of the {Ultra Space}, and immediately add 1 \"Insight\" to your hand. {Annihilation} can only be used once per Turn.",
+  "descriptionTemplate": "{Destroy} the leftmost card in {Ultra Space}, and create 1 {Insight}. {Annihilation} can only be used once per turn.",
   "descriptionArgs": {}
 }

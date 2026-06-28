@@ -15,7 +15,7 @@
   "ownerAwakenerName": "Arachne",
   "rarity": "SSR",
   "realm": "ULTRA",
-  "descriptionTemplate": "Arachne gains [Arg1] Aliemus at turn start. \"Strike\" and \"Defense\" immediately trigger {Pursuit}: {Infinite Threads} once, with each taking effect at most once per turn.",
+  "descriptionTemplate": "At the start of each turn, Arachne gains [Arg1] Aliemus. When Arachne's Basic Strike or Basic Defense are played, she performs her {Pursuit}: {Infinite Threads}. These 2 effects can trigger up to once each turn respectively, and do not consume {Weaver}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -78,6 +78,61 @@ describe('database-rich-text', () => {
     ])
   })
 
+  it('parses derived card aliases from the reference layer as skill references', () => {
+    expect(
+      parseDatabaseRichDescription({
+        text: 'Count as 2 {Gaunt} cards.',
+        referenceLayer: {
+          cardNames: new Set(['Gaunts', 'Gaunt']),
+          accessibleOverlays: [TEST_OVERLAY],
+          referenceInfoByName: new Map(),
+          referenceInfoById: new Map(),
+          overlayByName: new Map(),
+        } satisfies ResolvedDatabaseReferenceLayer,
+      }),
+    ).toEqual([
+      {type: 'text', value: 'Count as 2 '},
+      {type: 'skill', name: 'Gaunt'},
+      {type: 'text', value: ' cards.'},
+    ])
+  })
+
+  it('keeps same-record aliases clickable while suppressing exact self-name links', () => {
+    const referenceLayer = {
+      cardNames: new Set(['Gaunts', 'Gaunt']),
+      accessibleOverlays: [TEST_OVERLAY],
+      referenceInfoByName: new Map([
+        ['gaunts', {kind: 'derived-skill', id: 'derived.pontos.gaunts'}],
+        ['gaunt', {kind: 'derived-skill', id: 'derived.pontos.gaunts'}],
+      ]) as ResolvedDatabaseReferenceLayer['referenceInfoByName'],
+      referenceInfoById: new Map(),
+      overlayByName: new Map(),
+    } satisfies ResolvedDatabaseReferenceLayer
+
+    expect(
+      parseDatabaseRichDescription({
+        record: {
+          id: 'derived.pontos.gaunts',
+          displayName: 'Gaunts',
+          aliases: [],
+          descriptionTemplate: 'Count as 2 {Gaunt} cards. {Gaunts} stay grouped.',
+          descriptionArgs: {},
+          cardKeywords: [],
+          childDerivedSkillIds: [],
+          nodeKind: 'group',
+          variants: [],
+        },
+        referenceLayer,
+      }),
+    ).toEqual([
+      {type: 'text', value: 'Count as 2 '},
+      {type: 'skill', name: 'Gaunt'},
+      {type: 'text', value: ' cards. '},
+      {type: 'reference', name: 'Gaunts'},
+      {type: 'text', value: ' stay grouped.'},
+    ])
+  })
+
   it('parses named public arg keys inside plural macros', () => {
     expect(
       parseDatabaseRichDescription({

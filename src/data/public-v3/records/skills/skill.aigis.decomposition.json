@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0003",
   "slot": "Skill2",
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG, which enjoys a 2x {STR} bonus. If the target is {Vulnerable}, refund the Arithmetica Cost of the card and draw 1 card.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG, which enjoys a 2× {STR} bonus. If the target is {Vulnerable}, refund the Arithmetica Cost of the card and draw 1 card.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -30,7 +30,7 @@
       "ownerAwakenerId": "awakener-0003",
       "ownerAwakenerName": "Aigis",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG, enjoys a 2x {STR} bonus. If the target is {Vulnerable}, refund the Arithmetica used for This card and draw 1 card. For each stack of {Vulnerable} on the target, increase the Final DMG of {Decomposition} by [Arg2]%, up to 500%.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG, enjoys a 2× {STR} bonus. If the target is {Vulnerable}, refund the Arithmetica used for This card and draw 1 card. For each stack of {Vulnerable} on the target, increase the Final DMG of {Decomposition} by [Arg2]%, up to 500%.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

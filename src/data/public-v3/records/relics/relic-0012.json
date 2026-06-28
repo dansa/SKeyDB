@@ -15,7 +15,7 @@
   "ownerAwakenerName": "Daffodil",
   "rarity": "SSR",
   "realm": "ULTRA",
-  "descriptionTemplate": "At turn start, Daffodil gains [Arg1] Aliemus and 1 \"Insight\" card. The {STR} gained from {Heterogeneous Tides} +[Arg2]%, and each card played permanently increases it further by [Arg3]% for this exploration, up to [Arg4]%.",
+  "descriptionTemplate": "At turn start, Daffodil gains [Arg1] Aliemus and 1 {Insight} card. The {STR} gained from {Heterogeneous Tides} +[Arg2]%, and each card played permanently increases it further by [Arg3]% for this exploration, up to [Arg4]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

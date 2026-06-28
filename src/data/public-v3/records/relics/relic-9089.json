@@ -12,6 +12,6 @@
   },
   "relicType": "D-Zone Initial Relic",
   "rarity": "SR",
-  "descriptionTemplate": "After playing a Command Card that is not \"Strike\" or \"Defense,\" if the card is not a Derived card, the corresponding Awakener gains 15 Aliemus, triggering up to 5 times per turn. On the first trigger of each turn, the played card will also be returned to your hand.",
+  "descriptionTemplate": "After playing a Command Card that is not \"Strike\" or \"Defense,\" if the card is not a Derived Card, the corresponding Awakener gains 15 Aliemus, triggering up to 5 times per turn. On the first trigger of each turn, the played card will also be returned to hand.",
   "descriptionArgs": {}
 }

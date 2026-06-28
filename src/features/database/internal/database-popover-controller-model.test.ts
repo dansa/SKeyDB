@@ -219,4 +219,20 @@ describe('database popover controller model', () => {
       ).referenceLayerOverride,
     ).toBe(sourceLayer)
   })
+
+  it('preserves reference ids for related info entries so live trail refresh can re-resolve them', () => {
+    const sourceEntry = buildTrailEntry(skillReference(), null)
+    const relatedEntry: KeyedDatabaseReferenceEntry = {
+      key: 'derived-skill:derived.test.raid-gaunt',
+      name: 'Raid-Gaunt',
+      label: 'Card · Derived',
+      description: 'Old related card text.',
+    }
+
+    expect(withInheritedReferenceLayerOverride(relatedEntry, sourceEntry)).toMatchObject({
+      key: 'derived-skill:derived.test.raid-gaunt',
+      referenceId: 'derived.test.raid-gaunt',
+      description: 'Old related card text.',
+    })
+  })
 })

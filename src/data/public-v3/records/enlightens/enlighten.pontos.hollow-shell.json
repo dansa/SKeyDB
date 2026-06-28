@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.pontos.hollow-shell",
+  "name": "Hollow Shell",
+  "route": {
+    "slug": "hollow-shell",
+    "canonicalPath": "/database/awakeners/pontos/enlightens/hollow-shell"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "slot": "E2",
+  "descriptionTemplate": "{Gaunt Ravage} Base DMG +25%, DMG and Aliemus effects trigger X+1 times.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Pontos"
+}

@@ -10,7 +10,7 @@
   "overlayType": "mechanic",
   "aliases": ["Prepare 1", "Prepare 2", "Prepare 3", "Prepare 4", "Prepare 5"],
   "textColor": "misc",
-  "descriptionTemplate": "At turn end, Arithmetica Cost -[Layer], This effect triggers even if discarded.",
+  "descriptionTemplate": "Whenever this card is {Retained} or discarded, its Arithmetica Cost reduces by [Layer] until played.",
   "descriptionArgs": {
     "Layer": {
       "kind": "fixed",

@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0011",
   "ownerAwakenerName": "Corposant",
   "lineupToken": "yv",
-  "descriptionTemplate": "Team Unique: At the start of battle, gain Shield equal to [StateArg1]% of the wielder's DEF. After triggering {Death Resistance}, trigger this effect again at the start of next turn.",
+  "descriptionTemplate": "Team Unique: At battle start, gain Shield equal to [StateArg1]% of the wielder's DEF. After triggering {Death Resistance}, trigger this effect again At next turn start.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.pontos.revelry-in-absence",
+  "name": "Revelry in Absence",
+  "route": {
+    "slug": "revelry-in-absence",
+    "canonicalPath": "/database/awakeners/pontos/enlightens/revelry-in-absence"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "slot": "E3",
+  "descriptionTemplate": "Draw 1 {Gaunt} at the {ordinal:1st} play of \"Strike\" and \"Defense\" each turn. {Gaunt} gains \"{Aftershock}: Arithmetica Cost -1\".",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Pontos"
+}

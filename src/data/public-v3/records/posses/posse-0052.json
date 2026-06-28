@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "posse",
+  "id": "posse-0052",
+  "name": "The Hollow One",
+  "route": {
+    "slug": "the-hollow-one",
+    "canonicalPath": "/database/posses/the-hollow-one"
+  },
+  "assets": {
+    "icon": "asset-posse-0052-icon",
+    "crystal": "asset-posse-0052-crystal",
+    "badge": "asset-posse-0052-badge"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "ownerAwakenerName": "Pontos",
+  "acquisitionSource": "Clear Psyche Deepdive: Ebwynnos Evermore",
+  "realm": "AEQUOR",
+  "lineupToken": "6",
+  "descriptionTemplate": "Temporary Crit. DMG +[Arg1]%, temporarily reduce all enemies' {STR▼} by [Arg2]. If Pontos is in the party, gain 1 stack of {Pack Hunt}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "30",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.045,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Let us recount the tale of your life—a story that shall echo no more.\nLike the sea surging into the abyss, to slumber there for all eternity."
+}

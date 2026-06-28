@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0018",
   "slot": "OverExalt",
-  "descriptionTemplate": "This Exalt provides 2x Aliemus, and all Awakeners' {Poison}, {Counter}, and Base DMG increase by 10%. In Boss Battles, obtain an additional stack of {Finale}. {Finale Form}: For every 10 Aliemus consumed, trigger an additional 3% {Poison} on all enemies.",
+  "descriptionTemplate": "This Exalt provides 2× Aliemus, and all Awakeners' {Poison}, {Counter}, and Base DMG +10%. In Boss Battles, obtain an additional stack of {Finale}. {Finale Form}: For every 10 Aliemus consumed, trigger an additional 3% {Poison} on all enemies.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Doll: Inferno"

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0007",
   "slot": "Skill2",
-  "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Discard Symptom and State cards from your hand, shuffle the other cards in your hand into the Draw Pile, then draw the same number of cards. {Leap}: Refund the Arithmetica Cost of {Poof!}.",
+  "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Discard Symptom Cards and State Cards from hand, shuffle the other cards in hand into the Draw Pile, then draw the same number of cards. {Leap}: Refund the Arithmetica Cost of {Poof!}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -28,7 +28,7 @@
       "ownerAwakenerId": "awakener-0007",
       "ownerAwakenerName": "Casiah",
       "patch": {
-        "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Discard Symptom and State cards from your hand, shuffle the remaining cards in your hand into the Draw Pile, then draw a number of cards equal to the quantity discarded and shuffled, gaining [Energy:Arg2] Aliemus per card drawn. {Leap}: Refund the Arithmetica Cost of '{Poof!}'.",
+        "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Discard Symptom Cards and State Cards from hand, shuffle the remaining cards in hand into the Draw Pile, then draw a number of cards equal to the quantity discarded and shuffled, gaining [Energy:Arg2] Aliemus per card drawn. {Leap}: Refund the Arithmetica Cost of '{Poof!}'.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

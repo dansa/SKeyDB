@@ -15,7 +15,7 @@
   "mainstatKey": "DMG_AMP",
   "ownerAwakenerId": "awakener-0054",
   "ownerAwakenerName": "Xu",
-  "lineupToken": "yX",
+  "lineupToken": "yV",
   "descriptionTemplate": "Team Unique: The Fixed {Poison} & {Poison} Trigger effects caused by the wielder +[StateArg1]%. {Caro} Realm's automatic {Embryo Fusion} +[StateArg2]%. When the wielder first triggers {Resonance} each turn, other Awakeners gain [StateArg3] Aliemus.",
   "descriptionArgs": {
     "StateArg1": {

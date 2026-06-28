@@ -343,6 +343,12 @@
       "legacyId": 57,
       "legacyName": "saya",
       "id": "awakener-0057"
+    },
+    {
+      "codecIndex": 58,
+      "legacyId": 58,
+      "legacyName": "pontos",
+      "id": "awakener-0058"
     }
   ],
   "wheels": [
@@ -1015,6 +1021,21 @@
       "codecIndex": 134,
       "legacyId": "yZ",
       "id": "wheel-0168"
+    },
+    {
+      "codecIndex": 135,
+      "legacyId": "wheel-0169",
+      "id": "wheel-0169"
+    },
+    {
+      "codecIndex": 136,
+      "legacyId": "wheel-0170",
+      "id": "wheel-0170"
+    },
+    {
+      "codecIndex": 137,
+      "legacyId": "wheel-0171",
+      "id": "wheel-0171"
     }
   ],
   "covenants": [
@@ -1379,6 +1400,11 @@
       "codecIndex": 53,
       "legacyId": "for-the-new-world",
       "id": "posse-0051"
+    },
+    {
+      "codecIndex": 54,
+      "legacyId": "posse-0052",
+      "id": "posse-0052"
     }
   ]
 }

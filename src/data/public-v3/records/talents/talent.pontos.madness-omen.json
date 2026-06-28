@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "talent",
+  "id": "talent.pontos.madness-omen",
+  "name": "Madness Omen",
+  "route": {
+    "slug": "madness-omen",
+    "canonicalPath": "/database/awakeners/pontos/talents/madness-omen"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "family": "madness_omen",
+  "maxLevel": 12,
+  "descriptionTemplate": "Obtain [Arg1] Aliemus after the start of exploration.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "5",
+      "gainPerLevel": "5"
+    }
+  },
+  "ownerAwakenerName": "Pontos"
+}

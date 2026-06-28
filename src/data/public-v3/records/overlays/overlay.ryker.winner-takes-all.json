@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.ryker.winner-takes-all",
+  "name": "Winner Takes All",
+  "route": {
+    "slug": "winner-takes-all",
+    "canonicalPath": "/database/awakeners/ryker/overlays/winner-takes-all"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0043",
+  "aliases": [],
+  "descriptionTemplate": "When Ryker kills an enemy, he gains 5 Black Sigils. For every 1% of Ryker's Sigil Yield, the amount gained +1%, up to 5 times per expedition.\nAfter obtaining 50/125/250 Black Sigils through combat, Relic Capacity +1, and at the end of combat, choose one {Chaotic Legacy} to add to the Relic list.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Ryker"
+}

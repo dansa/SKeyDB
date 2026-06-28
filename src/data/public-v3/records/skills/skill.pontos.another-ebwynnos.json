@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.pontos.another-ebwynnos",
+  "name": "Another Ebwynnos",
+  "route": {
+    "slug": "another-ebwynnos",
+    "canonicalPath": "/database/awakeners/pontos/skills/another-ebwynnos"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "slot": "OverExalt",
+  "descriptionTemplate": "{Fixed DMG} dealt is tripled; if this secures a kill, additionally generate 1 {Gaunt}. Reduce the Arithmetica Cost of all {Gaunts} by 1.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "ownerAwakenerName": "Pontos"
+}

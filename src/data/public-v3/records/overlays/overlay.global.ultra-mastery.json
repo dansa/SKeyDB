@@ -9,7 +9,7 @@
   },
   "overlayType": "mechanic",
   "aliases": [],
-  "descriptionTemplate": "For each 1 point of Realm Mastery, there is a [StateArg1]% probability at turn start to gain 1 \"Insight\". If the probability exceeds 100%, multiple copies can be obtained.",
+  "descriptionTemplate": "For each 1 point of Realm Mastery, there is a [StateArg1]% probability at turn start to gain 1 {Insight}. If the probability exceeds 100%, multiple copies can be obtained.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "fixed",

@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Special Ops: Serene Fission",
   "realm": "CHAOS",
   "lineupToken": "t",
-  "descriptionTemplate": "Increase Realm Mastery by [Arg1]. Increase a chosen Awakener's Aliemus by [Energy:Arg2].",
+  "descriptionTemplate": "Increase Realm Mastery by [Arg1]. Grant a chosen Awakener [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -101,6 +101,7 @@ describe('hydrateGlobalDatabaseReferenceInfo', () => {
       record: {
         id: 'derived.arachne.guiding-strings',
         displayName: 'Guiding Strings',
+        aliases: [],
         descriptionTemplate: '',
         descriptionArgs: {},
         cardKeywords: [],
@@ -119,7 +120,7 @@ describe('hydrateGlobalDatabaseReferenceInfo', () => {
     const hydrated = await hydrateGlobalDatabaseReferenceInfo(info)
 
     expect(loadPublicDerivedSkillDetailById).toHaveBeenCalledWith('derived.arachne.guiding-strings')
-    expect(hydrated.description).toContain('Lose 2% Max HP')
+    expect(hydrated.description).toContain('Lose 2% of Max HP')
     expect(hydrated.kind).toBe('derived-skill')
   })
 
@@ -233,6 +234,7 @@ describe('buildGlobalDatabaseReferenceLayer', () => {
         {
           id: 'derived.test.counter',
           displayName: 'Counter',
+          aliases: [],
           descriptionTemplate: 'Counter derived.',
           descriptionArgs: {},
           cardKeywords: [],

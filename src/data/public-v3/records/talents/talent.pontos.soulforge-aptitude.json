@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 3,
+  "kind": "talent",
+  "id": "talent.pontos.soulforge-aptitude",
+  "name": "Soulforge Aptitude",
+  "route": {
+    "slug": "soulforge-aptitude",
+    "canonicalPath": "/database/awakeners/pontos/talents/soulforge-aptitude"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "family": "soulforge_aptitude",
+  "maxLevel": 10,
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nPontos deals +[Arg3]% {Fixed DMG} to \"Kindreds of Rapture.\"\n{Relentless Hunt} gains {Tentacle DMG} equal to [Arg4]% of ATK for every 10 Aliemus consumed. When {Gaunt Ravage} deals DMG, it also temporarily reduces the target's {STR▼} by an amount equal to [Arg5]% of DEF.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": ["50", "55", "60", "65", "70", "75", "80", "85", "90", "100"]
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": ["1", "1.2", "1.4", "1.6", "1.8", "2", "2.2", "2.4", "2.6", "3"]
+    },
+    "Arg5": {
+      "kind": "scaling",
+      "values": ["1", "1.2", "1.4", "1.6", "1.8", "2", "2.2", "2.4", "2.6", "3"]
+    }
+  },
+  "ownerAwakenerName": "Pontos"
+}

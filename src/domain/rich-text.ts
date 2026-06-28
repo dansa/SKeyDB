@@ -297,6 +297,11 @@ function toTokenSegment(
   cardNameByLower: ReadonlyMap<string, string>,
   options: NormalizedRichTextParseOptions,
 ): RichSegment {
+  const typedToken = parseTypedReferenceToken(token)
+  if (typedToken?.type === 'overlay') {
+    return {type: 'mechanic', name: typedToken.name}
+  }
+
   const normalizedToken = token.toLowerCase()
   const canonicalCardName = cardNameByLower.get(normalizedToken)
   if (canonicalCardName) {
@@ -323,6 +328,21 @@ function toTokenSegment(
     return {type: 'stat', name: token}
   }
   return {type: 'mechanic', name: token}
+}
+
+function parseTypedReferenceToken(token: string): {type: 'overlay'; name: string} | null {
+  const separatorIndex = token.indexOf(':')
+  if (separatorIndex <= 0 || separatorIndex >= token.length - 1) {
+    return null
+  }
+
+  const type = token.slice(0, separatorIndex).trim().toLowerCase()
+  if (type !== 'overlay') {
+    return null
+  }
+
+  const name = token.slice(separatorIndex + 1).trim()
+  return name ? {type: 'overlay', name} : null
 }
 
 function consumeBracketToken(

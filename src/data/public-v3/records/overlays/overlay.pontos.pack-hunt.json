@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.pontos.pack-hunt",
+  "name": "Pack Hunt",
+  "route": {
+    "slug": "pack-hunt",
+    "canonicalPath": "/database/awakeners/pontos/overlays/pack-hunt"
+  },
+  "assets": {
+    "icon": "asset-overlay.pontos.pack-hunt-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0058",
+  "aliases": ["Battue"],
+  "iconId": "IconS_Buff_090",
+  "textColor": "shield",
+  "descriptionTemplate": "Grants {Gaunt} Takes effect 1 additional time. When playing a {Gaunt} card, consume 1 stack. Maximum 9 stacks. Not cleared at the end of battle.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Pontos"
+}

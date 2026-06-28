@@ -14,7 +14,7 @@
   "aliases": ["Bleeding"],
   "iconId": "IconS_Buff_022",
   "textColor": "damage",
-  "descriptionTemplate": "At turn end, take DMG equal to stacks and remove this state.",
+  "descriptionTemplate": "At turn end, remove all stacks of {Bleed}, and take 1 DMG for each stack removed.",
   "descriptionArgs": {
     "Layer": {
       "kind": "fixed",

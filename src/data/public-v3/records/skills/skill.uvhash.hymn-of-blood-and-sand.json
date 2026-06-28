@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0051",
   "slot": "Exalt",
-  "descriptionTemplate": "[{Devour}: Subsequent {Hymn of Blood and Sand} released in this battle deals +[Arg4] DMG and [Arg3]x {STR} multiplier.] Deal [Damage:Arg1] DMG to all enemies. {STR} takes [Arg2]x effect on {Hymn of Blood and Sand}. Gain Aliemus equal to 2x Uvhash's Aliemus Regen.",
+  "descriptionTemplate": "[{Devour}: Subsequent {Hymn of Blood and Sand} released in this battle deals +[Arg4] DMG and [Arg3]x {STR} multiplier.] Deal [Damage:Arg1] DMG to all enemies. {STR} takes [Arg2]x effect on {Hymn of Blood and Sand}. Gain Aliemus equal to 2× Uvhash's Aliemus Regen.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

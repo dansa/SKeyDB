@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Whispers Behind the Fan",
   "realm": "CARO",
   "lineupToken": "2",
-  "descriptionTemplate": "Gain 1 Arithmetica and temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg1] for 1 turn. If \"Xu\" is in the team, inflict 1 stack of {Spellbound} on all enemies.",
+  "descriptionTemplate": "Gain 1 Arithmetica and inflict [Exhaustion:Arg1] Temp. {STR▼} on all enemies. If Xu is in the team, also inflict 1 stack of {Spellbound} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

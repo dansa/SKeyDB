@@ -37,13 +37,10 @@
       "ownerAwakenerName": "Wanda",
       "patch": {
         "descriptionArgs": {
-          "Layer": {
-            "kind": "fixed",
-            "value": "1"
-          },
           "StateArg1": {
             "kind": "fixed",
-            "value": "65"
+            "value": "65",
+            "suffix": "%"
           }
         }
       }

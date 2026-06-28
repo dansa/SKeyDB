@@ -44,7 +44,7 @@ describe('awakener-overlays', () => {
           displayName: 'Void',
           overlayType: 'mechanic',
           textColor: 'aliemus',
-          iconId: 'IconS_Buff_029',
+          iconId: 'IconS_Buff_027',
         }),
         expect.objectContaining({
           id: 'overlay.global.stun',

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.pontos.defense",
+  "name": "Defense",
+  "route": {
+    "slug": "defense",
+    "canonicalPath": "/database/awakeners/pontos/skills/defense"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "slot": "Defense",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Pontos gains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["10", "12", "14", "16", "18", "20"],
+      "stat": "DEF",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["5", "6", "7", "8", "9", "10"]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pontos.revelry-in-absence.skill.pontos.defense",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.pontos.revelry-in-absence",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Pontos gains [Energy:Arg2] Aliemus. Draw 1 {Gaunt} at the {ordinal:1st} play each turn."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Pontos"
+}

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0012",
   "slot": "E1",
-  "descriptionTemplate": "\"Basic Strike\" enjoys 2x {STR} bonus and gains {Leap}: Obtain 1 Arithmetica. \"Basic Defense\" grants {STR} equal to [Arg1]% of ATK and gains {Leap}: Obtain 1 Arithmetica.",
+  "descriptionTemplate": "\"Basic Strike\" enjoys 2× {STR} bonus and gains {Leap}: Obtain 1 Arithmetica. \"Basic Defense\" grants {STR} equal to [Arg1]% of ATK and gains {Leap}: Obtain 1 Arithmetica.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

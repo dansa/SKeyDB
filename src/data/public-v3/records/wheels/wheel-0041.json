@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0010",
   "ownerAwakenerName": "Clementine",
   "lineupToken": "yf",
-  "descriptionTemplate": "Team Unique: The wielder's Exalt Base DMG +[StateArg1]%, and Keyflare Regen +[StateArg2]. After entering {Ultra Round}, all Awakeners obtain [StateArg4] Aliemus. After releasing {Annihilation}, the wielder obtains [StateArg3] Aliemus.",
+  "descriptionTemplate": "Team Unique: The wielder's Exalt Base DMG +[StateArg1]%, and Keyflare Regen +[StateArg2]%. After entering {Ultra Round}, all Awakeners obtain [StateArg4] Aliemus. After releasing {Annihilation}, the wielder obtains [StateArg3] Aliemus.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",
@@ -25,7 +25,8 @@
     },
     "StateArg2": {
       "kind": "scaling",
-      "values": ["15", "20", "25", "30"]
+      "values": ["15", "20", "25", "30"],
+      "suffix": "%"
     },
     "StateArg3": {
       "kind": "scaling",

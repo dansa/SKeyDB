@@ -12,6 +12,6 @@
   },
   "relicType": "D-Zone Initial Relic",
   "rarity": "SR",
-  "descriptionTemplate": "At the start of the battle, increase the Arithmetica Limit by 1 and {Rouse} all Awakeners. For the next 5 turns, at the start of each turn, gain a Relic from \"Rusty Lancet, Modern Axle, Our Home, {Eerie Hook}, Chrono Pendulum: Trance\".",
+  "descriptionTemplate": "At battle start, increase the Arithmetica Limit by 1 and {Rouse} all Awakeners. For the next 5 turns, At turn start, gain a Relic from \"Rusty Lancet, Modern Axle, Our Home, {Eerie Hook}, Chrono Pendulum: Trance\".",
   "descriptionArgs": {}
 }

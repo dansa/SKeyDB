@@ -14,6 +14,6 @@
   "aliases": [],
   "iconId": "IconS_Buff_067",
   "textColor": "affliction",
-  "descriptionTemplate": "After playing the first Command Card each turn, move a Temporary Base Copy of it to {Ultra Space}. This cannot trigger during {Ultra Rounds}.",
+  "descriptionTemplate": "After playing the first Command Card each turn, a {Fleeting}, Basic Copy of it will be put into {Ultra Space}. This cannot trigger during {Ultra Rounds}.",
   "descriptionArgs": {}
 }

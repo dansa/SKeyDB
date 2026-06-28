@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0032",
   "slot": "Exalt",
-  "descriptionTemplate": "Place [Arg4] {Sacrament} into your hand, inflict [{Poison}:Arg5] {Poison} on all enemies. Gain effects based on Tentacle Stance: {Surging Tides}: gain [Power:Arg1] {STR} and [TentaclePower:Arg1] {Tentacle DMG}; {Tranquil Sea}: other Awakeners gain [Energy:Arg2] Aliemus; {Raging Waves}: trigger [Arg3]% of the {Poison} effect on all enemies.",
+  "descriptionTemplate": "Place [Arg4] {Sacrament} into your hand, inflict [{Poison}:Arg5] {Poison} on all enemies. Gain effects based on Tentacle Stance: {Surging Tides}: gain [Power:Arg1] {STR} and [TentaclePower:Arg1] {Tentacle DMG}; {Tranquil Sea}: other Awakeners gain [Energy:Arg2] Aliemus; {Raging Waves}: trigger [Arg3]% of the {Poison} effect on all enemies.\n{overlay:Undying Piety}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -62,13 +62,14 @@
   "upgrades": [
     {
       "id": "upgrade.enlighten.miryam.vanitys-collapse.skill.miryam.pray-to-the-abyss",
-      "operation": "override_args",
+      "operation": "mixed",
       "upgraderId": "enlighten.miryam.vanitys-collapse",
       "upgraderType": "enlighten",
       "upgraderSlot": "E3",
       "ownerAwakenerId": "awakener-0032",
       "ownerAwakenerName": "Miryam",
       "patch": {
+        "descriptionTemplate": "Place [Arg4] {Sacrament} into your hand, inflict [{Poison}:Arg5] {Poison} on all enemies. Gain effects based on Tentacle Stance: {Surging Tides}: gain [Power:Arg1] {STR} and [TentaclePower:Arg1] {Tentacle DMG}; {Tranquil Sea}: other Awakeners gain [Energy:Arg2] Aliemus; {Raging Waves}: trigger [Arg3]% of the {Poison} effect on all enemies.\n{overlay:Undying Piety}\n{overlay:Vanity's Collapse}",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

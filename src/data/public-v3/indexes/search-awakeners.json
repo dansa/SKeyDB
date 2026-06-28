@@ -3376,6 +3376,25 @@
         "faction": "TBD",
         "tags": ["corrosion", "discard", "divine-realm", "self-harm"]
       }
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0058",
+      "name": "Pontos",
+      "aliases": ["pontos"],
+      "tokens": ["aequor", "astral", "limited", "limited astral reign", "pontos", "reign", "ssr", "tbd", "warden"],
+      "fields": {
+        "name": ["Pontos"],
+        "alias": ["pontos"],
+        "facet": ["AEQUOR", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
+      },
+      "facets": {
+        "realm": "AEQUOR",
+        "rarity": "SSR",
+        "type": "WARDEN",
+        "availabilityType": "LIMITED_ASTRAL_REIGN",
+        "faction": "TBD"
+      }
     }
   ]
 }

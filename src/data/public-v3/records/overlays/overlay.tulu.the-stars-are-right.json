@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.tulu.the-stars-are-right",
+  "name": "The Stars Are Right",
+  "route": {
+    "slug": "the-stars-are-right",
+    "canonicalPath": "/database/awakeners/tulu/overlays/the-stars-are-right"
+  },
+  "assets": {
+    "icon": "asset-overlay.tulu.the-stars-are-right-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0050",
+  "aliases": [],
+  "iconId": "IconS_Buff_045",
+  "descriptionTemplate": "At turn end, Tulu gains 5 Aliemus.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Tulu"
+}

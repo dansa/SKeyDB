@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0003",
   "ownerAwakenerName": "Aigis",
   "lineupToken": "W",
-  "descriptionTemplate": "Team Unique: At the start of combat, apply 2 stacks of {Vulnerable} to front-row enemies. At the start of each turn, enemies in the {Vulnerable} state lose Temporary {STR} equal to [StateArg1]% of the wielder's ATK. If the current Realm is {Caro}, after the wielder Unleashes \"Exalt\", {Embryo Fusion} +[StateArg2].",
+  "descriptionTemplate": "Team Unique: At the start of combat, apply 2 stacks of {Vulnerable} to front-row enemies. At the start of each turn, enemies in the {Vulnerable} state lose Temporary {STR} equal to [StateArg1]% of the wielder's ATK. If the current Realm is {Caro}, after the wielder Unleashes \"Exalt\", {Embryo Fusion} +[Blood:StateArg2].",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.private-afternoon",
+  "name": "Private Afternoon",
+  "route": {
+    "slug": "private-afternoon",
+    "canonicalPath": "/database/derived-skills/private-afternoon"
+  },
+  "descriptionTemplate": "Temporary Crit. DMG +[Arg1]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["50", "60", "70", "80"],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "1"
+}

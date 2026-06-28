@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "awakeners",
   "kind": "awakener",
-  "recordCount": 57,
+  "recordCount": 58,
   "records": [
     {
       "kind": "awakener",
@@ -2968,7 +2968,7 @@
         "DamageAmplification": 1.6,
         "DeathResistance": 2.8
       },
-      "lineupToken": "xk",
+      "lineupToken": "xj",
       "aliases": ["xu"],
       "searchTags": ["Poison", "STR Down", "Fixed DMG", "Arithmetica", "Max HP DMG"]
     },
@@ -3023,7 +3023,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "xo",
+      "lineupToken": "xm",
       "aliases": ["vortice"],
       "searchTags": ["Tentacle DMG", "Pursuit", "Fixed DMG", "Aftershock", "Dispel", "Divine Realm"]
     },
@@ -3145,9 +3145,64 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "xl",
+      "lineupToken": "xk",
       "aliases": ["saya"],
       "searchTags": ["Discard", "Corrosion", "Divine Realm", "Self-Damage"]
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0058",
+      "name": "Pontos",
+      "route": {
+        "slug": "pontos",
+        "canonicalPath": "/database/awakeners/pontos"
+      },
+      "assets": {
+        "icon": "asset-awakener-0058-icon"
+      },
+      "numericId": 58,
+      "ingameId": "O13",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-06-29",
+      "faction": "TBD",
+      "primaryScalingBase": 20,
+      "defaultPrimaryStatBonusLevel": 10,
+      "baseStatsLv1": {
+        "CON": 42,
+        "ATK": 31,
+        "DEF": 41
+      },
+      "substatsLv1": {
+        "CritRate": 5,
+        "CritDamage": 52.4,
+        "AliemusRegen": 0,
+        "KeyflareRegen": 15,
+        "RealmMastery": 0,
+        "SigilYield": 0,
+        "DamageAmplification": 0.8,
+        "DeathResistance": 0
+      },
+      "statScaling": {
+        "CON": 2,
+        "ATK": 1.45,
+        "DEF": 1.95
+      },
+      "substatScaling": {
+        "CritRate": 0,
+        "CritDamage": 2.4,
+        "AliemusRegen": 0,
+        "KeyflareRegen": 0,
+        "RealmMastery": 0,
+        "SigilYield": 0,
+        "DamageAmplification": 0.8,
+        "DeathResistance": 0
+      },
+      "lineupToken": "xr",
+      "aliases": ["pontos"],
+      "searchTags": []
     }
   ]
 }

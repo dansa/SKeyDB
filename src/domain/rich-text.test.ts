@@ -223,6 +223,21 @@ describe('parseRichDescription', () => {
     ])
   })
 
+  it('parses typed overlay tokens as mechanics without the type prefix', () => {
+    const cards = new Set(["Illusion's End"])
+    const result = parseRichDescription(
+      "{overlay:Illusion's End} and {overlay:Embryo Fusion Double}.",
+      cards,
+    )
+
+    expect(result).toEqual([
+      {type: 'mechanic', name: "Illusion's End"},
+      {type: 'text', value: ' and '},
+      {type: 'mechanic', name: 'Embryo Fusion Double'},
+      {type: 'text', value: '.'},
+    ])
+  })
+
   it('promotes bare multi-word overlay names in prose into mechanic segments', () => {
     const result = parseRichDescription(
       'Gain Tentacle DMG and Death Resistance.',

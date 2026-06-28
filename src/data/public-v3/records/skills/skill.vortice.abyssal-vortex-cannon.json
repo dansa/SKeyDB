@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0055",
   "slot": "Exalt",
-  "descriptionTemplate": "Dispel {Burn} from all cards in hand. Deal DMG equal to [Arg7]% {Tentacle DMG} Bonus to all enemies, dealing 2x DMG to the enemy with the highest HP. Sacrifice up to 3 additional Permanent Tentacles, each increasing this Exalt's Crit. DMG by +50%.",
+  "descriptionTemplate": "Dispel {Burn} from all cards in hand. Deal DMG equal to [Arg7]% {Tentacle DMG} Bonus to all enemies, dealing 2× DMG to the enemy with the highest HP. Sacrifice up to 3 additional Permanent Tentacles, each increasing this Exalt's Crit. DMG by +50%.",
   "descriptionArgs": {
     "Arg7": {
       "kind": "scaling",
@@ -29,7 +29,7 @@
       "ownerAwakenerId": "awakener-0055",
       "ownerAwakenerName": "Vortice",
       "patch": {
-        "descriptionTemplate": "Dispel {Burn} from all cards in hand. Deal DMG equal to [Arg7]% {Tentacle DMG} Bonus to all enemies, dealing 2x DMG to the enemy with the highest HP. Sacrifice up to 3 extra Permanent Tentacles, each increasing this Exalt's Crit. DMG by +50%. Gain [Arg6] Realm Mastery.",
+        "descriptionTemplate": "Dispel {Burn} from all cards in hand. Deal DMG equal to [Arg7]% {Tentacle DMG} Bonus to all enemies, dealing 2× DMG to the enemy with the highest HP. Sacrifice up to 3 extra Permanent Tentacles, each increasing this Exalt's Crit. DMG by +50%. Gain [Arg6] Realm Mastery.",
         "descriptionArgs": {
           "Arg6": {
             "kind": "fixed",
@@ -57,7 +57,7 @@
       "ownerAwakenerId": "awakener-0055",
       "ownerAwakenerName": "Vortice",
       "patch": {
-        "descriptionTemplate": "Dispel {Burn} from all cards in hand. Deal DMG equal to [Arg7]% {Tentacle DMG} Bonus to all enemies, dealing 3x DMG to the enemy with the highest HP. Sacrifice up to 3 additional Permanent Tentacles, each increasing this Exalt's Crit. DMG by +50%. Gain [Arg6] Realm Mastery, and for every 20 Aliemus spent, other Awakeners gain 1 Aliemus.",
+        "descriptionTemplate": "Dispel {Burn} from all cards in hand. Deal DMG equal to [Arg7]% {Tentacle DMG} Bonus to all enemies, dealing 3× DMG to the enemy with the highest HP. Sacrifice up to 3 additional Permanent Tentacles, each increasing this Exalt's Crit. DMG by +50%. Gain [Arg6] Realm Mastery, and for every 20 Aliemus spent, other Awakeners gain 1 Aliemus.",
         "descriptionArgs": {
           "Arg6": {
             "kind": "fixed",

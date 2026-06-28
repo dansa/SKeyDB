@@ -11,7 +11,7 @@
   "derivedFromId": "skill.miryam.testament-of-faith",
   "rootSkillId": "skill.miryam.testament-of-faith",
   "childDerivedSkillIds": ["derived.miryam.iron-resolve", "derived.miryam.revelate-devotion", "derived.miryam.the-end-of-belief"],
-  "descriptionTemplate": "Miryam gains [Energy:Arg3] Aliemus.{Rouse}: Tentacle Limit and Tentacle Count +1, apply 1 stack of {Weakness} and {Vulnerable} to all enemies. Put 1 {The End of Belief} into your hand. Choose: {Iron Resolve} or {Revelate Devotion}.",
+  "descriptionTemplate": "Miryam gains [Energy:Arg3] Aliemus.{Rouse}: Tentacle Limit and Tentacle Countdown +1, apply 1 stack of {Weakness} and {Vulnerable} to all enemies. Put 1 {The End of Belief} into hand. Choose: {Iron Resolve} or {Revelate Devotion}.",
   "descriptionArgs": {
     "Arg3": {
       "kind": "scaling",

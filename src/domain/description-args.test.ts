@@ -342,7 +342,7 @@ describe('description-args', () => {
       },
     )
 
-    expect(rendered).toContain('Temporary DMG Amplification +125%')
+    expect(rendered).toContain('Gain +125% Temporary DMG Amplification')
   })
 
   it('renders Agrippa T1 skill-side substat bonuses on Pale Blessing', async () => {

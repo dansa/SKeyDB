@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": [],
   "textColor": "misc",
-  "descriptionTemplate": "Triggers the {Aftershock} effect when discarded.",
+  "descriptionTemplate": "A card's {Aftershock} effects will trigger whenever it's discarded.",
   "descriptionArgs": {}
 }

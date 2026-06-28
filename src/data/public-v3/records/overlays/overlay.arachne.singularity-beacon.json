@@ -15,7 +15,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_067",
   "textColor": "affliction",
-  "descriptionTemplate": "For each stack, increase the final DMG, {STR} & {Tentacle DMG} bonus, Fixed {Poison}, and Fixed {Counter} effects of This card by 2%; increase the final Shield, HP Recovery, and {STR▼} effects by 1%. Cards with {Singularity Beacon} cannot trigger {Dimension Shuttle}.",
+  "descriptionTemplate": "For each stack, this card's Final DMG, {STR} & {Tentacle DMG} gain, Fixed-value {Poison} & {Counter} each +2%; Final Shield, HP Recovery, and {STR▼} each +1%. This card cannot trigger {Dimension Shuttle}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Arachne"
 }

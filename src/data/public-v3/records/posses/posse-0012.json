@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Twisted Core",
   "realm": "ULTRA",
   "lineupToken": "m",
-  "descriptionTemplate": "Gain [Arg4] Arithmetica. Choose an Awakener; place their [Arg1] {plural:[Arg1]|copy|copies} of \"Strike\" and [Arg1] {plural:[Arg1]|copy|copies} of \"Defense\" into your hand, and grant them {Exhaust} and {Fleeting}. If the current Realm is {Ultra}, gain [Arg2] Temp. {STR} and [Arg3] Temp. {Alert}.",
+  "descriptionTemplate": "Gain [Arg4] Arithmetica. Choose an Awakener; create [Arg1] of their Basic Strike and [Arg1] of their Basic Defense. The copies have {Exhaust} and {Fleeting}. If the Realm includes {Ultra}, gain [Arg2] Temp. {STR} and [Arg3] Temp. {Alert}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0015",
   "slot": "E2",
-  "descriptionTemplate": "{Electromagnetic Blast} enjoys an additional 1x {STR} and {Alert} Buff.",
+  "descriptionTemplate": "{Electromagnetic Blast} enjoys an additional 1× {STR} and {Alert} Buff.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Erica"
 }

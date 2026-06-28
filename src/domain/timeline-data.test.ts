@@ -161,8 +161,8 @@ describe('timeline data loading', () => {
       'Hymn of the Sovereign',
       'The Faraway Eden',
     ])
-    expect(warden?.poolSlots?.[0]?.pool).toHaveLength(6)
-    expect(warden?.poolSlots?.[2]?.pool).toHaveLength(6)
+    expect(warden?.poolSlots?.[0]?.pool).toHaveLength(7)
+    expect(warden?.poolSlots?.[2]?.pool).toHaveLength(8)
     expect(chorus?.poolSlots?.[0]?.pool).toHaveLength(11)
     expect(chorus?.poolSlots?.[2]?.pool).toHaveLength(11)
     expect(assault?.poolSlots).toHaveLength(4)
@@ -178,13 +178,13 @@ describe('timeline data loading', () => {
 
     expect(faded?.poolSlots).toHaveLength(4)
     expect(faded?.poolSlots?.slice(0, 3).map((slot) => slot.pool.length)).toEqual([14, 14, 14])
-    expect(faded?.poolSlots?.[3]?.pool).toHaveLength(14)
+    expect(faded?.poolSlots?.[3]?.pool).toHaveLength(15)
     expect(faded?.poolSlots?.[0]?.pool.map((unit) => unit.name)).toContain('Tulu')
     expect(faded?.poolSlots?.[3]?.pool.map((unit) => unit.name)).toContain('Hymn of the Sovereign')
 
     expect(astral?.poolSlots).toHaveLength(4)
-    expect(astral?.poolSlots?.slice(0, 3).map((slot) => slot.pool.length)).toEqual([12, 12, 12])
-    expect(astral?.poolSlots?.[3]?.pool).toHaveLength(12)
+    expect(astral?.poolSlots?.slice(0, 3).map((slot) => slot.pool.length)).toEqual([13, 13, 13])
+    expect(astral?.poolSlots?.[3]?.pool).toHaveLength(13)
     expect(astral?.poolSlots?.[0]?.pool.map((unit) => unit.name)).toContain('Arachne')
     expect(astral?.poolSlots?.[3]?.pool.map((unit) => unit.name)).toContain('Eternal Weave')
   })

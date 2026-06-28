@@ -36,5 +36,19 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.caecus.outcasts-anguish.skill.caecus.bloodline-of-heresy",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.caecus.outcasts-anguish",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0006",
+      "ownerAwakenerName": "Caecus",
+      "patch": {
+        "descriptionTemplate": "Restore [Heal:Arg3] HP and dispel {Weakness} from self, apply [Arg4] {plural:[Arg4]|stack|stacks} of {Vulnerable} to all enemies. {Tentacle DMG} +[TentaclePower:Arg1]. {Counter} +[Counterattack:Arg2]. Before the start of the next turn, for each Attack taken, command 1 Tentacle to counterattack.\n{overlay:Outcast's Anguish}"
+      }
+    }
+  ],
   "ownerAwakenerName": "Caecus"
 }

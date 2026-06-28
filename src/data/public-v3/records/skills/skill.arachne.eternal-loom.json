@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0056",
   "slot": "Skill1",
-  "descriptionTemplate": "Deal [FateCut:Arg1] {Final Verdict} to all enemies, then generate 1 {Guiding Strings} and place it into hand.",
+  "descriptionTemplate": "Inflict [FateCut:Arg1] {Final Verdict} on all enemies, then create 1 {Guiding Strings}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

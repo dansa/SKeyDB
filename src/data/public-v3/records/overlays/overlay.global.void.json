@@ -12,7 +12,7 @@
   },
   "overlayType": "mechanic",
   "aliases": [],
-  "iconId": "IconS_Buff_029",
+  "iconId": "IconS_Buff_027",
   "textColor": "aliemus",
   "descriptionTemplate": "At turn end, all Awakeners lose Aliemus.",
   "descriptionArgs": {}

@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": [],
   "textColor": "misc",
-  "descriptionTemplate": "If This card triggers {Dimension Shuttle} after being played, trigger the subsequent effect. Arithmetica Cost -1 when taken from {Ultra Space}.",
+  "descriptionTemplate": "A card's {Quasar} effects will trigger if it triggers {Dimension Shuttle} when played. This card's Arithmetica Cost reduces by 1 when it's pulled from {Ultra Space}.",
   "descriptionArgs": {}
 }

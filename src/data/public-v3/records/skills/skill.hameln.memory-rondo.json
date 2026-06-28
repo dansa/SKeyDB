@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0022",
   "slot": "Skill2",
-  "descriptionTemplate": "Obtain [Power:Arg1] {STR}. Add 2 {Insight} to your hand. If you lack the required Arithmetica, you can still play This card, but its effect will be changed to shuffle 2 \"Insight\" cards into your Draw Pile.",
+  "descriptionTemplate": "Obtain [Power:Arg1] {STR}. Add 2 {Insight} to your hand. If you lack the required Arithmetica, you can still play This card, but its effect will be changed to shuffle 2 {Insight} cards into your Draw Pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

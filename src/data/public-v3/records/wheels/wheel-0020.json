@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0001",
   "ownerAwakenerName": "24",
   "lineupToken": "n",
-  "descriptionTemplate": "The Base DMG of the wielder's Exalt +[StateArg1]%.\nAt the start of investigation, the wielder's Scholar alter begins to front. After the wielder Exalts, they switch between Scholar and Jester.\n{Scholar} — The wielder gains [StateArg2] Aliemus at the end of each turn.\n{Jester} — The wielder's Crit. Rate & Crit. DMG +[StateArg3]% at the end of each turn.",
+  "descriptionTemplate": "The Base DMG of the wielder's Exalt +[StateArg1]%.\nAt the start of investigation, the wielder's Scholar alter begins to front. After the wielder Exalts, they switch between Scholar and Jester.\n{Scholar}—The wielder gains [StateArg2] Aliemus at the end of each turn.\n{Jester}—The wielder's Crit. Rate & Crit. DMG +[StateArg3]% at the end of each turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "fixed",

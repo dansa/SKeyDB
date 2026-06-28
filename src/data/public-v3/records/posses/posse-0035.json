@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Final Steersmanship",
   "realm": "AEQUOR",
   "lineupToken": "N",
-  "descriptionTemplate": "Draw [Arg2] {plural:[Arg2]|card|cards}. Gain [Arg1] Shield. If Corposant is in team, create 1 {Pilot}.",
+  "descriptionTemplate": "Draw [Arg2] {plural:[Arg2]|card|cards}. Gain [Arg1] Shield. If Corposant is in the team, create 1 {Pilot}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

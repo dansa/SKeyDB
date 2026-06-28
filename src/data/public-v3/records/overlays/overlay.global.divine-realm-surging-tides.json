@@ -2,13 +2,13 @@
   "schemaVersion": 3,
   "kind": "overlay",
   "id": "overlay.global.divine-realm-surging-tides",
-  "name": "Divine Realm: Surging Tides",
+  "name": "Benthos: Surging Tides",
   "route": {
     "slug": "divine-realm-surging-tides",
     "canonicalPath": "/database/overlays/divine-realm-surging-tides"
   },
   "overlayType": "mechanic",
-  "aliases": [],
+  "aliases": ["Divine Realm: Surging Tides"],
   "descriptionTemplate": "Default Tentacle stance at turn start, with 100% {Tentacle DMG}. At turn end, if still in {Surging Tides} stance, gain 1 Permanent Tentacle.",
   "descriptionArgs": {}
 }

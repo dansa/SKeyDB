@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.countdown",
+  "name": "Countdown",
+  "route": {
+    "slug": "countdown",
+    "canonicalPath": "/database/derived-skills/countdown"
+  },
+  "nodeKind": "group",
+  "childDerivedSkillIds": [
+    "derived.global.countdown-5",
+    "derived.global.countdown-4",
+    "derived.global.countdown-3",
+    "derived.global.countdown-2",
+    "derived.global.countdown-1",
+    "derived.global.countdown-0"
+  ],
+  "descriptionTemplate": "{Countdown Moment} adds {5: Countdown} to the deck. Each Countdown card draws cards and places the next Countdown card into the Discard Pile; {0: Countdown} can restart the chain by placing {5: Countdown} into the Discard Pile.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

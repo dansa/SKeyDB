@@ -48,30 +48,6 @@
           }
         }
       }
-    },
-    {
-      "id": "upgrade.enlighten.doll.psyche-dissection.skill.doll.rationality-truth-and-reality",
-      "operation": "mixed",
-      "upgraderId": "enlighten.doll.psyche-dissection",
-      "upgraderType": "enlighten",
-      "upgraderSlot": "OverExalt",
-      "ownerAwakenerId": "awakener-0013",
-      "ownerAwakenerName": "Doll",
-      "patch": {
-        "descriptionTemplate": "Dispel self {Vulnerable} state. Restore [Heal:Arg1] HP, and all Awakeners Gain [Energy:Arg2] Aliemus.",
-        "descriptionArgs": {
-          "Arg1": {
-            "kind": "scaling",
-            "values": ["40", "48", "56", "64", "72", "80"],
-            "stat": "CON",
-            "suffix": "%"
-          },
-          "Arg2": {
-            "kind": "scaling",
-            "values": ["5", "6", "7", "8", "9", "10"]
-          }
-        }
-      }
     }
   ],
   "ownerAwakenerName": "Doll"

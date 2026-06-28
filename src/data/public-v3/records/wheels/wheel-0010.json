@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0016",
   "ownerAwakenerName": "Faint",
   "lineupToken": "C",
-  "descriptionTemplate": "At the start of battle, gain {Counter} equal to [StateArg1]% of the wielder's DEF.\nWhenever {Death Resistance} triggers, increase {Embryo Fusion} by +[StateArg3] and gain 2 turns of \"Cradle\": Shield gained from and HP recovered by all Awakeners +[StateArg2]%. Remove 1 stack of \"Cradle\" at turn end. If the current Realm is {Caro}, {Embryo Fusion} +[StateArg3] after triggering {Death Resistance}.",
+  "descriptionTemplate": "Team Unique: At the start of battle, gain {Counter} equal to [StateArg1]% of the wielder's DEF. After triggering {Death Resistance}, gain up to 2 stacks of \"Cradle\" in total: Shield gained from and HP recovered by all allies +[StateArg2]%, remove 1 stack at the end of the turn. If the current Realm is {Caro}, after triggering {Death Resistance}, {Embryo Fusion} +[Blood:StateArg3].",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

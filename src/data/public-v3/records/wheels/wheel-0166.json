@@ -13,7 +13,7 @@
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "SIGIL_YIELD",
-  "lineupToken": "za",
+  "lineupToken": "y7",
   "descriptionTemplate": "Team Unique: For every 1% of Sigil Yield the wielder, their WoDs, and Covenants have, recover [StateArg1]% Max HP at the end of battle. This effect diminishes by 30% at the end of every turn, and is calculated individually for each battle.\nAfter choosing {Perception} at {Ashen Ruins}, refreshes will be free at this {Ashen Ruins}.",
   "descriptionArgs": {
     "StateArg1": {

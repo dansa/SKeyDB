@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0040",
   "slot": "Skill1",
-  "descriptionTemplate": "Deal [Damage:Arg1] points of guaranteed Crit to all enemies [Arg3] {plural:[Arg3]|time|times}, {Stealing} [Arg2] {STR} from the target each time. For each time {Discover} effect triggered this turn, This card's Arithmetica Cost -1. If {Inspiration!} has been triggered, deal DMG 2 more times.",
+  "descriptionTemplate": "Deal [Damage:Arg1] points of guaranteed Crit to all enemies [Arg3] {plural:[Arg3]|time|times}, {Stealing} [Arg2] {STR} from the target each time. For each time the {Discover} effect is triggered this turn, this card's Base Arithmetica Cost -1. If {Inspiration!} has been triggered, deal DMG 2 more times.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
