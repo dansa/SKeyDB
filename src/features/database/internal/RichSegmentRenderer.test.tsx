@@ -63,6 +63,23 @@ describe('RichSegmentRenderer', () => {
     expect(onSkillClick).toHaveBeenCalledWith('Strike', expect.any(Object))
   })
 
+  it('forwards preferred reference kind for typed skill tokens', () => {
+    const onSkillClick = vi.fn()
+
+    render(
+      <RichSegmentRenderer
+        onSkillClick={onSkillClick}
+        segment={{type: 'skill', name: 'Insight', referenceKind: 'derived-skill'}}
+        skillLevel={1}
+        stats={null}
+        variant='inline'
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: 'Insight'}))
+    expect(onSkillClick).toHaveBeenCalledWith('Insight', expect.any(Object), 'derived-skill')
+  })
+
   it('activates interactive skill tokens from the keyboard', async () => {
     const onSkillClick = vi.fn()
     const user = userEvent.setup()

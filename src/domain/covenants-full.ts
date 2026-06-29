@@ -4,7 +4,7 @@ import {
   resolvePublicAsset,
   resolvePublicEntityAsset,
 } from '@/data-access/public-data/assetRepository'
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicCovenantCatalogRecords} from '@/data-access/public-data/catalogScopes/covenantsCatalog'
 
 import {
   publicDescriptionArgsSchema,
@@ -66,7 +66,7 @@ export function getCovenantsFull(): CovenantFullRecord[] {
   }
 
   covenantsFullCache = publicCovenantRecordsSchema
-    .parse(getPublicCatalogRecords('covenants'))
+    .parse(getPublicCovenantCatalogRecords())
     .map(adaptPublicCovenant)
   return covenantsFullCache
 }

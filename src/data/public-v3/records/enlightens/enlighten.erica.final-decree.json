@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0015",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Parameter Fitting} is enhanced: After Erica unleashes Exalt, her Exalt additionaly enjoys a 1x {STR} and {Alert} bonuses.",
+  "descriptionTemplate": "{Rouse} {Parameter Fitting} is enhanced: After Erica unleashes Exalt, her Exalt additionaly enjoys a 1× {STR} and {Alert} bonuses.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Erica"
 }

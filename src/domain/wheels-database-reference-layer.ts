@@ -6,6 +6,7 @@ import {
   buildDatabaseOverlayLookup,
   buildDatabaseOverlayReferenceInfo,
   DatabaseReferenceLookupAccumulator,
+  getDatabaseDerivedSkillAliases,
   type DatabaseReferenceInfo,
   type ResolvedDatabaseReferenceLayer,
 } from './database-reference-layer'
@@ -128,13 +129,14 @@ export function buildWheelDatabaseReferenceLayer({
   }
 
   for (const info of globalDerivedSkillInfos) {
-    referenceInfos.add(info)
+    referenceInfos.add(info, getDatabaseDerivedSkillAliases(info.record))
   }
 
   return {
     cardNames: new Set([
       ...wheelInfos.map((info) => info.name),
       ...globalDerivedSkillInfos.map((info) => info.name),
+      ...globalDerivedSkillInfos.flatMap((info) => getDatabaseDerivedSkillAliases(info.record)),
     ]),
     accessibleOverlays,
     referenceInfoByName: referenceInfos.referenceInfoByName,

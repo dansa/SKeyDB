@@ -37,6 +37,7 @@ export function buildWheelPopoverEntry(wheelRecord: WheelFullRecord): KeyedDatab
     navigationLabel: 'Open in Wheels DB',
     navigationTarget: {
       kind: 'wheel-page',
+      wheelId: wheelRecord.id,
       wheelName: wheelRecord.name,
     },
     referenceLayerOverride: referenceLayer,

@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0048",
   "ownerAwakenerName": "Thais",
   "lineupToken": "xb",
-  "descriptionTemplate": "Team Unique: Hand Limit +2. At the end of your turn, gain Keyflare equal to the wielder's [StateArg1]% Keyflare Regen. After each Posse is Unleashed, all Awakeners gain [StateArg2] Aliemus. If the current Realm is {Caro}, also trigger {Embryo Fusion} +[StateArg3].",
+  "descriptionTemplate": "Team Unique: Hand Limit +2. At turn end, gain Keyflare equal to the wielder's [StateArg1]% Keyflare Regen. After each Posse is Unleashed, all Awakeners gain [StateArg2] Aliemus. If the current Realm is {Caro}, also trigger {Embryo Fusion} +[Blood:StateArg3].",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

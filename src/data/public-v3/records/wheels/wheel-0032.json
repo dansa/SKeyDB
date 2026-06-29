@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0049",
   "ownerAwakenerName": "Tinct",
   "lineupToken": "X",
-  "descriptionTemplate": "Team Unique: At the start of exploration, add one \"Insight\" and the wielder's \"Strike\" to the deck. the wielder's \"Strike\" Base DMG +[StateArg1]%, and after playing, there is a [StateArg2]% chance to draw 1 card. This effect can trigger a maximum of once per turn. If the current Realm is {Ultra} and during the {Ultra Round}, the \"Strike\" will place 1 \"Insight\" into hand, triggering a maximum of once during that turn.",
+  "descriptionTemplate": "Team Unique: At the start of exploration, add one {derived:Insight} and the wielder's \"Strike\" to the deck. the wielder's \"Strike\" Base DMG +[StateArg1]%, and after playing, there is a [StateArg2]% chance to draw 1 card. This effect can trigger a maximum of once per turn. If the current Realm is {Ultra} and during the {Ultra Round}, the \"Strike\" will place 1 {derived:Insight} into hand, triggering a maximum of once during that turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

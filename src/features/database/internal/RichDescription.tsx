@@ -93,8 +93,8 @@ export function RichDescription({
         descriptionRankMode: 'current',
       })
     },
-    onSkillClick: (name, event) => {
-      popoverController?.openRootReferenceByName(name, event)
+    onSkillClick: (name, event, referenceKind) => {
+      popoverController?.openRootReferenceByName(name, event, referenceKind)
     },
   }
 

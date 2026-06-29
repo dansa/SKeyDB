@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0002",
   "ownerAwakenerName": "Agrippa",
   "lineupToken": "xA",
-  "descriptionTemplate": "Shield gained from the wielder +[StateArg3]%.\nThe wielder's Defense Commands inflict {Poison} equal to [StateArg1]% of their DEF on the enemy with the highest HP.\nWhenever {Poison} is inflicted on an enemy, increase {Embryo Fusion} by +[StateArg2], up to 3 times per turn.",
+  "descriptionTemplate": "Shield gained from the wielder +[StateArg3]%.\nThe wielder's Defense Commands inflict {Poison} equal to [StateArg1]% of their DEF on the enemy with the highest HP.\nWhenever {Poison} is inflicted on an enemy, increase {Embryo Fusion} by +[Blood:StateArg2], up to 3 times per turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

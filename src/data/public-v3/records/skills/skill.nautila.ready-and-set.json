@@ -69,42 +69,6 @@
       }
     },
     {
-      "id": "upgrade.enlighten.nautila.vroom-vroom.skill.nautila.ready-and-set",
-      "operation": "mixed",
-      "upgraderId": "enlighten.nautila.vroom-vroom",
-      "upgraderType": "enlighten",
-      "upgraderSlot": "OverExalt",
-      "ownerAwakenerId": "awakener-0036",
-      "ownerAwakenerName": "Nautila",
-      "patch": {
-        "descriptionTemplate": "Gain [Block:Arg1] Shield and [Counterattack:Arg2] stacks of {Counter}. Increase current Shield by 50%. Deal {Fixed DMG} equal to [Arg3]% of your Counterattack to all enemies. Immune to {Fragile}, {Weakness}, and {Vulnerable} for 1 turn.",
-        "descriptionArgs": {
-          "Arg1": {
-            "kind": "scaling",
-            "values": ["15", "18", "21", "24", "27", "30"],
-            "stat": "DEF",
-            "suffix": "%"
-          },
-          "Arg2": {
-            "kind": "scaling",
-            "values": ["25", "30", "35", "40", "45", "50"],
-            "stat": "ATK",
-            "suffix": "%",
-            "substatBonus": {
-              "substat": "RealmMastery",
-              "multiplier": "0.25",
-              "mode": "scale_base"
-            }
-          },
-          "Arg3": {
-            "kind": "fixed",
-            "value": "150",
-            "suffix": "%"
-          }
-        }
-      }
-    },
-    {
       "id": "upgrade.talent.nautila.daily-maintenance.skill.nautila.ready-and-set",
       "operation": "link_only",
       "upgraderId": "talent.nautila.daily-maintenance",

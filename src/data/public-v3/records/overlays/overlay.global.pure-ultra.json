@@ -9,6 +9,6 @@
   },
   "overlayType": "mechanic",
   "aliases": [],
-  "descriptionTemplate": "If the team consists only of {Ultra} Awakeners, the {Ultra Mastery} effect is doubled, and the team is no longer affected by the stat reduction during {Ultra Round}.",
+  "descriptionTemplate": "If the team consists only of {Ultra} Awakeners, the {Ultra Mastery} effect is doubled.",
   "descriptionArgs": {}
 }

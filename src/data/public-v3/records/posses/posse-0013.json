@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Feast of Flames",
   "realm": "ULTRA",
   "lineupToken": "q",
-  "descriptionTemplate": "Gain [Arg1] {Counter} and inflict [Arg2] Temp. {STR▼} on all enemies. If in an {Ultra Round}, deal DMG equal to your {Counter} to all enemies instead of inflicting {STR▼}.",
+  "descriptionTemplate": "Gain [Arg1] {Counter} and temporarily inflict [Arg2] {STR▼} on all enemies. If in an {Ultra Round}, deal DMG equal to your {Counter} to all enemies instead of inflicting {STR▼}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

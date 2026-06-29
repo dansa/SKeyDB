@@ -14,6 +14,6 @@
   "aliases": [],
   "iconId": "IconS_Buff_005",
   "textColor": "affliction",
-  "descriptionTemplate": "All DMG dealt -25%, remove 1 stack at turn end.",
+  "descriptionTemplate": "All DMG dealt is reduced by 25%. Remove 1 stack at the end of each turn.",
   "descriptionArgs": {}
 }

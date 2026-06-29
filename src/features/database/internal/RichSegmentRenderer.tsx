@@ -31,7 +31,7 @@ interface RichSegmentRendererProps {
   descriptionRank?: number
   descriptionMaxRank?: number
   overlayByName?: ReadonlyMap<string, AwakenerOverlayRecord>
-  onSkillClick?: (name: string, event: ActivationEvent) => void
+  onSkillClick?: (name: string, event: ActivationEvent, referenceKind?: 'derived-skill') => void
   onMechanicClick?: (overlay: AwakenerOverlayRecord, event: ActivationEvent) => void
 }
 
@@ -55,7 +55,13 @@ export function RichSegmentRenderer({
       return <DatabaseLoreMarkupText text={segment.value} />
 
     case 'skill':
-      return <SkillToken name={segment.name} onSkillClick={onSkillClick} />
+      return (
+        <SkillToken
+          name={segment.name}
+          onSkillClick={onSkillClick}
+          referenceKind={segment.referenceKind}
+        />
+      )
 
     case 'reference':
       return <span className={DATABASE_REFERENCE_TOKEN_CLASS}>{segment.name}</span>

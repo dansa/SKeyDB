@@ -14,6 +14,6 @@
   "aliases": ["Strength"],
   "iconId": "IconS_Buff_021",
   "textColor": "heal",
-  "descriptionTemplate": "Increase Active DMG dealt.",
+  "descriptionTemplate": "Active DMG is increased by 1 for each stack of {STR}.\n({Tentacle DMG} benefits from 50% of {STR}.)",
   "descriptionArgs": {}
 }

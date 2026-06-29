@@ -15,7 +15,7 @@
   "ownerAwakenerName": "Hameln",
   "rarity": "SSR",
   "realm": "CHAOS",
-  "descriptionTemplate": "At turn start, Hameln gains [Arg1] Aliemus. The Arithmetica Cost of {Soul Overture} -[Arg2], and the Base DMG count is +[Arg3].",
+  "descriptionTemplate": "At the start of the turn, Hameln gains [Arg1] Aliemus. The Arithmetica cost of {Soul Overture} is reduced by [Arg2], and the base damage count is increased by [Arg3].",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -11,7 +11,7 @@
   "ownerAwakenerId": "awakener-0022",
   "aliases": [],
   "textColor": "misc",
-  "descriptionTemplate": "Effects: {Bleed} (150% DMG), {Poison} (75% DMG), apply 1 {Weakness}, apply 1 {Vulnerable}, Temp. {STR▼} -[DescArg1].",
+  "descriptionTemplate": "Possible inflictions include: {Bleed} equal to 150% of DMG dealt; {Poison} equal to 75% of DMG dealt; 1 stack of {Vulnerable}; 1 stack of {Weakness}; or [DescArg1] Temp. {STR▼}.",
   "descriptionArgs": {
     "DescArg1": {
       "kind": "computed",

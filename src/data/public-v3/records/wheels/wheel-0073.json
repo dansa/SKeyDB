@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_DMG",
   "lineupToken": "g",
-  "descriptionTemplate": "Team Unique: Increases the HP Recovery at Rest Areas by [StateArg1]%. After choosing to recover HP, add 2 \"Insight\" cards to the deck. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionTemplate": "Team Unique: Increases the HP Recovery at Rest Areas by [StateArg1]%. After choosing to recover HP, add 2 {derived:Insight} cards to the deck. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

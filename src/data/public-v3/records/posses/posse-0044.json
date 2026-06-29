@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Astral Reign - Ch. 4 - Paradise",
   "realm": "AEQUOR",
   "lineupToken": "X",
-  "descriptionTemplate": "Gain 1 Arithmetica, and apply 5 stacks of {Birth Ritual} to all enemies. If \"Murphy: Fauxborn\" is in the team, draw 1 {Waltz of Lemuria}.",
+  "descriptionTemplate": "Gain 1 Arithmetica, and inflict 5 stacks of {Birth Ritual} on all enemies. If Murphy: Fauxborn is in the team, draw 1 {Waltz of Lemuria}.",
   "descriptionArgs": {},
   "lore": "The Apostle of the Sea kneels devoutly at the Maiden's feet, offering a kiss of fidelity—she has traveled too far on the wrong course."
 }

@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "relics",
   "kind": "relic",
-  "recordCount": 168,
+  "recordCount": 169,
   "records": [
     {
       "kind": "relic",
@@ -971,6 +971,23 @@
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0057",
       "ownerAwakenerName": "Saya",
+      "relicType": "DIMENSIONAL_IMAGE"
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0058",
+      "name": "Dimensional Image: Pontos",
+      "route": {
+        "slug": "dimensional-image-pontos",
+        "canonicalPath": "/database/relics/dimensional-image-pontos"
+      },
+      "assets": {
+        "icon": "asset-relic-0058-icon"
+      },
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
       "relicType": "DIMENSIONAL_IMAGE"
     },
     {

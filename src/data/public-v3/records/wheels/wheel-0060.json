@@ -15,7 +15,7 @@
   "mainstatKey": "REALM_MASTERY",
   "ownerAwakenerId": "awakener-0055",
   "ownerAwakenerName": "Vortice",
-  "lineupToken": "y6",
+  "lineupToken": "y2",
   "descriptionTemplate": "At the start of each battle, the wielder gains Aliemus equal to [StateArg1]% of their Base Aliemus.\nThe Final DMG dealt by the wielder's Exalt increases by a percentage equal to [StateArg2]% of their Base Aliemus.\nWhen you switch to the {Raging Waves} stance, gain Temp. Realm Mastery equal to [StateArg3]% of current Realm Mastery. This effect has a 3-turn cooldown.",
   "descriptionArgs": {
     "StateArg1": {

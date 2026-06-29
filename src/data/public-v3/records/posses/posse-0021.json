@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: The Fall of Giant",
   "realm": "AEQUOR",
   "lineupToken": "s",
-  "descriptionTemplate": "Recover 1 Arithmetica and gain [Arg1] {STR}. Increase a chosen Awakener's Aliemus by [Arg2]. If your Tentacle Stance is {Raging Waves}, instead gain +15% Temporary Crit. Rate & Crit. DMG.",
+  "descriptionTemplate": "Gain 1 Arithmetica and gain [Arg1] {STR}. Grant a chosen Awakener [Arg2] Aliemus. If your Tentacle Stance is {Raging Waves}, gain +15% Temporary Crit. Rate & Crit. DMG instead of granting Aliemus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

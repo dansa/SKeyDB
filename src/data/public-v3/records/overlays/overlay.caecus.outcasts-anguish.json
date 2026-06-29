@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.caecus.outcasts-anguish",
+  "name": "Outcast's Anguish",
+  "route": {
+    "slug": "outcasts-anguish",
+    "canonicalPath": "/database/awakeners/caecus/overlays/outcasts-anguish"
+  },
+  "assets": {
+    "icon": "asset-overlay.caecus.outcasts-anguish-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0006",
+  "aliases": [],
+  "iconId": "IconS_Buff_045",
+  "descriptionTemplate": "Restores HP equal to 7.5% of CON at turn end.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Caecus"
+}

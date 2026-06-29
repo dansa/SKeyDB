@@ -15,7 +15,7 @@
   "mainstatKey": "DMG_AMP",
   "ownerAwakenerId": "awakener-0054",
   "ownerAwakenerName": "Xu",
-  "lineupToken": "yW",
+  "lineupToken": "yU",
   "descriptionTemplate": "Team Unique: The Fixed {Poison} & {Poison} Trigger effects caused by the wielder +[StateArg1]%. The wielder gains [StateArg2] Aliemus the first time they trigger {Resonance} each turn.",
   "descriptionArgs": {
     "StateArg1": {

@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": [],
   "textColor": "misc",
-  "descriptionTemplate": "If {Embryo} cards are in hand, consume all to trigger the {Devour} effect once per {Embryo}.",
+  "descriptionTemplate": "{Infinite Devour} Exalts will consume all {Embryo} cards in hand and trigger the {Devour} effect once for each {Embryo} consumed.",
   "descriptionArgs": {}
 }

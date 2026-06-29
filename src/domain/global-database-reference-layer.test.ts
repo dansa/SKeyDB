@@ -101,6 +101,7 @@ describe('hydrateGlobalDatabaseReferenceInfo', () => {
       record: {
         id: 'derived.arachne.guiding-strings',
         displayName: 'Guiding Strings',
+        aliases: [],
         descriptionTemplate: '',
         descriptionArgs: {},
         cardKeywords: [],
@@ -119,7 +120,7 @@ describe('hydrateGlobalDatabaseReferenceInfo', () => {
     const hydrated = await hydrateGlobalDatabaseReferenceInfo(info)
 
     expect(loadPublicDerivedSkillDetailById).toHaveBeenCalledWith('derived.arachne.guiding-strings')
-    expect(hydrated.description).toContain('Lose 2% Max HP')
+    expect(hydrated.description).toContain('Lose 2% of Max HP')
     expect(hydrated.kind).toBe('derived-skill')
   })
 
@@ -233,6 +234,7 @@ describe('buildGlobalDatabaseReferenceLayer', () => {
         {
           id: 'derived.test.counter',
           displayName: 'Counter',
+          aliases: [],
           descriptionTemplate: 'Counter derived.',
           descriptionArgs: {},
           cardKeywords: [],
@@ -262,5 +264,42 @@ describe('buildGlobalDatabaseReferenceLayer', () => {
     )
     expect(referenceLayer.referenceInfoById.get('skill.test.counter')).toBeUndefined()
     expect(referenceLayer.referenceInfoById.get('derived.test.counter')).toBeUndefined()
+  })
+
+  it('indexes derived skill aliases for global artifact descriptions', () => {
+    const referenceLayer = buildGlobalDatabaseReferenceLayer({
+      awakenerSkills: [],
+      covenants: [],
+      derivedSkills: [
+        {
+          id: 'derived.pontos.gaunts',
+          ownerAwakenerId: 58,
+          displayName: 'Gaunts',
+          aliases: ['Gaunt'],
+          descriptionTemplate: 'Count as 2 {Gaunt} cards.',
+          descriptionArgs: {},
+          cardKeywords: [],
+          childDerivedSkillIds: [],
+          variants: [],
+        },
+      ],
+      overlays: [],
+      posses: [],
+      wheels: [],
+    })
+
+    expect(referenceLayer.cardNames.has('Gaunt')).toBe(true)
+    expect(resolveDatabaseReferenceInfo(referenceLayer, 'Gaunt')).toEqual(
+      expect.objectContaining({
+        kind: 'derived-skill',
+        id: 'derived.pontos.gaunts',
+      }),
+    )
+    expect(
+      parseDatabaseRichDescription({
+        text: 'When playing a {Gaunt} card, consume 1 stack.',
+        referenceLayer,
+      }),
+    ).toContainEqual({type: 'skill', name: 'Gaunt'})
   })
 })

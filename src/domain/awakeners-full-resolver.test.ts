@@ -79,6 +79,7 @@ function buildDerived(id: string, displayName: string): DerivedSkillRecord {
     id,
     ownerAwakenerId: 999,
     displayName,
+    aliases: [],
     descriptionTemplate: `${displayName} base`,
     descriptionArgs: {
       Arg1: {
@@ -621,10 +622,11 @@ describe('awakeners-full-resolver', () => {
     expect(Object.keys(resolved.overlayOverridesById)).toEqual(['overlay.wanda.murmurs'])
     expect(resolved.overlayOverridesById['overlay.wanda.murmurs'].descriptionArgs).toEqual(
       expect.objectContaining({
-        StateArg1: {
+        StateArg1: expect.objectContaining({
           kind: 'fixed',
           value: '65',
-        },
+          suffix: '%',
+        }),
       }),
     )
   })

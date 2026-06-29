@@ -12,7 +12,7 @@
   },
   "numericId": 55,
   "ingameId": "O11",
-  "lineupToken": "xo",
+  "lineupToken": "xm",
   "realm": "AEQUOR",
   "rarity": "SSR",
   "type": "ASSAULT",
@@ -56,7 +56,7 @@
     "title": "Vortice",
     "birthday": "13-Jul",
     "gender": "Female",
-    "height": "6'2''",
+    "height": "6' 2''",
     "weight": "Anthropometry Not Applicable",
     "gnosticIndex": "21.35",
     "storySections": [
@@ -64,31 +64,31 @@
         "kind": "introduction",
         "title": "Basic Information",
         "unlockCondition": "Awakener Level 1",
-        "content": "Language barriers? Not a problem—gestures work just fine. Uncontrollable power? At this school, that's par for the course. A few days in the lab usually resolve the issue.\nWith her beaming smile and a personality so blunt it borders on feral, Vortice quickly wins over the other Awakeners. Sure, she often wreaks havoc because she forgets what she's capable of (spare a thought for that fountain, rebuilt three times by now). But come on—she doesn't mean it!\n...Probably."
+        "content": "Language barriers? Not a problem—gestures work just fine. Uncontrollable power? At this school, that's par for the course. A few days in the lab usually resolve the issue.\n\nWith her beaming smile and a personality so blunt it borders on feral, Vortice quickly wins over the other Awakeners. Sure, she often wreaks havoc because she forgets what she's capable of (spare a thought for that fountain, rebuilt three times by now). But come on—she doesn't mean it!\n\n...Probably."
       },
       {
         "kind": "story",
         "title": "Story: I",
         "unlockCondition": "Awakener Level 3",
-        "content": "The North Atlantic whirlpool Moskstraumen was first observed in AF 1■■. Over the following centuries, it steadily grew in size. By AF 29■, Moskstraumen had evolved into a massive whirlpool roughly 260–300 feet (80–90 meters) in diameter, with currents stretching about 5 miles (8 kilometers) wide.\nBeyond the powerful suction of the currents and devastating effects (claiming both marine life and fishing vessels in the vicinity), a greater threat lurked beneath Moskstraumen—a D-Rift. After prolonged observation and research conducted by Academy members, it was confirmed that the formation of Moskstraumen was directly linked to the D-Rift beneath it. In 1898, a formal operation was launched to purge it.\nWithin the D-Rift, the Academy recovered vast quantities of biological remains and shipwreck debris, along with a Silver Core later designated O-1841.\n\n—Excerpt from <Italic:The Moskstraumen Incident Records>"
+        "content": "The North Atlantic whirlpool Moskstraumen was first observed in AF 1■■. Over the following centuries, it steadily grew in size. By AF 29■, Moskstraumen had evolved into a massive whirlpool roughly 260–300 feet (80–90 meters) in diameter, with currents stretching about 5 miles (8 kilometers) wide.\n\nBeyond the powerful suction of the currents and devastating effects (claiming both marine life and fishing vessels in the vicinity), a greater threat lurked beneath Moskstraumen—a D-Rift. After prolonged observation and research conducted by Academy members, it was confirmed that the formation of Moskstraumen was directly linked to the D-Rift beneath it. In 1898, a formal operation was launched to purge it.\n\nWithin the D-Rift, the Academy recovered vast quantities of biological remains and shipwreck debris, along with a Silver Core later designated O-1841.\n\n—Excerpt from <Italic:The Moskstraumen Incident Records>"
       },
       {
         "kind": "story",
         "title": "Story: II",
         "unlockCondition": "Affinity Level 5",
-        "content": "The condition of Awakener Vortice is highly irregular. In an unrestrained state, her abilities do not activate at her own will. Irregular energy fields resembling the Moskstraumen vortex spontaneously form around her, pulverizing anything within range.\nPhysical contact with water-containing objects or people (including blood and other bodily fluids) accelerates field formation at the point of contact. Given both the involuntary trigger and the manic state she endured early in her Awakening, she was classified as \"Extreme Danger.\"\nTo address this, the Awakener Department collaborated with the Physics and Chemistry Departments to develop \"Vorticesteel\"—a specialized synthetic alloy capable of withstanding her destructive power. This metal was fashioned into a muzzle and restraints for her to wear all the times.\nVortice's mental state began to stabilize after Researcher Caldwell's 11th \"O-1841 Contact Experiment.\" During this trial, Vortice successfully internalized Moskstraumen's influence, significantly reducing the threat to her surroundings.\nHowever, she cannot maintain this state without the \"Vorticesteel\" gear. Only when properly restrained can she stably contain Moskstraumen's effects within her core and channel its power for combat.\nUpon regaining sanity, Vortice has revealed a cheerful disposition and an unexplained fondness for the Awakener Nautila. This likely stems from a shared experience tied to their spiritual origins.\n—Excerpt from <Italic:Awakener Profile: Vortice>"
+        "content": "The condition of Awakener Vortice is highly irregular. In an unrestrained state, her abilities do not activate at her own will. Irregular energy fields resembling the Moskstraumen vortex spontaneously form around her, pulverizing anything within range.\n\nPhysical contact with water-containing objects or people (including blood and other bodily fluids) accelerates field formation at the point of contact. Given both the involuntary trigger and the manic state she endured early in her Awakening, she was classified as \"Extreme Danger.\"\n\nTo address this, the Awakener Department collaborated with the Physics and Chemistry Departments to develop \"Vorticesteel\"—a specialized synthetic alloy capable of withstanding her destructive power. This metal was fashioned into a muzzle and restraints for her to wear all the times.\n\nVortice's mental state began to stabilize after Researcher Caldwell's 11th \"O-1841 Contact Experiment.\" During this trial, Vortice successfully internalized Moskstraumen's influence, significantly reducing the threat to her surroundings.\n\nHowever, she cannot maintain this state without the \"Vorticesteel\" gear. Only when properly restrained can she stably contain Moskstraumen's effects within her core and channel its power for combat.\n\nUpon regaining sanity, Vortice has revealed a cheerful disposition and an unexplained fondness for the Awakener Nautila. This likely stems from a shared experience tied to their spiritual origins.\n\n—Excerpt from <Italic:Awakener Profile: Vortice>"
       },
       {
         "kind": "story",
         "title": "Story: III",
         "unlockCondition": "Affinity Level 7",
-        "content": "Even if she could speak in complete sentences, she couldn't tell you where she was born. In truth, regardless of which \"home\" you mean, all she can recall now is blinding white sand, dense jungle, and a boundless sea.\nBut if you ask her where home is, she will tell you in broken phrases and passionate gestures: Home is on the sea, drifting wherever the currents take it.\nLong-time isolation kept her from understanding loneliness. Yet on that ship, she first knew the warmth of a family and the bond of friendship: She shared grilled fish and iridescent shells with her companion whose name was derived from Nautilus, sharing dreams of land, of voyage, of adventure. And in the end, they shared a death swallowed by black waves and the whirlpool."
+        "content": "Even if she could speak in complete sentences, she couldn't tell you where she was born. In truth, regardless of which \"home\" you mean, all she can recall now is blinding white sand, dense jungle, and a boundless sea.\n\nBut if you ask her where home is, she will tell you in broken phrases and passionate gestures: Home is on the sea, drifting wherever the currents take it.\n\nLong-time isolation kept her from understanding loneliness. Yet on that ship, she first knew the warmth of a family and the bond of friendship: She shared grilled fish and iridescent shells with her companion whose name was derived from Nautilus, sharing dreams of land, of voyage, of adventure. And in the end, they shared a death swallowed by black waves and the whirlpool."
       },
       {
         "kind": "story",
         "title": "Story: IV",
         "unlockCondition": "Affinity Level 9",
-        "content": "Out on the boundless ocean, in the salty breeze, the ship gave her a family and friends beyond blood ties before the torrent swallowed everything. For the first time, she truly understood what loneliness was, and she never wanted to feel it again.\nYet for her best friend, her little family, she was willing to return to that pitch-black silence.\nAfter the darkness covered everything, she was reborn in a new form. Sure, this new life comes with inconveniences—she keeps forgetting how destructive her power is—but the chance to make more friends still fills her with pure joy.\nOf course, it would be even better if her best friend could remember the stories they once shared.\n\"Even better than better—super-duper better!\""
+        "content": "Out on the boundless ocean, in the salty breeze, the ship gave her a family and friends beyond blood ties before the torrent swallowed everything. For the first time, she truly understood what loneliness was, and she never wanted to feel it again.\n\nYet for her best friend, her little family, she was willing to return to that pitch-black silence.\n\nAfter the darkness covered everything, she was reborn in a new form. Sure, this new life comes with inconveniences—she keeps forgetting how destructive her power is—but the chance to make more friends still fills her with pure joy.\n\nOf course, it would be even better if her best friend could remember the stories they once shared.\n\n\"Even better than better—super-duper better!\""
       }
     ]
   }

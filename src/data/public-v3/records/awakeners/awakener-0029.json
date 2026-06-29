@@ -64,7 +64,7 @@
         "kind": "introduction",
         "title": "Basic Information",
         "unlockCondition": "Awakener Level 1",
-        "content": "Yearning for an entity she calls \"Mommy\", this girl obediently follows the commands of her \"Master\".\nHer true name lost to the world, she is now known only by the form she inhabits: a delicate white filament, reminiscent of a lily, blooming at the center of a giant black eyeball made of sludge. Hence, they named her Lily."
+        "content": "Yearning for an entity she calls \"Mommy\", this girl obediently follows the commands of her \"Master\".\n\nHer true name lost to the world, she is now known only by the form she inhabits: a delicate white filament, reminiscent of a lily, blooming at the center of a giant black eyeball made of sludge. Hence, they named her Lily."
       },
       {
         "kind": "story",
@@ -82,7 +82,7 @@
         "kind": "story",
         "title": "Story: III",
         "unlockCondition": "Affinity Level 7",
-        "content": "\"Mommy, Mommy, I didn't cry when I got the shot!\"\n\"You're so brave!\"\n\"Because I knew Mommy was coming back! It didn't hurt at all!\"\n...\n\"Master, give me an order.\"\n\"Lie down on the operating table; the operation will start in fifteen minutes. Did you take your medicine on time?\"\n\"I did, Master.\"\n\"I'll cut you here.  It doesn't hurt, right?\"\n\"... It doesn't hurt, Master.\""
+        "content": "\"Mommy, Mommy, I didn't cry when I got the shot!\"\n\n\"You're so brave!\"\n\n\"Because I knew Mommy was coming back! It didn't hurt at all!\"\n\n...\n\n\"Master, give me an order.\"\n\n\"Lie down on the operating table; the operation will start in fifteen minutes. Did you take your medicine on time?\"\n\n\"I did, Master.\"\n\n\"I'll cut you here.  It doesn't hurt, right?\"\n\n\"... It doesn't hurt, Master.\""
       },
       {
         "kind": "story",
@@ -94,7 +94,7 @@
         "kind": "story",
         "title": "Story: V",
         "unlockCondition": "Affinity Level 10",
-        "content": "The small soul, which should have been lost to the river of history, relied on her mother's wish, the abundant spiritual energy from establishing the magic circle with @1@2@1, and the fusion with the giant creature frozen beneath Elworth, resurrecting as the monster \"Lily\".\nDue to incomplete awakening, Lily at the beginning had no consciousness, merely a combat doll that obeyed orders.\nFrancis Oswood, a member of the Sculptors' Association, used Lily as a prototype to conduct illegal experiments lasting @2 years. From Francis's diary, it was known that Lily's state back then was extremely unstable, often going out of control and causing localized destruction, which forced Francis to frequently change residences.\nWith the intake of the gnosis elixir and the implantation of the silver chip, Lily regained her perception and some memories on an undocumented day. After some twists and turns, Francis took over the almost bankrupt Lai Hospital and transformed it into a testing ground.\nDuring the \"Hellhound\" incident in Lai Town No. L-776, her mother, Francis Oswood, was trapped in her self-created anomalous dimension and lost contact."
+        "content": "The small soul, which should have been lost to the river of history, relied on her mother's wish, the abundant spiritual energy from establishing the magic circle with @1@2@1, and the fusion with the giant creature frozen beneath Elworth, resurrecting as the monster \"Lily\".\n\nDue to incomplete awakening, Lily at the beginning had no consciousness, merely a combat doll that obeyed orders.\n\nFrancis Oswood, a member of the Sculptors' Association, used Lily as a prototype to conduct illegal experiments lasting @2 years. From Francis's diary, it was known that Lily's state back then was extremely unstable, often going out of control and causing localized destruction, which forced Francis to frequently change residences.\n\nWith the intake of the gnosis elixir and the implantation of the silver chip, Lily regained her perception and some memories on an undocumented day. After some twists and turns, Francis took over the almost bankrupt Lai Hospital and transformed it into a testing ground.\n\nDuring the \"Hellhound\" incident in Lai Town No. L-776, her mother, Francis Oswood, was trapped in her self-created anomalous dimension and lost contact."
       }
     ]
   }

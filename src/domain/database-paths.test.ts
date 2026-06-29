@@ -72,6 +72,8 @@ describe('database paths', () => {
   it('normalizes wheel names into shareable slugs', () => {
     expect(toDatabaseWheelSlug('Merciful Nurturing')).toBe('merciful-nurturing')
     expect(toDatabaseWheelSlug('Helot: Catena')).toBe('helot-catena')
+    expect(toDatabaseWheelSlug("Winter's Requiem")).toBe('winters-requiem')
+    expect(toDatabaseWheelSlug('Fouetté')).toBe('fouette')
   })
 
   it('finds awakeners by canonical slug', () => {

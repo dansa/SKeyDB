@@ -2,13 +2,13 @@
   "schemaVersion": 3,
   "kind": "overlay",
   "id": "overlay.global.divine-realm-aequor",
-  "name": "Divine Realm: Aequor",
+  "name": "Benthos: Aequor",
   "route": {
     "slug": "divine-realm-aequor",
     "canonicalPath": "/database/overlays/divine-realm-aequor"
   },
   "overlayType": "realm",
-  "aliases": [],
-  "descriptionTemplate": "When certain Awakeners are in the team, the {Aequor} Realm ascends to {Divine Realm: Aequor}. {Tentacle DMG} is changed to 5% of the team's Max HP. Team DMG Amplification +50% after exploration begins; this effect is doubled if the team is entirely {Aequor} and {Chaos} Awakeners, though no additional starting Tentacles are obtained. Tentacle Gathering is removed, {Divine Realm: Tentacle Stance} replaces the standard Tentacle Stance, and Realm Mastery is counted as {Divine Realm: Aequor Mastery}.",
+  "aliases": ["Divine Realm: Aequor"],
+  "descriptionTemplate": "When certain Awakeners are in the team, the {Aequor} Realm ascends to {Benthos: Aequor}. {Tentacle DMG} is changed to 5% of the team's Max HP. Team DMG Amplification +50% after exploration begins; this effect is doubled if the team is entirely {Aequor} and {Chaos} Awakeners, though no additional starting Tentacles are obtained. Tentacle Gathering is removed, {Benthos: Tentacle Stance} replaces the standard Tentacle Stance, and Realm Mastery is counted as {Benthos: Aequor Mastery}.",
   "descriptionArgs": {}
 }

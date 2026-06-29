@@ -7,16 +7,15 @@
     "slug": "leahs-coin",
     "canonicalPath": "/database/derived-skills/leahs-coin"
   },
-  "descriptionTemplate": "Draw [Arg1] {plural:[Arg1]|card|cards} and gain [Arg2] Arithmetica.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "2"
+  "descriptionTemplate": "Gain 2 Arithmetica, draw 2 cards.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
     },
-    "Arg2": {
-      "kind": "fixed",
-      "value": "2"
+    {
+      "id": "mechanic.retain"
     }
-  },
-  "cardKeywords": []
+  ],
+  "cost": "0"
 }

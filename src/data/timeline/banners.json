@@ -209,20 +209,7 @@
     "description": "Featured rate-up banners for Pontos and his SSR Wheel 'The Living Cage'.",
     "startDate": "2026/06/29 09:00",
     "endDate": "2026/07/27 09:00",
-    "featured": [
-      {
-        "name": "Pontos",
-        "kind": "awakener",
-        "customArt": "/banners/pontos-char.webp",
-        "detailLink": false
-      },
-      {
-        "name": "The Living Cage",
-        "kind": "wheel",
-        "customArt": "/banners/pontos-wheel.webp",
-        "detailLink": false
-      }
-    ],
+    "featured": ["Pontos", "The Living Cage"],
     "pinned": true
   },
   {

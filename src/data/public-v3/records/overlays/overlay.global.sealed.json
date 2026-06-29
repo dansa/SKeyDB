@@ -14,6 +14,6 @@
   "aliases": [],
   "iconId": "IconS_Buff_027",
   "textColor": "misc",
-  "descriptionTemplate": "Cannot unleash Exalt; remove 1 stack at turn end.",
+  "descriptionTemplate": "Unable to Exalt. Remove 1 stack at the end of each turn.",
   "descriptionArgs": {}
 }

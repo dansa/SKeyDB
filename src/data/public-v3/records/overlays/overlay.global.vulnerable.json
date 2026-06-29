@@ -14,6 +14,6 @@
   "aliases": ["Vulnerability"],
   "iconId": "IconS_Buff_003",
   "textColor": "damage",
-  "descriptionTemplate": "All DMG taken +50%, remove 1 stack at turn end.",
+  "descriptionTemplate": "All DMG received is increased by 50%. Remove 1 stack at the end of each turn.",
   "descriptionArgs": {}
 }

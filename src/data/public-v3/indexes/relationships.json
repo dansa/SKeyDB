@@ -141,6 +141,7 @@
         "enlighten.caecus.spike-amalgamation",
         "enlighten.caecus.unbending-resolve"
       ],
+      "ownedOverlays": ["overlay.caecus.outcasts-anguish"],
       "awakenerBuilds": ["awakener-build-0006"]
     },
     "awakener-0007": {
@@ -447,6 +448,7 @@
         "enlighten.faros.light-of-the-lost",
         "enlighten.faros.to-the-radiant-shore"
       ],
+      "ownedOverlays": ["overlay.faros.dimmed-candle"],
       "awakenerBuilds": ["awakener-build-0017"]
     },
     "awakener-0018": {
@@ -481,7 +483,7 @@
         "enlighten.doll-inferno.madness-infection",
         "enlighten.doll-inferno.resonant-mycelium"
       ],
-      "ownedOverlays": ["overlay.doll-inferno.finale", "overlay.doll-inferno.finale-form"],
+      "ownedOverlays": ["overlay.doll-inferno.finale", "overlay.doll-inferno.finale-form", "overlay.doll-inferno.illusions-end"],
       "awakenerBuilds": ["awakener-build-0018"]
     },
     "awakener-0019": {
@@ -739,7 +741,7 @@
       "awakenerBuilds": ["awakener-build-0028"]
     },
     "awakener-0029": {
-      "ownedWheels": ["wheel-0024", "wheel-0093"],
+      "ownedWheels": ["wheel-0024", "wheel-0093", "wheel-0170"],
       "ownedRelics": ["relic-0029"],
       "ownedPosses": ["posse-0018"],
       "ownedSkills": [
@@ -841,7 +843,7 @@
         "enlighten.miryam.unacquainted-pain",
         "enlighten.miryam.vanitys-collapse"
       ],
-      "ownedOverlays": ["overlay.miryam.ritual"],
+      "ownedOverlays": ["overlay.miryam.ritual", "overlay.miryam.undying-piety", "overlay.miryam.vanitys-collapse"],
       "awakenerBuilds": ["awakener-build-0032"]
     },
     "awakener-0033": {
@@ -908,7 +910,7 @@
         "skill.murphy-fauxborn.waltz-of-lemuria"
       ],
       "ownedTalents": [
-        "talent.murphy-fauxborn.divine-realms-order",
+        "talent.murphy-fauxborn.lightless-bottom",
         "talent.murphy-fauxborn.madness-omen",
         "talent.murphy-fauxborn.soulforge-aptitude",
         "talent.murphy-fauxborn.gnostic-potential"
@@ -1123,7 +1125,7 @@
         "enlighten.ryker.honest-return",
         "enlighten.ryker.jackpot"
       ],
-      "ownedOverlays": ["overlay.ryker.chaotic-legacy"],
+      "ownedOverlays": ["overlay.ryker.certain-gain", "overlay.ryker.chaotic-legacy", "overlay.ryker.winner-takes-all"],
       "awakenerBuilds": ["awakener-build-0043"]
     },
     "awakener-0044": {
@@ -1309,6 +1311,7 @@
         "enlighten.tulu.the-stars-are-right",
         "enlighten.tulu.touch-of-revival"
       ],
+      "ownedOverlays": ["overlay.tulu.the-stars-are-right"],
       "awakenerBuilds": ["awakener-build-0050"]
     },
     "awakener-0051": {
@@ -1497,6 +1500,30 @@
       ],
       "ownedOverlays": ["overlay.saya.gynoecium"]
     },
+    "awakener-0058": {
+      "ownedWheels": ["wheel-0169", "wheel-0171"],
+      "ownedRelics": ["relic-0058"],
+      "ownedPosses": ["posse-0052"],
+      "ownedSkills": [
+        "skill.pontos.another-ebwynnos",
+        "skill.pontos.defense",
+        "skill.pontos.gaunt-ravage",
+        "skill.pontos.gauntwards-call",
+        "skill.pontos.relentless-hunt",
+        "skill.pontos.strike",
+        "skill.pontos.wrath-of-the-abyss"
+      ],
+      "ownedDerivedSkills": ["derived.pontos.gaunts", "derived.pontos.raid-gaunt", "derived.pontos.slay-gaunt", "derived.pontos.vex-gaunt"],
+      "ownedTalents": ["talent.pontos.lightless-bottom", "talent.pontos.madness-omen", "talent.pontos.soulforge-aptitude", "talent.pontos.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.pontos.abyssal-engulfment",
+        "enlighten.pontos.another-ebwynnos",
+        "enlighten.pontos.hollow-shell",
+        "enlighten.pontos.lure-of-light",
+        "enlighten.pontos.revelry-in-absence"
+      ],
+      "ownedOverlays": ["overlay.pontos.pack-hunt"]
+    },
     "awakener-build-0001": {},
     "awakener-build-0002": {},
     "awakener-build-0003": {},
@@ -1621,18 +1648,30 @@
     "derived.doll-inferno.self-destruct-finale": {},
     "derived.doresain.evernights-revel": {},
     "derived.erica.retract-mecha": {},
+    "derived.global.adv-insight": {},
     "derived.global.arouse": {},
+    "derived.global.countdown": {},
+    "derived.global.countdown-0": {},
+    "derived.global.countdown-1": {},
+    "derived.global.countdown-2": {},
+    "derived.global.countdown-3": {},
+    "derived.global.countdown-4": {},
+    "derived.global.countdown-5": {},
+    "derived.global.dreaming-of-wonderland": {},
     "derived.global.embryo": {},
     "derived.global.fleeting-beauty": {},
+    "derived.global.gobble-up": {},
     "derived.global.hanafubuki": {},
     "derived.global.ichigo-ichie": {},
     "derived.global.insight": {},
     "derived.global.leahs-coin": {},
     "derived.global.light-cone-boundary": {},
+    "derived.global.private-afternoon": {},
     "derived.global.propagule-embryo": {},
     "derived.global.sakura-blossoms": {},
     "derived.global.silver-key-gleam": {},
     "derived.global.slumber": {},
+    "derived.global.stakes-of-wisdom": {},
     "derived.global.vernal-message": {},
     "derived.goliath.blades-dominion": {},
     "derived.goliath.dormancy": {},
@@ -1662,6 +1701,10 @@
     "derived.mouchette.dramatic-encounter": {},
     "derived.pickman.inspiration": {},
     "derived.pollux.sacred-heart": {},
+    "derived.pontos.gaunts": {},
+    "derived.pontos.raid-gaunt": {},
+    "derived.pontos.slay-gaunt": {},
+    "derived.pontos.vex-gaunt": {},
     "derived.ramona-timeworn.ode-to-tomorrow": {},
     "derived.ramona-timeworn.rebirth-tribunal": {},
     "derived.ryker.octahedron-dice": {},
@@ -1897,6 +1940,11 @@
     "enlighten.pollux.lightbearers-herald": {},
     "enlighten.pollux.lux-diouskouron": {},
     "enlighten.pollux.the-nightbreaker": {},
+    "enlighten.pontos.abyssal-engulfment": {},
+    "enlighten.pontos.another-ebwynnos": {},
+    "enlighten.pontos.hollow-shell": {},
+    "enlighten.pontos.lure-of-light": {},
+    "enlighten.pontos.revelry-in-absence": {},
     "enlighten.ramona-timeworn.infinite-singularity": {},
     "enlighten.ramona-timeworn.klein-bottle-voyager": {},
     "enlighten.ramona-timeworn.mobius-captive": {},
@@ -1987,13 +2035,16 @@
     "overlay.arachne.singularity-ultra": {},
     "overlay.arachne.singularity-warp": {},
     "overlay.arachne.weaver": {},
+    "overlay.caecus.outcasts-anguish": {},
     "overlay.celeste.revival": {},
     "overlay.clementine.phobic-fixation": {},
     "overlay.clementine.psychic-trauma": {},
     "overlay.clementine.symbiosis": {},
     "overlay.doll-inferno.finale": {},
     "overlay.doll-inferno.finale-form": {},
+    "overlay.doll-inferno.illusions-end": {},
     "overlay.doresain.corpse": {},
+    "overlay.faros.dimmed-candle": {},
     "overlay.global.aequor": {},
     "overlay.global.aftershock": {},
     "overlay.global.alert": {},
@@ -2025,6 +2076,7 @@
     "overlay.global.divine-realm-tranquil-sea": {},
     "overlay.global.echo": {},
     "overlay.global.embryo-fusion": {},
+    "overlay.global.embryo-fusion-double": {},
     "overlay.global.exhaust": {},
     "overlay.global.fainted": {},
     "overlay.global.final-rule": {},
@@ -2038,6 +2090,7 @@
     "overlay.global.leap": {},
     "overlay.global.lemurian": {},
     "overlay.global.madness": {},
+    "overlay.global.mental-interference": {},
     "overlay.global.over-exalt": {},
     "overlay.global.perception": {},
     "overlay.global.perception-warp": {},
@@ -2090,6 +2143,8 @@
     "overlay.kathigu-ra.fiamma": {},
     "overlay.lily.endure": {},
     "overlay.miryam.ritual": {},
+    "overlay.miryam.undying-piety": {},
+    "overlay.miryam.vanitys-collapse": {},
     "overlay.murphy-fauxborn.birth-ritual": {},
     "overlay.murphy-fauxborn.life-seal": {},
     "overlay.pickman.collaboration": {},
@@ -2100,10 +2155,14 @@
     "overlay.pollux.ablaze": {},
     "overlay.pollux.alight": {},
     "overlay.pollux.sin-mark": {},
+    "overlay.pontos.pack-hunt": {},
     "overlay.ramona-timeworn.loop": {},
     "overlay.ramona-timeworn.negentropy": {},
+    "overlay.ryker.certain-gain": {},
     "overlay.ryker.chaotic-legacy": {},
+    "overlay.ryker.winner-takes-all": {},
     "overlay.saya.gynoecium": {},
+    "overlay.tulu.the-stars-are-right": {},
     "overlay.vortice.vortex-reload": {},
     "overlay.wanda.dreamlure": {},
     "overlay.wanda.murmurs": {},
@@ -2161,6 +2220,7 @@
     "posse-0049": {},
     "posse-0050": {},
     "posse-0051": {},
+    "posse-0052": {},
     "relic-0001": {},
     "relic-0002": {},
     "relic-0003": {},
@@ -2218,6 +2278,7 @@
     "relic-0055": {},
     "relic-0056": {},
     "relic-0057": {},
+    "relic-0058": {},
     "relic-9001": {},
     "relic-9002": {},
     "relic-9003": {},
@@ -2616,6 +2677,13 @@
     "skill.pollux.soulsearing-light": {},
     "skill.pollux.strike": {},
     "skill.pollux.the-nightbreaker": {},
+    "skill.pontos.another-ebwynnos": {},
+    "skill.pontos.defense": {},
+    "skill.pontos.gaunt-ravage": {},
+    "skill.pontos.gauntwards-call": {},
+    "skill.pontos.relentless-hunt": {},
+    "skill.pontos.strike": {},
+    "skill.pontos.wrath-of-the-abyss": {},
     "skill.ramona-timeworn.defense": {},
     "skill.ramona-timeworn.entropy-undone": {},
     "skill.ramona-timeworn.paradox-converged": {},
@@ -2851,8 +2919,8 @@
     "talent.mouchette.gnostic-potential": {},
     "talent.mouchette.madness-omen": {},
     "talent.mouchette.soulforge-aptitude": {},
-    "talent.murphy-fauxborn.divine-realms-order": {},
     "talent.murphy-fauxborn.gnostic-potential": {},
+    "talent.murphy-fauxborn.lightless-bottom": {},
     "talent.murphy-fauxborn.madness-omen": {},
     "talent.murphy-fauxborn.soulforge-aptitude": {},
     "talent.murphy.gnostic-potential": {},
@@ -2882,6 +2950,10 @@
     "talent.pollux.gnostic-potential": {},
     "talent.pollux.madness-omen": {},
     "talent.pollux.soulforge-aptitude": {},
+    "talent.pontos.gnostic-potential": {},
+    "talent.pontos.lightless-bottom": {},
+    "talent.pontos.madness-omen": {},
+    "talent.pontos.soulforge-aptitude": {},
     "talent.ramona-timeworn.gnostic-potential": {},
     "talent.ramona-timeworn.madness-omen": {},
     "talent.ramona-timeworn.silverheart-resonance": {},
@@ -3075,7 +3147,10 @@
     "wheel-0165": {},
     "wheel-0166": {},
     "wheel-0167": {},
-    "wheel-0168": {}
+    "wheel-0168": {},
+    "wheel-0169": {},
+    "wheel-0170": {},
+    "wheel-0171": {}
   },
   "reverse": {
     "awakener-0001": {},
@@ -3135,6 +3210,7 @@
     "awakener-0055": {},
     "awakener-0056": {},
     "awakener-0057": {},
+    "awakener-0058": {},
     "awakener-build-0001": {
       "awakenerId": "awakener-0001"
     },
@@ -3465,18 +3541,30 @@
     "derived.erica.retract-mecha": {
       "ownerAwakenerId": "awakener-0015"
     },
+    "derived.global.adv-insight": {},
     "derived.global.arouse": {},
+    "derived.global.countdown": {},
+    "derived.global.countdown-0": {},
+    "derived.global.countdown-1": {},
+    "derived.global.countdown-2": {},
+    "derived.global.countdown-3": {},
+    "derived.global.countdown-4": {},
+    "derived.global.countdown-5": {},
+    "derived.global.dreaming-of-wonderland": {},
     "derived.global.embryo": {},
     "derived.global.fleeting-beauty": {},
+    "derived.global.gobble-up": {},
     "derived.global.hanafubuki": {},
     "derived.global.ichigo-ichie": {},
     "derived.global.insight": {},
     "derived.global.leahs-coin": {},
     "derived.global.light-cone-boundary": {},
+    "derived.global.private-afternoon": {},
     "derived.global.propagule-embryo": {},
     "derived.global.sakura-blossoms": {},
     "derived.global.silver-key-gleam": {},
     "derived.global.slumber": {},
+    "derived.global.stakes-of-wisdom": {},
     "derived.global.vernal-message": {},
     "derived.goliath.blades-dominion": {
       "ownerAwakenerId": "awakener-0021"
@@ -3561,6 +3649,18 @@
     },
     "derived.pollux.sacred-heart": {
       "ownerAwakenerId": "awakener-0041"
+    },
+    "derived.pontos.gaunts": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "derived.pontos.raid-gaunt": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "derived.pontos.slay-gaunt": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "derived.pontos.vex-gaunt": {
+      "ownerAwakenerId": "awakener-0058"
     },
     "derived.ramona-timeworn.ode-to-tomorrow": {
       "ownerAwakenerId": "awakener-0020"
@@ -4267,6 +4367,21 @@
     "enlighten.pollux.the-nightbreaker": {
       "ownerAwakenerId": "awakener-0041"
     },
+    "enlighten.pontos.abyssal-engulfment": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "enlighten.pontos.another-ebwynnos": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "enlighten.pontos.hollow-shell": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "enlighten.pontos.lure-of-light": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "enlighten.pontos.revelry-in-absence": {
+      "ownerAwakenerId": "awakener-0058"
+    },
     "enlighten.ramona-timeworn.infinite-singularity": {
       "ownerAwakenerId": "awakener-0020"
     },
@@ -4537,6 +4652,9 @@
     "overlay.arachne.weaver": {
       "ownerAwakenerId": "awakener-0056"
     },
+    "overlay.caecus.outcasts-anguish": {
+      "ownerAwakenerId": "awakener-0006"
+    },
     "overlay.celeste.revival": {
       "ownerAwakenerId": "awakener-0009"
     },
@@ -4555,8 +4673,14 @@
     "overlay.doll-inferno.finale-form": {
       "ownerAwakenerId": "awakener-0018"
     },
+    "overlay.doll-inferno.illusions-end": {
+      "ownerAwakenerId": "awakener-0018"
+    },
     "overlay.doresain.corpse": {
       "ownerAwakenerId": "awakener-0014"
+    },
+    "overlay.faros.dimmed-candle": {
+      "ownerAwakenerId": "awakener-0017"
     },
     "overlay.global.aequor": {},
     "overlay.global.aftershock": {},
@@ -4589,6 +4713,7 @@
     "overlay.global.divine-realm-tranquil-sea": {},
     "overlay.global.echo": {},
     "overlay.global.embryo-fusion": {},
+    "overlay.global.embryo-fusion-double": {},
     "overlay.global.exhaust": {},
     "overlay.global.fainted": {},
     "overlay.global.final-rule": {},
@@ -4602,6 +4727,7 @@
     "overlay.global.leap": {},
     "overlay.global.lemurian": {},
     "overlay.global.madness": {},
+    "overlay.global.mental-interference": {},
     "overlay.global.over-exalt": {},
     "overlay.global.perception": {},
     "overlay.global.perception-warp": {},
@@ -4684,6 +4810,12 @@
     "overlay.miryam.ritual": {
       "ownerAwakenerId": "awakener-0032"
     },
+    "overlay.miryam.undying-piety": {
+      "ownerAwakenerId": "awakener-0032"
+    },
+    "overlay.miryam.vanitys-collapse": {
+      "ownerAwakenerId": "awakener-0032"
+    },
     "overlay.murphy-fauxborn.birth-ritual": {
       "ownerAwakenerId": "awakener-0035"
     },
@@ -4714,17 +4846,29 @@
     "overlay.pollux.sin-mark": {
       "ownerAwakenerId": "awakener-0041"
     },
+    "overlay.pontos.pack-hunt": {
+      "ownerAwakenerId": "awakener-0058"
+    },
     "overlay.ramona-timeworn.loop": {
       "ownerAwakenerId": "awakener-0020"
     },
     "overlay.ramona-timeworn.negentropy": {
       "ownerAwakenerId": "awakener-0020"
     },
+    "overlay.ryker.certain-gain": {
+      "ownerAwakenerId": "awakener-0043"
+    },
     "overlay.ryker.chaotic-legacy": {
+      "ownerAwakenerId": "awakener-0043"
+    },
+    "overlay.ryker.winner-takes-all": {
       "ownerAwakenerId": "awakener-0043"
     },
     "overlay.saya.gynoecium": {
       "ownerAwakenerId": "awakener-0057"
+    },
+    "overlay.tulu.the-stars-are-right": {
+      "ownerAwakenerId": "awakener-0050"
     },
     "overlay.vortice.vortex-reload": {
       "ownerAwakenerId": "awakener-0055"
@@ -4854,6 +4998,9 @@
     "posse-0050": {},
     "posse-0051": {
       "ownerAwakenerId": "awakener-0057"
+    },
+    "posse-0052": {
+      "ownerAwakenerId": "awakener-0058"
     },
     "relic-0001": {
       "ownerAwakenerId": "awakener-0001"
@@ -5025,6 +5172,9 @@
     },
     "relic-0057": {
       "ownerAwakenerId": "awakener-0057"
+    },
+    "relic-0058": {
+      "ownerAwakenerId": "awakener-0058"
     },
     "relic-9001": {},
     "relic-9002": {},
@@ -5998,6 +6148,27 @@
     "skill.pollux.the-nightbreaker": {
       "ownerAwakenerId": "awakener-0041"
     },
+    "skill.pontos.another-ebwynnos": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "skill.pontos.defense": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "skill.pontos.gaunt-ravage": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "skill.pontos.gauntwards-call": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "skill.pontos.relentless-hunt": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "skill.pontos.strike": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "skill.pontos.wrath-of-the-abyss": {
+      "ownerAwakenerId": "awakener-0058"
+    },
     "skill.ramona-timeworn.defense": {
       "ownerAwakenerId": "awakener-0020"
     },
@@ -6703,10 +6874,10 @@
     "talent.mouchette.soulforge-aptitude": {
       "ownerAwakenerId": "awakener-0033"
     },
-    "talent.murphy-fauxborn.divine-realms-order": {
+    "talent.murphy-fauxborn.gnostic-potential": {
       "ownerAwakenerId": "awakener-0035"
     },
-    "talent.murphy-fauxborn.gnostic-potential": {
+    "talent.murphy-fauxborn.lightless-bottom": {
       "ownerAwakenerId": "awakener-0035"
     },
     "talent.murphy-fauxborn.madness-omen": {
@@ -6795,6 +6966,18 @@
     },
     "talent.pollux.soulforge-aptitude": {
       "ownerAwakenerId": "awakener-0041"
+    },
+    "talent.pontos.gnostic-potential": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "talent.pontos.lightless-bottom": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "talent.pontos.madness-omen": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "talent.pontos.soulforge-aptitude": {
+      "ownerAwakenerId": "awakener-0058"
     },
     "talent.ramona-timeworn.gnostic-potential": {
       "ownerAwakenerId": "awakener-0020"
@@ -7279,6 +7462,15 @@
     },
     "wheel-0168": {
       "ownerAwakenerId": "awakener-0057"
+    },
+    "wheel-0169": {
+      "ownerAwakenerId": "awakener-0058"
+    },
+    "wheel-0170": {
+      "ownerAwakenerId": "awakener-0029"
+    },
+    "wheel-0171": {
+      "ownerAwakenerId": "awakener-0058"
     }
   }
 }

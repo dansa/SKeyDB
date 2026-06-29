@@ -15,6 +15,7 @@ export interface TextSegment {
 export interface SkillSegment {
   type: 'skill'
   name: string
+  referenceKind?: 'derived-skill'
 }
 export interface StatSegment {
   type: 'stat'
@@ -297,6 +298,14 @@ function toTokenSegment(
   cardNameByLower: ReadonlyMap<string, string>,
   options: NormalizedRichTextParseOptions,
 ): RichSegment {
+  const typedToken = parseTypedReferenceToken(token)
+  if (typedToken?.type === 'overlay') {
+    return {type: 'mechanic', name: typedToken.name}
+  }
+  if (typedToken?.type === 'derived-skill') {
+    return {type: 'skill', name: typedToken.name, referenceKind: 'derived-skill'}
+  }
+
   const normalizedToken = token.toLowerCase()
   const canonicalCardName = cardNameByLower.get(normalizedToken)
   if (canonicalCardName) {
@@ -323,6 +332,27 @@ function toTokenSegment(
     return {type: 'stat', name: token}
   }
   return {type: 'mechanic', name: token}
+}
+
+function parseTypedReferenceToken(
+  token: string,
+): {type: 'overlay' | 'derived-skill'; name: string} | null {
+  const separatorIndex = token.indexOf(':')
+  if (separatorIndex <= 0 || separatorIndex >= token.length - 1) {
+    return null
+  }
+
+  const type = token.slice(0, separatorIndex).trim().toLowerCase()
+  if (type !== 'overlay' && type !== 'derived' && type !== 'derived-skill') {
+    return null
+  }
+
+  const name = token.slice(separatorIndex + 1).trim()
+  if (!name) {
+    return null
+  }
+
+  return {type: type === 'overlay' ? 'overlay' : 'derived-skill', name}
 }
 
 function consumeBracketToken(

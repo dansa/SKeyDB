@@ -2,13 +2,13 @@
   "schemaVersion": 3,
   "kind": "overlay",
   "id": "overlay.global.divine-realm-aequor-mastery",
-  "name": "Divine Realm: Aequor Mastery",
+  "name": "Benthos: Aequor Mastery",
   "route": {
     "slug": "divine-realm-aequor-mastery",
     "canonicalPath": "/database/overlays/divine-realm-aequor-mastery"
   },
   "overlayType": "mechanic",
-  "aliases": [],
-  "descriptionTemplate": "Each point of Realm Mastery increases {Divine Realm: Tranquil Sea} Shield Generation by 0.025% Max HP and increases {Divine Realm: Raging Waves} {Tentacle DMG} by 0.025%. This effect is doubled if the team is entirely {Aequor} and {Chaos} Awakeners.",
+  "aliases": ["Divine Realm: Aequor Mastery"],
+  "descriptionTemplate": "Each point of Realm Mastery increases {Benthos: Tranquil Sea} Shield Generation by 0.025% Max HP and increases {Benthos: Raging Waves} {Tentacle DMG} by 0.025%. This effect is doubled if the team is entirely {Aequor} and {Chaos} Awakeners.",
   "descriptionArgs": {}
 }

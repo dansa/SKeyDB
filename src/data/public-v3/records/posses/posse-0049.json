@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: No More the Shore",
   "realm": "AEQUOR",
   "lineupToken": "5",
-  "descriptionTemplate": "Choose an Awakener to gain [Arg1] Aliemus, while other Awakeners gain [Arg2] Aliemus. Vortice: Immediately unleash {Vortex! Shell!} as a {Pursuit}.",
+  "descriptionTemplate": "Grant a chosen Awakener [Arg1] Aliemus, and all other Awakeners [Arg2] Aliemus. If Vortice is in the team, she performs her {Pursuit}: {Vortex! Shell!}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

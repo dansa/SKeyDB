@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.pontos.lure-of-light",
+  "name": "Lure of Light",
+  "route": {
+    "slug": "lure-of-light",
+    "canonicalPath": "/database/awakeners/pontos/enlightens/lure-of-light"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "slot": "E1",
+  "descriptionTemplate": "{Slay-Gaunt} {Fixed DMG} +10%, {Relentless Hunt} Base {STR▼} effect +5%. For every 1% Crit. DMG provided by Pontos and his equipped WoD & Covenant, the {Fixed DMG} of {Slay-Gaunt} additionally +0.2%, and the Base {STR▼} effect of {Relentless Hunt} additionally +0.1%.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Pontos"
+}

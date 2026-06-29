@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "derived-skills",
   "kind": "derivedSkill",
-  "recordCount": 118,
+  "recordCount": 134,
   "records": [
     {
       "kind": "derivedSkill",
@@ -652,11 +652,107 @@
     },
     {
       "kind": "derivedSkill",
+      "id": "derived.global.adv-insight",
+      "name": "Adv. Insight",
+      "route": {
+        "slug": "adv-insight",
+        "canonicalPath": "/database/derived-skills/adv-insight"
+      }
+    },
+    {
+      "kind": "derivedSkill",
       "id": "derived.global.arouse",
       "name": "Arouse",
       "route": {
         "slug": "arouse",
         "canonicalPath": "/database/derived-skills/arouse"
+      }
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown",
+      "name": "Countdown",
+      "route": {
+        "slug": "countdown",
+        "canonicalPath": "/database/derived-skills/countdown"
+      },
+      "nodeKind": "group",
+      "childDerivedSkillIds": [
+        "derived.global.countdown-5",
+        "derived.global.countdown-4",
+        "derived.global.countdown-3",
+        "derived.global.countdown-2",
+        "derived.global.countdown-1",
+        "derived.global.countdown-0"
+      ]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-0",
+      "name": "0: Countdown",
+      "route": {
+        "slug": "0-countdown",
+        "canonicalPath": "/database/derived-skills/0-countdown"
+      },
+      "derivedFromId": "derived.global.countdown"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-1",
+      "name": "1: Countdown",
+      "route": {
+        "slug": "1-countdown",
+        "canonicalPath": "/database/derived-skills/1-countdown"
+      },
+      "derivedFromId": "derived.global.countdown"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-2",
+      "name": "2: Countdown",
+      "route": {
+        "slug": "2-countdown",
+        "canonicalPath": "/database/derived-skills/2-countdown"
+      },
+      "derivedFromId": "derived.global.countdown"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-3",
+      "name": "3: Countdown",
+      "route": {
+        "slug": "3-countdown",
+        "canonicalPath": "/database/derived-skills/3-countdown"
+      },
+      "derivedFromId": "derived.global.countdown"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-4",
+      "name": "4: Countdown",
+      "route": {
+        "slug": "4-countdown",
+        "canonicalPath": "/database/derived-skills/4-countdown"
+      },
+      "derivedFromId": "derived.global.countdown"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.countdown-5",
+      "name": "5: Countdown",
+      "route": {
+        "slug": "5-countdown",
+        "canonicalPath": "/database/derived-skills/5-countdown"
+      },
+      "derivedFromId": "derived.global.countdown"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.dreaming-of-wonderland",
+      "name": "Dreaming of Wonderland",
+      "route": {
+        "slug": "dreaming-of-wonderland",
+        "canonicalPath": "/database/derived-skills/dreaming-of-wonderland"
       }
     },
     {
@@ -675,6 +771,15 @@
       "route": {
         "slug": "fleeting-beauty",
         "canonicalPath": "/database/derived-skills/fleeting-beauty"
+      }
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.gobble-up",
+      "name": "Gobble Up!",
+      "route": {
+        "slug": "gobble-up",
+        "canonicalPath": "/database/derived-skills/gobble-up"
       }
     },
     {
@@ -724,6 +829,15 @@
     },
     {
       "kind": "derivedSkill",
+      "id": "derived.global.private-afternoon",
+      "name": "Private Afternoon",
+      "route": {
+        "slug": "private-afternoon",
+        "canonicalPath": "/database/derived-skills/private-afternoon"
+      }
+    },
+    {
+      "kind": "derivedSkill",
       "id": "derived.global.propagule-embryo",
       "name": "Propagule Embryo",
       "route": {
@@ -756,6 +870,15 @@
       "route": {
         "slug": "slumber",
         "canonicalPath": "/database/derived-skills/slumber"
+      }
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.stakes-of-wisdom",
+      "name": "Stakes of Wisdom",
+      "route": {
+        "slug": "stakes-of-wisdom",
+        "canonicalPath": "/database/derived-skills/stakes-of-wisdom"
       }
     },
     {
@@ -1137,6 +1260,61 @@
       "ownerAwakenerName": "Pollux",
       "derivedFromId": "skill.pollux.sinless-verdict",
       "rootSkillId": "skill.pollux.sinless-verdict"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.pontos.gaunts",
+      "name": "Gaunts",
+      "route": {
+        "slug": "gaunts",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/gaunts"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "nodeKind": "group",
+      "derivedFromId": "skill.pontos.gauntwards-call",
+      "rootSkillId": "skill.pontos.gauntwards-call",
+      "childDerivedSkillIds": ["derived.pontos.raid-gaunt", "derived.pontos.vex-gaunt", "derived.pontos.slay-gaunt"],
+      "aliases": ["Gaunt"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.pontos.raid-gaunt",
+      "name": "Raid-Gaunt",
+      "route": {
+        "slug": "raid-gaunt",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/raid-gaunt"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "derivedFromId": "derived.pontos.gaunts",
+      "rootSkillId": "skill.pontos.gauntwards-call"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.pontos.slay-gaunt",
+      "name": "Slay-Gaunt",
+      "route": {
+        "slug": "slay-gaunt",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/slay-gaunt"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "derivedFromId": "derived.pontos.gaunts",
+      "rootSkillId": "skill.pontos.gauntwards-call"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.pontos.vex-gaunt",
+      "name": "Vex-Gaunt",
+      "route": {
+        "slug": "vex-gaunt",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/vex-gaunt"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "derivedFromId": "derived.pontos.gaunts",
+      "rootSkillId": "skill.pontos.gauntwards-call"
     },
     {
       "kind": "derivedSkill",

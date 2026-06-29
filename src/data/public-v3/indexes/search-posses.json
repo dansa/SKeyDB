@@ -775,6 +775,22 @@
         "realm": "CARO",
         "owner": "awakener-0057"
       }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0052",
+      "name": "The Hollow One",
+      "aliases": [],
+      "tokens": ["aequor", "hollow", "one", "pontos", "the", "the hollow one"],
+      "fields": {
+        "name": ["The Hollow One", "the-hollow-one"],
+        "owner": ["Pontos"],
+        "facet": ["AEQUOR"]
+      },
+      "facets": {
+        "realm": "AEQUOR",
+        "owner": "awakener-0058"
+      }
     }
   ]
 }

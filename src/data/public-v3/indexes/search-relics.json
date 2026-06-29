@@ -1078,6 +1078,24 @@
     },
     {
       "kind": "relic",
+      "id": "relic-0058",
+      "name": "Dimensional Image: Pontos",
+      "aliases": [],
+      "tokens": ["aequor", "dimensional", "dimensional image", "dimensional image pontos", "image", "pontos", "ssr"],
+      "fields": {
+        "name": ["Dimensional Image: Pontos", "dimensional-image-pontos"],
+        "owner": ["Pontos"],
+        "facet": ["AEQUOR", "SSR", "DIMENSIONAL_IMAGE", "Dimensional Image"]
+      },
+      "facets": {
+        "realm": "AEQUOR",
+        "rarity": "SSR",
+        "relicType": "DIMENSIONAL_IMAGE",
+        "owner": "awakener-0058"
+      }
+    },
+    {
+      "kind": "relic",
       "id": "relic-9001",
       "name": "Preserved Butterfly+",
       "aliases": [],

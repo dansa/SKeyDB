@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.stakes-of-wisdom",
+  "name": "Stakes of Wisdom",
+  "route": {
+    "slug": "stakes-of-wisdom",
+    "canonicalPath": "/database/derived-skills/stakes-of-wisdom"
+  },
+  "descriptionTemplate": "Shuffle all Command Cards in hand into the Draw Pile. Each card shuffled has a [Arg1]% chance to take effect 1 more time when next played, and for each card shuffled, all Awakeners gain 2 Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["13", "17", "21", "25"],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "1"
+}

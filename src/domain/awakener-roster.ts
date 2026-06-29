@@ -1,6 +1,6 @@
 import {z} from 'zod'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalogScopes/awakenersCatalog'
 
 import {
   awakenerRosterDatasetSchema,
@@ -97,7 +97,7 @@ export function getAwakenerRoster(): AwakenerRosterRecord[] {
 
   awakenerRosterCache = awakenerRosterDatasetSchema.parse(
     publicAwakenerRosterRecordsSchema
-      .parse(getPublicCatalogRecords('awakeners'))
+      .parse(getPublicAwakenerCatalogRecords())
       .map(adaptPublicAwakener),
   )
   return awakenerRosterCache

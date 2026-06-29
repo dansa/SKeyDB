@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "KEYFLARE_REGEN",
   "lineupToken": "yT",
-  "descriptionTemplate": "Team Unique: At the start of exploration, add 1 card \"5: Countdown\" to the deck. \"5: Countdown\": Draw 1 card after played, shuffle the next \"Countdown\" into the Discard Pile, {Destroy}. \"0: Countdown\": Draw 3 cards, gain 3 Arithmetica, and have a [StateArg1]% chance to shuffle \"5: Countdown\" into the Discard Pile, {Retain}, {Destroy}.",
+  "descriptionTemplate": "Team Unique: At the start of exploration, add 1 card {5: Countdown} to the deck. {5: Countdown}: Draw 1 card after played, shuffle the next {Countdown} into the Discard Pile, {Destroy}. {0: Countdown}: Draw 3 cards, gain 3 Arithmetica, and have a [StateArg1]% chance to shuffle {5: Countdown} into the Discard Pile, {Retain}, {Destroy}.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

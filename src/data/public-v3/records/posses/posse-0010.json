@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Eadem Omnia",
   "realm": "AEQUOR",
   "lineupToken": "j",
-  "descriptionTemplate": "Draw [Arg1] {plural:[Arg1]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. If the Realm includes {Aequor}, increase {Tentacle DMG} by [Arg2].",
+  "descriptionTemplate": "Draw [Arg1] {plural:[Arg1]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. Gain [Arg2] {Tentacle DMG}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

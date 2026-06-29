@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0054",
   "slot": "Exalt",
-  "descriptionTemplate": "[{Devour}: Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg1].] Gain [Arg2] Arithmetica and inflict [{Poison}:Arg3] {plural:[{Poison}:Arg3]|stack|stacks} of {Poison} on all enemies. Choose: {Betroth} or {Enthrall}.",
+  "descriptionTemplate": "[{Devour}: Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg1].] Gain [Arg2] Arithmetica and inflict [{Poison}:Arg3] {plural:[{Poison}:Arg3]|stack|stacks} of {Poison} on all enemies. Choose: {Betroth} or {Enthrall}.\n{overlay:Spellbound}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

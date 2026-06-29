@@ -88,6 +88,7 @@ function buildDerived(id: string, displayName: string): DerivedSkillRecord {
     id,
     ownerAwakenerId: 999,
     displayName,
+    aliases: [],
     descriptionTemplate: `${displayName} base`,
     descriptionArgs: {
       Arg1: {
@@ -227,7 +228,22 @@ function buildRecord(): AwakenerFullRecord {
         nodeKind: 'group',
         childDerivedSkillIds: ['derived.test.status-card-child'],
       },
-      buildDerived('derived.test.status-card-child', 'Status Child'),
+      {
+        ...buildDerived('derived.test.status-card-child', 'Status Child'),
+        aliases: ['Status Alias Card'],
+        upgrades: [
+          {
+            id: 'upgrade.enlighten.test.e2.derived.test.status-card-child',
+            upgraderId: e2.id,
+            upgraderType: 'enlighten',
+            upgraderSlot: 'E2',
+            operation: 'replace_description',
+            patch: {
+              descriptionTemplate: 'Status Child E2.',
+            },
+          },
+        ],
+      },
     ],
     overlays: [
       {
@@ -304,6 +320,7 @@ function buildGlobalDerivedSkills(): DerivedSkillRecord[] {
     {
       id: 'derived.global.embryo',
       displayName: 'Embryo',
+      aliases: ['Embryonic Alias'],
       descriptionTemplate: 'Embryo base',
       descriptionArgs: {
         Arg1: {
@@ -427,6 +444,9 @@ describe('awakeners-database-view', () => {
       'talent.test.soulforge-aptitude',
     ])
     expect(view.talents[1]?.resolved.description).toBe('Soulforge 10.')
+    expect(resolveAwakenerDatabaseReferenceInfo(view, 'Status Child')?.description).toBe(
+      'Status Child E2.',
+    )
     expect(view.cardNames.has('Rouse')).toBe(false)
     expect(view.cardNames.has('Embryo')).toBe(true)
   })
@@ -641,6 +661,22 @@ describe('awakeners-database-view', () => {
         id: 'derived.global.embryo',
       }),
     )
+    expect(resolveAwakenerDatabaseReferenceInfo(view, 'Embryonic Alias')).toEqual(
+      expect.objectContaining({
+        kind: 'derived-skill',
+        id: 'derived.global.embryo',
+        name: 'Embryo',
+      }),
+    )
+    expect(resolveAwakenerDatabaseReferenceInfo(view, 'Status Alias Card')).toEqual(
+      expect.objectContaining({
+        kind: 'derived-skill',
+        id: 'derived.test.status-card-child',
+        name: 'Status Child',
+      }),
+    )
+    expect(view.cardNames.has('Status Alias Card')).toBe(true)
+    expect(view.cardNames.has('Embryonic Alias')).toBe(true)
     expect(
       resolveAwakenerDatabaseReferenceInfoById(view, 'derived.test.status-card-child'),
     ).toEqual(

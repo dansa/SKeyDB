@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0021",
   "slot": "E1",
-  "descriptionTemplate": "{Decapitation Damage} gains a {STR} buff that doubles for each Tentacle.",
+  "descriptionTemplate": "{Decapitation Damage} gains a {STR} bonus that doubles for each Tentacle.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Goliath"
 }

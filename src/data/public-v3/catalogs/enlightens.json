@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "enlightens",
   "kind": "enlighten",
-  "recordCount": 285,
+  "recordCount": 290,
   "records": [
     {
       "kind": "enlighten",
@@ -2463,6 +2463,66 @@
       "ownerAwakenerId": "awakener-0041",
       "ownerAwakenerName": "Pollux",
       "slot": "OverExalt"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.pontos.abyssal-engulfment",
+      "name": "Abyssal Engulfment",
+      "route": {
+        "slug": "abyssal-engulfment",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/abyssal-engulfment"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.pontos.another-ebwynnos",
+      "name": "Another Ebwynnos",
+      "route": {
+        "slug": "another-ebwynnos",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/another-ebwynnos"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "OverExalt"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.pontos.hollow-shell",
+      "name": "Hollow Shell",
+      "route": {
+        "slug": "hollow-shell",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/hollow-shell"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "E2"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.pontos.lure-of-light",
+      "name": "Lure of Light",
+      "route": {
+        "slug": "lure-of-light",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/lure-of-light"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "E1"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.pontos.revelry-in-absence",
+      "name": "Revelry in Absence",
+      "route": {
+        "slug": "revelry-in-absence",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/revelry-in-absence"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "slot": "E3"
     },
     {
       "kind": "enlighten",

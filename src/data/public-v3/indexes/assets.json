@@ -968,6 +968,23 @@
         ]
       }
     },
+    "asset-awakener-0058-icon": {
+      "id": "asset-awakener-0058-icon",
+      "slot": "icon",
+      "kind": "awakener",
+      "ownerId": "awakener-0058",
+      "assetId": "pontos",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/awk-cards/pontos.webp",
+        "candidates": [
+          "src/assets/awk-cards/pontos.webp",
+          "src/assets/awk-cards/pontos.png",
+          "src/assets/awk-portraits/pontos.webp",
+          "src/assets/awk-portraits/pontos.png"
+        ]
+      }
+    },
     "asset-wheel-0001-icon": {
       "id": "asset-wheel-0001-icon",
       "slot": "icon",
@@ -2576,6 +2593,42 @@
         "candidates": ["src/assets/wheels/Weapon_Full_SR49.webp", "src/assets/wheels/Weapon_Full_SR49.png"]
       }
     },
+    "asset-wheel-0169-icon": {
+      "id": "asset-wheel-0169-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0169",
+      "assetId": "Weapon_Full_SR50",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_SR50.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_SR50.webp", "src/assets/wheels/Weapon_Full_SR50.png"]
+      }
+    },
+    "asset-wheel-0170-icon": {
+      "id": "asset-wheel-0170-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0170",
+      "assetId": "Weapon_Full_JP08",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_JP08.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_JP08.webp", "src/assets/wheels/Weapon_Full_JP08.png"]
+      }
+    },
+    "asset-wheel-0171-icon": {
+      "id": "asset-wheel-0171-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0171",
+      "assetId": "Weapon_Full_O13",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_O13.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_O13.webp", "src/assets/wheels/Weapon_Full_O13.png"]
+      }
+    },
     "asset-relic-0001-icon": {
       "id": "asset-relic-0001-icon",
       "slot": "icon",
@@ -3542,6 +3595,23 @@
           "src/assets/relics/Icon_Creation_Unique_B15.png",
           "src/assets/relics/portraits/Icon_Creation_Unique_B15.webp",
           "src/assets/relics/portraits/Icon_Creation_Unique_B15.png"
+        ]
+      }
+    },
+    "asset-relic-0058-icon": {
+      "id": "asset-relic-0058-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0058",
+      "assetId": "Icon_Creation_Unique_O13",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_Unique_O13.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_Unique_O13.webp",
+          "src/assets/relics/Icon_Creation_Unique_O13.png",
+          "src/assets/relics/portraits/Icon_Creation_Unique_O13.webp",
+          "src/assets/relics/portraits/Icon_Creation_Unique_O13.png"
         ]
       }
     },
@@ -7520,6 +7590,42 @@
         "candidates": ["src/assets/posse/Icon/KeyToken_Skill_53.webp", "src/assets/posse/Icon/KeyToken_Skill_53.png"]
       }
     },
+    "asset-posse-0052-badge": {
+      "id": "asset-posse-0052-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0052",
+      "assetId": "KeyToken_Props_54",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_54.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_54.webp", "src/assets/posse/Badge/KeyToken_Props_54.png"]
+      }
+    },
+    "asset-posse-0052-crystal": {
+      "id": "asset-posse-0052-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0052",
+      "assetId": "KeyToken_Crystal_54",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_54.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_54.webp", "src/assets/posse/FullArt/KeyToken_Crystal_54.png"]
+      }
+    },
+    "asset-posse-0052-icon": {
+      "id": "asset-posse-0052-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0052",
+      "assetId": "KeyToken_Skill_54",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_54.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_54.webp", "src/assets/posse/Icon/KeyToken_Skill_54.png"]
+      }
+    },
     "asset-overlay.aigis.petrify-icon": {
       "id": "asset-overlay.aigis.petrify-icon",
       "slot": "icon",
@@ -7604,6 +7710,18 @@
         "candidates": ["src/assets/icons/IconS_Buff_084.webp", "src/assets/icons/IconS_Buff_084.png"]
       }
     },
+    "asset-overlay.caecus.outcasts-anguish-icon": {
+      "id": "asset-overlay.caecus.outcasts-anguish-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.caecus.outcasts-anguish",
+      "assetId": "IconS_Buff_045",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_045.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
+      }
+    },
     "asset-overlay.clementine.phobic-fixation-icon": {
       "id": "asset-overlay.clementine.phobic-fixation-icon",
       "slot": "icon",
@@ -7652,6 +7770,18 @@
         "candidates": ["src/assets/icons/IconS_Buff_052.webp", "src/assets/icons/IconS_Buff_052.png"]
       }
     },
+    "asset-overlay.doll-inferno.illusions-end-icon": {
+      "id": "asset-overlay.doll-inferno.illusions-end-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.doll-inferno.illusions-end",
+      "assetId": "IconS_Buff_044",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_044.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_044.webp", "src/assets/icons/IconS_Buff_044.png"]
+      }
+    },
     "asset-overlay.doresain.corpse-icon": {
       "id": "asset-overlay.doresain.corpse-icon",
       "slot": "icon",
@@ -7662,6 +7792,18 @@
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_076.webp",
         "candidates": ["src/assets/icons/IconS_Buff_076.webp", "src/assets/icons/IconS_Buff_076.png"]
+      }
+    },
+    "asset-overlay.faros.dimmed-candle-icon": {
+      "id": "asset-overlay.faros.dimmed-candle-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.faros.dimmed-candle",
+      "assetId": "IconS_Buff_045",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_045.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
       }
     },
     "asset-overlay.global.alert-icon": {
@@ -7993,11 +8135,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.void",
-      "assetId": "IconS_Buff_029",
+      "assetId": "IconS_Buff_027",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_029.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_029.webp", "src/assets/icons/IconS_Buff_029.png"]
+        "path": "src/assets/icons/IconS_Buff_027.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_027.webp", "src/assets/icons/IconS_Buff_027.png"]
       }
     },
     "asset-overlay.global.vulnerable-icon": {
@@ -8060,6 +8202,30 @@
         "candidates": ["src/assets/icons/IconS_Buff_040.webp", "src/assets/icons/IconS_Buff_040.png"]
       }
     },
+    "asset-overlay.miryam.undying-piety-icon": {
+      "id": "asset-overlay.miryam.undying-piety-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.miryam.undying-piety",
+      "assetId": "IconS_Buff_045",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_045.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
+      }
+    },
+    "asset-overlay.miryam.vanitys-collapse-icon": {
+      "id": "asset-overlay.miryam.vanitys-collapse-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.miryam.vanitys-collapse",
+      "assetId": "IconS_Buff_045",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_045.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
+      }
+    },
     "asset-overlay.murphy-fauxborn.birth-ritual-icon": {
       "id": "asset-overlay.murphy-fauxborn.birth-ritual-icon",
       "slot": "icon",
@@ -8096,6 +8262,18 @@
         "candidates": ["src/assets/icons/IconS_Buff_078.webp", "src/assets/icons/IconS_Buff_078.png"]
       }
     },
+    "asset-overlay.pontos.pack-hunt-icon": {
+      "id": "asset-overlay.pontos.pack-hunt-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.pontos.pack-hunt",
+      "assetId": "IconS_Buff_090",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_090.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_090.webp", "src/assets/icons/IconS_Buff_090.png"]
+      }
+    },
     "asset-overlay.ramona-timeworn.loop-icon": {
       "id": "asset-overlay.ramona-timeworn.loop-icon",
       "slot": "icon",
@@ -8120,6 +8298,18 @@
         "candidates": ["src/assets/icons/IconS_Buff_039.webp", "src/assets/icons/IconS_Buff_039.png"]
       }
     },
+    "asset-overlay.ryker.certain-gain-icon": {
+      "id": "asset-overlay.ryker.certain-gain-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.ryker.certain-gain",
+      "assetId": "IconS_Buff_045",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_045.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
+      }
+    },
     "asset-overlay.saya.gynoecium-icon": {
       "id": "asset-overlay.saya.gynoecium-icon",
       "slot": "icon",
@@ -8130,6 +8320,18 @@
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_087.webp",
         "candidates": ["src/assets/icons/IconS_Buff_087.webp", "src/assets/icons/IconS_Buff_087.png"]
+      }
+    },
+    "asset-overlay.tulu.the-stars-are-right-icon": {
+      "id": "asset-overlay.tulu.the-stars-are-right-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.tulu.the-stars-are-right",
+      "assetId": "IconS_Buff_045",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_045.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
       }
     },
     "asset-overlay.vortice.vortex-reload-icon": {
@@ -8376,6 +8578,9 @@
     },
     "awakener-0057": {
       "icon": "asset-awakener-0057-icon"
+    },
+    "awakener-0058": {
+      "icon": "asset-awakener-0058-icon"
     },
     "wheel-0001": {
       "icon": "asset-wheel-0001-icon"
@@ -8779,6 +8984,15 @@
     "wheel-0168": {
       "icon": "asset-wheel-0168-icon"
     },
+    "wheel-0169": {
+      "icon": "asset-wheel-0169-icon"
+    },
+    "wheel-0170": {
+      "icon": "asset-wheel-0170-icon"
+    },
+    "wheel-0171": {
+      "icon": "asset-wheel-0171-icon"
+    },
     "relic-0001": {
       "icon": "asset-relic-0001-icon"
     },
@@ -8949,6 +9163,9 @@
     },
     "relic-0057": {
       "icon": "asset-relic-0057-icon"
+    },
+    "relic-0058": {
+      "icon": "asset-relic-0058-icon"
     },
     "relic-9001": {
       "icon": "asset-relic-9001-icon"
@@ -9601,6 +9818,11 @@
       "crystal": "asset-posse-0051-crystal",
       "badge": "asset-posse-0051-badge"
     },
+    "posse-0052": {
+      "icon": "asset-posse-0052-icon",
+      "crystal": "asset-posse-0052-crystal",
+      "badge": "asset-posse-0052-badge"
+    },
     "overlay.aigis.petrify": {
       "icon": "asset-overlay.aigis.petrify-icon"
     },
@@ -9622,6 +9844,9 @@
     "overlay.arachne.weaver": {
       "icon": "asset-overlay.arachne.weaver-icon"
     },
+    "overlay.caecus.outcasts-anguish": {
+      "icon": "asset-overlay.caecus.outcasts-anguish-icon"
+    },
     "overlay.clementine.phobic-fixation": {
       "icon": "asset-overlay.clementine.phobic-fixation-icon"
     },
@@ -9634,8 +9859,14 @@
     "overlay.doll-inferno.finale": {
       "icon": "asset-overlay.doll-inferno.finale-icon"
     },
+    "overlay.doll-inferno.illusions-end": {
+      "icon": "asset-overlay.doll-inferno.illusions-end-icon"
+    },
     "overlay.doresain.corpse": {
       "icon": "asset-overlay.doresain.corpse-icon"
+    },
+    "overlay.faros.dimmed-candle": {
+      "icon": "asset-overlay.faros.dimmed-candle-icon"
     },
     "overlay.global.alert": {
       "icon": "asset-overlay.global.alert-icon"
@@ -9736,6 +9967,12 @@
     "overlay.lily.endure": {
       "icon": "asset-overlay.lily.endure-icon"
     },
+    "overlay.miryam.undying-piety": {
+      "icon": "asset-overlay.miryam.undying-piety-icon"
+    },
+    "overlay.miryam.vanitys-collapse": {
+      "icon": "asset-overlay.miryam.vanitys-collapse-icon"
+    },
     "overlay.murphy-fauxborn.birth-ritual": {
       "icon": "asset-overlay.murphy-fauxborn.birth-ritual-icon"
     },
@@ -9745,14 +9982,23 @@
     "overlay.pollux.sin-mark": {
       "icon": "asset-overlay.pollux.sin-mark-icon"
     },
+    "overlay.pontos.pack-hunt": {
+      "icon": "asset-overlay.pontos.pack-hunt-icon"
+    },
     "overlay.ramona-timeworn.loop": {
       "icon": "asset-overlay.ramona-timeworn.loop-icon"
     },
     "overlay.ramona-timeworn.negentropy": {
       "icon": "asset-overlay.ramona-timeworn.negentropy-icon"
     },
+    "overlay.ryker.certain-gain": {
+      "icon": "asset-overlay.ryker.certain-gain-icon"
+    },
     "overlay.saya.gynoecium": {
       "icon": "asset-overlay.saya.gynoecium-icon"
+    },
+    "overlay.tulu.the-stars-are-right": {
+      "icon": "asset-overlay.tulu.the-stars-are-right-icon"
     },
     "overlay.vortice.vortex-reload": {
       "icon": "asset-overlay.vortice.vortex-reload-icon"

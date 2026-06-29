@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Faded Legacy - Ch. 5 - Eye of the Storm",
   "realm": "FADED_LEGACY",
   "lineupToken": "g",
-  "descriptionTemplate": "Gain [Arg1] {STR}, then gain Temporary {STR} equal to 25% of your permanent {STR}.",
+  "descriptionTemplate": "Gain [Arg1] {STR}, then gain Temporary {STR} equal to 25% of your Permanent {STR}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

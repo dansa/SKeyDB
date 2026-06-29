@@ -231,7 +231,7 @@ describe('derived-skills', () => {
     expect(getDerivedSkillById('derived.global.insight', derivedSkills)).toEqual(
       expect.objectContaining({
         displayName: 'Insight',
-        descriptionTemplate: 'Obtain 1 Arithmetica, and draw 1 card.',
+        descriptionTemplate: 'Draw 1 card and gain 1 Arithmetica.',
         cost: '0',
         cardKeywords: retainExhaustKeywords,
       }),
@@ -797,6 +797,10 @@ describe('derived-skills', () => {
 
       return (
         slug !== normalizedDisplayName &&
+        !(
+          normalizedDisplayName.endsWith('-countdown') &&
+          slug === `countdown-${normalizedDisplayName.split('-')[0]}`
+        ) &&
         !slug.endsWith(`-${normalizedDisplayName}`) &&
         !slug.includes(`${normalizedDisplayName}-`) &&
         !(

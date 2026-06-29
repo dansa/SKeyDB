@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.countdown-3",
+  "name": "3: Countdown",
+  "route": {
+    "slug": "3-countdown",
+    "canonicalPath": "/database/derived-skills/3-countdown"
+  },
+  "derivedFromId": "derived.global.countdown",
+  "descriptionTemplate": "Draw 1 card and put {2: Countdown} into the Discard Pile.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "cost": "0"
+}

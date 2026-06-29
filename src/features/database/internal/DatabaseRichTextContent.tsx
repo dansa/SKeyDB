@@ -23,6 +23,7 @@ function getRichSegmentKeyParts(segment: RichSegment): string {
     case 'text':
       return `${segment.type}:${segment.value}`
     case 'skill':
+      return `${segment.type}:${segment.referenceKind ?? ''}:${segment.name}`
     case 'stat':
     case 'mechanic':
     case 'reference':
@@ -61,7 +62,7 @@ export interface DatabaseRichTextContentProps {
   skillLevel: number
   stats: FullStats | null
   variant: RichSegmentRendererVariant
-  onSkillClick?: (name: string, event: ActivationEvent) => void
+  onSkillClick?: (name: string, event: ActivationEvent, referenceKind?: 'derived-skill') => void
   onMechanicClick?: (overlay: AwakenerOverlayRecord, event: ActivationEvent) => void
 }
 

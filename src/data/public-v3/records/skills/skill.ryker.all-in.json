@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0043",
   "slot": "Exalt",
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Randomly draw 1~[Arg3] {plural:[Arg3]|card|cards}; for each card drawn, gain [Power:Arg2] {STR}.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Randomly draw 1~[Arg3] {plural:[Arg3]|card|cards}; for each card drawn, gain [Power:Arg2] {STR}.\n{overlay:Winner Takes All}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -30,5 +30,19 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ryker.certain-gain.skill.ryker.all-in",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.ryker.certain-gain",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0043",
+      "ownerAwakenerName": "Ryker",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Randomly draw 1~[Arg3] {plural:[Arg3]|card|cards}; for each card drawn, gain [Power:Arg2] {STR}.\n{overlay:Winner Takes All}\n{overlay:Certain Gain}"
+      }
+    }
+  ],
   "ownerAwakenerName": "Ryker"
 }

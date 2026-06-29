@@ -12,6 +12,7 @@ import {
   buildDatabaseOverlayLookup,
   buildDatabaseOverlayReferenceInfo,
   DatabaseReferenceLookupAccumulator,
+  getDatabaseDerivedSkillAliases,
   type DatabaseReferenceInfo,
 } from './database-reference-layer'
 import {getDerivedSkills} from './derived-skills'
@@ -65,11 +66,17 @@ export function collectAwakenerDatabaseCardNames(
 
   for (const entry of record.derivedSkills) {
     names.add(entry.displayName)
+    for (const alias of getDatabaseDerivedSkillAliases(entry)) {
+      names.add(alias)
+    }
   }
 
   for (const entry of derivedSkills) {
     if (entry.ownerAwakenerId === undefined) {
       names.add(entry.displayName)
+      for (const alias of getDatabaseDerivedSkillAliases(entry)) {
+        names.add(alias)
+      }
     }
   }
 
@@ -149,12 +156,18 @@ function buildReferenceLookups(
       influenceBadges: [],
     }),
   )
-  addDescribedReferenceInfos(accumulator, shellView.derivedSkills, (entry) =>
-    buildReferenceInfoFromEntry('derived-skill', entry),
-  )
-  addDescribedReferenceInfos(accumulator, shellView.promotedExtras, (entry) =>
-    buildReferenceInfoFromEntry('derived-skill', entry),
-  )
+  for (const entry of shellView.derivedSkills) {
+    accumulator.add(
+      buildReferenceInfoFromEntry('derived-skill', entry),
+      getDatabaseDerivedSkillAliases(entry.record),
+    )
+  }
+  for (const entry of shellView.promotedExtras) {
+    accumulator.add(
+      buildReferenceInfoFromEntry('derived-skill', entry),
+      getDatabaseDerivedSkillAliases(entry.record),
+    )
+  }
 
   for (const record of globalDerivedSkills) {
     accumulator.add(
@@ -163,6 +176,7 @@ function buildReferenceLookups(
         rank: shellView.skillLevel,
         stats: shellView.stats,
       }),
+      getDatabaseDerivedSkillAliases(record),
     )
   }
 

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.pontos.strike",
+  "name": "Strike",
+  "route": {
+    "slug": "strike",
+    "canonicalPath": "/database/awakeners/pontos/skills/strike"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "slot": "Strike",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Pontos gains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["10", "12", "14", "16", "18", "20"],
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["5", "6", "7", "8", "9", "10"]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pontos.revelry-in-absence.skill.pontos.strike",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.pontos.revelry-in-absence",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Pontos gains [Energy:Arg2] Aliemus. Draw 1 {Gaunt} at the {ordinal:1st} play each turn."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Pontos"
+}

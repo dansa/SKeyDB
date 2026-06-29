@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Multiverse Link: Baptism of Silver and Blood",
   "realm": "CHAOS",
   "lineupToken": "Z",
-  "descriptionTemplate": "Draw 2 \"Strike\" cards. If \"Mouchette\" is in the team, reduce their Arithmetica Cost by 1.",
+  "descriptionTemplate": "Draw 2 random Strike Commands. If Mouchette is in the team, reduce their Arithmetica Cost by 1.",
   "descriptionArgs": {},
   "lore": "She is Mouchette, the vanguard of the A.U.G.E. from a distant realm. Having endured a baptism of silver and blood within this world, she has been forged anew. This badge, imbued with the essence of \"home,\" stands as the eternal witness to her journey across the dimensions."
 }

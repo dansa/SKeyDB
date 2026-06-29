@@ -13,6 +13,7 @@ import {
   resolveLiveTrailEntry,
   resolveNavigationHandler,
   resolveOverlayReference,
+  resolveReferenceByName,
   withInheritedReferenceLayerOverride,
 } from './database-popover-controller-model'
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
@@ -124,6 +125,42 @@ describe('database popover controller model', () => {
     })
   })
 
+  it('can prefer a matching reference kind when names collide', () => {
+    const wheelReference = skillReference({
+      kind: 'wheel',
+      id: 'wheel-0076',
+      name: 'Insight',
+      label: 'Wheel · R · Neutral',
+      record: {
+        id: 'wheel-0076',
+        kind: 'wheel',
+        displayName: 'Insight',
+        descriptionTemplate: 'Wheel text.',
+        descriptionArgs: {},
+      },
+    })
+    const derivedReference = skillReference({
+      kind: 'derived-skill',
+      id: 'derived.global.insight',
+      name: 'Insight',
+      label: 'Derived · Insight',
+      record: {
+        id: 'derived.global.insight',
+        displayName: 'Insight',
+        aliases: [],
+        descriptionTemplate: 'Draw 1 card.',
+        descriptionArgs: {},
+        cardKeywords: [],
+        childDerivedSkillIds: [],
+        variants: [],
+      },
+    })
+    const layer = referenceLayer([derivedReference, wheelReference])
+
+    expect(resolveReferenceByName(layer, 'Insight')).toBe(wheelReference)
+    expect(resolveReferenceByName(layer, 'Insight', 'derived-skill')).toBe(derivedReference)
+  })
+
   it('applies overlay rank context only when the opener supplies it', () => {
     const layer = referenceLayer([overlayReference()])
 
@@ -192,6 +229,21 @@ describe('database popover controller model', () => {
       id: 'B01',
       name: 'Merciful Nurturing',
     })
+
+    resolveNavigationHandler({
+      activeEntryId: 'wheel:wheel-0001:preview',
+      handlers: {onNavigateToWheelPage},
+      navigationTarget: {
+        kind: 'wheel-page',
+        wheelId: 'wheel-0001',
+        wheelName: 'Amber-Tinted Death',
+      },
+    })?.(clearTrail)
+
+    expect(onNavigateToWheelPage).toHaveBeenLastCalledWith({
+      id: 'wheel-0001',
+      name: 'Amber-Tinted Death',
+    })
   })
 
   it('preserves explicit entry overrides before inheriting source overrides', () => {
@@ -218,5 +270,21 @@ describe('database popover controller model', () => {
         sourceEntry,
       ).referenceLayerOverride,
     ).toBe(sourceLayer)
+  })
+
+  it('preserves reference ids for related info entries so live trail refresh can re-resolve them', () => {
+    const sourceEntry = buildTrailEntry(skillReference(), null)
+    const relatedEntry: KeyedDatabaseReferenceEntry = {
+      key: 'derived-skill:derived.test.raid-gaunt',
+      name: 'Raid-Gaunt',
+      label: 'Card · Derived',
+      description: 'Old related card text.',
+    }
+
+    expect(withInheritedReferenceLayerOverride(relatedEntry, sourceEntry)).toMatchObject({
+      key: 'derived-skill:derived.test.raid-gaunt',
+      referenceId: 'derived.test.raid-gaunt',
+      description: 'Old related card text.',
+    })
   })
 })

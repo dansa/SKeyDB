@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Special Ops: Celestial Aria",
   "realm": "OTHER",
   "lineupToken": "Y",
-  "descriptionTemplate": "Return 1 Command Card from the Discard Pile to your hand. If Ramona is in the team, the next Command Card she plays this turn takes effect [Arg1] {plural:[Arg1]|time|times}.",
+  "descriptionTemplate": "Return 1 Command Card from the Discard Pile to your hand. The next Ramona Command Card played this turn takes effect [Arg1] {plural:[Arg1]|time|times}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

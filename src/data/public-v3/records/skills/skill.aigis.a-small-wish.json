@@ -38,7 +38,7 @@
       "ownerAwakenerId": "awakener-0003",
       "ownerAwakenerName": "Aigis",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG and apply {Vulnerable} for [Arg2] {plural:[Arg2]|turn|turns}. {Embryo Fusion} +[Arg3]. When {Devour} is triggered, place {A Small Wish} from the Discard Pile into your hand and set its Arithmetica Cost to 0."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG and apply {Vulnerable} for [Arg2] {plural:[Arg2]|turn|turns}. {Embryo Fusion} +[Arg3]. When {Devour} is triggered, place {A Small Wish} from the Discard Pile into hand and set its Arithmetica Cost to 0."
       }
     }
   ],

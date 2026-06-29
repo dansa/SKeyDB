@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.mental-interference",
+  "name": "Mental Interference",
+  "route": {
+    "slug": "mental-interference",
+    "canonicalPath": "/database/overlays/mental-interference"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "textColor": "misc",
+  "descriptionTemplate": "Unable to act. Remove 1 stack of {Mental Interference} at turn end. After all stacks are removed, the next time this Awakener releases an Exalt, it is treated as an Over-Exaltation. If it is already an Over-Exaltation when released, instead restore 100% Base Aliemus.",
+  "descriptionArgs": {}
+}

@@ -64,31 +64,31 @@
         "kind": "introduction",
         "title": "Basic Information",
         "unlockCondition": "Awakener Level 1",
-        "content": "Faint is a faded, hard-to-hatch seed.\nPeople pity her for her flaws and love her for her weaknesses.\nYet those who knew she had chosen to remain in the shell, had long since turned to dust—stardust."
+        "content": "Faint is a faded, hard-to-hatch seed.\n\nPeople pity her for her flaws and love her for her weaknesses.\n\nYet those who knew she had chosen to remain in the shell, had long since turned to dust—stardust."
       },
       {
         "kind": "story",
         "title": "Story: I",
         "unlockCondition": "Affinity Level 3",
-        "content": "In June of A.F. 282, acting upon an investigation request submitted by the Mystea Treaty Committee, we dispatched a survey team to the New Leonia region.\nSince the meteorite impact a year ago, the area has experienced an abnormally elevated mortality rate.\nFurthermore, investigators discovered several species of mutated flora at the impact site. Instrumental analysis confirmed that these plants contain high levels of radiation, suspected to have been introduced by the meteorite.\nHowever, no extraterrestrial minerals were found within the impact crater. According to villager testimony, on the third day after the impact, a group of scientists in white coats dissected and removed the meteorite in its entirety.\n(Note: Suspected to be a non-governmental scientific organization; identity remains unverified.)\nFollowing coordination between the Committee and local authorities, all residents have been evacuated, and the area has been officially declared a prohibited living zone.\nAccording to calculations by the Mythag University Physics Laboratory, this residential ban must remain in effect for at least 80 years."
+        "content": "In June of A.F. 282, acting upon an investigation request submitted by the Mystea Treaty Committee, we dispatched a survey team to the New Leonia region.\n\nSince the meteorite impact a year ago, the area has experienced an abnormally elevated mortality rate.\n\nFurthermore, investigators discovered several species of mutated flora at the impact site. Instrumental analysis confirmed that these plants contain high levels of radiation, suspected to have been introduced by the meteorite.\n\nHowever, no extraterrestrial minerals were found within the impact crater. According to villager testimony, on the third day after the impact, a group of scientists in white coats dissected and removed the meteorite in its entirety.\n\n(Note: Suspected to be a non-governmental scientific organization; identity remains unverified.)\n\nFollowing coordination between the Committee and local authorities, all residents have been evacuated, and the area has been officially declared a prohibited living zone.\n\nAccording to calculations by the Mythag University Physics Laboratory, this residential ban must remain in effect for at least 80 years."
       },
       {
         "kind": "story",
         "title": "Story: II",
         "unlockCondition": "Affinity Level 5",
-        "content": "Faint saw the student secretly weeping in the laboratory.\nShe wasn't Faint's favorite student, but she was undoubtedly the one who liked her the most.\nThe girl never minded Faint's resistance and aloofness, nor was she afraid of Faint's uncontrollable abilities.\nShe would spend her entire allowance on sweets, just because she was worried that Faint didn't have enough energy; she would wear the clunky protective suit just to comb Faint's tangled hair.\n... <Italic:I must repay her>, Faint thought.\nSo, Faint did what she could.\n—<Italic:If she was just worried about failing exams, then I'll just threaten the others into failing instead, right?>"
+        "content": "Faint saw the student secretly weeping in the laboratory.\n\nShe wasn't Faint's favorite student, but she was undoubtedly the one who liked her the most.\n\nThe girl never minded Faint's resistance and aloofness, nor was she afraid of Faint's uncontrollable abilities.\n\nShe would spend her entire allowance on sweets, just because she was worried that Faint didn't have enough energy; she would wear the clunky protective suit just to comb Faint's tangled hair.\n\n... <Italic:I must repay her>, Faint thought.\n\nSo, Faint did what she could.\n\n—<Italic:If she was just worried about failing exams, then I'll just threaten the others into failing instead, right?>"
       },
       {
         "kind": "story",
         "title": "Story: III",
         "unlockCondition": "Affinity Level 7",
-        "content": "Among these sisters, one of them should never have been born.\nOn the Desolate of the Lyra constellation, Faint and Tinct spent half their lives shrouded in malice.\nBut who is the unacknowledged one?\nSister Faint is powerful yet uncontrollable; the life force she plunders seems to flow away like a river, leaving her to barely survive by licking the remaining dewdrops.\nSister Tinct is beautiful yet struggles to be independent; her life is as stubborn as duckweed, yet rooted nowhere, causing her to revolve around her sister.\nPerhaps they both believe they are the one who should not exist. It's just that Faint made her decision earlier—using her own life as a threat, she forced her sister onto the journey of departure.\n\"Leave, Tinct. Don't let me hold you back.\"\n\"You shall sing among the stars, becoming the most dazzling color.\""
+        "content": "Among these sisters, one of them should never have been born.\n\nOn the Desolate of the Lyra constellation, Faint and Tinct spent half their lives shrouded in malice.\n\nBut who is the unacknowledged one?\n\nSister Faint is powerful yet uncontrollable; the life force she plunders seems to flow away like a river, leaving her to barely survive by licking the remaining dewdrops.\n\nSister Tinct is beautiful yet struggles to be independent; her life is as stubborn as duckweed, yet rooted nowhere, causing her to revolve around her sister.\n\nPerhaps they both believe they are the one who should not exist. It's just that Faint made her decision earlier—using her own life as a threat, she forced her sister onto the journey of departure.\n\n\"Leave, Tinct. Don't let me hold you back.\"\n\n\"You shall sing among the stars, becoming the most dazzling color.\""
       },
       {
         "kind": "story",
         "title": "Story: IV",
         "unlockCondition": "Affinity Level 9",
-        "content": "Do I deserve to have wishes?\nIf I do, can I become a part of my sister?\nTo make her whole, to make us whole.\nOnly then could I express \"love\" without reservation, and she could embrace \"love\" with an undivided heart.\nDear Tinct... perhaps this is what I, as the firstborn child, should do for you..."
+        "content": "Do I deserve to have wishes?\n\nIf I do, can I become a part of my sister?\n\nTo make her whole, to make us whole.\n\nOnly then could I express \"love\" without reservation, and she could embrace \"love\" with an undivided heart.\n\nDear Tinct... perhaps this is what I, as the firstborn child, should do for you..."
       }
     ]
   }

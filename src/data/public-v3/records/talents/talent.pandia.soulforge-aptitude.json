@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0039",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Whip of Madness} gains {Retain} and {Prepare}. Pandia's Final DMG against targets with attack intention +[Arg3]%, which +5% per additional attack instance, up to 20%.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Whip of Madness} gains {Retain} and {Prepare}. Pandia's Final DMG against the target with attack intention +[Arg3]%, which +5% per additional attack instance, up to 20%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

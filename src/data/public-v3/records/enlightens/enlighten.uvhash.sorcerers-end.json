@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0051",
   "slot": "E3",
-  "descriptionTemplate": "{Hymn of Blood and Sand} enjoys an additional 1x {STR} multiplier with each {Devour}.",
+  "descriptionTemplate": "{Hymn of Blood and Sand} enjoys an additional 1× {STR} multiplier with each {Devour}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Uvhash"
 }

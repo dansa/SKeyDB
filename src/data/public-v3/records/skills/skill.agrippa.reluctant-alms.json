@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0002",
   "slot": "Skill1",
-  "descriptionTemplate": "Gain [Block:Arg1] Shield. Current {Embryo Fusion} is doubled.",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Current {Embryo Fusion} is doubled.\n{overlay:Embryo Fusion Double}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

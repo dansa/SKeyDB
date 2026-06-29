@@ -15,7 +15,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_067",
   "textColor": "affliction",
-  "descriptionTemplate": "If currently in an {Ultra Round}, activate the {Singularity Warp} effect. {Singularity Annihilation} also guarantees the next {Singularity Warp} trigger this turn.",
+  "descriptionTemplate": "Annihilate a card from {Ultra Space} to enable the next {Singularity Warp} trigger this turn, modifying the effects of this Exalt when released. {Singularity Warp} effects will always trigger if released during an {Ultra Round}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Arachne"
 }

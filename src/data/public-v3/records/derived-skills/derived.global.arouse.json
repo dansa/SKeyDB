@@ -7,7 +7,7 @@
     "slug": "arouse",
     "canonicalPath": "/database/derived-skills/arouse"
   },
-  "descriptionTemplate": "Increase all Awakeners' Aliemus by [Arg1]. Consume all {Stellar Protection}. For each stack consumed, recover 1 Arithmetica; if the Realm includes {Aequor}, also summon that many Temporary Tentacles.",
+  "descriptionTemplate": "Grant all Awakeners [Arg1] Aliemus. Consume all {Stellar Protection}. For each stack consumed, gain 1 Arithmetica; if the Realm includes {Aequor}, also spawn that many Temporary Tentacles.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

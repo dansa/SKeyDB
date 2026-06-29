@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0044",
   "derivedFromId": "skill.salvador.end-of-suffering",
   "rootSkillId": "skill.salvador.end-of-suffering",
-  "descriptionTemplate": "{Redemption} through faith. Consume all remaining Healing from the {Crimson Furnace} to gain Shield equal to 150% of the consumed amount. This Shield is unaffected by Shield Bonuses or Debuffs and ignores Shield Caps.",
+  "descriptionTemplate": "{Redemption} through faith. Consume all remaining {Crimson Furnace}. Gain Shield equal to 150% of the consumed amount. This Shield is unaffected by Shield Bonuses or Debuffs and ignores Shield Caps.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Salvador"

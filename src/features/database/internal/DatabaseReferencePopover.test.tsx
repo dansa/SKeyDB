@@ -495,6 +495,53 @@ describe('DatabaseReferencePopover', () => {
     )
   })
 
+  it('resolves typed overlay tokens through overlays when a card has the same name', async () => {
+    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
+    const onMechanicTokenClick = vi.fn()
+    const onSkillTokenClick = vi.fn()
+    const duplicateNameOverlay = {
+      id: 'overlay.doll-inferno.illusions-end',
+      displayName: "Illusion's End",
+      aliases: [],
+      overlayType: 'mechanic',
+      descriptionTemplate: 'Overlay state text.',
+      descriptionArgs: {},
+    } satisfies AwakenerOverlayRecord
+    const referenceLayer = buildReferenceLayer({
+      accessibleOverlays: [duplicateNameOverlay],
+      cardNames: new Set<string>(["Illusion's End"]),
+    })
+
+    render(
+      <TestDatabaseReferencePopover
+        description="{overlay:Illusion's End}"
+        descriptionRecord={{
+          id: 'skill.test.terminal',
+          ownerAwakenerId: 1,
+          kind: 'exalt',
+          displayName: 'Terminal',
+          cost: '4',
+          descriptionTemplate: "{overlay:Illusion's End}",
+          descriptionArgs: {},
+          cardKeywords: [],
+          variants: [],
+        }}
+        label='Card · Exalt · Cost 4'
+        name='Terminal'
+        onClose={vi.fn()}
+        onMechanicTokenClick={onMechanicTokenClick}
+        onSkillTokenClick={onSkillTokenClick}
+        referenceLayer={referenceLayer}
+        stats={null}
+      />,
+    )
+
+    fireEvent.click(await screen.findByRole('button', {name: "Illusion's End"}))
+
+    expect(onSkillTokenClick).not.toHaveBeenCalled()
+    expect(onMechanicTokenClick).toHaveBeenCalledWith(duplicateNameOverlay, expect.any(Object))
+  })
+
   it('renders appended keyword footers as clickable mechanic tokens', async () => {
     vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
     const onMechanicTokenClick = vi.fn()
@@ -603,6 +650,7 @@ describe('DatabaseReferencePopover', () => {
             record: {
               id: 'derived.test.memory-1',
               displayName: 'Memory One',
+              aliases: [],
               descriptionTemplate: 'Memory one.',
               descriptionArgs: {},
               childDerivedSkillIds: [],
@@ -626,6 +674,7 @@ describe('DatabaseReferencePopover', () => {
             record: {
               id: 'derived.test.memory-2',
               displayName: 'Memory Two',
+              aliases: [],
               descriptionTemplate: 'Memory two.',
               descriptionArgs: {},
               childDerivedSkillIds: [],
@@ -649,6 +698,7 @@ describe('DatabaseReferencePopover', () => {
           id: 'derived.test.memories',
           nodeKind: 'group',
           displayName: 'Memories',
+          aliases: [],
           descriptionTemplate: 'Choose a memory.',
           descriptionArgs: {},
           childDerivedSkillIds: ['derived.test.memory-1', 'derived.test.memory-2'],
@@ -708,6 +758,7 @@ describe('DatabaseReferencePopover', () => {
             record: {
               id: 'derived.test.choice-a',
               displayName: 'Thousand Mirage',
+              aliases: [],
               descriptionTemplate: 'Choice A.',
               descriptionArgs: {},
               childDerivedSkillIds: [],
@@ -731,6 +782,7 @@ describe('DatabaseReferencePopover', () => {
             record: {
               id: 'derived.test.choice-b',
               displayName: 'Thousand Mirage',
+              aliases: [],
               descriptionTemplate: 'Choice B.',
               descriptionArgs: {},
               childDerivedSkillIds: [],
@@ -757,6 +809,7 @@ describe('DatabaseReferencePopover', () => {
               id: 'derived.test.parent',
               nodeKind: 'group',
               displayName: 'Thousand Mirage',
+              aliases: [],
               descriptionTemplate: 'Parent.',
               descriptionArgs: {},
               childDerivedSkillIds: ['derived.test.choice-a', 'derived.test.choice-b'],
@@ -780,6 +833,7 @@ describe('DatabaseReferencePopover', () => {
           id: 'derived.test.parent',
           nodeKind: 'group',
           displayName: 'Thousand Mirage',
+          aliases: [],
           descriptionTemplate: 'Parent.',
           descriptionArgs: {},
           childDerivedSkillIds: ['derived.test.choice-a', 'derived.test.choice-b'],

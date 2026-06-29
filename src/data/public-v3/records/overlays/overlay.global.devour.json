@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": ["Devouring", "Devoured"],
   "textColor": "misc",
-  "descriptionTemplate": "If {Embryo} is in hand, consume 1 to trigger the {Devour} effect.",
+  "descriptionTemplate": "{Caro} Awakeners' Exalts will consume an {Embryo} card in hand to trigger {Devour}, modifying the effects of their Exalt.",
   "descriptionArgs": {}
 }

@@ -99,7 +99,7 @@ describe('awakener-skills', () => {
     expect(mediatingPersonalities?.descriptionTemplate).toContain('{Chaos}:')
     expect(mediatingPersonalities?.descriptionTemplate).toContain('[StateArg4]%')
     expect(mediatingPersonalities?.descriptionTemplate).toContain(
-      'Shuffle 1 "Insight" into the Discard Pile at turn end, Hand Limit +2.',
+      'Shuffle 1 {Insight} into the Discard Pile at turn end, Hand Limit +2.',
     )
     expect(strike24?.descriptionTemplate).toContain(
       'Depressed Persona: Gain an additional [DescArg1] Aliemus.',

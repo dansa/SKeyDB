@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0019",
   "derivedFromId": "skill.helot-catena.crimson-shackles",
   "rootSkillId": "skill.helot-catena.crimson-shackles",
-  "descriptionTemplate": "Treated as \"Strike\". Deal [Damage:Arg1] DMG, this DMG enjoys a 5x {STR} bonus and triggers the target's 30% {Bleed}, restores 15% of lost HP. After playing, it becomes {Crimson Shackles}.",
+  "descriptionTemplate": "Treated as \"Strike\". Deal [Damage:Arg1] DMG, this DMG enjoys a 5× {STR} bonus and triggers the target's 30% {Bleed}, restores 15% of lost HP. After playing, it becomes {Crimson Shackles}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

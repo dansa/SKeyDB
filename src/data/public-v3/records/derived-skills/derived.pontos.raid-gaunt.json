@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.pontos.raid-gaunt",
+  "name": "Raid-Gaunt",
+  "route": {
+    "slug": "raid-gaunt",
+    "canonicalPath": "/database/awakeners/pontos/derived-skills/raid-gaunt"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "derivedFromId": "derived.pontos.gaunts",
+  "rootSkillId": "skill.pontos.gauntwards-call",
+  "descriptionTemplate": "Shuffle [Arg1] {Insight} into the Draw Pile. Other Awakeners gain [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pontos.revelry-in-absence.derived.pontos.raid-gaunt",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.pontos.revelry-in-absence",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "patch": {
+        "descriptionTemplate": "Shuffle [Arg1] {Insight} into the Draw Pile. Other Awakeners gain [Energy:Arg2] Aliemus. {Aftershock}: Arithmetica Cost -1."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Pontos"
+}

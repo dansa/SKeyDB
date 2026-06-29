@@ -15,7 +15,7 @@
   "ownerAwakenerName": "Leigh",
   "rarity": "SSR",
   "realm": "CARO",
-  "descriptionTemplate": "At turn start, Leigh gains [Arg1] Aliemus. Whenever she loses HP, she gains [Arg2] {STR}, up to [Arg3] {plural:[Arg3]|time|times} per battle. After stacking [Arg3] {plural:[Arg3]|time|times}, the Arithmetica Cost of {Pain and Pleasure} -2, and the DMG count +1.",
+  "descriptionTemplate": "At turn start, Leigh gains [Arg1] Aliemus. Whenever she loses HP, she gains [Arg2] {STR}, up to [Arg3] {plural:[Arg3]|time|times} per battle. After stacking [Arg3] {plural:[Arg3]|time|times}, the Base Arithmetica Cost of {Pain and Pleasure} -2, and the DMG count +1.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

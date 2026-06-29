@@ -2,13 +2,13 @@
   "schemaVersion": 3,
   "kind": "overlay",
   "id": "overlay.global.divine-realm-tranquil-sea",
-  "name": "Divine Realm: Tranquil Sea",
+  "name": "Benthos: Tranquil Sea",
   "route": {
     "slug": "divine-realm-tranquil-sea",
     "canonicalPath": "/database/overlays/divine-realm-tranquil-sea"
   },
   "overlayType": "mechanic",
-  "aliases": [],
+  "aliases": ["Divine Realm: Tranquil Sea"],
   "descriptionTemplate": "Further gain [Block:Arg3] Shield. Tentacles will no longer attack at turn end, with a 3-turn cooldown.",
   "descriptionArgs": {
     "Arg3": {

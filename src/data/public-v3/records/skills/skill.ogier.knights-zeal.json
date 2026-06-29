@@ -44,7 +44,7 @@
       "ownerAwakenerId": "awakener-0038",
       "ownerAwakenerName": "Ogier",
       "patch": {
-        "descriptionTemplate": "Ogier gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg3] {STR}; every time Ogier plays a card, gain [Power:Arg2] {STR}. If {Death Resistance} has been triggered this battle, Ogier's Exalt generates 3x the Temporary {STR}.",
+        "descriptionTemplate": "Ogier gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg3] {STR}; every time Ogier plays a card, gain [Power:Arg2] {STR}. If {Death Resistance} has been triggered this battle, Ogier's Exalt generates 3× the Temporary {STR}.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

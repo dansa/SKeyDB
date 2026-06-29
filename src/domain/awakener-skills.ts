@@ -1,4 +1,4 @@
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicSkillCatalogRecords} from '@/data-access/public-data/catalogScopes/skillsCatalog'
 
 import {awakenerSkillsDatasetSchema, type AwakenerSkillRecord} from './awakener-source-schema'
 import {
@@ -42,7 +42,7 @@ export function getAwakenerSkills(): AwakenerSkillRecord[] {
   }
 
   awakenerSkillsCache = awakenerSkillsDatasetSchema.parse(
-    getPublicCatalogRecords('skills')
+    getPublicSkillCatalogRecords()
       .map(parsePublicV3SkillCatalogRecord)
       .sort(comparePublicSkillRecords)
       .map(adaptPublicV3SkillRecord),

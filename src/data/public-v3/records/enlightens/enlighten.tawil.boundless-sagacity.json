@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0047",
   "slot": "E1",
-  "descriptionTemplate": "{Omniscient Verity} reduces the Arithmetica of the card it changes into by 1. {Pinions of Time} places an additional \"Insight\" into hand.",
+  "descriptionTemplate": "{Omniscient Verity} reduces the Arithmetica of the card it changes into by 1. {Pinions of Time} places an additional {Insight} into hand.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Tawil"
 }

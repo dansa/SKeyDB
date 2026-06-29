@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0012",
   "slot": "Skill1",
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG to the enemy with the lowest HP, which enjoys a 5x {STR} bonus. After Daffodil kills an enemy in any way, the Base DMG of {Skull Reaver} permanently +25% for the rest of this stage. {Leap}: Instead, deal [Damage:Arg2] DMG to the enemy with the highest HP.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to the enemy with the lowest HP, which enjoys a 5× {STR} bonus. After Daffodil kills an enemy in any way, the Base DMG of {Skull Reaver} permanently +25% for the rest of this stage. {Leap}: Instead, deal [Damage:Arg2] DMG to the enemy with the highest HP.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

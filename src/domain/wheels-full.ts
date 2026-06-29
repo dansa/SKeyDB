@@ -4,7 +4,7 @@ import {
   resolvePublicAsset,
   resolvePublicEntityAsset,
 } from '@/data-access/public-data/assetRepository'
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicWheelCatalogRecords} from '@/data-access/public-data/catalogScopes/wheelsCatalog'
 
 import {
   publicDescriptionArgsSchema,
@@ -75,7 +75,7 @@ export function getWheelsFull(): WheelFullRecord[] {
   }
 
   wheelsFullCache = publicWheelRecordsSchema
-    .parse(getPublicCatalogRecords('wheels'))
+    .parse(getPublicWheelCatalogRecords())
     .map(adaptPublicWheel)
   return wheelsFullCache
 }

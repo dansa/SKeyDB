@@ -334,6 +334,7 @@ export const derivedSkillSchema = describedRecordSchema.extend({
   ownerAwakenerId: z.number().int().positive().optional(),
   nodeKind: z.enum(['card', 'group']).optional(),
   displayName: nonEmptyStringSchema,
+  aliases: z.array(nonEmptyStringSchema).default([]),
   cost: nonEmptyStringSchema.optional(),
   derivedFromId: nonEmptyStringSchema.optional(),
   rootSkillId: nonEmptyStringSchema.optional(),

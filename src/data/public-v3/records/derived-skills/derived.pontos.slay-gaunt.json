@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.pontos.slay-gaunt",
+  "name": "Slay-Gaunt",
+  "route": {
+    "slug": "slay-gaunt",
+    "canonicalPath": "/database/awakeners/pontos/derived-skills/slay-gaunt"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "derivedFromId": "derived.pontos.gaunts",
+  "rootSkillId": "skill.pontos.gauntwards-call",
+  "descriptionTemplate": "Deal {Fixed DMG} equal to [Arg5]% {Tentacle DMG} to the lowest-HP enemy, and gain Temporary Crit. DMG equal to [Arg3]% of Pontos's Base Crit. DMG.",
+  "descriptionArgs": {
+    "Arg3": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    },
+    "Arg5": {
+      "kind": "scaling",
+      "values": ["1000", "1200", "1400", "1600", "1800", "2000"],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pontos.lure-of-light.derived.pontos.slay-gaunt",
+      "operation": "override_args",
+      "upgraderId": "enlighten.pontos.lure-of-light",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E1",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "patch": {
+        "descriptionArgs": {
+          "Arg3": {
+            "kind": "fixed",
+            "value": "15",
+            "suffix": "%"
+          },
+          "Arg5": {
+            "kind": "scaling",
+            "values": ["1100", "1320", "1540", "1760", "1980", "2200"],
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "CritDamage",
+              "multiplier": "0.2",
+              "mode": "scale_base"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "upgrade.enlighten.pontos.revelry-in-absence.derived.pontos.slay-gaunt",
+      "operation": "mixed",
+      "upgraderId": "enlighten.pontos.revelry-in-absence",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "patch": {
+        "descriptionTemplate": "Deal {Fixed DMG} equal to [Arg5]% {Tentacle DMG} to the lowest-HP enemy, and gain Temporary Crit. DMG equal to [Arg3]% of Pontos's Base Crit. DMG. {Aftershock}: Arithmetica Cost -1.",
+        "descriptionArgs": {
+          "Arg3": {
+            "kind": "fixed",
+            "value": "15",
+            "suffix": "%"
+          },
+          "Arg5": {
+            "kind": "scaling",
+            "values": ["1100", "1320", "1540", "1760", "1980", "2200"],
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "CritDamage",
+              "multiplier": "0.2",
+              "mode": "scale_base"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Pontos"
+}

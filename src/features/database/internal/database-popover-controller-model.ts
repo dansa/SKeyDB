@@ -2,6 +2,7 @@ import type {AwakenerEnlightenRecord, AwakenerOverlayRecord} from '@/domain/awak
 import {
   resolveDatabaseReferenceInfo,
   resolveDatabaseReferenceInfoById,
+  resolveDatabaseReferenceInfoByKindAndName,
 } from '@/domain/database-reference-info'
 import {
   buildDatabaseOverlayLabel,
@@ -59,7 +60,7 @@ export function buildTrailEntry(
       reference.kind === 'skill'
         ? {kind: 'skills'}
         : reference.kind === 'wheel'
-          ? {kind: 'wheel-page', wheelName: reference.name}
+          ? {kind: 'wheel-page', wheelId: reference.id, wheelName: reference.name}
           : undefined,
     referenceLayerOverride,
     selectedEnlightenSlot,
@@ -88,8 +89,16 @@ export function buildOverlayFallbackEntry(
 export function resolveReferenceByName(
   layer: DatabaseReferenceLayer | null,
   name: string,
+  preferredKind?: DatabaseReferenceInfo['kind'],
 ): DatabaseReferenceInfo | null {
-  return layer ? resolveDatabaseReferenceInfo(layer, name) : null
+  if (!layer) {
+    return null
+  }
+
+  return preferredKind
+    ? (resolveDatabaseReferenceInfoByKindAndName(layer, preferredKind, name) ??
+        resolveDatabaseReferenceInfo(layer, name))
+    : resolveDatabaseReferenceInfo(layer, name)
 }
 
 export function resolveOverlayReference(
@@ -206,7 +215,7 @@ export function resolveNavigationHandler({
         ? (clearTrail) => {
             clearTrail()
             handlers.onNavigateToWheelPage?.({
-              id: activeEntryId,
+              id: navigationTarget.wheelId ?? activeEntryId,
               name: navigationTarget.wheelName,
             })
           }
@@ -232,6 +241,15 @@ export function withInheritedReferenceLayerOverride(
 ): TrailEntry {
   return {
     ...entry,
+    referenceId: inferReferenceIdFromEntryKey(entry.key),
     referenceLayerOverride: entry.referenceLayerOverride ?? sourceEntry?.referenceLayerOverride,
   }
+}
+
+function inferReferenceIdFromEntryKey(key: string): string | undefined {
+  const separatorIndex = key.indexOf(':')
+  if (separatorIndex <= 0 || separatorIndex >= key.length - 1) {
+    return undefined
+  }
+  return key.slice(separatorIndex + 1)
 }

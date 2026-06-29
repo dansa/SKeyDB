@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Astral Reign - Ch. 1 - Return to the Big Smoke",
   "realm": "CHAOS",
   "lineupToken": "J",
-  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Arg1], and inflict [Arg2] {Poison} on all enemies. For each 1% of HP the target is missing, trigger 1% of their {Poison}, up to 50%.",
+  "descriptionTemplate": "Grant a chosen Awakener [Arg1] Aliemus, and inflict [Arg2] {Poison} on each enemy. For each 1% of HP each enemy is missing, trigger 1% of their {Poison}, up to 50%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -2,13 +2,13 @@
   "schemaVersion": 3,
   "kind": "overlay",
   "id": "overlay.global.divine-realm-raging-waves",
-  "name": "Divine Realm: Raging Waves",
+  "name": "Benthos: Raging Waves",
   "route": {
     "slug": "divine-realm-raging-waves",
     "canonicalPath": "/database/overlays/divine-realm-raging-waves"
   },
   "overlayType": "mechanic",
-  "aliases": [],
+  "aliases": ["Divine Realm: Raging Waves"],
   "descriptionTemplate": "This turn, {Tentacle DMG} becomes [Arg2]%, after dealing Active DMG, causes 1 Tentacle to attack the enemy. Loses 1 Tentacle at turn end. This stance can only be chosen when the current Permanent Tentacle Count exceeds 1, with a 3-turn cooldown.",
   "descriptionArgs": {
     "Arg2": {

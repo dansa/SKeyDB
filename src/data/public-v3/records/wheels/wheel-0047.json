@@ -13,7 +13,7 @@
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_DMG",
-  "lineupToken": "y8",
+  "lineupToken": "y4",
   "descriptionTemplate": "Team Unique: After exploration starts, shuffle 1 {Stakes of Wisdom} into the Draw Pile. {Stakes of Wisdom}: Cost 1 Arithmetica. Shuffle all Command Cards in hand randomly into the Draw Pile. Shuffled Command Cards have a [StateArg1]% chance to take effect 1 additional time when played next, and for each Command Card shuffled in, all Awakeners gain 2 Aliemus. {Retain}. {Exhaust}. {Innate}.",
   "descriptionArgs": {
     "StateArg1": {

@@ -15,7 +15,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_067",
   "textColor": "affliction",
-  "descriptionTemplate": "For each stack, increase the final DMG, {STR} & {Tentacle DMG} bonus, fixed {Poison}, and fixed {Counter} effects of all Awakener cards by 2%; increase the final Shield, HP Recovery, and {STR▼} effects by 1%.",
+  "descriptionTemplate": "For each stack, all Command Cards' Final DMG, {STR} & {Tentacle DMG} gain, Fixed-value {Poison} & {Counter} each +2%, and their Final Shield, HP Recovery, and {STR▼} each +1%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Arachne"
 }

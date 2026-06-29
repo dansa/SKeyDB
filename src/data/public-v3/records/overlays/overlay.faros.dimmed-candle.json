@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.faros.dimmed-candle",
+  "name": "Dimmed candle",
+  "route": {
+    "slug": "dimmed-candle",
+    "canonicalPath": "/database/awakeners/faros/overlays/dimmed-candle"
+  },
+  "assets": {
+    "icon": "asset-overlay.faros.dimmed-candle-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0017",
+  "aliases": [],
+  "iconId": "IconS_Buff_045",
+  "descriptionTemplate": "At turn end, for each card in hand, inflict 3% {Poison} on all enemies and gain 3 Aliemus.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Faros"
+}

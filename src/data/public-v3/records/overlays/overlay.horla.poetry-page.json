@@ -10,7 +10,7 @@
   "overlayType": "tag",
   "ownerAwakenerId": "awakener-0024",
   "aliases": ["Poetry Pages", "Poems"],
-  "descriptionTemplate": "Rain's Dirge: Restore [DescArg1] HP.\nWind's Psalm: Obtain [DescArg2] {STR}.\nFloral Hymn: All Awakeners gain 10 Aliemus.\nMoon's Anthem: Temporary Crit. Rate increased by 30%.",
+  "descriptionTemplate": "Rain's Dirge: Recover [DescArg1] HP.\nWind's Psalm: Gain [DescArg2] {STR}.\nFloral Hymn: Grant all Awakeners 10 Aliemus.\nMoon's Anthem: Crit. Rate +30% this turn.",
   "descriptionArgs": {
     "DescArg1": {
       "kind": "computed",

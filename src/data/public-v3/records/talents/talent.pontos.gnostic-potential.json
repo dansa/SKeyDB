@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 3,
+  "kind": "talent",
+  "id": "talent.pontos.gnostic-potential",
+  "name": "Gnostic Potential",
+  "route": {
+    "slug": "gnostic-potential",
+    "canonicalPath": "/database/awakeners/pontos/talents/gnostic-potential"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "family": "gnostic_potential",
+  "maxLevel": 5,
+  "defaultMaxed": true,
+  "descriptionTemplate": "This Awakener gains [Arg1] Levels of Base Attributes.\n·CON +[Talent_Attr_Lv_physique]\n·ATK +[Talent_Attr_Lv_atk]\n·DEF +[Talent_Attr_Lv_def]",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "2",
+      "gainPerLevel": "2"
+    },
+    "Talent_Attr_Lv_physique": {
+      "kind": "linear",
+      "base": "4",
+      "gainPerLevel": "4"
+    },
+    "Talent_Attr_Lv_atk": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Talent_Attr_Lv_def": {
+      "kind": "linear",
+      "base": "4",
+      "gainPerLevel": "4"
+    }
+  },
+  "ownerAwakenerName": "Pontos"
+}

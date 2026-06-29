@@ -15,7 +15,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_039",
   "textColor": "light",
-  "descriptionTemplate": "With 3 {Negentropy} stacks, using Ramona: Timeworn's Command Cards consumes all stacks and triggers the extra {Loop} effect. (Max 3 stacks)",
+  "descriptionTemplate": "Ramona: Timeworn can accrue this negative entropy during battle, and utilizes it to power her Command Cards' {Loop} effects. Max 3 stacks. {Negentropy} stacks persist between battles.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Ramona: Timeworn"
 }

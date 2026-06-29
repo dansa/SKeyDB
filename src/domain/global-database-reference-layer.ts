@@ -16,6 +16,7 @@ import {
   buildDatabaseOverlayLookup,
   buildDatabaseOverlayReferenceInfo,
   DatabaseReferenceLookupAccumulator,
+  getDatabaseDerivedSkillAliases,
   type DatabaseReferenceInfo,
   type ResolvedDatabaseReferenceLayer,
 } from './database-reference-layer'
@@ -326,18 +327,20 @@ export function buildGlobalDatabaseReferenceLayer({
   const posseInfos = buildPosseReferenceEntries(posses)
   const covenantInfos = buildCovenantReferenceEntries(covenants)
 
-  referenceInfos.addMany([
-    ...extraReferenceInfos,
-    ...wheelInfos,
-    ...posseInfos,
-    ...covenantInfos,
-    ...referencedDerivedSkills.map((record) =>
+  referenceInfos.addMany([...extraReferenceInfos, ...wheelInfos, ...posseInfos, ...covenantInfos])
+
+  for (const record of referencedDerivedSkills) {
+    referenceInfos.add(
       buildDatabaseDerivedSkillReferenceInfo(record, formulaContext),
-    ),
-    ...referencedAwakenerSkills.map((record) =>
+      getDatabaseDerivedSkillAliases(record),
+    )
+  }
+
+  referenceInfos.addMany(
+    referencedAwakenerSkills.map((record) =>
       buildAwakenerSkillReferenceInfo(record, formulaContext),
     ),
-  ])
+  )
 
   for (const overlay of overlays) {
     referenceInfos.add(
@@ -353,6 +356,7 @@ export function buildGlobalDatabaseReferenceLayer({
       ...posseInfos.map((info) => info.name),
       ...covenantInfos.map((info) => info.name),
       ...referencedDerivedSkills.map((entry) => entry.displayName),
+      ...referencedDerivedSkills.flatMap((entry) => getDatabaseDerivedSkillAliases(entry)),
       ...referencedAwakenerSkills.map((entry) => entry.displayName),
     ]),
     accessibleOverlays: overlays,

@@ -27,6 +27,18 @@
   "cost": "100",
   "upgrades": [
     {
+      "id": "upgrade.enlighten.faros.flickering-candle.skill.faros.lost-city-of-lemuria",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.faros.flickering-candle",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0017",
+      "ownerAwakenerName": "Faros",
+      "patch": {
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Dispel self {Vulnerable} state. Choose up to 3 cards from the Draw Pile and add them to your hand.\n{overlay:Dimmed candle}"
+      }
+    },
+    {
       "id": "upgrade.talent.faros.homesick.skill.faros.lost-city-of-lemuria",
       "operation": "link_only",
       "upgraderId": "talent.faros.homesick",

@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Dreamscape: Beyond the Skies: Part I",
   "realm": "ULTRA",
   "lineupToken": "O",
-  "descriptionTemplate": "Increase a chosen Awakener's Aliemus by [Energy:Arg3]. Draw [Arg2] {plural:[Arg2]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. If Castor is in team, increase his Temp. DMG Amplification by [Arg1]%.",
+  "descriptionTemplate": "Grant a chosen Awakener [Energy:Arg3] Aliemus. Draw [Arg2] {plural:[Arg2]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. If Castor is in the team, increase his Temp. DMG Amplification by [Arg1]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Everburning Vex",
   "realm": "CHAOS",
   "lineupToken": "R",
-  "descriptionTemplate": "Recover 1 Arithmetica and gain [Arg1]% Temp. DMG Amplification. If Kathigu-Ra is in team, draw 1 of her cards and apply 1 stack of {Fiamma} to it",
+  "descriptionTemplate": "Gain 1 Arithmetica and [Arg1]% Temp. DMG Amplification. If Kathigu-Ra is in the team, draw 1 of her cards and apply 1 stack of {Fiamma} to it.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0025",
   "slot": "Skill2",
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. In this battle, the DMG dealt by {Get 'em! Brown!} +[Arg2]. {Leap}: This skill additionally benefits from an additional 1x {STR} bonus.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. In this battle, the DMG dealt by {Get 'em! Brown!} +[Arg2]. {Leap}: This skill additionally benefits from an additional 1× {STR} bonus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -41,7 +41,7 @@
       "ownerAwakenerId": "awakener-0025",
       "ownerAwakenerName": "Jenkin",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG. In this battle, the DMG of {Get 'em! Brown!} +[Arg2], and the DMG of {Swarm Impact} +[Arg3]. {Leap}: Enjoys an additional 1x {STR} bonus.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. In this battle, the DMG of {Get 'em! Brown!} +[Arg2], and the DMG of {Swarm Impact} +[Arg3]. {Leap}: Enjoys an additional 1× {STR} bonus.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

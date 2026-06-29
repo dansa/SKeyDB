@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0046",
   "ownerAwakenerName": "Sorel",
   "lineupToken": "xc",
-  "descriptionTemplate": "Team Unique: For every instance of DMG dealt by the wielder, there is a [StateArg3]% chance for the wielder to gain 2% Temporary Crit. DMG. After the wielder releases Exalt, they deal Active DMG 3 times to a random enemy equal to [StateArg1]% of the wielder's ATK. If the current realm is {Caro}, for every {Embryo} {Devoured}, {Embryo Fusion} +[StateArg2].",
+  "descriptionTemplate": "Team Unique: For every instance of DMG dealt by the wielder, there is a [StateArg3]% chance for the wielder to gain 2% Temporary Crit. DMG. After the wielder releases Exalt, they deal Active DMG 3 times to a random enemy equal to [StateArg1]% of the wielder's ATK. If the current realm is {Caro}, for every {Embryo} {Devoured}, {Embryo Fusion} +[Blood:StateArg2].",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

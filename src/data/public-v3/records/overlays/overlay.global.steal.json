@@ -14,6 +14,6 @@
   "aliases": ["Stealing"],
   "iconId": "IconS_Buff_014",
   "textColor": "affliction",
-  "descriptionTemplate": "Temporarily reduce target's {STR▼} and gain the same amount of Temporary {STR}.",
+  "descriptionTemplate": "Inflict an amount of Temporary {STR▼} and gain an equivalent amount of Temporary {STR}.",
   "descriptionArgs": {}
 }

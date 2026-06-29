@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0022",
   "ownerAwakenerName": "Hameln",
   "lineupToken": "xX",
-  "descriptionTemplate": "At the start of investigation, add 1 {Silver Key Dawn} with {Destroy} to the deck.\nWhenever you unleash a Posse, the wielder's Crit. DMG +[StateArg1]%.\nWhenever the wielder deals DMG, their Crit. Rate +[StateArg3]% this turn and you gain Keyflare equal to [StateArg2]% of their Keyflare Regen, up to 5 times each turn.",
+  "descriptionTemplate": "At exploration start, add 1 {Silver Key Dawn} with {Destroy} to the deck.\nWhenever Posse is unleashed, the wielder's Crit. DMG +[StateArg1]%.\nWhenever the wielder deals DMG, their Crit. Rate +[StateArg3]% this turn and you gain Keyflare equal to [StateArg2]% of their Keyflare Regen, up to 5 times each turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

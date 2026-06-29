@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "overlays",
   "kind": "overlay",
-  "recordCount": 133,
+  "recordCount": 144,
   "records": [
     {
       "kind": "overlay",
@@ -164,6 +164,22 @@
     },
     {
       "kind": "overlay",
+      "id": "overlay.caecus.outcasts-anguish",
+      "name": "Outcast's Anguish",
+      "route": {
+        "slug": "outcasts-anguish",
+        "canonicalPath": "/database/awakeners/caecus/overlays/outcasts-anguish"
+      },
+      "assets": {
+        "icon": "asset-overlay.caecus.outcasts-anguish-icon"
+      },
+      "ownerAwakenerId": "awakener-0006",
+      "ownerAwakenerName": "Caecus",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
       "id": "overlay.celeste.revival",
       "name": "Revival",
       "route": {
@@ -257,6 +273,22 @@
     },
     {
       "kind": "overlay",
+      "id": "overlay.doll-inferno.illusions-end",
+      "name": "Illusion's End",
+      "route": {
+        "slug": "illusions-end",
+        "canonicalPath": "/database/awakeners/doll-inferno/overlays/illusions-end"
+      },
+      "assets": {
+        "icon": "asset-overlay.doll-inferno.illusions-end-icon"
+      },
+      "ownerAwakenerId": "awakener-0018",
+      "ownerAwakenerName": "Doll: Inferno",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
       "id": "overlay.doresain.corpse",
       "name": "Corpse",
       "route": {
@@ -270,6 +302,22 @@
       "ownerAwakenerName": "Doresain",
       "overlayType": "mechanic",
       "textColor": "misc",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.faros.dimmed-candle",
+      "name": "Dimmed candle",
+      "route": {
+        "slug": "dimmed-candle",
+        "canonicalPath": "/database/awakeners/faros/overlays/dimmed-candle"
+      },
+      "assets": {
+        "icon": "asset-overlay.faros.dimmed-candle-icon"
+      },
+      "ownerAwakenerId": "awakener-0017",
+      "ownerAwakenerName": "Faros",
+      "overlayType": "mechanic",
       "aliases": []
     },
     {
@@ -580,68 +628,68 @@
     {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-aequor",
-      "name": "Divine Realm: Aequor",
+      "name": "Benthos: Aequor",
       "route": {
         "slug": "divine-realm-aequor",
         "canonicalPath": "/database/overlays/divine-realm-aequor"
       },
       "overlayType": "realm",
-      "aliases": []
+      "aliases": ["Divine Realm: Aequor"]
     },
     {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-aequor-mastery",
-      "name": "Divine Realm: Aequor Mastery",
+      "name": "Benthos: Aequor Mastery",
       "route": {
         "slug": "divine-realm-aequor-mastery",
         "canonicalPath": "/database/overlays/divine-realm-aequor-mastery"
       },
       "overlayType": "mechanic",
-      "aliases": []
+      "aliases": ["Divine Realm: Aequor Mastery"]
     },
     {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-raging-waves",
-      "name": "Divine Realm: Raging Waves",
+      "name": "Benthos: Raging Waves",
       "route": {
         "slug": "divine-realm-raging-waves",
         "canonicalPath": "/database/overlays/divine-realm-raging-waves"
       },
       "overlayType": "mechanic",
-      "aliases": []
+      "aliases": ["Divine Realm: Raging Waves"]
     },
     {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-surging-tides",
-      "name": "Divine Realm: Surging Tides",
+      "name": "Benthos: Surging Tides",
       "route": {
         "slug": "divine-realm-surging-tides",
         "canonicalPath": "/database/overlays/divine-realm-surging-tides"
       },
       "overlayType": "mechanic",
-      "aliases": []
+      "aliases": ["Divine Realm: Surging Tides"]
     },
     {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-tentacle-stance",
-      "name": "Divine Realm: Tentacle Stance",
+      "name": "Benthos: Tentacle Stance",
       "route": {
         "slug": "divine-realm-tentacle-stance",
         "canonicalPath": "/database/overlays/divine-realm-tentacle-stance"
       },
       "overlayType": "mechanic",
-      "aliases": []
+      "aliases": ["Divine Realm: Tentacle Stance"]
     },
     {
       "kind": "overlay",
       "id": "overlay.global.divine-realm-tranquil-sea",
-      "name": "Divine Realm: Tranquil Sea",
+      "name": "Benthos: Tranquil Sea",
       "route": {
         "slug": "divine-realm-tranquil-sea",
         "canonicalPath": "/database/overlays/divine-realm-tranquil-sea"
       },
       "overlayType": "mechanic",
-      "aliases": []
+      "aliases": ["Divine Realm: Tranquil Sea"]
     },
     {
       "kind": "overlay",
@@ -665,6 +713,17 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.global.embryo-fusion-double",
+      "name": "Embryo Fusion Double",
+      "route": {
+        "slug": "embryo-fusion-double",
+        "canonicalPath": "/database/overlays/embryo-fusion-double"
+      },
+      "overlayType": "mechanic",
       "aliases": []
     },
     {
@@ -831,6 +890,18 @@
       },
       "overlayType": "mechanic",
       "textColor": "heal",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.global.mental-interference",
+      "name": "Mental Interference",
+      "route": {
+        "slug": "mental-interference",
+        "canonicalPath": "/database/overlays/mental-interference"
+      },
+      "overlayType": "mechanic",
+      "textColor": "misc",
       "aliases": []
     },
     {
@@ -1545,6 +1616,38 @@
     },
     {
       "kind": "overlay",
+      "id": "overlay.miryam.undying-piety",
+      "name": "Undying Piety",
+      "route": {
+        "slug": "undying-piety",
+        "canonicalPath": "/database/awakeners/miryam/overlays/undying-piety"
+      },
+      "assets": {
+        "icon": "asset-overlay.miryam.undying-piety-icon"
+      },
+      "ownerAwakenerId": "awakener-0032",
+      "ownerAwakenerName": "Miryam",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.miryam.vanitys-collapse",
+      "name": "Vanity's Collapse",
+      "route": {
+        "slug": "vanitys-collapse",
+        "canonicalPath": "/database/awakeners/miryam/overlays/vanitys-collapse"
+      },
+      "assets": {
+        "icon": "asset-overlay.miryam.vanitys-collapse-icon"
+      },
+      "ownerAwakenerId": "awakener-0032",
+      "ownerAwakenerName": "Miryam",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
       "id": "overlay.murphy-fauxborn.birth-ritual",
       "name": "Birth Ritual",
       "route": {
@@ -1691,6 +1794,23 @@
     },
     {
       "kind": "overlay",
+      "id": "overlay.pontos.pack-hunt",
+      "name": "Pack Hunt",
+      "route": {
+        "slug": "pack-hunt",
+        "canonicalPath": "/database/awakeners/pontos/overlays/pack-hunt"
+      },
+      "assets": {
+        "icon": "asset-overlay.pontos.pack-hunt-icon"
+      },
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "overlayType": "mechanic",
+      "textColor": "shield",
+      "aliases": ["Battue"]
+    },
+    {
+      "kind": "overlay",
       "id": "overlay.ramona-timeworn.loop",
       "name": "Loop",
       "route": {
@@ -1725,6 +1845,22 @@
     },
     {
       "kind": "overlay",
+      "id": "overlay.ryker.certain-gain",
+      "name": "Certain Gain",
+      "route": {
+        "slug": "certain-gain",
+        "canonicalPath": "/database/awakeners/ryker/overlays/certain-gain"
+      },
+      "assets": {
+        "icon": "asset-overlay.ryker.certain-gain-icon"
+      },
+      "ownerAwakenerId": "awakener-0043",
+      "ownerAwakenerName": "Ryker",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
       "id": "overlay.ryker.chaotic-legacy",
       "name": "Chaotic Legacy",
       "route": {
@@ -1735,6 +1871,19 @@
       "ownerAwakenerName": "Ryker",
       "overlayType": "mechanic",
       "textColor": "misc",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.ryker.winner-takes-all",
+      "name": "Winner Takes All",
+      "route": {
+        "slug": "winner-takes-all",
+        "canonicalPath": "/database/awakeners/ryker/overlays/winner-takes-all"
+      },
+      "ownerAwakenerId": "awakener-0043",
+      "ownerAwakenerName": "Ryker",
+      "overlayType": "mechanic",
       "aliases": []
     },
     {
@@ -1753,6 +1902,22 @@
       "overlayType": "mechanic",
       "textColor": "light",
       "aliases": ["Gynoecium stacks"]
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.tulu.the-stars-are-right",
+      "name": "The Stars Are Right",
+      "route": {
+        "slug": "the-stars-are-right",
+        "canonicalPath": "/database/awakeners/tulu/overlays/the-stars-are-right"
+      },
+      "assets": {
+        "icon": "asset-overlay.tulu.the-stars-are-right-icon"
+      },
+      "ownerAwakenerId": "awakener-0050",
+      "ownerAwakenerName": "Tulu",
+      "overlayType": "mechanic",
+      "aliases": []
     },
     {
       "kind": "overlay",

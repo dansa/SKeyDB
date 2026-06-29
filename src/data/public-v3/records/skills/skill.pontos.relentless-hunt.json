@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.pontos.relentless-hunt",
+  "name": "Relentless Hunt",
+  "route": {
+    "slug": "relentless-hunt",
+    "canonicalPath": "/database/awakeners/pontos/skills/relentless-hunt"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "slot": "Exalt",
+  "descriptionTemplate": "Remove own {STR▼} state. All enemies' {STR▼} -[Exhaustion:Arg8] temporarily. Deal {Fixed DMG} equal to [Arg2]% {Tentacle DMG} to the lowest-HP enemy. If this kills the target, generate 1 permanent {Gaunt} into hand. Max 3 permanent {Gaunts} generated per battle.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["3000", "3600", "4200", "4800", "5400", "6000"],
+      "suffix": "%"
+    },
+    "Arg8": {
+      "kind": "scaling",
+      "values": ["18", "21.6", "25.2", "28.8", "32.4", "36"],
+      "stat": "DEF",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "150",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pontos.lure-of-light.skill.pontos.relentless-hunt",
+      "operation": "override_args",
+      "upgraderId": "enlighten.pontos.lure-of-light",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E1",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "patch": {
+        "descriptionArgs": {
+          "Arg2": {
+            "kind": "scaling",
+            "values": ["3000", "3600", "4200", "4800", "5400", "6000"],
+            "suffix": "%"
+          },
+          "Arg8": {
+            "kind": "scaling",
+            "values": ["18.9", "22.68", "26.46", "30.24", "34.02", "37.8"],
+            "stat": "DEF",
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "CritDamage",
+              "multiplier": "0.1",
+              "mode": "scale_base"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Pontos"
+}

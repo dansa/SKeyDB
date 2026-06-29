@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0171",
+  "name": "The Living Cage",
+  "route": {
+    "slug": "the-living-cage",
+    "canonicalPath": "/database/wheels/the-living-cage"
+  },
+  "assets": {
+    "icon": "asset-wheel-0171-icon"
+  },
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "mainstatKey": "CRIT_DMG",
+  "ownerAwakenerId": "awakener-0058",
+  "ownerAwakenerName": "Pontos",
+  "lineupToken": "y9",
+  "descriptionTemplate": "Team Unique: The wielder's {STR▼} effect +[StateArg1]%. For the current exploration, each kill increases the wielder's fixed Aliemus recovery at turn end by 2, stacking up to [StateArg2] times. After switching to the {Raging Waves} stance, Temporary Crit. DMG increases by an amount equal to [StateArg1]% of the wielder's Base Crit. DMG, with a 3-turn cooldown.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["20", "25", "30", "35"],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": ["4", "6", "8", "10"]
+    }
+  },
+  "lore": "If wishes could truly come true, Pontos would wish for farewells to announce themselves before they arrived.\nHis parents vanished without a trace. On a quiet afternoon, his sister Leisha hired a rickshaw, which later brought them to a long iron behemoth reeking of diesel, rattling and roaring, until it spat him out at a seaside town.\nLeisha never breathed a single word about their parents' whereabouts. After a fierce argument, he stormed off, rushing into the harbor thick with the stench of brine and fish.\nThe sea folk, with unnaturally wide-set eyes, were peddling bizarre fish dredged from the abyss—depths no human strength could ever reach.\n\"Hey, stay back. Those fish might be cursed, just like the creatures that caught them,\" a passerby warned in a hushed tone.\nNo one wanted to see this handsome, newly arrived young man get mixed up in trouble.\nHe offered his habitual easygoing smile, but his gaze was irresistibly drawn to a dark, decaying lure. Right beneath it lay a gaping maw bristling with sharp teeth, ugly and contorted, curving inward in savage disarray. A phantom voice murmured from the depths of his mind, recounting the life of this dead creature.\n<Italic:Down in the lightless deep, it lured, plundered, and stopped at nothing. Its body was a fortress, a living cage, trapping its offspring, its lovers, its enemies, and its prey.>\n<Italic:All the beautiful things in its life were meant to be fleeting, but it held them all fast. It made its own body their vessel, fusing them in an inseparable, eternal embrace.>\nPontos gave his head a sharp shake, looking around in terror amidst a sharp, ringing noise in his ears.\nThe voice receded like a tide. He dismissed the whole episode as a fleeting delusion, silently mocking his own frayed nerves.\nAnd so, entirely unaware, he began his descent into his preordained fate.",
+  "searchTags": ["Aliemus", "Crit DMG"]
+}

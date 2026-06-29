@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.gobble-up",
+  "name": "Gobble Up!",
+  "route": {
+    "slug": "gobble-up",
+    "canonicalPath": "/database/derived-skills/gobble-up"
+  },
+  "descriptionTemplate": "Instead create all 3 Discovered Skill Cards, but their Arithmetica Costs are not reduced.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "cost": "0"
+}

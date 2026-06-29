@@ -47,41 +47,6 @@
       "patch": {
         "descriptionTemplate": "Restore [Heal:Arg1] HP, obtain [Power:Arg2] {STR}. other Awakeners gain [Energy:Arg3] Aliemus, Temporary Crit. Rate and Crit. DMG +[Arg4]%. Under different emotions, {Resplendent Chapters}' corresponding effects are enhanced by 250%."
       }
-    },
-    {
-      "id": "upgrade.enlighten.horla.ink-stained-sonnet.skill.horla.resplendent-chapters",
-      "operation": "mixed",
-      "upgraderId": "enlighten.horla.ink-stained-sonnet",
-      "upgraderType": "enlighten",
-      "upgraderSlot": "OverExalt",
-      "ownerAwakenerId": "awakener-0024",
-      "ownerAwakenerName": "Horla",
-      "patch": {
-        "descriptionTemplate": "Restore [Heal:Arg1] HP, obtain [Power:Arg2] {STR}. other Awakeners gain [Energy:Arg3] Aliemus, Temporary Crit. Rate and Crit. DMG +[Arg4]%. Under different emotions, {Resplendent Chapters}' corresponding effects are enhanced by 250%.",
-        "descriptionArgs": {
-          "Arg1": {
-            "kind": "scaling",
-            "values": ["15", "18", "21", "24", "27", "30"],
-            "stat": "CON",
-            "suffix": "%"
-          },
-          "Arg2": {
-            "kind": "scaling",
-            "values": ["4", "4.8", "5.6", "6.4", "7.2", "8"],
-            "stat": "ATK",
-            "suffix": "%"
-          },
-          "Arg3": {
-            "kind": "fixed",
-            "value": "5"
-          },
-          "Arg4": {
-            "kind": "fixed",
-            "value": "8",
-            "suffix": "%"
-          }
-        }
-      }
     }
   ],
   "ownerAwakenerName": "Horla"

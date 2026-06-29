@@ -13,7 +13,7 @@
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_DMG",
-  "lineupToken": "y9",
+  "lineupToken": "y5",
   "descriptionTemplate": "Team Unique: After exploration starts, shuffle 1 {Private Afternoon} into the Draw Pile. {Private Afternoon}: Consume 1 Arithmetica. Temporary Crit. DMG +[StateArg1]%. {Retain}. {Exhaust}.",
   "descriptionArgs": {
     "StateArg1": {

@@ -1,5 +1,8 @@
 import type {AwakenerOverlayRecord} from './awakener-source-schema'
-import type {ResolvedDatabaseReferenceLayer} from './database-reference-layer'
+import {
+  normalizeDatabaseReferenceName,
+  type ResolvedDatabaseReferenceLayer,
+} from './database-reference-layer'
 import type {DescribedRecord} from './description-records'
 import {
   buildRichTextParseContext,
@@ -58,6 +61,14 @@ function shouldEnableFollowupLineBreaks(record: DescribedRecord): boolean {
   return false
 }
 
+function getNormalizedRecordDisplayName(record: DescribedRecord): string | null {
+  if (!('displayName' in record) || typeof record.displayName !== 'string') {
+    return null
+  }
+
+  return normalizeDatabaseReferenceName(record.displayName)
+}
+
 export function buildDatabaseRichTextParseOptions(
   record: DescribedRecord | undefined,
   referenceLayer: ResolvedDatabaseReferenceLayer | null | undefined,
@@ -65,16 +76,6 @@ export function buildDatabaseRichTextParseOptions(
 ): RichTextParseOptions | undefined {
   if (!record) {
     return undefined
-  }
-
-  const excludedSkillNames = new Set<string>()
-  if (referenceLayer?.referenceInfoByName) {
-    for (const [name, info] of referenceLayer.referenceInfoByName) {
-      if (info.kind === 'overlay' || info.id !== record.id) {
-        continue
-      }
-      excludedSkillNames.add(name)
-    }
   }
 
   const plainTextMechanicNames = new Set<string>()
@@ -89,11 +90,29 @@ export function buildDatabaseRichTextParseOptions(
   }
 
   const overlayMechanicNames = new Set<string>()
+  const normalizedOverlayMechanicNames = new Set<string>()
   const candidateOverlays = overlays ?? referenceLayer?.accessibleOverlays ?? []
   for (const overlay of candidateOverlays) {
     overlayMechanicNames.add(overlay.displayName)
+    normalizedOverlayMechanicNames.add(normalizeDatabaseReferenceName(overlay.displayName))
     for (const alias of overlay.aliases) {
       overlayMechanicNames.add(alias)
+      normalizedOverlayMechanicNames.add(normalizeDatabaseReferenceName(alias))
+    }
+  }
+
+  const excludedSkillNames = new Set<string>()
+  const normalizedRecordDisplayName = getNormalizedRecordDisplayName(record)
+  if (referenceLayer?.referenceInfoByName) {
+    for (const [name, info] of referenceLayer.referenceInfoByName) {
+      if (
+        info.kind === 'overlay' ||
+        info.id !== record.id ||
+        (name !== normalizedRecordDisplayName && !normalizedOverlayMechanicNames.has(name))
+      ) {
+        continue
+      }
+      excludedSkillNames.add(name)
     }
   }
 

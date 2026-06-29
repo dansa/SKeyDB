@@ -88,6 +88,46 @@ describe('DatabaseRichTextContent', () => {
     expect(screen.queryByText('Fallback text.')).not.toBeInTheDocument()
   })
 
+  it('renders formatted float description args next to mechanic references', () => {
+    const {container} = render(
+      <DatabaseRichTextContent
+        record={{
+          id: 'wheel.test.fragrant-morphogenesis',
+          kind: 'wheel',
+          displayName: 'Fragrant Morphogenesis',
+          descriptionTemplate: 'Cause +[Float:StateArg2]% {Embryo Fusion}.',
+          descriptionArgs: {
+            StateArg2: {
+              kind: 'scaling',
+              values: ['0.9', '1.1', '1.3', '1.5'],
+            },
+          },
+        }}
+        referenceLayer={{
+          ...buildReferenceLayer(),
+          accessibleOverlays: [
+            {
+              id: 'overlay.global.embryo-fusion',
+              displayName: 'Embryo Fusion',
+              overlayType: 'mechanic',
+              aliases: [],
+              descriptionTemplate: 'Embryo Fusion text.',
+              descriptionArgs: {},
+            },
+          ],
+          overlayByName: new Map(),
+        }}
+        showTagIcons={false}
+        skillLevel={4}
+        stats={null}
+        variant='inline'
+      />,
+    )
+
+    expect(container).toHaveTextContent('Cause +1.5% Embryo Fusion.')
+    expect(container).not.toHaveTextContent('[Float:StateArg2]')
+  })
+
   it('renders lore redaction markers inside rich text descriptions', () => {
     render(
       <DatabaseRichTextContent

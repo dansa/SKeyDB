@@ -4093,6 +4093,100 @@
         "owner": "awakener-0057",
         "tags": ["aliemus"]
       }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0169",
+      "name": "Compass to False North",
+      "aliases": [],
+      "tokens": [
+        "compass",
+        "compass to false north",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "false",
+        "neutral",
+        "north",
+        "pontos",
+        "sr",
+        "to"
+      ],
+      "fields": {
+        "name": ["Compass to False North", "compass-to-false-north"],
+        "owner": ["Pontos"],
+        "tag": ["crit-dmg", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["NEUTRAL", "SR"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SR",
+        "mainstatKey": "CRIT_DMG",
+        "owner": "awakener-0058",
+        "tags": ["crit-dmg"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0170",
+      "name": "Dreaming of Wonderland",
+      "aliases": [],
+      "tokens": ["aliemus", "aliemus generation", "dreaming", "dreaming of wonderland", "generation", "lily", "neutral", "of", "ssr", "wonderland"],
+      "fields": {
+        "name": ["Dreaming of Wonderland", "dreaming-of-wonderland"],
+        "owner": ["Lily"],
+        "tag": ["aliemus", "aliemus generation"],
+        "facet": ["NEUTRAL", "SSR"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SSR",
+        "mainstatKey": "DMG_AMP",
+        "owner": "awakener-0029",
+        "tags": ["aliemus"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0171",
+      "name": "The Living Cage",
+      "aliases": [],
+      "tokens": [
+        "aequor",
+        "aliemus",
+        "aliemus generation",
+        "cage",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "generation",
+        "living",
+        "pontos",
+        "ssr",
+        "the",
+        "the living cage"
+      ],
+      "fields": {
+        "name": ["The Living Cage", "the-living-cage"],
+        "owner": ["Pontos"],
+        "tag": ["aliemus", "crit-dmg", "aliemus generation", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["AEQUOR", "SSR"]
+      },
+      "facets": {
+        "realm": "AEQUOR",
+        "rarity": "SSR",
+        "mainstatKey": "CRIT_DMG",
+        "owner": "awakener-0058",
+        "tags": ["aliemus", "crit-dmg"]
+      }
     }
   ]
 }

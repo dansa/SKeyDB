@@ -197,10 +197,11 @@ describe('AwakenerBuildsTab', () => {
         expect.objectContaining({
           name: 'Amber-Tinted Death',
           navigationLabel: 'Open in Wheels DB',
-          navigationTarget: {
+          navigationTarget: expect.objectContaining({
             kind: 'wheel-page',
+            wheelId: 'wheel-0028',
             wheelName: 'Amber-Tinted Death',
-          },
+          }),
           attributeRows: [
             expect.objectContaining({
               label: 'Crit DMG',

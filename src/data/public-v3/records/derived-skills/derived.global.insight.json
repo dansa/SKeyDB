@@ -7,7 +7,7 @@
     "slug": "insight",
     "canonicalPath": "/database/derived-skills/insight"
   },
-  "descriptionTemplate": "Obtain 1 Arithmetica, and draw 1 card.",
+  "descriptionTemplate": "Draw 1 card and gain 1 Arithmetica.",
   "descriptionArgs": {},
   "cardKeywords": [
     {

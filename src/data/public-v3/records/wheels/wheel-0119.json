@@ -15,7 +15,7 @@
   "mainstatKey": "REALM_MASTERY",
   "ownerAwakenerId": "awakener-0055",
   "ownerAwakenerName": "Vortice",
-  "lineupToken": "y7",
+  "lineupToken": "y3",
   "descriptionTemplate": "Team Unique: When switching to the {Raging Waves} stance, gain Temporary Realm Mastery equal to [StateArg1]% of your current Realm Mastery. 3-turn cooldown.",
   "descriptionArgs": {
     "StateArg1": {

@@ -156,7 +156,7 @@ describe('public-detail-record-adapters', () => {
     )
     expect(marvelousDebuff).toMatchObject({
       descriptionTemplate:
-        'Effects: {Bleed} (150% DMG), {Poison} (75% DMG), apply 1 {Weakness}, apply 1 {Vulnerable}, Temp. {STR▼} -[DescArg1].',
+        'Possible inflictions include: {Bleed} equal to 150% of DMG dealt; {Poison} equal to 75% of DMG dealt; 1 stack of {Vulnerable}; 1 stack of {Weakness}; or [DescArg1] Temp. {STR▼}.',
       descriptionArgs: {
         DescArg1: expect.objectContaining({
           kind: 'computed',

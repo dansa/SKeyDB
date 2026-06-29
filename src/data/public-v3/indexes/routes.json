@@ -248,6 +248,12 @@
         "canonicalSlug": "pollux",
         "canonicalPath": "/database/awakeners/pollux"
       },
+      "pontos": {
+        "kind": "awakener",
+        "id": "awakener-0058",
+        "canonicalSlug": "pontos",
+        "canonicalPath": "/database/awakeners/pontos"
+      },
       "ramona": {
         "kind": "awakener",
         "id": "awakener-0042",
@@ -454,6 +460,12 @@
         "canonicalSlug": "cloaked-in-the-night",
         "canonicalPath": "/database/wheels/cloaked-in-the-night"
       },
+      "compass-to-false-north": {
+        "kind": "wheel",
+        "id": "wheel-0169",
+        "canonicalSlug": "compass-to-false-north",
+        "canonicalPath": "/database/wheels/compass-to-false-north"
+      },
       "core-meltdown": {
         "kind": "wheel",
         "id": "wheel-0037",
@@ -525,6 +537,12 @@
         "id": "wheel-0054",
         "canonicalSlug": "dream-of-the-sea",
         "canonicalPath": "/database/wheels/dream-of-the-sea"
+      },
+      "dreaming-of-wonderland": {
+        "kind": "wheel",
+        "id": "wheel-0170",
+        "canonicalSlug": "dreaming-of-wonderland",
+        "canonicalPath": "/database/wheels/dreaming-of-wonderland"
       },
       "drifting-in-desire": {
         "kind": "wheel",
@@ -1041,6 +1059,12 @@
         "id": "wheel-0035",
         "canonicalSlug": "the-last-verse",
         "canonicalPath": "/database/wheels/the-last-verse"
+      },
+      "the-living-cage": {
+        "kind": "wheel",
+        "id": "wheel-0171",
+        "canonicalSlug": "the-living-cage",
+        "canonicalPath": "/database/wheels/the-living-cage"
       },
       "thirsting-brush": {
         "kind": "wheel",
@@ -1709,6 +1733,12 @@
         "id": "relic-0041",
         "canonicalSlug": "dimensional-image-pollux",
         "canonicalPath": "/database/relics/dimensional-image-pollux"
+      },
+      "dimensional-image-pontos": {
+        "kind": "relic",
+        "id": "relic-0058",
+        "canonicalSlug": "dimensional-image-pontos",
+        "canonicalPath": "/database/relics/dimensional-image-pontos"
       },
       "dimensional-image-ramona": {
         "kind": "relic",
@@ -2511,6 +2541,12 @@
         "id": "posse-0009",
         "canonicalSlug": "the-final-vow",
         "canonicalPath": "/database/posses/the-final-vow"
+      },
+      "the-hollow-one": {
+        "kind": "posse",
+        "id": "posse-0052",
+        "canonicalSlug": "the-hollow-one",
+        "canonicalPath": "/database/posses/the-hollow-one"
       },
       "the-lone-seed": {
         "kind": "posse",
@@ -4320,6 +4356,48 @@
         "canonicalSlug": "the-nightbreaker",
         "canonicalPath": "/database/awakeners/pollux/skills/the-nightbreaker"
       },
+      "pontos/another-ebwynnos": {
+        "kind": "skill",
+        "id": "skill.pontos.another-ebwynnos",
+        "canonicalSlug": "another-ebwynnos",
+        "canonicalPath": "/database/awakeners/pontos/skills/another-ebwynnos"
+      },
+      "pontos/defense": {
+        "kind": "skill",
+        "id": "skill.pontos.defense",
+        "canonicalSlug": "defense",
+        "canonicalPath": "/database/awakeners/pontos/skills/defense"
+      },
+      "pontos/gaunt-ravage": {
+        "kind": "skill",
+        "id": "skill.pontos.gaunt-ravage",
+        "canonicalSlug": "gaunt-ravage",
+        "canonicalPath": "/database/awakeners/pontos/skills/gaunt-ravage"
+      },
+      "pontos/gauntwards-call": {
+        "kind": "skill",
+        "id": "skill.pontos.gauntwards-call",
+        "canonicalSlug": "gauntwards-call",
+        "canonicalPath": "/database/awakeners/pontos/skills/gauntwards-call"
+      },
+      "pontos/relentless-hunt": {
+        "kind": "skill",
+        "id": "skill.pontos.relentless-hunt",
+        "canonicalSlug": "relentless-hunt",
+        "canonicalPath": "/database/awakeners/pontos/skills/relentless-hunt"
+      },
+      "pontos/strike": {
+        "kind": "skill",
+        "id": "skill.pontos.strike",
+        "canonicalSlug": "strike",
+        "canonicalPath": "/database/awakeners/pontos/skills/strike"
+      },
+      "pontos/wrath-of-the-abyss": {
+        "kind": "skill",
+        "id": "skill.pontos.wrath-of-the-abyss",
+        "canonicalSlug": "wrath-of-the-abyss",
+        "canonicalPath": "/database/awakeners/pontos/skills/wrath-of-the-abyss"
+      },
       "ramona-timeworn/defense": {
         "kind": "skill",
         "id": "skill.ramona-timeworn.defense",
@@ -4994,6 +5072,48 @@
       }
     },
     "derived-skills": {
+      "0-countdown": {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-0",
+        "canonicalSlug": "0-countdown",
+        "canonicalPath": "/database/derived-skills/0-countdown"
+      },
+      "1-countdown": {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-1",
+        "canonicalSlug": "1-countdown",
+        "canonicalPath": "/database/derived-skills/1-countdown"
+      },
+      "2-countdown": {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-2",
+        "canonicalSlug": "2-countdown",
+        "canonicalPath": "/database/derived-skills/2-countdown"
+      },
+      "3-countdown": {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-3",
+        "canonicalSlug": "3-countdown",
+        "canonicalPath": "/database/derived-skills/3-countdown"
+      },
+      "4-countdown": {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-4",
+        "canonicalSlug": "4-countdown",
+        "canonicalPath": "/database/derived-skills/4-countdown"
+      },
+      "5-countdown": {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown-5",
+        "canonicalSlug": "5-countdown",
+        "canonicalPath": "/database/derived-skills/5-countdown"
+      },
+      "adv-insight": {
+        "kind": "derivedSkill",
+        "id": "derived.global.adv-insight",
+        "canonicalSlug": "adv-insight",
+        "canonicalPath": "/database/derived-skills/adv-insight"
+      },
       "arachne/guiding-strings": {
         "kind": "derivedSkill",
         "id": "derived.arachne.guiding-strings",
@@ -5035,6 +5155,12 @@
         "id": "derived.corposant.pilot",
         "canonicalSlug": "pilot",
         "canonicalPath": "/database/awakeners/corposant/derived-skills/pilot"
+      },
+      "countdown": {
+        "kind": "derivedSkill",
+        "id": "derived.global.countdown",
+        "canonicalSlug": "countdown",
+        "canonicalPath": "/database/derived-skills/countdown"
       },
       "daffodil/aliemus": {
         "kind": "derivedSkill",
@@ -5276,6 +5402,12 @@
         "canonicalSlug": "evernights-revel",
         "canonicalPath": "/database/awakeners/doresain/derived-skills/evernights-revel"
       },
+      "dreaming-of-wonderland": {
+        "kind": "derivedSkill",
+        "id": "derived.global.dreaming-of-wonderland",
+        "canonicalSlug": "dreaming-of-wonderland",
+        "canonicalPath": "/database/derived-skills/dreaming-of-wonderland"
+      },
       "embryo": {
         "kind": "derivedSkill",
         "id": "derived.global.embryo",
@@ -5293,6 +5425,12 @@
         "id": "derived.global.fleeting-beauty",
         "canonicalSlug": "fleeting-beauty",
         "canonicalPath": "/database/derived-skills/fleeting-beauty"
+      },
+      "gobble-up": {
+        "kind": "derivedSkill",
+        "id": "derived.global.gobble-up",
+        "canonicalSlug": "gobble-up",
+        "canonicalPath": "/database/derived-skills/gobble-up"
       },
       "goliath/blades-dominion": {
         "kind": "derivedSkill",
@@ -5492,6 +5630,36 @@
         "canonicalSlug": "sacred-heart",
         "canonicalPath": "/database/awakeners/pollux/derived-skills/sacred-heart"
       },
+      "pontos/gaunts": {
+        "kind": "derivedSkill",
+        "id": "derived.pontos.gaunts",
+        "canonicalSlug": "gaunts",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/gaunts"
+      },
+      "pontos/raid-gaunt": {
+        "kind": "derivedSkill",
+        "id": "derived.pontos.raid-gaunt",
+        "canonicalSlug": "raid-gaunt",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/raid-gaunt"
+      },
+      "pontos/slay-gaunt": {
+        "kind": "derivedSkill",
+        "id": "derived.pontos.slay-gaunt",
+        "canonicalSlug": "slay-gaunt",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/slay-gaunt"
+      },
+      "pontos/vex-gaunt": {
+        "kind": "derivedSkill",
+        "id": "derived.pontos.vex-gaunt",
+        "canonicalSlug": "vex-gaunt",
+        "canonicalPath": "/database/awakeners/pontos/derived-skills/vex-gaunt"
+      },
+      "private-afternoon": {
+        "kind": "derivedSkill",
+        "id": "derived.global.private-afternoon",
+        "canonicalSlug": "private-afternoon",
+        "canonicalPath": "/database/derived-skills/private-afternoon"
+      },
       "propagule-embryo": {
         "kind": "derivedSkill",
         "id": "derived.global.propagule-embryo",
@@ -5563,6 +5731,12 @@
         "id": "derived.global.slumber",
         "canonicalSlug": "slumber",
         "canonicalPath": "/database/derived-skills/slumber"
+      },
+      "stakes-of-wisdom": {
+        "kind": "derivedSkill",
+        "id": "derived.global.stakes-of-wisdom",
+        "canonicalSlug": "stakes-of-wisdom",
+        "canonicalPath": "/database/derived-skills/stakes-of-wisdom"
       },
       "tawil/echoes-of-the-past": {
         "kind": "derivedSkill",
@@ -6442,17 +6616,17 @@
         "canonicalSlug": "soulforge-aptitude",
         "canonicalPath": "/database/awakeners/mouchette/talents/soulforge-aptitude"
       },
-      "murphy-fauxborn/divine-realms-order": {
-        "kind": "talent",
-        "id": "talent.murphy-fauxborn.divine-realms-order",
-        "canonicalSlug": "divine-realms-order",
-        "canonicalPath": "/database/awakeners/murphy-fauxborn/talents/divine-realms-order"
-      },
       "murphy-fauxborn/gnostic-potential": {
         "kind": "talent",
         "id": "talent.murphy-fauxborn.gnostic-potential",
         "canonicalSlug": "gnostic-potential",
         "canonicalPath": "/database/awakeners/murphy-fauxborn/talents/gnostic-potential"
+      },
+      "murphy-fauxborn/lightless-bottom": {
+        "kind": "talent",
+        "id": "talent.murphy-fauxborn.lightless-bottom",
+        "canonicalSlug": "lightless-bottom",
+        "canonicalPath": "/database/awakeners/murphy-fauxborn/talents/lightless-bottom"
       },
       "murphy-fauxborn/madness-omen": {
         "kind": "talent",
@@ -6627,6 +6801,30 @@
         "id": "talent.pollux.soulforge-aptitude",
         "canonicalSlug": "soulforge-aptitude",
         "canonicalPath": "/database/awakeners/pollux/talents/soulforge-aptitude"
+      },
+      "pontos/gnostic-potential": {
+        "kind": "talent",
+        "id": "talent.pontos.gnostic-potential",
+        "canonicalSlug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/pontos/talents/gnostic-potential"
+      },
+      "pontos/lightless-bottom": {
+        "kind": "talent",
+        "id": "talent.pontos.lightless-bottom",
+        "canonicalSlug": "lightless-bottom",
+        "canonicalPath": "/database/awakeners/pontos/talents/lightless-bottom"
+      },
+      "pontos/madness-omen": {
+        "kind": "talent",
+        "id": "talent.pontos.madness-omen",
+        "canonicalSlug": "madness-omen",
+        "canonicalPath": "/database/awakeners/pontos/talents/madness-omen"
+      },
+      "pontos/soulforge-aptitude": {
+        "kind": "talent",
+        "id": "talent.pontos.soulforge-aptitude",
+        "canonicalSlug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/pontos/talents/soulforge-aptitude"
       },
       "ramona-timeworn/gnostic-potential": {
         "kind": "talent",
@@ -8220,6 +8418,36 @@
         "canonicalSlug": "the-nightbreaker",
         "canonicalPath": "/database/awakeners/pollux/enlightens/the-nightbreaker"
       },
+      "pontos/abyssal-engulfment": {
+        "kind": "enlighten",
+        "id": "enlighten.pontos.abyssal-engulfment",
+        "canonicalSlug": "abyssal-engulfment",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/abyssal-engulfment"
+      },
+      "pontos/another-ebwynnos": {
+        "kind": "enlighten",
+        "id": "enlighten.pontos.another-ebwynnos",
+        "canonicalSlug": "another-ebwynnos",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/another-ebwynnos"
+      },
+      "pontos/hollow-shell": {
+        "kind": "enlighten",
+        "id": "enlighten.pontos.hollow-shell",
+        "canonicalSlug": "hollow-shell",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/hollow-shell"
+      },
+      "pontos/lure-of-light": {
+        "kind": "enlighten",
+        "id": "enlighten.pontos.lure-of-light",
+        "canonicalSlug": "lure-of-light",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/lure-of-light"
+      },
+      "pontos/revelry-in-absence": {
+        "kind": "enlighten",
+        "id": "enlighten.pontos.revelry-in-absence",
+        "canonicalSlug": "revelry-in-absence",
+        "canonicalPath": "/database/awakeners/pontos/enlightens/revelry-in-absence"
+      },
       "ramona-timeworn/infinite-singularity": {
         "kind": "enlighten",
         "id": "enlighten.ramona-timeworn.infinite-singularity",
@@ -8834,6 +9062,12 @@
         "canonicalSlug": "burn",
         "canonicalPath": "/database/overlays/burn"
       },
+      "caecus/outcasts-anguish": {
+        "kind": "overlay",
+        "id": "overlay.caecus.outcasts-anguish",
+        "canonicalSlug": "outcasts-anguish",
+        "canonicalPath": "/database/awakeners/caecus/overlays/outcasts-anguish"
+      },
       "caro": {
         "kind": "overlay",
         "id": "overlay.global.caro",
@@ -8972,6 +9206,12 @@
         "canonicalSlug": "finale-form",
         "canonicalPath": "/database/awakeners/doll-inferno/overlays/finale-form"
       },
+      "doll-inferno/illusions-end": {
+        "kind": "overlay",
+        "id": "overlay.doll-inferno.illusions-end",
+        "canonicalSlug": "illusions-end",
+        "canonicalPath": "/database/awakeners/doll-inferno/overlays/illusions-end"
+      },
       "doresain/corpse": {
         "kind": "overlay",
         "id": "overlay.doresain.corpse",
@@ -8990,6 +9230,12 @@
         "canonicalSlug": "embryo-fusion",
         "canonicalPath": "/database/overlays/embryo-fusion"
       },
+      "embryo-fusion-double": {
+        "kind": "overlay",
+        "id": "overlay.global.embryo-fusion-double",
+        "canonicalSlug": "embryo-fusion-double",
+        "canonicalPath": "/database/overlays/embryo-fusion-double"
+      },
       "exhaust": {
         "kind": "overlay",
         "id": "overlay.global.exhaust",
@@ -9001,6 +9247,12 @@
         "id": "overlay.global.fainted",
         "canonicalSlug": "fainted",
         "canonicalPath": "/database/overlays/fainted"
+      },
+      "faros/dimmed-candle": {
+        "kind": "overlay",
+        "id": "overlay.faros.dimmed-candle",
+        "canonicalSlug": "dimmed-candle",
+        "canonicalPath": "/database/awakeners/faros/overlays/dimmed-candle"
       },
       "final-rule": {
         "kind": "overlay",
@@ -9152,11 +9404,29 @@
         "canonicalSlug": "madness",
         "canonicalPath": "/database/overlays/madness"
       },
+      "mental-interference": {
+        "kind": "overlay",
+        "id": "overlay.global.mental-interference",
+        "canonicalSlug": "mental-interference",
+        "canonicalPath": "/database/overlays/mental-interference"
+      },
       "miryam/ritual": {
         "kind": "overlay",
         "id": "overlay.miryam.ritual",
         "canonicalSlug": "ritual",
         "canonicalPath": "/database/awakeners/miryam/overlays/ritual"
+      },
+      "miryam/undying-piety": {
+        "kind": "overlay",
+        "id": "overlay.miryam.undying-piety",
+        "canonicalSlug": "undying-piety",
+        "canonicalPath": "/database/awakeners/miryam/overlays/undying-piety"
+      },
+      "miryam/vanitys-collapse": {
+        "kind": "overlay",
+        "id": "overlay.miryam.vanitys-collapse",
+        "canonicalSlug": "vanitys-collapse",
+        "canonicalPath": "/database/awakeners/miryam/overlays/vanitys-collapse"
       },
       "murphy-fauxborn/birth-ritual": {
         "kind": "overlay",
@@ -9248,6 +9518,12 @@
         "canonicalSlug": "sin-mark",
         "canonicalPath": "/database/awakeners/pollux/overlays/sin-mark"
       },
+      "pontos/pack-hunt": {
+        "kind": "overlay",
+        "id": "overlay.pontos.pack-hunt",
+        "canonicalSlug": "pack-hunt",
+        "canonicalPath": "/database/awakeners/pontos/overlays/pack-hunt"
+      },
       "prepare": {
         "kind": "overlay",
         "id": "overlay.global.prepare",
@@ -9320,11 +9596,23 @@
         "canonicalSlug": "rouse",
         "canonicalPath": "/database/overlays/rouse"
       },
+      "ryker/certain-gain": {
+        "kind": "overlay",
+        "id": "overlay.ryker.certain-gain",
+        "canonicalSlug": "certain-gain",
+        "canonicalPath": "/database/awakeners/ryker/overlays/certain-gain"
+      },
       "ryker/chaotic-legacy": {
         "kind": "overlay",
         "id": "overlay.ryker.chaotic-legacy",
         "canonicalSlug": "chaotic-legacy",
         "canonicalPath": "/database/awakeners/ryker/overlays/chaotic-legacy"
+      },
+      "ryker/winner-takes-all": {
+        "kind": "overlay",
+        "id": "overlay.ryker.winner-takes-all",
+        "canonicalSlug": "winner-takes-all",
+        "canonicalPath": "/database/awakeners/ryker/overlays/winner-takes-all"
       },
       "sacrifice": {
         "kind": "overlay",
@@ -9415,6 +9703,12 @@
         "id": "overlay.global.tranquil-sea",
         "canonicalSlug": "tranquil-sea",
         "canonicalPath": "/database/overlays/tranquil-sea"
+      },
+      "tulu/the-stars-are-right": {
+        "kind": "overlay",
+        "id": "overlay.tulu.the-stars-are-right",
+        "canonicalSlug": "the-stars-are-right",
+        "canonicalPath": "/database/awakeners/tulu/overlays/the-stars-are-right"
       },
       "ultra": {
         "kind": "overlay",

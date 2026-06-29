@@ -15,7 +15,7 @@
   "acquisitionSource": "Automatically Unlocked",
   "realm": "FADED_LEGACY",
   "lineupToken": "h",
-  "descriptionTemplate": "Inflict 1 turn of {Weakness} and {Vulnerable} on each enemy, and {Steal} [Arg1] {STR} from them.",
+  "descriptionTemplate": "Inflict 1 stack of {Weakness} and {Vulnerable} on each enemy, and {Steal} [Arg1] {STR} from them.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

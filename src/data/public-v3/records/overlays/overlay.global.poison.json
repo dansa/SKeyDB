@@ -14,6 +14,6 @@
   "aliases": [],
   "iconId": "IconS_Buff_006",
   "textColor": "affliction",
-  "descriptionTemplate": "At turn end, take DMG equal to stacks.",
+  "descriptionTemplate": "At turn end, take 1 DMG for each stack of {Poison}.",
   "descriptionArgs": {}
 }

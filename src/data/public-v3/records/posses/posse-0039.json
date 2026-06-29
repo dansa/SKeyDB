@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Dreamscape: Beyond the Skies: Part II",
   "realm": "ULTRA",
   "lineupToken": "V",
-  "descriptionTemplate": "Draw 1 card and reduce its Arithmetica Cost by 1. If a Command Card is drawn, its owner gains [Arg1]% Temporary Crit. DMG. If Pollux is in the team, gain [Arg2] {plural:[Arg2]|stack|stacks} of {Sin Mark}.",
+  "descriptionTemplate": "Draw 1 card and reduce its Arithmetica Cost by 1. If a Command Card is drawn, its Awakener gains +[Arg1]% Temporary Crit. DMG. If Pollux is in the team, gain [Arg2] {plural:[Arg2]|stack|stacks} of {Sin Mark}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

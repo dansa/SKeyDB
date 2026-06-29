@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.pontos.wrath-of-the-abyss",
+  "name": "Wrath of the Abyss",
+  "route": {
+    "slug": "wrath-of-the-abyss",
+    "canonicalPath": "/database/awakeners/pontos/skills/wrath-of-the-abyss"
+  },
+  "ownerAwakenerId": "awakener-0058",
+  "slot": "Rouse",
+  "descriptionTemplate": "Pontos gains [Arg2]% Base Aliemus. {Rouse}: For every 3 {Gaunts} in the deck, {Relentless Hunt} gains 1 stack of {Pack Hunt}. For every 1 Pontos Card played, the Temporary {STR▼} effect of the next {Relentless Hunt} +[Arg3]%, which triggers up to 3 times per turn.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["25", "30", "35", "40", "45", "50"],
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pontos.abyssal-engulfment.skill.pontos.wrath-of-the-abyss",
+      "operation": "mixed",
+      "upgraderId": "enlighten.pontos.abyssal-engulfment",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "AbsoluteAxiom",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "patch": {
+        "descriptionTemplate": "Pontos gains [Arg2]% Base Aliemus. {Rouse}: For every 2 {Gaunts} in the deck, {Relentless Hunt} gains 1 stack of {Pack Hunt}. For every 1 Pontos Card played, the Temporary {STR▼} effect of the next {Relentless Hunt} +[Arg3]%, which triggers up to 3 times per turn. Gain +[Energy:Arg4] Aliemus at the {ordinal:1st} play of \"Strike\" and \"Defense\" each turn.",
+        "descriptionArgs": {
+          "Arg2": {
+            "kind": "scaling",
+            "values": ["25", "30", "35", "40", "45", "50"],
+            "suffix": "%"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "25",
+            "suffix": "%"
+          },
+          "Arg4": {
+            "kind": "fixed",
+            "value": "15"
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Pontos"
+}

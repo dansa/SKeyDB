@@ -7,7 +7,7 @@
     "slug": "hanafubuki",
     "canonicalPath": "/database/derived-skills/hanafubuki"
   },
-  "descriptionTemplate": "Gain [Arg1] Keyflare. After played, permanently transform into {Ichigo Ichie}.",
+  "descriptionTemplate": "Gain [Arg1] Keyflare and put {Ichigo Ichie} into the Discard Pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

@@ -22,7 +22,7 @@ export interface DatabaseReferenceThumbnail {
 
 export type DatabaseReferenceNavigationTarget =
   | {kind: 'skills'}
-  | {kind: 'wheel-page'; wheelName: string}
+  | {kind: 'wheel-page'; wheelId?: string; wheelName: string}
   | {kind: 'covenant-page'; covenantName: string}
 
 export interface DatabaseReferenceEntry {

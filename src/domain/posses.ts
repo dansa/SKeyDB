@@ -1,6 +1,6 @@
 import {z} from 'zod'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicPosseCatalogRecords} from '@/data-access/public-data/catalogScopes/possesCatalog'
 
 const nonEmptyStringSchema = z.string().trim().min(1)
 
@@ -37,7 +37,7 @@ function getPosseIndex(publicId: string): number {
   return Number(suffix)
 }
 
-const parsedPosses = getPublicCatalogRecords('posses').map((record): Posse => {
+const parsedPosses = getPublicPosseCatalogRecords().map((record): Posse => {
   const posse = publicV3PosseCatalogRecordSchema.parse(record)
   return {
     id: posse.id,

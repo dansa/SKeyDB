@@ -37,11 +37,6 @@
           "StateArg1": {
             "kind": "scaling",
             "values": ["25", "26", "27", "28", "29", "30"]
-          },
-          "StateArg2": {
-            "kind": "scaling",
-            "values": ["35", "38", "41", "44", "47", "50"],
-            "suffix": "%"
           }
         }
       }

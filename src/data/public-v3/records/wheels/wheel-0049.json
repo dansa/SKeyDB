@@ -13,7 +13,7 @@
   "rarity": "N",
   "realm": "NEUTRAL",
   "mainstatKey": "KEYFLARE_REGEN",
-  "lineupToken": "yY",
+  "lineupToken": "yW",
   "descriptionTemplate": "Team Unique: If the wielder is the Awakener \"Ramona: Timeworn,\" the Affinity gained by other Awakeners upon completing the stage +[StateArg1]%, but the wielder does not gain any Affinity.",
   "descriptionArgs": {
     "StateArg1": {

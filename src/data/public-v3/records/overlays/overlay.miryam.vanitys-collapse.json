@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.miryam.vanitys-collapse",
+  "name": "Vanity's Collapse",
+  "route": {
+    "slug": "vanitys-collapse",
+    "canonicalPath": "/database/awakeners/miryam/overlays/vanitys-collapse"
+  },
+  "assets": {
+    "icon": "asset-overlay.miryam.vanitys-collapse-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0032",
+  "aliases": [],
+  "iconId": "IconS_Buff_045",
+  "descriptionTemplate": "Whenever 1 {Sacrament} is transformed into {Obsession}, the Base DMG dealt by Miryam in this battle +15%.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Miryam"
+}

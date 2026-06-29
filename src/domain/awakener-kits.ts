@@ -1,6 +1,9 @@
 import {z} from 'zod'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
+import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalogScopes/awakenersCatalog'
+import {getPublicEnlightenCatalogRecords} from '@/data-access/public-data/catalogScopes/enlightensCatalog'
+import {getPublicSkillCatalogRecords} from '@/data-access/public-data/catalogScopes/skillsCatalog'
+import {getPublicTalentCatalogRecords} from '@/data-access/public-data/catalogScopes/talentsCatalog'
 
 import {awakenerKitsDatasetSchema, type AwakenerKitRecord} from './awakener-source-schema'
 import {numericAwakenerId} from './public-v3-awakener-record-adapters'
@@ -35,9 +38,9 @@ function optionalOwnedRecord(
 }
 
 function adaptPublicAwakenerToKit(record: {id: string; numericId: number}): AwakenerKitRecord {
-  const skills = publicOwnedRecordsSchema.parse(getPublicCatalogRecords('skills'))
-  const talents = publicOwnedRecordsSchema.parse(getPublicCatalogRecords('talents'))
-  const enlightens = publicOwnedRecordsSchema.parse(getPublicCatalogRecords('enlightens'))
+  const skills = publicOwnedRecordsSchema.parse(getPublicSkillCatalogRecords())
+  const talents = publicOwnedRecordsSchema.parse(getPublicTalentCatalogRecords())
+  const enlightens = publicOwnedRecordsSchema.parse(getPublicEnlightenCatalogRecords())
   const ownerTalents = talents.filter((entry) => entry.ownerAwakenerId === record.id)
   const passiveTalents = ownerTalents.filter((entry) => entry.family === 'passive')
 
@@ -91,7 +94,7 @@ export function getAwakenerKits(): AwakenerKitRecord[] {
   }
 
   const kitRecords: AwakenerKitRecord[] = []
-  for (const record of getPublicCatalogRecords('awakeners')) {
+  for (const record of getPublicAwakenerCatalogRecords()) {
     kitRecords.push(
       adaptPublicAwakenerToKit({
         id: record.id,

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0005",
   "slot": "OverExalt",
-  "descriptionTemplate": "Grants an additional 24% ATK {STR} and {Tentacle DMG}. For the next 5 times {Gland Division} is played, draw 1 card.",
+  "descriptionTemplate": "Grants additional {STR} and {Tentacle DMG} equal to 24% ATK. The next 5 times {Gland Division} is played, draw 1 card.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Aurita"
 }

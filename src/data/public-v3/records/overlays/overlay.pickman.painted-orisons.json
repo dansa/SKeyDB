@@ -11,7 +11,7 @@
   "ownerAwakenerId": "awakener-0040",
   "aliases": ["Advanced Orisons", "Orisons"],
   "textColor": "misc",
-  "descriptionTemplate": "Includes the following {Orisons}: {Computation}, {Finesse}, Berserk, {Catalyst}, Might, Bastion, Drain, Insight.",
+  "descriptionTemplate": "Includes the following {Orisons}: {Computation}, {Finesse}, Berserk, {Catalyst}, Might, Bastion, Drain, {Insight}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Pickman"
 }

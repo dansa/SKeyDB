@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Faded Legacy - Ch. 8 - Last Symphony",
   "realm": "CHAOS",
   "lineupToken": "I",
-  "descriptionTemplate": "If the Arithmetica Cost of the next card you play this turn is 3 or more, recover 2 Arithmetica. Otherwise, draw 2 cards. If this is the {ordinal:4th} time this Posse was unleashed this battle, instead create 4 {Insight}.",
+  "descriptionTemplate": "If the Arithmetica Cost of the next card you play this turn is 3 or more, gain 2 Arithmetica. Otherwise, draw 2 cards. If this is the {ordinal:4th} time this Posse was unleashed this battle, instead create 4 {Insight}.",
   "descriptionArgs": {},
   "lore": "Notes gather into a surging sea of stars, the theme dances in the grand deep space.\nClose your eyes and listen. Listen to the end of the universe, listen to the climax of the universe."
 }
