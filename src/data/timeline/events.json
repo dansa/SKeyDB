@@ -317,8 +317,7 @@
     "description": "Limited-time WoD wheel acquisition event featuring \"Dreaming of Wonderland\".\n Complete various tasks to obtain 4 copies & 30 Pure Cores.\n Premium track: Grants +12 copies & 60 Luminous Cores.",
     "startDate": "2026/06/29 09:00",
     "endDate": "2026/07/27 09:00",
-    "featured": [{"name": "Dreaming of Wonderland", "kind": "wheel", "detailLink": false}],
-    "customArt": "/events/wonderland-diary.webp",
+    "featured": ["Dreaming of Wonderland"],
     "pricing": "1680 Silver Prime"
   },
   {
@@ -347,7 +346,7 @@
     "description": "Gameplay event featuring the new awakener Pontos.\n Obtain limited avatar \"By the Silver Key: Pontos\", Scrips, Dreamsparks and more.",
     "startDate": "2026/06/29 09:00",
     "endDate": "2026/07/27 09:00",
-    "featured": [{"name": "Pontos", "kind": "awakener", "detailLink": false}],
+    "featured": ["Pontos"],
     "customArt": "/events/pontos-event.webp",
     "pinned": true
   },
