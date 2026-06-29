@@ -141,6 +141,46 @@ export async function collectWheelMiniAssetCoverage({
   }
 }
 
+export async function validateWheelMiniAssets({
+  wheelsDir = defaultWheelsDir,
+  miniDir = defaultMiniDir,
+  canvasSize = DEFAULT_CANVAS_SIZE,
+} = {}) {
+  const coverage = await collectWheelMiniAssetCoverage({wheelsDir, miniDir})
+  const invalidMiniItems = []
+
+  for (const miniWheelName of coverage.miniWheelNames) {
+    const miniPath = path.join(miniDir, miniWheelName)
+    try {
+      const metadata = await sharp(miniPath).metadata()
+      const isExpectedFormat = metadata.format === 'webp'
+      const isExpectedSize = metadata.width === canvasSize && metadata.height === canvasSize
+
+      if (!isExpectedFormat || !isExpectedSize) {
+        invalidMiniItems.push({
+          miniWheelName,
+          format: metadata.format ?? 'unknown',
+          width: metadata.width ?? 0,
+          height: metadata.height ?? 0,
+        })
+      }
+    } catch (error) {
+      invalidMiniItems.push({
+        miniWheelName,
+        format: 'unreadable',
+        width: 0,
+        height: 0,
+        error: error instanceof Error ? error.message : String(error),
+      })
+    }
+  }
+
+  return {
+    coverage,
+    invalidMiniItems,
+  }
+}
+
 export async function createWheelMiniBuffer(inputPath, options = {}) {
   const canvasSize = options.canvasSize ?? DEFAULT_CANVAS_SIZE
   const renderWidth = options.renderWidth ?? DEFAULT_RENDER_WIDTH
@@ -234,8 +274,45 @@ function summarizePlan(plan, options) {
   ].join('\n')
 }
 
+function summarizeValidation(validation, options) {
+  return [
+    `Validated ${validation.coverage.miniWheelNames.length} wheel mini asset(s).`,
+    `Missing: ${validation.coverage.missingMiniNames.length}. Extra: ${validation.coverage.extraMiniNames.length}. Invalid: ${validation.invalidMiniItems.length}.`,
+    `Expected: ${options.canvasSize}x${options.canvasSize} webp.`,
+  ].join('\n')
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2))
+
+  if (options.check) {
+    const validation = await validateWheelMiniAssets(options)
+    console.log(summarizeValidation(validation, options))
+
+    if (validation.coverage.missingMiniNames.length > 0) {
+      console.log(`Missing minis: ${validation.coverage.missingMiniNames.join(', ')}`)
+    }
+    if (validation.coverage.extraMiniNames.length > 0) {
+      console.log(`Extra minis: ${validation.coverage.extraMiniNames.join(', ')}`)
+    }
+    if (validation.invalidMiniItems.length > 0) {
+      console.log(
+        `Invalid minis: ${validation.invalidMiniItems
+          .map((item) => `${item.miniWheelName} (${item.format}, ${item.width}x${item.height})`)
+          .join(', ')}`,
+      )
+    }
+
+    if (
+      validation.coverage.missingMiniNames.length > 0 ||
+      validation.coverage.extraMiniNames.length > 0 ||
+      validation.invalidMiniItems.length > 0
+    ) {
+      process.exitCode = 1
+    }
+    return
+  }
+
   const plan = await createWheelMiniAssetPlan(options)
 
   console.log(summarizePlan(plan, options))
@@ -245,17 +322,6 @@ async function main() {
   }
   if (plan.coverage.extraMiniNames.length > 0) {
     console.log(`Extra minis: ${plan.coverage.extraMiniNames.join(', ')}`)
-  }
-
-  if (options.check) {
-    if (
-      plan.changedItems.length > 0 ||
-      plan.coverage.missingMiniNames.length > 0 ||
-      plan.coverage.extraMiniNames.length > 0
-    ) {
-      process.exitCode = 1
-    }
-    return
   }
 
   if (options.dryRun) {

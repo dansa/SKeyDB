@@ -12,6 +12,7 @@ import {
   DEFAULT_RENDER_WIDTH,
   fullWheelNameToMiniName,
   parseArgs,
+  validateWheelMiniAssets,
 } from './generate-wheel-mini-assets.mjs'
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -39,15 +40,15 @@ test('wheel mini assets cover every full wheel asset', async () => {
   assert.deepEqual(coverage.extraMiniNames, [])
 })
 
-test('wheel mini assets are square generated thumbnails', async () => {
-  const coverage = await collectWheelMiniAssetCoverage({wheelsDir, miniDir})
+test('wheel mini assets validate as committed square webp thumbnails', async () => {
+  const validation = await validateWheelMiniAssets({wheelsDir, miniDir})
 
-  await Promise.all(
-    coverage.miniWheelNames.map(async (miniWheelName) => {
-      const metadata = await sharp(path.join(miniDir, miniWheelName)).metadata()
+  assert.deepEqual(validation.invalidMiniItems, [])
 
-      assert.equal(metadata.width, DEFAULT_CANVAS_SIZE, miniWheelName)
-      assert.equal(metadata.height, DEFAULT_CANVAS_SIZE, miniWheelName)
-    }),
-  )
+  for (const miniWheelName of validation.coverage.miniWheelNames) {
+    const metadata = await sharp(path.join(miniDir, miniWheelName)).metadata()
+
+    assert.equal(metadata.width, DEFAULT_CANVAS_SIZE, miniWheelName)
+    assert.equal(metadata.height, DEFAULT_CANVAS_SIZE, miniWheelName)
+  }
 })
