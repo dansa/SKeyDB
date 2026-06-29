@@ -40,7 +40,7 @@ interface DatabaseReferencePopoverProps {
   stats: FullStats | null
   onClose: () => void
   onInfoEntryClick?: (entry: KeyedDatabaseReferenceEntry) => void
-  onSkillTokenClick: (name: string) => void
+  onSkillTokenClick: (name: string, referenceKind?: DatabaseReferenceInfo['kind']) => void
   onMechanicTokenClick: (
     overlay: AwakenerOverlayRecord,
     rankContext?: DatabasePopoverDescriptionRankContext,
@@ -198,8 +198,8 @@ export function DatabaseReferencePopover({
         descriptionRankMode: entry.descriptionRankMode,
       })
     },
-    onSkillClick: (skillName) => {
-      onSkillTokenClick(skillName)
+    onSkillClick: (skillName, _event, referenceKind) => {
+      onSkillTokenClick(skillName, referenceKind)
     },
   }
 

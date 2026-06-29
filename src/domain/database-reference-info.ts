@@ -12,6 +12,29 @@ export function resolveDatabaseReferenceInfo(
   return view.referenceInfoByName.get(normalizeDatabaseReferenceName(name)) ?? null
 }
 
+export function resolveDatabaseReferenceInfoByKindAndName(
+  view: ResolvedDatabaseReferenceLayer,
+  kind: DatabaseReferenceInfo['kind'],
+  name: string,
+): DatabaseReferenceInfo | null {
+  const normalizedName = normalizeDatabaseReferenceName(name)
+  const namedReference = view.referenceInfoByName.get(normalizedName)
+  if (namedReference?.kind === kind) {
+    return namedReference
+  }
+
+  for (const reference of view.referenceInfoById.values()) {
+    if (
+      reference.kind === kind &&
+      normalizeDatabaseReferenceName(reference.name) === normalizedName
+    ) {
+      return reference
+    }
+  }
+
+  return null
+}
+
 export function resolveDatabaseReferenceInfoById(
   view: ResolvedDatabaseReferenceLayer,
   id: string,

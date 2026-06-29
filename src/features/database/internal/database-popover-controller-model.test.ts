@@ -13,6 +13,7 @@ import {
   resolveLiveTrailEntry,
   resolveNavigationHandler,
   resolveOverlayReference,
+  resolveReferenceByName,
   withInheritedReferenceLayerOverride,
 } from './database-popover-controller-model'
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
@@ -122,6 +123,42 @@ describe('database popover controller model', () => {
       description: 'Fallback counter text.',
       name: 'Missing',
     })
+  })
+
+  it('can prefer a matching reference kind when names collide', () => {
+    const wheelReference = skillReference({
+      kind: 'wheel',
+      id: 'wheel-0076',
+      name: 'Insight',
+      label: 'Wheel · R · Neutral',
+      record: {
+        id: 'wheel-0076',
+        kind: 'wheel',
+        displayName: 'Insight',
+        descriptionTemplate: 'Wheel text.',
+        descriptionArgs: {},
+      },
+    })
+    const derivedReference = skillReference({
+      kind: 'derived-skill',
+      id: 'derived.global.insight',
+      name: 'Insight',
+      label: 'Derived · Insight',
+      record: {
+        id: 'derived.global.insight',
+        displayName: 'Insight',
+        aliases: [],
+        descriptionTemplate: 'Draw 1 card.',
+        descriptionArgs: {},
+        cardKeywords: [],
+        childDerivedSkillIds: [],
+        variants: [],
+      },
+    })
+    const layer = referenceLayer([derivedReference, wheelReference])
+
+    expect(resolveReferenceByName(layer, 'Insight')).toBe(wheelReference)
+    expect(resolveReferenceByName(layer, 'Insight', 'derived-skill')).toBe(derivedReference)
   })
 
   it('applies overlay rank context only when the opener supplies it', () => {

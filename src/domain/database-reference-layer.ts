@@ -53,6 +53,14 @@ export function normalizeDatabaseReferenceName(name: string): string {
   return name.trim().toLowerCase()
 }
 
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((entry) => typeof entry === 'string')
+}
+
+export function getDatabaseDerivedSkillAliases(record: {aliases?: unknown}): readonly string[] {
+  return isStringArray(record.aliases) ? record.aliases : []
+}
+
 export function addDatabaseLookupValue<T>(lookup: Map<string, T>, key: string, value: T): void {
   const normalized = normalizeDatabaseReferenceName(key)
   if (!normalized || lookup.has(normalized)) {

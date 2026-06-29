@@ -289,9 +289,13 @@ function useDatabasePopoverRootActions({
   )
 
   const openRootReferenceByName = useCallback(
-    (name: string, event: DatabasePopoverAnchorEvent) => {
+    (
+      name: string,
+      event: DatabasePopoverAnchorEvent,
+      preferredKind?: DatabaseReferenceInfo['kind'],
+    ) => {
       event.stopPropagation()
-      const reference = resolveReferenceByName(referenceLayer, name)
+      const reference = resolveReferenceByName(referenceLayer, name, preferredKind)
       if (!reference) {
         return
       }
@@ -386,11 +390,11 @@ function useDatabasePopoverNestedActions({
   )
 
   const openNestedReferenceByNameFrom = useCallback(
-    (sourceIndex: number, name: string) => {
+    (sourceIndex: number, name: string, preferredKind?: DatabaseReferenceInfo['kind']) => {
       setTrail((prev) => {
         const sourceEntry = prev.at(sourceIndex)
         const sourceLayer = sourceEntry?.referenceLayerOverride ?? referenceLayer
-        const reference = resolveReferenceByName(sourceLayer, name)
+        const reference = resolveReferenceByName(sourceLayer, name, preferredKind)
         if (!reference) {
           return prev
         }
@@ -402,12 +406,12 @@ function useDatabasePopoverNestedActions({
   )
 
   const openNestedReferenceByName = useCallback(
-    (name: string) => {
+    (name: string, preferredKind?: DatabaseReferenceInfo['kind']) => {
       setTrail((prev) => {
         const sourceIndex = prev.length - 1
         const sourceEntry = prev.at(sourceIndex)
         const sourceLayer = sourceEntry?.referenceLayerOverride ?? referenceLayer
-        const reference = resolveReferenceByName(sourceLayer, name)
+        const reference = resolveReferenceByName(sourceLayer, name, preferredKind)
         if (!reference) {
           return prev
         }
@@ -680,8 +684,8 @@ function buildPopoverPortalEntry({
       nestedActions.openNestedOverlayFrom(index, overlay, rankContext)
     },
     onNavigate,
-    onSkillTokenClick: (name: string) => {
-      nestedActions.openNestedReferenceByNameFrom(index, name)
+    onSkillTokenClick: (name: string, referenceKind?: DatabaseReferenceInfo['kind']) => {
+      nestedActions.openNestedReferenceByNameFrom(index, name, referenceKind)
     },
     referenceLayer: activeEntry.referenceLayerOverride ?? referenceLayer,
   }

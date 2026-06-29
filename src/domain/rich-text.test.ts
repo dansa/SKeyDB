@@ -238,6 +238,16 @@ describe('parseRichDescription', () => {
     ])
   })
 
+  it('parses typed derived tokens as preferred derived skill references', () => {
+    const result = parseRichDescription('Shuffle 2 {derived:Insight} cards.', EMPTY_CARDS)
+
+    expect(result).toEqual([
+      {type: 'text', value: 'Shuffle 2 '},
+      {type: 'skill', name: 'Insight', referenceKind: 'derived-skill'},
+      {type: 'text', value: ' cards.'},
+    ])
+  })
+
   it('promotes bare multi-word overlay names in prose into mechanic segments', () => {
     const result = parseRichDescription(
       'Gain Tentacle DMG and Death Resistance.',

@@ -5,6 +5,7 @@ import {
   resolveDatabaseOverlay,
   resolveDatabaseReferenceInfo,
   resolveDatabaseReferenceInfoById,
+  resolveDatabaseReferenceInfoByKindAndName,
 } from './database-reference-info'
 import {buildWheelDatabaseReferenceLayer} from './wheels-database-reference-layer'
 import type {WheelFullRecord} from './wheels-full'
@@ -47,7 +48,7 @@ function buildDerivedSkillRecords(): DerivedSkillRecord[] {
     {
       id: 'derived.global.embryo',
       displayName: 'Embryo',
-      aliases: [],
+      aliases: ['Seed'],
       descriptionTemplate: '{Caro} Awakeners consume this on Exalt.',
       descriptionArgs: {},
       cardKeywords: [],
@@ -96,11 +97,60 @@ describe('wheels-database-reference-layer', () => {
     })
 
     expect(referenceLayer.cardNames.has('Embryo')).toBe(true)
+    expect(referenceLayer.cardNames.has('Seed')).toBe(true)
     expect(resolveDatabaseReferenceInfo(referenceLayer, 'Embryo')).toEqual(
       expect.objectContaining({
         kind: 'derived-skill',
         id: 'derived.global.embryo',
         name: 'Embryo',
+      }),
+    )
+    expect(resolveDatabaseReferenceInfo(referenceLayer, 'Seed')).toEqual(
+      expect.objectContaining({
+        kind: 'derived-skill',
+        id: 'derived.global.embryo',
+      }),
+    )
+  })
+
+  it('can disambiguate generated card references from same-named wheels', () => {
+    const referenceLayer = buildWheelDatabaseReferenceLayer({
+      activeWheelId: 'wheel-0001',
+      derivedSkills: [
+        {
+          id: 'derived.global.insight',
+          displayName: 'Insight',
+          aliases: [],
+          descriptionTemplate: 'Draw 1 card.',
+          descriptionArgs: {},
+          cardKeywords: [],
+          childDerivedSkillIds: [],
+          variants: [],
+        },
+      ],
+      overlays: [],
+      wheelRecords: [
+        buildWheelRecord(),
+        {
+          ...buildWheelRecord(),
+          id: 'wheel-0076',
+          name: 'Insight',
+        },
+      ],
+    })
+
+    expect(resolveDatabaseReferenceInfo(referenceLayer, 'Insight')).toEqual(
+      expect.objectContaining({
+        kind: 'wheel',
+        id: 'wheel-0076',
+      }),
+    )
+    expect(
+      resolveDatabaseReferenceInfoByKindAndName(referenceLayer, 'derived-skill', 'Insight'),
+    ).toEqual(
+      expect.objectContaining({
+        kind: 'derived-skill',
+        id: 'derived.global.insight',
       }),
     )
   })

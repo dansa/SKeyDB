@@ -1,3 +1,4 @@
+import crypto from 'node:crypto'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
@@ -9,6 +10,7 @@ export const DEFAULT_CANVAS_SIZE = 64
 export const DEFAULT_RENDER_WIDTH = 68
 export const DEFAULT_QUALITY = 95
 export const DEFAULT_EFFORT = 6
+export const MINI_MANIFEST_FILE_NAME = 'wheel-mini-assets.manifest.json'
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(scriptDir, '..')
@@ -121,6 +123,37 @@ async function readIfExists(filePath) {
   }
 }
 
+function hashBuffer(buffer) {
+  return crypto.createHash('sha256').update(buffer).digest('hex')
+}
+
+async function hashFile(filePath) {
+  return hashBuffer(await fs.readFile(filePath))
+}
+
+function getManifestPath(miniDir) {
+  return path.join(miniDir, MINI_MANIFEST_FILE_NAME)
+}
+
+function getGeneratorManifestOptions(options) {
+  return {
+    canvasSize: options.canvasSize ?? DEFAULT_CANVAS_SIZE,
+    renderWidth: options.renderWidth ?? DEFAULT_RENDER_WIDTH,
+    quality: options.quality ?? DEFAULT_QUALITY,
+    effort: options.effort ?? DEFAULT_EFFORT,
+    sharpen: options.sharpen ?? true,
+  }
+}
+
+async function readWheelMiniManifest(miniDir) {
+  const manifest = await readIfExists(getManifestPath(miniDir))
+  if (!manifest) {
+    return null
+  }
+
+  return JSON.parse(manifest.toString('utf8'))
+}
+
 export async function collectWheelMiniAssetCoverage({
   wheelsDir = defaultWheelsDir,
   miniDir = defaultMiniDir,
@@ -141,13 +174,64 @@ export async function collectWheelMiniAssetCoverage({
   }
 }
 
+export async function createWheelMiniManifest(plan, options = {}) {
+  const assets = await Promise.all(
+    plan.items.map(async (item) => ({
+      full: path.basename(item.inputPath),
+      fullSha256: await hashFile(item.inputPath),
+      mini: path.basename(item.outputPath),
+      miniSha256: hashBuffer(item.output),
+    })),
+  )
+
+  return {
+    schemaVersion: 1,
+    generator: getGeneratorManifestOptions(options),
+    assets,
+  }
+}
+
+export async function writeWheelMiniManifest(plan, options = {}) {
+  const manifest = await createWheelMiniManifest(plan, options)
+  await fs.writeFile(getManifestPath(plan.miniDir), `${JSON.stringify(manifest, null, 2)}\n`)
+}
+
 export async function validateWheelMiniAssets({
   wheelsDir = defaultWheelsDir,
   miniDir = defaultMiniDir,
   canvasSize = DEFAULT_CANVAS_SIZE,
+  ...options
 } = {}) {
   const coverage = await collectWheelMiniAssetCoverage({wheelsDir, miniDir})
+  const manifest = await readWheelMiniManifest(miniDir)
+  const expectedGenerator = getGeneratorManifestOptions({canvasSize, ...options})
   const invalidMiniItems = []
+  const manifestIssues = []
+  const staleManifestItems = []
+  const manifestByMiniName = new Map()
+
+  if (!manifest) {
+    manifestIssues.push('Missing wheel mini manifest.')
+  } else if (manifest.schemaVersion !== 1 || !Array.isArray(manifest.assets)) {
+    manifestIssues.push('Wheel mini manifest has an unsupported schema.')
+  } else {
+    const manifestGenerator = manifest.generator ?? {}
+    for (const [key, expectedValue] of Object.entries(expectedGenerator)) {
+      if (manifestGenerator[key] !== expectedValue) {
+        manifestIssues.push(
+          `Wheel mini manifest generator ${key} is ${String(manifestGenerator[key])}, expected ${String(expectedValue)}.`,
+        )
+      }
+    }
+
+    for (const asset of manifest.assets) {
+      if (!asset || typeof asset.mini !== 'string' || typeof asset.full !== 'string') {
+        manifestIssues.push('Wheel mini manifest contains an invalid asset entry.')
+        continue
+      }
+      manifestByMiniName.set(asset.mini, asset)
+    }
+  }
 
   for (const miniWheelName of coverage.miniWheelNames) {
     const miniPath = path.join(miniDir, miniWheelName)
@@ -175,9 +259,45 @@ export async function validateWheelMiniAssets({
     }
   }
 
+  for (const fullWheelName of coverage.fullWheelNames) {
+    const miniWheelName = fullWheelNameToMiniName(fullWheelName)
+    const manifestEntry = manifestByMiniName.get(miniWheelName)
+
+    if (!manifestEntry) {
+      manifestIssues.push(`Wheel mini manifest is missing ${miniWheelName}.`)
+      continue
+    }
+
+    if (manifestEntry.full !== fullWheelName) {
+      manifestIssues.push(
+        `Wheel mini manifest maps ${miniWheelName} to ${manifestEntry.full}, expected ${fullWheelName}.`,
+      )
+      continue
+    }
+
+    const fullSha256 = await hashFile(path.join(wheelsDir, fullWheelName))
+    const miniSha256 = await hashFile(path.join(miniDir, miniWheelName))
+    if (manifestEntry.fullSha256 !== fullSha256 || manifestEntry.miniSha256 !== miniSha256) {
+      staleManifestItems.push({
+        miniWheelName,
+        fullWheelName,
+        fullChanged: manifestEntry.fullSha256 !== fullSha256,
+        miniChanged: manifestEntry.miniSha256 !== miniSha256,
+      })
+    }
+  }
+
+  for (const miniWheelName of manifestByMiniName.keys()) {
+    if (!coverage.miniWheelNames.includes(miniWheelName)) {
+      manifestIssues.push(`Wheel mini manifest has stale entry ${miniWheelName}.`)
+    }
+  }
+
   return {
     coverage,
     invalidMiniItems,
+    manifestIssues,
+    staleManifestItems,
   }
 }
 
@@ -277,7 +397,7 @@ function summarizePlan(plan, options) {
 function summarizeValidation(validation, options) {
   return [
     `Validated ${validation.coverage.miniWheelNames.length} wheel mini asset(s).`,
-    `Missing: ${validation.coverage.missingMiniNames.length}. Extra: ${validation.coverage.extraMiniNames.length}. Invalid: ${validation.invalidMiniItems.length}.`,
+    `Missing: ${validation.coverage.missingMiniNames.length}. Extra: ${validation.coverage.extraMiniNames.length}. Invalid: ${validation.invalidMiniItems.length}. Manifest issues: ${validation.manifestIssues.length}. Stale: ${validation.staleManifestItems.length}.`,
     `Expected: ${options.canvasSize}x${options.canvasSize} webp.`,
   ].join('\n')
 }
@@ -302,11 +422,29 @@ async function main() {
           .join(', ')}`,
       )
     }
+    if (validation.manifestIssues.length > 0) {
+      console.log(`Manifest issues: ${validation.manifestIssues.join(' ')}`)
+    }
+    if (validation.staleManifestItems.length > 0) {
+      console.log(
+        `Stale minis: ${validation.staleManifestItems
+          .map((item) => {
+            const changedParts = [
+              item.fullChanged ? 'full' : '',
+              item.miniChanged ? 'mini' : '',
+            ].filter(Boolean)
+            return `${item.miniWheelName} (${changedParts.join('+')} hash changed)`
+          })
+          .join(', ')}`,
+      )
+    }
 
     if (
       validation.coverage.missingMiniNames.length > 0 ||
       validation.coverage.extraMiniNames.length > 0 ||
-      validation.invalidMiniItems.length > 0
+      validation.invalidMiniItems.length > 0 ||
+      validation.manifestIssues.length > 0 ||
+      validation.staleManifestItems.length > 0
     ) {
       process.exitCode = 1
     }
@@ -330,8 +468,9 @@ async function main() {
   }
 
   await applyWheelMiniAssetPlan(plan)
+  await writeWheelMiniManifest(plan, options)
   console.log(
-    `Wrote ${plan.changedItems.length} wheel mini asset(s). Removed ${plan.coverage.extraMiniNames.length} stale mini asset(s).`,
+    `Wrote ${plan.changedItems.length} wheel mini asset(s). Removed ${plan.coverage.extraMiniNames.length} stale mini asset(s). Updated ${MINI_MANIFEST_FILE_NAME}.`,
   )
 }
 

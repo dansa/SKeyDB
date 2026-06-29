@@ -162,4 +162,45 @@ describe('database-rich-text', () => {
       {type: 'text', value: ' state.'},
     ])
   })
+
+  it('parses formatted description args next to mechanic references', () => {
+    expect(
+      parseDatabaseRichDescription({
+        record: {
+          id: 'wheel.test.fragrant-morphogenesis',
+          kind: 'wheel',
+          displayName: 'Fragrant Morphogenesis',
+          descriptionTemplate: 'Cause +[Float:StateArg2]% {Embryo Fusion}.',
+          descriptionArgs: {
+            StateArg2: {
+              kind: 'scaling',
+              values: ['0.9', '1.1', '1.3', '1.5'],
+            },
+          },
+        },
+        referenceLayer: {
+          cardNames: new Set<string>(),
+          accessibleOverlays: [
+            {
+              id: 'overlay.global.embryo-fusion',
+              displayName: 'Embryo Fusion',
+              overlayType: 'mechanic',
+              aliases: [],
+              descriptionTemplate: 'Embryo Fusion text.',
+              descriptionArgs: {},
+            },
+          ],
+          referenceInfoByName: new Map(),
+          referenceInfoById: new Map(),
+          overlayByName: new Map(),
+        },
+      }),
+    ).toEqual([
+      {type: 'text', value: 'Cause +'},
+      {type: 'descriptionArg', argKey: 'StateArg2', channel: 'Float'},
+      {type: 'text', value: '% '},
+      {type: 'mechanic', name: 'Embryo Fusion'},
+      {type: 'text', value: '.'},
+    ])
+  })
 })

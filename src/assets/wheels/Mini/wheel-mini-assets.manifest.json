@@ -1,0 +1,834 @@
+{
+  "schemaVersion": 1,
+  "generator": {
+    "canvasSize": 64,
+    "renderWidth": 68,
+    "quality": 95,
+    "effort": 6,
+    "sharpen": true
+  },
+  "assets": [
+    {
+      "full": "Weapon_Full_B01.webp",
+      "fullSha256": "b878bccd4b2e7e3838078beb9b0edfaeeb5878a6e4399f42e1f54e5aa531718a",
+      "mini": "Weapon_Mini_B01.webp",
+      "miniSha256": "39eb181273cd93e28cf881cb471bdb6bf83841ec4f6180803088302f79ed6d83"
+    },
+    {
+      "full": "Weapon_Full_B02.webp",
+      "fullSha256": "d4ff8b30c7720fb6478152d495eac20bdcc667beb922046a531cefa37d7c0882",
+      "mini": "Weapon_Mini_B02.webp",
+      "miniSha256": "8cb5026d42ebb6b9322fd3910b19e9a67d91ef58bc8802558f9464e4e2351d26"
+    },
+    {
+      "full": "Weapon_Full_B03.webp",
+      "fullSha256": "ef1d2df58ce5a6134f86e2355b4e5952ff3cc34eebbc76d7918c1760ca6e4df0",
+      "mini": "Weapon_Mini_B03.webp",
+      "miniSha256": "93c9079c5c4e5a3fa59de64cfa2c830ee0c1a8523b337d6e345e0d76e8d64b4c"
+    },
+    {
+      "full": "Weapon_Full_B04.webp",
+      "fullSha256": "4f41a5a5e69484a8a718927c6795ba64e31c87774ab08fe211fdd888929cf8c3",
+      "mini": "Weapon_Mini_B04.webp",
+      "miniSha256": "c690f262711ede866bd8d84b68289b167fcd22d49b6a386077519f004731fde2"
+    },
+    {
+      "full": "Weapon_Full_B05.webp",
+      "fullSha256": "ff11430555733a2c22882c34fffd8a2a1fc447625c03a06a8a503175ac82903f",
+      "mini": "Weapon_Mini_B05.webp",
+      "miniSha256": "1782238a2e2c3125dadddce82750540ea42ea9e228ea42f9d4c2bb5ce44c564b"
+    },
+    {
+      "full": "Weapon_Full_B05EX.webp",
+      "fullSha256": "9dc24d0cb737425a5da4d4ca0666c27070d22ab273492badb69f20b6722332da",
+      "mini": "Weapon_Mini_B05EX.webp",
+      "miniSha256": "3084919414a7c41f97f83e30e0d099084d759ac10cbe6c19b4bc29842d1ab7d6"
+    },
+    {
+      "full": "Weapon_Full_B06.webp",
+      "fullSha256": "16adff494f6ed462f8060b0c80ae000768981dccf4611e2768f3f1416aee7f8c",
+      "mini": "Weapon_Mini_B06.webp",
+      "miniSha256": "c4189e9a793d69f235a1faeabd5da30fb7a22ba5b5603db6a413cba4a09d9a38"
+    },
+    {
+      "full": "Weapon_Full_B07.webp",
+      "fullSha256": "fc3907ed6d9eb26070158e38949f8b5e90e83b116af7615e7de4fadfe194b910",
+      "mini": "Weapon_Mini_B07.webp",
+      "miniSha256": "68440aaab13b6795916e8d608054c2882b5995c932416afbe4e809cc3a49e190"
+    },
+    {
+      "full": "Weapon_Full_B08.webp",
+      "fullSha256": "82631450077d01eea692f799c6eb5482fdf41abad4361d9ac033238b17cb9349",
+      "mini": "Weapon_Mini_B08.webp",
+      "miniSha256": "fa21642635bf7faef5c718dc56d40bbe3b0271fe5972771f42f869b8643f7e30"
+    },
+    {
+      "full": "Weapon_Full_B09.webp",
+      "fullSha256": "41e49a09cca7efad45795e93a39e631ecf9f3408488adab3396493bc74d2ebfd",
+      "mini": "Weapon_Mini_B09.webp",
+      "miniSha256": "660ab688544a76728706bde7d868b3949b2612955dbf0afea82d43c5df8d4ade"
+    },
+    {
+      "full": "Weapon_Full_B10.webp",
+      "fullSha256": "f6fa3abd27513e36ff08dbba8519d03eeedc148b66c8327baf95dcf8fff7d56b",
+      "mini": "Weapon_Mini_B10.webp",
+      "miniSha256": "2b385c939a4d4c70a6a158a5fee3cccfd9f1d2c62225c4268d667281a968155b"
+    },
+    {
+      "full": "Weapon_Full_B12.webp",
+      "fullSha256": "18f24ee4759daf23f2439e1f080a91b0487201e6a6b077ead48436db05ae5aac",
+      "mini": "Weapon_Mini_B12.webp",
+      "miniSha256": "1f3f01e810ee63ced23dc80e4bf235acd4805985d9c709a8b5f6756efd2f011f"
+    },
+    {
+      "full": "Weapon_Full_B14.webp",
+      "fullSha256": "cc9766e41656eea4a78255a40ec58af659002d73c09739e50b967e9bed1a850a",
+      "mini": "Weapon_Mini_B14.webp",
+      "miniSha256": "a9059e943a8d13392110a4305794f7088ef63803021a5c256efe01f520a8bd72"
+    },
+    {
+      "full": "Weapon_Full_B15.webp",
+      "fullSha256": "1f6977a9351f75b7199c55c1249ac58551728abeaec3f7cf818aa6f6eb826c6c",
+      "mini": "Weapon_Mini_B15.webp",
+      "miniSha256": "addb40b7cf73bd57868e3152d1a8fbdc10178a2f6c1d38c423d656aa2b23f502"
+    },
+    {
+      "full": "Weapon_Full_C01.webp",
+      "fullSha256": "f8f9318166c8ed1ff85bf17e8f6950f2f662ff87ff4dfd0726b14f925b971277",
+      "mini": "Weapon_Mini_C01.webp",
+      "miniSha256": "ff171f1e7a4b46b109ee7b00a458a5405de6bfa8725d79e4bf84d7221fd58062"
+    },
+    {
+      "full": "Weapon_Full_C02.webp",
+      "fullSha256": "63e2670ce691cad887c75727c5104518590791eee2daa708a76adf6a7a6e926e",
+      "mini": "Weapon_Mini_C02.webp",
+      "miniSha256": "23de82d336fc783b42e214a9ee0cc69ca72e56175f429ca952dde679fbcbcca8"
+    },
+    {
+      "full": "Weapon_Full_C02EX.webp",
+      "fullSha256": "2afb0f53bb5b5ebf7fa33640373405be6251dca7fe425ed49eefca459eb1dd23",
+      "mini": "Weapon_Mini_C02EX.webp",
+      "miniSha256": "26e139b22b90220a0a1a57256d9a6ad95188f7fa49501706b6f85c9168452c08"
+    },
+    {
+      "full": "Weapon_Full_C03.webp",
+      "fullSha256": "b1bc2e954e1e2a4f4d6541e14978f5a38d36d75c54246a79ad5736af75923181",
+      "mini": "Weapon_Mini_C03.webp",
+      "miniSha256": "59c9c2ddd12e729a006d349ca0040550e8879ffecfa3b050b1d07136d77797c3"
+    },
+    {
+      "full": "Weapon_Full_C04.webp",
+      "fullSha256": "543303d7fdc3442b0f82fd876d9d4460c3a8c1dafc0f430b191d29f99d6e6e89",
+      "mini": "Weapon_Mini_C04.webp",
+      "miniSha256": "6e5b9f66a05ac20cb6a6cae1fdef6526ed2bd66f078fa3250aed16cb42bcefba"
+    },
+    {
+      "full": "Weapon_Full_C05.webp",
+      "fullSha256": "5ae8d3fd74cf42c9c7de804e8b50adb96a77b2d7171dd3385e93196d870d3bb9",
+      "mini": "Weapon_Mini_C05.webp",
+      "miniSha256": "2e9aca0287425496bcf889e1a540893b22479527b7a2ac9770a47c5da2d51dfd"
+    },
+    {
+      "full": "Weapon_Full_C06.webp",
+      "fullSha256": "770ea2ee41d2c6fbb324e98da464c1507a50843bf38c69e503ea9d096a3b091d",
+      "mini": "Weapon_Mini_C06.webp",
+      "miniSha256": "cab85700adc5a91b76f389b9d2b4d728d6bd81e6e960305415f7b4ea9a95accc"
+    },
+    {
+      "full": "Weapon_Full_C07.webp",
+      "fullSha256": "0a98b33733a27434cdaf7ca66166df0e8f57ca51ec2f899209454ca69755ba09",
+      "mini": "Weapon_Mini_C07.webp",
+      "miniSha256": "d4c5952d13b1dccf469ecfd0199f6a82a58ac7ad814d8d6c299ca2036c44c0f7"
+    },
+    {
+      "full": "Weapon_Full_C08.webp",
+      "fullSha256": "b1346fb881cbbeb361abad359f89fde8329fb50497ff174d52e88036de2ea3d3",
+      "mini": "Weapon_Mini_C08.webp",
+      "miniSha256": "40535a115fe97cc5a0099e289175e81f93a29c62d2b69e4ce28d327ae95c5460"
+    },
+    {
+      "full": "Weapon_Full_C09.webp",
+      "fullSha256": "c08b76ef4ff77ba3b83d6ecb5289ac6e975c87b5f3f580f8057b986d3fa86d3a",
+      "mini": "Weapon_Mini_C09.webp",
+      "miniSha256": "a362d6c275c10aa2648d102347a69b0b61f0c85000248d8aec06e5bf71740f72"
+    },
+    {
+      "full": "Weapon_Full_C10.webp",
+      "fullSha256": "25187599adef9016b1646ba79764978eb4e3a2a0f15245308f3b042ec8bd512a",
+      "mini": "Weapon_Mini_C10.webp",
+      "miniSha256": "6362d8e95805f9e9ce57f0984fe191ffc4186d032c32d858fc80b2ec5308694a"
+    },
+    {
+      "full": "Weapon_Full_C11.webp",
+      "fullSha256": "fae237382d7198f00a5f0522b1de865e448eb26332f08b6518bdf52743020d1e",
+      "mini": "Weapon_Mini_C11.webp",
+      "miniSha256": "cf3c2d47921132402f10b26b07019a1c023f8dd884a21c6293d8b19721521ca6"
+    },
+    {
+      "full": "Weapon_Full_C12.webp",
+      "fullSha256": "9e6942f6c47c514bccf091ce1b8a450cb5c9f0cace125f717e39566f8af82645",
+      "mini": "Weapon_Mini_C12.webp",
+      "miniSha256": "c02e34a0803aa123735404d8040e44ee87d521ccc767a42e3d890debe0bf057e"
+    },
+    {
+      "full": "Weapon_Full_C15.webp",
+      "fullSha256": "5802d22bb1b55bd4c2817f68338b77f06baad529c7fe2397e54adc5fa66a3e0a",
+      "mini": "Weapon_Mini_C15.webp",
+      "miniSha256": "81d7de7fe704a13ac859fc025207a614201d6c0d24b56e08d7400ea1ecd707bf"
+    },
+    {
+      "full": "Weapon_Full_C16.webp",
+      "fullSha256": "259f3a79f4b1a4573d18deb4d7f888ad9cfeecfd409832521f1f2b604deb9ac2",
+      "mini": "Weapon_Mini_C16.webp",
+      "miniSha256": "ad7b8ec31aa7c507a72e7f902b501d16fe49b33ed6c51dfbd8f64d7a0bea675c"
+    },
+    {
+      "full": "Weapon_Full_C17.webp",
+      "fullSha256": "d917d5eecaf3a766f2bbfe59107c33f01c25810b0cd225eaecfdfe355e6510c1",
+      "mini": "Weapon_Mini_C17.webp",
+      "miniSha256": "e9e211f3d5f6a728919cc37c651ca4d299786c0d827a66da6393eadc5e8b2ec5"
+    },
+    {
+      "full": "Weapon_Full_D01.webp",
+      "fullSha256": "9feac088ccfbbed1ae54ea6da76f0440fa94ce7b724c6b8ad2a673234a6b9f5f",
+      "mini": "Weapon_Mini_D01.webp",
+      "miniSha256": "504e3267a700b6a404acf4b70a96955237a9b94612bb96ed22e8c95ec72c1e20"
+    },
+    {
+      "full": "Weapon_Full_D02.webp",
+      "fullSha256": "9f2aeacb75ff4097d775c10a5ee473d0843d589495095a390920cb4583dfd5a6",
+      "mini": "Weapon_Mini_D02.webp",
+      "miniSha256": "f8a98daa4008db0a39140be70de64e433662b29851dc3e3d5bfae2a88f73561d"
+    },
+    {
+      "full": "Weapon_Full_D03.webp",
+      "fullSha256": "9163e59e30d26967b2d16ddaa2c3ab35566197b7770fe88bc786c65f43da57cc",
+      "mini": "Weapon_Mini_D03.webp",
+      "miniSha256": "78a2951201d7c08963f7498171ed4dbb72bcfc511c9b8f637ed8662effd1af71"
+    },
+    {
+      "full": "Weapon_Full_D04.webp",
+      "fullSha256": "e4726f4ffcbcd672360a40cf4280cdc50c120416d59c1c1c9572d36d46d74d33",
+      "mini": "Weapon_Mini_D04.webp",
+      "miniSha256": "75db078fdc387e175278b77aa80ab92694828853dff5a8a66379a19c07caf4b1"
+    },
+    {
+      "full": "Weapon_Full_D05.webp",
+      "fullSha256": "84c99119b926ac3be2efec8d4671596084ece5107d44332910825a0f02e4481e",
+      "mini": "Weapon_Mini_D05.webp",
+      "miniSha256": "d29c7ff910bca64a7fd1212b53761239a46370f6ac4b962ae36ef2ee7f481c26"
+    },
+    {
+      "full": "Weapon_Full_D06.webp",
+      "fullSha256": "420090ef2a1cc224b65af215f3389b8132f836f2dda253c6bc07ae4e29bd2ba1",
+      "mini": "Weapon_Mini_D06.webp",
+      "miniSha256": "b249b584e4eb289d2b07bea2d5a33b74e0bc36ec875c93ab2efd9d83090d4294"
+    },
+    {
+      "full": "Weapon_Full_D07.webp",
+      "fullSha256": "73229acd46f8fff14b22ef92d972fe0f8886173985d802c54eb4d83ce942448f",
+      "mini": "Weapon_Mini_D07.webp",
+      "miniSha256": "e6f3fe9d2325dce5d121eb987e7defd6c4a4c09619f8ed94b726f588c18f0e5a"
+    },
+    {
+      "full": "Weapon_Full_D08.webp",
+      "fullSha256": "a53f7e8531d76631e574068a85c918dcfe2aabb36a5048ddfa7d0d173d7437ce",
+      "mini": "Weapon_Mini_D08.webp",
+      "miniSha256": "08c68b41d42d9139a5be3edf483e4d35fd28714aa4ef4be08e67b0b152854a96"
+    },
+    {
+      "full": "Weapon_Full_D09.webp",
+      "fullSha256": "91ab0b5669d36cbc9bf172153a5f2db1cb56cc7e6bd8bd960ba123500baf4591",
+      "mini": "Weapon_Mini_D09.webp",
+      "miniSha256": "b2e35638dc7569a73cf4a9ee1d152c0b35b70e6f738ae440b134f28503eb90b4"
+    },
+    {
+      "full": "Weapon_Full_D10.webp",
+      "fullSha256": "728d17ab06f3f43df6840cf5d2b97225a49048de31001b7cace8fdd6d4ff98e2",
+      "mini": "Weapon_Mini_D10.webp",
+      "miniSha256": "d384712058145a879032e01fd3e2a5bb694f487e31a03aea32cfbbbdf73ca845"
+    },
+    {
+      "full": "Weapon_Full_D11.webp",
+      "fullSha256": "dd49aefd9375c095775c475fb24247b80809f9d045a74767e2f64c1ed1fd5def",
+      "mini": "Weapon_Mini_D11.webp",
+      "miniSha256": "8966dab6b61bb6d96cef1190ce63100073c1f678dc162df1ca9b9cf546b5da3c"
+    },
+    {
+      "full": "Weapon_Full_D12.webp",
+      "fullSha256": "195709a6419151c281051ffd58653db515ba3e5f4e2dab01d9c4f8b9841fbbd2",
+      "mini": "Weapon_Mini_D12.webp",
+      "miniSha256": "2e7471ddacb3a8179c41b258b308860f195ed8acd1f66c063105297fbb1d5edb"
+    },
+    {
+      "full": "Weapon_Full_D13.webp",
+      "fullSha256": "fee6f7a79cd9efd0cac1171c3e2b087b1c2db3cda998b5f28f00f18b5734dda6",
+      "mini": "Weapon_Mini_D13.webp",
+      "miniSha256": "98dd5b81a3ac8c7900c9ee0117bb1ae34d10649327cf3686e22f1690b33c7813"
+    },
+    {
+      "full": "Weapon_Full_D14.webp",
+      "fullSha256": "4aac973e646dafd9661083dad9addb89bea17ee958a23ecfccef906ff8608a8c",
+      "mini": "Weapon_Mini_D14.webp",
+      "miniSha256": "6bdb8863b4ed39cbc5f39d42ee7a0d1749d97f96ea3443113a4bab8a2f21bdd4"
+    },
+    {
+      "full": "Weapon_Full_JP01.webp",
+      "fullSha256": "5a97276f69b06cc4eceaa3fe8ed33e05742b872e93c6a7afb8fc60e39968c398",
+      "mini": "Weapon_Mini_JP01.webp",
+      "miniSha256": "967050343f84648f8e52f8c70b3bcb12f9db8bacd7ad94a94403fb5fcc9d3ed6"
+    },
+    {
+      "full": "Weapon_Full_JP02.webp",
+      "fullSha256": "d1e26d37eeaa370a0f7a5213c3d7b64658ca5555d3fe85a014816f44e8a1a0c7",
+      "mini": "Weapon_Mini_JP02.webp",
+      "miniSha256": "ec5d9a872ecc3907cc4b1ea6c5c081ba08308f46191217eed9f9bec46305f9d3"
+    },
+    {
+      "full": "Weapon_Full_JP03.webp",
+      "fullSha256": "fed26b9d77321048639a5f326286b7733bea5d6f944c156be35fc0913f184d44",
+      "mini": "Weapon_Mini_JP03.webp",
+      "miniSha256": "64dbff1bb59994dde1c3ca381b526904add092a522d8e9cb2d72387c421e56fa"
+    },
+    {
+      "full": "Weapon_Full_JP04.webp",
+      "fullSha256": "d49290ac4b63eea3eafe39f64832596bde83f0f73ed79575499d76a0577ba104",
+      "mini": "Weapon_Mini_JP04.webp",
+      "miniSha256": "42a6e17eae01bd6754aec12f9ce8ed5bcfaa96c4c137fd09a4f6031b6ed6f3f8"
+    },
+    {
+      "full": "Weapon_Full_JP06.webp",
+      "fullSha256": "64a0cfa2bf577c30e0a3f7fc7952e4c64a5838d48651ebb31536e3f881553c2d",
+      "mini": "Weapon_Mini_JP06.webp",
+      "miniSha256": "bdb30aa6c44c011534868c22b0ae503838836c12c85dc6e17d1c4664d70815c2"
+    },
+    {
+      "full": "Weapon_Full_JP07.webp",
+      "fullSha256": "12224ddb8387afdaabccd53d4f00098b0a4c8d716131c0208d42ddc670f2e6d0",
+      "mini": "Weapon_Mini_JP07.webp",
+      "miniSha256": "11588bc2c0bb49ee557372bcffde45904653514a3201a60a5cdf81e3a8e2f942"
+    },
+    {
+      "full": "Weapon_Full_JP08.webp",
+      "fullSha256": "dd6f89bcafcd66520566aad0555e7e2fd034d039ebea15cb30f14bd970a73524",
+      "mini": "Weapon_Mini_JP08.webp",
+      "miniSha256": "5934c06a08cd6c59fab48d00495c6facdf05354988baca9d4709ace2b6f43a36"
+    },
+    {
+      "full": "Weapon_Full_JP12.webp",
+      "fullSha256": "886e17c7c1479d27a3de272ccc16213433163d2c143247287798140aaf4006e1",
+      "mini": "Weapon_Mini_JP12.webp",
+      "miniSha256": "a52640518db10c01317c59ed06b3d94c070d083bf00fff49792d4f4ec4e4a381"
+    },
+    {
+      "full": "Weapon_Full_N01.webp",
+      "fullSha256": "365087b27f24ff9adbe41d31dcbc6739be0e391b3fbefe69201e1f4e40b42a09",
+      "mini": "Weapon_Mini_N01.webp",
+      "miniSha256": "e8818aeed212a5c75c3a922d1130468b79ddf0414e4b41c0c23e9fe601097eb8"
+    },
+    {
+      "full": "Weapon_Full_N02.webp",
+      "fullSha256": "f64809d88ee91c1b8ba40b6cfd0ea595d004ea60714d7df9c00060ac4ae55b8b",
+      "mini": "Weapon_Mini_N02.webp",
+      "miniSha256": "669a31791072c0af1f02bd080d409797ed28fa210bd2980272bca26d38653421"
+    },
+    {
+      "full": "Weapon_Full_O01.webp",
+      "fullSha256": "a60130b7a90f0f7995cca80b0ffd57c73ce80244c1c126944bc81c0a6c57a619",
+      "mini": "Weapon_Mini_O01.webp",
+      "miniSha256": "95b1b444905e982f13d5117eb1f06f509590fe9306d8a70d8aee6e2699f3e2f3"
+    },
+    {
+      "full": "Weapon_Full_O02.webp",
+      "fullSha256": "512cea8d2723f4bcfb4362301fa15e63755d536886c5dd967a4beb24887df89b",
+      "mini": "Weapon_Mini_O02.webp",
+      "miniSha256": "c20d781be190d855bc99d495cfff9821d5cff1bc519693a2348898cf0950e94a"
+    },
+    {
+      "full": "Weapon_Full_O02EX.webp",
+      "fullSha256": "d8950c76807e2f6f8b5ad346a5f54863c64029af8bdef930ecd1fb29c670e2dc",
+      "mini": "Weapon_Mini_O02EX.webp",
+      "miniSha256": "40045826a6f2a5e8c73e9e28c05bc7f798c1f548eeffc5fed238ea5e3c17ef70"
+    },
+    {
+      "full": "Weapon_Full_O03.webp",
+      "fullSha256": "5c866d1bceb26a2e009b7fa0a825d421c6e6690670694598df837e14e91233ea",
+      "mini": "Weapon_Mini_O03.webp",
+      "miniSha256": "6e604631330020b9846f3d8ea03fa99bc8ce6a82eef624fa8fcb5e47a0d43934"
+    },
+    {
+      "full": "Weapon_Full_O04.webp",
+      "fullSha256": "caeaf63b98571bd3576b7c99041b0b497fbd7a6a0ac2f9d66ac3d7c2cd2d9deb",
+      "mini": "Weapon_Mini_O04.webp",
+      "miniSha256": "adbc5ec4eb1b639a6171b41851c0b92b7c06262f4c9f2c9b1e1274d616fe0245"
+    },
+    {
+      "full": "Weapon_Full_O05.webp",
+      "fullSha256": "f295cab1fd78a74545220635a0ac880f32ba6845dc3db7ddeb448781e359866e",
+      "mini": "Weapon_Mini_O05.webp",
+      "miniSha256": "9f9b84ba64e09ce717534605dbc9b4031fcaac57311f2e722ad88522796128d3"
+    },
+    {
+      "full": "Weapon_Full_O06.webp",
+      "fullSha256": "52255894e5e0fd6e5da99436ef632f0ee1a16a13014fdc18795419bbec6776a8",
+      "mini": "Weapon_Mini_O06.webp",
+      "miniSha256": "703e47c616536adbdab6cd227e7cfa14c11d8ff1ef86ae222f4067c90dcb1e7e"
+    },
+    {
+      "full": "Weapon_Full_O07.webp",
+      "fullSha256": "13b6b5864f05f674768d90c68b590d24929d862b3e5c47dcb82788eab16fea40",
+      "mini": "Weapon_Mini_O07.webp",
+      "miniSha256": "f64c045aa08991fdbe9e2e3d647e5734bbca27ef48cdb356b569da729a9a3673"
+    },
+    {
+      "full": "Weapon_Full_O08.webp",
+      "fullSha256": "faeac54a8d37a631e04db9d57b021b0878f2a043422139c5df34b5ad0609aadb",
+      "mini": "Weapon_Mini_O08.webp",
+      "miniSha256": "e0c44ea9c1c2dc77f268bdd69b6dba318172f0e68c82a64ea3bb313799209d59"
+    },
+    {
+      "full": "Weapon_Full_O09.webp",
+      "fullSha256": "7073cdf569289e755c198679e0036133eb6b0747bf71fad092cef0f178634e60",
+      "mini": "Weapon_Mini_O09.webp",
+      "miniSha256": "f9866643bba38d876c2715f3141201f92cc0f0297327e225fc64ea886afdf0c7"
+    },
+    {
+      "full": "Weapon_Full_O10.webp",
+      "fullSha256": "129c29aab2828b304f99de98cd58608654644b39d3b28d473e17541702238b18",
+      "mini": "Weapon_Mini_O10.webp",
+      "miniSha256": "82968360e581f01f21d574fdd1d32ba0f64c1d2db88b42ebaa3b456955cf1c30"
+    },
+    {
+      "full": "Weapon_Full_O11.webp",
+      "fullSha256": "6bd316b1671b492c543a695cb7f229c61bbc53885c87a22586b56af3e300bbfc",
+      "mini": "Weapon_Mini_O11.webp",
+      "miniSha256": "a453d3d9b5097d0b189285a363ce032408c05d8875f7da7e77ac677b2df616c9"
+    },
+    {
+      "full": "Weapon_Full_O13.webp",
+      "fullSha256": "7847a9a4b8513a82df978a204bba4980a3cebd4afe70de72a7921cb72dafc2f6",
+      "mini": "Weapon_Mini_O13.webp",
+      "miniSha256": "22cfab9c50dd50dcc70e1f8f4be95f03655e511669dec9b2659ac64029ae1d55"
+    },
+    {
+      "full": "Weapon_Full_P01.webp",
+      "fullSha256": "d07887e97da995c45daa3bf5f3c123d99e02a045c9caffb04bbf8e665eecab2a",
+      "mini": "Weapon_Mini_P01.webp",
+      "miniSha256": "c8a4f76f1e34eb88dfb319908195fd0be10bacaefe02a8383d551e14ba5ab453"
+    },
+    {
+      "full": "Weapon_Full_P02.webp",
+      "fullSha256": "3d0a49584e58dede6760549475cd35dddfc83c2edb2bd9dbf68fbb7f78f9eead",
+      "mini": "Weapon_Mini_P02.webp",
+      "miniSha256": "0e51d5008f05e84ce698e3c0906a6c6da0732784df4381ca28bd36ac005a3471"
+    },
+    {
+      "full": "Weapon_Full_P03.webp",
+      "fullSha256": "2440b53a7e680c0b060c975f1bbb7b9ed8515787ddd774ced11cd25800cfa508",
+      "mini": "Weapon_Mini_P03.webp",
+      "miniSha256": "186a66ae923ca4cd98b43362d57135210934d52003bfdfc2509d1bc93ef96c95"
+    },
+    {
+      "full": "Weapon_Full_P04.webp",
+      "fullSha256": "173a6ac8533c93ba3cb9fe0ab53a41e639ea994bd3f7223046964b221c22f108",
+      "mini": "Weapon_Mini_P04.webp",
+      "miniSha256": "b484a21d1c2b620d6896e19417c5094dfc240fca6b4b54ef342f144ccc3eae0a"
+    },
+    {
+      "full": "Weapon_Full_P05.webp",
+      "fullSha256": "61c23bc4fb73ba72ac0cbd5de28b42243b10f7658356b22a990f558ad1e3a90d",
+      "mini": "Weapon_Mini_P05.webp",
+      "miniSha256": "8cc104ae4282e6cc53a46f7e22ed55e03b832d8a014d267b82496b54103b04dd"
+    },
+    {
+      "full": "Weapon_Full_P06.webp",
+      "fullSha256": "fc0149f5789a891355be9fc158963bfa8ebd2a657e83aef32f6ee69e155ceae4",
+      "mini": "Weapon_Mini_P06.webp",
+      "miniSha256": "7b32f5b71ca76f43675201dba6c08ce4ce2c055094659496262b94caafbb7814"
+    },
+    {
+      "full": "Weapon_Full_P07.webp",
+      "fullSha256": "8376d173fa1482f3c3e8ab0726f378bd7586c8c7b88fca7770d1af56816ed642",
+      "mini": "Weapon_Mini_P07.webp",
+      "miniSha256": "0c264920933cc750ef4aa08301d1cb5316c22ca946b06d3235df2aebb7271088"
+    },
+    {
+      "full": "Weapon_Full_P08.webp",
+      "fullSha256": "d8c8702070d2b110bd245e75e11115a4835ae189ffec39120573b32ea4e9f794",
+      "mini": "Weapon_Mini_P08.webp",
+      "miniSha256": "82cac31278a25feef6744371b188d0805a29647c08c80be5e53bacef77d1054e"
+    },
+    {
+      "full": "Weapon_Full_P09.webp",
+      "fullSha256": "7673c926eae1f40abdc79f510e6b537c2c878bfb8ab7d4e32d0c36a9d871b888",
+      "mini": "Weapon_Mini_P09.webp",
+      "miniSha256": "c7cd26adaa3fae72395b12ee16e0be39aa16b45f097e5b1dc305ea0b86398c49"
+    },
+    {
+      "full": "Weapon_Full_P10.webp",
+      "fullSha256": "1d3930b3e8bec26f44800531e81f0623178b881296e60be0a79888068f5d2f4f",
+      "mini": "Weapon_Mini_P10.webp",
+      "miniSha256": "7f25e9381e3a6d80c164e4e7b47c5c4b3b9cd1f4799c6cad91ba615bcf13e3c0"
+    },
+    {
+      "full": "Weapon_Full_P11.webp",
+      "fullSha256": "59c29a5333777709f5be970a3b3688c00a7f96742bd291f35e310507219692c7",
+      "mini": "Weapon_Mini_P11.webp",
+      "miniSha256": "2d18da35d8e29b1b47b74d0cb3b7230ff3ffd27c649a02b2899125d882e483e8"
+    },
+    {
+      "full": "Weapon_Full_P12.webp",
+      "fullSha256": "47f82663e06d7c4d05a1f6a3fda11a81858234ae6336a55f2b90d344537e021d",
+      "mini": "Weapon_Mini_P12.webp",
+      "miniSha256": "122950e6c37a610665031da29e0ab1823a6eb9c81b8f22df088a4b1f41c41173"
+    },
+    {
+      "full": "Weapon_Full_P13.webp",
+      "fullSha256": "96723e431923aa26464115ad59ba3ea4511fc7612f661c17b1d8c16f5f7f153c",
+      "mini": "Weapon_Mini_P13.webp",
+      "miniSha256": "1a7ffd7278f8e70eab3bd103fc54f930fdca0cad7143ebc5c56c1f1a6312d59d"
+    },
+    {
+      "full": "Weapon_Full_P14.webp",
+      "fullSha256": "c3ebd581b2ec195f06b9b924bbc18aea576e4ab0abb50412606a42b4a54c30f5",
+      "mini": "Weapon_Mini_P14.webp",
+      "miniSha256": "ce0847831d961fdd58fa518d0c222ffd3605bb50e585083166ce32fa466c5eb3"
+    },
+    {
+      "full": "Weapon_Full_P15.webp",
+      "fullSha256": "62c3bbd6fdd53e1b310e4807fcbd3d474c066fbcbc7556b9efcc7cff15848fec",
+      "mini": "Weapon_Mini_P15.webp",
+      "miniSha256": "24dab400ebe0b0581dc24418c67b13371c938e8d9ebf44ae9eda7d2dc9a623c6"
+    },
+    {
+      "full": "Weapon_Full_P16.webp",
+      "fullSha256": "6d47ec8aa1cf8a04537e354e346e3e0e134b809a34ef372bb7bc0034b98ef992",
+      "mini": "Weapon_Mini_P16.webp",
+      "miniSha256": "ab71ff3991d911f8ce4e19de4008fa3f6d1e65d65af6b747a15f08d7543503ca"
+    },
+    {
+      "full": "Weapon_Full_SR01.webp",
+      "fullSha256": "6431a6868602d29d9d1314b4ee7acb5265dd4d3b9ad945286a878da68556ab07",
+      "mini": "Weapon_Mini_SR01.webp",
+      "miniSha256": "b9927ac3f5b9f37898d77d08e88b202af0db0c71cb8300b35552cab5fb03101e"
+    },
+    {
+      "full": "Weapon_Full_SR02.webp",
+      "fullSha256": "2603f58bd74ea8830c51c94916e458415e88542b0db80c1a98f1e45bad89fb3d",
+      "mini": "Weapon_Mini_SR02.webp",
+      "miniSha256": "cdd58a462fac05767fd3375460758413d9fefe7fbcc02760f5a377b0a880392e"
+    },
+    {
+      "full": "Weapon_Full_SR03.webp",
+      "fullSha256": "d952c255eaa1d23ea40240ed20a5c3d8d956978cf26bb5730cfa5ba9784f354c",
+      "mini": "Weapon_Mini_SR03.webp",
+      "miniSha256": "572404006bf29e338fda05c7cc8d17c56d694618cdd40d74c843376cfd793931"
+    },
+    {
+      "full": "Weapon_Full_SR04.webp",
+      "fullSha256": "804a99aa817fef626382e7654b9c5c36252f728c07e9b718f9b50699efa63bf6",
+      "mini": "Weapon_Mini_SR04.webp",
+      "miniSha256": "aa32d067b6fe9be5fad1a871fa68ed29495349eefd7f868c8c5415d4d616754a"
+    },
+    {
+      "full": "Weapon_Full_SR05.webp",
+      "fullSha256": "7de9156c02e3e85bc07fcbd470ec850062e15587061a5ff3662037d296063b0f",
+      "mini": "Weapon_Mini_SR05.webp",
+      "miniSha256": "6010549691fe4537d04df2997761cc81a0eb1f2152f6dd270e36a6d28c941962"
+    },
+    {
+      "full": "Weapon_Full_SR06.webp",
+      "fullSha256": "2ccadf19e1085005d3c67e71aa4e264edbf161531fb909640cc977711bb552d2",
+      "mini": "Weapon_Mini_SR06.webp",
+      "miniSha256": "fa9c294cd59b6b7b1eed5b601d519070bdc651c201c5a809ce1d008e585c5e77"
+    },
+    {
+      "full": "Weapon_Full_SR07.webp",
+      "fullSha256": "c8358a19c7b47ea2bb0ffcd444b58feb76aa4b01a43d4542691d2664a8a21050",
+      "mini": "Weapon_Mini_SR07.webp",
+      "miniSha256": "4d5bd9e0bfc04ffa3cf2051be59e7479090642bbf37580ba8f591a5e8391c04b"
+    },
+    {
+      "full": "Weapon_Full_SR08.webp",
+      "fullSha256": "ddb017f2685773980e0c1e422f2acdd2df72a066b7d2682d183aad68658aefb0",
+      "mini": "Weapon_Mini_SR08.webp",
+      "miniSha256": "9953da578a48ca5187afb034d3ab9a6f3f5119fb79a798d1a7e1a2799ec3d024"
+    },
+    {
+      "full": "Weapon_Full_SR09.webp",
+      "fullSha256": "779ac9c528983d5e6152a75a968334fc3d61749c2daef09069f000702cb44657",
+      "mini": "Weapon_Mini_SR09.webp",
+      "miniSha256": "9afbf00d7371f0c6bdaa6b6a36ace63991e6e9c5821543931f6b99297a9c5697"
+    },
+    {
+      "full": "Weapon_Full_SR10.webp",
+      "fullSha256": "a34e36dafcef8d75a0ba5f9056110afdb3744cb25fb9078bfe8a6156e82ca50e",
+      "mini": "Weapon_Mini_SR10.webp",
+      "miniSha256": "3cde8867049d1794d81952c524917214f01b708580373e668aea3881a21feb47"
+    },
+    {
+      "full": "Weapon_Full_SR11.webp",
+      "fullSha256": "d494d95c66e200e50bc3703a08fd7f460346c5017b5f62b40bb91b8136a20703",
+      "mini": "Weapon_Mini_SR11.webp",
+      "miniSha256": "157af06a1f28f3a14e367015ecef0a1b7dd25197404e6cd5c541fa64b51623cc"
+    },
+    {
+      "full": "Weapon_Full_SR12.webp",
+      "fullSha256": "e550344a491fdebd56543671c6680b23f9853c3c71634f39bb1ae2af524e4b84",
+      "mini": "Weapon_Mini_SR12.webp",
+      "miniSha256": "089ca39e222cdadcb04386a17d0d98e120c1abfdf797328f1e7b427b7b608a9b"
+    },
+    {
+      "full": "Weapon_Full_SR13.webp",
+      "fullSha256": "5e7eb1407d7fab2e8c61563578e646f809aca3b3adb0d040183183ffe08f3a55",
+      "mini": "Weapon_Mini_SR13.webp",
+      "miniSha256": "d6f434acdfc11c88edffa4d93ad552f757e84f1064d6801765c00cdec302a05d"
+    },
+    {
+      "full": "Weapon_Full_SR14.webp",
+      "fullSha256": "8be19f291ed8d3727aefdb1de94ef4f461dc60119ffa6708b36c5a3ef0d2fd77",
+      "mini": "Weapon_Mini_SR14.webp",
+      "miniSha256": "054d4f7d32d4c6f39d7d5dbb377514ee5d0768c45da02f2a54208e633ca02dc5"
+    },
+    {
+      "full": "Weapon_Full_SR15.webp",
+      "fullSha256": "6139aa25e0979301213043e1f1bc4c5e744bebe455b001edc088e5136be1b30a",
+      "mini": "Weapon_Mini_SR15.webp",
+      "miniSha256": "0ee3c1b3ede6fb8bfaa0e763d6f7500de586b9a186d211ed734a647854156b43"
+    },
+    {
+      "full": "Weapon_Full_SR16.webp",
+      "fullSha256": "567518844ee44dd327b556778e2eccffe14a4828cf09fb726d0d97dc59505f9d",
+      "mini": "Weapon_Mini_SR16.webp",
+      "miniSha256": "a634798029cee5979332a45164cb87d7cb0f05f6379f97affc1afa2a7696763f"
+    },
+    {
+      "full": "Weapon_Full_SR17.webp",
+      "fullSha256": "8bbd607290d7356c503fb708adadecbdc8574a671a1f3774fd1e23ea6f8002f5",
+      "mini": "Weapon_Mini_SR17.webp",
+      "miniSha256": "c551b7a764517468ef478f3b7a71c8309d6c9539b9b88fb12cd595996e57ea53"
+    },
+    {
+      "full": "Weapon_Full_SR18.webp",
+      "fullSha256": "58055b95e5869a8ec0376cbb06f6d1acb74186beb74b76d335b322ca9a857087",
+      "mini": "Weapon_Mini_SR18.webp",
+      "miniSha256": "7871f7e747546bce4ad2f886583a649dc46ffd1ba38e435e0df7962821ad8082"
+    },
+    {
+      "full": "Weapon_Full_SR19.webp",
+      "fullSha256": "afa00756d82fd5eeaaf57ba32269da6cd14377c1825bf5ae1b1741e4b592b9f0",
+      "mini": "Weapon_Mini_SR19.webp",
+      "miniSha256": "f0136414a2f6929ba0399ec5c84a01e836d98d895803f55fa28a060bc2bd77af"
+    },
+    {
+      "full": "Weapon_Full_SR20.webp",
+      "fullSha256": "9283c87790f0005afbd1b3fd0a35ad963ec44cc6c1a472a51bd3f14fc22f7003",
+      "mini": "Weapon_Mini_SR20.webp",
+      "miniSha256": "11200fe4015cb05c88447b5eaa5238f911873aaaa23b9680d22bfa38b5cfbc51"
+    },
+    {
+      "full": "Weapon_Full_SR21.webp",
+      "fullSha256": "5b6450b477f6f98a635c75ff73f6df9e0720172bc02a9db3d7e15cceea6a87b8",
+      "mini": "Weapon_Mini_SR21.webp",
+      "miniSha256": "317466be2ba8d5d65c370639b806f73fbda9e0b0192911fa717448b3fe3ea9ab"
+    },
+    {
+      "full": "Weapon_Full_SR22.webp",
+      "fullSha256": "a802c3e760d704a00b47fb77fe3ef5eb99eced1368190d2954f10d44455ebe16",
+      "mini": "Weapon_Mini_SR22.webp",
+      "miniSha256": "d9da9966a9c97fa5ef51c3540d7776dd9a8d774788f551cc688744af49dac10a"
+    },
+    {
+      "full": "Weapon_Full_SR23.webp",
+      "fullSha256": "3fa47401bd56f8137af6edd1da06178fe1cb78a6f5a5618cf882efb37ce36c20",
+      "mini": "Weapon_Mini_SR23.webp",
+      "miniSha256": "2f2815c2095705609a337fff4ab02be556939b4fc32e427222556c16705308bf"
+    },
+    {
+      "full": "Weapon_Full_SR24.webp",
+      "fullSha256": "55e39a56d6727d2b7c7096198fc1a64bc9fe43523b65536083f36bf1c557366b",
+      "mini": "Weapon_Mini_SR24.webp",
+      "miniSha256": "3373ea4a289965f8be05d9e671553a6895fbc92c5a8cc706a052231fd84f8328"
+    },
+    {
+      "full": "Weapon_Full_SR25.webp",
+      "fullSha256": "f77e4dbf194cd02e6efd7a2d322a5d32ddfbe69d609ac594663b95ba50dcc12b",
+      "mini": "Weapon_Mini_SR25.webp",
+      "miniSha256": "85d1c64bb9ed960f188cecc428a8af4c59a3611d20aea456a0ac7307b393b5c5"
+    },
+    {
+      "full": "Weapon_Full_SR26.webp",
+      "fullSha256": "acf5a90002668e6f8d2d0eb48829d89dc7fcbb5db376007cbb94e26c52efe8de",
+      "mini": "Weapon_Mini_SR26.webp",
+      "miniSha256": "a5c41c1049733f29e971a527150711dd3e95055a193a6f5ecdebd19569beafc4"
+    },
+    {
+      "full": "Weapon_Full_SR27.webp",
+      "fullSha256": "4caedebdd7625b8fad2f7890fbfaec8e4b85c07c4f2752afa2f97c83f99e5b6b",
+      "mini": "Weapon_Mini_SR27.webp",
+      "miniSha256": "892ec76ae3842db54ae36b8ceb9c8827b3da4e905624fff6bac7f42b92bbc716"
+    },
+    {
+      "full": "Weapon_Full_SR28.webp",
+      "fullSha256": "a1b462e14d9099f53d217247c5b77ab00f68ebfe534911d6b3bc7e2f7ce15e0e",
+      "mini": "Weapon_Mini_SR28.webp",
+      "miniSha256": "3405d89dcd57222dae04babcf741a23f0d48b50ed02d03e8f4f8ccca4c90ba24"
+    },
+    {
+      "full": "Weapon_Full_SR29.webp",
+      "fullSha256": "6532f255fee86dc404a21fb6c4b9e0bc757013a5e708ac7b1695fb2da3d3891a",
+      "mini": "Weapon_Mini_SR29.webp",
+      "miniSha256": "622fc0e035ae0b6f0083a4fc1f633cb81239fde8678735db3171343324f805b5"
+    },
+    {
+      "full": "Weapon_Full_SR30.webp",
+      "fullSha256": "d368c2930fac163c5d8f4b240aa1ec448b0369c7e9121dbb2b0c50f50fb606e7",
+      "mini": "Weapon_Mini_SR30.webp",
+      "miniSha256": "fdeeb72af77d05385285429d6a64c63d8da12bc1b550c8978ec6cb7e77c9159b"
+    },
+    {
+      "full": "Weapon_Full_SR31.webp",
+      "fullSha256": "3bba875c1795ef49170725069bb40edd3b4b7ea7579b348fed2b8a0cebd22123",
+      "mini": "Weapon_Mini_SR31.webp",
+      "miniSha256": "bd23b71788d8b3134f71ed86fe59a694960fd29700e7f783b549f37adbf534a5"
+    },
+    {
+      "full": "Weapon_Full_SR32.webp",
+      "fullSha256": "2315b88f58cc5bfe63bb0217f2180b921dd444003558f37c9c15c1fcc4c65c84",
+      "mini": "Weapon_Mini_SR32.webp",
+      "miniSha256": "459e3d4ce4176918c4d2bb396954199b8fd05ea0485ad8515dd4960dd93e7d5d"
+    },
+    {
+      "full": "Weapon_Full_SR33.webp",
+      "fullSha256": "ff3bee7aec9887fa1ef856d5cb2d8e99d59337f18147a943f10c14723cd4affe",
+      "mini": "Weapon_Mini_SR33.webp",
+      "miniSha256": "c6138a1e84b695b66942bc2bb9fe07bad59910aa3981ef2f159f961083c229f2"
+    },
+    {
+      "full": "Weapon_Full_SR34.webp",
+      "fullSha256": "374477d52d4752281f9d6eb08d99d6f06c5cd7ec07057359c02b4cdbfd9710ef",
+      "mini": "Weapon_Mini_SR34.webp",
+      "miniSha256": "d8f6f0a6b9053732fcf2989f6a74b83a00ffd58e7d8fa2147e95b43e7fd51cb2"
+    },
+    {
+      "full": "Weapon_Full_SR35.webp",
+      "fullSha256": "bfbdbd93c2668dece51ac0561d7307031cb4a9e31156a31097c1a1d5e4399a4a",
+      "mini": "Weapon_Mini_SR35.webp",
+      "miniSha256": "219c3156beef6f29d358dd55817ebd1c2a9fac9576e052010ef8d989c89eddf4"
+    },
+    {
+      "full": "Weapon_Full_SR36.webp",
+      "fullSha256": "df1b9018be885bb253b36bd8fb1a104cd078484b8b4b315971be96b12bc2dc2e",
+      "mini": "Weapon_Mini_SR36.webp",
+      "miniSha256": "ef869760b44849d46c7e727533bf14a1008a62b47c2efc5f479f5347d9946aec"
+    },
+    {
+      "full": "Weapon_Full_SR39.webp",
+      "fullSha256": "27df94a35bc898fb434f020b02ef206db8f1f814cea5cabe83f35800fe05c273",
+      "mini": "Weapon_Mini_SR39.webp",
+      "miniSha256": "7bc003c8e18f75d0093b1045d3f712d87a65f6b0cc26599a6240e12ff792fd6e"
+    },
+    {
+      "full": "Weapon_Full_SR40.webp",
+      "fullSha256": "19d2b7cdb0c209a9d419fe7c7ba434d2e8d5fb2724a2beb9f18287413d2b2064",
+      "mini": "Weapon_Mini_SR40.webp",
+      "miniSha256": "5df892a8c5f1d970382a61f36309127f05bb841ede6b7f185ef402e101e128b5"
+    },
+    {
+      "full": "Weapon_Full_SR41.webp",
+      "fullSha256": "66698501aae0d1e6e4d0560755c33e60648b6cc36248450214e5864ed9670cb8",
+      "mini": "Weapon_Mini_SR41.webp",
+      "miniSha256": "f832295eceea4e97bc9a0748c09b5165da99aa6d9c697205f3cf4d928836cce4"
+    },
+    {
+      "full": "Weapon_Full_SR42.webp",
+      "fullSha256": "d4a67f4b0fa039480c5ddbad386ea1e02a0d9f61c4b8b32225553069f6ed642a",
+      "mini": "Weapon_Mini_SR42.webp",
+      "miniSha256": "b06916fd8ed26f736b5b5320b4bcd9fd056896ecd711783191e21cffa7272e35"
+    },
+    {
+      "full": "Weapon_Full_SR43.webp",
+      "fullSha256": "27946fc882209cce1caecd6585391bae51cc245f4a84dbb9d721f550e489d19f",
+      "mini": "Weapon_Mini_SR43.webp",
+      "miniSha256": "759638dcaf3bd61479c33926f20bd01c4eb8776765762aae69517774b2c3bdff"
+    },
+    {
+      "full": "Weapon_Full_SR44.webp",
+      "fullSha256": "f577b37daec062172f25ca5755f6253cbe2a403f12b9c7cc2fec7d90cd58a10b",
+      "mini": "Weapon_Mini_SR44.webp",
+      "miniSha256": "cfe54827cfd619f844fb069bcc7140adc489e0ebc8c245f3a9ab5381eec56acc"
+    },
+    {
+      "full": "Weapon_Full_SR45.webp",
+      "fullSha256": "7cd72317a62ddbaf80121d73a3049581542811e6e224b00fc3fc0ebc6b65a8a1",
+      "mini": "Weapon_Mini_SR45.webp",
+      "miniSha256": "78ab28aba12488ffd9deb52cca4474f14a6999b1c38c447935c32257dc67f571"
+    },
+    {
+      "full": "Weapon_Full_SR46.webp",
+      "fullSha256": "fe8624d2e91f9fb0a8651421add1741b4042631741123f58272f7b13a187ae3b",
+      "mini": "Weapon_Mini_SR46.webp",
+      "miniSha256": "ddf4b376d89fe4f65c07c885fb15aca37ac477678ad4c112fd674d39d9160aac"
+    },
+    {
+      "full": "Weapon_Full_SR49.webp",
+      "fullSha256": "ed1aebb620df8dce3f127bf2021bc14b04d8b661f817219778ffa3bd5a292295",
+      "mini": "Weapon_Mini_SR49.webp",
+      "miniSha256": "a45612520b7119438382d69c3a25367dc2038d72d6775e31c0265eff152724e9"
+    },
+    {
+      "full": "Weapon_Full_SR50.webp",
+      "fullSha256": "673b242f541f1085a6aa2a03d4747a3cbf11ea525fe69aeef4a78ec0bfb3734a",
+      "mini": "Weapon_Mini_SR50.webp",
+      "miniSha256": "cd44720065f1c8cb6df2d31b4867bf63dc01ad6e321a6a7b6c2019c4555fafbb"
+    },
+    {
+      "full": "Weapon_Full_ZL01.webp",
+      "fullSha256": "d119be3793b90071f0dd77ac110437fcceafbbc7847e946a63b1c51e9fa232b3",
+      "mini": "Weapon_Mini_ZL01.webp",
+      "miniSha256": "bd8459d76251b6b8de3444ec7ff35eb545994343eea09b9b44c28657e0f1db8d"
+    },
+    {
+      "full": "Weapon_Full_ZL02.webp",
+      "fullSha256": "a68e3c055479cf23a0aa02140d8a670f79b8be5e5e70be4591ac24f52e6909a2",
+      "mini": "Weapon_Mini_ZL02.webp",
+      "miniSha256": "3c159d653f5b42b994c5c0c0991622f8a3895e5e25544bf5816b256d3fad6a9b"
+    },
+    {
+      "full": "Weapon_Full_ZL03.webp",
+      "fullSha256": "d50809bb0d76a190df9be673df0889b2ac7e64537827c215a10996d7b905c50f",
+      "mini": "Weapon_Mini_ZL03.webp",
+      "miniSha256": "8e09a4a2ec5e0d8edc868a5801bc4535736efe1118fa3501d1e97a62ea3c31a2"
+    },
+    {
+      "full": "Weapon_Full_ZL04.webp",
+      "fullSha256": "c09a8d3eb107fad25235520e7b8034749c480c9b7f20d57666f3510913474a13",
+      "mini": "Weapon_Mini_ZL04.webp",
+      "miniSha256": "5de35ad4a1f078f5cb45860444e5e0f886162e08837bd65e8ae03a4f663ad61e"
+    },
+    {
+      "full": "Weapon_Full_ZL05.webp",
+      "fullSha256": "e0b17941b68cefef68ec77e22debd9c367f622cbf6783d46ace9bd8a1052b886",
+      "mini": "Weapon_Mini_ZL05.webp",
+      "miniSha256": "4a71272b40f235cb80ff4af7560d56c120ec0724afcd5078c727196a4095741c"
+    },
+    {
+      "full": "Weapon_Full_ZL06.webp",
+      "fullSha256": "1df48f7f272c53cce02d40794f71f82c5e4f7d13d912fa3aaab843699e0d8bac",
+      "mini": "Weapon_Mini_ZL06.webp",
+      "miniSha256": "2f592a6ae0ce16208ac07155ada2672dd1148361dce213661e95c2a152747732"
+    },
+    {
+      "full": "Weapon_Full_ZL07.webp",
+      "fullSha256": "586822a1eca3eb39d03dbd2c3efab0569023d5a0d7ed195d9707b13b8b318ff6",
+      "mini": "Weapon_Mini_ZL07.webp",
+      "miniSha256": "352310742f737698f30c193106d0493db6c84f0e7fe2a44fccbd72482c6d1686"
+    },
+    {
+      "full": "Weapon_Full_ZL08.webp",
+      "fullSha256": "479dee0c3b96ccfa92a1b27ee46cf8677c38a5e7939f85714950afe4f5e47438",
+      "mini": "Weapon_Mini_ZL08.webp",
+      "miniSha256": "6047c8e24bba94f3e4eb9fe8b2485939c8aefb093390e9ffba9ad16a24528ce5"
+    }
+  ]
+}

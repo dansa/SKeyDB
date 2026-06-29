@@ -2,6 +2,7 @@ import type {AwakenerEnlightenRecord, AwakenerOverlayRecord} from '@/domain/awak
 import {
   resolveDatabaseReferenceInfo,
   resolveDatabaseReferenceInfoById,
+  resolveDatabaseReferenceInfoByKindAndName,
 } from '@/domain/database-reference-info'
 import {
   buildDatabaseOverlayLabel,
@@ -88,8 +89,16 @@ export function buildOverlayFallbackEntry(
 export function resolveReferenceByName(
   layer: DatabaseReferenceLayer | null,
   name: string,
+  preferredKind?: DatabaseReferenceInfo['kind'],
 ): DatabaseReferenceInfo | null {
-  return layer ? resolveDatabaseReferenceInfo(layer, name) : null
+  if (!layer) {
+    return null
+  }
+
+  return preferredKind
+    ? (resolveDatabaseReferenceInfoByKindAndName(layer, preferredKind, name) ??
+        resolveDatabaseReferenceInfo(layer, name))
+    : resolveDatabaseReferenceInfo(layer, name)
 }
 
 export function resolveOverlayReference(

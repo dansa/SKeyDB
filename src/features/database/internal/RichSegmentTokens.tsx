@@ -71,9 +71,11 @@ export function InteractiveToken({
 export function SkillToken({
   name,
   onSkillClick,
+  referenceKind,
 }: {
   name: string
-  onSkillClick?: (name: string, event: ActivationEvent) => void
+  onSkillClick?: (name: string, event: ActivationEvent, referenceKind?: 'derived-skill') => void
+  referenceKind?: 'derived-skill'
 }) {
   if (!onSkillClick) {
     return <span>{name}</span>
@@ -84,6 +86,10 @@ export function SkillToken({
       ariaLabel={name}
       className={`${DATABASE_INTERACTIVE_TOKEN_CLASS} ${DATABASE_INHERIT_FONT_SIZE_CLASS}`}
       onActivate={(event) => {
+        if (referenceKind) {
+          onSkillClick(name, event, referenceKind)
+          return
+        }
         onSkillClick(name, event)
       }}
     >

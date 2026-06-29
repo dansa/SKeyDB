@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-78bce5087fa8953b",
-  "generatedAt": "2026-06-28T19:33:28Z",
-  "buildId": "2026-06-28T19:33:28Z",
+  "gameDataVersion": "compiled-sha256-e0aad7a7f14fe9b7",
+  "generatedAt": "2026-06-29T03:09:01Z",
+  "buildId": "2026-06-29T03:09:01Z",
   "build": {
-    "gameDataVersion": "compiled-sha256-78bce5087fa8953b",
+    "gameDataVersion": "compiled-sha256-e0aad7a7f14fe9b7",
     "recordCount": 1685,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -6522,8 +6522,8 @@
       "sha256": "8befa857b40e8e8c7ae6dd32d30d08a19ac754b9202bcc90c5e2c434003d201f"
     },
     "records/wheels/wheel-0032.json": {
-      "bytes": 2153,
-      "sha256": "b4089b41d3b2d1fdf14b0ae00fb3504516c14e8228e60c4e4cf1d1ef9fa72a65"
+      "bytes": 2169,
+      "sha256": "a06777da983a681f58db07c1ca81f80af20d0723bc257fb3b9053a3c8b657c58"
     },
     "records/wheels/wheel-0033.json": {
       "bytes": 3173,
@@ -6686,8 +6686,8 @@
       "sha256": "b357cc7787f2d0b2b47f166dedabd78225dbe1c861e0ae6ca55e648687601843"
     },
     "records/wheels/wheel-0073.json": {
-      "bytes": 820,
-      "sha256": "452c74508862bef3d2c8c229813e3f9e0d126a76d50aafc96ee11616d8f4eca8"
+      "bytes": 828,
+      "sha256": "4383b1e82c81956a39b37737c942b12079029aeb821a76c43e819838eb4619b3"
     },
     "records/wheels/wheel-0074.json": {
       "bytes": 735,
@@ -6926,8 +6926,8 @@
       "sha256": "3e24f120e547e65661c74421cc7186624d07f0d221b0c0999f87a3728161e07e"
     },
     "records/wheels/wheel-0167.json": {
-      "bytes": 1892,
-      "sha256": "1ded452c0537744e012f1587a8fc40bf7bd7c45d496f9e19a6754b097f5f2e88"
+      "bytes": 1888,
+      "sha256": "c9c7f598b848586b825cb5fe6ee34e42b6718086fee87b0927b1c09b1d7aa1d1"
     },
     "records/wheels/wheel-0168.json": {
       "bytes": 1506,

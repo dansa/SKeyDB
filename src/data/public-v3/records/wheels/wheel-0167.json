@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0057",
   "ownerAwakenerName": "Saya",
   "lineupToken": "yY",
-  "descriptionTemplate": "Arithmetica Limit +1, effects of the same type cannot stack.\nFor every 10 Base Aliemus the wielder has, they inflict +[StateArg1]% {Corrosion} stacks and cause +{[Float:StateArg2]％} {Embryo Fusion}.",
+  "descriptionTemplate": "Arithmetica Limit +1, effects of the same type cannot stack.\nFor every 10 Base Aliemus the wielder has, they inflict +[StateArg1]% {Corrosion} stacks and cause +[Float:StateArg2]% {Embryo Fusion}.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",
