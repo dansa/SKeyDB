@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Special Ops: Phantom of the Rainy Town",
   "realm": "ULTRA",
   "lineupToken": "v",
-  "descriptionTemplate": "Gain [Arg1] {STR} and create [Arg2] {Insight}. If in an {Ultra Round}, instead create [Arg3] {Insight}.",
+  "descriptionTemplate": "Gain [Arg1] {STR} and create [Arg2] {derived:Insight}. If in an {Ultra Round}, instead create [Arg3] {derived:Insight}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

@@ -12,6 +12,6 @@
   },
   "relicType": "D-Zone Initial Relic",
   "rarity": "SR",
-  "descriptionTemplate": "All Awakeners' Keyflare Regen +30. After releasing Posse, shuffle 3 {Insight} into your deck.",
+  "descriptionTemplate": "All Awakeners' Keyflare Regen +30. After releasing Posse, shuffle 3 {derived:Insight} into your deck.",
   "descriptionArgs": {}
 }

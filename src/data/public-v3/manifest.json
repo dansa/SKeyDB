@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-f2e114105ef57b0c",
-  "generatedAt": "2026-07-05T13:49:04Z",
-  "buildId": "2026-07-05T13:49:04Z",
+  "gameDataVersion": "compiled-sha256-92ec59145becef85",
+  "generatedAt": "2026-07-05T22:16:26Z",
+  "buildId": "2026-07-05T22:16:26Z",
   "build": {
-    "gameDataVersion": "compiled-sha256-f2e114105ef57b0c",
+    "gameDataVersion": "compiled-sha256-92ec59145becef85",
     "recordCount": 1685,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -3082,8 +3082,8 @@
       "sha256": "af5894b79e4c03765b2c5b2e51ed923b095d21b74f91c809967ca89e37529f48"
     },
     "records/posses/posse-0017.json": {
-      "bytes": 1254,
-      "sha256": "5292883ddb19b16c5e80e4e0bcc47e0b4b691e3e475e1df5dc01ddbbb21ffe3b"
+      "bytes": 1270,
+      "sha256": "dde89448bd0bb17f20ecbf8ebd1051ca2348a047ebe005670b75adabe4b52ef3"
     },
     "records/posses/posse-0018.json": {
       "bytes": 978,
@@ -3722,8 +3722,8 @@
       "sha256": "2471d6da19e51a7e49b3a65eea8cb27a4fd799dad2bb0dc777253f0ef95a3f39"
     },
     "records/relics/relic-9067.json": {
-      "bytes": 487,
-      "sha256": "97f823dd0a31bdffd1d277878cc62f2c2998641e1521630c744eeb207e63db90"
+      "bytes": 495,
+      "sha256": "ac39e7c49af512fa9da3de7a89c446d318a7ae6f796e76df4cf857c1a2ad3c90"
     },
     "records/relics/relic-9068.json": {
       "bytes": 672,
@@ -3782,8 +3782,8 @@
       "sha256": "2f7cde0d58931477a3e0db1fa5d0b104e43fa1628a3394ae77db178c6d21613e"
     },
     "records/relics/relic-9082.json": {
-      "bytes": 544,
-      "sha256": "3e78b9953398798024091833472f25a06f708c907022fe7316b10603c3fcdb90"
+      "bytes": 560,
+      "sha256": "9ed816bc8252b0d029dd897e5686bd19414b63306751663a988ac58c61c23ff4"
     },
     "records/relics/relic-9083.json": {
       "bytes": 1312,
