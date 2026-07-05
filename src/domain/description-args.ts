@@ -798,8 +798,7 @@ export function resolveDescriptionTemplate(
   const normalizedTemplate = descriptionTemplate
     .replace(PLURAL_MACRO_PATTERN, (fullMatch, ...args: unknown[]) => {
       const groups = args.at(-1) as
-        | {argToken?: string; singular?: string; plural?: string}
-        | undefined
+        {argToken?: string; singular?: string; plural?: string} | undefined
       const argToken = groups?.argToken ? extractDescriptionArgToken(groups.argToken) : null
       const argKey = argToken?.argKey
       const arg = argKey && Object.hasOwn(descriptionArgs, argKey) ? descriptionArgs[argKey] : null

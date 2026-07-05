@@ -65,8 +65,7 @@ interface BuildWheelReferenceInfoEntriesOptions {
 }
 
 let defaultWheelReferenceInfoEntriesCache:
-  | DatabaseReferenceInfo<WheelDatabaseDescriptionRecord>[]
-  | null = null
+  DatabaseReferenceInfo<WheelDatabaseDescriptionRecord>[] | null = null
 
 export function buildWheelReferenceInfoEntries({
   activeDescriptionRank = 1,

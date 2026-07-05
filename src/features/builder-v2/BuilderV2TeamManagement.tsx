@@ -79,9 +79,7 @@ const teamPreviewModeOptions = [
 ] as const
 
 export type BuilderV2TeamSlotEditTarget =
-  | {kind: 'awakener'}
-  | {kind: 'wheel'; wheelIndex: WheelSlotIndex}
-  | {kind: 'covenant'}
+  {kind: 'awakener'} | {kind: 'wheel'; wheelIndex: WheelSlotIndex} | {kind: 'covenant'}
 
 const teamSortTransition = {
   duration: 180,

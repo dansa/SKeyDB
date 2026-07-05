@@ -104,8 +104,7 @@ function createMockMediaQueryList(initialMatches: boolean) {
 }
 
 type MockMediaQueryListener =
-  | EventListenerObject
-  | ((this: MediaQueryList, ev: MediaQueryListEvent) => void)
+  EventListenerObject | ((this: MediaQueryList, ev: MediaQueryListEvent) => void)
 
 interface MutableMockMediaQueryList extends MediaQueryList {
   matches: boolean

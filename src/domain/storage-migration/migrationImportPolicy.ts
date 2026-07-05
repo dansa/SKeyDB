@@ -34,8 +34,7 @@ export interface InvalidDomainStorageMigrationPlan {
 }
 
 export type PlanDomainStorageMigrationResult =
-  | DomainStorageMigrationPlan
-  | InvalidDomainStorageMigrationPlan
+  DomainStorageMigrationPlan | InvalidDomainStorageMigrationPlan
 
 export interface DomainStorageMigrationBackup {
   kind: 'skeydb.domain-storage-migration.backup'
