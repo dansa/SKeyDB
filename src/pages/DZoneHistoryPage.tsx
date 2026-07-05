@@ -15,6 +15,7 @@ import {
   getDZoneHistoryExpandedYearsForSelection,
   getDZoneHistoryNextSearchParams,
   getDZoneHistoryNormalizedSearchTerm,
+  getDZoneHistoryReleasedSeasons,
   getDZoneHistoryVisibleSeasons,
   resolveDZoneHistorySelection,
   toggleDZoneHistoryExpandedYear,
@@ -33,6 +34,7 @@ export function DZoneHistoryPage() {
   const now = useTimelineNow()
   const [searchParams, setSearchParams] = useSearchParams()
   const summaries = getDzoneSeasonSummaries()
+  const releasedSummaries = getDZoneHistoryReleasedSeasons(summaries, now)
   const {selectedSummary, selectedYear} = resolveDZoneHistorySelection({
     now,
     seasonParam: searchParams.get('season'),
@@ -61,7 +63,7 @@ export function DZoneHistoryPage() {
       ? getDZoneCountdownDisplay(selectedSeasonLoadState.season, now)
       : ''
   const normalizedSearchTerm = getDZoneHistoryNormalizedSearchTerm(searchTerm)
-  const visibleSeasons = getDZoneHistoryVisibleSeasons(summaries, searchTerm)
+  const visibleSeasons = getDZoneHistoryVisibleSeasons(releasedSummaries, searchTerm)
   const yearGroups = buildDZoneHistoryYearGroups(visibleSeasons)
   const expandedYears = getDZoneHistoryExpandedYearsForSelection(
     expandedYearState,

@@ -79,9 +79,7 @@ const teamPreviewModeOptions = [
 ] as const
 
 export type BuilderV2TeamSlotEditTarget =
-  | {kind: 'awakener'}
-  | {kind: 'wheel'; wheelIndex: WheelSlotIndex}
-  | {kind: 'covenant'}
+  {kind: 'awakener'} | {kind: 'wheel'; wheelIndex: WheelSlotIndex} | {kind: 'covenant'}
 
 const teamSortTransition = {
   duration: 180,
@@ -149,9 +147,9 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
     }
 
     return isTeamSortingEnabled ? (
-      <SortableTeamManagementRow key={team.id} {...rowProps} />
+      <SortableTeamManagementRow {...rowProps} key={team.id} />
     ) : (
-      <TeamManagementRow key={team.id} {...rowProps} />
+      <TeamManagementRow {...rowProps} key={team.id} />
     )
   })
 

@@ -1,8 +1,9 @@
 import {act, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import {MemoryRouter, useLocation, useNavigate} from 'react-router-dom'
-import {afterEach, describe, expect, it, vi} from 'vitest'
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 
+import type {DzoneSeason, DzoneSeasonSummary} from '@/domain/dzone'
 import {
   installElementRectMock,
   installOffsetHeightFromRectMock,
@@ -10,6 +11,25 @@ import {
 } from '@/test/domLayoutMocks'
 
 import {DZoneHistoryPage} from './DZoneHistoryPage'
+
+const dzoneDomainMockState = vi.hoisted(() => ({
+  seasonSummaries: null as DzoneSeasonSummary[] | null,
+  seasonsById: new Map<string, DzoneSeason>(),
+}))
+
+vi.mock('@/domain/dzone', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/domain/dzone')>()
+
+  return {
+    ...actual,
+    getDzoneSeasonSummaries: () =>
+      dzoneDomainMockState.seasonSummaries ?? actual.getDzoneSeasonSummaries(),
+    loadDzoneSeasonById: (seasonId: string) => {
+      const mockedSeason = dzoneDomainMockState.seasonsById.get(seasonId)
+      return mockedSeason ? Promise.resolve(mockedSeason) : actual.loadDzoneSeasonById(seasonId)
+    },
+  }
+})
 
 vi.mock('@/features/database/internal/DatabasePopoverRoot', () => ({
   DatabasePopoverRoot: () => null,
@@ -65,6 +85,39 @@ function renderHistoryPage(initialEntries = ['/d-zone/history'], initialIndex?: 
   )
 }
 
+function createHistorySummary(period: number, start: string, end: string): DzoneSeasonSummary {
+  return {
+    end,
+    id: `dzone-${period.toString().padStart(4, '0')}`,
+    name: `Season ${period.toString()}`,
+    period,
+    realm: null,
+    seasonPath: `seasons/dzone${period.toString().padStart(4, '0')}.json`,
+    stageEffect: 'Astral Reign',
+    start,
+  }
+}
+
+function createHistorySeason(summary: DzoneSeasonSummary): DzoneSeason {
+  return {
+    end: summary.end,
+    id: summary.id,
+    name: summary.name,
+    period: summary.period,
+    stageEffect: summary.stageEffect,
+    start: summary.start,
+    waves: [],
+  }
+}
+
+function installHistoryCatalog(...summaries: DzoneSeasonSummary[]) {
+  dzoneDomainMockState.seasonSummaries = summaries
+  dzoneDomainMockState.seasonsById.clear()
+  for (const summary of summaries) {
+    dzoneDomainMockState.seasonsById.set(summary.id, createHistorySeason(summary))
+  }
+}
+
 async function findSeasonHeading(seasonNumber: number) {
   return screen.findByRole('heading', {level: 2, name: `Season ${seasonNumber.toString()}`})
 }
@@ -118,6 +171,12 @@ function installWaveCardLayoutMock() {
 }
 
 describe('DZoneHistoryPage', () => {
+  beforeEach(() => {
+    window.localStorage.clear()
+    dzoneDomainMockState.seasonSummaries = null
+    dzoneDomainMockState.seasonsById.clear()
+  })
+
   afterEach(() => {
     vi.useRealTimers()
   })
@@ -199,6 +258,67 @@ describe('DZoneHistoryPage', () => {
 
     expect(await findSeasonHeading(2)).toBeInTheDocument()
     expect(screen.getByTestId('location')).toHaveTextContent('/d-zone/history?season=dzone-0002')
+  })
+
+  it('hides unreleased seasons from history browsing while allowing direct links', async () => {
+    const releasedSummary = createHistorySummary(
+      101,
+      '2026-05-01T00:00:00.000Z',
+      '2026-05-14T00:00:00.000Z',
+    )
+    const futureSummary = createHistorySummary(
+      102,
+      '2026-05-15T00:00:00.000Z',
+      '2026-05-28T00:00:00.000Z',
+    )
+    installHistoryCatalog(releasedSummary, futureSummary)
+
+    const defaultRender = renderHistoryPage()
+
+    await findSeasonHeading(101)
+    fireEvent.change(screen.getByRole('searchbox', {name: /Search D-zone seasons/i}), {
+      target: {value: 'season 102'},
+    })
+    const archivePanel = screen.getByRole('region', {name: /D-zone season archive/i})
+
+    expect(
+      within(archivePanel).queryByRole('button', {name: /^Select Season 102/i}),
+    ).not.toBeInTheDocument()
+
+    defaultRender.unmount()
+    renderHistoryPage([`/d-zone/history?season=${futureSummary.id}`])
+
+    expect(screen.getByTestId('location')).toHaveTextContent(
+      `/d-zone/history?season=${futureSummary.id}`,
+    )
+    expect(await findSeasonHeading(102)).toBeInTheDocument()
+  })
+
+  it('keeps a higher persisted alert while showing the highest available alert for older seasons', async () => {
+    window.localStorage.setItem('d-zone-selected-alert-id', 'alert-5')
+
+    renderHistoryPage(['/d-zone/history?season=dzone-0001'])
+
+    await findSeasonHeading(1)
+    expect(screen.queryByRole('button', {name: 'Select Alert V'})).not.toBeInTheDocument()
+    expect(screen.getByRole('button', {name: 'Select Alert II'})).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    expect(window.localStorage.getItem('d-zone-selected-alert-id')).toBe('alert-5')
+
+    fireEvent.change(screen.getByRole('searchbox', {name: /Search D-zone seasons/i}), {
+      target: {value: 'season 60'},
+    })
+    const archivePanel = screen.getByRole('region', {name: /D-zone season archive/i})
+    fireEvent.click(within(archivePanel).getByRole('button', {name: /^Select Season 60/i}))
+
+    expect(await findSeasonHeading(60)).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: 'Select Alert V'})).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    expect(window.localStorage.getItem('d-zone-selected-alert-id')).toBe('alert-5')
   })
 
   it('falls back for invalid season params without rewriting the URL', async () => {

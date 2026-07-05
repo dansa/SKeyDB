@@ -7,7 +7,29 @@ export interface WaveDisclosureState {
 
 export interface AlertSelectionState {
   alertId: string | null
-  seasonId: string
+}
+
+function getAlertLevel(alertId: string): number | null {
+  const level = Number(/^alert-(\d+)$/.exec(alertId)?.[1] ?? Number.NaN)
+  return Number.isFinite(level) ? level : null
+}
+
+function getHighestAvailableAlertIdAtOrBelow(
+  alertOptions: DzoneAlertOption[],
+  alertId: string,
+): string | null {
+  const selectedLevel = getAlertLevel(alertId)
+  if (selectedLevel === null) {
+    return null
+  }
+
+  const rankedOptions = alertOptions
+    .map((alert) => ({alert, level: getAlertLevel(alert.id)}))
+    .filter((entry): entry is {alert: DzoneAlertOption; level: number} => entry.level !== null)
+    .filter((entry) => entry.level <= selectedLevel)
+    .sort((left, right) => right.level - left.level)
+
+  return rankedOptions[0]?.alert.id ?? null
 }
 
 export function buildDefaultOpenWaveIds(defaultOpenWaveId: string | undefined): Set<string> {
@@ -53,21 +75,25 @@ export function toggleResolvedOpenWaveId({
 export function getSelectedAlertId({
   alertOptions,
   alertSelectionState,
-  seasonId,
 }: {
   alertOptions: DzoneAlertOption[]
   alertSelectionState: AlertSelectionState
-  seasonId: string
 }): string | null {
   if (alertOptions.length === 0) {
     return null
   }
-  if (
-    alertSelectionState.seasonId === seasonId &&
-    alertSelectionState.alertId &&
-    alertOptions.some((alert) => alert.id === alertSelectionState.alertId)
-  ) {
-    return alertSelectionState.alertId
+  if (alertSelectionState.alertId) {
+    if (alertOptions.some((alert) => alert.id === alertSelectionState.alertId)) {
+      return alertSelectionState.alertId
+    }
+
+    const nearestAvailableAlertId = getHighestAvailableAlertIdAtOrBelow(
+      alertOptions,
+      alertSelectionState.alertId,
+    )
+    if (nearestAvailableAlertId) {
+      return nearestAvailableAlertId
+    }
   }
   return alertOptions[0]?.id ?? null
 }

@@ -1,6 +1,9 @@
 import {describe, expect, it, vi} from 'vitest'
 
-import {resolveDatabaseReferenceInfo} from './database-reference-info'
+import {
+  resolveDatabaseReferenceInfo,
+  resolveDatabaseReferenceInfoByKindAndName,
+} from './database-reference-info'
 import {
   buildDatabaseOverlayReferenceInfo,
   type DatabaseReferenceInfo,
@@ -301,5 +304,62 @@ describe('buildGlobalDatabaseReferenceLayer', () => {
         referenceLayer,
       }),
     ).toContainEqual({type: 'skill', name: 'Gaunt'})
+  })
+
+  it('resolves typed global Insight references to the utility card over same-name owner cards', () => {
+    const referenceLayer = buildGlobalDatabaseReferenceLayer({
+      awakenerSkills: [],
+      covenants: [],
+      derivedSkills: [
+        {
+          id: 'derived.daffodil.thousand-mirage-effect-insight',
+          ownerAwakenerId: 12,
+          displayName: 'Insight',
+          aliases: [],
+          descriptionTemplate: 'Daffodil-specific Insight.',
+          descriptionArgs: {},
+          cardKeywords: [],
+          childDerivedSkillIds: [],
+          variants: [],
+        },
+        {
+          id: 'derived.global.insight',
+          displayName: 'Insight',
+          aliases: [],
+          descriptionTemplate: 'Draw 1 card.',
+          descriptionArgs: {},
+          cardKeywords: [],
+          childDerivedSkillIds: [],
+          variants: [],
+        },
+      ],
+      overlays: [],
+      posses: [
+        {
+          id: 'posse-0028',
+          index: 28,
+          name: 'Symphony Fourth',
+          realm: 'CHAOS',
+          isFadedLegacy: false,
+          lineupToken: 'I',
+        },
+      ],
+      wheels: [],
+    })
+
+    expect(
+      resolveDatabaseReferenceInfoByKindAndName(referenceLayer, 'derived-skill', 'Insight'),
+    ).toEqual(
+      expect.objectContaining({
+        kind: 'derived-skill',
+        id: 'derived.global.insight',
+      }),
+    )
+    expect(
+      parseDatabaseRichDescription({
+        text: 'Create 4 {derived:Insight}.',
+        referenceLayer,
+      }),
+    ).toContainEqual({type: 'skill', name: 'Insight', referenceKind: 'derived-skill'})
   })
 })

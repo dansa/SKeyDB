@@ -5,7 +5,6 @@ interface DatabaseLoreMarkupTextProps {
   keyPrefix?: string
 }
 
-const LORE_MARKUP_RE = /(@[1-4]|<([A-Za-z]+):([^>]+)>|<([A-Za-z]+)>)/g
 const LORE_REDACTION_GLYPH_SETS = {
   1: ['glyph-1'],
   2: ['glyph-2', 'glyph-3'],
@@ -76,6 +75,57 @@ function formatLoreTokenLabel(token: string): string {
 
 function buildLoreKey(prefix: string, ...parts: (string | number)[]): string {
   return [prefix, ...parts.map((part) => String(part))].join('-')
+}
+
+interface LoreMarkupMatch {
+  index: number
+  rawToken: string
+  wrappedTagContent: string
+  wrappedTagName: string
+  bareTagName: string
+}
+
+function findNextLoreMarkup(text: string, startIndex: number): LoreMarkupMatch | null {
+  for (let index = startIndex; index < text.length; index += 1) {
+    const character = text[index]
+    if (character === '@' && /^[1-4]$/.test(text[index + 1] ?? '')) {
+      const rawToken = text.slice(index, index + 2)
+      return {index, rawToken, wrappedTagName: '', wrappedTagContent: '', bareTagName: ''}
+    }
+
+    if (character !== '<') {
+      continue
+    }
+
+    const closeIndex = text.indexOf('>', index + 1)
+    if (closeIndex < 0) {
+      continue
+    }
+
+    const tagToken = text.slice(index + 1, closeIndex)
+    const wrappedMatch = /^([A-Za-z]+):([\s\S]*)$/.exec(tagToken)
+    if (wrappedMatch) {
+      return {
+        index,
+        rawToken: text.slice(index, closeIndex + 1),
+        wrappedTagName: wrappedMatch[1],
+        wrappedTagContent: wrappedMatch[2],
+        bareTagName: '',
+      }
+    }
+
+    if (/^[A-Za-z]+$/.test(tagToken)) {
+      return {
+        index,
+        rawToken: text.slice(index, closeIndex + 1),
+        wrappedTagName: '',
+        wrappedTagContent: '',
+        bareTagName: tagToken,
+      }
+    }
+  }
+
+  return null
 }
 
 function DatabaseLoreRedaction({level}: {level: 1 | 2 | 3 | 4}) {
@@ -149,13 +199,14 @@ function buildDatabaseLoreInlineNodes(
   let lastIndex = 0
   let partIndex = 0
 
-  for (const match of text.matchAll(LORE_MARKUP_RE)) {
+  let match = findNextLoreMarkup(text, lastIndex)
+  while (match) {
     const index = match.index
     if (index > lastIndex) {
       appendLoreTextNode(nodes, text.slice(lastIndex, index), keyPrefix, partIndex, wrapText)
     }
 
-    const [, rawToken, wrappedTagName = '', wrappedTagContent = '', bareTagName = ''] = match
+    const {rawToken, wrappedTagName, wrappedTagContent, bareTagName} = match
 
     if (rawToken.startsWith('@')) {
       nodes.push(
@@ -197,6 +248,7 @@ function buildDatabaseLoreInlineNodes(
 
     lastIndex = index + rawToken.length
     partIndex += 1
+    match = findNextLoreMarkup(text, lastIndex)
   }
 
   if (lastIndex < text.length) {

@@ -43,7 +43,7 @@
       "ownerAwakenerId": "awakener-0018",
       "ownerAwakenerName": "Doll: Inferno",
       "patch": {
-        "descriptionTemplate": "Doll: Inferno gains [Energy:Arg1] Aliemus. {Rouse}: For each stack of {Finale}, DMG Amplification +8%. {Illusion's End} grants all Awakeners 30% Base Aliemus. At turn end, recover [Heal:Arg2] HP and gain Aliemus equal to the Aliemus Regen. {Finale Form}: No longer recover HP, instead trigger [Arg3]% {Poison} on all enemies."
+        "descriptionTemplate": "Doll: Inferno gains [Energy:Arg1] Aliemus. {Rouse}: For each stack of {Finale}, DMG Amplification +8%. {derived:Illusion's End} grants all Awakeners 30% Base Aliemus. At turn end, recover [Heal:Arg2] HP and gain Aliemus equal to the Aliemus Regen. {Finale Form}: No longer recover HP, instead trigger [Arg3]% {Poison} on all enemies."
       }
     }
   ],

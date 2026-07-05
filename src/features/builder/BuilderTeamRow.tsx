@@ -29,12 +29,6 @@ interface BuilderTeamRowProps {
 }
 
 const EMPTY_OWNERSHIP_MAP = new Map<string, number | null>()
-const INTERACTIVE_ROW_TARGET_SELECTOR = 'button, input, textarea, select, a, [role="button"]'
-
-function isInteractiveRowTarget(target: EventTarget | null) {
-  return target instanceof HTMLElement && !!target.closest(INTERACTIVE_ROW_TARGET_SELECTOR)
-}
-
 export function BuilderTeamRow({
   team,
   isActive,
@@ -93,17 +87,11 @@ export function BuilderTeamRow({
         <span aria-hidden='true' className='builder-team-row-drag-handle-glyph' />
       </button>
       <div
-        className={`grid min-w-0 flex-1 cursor-pointer grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-2 border pr-2 ${
+        className={`grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-2 border pr-2 ${
           isActive
             ? 'border-l-0 border-amber-200/80 bg-slate-800/70'
             : 'border-l-0 border-slate-500/45 bg-slate-900/50'
         }`}
-        onClick={(event) => {
-          if (isInteractiveRowTarget(event.target)) {
-            return
-          }
-          onEditTeam(team.id)
-        }}
       >
         <div className='min-w-0 py-1.5 pl-2'>
           <div className='flex h-6 w-[210px] max-w-full items-center'>
@@ -135,7 +123,14 @@ export function BuilderTeamRow({
             }}
           />
         </div>
-        <span className='builder-team-posse-icon-wrap builder-team-posse-icon-wrap-compact my-1.5'>
+        <button
+          aria-label={`Edit ${team.name}`}
+          className='builder-team-posse-icon-wrap builder-team-posse-icon-wrap-compact my-1.5 border-0 bg-transparent p-0'
+          onClick={() => {
+            onEditTeam(team.id)
+          }}
+          type='button'
+        >
           <img
             alt={`${team.name} posse`}
             className={`builder-team-posse-icon builder-team-posse-icon-compact ${
@@ -149,8 +144,18 @@ export function BuilderTeamRow({
               Unowned
             </span>
           ) : null}
-        </span>
+        </button>
         <div className='py-1.5'>
+          <button
+            className='mb-1 block w-full border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45'
+            onClick={(event) => {
+              event.stopPropagation()
+              onEditTeam(team.id)
+            }}
+            type='button'
+          >
+            Edit
+          </button>
           <button
             className='mb-1 block w-full border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45'
             onClick={(event) => {

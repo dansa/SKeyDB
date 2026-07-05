@@ -1,16 +1,30 @@
 import {describe, expect, it} from 'vitest'
 
-import {getDzoneSeasonSummaries} from '@/domain/dzone'
+import {getDzoneSeasonSummaries, type DzoneSeasonSummary} from '@/domain/dzone'
 
 import {
   buildDZoneHistoryYearGroups,
   createDZoneHistoryExpandedYearsState,
   getDZoneHistoryExpandedYearsForSelection,
   getDZoneHistoryNextSearchParams,
+  getDZoneHistoryReleasedSeasons,
   getDZoneHistoryVisibleSeasons,
   resolveDZoneHistorySelection,
   toggleDZoneHistoryExpandedYear,
 } from './d-zone-history-view-model'
+
+function createSummary(period: number, start: string, end: string): DzoneSeasonSummary {
+  return {
+    end,
+    id: `dzone-${period.toString().padStart(4, '0')}`,
+    name: `Season ${period.toString()}`,
+    period,
+    realm: 'AEQUOR',
+    seasonPath: `seasons/dzone${period.toString().padStart(4, '0')}.json`,
+    stageEffect: 'Astral Reign',
+    start,
+  }
+}
 
 describe('d-zone history view model', () => {
   it('keeps exact season searches exact', () => {
@@ -24,6 +38,18 @@ describe('d-zone history view model', () => {
 
     expect(visibleSeasons.length).toBeGreaterThan(0)
     expect(visibleSeasons.every((season) => season.realm === 'AEQUOR')).toBe(true)
+  })
+
+  it('keeps unreleased seasons out of the visible history list', () => {
+    const releasedSeason = createSummary(1, '2026-05-01T00:00:00.000Z', '2026-05-08T00:00:00.000Z')
+    const futureSeason = createSummary(2, '2026-05-15T00:00:00.000Z', '2026-05-22T00:00:00.000Z')
+
+    expect(
+      getDZoneHistoryReleasedSeasons(
+        [releasedSeason, futureSeason],
+        new Date('2026-05-12T00:00:00.000Z'),
+      ).map((season) => season.period),
+    ).toEqual([1])
   })
 
   it('groups visible seasons by descending season order year', () => {
@@ -59,6 +85,35 @@ describe('d-zone history view model', () => {
         summaries,
       }).selectedSummary.period,
     ).toBe(latestPeriod)
+  })
+
+  it('defaults to released seasons while allowing direct links to unreleased seasons', () => {
+    const currentSeason = createSummary(1, '2026-05-01T00:00:00.000Z', '2026-05-14T00:00:00.000Z')
+    const futureSeason = createSummary(2, '2026-05-15T00:00:00.000Z', '2026-05-22T00:00:00.000Z')
+    const summaries = [currentSeason, futureSeason]
+    const now = new Date('2026-05-12T00:00:00.000Z')
+
+    expect(
+      resolveDZoneHistorySelection({
+        now,
+        seasonParam: null,
+        summaries,
+      }).selectedSummary.period,
+    ).toBe(1)
+    expect(
+      resolveDZoneHistorySelection({
+        now,
+        seasonParam: 'dzone-not-real',
+        summaries,
+      }).selectedSummary.period,
+    ).toBe(1)
+    expect(
+      resolveDZoneHistorySelection({
+        now,
+        seasonParam: futureSeason.id,
+        summaries,
+      }).selectedSummary.period,
+    ).toBe(2)
   })
 
   it('repairs expanded years for changed selections without mutating search-forced expansion', () => {

@@ -79,6 +79,23 @@ describe('DZonePage', () => {
     expect(within(waveOne).queryByText('Lv 38')).not.toBeInTheDocument()
   })
 
+  it('restores the selected alert level after the page remounts', async () => {
+    const {unmount} = renderDZonePage()
+
+    fireEvent.click(await screen.findByRole('button', {name: 'Select Alert IV'}))
+    expect(window.localStorage.getItem('d-zone-selected-alert-id')).toBe('alert-4')
+
+    unmount()
+    renderDZonePage()
+
+    const waveOne = await screen.findByRole('article', {name: 'Wave 1'})
+    expect(within(waveOne).getByText('Lv 73')).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: 'Select Alert IV'})).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+  })
+
   it('shows the season relic first in each wave without duplicate relic labels', async () => {
     renderDZonePage()
 

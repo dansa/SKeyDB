@@ -37,6 +37,14 @@ function getLatestDZoneHistorySummary(summaries: DzoneSeasonSummary[]): DzoneSea
   return latest
 }
 
+export function getDZoneHistoryReleasedSeasons(
+  summaries: DzoneSeasonSummary[],
+  now: Date,
+): DzoneSeasonSummary[] {
+  const timestamp = now.getTime()
+  return summaries.filter((summary) => Date.parse(summary.start) <= timestamp)
+}
+
 export function getDZoneHistoryDefaultSummary(
   summaries: DzoneSeasonSummary[],
   now: Date,
@@ -58,7 +66,9 @@ export function resolveDZoneHistorySelection({
   seasonParam: string | null
   summaries: DzoneSeasonSummary[]
 }): DZoneHistorySelection {
-  const defaultSummary = getDZoneHistoryDefaultSummary(summaries, now)
+  const releasedSummaries = getDZoneHistoryReleasedSeasons(summaries, now)
+  const defaultSummaries = releasedSummaries.length > 0 ? releasedSummaries : summaries
+  const defaultSummary = getDZoneHistoryDefaultSummary(defaultSummaries, now)
   const selectedSummary = summaries.find((season) => season.id === seasonParam) ?? defaultSummary
 
   return {

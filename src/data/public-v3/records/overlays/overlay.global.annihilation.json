@@ -9,6 +9,6 @@
   },
   "overlayType": "mechanic",
   "aliases": [],
-  "descriptionTemplate": "{Destroy} the leftmost card in {Ultra Space}, and create 1 {Insight}. {Annihilation} can only be used once per turn.",
+  "descriptionTemplate": "{Destroy} the leftmost card in {Ultra Space}, and create 1 {derived:Insight}. {Annihilation} can only be used once per turn.",
   "descriptionArgs": {}
 }

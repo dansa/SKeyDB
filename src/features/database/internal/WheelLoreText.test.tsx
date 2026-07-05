@@ -71,7 +71,7 @@ describe('WheelLoreText', () => {
     const {container} = render(
       <WheelLoreText
         lore={
-          'Before.\n<Italic:"There is someone we want to see again."\n"We will stop at nothing."\n>\nAfter.'
+          'Before.\n\n<Italic:"There is someone we want to see again."\n\n"We will stop at nothing."\n\n"If the path there has no end."\n\n>\nAfter.'
         }
       />,
     )
@@ -79,9 +79,11 @@ describe('WheelLoreText', () => {
     const emphasized = container.querySelector('em')
 
     expect(emphasized).toHaveTextContent(
-      '"There is someone we want to see again.""We will stop at nothing."',
+      '"There is someone we want to see again.""We will stop at nothing.""If the path there has no end."',
     )
     expect(screen.queryByText(/<Italic:/)).not.toBeInTheDocument()
     expect(screen.queryByText('>')).not.toBeInTheDocument()
+    expect(screen.getByText(/Before/).closest('p')).toBeInTheDocument()
+    expect(screen.getByText(/After/).closest('p')).toBeInTheDocument()
   })
 })
