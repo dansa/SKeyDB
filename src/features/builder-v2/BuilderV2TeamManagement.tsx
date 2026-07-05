@@ -147,9 +147,9 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
     }
 
     return isTeamSortingEnabled ? (
-      <SortableTeamManagementRow key={team.id} {...rowProps} />
+      <SortableTeamManagementRow {...rowProps} key={team.id} />
     ) : (
-      <TeamManagementRow key={team.id} {...rowProps} />
+      <TeamManagementRow {...rowProps} key={team.id} />
     )
   })
 
