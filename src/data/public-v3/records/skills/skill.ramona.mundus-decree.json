@@ -28,7 +28,7 @@
       "ownerAwakenerId": "awakener-0042",
       "ownerAwakenerName": "Ramona",
       "patch": {
-        "descriptionTemplate": "Obtain [Arg1] Keyflare. Choose 1 card from the Draw Pile or Discard Pile and add it to your hand, reducing its Arithmetica Cost to 0. Shuffle 1 {Insight} into the Draw Pile."
+        "descriptionTemplate": "Obtain [Arg1] Keyflare. Choose 1 card from the Draw Pile or Discard Pile and add it to your hand, reducing its Arithmetica Cost to 0. Shuffle 1 {derived:Insight} into the Draw Pile."
       }
     }
   ],

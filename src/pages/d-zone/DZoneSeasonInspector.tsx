@@ -1,6 +1,7 @@
 import {useMemo, useState, type MouseEvent} from 'react'
 
 import {FaCalendarDays} from 'react-icons/fa6'
+import {useStore} from 'zustand'
 
 import {
   getDzoneSeasonAlertOptions,
@@ -9,6 +10,7 @@ import {
   type DzoneResolvedMonster,
   type DzoneSeason,
 } from '@/domain/dzone'
+import {dzonePreferencesStore, hydrateDZoneSelectedAlertId} from '@/stores/dzonePreferencesStore'
 
 import {getDzoneAlertShortName} from './d-zone-display-text'
 import {
@@ -55,21 +57,31 @@ export function DZoneSeasonInspector({
   title,
   waveHeadingLevel = 2,
 }: DZoneSeasonInspectorProps) {
+  useState(() => {
+    hydrateDZoneSelectedAlertId()
+    return true
+  })
+
   const defaultOpenWaveId = season.waves[0]?.id
   const waveCardViewModels = useMemo(() => buildDZoneWaveCardViewModels(season), [season])
   const alertOptions = useMemo(() => getDzoneSeasonAlertOptions(season), [season])
+  const persistedSelectedAlertId = useStore(dzonePreferencesStore, (state) => state.selectedAlertId)
+  const setPersistedSelectedAlertId = useStore(
+    dzonePreferencesStore,
+    (state) => state.setSelectedAlertId,
+  )
   const [waveDisclosureState, setWaveDisclosureState] = useState<WaveDisclosureState>(() => ({
     openWaveIds: buildDefaultOpenWaveIds(defaultOpenWaveId),
     seasonId: season.id,
   }))
   const [alertSelectionState, setAlertSelectionState] = useState<AlertSelectionState>(() => ({
-    alertId: alertOptions[0]?.id ?? null,
-    seasonId: season.id,
+    alertId: persistedSelectedAlertId ?? alertOptions.at(0)?.id ?? null,
   }))
   const selectedAlertId = getSelectedAlertId({
     alertOptions,
-    alertSelectionState,
-    seasonId: season.id,
+    alertSelectionState: {
+      alertId: persistedSelectedAlertId ?? alertSelectionState.alertId,
+    },
   })
   const openWaveIds = getResolvedOpenWaveIds({
     defaultOpenWaveId,
@@ -78,7 +90,8 @@ export function DZoneSeasonInspector({
   })
 
   function selectAlert(alertId: string) {
-    setAlertSelectionState({alertId, seasonId: season.id})
+    setPersistedSelectedAlertId(alertId)
+    setAlertSelectionState({alertId})
   }
 
   function toggleWave(waveId: string) {

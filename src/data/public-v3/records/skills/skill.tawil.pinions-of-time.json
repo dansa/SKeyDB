@@ -34,7 +34,7 @@
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "patch": {
-        "descriptionTemplate": "Obtain [Power:Arg1] {STR} and 1 {Insight}. Shuffle {Twin Wings} into the Draw Pile."
+        "descriptionTemplate": "Obtain [Power:Arg1] {STR} and 1 {derived:Insight}. Shuffle {Twin Wings} into the Draw Pile."
       }
     }
   ],

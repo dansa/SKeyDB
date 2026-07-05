@@ -58,36 +58,37 @@ describe('d-zone season inspector state', () => {
     expect(ids(toggledState.openWaveIds)).toEqual(['new-wave', 'other-new-wave'])
   })
 
-  it('persists the selected alert only for the same season and valid option', () => {
+  it('keeps the selected alert across seasons when that alert exists', () => {
     const alertSelectionState: AlertSelectionState = {
       alertId: 'alert-2',
-      seasonId: 'season-1',
     }
 
     expect(
       getSelectedAlertId({
         alertOptions: [option('alert-1'), option('alert-2')],
         alertSelectionState,
-        seasonId: 'season-1',
       }),
     ).toBe('alert-2')
   })
 
-  it('falls back to the first alert option for stale or invalid alert state', () => {
+  it('falls back to the highest available alert below the persisted level', () => {
+    const alertOptions = [option('alert-1'), option('alert-2'), option('alert-3')]
+
+    expect(
+      getSelectedAlertId({
+        alertOptions,
+        alertSelectionState: {alertId: 'alert-5'},
+      }),
+    ).toBe('alert-3')
+  })
+
+  it('falls back to the first alert option for invalid non-level alert state', () => {
     const alertOptions = [option('alert-1'), option('alert-2')]
 
     expect(
       getSelectedAlertId({
         alertOptions,
-        alertSelectionState: {alertId: 'alert-2', seasonId: 'old-season'},
-        seasonId: 'season-1',
-      }),
-    ).toBe('alert-1')
-    expect(
-      getSelectedAlertId({
-        alertOptions,
-        alertSelectionState: {alertId: 'missing-alert', seasonId: 'season-1'},
-        seasonId: 'season-1',
+        alertSelectionState: {alertId: 'missing-alert'},
       }),
     ).toBe('alert-1')
   })
@@ -96,8 +97,7 @@ describe('d-zone season inspector state', () => {
     expect(
       getSelectedAlertId({
         alertOptions: [],
-        alertSelectionState: {alertId: 'alert-1', seasonId: 'season-1'},
-        seasonId: 'season-1',
+        alertSelectionState: {alertId: 'alert-1'},
       }),
     ).toBeNull()
   })

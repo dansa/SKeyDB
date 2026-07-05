@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-e0aad7a7f14fe9b7",
-  "generatedAt": "2026-06-29T03:09:01Z",
-  "buildId": "2026-06-29T03:09:01Z",
+  "gameDataVersion": "compiled-sha256-f2e114105ef57b0c",
+  "generatedAt": "2026-07-05T13:49:04Z",
+  "buildId": "2026-07-05T13:49:04Z",
   "build": {
-    "gameDataVersion": "compiled-sha256-e0aad7a7f14fe9b7",
+    "gameDataVersion": "compiled-sha256-f2e114105ef57b0c",
     "recordCount": 1685,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -1150,8 +1150,8 @@
       "sha256": "8593254425e4c2cad2fda5b104589dd65d88fdc410c8d04ecc4e10568f11e8a2"
     },
     "records/derived-skills/derived.pontos.raid-gaunt.json": {
-      "bytes": 1246,
-      "sha256": "6406491e07a3eaec2c9d61da72954068b8dee8b985e2ea0f6dcd313977286471"
+      "bytes": 1262,
+      "sha256": "9cae7f691bf05963a960b7ff084d845a80fc4fcc10d16f18872fcc7216431522"
     },
     "records/derived-skills/derived.pontos.slay-gaunt.json": {
       "bytes": 2728,
@@ -1426,8 +1426,8 @@
       "sha256": "abd79c2a78ede2096a9dcea2fe64d98e5509be559862118f8bc185066ba76014"
     },
     "records/enlightens/enlighten.casiah.legendary-copycat.json": {
-      "bytes": 469,
-      "sha256": "24ef4e78ec15eb9d58240128d7870acd2939b1160364618baadc13129059839f"
+      "bytes": 477,
+      "sha256": "86c603dc26b47ea4dde093d7c9d0684ff2930b928384029983a7c0435582ddb8"
     },
     "records/enlightens/enlighten.casiah.minds-whisper.json": {
       "bytes": 446,
@@ -1526,8 +1526,8 @@
       "sha256": "e42ed05315bcc6a1fb7294ca09a5697a8eb8a10f659e92b025d42c07239733bd"
     },
     "records/enlightens/enlighten.daffodil.essence-sediment.json": {
-      "bytes": 530,
-      "sha256": "b455c6a6eb082837d3518ac2fc48206c3a09f942c870120cbe3eed0791ceb85c"
+      "bytes": 538,
+      "sha256": "31d611e4ba3ec877a238493166e806ef63d0bece6de01baea3219e4cc29a4f48"
     },
     "records/enlightens/enlighten.daffodil.infinite-passage.json": {
       "bytes": 717,
@@ -1546,12 +1546,12 @@
       "sha256": "db04b46b83092f1037b1e1180a30f4d73624dc29b4bb1b6d6fbaeb7fc4e1b508"
     },
     "records/enlightens/enlighten.doll-inferno.envoy-of-extinction.json": {
-      "bytes": 626,
-      "sha256": "dfc906328430febccdcce24c4b5e3586d73a5e2001abbfc71970b38155576a98"
+      "bytes": 634,
+      "sha256": "61f70c89c94bc2314aca086cc1b33c8ea6d31d08395a6a3589c5785f56e0a705"
     },
     "records/enlightens/enlighten.doll-inferno.every-world-drowned.json": {
-      "bytes": 591,
-      "sha256": "84add399272028b700b16190d211be46e0cffc0a184245e5e965988da28a3b9d"
+      "bytes": 599,
+      "sha256": "3f9755dd392876da54383018a58a57fda6fcfec2b1e1ac4c1b5b831eab9afcf4"
     },
     "records/enlightens/enlighten.doll-inferno.madness-infection.json": {
       "bytes": 666,
@@ -2154,8 +2154,8 @@
       "sha256": "b23211cd51b48b0d552181d507a7152c2d3500b7f7f9b460a2623711fb73bfa6"
     },
     "records/enlightens/enlighten.ramona.precious-ties.json": {
-      "bytes": 499,
-      "sha256": "0bb4400b2bb0a142959cad4fb02c491705207399978d1ebafa3b60eb047b5857"
+      "bytes": 507,
+      "sha256": "bceda9441ec890bde4d0fa7681923c71bee968190094e05f355ee4f0f0858623"
     },
     "records/enlightens/enlighten.ramona.sublime-tempering.json": {
       "bytes": 510,
@@ -2262,8 +2262,8 @@
       "sha256": "d1fd03e0ff6c54236fd6c410808b7a664ea9d735729812e74796a2e329daa94c"
     },
     "records/enlightens/enlighten.tawil.boundless-sagacity.json": {
-      "bytes": 534,
-      "sha256": "30290b7d243c15b96b80036b6e3da52933c51812fabbdc7e4c58141742bb1f37"
+      "bytes": 542,
+      "sha256": "719014c7268a0bd07fd957ee7c86c916c9eef11486ffe83607e1bfdd70b3a85a"
     },
     "records/enlightens/enlighten.tawil.infinite-radiant-brilliance.json": {
       "bytes": 620,
@@ -2442,8 +2442,8 @@
       "sha256": "f49957e10e740a9133160905714e0b874954190f856cde92a91c8ddccdc727fc"
     },
     "records/overlays/overlay.24.realm-and-persona.json": {
-      "bytes": 2906,
-      "sha256": "4ae021492d83cda86524c8e5520f11f645228975e4d518d45b40103e525d912a"
+      "bytes": 2922,
+      "sha256": "c4e5651601378862b76df1657c17a6a17729fb1cf5fdfa275f3af77bd68ac73b"
     },
     "records/overlays/overlay.aigis.petrify.json": {
       "bytes": 573,
@@ -2506,8 +2506,8 @@
       "sha256": "c95ea328ad831c9c631d27faee6fca4247986f2996fe0084665bb329b395a367"
     },
     "records/overlays/overlay.doll-inferno.finale.json": {
-      "bytes": 569,
-      "sha256": "e9efd242206b43aaa49f9fab48b364163463bb68cbf376221f56f0b74d9e09f1"
+      "bytes": 577,
+      "sha256": "961e697ccccf800953d6ce63d0ca31a57ff55b61b2b86eee4a6ccdcad3de4be1"
     },
     "records/overlays/overlay.doll-inferno.illusions-end.json": {
       "bytes": 1375,
@@ -2538,8 +2538,8 @@
       "sha256": "7164c7fd048c507ac2864dd4f2d94d01361ba8e2bf56b6e2ff9aaee0d0e66630"
     },
     "records/overlays/overlay.global.annihilation.json": {
-      "bytes": 428,
-      "sha256": "79abed67e25c9ea74a0f2cc5a86c9c8e937c033d4e267283055809f34f3d35c5"
+      "bytes": 436,
+      "sha256": "6f18a66ea35453e8a24a448e03259f3e104097d19a7bb51308b34097155ca082"
     },
     "records/overlays/overlay.global.arithmetica-harmony.json": {
       "bytes": 620,
@@ -2822,16 +2822,16 @@
       "sha256": "7628ac39c0827a6ab289f1080e569da4180bba3bc0342fa5c78a0613f3d9b4a2"
     },
     "records/overlays/overlay.global.ultra-mastery.json": {
-      "bytes": 557,
-      "sha256": "94bac702985ea6a537726c03952b341262fdb9c9ead037565c8a837f1d08e392"
+      "bytes": 565,
+      "sha256": "ee6318a8f8958cdb8b170c337e8dfd2b312ff87e47e2a5de5755649b95ecf26b"
     },
     "records/overlays/overlay.global.ultra-round.json": {
       "bytes": 544,
       "sha256": "2b94d5f0cea326b82313d4dbcd4e4c44800eacf3effc2dfd8d14b51ce98ec7db"
     },
     "records/overlays/overlay.global.ultra-space.json": {
-      "bytes": 1165,
-      "sha256": "953fddb1bc238555aae5134f46d7d7d870c9e192827f34b02447ce424b4e3c20"
+      "bytes": 1181,
+      "sha256": "de4fa154db4e12f517be709819042e3ce7c7861543b5e3953361c6319b1a7dd8"
     },
     "records/overlays/overlay.global.ultra.json": {
       "bytes": 615,
@@ -2942,8 +2942,8 @@
       "sha256": "bee8a0325995f37c6a23eb74f7b02e3f953c192c9b9a3075fa49dc5132d03d5f"
     },
     "records/overlays/overlay.pickman.painted-orisons.json": {
-      "bytes": 581,
-      "sha256": "dcb51bb295f048f101f082ef01a759fc6e645eb99ac1d44c0c1ba3b7b6d4f346"
+      "bytes": 589,
+      "sha256": "4ed2ce222d9aec008787ac69986bdad6333a25325308aca3b04b5360e2e10795"
     },
     "records/overlays/overlay.pickman.painted-relics.json": {
       "bytes": 658,
@@ -2962,8 +2962,8 @@
       "sha256": "1b739d8843acc24aca98fce7eab71d9294fecbdf97ff57e70305009a65f10531"
     },
     "records/overlays/overlay.pontos.pack-hunt.json": {
-      "bytes": 664,
-      "sha256": "d1a46bf103d44a38cd0138b728a27d2f72fcb9f7e00a70ef449b247117dbf9fd"
+      "bytes": 635,
+      "sha256": "37e9a8be8a59277fedf2e050dde57c0aa8d811e9819508866171a7bbdae64ea8"
     },
     "records/overlays/overlay.ramona-timeworn.loop.json": {
       "bytes": 640,
@@ -3126,8 +3126,8 @@
       "sha256": "8a4caf71a0344cb2a47b5b45b9a4b5926479952bddf3a5610722aa4cf4a2a645"
     },
     "records/posses/posse-0028.json": {
-      "bytes": 930,
-      "sha256": "3f1cb39a68ab71bac020cb1db52429489e8698c016293d2a3a05907f60814435"
+      "bytes": 938,
+      "sha256": "8660d8f9f7fe4f20e76d4b21cde440b73f11cf1602385e7e7d2f5d2697d8a703"
     },
     "records/posses/posse-0029.json": {
       "bytes": 852,
@@ -3182,8 +3182,8 @@
       "sha256": "2480afdf288b811cf933f1042bcaf3a92582058d7ec2c69c25880ed96c78bcb9"
     },
     "records/posses/posse-0042.json": {
-      "bytes": 970,
-      "sha256": "f99ef2ebd34c4a7410bdf3620b4f3ef2c9bd6e59711a3f9ecb475f43807b14d3"
+      "bytes": 978,
+      "sha256": "19445e1018592a32e46bf394d6466467d40a8b1c509b4ddbeb28c198ff89edc8"
     },
     "records/posses/posse-0043.json": {
       "bytes": 1107,
@@ -3270,8 +3270,8 @@
       "sha256": "172fbff0b86399eaea26f39c58f15db79d1be494468479ba08b93bb9d0c9b7e4"
     },
     "records/relics/relic-0012.json": {
-      "bytes": 1035,
-      "sha256": "463c6c590e9adfc062f38bcf14c3bb805adff95fbaa87cf69d13906d12905e78"
+      "bytes": 1043,
+      "sha256": "6bfca9077bb89d620b26ec7363c95805277986def3241c800449830cda2c69dd"
     },
     "records/relics/relic-0013.json": {
       "bytes": 794,
@@ -3914,8 +3914,8 @@
       "sha256": "9c4e3b2dd03409071029a476911c985f172ecff48ccbd6a1de78bf061d41c12f"
     },
     "records/skills/skill.24.mediating-personalities.json": {
-      "bytes": 1999,
-      "sha256": "7397f8cae6fba463eeea9929e37f3b4f3a943c8a6c36bfadcfd3c0e1007b39a1"
+      "bytes": 2007,
+      "sha256": "930bdd8cc5a85adcd4f4687d2bfa4f5df348328b2b744d98078da3b84142daae"
     },
     "records/skills/skill.24.strike.json": {
       "bytes": 918,
@@ -4118,8 +4118,8 @@
       "sha256": "321bf6dae7d5a42c03cbe56f9c8202354515be06ec039c0ea83903a937783945"
     },
     "records/skills/skill.casiah.telekinesis.json": {
-      "bytes": 1679,
-      "sha256": "6a54f1080f0415c2120b018174af7be3042f4cc30784201a8e0dd6a48a347092"
+      "bytes": 1687,
+      "sha256": "711962a5562fb7ba47733240fb1452a4c81067bf0b8e6f57c2dd94ea560317f6"
     },
     "records/skills/skill.casiah.unfettered-mirth.json": {
       "bytes": 518,
@@ -4242,8 +4242,8 @@
       "sha256": "39aed046b31b95fabc74b505204cd165368413441751a77c4145dbc13a6f088b"
     },
     "records/skills/skill.daffodil.dimensional-projection.json": {
-      "bytes": 1414,
-      "sha256": "717d71ffb91aacfdfd379a2800c6804cdfd19dbce2eb5580bbf75cc551f10ac9"
+      "bytes": 1430,
+      "sha256": "38a06df8dde9b1dc0dcc9e1d78e8326a6edae1b9183c2a73b1c1c43428966e52"
     },
     "records/skills/skill.daffodil.heterogeneous-tides.json": {
       "bytes": 865,
@@ -4282,8 +4282,8 @@
       "sha256": "ad610b876d7fefd53aa6a620c10a85e9ca1c9feb59560eb990ce07253eb90dde"
     },
     "records/skills/skill.doll-inferno.soulblight.json": {
-      "bytes": 1826,
-      "sha256": "76e8f32826227f10c2fc2ee99e85d4980e12f224ea00c1bfb66f7420903eb588"
+      "bytes": 1834,
+      "sha256": "e2b460a36d10afd1ffdd39f0d19602ac9d25af01b174e3ccab5e219b288b43be"
     },
     "records/skills/skill.doll-inferno.strike.json": {
       "bytes": 1448,
@@ -4470,8 +4470,8 @@
       "sha256": "5a795a73a69361b12ab8ee7bf2341d888445b1a6ee1223dc3330df80eb0059a6"
     },
     "records/skills/skill.hameln.memory-rondo.json": {
-      "bytes": 755,
-      "sha256": "edbc7f7a6a3b512945ee5284ffce8bec0d45d9e8dcb637c8728bd9f3cb047487"
+      "bytes": 771,
+      "sha256": "b19ad66995bd065fba7047f8adab103724a9e5cd4b6a5b3f2d84cfe90f27bcae"
     },
     "records/skills/skill.hameln.primal-chord.json": {
       "bytes": 1910,
@@ -5067,7 +5067,7 @@
     },
     "records/skills/skill.pontos.relentless-hunt.json": {
       "bytes": 1887,
-      "sha256": "cf1acfbf9fcbb5459b12e584f16a48540ccf7de8c7c85561380fdb65d990c568"
+      "sha256": "78f64d43cdf9db94e80a7a08f23da0db4b5e01c3480ccca86cbf40d7af0168cf"
     },
     "records/skills/skill.pontos.strike.json": {
       "bytes": 1202,
@@ -5122,8 +5122,8 @@
       "sha256": "7d865b0a1f247991d364bf327d79fb8be14dcd974a2c6c83327718994e0644e7"
     },
     "records/skills/skill.ramona.mundus-decree.json": {
-      "bytes": 1231,
-      "sha256": "834419b15c3a5cac621b4a93f2896d376899b0e8832b4f4a3ec3f978b9eac696"
+      "bytes": 1239,
+      "sha256": "b81491e6ccfe7c3602849ba9a7893ed1af170e2c0a4e8ed0936f44faf179b9dc"
     },
     "records/skills/skill.ramona.queens-sword.json": {
       "bytes": 4721,
@@ -5290,8 +5290,8 @@
       "sha256": "e32de332de7462568084e5c9c5ed55c702333f6f6dd7c8f35c604547b836aba4"
     },
     "records/skills/skill.tawil.pinions-of-time.json": {
-      "bytes": 1173,
-      "sha256": "9f51dff60178418edae2101b4b13a81055b1a4a61eb54c8553b433563e44f55e"
+      "bytes": 1181,
+      "sha256": "f8daf00651b9b09ac45f7d3d9a57cab80a1b5df88b8b5d0a484058397242a359"
     },
     "records/skills/skill.tawil.strike.json": {
       "bytes": 1644,
@@ -5730,8 +5730,8 @@
       "sha256": "008c098a8898d009b1ed9b8f617d6ada3cd9b4bb710320188f57545f76b26bb4"
     },
     "records/talents/talent.doll-inferno.path-of-annihilation.json": {
-      "bytes": 636,
-      "sha256": "b431809a68c9a6d426261119839635e1cba7822500ad055a5e2d43f93e38ffa3"
+      "bytes": 644,
+      "sha256": "30c88c82605e7c42db5397765971e8d48cc6e60c2fdf8d3b24c7b87cabef00f3"
     },
     "records/talents/talent.doll-inferno.soulforge-aptitude.json": {
       "bytes": 994,
@@ -5842,8 +5842,8 @@
       "sha256": "ce4b30ad440183628816c6509b1825de1e2605a59a3bd316795920daa20cdba8"
     },
     "records/talents/talent.hameln.soulforge-aptitude.json": {
-      "bytes": 1039,
-      "sha256": "83ab546af0bd859e37d81cb947cdeb63ddc5762000c5e8a0b4f323f79c3a8227"
+      "bytes": 1047,
+      "sha256": "1b33d9efd76625b600204600d40e391bda671e76eca25d3f56e2ed4065fa52ae"
     },
     "records/talents/talent.helot-catena.gnostic-potential.json": {
       "bytes": 1020,

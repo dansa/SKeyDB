@@ -28,13 +28,56 @@ interface LoreParagraph {
   lines: string[]
 }
 
+function isWrappedLoreTagStart(lore: string, index: number): boolean {
+  return /^<[A-Za-z]+:/.test(lore.slice(index))
+}
+
+function splitLoreParagraphBlocks(lore: string): string[] {
+  const blocks: string[] = []
+  let blockStartIndex = 0
+  let wrappedTagOpen = false
+  let index = 0
+
+  while (index < lore.length) {
+    if (!wrappedTagOpen && isWrappedLoreTagStart(lore, index)) {
+      wrappedTagOpen = true
+      index += 1
+      continue
+    }
+
+    if (wrappedTagOpen && lore[index] === '>') {
+      wrappedTagOpen = false
+      index += 1
+      continue
+    }
+
+    if (!wrappedTagOpen && lore[index] === '\n' && lore[index + 1] === '\n') {
+      blocks.push(lore.slice(blockStartIndex, index))
+      while (lore[index] === '\n') {
+        index += 1
+      }
+      blockStartIndex = index
+      continue
+    }
+
+    index += 1
+  }
+
+  blocks.push(lore.slice(blockStartIndex))
+  return blocks
+}
+
 function buildLoreParagraphs(lore: string): LoreParagraph[] {
-  return lore
-    .split(/\n{2,}/)
-    .map((paragraph) => ({
-      lines: paragraph.split('\n').filter((line) => line.trim().length > 0),
-    }))
-    .filter((paragraph) => paragraph.lines.length > 0)
+  const paragraphs: LoreParagraph[] = []
+
+  for (const paragraph of splitLoreParagraphBlocks(lore)) {
+    const lines = paragraph.split('\n').filter((line) => line.trim().length > 0)
+    if (lines.length > 0) {
+      paragraphs.push({lines})
+    }
+  }
+
+  return paragraphs
 }
 
 function trimLoreParagraphs(

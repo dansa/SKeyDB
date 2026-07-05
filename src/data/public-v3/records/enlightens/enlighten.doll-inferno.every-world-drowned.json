@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0018",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Soulblight} is enhanced: Each stack of {Finale} increases team DMG Amplification by 8%, and {Illusion's End} grants all Awakeners 30% Base Aliemus.",
+  "descriptionTemplate": "{Rouse} {Soulblight} is enhanced: Each stack of {Finale} increases team DMG Amplification by 8%, and {derived:Illusion's End} grants all Awakeners 30% Base Aliemus.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Doll: Inferno"
 }

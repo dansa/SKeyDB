@@ -1,7 +1,7 @@
 import {act, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import {MemoryRouter, useLocation, useNavigate} from 'react-router-dom'
-import {afterEach, describe, expect, it, vi} from 'vitest'
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 
 import {
   installElementRectMock,
@@ -118,6 +118,10 @@ function installWaveCardLayoutMock() {
 }
 
 describe('DZoneHistoryPage', () => {
+  beforeEach(() => {
+    window.localStorage.clear()
+  })
+
   afterEach(() => {
     vi.useRealTimers()
   })
@@ -199,6 +203,33 @@ describe('DZoneHistoryPage', () => {
 
     expect(await findSeasonHeading(2)).toBeInTheDocument()
     expect(screen.getByTestId('location')).toHaveTextContent('/d-zone/history?season=dzone-0002')
+  })
+
+  it('keeps a higher persisted alert while showing the highest available alert for older seasons', async () => {
+    window.localStorage.setItem('d-zone-selected-alert-id', 'alert-5')
+
+    renderHistoryPage(['/d-zone/history?season=dzone-0001'])
+
+    await findSeasonHeading(1)
+    expect(screen.queryByRole('button', {name: 'Select Alert V'})).not.toBeInTheDocument()
+    expect(screen.getByRole('button', {name: 'Select Alert II'})).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    expect(window.localStorage.getItem('d-zone-selected-alert-id')).toBe('alert-5')
+
+    fireEvent.change(screen.getByRole('searchbox', {name: /Search D-zone seasons/i}), {
+      target: {value: 'season 60'},
+    })
+    const archivePanel = screen.getByRole('region', {name: /D-zone season archive/i})
+    fireEvent.click(within(archivePanel).getByRole('button', {name: /^Select Season 60/i}))
+
+    expect(await findSeasonHeading(60)).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: 'Select Alert V'})).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    expect(window.localStorage.getItem('d-zone-selected-alert-id')).toBe('alert-5')
   })
 
   it('falls back for invalid season params without rewriting the URL', async () => {

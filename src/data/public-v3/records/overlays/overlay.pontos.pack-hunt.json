@@ -15,7 +15,7 @@
   "aliases": ["Battue"],
   "iconId": "IconS_Buff_090",
   "textColor": "shield",
-  "descriptionTemplate": "Grants {Gaunt} Takes effect 1 additional time. When playing a {Gaunt} card, consume 1 stack. Maximum 9 stacks. Not cleared at the end of battle.",
+  "descriptionTemplate": "Each {Gaunt} played consumes 1 stack of {Pack Hunt} for 1 extra trigger. Max 9 stacks. Stacks persist after battle.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Pontos"
 }
