@@ -1,4 +1,4 @@
-import {Suspense, useMemo, useState} from 'react'
+import {Suspense, useLayoutEffect, useMemo, useRef, useState} from 'react'
 
 import {FaGear, FaXmark} from 'react-icons/fa6'
 
@@ -11,10 +11,11 @@ import {DatabaseDetailResultNavigator} from '@/features/database/detail/Database
 import {DbDetailModalFrame} from '@/features/database/detail/DbDetailModalFrame'
 import {ArtViewerOverlay} from '@/ui/modal/ArtViewerOverlay'
 
-import {DatabasePopoverContext} from './database-popover-context'
+import {DatabaseDetailTagStrip} from './DatabaseDetailTagStrip'
 import {DatabasePopoverRoot} from './DatabasePopoverRoot'
 import {getDescriptionFontScaleStyle} from './font-scale'
 import {suppressDetailEntitySearchCapture} from './useDetailEntitySearch'
+import {PopoverProvider} from './usePopoverStore'
 import {useWheelDetailModalState} from './useWheelDetailModalState'
 import {WheelDetailArtwork} from './WheelDetailArtwork'
 import {WheelDetailContent} from './WheelDetailContent'
@@ -30,7 +31,6 @@ interface WheelDetailModalProps {
   onSelectAwakener?: (awakener: {id: string; name: string}, tab?: DatabaseAwakenerTab) => void
   onSelectWheel?: (wheel: Pick<Wheel, 'id' | 'name'>) => void
 }
-
 export function WheelDetailModal({
   fullData,
   navigation = null,
@@ -41,19 +41,20 @@ export function WheelDetailModal({
   wheels = [wheel],
 }: WheelDetailModalProps) {
   return (
-    <WheelDetailModalInner
-      fullData={fullData}
-      key={wheel.id}
-      navigation={navigation}
-      onClose={onClose}
-      onSelectAwakener={onSelectAwakener}
-      onSelectWheel={onSelectWheel}
-      wheel={wheel}
-      wheels={wheels}
-    />
+    <PopoverProvider>
+      <WheelDetailModalInner
+        fullData={fullData}
+        key={wheel.id}
+        navigation={navigation}
+        onClose={onClose}
+        onSelectAwakener={onSelectAwakener}
+        onSelectWheel={onSelectWheel}
+        wheel={wheel}
+        wheels={wheels}
+      />
+    </PopoverProvider>
   )
 }
-
 function WheelDetailModalInner({
   fullData,
   navigation = null,
@@ -71,7 +72,6 @@ function WheelDetailModalInner({
     formulaContext,
     handleModalCancel,
     preferences,
-    popoverContextValue,
     popoverRootProps,
     referenceLayer,
     resolvedMainstatValue,
@@ -95,6 +95,14 @@ function WheelDetailModalInner({
     settingsRef,
     setIsSettingsOpen,
   } = chrome
+  const [isTagsOpen, setIsTagsOpen] = useState(false)
+  const prevWheelIdRef = useRef(wheel.id)
+  useLayoutEffect(() => {
+    if (wheel.id !== prevWheelIdRef.current) {
+      prevWheelIdRef.current = wheel.id
+      setIsTagsOpen(false)
+    }
+  }, [wheel.id])
   const wheelAsset = getWheelAssetById(wheel.id)
   const fullArtAlt = `${wheel.name} full art`
   const mobileArtwork = useMemo(
@@ -113,7 +121,6 @@ function WheelDetailModalInner({
     ),
     [wheel, wheelAsset],
   )
-
   return (
     <DbDetailModalFrame
       ariaLabel={`${wheel.name} details`}
@@ -146,8 +153,60 @@ function WheelDetailModalInner({
       panelRef={panelRef}
       shellStyle={getDescriptionFontScaleStyle(preferences.shared.fontScale)}
     >
-      <div className='relative flex min-h-0 flex-auto overflow-hidden border border-amber-200/55 bg-slate-950/[.985] pb-5 shadow-[0_24px_70px_rgba(2,6,23,0.8)]'>
+      <div className='relative flex min-h-0 flex-auto overflow-hidden border border-amber-200/55 bg-slate-950/[.97] shadow-[0_18px_50px_rgba(2,6,23,0.72)]'>
         <div className='absolute top-3 right-3 z-10 flex items-center gap-1.5' ref={settingsRef}>
+          {fullData.searchTags.length > 0 ? (
+            <div className='relative inline-block'>
+              <button
+                aria-expanded={isTagsOpen}
+                className='inline-flex h-8 items-center gap-1.5 rounded px-2.5 text-xs font-medium text-slate-400 transition-colors hover:text-amber-100 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none'
+                onClick={() => {
+                  setIsTagsOpen(!isTagsOpen)
+                }}
+                type='button'
+                data-testid='tags-burger-button'
+              >
+                <svg
+                  className='size-3.5 shrink-0'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M4 6h16M4 12h16M4 18h16'
+                  />
+                </svg>
+                <span>Tags</span>
+                <svg
+                  className={`size-3 shrink-0 transition-transform duration-200 ${
+                    isTagsOpen ? 'rotate-180' : ''
+                  }`}
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M19 9l-7 7-7-7'
+                  />
+                </svg>
+              </button>
+              {isTagsOpen ? (
+                <div className='animate-in fade-in slide-in-from-top-1 absolute top-full right-[-5.5rem] z-20 mt-1.5 w-max max-w-[calc(100vw-2rem)] rounded border border-slate-700/65 bg-slate-950/95 p-2.5 shadow-xl backdrop-blur-md duration-100 sm:right-0 sm:max-w-md'>
+                  <DatabaseDetailTagStrip
+                    className='max-w-xl'
+                    itemKey={wheel.id}
+                    tags={fullData.searchTags}
+                  />
+                </div>
+              ) : null}
+            </div>
+          ) : null}
           <button
             aria-expanded={isSettingsOpen}
             aria-label='Open detail settings'
@@ -177,49 +236,41 @@ function WheelDetailModalInner({
             />
           ) : null}
         </div>
-        <DatabasePopoverContext.Provider value={popoverContextValue}>
-          <div className='flex min-h-0 flex-1'>
-            <aside className='database-scrollbar hidden w-[18.75rem] shrink-0 overflow-y-auto bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] p-6 md:flex md:items-start md:justify-center'>
-              <WheelDetailArtwork
-                onOpenFullArt={
-                  wheelAsset
-                    ? () => {
-                        setIsArtViewerOpen(true)
-                      }
-                    : undefined
-                }
+        <div className='flex min-h-0 flex-1'>
+          <aside className='database-scrollbar hidden w-[18.75rem] shrink-0 overflow-y-auto py-4 pr-2 pl-4 md:flex md:items-center md:justify-center'>
+            <WheelDetailArtwork
+              onOpenFullArt={
+                wheelAsset
+                  ? () => {
+                      setIsArtViewerOpen(true)
+                    }
+                  : undefined
+              }
+              wheel={wheel}
+            />
+          </aside>
+          <div className='flex min-h-0 min-w-0 flex-1 flex-col pt-4 md:pt-5'>
+            <div className='flex min-h-0 flex-1 flex-col'>
+              <WheelDetailContent
+                descriptionRank={descriptionRank}
+                enhanceLevel={enhanceLevel}
+                fullData={fullData}
+                formulaContext={formulaContext}
+                mainstatValue={resolvedMainstatValue}
+                mobileArtwork={mobileArtwork}
+                onEnhanceLevelChange={setEnhanceLevel}
+                onSelectAwakener={onSelectAwakener}
+                referenceLayer={referenceLayer}
+                showTagIcons={preferences.shared.showTagIcons}
                 wheel={wheel}
+                wheelDescriptionRecord={wheelDescriptionRecord}
               />
-            </aside>
-
-            <div className='flex min-h-0 min-w-0 flex-1 flex-col'>
-              <div className='flex min-h-0 flex-1 flex-col px-4 py-4 pr-5 sm:px-5 sm:py-5 md:px-6 md:py-5'>
-                <WheelDetailContent
-                  descriptionRank={descriptionRank}
-                  enhanceLevel={enhanceLevel}
-                  expandLoreByDefault={preferences.wheel.expandLoreByDefault}
-                  fullData={fullData}
-                  formulaContext={formulaContext}
-                  mainstatValue={resolvedMainstatValue}
-                  mobileArtwork={mobileArtwork}
-                  onEnhanceLevelChange={setEnhanceLevel}
-                  onSelectAwakener={onSelectAwakener}
-                  referenceLayer={referenceLayer}
-                  showTagIcons={preferences.shared.showTagIcons}
-                  wheel={wheel}
-                  wheelDescriptionRecord={wheelDescriptionRecord}
-                />
-                <Suspense fallback={null}>
-                  <DatabasePopoverRoot
-                    {...popoverRootProps}
-                    fontScale={preferences.shared.fontScale}
-                    showTagIcons={preferences.shared.showTagIcons}
-                  />
-                </Suspense>
-              </div>
+              <Suspense fallback={null}>
+                <DatabasePopoverRoot {...popoverRootProps} />
+              </Suspense>
             </div>
           </div>
-        </DatabasePopoverContext.Provider>
+        </div>
       </div>
       {isArtViewerOpen && wheelAsset ? (
         <ArtViewerOverlay

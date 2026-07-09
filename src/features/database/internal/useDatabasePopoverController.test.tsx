@@ -14,13 +14,16 @@ import * as globalDatabaseReferenceLayer from '@/domain/global-database-referenc
 import type {PublicDescriptionArg} from '@/domain/public-description-args'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
 
-import type {DatabasePopoverDescriptionRankContext} from './database-popover-context'
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
 import {DatabasePopoverRoot} from './DatabasePopoverRoot'
 import {useDatabasePopoverController} from './useDatabasePopoverController'
+import {
+  createPopoverStore,
+  PopoverProvider,
+  type DatabasePopoverDescriptionRankContext,
+} from './usePopoverStore'
 
 const COLD_POPOVER_FIND_OPTIONS = {timeout: 3000}
-
 function buildSkillReferenceInfo(
   id: string,
   name: string,
@@ -63,7 +66,6 @@ function buildSkillReferenceInfo(
       : [],
   }
 }
-
 function buildReferenceLayer(
   description: string,
   selectedEnlightenSlot: AwakenerEnlightenRecord['slot'] | null = null,
@@ -157,7 +159,6 @@ function buildReferenceLayer(
     influencingTalentIds: [],
     influenceBadges: [],
   }
-
   return {
     cardNames: new Set<string>(),
     accessibleOverlays: [overlayReference.record as AwakenerOverlayRecord],
@@ -178,7 +179,6 @@ function buildReferenceLayer(
     overlayByName: new Map([['counter', overlayReference.record as AwakenerOverlayRecord]]),
   }
 }
-
 const TEST_SCALING_INFO_ENTRY: KeyedDatabaseReferenceEntry = {
   key: 'info.scaling',
   name: 'Scaling Information',
@@ -196,25 +196,37 @@ const TEST_SCALING_INFO_ENTRY: KeyedDatabaseReferenceEntry = {
     },
   ],
 }
-
 const TEST_WHEEL_PREVIEW_ENTRY: KeyedDatabaseReferenceEntry = {
   key: 'wheel.preview.B01',
   name: 'Merciful Nurturing',
   label: 'Wheel · SSR · Caro',
   description: 'Wheel text.',
-  navigationLabel: 'Open in Wheels DB',
+  navigationLabel: 'In DB',
   navigationTarget: {
     kind: 'wheel-page',
     wheelId: 'B01',
     wheelName: 'Merciful Nurturing',
   },
 }
-
 afterEach(() => {
   vi.restoreAllMocks()
 })
-
-function ControllerHarness({
+function ControllerHarness(props: {
+  referenceLayer: ResolvedDatabaseReferenceLayer | null
+  selectedEnlightenSlot?: AwakenerEnlightenRecord['slot'] | null
+  onNavigateToSkills?: () => void
+  onNavigateToWheelPage?: (wheel: {id: string; name: string}) => void
+  onOuterClick?: () => void
+  formulaContext?: PublicFormulaContext
+  currentDescriptionRankContext?: DatabasePopoverDescriptionRankContext
+}) {
+  return (
+    <PopoverProvider>
+      <ControllerHarnessInner {...props} />
+    </PopoverProvider>
+  )
+}
+function ControllerHarnessInner({
   referenceLayer,
   selectedEnlightenSlot = null,
   onNavigateToSkills,
@@ -239,7 +251,6 @@ function ControllerHarness({
     referenceLayer,
     selectedEnlightenSlot,
   })
-
   return (
     <>
       <div onClick={onOuterClick}>
@@ -321,9 +332,6 @@ function ControllerHarness({
         <button
           onClick={(event) => {
             const openRootInfo = popoverController.contextValue.openRootInfo
-            if (!openRootInfo) {
-              throw new Error('Expected openRootInfo to be available')
-            }
             openRootInfo(TEST_SCALING_INFO_ENTRY, event)
           }}
           type='button'
@@ -333,9 +341,6 @@ function ControllerHarness({
         <button
           onClick={(event) => {
             const openRootInfo = popoverController.contextValue.openRootInfo
-            if (!openRootInfo) {
-              throw new Error('Expected openRootInfo to be available')
-            }
             openRootInfo(TEST_WHEEL_PREVIEW_ENTRY, event)
           }}
           type='button'
@@ -347,50 +352,40 @@ function ControllerHarness({
     </>
   )
 }
-
 describe('useDatabasePopoverController', () => {
   it('live updates open popovers when the database view changes', async () => {
     const {rerender} = render(
       <ControllerHarness referenceLayer={buildReferenceLayer('Base text.')} />,
     )
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
     expect(
       await screen.findByText('Base text.', undefined, COLD_POPOVER_FIND_OPTIONS),
     ).toBeInTheDocument()
-
     rerender(
       <ControllerHarness
         referenceLayer={buildReferenceLayer('E1 text.', 'E1')}
         selectedEnlightenSlot='E1'
       />,
     )
-
-    expect(screen.queryByText('Base text.')).not.toBeInTheDocument()
     expect(await screen.findByText('E1 text.')).toBeInTheDocument()
+    expect(screen.queryByText('Base text.')).not.toBeInTheDocument()
     expect(await screen.findByText('E1')).toBeInTheDocument()
   })
-
   it('replaces the open root stack when clicking a different root trigger and stops bubbling', async () => {
     const onOuterClick = vi.fn()
-
     render(
       <ControllerHarness
         onOuterClick={onOuterClick}
         referenceLayer={buildReferenceLayer('Base text.')}
       />,
     )
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
     expect(await screen.findByText('Base text.')).toBeInTheDocument()
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Guard'}))
-
     expect(screen.queryByText('Base text.')).not.toBeInTheDocument()
     expect(await screen.findByText('Guard text.')).toBeInTheDocument()
     expect(onOuterClick).not.toHaveBeenCalled()
   })
-
   it('closes another controller trail when a new root opens', async () => {
     render(
       <>
@@ -398,24 +393,18 @@ describe('useDatabasePopoverController', () => {
         <ControllerHarness referenceLayer={buildReferenceLayer('Second text.')} />
       </>,
     )
-
     const [firstOpenStrike, secondOpenStrike] = screen.getAllByRole('button', {
       name: 'Open Strike',
     })
     fireEvent.click(firstOpenStrike)
     expect(await screen.findByText('First text.')).toBeInTheDocument()
-
     fireEvent.click(secondOpenStrike)
-
     expect(await screen.findByText('Second text.')).toBeInTheDocument()
     expect(screen.queryByText('First text.')).not.toBeInTheDocument()
   })
-
   it('opens generic info entries through the shared root popover path', async () => {
     render(<ControllerHarness referenceLayer={buildReferenceLayer('Base text.')} />)
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Scaling Info'}))
-
     expect(await screen.findByText('Scaling info text.')).toBeInTheDocument()
     expect(screen.getByText('Scaling Information')).toBeInTheDocument()
     expect(screen.getByText('Database Guide')).toBeInTheDocument()
@@ -423,17 +412,13 @@ describe('useDatabasePopoverController', () => {
     expect(await screen.findByText('Detailed scaling text.')).toBeInTheDocument()
     expect(screen.getByText('Scaling Breakdown')).toBeInTheDocument()
   })
-
   it('opens wheel references through the shared root popover path', async () => {
     render(<ControllerHarness referenceLayer={buildReferenceLayer('Base text.')} />)
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Wheel'}))
-
     expect(await screen.findByText('Wheel text.')).toBeInTheDocument()
     expect(screen.getByText('Merciful Nurturing')).toBeInTheDocument()
     expect(screen.getByText('Wheel · SSR · Caro')).toBeInTheDocument()
   })
-
   it('ignores stale root hydration after another root opens', async () => {
     let resolveHydration: ((reference: DatabaseReferenceInfo) => void) | undefined
     vi.spyOn(
@@ -453,21 +438,16 @@ describe('useDatabasePopoverController', () => {
       throw new Error('Expected test wheel reference')
     }
     wheelReference.description = ''
-
     render(<ControllerHarness referenceLayer={referenceLayer} />)
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Wheel'}))
     fireEvent.click(screen.getByRole('button', {name: 'Open Guard'}))
     expect(await screen.findByText('Guard text.')).toBeInTheDocument()
-
     resolveHydration?.(wheelReference)
-
     await waitFor(() => {
       expect(screen.queryByText('Hydrated wheel text.')).not.toBeInTheDocument()
       expect(screen.getByText('Guard text.')).toBeInTheDocument()
     })
   })
-
   it('ignores stale nested hydration after the source root is replaced', async () => {
     let resolveHydration: ((reference: DatabaseReferenceInfo) => void) | undefined
     vi.spyOn(
@@ -482,37 +462,29 @@ describe('useDatabasePopoverController', () => {
         }),
     )
     const referenceLayer = buildReferenceLayer('Gain {Counter}.')
-
     render(<ControllerHarness referenceLayer={referenceLayer} />)
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
-    fireEvent.click(await screen.findByRole('button', {name: 'Counter'}, COLD_POPOVER_FIND_OPTIONS))
+    fireEvent.click(await screen.findByRole('button', {name: 'Counter'}))
     fireEvent.click(screen.getByRole('button', {name: 'Open Guard'}))
     expect(await screen.findByText('Guard text.')).toBeInTheDocument()
-
     const counterReference = referenceLayer.referenceInfoById.get('overlay.global.counter')
     if (!counterReference) {
       throw new Error('Expected test counter reference')
     }
     resolveHydration?.(counterReference)
-
     await waitFor(() => {
       expect(screen.queryByText('Hydrated counter text.')).not.toBeInTheDocument()
       expect(screen.getByText('Guard text.')).toBeInTheDocument()
     })
   })
-
   it('hydrates catalog-backed root overlay popovers before opening them', async () => {
     const hydrateGlobalDatabaseReferenceInfo = vi.spyOn(
       globalDatabaseReferenceLayer,
       'hydrateGlobalDatabaseReferenceInfo',
     )
     const referenceLayer = buildReferenceLayer('Base text.')
-
     render(<ControllerHarness referenceLayer={referenceLayer} />)
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Counter'}))
-
     await waitFor(() => {
       expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -528,19 +500,15 @@ describe('useDatabasePopoverController', () => {
     ).toBeInTheDocument()
     expect(screen.queryByText('Details coming soon')).not.toBeInTheDocument()
   })
-
   it('hydrates catalog-backed nested overlay popovers from rich-text tokens', async () => {
     const hydrateGlobalDatabaseReferenceInfo = vi.spyOn(
       globalDatabaseReferenceLayer,
       'hydrateGlobalDatabaseReferenceInfo',
     )
     const referenceLayer = buildReferenceLayer('Gain {Counter}.')
-
     render(<ControllerHarness referenceLayer={referenceLayer} />)
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
-    fireEvent.click(await screen.findByRole('button', {name: 'Counter'}, COLD_POPOVER_FIND_OPTIONS))
-
+    fireEvent.click(await screen.findByRole('button', {name: 'Counter'}))
     await waitFor(() => {
       expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -556,7 +524,6 @@ describe('useDatabasePopoverController', () => {
     ).toBeInTheDocument()
     expect(screen.queryByText('Details coming soon')).not.toBeInTheDocument()
   })
-
   it('applies root overlay rank context without changing generic overlay opens', async () => {
     const referenceLayer = buildReferenceLayer('Base text.')
     const counterReference = referenceLayer.referenceInfoByName.get('counter')
@@ -571,19 +538,14 @@ describe('useDatabasePopoverController', () => {
         values: ['1', '2', '3', '4', '5', '6'],
       },
     }
-
     render(<ControllerHarness referenceLayer={referenceLayer} />)
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Counter'}))
     expect(await screen.findByTitle(/Lv6: 6/)).toHaveTextContent('1')
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Guard'}))
     expect(await screen.findByText('Guard text.')).toBeInTheDocument()
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Counter Rank 6'}))
     expect(await screen.findByTitle(/Lv6: 6/)).toHaveTextContent('6')
   })
-
   it('live updates current-rank overlay popovers when the rank context changes', async () => {
     const referenceLayer = buildReferenceLayer('Base text.')
     const counterReference = referenceLayer.referenceInfoByName.get('counter')
@@ -598,7 +560,6 @@ describe('useDatabasePopoverController', () => {
         values: ['1', '2', '3', '4', '5', '6'],
       },
     }
-
     const {rerender} = render(
       <ControllerHarness
         currentDescriptionRankContext={{
@@ -609,10 +570,8 @@ describe('useDatabasePopoverController', () => {
         referenceLayer={referenceLayer}
       />,
     )
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Counter Current Rank'}))
     expect(await screen.findByTitle(/Lv6: 6/)).toHaveTextContent('1')
-
     rerender(
       <ControllerHarness
         currentDescriptionRankContext={{
@@ -623,10 +582,8 @@ describe('useDatabasePopoverController', () => {
         referenceLayer={referenceLayer}
       />,
     )
-
     expect(await screen.findByTitle(/Lv6: 6/)).toHaveTextContent('6')
   })
-
   it('threads formula context from controller options into popover content', async () => {
     render(
       <ControllerHarness
@@ -634,66 +591,188 @@ describe('useDatabasePopoverController', () => {
         referenceLayer={buildReferenceLayer('Base text.')}
       />,
     )
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Computed'}))
-
     expect(await screen.findByTitle(/Wheel Enlighten Bonus/)).toHaveTextContent('12')
     expect(screen.queryByText('—')).not.toBeInTheDocument()
   })
-
   it('routes skill reference entries to the skills view from title navigation', async () => {
     const onNavigateToSkills = vi.fn()
-
     render(
       <ControllerHarness
         onNavigateToSkills={onNavigateToSkills}
         referenceLayer={buildReferenceLayer('Base text.')}
       />,
     )
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
     fireEvent.click(await screen.findByRole('button', {name: 'Strike ↗'}))
-
     expect(onNavigateToSkills).toHaveBeenCalledOnce()
     expect(screen.queryByText('Base text.')).not.toBeInTheDocument()
   })
-
   it('routes explicit wheel preview entries to the wheel database page', async () => {
     const onNavigateToWheelPage = vi.fn()
-
     render(
       <ControllerHarness
         onNavigateToWheelPage={onNavigateToWheelPage}
         referenceLayer={buildReferenceLayer('Base text.')}
       />,
     )
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Wheel Preview'}))
-    fireEvent.click(await screen.findByRole('button', {name: /Open in Wheels DB/i}))
-
+    fireEvent.click(await screen.findByRole('button', {name: /Merciful Nurturing/i}))
     expect(onNavigateToWheelPage).toHaveBeenCalledWith({
       id: 'B01',
       name: 'Merciful Nurturing',
     })
   })
-
   it('routes hydrated wheel reference titles to the wheel database page', async () => {
     const onNavigateToWheelPage = vi.fn()
-
     render(
       <ControllerHarness
         onNavigateToWheelPage={onNavigateToWheelPage}
         referenceLayer={buildReferenceLayer('Base text.')}
       />,
     )
-
     fireEvent.click(screen.getByRole('button', {name: 'Open Wheel'}))
-    fireEvent.click(await screen.findByRole('button', {name: 'Merciful Nurturing ↗'}))
-
+    fireEvent.click(await screen.findByRole('button', {name: /Merciful Nurturing/i}))
     expect(onNavigateToWheelPage).toHaveBeenCalledWith({
       id: 'B01',
       name: 'Merciful Nurturing',
     })
     expect(screen.queryByText('Wheel text.')).not.toBeInTheDocument()
+  })
+  it('prevents duplicate keys and implements proper z-index ordering', () => {
+    const store = createPopoverStore()
+
+    // Initial state
+    expect(store.getState().trail).toEqual([])
+    expect(store.getState().floating).toEqual([])
+
+    // Open root A
+    const entryA = {key: 'skill:A', referenceId: 'A', name: 'A', label: 'A', description: 'desc A'}
+    store.getState().openRoot('owner', entryA)
+    expect(store.getState().trail.map((e) => e.key)).toEqual(['skill:A'])
+
+    // Pin A
+    store.getState().togglePin('skill:A')
+    expect(store.getState().floating.map((e) => e.key)).toEqual(['skill:A'])
+    expect(store.getState().trail).toEqual([])
+
+    // Try to open root A again (should just bring it to front/do nothing instead of duplicating)
+    store.getState().openRoot('owner', entryA)
+    expect(store.getState().floating.map((e) => e.key)).toEqual(['skill:A'])
+    expect(store.getState().trail).toEqual([])
+
+    // Try to push A as nested under another entry B
+    const entryB = {key: 'skill:B', referenceId: 'B', name: 'B', label: 'B', description: 'desc B'}
+    store.getState().openRoot('owner', entryB) // trail becomes [B]
+    expect(store.getState().trail.map((e) => e.key)).toEqual(['skill:B'])
+
+    // pushNested B -> A (A is already floating/pinned)
+    store.getState().pushNested(1, entryA) // B is in trail (index 1 when including floating [A])
+    // A should not be added to trail because it is already floating
+    expect(store.getState().trail.map((e) => e.key)).toEqual(['skill:B'])
+    expect(store.getState().floating.map((e) => e.key)).toEqual(['skill:A'])
+
+    // Check z-index ordering:
+    // Open nested C under B
+    const entryC = {
+      key: 'skill:C',
+      referenceId: 'C',
+      name: 'C',
+      label: 'C',
+      description: 'desc C',
+      parentKey: 'skill:B',
+    }
+    store.getState().pushNested(1, entryC) // index 1 is B
+    expect(store.getState().trail.map((e) => e.key)).toEqual(['skill:B', 'skill:C'])
+
+    // zIndexOrder has both B and C
+    expect(store.getState().zIndexOrder.indexOf('skill:B')).toBeLessThan(
+      store.getState().zIndexOrder.indexOf('skill:C'),
+    )
+
+    // Bring B to front. B should be topmost (after its descendants in keysToMove, meaning C is below B, so B has higher z-index than C)
+    store.getState().bringToFront('skill:B')
+    expect(store.getState().zIndexOrder.indexOf('skill:C')).toBeLessThan(
+      store.getState().zIndexOrder.indexOf('skill:B'),
+    )
+  })
+
+  it('calculates depth correctly when opening and closing nested popovers', () => {
+    const store = createPopoverStore()
+    const entryA = {key: 'skill:A', referenceId: 'A', name: 'A', label: 'A', description: 'desc A'}
+    const entryB = {key: 'skill:B', referenceId: 'B', name: 'B', label: 'B', description: 'desc B'}
+    const entryC = {key: 'skill:C', referenceId: 'C', name: 'C', label: 'C', description: 'desc C'}
+
+    // 1. Open A (root)
+    store.getState().openRoot('owner', entryA)
+    // 2. Open B under A (index 0)
+    store.getState().pushNested(0, {...entryB, parentKey: 'skill:A'})
+    // 3. Open C under B (index 1)
+    store.getState().pushNested(1, {...entryC, parentKey: 'skill:B'})
+
+    expect(store.getState().trail.map((e) => e.key)).toEqual(['skill:A', 'skill:B', 'skill:C'])
+
+    // Helper to compute getLogicalDepth equivalent
+    const getDepths = () => {
+      const allEntries = [...store.getState().floating, ...store.getState().trail]
+      return allEntries.map((entry) => {
+        let depth = 0
+        let current = entry
+        const visited = new Set()
+        while (current.parentKey) {
+          if (visited.has(current.key)) break
+          visited.add(current.key)
+          const parent = allEntries.find((e) => e.key === current.parentKey)
+          if (!parent || parent.key === current.key) break
+          depth += 1
+          current = parent
+        }
+        return depth
+      })
+    }
+
+    expect(getDepths()).toEqual([0, 1, 2])
+
+    // 4. Close C (index 2)
+    store.getState().closeFrom(2)
+    expect(store.getState().trail.map((e) => e.key)).toEqual(['skill:A', 'skill:B'])
+    expect(getDepths()).toEqual([0, 1])
+
+    // 5. Open C under B again (index 1)
+    store.getState().pushNested(1, {...entryC, parentKey: 'skill:B'})
+    expect(store.getState().trail.map((e) => e.key)).toEqual(['skill:A', 'skill:B', 'skill:C'])
+    expect(getDepths()).toEqual([0, 1, 2])
+
+    // 6. Close C again (index 2)
+    store.getState().closeFrom(2)
+    expect(store.getState().trail.map((e) => e.key)).toEqual(['skill:A', 'skill:B'])
+    expect(getDepths()).toEqual([0, 1])
+  })
+
+  it('clears trail when its floating/pinned parent popover is closed', () => {
+    const store = createPopoverStore()
+    const entryA = {key: 'skill:A', referenceId: 'A', name: 'A', label: 'A', description: 'desc A'}
+    const entryB = {key: 'skill:B', referenceId: 'B', name: 'B', label: 'B', description: 'desc B'}
+
+    // 1. Open A (root)
+    store.getState().openRoot('owner', entryA)
+    // 2. Pin A to make it floating
+    store.getState().togglePin('skill:A')
+    expect(store.getState().floating.map((e) => e.key)).toEqual(['skill:A'])
+    expect(store.getState().trail).toEqual([])
+
+    // 3. Open B as a nested popover from floating A
+    // (index 0 is the floating A)
+    store.getState().pushNested(0, {...entryB, parentKey: 'skill:A'})
+    expect(store.getState().trail.map((e) => e.key)).toEqual(['skill:B'])
+    expect(store.getState().isFromFloating).toBe(true)
+
+    // 4. Close floating A (index 0 in floating)
+    store.getState().closeFrom(0)
+
+    // Since the parent A was closed, the trail B should be cleared!
+    expect(store.getState().floating).toEqual([])
+    expect(store.getState().trail).toEqual([])
+    expect(store.getState().isFromFloating).toBe(false)
   })
 })

@@ -835,12 +835,16 @@ describe('AwakenerDetailModal', () => {
     try {
       const {rerender} = renderAwakenerDetailModal(firstWithTags, {onClose})
 
+      fireEvent.click(screen.getByTestId('tags-burger-button'))
+
       const toggle = await screen.findByRole('button', {name: 'Show all tags'})
       fireEvent.click(toggle)
 
       expect(screen.getByRole('button', {name: 'Show fewer tags'})).toBeInTheDocument()
 
       rerender(createAwakenerDetailModalElement(secondWithTags, {onClose}))
+
+      fireEvent.click(screen.getByTestId('tags-burger-button'))
 
       await waitFor(() => {
         expect(screen.getByRole('button', {name: 'Show all tags'})).toBeInTheDocument()

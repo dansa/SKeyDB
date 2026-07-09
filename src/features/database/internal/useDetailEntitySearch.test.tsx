@@ -1,9 +1,9 @@
-import {useMemo, type KeyboardEvent as ReactKeyboardEvent} from 'react'
+import {useRef, type KeyboardEvent as ReactKeyboardEvent} from 'react'
 
 import {act, render, renderHook, screen} from '@testing-library/react'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
-import {PopoverTrailPanel} from './PopoverTrailPanel'
+import {MobilePopoverTrailPanel} from './PopoverTrailPanelLayouts'
 import {useDetailEntitySearch, useSuppressDetailEntitySearchCapture} from './useDetailEntitySearch'
 
 function dispatchKey(key: string) {
@@ -34,18 +34,18 @@ describe('useDetailEntitySearch', () => {
 
     function SearchSuppressedPopover() {
       useSuppressDetailEntitySearchCapture()
-      const anchorRect = useMemo(() => new DOMRect(24, 24, 48, 24), [])
+      const containerRef = useRef<HTMLDivElement>(null)
 
       return (
-        <PopoverTrailPanel anchorRect={anchorRect} itemCount={1} onCloseAll={vi.fn()}>
+        <MobilePopoverTrailPanel containerRef={containerRef} itemCount={1} onCloseTop={vi.fn()}>
           <button type='button'>Nested popover action</button>
-        </PopoverTrailPanel>
+        </MobilePopoverTrailPanel>
       )
     }
 
     render(<SearchSuppressedPopover />)
 
-    const closeAllButton = screen.getByRole('button', {name: 'Close all'})
+    const closeAllButton = screen.getByRole('button', {name: 'Nested popover action'})
     closeAllButton.focus()
 
     act(() => {

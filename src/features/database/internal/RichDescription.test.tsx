@@ -7,10 +7,6 @@ import {resolveDescriptionTemplate} from '@/domain/description-args'
 
 import type {RichDescription as RichDescriptionComponent} from './RichDescription'
 
-vi.mock('./database-popover-context', () => ({
-  useDatabasePopoverControllerContext: vi.fn(() => null),
-}))
-
 beforeEach(() => {
   vi.resetModules()
 })
@@ -35,8 +31,13 @@ async function renderRichDescription(
     })
   })
 
+  const {PopoverProvider} = await import('./usePopoverStore')
   const {RichDescription} = await import('./RichDescription')
-  render(<RichDescription {...props} />)
+  render(
+    <PopoverProvider>
+      <RichDescription {...props} />
+    </PopoverProvider>,
+  )
 
   await waitFor(() => {
     expect(resolveRichTextContent).not.toBe(unresolvedRichTextContent)

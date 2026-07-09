@@ -26,7 +26,6 @@ interface UseWheelDetailModalStateOptions {
   onClose: () => void
   onSelectWheel?: (wheel: Pick<Wheel, 'id' | 'name'>) => void
 }
-
 export function useWheelDetailModalState({
   wheel,
   wheels,
@@ -70,7 +69,8 @@ export function useWheelDetailModalState({
     referenceLayer,
     showTagIcons: preferences.shared.showTagIcons,
   })
-  const {closeAllPopovers, contextValue, hasOpenPopovers, popoverRootProps} = popoverController
+  const {closeAllPopovers, closeTopPopover, contextValue, hasOpenPopovers, popoverRootProps} =
+    popoverController
   const chrome = useDetailModalChrome({
     clickOutsideClosesPopovers: preferences.shared.clickOutsideClosesPopovers,
     closeAllPopovers,
@@ -81,11 +81,9 @@ export function useWheelDetailModalState({
     searchContainerRef: search.searchContainerRef,
     searchInputRef: search.searchInputRef,
   })
-
   const setEnhanceLevel = useCallback((level: number) => {
     setEnhanceLevelState(clampWheelEnhanceLevel(level))
   }, [])
-
   const wheelDescriptionRecord = useMemo(
     () => buildWheelDatabaseDescriptionRecord(fullData),
     [fullData],
@@ -94,10 +92,10 @@ export function useWheelDetailModalState({
     () => resolveWheelMainstatValue(fullData.mainstatSeriesKey, enhanceLevel),
     [enhanceLevel, fullData.mainstatSeriesKey],
   )
-
   const handleModalCancel = useDetailModalLifecycle({
     clearSearch: search.clearSearch,
     closeAllPopovers,
+    closeTopPopover,
     closeSearch: search.closeSearch,
     dismissSettings: () => {
       chrome.setIsSettingsOpen(false)
@@ -108,7 +106,6 @@ export function useWheelDetailModalState({
     searchInputRef: search.searchInputRef,
     searchQuery: search.searchQuery,
   })
-
   return {
     enhanceLevel,
     descriptionRank,

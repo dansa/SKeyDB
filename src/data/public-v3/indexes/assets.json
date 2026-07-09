@@ -968,23 +968,6 @@
         ]
       }
     },
-    "asset-awakener-0058-icon": {
-      "id": "asset-awakener-0058-icon",
-      "slot": "icon",
-      "kind": "awakener",
-      "ownerId": "awakener-0058",
-      "assetId": "pontos",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/awk-cards/pontos.webp",
-        "candidates": [
-          "src/assets/awk-cards/pontos.webp",
-          "src/assets/awk-cards/pontos.png",
-          "src/assets/awk-portraits/pontos.webp",
-          "src/assets/awk-portraits/pontos.png"
-        ]
-      }
-    },
     "asset-wheel-0001-icon": {
       "id": "asset-wheel-0001-icon",
       "slot": "icon",
@@ -2593,42 +2576,6 @@
         "candidates": ["src/assets/wheels/Weapon_Full_SR49.webp", "src/assets/wheels/Weapon_Full_SR49.png"]
       }
     },
-    "asset-wheel-0169-icon": {
-      "id": "asset-wheel-0169-icon",
-      "slot": "icon",
-      "kind": "wheel",
-      "ownerId": "wheel-0169",
-      "assetId": "Weapon_Full_SR50",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/wheels/Weapon_Full_SR50.webp",
-        "candidates": ["src/assets/wheels/Weapon_Full_SR50.webp", "src/assets/wheels/Weapon_Full_SR50.png"]
-      }
-    },
-    "asset-wheel-0170-icon": {
-      "id": "asset-wheel-0170-icon",
-      "slot": "icon",
-      "kind": "wheel",
-      "ownerId": "wheel-0170",
-      "assetId": "Weapon_Full_JP08",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/wheels/Weapon_Full_JP08.webp",
-        "candidates": ["src/assets/wheels/Weapon_Full_JP08.webp", "src/assets/wheels/Weapon_Full_JP08.png"]
-      }
-    },
-    "asset-wheel-0171-icon": {
-      "id": "asset-wheel-0171-icon",
-      "slot": "icon",
-      "kind": "wheel",
-      "ownerId": "wheel-0171",
-      "assetId": "Weapon_Full_O13",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/wheels/Weapon_Full_O13.webp",
-        "candidates": ["src/assets/wheels/Weapon_Full_O13.webp", "src/assets/wheels/Weapon_Full_O13.png"]
-      }
-    },
     "asset-relic-0001-icon": {
       "id": "asset-relic-0001-icon",
       "slot": "icon",
@@ -3595,23 +3542,6 @@
           "src/assets/relics/Icon_Creation_Unique_B15.png",
           "src/assets/relics/portraits/Icon_Creation_Unique_B15.webp",
           "src/assets/relics/portraits/Icon_Creation_Unique_B15.png"
-        ]
-      }
-    },
-    "asset-relic-0058-icon": {
-      "id": "asset-relic-0058-icon",
-      "slot": "icon",
-      "kind": "relic",
-      "ownerId": "relic-0058",
-      "assetId": "Icon_Creation_Unique_O13",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/relics/Icon_Creation_Unique_O13.webp",
-        "candidates": [
-          "src/assets/relics/Icon_Creation_Unique_O13.webp",
-          "src/assets/relics/Icon_Creation_Unique_O13.png",
-          "src/assets/relics/portraits/Icon_Creation_Unique_O13.webp",
-          "src/assets/relics/portraits/Icon_Creation_Unique_O13.png"
         ]
       }
     },
@@ -7590,52 +7520,16 @@
         "candidates": ["src/assets/posse/Icon/KeyToken_Skill_53.webp", "src/assets/posse/Icon/KeyToken_Skill_53.png"]
       }
     },
-    "asset-posse-0052-badge": {
-      "id": "asset-posse-0052-badge",
-      "slot": "badge",
-      "kind": "posse",
-      "ownerId": "posse-0052",
-      "assetId": "KeyToken_Props_54",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/posse/Badge/KeyToken_Props_54.webp",
-        "candidates": ["src/assets/posse/Badge/KeyToken_Props_54.webp", "src/assets/posse/Badge/KeyToken_Props_54.png"]
-      }
-    },
-    "asset-posse-0052-crystal": {
-      "id": "asset-posse-0052-crystal",
-      "slot": "crystal",
-      "kind": "posse",
-      "ownerId": "posse-0052",
-      "assetId": "KeyToken_Crystal_54",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/posse/FullArt/KeyToken_Crystal_54.webp",
-        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_54.webp", "src/assets/posse/FullArt/KeyToken_Crystal_54.png"]
-      }
-    },
-    "asset-posse-0052-icon": {
-      "id": "asset-posse-0052-icon",
-      "slot": "icon",
-      "kind": "posse",
-      "ownerId": "posse-0052",
-      "assetId": "KeyToken_Skill_54",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/posse/Icon/KeyToken_Skill_54.webp",
-        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_54.webp", "src/assets/posse/Icon/KeyToken_Skill_54.png"]
-      }
-    },
     "asset-overlay.aigis.petrify-icon": {
       "id": "asset-overlay.aigis.petrify-icon",
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.aigis.petrify",
-      "assetId": "IconS_Buff_023",
+      "assetId": "Battle_Card_Buff_023",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_023.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_023.webp", "src/assets/icons/IconS_Buff_023.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_023.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_023.webp", "src/assets/icons/Battle_Card_Buff_023.png"]
       }
     },
     "asset-overlay.arachne.final-verdict-icon": {
@@ -7643,11 +7537,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.arachne.final-verdict",
-      "assetId": "IconS_Buff_055",
+      "assetId": "Battle_Card_Buff_055",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_055.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_055.webp", "src/assets/icons/IconS_Buff_055.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_055.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_055.webp", "src/assets/icons/Battle_Card_Buff_055.png"]
       }
     },
     "asset-overlay.arachne.singularity-beacon-icon": {
@@ -7655,11 +7549,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.arachne.singularity-beacon",
-      "assetId": "IconS_Buff_067",
+      "assetId": "Battle_Card_Buff_067",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_067.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_067.webp", "src/assets/icons/Battle_Card_Buff_067.png"]
       }
     },
     "asset-overlay.arachne.singularity-prism-icon": {
@@ -7667,11 +7561,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.arachne.singularity-prism",
-      "assetId": "IconS_Buff_067",
+      "assetId": "Battle_Card_Buff_067",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_067.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_067.webp", "src/assets/icons/Battle_Card_Buff_067.png"]
       }
     },
     "asset-overlay.arachne.singularity-shuttle-icon": {
@@ -7679,11 +7573,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.arachne.singularity-shuttle",
-      "assetId": "IconS_Buff_067",
+      "assetId": "Battle_Card_Buff_067",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_067.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_067.webp", "src/assets/icons/Battle_Card_Buff_067.png"]
       }
     },
     "asset-overlay.arachne.singularity-warp-icon": {
@@ -7691,11 +7585,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.arachne.singularity-warp",
-      "assetId": "IconS_Buff_067",
+      "assetId": "Battle_Card_Buff_067",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_067.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_067.webp", "src/assets/icons/Battle_Card_Buff_067.png"]
       }
     },
     "asset-overlay.arachne.weaver-icon": {
@@ -7703,23 +7597,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.arachne.weaver",
-      "assetId": "IconS_Buff_084",
+      "assetId": "Battle_Card_Buff_084",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_084.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_084.webp", "src/assets/icons/IconS_Buff_084.png"]
-      }
-    },
-    "asset-overlay.caecus.outcasts-anguish-icon": {
-      "id": "asset-overlay.caecus.outcasts-anguish-icon",
-      "slot": "icon",
-      "kind": "overlay",
-      "ownerId": "overlay.caecus.outcasts-anguish",
-      "assetId": "IconS_Buff_045",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/icons/IconS_Buff_045.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_084.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_084.webp", "src/assets/icons/Battle_Card_Buff_084.png"]
       }
     },
     "asset-overlay.clementine.phobic-fixation-icon": {
@@ -7727,11 +7609,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.clementine.phobic-fixation",
-      "assetId": "IconS_Buff_053",
+      "assetId": "Battle_Card_Buff_053",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_053.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_053.webp", "src/assets/icons/IconS_Buff_053.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_053.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_053.webp", "src/assets/icons/Battle_Card_Buff_053.png"]
       }
     },
     "asset-overlay.clementine.psychic-trauma-icon": {
@@ -7739,11 +7621,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.clementine.psychic-trauma",
-      "assetId": "IconS_Buff_053",
+      "assetId": "Battle_Card_Buff_053",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_053.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_053.webp", "src/assets/icons/IconS_Buff_053.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_053.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_053.webp", "src/assets/icons/Battle_Card_Buff_053.png"]
       }
     },
     "asset-overlay.clementine.symbiosis-icon": {
@@ -7751,11 +7633,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.clementine.symbiosis",
-      "assetId": "IconS_Buff_053",
+      "assetId": "Battle_Card_Buff_053",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_053.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_053.webp", "src/assets/icons/IconS_Buff_053.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_053.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_053.webp", "src/assets/icons/Battle_Card_Buff_053.png"]
       }
     },
     "asset-overlay.doll-inferno.finale-icon": {
@@ -7763,23 +7645,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.doll-inferno.finale",
-      "assetId": "IconS_Buff_052",
+      "assetId": "Battle_Card_Buff_052",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_052.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_052.webp", "src/assets/icons/IconS_Buff_052.png"]
-      }
-    },
-    "asset-overlay.doll-inferno.illusions-end-icon": {
-      "id": "asset-overlay.doll-inferno.illusions-end-icon",
-      "slot": "icon",
-      "kind": "overlay",
-      "ownerId": "overlay.doll-inferno.illusions-end",
-      "assetId": "IconS_Buff_044",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/icons/IconS_Buff_044.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_044.webp", "src/assets/icons/IconS_Buff_044.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_052.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_052.webp", "src/assets/icons/Battle_Card_Buff_052.png"]
       }
     },
     "asset-overlay.doresain.corpse-icon": {
@@ -7787,23 +7657,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.doresain.corpse",
-      "assetId": "IconS_Buff_076",
+      "assetId": "Battle_Card_Buff_076",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_076.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_076.webp", "src/assets/icons/IconS_Buff_076.png"]
-      }
-    },
-    "asset-overlay.faros.dimmed-candle-icon": {
-      "id": "asset-overlay.faros.dimmed-candle-icon",
-      "slot": "icon",
-      "kind": "overlay",
-      "ownerId": "overlay.faros.dimmed-candle",
-      "assetId": "IconS_Buff_045",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/icons/IconS_Buff_045.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_076.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_076.webp", "src/assets/icons/Battle_Card_Buff_076.png"]
       }
     },
     "asset-overlay.global.alert-icon": {
@@ -7811,11 +7669,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.alert",
-      "assetId": "IconS_Buff_009",
+      "assetId": "Battle_Card_Buff_009",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_009.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_009.webp", "src/assets/icons/IconS_Buff_009.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_009.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_009.webp", "src/assets/icons/Battle_Card_Buff_009.png"]
       }
     },
     "asset-overlay.global.ancient-embers-icon": {
@@ -7823,11 +7681,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.ancient-embers",
-      "assetId": "IconS_Buff_025",
+      "assetId": "Battle_Card_Buff_025",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_025.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_025.webp", "src/assets/icons/IconS_Buff_025.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_025.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_025.webp", "src/assets/icons/Battle_Card_Buff_025.png"]
       }
     },
     "asset-overlay.global.arithmetica-harmony-icon": {
@@ -7835,11 +7693,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.arithmetica-harmony",
-      "assetId": "IconS_Buff_069",
+      "assetId": "Battle_Card_Buff_069",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_069.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_069.webp", "src/assets/icons/IconS_Buff_069.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_069.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_069.webp", "src/assets/icons/Battle_Card_Buff_069.png"]
       }
     },
     "asset-overlay.global.barrier-icon": {
@@ -7847,11 +7705,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.barrier",
-      "assetId": "IconS_Buff_013",
+      "assetId": "Battle_Card_Buff_013",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_013.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_013.webp", "src/assets/icons/IconS_Buff_013.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_013.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_013.webp", "src/assets/icons/Battle_Card_Buff_013.png"]
       }
     },
     "asset-overlay.global.bleed-icon": {
@@ -7859,11 +7717,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.bleed",
-      "assetId": "IconS_Buff_022",
+      "assetId": "Battle_Card_Buff_022",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_022.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_022.webp", "src/assets/icons/IconS_Buff_022.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_022.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_022.webp", "src/assets/icons/Battle_Card_Buff_022.png"]
       }
     },
     "asset-overlay.global.blighten-icon": {
@@ -7871,11 +7729,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.blighten",
-      "assetId": "IconS_Buff_031",
+      "assetId": "Battle_Card_Buff_031",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_031.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_031.webp", "src/assets/icons/IconS_Buff_031.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_031.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_031.webp", "src/assets/icons/Battle_Card_Buff_031.png"]
       }
     },
     "asset-overlay.global.burn-icon": {
@@ -7883,11 +7741,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.burn",
-      "assetId": "IconS_Buff_057",
+      "assetId": "Battle_Card_Buff_057",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_057.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_057.webp", "src/assets/icons/IconS_Buff_057.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_057.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_057.webp", "src/assets/icons/Battle_Card_Buff_057.png"]
       }
     },
     "asset-overlay.global.corrosion-icon": {
@@ -7895,11 +7753,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.corrosion",
-      "assetId": "IconS_Buff_070",
+      "assetId": "Battle_Card_Buff_070",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_070.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_070.webp", "src/assets/icons/IconS_Buff_070.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_070.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_070.webp", "src/assets/icons/Battle_Card_Buff_070.png"]
       }
     },
     "asset-overlay.global.counter-icon": {
@@ -7907,11 +7765,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.counter",
-      "assetId": "IconS_Buff_019",
+      "assetId": "Battle_Card_Buff_019",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_019.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_019.webp", "src/assets/icons/IconS_Buff_019.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_019.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_019.webp", "src/assets/icons/Battle_Card_Buff_019.png"]
       }
     },
     "asset-overlay.global.death-resistance-icon": {
@@ -7919,11 +7777,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.death-resistance",
-      "assetId": "IconS_Buff_012",
+      "assetId": "Battle_Card_Buff_012",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_012.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_012.webp", "src/assets/icons/IconS_Buff_012.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_012.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_012.webp", "src/assets/icons/Battle_Card_Buff_012.png"]
       }
     },
     "asset-overlay.global.delayed-sacrifice-icon": {
@@ -7931,11 +7789,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.delayed-sacrifice",
-      "assetId": "IconS_Buff_042",
+      "assetId": "Battle_Card_Buff_042",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_042.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_042.webp", "src/assets/icons/IconS_Buff_042.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_042.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_042.webp", "src/assets/icons/Battle_Card_Buff_042.png"]
       }
     },
     "asset-overlay.global.dimension-shuttle-icon": {
@@ -7943,11 +7801,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.dimension-shuttle",
-      "assetId": "IconS_Buff_067",
+      "assetId": "Battle_Card_Buff_067",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_067.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_067.webp", "src/assets/icons/Battle_Card_Buff_067.png"]
       }
     },
     "asset-overlay.global.fainted-icon": {
@@ -7955,11 +7813,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.fainted",
-      "assetId": "IconS_Buff_023",
+      "assetId": "Battle_Card_Buff_023",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_023.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_023.webp", "src/assets/icons/IconS_Buff_023.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_023.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_023.webp", "src/assets/icons/Battle_Card_Buff_023.png"]
       }
     },
     "asset-overlay.global.fortress-icon": {
@@ -7967,11 +7825,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.fortress",
-      "assetId": "IconS_Buff_046",
+      "assetId": "Battle_Card_Buff_046",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_046.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_046.webp", "src/assets/icons/IconS_Buff_046.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_046.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_046.webp", "src/assets/icons/Battle_Card_Buff_046.png"]
       }
     },
     "asset-overlay.global.fragile-icon": {
@@ -7979,11 +7837,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.fragile",
-      "assetId": "IconS_Buff_015",
+      "assetId": "Battle_Card_Buff_015",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_015.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_015.webp", "src/assets/icons/IconS_Buff_015.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_015.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_015.webp", "src/assets/icons/Battle_Card_Buff_015.png"]
       }
     },
     "asset-overlay.global.madness-icon": {
@@ -7991,11 +7849,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.madness",
-      "assetId": "IconS_Buff_030",
+      "assetId": "Battle_Card_Buff_030",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_030.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_030.webp", "src/assets/icons/IconS_Buff_030.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_030.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_030.webp", "src/assets/icons/Battle_Card_Buff_030.png"]
       }
     },
     "asset-overlay.global.poison-icon": {
@@ -8003,11 +7861,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.poison",
-      "assetId": "IconS_Buff_006",
+      "assetId": "Battle_Card_Buff_006",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_006.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_006.webp", "src/assets/icons/IconS_Buff_006.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_006.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_006.webp", "src/assets/icons/Battle_Card_Buff_006.png"]
       }
     },
     "asset-overlay.global.propagation-frenzy-icon": {
@@ -8015,11 +7873,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.propagation-frenzy",
-      "assetId": "IconS_Buff_088",
+      "assetId": "Battle_Card_Buff_088",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_088.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_088.webp", "src/assets/icons/IconS_Buff_088.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_088.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_088.webp", "src/assets/icons/Battle_Card_Buff_088.png"]
       }
     },
     "asset-overlay.global.sacrifice-icon": {
@@ -8027,11 +7885,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.sacrifice",
-      "assetId": "IconS_Buff_041",
+      "assetId": "Battle_Card_Buff_041",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_041.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_041.webp", "src/assets/icons/IconS_Buff_041.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_041.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_041.webp", "src/assets/icons/Battle_Card_Buff_041.png"]
       }
     },
     "asset-overlay.global.sealed-icon": {
@@ -8039,11 +7897,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.sealed",
-      "assetId": "IconS_Buff_027",
+      "assetId": "Battle_Card_Buff_027",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_027.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_027.webp", "src/assets/icons/IconS_Buff_027.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_027.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_027.webp", "src/assets/icons/Battle_Card_Buff_027.png"]
       }
     },
     "asset-overlay.global.stagnation-icon": {
@@ -8051,11 +7909,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.stagnation",
-      "assetId": "IconS_Buff_024",
+      "assetId": "Battle_Card_Buff_024",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_024.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_024.webp", "src/assets/icons/IconS_Buff_024.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_024.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_024.webp", "src/assets/icons/Battle_Card_Buff_024.png"]
       }
     },
     "asset-overlay.global.steal-icon": {
@@ -8063,11 +7921,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.steal",
-      "assetId": "IconS_Buff_014",
+      "assetId": "Battle_Card_Buff_014",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_014.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_014.webp", "src/assets/icons/IconS_Buff_014.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_014.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_014.webp", "src/assets/icons/Battle_Card_Buff_014.png"]
       }
     },
     "asset-overlay.global.str-icon": {
@@ -8075,11 +7933,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.str",
-      "assetId": "IconS_Buff_021",
+      "assetId": "Battle_Card_Buff_021",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_021.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_021.webp", "src/assets/icons/IconS_Buff_021.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_021.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_021.webp", "src/assets/icons/Battle_Card_Buff_021.png"]
       }
     },
     "asset-overlay.global.strength-icon": {
@@ -8087,11 +7945,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.strength",
-      "assetId": "IconS_Buff_037",
+      "assetId": "Battle_Card_Buff_037",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_037.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_037.webp", "src/assets/icons/IconS_Buff_037.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_037.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_037.webp", "src/assets/icons/Battle_Card_Buff_037.png"]
       }
     },
     "asset-overlay.global.stun-icon": {
@@ -8111,11 +7969,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.temporary-counter",
-      "assetId": "IconS_Buff_019",
+      "assetId": "Battle_Card_Buff_019",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_019.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_019.webp", "src/assets/icons/IconS_Buff_019.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_019.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_019.webp", "src/assets/icons/Battle_Card_Buff_019.png"]
       }
     },
     "asset-overlay.global.temporary-str-icon": {
@@ -8123,11 +7981,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.temporary-str",
-      "assetId": "IconS_Buff_021",
+      "assetId": "Battle_Card_Buff_021",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_021.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_021.webp", "src/assets/icons/IconS_Buff_021.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_021.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_021.webp", "src/assets/icons/Battle_Card_Buff_021.png"]
       }
     },
     "asset-overlay.global.void-icon": {
@@ -8135,11 +7993,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.void",
-      "assetId": "IconS_Buff_027",
+      "assetId": "Battle_Card_Buff_029",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_027.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_027.webp", "src/assets/icons/IconS_Buff_027.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_029.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_029.webp", "src/assets/icons/Battle_Card_Buff_029.png"]
       }
     },
     "asset-overlay.global.vulnerable-icon": {
@@ -8147,11 +8005,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.vulnerable",
-      "assetId": "IconS_Buff_003",
+      "assetId": "Battle_Card_Buff_003",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_003.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_003.webp", "src/assets/icons/IconS_Buff_003.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_003.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_003.webp", "src/assets/icons/Battle_Card_Buff_003.png"]
       }
     },
     "asset-overlay.global.weakness-icon": {
@@ -8159,11 +8017,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.global.weakness",
-      "assetId": "IconS_Buff_005",
+      "assetId": "Battle_Card_Buff_005",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_005.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_005.webp", "src/assets/icons/IconS_Buff_005.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_005.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_005.webp", "src/assets/icons/Battle_Card_Buff_005.png"]
       }
     },
     "asset-overlay.kathigu-ra.combust-icon": {
@@ -8171,11 +8029,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.kathigu-ra.combust",
-      "assetId": "IconS_Buff_057",
+      "assetId": "Battle_Card_Buff_057",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_057.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_057.webp", "src/assets/icons/IconS_Buff_057.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_057.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_057.webp", "src/assets/icons/Battle_Card_Buff_057.png"]
       }
     },
     "asset-overlay.kathigu-ra.fiamma-icon": {
@@ -8183,11 +8041,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.kathigu-ra.fiamma",
-      "assetId": "IconS_Buff_057",
+      "assetId": "Battle_Card_Buff_057",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_057.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_057.webp", "src/assets/icons/IconS_Buff_057.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_057.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_057.webp", "src/assets/icons/Battle_Card_Buff_057.png"]
       }
     },
     "asset-overlay.lily.endure-icon": {
@@ -8195,35 +8053,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.lily.endure",
-      "assetId": "IconS_Buff_040",
+      "assetId": "Battle_Card_Buff_040",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_040.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_040.webp", "src/assets/icons/IconS_Buff_040.png"]
-      }
-    },
-    "asset-overlay.miryam.undying-piety-icon": {
-      "id": "asset-overlay.miryam.undying-piety-icon",
-      "slot": "icon",
-      "kind": "overlay",
-      "ownerId": "overlay.miryam.undying-piety",
-      "assetId": "IconS_Buff_045",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/icons/IconS_Buff_045.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
-      }
-    },
-    "asset-overlay.miryam.vanitys-collapse-icon": {
-      "id": "asset-overlay.miryam.vanitys-collapse-icon",
-      "slot": "icon",
-      "kind": "overlay",
-      "ownerId": "overlay.miryam.vanitys-collapse",
-      "assetId": "IconS_Buff_045",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/icons/IconS_Buff_045.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_040.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_040.webp", "src/assets/icons/Battle_Card_Buff_040.png"]
       }
     },
     "asset-overlay.murphy-fauxborn.birth-ritual-icon": {
@@ -8231,11 +8065,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.murphy-fauxborn.birth-ritual",
-      "assetId": "IconS_Buff_079",
+      "assetId": "Battle_Card_Buff_079",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_079.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_079.webp", "src/assets/icons/IconS_Buff_079.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_079.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_079.webp", "src/assets/icons/Battle_Card_Buff_079.png"]
       }
     },
     "asset-overlay.pickman.creativity-icon": {
@@ -8243,11 +8077,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.pickman.creativity",
-      "assetId": "IconS_Buff_077",
+      "assetId": "Battle_Card_Buff_077",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_077.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_077.webp", "src/assets/icons/IconS_Buff_077.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_077.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_077.webp", "src/assets/icons/Battle_Card_Buff_077.png"]
       }
     },
     "asset-overlay.pollux.sin-mark-icon": {
@@ -8255,23 +8089,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.pollux.sin-mark",
-      "assetId": "IconS_Buff_078",
+      "assetId": "Battle_Card_Buff_078",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_078.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_078.webp", "src/assets/icons/IconS_Buff_078.png"]
-      }
-    },
-    "asset-overlay.pontos.pack-hunt-icon": {
-      "id": "asset-overlay.pontos.pack-hunt-icon",
-      "slot": "icon",
-      "kind": "overlay",
-      "ownerId": "overlay.pontos.pack-hunt",
-      "assetId": "IconS_Buff_090",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/icons/IconS_Buff_090.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_090.webp", "src/assets/icons/IconS_Buff_090.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_078.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_078.webp", "src/assets/icons/Battle_Card_Buff_078.png"]
       }
     },
     "asset-overlay.ramona-timeworn.loop-icon": {
@@ -8279,11 +8101,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.ramona-timeworn.loop",
-      "assetId": "IconS_Buff_038",
+      "assetId": "Battle_Card_Buff_038",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_038.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_038.webp", "src/assets/icons/IconS_Buff_038.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_038.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_038.webp", "src/assets/icons/Battle_Card_Buff_038.png"]
       }
     },
     "asset-overlay.ramona-timeworn.negentropy-icon": {
@@ -8291,23 +8113,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.ramona-timeworn.negentropy",
-      "assetId": "IconS_Buff_039",
+      "assetId": "Battle_Card_Buff_039",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_039.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_039.webp", "src/assets/icons/IconS_Buff_039.png"]
-      }
-    },
-    "asset-overlay.ryker.certain-gain-icon": {
-      "id": "asset-overlay.ryker.certain-gain-icon",
-      "slot": "icon",
-      "kind": "overlay",
-      "ownerId": "overlay.ryker.certain-gain",
-      "assetId": "IconS_Buff_045",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/icons/IconS_Buff_045.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_039.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_039.webp", "src/assets/icons/Battle_Card_Buff_039.png"]
       }
     },
     "asset-overlay.saya.gynoecium-icon": {
@@ -8315,23 +8125,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.saya.gynoecium",
-      "assetId": "IconS_Buff_087",
+      "assetId": "Battle_Card_Buff_087",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_087.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_087.webp", "src/assets/icons/IconS_Buff_087.png"]
-      }
-    },
-    "asset-overlay.tulu.the-stars-are-right-icon": {
-      "id": "asset-overlay.tulu.the-stars-are-right-icon",
-      "slot": "icon",
-      "kind": "overlay",
-      "ownerId": "overlay.tulu.the-stars-are-right",
-      "assetId": "IconS_Buff_045",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/icons/IconS_Buff_045.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_087.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_087.webp", "src/assets/icons/Battle_Card_Buff_087.png"]
       }
     },
     "asset-overlay.vortice.vortex-reload-icon": {
@@ -8339,11 +8137,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.vortice.vortex-reload",
-      "assetId": "IconS_Buff_081",
+      "assetId": "Battle_Card_Buff_081",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_081.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_081.webp", "src/assets/icons/IconS_Buff_081.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_081.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_081.webp", "src/assets/icons/Battle_Card_Buff_081.png"]
       }
     },
     "asset-overlay.wanda.dreamlure-icon": {
@@ -8351,11 +8149,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.wanda.dreamlure",
-      "assetId": "IconS_Buff_043",
+      "assetId": "Battle_Card_Buff_043",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_043.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_043.webp", "src/assets/icons/IconS_Buff_043.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_043.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_043.webp", "src/assets/icons/Battle_Card_Buff_043.png"]
       }
     },
     "asset-overlay.wanda.murmurs-icon": {
@@ -8363,11 +8161,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.wanda.murmurs",
-      "assetId": "IconS_Buff_047",
+      "assetId": "Battle_Card_Buff_047",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_047.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_047.webp", "src/assets/icons/IconS_Buff_047.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_047.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_047.webp", "src/assets/icons/Battle_Card_Buff_047.png"]
       }
     },
     "asset-overlay.xu.betroth-icon": {
@@ -8375,11 +8173,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.xu.betroth",
-      "assetId": "IconS_Buff_080",
+      "assetId": "Battle_Card_Buff_080",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_080.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_080.webp", "src/assets/icons/IconS_Buff_080.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_080.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_080.webp", "src/assets/icons/Battle_Card_Buff_080.png"]
       }
     },
     "asset-overlay.xu.enthrall-icon": {
@@ -8387,11 +8185,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.xu.enthrall",
-      "assetId": "IconS_Buff_080",
+      "assetId": "Battle_Card_Buff_080",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_080.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_080.webp", "src/assets/icons/IconS_Buff_080.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_080.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_080.webp", "src/assets/icons/Battle_Card_Buff_080.png"]
       }
     },
     "asset-overlay.xu.spellbound-icon": {
@@ -8399,11 +8197,11 @@
       "slot": "icon",
       "kind": "overlay",
       "ownerId": "overlay.xu.spellbound",
-      "assetId": "IconS_Buff_080",
+      "assetId": "Battle_Card_Buff_080",
       "availability": {
         "status": "available",
-        "path": "src/assets/icons/IconS_Buff_080.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_080.webp", "src/assets/icons/IconS_Buff_080.png"]
+        "path": "src/assets/icons/Battle_Card_Buff_080.webp",
+        "candidates": ["src/assets/icons/Battle_Card_Buff_080.webp", "src/assets/icons/Battle_Card_Buff_080.png"]
       }
     }
   },
@@ -8578,9 +8376,6 @@
     },
     "awakener-0057": {
       "icon": "asset-awakener-0057-icon"
-    },
-    "awakener-0058": {
-      "icon": "asset-awakener-0058-icon"
     },
     "wheel-0001": {
       "icon": "asset-wheel-0001-icon"
@@ -8984,15 +8779,6 @@
     "wheel-0168": {
       "icon": "asset-wheel-0168-icon"
     },
-    "wheel-0169": {
-      "icon": "asset-wheel-0169-icon"
-    },
-    "wheel-0170": {
-      "icon": "asset-wheel-0170-icon"
-    },
-    "wheel-0171": {
-      "icon": "asset-wheel-0171-icon"
-    },
     "relic-0001": {
       "icon": "asset-relic-0001-icon"
     },
@@ -9163,9 +8949,6 @@
     },
     "relic-0057": {
       "icon": "asset-relic-0057-icon"
-    },
-    "relic-0058": {
-      "icon": "asset-relic-0058-icon"
     },
     "relic-9001": {
       "icon": "asset-relic-9001-icon"
@@ -9818,11 +9601,6 @@
       "crystal": "asset-posse-0051-crystal",
       "badge": "asset-posse-0051-badge"
     },
-    "posse-0052": {
-      "icon": "asset-posse-0052-icon",
-      "crystal": "asset-posse-0052-crystal",
-      "badge": "asset-posse-0052-badge"
-    },
     "overlay.aigis.petrify": {
       "icon": "asset-overlay.aigis.petrify-icon"
     },
@@ -9844,9 +9622,6 @@
     "overlay.arachne.weaver": {
       "icon": "asset-overlay.arachne.weaver-icon"
     },
-    "overlay.caecus.outcasts-anguish": {
-      "icon": "asset-overlay.caecus.outcasts-anguish-icon"
-    },
     "overlay.clementine.phobic-fixation": {
       "icon": "asset-overlay.clementine.phobic-fixation-icon"
     },
@@ -9859,14 +9634,8 @@
     "overlay.doll-inferno.finale": {
       "icon": "asset-overlay.doll-inferno.finale-icon"
     },
-    "overlay.doll-inferno.illusions-end": {
-      "icon": "asset-overlay.doll-inferno.illusions-end-icon"
-    },
     "overlay.doresain.corpse": {
       "icon": "asset-overlay.doresain.corpse-icon"
-    },
-    "overlay.faros.dimmed-candle": {
-      "icon": "asset-overlay.faros.dimmed-candle-icon"
     },
     "overlay.global.alert": {
       "icon": "asset-overlay.global.alert-icon"
@@ -9967,12 +9736,6 @@
     "overlay.lily.endure": {
       "icon": "asset-overlay.lily.endure-icon"
     },
-    "overlay.miryam.undying-piety": {
-      "icon": "asset-overlay.miryam.undying-piety-icon"
-    },
-    "overlay.miryam.vanitys-collapse": {
-      "icon": "asset-overlay.miryam.vanitys-collapse-icon"
-    },
     "overlay.murphy-fauxborn.birth-ritual": {
       "icon": "asset-overlay.murphy-fauxborn.birth-ritual-icon"
     },
@@ -9982,23 +9745,14 @@
     "overlay.pollux.sin-mark": {
       "icon": "asset-overlay.pollux.sin-mark-icon"
     },
-    "overlay.pontos.pack-hunt": {
-      "icon": "asset-overlay.pontos.pack-hunt-icon"
-    },
     "overlay.ramona-timeworn.loop": {
       "icon": "asset-overlay.ramona-timeworn.loop-icon"
     },
     "overlay.ramona-timeworn.negentropy": {
       "icon": "asset-overlay.ramona-timeworn.negentropy-icon"
     },
-    "overlay.ryker.certain-gain": {
-      "icon": "asset-overlay.ryker.certain-gain-icon"
-    },
     "overlay.saya.gynoecium": {
       "icon": "asset-overlay.saya.gynoecium-icon"
-    },
-    "overlay.tulu.the-stars-are-right": {
-      "icon": "asset-overlay.tulu.the-stars-are-right-icon"
     },
     "overlay.vortice.vortex-reload": {
       "icon": "asset-overlay.vortice.vortex-reload-icon"

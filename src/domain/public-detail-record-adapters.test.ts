@@ -406,7 +406,7 @@ describe('public-detail-record-adapters', () => {
       id: 'overlay.xu.spellbound',
       displayName: 'Spellbound',
       ownerAwakenerId: 54,
-      iconId: 'IconS_Buff_080',
+      iconId: 'Battle_Card_Buff_080',
       overlayType: 'mechanic',
     })
     expect(overlay?.aliases).toEqual([])

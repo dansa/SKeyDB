@@ -50,16 +50,13 @@ const MigrationExportPage = lazy(() =>
     default: module.MigrationExportPage,
   })),
 )
-
 interface NavItem {
   label: string
   to: string
   isActive?: (pathname: string) => boolean
   showInMobileNav?: boolean
 }
-
 type MobileNavItem = NavItem & {showInMobileNav: true}
-
 const NAV_ITEMS: NavItem[] = [
   {label: 'Home', to: '/'},
   {
@@ -78,22 +75,18 @@ const NAV_ITEMS: NavItem[] = [
   },
   {label: 'Collection', to: '/collection', showInMobileNav: true},
 ]
-
 function isMobileNavItem(item: NavItem): item is MobileNavItem {
   return item.showInMobileNav === true
 }
-
 const BUILDER_V2_MOBILE_NAV_ITEM: MobileNavItem = {
   label: 'Builder V2',
   to: '/builder-v2',
   showInMobileNav: true,
 }
-
 const MOBILE_NAV_ITEMS = NAV_ITEMS.reduce<MobileNavItem[]>((items, item) => {
   if (!isMobileNavItem(item)) {
     return items
   }
-
   items.push(item)
   if (item.to === '/builder') {
     items.push(BUILDER_V2_MOBILE_NAV_ITEM)
@@ -102,7 +95,6 @@ const MOBILE_NAV_ITEMS = NAV_ITEMS.reduce<MobileNavItem[]>((items, item) => {
 }, [])
 const BASE_MOBILE_VISIBLE_ITEM_COUNT = 2
 const COMPACT_MOBILE_VISIBLE_ITEM_COUNT = 3
-
 function App() {
   const {key: locationKey, pathname, search} = useLocation()
   const appUpdateNotice = useAppUpdateNotice()
@@ -131,45 +123,37 @@ function App() {
   const mobileOverflowItems = MOBILE_NAV_ITEMS.slice(mobileVisibleItemCount)
   const hasMobileOverflow = mobileOverflowItems.length > 0
   const mobileNavOpen = mobileNavOpenLocationKey === locationKey && hasMobileOverflow
-
   // Mobile overflow state is keyed by the router location; this effect only wires Escape while open.
   // react-doctor-disable-next-line no-reset-all-state-on-prop-change, react-doctor/no-reset-all-state-on-prop-change
   useEffect(() => {
     if (!mobileNavOpen) return
-
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setMobileNavOpenLocationKey(null)
       }
     }
-
     window.addEventListener('keydown', handleKeyDown)
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [mobileNavOpen])
-
   useEffect(() => {
     if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return
-
     const mediaQuery = window.matchMedia('(min-width: 40rem)')
     const closeWhenWide = () => {
       if (mediaQuery.matches) {
         setMobileNavOpenLocationKey(null)
       }
     }
-
     mediaQuery.addEventListener('change', closeWhenWide)
     return () => {
       mediaQuery.removeEventListener('change', closeWhenWide)
     }
   }, [])
-
   function isNavActive(item: NavItem): boolean {
     if (item.isActive) return item.isActive(pathname)
     return pathname === item.to || (item.to !== '/' && pathname.startsWith(item.to))
   }
-
   const activeHiddenMobileOverflowItem = mobileOverflowItems.find((item) => isNavActive(item))
   const builderV2BannerSurface = getBuilderV2BannerSurface({
     builderV2Default,
@@ -177,22 +161,18 @@ function App() {
     pathname,
     search,
   })
-
   const optIntoBuilderV2 = () => {
     setBuilderV2Default(storage, true)
     setBuilderV2DefaultState(true)
   }
-
   const optOutOfBuilderV2 = () => {
     setBuilderV2Default(storage, false)
     setBuilderV2DefaultState(false)
   }
-
   const dismissBuilderV2Banner = () => {
     if (!builderV2BannerSurface) {
       return
     }
-
     dismissBuilderV2BetaBanner({
       buildId: CURRENT_BUILD_ID,
       storage,
@@ -203,7 +183,6 @@ function App() {
       [builderV2BannerSurface]: true,
     }))
   }
-
   return (
     <div className='app-shell min-h-dvh text-slate-100'>
       <a className='skip-link' href='#main-content'>
@@ -223,7 +202,6 @@ function App() {
               <h1 className='site-brand-title ui-title'>SKeyDB</h1>
               <span className='site-brand-subtitle'>Morimens Database</span>
             </NavLink>
-
             <div className='site-mobile-actions'>
               <nav
                 aria-label='Primary navigation mobile quick links'
@@ -243,7 +221,6 @@ function App() {
                   </NavLink>
                 ))}
               </nav>
-
               <button
                 aria-controls='mobile-primary-navigation'
                 aria-expanded={mobileNavOpen}
@@ -262,7 +239,6 @@ function App() {
                 </span>
               </button>
             </div>
-
             <nav aria-label='Primary navigation desktop' className='site-desktop-nav'>
               {NAV_ITEMS.map((item) => {
                 const navLink = (
@@ -277,11 +253,9 @@ function App() {
                     {item.label}
                   </NavLink>
                 )
-
                 if (item.to !== '/builder') {
                   return navLink
                 }
-
                 return (
                   <span className='site-builder-nav-cluster' key={item.label}>
                     {navLink}
@@ -298,7 +272,6 @@ function App() {
               <FeedbackControl locationKey={locationKey} variant='desktop' />
             </nav>
           </div>
-
           <nav
             aria-hidden={!mobileNavOpen}
             aria-label='Primary navigation mobile'
@@ -323,7 +296,6 @@ function App() {
           </nav>
         </div>
       </header>
-
       <DomainMigrationNotice routePathname={pathname} />
       {appUpdateNotice.reason && (
         <AppUpdateNotice
@@ -341,7 +313,6 @@ function App() {
           surface={builderV2BannerSurface}
         />
       ) : null}
-
       <main
         className='mx-auto w-full max-w-[1240px] px-4 py-4 sm:px-5 md:py-5 lg:px-8'
         id='main-content'
@@ -378,13 +349,11 @@ function App() {
     </div>
   )
 }
-
 const CURRENT_BUILD_ID = getCurrentBuildId()
 const BUILDER_V2_NOTICE_BASE_CONTROL_CLASS =
   'ui-compact-control ui-compact-control--dense inline-flex min-h-8 items-center justify-center px-3 text-center text-xs font-semibold'
 const BUILDER_V2_NOTICE_PRIMARY_CONTROL_CLASS = `${BUILDER_V2_NOTICE_BASE_CONTROL_CLASS} border-[var(--ui-state-amber-border-emphasis)] bg-[var(--ui-state-amber-surface-strong)] text-[var(--ui-accent-gold-soft)]`
 const BUILDER_V2_NOTICE_SECONDARY_CONTROL_CLASS = `${BUILDER_V2_NOTICE_BASE_CONTROL_CLASS} text-[var(--ui-text-muted)]`
-
 function getBuilderV2BannerSurface({
   builderV2Default,
   dismissedBuilderV2Surfaces,
@@ -404,7 +373,6 @@ function getBuilderV2BannerSurface({
   ) {
     return 'classic'
   }
-
   if (
     pathname === '/builder-v2' &&
     !dismissedBuilderV2Surfaces.v2 &&
@@ -412,10 +380,8 @@ function getBuilderV2BannerSurface({
   ) {
     return 'v2'
   }
-
   return null
 }
-
 function BuilderV2BetaNotice({
   builderV2Default,
   onDismiss,
@@ -430,7 +396,6 @@ function BuilderV2BetaNotice({
   surface: 'classic' | 'v2'
 }) {
   const isDefaultNotice = surface === 'v2' && builderV2Default
-
   return (
     <section aria-label='Builder V2 beta' className='builder-v2-beta-notice'>
       <p className='builder-v2-beta-notice__copy'>
@@ -482,25 +447,21 @@ function BuilderV2BetaNotice({
     </section>
   )
 }
-
 function isClassicBuilderRequest(search: string): boolean {
   return new URLSearchParams(search).get('classic') === '1'
 }
-
 function getCurrentBuildId(): string {
   const configuredBuildId: unknown = import.meta.env.VITE_SKEYDB_BUILD_ID
   return typeof configuredBuildId === 'string' && configuredBuildId.trim() !== ''
     ? configuredBuildId
     : 'dev'
 }
-
 function useMediaQuery(query: string): boolean {
   const subscribe = useCallback(
     (onStoreChange: () => void) => {
       if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
         return () => undefined
       }
-
       const mediaQuery = window.matchMedia(query)
       mediaQuery.addEventListener('change', onStoreChange)
       return () => {
@@ -516,30 +477,24 @@ function useMediaQuery(query: string): boolean {
         : window.matchMedia(query).matches,
     [query],
   )
-
   return useSyncExternalStore(subscribe, getSnapshot, getServerMediaQuerySnapshot)
 }
-
 function getServerMediaQuerySnapshot(): boolean {
   return false
 }
-
 function getMobileVisibleItemCount({compact, wide}: {compact: boolean; wide: boolean}): number {
   if (wide) return MOBILE_NAV_ITEMS.length
   if (compact) return Math.min(COMPACT_MOBILE_VISIBLE_ITEM_COUNT, MOBILE_NAV_ITEMS.length)
   return Math.min(BASE_MOBILE_VISIBLE_ITEM_COUNT, MOBILE_NAV_ITEMS.length)
 }
-
 function desktopNavClassName(active: boolean): string {
   return `site-nav-link ${active ? 'site-nav-link--active' : 'site-nav-link--inactive'}`
 }
-
 function builderV2NavMarkClassName(active: boolean): string {
   return `site-builder-v2-mark ${
     active ? 'site-builder-v2-mark--active' : 'site-builder-v2-mark--inactive'
   }`
 }
-
 function mobileQuickNavClassName(active: boolean): string {
   return [
     'site-nav-link',
@@ -547,14 +502,12 @@ function mobileQuickNavClassName(active: boolean): string {
     active ? 'site-nav-link--active' : 'site-nav-link--inactive',
   ].join(' ')
 }
-
 function mobileOverflowNavClassName(active: boolean): string {
   return [
     'site-mobile-overflow-link',
     active ? 'site-mobile-overflow-link--active' : 'site-mobile-overflow-link--inactive',
   ].join(' ')
 }
-
 function mobileMenuButtonClassName(activeOverflowItem: boolean): string {
   return [
     'site-mobile-menu-button',
@@ -563,5 +516,4 @@ function mobileMenuButtonClassName(activeOverflowItem: boolean): string {
     .filter(Boolean)
     .join(' ')
 }
-
 export default App

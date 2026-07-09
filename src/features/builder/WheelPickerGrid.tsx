@@ -50,10 +50,10 @@ export function WheelPickerGrid({
   return (
     <div className='grid grid-cols-[repeat(4,minmax(0,1fr))] items-start gap-2'>
       <PickerWheelTile
+        stateFlags={{isNotSet: true}}
         onClick={() => {
           onSetActiveWheel(undefined)
         }}
-        state={{kind: 'not-set'}}
       />
 
       {filteredWheels.map((wheel) => {
@@ -64,6 +64,12 @@ export function WheelPickerGrid({
 
         return (
           <PickerWheelTile
+            blockedText={blockedText}
+            stateFlags={{
+              isBlocked: Boolean(isUsedByOtherTeam),
+              isInUse: Boolean(usedByTeam),
+              isOwned: (ownedWheelLevelById.get(wheel.id) ?? null) !== null,
+            }}
             key={wheel.id}
             onClick={() => {
               onSetActiveWheel(wheel.id)
@@ -81,13 +87,6 @@ export function WheelPickerGrid({
                 ? wheel.mainstatKey
                 : undefined
             }
-            state={{
-              kind: 'wheel',
-              blockedText,
-              isBlocked: Boolean(isUsedByOtherTeam),
-              isInUse: Boolean(usedByTeam),
-              isOwned: (ownedWheelLevelById.get(wheel.id) ?? null) !== null,
-            }}
             wheelAsset={wheelAsset}
             wheelId={wheel.id}
             wheelName={wheel.name}

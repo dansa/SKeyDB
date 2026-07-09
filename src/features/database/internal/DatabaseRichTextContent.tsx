@@ -7,6 +7,7 @@ import {
   parseDatabaseRichDescriptionWithContext,
 } from '@/domain/database-rich-text'
 import type {DescribedRecord} from '@/domain/description-records'
+import type {PublicDescriptionArg} from '@/domain/public-description-args'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
 import type {RichSegment} from '@/domain/rich-text'
 
@@ -17,7 +18,6 @@ import {
 } from './RichSegmentRenderer'
 
 const EMPTY_CARD_NAMES = new Set<string>()
-
 function getRichSegmentKeyParts(segment: RichSegment): string {
   switch (segment.type) {
     case 'text':
@@ -37,10 +37,8 @@ function getRichSegmentKeyParts(segment: RichSegment): string {
       return `${segment.type}:${segment.channel ?? ''}:${segment.argKey}:${segment.singular}:${segment.plural}`
   }
 }
-
 function getRichSegmentKeys(segments: RichSegment[]): string[] {
   const occurrences = new Map<string, number>()
-
   return segments.map((segment) => {
     const keyParts = getRichSegmentKeyParts(segment)
     const occurrence = occurrences.get(keyParts) ?? 0
@@ -48,7 +46,6 @@ function getRichSegmentKeys(segments: RichSegment[]): string[] {
     return `${keyParts}:${occurrence.toString()}`
   })
 }
-
 export interface DatabaseRichTextContentProps {
   text?: string
   record?: DescribedRecord
@@ -64,8 +61,20 @@ export interface DatabaseRichTextContentProps {
   variant: RichSegmentRendererVariant
   onSkillClick?: (name: string, event: ActivationEvent, referenceKind?: 'derived-skill') => void
   onMechanicClick?: (overlay: AwakenerOverlayRecord, event: ActivationEvent) => void
+  onScalingClick?: (
+    values: number[],
+    suffix: string,
+    stat: string | null,
+    event: ActivationEvent,
+    formulas?: string[],
+    currentLevel?: number,
+    finalValues?: number[],
+    abstractFormula?: string,
+    scalingArg?: PublicDescriptionArg,
+    sourceRecordId?: string,
+    sourceArgKey?: string,
+  ) => void
 }
-
 export function DatabaseRichTextContent({
   text,
   record,
@@ -81,6 +90,7 @@ export function DatabaseRichTextContent({
   variant,
   onSkillClick,
   onMechanicClick,
+  onScalingClick,
 }: DatabaseRichTextContentProps) {
   const parseContext = useMemo(
     () =>
@@ -102,7 +112,6 @@ export function DatabaseRichTextContent({
     [keywordFooterText, parseContext, record, text],
   )
   const segmentKeys = useMemo(() => getRichSegmentKeys(segments), [segments])
-
   return (
     <>
       {segments.map((segment, index) => (
@@ -114,6 +123,7 @@ export function DatabaseRichTextContent({
           key={segmentKeys[index]}
           onMechanicClick={onMechanicClick}
           onSkillClick={onSkillClick}
+          onScalingClick={onScalingClick}
           overlayByName={referenceLayer?.overlayByName}
           segment={segment}
           showVisibleScaling={showVisibleScaling}
@@ -121,6 +131,7 @@ export function DatabaseRichTextContent({
           skillLevel={skillLevel}
           stats={stats}
           variant={variant}
+          recordId={record?.id}
         />
       ))}
     </>

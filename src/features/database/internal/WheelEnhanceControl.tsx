@@ -5,6 +5,11 @@ import {
   getWheelEnhancePlusLevel,
 } from '@/domain/wheel-enhance'
 
+import {
+  DATABASE_DETAIL_SECTION_HEADING_CLASS,
+  getDatabaseDetailSectionHeadingStyle,
+} from './database-detail-typography'
+
 interface WheelEnhanceControlProps {
   enhanceLevel: number
   onChange: (level: number) => void
@@ -18,7 +23,10 @@ export function WheelEnhanceControl({enhanceLevel, onChange}: WheelEnhanceContro
   return (
     <div className='flex flex-col gap-2.5'>
       <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>
-        <span className='ui-title text-[11px] tracking-[0.22em] text-amber-100/80 uppercase'>
+        <span
+          className={DATABASE_DETAIL_SECTION_HEADING_CLASS}
+          style={getDatabaseDetailSectionHeadingStyle()}
+        >
           Enlighten
         </span>
         <div className='flex min-h-6 items-center gap-2.5'>

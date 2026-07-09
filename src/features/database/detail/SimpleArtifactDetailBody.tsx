@@ -66,7 +66,7 @@ export function SimpleArtifactDetailBody({
   const trimmedAcquisitionSource = acquisitionSource?.trim()
   return (
     <>
-      <div className='shrink-0 border-b border-slate-800/75 pr-20 pb-5'>
+      <div className='shrink-0 pr-5 pb-5 pl-5 md:pl-3'>
         <div className='flex items-center gap-4'>
           {headerIconAsset ? (
             <button
@@ -90,29 +90,64 @@ export function SimpleArtifactDetailBody({
         </div>
       </div>
 
-      <div className='database-scrollbar min-h-0 flex-1 overflow-y-auto pr-1 pb-6 pl-2'>
+      <div className='database-scrollbar min-h-0 flex-1 overflow-y-auto p-5 pl-5 md:pl-3'>
         {isPreReleaseAwakenerId(ownerAwakenerId) ? <PreReleaseDataNotice /> : null}
-        {descriptions.map((entry) => (
-          <section className='mt-5' key={entry.record.id}>
+
+        {descriptions.length === 1 && descriptions[0].heading === 'Description' ? (
+          <section className='mt-5'>
             <h4
               className={DATABASE_DETAIL_SECTION_HEADING_CLASS}
               style={getDatabaseDetailSectionHeadingStyle()}
             >
-              {entry.heading}
+              Description
             </h4>
-            <p
-              className={`mt-3 max-w-[68ch] ${DATABASE_DETAIL_BODY_CLASS}`}
-              style={getDatabaseDetailBodyStyle()}
-            >
-              <RichDescription
-                formulaContext={formulaContext}
-                record={entry.record}
-                referenceLayer={referenceLayer}
-                showTagIcons={showTagIcons}
-              />
-            </p>
+            <div className='mt-3 border border-white/4 bg-white/2 px-3.5 py-2.5 shadow-sm'>
+              <p
+                className={`max-w-[68ch] ${DATABASE_DETAIL_BODY_CLASS}`}
+                style={getDatabaseDetailBodyStyle()}
+              >
+                <RichDescription
+                  formulaContext={formulaContext}
+                  record={descriptions[0].record}
+                  referenceLayer={referenceLayer}
+                  showTagIcons={showTagIcons}
+                />
+              </p>
+            </div>
           </section>
-        ))}
+        ) : descriptions.length > 0 ? (
+          <section className='mt-5'>
+            <h4
+              className={DATABASE_DETAIL_SECTION_HEADING_CLASS}
+              style={getDatabaseDetailSectionHeadingStyle()}
+            >
+              Description
+            </h4>
+            <div className='mt-3 space-y-3 border border-white/4 bg-white/2 px-3.5 py-2.5 shadow-sm'>
+              {descriptions.map((entry, index) => (
+                <div
+                  key={entry.record.id}
+                  className={index > 0 ? 'border-t border-white/5 pt-3' : ''}
+                >
+                  <span className='mb-1.5 block text-[10px] font-medium tracking-[0.1em] text-slate-400 uppercase'>
+                    {entry.heading}
+                  </span>
+                  <p
+                    className={`max-w-[68ch] ${DATABASE_DETAIL_BODY_CLASS}`}
+                    style={getDatabaseDetailBodyStyle()}
+                  >
+                    <RichDescription
+                      formulaContext={formulaContext}
+                      record={entry.record}
+                      referenceLayer={referenceLayer}
+                      showTagIcons={showTagIcons}
+                    />
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         {trimmedAcquisitionSource ? (
           <section className='mt-5'>
@@ -122,24 +157,28 @@ export function SimpleArtifactDetailBody({
             >
               How to Obtain
             </h4>
-            <p
-              className={`mt-3 max-w-[68ch] ${DATABASE_DETAIL_BODY_CLASS}`}
-              style={getDatabaseDetailBodyStyle()}
-            >
-              {trimmedAcquisitionSource}
-            </p>
+            <div className='mt-3 border border-white/4 bg-white/2 px-3.5 py-2.5 shadow-sm'>
+              <p
+                className={`max-w-[68ch] ${DATABASE_DETAIL_BODY_CLASS}`}
+                style={getDatabaseDetailBodyStyle()}
+              >
+                {trimmedAcquisitionSource}
+              </p>
+            </div>
           </section>
         ) : null}
 
         {lore ? (
-          <section className='mt-5 border-t border-slate-800/80 pt-4'>
+          <section className='mt-5'>
             <h4
               className={DATABASE_DETAIL_SECTION_HEADING_MUTED_CLASS}
               style={getDatabaseDetailSectionHeadingStyle()}
             >
               Lore
             </h4>
-            <WheelLoreText defaultExpanded lore={lore} previewLineCount={999} />
+            <div className='mt-3 border border-white/4 bg-white/2 px-3.5 py-2.5 shadow-sm'>
+              <WheelLoreText full lore={lore} />
+            </div>
           </section>
         ) : null}
       </div>

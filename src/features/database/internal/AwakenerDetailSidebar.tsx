@@ -49,7 +49,7 @@ export function AwakenerDetailSidebar({
   const cardAsset = getAwakenerCardAsset(awakener.name)
   const fullArtLabel = `View full art for ${displayName}`
   const progressionSection = (
-    <div className='border border-slate-600/30 bg-slate-900/30 px-3 py-2'>
+    <div className='border border-white/4 bg-white/2 px-3.5 py-3 shadow-sm'>
       <AwakenerDetailStateControls
         compact={compact}
         controls={controls}
@@ -81,6 +81,8 @@ export function AwakenerDetailSidebar({
       scalingRecord={scalingRecord}
       stats={stats}
       substatScaling={substatScaling}
+      enlightenOffset={selection.psycheSurgeOffset}
+      level={selection.awakenerLevel}
     />
   )
   const profileSection = <AwakenerDetailProfileFacts profile={profile} />

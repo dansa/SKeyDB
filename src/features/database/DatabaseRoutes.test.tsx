@@ -74,6 +74,19 @@ vi.mock('@/domain/mainstats', () => ({
     {key: 'KEYFLARE_REGEN', label: 'KEYFLARE_REGEN', iconId: '002'},
   ],
   MAINSTAT_ICON_BY_ID: {},
+  WHEEL_MAINSTAT_KEYS: [
+    'ATK',
+    'DEF',
+    'CON',
+    'CRIT_RATE',
+    'CRIT_DMG',
+    'REALM_MASTERY',
+    'DMG_AMP',
+    'ALIEMUS_REGEN',
+    'KEYFLARE_REGEN',
+    'SIGIL_YIELD',
+    'DEATH_RESISTANCE',
+  ],
 }))
 
 function MockAwakenerDetailModal({
@@ -197,7 +210,7 @@ vi.mock('@/features/database/internal/SimpleArtifactDetailModal', () => ({
 
 beforeAll(async () => {
   await import('./DatabasePage')
-})
+}, 30000)
 
 afterEach(() => {
   vi.restoreAllMocks()

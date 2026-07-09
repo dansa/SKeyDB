@@ -1,0 +1,6 @@
+export const POPOVER_LAYOUT = {
+  GAP: 6,
+  BASE_Z_INDEX: 970,
+  MAX_WIDTH: 380,
+  ANIMATION_SLIDE_OFFSET: 10,
+}

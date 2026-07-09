@@ -31,7 +31,7 @@ export function DetailLevelSlider({
     <label className='grid gap-0.5'>
       <span className='flex items-center justify-between text-[9px] tracking-wide text-slate-400 uppercase'>
         <span>{label}</span>
-        <span className='rounded border border-slate-500/55 bg-slate-950/80 px-1.5 py-0.5 font-mono text-[10px] tracking-normal text-slate-200 normal-case'>
+        <span className='rounded-sm border border-white/10 bg-slate-950/60 px-1.5 py-0.5 font-mono text-[9px] tracking-normal text-slate-300 normal-case'>
           {valueLabel}
         </span>
       </span>

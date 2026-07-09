@@ -24,7 +24,7 @@ export function useDZoneDatabasePopovers() {
   const openMonsterPopover = useCallback(
     (monster: DzoneResolvedMonster, event: MouseEvent<HTMLButtonElement>) => {
       const thumbnailSrc = getDzoneMonsterPreviewAsset(monster.assetName)
-      openRootInfo?.(buildDzoneMonsterPopoverEntry({monster, thumbnailSrc}), event)
+      openRootInfo(buildDzoneMonsterPopoverEntry({monster, thumbnailSrc}), event)
     },
     [openRootInfo],
   )
@@ -42,14 +42,13 @@ export function useDZoneDatabasePopovers() {
         return
       }
 
-      openRootInfo?.(entry, {
+      openRootInfo(entry, {
         currentTarget: anchorElement,
         stopPropagation: () => undefined,
       })
     },
     [openRootInfo],
   )
-
   return {
     closeOnOutsideClick: preferences.shared.clickOutsideClosesPopovers,
     contextValue: popoverController.contextValue,

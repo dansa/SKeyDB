@@ -60,6 +60,7 @@ describe('database-detail-preferences', () => {
       },
       awakener: {
         showVisibleScaling: false,
+        simplifyPopoverMultiplier: false,
         defaultTab: 'builds',
         defaultSelection: {
           awakenerLevel: 90,
@@ -113,6 +114,7 @@ describe('database-detail-preferences', () => {
       },
       awakener: {
         showVisibleScaling: false,
+        simplifyPopoverMultiplier: false,
         defaultTab: 'lore',
         defaultSelection: {
           awakenerLevel: 90,
@@ -179,6 +181,7 @@ describe('database-detail-preferences', () => {
       },
       awakener: {
         showVisibleScaling: false,
+        simplifyPopoverMultiplier: false,
         defaultTab: 'skills',
         defaultSelection: {
           awakenerLevel: 70,
@@ -226,6 +229,7 @@ describe('database-detail-preferences', () => {
       },
       awakener: {
         showVisibleScaling: false,
+        simplifyPopoverMultiplier: false,
         defaultTab: 'builds',
         defaultSelection: {
           awakenerLevel: 90,

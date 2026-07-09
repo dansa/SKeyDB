@@ -10,7 +10,8 @@ export const DATABASE_DETAIL_META_PRIMARY_CLASS = 'text-amber-100/90'
 export const DATABASE_DETAIL_META_SEPARATOR_CLASS = 'text-slate-700'
 export const DATABASE_DETAIL_META_LINK_CLASS =
   'cursor-pointer tracking-normal text-amber-100 normal-case transition-colors hover:text-amber-50'
-export const DATABASE_DETAIL_SECTION_HEADING_CLASS = 'ui-title text-amber-200/88 uppercase'
+export const DATABASE_DETAIL_SECTION_HEADING_CLASS =
+  'text-[11px] tracking-[0.18em] font-medium text-slate-400 uppercase'
 export const DATABASE_DETAIL_SECTION_HEADING_MUTED_CLASS = 'ui-title text-slate-400 uppercase'
 export const DATABASE_DETAIL_BODY_CLASS = 'leading-relaxed text-slate-400'
 export const DATABASE_DETAIL_BODY_STRONG_CLASS = 'text-slate-300'
@@ -24,7 +25,9 @@ export const DATABASE_DETAIL_FIXED_UTILITY_ACTION_CLASS =
 export function getDatabaseDetailSectionHeadingStyle(): CSSProperties {
   return {
     ...scaledTypographyStyle(11, 14),
-    letterSpacing: '0.22em',
+    letterSpacing: '0.18em',
+    fontFamily: 'inherit',
+    fontWeight: 500,
   }
 }
 

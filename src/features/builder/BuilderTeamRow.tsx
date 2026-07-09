@@ -29,6 +29,13 @@ interface BuilderTeamRowProps {
 }
 
 const EMPTY_OWNERSHIP_MAP = new Map<string, number | null>()
+const INTERACTIVE_ROW_TARGET_SELECTOR =
+  'button, input, textarea, select, a, [role="button"]:not([data-row-body])'
+
+function isInteractiveRowTarget(target: EventTarget | null) {
+  return target instanceof HTMLElement && !!target.closest(INTERACTIVE_ROW_TARGET_SELECTOR)
+}
+
 export function BuilderTeamRow({
   team,
   isActive,
@@ -87,75 +94,81 @@ export function BuilderTeamRow({
         <span aria-hidden='true' className='builder-team-row-drag-handle-glyph' />
       </button>
       <div
-        className={`grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-2 border pr-2 ${
+        className={`grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto] items-center gap-2 border pr-2 ${
           isActive
             ? 'border-l-0 border-amber-200/80 bg-slate-800/70'
             : 'border-l-0 border-slate-500/45 bg-slate-900/50'
         }`}
       >
-        <div className='min-w-0 py-1.5 pl-2'>
-          <div className='flex h-6 w-[210px] max-w-full items-center'>
-            <TeamNameInlineEditor
-              draftName={editingTeamName}
-              isEditing={isEditingTeamName}
-              onBeginEdit={() => {
-                onBeginTeamRename(team.id, team.name, 'list')
-              }}
-              onCancel={onCancelTeamRename}
-              onCommit={() => {
-                onCommitTeamRename(team.id)
-              }}
-              onDraftChange={onEditingTeamNameChange}
-              teamName={team.name}
-              variant='compact'
-            />
-          </div>
-          <BuilderTeamPreviewStrip
-            className='mt-1'
-            enableDragAndDrop
-            mode={teamPreviewMode}
-            ownedAwakenerLevelByName={ownedAwakenerLevelByName}
-            ownedWheelLevelById={ownedWheelLevelById}
-            slots={team.slots}
-            teamId={team.id}
-            onSlotSelect={() => {
-              onEditTeam(team.id)
-            }}
-          />
-        </div>
-        <button
-          aria-label={`Edit ${team.name}`}
-          className='builder-team-posse-icon-wrap builder-team-posse-icon-wrap-compact my-1.5 border-0 bg-transparent p-0'
-          onClick={() => {
+        <div
+          aria-label={team.name}
+          className='col-span-1 grid h-full w-full min-w-0 flex-1 cursor-pointer grid-cols-[minmax(0,1fr)_auto] items-center gap-2 border-none bg-transparent p-0 text-left align-middle transition-all outline-none hover:bg-white/3 focus-visible:bg-white/5'
+          data-row-body='true'
+          onClick={(event) => {
+            if (isInteractiveRowTarget(event.target)) {
+              return
+            }
             onEditTeam(team.id)
           }}
-          type='button'
-        >
-          <img
-            alt={`${team.name} posse`}
-            className={`builder-team-posse-icon builder-team-posse-icon-compact ${
-              !isPosseOwned ? 'builder-picker-art-unowned builder-team-posse-unowned' : ''
-            }`}
-            draggable={false}
-            src={posseAsset ?? tempPosseIcon}
-          />
-          {!isPosseOwned ? (
-            <span className='builder-team-preview-unowned-chip builder-team-preview-unowned-chip-posse'>
-              Unowned
-            </span>
-          ) : null}
-        </button>
-        <div className='py-1.5'>
-          <button
-            className='mb-1 block w-full border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45'
-            onClick={(event) => {
-              event.stopPropagation()
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              if (isInteractiveRowTarget(event.target)) {
+                return
+              }
+              event.preventDefault()
               onEditTeam(team.id)
-            }}
-            type='button'
-          >
-            Edit
-          </button>
+            }
+          }}
+          role='button'
+          tabIndex={0}
+        >
+          <div className='min-w-0 py-1.5 pl-2'>
+            <div className='flex h-6 w-[210px] max-w-full items-center'>
+              <TeamNameInlineEditor
+                draftName={editingTeamName}
+                isEditing={isEditingTeamName}
+                onBeginEdit={() => {
+                  onBeginTeamRename(team.id, team.name, 'list')
+                }}
+                onCancel={onCancelTeamRename}
+                onCommit={() => {
+                  onCommitTeamRename(team.id)
+                }}
+                onDraftChange={onEditingTeamNameChange}
+                teamName={team.name}
+                variant='compact'
+              />
+            </div>
+            <BuilderTeamPreviewStrip
+              className='mt-1'
+              enableDragAndDrop
+              mode={teamPreviewMode}
+              ownedAwakenerLevelByName={ownedAwakenerLevelByName}
+              ownedWheelLevelById={ownedWheelLevelById}
+              slots={team.slots}
+              teamId={team.id}
+              onSlotSelect={() => {
+                onEditTeam(team.id)
+              }}
+            />
+          </div>
+          <span className='builder-team-posse-icon-wrap builder-team-posse-icon-wrap-compact my-1.5'>
+            <img
+              alt={`${team.name} posse`}
+              className={`builder-team-posse-icon builder-team-posse-icon-compact ${
+                !isPosseOwned ? 'builder-picker-art-unowned builder-team-posse-unowned' : ''
+              }`}
+              draggable={false}
+              src={posseAsset ?? tempPosseIcon}
+            />
+            {!isPosseOwned ? (
+              <span className='builder-team-preview-unowned-chip builder-team-preview-unowned-chip-posse'>
+                Unowned
+              </span>
+            ) : null}
+          </span>
+        </div>
+        <div className='py-1.5'>
           <button
             className='mb-1 block w-full border border-slate-500/45 bg-slate-900/65 px-2 py-1 text-[10px] text-slate-200 transition-colors hover:border-amber-200/45'
             onClick={(event) => {

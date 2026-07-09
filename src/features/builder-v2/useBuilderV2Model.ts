@@ -162,7 +162,7 @@ export function useBuilderV2Model({
     return persisted.status !== 'invalid-current'
   })
   const [pickerTab, setPickerTab] = useState<BuilderV2PickerTab>('awakeners')
-  const [searchQueryByTab, setSearchQueryByTab] = useState<Record<BuilderV2PickerTab, string>>({
+  const [searchQueryByTab, setSearchQueryByTab] = useState({
     awakeners: '',
     wheels: '',
     covenants: '',

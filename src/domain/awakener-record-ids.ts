@@ -33,11 +33,3 @@ export function buildAwakenerTalentRecordId(ownerKey: string, displayName: strin
 export function buildAwakenerEnlightenRecordId(ownerKey: string, displayName: string): string {
   return `enlighten.${ownerKey}.${normalizeAwakenerRecordKey(displayName)}`
 }
-
-export function buildDerivedSkillRecordId(ownerKey: string, displayName: string): string {
-  return `derived.${ownerKey}.${normalizeAwakenerRecordKey(displayName)}`
-}
-
-export function buildAwakenerOverlayRecordId(ownerKey: string, displayName: string): string {
-  return `overlay.${ownerKey}.${normalizeAwakenerRecordKey(displayName)}`
-}

@@ -13,7 +13,7 @@
   "overlayType": "mechanic",
   "ownerAwakenerId": "awakener-0055",
   "aliases": [],
-  "iconId": "IconS_Buff_081",
+  "iconId": "Battle_Card_Buff_081",
   "textColor": "shield",
   "descriptionTemplate": "After other Awakeners unleash Exalt, consume 1 stack, and Vortice unleashes {Vortex! Shell!} as a {Pursuit}.",
   "descriptionArgs": {},

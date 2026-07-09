@@ -2,29 +2,28 @@ import {fireEvent, render, screen} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'
-import {DatabasePopoverContext} from './database-popover-context'
+import {PopoverStoreContext} from './usePopoverStore'
 
 describe('AwakenerEnlightenInfluenceBadges', () => {
   it('opens root references through the popover controller and toggles enlighten slots on context menu', () => {
     const openRootReferenceByName = vi.fn()
     const onToggleEnlightenSlot = vi.fn()
+    const state = {
+      openNestedReferenceByName: vi.fn(),
+      openRootReferenceByName,
+    }
+    const mockStore = {
+      getState: () => state,
+      subscribe: vi.fn(),
+    } as any
 
     render(
-      <DatabasePopoverContext.Provider
-        value={{
-          openRootReferenceByName,
-          openRootOverlay: vi.fn(),
-          openNestedReferenceByName: vi.fn(),
-          openNestedOverlay: vi.fn(),
-          hasOpenPopovers: false,
-          closeAllPopovers: vi.fn(),
-        }}
-      >
+      <PopoverStoreContext.Provider value={mockStore}>
         <AwakenerEnlightenInfluenceBadges
           influenceBadges={[
             {
               kind: 'enlighten',
-              id: 'enlighten.e1',
+              id: 'enlighten.test.e1',
               label: 'E1',
               referenceName: 'First Bloom',
               slot: 'E1',
@@ -39,7 +38,7 @@ describe('AwakenerEnlightenInfluenceBadges', () => {
           onToggleEnlightenSlot={onToggleEnlightenSlot}
           selectedEnlightenSlot='E2'
         />
-      </DatabasePopoverContext.Provider>,
+      </PopoverStoreContext.Provider>,
     )
 
     fireEvent.click(screen.getByRole('button', {name: 'E1'}))
@@ -84,8 +83,8 @@ describe('AwakenerEnlightenInfluenceBadges', () => {
     fireEvent.click(screen.getByRole('button', {name: 'E1'}))
     fireEvent.click(screen.getByRole('button', {name: 'T1'}))
 
-    expect(onOpenReferenceName).toHaveBeenNthCalledWith(1, 'First Bloom')
-    expect(onOpenReferenceName).toHaveBeenNthCalledWith(2, 'Base Talent')
+    expect(onOpenReferenceName).toHaveBeenNthCalledWith(1, 'First Bloom', expect.anything())
+    expect(onOpenReferenceName).toHaveBeenNthCalledWith(2, 'Base Talent', expect.anything())
   })
 
   it('renders non-openable badges as text when no open target is available', () => {

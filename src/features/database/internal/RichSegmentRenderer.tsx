@@ -18,7 +18,6 @@ import {
 
 export type RichSegmentRendererVariant = 'inline' | 'popover'
 export type {ActivationEvent}
-
 interface RichSegmentRendererProps {
   segment: RichSegment
   variant: RichSegmentRendererVariant
@@ -31,10 +30,23 @@ interface RichSegmentRendererProps {
   descriptionRank?: number
   descriptionMaxRank?: number
   overlayByName?: ReadonlyMap<string, AwakenerOverlayRecord>
-  onSkillClick?: (name: string, event: ActivationEvent, referenceKind?: 'derived-skill') => void
+  onSkillClick?: (name: string, event: ActivationEvent) => void
   onMechanicClick?: (overlay: AwakenerOverlayRecord, event: ActivationEvent) => void
+  onScalingClick?: (
+    values: number[],
+    suffix: string,
+    stat: string | null,
+    event: ActivationEvent,
+    formulas?: string[],
+    currentLevel?: number,
+    finalValues?: number[],
+    abstractFormula?: string,
+    scalingArg?: PublicDescriptionArg,
+    sourceRecordId?: string,
+    sourceArgKey?: string,
+  ) => void
+  recordId?: string
 }
-
 export function RichSegmentRenderer({
   segment,
   variant,
@@ -49,23 +61,16 @@ export function RichSegmentRenderer({
   overlayByName,
   onSkillClick,
   onMechanicClick,
+  onScalingClick,
+  recordId,
 }: RichSegmentRendererProps) {
   switch (segment.type) {
     case 'text':
       return <DatabaseLoreMarkupText text={segment.value} />
-
     case 'skill':
-      return (
-        <SkillToken
-          name={segment.name}
-          onSkillClick={onSkillClick}
-          referenceKind={segment.referenceKind}
-        />
-      )
-
+      return <SkillToken name={segment.name} onSkillClick={onSkillClick} />
     case 'reference':
       return <span className={DATABASE_REFERENCE_TOKEN_CLASS}>{segment.name}</span>
-
     case 'stat':
       return (
         <span
@@ -76,7 +81,6 @@ export function RichSegmentRenderer({
           {segment.name}
         </span>
       )
-
     case 'mechanic': {
       return (
         <MechanicToken
@@ -87,7 +91,6 @@ export function RichSegmentRenderer({
         />
       )
     }
-
     case 'realm': {
       return (
         <RealmToken
@@ -97,7 +100,6 @@ export function RichSegmentRenderer({
         />
       )
     }
-
     case 'scaling':
       return (
         <RichScalingSegment
@@ -106,15 +108,14 @@ export function RichSegmentRenderer({
           skillLevel={skillLevel}
           stats={stats}
           variant={variant}
+          onScalingClick={onScalingClick}
         />
       )
-
     case 'descriptionArg': {
       const arg = descriptionArgs?.[segment.argKey]
       if (!arg) {
         return <>{`[${segment.channel ? `${segment.channel}:` : ''}${segment.argKey}]`}</>
       }
-
       return (
         <RichDescriptionArgSegment
           arg={arg}
@@ -125,16 +126,17 @@ export function RichSegmentRenderer({
           showVisibleScaling={showVisibleScaling}
           stats={stats}
           variant={variant}
+          onScalingClick={onScalingClick}
+          recordId={recordId}
+          argKey={segment.argKey}
         />
       )
     }
-
     case 'argPlural': {
       const arg = descriptionArgs?.[segment.argKey]
       if (!arg) {
         return <>{segment.plural}</>
       }
-
       return (
         <RichDescriptionArgPluralSegment
           arg={arg}

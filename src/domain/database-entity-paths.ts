@@ -1,6 +1,6 @@
-export const DATABASE_ENTITY_IDS = ['awakeners', 'wheels', 'posses', 'covenants'] as const
+const _DATABASE_ENTITY_IDS = ['awakeners', 'wheels', 'posses', 'covenants'] as const
 
-export type DatabaseEntityId = (typeof DATABASE_ENTITY_IDS)[number]
+export type DatabaseEntityId = (typeof _DATABASE_ENTITY_IDS)[number]
 
 interface DatabaseEntityPathConfig {
   browsePath: string

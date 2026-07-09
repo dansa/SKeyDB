@@ -19,7 +19,6 @@ import {CompactArtTile} from '@/ui/cards/CompactArtTile'
 
 import {buildCovenantPopoverEntry} from './buildCovenantPopoverEntry'
 import {buildWheelPopoverEntry} from './buildWheelPopoverEntry'
-import {useDatabasePopoverControllerContext} from './database-popover-context'
 import {
   DatabaseTab,
   DatabaseTabRow,
@@ -27,6 +26,7 @@ import {
   DatabaseTabSubsection,
 } from './DatabaseTabSection'
 import {scaledFontStyle} from './font-scale'
+import {usePopoverStore} from './usePopoverStore'
 
 interface AwakenerBuildsTabProps {
   awakenerId: string
@@ -66,7 +66,7 @@ function RecommendationTile({
   label,
   chip,
   imageClassName = '',
-  tileClassName = 'builder-picker-tile w-24 border border-slate-500/45 bg-slate-900/55 p-1',
+  tileClassName = 'builder-picker-tile w-24',
   aspectClassName = 'aspect-[75/113]',
   onClick,
 }: {
@@ -249,16 +249,11 @@ function RecommendationLine({
 }
 
 function CovenantRecommendationGrid({build}: {build: AwakenerBuild}) {
-  const popoverContext = useDatabasePopoverControllerContext()
+  const openRootInfo = usePopoverStore((state) => state.openRootInfo)
   const requestIdRef = useRef(0)
   const handleSelectCovenantRecommendation = useCallback(
     (covenantId: string, event: MouseEvent<HTMLElement>) => {
       event.stopPropagation()
-      const openRootInfo = popoverContext?.openRootInfo
-      if (!openRootInfo) {
-        return
-      }
-
       const covenant = getCovenantByCanonicalId(covenantId)
       const anchorElement = event.currentTarget
       const requestId = requestIdRef.current + 1
@@ -276,7 +271,7 @@ function CovenantRecommendationGrid({build}: {build: AwakenerBuild}) {
         })
         .catch(() => undefined)
     },
-    [popoverContext],
+    [openRootInfo],
   )
 
   return (
@@ -303,17 +298,12 @@ function CovenantRecommendationGrid({build}: {build: AwakenerBuild}) {
 }
 
 function WheelRecommendations({build}: {build: AwakenerBuild}) {
-  const popoverContext = useDatabasePopoverControllerContext()
+  const openRootInfo = usePopoverStore((state) => state.openRootInfo)
   const requestIdRef = useRef(0)
   const hasGoodOptions = Boolean(getWheelGroupByTier(build, 'GOOD'))
   const handleSelectWheelRecommendation = useCallback(
     (wheelId: string, event: MouseEvent<HTMLElement>) => {
       event.stopPropagation()
-      const openRootInfo = popoverContext?.openRootInfo
-      if (!openRootInfo) {
-        return
-      }
-
       const wheel = getWheelByCanonicalId(wheelId)
       const anchorElement = event.currentTarget
       const requestId = requestIdRef.current + 1
@@ -331,7 +321,7 @@ function WheelRecommendations({build}: {build: AwakenerBuild}) {
         })
         .catch(() => undefined)
     },
-    [popoverContext],
+    [openRootInfo],
   )
 
   return (
@@ -350,7 +340,7 @@ function WheelRecommendations({build}: {build: AwakenerBuild}) {
       </div>
       {hasGoodOptions ? (
         <>
-          <div className='h-px bg-gradient-to-r from-slate-600/40 via-slate-600/15 to-transparent' />
+          <div className='h-px bg-gradient-to-r from-white/8 via-white/3 to-transparent' />
           <div>
             <p className='text-slate-300/75' style={scaledFontStyle(11)}>
               Good Options

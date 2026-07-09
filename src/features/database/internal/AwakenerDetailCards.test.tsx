@@ -2,13 +2,13 @@ import {fireEvent, render, screen} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import {AwakenerDetailCards} from './AwakenerDetailCards'
-import {DatabasePopoverContext} from './database-popover-context'
 import {
   makeDatabaseDescribedEntry,
   makeDatabaseShellView,
   makeDerivedSkillRecord,
   makeSkillRecord,
 } from './database-test-fixtures'
+import {PopoverStoreContext} from './usePopoverStore'
 
 vi.mock('./RichDescription', () => ({
   RichDescription: ({
@@ -146,45 +146,45 @@ describe('AwakenerDetailCards', () => {
       ],
     })
 
+    const state = {
+      openRootInfo: vi.fn(),
+      openRootReferenceByName,
+    }
+    const mockStore = {
+      getState: () => state,
+      subscribe: vi.fn(),
+    } as any
+
     render(
-      <DatabasePopoverContext.Provider
-        value={{
-          openRootReferenceByName,
-          openRootOverlay: vi.fn(),
-          openNestedReferenceByName: vi.fn(),
-          openNestedOverlay: vi.fn(),
-          hasOpenPopovers: false,
-          closeAllPopovers: vi.fn(),
-        }}
-      >
+      <PopoverStoreContext.Provider value={mockStore}>
         <AwakenerDetailCards
           onToggleEnlightenSlot={onToggleEnlightenSlot}
           referenceLayer={null}
           shellView={shellView}
         />
-      </DatabasePopoverContext.Provider>,
+      </PopoverStoreContext.Provider>,
     )
 
     expect(screen.getAllByText('E1')).toHaveLength(2)
     expect(screen.getByText('E3')).toBeInTheDocument()
     expect(screen.getAllByText('T1')).toHaveLength(3)
-    expect(screen.getByText('Cost 2')).toBeInTheDocument()
+    expect(screen.getByText('2')).toBeInTheDocument()
     expect(screen.getByText('Rouse text|{Retain}, {Prepare 2}')).toBeInTheDocument()
     expect(screen.getByText('Derived Cards')).toBeInTheDocument()
     expect(screen.getByText('Important Extra')).toBeInTheDocument()
     expect(screen.getByText('Important Extra').closest('[data-card-header]')).toHaveTextContent(
-      /Important Extra.*Derived.*Cost 0/,
+      /0.*Important Extra.*Derived/,
     )
     expect(screen.getByText('Extra text|{Exhaust}')).toBeInTheDocument()
     expect(
       screen.getByText('Twisted Carrion Revel').closest('[data-card-header]'),
-    ).toHaveTextContent(/Twisted Carrion Revel.*Exalt.*Cost 100/)
+    ).toHaveTextContent(/100.*Twisted Carrion Revel.*Exalt/)
     expect(
       screen.getByText('Mediating Personalities').closest('[data-card-header]'),
-    ).toHaveTextContent(/Mediating Personalities.*Rouse.*Cost 2/)
+    ).toHaveTextContent(/2.*Mediating Personalities.*Rouse/)
     expect(
       screen.getByRole('button', {name: 'Over Exalt'}).closest('[data-card-header]'),
-    ).toHaveTextContent(/Face Death in Fiery Resolve.*Over Exalt.*Cost 200/)
+    ).toHaveTextContent(/200.*Face Death in Fiery Resolve.*Over Exalt/)
 
     fireEvent.click(screen.getByRole('button', {name: 'Over Exalt'}))
     expect(openRootReferenceByName).toHaveBeenCalledWith('Over Exalt', expect.anything())

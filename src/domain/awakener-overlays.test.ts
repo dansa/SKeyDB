@@ -44,7 +44,7 @@ describe('awakener-overlays', () => {
           displayName: 'Void',
           overlayType: 'mechanic',
           textColor: 'aliemus',
-          iconId: 'IconS_Buff_027',
+          iconId: 'Battle_Card_Buff_029',
         }),
         expect.objectContaining({
           id: 'overlay.global.stun',
@@ -58,21 +58,21 @@ describe('awakener-overlays', () => {
           displayName: 'Loop',
           overlayType: 'mechanic',
           textColor: 'light',
-          iconId: 'IconS_Buff_038',
+          iconId: 'Battle_Card_Buff_038',
         }),
         expect.objectContaining({
           id: 'overlay.xu.betroth',
           displayName: 'Betroth',
           overlayType: 'mechanic',
           textColor: 'damage',
-          iconId: 'IconS_Buff_080',
+          iconId: 'Battle_Card_Buff_080',
         }),
         expect.objectContaining({
           id: 'overlay.xu.enthrall',
           displayName: 'Enthrall',
           overlayType: 'mechanic',
           textColor: 'damage',
-          iconId: 'IconS_Buff_080',
+          iconId: 'Battle_Card_Buff_080',
         }),
         expect.objectContaining({
           id: 'overlay.24.realm-and-persona',

@@ -5,6 +5,7 @@ import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-l
 import {buildPublicFormulaContext} from '@/domain/public-formula-context'
 import {useDatabaseDetailPreferences} from '@/features/database/internal/useDatabaseDetailPreferences'
 import {useDatabasePopoverController} from '@/features/database/internal/useDatabasePopoverController'
+import {PopoverProvider} from '@/features/database/internal/usePopoverStore'
 
 import {DbDetailShell} from './DbDetailShell'
 
@@ -55,7 +56,11 @@ describe('DbDetailShell', () => {
   it('dismisses settings before closing on Escape and closes from outside clicks', () => {
     const onClose = vi.fn()
 
-    render(<TestShell onClose={onClose} />)
+    render(
+      <PopoverProvider>
+        <TestShell onClose={onClose} />
+      </PopoverProvider>,
+    )
 
     expect(getDetailOverlay()).toHaveClass('inset-0')
     expect(getDetailOverlay()).toHaveClass('z-[960]')
@@ -76,7 +81,11 @@ describe('DbDetailShell', () => {
   })
 
   it('opens and closes the simple artifact full art viewer', () => {
-    render(<TestShell onClose={vi.fn()} />)
+    render(
+      <PopoverProvider>
+        <TestShell onClose={vi.fn()} />
+      </PopoverProvider>,
+    )
 
     fireEvent.click(screen.getAllByRole('button', {name: /view full art for test artifact/i})[0])
 

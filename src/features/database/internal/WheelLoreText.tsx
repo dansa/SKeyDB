@@ -12,6 +12,7 @@ interface WheelLoreTextProps {
   lore: string
   previewLineCount?: number
   defaultExpanded?: boolean
+  full?: boolean
 }
 
 type WheelLorePreviewStyle = CSSProperties & {'--wheel-lore-preview-height': string}
@@ -127,11 +128,26 @@ export function WheelLoreText({
   lore,
   previewLineCount = 4,
   defaultExpanded = false,
+  full = false,
 }: WheelLoreTextProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded)
   const paragraphs = buildLoreParagraphs(lore)
   const preview = trimLoreParagraphs(paragraphs, previewLineCount)
   const previewHeight = getDatabaseDetailLorePreviewHeight(previewLineCount)
+
+  if (full) {
+    return (
+      <div className='mt-2 max-w-[66ch]'>
+        <div
+          className={`space-y-3 ${DATABASE_DETAIL_BODY_CLASS}`}
+          data-wheel-lore-content=''
+          style={getDatabaseDetailLoreStyle()}
+        >
+          <LoreParagraphs paragraphs={paragraphs} />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className='mt-2 max-w-[66ch]'>

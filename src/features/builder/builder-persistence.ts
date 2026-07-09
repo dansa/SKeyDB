@@ -12,7 +12,6 @@ import {
   serializeBuilderDraft,
   type BuilderDraftPayload,
   type PersistedBuilderEnvelope,
-  type PersistedBuilderPayload,
 } from '@/features/builder/builderMigrations'
 
 export type {BuilderDraftPayload} from '@/features/builder/builderMigrations'
@@ -93,7 +92,7 @@ export function saveBuilderDraft(
     return false
   }
 
-  const envelope: PersistedBuilderEnvelope<PersistedBuilderPayload> = {
+  const envelope: PersistedBuilderEnvelope = {
     version: BUILDER_PERSISTENCE_VERSION,
     updatedAt: new Date().toISOString(),
     payload: serialized,

@@ -2,7 +2,7 @@ import {render, screen, waitFor} from '@testing-library/react'
 import {beforeEach, describe, expect, it, vi} from 'vitest'
 
 import {AwakenerBuildsTab} from './AwakenerBuildsTab'
-import {useDatabasePopoverControllerContext} from './database-popover-context'
+import {PopoverStoreContext} from './usePopoverStore'
 
 const {getAwakenerBuildEntries} = vi.hoisted(() => ({
   getAwakenerBuildEntries: vi.fn(),
@@ -17,16 +17,11 @@ vi.mock('@/domain/awakener-builds', async () => {
   const actual = await vi.importActual<typeof import('@/domain/awakener-builds')>(
     '@/domain/awakener-builds',
   )
-
   return {
     ...actual,
     getAwakenerBuildEntries,
   }
 })
-
-vi.mock('./database-popover-context', () => ({
-  useDatabasePopoverControllerContext: vi.fn(),
-}))
 
 vi.mock('@/domain/public-detail-record-adapters', () => ({
   loadPublicCovenantDetailById,
@@ -46,7 +41,6 @@ describe('AwakenerBuildsTab', () => {
     getAwakenerBuildEntries.mockReset()
     loadPublicCovenantDetailById.mockReset()
     loadPublicWheelDetailById.mockReset()
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
   })
 
   it('renders all configured builds and groups wheel recommendations by line', () => {
@@ -84,7 +78,19 @@ describe('AwakenerBuildsTab', () => {
       },
     ])
 
-    render(<AwakenerBuildsTab awakenerId='awakener-0027' />)
+    const state = {
+      openRootInfo: vi.fn(),
+    }
+    const mockStore = {
+      getState: () => state,
+      subscribe: vi.fn(),
+    } as any
+
+    render(
+      <PopoverStoreContext.Provider value={mockStore}>
+        <AwakenerBuildsTab awakenerId='awakener-0027' />
+      </PopoverStoreContext.Provider>,
+    )
 
     expect(screen.getByText('DPS')).toBeInTheDocument()
     expect(screen.getByText('Tank')).toBeInTheDocument()
@@ -125,7 +131,19 @@ describe('AwakenerBuildsTab', () => {
       },
     ])
 
-    render(<AwakenerBuildsTab awakenerId='awakener-0018' />)
+    const state = {
+      openRootInfo: vi.fn(),
+    }
+    const mockStore = {
+      getState: () => state,
+      subscribe: vi.fn(),
+    } as any
+
+    render(
+      <PopoverStoreContext.Provider value={mockStore}>
+        <AwakenerBuildsTab awakenerId='awakener-0018' />
+      </PopoverStoreContext.Provider>,
+    )
 
     await waitFor(() => {
       expect(screen.getByText('Manikin of Oblivion')).toBeInTheDocument()
@@ -136,22 +154,33 @@ describe('AwakenerBuildsTab', () => {
   it('shows an empty state when no curated builds exist for the awakener', () => {
     getAwakenerBuildEntries.mockReturnValue([])
 
-    render(<AwakenerBuildsTab awakenerId='awakener-0099' />)
+    const state = {
+      openRootInfo: vi.fn(),
+    }
+    const mockStore = {
+      getState: () => state,
+      subscribe: vi.fn(),
+    } as any
+
+    render(
+      <PopoverStoreContext.Provider value={mockStore}>
+        <AwakenerBuildsTab awakenerId='awakener-0099' />
+      </PopoverStoreContext.Provider>,
+    )
 
     expect(screen.getByText('No curated builds available yet.')).toBeInTheDocument()
   })
 
   it('opens a wheel preview popover entry from recommended wheel tiles', async () => {
     const openRootInfo = vi.fn()
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue({
-      closeAllPopovers: vi.fn(),
-      hasOpenPopovers: false,
-      openNestedOverlay: vi.fn(),
-      openNestedReferenceByName: vi.fn(),
+    const state = {
       openRootInfo,
-      openRootOverlay: vi.fn(),
-      openRootReferenceByName: vi.fn(),
-    })
+    }
+    const mockStore = {
+      getState: () => state,
+      subscribe: vi.fn(),
+    } as any
+
     getAwakenerBuildEntries.mockReturnValue([
       {
         id: 'awakener-build-0027',
@@ -169,7 +198,11 @@ describe('AwakenerBuildsTab', () => {
       },
     ])
 
-    render(<AwakenerBuildsTab awakenerId='awakener-0027' />)
+    render(
+      <PopoverStoreContext.Provider value={mockStore}>
+        <AwakenerBuildsTab awakenerId='awakener-0027' />
+      </PopoverStoreContext.Provider>,
+    )
 
     loadPublicWheelDetailById.mockResolvedValue({
       aliases: ['Amber-Tinted Death'],
@@ -196,12 +229,11 @@ describe('AwakenerBuildsTab', () => {
       expect(openRootInfo).toHaveBeenCalledWith(
         expect.objectContaining({
           name: 'Amber-Tinted Death',
-          navigationLabel: 'Open in Wheels DB',
-          navigationTarget: expect.objectContaining({
+          navigationLabel: 'In DB',
+          navigationTarget: {
             kind: 'wheel-page',
-            wheelId: 'wheel-0028',
             wheelName: 'Amber-Tinted Death',
-          }),
+          },
           attributeRows: [
             expect.objectContaining({
               label: 'Crit DMG',
@@ -219,15 +251,14 @@ describe('AwakenerBuildsTab', () => {
 
   it('opens wheel preview popovers for canonical wheel ids backed by lazy detail records', async () => {
     const openRootInfo = vi.fn()
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue({
-      closeAllPopovers: vi.fn(),
-      hasOpenPopovers: false,
-      openNestedOverlay: vi.fn(),
-      openNestedReferenceByName: vi.fn(),
+    const state = {
       openRootInfo,
-      openRootOverlay: vi.fn(),
-      openRootReferenceByName: vi.fn(),
-    })
+    }
+    const mockStore = {
+      getState: () => state,
+      subscribe: vi.fn(),
+    } as any
+
     getAwakenerBuildEntries.mockReturnValue([
       {
         id: 'awakener-build-0018',
@@ -245,7 +276,11 @@ describe('AwakenerBuildsTab', () => {
       },
     ])
 
-    render(<AwakenerBuildsTab awakenerId='awakener-0018' />)
+    render(
+      <PopoverStoreContext.Provider value={mockStore}>
+        <AwakenerBuildsTab awakenerId='awakener-0018' />
+      </PopoverStoreContext.Provider>,
+    )
 
     loadPublicWheelDetailById.mockResolvedValue({
       aliases: ['Manikin of Oblivion'],
@@ -286,15 +321,14 @@ describe('AwakenerBuildsTab', () => {
 
   it('keeps only the latest lazy wheel preview request active', async () => {
     const openRootInfo = vi.fn()
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue({
-      closeAllPopovers: vi.fn(),
-      hasOpenPopovers: false,
-      openNestedOverlay: vi.fn(),
-      openNestedReferenceByName: vi.fn(),
+    const state = {
       openRootInfo,
-      openRootOverlay: vi.fn(),
-      openRootReferenceByName: vi.fn(),
-    })
+    }
+    const mockStore = {
+      getState: () => state,
+      subscribe: vi.fn(),
+    } as any
+
     getAwakenerBuildEntries.mockReturnValue([
       {
         id: 'awakener-build-0027',
@@ -318,7 +352,11 @@ describe('AwakenerBuildsTab', () => {
       .mockReturnValueOnce(firstRequest.promise)
       .mockReturnValueOnce(secondRequest.promise)
 
-    render(<AwakenerBuildsTab awakenerId='awakener-0027' />)
+    render(
+      <PopoverStoreContext.Provider value={mockStore}>
+        <AwakenerBuildsTab awakenerId='awakener-0027' />
+      </PopoverStoreContext.Provider>,
+    )
 
     screen.getByRole('button', {name: /Amber-Tinted Death/i}).click()
     screen.getByRole('button', {name: /Manikin of Oblivion/i}).click()

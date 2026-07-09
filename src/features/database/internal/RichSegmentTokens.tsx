@@ -1,8 +1,7 @@
-import {useEffect, useState, type CSSProperties, type MouseEvent, type ReactNode} from 'react'
+import {type CSSProperties, type MouseEvent, type ReactNode} from 'react'
 
 import type {AwakenerOverlayRecord} from '@/domain/awakener-source-schema'
 import {normalizeDatabaseReferenceName} from '@/domain/database-reference-layer'
-import {loadOverlayIconAsset, peekOverlayIconAsset} from '@/domain/overlay-icon-assets'
 
 import {
   DATABASE_ACCENT_TEXT_CLASS,
@@ -15,19 +14,19 @@ import {
   getDatabaseRealmTint,
   getDatabaseTintedTokenStyle,
 } from './text-styles'
+import {useOverlayIcon} from './useOverlayIcon'
 
 export type ActivationEvent = MouseEvent<HTMLButtonElement>
-
 const OVERLAY_TOKEN_ICON_STYLE: CSSProperties = {
   display: 'inline',
-  width: '0.95em',
-  height: '0.95em',
+  width: '1em',
+  height: '1em',
   objectFit: 'contain',
   verticalAlign: 'middle',
   position: 'relative',
-  top: '-0.04em',
+  top: '-0.1em',
+  left: '-0.05em',
 }
-
 interface InteractiveTokenProps {
   ariaLabel: string
   children: ReactNode
@@ -36,14 +35,12 @@ interface InteractiveTokenProps {
   style?: CSSProperties
   title?: string
 }
-
 function resolveOverlay(
   name: string,
   overlayByName: ReadonlyMap<string, AwakenerOverlayRecord> | undefined,
 ): AwakenerOverlayRecord | null {
   return overlayByName?.get(normalizeDatabaseReferenceName(name)) ?? null
 }
-
 export function InteractiveToken({
   ariaLabel,
   children,
@@ -59,6 +56,12 @@ export function InteractiveToken({
       onClick={(event) => {
         onActivate(event)
       }}
+      onMouseDown={(e) => {
+        e.stopPropagation()
+      }}
+      onPointerDown={(e) => {
+        e.stopPropagation()
+      }}
       style={style}
       title={title}
       type='button'
@@ -67,7 +70,6 @@ export function InteractiveToken({
     </button>
   )
 }
-
 export function SkillToken({
   name,
   onSkillClick,
@@ -80,7 +82,6 @@ export function SkillToken({
   if (!onSkillClick) {
     return <span>{name}</span>
   }
-
   return (
     <InteractiveToken
       ariaLabel={name}
@@ -97,7 +98,6 @@ export function SkillToken({
     </InteractiveToken>
   )
 }
-
 export function OverlayTokenLabel({
   name,
   overlay,
@@ -114,33 +114,8 @@ export function OverlayTokenLabel({
   variant: 'interactive' | 'plain' | 'unimplemented'
 }) {
   const iconId = showTagIcons ? (overlay?.iconId ?? null) : null
-  const cachedIconUrl = peekOverlayIconAsset(iconId)
-  const [loadedIcon, setLoadedIcon] = useState<{iconId: string | null; url?: string}>({
-    iconId,
-    url: cachedIconUrl,
-  })
+  const iconUrl = useOverlayIcon(iconId)
   const textClassName = variant === 'unimplemented' ? DATABASE_UNIMPLEMENTED_TOKEN_CLASS : undefined
-  const iconUrl = loadedIcon.iconId === iconId ? loadedIcon.url : cachedIconUrl
-
-  useEffect(() => {
-    let cancelled = false
-    if (!iconId || cachedIconUrl) {
-      return () => {
-        cancelled = true
-      }
-    }
-
-    void loadOverlayIconAsset(iconId).then((nextIconUrl) => {
-      if (!cancelled) {
-        setLoadedIcon({iconId, url: nextIconUrl})
-      }
-    })
-
-    return () => {
-      cancelled = true
-    }
-  }, [cachedIconUrl, iconId])
-
   if (!iconUrl) {
     return (
       <span className={textClassName} style={textStyle} title={title}>
@@ -148,9 +123,43 @@ export function OverlayTokenLabel({
       </span>
     )
   }
-
+  if (variant === 'interactive') {
+    return (
+      <span className='inline whitespace-nowrap'>
+        <img
+          alt=''
+          aria-hidden='true'
+          className='select-none'
+          draggable={false}
+          src={iconUrl}
+          style={OVERLAY_TOKEN_ICON_STYLE}
+        />
+        <span style={textStyle}>{name}</span>
+      </span>
+    )
+  }
+  if (variant === 'unimplemented') {
+    return (
+      <span
+        className='database-unimplemented-token inline whitespace-nowrap text-slate-300/85'
+        style={textStyle}
+        title={title}
+      >
+        <img
+          alt=''
+          aria-hidden='true'
+          className='select-none'
+          draggable={false}
+          src={iconUrl}
+          style={OVERLAY_TOKEN_ICON_STYLE}
+        />
+        <span style={textStyle}>{name}</span>
+      </span>
+    )
+  }
+  // variant === 'plain'
   return (
-    <span className='inline whitespace-nowrap' title={title}>
+    <span className='inline whitespace-nowrap' style={textStyle} title={title}>
       <img
         alt=''
         aria-hidden='true'
@@ -159,13 +168,10 @@ export function OverlayTokenLabel({
         src={iconUrl}
         style={OVERLAY_TOKEN_ICON_STYLE}
       />
-      <span className={textClassName} style={textStyle}>
-        {name}
-      </span>
+      <span style={textStyle}>{name}</span>
     </span>
   )
 }
-
 export function MechanicToken({
   name,
   overlayByName,
@@ -183,7 +189,6 @@ export function MechanicToken({
   const tintStyle = getDatabaseTintedTokenStyle(tint)
   const canOpenOverlay = Boolean(overlay && onMechanicClick)
   const title = !overlay || (!desc && !canOpenOverlay) ? 'Details coming soon' : undefined
-
   if (overlay && onMechanicClick) {
     return (
       <InteractiveToken
@@ -204,7 +209,6 @@ export function MechanicToken({
       </InteractiveToken>
     )
   }
-
   return (
     <OverlayTokenLabel
       name={name}
@@ -216,7 +220,6 @@ export function MechanicToken({
     />
   )
 }
-
 export function RealmToken({
   name,
   overlayByName,
@@ -229,7 +232,6 @@ export function RealmToken({
   const overlay = resolveOverlay(name, overlayByName)
   const tint = getDatabaseRealmTint(name)
   const tintStyle = getDatabaseTintedTokenStyle(tint)
-
   if (overlay && onMechanicClick) {
     return (
       <InteractiveToken
@@ -244,7 +246,6 @@ export function RealmToken({
       </InteractiveToken>
     )
   }
-
   return (
     <span className={DATABASE_ACCENT_TEXT_CLASS} style={getDatabaseAccentTextStyle(tint.base)}>
       {name}

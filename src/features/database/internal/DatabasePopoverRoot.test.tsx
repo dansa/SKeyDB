@@ -1,29 +1,51 @@
+import {useEffect} from 'react'
+
 import {render, screen} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import {DatabasePopoverRoot, type DatabasePopoverRootProps} from './DatabasePopoverRoot'
+import {PopoverProvider, usePopoverStore} from './usePopoverStore'
 
 vi.mock('./DatabasePopoverPortal', () => ({
   DatabasePopoverPortal: () => <div data-testid='database-popover-portal' />,
 }))
 
+function TestRootWrapper({anchor}: {anchor: HTMLElement}) {
+  return (
+    <PopoverProvider>
+      <TestRootWrapperInner anchor={anchor} />
+    </PopoverProvider>
+  )
+}
+
+function TestRootWrapperInner({anchor}: {anchor: HTMLElement}) {
+  const openRoot = usePopoverStore((state) => state.openRoot)
+  useEffect(() => {
+    openRoot('owner', {
+      key: 'entry',
+      referenceId: 'id',
+      name: 'name',
+      label: 'label',
+      description: 'desc',
+    })
+  }, [openRoot])
+
+  return <DatabasePopoverRoot {...makeRootProps(anchor)} />
+}
+
 function makeRootProps(anchorElement: HTMLElement): DatabasePopoverRootProps {
   return {
     anchorElement,
     anchorRect: new DOMRect(10, 10, 20, 20),
-    entries: [
-      {
-        activeEntry: {} as DatabasePopoverRootProps['entries'][number]['activeEntry'],
-        key: 'entry',
-        layerIndex: 0,
-        onClose: vi.fn(),
-        onMechanicTokenClick: vi.fn(),
-        onSkillTokenClick: vi.fn(),
-      },
-    ],
     onCloseAll: vi.fn(),
     referenceLayer: null,
     stats: {} as DatabasePopoverRootProps['stats'],
+    nestedActions: {
+      openNestedInfoFrom: vi.fn(),
+      openNestedOverlayFrom: vi.fn(),
+      openNestedReferenceByNameFrom: vi.fn(),
+    },
+    closeTrailFrom: vi.fn(),
   }
 }
 
@@ -38,7 +60,7 @@ describe('DatabasePopoverRoot', () => {
     modalDialog.append(modalShell)
     document.body.append(modalDialog)
 
-    render(<DatabasePopoverRoot {...makeRootProps(anchor)} />)
+    render(<TestRootWrapper anchor={anchor} />)
 
     const portal = await screen.findByTestId('database-popover-portal')
     expect(portal.closest('[data-detail-modal-shell]')).toBe(modalShell)
@@ -53,7 +75,7 @@ describe('DatabasePopoverRoot', () => {
     modalDialog.append(anchor)
     document.body.append(modalDialog)
 
-    render(<DatabasePopoverRoot {...makeRootProps(anchor)} />)
+    render(<TestRootWrapper anchor={anchor} />)
 
     const portal = await screen.findByTestId('database-popover-portal')
     expect(portal.closest('[data-detail-modal-overlay]')).toBe(modalDialog)
@@ -65,7 +87,7 @@ describe('DatabasePopoverRoot', () => {
     const anchor = document.createElement('button')
     document.body.append(anchor)
 
-    render(<DatabasePopoverRoot {...makeRootProps(anchor)} />)
+    render(<TestRootWrapper anchor={anchor} />)
 
     const portal = await screen.findByTestId('database-popover-portal')
     expect(portal.parentElement).toBe(document.body)

@@ -13,7 +13,7 @@
   "overlayType": "mechanic",
   "ownerAwakenerId": "awakener-0054",
   "aliases": [],
-  "iconId": "IconS_Buff_080",
+  "iconId": "Battle_Card_Buff_080",
   "textColor": "damage",
   "descriptionTemplate": "Remove all enemies' {Spellbound}. For each stack removed, deal [DescArg1]% of the target's Max HP as {Fixed DMG} and trigger 40% {Poison}.",
   "descriptionArgs": {

@@ -682,4 +682,107 @@ describe('awakeners-full-resolver', () => {
       },
     })
   })
+
+  it('applies Goliath soulforge aptitude base DMG patching', async () => {
+    const goliath = await loadPublicAwakenerDetailById('awakener-0021')
+    expect(goliath).toBeDefined()
+    if (!goliath) {
+      throw new Error('Missing public V3 Goliath record')
+    }
+
+    const resolvedLvl0 = resolveAwakenerFullRecord(goliath, {soulforgeLevel: 0})
+    const strikeLvl0 = [
+      resolvedLvl0.record.cards.C1,
+      resolvedLvl0.record.cards.C2,
+      resolvedLvl0.record.cards.C3,
+      resolvedLvl0.record.cards.C4,
+      resolvedLvl0.record.cards.C5,
+      resolvedLvl0.record.cards.Exalt,
+    ].find((c) => c.id === 'skill.goliath.strike')
+    expect(strikeLvl0).toBeDefined()
+    if (!strikeLvl0) return
+    expect((strikeLvl0.descriptionArgs.Arg1 as any).values).toEqual([
+      '10',
+      '12',
+      '14',
+      '16',
+      '18',
+      '20',
+    ])
+
+    const resolvedLvl1 = resolveAwakenerFullRecord(goliath, {soulforgeLevel: 1})
+    const strikeLvl1 = [
+      resolvedLvl1.record.cards.C1,
+      resolvedLvl1.record.cards.C2,
+      resolvedLvl1.record.cards.C3,
+      resolvedLvl1.record.cards.C4,
+      resolvedLvl1.record.cards.C5,
+      resolvedLvl1.record.cards.Exalt,
+    ].find((c) => c.id === 'skill.goliath.strike')
+    expect(strikeLvl1).toBeDefined()
+    if (!strikeLvl1) return
+    expect((strikeLvl1.descriptionArgs.Arg1 as any).values).toEqual([
+      '12',
+      '14.4',
+      '16.8',
+      '19.2',
+      '21.6',
+      '24',
+    ])
+  })
+
+  it('applies Daffodil soulforge aptitude base DMG patching only to target cards', async () => {
+    const daffodil = await loadPublicAwakenerDetailById('awakener-0012')
+    expect(daffodil).toBeDefined()
+    if (!daffodil) {
+      throw new Error('Missing public V3 Daffodil record')
+    }
+
+    const resolved = resolveAwakenerFullRecord(daffodil, {soulforgeLevel: 1})
+
+    const skullReaver = [
+      resolved.record.cards.C1,
+      resolved.record.cards.C2,
+      resolved.record.cards.C3,
+      resolved.record.cards.C4,
+      resolved.record.cards.C5,
+    ].find((c) => c.id === 'skill.daffodil.skull-reaver')
+
+    const strike = [
+      resolved.record.cards.C1,
+      resolved.record.cards.C2,
+      resolved.record.cards.C3,
+      resolved.record.cards.C4,
+      resolved.record.cards.C5,
+    ].find((c) => c.id === 'skill.daffodil.strike')
+
+    expect(skullReaver).toBeDefined()
+    expect(strike).toBeDefined()
+    if (!skullReaver || !strike) return
+
+    expect((skullReaver.descriptionArgs.Arg1 as any).values).toEqual([
+      '60',
+      '72',
+      '84',
+      '96',
+      '108',
+      '120',
+    ])
+    expect((skullReaver.descriptionArgs.Arg2 as any).values).toEqual([
+      '90',
+      '108',
+      '126',
+      '144',
+      '162',
+      '180',
+    ])
+    expect((strike.descriptionArgs.Arg1 as any).values).toEqual([
+      '10',
+      '12',
+      '14',
+      '16',
+      '18',
+      '20',
+    ])
+  })
 })

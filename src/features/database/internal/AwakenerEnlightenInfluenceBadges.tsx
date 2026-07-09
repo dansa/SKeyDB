@@ -1,26 +1,25 @@
-import {type MouseEvent} from 'react'
+import {use, type MouseEvent} from 'react'
 
 import type {AwakenerEnlightenRecord} from '@/domain/awakener-source-schema'
 import type {DatabaseInfluenceBadge} from '@/domain/database-reference-layer'
 
 import {getEnlightenSlotLabel, isEnlightenSlotActive} from './awakener-enlighten-badges'
-import {useDatabasePopoverControllerContext} from './database-popover-context'
+import {PopoverStoreContext, usePopoverStore} from './usePopoverStore'
 
 interface AwakenerEnlightenInfluenceBadgesProps {
   influenceBadges: readonly DatabaseInfluenceBadge[]
   selectedEnlightenSlot: AwakenerEnlightenRecord['slot'] | null
   align?: 'start' | 'end'
   openMode?: 'root' | 'nested'
-  onOpenReferenceName?: (name: string) => void
+  onOpenReferenceName?: (name: string, event?: MouseEvent<HTMLElement>) => void
   onToggleEnlightenSlot?: (slot: AwakenerEnlightenRecord['slot']) => void
 }
 
 function getBadgeClass(badge: DatabaseInfluenceBadge, active: boolean): string {
   if (badge.kind !== 'enlighten') {
-    return 'border border-amber-200/60 bg-amber-200/10 px-1.5 py-0.5 text-[9px] tracking-wide uppercase text-amber-100'
+    return 'border border-amber-200/60 bg-amber-200/10 px-1.5 py-0.5 text-[10px] tracking-wide uppercase text-amber-100'
   }
-
-  return `border px-1.5 py-0.5 text-[9px] tracking-wide uppercase ${
+  return `border px-1.5 py-0.5 text-[10px] tracking-wide uppercase ${
     active
       ? 'border-amber-200/60 bg-amber-200/10 text-amber-100 hover:border-amber-50/80 hover:bg-amber-200/20 hover:text-amber-50'
       : 'border-slate-600/35 bg-slate-950/50 text-slate-500 hover:border-amber-100/60 hover:text-amber-50'
@@ -35,7 +34,10 @@ export function AwakenerEnlightenInfluenceBadges({
   onOpenReferenceName,
   onToggleEnlightenSlot,
 }: AwakenerEnlightenInfluenceBadgesProps) {
-  const popoverController = useDatabasePopoverControllerContext()
+  const store = use(PopoverStoreContext)
+  const hasStore = store !== null
+  const openNestedReferenceByName = usePopoverStore((state) => state.openNestedReferenceByName)
+  const openRootReferenceByName = usePopoverStore((state) => state.openRootReferenceByName)
 
   if (influenceBadges.length === 0) {
     return null
@@ -48,7 +50,6 @@ export function AwakenerEnlightenInfluenceBadges({
     if (!onToggleEnlightenSlot || !slot) {
       return
     }
-
     event.preventDefault()
     event.stopPropagation()
     onToggleEnlightenSlot(slot)
@@ -58,12 +59,10 @@ export function AwakenerEnlightenInfluenceBadges({
     if (badge.kind !== 'enlighten' || !badge.slot) {
       return `Left-click: open ${badge.label} details`
     }
-
     const label = getEnlightenSlotLabel(badge.slot)
     if (!onToggleEnlightenSlot) {
       return `Left-click: open ${label} details`
     }
-
     return active
       ? `Left-click: open ${label} details\nRight-click: switch ${label} off`
       : `Left-click: open ${label} details\nRight-click: activate ${label}`
@@ -75,29 +74,24 @@ export function AwakenerEnlightenInfluenceBadges({
     if (!referenceName) {
       return null
     }
-
     if (openMode === 'nested') {
       if (onOpenReferenceName) {
-        return () => {
-          onOpenReferenceName(referenceName)
+        return (event) => {
+          onOpenReferenceName(referenceName, event)
         }
       }
-
-      if (!popoverController) {
+      if (!hasStore) {
         return null
       }
-
-      return () => {
-        popoverController.openNestedReferenceByName(referenceName)
+      return (event) => {
+        openNestedReferenceByName(referenceName, event)
       }
     }
-
-    if (!popoverController) {
+    if (!hasStore) {
       return null
     }
-
     return (event) => {
-      popoverController.openRootReferenceByName(referenceName, event)
+      openRootReferenceByName(referenceName, event)
     }
   }
 
@@ -118,21 +112,35 @@ export function AwakenerEnlightenInfluenceBadges({
           },
           title: badgeTitle,
         }
-
         if (!openBadgeReference) {
           return (
-            <span {...commonProps} key={badgeKey} className={badgeClass}>
+            <span
+              key={badgeKey}
+              {...commonProps}
+              className={badgeClass}
+              onMouseDown={(e) => {
+                e.stopPropagation()
+              }}
+              onPointerDown={(e) => {
+                e.stopPropagation()
+              }}
+            >
               {badge.label}
             </span>
           )
         }
-
         return (
           <button
-            {...commonProps}
             key={badgeKey}
+            {...commonProps}
             className={`${badgeClass} cursor-pointer transition-colors hover:border-amber-50/80 hover:bg-amber-200/20 hover:text-amber-50 focus-visible:ring-1 focus-visible:ring-amber-100/80 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-950 focus-visible:outline-none`}
             onClick={openBadgeReference}
+            onMouseDown={(e) => {
+              e.stopPropagation()
+            }}
+            onPointerDown={(e) => {
+              e.stopPropagation()
+            }}
             type='button'
           >
             {badge.label}
