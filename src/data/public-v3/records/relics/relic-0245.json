@@ -15,7 +15,7 @@
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0417",
   "rarity": "SR",
-  "aliases": ["\"Pure Silver Core: Deceit\""],
+  "aliases": [],
   "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {Twilight: Honey Mead} into hand, and increase all Awakeners' Crit. DMG to 1.5 times. At turn end, Awakeners that did not release Exalt gain [Arg1] Aliemus. If the number of cards played is less than [Arg2], draw 2 cards next turn and gain 2 Arithmetica.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,7 +30,7 @@
   "variants": [
     {
       "id": "relic-variant-0417",
-      "name": "\"Pure Silver Core: Deceit\"",
+      "name": "Pure Silver Core: Deceit",
       "label": "Event - Special",
       "variantType": "EVENT",
       "tier": "Special",

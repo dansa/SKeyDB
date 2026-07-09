@@ -15,7 +15,7 @@
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0523",
   "rarity": "SSR",
-  "aliases": ["\"Ultra Ring\""],
+  "aliases": [],
   "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Ultra} Awakener gains its \"Dimensional Image\". For each {Ultra} Awakener in the team, increase the Relic Capacity by +1.",
   "descriptionArgs": {
     "Arg1": {
@@ -27,7 +27,7 @@
   "variants": [
     {
       "id": "relic-variant-0523",
-      "name": "\"Ultra Ring\"",
+      "name": "Ultra Ring",
       "label": "Other - Special",
       "variantType": "OTHER",
       "tier": "Special",

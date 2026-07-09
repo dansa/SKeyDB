@@ -15,7 +15,7 @@
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0419",
   "rarity": "SR",
-  "aliases": ["\"Pure Silver Core: Heresy\""],
+  "aliases": [],
   "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {Twilight: The Envoy's Verdict} into hand, and double the team's DMG Amplification. The {Weakness} effect inflicted by you increases from 25% to 50%. At the end of each turn, gain Shield equal to [Arg1]% of Max HP and deal {Fixed DMG} equal to [Arg2] x Shield to all enemies.",
   "descriptionArgs": {
     "Arg1": {
@@ -31,7 +31,7 @@
   "variants": [
     {
       "id": "relic-variant-0419",
-      "name": "\"Pure Silver Core: Heresy\"",
+      "name": "Pure Silver Core: Heresy",
       "label": "Event - Special",
       "variantType": "EVENT",
       "tier": "Special",

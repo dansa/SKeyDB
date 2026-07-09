@@ -15,7 +15,7 @@
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0421",
   "rarity": "SR",
-  "aliases": ["\"Pure Silver Core: Scathe\""],
+  "aliases": [],
   "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {Twilight: Mutated Heart} into hand. At turn start, you can choose to discard any number of cards in hand and draw the same amount. Gain [Arg1] Temporary {STR} in odd-numbered turns, and place \"{Unyielding Will β} into hand. Gain [Arg2] Temporary {Alert} in even-numbered turns, and place {Hideβ} into hand",
   "descriptionArgs": {
     "Arg1": {
@@ -36,7 +36,7 @@
   "variants": [
     {
       "id": "relic-variant-0421",
-      "name": "\"Pure Silver Core: Scathe\"",
+      "name": "Pure Silver Core: Scathe",
       "label": "Event - Special",
       "variantType": "EVENT",
       "tier": "Special",

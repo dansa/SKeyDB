@@ -15,7 +15,7 @@
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0076",
   "rarity": "SR",
-  "aliases": ["\"Argent Return: Fear\""],
+  "aliases": [],
   "descriptionTemplate": "All awakeners' Exalt Final DMG +100%. Each time Exalt is released, obtain Keyflare equal to 500% of the Awakener's Base Aliemus, and decrease all Awakeners' Base Aliemus by 20, up to 5 times.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,7 +30,7 @@
   "variants": [
     {
       "id": "relic-variant-0076",
-      "name": "\"Argent Return: Fear\"",
+      "name": "Argent Return: Fear",
       "label": "Event - Special",
       "variantType": "EVENT",
       "tier": "Special",

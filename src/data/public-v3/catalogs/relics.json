@@ -1198,7 +1198,7 @@
       "categories": ["OTHER"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0060",
-      "aliases": ["\"Aequor Ring\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -1324,7 +1324,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0074",
-      "aliases": ["\"Argent Return: Birth\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -1342,7 +1342,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0075",
-      "aliases": ["\"Argent Return: Deceit\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -1360,7 +1360,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0076",
-      "aliases": ["\"Argent Return: Fear\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -1378,7 +1378,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0077",
-      "aliases": ["\"Argent Return: Heresy\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -1396,7 +1396,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0078",
-      "aliases": ["\"Argent Return: Madness\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -1414,7 +1414,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0079",
-      "aliases": ["\"Argent Return: Scathe\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -1432,7 +1432,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0080",
-      "aliases": ["\"Argent Return: Sorrow\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -1627,7 +1627,7 @@
       "categories": ["OTHER"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0105",
-      "aliases": ["\"Caro Ring\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -1717,7 +1717,7 @@
       "categories": ["OTHER"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0114",
-      "aliases": ["\"Chaos Ring\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -3205,15 +3205,15 @@
       "variantCount": 9,
       "defaultVariantId": "relic-variant-0256",
       "aliases": [
-        "\"Gateway of All Realms α\"",
-        "\"Gateway of All Realms β\"",
-        "\"Gateway of All Realms γ\"",
-        "\"Gateway of All Realms ε\"",
-        "\"Gateway of All Realms ζ\"",
-        "\"Gateway of All Realms θ\"",
-        "\"Gateway of All Realms ι\"",
-        "\"Gateway of All Realmsδ\"",
-        "\"Gateway of All Realmsη\""
+        "Gateway of All Realms α",
+        "Gateway of All Realms β",
+        "Gateway of All Realms γ",
+        "Gateway of All Realms ε",
+        "Gateway of All Realms ζ",
+        "Gateway of All Realms θ",
+        "Gateway of All Realms ι",
+        "Gateway of All Realmsδ",
+        "Gateway of All Realmsη"
       ]
     },
     {
@@ -3969,7 +3969,7 @@
     {
       "kind": "relic",
       "id": "relic-0214",
-      "name": "Memory\" and \"Dream",
+      "name": "\"Memory\" and \"Dream\"",
       "route": {
         "slug": "memory-and-dream",
         "canonicalPath": "/database/relics/memory-and-dream"
@@ -3982,7 +3982,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0348",
-      "aliases": ["\"Memory\" and \"Dream\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -4518,7 +4518,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0416",
-      "aliases": ["\"Pure Silver Core: Birth\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -4536,7 +4536,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0417",
-      "aliases": ["\"Pure Silver Core: Deceit\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -4554,7 +4554,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0418",
-      "aliases": ["\"Pure Silver Core: Fear\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -4572,7 +4572,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0419",
-      "aliases": ["\"Pure Silver Core: Heresy\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -4590,7 +4590,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0420",
-      "aliases": ["\"Pure Silver Core: Madness\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -4608,7 +4608,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0421",
-      "aliases": ["\"Pure Silver Core: Scathe\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -4626,7 +4626,7 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0422",
-      "aliases": ["\"Pure Silver Core: Sorrow\""]
+      "aliases": []
     },
     {
       "kind": "relic",
@@ -5396,7 +5396,7 @@
       "categories": ["OTHER"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0523",
-      "aliases": ["\"Ultra Ring\""]
+      "aliases": []
     },
     {
       "kind": "relic",

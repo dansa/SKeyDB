@@ -1088,11 +1088,10 @@
       "kind": "relic",
       "id": "relic-0060",
       "name": "Aequor Ring",
-      "aliases": ["\"Aequor Ring\""],
+      "aliases": [],
       "tokens": ["aequor", "aequor ring", "other", "relic", "ring", "ssr"],
       "fields": {
         "name": ["Aequor Ring", "aequor-ring"],
-        "alias": ["\"Aequor Ring\""],
         "facet": ["SSR", "Relic", "OTHER"]
       },
       "facets": {
@@ -1205,11 +1204,10 @@
       "kind": "relic",
       "id": "relic-0067",
       "name": "Argent Return: Birth",
-      "aliases": ["\"Argent Return: Birth\""],
+      "aliases": [],
       "tokens": ["argent", "argent return birth", "birth", "event", "return", "sr"],
       "fields": {
         "name": ["Argent Return: Birth", "argent-return-birth"],
-        "alias": ["\"Argent Return: Birth\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -1222,11 +1220,10 @@
       "kind": "relic",
       "id": "relic-0068",
       "name": "Argent Return: Deceit",
-      "aliases": ["\"Argent Return: Deceit\""],
+      "aliases": [],
       "tokens": ["argent", "argent return deceit", "deceit", "event", "return", "sr"],
       "fields": {
         "name": ["Argent Return: Deceit", "argent-return-deceit"],
-        "alias": ["\"Argent Return: Deceit\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -1239,11 +1236,10 @@
       "kind": "relic",
       "id": "relic-0069",
       "name": "Argent Return: Fear",
-      "aliases": ["\"Argent Return: Fear\""],
+      "aliases": [],
       "tokens": ["argent", "argent return fear", "event", "fear", "return", "sr"],
       "fields": {
         "name": ["Argent Return: Fear", "argent-return-fear"],
-        "alias": ["\"Argent Return: Fear\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -1256,11 +1252,10 @@
       "kind": "relic",
       "id": "relic-0070",
       "name": "Argent Return: Heresy",
-      "aliases": ["\"Argent Return: Heresy\""],
+      "aliases": [],
       "tokens": ["argent", "argent return heresy", "event", "heresy", "return", "sr"],
       "fields": {
         "name": ["Argent Return: Heresy", "argent-return-heresy"],
-        "alias": ["\"Argent Return: Heresy\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -1273,11 +1268,10 @@
       "kind": "relic",
       "id": "relic-0071",
       "name": "Argent Return: Madness",
-      "aliases": ["\"Argent Return: Madness\""],
+      "aliases": [],
       "tokens": ["argent", "argent return madness", "event", "madness", "return", "sr"],
       "fields": {
         "name": ["Argent Return: Madness", "argent-return-madness"],
-        "alias": ["\"Argent Return: Madness\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -1290,11 +1284,10 @@
       "kind": "relic",
       "id": "relic-0072",
       "name": "Argent Return: Scathe",
-      "aliases": ["\"Argent Return: Scathe\""],
+      "aliases": [],
       "tokens": ["argent", "argent return scathe", "event", "return", "scathe", "sr"],
       "fields": {
         "name": ["Argent Return: Scathe", "argent-return-scathe"],
-        "alias": ["\"Argent Return: Scathe\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -1307,11 +1300,10 @@
       "kind": "relic",
       "id": "relic-0073",
       "name": "Argent Return: Sorrow",
-      "aliases": ["\"Argent Return: Sorrow\""],
+      "aliases": [],
       "tokens": ["argent", "argent return sorrow", "event", "return", "sorrow", "sr"],
       "fields": {
         "name": ["Argent Return: Sorrow", "argent-return-sorrow"],
-        "alias": ["\"Argent Return: Sorrow\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -1529,11 +1521,10 @@
       "kind": "relic",
       "id": "relic-0084",
       "name": "Caro Ring",
-      "aliases": ["\"Caro Ring\""],
+      "aliases": [],
       "tokens": ["caro", "caro ring", "other", "relic", "ring", "ssr"],
       "fields": {
         "name": ["Caro Ring", "caro-ring"],
-        "alias": ["\"Caro Ring\""],
         "facet": ["SSR", "Relic", "OTHER"]
       },
       "facets": {
@@ -1612,11 +1603,10 @@
       "kind": "relic",
       "id": "relic-0089",
       "name": "Chaos Ring",
-      "aliases": ["\"Chaos Ring\""],
+      "aliases": [],
       "tokens": ["chaos", "chaos ring", "other", "relic", "ring", "ssr"],
       "fields": {
         "name": ["Chaos Ring", "chaos-ring"],
-        "alias": ["\"Chaos Ring\""],
         "facet": ["SSR", "Relic", "OTHER"]
       },
       "facets": {
@@ -2999,29 +2989,29 @@
       "id": "relic-0171",
       "name": "Gateway of All Realms",
       "aliases": [
-        "\"Gateway of All Realms α\"",
-        "\"Gateway of All Realms β\"",
-        "\"Gateway of All Realms γ\"",
-        "\"Gateway of All Realms ε\"",
-        "\"Gateway of All Realms ζ\"",
-        "\"Gateway of All Realms θ\"",
-        "\"Gateway of All Realms ι\"",
-        "\"Gateway of All Realmsδ\"",
-        "\"Gateway of All Realmsη\""
+        "Gateway of All Realms α",
+        "Gateway of All Realms β",
+        "Gateway of All Realms γ",
+        "Gateway of All Realms ε",
+        "Gateway of All Realms ζ",
+        "Gateway of All Realms θ",
+        "Gateway of All Realms ι",
+        "Gateway of All Realmsδ",
+        "Gateway of All Realmsη"
       ],
       "tokens": ["all", "gateway", "gateway of all realms", "of", "pendulum", "realms", "sr"],
       "fields": {
         "name": ["Gateway of All Realms", "gateway-of-all-realms"],
         "alias": [
-          "\"Gateway of All Realms α\"",
-          "\"Gateway of All Realms β\"",
-          "\"Gateway of All Realms γ\"",
-          "\"Gateway of All Realms ε\"",
-          "\"Gateway of All Realms ζ\"",
-          "\"Gateway of All Realms θ\"",
-          "\"Gateway of All Realms ι\"",
-          "\"Gateway of All Realmsδ\"",
-          "\"Gateway of All Realmsη\""
+          "Gateway of All Realms α",
+          "Gateway of All Realms β",
+          "Gateway of All Realms γ",
+          "Gateway of All Realms ε",
+          "Gateway of All Realms ζ",
+          "Gateway of All Realms θ",
+          "Gateway of All Realms ι",
+          "Gateway of All Realmsδ",
+          "Gateway of All Realmsη"
         ],
         "facet": ["SR", "Pendulum"]
       },
@@ -3787,12 +3777,11 @@
     {
       "kind": "relic",
       "id": "relic-0214",
-      "name": "Memory\" and \"Dream",
-      "aliases": ["\"Memory\" and \"Dream\""],
+      "name": "\"Memory\" and \"Dream\"",
+      "aliases": [],
       "tokens": ["and", "dream", "event", "memory", "memory and dream", "ssr"],
       "fields": {
-        "name": ["Memory\" and \"Dream", "memory-and-dream"],
-        "alias": ["\"Memory\" and \"Dream\""],
+        "name": ["\"Memory\" and \"Dream\"", "memory-and-dream"],
         "facet": ["SSR", "Event"]
       },
       "facets": {
@@ -4344,11 +4333,10 @@
       "kind": "relic",
       "id": "relic-0244",
       "name": "Pure Silver Core: Birth",
-      "aliases": ["\"Pure Silver Core: Birth\""],
+      "aliases": [],
       "tokens": ["birth", "core", "event", "pure", "pure silver core birth", "silver", "sr"],
       "fields": {
         "name": ["Pure Silver Core: Birth", "pure-silver-core-birth"],
-        "alias": ["\"Pure Silver Core: Birth\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -4361,11 +4349,10 @@
       "kind": "relic",
       "id": "relic-0245",
       "name": "Pure Silver Core: Deceit",
-      "aliases": ["\"Pure Silver Core: Deceit\""],
+      "aliases": [],
       "tokens": ["core", "deceit", "event", "pure", "pure silver core deceit", "silver", "sr"],
       "fields": {
         "name": ["Pure Silver Core: Deceit", "pure-silver-core-deceit"],
-        "alias": ["\"Pure Silver Core: Deceit\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -4378,11 +4365,10 @@
       "kind": "relic",
       "id": "relic-0246",
       "name": "Pure Silver Core: Fear",
-      "aliases": ["\"Pure Silver Core: Fear\""],
+      "aliases": [],
       "tokens": ["core", "event", "fear", "pure", "pure silver core fear", "silver", "sr"],
       "fields": {
         "name": ["Pure Silver Core: Fear", "pure-silver-core-fear"],
-        "alias": ["\"Pure Silver Core: Fear\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -4395,11 +4381,10 @@
       "kind": "relic",
       "id": "relic-0247",
       "name": "Pure Silver Core: Heresy",
-      "aliases": ["\"Pure Silver Core: Heresy\""],
+      "aliases": [],
       "tokens": ["core", "event", "heresy", "pure", "pure silver core heresy", "silver", "sr"],
       "fields": {
         "name": ["Pure Silver Core: Heresy", "pure-silver-core-heresy"],
-        "alias": ["\"Pure Silver Core: Heresy\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -4412,11 +4397,10 @@
       "kind": "relic",
       "id": "relic-0248",
       "name": "Pure Silver Core: Madness",
-      "aliases": ["\"Pure Silver Core: Madness\""],
+      "aliases": [],
       "tokens": ["core", "event", "madness", "pure", "pure silver core madness", "silver", "sr"],
       "fields": {
         "name": ["Pure Silver Core: Madness", "pure-silver-core-madness"],
-        "alias": ["\"Pure Silver Core: Madness\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -4429,11 +4413,10 @@
       "kind": "relic",
       "id": "relic-0249",
       "name": "Pure Silver Core: Scathe",
-      "aliases": ["\"Pure Silver Core: Scathe\""],
+      "aliases": [],
       "tokens": ["core", "event", "pure", "pure silver core scathe", "scathe", "silver", "sr"],
       "fields": {
         "name": ["Pure Silver Core: Scathe", "pure-silver-core-scathe"],
-        "alias": ["\"Pure Silver Core: Scathe\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -4446,11 +4429,10 @@
       "kind": "relic",
       "id": "relic-0250",
       "name": "Pure Silver Core: Sorrow",
-      "aliases": ["\"Pure Silver Core: Sorrow\""],
+      "aliases": [],
       "tokens": ["core", "event", "pure", "pure silver core sorrow", "silver", "sorrow", "sr"],
       "fields": {
         "name": ["Pure Silver Core: Sorrow", "pure-silver-core-sorrow"],
-        "alias": ["\"Pure Silver Core: Sorrow\""],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -5200,11 +5182,10 @@
       "kind": "relic",
       "id": "relic-0293",
       "name": "Ultra Ring",
-      "aliases": ["\"Ultra Ring\""],
+      "aliases": [],
       "tokens": ["other", "relic", "ring", "ssr", "ultra", "ultra ring"],
       "fields": {
         "name": ["Ultra Ring", "ultra-ring"],
-        "alias": ["\"Ultra Ring\""],
         "facet": ["SSR", "Relic", "OTHER"]
       },
       "facets": {

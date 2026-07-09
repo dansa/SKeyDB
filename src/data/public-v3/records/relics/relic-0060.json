@@ -15,7 +15,7 @@
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0060",
   "rarity": "SSR",
-  "aliases": ["\"Aequor Ring\""],
+  "aliases": [],
   "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Aequor} Awakener gains their \"Dimensional Image\". For each {Aequor} Awakener in the team, increase the Relic Capacity by +1.",
   "descriptionArgs": {
     "Arg1": {
@@ -27,7 +27,7 @@
   "variants": [
     {
       "id": "relic-variant-0060",
-      "name": "\"Aequor Ring\"",
+      "name": "Aequor Ring",
       "label": "Other - Special",
       "variantType": "OTHER",
       "tier": "Special",

@@ -15,7 +15,7 @@
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0080",
   "rarity": "SR",
-  "aliases": ["\"Argent Return: Sorrow\""],
+  "aliases": [],
   "descriptionTemplate": "At the start of the battle, gain [Arg4] {STR}, and increase the Keyflare Cap by 100%. The Keyflare gained per point of Arithmetica consumed +100%. After using {Keyflare Rouse} or unleashing Posse, gain Temporary {STR} equal to 20% of the current {STR} and grant all Awakeners 20 Aliemus.",
   "descriptionArgs": {
     "Arg4": {
@@ -29,7 +29,7 @@
   "variants": [
     {
       "id": "relic-variant-0080",
-      "name": "\"Argent Return: Sorrow\"",
+      "name": "Argent Return: Sorrow",
       "label": "Event - Special",
       "variantType": "EVENT",
       "tier": "Special",

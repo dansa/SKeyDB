@@ -15,7 +15,7 @@
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0075",
   "rarity": "SR",
-  "aliases": ["\"Argent Return: Deceit\""],
+  "aliases": [],
   "descriptionTemplate": "At turn start, all Awakeners gain 25 Aliemus and draw a {derived:Insight} into their hand. After unleashing \"Exalt\" 4 times, remove the {Sealed} status from all Awakeners and grant them 50 Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -34,7 +34,7 @@
   "variants": [
     {
       "id": "relic-variant-0075",
-      "name": "\"Argent Return: Deceit\"",
+      "name": "Argent Return: Deceit",
       "label": "Event - Special",
       "variantType": "EVENT",
       "tier": "Special",

@@ -15,7 +15,7 @@
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0079",
   "rarity": "SR",
-  "aliases": ["\"Argent Return: Scathe\""],
+  "aliases": [],
   "descriptionTemplate": "Hand Limit +5. At turn start, draw 2 cards and gain 2 Arithmetica. Each time the deck is reset, gain [Arg3] {STR} and [Arg4] Temporary {Alert}, generate 1 of each Non-Derived Command Card for the highest Aliemus Awakener and place them into the Draw Pile, reducing their Arithmetica cost by 1.",
   "descriptionArgs": {
     "Arg3": {
@@ -36,7 +36,7 @@
   "variants": [
     {
       "id": "relic-variant-0079",
-      "name": "\"Argent Return: Scathe\"",
+      "name": "Argent Return: Scathe",
       "label": "Event - Special",
       "variantType": "EVENT",
       "tier": "Special",

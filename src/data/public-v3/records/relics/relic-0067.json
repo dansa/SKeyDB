@@ -15,7 +15,7 @@
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0074",
   "rarity": "SR",
-  "aliases": ["\"Argent Return: Birth\""],
+  "aliases": [],
   "descriptionTemplate": "Increase Final DMG by 250%. Each time damage is dealt, this bonus -50% (up to 5 times), while Shield Generation +10%. Resets every turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -38,7 +38,7 @@
   "variants": [
     {
       "id": "relic-variant-0074",
-      "name": "\"Argent Return: Birth\"",
+      "name": "Argent Return: Birth",
       "label": "Event - Special",
       "variantType": "EVENT",
       "tier": "Special",
