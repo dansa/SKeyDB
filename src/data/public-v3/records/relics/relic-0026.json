@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0026-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0026",
   "ownerAwakenerId": "awakener-0026",
   "ownerAwakenerName": "Karen",
   "rarity": "SSR",
-  "realm": "CHAOS",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Karen gains [Arg1] Aliemus. Playing {Silent Fealty} will return double the {Exhausted} Arithmetica, with a cooldown of [Arg2] {plural:[Arg2]|turn|turns}.",
   "descriptionArgs": {
     "Arg1": {
@@ -25,5 +28,29 @@
       "kind": "fixed",
       "value": "3"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0026",
+      "name": "Dimensional Image: Karen",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0026",
+      "ownerAwakenerName": "Karen",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Karen gains [Arg1] Aliemus. Playing \"Silent Fealty\" will return double the exhausted Arithmetica, with a cooldown of [Arg2] <plural value=\"[Arg2]\" singular=\"turn\" plural=\"turns\">.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "3"
+        }
+      }
+    }
+  ]
 }

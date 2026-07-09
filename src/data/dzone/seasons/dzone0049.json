@@ -14,7 +14,8 @@
         {
           "id": "wave-1",
           "name": "Wave 1",
-          "initialRelicIds": ["relic-9042", "relic-9054"],
+          "initialRelicIds": ["relic-0293", "relic-0269"],
+          "initialRelicVariantIds": ["relic-variant-0523", "relic-variant-0471"],
           "monsterIds": [
             "dzone-monster-0045",
             "dzone-monster-0236",
@@ -301,7 +302,8 @@
         {
           "id": "wave-2",
           "name": "Wave 2",
-          "initialRelicIds": ["relic-9042", "relic-9055"],
+          "initialRelicIds": ["relic-0293", "relic-0251"],
+          "initialRelicVariantIds": ["relic-variant-0523", "relic-variant-0425"],
           "monsterIds": [
             "dzone-monster-0230",
             "dzone-monster-0130",
@@ -681,7 +683,8 @@
         {
           "id": "wave-3",
           "name": "Wave 3",
-          "initialRelicIds": ["relic-9042", "relic-9061"],
+          "initialRelicIds": ["relic-0293", "relic-0155"],
+          "initialRelicVariantIds": ["relic-variant-0523", "relic-variant-0223"],
           "monsterIds": ["dzone-monster-0211"],
           "alerts": [
             {
@@ -839,7 +842,8 @@
         {
           "id": "wave-4",
           "name": "Wave 4",
-          "initialRelicIds": ["relic-9042", "relic-9060"],
+          "initialRelicIds": ["relic-0293", "relic-0299"],
+          "initialRelicVariantIds": ["relic-variant-0523", "relic-variant-0539"],
           "monsterIds": ["dzone-monster-0048", "dzone-monster-0120", "dzone-monster-0242"],
           "alerts": [
             {
@@ -967,7 +971,8 @@
         {
           "id": "wave-5",
           "name": "Wave 5",
-          "initialRelicIds": ["relic-9042", "relic-9059"],
+          "initialRelicIds": ["relic-0293", "relic-0170"],
+          "initialRelicVariantIds": ["relic-variant-0523", "relic-variant-0255"],
           "monsterIds": [
             "dzone-monster-0053",
             "dzone-monster-0046",

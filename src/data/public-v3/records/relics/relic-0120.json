@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0120",
+  "name": "Chrono Pendulum \"Stars\"",
+  "route": {
+    "slug": "chrono-pendulum-stars",
+    "canonicalPath": "/database/relics/chrono-pendulum-stars"
+  },
+  "assets": {
+    "icon": "asset-relic-0120-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0155",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "At the start of the first battle turn, add {Echoes of Lost Shadows} to your hand; on the second turn, add {Silver Key Resonance}; on the third turn, add {Echoes of the Past}.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0155",
+      "name": "Chrono Pendulum \"Stars\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the first battle turn, add <DerivativeCardKeywords_1:\"Echoes of Lost Shadows\"> to your hand; on the second turn, add <DerivativeCardKeywords_41:\"Silver Key Resonance\">; on the third turn, add <DerivativeCardKeywords_39:\"Echoes of the Past\">.",
+      "descriptionArgs": {}
+    }
+  ]
+}

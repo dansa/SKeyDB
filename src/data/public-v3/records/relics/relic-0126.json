@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0126",
+  "name": "Chrono Pendulum \"Tides\"",
+  "route": {
+    "slug": "chrono-pendulum-tides",
+    "canonicalPath": "/database/relics/chrono-pendulum-tides"
+  },
+  "assets": {
+    "icon": "asset-relic-0126-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0168",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Restore [Arg1] HP for every 5 hits. Increase {Tentacle DMG} by +[Arg2] for each lost HP. If HP loss exceeds 10% of Max HP, trigger all Tentacles once.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.04,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.015,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0168",
+      "name": "Chrono Pendulum \"Tides\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Restore [Arg1] HP for every 5 hits. Increase Tentacle DMG by +[Arg2] for each lost HP. If HP loss exceeds 10% of Max HP, trigger all Tentacles once.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.04,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
+}

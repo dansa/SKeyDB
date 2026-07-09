@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0240",
+  "name": "Principles of Aesthetics",
+  "route": {
+    "slug": "principles-of-aesthetics",
+    "canonicalPath": "/database/relics/principles-of-aesthetics"
+  },
+  "assets": {
+    "icon": "asset-relic-0240-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0408",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "Crit. DMG +15%. Guaranteed Critical Hits against Shielded enemies.",
+  "descriptionArgs": {},
+  "lore": "Wax Sculptor: The doctor's assistant, the undertaker's patron, and the provider for the grave worms.",
+  "variants": [
+    {
+      "id": "relic-variant-0408",
+      "name": "Principles of Aesthetics",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Crit. DMG +15%. Guaranteed Critical Hits against Shielded enemies.",
+      "descriptionArgs": {},
+      "lore": "Wax Sculptor: The doctor's assistant, the undertaker's patron, and the provider for the grave worms."
+    }
+  ]
+}

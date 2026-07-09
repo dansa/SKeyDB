@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0169",
+  "name": "Forgotten Prelude",
+  "route": {
+    "slug": "forgotten-prelude",
+    "canonicalPath": "/database/relics/forgotten-prelude"
+  },
+  "assets": {
+    "icon": "asset-relic-0169-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0251",
+  "rarity": "N",
+  "aliases": ["Forgotten Prelude+"],
+  "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {Counter} and [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.15,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "100"
+    }
+  },
+  "lore": "\"How foolish humans are, blindly believing simply because it's antiquated.\"",
+  "variants": [
+    {
+      "id": "relic-variant-0251",
+      "name": "Forgotten Prelude",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Use Keyflare Rouse and gain [Arg1] <RetaliateIconKeywords:Counter> and [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.15,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "100"
+        }
+      },
+      "lore": "\"How foolish humans are, blindly believing simply because it's antiquated.\""
+    },
+    {
+      "id": "relic-variant-0252",
+      "name": "Forgotten Prelude+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Use Keyflare Rouse and gain [Arg1] <RetaliateIconKeywords:Counter> and [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.3,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "200"
+        }
+      },
+      "lore": "\"How foolish humans are, blindly believing simply because it's antiquated.\""
+    },
+    {
+      "id": "relic-variant-0250",
+      "name": "Forgotten Prelude",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Every 5th time Shield is gained, also gain <RetaliateIconKeywords:Counter>, with the Counter value equal to [Arg1]% of the Shield gained.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "X",
+          "displayFormula": "80 * SpiritResearchDepthMultiplier"
+        }
+      },
+      "lore": "\"How foolish humans are, blindly believing simply because it's antiquated.\""
+    }
+  ]
+}

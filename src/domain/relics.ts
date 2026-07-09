@@ -11,33 +11,111 @@ import {getAwakeners} from './awakeners'
 import {resolveDescriptionTemplate} from './description-args'
 import {publicDescriptionArgsSchema} from './public-description-args.schema'
 
-const nonEmptyStringSchema = z.string().trim().min(1)
+export const RELIC_CATEGORIES = [
+  'ASTRAL_REIGN',
+  'FADED_LEGACY',
+  'DIMENSIONAL_IMAGE',
+  'EVENT',
+  'PENDULUM',
+  'OTHER',
+] as const
 
-const publicRelicRecordSchema = z
+export const RELIC_RARITIES = ['SSR', 'SR', 'N'] as const
+export const RELIC_TYPES = ['Relic', 'Pendulum', 'Event', 'Dimensional Image'] as const
+
+export type RelicCategory = (typeof RELIC_CATEGORIES)[number]
+export type RelicRarity = (typeof RELIC_RARITIES)[number]
+export type RelicType = (typeof RELIC_TYPES)[number]
+
+const nonEmptyStringSchema = z.string().trim().min(1)
+const relicIdSchema = z.string().regex(/^relic-\d{4}$/)
+const relicVariantIdSchema = z.string().regex(/^relic-variant-\d{4}$/)
+const awakenerIdSchema = z.string().regex(/^awakener-\d{4}$/)
+const relicCategorySchema = z.enum(RELIC_CATEGORIES)
+const relicRaritySchema = z.enum(RELIC_RARITIES)
+const relicTypeSchema = z.enum(RELIC_TYPES)
+const relicRouteSchema = z.object({
+  slug: nonEmptyStringSchema,
+  canonicalPath: nonEmptyStringSchema,
+})
+
+const publicRelicCatalogRecordSchema = z
   .object({
-    kind: z.literal('relic').optional(),
-    id: z.string().regex(/^relic-\d{4}$/),
-    relicType: nonEmptyStringSchema.optional(),
-    rarity: nonEmptyStringSchema.optional(),
+    kind: z.literal('relic'),
+    id: relicIdSchema,
     name: nonEmptyStringSchema,
-    route: z
-      .object({
-        slug: nonEmptyStringSchema,
-        canonicalPath: nonEmptyStringSchema,
-      })
-      .optional(),
+    route: relicRouteSchema,
     assets: z.record(nonEmptyStringSchema, nonEmptyStringSchema).default({}),
-    ownerAwakenerId: z
-      .string()
-      .regex(/^awakener-\d{4}$/)
-      .optional(),
+    aliases: z.array(nonEmptyStringSchema).default([]),
+    categories: z.array(relicCategorySchema).min(1),
+    defaultVariantId: relicVariantIdSchema,
+    relicType: relicTypeSchema,
+    rarity: relicRaritySchema.optional(),
+    variantCount: z.number().int().positive(),
+    ownerAwakenerId: awakenerIdSchema.optional(),
     ownerAwakenerName: nonEmptyStringSchema.optional(),
+  })
+  .loose()
+
+export const publicRelicVariantSchema = z
+  .object({
+    id: relicVariantIdSchema,
+    name: nonEmptyStringSchema,
+    label: nonEmptyStringSchema,
+    variantType: nonEmptyStringSchema,
+    tier: nonEmptyStringSchema,
+    category: relicCategorySchema.nullish(),
+    rarity: relicRaritySchema.optional(),
+    ownerAwakenerId: awakenerIdSchema.optional(),
+    ownerAwakenerName: nonEmptyStringSchema.optional(),
+    mechanicOwner: nonEmptyStringSchema.optional(),
     descriptionTemplate: z.string().default(''),
     descriptionArgs: publicDescriptionArgsSchema.default({}),
     lore: z.string().optional(),
   })
   .loose()
 
+export const publicRelicRecordSchema = publicRelicCatalogRecordSchema
+  .extend({
+    schemaVersion: z.literal(3),
+    descriptionTemplate: z.string().default(''),
+    descriptionArgs: publicDescriptionArgsSchema.default({}),
+    lore: z.string().optional(),
+    variants: z.array(publicRelicVariantSchema).min(1),
+  })
+  .superRefine((record, ctx) => {
+    if (record.variantCount !== record.variants.length) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'variantCount must match variants.length',
+        path: ['variantCount'],
+      })
+    }
+
+    const variantIds = new Set(record.variants.map((variant) => variant.id))
+    if (variantIds.size !== record.variants.length) {
+      ctx.addIssue({code: 'custom', message: 'variant ids must be unique', path: ['variants']})
+    }
+    if (!variantIds.has(record.defaultVariantId)) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'defaultVariantId must reference a family variant',
+        path: ['defaultVariantId'],
+      })
+    }
+
+    for (const [index, variant] of record.variants.entries()) {
+      if (variant.category && !record.categories.includes(variant.category)) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'variant category must be included in family categories',
+          path: ['variants', index, 'category'],
+        })
+      }
+    }
+  })
+
+export type PublicRelicVariant = z.infer<typeof publicRelicVariantSchema>
 export type PublicRelicRecord = z.infer<typeof publicRelicRecordSchema>
 
 function renderRelicDescription(
@@ -53,6 +131,13 @@ function renderRelicDescription(
 export interface Relic {
   id: string
   kind: 'PORTRAIT' | 'GENERIC'
+  relicType: RelicType
+  categories: RelicCategory[]
+  rarity?: RelicRarity
+  aliases: string[]
+  variantCount: number
+  defaultVariantId: string
+  route: z.infer<typeof relicRouteSchema>
   ownerAwakenerId?: string
   ownerAwakenerName?: string
   assetId: string
@@ -66,16 +151,27 @@ export type PortraitRelic = Relic & {
   ownerAwakenerId: string
 }
 
+function isDimensionalImageCategory(categories: RelicCategory[]): boolean {
+  return categories.includes('DIMENSIONAL_IMAGE')
+}
+
 const parsedRelics: Relic[] = getPublicRelicCatalogRecords().map((record): Relic => {
-  const relic = publicRelicRecordSchema.parse(record)
+  const relic = publicRelicCatalogRecordSchema.parse(record)
   return {
     id: relic.id,
-    kind: relic.relicType === 'DIMENSIONAL_IMAGE' ? 'PORTRAIT' : 'GENERIC',
+    kind: isDimensionalImageCategory(relic.categories) ? 'PORTRAIT' : 'GENERIC',
+    relicType: relic.relicType,
+    categories: relic.categories,
+    rarity: relic.rarity,
+    aliases: relic.aliases,
+    variantCount: relic.variantCount,
+    defaultVariantId: relic.defaultVariantId,
+    route: relic.route,
     ownerAwakenerId: relic.ownerAwakenerId,
     ownerAwakenerName: relic.ownerAwakenerName,
     assetId: getRelicPublicAssetId(relic.id),
     name: relic.name,
-    description: renderRelicDescription(relic.descriptionTemplate, relic.descriptionArgs),
+    description: '',
   }
 })
 
@@ -162,9 +258,34 @@ export function getPortraitRelicByAwakenerId(
   return portraitRelicByAwakenerId.get(awakenerId)
 }
 
+export function getRelicVariantById(
+  record: PublicRelicRecord,
+  variantId: string,
+): PublicRelicVariant | undefined {
+  return record.variants.find((variant) => variant.id === variantId)
+}
+
+export function getDefaultRelicVariant(record: PublicRelicRecord): PublicRelicVariant {
+  const variant = getRelicVariantById(record, record.defaultVariantId)
+  if (!variant) {
+    throw new Error(
+      `Relic family "${record.id}" is missing default variant "${record.defaultVariantId}".`,
+    )
+  }
+  return variant
+}
+
 export async function loadRelicRecordById(relicId: string): Promise<PublicRelicRecord | undefined> {
   const record = await loadPublicRecord('relics', relicId)
   return record ? publicRelicRecordSchema.parse(record) : undefined
+}
+
+export async function loadRelicVariantById(
+  relicId: string,
+  variantId: string,
+): Promise<PublicRelicVariant | undefined> {
+  const record = await loadRelicRecordById(relicId)
+  return record ? getRelicVariantById(record, variantId) : undefined
 }
 
 export async function loadRelicDescriptionById(relicId: string): Promise<string> {

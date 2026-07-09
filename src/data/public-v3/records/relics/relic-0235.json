@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0235",
+  "name": "Phantom Hand",
+  "route": {
+    "slug": "phantom-hand",
+    "canonicalPath": "/database/relics/phantom-hand"
+  },
+  "assets": {
+    "icon": "asset-relic-0235-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0398",
+  "rarity": "N",
+  "aliases": ["Phantom Hand+"],
+  "descriptionTemplate": "At the start of the battle, all enemies lose [Arg1] Temporary {STR▼}. Using {Crimson Furnace} will also trigger this effect, but has a 3-turn cooldown.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "The perfect tool for killing, looting, and scratching.",
+  "variants": [
+    {
+      "id": "relic-variant-0398",
+      "name": "Phantom Hand",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of the battle, all enemies lose [Arg1] Temporary<ExhaustionIconKeywords:STR>. Using \"Crimson Furnace\" will also trigger this effect, but has a 3-turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.06,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The perfect tool for killing, looting, and scratching."
+    },
+    {
+      "id": "relic-variant-0399",
+      "name": "Phantom Hand+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At the start of the battle, all enemies lose [Arg1] Temporary <ExhaustionIconKeywords:STR>. Using \"Crimson Furnace\" will also trigger this effect, but has a 3-turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.12,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The perfect tool for killing, looting, and scratching."
+    },
+    {
+      "id": "relic-variant-0397",
+      "name": "Phantom Hand",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "For each <DevouredIconKeywords:Devour>, steal [Arg1] Temporary <PowerIconKeywords:STR> from all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The perfect tool for killing, looting, and scratching."
+    }
+  ]
+}

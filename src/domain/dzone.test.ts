@@ -18,7 +18,7 @@ import {
   resolveDzoneWaveViewModel,
 } from './dzone'
 import {getDzoneSeasonRealmName} from './dzone-season-realm'
-import {loadRelicRecordById} from './relics'
+import {getRelicVariantById, loadRelicRecordById} from './relics'
 
 const DZONE_REALM_DISPLAY_NAMES = {
   AEQUOR: 'Aequor Ring',
@@ -186,11 +186,14 @@ describe('D-zone domain boundary', () => {
     }
   })
 
-  it('preserves initial relic ids without resolving relic records', async () => {
+  it('preserves initial relic family and variant ids without resolving relic records', async () => {
     const latestSeason = await loadLatestDzoneSeason()
 
     expect((await loadLatestDzoneWaveViewModels())[0]?.initialRelicIds).toEqual(
       latestSeason.waves[0]?.initialRelicIds,
+    )
+    expect((await loadLatestDzoneWaveViewModels())[0]?.initialRelicVariantIds).toEqual(
+      latestSeason.waves[0]?.initialRelicVariantIds,
     )
   })
 
@@ -233,19 +236,20 @@ describe('D-zone domain boundary', () => {
     }
   })
 
-  it('resolves every initial relic to a public relic detail record', async () => {
-    const relicIds = new Set(
-      (await loadDzoneSeasons()).flatMap((season) =>
-        season.waves.flatMap((wave) => wave.initialRelicIds),
-      ),
-    )
+  it('resolves every initial relic family and exact variant', async () => {
+    for (const season of await loadDzoneSeasons()) {
+      for (const wave of season.waves) {
+        for (const [index, relicId] of wave.initialRelicIds.entries()) {
+          const variantId = wave.initialRelicVariantIds[index]
+          const record = await loadRelicRecordById(relicId)
 
-    for (const relicId of relicIds) {
-      await expect(loadRelicRecordById(relicId), relicId).resolves.toMatchObject({
-        id: relicId,
-        kind: 'relic',
-        relicType: 'D-Zone Initial Relic',
-      })
+          expect(record, `${season.id} ${wave.id} family ${relicId}`).toBeDefined()
+          expect(
+            record && variantId ? getRelicVariantById(record, variantId) : undefined,
+            `${season.id} ${wave.id} variant ${variantId}`,
+          ).toMatchObject({id: variantId})
+        }
+      }
     }
   })
 })

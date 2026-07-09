@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0025-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0025",
   "ownerAwakenerId": "awakener-0025",
   "ownerAwakenerName": "Jenkin",
   "rarity": "SSR",
-  "realm": "ULTRA",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Jenkin gains [Arg1] Aliemus, with Final DMG +[Arg2]%. The Base DMG and DMG growth of {Get 'em! Brown!} are +[Arg3]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -31,5 +34,35 @@
       "value": "200",
       "suffix": "%"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0025",
+      "name": "Dimensional Image: Jenkin",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0025",
+      "ownerAwakenerName": "Jenkin",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Jenkin gains [Arg1] Aliemus, with Final DMG +[Arg2]%. The Base DMG and DMG growth of \"Get 'em! Brown!\" are +[Arg3]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "200",
+          "suffix": "%"
+        }
+      }
+    }
+  ]
 }

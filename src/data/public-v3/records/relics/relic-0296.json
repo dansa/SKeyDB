@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0296",
+  "name": "Veil of the Nameless Deity",
+  "route": {
+    "slug": "veil-of-the-nameless-deity",
+    "canonicalPath": "/database/relics/veil-of-the-nameless-deity"
+  },
+  "assets": {
+    "icon": "asset-relic-0296-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0529",
+  "rarity": "N",
+  "aliases": ["Veil of the Nameless Deity+"],
+  "descriptionTemplate": "All Awakeners gain [Arg1] Aliemus when 4 different Awakeners' Command Cards are played consecutively in the same turn. 3-turn cooldown.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "20"
+    }
+  },
+  "lore": "Do not look directly at the gods.",
+  "variants": [
+    {
+      "id": "relic-variant-0529",
+      "name": "Veil of the Nameless Deity",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "All Awakeners gain [Arg1] Aliemus when 4 different Awakeners' Command Cards are played consecutively in the same turn. 3-turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20"
+        }
+      },
+      "lore": "Do not look directly at the gods."
+    },
+    {
+      "id": "relic-variant-0530",
+      "name": "Veil of the Nameless Deity+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "All Awakeners gain [Arg1] Aliemus when 4 different Awakeners' Command Cards are played consecutively in the same turn. 3-turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "40"
+        }
+      },
+      "lore": "Do not look directly at the gods."
+    },
+    {
+      "id": "relic-variant-0528",
+      "name": "Veil of the Nameless Deity",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "After Exalt, the corresponding Awakener gains 10 Aliemus and [Arg1] Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.04,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Do not look directly at the gods."
+    }
+  ]
+}

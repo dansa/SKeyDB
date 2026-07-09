@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0237",
+  "name": "Pocketwatch Mirror",
+  "route": {
+    "slug": "pocketwatch-mirror",
+    "canonicalPath": "/database/relics/pocketwatch-mirror"
+  },
+  "assets": {
+    "icon": "asset-relic-0237-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0403",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "Gain 3 Arithmetica in the first turn of each battle.",
+  "descriptionArgs": {},
+  "lore": "Memories solidified in the past, buried deep in the black depths.",
+  "variants": [
+    {
+      "id": "relic-variant-0403",
+      "name": "Pocketwatch Mirror",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Gain 3 Arithmetica in the first turn of each battle.",
+      "descriptionArgs": {},
+      "lore": "Memories solidified in the past, buried deep in the black depths."
+    }
+  ]
+}

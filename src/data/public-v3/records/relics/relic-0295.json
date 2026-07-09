@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0295",
+  "name": "Unified Evolution Reagent",
+  "route": {
+    "slug": "unified-evolution-reagent",
+    "canonicalPath": "/database/relics/unified-evolution-reagent"
+  },
+  "assets": {
+    "icon": "asset-relic-0295-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0527",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Obtain 250 Keyflare at turn start.\nAfter using {Keyflare Rouse}, place 1 {Silver Key Gleam} into hand.\n{Discover} 1 Awakener Support card at turn start.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0527",
+      "name": "Unified Evolution Reagent",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Obtain 250 Keyflare at turn start.\nAfter using Keyflare Rouse, place 1 <DerivativeCardKeywords_129:\"Silver Key Gleam\"> into hand.\nDiscover 1 Awakener Support card at turn start.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      }
+    }
+  ]
+}

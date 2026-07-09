@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0111",
+  "name": "Chrono Pendulum \"Parsing\"",
+  "route": {
+    "slug": "chrono-pendulum-parsing",
+    "canonicalPath": "/database/relics/chrono-pendulum-parsing"
+  },
+  "assets": {
+    "icon": "asset-relic-0111-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0136",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Every time you lose HP, Awakener with the lowest Aliemus gains 10 Aliemus. Every 5 time you lose HP, recover 20% of the lost HP.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0136",
+      "name": "Chrono Pendulum \"Parsing\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Every time you lose HP, Awakener with the lowest Aliemus gains 10 Aliemus. Every 5 time you lose HP, recover 20% of the lost HP.",
+      "descriptionArgs": {}
+    }
+  ]
+}

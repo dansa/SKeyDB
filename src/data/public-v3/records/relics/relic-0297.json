@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0297",
+  "name": "Vision Corrector",
+  "route": {
+    "slug": "vision-corrector",
+    "canonicalPath": "/database/relics/vision-corrector"
+  },
+  "assets": {
+    "icon": "asset-relic-0297-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0532",
+  "rarity": "N",
+  "aliases": ["Vision Corrector+"],
+  "descriptionTemplate": "Increase the DMG of the first five attacks dealt each turn by [Arg1]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    }
+  },
+  "lore": "Someone once discovered the truth through it.",
+  "variants": [
+    {
+      "id": "relic-variant-0532",
+      "name": "Vision Corrector",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Increase the DMG of the first five attacks dealt each turn by [Arg1]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        }
+      },
+      "lore": "Someone once discovered the truth through it."
+    },
+    {
+      "id": "relic-variant-0533",
+      "name": "Vision Corrector+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Increase the DMG of the first five attacks dealt each turn by [Arg1]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        }
+      },
+      "lore": "Someone once discovered the truth through it."
+    },
+    {
+      "id": "relic-variant-0531",
+      "name": "Vision Corrector",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Your fifth attack always deals Critical Hit.",
+      "descriptionArgs": {},
+      "lore": "Someone once discovered the truth through it."
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0138",
+  "name": "Cursed Stele",
+  "route": {
+    "slug": "cursed-stele",
+    "canonicalPath": "/database/relics/cursed-stele"
+  },
+  "assets": {
+    "icon": "asset-relic-0138-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0194",
+  "aliases": ["Sinful: Cursed Stele"],
+  "descriptionTemplate": "Upon pickup, gain 75 Black Sigil. Choose 1 Relic to transform it into a random Cursed Relic.",
+  "descriptionArgs": {},
+  "lore": "You heard the call of the deep sea while touching this stele.",
+  "variants": [
+    {
+      "id": "relic-variant-0194",
+      "name": "Cursed Stele",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "Upon pickup, gain 75 Black Sigil. Choose 1 Relic to transform it into a random Cursed Relic.",
+      "descriptionArgs": {},
+      "lore": "You heard the call of the deep sea while touching this stele."
+    },
+    {
+      "id": "relic-variant-0195",
+      "name": "Sinful: Cursed Stele",
+      "label": "Faded Legacy - Sinful",
+      "variantType": "SINFUL",
+      "tier": "Sinful",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "Upon pickup, transform into a random Sinful Relic (excluding itself) and gain 75 Black Sigil.",
+      "descriptionArgs": {},
+      "lore": "Listen, someone is calling from within."
+    }
+  ]
+}

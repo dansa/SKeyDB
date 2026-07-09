@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0140",
+  "name": "Deceased's Chrono",
+  "route": {
+    "slug": "deceaseds-chrono",
+    "canonicalPath": "/database/relics/deceaseds-chrono"
+  },
+  "assets": {
+    "icon": "asset-relic-0140-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0200",
+  "rarity": "N",
+  "aliases": ["Deceased's Chrono+"],
+  "descriptionTemplate": "When \"Defense\" is played, gain [Arg1] Temporary {Counter}, triggers a maximum of 3 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.175,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Carrying memories and sorrow, moving toward the unknown.",
+  "variants": [
+    {
+      "id": "relic-variant-0200",
+      "name": "Deceased's Chrono",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "When \"Defense\" is played, gain [Arg1] Temporary <RetaliateIconKeywords:Counter>, triggers a maximum of 3 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.175,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Carrying memories and sorrow, moving toward the unknown."
+    },
+    {
+      "id": "relic-variant-0201",
+      "name": "Deceased's Chrono+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "When \"Defense\" is played, gain [Arg1] Temporary <RetaliateIconKeywords:Counter>, triggers a maximum of 3 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.35,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Carrying memories and sorrow, moving toward the unknown."
+    },
+    {
+      "id": "relic-variant-0199",
+      "name": "Deceased's Chrono",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Every time you lose HP, gain [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <RetaliateIconKeywords:Counter>. If this is the 3rd trigger in a single turn, deal Counter DMG to all enemies 1 time.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Carrying memories and sorrow, moving toward the unknown."
+    }
+  ]
+}

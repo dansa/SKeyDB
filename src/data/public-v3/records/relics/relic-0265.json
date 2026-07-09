@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0265",
+  "name": "Severed Head Worm",
+  "route": {
+    "slug": "severed-head-worm",
+    "canonicalPath": "/database/relics/severed-head-worm"
+  },
+  "assets": {
+    "icon": "asset-relic-0265-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0463",
+  "rarity": "N",
+  "aliases": ["Severed Head Worm+"],
+  "descriptionTemplate": "At turn end, if in {Surging Tides} stance, gain [Arg1] {Tentacle DMG}, 3 turn cooldown.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.05,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "As long as our brains remain a mystery, it's no big deal if they're filled with tentacles.",
+  "variants": [
+    {
+      "id": "relic-variant-0463",
+      "name": "Severed Head Worm",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At turn end, if in Surging Tides stance, gain [Arg1] <TentacleInjurieIconKeywords:Tentacle DMG>, 3 turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.05,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "As long as our brains remain a mystery, it's no big deal if they're filled with tentacles."
+    },
+    {
+      "id": "relic-variant-0464",
+      "name": "Severed Head Worm+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At turn end, if in Surging Tides stance, gain [Arg1] <TentacleInjurieIconKeywords:Tentacle DMG>, 3 turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.1,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "As long as our brains remain a mystery, it's no big deal if they're filled with tentacles."
+    },
+    {
+      "id": "relic-variant-0462",
+      "name": "Severed Head Worm",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "For every 6 Command Cards played, <TentacleInjurieIconKeywords:Tentacle DMG> +[Arg1].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "As long as our brains remain a mystery, it's no big deal if they're filled with tentacles."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0133",
+  "name": "Chronometric Device",
+  "route": {
+    "slug": "chronometric-device",
+    "canonicalPath": "/database/relics/chronometric-device"
+  },
+  "assets": {
+    "icon": "asset-relic-0133-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0186",
+  "rarity": "N",
+  "aliases": ["Chronometric Device+"],
+  "descriptionTemplate": "After releasing the second \"Posse\" each turn, gain [Arg1] Keyflare, and all Awakeners gain [Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "250"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "lore": "One of the most sinister inventions in human history.",
+  "variants": [
+    {
+      "id": "relic-variant-0186",
+      "name": "Chronometric Device",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After releasing the second \"Posse\" each turn, gain [Arg1] Keyflare, and all Awakeners gain [Arg2] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "250"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      },
+      "lore": "One of the most sinister inventions in human history."
+    },
+    {
+      "id": "relic-variant-0187",
+      "name": "Chronometric Device+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After releasing the second \"Posse\" each turn, gain [Arg1] Keyflare, and all Awakeners gain [Arg2] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "500"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10"
+        }
+      },
+      "lore": "One of the most sinister inventions in human history."
+    },
+    {
+      "id": "relic-variant-0185",
+      "name": "Chronometric Device",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Whenever consecutive cards of the same Awakener are played, that Awakener gains 8 Aliemus.",
+      "descriptionArgs": {},
+      "lore": "One of the most sinister inventions in human history."
+    }
+  ]
+}

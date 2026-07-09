@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0039-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0039",
   "ownerAwakenerId": "awakener-0039",
   "ownerAwakenerName": "Pandia",
   "rarity": "SSR",
-  "realm": "CHAOS",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Pandia gains [Arg1] Aliemus. After Pandia performs an Exalt, she gains Permanent {Counter} equivalent to [Arg2]% of her Temporary {Counter}.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,5 +29,30 @@
       "value": "20",
       "suffix": "%"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0039",
+      "name": "Dimensional Image: Pandia",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0039",
+      "ownerAwakenerName": "Pandia",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Pandia gains [Arg1] Aliemus. After Pandia performs an Exalt, she gains Permanent Counter equivalent to [Arg2]% of her Temporary Counter.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "20",
+          "suffix": "%"
+        }
+      }
+    }
+  ]
 }

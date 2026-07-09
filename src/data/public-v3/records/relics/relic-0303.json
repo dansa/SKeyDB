@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0303",
+  "name": "Winner's Cup",
+  "route": {
+    "slug": "winners-cup",
+    "canonicalPath": "/database/relics/winners-cup"
+  },
+  "assets": {
+    "icon": "asset-relic-0303-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 4,
+  "defaultVariantId": "relic-variant-0545",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Draw 2 cards and gain [Arg1] Keyflare when losing the last card in your hand. {Tentacle DMG} +[Arg2] each time the deck is reset.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "350"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.05,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Today, we will forget fear, forget pain, and just enjoy the carnival.",
+  "variants": [
+    {
+      "id": "relic-variant-0545",
+      "name": "Winner's Cup",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Draw 2 cards and gain [Arg1] Keyflare when losing the last card in your hand. Tentacle DMG +[Arg2] each time the deck is reset.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "350"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.05,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Today, we will forget fear, forget pain, and just enjoy the carnival."
+    },
+    {
+      "id": "relic-variant-0546",
+      "name": "Winner's Cup",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "All Awakeners' Crit. Rate +30%. At the start of odd-numbered turns, all enemies lose 25% of their current HP. When team's HP percentage is lower than the enemy's, Final DMG+50%; when team's HP percentage is higher than the enemy's, gain 35 Aliemus after using Exalt.",
+      "descriptionArgs": {},
+      "lore": "Today, we will forget fear, forget pain, and just enjoy the carnival."
+    },
+    {
+      "id": "relic-variant-0547",
+      "name": "Winner's Cup",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "For every 3 Command Cards played, gain 1 Arithmetica and draw 1 card. Each instance of Active DMG increases Temporary Final DMG by 2%, up to 50%.",
+      "descriptionArgs": {},
+      "lore": "Today, we will forget fear, forget pain, and just enjoy the carnival."
+    },
+    {
+      "id": "relic-variant-0548",
+      "name": "Winner's Cup",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Max Arithmetica +2. Unconsumed Arithmetica can be retained until the next turn. If more than 2 Arithmetica is retained, all Awakeners gain 20 Aliemus at the start of the next turn; if more than 4 Arithmetica is retained, the base damage dealt in the next turn +100%.",
+      "descriptionArgs": {},
+      "lore": "Today, we will forget fear, forget pain, and just enjoy the carnival."
+    }
+  ]
+}

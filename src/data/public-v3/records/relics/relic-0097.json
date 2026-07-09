@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0097",
+  "name": "Chrono Pendulum \"Deepen\"",
+  "route": {
+    "slug": "chrono-pendulum-deepen",
+    "canonicalPath": "/database/relics/chrono-pendulum-deepen"
+  },
+  "assets": {
+    "icon": "asset-relic-0097-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0122",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Crit. Rate +25%; double the first DMG dealt each turn.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0122",
+      "name": "Chrono Pendulum \"Deepen\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Crit. Rate +25%; double the first DMG dealt each turn.",
+      "descriptionArgs": {}
+    }
+  ]
+}

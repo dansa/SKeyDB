@@ -176,7 +176,7 @@ describe('DZonePage', () => {
 
     await screen.findByRole('heading', {level: 1, name: 'D-Effect Zone'})
     fireEvent.click(
-      screen.getByRole('button', {name: /View Wave 1 relic details for "Aequor Ring"/i}),
+      screen.getByRole('button', {name: /View Wave 1 relic details for Aequor Ring/i}),
     )
 
     const dialog = await screen.findByRole('dialog', {name: /database reference details/i})

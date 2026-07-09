@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0228",
+  "name": "Ogai's Notes",
+  "route": {
+    "slug": "ogais-notes",
+    "canonicalPath": "/database/relics/ogais-notes"
+  },
+  "assets": {
+    "icon": "asset-relic-0228-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0380",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At the Start of battle, Shuffle a \"{Forbidden Truth}\" into the deck. Draw+2 each turn. After playing a Command Card, randomly grant {Perception Warp} to 2 Command Cards in the opponent's hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "The record contains 70 Mason prime numbers.",
+  "variants": [
+    {
+      "id": "relic-variant-0380",
+      "name": "Ogai's Notes",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "At the Start of battle, Shuffle a \"<DerivativeCardKeywords_134:Forbidden Truth>\" into the deck. Draw+2 each turn. After playing a Command Card, randomly grant <ErosionColorInkKeywords:Perception Warp> to 2 Command Cards in the opponent's hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "The record contains 70 Mason prime numbers."
+    }
+  ]
+}

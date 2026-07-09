@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0167",
+  "name": "Foreign Stamp Album",
+  "route": {
+    "slug": "foreign-stamp-album",
+    "canonicalPath": "/database/relics/foreign-stamp-album"
+  },
+  "assets": {
+    "icon": "asset-relic-0167-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0245",
+  "rarity": "N",
+  "aliases": ["Foreign Stamp Album+"],
+  "descriptionTemplate": "After using {Keyflare Rouse}, grant {Retain} and {Prepare} to the [Arg1] {plural:[Arg1]|card|cards} with the highest Arithmetica in your hand before the next play, and gain [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "100"
+    }
+  },
+  "lore": "Quantified longing.",
+  "variants": [
+    {
+      "id": "relic-variant-0245",
+      "name": "Foreign Stamp Album",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After using Keyflare Rouse, grant Retain and Prepare to the [Arg1] <plural value=\"[Arg1]\" singular=\"card\" plural=\"cards\"> with the highest Arithmetica in your hand before the next play, and gain [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "100"
+        }
+      },
+      "lore": "Quantified longing."
+    },
+    {
+      "id": "relic-variant-0246",
+      "name": "Foreign Stamp Album+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After using Keyflare Rouse, grant Retain and Prepare to the [Arg1] <plural value=\"[Arg1]\" singular=\"card\" plural=\"cards\"> with the highest Arithmetica in your hand before the next play, and gain [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "4"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "200"
+        }
+      },
+      "lore": "Quantified longing."
+    },
+    {
+      "id": "relic-variant-0244",
+      "name": "Foreign Stamp Album",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "When a Buff Card, Symptom Card, or State Card, the Awakener with the lowest Aliemus gains 10 Aliemus.",
+      "descriptionArgs": {},
+      "lore": "Quantified longing."
+    }
+  ]
+}

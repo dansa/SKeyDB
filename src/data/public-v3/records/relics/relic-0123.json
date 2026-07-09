@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0123",
+  "name": "Chrono Pendulum \"Submersion\"",
+  "route": {
+    "slug": "chrono-pendulum-submersion",
+    "canonicalPath": "/database/relics/chrono-pendulum-submersion"
+  },
+  "assets": {
+    "icon": "asset-relic-0123-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0158",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "After triggering an Exalt, the next Command Card played takes effect twice.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0158",
+      "name": "Chrono Pendulum \"Submersion\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "After triggering an Exalt, the next Command Card played takes effect twice.",
+      "descriptionArgs": {}
+    }
+  ]
+}

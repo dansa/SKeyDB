@@ -6,10 +6,13 @@ import {getAwakeners} from './awakeners'
 import {resolveDescriptionTemplate} from './description-args'
 import type {PublicDescriptionArg} from './public-description-args'
 import {
+  getDefaultRelicVariant,
   getPortraitRelicByAwakenerId,
   getPortraitRelics,
   getRelics,
+  getRelicVariantById,
   loadRelicDescriptionById,
+  loadRelicRecordById,
 } from './relics'
 
 function renderPublicRecordDescription(record: Awaited<ReturnType<typeof loadPublicRecord>>) {
@@ -28,9 +31,15 @@ describe('getRelics', () => {
   it('returns parsed public V3 relics with stable ids', () => {
     const relics = getRelics()
     expect(relics.length).toBeGreaterThan(0)
-    expect(relics[0]).toEqual({
+    expect(relics[0]).toMatchObject({
       id: expect.stringMatching(/^relic-\d{4}$/),
       kind: expect.stringMatching(/^(PORTRAIT|GENERIC)$/),
+      relicType: expect.any(String),
+      categories: expect.any(Array),
+      rarity: expect.any(String),
+      aliases: expect.any(Array),
+      variantCount: expect.any(Number),
+      defaultVariantId: expect.stringMatching(/^relic-variant-\d{4}$/),
       ownerAwakenerId: expect.stringMatching(/^awakener-\d{4}$/),
       ownerAwakenerName: expect.any(String),
       assetId: expect.any(String),
@@ -54,6 +63,64 @@ describe('getRelics', () => {
     const relics = getRelics()
     expect(relics.every((relic) => !relic.description.includes('[Arg'))).toBe(true)
     expect(relics.every((relic) => !relic.description.includes('<'))).toBe(true)
+  })
+})
+
+describe('relic family variants', () => {
+  it('parses every lazy family detail with globally unique variants', async () => {
+    const variantIds = new Set<string>()
+
+    for (const family of getRelics()) {
+      const record = await loadRelicRecordById(family.id)
+      expect(record, family.id).toBeDefined()
+      expect(record?.variants, family.id).toHaveLength(family.variantCount)
+
+      for (const variant of record?.variants ?? []) {
+        expect(variantIds.has(variant.id), variant.id).toBe(false)
+        variantIds.add(variant.id)
+      }
+    }
+
+    expect(variantIds.size).toBe(553)
+  })
+
+  it('loads grouped family variants with a valid default', async () => {
+    const malignantChild = await loadRelicRecordById('relic-0207')
+
+    expect(malignantChild).toMatchObject({
+      id: 'relic-0207',
+      name: 'Malignant Child',
+      categories: ['ASTRAL_REIGN', 'FADED_LEGACY'],
+      variantCount: 5,
+    })
+    expect(malignantChild?.variants).toHaveLength(5)
+    expect(malignantChild && getDefaultRelicVariant(malignantChild).id).toBe(
+      malignantChild?.defaultVariantId,
+    )
+  })
+
+  it('keeps tightened blessed and sinful variants under Omen Ritual Bird', async () => {
+    const omenRitualBird = await loadRelicRecordById('relic-0229')
+
+    expect(omenRitualBird?.variants).toHaveLength(4)
+    expect(omenRitualBird?.variants.map((variant) => variant.name)).toEqual(
+      expect.arrayContaining([
+        'Omen Ritual Bird',
+        'Blessed: Omen Ritual Bird',
+        'Sinful: Omen Ritual Bird',
+      ]),
+    )
+  })
+
+  it('resolves exact variants within a family', async () => {
+    const prophetsLamp = await loadRelicRecordById('relic-0241')
+
+    expect(prophetsLamp && getRelicVariantById(prophetsLamp, 'relic-variant-0411')).toMatchObject({
+      id: 'relic-variant-0411',
+      name: "Prophet's Lamp+",
+      category: 'ASTRAL_REIGN',
+      tier: 'Gold',
+    })
   })
 })
 

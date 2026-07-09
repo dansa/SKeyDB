@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0185",
+  "name": "Hyperstring Pocketwatch",
+  "route": {
+    "slug": "hyperstring-pocketwatch",
+    "canonicalPath": "/database/relics/hyperstring-pocketwatch"
+  },
+  "assets": {
+    "icon": "asset-relic-0185-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0292",
+  "rarity": "N",
+  "aliases": ["Hyperstring Pocketwatch+"],
+  "descriptionTemplate": "Gain [Arg1] Shield from {Annihilation}, with a cooldown of 3 turns.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.2,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "\"Oh no, the pocket watch has stopped.\"",
+  "variants": [
+    {
+      "id": "relic-variant-0292",
+      "name": "Hyperstring Pocketwatch",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Gain [Arg1] Shield from Annihilation, with a cooldown of 3 turns.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.2,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "\"Oh no, the pocket watch has stopped.\""
+    },
+    {
+      "id": "relic-variant-0293",
+      "name": "Hyperstring Pocketwatch+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Gain [Arg1] Shield from Annihilation, with a cooldown of 3 turns.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.4,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "\"Oh no, the pocket watch has stopped.\""
+    },
+    {
+      "id": "relic-variant-0291",
+      "name": "Hyperstring Pocketwatch",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Enter the Ultra Round to remove <WeaknessIconKeywords:Weakness> and <FragileIconKeywords:Fragile> state from self, and Inflict <WeaknessIconKeywords:Weakness> and <VulnerabilityIconKeywords:Vulnerable> state to all enemies for 3 turns. this turn, all Awakener Final DMG +15%.",
+      "descriptionArgs": {},
+      "lore": "\"Oh no, the pocket watch has stopped.\""
+    }
+  ]
+}

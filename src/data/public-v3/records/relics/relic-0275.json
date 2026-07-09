@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0275",
+  "name": "Sovereign's Power",
+  "route": {
+    "slug": "sovereigns-power",
+    "canonicalPath": "/database/relics/sovereigns-power"
+  },
+  "assets": {
+    "icon": "asset-relic-0275-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0482",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, accumulate 1 \"Abyssal Energy,\" and choose {Slumber} or {Arouse}. {Slumber}: additionally accumulate 1 \"Abyssal Energy.\" {Arouse}: consume 1/5/10 \"Abyssal Energy\" to gain Tulu's assistance. The more \"Abyssal Energy\" consumed, the stronger Tulu's assistance effect.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0482",
+      "name": "Sovereign's Power",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At turn start, accumulate 1 \"Abyssal Energy,\" and choose \"Slumber\" or \"Arouse.\" Slumber: additionally accumulate 1 \"Abyssal Energy.\" Arouse: consume 1/5/10 \"Abyssal Energy\" to gain Tulu's assistance. The more \"Abyssal Energy\" consumed, the stronger Tulu's assistance effect.",
+      "descriptionArgs": {}
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0215",
+  "name": "Memphis Ritual Mirror",
+  "route": {
+    "slug": "memphis-ritual-mirror",
+    "canonicalPath": "/database/relics/memphis-ritual-mirror"
+  },
+  "assets": {
+    "icon": "asset-relic-0215-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0349",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Crit. Rate increased by 15%. Each card played increases Temporary Crit. Rate by 5%.",
+  "descriptionArgs": {},
+  "lore": "\"What did you see within?\"",
+  "variants": [
+    {
+      "id": "relic-variant-0349",
+      "name": "Memphis Ritual Mirror",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Crit. Rate increased by 15%. Each card played increases Temporary Crit. Rate by 5%.",
+      "descriptionArgs": {},
+      "lore": "\"What did you see within?\""
+    }
+  ]
+}

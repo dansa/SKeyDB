@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0012-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0012",
   "ownerAwakenerId": "awakener-0012",
   "ownerAwakenerName": "Daffodil",
   "rarity": "SSR",
-  "realm": "ULTRA",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Daffodil gains [Arg1] Aliemus and 1 {derived:Insight} card. The {STR} gained from {Heterogeneous Tides} +[Arg2]%, and each card played permanently increases it further by [Arg3]% for this exploration, up to [Arg4]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -36,5 +39,40 @@
       "value": "150",
       "suffix": "%"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0012",
+      "name": "Dimensional Image: Daffodil",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0012",
+      "ownerAwakenerName": "Daffodil",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Daffodil gains [Arg1] Aliemus and 1 \"Insight\" card. The STR gained from \"Heterogeneous Tides\" +[Arg2]%, and each card played permanently increases it further by [Arg3]% for this exploration, up to [Arg4]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "10",
+          "suffix": "%"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "150",
+          "suffix": "%"
+        }
+      }
+    }
+  ]
 }

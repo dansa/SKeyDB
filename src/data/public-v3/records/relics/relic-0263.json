@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0263",
+  "name": "Salvific Limb",
+  "route": {
+    "slug": "salvific-limb",
+    "canonicalPath": "/database/relics/salvific-limb"
+  },
+  "assets": {
+    "icon": "asset-relic-0263-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0458",
+  "aliases": [],
+  "descriptionTemplate": "At the start of the battle, inflict [Arg1] {Poison} on all enemies. At turn start, remove [Arg2]% of the enemy's {Poison} and inflict [Arg3]% of the removed amount as {Bleeding}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.8,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "500",
+      "suffix": "%"
+    }
+  },
+  "lore": "A sacred part.\nEven when separated from the body, its warmth can still be felt.",
+  "variants": [
+    {
+      "id": "relic-variant-0458",
+      "name": "Salvific Limb",
+      "label": "Astral Reign - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At the start of the battle, inflict [Arg1] Poison on all enemies. At turn start, remove [Arg2]% of the enemy's Poison and inflict [Arg3]% of the removed amount as Bleeding.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.8,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "25",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "500",
+          "suffix": "%"
+        }
+      },
+      "lore": "A sacred part.\nEven when separated from the body, its warmth can still be felt."
+    },
+    {
+      "id": "relic-variant-0457",
+      "name": "Salvific Limb",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "At turn start, if HP is greater than [Arg1], lose [Arg1] HP, and gain [Arg2] <PowerIconKeywords:STR> and [Arg3] <AlertIconKeywords:Alert> this turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.04,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.04,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg3": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A sacred part.\nEven when separated from the body, its warmth can still be felt."
+    }
+  ]
+}

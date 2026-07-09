@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0083",
+  "name": "Broken Visage",
+  "route": {
+    "slug": "broken-visage",
+    "canonicalPath": "/database/relics/broken-visage"
+  },
+  "assets": {
+    "icon": "asset-relic-0083-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0104",
+  "aliases": [],
+  "descriptionTemplate": "After playing \"Strike\" and \"Defense,\" the corresponding Awakeners gain 35 Aliemus. However, their Arithmetica Cost +1.",
+  "descriptionArgs": {},
+  "lore": "Whose face, filled with terror, is frozen in time.",
+  "variants": [
+    {
+      "id": "relic-variant-0104",
+      "name": "Broken Visage",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "After playing \"Strike\" and \"Defense,\" the corresponding Awakeners gain 35 Aliemus. However, their Arithmetica Cost +1.",
+      "descriptionArgs": {},
+      "lore": "Whose face, filled with terror, is frozen in time."
+    }
+  ]
+}

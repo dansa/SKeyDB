@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0282",
+  "name": "The Futile Travail",
+  "route": {
+    "slug": "the-futile-travail",
+    "canonicalPath": "/database/relics/the-futile-travail"
+  },
+  "assets": {
+    "icon": "asset-relic-0282-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0499",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Hand Limit +1. At battle start, generate 1 \"{Gauntward}\" and place it in hand.\nWhen any Awakener's \"Basic Strike\" is played, \"{Gauntward}\" Arithmetica Cost -1, inflict [Arg1] {Corrosion} on all enemies.\nWhen any Awakener's \"Basic Defense\" is played, gain [Arg2] {STR}, and the Final DMG and {STR} generation of \"{Gauntward}\" +[Arg3]% next time it is played.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.434,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.008,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "5",
+      "suffix": "%"
+    }
+  },
+  "lore": "The futile man fears change, fears things slipping beyond his grasp; and in the deepest part of him, he fears loss with a frantic, hysterical dread. He blows the whistle again and again, hoping its sound will let him control everything, yet he can hold on to nothing.",
+  "variants": [
+    {
+      "id": "relic-variant-0499",
+      "name": "The Futile Travail",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Hand Limit +1. At battle start, generate 1 \"<DerivativeCardKeywords_148:Gauntward>\" and place it in hand.\nWhen any Awakener's \"Basic Strike\" is played, \"<DerivativeCardKeywords_148:Gauntward>\" Arithmetica Cost -1, inflict [Arg1] Corrosion on all enemies.\nWhen any Awakener's \"Basic Defense\" is played, gain [Arg2] STR, and the Final DMG and STR generation of \"<DerivativeCardKeywords_148:Gauntward>\" +[Arg3]% next time it is played.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.434,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.008,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "5",
+          "suffix": "%"
+        }
+      },
+      "lore": "The futile man fears change, fears things slipping beyond his grasp; and in the deepest part of him, he fears loss with a frantic, hysterical dread. He blows the whistle again and again, hoping its sound will let him control everything, yet he can hold on to nothing."
+    }
+  ]
+}

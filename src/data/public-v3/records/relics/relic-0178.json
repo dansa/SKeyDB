@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0178",
+  "name": "Harford's Elixir",
+  "route": {
+    "slug": "harfords-elixir",
+    "canonicalPath": "/database/relics/harfords-elixir"
+  },
+  "assets": {
+    "icon": "asset-relic-0178-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0278",
+  "rarity": "N",
+  "aliases": ["Harford's Elixir+"],
+  "descriptionTemplate": "The first \"Posse\" each turn grants Temporary DMG Amplification +[Arg1]%, with stronger effects at lower HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    }
+  },
+  "lore": "Medicine of unknown composition.\nIt is said that the renowned violinist Eric has a particular fondness for it.",
+  "variants": [
+    {
+      "id": "relic-variant-0278",
+      "name": "Harford's Elixir",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "The first \"Posse\" each turn grants Temporary DMG Amplification +[Arg1]%, with stronger effects at lower HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "25",
+          "suffix": "%"
+        }
+      },
+      "lore": "Medicine of unknown composition.\nIt is said that the renowned violinist Eric has a particular fondness for it."
+    },
+    {
+      "id": "relic-variant-0279",
+      "name": "Harford's Elixir+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "The first \"Posse\" each turn grants Temporary DMG Amplification +[Arg1]%, with stronger effects at lower HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      },
+      "lore": "Medicine of unknown composition.\nIt is said that the renowned violinist Eric has a particular fondness for it."
+    },
+    {
+      "id": "relic-variant-0277",
+      "name": "Harford's Elixir",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of combat, all your Symptom cards gain <NothingnessIconKeywords:Fleeting>, and for each Symptom card in your deck, gain [Arg1] <PowerIconKeywords:STR>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Medicine of unknown composition.\nIt is said that the renowned violinist Eric has a particular fondness for it."
+    }
+  ]
+}

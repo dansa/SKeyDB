@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0184",
+  "name": "Hyperstring Blood Rot Serum",
+  "route": {
+    "slug": "hyperstring-blood-rot-serum",
+    "canonicalPath": "/database/relics/hyperstring-blood-rot-serum"
+  },
+  "assets": {
+    "icon": "asset-relic-0184-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0290",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Hand Limit +2, after Exalt, Temporary Final DMG +10%.\nAfter the card enters the {Ultra Space}, 1 {Embryo} in hand transforms into {Scion of Purity}.\nEvery time 1 {Embryo} is generated, the cost of a random card in the {Ultra Space} decreases by 1.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "10"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0290",
+      "name": "Hyperstring Blood Rot Serum",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Hand Limit +2, after Exalt, Temporary Final DMG +10%.\nAfter the card enters the Ultra Space, 1 \"Embryo\" in hand transforms into \"Scion of Purity\".\nEvery time 1 \"Embryo\" is generated, the cost of a random card in the Ultra Space decreases by 1.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      }
+    }
+  ]
+}

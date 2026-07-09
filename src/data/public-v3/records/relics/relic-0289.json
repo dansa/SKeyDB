@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0289",
+  "name": "True North Compass",
+  "route": {
+    "slug": "true-north-compass",
+    "canonicalPath": "/database/relics/true-north-compass"
+  },
+  "assets": {
+    "icon": "asset-relic-0289-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0516",
+  "rarity": "N",
+  "aliases": ["True North Compass+"],
+  "descriptionTemplate": "At turn start, draw [Arg1] {plural:[Arg1]|card|cards}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "The indication is not a direction, but rather a magnetic field.",
+  "variants": [
+    {
+      "id": "relic-variant-0516",
+      "name": "True North Compass",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At turn start, draw [Arg1] <plural value=\"[Arg1]\" singular=\"card\" plural=\"cards\">.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "The indication is not a direction, but rather a magnetic field."
+    },
+    {
+      "id": "relic-variant-0517",
+      "name": "True North Compass+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At turn start, draw [Arg1] <plural value=\"[Arg1]\" singular=\"card\" plural=\"cards\">.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "The indication is not a direction, but rather a magnetic field."
+    },
+    {
+      "id": "relic-variant-0515",
+      "name": "True North Compass",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Draw 1 card at turn start.",
+      "descriptionArgs": {},
+      "lore": "The indication is not a direction, but rather a magnetic field."
+    }
+  ]
+}

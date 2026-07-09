@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0116",
+  "name": "Chrono Pendulum \"Reciprocate\"",
+  "route": {
+    "slug": "chrono-pendulum-reciprocate",
+    "canonicalPath": "/database/relics/chrono-pendulum-reciprocate"
+  },
+  "assets": {
+    "icon": "asset-relic-0116-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0149",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "After Exalt, draw 1 card. For each discarded card, all Awakeners gain 3 Aliemus, up to 15 per turn.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0149",
+      "name": "Chrono Pendulum \"Reciprocate\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "After Exalt, draw 1 card. For each discarded card, all Awakeners gain 3 Aliemus, up to 15 per turn.",
+      "descriptionArgs": {}
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0252",
+  "name": "Radium Jawbone",
+  "route": {
+    "slug": "radium-jawbone",
+    "canonicalPath": "/database/relics/radium-jawbone"
+  },
+  "assets": {
+    "icon": "asset-relic-0252-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0426",
+  "rarity": "N",
+  "aliases": ["Radium Jawbone+"],
+  "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Fixed DMG} equal to [Arg1]% of team's Max HP and trigger [Arg2]% {Poison}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "X",
+      "displayFormula": "Max HP * 0.15 * SpiritResearchDepthMultiplier"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    }
+  },
+  "lore": "Displayed in a private collector's showroom.\nThe collector was captivated by its beautiful fluorescence, admiring it day and night, until he eventually withered away and became one of its kind.",
+  "variants": [
+    {
+      "id": "relic-variant-0426",
+      "name": "Radium Jawbone",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of Fixed DMG equal to [Arg1]% of team's Max HP and trigger [Arg2]% <IntoxicationIconKeywords:Poison>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "X",
+          "displayFormula": "Max HP * 0.15 * SpiritResearchDepthMultiplier"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        }
+      },
+      "lore": "Displayed in a private collector's showroom.\nThe collector was captivated by its beautiful fluorescence, admiring it day and night, until he eventually withered away and became one of its kind."
+    },
+    {
+      "id": "relic-variant-0427",
+      "name": "Radium Jawbone+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of Fixed DMG equal to [Arg1]% of team's Max HP and trigger [Arg2]% <IntoxicationIconKeywords:Poison>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "X",
+          "displayFormula": "Max HP * 0.30 * SpiritResearchDepthMultiplier"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        }
+      },
+      "lore": "Displayed in a private collector's showroom.\nThe collector was captivated by its beautiful fluorescence, admiring it day and night, until he eventually withered away and became one of its kind."
+    }
+  ]
+}

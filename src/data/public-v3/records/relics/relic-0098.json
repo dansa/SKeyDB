@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0098",
+  "name": "Chrono Pendulum \"Dreamtheft\"",
+  "route": {
+    "slug": "chrono-pendulum-dreamtheft",
+    "canonicalPath": "/database/relics/chrono-pendulum-dreamtheft"
+  },
+  "assets": {
+    "icon": "asset-relic-0098-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0123",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Realm Mastery +100. Place the first card played each turn from the Discard Pile back into hand. At the start of an {Ultra Round}, the Hand Limit for that turn +5 and your hand is duplicated, the duplicates gain {Fleeting} and {Exhaust}.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0123",
+      "name": "Chrono Pendulum \"Dreamtheft\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "<ProficientInRealmsIconKeywords:Realm Mastery> +100. Place the first card played each turn from the Discard Pile back into hand. At the start of an Ultra Round, the Hand Limit for that turn +5 and your hand is duplicated, the duplicates gain <NothingnessIconKeywords:Fleeting> and <DepleteIconKeywords:Exhaust>.",
+      "descriptionArgs": {}
+    }
+  ]
+}

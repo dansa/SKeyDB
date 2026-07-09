@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0278",
+  "name": "Stellar Brew",
+  "route": {
+    "slug": "stellar-brew",
+    "canonicalPath": "/database/relics/stellar-brew"
+  },
+  "assets": {
+    "icon": "asset-relic-0278-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY", "EVENT"],
+  "variantCount": 4,
+  "defaultVariantId": "relic-variant-0489",
+  "rarity": "N",
+  "aliases": ["Stellar Brew+"],
+  "descriptionTemplate": "After every 5 uses of \"Exalt,\" the next [Arg1] Non-Derived Command Card takes effect 1 more time.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "Wandering among the stars.",
+  "variants": [
+    {
+      "id": "relic-variant-0489",
+      "name": "Stellar Brew",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After every 5 uses of \"Exalt,\" the next [Arg1] Non-Derived Command Card takes effect 1 more time.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "Wandering among the stars."
+    },
+    {
+      "id": "relic-variant-0490",
+      "name": "Stellar Brew+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After every 5 uses of \"Exalt,\" the next [Arg1] Non-Derived Command Card takes effect 1 more time.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "Wandering among the stars."
+    },
+    {
+      "id": "relic-variant-0488",
+      "name": "Stellar Brew",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Every 8th Command Card you play will take effect twice.",
+      "descriptionArgs": {},
+      "lore": "Wandering among the stars."
+    },
+    {
+      "id": "relic-variant-0487",
+      "name": "Stellar Brew+",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Your [Arg1]th Command Card played each turn activates twice and returns to your hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      },
+      "lore": "Wandering among the stars."
+    }
+  ]
+}

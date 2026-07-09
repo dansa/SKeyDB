@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0172",
+  "name": "Gilded Frame",
+  "route": {
+    "slug": "gilded-frame",
+    "canonicalPath": "/database/relics/gilded-frame"
+  },
+  "assets": {
+    "icon": "asset-relic-0172-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0265",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "You gain [Arg1] Shield when you inflict {Weakness}; you gain [Arg2] Temporary {STR} when you inflict {Vulnerable}. If both effects are triggered within 1 turn, you additionally gain [Arg1] Shield and [Arg2] Temp {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "The final work of a mentally disturbed artist, said to reveal his terrified visage.",
+  "variants": [
+    {
+      "id": "relic-variant-0265",
+      "name": "Gilded Frame",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "You gain [Arg1] Shield when you inflict <WeaknessIconKeywords:Weakness>; you gain [Arg2] Temporary <PowerIconKeywords:STR> when you inflict <VulnerabilityIconKeywords:Vulnerable>. If both effects are triggered within 1 turn, you additionally gain [Arg1] Shield and [Arg2] Temp <PowerIconKeywords:STR>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.06,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The final work of a mentally disturbed artist, said to reveal his terrified visage."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0106",
+  "name": "Chrono Pendulum \"Lapse\"",
+  "route": {
+    "slug": "chrono-pendulum-lapse",
+    "canonicalPath": "/database/relics/chrono-pendulum-lapse"
+  },
+  "assets": {
+    "icon": "asset-relic-0106-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0131",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Upon pickup, Team DMG Amplification x150%. At turn start, deal [Arg1] DMG to a random enemy. For each Posse used in this battle, increase the DMG dealt by [Arg2]. This DMG bonus enjoys Team DMG Amplification bonus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "X"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "X"
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0131",
+      "name": "Chrono Pendulum \"Lapse\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Upon pickup, Team DMG Amplification x150%. At turn start, deal [Arg1] DMG to a random enemy. For each Posse used in this battle, increase the DMG dealt by [Arg2]. This DMG bonus enjoys Team DMG Amplification bonus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "X"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "X"
+        }
+      }
+    }
+  ]
+}

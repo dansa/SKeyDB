@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0150",
+  "name": "Divine Mother's Protection",
+  "route": {
+    "slug": "divine-mothers-protection",
+    "canonicalPath": "/database/relics/divine-mothers-protection"
+  },
+  "assets": {
+    "icon": "asset-relic-0150-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0213",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Start with 2 stacks of the Divine Mother's Power; after the third turn, at turn start, choose to either consume the Divine Mother's Powerr for different effects or restore it. If Fatal DMG is taken, resurrect and consume all stacks of the Divine Mother's Power, with each stack restoring 10% HP. This effect can only trigger once.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0213",
+      "name": "Divine Mother's Protection",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "Start with 2 stacks of the Divine Mother's Power; after the third turn, at turn start, choose to either consume the Divine Mother's Powerr for different effects or restore it. If Fatal DMG is taken, resurrect and consume all stacks of the Divine Mother's Power, with each stack restoring 10% HP. This effect can only trigger once.",
+      "descriptionArgs": {}
+    }
+  ]
+}

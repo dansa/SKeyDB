@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0246",
+  "name": "Pure Silver Core: Fear",
+  "route": {
+    "slug": "pure-silver-core-fear",
+    "canonicalPath": "/database/relics/pure-silver-core-fear"
+  },
+  "assets": {
+    "icon": "asset-relic-0246-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0418",
+  "rarity": "SR",
+  "aliases": ["\"Pure Silver Core: Fear\""],
+  "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {Twilight: Unfinished Wax Sculpture} into hand, copying all cards in the Draw Pile. Draw 5 additional cards each turn and gain 5 Arithmetica. After playing \"Strike\" or \"Defense,\" gain [Arg1] Shield.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0418",
+      "name": "\"Pure Silver Core: Fear\"",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, Rouse all Awakeners, place <DerivativeCardKeywords_84:\"Twilight: Unfinished Wax Sculpture\"> into hand, copying all cards in the Draw Pile. Draw 5 additional cards each turn and gain 5 Arithmetica. After playing \"Strike\" or \"Defense,\" gain [Arg1] Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
+}

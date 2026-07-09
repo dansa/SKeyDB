@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0139",
+  "name": "Dearest Babe",
+  "route": {
+    "slug": "dearest-babe",
+    "canonicalPath": "/database/relics/dearest-babe"
+  },
+  "assets": {
+    "icon": "asset-relic-0139-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0197",
+  "rarity": "N",
+  "aliases": ["Dearest Babe+"],
+  "descriptionTemplate": "Whenever 1 {Embryo} is generated, gain [Arg1] {Crimson Furnace}, up to 3 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.0375,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "The carpenter crafted a lifelike puppet for his wife, which would take the place of their son, resting in her womb.",
+  "variants": [
+    {
+      "id": "relic-variant-0197",
+      "name": "Dearest Babe",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Whenever 1 \"Embryo\" is generated, gain [Arg1] Crimson Furnace, up to 3 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.0375,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The carpenter crafted a lifelike puppet for his wife, which would take the place of their son, resting in her womb."
+    },
+    {
+      "id": "relic-variant-0198",
+      "name": "Dearest Babe+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Whenever 1 \"Embryo\" is generated, gain [Arg1] Crimson Furnace, up to 3 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.075,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The carpenter crafted a lifelike puppet for his wife, which would take the place of their son, resting in her womb."
+    },
+    {
+      "id": "relic-variant-0196",
+      "name": "Dearest Babe",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of battle, <EmbryoFusionIconKeywords:Embryo Fusion>+50. For each Awakener with at least 50 Aliemus, it takes effect 1 additional time.",
+      "descriptionArgs": {},
+      "lore": "The carpenter crafted a lifelike puppet for his wife, which would take the place of their son, resting in her womb."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0117",
+  "name": "Chrono Pendulum \"Revive\"",
+  "route": {
+    "slug": "chrono-pendulum-revive",
+    "canonicalPath": "/database/relics/chrono-pendulum-revive"
+  },
+  "assets": {
+    "icon": "asset-relic-0117-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0150",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Picking up this item after death doubles {Death Resistance}. After dealing Damage, it also applies {Bleed} to the target equal to 50% of the Damage. Each time {Death Resistance} is triggered, all enemies immediately trigger 1 instance of {Bleed}.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0150",
+      "name": "Chrono Pendulum \"Revive\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Picking up this item after death doubles Death Resistance. After dealing Damage, it also applies <BleedingIconKeywords:Bleed> to the target equal to 50% of the Damage. Each time Death Resistance is triggered, all enemies immediately trigger 1 instance of Bleed.",
+      "descriptionArgs": {}
+    }
+  ]
+}

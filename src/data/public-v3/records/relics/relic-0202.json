@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0202",
+  "name": "Little N's Worn Camera",
+  "route": {
+    "slug": "little-ns-worn-camera",
+    "canonicalPath": "/database/relics/little-ns-worn-camera"
+  },
+  "assets": {
+    "icon": "asset-relic-0202-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0327",
+  "aliases": [],
+  "descriptionTemplate": "{Golden Harmony}: {Arithmetica Harmony} now only increases Arithmetica Cost by 1. Each 1% DMG Amplification increases {Occult Research} Depth by 1%.\n{Dimensional Gift}: Gain 1 random Dimensional Image Relic at the start of exploration. Hand Limit +1.\n{Transit Fatigue}: All HP recovery effects -50% in battle. When \"Burial\" is selected at \"Faded Bones,\" the effect changes to restore 25% Max HP.\n{Motion Vertigo}: All Awakeners start battle with 50% less current Aliemus and Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "50"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "50"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "50"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg5": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "It’s ruined! The camera is broken! Let me see if I can fix... oh, it’s turning on! But why does it feel so strange now?",
+  "variants": [
+    {
+      "id": "relic-variant-0327",
+      "name": "Little N's Worn Camera",
+      "label": "Event - Gold",
+      "variantType": "EVENT",
+      "tier": "Gold",
+      "category": "EVENT",
+      "descriptionTemplate": "<OrangeQuality:Golden Harmony>: \"Arithmetica Harmony\" now only increases Arithmetica Cost by 1. Each 1% DMG Amplification increases Occult Research Depth by 1%.\n<OrangeQuality:Dimensional Gift>: Gain 1 random Dimensional Image Relic at the start of exploration. Hand Limit +1.\n<RedQuality:Transit Fatigue>: All HP recovery effects -50% in battle. When \"Burial\" is selected at \"Faded Bones,\" the effect changes to restore 25% Max HP.\n<RedQuality:Motion Vertigo>: All Awakeners start battle with 50% less current Aliemus and Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg5": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "It’s ruined! The camera is broken! Let me see if I can fix... oh, it’s turning on! But why does it feel so strange now?"
+    }
+  ]
+}

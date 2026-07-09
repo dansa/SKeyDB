@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0253",
+  "name": "Relic of the Past",
+  "route": {
+    "slug": "relic-of-the-past",
+    "canonicalPath": "/database/relics/relic-of-the-past"
+  },
+  "assets": {
+    "icon": "asset-relic-0253-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0429",
+  "rarity": "N",
+  "aliases": ["Relic of the Past+"],
+  "descriptionTemplate": "At the start of battle and after triggering {Death Resistance}, gain [Arg1] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "500"
+    }
+  },
+  "lore": "An offering once presented.",
+  "variants": [
+    {
+      "id": "relic-variant-0429",
+      "name": "Relic of the Past",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of battle and after triggering Death Resistance, gain [Arg1] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "500"
+        }
+      },
+      "lore": "An offering once presented."
+    },
+    {
+      "id": "relic-variant-0430",
+      "name": "Relic of the Past+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At the start of battle and after triggering Death Resistance, gain [Arg1] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1000"
+        }
+      },
+      "lore": "An offering once presented."
+    },
+    {
+      "id": "relic-variant-0428",
+      "name": "Relic of the Past",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "At the start of turn 3, increase the Crit. Rate in this battle by 15%, and add 1 <DerivativeCardKeywords_39:\"Echoes of the Past\"> to your hand.",
+      "descriptionArgs": {},
+      "lore": "An offering once presented."
+    }
+  ]
+}

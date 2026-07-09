@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0080",
+  "name": "Bone Chalice",
+  "route": {
+    "slug": "bone-chalice",
+    "canonicalPath": "/database/relics/bone-chalice"
+  },
+  "assets": {
+    "icon": "asset-relic-0080-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0099",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Hand Limit +1.\nAt the beginning of the turn, if there is no \"Soul {Devour},\" place it in hand. If \"Fullness\" reaches 10, it will be transformed into \"Memory {Resonance}\".",
+  "descriptionArgs": {},
+  "lore": "\"The Bloody Moon rises, the corpses shall raise their cups and drink together.\"",
+  "variants": [
+    {
+      "id": "relic-variant-0099",
+      "name": "Bone Chalice",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Hand limit +1.\nAt the beginning of the turn, if there is no \"Soul Devour,\" place it in hand. If \"Fullness\" reaches 10, it will be transformed into \"Memory Resonance\".",
+      "descriptionArgs": {},
+      "lore": "\"The Bloody Moon rises, the corpses shall raise their cups and drink together.\""
+    }
+  ]
+}

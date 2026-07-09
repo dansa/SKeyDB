@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0141",
+  "name": "Destiny Spindle",
+  "route": {
+    "slug": "destiny-spindle",
+    "canonicalPath": "/database/relics/destiny-spindle"
+  },
+  "assets": {
+    "icon": "asset-relic-0141-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0202",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Hand Limit +3. Record the first 3 Non-Derived Command Cards played each turn, and at the start of the turn 3 turns later, reduce their Arithmetica Cost by 1 and add copies with {Exhaust} to hand.",
+  "descriptionArgs": {},
+  "lore": "Forever the wheel turns.",
+  "variants": [
+    {
+      "id": "relic-variant-0202",
+      "name": "Destiny Spindle",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Hand Limit +3. Record the first 3 Non-Derived Command Cards played each turn, and at the start of the turn 3 turns later, reduce their Arithmetica Cost by 1 and add copies with <DepleteIconKeywords:Exhaust> to hand.",
+      "descriptionArgs": {},
+      "lore": "Forever the wheel turns."
+    }
+  ]
+}

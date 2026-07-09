@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0201",
+  "name": "Little N's Pristine Camera",
+  "route": {
+    "slug": "little-ns-pristine-camera",
+    "canonicalPath": "/database/relics/little-ns-pristine-camera"
+  },
+  "assets": {
+    "icon": "asset-relic-0201-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0326",
+  "aliases": [],
+  "descriptionTemplate": "{Golden Harmony}: {Arithmetica Harmony} now only increases Arithmetica Cost by 1. Each 1% DMG Amplification increases {Occult Research} Depth by 1%.\n{Transit Fatigue}: All HP recovery effects -50% in battle. When \"Burial\" is selected at \"Faded Bones,\" the effect changes to restore 25% Max HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "50"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "50"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "50"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "Look no further—this is the one! Brand new, factory-fresh, and guaranteed to satisfy.",
+  "variants": [
+    {
+      "id": "relic-variant-0326",
+      "name": "Little N's Pristine Camera",
+      "label": "Event - Gold",
+      "variantType": "EVENT",
+      "tier": "Gold",
+      "category": "EVENT",
+      "descriptionTemplate": "<OrangeQuality:Golden Harmony>: \"Arithmetica Harmony\" now only increases Arithmetica Cost by 1. Each 1% DMG Amplification increases Occult Research Depth by 1%.\n<RedQuality:Transit Fatigue>: All HP recovery effects -50% in battle. When \"Burial\" is selected at \"Faded Bones,\" the effect changes to restore 25% Max HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "Look no further—this is the one! Brand new, factory-fresh, and guaranteed to satisfy."
+    }
+  ]
+}

@@ -1176,317 +1176,551 @@
       }
     },
     "relics": {
+      "abyss-link": {
+        "kind": "relic",
+        "id": "relic-0059",
+        "canonicalSlug": "abyss-link",
+        "canonicalPath": "/database/relics/abyss-link"
+      },
       "aequor-ring": {
         "kind": "relic",
-        "id": "relic-9004",
+        "id": "relic-0060",
         "canonicalSlug": "aequor-ring",
         "canonicalPath": "/database/relics/aequor-ring"
       },
+      "alfonsos-artifact": {
+        "kind": "relic",
+        "id": "relic-0061",
+        "canonicalSlug": "alfonsos-artifact",
+        "canonicalPath": "/database/relics/alfonsos-artifact"
+      },
+      "alien-heart": {
+        "kind": "relic",
+        "id": "relic-0062",
+        "canonicalSlug": "alien-heart",
+        "canonicalPath": "/database/relics/alien-heart"
+      },
+      "antique-puzzle": {
+        "kind": "relic",
+        "id": "relic-0063",
+        "canonicalSlug": "antique-puzzle",
+        "canonicalPath": "/database/relics/antique-puzzle"
+      },
       "arcana-archive": {
         "kind": "relic",
-        "id": "relic-9103",
+        "id": "relic-0064",
         "canonicalSlug": "arcana-archive",
         "canonicalPath": "/database/relics/arcana-archive"
       },
       "arcana-relic": {
         "kind": "relic",
-        "id": "relic-9020",
+        "id": "relic-0065",
         "canonicalSlug": "arcana-relic",
         "canonicalPath": "/database/relics/arcana-relic"
       },
       "arcane-gloves": {
         "kind": "relic",
-        "id": "relic-9026",
+        "id": "relic-0066",
         "canonicalSlug": "arcane-gloves",
         "canonicalPath": "/database/relics/arcane-gloves"
       },
+      "argent-return-birth": {
+        "kind": "relic",
+        "id": "relic-0067",
+        "canonicalSlug": "argent-return-birth",
+        "canonicalPath": "/database/relics/argent-return-birth"
+      },
+      "argent-return-deceit": {
+        "kind": "relic",
+        "id": "relic-0068",
+        "canonicalSlug": "argent-return-deceit",
+        "canonicalPath": "/database/relics/argent-return-deceit"
+      },
+      "argent-return-fear": {
+        "kind": "relic",
+        "id": "relic-0069",
+        "canonicalSlug": "argent-return-fear",
+        "canonicalPath": "/database/relics/argent-return-fear"
+      },
+      "argent-return-heresy": {
+        "kind": "relic",
+        "id": "relic-0070",
+        "canonicalSlug": "argent-return-heresy",
+        "canonicalPath": "/database/relics/argent-return-heresy"
+      },
+      "argent-return-madness": {
+        "kind": "relic",
+        "id": "relic-0071",
+        "canonicalSlug": "argent-return-madness",
+        "canonicalPath": "/database/relics/argent-return-madness"
+      },
+      "argent-return-scathe": {
+        "kind": "relic",
+        "id": "relic-0072",
+        "canonicalSlug": "argent-return-scathe",
+        "canonicalPath": "/database/relics/argent-return-scathe"
+      },
+      "argent-return-sorrow": {
+        "kind": "relic",
+        "id": "relic-0073",
+        "canonicalSlug": "argent-return-sorrow",
+        "canonicalPath": "/database/relics/argent-return-sorrow"
+      },
+      "barbed-trident": {
+        "kind": "relic",
+        "id": "relic-0074",
+        "canonicalSlug": "barbed-trident",
+        "canonicalPath": "/database/relics/barbed-trident"
+      },
+      "big-mouth-button": {
+        "kind": "relic",
+        "id": "relic-0075",
+        "canonicalSlug": "big-mouth-button",
+        "canonicalPath": "/database/relics/big-mouth-button"
+      },
       "black-candle": {
         "kind": "relic",
-        "id": "relic-9039",
+        "id": "relic-0076",
         "canonicalSlug": "black-candle",
         "canonicalPath": "/database/relics/black-candle"
       },
+      "black-star-ember": {
+        "kind": "relic",
+        "id": "relic-0077",
+        "canonicalSlug": "black-star-ember",
+        "canonicalPath": "/database/relics/black-star-ember"
+      },
       "blessed-blood": {
         "kind": "relic",
-        "id": "relic-9018",
+        "id": "relic-0078",
         "canonicalSlug": "blessed-blood",
         "canonicalPath": "/database/relics/blessed-blood"
       },
+      "bloody-pebble": {
+        "kind": "relic",
+        "id": "relic-0079",
+        "canonicalSlug": "bloody-pebble",
+        "canonicalPath": "/database/relics/bloody-pebble"
+      },
+      "bone-chalice": {
+        "kind": "relic",
+        "id": "relic-0080",
+        "canonicalSlug": "bone-chalice",
+        "canonicalPath": "/database/relics/bone-chalice"
+      },
       "brand-new-wallet": {
         "kind": "relic",
-        "id": "relic-9012",
+        "id": "relic-0081",
         "canonicalSlug": "brand-new-wallet",
         "canonicalPath": "/database/relics/brand-new-wallet"
       },
+      "brass-censer": {
+        "kind": "relic",
+        "id": "relic-0082",
+        "canonicalSlug": "brass-censer",
+        "canonicalPath": "/database/relics/brass-censer"
+      },
+      "broken-visage": {
+        "kind": "relic",
+        "id": "relic-0083",
+        "canonicalSlug": "broken-visage",
+        "canonicalPath": "/database/relics/broken-visage"
+      },
       "caro-ring": {
         "kind": "relic",
-        "id": "relic-9041",
+        "id": "relic-0084",
         "canonicalSlug": "caro-ring",
         "canonicalPath": "/database/relics/caro-ring"
       },
+      "cats-treasure": {
+        "kind": "relic",
+        "id": "relic-0085",
+        "canonicalSlug": "cats-treasure",
+        "canonicalPath": "/database/relics/cats-treasure"
+      },
       "celestial-astrolabe": {
         "kind": "relic",
-        "id": "relic-9021",
+        "id": "relic-0086",
         "canonicalSlug": "celestial-astrolabe",
         "canonicalPath": "/database/relics/celestial-astrolabe"
       },
+      "ceylon-tea": {
+        "kind": "relic",
+        "id": "relic-0087",
+        "canonicalSlug": "ceylon-tea",
+        "canonicalPath": "/database/relics/ceylon-tea"
+      },
+      "chant-of-the-tides": {
+        "kind": "relic",
+        "id": "relic-0088",
+        "canonicalSlug": "chant-of-the-tides",
+        "canonicalPath": "/database/relics/chant-of-the-tides"
+      },
       "chaos-ring": {
         "kind": "relic",
-        "id": "relic-9043",
+        "id": "relic-0089",
         "canonicalSlug": "chaos-ring",
         "canonicalPath": "/database/relics/chaos-ring"
       },
+      "chrono-pendulum-backlash": {
+        "kind": "relic",
+        "id": "relic-0090",
+        "canonicalSlug": "chrono-pendulum-backlash",
+        "canonicalPath": "/database/relics/chrono-pendulum-backlash"
+      },
       "chrono-pendulum-balance": {
         "kind": "relic",
-        "id": "relic-9086",
+        "id": "relic-0091",
         "canonicalSlug": "chrono-pendulum-balance",
         "canonicalPath": "/database/relics/chrono-pendulum-balance"
       },
       "chrono-pendulum-benediction": {
         "kind": "relic",
-        "id": "relic-9085",
+        "id": "relic-0092",
         "canonicalSlug": "chrono-pendulum-benediction",
         "canonicalPath": "/database/relics/chrono-pendulum-benediction"
       },
       "chrono-pendulum-breeding": {
         "kind": "relic",
-        "id": "relic-9090",
+        "id": "relic-0093",
         "canonicalSlug": "chrono-pendulum-breeding",
         "canonicalPath": "/database/relics/chrono-pendulum-breeding"
       },
       "chrono-pendulum-buildup": {
         "kind": "relic",
-        "id": "relic-9074",
+        "id": "relic-0094",
         "canonicalSlug": "chrono-pendulum-buildup",
         "canonicalPath": "/database/relics/chrono-pendulum-buildup"
       },
+      "chrono-pendulum-chaotic-gift": {
+        "kind": "relic",
+        "id": "relic-0095",
+        "canonicalSlug": "chrono-pendulum-chaotic-gift",
+        "canonicalPath": "/database/relics/chrono-pendulum-chaotic-gift"
+      },
       "chrono-pendulum-charge": {
         "kind": "relic",
-        "id": "relic-9077",
+        "id": "relic-0096",
         "canonicalSlug": "chrono-pendulum-charge",
         "canonicalPath": "/database/relics/chrono-pendulum-charge"
       },
       "chrono-pendulum-deepen": {
         "kind": "relic",
-        "id": "relic-9065",
+        "id": "relic-0097",
         "canonicalSlug": "chrono-pendulum-deepen",
         "canonicalPath": "/database/relics/chrono-pendulum-deepen"
       },
+      "chrono-pendulum-dreamtheft": {
+        "kind": "relic",
+        "id": "relic-0098",
+        "canonicalSlug": "chrono-pendulum-dreamtheft",
+        "canonicalPath": "/database/relics/chrono-pendulum-dreamtheft"
+      },
+      "chrono-pendulum-echo": {
+        "kind": "relic",
+        "id": "relic-0099",
+        "canonicalSlug": "chrono-pendulum-echo",
+        "canonicalPath": "/database/relics/chrono-pendulum-echo"
+      },
+      "chrono-pendulum-emulate": {
+        "kind": "relic",
+        "id": "relic-0100",
+        "canonicalSlug": "chrono-pendulum-emulate",
+        "canonicalPath": "/database/relics/chrono-pendulum-emulate"
+      },
       "chrono-pendulum-end": {
         "kind": "relic",
-        "id": "relic-9079",
+        "id": "relic-0101",
         "canonicalSlug": "chrono-pendulum-end",
         "canonicalPath": "/database/relics/chrono-pendulum-end"
       },
       "chrono-pendulum-evolution": {
         "kind": "relic",
-        "id": "relic-9088",
+        "id": "relic-0102",
         "canonicalSlug": "chrono-pendulum-evolution",
         "canonicalPath": "/database/relics/chrono-pendulum-evolution"
       },
       "chrono-pendulum-eye": {
         "kind": "relic",
-        "id": "relic-9068",
+        "id": "relic-0103",
         "canonicalSlug": "chrono-pendulum-eye",
         "canonicalPath": "/database/relics/chrono-pendulum-eye"
       },
       "chrono-pendulum-illusion": {
         "kind": "relic",
-        "id": "relic-9082",
+        "id": "relic-0104",
         "canonicalSlug": "chrono-pendulum-illusion",
         "canonicalPath": "/database/relics/chrono-pendulum-illusion"
       },
+      "chrono-pendulum-interval": {
+        "kind": "relic",
+        "id": "relic-0105",
+        "canonicalSlug": "chrono-pendulum-interval",
+        "canonicalPath": "/database/relics/chrono-pendulum-interval"
+      },
+      "chrono-pendulum-lapse": {
+        "kind": "relic",
+        "id": "relic-0106",
+        "canonicalSlug": "chrono-pendulum-lapse",
+        "canonicalPath": "/database/relics/chrono-pendulum-lapse"
+      },
+      "chrono-pendulum-meditation": {
+        "kind": "relic",
+        "id": "relic-0107",
+        "canonicalSlug": "chrono-pendulum-meditation",
+        "canonicalPath": "/database/relics/chrono-pendulum-meditation"
+      },
       "chrono-pendulum-moon": {
         "kind": "relic",
-        "id": "relic-9069",
+        "id": "relic-0108",
         "canonicalSlug": "chrono-pendulum-moon",
         "canonicalPath": "/database/relics/chrono-pendulum-moon"
       },
+      "chrono-pendulum-nightmare": {
+        "kind": "relic",
+        "id": "relic-0109",
+        "canonicalSlug": "chrono-pendulum-nightmare",
+        "canonicalPath": "/database/relics/chrono-pendulum-nightmare"
+      },
       "chrono-pendulum-occult": {
         "kind": "relic",
-        "id": "relic-9073",
+        "id": "relic-0110",
         "canonicalSlug": "chrono-pendulum-occult",
         "canonicalPath": "/database/relics/chrono-pendulum-occult"
       },
+      "chrono-pendulum-parsing": {
+        "kind": "relic",
+        "id": "relic-0111",
+        "canonicalSlug": "chrono-pendulum-parsing",
+        "canonicalPath": "/database/relics/chrono-pendulum-parsing"
+      },
       "chrono-pendulum-plague": {
         "kind": "relic",
-        "id": "relic-9091",
+        "id": "relic-0112",
         "canonicalSlug": "chrono-pendulum-plague",
         "canonicalPath": "/database/relics/chrono-pendulum-plague"
       },
+      "chrono-pendulum-principals-message": {
+        "kind": "relic",
+        "id": "relic-0113",
+        "canonicalSlug": "chrono-pendulum-principals-message",
+        "canonicalPath": "/database/relics/chrono-pendulum-principals-message"
+      },
       "chrono-pendulum-projection": {
         "kind": "relic",
-        "id": "relic-9089",
+        "id": "relic-0114",
         "canonicalSlug": "chrono-pendulum-projection",
         "canonicalPath": "/database/relics/chrono-pendulum-projection"
       },
       "chrono-pendulum-proliferate": {
         "kind": "relic",
-        "id": "relic-9078",
+        "id": "relic-0115",
         "canonicalSlug": "chrono-pendulum-proliferate",
         "canonicalPath": "/database/relics/chrono-pendulum-proliferate"
       },
       "chrono-pendulum-reciprocate": {
         "kind": "relic",
-        "id": "relic-9080",
+        "id": "relic-0116",
         "canonicalSlug": "chrono-pendulum-reciprocate",
         "canonicalPath": "/database/relics/chrono-pendulum-reciprocate"
       },
+      "chrono-pendulum-revive": {
+        "kind": "relic",
+        "id": "relic-0117",
+        "canonicalSlug": "chrono-pendulum-revive",
+        "canonicalPath": "/database/relics/chrono-pendulum-revive"
+      },
       "chrono-pendulum-sleepless": {
         "kind": "relic",
-        "id": "relic-9081",
+        "id": "relic-0118",
         "canonicalSlug": "chrono-pendulum-sleepless",
         "canonicalPath": "/database/relics/chrono-pendulum-sleepless"
       },
       "chrono-pendulum-slumber": {
         "kind": "relic",
-        "id": "relic-9067",
+        "id": "relic-0119",
         "canonicalSlug": "chrono-pendulum-slumber",
         "canonicalPath": "/database/relics/chrono-pendulum-slumber"
       },
       "chrono-pendulum-stars": {
         "kind": "relic",
-        "id": "relic-9070",
+        "id": "relic-0120",
         "canonicalSlug": "chrono-pendulum-stars",
         "canonicalPath": "/database/relics/chrono-pendulum-stars"
       },
       "chrono-pendulum-startle": {
         "kind": "relic",
-        "id": "relic-9083",
+        "id": "relic-0121",
         "canonicalSlug": "chrono-pendulum-startle",
         "canonicalPath": "/database/relics/chrono-pendulum-startle"
       },
       "chrono-pendulum-stubborn": {
         "kind": "relic",
-        "id": "relic-9076",
+        "id": "relic-0122",
         "canonicalSlug": "chrono-pendulum-stubborn",
         "canonicalPath": "/database/relics/chrono-pendulum-stubborn"
       },
       "chrono-pendulum-submersion": {
         "kind": "relic",
-        "id": "relic-9072",
+        "id": "relic-0123",
         "canonicalSlug": "chrono-pendulum-submersion",
         "canonicalPath": "/database/relics/chrono-pendulum-submersion"
       },
+      "chrono-pendulum-sunken-treasure": {
+        "kind": "relic",
+        "id": "relic-0124",
+        "canonicalSlug": "chrono-pendulum-sunken-treasure",
+        "canonicalPath": "/database/relics/chrono-pendulum-sunken-treasure"
+      },
       "chrono-pendulum-surge": {
         "kind": "relic",
-        "id": "relic-9087",
+        "id": "relic-0125",
         "canonicalSlug": "chrono-pendulum-surge",
         "canonicalPath": "/database/relics/chrono-pendulum-surge"
       },
+      "chrono-pendulum-tides": {
+        "kind": "relic",
+        "id": "relic-0126",
+        "canonicalSlug": "chrono-pendulum-tides",
+        "canonicalPath": "/database/relics/chrono-pendulum-tides"
+      },
       "chrono-pendulum-trance": {
         "kind": "relic",
-        "id": "relic-9075",
+        "id": "relic-0127",
         "canonicalSlug": "chrono-pendulum-trance",
         "canonicalPath": "/database/relics/chrono-pendulum-trance"
       },
-      "chrono-pendulum-treasure-alpha": {
+      "chrono-pendulum-treasure": {
         "kind": "relic",
-        "id": "relic-9092",
-        "canonicalSlug": "chrono-pendulum-treasure-alpha",
-        "canonicalPath": "/database/relics/chrono-pendulum-treasure-alpha"
-      },
-      "chrono-pendulum-treasure-beta": {
-        "kind": "relic",
-        "id": "relic-9093",
-        "canonicalSlug": "chrono-pendulum-treasure-beta",
-        "canonicalPath": "/database/relics/chrono-pendulum-treasure-beta"
-      },
-      "chrono-pendulum-treasure-delta": {
-        "kind": "relic",
-        "id": "relic-9094",
-        "canonicalSlug": "chrono-pendulum-treasure-delta",
-        "canonicalPath": "/database/relics/chrono-pendulum-treasure-delta"
-      },
-      "chrono-pendulum-treasure-epsilon": {
-        "kind": "relic",
-        "id": "relic-9096",
-        "canonicalSlug": "chrono-pendulum-treasure-epsilon",
-        "canonicalPath": "/database/relics/chrono-pendulum-treasure-epsilon"
-      },
-      "chrono-pendulum-treasure-gamma": {
-        "kind": "relic",
-        "id": "relic-9095",
-        "canonicalSlug": "chrono-pendulum-treasure-gamma",
-        "canonicalPath": "/database/relics/chrono-pendulum-treasure-gamma"
+        "id": "relic-0128",
+        "canonicalSlug": "chrono-pendulum-treasure",
+        "canonicalPath": "/database/relics/chrono-pendulum-treasure"
       },
       "chrono-pendulum-twins": {
         "kind": "relic",
-        "id": "relic-9084",
+        "id": "relic-0129",
         "canonicalSlug": "chrono-pendulum-twins",
         "canonicalPath": "/database/relics/chrono-pendulum-twins"
       },
       "chrono-pendulum-unclean": {
         "kind": "relic",
-        "id": "relic-9071",
+        "id": "relic-0130",
         "canonicalSlug": "chrono-pendulum-unclean",
         "canonicalPath": "/database/relics/chrono-pendulum-unclean"
       },
       "chrono-pendulum-wings": {
         "kind": "relic",
-        "id": "relic-9066",
+        "id": "relic-0131",
         "canonicalSlug": "chrono-pendulum-wings",
         "canonicalPath": "/database/relics/chrono-pendulum-wings"
       },
-      "chrono-pendulum-wish-alpha": {
+      "chrono-pendulum-wish": {
         "kind": "relic",
-        "id": "relic-9098",
-        "canonicalSlug": "chrono-pendulum-wish-alpha",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-alpha"
+        "id": "relic-0132",
+        "canonicalSlug": "chrono-pendulum-wish",
+        "canonicalPath": "/database/relics/chrono-pendulum-wish"
       },
-      "chrono-pendulum-wish-beta": {
+      "chronometric-device": {
         "kind": "relic",
-        "id": "relic-9097",
-        "canonicalSlug": "chrono-pendulum-wish-beta",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-beta"
+        "id": "relic-0133",
+        "canonicalSlug": "chronometric-device",
+        "canonicalPath": "/database/relics/chronometric-device"
       },
-      "chrono-pendulum-wish-delta": {
+      "coalsie-ii": {
         "kind": "relic",
-        "id": "relic-9101",
-        "canonicalSlug": "chrono-pendulum-wish-delta",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-delta"
+        "id": "relic-0134",
+        "canonicalSlug": "coalsie-ii",
+        "canonicalPath": "/database/relics/coalsie-ii"
       },
-      "chrono-pendulum-wish-epsilon": {
+      "concubines-conceit": {
         "kind": "relic",
-        "id": "relic-9099",
-        "canonicalSlug": "chrono-pendulum-wish-epsilon",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-epsilon"
+        "id": "relic-0135",
+        "canonicalSlug": "concubines-conceit",
+        "canonicalPath": "/database/relics/concubines-conceit"
       },
-      "chrono-pendulum-wish-eta": {
+      "conductors-baton": {
         "kind": "relic",
-        "id": "relic-9108",
-        "canonicalSlug": "chrono-pendulum-wish-eta",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-eta"
-      },
-      "chrono-pendulum-wish-gamma": {
-        "kind": "relic",
-        "id": "relic-9100",
-        "canonicalSlug": "chrono-pendulum-wish-gamma",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-gamma"
-      },
-      "chrono-pendulum-wish-zeta": {
-        "kind": "relic",
-        "id": "relic-9109",
-        "canonicalSlug": "chrono-pendulum-wish-zeta",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-zeta"
+        "id": "relic-0136",
+        "canonicalSlug": "conductors-baton",
+        "canonicalPath": "/database/relics/conductors-baton"
       },
       "crimson-brooch": {
         "kind": "relic",
-        "id": "relic-9016",
+        "id": "relic-0137",
         "canonicalSlug": "crimson-brooch",
         "canonicalPath": "/database/relics/crimson-brooch"
       },
+      "cursed-stele": {
+        "kind": "relic",
+        "id": "relic-0138",
+        "canonicalSlug": "cursed-stele",
+        "canonicalPath": "/database/relics/cursed-stele"
+      },
+      "dearest-babe": {
+        "kind": "relic",
+        "id": "relic-0139",
+        "canonicalSlug": "dearest-babe",
+        "canonicalPath": "/database/relics/dearest-babe"
+      },
       "deceaseds-chrono": {
         "kind": "relic",
-        "id": "relic-9033",
+        "id": "relic-0140",
         "canonicalSlug": "deceaseds-chrono",
         "canonicalPath": "/database/relics/deceaseds-chrono"
       },
+      "destiny-spindle": {
+        "kind": "relic",
+        "id": "relic-0141",
+        "canonicalSlug": "destiny-spindle",
+        "canonicalPath": "/database/relics/destiny-spindle"
+      },
+      "devoted-heart": {
+        "kind": "relic",
+        "id": "relic-0142",
+        "canonicalSlug": "devoted-heart",
+        "canonicalPath": "/database/relics/devoted-heart"
+      },
       "differential-engine": {
         "kind": "relic",
-        "id": "relic-9104",
+        "id": "relic-0143",
         "canonicalSlug": "differential-engine",
         "canonicalPath": "/database/relics/differential-engine"
+      },
+      "dimension-pendulum-alert": {
+        "kind": "relic",
+        "id": "relic-0144",
+        "canonicalSlug": "dimension-pendulum-alert",
+        "canonicalPath": "/database/relics/dimension-pendulum-alert"
+      },
+      "dimension-pendulum-confuse": {
+        "kind": "relic",
+        "id": "relic-0145",
+        "canonicalSlug": "dimension-pendulum-confuse",
+        "canonicalPath": "/database/relics/dimension-pendulum-confuse"
+      },
+      "dimension-pendulum-duel": {
+        "kind": "relic",
+        "id": "relic-0146",
+        "canonicalSlug": "dimension-pendulum-duel",
+        "canonicalPath": "/database/relics/dimension-pendulum-duel"
+      },
+      "dimension-pendulum-lurk": {
+        "kind": "relic",
+        "id": "relic-0147",
+        "canonicalSlug": "dimension-pendulum-lurk",
+        "canonicalPath": "/database/relics/dimension-pendulum-lurk"
+      },
+      "dimension-pendulum-scare": {
+        "kind": "relic",
+        "id": "relic-0148",
+        "canonicalSlug": "dimension-pendulum-scare",
+        "canonicalPath": "/database/relics/dimension-pendulum-scare"
+      },
+      "dimension-pendulum-voodoo": {
+        "kind": "relic",
+        "id": "relic-0149",
+        "canonicalSlug": "dimension-pendulum-voodoo",
+        "canonicalPath": "/database/relics/dimension-pendulum-voodoo"
       },
       "dimensional-image-24": {
         "kind": "relic",
@@ -1836,359 +2070,941 @@
         "canonicalSlug": "dimensional-image-xu",
         "canonicalPath": "/database/relics/dimensional-image-xu"
       },
+      "divine-mothers-protection": {
+        "kind": "relic",
+        "id": "relic-0150",
+        "canonicalSlug": "divine-mothers-protection",
+        "canonicalPath": "/database/relics/divine-mothers-protection"
+      },
+      "divine-oracle": {
+        "kind": "relic",
+        "id": "relic-0151",
+        "canonicalSlug": "divine-oracle",
+        "canonicalPath": "/database/relics/divine-oracle"
+      },
       "doctors-case": {
         "kind": "relic",
-        "id": "relic-9006",
+        "id": "relic-0152",
         "canonicalSlug": "doctors-case",
         "canonicalPath": "/database/relics/doctors-case"
       },
+      "dossier": {
+        "kind": "relic",
+        "id": "relic-0153",
+        "canonicalSlug": "dossier",
+        "canonicalPath": "/database/relics/dossier"
+      },
+      "dove-feather-fan": {
+        "kind": "relic",
+        "id": "relic-0154",
+        "canonicalSlug": "dove-feather-fan",
+        "canonicalPath": "/database/relics/dove-feather-fan"
+      },
       "easter-moment": {
         "kind": "relic",
-        "id": "relic-9061",
+        "id": "relic-0155",
         "canonicalSlug": "easter-moment",
         "canonicalPath": "/database/relics/easter-moment"
       },
+      "echoes-from-beyond": {
+        "kind": "relic",
+        "id": "relic-0156",
+        "canonicalSlug": "echoes-from-beyond",
+        "canonicalPath": "/database/relics/echoes-from-beyond"
+      },
       "eerie-hook": {
         "kind": "relic",
-        "id": "relic-9034",
+        "id": "relic-0157",
         "canonicalSlug": "eerie-hook",
         "canonicalPath": "/database/relics/eerie-hook"
       },
+      "enthralling-chime": {
+        "kind": "relic",
+        "id": "relic-0158",
+        "canonicalSlug": "enthralling-chime",
+        "canonicalPath": "/database/relics/enthralling-chime"
+      },
+      "ephemeral-fire": {
+        "kind": "relic",
+        "id": "relic-0159",
+        "canonicalSlug": "ephemeral-fire",
+        "canonicalPath": "/database/relics/ephemeral-fire"
+      },
+      "expedition-team": {
+        "kind": "relic",
+        "id": "relic-0160",
+        "canonicalSlug": "expedition-team",
+        "canonicalPath": "/database/relics/expedition-team"
+      },
+      "faded-photo": {
+        "kind": "relic",
+        "id": "relic-0161",
+        "canonicalSlug": "faded-photo",
+        "canonicalPath": "/database/relics/faded-photo"
+      },
+      "faded-photograph": {
+        "kind": "relic",
+        "id": "relic-0162",
+        "canonicalSlug": "faded-photograph",
+        "canonicalPath": "/database/relics/faded-photograph"
+      },
+      "festive-benediction": {
+        "kind": "relic",
+        "id": "relic-0163",
+        "canonicalSlug": "festive-benediction",
+        "canonicalPath": "/database/relics/festive-benediction"
+      },
       "filigree-agate": {
         "kind": "relic",
-        "id": "relic-9003",
+        "id": "relic-0164",
         "canonicalSlug": "filigree-agate",
         "canonicalPath": "/database/relics/filigree-agate"
       },
+      "finale-research-manuscript": {
+        "kind": "relic",
+        "id": "relic-0165",
+        "canonicalSlug": "finale-research-manuscript",
+        "canonicalPath": "/database/relics/finale-research-manuscript"
+      },
       "fleeting-beauty": {
         "kind": "relic",
-        "id": "relic-9045",
+        "id": "relic-0166",
         "canonicalSlug": "fleeting-beauty",
         "canonicalPath": "/database/relics/fleeting-beauty"
       },
       "foreign-stamp-album": {
         "kind": "relic",
-        "id": "relic-9063",
+        "id": "relic-0167",
         "canonicalSlug": "foreign-stamp-album",
         "canonicalPath": "/database/relics/foreign-stamp-album"
       },
       "forgotten-loom": {
         "kind": "relic",
-        "id": "relic-9010",
+        "id": "relic-0168",
         "canonicalSlug": "forgotten-loom",
         "canonicalPath": "/database/relics/forgotten-loom"
       },
       "forgotten-prelude": {
         "kind": "relic",
-        "id": "relic-9011",
+        "id": "relic-0169",
         "canonicalSlug": "forgotten-prelude",
         "canonicalPath": "/database/relics/forgotten-prelude"
       },
       "forsaken-blood": {
         "kind": "relic",
-        "id": "relic-9059",
+        "id": "relic-0170",
         "canonicalSlug": "forsaken-blood",
         "canonicalPath": "/database/relics/forsaken-blood"
       },
+      "gateway-of-all-realms": {
+        "kind": "relic",
+        "id": "relic-0171",
+        "canonicalSlug": "gateway-of-all-realms",
+        "canonicalPath": "/database/relics/gateway-of-all-realms"
+      },
+      "gilded-frame": {
+        "kind": "relic",
+        "id": "relic-0172",
+        "canonicalSlug": "gilded-frame",
+        "canonicalPath": "/database/relics/gilded-frame"
+      },
+      "gilded-guide": {
+        "kind": "relic",
+        "id": "relic-0173",
+        "canonicalSlug": "gilded-guide",
+        "canonicalPath": "/database/relics/gilded-guide"
+      },
+      "gilded-reverie": {
+        "kind": "relic",
+        "id": "relic-0174",
+        "canonicalSlug": "gilded-reverie",
+        "canonicalPath": "/database/relics/gilded-reverie"
+      },
+      "gnosis-device": {
+        "kind": "relic",
+        "id": "relic-0175",
+        "canonicalSlug": "gnosis-device",
+        "canonicalPath": "/database/relics/gnosis-device"
+      },
       "guardian-hand": {
         "kind": "relic",
-        "id": "relic-9030",
+        "id": "relic-0176",
         "canonicalSlug": "guardian-hand",
         "canonicalPath": "/database/relics/guardian-hand"
       },
+      "guidance-of-erasmus": {
+        "kind": "relic",
+        "id": "relic-0177",
+        "canonicalSlug": "guidance-of-erasmus",
+        "canonicalPath": "/database/relics/guidance-of-erasmus"
+      },
       "harfords-elixir": {
         "kind": "relic",
-        "id": "relic-9052",
+        "id": "relic-0178",
         "canonicalSlug": "harfords-elixir",
         "canonicalPath": "/database/relics/harfords-elixir"
       },
+      "hemostatic-clamp": {
+        "kind": "relic",
+        "id": "relic-0179",
+        "canonicalSlug": "hemostatic-clamp",
+        "canonicalPath": "/database/relics/hemostatic-clamp"
+      },
       "hierophants-staff": {
         "kind": "relic",
-        "id": "relic-9053",
+        "id": "relic-0180",
         "canonicalSlug": "hierophants-staff",
         "canonicalPath": "/database/relics/hierophants-staff"
       },
       "highest-honor": {
         "kind": "relic",
-        "id": "relic-9025",
+        "id": "relic-0181",
         "canonicalSlug": "highest-honor",
         "canonicalPath": "/database/relics/highest-honor"
       },
+      "honeyed-ink": {
+        "kind": "relic",
+        "id": "relic-0182",
+        "canonicalSlug": "honeyed-ink",
+        "canonicalPath": "/database/relics/honeyed-ink"
+      },
+      "hyperstring-abyssal-elixir": {
+        "kind": "relic",
+        "id": "relic-0183",
+        "canonicalSlug": "hyperstring-abyssal-elixir",
+        "canonicalPath": "/database/relics/hyperstring-abyssal-elixir"
+      },
+      "hyperstring-blood-rot-serum": {
+        "kind": "relic",
+        "id": "relic-0184",
+        "canonicalSlug": "hyperstring-blood-rot-serum",
+        "canonicalPath": "/database/relics/hyperstring-blood-rot-serum"
+      },
+      "hyperstring-pocketwatch": {
+        "kind": "relic",
+        "id": "relic-0185",
+        "canonicalSlug": "hyperstring-pocketwatch",
+        "canonicalPath": "/database/relics/hyperstring-pocketwatch"
+      },
       "in-twilight": {
         "kind": "relic",
-        "id": "relic-9047",
+        "id": "relic-0186",
         "canonicalSlug": "in-twilight",
         "canonicalPath": "/database/relics/in-twilight"
       },
+      "inverted-view": {
+        "kind": "relic",
+        "id": "relic-0187",
+        "canonicalSlug": "inverted-view",
+        "canonicalPath": "/database/relics/inverted-view"
+      },
       "iron-lock": {
         "kind": "relic",
-        "id": "relic-9007",
+        "id": "relic-0188",
         "canonicalSlug": "iron-lock",
         "canonicalPath": "/database/relics/iron-lock"
       },
+      "ivory-raven-beak": {
+        "kind": "relic",
+        "id": "relic-0189",
+        "canonicalSlug": "ivory-raven-beak",
+        "canonicalPath": "/database/relics/ivory-raven-beak"
+      },
       "jade-imprint": {
         "kind": "relic",
-        "id": "relic-9110",
+        "id": "relic-0190",
         "canonicalSlug": "jade-imprint",
         "canonicalPath": "/database/relics/jade-imprint"
       },
+      "joyous-record": {
+        "kind": "relic",
+        "id": "relic-0191",
+        "canonicalSlug": "joyous-record",
+        "canonicalPath": "/database/relics/joyous-record"
+      },
       "kaleidoscope": {
         "kind": "relic",
-        "id": "relic-9044",
+        "id": "relic-0192",
         "canonicalSlug": "kaleidoscope",
         "canonicalPath": "/database/relics/kaleidoscope"
       },
+      "knowledge-wheel": {
+        "kind": "relic",
+        "id": "relic-0193",
+        "canonicalSlug": "knowledge-wheel",
+        "canonicalPath": "/database/relics/knowledge-wheel"
+      },
+      "lamp-of-salvation": {
+        "kind": "relic",
+        "id": "relic-0194",
+        "canonicalSlug": "lamp-of-salvation",
+        "canonicalPath": "/database/relics/lamp-of-salvation"
+      },
+      "lamprey-kiss": {
+        "kind": "relic",
+        "id": "relic-0195",
+        "canonicalSlug": "lamprey-kiss",
+        "canonicalPath": "/database/relics/lamprey-kiss"
+      },
       "laurel-cufflinks": {
         "kind": "relic",
-        "id": "relic-9009",
+        "id": "relic-0196",
         "canonicalSlug": "laurel-cufflinks",
         "canonicalPath": "/database/relics/laurel-cufflinks"
       },
+      "lemurian-delight": {
+        "kind": "relic",
+        "id": "relic-0197",
+        "canonicalSlug": "lemurian-delight",
+        "canonicalPath": "/database/relics/lemurian-delight"
+      },
+      "life-breather": {
+        "kind": "relic",
+        "id": "relic-0198",
+        "canonicalSlug": "life-breather",
+        "canonicalPath": "/database/relics/life-breather"
+      },
+      "light-of-civilization": {
+        "kind": "relic",
+        "id": "relic-0199",
+        "canonicalSlug": "light-of-civilization",
+        "canonicalPath": "/database/relics/light-of-civilization"
+      },
+      "little-ns-chaotic-camera": {
+        "kind": "relic",
+        "id": "relic-0200",
+        "canonicalSlug": "little-ns-chaotic-camera",
+        "canonicalPath": "/database/relics/little-ns-chaotic-camera"
+      },
+      "little-ns-pristine-camera": {
+        "kind": "relic",
+        "id": "relic-0201",
+        "canonicalSlug": "little-ns-pristine-camera",
+        "canonicalPath": "/database/relics/little-ns-pristine-camera"
+      },
+      "little-ns-worn-camera": {
+        "kind": "relic",
+        "id": "relic-0202",
+        "canonicalSlug": "little-ns-worn-camera",
+        "canonicalPath": "/database/relics/little-ns-worn-camera"
+      },
+      "lone-wolfs-insignia": {
+        "kind": "relic",
+        "id": "relic-0203",
+        "canonicalSlug": "lone-wolfs-insignia",
+        "canonicalPath": "/database/relics/lone-wolfs-insignia"
+      },
       "lucky-rabbits-paw": {
         "kind": "relic",
-        "id": "relic-9005",
+        "id": "relic-0204",
         "canonicalSlug": "lucky-rabbits-paw",
         "canonicalPath": "/database/relics/lucky-rabbits-paw"
       },
+      "lucky-windcoat": {
+        "kind": "relic",
+        "id": "relic-0205",
+        "canonicalSlug": "lucky-windcoat",
+        "canonicalPath": "/database/relics/lucky-windcoat"
+      },
+      "luminous-hourglass": {
+        "kind": "relic",
+        "id": "relic-0206",
+        "canonicalSlug": "luminous-hourglass",
+        "canonicalPath": "/database/relics/luminous-hourglass"
+      },
       "malignant-child": {
         "kind": "relic",
-        "id": "relic-9017",
+        "id": "relic-0207",
         "canonicalSlug": "malignant-child",
         "canonicalPath": "/database/relics/malignant-child"
       },
+      "mary-the-pure": {
+        "kind": "relic",
+        "id": "relic-0208",
+        "canonicalSlug": "mary-the-pure",
+        "canonicalPath": "/database/relics/mary-the-pure"
+      },
+      "medal-of-rescue-bronze": {
+        "kind": "relic",
+        "id": "relic-0209",
+        "canonicalSlug": "medal-of-rescue-bronze",
+        "canonicalPath": "/database/relics/medal-of-rescue-bronze"
+      },
+      "medal-of-rescue-diamond": {
+        "kind": "relic",
+        "id": "relic-0210",
+        "canonicalSlug": "medal-of-rescue-diamond",
+        "canonicalPath": "/database/relics/medal-of-rescue-diamond"
+      },
+      "medal-of-rescue-gold": {
+        "kind": "relic",
+        "id": "relic-0211",
+        "canonicalSlug": "medal-of-rescue-gold",
+        "canonicalPath": "/database/relics/medal-of-rescue-gold"
+      },
+      "medal-of-rescue-platinum": {
+        "kind": "relic",
+        "id": "relic-0212",
+        "canonicalSlug": "medal-of-rescue-platinum",
+        "canonicalPath": "/database/relics/medal-of-rescue-platinum"
+      },
+      "medal-of-rescue-silver": {
+        "kind": "relic",
+        "id": "relic-0213",
+        "canonicalSlug": "medal-of-rescue-silver",
+        "canonicalPath": "/database/relics/medal-of-rescue-silver"
+      },
+      "memory-and-dream": {
+        "kind": "relic",
+        "id": "relic-0214",
+        "canonicalSlug": "memory-and-dream",
+        "canonicalPath": "/database/relics/memory-and-dream"
+      },
+      "memphis-ritual-mirror": {
+        "kind": "relic",
+        "id": "relic-0215",
+        "canonicalSlug": "memphis-ritual-mirror",
+        "canonicalPath": "/database/relics/memphis-ritual-mirror"
+      },
       "mind-engraving": {
         "kind": "relic",
-        "id": "relic-9111",
+        "id": "relic-0216",
         "canonicalSlug": "mind-engraving",
         "canonicalPath": "/database/relics/mind-engraving"
       },
+      "mob-song": {
+        "kind": "relic",
+        "id": "relic-0217",
+        "canonicalSlug": "mob-song",
+        "canonicalPath": "/database/relics/mob-song"
+      },
+      "modern-axle": {
+        "kind": "relic",
+        "id": "relic-0218",
+        "canonicalSlug": "modern-axle",
+        "canonicalPath": "/database/relics/modern-axle"
+      },
+      "mother-effigy": {
+        "kind": "relic",
+        "id": "relic-0219",
+        "canonicalSlug": "mother-effigy",
+        "canonicalPath": "/database/relics/mother-effigy"
+      },
       "mute-jukebox": {
         "kind": "relic",
-        "id": "relic-9023",
+        "id": "relic-0220",
         "canonicalSlug": "mute-jukebox",
         "canonicalPath": "/database/relics/mute-jukebox"
       },
+      "muted-gloves": {
+        "kind": "relic",
+        "id": "relic-0221",
+        "canonicalSlug": "muted-gloves",
+        "canonicalPath": "/database/relics/muted-gloves"
+      },
       "mythag-insignia": {
         "kind": "relic",
-        "id": "relic-9027",
+        "id": "relic-0222",
         "canonicalSlug": "mythag-insignia",
         "canonicalPath": "/database/relics/mythag-insignia"
       },
+      "nameless-appendage": {
+        "kind": "relic",
+        "id": "relic-0223",
+        "canonicalSlug": "nameless-appendage",
+        "canonicalPath": "/database/relics/nameless-appendage"
+      },
       "nettle-vest": {
         "kind": "relic",
-        "id": "relic-9024",
+        "id": "relic-0224",
         "canonicalSlug": "nettle-vest",
         "canonicalPath": "/database/relics/nettle-vest"
       },
       "neurotoxin": {
         "kind": "relic",
-        "id": "relic-9105",
+        "id": "relic-0225",
         "canonicalSlug": "neurotoxin",
         "canonicalPath": "/database/relics/neurotoxin"
       },
+      "nightmare-manifest": {
+        "kind": "relic",
+        "id": "relic-0226",
+        "canonicalSlug": "nightmare-manifest",
+        "canonicalPath": "/database/relics/nightmare-manifest"
+      },
+      "octahedron-dice": {
+        "kind": "relic",
+        "id": "relic-0227",
+        "canonicalSlug": "octahedron-dice",
+        "canonicalPath": "/database/relics/octahedron-dice"
+      },
+      "ogais-notes": {
+        "kind": "relic",
+        "id": "relic-0228",
+        "canonicalSlug": "ogais-notes",
+        "canonicalPath": "/database/relics/ogais-notes"
+      },
       "omen-ritual-bird": {
         "kind": "relic",
-        "id": "relic-9038",
+        "id": "relic-0229",
         "canonicalSlug": "omen-ritual-bird",
         "canonicalPath": "/database/relics/omen-ritual-bird"
       },
+      "omniscient-eye": {
+        "kind": "relic",
+        "id": "relic-0230",
+        "canonicalSlug": "omniscient-eye",
+        "canonicalPath": "/database/relics/omniscient-eye"
+      },
       "other-tongue": {
         "kind": "relic",
-        "id": "relic-9102",
+        "id": "relic-0231",
         "canonicalSlug": "other-tongue",
         "canonicalPath": "/database/relics/other-tongue"
       },
       "our-home": {
         "kind": "relic",
-        "id": "relic-9015",
+        "id": "relic-0232",
         "canonicalSlug": "our-home",
         "canonicalPath": "/database/relics/our-home"
       },
+      "pallid-egg": {
+        "kind": "relic",
+        "id": "relic-0233",
+        "canonicalSlug": "pallid-egg",
+        "canonicalPath": "/database/relics/pallid-egg"
+      },
       "pathwalkers-remains": {
         "kind": "relic",
-        "id": "relic-9036",
+        "id": "relic-0234",
         "canonicalSlug": "pathwalkers-remains",
         "canonicalPath": "/database/relics/pathwalkers-remains"
       },
+      "phantom-hand": {
+        "kind": "relic",
+        "id": "relic-0235",
+        "canonicalSlug": "phantom-hand",
+        "canonicalPath": "/database/relics/phantom-hand"
+      },
+      "plague-record": {
+        "kind": "relic",
+        "id": "relic-0236",
+        "canonicalSlug": "plague-record",
+        "canonicalPath": "/database/relics/plague-record"
+      },
+      "pocketwatch-mirror": {
+        "kind": "relic",
+        "id": "relic-0237",
+        "canonicalSlug": "pocketwatch-mirror",
+        "canonicalPath": "/database/relics/pocketwatch-mirror"
+      },
+      "prasno-lens": {
+        "kind": "relic",
+        "id": "relic-0238",
+        "canonicalSlug": "prasno-lens",
+        "canonicalPath": "/database/relics/prasno-lens"
+      },
       "preserved-butterfly": {
         "kind": "relic",
-        "id": "relic-9001",
+        "id": "relic-0239",
         "canonicalSlug": "preserved-butterfly",
         "canonicalPath": "/database/relics/preserved-butterfly"
       },
+      "principles-of-aesthetics": {
+        "kind": "relic",
+        "id": "relic-0240",
+        "canonicalSlug": "principles-of-aesthetics",
+        "canonicalPath": "/database/relics/principles-of-aesthetics"
+      },
       "prophets-lamp": {
         "kind": "relic",
-        "id": "relic-9046",
+        "id": "relic-0241",
         "canonicalSlug": "prophets-lamp",
         "canonicalPath": "/database/relics/prophets-lamp"
       },
       "proto-battery": {
         "kind": "relic",
-        "id": "relic-9014",
+        "id": "relic-0242",
         "canonicalSlug": "proto-battery",
         "canonicalPath": "/database/relics/proto-battery"
       },
+      "psyche-analysis": {
+        "kind": "relic",
+        "id": "relic-0243",
+        "canonicalSlug": "psyche-analysis",
+        "canonicalPath": "/database/relics/psyche-analysis"
+      },
+      "pure-silver-core-birth": {
+        "kind": "relic",
+        "id": "relic-0244",
+        "canonicalSlug": "pure-silver-core-birth",
+        "canonicalPath": "/database/relics/pure-silver-core-birth"
+      },
+      "pure-silver-core-deceit": {
+        "kind": "relic",
+        "id": "relic-0245",
+        "canonicalSlug": "pure-silver-core-deceit",
+        "canonicalPath": "/database/relics/pure-silver-core-deceit"
+      },
+      "pure-silver-core-fear": {
+        "kind": "relic",
+        "id": "relic-0246",
+        "canonicalSlug": "pure-silver-core-fear",
+        "canonicalPath": "/database/relics/pure-silver-core-fear"
+      },
+      "pure-silver-core-heresy": {
+        "kind": "relic",
+        "id": "relic-0247",
+        "canonicalSlug": "pure-silver-core-heresy",
+        "canonicalPath": "/database/relics/pure-silver-core-heresy"
+      },
+      "pure-silver-core-madness": {
+        "kind": "relic",
+        "id": "relic-0248",
+        "canonicalSlug": "pure-silver-core-madness",
+        "canonicalPath": "/database/relics/pure-silver-core-madness"
+      },
+      "pure-silver-core-scathe": {
+        "kind": "relic",
+        "id": "relic-0249",
+        "canonicalSlug": "pure-silver-core-scathe",
+        "canonicalPath": "/database/relics/pure-silver-core-scathe"
+      },
+      "pure-silver-core-sorrow": {
+        "kind": "relic",
+        "id": "relic-0250",
+        "canonicalSlug": "pure-silver-core-sorrow",
+        "canonicalPath": "/database/relics/pure-silver-core-sorrow"
+      },
       "putney-morning-post": {
         "kind": "relic",
-        "id": "relic-9055",
+        "id": "relic-0251",
         "canonicalSlug": "putney-morning-post",
         "canonicalPath": "/database/relics/putney-morning-post"
       },
       "radium-jawbone": {
         "kind": "relic",
-        "id": "relic-9107",
+        "id": "relic-0252",
         "canonicalSlug": "radium-jawbone",
         "canonicalPath": "/database/relics/radium-jawbone"
       },
       "relic-of-the-past": {
         "kind": "relic",
-        "id": "relic-9051",
+        "id": "relic-0253",
         "canonicalSlug": "relic-of-the-past",
         "canonicalPath": "/database/relics/relic-of-the-past"
       },
       "rhind-papyrus": {
         "kind": "relic",
-        "id": "relic-9062",
+        "id": "relic-0254",
         "canonicalSlug": "rhind-papyrus",
         "canonicalPath": "/database/relics/rhind-papyrus"
       },
       "rite-of-spring": {
         "kind": "relic",
-        "id": "relic-9002",
+        "id": "relic-0255",
         "canonicalSlug": "rite-of-spring",
         "canonicalPath": "/database/relics/rite-of-spring"
       },
       "ritual-dagger": {
         "kind": "relic",
-        "id": "relic-9019",
+        "id": "relic-0256",
         "canonicalSlug": "ritual-dagger",
         "canonicalPath": "/database/relics/ritual-dagger"
       },
+      "rotting-blood-abyss-serum": {
+        "kind": "relic",
+        "id": "relic-0257",
+        "canonicalSlug": "rotting-blood-abyss-serum",
+        "canonicalPath": "/database/relics/rotting-blood-abyss-serum"
+      },
+      "rusted-saw": {
+        "kind": "relic",
+        "id": "relic-0258",
+        "canonicalSlug": "rusted-saw",
+        "canonicalPath": "/database/relics/rusted-saw"
+      },
       "rusty-lancet": {
         "kind": "relic",
-        "id": "relic-9029",
+        "id": "relic-0259",
         "canonicalSlug": "rusty-lancet",
         "canonicalPath": "/database/relics/rusty-lancet"
       },
+      "sacred-agony": {
+        "kind": "relic",
+        "id": "relic-0260",
+        "canonicalSlug": "sacred-agony",
+        "canonicalPath": "/database/relics/sacred-agony"
+      },
       "safe-passage": {
         "kind": "relic",
-        "id": "relic-9049",
+        "id": "relic-0261",
         "canonicalSlug": "safe-passage",
         "canonicalPath": "/database/relics/safe-passage"
       },
+      "sailor-whistle": {
+        "kind": "relic",
+        "id": "relic-0262",
+        "canonicalSlug": "sailor-whistle",
+        "canonicalPath": "/database/relics/sailor-whistle"
+      },
       "salvific-limb": {
         "kind": "relic",
-        "id": "relic-9040",
+        "id": "relic-0263",
         "canonicalSlug": "salvific-limb",
         "canonicalPath": "/database/relics/salvific-limb"
       },
       "serpents-husk": {
         "kind": "relic",
-        "id": "relic-9048",
+        "id": "relic-0264",
         "canonicalSlug": "serpents-husk",
         "canonicalPath": "/database/relics/serpents-husk"
       },
+      "severed-head-worm": {
+        "kind": "relic",
+        "id": "relic-0265",
+        "canonicalSlug": "severed-head-worm",
+        "canonicalPath": "/database/relics/severed-head-worm"
+      },
+      "shapeshifters-invitation": {
+        "kind": "relic",
+        "id": "relic-0266",
+        "canonicalSlug": "shapeshifters-invitation",
+        "canonicalPath": "/database/relics/shapeshifters-invitation"
+      },
+      "shifting-straitjacket": {
+        "kind": "relic",
+        "id": "relic-0267",
+        "canonicalSlug": "shifting-straitjacket",
+        "canonicalPath": "/database/relics/shifting-straitjacket"
+      },
+      "signal-relay": {
+        "kind": "relic",
+        "id": "relic-0268",
+        "canonicalSlug": "signal-relay",
+        "canonicalPath": "/database/relics/signal-relay"
+      },
       "silent-prelude": {
         "kind": "relic",
-        "id": "relic-9054",
+        "id": "relic-0269",
         "canonicalSlug": "silent-prelude",
         "canonicalPath": "/database/relics/silent-prelude"
       },
+      "silver-ribbon": {
+        "kind": "relic",
+        "id": "relic-0270",
+        "canonicalSlug": "silver-ribbon",
+        "canonicalPath": "/database/relics/silver-ribbon"
+      },
       "silver-tongue": {
         "kind": "relic",
-        "id": "relic-9057",
+        "id": "relic-0271",
         "canonicalSlug": "silver-tongue",
         "canonicalPath": "/database/relics/silver-tongue"
       },
+      "sirens-tear": {
+        "kind": "relic",
+        "id": "relic-0272",
+        "canonicalSlug": "sirens-tear",
+        "canonicalPath": "/database/relics/sirens-tear"
+      },
       "solar-disc": {
         "kind": "relic",
-        "id": "relic-9050",
+        "id": "relic-0273",
         "canonicalSlug": "solar-disc",
         "canonicalPath": "/database/relics/solar-disc"
       },
+      "sos-signal": {
+        "kind": "relic",
+        "id": "relic-0274",
+        "canonicalSlug": "sos-signal",
+        "canonicalPath": "/database/relics/sos-signal"
+      },
+      "sovereigns-power": {
+        "kind": "relic",
+        "id": "relic-0275",
+        "canonicalSlug": "sovereigns-power",
+        "canonicalPath": "/database/relics/sovereigns-power"
+      },
+      "spatial-deflector": {
+        "kind": "relic",
+        "id": "relic-0276",
+        "canonicalSlug": "spatial-deflector",
+        "canonicalPath": "/database/relics/spatial-deflector"
+      },
+      "stand-in-doll": {
+        "kind": "relic",
+        "id": "relic-0277",
+        "canonicalSlug": "stand-in-doll",
+        "canonicalPath": "/database/relics/stand-in-doll"
+      },
       "stellar-brew": {
         "kind": "relic",
-        "id": "relic-9058",
+        "id": "relic-0278",
         "canonicalSlug": "stellar-brew",
         "canonicalPath": "/database/relics/stellar-brew"
       },
+      "submersible-helm": {
+        "kind": "relic",
+        "id": "relic-0279",
+        "canonicalSlug": "submersible-helm",
+        "canonicalPath": "/database/relics/submersible-helm"
+      },
+      "sudden-fallacy": {
+        "kind": "relic",
+        "id": "relic-0280",
+        "canonicalSlug": "sudden-fallacy",
+        "canonicalPath": "/database/relics/sudden-fallacy"
+      },
+      "swarm-mind": {
+        "kind": "relic",
+        "id": "relic-0281",
+        "canonicalSlug": "swarm-mind",
+        "canonicalPath": "/database/relics/swarm-mind"
+      },
+      "the-futile-travail": {
+        "kind": "relic",
+        "id": "relic-0282",
+        "canonicalSlug": "the-futile-travail",
+        "canonicalPath": "/database/relics/the-futile-travail"
+      },
       "tilted-scales": {
         "kind": "relic",
-        "id": "relic-9064",
+        "id": "relic-0283",
         "canonicalSlug": "tilted-scales",
         "canonicalPath": "/database/relics/tilted-scales"
       },
+      "time-scarab": {
+        "kind": "relic",
+        "id": "relic-0284",
+        "canonicalSlug": "time-scarab",
+        "canonicalPath": "/database/relics/time-scarab"
+      },
+      "tiny-cradle": {
+        "kind": "relic",
+        "id": "relic-0285",
+        "canonicalSlug": "tiny-cradle",
+        "canonicalPath": "/database/relics/tiny-cradle"
+      },
       "tiny-music-box": {
         "kind": "relic",
-        "id": "relic-9056",
+        "id": "relic-0286",
         "canonicalSlug": "tiny-music-box",
         "canonicalPath": "/database/relics/tiny-music-box"
       },
       "tricksters-hat": {
         "kind": "relic",
-        "id": "relic-9037",
+        "id": "relic-0287",
         "canonicalSlug": "tricksters-hat",
         "canonicalPath": "/database/relics/tricksters-hat"
       },
+      "trigon-prism": {
+        "kind": "relic",
+        "id": "relic-0288",
+        "canonicalSlug": "trigon-prism",
+        "canonicalPath": "/database/relics/trigon-prism"
+      },
       "true-north-compass": {
         "kind": "relic",
-        "id": "relic-9013",
+        "id": "relic-0289",
         "canonicalSlug": "true-north-compass",
         "canonicalPath": "/database/relics/true-north-compass"
       },
       "truth-unbound": {
         "kind": "relic",
-        "id": "relic-9028",
+        "id": "relic-0290",
         "canonicalSlug": "truth-unbound",
         "canonicalPath": "/database/relics/truth-unbound"
       },
+      "twin-dolls": {
+        "kind": "relic",
+        "id": "relic-0291",
+        "canonicalSlug": "twin-dolls",
+        "canonicalPath": "/database/relics/twin-dolls"
+      },
+      "twisted-palette": {
+        "kind": "relic",
+        "id": "relic-0292",
+        "canonicalSlug": "twisted-palette",
+        "canonicalPath": "/database/relics/twisted-palette"
+      },
       "ultra-ring": {
         "kind": "relic",
-        "id": "relic-9042",
+        "id": "relic-0293",
         "canonicalSlug": "ultra-ring",
         "canonicalPath": "/database/relics/ultra-ring"
       },
       "uncanny-salve": {
         "kind": "relic",
-        "id": "relic-9008",
+        "id": "relic-0294",
         "canonicalSlug": "uncanny-salve",
         "canonicalPath": "/database/relics/uncanny-salve"
       },
+      "unified-evolution-reagent": {
+        "kind": "relic",
+        "id": "relic-0295",
+        "canonicalSlug": "unified-evolution-reagent",
+        "canonicalPath": "/database/relics/unified-evolution-reagent"
+      },
       "veil-of-the-nameless-deity": {
         "kind": "relic",
-        "id": "relic-9032",
+        "id": "relic-0296",
         "canonicalSlug": "veil-of-the-nameless-deity",
         "canonicalPath": "/database/relics/veil-of-the-nameless-deity"
       },
       "vision-corrector": {
         "kind": "relic",
-        "id": "relic-9031",
+        "id": "relic-0297",
         "canonicalSlug": "vision-corrector",
         "canonicalPath": "/database/relics/vision-corrector"
       },
       "vitality-injection": {
         "kind": "relic",
-        "id": "relic-9022",
+        "id": "relic-0298",
         "canonicalSlug": "vitality-injection",
         "canonicalPath": "/database/relics/vitality-injection"
       },
       "voyagers-parasol": {
         "kind": "relic",
-        "id": "relic-9060",
+        "id": "relic-0299",
         "canonicalSlug": "voyagers-parasol",
         "canonicalPath": "/database/relics/voyagers-parasol"
       },
       "wailing-bell": {
         "kind": "relic",
-        "id": "relic-9035",
+        "id": "relic-0300",
         "canonicalSlug": "wailing-bell",
         "canonicalPath": "/database/relics/wailing-bell"
       },
+      "warp-device": {
+        "kind": "relic",
+        "id": "relic-0301",
+        "canonicalSlug": "warp-device",
+        "canonicalPath": "/database/relics/warp-device"
+      },
       "weeping-pipe": {
         "kind": "relic",
-        "id": "relic-9106",
+        "id": "relic-0302",
         "canonicalSlug": "weeping-pipe",
         "canonicalPath": "/database/relics/weeping-pipe"
+      },
+      "winners-cup": {
+        "kind": "relic",
+        "id": "relic-0303",
+        "canonicalSlug": "winners-cup",
+        "canonicalPath": "/database/relics/winners-cup"
+      },
+      "wriggling-cord": {
+        "kind": "relic",
+        "id": "relic-0304",
+        "canonicalSlug": "wriggling-cord",
+        "canonicalPath": "/database/relics/wriggling-cord"
+      },
+      "yellow-snail": {
+        "kind": "relic",
+        "id": "relic-0305",
+        "canonicalSlug": "yellow-snail",
+        "canonicalPath": "/database/relics/yellow-snail"
       }
     },
     "covenants": {

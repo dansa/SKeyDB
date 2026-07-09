@@ -1489,29 +1489,13 @@
     ]
   },
   "relics": {
-    "realm": [
-      {
-        "value": "CHAOS",
-        "label": "Chaos",
-        "order": 0
-      },
-      {
-        "value": "AEQUOR",
-        "label": "Aequor",
-        "order": 10
-      },
-      {
-        "value": "CARO",
-        "label": "Caro",
-        "order": 20
-      },
-      {
-        "value": "ULTRA",
-        "label": "Ultra",
-        "order": 30
-      }
-    ],
+    "realm": [],
     "rarity": [
+      {
+        "value": "N",
+        "label": "N",
+        "order": 1000
+      },
       {
         "value": "SR",
         "label": "SR",
@@ -1521,6 +1505,38 @@
         "value": "SSR",
         "label": "SSR",
         "order": 1000
+      }
+    ],
+    "categories": [
+      {
+        "value": "ASTRAL_REIGN",
+        "label": "Astral Reign",
+        "order": 0
+      },
+      {
+        "value": "FADED_LEGACY",
+        "label": "Faded Legacy",
+        "order": 1
+      },
+      {
+        "value": "DIMENSIONAL_IMAGE",
+        "label": "Dimensional Image",
+        "order": 2
+      },
+      {
+        "value": "EVENT",
+        "label": "Event",
+        "order": 3
+      },
+      {
+        "value": "PENDULUM",
+        "label": "Pendulum",
+        "order": 4
+      },
+      {
+        "value": "OTHER",
+        "label": "Other",
+        "order": 5
       }
     ],
     "owner": [

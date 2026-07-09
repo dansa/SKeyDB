@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0156",
+  "name": "Echoes from Beyond",
+  "route": {
+    "slug": "echoes-from-beyond",
+    "canonicalPath": "/database/relics/echoes-from-beyond"
+  },
+  "assets": {
+    "icon": "asset-relic-0156-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0224",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, draw [Arg1] \"Strike\" cards with Arithmetica Cost -1. After releasing Exalt, generate [Arg2] \"Strike\" cards of the corresponding Awakener with {Exhaust}, {Prepare 1}, and {Retain}.\nFor each [Arg3] \"Strike\" played within 1 turn, gain [Arg4] Temporary {STR}; after playing [Arg5] \"Strike\" cards, draw [Arg6] {plural:[Arg6]|card|cards} and gain [Arg7] Arithmetica; after playing [Arg8] \"Strike\" cards, all Awakeners gain [Arg9] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg4": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.01,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg5": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg6": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg7": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg8": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg9": {
+      "kind": "fixed",
+      "value": "10"
+    }
+  },
+  "lore": "Echoes mingling in the mist of another world, leading to distortion, madness, and undeniable reality.",
+  "variants": [
+    {
+      "id": "relic-variant-0224",
+      "name": "Echoes from Beyond",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, draw [Arg1] \"Strike\" cards with Arithmetica Cost -1. After releasing Exalt, generate [Arg2] \"Strike\" cards of the corresponding Awakener with <DepleteIconKeywords:Exhaust>, <PrepareKeypvewords:Prepare 1>, and <RetainIconKeywords:Retain>.\nFor each [Arg3] \"Strike\" played within 1 turn, gain [Arg4] Temporary <PowerIconKeywords:STR>; after playing [Arg5] \"Strike\" cards, draw [Arg6] <plural value=\"[Arg6]\" singular=\"card\" plural=\"cards\"> and gain [Arg7] Arithmetica; after playing [Arg8] \"Strike\" cards, all Awakeners gain [Arg9] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg4": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg5": {
+          "kind": "fixed",
+          "value": "3"
+        },
+        "Arg6": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg7": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg8": {
+          "kind": "fixed",
+          "value": "5"
+        },
+        "Arg9": {
+          "kind": "fixed",
+          "value": "10"
+        }
+      },
+      "lore": "Echoes mingling in the mist of another world, leading to distortion, madness, and undeniable reality."
+    }
+  ]
+}

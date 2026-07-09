@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0168",
+  "name": "Forgotten Loom",
+  "route": {
+    "slug": "forgotten-loom",
+    "canonicalPath": "/database/relics/forgotten-loom"
+  },
+  "assets": {
+    "icon": "asset-relic-0168-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "EVENT"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0248",
+  "rarity": "N",
+  "aliases": ["Forgotten Loom+"],
+  "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakener and Relic {Poison} effects are +[Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "100"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "10",
+      "suffix": "%"
+    }
+  },
+  "lore": "A kind mother mends the wounds of the heart.",
+  "variants": [
+    {
+      "id": "relic-variant-0248",
+      "name": "Forgotten Loom",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After the battle starts, gain [Arg1] <ProficientInRealmsIconKeywords:Realm Mastery>. All Awakener and Relic <IntoxicationIconKeywords:Poison> effects are +[Arg2]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "100"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10",
+          "suffix": "%"
+        }
+      },
+      "lore": "A kind mother mends the wounds of the heart."
+    },
+    {
+      "id": "relic-variant-0249",
+      "name": "Forgotten Loom+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After the battle starts, gain [Arg1] <ProficientInRealmsIconKeywords:Realm Mastery>. All Awakener and Relic <IntoxicationIconKeywords:Poison> effects are +[Arg2]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "200"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "20",
+          "suffix": "%"
+        }
+      },
+      "lore": "A kind mother mends the wounds of the heart."
+    },
+    {
+      "id": "relic-variant-0247",
+      "name": "Forgotten Loom+",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Each time you deal 1 instance of Active DMG, gain 3 Aliemus and Inflict [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <IntoxicationIconKeywords:Poison> to the Target. If the number of triggers reaches 25 times within this battle, immediately Inflict <IntoxicationIconKeywords:Poison> on all Enemy targets.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A kind mother mends the wounds of the heart."
+    }
+  ]
+}

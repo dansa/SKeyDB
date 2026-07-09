@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0176",
+  "name": "Guardian Hand",
+  "route": {
+    "slug": "guardian-hand",
+    "canonicalPath": "/database/relics/guardian-hand"
+  },
+  "assets": {
+    "icon": "asset-relic-0176-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0274",
+  "rarity": "N",
+  "aliases": ["Guardian Hand+"],
+  "descriptionTemplate": "At turn start, if HP is below 25%, gain [Arg1] Shield.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.125,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "The hand that prays, the fist that remains steadfast.",
+  "variants": [
+    {
+      "id": "relic-variant-0274",
+      "name": "Guardian Hand",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At turn start, if HP is below 25%, gain [Arg1] Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.125,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The hand that prays, the fist that remains steadfast."
+    },
+    {
+      "id": "relic-variant-0275",
+      "name": "Guardian Hand+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At turn start, if HP is below 25%, gain [Arg1] Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.25,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The hand that prays, the fist that remains steadfast."
+    },
+    {
+      "id": "relic-variant-0273",
+      "name": "Guardian Hand",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Gain [Arg1] Shield at turn start, increasing by [Arg2] per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The hand that prays, the fist that remains steadfast."
+    }
+  ]
+}

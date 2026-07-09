@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0188",
+  "name": "Iron Lock",
+  "route": {
+    "slug": "iron-lock",
+    "canonicalPath": "/database/relics/iron-lock"
+  },
+  "assets": {
+    "icon": "asset-relic-0188-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 5,
+  "defaultVariantId": "relic-variant-0299",
+  "rarity": "N",
+  "aliases": ["Iron Lock+", "Painted Iron Lock", "Painted Iron Lock+"],
+  "descriptionTemplate": "After releasing \"Exalt, \" gain [Arg1] Temporary {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.03125,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "A thick and sturdy lock, difficult to open without a key.\nOf course, this is nothing for a master thief",
+  "variants": [
+    {
+      "id": "relic-variant-0299",
+      "name": "Iron Lock",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After releasing \"Exalt, \" gain [Arg1] Temporary <PowerIconKeywords:STR>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03125,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A thick and sturdy lock, difficult to open without a key.\nOf course, this is nothing for a master thief"
+    },
+    {
+      "id": "relic-variant-0300",
+      "name": "Iron Lock+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After releasing \"Exalt, \" gain [Arg1] Temporary <PowerIconKeywords:STR>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.0625,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A thick and sturdy lock, difficult to open without a key.\nOf course, this is nothing for a master thief"
+    },
+    {
+      "id": "relic-variant-0298",
+      "name": "Iron Lock",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "After releasing Exalt, Gain [Arg1] in Temporary <PowerIconKeywords:STR>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.04,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A thick and sturdy lock, difficult to open without a key.\nOf course, this is nothing for a master thief"
+    },
+    {
+      "id": "relic-variant-0301",
+      "name": "Painted Iron Lock",
+      "label": "Pickman - Silver",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Silver",
+      "mechanicOwner": "Pickman",
+      "rarity": "N",
+      "descriptionTemplate": "After releasing \"Exalt, \" gain [Arg1] Temporary <PowerIconKeywords:STR>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03125,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A thick and sturdy lock, difficult to open without a key.\nOf course, this is nothing for a master thief"
+    },
+    {
+      "id": "relic-variant-0302",
+      "name": "Painted Iron Lock+",
+      "label": "Pickman - Gold",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Gold",
+      "mechanicOwner": "Pickman",
+      "descriptionTemplate": "After releasing \"Exalt, \" gain [Arg1] Temporary <PowerIconKeywords:STR>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.0625,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A thick and sturdy lock, difficult to open without a key.\nOf course, this is nothing for a master thief"
+    }
+  ]
+}

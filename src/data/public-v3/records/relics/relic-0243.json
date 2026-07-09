@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0243",
+  "name": "Psyche Analysis",
+  "route": {
+    "slug": "psyche-analysis",
+    "canonicalPath": "/database/relics/psyche-analysis"
+  },
+  "assets": {
+    "icon": "asset-relic-0243-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0415",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At the start of the battle, gain 1 stack of {Mind Barrier}, and after 3 turns, convert it to \"{Crumble}\".",
+  "descriptionArgs": {},
+  "lore": "Look closely at your heart, and do not make the wrong choice.",
+  "variants": [
+    {
+      "id": "relic-variant-0415",
+      "name": "Psyche Analysis",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "At the start of the battle, gain 1 stack of \"<MindWall:Mind Barrier>,\" and after 3 turns, convert it to \"<BarrierCrash:Crumble>\".",
+      "descriptionArgs": {},
+      "lore": "Look closely at your heart, and do not make the wrong choice."
+    }
+  ]
+}

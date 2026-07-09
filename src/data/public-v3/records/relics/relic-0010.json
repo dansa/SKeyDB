@@ -10,16 +10,39 @@
   "assets": {
     "icon": "asset-relic-0010-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0010",
   "ownerAwakenerId": "awakener-0010",
   "ownerAwakenerName": "Clementine",
   "rarity": "SSR",
-  "realm": "ULTRA",
+  "aliases": [],
   "descriptionTemplate": "At the start of turn, Clementine gains [Arg1] Aliemus. Clementine's Command Cards' DMG dealt, Shield Generation, HP Recovery, Aliemus Generation, and Keyflare Generation effects increase by 1.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
       "value": "15"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0010",
+      "name": "Dimensional Image: Clementine",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0010",
+      "ownerAwakenerName": "Clementine",
+      "rarity": "SSR",
+      "descriptionTemplate": "At the start of turn, Clementine gains [Arg1] Aliemus. Clementine's Command Cards' DMG dealt, Shield Generation, HP Recovery, Aliemus Generation, and Keyflare Generation effects increase by 1.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      }
+    }
+  ]
 }

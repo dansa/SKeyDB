@@ -10,12 +10,15 @@
   "assets": {
     "icon": "asset-relic-0022-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0022",
   "ownerAwakenerId": "awakener-0022",
   "ownerAwakenerName": "Hameln",
   "rarity": "SSR",
-  "realm": "CHAOS",
-  "descriptionTemplate": "At the start of the turn, Hameln gains [Arg1] Aliemus. The Arithmetica cost of {Soul Overture} is reduced by [Arg2], and the base damage count is increased by [Arg3].",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, Hameln gains [Arg1] Aliemus. The Base Arithmetica Cost of {Soul Overture} -[Arg2], and the Base DMG count is +[Arg3].",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -29,5 +32,33 @@
       "kind": "fixed",
       "value": "1"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0022",
+      "name": "Dimensional Image: Hameln",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0022",
+      "ownerAwakenerName": "Hameln",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Hameln gains [Arg1] Aliemus. The Base Arithmetica Cost of \"Soul Overture\" -[Arg2], and the Base DMG count is +[Arg3].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      }
+    }
+  ]
 }

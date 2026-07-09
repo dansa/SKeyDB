@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0071",
+  "name": "Argent Return: Madness",
+  "route": {
+    "slug": "argent-return-madness",
+    "canonicalPath": "/database/relics/argent-return-madness"
+  },
+  "assets": {
+    "icon": "asset-relic-0071-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0078",
+  "rarity": "SR",
+  "aliases": ["\"Argent Return: Madness\""],
+  "descriptionTemplate": "At the start of the battle, choose 3 cards to grant them \"{Aftershock}: Draw a card and gain [Arg3] Temporary {STR}\". At the start of the turn, draw 2 cards with {Aftershock}, all {Aftershock} effects trigger an additional time. After triggering {Aftershock} 10 times, put 1 {Echoes of Lost Shadows} into your hand.",
+  "descriptionArgs": {
+    "Arg3": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.025,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0078",
+      "name": "\"Argent Return: Madness\"",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, choose 3 cards to grant them \"<RippleKeywords:Aftershock>: Draw a card and gain [Arg3] Temporary <PowerIconKeywords:STR>\". At the start of the turn, draw 2 cards with <RippleKeywords:Aftershock>, all <RippleKeywords:Aftershock> effects trigger an additional time. After triggering <RippleKeywords:Aftershock> 10 times, put 1 <DerivativeCardKeywords_1:Echoes of Lost Shadows> into your hand.",
+      "descriptionArgs": {
+        "Arg3": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.025,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
+}

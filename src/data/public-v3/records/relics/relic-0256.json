@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0256",
+  "name": "Ritual Dagger",
+  "route": {
+    "slug": "ritual-dagger",
+    "canonicalPath": "/database/relics/ritual-dagger"
+  },
+  "assets": {
+    "icon": "asset-relic-0256-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0440",
+  "rarity": "N",
+  "aliases": ["Ritual Dagger+"],
+  "descriptionTemplate": "When attacked by an enemy, deal 1 instance of {Fixed DMG} equal to [Arg3]% of team's Max HP. This DMG enjoys a [Arg2]% {Counter} bonus. Each enemy can trigger this effect up to 1 time per turn.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "fixed",
+      "value": "100",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    }
+  },
+  "lore": "A dagger with a curved blade, commonly used in sacrificial rituals.",
+  "variants": [
+    {
+      "id": "relic-variant-0440",
+      "name": "Ritual Dagger",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "When attacked by an enemy, deal 1 instance of Fixed DMG equal to [Arg3]% of team's Max HP. This DMG enjoys a [Arg2]% <RetaliateIconKeywords:Counter> bonus. Each enemy can trigger this effect up to 1 time per turn.",
+      "descriptionArgs": {
+        "Arg2": {
+          "kind": "fixed",
+          "value": "100",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "25",
+          "suffix": "%"
+        }
+      },
+      "lore": "A dagger with a curved blade, commonly used in sacrificial rituals."
+    },
+    {
+      "id": "relic-variant-0441",
+      "name": "Ritual Dagger+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "When attacked by an enemy, deal 1 instance of Fixed DMG equal to [Arg3]% of team's Max HP. This DMG enjoys a [Arg2]% <RetaliateIconKeywords:Counter> bonus. Each enemy can trigger this effect up to 1 time per turn.",
+      "descriptionArgs": {
+        "Arg2": {
+          "kind": "fixed",
+          "value": "200",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      },
+      "lore": "A dagger with a curved blade, commonly used in sacrificial rituals."
+    },
+    {
+      "id": "relic-variant-0439",
+      "name": "Ritual Dagger",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Whenever DMG is dealt, gain [Arg1] Temporary <RetaliateIconKeywords:Counter>. This can trigger up to 5 times per turn, and when it triggers for the 5th time, put a <DerivativeCardKeywords_4:\"Insight\"> into the Draw Pile.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A dagger with a curved blade, commonly used in sacrificial rituals."
+    }
+  ]
+}

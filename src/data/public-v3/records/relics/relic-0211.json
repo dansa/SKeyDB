@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0211",
+  "name": "Medal of Rescue: Gold",
+  "route": {
+    "slug": "medal-of-rescue-gold",
+    "canonicalPath": "/database/relics/medal-of-rescue-gold"
+  },
+  "assets": {
+    "icon": "asset-relic-0211-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0345",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, gain [Arg1] {Luster of Humanity}.\n{You saved most of the people, rewriting their tragic fates. You did your best, didn't you?}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "X",
+      "displayFormula": "1 + runtime value"
+    }
+  },
+  "lore": "You saved most of the people and rewrote their tragic fates. You did your best, didn't you?",
+  "variants": [
+    {
+      "id": "relic-variant-0345",
+      "name": "Medal of Rescue: Gold",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At turn start, gain [Arg1] <DerivativeCardKeywords_70:\"Luster of Humanity\">.\n<D05EX_Relic:You saved most of the people, rewriting their tragic fates. You did your best, didn't you?>",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "X",
+          "displayFormula": "1 + runtime value"
+        }
+      },
+      "lore": "You saved most of the people and rewrote their tragic fates. You did your best, didn't you?"
+    }
+  ]
+}

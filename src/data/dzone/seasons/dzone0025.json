@@ -14,7 +14,8 @@
         {
           "id": "d-effect-zone-wave-1",
           "name": "D-Effect Zone: Wave 1",
-          "initialRelicIds": ["relic-9075"],
+          "initialRelicIds": ["relic-0127"],
+          "initialRelicVariantIds": ["relic-variant-0169"],
           "monsterIds": [
             "dzone-monster-0276",
             "dzone-monster-0158",
@@ -222,7 +223,8 @@
         {
           "id": "d-effect-zone-wave-2",
           "name": "D-Effect Zone: Wave 2",
-          "initialRelicIds": ["relic-9079"],
+          "initialRelicIds": ["relic-0101"],
+          "initialRelicVariantIds": ["relic-variant-0126"],
           "monsterIds": [
             "dzone-monster-0252",
             "dzone-monster-0278",
@@ -480,7 +482,8 @@
         {
           "id": "d-effect-zone-wave-3",
           "name": "D-Effect Zone: Wave 3",
-          "initialRelicIds": ["relic-9071"],
+          "initialRelicIds": ["relic-0130"],
+          "initialRelicVariantIds": ["relic-variant-0176"],
           "monsterIds": [
             "dzone-monster-0166",
             "dzone-monster-0102",
@@ -860,7 +863,8 @@
         {
           "id": "d-effect-zone-wave-4",
           "name": "D-Effect Zone: Wave 4",
-          "initialRelicIds": ["relic-9091"],
+          "initialRelicIds": ["relic-0112"],
+          "initialRelicVariantIds": ["relic-variant-0137"],
           "monsterIds": [
             "dzone-monster-0099",
             "dzone-monster-0082",
@@ -1243,7 +1247,8 @@
         {
           "id": "d-effect-zone-wave-5",
           "name": "D-Effect Zone: Wave 5",
-          "initialRelicIds": ["relic-9099"],
+          "initialRelicIds": ["relic-0132"],
+          "initialRelicVariantIds": ["relic-variant-0182"],
           "monsterIds": ["dzone-monster-0175"],
           "alerts": [
             {

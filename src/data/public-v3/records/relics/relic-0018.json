@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0018-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0018",
   "ownerAwakenerId": "awakener-0018",
   "ownerAwakenerName": "Doll: Inferno",
   "rarity": "SSR",
-  "realm": "CHAOS",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Doll: Inferno gains [Arg1] Aliemus. After Doll: Inferno unleashes Exalt, for every [Arg2] Aliemus consumed, other Awakeners gain 1 point of Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -25,5 +28,29 @@
       "kind": "fixed",
       "value": "20"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0018",
+      "name": "Dimensional Image: Doll: Inferno",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0018",
+      "ownerAwakenerName": "Doll: Inferno",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Doll: Inferno gains [Arg1] Aliemus. After Doll: Inferno unleashes Exalt, for every [Arg2] Aliemus consumed, other Awakeners gain 1 point of Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "20"
+        }
+      }
+    }
+  ]
 }

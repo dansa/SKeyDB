@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0132",
+  "name": "Chrono Pendulum \"Wish\"",
+  "route": {
+    "slug": "chrono-pendulum-wish",
+    "canonicalPath": "/database/relics/chrono-pendulum-wish"
+  },
+  "assets": {
+    "icon": "asset-relic-0132-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 7,
+  "defaultVariantId": "relic-variant-0178",
+  "rarity": "SR",
+  "aliases": [
+    "Chrono Pendulum \"Wish α\"",
+    "Chrono Pendulum \"Wish β\"",
+    "Chrono Pendulum \"Wish γ\"",
+    "Chrono Pendulum \"Wish δ\"",
+    "Chrono Pendulum \"Wish ε\"",
+    "Chrono Pendulum \"Wish ζ\"",
+    "Chrono Pendulum \"Wish η\""
+  ],
+  "descriptionTemplate": "At the start of battle, increase Arithmetica Limit by 1 and {Rouse} all Awakeners. At the start of odd turns, {Discover} a Relic, up to five times.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0178",
+      "name": "Chrono Pendulum \"Wish α\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of battle, increase Arithmetica Limit by 1 and Rouse all Awakeners. At the start of odd turns, discover a Relic, up to five times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0179",
+      "name": "Chrono Pendulum \"Wish β\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of battle, increase Arithmetica Limit by 1 and Rouse all Awakeners. At the start of odd turns, discover a Relic, up to five times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0180",
+      "name": "Chrono Pendulum \"Wish γ\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of battle, increase Arithmetica Limit by 1 and Rouse all Awakeners. At the start of odd turns, discover a Relic, up to five times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0181",
+      "name": "Chrono Pendulum \"Wish δ\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of battle, increase Arithmetica Limit by 1 and Rouse all Awakeners. At the start of odd turns, discover a Relic, up to five times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0182",
+      "name": "Chrono Pendulum \"Wish ε\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of battle, increase Arithmetica Limit by 1 and Rouse all Awakeners. At the start of odd turns, discover a Relic, up to five times.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0183",
+      "name": "Chrono Pendulum \"Wish ζ\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, increase Arithmetica Limit by 1 and Rouse all Awakeners. At the start of odd-numbered turns, choose 1 out of 2 Relics to gain, lasting for 5 odd-numbered turns.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0184",
+      "name": "Chrono Pendulum \"Wish η\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, increase Arithmetica Limit by 1 and Rouse all Awakeners. At the start of odd-numbered turns, choose 1 out of 2 Relics to gain, lasting for 5 odd-numbered turns.",
+      "descriptionArgs": {}
+    }
+  ]
+}

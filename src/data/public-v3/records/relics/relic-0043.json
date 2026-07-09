@@ -10,16 +10,39 @@
   "assets": {
     "icon": "asset-relic-0043-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0043",
   "ownerAwakenerId": "awakener-0043",
   "ownerAwakenerName": "Ryker",
   "rarity": "SSR",
-  "realm": "CHAOS",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Ryker gains [Arg1] Aliemus. The result of the first dice roll each turn is always maxed out.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
       "value": "15"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0043",
+      "name": "Dimensional Image: Ryker",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0043",
+      "ownerAwakenerName": "Ryker",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Ryker gains [Arg1] Aliemus. The result of the first dice roll each turn is always maxed out.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      }
+    }
+  ]
 }

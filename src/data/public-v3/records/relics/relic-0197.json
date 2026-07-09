@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0197",
+  "name": "Lemurian Delight",
+  "route": {
+    "slug": "lemurian-delight",
+    "canonicalPath": "/database/relics/lemurian-delight"
+  },
+  "assets": {
+    "icon": "asset-relic-0197-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0321",
+  "rarity": "N",
+  "aliases": ["Lemurian Delight+"],
+  "descriptionTemplate": "Activate all Tentacle attacks on enemies immediately using the {Raging Waves} stance [Arg1] {plural:[Arg1]|time|times}, with a 3-turn cooldown.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "The Lord of Eternal Slumber awaits you in your dreams.",
+  "variants": [
+    {
+      "id": "relic-variant-0321",
+      "name": "Lemurian Delight",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Activate all Tentacle attacks on enemies immediately using the Raging Waves stance [Arg1] <plural value=\"[Arg1]\" singular=\"time\" plural=\"times\">, with a 3-turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "The Lord of Eternal Slumber awaits you in your dreams."
+    },
+    {
+      "id": "relic-variant-0322",
+      "name": "Lemurian Delight+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Activate all Tentacle attacks on enemies immediately using the Raging Waves stance [Arg1] <plural value=\"[Arg1]\" singular=\"time\" plural=\"times\">, with a 3-turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "The Lord of Eternal Slumber awaits you in your dreams."
+    },
+    {
+      "id": "relic-variant-0320",
+      "name": "Lemurian Delight",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Each turn, when dealing Active DMG, increase [Arg1] Temporary <TentacleInjurieIconKeywords:Tentacle DMG>, up to 3 times. When the stack is full, generate 1 Temporary Tentacle that ignores the Tentacle Limit.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The Lord of Eternal Slumber awaits you in your dreams."
+    }
+  ]
+}

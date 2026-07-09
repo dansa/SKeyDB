@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0276",
+  "name": "Spatial Deflector",
+  "route": {
+    "slug": "spatial-deflector",
+    "canonicalPath": "/database/relics/spatial-deflector"
+  },
+  "assets": {
+    "icon": "asset-relic-0276-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0484",
+  "rarity": "N",
+  "aliases": ["Spatial Deflector+"],
+  "descriptionTemplate": "At the start of battle, apply [Arg1] {Weakness} and {Vulnerable} to all enemies. This effect is also triggered after {Annihilation}, but has a 3 turn cooldown.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "Leap into the void.",
+  "variants": [
+    {
+      "id": "relic-variant-0484",
+      "name": "Spatial Deflector",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of battle, apply [Arg1] <WeaknessIconKeywords:Weakness> and <VulnerabilityIconKeywords:Vulnerable> to all enemies. This effect is also triggered after \"Annihilation,\" but has a 3 turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "Leap into the void."
+    },
+    {
+      "id": "relic-variant-0485",
+      "name": "Spatial Deflector+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Battle starts by inflicting [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <WeaknessIconKeywords:Weakness> and <VulnerabilityIconKeywords:Vulnerable> on all enemies. This effect will also trigger after \"Annihilation,\" but has a 3 turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "Leap into the void."
+    },
+    {
+      "id": "relic-variant-0483",
+      "name": "Spatial Deflector",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Whenever the <TransitionIconKeywords:Leap> effect is triggered, steal [Arg1] Temporary <PowerIconKeywords:STR> from all enemies. If there is only 1 enemy, steal an additional [Arg2] Temporary <PowerIconKeywords:STR>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.005,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Leap into the void."
+    }
+  ]
+}

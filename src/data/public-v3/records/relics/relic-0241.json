@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0241",
+  "name": "Prophet's Lamp",
+  "route": {
+    "slug": "prophets-lamp",
+    "canonicalPath": "/database/relics/prophets-lamp"
+  },
+  "assets": {
+    "icon": "asset-relic-0241-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0410",
+  "rarity": "N",
+  "aliases": ["Prophet's Lamp+"],
+  "descriptionTemplate": "After the first \"Posse\" in each turn, apply [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} to all enemies and gain [Arg2] {plural:[Arg2]|stack|stacks} of {Counter}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.075,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.0375,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Grant your wish.",
+  "variants": [
+    {
+      "id": "relic-variant-0410",
+      "name": "Prophet's Lamp",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After the first \"Posse\" in each turn, apply [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <IntoxicationIconKeywords:Poison> to all enemies and gain [Arg2] <plural value=\"[Arg2]\" singular=\"stack\" plural=\"stacks\"> of <RetaliateIconKeywords:Counter>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.075,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.0375,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Grant your wish."
+    },
+    {
+      "id": "relic-variant-0411",
+      "name": "Prophet's Lamp+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After the first \"Posse\" in each turn, apply [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <IntoxicationIconKeywords:Poison> to all enemies and gain [Arg2] <plural value=\"[Arg2]\" singular=\"stack\" plural=\"stacks\"> of <RetaliateIconKeywords:Counter>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.15,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.075,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Grant your wish."
+    },
+    {
+      "id": "relic-variant-0409",
+      "name": "Prophet's Lamp",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Draw 1 card at the start of your turn, and you may choose to keep 1 card in your hand at the end of your turn.",
+      "descriptionArgs": {},
+      "lore": "Grant your wish."
+    }
+  ]
+}

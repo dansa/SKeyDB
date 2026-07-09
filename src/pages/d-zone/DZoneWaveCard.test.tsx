@@ -8,9 +8,9 @@ import type {DZoneRelicPreview} from './d-zone-view-model'
 import {DZoneWaveCard} from './DZoneWaveCard'
 
 const relics: DZoneRelicPreview[] = [
-  {id: 'relic-9001', name: '@1 Shared Sigil'},
-  {id: 'relic-9002', name: '@2 Visible Charm'},
-  {id: 'relic-9003', name: '@3 Overflow Relic'},
+  {id: 'relic-0084', variantId: 'relic-variant-0105', name: '@1 Shared Sigil'},
+  {id: 'relic-0241', variantId: 'relic-variant-0411', name: '@2 Visible Charm'},
+  {id: 'relic-0259', variantId: 'relic-variant-0450', name: '@3 Overflow Relic'},
 ]
 
 const monsters: DzoneResolvedMonster[] = Array.from({length: 11}, (_, index) => {
@@ -31,6 +31,7 @@ const wave: DzoneResolvedWave = {
   id: 'wave-1',
   name: 'Wave 1',
   initialRelicIds: relics.map((relic) => relic.id),
+  initialRelicVariantIds: relics.map((relic) => relic.variantId),
   monsters,
   alerts: [
     {

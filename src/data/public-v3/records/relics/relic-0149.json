@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0149",
+  "name": "Dimension Pendulum-Voodoo",
+  "route": {
+    "slug": "dimension-pendulum-voodoo",
+    "canonicalPath": "/database/relics/dimension-pendulum-voodoo"
+  },
+  "assets": {
+    "icon": "asset-relic-0149-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0212",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "{Dawn}: All Awakeners' Base Aliemus reduced by 30. The first Exalt Unleashed each turn gains 200% Final DMG bonus, 100% Shield and Healing bonus. After Unleashing Exalt 5 times, choose 1 Awakener to {Rouse}, and Refresh the Exalt amplification Effect.\n{Depletion}: Base Keyflare +200%",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "200"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "100"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "200"
+    },
+    "Arg5": {
+      "kind": "fixed",
+      "value": "30"
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0212",
+      "name": "Dimension Pendulum-Voodoo",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "<OrangeQuality:Dawn>: All Awakeners' Base Aliemus reduced by 30. The first Exalt Unleashed each turn gains 200% Final DMG bonus, 100% Shield and Healing bonus. After Unleashing Exalt 5 times, choose 1 Awakener to Rouse, and Refresh the Exalt amplification Effect.\n<RedQuality:Depletion>: Base Keyflare +200%",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "200"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "100"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "5"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "200"
+        },
+        "Arg5": {
+          "kind": "fixed",
+          "value": "30"
+        }
+      }
+    }
+  ]
+}

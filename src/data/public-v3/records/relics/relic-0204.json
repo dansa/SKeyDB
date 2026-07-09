@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0204",
+  "name": "Lucky Rabbit's Paw",
+  "route": {
+    "slug": "lucky-rabbits-paw",
+    "canonicalPath": "/database/relics/lucky-rabbits-paw"
+  },
+  "assets": {
+    "icon": "asset-relic-0204-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0330",
+  "rarity": "N",
+  "aliases": ["Lucky Rabbit's Paw+"],
+  "descriptionTemplate": "The first \"Posse\" each turn refunds [Arg1]% of the consumed Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    }
+  },
+  "lore": "Not so lucky for the rabbit.",
+  "variants": [
+    {
+      "id": "relic-variant-0330",
+      "name": "Lucky Rabbit's Paw",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "The first \"Posse\" each turn refunds [Arg1]% of the consumed Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "25",
+          "suffix": "%"
+        }
+      },
+      "lore": "Not so lucky for the rabbit."
+    },
+    {
+      "id": "relic-variant-0331",
+      "name": "Lucky Rabbit's Paw+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "The first \"Posse\" each turn refunds [Arg1]% of the consumed Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      },
+      "lore": "Not so lucky for the rabbit."
+    },
+    {
+      "id": "relic-variant-0329",
+      "name": "Lucky Rabbit's Paw",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Remove 1 Symptom Card upon pickup. Upgrade 1 random Orison to an Advanced Orison.",
+      "descriptionArgs": {},
+      "lore": "Not so lucky for the rabbit."
+    }
+  ]
+}

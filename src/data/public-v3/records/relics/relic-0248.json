@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0248",
+  "name": "Pure Silver Core: Madness",
+  "route": {
+    "slug": "pure-silver-core-madness",
+    "canonicalPath": "/database/relics/pure-silver-core-madness"
+  },
+  "assets": {
+    "icon": "asset-relic-0248-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0420",
+  "rarity": "SR",
+  "aliases": ["\"Pure Silver Core: Madness\""],
+  "descriptionTemplate": "At battle start, {Rouse} all Awakeners, draw {Twilight: Utopian Veil} into hand, increase the team's Hand Limit by +2, and increase the Keyflare storage limit by +100%. After releasing the Posse, all Awakeners' Crit. DMG and Temporary Crit. Rate +[Arg1]%, receive Shield equal to 20% of their Max HP, and draw cards until the Hand Limit is reached.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "100",
+      "suffix": "%"
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0420",
+      "name": "\"Pure Silver Core: Madness\"",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At battle start, Rouse all Awakeners, draw <DerivativeCardKeywords_88:\"Twilight: Utopian Veil\"> into hand, increase the team's hand limit by +2, and increase the Keyflare storage limit by +100%. After releasing the Posse, all Awakeners' Crit. DMG and Temporary Crit. Rate +[Arg1]%, receive Shield equal to 20% of their Max HP, and draw cards until the hand limit is reached.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "100",
+          "suffix": "%"
+        }
+      }
+    }
+  ]
+}

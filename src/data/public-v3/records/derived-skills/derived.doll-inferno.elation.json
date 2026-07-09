@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0018",
   "derivedFromId": "skill.doll-inferno.self-destruct",
   "rootSkillId": "skill.doll-inferno.self-destruct",
-  "descriptionTemplate": "Gain 1 turn of {Elation} state: Team DMG Amplification increased by [Arg2]%.",
+  "descriptionTemplate": "Gain 1 turn of {Elation} state: Team DMG Amplification +[Arg2]%.",
   "descriptionArgs": {
     "Arg2": {
       "kind": "scaling",

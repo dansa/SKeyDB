@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0273",
+  "name": "Solar Disc",
+  "route": {
+    "slug": "solar-disc",
+    "canonicalPath": "/database/relics/solar-disc"
+  },
+  "assets": {
+    "icon": "asset-relic-0273-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY", "EVENT"],
+  "variantCount": 4,
+  "defaultVariantId": "relic-variant-0479",
+  "rarity": "N",
+  "aliases": ["Solar Disc+"],
+  "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. Draw [Arg2] {plural:[Arg2]|card|cards} at the start of odd turns, and gain [Arg2] Arithmetica at the start of even turns.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "50"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "Guess, is it black or white?",
+  "variants": [
+    {
+      "id": "relic-variant-0479",
+      "name": "Solar Disc",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After the battle starts, gain [Arg1] <ProficientInRealmsIconKeywords:Realm Mastery>. Draw [Arg2] <plural value=\"[Arg2]\" singular=\"card\" plural=\"cards\"> at the start of odd turns, and gain [Arg2] Arithmetica at the start of even turns.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "Guess, is it black or white?"
+    },
+    {
+      "id": "relic-variant-0480",
+      "name": "Solar Disc+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After the battle starts, gain [Arg1] <ProficientInRealmsIconKeywords:Realm Mastery>. Draw [Arg2] <plural value=\"[Arg2]\" singular=\"card\" plural=\"cards\"> at the start of odd turns, and gain [Arg2] Arithmetica at the start of even turns.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "100"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "Guess, is it black or white?"
+    },
+    {
+      "id": "relic-variant-0478",
+      "name": "Solar Disc",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "At the end of odd turns, if there is remaining Arithmetica, draw 2 extra cards next turn; at the end of even turns, if there are remaining cards, gain 2 extra Arithmetica next turn.",
+      "descriptionArgs": {},
+      "lore": "Guess, is it black or white?"
+    },
+    {
+      "id": "relic-variant-0477",
+      "name": "Solar Disc+",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn end, if there is remaining Arithmetica, draw 2 extra cards next turn; if there are remaining cards in hand, gain 2 extra Arithmetica next turn.",
+      "descriptionArgs": {},
+      "lore": "Guess, is it black or white?"
+    }
+  ]
+}

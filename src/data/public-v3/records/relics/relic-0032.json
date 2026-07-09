@@ -10,16 +10,39 @@
   "assets": {
     "icon": "asset-relic-0032-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0032",
   "ownerAwakenerId": "awakener-0032",
   "ownerAwakenerName": "Miryam",
   "rarity": "SSR",
-  "realm": "AEQUOR",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Miryam gains [Arg1] Aliemus and puts 1 {Sacrament} into hand.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
       "value": "15"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0032",
+      "name": "Dimensional Image: Miryam",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0032",
+      "ownerAwakenerName": "Miryam",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Miryam gains [Arg1] Aliemus and puts 1 \"Sacrament\" into hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      }
+    }
+  ]
 }

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0134",
+  "name": "Coalsie II",
+  "route": {
+    "slug": "coalsie-ii",
+    "canonicalPath": "/database/relics/coalsie-ii"
+  },
+  "assets": {
+    "icon": "asset-relic-0134-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0188",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At the start of the first 3 turns, trigger \"Otter's Dilemma\" once per turn. At the start of the {ordinal:5th} turn, remove all negative effects of \"Otter's Dilemma\" and gain {Coalsie SMACK!}.",
+  "descriptionArgs": {},
+  "lore": "Miss Vortice insists this is a Relic.\n\"Bad guy! Bite him!\"",
+  "variants": [
+    {
+      "id": "relic-variant-0188",
+      "name": "Coalsie II",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "At the start of the first 3 turns, trigger \"Otter's Dilemma\" once per turn. At the start of the 5th turn, remove all negative effects of \"Otter's Dilemma\" and gain <DerivativeCardKeywords_135:\"Coalsie SMACK!\">.",
+      "descriptionArgs": {},
+      "lore": "Miss Vortice insists this is a Relic.\n\"Bad guy! Bite him!\""
+    }
+  ]
+}

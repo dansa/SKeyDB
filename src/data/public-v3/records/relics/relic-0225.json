@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0225",
+  "name": "Neurotoxin",
+  "route": {
+    "slug": "neurotoxin",
+    "canonicalPath": "/database/relics/neurotoxin"
+  },
+  "assets": {
+    "icon": "asset-relic-0225-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0372",
+  "rarity": "N",
+  "aliases": ["Neurotoxin+"],
+  "descriptionTemplate": "At the start of battle, Inflict [Arg1] {Poison} to all enemies, with double effect in Boss Battles.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.4,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Extract, Refine.",
+  "variants": [
+    {
+      "id": "relic-variant-0372",
+      "name": "Neurotoxin",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of battle, Inflict [Arg1] <IntoxicationIconKeywords:Poison> to all enemies, with double effect in Boss Battles.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.4,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Extract, Refine."
+    },
+    {
+      "id": "relic-variant-0373",
+      "name": "Neurotoxin+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At the start of battle, Inflict [Arg1] <IntoxicationIconKeywords:Poison> to all enemies, with double effect in Boss Battles.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.8,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Extract, Refine."
+    },
+    {
+      "id": "relic-variant-0371",
+      "name": "Neurotoxin",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "\"Strike\" inflicts [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <IntoxicationIconKeywords:Poison> on all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Extract, Refine."
+    }
+  ]
+}

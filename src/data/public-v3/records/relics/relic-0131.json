@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0131",
+  "name": "Chrono Pendulum \"Wings\"",
+  "route": {
+    "slug": "chrono-pendulum-wings",
+    "canonicalPath": "/database/relics/chrono-pendulum-wings"
+  },
+  "assets": {
+    "icon": "asset-relic-0131-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0177",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Max Arithmetica +2. After playing \"Strike\" or \"Defense,\" the corresponding Awakener gains 5 Aliemus. After releasing Exalt, gain 1 \"Strike\" of the corresponding Awakener with {Exhaust} and {Fleeting} attached. After releasing Posse, randomly gain a \"Defense\" with {Exhaust} and {Fleeting}.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0177",
+      "name": "Chrono Pendulum \"Wings\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Max Arithmetica +2. After playing \"Strike\" or \"Defense,\" the corresponding Awakener gains 5 Aliemus. After releasing Exalt, gain 1 \"Strike\" of the corresponding Awakener with Exhaust and Fleeting attached. After releasing Posse, randomly gain a \"Defense\" with Exhaust and Fleeting.",
+      "descriptionArgs": {}
+    }
+  ]
+}

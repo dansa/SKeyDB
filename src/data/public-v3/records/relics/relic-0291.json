@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0291",
+  "name": "Twin Dolls",
+  "route": {
+    "slug": "twin-dolls",
+    "canonicalPath": "/database/relics/twin-dolls"
+  },
+  "assets": {
+    "icon": "asset-relic-0291-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0521",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "At the start of odd-numbered turns, gain [Arg1] Temporary {STR}. At the start of even-numbered turns, gain [Arg2] Temporary {Alert}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.03,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.015,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Twinbirth is a gift from the old era, a parable for the future.",
+  "variants": [
+    {
+      "id": "relic-variant-0521",
+      "name": "Twin Dolls",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of odd-numbered turns, gain [Arg1] Temporary <PowerIconKeywords:STR>. At the start of even-numbered turns, gain [Arg2] Temporary <AlertIconKeywords:Alert>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Twinbirth is a gift from the old era, a parable for the future."
+    }
+  ]
+}

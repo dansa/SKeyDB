@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0105",
+  "name": "Chrono Pendulum \"Interval\"",
+  "route": {
+    "slug": "chrono-pendulum-interval",
+    "canonicalPath": "/database/relics/chrono-pendulum-interval"
+  },
+  "assets": {
+    "icon": "asset-relic-0105-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0130",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "For each additional Arithmetica or each extra card drawn, {Steal} [Arg1] {STR} from all enemies, gain 4% Temporary Crit. Rate, and the effect is doubled in Elite or Boss Battles. After the start of an {Ultra Round}, gain [Arg2] {STR} and increase Crit. DMG by 15%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.004,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0130",
+      "name": "Chrono Pendulum \"Interval\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "For each additional Arithmetica or each extra card drawn, steal [Arg1] <PowerIconKeywords:STR> from all enemies, gain 4% Temporary Crit. Rate, and the effect is doubled in Elite or Boss Battles. After the start of an Ultra Round, gain [Arg2] <PowerIconKeywords:STR> and increase Crit. DMG by 15%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.004,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
+}

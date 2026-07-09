@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0136",
+  "name": "Conductor's Baton",
+  "route": {
+    "slug": "conductors-baton",
+    "canonicalPath": "/database/relics/conductors-baton"
+  },
+  "assets": {
+    "icon": "asset-relic-0136-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0190",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Max Arithmetica +1. Draw an additional card at turn start and gain 1 {Symphony of Harmony}. If 3 Command Cards with the same Arithmetica are played consecutively, all Awakeners gain 20 Aliemus. The reset count is reset at turn start and after triggering.",
+  "descriptionArgs": {},
+  "lore": "A slender conductor's baton, yet possesses strength greater than a crowbar.\n\nConducting notes, conducting soul, conducting fate.",
+  "variants": [
+    {
+      "id": "relic-variant-0190",
+      "name": "Conductor's Baton",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "Max Arithmetica +1. Draw an additional card at turn start and gain 1 \"Symphony of Harmony\". If 3 Command Cards with the same Arithmetica are played consecutively, all Awakeners gain 20 Aliemus. The reset count is reset at turn start and after triggering.",
+      "descriptionArgs": {},
+      "lore": "A slender conductor's baton, yet possesses strength greater than a crowbar.\n\nConducting notes, conducting soul, conducting fate."
+    }
+  ]
+}

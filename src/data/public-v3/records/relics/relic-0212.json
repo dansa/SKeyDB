@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0212",
+  "name": "Medal of Rescue: Platinum",
+  "route": {
+    "slug": "medal-of-rescue-platinum",
+    "canonicalPath": "/database/relics/medal-of-rescue-platinum"
+  },
+  "assets": {
+    "icon": "asset-relic-0212-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0346",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "At the beginning of the turn, gain [Arg1] {Radiance of Humanity}.\n{All your efforts are worthwhile; you saved almost the entirety of the research team, and the survivors are sincerely grateful to you.}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "X",
+      "displayFormula": "1 + runtime value"
+    }
+  },
+  "lore": "Your efforts were worthwhile; you saved almost the entirety of the research team. The survivors are deeply grateful to you.",
+  "variants": [
+    {
+      "id": "relic-variant-0346",
+      "name": "Medal of Rescue: Platinum",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At the beginning of the turn, gain [Arg1] <DerivativeCardKeywords_71:\"Radiance of Humanity\">.\n<D05EX_Relic:All your efforts are worthwhile; you saved almost the entirety of the research team, and the survivors are sincerely grateful to you.>",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "X",
+          "displayFormula": "1 + runtime value"
+        }
+      },
+      "lore": "Your efforts were worthwhile; you saved almost the entirety of the research team. The survivors are deeply grateful to you."
+    }
+  ]
+}

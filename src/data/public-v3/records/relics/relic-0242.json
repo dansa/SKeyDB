@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0242",
+  "name": "Proto Battery",
+  "route": {
+    "slug": "proto-battery",
+    "canonicalPath": "/database/relics/proto-battery"
+  },
+  "assets": {
+    "icon": "asset-relic-0242-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0413",
+  "rarity": "N",
+  "aliases": ["Proto Battery+"],
+  "descriptionTemplate": "At turn start, all Awakeners gain [Arg1] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "lore": "Portable Hope",
+  "variants": [
+    {
+      "id": "relic-variant-0413",
+      "name": "Proto Battery",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At turn start, all Awakeners gain [Arg1] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      },
+      "lore": "Portable Hope"
+    },
+    {
+      "id": "relic-variant-0414",
+      "name": "Proto Battery+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At turn start, all Awakeners gain [Arg1] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "10"
+        }
+      },
+      "lore": "Portable Hope"
+    },
+    {
+      "id": "relic-variant-0412",
+      "name": "Proto Battery",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "After the turn ends, all Awakeners gain 5 Aliemus. For each remaining Arithmetica, all Awakeners gain an additional 3 Aliemus.",
+      "descriptionArgs": {},
+      "lore": "Portable hope."
+    }
+  ]
+}

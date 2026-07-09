@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0006-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0006",
   "ownerAwakenerId": "awakener-0006",
   "ownerAwakenerName": "Caecus",
   "rarity": "SSR",
-  "realm": "AEQUOR",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Caecus gains [Arg1] Aliemus. When Caecus gains Shield, he regains [Arg2]% of the Shield amount as HP.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,5 +29,30 @@
       "value": "50",
       "suffix": "%"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0006",
+      "name": "Dimensional Image: Caecus",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0006",
+      "ownerAwakenerName": "Caecus",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Caecus gains [Arg1] Aliemus. When Caecus gains Shield, he regains [Arg2]% of the Shield amount as HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      }
+    }
+  ]
 }

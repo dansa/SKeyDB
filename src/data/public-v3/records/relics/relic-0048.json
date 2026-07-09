@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0048-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0048",
   "ownerAwakenerId": "awakener-0048",
   "ownerAwakenerName": "Thais",
   "rarity": "SSR",
-  "realm": "CARO",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Thais gains [Arg1] Aliemus. After playing [Arg2] Command Cards in one turn, Thais gains 1 {Scion of Purity} and [Arg3] Temporary {STR}, with a cooldown of [Arg4] {plural:[Arg4]|turn|turns}.",
   "descriptionArgs": {
     "Arg1": {
@@ -36,5 +39,40 @@
       "kind": "fixed",
       "value": "3"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0048",
+      "name": "Dimensional Image: Thais",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0048",
+      "ownerAwakenerName": "Thais",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Thais gains [Arg1] Aliemus. After playing [Arg2] Command Cards in one turn, Thais gains 1 \"Scion of Purity\" and [Arg3] Temporary STR, with a cooldown of [Arg4] <plural value=\"[Arg4]\" singular=\"turn\" plural=\"turns\">.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg3": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.12,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "3"
+        }
+      }
+    }
+  ]
 }

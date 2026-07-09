@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0300",
+  "name": "Wailing Bell",
+  "route": {
+    "slug": "wailing-bell",
+    "canonicalPath": "/database/relics/wailing-bell"
+  },
+  "assets": {
+    "icon": "asset-relic-0300-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0540",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, draw [Arg1] less cards. Gain 1 Arithmetica for each card played with Arithmetica Cost >= [Arg2], triggering up to [Arg3] {plural:[Arg3]|time|times} per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "lore": "Ding, ding, the child is crying;\nDing, ding, the child is screaming.\nDing, ding, the child is wailing;\nDing, ding, it's hungry, you know.",
+  "variants": [
+    {
+      "id": "relic-variant-0540",
+      "name": "Wailing Bell",
+      "label": "Astral Reign - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At turn start, draw [Arg1] less cards. Gain 1 Arithmetica for each card played with Arithmetica Cost >= [Arg2], triggering up to [Arg3] <plural value=\"[Arg3]\" singular=\"time\" plural=\"times\"> per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "3"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "3"
+        }
+      },
+      "lore": "Ding, ding, the child is crying;\nDing, ding, the child is screaming.\nDing, ding, the child is wailing;\nDing, ding, it's hungry, you know."
+    }
+  ]
+}

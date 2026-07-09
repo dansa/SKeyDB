@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0209",
+  "name": "Medal of Rescue: Bronze",
+  "route": {
+    "slug": "medal-of-rescue-bronze",
+    "canonicalPath": "/database/relics/medal-of-rescue-bronze"
+  },
+  "assets": {
+    "icon": "asset-relic-0209-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0343",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, gain [Arg1] {Glow of Humanity}.\n{To escape the snow mountain, you adopted a strategy prioritizing efficiency, watching people perish one by one. The survivors' eyes held more fear than gratitude.}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "X",
+      "displayFormula": "1 + runtime value"
+    }
+  },
+  "lore": "To leave the snow mountain, you adopted a strategy prioritizing efficiency, watching as people fell one by one. The survivors regarded you with more fear than gratitude.",
+  "variants": [
+    {
+      "id": "relic-variant-0343",
+      "name": "Medal of Rescue: Bronze",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At turn start, gain [Arg1] <DerivativeCardKeywords_68:\"Glow of Humanity\">.\n<D05EX_Relic:To escape the snow mountain, you adopted a strategy prioritizing efficiency, watching people perish one by one. The survivors' eyes held more fear than gratitude.>",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "X",
+          "displayFormula": "1 + runtime value"
+        }
+      },
+      "lore": "To leave the snow mountain, you adopted a strategy prioritizing efficiency, watching as people fell one by one. The survivors regarded you with more fear than gratitude."
+    }
+  ]
+}

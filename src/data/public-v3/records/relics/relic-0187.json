@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0187",
+  "name": "Inverted View",
+  "route": {
+    "slug": "inverted-view",
+    "canonicalPath": "/database/relics/inverted-view"
+  },
+  "assets": {
+    "icon": "asset-relic-0187-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0297",
+  "rarity": "SSR",
+  "aliases": ["Inverted View+"],
+  "descriptionTemplate": "When picked up, randomly gain 1 Silver Relic, 1 Golden Relic, and 1 Cursed Relic.",
+  "descriptionArgs": {},
+  "lore": "In the strange era, flowers are humanity's primary spectators.\nStay still; they prefer quiet exhibits.",
+  "variants": [
+    {
+      "id": "relic-variant-0297",
+      "name": "Inverted View+",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "When picked up, randomly gain 1 Silver Relic, 1 Golden Relic, and 1 Cursed Relic.",
+      "descriptionArgs": {},
+      "lore": "In the strange era, flowers are humanity's primary spectators.\nStay still; they prefer quiet exhibits."
+    }
+  ]
+}

@@ -35,6 +35,7 @@ export function useDZoneDatabasePopovers() {
       const anchorElement = event.currentTarget
       const entry = await loadDzoneRelicPopoverEntry({
         relicId: relic.id,
+        variantId: relic.variantId,
         thumbnailSrc: relic.iconSrc,
       })
 

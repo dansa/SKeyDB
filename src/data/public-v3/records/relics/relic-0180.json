@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0180",
+  "name": "Hierophant's Staff",
+  "route": {
+    "slug": "hierophants-staff",
+    "canonicalPath": "/database/relics/hierophants-staff"
+  },
+  "assets": {
+    "icon": "asset-relic-0180-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY", "EVENT"],
+  "variantCount": 4,
+  "defaultVariantId": "relic-variant-0283",
+  "rarity": "N",
+  "aliases": ["Hierophant's Staff+"],
+  "descriptionTemplate": "Gain [Arg1]% DMG Amplification At battle start. Deal Active DMG and inflict [Arg2] {Poison} on all enemies, triggering up to 5 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.03,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Unsanctioned Piety",
+  "variants": [
+    {
+      "id": "relic-variant-0283",
+      "name": "Hierophant's Staff",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification At battle start. Deal Active DMG and inflict [Arg2] <IntoxicationIconKeywords:Poison> on all enemies, triggering up to 5 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Unsanctioned Piety"
+    },
+    {
+      "id": "relic-variant-0284",
+      "name": "Hierophant's Staff+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification At battle start. Deal Active DMG and inflict [Arg2] <IntoxicationIconKeywords:Poison> on all enemies, triggering up to 5 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.06,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Unsanctioned Piety"
+    },
+    {
+      "id": "relic-variant-0282",
+      "name": "Hierophant's Staff",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Deal 20% more DMG to enemies with debuffs, and gain 20 Aliemus upon killing them.",
+      "descriptionArgs": {},
+      "lore": "Unsanctioned Piety"
+    },
+    {
+      "id": "relic-variant-0281",
+      "name": "Hierophant's Staff+",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Deal 50% more DMG to enemies with debuffs, and gain 100 Aliemus upon killing them.",
+      "descriptionArgs": {},
+      "lore": "Unsanctioned Piety"
+    }
+  ]
+}

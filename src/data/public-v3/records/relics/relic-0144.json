@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0144",
+  "name": "Dimension Pendulum-Alert",
+  "route": {
+    "slug": "dimension-pendulum-alert",
+    "canonicalPath": "/database/relics/dimension-pendulum-alert"
+  },
+  "assets": {
+    "icon": "asset-relic-0144-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0206",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "{Multiply}: The first time each Awakener plays a \"Skill\" each turn, generate 2 Temporary Base Copies of it. When a Command Card with an Arithmetica Cost of 0 or 1 is played, all Awakeners gain 5 Aliemus.\n{Bastion}: When a card with a Default Arithmetica Cost of 3 or more is played, all enemies gain Shield equal to 20% of their Max HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "20"
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0206",
+      "name": "Dimension Pendulum-Alert",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "<OrangeQuality:Multiply>: The first time each Awakener plays a \"Skill\" each turn, generate 2 Temporary Base Copies of it. When a Command Card with an Arithmetica Cost of 0 or 1 is played, all Awakeners gain 5 Aliemus.\n<RedQuality:Bastion>: When a card with a Default Arithmetica Cost of 3 or more is played, all enemies gain Shield equal to 20% of their Max HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "20"
+        }
+      }
+    }
+  ]
+}

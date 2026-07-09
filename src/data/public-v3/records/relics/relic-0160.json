@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0160",
+  "name": "Expedition Team",
+  "route": {
+    "slug": "expedition-team",
+    "canonicalPath": "/database/relics/expedition-team"
+  },
+  "assets": {
+    "icon": "asset-relic-0160-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0231",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Start with [Arg1] {Expedition Team} members. At the beginning of the battle, shuffle 5 {Suspicion} into the deck.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "X",
+      "displayFormula": "30 + runtime value * 5"
+    }
+  },
+  "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's keeper.",
+  "variants": [
+    {
+      "id": "relic-variant-0231",
+      "name": "Expedition Team",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "Start with [Arg1] Expedition Team members. At the beginning of the battle, shuffle 5 <DerivativeCardKeywords_73:Suspicion> into the deck.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "X",
+          "displayFormula": "30 + runtime value * 5"
+        }
+      },
+      "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's keeper."
+    }
+  ]
+}

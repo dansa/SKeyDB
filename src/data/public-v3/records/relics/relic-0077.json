@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0077",
+  "name": "Black Star Ember",
+  "route": {
+    "slug": "black-star-ember",
+    "canonicalPath": "/database/relics/black-star-ember"
+  },
+  "assets": {
+    "icon": "asset-relic-0077-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0088",
+  "aliases": [],
+  "descriptionTemplate": "When picked, choose 2 Command Cards to Delete, Gain [Arg1] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "The embers still glow.",
+  "variants": [
+    {
+      "id": "relic-variant-0088",
+      "name": "Black Star Ember",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "When picked, choose 2 Command Cards to Delete, Gain [Arg1] <PowerIconKeywords:STR>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.06,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The embers still glow."
+    }
+  ]
+}

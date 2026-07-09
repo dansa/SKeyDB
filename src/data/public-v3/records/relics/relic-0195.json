@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0195",
+  "name": "Lamprey Kiss",
+  "route": {
+    "slug": "lamprey-kiss",
+    "canonicalPath": "/database/relics/lamprey-kiss"
+  },
+  "assets": {
+    "icon": "asset-relic-0195-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0314",
+  "aliases": ["Blessed: Lamprey Kiss", "Sinful: Lamprey Kiss"],
+  "descriptionTemplate": "Picking up will cause you to permanently lose [Arg1] {STR}. Whenever you deal Damage, heal for [Arg2] HP, with a maximum of 6 triggers per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "accountStageGrowth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.016,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Want a deep kiss? The kind that takes your life.",
+  "variants": [
+    {
+      "id": "relic-variant-0314",
+      "name": "Lamprey Kiss",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "Picking up will cause you to permanently lose [Arg1] <PowerIconKeywords:STR>. Whenever you deal Damage, heal for [Arg2] HP, with a maximum of 6 triggers per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "accountStageGrowth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.016,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Want a deep kiss? The kind that takes your life."
+    },
+    {
+      "id": "relic-variant-0316",
+      "name": "Blessed: Lamprey Kiss",
+      "label": "Faded Legacy - Blessed",
+      "variantType": "BLESSED",
+      "tier": "Blessed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "Upon picking it up, permanently Gain [Arg1] <PowerIconKeywords:STR>. Whenever DMG is dealt, heal for [Arg2] HP, with a maximum of 6 triggers per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.08,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.04,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Reject this kiss of damnation, for the All-Father's embrace is warmer than any darkness."
+    },
+    {
+      "id": "relic-variant-0315",
+      "name": "Sinful: Lamprey Kiss",
+      "label": "Faded Legacy - Sinful",
+      "variantType": "SINFUL",
+      "tier": "Sinful",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "Picking up will cause you to permanently lose [Arg1] <PowerIconKeywords:STR>. Whenever you deal Damage, heal for [Arg2] HP, with a maximum of 6 triggers per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "accountStageGrowth",
+          "multiplier": 0.04,
+          "inputs": ["accountLevel"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Its kiss will make you sink—though it might be you who sinks."
+    }
+  ]
+}

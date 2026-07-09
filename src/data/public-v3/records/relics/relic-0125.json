@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0125",
+  "name": "Chrono Pendulum \"Surge\"",
+  "route": {
+    "slug": "chrono-pendulum-surge",
+    "canonicalPath": "/database/relics/chrono-pendulum-surge"
+  },
+  "assets": {
+    "icon": "asset-relic-0125-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0166",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Realm Mastery +100. Each card played, {Embryo Fusion} +10; when HP is below 25%, the increase becomes 20%. This effect can trigger a maximum of 10 times per turn.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0166",
+      "name": "Chrono Pendulum \"Surge\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "<ProficientInRealmsIconKeywords:Realm Mastery> +100. Each card played, <EmbryoFusionIconKeywords:Embryo Fusion> +10; when HP is below 25%, the increase becomes 20%. This effect can trigger a maximum of 10 times per turn.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0167",
+      "name": "Chrono Pendulum \"Surge\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Crit. Rate and Crit. DMG +100%. For each instance of DMG/Tentacle DMG dealt this turn, all Awakeners' Crit. Rate and Crit. DMG -10%, up to 50%. Poison and Counter DMG +10%, up to 50%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "11"
+        }
+      }
+    }
+  ]
+}

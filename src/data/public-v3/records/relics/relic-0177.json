@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0177",
+  "name": "Guidance of Erasmus",
+  "route": {
+    "slug": "guidance-of-erasmus",
+    "canonicalPath": "/database/relics/guidance-of-erasmus"
+  },
+  "assets": {
+    "icon": "asset-relic-0177-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0276",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Hand Limit +1. At the start of turn, if there is no \"Navigator's Choice,\" place it in hand.\nEach time the Boss loses 10% of their initial Max HP, gain 1 stack of \"Set Sail,\" max 10 stacks. \"Set Sail\" enhances the effects of \"Archor Off\".\nEach time you lose 10% of your initial Max HP, gain 1 stack of \"Moored Off,\" max 10 stacks. \"Moored Off\" enhances the effects of \"Harbored Rest\".",
+  "descriptionArgs": {},
+  "lore": "The flickering lightning will guide the direction forward.",
+  "variants": [
+    {
+      "id": "relic-variant-0276",
+      "name": "Guidance of Erasmus",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Hand limit +1. At the start of turn, if there is no \"Navigator's Choice,\" place it in hand.\nEach time the Boss loses 10% of their initial Max HP, gain 1 stack of \"Set Sail,\" max 10 stacks. \"Set Sail\" enhances the effects of \"Archor Off\".\nEach time you lose 10% of your initial Max HP, gain 1 stack of \"Moored Off,\" max 10 stacks. \"Moored Off\" enhances the effects of \"Harbored Rest\".",
+      "descriptionArgs": {},
+      "lore": "The flickering lightning will guide the direction forward."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0085",
+  "name": "Cat's Treasure",
+  "route": {
+    "slug": "cats-treasure",
+    "canonicalPath": "/database/relics/cats-treasure"
+  },
+  "assets": {
+    "icon": "asset-relic-0085-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0106",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "At the start of even-numbered turns, put 1 {Infinite Silver Vault} into hand.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0106",
+      "name": "Cat's Treasure",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of even-numbered turns, put 1 <DerivativeCardKeywords_105:\"Infinite Silver Vault\"> into hand.",
+      "descriptionArgs": {}
+    }
+  ]
+}

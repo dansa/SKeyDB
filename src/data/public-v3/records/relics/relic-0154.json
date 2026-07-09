@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0154",
+  "name": "Dove Feather Fan",
+  "route": {
+    "slug": "dove-feather-fan",
+    "canonicalPath": "/database/relics/dove-feather-fan"
+  },
+  "assets": {
+    "icon": "asset-relic-0154-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0220",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "When you have a Shield, this Relic provides [Arg1] Temporary {STR}. If your Shield is higher than your Current HP, it provides an additional [Arg2] Temporary {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Exquisite, expensive, yet not very practical.",
+  "variants": [
+    {
+      "id": "relic-variant-0220",
+      "name": "Dove Feather Fan",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "When you have a Shield, this Relic provides [Arg1] Temporary <PowerIconKeywords:STR>. If your Shield is higher than your Current HP, it provides an additional [Arg2] Temporary <PowerIconKeywords:STR>.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.06,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Exquisite, expensive, yet not very practical."
+    }
+  ]
+}

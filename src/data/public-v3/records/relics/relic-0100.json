@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0100",
+  "name": "Chrono Pendulum \"Emulate\"",
+  "route": {
+    "slug": "chrono-pendulum-emulate",
+    "canonicalPath": "/database/relics/chrono-pendulum-emulate"
+  },
+  "assets": {
+    "icon": "asset-relic-0100-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0125",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "At turn end, for each remaining card in hand, gain 1 Arithmetica at the start of next turn.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0125",
+      "name": "Chrono Pendulum \"Emulate\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At turn end, for each remaining card in hand, gain 1 Arithmetica at the start of next turn.",
+      "descriptionArgs": {}
+    }
+  ]
+}
