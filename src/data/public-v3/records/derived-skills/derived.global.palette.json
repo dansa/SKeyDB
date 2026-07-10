@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.palette",
+  "name": "Palette",
+  "route": {
+    "slug": "palette",
+    "canonicalPath": "/database/derived-skills/palette"
+  },
+  "descriptionTemplate": "If two different {Colors} are recorded, it grants a continuous buff.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ]
+}

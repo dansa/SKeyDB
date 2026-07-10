@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Upon pickup, increase the team's DMG Amplification by 30%. Every 4th instance of DMG dealt will be a Critical Hit, and Crit. DMG +50%. If the hit results in a kill, gain 5 Black Sigil.",
+      "descriptionTemplate": "Upon pickup, increase the team's DMG Amplification by 30%. Every {ordinal:4th} instance of DMG dealt will be a Critical Hit, and Crit. DMG +50%. If the hit results in a kill, gain 5 Black Sigil.",
       "descriptionArgs": {}
     }
   ]

@@ -36,7 +36,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Gain [Arg1] Temporary <PowerIconKeywords:STR> when drawing a Symptom Card. For each Cursed Relic you have, your Crit. Rate and Crit. DMG increase by 10%.",
+      "descriptionTemplate": "Gain [Arg1] Temporary {STR} when drawing a Symptom Card. For each Cursed Relic you have, your Crit. Rate and Crit. DMG increase by 10%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

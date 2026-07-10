@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0103",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "Hand Limit +1.\nAt the start of turn, if not all rituals are completed, suffer {Sacrifice} equal to 10% Max HP. Place 1 \"{Divine Dedication}\" into hand, max hold 1.",
+  "descriptionTemplate": "Hand Limit +1.\nAt the start of turn, if not all rituals are completed, suffer {Sacrifice} equal to 10% Max HP. Place 1 {Divine Dedication} into hand, max hold 1.",
   "descriptionArgs": {},
   "lore": "\"This incense burner is made imitating the craftsmanship of Lemuria, may it help you sleep peacefully every night. From Miryam.\"",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Hand Limit +1.\nAt the start of turn, if not all rituals are completed, suffer <SacrificeKeyWord:Sacrifice> equal to 10% Max HP. Place 1 \"<DerivativeCardKeywords_119:Divine Dedication>\" into hand, max hold 1.",
+      "descriptionTemplate": "Hand Limit +1.\nAt the start of turn, if not all rituals are completed, suffer {Sacrifice} equal to 10% Max HP. Place 1 {Divine Dedication} into hand, max hold 1.",
       "descriptionArgs": {},
       "lore": "\"This incense burner is made imitating the craftsmanship of Lemuria, may it help you sleep peacefully every night. From Miryam.\""
     }

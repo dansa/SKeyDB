@@ -27,7 +27,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of even-numbered turns, put 1 <DerivativeCardKeywords_105:\"Infinite Silver Vault\"> into hand.",
+      "descriptionTemplate": "At the start of even-numbered turns, put 1 {Infinite Silver Vault} into hand.",
       "descriptionArgs": {}
     }
   ]

@@ -43,7 +43,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "You gain [Arg1] Shield when you inflict <WeaknessIconKeywords:Weakness>; you gain [Arg2] Temporary <PowerIconKeywords:STR> when you inflict <VulnerabilityIconKeywords:Vulnerable>. If both effects are triggered within 1 turn, you additionally gain [Arg1] Shield and [Arg2] Temp <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "You gain [Arg1] Shield when you inflict {Weakness}; you gain [Arg2] Temporary {STR} when you inflict {Vulnerable}. If both effects are triggered within 1 turn, you additionally gain [Arg1] Shield and [Arg2] Temp {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

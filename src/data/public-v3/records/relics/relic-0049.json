@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0049",
       "ownerAwakenerName": "Tinct",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Tinct gains [Arg1] Aliemus. After triggering a Leap with Tinct's Command Card, return it to hand and reduce its Arithmetica Cost by 1. This effect can occur a maximum of [Arg2] <plural value=\"[Arg2]\" singular=\"time\" plural=\"times\"> per turn.",
+      "descriptionTemplate": "At turn start, Tinct gains [Arg1] Aliemus. After triggering a {Leap} with Tinct's Command Card, return it to hand and reduce its Arithmetica Cost by 1. This effect can occur a maximum of [Arg2] {plural:[Arg2]|time|times} per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

@@ -19,9 +19,11 @@
   "descriptionTemplate": "At turn start, gain [Arg2] Shield. At turn end, deal DMG to a random enemy equal to [Arg1]% of your current Shield. In Boss Battle, the DMG is doubled.",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "X",
-      "displayFormula": "50 * SpiritResearchDepthMultiplier"
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchMultiplier",
+      "multiplier": 50.0,
+      "inputs": ["accountLevel", "ownedPosseCount"]
     },
     "Arg2": {
       "kind": "computed",
@@ -44,9 +46,11 @@
       "descriptionTemplate": "At turn start, gain [Arg2] Shield. At turn end, deal DMG to a random enemy equal to [Arg1]% of your current Shield. In Boss Battle, the DMG is doubled.",
       "descriptionArgs": {
         "Arg1": {
-          "kind": "fixed",
-          "value": "X",
-          "displayFormula": "50 * SpiritResearchDepthMultiplier"
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchMultiplier",
+          "multiplier": 50.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         },
         "Arg2": {
           "kind": "computed",

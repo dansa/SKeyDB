@@ -38,7 +38,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the Battle, and gain [Arg2] Arithmetica after receiving <RetaliateIconKeywords:Counter> for the first time each turn.",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the Battle, and gain [Arg2] Arithmetica after receiving {Counter} for the first time each turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -59,7 +59,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the Battle, and gain [Arg2] Arithmetica after receiving <RetaliateIconKeywords:Counter> for the first time each turn.",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the Battle, and gain [Arg2] Arithmetica after receiving {Counter} for the first time each turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -81,7 +81,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "Gain [Arg1] Shield at the start of battle. After playing \"Defense\" 7 times in this battle, immediately gain [Arg2] Shield. After playing \"Defense\" 21 times in this battle, gain 1 stack of Temporary Barrier.",
+      "descriptionTemplate": "Gain [Arg1] Shield at the start of battle. After playing \"Defense\" 7 times in this battle, immediately gain [Arg2] Shield. After playing \"Defense\" 21 times in this battle, gain 1 stack of Temporary {Barrier}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -92,9 +92,10 @@
         },
         "Arg2": {
           "kind": "computed",
-          "formulaKey": "scaled",
+          "formulaKey": "scaledCeilThenMultiply",
           "baseFormula": "esotericResearchDepth",
-          "multiplier": 0.6599999999999999,
+          "multiplier": 0.06,
+          "postMultiplier": 11.0,
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },

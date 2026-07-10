@@ -49,7 +49,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "When the current Arithmetica is odd, it gains an additional [Arg2] Temporary Alert. When the current Arithmetica is even, it gains an additional [Arg1] Temporary <PowerIconKeywords:STR> and [Arg3] Temporary Tentacle DMG. Each Golden Relic increases the effect of this Relic by 50%, and each Cursed Relic increases it by 80%.",
+      "descriptionTemplate": "When the current Arithmetica is odd, it gains an additional [Arg2] Temporary {Alert}. When the current Arithmetica is even, it gains an additional [Arg1] Temporary {STR} and [Arg3] Temporary {Tentacle DMG}. Each Golden Relic increases the effect of this Relic by 50%, and each Cursed Relic increases it by 80%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

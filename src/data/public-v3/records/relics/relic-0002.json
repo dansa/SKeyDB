@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0002",
       "ownerAwakenerName": "Agrippa",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Agrippa gains [Arg1] Aliemus. \"Reluctant Alms\" will also reduce Agrippa's Arithmetica Cost by [Arg2] for this turn, triggering a maximum of once per turn.",
+      "descriptionTemplate": "At turn start, Agrippa gains [Arg1] Aliemus. {Reluctant Alms} will also reduce Agrippa's Arithmetica Cost by [Arg2] for this turn, triggering a maximum of once per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

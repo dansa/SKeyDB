@@ -41,7 +41,7 @@
       "ownerAwakenerId": "awakener-0019",
       "ownerAwakenerName": "Helot: Catena",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Helot: Catena gains [Arg1] Aliemus. Helot: Catena's Active DMG adds [Arg2]% Bleeding, and killing an enemy causes Bleeding equal to the excess DMG to other enemies.",
+      "descriptionTemplate": "At turn start, Helot: Catena gains [Arg1] Aliemus. Helot: Catena's Active DMG adds [Arg2]% {Bleeding}, and killing an enemy causes {Bleeding} equal to the excess DMG to other enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

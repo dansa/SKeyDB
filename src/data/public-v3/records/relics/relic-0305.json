@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "The first \"Posse\" activation each turn triggers all Tentacle attacks [Arg1] <plural value=\"[Arg1]\" singular=\"time\" plural=\"times\"> against enemies, dealing 50% DMG.",
+      "descriptionTemplate": "The first \"Posse\" activation each turn triggers all Tentacle attacks [Arg1] {plural:[Arg1]|time|times} against enemies, dealing 50% DMG.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "The first \"Posse\" activation each turn triggers all Tentacle attacks [Arg1] <plural value=\"[Arg1]\" singular=\"time\" plural=\"times\"> against enemies, dealing 50% DMG.",
+      "descriptionTemplate": "The first \"Posse\" activation each turn triggers all Tentacle attacks [Arg1] {plural:[Arg1]|time|times} against enemies, dealing 50% DMG.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

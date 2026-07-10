@@ -28,7 +28,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, gain a Relic at turn start, including \"Crimson Brooch, Filigree Agate, SOS Signal, Omen Ritual Bird, Chrono Pendulum: Trance\".",
+      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, gain a Relic at turn start, including \"{Crimson Brooch}, {Filigree Agate}, {SOS Signal}, {Omen {Ritual} Bird}, Chrono Pendulum: Trance\".",
       "descriptionArgs": {},
       "lore": "It is said that Lemuria fell into these waters. Who can resist the temptation to explore the secrets of shipwreck treasures?"
     },
@@ -40,7 +40,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Relic Capacity +1. Gain a relic at the start of each of the first five turns in battle: \"Barbed Trident, Foreign Stamp Album, Arcana Archive, Mind Engraving, Chrono Pendulum: Charge\".",
+      "descriptionTemplate": "Relic Capacity +1. Gain a relic at the start of each of the first five turns in battle: \"Barbed Trident, {Foreign Stamp Album}, {Arcana Archive}, {Mind Engraving}, Chrono Pendulum: Charge\".",
       "descriptionArgs": {},
       "lore": "It is said that Lemuria fell into these waters. Who can resist the temptation to explore the secrets of shipwreck treasures?"
     },
@@ -52,7 +52,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, at the beginning of each turn, gain a relic, including \"Radium Jawbone, Uncanny Salve, Forgotten Loom, Other Tongue, Chrono Pendulum: Surge\".",
+      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, at the beginning of each turn, gain a relic, including \"{Radium Jawbone}, {Uncanny Salve}, {Forgotten Loom}, {Other Tongue}, Chrono Pendulum: Surge\".",
       "descriptionArgs": {},
       "lore": "It is said that Lemuria fell into these waters. Who can resist the temptation to explore the secrets of shipwreck treasures?"
     },
@@ -64,7 +64,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, at the beginning of each turn, gain a relic, including \"Nettle Vest, Deceased's Chrono, Forgotten Prelude, Salvific Limb, Chrono Pendulum: Proliferate\".",
+      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, at the beginning of each turn, gain a relic, including \"{Nettle Vest}, {Deceased's Chrono}, {Forgotten Prelude}, {Salvific Limb}, Chrono Pendulum: Proliferate\".",
       "descriptionArgs": {},
       "lore": "It is said that Lemuria fell into these waters. Who can resist the temptation to explore the secrets of shipwreck treasures?"
     },
@@ -76,7 +76,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, at turn start, gain a relic, including \"Rusty Lancet, Hemostatic Clamp, Antique Puzzle, Swarm Mind, Chrono Pendulum: Twins\".",
+      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, at turn start, gain a relic, including \"{Rusty Lancet}, {Hemostatic Clamp}, {Antique Puzzle}, {Swarm Mind}, Chrono Pendulum: Twins\".",
       "descriptionArgs": {},
       "lore": "It is said that Lemuria fell into these waters. Who can resist the temptation to explore the secrets of shipwreck treasures?"
     },
@@ -88,7 +88,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, gain a Relic at turn start, including \"Chronometric Device, Laurel Cufflinks, Veil of the Nameless Deity, Nightmare Manifest, Chrono Pendulum: Balance\".",
+      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, gain a Relic at turn start, including \"{Chronometric Device}, {Laurel Cufflinks}, {Veil of the Nameless Deity}, {Nightmare Manifest}, Chrono Pendulum: Balance\".",
       "descriptionArgs": {},
       "lore": "It is said that Lemuria fell into these waters. Who can resist the temptation to explore the secrets of shipwreck treasures?"
     },
@@ -100,7 +100,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, gain a relic at turn start, including \"Brand-New Wallet, Mythag Insignia, Stellar Brew, Lamprey Kiss, Chrono Pendulum: Eye\".",
+      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, gain a relic at turn start, including \"{Brand-New Wallet}, {Mythag Insignia}, {Stellar Brew}, {Lamprey Kiss}, Chrono Pendulum: Eye\".",
       "descriptionArgs": {},
       "lore": "It is said that Lemuria fell into these waters. Who can resist the temptation to explore the secrets of shipwreck treasures?"
     }

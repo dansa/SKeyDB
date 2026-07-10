@@ -47,7 +47,7 @@
       "ownerAwakenerId": "awakener-0003",
       "ownerAwakenerName": "Aigis",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Aigis gains [Arg1] Aliemus. When Aigis deals DMG to enemies with Vulnerable, she also steals [Arg2] Temporary STR, up to [Arg3] <plural value=\"[Arg3]\" singular=\"time\" plural=\"times\"> per turn.",
+      "descriptionTemplate": "At turn start, Aigis gains [Arg1] Aliemus. When Aigis deals DMG to enemies with {Vulnerable}, she also steals [Arg2] Temporary {STR}, up to [Arg3] {plural:[Arg3]|time|times} per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

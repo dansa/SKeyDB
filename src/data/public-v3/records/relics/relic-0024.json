@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0024",
       "ownerAwakenerName": "Horla",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Horla gains [Arg1] Aliemus. At the start of the battle, gain [Arg2] <plural value=\"[Arg2]\" singular=\"stack\" plural=\"stacks\"> of \"Metaphor\" for all emotions, increasing the \"Metaphor\" effect by 50%.",
+      "descriptionTemplate": "At turn start, Horla gains [Arg1] Aliemus. At the start of the battle, gain [Arg2] {plural:[Arg2]|stack|stacks} of {Metaphor} for all emotions, increasing the {Metaphor} effect by 50%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

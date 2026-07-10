@@ -34,7 +34,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After dealing active or Tentacle DMG, increases the target's Tentacle DMG taken by [Arg1]% for the remainder of the turn. Can trigger up to 20 times per turn.",
+      "descriptionTemplate": "After dealing active or {Tentacle DMG}, increases the target's {Tentacle DMG} taken by [Arg1]% for the remainder of the turn. Can trigger up to 20 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -51,7 +51,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After dealing active or Tentacle DMG, increases the target's Tentacle DMG taken by [Arg1]% for the remainder of the turn. Can trigger up to 20 times per turn.",
+      "descriptionTemplate": "After dealing active or {Tentacle DMG}, increases the target's {Tentacle DMG} taken by [Arg1]% for the remainder of the turn. Can trigger up to 20 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

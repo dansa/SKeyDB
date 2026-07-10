@@ -31,7 +31,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At turn start, Embryo Fusion +[Arg1]. \"Embryo\" cards will be discarded at turn end.",
+      "descriptionTemplate": "At turn start, {Embryo Fusion} +[Arg1]. {Embryo} cards will be discarded at turn end.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -47,7 +47,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "At turn start, <EmbryoFusionIconKeywords:Embryo Fusion>+30. All your <DevouredIconKeywords:Devour> effects become <UnlimitedDevouredIconKeywords:Infinite Devour>.",
+      "descriptionTemplate": "At turn start, {Embryo Fusion}+30. All your {Devour} effects become {Infinite Devour}.",
       "descriptionArgs": {},
       "lore": "Entwined around the neck."
     }

@@ -43,7 +43,7 @@
       "ownerAwakenerId": "awakener-0045",
       "ownerAwakenerName": "Sanga",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Sanga gains [Arg1] Aliemus. At the start of the battle, grant all of Sanga's Command Cards Retain and Prepare 1, and gain [Arg2] Shield.",
+      "descriptionTemplate": "At turn start, Sanga gains [Arg1] Aliemus. At the start of the battle, grant all of Sanga's Command Cards {Retain} and {Prepare 1}, and gain [Arg2] Shield.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

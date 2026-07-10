@@ -38,7 +38,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After using Keyflare Rouse, increase the Base DMG dealt by all Awakeners by [Arg1]% and gain [Arg2] Keyflare.",
+      "descriptionTemplate": "After using {Keyflare Rouse}, increase the Base DMG dealt by all Awakeners by [Arg1]% and gain [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -59,7 +59,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After using Keyflare Rouse, increase the Base DMG dealt by all Awakeners by [Arg1]% and gain [Arg2] Keyflare.",
+      "descriptionTemplate": "After using {Keyflare Rouse}, increase the Base DMG dealt by all Awakeners by [Arg1]% and gain [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -82,13 +82,7 @@
       "category": "FADED_LEGACY",
       "rarity": "SSR",
       "descriptionTemplate": "Crit. Rate +15%. If HP is below 25% at the start of a turn, Crit. Rate further +30% for that turn.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "X",
-          "displayFormula": "Max HP * 0.25"
-        }
-      },
+      "descriptionArgs": {},
       "lore": "The wonders of the universe."
     }
   ]

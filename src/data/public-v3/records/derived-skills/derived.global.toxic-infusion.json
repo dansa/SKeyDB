@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.toxic-infusion",
+  "name": "Toxic Infusion",
+  "route": {
+    "slug": "toxic-infusion",
+    "canonicalPath": "/database/derived-skills/toxic-infusion"
+  },
+  "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} on all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.07,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

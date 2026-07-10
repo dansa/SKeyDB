@@ -42,7 +42,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Picking up grants all Awakeners 30 Aliemus. Each release of Exalt increases the Count by 1 point. After releasing the Posse, gain [Arg1] Temporary Alert, [Arg2] Temporary <PowerIconKeywords:STR>, and all Awakeners gain 6 Aliemus, consuming all Count, with each Count point taking effect 1 additional time.",
+      "descriptionTemplate": "Picking up grants all Awakeners 30 Aliemus. Each release of Exalt increases the Count by 1 point. After releasing the Posse, gain [Arg1] Temporary {Alert}, [Arg2] Temporary {STR}, and all Awakeners gain 6 Aliemus, consuming all Count, with each Count point taking effect 1 additional time.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

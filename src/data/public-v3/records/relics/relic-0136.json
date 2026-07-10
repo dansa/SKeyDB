@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "Max Arithmetica +1. Draw an additional card at turn start and gain 1 \"Symphony of Harmony\". If 3 Command Cards with the same Arithmetica are played consecutively, all Awakeners gain 20 Aliemus. The reset count is reset at turn start and after triggering.",
+      "descriptionTemplate": "Max Arithmetica +1. Draw an additional card at turn start and gain 1 {Symphony of Harmony}. If 3 Command Cards with the same Arithmetica are played consecutively, all Awakeners gain 20 Aliemus. The reset count is reset at turn start and after triggering.",
       "descriptionArgs": {},
       "lore": "A slender conductor's baton, yet possesses strength greater than a crowbar.\n\nConducting notes, conducting soul, conducting fate."
     }

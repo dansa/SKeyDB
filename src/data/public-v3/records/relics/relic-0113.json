@@ -28,7 +28,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, gain the \"Weakness\" Orison and \"Computation\" Orison along with their Adv. Orisons to place on selected cards.",
+      "descriptionTemplate": "At the start of the battle, gain the {Weakness} Orison and {Computation} Orison along with their Adv. {Orisons} to place on selected cards.",
       "descriptionArgs": {},
       "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
     },
@@ -40,7 +40,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, gain the \"Aliemus\" Orison and \"Catalyst\" Orison along with their Adv. Orisons, and choose an Orison on a card.",
+      "descriptionTemplate": "At the start of the battle, gain the \"Aliemus\" Orison and {Catalyst} Orison along with their Adv. {Orisons}, and choose an Orison on a card.",
       "descriptionArgs": {},
       "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
     },
@@ -52,7 +52,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At battle start, gain \"Vulnerable\" Orison and \"Burst\" Orison and their Adv. Orisons, choose an Orison on a card.",
+      "descriptionTemplate": "At battle start, gain {Vulnerable} Orison and \"Burst\" Orison and their Adv. {Orisons}, choose an Orison on a card.",
       "descriptionArgs": {},
       "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
     },
@@ -64,7 +64,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, gain the \"Might\" Orison and \"Drain\" Orison as well as their Adv. Orisons, and choose an Orison on a card.",
+      "descriptionTemplate": "At the start of the battle, gain the \"Might\" Orison and \"Drain\" Orison as well as their Adv. {Orisons}, and choose an Orison on a card.",
       "descriptionArgs": {},
       "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
     },
@@ -76,7 +76,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, gain the \"Finesse\" Orison and \"Insight\" Orison along with their Adv. Orisons, and choose an Orison on a card.",
+      "descriptionTemplate": "At the start of the battle, gain the {Finesse} Orison and {derived:Insight} Orison along with their Adv. {Orisons}, and choose an Orison on a card.",
       "descriptionArgs": {},
       "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
     },
@@ -88,7 +88,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, gain \"Birth\" Orison and \"Echo\" Orison and their Adv. Orisons, choose an Orison on a card.",
+      "descriptionTemplate": "At the start of the battle, gain \"Birth\" Orison and {Echo} Orison and their Adv. {Orisons}, choose an Orison on a card.",
       "descriptionArgs": {},
       "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key your path, Mythag's Keeper."
     },
@@ -100,7 +100,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At battle start, gain \"Bastion\" Orison and \"Finesse\" Orison and their Adv. Orisons, and choose an Orison on a card.",
+      "descriptionTemplate": "At battle start, gain \"Bastion\" Orison and {Finesse} Orison and their Adv. {Orisons}, and choose an Orison on a card.",
       "descriptionArgs": {},
       "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
     },
@@ -112,7 +112,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, gain the \"Computation,\" \"Mirror\" and their Adv. Orisons to place on selected cards.",
+      "descriptionTemplate": "At the start of the battle, gain the {Computation}, \"Mirror\" and their Adv. {Orisons} to place on selected cards.",
       "descriptionArgs": {},
       "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
     },
@@ -124,7 +124,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, gain 2 \"Ensemble\" Orisons and their Adv. Orison, and choose an Orison on a card.",
+      "descriptionTemplate": "At the start of the battle, gain 2 \"Ensemble\" {Orisons} and their Adv. Orison, and choose an Orison on a card.",
       "descriptionArgs": {},
       "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
     }

@@ -33,7 +33,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At battle start, increase the Arithmetica Limit by 1 and Rouse all Awakeners. For the next 5 turns, At turn start, gain a Relic from \"Rusty Lancet, Modern Axle, Our Home, Eerie Hook, Chrono Pendulum: Trance\".",
+      "descriptionTemplate": "At battle start, increase the Arithmetica Limit by 1 and {Rouse} all Awakeners. For the next 5 turns, At turn start, gain a Relic from \"{Rusty Lancet}, {Modern Axle}, {Our Home}, {Eerie Hook}, Chrono Pendulum: Trance\".",
       "descriptionArgs": {}
     },
     {
@@ -44,7 +44,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, Max Arithmetica +1 and Rouse all Awakeners. In the next 5 turns, gain 1 Relic at turn start: Honeyed Ink, Mute Jukebox, Stellar Brew, Trickster's Hat, Chrono Pendulum: Surge.",
+      "descriptionTemplate": "At the start of the battle, Max Arithmetica +1 and {Rouse} all Awakeners. In the next 5 turns, gain 1 Relic at turn start: {Honeyed Ink}, {Mute Jukebox}, {Stellar Brew}, {Trickster's Hat}, Chrono Pendulum: Surge.",
       "descriptionArgs": {}
     },
     {
@@ -55,7 +55,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, increase the Arithmetica Limit by +1 and Rouse all Awakeners. For the next 5 turns, gain one Relic at turn start: \"Mythag Insignia, Doctor's Case, Proto Battery, Mind Engraving, Chrono Pendulum: Evolution\".",
+      "descriptionTemplate": "At the start of the battle, increase the Arithmetica Limit by +1 and {Rouse} all Awakeners. For the next 5 turns, gain one Relic at turn start: \"{Mythag Insignia}, {Doctor's Case}, {Proto Battery}, {Mind Engraving}, Chrono Pendulum: Evolution\".",
       "descriptionArgs": {}
     },
     {
@@ -66,7 +66,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, increase the Arithmetica Limit by 1 and Rouse all Awakeners. For the next 5 turns, gain one Relic at turn start: \"Signal Relay, Rite of Spring, Hierophant's Staff, Omen Ritual Bird, Chrono Pendulum: Projection\".",
+      "descriptionTemplate": "At the start of the battle, increase the Arithmetica Limit by 1 and {Rouse} all Awakeners. For the next 5 turns, gain one Relic at turn start: \"{Signal Relay}, {Rite of Spring}, {Hierophant's Staff}, {Omen {Ritual} Bird}, Chrono Pendulum: Projection\".",
       "descriptionArgs": {}
     },
     {
@@ -77,7 +77,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, the Arithmetica Limit +1, and Rouse all Awakeners. For the next 5 turns, gain a relic at turn start: \"Putney Morning Post, Principles of Aesthetics, Mob Song, Broken Visage, Chrono Pendulum: Reciprocate\".",
+      "descriptionTemplate": "At the start of the battle, the Arithmetica Limit +1, and {Rouse} all Awakeners. For the next 5 turns, gain a relic at turn start: \"{Putney Morning Post}, {Principles of Aesthetics}, {Mob Song}, {Broken Visage}, Chrono Pendulum: Reciprocate\".",
       "descriptionArgs": {}
     }
   ]

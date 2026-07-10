@@ -20,8 +20,7 @@
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
-      "value": "X",
-      "displayFormula": "10 * (1 + 0.01 * runtime value)"
+      "value": "10"
     },
     "Arg2": {
       "kind": "computed",
@@ -41,12 +40,11 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "\"Strike\" inflicts <IntoxicationIconKeywords:Poison> equal to [Arg1]% of DMG dealt, with a maximum of [Arg2] per turn.",
+      "descriptionTemplate": "\"Strike\" inflicts {Poison} equal to [Arg1]% of DMG dealt, with a maximum of [Arg2] per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
-          "value": "X",
-          "displayFormula": "10 * (1 + 0.01 * runtime value)"
+          "value": "10"
         },
         "Arg2": {
           "kind": "computed",
@@ -65,12 +63,11 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "\"Strike\" inflicts <IntoxicationIconKeywords:Poison> equal to [Arg1]% of DMG dealt, with a maximum of [Arg2] per turn.",
+      "descriptionTemplate": "\"Strike\" inflicts {Poison} equal to [Arg1]% of DMG dealt, with a maximum of [Arg2] per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
-          "value": "X",
-          "displayFormula": "20 * (1 + 0.01 * runtime value)"
+          "value": "20"
         },
         "Arg2": {
           "kind": "computed",
@@ -90,16 +87,8 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Each time you release an Exalt, gain 1 <DerivativeCardKeywords_7:\"Toxic Infusion\">. If you have 3 <DerivativeCardKeywords_7:\"Toxic Infusion\"> in your hand, synthesize into a <DerivativeCardKeywords_8:\"Toxic Outbreak\"> that triggers <IntoxicationIconKeywords:Poison>.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "computed",
-          "formulaKey": "scaled",
-          "baseFormula": "occultResearchDepth",
-          "multiplier": 0.07,
-          "inputs": ["accountLevel", "ownedPosseCount"]
-        }
-      },
+      "descriptionTemplate": "Each time you release an Exalt, gain 1 {Toxic Infusion}. If you have 3 {Toxic Infusion} in your hand, synthesize into a {Toxic Outbreak} that triggers {Poison}.",
+      "descriptionArgs": {},
       "lore": "It is not a demon, but it indeed conveys whispers from beyond the mortal realm."
     }
   ]

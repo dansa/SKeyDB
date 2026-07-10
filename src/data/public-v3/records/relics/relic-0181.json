@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At turn start, if HP is below 25%, gain [Arg1] Temporary <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "At turn start, if HP is below 25%, gain [Arg1] Temporary {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At turn start, if HP is below 25%, gain [Arg1] Temporary <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "At turn start, if HP is below 25%, gain [Arg1] Temporary {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -75,7 +75,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Every time you lose HP, gain [Arg1] <PowerIconKeywords:STR>, up to 10 times per battle. When fully stacked, restore 25% of lost HP.",
+      "descriptionTemplate": "Every time you lose HP, gain [Arg1] {STR}, up to 10 times per battle. When fully stacked, restore 25% of lost HP.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

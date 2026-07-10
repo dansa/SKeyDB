@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0155",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "At the start of the first battle turn, add {Echoes of Lost Shadows} to your hand; on the second turn, add {Silver Key Resonance}; on the third turn, add {Echoes of the Past}.",
+  "descriptionTemplate": "At the start of the first battle turn, add {Echoes of Lost Shadows} to your hand; on the second turn, add {Silver Key Resonance}; on the third turn, add {derived:Echoes of the Past}.",
   "descriptionArgs": {},
   "variants": [
     {
@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the first battle turn, add <DerivativeCardKeywords_1:\"Echoes of Lost Shadows\"> to your hand; on the second turn, add <DerivativeCardKeywords_41:\"Silver Key Resonance\">; on the third turn, add <DerivativeCardKeywords_39:\"Echoes of the Past\">.",
+      "descriptionTemplate": "At the start of the first battle turn, add {Echoes of Lost Shadows} to your hand; on the second turn, add {Silver Key Resonance}; on the third turn, add {derived:Echoes of the Past}.",
       "descriptionArgs": {}
     }
   ]

@@ -35,7 +35,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After using Keyflare Rouse, consume an additional [Arg1] Keyflare, reducing the Arithmetica Cost of the received Rouse card to 0. Upon playing, the corresponding Awakener gains an additional [Arg2] Aliemus.",
+      "descriptionTemplate": "After using {Keyflare Rouse}, consume an additional [Arg1] Keyflare, reducing the Arithmetica Cost of the received {Rouse} card to 0. Upon playing, the corresponding Awakener gains an additional [Arg2] Aliemus.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Increase hand limit by 3, but draw 1 less card each turn. Discard all Symptom Cards and State Cards at turn end, keeping other cards.",
+      "descriptionTemplate": "Increase Hand Limit by 3, but draw 1 less card each turn. Discard all Symptom Cards and State Cards at turn end, keeping other cards.",
       "descriptionArgs": {},
       "lore": "The ancient tribe believed that engraving special symbols on the skulls of the dead could keep their souls for eternal companionship."
     },
@@ -66,7 +66,7 @@
       "variantType": "BLESSED",
       "tier": "Blessed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Increase hand limit by 5 and replenish hand to the limit At battle start. Draw 1 extra card at turn start, and discard all Symptom Cards and State Cards at turn end while keeping other cards.",
+      "descriptionTemplate": "Increase Hand Limit by 5 and replenish hand to the limit At battle start. Draw 1 extra card at turn start, and discard all Symptom Cards and State Cards at turn end while keeping other cards.",
       "descriptionArgs": {},
       "lore": "The greedy carve their mistakes into their hearts and dedicate themselves to atoning for their past."
     },

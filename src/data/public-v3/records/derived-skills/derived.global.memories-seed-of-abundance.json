@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.memories-seed-of-abundance",
+  "name": "Remembrance - Core of Abundance",
+  "route": {
+    "slug": "remembrance-core-of-abundance",
+    "canonicalPath": "/database/derived-skills/remembrance-core-of-abundance"
+  },
+  "derivedFromId": "derived.global.twilight-seed-of-abundance",
+  "descriptionTemplate": "Choose 1 non-Derived Command Card and shuffle 10 original copies of it into the Draw Pile. Reduced the Arithmetica Cost of these cards by 2 until the next time they are played.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

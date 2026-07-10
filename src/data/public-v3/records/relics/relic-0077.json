@@ -34,7 +34,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "When picked, choose 2 Command Cards to Delete, Gain [Arg1] <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "When picked, choose 2 Command Cards to Delete, Gain [Arg1] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

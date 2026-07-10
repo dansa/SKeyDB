@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.unyielding-will-beta",
+  "name": "Unyielding Will β",
+  "route": {
+    "slug": "unyielding-will-beta",
+    "canonicalPath": "/database/derived-skills/unyielding-will-beta"
+  },
+  "descriptionTemplate": "Gain [Arg1] {STR}, and put the \"Strike\" of other Awakeners's skills into hand, making their Arithmetica Cost 0.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

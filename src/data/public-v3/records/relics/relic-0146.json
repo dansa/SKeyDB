@@ -17,12 +17,7 @@
   "rarity": "SR",
   "aliases": [],
   "descriptionTemplate": "{Awaken}: After unleashing Exalt for the first time each turn, reset that Awakener's Exalt cooldown and grant them 50 Aliemus, generating temporary copies of all \"Skills\" with an Arithmetica Cost of 0.\n{Seal}: After unleashing Exalt for the first time each turn, seal other Awakeners.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "50"
-    }
-  },
+  "descriptionArgs": {},
   "variants": [
     {
       "id": "relic-variant-0208",
@@ -32,13 +27,8 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "<OrangeQuality:Awaken>: After unleashing Exalt for the first time each turn, reset that Awakener's Exalt cooldown and grant them 50 Aliemus, generating temporary copies of all \"Skills\" with an Arithmetica Cost of 0.\n<RedQuality:Seal>: After unleashing Exalt for the first time each turn, seal other Awakeners.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "50"
-        }
-      }
+      "descriptionTemplate": "{Awaken}: After unleashing Exalt for the first time each turn, reset that Awakener's Exalt cooldown and grant them 50 Aliemus, generating temporary copies of all \"Skills\" with an Arithmetica Cost of 0.\n{Seal}: After unleashing Exalt for the first time each turn, seal other Awakeners.",
+      "descriptionArgs": {}
     },
     {
       "id": "relic-variant-0209",
@@ -48,13 +38,8 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "<OrangeQuality:Backwater>: At the Start of each turn, for every 1% Max HP lost, Final DMG is Temporarily Boosted by 5%. If Death Resistance was triggered last turn, this Effect is doubled.\n<RedQuality:Supreme>: All enemies' Max HP is Boosted by 300%.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "5"
-        }
-      }
+      "descriptionTemplate": "{Backwater}: At the Start of each turn, for every 1% Max HP lost, Final DMG is Temporarily Boosted by 5%. If {Death Resistance} was triggered last turn, this Effect is doubled.\n{Supreme}: All enemies' Max HP is Boosted by 300%.",
+      "descriptionArgs": {}
     }
   ]
 }

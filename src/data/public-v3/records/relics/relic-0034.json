@@ -41,7 +41,7 @@
       "ownerAwakenerId": "awakener-0034",
       "ownerAwakenerName": "Murphy",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Murphy gains [Arg1] Aliemus. Murphy's \"Strike\" and \"Defense\" can convert [Arg2]% of the \"Sacrifice\" into Temporary Tentacle DMG, but can only take effect once per turn.",
+      "descriptionTemplate": "At turn start, Murphy gains [Arg1] Aliemus. Murphy's \"Strike\" and \"Defense\" can convert [Arg2]% of the {Sacrifice} into Temporary {Tentacle DMG}, but can only take effect once per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

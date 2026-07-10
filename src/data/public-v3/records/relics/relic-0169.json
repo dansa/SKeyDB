@@ -40,7 +40,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Use Keyflare Rouse and gain [Arg1] <RetaliateIconKeywords:Counter> and [Arg2] Keyflare.",
+      "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {Counter} and [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -63,7 +63,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Use Keyflare Rouse and gain [Arg1] <RetaliateIconKeywords:Counter> and [Arg2] Keyflare.",
+      "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {Counter} and [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -87,12 +87,14 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Every 5th time Shield is gained, also gain <RetaliateIconKeywords:Counter>, with the Counter value equal to [Arg1]% of the Shield gained.",
+      "descriptionTemplate": "Every {ordinal:5th} time Shield is gained, also gain {Counter}, with the {Counter} value equal to [Arg1]% of the Shield gained.",
       "descriptionArgs": {
         "Arg1": {
-          "kind": "fixed",
-          "value": "X",
-          "displayFormula": "80 * SpiritResearchDepthMultiplier"
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchMultiplier",
+          "multiplier": 80.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
       "lore": "\"How foolish humans are, blindly believing simply because it's antiquated.\""

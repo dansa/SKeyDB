@@ -17,20 +17,7 @@
   "rarity": "SSR",
   "aliases": [],
   "descriptionTemplate": "Hand Limit +2, after Exalt, Temporary Final DMG +10%.\nAfter the card enters the {Ultra Space}, 1 {Embryo} in hand transforms into {Scion of Purity}.\nEvery time 1 {Embryo} is generated, the cost of a random card in the {Ultra Space} decreases by 1.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "2"
-    },
-    "Arg2": {
-      "kind": "fixed",
-      "value": "10"
-    },
-    "Arg3": {
-      "kind": "fixed",
-      "value": "1"
-    }
-  },
+  "descriptionArgs": {},
   "variants": [
     {
       "id": "relic-variant-0290",
@@ -40,21 +27,8 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Hand Limit +2, after Exalt, Temporary Final DMG +10%.\nAfter the card enters the Ultra Space, 1 \"Embryo\" in hand transforms into \"Scion of Purity\".\nEvery time 1 \"Embryo\" is generated, the cost of a random card in the Ultra Space decreases by 1.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "2"
-        },
-        "Arg2": {
-          "kind": "fixed",
-          "value": "10"
-        },
-        "Arg3": {
-          "kind": "fixed",
-          "value": "1"
-        }
-      }
+      "descriptionTemplate": "Hand Limit +2, after Exalt, Temporary Final DMG +10%.\nAfter the card enters the {Ultra Space}, 1 {Embryo} in hand transforms into {Scion of Purity}.\nEvery time 1 {Embryo} is generated, the cost of a random card in the {Ultra Space} decreases by 1.",
+      "descriptionArgs": {}
     }
   ]
 }

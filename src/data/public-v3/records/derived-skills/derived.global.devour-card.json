@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.devour-card",
+  "name": "Devour",
+  "route": {
+    "slug": "devour",
+    "canonicalPath": "/database/derived-skills/devour"
+  },
+  "derivedFromId": "derived.global.cocoon-of-revival",
+  "descriptionTemplate": "Restore 30% Max HP. Become {Vulnerable} for 1 turn.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

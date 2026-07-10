@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0011",
       "ownerAwakenerName": "Corposant",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Corposant gains [Arg1] Aliemus and 1 Temporary Tentacle. Whenever Death Resistance is triggered, Corposant gains [Arg2] Aliemus, and places 1 \"Lightning Retribution\" with 0 Arithmetica Cost and Exhaust into hand.",
+      "descriptionTemplate": "At turn start, Corposant gains [Arg1] Aliemus and 1 Temporary Tentacle. Whenever {Death Resistance} is triggered, Corposant gains [Arg2] Aliemus, and places 1 {Lightning Retribution} with 0 Arithmetica Cost and {Exhaust} into hand.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

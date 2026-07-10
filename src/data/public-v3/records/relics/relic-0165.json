@@ -27,7 +27,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Hand Limit +1. At turn start, if no Research has been conducted, choose an untried Research. Upon completion, gain the corresponding Research result from Doll: Inferno. After completing 3 Researches, place \"Illusion's End\" into hand; this Relic becomes inactive.",
+      "descriptionTemplate": "Hand Limit +1. At turn start, if no Research has been conducted, choose an untried Research. Upon completion, gain the corresponding Research result from Doll: Inferno. After completing 3 Researches, place {derived:Illusion's End} into hand; this Relic becomes inactive.",
       "descriptionArgs": {}
     }
   ]

@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Gain [Arg1] <RetaliateIconKeywords:Counter> at the start of battle, effects are doubled in Boss Battles.",
+      "descriptionTemplate": "Gain [Arg1] {Counter} at the start of battle, effects are doubled in Boss Battles.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Gain [Arg1] <RetaliateIconKeywords:Counter> at the start of battle, effects are doubled in Boss Battles.",
+      "descriptionTemplate": "Gain [Arg1] {Counter} at the start of battle, effects are doubled in Boss Battles.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -75,7 +75,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "After the battle starts, gain [Arg2] <plural value=\"[Arg2]\" singular=\"stack\" plural=\"stacks\"> of <RetaliateIconKeywords:Counter>. Play \"Defense\" to gain [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <RetaliateIconKeywords:Counter>.",
+      "descriptionTemplate": "After the battle starts, gain [Arg2] {plural:[Arg2]|stack|stacks} of {Counter}. Play \"Defense\" to gain [Arg1] {plural:[Arg1]|stack|stacks} of {Counter}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

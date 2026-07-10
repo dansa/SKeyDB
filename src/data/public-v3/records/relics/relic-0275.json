@@ -27,7 +27,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At turn start, accumulate 1 \"Abyssal Energy,\" and choose \"Slumber\" or \"Arouse.\" Slumber: additionally accumulate 1 \"Abyssal Energy.\" Arouse: consume 1/5/10 \"Abyssal Energy\" to gain Tulu's assistance. The more \"Abyssal Energy\" consumed, the stronger Tulu's assistance effect.",
+      "descriptionTemplate": "At turn start, accumulate 1 \"Abyssal Energy,\" and choose {Slumber} or {Arouse}. {Slumber}: additionally accumulate 1 \"Abyssal Energy.\" {Arouse}: consume 1/5/10 \"Abyssal Energy\" to gain Tulu's assistance. The more \"Abyssal Energy\" consumed, the stronger Tulu's assistance effect.",
       "descriptionArgs": {}
     }
   ]

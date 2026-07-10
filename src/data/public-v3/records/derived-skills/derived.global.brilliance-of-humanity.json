@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.brilliance-of-humanity",
+  "name": "Brilliance of Humanity",
+  "route": {
+    "slug": "brilliance-of-humanity",
+    "canonicalPath": "/database/derived-skills/brilliance-of-humanity"
+  },
+  "descriptionTemplate": "Gain [Arg1] Arithmetica. All Awakeners gain [Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "50"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

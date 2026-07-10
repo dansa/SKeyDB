@@ -40,7 +40,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Draw 2 cards and gain [Arg1] Keyflare when losing the last card in your hand. Tentacle DMG +[Arg2] each time the deck is reset.",
+      "descriptionTemplate": "Draw 2 cards and gain [Arg1] Keyflare when losing the last card in your hand. {Tentacle DMG} +[Arg2] each time the deck is reset.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -88,7 +88,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Max Arithmetica +2. Unconsumed Arithmetica can be retained until the next turn. If more than 2 Arithmetica is retained, all Awakeners gain 20 Aliemus at the start of the next turn; if more than 4 Arithmetica is retained, the base damage dealt in the next turn +100%.",
+      "descriptionTemplate": "Max Arithmetica +2. Unconsumed Arithmetica can be {Retained} until the next turn. If more than 2 Arithmetica is {Retained}, all Awakeners gain 20 Aliemus at the start of the next turn; if more than 4 Arithmetica is {Retained}, the base damage dealt in the next turn +100%.",
       "descriptionArgs": {},
       "lore": "Today, we will forget fear, forget pain, and just enjoy the carnival."
     }

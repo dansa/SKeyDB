@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.gluttonous-attack",
+  "name": "Gluttonous Attack",
+  "route": {
+    "slug": "gluttonous-attack",
+    "canonicalPath": "/database/derived-skills/gluttonous-attack"
+  },
+  "childDerivedSkillIds": ["derived.global.one-way", "derived.global.assemble"],
+  "descriptionTemplate": "Choice: {One-way} or {Assemble}",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

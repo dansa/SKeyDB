@@ -28,7 +28,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "At the start of battle, inflict 1 turn of <WeaknessIconKeywords:Weakness> and <VulnerabilityIconKeywords:Vulnerable> on all enemies. If it is a Boss Battle, additionally inflict 2 turns of <WeaknessIconKeywords:Weakness> and <VulnerabilityIconKeywords:Vulnerable>.",
+      "descriptionTemplate": "At the start of battle, inflict 1 turn of {Weakness} and {Vulnerable} on all enemies. If it is a Boss Battle, additionally inflict 2 turns of {Weakness} and {Vulnerable}.",
       "descriptionArgs": {},
       "lore": "Not only can time cause fabric to fade, but fear and pain as well."
     }

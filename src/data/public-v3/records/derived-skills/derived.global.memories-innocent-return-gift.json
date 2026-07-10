@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.memories-innocent-return-gift",
+  "name": "Memories: Innocent Return Gift",
+  "route": {
+    "slug": "memories-innocent-return-gift",
+    "canonicalPath": "/database/derived-skills/memories-innocent-return-gift"
+  },
+  "derivedFromId": "derived.global.twilight-innocent-return-gift",
+  "descriptionTemplate": "Choose an Awakener to gain [Arg1] Aliemus, {Usable 3 times} (currently used [Arg2] {plural:[Arg2]|time|times}).",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "60"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "0"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

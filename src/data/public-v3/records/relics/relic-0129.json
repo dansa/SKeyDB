@@ -17,12 +17,7 @@
   "rarity": "SR",
   "aliases": [],
   "descriptionTemplate": "\"Attack\" and \"Defense\" gain an additional 50 Keyflare. Each time you play a card with an Arithmetica Cost of 2 or more, draw a card with an Arithmetica Cost of 1 and reduce its cost to 0, up to 3 times per turn.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "111"
-    }
-  },
+  "descriptionArgs": {},
   "variants": [
     {
       "id": "relic-variant-0175",
@@ -33,12 +28,7 @@
       "category": "PENDULUM",
       "rarity": "SR",
       "descriptionTemplate": "\"Attack\" and \"Defense\" gain an additional 50 Keyflare. Each time you play a card with an Arithmetica Cost of 2 or more, draw a card with an Arithmetica Cost of 1 and reduce its cost to 0, up to 3 times per turn.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "111"
-        }
-      }
+      "descriptionArgs": {}
     }
   ]
 }

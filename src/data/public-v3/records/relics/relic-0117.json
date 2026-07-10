@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Picking up this item after death doubles Death Resistance. After dealing Damage, it also applies <BleedingIconKeywords:Bleed> to the target equal to 50% of the Damage. Each time Death Resistance is triggered, all enemies immediately trigger 1 instance of Bleed.",
+      "descriptionTemplate": "Picking up this item after death doubles {Death Resistance}. After dealing Damage, it also applies {Bleed} to the target equal to 50% of the Damage. Each time {Death Resistance} is triggered, all enemies immediately trigger 1 instance of {Bleed}.",
       "descriptionArgs": {}
     }
   ]

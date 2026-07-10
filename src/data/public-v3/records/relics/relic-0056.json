@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0056",
       "ownerAwakenerName": "Arachne",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of each turn, Arachne gains <Energy:[Arg1]> Aliemus. When Arachne's Basic Strike or Basic Defense are played, she performs her Pursuit: \"Infinite Threads.\" These 2 effects can trigger up to once each turn respectively, and do not consume <SilkKeywords:Weaver>.",
+      "descriptionTemplate": "At the start of each turn, Arachne gains [Arg1] Aliemus. When Arachne's Basic Strike or Basic Defense are played, she performs her {Pursuit}: {Infinite Threads}. These 2 effects can trigger up to once each turn respectively, and do not consume {Weaver}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

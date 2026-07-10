@@ -15,7 +15,7 @@
   "variantCount": 4,
   "defaultVariantId": "relic-variant-0087",
   "aliases": ["Blessed: Black Candle", "Sinful: Black Candle"],
-  "descriptionTemplate": "Increase all Awakeners' Base DMG by [Arg1]%. Each time the deck is reset, an additional [Arg2]% is granted, but a \"Stagger\" card is added to your hand. The maximum increase is [Arg3]%.",
+  "descriptionTemplate": "Increase all Awakeners' Base DMG by [Arg1]%. Each time the deck is reset, an additional [Arg2]% is granted, but a {Stagger} card is added to your hand. The maximum increase is [Arg3]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -42,7 +42,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Increase all Awakeners' Base DMG by [Arg1]%. Each time the deck is reset, an additional [Arg2]% is granted, but a \"Stagger\" card is added to your hand. The maximum increase is [Arg3]%.",
+      "descriptionTemplate": "Increase all Awakeners' Base DMG by [Arg1]%. Each time the deck is reset, an additional [Arg2]% is granted, but a {Stagger} card is added to your hand. The maximum increase is [Arg3]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -69,7 +69,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Max Arithmetica +2. Each time the deck is reset, add 1 <DerivativeCardKeywords_9:\"Stagger\"> to the Draw Pile.",
+      "descriptionTemplate": "Max Arithmetica +2. Each time the deck is reset, add 1 {Stagger} to the Draw Pile.",
       "descriptionArgs": {},
       "lore": "Burn in clarity, fall into illusion."
     },
@@ -80,7 +80,7 @@
       "variantType": "BLESSED",
       "tier": "Blessed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Max Arithmetica +4. Each time the deck is reset, add 4 <DerivativeCardKeywords_4:\"Insight\"> to the Draw Pile.",
+      "descriptionTemplate": "Max Arithmetica +4. Each time the deck is reset, add 4 {derived:Insight} to the Draw Pile.",
       "descriptionArgs": {},
       "lore": "Burning desire, gain redemption."
     },
@@ -91,7 +91,7 @@
       "variantType": "SINFUL",
       "tier": "Sinful",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Max Arithmetica +3. Each time the deck is reset, add 2 <DerivativeCardKeywords_9:\"Stagger\"> to the Draw Pile.",
+      "descriptionTemplate": "Max Arithmetica +3. Each time the deck is reset, add 2 {Stagger} to the Draw Pile.",
       "descriptionArgs": {},
       "lore": "Burn sanity, fall into madness."
     }

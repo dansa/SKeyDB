@@ -17,16 +17,7 @@
   "rarity": "SSR",
   "aliases": [],
   "descriptionTemplate": "Obtain 250 Keyflare at turn start.\nAfter using {Keyflare Rouse}, place 1 {Silver Key Gleam} into hand.\n{Discover} 1 Awakener Support card at turn start.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "1"
-    },
-    "Arg2": {
-      "kind": "fixed",
-      "value": "1"
-    }
-  },
+  "descriptionArgs": {},
   "variants": [
     {
       "id": "relic-variant-0527",
@@ -36,17 +27,8 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Obtain 250 Keyflare at turn start.\nAfter using Keyflare Rouse, place 1 <DerivativeCardKeywords_129:\"Silver Key Gleam\"> into hand.\nDiscover 1 Awakener Support card at turn start.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "1"
-        },
-        "Arg2": {
-          "kind": "fixed",
-          "value": "1"
-        }
-      }
+      "descriptionTemplate": "Obtain 250 Keyflare at turn start.\nAfter using {Keyflare Rouse}, place 1 {Silver Key Gleam} into hand.\n{Discover} 1 Awakener Support card at turn start.",
+      "descriptionArgs": {}
     }
   ]
 }

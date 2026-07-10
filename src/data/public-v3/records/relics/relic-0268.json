@@ -28,7 +28,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "At the start of the battle, place 1 <DerivativeCardKeywords_1:\"Echoes of Lost Shadows\"> into hand. If it is a Boss Battle, gain an additional 1 <DerivativeCardKeywords_1:\"Echoes of Lost Shadows\">.",
+      "descriptionTemplate": "At the start of the battle, place 1 {Echoes of Lost Shadows} into hand. If it is a Boss Battle, gain an additional 1 {Echoes of Lost Shadows}.",
       "descriptionArgs": {},
       "lore": "Anticipate or dread the moment it chimes."
     },
@@ -40,7 +40,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of battle, all Awakeners gain 50 Aliemus. Draw 2 <DerivativeCardKeywords_1:\"Echoes of Lost Shadows\"> into hand.",
+      "descriptionTemplate": "At the start of battle, all Awakeners gain 50 Aliemus. Draw 2 {Echoes of Lost Shadows} into hand.",
       "descriptionArgs": {},
       "lore": "Anticipate or dread the moment it chimes."
     }

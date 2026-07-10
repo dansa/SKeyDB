@@ -37,7 +37,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "All Awakeners gain [Arg1] Aliemus the first time they play a Command Card each turn. After playing 4 Command Cards belonging to different Awakeners in one turn, inflict [Arg2]% of team's Max HP as <IntoxicationIconKeywords:Poison> on all enemies.",
+      "descriptionTemplate": "All Awakeners gain [Arg1] Aliemus the first time they play a Command Card each turn. After playing 4 Command Cards belonging to different Awakeners in one turn, inflict [Arg2]% of team's Max HP as {Poison} on all enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

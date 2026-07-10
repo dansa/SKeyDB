@@ -28,7 +28,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "For each Roused Awakener, increase <ProficientInRealmsIconKeywords:Realm Mastery> by 35. After playing \"<ExaltIconKeywords:Rouse>,\" randomly gain 2 Command Cards of that Awakener and attach \"Exhaust\".",
+      "descriptionTemplate": "For each Roused Awakener, increase Realm Mastery by 35. After playing {Rouse}, randomly gain 2 Command Cards of that Awakener and attach {Exhaust}.",
       "descriptionArgs": {},
       "lore": "He said, \"Do not be afraid.\""
     },
@@ -40,7 +40,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Rouse all Awakeners. After playing <ExaltIconKeywords:Rouse>, randomly gain 2 Command Cards of that Awakener with \"Exhaust\" and \"Fleeting\".",
+      "descriptionTemplate": "{Rouse} all Awakeners. After playing {Rouse}, randomly gain 2 Command Cards of that Awakener with {Exhaust} and {Fleeting}.",
       "descriptionArgs": {},
       "lore": "He said, \"Do not be afraid.\""
     }

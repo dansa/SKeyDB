@@ -28,7 +28,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "Crit. Rate +10%. After the first Critical Hit each turn, increase Crit. Rate by an extra 20%. After the 3rd Critical Hit each turn, increase Crit. DMG by an extra 50%.",
+      "descriptionTemplate": "Crit. Rate +10%. After the first Critical Hit each turn, increase Crit. Rate by an extra 20%. After the {ordinal:3rd} Critical Hit each turn, increase Crit. DMG by an extra 50%.",
       "descriptionArgs": {},
       "lore": "It should bring blessings to those in love."
     }

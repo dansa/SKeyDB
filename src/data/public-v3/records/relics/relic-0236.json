@@ -34,7 +34,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "<EmbryoFusionIconKeywords:Embryo Fusion> Automatic gain +[Arg1]%.",
+      "descriptionTemplate": "{Embryo Fusion} Automatic gain +[Arg1]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -51,7 +51,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "<EmbryoFusionIconKeywords:Embryo Fusion> Automatic gain +[Arg1]%.",
+      "descriptionTemplate": "{Embryo Fusion} Automatic gain +[Arg1]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -69,7 +69,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "At turn end, <EmbryoFusionIconKeywords:Embryo Fusion> +15, if you have <DerivativeCardKeywords_2:\"Embryo\"> in hand, restore [Arg1] HP.",
+      "descriptionTemplate": "At turn end, {Embryo Fusion} +15, if you have {Embryo} in hand, restore [Arg1] HP.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

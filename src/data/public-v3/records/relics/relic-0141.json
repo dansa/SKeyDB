@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Hand Limit +3. Record the first 3 Non-Derived Command Cards played each turn, and at the start of the turn 3 turns later, reduce their Arithmetica Cost by 1 and add copies with <DepleteIconKeywords:Exhaust> to hand.",
+      "descriptionTemplate": "Hand Limit +3. Record the first 3 Non-Derived Command Cards played each turn, and at the start of the turn 3 turns later, reduce their Arithmetica Cost by 1 and add copies with {Exhaust} to hand.",
       "descriptionArgs": {},
       "lore": "Forever the wheel turns."
     }

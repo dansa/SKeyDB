@@ -52,7 +52,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At turn start, gain [Arg1] Counter. After using Exalt [Arg2] <plural value=\"[Arg2]\" singular=\"time\" plural=\"times\"> in one turn, remove [Arg3]% Permanent Counter, and gain [Arg4]% of the removed amount as Temporary Counter. Cooldown: [Arg5] <plural value=\"[Arg5]\" singular=\"turn\" plural=\"turns\">.",
+      "descriptionTemplate": "At turn start, gain [Arg1] {Counter}. After using Exalt [Arg2] {plural:[Arg2]|time|times} in one turn, remove [Arg3]% Permanent {Counter}, and gain [Arg4]% of the removed amount as Temporary {Counter}. Cooldown: [Arg5] {plural:[Arg5]|turn|turns}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -89,7 +89,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Every 4 turns, double the Active and Tentacle DMG all enemies receive in that turn. However, after releasing Exalt in that turn, seal all Awakeners for 1 turn.",
+      "descriptionTemplate": "Every 4 turns, double the Active and {Tentacle DMG} all enemies receive in that turn. However, after releasing Exalt in that turn, seal all Awakeners for 1 turn.",
       "descriptionArgs": {},
       "lore": "A sacred part.\nEven though it has separated from the body, its footprints have spread across the world."
     },
@@ -100,7 +100,7 @@
       "variantType": "BLESSED",
       "tier": "Blessed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Every 2 turns, double the Active and Tentacle DMG all enemies receive in that turn. For each Exalt used in that turn, randomly dispel 1 debuff.",
+      "descriptionTemplate": "Every 2 turns, double the Active and {Tentacle DMG} all enemies receive in that turn. For each Exalt used in that turn, randomly dispel 1 debuff.",
       "descriptionArgs": {},
       "lore": "A sacred part.\nEven though it has separated from the body, its footprints have spread across the world."
     },
@@ -111,7 +111,7 @@
       "variantType": "SINFUL",
       "tier": "Sinful",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Every 2 turns, double the Active and Tentacle DMG all enemies receive in that turn. However, after releasing Exalt in that turn, seal all Awakeners for 1 turn and make self Vulnerable.",
+      "descriptionTemplate": "Every 2 turns, double the Active and {Tentacle DMG} all enemies receive in that turn. However, after releasing Exalt in that turn, seal all Awakeners for 1 turn and make self {Vulnerable}.",
       "descriptionArgs": {},
       "lore": "A sacred part.\nSeparated from the torso, it has been tainted by sin."
     }

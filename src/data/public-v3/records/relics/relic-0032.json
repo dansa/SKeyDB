@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0032",
       "ownerAwakenerName": "Miryam",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Miryam gains [Arg1] Aliemus and puts 1 \"Sacrament\" into hand.",
+      "descriptionTemplate": "At turn start, Miryam gains [Arg1] Aliemus and puts 1 {Sacrament} into hand.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Gain [Arg1] Temporary <PowerIconKeywords:STR> whenever DMG is dealt, up to 15 times per turn.",
+      "descriptionTemplate": "Gain [Arg1] Temporary {STR} whenever DMG is dealt, up to 15 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Gain [Arg1] Temporary <PowerIconKeywords:STR> whenever DMG is dealt, up to 15 times per turn.",
+      "descriptionTemplate": "Gain [Arg1] Temporary {STR} whenever DMG is dealt, up to 15 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -75,7 +75,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "Each time DMG is dealt, gain [Arg1] Temporary <PowerIconKeywords:STR>, up to 3 times. When at maximum stacks, the effect is doubled.",
+      "descriptionTemplate": "Each time DMG is dealt, gain [Arg1] Temporary {STR}, up to 3 times. When at maximum stacks, the effect is doubled.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -95,7 +95,7 @@
       "tier": "Silver",
       "mechanicOwner": "Pickman",
       "rarity": "N",
-      "descriptionTemplate": "Gain [Arg1] Temporary <PowerIconKeywords:STR> whenever DMG is dealt, up to 15 times per turn.",
+      "descriptionTemplate": "Gain [Arg1] Temporary {STR} whenever DMG is dealt, up to 15 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -114,7 +114,7 @@
       "variantType": "AWAKENER_MECHANIC",
       "tier": "Gold",
       "mechanicOwner": "Pickman",
-      "descriptionTemplate": "Gain [Arg1] Temporary <PowerIconKeywords:STR> whenever DMG is dealt, up to 15 times per turn.",
+      "descriptionTemplate": "Gain [Arg1] Temporary {STR} whenever DMG is dealt, up to 15 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

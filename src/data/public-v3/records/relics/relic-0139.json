@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Whenever 1 \"Embryo\" is generated, gain [Arg1] Crimson Furnace, up to 3 times per turn.",
+      "descriptionTemplate": "Whenever 1 {Embryo} is generated, gain [Arg1] {Crimson Furnace}, up to 3 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Whenever 1 \"Embryo\" is generated, gain [Arg1] Crimson Furnace, up to 3 times per turn.",
+      "descriptionTemplate": "Whenever 1 {Embryo} is generated, gain [Arg1] {Crimson Furnace}, up to 3 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -75,7 +75,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "At the start of battle, <EmbryoFusionIconKeywords:Embryo Fusion>+50. For each Awakener with at least 50 Aliemus, it takes effect 1 additional time.",
+      "descriptionTemplate": "At the start of battle, {Embryo Fusion}+50. For each Awakener with at least 50 Aliemus, it takes effect 1 additional time.",
       "descriptionArgs": {},
       "lore": "The carpenter crafted a lifelike puppet for his wife, which would take the place of their son, resting in her womb."
     }

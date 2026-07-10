@@ -2431,6 +2431,15 @@
       "ownerAwakenerId": "awakener-0015",
       "ownerAwakenerName": "Erica"
     },
+    "derived.global.adsorption": {
+      "kind": "derivedSkill",
+      "id": "derived.global.adsorption",
+      "name": "Adsorption",
+      "route": {
+        "slug": "adsorption",
+        "canonicalPath": "/database/derived-skills/adsorption"
+      }
+    },
     "derived.global.adv-insight": {
       "kind": "derivedSkill",
       "id": "derived.global.adv-insight",
@@ -2447,6 +2456,60 @@
       "route": {
         "slug": "arouse",
         "canonicalPath": "/database/derived-skills/arouse"
+      }
+    },
+    "derived.global.assemble": {
+      "kind": "derivedSkill",
+      "id": "derived.global.assemble",
+      "name": "Assemble",
+      "route": {
+        "slug": "assemble",
+        "canonicalPath": "/database/derived-skills/assemble"
+      }
+    },
+    "derived.global.barbed-trident": {
+      "kind": "derivedSkill",
+      "id": "derived.global.barbed-trident",
+      "name": "Barbed Trident",
+      "route": {
+        "slug": "barbed-trident",
+        "canonicalPath": "/database/derived-skills/barbed-trident"
+      }
+    },
+    "derived.global.brilliance-of-humanity": {
+      "kind": "derivedSkill",
+      "id": "derived.global.brilliance-of-humanity",
+      "name": "Brilliance of Humanity",
+      "route": {
+        "slug": "brilliance-of-humanity",
+        "canonicalPath": "/database/derived-skills/brilliance-of-humanity"
+      }
+    },
+    "derived.global.coalsie-smack": {
+      "kind": "derivedSkill",
+      "id": "derived.global.coalsie-smack",
+      "name": "Coalsie SMACK!",
+      "route": {
+        "slug": "coalsie-smack",
+        "canonicalPath": "/database/derived-skills/coalsie-smack"
+      }
+    },
+    "derived.global.cocoon-of-revival": {
+      "kind": "derivedSkill",
+      "id": "derived.global.cocoon-of-revival",
+      "name": "Cocoon of Revival",
+      "route": {
+        "slug": "cocoon-of-revival",
+        "canonicalPath": "/database/derived-skills/cocoon-of-revival"
+      }
+    },
+    "derived.global.convulsion": {
+      "kind": "derivedSkill",
+      "id": "derived.global.convulsion",
+      "name": "Convulsion",
+      "route": {
+        "slug": "convulsion",
+        "canonicalPath": "/database/derived-skills/convulsion"
       }
     },
     "derived.global.countdown": {
@@ -2513,6 +2576,24 @@
         "canonicalPath": "/database/derived-skills/5-countdown"
       }
     },
+    "derived.global.devour-card": {
+      "kind": "derivedSkill",
+      "id": "derived.global.devour-card",
+      "name": "Devour",
+      "route": {
+        "slug": "devour",
+        "canonicalPath": "/database/derived-skills/devour"
+      }
+    },
+    "derived.global.divine-dedication": {
+      "kind": "derivedSkill",
+      "id": "derived.global.divine-dedication",
+      "name": "Divine Dedication",
+      "route": {
+        "slug": "divine-dedication",
+        "canonicalPath": "/database/derived-skills/divine-dedication"
+      }
+    },
     "derived.global.dreaming-of-wonderland": {
       "kind": "derivedSkill",
       "id": "derived.global.dreaming-of-wonderland",
@@ -2520,6 +2601,24 @@
       "route": {
         "slug": "dreaming-of-wonderland",
         "canonicalPath": "/database/derived-skills/dreaming-of-wonderland"
+      }
+    },
+    "derived.global.echoes-of-lost-shadows": {
+      "kind": "derivedSkill",
+      "id": "derived.global.echoes-of-lost-shadows",
+      "name": "Echoes of Lost Shadows",
+      "route": {
+        "slug": "echoes-of-lost-shadows",
+        "canonicalPath": "/database/derived-skills/echoes-of-lost-shadows"
+      }
+    },
+    "derived.global.echoes-of-the-past": {
+      "kind": "derivedSkill",
+      "id": "derived.global.echoes-of-the-past",
+      "name": "Echoes of the Past",
+      "route": {
+        "slug": "echoes-of-the-past",
+        "canonicalPath": "/database/derived-skills/echoes-of-the-past"
       }
     },
     "derived.global.embryo": {
@@ -2540,6 +2639,51 @@
         "canonicalPath": "/database/derived-skills/fleeting-beauty"
       }
     },
+    "derived.global.flicker-of-humanity": {
+      "kind": "derivedSkill",
+      "id": "derived.global.flicker-of-humanity",
+      "name": "Flicker of Humanity",
+      "route": {
+        "slug": "flicker-of-humanity",
+        "canonicalPath": "/database/derived-skills/flicker-of-humanity"
+      }
+    },
+    "derived.global.forbidden-truth": {
+      "kind": "derivedSkill",
+      "id": "derived.global.forbidden-truth",
+      "name": "Forbidden Truth",
+      "route": {
+        "slug": "forbidden-truth",
+        "canonicalPath": "/database/derived-skills/forbidden-truth"
+      }
+    },
+    "derived.global.gauntward": {
+      "kind": "derivedSkill",
+      "id": "derived.global.gauntward",
+      "name": "Gauntward",
+      "route": {
+        "slug": "gauntward",
+        "canonicalPath": "/database/derived-skills/gauntward"
+      }
+    },
+    "derived.global.glow-of-humanity": {
+      "kind": "derivedSkill",
+      "id": "derived.global.glow-of-humanity",
+      "name": "Glow of Humanity",
+      "route": {
+        "slug": "glow-of-humanity",
+        "canonicalPath": "/database/derived-skills/glow-of-humanity"
+      }
+    },
+    "derived.global.gluttonous-attack": {
+      "kind": "derivedSkill",
+      "id": "derived.global.gluttonous-attack",
+      "name": "Gluttonous Attack",
+      "route": {
+        "slug": "gluttonous-attack",
+        "canonicalPath": "/database/derived-skills/gluttonous-attack"
+      }
+    },
     "derived.global.gobble-up": {
       "kind": "derivedSkill",
       "id": "derived.global.gobble-up",
@@ -2558,6 +2702,15 @@
         "canonicalPath": "/database/derived-skills/hanafubuki"
       }
     },
+    "derived.global.hide-beta": {
+      "kind": "derivedSkill",
+      "id": "derived.global.hide-beta",
+      "name": "Hideβ",
+      "route": {
+        "slug": "hide-beta",
+        "canonicalPath": "/database/derived-skills/hide-beta"
+      }
+    },
     "derived.global.ichigo-ichie": {
       "kind": "derivedSkill",
       "id": "derived.global.ichigo-ichie",
@@ -2567,6 +2720,15 @@
         "canonicalPath": "/database/derived-skills/ichigo-ichie"
       }
     },
+    "derived.global.infinite-silver-vault": {
+      "kind": "derivedSkill",
+      "id": "derived.global.infinite-silver-vault",
+      "name": "Infinite Silver Vault",
+      "route": {
+        "slug": "infinite-silver-vault",
+        "canonicalPath": "/database/derived-skills/infinite-silver-vault"
+      }
+    },
     "derived.global.insight": {
       "kind": "derivedSkill",
       "id": "derived.global.insight",
@@ -2574,6 +2736,15 @@
       "route": {
         "slug": "insight",
         "canonicalPath": "/database/derived-skills/insight"
+      }
+    },
+    "derived.global.inspire-offsprings": {
+      "kind": "derivedSkill",
+      "id": "derived.global.inspire-offsprings",
+      "name": "Inspire Offsprings",
+      "route": {
+        "slug": "inspire-offsprings",
+        "canonicalPath": "/database/derived-skills/inspire-offsprings"
       }
     },
     "derived.global.leahs-coin": {
@@ -2594,6 +2765,114 @@
         "canonicalPath": "/database/derived-skills/light-cone-boundary"
       }
     },
+    "derived.global.luster-of-humanity": {
+      "kind": "derivedSkill",
+      "id": "derived.global.luster-of-humanity",
+      "name": "Luster of Humanity",
+      "route": {
+        "slug": "luster-of-humanity",
+        "canonicalPath": "/database/derived-skills/luster-of-humanity"
+      }
+    },
+    "derived.global.memories-envoys-verdict": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-envoys-verdict",
+      "name": "Memories: Emissary's Verdict",
+      "route": {
+        "slug": "memories-emissarys-verdict",
+        "canonicalPath": "/database/derived-skills/memories-emissarys-verdict"
+      }
+    },
+    "derived.global.memories-honey-mead": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-honey-mead",
+      "name": "Remembrance - Honey Wine",
+      "route": {
+        "slug": "remembrance-honey-wine",
+        "canonicalPath": "/database/derived-skills/remembrance-honey-wine"
+      }
+    },
+    "derived.global.memories-innocent-return-gift": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-innocent-return-gift",
+      "name": "Memories: Innocent Return Gift",
+      "route": {
+        "slug": "memories-innocent-return-gift",
+        "canonicalPath": "/database/derived-skills/memories-innocent-return-gift"
+      }
+    },
+    "derived.global.memories-mutated-heart": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-mutated-heart",
+      "name": "Memories - Mutated Heart",
+      "route": {
+        "slug": "memories-mutated-heart",
+        "canonicalPath": "/database/derived-skills/memories-mutated-heart"
+      }
+    },
+    "derived.global.memories-seed-of-abundance": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-seed-of-abundance",
+      "name": "Remembrance - Core of Abundance",
+      "route": {
+        "slug": "remembrance-core-of-abundance",
+        "canonicalPath": "/database/derived-skills/remembrance-core-of-abundance"
+      }
+    },
+    "derived.global.memories-unfinished-wax-sculpture": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-unfinished-wax-sculpture",
+      "name": "Memories - Unfinished Wax Sculpture",
+      "route": {
+        "slug": "memories-unfinished-wax-sculpture",
+        "canonicalPath": "/database/derived-skills/memories-unfinished-wax-sculpture"
+      }
+    },
+    "derived.global.memories-utopian-veil": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-utopian-veil",
+      "name": "Remembrance - Utopian Veil",
+      "route": {
+        "slug": "remembrance-utopian-veil",
+        "canonicalPath": "/database/derived-skills/remembrance-utopian-veil"
+      }
+    },
+    "derived.global.one-way": {
+      "kind": "derivedSkill",
+      "id": "derived.global.one-way",
+      "name": "One-way",
+      "route": {
+        "slug": "one-way",
+        "canonicalPath": "/database/derived-skills/one-way"
+      }
+    },
+    "derived.global.palette": {
+      "kind": "derivedSkill",
+      "id": "derived.global.palette",
+      "name": "Palette",
+      "route": {
+        "slug": "palette",
+        "canonicalPath": "/database/derived-skills/palette"
+      }
+    },
+    "derived.global.parasol": {
+      "kind": "derivedSkill",
+      "id": "derived.global.parasol",
+      "name": "Parasol",
+      "route": {
+        "slug": "parasol",
+        "canonicalPath": "/database/derived-skills/parasol"
+      }
+    },
+    "derived.global.prion-virus": {
+      "kind": "derivedSkill",
+      "id": "derived.global.prion-virus",
+      "name": "Prion Virus",
+      "route": {
+        "slug": "prion-virus",
+        "canonicalPath": "/database/derived-skills/prion-virus"
+      }
+    },
     "derived.global.private-afternoon": {
       "kind": "derivedSkill",
       "id": "derived.global.private-afternoon",
@@ -2612,6 +2891,33 @@
         "canonicalPath": "/database/derived-skills/propagule-embryo"
       }
     },
+    "derived.global.protect-offsprings": {
+      "kind": "derivedSkill",
+      "id": "derived.global.protect-offsprings",
+      "name": "Protect Offsprings",
+      "route": {
+        "slug": "protect-offsprings",
+        "canonicalPath": "/database/derived-skills/protect-offsprings"
+      }
+    },
+    "derived.global.pupation": {
+      "kind": "derivedSkill",
+      "id": "derived.global.pupation",
+      "name": "Pupation",
+      "route": {
+        "slug": "pupation",
+        "canonicalPath": "/database/derived-skills/pupation"
+      }
+    },
+    "derived.global.radiance-of-humanity": {
+      "kind": "derivedSkill",
+      "id": "derived.global.radiance-of-humanity",
+      "name": "Radiance of Humanity",
+      "route": {
+        "slug": "radiance-of-humanity",
+        "canonicalPath": "/database/derived-skills/radiance-of-humanity"
+      }
+    },
     "derived.global.sakura-blossoms": {
       "kind": "derivedSkill",
       "id": "derived.global.sakura-blossoms",
@@ -2619,6 +2925,15 @@
       "route": {
         "slug": "sakura-blossoms",
         "canonicalPath": "/database/derived-skills/sakura-blossoms"
+      }
+    },
+    "derived.global.silver-key-dawn": {
+      "kind": "derivedSkill",
+      "id": "derived.global.silver-key-dawn",
+      "name": "Silver Key Dawn",
+      "route": {
+        "slug": "silver-key-dawn",
+        "canonicalPath": "/database/derived-skills/silver-key-dawn"
       }
     },
     "derived.global.silver-key-gleam": {
@@ -2630,6 +2945,15 @@
         "canonicalPath": "/database/derived-skills/silver-key-gleam"
       }
     },
+    "derived.global.silver-key-resonance": {
+      "kind": "derivedSkill",
+      "id": "derived.global.silver-key-resonance",
+      "name": "Silver Key Resonance",
+      "route": {
+        "slug": "silver-key-resonance",
+        "canonicalPath": "/database/derived-skills/silver-key-resonance"
+      }
+    },
     "derived.global.slumber": {
       "kind": "derivedSkill",
       "id": "derived.global.slumber",
@@ -2639,6 +2963,24 @@
         "canonicalPath": "/database/derived-skills/slumber"
       }
     },
+    "derived.global.solidify": {
+      "kind": "derivedSkill",
+      "id": "derived.global.solidify",
+      "name": "Solidify",
+      "route": {
+        "slug": "solidify",
+        "canonicalPath": "/database/derived-skills/solidify"
+      }
+    },
+    "derived.global.stagger": {
+      "kind": "derivedSkill",
+      "id": "derived.global.stagger",
+      "name": "Stagger",
+      "route": {
+        "slug": "stagger",
+        "canonicalPath": "/database/derived-skills/stagger"
+      }
+    },
     "derived.global.stakes-of-wisdom": {
       "kind": "derivedSkill",
       "id": "derived.global.stakes-of-wisdom",
@@ -2646,6 +2988,105 @@
       "route": {
         "slug": "stakes-of-wisdom",
         "canonicalPath": "/database/derived-skills/stakes-of-wisdom"
+      }
+    },
+    "derived.global.suspicion": {
+      "kind": "derivedSkill",
+      "id": "derived.global.suspicion",
+      "name": "Suspicion",
+      "route": {
+        "slug": "suspicion",
+        "canonicalPath": "/database/derived-skills/suspicion"
+      }
+    },
+    "derived.global.toxic-infusion": {
+      "kind": "derivedSkill",
+      "id": "derived.global.toxic-infusion",
+      "name": "Toxic Infusion",
+      "route": {
+        "slug": "toxic-infusion",
+        "canonicalPath": "/database/derived-skills/toxic-infusion"
+      }
+    },
+    "derived.global.toxic-outbreak": {
+      "kind": "derivedSkill",
+      "id": "derived.global.toxic-outbreak",
+      "name": "Toxic Outbreak",
+      "route": {
+        "slug": "toxic-outbreak",
+        "canonicalPath": "/database/derived-skills/toxic-outbreak"
+      }
+    },
+    "derived.global.twilight-envoys-verdict": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-envoys-verdict",
+      "name": "Twilight: The Envoy's Verdict",
+      "route": {
+        "slug": "twilight-the-envoys-verdict",
+        "canonicalPath": "/database/derived-skills/twilight-the-envoys-verdict"
+      }
+    },
+    "derived.global.twilight-honey-mead": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-honey-mead",
+      "name": "Twilight: Honey Mead",
+      "route": {
+        "slug": "twilight-honey-mead",
+        "canonicalPath": "/database/derived-skills/twilight-honey-mead"
+      }
+    },
+    "derived.global.twilight-innocent-return-gift": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-innocent-return-gift",
+      "name": "Twilight: Innocent Return Gift",
+      "route": {
+        "slug": "twilight-innocent-return-gift",
+        "canonicalPath": "/database/derived-skills/twilight-innocent-return-gift"
+      }
+    },
+    "derived.global.twilight-mutated-heart": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-mutated-heart",
+      "name": "Twilight: Mutated Heart",
+      "route": {
+        "slug": "twilight-mutated-heart",
+        "canonicalPath": "/database/derived-skills/twilight-mutated-heart"
+      }
+    },
+    "derived.global.twilight-seed-of-abundance": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-seed-of-abundance",
+      "name": "Twilight: Seed of Abundance",
+      "route": {
+        "slug": "twilight-seed-of-abundance",
+        "canonicalPath": "/database/derived-skills/twilight-seed-of-abundance"
+      }
+    },
+    "derived.global.twilight-unfinished-wax-sculpture": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-unfinished-wax-sculpture",
+      "name": "Twilight: Unfinished Wax Sculpture",
+      "route": {
+        "slug": "twilight-unfinished-wax-sculpture",
+        "canonicalPath": "/database/derived-skills/twilight-unfinished-wax-sculpture"
+      }
+    },
+    "derived.global.twilight-utopian-veil": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-utopian-veil",
+      "name": "Twilight: Utopian Veil",
+      "route": {
+        "slug": "twilight-utopian-veil",
+        "canonicalPath": "/database/derived-skills/twilight-utopian-veil"
+      }
+    },
+    "derived.global.unyielding-will-beta": {
+      "kind": "derivedSkill",
+      "id": "derived.global.unyielding-will-beta",
+      "name": "Unyielding Will β",
+      "route": {
+        "slug": "unyielding-will-beta",
+        "canonicalPath": "/database/derived-skills/unyielding-will-beta"
       }
     },
     "derived.global.vernal-message": {
@@ -23351,8 +23792,15 @@
       "derived.doll-inferno.self-destruct-finale",
       "derived.doresain.evernights-revel",
       "derived.erica.retract-mecha",
+      "derived.global.adsorption",
       "derived.global.adv-insight",
       "derived.global.arouse",
+      "derived.global.assemble",
+      "derived.global.barbed-trident",
+      "derived.global.brilliance-of-humanity",
+      "derived.global.coalsie-smack",
+      "derived.global.cocoon-of-revival",
+      "derived.global.convulsion",
       "derived.global.countdown",
       "derived.global.countdown-0",
       "derived.global.countdown-1",
@@ -23360,21 +23808,63 @@
       "derived.global.countdown-3",
       "derived.global.countdown-4",
       "derived.global.countdown-5",
+      "derived.global.devour-card",
+      "derived.global.divine-dedication",
       "derived.global.dreaming-of-wonderland",
+      "derived.global.echoes-of-lost-shadows",
+      "derived.global.echoes-of-the-past",
       "derived.global.embryo",
       "derived.global.fleeting-beauty",
+      "derived.global.flicker-of-humanity",
+      "derived.global.forbidden-truth",
+      "derived.global.gauntward",
+      "derived.global.glow-of-humanity",
+      "derived.global.gluttonous-attack",
       "derived.global.gobble-up",
       "derived.global.hanafubuki",
+      "derived.global.hide-beta",
       "derived.global.ichigo-ichie",
+      "derived.global.infinite-silver-vault",
       "derived.global.insight",
+      "derived.global.inspire-offsprings",
       "derived.global.leahs-coin",
       "derived.global.light-cone-boundary",
+      "derived.global.luster-of-humanity",
+      "derived.global.memories-envoys-verdict",
+      "derived.global.memories-honey-mead",
+      "derived.global.memories-innocent-return-gift",
+      "derived.global.memories-mutated-heart",
+      "derived.global.memories-seed-of-abundance",
+      "derived.global.memories-unfinished-wax-sculpture",
+      "derived.global.memories-utopian-veil",
+      "derived.global.one-way",
+      "derived.global.palette",
+      "derived.global.parasol",
+      "derived.global.prion-virus",
       "derived.global.private-afternoon",
       "derived.global.propagule-embryo",
+      "derived.global.protect-offsprings",
+      "derived.global.pupation",
+      "derived.global.radiance-of-humanity",
       "derived.global.sakura-blossoms",
+      "derived.global.silver-key-dawn",
       "derived.global.silver-key-gleam",
+      "derived.global.silver-key-resonance",
       "derived.global.slumber",
+      "derived.global.solidify",
+      "derived.global.stagger",
       "derived.global.stakes-of-wisdom",
+      "derived.global.suspicion",
+      "derived.global.toxic-infusion",
+      "derived.global.toxic-outbreak",
+      "derived.global.twilight-envoys-verdict",
+      "derived.global.twilight-honey-mead",
+      "derived.global.twilight-innocent-return-gift",
+      "derived.global.twilight-mutated-heart",
+      "derived.global.twilight-seed-of-abundance",
+      "derived.global.twilight-unfinished-wax-sculpture",
+      "derived.global.twilight-utopian-veil",
+      "derived.global.unyielding-will-beta",
       "derived.global.vernal-message",
       "derived.goliath.blades-dominion",
       "derived.goliath.dormancy",

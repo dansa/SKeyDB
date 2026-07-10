@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0026",
       "ownerAwakenerName": "Karen",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Karen gains [Arg1] Aliemus. Playing \"Silent Fealty\" will return double the exhausted Arithmetica, with a cooldown of [Arg2] <plural value=\"[Arg2]\" singular=\"turn\" plural=\"turns\">.",
+      "descriptionTemplate": "At turn start, Karen gains [Arg1] Aliemus. Playing {Silent Fealty} will return double the {Exhausted} Arithmetica, with a cooldown of [Arg2] {plural:[Arg2]|turn|turns}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

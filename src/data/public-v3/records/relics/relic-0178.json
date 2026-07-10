@@ -69,7 +69,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "At the start of combat, all your Symptom cards gain <NothingnessIconKeywords:Fleeting>, and for each Symptom card in your deck, gain [Arg1] <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "At the start of combat, all your Symptom cards gain {Fleeting}, and for each Symptom card in your deck, gain [Arg1] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

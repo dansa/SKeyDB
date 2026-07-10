@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "\"Strike\" restores [Arg1] HP and reduces self <IntoxicationIconKeywords:Poison> by [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\">.",
+      "descriptionTemplate": "\"Strike\" restores [Arg1] HP and reduces self {Poison} by [Arg1] {plural:[Arg1]|stack|stacks}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

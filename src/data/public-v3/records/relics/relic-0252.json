@@ -19,9 +19,11 @@
   "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Fixed DMG} equal to [Arg1]% of team's Max HP and trigger [Arg2]% {Poison}.",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "X",
-      "displayFormula": "Max HP * 0.15 * SpiritResearchDepthMultiplier"
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchMultiplier",
+      "multiplier": 15.0,
+      "inputs": ["accountLevel", "ownedPosseCount"]
     },
     "Arg2": {
       "kind": "fixed",
@@ -39,12 +41,14 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of Fixed DMG equal to [Arg1]% of team's Max HP and trigger [Arg2]% <IntoxicationIconKeywords:Poison>.",
+      "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Fixed DMG} equal to [Arg1]% of team's Max HP and trigger [Arg2]% {Poison}.",
       "descriptionArgs": {
         "Arg1": {
-          "kind": "fixed",
-          "value": "X",
-          "displayFormula": "Max HP * 0.15 * SpiritResearchDepthMultiplier"
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchMultiplier",
+          "multiplier": 15.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         },
         "Arg2": {
           "kind": "fixed",
@@ -61,12 +65,14 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of Fixed DMG equal to [Arg1]% of team's Max HP and trigger [Arg2]% <IntoxicationIconKeywords:Poison>.",
+      "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Fixed DMG} equal to [Arg1]% of team's Max HP and trigger [Arg2]% {Poison}.",
       "descriptionArgs": {
         "Arg1": {
-          "kind": "fixed",
-          "value": "X",
-          "displayFormula": "Max HP * 0.30 * SpiritResearchDepthMultiplier"
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchMultiplier",
+          "multiplier": 30.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         },
         "Arg2": {
           "kind": "fixed",

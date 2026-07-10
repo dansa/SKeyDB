@@ -69,7 +69,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Gain [Arg2]% <DeathResistanceIconKeywords:Death Resistance> each time you play a Command Card (each time Death Resistance triggers in this stage, the gained Death Resistance is halved). If your <DeathResistanceIconKeywords:Death Resistance> is greater than or equal to 100%, gain [Arg1] Temporary <PowerIconKeywords:STR> instead.",
+      "descriptionTemplate": "Gain [Arg2]% {Death Resistance} each time you play a Command Card (each time {Death Resistance} triggers in this stage, the gained {Death Resistance} is halved). If your {Death Resistance} is greater than or equal to 100%, gain [Arg1] Temporary {STR} instead.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

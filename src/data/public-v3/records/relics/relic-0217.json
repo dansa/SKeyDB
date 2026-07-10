@@ -28,7 +28,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, gain 1 Arithmetica for each enemy. When an enemy is killed by Active DMG, inflict <BleedingIconKeywords:Bleed> on other enemies equal to the excess Damage.",
+      "descriptionTemplate": "At turn start, gain 1 Arithmetica for each enemy. When an enemy is killed by Active DMG, inflict {Bleed} on other enemies equal to the excess Damage.",
       "descriptionArgs": {},
       "lore": "Specifically designed to torment your ears."
     },
@@ -40,7 +40,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, gain 2 Arithmetica for each enemy. When an enemy is killed by Active DMG, deal double excess DMG to other enemies as <BleedingIconKeywords:Bleed>.",
+      "descriptionTemplate": "At turn start, gain 2 Arithmetica for each enemy. When an enemy is killed by Active DMG, deal double excess DMG to other enemies as {Bleed}.",
       "descriptionArgs": {},
       "lore": "Specifically designed to torment your ears."
     }

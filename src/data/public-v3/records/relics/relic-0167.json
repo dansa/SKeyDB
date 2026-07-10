@@ -37,7 +37,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After using Keyflare Rouse, grant Retain and Prepare to the [Arg1] <plural value=\"[Arg1]\" singular=\"card\" plural=\"cards\"> with the highest Arithmetica in your hand before the next play, and gain [Arg2] Keyflare.",
+      "descriptionTemplate": "After using {Keyflare Rouse}, grant {Retain} and {Prepare} to the [Arg1] {plural:[Arg1]|card|cards} with the highest Arithmetica in your hand before the next play, and gain [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -57,7 +57,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After using Keyflare Rouse, grant Retain and Prepare to the [Arg1] <plural value=\"[Arg1]\" singular=\"card\" plural=\"cards\"> with the highest Arithmetica in your hand before the next play, and gain [Arg2] Keyflare.",
+      "descriptionTemplate": "After using {Keyflare Rouse}, grant {Retain} and {Prepare} to the [Arg1] {plural:[Arg1]|card|cards} with the highest Arithmetica in your hand before the next play, and gain [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

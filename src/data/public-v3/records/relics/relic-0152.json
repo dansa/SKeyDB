@@ -81,7 +81,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "After releasing Exalt, add a random card corresponding to the Awakener to your hand. The card gains <DepleteIconKeywords:Exhaust> and <NothingnessIconKeywords:Fleeting>. After the battle ends, restore [Arg1] HP.",
+      "descriptionTemplate": "After releasing Exalt, add a random card corresponding to the Awakener to your hand. The card gains {Exhaust} and {Fleeting}. After the battle ends, restore [Arg1] HP.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "If the enemy's intent is to attack, temporarily reduce their <PowerIconKeywords:STR> by [Arg1] after dealing Damage, otherwise Inflict <BleedingIconKeywords:Bleed> equal to 25% of the DMG dealt, up to 6 times per turn.",
+      "descriptionTemplate": "If the enemy's intent is to attack, temporarily reduce their {STR▼} by [Arg1] after dealing Damage, otherwise Inflict {Bleed} equal to 25% of the DMG dealt, up to 6 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After entering the Ultra Round, the first Non-Derived Command Card played activates an additional [Arg1] <plural value=\"[Arg1]\" singular=\"time\" plural=\"times\">.",
+      "descriptionTemplate": "After entering the {Ultra Round}, the first Non-Derived Command Card played activates an additional [Arg1] {plural:[Arg1]|time|times}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After entering the Ultra Round, the first Non-Derived Command Card played activates an additional [Arg1] <plural value=\"[Arg1]\" singular=\"time\" plural=\"times\">.",
+      "descriptionTemplate": "After entering the {Ultra Round}, the first Non-Derived Command Card played activates an additional [Arg1] {plural:[Arg1]|time|times}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -66,7 +66,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "Upon entering the Ultra Round, gain 3 Arithmetica.",
+      "descriptionTemplate": "Upon entering the {Ultra Round}, gain 3 Arithmetica.",
       "descriptionArgs": {},
       "lore": "A measurable amount of time."
     }

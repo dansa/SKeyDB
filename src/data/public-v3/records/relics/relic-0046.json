@@ -49,7 +49,7 @@
       "ownerAwakenerId": "awakener-0046",
       "ownerAwakenerName": "Sorel",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Sorel gains [Arg1] Aliemus. For each instance of DMG dealt by Sorel, Embryo Fusion +[Arg2], up to [Arg3] <plural value=\"[Arg3]\" singular=\"time\" plural=\"times\"> per turn. After triggering 10 times, Sorel's Final DMG in this battle +[Arg4]%.",
+      "descriptionTemplate": "At turn start, Sorel gains [Arg1] Aliemus. For each instance of DMG dealt by Sorel, {Embryo Fusion} +[Arg2], up to [Arg3] {plural:[Arg3]|time|times} per turn. After triggering 10 times, Sorel's Final DMG in this battle +[Arg4]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

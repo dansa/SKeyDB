@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of the battle, gain 1 stack of \"<MindWall:Mind Barrier>,\" and after 3 turns, convert it to \"<BarrierCrash:Crumble>\".",
+      "descriptionTemplate": "At the start of the battle, gain 1 stack of {Mind Barrier}, and after 3 turns, convert it to \"{Crumble}\".",
       "descriptionArgs": {},
       "lore": "Look closely at your heart, and do not make the wrong choice."
     }

@@ -35,7 +35,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Increase Realm Mastery by 200.\nWhen consuming Crimson Furnace, increase Tentacle DMG by 15% of the consumed amount.\nAccumulate [Arg3] Crimson Furnace points each time a Tentacle attacks.",
+      "descriptionTemplate": "Increase Realm Mastery by 200.\nWhen consuming {Crimson Furnace}, increase {Tentacle DMG} by 15% of the consumed amount.\nAccumulate [Arg3] {Crimson Furnace} points each time a Tentacle attacks.",
       "descriptionArgs": {
         "Arg3": {
           "kind": "computed",

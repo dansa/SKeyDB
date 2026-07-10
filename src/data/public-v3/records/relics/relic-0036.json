@@ -41,7 +41,7 @@
       "ownerAwakenerId": "awakener-0036",
       "ownerAwakenerName": "Nautila",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Nautila gains [Arg1] Aliemus. After using Nautila's \"Exalt,\" gain Counter and Delayed Shield equal to [Arg2]% of the current Shield, triggering at most once per turn.",
+      "descriptionTemplate": "At turn start, Nautila gains [Arg1] Aliemus. After using Nautila's \"Exalt,\" gain {Counter} and Delayed Shield equal to [Arg2]% of the current Shield, triggering at most once per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

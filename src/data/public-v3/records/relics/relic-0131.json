@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Max Arithmetica +2. After playing \"Strike\" or \"Defense,\" the corresponding Awakener gains 5 Aliemus. After releasing Exalt, gain 1 \"Strike\" of the corresponding Awakener with Exhaust and Fleeting attached. After releasing Posse, randomly gain a \"Defense\" with Exhaust and Fleeting.",
+      "descriptionTemplate": "Max Arithmetica +2. After playing \"Strike\" or \"Defense,\" the corresponding Awakener gains 5 Aliemus. After releasing Exalt, gain 1 \"Strike\" of the corresponding Awakener with {Exhaust} and {Fleeting} attached. After releasing Posse, randomly gain a \"Defense\" with {Exhaust} and {Fleeting}.",
       "descriptionArgs": {}
     }
   ]

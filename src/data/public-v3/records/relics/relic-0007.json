@@ -47,7 +47,7 @@
       "ownerAwakenerId": "awakener-0007",
       "ownerAwakenerName": "Casiah",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Casiah gains [Arg1] Aliemus. Drawing 1 card grants Casiah [Arg2] Aliemus. When Casiah unleashes Exalt, all enemies lose [Arg3] STR.",
+      "descriptionTemplate": "At turn start, Casiah gains [Arg1] Aliemus. Drawing 1 card grants Casiah [Arg2] Aliemus. When Casiah unleashes Exalt, all enemies lose [Arg3] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

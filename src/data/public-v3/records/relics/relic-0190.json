@@ -35,7 +35,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After using Keyflare Rouse, choose [Arg1] Non-Derived Command Card corresponding to that Awakener in your hand. Exhaust that card to place [Arg2] Base Copy of it into the Draw Pile, hand, and Discard Pile respectively.",
+      "descriptionTemplate": "After using {Keyflare Rouse}, choose [Arg1] Non-Derived Command Card corresponding to that Awakener in your hand. {Exhaust} that card to place [Arg2] Base Copy of it into the Draw Pile, hand, and Discard Pile respectively.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

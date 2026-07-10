@@ -38,7 +38,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After the battle starts, gain [Arg1] <ProficientInRealmsIconKeywords:Realm Mastery>. All Awakeners' <RetaliateIconKeywords:Counter> and Relics' <RetaliateIconKeywords:Counter> DMG +[Arg2]%.",
+      "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakeners' {Counter} and Relics' {Counter} DMG +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -59,7 +59,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After the battle starts, gain [Arg1] <ProficientInRealmsIconKeywords:Realm Mastery>. All Awakeners' <RetaliateIconKeywords:Counter> and Relics' <RetaliateIconKeywords:Counter> DMG +[Arg2]%.",
+      "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakeners' {Counter} and Relics' {Counter} DMG +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -81,7 +81,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "After gaining the 2nd Shield each turn, gain [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <RetaliateIconKeywords:Counter>. After gaining the 4th Shield each turn, deal <RetaliateIconKeywords:Counter> DMG to All enemies.",
+      "descriptionTemplate": "After gaining the {ordinal:2nd} Shield each turn, gain [Arg1] {plural:[Arg1]|stack|stacks} of {Counter}. After gaining the {ordinal:4th} Shield each turn, deal {Counter} DMG to All enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

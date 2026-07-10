@@ -41,7 +41,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of battle. After taking damage, gain [Arg2] <RetaliateIconKeywords:Counter>, triggering a maximum of 3 times per turn.",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of battle. After taking damage, gain [Arg2] {Counter}, triggering a maximum of 3 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -65,7 +65,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of battle. After taking damage, gain [Arg2] <RetaliateIconKeywords:Counter>, triggering a maximum of 3 times per turn.",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of battle. After taking damage, gain [Arg2] {Counter}, triggering a maximum of 3 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -90,7 +90,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "After dealing the 3rd DMG Each turn, Gain [Arg1] Shield. After dealing the 6th DMG Each turn, Gain [Arg2] <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "After dealing the {ordinal:3rd} DMG Each turn, Gain [Arg1] Shield. After dealing the {ordinal:6th} DMG Each turn, Gain [Arg2] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

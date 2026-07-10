@@ -18,7 +18,7 @@
   "ownerAwakenerName": "Tawil",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At turn start, Tawil gains [Arg1] Aliemus. If [Arg2] of Tawil's Command Cards are played in one turn, add 1 {Silver Key Dawn} to hand, cooldown [Arg3] {plural:[Arg3]|turn|turns}.",
+  "descriptionTemplate": "At turn start, Tawil gains [Arg1] Aliemus. If [Arg2] of Tawil's Command Cards are played in one turn, add 1 {derived:Silver Key Dawn} to hand, cooldown [Arg3] {plural:[Arg3]|turn|turns}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -44,7 +44,7 @@
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Tawil gains [Arg1] Aliemus. If [Arg2] of Tawil's Command Cards are played in one turn, add 1 <DerivativeCardKeywords_67:<DerivativeCardKeywords_67:\"Silver Key Dawn\">> to hand, cooldown [Arg3] <plural value=\"[Arg3]\" singular=\"turn\" plural=\"turns\">.",
+      "descriptionTemplate": "At turn start, Tawil gains [Arg1] Aliemus. If [Arg2] of Tawil's Command Cards are played in one turn, add 1 {derived:Silver Key Dawn} to hand, cooldown [Arg3] {plural:[Arg3]|turn|turns}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

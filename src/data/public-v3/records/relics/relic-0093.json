@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "When picked up, add \"Retain\" to all Command Cards. At turn end, if the number of cards in hand is greater than or equal to 5, reduce the Arithmetica Cost of 3 random cards in hand by 1; otherwise, draw 3 cards.",
+      "descriptionTemplate": "When picked up, add {Retain} to all Command Cards. At turn end, if the number of cards in hand is greater than or equal to 5, reduce the Arithmetica Cost of 3 random cards in hand by 1; otherwise, draw 3 cards.",
       "descriptionArgs": {}
     }
   ]

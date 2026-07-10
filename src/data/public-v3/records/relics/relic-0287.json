@@ -35,7 +35,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After the draw phase, draw [Arg1] <plural value=\"[Arg1]\" singular=\"additional card\" plural=\"additional cards\">. and choose [Arg2] <plural value=\"[Arg2]\" singular=\"card\" plural=\"cards\"> from your hand to discard.",
+      "descriptionTemplate": "After the draw phase, draw [Arg1] {plural:[Arg1]|additional card|additional cards}. and choose [Arg2] {plural:[Arg2]|card|cards} from your hand to discard.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "At turn start, draw 2 cards and gain 2 Arithmetica. Whenever you draw a Command Card or experience Rouse, randomly alter its Arithmetica Cost. (0-4)",
+      "descriptionTemplate": "At turn start, draw 2 cards and gain 2 Arithmetica. Whenever you draw a Command Card or experience {Rouse}, randomly alter its Arithmetica Cost. (0-4)",
       "descriptionArgs": {},
       "lore": "Welcome to Miss Casiah's Wonderland Circus! Be careful, don't touch the magic items. If you get bitten, it could be bad.\nLast time it tasted blood, the outcome was terrible.\n\nThe top hat winked as if ready to emerge."
     }

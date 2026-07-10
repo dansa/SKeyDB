@@ -35,7 +35,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Temporary <PowerIconKeywords:STR>, up to 5 stacks. When the stack limit is reached, gain [Arg1] <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Temporary {STR}, up to 5 stacks. When the stack limit is reached, gain [Arg1] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

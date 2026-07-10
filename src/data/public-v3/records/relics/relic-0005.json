@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0005",
       "ownerAwakenerName": "Aurita",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Aurita gains [Arg1] Aliemus. The DMG count of \"Gland Division\" +[Arg2], and after playing Aurita's \"Defense,\" 1 \"Gland Division\" is added to hand.",
+      "descriptionTemplate": "At turn start, Aurita gains [Arg1] Aliemus. The DMG count of {Gland Division} +[Arg2], and after playing Aurita's \"Defense,\" 1 {Gland Division} is added to hand.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

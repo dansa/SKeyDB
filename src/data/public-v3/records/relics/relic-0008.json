@@ -43,7 +43,7 @@
       "ownerAwakenerId": "awakener-0008",
       "ownerAwakenerName": "Castor",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Castor gains [Arg1] Aliemus. Place 2 \"Onyx Plume\" into hand at the start of battle. Gain [Arg2] Temporary STR when \"Onyx Plume\" is played for the first time each turn.",
+      "descriptionTemplate": "At turn start, Castor gains [Arg1] Aliemus. Place 2 {Onyx Plume} into hand at the start of battle. Gain [Arg2] Temporary {STR} when {Onyx Plume} is played for the first time each turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

@@ -45,7 +45,7 @@
       "ownerAwakenerId": "awakener-0044",
       "ownerAwakenerName": "Salvador",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Salvador gains [Arg1] Aliemus. Each time he accumulates Crimson Furnace, he also gains [Arg2]% STR of the accumulated amount. Salvador's \"Strike\" and \"End of Suffering\" additionally receive a [Arg3]x STR bonus.",
+      "descriptionTemplate": "At turn start, Salvador gains [Arg1] Aliemus. Each time he accumulates {Crimson Furnace}, he also gains [Arg2]% {STR} of the accumulated amount. Salvador's \"Strike\" and {End of Suffering} additionally receive a [Arg3]x {STR} bonus.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, both sides gain one stack of <Kuangre:Fervor>. Each stack of <Kuangre:Fervor> causes Active and Tentacle DMG dealt to inflict <BleedingIconKeywords:Bleed> equal to 10% of the DMG dealt.\nFor every 20% of Boss HP reduced, all Awakeners gain 10 Aliemus.\nAt the start of battle, shuffle <DerivativeCardKeywords_108:\"Inspire Offsprings\"> and <DerivativeCardKeywords_109:\"Protect Offsprings\"> into the Draw Pile.",
+      "descriptionTemplate": "At turn start, both sides gain one stack of {Fervor}. Each stack of {Fervor} causes Active and {Tentacle DMG} dealt to inflict {Bleed} equal to 10% of the DMG dealt.\nFor every 20% of Boss HP reduced, all Awakeners gain 10 Aliemus.\nAt the start of battle, shuffle {Inspire Offsprings} and {Protect Offsprings} into the Draw Pile.",
       "descriptionArgs": {},
       "lore": "Pulses when the pale child is about to be born.\nBe careful, they are coming soon."
     }

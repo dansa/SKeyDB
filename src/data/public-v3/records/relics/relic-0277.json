@@ -36,7 +36,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Immune to one instance of Fatal DMG if Death Resistance was not triggered, restore [Arg1] HP, and permanently remove this Relic.",
+      "descriptionTemplate": "Immune to one instance of Fatal DMG if {Death Resistance} was not triggered, restore [Arg1] HP, and permanently remove this Relic.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

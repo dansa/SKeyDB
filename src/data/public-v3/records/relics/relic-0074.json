@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0081",
   "rarity": "N",
   "aliases": [],
-  "descriptionTemplate": "At turn start, add 1 {Barbed Trident} to your hand. After releasing Exalt, increase the {STR} of all {Barbed Trident} in your hand by [Arg2].",
+  "descriptionTemplate": "At turn start, add 1 {derived:Barbed Trident} to your hand. After releasing Exalt, increase the {STR} of all {derived:Barbed Trident} in your hand by [Arg2].",
   "descriptionArgs": {
     "Arg2": {
       "kind": "computed",
@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "At turn start, add 1 <DerivativeCardKeywords_5:\"Barbed Trident\"> to your hand. After releasing Exalt, increase the <PowerIconKeywords:STR> of all <DerivativeCardKeywords_5:\"Barbed Trident\"> in your hand by [Arg2].",
+      "descriptionTemplate": "At turn start, add 1 {derived:Barbed Trident} to your hand. After releasing Exalt, increase the {STR} of all {derived:Barbed Trident} in your hand by [Arg2].",
       "descriptionArgs": {
         "Arg2": {
           "kind": "computed",

@@ -17,12 +17,7 @@
   "rarity": "SR",
   "aliases": ["Premium Mouth Button"],
   "descriptionTemplate": "At the start of each turn and when Ryker or the dice's random effect is triggered, gain 50 Keyflare and 2% Crit. DMG, up to 30% Crit. DMG. Removed at the end of the battle.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "1"
-    }
-  },
+  "descriptionArgs": {},
   "lore": "The Big Mouth Button loves everything round, such as the moon, chips, and fresh eyeballs.\nIt will spew black mist on a full moon night for unknown reasons.",
   "variants": [
     {
@@ -35,12 +30,7 @@
       "mechanicOwner": "Ryker",
       "rarity": "SR",
       "descriptionTemplate": "At the start of each turn and when Ryker or the dice's random effect is triggered, gain 50 Keyflare and 2% Crit. DMG, up to 30% Crit. DMG. Removed at the end of the battle.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "1"
-        }
-      },
+      "descriptionArgs": {},
       "lore": "The Big Mouth Button loves everything round, such as the moon, chips, and fresh eyeballs.\nIt will spew black mist on a full moon night for unknown reasons."
     },
     {
@@ -52,12 +42,7 @@
       "category": "OTHER",
       "mechanicOwner": "Ryker",
       "descriptionTemplate": "At the start of each turn and when Ryker or the dice's random effect is triggered, gain 100 Keyflare and 4% Crit. DMG, up to 50% Crit. DMG. Removed at the end of the battle.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "1"
-        }
-      },
+      "descriptionArgs": {},
       "lore": "The Big Mouth Button loves everything round, such as the moon, chips, and fresh eyeballs.\nIt will spew black mist on a full moon night for unknown reasons."
     }
   ]

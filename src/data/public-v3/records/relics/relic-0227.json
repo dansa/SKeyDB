@@ -17,12 +17,7 @@
   "rarity": "SR",
   "aliases": ["Shining Octahedron Dice"],
   "descriptionTemplate": "Whenever a Posse is released, put 1 \"Octahedron Dice\" into hand.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "1"
-    }
-  },
+  "descriptionArgs": {},
   "lore": "What shines is not only the surface but also the unyielding heart.\nGaze at it for more than five seconds, and you will summon @2.",
   "variants": [
     {
@@ -35,12 +30,7 @@
       "mechanicOwner": "Ryker",
       "rarity": "SR",
       "descriptionTemplate": "Whenever a Posse is released, put 1 \"Octahedron Dice\" into hand.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "1"
-        }
-      },
+      "descriptionArgs": {},
       "lore": "What shines is not only the surface but also the unyielding heart.\nGaze at it for more than five seconds, and you will summon @2."
     },
     {
@@ -52,12 +42,7 @@
       "category": "OTHER",
       "mechanicOwner": "Ryker",
       "descriptionTemplate": "Whenever a Posse is released, put 1 \"Shining Octahedron Dice\" into hand.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "1"
-        }
-      },
+      "descriptionArgs": {},
       "lore": "What shines is not only the surface but also the unyielding heart.\nGaze at it for more than five seconds, and you will summon @2."
     }
   ]

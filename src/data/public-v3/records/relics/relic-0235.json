@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At the start of the battle, all enemies lose [Arg1] Temporary<ExhaustionIconKeywords:STR>. Using \"Crimson Furnace\" will also trigger this effect, but has a 3-turn cooldown.",
+      "descriptionTemplate": "At the start of the battle, all enemies lose [Arg1] Temporary {STR▼}. Using {Crimson Furnace} will also trigger this effect, but has a 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At the start of the battle, all enemies lose [Arg1] Temporary <ExhaustionIconKeywords:STR>. Using \"Crimson Furnace\" will also trigger this effect, but has a 3-turn cooldown.",
+      "descriptionTemplate": "At the start of the battle, all enemies lose [Arg1] Temporary {STR▼}. Using {Crimson Furnace} will also trigger this effect, but has a 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -75,7 +75,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "For each <DevouredIconKeywords:Devour>, steal [Arg1] Temporary <PowerIconKeywords:STR> from all enemies.",
+      "descriptionTemplate": "For each {Devour}, {Steal} [Arg1] Temporary {STR} from all enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

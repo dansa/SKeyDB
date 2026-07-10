@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.toxic-outbreak",
+  "name": "Toxic Outbreak",
+  "route": {
+    "slug": "toxic-outbreak",
+    "canonicalPath": "/database/derived-skills/toxic-outbreak"
+  },
+  "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} on all enemy targets, triggering the target's {Poison} effect.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.07,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

@@ -42,7 +42,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "<ProficientInRealmsIconKeywords:Realm Mastery> boosts by 100. Every time an Active DMG is dealt, Temporary Tentacle DMG +[Arg1]; every time a Tentacle DMG is dealt, Gain [Arg2] Shield. This effect can occur a maximum of 6 times per turn.",
+      "descriptionTemplate": "Realm Mastery boosts by 100. Every time an Active DMG is dealt, Temporary {Tentacle DMG} +[Arg1]; every time a {Tentacle DMG} is dealt, Gain [Arg2] Shield. This effect can occur a maximum of 6 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

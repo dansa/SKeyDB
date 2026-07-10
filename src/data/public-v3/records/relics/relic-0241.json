@@ -43,7 +43,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After the first \"Posse\" in each turn, apply [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <IntoxicationIconKeywords:Poison> to all enemies and gain [Arg2] <plural value=\"[Arg2]\" singular=\"stack\" plural=\"stacks\"> of <RetaliateIconKeywords:Counter>.",
+      "descriptionTemplate": "After the first \"Posse\" in each turn, apply [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} to all enemies and gain [Arg2] {plural:[Arg2]|stack|stacks} of {Counter}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -69,7 +69,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After the first \"Posse\" in each turn, apply [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <IntoxicationIconKeywords:Poison> to all enemies and gain [Arg2] <plural value=\"[Arg2]\" singular=\"stack\" plural=\"stacks\"> of <RetaliateIconKeywords:Counter>.",
+      "descriptionTemplate": "After the first \"Posse\" in each turn, apply [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} to all enemies and gain [Arg2] {plural:[Arg2]|stack|stacks} of {Counter}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

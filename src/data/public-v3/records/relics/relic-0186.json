@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At turn end, if Keyflare is full, consumes [Arg1] Keyflare to add a <DerivativeCardKeywords_129:\"Silver Key Gleam\"> to hand.",
+      "descriptionTemplate": "At turn end, if Keyflare is full, consumes [Arg1] Keyflare to add a {Silver Key Gleam} to hand.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At turn end, if Keyflare is full, consumes [Arg1] Keyflare to put a <DerivativeCardKeywords_67:\"Silver Key Dawn\"> into hand.",
+      "descriptionTemplate": "At turn end, if Keyflare is full, consumes [Arg1] Keyflare to put a {derived:Silver Key Dawn} into hand.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -66,7 +66,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Playing the 6th Command Card returns it to your hand from the Discard Pile.",
+      "descriptionTemplate": "Playing the {ordinal:6th} Command Card returns it to your hand from the Discard Pile.",
       "descriptionArgs": {},
       "lore": "Let's take a photo together! Experience the feeling of real pain."
     }

@@ -37,7 +37,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, Rouse all Awakeners. At turn start, randomly discover a \"Relic \" or \"Support,\" for a total of five discoveries.",
+      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, {Rouse} all Awakeners. At turn start, randomly {Discover} a \"Relic \" or \"Support,\" for a total of five discoveries.",
       "descriptionArgs": {}
     },
     {
@@ -48,7 +48,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, Rouse all Awakeners. At turn start, randomly discover a \"Relic \" or \"Support,\" for a total of five discoveries.",
+      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, {Rouse} all Awakeners. At turn start, randomly {Discover} a \"Relic \" or \"Support,\" for a total of five discoveries.",
       "descriptionArgs": {}
     },
     {
@@ -59,7 +59,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, Rouse all Awakeners. At turn start, randomly discover a \"Relic \" or \"Support,\" for a total of five discoveries.",
+      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, {Rouse} all Awakeners. At turn start, randomly {Discover} a \"Relic \" or \"Support,\" for a total of five discoveries.",
       "descriptionArgs": {}
     },
     {
@@ -70,7 +70,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, Rouse all Awakeners. At turn start, randomly discover a \"Relic \" or \"Support,\" for a total of five discoveries.",
+      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, {Rouse} all Awakeners. At turn start, randomly {Discover} a \"Relic \" or \"Support,\" for a total of five discoveries.",
       "descriptionArgs": {}
     },
     {
@@ -81,7 +81,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, Rouse all Awakeners. At turn start, randomly discover a \"Relic \" or \"Support,\" for a total of five discoveries.",
+      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, {Rouse} all Awakeners. At turn start, randomly {Discover} a \"Relic \" or \"Support,\" for a total of five discoveries.",
       "descriptionArgs": {}
     },
     {
@@ -92,7 +92,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, Rouse all Awakeners. At turn start, randomly discover a \"Relic \" or \"Support,\" for a total of five discoveries.",
+      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, {Rouse} all Awakeners. At turn start, randomly {Discover} a \"Relic \" or \"Support,\" for a total of five discoveries.",
       "descriptionArgs": {}
     },
     {
@@ -103,7 +103,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, Rouse all Awakeners. At turn start, randomly discover a \"Relic \" or \"Support,\" for a total of five discoveries.",
+      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, {Rouse} all Awakeners. At turn start, randomly {Discover} a \"Relic \" or \"Support,\" for a total of five discoveries.",
       "descriptionArgs": {}
     },
     {
@@ -114,7 +114,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, Rouse all Awakeners. At turn start, randomly discover a \"Relic \" or \"Support,\" for a total of five discoveries.",
+      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, {Rouse} all Awakeners. At turn start, randomly {Discover} a \"Relic \" or \"Support,\" for a total of five discoveries.",
       "descriptionArgs": {}
     },
     {
@@ -125,7 +125,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, Rouse all Awakeners. At turn start, randomly discover a \"Relic \" or \"Support,\" for a total of five discoveries.",
+      "descriptionTemplate": "At the start of battle, Arithmetica Limit +1, {Rouse} all Awakeners. At turn start, randomly {Discover} a \"Relic \" or \"Support,\" for a total of five discoveries.",
       "descriptionArgs": {}
     }
   ]

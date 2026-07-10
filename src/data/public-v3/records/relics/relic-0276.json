@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At the start of battle, apply [Arg1] <WeaknessIconKeywords:Weakness> and <VulnerabilityIconKeywords:Vulnerable> to all enemies. This effect is also triggered after \"Annihilation,\" but has a 3 turn cooldown.",
+      "descriptionTemplate": "At the start of battle, apply [Arg1] {Weakness} and {Vulnerable} to all enemies. This effect is also triggered after {Annihilation}, but has a 3 turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Battle starts by inflicting [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <WeaknessIconKeywords:Weakness> and <VulnerabilityIconKeywords:Vulnerable> on all enemies. This effect will also trigger after \"Annihilation,\" but has a 3 turn cooldown.",
+      "descriptionTemplate": "Battle starts by inflicting [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} and {Vulnerable} on all enemies. This effect will also trigger after {Annihilation}, but has a 3 turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -66,7 +66,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Whenever the <TransitionIconKeywords:Leap> effect is triggered, steal [Arg1] Temporary <PowerIconKeywords:STR> from all enemies. If there is only 1 enemy, steal an additional [Arg2] Temporary <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "Whenever the {Leap} effect is triggered, {Steal} [Arg1] Temporary {STR} from all enemies. If there is only 1 enemy, {Steal} an additional [Arg2] Temporary {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

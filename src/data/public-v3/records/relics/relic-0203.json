@@ -16,11 +16,14 @@
   "defaultVariantId": "relic-variant-0328",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "At the beginning of the battle, shuffle in 3 random \"Symptoms\". When playing \"Symptoms,\" gain [Arg1] {STR}.\n{With your help, no one from the Expedition Team survived, and you indifferently gained the greatest benefit for yourself. But was it all really worth it?}",
+  "descriptionTemplate": "At the beginning of the battle, shuffle in 3 random \"Symptoms\". When playing \"Symptoms,\" gain [Arg1] {STR}.",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "X"
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.015,
+      "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
   "lore": "With your help, no one from the Expedition Team survived. You secured the greatest benefit for yourself, but was it truly worth it?",
@@ -33,11 +36,14 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the beginning of the battle, shuffle in 3 random \"Symptoms\". When playing \"Symptoms,\" gain [Arg1] STR.\n<D05EX_Relic:With your help, no one from the Expedition Team survived, and you indifferently gained the greatest benefit for yourself. But was it all really worth it?>",
+      "descriptionTemplate": "At the beginning of the battle, shuffle in 3 random \"Symptoms\". When playing \"Symptoms,\" gain [Arg1] {STR}.",
       "descriptionArgs": {
         "Arg1": {
-          "kind": "fixed",
-          "value": "X"
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
       "lore": "With your help, no one from the Expedition Team survived. You secured the greatest benefit for yourself, but was it truly worth it?"

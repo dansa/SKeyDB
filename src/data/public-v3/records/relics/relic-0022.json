@@ -44,7 +44,7 @@
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Hameln gains [Arg1] Aliemus. The Base Arithmetica Cost of \"Soul Overture\" -[Arg2], and the Base DMG count is +[Arg3].",
+      "descriptionTemplate": "At turn start, Hameln gains [Arg1] Aliemus. The Base Arithmetica Cost of {Soul Overture} -[Arg2], and the Base DMG count is +[Arg3].",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

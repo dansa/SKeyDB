@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0052",
       "ownerAwakenerName": "Wanda",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Wanda gains [Arg1] Aliemus and [Arg2] <plural value=\"[Arg2]\" singular=\"stack\" plural=\"stacks\"> of \"Dreamlure\". If this is an Ultra Round, additionally put 1 Temporary \"Spine Needle Chains\" and \"Keeper of the Lost\" into hand, and cause Wanda's next Command Card to take effect 2 times.",
+      "descriptionTemplate": "At turn start, Wanda gains [Arg1] Aliemus and [Arg2] {plural:[Arg2]|stack|stacks} of {Dreamlure}. If this is an {Ultra Round}, additionally put 1 Temporary {Spine Needle Chains} and {Keeper of the Lost} into hand, and cause Wanda's next Command Card to take effect 2 times.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

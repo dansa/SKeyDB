@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0499",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "Hand Limit +1. At battle start, generate 1 \"{Gauntward}\" and place it in hand.\nWhen any Awakener's \"Basic Strike\" is played, \"{Gauntward}\" Arithmetica Cost -1, inflict [Arg1] {Corrosion} on all enemies.\nWhen any Awakener's \"Basic Defense\" is played, gain [Arg2] {STR}, and the Final DMG and {STR} generation of \"{Gauntward}\" +[Arg3]% next time it is played.",
+  "descriptionTemplate": "Hand Limit +1. At battle start, generate 1 {Gauntward} and place it in hand.\nWhen any Awakener's \"Basic Strike\" is played, {Gauntward} Arithmetica Cost -1, inflict [Arg1] {Corrosion} on all enemies.\nWhen any Awakener's \"Basic Defense\" is played, gain [Arg2] {STR}, and the Final DMG and {STR} generation of {Gauntward} +[Arg3]% next time it is played.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -48,7 +48,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Hand Limit +1. At battle start, generate 1 \"<DerivativeCardKeywords_148:Gauntward>\" and place it in hand.\nWhen any Awakener's \"Basic Strike\" is played, \"<DerivativeCardKeywords_148:Gauntward>\" Arithmetica Cost -1, inflict [Arg1] Corrosion on all enemies.\nWhen any Awakener's \"Basic Defense\" is played, gain [Arg2] STR, and the Final DMG and STR generation of \"<DerivativeCardKeywords_148:Gauntward>\" +[Arg3]% next time it is played.",
+      "descriptionTemplate": "Hand Limit +1. At battle start, generate 1 {Gauntward} and place it in hand.\nWhen any Awakener's \"Basic Strike\" is played, {Gauntward} Arithmetica Cost -1, inflict [Arg1] {Corrosion} on all enemies.\nWhen any Awakener's \"Basic Defense\" is played, gain [Arg2] {STR}, and the Final DMG and {STR} generation of {Gauntward} +[Arg3]% next time it is played.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

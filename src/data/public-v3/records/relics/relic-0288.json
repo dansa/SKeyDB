@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Whenever a card enters the Ultra Space, draw [Arg1] Command Cards belonging to This card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
+      "descriptionTemplate": "Whenever a card enters the {Ultra Space}, draw [Arg1] Command Cards belonging to This card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Whenever a card enters the Ultra Space, draw [Arg1] Command Cards belonging to This card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
+      "descriptionTemplate": "Whenever a card enters the {Ultra Space}, draw [Arg1] Command Cards belonging to This card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -66,7 +66,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "At turn start, for each card in <DimensionalSpaceIconKeywords:Ultra Space>, gain [Arg1] Temporary <PowerIconKeywords:STR>. If this turn is an Ultra Round, gain [Arg2] Temporary <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "At turn start, for each card in {Ultra Space}, gain [Arg1] Temporary {STR}. If this turn is an {Ultra Round}, gain [Arg2] Temporary {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

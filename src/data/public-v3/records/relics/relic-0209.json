@@ -16,12 +16,11 @@
   "defaultVariantId": "relic-variant-0343",
   "rarity": "SR",
   "aliases": ["Medal of Rescue: Bronze", "Medal of Rescue: Diamond", "Medal of Rescue: Gold", "Medal of Rescue: Platinum", "Medal of Rescue: Silver"],
-  "descriptionTemplate": "At turn start, gain [Arg1] {Glow of Humanity}.\n{To escape the snow mountain, you adopted a strategy prioritizing efficiency, watching people perish one by one. The survivors' eyes held more fear than gratitude.}",
+  "descriptionTemplate": "At turn start, gain [Arg1] {Glow of Humanity}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
-      "value": "X",
-      "displayFormula": "1 + runtime value"
+      "value": "1"
     }
   },
   "lore": "To leave the snow mountain, you adopted a strategy prioritizing efficiency, watching as people fell one by one. The survivors regarded you with more fear than gratitude.",
@@ -34,12 +33,11 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At turn start, gain [Arg1] <DerivativeCardKeywords_68:\"Glow of Humanity\">.\n<D05EX_Relic:To escape the snow mountain, you adopted a strategy prioritizing efficiency, watching people perish one by one. The survivors' eyes held more fear than gratitude.>",
+      "descriptionTemplate": "At turn start, gain [Arg1] {Glow of Humanity}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
-          "value": "X",
-          "displayFormula": "1 + runtime value"
+          "value": "1"
         }
       },
       "lore": "To leave the snow mountain, you adopted a strategy prioritizing efficiency, watching as people fell one by one. The survivors regarded you with more fear than gratitude."
@@ -52,12 +50,11 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the beginning of the turn, gain [Arg1] <DerivativeCardKeywords_69:\"Flicker of Humanity\">.\n<D05EX_Relic:You may have tried your best. Although half of the people perished, at least you saved the other half. After all, sacrifices are inevitable.>",
+      "descriptionTemplate": "At the beginning of the turn, gain [Arg1] {Flicker of Humanity}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
-          "value": "X",
-          "displayFormula": "1 + runtime value"
+          "value": "1"
         }
       },
       "lore": "You did your best. Though half of them perished, you managed to save the other half. After all, sacrifices are inevitable."
@@ -70,12 +67,11 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At turn start, gain [Arg1] <DerivativeCardKeywords_70:\"Luster of Humanity\">.\n<D05EX_Relic:You saved most of the people, rewriting their tragic fates. You did your best, didn't you?>",
+      "descriptionTemplate": "At turn start, gain [Arg1] {Luster of Humanity}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
-          "value": "X",
-          "displayFormula": "1 + runtime value"
+          "value": "1"
         }
       },
       "lore": "You saved most of the people and rewrote their tragic fates. You did your best, didn't you?"
@@ -88,12 +84,11 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the beginning of the turn, gain [Arg1] <DerivativeCardKeywords_71:\"Radiance of Humanity\">.\n<D05EX_Relic:All your efforts are worthwhile; you saved almost the entirety of the research team, and the survivors are sincerely grateful to you.>",
+      "descriptionTemplate": "At the beginning of the turn, gain [Arg1] {Radiance of Humanity}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
-          "value": "X",
-          "displayFormula": "1 + runtime value"
+          "value": "1"
         }
       },
       "lore": "Your efforts were worthwhile; you saved almost the entirety of the research team. The survivors are deeply grateful to you."
@@ -106,12 +101,11 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At turn start, gain [Arg1] <DerivativeCardKeywords_72:\"Brilliance of Humanity\">.\n<D05EX_Relic:You created an incredible miracle; everyone survived after the disaster, and you are hailed as a great hero. Your legend will soon spread throughout the snow mountain.>",
+      "descriptionTemplate": "At turn start, gain [Arg1] {Brilliance of Humanity}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
-          "value": "X",
-          "displayFormula": "1 + runtime value"
+          "value": "1"
         }
       },
       "lore": "You've performed an incredible miracle; everyone survived the disaster. You're a great hero, and your legend may soon spread around the snow mountain."

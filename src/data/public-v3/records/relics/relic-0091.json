@@ -42,7 +42,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At turn end: The Awakener with the lowest Aliemus gains 35 Aliemus. If current HP is at or above 50%, gain [Arg1] <PowerIconKeywords:STR>. If current HP is below 50%, restore [Arg2] HP.",
+      "descriptionTemplate": "At turn end: The Awakener with the lowest Aliemus gains 35 Aliemus. If current HP is at or above 50%, gain [Arg1] {STR}. If current HP is below 50%, restore [Arg2] HP.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

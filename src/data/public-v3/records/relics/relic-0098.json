@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "<ProficientInRealmsIconKeywords:Realm Mastery> +100. Place the first card played each turn from the Discard Pile back into hand. At the start of an Ultra Round, the Hand Limit for that turn +5 and your hand is duplicated, the duplicates gain <NothingnessIconKeywords:Fleeting> and <DepleteIconKeywords:Exhaust>.",
+      "descriptionTemplate": "Realm Mastery +100. Place the first card played each turn from the Discard Pile back into hand. At the start of an {Ultra Round}, the Hand Limit for that turn +5 and your hand is duplicated, the duplicates gain {Fleeting} and {Exhaust}.",
       "descriptionArgs": {}
     }
   ]

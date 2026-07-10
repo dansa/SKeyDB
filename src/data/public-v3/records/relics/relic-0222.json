@@ -37,7 +37,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After using Keyflare Rouse, gain [Arg1] Arithmetica and [Arg2] Keyflare.",
+      "descriptionTemplate": "After using {Keyflare Rouse}, gain [Arg1] Arithmetica and [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -57,7 +57,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After using Keyflare Rouse, gain [Arg1] Arithmetica and [Arg2] Keyflare.",
+      "descriptionTemplate": "After using {Keyflare Rouse}, gain [Arg1] Arithmetica and [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

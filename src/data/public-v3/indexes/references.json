@@ -169,6 +169,12 @@
         "id": "skill.thais.ad-matrem-vocatus"
       }
     ],
+    "adsorption": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.adsorption"
+      }
+    ],
     "adv insight": [
       {
         "kind": "derivedSkill",
@@ -523,6 +529,12 @@
         "id": "skill.ramona.assault-thesis"
       }
     ],
+    "assemble": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.assemble"
+      }
+    ],
     "astral meltdown": [
       {
         "kind": "enlighten",
@@ -569,12 +581,6 @@
       {
         "kind": "enlighten",
         "id": "enlighten.vortice.bang-pop-boom"
-      }
-    ],
-    "barbed trident": [
-      {
-        "kind": "relic",
-        "id": "relic-0074"
       }
     ],
     "barrier": [
@@ -1007,6 +1013,12 @@
       {
         "kind": "overlay",
         "id": "overlay.global.propagation-frenzy"
+      }
+    ],
+    "brilliance of humanity": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.brilliance-of-humanity"
       }
     ],
     "broken visage": [
@@ -1549,6 +1561,18 @@
         "id": "relic-0134"
       }
     ],
+    "coalsie smack": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.coalsie-smack"
+      }
+    ],
+    "cocoon of revival": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.cocoon-of-revival"
+      }
+    ],
     "cocoon of the maiden": [
       {
         "kind": "covenant",
@@ -1631,6 +1655,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.clementine.psychic-trauma"
+      }
+    ],
+    "convulsion": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.convulsion"
       }
     ],
     "core meltdown": [
@@ -2021,12 +2051,6 @@
       {
         "kind": "relic",
         "id": "relic-0142"
-      }
-    ],
-    "devour": [
-      {
-        "kind": "overlay",
-        "id": "overlay.global.devour"
       }
     ],
     "devoured": [
@@ -2491,6 +2515,12 @@
         "id": "overlay.global.propagation-caro"
       }
     ],
+    "divine dedication": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.divine-dedication"
+      }
+    ],
     "divine kings power": [
       {
         "kind": "talent",
@@ -2731,10 +2761,10 @@
         "id": "relic-0156"
       }
     ],
-    "echoes of the past": [
+    "echoes of lost shadows": [
       {
         "kind": "derivedSkill",
-        "id": "derived.tawil.echoes-of-the-past"
+        "id": "derived.global.echoes-of-lost-shadows"
       }
     ],
     "echoes of whispers": [
@@ -3343,6 +3373,12 @@
         "id": "enlighten.doll.flesh-transcended"
       }
     ],
+    "flicker of humanity": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.flicker-of-humanity"
+      }
+    ],
     "flickering candle": [
       {
         "kind": "enlighten",
@@ -3377,6 +3413,12 @@
       {
         "kind": "skill",
         "id": "skill.lily.forbidden-swamp"
+      }
+    ],
+    "forbidden truth": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.forbidden-truth"
       }
     ],
     "force circuit": [
@@ -3595,6 +3637,12 @@
         "id": "derived.pontos.gaunts"
       }
     ],
+    "gauntward": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.gauntward"
+      }
+    ],
     "gauntwards call": [
       {
         "kind": "skill",
@@ -3653,6 +3701,18 @@
       {
         "kind": "skill",
         "id": "skill.aurita.gland-division"
+      }
+    ],
+    "glow of humanity": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.glow-of-humanity"
+      }
+    ],
+    "gluttonous attack": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.gluttonous-attack"
       }
     ],
     "gluttony": [
@@ -3899,6 +3959,18 @@
       {
         "kind": "skill",
         "id": "skill.daffodil.heterogeneous-tides"
+      }
+    ],
+    "hide": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.hide-beta"
+      }
+    ],
+    "hide beta": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.hide-beta"
       }
     ],
     "hierophants staff": [
@@ -4195,6 +4267,12 @@
         "id": "enlighten.daffodil.infinite-passage"
       }
     ],
+    "infinite silver vault": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.infinite-silver-vault"
+      }
+    ],
     "infinite singularity": [
       {
         "kind": "enlighten",
@@ -4241,6 +4319,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.pickman.inspiration"
+      }
+    ],
+    "inspire offsprings": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.inspire-offsprings"
       }
     ],
     "inverted pregnancy": [
@@ -4765,6 +4849,12 @@
         "id": "enlighten.pontos.lure-of-light"
       }
     ],
+    "luster of humanity": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.luster-of-humanity"
+      }
+    ],
     "lustrous pearl": [
       {
         "kind": "enlighten",
@@ -4931,6 +5021,30 @@
       {
         "kind": "derivedSkill",
         "id": "derived.tawil.memories"
+      }
+    ],
+    "memories emissarys verdict": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-envoys-verdict"
+      }
+    ],
+    "memories innocent return gift": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-innocent-return-gift"
+      }
+    ],
+    "memories mutated heart": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-mutated-heart"
+      }
+    ],
+    "memories unfinished wax sculpture": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-unfinished-wax-sculpture"
       }
     ],
     "memory and dream": [
@@ -5521,6 +5635,12 @@
         "id": "skill.tawil.omniscient-verity"
       }
     ],
+    "one way": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.one-way"
+      }
+    ],
     "oneiric waltz": [
       {
         "kind": "enlighten",
@@ -5719,6 +5839,12 @@
         "id": "wheel-0007"
       }
     ],
+    "palette": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.palette"
+      }
+    ],
     "pallid egg": [
       {
         "kind": "relic",
@@ -5759,6 +5885,12 @@
       {
         "kind": "skill",
         "id": "skill.erica.parameter-fitting"
+      }
+    ],
+    "parasol": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.parasol"
       }
     ],
     "passage of the ego": [
@@ -6115,6 +6247,12 @@
         "id": "relic-0240"
       }
     ],
+    "prion virus": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.prion-virus"
+      }
+    ],
     "profane apocalypse": [
       {
         "kind": "enlighten",
@@ -6157,6 +6295,12 @@
         "id": "relic-0241"
       }
     ],
+    "protect offsprings": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.protect-offsprings"
+      }
+    ],
     "protective scales": [
       {
         "kind": "skill",
@@ -6197,6 +6341,12 @@
       {
         "kind": "talent",
         "id": "talent.pandia.punishment-time"
+      }
+    ],
+    "pupation": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.pupation"
       }
     ],
     "puppet stage unveiled": [
@@ -6293,6 +6443,12 @@
       {
         "kind": "skill",
         "id": "skill.ramona.queens-sword"
+      }
+    ],
+    "radiance of humanity": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.radiance-of-humanity"
       }
     ],
     "radium jawbone": [
@@ -6443,6 +6599,24 @@
       {
         "kind": "skill",
         "id": "skill.agrippa.reluctant-alms"
+      }
+    ],
+    "remembrance core of abundance": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-seed-of-abundance"
+      }
+    ],
+    "remembrance honey wine": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-honey-mead"
+      }
+    ],
+    "remembrance utopian veil": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-utopian-veil"
       }
     ],
     "remnants requiem": [
@@ -7069,16 +7243,16 @@
         "id": "wheel-0096"
       }
     ],
-    "silver key dawn": [
-      {
-        "kind": "derivedSkill",
-        "id": "derived.tawil.silver-key-dawn"
-      }
-    ],
     "silver key gleam": [
       {
         "kind": "derivedSkill",
         "id": "derived.global.silver-key-gleam"
+      }
+    ],
+    "silver key resonance": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.silver-key-resonance"
       }
     ],
     "silver relics": [
@@ -7291,6 +7465,12 @@
         "id": "skill.kathigu-ra.solarflare"
       }
     ],
+    "solidify": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.solidify"
+      }
+    ],
     "solitary mast": [
       {
         "kind": "enlighten",
@@ -7451,6 +7631,12 @@
       {
         "kind": "skill",
         "id": "skill.faint.sprouting-bud"
+      }
+    ],
+    "stagger": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.stagger"
       }
     ],
     "stagnant curse": [
@@ -7631,6 +7817,12 @@
       {
         "kind": "skill",
         "id": "skill.helot.surviving-impasse"
+      }
+    ],
+    "suspicion": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.suspicion"
       }
     ],
     "swarm impact": [
@@ -8071,6 +8263,18 @@
         "id": "enlighten.tulu.touch-of-revival"
       }
     ],
+    "toxic infusion": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.toxic-infusion"
+      }
+    ],
+    "toxic outbreak": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.toxic-outbreak"
+      }
+    ],
     "tranquil sea": [
       {
         "kind": "overlay",
@@ -8135,6 +8339,48 @@
       {
         "kind": "awakener",
         "id": "awakener-0001"
+      }
+    ],
+    "twilight honey mead": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-honey-mead"
+      }
+    ],
+    "twilight innocent return gift": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-innocent-return-gift"
+      }
+    ],
+    "twilight mutated heart": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-mutated-heart"
+      }
+    ],
+    "twilight seed of abundance": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-seed-of-abundance"
+      }
+    ],
+    "twilight the envoys verdict": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-envoys-verdict"
+      }
+    ],
+    "twilight unfinished wax sculpture": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-unfinished-wax-sculpture"
+      }
+    ],
+    "twilight utopian veil": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-utopian-veil"
       }
     ],
     "twin dolls": [
@@ -8323,10 +8569,10 @@
         "id": "enlighten.alva.unyielding-bastion"
       }
     ],
-    "unyielding will": [
+    "unyielding will beta": [
       {
-        "kind": "enlighten",
-        "id": "enlighten.castor.unyielding-will"
+        "kind": "derivedSkill",
+        "id": "derived.global.unyielding-will-beta"
       }
     ],
     "usable 1 times": [
@@ -8971,6 +9217,16 @@
         "id": "skill.lily.at-your-behest"
       }
     ],
+    "barbed trident": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.barbed-trident"
+      },
+      {
+        "kind": "relic",
+        "id": "relic-0074"
+      }
+    ],
     "betroth": [
       {
         "kind": "derivedSkill",
@@ -9281,6 +9537,16 @@
         "id": "skill.xu.defense"
       }
     ],
+    "devour": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.devour-card"
+      },
+      {
+        "kind": "overlay",
+        "id": "overlay.global.devour"
+      }
+    ],
     "dimension shuttle": [
       {
         "kind": "overlay",
@@ -9341,6 +9607,16 @@
       {
         "kind": "wheel",
         "id": "wheel-0170"
+      }
+    ],
+    "echoes of the past": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.echoes-of-the-past"
+      },
+      {
+        "kind": "derivedSkill",
+        "id": "derived.tawil.echoes-of-the-past"
       }
     ],
     "elegy over fate": [
@@ -10225,6 +10501,16 @@
         "id": "relic-0227"
       }
     ],
+    "silver key dawn": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.silver-key-dawn"
+      },
+      {
+        "kind": "derivedSkill",
+        "id": "derived.tawil.silver-key-dawn"
+      }
+    ],
     "silverheart resonance": [
       {
         "kind": "talent",
@@ -11067,6 +11353,16 @@
       {
         "kind": "skill",
         "id": "skill.lotan.until-the-planets-end"
+      }
+    ],
+    "unyielding will": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.unyielding-will-beta"
+      },
+      {
+        "kind": "enlighten",
+        "id": "enlighten.castor.unyielding-will"
       }
     ],
     "vanitys collapse": [

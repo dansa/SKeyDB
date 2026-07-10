@@ -35,7 +35,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "<OrangeQuality:Might>: All Awakeners' <PowerIconKeywords:Strength> is +50%. Gain [Arg2] Temporary <PowerIconKeywords:Strength> for each instance of DMG dealt.\n<RedQuality:Formless>: At the Start of battle, all enemies gain 50 stacks of <ParcloseIconKeywords:Barrier>.",
+      "descriptionTemplate": "{Might}: All Awakeners' {STR} is +50%. Gain [Arg2] Temporary {STR} for each instance of DMG dealt.\n{Formless}: At the Start of battle, all enemies gain 50 stacks of {Barrier}.",
       "descriptionArgs": {
         "Arg2": {
           "kind": "computed",

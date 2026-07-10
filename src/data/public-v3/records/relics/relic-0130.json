@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "When picked up, the team's Realm Mastery increases to 150% of its base value. After playing the 5th Command Card each turn, all Awakeners gain 20 Aliemus.",
+      "descriptionTemplate": "When picked up, the team's Realm Mastery increases to 150% of its base value. After playing the {ordinal:5th} Command Card each turn, all Awakeners gain 20 Aliemus.",
       "descriptionArgs": {}
     }
   ]

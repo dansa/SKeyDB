@@ -41,7 +41,7 @@
       "ownerAwakenerId": "awakener-0039",
       "ownerAwakenerName": "Pandia",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Pandia gains [Arg1] Aliemus. After Pandia performs an Exalt, she gains Permanent Counter equivalent to [Arg2]% of her Temporary Counter.",
+      "descriptionTemplate": "At turn start, Pandia gains [Arg1] Aliemus. After Pandia performs an Exalt, she gains Permanent {Counter} equivalent to [Arg2]% of her Temporary {Counter}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

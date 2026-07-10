@@ -46,7 +46,7 @@
       "ownerAwakenerId": "awakener-0025",
       "ownerAwakenerName": "Jenkin",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Jenkin gains [Arg1] Aliemus, with Final DMG +[Arg2]%. The Base DMG and DMG growth of \"Get 'em! Brown!\" are +[Arg3]%.",
+      "descriptionTemplate": "At turn start, Jenkin gains [Arg1] Aliemus, with Final DMG +[Arg2]%. The Base DMG and DMG growth of {Get 'em! Brown!} are +[Arg3]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

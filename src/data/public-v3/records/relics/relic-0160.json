@@ -20,8 +20,7 @@
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
-      "value": "X",
-      "displayFormula": "30 + runtime value * 5"
+      "value": "30"
     }
   },
   "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's keeper.",
@@ -34,12 +33,11 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "Start with [Arg1] Expedition Team members. At the beginning of the battle, shuffle 5 <DerivativeCardKeywords_73:Suspicion> into the deck.",
+      "descriptionTemplate": "Start with [Arg1] {Expedition Team} members. At the beginning of the battle, shuffle 5 {Suspicion} into the deck.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
-          "value": "X",
-          "displayFormula": "30 + runtime value * 5"
+          "value": "30"
         }
       },
       "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's keeper."

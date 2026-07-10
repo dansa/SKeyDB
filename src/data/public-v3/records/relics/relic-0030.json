@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0030",
       "ownerAwakenerName": "Liz",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Liz gains [Arg1] Aliemus. Cards discarded by \"Dance to Destruction\" takes effect 1 more time, with a 3-turn cooldown.",
+      "descriptionTemplate": "At turn start, Liz gains [Arg1] Aliemus. Cards discarded by {Dance to Destruction} takes effect 1 more time, with a 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

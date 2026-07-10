@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of the first 3 turns, trigger \"Otter's Dilemma\" once per turn. At the start of the 5th turn, remove all negative effects of \"Otter's Dilemma\" and gain <DerivativeCardKeywords_135:\"Coalsie SMACK!\">.",
+      "descriptionTemplate": "At the start of the first 3 turns, trigger \"Otter's Dilemma\" once per turn. At the start of the {ordinal:5th} turn, remove all negative effects of \"Otter's Dilemma\" and gain {Coalsie SMACK!}.",
       "descriptionArgs": {},
       "lore": "Miss Vortice insists this is a Relic.\n\"Bad guy! Bite him!\""
     }

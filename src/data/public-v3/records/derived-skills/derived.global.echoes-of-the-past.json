@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.echoes-of-the-past",
+  "name": "Echoes of the Past",
+  "route": {
+    "slug": "echoes-of-the-past",
+    "canonicalPath": "/database/derived-skills/echoes-of-the-past"
+  },
+  "descriptionTemplate": "Restore Current HP and Shield to the state at the end of the previous Turn.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

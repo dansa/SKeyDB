@@ -41,7 +41,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At turn start, gain [Arg1] STR for every 1 vacant space in Ultra Space, but suffer [Arg2] <plural value=\"[Arg2]\" singular=\"stack\" plural=\"stacks\"> of Poison.",
+      "descriptionTemplate": "At turn start, gain [Arg1] {STR} for every 1 vacant space in {Ultra Space}, but suffer [Arg2] {plural:[Arg2]|stack|stacks} of {Poison}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -67,7 +67,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "For every 1 instance of Active DMG dealt, inflict [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <BleedingIconKeywords:Bleed> on self and [Arg2] <plural value=\"[Arg2]\" singular=\"stack\" plural=\"stacks\"> of <BleedingIconKeywords:Bleed> on the target. For each enemy killed, dispel the <BleedingIconKeywords:Bleed> state from self.",
+      "descriptionTemplate": "For every 1 instance of Active DMG dealt, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Bleed} on self and [Arg2] {plural:[Arg2]|stack|stacks} of {Bleed} on the target. For each enemy killed, dispel the {Bleed} state from self.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -93,7 +93,7 @@
       "variantType": "BLESSED",
       "tier": "Blessed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "For each Active DMG dealt, restore [Arg1] HP and Inflict [Arg2] <plural value=\"[Arg2]\" singular=\"stack\" plural=\"stacks\"> of <BleedingIconKeywords:Bleed> to the target.",
+      "descriptionTemplate": "For each Active DMG dealt, restore [Arg1] HP and Inflict [Arg2] {plural:[Arg2]|stack|stacks} of {Bleed} to the target.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -119,7 +119,7 @@
       "variantType": "SINFUL",
       "tier": "Sinful",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "For every Active DMG instance, Inflict [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <BleedingIconKeywords:Bleed> to self and [Arg2] <plural value=\"[Arg2]\" singular=\"stack\" plural=\"stacks\"> of <BleedingIconKeywords:Bleed> to the DMG target.",
+      "descriptionTemplate": "For every Active DMG instance, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Bleed} to self and [Arg2] {plural:[Arg2]|stack|stacks} of {Bleed} to the DMG target.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

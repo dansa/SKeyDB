@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0040",
       "ownerAwakenerName": "Pickman",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of the turn, Pickman gains [Arg1] Aliemus. For each stack of \"Creativity\" gained, randomly reduce the Arithmetica Cost of 1 card in hand by 1 for this turn. When Pickman consumes \"Creativity,\" all Awakeners additionally gain [Arg2] Aliemus.",
+      "descriptionTemplate": "At the start of the turn, Pickman gains [Arg1] Aliemus. For each stack of {Creativity} gained, randomly reduce the Arithmetica Cost of 1 card in hand by 1 for this turn. When Pickman consumes {Creativity}, all Awakeners additionally gain [Arg2] Aliemus.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

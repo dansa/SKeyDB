@@ -66,7 +66,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "All \"Strike\" Crit. DMG increased by 20%. At the start of battle, add 1 <DerivativeCardKeywords_40:\"Fleeting Beauty\"> to your hand.",
+      "descriptionTemplate": "All \"Strike\" Crit. DMG increased by 20%. At the start of battle, add 1 {derived:Fleeting Beauty} to your hand.",
       "descriptionArgs": {},
       "lore": "Preserve the beauty of fleeting moments forever."
     }

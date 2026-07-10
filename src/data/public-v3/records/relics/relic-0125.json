@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "<ProficientInRealmsIconKeywords:Realm Mastery> +100. Each card played, <EmbryoFusionIconKeywords:Embryo Fusion> +10; when HP is below 25%, the increase becomes 20%. This effect can trigger a maximum of 10 times per turn.",
+      "descriptionTemplate": "Realm Mastery +100. Each card played, {Embryo Fusion} +10; when HP is below 25%, the increase becomes 20%. This effect can trigger a maximum of 10 times per turn.",
       "descriptionArgs": {}
     },
     {
@@ -38,13 +38,8 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Crit. Rate and Crit. DMG +100%. For each instance of DMG/Tentacle DMG dealt this turn, all Awakeners' Crit. Rate and Crit. DMG -10%, up to 50%. Poison and Counter DMG +10%, up to 50%.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "11"
-        }
-      }
+      "descriptionTemplate": "Crit. Rate and Crit. DMG +100%. For each instance of DMG/{Tentacle DMG} dealt this turn, all Awakeners' Crit. Rate and Crit. DMG -10%, up to 50%. {Poison} and {Counter} DMG +10%, up to 50%.",
+      "descriptionArgs": {}
     }
   ]
 }

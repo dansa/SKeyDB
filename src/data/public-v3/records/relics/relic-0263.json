@@ -44,7 +44,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At the start of the battle, inflict [Arg1] Poison on all enemies. At turn start, remove [Arg2]% of the enemy's Poison and inflict [Arg3]% of the removed amount as Bleeding.",
+      "descriptionTemplate": "At the start of the battle, inflict [Arg1] {Poison} on all enemies. At turn start, remove [Arg2]% of the enemy's {Poison} and inflict [Arg3]% of the removed amount as {Bleeding}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -73,7 +73,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "At turn start, if HP is greater than [Arg1], lose [Arg1] HP, and gain [Arg2] <PowerIconKeywords:STR> and [Arg3] <AlertIconKeywords:Alert> this turn.",
+      "descriptionTemplate": "At turn start, if HP is greater than [Arg1], lose [Arg1] HP, and gain [Arg2] {STR} and [Arg3] {Alert} this turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

@@ -46,7 +46,7 @@
       "ownerAwakenerId": "awakener-0037",
       "ownerAwakenerName": "Nymphaea",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Nymphaea gains [Arg1] Aliemus. After playing Nymphaea's \"Strike,\" the Poison dealt by \"Nymphaea\" in this battle +[Arg2]%. After playing Nymphaea's \"Defense,\" it triggers [Arg3]% Poison to all enemies. Each effect can take place at most once per turn.",
+      "descriptionTemplate": "At turn start, Nymphaea gains [Arg1] Aliemus. After playing Nymphaea's \"Strike,\" the {Poison} dealt by \"Nymphaea\" in this battle +[Arg2]%. After playing Nymphaea's \"Defense,\" it triggers [Arg3]% {Poison} to all enemies. Each effect can take place at most once per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

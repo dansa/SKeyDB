@@ -17,12 +17,7 @@
   "rarity": "SSR",
   "aliases": [],
   "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Chaos} Awakener gains its \"Dimensional Image\". For each {Chaos} Awakener in the team, increase the Relic Capacity by +1.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "30"
-    }
-  },
+  "descriptionArgs": {},
   "lore": "Chaos is formless, chaos is intangible; chaos has merged into all things.",
   "variants": [
     {
@@ -33,13 +28,8 @@
       "tier": "Special",
       "category": "OTHER",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and \"Chaos\" Awakener gains its \"Dimensional Image\". For each \"Chaos\" Awakener in the team, increase the Relic Capacity by +1.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "30"
-        }
-      },
+      "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Chaos} Awakener gains its \"Dimensional Image\". For each {Chaos} Awakener in the team, increase the Relic Capacity by +1.",
+      "descriptionArgs": {},
       "lore": "Chaos is formless, chaos is intangible; chaos has merged into all things."
     }
   ]

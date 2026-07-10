@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.solidify",
+  "name": "Solidify",
+  "route": {
+    "slug": "solidify",
+    "canonicalPath": "/database/derived-skills/solidify"
+  },
+  "derivedFromId": "derived.global.prion-virus",
+  "descriptionTemplate": "Gain [Arg1] {plural:[Arg1]|stack|stacks} of {STR}, and suffer from [Arg2] {plural:[Arg2]|stack|stacks} of {Poison}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "accountStageGrowth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "accountStageGrowth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel"]
+    }
+  },
+  "cardKeywords": []
+}

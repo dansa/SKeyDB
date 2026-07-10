@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0522",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "Hand Limit +1. Gain \"{Palette}\" at the start of the battle.\nAt the start of your turn, gain 1 \"{Color}\" and randomly apply {Paintover} to 2 Command Cards. Playing a {Paintover}-marked card grants 1 \"{Color}\" in sequence.\n\"{Color}\" used will be recorded on the \"{Palette}\". If there are 2 different \"{Color}\" recorded on the \"{Palette},\" it provides continuous buffs.\nIf there are 3 different \"{Color}\" recorded on the \"{Palette},\" immediately deal 5% Max HP damage to all enemies and clear the \"{Palette}\".",
+  "descriptionTemplate": "Hand Limit +1. Gain {Palette} at the start of the battle.\nAt the start of your turn, gain 1 \"{Color}\" and randomly apply {Paintover} to 2 Command Cards. Playing a {Paintover}-marked card grants 1 \"{Color}\" in sequence.\n\"{Color}\" used will be recorded on the {Palette}. If there are 2 different \"{Color}\" recorded on the {Palette}, it provides continuous buffs.\nIf there are 3 different \"{Color}\" recorded on the {Palette}, immediately deal 5% Max HP damage to all enemies and clear the {Palette}.",
   "descriptionArgs": {},
   "lore": "In the Vision, we will witness the birth of \"art\".",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Hand Limit +1. Gain \"<DerivativeCardKeywords_116:Palette>\" at the start of the battle.\nAt the start of your turn, gain 1 \"<PrimaryColor:Color>\" and randomly apply <ColorInkKeywords:Paintover> to 2 Command Cards. Playing a <ColorInkKeywords:Paintover>-marked card grants 1 \"<PrimaryColor:Color>\" in sequence.\n\"<PrimaryColor:Color>\" used will be recorded on the \"<DerivativeCardKeywords_116:Palette>\". If there are 2 different \"<PrimaryColor:Color>\" recorded on the \"<DerivativeCardKeywords_116:Palette>,\" it provides continuous buffs.\nIf there are 3 different \"<PrimaryColor:Color>\" recorded on the \"<DerivativeCardKeywords_116:Palette>,\" immediately deal 5% Max HP damage to all enemies and clear the \"<DerivativeCardKeywords_116:Palette>\".",
+      "descriptionTemplate": "Hand Limit +1. Gain {Palette} at the start of the battle.\nAt the start of your turn, gain 1 \"{Color}\" and randomly apply {Paintover} to 2 Command Cards. Playing a {Paintover}-marked card grants 1 \"{Color}\" in sequence.\n\"{Color}\" used will be recorded on the {Palette}. If there are 2 different \"{Color}\" recorded on the {Palette}, it provides continuous buffs.\nIf there are 3 different \"{Color}\" recorded on the {Palette}, immediately deal 5% Max HP damage to all enemies and clear the {Palette}.",
       "descriptionArgs": {},
       "lore": "In the Vision, we will witness the birth of \"art\"."
     }

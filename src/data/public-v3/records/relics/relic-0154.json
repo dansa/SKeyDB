@@ -43,7 +43,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "When you have a Shield, this Relic provides [Arg1] Temporary <PowerIconKeywords:STR>. If your Shield is higher than your Current HP, it provides an additional [Arg2] Temporary <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "When you have a Shield, this Relic provides [Arg1] Temporary {STR}. If your Shield is higher than your Current HP, it provides an additional [Arg2] Temporary {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

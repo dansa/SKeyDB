@@ -38,7 +38,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After the battle starts, gain [Arg1] <ProficientInRealmsIconKeywords:Realm Mastery>. All Awakener and Relic <IntoxicationIconKeywords:Poison> effects are +[Arg2]%.",
+      "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakener and Relic {Poison} effects are +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -59,7 +59,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After the battle starts, gain [Arg1] <ProficientInRealmsIconKeywords:Realm Mastery>. All Awakener and Relic <IntoxicationIconKeywords:Poison> effects are +[Arg2]%.",
+      "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakener and Relic {Poison} effects are +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -81,7 +81,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Each time you deal 1 instance of Active DMG, gain 3 Aliemus and Inflict [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <IntoxicationIconKeywords:Poison> to the Target. If the number of triggers reaches 25 times within this battle, immediately Inflict <IntoxicationIconKeywords:Poison> on all Enemy targets.",
+      "descriptionTemplate": "Each time you deal 1 instance of Active DMG, gain 3 Aliemus and Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} to the Target. If the number of triggers reaches 25 times within this battle, immediately Inflict {Poison} on all Enemy targets.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

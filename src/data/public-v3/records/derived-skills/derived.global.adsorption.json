@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.adsorption",
+  "name": "Adsorption",
+  "route": {
+    "slug": "adsorption",
+    "canonicalPath": "/database/derived-skills/adsorption"
+  },
+  "derivedFromId": "derived.global.prion-virus",
+  "descriptionTemplate": "Gain [Arg1] {plural:[Arg1]|stack|stacks} of Temporary {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "accountStageGrowth",
+      "multiplier": 0.12,
+      "inputs": ["accountLevel"]
+    }
+  },
+  "cardKeywords": []
+}

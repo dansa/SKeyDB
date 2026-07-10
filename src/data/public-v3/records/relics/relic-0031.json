@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0031",
       "ownerAwakenerName": "Lotan",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Lotan gains [Arg1] Aliemus. After the first use of Lotan's \"Defense\" each turn, place [Arg2] additional Exhaust and Fleeting cards with the Illusion's \"Blade of Defiance\" into hand.",
+      "descriptionTemplate": "At turn start, Lotan gains [Arg1] Aliemus. After the first use of Lotan's \"Defense\" each turn, place [Arg2] additional {Exhaust} and {Fleeting} cards with the Illusion's {Blade of Defiance} into hand.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

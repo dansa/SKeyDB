@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.barbed-trident",
+  "name": "Barbed Trident",
+  "route": {
+    "slug": "barbed-trident",
+    "canonicalPath": "/database/derived-skills/barbed-trident"
+  },
+  "descriptionTemplate": "Gain [Arg1] Temporary {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

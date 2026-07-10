@@ -40,7 +40,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Use Keyflare Rouse and gain [Arg1] <PowerIconKeywords:STR> and [Arg2] Keyflare.",
+      "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {STR} and [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -63,7 +63,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Use Keyflare Rouse and gain [Arg1] <PowerIconKeywords:STR> and [Arg2] Keyflare.",
+      "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {STR} and [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -87,7 +87,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Gain [Arg1] Shield when dealing Active DMG. Gain [Arg2] Temporary <PowerIconKeywords:STR> when restoring HP.",
+      "descriptionTemplate": "Gain [Arg1] Shield when dealing Active DMG. Gain [Arg2] Temporary {STR} when restoring HP.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

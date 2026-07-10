@@ -17,28 +17,7 @@
   "rarity": "SR",
   "aliases": [],
   "descriptionTemplate": "{Dawn}: All Awakeners' Base Aliemus reduced by 30. The first Exalt Unleashed each turn gains 200% Final DMG bonus, 100% Shield and Healing bonus. After Unleashing Exalt 5 times, choose 1 Awakener to {Rouse}, and Refresh the Exalt amplification Effect.\n{Depletion}: Base Keyflare +200%",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "200"
-    },
-    "Arg2": {
-      "kind": "fixed",
-      "value": "100"
-    },
-    "Arg3": {
-      "kind": "fixed",
-      "value": "5"
-    },
-    "Arg4": {
-      "kind": "fixed",
-      "value": "200"
-    },
-    "Arg5": {
-      "kind": "fixed",
-      "value": "30"
-    }
-  },
+  "descriptionArgs": {},
   "variants": [
     {
       "id": "relic-variant-0212",
@@ -48,29 +27,8 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "<OrangeQuality:Dawn>: All Awakeners' Base Aliemus reduced by 30. The first Exalt Unleashed each turn gains 200% Final DMG bonus, 100% Shield and Healing bonus. After Unleashing Exalt 5 times, choose 1 Awakener to Rouse, and Refresh the Exalt amplification Effect.\n<RedQuality:Depletion>: Base Keyflare +200%",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "200"
-        },
-        "Arg2": {
-          "kind": "fixed",
-          "value": "100"
-        },
-        "Arg3": {
-          "kind": "fixed",
-          "value": "5"
-        },
-        "Arg4": {
-          "kind": "fixed",
-          "value": "200"
-        },
-        "Arg5": {
-          "kind": "fixed",
-          "value": "30"
-        }
-      }
+      "descriptionTemplate": "{Dawn}: All Awakeners' Base Aliemus reduced by 30. The first Exalt Unleashed each turn gains 200% Final DMG bonus, 100% Shield and Healing bonus. After Unleashing Exalt 5 times, choose 1 Awakener to {Rouse}, and Refresh the Exalt amplification Effect.\n{Depletion}: Base Keyflare +200%",
+      "descriptionArgs": {}
     }
   ]
 }

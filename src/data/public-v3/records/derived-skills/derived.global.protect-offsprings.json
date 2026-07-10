@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.protect-offsprings",
+  "name": "Protect Offsprings",
+  "route": {
+    "slug": "protect-offsprings",
+    "canonicalPath": "/database/derived-skills/protect-offsprings"
+  },
+  "descriptionTemplate": "Dispel own {Bleed}, gain Shield equal to 50% of missing HP, draw 2 cards.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

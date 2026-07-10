@@ -17,20 +17,7 @@
   "rarity": "SR",
   "aliases": [],
   "descriptionTemplate": "{Rebirth}: Shield gained and Healing Effects +25%. When recovering HP or gaining Shield, for every 1% of Max HP recovered or Shielded, gain 10% Temporary DMG Amplification.\n{Whisper}: Each turn, gain {STR▼} equal to 10% of Max HP.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "25"
-    },
-    "Arg2": {
-      "kind": "fixed",
-      "value": "10"
-    },
-    "Arg3": {
-      "kind": "fixed",
-      "value": "10"
-    }
-  },
+  "descriptionArgs": {},
   "variants": [
     {
       "id": "relic-variant-0211",
@@ -40,21 +27,8 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "<OrangeQuality:Rebirth>: Shield gained and Healing Effects +25%. When recovering HP or gaining Shield, for every 1% of Max HP recovered or Shielded, gain 10% Temporary DMG Amplification.\n<RedQuality:Whisper>: Each turn, gain STR▼ equal to 10% of Max HP.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "25"
-        },
-        "Arg2": {
-          "kind": "fixed",
-          "value": "10"
-        },
-        "Arg3": {
-          "kind": "fixed",
-          "value": "10"
-        }
-      }
+      "descriptionTemplate": "{Rebirth}: Shield gained and Healing Effects +25%. When recovering HP or gaining Shield, for every 1% of Max HP recovered or Shielded, gain 10% Temporary DMG Amplification.\n{Whisper}: Each turn, gain {STR▼} equal to 10% of Max HP.",
+      "descriptionArgs": {}
     }
   ]
 }

@@ -26,12 +26,20 @@
       "inputs": ["accountLevel", "ownedPosseCount"]
     },
     "Arg2": {
-      "kind": "fixed",
-      "value": "X"
+      "kind": "computed",
+      "formulaKey": "scaledCeilThenMultiply",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.06,
+      "postMultiplier": 11.0,
+      "inputs": ["accountLevel", "ownedPosseCount"]
     },
     "Arg3": {
-      "kind": "fixed",
-      "value": "X"
+      "kind": "computed",
+      "formulaKey": "scaledCeilThenMultiply",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.12,
+      "postMultiplier": 33.0,
+      "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
   "lore": "The artwork, once embedded in the heavy frame, has been missing a piece since the day it was displayed.",
@@ -54,12 +62,20 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         },
         "Arg2": {
-          "kind": "fixed",
-          "value": "X"
+          "kind": "computed",
+          "formulaKey": "scaledCeilThenMultiply",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.06,
+          "postMultiplier": 11.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         },
         "Arg3": {
-          "kind": "fixed",
-          "value": "X"
+          "kind": "computed",
+          "formulaKey": "scaledCeilThenMultiply",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.12,
+          "postMultiplier": 33.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
       "lore": "The artwork, once embedded in the heavy frame, has been missing a piece since the day it was displayed."

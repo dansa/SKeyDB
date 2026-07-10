@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At the start of combat, gain [Arg1] <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "At the start of combat, gain [Arg1] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At the start of combat, gain [Arg1] <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "At the start of combat, gain [Arg1] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -75,7 +75,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "Permanently gain [Arg1] <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "Permanently gain [Arg1] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

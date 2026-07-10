@@ -68,7 +68,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, draw [Arg1] \"Strike\" cards with Arithmetica Cost -1. After releasing Exalt, generate [Arg2] \"Strike\" cards of the corresponding Awakener with <DepleteIconKeywords:Exhaust>, <PrepareKeypvewords:Prepare 1>, and <RetainIconKeywords:Retain>.\nFor each [Arg3] \"Strike\" played within 1 turn, gain [Arg4] Temporary <PowerIconKeywords:STR>; after playing [Arg5] \"Strike\" cards, draw [Arg6] <plural value=\"[Arg6]\" singular=\"card\" plural=\"cards\"> and gain [Arg7] Arithmetica; after playing [Arg8] \"Strike\" cards, all Awakeners gain [Arg9] Aliemus.",
+      "descriptionTemplate": "At turn start, draw [Arg1] \"Strike\" cards with Arithmetica Cost -1. After releasing Exalt, generate [Arg2] \"Strike\" cards of the corresponding Awakener with {Exhaust}, {Prepare 1}, and {Retain}.\nFor each [Arg3] \"Strike\" played within 1 turn, gain [Arg4] Temporary {STR}; after playing [Arg5] \"Strike\" cards, draw [Arg6] {plural:[Arg6]|card|cards} and gain [Arg7] Arithmetica; after playing [Arg8] \"Strike\" cards, all Awakeners gain [Arg9] Aliemus.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0099",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "Hand Limit +1.\nAt the beginning of the turn, if there is no \"Soul {Devour},\" place it in hand. If \"Fullness\" reaches 10, it will be transformed into \"Memory {Resonance}\".",
+  "descriptionTemplate": "Hand Limit +1.\nAt the beginning of the turn, if there is no \"Soul Devour,\" place it in hand. If \"Fullness\" reaches 10, it will be transformed into \"Memory {Resonance}\".",
   "descriptionArgs": {},
   "lore": "\"The Bloody Moon rises, the corpses shall raise their cups and drink together.\"",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Hand limit +1.\nAt the beginning of the turn, if there is no \"Soul Devour,\" place it in hand. If \"Fullness\" reaches 10, it will be transformed into \"Memory Resonance\".",
+      "descriptionTemplate": "Hand Limit +1.\nAt the beginning of the turn, if there is no \"Soul Devour,\" place it in hand. If \"Fullness\" reaches 10, it will be transformed into \"Memory {Resonance}\".",
       "descriptionArgs": {},
       "lore": "\"The Bloody Moon rises, the corpses shall raise their cups and drink together.\""
     }

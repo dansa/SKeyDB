@@ -40,7 +40,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Restores [Heal:Arg1] HP and grants [Arg2] Keyflare after using Keyflare Rouse.",
+      "descriptionTemplate": "Restores [Heal:Arg1] HP and grants [Arg2] Keyflare after using {Keyflare Rouse}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -63,7 +63,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Restores [Heal:Arg1] HP and grants [Arg2] Keyflare after using Keyflare Rouse.",
+      "descriptionTemplate": "Restores [Heal:Arg1] HP and grants [Arg2] Keyflare after using {Keyflare Rouse}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -87,7 +87,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "At turn start, add 1 <DerivativeCardKeywords_6:\"Parasol\"> to your hand, and after playing 6 cards, increase the <AlertIconKeywords:Alert> of all <DerivativeCardKeywords_6:\"Parasol\"> in your hand by [Arg2].",
+      "descriptionTemplate": "At turn start, add 1 {Parasol} to your hand, and after playing 6 cards, increase the {Alert} of all {Parasol} in your hand by [Arg2].",
       "descriptionArgs": {
         "Arg2": {
           "kind": "computed",

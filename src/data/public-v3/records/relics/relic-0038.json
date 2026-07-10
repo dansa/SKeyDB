@@ -41,7 +41,7 @@
       "ownerAwakenerId": "awakener-0038",
       "ownerAwakenerName": "Ogier",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Ogier gains [Arg1] Aliemus. After the first time Ogier plays \"Piercing Strike\" or \"Strike\" in each turn, the Shield and STR Ogier generates in that turn +[Arg2]%.",
+      "descriptionTemplate": "At turn start, Ogier gains [Arg1] Aliemus. After the first time Ogier plays {Piercing Strike} or \"Strike\" in each turn, the Shield and {STR} Ogier generates in that turn +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

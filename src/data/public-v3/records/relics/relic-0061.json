@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Whenever a card enters Ultra Space, if the Awakener of This card is different from that of other cards in Ultra Space, place [Arg1] <DerivativeCardKeywords_4:\"Insight\"> cards in hand.",
+      "descriptionTemplate": "Whenever a card enters {Ultra Space}, if the Awakener of This card is different from that of other cards in {Ultra Space}, place [Arg1] {derived:Insight} cards in hand.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Whenever a card enters Ultra Space, if the Awakener of This card is different from that of other cards in Ultra Space, place [Arg1] <DerivativeCardKeywords_4:\"Insight\"> cards in hand.",
+      "descriptionTemplate": "Whenever a card enters {Ultra Space}, if the Awakener of This card is different from that of other cards in {Ultra Space}, place [Arg1] {derived:Insight} cards in hand.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -65,7 +65,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "At the start of battle, randomly place <DerivativeCardKeywords_3:\"Convulsion\"> and <DerivativeCardKeywords_4:\"Insight\"> into <DimensionalSpaceIconKeywords:Ultra Space> until the limit is reached. After entering the Ultra Round, gain [Arg1] <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "At the start of battle, randomly place {Convulsion} and {derived:Insight} into {Ultra Space} until the limit is reached. After entering the {Ultra Round}, gain [Arg1] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

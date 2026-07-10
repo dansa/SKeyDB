@@ -19,8 +19,13 @@
   "descriptionTemplate": "Gain [Arg1] Shield at the end of your turn. If your Shield is 0 or a multiple of 3, gain [Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "X"
+      "kind": "computed",
+      "formulaKey": "scaledCeilThenMultiply",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.06,
+      "divisor": 3.0,
+      "postMultiplier": 3.0,
+      "inputs": ["accountLevel", "ownedPosseCount"]
     },
     "Arg2": {
       "kind": "computed",
@@ -40,11 +45,16 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Gain [Arg1] Shield at the end of your turn. If your Shield is 0 or a multiple of 3, gain [Arg2] <PowerIconKeywords:STR>.",
+      "descriptionTemplate": "Gain [Arg1] Shield at the end of your turn. If your Shield is 0 or a multiple of 3, gain [Arg2] {STR}.",
       "descriptionArgs": {
         "Arg1": {
-          "kind": "fixed",
-          "value": "X"
+          "kind": "computed",
+          "formulaKey": "scaledCeilThenMultiply",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.06,
+          "divisor": 3.0,
+          "postMultiplier": 3.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         },
         "Arg2": {
           "kind": "computed",

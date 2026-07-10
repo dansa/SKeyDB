@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "When the number of Command Cards played in a turn reaches 3, gain 1 <DerivativeCardKeywords_4:\"Insight\">; at 6 cards, gain another <DerivativeCardKeywords_4:\"Insight\">; and when reaching 10 cards, you may select 2 cards from your deck to add to your hand at the start of next turn.",
+      "descriptionTemplate": "When the number of Command Cards played in a turn reaches 3, gain 1 {derived:Insight}; at 6 cards, gain another {derived:Insight}; and when reaching 10 cards, you may select 2 cards from your deck to add to your hand at the start of next turn.",
       "descriptionArgs": {}
     }
   ]

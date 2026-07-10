@@ -41,7 +41,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Picking up will cause you to permanently lose [Arg1] <PowerIconKeywords:STR>. Whenever you deal Damage, heal for [Arg2] HP, with a maximum of 6 triggers per turn.",
+      "descriptionTemplate": "Picking up will cause you to permanently lose [Arg1] {STR}. Whenever you deal Damage, heal for [Arg2] HP, with a maximum of 6 triggers per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -67,7 +67,7 @@
       "variantType": "BLESSED",
       "tier": "Blessed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Upon picking it up, permanently Gain [Arg1] <PowerIconKeywords:STR>. Whenever DMG is dealt, heal for [Arg2] HP, with a maximum of 6 triggers per turn.",
+      "descriptionTemplate": "Upon picking it up, permanently Gain [Arg1] {STR}. Whenever DMG is dealt, heal for [Arg2] HP, with a maximum of 6 triggers per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -93,7 +93,7 @@
       "variantType": "SINFUL",
       "tier": "Sinful",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Picking up will cause you to permanently lose [Arg1] <PowerIconKeywords:STR>. Whenever you deal Damage, heal for [Arg2] HP, with a maximum of 6 triggers per turn.",
+      "descriptionTemplate": "Picking up will cause you to permanently lose [Arg1] {STR}. Whenever you deal Damage, heal for [Arg2] HP, with a maximum of 6 triggers per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

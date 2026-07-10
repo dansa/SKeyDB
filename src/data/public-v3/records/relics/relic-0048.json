@@ -51,7 +51,7 @@
       "ownerAwakenerId": "awakener-0048",
       "ownerAwakenerName": "Thais",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Thais gains [Arg1] Aliemus. After playing [Arg2] Command Cards in one turn, Thais gains 1 \"Scion of Purity\" and [Arg3] Temporary STR, with a cooldown of [Arg4] <plural value=\"[Arg4]\" singular=\"turn\" plural=\"turns\">.",
+      "descriptionTemplate": "At turn start, Thais gains [Arg1] Aliemus. After playing [Arg2] Command Cards in one turn, Thais gains 1 {Scion of Purity} and [Arg3] Temporary {STR}, with a cooldown of [Arg4] {plural:[Arg4]|turn|turns}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

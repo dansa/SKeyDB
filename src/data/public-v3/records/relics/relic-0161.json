@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "The caused Weakness effect +5%. When applying <WeaknessIconKeywords:Weakness>, temporarily steal [Arg1] <PowerIconKeywords:STR> from the target.",
+      "descriptionTemplate": "The caused {Weakness} effect +5%. When applying {Weakness}, temporarily {Steal} [Arg1] {STR} from the target.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -56,7 +56,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "The <WeaknessIconKeywords:Weakness> effect +8%, and the <VulnerabilityIconKeywords:Vulnerable> effect +25%. When applying <WeaknessIconKeywords:Weakness> or <VulnerabilityIconKeywords:Vulnerable>, temporarily steal [Arg1] <PowerIconKeywords:STR> from the target.",
+      "descriptionTemplate": "The {Weakness} effect +8%, and the {Vulnerable} effect +25%. When applying {Weakness} or {Vulnerable}, temporarily {Steal} [Arg1] {STR} from the target.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

@@ -17,12 +17,7 @@
   "rarity": "SR",
   "aliases": ["Bespoke Lucky Windcoat"],
   "descriptionTemplate": "All Awakeners' Crit. Rate +10%. The random effects of Ryker and dice cannot be the lowest value.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "1"
-    }
-  },
+  "descriptionArgs": {},
   "lore": "It will raise a thick barrier to keep out the winds, rains, and misfortunes.",
   "variants": [
     {
@@ -35,12 +30,7 @@
       "mechanicOwner": "Ryker",
       "rarity": "SR",
       "descriptionTemplate": "All Awakeners' Crit. Rate +10%. The random effects of Ryker and dice cannot be the lowest value.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "1"
-        }
-      },
+      "descriptionArgs": {},
       "lore": "It will raise a thick barrier to keep out the winds, rains, and misfortunes."
     },
     {
@@ -52,12 +42,7 @@
       "category": "OTHER",
       "mechanicOwner": "Ryker",
       "descriptionTemplate": "All Awakeners' Crit. Rate +15%. The final result of Ryker and dice random effects +1.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "1"
-        }
-      },
+      "descriptionArgs": {},
       "lore": "It will raise a thick barrier to keep out the winds, rains, and misfortunes."
     }
   ]

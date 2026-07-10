@@ -49,7 +49,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Temporary <PowerIconKeywords:STR> and [Arg2] Temporary Tentacle DMG, with a maximum of 12 triggers per turn. If 4 instances of DMG are dealt in a single turn, apply 1 stack of Vulnerable to all enemies and gain [Arg3] Shield. If 8 instances of DMG are dealt in the same turn, apply 1 stack of Weakness to all enemies and restore [Arg3] HP.",
+      "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Temporary {STR} and [Arg2] Temporary {Tentacle DMG}, with a maximum of 12 triggers per turn. If 4 instances of DMG are dealt in a single turn, apply 1 stack of {Vulnerable} to all enemies and gain [Arg3] Shield. If 8 instances of DMG are dealt in the same turn, apply 1 stack of {Weakness} to all enemies and restore [Arg3] HP.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

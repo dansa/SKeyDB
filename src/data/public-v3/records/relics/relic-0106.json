@@ -19,12 +19,18 @@
   "descriptionTemplate": "Upon pickup, Team DMG Amplification x150%. At turn start, deal [Arg1] DMG to a random enemy. For each Posse used in this battle, increase the DMG dealt by [Arg2]. This DMG bonus enjoys Team DMG Amplification bonus.",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "X"
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.2,
+      "inputs": ["accountLevel", "ownedPosseCount"]
     },
     "Arg2": {
-      "kind": "fixed",
-      "value": "X"
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.1,
+      "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
   "variants": [
@@ -39,12 +45,18 @@
       "descriptionTemplate": "Upon pickup, Team DMG Amplification x150%. At turn start, deal [Arg1] DMG to a random enemy. For each Posse used in this battle, increase the DMG dealt by [Arg2]. This DMG bonus enjoys Team DMG Amplification bonus.",
       "descriptionArgs": {
         "Arg1": {
-          "kind": "fixed",
-          "value": "X"
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.2,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         },
         "Arg2": {
-          "kind": "fixed",
-          "value": "X"
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.1,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         }
       }
     }

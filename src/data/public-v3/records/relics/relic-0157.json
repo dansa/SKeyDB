@@ -57,7 +57,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Crit. Rate increased by 50%, but when the battle starts, make self <FragileIconKeywords:Fragile> for 3 turns.",
+      "descriptionTemplate": "Crit. Rate increased by 50%, but when the battle starts, make self {Fragile} for 3 turns.",
       "descriptionArgs": {},
       "lore": "Species that are difficult to identify."
     },
@@ -79,7 +79,7 @@
       "variantType": "SINFUL",
       "tier": "Sinful",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Crit. Rate and Crit. DMG increased by 50%, at turn start, <FragileIconKeywords:Fragile> affects self for 1 turn.",
+      "descriptionTemplate": "Crit. Rate and Crit. DMG increased by 50%, at turn start, {Fragile} affects self for 1 turn.",
       "descriptionArgs": {},
       "lore": "Claws Twisted by Desire."
     }

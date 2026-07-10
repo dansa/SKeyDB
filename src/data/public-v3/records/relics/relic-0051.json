@@ -44,7 +44,7 @@
       "ownerAwakenerId": "awakener-0051",
       "ownerAwakenerName": "Uvhash",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Uvhash gains [Arg1] Aliemus. Uvhash's Base Aliemus -[Arg2], which further -5 every time he releases Exalt. He can release Exalt [Arg3] <plural value=\"[Arg3]\" singular=\"time\" plural=\"times\"> per turn.",
+      "descriptionTemplate": "At turn start, Uvhash gains [Arg1] Aliemus. Uvhash's Base Aliemus -[Arg2], which further -5 every time he releases Exalt. He can release Exalt [Arg3] {plural:[Arg3]|time|times} per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

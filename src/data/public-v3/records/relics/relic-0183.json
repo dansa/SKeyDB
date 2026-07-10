@@ -17,24 +17,7 @@
   "rarity": "SSR",
   "aliases": [],
   "descriptionTemplate": "The first Command Card each turn takes effect 1 additional time.\nWhen {Annihilation} occurs, generate 1 Tentacle.\nAfter switching the Tentacle into {Raging Waves} stance, the next Command Card's {Leap} effect is guaranteed to activate and place its 2 Base Copies into {Ultra Space}, with a 3-turn Cooldown.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "1"
-    },
-    "Arg2": {
-      "kind": "fixed",
-      "value": "1"
-    },
-    "Arg3": {
-      "kind": "fixed",
-      "value": "2"
-    },
-    "Arg4": {
-      "kind": "fixed",
-      "value": "3"
-    }
-  },
+  "descriptionArgs": {},
   "variants": [
     {
       "id": "relic-variant-0289",
@@ -44,25 +27,8 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "The first Command Card each turn takes effect 1 additional time.\nWhen Annihilation occurs, generate 1 Tentacle.\nAfter switching the Tentacle into \"Raging Waves\" stance, the next Command Card's Leap effect is guaranteed to activate and place its 2 Base Copies into Ultra Space, with a 3-turn Cooldown.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "1"
-        },
-        "Arg2": {
-          "kind": "fixed",
-          "value": "1"
-        },
-        "Arg3": {
-          "kind": "fixed",
-          "value": "2"
-        },
-        "Arg4": {
-          "kind": "fixed",
-          "value": "3"
-        }
-      }
+      "descriptionTemplate": "The first Command Card each turn takes effect 1 additional time.\nWhen {Annihilation} occurs, generate 1 Tentacle.\nAfter switching the Tentacle into {Raging Waves} stance, the next Command Card's {Leap} effect is guaranteed to activate and place its 2 Base Copies into {Ultra Space}, with a 3-turn Cooldown.",
+      "descriptionArgs": {}
     }
   ]
 }

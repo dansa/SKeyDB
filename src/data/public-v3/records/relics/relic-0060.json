@@ -17,12 +17,7 @@
   "rarity": "SSR",
   "aliases": [],
   "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Aequor} Awakener gains their \"Dimensional Image\". For each {Aequor} Awakener in the team, increase the Relic Capacity by +1.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "30"
-    }
-  },
+  "descriptionArgs": {},
   "lore": "The sleepers in the abyssal ocean begin to show the forgotten authority to the world.",
   "variants": [
     {
@@ -33,13 +28,8 @@
       "tier": "Special",
       "category": "OTHER",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and \"Aequor\" Awakener gains their \"Dimensional Image\". For each \"Aequor\" Awakener in the team, increase the Relic Capacity by +1.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "30"
-        }
-      },
+      "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Aequor} Awakener gains their \"Dimensional Image\". For each {Aequor} Awakener in the team, increase the Relic Capacity by +1.",
+      "descriptionArgs": {},
       "lore": "The sleepers in the abyssal ocean begin to show the forgotten authority to the world."
     }
   ]

@@ -17,13 +17,7 @@
   "rarity": "SSR",
   "aliases": [],
   "descriptionTemplate": "At turn start, draw 1 card. At the start of the battle, shuffle 1 {derived:Insight} into your deck. Each battle increases the number of {derived:Insight} cards shuffled into your deck by 1, up to 3 times.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "X",
-      "displayFormula": "runtime value + 1"
-    }
-  },
+  "descriptionArgs": {},
   "lore": "The Trick of Light and Shadow",
   "variants": [
     {
@@ -34,14 +28,8 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, draw 1 card. At the start of the battle, shuffle 1 <DerivativeCardKeywords_4:\"Insight\"> into your deck. Each battle increases the number of <DerivativeCardKeywords_4:\"Insight\"> cards shuffled into your deck by 1, up to 3 times.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "X",
-          "displayFormula": "runtime value + 1"
-        }
-      },
+      "descriptionTemplate": "At turn start, draw 1 card. At the start of the battle, shuffle 1 {derived:Insight} into your deck. Each battle increases the number of {derived:Insight} cards shuffled into your deck by 1, up to 3 times.",
+      "descriptionArgs": {},
       "lore": "The Trick of Light and Shadow"
     }
   ]

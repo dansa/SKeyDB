@@ -36,7 +36,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "After the battle starts, gain 5 stacks of \"<LostWay:Lost>,\" and reduce 1 stack for every 3 Command Cards played.\nAfter all \"<LostWay:Lost>\" are removed, all Awakeners gain 100 Aliemus. For every 3 cards played, recover [Arg1] HP and apply <Corrosion:Corrosion> equal to 1% of the enemy's Max HP to the front-row enemy.",
+      "descriptionTemplate": "After the battle starts, gain 5 stacks of \"{Lost},\" and reduce 1 stack for every 3 Command Cards played.\nAfter all \"{Lost}\" are removed, all Awakeners gain 100 Aliemus. For every 3 cards played, recover [Arg1] HP and apply {Corrosion} equal to 1% of the enemy's Max HP to the front-row enemy.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

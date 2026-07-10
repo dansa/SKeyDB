@@ -17,12 +17,7 @@
   "rarity": "SR",
   "aliases": [],
   "descriptionTemplate": "{Echo}: At the start of your turn, Draw the 3 Command Cards with the highest Arithmetica from your Draw Pile. The first Command Card played each turn takes effect twice.\n{Daze}: After playing a Command Card, discard all other Command Cards with an Arithmetica Cost equal to or higher than it.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "3"
-    }
-  },
+  "descriptionArgs": {},
   "variants": [
     {
       "id": "relic-variant-0207",
@@ -32,13 +27,8 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "<OrangeQuality:Echo>: At the start of your turn, Draw the 3 Command Cards with the highest Arithmetica from your Draw Pile. The first Command Card played each turn takes effect twice.\n<RedQuality:Daze>: After playing a Command Card, discard all other Command Cards with an Arithmetica Cost equal to or higher than it.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "3"
-        }
-      }
+      "descriptionTemplate": "{Echo}: At the start of your turn, Draw the 3 Command Cards with the highest Arithmetica from your Draw Pile. The first Command Card played each turn takes effect twice.\n{Daze}: After playing a Command Card, discard all other Command Cards with an Arithmetica Cost equal to or higher than it.",
+      "descriptionArgs": {}
     }
   ]
 }

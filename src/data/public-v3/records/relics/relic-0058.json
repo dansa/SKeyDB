@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0058",
       "ownerAwakenerName": "Pontos",
       "rarity": "SSR",
-      "descriptionTemplate": "Pontos gains [Arg1] Aliemus at turn start. When picked up, generate 3 Permanent \"Gaunt\" cards at the start of next battle. Pontos gains 3 Aliemus after playing a \"Gaunt\".",
+      "descriptionTemplate": "Pontos gains [Arg1] Aliemus at turn start. When picked up, generate 3 Permanent {Gaunt} cards at the start of next battle. Pontos gains 3 Aliemus after playing a {Gaunt}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

@@ -44,7 +44,7 @@
       "ownerAwakenerId": "awakener-0020",
       "ownerAwakenerName": "Ramona: Timeworn",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Ramona: Timeworn gains [Arg1] Aliemus. The first time \"Loop\" is triggered each turn, gain [Arg2] Keyflare and [Arg3] <plural value=\"[Arg3]\" singular=\"stack\" plural=\"stacks\"> of \"Negentropy\".",
+      "descriptionTemplate": "At turn start, Ramona: Timeworn gains [Arg1] Aliemus. The first time {Loop} is triggered each turn, gain [Arg2] Keyflare and [Arg3] {plural:[Arg3]|stack|stacks} of {Negentropy}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

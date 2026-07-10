@@ -78,7 +78,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Tentacle Limit +1. When HP is below 50%, <TentacleInjurieIconKeywords:Tentacle DMG> +[Arg1].",
+      "descriptionTemplate": "Tentacle Limit +1. When HP is below 50%, {Tentacle DMG} +[Arg1].",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

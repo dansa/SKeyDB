@@ -43,7 +43,7 @@
       "ownerAwakenerId": "awakener-0014",
       "ownerAwakenerName": "Doresain",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Doresain gains [Arg1] Aliemus and [Arg2] STR. When Doresain consumes a \"Corpse,\" he gains Temporary STR equal to 20% of Doresain's Permanent STR.",
+      "descriptionTemplate": "At turn start, Doresain gains [Arg1] Aliemus and [Arg2] {STR}. When Doresain consumes a {Corpse}, he gains Temporary {STR} equal to 20% of Doresain's Permanent {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

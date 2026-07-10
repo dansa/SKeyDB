@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.hide-beta",
+  "name": "Hideβ",
+  "route": {
+    "slug": "hide-beta",
+    "canonicalPath": "/database/derived-skills/hide-beta"
+  },
+  "descriptionTemplate": "Place all Awakeners' \"Defense\" into hand and set their Arithmetica Cost to 0.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

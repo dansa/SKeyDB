@@ -28,7 +28,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "After playing the 3rd card each turn, place 1 <DerivativeCardKeywords_4:\"Insight\"> into the Discard Pile. After playing the 6th card each turn, place 1 <DerivativeCardKeywords_4:\"Insight\"> from the Discard Pile into hand.",
+      "descriptionTemplate": "After playing the {ordinal:3rd} card each turn, place 1 {derived:Insight} into the Discard Pile. After playing the {ordinal:6th} card each turn, place 1 {derived:Insight} from the Discard Pile into hand.",
       "descriptionArgs": {},
       "lore": "A meteor streaking across the night sky."
     }

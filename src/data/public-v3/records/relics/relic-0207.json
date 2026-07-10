@@ -38,7 +38,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After the battle starts, Inflict [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <WeaknessIconKeywords:Weakness> to all enemies, with the effect doubled in Boss Battles. All Awakeners' Base DMG is +[Arg2]%.",
+      "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} to all enemies, with the effect doubled in Boss Battles. All Awakeners' Base DMG is +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -59,7 +59,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After the battle starts, Inflict [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <WeaknessIconKeywords:Weakness> to all enemies, with the effect doubled in Boss Battles. All Awakeners' Base DMG is +[Arg2]%.",
+      "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} to all enemies, with the effect doubled in Boss Battles. All Awakeners' Base DMG is +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -81,7 +81,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "Every 3 turns, add 1 stack of <WeaknessIconKeywords:Weakness> to all enemies. After dealing DMG to an enemy with <WeaknessIconKeywords:Weakness>, gain [Arg1] Temporary <PowerIconKeywords:STR>, with a maximum of 3 triggers per turn.",
+      "descriptionTemplate": "Every 3 turns, add 1 stack of {Weakness} to all enemies. After dealing DMG to an enemy with {Weakness}, gain [Arg1] Temporary {STR}, with a maximum of 3 triggers per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -101,7 +101,7 @@
       "tier": "Silver",
       "mechanicOwner": "Pickman",
       "rarity": "N",
-      "descriptionTemplate": "Upon picking up, inflict [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <WeaknessIconKeywords:Weakness> to all enemies. The Base DMG dealt by all Awakeners +[Arg2]%.",
+      "descriptionTemplate": "Upon picking up, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} to all enemies. The Base DMG dealt by all Awakeners +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -122,7 +122,7 @@
       "variantType": "AWAKENER_MECHANIC",
       "tier": "Gold",
       "mechanicOwner": "Pickman",
-      "descriptionTemplate": "Upon picking up, inflict [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <WeaknessIconKeywords:Weakness> to all enemies. The Base DMG dealt by all Awakeners +[Arg2]%.",
+      "descriptionTemplate": "Upon picking up, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} to all enemies. The Base DMG dealt by all Awakeners +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

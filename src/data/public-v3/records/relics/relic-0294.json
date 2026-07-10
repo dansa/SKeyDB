@@ -40,7 +40,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Use Keyflare Rouse to inflict [Arg1] <IntoxicationIconKeywords:Poison> on all enemies and gain [Arg2] Keyflare.",
+      "descriptionTemplate": "Use {Keyflare Rouse} to inflict [Arg1] {Poison} on all enemies and gain [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -63,7 +63,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Use Keyflare Rouse to inflict [Arg1] <IntoxicationIconKeywords:Poison> on all enemies and gain [Arg2] Keyflare.",
+      "descriptionTemplate": "Use {Keyflare Rouse} to inflict [Arg1] {Poison} on all enemies and gain [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -87,7 +87,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "At turn end, for each card in hand, inflict [Arg1] <plural value=\"[Arg1]\" singular=\"stack\" plural=\"stacks\"> of <IntoxicationIconKeywords:Poison> on all enemies.",
+      "descriptionTemplate": "At turn end, for each card in hand, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} on all enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

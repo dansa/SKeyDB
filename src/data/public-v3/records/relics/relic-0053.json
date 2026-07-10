@@ -44,7 +44,7 @@
       "ownerAwakenerId": "awakener-0053",
       "ownerAwakenerName": "Winkle",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Winkle gains [Arg1] Aliemus. Each time another Awakeners unleashes Exalt, Winkle gains [Arg2] Aliemus, and the Arithmetica Cost of \"Psyche Reforged\" in hand -[Arg3].",
+      "descriptionTemplate": "At turn start, Winkle gains [Arg1] Aliemus. Each time another Awakeners unleashes Exalt, Winkle gains [Arg2] Aliemus, and the Arithmetica Cost of {Psyche Reforged} in hand -[Arg3].",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

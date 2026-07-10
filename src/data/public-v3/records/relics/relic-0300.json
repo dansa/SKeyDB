@@ -39,7 +39,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At turn start, draw [Arg1] less cards. Gain 1 Arithmetica for each card played with Arithmetica Cost >= [Arg2], triggering up to [Arg3] <plural value=\"[Arg3]\" singular=\"time\" plural=\"times\"> per turn.",
+      "descriptionTemplate": "At turn start, draw [Arg1] less cards. Gain 1 Arithmetica for each card played with Arithmetica Cost >= [Arg2], triggering up to [Arg3] {plural:[Arg3]|time|times} per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

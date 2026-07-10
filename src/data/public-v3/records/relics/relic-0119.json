@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "All Awakeners' Keyflare Regen +30. After releasing Posse, shuffle 3 <DerivativeCardKeywords_4:\"Insight\"> into your deck.",
+      "descriptionTemplate": "All Awakeners' Keyflare Regen +30. After releasing Posse, shuffle 3 {derived:Insight} into your deck.",
       "descriptionArgs": {}
     },
     {
@@ -38,7 +38,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Tentacle Limit +2. After triggering Exalt, Tentacle DMG +[Arg1]. When Exalt is triggered 3 times in a turn, activate all Tentacles once.",
+      "descriptionTemplate": "Tentacle Limit +2. After triggering Exalt, {Tentacle DMG} +[Arg1]. When Exalt is triggered 3 times in a turn, activate all Tentacles once.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

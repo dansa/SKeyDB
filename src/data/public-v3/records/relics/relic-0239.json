@@ -40,7 +40,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After using Keyflare Rouse, gain [Arg1] Shield and [Arg2] Keyflare.",
+      "descriptionTemplate": "After using {Keyflare Rouse}, gain [Arg1] Shield and [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -63,7 +63,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After using Keyflare Rouse, gain [Arg1] Shield and [Arg2] Keyflare.",
+      "descriptionTemplate": "After using {Keyflare Rouse}, gain [Arg1] Shield and [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -87,7 +87,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "When causing HP Recovery, also grant [Arg1] Shield. After the start of the 3rd turn, gain [Arg2] <AlertIconKeywords:Alert>.",
+      "descriptionTemplate": "When causing HP Recovery, also grant [Arg1] Shield. After the start of the {ordinal:3rd} turn, gain [Arg2] {Alert}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

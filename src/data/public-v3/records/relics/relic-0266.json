@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Hand Limit +1. Create a customized \"Taboo Trade\" at the start of battle. Play \"Taboo Trade\" to create another on your next turn.\n\"Taboo Trade\" has 4 Arithmetica Cost, Retain, Prepare, & Exhaust, and has 3 custom effects. Playing \"Strike,\" \"Defense,\" or \"Skill\" Command Cards will enhance its 1st, 2nd, or 3rd effects respectively.",
+      "descriptionTemplate": "Hand Limit +1. Create a customized \"Taboo Trade\" at the start of battle. Play \"Taboo Trade\" to create another on your next turn.\n\"Taboo Trade\" has 4 Arithmetica Cost, {Retain}, {Prepare}, & {Exhaust}, and has 3 custom effects. Playing \"Strike,\" \"Defense,\" or \"Skill\" Command Cards will enhance its {ordinal:1st}, {ordinal:2nd}, or {ordinal:3rd} effects respectively.",
       "descriptionArgs": {},
       "lore": "The words on the letter kept changing, always transforming into an irresistible desire."
     }

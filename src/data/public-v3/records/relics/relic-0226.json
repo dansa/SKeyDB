@@ -31,7 +31,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At the start of the turn, if Keyflare exceeds [Arg1], consume [Arg1] Keyflare to add 1 <DerivativeCardKeywords_115:\"Adv. Insight\"> to hand.",
+      "descriptionTemplate": "At the start of the turn, if Keyflare exceeds [Arg1], consume [Arg1] Keyflare to add 1 {Adv. Insight} to hand.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

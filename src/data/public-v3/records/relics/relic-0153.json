@@ -28,7 +28,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "When picked up, choose a Command Card to give it \"Innate,\" \"Retain,\" and \"Draw 1 card after being played\".",
+      "descriptionTemplate": "When picked up, choose a Command Card to give it {Innate}, {Retain}, and \"Draw 1 card after being played\".",
       "descriptionArgs": {},
       "lore": "Shh, this is a secret deal between you and me."
     }

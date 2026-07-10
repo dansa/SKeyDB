@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Shuffle 1 <DerivativeCardKeywords_4:\"Insight\"> into the Draw Pile for every 4 hits, up to 3 times per turn. After an Exalt, play and exhaust all <DerivativeCardKeywords_4:\"Insight\"> in the Draw Pile.",
+      "descriptionTemplate": "Shuffle 1 {derived:Insight} into the Draw Pile for every 4 hits, up to 3 times per turn. After an Exalt, play and {Exhaust} all {derived:Insight} in the Draw Pile.",
       "descriptionArgs": {}
     }
   ]

@@ -50,7 +50,7 @@
       "ownerAwakenerId": "awakener-0016",
       "ownerAwakenerName": "Faint",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Faint gains [Arg1] Aliemus. Faint's Shield, Counter, and HP recovery effects +[Arg2]%. Each time Death Resistance is triggered, this effect +[Arg3]% for the current exploration, up to [Arg4] <plural value=\"[Arg4]\" singular=\"time\" plural=\"times\">.",
+      "descriptionTemplate": "At turn start, Faint gains [Arg1] Aliemus. Faint's Shield, {Counter}, and HP recovery effects +[Arg2]%. Each time {Death Resistance} is triggered, this effect +[Arg3]% for the current exploration, up to [Arg4] {plural:[Arg4]|time|times}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

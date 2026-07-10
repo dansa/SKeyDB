@@ -66,7 +66,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Every 8th Command Card you play will take effect twice.",
+      "descriptionTemplate": "Every {ordinal:8th} Command Card you play will take effect twice.",
       "descriptionArgs": {},
       "lore": "Wandering among the stars."
     },

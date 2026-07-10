@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0035",
       "ownerAwakenerName": "Murphy: Fauxborn",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Murphy: Fauxborn gains [Arg1] Aliemus. \"Waltz of Lemuria\" takes effect 3 times every 3rd play.",
+      "descriptionTemplate": "At turn start, Murphy: Fauxborn gains [Arg1] Aliemus. {Waltz of Lemuria} takes effect 3 times every {ordinal:3rd} play.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

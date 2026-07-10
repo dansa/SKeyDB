@@ -17,12 +17,7 @@
   "rarity": "SR",
   "aliases": [],
   "descriptionTemplate": "When you play a card with an actual Arithmetica Cost of 3, draw 1 card and gain 2 Arithmetica; when you play a card with an actual Arithmetica Cost of 4 or more, reduce the Arithmetica Cost of other cards in your hand by 1.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "111"
-    }
-  },
+  "descriptionArgs": {},
   "variants": [
     {
       "id": "relic-variant-0128",
@@ -33,12 +28,7 @@
       "category": "PENDULUM",
       "rarity": "SR",
       "descriptionTemplate": "When you play a card with an actual Arithmetica Cost of 3, draw 1 card and gain 2 Arithmetica; when you play a card with an actual Arithmetica Cost of 4 or more, reduce the Arithmetica Cost of other cards in your hand by 1.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "111"
-        }
-      }
+      "descriptionArgs": {}
     }
   ]
 }

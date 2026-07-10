@@ -17,12 +17,7 @@
   "rarity": "SSR",
   "aliases": [],
   "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Caro} Awakener gains its \"Dimensional Image\". For each {Caro} Awakener in the team, increase the Relic Capacity by +1.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "fixed",
-      "value": "30"
-    }
-  },
+  "descriptionArgs": {},
   "lore": "From unyielding suffering, ascension has been achieved.",
   "variants": [
     {
@@ -33,13 +28,8 @@
       "tier": "Special",
       "category": "OTHER",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and \"Caro\" Awakener gains its \"Dimensional Image\". For each \"Caro\" Awakener in the team, increase the Relic Capacity by +1.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "fixed",
-          "value": "30"
-        }
-      },
+      "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Caro} Awakener gains its \"Dimensional Image\". For each {Caro} Awakener in the team, increase the Relic Capacity by +1.",
+      "descriptionArgs": {},
       "lore": "From unyielding suffering, ascension has been achieved."
     }
   ]

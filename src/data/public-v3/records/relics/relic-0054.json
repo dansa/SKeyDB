@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0054",
       "ownerAwakenerName": "Xu",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Xu gains [Arg1] Aliemus and inflicts 1 stack of <WitherKeywords:Spellbound> on all enemies. The first Command Card Xu plays each turn will trigger the \"Resonance\" effect.",
+      "descriptionTemplate": "At turn start, Xu gains [Arg1] Aliemus and inflicts 1 stack of {Spellbound} on all enemies. The first Command Card Xu plays each turn will trigger the {Resonance} effect.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

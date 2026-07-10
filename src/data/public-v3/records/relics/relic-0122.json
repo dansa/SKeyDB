@@ -17,15 +17,7 @@
   "rarity": "SR",
   "aliases": [],
   "descriptionTemplate": "\"Strike \"Damage and \"Defense \"Shield increase by 30%. If you play 4 or more \"Strike\" and \"Defense\" cards in one turn, draw 2 cards and gain 1 Arithmetica at the start of next turn.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "computed",
-      "formulaKey": "scaled",
-      "baseFormula": "esotericResearchDepth",
-      "multiplier": 0.02,
-      "inputs": ["accountLevel", "ownedPosseCount"]
-    }
-  },
+  "descriptionArgs": {},
   "variants": [
     {
       "id": "relic-variant-0157",
@@ -35,16 +27,8 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "\"Strike\"Damage and \"Defense\"Shield increase by 30%. If you play 4 or more \"Strike\" and \"Defense\" cards in one turn, draw 2 cards and gain 1 Arithmetica at the start of next turn.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "computed",
-          "formulaKey": "scaled",
-          "baseFormula": "esotericResearchDepth",
-          "multiplier": 0.02,
-          "inputs": ["accountLevel", "ownedPosseCount"]
-        }
-      }
+      "descriptionTemplate": "\"Strike \"Damage and \"Defense \"Shield increase by 30%. If you play 4 or more \"Strike\" and \"Defense\" cards in one turn, draw 2 cards and gain 1 Arithmetica at the start of next turn.",
+      "descriptionArgs": {}
     }
   ]
 }

@@ -38,7 +38,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the battle. After applying <IntoxicationIconKeywords:Poison> for the first time each turn, draw [Arg2] <plural value=\"[Arg2]\" singular=\"card\" plural=\"cards\">.",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the battle. After applying {Poison} for the first time each turn, draw [Arg2] {plural:[Arg2]|card|cards}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -59,7 +59,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the battle. After applying <IntoxicationIconKeywords:Poison> for the first time each turn, draw [Arg2] <plural value=\"[Arg2]\" singular=\"card\" plural=\"cards\">.",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the battle. After applying {Poison} for the first time each turn, draw [Arg2] {plural:[Arg2]|card|cards}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -81,7 +81,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "Upon pickup, choose 1 out of 3 random Adv. Orisons and assign it to the corresponding card.",
+      "descriptionTemplate": "Upon pickup, choose 1 out of 3 random Adv. {Orisons} and assign it to the corresponding card.",
       "descriptionArgs": {},
       "lore": "Here is the question: 10 monks share 6 loaves of bread. How much does each monk receive?"
     }

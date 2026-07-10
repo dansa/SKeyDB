@@ -17,15 +17,7 @@
   "rarity": "SSR",
   "aliases": [],
   "descriptionTemplate": "After releasing 5 Exalts, the Awakener who released the Exalts gains 100 Aliemus.",
-  "descriptionArgs": {
-    "Arg1": {
-      "kind": "computed",
-      "formulaKey": "scaled",
-      "baseFormula": "esotericResearchDepth",
-      "multiplier": 0.1,
-      "inputs": ["accountLevel", "ownedPosseCount"]
-    }
-  },
+  "descriptionArgs": {},
   "lore": "Carrying hope, blessings, and love.",
   "variants": [
     {
@@ -37,15 +29,7 @@
       "category": "FADED_LEGACY",
       "rarity": "SSR",
       "descriptionTemplate": "After releasing 5 Exalts, the Awakener who released the Exalts gains 100 Aliemus.",
-      "descriptionArgs": {
-        "Arg1": {
-          "kind": "computed",
-          "formulaKey": "scaled",
-          "baseFormula": "esotericResearchDepth",
-          "multiplier": 0.1,
-          "inputs": ["accountLevel", "ownedPosseCount"]
-        }
-      },
+      "descriptionArgs": {},
       "lore": "Carrying hope, blessings, and love."
     }
   ]

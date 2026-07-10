@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At turn start, draw [Arg1] <plural value=\"[Arg1]\" singular=\"card\" plural=\"cards\">.",
+      "descriptionTemplate": "At turn start, draw [Arg1] {plural:[Arg1]|card|cards}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At turn start, draw [Arg1] <plural value=\"[Arg1]\" singular=\"card\" plural=\"cards\">.",
+      "descriptionTemplate": "At turn start, draw [Arg1] {plural:[Arg1]|card|cards}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
