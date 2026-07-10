@@ -15,26 +15,16 @@ const RELIC_DATABASE_CATEGORIES = [
   'PENDULUM',
   'OTHER',
 ] as const satisfies readonly RelicCategory[]
-const RELIC_DATABASE_RARITIES = ['SSR', 'SR', 'N'] as const
 
 export const RELIC_DATABASE_CATEGORY_FILTER_IDS = ['ALL', ...RELIC_DATABASE_CATEGORIES] as const
 export type RelicDatabaseCategoryFilterId = (typeof RELIC_DATABASE_CATEGORY_FILTER_IDS)[number]
 
-export const RELIC_DATABASE_RARITY_FILTER_IDS = ['ALL', ...RELIC_DATABASE_RARITIES] as const
-export type RelicDatabaseRarityFilterId = (typeof RELIC_DATABASE_RARITY_FILTER_IDS)[number]
-
-export const RELIC_DATABASE_SORT_OPTIONS = [
-  'BEST_MATCH',
-  'ALPHABETICAL',
-  'RARITY',
-  'VARIANT_COUNT',
-] as const
+export const RELIC_DATABASE_SORT_OPTIONS = ['BEST_MATCH', 'ALPHABETICAL', 'VARIANT_COUNT'] as const
 export type RelicDatabaseSortKey = (typeof RELIC_DATABASE_SORT_OPTIONS)[number]
 
 export interface RelicDatabaseBrowseState {
   categoryFilter: RelicDatabaseCategoryFilterId
   query: string
-  rarityFilter: RelicDatabaseRarityFilterId
   sortDirection: CollectionSortDirection
   sortKey: RelicDatabaseSortKey
 }
@@ -42,7 +32,6 @@ export interface RelicDatabaseBrowseState {
 export const RELIC_DATABASE_BROWSE_DEFAULTS: RelicDatabaseBrowseState = {
   categoryFilter: 'ALL',
   query: '',
-  rarityFilter: 'ALL',
   sortDirection: 'ASC',
   sortKey: 'BEST_MATCH',
 }
@@ -69,7 +58,7 @@ export function getRelicDatabaseCategoryFilterLabel(category: RelicCategory | 'A
 export function getDefaultRelicDatabaseSortDirection(
   sortKey: RelicDatabaseSortKey,
 ): CollectionSortDirection {
-  return sortKey === 'RARITY' || sortKey === 'VARIANT_COUNT' ? 'DESC' : 'ASC'
+  return sortKey === 'VARIANT_COUNT' ? 'DESC' : 'ASC'
 }
 
 function parseSortDirection(
@@ -97,11 +86,6 @@ export function parseRelicDatabaseBrowseState(
       RELIC_DATABASE_BROWSE_DEFAULTS.categoryFilter,
     ),
     query: normalizeBrowseQuery(searchParams.get('q')),
-    rarityFilter: parseEnumSearchParam(
-      searchParams.get('rarity'),
-      RELIC_DATABASE_RARITY_FILTER_IDS,
-      RELIC_DATABASE_BROWSE_DEFAULTS.rarityFilter,
-    ),
     sortDirection: parseSortDirection(searchParams.get('dir'), sortKey),
     sortKey,
   }
@@ -125,13 +109,7 @@ export function patchRelicDatabaseBrowseState(
           ? undefined
           : nextState.categoryFilter,
       )
-      setSearchParam(
-        nextParams,
-        'rarity',
-        nextState.rarityFilter === RELIC_DATABASE_BROWSE_DEFAULTS.rarityFilter
-          ? undefined
-          : nextState.rarityFilter,
-      )
+      nextParams.delete('rarity')
       if (includeSortParams) {
         setSearchParam(
           nextParams,
@@ -166,6 +144,5 @@ export function resetRelicDatabaseBrowseFilters(searchParams: URLSearchParams): 
   return patchRelicDatabaseBrowseState(searchParams, {
     categoryFilter: 'ALL',
     query: '',
-    rarityFilter: 'ALL',
   })
 }

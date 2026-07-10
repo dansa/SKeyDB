@@ -17,7 +17,6 @@ import {
   getRelicDatabaseCategoryFilterLabel,
   type RelicDatabaseBrowseState,
   type RelicDatabaseCategoryFilterId,
-  type RelicDatabaseRarityFilterId,
 } from '@/domain/relic-database-browse-state'
 import {
   getPosseDatabaseRealmFilterLabel,
@@ -62,7 +61,6 @@ interface WheelActiveFilterActions {
 interface RelicActiveFilterActions {
   clearQuery: () => void
   setCategoryFilter: (next: RelicDatabaseCategoryFilterId) => void
-  setRarityFilter: (next: RelicDatabaseRarityFilterId) => void
 }
 
 export function buildAwakenerActiveFilterChips(
@@ -255,7 +253,7 @@ export function buildWheelActiveFilterChips(
 }
 
 export function buildRelicActiveFilterChips(
-  state: Pick<RelicDatabaseBrowseState, 'query' | 'categoryFilter' | 'rarityFilter'>,
+  state: Pick<RelicDatabaseBrowseState, 'query' | 'categoryFilter'>,
   actions: RelicActiveFilterActions,
 ): ActiveFilterChip[] {
   const chips: ActiveFilterChip[] = []
@@ -273,15 +271,5 @@ export function buildRelicActiveFilterChips(
       },
     })
   }
-  if (state.rarityFilter !== 'ALL') {
-    chips.push({
-      key: 'rarity',
-      label: state.rarityFilter,
-      onClear: () => {
-        actions.setRarityFilter('ALL')
-      },
-    })
-  }
-
   return chips
 }

@@ -27,7 +27,8 @@ describe('RelicGridCard', () => {
     render(<RelicGridCard awakeners={[]} index={0} onSelect={vi.fn()} relic={relic} />)
 
     expect(screen.getByLabelText('View relic details for Malignant Child')).toBeInTheDocument()
-    expect(screen.getByText('N · Astral Reign · Faded Legacy')).toBeInTheDocument()
+    expect(screen.getByText('Astral Reign · Faded Legacy')).toBeInTheDocument()
+    expect(screen.queryByText(/^N(?:\s|$)/)).not.toBeInTheDocument()
     expect(screen.getByLabelText('5 variants')).toHaveTextContent('×5')
   })
 

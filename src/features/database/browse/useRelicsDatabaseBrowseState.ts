@@ -6,7 +6,6 @@ import {
   patchRelicDatabaseBrowseState,
   type RelicDatabaseBrowseState,
   type RelicDatabaseCategoryFilterId,
-  type RelicDatabaseRarityFilterId,
   type RelicDatabaseSortKey,
 } from '@/domain/relic-database-browse-state'
 
@@ -18,18 +17,12 @@ export function useRelicsDatabaseBrowseState() {
     parseState: parseRelicDatabaseBrowseState,
     patchState: patchRelicDatabaseBrowseState,
   })
-  const {categoryFilter, query, rarityFilter, sortDirection, sortKey} = browseState
+  const {categoryFilter, query, sortDirection, sortKey} = browseState
   const queryActions = useBrowseQueryActions(query, commitBrowseState)
 
   const setCategoryFilter = useCallback(
     (next: RelicDatabaseCategoryFilterId) => {
       commitBrowseState({categoryFilter: next}, 'push')
-    },
-    [commitBrowseState],
-  )
-  const setRarityFilter = useCallback(
-    (next: RelicDatabaseRarityFilterId) => {
-      commitBrowseState({rarityFilter: next}, 'push')
     },
     [commitBrowseState],
   )
@@ -46,17 +39,15 @@ export function useRelicsDatabaseBrowseState() {
     commitBrowseState({sortDirection: sortDirection === 'ASC' ? 'DESC' : 'ASC'}, 'replace')
   }, [commitBrowseState, sortDirection])
   const resetFilters = useCallback(() => {
-    commitBrowseState({categoryFilter: 'ALL', query: '', rarityFilter: 'ALL'}, 'push')
+    commitBrowseState({categoryFilter: 'ALL', query: ''}, 'push')
   }, [commitBrowseState])
 
   return {
     ...queryActions,
     categoryFilter,
     query,
-    rarityFilter,
     resetFilters,
     setCategoryFilter,
-    setRarityFilter,
     setSortKey,
     sortDirection,
     sortKey,

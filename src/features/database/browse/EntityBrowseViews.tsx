@@ -389,22 +389,14 @@ export function RelicsBrowse({
       buildRelicDatabaseView(databaseRelics, {
         categoryFilter: browseState.categoryFilter,
         query: browseState.query,
-        rarityFilter: browseState.rarityFilter,
         sortDirection: browseState.sortDirection,
         sortKey: browseState.sortKey,
       }),
-    [
-      browseState.categoryFilter,
-      browseState.query,
-      browseState.rarityFilter,
-      browseState.sortDirection,
-      browseState.sortKey,
-    ],
+    [browseState.categoryFilter, browseState.query, browseState.sortDirection, browseState.sortKey],
   )
   const activeFilterChips = buildRelicActiveFilterChips(browseState, {
     clearQuery: browseState.clearQuery,
     setCategoryFilter: browseState.setCategoryFilter,
-    setRarityFilter: browseState.setRarityFilter,
   })
   const detailResultSet = useMemo(() => createRelicDetailResultSet(relics), [relics])
   const filters = useMemo(
@@ -413,19 +405,15 @@ export function RelicsBrowse({
         categoryFilter={browseState.categoryFilter}
         onCategoryFilterChange={browseState.setCategoryFilter}
         onQueryChange={browseState.setQuery}
-        onRarityFilterChange={browseState.setRarityFilter}
         query={browseState.query}
-        rarityFilter={browseState.rarityFilter}
         searchInputRef={controller.searchInputRef}
       />
     ),
     [
       browseState.categoryFilter,
       browseState.query,
-      browseState.rarityFilter,
       browseState.setCategoryFilter,
       browseState.setQuery,
-      browseState.setRarityFilter,
       controller.searchInputRef,
     ],
   )

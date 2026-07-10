@@ -2,18 +2,19 @@ import type {RelicDatabaseBrowseState} from '@/domain/relic-database-browse-stat
 import type {Relic} from '@/domain/relics'
 import {searchRelicResults} from '@/domain/relics-search'
 
-const RARITY_RANK: Record<NonNullable<Relic['rarity']>, number> = {
-  N: 1,
-  SR: 2,
-  SSR: 3,
-}
+const RELIC_NAME_COLLATOR = new Intl.Collator('en', {numeric: true, sensitivity: 'base'})
 
 function compareValues(left: number, right: number, direction: 'ASC' | 'DESC'): number {
   return direction === 'ASC' ? left - right : right - left
 }
 
 function compareNames(left: Relic, right: Relic, direction: 'ASC' | 'DESC'): number {
-  const result = left.name.localeCompare(right.name)
+  const normalizedLeft = left.name.replace(/^[\s\p{P}]+/u, '')
+  const normalizedRight = right.name.replace(/^[\s\p{P}]+/u, '')
+  const result =
+    RELIC_NAME_COLLATOR.compare(normalizedLeft, normalizedRight) ||
+    RELIC_NAME_COLLATOR.compare(left.name, right.name) ||
+    left.id.localeCompare(right.id)
   return direction === 'ASC' ? result : -result
 }
 
@@ -26,9 +27,7 @@ export function buildRelicDatabaseView(
   const filtered = searchResults
     .map((result) => result.entity)
     .filter(
-      (relic) =>
-        (state.categoryFilter === 'ALL' || relic.categories.includes(state.categoryFilter)) &&
-        (state.rarityFilter === 'ALL' || relic.rarity === state.rarityFilter),
+      (relic) => state.categoryFilter === 'ALL' || relic.categories.includes(state.categoryFilter),
     )
 
   return filtered.toSorted((left, right) => {
@@ -37,22 +36,14 @@ export function buildRelicDatabaseView(
         const relevance =
           (relevanceIndex.get(left.id) ?? Number.MAX_SAFE_INTEGER) -
           (relevanceIndex.get(right.id) ?? Number.MAX_SAFE_INTEGER)
-        return relevance !== 0 ? relevance : left.name.localeCompare(right.name)
+        return relevance !== 0 ? relevance : compareNames(left, right, 'ASC')
       }
-      return left.name.localeCompare(right.name)
+      return compareNames(left, right, 'ASC')
     }
     if (state.sortKey === 'ALPHABETICAL') {
       return compareNames(left, right, state.sortDirection)
     }
-    if (state.sortKey === 'RARITY') {
-      const rarity = compareValues(
-        left.rarity ? RARITY_RANK[left.rarity] : 0,
-        right.rarity ? RARITY_RANK[right.rarity] : 0,
-        state.sortDirection,
-      )
-      return rarity !== 0 ? rarity : left.name.localeCompare(right.name)
-    }
     const variantCount = compareValues(left.variantCount, right.variantCount, state.sortDirection)
-    return variantCount !== 0 ? variantCount : left.name.localeCompare(right.name)
+    return variantCount !== 0 ? variantCount : compareNames(left, right, 'ASC')
   })
 }

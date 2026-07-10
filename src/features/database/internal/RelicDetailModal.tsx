@@ -1,4 +1,4 @@
-import {useEffect, useMemo} from 'react'
+import {Fragment, useEffect, useMemo} from 'react'
 
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
 import {useStore} from 'zustand'
@@ -8,7 +8,6 @@ import type {RelicDatabaseDescriptionRecord} from '@/domain/description-records'
 import {buildGlobalDatabaseReferenceLayer} from '@/domain/global-database-reference-layer'
 import {buildPublicFormulaContext} from '@/domain/public-formula-context'
 import {getRelicAssetByAssetId} from '@/domain/relic-assets'
-import {getRelicDatabaseCategoryFilterLabel} from '@/domain/relic-database-browse-state'
 import {
   getDefaultRelicVariant,
   getRelicVariantById,
@@ -23,7 +22,6 @@ import {
   DATABASE_DETAIL_BODY_CLASS,
   DATABASE_DETAIL_HEADER_META_CLASS,
   DATABASE_DETAIL_HEADER_TITLE_CLASS,
-  DATABASE_DETAIL_META_PRIMARY_CLASS,
   DATABASE_DETAIL_META_ROW_CLASS,
   DATABASE_DETAIL_META_SEPARATOR_CLASS,
   DATABASE_DETAIL_SECTION_HEADING_CLASS,
@@ -35,7 +33,7 @@ import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 
 import type {DatabaseDetailResultNavigation} from '../detail/database-detail-result-navigation'
 import {DatabaseScopedRichDescription} from './DatabaseScopedRichDescription'
-import {buildRelicVariantLabels, getRelicVariantTypeLabel} from './relic-database-presentation'
+import {buildRelicVariantLabels, getRelicVariantMetadataLabels} from './relic-database-presentation'
 import {useDatabaseDetailPreferences} from './useDatabaseDetailPreferences'
 import {useDatabasePopoverController} from './useDatabasePopoverController'
 import {WheelLoreText} from './WheelLoreText'
@@ -193,8 +191,7 @@ function RelicDetailModalInner({
     showTagIcons: preferences.shared.showTagIcons,
   })
   const artAsset = getRelicAssetByAssetId(item.assetId)
-  const category = selectedVariant.category
-  const rarity = selectedVariant.rarity
+  const metadataLabels = getRelicVariantMetadataLabels(selectedVariant)
   const ownerAwakenerId = selectedVariant.ownerAwakenerId ?? fullData.ownerAwakenerId
   const ownerAwakenerName = selectedVariant.ownerAwakenerName ?? fullData.ownerAwakenerName
   const lore = getNonEmptyText(selectedVariant.lore, fullData.lore)
@@ -209,7 +206,9 @@ function RelicDetailModalInner({
       onClose={onClose}
       popoverController={popoverController}
       preferences={preferences}
-      sideArtClassName='object-contain p-10 lg:p-14'
+      preserveSideArtIntrinsicSize
+      sideArtClassName='object-contain'
+      sideArtContainerClassName='p-10 lg:p-14'
       updateSharedPreferences={updateSharedPreferences}
     >
       {({openArtViewer}) => (
@@ -236,19 +235,14 @@ function RelicDetailModalInner({
                 <p
                   className={`${DATABASE_DETAIL_META_ROW_CLASS} ${DATABASE_DETAIL_HEADER_META_CLASS}`}
                 >
-                  {rarity ? (
-                    <>
-                      <span className={DATABASE_DETAIL_META_PRIMARY_CLASS}>{rarity}</span>
-                      <span className={DATABASE_DETAIL_META_SEPARATOR_CLASS}>•</span>
-                    </>
-                  ) : null}
-                  <span>{getRelicVariantTypeLabel(selectedVariant.variantType)}</span>
-                  {category ? (
-                    <>
-                      <span className={DATABASE_DETAIL_META_SEPARATOR_CLASS}>•</span>
-                      <span>{getRelicDatabaseCategoryFilterLabel(category)}</span>
-                    </>
-                  ) : null}
+                  {metadataLabels.map((label, index) => (
+                    <Fragment key={label}>
+                      {index > 0 ? (
+                        <span className={DATABASE_DETAIL_META_SEPARATOR_CLASS}>•</span>
+                      ) : null}
+                      <span>{label}</span>
+                    </Fragment>
+                  ))}
                   <OwnerAwakenerMetaLink
                     onSelectAwakener={onSelectAwakener}
                     ownerAwakenerId={ownerAwakenerId}

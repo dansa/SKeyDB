@@ -26,6 +26,6 @@ describe('relic database routing', () => {
         'relics',
         '?q=child&category=ASTRAL_REIGN&rarity=N&sort=VARIANT_COUNT&variant=relic-variant-0338&private=1',
       ),
-    ).toBe('?q=child&category=ASTRAL_REIGN&rarity=N&sort=VARIANT_COUNT')
+    ).toBe('?q=child&category=ASTRAL_REIGN&sort=VARIANT_COUNT')
   })
 })

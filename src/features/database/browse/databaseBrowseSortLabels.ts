@@ -22,7 +22,6 @@ const WHEEL_SORT_LABELS: Record<WheelsDatabaseSortKey, string> = {
 const RELIC_SORT_LABELS: Record<RelicDatabaseSortKey, string> = {
   ALPHABETICAL: 'Alphabetical',
   BEST_MATCH: 'Best match',
-  RARITY: 'Rarity',
   VARIANT_COUNT: 'Variant count',
 }
 

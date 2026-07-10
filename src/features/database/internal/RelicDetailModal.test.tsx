@@ -7,7 +7,7 @@ import {describe, expect, it, vi} from 'vitest'
 
 import {getRelicById, loadRelicRecordById} from '@/domain/relics'
 
-import {buildRelicVariantLabels} from './relic-database-presentation'
+import {buildRelicVariantLabels, getRelicVariantMetadataLabels} from './relic-database-presentation'
 import {RelicDetailModal} from './RelicDetailModal'
 
 async function loadFixture(id: string) {
@@ -18,6 +18,15 @@ async function loadFixture(id: string) {
 }
 
 describe('RelicDetailModal', () => {
+  it('de-duplicates equivalent variant type and category metadata', () => {
+    expect(getRelicVariantMetadataLabels({category: 'PENDULUM', variantType: 'PENDULUM'})).toEqual([
+      'Pendulum',
+    ])
+    expect(getRelicVariantMetadataLabels({category: 'EVENT', variantType: 'EVENT'})).toEqual([
+      'Event',
+    ])
+  })
+
   it('adds honest ordinals when a family repeats variant labels', async () => {
     const {fullData} = await loadFixture('relic-0113')
     const labels = buildRelicVariantLabels(fullData.variants)
@@ -174,6 +183,9 @@ describe('RelicDetailModal', () => {
     )
 
     expect(screen.queryByRole('combobox', {name: 'Relic variant'})).not.toBeInTheDocument()
+    expect(screen.queryByText('SSR')).not.toBeInTheDocument()
+    expect(document.querySelector('aside img')).toHaveClass('max-h-full', 'max-w-full')
+    expect(document.querySelector('aside img')).not.toHaveClass('h-full', 'w-full')
     await user.click(screen.getByRole('button', {name: '24'}))
     expect(onSelectAwakener).toHaveBeenCalledWith({id: 'awakener-0001', name: '24'}, 'overview')
   })

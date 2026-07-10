@@ -34,6 +34,23 @@ export function getRelicVariantTypeLabel(variantType: string): string {
     .join(' ')
 }
 
+export function getRelicVariantMetadataLabels(
+  variant: Pick<PublicRelicVariant, 'category' | 'variantType'>,
+): string[] {
+  const labels = [getRelicVariantTypeLabel(variant.variantType)]
+  if (variant.category && variant.category !== variant.variantType) {
+    labels.push(getRelicDatabaseCategoryFilterLabel(variant.category))
+  }
+  const seen = new Set<string>()
+
+  return labels.filter((label) => {
+    const normalized = label.toLocaleLowerCase()
+    if (seen.has(normalized)) return false
+    seen.add(normalized)
+    return true
+  })
+}
+
 const RELIC_CATEGORY_ACCENTS: Record<RelicCategory, string> = {
   ASTRAL_REIGN: '#d8b25f',
   FADED_LEGACY: '#8fa6c2',
@@ -62,7 +79,5 @@ export function getRelicCategoryLabel(category: RelicCategory): string {
 }
 
 export function formatRelicCardMeta(relic: Relic): string {
-  return [relic.rarity, relic.categories.map(getRelicCategoryLabel).join(' · ')]
-    .filter(Boolean)
-    .join(' · ')
+  return [...new Set(relic.categories.map(getRelicCategoryLabel))].join(' · ')
 }

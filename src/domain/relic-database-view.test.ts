@@ -7,7 +7,6 @@ import {getRelics} from './relics'
 const defaults: RelicDatabaseBrowseState = {
   categoryFilter: 'ALL',
   query: '',
-  rarityFilter: 'ALL',
   sortDirection: 'ASC',
   sortKey: 'BEST_MATCH',
 }
@@ -43,30 +42,34 @@ describe('buildRelicDatabaseView', () => {
     ).toBe(true)
   })
 
-  it('combines category and rarity filters', () => {
+  it('filters by category without depending on family rarity', () => {
     const filtered = buildRelicDatabaseView(relics, {
       ...defaults,
       categoryFilter: 'PENDULUM',
-      rarityFilter: 'SR',
     })
     expect(filtered.length).toBeGreaterThan(0)
     expect(filtered.every((relic) => relic.categories.includes('PENDULUM'))).toBe(true)
-    expect(filtered.every((relic) => relic.rarity === 'SR')).toBe(true)
   })
 
-  it('sorts by rarity and variant count with deterministic name ties', () => {
-    const byRarity = buildRelicDatabaseView(relics, {
-      ...defaults,
-      sortDirection: 'DESC',
-      sortKey: 'RARITY',
-    })
-    expect(byRarity[0]?.rarity).toBe('SSR')
-
+  it('sorts by variant count with deterministic name ties', () => {
     const byVariants = buildRelicDatabaseView(relics, {
       ...defaults,
       sortDirection: 'DESC',
       sortKey: 'VARIANT_COUNT',
     })
     expect(byVariants[0]?.variantCount).toBe(9)
+  })
+
+  it('ignores leading quote punctuation for alphabetical order', () => {
+    const fixture = relics[0]
+    const sorted = buildRelicDatabaseView(
+      [
+        {...fixture, id: 'relic-sort-memory', name: '"Memory"'},
+        {...fixture, id: 'relic-sort-dream', name: 'Dream'},
+      ],
+      {...defaults, sortKey: 'ALPHABETICAL'},
+    )
+
+    expect(sorted.map((relic) => relic.name)).toEqual(['Dream', '"Memory"'])
   })
 })

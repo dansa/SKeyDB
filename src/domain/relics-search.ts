@@ -23,7 +23,6 @@ function getRelicSearchOptions(): PublicSearchOptions<Relic> {
         ...relic.categories,
         ...relic.categories.map(getRelicDatabaseCategoryFilterLabel),
       ]
-      if (relic.rarity) facets.unshift(relic.rarity)
 
       return {
         alias: relic.aliases,

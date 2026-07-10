@@ -7,7 +7,6 @@ import {
   patchRelicDatabaseBrowseState,
   RELIC_DATABASE_BROWSE_DEFAULTS,
   RELIC_DATABASE_CATEGORY_FILTER_IDS,
-  RELIC_DATABASE_RARITY_FILTER_IDS,
   RELIC_DATABASE_SORT_OPTIONS,
   resetRelicDatabaseBrowseFilters,
 } from './relic-database-browse-state'
@@ -23,13 +22,7 @@ describe('relic-database-browse-state', () => {
       'PENDULUM',
       'OTHER',
     ])
-    expect(RELIC_DATABASE_RARITY_FILTER_IDS).toEqual(['ALL', 'SSR', 'SR', 'N'])
-    expect(RELIC_DATABASE_SORT_OPTIONS).toEqual([
-      'BEST_MATCH',
-      'ALPHABETICAL',
-      'RARITY',
-      'VARIANT_COUNT',
-    ])
+    expect(RELIC_DATABASE_SORT_OPTIONS).toEqual(['BEST_MATCH', 'ALPHABETICAL', 'VARIANT_COUNT'])
   })
 
   it('parses known browse params and trims query text', () => {
@@ -42,7 +35,6 @@ describe('relic-database-browse-state', () => {
     ).toEqual({
       query: 'omen ritual',
       categoryFilter: 'FADED_LEGACY',
-      rarityFilter: 'SSR',
       sortKey: 'VARIANT_COUNT',
       sortDirection: 'ASC',
     })
@@ -59,15 +51,14 @@ describe('relic-database-browse-state', () => {
   it('uses the settled direction default for each sort', () => {
     expect(getDefaultRelicDatabaseSortDirection('BEST_MATCH')).toBe('ASC')
     expect(getDefaultRelicDatabaseSortDirection('ALPHABETICAL')).toBe('ASC')
-    expect(getDefaultRelicDatabaseSortDirection('RARITY')).toBe('DESC')
     expect(getDefaultRelicDatabaseSortDirection('VARIANT_COUNT')).toBe('DESC')
 
     expect(parseRelicDatabaseBrowseState(new URLSearchParams('sort=ALPHABETICAL'))).toMatchObject({
       sortKey: 'ALPHABETICAL',
       sortDirection: 'ASC',
     })
-    expect(parseRelicDatabaseBrowseState(new URLSearchParams('sort=RARITY'))).toMatchObject({
-      sortKey: 'RARITY',
+    expect(parseRelicDatabaseBrowseState(new URLSearchParams('sort=VARIANT_COUNT'))).toMatchObject({
+      sortKey: 'VARIANT_COUNT',
       sortDirection: 'DESC',
     })
   })
@@ -77,34 +68,33 @@ describe('relic-database-browse-state', () => {
       new URLSearchParams('foo=bar&variant=relic-variant-0408&q=%20child%20'),
       {
         categoryFilter: 'ASTRAL_REIGN',
-        rarityFilter: 'SR',
         sortKey: 'VARIANT_COUNT',
       },
     )
 
     expect(nextParams.toString()).toBe(
-      'foo=bar&variant=relic-variant-0408&q=child&category=ASTRAL_REIGN&rarity=SR&sort=VARIANT_COUNT',
+      'foo=bar&variant=relic-variant-0408&q=child&category=ASTRAL_REIGN&sort=VARIANT_COUNT',
     )
   })
 
   it('updates a sort key with its default direction unless direction is patched explicitly', () => {
     expect(
       patchRelicDatabaseBrowseState(new URLSearchParams('sort=ALPHABETICAL&dir=DESC'), {
-        sortKey: 'RARITY',
+        sortKey: 'VARIANT_COUNT',
       }).toString(),
-    ).toBe('sort=RARITY')
+    ).toBe('sort=VARIANT_COUNT')
 
     expect(
       patchRelicDatabaseBrowseState(new URLSearchParams(), {
-        sortKey: 'RARITY',
+        sortKey: 'VARIANT_COUNT',
         sortDirection: 'ASC',
       }).toString(),
-    ).toBe('sort=RARITY&dir=ASC')
+    ).toBe('sort=VARIANT_COUNT&dir=ASC')
   })
 
   it('can omit sort params for a persisted display preference integration', () => {
     const nextParams = patchRelicDatabaseBrowseState(
-      new URLSearchParams('variant=relic-variant-0408&sort=RARITY&dir=ASC'),
+      new URLSearchParams('variant=relic-variant-0408&sort=VARIANT_COUNT&dir=ASC'),
       {categoryFilter: 'PENDULUM'},
       {includeSortParams: false},
     )
@@ -115,7 +105,7 @@ describe('relic-database-browse-state', () => {
   it('elides defaults without deleting unrelated params', () => {
     const nextParams = patchRelicDatabaseBrowseState(
       new URLSearchParams(
-        'variant=relic-variant-0408&q=child&category=PENDULUM&rarity=N&sort=RARITY&dir=ASC',
+        'variant=relic-variant-0408&q=child&category=PENDULUM&rarity=N&sort=ALPHABETICAL&dir=DESC',
       ),
       RELIC_DATABASE_BROWSE_DEFAULTS,
     )
@@ -126,11 +116,11 @@ describe('relic-database-browse-state', () => {
   it('resets every filter atomically while retaining sort and route state', () => {
     const nextParams = resetRelicDatabaseBrowseFilters(
       new URLSearchParams(
-        'variant=relic-variant-0408&q=child&category=PENDULUM&rarity=N&sort=RARITY&dir=ASC',
+        'variant=relic-variant-0408&q=child&category=PENDULUM&rarity=N&sort=VARIANT_COUNT&dir=ASC',
       ),
     )
 
-    expect(nextParams.toString()).toBe('variant=relic-variant-0408&sort=RARITY&dir=ASC')
+    expect(nextParams.toString()).toBe('variant=relic-variant-0408&sort=VARIANT_COUNT&dir=ASC')
   })
 
   it('provides human-readable category labels for controls and active chips', () => {

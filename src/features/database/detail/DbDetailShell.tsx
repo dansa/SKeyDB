@@ -33,6 +33,8 @@ interface DbDetailShellProps {
   onClose: () => void
   popoverController: DatabasePopoverController
   preferences: DatabaseDetailPreferences
+  preserveSideArtIntrinsicSize?: boolean
+  sideArtContainerClassName?: string
   sideArtClassName?: string
   showSideArtGradient?: boolean
   updateSharedPreferences: (nextPartial: Partial<DatabaseDetailSharedPreferences>) => void
@@ -52,6 +54,8 @@ export function DbDetailShell({
   onClose,
   popoverController,
   preferences,
+  preserveSideArtIntrinsicSize = false,
+  sideArtContainerClassName = '',
   sideArtClassName = 'object-contain p-2',
   showSideArtGradient = false,
   updateSharedPreferences,
@@ -155,13 +159,13 @@ export function DbDetailShell({
             {artAsset ? (
               <button
                 aria-label={`View full art for ${itemName}`}
-                className='relative h-full w-full overflow-hidden'
+                className={`relative flex h-full w-full items-center justify-center overflow-hidden ${sideArtContainerClassName}`}
                 onClick={openArtViewer}
                 type='button'
               >
                 <img
                   alt=''
-                  className={`h-full w-full ${sideArtClassName}`}
+                  className={`${preserveSideArtIntrinsicSize ? 'max-h-full max-w-full' : 'h-full w-full'} ${sideArtClassName}`}
                   draggable={false}
                   src={artAsset}
                 />
