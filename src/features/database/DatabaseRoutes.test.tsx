@@ -32,7 +32,8 @@ const mockRelics = [
       canonicalPath: '/database/relics/dimensional-image-24',
       slug: 'dimensional-image-24',
     },
-    variantCount: 1,
+    variantCount: 2,
+    variantTiers: ['Silver', 'Gold'] as const,
   },
 ]
 const mockRelicRecord = {
@@ -55,7 +56,20 @@ const mockRelicRecord = {
       ownerAwakenerId: 'awakener-0001',
       ownerAwakenerName: '24',
       rarity: 'SSR' as const,
-      tier: 'SSR',
+      tier: 'Silver',
+      variantType: 'PORTRAIT',
+    },
+    {
+      category: 'DIMENSIONAL_IMAGE' as const,
+      descriptionArgs: {},
+      descriptionTemplate: 'Exact portrait gold effect.',
+      id: 'relic-variant-0002',
+      label: 'Dimensional Image - Gold',
+      name: 'Dimensional Image: "24"+',
+      ownerAwakenerId: 'awakener-0001',
+      ownerAwakenerName: '24',
+      rarity: 'SSR' as const,
+      tier: 'Gold',
       variantType: 'PORTRAIT',
     },
   ],
@@ -93,6 +107,10 @@ vi.mock('@/domain/relics', () => ({
   getDefaultRelicVariant: () => mockRelicRecord.variants[0],
   getRelicVariantById: (_record: unknown, id: string) =>
     mockRelicRecord.variants.find((variant) => variant.id === id),
+  resolvePreferredRelicVariant: (
+    _record: unknown,
+    filters: {tierFilter: 'ALL' | 'SILVER' | 'GOLD' | 'CURSED'},
+  ) => (filters.tierFilter === 'GOLD' ? mockRelicRecord.variants[1] : mockRelicRecord.variants[0]),
   getRelics: () => mockRelics,
   loadRelicRecordById: async (id: string) =>
     id === mockRelicRecord.id ? mockRelicRecord : undefined,
@@ -677,6 +695,17 @@ describe('DatabasePage', () => {
     ).toBeInTheDocument()
     expect(screen.getByText('Selected relic variant relic-variant-0001')).toBeInTheDocument()
     expect(screen.getByTestId('location-search')).toHaveTextContent('?variant=relic-variant-0001')
+  })
+
+  it('opens a family on the variant selected by the active tier filter', async () => {
+    await renderDatabasePage('/database/relics/dimensional-image-24?tier=GOLD')
+
+    await waitFor(() => {
+      expect(screen.getByTestId('location-search')).toHaveTextContent(
+        '?tier=GOLD&variant=relic-variant-0002',
+      )
+    })
+    expect(screen.getByText('Selected relic variant relic-variant-0002')).toBeInTheDocument()
   })
 
   it('replaces an invalid relic variant with the family default while preserving browse filters', async () => {

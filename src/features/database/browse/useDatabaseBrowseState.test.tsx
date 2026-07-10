@@ -3,6 +3,7 @@ import {MemoryRouter, Route, Routes, useLocation, useNavigate} from 'react-route
 import {beforeEach, describe, expect, it} from 'vitest'
 
 import {useDatabaseBrowseState} from './useDatabaseBrowseState'
+import {useRelicsDatabaseBrowseState} from './useRelicsDatabaseBrowseState'
 import {useWheelsDatabaseBrowseState} from './useWheelsDatabaseBrowseState'
 
 function HistoryBackButton() {
@@ -148,6 +149,37 @@ function WheelsDatabaseBrowseStateHarness() {
   )
 }
 
+function RelicsDatabaseBrowseStateHarness() {
+  const state = useRelicsDatabaseBrowseState()
+  const location = useLocation()
+
+  return (
+    <div>
+      <div data-testid='location-search'>{location.search}</div>
+      <output data-testid='relic-display-scopes'>{state.displayScopes.join(',')}</output>
+      <button
+        onClick={() => {
+          state.setTierFilter('SILVER')
+        }}
+        type='button'
+      >
+        Set tier SILVER
+      </button>
+      <button
+        onClick={() => {
+          state.toggleDisplayScope('EVENT')
+        }}
+        type='button'
+      >
+        Toggle EVENT display
+      </button>
+      <button onClick={state.resetFilters} type='button'>
+        Reset relic filters
+      </button>
+    </div>
+  )
+}
+
 function renderBrowseStateHarness(initialEntries: string[] = ['/database']) {
   render(
     <MemoryRouter initialEntries={initialEntries} initialIndex={initialEntries.length - 1}>
@@ -163,6 +195,16 @@ function renderWheelsBrowseStateHarness(initialEntries: string[] = ['/database/w
     <MemoryRouter initialEntries={initialEntries} initialIndex={initialEntries.length - 1}>
       <Routes>
         <Route element={<WheelsDatabaseBrowseStateHarness />} path='/database/wheels' />
+      </Routes>
+    </MemoryRouter>,
+  )
+}
+
+function renderRelicsBrowseStateHarness(initialEntries: string[] = ['/database/relics']) {
+  render(
+    <MemoryRouter initialEntries={initialEntries} initialIndex={initialEntries.length - 1}>
+      <Routes>
+        <Route element={<RelicsDatabaseBrowseStateHarness />} path='/database/relics' />
       </Routes>
     </MemoryRouter>,
   )
@@ -215,6 +257,7 @@ describe('useDatabaseBrowseState', () => {
       JSON.parse(window.localStorage.getItem('database-browse-preferences') ?? 'null'),
     ).toEqual({
       awakeners: {sortKey: 'ATK', sortDirection: 'DESC', groupByRealm: false},
+      relics: {displayScopes: ['STANDARD', 'DIMENSIONAL_IMAGE', 'OTHER']},
       wheels: {sortKey: 'RARITY', sortDirection: 'DESC'},
     })
   })
@@ -307,6 +350,7 @@ describe('useWheelsDatabaseBrowseState', () => {
       JSON.parse(window.localStorage.getItem('database-browse-preferences') ?? 'null'),
     ).toEqual({
       awakeners: {sortKey: 'BEST_MATCH', sortDirection: 'ASC', groupByRealm: false},
+      relics: {displayScopes: ['STANDARD', 'DIMENSIONAL_IMAGE', 'OTHER']},
       wheels: {sortKey: 'ALPHABETICAL', sortDirection: 'ASC'},
     })
   })
@@ -323,5 +367,35 @@ describe('useWheelsDatabaseBrowseState', () => {
     renderWheelsBrowseStateHarness(['/database/wheels?sort=RARITY&dir=DESC'])
 
     expect(screen.getByTestId('location-search')).toHaveTextContent('?sort=RARITY&dir=DESC')
+  })
+})
+
+describe('useRelicsDatabaseBrowseState', () => {
+  beforeEach(() => {
+    window.localStorage.removeItem('database-browse-preferences')
+  })
+
+  it('keeps tier URL-backed while persisting display scopes outside reset', () => {
+    renderRelicsBrowseStateHarness(['/database/relics?q=child'])
+
+    fireEvent.click(screen.getByRole('button', {name: 'Set tier SILVER'}))
+    fireEvent.click(screen.getByRole('button', {name: 'Toggle EVENT display'}))
+
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=child&tier=SILVER')
+    expect(screen.getByTestId('relic-display-scopes')).toHaveTextContent(
+      'STANDARD,DIMENSIONAL_IMAGE,OTHER,EVENT',
+    )
+    expect(
+      JSON.parse(window.localStorage.getItem('database-browse-preferences') ?? '{}'),
+    ).toMatchObject({
+      relics: {displayScopes: ['STANDARD', 'DIMENSIONAL_IMAGE', 'OTHER', 'EVENT']},
+    })
+
+    fireEvent.click(screen.getByRole('button', {name: 'Reset relic filters'}))
+
+    expect(screen.getByTestId('location-search')).toHaveTextContent('')
+    expect(screen.getByTestId('relic-display-scopes')).toHaveTextContent(
+      'STANDARD,DIMENSIONAL_IMAGE,OTHER,EVENT',
+    )
   })
 })

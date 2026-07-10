@@ -22,7 +22,9 @@ import {
 } from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
 import {getPosses} from '@/domain/posses'
+import {parseRelicDatabaseBrowseState} from '@/domain/relic-database-browse-state'
 import type {Relic} from '@/domain/relics'
+import {resolvePreferredRelicVariant} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
 import {
   preloadDatabaseDetailRecord,
@@ -957,7 +959,10 @@ function DbDetailRelicRouteModal({
       {(record) => {
         const selectedVariant = routeItem.variantId
           ? record.variants.find((variant) => variant.id === routeItem.variantId)
-          : undefined
+          : resolvePreferredRelicVariant(
+              record,
+              parseRelicDatabaseBrowseState(new URLSearchParams(location.search)),
+            )
         const canonicalVariantId = selectedVariant?.id ?? record.defaultVariantId
 
         if (routeItem.variantId !== canonicalVariantId) {

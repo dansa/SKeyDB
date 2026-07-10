@@ -1,4 +1,10 @@
 import type {RelicDatabaseBrowseState} from '@/domain/relic-database-browse-state'
+import {getRelicTierValue} from '@/domain/relic-database-browse-state'
+import {
+  isRelicInDisplayScopes,
+  RELIC_DATABASE_DISPLAY_SCOPE_IDS,
+  type RelicDatabaseDisplayScopeId,
+} from '@/domain/relic-database-display-scopes'
 import type {Relic} from '@/domain/relics'
 import {searchRelicResults} from '@/domain/relics-search'
 
@@ -21,7 +27,26 @@ function compareNames(left: Relic, right: Relic, direction: 'ASC' | 'DESC'): num
 export function buildRelicDatabaseView(
   relics: readonly Relic[],
   state: RelicDatabaseBrowseState,
+  options: {displayScopes?: readonly RelicDatabaseDisplayScopeId[]} = {},
 ): Relic[] {
+  return buildRelicDatabaseViewResult(relics, state, options).relics
+}
+
+export interface RelicDatabaseViewResult {
+  hiddenByDisplay: Relic[]
+  hiddenByDisplayCount: number
+  relics: Relic[]
+}
+
+export function buildRelicDatabaseViewResult(
+  relics: readonly Relic[],
+  state: RelicDatabaseBrowseState,
+  {
+    displayScopes = RELIC_DATABASE_DISPLAY_SCOPE_IDS,
+  }: {
+    displayScopes?: readonly RelicDatabaseDisplayScopeId[]
+  } = {},
+): RelicDatabaseViewResult {
   const searchResults = searchRelicResults([...relics], state.query)
   const relevanceIndex = new Map(searchResults.map((result, index) => [result.entity.id, index]))
   const filtered = searchResults
@@ -29,8 +54,13 @@ export function buildRelicDatabaseView(
     .filter(
       (relic) => state.categoryFilter === 'ALL' || relic.categories.includes(state.categoryFilter),
     )
+    .filter(
+      (relic) =>
+        state.tierFilter === 'ALL' ||
+        relic.variantTiers.includes(getRelicTierValue(state.tierFilter)),
+    )
 
-  return filtered.toSorted((left, right) => {
+  const sorted = filtered.toSorted((left, right) => {
     if (state.sortKey === 'BEST_MATCH') {
       if (state.query.trim()) {
         const relevance =
@@ -46,4 +76,17 @@ export function buildRelicDatabaseView(
     const variantCount = compareValues(left.variantCount, right.variantCount, state.sortDirection)
     return variantCount !== 0 ? variantCount : compareNames(left, right, 'ASC')
   })
+
+  const visible: Relic[] = []
+  const hiddenByDisplay: Relic[] = []
+  for (const relic of sorted) {
+    if (isRelicInDisplayScopes(relic, displayScopes)) visible.push(relic)
+    else hiddenByDisplay.push(relic)
+  }
+
+  return {
+    hiddenByDisplay,
+    hiddenByDisplayCount: hiddenByDisplay.length,
+    relics: visible,
+  }
 }

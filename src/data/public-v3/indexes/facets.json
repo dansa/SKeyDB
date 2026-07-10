@@ -1539,6 +1539,58 @@
         "order": 5
       }
     ],
+    "variantTiers": [
+      {
+        "value": "Silver",
+        "label": "Silver",
+        "order": 0
+      },
+      {
+        "value": "Gold",
+        "label": "Gold",
+        "order": 1
+      },
+      {
+        "value": "Cursed",
+        "label": "Cursed",
+        "order": 2
+      },
+      {
+        "value": "Base",
+        "label": "Base",
+        "order": 3
+      },
+      {
+        "value": "Upgraded",
+        "label": "Upgraded",
+        "order": 4
+      },
+      {
+        "value": "Blessed",
+        "label": "Blessed",
+        "order": 5
+      },
+      {
+        "value": "Sinful",
+        "label": "Sinful",
+        "order": 6
+      },
+      {
+        "value": "Unique",
+        "label": "Unique",
+        "order": 7
+      },
+      {
+        "value": "Pendulum",
+        "label": "Pendulum",
+        "order": 8
+      },
+      {
+        "value": "Special",
+        "label": "Special",
+        "order": 9
+      }
+    ],
     "owner": [
       {
         "value": "awakener-0001",

@@ -20,6 +20,7 @@ const relic: Relic = {
   relicType: 'Relic',
   route: {canonicalPath: '/database/relics/malignant-child', slug: 'malignant-child'},
   variantCount: 5,
+  variantTiers: ['Silver', 'Gold'],
 }
 
 describe('RelicGridCard', () => {

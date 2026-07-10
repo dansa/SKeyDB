@@ -5,7 +5,7 @@ import {
   setSearchParam,
 } from '@/domain/browse-state-search-params'
 import type {CollectionSortDirection} from '@/domain/collection-sorting'
-import type {RelicCategory} from '@/domain/relics'
+import type {RelicCategory, RelicVariantTier} from '@/domain/relics'
 
 const RELIC_DATABASE_CATEGORIES = [
   'ASTRAL_REIGN',
@@ -22,11 +22,15 @@ export type RelicDatabaseCategoryFilterId = (typeof RELIC_DATABASE_CATEGORY_FILT
 export const RELIC_DATABASE_SORT_OPTIONS = ['BEST_MATCH', 'ALPHABETICAL', 'VARIANT_COUNT'] as const
 export type RelicDatabaseSortKey = (typeof RELIC_DATABASE_SORT_OPTIONS)[number]
 
+export const RELIC_DATABASE_TIER_FILTER_IDS = ['ALL', 'SILVER', 'GOLD', 'CURSED'] as const
+export type RelicDatabaseTierFilterId = (typeof RELIC_DATABASE_TIER_FILTER_IDS)[number]
+
 export interface RelicDatabaseBrowseState {
   categoryFilter: RelicDatabaseCategoryFilterId
   query: string
   sortDirection: CollectionSortDirection
   sortKey: RelicDatabaseSortKey
+  tierFilter: RelicDatabaseTierFilterId
 }
 
 export const RELIC_DATABASE_BROWSE_DEFAULTS: RelicDatabaseBrowseState = {
@@ -34,6 +38,20 @@ export const RELIC_DATABASE_BROWSE_DEFAULTS: RelicDatabaseBrowseState = {
   query: '',
   sortDirection: 'ASC',
   sortKey: 'BEST_MATCH',
+  tierFilter: 'ALL',
+}
+
+export function getRelicDatabaseTierFilterLabel(tier: RelicDatabaseTierFilterId): string {
+  return tier === 'ALL' ? 'All' : tier.charAt(0) + tier.slice(1).toLowerCase()
+}
+
+export function getRelicTierValue(
+  tier: Exclude<RelicDatabaseTierFilterId, 'ALL'>,
+): Extract<RelicVariantTier, 'Silver' | 'Gold' | 'Cursed'> {
+  return getRelicDatabaseTierFilterLabel(tier) as Extract<
+    RelicVariantTier,
+    'Silver' | 'Gold' | 'Cursed'
+  >
 }
 
 export function getRelicDatabaseCategoryFilterLabel(category: RelicCategory | 'ALL'): string {
@@ -88,6 +106,11 @@ export function parseRelicDatabaseBrowseState(
     query: normalizeBrowseQuery(searchParams.get('q')),
     sortDirection: parseSortDirection(searchParams.get('dir'), sortKey),
     sortKey,
+    tierFilter: parseEnumSearchParam(
+      searchParams.get('tier'),
+      RELIC_DATABASE_TIER_FILTER_IDS,
+      RELIC_DATABASE_BROWSE_DEFAULTS.tierFilter,
+    ),
   }
 }
 
@@ -110,6 +133,13 @@ export function patchRelicDatabaseBrowseState(
           : nextState.categoryFilter,
       )
       nextParams.delete('rarity')
+      setSearchParam(
+        nextParams,
+        'tier',
+        nextState.tierFilter === RELIC_DATABASE_BROWSE_DEFAULTS.tierFilter
+          ? undefined
+          : nextState.tierFilter,
+      )
       if (includeSortParams) {
         setSearchParam(
           nextParams,
@@ -144,5 +174,6 @@ export function resetRelicDatabaseBrowseFilters(searchParams: URLSearchParams): 
   return patchRelicDatabaseBrowseState(searchParams, {
     categoryFilter: 'ALL',
     query: '',
+    tierFilter: 'ALL',
   })
 }

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
   "gameDataVersion": "compiled-sha256-c656dfa15e77381d",
-  "generatedAt": "2026-07-10T20:28:30Z",
-  "buildId": "2026-07-10T20:28:30Z",
+  "generatedAt": "2026-07-10T21:01:49Z",
+  "buildId": "2026-07-10T21:01:49Z",
   "build": {
     "gameDataVersion": "compiled-sha256-c656dfa15e77381d",
     "recordCount": 1851,
@@ -126,8 +126,8 @@
       "sha256": "8676827fa2dd503ec79d6e80aa5ad5b99af9413582e04242961d3a6a87d0ea8d"
     },
     "catalogs/relics.json": {
-      "bytes": 145945,
-      "sha256": "74d1b5a16383412ef9696c55451f16c70a53a21c53e3b1b4eecb85013f32deee"
+      "bytes": 156724,
+      "sha256": "80f06be64c757fd68701974cfc189b35c59be2ac67fc4ac6e276319a34f08c38"
     },
     "catalogs/skills.json": {
       "bytes": 141605,
@@ -158,8 +158,8 @@
       "sha256": "53df6fde3b26f5d3a718b8c999bd084e80961d0315190051b6b4d3aea67f6362"
     },
     "indexes/facets.json": {
-      "bytes": 58884,
-      "sha256": "aac6c484560b28fabe3a514e61e5a527f8780a9a9748ebadf263658efda34a6f"
+      "bytes": 59816,
+      "sha256": "a809d3da385b7ebf95de720f4801833a4dc8b99429e9ba2209a1c2b3cc6520e9"
     },
     "indexes/references.json": {
       "bytes": 223781,
@@ -190,8 +190,8 @@
       "sha256": "8e11e8e9d34b40b056227d853c64660784b916b0ee15ebbf732c32371da27bda"
     },
     "indexes/search-relics.json": {
-      "bytes": 164798,
-      "sha256": "40522758870e6e00ca08d17e9058c8bb855e8e9698327cbff7523d89081275bd"
+      "bytes": 186278,
+      "sha256": "1a1d38466eaabc43a7dc320aca0632ccc291ed2fa7a7514dc9124196ba54bf4f"
     },
     "indexes/search-tags.json": {
       "bytes": 7285,

@@ -4,7 +4,8 @@ import {searchCovenants} from '@/domain/covenants-search'
 import {DATABASE_SORT_OPTIONS} from '@/domain/database-browse-state'
 import {searchPosses} from '@/domain/posses-search'
 import {RELIC_DATABASE_SORT_OPTIONS} from '@/domain/relic-database-browse-state'
-import {buildRelicDatabaseView} from '@/domain/relic-database-view'
+import {mergeRelicDisplayScopesForMatches} from '@/domain/relic-database-display-scopes'
+import {buildRelicDatabaseViewResult} from '@/domain/relic-database-view'
 import {WHEELS_DATABASE_SORT_OPTIONS} from '@/domain/wheels-database-browse-state'
 import type {DatabaseDetailResultSet} from '@/features/database/detail/database-detail-result-navigation'
 import {
@@ -384,49 +385,105 @@ export function RelicsBrowse({
   renderDetailModalHost,
 }: EntityBrowseProps): ReactNode {
   const browseState = useRelicsDatabaseBrowseState()
-  const relics = useMemo(
+  const {displayScopes, query, setDisplayScopes} = browseState
+  const viewModel = useMemo(
     () =>
-      buildRelicDatabaseView(databaseRelics, {
-        categoryFilter: browseState.categoryFilter,
-        query: browseState.query,
-        sortDirection: browseState.sortDirection,
-        sortKey: browseState.sortKey,
-      }),
-    [browseState.categoryFilter, browseState.query, browseState.sortDirection, browseState.sortKey],
+      buildRelicDatabaseViewResult(
+        databaseRelics,
+        {
+          categoryFilter: browseState.categoryFilter,
+          query: browseState.query,
+          sortDirection: browseState.sortDirection,
+          sortKey: browseState.sortKey,
+          tierFilter: browseState.tierFilter,
+        },
+        {displayScopes: browseState.displayScopes},
+      ),
+    [
+      browseState.categoryFilter,
+      browseState.displayScopes,
+      browseState.query,
+      browseState.sortDirection,
+      browseState.sortKey,
+      browseState.tierFilter,
+    ],
   )
+  const relics = viewModel.relics
   const activeFilterChips = buildRelicActiveFilterChips(browseState, {
     clearQuery: browseState.clearQuery,
     setCategoryFilter: browseState.setCategoryFilter,
+    setTierFilter: browseState.setTierFilter,
   })
   const detailResultSet = useMemo(() => createRelicDetailResultSet(relics), [relics])
   const filters = useMemo(
     () => (
       <RelicDatabaseFilters
         categoryFilter={browseState.categoryFilter}
+        displayScopes={browseState.displayScopes}
         onCategoryFilterChange={browseState.setCategoryFilter}
+        onDisplayScopeToggle={browseState.toggleDisplayScope}
         onQueryChange={browseState.setQuery}
+        onTierFilterChange={browseState.setTierFilter}
         query={browseState.query}
         searchInputRef={controller.searchInputRef}
+        tierFilter={browseState.tierFilter}
       />
     ),
     [
       browseState.categoryFilter,
+      browseState.displayScopes,
       browseState.query,
       browseState.setCategoryFilter,
       browseState.setQuery,
+      browseState.setTierFilter,
+      browseState.tierFilter,
+      browseState.toggleDisplayScope,
       controller.searchInputRef,
     ],
   )
   const results = useMemo(
     () => (
-      <RelicGrid
-        awakeners={databaseAwakeners}
-        onPreloadRelic={controller.preloadRelicDetail}
-        onSelectRelic={controller.openRelicDetail}
-        relics={relics}
-      />
+      <div className='space-y-3'>
+        {query.trim() && viewModel.hiddenByDisplayCount > 0 ? (
+          <div className='flex min-h-10 flex-wrap items-center justify-between gap-2 border border-slate-700/65 bg-slate-950/48 px-3 py-2 text-xs text-slate-400'>
+            <span>
+              <span className='font-medium text-slate-200 tabular-nums'>
+                {viewModel.hiddenByDisplayCount}
+              </span>{' '}
+              matching {viewModel.hiddenByDisplayCount === 1 ? 'relic is' : 'relics are'} hidden by
+              Display.
+            </span>
+            <button
+              className='ui-compact-control min-h-10 text-xs text-amber-100 sm:min-h-8'
+              onClick={() => {
+                setDisplayScopes(
+                  mergeRelicDisplayScopesForMatches(displayScopes, viewModel.hiddenByDisplay),
+                )
+              }}
+              type='button'
+            >
+              Show hidden matches
+            </button>
+          </div>
+        ) : null}
+        <RelicGrid
+          awakeners={databaseAwakeners}
+          onPreloadRelic={controller.preloadRelicDetail}
+          onSelectRelic={controller.openRelicDetail}
+          relics={relics}
+        />
+      </div>
     ),
-    [controller.openRelicDetail, controller.preloadRelicDetail, relics],
+    [
+      controller.openRelicDetail,
+      controller.preloadRelicDetail,
+      displayScopes,
+      query,
+      relics,
+      setDisplayScopes,
+      viewModel.hiddenByDisplay,
+      viewModel.hiddenByDisplayCount,
+    ],
   )
   const viewControls = useMemo(
     () => (

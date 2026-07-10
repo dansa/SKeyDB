@@ -13,6 +13,7 @@ import {
   getRelicVariantById,
   loadRelicDescriptionById,
   loadRelicRecordById,
+  resolvePreferredRelicVariant,
 } from './relics'
 
 function renderPublicRecordDescription(record: Awaited<ReturnType<typeof loadPublicRecord>>) {
@@ -39,6 +40,7 @@ describe('getRelics', () => {
       rarity: expect.any(String),
       aliases: expect.any(Array),
       variantCount: expect.any(Number),
+      variantTiers: expect.any(Array),
       defaultVariantId: expect.stringMatching(/^relic-variant-\d{4}$/),
       ownerAwakenerId: expect.stringMatching(/^awakener-\d{4}$/),
       ownerAwakenerName: expect.any(String),
@@ -46,6 +48,17 @@ describe('getRelics', () => {
       name: expect.any(String),
       description: expect.any(String),
     })
+  })
+
+  it('exposes family variant tiers in the lightweight catalog', () => {
+    const relics = getRelics()
+    expect(relics.every((relic) => relic.variantTiers.length > 0)).toBe(true)
+    expect(relics.filter((relic) => relic.variantTiers.includes('Silver')).length).toBeGreaterThan(
+      100,
+    )
+    expect(relics.filter((relic) => relic.variantTiers.includes('Cursed')).length).toBeGreaterThan(
+      15,
+    )
   })
 
   it('enforces unique relic ids at the public relic boundary', () => {
@@ -141,6 +154,25 @@ describe('relic family variants', () => {
       tier: 'Gold',
     })
   })
+
+  it('resolves the preferred variant from active tier and category filters', async () => {
+    const malignantChild = await loadRelicRecordById('relic-0207')
+    expect(malignantChild).toBeDefined()
+    if (!malignantChild) return
+
+    expect(
+      resolvePreferredRelicVariant(malignantChild, {
+        categoryFilter: 'ASTRAL_REIGN',
+        tierFilter: 'SILVER',
+      }),
+    ).toMatchObject({category: 'ASTRAL_REIGN', tier: 'Silver'})
+    expect(
+      resolvePreferredRelicVariant(malignantChild, {
+        categoryFilter: 'FADED_LEGACY',
+        tierFilter: 'SILVER',
+      }),
+    ).toMatchObject({category: 'FADED_LEGACY', tier: 'Silver'})
+  })
 })
 
 describe('getPortraitRelics', () => {
@@ -204,7 +236,7 @@ describe('getPortraitRelicByAwakenerId', () => {
     const murphyRelic = await loadPublicRecord('relics', 'relic-0033')
 
     expect(renderPublicRecordDescription(agrippaRelic)).toContain('{Reluctant Alms}')
-    expect(renderPublicRecordDescription(tawilRelic)).toContain('{Silver Key Dawn}')
+    expect(renderPublicRecordDescription(tawilRelic)).toContain('{derived:Silver Key Dawn}')
     expect(renderPublicRecordDescription(murphyRelic)).toContain('Temporary Strike')
     expect(getPortraitRelicByAwakenerId('awakener-0002')?.description).toBe('')
     expect(getPortraitRelicByAwakenerId('awakener-0047')?.description).toBe('')
@@ -213,6 +245,8 @@ describe('getPortraitRelicByAwakenerId', () => {
 
   it('loads portrait relic descriptions from per-record detail JSON on demand', async () => {
     await expect(loadRelicDescriptionById('relic-0002')).resolves.toContain('{Reluctant Alms}')
-    await expect(loadRelicDescriptionById('relic-0047')).resolves.toContain('{Silver Key Dawn}')
+    await expect(loadRelicDescriptionById('relic-0047')).resolves.toContain(
+      '{derived:Silver Key Dawn}',
+    )
   })
 })

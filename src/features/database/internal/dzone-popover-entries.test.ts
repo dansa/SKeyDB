@@ -158,6 +158,7 @@ describe('D-zone database popover entries', () => {
       rarity: 'SR',
       relicType: 'Relic',
       variantCount: 2,
+      variantTiers: ['Silver', 'Gold'],
       variants: [
         {
           id: 'relic-variant-0410',

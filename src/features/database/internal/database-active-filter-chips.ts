@@ -17,6 +17,8 @@ import {
   getRelicDatabaseCategoryFilterLabel,
   type RelicDatabaseBrowseState,
   type RelicDatabaseCategoryFilterId,
+  getRelicDatabaseTierFilterLabel,
+  type RelicDatabaseTierFilterId,
 } from '@/domain/relic-database-browse-state'
 import {
   getPosseDatabaseRealmFilterLabel,
@@ -61,6 +63,7 @@ interface WheelActiveFilterActions {
 interface RelicActiveFilterActions {
   clearQuery: () => void
   setCategoryFilter: (next: RelicDatabaseCategoryFilterId) => void
+  setTierFilter: (next: RelicDatabaseTierFilterId) => void
 }
 
 export function buildAwakenerActiveFilterChips(
@@ -253,7 +256,7 @@ export function buildWheelActiveFilterChips(
 }
 
 export function buildRelicActiveFilterChips(
-  state: Pick<RelicDatabaseBrowseState, 'query' | 'categoryFilter'>,
+  state: Pick<RelicDatabaseBrowseState, 'query' | 'categoryFilter' | 'tierFilter'>,
   actions: RelicActiveFilterActions,
 ): ActiveFilterChip[] {
   const chips: ActiveFilterChip[] = []
@@ -268,6 +271,16 @@ export function buildRelicActiveFilterChips(
       label: getRelicDatabaseCategoryFilterLabel(state.categoryFilter),
       onClear: () => {
         actions.setCategoryFilter('ALL')
+      },
+    })
+  }
+
+  if (state.tierFilter !== 'ALL') {
+    chips.push({
+      key: 'tier',
+      label: getRelicDatabaseTierFilterLabel(state.tierFilter),
+      onClear: () => {
+        actions.setTierFilter('ALL')
       },
     })
   }

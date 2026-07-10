@@ -1,7 +1,7 @@
 import {describe, expect, it} from 'vitest'
 
 import type {RelicDatabaseBrowseState} from './relic-database-browse-state'
-import {buildRelicDatabaseView} from './relic-database-view'
+import {buildRelicDatabaseView, buildRelicDatabaseViewResult} from './relic-database-view'
 import {getRelics} from './relics'
 
 const defaults: RelicDatabaseBrowseState = {
@@ -9,6 +9,7 @@ const defaults: RelicDatabaseBrowseState = {
   query: '',
   sortDirection: 'ASC',
   sortKey: 'BEST_MATCH',
+  tierFilter: 'ALL',
 }
 
 describe('buildRelicDatabaseView', () => {
@@ -49,6 +50,41 @@ describe('buildRelicDatabaseView', () => {
     })
     expect(filtered.length).toBeGreaterThan(0)
     expect(filtered.every((relic) => relic.categories.includes('PENDULUM'))).toBe(true)
+  })
+
+  it('filters families by variant tier without flattening variants', () => {
+    const fixture = relics.find((relic) => relic.name === 'Malignant Child')
+    expect(fixture).toBeDefined()
+    if (!fixture) return
+
+    const filtered = buildRelicDatabaseView(
+      [
+        {...fixture, id: 'relic-tier-silver', variantTiers: ['Silver']},
+        {...fixture, id: 'relic-tier-cursed', variantTiers: ['Cursed']},
+      ],
+      {...defaults, tierFilter: 'SILVER'},
+    )
+
+    expect(filtered.map((relic) => relic.id)).toEqual(['relic-tier-silver'])
+  })
+
+  it('applies persistent display scopes with OR semantics and reports hidden query matches', () => {
+    const standard = relics.find((relic) => relic.categories.includes('ASTRAL_REIGN'))
+    const event = relics.find(
+      (relic) => relic.categories.length === 1 && relic.categories.includes('EVENT'),
+    )
+    expect(standard).toBeDefined()
+    expect(event).toBeDefined()
+    if (!standard || !event) return
+
+    const result = buildRelicDatabaseViewResult(
+      [standard, event],
+      {...defaults, query: event.name},
+      {displayScopes: ['STANDARD']},
+    )
+
+    expect(result.relics).toEqual([])
+    expect(result.hiddenByDisplayCount).toBe(1)
   })
 
   it('sorts by variant count with deterministic name ties', () => {

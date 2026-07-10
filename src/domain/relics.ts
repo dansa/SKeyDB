@@ -4,12 +4,17 @@ import {
   resolvePublicAsset,
   resolvePublicEntityAsset,
 } from '@/data-access/public-data/assetRepository'
+import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalogScopes/awakenersCatalog'
 import {getPublicRelicCatalogRecords} from '@/data-access/public-data/catalogScopes/relicsCatalog'
 import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
 
-import {getAwakeners} from './awakeners'
 import {resolveDescriptionTemplate} from './description-args'
 import {publicDescriptionArgsSchema} from './public-description-args.schema'
+import {
+  getRelicTierValue,
+  type RelicDatabaseCategoryFilterId,
+  type RelicDatabaseTierFilterId,
+} from './relic-database-browse-state'
 
 export const RELIC_CATEGORIES = [
   'ASTRAL_REIGN',
@@ -22,10 +27,23 @@ export const RELIC_CATEGORIES = [
 
 export const RELIC_RARITIES = ['SSR', 'SR', 'N'] as const
 export const RELIC_TYPES = ['Relic', 'Pendulum', 'Event', 'Dimensional Image'] as const
+export const RELIC_VARIANT_TIERS = [
+  'Silver',
+  'Gold',
+  'Pendulum',
+  'Special',
+  'Unique',
+  'Cursed',
+  'Sinful',
+  'Blessed',
+  'Base',
+  'Upgraded',
+] as const
 
 export type RelicCategory = (typeof RELIC_CATEGORIES)[number]
 export type RelicRarity = (typeof RELIC_RARITIES)[number]
 export type RelicType = (typeof RELIC_TYPES)[number]
+export type RelicVariantTier = (typeof RELIC_VARIANT_TIERS)[number]
 
 const nonEmptyStringSchema = z.string().trim().min(1)
 const relicIdSchema = z.string().regex(/^relic-\d{4}$/)
@@ -34,6 +52,7 @@ const awakenerIdSchema = z.string().regex(/^awakener-\d{4}$/)
 const relicCategorySchema = z.enum(RELIC_CATEGORIES)
 const relicRaritySchema = z.enum(RELIC_RARITIES)
 const relicTypeSchema = z.enum(RELIC_TYPES)
+const relicVariantTierSchema = z.enum(RELIC_VARIANT_TIERS)
 const relicRouteSchema = z.object({
   slug: nonEmptyStringSchema,
   canonicalPath: nonEmptyStringSchema,
@@ -52,6 +71,7 @@ const publicRelicCatalogRecordSchema = z
     relicType: relicTypeSchema,
     rarity: relicRaritySchema.optional(),
     variantCount: z.number().int().positive(),
+    variantTiers: z.array(relicVariantTierSchema).default([]),
     ownerAwakenerId: awakenerIdSchema.optional(),
     ownerAwakenerName: nonEmptyStringSchema.optional(),
   })
@@ -63,7 +83,7 @@ export const publicRelicVariantSchema = z
     name: nonEmptyStringSchema,
     label: nonEmptyStringSchema,
     variantType: nonEmptyStringSchema,
-    tier: nonEmptyStringSchema,
+    tier: relicVariantTierSchema,
     category: relicCategorySchema.nullish(),
     rarity: relicRaritySchema.optional(),
     ownerAwakenerId: awakenerIdSchema.optional(),
@@ -136,6 +156,7 @@ export interface Relic {
   rarity?: RelicRarity
   aliases: string[]
   variantCount: number
+  variantTiers: RelicVariantTier[]
   defaultVariantId: string
   route: z.infer<typeof relicRouteSchema>
   ownerAwakenerId?: string
@@ -172,6 +193,7 @@ const parsedRelics: Relic[] = getPublicRelicCatalogRecords().map((record): Relic
     rarity: relic.rarity,
     aliases: relic.aliases,
     variantCount: relic.variantCount,
+    variantTiers: relic.variantTiers,
     defaultVariantId: relic.defaultVariantId,
     route: relic.route,
     ownerAwakenerId: relic.ownerAwakenerId,
@@ -221,7 +243,7 @@ function buildRelicByIdMap(relics: Relic[]): Map<string, Relic> {
 }
 
 function assertPortraitRelicsLinkedToKnownAwakeners(relics: PortraitRelic[]) {
-  const knownAwakenerIds = new Set(getAwakeners().map((awakener) => awakener.id))
+  const knownAwakenerIds = new Set(getPublicAwakenerCatalogRecords().map((awakener) => awakener.id))
 
   for (const relic of relics) {
     if (!knownAwakenerIds.has(relic.ownerAwakenerId)) {
@@ -280,6 +302,43 @@ export function getDefaultRelicVariant(record: PublicRelicRecord): PublicRelicVa
     )
   }
   return variant
+}
+
+interface PreferredRelicVariantFilters {
+  categoryFilter: RelicDatabaseCategoryFilterId
+  tierFilter: RelicDatabaseTierFilterId
+}
+
+export function resolvePreferredRelicVariant(
+  record: PublicRelicRecord,
+  filters: PreferredRelicVariantFilters,
+): PublicRelicVariant {
+  const defaultVariant = getDefaultRelicVariant(record)
+  const tier = filters.tierFilter === 'ALL' ? null : getRelicTierValue(filters.tierFilter)
+  const category = filters.categoryFilter === 'ALL' ? null : filters.categoryFilter
+  const selectCandidate = (candidates: PublicRelicVariant[]): PublicRelicVariant | undefined => {
+    if (candidates.length === 0) return undefined
+    return candidates.find((variant) => variant.id === defaultVariant.id) ?? candidates[0]
+  }
+
+  if (tier && category) {
+    const exact = record.variants.filter(
+      (variant) => variant.tier === tier && variant.category === category,
+    )
+    const selected = selectCandidate(exact)
+    if (selected) return selected
+  }
+  if (tier) {
+    const selected = selectCandidate(record.variants.filter((variant) => variant.tier === tier))
+    if (selected) return selected
+  }
+  if (category) {
+    const selected = selectCandidate(
+      record.variants.filter((variant) => variant.category === category),
+    )
+    if (selected) return selected
+  }
+  return defaultVariant
 }
 
 export async function loadRelicRecordById(relicId: string): Promise<PublicRelicRecord | undefined> {

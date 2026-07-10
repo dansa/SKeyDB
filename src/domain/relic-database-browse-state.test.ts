@@ -8,6 +8,7 @@ import {
   RELIC_DATABASE_BROWSE_DEFAULTS,
   RELIC_DATABASE_CATEGORY_FILTER_IDS,
   RELIC_DATABASE_SORT_OPTIONS,
+  RELIC_DATABASE_TIER_FILTER_IDS,
   resetRelicDatabaseBrowseFilters,
 } from './relic-database-browse-state'
 
@@ -23,18 +24,20 @@ describe('relic-database-browse-state', () => {
       'OTHER',
     ])
     expect(RELIC_DATABASE_SORT_OPTIONS).toEqual(['BEST_MATCH', 'ALPHABETICAL', 'VARIANT_COUNT'])
+    expect(RELIC_DATABASE_TIER_FILTER_IDS).toEqual(['ALL', 'SILVER', 'GOLD', 'CURSED'])
   })
 
   it('parses known browse params and trims query text', () => {
     expect(
       parseRelicDatabaseBrowseState(
         new URLSearchParams(
-          'q=%20omen%20ritual%20&category=FADED_LEGACY&rarity=SSR&sort=VARIANT_COUNT&dir=ASC',
+          'q=%20omen%20ritual%20&category=FADED_LEGACY&tier=CURSED&rarity=SSR&sort=VARIANT_COUNT&dir=ASC',
         ),
       ),
     ).toEqual({
       query: 'omen ritual',
       categoryFilter: 'FADED_LEGACY',
+      tierFilter: 'CURSED',
       sortKey: 'VARIANT_COUNT',
       sortDirection: 'ASC',
     })
@@ -68,12 +71,13 @@ describe('relic-database-browse-state', () => {
       new URLSearchParams('foo=bar&variant=relic-variant-0408&q=%20child%20'),
       {
         categoryFilter: 'ASTRAL_REIGN',
+        tierFilter: 'SILVER',
         sortKey: 'VARIANT_COUNT',
       },
     )
 
     expect(nextParams.toString()).toBe(
-      'foo=bar&variant=relic-variant-0408&q=child&category=ASTRAL_REIGN&sort=VARIANT_COUNT',
+      'foo=bar&variant=relic-variant-0408&q=child&category=ASTRAL_REIGN&tier=SILVER&sort=VARIANT_COUNT',
     )
   })
 
@@ -105,7 +109,7 @@ describe('relic-database-browse-state', () => {
   it('elides defaults without deleting unrelated params', () => {
     const nextParams = patchRelicDatabaseBrowseState(
       new URLSearchParams(
-        'variant=relic-variant-0408&q=child&category=PENDULUM&rarity=N&sort=ALPHABETICAL&dir=DESC',
+        'variant=relic-variant-0408&q=child&category=PENDULUM&tier=GOLD&rarity=N&sort=ALPHABETICAL&dir=DESC',
       ),
       RELIC_DATABASE_BROWSE_DEFAULTS,
     )
@@ -116,7 +120,7 @@ describe('relic-database-browse-state', () => {
   it('resets every filter atomically while retaining sort and route state', () => {
     const nextParams = resetRelicDatabaseBrowseFilters(
       new URLSearchParams(
-        'variant=relic-variant-0408&q=child&category=PENDULUM&rarity=N&sort=VARIANT_COUNT&dir=ASC',
+        'variant=relic-variant-0408&q=child&category=PENDULUM&tier=CURSED&rarity=N&sort=VARIANT_COUNT&dir=ASC',
       ),
     )
 
