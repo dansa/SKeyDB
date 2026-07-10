@@ -122,7 +122,7 @@ export function RelicDetailModal({
       preferences={preferences}
       preserveSideArtIntrinsicSize
       sideArtClassName='object-contain'
-      sideArtContainerClassName='p-10 lg:p-14'
+      sideArtContainerClassName='p-4'
       sideArtFooter={
         <RelicVariantRail
           itemName={item.name}

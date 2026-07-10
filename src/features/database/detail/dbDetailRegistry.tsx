@@ -237,7 +237,6 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
       <RelicDetailModal
         fullData={record}
         item={item.item}
-        key={item.item.id}
         navigation={navigation}
         onClose={callbacks.onClose}
         onRelicVariantChange={callbacks.onRelicVariantChange}

@@ -50,7 +50,7 @@ export function RelicVariantRail({
   return (
     <section
       aria-label='Relic variants'
-      className='h-44 shrink-0 border-t border-slate-700/55 bg-slate-950/72'
+      className='h-52 shrink-0 border-t border-slate-700/55 bg-slate-950/72'
     >
       <div className='flex h-10 items-center justify-between border-b border-slate-800/80 px-4'>
         <span className='text-[0.62rem] tracking-[0.18em] text-slate-500 uppercase'>

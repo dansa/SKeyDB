@@ -4,7 +4,7 @@ import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import type {CovenantFullRecord} from '@/domain/covenants-full'
 import type {PosseFullRecord} from '@/domain/posses-full'
-import type {Relic} from '@/domain/relics'
+import type {PublicRelicRecord, Relic} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
 import {makeTestAwakenerFullRecord} from '@/features/database/internal/database-test-fixtures'
@@ -204,6 +204,38 @@ const mockCovenantRecord: CovenantFullRecord = {
   assetId: 'covenant-icon-001',
   setEffects: [],
 }
+const mockRelicRecord: PublicRelicRecord = {
+  schemaVersion: 3,
+  kind: 'relic',
+  id: 'relic-0001',
+  name: 'Dimensional Image: "24"',
+  route: {
+    canonicalPath: '/database/relics/dimensional-image-24',
+    slug: 'dimensional-image-24',
+  },
+  assets: {icon: 'asset-relic-0001-icon'},
+  aliases: [],
+  categories: ['DIMENSIONAL_IMAGE'],
+  defaultVariantId: 'relic-variant-0001',
+  relicType: 'Dimensional Image',
+  variantCount: 1,
+  variantCategoryTiers: [{category: 'DIMENSIONAL_IMAGE', tier: 'Unique'}],
+  variantTiers: ['Unique'],
+  descriptionTemplate: 'Test relic',
+  descriptionArgs: {},
+  variants: [
+    {
+      id: 'relic-variant-0001',
+      name: 'Dimensional Image: "24"',
+      label: 'Dimensional Image',
+      variantType: 'DIMENSIONAL_IMAGE',
+      tier: 'Unique',
+      category: 'DIMENSIONAL_IMAGE',
+      descriptionTemplate: 'Test relic',
+      descriptionArgs: {},
+    },
+  ],
+}
 
 afterEach(() => {
   cleanup()
@@ -213,6 +245,7 @@ afterEach(() => {
   vi.mocked(dbDetailRegistry.wheel.loadRecord).mockResolvedValue(mockWheelRecord)
   vi.mocked(dbDetailRegistry.posse.loadRecord).mockResolvedValue(mockPosseRecord)
   vi.mocked(dbDetailRegistry.covenant.loadRecord).mockResolvedValue(mockCovenantRecord)
+  vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
 })
 
 function openDetailInAct(
@@ -233,6 +266,11 @@ function closeAllDetailsInAct() {
 function LocationProbe() {
   const location = useLocation()
   return <span data-testid='location-pathname'>{location.pathname}</span>
+}
+
+function LocationSearchProbe() {
+  const location = useLocation()
+  return <span data-testid='location-search'>{location.search}</span>
 }
 
 describe('DbDetailModalHost overlay entries', () => {
@@ -433,6 +471,41 @@ describe('DbDetailModalHost overlay entries', () => {
 })
 
 describe('DbDetailModalHost route entries', () => {
+  it('keeps the relic modal mounted while canonicalizing its default variant', async () => {
+    vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
+    const callbacks = {
+      onClose: vi.fn(),
+      onSelectAwakener: vi.fn(),
+      onSelectCovenant: vi.fn(),
+      onSelectPosse: vi.fn(),
+      onSelectWheel: vi.fn(),
+      onTabChange: vi.fn(),
+    }
+
+    render(
+      <MemoryRouter initialEntries={['/database/relics/dimensional-image-24']}>
+        <LocationSearchProbe />
+        <DbDetailModalHost
+          awakeners={awakeners}
+          callbacks={callbacks}
+          relics={relics}
+          routeItem={{kind: 'relic', item: relics[0]}}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    await waitFor(() => {
+      expect(dbDetailRegistry.relic.render).toHaveBeenCalled()
+    })
+    expect(
+      screen.getByRole('dialog', {name: /dimensional image: "24" details/i}),
+    ).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByTestId('location-search')).toHaveTextContent('?variant=relic-variant-0001')
+    })
+  })
+
   it('does not render a stale route-sourced stack entry as an overlay after the route closes', async () => {
     vi.mocked(dbDetailRegistry.awakener.loadRecord).mockResolvedValue(mockAwakenerRecord)
     const callbacks = {

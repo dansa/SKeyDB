@@ -189,12 +189,15 @@ describe('RelicDetailModal', () => {
     )
 
     expect(screen.queryByRole('combobox', {name: 'Relic variant switcher'})).not.toBeInTheDocument()
-    expect(screen.getByRole('region', {name: 'Relic variants'})).toHaveTextContent(
-      'One recorded version',
-    )
+    const variantRail = screen.getByRole('region', {name: 'Relic variants'})
+    expect(variantRail).toHaveTextContent('One recorded version')
+    expect(variantRail).toHaveClass('h-52')
     expect(screen.queryByText('SSR')).not.toBeInTheDocument()
     expect(document.querySelector('aside img')).toHaveClass('max-h-full', 'max-w-full')
     expect(document.querySelector('aside img')).not.toHaveClass('h-full', 'w-full')
+    const desktopArtButton = document.querySelector('aside button')
+    expect(desktopArtButton).toHaveClass('p-4')
+    expect(desktopArtButton).not.toHaveClass('p-10', 'lg:p-14')
     await user.click(screen.getByRole('button', {name: '24'}))
     expect(onSelectAwakener).toHaveBeenCalledWith({id: 'awakener-0001', name: '24'}, 'overview')
   })
@@ -225,6 +228,10 @@ describe('RelicDetailModal', () => {
     await user.selectOptions(
       screen.getByRole('combobox', {name: 'Relic variant switcher'}),
       fullData.variants[3]?.id ?? '',
+    )
+    expect(screen.getByRole('combobox', {name: 'Relic variant switcher'})).toHaveClass(
+      'appearance-none',
+      'pr-11',
     )
     expect(onRelicVariantChange).toHaveBeenCalledWith(fullData.variants[3]?.id)
   })

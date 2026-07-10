@@ -970,10 +970,11 @@ function DbDetailRelicRouteModal({
             })
         const canonicalVariantId = selectedVariant?.id ?? record.defaultVariantId
 
+        let canonicalNavigation: ReactNode = null
         if (routeItem.variantId !== canonicalVariantId) {
           const canonicalSearch = new URLSearchParams(location.search)
           canonicalSearch.set('variant', canonicalVariantId)
-          return (
+          canonicalNavigation = (
             <Navigate
               replace
               to={{
@@ -985,14 +986,19 @@ function DbDetailRelicRouteModal({
           )
         }
 
-        return registryEntry.render({
-          awakeners,
-          callbacks,
-          item: routeItem,
-          navigation,
-          record,
-          wheels,
-        })
+        return (
+          <>
+            {canonicalNavigation}
+            {registryEntry.render({
+              awakeners,
+              callbacks,
+              item: routeItem,
+              navigation,
+              record,
+              wheels,
+            })}
+          </>
+        )
       }}
     </DbDetailRouteRecordBoundary>
   )
