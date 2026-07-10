@@ -12,12 +12,27 @@ import {
   awakenerRosterDatasetSchema,
   awakenerSkillsDatasetSchema,
   awakenerTalentsDatasetSchema,
+  descriptionArgSchema,
   derivedSkillsDatasetSchema,
 } from './awakener-source-schema'
 import {getAwakenerTalents} from './awakener-talents'
 import {getDerivedSkills} from './derived-skills'
 
 describe('awakener-source-schema', () => {
+  it('accepts source-backed ceil-then-multiply description args', () => {
+    expect(
+      descriptionArgSchema.parse({
+        kind: 'computed',
+        formulaKey: 'scaledCeilThenMultiply',
+        baseFormula: 'occultResearchDepth',
+        multiplier: 0.06,
+        divisor: 3,
+        postMultiplier: 3,
+        inputs: ['accountLevel', 'ownedPosseCount'],
+      }),
+    ).toMatchObject({formulaKey: 'scaledCeilThenMultiply', divisor: 3, postMultiplier: 3})
+  })
+
   it('accepts public V3-backed runtime records', () => {
     const parsedRoster = awakenerRosterDatasetSchema.parse(getAwakenerRoster())
     const parsedKits = awakenerKitsDatasetSchema.parse(getAwakenerKits())
