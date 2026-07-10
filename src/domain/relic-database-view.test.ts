@@ -68,6 +68,27 @@ describe('buildRelicDatabaseView', () => {
     expect(filtered.map((relic) => relic.id)).toEqual(['relic-tier-silver'])
   })
 
+  it('requires category and tier to belong to the same exact variant', () => {
+    const malignantChild = relics.find((relic) => relic.name === 'Malignant Child')
+    expect(malignantChild).toBeDefined()
+    if (!malignantChild) return
+
+    expect(
+      buildRelicDatabaseView([malignantChild], {
+        ...defaults,
+        categoryFilter: 'FADED_LEGACY',
+        tierFilter: 'GOLD',
+      }),
+    ).toEqual([])
+    expect(
+      buildRelicDatabaseView([malignantChild], {
+        ...defaults,
+        categoryFilter: 'FADED_LEGACY',
+        tierFilter: 'SILVER',
+      }),
+    ).toEqual([malignantChild])
+  })
+
   it('applies persistent display scopes with OR semantics and reports hidden query matches', () => {
     const standard = relics.find((relic) => relic.categories.includes('ASTRAL_REIGN'))
     const event = relics.find(

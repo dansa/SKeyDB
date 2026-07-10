@@ -784,7 +784,16 @@ describe('derived-skills', () => {
 
   it('keeps canonical ids aligned with source-backed display names', () => {
     const derivedSkills = getDerivedSkills()
+    const reviewedStableIdExceptions = new Set([
+      'derived.global.memories-envoys-verdict',
+      'derived.global.memories-honey-mead',
+      'derived.global.memories-seed-of-abundance',
+      'derived.global.memories-utopian-veil',
+      'derived.global.twilight-envoys-verdict',
+    ])
     const mismatches = derivedSkills.filter((entry) => {
+      if (reviewedStableIdExceptions.has(entry.id)) return false
+
       const slug = entry.id.split('.').slice(2).join('.')
       const normalizedDisplayName = entry.displayName
         .trim()

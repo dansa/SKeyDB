@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
   "gameDataVersion": "compiled-sha256-c656dfa15e77381d",
-  "generatedAt": "2026-07-10T21:01:49Z",
-  "buildId": "2026-07-10T21:01:49Z",
+  "generatedAt": "2026-07-10T21:21:19Z",
+  "buildId": "2026-07-10T21:21:19Z",
   "build": {
     "gameDataVersion": "compiled-sha256-c656dfa15e77381d",
     "recordCount": 1851,
@@ -126,8 +126,8 @@
       "sha256": "8676827fa2dd503ec79d6e80aa5ad5b99af9413582e04242961d3a6a87d0ea8d"
     },
     "catalogs/relics.json": {
-      "bytes": 156724,
-      "sha256": "80f06be64c757fd68701974cfc189b35c59be2ac67fc4ac6e276319a34f08c38"
+      "bytes": 210296,
+      "sha256": "b23858d4625b828d5bfef5105f828f149e74bf1ee859903c44e2f3622937605f"
     },
     "catalogs/skills.json": {
       "bytes": 141605,
@@ -1182,8 +1182,8 @@
       "sha256": "cb978a3e1721a6b6a9f377437b23163209688236a84f517c28dec300d318ec2d"
     },
     "records/derived-skills/derived.global.suspicion.json": {
-      "bytes": 739,
-      "sha256": "4d4f15fbade42c3fe03c4a1a59c44cde351df6aaf729f905c222759fb0afadbe"
+      "bytes": 903,
+      "sha256": "8407bfc2d0fc48a9cdfc986a4a6cbf6892097822d22369138a41d88faa49c7fb"
     },
     "records/derived-skills/derived.global.toxic-infusion.json": {
       "bytes": 683,
@@ -1222,8 +1222,8 @@
       "sha256": "2a1e78ca270d3259c22972307d0c99f0cacc8a4ddf09f499332f6cbd5faaba11"
     },
     "records/derived-skills/derived.global.unyielding-will-beta.json": {
-      "bytes": 503,
-      "sha256": "615cfd0c387cfc7c62561db48bd0c2bdb9ac6999cba2047b5debe200133e117a"
+      "bytes": 628,
+      "sha256": "112f9df931cab837818084a2b0ca29af977b24c015a50124d7c72427fcf9e2c2"
     },
     "records/derived-skills/derived.global.vernal-message.json": {
       "bytes": 621,

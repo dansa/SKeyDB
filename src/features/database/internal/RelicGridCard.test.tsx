@@ -20,6 +20,10 @@ const relic: Relic = {
   relicType: 'Relic',
   route: {canonicalPath: '/database/relics/malignant-child', slug: 'malignant-child'},
   variantCount: 5,
+  variantCategoryTiers: [
+    {category: 'ASTRAL_REIGN', tier: 'Silver'},
+    {category: 'FADED_LEGACY', tier: 'Gold'},
+  ],
   variantTiers: ['Silver', 'Gold'],
 }
 

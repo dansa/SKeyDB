@@ -16,6 +16,12 @@ export const DEFAULT_RELIC_DATABASE_DISPLAY_SCOPES: readonly RelicDatabaseDispla
   'OTHER',
 ]
 
+export function normalizeRelicDisplayScopes(
+  scopes: readonly RelicDatabaseDisplayScopeId[],
+): RelicDatabaseDisplayScopeId[] {
+  return RELIC_DATABASE_DISPLAY_SCOPE_IDS.filter((scope) => scopes.includes(scope))
+}
+
 const SCOPE_CATEGORIES: Record<RelicDatabaseDisplayScopeId, readonly RelicCategory[]> = {
   STANDARD: ['ASTRAL_REIGN', 'FADED_LEGACY'],
   DIMENSIONAL_IMAGE: ['DIMENSIONAL_IMAGE'],

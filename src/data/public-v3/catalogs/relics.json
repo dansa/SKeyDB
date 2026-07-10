@@ -23,7 +23,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0001",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -44,7 +50,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0002",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -65,7 +77,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0003",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -86,7 +104,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0004",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -107,7 +131,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0005",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -128,7 +158,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0006",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -149,7 +185,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0007",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -170,7 +212,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0008",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -191,7 +239,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0009",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -212,7 +266,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0010",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -233,7 +293,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0011",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -254,7 +320,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0012",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -275,7 +347,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0013",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -296,7 +374,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0014",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -317,7 +401,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0015",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -338,7 +428,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0016",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -359,7 +455,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0017",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -380,7 +482,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0018",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -401,7 +509,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0019",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -422,7 +536,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0020",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -443,7 +563,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0021",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -464,7 +590,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0022",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -485,7 +617,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0023",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -506,7 +644,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0024",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -527,7 +671,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0025",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -548,7 +698,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0026",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -569,7 +725,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0027",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -590,7 +752,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0028",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -611,7 +779,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0029",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -632,7 +806,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0030",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -653,7 +833,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0031",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -674,7 +860,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0032",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -695,7 +887,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0033",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -716,7 +914,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0034",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -737,7 +941,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0035",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -758,7 +968,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0036",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -779,7 +995,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0037",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -800,7 +1022,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0038",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -821,7 +1049,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0039",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -842,7 +1076,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0040",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -863,7 +1103,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0041",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -884,7 +1130,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0042",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -905,7 +1157,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0043",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -926,7 +1184,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0044",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -947,7 +1211,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0045",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -968,7 +1238,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0046",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -989,7 +1265,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0047",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1010,7 +1292,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0048",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1031,7 +1319,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0049",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1052,7 +1346,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0050",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1073,7 +1373,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0051",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1094,7 +1400,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0052",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1115,7 +1427,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0053",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1136,7 +1454,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0054",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1157,7 +1481,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0055",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1178,7 +1508,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0056",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1199,7 +1535,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0057",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1220,7 +1562,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0058",
       "aliases": [],
-      "variantTiers": ["Unique"]
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1239,7 +1587,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0059",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1258,7 +1612,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0060",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1277,7 +1637,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0062",
       "aliases": ["Alfonso's Artifact+"],
-      "variantTiers": ["Silver", "Gold", "Cursed"]
+      "variantTiers": ["Silver", "Gold", "Cursed"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1296,7 +1670,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0064",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1315,7 +1695,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0065",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1334,7 +1720,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0067",
       "aliases": ["Arcana Archive+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1353,7 +1753,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0070",
       "aliases": ["Arcana Relic+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1372,7 +1786,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0072",
       "aliases": ["Arcane Gloves+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1399,7 +1823,13 @@
         "Argent Return: Scathe",
         "Argent Return: Sorrow"
       ],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1418,7 +1848,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0081",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1437,7 +1873,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0082",
       "aliases": ["Premium Mouth Button"],
-      "variantTiers": ["Base", "Upgraded"]
+      "variantTiers": ["Base", "Upgraded"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Base"
+        },
+        {
+          "category": "OTHER",
+          "tier": "Upgraded"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1455,7 +1901,25 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0087",
       "aliases": ["Blessed: Black Candle", "Sinful: Black Candle"],
-      "variantTiers": ["Cursed", "Blessed", "Sinful"]
+      "variantTiers": ["Cursed", "Blessed", "Sinful"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Blessed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Sinful"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1473,7 +1937,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0088",
       "aliases": [],
-      "variantTiers": ["Cursed"]
+      "variantTiers": ["Cursed"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1492,7 +1962,29 @@
       "variantCount": 5,
       "defaultVariantId": "relic-variant-0090",
       "aliases": ["Blessed Blood+", "Painted Blessed Blood", "Painted Blessed Blood+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1511,7 +2003,29 @@
       "variantCount": 5,
       "defaultVariantId": "relic-variant-0095",
       "aliases": ["Bloody Pebble+", "Painted Bloody Pebble", "Painted Bloody Pebble+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1530,7 +2044,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0099",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1549,7 +2069,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0101",
       "aliases": ["Brand-New Wallet+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1568,7 +2102,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0103",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1586,7 +2126,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0104",
       "aliases": [],
-      "variantTiers": ["Cursed"]
+      "variantTiers": ["Cursed"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1605,7 +2151,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0105",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1624,7 +2176,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0106",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1643,7 +2201,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0108",
       "aliases": ["Celestial Astrolabe+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1662,7 +2234,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0110",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1681,7 +2259,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0112",
       "aliases": ["Chant of the Tides+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1700,7 +2292,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0114",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1719,7 +2317,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0115",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1738,7 +2342,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0116",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1757,7 +2367,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0117",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1776,7 +2392,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0118",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1795,7 +2417,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0119",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1814,7 +2442,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0120",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1833,7 +2467,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0121",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1852,7 +2492,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0122",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1871,7 +2517,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0123",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1890,7 +2542,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0124",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1909,7 +2567,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0125",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1928,7 +2592,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0126",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1947,7 +2617,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0127",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1966,7 +2642,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0128",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -1985,7 +2667,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0129",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2004,7 +2692,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0130",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2023,7 +2717,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0131",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2042,7 +2742,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0132",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2061,7 +2767,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0133",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2080,7 +2792,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0134",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2099,7 +2817,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0135",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2118,7 +2842,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0136",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2137,7 +2867,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0137",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2156,7 +2892,13 @@
       "variantCount": 9,
       "defaultVariantId": "relic-variant-0138",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2175,7 +2917,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0147",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2194,7 +2942,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0148",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2213,7 +2967,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0149",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2232,7 +2992,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0150",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2251,7 +3017,13 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0151",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2270,7 +3042,13 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0153",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2289,7 +3067,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0155",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2308,7 +3092,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0156",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2327,7 +3117,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0157",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2346,7 +3142,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0158",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2365,7 +3167,13 @@
       "variantCount": 7,
       "defaultVariantId": "relic-variant-0159",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2384,7 +3192,13 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0166",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2403,7 +3217,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0168",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2422,7 +3242,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0169",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2447,7 +3273,13 @@
         "Chrono Pendulum \"Treasure δ\"",
         "Chrono Pendulum \"Treasure ε\""
       ],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2466,7 +3298,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0175",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2485,7 +3323,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0176",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2504,7 +3348,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0177",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2531,7 +3381,13 @@
         "Chrono Pendulum \"Wish ζ\"",
         "Chrono Pendulum \"Wish η\""
       ],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2550,7 +3406,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0186",
       "aliases": ["Chronometric Device+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2569,7 +3439,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0188",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2588,7 +3464,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0189",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2607,7 +3489,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0190",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2626,7 +3514,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0192",
       "aliases": ["Crimson Brooch+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2644,7 +3546,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0194",
       "aliases": ["Sinful: Cursed Stele"],
-      "variantTiers": ["Cursed", "Sinful"]
+      "variantTiers": ["Cursed", "Sinful"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Sinful"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2663,7 +3575,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0197",
       "aliases": ["Dearest Babe+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2682,7 +3608,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0200",
       "aliases": ["Deceased's Chrono+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2701,7 +3641,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0202",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2720,7 +3666,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0203",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2739,7 +3691,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0204",
       "aliases": ["Differential Engine+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2758,7 +3720,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0206",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2777,7 +3745,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0207",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2796,7 +3770,13 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0208",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2815,7 +3795,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0210",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2834,7 +3820,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0211",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2853,7 +3845,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0212",
       "aliases": [],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2872,7 +3870,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0213",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2891,7 +3895,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0215",
       "aliases": ["Divine Oracle+"],
-      "variantTiers": ["Gold", "Special"]
+      "variantTiers": ["Gold", "Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        },
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2910,7 +3924,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0217",
       "aliases": ["Doctor's Case+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2929,7 +3957,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0219",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2948,7 +3982,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0220",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2967,7 +4007,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0222",
       "aliases": ["Easter Moment+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -2986,7 +4040,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0224",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3004,7 +4064,25 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0228",
       "aliases": ["Blessed: Eerie Hook", "Sinful: Eerie Hook"],
-      "variantTiers": ["Cursed", "Blessed", "Sinful"]
+      "variantTiers": ["Cursed", "Blessed", "Sinful"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Blessed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Sinful"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3022,7 +4100,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0229",
       "aliases": [],
-      "variantTiers": ["Cursed"]
+      "variantTiers": ["Cursed"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3041,7 +4125,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0230",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3060,7 +4150,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0231",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3079,7 +4175,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0232",
       "aliases": ["Faded Photograph+"],
-      "variantTiers": ["Silver", "Special"]
+      "variantTiers": ["Silver", "Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        },
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3098,7 +4204,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0234",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3117,7 +4229,29 @@
       "variantCount": 5,
       "defaultVariantId": "relic-variant-0236",
       "aliases": ["Filigree Agate+", "Painted Filigree Agate", "Painted Filigree Agate+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3136,7 +4270,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0240",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3155,7 +4295,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0242",
       "aliases": ["Fleeting Beauty+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3174,7 +4328,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0245",
       "aliases": ["Foreign Stamp Album+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3193,7 +4361,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0248",
       "aliases": ["Forgotten Loom+"],
-      "variantTiers": ["Silver", "Gold", "Special"]
+      "variantTiers": ["Silver", "Gold", "Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3212,7 +4394,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0251",
       "aliases": ["Forgotten Prelude+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3231,7 +4427,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0254",
       "aliases": ["Forsaken Blood+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3260,7 +4470,13 @@
         "Gateway of All Realmsδ",
         "Gateway of All Realmsη"
       ],
-      "variantTiers": ["Pendulum"]
+      "variantTiers": ["Pendulum"],
+      "variantCategoryTiers": [
+        {
+          "category": "PENDULUM",
+          "tier": "Pendulum"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3279,7 +4495,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0265",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3298,7 +4520,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0266",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3317,7 +4545,29 @@
       "variantCount": 5,
       "defaultVariantId": "relic-variant-0268",
       "aliases": ["Gilded Reverie+", "Painted Gilded Reverie", "Painted Gilded Reverie+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        },
+        {
+          "category": null,
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3336,7 +4586,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0272",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3355,7 +4611,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0274",
       "aliases": ["Guardian Hand+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3374,7 +4644,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0276",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3393,7 +4669,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0278",
       "aliases": ["Harford's Elixir+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3412,7 +4702,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0280",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3431,7 +4727,25 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0283",
       "aliases": ["Hierophant's Staff+"],
-      "variantTiers": ["Silver", "Gold", "Special"]
+      "variantTiers": ["Silver", "Gold", "Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        },
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3450,7 +4764,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0286",
       "aliases": ["Highest Honor+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3469,7 +4797,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0288",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3488,7 +4822,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0289",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3507,7 +4847,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0290",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3526,7 +4872,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0292",
       "aliases": ["Hyperstring Pocketwatch+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3545,7 +4905,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0295",
       "aliases": ["In Twilight+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3564,7 +4938,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0297",
       "aliases": ["Inverted View+"],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3583,7 +4963,29 @@
       "variantCount": 5,
       "defaultVariantId": "relic-variant-0299",
       "aliases": ["Iron Lock+", "Painted Iron Lock", "Painted Iron Lock+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3602,7 +5004,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0303",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3620,7 +5028,25 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0307",
       "aliases": ["Blessed: Jade Imprint", "Sinful: Jade Imprint"],
-      "variantTiers": ["Cursed", "Blessed", "Sinful"]
+      "variantTiers": ["Cursed", "Blessed", "Sinful"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Blessed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Sinful"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3638,7 +5064,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0308",
       "aliases": [],
-      "variantTiers": ["Cursed"]
+      "variantTiers": ["Cursed"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3657,7 +5089,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0310",
       "aliases": ["Kaleidoscope+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3676,7 +5122,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0312",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3695,7 +5147,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0313",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3713,7 +5171,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0314",
       "aliases": ["Blessed: Lamprey Kiss", "Sinful: Lamprey Kiss"],
-      "variantTiers": ["Cursed", "Blessed", "Sinful"]
+      "variantTiers": ["Cursed", "Blessed", "Sinful"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Blessed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Sinful"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3732,7 +5204,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0318",
       "aliases": ["Laurel Cufflinks+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3751,7 +5237,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0321",
       "aliases": ["Lemurian Delight+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3770,7 +5270,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0323",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3789,7 +5295,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0324",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3807,7 +5319,13 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0326",
       "aliases": ["Little N's Chaotic Camera", "Little N's Pristine Camera", "Little N's Worn Camera"],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3826,7 +5344,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0328",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3845,7 +5369,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0330",
       "aliases": ["Lucky Rabbit's Paw+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3864,7 +5402,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0332",
       "aliases": ["Bespoke Lucky Windcoat"],
-      "variantTiers": ["Base", "Upgraded"]
+      "variantTiers": ["Base", "Upgraded"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Base"
+        },
+        {
+          "category": "OTHER",
+          "tier": "Upgraded"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3883,7 +5431,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0335",
       "aliases": ["Luminous Hourglass+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3902,7 +5464,29 @@
       "variantCount": 5,
       "defaultVariantId": "relic-variant-0338",
       "aliases": ["Malignant Child+", "Painted Malignant Child", "Painted Malignant Child+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3921,7 +5505,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0342",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3940,7 +5530,13 @@
       "variantCount": 5,
       "defaultVariantId": "relic-variant-0343",
       "aliases": ["Medal of Rescue: Bronze", "Medal of Rescue: Diamond", "Medal of Rescue: Gold", "Medal of Rescue: Platinum", "Medal of Rescue: Silver"],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3959,7 +5555,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0348",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3978,7 +5580,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0349",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -3996,7 +5604,25 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0353",
       "aliases": ["Blessed: Mind Engraving", "Sinful: Mind Engraving"],
-      "variantTiers": ["Cursed", "Blessed", "Sinful"]
+      "variantTiers": ["Cursed", "Blessed", "Sinful"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Blessed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Sinful"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4015,7 +5641,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0355",
       "aliases": ["Mob Song+"],
-      "variantTiers": ["Gold", "Special"]
+      "variantTiers": ["Gold", "Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        },
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4034,7 +5670,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0356",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4053,7 +5695,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0357",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4072,7 +5720,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0359",
       "aliases": ["Mute Jukebox+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4091,7 +5753,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0361",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4110,7 +5778,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0363",
       "aliases": ["Mythag Insignia+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4129,7 +5811,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0366",
       "aliases": ["Nameless Appendage+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4148,7 +5844,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0369",
       "aliases": ["Nettle Vest+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4167,7 +5877,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0372",
       "aliases": ["Neurotoxin+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4185,7 +5909,25 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0377",
       "aliases": ["Blessed: Nightmare Manifest", "Sinful: Nightmare Manifest"],
-      "variantTiers": ["Cursed", "Blessed", "Sinful"]
+      "variantTiers": ["Cursed", "Blessed", "Sinful"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Blessed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Sinful"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4204,7 +5946,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0378",
       "aliases": ["Shining Octahedron Dice"],
-      "variantTiers": ["Base", "Upgraded"]
+      "variantTiers": ["Base", "Upgraded"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Base"
+        },
+        {
+          "category": "OTHER",
+          "tier": "Upgraded"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4223,7 +5975,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0380",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4241,7 +5999,25 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0384",
       "aliases": ["Blessed: Omen Ritual Bird", "Sinful: Omen Ritual Bird"],
-      "variantTiers": ["Cursed", "Blessed", "Sinful"]
+      "variantTiers": ["Cursed", "Blessed", "Sinful"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Blessed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Sinful"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4260,7 +6036,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0385",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4279,7 +6061,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0387",
       "aliases": ["Other Tongue+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4298,7 +6094,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0390",
       "aliases": ["Our Home+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4317,7 +6127,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0392",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4335,7 +6151,25 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0396",
       "aliases": ["Blessed: Pathwalker's Remains", "Sinful: Pathwalker's Remains"],
-      "variantTiers": ["Cursed", "Blessed", "Sinful"]
+      "variantTiers": ["Cursed", "Blessed", "Sinful"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Blessed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Sinful"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4354,7 +6188,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0398",
       "aliases": ["Phantom Hand+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4373,7 +6221,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0401",
       "aliases": ["Plague Record+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4392,7 +6254,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0403",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4411,7 +6279,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0404",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4430,7 +6304,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0406",
       "aliases": ["Preserved Butterfly+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4449,7 +6337,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0408",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4468,7 +6362,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0410",
       "aliases": ["Prophet's Lamp+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4487,7 +6395,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0413",
       "aliases": ["Proto Battery+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4506,7 +6428,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0415",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4533,7 +6461,13 @@
         "Pure Silver Core: Scathe",
         "Pure Silver Core: Sorrow"
       ],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4552,7 +6486,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0424",
       "aliases": ["Putney Morning Post+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4571,7 +6519,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0426",
       "aliases": ["Radium Jawbone+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4590,7 +6548,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0429",
       "aliases": ["Relic of the Past+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4609,7 +6581,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0432",
       "aliases": ["Rhind Papyrus+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4628,7 +6614,29 @@
       "variantCount": 5,
       "defaultVariantId": "relic-variant-0435",
       "aliases": ["Painted Rite of Spring", "Painted Rite of Spring+", "Rite of Spring+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4647,7 +6655,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0440",
       "aliases": ["Ritual Dagger+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4666,7 +6688,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0442",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4685,7 +6713,29 @@
       "variantCount": 5,
       "defaultVariantId": "relic-variant-0444",
       "aliases": ["Painted Rusted Saw", "Painted Rusted Saw+", "Rusted Saw+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Silver"
+        },
+        {
+          "category": null,
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4704,7 +6754,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0449",
       "aliases": ["Rusty Lancet+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4722,7 +6786,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0452",
       "aliases": [],
-      "variantTiers": ["Cursed"]
+      "variantTiers": ["Cursed"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4741,7 +6815,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0454",
       "aliases": ["Safe Passage+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4760,7 +6848,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0456",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4778,7 +6872,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0458",
       "aliases": [],
-      "variantTiers": ["Cursed"]
+      "variantTiers": ["Cursed"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4797,7 +6901,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0460",
       "aliases": ["Serpent's Husk+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4816,7 +6934,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0463",
       "aliases": ["Severed Head Worm+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4835,7 +6967,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0465",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4854,7 +6992,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0466",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4873,7 +7017,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0468",
       "aliases": ["Signal Relay+"],
-      "variantTiers": ["Silver", "Special"]
+      "variantTiers": ["Silver", "Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        },
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4892,7 +7046,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0470",
       "aliases": ["Silent Prelude+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4911,7 +7079,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0472",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4930,7 +7104,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0474",
       "aliases": ["Silver Tongue+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4949,7 +7137,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0476",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4968,7 +7162,25 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0479",
       "aliases": ["Solar Disc+"],
-      "variantTiers": ["Silver", "Gold", "Special"]
+      "variantTiers": ["Silver", "Gold", "Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        },
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -4987,7 +7199,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0481",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5006,7 +7224,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0482",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5025,7 +7249,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0484",
       "aliases": ["Spatial Deflector+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5044,7 +7282,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0486",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5063,7 +7307,25 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0489",
       "aliases": ["Stellar Brew+"],
-      "variantTiers": ["Silver", "Gold", "Special"]
+      "variantTiers": ["Silver", "Gold", "Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        },
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5082,7 +7344,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0492",
       "aliases": ["Submersible Helm+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5101,7 +7377,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0494",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5119,7 +7401,25 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0498",
       "aliases": ["Blessed: Swarm Mind", "Sinful: Swarm Mind"],
-      "variantTiers": ["Cursed", "Blessed", "Sinful"]
+      "variantTiers": ["Cursed", "Blessed", "Sinful"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Blessed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Sinful"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5138,7 +7438,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0499",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5157,7 +7463,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0501",
       "aliases": ["Tilted Scales+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5176,7 +7496,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0504",
       "aliases": ["Time Scarab+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5195,7 +7529,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0506",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5214,7 +7554,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0508",
       "aliases": ["Tiny Music Box+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5232,7 +7586,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0511",
       "aliases": [],
-      "variantTiers": ["Cursed"]
+      "variantTiers": ["Cursed"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5251,7 +7615,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0513",
       "aliases": ["Trigon Prism+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5270,7 +7648,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0516",
       "aliases": ["True North Compass+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5289,7 +7681,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0519",
       "aliases": ["Truth Unbound+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5308,7 +7714,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0521",
       "aliases": [],
-      "variantTiers": ["Silver"]
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5327,7 +7739,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0522",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5346,7 +7764,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0523",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5365,7 +7789,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0525",
       "aliases": ["Uncanny Salve+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5384,7 +7822,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0527",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5403,7 +7847,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0529",
       "aliases": ["Veil of the Nameless Deity+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5422,7 +7880,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0532",
       "aliases": ["Vision Corrector+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5441,7 +7913,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0535",
       "aliases": ["Vitality Injection+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5460,7 +7946,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0538",
       "aliases": ["Voyager's Parasol+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5478,7 +7978,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0540",
       "aliases": [],
-      "variantTiers": ["Cursed"]
+      "variantTiers": ["Cursed"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5497,7 +8003,13 @@
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0541",
       "aliases": [],
-      "variantTiers": ["Gold"]
+      "variantTiers": ["Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Gold"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5516,7 +8028,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0543",
       "aliases": ["Weeping Pipe+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5535,7 +8061,13 @@
       "variantCount": 4,
       "defaultVariantId": "relic-variant-0545",
       "aliases": [],
-      "variantTiers": ["Special"]
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5553,7 +8085,17 @@
       "variantCount": 2,
       "defaultVariantId": "relic-variant-0550",
       "aliases": [],
-      "variantTiers": ["Cursed"]
+      "variantTiers": ["Cursed"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Cursed"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Cursed"
+        }
+      ]
     },
     {
       "kind": "relic",
@@ -5572,7 +8114,21 @@
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0552",
       "aliases": ["Yellow Snail+"],
-      "variantTiers": ["Silver", "Gold"]
+      "variantTiers": ["Silver", "Gold"],
+      "variantCategoryTiers": [
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Silver"
+        },
+        {
+          "category": "ASTRAL_REIGN",
+          "tier": "Gold"
+        },
+        {
+          "category": "FADED_LEGACY",
+          "tier": "Silver"
+        }
+      ]
     }
   ]
 }

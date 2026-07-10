@@ -170,6 +170,7 @@ const relics: Relic[] = [
       slug: 'dimensional-image-24',
     },
     variantCount: 1,
+    variantCategoryTiers: [{category: 'DIMENSIONAL_IMAGE', tier: 'Unique'}],
     variantTiers: ['Unique'],
   },
 ]

@@ -158,6 +158,10 @@ describe('D-zone database popover entries', () => {
       rarity: 'SR',
       relicType: 'Relic',
       variantCount: 2,
+      variantCategoryTiers: [
+        {category: 'ASTRAL_REIGN', tier: 'Silver'},
+        {category: 'FADED_LEGACY', tier: 'Gold'},
+      ],
       variantTiers: ['Silver', 'Gold'],
       variants: [
         {

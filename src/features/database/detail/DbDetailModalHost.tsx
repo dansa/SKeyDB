@@ -22,7 +22,10 @@ import {
 } from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
 import {getPosses} from '@/domain/posses'
-import {parseRelicDatabaseBrowseState} from '@/domain/relic-database-browse-state'
+import {
+  getRelicTierValue,
+  parseRelicDatabaseBrowseState,
+} from '@/domain/relic-database-browse-state'
 import type {Relic} from '@/domain/relics'
 import {resolvePreferredRelicVariant} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
@@ -957,12 +960,14 @@ function DbDetailRelicRouteModal({
       routeItem={routeItem}
     >
       {(record) => {
+        const browseState = parseRelicDatabaseBrowseState(new URLSearchParams(location.search))
         const selectedVariant = routeItem.variantId
           ? record.variants.find((variant) => variant.id === routeItem.variantId)
-          : resolvePreferredRelicVariant(
-              record,
-              parseRelicDatabaseBrowseState(new URLSearchParams(location.search)),
-            )
+          : resolvePreferredRelicVariant(record, {
+              category: browseState.categoryFilter === 'ALL' ? null : browseState.categoryFilter,
+              tier:
+                browseState.tierFilter === 'ALL' ? null : getRelicTierValue(browseState.tierFilter),
+            })
         const canonicalVariantId = selectedVariant?.id ?? record.defaultVariantId
 
         if (routeItem.variantId !== canonicalVariantId) {

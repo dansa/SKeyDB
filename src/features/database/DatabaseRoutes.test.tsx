@@ -109,8 +109,8 @@ vi.mock('@/domain/relics', () => ({
     mockRelicRecord.variants.find((variant) => variant.id === id),
   resolvePreferredRelicVariant: (
     _record: unknown,
-    filters: {tierFilter: 'ALL' | 'SILVER' | 'GOLD' | 'CURSED'},
-  ) => (filters.tierFilter === 'GOLD' ? mockRelicRecord.variants[1] : mockRelicRecord.variants[0]),
+    filters: {tier: 'Silver' | 'Gold' | 'Cursed' | null},
+  ) => (filters.tier === 'Gold' ? mockRelicRecord.variants[1] : mockRelicRecord.variants[0]),
   getRelics: () => mockRelics,
   loadRelicRecordById: async (id: string) =>
     id === mockRelicRecord.id ? mockRelicRecord : undefined,

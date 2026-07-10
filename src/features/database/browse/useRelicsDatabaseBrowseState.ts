@@ -14,7 +14,7 @@ import {
   type RelicDatabaseTierFilterId,
 } from '@/domain/relic-database-browse-state'
 import {
-  RELIC_DATABASE_DISPLAY_SCOPE_IDS,
+  normalizeRelicDisplayScopes,
   type RelicDatabaseDisplayScopeId,
 } from '@/domain/relic-database-display-scopes'
 import {getBrowserLocalStorage} from '@/domain/storage'
@@ -48,7 +48,7 @@ export function useRelicsDatabaseBrowseState() {
   )
   const setDisplayScopes = useCallback(
     (next: readonly RelicDatabaseDisplayScopeId[]) => {
-      const normalized = RELIC_DATABASE_DISPLAY_SCOPE_IDS.filter((scope) => next.includes(scope))
+      const normalized = normalizeRelicDisplayScopes(next)
       writeRelicDatabaseDisplayPreferences({displayScopes: normalized}, storage)
       setDisplayScopesState(normalized)
     },

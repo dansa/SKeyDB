@@ -49,16 +49,20 @@ export function buildRelicDatabaseViewResult(
 ): RelicDatabaseViewResult {
   const searchResults = searchRelicResults([...relics], state.query)
   const relevanceIndex = new Map(searchResults.map((result, index) => [result.entity.id, index]))
+  const activeCategory = state.categoryFilter === 'ALL' ? null : state.categoryFilter
+  const activeTier = state.tierFilter === 'ALL' ? null : getRelicTierValue(state.tierFilter)
   const filtered = searchResults
     .map((result) => result.entity)
-    .filter(
-      (relic) => state.categoryFilter === 'ALL' || relic.categories.includes(state.categoryFilter),
-    )
-    .filter(
-      (relic) =>
-        state.tierFilter === 'ALL' ||
-        relic.variantTiers.includes(getRelicTierValue(state.tierFilter)),
-    )
+    .filter((relic) => {
+      if (activeCategory && activeTier) {
+        return relic.variantCategoryTiers.some(
+          (facet) => facet.category === activeCategory && facet.tier === activeTier,
+        )
+      }
+      if (activeCategory) return relic.categories.includes(activeCategory)
+      if (activeTier) return relic.variantTiers.includes(activeTier)
+      return true
+    })
 
   const sorted = filtered.toSorted((left, right) => {
     if (state.sortKey === 'BEST_MATCH') {

@@ -10,11 +10,6 @@ import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
 
 import {resolveDescriptionTemplate} from './description-args'
 import {publicDescriptionArgsSchema} from './public-description-args.schema'
-import {
-  getRelicTierValue,
-  type RelicDatabaseCategoryFilterId,
-  type RelicDatabaseTierFilterId,
-} from './relic-database-browse-state'
 
 export const RELIC_CATEGORIES = [
   'ASTRAL_REIGN',
@@ -53,6 +48,10 @@ const relicCategorySchema = z.enum(RELIC_CATEGORIES)
 const relicRaritySchema = z.enum(RELIC_RARITIES)
 const relicTypeSchema = z.enum(RELIC_TYPES)
 const relicVariantTierSchema = z.enum(RELIC_VARIANT_TIERS)
+const relicVariantCategoryTierSchema = z.object({
+  category: relicCategorySchema.nullable(),
+  tier: relicVariantTierSchema,
+})
 const relicRouteSchema = z.object({
   slug: nonEmptyStringSchema,
   canonicalPath: nonEmptyStringSchema,
@@ -71,6 +70,7 @@ const publicRelicCatalogRecordSchema = z
     relicType: relicTypeSchema,
     rarity: relicRaritySchema.optional(),
     variantCount: z.number().int().positive(),
+    variantCategoryTiers: z.array(relicVariantCategoryTierSchema).default([]),
     variantTiers: z.array(relicVariantTierSchema).default([]),
     ownerAwakenerId: awakenerIdSchema.optional(),
     ownerAwakenerName: nonEmptyStringSchema.optional(),
@@ -156,6 +156,7 @@ export interface Relic {
   rarity?: RelicRarity
   aliases: string[]
   variantCount: number
+  variantCategoryTiers: z.infer<typeof relicVariantCategoryTierSchema>[]
   variantTiers: RelicVariantTier[]
   defaultVariantId: string
   route: z.infer<typeof relicRouteSchema>
@@ -185,6 +186,9 @@ function isDimensionalImageCategory(categories: RelicCategory[]): boolean {
 
 const parsedRelics: Relic[] = getPublicRelicCatalogRecords().map((record): Relic => {
   const relic = publicRelicCatalogRecordSchema.parse(record)
+  if (relic.variantCategoryTiers.length === 0) {
+    throw new Error(`Relic catalog entry "${relic.id}" is missing variantCategoryTiers.`)
+  }
   return {
     id: relic.id,
     kind: isDimensionalImageCategory(relic.categories) ? 'PORTRAIT' : 'GENERIC',
@@ -193,6 +197,7 @@ const parsedRelics: Relic[] = getPublicRelicCatalogRecords().map((record): Relic
     rarity: relic.rarity,
     aliases: relic.aliases,
     variantCount: relic.variantCount,
+    variantCategoryTiers: relic.variantCategoryTiers,
     variantTiers: relic.variantTiers,
     defaultVariantId: relic.defaultVariantId,
     route: relic.route,
@@ -305,8 +310,8 @@ export function getDefaultRelicVariant(record: PublicRelicRecord): PublicRelicVa
 }
 
 interface PreferredRelicVariantFilters {
-  categoryFilter: RelicDatabaseCategoryFilterId
-  tierFilter: RelicDatabaseTierFilterId
+  category: RelicCategory | null
+  tier: RelicVariantTier | null
 }
 
 export function resolvePreferredRelicVariant(
@@ -314,8 +319,7 @@ export function resolvePreferredRelicVariant(
   filters: PreferredRelicVariantFilters,
 ): PublicRelicVariant {
   const defaultVariant = getDefaultRelicVariant(record)
-  const tier = filters.tierFilter === 'ALL' ? null : getRelicTierValue(filters.tierFilter)
-  const category = filters.categoryFilter === 'ALL' ? null : filters.categoryFilter
+  const {category, tier} = filters
   const selectCandidate = (candidates: PublicRelicVariant[]): PublicRelicVariant | undefined => {
     if (candidates.length === 0) return undefined
     return candidates.find((variant) => variant.id === defaultVariant.id) ?? candidates[0]

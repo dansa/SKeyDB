@@ -162,14 +162,14 @@ describe('relic family variants', () => {
 
     expect(
       resolvePreferredRelicVariant(malignantChild, {
-        categoryFilter: 'ASTRAL_REIGN',
-        tierFilter: 'SILVER',
+        category: 'ASTRAL_REIGN',
+        tier: 'Silver',
       }),
     ).toMatchObject({category: 'ASTRAL_REIGN', tier: 'Silver'})
     expect(
       resolvePreferredRelicVariant(malignantChild, {
-        categoryFilter: 'FADED_LEGACY',
-        tierFilter: 'SILVER',
+        category: 'FADED_LEGACY',
+        tier: 'Silver',
       }),
     ).toMatchObject({category: 'FADED_LEGACY', tier: 'Silver'})
   })

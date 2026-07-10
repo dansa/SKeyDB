@@ -8,6 +8,7 @@ import {
 } from './database-browse-state'
 import {
   DEFAULT_RELIC_DATABASE_DISPLAY_SCOPES,
+  normalizeRelicDisplayScopes,
   RELIC_DATABASE_DISPLAY_SCOPE_IDS,
   type RelicDatabaseDisplayScopeId,
 } from './relic-database-display-scopes'
@@ -92,9 +93,7 @@ const relicDisplayPreferencesSchema = z
   .object({
     displayScopes: z
       .array(z.enum(RELIC_DATABASE_DISPLAY_SCOPE_IDS))
-      .transform((scopes) =>
-        RELIC_DATABASE_DISPLAY_SCOPE_IDS.filter((scope) => scopes.includes(scope)),
-      )
+      .transform(normalizeRelicDisplayScopes)
       .catch([...DEFAULT_RELIC_DATABASE_DISPLAY_SCOPES]),
   })
   .partial()
@@ -166,9 +165,7 @@ export function writeRelicDatabaseDisplayPreferences(
   storage: StorageLike | null = getBrowserLocalStorage(),
 ): boolean {
   const current = readDatabaseBrowsePreferences(storage)
-  const displayScopes = RELIC_DATABASE_DISPLAY_SCOPE_IDS.filter((scope) =>
-    next.displayScopes.includes(scope),
-  )
+  const displayScopes = normalizeRelicDisplayScopes(next.displayScopes)
   return safeStorageWrite(
     storage,
     STORAGE_KEY,
