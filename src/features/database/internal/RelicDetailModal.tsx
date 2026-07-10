@@ -1,4 +1,4 @@
-import {Fragment, useEffect, useMemo} from 'react'
+import {Fragment, useMemo} from 'react'
 
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
 import {useStore} from 'zustand'
@@ -140,9 +140,6 @@ function RelicDetailModalInner({
   selectedVariantId,
 }: RelicDetailModalProps) {
   const {preferences, updateSharedPreferences} = useDatabaseDetailPreferences()
-  useEffect(() => {
-    collectionOwnershipStore.getState().hydrate()
-  }, [])
   const collectionOwnership = useStore(collectionOwnershipStore, (state) => state.ownership)
   const formulaContext = useMemo(
     () =>
@@ -155,13 +152,6 @@ function RelicDetailModalInner({
   const selectedVariant =
     (selectedVariantId ? getRelicVariantById(fullData, selectedVariantId) : undefined) ??
     getDefaultRelicVariant(fullData)
-  const canonicalVariantId = selectedVariant.id
-
-  useEffect(() => {
-    if (selectedVariantId !== canonicalVariantId) {
-      onRelicVariantChange?.(canonicalVariantId)
-    }
-  }, [canonicalVariantId, onRelicVariantChange, selectedVariantId])
 
   const effectRecord = useMemo<RelicDatabaseDescriptionRecord>(() => {
     const variantHasEffect = Boolean(selectedVariant.descriptionTemplate.trim())

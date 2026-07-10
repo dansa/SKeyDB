@@ -7,6 +7,7 @@ import './index.css'
 
 import App from './App.tsx'
 import {getRouterBasename, replaceLegacyHashRoute} from './legacy-hash-routing'
+import {collectionOwnershipStore} from './stores/collectionOwnershipStore'
 
 const rootElement = document.getElementById('root')
 if (!rootElement) {
@@ -14,6 +15,7 @@ if (!rootElement) {
 }
 
 replaceLegacyHashRoute(import.meta.env.BASE_URL)
+collectionOwnershipStore.getState().hydrate()
 
 createRoot(rootElement).render(
   <StrictMode>

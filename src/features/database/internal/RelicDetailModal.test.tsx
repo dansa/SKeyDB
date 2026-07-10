@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-import {render, screen, waitFor} from '@testing-library/react'
+import {render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import {MemoryRouter} from 'react-router-dom'
 import {describe, expect, it, vi} from 'vitest'
@@ -49,7 +49,7 @@ describe('RelicDetailModal', () => {
     expect(labels.get('relic-variant-0080')).toBe('Event - Special — Argent Return: Sorrow')
   })
 
-  it('canonicalizes an invalid variant to the family default and renders Effect and Lore', async () => {
+  it('defensively renders the family default for an invalid controlled variant', async () => {
     const {fullData, item} = await loadFixture('relic-0207')
     const onRelicVariantChange = vi.fn()
     render(
@@ -64,14 +64,12 @@ describe('RelicDetailModal', () => {
       </MemoryRouter>,
     )
 
-    await waitFor(() => {
-      expect(onRelicVariantChange).toHaveBeenCalledWith(fullData.defaultVariantId)
-    })
     expect(screen.getByRole('heading', {name: 'Effect'})).toBeInTheDocument()
     expect(screen.getByRole('heading', {name: 'Lore'})).toBeInTheDocument()
     expect(screen.getByRole('combobox', {name: 'Relic variant'})).toHaveValue(
       fullData.defaultVariantId,
     )
+    expect(onRelicVariantChange).not.toHaveBeenCalled()
   })
 
   it('falls back to non-empty family Effect and Lore when variant fields are blank', async () => {

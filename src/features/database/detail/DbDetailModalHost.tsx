@@ -1,7 +1,15 @@
-import {Suspense, useCallback, useEffect, useMemo, useState, useSyncExternalStore} from 'react'
+import {
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from 'react'
 
 import {FaMagnifyingGlass, FaXmark} from 'react-icons/fa6'
-import {useLocation, useNavigate} from 'react-router-dom'
+import {Navigate, useLocation, useNavigate} from 'react-router-dom'
 
 import type {Awakener} from '@/domain/awakeners'
 import {getCovenants, type Covenant} from '@/domain/covenants'
@@ -34,6 +42,7 @@ import {DbDetailModalFrame} from './DbDetailModalFrame'
 import {
   dbDetailRegistry,
   type DatabaseDetailKind,
+  type DatabaseDetailRecordByKind,
   type DatabaseDetailRenderCallbacks,
   type DatabaseDetailRouteItem,
   type DatabaseDetailRouteItemByKind,
@@ -768,11 +777,10 @@ function DbDetailRouteModal({
     )
   }
   return (
-    <DbDetailNonAwakenerRouteModal
+    <DbDetailRelicRouteModal
       activeRef={activeRef}
       awakeners={awakeners}
       callbacks={callbacks}
-      kind='relic'
       navigation={navigation}
       routeItem={routeItem}
       wheels={wheels}
@@ -791,9 +799,48 @@ interface DbDetailKindRouteModalProps<Kind extends DatabaseDetailKind> {
 }
 
 interface DbDetailNonAwakenerRouteModalProps<
-  Kind extends Exclude<DatabaseDetailKind, 'awakener'>,
+  Kind extends Exclude<DatabaseDetailKind, 'awakener' | 'relic'>,
 > extends DbDetailKindRouteModalProps<Kind> {
   kind: Kind
+}
+
+interface DbDetailRouteRecordBoundaryProps<Kind extends Exclude<DatabaseDetailKind, 'awakener'>> {
+  activeRef: EntityRef
+  callbacks: DatabaseDetailRenderCallbacks
+  children: (record: DatabaseDetailRecordByKind[Kind]) => ReactNode
+  kind: Kind
+  navigation: DatabaseDetailResultNavigation | null
+  routeItem: DatabaseDetailRouteItemByKind[Kind]
+}
+
+function DbDetailRouteRecordBoundary<Kind extends Exclude<DatabaseDetailKind, 'awakener'>>({
+  activeRef,
+  callbacks,
+  children,
+  kind,
+  navigation,
+  routeItem,
+}: DbDetailRouteRecordBoundaryProps<Kind>) {
+  const registryEntry = dbDetailRegistry[kind]
+  const {isLoading, record} = useDatabaseDetailRouteRecord({
+    id: activeRef.id,
+    loadRecord: registryEntry.loadRecord,
+    missingPathname: registryEntry.missingBrowsePath,
+  })
+  useDeferredDatabaseDetailNeighborPreload(navigation, Boolean(record))
+
+  if (isLoading) {
+    return (
+      <DbDetailRouteLoadingModal
+        loadingLabel={registryEntry.loadingLabel}
+        navigation={navigation}
+        onClose={callbacks.onClose}
+        routeItem={routeItem}
+      />
+    )
+  }
+
+  return record ? children(record) : null
 }
 
 function DbDetailAwakenerRouteModal({
@@ -855,7 +902,9 @@ function DbDetailAwakenerRouteModal({
   })
 }
 
-function DbDetailNonAwakenerRouteModal<Kind extends Exclude<DatabaseDetailKind, 'awakener'>>({
+function DbDetailNonAwakenerRouteModal<
+  Kind extends Exclude<DatabaseDetailKind, 'awakener' | 'relic'>,
+>({
   activeRef,
   awakeners,
   callbacks,
@@ -865,27 +914,76 @@ function DbDetailNonAwakenerRouteModal<Kind extends Exclude<DatabaseDetailKind, 
   wheels,
 }: DbDetailNonAwakenerRouteModalProps<Kind>) {
   const registryEntry = dbDetailRegistry[kind]
-  const {isLoading, record} = useDatabaseDetailRouteRecord({
-    id: activeRef.id,
-    loadRecord: registryEntry.loadRecord,
-    missingPathname: registryEntry.missingBrowsePath,
-  })
-  useDeferredDatabaseDetailNeighborPreload(navigation, Boolean(record))
+  return (
+    <DbDetailRouteRecordBoundary
+      activeRef={activeRef}
+      callbacks={callbacks}
+      kind={kind}
+      navigation={navigation}
+      routeItem={routeItem}
+    >
+      {(record) =>
+        registryEntry.render({
+          awakeners,
+          callbacks,
+          item: routeItem,
+          navigation,
+          record,
+          wheels,
+        })
+      }
+    </DbDetailRouteRecordBoundary>
+  )
+}
 
-  if (isLoading) {
-    return (
-      <DbDetailRouteLoadingModal
-        loadingLabel={registryEntry.loadingLabel}
-        navigation={navigation}
-        onClose={callbacks.onClose}
-        routeItem={routeItem}
-      />
-    )
-  }
+function DbDetailRelicRouteModal({
+  activeRef,
+  awakeners,
+  callbacks,
+  navigation,
+  routeItem,
+  wheels,
+}: DbDetailKindRouteModalProps<'relic'>) {
+  const location = useLocation()
+  const registryEntry = dbDetailRegistry.relic
+  return (
+    <DbDetailRouteRecordBoundary
+      activeRef={activeRef}
+      callbacks={callbacks}
+      kind='relic'
+      navigation={navigation}
+      routeItem={routeItem}
+    >
+      {(record) => {
+        const selectedVariant = routeItem.variantId
+          ? record.variants.find((variant) => variant.id === routeItem.variantId)
+          : undefined
+        const canonicalVariantId = selectedVariant?.id ?? record.defaultVariantId
 
-  if (!record) {
-    return null
-  }
+        if (routeItem.variantId !== canonicalVariantId) {
+          const canonicalSearch = new URLSearchParams(location.search)
+          canonicalSearch.set('variant', canonicalVariantId)
+          return (
+            <Navigate
+              replace
+              to={{
+                hash: location.hash,
+                pathname: location.pathname,
+                search: `?${canonicalSearch.toString()}`,
+              }}
+            />
+          )
+        }
 
-  return registryEntry.render({awakeners, callbacks, item: routeItem, navigation, record, wheels})
+        return registryEntry.render({
+          awakeners,
+          callbacks,
+          item: routeItem,
+          navigation,
+          record,
+          wheels,
+        })
+      }}
+    </DbDetailRouteRecordBoundary>
+  )
 }

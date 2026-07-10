@@ -83,7 +83,7 @@ export type DatabaseDetailRouteItemByKind = {
   [Kind in DatabaseDetailKind]: Extract<DatabaseDetailRouteItem, {kind: Kind}>
 }
 
-interface DatabaseDetailRecordByKind {
+export interface DatabaseDetailRecordByKind {
   awakener: AwakenerFullRecord
   wheel: WheelFullRecord
   posse: PosseFullRecord

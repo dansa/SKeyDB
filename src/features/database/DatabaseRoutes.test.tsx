@@ -2,7 +2,7 @@
 
 import '@testing-library/jest-dom/vitest'
 
-import {Suspense, useEffect, useState} from 'react'
+import {Suspense, useState} from 'react'
 
 import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {MemoryRouter, Routes, useLocation, useNavigate} from 'react-router-dom'
@@ -263,7 +263,6 @@ vi.mock('@/features/database/internal/RelicDetailModal', () => ({
   RelicDetailModal: ({
     item,
     onClose,
-    onRelicVariantChange,
     selectedVariantId,
   }: {
     item: {name: string}
@@ -271,12 +270,6 @@ vi.mock('@/features/database/internal/RelicDetailModal', () => ({
     onRelicVariantChange?: (variantId: string) => void
     selectedVariantId?: string
   }) => {
-    useEffect(() => {
-      if (selectedVariantId !== 'relic-variant-0001') {
-        onRelicVariantChange?.('relic-variant-0001')
-      }
-    }, [onRelicVariantChange, selectedVariantId])
-
     return (
       <dialog aria-label={`${item.name} relic details`} open>
         <div>{`Selected relic variant ${selectedVariantId ?? 'default'}`}</div>
