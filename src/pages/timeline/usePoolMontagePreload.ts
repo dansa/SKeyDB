@@ -21,7 +21,10 @@ function finishImageDecode(image: HTMLImageElement): Promise<void> {
 }
 
 function preloadTimelineImage(url: string | undefined): Promise<void> {
-  if (!url || typeof window === 'undefined' || typeof window.Image === 'undefined') {
+  if (!url || typeof window === 'undefined') {
+    return Promise.resolve()
+  }
+  if (typeof window.Image === 'undefined') {
     return Promise.resolve()
   }
 

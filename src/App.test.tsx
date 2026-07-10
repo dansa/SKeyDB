@@ -3,6 +3,7 @@ import {MemoryRouter, useNavigate} from 'react-router-dom'
 import {afterEach, vi} from 'vitest'
 
 import App from './App'
+import {createTestMediaQueryList} from './test/domLayoutMocks'
 
 vi.mock('./features/builder/BuilderPage', () => ({
   BuilderPage: () => <h2>Builder page</h2>,
@@ -35,7 +36,6 @@ vi.mock('./pages/TimelinePage', () => ({
 
 interface MatchMediaEntry {
   dispatchChange: (matches: boolean) => void
-  listeners: Set<(event: MediaQueryListEvent) => void>
   mediaQueryList: MediaQueryList
 }
 
@@ -54,38 +54,17 @@ function mockMatchMedia(initialMatches: Record<string, boolean> = {}) {
     const existingEntry = entries.get(query)
     if (existingEntry) return existingEntry.mediaQueryList
 
-    const listeners = new Set<(event: MediaQueryListEvent) => void>()
     let matches = initialMatches[query] ?? false
-    const mediaQueryList = {
-      get matches() {
-        return matches
-      },
+    const mediaQueryList = createTestMediaQueryList({
+      getMatches: () => matches,
       media: query,
-      onchange: null,
-      addEventListener: (_type: 'change', listener: (event: MediaQueryListEvent) => void) => {
-        listeners.add(listener)
-      },
-      removeEventListener: (_type: 'change', listener: (event: MediaQueryListEvent) => void) => {
-        listeners.delete(listener)
-      },
-      addListener: (listener: (event: MediaQueryListEvent) => void) => {
-        listeners.add(listener)
-      },
-      removeListener: (listener: (event: MediaQueryListEvent) => void) => {
-        listeners.delete(listener)
-      },
-      dispatchEvent: () => true,
-    } as MediaQueryList
+    })
 
     entries.set(query, {
       dispatchChange: (nextMatches: boolean) => {
         matches = nextMatches
-        const event = {matches, media: query} as MediaQueryListEvent
-        listeners.forEach((listener) => {
-          listener(event)
-        })
+        mediaQueryList.dispatchEvent(new Event('change'))
       },
-      listeners,
       mediaQueryList,
     })
 

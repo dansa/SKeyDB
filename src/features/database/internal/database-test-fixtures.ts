@@ -13,6 +13,22 @@ import type {
 import type {AwakenerFullRecord} from '@/domain/awakeners-full'
 import type {DescribedRecord} from '@/domain/description-records'
 
+import type {DatabasePopoverContextValue} from './database-popover-context'
+
+export function makeDatabasePopoverContext(
+  overrides: Partial<DatabasePopoverContextValue> = {},
+): DatabasePopoverContextValue {
+  return {
+    closeAllPopovers: () => undefined,
+    hasOpenPopovers: false,
+    openNestedOverlay: () => undefined,
+    openNestedReferenceByName: () => undefined,
+    openRootOverlay: () => undefined,
+    openRootReferenceByName: () => undefined,
+    ...overrides,
+  }
+}
+
 export function makeTestFullStats(overrides: Partial<FullStats> = {}): FullStats {
   return {
     CON: '100',

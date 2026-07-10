@@ -71,14 +71,20 @@ function runPackageBin(command, args) {
 }
 
 function runStagedLint() {
-  const lintTargets = stagedFiles.filter(isEslintTarget)
+  if (stagedFiles.includes('.oxlintrc.json')) {
+    console.log('pre-commit: lint configuration changed; running the full lint pass')
+    runScript('lint')
+    return
+  }
+
+  const lintTargets = stagedFiles.filter(isOxlintTarget)
   if (lintTargets.length === 0) {
-    console.log('pre-commit: no staged eslint targets')
+    console.log('pre-commit: no staged Oxlint targets')
     return
   }
 
   console.log(`pre-commit: linting ${lintTargets.length} staged file(s)`)
-  runPackageBin('eslint', lintTargets)
+  runPackageBin('oxlint', ['--type-aware', '--report-unused-disable-directives', ...lintTargets])
 }
 
 function runStagedTests() {
@@ -104,11 +110,11 @@ function collectStagedFiles() {
     .filter(Boolean)
 }
 
-function isEslintTarget(filePath) {
+function isOxlintTarget(filePath) {
   return (
     /^src\/.*\.(ts|tsx)$/.test(filePath) ||
     /^scripts\/.*\.(js|mjs|cjs)$/.test(filePath) ||
-    filePath === 'eslint.config.js' ||
+    filePath === 'doctor.config.ts' ||
     filePath === 'vite.config.ts' ||
     filePath === 'vitest.config.ts'
   )

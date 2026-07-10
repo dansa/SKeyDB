@@ -185,11 +185,10 @@ function isPrettierTarget(filePath) {
     filePath === 'package.json' ||
     filePath === 'prettier.config.cjs' ||
     filePath === '.prettierignore' ||
-    filePath === 'eslint.config.js' ||
+    filePath === '.oxlintrc.json' ||
     filePath === 'vite.config.ts' ||
     filePath === 'vitest.config.ts' ||
-    filePath === 'src/domain/persistence-contract.v1.json' ||
-    filePath === 'tools/react-sidecar/package.json'
+    filePath === 'src/domain/persistence-contract.v1.json'
   ) {
     return true
   }

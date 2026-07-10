@@ -12,6 +12,7 @@ import {decodeImportCode, encodeMultiTeamCode, encodeSingleTeamCode} from '@/dom
 import {clearDatabaseDetailRecordCacheForTests} from '@/features/database/internal/useDatabaseDetailRouteRecord'
 import {builderDraftStore} from '@/stores/builderDraftStore'
 import {dbDetailStore} from '@/stores/dbDetailStore'
+import {createTestMediaQueryList} from '@/test/domLayoutMocks'
 
 import {saveBuilderDraft} from '../builder/builder-persistence'
 import {createEmptyTeamSlots} from '../builder/constants'
@@ -304,20 +305,14 @@ function mockBuilderV2TouchDevice(isTouchType: boolean) {
     configurable: true,
     writable: true,
     value: (query: string): MediaQueryList =>
-      ({
-        matches:
+      createTestMediaQueryList({
+        getMatches: () =>
           isTouchType &&
           (query.includes('any-pointer: coarse') ||
             query.includes('pointer: coarse') ||
             query.includes('hover: none')),
         media: query,
-        onchange: null,
-        addEventListener: () => undefined,
-        removeEventListener: () => undefined,
-        addListener: () => undefined,
-        removeListener: () => undefined,
-        dispatchEvent: () => true,
-      }) as MediaQueryList,
+      }),
   })
 }
 

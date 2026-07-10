@@ -1,4 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
+/* oxlint-disable react/only-export-components */
 import {lazy, type ReactNode} from 'react'
 
 import type {Awakener} from '@/domain/awakeners'

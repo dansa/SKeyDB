@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import {lazy} from 'react'
 
 import {Navigate, Route, useLocation, useParams} from 'react-router-dom'

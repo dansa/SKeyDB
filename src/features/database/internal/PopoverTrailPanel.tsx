@@ -179,11 +179,10 @@ export function PopoverTrailPanel({
       const handlePointerUp = () => {
         document.body.style.userSelect = previousUserSelect
         window.removeEventListener('pointermove', handlePointerMove)
-        window.removeEventListener('pointerup', handlePointerUp)
       }
 
       window.addEventListener('pointermove', handlePointerMove)
-      window.addEventListener('pointerup', handlePointerUp)
+      window.addEventListener('pointerup', handlePointerUp, {once: true})
     },
     [isMobile, positionPanel],
   )

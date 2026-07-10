@@ -124,9 +124,7 @@ describe('DZonePage', () => {
     expect(
       within(dialog).getByText(
         (_, element) =>
-          element !== null &&
-          element.tagName === 'P' &&
-          element.textContent === 'Level 38 · HP 75.9K total · 3 bars',
+          element?.tagName === 'P' && element.textContent === 'Level 38 · HP 75.9K total · 3 bars',
       ),
     ).toBeInTheDocument()
     expect(within(dialog).getByText('24.5K › 24.5K › 26.9K')).toBeInTheDocument()
