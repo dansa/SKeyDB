@@ -171,7 +171,7 @@ describe('RelicDetailModal', () => {
     expect(screen.queryByText('Faded Legacy')).not.toBeInTheDocument()
   })
 
-  it('renders an intentional single-version rail and opens the mapped Awakener owner', async () => {
+  it('renders a single variant with the same rail copy and row treatment as larger families', async () => {
     const user = userEvent.setup()
     const {fullData, item} = await loadFixture('relic-0001')
     const onSelectAwakener = vi.fn()
@@ -190,8 +190,14 @@ describe('RelicDetailModal', () => {
 
     expect(screen.queryByRole('combobox', {name: 'Relic variant switcher'})).not.toBeInTheDocument()
     const variantRail = screen.getByRole('region', {name: 'Relic variants'})
-    expect(variantRail).toHaveTextContent('One recorded version')
+    expect(variantRail).toHaveTextContent('Variants')
+    expect(variantRail).toHaveTextContent('1 recorded')
+    expect(variantRail).not.toHaveTextContent('Edition')
+    expect(variantRail).not.toHaveTextContent('One recorded version')
     expect(variantRail).toHaveClass('h-52')
+    expect(
+      screen.getByRole('button', {name: 'Select relic variant Dimensional Image'}),
+    ).toHaveClass('min-h-10', 'text-left')
     expect(screen.queryByText('SSR')).not.toBeInTheDocument()
     expect(document.querySelector('aside img')).toHaveClass('max-h-full', 'max-w-full')
     expect(document.querySelector('aside img')).not.toHaveClass('h-full', 'w-full')

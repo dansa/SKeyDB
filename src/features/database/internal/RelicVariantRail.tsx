@@ -45,7 +45,7 @@ export function RelicVariantRail({
     updateScrollEdges()
   }, [selectedId, updateScrollEdges])
 
-  const singleVariant = variants.length === 1 ? variants[0] : null
+  const recordedCount = `${variants.length.toString()} recorded`
 
   return (
     <section
@@ -53,76 +53,59 @@ export function RelicVariantRail({
       className='h-52 shrink-0 border-t border-slate-700/55 bg-slate-950/72'
     >
       <div className='flex h-10 items-center justify-between border-b border-slate-800/80 px-4'>
-        <span className='text-[0.62rem] tracking-[0.18em] text-slate-500 uppercase'>
-          {singleVariant ? 'Edition' : 'Variants'}
-        </span>
-        <span className='text-[0.62rem] text-slate-500 tabular-nums'>
-          {singleVariant ? '1 / 1' : `${variants.length.toString()} recorded`}
-        </span>
+        <span className='text-[0.62rem] tracking-[0.18em] text-slate-500 uppercase'>Variants</span>
+        <span className='text-[0.62rem] text-slate-500 tabular-nums'>{recordedCount}</span>
       </div>
-      {singleVariant ? (
-        <div className='px-3 py-3'>
-          <div className='border-l-2 border-amber-300/75 bg-amber-300/[.06] px-3 py-2.5'>
-            <div className='truncate text-xs font-medium text-amber-100'>
-              {labels.get(singleVariant.id) ?? singleVariant.label}
-            </div>
-            <div className='mt-1 text-[0.64rem] tracking-[0.08em] text-slate-500 uppercase'>
-              One recorded version
-            </div>
-          </div>
+      <div className='relative h-[calc(100%-2.5rem)]'>
+        <div
+          className='database-scrollbar h-full [scrollbar-gutter:stable] overflow-y-auto py-2'
+          onScroll={updateScrollEdges}
+          ref={scrollRef}
+          tabIndex={variants.length > 1 ? 0 : undefined}
+        >
+          {variants.map((variant) => {
+            const selected = variant.id === selectedId
+            const label = labels.get(variant.id) ?? variant.label
+            const distinctName = variant.name !== itemName && variant.name !== label
+            return (
+              <button
+                aria-current={selected ? 'true' : undefined}
+                aria-label={`Select relic variant ${label}`}
+                className={`mx-2 flex min-h-10 w-[calc(100%-1rem)] items-center border-l-2 px-3 py-2 text-left transition-colors focus-visible:ring-2 focus-visible:ring-amber-200/35 focus-visible:outline-none motion-reduce:transition-none ${selected ? 'border-amber-300/80 bg-amber-300/[.07] text-amber-100' : 'border-transparent text-slate-300 hover:border-slate-600 hover:bg-slate-900/70 hover:text-slate-100'}`}
+                key={variant.id}
+                onClick={() => {
+                  onSelect(variant.id)
+                }}
+                ref={selected ? selectedRef : undefined}
+                type='button'
+              >
+                <span className='min-w-0'>
+                  <span className='block truncate text-xs font-medium'>{label}</span>
+                  {distinctName ? (
+                    <span
+                      className={`mt-0.5 block truncate text-[0.64rem] ${selected ? 'text-amber-100/55' : 'text-slate-500'}`}
+                    >
+                      {variant.name}
+                    </span>
+                  ) : null}
+                </span>
+              </button>
+            )
+          })}
         </div>
-      ) : (
-        <div className='relative h-[calc(100%-2.5rem)]'>
+        {scrollEdges.top ? (
           <div
-            className='database-scrollbar h-full [scrollbar-gutter:stable] overflow-y-auto py-2'
-            onScroll={updateScrollEdges}
-            ref={scrollRef}
-            tabIndex={0}
-          >
-            {variants.map((variant) => {
-              const selected = variant.id === selectedId
-              const label = labels.get(variant.id) ?? variant.label
-              const distinctName = variant.name !== itemName && variant.name !== label
-              return (
-                <button
-                  aria-current={selected ? 'true' : undefined}
-                  aria-label={`Select relic variant ${label}`}
-                  className={`mx-2 flex min-h-10 w-[calc(100%-1rem)] items-center border-l-2 px-3 py-2 text-left transition-colors focus-visible:ring-2 focus-visible:ring-amber-200/35 focus-visible:outline-none motion-reduce:transition-none ${selected ? 'border-amber-300/80 bg-amber-300/[.07] text-amber-100' : 'border-transparent text-slate-300 hover:border-slate-600 hover:bg-slate-900/70 hover:text-slate-100'}`}
-                  key={variant.id}
-                  onClick={() => {
-                    onSelect(variant.id)
-                  }}
-                  ref={selected ? selectedRef : undefined}
-                  type='button'
-                >
-                  <span className='min-w-0'>
-                    <span className='block truncate text-xs font-medium'>{label}</span>
-                    {distinctName ? (
-                      <span
-                        className={`mt-0.5 block truncate text-[0.64rem] ${selected ? 'text-amber-100/55' : 'text-slate-500'}`}
-                      >
-                        {variant.name}
-                      </span>
-                    ) : null}
-                  </span>
-                </button>
-              )
-            })}
-          </div>
-          {scrollEdges.top ? (
-            <div
-              aria-hidden
-              className='pointer-events-none absolute inset-x-0 top-0 h-5 bg-gradient-to-b from-slate-950 to-transparent'
-            />
-          ) : null}
-          {scrollEdges.bottom ? (
-            <div
-              aria-hidden
-              className='pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-slate-950 to-transparent'
-            />
-          ) : null}
-        </div>
-      )}
+            aria-hidden
+            className='pointer-events-none absolute inset-x-0 top-0 h-5 bg-gradient-to-b from-slate-950 to-transparent'
+          />
+        ) : null}
+        {scrollEdges.bottom ? (
+          <div
+            aria-hidden
+            className='pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-slate-950 to-transparent'
+          />
+        ) : null}
+      </div>
     </section>
   )
 }
