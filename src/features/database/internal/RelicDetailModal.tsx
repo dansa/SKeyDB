@@ -1,6 +1,5 @@
 import {Fragment, useMemo} from 'react'
 
-import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
 import {useStore} from 'zustand'
 
 import type {DatabaseAwakenerTab} from '@/domain/database-paths'
@@ -13,7 +12,6 @@ import {
   getRelicVariantById,
   normalizeRelicDescriptionTemplate,
   type PublicRelicRecord,
-  type PublicRelicVariant,
   type Relic,
 } from '@/domain/relics'
 import {DbDetailShell} from '@/features/database/detail/DbDetailShell'
@@ -33,87 +31,17 @@ import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 
 import type {DatabaseDetailResultNavigation} from '../detail/database-detail-result-navigation'
 import {DatabaseScopedRichDescription} from './DatabaseScopedRichDescription'
-import {buildRelicVariantLabels, getRelicVariantMetadataLabels} from './relic-database-presentation'
+import {getRelicVariantMetadataLabels} from './relic-database-presentation'
+import {RelicVariantMobileSwitcher} from './RelicVariantMobileSwitcher'
+import {RelicVariantRail} from './RelicVariantRail'
 import {useDatabaseDetailPreferences} from './useDatabaseDetailPreferences'
 import {useDatabasePopoverController} from './useDatabasePopoverController'
 import {WheelLoreText} from './WheelLoreText'
-
-const VARIANT_CONTROL_CLASS =
-  'ui-compact-control ui-compact-control--field h-10 border-slate-700/70 bg-slate-950/86 text-[0.64rem] text-slate-200 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-slate-700/70 disabled:hover:text-slate-200 sm:h-8'
 
 function getNonEmptyText(primary: string | undefined, fallback: string | undefined): string {
   if (primary?.trim()) return primary
   if (fallback?.trim()) return fallback
   return ''
-}
-
-function RelicVariantNavigator({
-  onSelect,
-  selectedId,
-  variants,
-}: {
-  onSelect: (variantId: string) => void
-  selectedId: string
-  variants: readonly PublicRelicVariant[]
-}) {
-  if (variants.length < 2) {
-    return null
-  }
-
-  const selectedIndex = variants.findIndex((variant) => variant.id === selectedId)
-  const labels = buildRelicVariantLabels(variants)
-  const controlLabel = labels.get(selectedId) ?? 'Variant'
-
-  return (
-    <div className='shrink-0 border-b border-slate-800/75 py-3 pr-1 sm:py-2.5'>
-      <fieldset className='m-0 flex min-w-0 items-center gap-1.5 border-0 p-0'>
-        <legend className='sr-only'>Relic variant</legend>
-        <button
-          aria-label='Previous relic variant'
-          className={`${VARIANT_CONTROL_CLASS} inline-flex w-10 shrink-0 items-center justify-center p-0 sm:w-8`}
-          disabled={selectedIndex <= 0}
-          onClick={() => {
-            onSelect(variants[selectedIndex - 1].id)
-          }}
-          type='button'
-        >
-          <FaChevronLeft aria-hidden className='size-3' />
-        </button>
-        <label className='min-w-0 flex-1'>
-          <span className='sr-only'>Relic variant</span>
-          <select
-            aria-label='Relic variant'
-            className={`${VARIANT_CONTROL_CLASS} w-full min-w-0 [color-scheme:dark]`}
-            onChange={(event) => {
-              onSelect(event.target.value)
-            }}
-            title={controlLabel}
-            value={selectedId}
-          >
-            {variants.map((variant) => (
-              <option key={variant.id} value={variant.id}>
-                {labels.get(variant.id) ?? variant.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button
-          aria-label='Next relic variant'
-          className={`${VARIANT_CONTROL_CLASS} inline-flex w-10 shrink-0 items-center justify-center p-0 sm:w-8`}
-          disabled={selectedIndex >= variants.length - 1}
-          onClick={() => {
-            onSelect(variants[selectedIndex + 1].id)
-          }}
-          type='button'
-        >
-          <FaChevronRight aria-hidden className='size-3' />
-        </button>
-        <output className='w-12 shrink-0 text-center text-[0.64rem] text-slate-400 tabular-nums'>
-          {(selectedIndex + 1).toString()} / {variants.length.toString()}
-        </output>
-      </fieldset>
-    </div>
-  )
 }
 
 interface RelicDetailModalProps {
@@ -126,11 +54,7 @@ interface RelicDetailModalProps {
   selectedVariantId?: string
 }
 
-export function RelicDetailModal(props: RelicDetailModalProps) {
-  return <RelicDetailModalInner key={props.item.id} {...props} />
-}
-
-function RelicDetailModalInner({
+export function RelicDetailModal({
   fullData,
   item,
   navigation = null,
@@ -199,6 +123,16 @@ function RelicDetailModalInner({
       preserveSideArtIntrinsicSize
       sideArtClassName='object-contain'
       sideArtContainerClassName='p-10 lg:p-14'
+      sideArtFooter={
+        <RelicVariantRail
+          itemName={item.name}
+          onSelect={(variantId) => {
+            onRelicVariantChange?.(variantId)
+          }}
+          selectedId={selectedVariant.id}
+          variants={fullData.variants}
+        />
+      }
       updateSharedPreferences={updateSharedPreferences}
     >
       {({openArtViewer}) => (
@@ -249,7 +183,7 @@ function RelicDetailModalInner({
             </div>
           </div>
 
-          <RelicVariantNavigator
+          <RelicVariantMobileSwitcher
             onSelect={(variantId) => {
               onRelicVariantChange?.(variantId)
             }}

@@ -66,7 +66,7 @@ describe('RelicDetailModal', () => {
 
     expect(screen.getByRole('heading', {name: 'Effect'})).toBeInTheDocument()
     expect(screen.getByRole('heading', {name: 'Lore'})).toBeInTheDocument()
-    expect(screen.getByRole('combobox', {name: 'Relic variant'})).toHaveValue(
+    expect(screen.getByRole('combobox', {name: 'Relic variant switcher'})).toHaveValue(
       fullData.defaultVariantId,
     )
     expect(onRelicVariantChange).not.toHaveBeenCalled()
@@ -138,7 +138,7 @@ describe('RelicDetailModal', () => {
     expect(screen.getByText('First exact effect.')).toBeInTheDocument()
     expect(screen.getByText('First exact lore.')).toBeInTheDocument()
     await user.selectOptions(
-      screen.getByRole('combobox', {name: 'Relic variant'}),
+      screen.getByRole('combobox', {name: 'Relic variant switcher'}),
       secondVariant.id,
     )
     expect(screen.getByText('Second exact effect.')).toBeInTheDocument()
@@ -171,7 +171,7 @@ describe('RelicDetailModal', () => {
     expect(screen.queryByText('Faded Legacy')).not.toBeInTheDocument()
   })
 
-  it('hides the navigator for one variant and opens the mapped Awakener owner', async () => {
+  it('renders an intentional single-version rail and opens the mapped Awakener owner', async () => {
     const user = userEvent.setup()
     const {fullData, item} = await loadFixture('relic-0001')
     const onSelectAwakener = vi.fn()
@@ -188,7 +188,10 @@ describe('RelicDetailModal', () => {
       </MemoryRouter>,
     )
 
-    expect(screen.queryByRole('combobox', {name: 'Relic variant'})).not.toBeInTheDocument()
+    expect(screen.queryByRole('combobox', {name: 'Relic variant switcher'})).not.toBeInTheDocument()
+    expect(screen.getByRole('region', {name: 'Relic variants'})).toHaveTextContent(
+      'One recorded version',
+    )
     expect(screen.queryByText('SSR')).not.toBeInTheDocument()
     expect(document.querySelector('aside img')).toHaveClass('max-h-full', 'max-w-full')
     expect(document.querySelector('aside img')).not.toHaveClass('h-full', 'w-full')
@@ -196,7 +199,7 @@ describe('RelicDetailModal', () => {
     expect(onSelectAwakener).toHaveBeenCalledWith({id: 'awakener-0001', name: '24'}, 'overview')
   })
 
-  it('changes exact variants with the settled select and arrows', async () => {
+  it('changes exact variants with the desktop rail and mobile switcher', async () => {
     const user = userEvent.setup()
     const {fullData, item} = await loadFixture('relic-0229')
     const onRelicVariantChange = vi.fn()
@@ -212,10 +215,15 @@ describe('RelicDetailModal', () => {
       </MemoryRouter>,
     )
 
-    await user.click(screen.getByRole('button', {name: 'Next relic variant'}))
-    expect(onRelicVariantChange).toHaveBeenCalledWith(fullData.variants[1]?.id)
+    const secondVariant = fullData.variants[1]
+    const secondVariantLabel =
+      buildRelicVariantLabels(fullData.variants).get(secondVariant.id) ?? secondVariant.label
+    await user.click(
+      screen.getByRole('button', {name: `Select relic variant ${secondVariantLabel}`}),
+    )
+    expect(onRelicVariantChange).toHaveBeenCalledWith(secondVariant.id)
     await user.selectOptions(
-      screen.getByRole('combobox', {name: 'Relic variant'}),
+      screen.getByRole('combobox', {name: 'Relic variant switcher'}),
       fullData.variants[3]?.id ?? '',
     )
     expect(onRelicVariantChange).toHaveBeenCalledWith(fullData.variants[3]?.id)
