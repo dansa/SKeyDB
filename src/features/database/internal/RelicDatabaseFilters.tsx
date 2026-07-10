@@ -58,7 +58,7 @@ export function RelicDatabaseFilters({
       <SearchInput
         label='Search relics'
         onQueryChange={onQueryChange}
-        placeholder='Name, alias, category, or Awakener'
+        placeholder='Name, category, or Awakener'
         query={query}
         searchInputRef={searchInputRef}
       />
@@ -78,10 +78,10 @@ export function RelicDatabaseFilters({
       />
       <CatalogMultiFilterRow
         activeIds={displayScopes}
-        description='Saved for future visits'
         label='Display'
         onToggle={onDisplayScopeToggle}
         options={DISPLAY_OPTIONS}
+        visuallyHideLabel
       />
     </div>
   )

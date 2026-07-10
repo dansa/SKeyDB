@@ -53,6 +53,7 @@ interface CatalogMultiFilterRowProps<TValue extends string> {
   label: string
   onToggle: (value: TValue) => void
   options: readonly CatalogFilterOption<TValue>[]
+  visuallyHideLabel?: boolean
 }
 
 export function CatalogMultiFilterRow<TValue extends string>({
@@ -61,10 +62,11 @@ export function CatalogMultiFilterRow<TValue extends string>({
   label,
   onToggle,
   options,
+  visuallyHideLabel = false,
 }: CatalogMultiFilterRowProps<TValue>) {
   const activeIdSet = new Set(activeIds)
   return (
-    <FilterRow description={description} label={label}>
+    <FilterRow description={description} label={label} visuallyHideLabel={visuallyHideLabel}>
       {options.map((option) => {
         const active = activeIdSet.has(option.id)
         return (

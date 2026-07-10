@@ -5,9 +5,16 @@ interface FilterRowProps {
   children: ReactNode
   controlsClassName?: string
   description?: ReactNode
+  visuallyHideLabel?: boolean
 }
 
-export function FilterRow({children, controlsClassName, description, label}: FilterRowProps) {
+export function FilterRow({
+  children,
+  controlsClassName,
+  description,
+  label,
+  visuallyHideLabel = false,
+}: FilterRowProps) {
   const labelId = useId()
   const descriptionId = description ? `${labelId}-description` : undefined
 
@@ -20,7 +27,7 @@ export function FilterRow({children, controlsClassName, description, label}: Fil
       /* react-doctor-disable-next-line prefer-tag-over-role, react-doctor/prefer-tag-over-role */
       role='group'
     >
-      <div className='shrink-0 sm:w-20 sm:pt-1.5'>
+      <div className={visuallyHideLabel ? 'sr-only' : 'shrink-0 sm:w-20 sm:pt-1.5'}>
         <span className='text-[10px] tracking-[0.18em] text-slate-500 uppercase' id={labelId}>
           {label}
         </span>

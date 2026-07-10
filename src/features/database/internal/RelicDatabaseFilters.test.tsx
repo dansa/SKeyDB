@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react'
+import {fireEvent, render, screen, within} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import {RelicDatabaseFilters} from './RelicDatabaseFilters'
@@ -31,6 +31,13 @@ describe('RelicDatabaseFilters', () => {
       'aria-pressed',
       'false',
     )
+    expect(screen.getByRole('searchbox', {name: 'Search relics'})).toHaveAttribute(
+      'placeholder',
+      'Name, category, or Awakener',
+    )
+    expect(screen.queryByText('Saved for future visits')).not.toBeInTheDocument()
+    const displayGroup = screen.getByRole('group', {name: 'Display'})
+    expect(within(displayGroup).getByText('Display').parentElement).toHaveClass('sr-only')
 
     fireEvent.click(screen.getByRole('button', {name: 'Gold'}))
     fireEvent.click(screen.getByRole('button', {name: 'Display Events'}))
