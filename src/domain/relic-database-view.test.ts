@@ -36,6 +36,11 @@ describe('buildRelicDatabaseView', () => {
         relic.categories.includes('PENDULUM'),
       ),
     ).toBe(true)
+    expect(
+      buildRelicDatabaseView(relics, {...defaults, query: 'Events'}).every((relic) =>
+        relic.categories.includes('EVENT'),
+      ),
+    ).toBe(true)
   })
 
   it('combines category and rarity filters', () => {

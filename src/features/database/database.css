@@ -380,17 +380,18 @@
 }
 
 .database-grid-card-frame[data-card-variant='square-art'][data-has-meta] .database-grid-card__body {
-  min-height: 4.35rem;
   gap: 0.3rem;
 }
 
 .database-grid-card-frame[data-card-variant='square-art'][data-has-meta] .database-grid-card__meta {
+  display: -webkit-box;
   overflow: hidden;
   font-size: 0.625rem;
   line-height: 1.15;
   color: rgb(148 163 184 / 0.9);
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
 }
 
 .database-grid-card__title-text {
@@ -638,11 +639,6 @@
     padding: 0.42rem 0.48rem;
   }
 
-  .database-grid-card-frame[data-card-variant='square-art'][data-has-meta]
-    .database-grid-card__body {
-    min-height: 3.8rem;
-  }
-
   .database-grid-card-frame[data-card-variant='square-art'] .database-grid-card__title-text {
     font-size: 0.72rem;
     line-height: 1.14;
@@ -687,7 +683,8 @@
 }
 
 .relic-detail-content-fade {
-  animation: relic-detail-content-fade 140ms var(--ui-motion-ease-soft) both;
+  animation: relic-detail-content-fade var(--ui-motion-duration-fast) var(--ui-motion-ease-soft)
+    both;
 }
 
 @media (prefers-reduced-motion: reduce) {

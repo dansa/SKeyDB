@@ -2,7 +2,7 @@
 
 import '@testing-library/jest-dom/vitest'
 
-import {Suspense, useState} from 'react'
+import {Suspense, useEffect, useState} from 'react'
 
 import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {MemoryRouter, Routes, useLocation, useNavigate} from 'react-router-dom'
@@ -263,19 +263,29 @@ vi.mock('@/features/database/internal/RelicDetailModal', () => ({
   RelicDetailModal: ({
     item,
     onClose,
+    onRelicVariantChange,
     selectedVariantId,
   }: {
     item: {name: string}
     onClose: () => void
+    onRelicVariantChange?: (variantId: string) => void
     selectedVariantId?: string
-  }) => (
-    <dialog aria-label={`${item.name} relic details`} open>
-      <div>{`Selected relic variant ${selectedVariantId ?? 'default'}`}</div>
-      <button aria-label='Close relic detail' onClick={onClose} type='button'>
-        Close relic
-      </button>
-    </dialog>
-  ),
+  }) => {
+    useEffect(() => {
+      if (selectedVariantId !== 'relic-variant-0001') {
+        onRelicVariantChange?.('relic-variant-0001')
+      }
+    }, [onRelicVariantChange, selectedVariantId])
+
+    return (
+      <dialog aria-label={`${item.name} relic details`} open>
+        <div>{`Selected relic variant ${selectedVariantId ?? 'default'}`}</div>
+        <button aria-label='Close relic detail' onClick={onClose} type='button'>
+          Close relic
+        </button>
+      </dialog>
+    )
+  },
 }))
 
 beforeAll(async () => {
@@ -675,6 +685,30 @@ describe('DatabasePage', () => {
     ).toBeInTheDocument()
     expect(screen.getByText('Selected relic variant relic-variant-0001')).toBeInTheDocument()
     expect(screen.getByTestId('location-search')).toHaveTextContent('?variant=relic-variant-0001')
+  })
+
+  it('replaces an invalid relic variant with the family default while preserving browse filters', async () => {
+    await renderDatabasePage(
+      [
+        '/database/relics?category=DIMENSIONAL_IMAGE',
+        '/database/relics/dimensional-image-24?category=DIMENSIONAL_IMAGE&variant=relic-variant-9999',
+      ],
+      1,
+    )
+
+    await waitFor(() => {
+      expect(screen.getByTestId('location-search')).toHaveTextContent(
+        '?category=DIMENSIONAL_IMAGE&variant=relic-variant-0001',
+      )
+    })
+
+    await act(async () => {
+      fireEvent.click(screen.getByLabelText('Go back in history'))
+    })
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/relics')
+      expect(screen.getByTestId('location-search')).toHaveTextContent('?category=DIMENSIONAL_IMAGE')
+    })
   })
 
   it('opens a wheel detail modal from the wheel browse grid and closes back to wheel browse', async () => {

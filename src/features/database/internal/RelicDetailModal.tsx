@@ -41,7 +41,13 @@ import {useDatabasePopoverController} from './useDatabasePopoverController'
 import {WheelLoreText} from './WheelLoreText'
 
 const VARIANT_CONTROL_CLASS =
-  'ui-compact-control ui-compact-control--field h-10 border-slate-700/70 bg-slate-950/86 text-[11px] text-slate-200 sm:h-8'
+  'ui-compact-control ui-compact-control--field h-10 border-slate-700/70 bg-slate-950/86 text-[0.64rem] text-slate-200 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-slate-700/70 disabled:hover:text-slate-200 sm:h-8'
+
+function getNonEmptyText(primary: string | undefined, fallback: string | undefined): string {
+  if (primary?.trim()) return primary
+  if (fallback?.trim()) return fallback
+  return ''
+}
 
 function RelicVariantNavigator({
   onSelect,
@@ -104,7 +110,7 @@ function RelicVariantNavigator({
         >
           <FaChevronRight aria-hidden className='size-3' />
         </button>
-        <output className='w-12 shrink-0 text-center text-[11px] text-slate-400 tabular-nums'>
+        <output className='w-12 shrink-0 text-center text-[0.64rem] text-slate-400 tabular-nums'>
           {(selectedIndex + 1).toString()} / {variants.length.toString()}
         </output>
       </fieldset>
@@ -123,7 +129,7 @@ interface RelicDetailModalProps {
 }
 
 export function RelicDetailModal(props: RelicDetailModalProps) {
-  return <RelicDetailModalInner {...props} key={props.item.id} />
+  return <RelicDetailModalInner key={props.item.id} {...props} />
 }
 
 function RelicDetailModalInner({
@@ -159,20 +165,20 @@ function RelicDetailModalInner({
     }
   }, [canonicalVariantId, onRelicVariantChange, selectedVariantId])
 
-  const effectRecord = useMemo<RelicDatabaseDescriptionRecord>(
-    () => ({
+  const effectRecord = useMemo<RelicDatabaseDescriptionRecord>(() => {
+    const variantHasEffect = Boolean(selectedVariant.descriptionTemplate.trim())
+    return {
       id: selectedVariant.id,
       kind: 'relic',
       displayName: selectedVariant.name,
       descriptionTemplate: normalizeRelicDescriptionTemplate(
-        selectedVariant.descriptionTemplate || fullData.descriptionTemplate || '',
+        getNonEmptyText(selectedVariant.descriptionTemplate, fullData.descriptionTemplate),
       ),
-      descriptionArgs: selectedVariant.descriptionTemplate
+      descriptionArgs: variantHasEffect
         ? selectedVariant.descriptionArgs
         : fullData.descriptionArgs,
-    }),
-    [fullData.descriptionArgs, fullData.descriptionTemplate, selectedVariant],
-  )
+    }
+  }, [fullData.descriptionArgs, fullData.descriptionTemplate, selectedVariant])
   const referenceLayer = useMemo(
     () =>
       buildGlobalDatabaseReferenceLayer({
@@ -187,11 +193,11 @@ function RelicDetailModalInner({
     showTagIcons: preferences.shared.showTagIcons,
   })
   const artAsset = getRelicAssetByAssetId(item.assetId)
-  const category = selectedVariant.category ?? fullData.categories[0]
-  const rarity = selectedVariant.rarity ?? fullData.rarity
+  const category = selectedVariant.category
+  const rarity = selectedVariant.rarity
   const ownerAwakenerId = selectedVariant.ownerAwakenerId ?? fullData.ownerAwakenerId
   const ownerAwakenerName = selectedVariant.ownerAwakenerName ?? fullData.ownerAwakenerName
-  const lore = selectedVariant.lore ?? fullData.lore
+  const lore = getNonEmptyText(selectedVariant.lore, fullData.lore)
 
   return (
     <DbDetailShell
@@ -237,8 +243,12 @@ function RelicDetailModalInner({
                     </>
                   ) : null}
                   <span>{getRelicVariantTypeLabel(selectedVariant.variantType)}</span>
-                  <span className={DATABASE_DETAIL_META_SEPARATOR_CLASS}>•</span>
-                  <span>{getRelicDatabaseCategoryFilterLabel(category)}</span>
+                  {category ? (
+                    <>
+                      <span className={DATABASE_DETAIL_META_SEPARATOR_CLASS}>•</span>
+                      <span>{getRelicDatabaseCategoryFilterLabel(category)}</span>
+                    </>
+                  ) : null}
                   <OwnerAwakenerMetaLink
                     onSelectAwakener={onSelectAwakener}
                     ownerAwakenerId={ownerAwakenerId}
@@ -298,7 +308,7 @@ function RelicDetailModalInner({
                 >
                   Lore
                 </h4>
-                {lore?.trim() ? (
+                {lore.trim() ? (
                   <WheelLoreText defaultExpanded lore={lore} previewLineCount={999} />
                 ) : (
                   <p className='mt-3 text-sm text-slate-500'>

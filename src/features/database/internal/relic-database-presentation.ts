@@ -7,26 +7,19 @@ export function buildRelicVariantLabels(
   variants: readonly Pick<PublicRelicVariant, 'id' | 'label' | 'name'>[],
 ): Map<string, string> {
   const totals = new Map<string, number>()
-  const nameTotals = new Map<string, number>()
   const ordinals = new Map<string, number>()
   const labels = new Map<string, string>()
 
   for (const variant of variants) {
     totals.set(variant.label, (totals.get(variant.label) ?? 0) + 1)
-    nameTotals.set(variant.name, (nameTotals.get(variant.name) ?? 0) + 1)
   }
   for (const variant of variants) {
     const ordinal = (ordinals.get(variant.label) ?? 0) + 1
     ordinals.set(variant.label, ordinal)
     const total = totals.get(variant.label) ?? 1
-    const distinctName = total > 1 && (nameTotals.get(variant.name) ?? 0) === 1
     labels.set(
       variant.id,
-      total === 1
-        ? variant.label
-        : distinctName
-          ? `${variant.label} — ${variant.name}`
-          : `${variant.label} — Variant ${ordinal.toString()}`,
+      total === 1 ? variant.label : `${variant.label} — Variant ${ordinal.toString()}`,
     )
   }
 

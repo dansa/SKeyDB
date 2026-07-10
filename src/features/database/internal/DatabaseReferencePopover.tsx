@@ -261,7 +261,7 @@ export function DatabaseReferencePopover({
           ) : null}
           {entry.navigationHref && entry.navigationLabel ? (
             <Link
-              className='mt-1 inline-block text-[10px] tracking-[0.16em] text-amber-100/80 uppercase transition-colors hover:text-amber-50'
+              className='mt-1 inline-block text-[10px] tracking-[0.16em] text-amber-100/80 uppercase transition-colors hover:text-amber-50 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none'
               onClick={onClose}
               style={scaledFontStyle(10)}
               to={entry.navigationHref}

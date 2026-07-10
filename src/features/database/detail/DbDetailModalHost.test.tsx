@@ -4,6 +4,7 @@ import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import type {CovenantFullRecord} from '@/domain/covenants-full'
 import type {PosseFullRecord} from '@/domain/posses-full'
+import type {Relic} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
 import {makeTestAwakenerFullRecord} from '@/features/database/internal/database-test-fixtures'
@@ -106,6 +107,18 @@ vi.mock('./dbDetailRegistry', async () => {
           </dialog>
         )),
       },
+      relic: {
+        loadRecord: vi.fn(async () => ({id: 'record-relic'})),
+        loadingLabel: 'Loading relic details...',
+        missingBrowsePath: '/database/relics',
+        render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+          <dialog aria-label={`${item.item.name} details`} open>
+            <button onClick={callbacks.onClose} type='button'>
+              Close overlay
+            </button>
+          </dialog>
+        )),
+      },
     },
   }
 })
@@ -135,6 +148,28 @@ const wheels: Wheel[] = [
     aliases: [],
     tags: [],
     lineupToken: 'm',
+  },
+]
+
+const relics: Relic[] = [
+  {
+    aliases: [],
+    assetId: 'Relic_24',
+    categories: ['DIMENSIONAL_IMAGE'],
+    defaultVariantId: 'relic-variant-0001',
+    description: 'Test relic',
+    id: 'relic-0001',
+    kind: 'PORTRAIT',
+    name: 'Dimensional Image: "24"',
+    ownerAwakenerId: 'awakener-0001',
+    ownerAwakenerName: '24',
+    rarity: 'SSR',
+    relicType: 'Dimensional Image',
+    route: {
+      canonicalPath: '/database/relics/dimensional-image-24',
+      slug: 'dimensional-image-24',
+    },
+    variantCount: 1,
   },
 ]
 
@@ -358,7 +393,7 @@ describe('DbDetailModalHost overlay entries', () => {
     expect(screen.getByTestId('location-pathname')).toHaveTextContent('/builder')
   })
 
-  it('accepts relic overlay refs now that relic detail is registered', () => {
+  it('loads and renders registered relic overlay refs', async () => {
     render(
       <MemoryRouter initialEntries={['/builder']}>
         <LocationProbe />
@@ -372,6 +407,7 @@ describe('DbDetailModalHost overlay entries', () => {
             onSelectWheel: vi.fn(),
             onTabChange: vi.fn(),
           }}
+          relics={relics}
           routeItem={null}
           wheels={wheels}
         />
@@ -383,6 +419,13 @@ describe('DbDetailModalHost overlay entries', () => {
     expect(dbDetailStore.getState().stack).toEqual([
       {kind: 'relic', id: 'relic-0001', source: 'builder-overlay'},
     ])
+    await waitFor(() => {
+      expect(dbDetailRegistry.relic.loadRecord).toHaveBeenCalledWith('relic-0001')
+      expect(dbDetailRegistry.relic.render).toHaveBeenCalled()
+    })
+    expect(
+      screen.getByRole('dialog', {name: /dimensional image: "24" details/i}),
+    ).toBeInTheDocument()
     expect(screen.getByTestId('location-pathname')).toHaveTextContent('/builder')
   })
 })

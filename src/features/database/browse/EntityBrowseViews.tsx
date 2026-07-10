@@ -384,13 +384,83 @@ export function RelicsBrowse({
   renderDetailModalHost,
 }: EntityBrowseProps): ReactNode {
   const browseState = useRelicsDatabaseBrowseState()
-  const relics = useMemo(() => buildRelicDatabaseView(databaseRelics, browseState), [browseState])
+  const relics = useMemo(
+    () =>
+      buildRelicDatabaseView(databaseRelics, {
+        categoryFilter: browseState.categoryFilter,
+        query: browseState.query,
+        rarityFilter: browseState.rarityFilter,
+        sortDirection: browseState.sortDirection,
+        sortKey: browseState.sortKey,
+      }),
+    [
+      browseState.categoryFilter,
+      browseState.query,
+      browseState.rarityFilter,
+      browseState.sortDirection,
+      browseState.sortKey,
+    ],
+  )
   const activeFilterChips = buildRelicActiveFilterChips(browseState, {
     clearQuery: browseState.clearQuery,
     setCategoryFilter: browseState.setCategoryFilter,
     setRarityFilter: browseState.setRarityFilter,
   })
   const detailResultSet = useMemo(() => createRelicDetailResultSet(relics), [relics])
+  const filters = useMemo(
+    () => (
+      <RelicDatabaseFilters
+        categoryFilter={browseState.categoryFilter}
+        onCategoryFilterChange={browseState.setCategoryFilter}
+        onQueryChange={browseState.setQuery}
+        onRarityFilterChange={browseState.setRarityFilter}
+        query={browseState.query}
+        rarityFilter={browseState.rarityFilter}
+        searchInputRef={controller.searchInputRef}
+      />
+    ),
+    [
+      browseState.categoryFilter,
+      browseState.query,
+      browseState.rarityFilter,
+      browseState.setCategoryFilter,
+      browseState.setQuery,
+      browseState.setRarityFilter,
+      controller.searchInputRef,
+    ],
+  )
+  const results = useMemo(
+    () => (
+      <RelicGrid
+        awakeners={databaseAwakeners}
+        onPreloadRelic={controller.preloadRelicDetail}
+        onSelectRelic={controller.openRelicDetail}
+        relics={relics}
+      />
+    ),
+    [controller.openRelicDetail, controller.preloadRelicDetail, relics],
+  )
+  const viewControls = useMemo(
+    () => (
+      <EntityViewControls
+        getSortDirectionLabel={getRelicSortDirectionLabel}
+        getSortLabel={getRelicSortLabel}
+        onSortDirectionToggle={browseState.toggleSortDirection}
+        onSortKeyChange={browseState.setSortKey}
+        sortDirection={browseState.sortDirection}
+        sortDirectionAriaLabel='Toggle relic sort direction'
+        sortKey={browseState.sortKey}
+        sortOptions={RELIC_DATABASE_SORT_OPTIONS}
+        sortSelectAriaLabel='Relic database sort key'
+      />
+    ),
+    [
+      browseState.setSortKey,
+      browseState.sortDirection,
+      browseState.sortKey,
+      browseState.toggleSortDirection,
+    ],
+  )
 
   useActiveGlobalSearchCapture(controller, browseState)
 
@@ -400,43 +470,14 @@ export function RelicsBrowse({
         activeEntity='relics'
         activeFilterChips={activeFilterChips}
         filteredCount={relics.length}
-        filters={
-          <RelicDatabaseFilters
-            categoryFilter={browseState.categoryFilter}
-            onCategoryFilterChange={browseState.setCategoryFilter}
-            onQueryChange={browseState.setQuery}
-            onRarityFilterChange={browseState.setRarityFilter}
-            query={browseState.query}
-            rarityFilter={browseState.rarityFilter}
-            searchInputRef={controller.searchInputRef}
-          />
-        }
+        filters={filters}
         onResetFilters={browseState.resetFilters}
-        results={
-          <RelicGrid
-            awakeners={databaseAwakeners}
-            onPreloadRelic={controller.preloadRelicDetail}
-            onSelectRelic={controller.openRelicDetail}
-            relics={relics}
-          />
-        }
+        results={results}
         search={controller.activeSearch}
         title='Relics'
         totalCount={databaseRelics.length}
         unitNoun='relics'
-        viewControls={
-          <EntityViewControls
-            getSortDirectionLabel={getRelicSortDirectionLabel}
-            getSortLabel={getRelicSortLabel}
-            onSortDirectionToggle={browseState.toggleSortDirection}
-            onSortKeyChange={browseState.setSortKey}
-            sortDirection={browseState.sortDirection}
-            sortDirectionAriaLabel='Toggle relic sort direction'
-            sortKey={browseState.sortKey}
-            sortOptions={RELIC_DATABASE_SORT_OPTIONS}
-            sortSelectAriaLabel='Relic database sort key'
-          />
-        }
+        viewControls={viewControls}
       />
       <DetailModalHostSlot
         DetailModalHost={DetailModalHost}

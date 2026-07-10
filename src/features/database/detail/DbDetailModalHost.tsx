@@ -40,6 +40,7 @@ import {
 } from './dbDetailRegistry'
 
 type DatabaseDetailRef = EntityRef & {kind: DatabaseDetailKind}
+const EMPTY_RELICS: readonly Relic[] = []
 
 interface DetailRefLookup {
   awakenersById: Map<string, Awakener>
@@ -62,7 +63,7 @@ interface DbDetailModalHostProps {
   callbacks: DatabaseDetailRenderCallbacks
   resultSet?: DatabaseDetailResultSet | null
   routeItem: DatabaseDetailRouteItem | null
-  relics?: Relic[]
+  relics?: readonly Relic[]
   tabSlug?: string
   wheels: Wheel[]
 }
@@ -420,7 +421,7 @@ function DbDetailRouteLoadingModal({
 export function DbDetailModalHost({
   awakeners,
   callbacks,
-  relics = [],
+  relics = EMPTY_RELICS,
   resultSet = null,
   routeItem,
   tabSlug,

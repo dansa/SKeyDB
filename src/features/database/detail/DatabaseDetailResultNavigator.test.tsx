@@ -17,6 +17,14 @@ const wheelResultSet: DatabaseDetailResultSet = {
   ],
 }
 
+const relicResultSet: DatabaseDetailResultSet = {
+  kind: 'relic',
+  items: [
+    {id: 'relic-0001', name: 'Dimensional Image: 24'},
+    {id: 'relic-0207', name: 'Malignant Child'},
+  ],
+}
+
 function makeNavigation(
   overrides: Partial<DatabaseDetailResultNavigation> = {},
 ): DatabaseDetailResultNavigation {
@@ -88,6 +96,23 @@ describe('createDatabaseDetailResultNavigation', () => {
     })
 
     expect(navigation).toBeNull()
+  })
+
+  it('navigates between Relic Family results without carrying variant identity', () => {
+    const onSelect = vi.fn()
+    const navigation = createDatabaseDetailResultNavigation({
+      currentRef: {kind: 'relic', id: 'relic-0001'},
+      onSelect,
+      resultSet: relicResultSet,
+    })
+
+    navigation?.onNext()
+
+    expect(onSelect).toHaveBeenCalledWith({
+      kind: 'relic',
+      id: 'relic-0207',
+      name: 'Malignant Child',
+    })
   })
 })
 

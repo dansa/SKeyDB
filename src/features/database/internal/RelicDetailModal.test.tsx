@@ -1,3 +1,5 @@
+import {useState} from 'react'
+
 import {render, screen, waitFor} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import {MemoryRouter} from 'react-router-dom'
@@ -23,11 +25,11 @@ describe('RelicDetailModal', () => {
     expect(labels.get('relic-variant-0146')).toBe('Pendulum — Variant 9')
   })
 
-  it('uses descriptive existing names when repeated labels can be honestly distinguished', async () => {
+  it('keeps using the source label and honest ordinals when variant names differ', async () => {
     const {fullData} = await loadFixture('relic-0171')
     const labels = buildRelicVariantLabels(fullData.variants)
-    expect(labels.get('relic-variant-0256')).toBe('Pendulum — Gateway of All Realms α')
-    expect(labels.get('relic-variant-0264')).toBe('Pendulum — Gateway of All Realms ι')
+    expect(labels.get('relic-variant-0256')).toBe('Pendulum — Variant 1')
+    expect(labels.get('relic-variant-0264')).toBe('Pendulum — Variant 9')
   })
 
   it('canonicalizes an invalid variant to the family default and renders Effect and Lore', async () => {
@@ -53,6 +55,105 @@ describe('RelicDetailModal', () => {
     expect(screen.getByRole('combobox', {name: 'Relic variant'})).toHaveValue(
       fullData.defaultVariantId,
     )
+  })
+
+  it('falls back to non-empty family Effect and Lore when variant fields are blank', async () => {
+    const {fullData, item} = await loadFixture('relic-0207')
+    const firstVariant = fullData.variants[0]
+    const recordWithBlankVariantText = {
+      ...fullData,
+      descriptionTemplate: 'Family fallback effect.',
+      lore: 'Family fallback lore.',
+      variants: [
+        {...firstVariant, descriptionTemplate: '   ', lore: ''},
+        ...fullData.variants.slice(1),
+      ],
+    }
+
+    render(
+      <MemoryRouter>
+        <RelicDetailModal
+          fullData={recordWithBlankVariantText}
+          item={item}
+          onClose={vi.fn()}
+          selectedVariantId={firstVariant.id}
+        />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByText('Family fallback effect.')).toBeInTheDocument()
+    expect(screen.getByText('Family fallback lore.')).toBeInTheDocument()
+  })
+
+  it('updates exact Effect and Lore content when the controlled variant changes', async () => {
+    const user = userEvent.setup()
+    const {fullData, item} = await loadFixture('relic-0207')
+    const firstVariant = fullData.variants[0]
+    const secondVariant = fullData.variants[1]
+    const recordWithDistinctText = {
+      ...fullData,
+      variants: [
+        {...firstVariant, descriptionTemplate: 'First exact effect.', lore: 'First exact lore.'},
+        {...secondVariant, descriptionTemplate: 'Second exact effect.', lore: 'Second exact lore.'},
+        ...fullData.variants.slice(2),
+      ],
+    }
+
+    function ControlledRelicDetail() {
+      const [selectedVariantId, setSelectedVariantId] = useState(firstVariant.id)
+      return (
+        <RelicDetailModal
+          fullData={recordWithDistinctText}
+          item={item}
+          onClose={vi.fn()}
+          onRelicVariantChange={(variantId) => {
+            if (variantId) setSelectedVariantId(variantId)
+          }}
+          selectedVariantId={selectedVariantId}
+        />
+      )
+    }
+
+    render(
+      <MemoryRouter>
+        <ControlledRelicDetail />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByText('First exact effect.')).toBeInTheDocument()
+    expect(screen.getByText('First exact lore.')).toBeInTheDocument()
+    await user.selectOptions(
+      screen.getByRole('combobox', {name: 'Relic variant'}),
+      secondVariant.id,
+    )
+    expect(screen.getByText('Second exact effect.')).toBeInTheDocument()
+    expect(screen.getByText('Second exact lore.')).toBeInTheDocument()
+    expect(screen.queryByText('First exact effect.')).not.toBeInTheDocument()
+  })
+
+  it('uses exact variant type metadata and does not invent missing rarity or category metadata', async () => {
+    const {fullData, item} = await loadFixture('relic-0207')
+    const categorylessVariant = fullData.variants.find(
+      (variant) => !variant.category && !variant.rarity,
+    )
+    if (!categorylessVariant) throw new Error('Missing categoryless relic variant fixture')
+
+    render(
+      <MemoryRouter>
+        <RelicDetailModal
+          fullData={fullData}
+          item={item}
+          onClose={vi.fn()}
+          selectedVariantId={categorylessVariant.id}
+        />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByText('Awakener Mechanic')).toBeInTheDocument()
+    expect(screen.queryByText(fullData.relicType)).not.toBeInTheDocument()
+    expect(screen.queryByText('N')).not.toBeInTheDocument()
+    expect(screen.queryByText('Astral Reign')).not.toBeInTheDocument()
+    expect(screen.queryByText('Faded Legacy')).not.toBeInTheDocument()
   })
 
   it('hides the navigator for one variant and opens the mapped Awakener owner', async () => {
