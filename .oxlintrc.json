@@ -10,14 +10,10 @@
   "env": {
     "builtin": true
   },
-  "ignorePatterns": [
-    "dist"
-  ],
+  "ignorePatterns": ["dist"],
   "overrides": [
     {
-      "files": [
-        "src/**/*.{ts,tsx}"
-      ],
+      "files": ["src/**/*.{ts,tsx}"],
       "rules": {
         "constructor-super": "error",
         "for-direction": "error",
@@ -179,10 +175,7 @@
             "allowRegExp": false
           }
         ],
-        "typescript/return-await": [
-          "error",
-          "error-handling-correctness-only"
-        ],
+        "typescript/return-await": ["error", "error-handling-correctness-only"],
         "typescript/triple-slash-reference": "error",
         "typescript/unbound-method": "error",
         "typescript/unified-signatures": "error",
@@ -237,10 +230,7 @@
         "no-console": [
           "warn",
           {
-            "allow": [
-              "warn",
-              "error"
-            ]
+            "allow": ["warn", "error"]
           }
         ],
         "prefer-const": "error",
@@ -248,38 +238,26 @@
         "import/no-duplicates": "error",
         "import/no-named-as-default": "off"
       },
-      "plugins": [
-        "typescript",
-        "react",
-        "import"
-      ],
+      "plugins": ["typescript", "react", "import"],
       "env": {
         "browser": true
       }
     },
     {
-      "files": [
-        "src/**/*.test.{ts,tsx}"
-      ],
+      "files": ["src/**/*.test.{ts,tsx}"],
       "rules": {
         "typescript/no-explicit-any": "off",
         "typescript/no-unsafe-assignment": "off",
         "typescript/no-unsafe-member-access": "off",
         "typescript/require-await": "off"
       },
-      "plugins": [
-        "typescript"
-      ],
+      "plugins": ["typescript"],
       "env": {
         "vitest": true
       }
     },
     {
-      "files": [
-        "doctor.config.ts",
-        "vite.config.ts",
-        "vitest.config.ts"
-      ],
+      "files": ["doctor.config.ts", "vite.config.ts", "vitest.config.ts"],
       "rules": {
         "constructor-super": "error",
         "for-direction": "error",
@@ -433,10 +411,7 @@
             "allowRegExp": false
           }
         ],
-        "typescript/return-await": [
-          "error",
-          "error-handling-correctness-only"
-        ],
+        "typescript/return-await": ["error", "error-handling-correctness-only"],
         "typescript/triple-slash-reference": "error",
         "typescript/unbound-method": "error",
         "typescript/unified-signatures": "error",
@@ -463,17 +438,13 @@
         "typescript/prefer-regexp-exec": "error",
         "typescript/prefer-string-starts-ends-with": "error"
       },
-      "plugins": [
-        "typescript"
-      ],
+      "plugins": ["typescript"],
       "env": {
         "node": true
       }
     },
     {
-      "files": [
-        "scripts/**/*.{js,mjs}"
-      ],
+      "files": ["scripts/**/*.{js,mjs}"],
       "rules": {
         "constructor-super": "error",
         "for-direction": "error",
@@ -543,9 +514,7 @@
       }
     },
     {
-      "files": [
-        "scripts/verify-builder-v2-browser.mjs"
-      ],
+      "files": ["scripts/verify-builder-v2-browser.mjs"],
       "env": {
         "browser": true,
         "node": true

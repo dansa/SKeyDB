@@ -1,6 +1,13 @@
 export type CollectionSortDirection = 'ASC' | 'DESC'
 export type AwakenerSortKey =
-  'LEVEL' | 'RARITY' | 'ENLIGHTEN' | 'ALPHABETICAL' | 'RELEASE_DATE' | 'ATK' | 'DEF' | 'CON'
+  | 'LEVEL'
+  | 'RARITY'
+  | 'ENLIGHTEN'
+  | 'ALPHABETICAL'
+  | 'RELEASE_DATE'
+  | 'ATK'
+  | 'DEF'
+  | 'CON'
 
 export interface SortableCollectionEntry {
   label: string

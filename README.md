@@ -36,7 +36,7 @@ App runs on `http://127.0.0.1:5173`.
 - `npm run test:watch` - run tests in watch mode
 - `npm run lint` - run native Oxlint with type-aware TypeScript and React checks
 - `npm run doctor:check` - check changed React code with React Doctor
-- `npm run format:check` - check formatting without mutating files
+- `npm run format:check` - check native Oxfmt formatting without mutating files
 - `npm run verify` - run formatting, Oxlint, React Doctor, tests, asset checks, and production build
 
 Tracked data artifacts are committed to the repo and consumed directly by the app. Contributor-facing commands in this README are intended to work from a fresh clone.

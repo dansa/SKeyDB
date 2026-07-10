@@ -1,7 +1,6 @@
 /// <reference types="node" />
 
 import '@testing-library/jest-dom/vitest'
-
 import {Suspense, useState} from 'react'
 
 import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'

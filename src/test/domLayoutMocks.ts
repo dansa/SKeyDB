@@ -121,11 +121,12 @@ export function installStaticMatchMediaMock({
 
   Object.defineProperty(window, 'matchMedia', {
     configurable: true,
-    value: vi.fn().mockImplementation((query: string): MediaQueryList =>
-      createTestMediaQueryList({
-        getMatches: () => matches,
-        media: media ?? query,
-      }),
+    value: vi.fn().mockImplementation(
+      (query: string): MediaQueryList =>
+        createTestMediaQueryList({
+          getMatches: () => matches,
+          media: media ?? query,
+        }),
     ),
   })
 

@@ -63,7 +63,8 @@ interface SquareArtDatabaseGridCardFrameProps extends DatabaseGridCardBaseProps 
 }
 
 type DatabaseGridCardFrameProps =
-  HybridDatabaseGridCardFrameProps | SquareArtDatabaseGridCardFrameProps
+  | HybridDatabaseGridCardFrameProps
+  | SquareArtDatabaseGridCardFrameProps
 
 function NoImage() {
   return <div className='database-grid-card__no-image'>No Image</div>

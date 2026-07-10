@@ -22,7 +22,10 @@ export const DOMAIN_STORAGE_MIGRATION_VERSION = 1
 export const DOMAIN_STORAGE_MIGRATION_SNAPSHOT_KIND = 'skeydb.domain-storage-migration.snapshot'
 
 export type DomainStorageMigrationCategory =
-  'builder' | 'collection' | 'preference' | 'export-config'
+  | 'builder'
+  | 'collection'
+  | 'preference'
+  | 'export-config'
 
 export interface DomainStorageMigrationEntry {
   key: string

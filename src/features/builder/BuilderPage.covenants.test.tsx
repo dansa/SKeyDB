@@ -4,7 +4,6 @@ import {describe, expect, it} from 'vitest'
 import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import './builder-page.integration-mocks'
-
 import {BuilderPage} from './BuilderPage'
 
 describe('BuilderPage covenants', () => {

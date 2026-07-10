@@ -22,7 +22,9 @@ interface SearchCaptureActionOptions {
 }
 
 export type SearchCaptureAction =
-  {kind: 'delete'} | {kind: 'character'; key: string} | {kind: 'escape'}
+  | {kind: 'delete'}
+  | {kind: 'character'; key: string}
+  | {kind: 'escape'}
 
 export function getSearchCaptureAction({
   currentSearchValue,

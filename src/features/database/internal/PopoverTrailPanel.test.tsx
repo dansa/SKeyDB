@@ -53,17 +53,17 @@ describe('PopoverTrailPanel', () => {
       bottom: 80,
     })
 
-    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function (
-      this: HTMLElement,
-    ) {
-      if (this === anchorElement) {
-        return anchorRect
-      }
-      if (this.dataset.skillPopover !== undefined) {
-        return panelRect
-      }
-      return makeRect()
-    })
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(
+      function (this: HTMLElement) {
+        if (this === anchorElement) {
+          return anchorRect
+        }
+        if (this.dataset.skillPopover !== undefined) {
+          return panelRect
+        }
+        return makeRect()
+      },
+    )
 
     const onCloseAll = vi.fn()
 

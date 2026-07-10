@@ -1,0 +1,68 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "semi": false,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSpacing": false,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "proseWrap": "preserve",
+  "sortPackageJson": false,
+  "sortImports": {
+    "ignoreCase": true,
+    "newlinesBetween": false,
+    "sortSideEffects": false,
+    "customGroups": [
+      {
+        "groupName": "react-libs",
+        "elementNamePattern": ["react", "react/**"]
+      }
+    ],
+    "groups": [
+      "react-libs",
+      {"newlinesBetween": true},
+      ["type-builtin", "value-builtin"],
+      {"newlinesBetween": true},
+      ["type-external", "value-external"],
+      {"newlinesBetween": true},
+      ["type-internal", "value-internal"],
+      {"newlinesBetween": true},
+      ["type-parent", "type-sibling", "type-index", "value-parent", "value-sibling", "value-index"],
+      {"newlinesBetween": true},
+      "style",
+      "unknown"
+    ]
+  },
+  "sortTailwindcss": {
+    "stylesheet": "./src/index.css"
+  },
+  "ignorePatterns": [
+    "**/*.md",
+    "**/*.json",
+    "!package.json",
+    "!.oxfmtrc.json",
+    "!.oxlintrc.json",
+    "!tsconfig*.json",
+    "!schemas/**/*.json",
+    "!src/data/**/*.json",
+    "src/data/public-v2/**/*.json",
+    "src/data/public-v3/**/*.json",
+    "!src/domain/persistence-contract.v1.json",
+    "package-lock.json",
+    "dist",
+    "coverage",
+    "node_modules"
+  ],
+  "overrides": [
+    {
+      "files": ["*.json"],
+      "options": {
+        "printWidth": 160
+      }
+    }
+  ]
+}

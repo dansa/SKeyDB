@@ -2,7 +2,6 @@ import {render, screen} from '@testing-library/react'
 import {describe, expect, it} from 'vitest'
 
 import './builder-page.integration-mocks'
-
 import {TeamCardGhost, TeamPreviewGhost} from './DragGhosts'
 import type {Team, TeamSlot} from './types'
 

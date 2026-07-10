@@ -1,8 +1,8 @@
-import {DndContext} from '@dnd-kit/core'
+import {useEffect, useMemo, useState, useSyncExternalStore, type ReactNode} from 'react'
 
 import './builder-v2.css'
 
-import {useEffect, useMemo, useState, useSyncExternalStore, type ReactNode} from 'react'
+import {DndContext} from '@dnd-kit/core'
 
 import {ConfirmDialog} from '@/components/ui/ConfirmDialog'
 import {Toast} from '@/components/ui/Toast'
