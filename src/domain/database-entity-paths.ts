@@ -1,4 +1,4 @@
-export const DATABASE_ENTITY_IDS = ['awakeners', 'wheels', 'posses', 'covenants'] as const
+export const DATABASE_ENTITY_IDS = ['awakeners', 'wheels', 'posses', 'covenants', 'relics'] as const
 
 export type DatabaseEntityId = (typeof DATABASE_ENTITY_IDS)[number]
 
@@ -23,6 +23,10 @@ const DATABASE_ENTITY_PATH_CONFIG: Record<DatabaseEntityId, DatabaseEntityPathCo
   covenants: {
     browsePath: '/database/covenants',
     detailPathPrefix: '/database/covenants',
+  },
+  relics: {
+    browsePath: '/database/relics',
+    detailPathPrefix: '/database/relics',
   },
 }
 

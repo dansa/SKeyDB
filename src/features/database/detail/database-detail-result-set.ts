@@ -5,6 +5,8 @@ import type {Covenant} from '@/domain/covenants'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getPosseAssetById} from '@/domain/posse-assets'
 import type {Posse} from '@/domain/posses'
+import {getRelicAssetByAssetId} from '@/domain/relic-assets'
+import type {Relic} from '@/domain/relics'
 import {getWheelMiniAssetById} from '@/domain/wheel-assets'
 import type {Wheel} from '@/domain/wheels'
 
@@ -57,6 +59,18 @@ export function createCovenantDetailResultSet(
       imageSrc: getCovenantAssetById(covenant.id),
       imageTreatment: 'covenant-icon',
       name: covenant.name,
+    })),
+  }
+}
+
+export function createRelicDetailResultSet(relics: readonly Relic[]): DatabaseDetailResultSet {
+  return {
+    kind: 'relic',
+    items: relics.map((relic) => ({
+      id: relic.id,
+      imageSrc: getRelicAssetByAssetId(relic.assetId),
+      imageTreatment: 'icon',
+      name: relic.name,
     })),
   }
 }

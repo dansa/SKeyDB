@@ -14,6 +14,7 @@ import {
 } from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
 import {getPosses} from '@/domain/posses'
+import type {Relic} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
 import {
   preloadDatabaseDetailRecord,
@@ -46,6 +47,7 @@ interface DetailRefLookup {
   covenantsById: Map<string, Covenant>
   covenantsByName: Map<string, Covenant>
   possesById: Map<string, ReturnType<typeof getPosses>[number]>
+  relicsById: Map<string, Relic>
   wheelsById: Map<string, Wheel>
   wheelsByName: Map<string, Wheel>
 }
@@ -60,6 +62,7 @@ interface DbDetailModalHostProps {
   callbacks: DatabaseDetailRenderCallbacks
   resultSet?: DatabaseDetailResultSet | null
   routeItem: DatabaseDetailRouteItem | null
+  relics?: Relic[]
   tabSlug?: string
   wheels: Wheel[]
 }
@@ -100,13 +103,18 @@ function resolveOverlayAwakenerTab(
   return state.refKey === activeRefKey ? state.activeTab : DEFAULT_DATABASE_AWAKENER_TAB
 }
 
-function buildDetailRefLookup(awakeners: Awakener[], wheels: Wheel[]): DetailRefLookup {
+function buildDetailRefLookup(
+  awakeners: Awakener[],
+  wheels: Wheel[],
+  relics: readonly Relic[],
+): DetailRefLookup {
   const lookup: DetailRefLookup = {
     awakenersById: new Map(),
     awakenersByName: new Map(),
     covenantsById: new Map(),
     covenantsByName: new Map(),
     possesById: new Map(),
+    relicsById: new Map(),
     wheelsById: new Map(),
     wheelsByName: new Map(),
   }
@@ -128,6 +136,10 @@ function buildDetailRefLookup(awakeners: Awakener[], wheels: Wheel[]): DetailRef
   for (const covenant of getCovenants()) {
     setFirstIdMatch(lookup.covenantsById, covenant)
     setFirstNormalizedNameMatch(lookup.covenantsByName, covenant)
+  }
+
+  for (const relic of relics) {
+    setFirstIdMatch(lookup.relicsById, relic)
   }
 
   return lookup
@@ -153,6 +165,10 @@ function resolveOverlayRouteItem(
   if (ref.kind === 'covenant') {
     const item = lookup.covenantsById.get(ref.id)
     return item ? {kind: 'covenant', item} : null
+  }
+  if (ref.kind === 'relic') {
+    const item = lookup.relicsById.get(ref.id)
+    return item ? {kind: 'relic', item} : null
   }
   return null
 }
@@ -223,8 +239,10 @@ function selectDatabaseDetailResult(
     callbacks.onSelectWheel(ref)
   } else if (ref.kind === 'posse') {
     callbacks.onSelectPosse(ref)
-  } else {
+  } else if (ref.kind === 'covenant') {
     callbacks.onSelectCovenant(ref)
+  } else {
+    callbacks.onSelectRelic?.(ref)
   }
 }
 
@@ -245,10 +263,15 @@ function preloadDatabaseDetailResult(ref: DatabaseDetailResultSelectRef) {
       id: ref.id,
       loadRecord: dbDetailRegistry.posse.loadRecord,
     })
-  } else {
+  } else if (ref.kind === 'covenant') {
     preload = preloadDatabaseDetailRecord({
       id: ref.id,
       loadRecord: dbDetailRegistry.covenant.loadRecord,
+    })
+  } else {
+    preload = preloadDatabaseDetailRecord({
+      id: ref.id,
+      loadRecord: dbDetailRegistry.relic.loadRecord,
     })
   }
 
@@ -319,7 +342,7 @@ function useDeferredDatabaseDetailNeighborPreload(
 }
 
 function getLoadingShellMaxWidth(kind: DatabaseDetailKind): 'standard' | 'wide' {
-  return kind === 'posse' || kind === 'covenant' ? 'standard' : 'wide'
+  return kind === 'awakener' || kind === 'wheel' ? 'wide' : 'standard'
 }
 
 function getLoadingPlaceholderLabel(kind: DatabaseDetailKind): string | null {
@@ -397,6 +420,7 @@ function DbDetailRouteLoadingModal({
 export function DbDetailModalHost({
   awakeners,
   callbacks,
+  relics = [],
   resultSet = null,
   routeItem,
   tabSlug,
@@ -438,6 +462,7 @@ export function DbDetailModalHost({
             activeRef={activeRef}
             awakeners={awakeners}
             callbacks={callbacks}
+            relics={relics}
             wheels={wheels}
           />
         </Suspense>
@@ -474,6 +499,7 @@ interface DbDetailOverlayModalProps {
   activeRef: DatabaseDetailRef
   awakeners: Awakener[]
   callbacks: DatabaseDetailRenderCallbacks
+  relics: readonly Relic[]
   wheels: Wheel[]
 }
 
@@ -481,6 +507,7 @@ function DbDetailOverlayModal({
   activeRef,
   awakeners,
   callbacks,
+  relics,
   wheels,
 }: DbDetailOverlayModalProps) {
   const activeRefKey = `${activeRef.kind}:${activeRef.id}`
@@ -495,8 +522,8 @@ function DbDetailOverlayModal({
   const overlayAwakenerTab = resolveOverlayAwakenerTab(activeRefKey, overlayAwakenerTabState)
   const detailRefLookup = useMemo(
     // react-doctor-disable-next-line no-event-handler, react-doctor/no-event-handler
-    () => buildDetailRefLookup(awakeners, wheels),
-    [awakeners, wheels],
+    () => buildDetailRefLookup(awakeners, wheels, relics),
+    [awakeners, relics, wheels],
   )
   // react-doctor-disable-next-line no-event-handler, react-doctor/no-event-handler
   const routeItem = resolveOverlayRouteItem(activeRef, detailRefLookup, overlayAwakenerTab)
@@ -596,12 +623,24 @@ function DbDetailOverlayModal({
       />
     )
   }
+  if (routeItem.kind === 'covenant') {
+    return (
+      <DbDetailOverlayModalContent
+        awakeners={awakeners}
+        callbacks={overlayCallbacks}
+        id={activeRef.id}
+        kind='covenant'
+        routeItem={routeItem}
+        wheels={wheels}
+      />
+    )
+  }
   return (
     <DbDetailOverlayModalContent
       awakeners={awakeners}
       callbacks={overlayCallbacks}
       id={activeRef.id}
-      kind='covenant'
+      kind='relic'
       routeItem={routeItem}
       wheels={wheels}
     />
@@ -714,12 +753,25 @@ function DbDetailRouteModal({
       />
     )
   }
+  if (routeItem.kind === 'covenant') {
+    return (
+      <DbDetailNonAwakenerRouteModal
+        activeRef={activeRef}
+        awakeners={awakeners}
+        callbacks={callbacks}
+        kind='covenant'
+        navigation={navigation}
+        routeItem={routeItem}
+        wheels={wheels}
+      />
+    )
+  }
   return (
     <DbDetailNonAwakenerRouteModal
       activeRef={activeRef}
       awakeners={awakeners}
       callbacks={callbacks}
-      kind='covenant'
+      kind='relic'
       navigation={navigation}
       routeItem={routeItem}
       wheels={wheels}

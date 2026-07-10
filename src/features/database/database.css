@@ -243,6 +243,30 @@
   text-transform: uppercase;
 }
 
+.database-grid-card__corner {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  z-index: 18;
+  pointer-events: none;
+}
+
+.database-relic-card__variant-count {
+  display: inline-flex;
+  min-width: 1.55rem;
+  height: 1.35rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  background: rgba(2, 6, 23, 0.82);
+  padding-inline: 0.35rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(226, 232, 240, 0.82);
+  box-shadow: 0 4px 12px rgba(2, 6, 23, 0.35);
+}
+
 .database-grid-card__body {
   display: grid;
   min-width: 0;
@@ -353,6 +377,20 @@
     0 -10px 22px rgba(2, 6, 14, 0.24);
   backdrop-filter: blur(2px) saturate(0.92);
   -webkit-backdrop-filter: blur(2px) saturate(0.92);
+}
+
+.database-grid-card-frame[data-card-variant='square-art'][data-has-meta] .database-grid-card__body {
+  min-height: 4.35rem;
+  gap: 0.3rem;
+}
+
+.database-grid-card-frame[data-card-variant='square-art'][data-has-meta] .database-grid-card__meta {
+  overflow: hidden;
+  font-size: 0.625rem;
+  line-height: 1.15;
+  color: rgb(148 163 184 / 0.9);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .database-grid-card__title-text {
@@ -600,6 +638,11 @@
     padding: 0.42rem 0.48rem;
   }
 
+  .database-grid-card-frame[data-card-variant='square-art'][data-has-meta]
+    .database-grid-card__body {
+    min-height: 3.8rem;
+  }
+
   .database-grid-card-frame[data-card-variant='square-art'] .database-grid-card__title-text {
     font-size: 0.72rem;
     line-height: 1.14;
@@ -634,7 +677,23 @@
   }
 }
 
+@keyframes relic-detail-content-fade {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.relic-detail-content-fade {
+  animation: relic-detail-content-fade 140ms var(--ui-motion-ease-soft) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .relic-detail-content-fade {
+    animation: none;
+  }
   .database-grid-card__surface,
   .database-grid-card__art::after,
   .database-grid-card__image,

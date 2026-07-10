@@ -42,6 +42,8 @@ export const DatabaseRouteElements = (
       element={<DatabaseRoutePage entity='covenants' />}
       path='/database/covenants/:covenantSlug'
     />
+    <Route element={<DatabaseRoutePage entity='relics' />} path='/database/relics' />
+    <Route element={<DatabaseRoutePage entity='relics' />} path='/database/relics/:relicSlug' />
     <Route
       element={<DatabaseRoutePage entity='awakeners' />}
       path='/database/awakeners/:awakenerSlug'

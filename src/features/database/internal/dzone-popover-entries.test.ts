@@ -198,6 +198,8 @@ describe('D-zone database popover entries', () => {
       id: 'relic-variant-0411',
       descriptionTemplate: 'Gold effect.',
     })
+    expect(entry.navigationHref).toBe('/database/relics/prophets-lamp?variant=relic-variant-0411')
+    expect(entry.navigationLabel).toBe('Open relic details')
     expect(entry.attributeRows).toBeUndefined()
     expect(entry.descriptionSections?.at(-1)).toEqual({
       label: 'Lore',

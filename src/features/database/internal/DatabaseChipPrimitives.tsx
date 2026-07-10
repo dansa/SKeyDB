@@ -12,6 +12,39 @@ interface CatalogRealmFilterRowProps<TValue extends string> {
   realms: readonly TValue[]
 }
 
+interface CatalogFilterOption<TValue extends string> {
+  id: TValue
+  label: ReactNode
+  activeStyle?: CSSProperties
+  iconSrc?: string | null
+}
+
+interface CatalogFilterRowProps<TValue extends string> {
+  activeId: TValue
+  defaultId: TValue
+  label: string
+  onChange: (next: TValue) => void
+  options: readonly CatalogFilterOption<TValue>[]
+}
+
+export function CatalogFilterRow<TValue extends string>({
+  activeId,
+  defaultId,
+  label,
+  onChange,
+  options,
+}: CatalogFilterRowProps<TValue>) {
+  return (
+    <ChipFilterRow
+      activeId={activeId}
+      defaultId={defaultId}
+      label={label}
+      onChange={onChange}
+      options={options}
+    />
+  )
+}
+
 export function CatalogRealmFilterRow<TValue extends string>({
   activeRealm,
   allLabel = 'All',

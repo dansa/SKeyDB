@@ -14,6 +14,12 @@ import {
 } from '@/domain/database-browse-state'
 import {getRealmLabel} from '@/domain/realms'
 import {
+  getRelicDatabaseCategoryFilterLabel,
+  type RelicDatabaseBrowseState,
+  type RelicDatabaseCategoryFilterId,
+  type RelicDatabaseRarityFilterId,
+} from '@/domain/relic-database-browse-state'
+import {
   getPosseDatabaseRealmFilterLabel,
   type CovenantDatabaseBrowseState,
   type PosseDatabaseBrowseState,
@@ -51,6 +57,12 @@ interface WheelActiveFilterActions {
   setRealmFilter: (next: WheelsDatabaseRealmFilterId) => void
   setRarityFilter: (next: WheelsDatabaseRarityFilterId) => void
   setMainstatFilter: (next: WheelsDatabaseBrowseState['mainstatFilter']) => void
+}
+
+interface RelicActiveFilterActions {
+  clearQuery: () => void
+  setCategoryFilter: (next: RelicDatabaseCategoryFilterId) => void
+  setRarityFilter: (next: RelicDatabaseRarityFilterId) => void
 }
 
 export function buildAwakenerActiveFilterChips(
@@ -235,6 +247,38 @@ export function buildWheelActiveFilterChips(
       label: mainstatLabel,
       onClear: () => {
         actions.setMainstatFilter('ALL')
+      },
+    })
+  }
+
+  return chips
+}
+
+export function buildRelicActiveFilterChips(
+  state: Pick<RelicDatabaseBrowseState, 'query' | 'categoryFilter' | 'rarityFilter'>,
+  actions: RelicActiveFilterActions,
+): ActiveFilterChip[] {
+  const chips: ActiveFilterChip[] = []
+  const trimmedQuery = state.query.trim()
+
+  if (trimmedQuery) {
+    chips.push({key: 'query', label: `Search: "${trimmedQuery}"`, onClear: actions.clearQuery})
+  }
+  if (state.categoryFilter !== 'ALL') {
+    chips.push({
+      key: 'category',
+      label: getRelicDatabaseCategoryFilterLabel(state.categoryFilter),
+      onClear: () => {
+        actions.setCategoryFilter('ALL')
+      },
+    })
+  }
+  if (state.rarityFilter !== 'ALL') {
+    chips.push({
+      key: 'rarity',
+      label: state.rarityFilter,
+      onClear: () => {
+        actions.setRarityFilter('ALL')
       },
     })
   }

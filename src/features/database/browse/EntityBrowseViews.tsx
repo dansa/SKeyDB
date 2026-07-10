@@ -3,23 +3,29 @@ import {useMemo, type ComponentType, type ReactNode} from 'react'
 import {searchCovenants} from '@/domain/covenants-search'
 import {DATABASE_SORT_OPTIONS} from '@/domain/database-browse-state'
 import {searchPosses} from '@/domain/posses-search'
+import {RELIC_DATABASE_SORT_OPTIONS} from '@/domain/relic-database-browse-state'
+import {buildRelicDatabaseView} from '@/domain/relic-database-view'
 import {WHEELS_DATABASE_SORT_OPTIONS} from '@/domain/wheels-database-browse-state'
 import type {DatabaseDetailResultSet} from '@/features/database/detail/database-detail-result-navigation'
 import {
   createAwakenerDetailResultSet,
   createCovenantDetailResultSet,
   createPosseDetailResultSet,
+  createRelicDetailResultSet,
   createWheelDetailResultSet,
 } from '@/features/database/detail/database-detail-result-set'
 import {
   buildAwakenerActiveFilterChips,
   buildCovenantActiveFilterChips,
   buildPosseActiveFilterChips,
+  buildRelicActiveFilterChips,
   buildWheelActiveFilterChips,
 } from '@/features/database/internal/database-active-filter-chips'
 import {DatabaseFilters} from '@/features/database/internal/DatabaseFilters'
 import {DatabaseGrid} from '@/features/database/internal/DatabaseGrid'
 import {EntityViewControls} from '@/features/database/internal/EntityViewControls'
+import {RelicDatabaseFilters} from '@/features/database/internal/RelicDatabaseFilters'
+import {RelicGrid} from '@/features/database/internal/RelicGrid'
 import {
   CovenantDatabaseFilters,
   PosseDatabaseFilters,
@@ -32,16 +38,25 @@ import {WheelGrid} from '@/features/database/internal/WheelGrid'
 import type {ActiveFilterChip} from '@/ui/filters/ActiveFilterChips'
 import {useGlobalSearchCapture} from '@/ui/search/useGlobalSearchCapture'
 
-import {databaseAwakeners, databaseCovenants, databasePosses, databaseWheels} from '../data'
+import {
+  databaseAwakeners,
+  databaseCovenants,
+  databasePosses,
+  databaseRelics,
+  databaseWheels,
+} from '../data'
 import {DatabaseBrowseLayout} from '../DatabaseBrowseLayout'
 import {
   getDatabaseSortDirectionLabel,
   getDatabaseSortLabel,
+  getRelicSortDirectionLabel,
+  getRelicSortLabel,
   getWheelSortDirectionLabel,
   getWheelSortLabel,
 } from './databaseBrowseSortLabels'
 import {useDatabaseBrowseState} from './useDatabaseBrowseState'
 import type {EntityBrowseController, EntitySearchActions} from './useEntityBrowseController'
+import {useRelicsDatabaseBrowseState} from './useRelicsDatabaseBrowseState'
 import {
   useCovenantDatabaseBrowseState,
   usePosseDatabaseBrowseState,
@@ -353,6 +368,75 @@ export function WheelsBrowse({
         totalCount={viewModel.totalCount}
         unitNoun='wheels'
         viewControls={viewControls}
+      />
+      <DetailModalHostSlot
+        DetailModalHost={DetailModalHost}
+        renderDetailModalHost={renderDetailModalHost}
+        resultSet={detailResultSet}
+      />
+    </>
+  )
+}
+
+export function RelicsBrowse({
+  controller,
+  DetailModalHost,
+  renderDetailModalHost,
+}: EntityBrowseProps): ReactNode {
+  const browseState = useRelicsDatabaseBrowseState()
+  const relics = useMemo(() => buildRelicDatabaseView(databaseRelics, browseState), [browseState])
+  const activeFilterChips = buildRelicActiveFilterChips(browseState, {
+    clearQuery: browseState.clearQuery,
+    setCategoryFilter: browseState.setCategoryFilter,
+    setRarityFilter: browseState.setRarityFilter,
+  })
+  const detailResultSet = useMemo(() => createRelicDetailResultSet(relics), [relics])
+
+  useActiveGlobalSearchCapture(controller, browseState)
+
+  return (
+    <>
+      <DatabaseBrowseLayout
+        activeEntity='relics'
+        activeFilterChips={activeFilterChips}
+        filteredCount={relics.length}
+        filters={
+          <RelicDatabaseFilters
+            categoryFilter={browseState.categoryFilter}
+            onCategoryFilterChange={browseState.setCategoryFilter}
+            onQueryChange={browseState.setQuery}
+            onRarityFilterChange={browseState.setRarityFilter}
+            query={browseState.query}
+            rarityFilter={browseState.rarityFilter}
+            searchInputRef={controller.searchInputRef}
+          />
+        }
+        onResetFilters={browseState.resetFilters}
+        results={
+          <RelicGrid
+            awakeners={databaseAwakeners}
+            onPreloadRelic={controller.preloadRelicDetail}
+            onSelectRelic={controller.openRelicDetail}
+            relics={relics}
+          />
+        }
+        search={controller.activeSearch}
+        title='Relics'
+        totalCount={databaseRelics.length}
+        unitNoun='relics'
+        viewControls={
+          <EntityViewControls
+            getSortDirectionLabel={getRelicSortDirectionLabel}
+            getSortLabel={getRelicSortLabel}
+            onSortDirectionToggle={browseState.toggleSortDirection}
+            onSortKeyChange={browseState.setSortKey}
+            sortDirection={browseState.sortDirection}
+            sortDirectionAriaLabel='Toggle relic sort direction'
+            sortKey={browseState.sortKey}
+            sortOptions={RELIC_DATABASE_SORT_OPTIONS}
+            sortSelectAriaLabel='Relic database sort key'
+          />
+        }
       />
       <DetailModalHostSlot
         DetailModalHost={DetailModalHost}

@@ -2,7 +2,7 @@ import {createStore} from 'zustand/vanilla'
 
 import type {EntityRef} from '@/domain/entities/types'
 
-const DB_DETAIL_ENTITY_KINDS = ['awakener', 'covenant', 'posse', 'wheel'] as const
+const DB_DETAIL_ENTITY_KINDS = ['awakener', 'covenant', 'posse', 'relic', 'wheel'] as const
 
 export type DbDetailEntityKind = (typeof DB_DETAIL_ENTITY_KINDS)[number]
 export type DbDetailEntityRef = EntityRef & {kind: DbDetailEntityKind}

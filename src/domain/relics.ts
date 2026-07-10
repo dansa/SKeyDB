@@ -151,6 +151,13 @@ export type PortraitRelic = Relic & {
   ownerAwakenerId: string
 }
 
+export function normalizeRelicDescriptionTemplate(template: string): string {
+  return template.replace(
+    /<plural value="([^"]+)" singular="([^"]+)" plural="([^"]+)">/g,
+    '{plural:$1|$2|$3}',
+  )
+}
+
 function isDimensionalImageCategory(categories: RelicCategory[]): boolean {
   return categories.includes('DIMENSIONAL_IMAGE')
 }

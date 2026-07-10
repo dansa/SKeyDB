@@ -3,6 +3,7 @@ import type {DzoneMonsterAlertStats, DzoneResolvedMonster} from '@/domain/dzone'
 import {
   getRelicVariantById,
   loadRelicRecordById,
+  normalizeRelicDescriptionTemplate,
   type PublicRelicRecord,
   type PublicRelicVariant,
 } from '@/domain/relics'
@@ -25,7 +26,7 @@ function buildRelicDescriptionRecord(
     id: record.id,
     kind: 'relic',
     displayName: record.name,
-    descriptionTemplate: record.descriptionTemplate,
+    descriptionTemplate: normalizeRelicDescriptionTemplate(record.descriptionTemplate),
     descriptionArgs: record.descriptionArgs,
   }
 }
@@ -232,6 +233,8 @@ export function buildDzoneRelicPopoverEntry({
     record: descriptionRecord,
     thumbnail: thumbnailSrc ? {src: thumbnailSrc, alt: effectRecord.name} : undefined,
     descriptionSections,
+    navigationHref: `${record.route.canonicalPath}?variant=${encodeURIComponent(effectRecord.id)}`,
+    navigationLabel: 'Open relic details',
   }
 }
 

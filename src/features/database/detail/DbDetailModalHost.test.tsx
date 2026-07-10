@@ -358,7 +358,7 @@ describe('DbDetailModalHost overlay entries', () => {
     expect(screen.getByTestId('location-pathname')).toHaveTextContent('/builder')
   })
 
-  it('rejects unsupported overlay refs before they enter the detail stack', () => {
+  it('accepts relic overlay refs now that relic detail is registered', () => {
     render(
       <MemoryRouter initialEntries={['/builder']}>
         <LocationProbe />
@@ -378,9 +378,11 @@ describe('DbDetailModalHost overlay entries', () => {
       </MemoryRouter>,
     )
 
-    openDetailInAct({kind: 'relic', id: 'relic-0001'} as never, 'builder-overlay')
+    openDetailInAct({kind: 'relic', id: 'relic-0001'}, 'builder-overlay')
 
-    expect(dbDetailStore.getState().stack).toEqual([])
+    expect(dbDetailStore.getState().stack).toEqual([
+      {kind: 'relic', id: 'relic-0001', source: 'builder-overlay'},
+    ])
     expect(screen.getByTestId('location-pathname')).toHaveTextContent('/builder')
   })
 })

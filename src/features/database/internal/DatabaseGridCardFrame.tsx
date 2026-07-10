@@ -49,7 +49,8 @@ interface SquareArtDatabaseGridCardFrameProps extends DatabaseGridCardBaseProps 
   content: {
     detail?: never
     dossierTitleAddon?: never
-    meta?: never
+    corner?: ReactNode
+    meta?: ReactNode
     title: string
   }
   media: DatabaseGridCardBaseMedia & {
@@ -148,7 +149,12 @@ export function DatabaseGridCardFrame({
     : (media.posterTreatment ?? 'cover-top')
 
   return (
-    <article className='database-grid-card-frame' data-card-variant={variant} style={accentStyle}>
+    <article
+      className='database-grid-card-frame'
+      data-card-variant={variant}
+      data-has-meta={content.meta ? '' : undefined}
+      style={accentStyle}
+    >
       <div className='database-grid-card__surface'>
         <button
           aria-labelledby={`${titleId}-action ${titleId}`}
@@ -163,6 +169,10 @@ export function DatabaseGridCardFrame({
             {actionLabel}
           </span>
         </button>
+
+        {'corner' in content && content.corner ? (
+          <div className='database-grid-card__corner'>{content.corner}</div>
+        ) : null}
 
         <div className='database-grid-card__art'>
           <CardImage

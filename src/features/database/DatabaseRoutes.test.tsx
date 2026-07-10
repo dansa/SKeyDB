@@ -15,6 +15,52 @@ import {DatabaseRouteElements} from './routes'
 
 const mockPublicCatalog = createMockPublicCatalog()
 const mockPublicDetailLoaders = createMockPublicDetailLoaders()
+const mockRelics = [
+  {
+    aliases: [],
+    assetId: '',
+    categories: ['DIMENSIONAL_IMAGE'] as const,
+    defaultVariantId: 'relic-variant-0001',
+    description: '',
+    id: 'relic-0001',
+    kind: 'PORTRAIT' as const,
+    name: 'Dimensional Image: "24"',
+    ownerAwakenerId: 'awakener-0001',
+    ownerAwakenerName: '24',
+    rarity: 'SSR' as const,
+    relicType: 'Dimensional Image' as const,
+    route: {
+      canonicalPath: '/database/relics/dimensional-image-24',
+      slug: 'dimensional-image-24',
+    },
+    variantCount: 1,
+  },
+]
+const mockRelicRecord = {
+  ...mockRelics[0],
+  assets: {},
+  descriptionArgs: {},
+  descriptionTemplate: 'Exact portrait effect.',
+  kind: 'relic' as const,
+  lore: 'Exact portrait lore.',
+  schemaVersion: 3 as const,
+  variants: [
+    {
+      category: 'DIMENSIONAL_IMAGE' as const,
+      descriptionArgs: {},
+      descriptionTemplate: 'Exact portrait effect.',
+      id: 'relic-variant-0001',
+      label: 'Dimensional Image',
+      lore: 'Exact portrait lore.',
+      name: 'Dimensional Image: "24"',
+      ownerAwakenerId: 'awakener-0001',
+      ownerAwakenerName: '24',
+      rarity: 'SSR' as const,
+      tier: 'SSR',
+      variantType: 'PORTRAIT',
+    },
+  ],
+}
 
 vi.mock('@/domain/awakeners', () => ({
   getAwakeners: () => mockPublicCatalog.awakeners,
@@ -33,6 +79,24 @@ vi.mock('@/domain/posses', () => ({
 
 vi.mock('@/domain/covenants', () => ({
   getCovenants: () => mockPublicCatalog.covenants,
+}))
+
+vi.mock('@/domain/relics', () => ({
+  RELIC_CATEGORIES: [
+    'ASTRAL_REIGN',
+    'FADED_LEGACY',
+    'DIMENSIONAL_IMAGE',
+    'EVENT',
+    'PENDULUM',
+    'OTHER',
+  ],
+  RELIC_RARITIES: ['SSR', 'SR', 'N'],
+  getDefaultRelicVariant: () => mockRelicRecord.variants[0],
+  getRelicVariantById: (_record: unknown, id: string) =>
+    mockRelicRecord.variants.find((variant) => variant.id === id),
+  getRelics: () => mockRelics,
+  loadRelicRecordById: async (id: string) =>
+    id === mockRelicRecord.id ? mockRelicRecord : undefined,
 }))
 
 vi.mock('@/domain/public-detail-record-adapters', () => ({
@@ -190,6 +254,25 @@ vi.mock('@/features/database/internal/SimpleArtifactDetailModal', () => ({
     <dialog aria-label={`${item.name} ${kind} details`} open>
       <button aria-label={`Close ${kind} detail`} onClick={onClose} type='button'>
         Close {kind}
+      </button>
+    </dialog>
+  ),
+}))
+
+vi.mock('@/features/database/internal/RelicDetailModal', () => ({
+  RelicDetailModal: ({
+    item,
+    onClose,
+    selectedVariantId,
+  }: {
+    item: {name: string}
+    onClose: () => void
+    selectedVariantId?: string
+  }) => (
+    <dialog aria-label={`${item.name} relic details`} open>
+      <div>{`Selected relic variant ${selectedVariantId ?? 'default'}`}</div>
+      <button aria-label='Close relic detail' onClick={onClose} type='button'>
+        Close relic
       </button>
     </dialog>
   ),
@@ -556,6 +639,42 @@ describe('DatabasePage', () => {
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database/wheels')
     expect(screen.getByLabelText('Search wheels')).toBeInTheDocument()
     expect(screen.getByLabelText('View details for Merciful Nurturing')).toBeInTheDocument()
+  })
+
+  it('opens the family-grain relic browse and exact variant detail route', async () => {
+    await renderDatabasePage('/database/relics')
+
+    expect(screen.getByLabelText('Search relics')).toBeInTheDocument()
+    expect(
+      screen.getByLabelText('View relic details for Dimensional Image: "24"'),
+    ).toBeInTheDocument()
+    expect(getResultsSummary('1 relics')).toBeInTheDocument()
+
+    await act(async () => {
+      fireEvent.click(screen.getByLabelText('View relic details for Dimensional Image: "24"'))
+    })
+
+    expect(
+      await screen.findByRole('dialog', {name: /dimensional image: "24" relic details/i}),
+    ).toBeInTheDocument()
+    expect(screen.getByTestId('location-path')).toHaveTextContent(
+      '/database/relics/dimensional-image-24',
+    )
+
+    await act(async () => {
+      fireEvent.click(screen.getByLabelText('Close relic detail'))
+    })
+    expect(screen.getByTestId('location-path')).toHaveTextContent('/database/relics')
+  })
+
+  it('preserves an exact relic variant deep link', async () => {
+    await renderDatabasePage('/database/relics/dimensional-image-24?variant=relic-variant-0001')
+
+    expect(
+      await screen.findByRole('dialog', {name: /dimensional image: "24" relic details/i}),
+    ).toBeInTheDocument()
+    expect(screen.getByText('Selected relic variant relic-variant-0001')).toBeInTheDocument()
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?variant=relic-variant-0001')
   })
 
   it('opens a wheel detail modal from the wheel browse grid and closes back to wheel browse', async () => {

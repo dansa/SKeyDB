@@ -12,6 +12,7 @@ import {
   toDatabaseEntitySlug,
 } from './database-entity-paths'
 import type {Posse} from './posses'
+import type {Relic} from './relics'
 import type {Wheel} from './wheels'
 
 export const DATABASE_AWAKENER_TABS = [
@@ -44,6 +45,10 @@ export function toDatabasePosseSlug(name: string): string {
 }
 
 export function toDatabaseCovenantSlug(name: string): string {
+  return toDatabaseEntitySlug(name)
+}
+
+export function toDatabaseRelicSlug(name: string): string {
   return toDatabaseEntitySlug(name)
 }
 
@@ -117,6 +122,10 @@ export function buildDatabaseCovenantBrowsePath(): string {
   return buildDatabaseEntityBrowsePath('covenants')
 }
 
+export function buildDatabaseRelicBrowsePath(): string {
+  return buildDatabaseEntityBrowsePath('relics')
+}
+
 export function buildDatabaseWheelPath(
   wheel: Pick<Wheel, 'name'> & Partial<Pick<Wheel, 'id'>>,
 ): string {
@@ -141,6 +150,15 @@ export function buildDatabaseCovenantPath(
   return (
     getMatchingPublicEntityPath('covenants', covenant.id, covenant.name) ??
     buildDatabaseEntityDetailPath('covenants', toDatabaseCovenantSlug(covenant.name))
+  )
+}
+
+export function buildDatabaseRelicPath(
+  relic: Pick<Relic, 'name'> & Partial<Pick<Relic, 'id'>>,
+): string {
+  return (
+    getMatchingPublicEntityPath('relics', relic.id, relic.name) ??
+    buildDatabaseEntityDetailPath('relics', toDatabaseRelicSlug(relic.name))
   )
 }
 
@@ -200,4 +218,16 @@ export function findCovenantByDatabaseSlug(
   return (
     covenants.find((covenant) => toDatabaseCovenantSlug(covenant.name) === normalizedSlug) ?? null
   )
+}
+
+export function findRelicByDatabaseSlug(relics: Relic[], slug: string | undefined): Relic | null {
+  if (!slug) {
+    return null
+  }
+  const normalizedSlug = slug.trim().toLowerCase()
+  const resolution = resolvePublicRoute('relics', normalizedSlug)
+  if (resolution.status !== 'notFound') {
+    return relics.find((relic) => relic.id === resolution.ref.id) ?? null
+  }
+  return relics.find((relic) => toDatabaseRelicSlug(relic.name) === normalizedSlug) ?? null
 }

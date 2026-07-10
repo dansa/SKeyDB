@@ -15,6 +15,7 @@ import {
 import type {EntityKind} from '@/domain/entities/types'
 import type {Posse} from '@/domain/posses'
 import type {PosseFullRecord} from '@/domain/posses-full'
+import type {PublicRelicRecord, Relic} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
 
@@ -32,6 +33,10 @@ function loadSimpleArtifactDetailModalModule() {
   return import('@/features/database/internal/SimpleArtifactDetailModal')
 }
 
+function loadRelicDetailModalModule() {
+  return import('@/features/database/internal/RelicDetailModal')
+}
+
 const AwakenerDetailModal = lazy(() =>
   loadAwakenerDetailModalModule().then((module) => ({
     default: module.AwakenerDetailModal,
@@ -47,8 +52,14 @@ const SimpleArtifactDetailModal = lazy(() =>
     default: module.SimpleArtifactDetailModal,
   })),
 )
+const RelicDetailModal = lazy(() =>
+  loadRelicDetailModalModule().then((module) => ({default: module.RelicDetailModal})),
+)
 
-export type DatabaseDetailKind = Extract<EntityKind, 'awakener' | 'wheel' | 'posse' | 'covenant'>
+export type DatabaseDetailKind = Extract<
+  EntityKind,
+  'awakener' | 'wheel' | 'posse' | 'covenant' | 'relic'
+>
 
 export interface DatabaseDetailRenderCallbacks {
   onClose: () => void
@@ -56,6 +67,8 @@ export interface DatabaseDetailRenderCallbacks {
   onSelectWheel: (wheel: Pick<Wheel, 'id' | 'name'>) => void
   onSelectPosse: (posse: Pick<Posse, 'id' | 'name'>) => void
   onSelectCovenant: (covenant: Pick<Covenant, 'id' | 'name'>) => void
+  onRelicVariantChange?: (variantId?: string) => void
+  onSelectRelic?: (relic: Pick<Relic, 'id' | 'name'>) => void
   onTabChange: (tab: DatabaseAwakenerTab) => void
 }
 
@@ -64,6 +77,7 @@ export type DatabaseDetailRouteItem =
   | {kind: 'wheel'; item: Wheel}
   | {kind: 'posse'; item: Posse}
   | {kind: 'covenant'; item: Covenant}
+  | {kind: 'relic'; item: Relic; variantId?: string}
 
 export type DatabaseDetailRouteItemByKind = {
   [Kind in DatabaseDetailKind]: Extract<DatabaseDetailRouteItem, {kind: Kind}>
@@ -74,6 +88,7 @@ interface DatabaseDetailRecordByKind {
   wheel: WheelFullRecord
   posse: PosseFullRecord
   covenant: CovenantFullRecord
+  relic: PublicRelicRecord
 }
 
 interface DatabaseDetailRenderOptions<Kind extends DatabaseDetailKind> {
@@ -103,7 +118,8 @@ export function preloadDatabaseDetailShell(kind: DatabaseDetailKind): void {
   } else if (kind === 'wheel') {
     preload = loadWheelDetailModalModule()
   } else {
-    preload = loadSimpleArtifactDetailModalModule()
+    preload =
+      kind === 'relic' ? loadRelicDetailModalModule() : loadSimpleArtifactDetailModalModule()
   }
 
   void preload.catch(() => undefined)
@@ -131,6 +147,11 @@ async function loadCovenantDetailRecord(id: string) {
   const {loadPublicCovenantDetailById} = await import('@/domain/public-detail-record-adapters')
 
   return loadPublicCovenantDetailById(id)
+}
+
+async function loadRelicDetailRecord(id: string) {
+  const {loadRelicRecordById} = await import('@/domain/relics')
+  return loadRelicRecordById(id)
 }
 
 export const dbDetailRegistry: DatabaseDetailRegistry = {
@@ -207,5 +228,22 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
         />
       )
     },
+  },
+  relic: {
+    loadRecord: loadRelicDetailRecord,
+    loadingLabel: 'Loading relic details...',
+    missingBrowsePath: buildDatabaseEntityBrowsePath('relics'),
+    render: ({callbacks, item, navigation, record}) => (
+      <RelicDetailModal
+        fullData={record}
+        item={item.item}
+        key={item.item.id}
+        navigation={navigation}
+        onClose={callbacks.onClose}
+        onRelicVariantChange={callbacks.onRelicVariantChange}
+        onSelectAwakener={callbacks.onSelectAwakener}
+        selectedVariantId={item.variantId}
+      />
+    ),
   },
 }

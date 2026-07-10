@@ -1,6 +1,7 @@
 import {lazy, Suspense} from 'react'
 
 import {FaXmark} from 'react-icons/fa6'
+import {Link} from 'react-router-dom'
 
 import type {
   AwakenerEnlightenRecord,
@@ -258,7 +259,16 @@ export function DatabaseReferencePopover({
                 : entry.label}
             </p>
           ) : null}
-          {onNavigate && entry.navigationLabel ? (
+          {entry.navigationHref && entry.navigationLabel ? (
+            <Link
+              className='mt-1 inline-block text-[10px] tracking-[0.16em] text-amber-100/80 uppercase transition-colors hover:text-amber-50'
+              onClick={onClose}
+              style={scaledFontStyle(10)}
+              to={entry.navigationHref}
+            >
+              {entry.navigationLabel} ↗
+            </Link>
+          ) : onNavigate && entry.navigationLabel ? (
             <button
               className='mt-1 text-[10px] tracking-[0.16em] text-amber-100/80 uppercase transition-colors hover:text-amber-50'
               onClick={() => {
