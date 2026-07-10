@@ -10400,91 +10400,13 @@
     "relic-0067": {
       "kind": "relic",
       "id": "relic-0067",
-      "name": "Argent Return: Birth",
+      "name": "Argent Return",
       "route": {
-        "slug": "argent-return-birth",
-        "canonicalPath": "/database/relics/argent-return-birth"
+        "slug": "argent-return",
+        "canonicalPath": "/database/relics/argent-return"
       },
       "assets": {
         "icon": "asset-relic-0067-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0068": {
-      "kind": "relic",
-      "id": "relic-0068",
-      "name": "Argent Return: Deceit",
-      "route": {
-        "slug": "argent-return-deceit",
-        "canonicalPath": "/database/relics/argent-return-deceit"
-      },
-      "assets": {
-        "icon": "asset-relic-0068-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0069": {
-      "kind": "relic",
-      "id": "relic-0069",
-      "name": "Argent Return: Fear",
-      "route": {
-        "slug": "argent-return-fear",
-        "canonicalPath": "/database/relics/argent-return-fear"
-      },
-      "assets": {
-        "icon": "asset-relic-0069-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0070": {
-      "kind": "relic",
-      "id": "relic-0070",
-      "name": "Argent Return: Heresy",
-      "route": {
-        "slug": "argent-return-heresy",
-        "canonicalPath": "/database/relics/argent-return-heresy"
-      },
-      "assets": {
-        "icon": "asset-relic-0070-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0071": {
-      "kind": "relic",
-      "id": "relic-0071",
-      "name": "Argent Return: Madness",
-      "route": {
-        "slug": "argent-return-madness",
-        "canonicalPath": "/database/relics/argent-return-madness"
-      },
-      "assets": {
-        "icon": "asset-relic-0071-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0072": {
-      "kind": "relic",
-      "id": "relic-0072",
-      "name": "Argent Return: Scathe",
-      "route": {
-        "slug": "argent-return-scathe",
-        "canonicalPath": "/database/relics/argent-return-scathe"
-      },
-      "assets": {
-        "icon": "asset-relic-0072-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0073": {
-      "kind": "relic",
-      "id": "relic-0073",
-      "name": "Argent Return: Sorrow",
-      "route": {
-        "slug": "argent-return-sorrow",
-        "canonicalPath": "/database/relics/argent-return-sorrow"
-      },
-      "assets": {
-        "icon": "asset-relic-0073-icon"
       },
       "rarity": "SR"
     },
@@ -11626,19 +11548,6 @@
       },
       "rarity": "N"
     },
-    "relic-0162": {
-      "kind": "relic",
-      "id": "relic-0162",
-      "name": "Faded Photograph",
-      "route": {
-        "slug": "faded-photograph",
-        "canonicalPath": "/database/relics/faded-photograph"
-      },
-      "assets": {
-        "icon": "asset-relic-0162-icon"
-      },
-      "rarity": "SSR"
-    },
     "relic-0163": {
       "kind": "relic",
       "id": "relic-0163",
@@ -12120,37 +12029,13 @@
     "relic-0200": {
       "kind": "relic",
       "id": "relic-0200",
-      "name": "Little N's Chaotic Camera",
+      "name": "Little N's Camera",
       "route": {
-        "slug": "little-ns-chaotic-camera",
-        "canonicalPath": "/database/relics/little-ns-chaotic-camera"
+        "slug": "little-ns-camera",
+        "canonicalPath": "/database/relics/little-ns-camera"
       },
       "assets": {
         "icon": "asset-relic-0200-icon"
-      }
-    },
-    "relic-0201": {
-      "kind": "relic",
-      "id": "relic-0201",
-      "name": "Little N's Pristine Camera",
-      "route": {
-        "slug": "little-ns-pristine-camera",
-        "canonicalPath": "/database/relics/little-ns-pristine-camera"
-      },
-      "assets": {
-        "icon": "asset-relic-0201-icon"
-      }
-    },
-    "relic-0202": {
-      "kind": "relic",
-      "id": "relic-0202",
-      "name": "Little N's Worn Camera",
-      "route": {
-        "slug": "little-ns-worn-camera",
-        "canonicalPath": "/database/relics/little-ns-worn-camera"
-      },
-      "assets": {
-        "icon": "asset-relic-0202-icon"
       }
     },
     "relic-0203": {
@@ -12234,65 +12119,13 @@
     "relic-0209": {
       "kind": "relic",
       "id": "relic-0209",
-      "name": "Medal of Rescue: Bronze",
+      "name": "Medal of Rescue",
       "route": {
-        "slug": "medal-of-rescue-bronze",
-        "canonicalPath": "/database/relics/medal-of-rescue-bronze"
+        "slug": "medal-of-rescue",
+        "canonicalPath": "/database/relics/medal-of-rescue"
       },
       "assets": {
         "icon": "asset-relic-0209-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0210": {
-      "kind": "relic",
-      "id": "relic-0210",
-      "name": "Medal of Rescue: Diamond",
-      "route": {
-        "slug": "medal-of-rescue-diamond",
-        "canonicalPath": "/database/relics/medal-of-rescue-diamond"
-      },
-      "assets": {
-        "icon": "asset-relic-0210-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0211": {
-      "kind": "relic",
-      "id": "relic-0211",
-      "name": "Medal of Rescue: Gold",
-      "route": {
-        "slug": "medal-of-rescue-gold",
-        "canonicalPath": "/database/relics/medal-of-rescue-gold"
-      },
-      "assets": {
-        "icon": "asset-relic-0211-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0212": {
-      "kind": "relic",
-      "id": "relic-0212",
-      "name": "Medal of Rescue: Platinum",
-      "route": {
-        "slug": "medal-of-rescue-platinum",
-        "canonicalPath": "/database/relics/medal-of-rescue-platinum"
-      },
-      "assets": {
-        "icon": "asset-relic-0212-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0213": {
-      "kind": "relic",
-      "id": "relic-0213",
-      "name": "Medal of Rescue: Silver",
-      "route": {
-        "slug": "medal-of-rescue-silver",
-        "canonicalPath": "/database/relics/medal-of-rescue-silver"
-      },
-      "assets": {
-        "icon": "asset-relic-0213-icon"
       },
       "rarity": "SR"
     },
@@ -12685,91 +12518,13 @@
     "relic-0244": {
       "kind": "relic",
       "id": "relic-0244",
-      "name": "Pure Silver Core: Birth",
+      "name": "Pure Silver Core",
       "route": {
-        "slug": "pure-silver-core-birth",
-        "canonicalPath": "/database/relics/pure-silver-core-birth"
+        "slug": "pure-silver-core",
+        "canonicalPath": "/database/relics/pure-silver-core"
       },
       "assets": {
         "icon": "asset-relic-0244-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0245": {
-      "kind": "relic",
-      "id": "relic-0245",
-      "name": "Pure Silver Core: Deceit",
-      "route": {
-        "slug": "pure-silver-core-deceit",
-        "canonicalPath": "/database/relics/pure-silver-core-deceit"
-      },
-      "assets": {
-        "icon": "asset-relic-0245-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0246": {
-      "kind": "relic",
-      "id": "relic-0246",
-      "name": "Pure Silver Core: Fear",
-      "route": {
-        "slug": "pure-silver-core-fear",
-        "canonicalPath": "/database/relics/pure-silver-core-fear"
-      },
-      "assets": {
-        "icon": "asset-relic-0246-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0247": {
-      "kind": "relic",
-      "id": "relic-0247",
-      "name": "Pure Silver Core: Heresy",
-      "route": {
-        "slug": "pure-silver-core-heresy",
-        "canonicalPath": "/database/relics/pure-silver-core-heresy"
-      },
-      "assets": {
-        "icon": "asset-relic-0247-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0248": {
-      "kind": "relic",
-      "id": "relic-0248",
-      "name": "Pure Silver Core: Madness",
-      "route": {
-        "slug": "pure-silver-core-madness",
-        "canonicalPath": "/database/relics/pure-silver-core-madness"
-      },
-      "assets": {
-        "icon": "asset-relic-0248-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0249": {
-      "kind": "relic",
-      "id": "relic-0249",
-      "name": "Pure Silver Core: Scathe",
-      "route": {
-        "slug": "pure-silver-core-scathe",
-        "canonicalPath": "/database/relics/pure-silver-core-scathe"
-      },
-      "assets": {
-        "icon": "asset-relic-0249-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-0250": {
-      "kind": "relic",
-      "id": "relic-0250",
-      "name": "Pure Silver Core: Sorrow",
-      "route": {
-        "slug": "pure-silver-core-sorrow",
-        "canonicalPath": "/database/relics/pure-silver-core-sorrow"
-      },
-      "assets": {
-        "icon": "asset-relic-0250-icon"
       },
       "rarity": "SR"
     },
@@ -24244,12 +23999,6 @@
       "relic-0065",
       "relic-0066",
       "relic-0067",
-      "relic-0068",
-      "relic-0069",
-      "relic-0070",
-      "relic-0071",
-      "relic-0072",
-      "relic-0073",
       "relic-0074",
       "relic-0075",
       "relic-0076",
@@ -24338,7 +24087,6 @@
       "relic-0159",
       "relic-0160",
       "relic-0161",
-      "relic-0162",
       "relic-0163",
       "relic-0164",
       "relic-0165",
@@ -24377,8 +24125,6 @@
       "relic-0198",
       "relic-0199",
       "relic-0200",
-      "relic-0201",
-      "relic-0202",
       "relic-0203",
       "relic-0204",
       "relic-0205",
@@ -24386,10 +24132,6 @@
       "relic-0207",
       "relic-0208",
       "relic-0209",
-      "relic-0210",
-      "relic-0211",
-      "relic-0212",
-      "relic-0213",
       "relic-0214",
       "relic-0215",
       "relic-0216",
@@ -24421,12 +24163,6 @@
       "relic-0242",
       "relic-0243",
       "relic-0244",
-      "relic-0245",
-      "relic-0246",
-      "relic-0247",
-      "relic-0248",
-      "relic-0249",
-      "relic-0250",
       "relic-0251",
       "relic-0252",
       "relic-0253",

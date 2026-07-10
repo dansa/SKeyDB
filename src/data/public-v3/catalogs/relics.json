@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "relics",
   "kind": "relic",
-  "recordCount": 305,
+  "recordCount": 286,
   "records": [
     {
       "kind": "relic",
@@ -1311,10 +1311,10 @@
     {
       "kind": "relic",
       "id": "relic-0067",
-      "name": "Argent Return: Birth",
+      "name": "Argent Return",
       "route": {
-        "slug": "argent-return-birth",
-        "canonicalPath": "/database/relics/argent-return-birth"
+        "slug": "argent-return",
+        "canonicalPath": "/database/relics/argent-return"
       },
       "assets": {
         "icon": "asset-relic-0067-icon"
@@ -1322,117 +1322,17 @@
       "rarity": "SR",
       "relicType": "Event",
       "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0074",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0068",
-      "name": "Argent Return: Deceit",
-      "route": {
-        "slug": "argent-return-deceit",
-        "canonicalPath": "/database/relics/argent-return-deceit"
-      },
-      "assets": {
-        "icon": "asset-relic-0068-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0075",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0069",
-      "name": "Argent Return: Fear",
-      "route": {
-        "slug": "argent-return-fear",
-        "canonicalPath": "/database/relics/argent-return-fear"
-      },
-      "assets": {
-        "icon": "asset-relic-0069-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0076",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0070",
-      "name": "Argent Return: Heresy",
-      "route": {
-        "slug": "argent-return-heresy",
-        "canonicalPath": "/database/relics/argent-return-heresy"
-      },
-      "assets": {
-        "icon": "asset-relic-0070-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0077",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0071",
-      "name": "Argent Return: Madness",
-      "route": {
-        "slug": "argent-return-madness",
-        "canonicalPath": "/database/relics/argent-return-madness"
-      },
-      "assets": {
-        "icon": "asset-relic-0071-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0078",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0072",
-      "name": "Argent Return: Scathe",
-      "route": {
-        "slug": "argent-return-scathe",
-        "canonicalPath": "/database/relics/argent-return-scathe"
-      },
-      "assets": {
-        "icon": "asset-relic-0072-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0079",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0073",
-      "name": "Argent Return: Sorrow",
-      "route": {
-        "slug": "argent-return-sorrow",
-        "canonicalPath": "/database/relics/argent-return-sorrow"
-      },
-      "assets": {
-        "icon": "asset-relic-0073-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
+      "variantCount": 7,
       "defaultVariantId": "relic-variant-0080",
-      "aliases": []
+      "aliases": [
+        "Argent Return: Birth",
+        "Argent Return: Deceit",
+        "Argent Return: Fear",
+        "Argent Return: Heresy",
+        "Argent Return: Madness",
+        "Argent Return: Scathe",
+        "Argent Return: Sorrow"
+      ]
     },
     {
       "kind": "relic",
@@ -3021,27 +2921,9 @@
       },
       "rarity": "N",
       "relicType": "Relic",
-      "categories": ["FADED_LEGACY"],
-      "variantCount": 1,
+      "categories": ["FADED_LEGACY", "EVENT"],
+      "variantCount": 2,
       "defaultVariantId": "relic-variant-0232",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0162",
-      "name": "Faded Photograph",
-      "route": {
-        "slug": "faded-photograph",
-        "canonicalPath": "/database/relics/faded-photograph"
-      },
-      "assets": {
-        "icon": "asset-relic-0162-icon"
-      },
-      "rarity": "SSR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0233",
       "aliases": ["Faded Photograph+"]
     },
     {
@@ -3720,53 +3602,19 @@
     {
       "kind": "relic",
       "id": "relic-0200",
-      "name": "Little N's Chaotic Camera",
+      "name": "Little N's Camera",
       "route": {
-        "slug": "little-ns-chaotic-camera",
-        "canonicalPath": "/database/relics/little-ns-chaotic-camera"
+        "slug": "little-ns-camera",
+        "canonicalPath": "/database/relics/little-ns-camera"
       },
       "assets": {
         "icon": "asset-relic-0200-icon"
       },
       "relicType": "Event",
       "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0325",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0201",
-      "name": "Little N's Pristine Camera",
-      "route": {
-        "slug": "little-ns-pristine-camera",
-        "canonicalPath": "/database/relics/little-ns-pristine-camera"
-      },
-      "assets": {
-        "icon": "asset-relic-0201-icon"
-      },
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
+      "variantCount": 3,
       "defaultVariantId": "relic-variant-0326",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0202",
-      "name": "Little N's Worn Camera",
-      "route": {
-        "slug": "little-ns-worn-camera",
-        "canonicalPath": "/database/relics/little-ns-worn-camera"
-      },
-      "assets": {
-        "icon": "asset-relic-0202-icon"
-      },
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0327",
-      "aliases": []
+      "aliases": ["Little N's Chaotic Camera", "Little N's Pristine Camera", "Little N's Worn Camera"]
     },
     {
       "kind": "relic",
@@ -3879,10 +3727,10 @@
     {
       "kind": "relic",
       "id": "relic-0209",
-      "name": "Medal of Rescue: Bronze",
+      "name": "Medal of Rescue",
       "route": {
-        "slug": "medal-of-rescue-bronze",
-        "canonicalPath": "/database/relics/medal-of-rescue-bronze"
+        "slug": "medal-of-rescue",
+        "canonicalPath": "/database/relics/medal-of-rescue"
       },
       "assets": {
         "icon": "asset-relic-0209-icon"
@@ -3890,81 +3738,9 @@
       "rarity": "SR",
       "relicType": "Event",
       "categories": ["EVENT"],
-      "variantCount": 1,
+      "variantCount": 5,
       "defaultVariantId": "relic-variant-0343",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0210",
-      "name": "Medal of Rescue: Diamond",
-      "route": {
-        "slug": "medal-of-rescue-diamond",
-        "canonicalPath": "/database/relics/medal-of-rescue-diamond"
-      },
-      "assets": {
-        "icon": "asset-relic-0210-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0344",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0211",
-      "name": "Medal of Rescue: Gold",
-      "route": {
-        "slug": "medal-of-rescue-gold",
-        "canonicalPath": "/database/relics/medal-of-rescue-gold"
-      },
-      "assets": {
-        "icon": "asset-relic-0211-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0345",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0212",
-      "name": "Medal of Rescue: Platinum",
-      "route": {
-        "slug": "medal-of-rescue-platinum",
-        "canonicalPath": "/database/relics/medal-of-rescue-platinum"
-      },
-      "assets": {
-        "icon": "asset-relic-0212-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0346",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0213",
-      "name": "Medal of Rescue: Silver",
-      "route": {
-        "slug": "medal-of-rescue-silver",
-        "canonicalPath": "/database/relics/medal-of-rescue-silver"
-      },
-      "assets": {
-        "icon": "asset-relic-0213-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0347",
-      "aliases": []
+      "aliases": ["Medal of Rescue: Bronze", "Medal of Rescue: Diamond", "Medal of Rescue: Gold", "Medal of Rescue: Platinum", "Medal of Rescue: Silver"]
     },
     {
       "kind": "relic",
@@ -4505,10 +4281,10 @@
     {
       "kind": "relic",
       "id": "relic-0244",
-      "name": "Pure Silver Core: Birth",
+      "name": "Pure Silver Core",
       "route": {
-        "slug": "pure-silver-core-birth",
-        "canonicalPath": "/database/relics/pure-silver-core-birth"
+        "slug": "pure-silver-core",
+        "canonicalPath": "/database/relics/pure-silver-core"
       },
       "assets": {
         "icon": "asset-relic-0244-icon"
@@ -4516,117 +4292,17 @@
       "rarity": "SR",
       "relicType": "Event",
       "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0416",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0245",
-      "name": "Pure Silver Core: Deceit",
-      "route": {
-        "slug": "pure-silver-core-deceit",
-        "canonicalPath": "/database/relics/pure-silver-core-deceit"
-      },
-      "assets": {
-        "icon": "asset-relic-0245-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0417",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0246",
-      "name": "Pure Silver Core: Fear",
-      "route": {
-        "slug": "pure-silver-core-fear",
-        "canonicalPath": "/database/relics/pure-silver-core-fear"
-      },
-      "assets": {
-        "icon": "asset-relic-0246-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0418",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0247",
-      "name": "Pure Silver Core: Heresy",
-      "route": {
-        "slug": "pure-silver-core-heresy",
-        "canonicalPath": "/database/relics/pure-silver-core-heresy"
-      },
-      "assets": {
-        "icon": "asset-relic-0247-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0419",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0248",
-      "name": "Pure Silver Core: Madness",
-      "route": {
-        "slug": "pure-silver-core-madness",
-        "canonicalPath": "/database/relics/pure-silver-core-madness"
-      },
-      "assets": {
-        "icon": "asset-relic-0248-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0420",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0249",
-      "name": "Pure Silver Core: Scathe",
-      "route": {
-        "slug": "pure-silver-core-scathe",
-        "canonicalPath": "/database/relics/pure-silver-core-scathe"
-      },
-      "assets": {
-        "icon": "asset-relic-0249-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
-      "defaultVariantId": "relic-variant-0421",
-      "aliases": []
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0250",
-      "name": "Pure Silver Core: Sorrow",
-      "route": {
-        "slug": "pure-silver-core-sorrow",
-        "canonicalPath": "/database/relics/pure-silver-core-sorrow"
-      },
-      "assets": {
-        "icon": "asset-relic-0250-icon"
-      },
-      "rarity": "SR",
-      "relicType": "Event",
-      "categories": ["EVENT"],
-      "variantCount": 1,
+      "variantCount": 7,
       "defaultVariantId": "relic-variant-0422",
-      "aliases": []
+      "aliases": [
+        "Pure Silver Core: Birth",
+        "Pure Silver Core: Deceit",
+        "Pure Silver Core: Fear",
+        "Pure Silver Core: Heresy",
+        "Pure Silver Core: Madness",
+        "Pure Silver Core: Scathe",
+        "Pure Silver Core: Sorrow"
+      ]
     },
     {
       "kind": "relic",

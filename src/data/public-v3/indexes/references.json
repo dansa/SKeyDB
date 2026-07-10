@@ -421,6 +421,12 @@
         "id": "relic-0066"
       }
     ],
+    "argent return": [
+      {
+        "kind": "relic",
+        "id": "relic-0067"
+      }
+    ],
     "argent return birth": [
       {
         "kind": "relic",
@@ -430,37 +436,37 @@
     "argent return deceit": [
       {
         "kind": "relic",
-        "id": "relic-0068"
+        "id": "relic-0067"
       }
     ],
     "argent return fear": [
       {
         "kind": "relic",
-        "id": "relic-0069"
+        "id": "relic-0067"
       }
     ],
     "argent return heresy": [
       {
         "kind": "relic",
-        "id": "relic-0070"
+        "id": "relic-0067"
       }
     ],
     "argent return madness": [
       {
         "kind": "relic",
-        "id": "relic-0071"
+        "id": "relic-0067"
       }
     ],
     "argent return scathe": [
       {
         "kind": "relic",
-        "id": "relic-0072"
+        "id": "relic-0067"
       }
     ],
     "argent return sorrow": [
       {
         "kind": "relic",
-        "id": "relic-0073"
+        "id": "relic-0067"
       }
     ],
     "arithmetica harmony": [
@@ -3088,7 +3094,7 @@
     "faded photograph": [
       {
         "kind": "relic",
-        "id": "relic-0162"
+        "id": "relic-0161"
       }
     ],
     "faint": [
@@ -4639,6 +4645,12 @@
         "id": "awakener-build-0029"
       }
     ],
+    "little ns camera": [
+      {
+        "kind": "relic",
+        "id": "relic-0200"
+      }
+    ],
     "little ns chaotic camera": [
       {
         "kind": "relic",
@@ -4648,13 +4660,13 @@
     "little ns pristine camera": [
       {
         "kind": "relic",
-        "id": "relic-0201"
+        "id": "relic-0200"
       }
     ],
     "little ns worn camera": [
       {
         "kind": "relic",
-        "id": "relic-0202"
+        "id": "relic-0200"
       }
     ],
     "living deads delirium": [
@@ -4861,6 +4873,12 @@
         "id": "talent.casiah.master-of-magic"
       }
     ],
+    "medal of rescue": [
+      {
+        "kind": "relic",
+        "id": "relic-0209"
+      }
+    ],
     "medal of rescue bronze": [
       {
         "kind": "relic",
@@ -4870,25 +4888,25 @@
     "medal of rescue diamond": [
       {
         "kind": "relic",
-        "id": "relic-0210"
+        "id": "relic-0209"
       }
     ],
     "medal of rescue gold": [
       {
         "kind": "relic",
-        "id": "relic-0211"
+        "id": "relic-0209"
       }
     ],
     "medal of rescue platinum": [
       {
         "kind": "relic",
-        "id": "relic-0212"
+        "id": "relic-0209"
       }
     ],
     "medal of rescue silver": [
       {
         "kind": "relic",
-        "id": "relic-0213"
+        "id": "relic-0209"
       }
     ],
     "mediating personalities": [
@@ -6193,6 +6211,12 @@
         "id": "enlighten.doll.pure-rationality"
       }
     ],
+    "pure silver core": [
+      {
+        "kind": "relic",
+        "id": "relic-0244"
+      }
+    ],
     "pure silver core birth": [
       {
         "kind": "relic",
@@ -6202,37 +6226,37 @@
     "pure silver core deceit": [
       {
         "kind": "relic",
-        "id": "relic-0245"
+        "id": "relic-0244"
       }
     ],
     "pure silver core fear": [
       {
         "kind": "relic",
-        "id": "relic-0246"
+        "id": "relic-0244"
       }
     ],
     "pure silver core heresy": [
       {
         "kind": "relic",
-        "id": "relic-0247"
+        "id": "relic-0244"
       }
     ],
     "pure silver core madness": [
       {
         "kind": "relic",
-        "id": "relic-0248"
+        "id": "relic-0244"
       }
     ],
     "pure silver core scathe": [
       {
         "kind": "relic",
-        "id": "relic-0249"
+        "id": "relic-0244"
       }
     ],
     "pure silver core sorrow": [
       {
         "kind": "relic",
-        "id": "relic-0250"
+        "id": "relic-0244"
       }
     ],
     "pure ultra": [

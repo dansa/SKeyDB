@@ -2,20 +2,20 @@
   "schemaVersion": 3,
   "kind": "relic",
   "id": "relic-0200",
-  "name": "Little N's Chaotic Camera",
+  "name": "Little N's Camera",
   "route": {
-    "slug": "little-ns-chaotic-camera",
-    "canonicalPath": "/database/relics/little-ns-chaotic-camera"
+    "slug": "little-ns-camera",
+    "canonicalPath": "/database/relics/little-ns-camera"
   },
   "assets": {
     "icon": "asset-relic-0200-icon"
   },
   "relicType": "Event",
   "categories": ["EVENT"],
-  "variantCount": 1,
-  "defaultVariantId": "relic-variant-0325",
-  "aliases": [],
-  "descriptionTemplate": "{Golden Harmony}: {Arithmetica Harmony} now only increases Arithmetica Cost by 1. Each 1% DMG Amplification increases {Occult Research} Depth by 1%.\n{Dimensional Gift}: Gain 1 random Dimensional Image Relic at the start of exploration. Hand Limit +1.\n{Transit Fatigue}: All HP recovery effects -50% in battle. When \"Burial\" is selected at \"Faded Bones,\" the effect changes to restore 25% Max HP.\n{Blessed Ritual}: Rewards for defeating Phase 1, 2, and 3 Bosses are replaced with a choice of 3 Blessed Relics.\n{Motion Vertigo}: All Awakeners start battle with 50% less current Aliemus and Keyflare.\n{Evernight Rail}: All Awakeners gain +100% to their Base Aliemus and Keyflare Cap at the start of exploration.",
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0326",
+  "aliases": ["Little N's Chaotic Camera", "Little N's Pristine Camera", "Little N's Worn Camera"],
+  "descriptionTemplate": "{Golden Harmony}: {Arithmetica Harmony} now only increases Arithmetica Cost by 1. Each 1% DMG Amplification increases {Occult Research} Depth by 1%.\n{Transit Fatigue}: All HP recovery effects -50% in battle. When \"Burial\" is selected at \"Faded Bones,\" the effect changes to restore 25% Max HP.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -32,14 +32,70 @@
     "Arg4": {
       "kind": "fixed",
       "value": "1"
-    },
-    "Arg5": {
-      "kind": "fixed",
-      "value": "2"
     }
   },
-  "lore": "Oh no! It's completely trashed! Wait... it's still working? But look at all these restrictions!",
+  "lore": "Look no further—this is the one! Brand new, factory-fresh, and guaranteed to satisfy.",
   "variants": [
+    {
+      "id": "relic-variant-0326",
+      "name": "Little N's Pristine Camera",
+      "label": "Event - Gold",
+      "variantType": "EVENT",
+      "tier": "Gold",
+      "category": "EVENT",
+      "descriptionTemplate": "<OrangeQuality:Golden Harmony>: \"Arithmetica Harmony\" now only increases Arithmetica Cost by 1. Each 1% DMG Amplification increases Occult Research Depth by 1%.\n<RedQuality:Transit Fatigue>: All HP recovery effects -50% in battle. When \"Burial\" is selected at \"Faded Bones,\" the effect changes to restore 25% Max HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "Look no further—this is the one! Brand new, factory-fresh, and guaranteed to satisfy."
+    },
+    {
+      "id": "relic-variant-0327",
+      "name": "Little N's Worn Camera",
+      "label": "Event - Gold",
+      "variantType": "EVENT",
+      "tier": "Gold",
+      "category": "EVENT",
+      "descriptionTemplate": "<OrangeQuality:Golden Harmony>: \"Arithmetica Harmony\" now only increases Arithmetica Cost by 1. Each 1% DMG Amplification increases Occult Research Depth by 1%.\n<OrangeQuality:Dimensional Gift>: Gain 1 random Dimensional Image Relic at the start of exploration. Hand Limit +1.\n<RedQuality:Transit Fatigue>: All HP recovery effects -50% in battle. When \"Burial\" is selected at \"Faded Bones,\" the effect changes to restore 25% Max HP.\n<RedQuality:Motion Vertigo>: All Awakeners start battle with 50% less current Aliemus and Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg5": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "It’s ruined! The camera is broken! Let me see if I can fix... oh, it’s turning on! But why does it feel so strange now?"
+    },
     {
       "id": "relic-variant-0325",
       "name": "Little N's Chaotic Camera",

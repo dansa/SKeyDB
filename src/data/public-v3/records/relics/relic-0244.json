@@ -2,38 +2,169 @@
   "schemaVersion": 3,
   "kind": "relic",
   "id": "relic-0244",
-  "name": "Pure Silver Core: Birth",
+  "name": "Pure Silver Core",
   "route": {
-    "slug": "pure-silver-core-birth",
-    "canonicalPath": "/database/relics/pure-silver-core-birth"
+    "slug": "pure-silver-core",
+    "canonicalPath": "/database/relics/pure-silver-core"
   },
   "assets": {
     "icon": "asset-relic-0244-icon"
   },
   "relicType": "Event",
   "categories": ["EVENT"],
-  "variantCount": 1,
-  "defaultVariantId": "relic-variant-0416",
+  "variantCount": 7,
+  "defaultVariantId": "relic-variant-0422",
   "rarity": "SR",
-  "aliases": [],
-  "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {Twilight: Seed of Abundance} into hand. At turn end, {Retain} remaining Arithmetica and no longer discard cards. For each instance of Active DMG dealt, gain [Arg1] Temporary {STR} and [Arg2] Shield.",
+  "aliases": [
+    "Pure Silver Core: Birth",
+    "Pure Silver Core: Deceit",
+    "Pure Silver Core: Fear",
+    "Pure Silver Core: Heresy",
+    "Pure Silver Core: Madness",
+    "Pure Silver Core: Scathe",
+    "Pure Silver Core: Sorrow"
+  ],
+  "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {Twilight: Innocent Return Gift} into hand. Each Awakener can release Exalt 1 additional time per turn; after releasing Exalt, reduce enemy {STR} by [Arg2]. At turn start, all Awakeners gain [Arg1] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "computed",
-      "formulaKey": "scaled",
-      "baseFormula": "esotericResearchDepth",
-      "multiplier": 0.02,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "kind": "fixed",
+      "value": "30"
     },
     "Arg2": {
       "kind": "computed",
       "formulaKey": "scaled",
       "baseFormula": "esotericResearchDepth",
-      "multiplier": 0.03,
+      "multiplier": 0.02,
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
   "variants": [
+    {
+      "id": "relic-variant-0422",
+      "name": "Pure Silver Core: Sorrow",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, Rouse all Awakeners, place <DerivativeCardKeywords_83:\"Twilight: Innocent Return Gift\"> into hand. Each Awakener can release Exalt 1 additional time per turn; after releasing Exalt, reduce enemy STR by [Arg2]. At turn start, all Awakeners gain [Arg1] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "30"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    },
+    {
+      "id": "relic-variant-0418",
+      "name": "Pure Silver Core: Fear",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, Rouse all Awakeners, place <DerivativeCardKeywords_84:\"Twilight: Unfinished Wax Sculpture\"> into hand, copying all cards in the Draw Pile. Draw 5 additional cards each turn and gain 5 Arithmetica. After playing \"Strike\" or \"Defense,\" gain [Arg1] Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    },
+    {
+      "id": "relic-variant-0421",
+      "name": "Pure Silver Core: Scathe",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, Rouse all Awakeners, place <DerivativeCardKeywords_85:\"Twilight: Mutated Heart\"> into hand. At turn start, you can choose to discard any number of cards in hand and draw the same amount. Gain [Arg1] Temporary STR in odd-numbered turns, and place \"<DerivativeCardKeywords_97:Unyielding Will β\"> into hand. Gain [Arg2] Temporary Alert in even-numbered turns, and place <DerivativeCardKeywords_98:\"Hideβ\"> into hand",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.2,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.06,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    },
+    {
+      "id": "relic-variant-0417",
+      "name": "Pure Silver Core: Deceit",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, Rouse all Awakeners, place <DerivativeCardKeywords_86:\"Twilight: Honey Mead\"> into hand, and increase all Awakeners' Crit. DMG to 1.5 times. At turn end, Awakeners that did not release Exalt gain [Arg1] Aliemus. If the number of cards played is less than [Arg2], draw 2 cards next turn and gain 2 Arithmetica.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10"
+        }
+      }
+    },
+    {
+      "id": "relic-variant-0419",
+      "name": "Pure Silver Core: Heresy",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At battle start, Rouse all Awakeners, place <DerivativeCardKeywords_87:\"Twilight: The Envoy's Verdict\"> into hand, and double the team's DMG Amplification. The Weakness effect inflicted by you increases from 25% to 50%. At the end of each turn, gain Shield equal to [Arg1]% of Max HP and deal Fixed DMG equal to [Arg2] x Shield to all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      }
+    },
+    {
+      "id": "relic-variant-0420",
+      "name": "Pure Silver Core: Madness",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At battle start, Rouse all Awakeners, draw <DerivativeCardKeywords_88:\"Twilight: Utopian Veil\"> into hand, increase the team's hand limit by +2, and increase the Keyflare storage limit by +100%. After releasing the Posse, all Awakeners' Crit. DMG and Temporary Crit. Rate +[Arg1]%, receive Shield equal to 20% of their Max HP, and draw cards until the hand limit is reached.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "100",
+          "suffix": "%"
+        }
+      }
+    },
     {
       "id": "relic-variant-0416",
       "name": "Pure Silver Core: Birth",

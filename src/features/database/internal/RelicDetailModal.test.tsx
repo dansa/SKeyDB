@@ -34,11 +34,19 @@ describe('RelicDetailModal', () => {
     expect(labels.get('relic-variant-0146')).toBe('Pendulum — Variant 9')
   })
 
-  it('keeps using the source label and honest ordinals when variant names differ', async () => {
+  it('uses descriptive source names when repeated labels can be honestly distinguished', async () => {
     const {fullData} = await loadFixture('relic-0171')
     const labels = buildRelicVariantLabels(fullData.variants)
-    expect(labels.get('relic-variant-0256')).toBe('Pendulum — Variant 1')
-    expect(labels.get('relic-variant-0264')).toBe('Pendulum — Variant 9')
+    expect(labels.get('relic-variant-0256')).toBe('Pendulum — Gateway of All Realms α')
+    expect(labels.get('relic-variant-0264')).toBe('Pendulum — Gateway of All Realms ι')
+  })
+
+  it('exposes the distinguishing names of newly consolidated family variants', async () => {
+    const {fullData} = await loadFixture('relic-0067')
+    const labels = buildRelicVariantLabels(fullData.variants)
+
+    expect(labels.get('relic-variant-0074')).toBe('Event - Special — Argent Return: Birth')
+    expect(labels.get('relic-variant-0080')).toBe('Event - Special — Argent Return: Sorrow')
   })
 
   it('canonicalizes an invalid variant to the family default and renders Effect and Lore', async () => {

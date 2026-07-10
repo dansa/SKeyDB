@@ -1224,47 +1224,11 @@
         "canonicalSlug": "arcane-gloves",
         "canonicalPath": "/database/relics/arcane-gloves"
       },
-      "argent-return-birth": {
+      "argent-return": {
         "kind": "relic",
         "id": "relic-0067",
-        "canonicalSlug": "argent-return-birth",
-        "canonicalPath": "/database/relics/argent-return-birth"
-      },
-      "argent-return-deceit": {
-        "kind": "relic",
-        "id": "relic-0068",
-        "canonicalSlug": "argent-return-deceit",
-        "canonicalPath": "/database/relics/argent-return-deceit"
-      },
-      "argent-return-fear": {
-        "kind": "relic",
-        "id": "relic-0069",
-        "canonicalSlug": "argent-return-fear",
-        "canonicalPath": "/database/relics/argent-return-fear"
-      },
-      "argent-return-heresy": {
-        "kind": "relic",
-        "id": "relic-0070",
-        "canonicalSlug": "argent-return-heresy",
-        "canonicalPath": "/database/relics/argent-return-heresy"
-      },
-      "argent-return-madness": {
-        "kind": "relic",
-        "id": "relic-0071",
-        "canonicalSlug": "argent-return-madness",
-        "canonicalPath": "/database/relics/argent-return-madness"
-      },
-      "argent-return-scathe": {
-        "kind": "relic",
-        "id": "relic-0072",
-        "canonicalSlug": "argent-return-scathe",
-        "canonicalPath": "/database/relics/argent-return-scathe"
-      },
-      "argent-return-sorrow": {
-        "kind": "relic",
-        "id": "relic-0073",
-        "canonicalSlug": "argent-return-sorrow",
-        "canonicalPath": "/database/relics/argent-return-sorrow"
+        "canonicalSlug": "argent-return",
+        "canonicalPath": "/database/relics/argent-return"
       },
       "barbed-trident": {
         "kind": "relic",
@@ -2142,12 +2106,6 @@
         "canonicalSlug": "faded-photo",
         "canonicalPath": "/database/relics/faded-photo"
       },
-      "faded-photograph": {
-        "kind": "relic",
-        "id": "relic-0162",
-        "canonicalSlug": "faded-photograph",
-        "canonicalPath": "/database/relics/faded-photograph"
-      },
       "festive-benediction": {
         "kind": "relic",
         "id": "relic-0163",
@@ -2370,23 +2328,11 @@
         "canonicalSlug": "light-of-civilization",
         "canonicalPath": "/database/relics/light-of-civilization"
       },
-      "little-ns-chaotic-camera": {
+      "little-ns-camera": {
         "kind": "relic",
         "id": "relic-0200",
-        "canonicalSlug": "little-ns-chaotic-camera",
-        "canonicalPath": "/database/relics/little-ns-chaotic-camera"
-      },
-      "little-ns-pristine-camera": {
-        "kind": "relic",
-        "id": "relic-0201",
-        "canonicalSlug": "little-ns-pristine-camera",
-        "canonicalPath": "/database/relics/little-ns-pristine-camera"
-      },
-      "little-ns-worn-camera": {
-        "kind": "relic",
-        "id": "relic-0202",
-        "canonicalSlug": "little-ns-worn-camera",
-        "canonicalPath": "/database/relics/little-ns-worn-camera"
+        "canonicalSlug": "little-ns-camera",
+        "canonicalPath": "/database/relics/little-ns-camera"
       },
       "lone-wolfs-insignia": {
         "kind": "relic",
@@ -2424,35 +2370,11 @@
         "canonicalSlug": "mary-the-pure",
         "canonicalPath": "/database/relics/mary-the-pure"
       },
-      "medal-of-rescue-bronze": {
+      "medal-of-rescue": {
         "kind": "relic",
         "id": "relic-0209",
-        "canonicalSlug": "medal-of-rescue-bronze",
-        "canonicalPath": "/database/relics/medal-of-rescue-bronze"
-      },
-      "medal-of-rescue-diamond": {
-        "kind": "relic",
-        "id": "relic-0210",
-        "canonicalSlug": "medal-of-rescue-diamond",
-        "canonicalPath": "/database/relics/medal-of-rescue-diamond"
-      },
-      "medal-of-rescue-gold": {
-        "kind": "relic",
-        "id": "relic-0211",
-        "canonicalSlug": "medal-of-rescue-gold",
-        "canonicalPath": "/database/relics/medal-of-rescue-gold"
-      },
-      "medal-of-rescue-platinum": {
-        "kind": "relic",
-        "id": "relic-0212",
-        "canonicalSlug": "medal-of-rescue-platinum",
-        "canonicalPath": "/database/relics/medal-of-rescue-platinum"
-      },
-      "medal-of-rescue-silver": {
-        "kind": "relic",
-        "id": "relic-0213",
-        "canonicalSlug": "medal-of-rescue-silver",
-        "canonicalPath": "/database/relics/medal-of-rescue-silver"
+        "canonicalSlug": "medal-of-rescue",
+        "canonicalPath": "/database/relics/medal-of-rescue"
       },
       "memory-and-dream": {
         "kind": "relic",
@@ -2634,47 +2556,11 @@
         "canonicalSlug": "psyche-analysis",
         "canonicalPath": "/database/relics/psyche-analysis"
       },
-      "pure-silver-core-birth": {
+      "pure-silver-core": {
         "kind": "relic",
         "id": "relic-0244",
-        "canonicalSlug": "pure-silver-core-birth",
-        "canonicalPath": "/database/relics/pure-silver-core-birth"
-      },
-      "pure-silver-core-deceit": {
-        "kind": "relic",
-        "id": "relic-0245",
-        "canonicalSlug": "pure-silver-core-deceit",
-        "canonicalPath": "/database/relics/pure-silver-core-deceit"
-      },
-      "pure-silver-core-fear": {
-        "kind": "relic",
-        "id": "relic-0246",
-        "canonicalSlug": "pure-silver-core-fear",
-        "canonicalPath": "/database/relics/pure-silver-core-fear"
-      },
-      "pure-silver-core-heresy": {
-        "kind": "relic",
-        "id": "relic-0247",
-        "canonicalSlug": "pure-silver-core-heresy",
-        "canonicalPath": "/database/relics/pure-silver-core-heresy"
-      },
-      "pure-silver-core-madness": {
-        "kind": "relic",
-        "id": "relic-0248",
-        "canonicalSlug": "pure-silver-core-madness",
-        "canonicalPath": "/database/relics/pure-silver-core-madness"
-      },
-      "pure-silver-core-scathe": {
-        "kind": "relic",
-        "id": "relic-0249",
-        "canonicalSlug": "pure-silver-core-scathe",
-        "canonicalPath": "/database/relics/pure-silver-core-scathe"
-      },
-      "pure-silver-core-sorrow": {
-        "kind": "relic",
-        "id": "relic-0250",
-        "canonicalSlug": "pure-silver-core-sorrow",
-        "canonicalPath": "/database/relics/pure-silver-core-sorrow"
+        "canonicalSlug": "pure-silver-core",
+        "canonicalPath": "/database/relics/pure-silver-core"
       },
       "putney-morning-post": {
         "kind": "relic",
@@ -10953,7 +10839,146 @@
   "redirects": {
     "awakeners": {},
     "wheels": {},
-    "relics": {},
+    "relics": {
+      "argent-return-birth": {
+        "kind": "relic",
+        "id": "relic-0067",
+        "canonicalSlug": "argent-return",
+        "canonicalPath": "/database/relics/argent-return"
+      },
+      "argent-return-deceit": {
+        "kind": "relic",
+        "id": "relic-0067",
+        "canonicalSlug": "argent-return",
+        "canonicalPath": "/database/relics/argent-return"
+      },
+      "argent-return-fear": {
+        "kind": "relic",
+        "id": "relic-0067",
+        "canonicalSlug": "argent-return",
+        "canonicalPath": "/database/relics/argent-return"
+      },
+      "argent-return-heresy": {
+        "kind": "relic",
+        "id": "relic-0067",
+        "canonicalSlug": "argent-return",
+        "canonicalPath": "/database/relics/argent-return"
+      },
+      "argent-return-madness": {
+        "kind": "relic",
+        "id": "relic-0067",
+        "canonicalSlug": "argent-return",
+        "canonicalPath": "/database/relics/argent-return"
+      },
+      "argent-return-scathe": {
+        "kind": "relic",
+        "id": "relic-0067",
+        "canonicalSlug": "argent-return",
+        "canonicalPath": "/database/relics/argent-return"
+      },
+      "argent-return-sorrow": {
+        "kind": "relic",
+        "id": "relic-0067",
+        "canonicalSlug": "argent-return",
+        "canonicalPath": "/database/relics/argent-return"
+      },
+      "faded-photograph": {
+        "kind": "relic",
+        "id": "relic-0161",
+        "canonicalSlug": "faded-photo",
+        "canonicalPath": "/database/relics/faded-photo"
+      },
+      "little-ns-chaotic-camera": {
+        "kind": "relic",
+        "id": "relic-0200",
+        "canonicalSlug": "little-ns-camera",
+        "canonicalPath": "/database/relics/little-ns-camera"
+      },
+      "little-ns-pristine-camera": {
+        "kind": "relic",
+        "id": "relic-0200",
+        "canonicalSlug": "little-ns-camera",
+        "canonicalPath": "/database/relics/little-ns-camera"
+      },
+      "little-ns-worn-camera": {
+        "kind": "relic",
+        "id": "relic-0200",
+        "canonicalSlug": "little-ns-camera",
+        "canonicalPath": "/database/relics/little-ns-camera"
+      },
+      "medal-of-rescue-bronze": {
+        "kind": "relic",
+        "id": "relic-0209",
+        "canonicalSlug": "medal-of-rescue",
+        "canonicalPath": "/database/relics/medal-of-rescue"
+      },
+      "medal-of-rescue-diamond": {
+        "kind": "relic",
+        "id": "relic-0209",
+        "canonicalSlug": "medal-of-rescue",
+        "canonicalPath": "/database/relics/medal-of-rescue"
+      },
+      "medal-of-rescue-gold": {
+        "kind": "relic",
+        "id": "relic-0209",
+        "canonicalSlug": "medal-of-rescue",
+        "canonicalPath": "/database/relics/medal-of-rescue"
+      },
+      "medal-of-rescue-platinum": {
+        "kind": "relic",
+        "id": "relic-0209",
+        "canonicalSlug": "medal-of-rescue",
+        "canonicalPath": "/database/relics/medal-of-rescue"
+      },
+      "medal-of-rescue-silver": {
+        "kind": "relic",
+        "id": "relic-0209",
+        "canonicalSlug": "medal-of-rescue",
+        "canonicalPath": "/database/relics/medal-of-rescue"
+      },
+      "pure-silver-core-birth": {
+        "kind": "relic",
+        "id": "relic-0244",
+        "canonicalSlug": "pure-silver-core",
+        "canonicalPath": "/database/relics/pure-silver-core"
+      },
+      "pure-silver-core-deceit": {
+        "kind": "relic",
+        "id": "relic-0244",
+        "canonicalSlug": "pure-silver-core",
+        "canonicalPath": "/database/relics/pure-silver-core"
+      },
+      "pure-silver-core-fear": {
+        "kind": "relic",
+        "id": "relic-0244",
+        "canonicalSlug": "pure-silver-core",
+        "canonicalPath": "/database/relics/pure-silver-core"
+      },
+      "pure-silver-core-heresy": {
+        "kind": "relic",
+        "id": "relic-0244",
+        "canonicalSlug": "pure-silver-core",
+        "canonicalPath": "/database/relics/pure-silver-core"
+      },
+      "pure-silver-core-madness": {
+        "kind": "relic",
+        "id": "relic-0244",
+        "canonicalSlug": "pure-silver-core",
+        "canonicalPath": "/database/relics/pure-silver-core"
+      },
+      "pure-silver-core-scathe": {
+        "kind": "relic",
+        "id": "relic-0244",
+        "canonicalSlug": "pure-silver-core",
+        "canonicalPath": "/database/relics/pure-silver-core"
+      },
+      "pure-silver-core-sorrow": {
+        "kind": "relic",
+        "id": "relic-0244",
+        "canonicalSlug": "pure-silver-core",
+        "canonicalPath": "/database/relics/pure-silver-core"
+      }
+    },
     "covenants": {
       "photosynthesis-rite": {
         "kind": "covenant",

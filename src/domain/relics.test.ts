@@ -99,6 +99,25 @@ describe('relic family variants', () => {
     )
   })
 
+  it.each([
+    ['relic-0067', 'Argent Return', 7, ['relic-variant-0074', 'relic-variant-0080']],
+    ['relic-0161', 'Faded Photo', 2, ['relic-variant-0232', 'relic-variant-0233']],
+    ['relic-0200', "Little N's Camera", 3, ['relic-variant-0325', 'relic-variant-0327']],
+    ['relic-0209', 'Medal of Rescue', 5, ['relic-variant-0343', 'relic-variant-0347']],
+    ['relic-0244', 'Pure Silver Core', 7, ['relic-variant-0416', 'relic-variant-0422']],
+  ])(
+    'loads consolidated family %s without changing exact variant identity',
+    async (familyId, name, variantCount, boundaryVariantIds) => {
+      const family = await loadRelicRecordById(familyId)
+
+      expect(family).toMatchObject({id: familyId, name, variantCount})
+      expect(family?.variants).toHaveLength(variantCount)
+      expect(family?.variants.map((variant) => variant.id)).toEqual(
+        expect.arrayContaining(boundaryVariantIds),
+      )
+    },
+  )
+
   it('keeps tightened blessed and sinful variants under Omen Ritual Bird', async () => {
     const omenRitualBird = await loadRelicRecordById('relic-0229')
 

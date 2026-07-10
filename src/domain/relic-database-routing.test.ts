@@ -20,6 +20,19 @@ describe('relic database routing', () => {
     expect(findRelicByDatabaseSlug(relics, 'malignant-child')?.id).toBe('relic-0207')
   })
 
+  it.each([
+    ['argent-return-birth', 'relic-0067', '/database/relics/argent-return'],
+    ['faded-photograph', 'relic-0161', '/database/relics/faded-photo'],
+    ['little-ns-pristine-camera', 'relic-0200', '/database/relics/little-ns-camera'],
+    ['medal-of-rescue-diamond', 'relic-0209', '/database/relics/medal-of-rescue'],
+    ['pure-silver-core-sorrow', 'relic-0244', '/database/relics/pure-silver-core'],
+  ])('resolves former family slug %s to its canonical family', (slug, familyId, canonicalPath) => {
+    const family = findRelicByDatabaseSlug(relics, slug)
+
+    expect(family?.id).toBe(familyId)
+    expect(family && buildDatabaseRelicPath(family)).toBe(canonicalPath)
+  })
+
   it('keeps applicable browse state but strips exact detail variant state', () => {
     expect(
       sanitizeDatabaseEntitySearch(

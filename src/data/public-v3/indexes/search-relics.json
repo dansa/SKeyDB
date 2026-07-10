@@ -1203,107 +1203,48 @@
     {
       "kind": "relic",
       "id": "relic-0067",
-      "name": "Argent Return: Birth",
-      "aliases": [],
-      "tokens": ["argent", "argent return birth", "birth", "event", "return", "sr"],
+      "name": "Argent Return",
+      "aliases": [
+        "Argent Return: Birth",
+        "Argent Return: Deceit",
+        "Argent Return: Fear",
+        "Argent Return: Heresy",
+        "Argent Return: Madness",
+        "Argent Return: Scathe",
+        "Argent Return: Sorrow"
+      ],
+      "tokens": [
+        "argent",
+        "argent return",
+        "argent return birth",
+        "argent return deceit",
+        "argent return fear",
+        "argent return heresy",
+        "argent return madness",
+        "argent return scathe",
+        "argent return sorrow",
+        "birth",
+        "deceit",
+        "event",
+        "fear",
+        "heresy",
+        "madness",
+        "return",
+        "scathe",
+        "sorrow",
+        "sr"
+      ],
       "fields": {
-        "name": ["Argent Return: Birth", "argent-return-birth"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0068",
-      "name": "Argent Return: Deceit",
-      "aliases": [],
-      "tokens": ["argent", "argent return deceit", "deceit", "event", "return", "sr"],
-      "fields": {
-        "name": ["Argent Return: Deceit", "argent-return-deceit"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0069",
-      "name": "Argent Return: Fear",
-      "aliases": [],
-      "tokens": ["argent", "argent return fear", "event", "fear", "return", "sr"],
-      "fields": {
-        "name": ["Argent Return: Fear", "argent-return-fear"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0070",
-      "name": "Argent Return: Heresy",
-      "aliases": [],
-      "tokens": ["argent", "argent return heresy", "event", "heresy", "return", "sr"],
-      "fields": {
-        "name": ["Argent Return: Heresy", "argent-return-heresy"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0071",
-      "name": "Argent Return: Madness",
-      "aliases": [],
-      "tokens": ["argent", "argent return madness", "event", "madness", "return", "sr"],
-      "fields": {
-        "name": ["Argent Return: Madness", "argent-return-madness"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0072",
-      "name": "Argent Return: Scathe",
-      "aliases": [],
-      "tokens": ["argent", "argent return scathe", "event", "return", "scathe", "sr"],
-      "fields": {
-        "name": ["Argent Return: Scathe", "argent-return-scathe"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0073",
-      "name": "Argent Return: Sorrow",
-      "aliases": [],
-      "tokens": ["argent", "argent return sorrow", "event", "return", "sorrow", "sr"],
-      "fields": {
-        "name": ["Argent Return: Sorrow", "argent-return-sorrow"],
+        "name": ["Argent Return", "argent-return"],
+        "alias": [
+          "Argent Return: Birth",
+          "Argent Return: Deceit",
+          "Argent Return: Fear",
+          "Argent Return: Heresy",
+          "Argent Return: Madness",
+          "Argent Return: Scathe",
+          "Argent Return: Sorrow"
+        ],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -2807,33 +2748,17 @@
       "kind": "relic",
       "id": "relic-0161",
       "name": "Faded Photo",
-      "aliases": [],
-      "tokens": ["faded", "faded legacy", "faded photo", "legacy", "n", "photo", "relic"],
+      "aliases": ["Faded Photograph+"],
+      "tokens": ["event", "faded", "faded legacy", "faded photo", "faded photograph", "legacy", "n", "photo", "photograph", "relic"],
       "fields": {
         "name": ["Faded Photo", "faded-photo"],
-        "facet": ["N", "Relic", "FADED_LEGACY", "Faded Legacy"]
+        "alias": ["Faded Photograph+"],
+        "facet": ["N", "Relic", "FADED_LEGACY", "Faded Legacy", "EVENT"]
       },
       "facets": {
         "rarity": "N",
         "relicType": "Relic",
-        "categories": ["FADED_LEGACY"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0162",
-      "name": "Faded Photograph",
-      "aliases": ["Faded Photograph+"],
-      "tokens": ["event", "faded", "faded photograph", "photograph", "ssr"],
-      "fields": {
-        "name": ["Faded Photograph", "faded-photograph"],
-        "alias": ["Faded Photograph+"],
-        "facet": ["SSR", "Event"]
-      },
-      "facets": {
-        "rarity": "SSR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
+        "categories": ["FADED_LEGACY", "EVENT"]
       }
     },
     {
@@ -3538,41 +3463,24 @@
     {
       "kind": "relic",
       "id": "relic-0200",
-      "name": "Little N's Chaotic Camera",
-      "aliases": [],
-      "tokens": ["camera", "chaotic", "event", "little", "little ns chaotic camera", "ns"],
+      "name": "Little N's Camera",
+      "aliases": ["Little N's Chaotic Camera", "Little N's Pristine Camera", "Little N's Worn Camera"],
+      "tokens": [
+        "camera",
+        "chaotic",
+        "event",
+        "little",
+        "little ns camera",
+        "little ns chaotic camera",
+        "little ns pristine camera",
+        "little ns worn camera",
+        "ns",
+        "pristine",
+        "worn"
+      ],
       "fields": {
-        "name": ["Little N's Chaotic Camera", "little-ns-chaotic-camera"],
-        "facet": ["Event"]
-      },
-      "facets": {
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0201",
-      "name": "Little N's Pristine Camera",
-      "aliases": [],
-      "tokens": ["camera", "event", "little", "little ns pristine camera", "ns", "pristine"],
-      "fields": {
-        "name": ["Little N's Pristine Camera", "little-ns-pristine-camera"],
-        "facet": ["Event"]
-      },
-      "facets": {
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0202",
-      "name": "Little N's Worn Camera",
-      "aliases": [],
-      "tokens": ["camera", "event", "little", "little ns worn camera", "ns", "worn"],
-      "fields": {
-        "name": ["Little N's Worn Camera", "little-ns-worn-camera"],
+        "name": ["Little N's Camera", "little-ns-camera"],
+        "alias": ["Little N's Chaotic Camera", "Little N's Pristine Camera", "Little N's Worn Camera"],
         "facet": ["Event"]
       },
       "facets": {
@@ -3697,75 +3605,29 @@
     {
       "kind": "relic",
       "id": "relic-0209",
-      "name": "Medal of Rescue: Bronze",
-      "aliases": [],
-      "tokens": ["bronze", "event", "medal", "medal of rescue bronze", "of", "rescue", "sr"],
+      "name": "Medal of Rescue",
+      "aliases": ["Medal of Rescue: Bronze", "Medal of Rescue: Diamond", "Medal of Rescue: Gold", "Medal of Rescue: Platinum", "Medal of Rescue: Silver"],
+      "tokens": [
+        "bronze",
+        "diamond",
+        "event",
+        "gold",
+        "medal",
+        "medal of rescue",
+        "medal of rescue bronze",
+        "medal of rescue diamond",
+        "medal of rescue gold",
+        "medal of rescue platinum",
+        "medal of rescue silver",
+        "of",
+        "platinum",
+        "rescue",
+        "silver",
+        "sr"
+      ],
       "fields": {
-        "name": ["Medal of Rescue: Bronze", "medal-of-rescue-bronze"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0210",
-      "name": "Medal of Rescue: Diamond",
-      "aliases": [],
-      "tokens": ["diamond", "event", "medal", "medal of rescue diamond", "of", "rescue", "sr"],
-      "fields": {
-        "name": ["Medal of Rescue: Diamond", "medal-of-rescue-diamond"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0211",
-      "name": "Medal of Rescue: Gold",
-      "aliases": [],
-      "tokens": ["event", "gold", "medal", "medal of rescue gold", "of", "rescue", "sr"],
-      "fields": {
-        "name": ["Medal of Rescue: Gold", "medal-of-rescue-gold"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0212",
-      "name": "Medal of Rescue: Platinum",
-      "aliases": [],
-      "tokens": ["event", "medal", "medal of rescue platinum", "of", "platinum", "rescue", "sr"],
-      "fields": {
-        "name": ["Medal of Rescue: Platinum", "medal-of-rescue-platinum"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0213",
-      "name": "Medal of Rescue: Silver",
-      "aliases": [],
-      "tokens": ["event", "medal", "medal of rescue silver", "of", "rescue", "silver", "sr"],
-      "fields": {
-        "name": ["Medal of Rescue: Silver", "medal-of-rescue-silver"],
+        "name": ["Medal of Rescue", "medal-of-rescue"],
+        "alias": ["Medal of Rescue: Bronze", "Medal of Rescue: Diamond", "Medal of Rescue: Gold", "Medal of Rescue: Platinum", "Medal of Rescue: Silver"],
         "facet": ["SR", "Event"]
       },
       "facets": {
@@ -4332,107 +4194,49 @@
     {
       "kind": "relic",
       "id": "relic-0244",
-      "name": "Pure Silver Core: Birth",
-      "aliases": [],
-      "tokens": ["birth", "core", "event", "pure", "pure silver core birth", "silver", "sr"],
+      "name": "Pure Silver Core",
+      "aliases": [
+        "Pure Silver Core: Birth",
+        "Pure Silver Core: Deceit",
+        "Pure Silver Core: Fear",
+        "Pure Silver Core: Heresy",
+        "Pure Silver Core: Madness",
+        "Pure Silver Core: Scathe",
+        "Pure Silver Core: Sorrow"
+      ],
+      "tokens": [
+        "birth",
+        "core",
+        "deceit",
+        "event",
+        "fear",
+        "heresy",
+        "madness",
+        "pure",
+        "pure silver core",
+        "pure silver core birth",
+        "pure silver core deceit",
+        "pure silver core fear",
+        "pure silver core heresy",
+        "pure silver core madness",
+        "pure silver core scathe",
+        "pure silver core sorrow",
+        "scathe",
+        "silver",
+        "sorrow",
+        "sr"
+      ],
       "fields": {
-        "name": ["Pure Silver Core: Birth", "pure-silver-core-birth"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0245",
-      "name": "Pure Silver Core: Deceit",
-      "aliases": [],
-      "tokens": ["core", "deceit", "event", "pure", "pure silver core deceit", "silver", "sr"],
-      "fields": {
-        "name": ["Pure Silver Core: Deceit", "pure-silver-core-deceit"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0246",
-      "name": "Pure Silver Core: Fear",
-      "aliases": [],
-      "tokens": ["core", "event", "fear", "pure", "pure silver core fear", "silver", "sr"],
-      "fields": {
-        "name": ["Pure Silver Core: Fear", "pure-silver-core-fear"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0247",
-      "name": "Pure Silver Core: Heresy",
-      "aliases": [],
-      "tokens": ["core", "event", "heresy", "pure", "pure silver core heresy", "silver", "sr"],
-      "fields": {
-        "name": ["Pure Silver Core: Heresy", "pure-silver-core-heresy"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0248",
-      "name": "Pure Silver Core: Madness",
-      "aliases": [],
-      "tokens": ["core", "event", "madness", "pure", "pure silver core madness", "silver", "sr"],
-      "fields": {
-        "name": ["Pure Silver Core: Madness", "pure-silver-core-madness"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0249",
-      "name": "Pure Silver Core: Scathe",
-      "aliases": [],
-      "tokens": ["core", "event", "pure", "pure silver core scathe", "scathe", "silver", "sr"],
-      "fields": {
-        "name": ["Pure Silver Core: Scathe", "pure-silver-core-scathe"],
-        "facet": ["SR", "Event"]
-      },
-      "facets": {
-        "rarity": "SR",
-        "relicType": "Event",
-        "categories": ["EVENT"]
-      }
-    },
-    {
-      "kind": "relic",
-      "id": "relic-0250",
-      "name": "Pure Silver Core: Sorrow",
-      "aliases": [],
-      "tokens": ["core", "event", "pure", "pure silver core sorrow", "silver", "sorrow", "sr"],
-      "fields": {
-        "name": ["Pure Silver Core: Sorrow", "pure-silver-core-sorrow"],
+        "name": ["Pure Silver Core", "pure-silver-core"],
+        "alias": [
+          "Pure Silver Core: Birth",
+          "Pure Silver Core: Deceit",
+          "Pure Silver Core: Fear",
+          "Pure Silver Core: Heresy",
+          "Pure Silver Core: Madness",
+          "Pure Silver Core: Scathe",
+          "Pure Silver Core: Sorrow"
+        ],
         "facet": ["SR", "Event"]
       },
       "facets": {
