@@ -633,7 +633,6 @@ describe('DatabaseReferencePopover', () => {
   })
 
   it('resolves typed overlay tokens through overlays when a card has the same name', async () => {
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
     const onMechanicTokenClick = vi.fn()
     const onSkillTokenClick = vi.fn()
     const duplicateNameOverlay = {
@@ -676,7 +675,11 @@ describe('DatabaseReferencePopover', () => {
     fireEvent.click(await screen.findByRole('button', {name: "Illusion's End"}))
 
     expect(onSkillTokenClick).not.toHaveBeenCalled()
-    expect(onMechanicTokenClick).toHaveBeenCalledWith(duplicateNameOverlay, expect.any(Object))
+    expect(onMechanicTokenClick).toHaveBeenCalledWith(
+      duplicateNameOverlay,
+      expect.any(Object),
+      expect.any(Object),
+    )
   })
 
   it('renders appended keyword footers as clickable mechanic tokens', async () => {

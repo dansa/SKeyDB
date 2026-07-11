@@ -232,6 +232,7 @@ describe('AwakenerBuildsTab', () => {
           navigationLabel: 'In DB',
           navigationTarget: {
             kind: 'wheel-page',
+            wheelId: 'wheel-0028',
             wheelName: 'Amber-Tinted Death',
           },
           attributeRows: [

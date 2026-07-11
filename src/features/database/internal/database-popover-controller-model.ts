@@ -2,6 +2,7 @@ import type {AwakenerEnlightenRecord, AwakenerOverlayRecord} from '@/domain/awak
 import {
   resolveDatabaseReferenceInfo,
   resolveDatabaseReferenceInfoById,
+  resolveDatabaseReferenceInfoByKindAndName,
 } from '@/domain/database-reference-info'
 import {
   buildDatabaseOverlayLabel,
@@ -86,8 +87,13 @@ export function buildOverlayFallbackEntry(
 export function resolveReferenceByName(
   layer: DatabaseReferenceLayer | null,
   name: string,
+  kind?: DatabaseReferenceInfo['kind'],
 ): DatabaseReferenceInfo | null {
-  return layer ? resolveDatabaseReferenceInfo(layer, name) : null
+  if (!layer) return null
+  if (kind) {
+    return resolveDatabaseReferenceInfoByKindAndName(layer, kind, name)
+  }
+  return resolveDatabaseReferenceInfo(layer, name)
 }
 export function resolveOverlayReference(
   layer: DatabaseReferenceLayer | null,
@@ -228,7 +234,7 @@ export function resolveNavigationHandler({
         ? (clearTrail) => {
             clearTrail()
             handlers.onNavigateToWheelPage?.({
-              id: activeEntryId,
+              id: navigationTarget.wheelId ?? activeEntryId,
               name: navigationTarget.wheelName,
             })
           }
@@ -251,8 +257,13 @@ export function withInheritedReferenceLayerOverride(
   entry: KeyedDatabaseReferenceEntry,
   sourceEntry: TrailEntry | undefined,
 ): TrailEntry {
+  let referenceId = (entry as TrailEntry).referenceId
+  if (!referenceId && entry.key.includes(':')) {
+    referenceId = entry.key.split(':').slice(1).join(':')
+  }
   return {
     ...entry,
+    referenceId,
     referenceLayerOverride: entry.referenceLayerOverride ?? sourceEntry?.referenceLayerOverride,
   }
 }

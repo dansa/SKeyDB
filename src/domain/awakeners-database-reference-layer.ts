@@ -16,6 +16,7 @@ import {
   buildDatabaseOverlayLookup,
   buildDatabaseOverlayReferenceInfo,
   DatabaseReferenceLookupAccumulator,
+  getDatabaseDerivedSkillAliases,
   type DatabaseReferenceInfo,
 } from './database-reference-layer'
 import {getDerivedSkills} from './derived-skills'
@@ -63,10 +64,16 @@ export function collectAwakenerDatabaseCardNames(
   }
   for (const entry of record.derivedSkills) {
     names.add(entry.displayName)
+    for (const alias of entry.aliases) {
+      names.add(alias)
+    }
   }
   for (const entry of derivedSkills) {
     if (entry.ownerAwakenerId === undefined) {
       names.add(entry.displayName)
+      for (const alias of entry.aliases) {
+        names.add(alias)
+      }
     }
   }
   return names
@@ -128,9 +135,10 @@ function addDescribedReferenceInfos<TRecord extends DescribedRecord>(
   accumulator: DatabaseReferenceLookupAccumulator,
   entries: DatabaseDescribedEntry<TRecord>[],
   buildInfo: (entry: DatabaseDescribedEntry<TRecord>) => DatabaseReferenceInfo<TRecord>,
+  getAliases?: (entry: DatabaseDescribedEntry<TRecord>) => readonly string[],
 ): void {
   for (const entry of entries) {
-    accumulator.add(buildInfo(entry))
+    accumulator.add(buildInfo(entry), getAliases?.(entry) ?? [])
   }
 }
 function getDerivedSkillLabel(record: DerivedSkillRecord): string {
@@ -166,11 +174,17 @@ function buildReferenceLookups(
       influenceBadges: [],
     }),
   )
-  addDescribedReferenceInfos(accumulator, shellView.derivedSkills, (entry) =>
-    buildReferenceInfoFromEntry('derived-skill', entry, shellView),
+  addDescribedReferenceInfos(
+    accumulator,
+    shellView.derivedSkills,
+    (entry) => buildReferenceInfoFromEntry('derived-skill', entry, shellView),
+    (entry) => getDatabaseDerivedSkillAliases(entry.record),
   )
-  addDescribedReferenceInfos(accumulator, shellView.promotedExtras, (entry) =>
-    buildReferenceInfoFromEntry('derived-skill', entry, shellView),
+  addDescribedReferenceInfos(
+    accumulator,
+    shellView.promotedExtras,
+    (entry) => buildReferenceInfoFromEntry('derived-skill', entry, shellView),
+    (entry) => getDatabaseDerivedSkillAliases(entry.record),
   )
   for (const record of globalDerivedSkills) {
     accumulator.add(
@@ -179,6 +193,7 @@ function buildReferenceLookups(
         rank: shellView.skillLevel,
         stats: shellView.stats,
       }),
+      getDatabaseDerivedSkillAliases(record),
     )
   }
   for (const overlay of accessibleOverlays) {

@@ -47,8 +47,7 @@ export interface ResolvedPopoverVisualData {
     liveFinalValues: number[] | undefined
     liveAbstractFormula: string | undefined
     liveAbstractFormulaExplanations:
-      | {label: string; value: string; sourceName?: string}[]
-      | undefined
+      {label: string; value: string; sourceName?: string}[] | undefined
     shouldCeil: boolean
     originalValues: number[]
   }

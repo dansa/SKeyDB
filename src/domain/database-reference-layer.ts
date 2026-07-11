@@ -18,14 +18,7 @@ export interface DatabaseInfluenceBadge {
 }
 export interface DatabaseReferenceInfo<TRecord extends DescribedRecord = DescribedRecord> {
   kind:
-    | 'skill'
-    | 'talent'
-    | 'enlighten'
-    | 'derived-skill'
-    | 'overlay'
-    | 'wheel'
-    | 'posse'
-    | 'covenant'
+    'skill' | 'talent' | 'enlighten' | 'derived-skill' | 'overlay' | 'wheel' | 'posse' | 'covenant'
   id: string
   name: string
   label: string
@@ -203,4 +196,8 @@ export function buildDatabaseDerivedSkillReferenceInfo(
     influencingTalentIds: [],
     influenceBadges: [],
   }
+}
+
+export function getDatabaseDerivedSkillAliases(record: DerivedSkillRecord): readonly string[] {
+  return record.aliases
 }
