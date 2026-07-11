@@ -1,4 +1,4 @@
-import {Fragment, useMemo} from 'react'
+import {Fragment, useEffect, useMemo} from 'react'
 
 import {useStore} from 'zustand'
 
@@ -44,6 +44,61 @@ function getNonEmptyText(primary: string | undefined, fallback: string | undefin
   return ''
 }
 
+function isRelicVariantEditingTarget(target: EventTarget | null): boolean {
+  if (!(target instanceof Element)) {
+    return false
+  }
+
+  return Boolean(
+    target.closest(
+      'input, select, textarea, [contenteditable]:not([contenteditable="false"]), [role="tablist"]',
+    ),
+  )
+}
+
+function useRelicVariantNavigationKeys({
+  onSelect,
+  selectedId,
+  variants,
+}: {
+  onSelect?: (variantId?: string) => void
+  selectedId: string
+  variants: PublicRelicRecord['variants']
+}) {
+  useEffect(() => {
+    if (!onSelect || variants.length <= 1) {
+      return
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.altKey ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.shiftKey ||
+        isRelicVariantEditingTarget(event.target)
+      ) {
+        return
+      }
+
+      const selectedIndex = variants.findIndex((variant) => variant.id === selectedId)
+      const offset = event.key === 'ArrowUp' ? -1 : event.key === 'ArrowDown' ? 1 : 0
+      const destination = offset === 0 ? undefined : variants[selectedIndex + offset]
+
+      if (destination) {
+        event.preventDefault()
+        onSelect(destination.id)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [onSelect, selectedId, variants])
+}
+
 interface RelicDetailModalProps {
   fullData: PublicRelicRecord
   item: Relic
@@ -76,6 +131,11 @@ export function RelicDetailModal({
   const selectedVariant =
     (selectedVariantId ? getRelicVariantById(fullData, selectedVariantId) : undefined) ??
     getDefaultRelicVariant(fullData)
+  useRelicVariantNavigationKeys({
+    onSelect: onRelicVariantChange,
+    selectedId: selectedVariant.id,
+    variants: fullData.variants,
+  })
 
   const effectRecord = useMemo<RelicDatabaseDescriptionRecord>(() => {
     const variantHasEffect = Boolean(selectedVariant.descriptionTemplate.trim())

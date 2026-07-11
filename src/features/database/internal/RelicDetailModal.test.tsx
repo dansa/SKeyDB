@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-import {render, screen} from '@testing-library/react'
+import {fireEvent, render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import {MemoryRouter} from 'react-router-dom'
 import {describe, expect, it, vi} from 'vitest'
@@ -242,5 +242,75 @@ describe('RelicDetailModal', () => {
       'pr-11',
     )
     expect(onRelicVariantChange).toHaveBeenCalledWith(fullData.variants[3]?.id)
+  })
+
+  it('moves between variants with ArrowUp and ArrowDown without wrapping', async () => {
+    const {fullData, item} = await loadFixture('relic-0229')
+    const firstVariant = fullData.variants[0]
+    const secondVariant = fullData.variants[1]
+    const onRelicVariantChange = vi.fn()
+
+    function ControlledRelicDetail() {
+      const [selectedVariantId, setSelectedVariantId] = useState(firstVariant.id)
+      return (
+        <RelicDetailModal
+          fullData={fullData}
+          item={item}
+          onClose={vi.fn()}
+          onRelicVariantChange={(variantId) => {
+            onRelicVariantChange(variantId)
+            if (variantId) setSelectedVariantId(variantId)
+          }}
+          selectedVariantId={selectedVariantId}
+        />
+      )
+    }
+
+    render(
+      <MemoryRouter>
+        <ControlledRelicDetail />
+      </MemoryRouter>,
+    )
+
+    fireEvent.keyDown(window, {key: 'ArrowUp'})
+    expect(onRelicVariantChange).not.toHaveBeenCalled()
+
+    fireEvent.keyDown(screen.getByRole('button', {name: 'Close relic detail'}), {
+      key: 'ArrowDown',
+    })
+    expect(onRelicVariantChange).toHaveBeenLastCalledWith(secondVariant.id)
+
+    fireEvent.keyDown(window, {key: 'ArrowUp'})
+    expect(onRelicVariantChange).toHaveBeenLastCalledWith(firstVariant.id)
+    expect(onRelicVariantChange).toHaveBeenCalledTimes(2)
+
+    for (let index = 1; index < fullData.variants.length; index += 1) {
+      fireEvent.keyDown(window, {key: 'ArrowDown'})
+    }
+    expect(onRelicVariantChange).toHaveBeenLastCalledWith(fullData.variants.at(-1)?.id)
+    fireEvent.keyDown(window, {key: 'ArrowDown'})
+    expect(onRelicVariantChange).toHaveBeenCalledTimes(fullData.variants.length + 1)
+  })
+
+  it('leaves arrow keys to the focused native variant selector', async () => {
+    const {fullData, item} = await loadFixture('relic-0229')
+    const onRelicVariantChange = vi.fn()
+
+    render(
+      <MemoryRouter>
+        <RelicDetailModal
+          fullData={fullData}
+          item={item}
+          onClose={vi.fn()}
+          onRelicVariantChange={onRelicVariantChange}
+          selectedVariantId={fullData.defaultVariantId}
+        />
+      </MemoryRouter>,
+    )
+
+    fireEvent.keyDown(screen.getByRole('combobox', {name: 'Relic variant switcher'}), {
+      key: 'ArrowDown',
+    })
+    expect(onRelicVariantChange).not.toHaveBeenCalled()
   })
 })
