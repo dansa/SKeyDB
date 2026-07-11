@@ -145,7 +145,7 @@ export function MobilePopoverTrailPanel({
   const canDragRef = useRef(false)
   const touchStartY = useRef(0)
   const touchCurrentY = useRef(0)
-  const swipeableRef = useRef<HTMLDialogElement>(null)
+  const swipeableRef = useRef<HTMLDivElement>(null)
   const mountTime = useRef(0)
   const {preferences} = useDatabaseDetailPreferences()
   const fontScaleStyle = getDescriptionFontScaleStyle(preferences.shared.fontScale)
@@ -309,10 +309,11 @@ export function MobilePopoverTrailPanel({
         ref={containerRef}
         style={fontScaleStyle}
       >
-        <dialog
-          open
-          className='pointer-events-auto m-0 flex w-full max-w-md flex-col items-center border-none bg-transparent p-0'
+        <div
+          role='dialog'
           aria-label='Database reference details'
+          aria-modal='false'
+          className='pointer-events-auto m-0 flex w-full max-w-md flex-col items-center bg-transparent p-0'
           onTouchEnd={handleTouchEnd}
           onTouchStart={handleTouchStart}
           ref={swipeableRef}
@@ -376,7 +377,7 @@ export function MobilePopoverTrailPanel({
                   )
                 })}
           </div>
-        </dialog>
+        </div>
       </div>
     </>
   )
