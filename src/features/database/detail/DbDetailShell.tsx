@@ -37,6 +37,7 @@ interface DbDetailShellProps {
   sideArtContainerClassName?: string
   sideArtClassName?: string
   sideArtFooter?: ReactNode
+  sideArtWidthClassName?: string
   showSideArtGradient?: boolean
   updateSharedPreferences: (nextPartial: Partial<DatabaseDetailSharedPreferences>) => void
 }
@@ -59,6 +60,7 @@ export function DbDetailShell({
   sideArtContainerClassName = '',
   sideArtClassName = 'object-contain p-2',
   sideArtFooter,
+  sideArtWidthClassName = 'w-[21rem]',
   showSideArtGradient = false,
   updateSharedPreferences,
 }: DbDetailShellProps) {
@@ -157,7 +159,9 @@ export function DbDetailShell({
         </div>
 
         <DatabasePopoverContext.Provider value={popoverController.contextValue}>
-          <aside className='hidden w-[21rem] shrink-0 flex-col overflow-hidden bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] md:flex'>
+          <aside
+            className={`hidden shrink-0 flex-col overflow-hidden bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] md:flex ${sideArtWidthClassName}`}
+          >
             <div className='min-h-0 flex-1'>
               {artAsset ? (
                 <button

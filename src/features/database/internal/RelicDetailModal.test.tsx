@@ -199,6 +199,8 @@ describe('RelicDetailModal', () => {
       screen.getByRole('button', {name: 'Select relic variant Dimensional Image'}),
     ).toHaveClass('min-h-10', 'text-left')
     expect(screen.queryByText('SSR')).not.toBeInTheDocument()
+    expect(document.querySelector('aside')).toHaveClass('w-[12rem]')
+    expect(document.querySelector('aside')).not.toHaveClass('w-[21rem]')
     expect(document.querySelector('aside img')).toHaveClass('max-h-full', 'max-w-full')
     expect(document.querySelector('aside img')).not.toHaveClass('h-full', 'w-full')
     const desktopArtButton = document.querySelector('aside button')
