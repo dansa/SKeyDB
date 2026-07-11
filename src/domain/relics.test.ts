@@ -13,6 +13,8 @@ import {
   getRelicVariantById,
   loadRelicDescriptionById,
   loadRelicRecordById,
+  publicRelicCatalogRecordSchema,
+  publicRelicRecordSchema,
   resolvePreferredRelicVariant,
 } from './relics'
 
@@ -61,6 +63,23 @@ describe('getRelics', () => {
     )
   })
 
+  it('requires a non-empty variant category/tier projection at the catalog boundary', () => {
+    const valid = getRelics()[0]
+    const catalogRecord = {
+      ...valid,
+      assets: {},
+      kind: 'relic' as const,
+    }
+    const {variantCategoryTiers: _omitted, ...missingProjection} = catalogRecord
+
+    expect(publicRelicCatalogRecordSchema.safeParse(catalogRecord).success).toBe(true)
+    expect(publicRelicCatalogRecordSchema.safeParse(missingProjection).success).toBe(false)
+    expect(
+      publicRelicCatalogRecordSchema.safeParse({...catalogRecord, variantCategoryTiers: []})
+        .success,
+    ).toBe(false)
+  })
+
   it('enforces unique relic ids at the public relic boundary', () => {
     const relics = getRelics()
     const uniqueRelicIds = new Set(relics.map((relic) => relic.id))
@@ -80,6 +99,34 @@ describe('getRelics', () => {
 })
 
 describe('relic family variants', () => {
+  it('requires a non-empty variant category/tier projection at the detail boundary', async () => {
+    const rawRecord = await loadPublicRecord('relics', 'relic-0207')
+    expect(rawRecord).toBeDefined()
+    if (!rawRecord) return
+
+    expect(publicRelicRecordSchema.safeParse(rawRecord).success).toBe(false)
+    expect(
+      publicRelicRecordSchema.safeParse({...rawRecord, variantCategoryTiers: []}).success,
+    ).toBe(false)
+
+    const parsedRecord = await loadRelicRecordById('relic-0207')
+    expect(parsedRecord).toBeDefined()
+    expect(publicRelicRecordSchema.safeParse(parsedRecord).success).toBe(true)
+  })
+
+  it('validates the catalog default descriptor against the exact default variant', async () => {
+    const record = await loadRelicRecordById('relic-0207')
+    expect(record).toBeDefined()
+    if (!record) return
+
+    expect(
+      publicRelicRecordSchema.safeParse({
+        ...record,
+        variantCategoryTiers: [{category: 'FADED_LEGACY', tier: 'Silver'}],
+      }).success,
+    ).toBe(false)
+  })
+
   it('parses every lazy family detail with globally unique variants', async () => {
     const variantIds = new Set<string>()
 

@@ -57,7 +57,7 @@ const relicRouteSchema = z.object({
   canonicalPath: nonEmptyStringSchema,
 })
 
-const publicRelicCatalogRecordSchema = z
+export const publicRelicCatalogRecordSchema = z
   .object({
     kind: z.literal('relic'),
     id: relicIdSchema,
@@ -70,7 +70,7 @@ const publicRelicCatalogRecordSchema = z
     relicType: relicTypeSchema,
     rarity: relicRaritySchema.optional(),
     variantCount: z.number().int().positive(),
-    variantCategoryTiers: z.array(relicVariantCategoryTierSchema).default([]),
+    variantCategoryTiers: z.array(relicVariantCategoryTierSchema).min(1),
     variantTiers: z.array(relicVariantTierSchema).default([]),
     ownerAwakenerId: awakenerIdSchema.optional(),
     ownerAwakenerName: nonEmptyStringSchema.optional(),
@@ -124,6 +124,21 @@ export const publicRelicRecordSchema = publicRelicCatalogRecordSchema
       })
     }
 
+    const defaultVariant = record.variants.find((variant) => variant.id === record.defaultVariantId)
+    const defaultDescriptor = record.variantCategoryTiers.at(0)
+    if (
+      defaultVariant &&
+      defaultDescriptor &&
+      (defaultDescriptor.category !== (defaultVariant.category ?? null) ||
+        defaultDescriptor.tier !== defaultVariant.tier)
+    ) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'first variantCategoryTiers entry must describe the default variant',
+        path: ['variantCategoryTiers', 0],
+      })
+    }
+
     for (const [index, variant] of record.variants.entries()) {
       if (variant.category && !record.categories.includes(variant.category)) {
         ctx.addIssue({
@@ -158,6 +173,7 @@ export interface Relic {
   variantCount: number
   variantCategoryTiers: z.infer<typeof relicVariantCategoryTierSchema>[]
   variantTiers: RelicVariantTier[]
+  defaultVariantCategory: RelicCategory
   defaultVariantId: string
   route: z.infer<typeof relicRouteSchema>
   ownerAwakenerId?: string
@@ -186,9 +202,6 @@ function isDimensionalImageCategory(categories: RelicCategory[]): boolean {
 
 const parsedRelics: Relic[] = getPublicRelicCatalogRecords().map((record): Relic => {
   const relic = publicRelicCatalogRecordSchema.parse(record)
-  if (relic.variantCategoryTiers.length === 0) {
-    throw new Error(`Relic catalog entry "${relic.id}" is missing variantCategoryTiers.`)
-  }
   return {
     id: relic.id,
     kind: isDimensionalImageCategory(relic.categories) ? 'PORTRAIT' : 'GENERIC',
@@ -199,6 +212,7 @@ const parsedRelics: Relic[] = getPublicRelicCatalogRecords().map((record): Relic
     variantCount: relic.variantCount,
     variantCategoryTiers: relic.variantCategoryTiers,
     variantTiers: relic.variantTiers,
+    defaultVariantCategory: relic.variantCategoryTiers[0]?.category ?? 'OTHER',
     defaultVariantId: relic.defaultVariantId,
     route: relic.route,
     ownerAwakenerId: relic.ownerAwakenerId,
@@ -347,7 +361,14 @@ export function resolvePreferredRelicVariant(
 
 export async function loadRelicRecordById(relicId: string): Promise<PublicRelicRecord | undefined> {
   const record = await loadPublicRecord('relics', relicId)
-  return record ? publicRelicRecordSchema.parse(record) : undefined
+  if (!record) return undefined
+
+  const catalogRelic = getRelicById(relicId)
+  return publicRelicRecordSchema.parse({
+    ...record,
+    variantCategoryTiers: record.variantCategoryTiers ?? catalogRelic?.variantCategoryTiers,
+    variantTiers: record.variantTiers ?? catalogRelic?.variantTiers,
+  })
 }
 
 export async function loadRelicVariantById(

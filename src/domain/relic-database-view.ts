@@ -24,14 +24,6 @@ function compareNames(left: Relic, right: Relic, direction: 'ASC' | 'DESC'): num
   return direction === 'ASC' ? result : -result
 }
 
-export function buildRelicDatabaseView(
-  relics: readonly Relic[],
-  state: RelicDatabaseBrowseState,
-  options: {displayScopes?: readonly RelicDatabaseDisplayScopeId[]} = {},
-): Relic[] {
-  return buildRelicDatabaseViewResult(relics, state, options).relics
-}
-
 export interface RelicDatabaseViewResult {
   hiddenByDisplay: Relic[]
   hiddenByDisplayCount: number

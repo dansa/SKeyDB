@@ -9,7 +9,6 @@ import {
   RELIC_DATABASE_CATEGORY_FILTER_IDS,
   RELIC_DATABASE_SORT_OPTIONS,
   RELIC_DATABASE_TIER_FILTER_IDS,
-  resetRelicDatabaseBrowseFilters,
 } from './relic-database-browse-state'
 
 describe('relic-database-browse-state', () => {
@@ -96,16 +95,6 @@ describe('relic-database-browse-state', () => {
     ).toBe('sort=VARIANT_COUNT&dir=ASC')
   })
 
-  it('can omit sort params for a persisted display preference integration', () => {
-    const nextParams = patchRelicDatabaseBrowseState(
-      new URLSearchParams('variant=relic-variant-0408&sort=VARIANT_COUNT&dir=ASC'),
-      {categoryFilter: 'PENDULUM'},
-      {includeSortParams: false},
-    )
-
-    expect(nextParams.toString()).toBe('variant=relic-variant-0408&category=PENDULUM')
-  })
-
   it('elides defaults without deleting unrelated params', () => {
     const nextParams = patchRelicDatabaseBrowseState(
       new URLSearchParams(
@@ -118,10 +107,11 @@ describe('relic-database-browse-state', () => {
   })
 
   it('resets every filter atomically while retaining sort and route state', () => {
-    const nextParams = resetRelicDatabaseBrowseFilters(
+    const nextParams = patchRelicDatabaseBrowseState(
       new URLSearchParams(
         'variant=relic-variant-0408&q=child&category=PENDULUM&tier=CURSED&rarity=N&sort=VARIANT_COUNT&dir=ASC',
       ),
+      {categoryFilter: 'ALL', query: '', tierFilter: 'ALL'},
     )
 
     expect(nextParams.toString()).toBe('variant=relic-variant-0408&sort=VARIANT_COUNT&dir=ASC')

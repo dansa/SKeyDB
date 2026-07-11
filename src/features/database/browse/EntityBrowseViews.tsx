@@ -409,6 +409,10 @@ export function RelicsBrowse({
     ],
   )
   const relics = viewModel.relics
+  const hasExplicitMatchRequest =
+    query.trim().length > 0 ||
+    browseState.categoryFilter !== 'ALL' ||
+    browseState.tierFilter !== 'ALL'
   const activeFilterChips = buildRelicActiveFilterChips(browseState, {
     clearQuery: browseState.clearQuery,
     setCategoryFilter: browseState.setCategoryFilter,
@@ -444,7 +448,7 @@ export function RelicsBrowse({
   const results = useMemo(
     () => (
       <div className='space-y-3'>
-        {query.trim() && viewModel.hiddenByDisplayCount > 0 ? (
+        {hasExplicitMatchRequest && viewModel.hiddenByDisplayCount > 0 ? (
           <div className='flex min-h-10 flex-wrap items-center justify-between gap-2 border border-slate-700/65 bg-slate-950/48 px-3 py-2 text-xs text-slate-400'>
             <span>
               <span className='font-medium text-slate-200 tabular-nums'>
@@ -478,7 +482,7 @@ export function RelicsBrowse({
       controller.openRelicDetail,
       controller.preloadRelicDetail,
       displayScopes,
-      query,
+      hasExplicitMatchRequest,
       relics,
       setDisplayScopes,
       viewModel.hiddenByDisplay,

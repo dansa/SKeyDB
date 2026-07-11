@@ -12,11 +12,11 @@ import {
   buildDatabaseWheelPath,
 } from '@/domain/database-paths'
 import {
-  dbDetailRegistry,
+  getDatabaseDetailKindForEntity,
+  preloadDatabaseDetail,
   preloadDatabaseDetailShell,
   type DatabaseDetailKind,
 } from '@/features/database/detail/dbDetailRegistry'
-import {preloadDatabaseDetailRecord} from '@/features/database/internal/useDatabaseDetailRouteRecord'
 
 import {
   databaseAwakeners,
@@ -61,34 +61,9 @@ function createOpenDetailHandler<TEntry extends {id: string}>(
   }
 }
 
-function getDetailKindForEntity(activeEntity: DatabaseEntityId): DatabaseDetailKind {
-  if (activeEntity === 'awakeners') {
-    return 'awakener'
-  }
-  if (activeEntity === 'wheels') {
-    return 'wheel'
-  }
-  if (activeEntity === 'posses') {
-    return 'posse'
-  }
-  return activeEntity === 'covenants' ? 'covenant' : 'relic'
-}
-
 function createPreloadDetailHandler(kind: DatabaseDetailKind) {
   return (id: string) => {
-    preloadDatabaseDetailShell(kind)
-    const preload =
-      kind === 'awakener'
-        ? preloadDatabaseDetailRecord({id, loadRecord: dbDetailRegistry.awakener.loadRecord})
-        : kind === 'wheel'
-          ? preloadDatabaseDetailRecord({id, loadRecord: dbDetailRegistry.wheel.loadRecord})
-          : kind === 'posse'
-            ? preloadDatabaseDetailRecord({id, loadRecord: dbDetailRegistry.posse.loadRecord})
-            : kind === 'covenant'
-              ? preloadDatabaseDetailRecord({id, loadRecord: dbDetailRegistry.covenant.loadRecord})
-              : preloadDatabaseDetailRecord({id, loadRecord: dbDetailRegistry.relic.loadRecord})
-
-    void preload.catch(() => undefined)
+    preloadDatabaseDetail(kind, id)
   }
 }
 
@@ -140,7 +115,7 @@ export function useEntityBrowseController({
     locationSearch,
     navigate,
   })
-  const activeDetailKind = getDetailKindForEntity(activeEntity)
+  const activeDetailKind = getDatabaseDetailKindForEntity(activeEntity)
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {

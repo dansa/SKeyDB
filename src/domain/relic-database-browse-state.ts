@@ -117,7 +117,6 @@ export function parseRelicDatabaseBrowseState(
 export function patchRelicDatabaseBrowseState(
   searchParams: URLSearchParams,
   patch: Partial<RelicDatabaseBrowseState>,
-  {includeSortParams = true}: {includeSortParams?: boolean} = {},
 ): URLSearchParams {
   return patchSearchParams(
     searchParams,
@@ -140,25 +139,20 @@ export function patchRelicDatabaseBrowseState(
           ? undefined
           : nextState.tierFilter,
       )
-      if (includeSortParams) {
-        setSearchParam(
-          nextParams,
-          'sort',
-          nextState.sortKey === RELIC_DATABASE_BROWSE_DEFAULTS.sortKey
-            ? undefined
-            : nextState.sortKey,
-        )
-        setSearchParam(
-          nextParams,
-          'dir',
-          nextState.sortDirection === getDefaultRelicDatabaseSortDirection(nextState.sortKey)
-            ? undefined
-            : nextState.sortDirection,
-        )
-      } else {
-        nextParams.delete('sort')
-        nextParams.delete('dir')
-      }
+      setSearchParam(
+        nextParams,
+        'sort',
+        nextState.sortKey === RELIC_DATABASE_BROWSE_DEFAULTS.sortKey
+          ? undefined
+          : nextState.sortKey,
+      )
+      setSearchParam(
+        nextParams,
+        'dir',
+        nextState.sortDirection === getDefaultRelicDatabaseSortDirection(nextState.sortKey)
+          ? undefined
+          : nextState.sortDirection,
+      )
     },
     (currentState, nextPatch) => {
       const nextState = {...currentState, ...nextPatch}
@@ -168,12 +162,4 @@ export function patchRelicDatabaseBrowseState(
       return nextState
     },
   )
-}
-
-export function resetRelicDatabaseBrowseFilters(searchParams: URLSearchParams): URLSearchParams {
-  return patchRelicDatabaseBrowseState(searchParams, {
-    categoryFilter: 'ALL',
-    query: '',
-    tierFilter: 'ALL',
-  })
 }

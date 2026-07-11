@@ -11,6 +11,7 @@ const relic: Relic = {
   aliases: [],
   assetId: '',
   categories: ['ASTRAL_REIGN', 'FADED_LEGACY'],
+  defaultVariantCategory: 'ASTRAL_REIGN',
   defaultVariantId: 'relic-variant-0338',
   description: '',
   id: 'relic-0207',

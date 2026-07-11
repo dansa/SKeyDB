@@ -25,101 +25,113 @@ interface MockDetailRenderOptions {
     item: {
       name: string
     }
+    variantId?: string
   }
 }
 
 vi.mock('./dbDetailRegistry', async () => {
   const actual = await vi.importActual<typeof import('./dbDetailRegistry')>('./dbDetailRegistry')
 
+  const dbDetailRegistry = {
+    awakener: {
+      ...actual.dbDetailRegistry.awakener,
+      loadRecord: vi.fn(async (_id: string) => ({id: 'record-awakener'})),
+      loadingLabel: 'Loading awakener details...',
+      missingBrowsePath: '/database',
+      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+        <dialog aria-label={`${item.item.name} details`} open>
+          <button onClick={callbacks.onClose} type='button'>
+            Close overlay
+          </button>
+          <button
+            onClick={() => {
+              callbacks.onSelectWheel({id: 'wheel-0050', name: 'Merciful Nurturing'})
+            }}
+            type='button'
+          >
+            Refer wheel
+          </button>
+          <button
+            onClick={() => {
+              callbacks.onSelectWheel({name: ' Merciful Nurturing '})
+            }}
+            type='button'
+          >
+            Refer wheel by name
+          </button>
+          <span>Active tab: {item.activeTab}</span>
+          <button
+            onClick={() => {
+              callbacks.onTabChange('skills')
+            }}
+            type='button'
+          >
+            Show skills tab
+          </button>
+        </dialog>
+      )),
+    },
+    wheel: {
+      ...actual.dbDetailRegistry.wheel,
+      loadRecord: vi.fn(async (_id: string) => ({id: 'record-wheel'})),
+      loadingLabel: 'Loading wheel details...',
+      missingBrowsePath: '/database/wheels',
+      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+        <dialog aria-label={`${item.item.name} details`} open>
+          <button onClick={callbacks.onClose} type='button'>
+            Close overlay
+          </button>
+        </dialog>
+      )),
+    },
+    posse: {
+      ...actual.dbDetailRegistry.posse,
+      loadRecord: vi.fn(async (_id: string) => ({id: 'record-posse'})),
+      loadingLabel: 'Loading posse details...',
+      missingBrowsePath: '/database/posses',
+      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+        <dialog aria-label={`${item.item.name} details`} open>
+          <button onClick={callbacks.onClose} type='button'>
+            Close overlay
+          </button>
+        </dialog>
+      )),
+    },
+    covenant: {
+      ...actual.dbDetailRegistry.covenant,
+      loadRecord: vi.fn(async (_id: string) => ({id: 'record-covenant'})),
+      loadingLabel: 'Loading covenant details...',
+      missingBrowsePath: '/database/covenants',
+      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+        <dialog aria-label={`${item.item.name} details`} open>
+          <button onClick={callbacks.onClose} type='button'>
+            Close overlay
+          </button>
+        </dialog>
+      )),
+    },
+    relic: {
+      ...actual.dbDetailRegistry.relic,
+      loadRecord: vi.fn(async (_id: string) => ({id: 'record-relic'})),
+      loadingLabel: 'Loading relic details...',
+      missingBrowsePath: '/database/relics',
+      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+        <dialog aria-label={`${item.item.name} details`} open>
+          <button onClick={callbacks.onClose} type='button'>
+            Close overlay
+          </button>
+        </dialog>
+      )),
+    },
+  }
+
   return {
     ...actual,
-    dbDetailRegistry: {
-      awakener: {
-        loadRecord: vi.fn(async () => ({id: 'record-awakener'})),
-        loadingLabel: 'Loading awakener details...',
-        missingBrowsePath: '/database',
-        render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
-          <dialog aria-label={`${item.item.name} details`} open>
-            <button onClick={callbacks.onClose} type='button'>
-              Close overlay
-            </button>
-            <button
-              onClick={() => {
-                callbacks.onSelectWheel({id: 'wheel-0050', name: 'Merciful Nurturing'})
-              }}
-              type='button'
-            >
-              Refer wheel
-            </button>
-            <button
-              onClick={() => {
-                callbacks.onSelectWheel({name: ' Merciful Nurturing '})
-              }}
-              type='button'
-            >
-              Refer wheel by name
-            </button>
-            <span>Active tab: {item.activeTab}</span>
-            <button
-              onClick={() => {
-                callbacks.onTabChange('skills')
-              }}
-              type='button'
-            >
-              Show skills tab
-            </button>
-          </dialog>
-        )),
-      },
-      wheel: {
-        loadRecord: vi.fn(async () => ({id: 'record-wheel'})),
-        loadingLabel: 'Loading wheel details...',
-        missingBrowsePath: '/database/wheels',
-        render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
-          <dialog aria-label={`${item.item.name} details`} open>
-            <button onClick={callbacks.onClose} type='button'>
-              Close overlay
-            </button>
-          </dialog>
-        )),
-      },
-      posse: {
-        loadRecord: vi.fn(async () => ({id: 'record-posse'})),
-        loadingLabel: 'Loading posse details...',
-        missingBrowsePath: '/database/posses',
-        render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
-          <dialog aria-label={`${item.item.name} details`} open>
-            <button onClick={callbacks.onClose} type='button'>
-              Close overlay
-            </button>
-          </dialog>
-        )),
-      },
-      covenant: {
-        loadRecord: vi.fn(async () => ({id: 'record-covenant'})),
-        loadingLabel: 'Loading covenant details...',
-        missingBrowsePath: '/database/covenants',
-        render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
-          <dialog aria-label={`${item.item.name} details`} open>
-            <button onClick={callbacks.onClose} type='button'>
-              Close overlay
-            </button>
-          </dialog>
-        )),
-      },
-      relic: {
-        loadRecord: vi.fn(async () => ({id: 'record-relic'})),
-        loadingLabel: 'Loading relic details...',
-        missingBrowsePath: '/database/relics',
-        render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
-          <dialog aria-label={`${item.item.name} details`} open>
-            <button onClick={callbacks.onClose} type='button'>
-              Close overlay
-            </button>
-          </dialog>
-        )),
-      },
-    },
+    dbDetailRegistry,
+    preloadDatabaseDetailRecordByKind: vi.fn(
+      (kind: keyof typeof dbDetailRegistry, id: string) =>
+        void dbDetailRegistry[kind].loadRecord(id),
+    ),
   }
 })
 
@@ -156,6 +168,7 @@ const relics: Relic[] = [
     aliases: [],
     assetId: 'Relic_24',
     categories: ['DIMENSIONAL_IMAGE'],
+    defaultVariantCategory: 'DIMENSIONAL_IMAGE',
     defaultVariantId: 'relic-variant-0001',
     description: 'Test relic',
     id: 'relic-0001',
@@ -471,6 +484,98 @@ describe('DbDetailModalHost overlay entries', () => {
 })
 
 describe('DbDetailModalHost route entries', () => {
+  it('renders the filter-preferred relic variant on its first committed frame', async () => {
+    const goldVariantId = 'relic-variant-0002'
+    vi.mocked(dbDetailRegistry.relic.render).mockClear()
+    vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue({
+      ...mockRelicRecord,
+      categories: ['ASTRAL_REIGN'],
+      relicType: 'Relic',
+      variantCount: 2,
+      variantCategoryTiers: [
+        {category: 'ASTRAL_REIGN', tier: 'Silver'},
+        {category: 'ASTRAL_REIGN', tier: 'Gold'},
+      ],
+      variantTiers: ['Silver', 'Gold'],
+      variants: [
+        {
+          ...mockRelicRecord.variants[0],
+          category: 'ASTRAL_REIGN',
+          label: 'Astral Reign - Silver',
+          tier: 'Silver',
+          variantType: 'STANDARD',
+        },
+        {
+          ...mockRelicRecord.variants[0],
+          category: 'ASTRAL_REIGN',
+          id: goldVariantId,
+          label: 'Astral Reign - Gold',
+          tier: 'Gold',
+          variantType: 'STANDARD',
+        },
+      ],
+    })
+
+    render(
+      <MemoryRouter initialEntries={['/database/relics/dimensional-image-24?tier=GOLD']}>
+        <DbDetailModalHost
+          awakeners={awakeners}
+          callbacks={{
+            onClose: vi.fn(),
+            onSelectAwakener: vi.fn(),
+            onSelectCovenant: vi.fn(),
+            onSelectPosse: vi.fn(),
+            onSelectWheel: vi.fn(),
+            onTabChange: vi.fn(),
+          }}
+          relics={relics}
+          routeItem={{kind: 'relic', item: relics[0]}}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    await waitFor(() => {
+      expect(dbDetailRegistry.relic.render).toHaveBeenCalled()
+    })
+    expect(vi.mocked(dbDetailRegistry.relic.render).mock.calls[0]?.[0].item.variantId).toBe(
+      goldVariantId,
+    )
+  })
+
+  it('renders the family default on the first frame for a foreign relic variant', async () => {
+    vi.mocked(dbDetailRegistry.relic.render).mockClear()
+    vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
+
+    render(
+      <MemoryRouter
+        initialEntries={['/database/relics/dimensional-image-24?variant=relic-variant-9999']}
+      >
+        <DbDetailModalHost
+          awakeners={awakeners}
+          callbacks={{
+            onClose: vi.fn(),
+            onSelectAwakener: vi.fn(),
+            onSelectCovenant: vi.fn(),
+            onSelectPosse: vi.fn(),
+            onSelectWheel: vi.fn(),
+            onTabChange: vi.fn(),
+          }}
+          relics={relics}
+          routeItem={{kind: 'relic', item: relics[0], variantId: 'relic-variant-9999'}}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    await waitFor(() => {
+      expect(dbDetailRegistry.relic.render).toHaveBeenCalled()
+    })
+    expect(vi.mocked(dbDetailRegistry.relic.render).mock.calls[0]?.[0].item.variantId).toBe(
+      mockRelicRecord.defaultVariantId,
+    )
+  })
+
   it('keeps the relic modal mounted while canonicalizing its default variant', async () => {
     vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
     const callbacks = {

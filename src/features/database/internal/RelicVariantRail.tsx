@@ -58,7 +58,7 @@ export function RelicVariantRail({
       </div>
       <div className='relative h-[calc(100%-2.5rem)]'>
         <div
-          className='database-scrollbar h-full [scrollbar-gutter:stable] overflow-y-auto py-2'
+          className='ui-scrollbar h-full [scrollbar-gutter:stable] overflow-y-auto py-2'
           onScroll={updateScrollEdges}
           ref={scrollRef}
           tabIndex={variants.length > 1 ? 0 : undefined}

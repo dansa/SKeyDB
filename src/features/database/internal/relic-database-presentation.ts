@@ -68,7 +68,7 @@ const RELIC_CATEGORY_ACCENTS: Record<RelicCategory, string> = {
 }
 
 export function getRelicPrimaryCategory(relic: Relic): RelicCategory {
-  return relic.categories[0] ?? 'OTHER'
+  return relic.defaultVariantCategory
 }
 
 export function getRelicCardAccent(relic: Relic, awakeners: readonly Awakener[]): string {

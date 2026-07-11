@@ -191,7 +191,7 @@ export function RelicDetailModal({
             variants={fullData.variants}
           />
 
-          <div className='database-scrollbar min-h-0 flex-1 overflow-y-auto pr-1 pb-6 pl-2'>
+          <div className='ui-scrollbar min-h-0 flex-1 overflow-y-auto pr-1 pb-6 pl-2'>
             <div className='relic-detail-content-fade' key={selectedVariant.id}>
               <section className='mt-5'>
                 <h4
