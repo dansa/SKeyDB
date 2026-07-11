@@ -14,6 +14,7 @@ import {
   type PublicRelicRecord,
   type Relic,
 } from '@/domain/relics'
+import {isDatabaseDetailNavigationEditingTarget} from '@/features/database/detail/database-detail-navigation-keys'
 import {DbDetailShell} from '@/features/database/detail/DbDetailShell'
 import {OwnerAwakenerMetaLink} from '@/features/database/detail/OwnerAwakenerMetaLink'
 import {
@@ -44,18 +45,6 @@ function getNonEmptyText(primary: string | undefined, fallback: string | undefin
   return ''
 }
 
-function isRelicVariantEditingTarget(target: EventTarget | null): boolean {
-  if (!(target instanceof Element)) {
-    return false
-  }
-
-  return Boolean(
-    target.closest(
-      'input, select, textarea, [contenteditable]:not([contenteditable="false"]), [role="tablist"]',
-    ),
-  )
-}
-
 function useRelicVariantNavigationKeys({
   onSelect,
   selectedId,
@@ -77,7 +66,7 @@ function useRelicVariantNavigationKeys({
         event.ctrlKey ||
         event.metaKey ||
         event.shiftKey ||
-        isRelicVariantEditingTarget(event.target)
+        isDatabaseDetailNavigationEditingTarget(event.target)
       ) {
         return
       }
