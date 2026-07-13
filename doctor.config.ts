@@ -2,6 +2,13 @@ import {defineConfig} from 'react-doctor/api'
 
 export default defineConfig({
   ignore: {
-    files: ['untracked/**', '.worktrees/**', '.mcp_data/**', '.codex-logs/**', 'docs/goals/**'],
+    files: [
+      'untracked/**',
+      '.worktrees/**',
+      '.mcp_data/**',
+      '.codex-logs/**',
+      'docs/goals/**',
+      'scratch/**',
+    ],
   },
 })

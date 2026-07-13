@@ -55,21 +55,9 @@ export interface AwakenerScalingSubstatFilterOption {
   iconAsset?: string
 }
 
-export function isAwakenerScalingSubstatKey(key: string): key is SubstatScalingKey {
-  return key in MAINSTAT_KEY_BY_SCALING_SUBSTAT
-}
-
 export function getAwakenerScalingSubstatLabel(key: SubstatScalingKey): string {
   const mainstatKey = MAINSTAT_KEY_BY_SCALING_SUBSTAT[key]
   return getMainstatByKey(mainstatKey)?.label ?? FALLBACK_SCALING_SUBSTAT_LABELS[key]
-}
-
-export function getAwakenerScalingSubstatSearchLabels(key: SubstatScalingKey): string[] {
-  const mainstat = getMainstatByKey(MAINSTAT_KEY_BY_SCALING_SUBSTAT[key])
-  if (!mainstat) {
-    return [FALLBACK_SCALING_SUBSTAT_LABELS[key]]
-  }
-  return [mainstat.label, ...mainstat.aliases]
 }
 
 export function getAwakenerScalingSubstatIcon(key: SubstatScalingKey): string | undefined {

@@ -49,11 +49,3 @@ export function isPublicEntityId(kind: EntityKind, id: string): boolean {
 export function asPublicEntityId(kind: EntityKind, id: string): PublicEntityId | null {
   return isPublicEntityId(kind, id) ? (id as PublicEntityId) : null
 }
-
-export function assertPublicEntityId(kind: EntityKind, id: string): PublicEntityId {
-  const publicId = asPublicEntityId(kind, id)
-  if (!publicId) {
-    throw new Error(`Invalid public ${kind} id: ${id}`)
-  }
-  return publicId
-}

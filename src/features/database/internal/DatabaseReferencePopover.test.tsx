@@ -1,24 +1,28 @@
-import type {ComponentProps} from 'react'
+import {useMemo, type ComponentProps} from 'react'
 
 import {fireEvent, render, screen} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
-import type {AwakenerOverlayRecord} from '@/domain/awakener-source-schema'
+import type {AwakenerOverlayRecord, FullStats} from '@/domain/awakener-source-schema'
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import type {PublicDescriptionArg} from '@/domain/public-description-args'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
 
-import {useDatabasePopoverControllerContext} from './database-popover-context'
 import {
   DatabaseReferencePopover,
   type DatabaseReferencePopoverEntry,
 } from './DatabaseReferencePopover'
+import {
+  createPopoverStore,
+  PopoverStoreContext,
+  usePopoverEntry,
+  usePopoverStore,
+  type DatabasePopoverDescriptionRankContext,
+} from './usePopoverStore'
+import {useResolvedPopoverVisualData} from './useResolvedPopoverVisualData'
 
-vi.mock('./database-popover-context', () => ({
-  useDatabasePopoverControllerContext: vi.fn(),
-}))
-
-type TestPopoverProps = Omit<ComponentProps<typeof DatabaseReferencePopover>, 'entry'> & {
+type TestPopoverProps = Omit<ComponentProps<typeof DatabaseReferencePopover>, 'visualData'> & {
+  entryKey?: string
   name: string
   label: string
   description: string
@@ -32,6 +36,7 @@ type TestPopoverProps = Omit<ComponentProps<typeof DatabaseReferencePopover>, 'e
   descriptionRank?: number
   descriptionMaxRank?: number
   formulaContext?: PublicFormulaContext
+  navigationTarget?: DatabaseReferencePopoverEntry['navigationTarget']
   influenceBadges?: {
     kind: 'enlighten' | 'talent'
     id: string
@@ -39,9 +44,24 @@ type TestPopoverProps = Omit<ComponentProps<typeof DatabaseReferencePopover>, 'e
     referenceName: string
     slot?: 'E1' | 'E2' | 'E3' | 'AbsoluteAxiom'
   }[]
+  scalingValues?: number[]
+  scalingSuffix?: string
+  scalingStat?: string
+  scalingFormulas?: string[]
+  scalingCurrentLevel?: number
+  scalingLevelStart?: number
+  scalingSourceRecordId?: string
+  referenceLayer?: ResolvedDatabaseReferenceLayer | null
+  stats?: FullStats | null
+  showVisibleScaling?: boolean
+  showTagIcons?: boolean
+  layerCount?: number
+  layerIndex?: number
+  selectedEnlightenSlot?: unknown
 }
 
 function TestDatabaseReferencePopover({
+  entryKey,
   name,
   label,
   description,
@@ -55,26 +75,141 @@ function TestDatabaseReferencePopover({
   descriptionRank,
   descriptionMaxRank,
   formulaContext,
+  navigationTarget,
   influenceBadges,
+  scalingValues,
+  scalingSuffix,
+  scalingStat,
+  scalingFormulas,
+  scalingCurrentLevel,
+  scalingLevelStart,
+  scalingSourceRecordId,
+  referenceLayer,
+  stats,
+  showVisibleScaling = true,
+  showTagIcons = true,
   ...props
 }: TestPopoverProps) {
-  const entry = {
-    name,
-    label,
-    description,
-    keywordFooterText,
-    attributeRows,
-    thumbnail,
-    detailLinks,
-    descriptionSections,
-    navigationLabel,
-    record: descriptionRecord,
-    descriptionRank,
-    descriptionMaxRank,
-    influenceBadges,
-  } as DatabaseReferencePopoverEntry
+  const entry = useMemo<DatabaseReferencePopoverEntry>(
+    () => ({
+      key: entryKey ?? '',
+      name,
+      label,
+      description,
+      keywordFooterText,
+      attributeRows,
+      thumbnail,
+      detailLinks,
+      descriptionSections,
+      navigationLabel,
+      navigationTarget,
+      record: descriptionRecord,
+      descriptionRank,
+      descriptionMaxRank,
+      influenceBadges,
+      scalingValues,
+      scalingSuffix,
+      scalingStat,
+      scalingFormulas,
+      scalingCurrentLevel,
+      scalingLevelStart,
+      scalingSourceRecordId,
+    }),
+    [
+      entryKey,
+      name,
+      label,
+      description,
+      keywordFooterText,
+      attributeRows,
+      thumbnail,
+      detailLinks,
+      descriptionSections,
+      navigationLabel,
+      navigationTarget,
+      descriptionRecord,
+      descriptionRank,
+      descriptionMaxRank,
+      influenceBadges,
+      scalingValues,
+      scalingSuffix,
+      scalingStat,
+      scalingFormulas,
+      scalingCurrentLevel,
+      scalingLevelStart,
+      scalingSourceRecordId,
+    ],
+  )
 
-  return <DatabaseReferencePopover {...props} entry={entry} formulaContext={formulaContext} />
+  const mockStore = useMemo(() => {
+    const store = createPopoverStore()
+    store.getState().setDatabaseContext({
+      referenceLayer: referenceLayer ?? null,
+      formulaContext: formulaContext ?? null,
+      stats: stats ?? null,
+      showVisibleScaling,
+      showTagIcons,
+    })
+    store.setState({
+      trail: [entry],
+    })
+    return store
+  }, [entry, referenceLayer, formulaContext, stats, showVisibleScaling, showTagIcons])
+
+  return (
+    <PopoverStoreContext.Provider value={mockStore}>
+      <TestDatabaseReferencePopoverInner entry={entry} formulaContext={formulaContext} {...props} />
+    </PopoverStoreContext.Provider>
+  )
+}
+
+function TestDatabaseReferencePopoverInner({
+  entry,
+  formulaContext,
+  ...props
+}: {
+  entry: DatabaseReferencePopoverEntry
+  formulaContext?: PublicFormulaContext
+  onClose: () => void
+  onSkillTokenClick: (name: string, event?: import('react').MouseEvent) => void
+  onMechanicTokenClick: (
+    overlay: AwakenerOverlayRecord,
+    rankContext?: DatabasePopoverDescriptionRankContext,
+    event?: import('react').MouseEvent,
+  ) => void
+  onInfoEntryClick?: (
+    entry: DatabaseReferencePopoverEntry,
+    event?: import('react').MouseEvent,
+  ) => void
+  onNavigate?: () => void
+  [key: string]: unknown
+}) {
+  const referenceLayer = usePopoverStore((state) => state.referenceLayer)
+  const stats = usePopoverStore((state) => state.stats)
+  const selectedEnlightenSlot = usePopoverStore((state) => state.selectedEnlightenSlot)
+  const storeEntry = usePopoverEntry(entry.key) ?? entry
+
+  const visualData = useResolvedPopoverVisualData({
+    entry: storeEntry,
+    referenceLayer,
+    formulaContext: formulaContext ?? null,
+    stats,
+    selectedEnlightenSlot,
+    depth: 1,
+    totalDepth: 1,
+    onClose: props.onClose,
+    onSkillTokenClick: props.onSkillTokenClick,
+  })
+  return (
+    <DatabaseReferencePopover
+      visualData={visualData}
+      onClose={props.onClose}
+      onSkillTokenClick={props.onSkillTokenClick}
+      onMechanicTokenClick={props.onMechanicTokenClick}
+      onInfoEntryClick={props.onInfoEntryClick}
+      onNavigate={props.onNavigate}
+    />
+  )
 }
 
 describe('DatabaseReferencePopover', () => {
@@ -102,10 +237,17 @@ describe('DatabaseReferencePopover', () => {
   }
 
   it('shows enlighten influence badges for affected cards', () => {
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
-
     render(
       <TestDatabaseReferencePopover
+        entryKey='skill:symbiotic-aberration'
+        descriptionRecord={
+          {
+            kind: 'command',
+            cost: '2',
+            descriptionTemplate: 'Popover text',
+            descriptionArgs: {},
+          } as any
+        }
         description='Popover text'
         influenceBadges={[
           {
@@ -141,7 +283,8 @@ describe('DatabaseReferencePopover', () => {
     )
 
     expect(screen.getByText('Symbiotic Aberration')).toBeInTheDocument()
-    expect(screen.getByText('Card · C4 · Cost 2')).toBeInTheDocument()
+    expect(screen.getByText('Card · C4')).toBeInTheDocument()
+    expect(screen.getByText('2')).toBeInTheDocument()
     expect(screen.getByText('E1')).toBeInTheDocument()
     expect(screen.getByText('E3')).toBeInTheDocument()
     expect(screen.getByText('T1')).toBeInTheDocument()
@@ -149,8 +292,6 @@ describe('DatabaseReferencePopover', () => {
   })
 
   it('renders lore markup and optional thumbnails in the popover header', () => {
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
-
     render(
       <TestDatabaseReferencePopover
         description='Monster text'
@@ -171,8 +312,6 @@ describe('DatabaseReferencePopover', () => {
   })
 
   it('uses the same faint golden border for top and nested popovers', () => {
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
-
     const {rerender, container} = render(
       <TestDatabaseReferencePopover
         description='Popover text'
@@ -212,8 +351,6 @@ describe('DatabaseReferencePopover', () => {
 
   it('renders nested detail links and opens them through the shared info callback', () => {
     const onInfoEntryClick = vi.fn()
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
-
     render(
       <TestDatabaseReferencePopover
         description='Popover text'
@@ -246,16 +383,16 @@ describe('DatabaseReferencePopover', () => {
         key: 'info.scaling.breakdown',
         label: 'Level & Psyche Surge Values',
       }),
+      expect.any(Object),
     )
   })
 
   it('renders wheel attribute rows and an explicit database navigation link', () => {
     const onClose = vi.fn()
     const onNavigate = vi.fn()
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
-
     render(
       <TestDatabaseReferencePopover
+        entryKey='wheel.B01'
         attributeRows={[
           {
             label: 'Crit DMG',
@@ -266,6 +403,10 @@ describe('DatabaseReferencePopover', () => {
         label='Wheel · SSR · Caro'
         name='Amber-Tinted Death'
         navigationLabel='Open in Wheels DB'
+        navigationTarget={{
+          kind: 'wheel-page',
+          wheelName: 'Amber-Tinted Death',
+        }}
         onClose={onClose}
         onMechanicTokenClick={vi.fn()}
         onNavigate={onNavigate}
@@ -278,15 +419,13 @@ describe('DatabaseReferencePopover', () => {
     expect(screen.getByText('Crit DMG')).toBeInTheDocument()
     expect(screen.getByText('18%')).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', {name: /Open in Wheels DB/i}))
+    fireEvent.click(screen.getByRole('button', {name: /Amber-Tinted Death/i}))
 
     expect(onNavigate).toHaveBeenCalledTimes(1)
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 
   it('resolves computed description args in popover content with the provided formula context', async () => {
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
-
     render(
       <TestDatabaseReferencePopover
         description='Computed text.'
@@ -317,7 +456,9 @@ describe('DatabaseReferencePopover', () => {
       />,
     )
 
-    expect(await screen.findByText('12')).toHaveAttribute(
+    const elem = await screen.findByTitle(/Wheel Enlighten Bonus/)
+    expect(elem).toHaveTextContent('12')
+    expect(elem).toHaveAttribute(
       'title',
       [
         'Wheel Enlighten Bonus',
@@ -332,8 +473,6 @@ describe('DatabaseReferencePopover', () => {
   })
 
   it('resolves computed description args in popover description sections', async () => {
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
-
     render(
       <TestDatabaseReferencePopover
         description='Summary text.'
@@ -377,8 +516,6 @@ describe('DatabaseReferencePopover', () => {
 
   it('forwards nested badge opens through the shared reference callback', () => {
     const onSkillTokenClick = vi.fn()
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
-
     render(
       <TestDatabaseReferencePopover
         description='Popover text'
@@ -409,14 +546,13 @@ describe('DatabaseReferencePopover', () => {
     )
 
     fireEvent.click(screen.getByRole('button', {name: 'E2'}))
-    expect(onSkillTokenClick).toHaveBeenNthCalledWith(1, 'Second Bloom')
+    expect(onSkillTokenClick).toHaveBeenNthCalledWith(1, 'Second Bloom', expect.anything())
 
     fireEvent.click(screen.getByRole('button', {name: 'T1'}))
-    expect(onSkillTokenClick).toHaveBeenNthCalledWith(2, 'Base Talent')
+    expect(onSkillTokenClick).toHaveBeenNthCalledWith(2, 'Base Talent', expect.anything())
   })
 
   it('falls back to the overlay path for self-referential rouse aliases', async () => {
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
     const onMechanicTokenClick = vi.fn()
     const onSkillTokenClick = vi.fn()
     const referenceLayer = buildReferenceLayer({
@@ -492,11 +628,11 @@ describe('DatabaseReferencePopover', () => {
         id: 'overlay.global.rouse',
       }),
       expect.any(Object),
+      expect.any(Object),
     )
   })
 
   it('resolves typed overlay tokens through overlays when a card has the same name', async () => {
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
     const onMechanicTokenClick = vi.fn()
     const onSkillTokenClick = vi.fn()
     const duplicateNameOverlay = {
@@ -539,11 +675,14 @@ describe('DatabaseReferencePopover', () => {
     fireEvent.click(await screen.findByRole('button', {name: "Illusion's End"}))
 
     expect(onSkillTokenClick).not.toHaveBeenCalled()
-    expect(onMechanicTokenClick).toHaveBeenCalledWith(duplicateNameOverlay, expect.any(Object))
+    expect(onMechanicTokenClick).toHaveBeenCalledWith(
+      duplicateNameOverlay,
+      expect.any(Object),
+      expect.any(Object),
+    )
   })
 
   it('renders appended keyword footers as clickable mechanic tokens', async () => {
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
     const onMechanicTokenClick = vi.fn()
     const referenceLayer = buildReferenceLayer({
       accessibleOverlays: [
@@ -589,16 +728,17 @@ describe('DatabaseReferencePopover', () => {
       1,
       expect.objectContaining({id: 'overlay.global.retain'}),
       expect.any(Object),
+      expect.any(Object),
     )
     expect(onMechanicTokenClick).toHaveBeenNthCalledWith(
       2,
       expect.objectContaining({id: 'overlay.global.prepare'}),
       expect.any(Object),
+      expect.any(Object),
     )
   })
 
   it('renders overlay-backed stat mechanics like Tentacle DMG as clickable tokens', async () => {
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
     const onMechanicTokenClick = vi.fn()
     const referenceLayer = buildReferenceLayer({
       accessibleOverlays: [
@@ -631,13 +771,13 @@ describe('DatabaseReferencePopover', () => {
     expect(onMechanicTokenClick).toHaveBeenCalledWith(
       expect.objectContaining({id: 'overlay.global.tentacle-dmg'}),
       expect.any(Object),
+      expect.any(Object),
     )
   })
 
   it('renders grouped related derived cards inline and opens them through the shared trail path', () => {
     const onInfoEntryClick = vi.fn()
     const onSkillTokenClick = vi.fn()
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
     const referenceLayer = buildReferenceLayer({
       referenceInfoById: new Map([
         [
@@ -731,6 +871,7 @@ describe('DatabaseReferencePopover', () => {
         name: 'Memory One',
         record: expect.objectContaining({id: 'derived.test.memory-1'}),
       }),
+      expect.any(Object),
     )
     expect(onInfoEntryClick).toHaveBeenNthCalledWith(
       2,
@@ -739,11 +880,11 @@ describe('DatabaseReferencePopover', () => {
         name: 'Memory Two',
         record: expect.objectContaining({id: 'derived.test.memory-2'}),
       }),
+      expect.any(Object),
     )
   })
 
   it('opens duplicate-named related derived skills by id instead of display name', async () => {
-    vi.mocked(useDatabasePopoverControllerContext).mockReturnValue(null)
     const onInfoEntryClick = vi.fn()
     const onSkillTokenClick = vi.fn()
     const referenceLayer = buildReferenceLayer({
@@ -860,6 +1001,111 @@ describe('DatabaseReferencePopover', () => {
         name: 'Thousand Mirage',
         record: expect.objectContaining({id: 'derived.test.choice-b'}),
       }),
+      expect.any(Object),
     )
+  })
+
+  it('updates the active formula and shown values when a row in the scaling grid is clicked', () => {
+    const entry: DatabaseReferencePopoverEntry = {
+      key: 'scaling:10,20,30:%:stat',
+      name: 'Lvl Scaling',
+      label: '',
+      description: '',
+      scalingValues: [10, 20, 30],
+      scalingSuffix: '%',
+      scalingStat: 'stat',
+      scalingFormulas: ['10%', '20%', '30%'],
+      scalingCurrentLevel: 1,
+      scalingLevelStart: 1,
+    }
+
+    render(
+      <TestDatabaseReferencePopover
+        entryKey={entry.key}
+        name={entry.name}
+        label={entry.label}
+        description={entry.description}
+        scalingValues={entry.scalingValues}
+        scalingSuffix={entry.scalingSuffix}
+        scalingStat={entry.scalingStat ?? undefined}
+        scalingFormulas={entry.scalingFormulas}
+        scalingCurrentLevel={entry.scalingCurrentLevel}
+        scalingLevelStart={entry.scalingLevelStart}
+        referenceLayer={buildReferenceLayer()}
+        stats={null}
+        onClose={vi.fn()}
+        onInfoEntryClick={vi.fn()}
+        onSkillTokenClick={vi.fn()}
+        onMechanicTokenClick={vi.fn()}
+      />,
+    )
+
+    expect(screen.getAllByText('10%')).toHaveLength(3)
+    expect(screen.getAllByText('30%')).toHaveLength(1)
+
+    const levelButtons = screen.getAllByRole('button')
+    const lv3Row = levelButtons.find((button) => button.textContent.includes('Lv.3'))
+    expect(lv3Row).toBeDefined()
+
+    if (lv3Row) {
+      fireEvent.click(lv3Row)
+    }
+
+    const footers = screen.getAllByText('Lv.3')
+    expect(footers.length).toBeGreaterThan(0)
+    expect(screen.getAllByText('30%')).toHaveLength(3)
+  })
+
+  it('calls store.updatePopoverLevel when a row is clicked and a recordId is resolved', () => {
+    const mockUpdatePopoverLevel = vi.fn()
+    const mockStore = {
+      getState: () => ({
+        updatePopoverLevel: mockUpdatePopoverLevel,
+        actions: {
+          updatePopoverLevel: mockUpdatePopoverLevel,
+        },
+        floating: [],
+        trail: [],
+        pinnedStates: {},
+        activeLevels: {},
+      }),
+      subscribe: vi.fn(),
+    } as any
+
+    const entry: DatabaseReferencePopoverEntry = {
+      key: 'scaling:10,20,30:%:stat',
+      name: 'Lvl Scaling',
+      label: '',
+      description: '',
+      scalingValues: [10, 20, 30],
+      scalingSuffix: '%',
+      scalingStat: 'stat',
+      scalingFormulas: ['10%', '20%', '30%'],
+      scalingCurrentLevel: 1,
+      scalingLevelStart: 1,
+      scalingSourceRecordId: 'test-talent-id',
+    }
+
+    render(
+      <PopoverStoreContext.Provider value={mockStore}>
+        <TestDatabaseReferencePopoverInner
+          entry={entry}
+          onClose={vi.fn()}
+          onInfoEntryClick={vi.fn()}
+          onSkillTokenClick={vi.fn()}
+          onMechanicTokenClick={vi.fn()}
+        />
+      </PopoverStoreContext.Provider>,
+    )
+
+    const levelButtons = screen.getAllByRole('button')
+    const lv3Row = levelButtons.find((button) => button.textContent.includes('Lv.3'))
+    expect(lv3Row).toBeDefined()
+
+    if (lv3Row) {
+      fireEvent.click(lv3Row)
+    }
+
+    expect(mockUpdatePopoverLevel).toHaveBeenCalledWith('test-talent-id', 3)
   })
 })

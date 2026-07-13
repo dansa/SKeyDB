@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useMemo, useState} from 'react'
 
 import type {
   AwakenerDatabaseControls,
@@ -24,7 +24,6 @@ const DEFAULT_TAB_LABELS: Record<DatabaseAwakenerVisibleTab, string> = {
   builds: 'Builds',
   lore: 'Lore',
 }
-
 interface AwakenerDetailSettingsPanelProps {
   controls: AwakenerDatabaseControls
   preferences: DatabaseAwakenerDetailPreferences
@@ -33,7 +32,6 @@ interface AwakenerDetailSettingsPanelProps {
   onUpdateAwakenerPreferences: (nextPartial: Partial<DatabaseAwakenerDetailPreferences>) => void
   onUpdateSharedPreferences: (nextPartial: Partial<DatabaseDetailSharedPreferences>) => void
 }
-
 export function AwakenerDetailSettingsPanel({
   controls,
   preferences,
@@ -44,73 +42,81 @@ export function AwakenerDetailSettingsPanel({
 }: AwakenerDetailSettingsPanelProps) {
   const [showDefaultProgression, setShowDefaultProgression] = useState(false)
 
-  return (
-    <DetailSettingsPanel
-      accountLevel={sharedPreferences.accountLevel}
-      clickOutsideClosesPopovers={sharedPreferences.clickOutsideClosesPopovers}
-      fontScale={sharedPreferences.fontScale}
-      onAccountLevelChange={(nextAccountLevel) => {
-        onUpdateSharedPreferences({accountLevel: clampAccountLevel(nextAccountLevel)})
-      }}
-      onClickOutsideClosesPopoversChange={(nextClickOutsideClosesPopovers) => {
-        onUpdateSharedPreferences({clickOutsideClosesPopovers: nextClickOutsideClosesPopovers})
-      }}
-      onFontScaleChange={(nextFontScale) => {
-        onUpdateSharedPreferences({fontScale: nextFontScale})
-      }}
-      onShowTagIconsChange={(nextShowTagIcons) => {
-        onUpdateSharedPreferences({showTagIcons: nextShowTagIcons})
-      }}
-      showTagIcons={sharedPreferences.showTagIcons}
-    >
-      <div className='space-y-3'>
-        <div className='space-y-2'>
-          <label className='block text-left'>
-            <span className='block text-[11px] text-slate-200'>Default tab</span>
-            <select
-              className='mt-1 w-full border border-slate-700/55 bg-slate-950 px-2 py-1.5 text-[11px] text-slate-200 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none'
-              onChange={(event) => {
-                const nextTab =
-                  event.target.value === ''
-                    ? null
-                    : (event.target.value as DatabaseAwakenerVisibleTab)
-                onUpdateAwakenerPreferences({defaultTab: nextTab})
-              }}
-              value={preferences.defaultTab ?? ''}
-            >
-              <option value=''>Upgrades (standard)</option>
-              {DATABASE_AWAKENER_VISIBLE_TABS.flatMap((tab) =>
-                tab === DEFAULT_DATABASE_AWAKENER_TAB
-                  ? []
-                  : [
-                      <option key={tab} value={tab}>
-                        {DEFAULT_TAB_LABELS[tab]}
-                      </option>,
-                    ],
-              )}
-            </select>
-          </label>
-
-          <label className='flex items-start gap-2 text-left'>
-            <input
-              checked={preferences.showVisibleScaling}
-              className='mt-0.5 size-3.5 accent-amber-200'
-              onChange={(event) => {
-                onUpdateAwakenerPreferences({showVisibleScaling: event.target.checked})
-              }}
-              type='checkbox'
-            />
-            <span>
-              <span className='block text-[11px] text-slate-200'>Show visible scaling</span>
-              <span className='block text-[10px] leading-relaxed text-slate-500'>
-                Show formulas inline as <span className='text-slate-400'>(24% ATK)</span> next to
-                computed numbers.
-              </span>
+  const toggleSettings = useMemo(
+    () => (
+      <>
+        <label className='flex w-full cursor-pointer items-start gap-2.5 text-left select-none'>
+          <input
+            checked={preferences.showVisibleScaling}
+            className='mt-0.5 size-3.5 shrink-0 accent-amber-200'
+            onChange={(event) => {
+              onUpdateAwakenerPreferences({showVisibleScaling: event.target.checked})
+            }}
+            type='checkbox'
+          />
+          <span className='min-w-0 flex-1'>
+            <span className='block text-[11px] text-slate-200'>Show visible scaling</span>
+            <span className='block text-[10px] leading-relaxed text-slate-500'>
+              Show formulas inline as <span className='text-slate-400'>(24% ATK)</span> next to
+              computed numbers and in popovers.
             </span>
-          </label>
-        </div>
+          </span>
+        </label>
+        <label className='flex w-full cursor-pointer items-start gap-2.5 text-left select-none'>
+          <input
+            checked={preferences.simplifyPopoverMultiplier}
+            className='mt-0.5 size-3.5 shrink-0 accent-amber-200'
+            onChange={(event) => {
+              onUpdateAwakenerPreferences({simplifyPopoverMultiplier: event.target.checked})
+            }}
+            type='checkbox'
+          />
+          <span className='min-w-0 flex-1'>
+            <span className='block text-[11px] text-slate-200'>Simplify popover multiplier</span>
+            <span className='block text-[10px] leading-relaxed text-slate-500'>
+              Show precomputed multiplier factors instead of detailed formulas in popovers.
+            </span>
+          </span>
+        </label>
+      </>
+    ),
+    [
+      preferences.showVisibleScaling,
+      preferences.simplifyPopoverMultiplier,
+      onUpdateAwakenerPreferences,
+    ],
+  )
 
-        <div className='border border-slate-700/45 bg-slate-900/40'>
+  const bottomSettings = useMemo(
+    () => (
+      <div className='space-y-3.5 border-t border-white/5 pt-3'>
+        <label className='block text-left'>
+          <span className='block text-[11px] text-slate-200'>Default tab</span>
+          <select
+            className='mt-1 block w-full rounded-sm border border-white/10 bg-slate-950/60 px-2 py-1.5 text-[11px] text-slate-200 outline-none focus:border-amber-200/40'
+            onChange={(event) => {
+              const nextTab =
+                event.target.value === ''
+                  ? null
+                  : (event.target.value as DatabaseAwakenerVisibleTab)
+              onUpdateAwakenerPreferences({defaultTab: nextTab})
+            }}
+            value={preferences.defaultTab ?? ''}
+          >
+            <option value=''>Upgrades (standard)</option>
+            {DATABASE_AWAKENER_VISIBLE_TABS.flatMap((tab) =>
+              tab === DEFAULT_DATABASE_AWAKENER_TAB
+                ? []
+                : [
+                    <option key={tab} value={tab}>
+                      {DEFAULT_TAB_LABELS[tab]}
+                    </option>,
+                  ],
+            )}
+          </select>
+        </label>
+
+        <div className='overflow-hidden rounded-sm border border-white/10 bg-slate-950/60 shadow-sm'>
           <button
             aria-expanded={showDefaultProgression}
             className='flex w-full items-center justify-between px-3 py-2 text-left'
@@ -130,7 +136,7 @@ export function AwakenerDetailSettingsPanel({
             </span>
           </button>
           {showDefaultProgression ? (
-            <div className='border-t border-slate-700/45 p-3'>
+            <div className='border-t border-white/10 bg-slate-950/40 p-3'>
               <AwakenerDetailStateControls
                 compact
                 controls={controls}
@@ -141,6 +147,37 @@ export function AwakenerDetailSettingsPanel({
           ) : null}
         </div>
       </div>
-    </DetailSettingsPanel>
+    ),
+    [
+      preferences.defaultTab,
+      preferences.defaultSelection,
+      showDefaultProgression,
+      controls,
+      onPatchDefaultSelection,
+      onUpdateAwakenerPreferences,
+    ],
+  )
+
+  return (
+    <DetailSettingsPanel
+      accountLevel={sharedPreferences.accountLevel}
+      bottomSettings={bottomSettings}
+      clickOutsideClosesPopovers={sharedPreferences.clickOutsideClosesPopovers}
+      fontScale={sharedPreferences.fontScale}
+      onAccountLevelChange={(nextAccountLevel) => {
+        onUpdateSharedPreferences({accountLevel: clampAccountLevel(nextAccountLevel)})
+      }}
+      onClickOutsideClosesPopoversChange={(nextClickOutsideClosesPopovers) => {
+        onUpdateSharedPreferences({clickOutsideClosesPopovers: nextClickOutsideClosesPopovers})
+      }}
+      onFontScaleChange={(nextFontScale) => {
+        onUpdateSharedPreferences({fontScale: nextFontScale})
+      }}
+      onShowTagIconsChange={(nextShowTagIcons) => {
+        onUpdateSharedPreferences({showTagIcons: nextShowTagIcons})
+      }}
+      showTagIcons={sharedPreferences.showTagIcons}
+      toggleSettings={toggleSettings}
+    />
   )
 }

@@ -3,6 +3,7 @@ import {useCallback, useEffect, type RefObject} from 'react'
 interface UseDetailModalLifecycleOptions {
   clearSearch: () => void
   closeAllPopovers: () => void
+  closeTopPopover?: () => void
   closeSearch: (blurInput?: boolean) => void
   hasOpenPopovers: boolean
   onClose: () => void
@@ -20,6 +21,7 @@ interface ModalDismissEvent {
 export function useDetailModalLifecycle({
   clearSearch,
   closeAllPopovers,
+  closeTopPopover,
   closeSearch,
   dismissSettings,
   hasOpenPopovers,
@@ -57,7 +59,11 @@ export function useDetailModalLifecycle({
 
       if (hasOpenPopovers) {
         consumeEvent()
-        closeAllPopovers()
+        if (closeTopPopover) {
+          closeTopPopover()
+        } else {
+          closeAllPopovers()
+        }
         return
       }
 
@@ -67,6 +73,7 @@ export function useDetailModalLifecycle({
     [
       clearSearch,
       closeAllPopovers,
+      closeTopPopover,
       closeSearch,
       dismissSettings,
       hasOpenPopovers,

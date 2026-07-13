@@ -1,7 +1,7 @@
 import type {ReactNode} from 'react'
 
-import {DatabasePopoverContext} from '@/features/database/internal/database-popover-context'
 import {DatabasePopoverRoot} from '@/features/database/internal/DatabasePopoverRoot'
+import {PopoverProvider} from '@/features/database/internal/usePopoverStore'
 
 import {useDZoneDatabasePopovers} from './useDZoneDatabasePopovers'
 
@@ -11,16 +11,23 @@ interface DZonePopoverSurfaceProps {
   children: (dzonePopovers: DZonePopoverController) => ReactNode
 }
 
-export function DZonePopoverSurface({children}: DZonePopoverSurfaceProps) {
+function DZonePopoverInner({children}: DZonePopoverSurfaceProps) {
   const dzonePopovers = useDZoneDatabasePopovers()
-
   return (
-    <DatabasePopoverContext.Provider value={dzonePopovers.contextValue}>
+    <>
       {children(dzonePopovers)}
       <DatabasePopoverRoot
         {...dzonePopovers.popoverRootProps}
         closeOnOutsideClick={dzonePopovers.closeOnOutsideClick}
       />
-    </DatabasePopoverContext.Provider>
+    </>
+  )
+}
+
+export function DZonePopoverSurface({children}: DZonePopoverSurfaceProps) {
+  return (
+    <PopoverProvider>
+      <DZonePopoverInner>{children}</DZonePopoverInner>
+    </PopoverProvider>
   )
 }

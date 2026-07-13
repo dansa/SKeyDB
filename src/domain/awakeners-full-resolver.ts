@@ -28,15 +28,15 @@ import {
   isSoulforgeTalent,
   selectedEnlightenSlotSchema,
 } from './awakeners-full-contract'
+import {tryParseNumericValue} from './description-args'
+import {createDescriptionArgTokenPattern} from './description-token-grammar'
 
 export const awakenerFullResolveOptionsSchema = z.object({
   soulforgeLevel: z.number().int().min(0).default(0),
   gnosticPotentialLevel: z.number().int().min(0).default(0),
   selectedEnlightenSlot: selectedEnlightenSlotSchema.default(null),
 })
-
 export type AwakenerFullResolveOptions = z.infer<typeof awakenerFullResolveOptionsSchema>
-
 export interface ResolvedAwakenerFullRecord {
   selection: AwakenerFullResolveOptions
   activeTalentIds: string[]
@@ -44,7 +44,6 @@ export interface ResolvedAwakenerFullRecord {
   record: AwakenerFullRecord
   overlayOverridesById: Record<string, AwakenerOverlayRecord>
 }
-
 type PatchableCardRecord = AwakenerSkillRecord | DerivedSkillRecord
 type PublicPatchTargetType = 'skill' | 'derived-skill' | 'overlay'
 type PublicUpgradeableTarget =
@@ -60,7 +59,6 @@ const publicUpgradePatchPayloadSchema = z.looseObject({
 })
 type PublicUpgradePatchPayload = z.infer<typeof publicUpgradePatchPayloadSchema>
 type ResolverUpgradeOperation = UpgradePatch['operation']
-
 function cloneDescriptionArgs(
   descriptionArgs: Record<string, DescriptionArg>,
 ): Record<string, DescriptionArg> {
@@ -74,11 +72,9 @@ function cloneDescriptionArgs(
     ]),
   )
 }
-
 function cloneCardKeywords(keywords: CardKeyword[]): CardKeyword[] {
   return keywords.map((keyword) => ({...keyword}))
 }
-
 function cloneSkillRecord(record: AwakenerSkillRecord): AwakenerSkillRecord {
   return {
     ...record,
@@ -91,7 +87,6 @@ function cloneSkillRecord(record: AwakenerSkillRecord): AwakenerSkillRecord {
     })),
   }
 }
-
 function cloneDerivedSkillRecord(record: DerivedSkillRecord): DerivedSkillRecord {
   return {
     ...record,
@@ -105,7 +100,6 @@ function cloneDerivedSkillRecord(record: DerivedSkillRecord): DerivedSkillRecord
     })),
   }
 }
-
 function cloneOverlayRecord(record: AwakenerOverlayRecord): AwakenerOverlayRecord {
   return {
     ...record,
@@ -113,7 +107,6 @@ function cloneOverlayRecord(record: AwakenerOverlayRecord): AwakenerOverlayRecor
     descriptionArgs: cloneDescriptionArgs(record.descriptionArgs),
   }
 }
-
 function mergeDescriptionArgs<T extends {descriptionArgs: Record<string, unknown>}>(
   record: T,
   nextArgs: Record<string, unknown> | undefined,
@@ -121,7 +114,6 @@ function mergeDescriptionArgs<T extends {descriptionArgs: Record<string, unknown
   if (!nextArgs) {
     return record
   }
-
   return {
     ...record,
     descriptionArgs: {
@@ -130,65 +122,52 @@ function mergeDescriptionArgs<T extends {descriptionArgs: Record<string, unknown
     },
   }
 }
-
 function mergeCardKeywords(
   baseKeywords: CardKeyword[],
   addCardKeywords: CardKeyword[] | undefined,
   removeCardKeywordIds: string[] | undefined,
 ): CardKeyword[] {
   const next = new Map(baseKeywords.map((keyword) => [keyword.id, {...keyword}]))
-
   for (const keywordId of removeCardKeywordIds ?? []) {
     next.delete(keywordId)
   }
-
   for (const keyword of addCardKeywords ?? []) {
     next.set(keyword.id, {...keyword})
   }
-
   return [...next.values()]
 }
-
 function applyArgSubstatBonuses(
   descriptionArgs: Record<string, DescriptionArg>,
   argSubstatBonuses: NonNullable<UpgradePatch['argSubstatBonuses']>,
 ): Record<string, DescriptionArg> {
   const nextArgs = cloneDescriptionArgs(descriptionArgs)
-
   for (const [argKey, substatBonus] of Object.entries(argSubstatBonuses)) {
     if (!Object.hasOwn(nextArgs, argKey)) {
       throw new Error(`Cannot apply substat bonus patch to missing arg "${argKey}".`)
     }
     const currentArg = nextArgs[argKey]
-
     nextArgs[argKey] = {
       ...currentArg,
       substatBonus: {...substatBonus},
     }
   }
-
   return nextArgs
 }
-
 function applyPatchToCardRecord<T extends PatchableCardRecord>(record: T, patch: UpgradePatch): T {
   let next: T = record
-
   if (patch.descriptionTemplate) {
     next = {
       ...next,
       descriptionTemplate: patch.descriptionTemplate,
     }
   }
-
   next = mergeDescriptionArgs(next, patch.descriptionArgs)
-
   if (patch.argSubstatBonuses) {
     next = {
       ...next,
       descriptionArgs: applyArgSubstatBonuses(next.descriptionArgs, patch.argSubstatBonuses),
     }
   }
-
   if (patch.addCardKeywords || patch.removeCardKeywordIds) {
     next = {
       ...next,
@@ -199,10 +178,8 @@ function applyPatchToCardRecord<T extends PatchableCardRecord>(record: T, patch:
       ),
     }
   }
-
   return next
 }
-
 function applyPatchToOverlayRecord(
   record: AwakenerOverlayRecord,
   patch: UpgradePatch,
@@ -210,59 +187,46 @@ function applyPatchToOverlayRecord(
   if (patch.addCardKeywords || patch.removeCardKeywordIds) {
     throw new Error(`Overlay patch "${patch.targetId}" cannot modify card keywords.`)
   }
-
   let next = record
-
   if (patch.descriptionTemplate) {
     next = {
       ...next,
       descriptionTemplate: patch.descriptionTemplate,
     }
   }
-
   next = mergeDescriptionArgs(next, patch.descriptionArgs)
-
   if (patch.argSubstatBonuses) {
     return {
       ...next,
       descriptionArgs: applyArgSubstatBonuses(next.descriptionArgs, patch.argSubstatBonuses),
     }
   }
-
   return next
 }
-
 function buildCardsById(record: AwakenerFullRecord): Map<string, PatchableCardRecord> {
   const byId = new Map<string, PatchableCardRecord>()
-
   byId.set(record.cards.C1.id, cloneSkillRecord(record.cards.C1))
   byId.set(record.cards.C2.id, cloneSkillRecord(record.cards.C2))
   byId.set(record.cards.C3.id, cloneSkillRecord(record.cards.C3))
   byId.set(record.cards.C4.id, cloneSkillRecord(record.cards.C4))
   byId.set(record.cards.C5.id, cloneSkillRecord(record.cards.C5))
   byId.set(record.cards.Exalt.id, cloneSkillRecord(record.cards.Exalt))
-
   if (record.cards.OverExalt) {
     byId.set(record.cards.OverExalt.id, cloneSkillRecord(record.cards.OverExalt))
   }
-
   for (const card of record.cards.promotedExtras) {
     byId.set(card.id, cloneDerivedSkillRecord(card))
   }
-
   for (const card of record.derivedSkills) {
     byId.set(card.id, cloneDerivedSkillRecord(card))
   }
-
   return byId
 }
-
 function buildAccessibleOverlaysById(
   record: AwakenerFullRecord,
   overlays: AwakenerOverlayRecord[],
 ): Map<string, AwakenerOverlayRecord> {
   const byId = new Map<string, AwakenerOverlayRecord>()
-
   for (const overlay of overlays) {
     if (overlay.ownerAwakenerId === undefined || overlay.ownerAwakenerId === record.id) {
       byId.set(overlay.id, overlay)
@@ -271,10 +235,8 @@ function buildAccessibleOverlaysById(
   for (const overlay of record.overlays ?? []) {
     byId.set(overlay.id, overlay)
   }
-
   return byId
 }
-
 function getActiveEnlightens(
   record: AwakenerFullRecord,
   selectedEnlightenSlot: AwakenerFullResolveOptions['selectedEnlightenSlot'],
@@ -282,7 +244,6 @@ function getActiveEnlightens(
   if (!selectedEnlightenSlot) {
     return []
   }
-
   const orderedSlots: AwakenerEnlightenRecord['slot'][] = []
   for (const slot of ENLIGHTEN_SLOT_KEYS) {
     orderedSlots.push(slot)
@@ -290,28 +251,22 @@ function getActiveEnlightens(
       break
     }
   }
-
   const active: AwakenerEnlightenRecord[] = []
-
   for (const slot of orderedSlots) {
     const entry =
       slot === 'AbsoluteAxiom' ? record.enlightens.AbsoluteAxiom : record.enlightens[slot]
-
     if (entry) {
       active.push(entry)
     }
   }
-
   return active
 }
-
 function getActiveTalentEntries(
   record: AwakenerFullRecord,
   soulforgeLevel: number,
   gnosticPotentialLevel: number,
 ): AwakenerTalentRecord[] {
   const active: AwakenerTalentRecord[] = []
-
   for (const talent of getOrderedTalentRecords(record.talents)) {
     if (isSoulforgeTalent(talent) && soulforgeLevel <= 0) {
       continue
@@ -321,10 +276,8 @@ function getActiveTalentEntries(
     }
     active.push(talent)
   }
-
   return active
 }
-
 function getOrderedTalentRecords(talents: AwakenerFullRecord['talents']): AwakenerTalentRecord[] {
   return uniqueTalentRecords(
     talents.orderedTalents ??
@@ -333,7 +286,6 @@ function getOrderedTalentRecords(talents: AwakenerFullRecord['talents']): Awaken
         .concat(talents.extraTalents),
   )
 }
-
 function uniqueTalentRecords(talents: AwakenerTalentRecord[]): AwakenerTalentRecord[] {
   const seenTalentIds = new Set<string>()
   return talents.filter((talent) => {
@@ -344,20 +296,17 @@ function uniqueTalentRecords(talents: AwakenerTalentRecord[]): AwakenerTalentRec
     return true
   })
 }
-
 function cloneTalentRecord(record: AwakenerTalentRecord): AwakenerTalentRecord {
   return {
     ...record,
     descriptionArgs: cloneDescriptionArgs(record.descriptionArgs),
   }
 }
-
 function cloneOptionalTalentRecord(
   record: AwakenerTalentRecord | undefined,
 ): AwakenerTalentRecord | undefined {
   return record ? cloneTalentRecord(record) : undefined
 }
-
 function resolveTalents(
   record: AwakenerFullRecord,
   _soulforgeLevel: number,
@@ -371,7 +320,6 @@ function resolveTalents(
     extraTalents: record.talents.extraTalents.map((entry) => cloneTalentRecord(entry)),
   }
 }
-
 function rebuildRecordFromMaps(
   record: AwakenerFullRecord,
   cardsById: Map<string, PatchableCardRecord>,
@@ -398,7 +346,6 @@ function rebuildRecordFromMaps(
     }
     throw new Error(`Resolved compiled record card "${id}" is not a derived skill record.`)
   }
-
   return {
     ...record,
     cards: {
@@ -415,7 +362,6 @@ function rebuildRecordFromMaps(
     derivedSkills: record.derivedSkills.map((entry) => requireDerivedRecord(entry.id)),
   }
 }
-
 function cloneUpgradePatch(patch: UpgradePatch): UpgradePatch {
   return {
     ...patch,
@@ -429,11 +375,9 @@ function cloneUpgradePatch(patch: UpgradePatch): UpgradePatch {
     ...(patch.removeCardKeywordIds ? {removeCardKeywordIds: [...patch.removeCardKeywordIds]} : {}),
   }
 }
-
 function parsePublicUpgradePatchPayload(upgrade: PublicRecordUpgrade): PublicUpgradePatchPayload {
   return publicUpgradePatchPayloadSchema.parse(upgrade.patch ?? {})
 }
-
 function isResolverUpgradeOperation(
   operation: PublicRecordUpgrade['operation'],
 ): operation is ResolverUpgradeOperation {
@@ -445,7 +389,6 @@ function isResolverUpgradeOperation(
     operation === 'mixed'
   )
 }
-
 function toResolverCardKeywordPatch(
   target: PublicUpgradeableTarget,
   targetType: PublicPatchTargetType,
@@ -454,7 +397,6 @@ function toResolverCardKeywordPatch(
   if (!payload.cardKeywords?.length && !payload.removeCardKeywordIds?.length) {
     return null
   }
-
   return enlightenPatchSchema.parse({
     targetId: target.id,
     targetType,
@@ -463,7 +405,6 @@ function toResolverCardKeywordPatch(
     ...(payload.removeCardKeywordIds ? {removeCardKeywordIds: payload.removeCardKeywordIds} : {}),
   })
 }
-
 function toResolverPayloadPatch(
   target: PublicUpgradeableTarget,
   targetType: PublicPatchTargetType,
@@ -473,7 +414,6 @@ function toResolverPayloadPatch(
   if (operation === 'card_keywords') {
     return toResolverCardKeywordPatch(target, targetType, payload)
   }
-
   return enlightenPatchSchema.parse({
     targetId: target.id,
     targetType,
@@ -487,7 +427,6 @@ function toResolverPayloadPatch(
     ...(payload.removeCardKeywordIds ? {removeCardKeywordIds: payload.removeCardKeywordIds} : {}),
   })
 }
-
 function toResolverUpgradePatch(
   target: PublicUpgradeableTarget,
   targetType: PublicPatchTargetType,
@@ -496,15 +435,12 @@ function toResolverUpgradePatch(
   if (upgrade.operation === 'link_only') {
     return null
   }
-
   if (upgrade.operation === 'override_card_keywords') {
     return toResolverCardKeywordPatch(target, targetType, parsePublicUpgradePatchPayload(upgrade))
   }
-
   if (!isResolverUpgradeOperation(upgrade.operation)) {
     return null
   }
-
   return toResolverPayloadPatch(
     target,
     targetType,
@@ -512,7 +448,6 @@ function toResolverUpgradePatch(
     parsePublicUpgradePatchPayload(upgrade),
   )
 }
-
 function collectUpgradePatchesForUpgraders(
   targets: PublicUpgradeableTarget[],
   targetType: PublicPatchTargetType,
@@ -532,7 +467,6 @@ function collectUpgradePatchesForUpgraders(
   }
   return patches
 }
-
 function getSkillUpgradeTargets(record: AwakenerFullRecord): PublicUpgradeableSkillRecord[] {
   return [
     record.cards.C1,
@@ -544,13 +478,11 @@ function getSkillUpgradeTargets(record: AwakenerFullRecord): PublicUpgradeableSk
     ...(record.cards.OverExalt ? [record.cards.OverExalt] : []),
   ]
 }
-
 function getDerivedUpgradeTargets(
   record: AwakenerFullRecord,
 ): PublicUpgradeableDerivedSkillRecord[] {
   return [...record.cards.promotedExtras, ...record.derivedSkills]
 }
-
 function collectRecordUpgradePatches(
   record: AwakenerFullRecord,
   accessibleOverlaysById: Map<string, AwakenerOverlayRecord>,
@@ -574,7 +506,215 @@ function collectRecordUpgradePatches(
     ),
   ]
 }
+interface AutoSoulforgeBaseDmgMapping {
+  argKey: string
+  targetCardIds?: string[]
+}
+function parseSoulforgeBaseDmg(
+  talent: AwakenerTalentRecord,
+  cards: PatchableCardRecord[],
+): AutoSoulforgeBaseDmgMapping | null {
+  const template = talent.descriptionTemplate
+  if (!template) {
+    return null
+  }
 
+  const sentences = template.split(/[.\n;]/)
+  for (const sentence of sentences) {
+    if (!sentence.toLowerCase().includes('base dmg')) {
+      continue
+    }
+
+    const match = /\[(Arg\d+)\]%(?!\s+of\b)/i.exec(sentence)
+    if (!match) {
+      continue
+    }
+
+    const argKey = match[1]
+
+    const clauses = sentence.split(',')
+    let targetClause = sentence
+    for (const clause of clauses) {
+      if (clause.toLowerCase().includes('base dmg') && clause.includes(`[${argKey}]`)) {
+        targetClause = clause
+        break
+      }
+    }
+
+    const bracedTerms: string[] = []
+    const braceRegex = /\{([^}]+)\}/g
+    let braceMatch
+    while ((braceMatch = braceRegex.exec(targetClause)) !== null) {
+      bracedTerms.push(braceMatch[1].trim())
+    }
+
+    const quoteRegex = /"([^"]+)"/g
+    let quoteMatch
+    while ((quoteMatch = quoteRegex.exec(targetClause)) !== null) {
+      bracedTerms.push(quoteMatch[1].trim())
+    }
+
+    const matchingCardIds: string[] = []
+    if (bracedTerms.length > 0) {
+      for (const card of cards) {
+        if (card.ownerAwakenerId !== talent.ownerAwakenerId) {
+          continue
+        }
+        const matchesTerm = bracedTerms.some(
+          (term) => term.toLowerCase() === card.displayName.toLowerCase(),
+        )
+        if (matchesTerm) {
+          matchingCardIds.push(card.id)
+        }
+      }
+    }
+
+    return {
+      argKey,
+      ...(matchingCardIds.length > 0 ? {targetCardIds: matchingCardIds} : {}),
+    }
+  }
+
+  return null
+}
+function resolveTalentArgValue(arg: DescriptionArg, level: number): number {
+  if (arg.kind === 'fixed') {
+    return tryParseNumericValue(arg.value ?? '') ?? 0
+  }
+  if (arg.kind === 'linear') {
+    const base = tryParseNumericValue(arg.base) ?? 0
+    const gain = tryParseNumericValue(arg.gainPerLevel) ?? 0
+    return base + gain * (level - 1)
+  }
+  if (arg.kind === 'scaling') {
+    const index = Math.max(0, Math.min(level - 1, arg.values.length - 1))
+    return tryParseNumericValue(arg.values[index] ?? '0') ?? 0
+  }
+  return 0
+}
+function getDamageArgKeys(card: PatchableCardRecord): Set<string> {
+  const keys = new Set<string>()
+  const templates = [card.descriptionTemplate]
+  for (const v of card.variants) {
+    if (v.descriptionTemplate) {
+      templates.push(v.descriptionTemplate)
+    }
+  }
+  const pattern = createDescriptionArgTokenPattern('g')
+  for (const template of templates) {
+    if (!template) continue
+    for (const match of template.matchAll(pattern)) {
+      const channel = match.groups?.channel
+      const argKey = match.groups?.argKey
+      if (argKey && channel === 'Damage') {
+        keys.add(argKey)
+      }
+    }
+  }
+  return keys
+}
+function patchCardArg(argObj: DescriptionArg, multiplier: number): void {
+  if (argObj.kind === 'fixed') {
+    const val = tryParseNumericValue(argObj.value ?? '') ?? 0
+    argObj.value = String(parseFloat((val * multiplier).toFixed(3)))
+  } else if (argObj.kind === 'linear') {
+    const base = tryParseNumericValue(argObj.base) ?? 0
+    const gain = tryParseNumericValue(argObj.gainPerLevel) ?? 0
+    argObj.base = String(parseFloat((base * multiplier).toFixed(3)))
+    argObj.gainPerLevel = String(parseFloat((gain * multiplier).toFixed(3)))
+  } else if (argObj.kind === 'scaling') {
+    argObj.values = argObj.values.map((valStr) => {
+      const val = tryParseNumericValue(valStr) ?? 0
+      return String(parseFloat((val * multiplier).toFixed(3)))
+    })
+  }
+}
+const isTargetCard = (card: PatchableCardRecord, mapping: {targetCardIds?: string[]}): boolean => {
+  if (!mapping.targetCardIds) {
+    return true
+  }
+  if (mapping.targetCardIds.includes(card.id)) {
+    return true
+  }
+  if (
+    'derivedFromId' in card &&
+    card.derivedFromId &&
+    mapping.targetCardIds.includes(card.derivedFromId)
+  ) {
+    return true
+  }
+  if (
+    'rootSkillId' in card &&
+    card.rootSkillId &&
+    mapping.targetCardIds.includes(card.rootSkillId)
+  ) {
+    return true
+  }
+  return false
+}
+function applySoulforgeAptitudeBaseDmgPatches(
+  cardsById: Map<string, PatchableCardRecord>,
+  activeTalents: AwakenerTalentRecord[],
+  soulforgeLevel: number,
+): void {
+  if (soulforgeLevel <= 0) {
+    return
+  }
+  const cards = Array.from(cardsById.values())
+  for (const talent of activeTalents) {
+    if (!isSoulforgeTalent(talent)) {
+      continue
+    }
+    const mapping = parseSoulforgeBaseDmg(talent, cards)
+    if (!mapping) {
+      continue
+    }
+    const arg = talent.descriptionArgs[mapping.argKey] as DescriptionArg | undefined
+    if (!arg) {
+      continue
+    }
+    const pct = resolveTalentArgValue(arg, soulforgeLevel)
+    if (pct <= 0) {
+      continue
+    }
+    const multiplier = 1 + pct / 100
+    for (const card of cardsById.values()) {
+      if (card.ownerAwakenerId !== talent.ownerAwakenerId) {
+        continue
+      }
+      if (!isTargetCard(card, mapping)) {
+        continue
+      }
+      const damageArgKeys = getDamageArgKeys(card)
+      if (damageArgKeys.size > 0) {
+        card.descriptionArgs = {...card.descriptionArgs}
+        for (const argKey of damageArgKeys) {
+          const cardArg = card.descriptionArgs[argKey] as DescriptionArg | undefined
+          if (cardArg) {
+            card.descriptionArgs[argKey] = {
+              ...cardArg,
+              ...(cardArg.substatBonus ? {substatBonus: {...cardArg.substatBonus}} : {}),
+            }
+            patchCardArg(card.descriptionArgs[argKey], multiplier)
+          }
+          card.variants = card.variants.map((variant) => {
+            const variantArg = variant.descriptionArgs[argKey] as DescriptionArg | undefined
+            if (variantArg) {
+              const nextArgs = {...variant.descriptionArgs}
+              nextArgs[argKey] = {
+                ...variantArg,
+                ...(variantArg.substatBonus ? {substatBonus: {...variantArg.substatBonus}} : {}),
+              }
+              patchCardArg(nextArgs[argKey], multiplier)
+              return {...variant, descriptionArgs: nextArgs}
+            }
+            return variant
+          })
+        }
+      }
+    }
+  }
+}
 export function resolveAwakenerFullRecord(
   record: AwakenerFullRecord,
   options: Partial<AwakenerFullResolveOptions> = {},
@@ -590,7 +730,6 @@ export function resolveAwakenerFullRecord(
     selection.gnosticPotentialLevel,
   )
   const activeEnlightens = getActiveEnlightens(record, selection.selectedEnlightenSlot)
-
   for (const patch of collectRecordUpgradePatches(
     record,
     accessibleOverlaysById,
@@ -610,7 +749,6 @@ export function resolveAwakenerFullRecord(
       )
       continue
     }
-
     const currentCard = cardsById.get(patch.targetId)
     if (!currentCard) {
       throw new Error(
@@ -619,7 +757,6 @@ export function resolveAwakenerFullRecord(
     }
     cardsById.set(patch.targetId, applyPatchToCardRecord(currentCard, patch))
   }
-
   for (const patch of collectRecordUpgradePatches(
     record,
     accessibleOverlaysById,
@@ -639,7 +776,6 @@ export function resolveAwakenerFullRecord(
       )
       continue
     }
-
     const currentCard = cardsById.get(patch.targetId)
     if (!currentCard) {
       throw new Error(
@@ -648,9 +784,8 @@ export function resolveAwakenerFullRecord(
     }
     cardsById.set(patch.targetId, applyPatchToCardRecord(currentCard, patch))
   }
-
+  applySoulforgeAptitudeBaseDmgPatches(cardsById, activeTalents, selection.soulforgeLevel)
   const resolvedTalents = resolveTalents(record, selection.soulforgeLevel)
-
   return {
     selection,
     activeTalentIds: activeTalents.map((entry) => entry.id),

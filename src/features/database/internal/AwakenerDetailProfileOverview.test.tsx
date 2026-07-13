@@ -9,9 +9,25 @@ import {
   makeTestAwakenerFullRecord,
   makeTestFullStats,
 } from './database-test-fixtures'
+import {PopoverStoreContext} from './usePopoverStore'
 
 vi.mock('@/domain/mainstats', () => ({
   getMainstatIcon: () => null,
+  getColoredMainstatIcon: () => null,
+  getMainstatAccentColor: () => '#ffffff',
+  WHEEL_MAINSTAT_KEYS: [
+    'ATK',
+    'DEF',
+    'CON',
+    'CRIT_RATE',
+    'CRIT_DMG',
+    'REALM_MASTERY',
+    'DMG_AMP',
+    'ALIEMUS_REGEN',
+    'KEYFLARE_REGEN',
+    'SIGIL_YIELD',
+    'DEATH_RESISTANCE',
+  ],
 }))
 
 const TEST_AWAKENER = makeTestAwakener({
@@ -130,15 +146,23 @@ describe('AwakenerDetailOverview profile and stories', () => {
   })
 
   it('keeps main and scaling stats visible and reveals other secondary stats on demand', () => {
+    const openRootInfo = vi.fn()
+    const mockStore = {
+      getState: () => ({openRootInfo}),
+      subscribe: vi.fn(),
+    } as any
+
     render(
-      <AwakenerDetailOverview
-        awakener={TEST_AWAKENER}
-        fontScale='medium'
-        fullData={TEST_FULL_DATA}
-        scalingRecord={TEST_SCALING_RECORD}
-        stats={TEST_STATS}
-        substatScaling={TEST_SUBSTAT_SCALING}
-      />,
+      <PopoverStoreContext.Provider value={mockStore}>
+        <AwakenerDetailOverview
+          awakener={TEST_AWAKENER}
+          fontScale='medium'
+          fullData={TEST_FULL_DATA}
+          scalingRecord={TEST_SCALING_RECORD}
+          stats={TEST_STATS}
+          substatScaling={TEST_SUBSTAT_SCALING}
+        />
+      </PopoverStoreContext.Provider>,
     )
 
     expect(screen.getByText('CON')).toBeInTheDocument()
@@ -148,12 +172,11 @@ describe('AwakenerDetailOverview profile and stories', () => {
     expect(screen.getByText('DEF')).toBeInTheDocument()
     expect(screen.getByText('136')).toBeInTheDocument()
     expect(screen.getByText('Crit Rate')).toBeInTheDocument()
-    expect(screen.queryByText('Crit DMG')).not.toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: /show all stats/i}))
 
-    expect(screen.getByText('Crit DMG')).toBeInTheDocument()
-    expect(screen.getByText('14.6%')).toBeInTheDocument()
+    expect(openRootInfo).toHaveBeenCalledTimes(1)
+    expect(openRootInfo.mock.calls[0]?.[0].key).toBe('database:secondary-stats')
   })
 
   it('browses stories by unlock condition without rendering lock affordances', () => {

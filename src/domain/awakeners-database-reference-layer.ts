@@ -1,5 +1,9 @@
 import {getAwakenerOverlays} from './awakener-overlays'
-import {type AwakenerOverlayRecord, type DerivedSkillRecord} from './awakener-source-schema'
+import {
+  type AwakenerOverlayRecord,
+  type DerivedSkillRecord,
+  type DescriptionArg,
+} from './awakener-source-schema'
 import type {
   DatabaseDescribedEntry,
   ResolvedAwakenerDatabaseReferenceLayer,
@@ -20,13 +24,11 @@ import {type DescribedRecord} from './description-records'
 import {buildWheelReferenceInfoEntries} from './wheels-database-reference-layer'
 
 type DatabaseReferenceKind = DatabaseReferenceInfo['kind']
-
 export function collectAwakenerDatabaseCardNames(
   record: Pick<AwakenerFullRecord, 'cards' | 'talents' | 'enlightens' | 'derivedSkills'>,
   derivedSkills: DerivedSkillRecord[] = getDerivedSkills(),
 ): Set<string> {
   const names = new Set<string>()
-
   for (const card of [
     record.cards.C1,
     record.cards.C2,
@@ -38,11 +40,9 @@ export function collectAwakenerDatabaseCardNames(
   ]) {
     names.add(card.displayName)
   }
-
   for (const entry of record.cards.promotedExtras) {
     names.add(entry.displayName)
   }
-
   for (const entry of [
     record.talents.T1,
     record.talents.T2,
@@ -54,7 +54,6 @@ export function collectAwakenerDatabaseCardNames(
       names.add(entry.displayName)
     }
   }
-
   for (const entry of [
     record.enlightens.E1,
     record.enlightens.E2,
@@ -63,29 +62,26 @@ export function collectAwakenerDatabaseCardNames(
   ]) {
     names.add(entry.displayName)
   }
-
   for (const entry of record.derivedSkills) {
     names.add(entry.displayName)
-    for (const alias of getDatabaseDerivedSkillAliases(entry)) {
+    for (const alias of entry.aliases) {
       names.add(alias)
     }
   }
-
   for (const entry of derivedSkills) {
     if (entry.ownerAwakenerId === undefined) {
       names.add(entry.displayName)
-      for (const alias of getDatabaseDerivedSkillAliases(entry)) {
+      for (const alias of entry.aliases) {
         names.add(alias)
       }
     }
   }
-
   return names
 }
-
 function buildReferenceInfoFromEntry<TRecord extends DescribedRecord>(
   kind: DatabaseReferenceKind,
   entry: DatabaseDescribedEntry<TRecord>,
+  shellView: ResolvedAwakenerDatabaseShellView,
   overrides: Partial<
     Pick<
       DatabaseReferenceInfo<TRecord>,
@@ -93,6 +89,31 @@ function buildReferenceInfoFromEntry<TRecord extends DescribedRecord>(
     >
   > = {},
 ): DatabaseReferenceInfo<TRecord> {
+  let originalDescriptionArgs: Record<string, DescriptionArg> | undefined
+  const targetId = entry.record.id
+  if (kind === 'skill') {
+    const originalSkill = [
+      shellView.record.cards.C1,
+      shellView.record.cards.C2,
+      shellView.record.cards.C3,
+      shellView.record.cards.C4,
+      shellView.record.cards.C5,
+      shellView.record.cards.Exalt,
+      ...(shellView.record.cards.OverExalt ? [shellView.record.cards.OverExalt] : []),
+    ].find((c) => c.id === targetId)
+    if (originalSkill) {
+      originalDescriptionArgs = originalSkill.descriptionArgs
+    }
+  } else if (kind === 'derived-skill') {
+    const originalDerived = [
+      ...shellView.record.cards.promotedExtras,
+      ...shellView.record.derivedSkills,
+    ].find((c) => c.id === targetId)
+    if (originalDerived) {
+      originalDescriptionArgs = originalDerived.descriptionArgs
+    }
+  }
+
   return {
     kind,
     id: entry.record.id,
@@ -106,26 +127,24 @@ function buildReferenceInfoFromEntry<TRecord extends DescribedRecord>(
     influencingEnlightenSlots: entry.influencingEnlightenSlots,
     influencingTalentIds: entry.influencingTalentIds,
     influenceBadges: entry.influenceBadges,
+    originalDescriptionArgs,
     ...overrides,
   }
 }
-
 function addDescribedReferenceInfos<TRecord extends DescribedRecord>(
   accumulator: DatabaseReferenceLookupAccumulator,
   entries: DatabaseDescribedEntry<TRecord>[],
   buildInfo: (entry: DatabaseDescribedEntry<TRecord>) => DatabaseReferenceInfo<TRecord>,
+  getAliases?: (entry: DatabaseDescribedEntry<TRecord>) => readonly string[],
 ): void {
   for (const entry of entries) {
-    accumulator.add(buildInfo(entry))
+    accumulator.add(buildInfo(entry), getAliases?.(entry) ?? [])
   }
 }
-
 function getDerivedSkillLabel(record: DerivedSkillRecord): string {
   return `Derived · ${record.displayName}`
 }
-
 export {buildDatabaseOverlayLabel as buildAwakenerDatabaseOverlayLabel} from './database-reference-layer'
-
 function buildReferenceLookups(
   shellView: ResolvedAwakenerDatabaseShellView,
   accessibleOverlays: AwakenerOverlayRecord[],
@@ -133,15 +152,14 @@ function buildReferenceLookups(
   wheelReferenceInfos: DatabaseReferenceInfo[],
 ): {byId: Map<string, DatabaseReferenceInfo>; byName: Map<string, DatabaseReferenceInfo>} {
   const accumulator = new DatabaseReferenceLookupAccumulator()
-
   addDescribedReferenceInfos(accumulator, shellView.commandCards, (entry) =>
-    buildReferenceInfoFromEntry('skill', entry),
+    buildReferenceInfoFromEntry('skill', entry, shellView),
   )
   addDescribedReferenceInfos(accumulator, shellView.exalts, (entry) =>
-    buildReferenceInfoFromEntry('skill', entry),
+    buildReferenceInfoFromEntry('skill', entry, shellView),
   )
   addDescribedReferenceInfos(accumulator, shellView.talents, (entry) =>
-    buildReferenceInfoFromEntry('talent', entry, {
+    buildReferenceInfoFromEntry('talent', entry, shellView, {
       keywordFooterText: undefined,
       influencingEnlightenSlots: [],
       influencingTalentIds: [],
@@ -149,29 +167,28 @@ function buildReferenceLookups(
     }),
   )
   addDescribedReferenceInfos(accumulator, shellView.enlightens, (entry) =>
-    buildReferenceInfoFromEntry('enlighten', entry, {
+    buildReferenceInfoFromEntry('enlighten', entry, shellView, {
       keywordFooterText: undefined,
       influencingEnlightenSlots: [],
       influencingTalentIds: [],
       influenceBadges: [],
     }),
   )
-  for (const entry of shellView.derivedSkills) {
-    accumulator.add(
-      buildReferenceInfoFromEntry('derived-skill', entry),
-      getDatabaseDerivedSkillAliases(entry.record),
-    )
-  }
-  for (const entry of shellView.promotedExtras) {
-    accumulator.add(
-      buildReferenceInfoFromEntry('derived-skill', entry),
-      getDatabaseDerivedSkillAliases(entry.record),
-    )
-  }
-
+  addDescribedReferenceInfos(
+    accumulator,
+    shellView.derivedSkills,
+    (entry) => buildReferenceInfoFromEntry('derived-skill', entry, shellView),
+    (entry) => getDatabaseDerivedSkillAliases(entry.record),
+  )
+  addDescribedReferenceInfos(
+    accumulator,
+    shellView.promotedExtras,
+    (entry) => buildReferenceInfoFromEntry('derived-skill', entry, shellView),
+    (entry) => getDatabaseDerivedSkillAliases(entry.record),
+  )
   for (const record of globalDerivedSkills) {
     accumulator.add(
-      buildDatabaseDerivedSkillReferenceInfo(record, shellView.formulaContext, {
+      buildDatabaseDerivedSkillReferenceInfo(record, undefined, {
         label: getDerivedSkillLabel(record),
         rank: shellView.skillLevel,
         stats: shellView.stats,
@@ -179,7 +196,6 @@ function buildReferenceLookups(
       getDatabaseDerivedSkillAliases(record),
     )
   }
-
   for (const overlay of accessibleOverlays) {
     accumulator.add(
       buildDatabaseOverlayReferenceInfo(
@@ -191,20 +207,16 @@ function buildReferenceLookups(
       overlay.aliases,
     )
   }
-
   for (const wheelInfo of wheelReferenceInfos) {
     accumulator.add(wheelInfo)
   }
-
   return accumulator.toLookups()
 }
-
 export interface BuildAwakenerDatabaseReferenceLayerOptions {
   shellView: ResolvedAwakenerDatabaseShellView
   overlays?: AwakenerOverlayRecord[]
   derivedSkills?: DerivedSkillRecord[]
 }
-
 export function buildAwakenerDatabaseReferenceLayer({
   shellView,
   overlays = getAwakenerOverlays(),
@@ -223,7 +235,6 @@ export function buildAwakenerDatabaseReferenceLayer({
     globalDerivedSkills,
     wheelReferenceInfos,
   )
-
   return {
     cardNames: new Set([
       ...collectAwakenerDatabaseCardNames(shellView.resolvedRecord, globalDerivedSkills),

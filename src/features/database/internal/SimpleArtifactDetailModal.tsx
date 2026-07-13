@@ -25,6 +25,7 @@ import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 
 import {useDatabaseDetailPreferences} from './useDatabaseDetailPreferences'
 import {useDatabasePopoverController} from './useDatabasePopoverController'
+import {PopoverProvider} from './usePopoverStore'
 
 interface PosseDetailModalProps {
   kind: 'posse'
@@ -34,7 +35,6 @@ interface PosseDetailModalProps {
   onClose: () => void
   onSelectAwakener?: (awakener: {id: string; name: string}, tab?: DatabaseAwakenerTab) => void
 }
-
 interface CovenantDetailModalProps {
   kind: 'covenant'
   item: Covenant
@@ -43,12 +43,14 @@ interface CovenantDetailModalProps {
   onClose: () => void
   onSelectAwakener?: never
 }
-
 type SimpleArtifactDetailModalProps = PosseDetailModalProps | CovenantDetailModalProps
 export function SimpleArtifactDetailModal(props: SimpleArtifactDetailModalProps) {
-  return <SimpleArtifactDetailModalInner {...props} key={props.item.id} />
+  return (
+    <PopoverProvider>
+      <SimpleArtifactDetailModalInner key={props.item.id} {...props} />
+    </PopoverProvider>
+  )
 }
-
 function SimpleArtifactDetailModalInner({
   fullData,
   item,
@@ -75,7 +77,6 @@ function SimpleArtifactDetailModalInner({
       const record = buildPosseDatabaseDescriptionRecord(fullData)
       return [{heading: 'Description', record, label: 'Posse'}]
     }
-
     return fullData.setEffects.map((effect) => {
       const record = buildCovenantDatabaseDescriptionRecord({
         id: `${fullData.id}:${effect.set.toString()}`,
@@ -113,7 +114,6 @@ function SimpleArtifactDetailModalInner({
       ) : null,
     [fullData, item, kind, onSelectAwakener],
   )
-
   return (
     <DbDetailShell
       artAsset={artAsset}

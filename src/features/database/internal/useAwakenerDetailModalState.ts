@@ -22,7 +22,6 @@ interface UseAwakenerDetailModalStateOptions {
   onSelectCovenant?: (covenant: Pick<Covenant, 'id' | 'name'>) => void
   onTabChange: (tab: DatabaseAwakenerTab) => void
 }
-
 export function useAwakenerDetailModalState({
   activeTab,
   awakeners,
@@ -42,18 +41,15 @@ export function useAwakenerDetailModalState({
   } = databaseState
   const {referenceLayer, resolvedControls, resolvedSelection, resolvedStats, shellView} =
     sessionRuntime
-
   const setActiveTab = useCallback(
     (nextTab: DatabaseAwakenerTab) => {
       onTabChange(nextTab)
     },
     [onTabChange],
   )
-
   const navigateToSkills = useCallback(() => {
     setActiveTab('skills')
   }, [setActiveTab])
-
   const popoverController = useDatabasePopoverController({
     formulaContext: shellView.formulaContext,
     currentDescriptionRankContext: {
@@ -74,10 +70,10 @@ export function useAwakenerDetailModalState({
   const {
     hasOpenPopovers,
     closeAllPopovers,
+    closeTopPopover,
     contextValue: popoverContextValue,
     popoverRootProps,
   } = popoverController
-
   const chrome = useAwakenerDetailChrome({
     clickOutsideClosesPopovers: sessionPreferences.shared.clickOutsideClosesPopovers,
     closeAllPopovers,
@@ -90,10 +86,10 @@ export function useAwakenerDetailModalState({
   })
   const {clearSearch, closeSearch, searchInputRef, searchQuery} = search
   const {isSettingsOpen, setIsSettingsOpen} = chrome
-
   const handleModalCancel = useDetailModalLifecycle({
     clearSearch,
     closeAllPopovers,
+    closeTopPopover,
     closeSearch,
     dismissSettings: () => {
       setIsSettingsOpen(false)
@@ -104,7 +100,6 @@ export function useAwakenerDetailModalState({
     searchInputRef,
     searchQuery,
   })
-
   return {
     activeSearchIndex: search.activeSearchIndex,
     activeTab,

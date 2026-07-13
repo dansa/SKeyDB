@@ -52,7 +52,6 @@ export function buildCovenantPopoverEntry(
       description: entry.description,
       record: entry.record,
     })),
-    navigationLabel: 'Open in Covenants DB',
     navigationTarget: {
       kind: 'covenant-page',
       covenantName: covenantRecord.name,

@@ -31,10 +31,10 @@ export function buildWheelPopoverEntry(wheelRecord: WheelFullRecord): KeyedDatab
       {
         iconSrc: getMainstatIcon(wheelRecord.mainstatKey),
         label: mainstatLabel,
-        value: resolveWheelMainstatValue(wheelRecord.mainstatSeriesKey, 0),
+        value: `${resolveWheelMainstatValue(wheelRecord.mainstatSeriesKey, 0)} ~ ${resolveWheelMainstatValue(wheelRecord.mainstatSeriesKey, 15)}`,
       },
     ],
-    navigationLabel: 'Open in Wheels DB',
+    navigationLabel: 'In DB',
     navigationTarget: {
       kind: 'wheel-page',
       wheelId: wheelRecord.id,

@@ -68,7 +68,7 @@ export function DatabaseTabSection({
   const titleId = useId()
 
   return (
-    <div className='border border-slate-600/30 bg-slate-900/30'>
+    <div className='border border-white/4 bg-white/2 shadow-sm'>
       {title ? (
         collapsible ? (
           <button
@@ -114,7 +114,7 @@ export function DatabaseTabSubsection({children}: DatabaseTabSubsectionProps) {
       {items.map((child, index) => (
         <div key={getSubsectionItemKey(child)}>
           {index > 0 ? (
-            <div className='mx-4 h-px bg-gradient-to-r from-slate-600/50 via-slate-600/20 to-transparent' />
+            <div className='mx-4 h-px bg-gradient-to-r from-white/8 via-white/3 to-transparent' />
           ) : null}
           {child}
         </div>
@@ -127,7 +127,7 @@ export function DatabaseTabRow({label, children, showDivider = false}: DatabaseT
   return (
     <div>
       {showDivider ? (
-        <div className='mx-4 h-px bg-gradient-to-r from-slate-600/50 via-slate-600/20 to-transparent' />
+        <div className='mx-4 h-px bg-gradient-to-r from-white/8 via-white/3 to-transparent' />
       ) : null}
       <div className='px-4 py-2.5'>
         <p className='ui-title text-amber-200/90' style={getDatabaseDetailBodyTextStyle()}>

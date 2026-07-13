@@ -13,7 +13,7 @@
   "overlayType": "mechanic",
   "ownerAwakenerId": "awakener-0052",
   "aliases": ["Murmur"],
-  "iconId": "IconS_Buff_047",
+  "iconId": "Battle_Card_Buff_047",
   "descriptionTemplate": "Reduce DMG dealt by [StateArg1]%, double the number of attacks, and last for [Layer] {plural:[Layer]|turn|turns}.",
   "descriptionArgs": {
     "Layer": {

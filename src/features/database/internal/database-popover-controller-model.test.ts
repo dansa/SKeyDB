@@ -214,6 +214,48 @@ describe('database popover controller model', () => {
     ).toMatchObject({description: ''})
   })
 
+  it('preserves scalingCurrentLevel when database rank is unchanged, and updates when database rank changes', () => {
+    const sourceRecord = skillReference({
+      id: 'talent.test.soulforge',
+      name: 'Soulforge',
+      descriptionRank: 2,
+    })
+    const layer = referenceLayer([sourceRecord])
+    const entry: TrailEntry = {
+      key: 'scaling:values:suffix:stat',
+      referenceId: 'scaling:values:suffix:stat',
+      name: 'Lvl Scaling',
+      label: '',
+      description: '',
+      scalingSourceRecordId: 'talent.test.soulforge',
+      scalingCurrentLevel: 4,
+      lastDatabaseRank: 2,
+    }
+
+    // 1. Database rank is still 2 (same as lastDatabaseRank: 2), so scalingCurrentLevel should remain 4
+    const resolvedSame = resolveLiveTrailEntry({
+      entry,
+      referenceLayer: layer,
+      selectedEnlightenSlot: null,
+    })
+    expect(resolvedSame.scalingCurrentLevel).toBe(4)
+    expect(resolvedSame.lastDatabaseRank).toBe(2)
+
+    // 2. Database rank changes to 5 (different from lastDatabaseRank: 2), so scalingCurrentLevel should update to 5
+    const updatedSourceRecord = {
+      ...sourceRecord,
+      descriptionRank: 5,
+    }
+    const updatedLayer = referenceLayer([updatedSourceRecord])
+    const resolvedChanged = resolveLiveTrailEntry({
+      entry,
+      referenceLayer: updatedLayer,
+      selectedEnlightenSlot: null,
+    })
+    expect(resolvedChanged.scalingCurrentLevel).toBe(5)
+    expect(resolvedChanged.lastDatabaseRank).toBe(5)
+  })
+
   it('maps navigation targets to close-then-navigate callbacks', () => {
     const clearTrail = vi.fn()
     const onNavigateToWheelPage = vi.fn()

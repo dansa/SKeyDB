@@ -1,14 +1,28 @@
-import {useState} from 'react'
-
 import {fireEvent, render, screen} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import type {FullStats, SubstatScaling} from '@/domain/awakener-source-schema'
 
 import {AwakenerDetailStatsPanel} from './AwakenerDetailStatsPanel'
+import {PopoverStoreContext} from './usePopoverStore'
 
 vi.mock('@/domain/mainstats', () => ({
   getMainstatIcon: () => null,
+  getColoredMainstatIcon: () => null,
+  getMainstatAccentColor: () => '#ffffff',
+  WHEEL_MAINSTAT_KEYS: [
+    'ATK',
+    'DEF',
+    'CON',
+    'CRIT_RATE',
+    'CRIT_DMG',
+    'REALM_MASTERY',
+    'DMG_AMP',
+    'ALIEMUS_REGEN',
+    'KEYFLARE_REGEN',
+    'SIGIL_YIELD',
+    'DEATH_RESISTANCE',
+  ],
 }))
 
 const TEST_STATS: FullStats = {
@@ -41,19 +55,28 @@ const TEST_SCALING_RECORD = {
   substatScaling: TEST_SUBSTAT_SCALING,
 }
 
+const mockOpenRootInfo = vi.fn()
+const mockStore = {
+  getState: () => ({openRootInfo: mockOpenRootInfo}),
+  subscribe: vi.fn(),
+} as any
+
 function renderStatsPanel() {
   return render(
-    <AwakenerDetailStatsPanel
-      compact
-      scalingRecord={TEST_SCALING_RECORD}
-      stats={TEST_STATS}
-      substatScaling={TEST_SUBSTAT_SCALING}
-    />,
+    <PopoverStoreContext.Provider value={mockStore}>
+      <AwakenerDetailStatsPanel
+        compact
+        scalingRecord={TEST_SCALING_RECORD}
+        stats={TEST_STATS}
+        substatScaling={TEST_SUBSTAT_SCALING}
+      />
+    </PopoverStoreContext.Provider>,
   )
 }
 
 describe('AwakenerDetailStatsPanel', () => {
-  it('shows scaling substats in the collapsed default stat set', () => {
+  it('shows scaling substats in the default stat set and opens popover on click', () => {
+    mockOpenRootInfo.mockClear()
     const {container} = renderStatsPanel()
 
     expect(container.querySelector('[data-awakener-main-stats]')).toHaveClass('grid-cols-3')
@@ -62,52 +85,37 @@ describe('AwakenerDetailStatsPanel', () => {
     expect(screen.getByText('DEF')).toBeInTheDocument()
     expect(screen.getByText('Realm Mastery')).toBeInTheDocument()
     expect(screen.getByText('Sigil Yield')).toBeInTheDocument()
-    expect(screen.queryByText('Crit Rate')).not.toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: /show all stats/i}))
 
-    expect(container.querySelector('[data-awakener-secondary-stats]')).toHaveClass('grid-cols-2')
-    expect(screen.getByText('Crit Rate')).toBeInTheDocument()
+    expect(mockOpenRootInfo).toHaveBeenCalledTimes(1)
+    expect(mockOpenRootInfo.mock.calls[0]?.[0]).toEqual(
+      expect.objectContaining({
+        key: 'database:secondary-stats',
+        name: 'Secondary Stats',
+        attributeRows: expect.arrayContaining([
+          expect.objectContaining({label: 'Crit Rate', value: '14.6%'}),
+        ]),
+      }),
+    )
   })
 
-  it('can preserve expanded state when its parent remounts it', () => {
-    function ControlledHarness() {
-      const [isExpanded, setIsExpanded] = useState(false)
-      const [isMounted, setIsMounted] = useState(true)
-
-      return (
-        <div>
-          <button
-            onClick={() => {
-              setIsMounted((current) => !current)
-            }}
-            type='button'
-          >
-            Toggle panel
-          </button>
-          {isMounted ? (
-            <AwakenerDetailStatsPanel
-              compact
-              isExpanded={isExpanded}
-              onExpandedChange={setIsExpanded}
-              scalingRecord={TEST_SCALING_RECORD}
-              stats={TEST_STATS}
-              substatScaling={TEST_SUBSTAT_SCALING}
-            />
-          ) : null}
-        </div>
-      )
-    }
-
-    render(<ControlledHarness />)
+  it('triggers popover when show all stats is clicked in controlled setup', () => {
+    mockOpenRootInfo.mockClear()
+    render(
+      <PopoverStoreContext.Provider value={mockStore}>
+        <AwakenerDetailStatsPanel
+          compact
+          isExpanded={false}
+          onExpandedChange={vi.fn()}
+          scalingRecord={TEST_SCALING_RECORD}
+          stats={TEST_STATS}
+          substatScaling={TEST_SUBSTAT_SCALING}
+        />
+      </PopoverStoreContext.Provider>,
+    )
 
     fireEvent.click(screen.getByRole('button', {name: /show all stats/i}))
-    expect(screen.getByText('Crit Rate')).toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', {name: 'Toggle panel'}))
-    expect(screen.queryByText('Crit Rate')).not.toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', {name: 'Toggle panel'}))
-    expect(screen.getByText('Crit Rate')).toBeInTheDocument()
+    expect(mockOpenRootInfo).toHaveBeenCalledTimes(1)
   })
 })

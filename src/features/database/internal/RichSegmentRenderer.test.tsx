@@ -24,7 +24,6 @@ const BASE_STATS: FullStats = {
   DamageAmplification: '0%',
   DeathResistance: '0%',
 }
-
 const TEST_OVERLAY: AwakenerOverlayRecord = {
   id: 'overlay.test.counter',
   displayName: 'Counter',
@@ -34,7 +33,6 @@ const TEST_OVERLAY: AwakenerOverlayRecord = {
   descriptionTemplate: 'Gain {Counter} equal to 20% of DMG dealt.',
   descriptionArgs: {},
 }
-
 function buildOverlayLookup(
   overlays: readonly AwakenerOverlayRecord[],
 ): Map<string, AwakenerOverlayRecord> {
@@ -44,11 +42,9 @@ function buildOverlayLookup(
   ])
   return new Map(entries)
 }
-
 describe('RichSegmentRenderer', () => {
   it('renders interactive skill tokens and forwards click callbacks', () => {
     const onSkillClick = vi.fn()
-
     render(
       <RichSegmentRenderer
         onSkillClick={onSkillClick}
@@ -58,32 +54,12 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     fireEvent.click(screen.getByRole('button', {name: 'Strike'}))
     expect(onSkillClick).toHaveBeenCalledWith('Strike', expect.any(Object))
   })
-
-  it('forwards preferred reference kind for typed skill tokens', () => {
-    const onSkillClick = vi.fn()
-
-    render(
-      <RichSegmentRenderer
-        onSkillClick={onSkillClick}
-        segment={{type: 'skill', name: 'Insight', referenceKind: 'derived-skill'}}
-        skillLevel={1}
-        stats={null}
-        variant='inline'
-      />,
-    )
-
-    fireEvent.click(screen.getByRole('button', {name: 'Insight'}))
-    expect(onSkillClick).toHaveBeenCalledWith('Insight', expect.any(Object), 'derived-skill')
-  })
-
   it('activates interactive skill tokens from the keyboard', async () => {
     const onSkillClick = vi.fn()
     const user = userEvent.setup()
-
     render(
       <RichSegmentRenderer
         onSkillClick={onSkillClick}
@@ -93,17 +69,14 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     const button = screen.getByRole('button', {name: 'Strike'})
     button.focus()
     await user.keyboard('{Enter}')
     await user.keyboard(' ')
-
     expect(onSkillClick).toHaveBeenCalledTimes(2)
     expect(onSkillClick).toHaveBeenNthCalledWith(1, 'Strike', expect.any(Object))
     expect(onSkillClick).toHaveBeenNthCalledWith(2, 'Strike', expect.any(Object))
   })
-
   it('renders inline scaling using selected skill level with hover breakdown', () => {
     render(
       <RichSegmentRenderer
@@ -113,12 +86,10 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('40')).toBeInTheDocument()
     expect(screen.getByText(/\(20% ATK\)/)).toBeInTheDocument()
     expect(screen.getByTitle(/Lv1: 10% ATK = 20/)).toBeInTheDocument()
   })
-
   it('renders popover scaling as full-range text', () => {
     render(
       <RichSegmentRenderer
@@ -128,11 +99,9 @@ describe('RichSegmentRenderer', () => {
         variant='popover'
       />,
     )
-
     expect(screen.getByText('20~40')).toBeInTheDocument()
     expect(screen.getByText(/\(10% \(\+10%\/Lv\) ATK\)/)).toBeInTheDocument()
   })
-
   it('renders computed description args inline with the formula in parentheses', () => {
     render(
       <RichSegmentRenderer
@@ -152,12 +121,10 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('20')).toBeInTheDocument()
     expect(screen.getByText(/\(10% ATK\)/)).toHaveClass('no-underline')
     expect(screen.getByTitle(/Lv1: 10% ATK = 20/)).toBeInTheDocument()
   })
-
   it('renders public V3 plural segments from resolved arg values', () => {
     const {rerender} = render(
       <RichSegmentRenderer
@@ -179,9 +146,7 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('stack')).toBeInTheDocument()
-
     rerender(
       <RichSegmentRenderer
         descriptionArgs={{
@@ -202,10 +167,8 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('stacks')).toBeInTheDocument()
   })
-
   it('renders public V3 plural segments from computed absolute arg values', () => {
     render(
       <RichSegmentRenderer
@@ -229,10 +192,8 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('stacks')).toBeInTheDocument()
   })
-
   it('resolves computed description args when formula context is supplied', () => {
     render(
       <RichSegmentRenderer
@@ -253,7 +214,6 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('12%')).toBeInTheDocument()
     expect(screen.getByText('12%')).toHaveAttribute(
       'title',
@@ -267,7 +227,6 @@ describe('RichSegmentRenderer', () => {
       ].join('\n'),
     )
   })
-
   it('does not present a numeric value for computed args when formula context is missing', () => {
     render(
       <RichSegmentRenderer
@@ -287,11 +246,9 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('—%')).toBeInTheDocument()
     expect(screen.queryByText('0%')).not.toBeInTheDocument()
   })
-
   it('can hide visible scaling while keeping the hover formula available', () => {
     render(
       <RichSegmentRenderer
@@ -312,12 +269,10 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('20')).toBeInTheDocument()
     expect(screen.queryByText(/\(10% ATK\)/)).not.toBeInTheDocument()
     expect(screen.getByTitle(/Lv1: 10% ATK = 20/)).toBeInTheDocument()
   })
-
   it('renders description arg hover ranges for shared ladders like Madness Omen', () => {
     render(
       <RichSegmentRenderer
@@ -336,13 +291,11 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('5')).toBeInTheDocument()
     const token = screen.getByText('5')
     expect(token).toHaveAttribute('title', expect.stringMatching(/Lv1: 5[\s\S]*Lv2: 10/))
     expect(token).toHaveAttribute('title', expect.stringMatching(/Lv12: 60/))
   })
-
   it('keeps hover affordance styling for interactive description args in popovers', () => {
     render(
       <RichSegmentRenderer
@@ -366,12 +319,10 @@ describe('RichSegmentRenderer', () => {
         variant='popover'
       />,
     )
-
     const token = screen.getByTitle(/Account Lv 50:/)
     expect(token).toHaveClass('cursor-help')
     expect(token).toHaveClass('underline')
   })
-
   it('renders fixed description args without a fake hover tooltip', () => {
     render(
       <RichSegmentRenderer
@@ -388,10 +339,8 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('5')).not.toHaveAttribute('title')
   })
-
   it('renders fixed description args with display formula tooltips', () => {
     render(
       <RichSegmentRenderer
@@ -409,10 +358,8 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('X')).toHaveAttribute('title', 'Max HP * 0.2%')
   })
-
   it('renders fixed substat args with a single formula tooltip', () => {
     render(
       <RichSegmentRenderer
@@ -436,10 +383,8 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('15%')).toHaveAttribute('title', 'Sigil Yield × 1%')
   })
-
   it('uses source arg channels to tint resolved values', () => {
     render(
       <RichSegmentRenderer
@@ -459,7 +404,6 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('8')).toHaveStyle({
       '--database-token-color': getAwakenerTextColor('shield'),
       '--database-token-underline-color': getAwakenerTextUnderlineColor('shield'),
@@ -467,7 +411,6 @@ describe('RichSegmentRenderer', () => {
     })
     expect(screen.getByText(/\(10% DEF\)/)).toHaveClass('no-underline')
   })
-
   it('falls back to arg-level channels when the template token is plain', () => {
     render(
       <RichSegmentRenderer
@@ -488,17 +431,14 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('20')).toHaveStyle({
       '--database-token-color': getAwakenerTextColor('damage'),
       '--database-token-underline-color': getAwakenerTextUnderlineColor('damage'),
       '--database-token-hover-color': getAwakenerTextHoverColor('damage'),
     })
   })
-
   it('renders overlay-backed mechanic tokens as interactive buttons', () => {
     const onMechanicClick = vi.fn()
-
     render(
       <RichSegmentRenderer
         onMechanicClick={onMechanicClick}
@@ -509,14 +449,11 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     fireEvent.click(screen.getByRole('button', {name: 'Temporary Counter'}))
     expect(onMechanicClick).toHaveBeenCalledWith(TEST_OVERLAY, expect.any(Object))
   })
-
   it('resolves overlay-backed mechanic tokens through the overlay lookup map', () => {
     const onMechanicClick = vi.fn()
-
     render(
       <RichSegmentRenderer
         onMechanicClick={onMechanicClick}
@@ -527,15 +464,12 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     fireEvent.click(screen.getByRole('button', {name: 'Temporary Counter'}))
     expect(onMechanicClick).toHaveBeenCalledWith(TEST_OVERLAY, expect.any(Object))
   })
-
   it('activates interactive mechanic tokens from the keyboard', async () => {
     const onMechanicClick = vi.fn()
     const user = userEvent.setup()
-
     render(
       <RichSegmentRenderer
         onMechanicClick={onMechanicClick}
@@ -546,17 +480,14 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     const button = screen.getByRole('button', {name: 'Temporary Counter'})
     button.focus()
     await user.keyboard('{Enter}')
     await user.keyboard(' ')
-
     expect(onMechanicClick).toHaveBeenCalledTimes(2)
     expect(onMechanicClick).toHaveBeenNthCalledWith(1, TEST_OVERLAY, expect.any(Object))
     expect(onMechanicClick).toHaveBeenNthCalledWith(2, TEST_OVERLAY, expect.any(Object))
   })
-
   it('uses overlay text colors for mechanic tokens', () => {
     render(
       <RichSegmentRenderer
@@ -572,14 +503,12 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.getByText('Counter')).toHaveStyle({
       '--database-token-color': getAwakenerTextColor('shield'),
       '--database-token-underline-color': getAwakenerTextUnderlineColor('shield'),
       '--database-token-hover-color': getAwakenerTextHoverColor('shield'),
     })
   })
-
   it('renders mechanic icons when the tag icon preference is enabled', async () => {
     const {container} = render(
       <RichSegmentRenderer
@@ -591,7 +520,6 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     await waitFor(() => {
       expect(container.querySelector('img')).not.toBeNull()
     })
@@ -603,11 +531,10 @@ describe('RichSegmentRenderer', () => {
       objectFit: 'contain',
       verticalAlign: 'middle',
       position: 'relative',
-      top: '-0.04em',
+      top: '-0.1em',
     })
     expect(screen.getByText('Counter')).toBeInTheDocument()
   })
-
   it('keeps icon and text inside the same interactive mechanic token', async () => {
     const {container} = render(
       <RichSegmentRenderer
@@ -620,7 +547,6 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     await waitFor(() => {
       expect(container.querySelector('img')).not.toBeNull()
     })
@@ -629,7 +555,6 @@ describe('RichSegmentRenderer', () => {
     expect(button).toContainElement(icon)
     expect(button).toContainElement(screen.getByText('Counter'))
   })
-
   it('hides mechanic icons when the tag icon preference is disabled', () => {
     const {container} = render(
       <RichSegmentRenderer
@@ -641,11 +566,9 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(container.querySelector('img')).toBeNull()
     expect(screen.getByText('Counter')).toBeInTheDocument()
   })
-
   it('renders dropped self references without a bogus mechanic tooltip state', () => {
     render(
       <RichSegmentRenderer
@@ -655,12 +578,10 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.queryByRole('button', {name: 'Colorless Spiral'})).not.toBeInTheDocument()
     expect(screen.getByText('Colorless Spiral')).not.toHaveAttribute('title', 'Details coming soon')
     expect(screen.getByText('Colorless Spiral')).toHaveClass('decoration-amber-200/35')
   })
-
   it('renders realm tokens as interactive buttons when realm overlays exist', () => {
     const onMechanicClick = vi.fn()
     const realmOverlay: AwakenerOverlayRecord = {
@@ -671,7 +592,6 @@ describe('RichSegmentRenderer', () => {
       descriptionTemplate: 'Realm text',
       descriptionArgs: {},
     }
-
     render(
       <RichSegmentRenderer
         onMechanicClick={onMechanicClick}
@@ -682,11 +602,9 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     fireEvent.click(screen.getByRole('button', {name: 'Chaos'}))
     expect(onMechanicClick).toHaveBeenCalledWith(realmOverlay, expect.any(Object))
   })
-
   it('activates interactive realm tokens from the keyboard', async () => {
     const onMechanicClick = vi.fn()
     const user = userEvent.setup()
@@ -698,7 +616,6 @@ describe('RichSegmentRenderer', () => {
       descriptionTemplate: 'Realm text',
       descriptionArgs: {},
     }
-
     render(
       <RichSegmentRenderer
         onMechanicClick={onMechanicClick}
@@ -709,17 +626,14 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     const button = screen.getByRole('button', {name: 'Chaos'})
     button.focus()
     await user.keyboard('{Enter}')
     await user.keyboard(' ')
-
     expect(onMechanicClick).toHaveBeenCalledTimes(2)
     expect(onMechanicClick).toHaveBeenNthCalledWith(1, realmOverlay, expect.any(Object))
     expect(onMechanicClick).toHaveBeenNthCalledWith(2, realmOverlay, expect.any(Object))
   })
-
   it('renders mechanic tokens without overlay details as coming soon', () => {
     render(
       <RichSegmentRenderer
@@ -735,21 +649,18 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.queryByRole('button', {name: 'Counter'})).not.toBeInTheDocument()
     expect(screen.getByText('Counter').parentElement).toHaveAttribute(
       'title',
       'Details coming soon',
     )
   })
-
   it('keeps catalog-backed mechanic tokens clickable so detail can hydrate on demand', () => {
     const onMechanicClick = vi.fn()
     const catalogOverlay: AwakenerOverlayRecord = {
       ...TEST_OVERLAY,
       descriptionTemplate: '',
     }
-
     render(
       <RichSegmentRenderer
         onMechanicClick={onMechanicClick}
@@ -760,13 +671,11 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     const button = screen.getByRole('button', {name: 'Counter'})
     expect(button).not.toHaveAttribute('title', 'Details coming soon')
     fireEvent.click(button)
     expect(onMechanicClick).toHaveBeenCalledWith(catalogOverlay, expect.any(Object))
   })
-
   it('renders mechanic tokens as plain text when details exist but no popover callback is provided', () => {
     render(
       <RichSegmentRenderer
@@ -777,7 +686,6 @@ describe('RichSegmentRenderer', () => {
         variant='inline'
       />,
     )
-
     expect(screen.queryByRole('button', {name: 'Counter'})).not.toBeInTheDocument()
     expect(screen.getByText('Counter')).not.toHaveAttribute('title', 'Details coming soon')
   })

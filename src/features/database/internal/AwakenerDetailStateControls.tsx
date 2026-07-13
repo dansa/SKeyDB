@@ -35,10 +35,10 @@ function SegmentedButton({
 }) {
   return (
     <button
-      className={`min-w-0 border px-1.5 py-1 text-[9px] tracking-wide uppercase transition-colors ${
+      className={`min-w-0 truncate border px-1 py-1 text-center text-[8px] tracking-tight uppercase transition-colors sm:text-[9px] sm:tracking-wide ${
         active
-          ? 'border-amber-200/60 bg-amber-200/12 text-amber-100'
-          : 'border-slate-600/35 bg-slate-950/50 text-slate-400 hover:border-slate-400/50 hover:text-slate-200'
+          ? 'border-amber-200/40 bg-amber-200/10 text-amber-100'
+          : 'border-white/10 bg-slate-950/60 text-slate-400 hover:border-white/20 hover:bg-slate-950/80 hover:text-slate-200'
       }`}
       onClick={onClick}
       type='button'

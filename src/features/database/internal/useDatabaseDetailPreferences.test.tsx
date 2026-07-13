@@ -142,6 +142,7 @@ describe('useDatabaseDetailPreferences', () => {
       awakener: {
         defaultTab: null,
         showVisibleScaling: true,
+        simplifyPopoverMultiplier: false,
         defaultSelection: {
           awakenerLevel: 60,
           psycheSurgeOffset: 0,

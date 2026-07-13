@@ -79,10 +79,3 @@ export function getWheelsFull(): WheelFullRecord[] {
     .map(adaptPublicWheel)
   return wheelsFullCache
 }
-
-export function getWheelFullById(
-  wheelId: string,
-  records: WheelFullRecord[],
-): WheelFullRecord | undefined {
-  return records.find((record) => record.id === wheelId)
-}

@@ -10,7 +10,6 @@ import {
   isPersistedBuilderPayload,
   normalizeBuilderDraft,
   type PersistedBuilderEnvelope,
-  type PersistedBuilderPayload,
 } from '@/features/builder/builderMigrations'
 import {
   COLLECTION_OWNERSHIP_KEY,
@@ -150,8 +149,6 @@ const MANIFEST: StorageMigrationManifestEntry[] = [
   ...createExportConfigManifest('skeydb.ownedWheelBoxExport'),
 ]
 
-export const DOMAIN_STORAGE_MIGRATION_KEYS = MANIFEST.map((entry) => entry.key)
-
 export function createDomainStorageMigrationSnapshot(
   storage: StorageLike | null,
   locationLike: LocationLike,
@@ -210,10 +207,6 @@ export function isDomainStorageMigrationSnapshot(
   )
 }
 
-export function isKnownDomainStorageMigrationKey(key: string): boolean {
-  return DOMAIN_STORAGE_MIGRATION_KEYS.includes(key)
-}
-
 function createExportConfigManifest(prefix: string): StorageMigrationManifestEntry[] {
   return [
     {key: `${prefix}.layout.v1`, category: 'export-config', validate: isJsonObject},
@@ -262,7 +255,7 @@ function isSkippedEntry(value: unknown): value is DomainStorageMigrationSkippedE
 
 function isValidCurrentBuilderSnapshot(raw: string): boolean {
   try {
-    const parsed = JSON.parse(raw) as PersistedBuilderEnvelope<PersistedBuilderPayload>
+    const parsed = JSON.parse(raw) as PersistedBuilderEnvelope
     return (
       parsed.version === BUILDER_PERSISTENCE_VERSION &&
       isPersistedBuilderPayload(parsed.payload) &&

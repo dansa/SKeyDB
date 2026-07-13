@@ -120,6 +120,9 @@ export function useDetailModalChrome({
         !clickedInsidePopover &&
         !target.closest('[data-detail-modal-external]')
       ) {
+        if (hasOpenPopovers) {
+          return
+        }
         onClose()
       }
     },

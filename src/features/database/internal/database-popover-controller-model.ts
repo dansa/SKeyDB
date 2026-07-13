@@ -10,13 +10,14 @@ import {
   type DatabaseReferenceLayer,
   type ResolvedDatabaseReferenceLayer,
 } from '@/domain/database-reference-layer'
+import type {PublicDescriptionArg} from '@/domain/public-description-args'
 
-import type {DatabasePopoverDescriptionRankContext} from './database-popover-context'
 import type {
   DatabaseReferenceNavigationTarget,
   KeyedDatabaseReferenceEntry,
 } from './database-reference-entry'
 import type {TrailEntry} from './popover-trail'
+import type {DatabasePopoverDescriptionRankContext} from './usePopoverStore'
 
 const LAZY_GLOBAL_REFERENCE_KINDS = new Set([
   'covenant',
@@ -28,17 +29,14 @@ const LAZY_GLOBAL_REFERENCE_KINDS = new Set([
   'talent',
   'wheel',
 ])
-
 export interface NavigationHandlers {
   onNavigateToSkills?: () => void
   onNavigateToWheelPage?: (wheel: {id: string; name: string}) => void
   onNavigateToCovenantPage?: (covenant: {id: string; name: string}) => void
 }
-
 export function needsLazyReferenceHydration(reference: DatabaseReferenceInfo): boolean {
   return !reference.description && LAZY_GLOBAL_REFERENCE_KINDS.has(reference.kind)
 }
-
 export function buildTrailEntry(
   reference: DatabaseReferenceInfo,
   selectedEnlightenSlot: AwakenerEnlightenRecord['slot'] | null,
@@ -60,13 +58,13 @@ export function buildTrailEntry(
       reference.kind === 'skill'
         ? {kind: 'skills'}
         : reference.kind === 'wheel'
-          ? {kind: 'wheel-page', wheelId: reference.id, wheelName: reference.name}
+          ? {kind: 'wheel-page', wheelName: reference.name}
           : undefined,
     referenceLayerOverride,
     selectedEnlightenSlot,
+    lastDatabaseRank: reference.descriptionRank,
   }
 }
-
 export function buildOverlayFallbackEntry(
   overlay: AwakenerOverlayRecord,
   referenceLayerOverride: ResolvedDatabaseReferenceLayer | null = null,
@@ -83,24 +81,20 @@ export function buildOverlayFallbackEntry(
     descriptionMaxRank: rankContext.descriptionMaxRank,
     descriptionRankMode: rankContext.descriptionRankMode ?? 'static',
     referenceLayerOverride,
+    lastDatabaseRank: rankContext.descriptionRank,
   }
 }
-
 export function resolveReferenceByName(
   layer: DatabaseReferenceLayer | null,
   name: string,
-  preferredKind?: DatabaseReferenceInfo['kind'],
+  kind?: DatabaseReferenceInfo['kind'],
 ): DatabaseReferenceInfo | null {
-  if (!layer) {
-    return null
+  if (!layer) return null
+  if (kind) {
+    return resolveDatabaseReferenceInfoByKindAndName(layer, kind, name)
   }
-
-  return preferredKind
-    ? (resolveDatabaseReferenceInfoByKindAndName(layer, preferredKind, name) ??
-        resolveDatabaseReferenceInfo(layer, name))
-    : resolveDatabaseReferenceInfo(layer, name)
+  return resolveDatabaseReferenceInfo(layer, name)
 }
-
 export function resolveOverlayReference(
   layer: DatabaseReferenceLayer | null,
   overlay: AwakenerOverlayRecord,
@@ -110,7 +104,6 @@ export function resolveOverlayReference(
     resolveReferenceByName(layer, overlay.displayName)
   )
 }
-
 export function buildOverlayEntry({
   overlay,
   referenceLayer,
@@ -133,7 +126,6 @@ export function buildOverlayEntry({
     rankContext,
   )
 }
-
 export function withDescriptionRankContext<T extends TrailEntry>(
   entry: T,
   rankContext: DatabasePopoverDescriptionRankContext = {},
@@ -141,15 +133,14 @@ export function withDescriptionRankContext<T extends TrailEntry>(
   if (rankContext.descriptionRank === undefined && rankContext.descriptionMaxRank === undefined) {
     return entry
   }
-
   return {
     ...entry,
     descriptionRank: rankContext.descriptionRank,
     descriptionMaxRank: rankContext.descriptionMaxRank,
     descriptionRankMode: rankContext.descriptionRankMode ?? entry.descriptionRankMode ?? 'static',
+    lastDatabaseRank: rankContext.descriptionRank ?? entry.lastDatabaseRank,
   }
 }
-
 export function resolveLiveTrailEntry({
   entry,
   currentRankContext,
@@ -161,38 +152,66 @@ export function resolveLiveTrailEntry({
   referenceLayer: ResolvedDatabaseReferenceLayer | null
   selectedEnlightenSlot: AwakenerEnlightenRecord['slot'] | null
 }): TrailEntry {
+  let liveScalingCurrentLevel = entry.scalingCurrentLevel
+  let liveLastDatabaseRank = entry.lastDatabaseRank
+  const liveReferenceLayer = entry.referenceLayerOverride ?? referenceLayer
+  if (liveReferenceLayer && entry.scalingSourceRecordId) {
+    const sourceRef = resolveDatabaseReferenceInfoById(
+      liveReferenceLayer,
+      entry.scalingSourceRecordId,
+    )
+    if (sourceRef?.descriptionRank !== undefined) {
+      if (
+        entry.lastDatabaseRank === undefined ||
+        sourceRef.descriptionRank !== entry.lastDatabaseRank
+      ) {
+        liveScalingCurrentLevel =
+          entry.scalingLevelStart === 0 ? sourceRef.descriptionRank - 1 : sourceRef.descriptionRank
+        liveLastDatabaseRank = sourceRef.descriptionRank
+      }
+    }
+  }
+
+  const baseEntry = {
+    ...entry,
+    scalingCurrentLevel: liveScalingCurrentLevel,
+    lastDatabaseRank: liveLastDatabaseRank,
+  }
+
   const rankContext: DatabasePopoverDescriptionRankContext =
-    entry.descriptionRankMode === 'current'
+    baseEntry.descriptionRankMode === 'current'
       ? {
-          descriptionRank: currentRankContext?.descriptionRank ?? entry.descriptionRank,
-          descriptionMaxRank: currentRankContext?.descriptionMaxRank ?? entry.descriptionMaxRank,
+          descriptionRank: currentRankContext?.descriptionRank ?? baseEntry.descriptionRank,
+          descriptionMaxRank:
+            currentRankContext?.descriptionMaxRank ?? baseEntry.descriptionMaxRank,
           descriptionRankMode: 'current',
         }
       : {
-          descriptionRank: entry.descriptionRank,
-          descriptionMaxRank: entry.descriptionMaxRank,
-          descriptionRankMode: entry.descriptionRankMode ?? 'static',
+          descriptionRank: baseEntry.descriptionRank,
+          descriptionMaxRank: baseEntry.descriptionMaxRank,
+          descriptionRankMode: baseEntry.descriptionRankMode ?? 'static',
         }
-  const liveReferenceLayer = entry.referenceLayerOverride ?? referenceLayer
-  if (!liveReferenceLayer || !entry.referenceId) {
-    return withDescriptionRankContext(entry, rankContext)
+  if (!liveReferenceLayer || !baseEntry.referenceId) {
+    return withDescriptionRankContext(baseEntry, rankContext)
   }
-
-  const liveReference = resolveDatabaseReferenceInfoById(liveReferenceLayer, entry.referenceId)
-  if (!liveReference || !entry.description || !liveReference.description) {
-    return withDescriptionRankContext(entry, rankContext)
+  const liveReference = resolveDatabaseReferenceInfoById(liveReferenceLayer, baseEntry.referenceId)
+  if (!liveReference || !baseEntry.description || !liveReference.description) {
+    return withDescriptionRankContext(baseEntry, rankContext)
   }
-
   const liveEntry = buildTrailEntry(
     liveReference,
     selectedEnlightenSlot,
-    entry.referenceLayerOverride ?? null,
+    baseEntry.referenceLayerOverride ?? null,
   )
+  const mergedLiveEntry = {
+    ...liveEntry,
+    scalingCurrentLevel: liveScalingCurrentLevel,
+    lastDatabaseRank: liveLastDatabaseRank,
+  }
   return liveReference.kind === 'overlay'
-    ? withDescriptionRankContext(liveEntry, rankContext)
-    : liveEntry
+    ? withDescriptionRankContext(mergedLiveEntry, rankContext)
+    : mergedLiveEntry
 }
-
 export function resolveNavigationHandler({
   activeEntryId,
   handlers,
@@ -234,22 +253,72 @@ export function resolveNavigationHandler({
       return undefined
   }
 }
-
 export function withInheritedReferenceLayerOverride(
   entry: KeyedDatabaseReferenceEntry,
   sourceEntry: TrailEntry | undefined,
 ): TrailEntry {
+  let referenceId = (entry as TrailEntry).referenceId
+  if (!referenceId && entry.key.includes(':')) {
+    referenceId = entry.key.split(':').slice(1).join(':')
+  }
   return {
     ...entry,
-    referenceId: inferReferenceIdFromEntryKey(entry.key),
+    referenceId,
     referenceLayerOverride: entry.referenceLayerOverride ?? sourceEntry?.referenceLayerOverride,
   }
 }
 
-function inferReferenceIdFromEntryKey(key: string): string | undefined {
-  const separatorIndex = key.indexOf(':')
-  if (separatorIndex <= 0 || separatorIndex >= key.length - 1) {
-    return undefined
+export interface BuildScalingEntryParams {
+  values: number[]
+  suffix: string
+  stat: string | null
+  formulas?: string[]
+  currentLevel?: number
+  levelStart?: number
+  levelLabelPrefix?: string
+  lastDatabaseRank?: number
+  finalValues?: number[]
+  abstractFormula?: string
+  arg?: PublicDescriptionArg
+  sourceRecordId?: string | number
+  sourceArgKey?: string
+  descriptionRankMode?: 'static' | 'current'
+}
+
+export function buildScalingEntry({
+  values,
+  suffix,
+  stat,
+  formulas,
+  currentLevel,
+  levelStart,
+  levelLabelPrefix,
+  lastDatabaseRank,
+  finalValues,
+  abstractFormula,
+  arg,
+  sourceRecordId,
+  sourceArgKey,
+  descriptionRankMode,
+}: BuildScalingEntryParams): KeyedDatabaseReferenceEntry {
+  return {
+    key: `scaling:${values.join(',')}:${suffix}:${stat ?? ''}`,
+    name: stat ?? 'Lvl Scaling',
+    label: '',
+    description: '',
+    scalingValues: values,
+    scalingSuffix: suffix,
+    scalingStat: stat,
+    scalingFormulas: formulas,
+    scalingCurrentLevel: currentLevel,
+    scalingLevelStart: levelStart,
+    scalingLevelLabelPrefix: levelLabelPrefix,
+    lastDatabaseRank,
+    scalingFinalValues: finalValues,
+    scalingAbstractFormula: abstractFormula,
+    scalingArg: arg,
+    scalingSourceRecordId: sourceRecordId !== undefined ? String(sourceRecordId) : undefined,
+    scalingSourceArgKey: sourceArgKey,
+    descriptionRankMode: descriptionRankMode ?? 'static',
   }
-  return key.slice(separatorIndex + 1)
 }

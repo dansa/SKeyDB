@@ -7,7 +7,6 @@ import type {
   DatabaseDetailSharedPreferences,
 } from '@/domain/database-detail-preferences'
 import {clampAccountLevel} from '@/domain/gameplay-math-metadata'
-import {DatabasePopoverContext} from '@/features/database/internal/database-popover-context'
 import {DatabasePopoverRoot} from '@/features/database/internal/DatabasePopoverRoot'
 import {getDescriptionFontScaleStyle} from '@/features/database/internal/font-scale'
 import type {useDatabasePopoverController} from '@/features/database/internal/useDatabasePopoverController'
@@ -22,7 +21,6 @@ import {DatabaseDetailResultNavigator} from './DatabaseDetailResultNavigator'
 import {DbDetailModalFrame} from './DbDetailModalFrame'
 
 type DatabasePopoverController = ReturnType<typeof useDatabasePopoverController>
-
 interface DbDetailShellProps {
   artAsset?: string
   children: ReactNode | ((tools: {openArtViewer: () => void}) => ReactNode)
@@ -37,11 +35,9 @@ interface DbDetailShellProps {
   showSideArtGradient?: boolean
   updateSharedPreferences: (nextPartial: Partial<DatabaseDetailSharedPreferences>) => void
 }
-
 const noop = () => {
   return undefined
 }
-
 export function DbDetailShell({
   artAsset,
   children,
@@ -78,10 +74,10 @@ export function DbDetailShell({
     setIsArtViewerOpen(true)
   }
   const renderedChildren = typeof children === 'function' ? children({openArtViewer}) : children
-
   const handleModalCancel = useDetailModalLifecycle({
     clearSearch: noop,
     closeAllPopovers: popoverController.closeAllPopovers,
+    closeTopPopover: popoverController.closeTopPopover,
     closeSearch: noop,
     dismissSettings: () => {
       setIsSettingsOpen(false)
@@ -92,7 +88,6 @@ export function DbDetailShell({
     searchInputRef,
     searchQuery: '',
   })
-
   return (
     <DbDetailModalFrame
       ariaLabel={`${itemName} details`}
@@ -104,7 +99,7 @@ export function DbDetailShell({
       panelRef={panelRef}
       shellStyle={getDescriptionFontScaleStyle(preferences.shared.fontScale)}
     >
-      <div className='relative flex min-h-0 flex-auto overflow-hidden border border-amber-200/55 bg-slate-950/[.985] shadow-[0_24px_70px_rgba(2,6,23,0.8)]'>
+      <div className='relative flex min-h-0 flex-auto overflow-hidden border border-amber-200/55 bg-slate-950/[.97] shadow-[0_18px_50px_rgba(2,6,23,0.72)]'>
         <div className='absolute top-3 right-3 z-10 flex items-center gap-1.5' ref={settingsRef}>
           <button
             aria-expanded={isSettingsOpen}
@@ -149,44 +144,35 @@ export function DbDetailShell({
             />
           ) : null}
         </div>
-
-        <DatabasePopoverContext.Provider value={popoverController.contextValue}>
-          <aside className='hidden w-[21rem] shrink-0 overflow-hidden bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] md:block'>
-            {artAsset ? (
-              <button
-                aria-label={`View full art for ${itemName}`}
-                className='relative h-full w-full overflow-hidden'
-                onClick={openArtViewer}
-                type='button'
-              >
-                <img
-                  alt=''
-                  className={`h-full w-full ${sideArtClassName}`}
-                  draggable={false}
-                  src={artAsset}
-                />
-                {showSideArtGradient ? (
-                  <div
-                    aria-hidden
-                    className='pointer-events-none absolute inset-y-0 right-0 left-0 bg-[linear-gradient(90deg,#020617_0%,transparent_16%,transparent_84%,#020617_100%)]'
-                  />
-                ) : null}
-              </button>
-            ) : null}
-          </aside>
-
-          <div className='flex min-h-0 min-w-0 flex-1 flex-col px-4 py-4 pr-12 sm:px-5 sm:py-5 md:px-6 md:py-5'>
-            {renderedChildren}
-            <Suspense fallback={null}>
-              <DatabasePopoverRoot
-                {...popoverController.popoverRootProps}
-                fontScale={preferences.shared.fontScale}
-                showTagIcons={preferences.shared.showTagIcons}
+        <aside className='hidden w-[21rem] shrink-0 overflow-hidden md:block'>
+          {artAsset ? (
+            <button
+              aria-label={`View full art for ${itemName}`}
+              className='relative h-full w-full overflow-hidden'
+              onClick={openArtViewer}
+              type='button'
+            >
+              <img
+                alt=''
+                className={`h-full w-full ${sideArtClassName}`}
+                draggable={false}
+                src={artAsset}
               />
-            </Suspense>
-          </div>
-        </DatabasePopoverContext.Provider>
-
+              {showSideArtGradient ? (
+                <div
+                  aria-hidden
+                  className='pointer-events-none absolute inset-y-0 right-0 left-0 bg-[linear-gradient(90deg,#020617_0%,transparent_16%,transparent_84%,#020617_100%)]'
+                />
+              ) : null}
+            </button>
+          ) : null}
+        </aside>
+        <div className='flex min-h-0 min-w-0 flex-1 flex-col pt-4 md:pt-5'>
+          {renderedChildren}
+          <Suspense fallback={null}>
+            <DatabasePopoverRoot {...popoverController.popoverRootProps} />
+          </Suspense>
+        </div>
         {isArtViewerOpen && artAsset ? (
           <ArtViewerOverlay
             alt={fullArtAlt}

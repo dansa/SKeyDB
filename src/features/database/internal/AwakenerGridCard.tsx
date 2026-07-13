@@ -11,7 +11,7 @@ import {
 import {AwakenerCardMeta} from './AwakenerCardMeta'
 import {shouldPrioritizeDatabaseGridImage} from './database-grid-card-priority'
 import {DatabaseGridCardFrame, type HybridDatabaseCardMode} from './DatabaseGridCardFrame'
-import {DatabaseStatTriad} from './DatabaseStatTriad'
+import {DatabaseStatTriad} from './PopoverAtoms'
 
 const DATABASE_GRID_AWAKENER_STAT_LEVEL = 60
 

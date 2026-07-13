@@ -9,7 +9,7 @@ import type {FullStats, SubstatScaling} from '@/domain/awakener-source-schema'
 import type {Awakener} from '@/domain/awakeners'
 
 import {AwakenerDetailSidebar} from './AwakenerDetailSidebar'
-import {DatabasePopoverContext} from './database-popover-context'
+import {PopoverStoreContext} from './usePopoverStore'
 
 vi.mock('@/domain/awakener-assets', () => ({
   getAwakenerCardAsset: () => null,
@@ -21,6 +21,21 @@ vi.mock('@/domain/name-format', () => ({
 
 vi.mock('@/domain/mainstats', () => ({
   getMainstatIcon: () => null,
+  getColoredMainstatIcon: () => null,
+  getMainstatAccentColor: () => '#ffffff',
+  WHEEL_MAINSTAT_KEYS: [
+    'ATK',
+    'DEF',
+    'CON',
+    'CRIT_RATE',
+    'CRIT_DMG',
+    'REALM_MASTERY',
+    'DMG_AMP',
+    'ALIEMUS_REGEN',
+    'KEYFLARE_REGEN',
+    'SIGIL_YIELD',
+    'DEATH_RESISTANCE',
+  ],
 }))
 
 const TEST_AWAKENER: Awakener = {
@@ -53,17 +68,6 @@ const TEST_SUBSTAT_SCALING: SubstatScaling = {
   CritRate: '1.6%',
 }
 
-const TEST_SCALING_RECORD = {
-  stats: TEST_STATS,
-  primaryScalingBase: 20 as const,
-  statScaling: {
-    CON: 2,
-    ATK: 2,
-    DEF: 2,
-  },
-  substatScaling: TEST_SUBSTAT_SCALING,
-}
-
 const TEST_CONTROLS: AwakenerDatabaseControls = {
   enlightenOptions: [
     {value: null, label: 'E0'},
@@ -85,6 +89,17 @@ const TEST_CONTROLS: AwakenerDatabaseControls = {
   gnosticPotentialLevelMax: null,
 }
 
+const TEST_SCALING_RECORD = {
+  stats: TEST_STATS,
+  primaryScalingBase: 20 as const,
+  statScaling: {
+    CON: 2,
+    ATK: 2,
+    DEF: 2,
+  },
+  substatScaling: TEST_SUBSTAT_SCALING,
+}
+
 const TEST_SELECTION: AwakenerDatabaseSelection = {
   awakenerLevel: 60,
   psycheSurgeOffset: 0,
@@ -97,18 +112,16 @@ const TEST_SELECTION: AwakenerDatabaseSelection = {
 describe('AwakenerDetailSidebar', () => {
   it('keeps main and scaling stats visible, collapses other secondary stats, and exposes scaling info on demand', () => {
     const openRootInfo = vi.fn()
+    const state = {
+      openRootInfo,
+    }
+    const mockStore = {
+      getState: () => state,
+      subscribe: vi.fn(),
+    } as any
+
     render(
-      <DatabasePopoverContext.Provider
-        value={{
-          closeAllPopovers: vi.fn(),
-          hasOpenPopovers: false,
-          openNestedOverlay: vi.fn(),
-          openNestedReferenceByName: vi.fn(),
-          openRootInfo,
-          openRootOverlay: vi.fn(),
-          openRootReferenceByName: vi.fn(),
-        }}
-      >
+      <PopoverStoreContext.Provider value={mockStore}>
         <AwakenerDetailSidebar
           awakener={TEST_AWAKENER}
           controls={TEST_CONTROLS}
@@ -118,7 +131,7 @@ describe('AwakenerDetailSidebar', () => {
           stats={TEST_STATS}
           substatScaling={TEST_SUBSTAT_SCALING}
         />
-      </DatabasePopoverContext.Provider>,
+      </PopoverStoreContext.Provider>,
     )
 
     expect(screen.getByRole('heading', {name: 'Stats'})).toBeInTheDocument()
@@ -136,43 +149,41 @@ describe('AwakenerDetailSidebar', () => {
 
     fireEvent.click(screen.getByRole('button', {name: /show all stats/i}))
 
-    expect(screen.getByText('Crit DMG')).toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', {name: /scaling info/i}))
-
     expect(openRootInfo).toHaveBeenCalledTimes(1)
     expect(openRootInfo.mock.calls[0]?.[0]).toEqual(
       expect.objectContaining({
-        description: expect.stringMatching(
-          /Psyche Surge adds extra secondary-stat steps after E3/i,
-        ),
-        detailLinks: [
-          expect.objectContaining({
-            label: 'Show exact breakpoints',
-          }),
-        ],
-        key: 'database:scaling-info',
-        label: 'Database Guide',
-        name: 'Scaling Information',
+        key: 'database:secondary-stats',
+        name: 'Secondary Stats',
+        label: 'Attributes',
       }),
     )
   })
 
   it('shows stats before progression in compact mode', () => {
+    const state = {
+      openRootInfo: vi.fn(),
+    }
+    const mockStore = {
+      getState: () => state,
+      subscribe: vi.fn(),
+    } as any
+
     const {container} = render(
-      <AwakenerDetailSidebar
-        compact
-        awakener={TEST_AWAKENER}
-        controls={TEST_CONTROLS}
-        onPatchSelection={vi.fn()}
-        scalingRecord={TEST_SCALING_RECORD}
-        selection={TEST_SELECTION}
-        stats={TEST_STATS}
-        substatScaling={TEST_SUBSTAT_SCALING}
-      />,
+      <PopoverStoreContext.Provider value={mockStore}>
+        <AwakenerDetailSidebar
+          compact
+          awakener={TEST_AWAKENER}
+          controls={TEST_CONTROLS}
+          onPatchSelection={vi.fn()}
+          scalingRecord={TEST_SCALING_RECORD}
+          selection={TEST_SELECTION}
+          stats={TEST_STATS}
+          substatScaling={TEST_SUBSTAT_SCALING}
+        />
+      </PopoverStoreContext.Provider>,
     )
 
-    const panels = Array.from(container.querySelectorAll('.border.border-slate-600\\/30'))
+    const panels = Array.from(container.firstElementChild?.children ?? [])
     expect(panels).toHaveLength(2)
     expect(
       within(panels[0] as HTMLElement).getByRole('heading', {name: 'Stats'}),

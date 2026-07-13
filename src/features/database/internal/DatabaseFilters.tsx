@@ -1,4 +1,4 @@
-import {useId, useState, type KeyboardEvent, type RefObject} from 'react'
+import {useId, useMemo, useState, type KeyboardEvent, type RefObject} from 'react'
 
 import {
   getAwakenerScalingSubstatFilterOptions,
@@ -234,6 +234,7 @@ function AwakenerAdvancedFilters({
 }: AwakenerAdvancedFiltersProps) {
   const activeCount = gameplayFactionFilters.length + scalingSubstatFilters.length
   const [open, setOpen] = useState(activeCount > 0)
+  const activeFactions = useMemo(() => new Set(gameplayFactionFilters), [gameplayFactionFilters])
 
   return (
     <div className='border-t border-slate-800/70 pt-2.5'>
@@ -267,7 +268,7 @@ function AwakenerAdvancedFilters({
           <FilterRow label='Faction'>
             {gameplayFactionOptions.map((option) => (
               <FilterChipButton
-                active={gameplayFactionFilters.includes(option.id)}
+                active={activeFactions.has(option.id)}
                 key={option.id}
                 onClick={() => {
                   onGameplayFactionFilterToggle(option.id)

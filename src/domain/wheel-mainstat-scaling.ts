@@ -101,10 +101,6 @@ function formatSignedWheelMainstatValue(value: number, suffix: string): string {
   return `${value >= 0 ? '+' : ''}${formatWheelMainstatValue(value, suffix)}`
 }
 
-export function getWheelMainstatScaling(): WheelMainstatScalingSource {
-  return parsedWheelMainstatScaling
-}
-
 export function getWheelMainstatSeries(seriesKey: string): WheelMainstatScalingSeries | undefined {
   return wheelMainstatSeriesByKey.get(seriesKey)
 }

@@ -30,10 +30,3 @@ export function getAwakenerEnlightenById(
 ): AwakenerEnlightenRecord | undefined {
   return enlightens.find((entry) => entry.id === enlightenId)
 }
-
-export function getAwakenerEnlightensForAwakener(
-  awakenerId: number,
-  enlightens: AwakenerEnlightenRecord[],
-): AwakenerEnlightenRecord[] {
-  return enlightens.filter((entry) => entry.ownerAwakenerId === awakenerId)
-}

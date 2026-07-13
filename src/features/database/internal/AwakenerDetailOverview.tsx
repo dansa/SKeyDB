@@ -83,6 +83,8 @@ export function AwakenerDetailOverview({
           scalingRecord={scalingRecord}
           stats={stats}
           substatScaling={substatScaling}
+          enlightenOffset={selection?.psycheSurgeOffset ?? 0}
+          level={selection?.awakenerLevel ?? 60}
         />
         <p className='text-xs text-slate-400'>No profile data available yet.</p>
       </div>
@@ -100,6 +102,8 @@ export function AwakenerDetailOverview({
         scalingRecord={scalingRecord}
         stats={stats}
         substatScaling={substatScaling}
+        enlightenOffset={selection?.psycheSurgeOffset ?? 0}
+        level={selection?.awakenerLevel ?? 60}
       />
     </div>
   )

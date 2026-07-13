@@ -26,10 +26,6 @@ export function buildDzoneMonsterPreviewAssetMap(
 
 const monsterPreviewAssetByName = buildDzoneMonsterPreviewAssetMap(monsterPreviewAssets)
 
-export function getDzoneMonsterPreviewAssetNames(): string[] {
-  return [...monsterPreviewAssetByName.keys()]
-}
-
 export function getDzoneMonsterPreviewAsset(assetName: string | undefined): string | undefined {
   if (!assetName) return undefined
   return monsterPreviewAssetByName.get(assetName.trim())

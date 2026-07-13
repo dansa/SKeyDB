@@ -9,14 +9,12 @@ import type {
 import type {PublicV3UpgradeEntry} from './public-v3-awakener-record-adapters'
 
 export type PublicRecordUpgrade = PublicV3UpgradeEntry
-
 export interface AwakenerProfileStorySection {
   kind: 'introduction' | 'story'
   title: string
   unlockCondition?: string
   content: string
 }
-
 export interface AwakenerProfile {
   title?: string
   birthday?: string
@@ -27,19 +25,15 @@ export interface AwakenerProfile {
   faction?: string
   storySections?: AwakenerProfileStorySection[]
 }
-
 export type PublicUpgradeableSkillRecord = AwakenerSkillRecord & {
   upgrades?: PublicRecordUpgrade[]
 }
-
 export type PublicUpgradeableDerivedSkillRecord = DerivedSkillRecord & {
   upgrades?: PublicRecordUpgrade[]
 }
-
 export type PublicUpgradeableOverlayRecord = AwakenerOverlayRecord & {
   upgrades?: PublicRecordUpgrade[]
 }
-
 export interface AwakenerFullRecord extends AwakenerRosterRecord {
   profile?: AwakenerProfile
   cards: {
@@ -71,9 +65,14 @@ export interface AwakenerFullRecord extends AwakenerRosterRecord {
   overlays?: PublicUpgradeableOverlayRecord[]
 }
 
-export function getAwakenerFullById(
-  awakenerId: number,
-  records: AwakenerFullRecord[],
-): AwakenerFullRecord | undefined {
-  return records.find((entry) => entry.id === awakenerId)
+export function getExaltValue(name: string, stats: {AliemusRegen?: string} | null): number {
+  const parsed = Number.parseInt(name, 10)
+  if (!Number.isNaN(parsed) && parsed > 0) {
+    return parsed
+  }
+  const baseAliemus =
+    stats?.AliemusRegen && Number.parseInt(stats.AliemusRegen, 10) > 0
+      ? Number.parseInt(stats.AliemusRegen, 10)
+      : 100
+  return name.toLowerCase().includes('over') ? baseAliemus * 2 : baseAliemus
 }

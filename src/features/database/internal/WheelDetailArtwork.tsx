@@ -5,8 +5,8 @@ import {getWheelAssetById} from '@/domain/wheel-assets'
 import type {Wheel} from '@/domain/wheels'
 
 interface WheelDetailArtworkProps {
-  wheel: Wheel
-  variant?: 'sidebar' | 'compact'
+  wheel?: Wheel | null
+  variant?: 'sidebar' | 'compact' | 'popover-cover'
   onOpenFullArt?: () => void
 }
 
@@ -21,22 +21,28 @@ export function WheelDetailArtwork({
   wheel,
   variant = 'sidebar',
 }: WheelDetailArtworkProps) {
-  const asset = getWheelAssetById(wheel.id)
-  const lineAccent = wheel.realm === 'NEUTRAL' ? '#f3eee1' : getRealmAccent(wheel.realm)
+  const asset = wheel ? getWheelAssetById(wheel.id) : undefined
+  const realm = wheel?.realm ?? 'NEUTRAL'
+  const lineAccent = realm === 'NEUTRAL' ? '#f3eee1' : getRealmAccent(realm)
   const isCompact = variant === 'compact'
-  const fullArtLabel = `View full art for ${wheel.name}`
-  const rootClassName = isCompact
-    ? 'w-[4.75rem] shrink-0'
-    : 'relative flex min-h-full w-[85%] items-start justify-center px-5 py-6'
-  const frameClassName = isCompact
-    ? 'wheel-art-frame relative aspect-[430/872] w-full'
-    : 'wheel-art-frame relative aspect-[430/872] w-full max-w-[16rem]'
+  const isPopoverCover = variant === 'popover-cover'
+  const fullArtLabel = wheel ? `View full art for ${wheel.name}` : ''
+  const rootClassName = isPopoverCover
+    ? 'w-full h-full'
+    : isCompact
+      ? 'w-[4.75rem] shrink-0'
+      : 'relative flex min-h-full w-[85%] items-center justify-center px-5 py-6'
+  const frameClassName = isPopoverCover
+    ? 'wheel-art-frame relative w-full h-full'
+    : isCompact
+      ? 'wheel-art-frame relative aspect-[430/872] w-full'
+      : 'wheel-art-frame relative aspect-[430/872] w-full max-w-[16rem]'
   const hideFrameFromAccessibilityTree = !asset || !onOpenFullArt
 
   return (
     <div className={rootClassName} style={getWheelArtLineStyle(lineAccent)}>
       <div aria-hidden={hideFrameFromAccessibilityTree || undefined} className={frameClassName}>
-        {isCompact ? null : (
+        {isCompact || isPopoverCover ? null : (
           <>
             <div className='wheel-art-guide wheel-art-guide-top' />
             <div className='wheel-art-guide wheel-art-guide-bottom' />
@@ -61,7 +67,7 @@ export function WheelDetailArtwork({
             </button>
           ) : asset ? (
             <img
-              alt={`${wheel.name} art`}
+              alt={`${wheel?.name ?? 'wheel'} art`}
               className='block h-full w-full object-cover shadow-[0_16px_34px_rgba(2,6,23,0.28)] select-none'
               draggable={false}
               src={asset}

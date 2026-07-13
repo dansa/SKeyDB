@@ -1,4 +1,4 @@
-import {fireEvent, render, screen, waitFor} from '@testing-library/react'
+import {fireEvent, render, screen} from '@testing-library/react'
 import {beforeEach, describe, expect, it, vi} from 'vitest'
 
 import {resolveDescriptionTemplate} from '@/domain/description-args'
@@ -18,6 +18,13 @@ const mockGetWheelAssetById = vi.fn((_wheelId: string): string | undefined => '/
 vi.mock('@/domain/wheel-assets', () => ({
   getWheelAssetById: (wheelId: string) => mockGetWheelAssetById(wheelId),
 }))
+
+const matchExactText = (text: string) => (_content: string, node: Element | null) => {
+  const hasText = (el: Element) => el.textContent === text
+  const nodeHasText = node ? hasText(node) : false
+  const childrenWithoutText = Array.from(node?.children ?? []).every((child) => !hasText(child))
+  return nodeHasText && childrenWithoutText
+}
 
 vi.mock('@/domain/name-format', () => ({
   formatAwakenerNameForUi: (name: string) =>
@@ -75,7 +82,7 @@ describe('WheelDetailModal', () => {
     window.localStorage.clear()
   })
 
-  it('uses the wheel-specific enhance scaling tiers for description and mainstat values', () => {
+  it('uses the wheel-specific enhance scaling tiers for description and mainstat values', async () => {
     const wheel = makeWheel()
     const fullData = makeWheelFullRecord()
 
@@ -89,10 +96,12 @@ describe('WheelDetailModal', () => {
       screen.getAllByText(resolveWheelMainstatValue(fullData.mainstatSeriesKey, 0)).length,
     ).toBeGreaterThan(0)
     expect(
-      screen.getByText(
-        resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
-          rank: 1,
-        }),
+      await screen.findByText(
+        matchExactText(
+          resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
+            rank: 1,
+          }),
+        ),
       ),
     ).toBeInTheDocument()
 
@@ -104,10 +113,12 @@ describe('WheelDetailModal', () => {
       screen.getAllByText(resolveWheelMainstatValue(fullData.mainstatSeriesKey, 0)).length,
     ).toBeGreaterThan(0)
     expect(
-      screen.getByText(
-        resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
-          rank: 2,
-        }),
+      await screen.findByText(
+        matchExactText(
+          resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
+            rank: 2,
+          }),
+        ),
       ),
     ).toBeInTheDocument()
 
@@ -116,10 +127,12 @@ describe('WheelDetailModal', () => {
     })
 
     expect(
-      screen.getByText(
-        resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
-          rank: 3,
-        }),
+      await screen.findByText(
+        matchExactText(
+          resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
+            rank: 3,
+          }),
+        ),
       ),
     ).toBeInTheDocument()
 
@@ -131,10 +144,12 @@ describe('WheelDetailModal', () => {
       screen.getAllByText(resolveWheelMainstatValue(fullData.mainstatSeriesKey, 0)).length,
     ).toBeGreaterThan(0)
     expect(
-      screen.getByText(
-        resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
-          rank: 4,
-        }),
+      await screen.findByText(
+        matchExactText(
+          resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
+            rank: 4,
+          }),
+        ),
       ),
     ).toBeInTheDocument()
 
@@ -149,10 +164,12 @@ describe('WheelDetailModal', () => {
       screen.getAllByText(resolveWheelMainstatValue(fullData.mainstatSeriesKey, 4)).length,
     ).toBeGreaterThan(0)
     expect(
-      screen.getByText(
-        resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
-          rank: 4,
-        }),
+      await screen.findByText(
+        matchExactText(
+          resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
+            rank: 4,
+          }),
+        ),
       ),
     ).toBeInTheDocument()
   })
@@ -216,6 +233,8 @@ describe('WheelDetailModal', () => {
         wheels={[makeWheel()]}
       />,
     )
+
+    fireEvent.click(screen.getByTestId('tags-burger-button'))
 
     expect(screen.getByText('Shield')).toBeInTheDocument()
     expect(screen.getByText('Damage Amp')).toBeInTheDocument()
@@ -336,7 +355,7 @@ describe('WheelDetailModal', () => {
     )
   })
 
-  it('persists expanding lore on open and applies it when loading the next wheel', async () => {
+  it('persists expanding lore on open and applies it when loading the next wheel', () => {
     const firstWheel = makeWheel()
     const secondWheel = makeWheel({
       id: 'D12',
@@ -359,7 +378,8 @@ describe('WheelDetailModal', () => {
       />,
     )
 
-    expect(screen.getByText('Show More')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('tab', {name: 'Lore'}))
+    expect(screen.getByText(/Line 6/)).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: 'Open detail settings'}))
     fireEvent.click(screen.getByRole('checkbox', {name: /expand lore on open/i}))
@@ -367,7 +387,6 @@ describe('WheelDetailModal', () => {
     expect(window.localStorage.getItem('database-detail-preferences')).toContain(
       '"expandLoreByDefault":true',
     )
-    expect(screen.getByText('Show Less')).toBeInTheDocument()
 
     rerender(
       <WheelDetailModal
@@ -394,12 +413,11 @@ describe('WheelDetailModal', () => {
       />,
     )
 
-    await waitFor(() => {
-      expect(screen.getByText('Show Less')).toBeInTheDocument()
-    })
+    fireEvent.click(screen.getByRole('tab', {name: 'Lore'}))
+    expect(screen.getByText(/Other 6/)).toBeInTheDocument()
   })
 
-  it('uses the shared account level setting for computed public formulas', () => {
+  it('uses the shared account level setting for computed public formulas', async () => {
     const wheel = makeWheel()
     const fullData = makeWheelFullRecord({
       descriptionTemplate: 'Gain [StateArg1] charge.',
@@ -414,15 +432,37 @@ describe('WheelDetailModal', () => {
       },
     })
 
+    window.localStorage.setItem(
+      'database-detail-preferences',
+      JSON.stringify({
+        shared: {
+          showTagIcons: true,
+          clickOutsideClosesPopovers: true,
+          fontScale: 'normal',
+          accountLevel: 50,
+        },
+        awakener: {
+          showVisibleScaling: true,
+          defaultSelection: {},
+        },
+        wheel: {
+          defaultEnhanceLevel: 0,
+          expandLoreByDefault: false,
+        },
+      }),
+    )
+
     render(
       <WheelDetailModal fullData={fullData} onClose={vi.fn()} wheel={wheel} wheels={[wheel]} />,
     )
 
     expect(
       screen.getByText(
-        resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
-          formulaContext: buildPublicFormulaContext({accountLevel: 50}),
-        }),
+        matchExactText(
+          resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
+            formulaContext: buildPublicFormulaContext({accountLevel: 50}),
+          }),
+        ),
       ),
     ).toBeInTheDocument()
 
@@ -435,10 +475,12 @@ describe('WheelDetailModal', () => {
       '"accountLevel":70',
     )
     expect(
-      screen.getByText(
-        resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
-          formulaContext: buildPublicFormulaContext({accountLevel: 70}),
-        }),
+      await screen.findByText(
+        matchExactText(
+          resolveDescriptionTemplate(fullData.descriptionTemplate, fullData.descriptionArgs, {
+            formulaContext: buildPublicFormulaContext({accountLevel: 70}),
+          }),
+        ),
       ),
     ).toBeInTheDocument()
   })
@@ -460,7 +502,7 @@ describe('WheelDetailModal', () => {
     )
 
     expect(screen.queryByRole('button', {name: 'alpha'})).not.toBeInTheDocument()
-    expect(screen.queryByText('Lore')).not.toBeInTheDocument()
+    expect(screen.queryByRole('tab', {name: 'Lore'})).not.toBeInTheDocument()
   })
 
   it('renders lore with limited markup and censor tokens without exposing raw tags', () => {
@@ -475,6 +517,8 @@ describe('WheelDetailModal', () => {
       />,
     )
 
+    fireEvent.click(screen.getByRole('tab', {name: 'Lore'}))
+
     expect(screen.getByText(/Pain, intense pain filled her every sense\./)).toBeInTheDocument()
     expect(screen.getByText(/Still she kept diving\./)).toBeInTheDocument()
     expect(document.querySelector('[data-wheel-lore-content]')).toHaveTextContent(
@@ -485,7 +529,7 @@ describe('WheelDetailModal', () => {
     expect(screen.getByLabelText('Redacted lore text')).toBeInTheDocument()
   })
 
-  it('uses shared database detail typography roles for scaled text and fixed utility chrome', () => {
+  it('uses shared database detail typography roles for scaled text and fixed utility chrome', async () => {
     window.localStorage.setItem(
       'database-detail-preferences',
       JSON.stringify({
@@ -520,22 +564,21 @@ describe('WheelDetailModal', () => {
     expect(document.querySelector('[data-detail-modal-shell]')).toHaveStyle({
       '--desc-font-scale': '1.67',
     })
-    expect(screen.getByRole('heading', {name: 'Merciful Nurturing'})).toHaveClass('text-xl')
+    expect(screen.getByRole('heading', {name: 'Merciful Nurturing'})).toHaveClass('text-2xl')
     expect(
       screen.getByRole('heading', {name: 'Merciful Nurturing'}).getAttribute('style'),
     ).toBeNull()
     expect(screen.getByText('SSR').closest('p')).toHaveClass('text-xs')
     expect(screen.getByText('SSR').closest('p')?.getAttribute('style')).toBeNull()
     expect(
-      screen
-        .getByText(/Gain 10% Keyflare\./)
-        .closest('p')
-        ?.getAttribute('style'),
+      (await screen.findByText(matchExactText('Gain 10% Keyflare.'))).getAttribute('style'),
     ).toContain('12px')
+
+    fireEvent.click(screen.getByRole('tab', {name: 'Lore'}))
+
     expect(document.querySelector('[data-wheel-lore-content]')?.getAttribute('style')).toContain(
       '20px',
     )
-    expect(screen.getByRole('button', {name: 'Show Less'}).getAttribute('style')).toBeNull()
   })
 
   it('keeps the header fixed and scrolls only the detail body region', () => {
@@ -552,7 +595,10 @@ describe('WheelDetailModal', () => {
 
     expect(screen.getByRole('heading', {name: 'Merciful Nurturing'})).toBeInTheDocument()
     expect(document.querySelector('[data-wheel-detail-scroll]')).not.toBeNull()
-    expect(screen.getByText('Show More')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('tab', {name: 'Lore'}))
+
+    expect(screen.getByText(/Line 6/)).toBeInTheDocument()
   })
 
   it('shows a stable no-image fallback when wheel art is unavailable', () => {

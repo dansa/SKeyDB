@@ -1,3 +1,5 @@
+import {useMemo} from 'react'
+
 import type {
   DatabaseDetailSharedPreferences,
   DatabaseWheelDetailPreferences,
@@ -21,42 +23,31 @@ export function WheelDetailSettingsPanel({
 }: WheelDetailSettingsPanelProps) {
   const defaultEnhanceLabel = formatWheelEnhanceLevelLabel(preferences.defaultEnhanceLevel)
 
-  return (
-    <DetailSettingsPanel
-      accountLevel={sharedPreferences.accountLevel}
-      clickOutsideClosesPopovers={sharedPreferences.clickOutsideClosesPopovers}
-      fontScale={sharedPreferences.fontScale}
-      onAccountLevelChange={(nextAccountLevel) => {
-        onUpdateSharedPreferences({accountLevel: clampAccountLevel(nextAccountLevel)})
-      }}
-      onClickOutsideClosesPopoversChange={(nextClickOutsideClosesPopovers) => {
-        onUpdateSharedPreferences({clickOutsideClosesPopovers: nextClickOutsideClosesPopovers})
-      }}
-      onFontScaleChange={(nextFontScale) => {
-        onUpdateSharedPreferences({fontScale: nextFontScale})
-      }}
-      onShowTagIconsChange={(nextShowTagIcons) => {
-        onUpdateSharedPreferences({showTagIcons: nextShowTagIcons})
-      }}
-      showTagIcons={sharedPreferences.showTagIcons}
-    >
-      <label className='flex items-start gap-3 border border-slate-700/45 bg-slate-900/40 p-3'>
+  const toggleSettings = useMemo(
+    () => (
+      <label className='flex w-full cursor-pointer items-start gap-2.5 text-left select-none'>
         <input
           checked={preferences.expandLoreByDefault}
-          className='mt-0.5 size-3.5 rounded border border-slate-500/60 bg-slate-950/80 accent-amber-200'
+          className='mt-0.5 size-3.5 shrink-0 accent-amber-200'
           onChange={(event) => {
             onUpdateWheelPreferences({expandLoreByDefault: event.target.checked})
           }}
           type='checkbox'
         />
-        <span className='min-w-0'>
+        <span className='min-w-0 flex-1'>
           <span className='block text-[11px] text-slate-200'>Expand lore on open</span>
-          <span className='block text-[10px] text-slate-500'>
+          <span className='block text-[10px] leading-relaxed text-slate-500'>
             Opens long lore entries expanded by default when loading a wheel.
           </span>
         </span>
       </label>
-      <div className='border border-slate-700/45 bg-slate-900/40 p-3'>
+    ),
+    [preferences.expandLoreByDefault, onUpdateWheelPreferences],
+  )
+
+  const bottomSettings = useMemo(
+    () => (
+      <div className='rounded-sm border border-white/10 bg-slate-950/60 p-3 shadow-sm'>
         <div className='flex items-center justify-between gap-3'>
           <span>
             <span className='block text-[11px] text-slate-200'>Default enlighten</span>
@@ -84,6 +75,30 @@ export function WheelDetailSettingsPanel({
           value={preferences.defaultEnhanceLevel}
         />
       </div>
-    </DetailSettingsPanel>
+    ),
+    [defaultEnhanceLabel, preferences.defaultEnhanceLevel, onUpdateWheelPreferences],
+  )
+
+  return (
+    <DetailSettingsPanel
+      accountLevel={sharedPreferences.accountLevel}
+      bottomSettings={bottomSettings}
+      clickOutsideClosesPopovers={sharedPreferences.clickOutsideClosesPopovers}
+      fontScale={sharedPreferences.fontScale}
+      onAccountLevelChange={(nextAccountLevel) => {
+        onUpdateSharedPreferences({accountLevel: clampAccountLevel(nextAccountLevel)})
+      }}
+      onClickOutsideClosesPopoversChange={(nextClickOutsideClosesPopovers) => {
+        onUpdateSharedPreferences({clickOutsideClosesPopovers: nextClickOutsideClosesPopovers})
+      }}
+      onFontScaleChange={(nextFontScale) => {
+        onUpdateSharedPreferences({fontScale: nextFontScale})
+      }}
+      onShowTagIconsChange={(nextShowTagIcons) => {
+        onUpdateSharedPreferences({showTagIcons: nextShowTagIcons})
+      }}
+      showTagIcons={sharedPreferences.showTagIcons}
+      toggleSettings={toggleSettings}
+    />
   )
 }

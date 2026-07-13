@@ -6,6 +6,7 @@ import type {
 } from './awakener-source-schema'
 import {buildCardKeywordFooterText} from './card-keywords'
 import {resolveDescribedRecord, type DescribedRecord} from './description-records'
+import type {PublicDescriptionArg} from './public-description-args'
 import type {PublicFormulaContext} from './public-formula-context'
 
 export interface DatabaseInfluenceBadge {
@@ -15,7 +16,6 @@ export interface DatabaseInfluenceBadge {
   referenceName: string
   slot?: AwakenerEnlightenRecord['slot']
 }
-
 export interface DatabaseReferenceInfo<TRecord extends DescribedRecord = DescribedRecord> {
   kind:
     'skill' | 'talent' | 'enlighten' | 'derived-skill' | 'overlay' | 'wheel' | 'posse' | 'covenant'
@@ -30,8 +30,8 @@ export interface DatabaseReferenceInfo<TRecord extends DescribedRecord = Describ
   influencingEnlightenSlots: AwakenerEnlightenRecord['slot'][]
   influencingTalentIds: string[]
   influenceBadges?: DatabaseInfluenceBadge[]
+  originalDescriptionArgs?: Record<string, PublicDescriptionArg>
 }
-
 export interface DatabaseReferenceLayer {
   cardNames: Set<string>
   accessibleOverlays: AwakenerOverlayRecord[]
@@ -39,30 +39,17 @@ export interface DatabaseReferenceLayer {
   referenceInfoById: Map<string, DatabaseReferenceInfo>
   overlayByName: Map<string, AwakenerOverlayRecord>
 }
-
 export type ResolvedDatabaseReferenceLayer = DatabaseReferenceLayer
-
 export function normalizeDatabaseReferenceName(name: string): string {
   return name.trim().toLowerCase()
 }
-
-function isStringArray(value: unknown): value is string[] {
-  return Array.isArray(value) && value.every((entry) => typeof entry === 'string')
-}
-
-export function getDatabaseDerivedSkillAliases(record: {aliases?: unknown}): readonly string[] {
-  return isStringArray(record.aliases) ? record.aliases : []
-}
-
 export function addDatabaseLookupValue<T>(lookup: Map<string, T>, key: string, value: T): void {
   const normalized = normalizeDatabaseReferenceName(key)
   if (!normalized || lookup.has(normalized)) {
     return
   }
-
   lookup.set(normalized, value)
 }
-
 export function addDatabaseReferenceInfoById<TRecord extends DescribedRecord>(
   lookup: Map<string, DatabaseReferenceInfo>,
   info: DatabaseReferenceInfo<TRecord>,
@@ -70,10 +57,8 @@ export function addDatabaseReferenceInfoById<TRecord extends DescribedRecord>(
   if (lookup.has(info.id)) {
     return
   }
-
   lookup.set(info.id, info)
 }
-
 export function addDatabaseReferenceInfoToLookups<TRecord extends DescribedRecord>(
   byName: Map<string, DatabaseReferenceInfo>,
   byId: Map<string, DatabaseReferenceInfo>,
@@ -86,11 +71,9 @@ export function addDatabaseReferenceInfoToLookups<TRecord extends DescribedRecor
     addDatabaseLookupValue(byName, alias, info)
   }
 }
-
 export class DatabaseReferenceLookupAccumulator {
   readonly referenceInfoByName = new Map<string, DatabaseReferenceInfo>()
   readonly referenceInfoById = new Map<string, DatabaseReferenceInfo>()
-
   add<TRecord extends DescribedRecord>(
     info: DatabaseReferenceInfo<TRecord>,
     aliases: readonly string[] = [],
@@ -102,7 +85,6 @@ export class DatabaseReferenceLookupAccumulator {
       aliases,
     )
   }
-
   addMany(
     infos: readonly DatabaseReferenceInfo[],
     getAliases: (info: DatabaseReferenceInfo, index: number) => readonly string[] = () => [],
@@ -111,7 +93,6 @@ export class DatabaseReferenceLookupAccumulator {
       this.add(info, getAliases(info, index))
     })
   }
-
   toLookups(): {
     byName: Map<string, DatabaseReferenceInfo>
     byId: Map<string, DatabaseReferenceInfo>
@@ -122,11 +103,9 @@ export class DatabaseReferenceLookupAccumulator {
     }
   }
 }
-
 export function buildDatabaseOverlayLabel(overlay: AwakenerOverlayRecord): string {
   return `${overlay.overlayType.charAt(0).toUpperCase()}${overlay.overlayType.slice(1)}`
 }
-
 export function buildAccessibleDatabaseOverlays(
   ownerAwakenerId: number | string | undefined,
   overlays: AwakenerOverlayRecord[],
@@ -140,25 +119,20 @@ export function buildAccessibleDatabaseOverlays(
     (overlay) =>
       overlay.ownerAwakenerId === undefined || overlay.ownerAwakenerId === numericOwnerAwakenerId,
   )
-
   return accessible.map((overlay) => overlayOverridesById[overlay.id] ?? overlay)
 }
-
 export function buildDatabaseOverlayLookup(
   overlays: AwakenerOverlayRecord[],
 ): Map<string, AwakenerOverlayRecord> {
   const lookup = new Map<string, AwakenerOverlayRecord>()
-
   for (const overlay of overlays) {
     addDatabaseLookupValue(lookup, overlay.displayName, overlay)
     for (const alias of overlay.aliases) {
       addDatabaseLookupValue(lookup, alias, overlay)
     }
   }
-
   return lookup
 }
-
 export function buildDatabaseOverlayReferenceInfo(
   overlay: AwakenerOverlayRecord,
   stats: FullStats | null = null,
@@ -172,7 +146,6 @@ export function buildDatabaseOverlayReferenceInfo(
   const influencingTalentIds = influenceBadges.flatMap((badge) =>
     badge.kind === 'talent' ? [badge.id] : [],
   )
-
   return {
     kind: 'overlay',
     id: overlay.id,
@@ -188,14 +161,12 @@ export function buildDatabaseOverlayReferenceInfo(
     influenceBadges,
   }
 }
-
 export interface BuildDatabaseDerivedSkillReferenceInfoOptions {
   label?: string
   rank?: number
   maxRank?: number
   stats?: FullStats | null
 }
-
 export function buildDatabaseDerivedSkillReferenceInfo(
   record: DerivedSkillRecord,
   formulaContext?: PublicFormulaContext,
@@ -211,7 +182,6 @@ export function buildDatabaseDerivedSkillReferenceInfo(
     {rank, stats, formulaContext},
     {maxRank, stats, formulaContext},
   )
-
   return {
     kind: 'derived-skill',
     id: record.id,
@@ -226,4 +196,8 @@ export function buildDatabaseDerivedSkillReferenceInfo(
     influencingTalentIds: [],
     influenceBadges: [],
   }
+}
+
+export function getDatabaseDerivedSkillAliases(record: DerivedSkillRecord): readonly string[] {
+  return record.aliases
 }

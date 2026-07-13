@@ -17,22 +17,18 @@ interface PickerWheelTileProps {
   wheelId?: string
   wheelName?: string
   wheelAsset?: string
-  state?: PickerWheelTileState
+  blockedText?: string | null
+  stateFlags?: {
+    isBlocked?: boolean
+    isInUse?: boolean
+    isOwned?: boolean
+    isNotSet?: boolean
+  }
   recommendationLabel?: string
   recommendedMainstatKey?: WheelMainstatKey
   onClick: () => void
   onOpenDetail?: () => void
 }
-
-type PickerWheelTileState =
-  | {kind: 'not-set'}
-  | {
-      kind: 'wheel'
-      blockedText?: string | null
-      isBlocked?: boolean
-      isInUse?: boolean
-      isOwned?: boolean
-    }
 
 function getWheelTileClassName(isBlocked: boolean, isSoftDimmed: boolean): string {
   if (isBlocked) {
@@ -117,21 +113,20 @@ function WheelPreview({
   )
 }
 
+const DEFAULT_STATE_FLAGS = {}
+
 export function PickerWheelTile({
   wheelId,
   wheelName,
   wheelAsset,
-  state = {kind: 'wheel'},
+  blockedText = null,
+  stateFlags = DEFAULT_STATE_FLAGS,
   recommendationLabel,
   recommendedMainstatKey,
   onClick,
   onOpenDetail,
 }: PickerWheelTileProps) {
-  const isNotSet = state.kind === 'not-set'
-  const blockedText = state.kind === 'wheel' ? (state.blockedText ?? null) : null
-  const isBlocked = state.kind === 'wheel' ? Boolean(state.isBlocked) : false
-  const isInUse = state.kind === 'wheel' ? Boolean(state.isInUse) : false
-  const isOwned = state.kind === 'wheel' ? (state.isOwned ?? true) : true
+  const {isBlocked = false, isInUse = false, isOwned = true, isNotSet = false} = stateFlags
   const isDimmed = isBlocked || isInUse || (!isOwned && !isNotSet)
   const isSoftDimmed = !isBlocked && (isInUse || (!isOwned && !isNotSet))
   const draggableWheelId = !isNotSet && wheelId ? wheelId : undefined

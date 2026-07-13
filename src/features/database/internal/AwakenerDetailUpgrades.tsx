@@ -8,11 +8,15 @@ import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-l
 import {getRelicPortraitAssetByAssetId} from '@/domain/relic-assets'
 import {getPortraitRelicByAwakenerId, loadRelicDescriptionById} from '@/domain/relics'
 
-import {useDatabasePopoverControllerContext} from './database-popover-context'
+import {
+  getDatabaseDetailBodyTextStyle,
+  getDatabaseDetailSectionHeadingStyle,
+} from './database-detail-typography'
 import {DatabaseScopedRichDescription} from './DatabaseScopedRichDescription'
 import {DetailSection, type DetailSectionItem} from './DetailSection'
 import {getStarSize, scaledFontStyle, type FontScale} from './font-scale'
 import {DATABASE_SECTION_TITLE_CLASS} from './text-styles'
+import {usePopoverStore} from './usePopoverStore'
 
 interface AwakenerDetailUpgradesProps {
   awakener: Awakener
@@ -22,17 +26,13 @@ interface AwakenerDetailUpgradesProps {
   showVisibleScaling?: boolean
   showTagIcons?: boolean
 }
-
 const ENLIGHTEN_ORDER = ['E1', 'E2', 'E3'] as const
-
 function getEnlightenStarStyle(starStyle: ReturnType<typeof getStarSize>): CSSProperties {
   return {
     width: starStyle.width,
     height: starStyle.height,
-    top: starStyle.top,
   }
 }
-
 function formatTalentLevelLabel(
   entry: ResolvedAwakenerDatabaseShellView['talents'][number],
   selection: ResolvedAwakenerDatabaseShellView['selection'],
@@ -42,18 +42,14 @@ function formatTalentLevelLabel(
   if (!hasScaledDescription) {
     return undefined
   }
-
   if (isSoulforgeTalent(entry.record) && selection.soulforgeLevel <= 0) {
     return 'Off'
   }
-
   if (entry.descriptionRank === undefined || entry.descriptionMaxRank === undefined) {
     return undefined
   }
-
   return `Lv. ${entry.descriptionRank.toString()}/${entry.descriptionMaxRank.toString()}`
 }
-
 export function AwakenerDetailUpgrades({
   awakener,
   shellView,
@@ -62,7 +58,7 @@ export function AwakenerDetailUpgrades({
   showVisibleScaling = true,
   showTagIcons = true,
 }: AwakenerDetailUpgradesProps) {
-  const popoverController = useDatabasePopoverControllerContext()
+  const openRootReferenceByName = usePopoverStore((state) => state.openRootReferenceByName)
   const portraitRelic = getPortraitRelicByAwakenerId(awakener.id)
   const [loadedPortraitRelicDescription, setLoadedPortraitRelicDescription] = useState<{
     relicId: string
@@ -75,13 +71,11 @@ export function AwakenerDetailUpgrades({
         isCurrent = false
       }
     }
-
     void loadRelicDescriptionById(portraitRelic.id).then((description) => {
       if (isCurrent) {
         setLoadedPortraitRelicDescription({relicId: portraitRelic.id, description})
       }
     })
-
     return () => {
       isCurrent = false
     }
@@ -114,16 +108,17 @@ export function AwakenerDetailUpgrades({
       showVisibleScaling,
     ],
   )
-
   const enlightenItems = useMemo(() => {
     if (!shellView) return []
     const items = []
     const starStyle = getStarSize(fontScale)
-
-    for (const [index, key] of ENLIGHTEN_ORDER.entries()) {
-      const entry = shellView.enlightens[index]
+    const enlightensByKey = new Map(shellView.enlightens.map((e) => [e.key, e]))
+    for (const key of ENLIGHTEN_ORDER) {
+      const entry = enlightensByKey.get(key)
+      if (!entry) {
+        continue
+      }
       const starCount = parseInt(key.replace('E', ''))
-
       items.push({
         key,
         label: (
@@ -146,23 +141,20 @@ export function AwakenerDetailUpgrades({
         descriptionMaxRank: entry.descriptionMaxRank,
       })
     }
-
     if (shellView.overExalt) {
       items.push({
         key: 'OverExalt',
-        label: popoverController ? (
+        label: (
           <button
             className='cursor-pointer text-slate-500 transition-colors hover:text-amber-100'
             onClick={(event) => {
-              popoverController.openRootReferenceByName('Over Exalt', event)
+              openRootReferenceByName('Over Exalt', event)
             }}
             style={scaledFontStyle(12)}
             type='button'
           >
             Over-Exaltation
           </button>
-        ) : (
-          'Over-Exaltation'
         ),
         name: shellView.overExalt.record.displayName,
         description: shellView.overExalt.resolved.description,
@@ -171,25 +163,21 @@ export function AwakenerDetailUpgrades({
         descriptionMaxRank: shellView.overExalt.descriptionMaxRank,
       })
     }
-
     const absoluteAxiom = shellView.enlightens.find((entry) => entry.key === 'AbsoluteAxiom')
-
     if (absoluteAxiom) {
       items.push({
         key: 'AbsoluteAxiom',
-        label: popoverController ? (
+        label: (
           <button
             className='cursor-pointer text-slate-500 transition-colors hover:text-amber-100'
             onClick={(event) => {
-              popoverController.openRootReferenceByName('Absolute Axiom', event)
+              openRootReferenceByName('Absolute Axiom', event)
             }}
             style={scaledFontStyle(12)}
             type='button'
           >
             Absolute Axiom
           </button>
-        ) : (
-          'Absolute Axiom'
         ),
         name: absoluteAxiom.record.displayName,
         description: absoluteAxiom.resolved.description,
@@ -198,10 +186,8 @@ export function AwakenerDetailUpgrades({
         descriptionMaxRank: absoluteAxiom.descriptionMaxRank,
       })
     }
-
     return items
-  }, [fontScale, popoverController, shellView])
-
+  }, [fontScale, openRootReferenceByName, shellView])
   if (!shellView) {
     return <p className='py-4 text-xs text-slate-400'>Loading…</p>
   }
@@ -217,19 +203,17 @@ export function AwakenerDetailUpgrades({
       descriptionMaxRank: entry.descriptionMaxRank,
     })
   }
-
   const portraitRelicAsset = portraitRelic
     ? getRelicPortraitAssetByAssetId(portraitRelic.assetId)
     : undefined
-
   return (
     <div className='space-y-4'>
-      <div className='border border-slate-600/30 bg-slate-900/30'>
-        <h4 className={DATABASE_SECTION_TITLE_CLASS} style={scaledFontStyle(14)}>
+      <div>
+        <h4 className={DATABASE_SECTION_TITLE_CLASS} style={getDatabaseDetailSectionHeadingStyle()}>
           Dimensional Image
         </h4>
         {portraitRelic ? (
-          <div className='px-4 py-3'>
+          <div className='border border-white/4 bg-white/2 px-3.5 py-2.5 shadow-sm'>
             <div className='flex items-start gap-3'>
               <div className='size-16 shrink-0 overflow-hidden'>
                 {portraitRelicAsset ? (
@@ -244,7 +228,10 @@ export function AwakenerDetailUpgrades({
                 )}
               </div>
               <div className='min-w-0 flex-1'>
-                <p className='leading-relaxed text-slate-400' style={scaledFontStyle(12)}>
+                <p
+                  className='leading-relaxed text-slate-400'
+                  style={getDatabaseDetailBodyTextStyle()}
+                >
                   <DatabaseScopedRichDescription
                     referenceLayer={referenceLayer}
                     formulaContext={shellView.formulaContext}
@@ -259,9 +246,11 @@ export function AwakenerDetailUpgrades({
             </div>
           </div>
         ) : (
-          <p className='px-4 pb-3 text-xs text-slate-400'>
-            No dimensional image linked yet for this awakener.
-          </p>
+          <div className='border border-white/4 bg-white/2 px-3.5 py-2.5 shadow-sm'>
+            <p className='text-xs text-slate-400' style={getDatabaseDetailBodyTextStyle()}>
+              No dimensional image linked yet for this awakener.
+            </p>
+          </div>
         )}
       </div>
       <DetailSection
