@@ -1,20 +1,16 @@
-import {lazy, Suspense, type MouseEvent} from 'react'
+import {Suspense, type MouseEvent} from 'react'
 
 import {type DraggableAttributes, type DraggableSyntheticListeners} from '@dnd-kit/core'
 
 import type {Wheel} from '@/domain/wheels'
 
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
-import type {DatabaseRichTextContentProps} from './DatabaseRichTextContent'
+import {DatabaseRichTextContent, type DatabaseRichTextContentProps} from './DatabaseRichTextContent'
 import {scaledFontStyle} from './font-scale'
 import {PopoverCloseButton, PopoverPinButton} from './PopoverAtoms'
 import {TextWithBreaksFallback} from './PopoverSubComponents'
 import {DATABASE_ENTRY_TITLE_CLASS} from './text-styles'
 import {WheelDetailArtwork} from './WheelDetailArtwork'
-
-const DatabaseRichTextContent = lazy(() =>
-  import('./DatabaseRichTextContent').then((module) => ({default: module.DatabaseRichTextContent})),
-)
 
 export interface PopoverWheelBodyContentProps {
   wheel: Wheel | null
@@ -49,8 +45,10 @@ export function PopoverWheelBodyContent({
 }: PopoverWheelBodyContentProps) {
   return (
     <div className='flex min-h-[11.5rem] items-stretch gap-3.5 overflow-hidden rounded-[inherit] leading-relaxed text-slate-300'>
-      <div className='hidden aspect-[430/872] h-full shrink-0 overflow-hidden rounded-[inherit] bg-slate-900/10 md:block'>
-        <WheelDetailArtwork wheel={wheel} variant='popover-cover' />
+      <div className='relative hidden w-[5.625rem] shrink-0 overflow-hidden rounded-[inherit] bg-slate-900/10 md:block'>
+        <div className='absolute inset-0'>
+          <WheelDetailArtwork wheel={wheel} variant='popover-cover' />
+        </div>
       </div>
 
       <div className='flex min-w-0 flex-1 flex-col'>

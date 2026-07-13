@@ -66,6 +66,7 @@ export function RichDescriptionArgSegment({
   const resolved = resolveDescriptionArg(arg, {rank, stats, formulaContext})
   const hoverText = buildDescriptionArgHover(arg, {rank, maxRank, stats, formulaContext})
   const isInteractive = hasDescriptionArgInteractiveHover(arg)
+  const isClickable = isInteractive && arg.kind !== 'fixed'
   const formulaText = resolved.formattedTotalValue.replaceAll('{', '').replaceAll('}', '')
   const scalingClass =
     variant === 'popover'
@@ -77,7 +78,7 @@ export function RichDescriptionArgSegment({
     variant === 'popover' ? DATABASE_POPOVER_SCALING_TOKEN_CLASS : 'text-amber-100/85'
   const tint = getDatabaseDescriptionArgTint(channel ?? arg.channel ?? null)
   const tintStyle = getDatabaseTintedTokenStyle(tint)
-  const hoverProps = isInteractive && hoverText ? {title: hoverText} : {}
+  const hoverProps = hoverText ? {title: hoverText} : {}
   const handleActivate = (event: ActivationEvent) => {
     const progression = getDescriptionArgProgression(arg, {maxRank, stats, formulaContext})
     const values = progression.map((entry) => entry.baseValue ?? 0)
@@ -115,7 +116,7 @@ export function RichDescriptionArgSegment({
     )
   }
   const wrapInteractive = (content: ReactNode, className: string) => {
-    if (isInteractive && onScalingClick) {
+    if (isClickable && onScalingClick) {
       return (
         <InteractiveToken
           ariaLabel={hoverText || 'Scaling Details'}
@@ -137,7 +138,7 @@ export function RichDescriptionArgSegment({
     const inner = (
       <>
         <span
-          className={`${isInteractive ? scalingClass : plainClass}${tintStyle ? ` ${DATABASE_TINTED_TOKEN_CLASS}` : ''}`.trim()}
+          className={`${isClickable ? scalingClass : plainClass}${tintStyle ? ` ${DATABASE_TINTED_TOKEN_CLASS}` : ''}`.trim()}
           style={tintStyle}
         >
           {resolved.absoluteValue}
@@ -150,7 +151,7 @@ export function RichDescriptionArgSegment({
         ) : null}
       </>
     )
-    return wrapInteractive(inner, isInteractive ? DATABASE_SCALING_GROUP_CLASS : plainClass)
+    return wrapInteractive(inner, isClickable ? DATABASE_SCALING_GROUP_CLASS : plainClass)
   }
   if (resolved.stat) {
     const [prefix] = formulaText.split(` ${resolved.stat}`)
@@ -162,7 +163,7 @@ export function RichDescriptionArgSegment({
         <span className={statClass}>{resolved.stat}</span>
       </>
     )
-    return wrapInteractive(inner, isInteractive ? scalingClass : plainClass)
+    return wrapInteractive(inner, isClickable ? scalingClass : plainClass)
   }
   const inner = tintStyle ? (
     <span className={DATABASE_TINTED_TOKEN_CLASS} style={tintStyle}>
@@ -171,7 +172,7 @@ export function RichDescriptionArgSegment({
   ) : (
     <>{formulaText}</>
   )
-  return wrapInteractive(inner, isInteractive ? scalingClass : plainClass)
+  return wrapInteractive(inner, isClickable ? scalingClass : plainClass)
 }
 export function RichDescriptionArgPluralSegment({
   arg,

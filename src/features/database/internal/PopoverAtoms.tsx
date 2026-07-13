@@ -8,14 +8,11 @@ import {getExaltValue} from '@/domain/awakeners-full'
 import {getAwakenerTextColor, type AwakenerTextColorName} from '@/domain/awakeners-text-colors'
 import {getColoredMainstatIcon, getMainstatIcon} from '@/domain/mainstats'
 
-import {scaledPixelValue} from './font-scale'
 import type {PopoverHeaderModel} from './popover-header-model'
 import {
   DATABASE_ENTRY_TITLE_CLASS,
-  DATABASE_POPOVER_CONTENT_FONT_SIZE,
   DATABASE_POPOVER_DIVIDER_CLASS,
   DATABASE_POPOVER_HEADER_CLASS,
-  DATABASE_POPOVER_HEADER_FONT_SIZE,
 } from './text-styles'
 
 interface PopoverHeaderProps {
@@ -80,7 +77,7 @@ export const PopoverHeader = memo(function PopoverHeader({
                 <h3
                   id={titleId}
                   className={DATABASE_ENTRY_TITLE_CLASS}
-                  style={{fontSize: scaledPixelValue(DATABASE_POPOVER_HEADER_FONT_SIZE)}}
+                  style={{fontSize: 'calc(var(--desc-font-scale, 1) * 12px)'}}
                 >
                   {title}
                 </h3>
@@ -97,7 +94,7 @@ export const PopoverHeader = memo(function PopoverHeader({
   )
 })
 
-export function PopoverPinButton({
+export const PopoverPinButton = memo(function PopoverPinButton({
   isPinned,
   onTogglePin,
 }: {
@@ -122,12 +119,19 @@ export function PopoverPinButton({
       }}
       type='button'
     >
-      <FaThumbtack className={isPinned ? '-rotate-45' : ''} size={11} />
+      <FaThumbtack
+        className={`transition-transform duration-200 ${isPinned ? '-rotate-45 text-amber-300' : ''}`}
+        size={11}
+      />
     </button>
   )
-}
+})
 
-export function PopoverCloseButton({onClose}: {onClose: () => void}) {
+export const PopoverCloseButton = memo(function PopoverCloseButton({
+  onClose,
+}: {
+  onClose: () => void
+}) {
   return (
     <button
       aria-label='Close database popover'
@@ -144,7 +148,7 @@ export function PopoverCloseButton({onClose}: {onClose: () => void}) {
       <FaXmark size={14} />
     </button>
   )
-}
+})
 
 function PopoverHeaderContent({
   header,
@@ -169,7 +173,7 @@ function PopoverHeaderContent({
             header.titleClassName ?? ''
           }`}
           style={{
-            fontSize: scaledPixelValue(DATABASE_POPOVER_HEADER_FONT_SIZE),
+            fontSize: 'calc(var(--desc-font-scale, 1) * 12px)',
             ...header.titleStyle,
           }}
         >
@@ -209,13 +213,13 @@ function PopoverHeaderContent({
   )
 }
 
-export function PopoverDivider() {
+export const PopoverDivider = memo(function PopoverDivider() {
   return (
     <div
       className={`${DATABASE_POPOVER_DIVIDER_CLASS} animate-in fade-in zoom-in-x-95 duration-500 ease-out`}
     />
   )
-}
+})
 
 interface PopoverContentProps {
   children: ReactNode
@@ -223,31 +227,35 @@ interface PopoverContentProps {
   style?: React.CSSProperties
 }
 
-export function PopoverContent({children, className = '', style}: PopoverContentProps) {
+export const PopoverContent = memo(function PopoverContent({
+  children,
+  className = '',
+  style,
+}: PopoverContentProps) {
   return (
     <div
       className={`popover-scrollbar animate-in fade-in slide-in-from-top-1 fill-mode-both flex-1 overflow-x-hidden overflow-y-auto leading-relaxed text-slate-400 delay-75 duration-500 ease-out ${className}`}
       style={{
-        fontSize: scaledPixelValue(DATABASE_POPOVER_CONTENT_FONT_SIZE),
+        fontSize: 'calc(var(--desc-font-scale, 1) * 11px)',
         ...style,
       }}
     >
       {children}
     </div>
   )
-}
+})
 
 interface PopoverFooterProps {
   children: ReactNode
 }
 
-export function PopoverFooter({children}: PopoverFooterProps) {
+export const PopoverFooter = memo(function PopoverFooter({children}: PopoverFooterProps) {
   return (
     <div className='mt-2.5 flex items-center justify-between border-t border-white/5 pt-2 text-[10px] text-slate-500'>
       {children}
     </div>
   )
-}
+})
 
 export type SkillType = 'command' | 'exalt' | 'talent' | 'enlighten'
 
@@ -256,7 +264,10 @@ interface SkillHeaderIconProps {
   isInteractive?: boolean
 }
 
-export function SkillHeaderIcon({skillType, isInteractive}: SkillHeaderIconProps) {
+export const SkillHeaderIcon = memo(function SkillHeaderIcon({
+  skillType,
+  isInteractive,
+}: SkillHeaderIconProps) {
   const isCommand = skillType === 'command'
   const isExalt = skillType === 'exalt'
   if (isCommand) {
@@ -292,7 +303,7 @@ export function SkillHeaderIcon({skillType, isInteractive}: SkillHeaderIconProps
   }
 
   return null
-}
+})
 
 interface SkillHeaderValueProps {
   skillType?: SkillType
@@ -303,7 +314,7 @@ interface SkillHeaderValueProps {
   isOverExalt?: boolean
 }
 
-export function SkillHeaderValue({
+export const SkillHeaderValue = memo(function SkillHeaderValue({
   skillType,
   cost,
   label,
@@ -319,7 +330,7 @@ export function SkillHeaderValue({
         className={`ui-title font-bold text-[#ededed] transition-colors ${
           isInteractive ? 'group-hover:text-amber-100' : ''
         }`}
-        style={{fontSize: scaledPixelValue(DATABASE_POPOVER_HEADER_FONT_SIZE)}}
+        style={{fontSize: 'calc(var(--desc-font-scale, 1) * 12px)'}}
       >
         {cost ?? label}
       </span>
@@ -332,7 +343,7 @@ export function SkillHeaderValue({
         className={`ui-title font-bold text-amber-200/90 transition-colors ${
           isInteractive ? 'group-hover:text-amber-100' : ''
         }`}
-        style={{fontSize: scaledPixelValue(DATABASE_POPOVER_HEADER_FONT_SIZE)}}
+        style={{fontSize: 'calc(var(--desc-font-scale, 1) * 12px)'}}
       >
         {exaltValue}
       </span>
@@ -346,7 +357,7 @@ export function SkillHeaderValue({
       {label}
     </span>
   )
-}
+})
 
 export interface StatTriadValues {
   CON: number
@@ -365,7 +376,11 @@ type StatIconStyle = CSSProperties & {
   '--stat-icon-url': string
 }
 
-export function DatabaseStatTriad({stats}: {stats: StatTriadValues}) {
+export const DatabaseStatTriad = memo(function DatabaseStatTriad({
+  stats,
+}: {
+  stats: StatTriadValues
+}) {
   return (
     <div
       aria-label={`Stats CON ${String(stats.CON)}, ATK ${String(stats.ATK)}, DEF ${String(stats.DEF)}`}
@@ -394,13 +409,4 @@ export function DatabaseStatTriad({stats}: {stats: StatTriadValues}) {
       })}
     </div>
   )
-}
-
-interface ExpandableContentProps {
-  children: ReactNode
-  className?: string
-}
-
-export function ExpandableContent({children, className = ''}: ExpandableContentProps) {
-  return <div className={className}>{children}</div>
-}
+})

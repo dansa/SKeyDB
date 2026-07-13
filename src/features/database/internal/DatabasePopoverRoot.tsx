@@ -228,6 +228,8 @@ export function DatabasePopoverRoot({
     currentDescriptionRankContext,
   ])
 
+  const portalRoot = useMemo(() => getPopoverPortalRoot(anchorElement), [anchorElement])
+
   if (entries.length === 0) {
     return null
   }
@@ -245,6 +247,6 @@ export function DatabasePopoverRoot({
       selectedEnlightenSlot={selectedEnlightenSlot}
       stats={stats}
     />,
-    getPopoverPortalRoot(anchorElement),
+    portalRoot,
   )
 }

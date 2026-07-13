@@ -1,4 +1,4 @@
-import {memo, Suspense, type MouseEvent} from 'react'
+import {memo, Suspense, useMemo, type MouseEvent} from 'react'
 
 import type {FullStats} from '@/domain/awakener-source-schema'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
@@ -11,7 +11,6 @@ import {
 } from './DatabaseReferencePopoverHelpers'
 import {DatabaseRichTextContent, type DatabaseRichTextContentProps} from './DatabaseRichTextContent'
 import {scaledFontStyle} from './font-scale'
-import {ExpandableContent} from './PopoverAtoms'
 import {
   PopoverAttributesTable,
   PopoverDetailLinks,
@@ -32,20 +31,20 @@ function PopoverRichText({
   text: string
   isSection?: boolean
 }) {
+  const resolvedRecord = useMemo(() => {
+    return (
+      record ??
+      (contentProps.record
+        ? isSection
+          ? {...contentProps.record, descriptionTemplate: text}
+          : contentProps.record
+        : undefined)
+    )
+  }, [record, contentProps.record, isSection, text])
+
   return (
     <Suspense fallback={fallbackText ? <TextWithBreaksFallback text={fallbackText} /> : null}>
-      <DatabaseRichTextContent
-        {...contentProps}
-        record={
-          record ??
-          (contentProps.record
-            ? isSection
-              ? {...contentProps.record, descriptionTemplate: text}
-              : contentProps.record
-            : undefined)
-        }
-        text={text}
-      />
+      <DatabaseRichTextContent {...contentProps} record={resolvedRecord} text={text} />
     </Suspense>
   )
 }
@@ -168,7 +167,7 @@ export const PopoverStandardBodyContent = memo(function PopoverStandardBodyConte
       {attributeRows.length > 0 && (
         <PopoverAttributesTable entryKey={entry.key} rows={attributeRows} />
       )}
-      <ExpandableContent>
+      <div>
         {descriptionSections.length > 0 ? (
           entry.key.startsWith('dzone-monster') ? (
             (() => {
@@ -233,7 +232,7 @@ export const PopoverStandardBodyContent = memo(function PopoverStandardBodyConte
             />
           </p>
         )}
-      </ExpandableContent>
+      </div>
       {detailLinks.length > 0 && onInfoEntryClick && (
         <PopoverDetailLinks links={detailLinks} onInfoEntryClick={onInfoEntryClick} />
       )}
