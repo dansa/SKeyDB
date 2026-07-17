@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-c656dfa15e77381d",
-  "generatedAt": "2026-07-10T21:21:19Z",
-  "buildId": "2026-07-10T21:21:19Z",
+  "gameDataVersion": "compiled-sha256-5ac31eadb43167d3",
+  "generatedAt": "2026-07-17T09:08:53Z",
+  "buildId": "2026-07-17T09:08:53Z",
   "build": {
-    "gameDataVersion": "compiled-sha256-c656dfa15e77381d",
+    "gameDataVersion": "compiled-sha256-5ac31eadb43167d3",
     "recordCount": 1851,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -1526,8 +1526,8 @@
       "sha256": "2f8295857b24cb2ba6b1d8bbb27987655422b658bef493cf507308d31a3b0e2e"
     },
     "records/enlightens/enlighten.aigis.nightborne-wings.json": {
-      "bytes": 497,
-      "sha256": "c19e8f00f450ffeed302b9358131ed85352673d69ccef7444ff6fc6e811c6d37"
+      "bytes": 495,
+      "sha256": "5cc586d9430d44bfad0073164856fef931d2ae8b2cf76cc4554494a170a011b5"
     },
     "records/enlightens/enlighten.aigis.sugary-aroma.json": {
       "bytes": 465,
@@ -2018,8 +2018,8 @@
       "sha256": "f18dfa8ac099ae1bb13a5621be38512402e237c6c6b951e6aa43561722c850ce"
     },
     "records/enlightens/enlighten.leigh.basement-journal.json": {
-      "bytes": 465,
-      "sha256": "f26049935afc5c581a70b7edc5245fc636dfea9ba94a6adc7d4288df1d6615e9"
+      "bytes": 463,
+      "sha256": "47e11eebc62b2fe7c6541960dab2a3df4d918051ee7e7ef966eefbcd832498f9"
     },
     "records/enlightens/enlighten.leigh.insatiable-craving.json": {
       "bytes": 583,
@@ -2466,8 +2466,8 @@
       "sha256": "fe156ffa4bf2b7e9a8cf60f0b2eb0c6e50b7dea7cc0fb6b046b385a8dae0d0a4"
     },
     "records/enlightens/enlighten.tawil.nonexistent-existence.json": {
-      "bytes": 615,
-      "sha256": "a6d1e4f54327f8b7a0542388c3c133115a0f5a53459d874448eae3d51a11de0e"
+      "bytes": 617,
+      "sha256": "5b1d3943c82ded7660d2aa37dfd03d14332815d89dcb51aec1b8aa77deb198c9"
     },
     "records/enlightens/enlighten.tawil.omniscient-and-omnipotent.json": {
       "bytes": 494,
@@ -2550,8 +2550,8 @@
       "sha256": "c3cdcfe87bd755f449edd6c9afbdc981633718ec531a8c49164e573111c4bdbe"
     },
     "records/enlightens/enlighten.uvhash.sorcerers-end.json": {
-      "bytes": 467,
-      "sha256": "7a93fa8baac280b4d7577d457610e5faf8583ef003f4912400c442e1b1ea3886"
+      "bytes": 465,
+      "sha256": "c336a219db23c288de3306eb23ff2f64d4b99441ae9b40b0c4b230eb8182ccbd"
     },
     "records/enlightens/enlighten.uvhash.the-gladiator.json": {
       "bytes": 433,
@@ -2766,8 +2766,8 @@
       "sha256": "aa388cb5c2bd084d435f369d138339ce4e530d798f491f8cc51cb8cdc110c6ac"
     },
     "records/overlays/overlay.global.caro.json": {
-      "bytes": 952,
-      "sha256": "bdc40cd690a1d46ae0b0ba2870f370aca55b03d76a65bc89c08bb8c295e04115"
+      "bytes": 950,
+      "sha256": "76ceeb280511f030333d85581f4f828050c079bf0a542591bff63875422d829b"
     },
     "records/overlays/overlay.global.chaos.json": {
       "bytes": 864,
@@ -2798,8 +2798,8 @@
       "sha256": "542b29dcedb898fee708edd454320df6e0d1ee4cd97964c8f69a8263354ea068"
     },
     "records/overlays/overlay.global.devour.json": {
-      "bytes": 455,
-      "sha256": "e582969d286d9abdadbc0155b05602f87bfe602ba0abc6b6070a882a38d7c242"
+      "bytes": 453,
+      "sha256": "bec274dfd1b44f445fdecde7321748f404dca8285e34bd198cadcd368169e15f"
     },
     "records/overlays/overlay.global.dimension-shuttle.json": {
       "bytes": 621,
@@ -2878,8 +2878,8 @@
       "sha256": "6eedfd03475a1314ec1c539fa0a59c4a4f030cc27cfeed1aad01f4ac7c3e1e26"
     },
     "records/overlays/overlay.global.infinite-devour.json": {
-      "bytes": 476,
-      "sha256": "5cd3b782e3164f68ed155eb07f16a711f9aa7b20673da623a17fb2ff60e46255"
+      "bytes": 474,
+      "sha256": "ecd88a334bfeccfa45bec250a8335a8c15cd9fd4d83bfeaf5e253d5b6d188e3c"
     },
     "records/overlays/overlay.global.innate.json": {
       "bytes": 347,
@@ -3142,8 +3142,8 @@
       "sha256": "4ed2ce222d9aec008787ac69986bdad6333a25325308aca3b04b5360e2e10795"
     },
     "records/overlays/overlay.pickman.painted-relics.json": {
-      "bytes": 658,
-      "sha256": "142d2b4923cd496e2dd24cee0ea189683074817ac82ab32f1503663303cda336"
+      "bytes": 674,
+      "sha256": "816c1a638c3fa0a2c9450090ee10ec4bdade2f33444315e98818e5d19077fb0a"
     },
     "records/overlays/overlay.pollux.ablaze.json": {
       "bytes": 655,
@@ -3174,8 +3174,8 @@
       "sha256": "eb77874694ad6885d73b045227a55eae50d826619394d2e76098a40f4a204415"
     },
     "records/overlays/overlay.ryker.chaotic-legacy.json": {
-      "bytes": 1062,
-      "sha256": "6dae4ebc84c79885cf94f3f1ed81a5f7c3da2663b24a0d2c6ce09ffe852cab4c"
+      "bytes": 1068,
+      "sha256": "ce1c95114a7dbc8a9e14f9a64f062ac0208bda4386fadc6bc4e545baed08b14c"
     },
     "records/overlays/overlay.ryker.winner-takes-all.json": {
       "bytes": 710,
@@ -3270,8 +3270,8 @@
       "sha256": "26e662ea8d1f32b7124e646186aea8843c8d3a59d7af680f03aa0ceea59040f0"
     },
     "records/posses/posse-0015.json": {
-      "bytes": 1357,
-      "sha256": "ecec02a857d13841be4acb99f00f6fa2d4f9b3321a6f7ceff70cf3039a3c6851"
+      "bytes": 1359,
+      "sha256": "3bf1590c756391e9abe86cd81d1028798686e5f6241b755ccb3d43e7cca5ad86"
     },
     "records/posses/posse-0016.json": {
       "bytes": 1135,
@@ -3294,8 +3294,8 @@
       "sha256": "59785db09634145133e8a96f232e00bf3fd0e6a36cb9b8ae1d7df1bb179f93e9"
     },
     "records/posses/posse-0021.json": {
-      "bytes": 1210,
-      "sha256": "1d8d878b3a90807d1ba09bf20541fee8551ab1442b479444c270969ceb34757f"
+      "bytes": 1189,
+      "sha256": "0b58135629e87e92722989fec5d811fd9e78994a96dea285eb60f55a0ddafd73"
     },
     "records/posses/posse-0022.json": {
       "bytes": 973,
@@ -3374,8 +3374,8 @@
       "sha256": "e7df52a79526d1cb2878169172af3dac1934dd5b57b57ffd83fa9fdfb1966ca4"
     },
     "records/posses/posse-0041.json": {
-      "bytes": 964,
-      "sha256": "2480afdf288b811cf933f1042bcaf3a92582058d7ec2c69c25880ed96c78bcb9"
+      "bytes": 976,
+      "sha256": "f8158e908d08c950a2667f89fb8e3e913fef6e1623a9d1a25e52ff4927d2e132"
     },
     "records/posses/posse-0042.json": {
       "bytes": 978,
@@ -3646,8 +3646,8 @@
       "sha256": "7bc54b165f2d2a0bf90ccc7f7a9b779f8cac25d3c1a7ac6f79a47f3df697d313"
     },
     "records/relics/relic-0057.json": {
-      "bytes": 1442,
-      "sha256": "7ca07a3012fb4273574aa04c39a7bd36614f443788c075895b4976b67fbf0ab3"
+      "bytes": 1458,
+      "sha256": "bb6ea5ed1207fdb6dd4b150e27a2bc5a7c07505cd2352af74d1d53c047db0828"
     },
     "records/relics/relic-0058.json": {
       "bytes": 1490,
@@ -4594,8 +4594,8 @@
       "sha256": "68f4e8a3f39052f4417f04121780e54f4b925f5e6e266969e899435dd2e21660"
     },
     "records/skills/skill.agrippa.colorless-spiral.json": {
-      "bytes": 1599,
-      "sha256": "18f2640a12132321e6f632d546625e96b40e6af1385a50a6a49e9ec1620f892e"
+      "bytes": 1595,
+      "sha256": "02f6029e07608b8c488b59795c9d14240f3530e0b3187b8d57b841c20c1c86f1"
     },
     "records/skills/skill.agrippa.defense.json": {
       "bytes": 1648,
@@ -4622,8 +4622,8 @@
       "sha256": "6062c769c855eaa665d8598ab3b5849ab32459ecfe253a04c3f1047fc9e9cecd"
     },
     "records/skills/skill.aigis.a-small-wish.json": {
-      "bytes": 1453,
-      "sha256": "ad3f2508cb6fea48e43d79d9d9481ab5654b0ba15daf9a8e0efa22b54fa2cdef"
+      "bytes": 1451,
+      "sha256": "92b3ef609e8a8e3f9913e7f6d99167fb9aa0e5d4b2b68c4282a7e45eb3c073a5"
     },
     "records/skills/skill.aigis.decomposition.json": {
       "bytes": 1672,
@@ -5962,8 +5962,8 @@
       "sha256": "6b4b89ab49f085df745c271fe712b484865f71b4affa3e5e083baa23949ee7e9"
     },
     "records/skills/skill.tawil.the-silver-key-gate.json": {
-      "bytes": 1707,
-      "sha256": "e15e6adbd5ac2745d2e20d9dad210f10b0983f8b0d1972543ddffcd22596c3cc"
+      "bytes": 1731,
+      "sha256": "4d727639148bfdf1ed24fb7fce8d1e2f52a4ef6e4e2b287043c36588679bd498"
     },
     "records/skills/skill.thais.ad-matrem-vocatus.json": {
       "bytes": 1397,
@@ -6214,8 +6214,8 @@
       "sha256": "06e0c4ae217347419818622a3c441b056a467d580e1f37f898c523b96c324c77"
     },
     "records/talents/talent.agrippa.soulforge-aptitude.json": {
-      "bytes": 1040,
-      "sha256": "c6b5d4603a618c83f805fa31fadb34957a4ae27449e5cb7c6001421287136ee0"
+      "bytes": 1038,
+      "sha256": "22d26af1b4938c2b0000b0d4f7c264fcd2b8045fc32c9ee9a031505f890a66af"
     },
     "records/talents/talent.aigis.gnostic-potential.json": {
       "bytes": 972,
@@ -6906,8 +6906,8 @@
       "sha256": "61a8438e10fae834562a36bcc7bbf2b8e552fe807e71c4c5bd7577b02045ace3"
     },
     "records/talents/talent.saya.eden-of-propagation.json": {
-      "bytes": 2098,
-      "sha256": "f064f95c4e7b72459c13f46a8e8f27fc2ca8890d8e8cc282c8dbc7e05c916d4a"
+      "bytes": 2096,
+      "sha256": "6282a13067a113c5b7f39e678aeb4b8f00bea1899014b4a5f5c0d679eb059ba0"
     },
     "records/talents/talent.saya.gnostic-potential.json": {
       "bytes": 993,
@@ -6934,8 +6934,8 @@
       "sha256": "166fd5fd3c55e5f0281bac5310ee63ee316127cae0a7ea4493e27a8502239646"
     },
     "records/talents/talent.sorel.soulforge-aptitude.json": {
-      "bytes": 1021,
-      "sha256": "180a380e1a084937fefd9dbd38e67a049841eb6ca0c2c428c3dff998d6da4826"
+      "bytes": 1023,
+      "sha256": "c45af8dbce054337155bce838f9aa7161386bd7227af0645ed1c4a2b67d20eef"
     },
     "records/talents/talent.tawil.gnostic-potential.json": {
       "bytes": 996,
@@ -7082,8 +7082,8 @@
       "sha256": "286f63d0974db28cdb0cb4d2be3511c1675b99aeae31fe5fb68ef4109e7e3cd0"
     },
     "records/wheels/wheel-0006.json": {
-      "bytes": 2029,
-      "sha256": "f8203001847de00323c304186501fb0543814c73e1f71433c2b80eb8b7b20815"
+      "bytes": 2027,
+      "sha256": "fa3ca2bbb348bad06f3110ec8b63f3da5896d235bc81eb084208368c0890b4ea"
     },
     "records/wheels/wheel-0007.json": {
       "bytes": 2435,
@@ -7106,8 +7106,8 @@
       "sha256": "65d26d9b52dfff810ceaa844adfbfd40f9495821e137c167f6001263300b6b9d"
     },
     "records/wheels/wheel-0012.json": {
-      "bytes": 3227,
-      "sha256": "04f7d5a4e9b2bbd32fcdce48e7aed77bd1ec802202f7585a91ca63a79691fc36"
+      "bytes": 3229,
+      "sha256": "a0c995b4c147fba37e8446fd3a15b3f9aae8f9f7bdd624bbc098987a10f71aa8"
     },
     "records/wheels/wheel-0013.json": {
       "bytes": 4890,
@@ -7218,8 +7218,8 @@
       "sha256": "6c06123c498b1dc3752ab8b0e4c5a115972ce4ec73846b07beae4fadc504c83e"
     },
     "records/wheels/wheel-0040.json": {
-      "bytes": 2786,
-      "sha256": "fbe2175e7d22df12d50885c9e096d40bbfa76b751f7e4877af91172b36875004"
+      "bytes": 2788,
+      "sha256": "980fd4b6442bbbc5a33fa69dd308f458a51317a182275c9454c476a9b15e54c4"
     },
     "records/wheels/wheel-0041.json": {
       "bytes": 2511,
@@ -7590,8 +7590,8 @@
       "sha256": "3e24f120e547e65661c74421cc7186624d07f0d221b0c0999f87a3728161e07e"
     },
     "records/wheels/wheel-0167.json": {
-      "bytes": 1888,
-      "sha256": "c9c7f598b848586b825cb5fe6ee34e42b6718086fee87b0927b1c09b1d7aa1d1"
+      "bytes": 2009,
+      "sha256": "031048cd33ec115ba803438d0f3e8c75c23a9cad2a96ca3839a6310c0ebd6fa8"
     },
     "records/wheels/wheel-0168.json": {
       "bytes": 1506,

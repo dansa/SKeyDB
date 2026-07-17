@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0003",
   "slot": "E3",
-  "descriptionTemplate": "Whenever you {Devour}, put {A Small Wish} from the Discard Pile into hand and set its Arithmetica Cost to 0.",
+  "descriptionTemplate": "Whenever you Devour, put {A Small Wish} from the Discard Pile into hand and set its Arithmetica Cost to 0.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Aigis"
 }

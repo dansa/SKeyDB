@@ -18,7 +18,7 @@
   "ownerAwakenerName": "Saya",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At turn start, Saya gains [Arg1] Aliemus. For every 100 Aliemus consumed by Saya's Exalt, a randomly generated \"Skill\" takes effect 1 additional time.",
+  "descriptionTemplate": "At turn start, Saya gains [Arg1] Aliemus. For every 100 Aliemus consumed by Saya's Exalt, an additional generated \"Skill\" card takes effect 1 additional time.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0057",
       "ownerAwakenerName": "Saya",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Saya gains [Arg1] Aliemus. For every 100 Aliemus consumed by Saya's Exalt, a randomly generated \"Skill\" takes effect 1 additional time.",
+      "descriptionTemplate": "At turn start, Saya gains [Arg1] Aliemus. For every 100 Aliemus consumed by Saya's Exalt, an additional generated \"Skill\" card takes effect 1 additional time.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
