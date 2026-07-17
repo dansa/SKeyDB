@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0047",
   "slot": "Rouse",
-  "descriptionTemplate": "Tawil obtains [Energy:Arg1] Aliemus. Place 1 \"{derived:Silver Key Dawn}\" into hand. When Tawil consumes Arithmetica, the Keyflare gained +50%.",
+  "descriptionTemplate": "Tawil obtains [Energy:Arg1] Aliemus. Place 1 {derived:Silver Key Dawn} into hand. When Tawil consumes Arithmetica, the Keyflare gained +50%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -32,7 +32,7 @@
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "patch": {
-        "descriptionTemplate": "Tawil gains [Energy:Arg1] Aliemus. Place 1 \"{derived:Silver Key Dawn}\" into hand. When Tawil consumes Arithmetica, Keyflare gained increases by 50%. After Tawil unleashes Exalt, all Awakeners' Command Cards this turn gain [Arg2]% Final DMG bonus, and the next Command Card played by another Awakener triggers once more.",
+        "descriptionTemplate": "Tawil gains [Energy:Arg1] Aliemus. Place 1 {derived:Silver Key Dawn} into hand. When Tawil consumes Arithmetica, Keyflare gained increases by 50%. After Tawil unleashes Exalt, all Awakeners' Command Cards this turn gain [Arg2]% Final DMG bonus, and the next Command Card played by another Awakener triggers once more.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

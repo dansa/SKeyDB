@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0115",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "Every time Devour is triggered, gain 30 {Embryo Fusion} and [Arg1] {STR}. If triggered a {ordinal:2nd} time in the same turn, gain 1 pt of Arithmetica and draw 1 card. If triggered a {ordinal:3rd} time in the same turn, gain 2 Arithmetica and draw 2 cards.",
+  "descriptionTemplate": "Every time {Devour} is triggered, gain 30 {Embryo Fusion} and [Arg1] {STR}. If triggered a {ordinal:2nd} time in the same turn, gain 1 pt of Arithmetica and draw 1 card. If triggered a {ordinal:3rd} time in the same turn, gain 2 Arithmetica and draw 2 cards.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -35,7 +35,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Every time Devour is triggered, gain 30 {Embryo Fusion} and [Arg1] {STR}. If triggered a {ordinal:2nd} time in the same turn, gain 1 pt of Arithmetica and draw 1 card. If triggered a {ordinal:3rd} time in the same turn, gain 2 Arithmetica and draw 2 cards.",
+      "descriptionTemplate": "Every time {Devour} is triggered, gain 30 {Embryo Fusion} and [Arg1] {STR}. If triggered a {ordinal:2nd} time in the same turn, gain 1 pt of Arithmetica and draw 1 card. If triggered a {ordinal:3rd} time in the same turn, gain 2 Arithmetica and draw 2 cards.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Pale Descendant",
   "realm": "CARO",
   "lineupToken": "o",
-  "descriptionTemplate": "Inflict [Arg2] {Poison} on the highest HP enemy, and gain [Block:Arg1] Shield. If \"Devour\" has been triggered this turn, trigger half of that enemy's {Poison} instead of gaining Shield.",
+  "descriptionTemplate": "Inflict [Arg2] {Poison} on the highest HP enemy, and gain [Block:Arg1] Shield. If {Devour} has been triggered this turn, trigger half of that enemy's {Poison} instead of gaining Shield.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
