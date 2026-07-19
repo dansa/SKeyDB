@@ -34,6 +34,7 @@ done.
 | 018 | Expand Builder V2 DnD browser smoke coverage | P1 | M | 016, 017 | DONE |
 | 019 | Require classic Builder posse drops to hit a declared target | P3 | S | none | REJECTED: V1 retiring; only fix if breaking |
 | 020 | Assess Builder V2 DnDKit modernization path | P2 | S-M | 016, 018 recommended | DONE |
+| 021 | Reduce Builder V2 stable-event boundaries | P2 | M | none | TODO |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
 REJECTED (with one-line rationale).
@@ -68,6 +69,10 @@ REJECTED (with one-line rationale).
 - 020 should run after 016 and preferably after 018 so the modernization decision
   is based on stable Builder V2 DnD semantics and real browser gates, not the
   current collision/feedback gaps.
+- 021 is a callback-ownership cleanup, not a replacement-hook exercise. Remove
+  redundant wrappers first, expose composite callback dependencies explicitly,
+  and retain stable-latest behavior only for a demonstrated external identity
+  contract.
 - Any implementation that affects Builder V2 layout, responsive CSS, or
   drag/drop-visible DOM should include `npm run verify:builder-v2:browser` plus
   the plan-specific manual browser checks.
