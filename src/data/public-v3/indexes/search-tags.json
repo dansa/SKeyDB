@@ -79,7 +79,7 @@
       "section": "affix",
       "aliases": ["strength down", "str down"],
       "order": 220,
-      "count": 13
+      "count": 12
     },
     {
       "id": "tentacle-dmg",
@@ -87,7 +87,7 @@
       "section": "archetype",
       "aliases": ["tentacle damage"],
       "order": 225,
-      "count": 19
+      "count": 20
     },
     {
       "id": "stun",
@@ -127,7 +127,7 @@
       "section": "mechanic",
       "aliases": ["fixed damage"],
       "order": 255,
-      "count": 10
+      "count": 11
     },
     {
       "id": "aftershock",
@@ -151,7 +151,7 @@
       "section": "mechanic",
       "aliases": ["cleanse", "clear", "remove"],
       "order": 300,
-      "count": 22
+      "count": 26
     },
     {
       "id": "arithmetica",

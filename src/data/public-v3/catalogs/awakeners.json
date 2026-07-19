@@ -1212,7 +1212,7 @@
       },
       "lineupToken": "Y",
       "aliases": ["hameln"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Arithmetica"]
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Dispel", "Arithmetica"]
     },
     {
       "kind": "awakener",
@@ -1934,7 +1934,7 @@
       },
       "lineupToken": "H",
       "aliases": ["murphy: fauxborn", "g-murphy"],
-      "searchTags": ["Tentacle DMG", "Aftershock", "Arithmetica", "Divine Realm", "Draw", "Keyflare", "Lemurian", "Tentacle Generation", "Sacrifice"]
+      "searchTags": ["Tentacle DMG", "Aftershock", "Dispel", "Arithmetica", "Divine Realm", "Draw", "Keyflare", "Lemurian", "Tentacle Generation", "Sacrifice"]
     },
     {
       "kind": "awakener",
@@ -3080,19 +3080,7 @@
       },
       "lineupToken": "4",
       "aliases": ["arachne"],
-      "searchTags": [
-        "Poison",
-        "Counter",
-        "Final Verdict",
-        "STR Up",
-        "STR Down",
-        "Tentacle DMG",
-        "Pursuit",
-        "Fixed DMG",
-        "Divine Realm",
-        "Self-Damage",
-        "Spider"
-      ]
+      "searchTags": ["Poison", "Counter", "Final Verdict", "STR Up", "Tentacle DMG", "Pursuit", "Fixed DMG", "Dispel", "Divine Realm", "Self-Damage", "Spider"]
     },
     {
       "kind": "awakener",
@@ -3202,7 +3190,7 @@
       },
       "lineupToken": "xr",
       "aliases": ["pontos"],
-      "searchTags": []
+      "searchTags": ["Tentacle DMG", "Fixed DMG", "Dispel"]
     }
   ]
 }
