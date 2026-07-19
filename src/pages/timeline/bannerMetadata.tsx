@@ -31,13 +31,14 @@ export function BannerMetadataList({
   separatorClass,
 }: BannerMetadataListProps) {
   const items = getBannerMetadataItems(banner, priceMode, limit)
+  const keyedItems = getKeyedBannerMetadataItems(items)
 
   if (items.length === 0 && !renderWhenEmpty) return null
 
   return (
     <div className={className}>
-      {items.map((tag, index) => (
-        <Fragment key={`${tag}-${index.toString()}`}>
+      {keyedItems.map(({key, tag}, index) => (
+        <Fragment key={key}>
           {index > 0 ? (
             <span aria-hidden className={isEnded ? endedSeparatorClass : separatorClass}>
               &middot;
@@ -50,6 +51,15 @@ export function BannerMetadataList({
       ))}
     </div>
   )
+}
+
+function getKeyedBannerMetadataItems(items: readonly string[]) {
+  const occurrenceByTag = new Map<string, number>()
+  return items.map((tag) => {
+    const occurrence = (occurrenceByTag.get(tag) ?? 0) + 1
+    occurrenceByTag.set(tag, occurrence)
+    return {key: `${tag}:${String(occurrence)}`, tag}
+  })
 }
 
 function getBannerMetadataItems(

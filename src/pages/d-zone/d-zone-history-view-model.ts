@@ -156,13 +156,12 @@ export function getDZoneHistoryVisibleSeasons(
   const exactSeasonSearch = /^season\s+(\d+)$/.exec(normalizedSearchTerm)?.[1]
 
   return seasons
-    .filter((season) =>
-      exactSeasonSearch
-        ? season.period.toString() === exactSeasonSearch
-        : normalizedSearchTerm
-          ? getSeasonSearchText(season).includes(normalizedSearchTerm)
-          : true,
-    )
+    .filter((season) => {
+      if (exactSeasonSearch) return season.period.toString() === exactSeasonSearch
+      if (!normalizedSearchTerm) return true
+      const seasonSearchText = getSeasonSearchText(season)
+      return seasonSearchText.includes(normalizedSearchTerm)
+    })
     .sort((left, right) => right.period - left.period)
 }
 

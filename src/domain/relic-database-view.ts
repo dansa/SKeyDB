@@ -24,6 +24,21 @@ function compareNames(left: Relic, right: Relic, direction: 'ASC' | 'DESC'): num
   return direction === 'ASC' ? result : -result
 }
 
+function matchesRelicBrowseFilters(
+  relic: Relic,
+  activeCategory: Relic['categories'][number] | null,
+  activeTier: Relic['variantTiers'][number] | null,
+): boolean {
+  if (activeCategory && activeTier) {
+    return relic.variantCategoryTiers.some(
+      (facet) => facet.category === activeCategory && facet.tier === activeTier,
+    )
+  }
+  if (activeCategory) return relic.categories.includes(activeCategory)
+  if (activeTier) return relic.variantTiers.includes(activeTier)
+  return true
+}
+
 export interface RelicDatabaseViewResult {
   hiddenByDisplay: Relic[]
   hiddenByDisplayCount: number
@@ -43,18 +58,10 @@ export function buildRelicDatabaseViewResult(
   const relevanceIndex = new Map(searchResults.map((result, index) => [result.entity.id, index]))
   const activeCategory = state.categoryFilter === 'ALL' ? null : state.categoryFilter
   const activeTier = state.tierFilter === 'ALL' ? null : getRelicTierValue(state.tierFilter)
-  const filtered = searchResults
-    .map((result) => result.entity)
-    .filter((relic) => {
-      if (activeCategory && activeTier) {
-        return relic.variantCategoryTiers.some(
-          (facet) => facet.category === activeCategory && facet.tier === activeTier,
-        )
-      }
-      if (activeCategory) return relic.categories.includes(activeCategory)
-      if (activeTier) return relic.variantTiers.includes(activeTier)
-      return true
-    })
+  const filtered = searchResults.flatMap((result) => {
+    const relic = result.entity
+    return matchesRelicBrowseFilters(relic, activeCategory, activeTier) ? [relic] : []
+  })
 
   const sorted = filtered.toSorted((left, right) => {
     if (state.sortKey === 'BEST_MATCH') {

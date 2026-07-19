@@ -96,27 +96,3 @@ export function RichDescriptionArgSegment({
     </span>
   )
 }
-
-export function RichDescriptionArgPluralSegment({
-  arg,
-  formulaContext,
-  rank,
-  singular,
-  plural,
-  stats,
-}: {
-  arg: PublicDescriptionArg
-  formulaContext: PublicFormulaContext | undefined
-  rank: number
-  singular: string
-  plural: string
-  stats: FullStats | null
-}) {
-  const resolved = resolveDescriptionArg(arg, {
-    rank,
-    stats,
-    formulaContext,
-  })
-  const value = resolved.absoluteValue ?? resolved.totalValue ?? resolved.baseValue
-  return value === 1 ? singular : plural
-}

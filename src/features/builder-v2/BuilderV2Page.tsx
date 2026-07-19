@@ -1,4 +1,4 @@
-import {useEffect, useMemo, useState, useSyncExternalStore, type ReactNode} from 'react'
+import {useMemo, useSyncExternalStore, type ReactNode} from 'react'
 
 import './builder-v2.css'
 
@@ -48,15 +48,19 @@ export function BuilderV2Page() {
   const assignWheel = useStableEvent(model.assignWheel)
   const assignCovenant = useStableEvent(model.assignCovenant)
   const assignPosse = useStableEvent(model.assignPosse)
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const openAwakenerDetail = useStableEvent((awakenerId: string) => {
     dbDetailStore.getState().openDetail({kind: 'awakener', id: awakenerId}, 'builder-overlay')
   })
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const openWheelDetail = useStableEvent((wheelId: string) => {
     dbDetailStore.getState().openDetail({kind: 'wheel', id: wheelId}, 'builder-overlay')
   })
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const openCovenantDetail = useStableEvent((covenantId: string) => {
     dbDetailStore.getState().openDetail({kind: 'covenant', id: covenantId}, 'builder-overlay')
   })
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const openPosseDetail = useStableEvent((posseId: string) => {
     dbDetailStore.getState().openDetail({kind: 'posse', id: posseId}, 'builder-overlay')
   })
@@ -112,6 +116,7 @@ export function BuilderV2Page() {
   const activeDropTarget = isDndEnabled ? dnd.activeDropTarget : null
   const isDragActive = isDndEnabled && dnd.isLoadoutDragging
   const selectTeamListSlot = useStableEvent(
+    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
     (
       team: BuilderV2TeamSummary,
       slot: BuilderV2TeamSummarySlot,
@@ -134,6 +139,7 @@ export function BuilderV2Page() {
       }
     },
   )
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const selectTeamListPosse = useStableEvent((team: BuilderV2TeamSummary) => {
     const isCurrentTarget =
       model.activeTeamId === team.id && model.activeTeamTarget?.kind === 'posse'
@@ -410,20 +416,22 @@ function selectBuilderV2TeamSlotTarget(
 }
 
 function useBuilderV2ViewportMode() {
-  const [viewportMode, setViewportMode] = useState(() => getBuilderV2ViewportMode())
+  return useSyncExternalStore(
+    subscribeToBuilderV2ViewportMode,
+    getBuilderV2ViewportMode,
+    getBuilderV2ServerViewportMode,
+  )
+}
 
-  useEffect(() => {
-    const handleResize = () => {
-      setViewportMode(getBuilderV2ViewportMode())
-    }
+function subscribeToBuilderV2ViewportMode(onStoreChange: () => void): () => void {
+  window.addEventListener('resize', onStoreChange)
+  return () => {
+    window.removeEventListener('resize', onStoreChange)
+  }
+}
 
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
-  return viewportMode
+function getBuilderV2ServerViewportMode(): BuilderV2ViewportMode {
+  return 'desktop'
 }
 
 function getBuilderV2ViewportMode(): BuilderV2ViewportMode {

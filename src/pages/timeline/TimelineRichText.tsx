@@ -23,7 +23,7 @@ function parseInlineRichText(
 ): ReactNode[] {
   const nodes: ReactNode[] = []
   let buffer = ''
-  let index = 0
+  let cursor = 0
 
   const pushBuffer = () => {
     if (!buffer) return
@@ -31,59 +31,61 @@ function parseInlineRichText(
     buffer = ''
   }
 
-  while (index < text.length) {
-    if (text.startsWith('[', index)) {
-      const labelEnd = text.indexOf('](', index + 1)
+  while (cursor < text.length) {
+    if (text.startsWith('[', cursor)) {
+      const labelEnd = text.indexOf('](', cursor + 1)
       const hrefEnd = labelEnd >= 0 ? text.indexOf(')', labelEnd + 2) : -1
-      if (labelEnd > index + 1 && hrefEnd > labelEnd + 2) {
-        const label = text.slice(index + 1, labelEnd)
+      if (labelEnd > cursor + 1 && hrefEnd > labelEnd + 2) {
+        const label = text.slice(cursor + 1, labelEnd)
         const href = text.slice(labelEnd + 2, hrefEnd)
         if (isSafeLinkTarget(href)) {
           pushBuffer()
-          const key = `${keyPrefix}-link-${String(index)}`
+          const nodeKey = `${keyPrefix}-link-${String(cursor)}`
           nodes.push(
-            <a className='text-link' href={href} key={key} rel='noreferrer' target='_blank'>
-              {parseInlineRichText(label, key, priceMode)}
+            <a className='text-link' href={href} key={nodeKey} rel='noreferrer' target='_blank'>
+              {parseInlineRichText(label, nodeKey, priceMode)}
               <span className='sr-only'> (opens in new tab)</span>
             </a>,
           )
-          index = hrefEnd + 1
+          cursor = hrefEnd + 1
           continue
         }
       }
     }
 
-    if (text.startsWith('**', index)) {
-      const end = findClosingMarker(text, '**', index + 2)
+    if (text.startsWith('**', cursor)) {
+      const end = findClosingMarker(text, '**', cursor + 2)
       if (end >= 0) {
         pushBuffer()
-        const key = `${keyPrefix}-strong-${String(index)}`
+        const nodeKey = `${keyPrefix}-strong-${String(cursor)}`
         nodes.push(
-          <strong key={key}>
-            {parseInlineRichText(text.slice(index + 2, end), key, priceMode)}
+          <strong key={nodeKey}>
+            {parseInlineRichText(text.slice(cursor + 2, end), nodeKey, priceMode)}
           </strong>,
         )
-        index = end + 2
+        cursor = end + 2
         continue
       }
     }
 
-    if (text[index] === '*' || text[index] === '_') {
-      const marker = text[index]
-      const end = findClosingMarker(text, marker, index + 1)
+    if (text[cursor] === '*' || text[cursor] === '_') {
+      const marker = text[cursor]
+      const end = findClosingMarker(text, marker, cursor + 1)
       if (end >= 0) {
         pushBuffer()
-        const key = `${keyPrefix}-em-${String(index)}`
+        const nodeKey = `${keyPrefix}-em-${String(cursor)}`
         nodes.push(
-          <em key={key}>{parseInlineRichText(text.slice(index + 1, end), key, priceMode)}</em>,
+          <em key={nodeKey}>
+            {parseInlineRichText(text.slice(cursor + 1, end), nodeKey, priceMode)}
+          </em>,
         )
-        index = end + 1
+        cursor = end + 1
         continue
       }
     }
 
-    buffer += text[index]
-    index += 1
+    buffer += text[cursor]
+    cursor += 1
   }
 
   pushBuffer()

@@ -139,8 +139,9 @@ export const publicRelicRecordSchema = publicRelicCatalogRecordSchema
       })
     }
 
+    const categorySet = new Set(record.categories)
     for (const [index, variant] of record.variants.entries()) {
-      if (variant.category && !record.categories.includes(variant.category)) {
+      if (variant.category && !categorySet.has(variant.category)) {
         ctx.addIssue({
           code: 'custom',
           message: 'variant category must be included in family categories',

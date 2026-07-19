@@ -68,7 +68,7 @@
     "oxfmt": "0.59.0",
     "oxlint": "1.74.0",
     "oxlint-tsgolint": "0.25.0",
-    "react-doctor": "0.7.4",
+    "react-doctor": "0.8.1",
     "sharp": "^0.35.3",
     "simple-git-hooks": "^2.13.1",
     "tailwindcss": "^4.3.2",

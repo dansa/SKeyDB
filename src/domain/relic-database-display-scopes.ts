@@ -46,8 +46,9 @@ export function getRelicDatabaseDisplayScopeLabel(scope: RelicDatabaseDisplaySco
 }
 
 export function getRelicDisplayScopes(relic: Pick<Relic, 'categories'>) {
+  const categorySet = new Set(relic.categories)
   return RELIC_DATABASE_DISPLAY_SCOPE_IDS.filter((scope) =>
-    SCOPE_CATEGORIES[scope].some((category) => relic.categories.includes(category)),
+    SCOPE_CATEGORIES[scope].some((category) => categorySet.has(category)),
   )
 }
 
