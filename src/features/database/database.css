@@ -152,17 +152,18 @@
 .database-grid-card__image-plane {
   position: absolute;
   inset: 0;
-  transform: translateZ(0) scale(1);
   transform-origin: center;
   transition:
     transform var(--ui-motion-duration-image) var(--ui-motion-ease),
     opacity var(--ui-motion-duration-base) var(--ui-motion-ease-soft);
 }
 
-.database-grid-card-frame:hover .database-grid-card__image-plane,
-.database-grid-card-frame:focus-within .database-grid-card__image-plane {
-  transform: translateZ(0) scale(1.028);
-  will-change: transform;
+@media (hover: hover) and (pointer: fine) {
+  .database-grid-card-frame:hover .database-grid-card__image-plane,
+  .database-grid-card-frame:focus-within .database-grid-card__image-plane {
+    transform: scale(1.028);
+    will-change: transform;
+  }
 }
 
 .database-grid-card__image {
